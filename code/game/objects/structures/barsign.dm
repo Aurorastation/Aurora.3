@@ -1,7 +1,6 @@
 /obj/structure/sign/double/barsign
 	icon = 'icons/obj/barsigns.dmi'
 	icon_state = "Off"
-	layer = 2.99
 	anchored = TRUE
 	req_access = list(ACCESS_BAR) //Has to initalize at first, this is updated by instance's req_access
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
@@ -15,9 +14,9 @@
 	if(istype(card))
 		if(check_access(card))
 			set_sign()
-			to_chat(user, "<span class='notice'>You change the sign.</span>")
+			to_chat(user, SPAN_NOTICE("You change the sign."))
 		else
-			to_chat(user, "<span class='warning'>Access denied.</span>")
+			to_chat(user, SPAN_WARNING("Access denied."))
 		return
 
 	return ..()

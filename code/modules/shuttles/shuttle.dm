@@ -49,6 +49,7 @@
 		if(!istype(A))
 			CRASH("Shuttle \"[name]\" couldn't locate area [T].")
 		areas += A
+		RegisterSignal(A, COMSIG_QDELETING, PROC_REF(remove_shuttle_area))
 	shuttle_area = areas
 
 	if(initial_location)
@@ -214,7 +215,7 @@
 			for(var/mob/living/carbon/M in A)
 				spawn(0)
 					if(M.buckled_to)
-						to_chat(M, "<span class='warning'>Sudden acceleration presses you into your chair!</span>")
+						to_chat(M, SPAN_WARNING("Sudden acceleration presses you into your chair!"))
 						shake_camera(M, 3, 1)
 					else if(M.Check_Shoegrip(FALSE))
 						to_chat(M, SPAN_WARNING("You feel immense pressure in your feet as you cling to the floor!"))
@@ -222,9 +223,9 @@
 						M.apply_damage(10, DAMAGE_PAIN, BP_R_FOOT)
 						shake_camera(M, 5, 1)
 					else
-						to_chat(M, "<span class='warning'>The floor lurches beneath you!</span>")
+						to_chat(M, SPAN_WARNING("The floor lurches beneath you!"))
 						shake_camera(M, 10, 1)
-						M.visible_message("<span class='warning'>[M.name] is tossed around by the sudden acceleration!</span>")
+						M.visible_message(SPAN_WARNING("[M.name] is tossed around by the sudden acceleration!"))
 						M.throw_at_random(FALSE, 4, 1)
 						M.Weaken(3)
 
@@ -311,3 +312,10 @@
 
 /datum/shuttle/proc/on_move_interim()
 	return
+
+/datum/shuttle/proc/remove_shuttle_area(area/area_to_remove)
+	UnregisterSignal(area_to_remove, COMSIG_QDELETING)
+	SSshuttle.shuttle_areas -= area_to_remove
+	shuttle_area -= area_to_remove
+	if(!length(shuttle_area))
+		qdel(src)

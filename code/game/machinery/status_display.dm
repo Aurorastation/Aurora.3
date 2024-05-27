@@ -13,7 +13,7 @@
 	name = "status display"
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
-	layer = OBJ_LAYER
+	layer = ABOVE_WINDOW_LAYER
 	anchored = 1
 	density = 0
 	idle_power_usage = 10
@@ -97,12 +97,14 @@
 						if(length(message2) > CHARS_PER_LINE)
 							message2 = "Error"
 					update_display(message1, message2)
+					AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
 				else if(evacuation_controller.has_eta())
 					message1 = "-ETA-"
 					message2 = get_shuttle_timer()
 					if(length(message2) > CHARS_PER_LINE)
 						message2 = "Error"
 					update_display(message1, message2)
+					AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
 				return 1
 		if(STATUS_DISPLAY_MESSAGE)	//custom messages
 			var/line1
@@ -126,13 +128,16 @@
 				if(index2 > message2_len)
 					index2 -= message2_len
 			update_display(line1, line2)
+			AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
 			return 1
 		if(STATUS_DISPLAY_ALERT)
 			set_picture(picture_state)
+			AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
 			return 1
 		if(STATUS_DISPLAY_TIME)
 			message1 = "TIME"
 			message2 = worldtime2text()
+			AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
 			update_display(message1, message2)
 			return 1
 	return 0
@@ -160,7 +165,7 @@
 /obj/machinery/status_display/proc/set_picture(state)
 	remove_display()
 	picture_state = state
-	add_overlay(picture_state)
+	AddOverlays(picture_state)
 
 /obj/machinery/status_display/proc/update_display(line1, line2)
 	var/new_text = {"<div style="font-size:[FONT_SIZE];color:[FONT_COLOR];font:'[FONT_STYLE]';text-align:center;" valign="top">[line1]<br>[line2]</div>"}
@@ -210,7 +215,7 @@
 		return "Launch"
 
 /obj/machinery/status_display/proc/remove_display()
-	cut_overlays()
+	ClearOverlays()
 	if(maptext)
 		maptext = ""
 

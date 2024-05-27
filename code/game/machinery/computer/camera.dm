@@ -4,6 +4,7 @@
 	desc = "Used to access the various cameras on the station."
 	icon_screen = "cameras"
 	icon_keyboard = "yellow_key"
+	icon_keyboard_emis = "yellow_key_mask"
 	light_color = LIGHT_COLOR_YELLOW
 	var/current_network = null
 	var/obj/machinery/camera/current_camera = null
@@ -235,13 +236,6 @@
 	current_camera = null
 	update_use_power(POWER_USE_IDLE)
 
-//Camera control: mouse.
-/atom/DblClick()
-	..()
-	if(istype(usr.machine,/obj/machinery/computer/security))
-		var/obj/machinery/computer/security/console = usr.machine
-		console.jump_on_click(usr,src)
-
 /obj/machinery/computer/security/telescreen
 	name = "Telescreen"
 	desc = "Used for watching an empty arena."
@@ -277,6 +271,7 @@
 	desc = "Used to access the various cameras on the outpost."
 	icon_screen = "miningcameras"
 	icon_keyboard = "purple_key"
+	icon_keyboard_emis = "purple_key_mask"
 	light_color = LIGHT_COLOR_PURPLE
 	network = list("MINE")
 	circuit = /obj/item/circuitboard/security/mining
@@ -287,6 +282,7 @@
 	desc = "Used to monitor fires and breaches."
 	icon_screen = "engineeringcameras"
 	icon_keyboard = "yellow_key"
+	icon_keyboard_emis = "yellow_key_mask"
 	light_color = LIGHT_COLOR_YELLOW
 	circuit = /obj/item/circuitboard/security/engineering
 
@@ -295,6 +291,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "engines"
 	icon_keyboard = "power_key"
+	icon_keyboard_emis = "power_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
@@ -310,6 +307,7 @@
 	desc = "Used to access the built-in cameras in helmets."
 	icon_screen = "syndicam"
 	icon_keyboard = "red_key"
+	icon_keyboard_emis = "red_key_mask"
 	light_color = LIGHT_COLOR_RED
 	network = list(NETWORK_MERCENARY)
 	circuit = null

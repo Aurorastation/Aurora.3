@@ -35,7 +35,7 @@
 		malf_process()
 
 		if(APU_power && (hardware_integrity() < 50))
-			to_chat(src, "<span class='notice'><b>APU GENERATOR FAILURE! (System Damaged)</b></span>")
+			to_chat(src, SPAN_NOTICE("<b>APU GENERATOR FAILURE! (System Damaged)</b>"))
 			stop_apu(1)
 
 		if (!is_blind())
@@ -140,7 +140,14 @@
 	return ((!A.power_equip) && A.requires_power == 1 || istype(T, /turf/space)) && !istype(src.loc,/obj/item)
 
 /mob/living/silicon/ai/rejuvenate()
+	var/was_dead = stat == DEAD
+
 	..()
+
+	if(was_dead && stat != DEAD)
+		// Arise!
+		GLOB.cameranet.update_visibility(src, FALSE)
+
 	add_ai_verbs(src)
 
 /mob/living/silicon/ai/update_sight()

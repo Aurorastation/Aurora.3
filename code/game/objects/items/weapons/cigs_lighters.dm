@@ -308,11 +308,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	chem_volume = 30
 	burn_rate = 0.006 //Lasts ~166 seconds)
 	surgerysound = 'sound/items/surgery/cautery.ogg'
-	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
-	lightermes = "<span class='notice'>USER manages to light their NAME with FLAME.</span>"
-	zippomes = "<span class='notice'>With a flick of their wrist, USER lights their NAME with their FLAME.</span>"
-	weldermes = "<span class='notice'>USER casually lights the NAME with FLAME.</span>"
-	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME.</span>"
+	matchmes = SPAN_NOTICE("USER lights their NAME with their FLAME.")
+	lightermes = SPAN_NOTICE("USER manages to light their NAME with FLAME.")
+	zippomes = SPAN_NOTICE("With a flick of their wrist, USER lights their NAME with their FLAME.")
+	weldermes = SPAN_NOTICE("USER casually lights the NAME with FLAME.")
+	ignitermes = SPAN_NOTICE("USER fiddles with FLAME, and manages to light their NAME.")
 	reagents_to_add = list(
 		/singleton/reagent/toxin/tobacco = 10,
 		/singleton/reagent/mental/nicotine = 5
@@ -342,7 +342,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			return 1
 		if(last_drag <= world.time - 30) //Spam limiter. Only for messages/sound.
 			last_drag = world.time
-			H.visible_message("<span class='notice'>[H.name] takes a drag of their [name].</span>")
+			H.visible_message(SPAN_NOTICE("[H.name] takes a drag of their [name]."))
 			playsound(H, 'sound/items/cigs_lighters/inhale.ogg', 50, 0, -1)
 			reagents.trans_to_mob(H, (rand(5,10)/10), CHEM_BREATHE) //Smokes it faster. Slightly random amount.
 			return 1
@@ -468,11 +468,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	throw_speed = 0.5
 	burn_rate = 0.015
 	chem_volume = 60
-	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
-	lightermes = "<span class='notice'>USER manages to offend their NAME by lighting it with FLAME.</span>"
-	zippomes = "<span class='notice'>With a flick of their wrist, USER lights their NAME with their FLAME.</span>"
-	weldermes = "<span class='notice'>USER insults NAME by lighting it with FLAME.</span>"
-	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME with the power of science.</span>"
+	matchmes = SPAN_NOTICE("USER lights their NAME with their FLAME.")
+	lightermes = SPAN_NOTICE("USER manages to offend their NAME by lighting it with FLAME.")
+	zippomes = SPAN_NOTICE("With a flick of their wrist, USER lights their NAME with their FLAME.")
+	weldermes = SPAN_NOTICE("USER insults NAME by lighting it with FLAME.")
+	ignitermes = SPAN_NOTICE("USER fiddles with FLAME, and manages to light their NAME with the power of science.")
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	reagents_to_add = list(
@@ -589,11 +589,11 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	burn_rate = 0.015
 	w_class = ITEMSIZE_TINY
 	chem_volume = 30
-	matchmes = "<span class='notice'>USER lights their NAME with their FLAME.</span>"
-	lightermes = "<span class='notice'>USER manages to light their NAME with FLAME.</span>"
-	zippomes = "<span class='notice'>With much care, USER lights their NAME with their FLAME.</span>"
-	weldermes = "<span class='notice'>USER recklessly lights NAME with FLAME.</span>"
-	ignitermes = "<span class='notice'>USER fiddles with FLAME, and manages to light their NAME with the power of science.</span>"
+	matchmes = SPAN_NOTICE("USER lights their NAME with their FLAME.")
+	lightermes = SPAN_NOTICE("USER manages to light their NAME with FLAME.")
+	zippomes = SPAN_NOTICE("With much care, USER lights their NAME with their FLAME.")
+	weldermes = SPAN_NOTICE("USER recklessly lights NAME with FLAME.")
+	ignitermes = SPAN_NOTICE("USER fiddles with FLAME, and manages to light their NAME with the power of science.")
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
@@ -1123,23 +1123,5 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			name = "filtered [name]"
 			update_icon()
 			qdel(attacking_item)
-			return
-	..()
-
-/obj/item/reagent_containers/food/snacks/grown/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/paper))
-		if(!dry)
-			to_chat(user, SPAN_WARNING("You need to dry \the [src] first!"))
-			return
-		if(user.unEquip(attacking_item))
-			var/obj/item/clothing/mask/smokable/cigarette/rolled/R = new(get_turf(src))
-			R.chem_volume = reagents.total_volume
-			reagents.trans_to_holder(R.reagents, R.chem_volume)
-			user.visible_message(SPAN_NOTICE("[user] rolls a cigarette in their hands with \the [attacking_item] and [src]."),
-								SPAN_NOTICE("You roll a cigarette in your hands with \the [attacking_item] and [src]."))
-			playsound(src, 'sound/bureaucracy/paperfold.ogg', 25, 1)
-			user.put_in_active_hand(R)
-			qdel(attacking_item)
-			qdel(src)
 			return
 	..()

@@ -5,8 +5,13 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/abandoned_outpost.dmm")
+
+	prefix = "konyang/abandoned/"
+	suffixes = list("abandoned_outpost.dmm")
+
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/konyang_telecomms_outpost)
+
+	unit_test_groups = list(1)
 
 /obj/effect/landmark/corpse/konyang_army
 	name = "Konyang Soldier"
@@ -14,7 +19,7 @@
 	corpseshoes = /obj/item/clothing/shoes/jackboots
 	corpsehelmet = /obj/item/clothing/head/helmet/konyang
 	corpsesuit = /obj/item/clothing/suit/armor/carrier/military
-	corpsebelt = /obj/item/gun/projectile/pistol/sol
+	corpsebelt = /obj/item/gun/projectile/pistol/sol/konyang
 	corpseback = /obj/item/storage/backpack/rucksack/green
 	corpseid = FALSE
 	corpsepocket1 = /obj/item/storage/wallet/random

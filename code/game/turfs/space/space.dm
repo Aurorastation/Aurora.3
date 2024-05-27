@@ -7,7 +7,7 @@
 	footstep_sound = null //Override to make sure because yeah
 	tracks_footprint = FALSE
 
-	plane = PLANE_SPACE_BACKGROUND
+	plane = SPACE_PLANE
 
 	temperature = T20C
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
@@ -87,7 +87,7 @@
 			return
 		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(1))
-			to_chat(user, "<span class='notice'>Constructing support lattice ...</span>")
+			to_chat(user, SPAN_NOTICE("Constructing support lattice ..."))
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			ReplaceWithLattice()
 		return
@@ -101,10 +101,10 @@
 			qdel(L)
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			S.use(1)
-			ChangeTurf(/turf/simulated/floor/airless, keep_air = TRUE)
+			ChangeTurf(/turf/simulated/floor/airless)
 			return
 		else
-			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
+			to_chat(user, SPAN_WARNING("The plating is going to need some support."))
 
 	..()
 
@@ -112,7 +112,7 @@
 
 /turf/space/Entered(atom/movable/A as mob|obj)
 	if(movement_disabled)
-		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
+		to_chat(usr, SPAN_WARNING("Movement is admin-disabled.")) //This is to identify lag problems)
 		return
 	..(A, A.loc)
 	if ((!(A) || src != A.loc))	return
@@ -211,7 +211,7 @@
 					A.loc.Entered(A)
 	return
 
-/turf/space/ChangeTurf(turf/N, tell_universe=TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE, keep_air = FALSE)
+/turf/space/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
 	return ..()
 
 /turf/space/is_open()

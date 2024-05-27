@@ -22,10 +22,10 @@
 		M.update_inv_belt()
 
 /obj/item/storage/belt/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(content_overlays)
 		for(var/obj/item/I in contents)
-			add_overlay(I.get_belt_overlay())
+			AddOverlays(I.get_belt_overlay())
 	..()
 
 /obj/item/storage/belt/build_additional_parts(H, mob_icon, slot)
@@ -44,7 +44,7 @@
 		var/image/belt_item_image = image(c_icon, c_state)
 		belt_item_image.color = i.color
 		belt_item_image.appearance_flags = RESET_ALPHA
-		I.add_overlay(belt_item_image)
+		I.AddOverlays(belt_item_image)
 	return I
 
 /obj/item/storage/belt/verb/toggle_layer()
@@ -207,11 +207,45 @@
 		/obj/item/storage/box/fancy/med_pouch
 		)
 
+/obj/item/storage/belt/medical/full
+	starts_with = list(
+		/obj/item/reagent_containers/hypospray = 1,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
+		/obj/item/reagent_containers/glass/bottle/dexalin_plus = 1,
+		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
+		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
+		/obj/item/reagent_containers/glass/bottle/perconol = 1,
+		/obj/item/device/flashlight/pen = 1,
+		/obj/item/storage/box/fancy/med_pouch/trauma = 1,
+	)
+
+/obj/item/storage/belt/medical/full/inaprov
+	starts_with = list(
+		/obj/item/device/healthanalyzer = 1,
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2,
+		/obj/item/storage/pill_bottle/inaprovaline = 1,
+		/obj/item/clothing/gloves/latex = 1,
+		/obj/item/device/flashlight/pen = 1,
+		/obj/item/storage/box/fancy/med_pouch/trauma = 1,
+	)
+
 /obj/item/storage/belt/medical/first_responder
 	name = "first responder utility belt"
 	desc = "A sturdy black webbing belt with attached pouches."
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
+
+/obj/item/storage/belt/medical/first_responder/full
+	starts_with = list(
+		/obj/item/reagent_containers/hypospray = 1,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
+		/obj/item/reagent_containers/glass/bottle/butazoline = 1,
+		/obj/item/reagent_containers/glass/bottle/dermaline = 1,
+		/obj/item/reagent_containers/glass/bottle/perconol = 1,
+		/obj/item/crowbar/red = 1,
+		/obj/item/extinguisher/mini = 1,
+	)
 
 /obj/item/storage/belt/medical/first_responder/combat
 	name = "tactical medical belt"
@@ -260,7 +294,7 @@
 		)
 
 /obj/item/storage/belt/medical/first_responder/combat/full
-		starts_with = list(
+	starts_with = list(
 		/obj/item/reagent_containers/hypospray/cmo = 1,
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
 		/obj/item/reagent_containers/glass/bottle/antitoxin = 1,
@@ -296,6 +330,7 @@
 		/obj/item/device/hailer,
 		/obj/item/device/megaphone,
 		/obj/item/melee,
+		/obj/item/crowbar,
 		/obj/item/gun/projectile/sec,
 		/obj/item/gun/energy/disruptorpistol,
 		/obj/item/taperoll/police,
@@ -303,7 +338,11 @@
 		/obj/item/shield/energy,
 		/obj/item/shield/riot/tact,
 		/obj/item/device/holowarrant,
-		/obj/item/device/radio
+		/obj/item/device/taperecorder,
+		/obj/item/device/radio,
+		/obj/item/device/laser_pointer,
+		/obj/item/device/camera,
+		/obj/item/clipboard,
 		)
 	content_overlays = TRUE
 
@@ -311,9 +350,38 @@
 	starts_with = list(
 		/obj/item/melee/baton/loaded = 1,
 		/obj/item/reagent_containers/spray/pepper = 1,
-		/obj/item/handcuffs = 1,
+		/obj/item/handcuffs = 2,
 		/obj/item/device/flash = 1,
 		/obj/item/device/holowarrant = 1
+	)
+
+/obj/item/storage/belt/security/full/alt
+	starts_with = list(
+		/obj/item/melee/baton/loaded = 1,
+		/obj/item/reagent_containers/spray/pepper = 1,
+		/obj/item/handcuffs = 2,
+		/obj/item/device/flash = 1,
+		/obj/item/gun/energy/taser = 1,
+	)
+
+/obj/item/storage/belt/security/full/disruptor
+	starts_with = list(
+		/obj/item/melee/baton/loaded = 1,
+		/obj/item/reagent_containers/spray/pepper = 1,
+		/obj/item/handcuffs = 2,
+		/obj/item/device/flash = 1,
+		/obj/item/gun/energy/disruptorpistol = 1,
+		/obj/item/device/flashlight/flare = 1,
+	)
+
+/obj/item/storage/belt/security/full/pistol45
+	starts_with = list(
+		/obj/item/melee/baton/loaded = 1,
+		/obj/item/reagent_containers/spray/pepper = 1,
+		/obj/item/handcuffs = 1,
+		/obj/item/device/flash = 1,
+		/obj/item/gun/projectile/sec = 1,
+		/obj/item/ammo_magazine/c45m/rubber = 2,
 	)
 
 /obj/item/storage/belt/soulstone
@@ -472,6 +540,17 @@
 		/obj/item/ore_detector,
 		/obj/item/device/spaceflare
 		)
+
+/obj/item/storage/belt/mining/full
+	starts_with = list(
+		/obj/item/crowbar = 1,
+		/obj/item/pickaxe = 1,
+		/obj/item/shovel = 1,
+		/obj/item/device/analyzer = 1,
+		/obj/item/stack/flag/red = 1,
+		/obj/item/ore_radar = 1,
+		/obj/item/storage/bag/ore = 1,
+	)
 
 /obj/item/storage/belt/hydro
 	name = "hydrobelt"

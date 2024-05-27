@@ -146,9 +146,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/clothing/mask/fluff/corvo_cigarette/attack_self(mob/user)
 	active= !active
 	if(active)
-		to_chat(user, "<span class='notice'>You turn \the [src] on.</span>")
+		to_chat(user, SPAN_NOTICE("You turn \the [src] on."))
 	else
-		to_chat(user, "<span class='notice'>You turn \the [src] off.</span>")
+		to_chat(user, SPAN_NOTICE("You turn \the [src] off."))
 
 	update_icon()
 	user.update_inv_l_hand(FALSE)
@@ -379,12 +379,12 @@ All custom items with worn sprites must follow the contained sprite system: http
 	active= !active
 	if(active)
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 		item_state = icon_state
 		w_class = ITEMSIZE_LARGE
 	else
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>\The [src] is now de-energised..</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is now de-energised.."))
 		w_class = initial(w_class)
 
 	update_icon()
@@ -495,7 +495,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/tokash_spear/attackby(var/obj/item/W, var/mob/user)
 	if(!has_spear && istype(W, /obj/item/fluff/tokash_spearhead))
-		to_chat(user, "<span class='notice'>You place \the [W] on the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You place \the [W] on the [src]."))
 		user.drop_from_inventory(W,src)
 		qdel(W)
 		has_spear = TRUE
@@ -582,7 +582,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/device/synthesized_instrument/guitar/multi/fluff/akinyi_symphette/AltClick(var/mob/user)
 	deployed = !deployed
-	to_chat(user, "<span class='notice'>You [deployed ? "expand" : "collapse"] \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You [deployed ? "expand" : "collapse"] \the [src]."))
 	update_icon()
 	user.update_inv_l_hand()
 	user.update_inv_r_hand()
@@ -832,7 +832,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	if(!proximity)
 		return
 	if (istype(A, /turf/simulated/floor))
-		user.visible_message("<span class='notice'>[user] loudly taps their [src.name] against the floor.</span>")
+		user.visible_message(SPAN_NOTICE("[user] loudly taps their [src.name] against the floor."))
 		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 		return
 
@@ -860,9 +860,9 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/fluff/cress_book/attack_self(mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.visible_message("<span class='notice'>[user] begins searching through \the [src]'s pages...</span>")
+	user.visible_message(SPAN_NOTICE("[user] begins searching through \the [src]'s pages..."))
 	if(do_after(user, 25))
-		to_chat(user, "<span class='notice'>You pick out a song in the folder and read the lyrics: [pick(lyrics)]</span>")
+		to_chat(user, SPAN_NOTICE("You pick out a song in the folder and read the lyrics: [pick(lyrics)]"))
 
 
 /obj/item/clothing/accessory/poncho/fluff/ozuha_cape //Victory Cape - Skavoss Ozuha - dronzthewolf
@@ -1107,10 +1107,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	usr.visible_message("<b>[usr]</b> turns \the [src] [on ? "on" : "off"].", SPAN_NOTICE("You turn \the [src] [on ? "on" : "off"]."))
 	if(on)
 		playsound(loc, 'sound/machines/synth_yes.ogg', 50)
-		add_overlay(screen)
+		AddOverlays(screen)
 	else
 		playsound(loc, 'sound/machines/synth_no.ogg', 50)
-		cut_overlay(screen)
+		CutOverlays(screen)
 	update_icon()
 
 /obj/item/fluff/holoconsole/proc/remove_left()
@@ -1845,14 +1845,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	third_card = null
 
 	icon_state = "ielia_tarot_on"
-	cut_overlays()
+	ClearOverlays()
 
 	usr.visible_message("\The [usr] activates the [src].")
 	flick ("card_spawn",src)
 	activated = TRUE
 
 	icon_state = "card_spin"
-	add_overlay("card_spin_fx")
+	AddOverlays("card_spin_fx")
 	addtimer(CALLBACK(src, PROC_REF(finish_selection), usr), 3 SECONDS)
 
 /obj/item/fluff/ielia_tarot/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
@@ -1862,7 +1862,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 			. += "The following constellations are displayed on the starfinder: [first_card], [second_card], and [third_card]."
 
 /obj/item/fluff/ielia_tarot/proc/finish_selection(var/mob/user)
-	cut_overlays()
+	ClearOverlays()
 	flick("card_spin_stop",src)
 	icon_state = "ielia_tarot_on"
 	for(var/i = 1 to 3)
@@ -1874,25 +1874,25 @@ All custom items with worn sprites must follow the contained sprite system: http
 		else if(first_card && second_card)
 			third_card = P
 
-	cut_overlays()
-	add_overlay("card_display_fx")
-	add_overlay("card_display")
+	ClearOverlays()
+	AddOverlays("card_display_fx")
+	AddOverlays("card_display")
 
 	var/image/first_card_overlay = image(icon, src, first_card)
 	first_card_overlay.pixel_x = -8
-	add_overlay(first_card_overlay)
+	AddOverlays(first_card_overlay)
 
 	var/image/second_card_overlay = image(icon, src, second_card)
-	add_overlay(second_card_overlay)
+	AddOverlays(second_card_overlay)
 
 	var/image/third_card_overlay = image(icon, src, third_card)
 	third_card_overlay.pixel_x = 8
-	add_overlay(third_card_overlay)
+	AddOverlays(third_card_overlay)
 
 /obj/item/fluff/ielia_tarot/proc/reset_starfinder()
 	if(!activated)
 		return
-	cut_overlays()
+	ClearOverlays()
 	icon_state = "ielia_tarot"
 	activated = FALSE
 
@@ -2025,4 +2025,34 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ashkii_cloak"
 	item_state = "ashkii_cloak"
 	contained_sprite = TRUE
+
+/obj/item/device/versebook/fluff/guilty_men
+	name = "Guilty Men"
+	desc = "A leather bound book bearing a burning Coalition of Colonies flag. \"Guilty Men\" and \"How the Coalition of Colonies and its leaders failed the Frontier\" are engraved on golden plaques on either side of the flag. A controversial book published several years ago, \"Guilty Men\" is acclaimed by some as a scathing rebuke of failed Coalition policies, and their intolerable results, and condemned by others as a radical break from traditional Coalition attitudes and values. This example is worn, with its pages dog-eared and torn in numerous places, while the leather binding has begun to crack and discolor under frequent handling."
+	icon = 'icons/obj/custom_items/imogen_items.dmi'
+	icon_state = "Guilty_Men"
+	item_state = "book"
+
+/obj/item/device/versebook/fluff/guilty_men/Initialize()
+	. = ..()
+	randomquip = file2list("code/modules/customitems/imogen_guiltymen.txt")
+
+/obj/item/rig/light/offworlder/fluff/aayun
+	name = "prototype exo-stellar skeleton module"
+	suit_type = "exoskeleton voidsuit"
+	desc = "A prototype exo-stellar skeleton suit, made of extremely expensive, custom-made and proprietary parts, allowing for the comfortable existence of an off-worlder in normal worlder conditions. \
+	Features microdoses of medicine in the air supply to aid in lung pain, electrostimulants to assist in muscle rehabilitation, and innumerable other features. Unfortunately, due to design limitations, \
+	it is only capable of maintaining a lower internal pressure when exposed to normal environments, and is not spaceworthy nor immune to environmental conditions. This particular model bears a small mark \
+	of Zeng-Hu Pharmaceuticals on the main back piece, and was largely designed by a collaborative effort of experts in their fields on the Horizon. A new future for off-worlders, or a money pit?"
+	icon = 'icons/obj/custom_items/aayun_suit.dmi'
+	icon_state = "aayun_rig"
+	helm_type = /obj/item/clothing/head/lightrig/offworlder
+	chest_type = /obj/item/clothing/suit/lightrig/offworlder
+	glove_type = /obj/item/clothing/gloves/lightrig
+	boot_type = /obj/item/clothing/shoes/lightrig
+
+
+
+
+
 

@@ -263,7 +263,7 @@
 				resource_indicator.alpha = rand(30, 60)
 				gen_turf.resource_indicator = resource_indicator
 				if(!gen_turf.density)
-					gen_turf.add_overlay(resource_indicator)
+					gen_turf.AddOverlays(resource_indicator)
 				for(var/OT in ground_ore_levels[ground_resources_roll])
 					var/rand_vals = ground_ore_levels[ground_resources_roll][OT]
 					gen_turf.resources[OT] = rand(rand_vals[1], rand_vals[2])
@@ -356,3 +356,5 @@
 				M.UpdateMineral() // It's already a mineral turf, so we can avoid changeturf here
 
 /datum/exoplanet_theme/proc/get_planet_image_extra()
+
+/datum/exoplanet_theme/proc/after_map_generation(obj/effect/overmap/visitable/sector/exoplanet/E) //after the map is generated and ruins exist

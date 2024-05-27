@@ -142,7 +142,7 @@
 	density = TRUE
 	anchored = TRUE
 	throwpass = TRUE
-	layer = TURF_LAYER
+	layer = BELOW_OBJ_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/obj/structure/morgue/connected = null
 

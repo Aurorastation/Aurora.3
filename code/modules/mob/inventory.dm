@@ -202,7 +202,7 @@ var/list/slot_equipment_priority = list( \
 		W.forceMove(get_turf(src))
 	else
 		W.forceMove(get_turf(W))
-	W.layer = initial(W.layer)
+	W.reset_plane_and_layer()
 	W.dropped(src)
 	return 0
 
@@ -316,7 +316,7 @@ var/list/slot_equipment_priority = list( \
 	src.u_equip(I)
 	if (src.client)
 		src.client.screen -= I
-	I.layer = initial(I.layer)
+	I.reset_plane_and_layer()
 	I.screen_loc = null
 
 	I.on_slotmove(src)
@@ -329,7 +329,7 @@ var/list/slot_equipment_priority = list( \
 	src.u_equip(O)
 	if (src.client)
 		src.client.screen -= O
-	O.layer = initial(O.layer)
+	O.reset_plane_and_layer()
 	O.screen_loc = null
 	if(istype(O, /obj/item))
 		var/obj/item/I = O
@@ -385,7 +385,7 @@ var/list/slot_equipment_priority = list( \
 			var/turf/end_T = get_turf(target)
 			if(start_T && end_T)
 				if(is_pacified())
-					to_chat(src, "<span class='notice'>You gently let go of [M].</span>")
+					to_chat(src, SPAN_NOTICE("You gently let go of [M]."))
 					src.remove_from_mob(item)
 					item.loc = src.loc
 					return TRUE
@@ -452,12 +452,12 @@ var/list/slot_equipment_priority = list( \
 		return TRUE
 
 	if(is_pacified())
-		to_chat(src, "<span class='notice'>You set [item] down gently on the ground.</span>")
+		to_chat(src, SPAN_NOTICE("You set [item] down gently on the ground."))
 		return TRUE
 
 	//actually throw it!
 	if(item)
-		src.visible_message("<span class='warning'>[src] throws \a [item].</span>")
+		src.visible_message(SPAN_WARNING("[src] throws \a [item]."))
 		if(!src.lastarea)
 			src.lastarea = get_area(src.loc)
 		if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity() == 0))

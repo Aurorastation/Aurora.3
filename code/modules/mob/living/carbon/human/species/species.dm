@@ -53,7 +53,7 @@
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
 	var/eyes_icon_blend = ICON_ADD                       // The icon blending mode to use for eyes.
 	var/blood_type = "blood"
-	var/blood_color = "#A10808"                          // Red.
+	var/blood_color = COLOR_HUMAN_BLOOD                          // Red.
 	var/flesh_color = "#FFC896"                          // Pink.
 	var/examine_color                                    // The color of the species' name in the examine text. Defaults to flesh_color if unset.
 	var/base_color                                       // Used by changelings. Should also be used for icon previes..
@@ -136,9 +136,9 @@
 	var/organ_med_pain_message = "<b><font size=3>Your %PARTNAME% hurts badly!</font></b>"
 	var/organ_high_pain_message = "<b><font size=3>Your %PARTNAME% is screaming out in pain!</font></b>"
 
-	var/organ_low_burn_message = "<span class='danger'>Your %PARTNAME% burns.</span>"
-	var/organ_med_burn_message = "<span class='danger'><font size=3>Your %PARTNAME% burns horribly!</font></span>"
-	var/organ_high_burn_message = "<span class='danger'><font size=4>Your %PARTNAME% feels like it's on fire!</font></span>"
+	var/organ_low_burn_message = SPAN_DANGER("Your %PARTNAME% burns.")
+	var/organ_med_burn_message = SPAN_DANGER("<font size=3>Your %PARTNAME% burns horribly!</font>")
+	var/organ_high_burn_message = SPAN_DANGER("<font size=4>Your %PARTNAME% feels like it's on fire!</font>")
 
 	var/list/stutter_verbs = list("stammers", "stutters")
 
@@ -294,7 +294,7 @@
 	var/bodyfall_sound = /singleton/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
 	var/footsound = /singleton/sound_category/blank_footsteps //same as above but for footsteps without shoes
 
-	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
+	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_BRAIN, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
 	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
 	/// These are the prefixes of the icon states in talk.dmi.
 	var/list/possible_speech_bubble_types = list("default")
@@ -307,6 +307,8 @@
 	var/character_creation_psi_points = 0
 	/// Is this species psionically deaf?
 	var/psi_deaf = FALSE
+	///Which species-unique robolimb types can this species take?
+	var/list/valid_prosthetics
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -356,10 +358,10 @@
 	switch(msg_type)
 		if("cold")
 			if(!covered)
-				to_chat(H, "<span class='danger'>[pick(cold_discomfort_strings)]</span>")
+				to_chat(H, SPAN_DANGER("[pick(cold_discomfort_strings)]"))
 		if("heat")
 			if(covered)
-				to_chat(H, "<span class='danger'>[pick(heat_discomfort_strings)]</span>")
+				to_chat(H, SPAN_DANGER("[pick(heat_discomfort_strings)]"))
 
 /datum/species/proc/sanitize_name(var/name)
 	return sanitizeName(name)
@@ -395,6 +397,10 @@
 	if(H.internal_organs_by_name) H.internal_organs_by_name.Cut()
 	if(H.bad_external_organs)     H.bad_external_organs.Cut()
 	if(H.bad_internal_organs)     H.bad_internal_organs.Cut()
+
+	var/datum/component/armor/armor_component = H.GetComponent(/datum/component/armor)
+	if(armor_component)
+		armor_component.RemoveComponent()
 
 	H.organs = list()
 	H.internal_organs = list()
@@ -437,12 +443,12 @@
 	if(H.on_fire)
 		target.fire_stacks += 1
 		target.IgniteMob()
-		H.visible_message("<span class='danger'>[H] taps [target], setting [target.get_pronoun("his")] ablaze!</span>", \
-						"<span class='warning'>You tap [target], setting [target.get_pronoun("him")] ablaze!</span>")
+		H.visible_message(SPAN_DANGER("[H] taps [target], setting [target.get_pronoun("his")] ablaze!"), \
+						SPAN_WARNING("You tap [target], setting [target.get_pronoun("him")] ablaze!"))
 		msg_admin_attack("[key_name(H)] spread fire to [target.name] ([target.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(target))
 	else
-		H.visible_message("<span class='notice'>[H] taps [target] to get [target.get_pronoun("his")] attention!</span>", \
-						"<span class='notice'>You tap [target] to get [target.get_pronoun("his")] attention!</span>")
+		H.visible_message(SPAN_NOTICE("[H] taps [target] to get [target.get_pronoun("his")] attention!"), \
+						SPAN_NOTICE("You tap [target] to get [target.get_pronoun("his")] attention!"))
 
 /datum/species/proc/remove_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)

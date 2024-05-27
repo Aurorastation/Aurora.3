@@ -49,13 +49,13 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 	dat += "<HR>Current Loaded Programs:<BR>"
 
 	if(!linkedholodeck)
-		dat += "<span class='danger'>Warning: Unable to locate holodeck.<br></span>"
+		dat += SPAN_DANGER("Warning: Unable to locate holodeck.<br>")
 		user << browse(dat, "window=computer;size=400x500")
 		onclose(user, "computer")
 		return
 
 	if(!SSatlas.current_map.holodeck_supported_programs.len)
-		dat += "<span class='danger'>Warning: No supported holo-programs loaded.<br></span>"
+		dat += SPAN_DANGER("Warning: No supported holo-programs loaded.<br>")
 		user << browse(dat, "window=computer;size=400x500")
 		onclose(user, "computer")
 		return
@@ -151,7 +151,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 		safety_disabled = 1
 		req_one_access = list()
 		update_projections()
-		to_chat(user, "<span class='notice'>You vastly increase projector power and override the safety and security protocols.</span>")
+		to_chat(user, SPAN_NOTICE("You vastly increase projector power and override the safety and security protocols."))
 		to_chat(user, "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [SSatlas.current_map.company_name] maintenance and do not use the simulator.")
 		log_game("[key_name(usr)] emagged the Holodeck Control Computer",ckey=key_name(usr))
 		src.updateUsrDialog()
@@ -370,10 +370,10 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 /obj/machinery/computer/holodeck_control/proc/togglelock(var/mob/user)
 	if(allowed(user))
 		locked = !locked
-		visible_message("<span class='notice'>\The [src] emits a series of beeps to announce it has been [locked ? null : "un"]locked.</span>", range = 3)
+		visible_message(SPAN_NOTICE("\The [src] emits a series of beeps to announce it has been [locked ? null : "un"]locked."), range = 3)
 		return FALSE
 	else
-		to_chat(user, "<span class='warning'>Access denied.</span>")
+		to_chat(user, SPAN_WARNING("Access denied."))
 		return TRUE
 
 /obj/machinery/computer/holodeck_control/proc/load_random_program()

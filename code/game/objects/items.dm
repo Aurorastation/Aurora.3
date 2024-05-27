@@ -2,6 +2,7 @@
 	name = "item"
 	icon = 'icons/obj/items.dmi'
 	w_class = ITEMSIZE_NORMAL
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
 	///This saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
 	var/image/blood_overlay
@@ -179,10 +180,13 @@
 	///When you want to slice out a chunk from a sprite
 	var/alpha_mask
 
-	///Boolean, determines whether accent colour is applied or not
+	/// Boolean, determines whether accent colour is applied or not
 	var/has_accents = FALSE
 
-	///used for accents which are coloured differently to the main body of the sprite
+	/// appearance_flags Bitflag, when has_accents is set to true, this will determine which flags will be applied to the accent image
+	var/accent_flags = RESET_COLOR
+
+	/// used for accents which are coloured differently to the main body of the sprite
 	var/accent_color = COLOR_GRAY
 
 	/**
@@ -267,11 +271,11 @@
 /obj/item/update_icon()
 	. = ..()
 	if(build_from_parts || has_accents)
-		cut_overlays()
+		ClearOverlays()
 	if(build_from_parts)
-		add_overlay(overlay_image(icon,"[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+		AddOverlays(overlay_image(icon,"[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	if(has_accents)
-		add_overlay(overlay_image(icon,"[icon_state]_acc",accent_color, RESET_COLOR))
+		AddOverlays(overlay_image(icon, "[icon_state]_acc", accent_color, accent_flags))
 
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
@@ -367,10 +371,10 @@
 		if (user.hand)
 			temp = H.organs_by_name[BP_L_HAND]
 		if(temp && !temp.is_usable())
-			to_chat(user, "<span class='notice'>You try to move your [temp.name], but cannot!</span>")
+			to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 			return
 		if(!temp)
-			to_chat(user, "<span class='notice'>You try to use your hand, but realize it is no longer attached!</span>")
+			to_chat(user, SPAN_NOTICE("You try to use your hand, but realize it is no longer attached!"))
 			return
 	if(!do_additional_pickup_checks(user))
 		return
@@ -477,6 +481,9 @@
 
 	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
 
+	if(user && (z_flags & ZMM_MANGLE_PLANES))
+		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
+
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
 		return
@@ -527,7 +534,7 @@
 // for items that can be placed in multiple slots
 /obj/item/proc/equipped(var/mob/user, var/slot)
 	SHOULD_CALL_PARENT(TRUE)
-	layer = SCREEN_LAYER+0.01
+	hud_layerise()
 	equip_slot = slot
 	if(user.client)	user.client.screen |= src
 	if(user.pulling == src) user.stop_pulling()
@@ -549,6 +556,9 @@
 	GLOB.mob_equipped_event.raise_event(user, src, slot)
 	item_equipped_event.raise_event(src, user, slot)
 	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
+
+	if(user && (z_flags & ZMM_MANGLE_PLANES))
+		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
 
 //sometimes we only want to grant the item's action if it's equipped in a specific slot.
 /obj/item/proc/item_action_slot_check(mob/user, slot)
@@ -628,7 +638,7 @@ var/list/global/slot_flags_enumeration = list(
 		if(slot_l_store, slot_r_store)
 			if(!H.w_uniform && (slot_w_uniform in mob_equip))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>")
+					to_chat(H, SPAN_WARNING("You need a jumpsuit before you can attach this [name]."))
 				return 0
 			if( w_class > 2 && !(slot_flags & SLOT_POCKET) )
 				return 0
@@ -640,11 +650,11 @@ var/list/global/slot_flags_enumeration = list(
 				return TRUE
 			if(!H.wear_suit && (slot_wear_suit in mob_equip))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>You need a suit before you can attach this [name].</span>")
+					to_chat(H, SPAN_WARNING("You need a suit before you can attach this [name]."))
 				return 0
 			if(H.wear_suit && !length(H.wear_suit.allowed))
 				if(!disable_warning)
-					to_chat(usr, "<span class='warning'>You somehow have a suit with no defined allowed items for suit storage, stop that.</span>")
+					to_chat(usr, SPAN_WARNING("You somehow have a suit with no defined allowed items for suit storage, stop that."))
 				return 0
 			if(!istype(src, /obj/item/modular_computer) && !ispen() && !is_type_in_list(src, H.wear_suit.allowed))
 				return 0
@@ -673,12 +683,12 @@ var/list/global/slot_flags_enumeration = list(
 		if(slot_tie)
 			if(!H.w_uniform && (slot_w_uniform in mob_equip))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>")
+					to_chat(H, SPAN_WARNING("You need a jumpsuit before you can attach this [name]."))
 				return 0
 			var/obj/item/clothing/under/uniform = H.w_uniform
 			if(LAZYLEN(uniform.accessories) && !uniform.can_attach_accessory(src))
 				if (!disable_warning)
-					to_chat(H, "<span class='warning'>You already have an accessory of this type attached to your [uniform].</span>")
+					to_chat(H, SPAN_WARNING("You already have an accessory of this type attached to your [uniform]."))
 				return 0
 	return 1
 
@@ -736,30 +746,30 @@ var/list/global/slot_flags_enumeration = list(
 
 		if(H != user)
 			M.visible_message(
-				"<span class='danger'>[user] stabs [M] in the [eyes.singular_name] with [src]!</span>",
-				"<span class='danger'>[user] stabs you in the [eyes.singular_name] with [src]!</span>"
+				SPAN_DANGER("[user] stabs [M] in the [eyes.singular_name] with [src]!"),
+				SPAN_DANGER("[user] stabs you in the [eyes.singular_name] with [src]!")
 			)
 		else
 			user.visible_message( \
-				"<span class='danger'>[user] stabs themself in the [eyes.singular_name] with [src]!</span>", \
-				"<span class='danger'>You stab yourself in the [eyes.singular_name] with [src]!</span>" \
+				SPAN_DANGER("[user] stabs themself in the [eyes.singular_name] with [src]!"), \
+				SPAN_DANGER("You stab yourself in the [eyes.singular_name] with [src]!") \
 			)
 
 		eyes.take_damage(rand(3,4))
 		if(eyes.damage >= eyes.min_bruised_damage)
 			if(H.stat != DEAD)
 				if(eyes.robotic <= 1) //robot eyes bleeding might be a bit silly
-					to_chat(H, "<span class='danger'>Your eyes start to bleed profusely!</span>")
+					to_chat(H, SPAN_DANGER("Your eyes start to bleed profusely!"))
 			if(prob(50))
 				if(H.stat != DEAD)
-					to_chat(H, "<span class='warning'>You drop what you're holding and clutch at your eyes!</span>")
+					to_chat(H, SPAN_WARNING("You drop what you're holding and clutch at your eyes!"))
 					H.drop_item()
 				H.eye_blurry += 10
 				H.Paralyse(1)
 				H.Weaken(4)
 			if (eyes.damage >= eyes.min_broken_damage)
 				if(H.stat != DEAD)
-					to_chat(H, "<span class='warning'>You go blind!</span>")
+					to_chat(H, SPAN_WARNING("You go blind!"))
 		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 		if(affecting.take_damage(7, 0, damage_flags(), src))
 			H.UpdateDamageIcon()
@@ -775,7 +785,7 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/clean_blood()
 	. = ..()
 	if(blood_overlay)
-		cut_overlay(blood_overlay, TRUE)
+		CutOverlays(blood_overlay, TRUE)
 	if(istype(src, /obj/item/clothing/gloves))
 		var/obj/item/clothing/gloves/G = src
 		G.transfer_blood = 0
@@ -806,7 +816,7 @@ var/list/global/slot_flags_enumeration = list(
 	//apply the blood-splatter overlay if it isn't already in there
 	if(!blood_DNA.len)
 		blood_overlay.color = blood_color
-		add_overlay(blood_overlay, TRUE)	// Priority overlay so we don't lose it somehow.
+		AddOverlays(blood_overlay, TRUE)	// Priority overlay so we don't lose it somehow.
 
 	//if this blood isn't already in the list, add it
 	if(istype(M))
@@ -990,7 +1000,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			hit_mobs++
 
 	if(hit_mobs)
-		to_chat(user, "<span class='danger'>You used \the [src] to attack [hit_mobs] other target\s!</span>")
+		to_chat(user, SPAN_DANGER("You used \the [src] to attack [hit_mobs] other target\s!"))
 	cleaving = FALSE
 
 // Used for non-adjacent melee attacks with specific weapons capable of reaching more than one tile.

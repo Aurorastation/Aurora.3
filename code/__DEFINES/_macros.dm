@@ -177,6 +177,9 @@
 /// Decrease the size of L by 1 from the end. Is the old last entry index.
 #define LIST_DEC(L) ((L).len--)
 
+/// Explicitly set the length of L to NEWLEN, adding nulls or dropping entries. Is the same value as NEWLEN.
+#define LIST_RESIZE(L, NEWLEN) ((L).len = (NEWLEN))
+
 /// Drops x into the the src's location, and then nulls its reference.
 #define DROP_NULL(x) if(x) { x.dropInto(loc); x = null}
 

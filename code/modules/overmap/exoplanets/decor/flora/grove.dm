@@ -47,6 +47,6 @@
 	icon_state = "grove_bamboo"
 	anchored = 1
 
-/obj/structure/flora/stalks/New()
+/obj/structure/flora/bamboo/New()
 	..()
 	icon_state = "grove_bamboo[rand(1, 3)]"

@@ -57,7 +57,7 @@
 	if(prob(chance))
 		if(A.opacity)
 			//display a message so that people on the other side aren't so confused
-			A.visible_message("<span class='warning'>\The [src] pierces through \the [A]!</span>")
+			A.visible_message(SPAN_WARNING("\The [src] pierces through \the [A]!"))
 		return 1
 
 	return 0
@@ -265,6 +265,10 @@
 		T.imp_in = organ.owner
 		T.part = organ
 		LAZYADD(organ.implants, T)
+
+/obj/item/projectile/bullet/shotgun/moghes
+	name = "wall shot"
+	secondary_projectile = /obj/item/projectile/bullet/pellet/shotgun/canister
 
 //Should do about 80 damage at 1 tile distance (adjacent), and 50 damage at 3 tiles distance.
 //Overall less damage than slugs in exchange for more damage at very close range and more embedding

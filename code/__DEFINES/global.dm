@@ -36,9 +36,6 @@ GLOBAL_PROTECT(href_logfile)
 GLOBAL_VAR_INIT(game_version, "Aurorastation")
 GLOBAL_PROTECT(game_version)
 
-GLOBAL_VAR_INIT(changelog_hash, "")
-GLOBAL_PROTECT(changelog_hash)
-
 GLOBAL_VAR_INIT(game_year, (text2num(time2text(world.realtime, "YYYY")) + 442))
 
 GLOBAL_VAR_INIT(round_progressing, 1)
@@ -69,16 +66,12 @@ GLOBAL_DATUM(lobby_mobs_location, /turf)
 
 //Spawnpoints.
 GLOBAL_LIST_EMPTY(latejoin)
-GLOBAL_LIST_EMPTY(latejoin_gateway)
 GLOBAL_LIST_EMPTY(latejoin_cryo)
-GLOBAL_LIST_EMPTY(latejoin_cryo_command)
 GLOBAL_LIST_EMPTY(latejoin_cyborg)
-GLOBAL_LIST_EMPTY(latejoin_merchant)
 GLOBAL_LIST_EMPTY(latejoin_living_quarters_lift)
 GLOBAL_LIST_EMPTY(kickoffsloc)
 GLOBAL_LIST_EMPTY(virtual_reality_spawn)
 
-GLOBAL_LIST_EMPTY(asteroid_spawn) // Asteroid "Dungeons" spawn at these.
 GLOBAL_LIST_EMPTY(tdome1)
 GLOBAL_LIST_EMPTY(tdome2)
 GLOBAL_LIST_EMPTY(tdomeobserve)

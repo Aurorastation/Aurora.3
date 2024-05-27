@@ -21,7 +21,7 @@
 	set category = "IC"
 
 	if(say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
+		to_chat(usr, SPAN_WARNING("Speech is currently admin-disabled."))
 		return
 
 	message = sanitize(message)
@@ -36,32 +36,31 @@
 
 /mob/proc/say_dead(var/message)
 	if(say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>Speech is currently admin-disabled.</span>")
+		to_chat(usr, SPAN_DANGER("Speech is currently admin-disabled."))
 		return
 
 	if(!src.client.holder)
 		if(!GLOB.config.dsay_allowed)
-			to_chat(src, "<span class='danger'>Deadchat is globally muted.</span>")
+			to_chat(src, SPAN_DANGER("Deadchat is globally muted."))
 			return
 
 	if(client && !(client.prefs.toggles & CHAT_DEAD))
-		to_chat(usr, "<span class='danger'>You have deadchat muted.</span>")
+		to_chat(usr, SPAN_DANGER("You have deadchat muted."))
 		return
 
 	message = process_chat_markup(message, list("~", "_"))
 
 	say_dead_direct("[pick("complains","moans","whines","laments","blubbers")], <span class='message linkify'>\"[message]\"</span>", src)
 
-/mob/proc/say_understands(var/mob/other,var/datum/language/speaking = null)
-
-	if (src.stat == 2)		//Dead
+/mob/proc/say_understands(var/mob/other, var/datum/language/speaking = null)
+	if(src.stat == DEAD)
 		return TRUE
 
-	//Universal speak makes everything understandable, for obvious reasons.
-	else if(src.universal_speak || src.universal_understand)
+	// Universal speak makes everything understandable, for obvious reasons.
+	if(src.universal_speak || src.universal_understand)
 		return TRUE
 
-	//Languages are handled after.
+	// Languages are handled after.
 	if (!speaking)
 		if(!other)
 			return TRUE
@@ -76,7 +75,7 @@
 	if(speaking.flags & INNATE)
 		return TRUE
 
-	//Language check.
+	// Language check.
 	for(var/datum/language/L in src.languages)
 		if(speaking.name == L.name)
 			return TRUE

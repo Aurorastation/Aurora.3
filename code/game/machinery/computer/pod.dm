@@ -5,6 +5,7 @@
 	desc = "A control console for launching pods. Some people prefer firing Mechas."
 	icon_screen = "command"
 	icon_keyboard = "green_key"
+	icon_keyboard_emis = "green_key_mask"
 	light_color = LIGHT_COLOR_GREEN
 	circuit = /obj/item/circuitboard/pod
 	var/id = 1.0
@@ -154,7 +155,7 @@
 
 /obj/machinery/computer/pod/old/syndicate/attack_hand(var/mob/user as mob)
 	if(!allowed(user))
-		to_chat(user, "<span class='warning'>Access Denied</span>")
+		to_chat(user, SPAN_WARNING("Access Denied"))
 		return
 	else
 		..()

@@ -1,0 +1,2755 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ah" = (
+/obj/effect/floor_decal/concrete/large/cee{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"ar" = (
+/obj/structure/mirror{
+	pixel_x = 28;
+	pixel_y = -3
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"aW" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"bg" = (
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"cb" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/optable,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"cr" = (
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"ct" = (
+/obj/machinery/door/airlock{
+	req_access = list(113);
+	name = "Barracks";
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"cC" = (
+/obj/machinery/door/blast/shutters{
+	id = "hegemony_base_entry"
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"cD" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "glaive cabinet"
+	},
+/obj/item/melee/energy/glaive/hegemony,
+/obj/item/melee/energy/glaive/hegemony,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"dj" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes/hegemony_base)
+"dJ" = (
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"ek" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32;
+	pixel_y = -8
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"eL" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"fE" = (
+/obj/machinery/vending/snack,
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"gb" = (
+/obj/machinery/door/airlock/security{
+	name = "Checkpoint";
+	req_access = list(113)
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"gC" = (
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"gF" = (
+/obj/effect/floor_decal/concrete{
+	dir = 1
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"gR" = (
+/obj/machinery/door/airlock/command{
+	name = "Captain's Quarters";
+	req_one_access = list(113);
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"hk" = (
+/obj/machinery/door/blast/shutters{
+	id = "hegemony_base_entry"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"ih" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"is" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "gun cabinet (energy pistols)"
+	},
+/obj/item/gun/energy/pistol/hegemony,
+/obj/item/gun/energy/pistol/hegemony,
+/obj/item/gun/energy/pistol/hegemony,
+/obj/item/gun/energy/pistol/hegemony,
+/obj/item/gun/energy/pistol/hegemony,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"iE" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/bodyscanner{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"iN" = (
+/obj/structure/table/steel,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/folder/yellow,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"iO" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"iS" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "hammer cabinet"
+	},
+/obj/item/melee/hammer/powered/hegemony,
+/obj/item/melee/hammer/powered/hegemony,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"jh" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"jo" = (
+/obj/machinery/door/blast/shutters{
+	id = "hegemony_base_entry"
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"jQ" = (
+/obj/effect/floor_decal/concrete,
+/obj/effect/floor_decal/concrete{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"ki" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"kp" = (
+/obj/structure/sink{
+	pixel_y = 22
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"kq" = (
+/obj/effect/floor_decal/concrete/large,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"kx" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"kH" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "gun cabinet (energy rifles)"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/item/gun/energy/rifle/hegemony,
+/obj/item/gun/energy/rifle/hegemony,
+/obj/item/gun/energy/rifle/hegemony,
+/obj/item/gun/energy/rifle/hegemony,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"lb" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"lj" = (
+/obj/structure/sign/flag/hegemony/large/east{
+	pixel_x = 32
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"ly" = (
+/obj/structure/table/steel,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/item/folder/yellow,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"lA" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes/hegemony_base)
+"lM" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"ml" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "sword cabinet"
+	},
+/obj/item/melee/energy/sword/hegemony,
+/obj/item/melee/energy/sword/hegemony,
+/obj/item/melee/energy/sword/hegemony,
+/obj/item/melee/energy/sword/hegemony,
+/obj/item/melee/energy/sword/hegemony,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"mO" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "shield cabinet"
+	},
+/obj/item/shield/energy/hegemony,
+/obj/item/shield/energy/hegemony,
+/obj/item/shield/energy/hegemony,
+/obj/item/shield/energy/hegemony,
+/obj/item/shield/energy/hegemony,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"nU" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"nV" = (
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"oH" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/combat,
+/obj/item/storage/firstaid/combat,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"oL" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"oP" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"pz" = (
+/obj/structure/table/wood,
+/obj/item/modular_computer/laptop/preset/civilian,
+/obj/item/stamp{
+	icon_state = "stamp-ce";
+	name = "izweski hegemony rubber stamp"
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"qR" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/iv_drip,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"rb" = (
+/obj/machinery/door/airlock/security{
+	name = "Brig";
+	req_one_access = list(113)
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"rl" = (
+/obj/structure/table/stone/marble,
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"rr" = (
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"rK" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"sS" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"ta" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green,
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/moghes/hegemony_base)
+"tl" = (
+/obj/structure/sink{
+	pixel_y = 22
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"uj" = (
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"ur" = (
+/obj/effect/floor_decal/concrete{
+	dir = 4
+	},
+/obj/effect/floor_decal/concrete,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"ux" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/bed/roller,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"uL" = (
+/obj/machinery/light,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "body armor cabinet"
+	},
+/obj/item/clothing/suit/armor/unathi/hegemony,
+/obj/item/clothing/suit/armor/unathi/hegemony,
+/obj/item/clothing/suit/armor/unathi/hegemony,
+/obj/item/clothing/suit/armor/unathi/hegemony,
+/obj/item/clothing/suit/armor/unathi/hegemony,
+/obj/item/clothing/head/helmet/unathi/hegemony,
+/obj/item/clothing/head/helmet/unathi/hegemony,
+/obj/item/clothing/head/helmet/unathi/hegemony,
+/obj/item/clothing/head/helmet/unathi/hegemony,
+/obj/item/clothing/head/helmet/unathi/hegemony,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/item/recharger_backpack/high,
+/obj/item/recharger_backpack/high,
+/obj/item/recharger_backpack/high,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"uV" = (
+/obj/machinery/shower{
+	dir = 8
+	},
+/obj/structure/curtain/open/shower,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"vr" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"xt" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "holster cabinet"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"xA" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/table/steel,
+/obj/item/storage/box/fancy/tray,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"xB" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/iv_drip,
+/obj/item/tank/oxygen,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"yd" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "gun cabinet (slugger)"
+	},
+/obj/structure/sign/flag/hegemony/large/north{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/item/gun/projectile/heavysniper/unathi,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"yA" = (
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"zf" = (
+/obj/structure/table/steel,
+/obj/machinery/door/window{
+	dir = 4;
+	req_access = list(113)
+	},
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/machinery/button/remote/blast_door{
+	id = "hegemony_base_entry";
+	name = "Entry";
+	req_access = list(113);
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"zp" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32;
+	pixel_y = -8
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = -30;
+	pixel_x = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/structure/table/rack,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"zr" = (
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"zv" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"zO" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"zR" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Al" = (
+/obj/machinery/photocopier/faxmachine{
+	department = "Hegemony Base"
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"AQ" = (
+/obj/machinery/door/airlock/command{
+	name = "Captain's Quarters";
+	req_one_access = list(113)
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"BS" = (
+/obj/machinery/door/blast/shutters{
+	id = "hegemony_base_garage";
+	name = "Garage"
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes/hegemony_base)
+"Cj" = (
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"CL" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/table/steel,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/mask/surgical,
+/obj/item/clothing/mask/surgical,
+/obj/item/clothing/mask/surgical,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Dg" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Dz" = (
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Eg" = (
+/obj/structure/table/stone/marble,
+/obj/item/material/sword/sabre{
+	name = "ceremonial sabre"
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Eo" = (
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"ER" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes/hegemony_base)
+"FV" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes/hegemony_base)
+"GA" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/body_scanconsole{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"GU" = (
+/obj/machinery/button/remote/blast_door{
+	id = "hegemony_base_garage";
+	name = "Garage";
+	req_access = list(113);
+	pixel_y = -24
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Hs" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Ia" = (
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/moghes/hegemony_base)
+"Ik" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"IG" = (
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Jf" = (
+/obj/machinery/vending/cola,
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Jj" = (
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Jk" = (
+/obj/structure/table/rack,
+/obj/item/material/twohanded/pike/flag/hegemony,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Jp" = (
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Jx" = (
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Jy" = (
+/obj/effect/floor_decal/concrete{
+	dir = 4
+	},
+/obj/effect/floor_decal/concrete,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"JB" = (
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/structure/sign/flag/hegemony/large/east{
+	pixel_x = 32
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"JE" = (
+/obj/effect/floor_decal/concrete/large/cee{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Ku" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Ky" = (
+/obj/machinery/door/airlock/security{
+	name = "Armory";
+	req_access = list(113);
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"KE" = (
+/obj/structure/closet/crate{
+	name = "footlocker"
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"KK" = (
+/obj/structure/table/steel,
+/obj/machinery/door/window{
+	dir = 8;
+	req_access = list(113)
+	},
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/machinery/button/remote/blast_door{
+	id = "hegemony_base_entry";
+	name = "Entry";
+	req_access = list(113);
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Lk" = (
+/obj/structure/closet/crate{
+	name = "footlocker"
+	},
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"LI" = (
+/obj/effect/floor_decal/concrete{
+	dir = 1
+	},
+/obj/effect/floor_decal/concrete{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"LT" = (
+/obj/machinery/button/remote/blast_door{
+	id = "hegemony_base_garage";
+	name = "Garage";
+	req_access = list(113);
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes/hegemony_base)
+"Me" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes/hegemony_base)
+"Mu" = (
+/obj/vehicle/bike/speeder/izweski,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"ML" = (
+/obj/machinery/vending/coffee,
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Nb" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"OA" = (
+/obj/structure/closet/secure_closet{
+	req_access = list(113)
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Pd" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Pt" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/curtain/open/medical,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"PC" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	name = "igs - hegemony_base_soldier";
+	identifier = "hegemony_base_soldier"
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Qb" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/table/steel,
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
+/obj/item/reagent_containers/hypospray{
+	pixel_y = 4;
+	pixel_x = -5
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Qn" = (
+/obj/structure/toilet,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Qp" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"QG" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "ammunition cabinet (slugger)"
+	},
+/obj/item/ammo_casing/slugger,
+/obj/item/ammo_casing/slugger,
+/obj/item/ammo_casing/slugger,
+/obj/item/ammo_casing/slugger,
+/obj/item/ammo_casing/slugger,
+/obj/item/ammo_casing/slugger,
+/obj/item/ammo_casing/slugger,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Ra" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"RX" = (
+/obj/effect/floor_decal/concrete/large/cee{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"RY" = (
+/obj/structure/window/reinforced,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"So" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Su" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"UI" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/bed/roller,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"UO" = (
+/obj/structure/bed/stool/bar/padded/red,
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"UU" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/toilet,
+/obj/structure/curtain/open/privacy,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Vc" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Vq" = (
+/obj/structure/filingcabinet{
+	pixel_x = -9;
+	pixel_y = 14;
+	density = 0
+	},
+/obj/structure/filingcabinet{
+	pixel_x = 5;
+	pixel_y = 14;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"VG" = (
+/turf/simulated/wall/concrete,
+/area/moghes/hegemony_base)
+"VP" = (
+/obj/structure/closet/secure_closet/cabinet,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/item/clothing/under/unathi/mogazali,
+/obj/item/clothing/under/unathi/mogazali/blue,
+/obj/item/clothing/under/unathi/mogazali/green,
+/obj/item/clothing/under/unathi/mogazali/orange,
+/obj/item/clothing/suit/unathi/robe/robe_coat,
+/obj/item/clothing/suit/unathi/robe/robe_coat/blue,
+/obj/item/clothing/suit/unathi/robe/robe_coat/orange,
+/obj/item/clothing/suit/unathi/robe/robe_coat/red,
+/obj/structure/sign/flag/hegemony/large/east{
+	pixel_x = 32
+	},
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/moghes/hegemony_base)
+"VY" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"VZ" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Wc" = (
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/structure/sign/flag/hegemony/large/west{
+	pixel_x = -32
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Wr" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/vehicle/bike/speeder/izweski,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Wz" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/door/airlock/medical{
+	name = "Healer's Bay";
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"WB" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	identifier = "hegemony_base_commander";
+	name = "igs - hegemony_base_commander"
+	},
+/obj/item/bedsheet/black,
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/moghes/hegemony_base)
+"WS" = (
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/machinery/door/airlock/security{
+	name = "Briefing Room";
+	req_access = list(113)
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"Xc" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "gun cabinet (energy rifles)"
+	},
+/obj/item/storage/belt/security,
+/obj/item/gun/energy/taser,
+/obj/item/melee/baton,
+/obj/item/storage/box/handcuffs,
+/obj/item/storage/box/handcuffs,
+/obj/item/reagent_containers/spray/pepper,
+/obj/item/reagent_containers/spray/pepper,
+/obj/item/device/flash,
+/obj/item/device/flash,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"XH" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"XP" = (
+/obj/structure/window/reinforced,
+/obj/machinery/door/window{
+	dir = 4;
+	req_access = list(113)
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"YI" = (
+/obj/machinery/button/remote/blast_door{
+	id = "hegemony_base_entry";
+	name = "Entry";
+	req_access = list(113);
+	pixel_y = -24
+	},
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes/hegemony_base)
+"YW" = (
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes/hegemony_base)
+"Zz" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"ZD" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet{
+	req_access = list(113)
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+"ZM" = (
+/obj/structure/closet/crate{
+	name = "footlocker"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base)
+
+(1,1,1) = {"
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+"}
+(2,1,1) = {"
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+"}
+(3,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+YW
+YW
+YW
+"}
+(4,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+VG
+YW
+YW
+YW
+"}
+(5,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+FV
+VG
+VG
+VG
+VG
+VG
+VG
+FV
+FV
+VG
+VG
+VG
+VG
+VG
+VG
+FV
+FV
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+FV
+VG
+YW
+YW
+YW
+"}
+(6,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+FV
+VG
+Zz
+RY
+zr
+Ku
+VG
+FV
+FV
+VG
+cb
+rK
+rK
+CL
+VG
+FV
+FV
+VG
+Pd
+Wc
+Jp
+Jp
+Wc
+Jp
+Jp
+Wc
+VG
+FV
+VG
+YW
+YW
+YW
+"}
+(7,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+FV
+VG
+kp
+RY
+zr
+iO
+VG
+dj
+FV
+VG
+xA
+rK
+rK
+qR
+VG
+FV
+FV
+VG
+Jp
+Jp
+Jp
+UO
+UO
+Jp
+rr
+nV
+VG
+FV
+VG
+YW
+YW
+YW
+"}
+(8,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+FV
+VG
+UU
+XP
+zr
+zr
+rb
+kq
+FV
+VG
+Pt
+Pt
+Pt
+Pt
+VG
+FV
+ER
+VG
+Jp
+Jp
+UO
+UO
+UO
+Jp
+rl
+Jj
+VG
+FV
+VG
+YW
+YW
+YW
+"}
+(9,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+FV
+VG
+zr
+zr
+zr
+zr
+VG
+Hs
+FV
+VG
+XH
+rK
+rK
+iE
+VG
+FV
+Ik
+WS
+Jp
+Jp
+UO
+UO
+UO
+Jp
+Eg
+Jj
+VG
+FV
+VG
+YW
+YW
+YW
+"}
+(10,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+FV
+VG
+Xc
+OA
+ZD
+zr
+VG
+yA
+FV
+VG
+xB
+rK
+rK
+GA
+VG
+FV
+Dg
+VG
+Jf
+Jp
+UO
+UO
+UO
+Jp
+rl
+Jj
+VG
+FV
+VG
+YW
+YW
+YW
+"}
+(11,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+FV
+VG
+VG
+VG
+VG
+VG
+VG
+yA
+FV
+VG
+UI
+rK
+rK
+Qb
+VG
+FV
+yA
+VG
+ML
+Jp
+Jp
+UO
+UO
+Jp
+IG
+lb
+VG
+FV
+VG
+YW
+YW
+YW
+"}
+(12,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+yA
+FV
+VG
+ux
+xB
+rK
+oH
+VG
+FV
+yA
+VG
+fE
+JB
+Jp
+Jp
+JB
+Jp
+Jp
+JB
+VG
+FV
+VG
+YW
+YW
+YW
+"}
+(13,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+VG
+VG
+VG
+FV
+FV
+FV
+FV
+yA
+FV
+VG
+VG
+VG
+Wz
+VG
+VG
+FV
+yA
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+FV
+VG
+YW
+YW
+YW
+"}
+(14,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+Jx
+sS
+gb
+JE
+kq
+FV
+FV
+yA
+FV
+FV
+FV
+Me
+RX
+Me
+FV
+FV
+yA
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+VG
+YW
+YW
+YW
+"}
+(15,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+oL
+uj
+VG
+dj
+bg
+FV
+FV
+yA
+FV
+FV
+FV
+FV
+bg
+FV
+FV
+FV
+yA
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+VG
+YW
+YW
+YW
+"}
+(16,1,1) = {"
+YW
+YW
+YW
+YI
+VG
+zf
+ly
+VG
+FV
+bg
+FV
+FV
+yA
+FV
+FV
+FV
+FV
+bg
+FV
+FV
+FV
+yA
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+VG
+YW
+YW
+YW
+"}
+(17,1,1) = {"
+Ik
+cr
+cr
+cr
+cC
+cr
+cr
+cC
+cr
+LI
+cr
+cr
+LI
+dJ
+cr
+cr
+cr
+gF
+cr
+cr
+cr
+gF
+cr
+cr
+cr
+dJ
+cr
+cr
+cr
+dJ
+cr
+cr
+kq
+VG
+YW
+YW
+YW
+"}
+(18,1,1) = {"
+gC
+uj
+uj
+uj
+hk
+uj
+uj
+hk
+uj
+uj
+uj
+uj
+uj
+VG
+uj
+uj
+uj
+VG
+uj
+uj
+uj
+VG
+uj
+uj
+uj
+VG
+uj
+uj
+uj
+VG
+uj
+uj
+Jj
+VG
+YW
+YW
+YW
+"}
+(19,1,1) = {"
+vr
+VZ
+VZ
+VZ
+jo
+VZ
+VZ
+jo
+VZ
+ur
+VZ
+jQ
+VZ
+zv
+VZ
+ur
+VZ
+Nb
+VZ
+VZ
+VZ
+zv
+jQ
+VZ
+VZ
+Nb
+VZ
+VZ
+VZ
+Jy
+VZ
+VZ
+oP
+VG
+YW
+YW
+YW
+"}
+(20,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+KK
+iN
+VG
+FV
+bg
+FV
+bg
+FV
+FV
+lA
+ah
+lA
+FV
+FV
+FV
+FV
+FV
+bg
+FV
+FV
+FV
+FV
+FV
+FV
+yA
+FV
+FV
+FV
+VG
+YW
+YW
+YW
+"}
+(21,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+zR
+uj
+VG
+dj
+bg
+FV
+bg
+VG
+VG
+VG
+ct
+VG
+VG
+VG
+FV
+FV
+lA
+ah
+lA
+FV
+FV
+FV
+FV
+lA
+ah
+lA
+FV
+FV
+VG
+YW
+YW
+YW
+"}
+(22,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+Jx
+Qp
+gb
+JE
+oP
+FV
+bg
+VG
+ZM
+zr
+zr
+zr
+Lk
+VG
+FV
+VG
+VG
+Ky
+VG
+VG
+FV
+VG
+VG
+VG
+gR
+VG
+VG
+VG
+VG
+YW
+YW
+YW
+"}
+(23,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+VG
+VG
+VG
+FV
+FV
+FV
+bg
+VG
+eL
+zr
+zr
+zr
+eL
+VG
+FV
+VG
+nU
+ki
+Su
+VG
+FV
+VG
+Eo
+Eo
+Eo
+Eo
+Eo
+VG
+VG
+YW
+YW
+YW
+"}
+(24,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+FV
+FV
+FV
+FV
+FV
+FV
+bg
+VG
+KE
+zr
+zr
+zr
+KE
+VG
+FV
+VG
+kH
+zr
+uL
+VG
+FV
+VG
+VY
+Eo
+lM
+Eo
+Ra
+VG
+VG
+YW
+YW
+YW
+"}
+(25,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+VG
+VG
+VG
+VG
+VG
+FV
+bg
+VG
+PC
+zr
+zr
+zr
+PC
+VG
+FV
+VG
+cD
+zr
+ml
+VG
+FV
+VG
+Vq
+zO
+pz
+ih
+Eo
+VG
+VG
+YW
+YW
+YW
+"}
+(26,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+VG
+Wr
+zr
+Vc
+VG
+LT
+bg
+VG
+ZM
+zr
+zr
+zr
+Lk
+VG
+FV
+VG
+yd
+zr
+mO
+VG
+FV
+VG
+Al
+lj
+kx
+Eo
+Eo
+VG
+VG
+YW
+YW
+YW
+"}
+(27,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+VG
+Mu
+zr
+zr
+BS
+cr
+Dz
+VG
+PC
+zr
+zr
+zr
+PC
+VG
+FV
+VG
+QG
+zr
+is
+VG
+FV
+VG
+VG
+VG
+VG
+VG
+AQ
+VG
+VG
+YW
+YW
+YW
+"}
+(28,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+VG
+Mu
+zr
+zr
+BS
+VZ
+oP
+VG
+VG
+VG
+zr
+VG
+VG
+VG
+FV
+VG
+iS
+zr
+xt
+VG
+FV
+VG
+WB
+Ia
+Ia
+Ia
+Ia
+VG
+VG
+YW
+YW
+YW
+"}
+(29,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+VG
+Wr
+zr
+GU
+VG
+FV
+FV
+VG
+Qn
+aW
+Cj
+aW
+Cj
+VG
+FV
+VG
+So
+zr
+jh
+VG
+FV
+VG
+ta
+Ia
+VP
+Ia
+Ia
+VG
+VG
+YW
+YW
+YW
+"}
+(30,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+VG
+VG
+VG
+VG
+VG
+FV
+FV
+VG
+tl
+ar
+uV
+uV
+uV
+VG
+FV
+VG
+ek
+Jk
+zp
+VG
+FV
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+YW
+YW
+YW
+"}
+(31,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+FV
+VG
+VG
+VG
+VG
+VG
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+VG
+YW
+YW
+YW
+"}
+(32,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+FV
+VG
+YW
+YW
+YW
+"}
+(33,1,1) = {"
+YW
+YW
+YW
+YW
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+VG
+YW
+YW
+YW
+"}
+(34,1,1) = {"
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+"}
+(35,1,1) = {"
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+YW
+"}

@@ -41,19 +41,19 @@
 		body.willfully_sleeping = FALSE
 		if(force_awaken)
 			body.sleeping = 0
-			to_chat(src, "<span class='notice'>You suddenly feel like your connection to the dream is breaking up by the outside force.</span>")
+			to_chat(src, SPAN_NOTICE("You suddenly feel like your connection to the dream is breaking up by the outside force."))
 		else
 			body.sleeping = max(body.sleeping - 5, 0)
-			to_chat(src, "<span class='notice'>You release your concentration on sleep, allowing yourself to wake up.</span>")
+			to_chat(src, SPAN_NOTICE("You release your concentration on sleep, allowing yourself to wake up."))
 	else
-		to_chat(src, "<span class='warning'>You've already released concentration. Wait to wake up naturally.</span>")
+		to_chat(src, SPAN_WARNING("You've already released concentration. Wait to wake up naturally."))
 
 /mob/living/brain_ghost/Life()
 	..()
 	// Out body was probs gibbed or somefin
 	if(!istype(body))
-		show_message("<span class='danger'>[src] suddenly pops from the Srom.</span>")
-		to_chat(src, "<span class='danger'>Your body was destroyed!</span>")
+		show_message(SPAN_DANGER("[src] suddenly pops from the Srom."))
+		to_chat(src, SPAN_DANGER("Your body was destroyed!"))
 		qdel(src)
 		return
 

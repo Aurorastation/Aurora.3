@@ -7,7 +7,11 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/nka_base.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("nka_base.dmm")
+
+	unit_test_groups = list(3)
 
 /area/nka_base
 	name = "NKA Military Outpost"
@@ -17,7 +21,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
-
+	area_blurb = "A Royal Army outpost. The installations appear to be precarious."
 
 //ghostroles
 

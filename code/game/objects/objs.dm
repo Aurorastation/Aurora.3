@@ -1,4 +1,5 @@
 /obj
+	layer = OBJ_LAYER
 	animate_movement = 2
 
 	var/list/matter //Used to store information about the contents of the object.
@@ -43,6 +44,8 @@
 
 /obj/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
+	unbuckle()
+	QDEL_NULL(talking_atom)
 	return ..()
 
 /obj/Topic(href, href_list, var/datum/ui_state/state = GLOB.default_state)
@@ -61,7 +64,7 @@
 /obj/CanUseTopic(var/mob/user, var/datum/ui_state/state)
 	if(user.CanUseObjTopic(src))
 		return ..()
-	to_chat(user, "<span class='danger'>[icon2html(src, user)]Access Denied!</span>")
+	to_chat(user, SPAN_DANGER("[icon2html(src, user)]Access Denied!"))
 	return STATUS_CLOSE
 
 /mob/living/silicon/CanUseObjTopic(var/obj/O)
@@ -283,3 +286,7 @@
 /obj/proc/clean()
 	clean_blood()
 	color = initial(color)
+
+/// This fires when the object /crosses() a stair object
+/obj/proc/stair_act()
+	return

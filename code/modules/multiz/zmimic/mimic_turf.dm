@@ -19,12 +19,6 @@
 /turf/var/tmp/z_depth
 /turf/var/tmp/z_generation = 0
 
-/turf/Entered(atom/movable/thing, turf/oldLoc)
-	. = ..()
-	if (thing.bound_overlay || thing.no_z_overlay || !TURF_IS_MIMICING(above))
-		return
-	above.update_mimic()
-
 /turf/update_above()
 	if (TURF_IS_MIMICING(above))
 		above.update_mimic()

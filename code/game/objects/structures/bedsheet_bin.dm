@@ -16,7 +16,7 @@ LINEN BINS
 		slot_r_hand_str = 'icons/mob/items/righthand_bedsheet.dmi',
 		)
 	slot_flags = SLOT_BACK
-	layer = 4.0
+	layer = BASE_ABOVE_OBJ_LAYER
 	throwforce = 1
 	throw_speed = 1
 	throw_range = 2
@@ -95,7 +95,7 @@ LINEN BINS
 		if(M.loc == src.loc)
 			return
 	else
-		layer = initial(layer)
+		reset_plane_and_layer()
 
 /obj/item/bedsheet/verb/fold_verb()
 	set name = "Fold Bedsheet"
@@ -125,7 +125,7 @@ LINEN BINS
 			fold = TRUE
 			slot_flags = null
 			w_class = ITEMSIZE_SMALL
-			layer = initial(layer)
+			layer = reset_plane_and_layer()
 		else
 			fold = FALSE
 			slot_flags = SLOT_BACK
@@ -159,7 +159,7 @@ LINEN BINS
 			roll = TRUE
 			slot_flags = null
 			w_class = ITEMSIZE_NORMAL
-			layer = initial(layer)
+			layer = reset_plane_and_layer()
 			if(user.resting && get_turf(src) == get_turf(user)) // Make them rest
 				user.lay_down()
 		else
@@ -167,7 +167,7 @@ LINEN BINS
 			slot_flags = SLOT_BACK
 			w_class = ITEMSIZE_LARGE
 			if(layer == initial(layer))
-				layer = ABOVE_MOB_LAYER
+				layer = ABOVE_HUMAN_LAYER
 			if(!user.resting && get_turf(src) == get_turf(user)) // Make them get up
 				user.lay_down()
 		update_icon()
@@ -403,11 +403,11 @@ LINEN BINS
 		user.drop_from_inventory(attacking_item,src)
 		sheets.Add(attacking_item)
 		amount++
-		to_chat(user, "<span class='notice'>You put [attacking_item] in [src].</span>")
+		to_chat(user, SPAN_NOTICE("You put [attacking_item] in [src]."))
 	else if(amount && !hidden && attacking_item.w_class < 4)	//make sure there's sheets to hide it among, make sure nothing else is hidden in there.
 		user.drop_from_inventory(attacking_item,src)
 		hidden = attacking_item
-		to_chat(user, "<span class='notice'>You hide [attacking_item] among the sheets.</span>")
+		to_chat(user, SPAN_NOTICE("You hide [attacking_item] among the sheets."))
 
 /obj/structure/bedsheetbin/attack_hand(mob/user as mob)
 	if(amount >= 1)
@@ -423,11 +423,11 @@ LINEN BINS
 
 		B.forceMove(user.loc)
 		user.put_in_hands(B)
-		to_chat(user, "<span class='notice'>You take [B] out of [src].</span>")
+		to_chat(user, SPAN_NOTICE("You take [B] out of [src]."))
 
 		if(hidden)
 			hidden.forceMove(user.loc)
-			to_chat(user, "<span class='notice'>[hidden] falls out of [B]!</span>")
+			to_chat(user, SPAN_NOTICE("[hidden] falls out of [B]!"))
 			hidden = null
 
 
@@ -446,7 +446,7 @@ LINEN BINS
 			B = new /obj/item/bedsheet(loc)
 
 		B.forceMove(loc)
-		to_chat(user, "<span class='notice'>You telekinetically remove [B] from [src].</span>")
+		to_chat(user, SPAN_NOTICE("You telekinetically remove [B] from [src]."))
 		update_icon()
 
 		if(hidden)

@@ -360,7 +360,6 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "cooling_airlock";
-	layer = 3.3;
 	pixel_y = -25;
 	req_access = list(11);
 	tag_airpump = "cooling_pump";
@@ -370,7 +369,6 @@
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "cooling_sensor";
-	layer = 3.3;
 	master_tag = "cooling airlock";
 	pixel_x = 12;
 	pixel_y = -25
@@ -558,7 +556,6 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1379;
-	layer = 3.3;
 	master_tag = "cooling_airlock";
 	name = "interior access button";
 	pixel_x = -25;

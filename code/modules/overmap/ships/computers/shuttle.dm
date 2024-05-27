@@ -68,6 +68,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "helm"
 	icon_keyboard = "tech_key"
+	icon_keyboard_emis = "tech_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE

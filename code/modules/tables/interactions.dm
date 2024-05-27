@@ -40,7 +40,7 @@
 		if(prob(chance))
 			health -= P.damage/2
 			if (health > 0)
-				visible_message("<span class='warning'>[P] hits \the [src]!</span>")
+				visible_message(SPAN_WARNING("[P] hits \the [src]!"))
 				return 0
 			else
 				visible_message(SPAN_WARNING("[src] breaks down!"))
@@ -81,8 +81,8 @@
 
 	if (user && anything_moved)
 		user.visible_message(
-		"<span class='notice'>[user] kicks everything off [src].</span>",
-		"<span class='notice'>You kick everything off [src].</span>"
+		SPAN_NOTICE("[user] kicks everything off [src]."),
+		SPAN_NOTICE("You kick everything off [src].")
 		)
 
 
@@ -96,8 +96,8 @@
 		return
 
 	user.visible_message(
-	"<span class='warning'>[user] starts climbing onto \the [src]!</span>",
-	"<span class='warning'>You start climbing onto \the [src]!</span>"
+	SPAN_WARNING("[user] starts climbing onto \the [src]!"),
+	SPAN_WARNING("You start climbing onto \the [src]!")
 	)
 	LAZYADD(climbers, user)
 
@@ -113,8 +113,8 @@
 
 	if (get_turf(user) == get_turf(src))
 		user.visible_message(
-		"<span class='warning'>[user] climbs onto \the [src]!</span>",
-		"<span class='warning'>You climb onto \the [src]!</span>"
+		SPAN_WARNING("[user] climbs onto \the [src]!"),
+		SPAN_WARNING("You climb onto \the [src]!")
 		)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
@@ -127,6 +127,11 @@
 	LAZYREMOVE(climbers, user)
 
 /obj/structure/table/MouseDrop_T(atom/dropping, mob/user, params)
+	var/obj/item/stack/material/what = dropping
+	if(can_reinforce && isliving(usr) && (!usr.stat) && istype(what) && usr.get_active_hand() == what && Adjacent(usr))
+		reinforce_table(what, usr)
+		return
+
 	if(ismob(dropping.loc)) //If placing an item
 		if(!isitem(dropping) || user.get_active_hand() != dropping)
 			return ..()
@@ -192,7 +197,7 @@
 			var/mob/living/M = G.affecting
 			var/obj/occupied = turf_is_crowded()
 			if(occupied)
-				to_chat(user, "<span class='danger'>There's \a [occupied] in the way.</span>")
+				to_chat(user, SPAN_DANGER("There's \a [occupied] in the way."))
 				return
 			if(!user.Adjacent(M))
 				return
@@ -202,7 +207,7 @@
 					if (prob(30 * (1 - blocked)))
 						M.Weaken(5)
 					M.apply_damage(8, DAMAGE_BRUTE, BP_HEAD)
-					visible_message("<span class='danger'>[G.assailant] slams [G.affecting]'s face against \the [src]!</span>")
+					visible_message(SPAN_DANGER("[G.assailant] slams [G.affecting]'s face against \the [src]!"))
 					if(material)
 						playsound(loc, material.tableslam_noise, 50, 1)
 					else
@@ -211,8 +216,8 @@
 					var/sanity_counter = 0
 					for(var/obj/item/material/shard/S in get_turf(src))
 						if(prob(50))
-							M.visible_message("<span class='danger'>\The [S] slices [M]'s face messily!</span>",
-												"<span class='danger'>\The [S] slices your face messily!</span>")
+							M.visible_message(SPAN_DANGER("\The [S] slices [M]'s face messily!"),
+												SPAN_DANGER("\The [S] slices your face messily!"))
 							M.apply_damage(10, DAMAGE_BRUTE, BP_HEAD)
 							sanity_counter++
 						if(sanity_counter >= 3)
@@ -221,27 +226,95 @@
 				else
 					G.affecting.forceMove(src.loc)
 					G.affecting.Weaken(rand(2,4))
-					visible_message("<span class='danger'>[G.assailant] puts [G.affecting] on \the [src].</span>")
+					visible_message(SPAN_DANGER("[G.assailant] puts [G.affecting] on \the [src]."))
 					qdel(attacking_item)
 				return
 			else
-				to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
+				to_chat(user, SPAN_WARNING("You need a better grip to do that!"))
 				return
 
 	if(!attacking_item.dropsafety())
 		return
+
+	if(reinforced && attacking_item.isscrewdriver())
+		remove_reinforced(attacking_item, user)
+		if(!reinforced)
+			update_desc()
+			queue_icon_update()
+			update_material()
+		return 1
+
+	if(carpeted && attacking_item.iscrowbar())
+		user.visible_message(SPAN_NOTICE("\The [user] removes the carpet from \the [src]."),
+								SPAN_NOTICE("You remove the carpet from \the [src]."))
+		new /obj/item/stack/tile/carpet(loc)
+		carpeted = 0
+		queue_icon_update()
+		return 1
+
+	if(!carpeted && material && istype(attacking_item, /obj/item/stack/tile/carpet))
+		var/obj/item/stack/tile/carpet/C = attacking_item
+		if(C.use(1))
+			user.visible_message(SPAN_NOTICE("\The [user] adds \the [C] to \the [src]."),
+									SPAN_NOTICE("You add \the [C] to \the [src]."))
+			carpeted = 1
+			queue_icon_update()
+			return 1
+		else
+			to_chat(user, SPAN_WARNING("You don't have enough carpet!"))
+
+	if(!reinforced && !carpeted && material && (attacking_item.iswrench() || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
+		remove_material(attacking_item, user)
+		if(!material)
+			update_connections(1)
+			queue_icon_update()
+			for(var/obj/structure/table/T in oview(src, 1))
+				T.queue_icon_update()
+			update_desc()
+			update_material()
+		return 1
+
+	if(!carpeted && !reinforced && !material && (attacking_item.iswrench() || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
+		dismantle(attacking_item, user)
+		return 1
+
+	if(health < maxhealth && attacking_item.iswelder())
+		var/obj/item/weldingtool/F = attacking_item
+		if(F.welding)
+			to_chat(user, SPAN_NOTICE("You begin reparing damage to \the [src]."))
+			if(!attacking_item.use_tool(src, user, 20, volume = 50) || !F.use(1, user))
+				return
+			user.visible_message(SPAN_NOTICE("\The [user] repairs some damage to \the [src]."),
+									SPAN_NOTICE("You repair some damage to \the [src]."))
+			health = max(health+(maxhealth/5), maxhealth) // 20% repair per application
+			return 1
+
+	if(!material && can_plate && istype(attacking_item, /obj/item/stack/material))
+		material = common_material_add(attacking_item, user, "plat")
+		if(material)
+			update_connections(1)
+			queue_icon_update()
+			update_desc()
+			update_material()
+		return 1
+
+	if(!material && can_plate && istype(attacking_item, /obj/item/reagent_containers/cooking_container/board/bowl))
+		new /obj/structure/chemkit(loc)
+		qdel(attacking_item)
+		qdel(src)
+		return 1
 
 	if(istype(attacking_item, /obj/item/melee/energy/blade))
 		var/obj/item/melee/energy/blade/blade = attacking_item
 		blade.spark_system.queue()
 		playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 		playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
-		user.visible_message("<span class='danger'>\The [src] was sliced apart by [user]!</span>")
+		user.visible_message(SPAN_DANGER("\The [src] was sliced apart by [user]!"))
 		break_to_parts()
 		return
 
 	if(can_plate && !material)
-		to_chat(user, "<span class='warning'>There's nothing to put \the [attacking_item] on! Try adding plating to \the [src] first.</span>")
+		to_chat(user, SPAN_WARNING("There's nothing to put \the [attacking_item] on! Try adding plating to \the [src] first."))
 		return
 
 
@@ -267,8 +340,10 @@
 		auto_align(attacking_item, params)
 		return
 
-#define CELLS 8								//Amount of cells per row/column in grid
-#define CELLSIZE (world.icon_size/CELLS)	//Size of a cell in pixels
+/// Amount of cells per row/column in grid
+#define CELLS 8
+/// Size of a cell in pixels
+#define CELLSIZE (world.icon_size/CELLS)
 /*
 Automatic alignment of items to an invisible grid, defined by CELLS and CELLSIZE.
 Since the grid will be shifted to own a cell that is perfectly centered on the turf, we end up with two 'cell halves'
@@ -281,14 +356,19 @@ closest to where the cursor has clicked on.
 Note: This proc can be overwritten to allow for different types of auto-alignment.
 */
 /obj/item/var/list/center_of_mass = list("x" = 16,"y" = 16)
+
 /obj/structure/table/proc/auto_align(obj/item/W, click_parameters, var/animate = FALSE)
+	if(initial(W.layer) <= BELOW_TABLE_LAYER) // stuff below tables should not accidentally be adjusted to be above them
+		W.layer = initial(W.layer)
+		return TRUE
+
 	if(!W.center_of_mass)
 		W.randpixel_xy()
 		W.layer = initial(W.layer) + ((32 - W.pixel_y) / 1000)
-		return
+		return TRUE
 
 	if(!click_parameters)
-		return
+		return FALSE
 
 	var/list/mouse_control = mouse_safe_xy(click_parameters)
 	var/mouse_x = mouse_control["icon-x"]
@@ -309,6 +389,7 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 			W.pixel_x = target_x
 			W.pixel_y = target_y
 		W.layer = initial(W.layer) + ((32 - W.pixel_y) / 1000)
+		return TRUE
 
 #undef CELLS
 #undef CELLSIZE

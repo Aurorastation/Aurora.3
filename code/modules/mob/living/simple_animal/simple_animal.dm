@@ -24,7 +24,7 @@
 	var/icon_gib = null	//We only try to show a gibbing animation if this exists.
 
 	appearance_flags = KEEP_TOGETHER
-	var/blood_type = "#A10808" //Blood colour for impact visuals.
+	var/blood_type = COLOR_HUMAN_BLOOD //Blood colour for impact visuals.
 	var/blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	var/blood_state = BLOOD_NONE
 	var/image/blood_overlay
@@ -41,7 +41,9 @@
 	var/speak_chance = 0
 	var/list/emote_hear = list()	//Hearable emotes
 	var/list/emote_see = list()		//Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
-	var/list/emote_sounds = list()
+
+	///A list of sounds that this animal will randomly play, lazy list
+	var/list/emote_sounds
 	var/sound_time = TRUE
 
 	var/turns_per_move = 1
@@ -188,7 +190,7 @@
 		death()
 
 /mob/living/simple_animal/Destroy()
-	cut_overlay(blood_overlay)
+	CutOverlays(blood_overlay)
 	movement_target = null
 	QDEL_NULL(udder)
 
@@ -220,11 +222,11 @@
 /mob/living/simple_animal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (stat == DEAD)
-		. += "<span class='danger'>It looks dead.</span>"
+		. += SPAN_DANGER("It looks dead.")
 	if (health < maxHealth * 0.5)
-		. += "<span class='danger'>It looks badly wounded.</span>"
+		. += SPAN_DANGER("It looks badly wounded.")
 	else if (health < maxHealth)
-		. += "<span class='warning'>It looks wounded.</span>"
+		. += SPAN_WARNING("It looks wounded.")
 
 /mob/living/simple_animal/can_name(var/mob/living/M)
 	if(named)
@@ -402,7 +404,7 @@
 
 	if(force_reset || current_blood_state != blood_state)
 		if(blood_overlay)
-			cut_overlay(blood_overlay)
+			CutOverlays(blood_overlay)
 		if(blood_state == BLOOD_NONE)
 			return
 		var/blood_overlay_name = get_blood_overlay_name()
@@ -410,7 +412,7 @@
 		I.color = blood_type
 		I.blend_mode = BLEND_INSET_OVERLAY
 		blood_overlay = I
-		add_overlay(blood_overlay)
+		AddOverlays(blood_overlay)
 
 /mob/living/simple_animal/proc/get_blood_overlay_name()
 	return "blood_overlay"
@@ -475,7 +477,7 @@
 
 //This is called when an animal 'speaks'. It does nothing here, but descendants should override it to add audio
 /mob/living/simple_animal/proc/speak_audio()
-	if(emote_sounds.len)
+	if(LAZYLEN(emote_sounds))
 		make_noise(TRUE)
 	return
 
@@ -598,6 +600,12 @@
 	else
 		attacked_with_item(attacking_item, user)
 
+	if(attacking_item.damtype == DAMAGE_PAIN)
+		playsound(loc, 'sound/weapons/tap.ogg', attacking_item.get_clamped_volume(), 1, -1)
+		return TRUE
+	else
+		return ..()
+
 //TODO: refactor mob attackby(), attacked_by(), and friends.
 /mob/living/simple_animal/proc/attacked_with_item(obj/item/O, mob/user, var/proximity)
 	if(istype(O, /obj/item/trap/animal) || istype(O, /obj/item/gun))
@@ -642,7 +650,7 @@
 	if(ismob(P.firer))
 		handle_attack_by(P.firer)
 
-/mob/living/simple_animal/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags, armor_pen, silent = FALSE)
+/mob/living/simple_animal/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	. = ..()
 	handle_bleeding_timer(damage)
 	handle_blood()
@@ -760,7 +768,10 @@
 		to_chat(usr, SPAN_WARNING("Ability on cooldown 2 seconds."))
 		return
 
-	playsound(src, pick(emote_sounds), 75, 1)
+	var/sound_to_play = LAZYPICK(emote_sounds, FALSE)
+	if(sound_to_play)
+		playsound(src, sound_to_play, 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+
 	if(client)
 		sound_time = FALSE
 		addtimer(CALLBACK(src, PROC_REF(reset_sound_time)), 2 SECONDS)
@@ -800,7 +811,7 @@
 	if(speak_emote.len)
 		verb = pick(speak_emote)
 
-	if(emote_sounds.len)
+	if(LAZYLEN(emote_sounds))
 		var/sound_chance = TRUE
 		if(client) // we do not want people who assume direct control to spam
 			sound_chance = prob(50)

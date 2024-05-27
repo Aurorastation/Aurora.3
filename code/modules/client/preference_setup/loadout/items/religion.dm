@@ -223,31 +223,52 @@
 	abstract_type = /datum/gear/religion/assunzione
 	religion = RELIGION_LUCEISM
 
-/datum/gear/religion/assunzione/robe
-	display_name = "assunzione robe selection"
-	description = "A selection of robes worn by adherents to Luceism."
+/datum/gear/religion/assunzione/scripture
+	display_name = "luceian scripture"
+	description = "A collection of texts belonging to Luceism, the dominant religion of Assunzione."
+	path = /obj/item/device/versebook/assunzione
+
+/datum/gear/religion/assunzione/cloak
+	display_name = "assunzione cloak selection"
+	description = "A violet cloak adorned with gold inlays worn by devout adherents of Luceism, the dominant faith of Assunzione."
 	path = /obj/item/clothing/accessory/poncho/assunzione
+	slot = slot_wear_suit
+
+/datum/gear/religion/assunzione/cassock
+	display_name = "assunzione clerical cassock"
+	description = "A simple black-and-purple linen cassock worn by clergyfolk of Luceism, the dominant faith of Assunzione."
+	path = /obj/item/clothing/under/assunzione/priest
+	slot = slot_w_uniform
+
+/datum/gear/religion/assunzione/robe
+	display_name = "assunzione clerical robe"
+	description = "A violet cloak adorned with gold inlays worn by devout adherents of Luceism, the dominant faith of Assunzione."
 	slot = slot_wear_suit
 
 /datum/gear/religion/assunzione/robe/New()
 	..()
-	var/list/assunzionerobe = list()
-	assunzionerobe["assunzione robe"] = /obj/item/clothing/accessory/poncho/assunzione
-	assunzionerobe["assunzione vine-inlaid robe"] = /obj/item/clothing/accessory/poncho/assunzione/vine
-	assunzionerobe["assunzione gold-inlaid robe"] = /obj/item/clothing/accessory/poncho/assunzione/gold
-	gear_tweaks += new /datum/gear_tweak/path(assunzionerobe)
+	var/list/robe = list()
+	robe["Pyramidical keeper robe"] = /obj/item/clothing/suit/storage/hooded/wintercoat/assunzione_robe
+	robe["Astructural keeper robe"] = /obj/item/clothing/suit/storage/hooded/wintercoat/assunzione_robe/alt
+	gear_tweaks += new /datum/gear_tweak/path(robe)
 
 /datum/gear/religion/assunzione/accessory
 	display_name = "luceian amulet"
 	path = /obj/item/clothing/accessory/assunzione
 	slot = slot_tie
 
+/datum/gear/religion/assunzione/scripture
+	display_name = "luceian scripture"
+	path = /obj/item/device/versebook/assunzione
+
+/datum/gear/religion/assunzione/scripture/New()
+	..()
+	var/list/book = list()
+	book["luceian book of scripture"] = /obj/item/device/versebook/assunzione
+	book["pocket luceian book of scripture"] = /obj/item/device/versebook/assunzione/pocket
+	gear_tweaks += new /datum/gear_tweak/path(book)
+
 /datum/gear/religion/assunzione/orb
 	display_name = "assunzione warding sphere"
-	description = "A religious artefact commonly associated with Luceism."
-	path = /obj/item/assunzioneorb
-
-/datum/gear/religion/assunzione/sheath
-	display_name = "assunzione warding sphere sheath"
-	description = "A small metal shell designed to hold a warding sphere."
-	path = /obj/item/storage/assunzionesheath
+	description = "A holy religious artifact and a core aspect of worship in Luceism. Comes in a protective case."
+	path = /obj/item/storage/assunzionesheath/filled

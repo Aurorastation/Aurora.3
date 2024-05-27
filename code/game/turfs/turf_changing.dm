@@ -133,6 +133,8 @@
 	for(var/turf/T in RANGE_TURFS(1, src))
 		T.update_icon()
 
+	updateVisibility(src, FALSE)
+
 /turf/proc/transport_properties_from(turf/other)
 	if(!istype(other, src.type))
 		return 0
@@ -181,11 +183,11 @@
 	other.roof_flags = roof_flags
 	other.roof_type = roof_type
 
-	if (our_overlays)
-		other.our_overlays = our_overlays
+	if (atom_overlay_cache)
+		other.atom_overlay_cache = atom_overlay_cache
 
-	if (priority_overlays)
-		other.priority_overlays = priority_overlays
+	if (atom_protected_overlay_cache)
+		other.atom_protected_overlay_cache = atom_protected_overlay_cache
 
 	other.overlays = overlays.Copy()
 

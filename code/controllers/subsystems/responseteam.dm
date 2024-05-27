@@ -130,13 +130,13 @@ SUBSYSTEM_DEF(distress)
 	set desc = "Send an emergency response team to the ship."
 
 	if(!holder)
-		to_chat(usr, "<span class='danger'>Only administrators may use this command.</span>")
+		to_chat(usr, SPAN_DANGER("Only administrators may use this command."))
 		return
 	if(!ROUND_IS_STARTED)
-		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
+		to_chat(usr, SPAN_DANGER("The round hasn't started yet!"))
 		return
 	if(SSdistress.send_emergency_team)
-		to_chat(usr, "<span class='danger'>[SSatlas.current_map.boss_name] has already dispatched an emergency response team!</span>")
+		to_chat(usr, SPAN_DANGER("[SSatlas.current_map.boss_name] has already dispatched an emergency response team!"))
 		return
 	if(alert("Do you want to dispatch an Emergency Response Team?",,"Yes","No") != "Yes")
 		return
@@ -152,7 +152,7 @@ SUBSYSTEM_DEF(distress)
 	var/choice = input(usr, "Select the response team type.","Response Team Selection", plaintext_teams)
 
 	if(SSdistress.send_emergency_team)
-		to_chat(usr, "<span class='danger'>Looks like somebody beat you to it!</span>")
+		to_chat(usr, SPAN_DANGER("Looks like somebody beat you to it!"))
 		return
 
 	message_admins("[key_name_admin(usr)] is dispatching a Response Team: [choice].", 1)

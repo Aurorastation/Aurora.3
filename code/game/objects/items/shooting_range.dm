@@ -24,7 +24,7 @@
 			return TRUE
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(0, user))
-			cut_overlays()
+			ClearOverlays()
 			LAZYCLEARLIST(bullet_holes)
 			icon = initial(icon)
 			hp = initial(hp)
@@ -97,7 +97,7 @@
 			virtual_icon.DrawBox(null, B.b2x, B.b2y1,  B.b2x, B.b2y2) // vertical line, top to bottom
 
 
-		add_overlay(bmark) // add the decal
+		AddOverlays(bmark) // add the decal
 		icon = virtual_icon // apply bullet_holes over decals
 		return
 

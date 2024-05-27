@@ -1,0 +1,397 @@
+2023-02-02:
+  Alberyk, Atteria, Canon35, Wowzewow (Wezzy), NiennaB, Kyres1, KingOfThePing:
+  - rscadd: Added the S&#x27;rand&#x27;marr space sector, including its lore planets
+      as visitable exoplanets with their own unique ruins.
+  PurplePineapple:
+  - rscadd: Added a cropped leather jacket to the loadout. It&#x27;s just the standard
+      toggle jacket with new icons.
+  - imageadd: Cropped leather jacket icons, originally made by GeneralPantsu for SojournStation13.
+      Edited slightly to fit Aurora icons.
+  SleepyGemmy:
+  - rscadd: Adds a high back and X-shaped back version of the overalls.
+  - rscadd: Adds a shorts and skirt version of the overalls and its variants.
+  - tweak: Turns the loadout overalls into an accessory to allow for layering and
+      lets them be worn as both overwear and an accessory.
+  - tweak: Turns the shorts into a contained sprite and cleans up the code.
+2023-02-03:
+  FluffyGhost:
+  - rscadd: The ship sensors now work as a sonar or radar, obscuring the view when
+      the first object is pinged, otherwise the things not in range will not be seen.
+  - rscadd: The ships now need to be scanned before they appear and are identified,
+      which takes a little of time.
+  - rscadd: New instruments implementation, using a mostly a synthesizer.
+  - tweak: Trader and maintenance can now have a guitar, violin or trumpeth
+  - backend: Sound synthesizer based on sound tokens and player.
+  - rscdel: Old instruments implementation.
+  Geeves:
+  - rscadd: Added temperature pack accessories to the loadout menu, with heat and
+      cold cooling/warming by 5 degrees celsius, and volcano and blizzard cooling/warming
+      by 10 degrees celsius.
+  - tweak: Temperature discomfort messages are now based off body temperature instead
+      of the temperature of the air your breath.
+  - rscadd: Humans now sweat to get rid of heat.
+  - rscadd: Hostile mobs now think and react faster while in a combat state.
+  - tweak: Hostile mobs now attack the target nearest to them.
+  - rscadd: Exosuit chassis now have a baseline level of medium armor, so even mechs
+      without dedicated armor can resist blows.
+  - tweak: The gravity generator now recovers faster after locking on, and the throws
+      have been made asynchronous so recharging starts faster.
+  - rscadd: Remote controlled exosuits can now be disassembled for repair, just use
+      a wrench on them while the maintenance protocols are active.
+  - bugfix: Examining exosuits now properly state when the component is completely
+      broken.
+  - bugfix: Roundstart Ripley exosuits now properly spawn with armor.
+  - bugfix: Fixed a bug that caused exosuit and simple mobs attacks to ignore exosuit
+      armor.
+  - bugfix: Fixed a bug that caused simple mobs to aggro on people inside exosuits
+      and attack them directly, bypassing the exosuit.
+  MattAtlas:
+  - experiment: Overmap processing is now on a priority subsystem. This means that
+      ships will now be REALLY fast, and should keep being fast even when the server
+      is lagging.
+  - bugfix: You can no longer combat roll/turn more than once at a time.
+  - bugfix: Maneuvers can no longer throw you into deep space.
+  - tweak: Lowered Physician slots to 2.
+  - tweak: Lowered Medical Intern slots to 2.
+  Nope63:
+  - maptweak: Adds a power knot to Xenoarchaeology for powering emitters.
+  SleepyGemmy:
+  - maptweak: Tweaks the kitchen foyer wall mountable layout slightly. Gives hydroponics
+      a window so they can listen to kitchen conversations.
+  Sniblet:
+  - tweak: Zeng-Hu Emotion Manipulators now give you SPAN_GOOD instead of SPAN_NOTICE
+      messages. This means they are green.
+  - spellcheck: Added punctuation to &#x27;feeling&#x27; artifact effects.
+  - backend: /reagent/toxin/phoron no longer spawns in-game, replaced with three new
+      types.
+  - rscadd: Phoron can be phoron/pure, which is the one the SCC is looking for, phoron/kois,
+      which spawns in unfiltered k&#x27;ois bars and k&#x27;ois fungus and is only
+      useful for poisoning, causing mycosis, and vaurca respiration, or phoron/kois/black,
+      which is useful for bioterrorism.
+  - bugfix: This means that you can no longer solve the phoron crisis with k&#x27;ois.
+      For now?
+  WickedCybs:
+  - bugfix: Fixed some navpoints on the outside of the Horizon. The upper deck had
+      duplicated navpoints that were not set properly. Few of the navpoints were too
+      close to the map border too. Should make it safer to go to those and reduce
+      ahelps.
+  - tweak: Lowers the prices of a few ling abilities by one. Affects arm blade, blind
+      sting, silence sting.
+  - tweak: Added that dying in horror form as a changeling is permanent to the ability
+      help text.
+  WickedCybs, MattAtlas:
+  - rscadd: Added the blue river away site. That might be familiar to those coming
+      from other baycode servers. It still has its stuff and some changes for the
+      Aurora
+  - bugfix: Multi-Z away sites are fixed as part of this PR. There was some issue
+      involving them that Matt handled.
+2023-02-04:
+  Geeves:
+  - bugfix: You will no longer lose internals if you drop a mask/helmet and have an
+      airtight helmet/mask to spare.
+  - bugfix: You will now lose internals if you drop a helmet and don&#x27;t have an
+      airtight mask to spare.
+  KingOfThePing:
+  - bugfix: Fixed a missing item state of the cropped designer jacket.
+  MattAtlas:
+  - bugfix: Overmap hazards are no longer coloured for no reason.
+  Scheveningen:
+  - balance: Rounds out Revenant damage resistances to 25% reduction to brute or burn.
+      Removes the evasion mechanic vs. lasers.
+  - tweak: Revenants can now be totally understood by Tau Ceti speakers. Revenants
+      also now have different contextual speaking verbage! This aims to make them
+      seem more ghostly instead of disgusting.
+  - rscdel: Removes the sound effect howl when Revenants speak. It was just annoying.
+  Sniblet:
+  - bugfix: Phoron works again
+  - rscdel: K&#x27;ois contaminated phoron has been recalled until it can be implemented
+      in a way that doesn&#x27;t break all phoron
+2023-02-05:
+  Geeves:
+  - backend: Tips are now handled in the code rather than via config, so you may see
+      some new ones that the server hasn&#x27;t been updated for yet.
+  Geeves, Kyres1, Ramke:
+  - rscadd: Added a new shorter tail type for Tajara.
+  - rscadd: Added a colorable tail cloth accessory for the standard Tajara tail.
+  SimpleMaroon:
+  - bugfix: The Zeng-Hu Nralakk division cloak is no longer invisible on your person.
+2023-02-06:
+  RustingWithYou:
+  - maptweak: Adds welding helmets and first aid kits to the PRA mining camp away
+      site.
+  WickedCybs:
+  - rscadd: Added a Zeng-Hu and military version of the tactical goon goggles added
+      by HappyFox.
+  - rscadd: There is a medical goggles loadout selection now. Only First Responders
+      can select these.
+  - tweak: Renamed the tactical goggles selection due to the above. The label &#x27;security&#x27;
+      is appended to it.
+  - bugfix: Fixes the tactical goggles not offering any flash protection until you
+      pushed it up and then back down.
+  - rscadd: Added the generic military goggles to the mercenary spawn zone and the
+      three Solarian offships
+  - tweak: Safety goggles now inherently layer above hair unless you adjust them.
+2023-02-07:
+  Alberyk, Kyres1, KingOfThePing:
+  - rscadd: Added a framework that allows space sector to have their custom lobby
+      art, icon and sounds.
+  - rscadd: Added unique lobby assets for Adhomai.
+  Connorjg1:
+  - spellcheck: Fix the capitalization for mentions of Vaurca Hive.
+  Geeves:
+  - rscadd: Piloting a ship or shuttle while confused, such as when drunk or under
+      the effects of some chemicals, now has a chance to offset the angle you meant
+      to go in.
+  - bugfix: Tactical goggles now process HUDs correctly.
+  MattAtlas:
+  - rscadd: Cryo now works correctly for offships. If your mob doesn&#x27;t despawn
+      when you ghost, it means that there isn&#x27;t a cryogenic oversight computer
+      mapped in.
+  - rscadd: Added origin and culture restrictions for ghost spawners. Currently only
+      implemented for Solarian offships.
+  - backend: Ported the radiation subsystem from Baystation. Radiation will now behave
+      more realistically.
+  - rscadd: Added geiger counters.
+  - rscadd: Asteroid exoplanets now always spawn next to the Horizon.
+  Ramke:
+  - bugfix: Tails will now appear on ghost roles and spawned mobs that are meant to
+      have a tail.
+  RyverStyx:
+  - rscadd: Added skrell bandana to Skrell loadout.
+  SleepyGemmy:
+  - bugfix: Adds lights to the telecommunications server hall.
+  Sniblet:
+  - tweak: Bigger, scarier font for the one notification you get that black k&#x27;ois
+      has lobotomized you.
+  TheDanseMacabre:
+  - tweak: The CE&#x27;s hardsuit will now spawn with an integrated suit cooler for
+      our IPC friends.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes invisible bloodbag boxes.
+2023-02-08:
+  Caelphon:
+  - rscadd: Added a new recipe called Ration Coffee. 2u Coffee and 1u Water make it.
+  Geeves:
+  - bugfix: Spawning with Aut&#x27;akh graspers will no longer duplicate your right
+      hand.
+  SleepyGemmy:
+  - bugfix: Fixes the overalls sprites missing their shoulder straps.
+  - bugfix: Fixes the Zeng-Hu surgical apron being invisible.
+  - bugfix: Fixes the chef jackets being invisible.
+  - tweak: Makes identification card&#x27;s names flow better when read.
+  - tweak: Cleans up and improves the guest pass terminal&#x27;s code.
+  - bugfix: Makes the arrivals announcer announce the map type instead of just &quot;station&quot;.
+  TheDanseMacabre:
+  - tweak: Bags of holding have been renamed and made adminspawn only.
+  - tweak: The default character now has skin tone 125 with the haircut bedhead 2
+      instead of skin tone 35 and bald.
+  - tweak: Some monsters can no longer spawn in the warehouse.
+  - tweak: Some monsters can no longer be spawned by golden slime cores.
+  - tweak: Living mushrooms are now adminspawn only.
+  - tweak: Some drinks have been renamed and refluffed. Soda cans are now properly
+      labelled.
+  - bugfix: The 10mm pistol and ammo lockers in the crew armory are now properly labelled,
+      and the fortification supplies are better organized.
+  Wowzewow (Wezzy):
+  - rscadd: Ports med-pouches from Bay. Contents in medical kits have been changed
+      to reflect this.
+  - tweak: Cough syrup&#x27;s chemical is now named antidexafen. Any similarity with
+      any chemicals, living or dead, is purely coincidental.
+2023-02-09:
+  Alberyk, Kyres1:
+  - rscadd: Added Adhomian flora.
+  - tweak: Added the orion and the independent freight to s&#x27;rand&#x27;marr.
+  - tweak: Regular asteroids no longer spawn in s&#x27;rand&#x27;marr.
+  - tweak: Adhomai and Raskara now spawn closer to the ship.
+  Connorjg1:
+  - maptweak: Adjusted the Adhomai inn to make it seem more lived in and fuctional.
+  - tweak: The Amohdan Swordsman now has basic medical equipment.
+  - bugfix: The bayonet locker has been fixed and no longer has the wrong access on
+      the Hailstorm.
+  TheDanseMacabre:
+  - rscadd: Added a Konyanger hachimaki headband to the loadout.
+  - rscadd: Added a Wildlands Squadron uniform, a generic side cap, and four factional
+      side caps to the loadout.
+  kyres1:
+  - rscadd: Added new sprites based off of our current roster of third-party ships.
+  - tweak: Remade all overmap sprites.
+2023-02-10:
+  Alberyk:
+  - bugfix: Fixed the sensor relay having no sprites.
+  Caelphon:
+  - rscadd: Added a Gramophone, specifically for usage on Adhomai.
+2023-02-11:
+  TheDanseMacabre:
+  - rscadd: Replaced the captain&#x27;s antique laser gun with a unique variant of
+      the autorevolver.
+2023-02-12:
+  Afya:
+  - tweak: ALOOC to use ALOOC instead of Admin-LOOC
+  Albery:
+  - bugfix: Fixed the Adhomai geist spawn not working properly.
+  Geeves:
+  - rscadd: Ghostspawner ships now only spawn into the game area once its first crewmember
+      wakes up.
+  RyverStyx:
+  - tweak: Some pixels were the wrong color. Changed them to match.
+  SimpleMaroon:
+  - rscadd: Added a native Burzsian accent. The accent can be selected by the Coalition
+      Offworlders origin under the Coalition of Colonies culture.
+  TheDanseMacabre:
+  - tweak: Starlight strength and range is now dictacted on a per-sector basis instead
+      of relying on the config.
+  - bugfix: The captain&#x27;s autorevolver&#x27;s drop code now works correctly.
+2023-02-13:
+  Alberyk:
+  - tweak: Some away sites have different sprites and colors.
+  - tweak: S&#x27;rand&#x27;marr overmap planet objects now have lore accurate icons.
+  DreamySkrell:
+  - tweak: Changes the sensors console range input to a button selection ranging from
+      1 to max sensor range.
+  - tweak: Tweaks sensors suites max range and heat efficiency values. Standard sensors
+      are now 10 max range, and sustainable heat is at 4 range. Strong sensors are
+      14/6, weak are 7/4.
+  - tweak: Horizon&#x27;s sensors suite is now the &#x27;strong&#x27; variant.
+  SleepyGemmy:
+  - rscdel: Removes the decrepit, unused skills in the loadout.
+2023-02-14:
+  Alberyk:
+  - bugfix: Fixed the Okon ore unloading machine.
+  Geeves:
+  - rscadd: Added grenade and large grenade casings to the Autolathe, under the Arms
+      and Ammunition section. Large casings are only available in hacked lathes.
+  - rscdel: Removed the option to print large grenade casings from Protolathes.
+  MattAtlas:
+  - bugfix: Fixes HE pipes being invisible.
+  - bugfix: Fixes photocopiers not having an eject paper button.
+  - bugfix: Fixed lattice welding not consuming fuel.
+  - bugfix: Fixed a wrong button label.
+  - rscadd: Added machetes and machete holsters to the excavation closets in Research
+      EVA and to the expedition weaponry locker in the Intrepid.
+  - rscadd: Material weapons now have armour penetration (increasing further if their
+      damage exceeds a maximum force of 40), with the effectiveness depending on the
+      material.
+  - rscadd: Added high-power sensors. When toggled at a sensor console (must be using
+      normal or better sensors) they will scan things through opaque overmap objects
+      in a wide range. They add heat, so be careful.
+  - rscadd: A report containing the bearings of all overmap objects is now sent to
+      Horizon command consoles within 180 seconds from roundstart.
+  - bugfix: Fixed there being odd rows of blank spaces before sensor contacts.
+  WickedCybs:
+  - bugfix: The Intrepid navpoint was moved back to its original position in roughly
+      the middle of the shuttle. The recent change to its position ended up causing
+      issues on away sites and how it interacted with other overmap ships.
+  - bugfix: Some of the bridge deck navpoints had identical names and that meant they
+      wouldn&#x27;t work. That&#x27;s been fixed too
+  Wowzewow (Wezzy):
+  - rscadd: Security jobs now start with black gloves as part of their default loadout.
+      Tajarans and Unathi should spawn with toeless boots depending on their job.
+  - rscadd: The Chief Engineer spawns with insuls now.
+2023-02-15:
+  Alberyk:
+  - bugfix: Fixed the hailstorm not having telecomms equipment.
+  DreamySkrell:
+  - maptweak: Expands and tweaks the CIC bunker layout and interior.
+  Geeves:
+  - tweak: Disabling the access lock on a hardsuit maintenance panel now unlocks the
+      hardsuit entirely, meaning anyone can use it.
+  - tweak: Increased the melee, laser, and bomb resistances of the industrial hardsuit.
+  GeneralCamo:
+  - rscdel: Dionaea can no longer represent Idris Incorporated, or Zavodskoi Interstellar.
+  - bugfix: Dionaea coeus are also blacklisted from being PMCG rep, in addition to
+      standard dionaea.
+  Ryverstyx:
+  - rscadd: Adds more Skrell hair styles.
+  anconfuzedrock:
+  - bugfix: Medical computers can now download other programs.
+2023-02-16:
+  Alberyk, Kyres1:
+  - rscadd: Added a PRA mech, the P&#x27;kus-3, to the headmaster ship and the people&#x27;s
+      space station.
+  - rscadd: Added the Ha&#x27;rron, with hostile, domesticated and cybernetic versions.
+  DreamySkrell:
+  - tweak: Sensors gradually &#x27;spool up&#x27; and &#x27;spool down&#x27; to the
+      desired range setting, instead of switching instantly.
+2023-02-17:
+  SleepyGemmy:
+  - bugfix: Fixes potted plants being anchored.
+  - bugfix: Fixes the starboard Intrepid airlock sensor not following the Intrepid
+      when taking off.
+  - bugfix: Fixes the deck 3 dormitory APC being unconnected.
+  - bugfix: Fixes the random maintenance loot spawner not having a sprite when mapping.
+  - bugfix: Fixes tajaran voidsuits being unable to hold weapons in its storage slot.
+  - bugfix: Fixes .45 silenced pistol not fitting in military belts.
+2023-02-19:
+  Alberyk:
+  - rscadd: 'Added a new random ruin to Adhomai: the pra fallout bunker.'
+  DreamySkrell:
+  - maptweak: Makes the bridge helm slightly larger, rearranging its layout a tiny
+      bit.
+  Pirouette:
+  - bugfix: Left and right states for the reef ponytail now match.
+  WickedCybs:
+  - bugfix: The bridge deck should actually have more than 3 navpoints outside of
+      it now. They were already implemented, it just wasn&#x27;t possible to use them
+      due to a coding issue.
+  anconfuzedrock:
+  - rscadd: Modified evening gloves and colorable gloves are now available for unathi.
+  harryob:
+  - backend: Forces the GitHub Actions workflow runner to use Node16, instead of Node18.
+2023-02-20:
+  Sheeplets:
+  - rscadd: Added the old-style chef jackets to the Dinnerware&#x27;s default stock.
+      Two per.
+  SleepyGemmy:
+  - rscdel: Removes the flash and handcuffs that spawn security&#x27;s bag on round
+      start or when joining.
+  - bugfix: Fixes the puffy skirt sprite.
+  TheDanseMacabre:
+  - rscadd: Added a headband you can attach to your helmet to the militia armory,
+      which is supposed to denote team leaders.
+  - rscadd: Added 40mm fragmentation ammo for the Francisca, and gives a few boxes
+      to all ships with one.
+  anconfuzedrock:
+  - bugfix: Changes the names of the new unathi glove loadout selection to avoid confusion.
+2023-02-22:
+  Wowzewow (Wezzy):
+  - bugfix: Fixes post_equip for engineering and security shoes.
+  - bugfix: Forensic tech gloves now spawn in backpacks rather than being overwritten.
+2023-02-24:
+  GeneralCamo:
+  - bugfix: Fixed the Orion Express representative being unselectable.
+  SleepyGemmy:
+  - bugfix: Fixes some missing flora descriptions.
+2023-02-25:
+  Alberyk:
+  - bugfix: Bushes no longer block movement.
+  - bugfix: Adhomian bushes are no longer invisible.
+  Alberyk, Kyres1:
+  - rscadd: Added a copy of the Adhomian map to the captain&#x27;s office for the
+      duration of the Cold Dawn arc.
+  Connorjg1:
+  - rscadd: Added the ability for Zo&#x27;ra and K&#x27;lax Ta to take their respective
+      host nation&#x27;s citizenship as Consular officer.
+  Ramke:
+  - tweak: Wood can now be used to craft bonfires.
+  - bugfix: Can no longer take burning sticks from unlit bonfires.
+  SleepyGemmy:
+  - bugfix: Makes the cockpit of the Orion Express station&#x27;s shuttle more accessible.
+2023-02-26:
+  Alberyk:
+  - bugfix: Fixed the deserter ghost role loadout.
+2023-02-27:
+  Alberyk:
+  - rscadd: Cyborgs can now use the succumb verb.
+  Ryverstyx:
+  - rscadd: Adds more Skrell hair styles.
+  Sheeplets:
+  - maptweak: Removed the dividing walls in Medical&#x27;s operating rooms to free
+      up extra space. Replaced them with privacy curtains with emergency shutters
+      underneath.
+  SimpleMaroon:
+  - rscadd: Added a generic, colorable necklace to the loadout.
+  SleepyGemmy:
+  - bugfix: Fixed potted plants blocking movement.
+  Sniblet:
+  - tweak: NT Quik-Pay is small instead of normal size and can fit on your belt. The
+      long green bit folds now.

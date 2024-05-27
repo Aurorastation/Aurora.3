@@ -56,7 +56,7 @@
 	anchored = FALSE
 	light_range = 4
 	light_power = 1
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 	var/gasefficency = 0.25
 
@@ -324,7 +324,7 @@
 		if(l.is_diona())
 			l.adjustToxLoss(-rads)
 			if(last_message_time + 800 < world.time) // Not to spam message
-				to_chat(l, "<span class='notice'>You can feel an extreme level of energy which flows through your body and makes you regenerate very fast.</span>")
+				to_chat(l, SPAN_NOTICE("You can feel an extreme level of energy which flows through your body and makes you regenerate very fast."))
 	last_message_time = world.time
 
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation

@@ -35,22 +35,22 @@
 	update_icon()
 
 /obj/item/reagent_containers/glass/bottle/update_icon() // You know, bottles should be a subtype of beakers. But not gonna change a million and one paths today. - Wezzy.
-	cut_overlays()
+	ClearOverlays()
 
 	if(reagents?.total_volume)
 		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 	if(!is_open_container())
 		var/lid_icon = "lid_[icon_state]"
 		var/mutable_appearance/lid = mutable_appearance(icon, lid_icon)
-		add_overlay(lid)
+		AddOverlays(lid)
 
 	if(label_text)
 		var/label_icon = "label_[icon_state]"
 		var/mutable_appearance/label = mutable_appearance(icon, label_icon)
-		add_overlay(label)
+		AddOverlays(label)
 
 /obj/item/reagent_containers/glass/bottle/inaprovaline
 	name = "inaprovaline bottle"
@@ -145,15 +145,15 @@
 
 /obj/item/reagent_containers/glass/bottle/pyrosilicate
 	name = "pyrosilicate bottle"
-	desc = "A small bottle. Contains pyrosilicate - used to heat up reagents."
+	desc = "A small bottle. Contains pyrosilicate which is used to heat up reagents."
 	icon_state = "bottle-4"
 	reagents_to_add = list(/singleton/reagent/pyrosilicate = 60)
 
-/obj/item/reagent_containers/glass/bottle/cryosurfactant
-	name = "cryosurfactant bottle"
-	desc = "A small bottle. Contains cryosurfactant - used to cool down reagents."
+/obj/item/reagent_containers/glass/bottle/cryosilicate
+	name = "cryosilicate bottle"
+	desc = "A small bottle. Contains cryosilicate which is used to cool down reagents."
 	icon_state = "bottle-4"
-	reagents_to_add = list(/singleton/reagent/cryosurfactant = 60)
+	reagents_to_add = list(/singleton/reagent/cryosilicate = 60)
 
 /obj/item/reagent_containers/glass/bottle/epinephrine
 	name = "epinephrine bottle"
@@ -229,7 +229,7 @@
 
 /obj/item/reagent_containers/glass/bottle/trioxin
 	name = "hylemnomil-zeta vial"
-	desc = "A small, unmarked lial with an ominous label. <span class='cult'>It contains a swirling, purple liquid.</span>"
+	desc = "A small, unmarked vial with an ominous label. <span class='cult'>It contains a swirling, purple liquid.</span>"
 	icon_state = "bouteille"
 	reagents_to_add = list(/singleton/reagent/toxin/hylemnomil = 60)
 

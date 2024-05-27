@@ -2,12 +2,15 @@
 	name = "Golden Deep Merchant Vessel"
 	id = "golden_deep"
 	description = "A mercantile transport vessel, registered to the Golden Deep."
-	suffixes = list("ships/golden_deep/golden_deep_merchant.dmm")
+
+	prefix = "ships/golden_deep/"
+	suffixes = list("golden_deep_merchant.dmm")
+
 	ship_cost = 1
 	spawn_weight = 1
 
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/golden_deep)
-	sectors = list(SECTOR_HANEUNIM, ALL_TAU_CETI_SECTORS, ALL_COALITION_SECTORS)
+	sectors = list(ALL_TAU_CETI_SECTORS, ALL_COALITION_SECTORS)
 
 	unit_test_groups = list(1)
 

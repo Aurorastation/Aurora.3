@@ -57,7 +57,7 @@
 
 	if(usr == src) //client-called emote
 		if (client && (client.prefs.muted & MUTE_IC))
-			to_chat(src, "<span class='warning'>You cannot send IC messages (muted).</span>")
+			to_chat(src, SPAN_WARNING("You cannot send IC messages (muted)."))
 			return
 
 		if(act == "help")
@@ -74,7 +74,7 @@
 			return
 
 		if(!can_emote(m_type))
-			to_chat(src, "<span class='warning'>You cannot currently [m_type == AUDIBLE_MESSAGE ? "audibly" : "visually"] emote!</span>")
+			to_chat(src, SPAN_WARNING("You cannot currently [m_type == AUDIBLE_MESSAGE ? "audibly" : "visually"] emote!"))
 			return
 
 		if(act == "me")
@@ -118,7 +118,7 @@
 	// Oh shit, we got this far! Let's see... did the user attempt to use more than one token?
 	if(findtext(subtext, anchor_char))
 		// abort abort!
-		to_chat(emoter, "<span class='warning'>You may use only one \"[anchor_char]\" symbol in your emote.</span>")
+		to_chat(emoter, SPAN_WARNING("You may use only one \"[anchor_char]\" symbol in your emote."))
 		return
 
 	if(pretext)
@@ -190,7 +190,7 @@
 
 	if(src.client)
 		if(src.client.prefs.muted & (MUTE_DEADCHAT|MUTE_IC))
-			to_chat(src, "<span class='warning'>You cannot emote in deadchat (muted).</span>")
+			to_chat(src, SPAN_WARNING("You cannot emote in deadchat (muted)."))
 			return
 
 	. = src.emote_dead(message)

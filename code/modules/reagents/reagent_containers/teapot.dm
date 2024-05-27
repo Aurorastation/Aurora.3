@@ -31,7 +31,7 @@
 /obj/item/reagent_containers/glass/beaker/teapot/lidded/update_icon()
 	if(lid)
 		icon_state = initial(icon_state) + "_lid"
-		cut_overlays()
+		ClearOverlays()
 	else
 		..()
 		icon_state = initial(icon_state)

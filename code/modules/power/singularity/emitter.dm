@@ -51,7 +51,7 @@
 	if(special_emitter)
 		message_admins("Emitter deleted at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
 		log_game("Emitter deleted at ([x],[y],[z])")
-		investigate_log("<span class='warning'>deleted</span> at ([x],[y],[z])","singulo")
+
 	QDEL_NULL(wifi_receiver)
 	QDEL_NULL(spark_system)
 	QDEL_NULL(signaler)
@@ -66,10 +66,10 @@
 			wifi_receiver = new(_wifi_id, src)
 
 /obj/machinery/power/emitter/update_icon()
+	ClearOverlays()
 	if(active && powernet && avail(active_power_usage))
-		icon_state = "emitter_+a"
-	else
-		icon_state = "emitter"
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
 
 /obj/machinery/power/emitter/attack_hand(mob/user)
 	add_fingerprint(user)
@@ -117,7 +117,7 @@
 	activate(null)
 	return TRUE
 
-/obj/machinery/power/emitter/process()
+/obj/machinery/power/emitter/process(seconds_per_tick)
 	if(stat & (BROKEN))
 		return
 	if(state != EMITTER_WELDED || (!powernet && active_power_usage))
@@ -152,7 +152,7 @@
 		var/burst_time = (min_burst_delay + max_burst_delay) / 2 + 2 * (burst_shots - 1)
 		var/power_per_shot = active_power_usage * (burst_time / 10) / burst_shots
 
-		playsound(get_turf(src), 'sound/weapons/emitter.ogg', 15, TRUE, 2, 0.5, TRUE)
+		playsound(get_turf(src), 'sound/weapons/emitter.ogg', 15, TRUE, extrarange = (MEDIUM_RANGE_SOUND_EXTRARANGE-1))
 		if(prob(35))
 			spark_system.queue()
 

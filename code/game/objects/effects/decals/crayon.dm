@@ -2,7 +2,6 @@
 	name = "rune"
 	desc = "A rune drawn in crayon."
 	icon = 'icons/obj/rune.dmi'
-	layer = 2.1
 	anchored = 1
 
 /obj/effect/decal/cleanable/crayon/Initialize(mapload, main = "#FFFFFF", shade = "#000000", var/type = "rune")
@@ -29,6 +28,6 @@
 		shadeOverlay.Blend(shade,ICON_ADD)
 		SSicon_cache.crayon_cache["[type]_s"] = shadeOverlay
 
-	add_overlay(list(mainOverlay, shadeOverlay))
+	AddOverlays(list(mainOverlay, shadeOverlay))
 
 	add_hiddenprint(usr)

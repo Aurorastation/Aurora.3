@@ -71,7 +71,7 @@ var/datum/antagonist/cultist/cult
 /datum/antagonist/cultist/remove_antagonist(var/datum/mind/player, var/show_message, var/implanted)
 	if(!..())
 		return 0
-	to_chat(player.current, "<span class='danger'>An unfamiliar white light flashes through your mind, cleansing the taint of the dark-one and the memories of your time as his servant with it.</span>")
+	to_chat(player.current, SPAN_DANGER("An unfamiliar white light flashes through your mind, cleansing the taint of the dark-one and the memories of your time as his servant with it."))
 	player.memory = ""
 	if(show_message)
 		player.current.visible_message("<FONT size = 3>[player.current] looks like they just reverted to their old faith!</FONT>")
@@ -79,8 +79,13 @@ var/datum/antagonist/cultist/cult
 		player.current.remove_language(LANGUAGE_CULT)
 		player.current.remove_language(LANGUAGE_OCCULT)
 
-/datum/antagonist/cultist/add_antagonist(var/datum/mind/player)
-	. = ..()
+	remove_verb(player.current, /datum/antagonist/cultist/proc/appraise_offering)
+	remove_verb(player.current, /datum/cultist/proc/memorize_rune)
+	remove_verb(player.current, /datum/cultist/proc/forget_rune)
+	remove_verb(player.current, /datum/cultist/proc/scribe_rune)
+
+/datum/antagonist/cultist/add_antagonist(var/datum/mind/player, var/do_not_equip)
+	. = ..(player, do_not_equip=do_not_equip)
 	if(.)
 		to_chat(player, "You catch a glimpse of the Realm of Nar-Sie, the Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of That Which Waits. Assist your new compatriots in their dark dealings. Their goals are yours, and yours are theirs. You serve the Dark One above all else. Bring It back.")
 		if(player.current && !istype(player.current, /mob/living/simple_animal/construct))
@@ -91,15 +96,6 @@ var/datum/antagonist/cultist/cult
 			add_verb(player.current, /datum/cultist/proc/forget_rune)
 			add_verb(player.current, /datum/cultist/proc/scribe_rune)
 			player.antag_datums[MODE_CULTIST] = new /datum/cultist()
-
-
-/datum/antagonist/cultist/remove_antagonist(var/datum/mind/player)
-	. = ..()
-
-	remove_verb(player.current, /datum/antagonist/cultist/proc/appraise_offering)
-	remove_verb(player.current, /datum/cultist/proc/memorize_rune)
-	remove_verb(player.current, /datum/cultist/proc/forget_rune)
-	remove_verb(player.current, /datum/cultist/proc/scribe_rune)
 
 /datum/antagonist/cultist/can_become_antag(var/datum/mind/player, ignore_role = 1)
 	if(!..())
