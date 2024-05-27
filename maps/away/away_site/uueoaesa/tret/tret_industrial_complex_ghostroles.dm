@@ -147,7 +147,7 @@
 
 /obj/outfit/admin/tret_industrial/vaurca/bulwark
 	mask = list(/obj/item/clothing/mask/gas/vaurca/filter)
-	uniform = list(/obj/item/clothing/under/vaurca/gearharness)
+	uniform = list(/obj/item/clothing/under/gearharness)
 	accessory = null
 
 /obj/outfit/admin/tret_industrial/vaurca/warrior

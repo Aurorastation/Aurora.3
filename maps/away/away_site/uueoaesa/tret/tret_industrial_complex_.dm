@@ -39,7 +39,10 @@
 		"nav_tret_industrial_surface_outpost_3",
 		"nav_tret_industrial_surface_outpost_4",
 		"nav_tret_industrial_surface_outpost_5",
-		"nav_tret_industrial_surface_far",
+		"nav_tret_industrial_surface_far_1",
+		"nav_tret_industrial_surface_far_2",
+		"nav_tret_industrial_surface_far_3",
+		"nav_tret_industrial_surface_far_4",
 	)
 
 /obj/effect/overmap/visitable/sector/tret_industrial_complex/generate_ground_survey_result()
@@ -79,7 +82,7 @@
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/effect/overmap/visitable/ship/landable/tret_industrial/New()
-	designation = pick("Xk'tiik")//, "", "", "", "", "", "")
+	designation = pick("Xk'tiik", "Kl'axkia", "Xahth", "Aaxkia'tiik", "Lak'tixa", "Laxka")
 	..()
 
 /obj/machinery/computer/shuttle_control/explore/terminal/tret_industrial
