@@ -41,9 +41,9 @@
 
 /obj/item/clothing/head/vaurca_breeder/klax/flag
 	desc = "A large shroud used by K'lax representatives. This one proudly displays the flag of Hive K'lax."
-	desc_extended = "Under heavy supervision by the Isweski Nation, the K'laxane flag represents the Hive's Vassalage."
-	item_state = "hive_rep_shroud_klax"
-	icon_state = "hive_rep_shroud_klax"
+	desc_extended = "Under heavy supervision by the Izweski Nation, the K'laxane flag represents the Hive's Vassalage."
+	item_state = "hive_rep_shroud_klax_flag"
+	icon_state = "hive_rep_shroud_klax_flag"
 
 /obj/item/clothing/head/vaurca_breeder/cthur
 	name = "c'thur representative shroud"
