@@ -44,8 +44,8 @@
 	item_state = "hive_rep_shoes_cthur"
 	icon_state = "hive_rep_shoes_cthur"
 
-/obj/item/clothing/shoes/vaurca/breeder/nralakk
-	name = "nralakk representative shoes"
-	desc = "Large shoes used by Nralakk representatives."
-	item_state = "hive_rep_shoes_nralakk"
-	icon_state = "hive_rep_shoes_nralakk"
+/obj/item/clothing/shoes/vaurca/breeder/colorable
+	name = "representative shoes"
+	desc = "Large shoes used by Vaurca Gynes."
+	item_state = "hive_rep_shoes_colorable"
+	icon_state = "hive_rep_shoes_colorable"

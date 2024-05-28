@@ -57,5 +57,11 @@ delete-after: True
 changes:
   - bugfix: "Moved the icon state for the Vaurca Gyne gear harness to a more logical file."
   - spellcheck: "Corrected the word 'representative' in the K'lax Representative Shroud."
-  - imagedel: "Removed the unnecessary Vaurca Gyne shroud sprites from suit.dmi."
+  - spellcheck: "Changed 'large shroud' to 'a large shroud' on all the Vaurca Gyne shroud items."
+  - imageadd: "Added unique Vaurca Gyne shrouds with Hive flags for all three Hives."
+  - imageadd: "Added recolorable Vaurca Gyne shoes, clothes, and shrouds."
   - imageadd: "Added a K'lax rockstone cape to the loadout."
+  - qol: "Changed the star cape from the Nralakk Vaurca Gyne suit to an independent accessory, and made the colors of the stars more in line with the cosmic cape to represent Vaurca Gyne longevity."
+  - imagedel: "Removed the unnecessary Vaurca Gyne shroud sprites from suit.dmi."
+  - imagedel: "Deleted the Nralakk Vaurca Gyne suit due to no longer being needed with the accessory change."
+  - imagedel: "Got rid of the Nralakk representative Vaurca Gyne shoes, as they are exactly the same as the C'thur ones."
