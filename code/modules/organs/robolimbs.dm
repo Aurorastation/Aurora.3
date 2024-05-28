@@ -1,7 +1,7 @@
 GLOBAL_LIST_EMPTY(all_robolimbs)
 GLOBAL_LIST_EMPTY(internal_robolimbs)
 GLOBAL_LIST_EMPTY(chargen_robolimbs)
-GLOBAL_LIST_EMPTY(fabricator_robolimbs)
+GLOBAL_LIST_EMPTY_TYPED(fabricator_robolimbs, /datum/robolimb)
 GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 
 /proc/populate_robolimb_list()
