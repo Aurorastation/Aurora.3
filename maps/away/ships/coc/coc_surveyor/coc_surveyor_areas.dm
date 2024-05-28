@@ -88,5 +88,11 @@
 
 //Shuttle
 
-/area/shuttle/coc_survey_shuttle
-	name = "Coalition Survey Shuttle"
+/area/shuttle/coc_survey_shuttle_main
+	name = "Coalition Survey Shuttle Main Area"
+
+/area/shuttle/coc_survey_shuttle_engineering
+	name = "Coalition Survey Shuttle Engineering"
+
+/area/shuttle/coc_survey_shuttle_airlockcans
+	name = "Coalition Survey Shuttle Airlock Canisters"

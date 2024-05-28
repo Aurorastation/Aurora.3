@@ -23,14 +23,14 @@
 /obj/effect/overmap/visitable/ship/coc_surveyor
 	name = "COC Survey Ship"
 	class = "CCV"
-	desc = "The Galga-class Surveyor is a very recent design, created as apart of a joint venture between Xanu and Himeo, in an effort to better map out the Weeping Stars. Created to be largely self sufficient, its on board refinery allows it to create products for market between ventures into the uncharted areas of the Spur. While the ship is armed, its thin hull, powerful thrusters, and large fuel tanks encourage retreat."
+	desc = "The Galga-class Surveyor is the newest design-by-committee exploratory ship, created in a joint venture between Xanu and Himeo. Initally, its design was tailored for the effort to better map out the Weeping Stars. However, thanks to a clever series of design choices and a highly efficent warp drive, its become an exploratory and survey workhorse. Intended to be largely self sufficient, its onboard refinery allows it to produce metal stock and retail ready minerals for market. The Galga class is armed with a 90mm flak battery straight from the factory. However, its heavy price tag, powerful thrusters, and large fuel tanks discourage the average captain from getting into a scrap."
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
 	colors = list("#8492fd", "#4d61fc")
-	designer = "Coalition of Colonies, Xanu Prime"
+	designer = "Coalition of Colonies, Xanu Prime and Himeo"
 	volume = "60 meters length, 58 meters beam/width, 12 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
-	weapons = "Dual extruding port fore and starboard fore-mounted medium caliber armament, aft obscured flight craft bay"
+	weapons = "Single extruding starboard fore-mounted medium caliber armament, aft obscured shuttle dock."
 	sizeclass = "Galga-class Surveyor"
 	shiptype = "Exploration, mineral and artifact recovery"
 	max_speed = 1/(2 SECONDS)
@@ -50,15 +50,15 @@
 	)
 
 /obj/effect/overmap/visitable/ship/coc_surveyor/New()
-	designation = "[pick("Truffle Pig", "Sapphire", "Unto The Unknown", "Unto The Somewhat Known", "Carbon Hound", "Minerals For Days", "The Not-So-Final Frontier", "Phoron Hunter")]"
+	designation = "[pick("Truffle Pig", "Sapphire", "Unto The Unknown", "Unto The Somewhat Known", "Carbon Hound", "Minerals For Days", "The Not-So-Final Frontier", "Phoron Hunter", "Bloodhound")]"
 	..()
 
 
 /obj/effect/overmap/visitable/ship/landable/coc_survey_shuttle
 	name = "COC Survey Shuttle"
-	desc = "The Minnow-class is a civilian transport shuttle, often used in the Coalition of Colonies."
+	desc = "The Minnow Superduty class is an upgraded and upsized civilian transport shuttle, home grown in the Coalition of Colonies. Boasting a large capacity for storage, a first aid suite, and exosuit charging station. These shuttles are the newest in a long line of industrial workhorses."
 	class = "CCV"
-	designation = "Workhorse"
+	designation = "Minnow Superduty"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	shuttle = "COC Survey Shuttle"

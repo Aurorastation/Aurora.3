@@ -60,11 +60,6 @@
 	landmark_tag = "nav_coc_survey_ship_dock_starboard"
 	master_tag = "airlock_coc_survey_ship_starboard"
 
-/obj/effect/shuttle_landmark/coc_survey_ship/dock_aft
-	name = "Shuttle Dock, Aft"
-	landmark_tag = "nav_coc_survey_ship_dock_starboard"
-	docking_controller = "airlock_coc_survey_ship_dock_starboard"
-
 /obj/effect/map_effect/marker/airlock/docking/coc_survey_ship/dock/aft
 	name = "Dock, Aft"
 	landmark_tag = "nav_coc_survey_ship_dock_aft"
