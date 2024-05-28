@@ -170,7 +170,9 @@
 /obj/item/toy/balloon/bullet_act()
 	burst()
 
-/obj/item/toy/balloon/fire_act(datum/gas_mixture/air, temperature, volume)
+/obj/item/toy/balloon/fire_act(temperature, volume)
+	. = ..()
+
 	if(temperature > T0C+100)
 		burst()
 	return
