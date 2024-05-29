@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - rscadd: "Lowered the minimum timer time to 3 seconds, from 10, allowing shorter grenade fuses."
