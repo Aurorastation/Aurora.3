@@ -670,12 +670,12 @@ BREATH ANALYZER
 	switch(bac)
 		if(INTOX_JUDGEIMP to INTOX_MUSCLEIMP)
 			additional_string = "\[LIGHTLY INTOXICATED\]"
-		if(INTOX_MUSCLEIMP to INTOX_VOMIT)
+		if(INTOX_MUSCLEIMP to INTOX_BALANCE)
 			additional_string = "\[MODERATELY INTOXICATED\]"
-		if(INTOX_VOMIT to INTOX_BALANCE)
-			additional_string = SPAN_WARNING("\[HEAVILY INTOXICATED\]")
-		if(INTOX_BALANCE to INTOX_DEATH)
-			additional_string = SPAN_WARNING("\[ALCOHOL POISONING LIKELY\]")
+		if(INTOX_BALANCE to INTOX_BLACKOUT)
+			additional_string = "<span class='warning'>\[HEAVILY INTOXICATED\]</span>"
+		if(INTOX_BLACKOUT to INTOX_DEATH)
+			additional_string = "<span class='warning'>\[ALCOHOL POISONING LIKELY\]</span>"
 		if(INTOX_DEATH to INFINITY)
 			additional_string = SPAN_WARNING("\[DEATH IMMINENT\]")
 	to_chat(user,"<span class='normal'>Blood Alcohol Content: [round(bac,0.01)] <b>[additional_string]</b></span>")
