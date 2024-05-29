@@ -27,13 +27,13 @@
 #define SUIT_STORE_LAYER      	26
 #define BACK_LAYER            	27
 #define HAIR_LAYER            	28
-#define HAIR_LAYER_EMISSIVE		29
+#define HAIR_LAYER_EMISSIVE		  29
 #define GLASSES_LAYER_ALT     	30
 #define L_EAR_LAYER           	31
 #define R_EAR_LAYER           	32
 #define FACEMASK_LAYER        	33
 #define HEAD_LAYER            	34
-#define L_EAR_LAYER_ALT		  	35
+#define L_EAR_LAYER_ALT		  	  35
 #define R_EAR_LAYER_ALT       	36
 #define GLASSES_LAYER_OVER    	37
 #define COLLAR_LAYER          	38
