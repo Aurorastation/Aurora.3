@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Synthetic eyes can now glow in the dark. In character creation, when selecting the brand of the eyes, select Unbranded Emissive."

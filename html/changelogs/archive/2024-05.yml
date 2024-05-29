@@ -418,3 +418,17 @@
   - refactor: Refactored fire_act() to be in line with TG version, removed useless
       parameter, added signal, made non sleepable and forced to call parent.
   - refactor: Added atom_act.dm file for the various *_act procs.
+2024-05-29:
+  Geeves:
+  - rscadd: Synthetic eyes can now glow in the dark. In character creation, when selecting
+      the brand of the eyes, select Unbranded Emissive.
+  Hollyhock:
+  - qol: Gives the Sani'Orios base a medbay, jetpacks, a tool belt, and a fuel tank
+      for refuelling their fellows in the DPRA.
+  - qol: Gives the poor Hadiist silo guard some rations, cigarettes, a radio, and
+      a Hadiist manifesto. Hadii's grace.
+  - qol: Moves the Hailstorm's reactor and telecomms back to where they were.
+  Sparky_hotdog:
+  - rscadd: Science goggles can now be toggled onto your forehead.
+  TheDanseMacabre:
+  - rscadd: Added a new hairstyle based off of the undercut, Short Curtain.
