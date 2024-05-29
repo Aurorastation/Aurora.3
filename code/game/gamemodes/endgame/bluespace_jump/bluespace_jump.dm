@@ -103,6 +103,8 @@
 	set_dir(GLOB.reverse_dir[new_dir])
 
 /obj/effect/bluegoast/examine()
+	SHOULD_CALL_PARENT(FALSE)
+
 	return daddy?.examine(arglist(args))
 
 /obj/effect/bluegoast/proc/blueswitch()
