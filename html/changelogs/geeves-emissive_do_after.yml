@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Progress bars now render on the HUD layer, meaning it won't be affected by darkness."
