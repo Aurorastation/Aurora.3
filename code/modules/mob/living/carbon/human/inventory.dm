@@ -462,20 +462,21 @@ This saves us from having to call add_fingerprint() any time something is put in
 	return items
 
 
-//Puts the item into our active hand if possible. returns 1 on success.
-/mob/living/carbon/human/put_in_active_hand(var/obj/item/W, set_disable_warning = FALSE)
-	return (hand ? equip_to_slot_if_possible(W, slot_l_hand, disable_warning = set_disable_warning) : equip_to_slot_if_possible(W, slot_r_hand, disable_warning = set_disable_warning))
+/mob/living/carbon/human/put_in_active_hand(obj/item/item_to_equip, set_disable_warning = FALSE)
+	var/hand_to_equip_to = hand ? slot_l_hand : slot_r_hand
+	return equip_to_slot_if_possible(item_to_equip, hand_to_equip_to, disable_warning = set_disable_warning)
 
-//Puts the item into our inactive hand if possible. returns 1 on success.
-/mob/living/carbon/human/put_in_inactive_hand(var/obj/item/W, set_disable_warning = FALSE)
-	return (hand ? equip_to_slot_if_possible(W, slot_r_hand, disable_warning = set_disable_warning) : equip_to_slot_if_possible(W, slot_l_hand, disable_warning = set_disable_warning))
+/mob/living/carbon/human/put_in_inactive_hand(obj/item/item_to_equip, set_disable_warning = FALSE)
+	var/hand_to_equip_to = hand ? slot_r_hand : slot_l_hand
+	return equip_to_slot_if_possible(item_to_equip, hand_to_equip_to, disable_warning = set_disable_warning)
 
-/mob/living/carbon/human/put_in_hands(var/obj/item/W)
-	if(!W)
+/mob/living/carbon/human/put_in_hands(obj/item/item_to_equip)
+	if(QDELETED(item_to_equip) || !istype(item_to_equip))
 		return FALSE
-	if(put_in_active_hand(W, TRUE))
+
+	if(put_in_active_hand(item_to_equip, TRUE))
 		return TRUE
-	else if(put_in_inactive_hand(W, TRUE))
+	else if(put_in_inactive_hand(item_to_equip, TRUE))
 		return TRUE
 	else
 		return ..()
