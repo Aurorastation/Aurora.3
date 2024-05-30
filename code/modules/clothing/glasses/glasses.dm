@@ -269,7 +269,7 @@ BLIND     // can't see anything
 	off_state = "goggles_standard"
 	var/base_icon_state
 	action_button_name = "Flip Goggles"
-	var/change_item_state_on_flip = FALSE
+	var/change_item_state_on_flip = TRUE
 	var/flip_down = "down to protect your eyes."
 	var/flip_up = "up out of your face."
 	var/up = 0
