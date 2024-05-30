@@ -182,6 +182,7 @@ export const SettingsGeneral = (props, context) => {
 
 const TextHighlightSettings = (props, context) => {
   const highlightSettings = useSelector(context, selectHighlightSettings);
+  const settings = useSelector(context, selectSettings);
   const dispatch = useDispatch(context);
   return (
     <Section fill scrollable height="200px">
@@ -210,7 +211,9 @@ const TextHighlightSettings = (props, context) => {
       </Section>
       <Divider />
       <Box>
-        <Button icon="check" onClick={() => dispatch(rebuildChat())}>
+        <Button
+          icon="check"
+          onClick={() => dispatch(rebuildChat(settings.maxMessages))}>
           Apply now
         </Button>
         <Box inline fontSize="0.9em" ml={1} color="label">
