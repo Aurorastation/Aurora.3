@@ -747,7 +747,7 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Toggle Build Mode Self"
 	set category = "Special Verbs"
 
-	if(!check_rights(R_ADMIN))
+	if(!check_rights(R_ADMIN|R_DEV))
 		return
 	var/datum/click_handler/handler = mob.GetClickHandler()
 	if(handler.type == /datum/click_handler/build_mode)
