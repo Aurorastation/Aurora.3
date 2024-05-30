@@ -77,13 +77,6 @@
 	smooth_zlevel(world.maxz)
 	resort_all_areas()
 
-	//exoplanet generation
-	// if(themes)
-	// 	for(var/marker_turf_type in themes)
-	// 		var/datum/exoplanet_theme/exoplanet_theme_type = themes[marker_turf_type]
-	// 		var/datum/exoplanet_theme/exoplanet_theme = new exoplanet_theme_type()
-	// 		exoplanet_theme.generate_map(initial_z, 1, 1, 254, 254, marker_turf_type)
-
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
 	init_shuttles(shuttle_state)

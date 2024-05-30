@@ -45,7 +45,17 @@
 
 	//Spawn the away sites selected in the previous step
 	for(var/datum/map_template/ruin/away_site/away_site in away_sites_to_spawn)
-		away_site.load_new_z(themes=away_site.exoplanet_themes)
+		// load the site
+		away_site.load_new_z()
+
+		// do away site exoplanet generation, if needed
+		if(away_site.exoplanet_themes)
+			for(var/marker_turf_type in away_site.exoplanet_themes)
+				var/datum/exoplanet_theme/exoplanet_theme_type = away_site.exoplanet_themes[marker_turf_type]
+				var/datum/exoplanet_theme/exoplanet_theme = new exoplanet_theme_type()
+				exoplanet_theme.generate_map(world.maxz-1, 1, 1, 254, 254, marker_turf_type)
+
+		// fin
 		testing("[ascii_green]LOADING AWAY SITE:[ascii_reset] Spawning [away_site] on Z [english_list(GetConnectedZlevels(world.maxz))]")
 
 #else
@@ -61,7 +71,7 @@
 			for(var/marker_turf_type in away_site.exoplanet_themes)
 				var/datum/exoplanet_theme/exoplanet_theme_type = away_site.exoplanet_themes[marker_turf_type]
 				var/datum/exoplanet_theme/exoplanet_theme = new exoplanet_theme_type()
-				exoplanet_theme.generate_map(world.maxz, 1, 1, 254, 254, marker_turf_type)
+				exoplanet_theme.generate_map(world.maxz-1, 1, 1, 254, 254, marker_turf_type)
 
 		// fin
 		testing("[ascii_green]LOADING AWAY SITE:[ascii_reset] Spawning [away_site] on Z [english_list(GetConnectedZlevels(world.maxz))]")
