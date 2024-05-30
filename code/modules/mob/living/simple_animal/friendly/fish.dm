@@ -20,7 +20,6 @@
 	icon_living = "cod"
 	icon_dead = "cod_dead"
 	icon_rest = "cod_rest"
-	item_state = "cod"
 
 	holder_type = /obj/item/holder/fish/cod
 
@@ -30,4 +29,3 @@
 	icon_living = "gupper"
 	icon_dead = "gupper_dead"
 	icon_rest = "gupper_rest"
-	item_state = "gupper"

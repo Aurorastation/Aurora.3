@@ -275,7 +275,6 @@
 	light_color = LIGHT_COLOR_PURPLE
 	network = list("MINE")
 	circuit = /obj/item/circuitboard/security/mining
-	light_color = LIGHT_COLOR_PURPLE
 
 /obj/machinery/computer/security/engineering
 	name = "engineering camera monitor"

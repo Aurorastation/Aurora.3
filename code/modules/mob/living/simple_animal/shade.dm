@@ -25,9 +25,8 @@
 	max_tox = 0
 	speed = -1
 	stop_automated_movement = 1
-	status_flags = 0
-	faction = "cult"
 	status_flags = CANPUSH
+	faction = "cult"
 	hunger_enabled = 0
 	appearance_flags = NO_CLIENT_COLOR|KEEP_TOGETHER
 	var/obj/item/residue = /obj/item/ectoplasm

@@ -553,12 +553,11 @@
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
 	icon = 'icons/obj/smooth/shuttle_window.dmi'
 	icon_state = "shuttle_window"
-	basestate = "window"
+	basestate = "w"
 	atom_flags = 0
 	obj_flags = null
 	maxhealth = 40
 	reinf = TRUE
-	basestate = "w"
 	dir = 5
 	smoothing_flags = SMOOTH_TRUE
 	can_be_unanchored = TRUE

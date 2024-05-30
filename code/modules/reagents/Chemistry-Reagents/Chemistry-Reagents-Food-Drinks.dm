@@ -3375,7 +3375,6 @@
 	taste_description = "orange peel"
 	color = "#fc782b"
 	strength = 12
-	taste_description = "orange peel"
 
 	glass_icon_state = "glass_orange"
 	glass_name = "glass of triple sec"
@@ -5596,7 +5595,6 @@
 
 	glass_icon_state = "darmadhirbrew_glass"
 	glass_name = "glass of Darmadhir Brew"
-	description = "A rare and expensive brand of nm'shaan liquor."
 
 /singleton/reagent/alcohol/treebark_firewater
 	name = "Tree-Bark Firewater"
@@ -6044,7 +6042,6 @@
 	description = "A delicious seasonal flavoring."
 	color = "#AE771C"
 	taste_description = "autumn bliss"
-	condiment_name = "bottle of pumpkin spice"
 	condiment_name = "Pumpkin Spice"
 	condiment_desc = "Every teenager's favorite seasonal ingredient."
 	condiment_icon_state = "pumpkinspice"
@@ -6436,7 +6433,6 @@
 
 	glass_icon_state = "pulque_dyn"
 	glass_name = "dyn pulque"
-	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is dyn flavored."
 
 /singleton/reagent/alcohol/pulque/banana
 	name = "Banana Pulque"
@@ -6446,7 +6442,6 @@
 
 	glass_icon_state = "pulque_banana"
 	glass_name = "banana pulque"
-	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is banana flavored."
 
 /singleton/reagent/alcohol/pulque/berry
 	name = "Berry Pulque"
@@ -6456,7 +6451,6 @@
 
 	glass_icon_state = "pulque_berry"
 	glass_name = "berry pulque"
-	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is berry flavored."
 
 /singleton/reagent/alcohol/pulque/coffee
 	name = "Coffee Pulque"
@@ -6466,7 +6460,6 @@
 
 	glass_icon_state = "pulque_coffee"
 	glass_name = "coffee pulque"
-	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is coffee flavored."
 
 /singleton/reagent/drink/jyalra
 	name = "Jyalra"
