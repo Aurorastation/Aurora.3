@@ -156,7 +156,7 @@ export const SettingsGeneral = (props, context) => {
             step={50}
             stepPixelSize={2}
             minValue={2000}
-            maxValue={16000}
+            maxValue={32000}
             value={maxMessages}
             format={(value) => toFixed(value)}
             onChange={(e, value) =>
