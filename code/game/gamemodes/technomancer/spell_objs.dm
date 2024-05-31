@@ -44,6 +44,8 @@
 	var/psi_cost = 0				// Psi complexus cost to use this spell.
 
 /obj/item/spell/examine(mob/user, distance) // Nothing on examine.
+	SHOULD_CALL_PARENT(FALSE)
+
 	return TRUE
 
 // Proc: on_use_cast()
