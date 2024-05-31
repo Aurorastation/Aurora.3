@@ -3,7 +3,7 @@
 	if(!isliving(user))
 		return FALSE
 
-	if(electrified > 0)
+	if(electrified != 0)
 		if(shock(user)) //Handles removing charge from the cell, as well. No need to do that here.
 			return
 
