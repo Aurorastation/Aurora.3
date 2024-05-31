@@ -10,6 +10,7 @@
 	ship_cost = 1
 	id = "tramp_freighter"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/freighter_shuttle)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(3)
 
@@ -160,9 +161,6 @@
 	name = "Freight Shuttle Hangar"
 	landmark_tag = "nav_hangar_tramp"
 	docking_controller = "freighter_shuttle_dock"
-	base_area = /area/tramp_freighter/hangar
-	base_turf = /turf/simulated/floor/plating
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/freighter_shuttle/transit
 	name = "In transit"
