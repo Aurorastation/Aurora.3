@@ -170,7 +170,9 @@
 /obj/item/toy/balloon/bullet_act()
 	burst()
 
-/obj/item/toy/balloon/fire_act(datum/gas_mixture/air, temperature, volume)
+/obj/item/toy/balloon/fire_act(temperature, volume)
+	. = ..()
+
 	if(temperature > T0C+100)
 		burst()
 	return
@@ -1279,6 +1281,13 @@
 	desc = "A plushie of Konyang's national animal, much smaller than the real thing. This one won't get you arrested for touching it, either."
 	icon_state = "cockatoo"
 	phrase = "Chirp!"
+
+//Norinori plushie
+/obj/item/toy/plushie/norinori
+	name = "\improper Norinori plushie"
+	desc = "A plump and fluffy plushie depicting Up!Burger's mascot Norinori the Onigiri! It smells faintly of rice."
+	icon_state = "norinori"
+	phrase = "Buy. Up!Burger!"
 
 //Toy cult sword
 /obj/item/toy/cultsword

@@ -34,7 +34,7 @@
 	grab_mod = 1.25 // Huge, usually have horns
 	resist_mod = 2.5 // Arguably our strongest organic species
 
-	ethanol_resistance = 0.4
+	ethanol_resistance = 0.8
 	taste_sensitivity = TASTE_SENSITIVE
 	economic_modifier = 7
 

@@ -6921,8 +6921,8 @@
 /obj/structure/closet/secure_closet/scientist,
 /obj/item/storage/box/masks,
 /obj/item/storage/box/gloves,
-/obj/item/clothing/glasses/science,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
@@ -10577,7 +10577,7 @@
 /obj/item/stock_parts/capacitor,
 /obj/item/stock_parts/capacitor,
 /obj/item/stack/cable_coil,
-/obj/item/clothing/glasses/science{
+/obj/item/clothing/glasses/safety/goggles/science{
 	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/white,
@@ -21240,7 +21240,7 @@
 "jES" = (
 /obj/structure/table/standard,
 /obj/item/device/firing_pin/test_range,
-/obj/item/clothing/glasses/science{
+/obj/item/clothing/glasses/safety/goggles/science{
 	pixel_y = 10
 	},
 /obj/structure/reagent_dispensers/acid{

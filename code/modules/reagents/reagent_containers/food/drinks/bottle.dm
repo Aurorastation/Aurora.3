@@ -353,7 +353,8 @@
 		return ..()
 	balloon_alert(user, "fiddling with cork...")
 	if(do_after(user, 1 SECONDS, src))
-		return open(user, sabrage = FALSE, froth_severity = pick(0, 1))
+		if(!is_open_container())
+			return open(user, sabrage = FALSE, froth_severity = pick(0, 1))
 
 /obj/item/reagent_containers/food/drinks/bottle/champagne/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
@@ -371,6 +372,12 @@
 	playsound(user, 'sound/weapons/holster/sheathout.ogg', 25, TRUE)
 	balloon_alert(user, "preparing to swing...")
 	if(!do_after(user, 2 SECONDS, src)) //takes longer because you are supposed to take the foil off the bottle first
+		return
+
+	if(is_open_container())
+		balloon_alert(user, "the bottle was already open, you spill some on the floor...")
+		if(reagents.total_volume)
+			src.reagents.remove_any(reagents.total_volume / 5)
 		return
 
 	///The bonus to success chance that the user gets for being a command role

@@ -77,7 +77,7 @@
 	base_color = "#006666"
 
 	reagent_tag = IS_SKRELL
-	ethanol_resistance = 0.5//gets drunk faster
+	ethanol_resistance = 0.6//gets drunk faster
 	taste_sensitivity = TASTE_SENSITIVE
 
 	stamina = 80
