@@ -21,15 +21,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/training)
-"ah" = (
-/obj/structure/ship_weapon_dummy{
-	is_barrel = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/peoples_station/defenses)
 "ai" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
@@ -1032,7 +1023,9 @@
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /mob/living/heavy_vehicle/premade/ripley/loader,
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3469,7 +3462,9 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
-/obj/machinery/media/jukebox/phonograph,
+/obj/machinery/media/jukebox/phonograph{
+	anchored = 1
+	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4880,8 +4875,8 @@
 	},
 /area/peoples_station)
 "tz" = (
-/obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning,
+/obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/reinforced/airless,
 /area/peoples_station/defenses)
 "tB" = (
@@ -7470,10 +7465,10 @@
 /turf/simulated/floor/reinforced/airless,
 /area/peoples_station/defenses)
 "EC" = (
-/obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/reinforced/airless,
 /area/peoples_station/defenses)
 "EH" = (
@@ -10113,10 +10108,10 @@
 	},
 /area/peoples_station)
 "QC" = (
-/obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
+/obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/reinforced/airless,
 /area/peoples_station/defenses)
 "QD" = (
@@ -40795,7 +40790,7 @@ fE
 rH
 rH
 rH
-ah
+EC
 Kn
 Kn
 Kn
