@@ -300,3 +300,79 @@
 	culture_restriction = list(/singleton/origin_item/culture/klax, /singleton/origin_item/culture/klax_breeder)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/vaurca_zora_shroud
+	display_name = "zora flag shroud"
+	path = /obj/item/clothing/head/vaurca_breeder/flag
+	cost = 1
+	slot = slot_head
+	whitelisted = list(SPECIES_VAURCA_BREEDER)
+	culture_restriction = list(/singleton/origin_item/culture/zora_breeder)
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/vaurca_klax_shroud
+	display_name = "klax flag shroud"
+	path = /obj/item/clothing/head/vaurca_breeder/klax/flag
+	cost = 1
+	slot = slot_head
+	whitelisted = list(SPECIES_VAURCA_BREEDER)
+	culture_restriction = list(/singleton/origin_item/culture/klax_breeder)
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/vaurca_cthur_shroud
+	display_name = "cthur flag shroud"
+	path = /obj/item/clothing/head/vaurca_breeder/cthur/flag
+	cost = 1
+	slot = slot_head
+	whitelisted = list(SPECIES_VAURCA_BREEDER)
+	culture_restriction = list(/singleton/origin_item/culture/cthur_breeder)
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/vaurca_rockstone
+	display_name = "rockstone cape"
+	description = "A cape for Moghesian nobility for a K'lax Vaurca."
+	path = /obj/item/clothing/accessory/vaurca_breeder/rockstone_cape
+	cost = 1
+	whitelisted = list(SPECIES_VAURCA_BREEDER)
+	culture_restriction = list(/singleton/origin_item/culture/klax_breeder)
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+
+/datum/gear/accessory/vaurca_cthur_llc
+	display_name = "cthur, llc cape"
+	description = "A cape for C'thur, LLC Vaurca Gyne diplomats."
+	path = /obj/item/clothing/accessory/vaurca_breeder/cthur_llc_cape
+	cost = 1
+	whitelisted = list(SPECIES_VAURCA_BREEDER)
+	culture_restriction = list(/singleton/origin_item/culture/cthur_breeder)
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/vaurca_gyne_shroud
+	display_name = "colorable gyne shroud"
+	path = /obj/item/clothing/head/vaurca_breeder/colorable
+	cost = 1
+	whitelisted = list(SPECIES_VAURCA_BREEDER)
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/vaurca_gyne_clothes
+	display_name = "colorable gyne clothes"
+	path = /obj/item/clothing/suit/vaurca/breeder/colorable
+	cost = 1
+	slot = slot_wear_suit
+	whitelisted = list(SPECIES_VAURCA_BREEDER)
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/head/vaurca_gyne_shoes
+	display_name = "colorable gyne shoes"
+	path = /obj/item/clothing/shoes/vaurca/breeder/colorable
+	cost = 1
+	slot = slot_shoes
+	whitelisted = list(SPECIES_VAURCA_BREEDER)
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
