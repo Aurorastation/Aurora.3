@@ -1,180 +1,16 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ac" = (
-/obj/machinery/atmospherics/unary/engine{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
 	},
-/obj/effect/landmark/entry_point/starboard{
-	name = "aft"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/freighter_shuttle)
-"ax" = (
-/turf/simulated/wall/shuttle/space_ship{
-	can_open = 1;
-	color = "#ABA49D"
-	},
-/area/space)
-"aB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"aX" = (
+/obj/machinery/power/smes/buildable/horizon_shuttle,
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"bd" = (
-/turf/simulated/floor/tiled/freezer{
-	name = "cooled tiles";
-	temperature = 253.15
-	},
-/area/space)
-"bv" = (
-/obj/effect/ghostspawpoint{
-	identifier = "freighter_crew";
-	name = "igs - freight crew"
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"bJ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 4
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/freighter_shuttle)
-"bR" = (
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"bY" = (
-/obj/effect/shuttle_landmark/freighter_shuttle/transit,
-/turf/space,
-/area/space)
-"cw" = (
-/obj/effect/floor_decal/industrial/outline_door/yellow{
-	dir = 8
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"cO" = (
-/obj/machinery/ammunition_loader/francisca{
-	weapon_id = "Tramp Francisca Rotary Gun"
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"cV" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/manifold/hidden/red,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_freight_shuttle";
-	name = "airlock_freight_shuttle";
-	req_one_access = null;
-	shuttle_tag = "Freight Shuttle";
-	cycle_to_external_air = 1
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/landmark/entry_point/fore{
-	name = "port"
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/freighter_shuttle)
-"cZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 9
+/obj/structure/cable{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
-"de" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_freight_shuttle";
-	name = "airlock_freight_shuttle";
-	req_one_access = null;
-	shuttle_tag = "Freight Shuttle";
-	cycle_to_external_air = 1
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/freighter_shuttle)
-"dO" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/plating,
-/area/space)
-"dU" = (
-/obj/machinery/computer/ship/helm{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"ek" = (
-/obj/machinery/atmospherics/unary/engine{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/freighter_shuttle)
-"em" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_freight_shuttle";
-	name = "airlock_freight_shuttle";
-	req_one_access = null;
-	shuttle_tag = "Freight Shuttle";
-	cycle_to_external_air = 1
-	},
-/obj/effect/map_effect/marker_helper/airlock/out,
-/turf/simulated/floor/plating,
-/area/shuttle/freighter_shuttle)
-"en" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 9
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/freighter_shuttle)
-"eA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"eM" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/space)
-"eZ" = (
+"ae" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
 	pixel_x = -28;
@@ -195,59 +31,39 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
-"fe" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+"ax" = (
+/turf/simulated/wall/shuttle/space_ship{
+	can_open = 1;
+	color = "#ABA49D"
+	},
+/area/space)
+"aB" = (
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"fp" = (
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic{
+	layer = 2.81
 	},
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"fH" = (
-/turf/simulated/floor/airless,
-/area/space)
-"fL" = (
-/turf/simulated/floor/reinforced/airmix,
-/area/space)
-"fW" = (
-/obj/structure/bed/stool/chair/office/bridge/pilot{
-	dir = 4
-	},
-/obj/effect/overmap/visitable/ship/landable/freighter_shuttle,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"fY" = (
-/obj/machinery/computer/ship/targeting/terminal{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/light,
 /turf/simulated/floor/carpet/rubber,
 /area/space)
-"gr" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 1
+"bd" = (
+/turf/simulated/floor/tiled/freezer{
+	name = "cooled tiles";
+	temperature = 253.15
 	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"gu" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
 /area/space)
-"gN" = (
+"bC" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lamp/green{
+	pixel_y = 5;
+	pixel_x = -2
+	},
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/space)
+"bF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
@@ -262,37 +78,35 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
-"gQ" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external,
-/obj/effect/shuttle_landmark/freighter_shuttle/hangar,
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"gS" = (
-/obj/machinery/ship_weapon/francisca{
-	pixel_x = -64;
-	pixel_y = -162;
-	weapon_id = "Tramp Francisca Rotary Gun"
+"bJ" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
-/obj/structure/ship_weapon_dummy,
-/turf/template_noop,
-/area/space)
-"gW" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"hb" = (
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"he" = (
-/obj/machinery/computer/ship/navigation/terminal{
+"bQ" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"bR" = (
 /turf/simulated/floor/carpet/rubber,
 /area/space)
-"hv" = (
+"bY" = (
+/obj/effect/shuttle_landmark/freighter_shuttle/transit,
+/turf/space,
+/area/space)
+"cf" = (
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -311,26 +125,170 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
-"hy" = (
-/obj/machinery/computer/shuttle_control/explore/freighter_shuttle{
-	dir = 8
+"cj" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/wood,
+/area/space)
+"cl" = (
+/obj/machinery/cryopod,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"cL" = (
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
-"hX" = (
-/turf/template_noop,
+"cM" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
-"jl" = (
+"cO" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/space)
-"kk" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
+"cV" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 5
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_freight_shuttle";
+	name = "airlock_freight_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Freight Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -8;
+	dir = 2
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/freighter_shuttle)
+"cZ" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"di" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	icon_state = "bridge";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/space)
-"lL" = (
+"dC" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/freighter_shuttle)
+"dI" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_freight_shuttle";
+	name = "airlock_freight_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Freight Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/freighter_shuttle)
+"dO" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"dX" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/power/apc/west,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"ek" = (
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/light,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"en" = (
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/one,
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/space)
+"eo" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/plating,
+/area/shuttle/freighter_shuttle)
+"eU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/light,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"fe" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"fl" = (
+/obj/machinery/computer/ship/helm/terminal{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"fp" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 4
+	},
+/obj/effect/overmap/visitable/ship/landable/freighter_shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"fB" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_freight_shuttle";
@@ -350,7 +308,276 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
-"mR" = (
+"fH" = (
+/turf/simulated/floor/airless,
+/area/space)
+"fJ" = (
+/obj/machinery/computer/ship/helm{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"fL" = (
+/turf/simulated/floor/reinforced/airmix,
+/area/space)
+"fN" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"gu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"hb" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/freighter_shuttle)
+"hy" = (
+/obj/machinery/computer/ship/targeting/terminal{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/light,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"hG" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/landmark/entry_point/port{
+	name = "port, captains office"
+	},
+/turf/simulated/floor,
+/area/space)
+"hX" = (
+/turf/template_noop,
+/area/space)
+"ih" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/computer/ship/navigation,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"iS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"iU" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"iY" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"ji" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"jl" = (
+/turf/simulated/floor/plating,
+/area/space)
+"jt" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"jK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"jZ" = (
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"ke" = (
+/obj/structure/coatrack{
+	pixel_x = -7
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"kk" = (
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet,
+/area/space)
+"kx" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1;
+	layer = 2.71
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"ln" = (
+/obj/structure/table/steel,
+/obj/item/paper_bin{
+	pixel_x = 5;
+	pixel_y = 12
+	},
+/obj/item/pen/multi{
+	pixel_x = 5;
+	pixel_y = 9
+	},
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/space)
+"lL" = (
+/obj/structure/closet,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/power/apc/south,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"ms" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"mu" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"mQ" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"mS" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/undies_wardrobe,
+/turf/simulated/floor/wood,
+/area/space)
+"nn" = (
+/obj/effect/shuttle_landmark/tramp_freighter/nav2,
+/turf/template_noop,
+/area/space)
+"nE" = (
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/closet/cabinet,
+/turf/simulated/floor/wood,
+/area/space)
+"nG" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 5
+	},
+/turf/simulated/floor/carpet,
+/area/space)
+"nM" = (
+/obj/machinery/atmospherics/binary/pump/fuel{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"ov" = (
+/obj/structure/bed/stool/chair{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/space)
+"oK" = (
+/obj/effect/shuttle_landmark/tramp_freighter/nav4,
+/turf/template_noop,
+/area/space)
+"oR" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet,
+/area/space)
+"pn" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"pT" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
@@ -372,180 +599,30 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
-"nd" = (
-/obj/machinery/airlock_sensor{
-	pixel_x = -20;
-	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_freight_shuttle";
-	name = "airlock_freight_shuttle";
-	req_one_access = null;
-	shuttle_tag = "Freight Shuttle";
-	cycle_to_external_air = 1
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/freighter_shuttle)
-"nn" = (
-/obj/effect/shuttle_landmark/tramp_freighter/nav2,
-/turf/template_noop,
-/area/space)
-"ns" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"nE" = (
-/obj/structure/filingcabinet/filingcabinet{
-	pixel_x = 9;
-	pixel_y = 1
-	},
-/obj/machinery/papershredder{
-	pixel_x = -6
+"qh" = (
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/carpet/rubber,
 /area/space)
-"nO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 6
+"qw" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 8
 	},
-/obj/machinery/power/smes/buildable/horizon_shuttle,
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"oj" = (
-/obj/structure/table/steel,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"ov" = (
-/turf/simulated/floor/exoplanet/carpet/red,
-/area/space)
-"oK" = (
-/obj/effect/shuttle_landmark/tramp_freighter/nav4,
-/turf/template_noop,
-/area/space)
-"pT" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
-/turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/freighter_shuttle)
-"qt" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/shuttle/freighter_shuttle)
-"sK" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/obj/machinery/iff_beacon/name_change,
-/turf/simulated/floor/plating,
-/area/shuttle/freighter_shuttle)
-"tR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"uf" = (
-/turf/simulated/floor,
-/area/space)
-"uU" = (
-/obj/machinery/telecomms/allinone/ship,
-/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"uX" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor/plating,
-/area/shuttle/freighter_shuttle)
-"vd" = (
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"vr" = (
-/turf/simulated/floor/tiled/dark/full,
 /area/space)
-"vv" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/space)
-"vV" = (
-/turf/simulated/floor/wood,
-/area/space)
-"wh" = (
+"rl" = (
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
-"wP" = (
-/obj/structure/bed/stool/chair/shuttle,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"xn" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/computer/ship/navigation,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"xu" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"yV" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/plating,
+"ry" = (
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
 /area/space)
-"Aq" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"AE" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/turf/simulated/floor/plating,
-/area/space)
-"AF" = (
-/obj/machinery/photocopier,
-/obj/effect/floor_decal/industrial/hatch/grey,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"Bc" = (
-/obj/machinery/atmospherics/binary/pump/fuel{
-	dir = 1
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"Bg" = (
+"sK" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
@@ -554,44 +631,30 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
-"Bn" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+"tE" = (
+/obj/machinery/computer/ship/targeting/terminal{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"uf" = (
+/turf/simulated/floor,
+/area/space)
+"uo" = (
+/obj/structure/bed/stool/chair/sofa/left/brown,
+/obj/item/gamehelm/red{
+	icon_state = "closed_red"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
-"DM" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/machinery/alarm/west,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"DP" = (
-/turf/space,
-/area/space)
-"Ec" = (
-/turf/simulated/floor/greengrid,
-/area/space)
-"EP" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/obj/effect/landmark/entry_point/port{
-	name = "fore"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/freighter_shuttle)
-"Fi" = (
-/turf/simulated/floor/lino,
-/area/space)
-"FV" = (
+"uA" = (
 /obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 5
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/red,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_freight_shuttle";
 	name = "airlock_freight_shuttle";
@@ -600,88 +663,25 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button{
-	pixel_x = -28;
-	pixel_y = -8;
-	dir = 2
+/obj/effect/landmark/entry_point/fore{
+	name = "port"
 	},
-/turf/simulated/floor/plating,
-/area/shuttle/freighter_shuttle)
-"FY" = (
-/obj/machinery/computer/ship/sensors/terminal{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/light,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"Gf" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 1
-	},
-/obj/structure/closet/walllocker/emerglocker/south,
-/obj/machinery/light,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"GB" = (
-/turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
-"Hy" = (
-/obj/structure/ship_weapon_dummy,
-/turf/template_noop,
-/area/space)
-"Ib" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/obj/structure/bed/handrail,
-/turf/simulated/floor/plating,
-/area/shuttle/freighter_shuttle)
-"Jn" = (
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"Jo" = (
-/turf/simulated/floor/carpet,
-/area/space)
-"JQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/random/dirt_75,
 /obj/structure/cable/green{
-	icon_state = "4-8"
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"LO" = (
-/obj/effect/shuttle_landmark/tramp_freighter/nav1,
-/turf/template_noop,
-/area/space)
-"My" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
-/obj/machinery/shipsensors/weak,
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
-"MQ" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/atmospherics/portables_connector/fuel{
-	dir = 1
+"uM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"MX" = (
-/turf/simulated/floor/marble,
 /area/space)
-"Nf" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/space)
-"Nj" = (
+"uU" = (
 /obj/machinery/airlock_sensor/airlock_exterior{
 	pixel_x = -32;
 	pixel_y = -5
@@ -703,36 +703,712 @@
 /obj/structure/bed/handrail,
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
-"Oa" = (
-/obj/structure/table/reinforced/steel,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/rubber,
+"vr" = (
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
-"Oe" = (
-/obj/machinery/computer/ship/helm/terminal{
+"vu" = (
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"vv" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"vH" = (
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/turf/simulated/floor/carpet,
+/area/space)
+"vV" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/obj/machinery/alarm/south,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"vY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/space)
+"wl" = (
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 9
+	},
+/turf/simulated/floor/carpet,
+/area/space)
+"wP" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"wZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"xy" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/turf/simulated/floor,
+/area/space)
+"xP" = (
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 9;
+	pixel_y = 1
+	},
+/obj/machinery/papershredder{
+	pixel_x = -6
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/carpet/rubber,
 /area/space)
-"Ov" = (
-/obj/effect/step_trigger/teleporter,
-/turf/space,
+"xY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/space)
-"Pb" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
+"yi" = (
+/obj/structure/undies_wardrobe,
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"yS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/machinery/light,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"zb" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/fuel_port/phoron{
+	pixel_x = 32
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"zf" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"zq" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 1
+	},
+/obj/structure/closet/walllocker/emerglocker/south,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"zB" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/rubber,
+/obj/machinery/power/apc/south,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
-"PL" = (
+"Ax" = (
+/obj/structure/closet,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"Ay" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"AE" = (
+/obj/structure/bed/stool/chair/shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"AM" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/machinery/iff_beacon/name_change,
+/turf/simulated/floor/plating,
+/area/shuttle/freighter_shuttle)
+"AX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/freighter_shuttle)
+"Bh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"Bn" = (
+/obj/structure/bed/stool/chair/sofa/right/brown,
+/obj/item/device/synthesized_instrument/guitar{
+	pixel_x = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"BM" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"Cb" = (
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_freight_shuttle";
+	name = "airlock_freight_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Freight Shuttle";
+	cycle_to_external_air = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/freighter_shuttle)
+"Cv" = (
+/obj/structure/table/reinforced/steel,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"CF" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"Dd" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/machinery/shipsensors/weak,
+/turf/simulated/floor/plating,
+/area/shuttle/freighter_shuttle)
+"Dx" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"DP" = (
+/turf/space,
+/area/space)
+"Ec" = (
+/turf/simulated/floor/greengrid,
+/area/space)
+"Ej" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"El" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"EP" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet,
+/area/space)
+"EQ" = (
+/obj/machinery/computer/ship/sensors{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"Fi" = (
+/turf/simulated/floor/lino,
+/area/space)
+"FV" = (
+/obj/machinery/ship_weapon/francisca{
+	pixel_x = -64;
+	pixel_y = -162;
+	weapon_id = "Tramp Francisca Rotary Gun"
+	},
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
+/area/space)
+"Gf" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Gv" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/external,
+/obj/effect/shuttle_landmark/freighter_shuttle/hangar,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"GB" = (
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/space)
+"GF" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"GO" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"Hc" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/random/pottedplant_small{
+	pixel_x = -4;
+	pixel_y = 10
+	},
+/obj/random/lavalamp{
+	pixel_y = 5;
+	pixel_x = 6
+	},
+/obj/machinery/power/apc/south,
+/obj/structure/cable/green,
+/turf/simulated/floor/wood,
+/area/space)
+"Hy" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"Iv" = (
+/obj/machinery/computer/shuttle_control/explore/freighter_shuttle{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"IC" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"IX" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"Jn" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/wood,
+/area/space)
+"Jo" = (
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 10
+	},
+/turf/simulated/floor/carpet,
+/area/space)
+"Jp" = (
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"Jw" = (
+/obj/machinery/cryopod,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"JQ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"JZ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/structure/bed,
+/obj/item/bedsheet/rd{
+	desc = "A surprisingly soft linen bedsheet.";
+	name = "fancy bedsheet"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "freighter_crew_captain";
+	name = "igs - freight captain"
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Ka" = (
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"Lk" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, crew quarters"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
+"Ly" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_freight_shuttle";
+	name = "airlock_freight_shuttle";
+	req_one_access = null;
+	shuttle_tag = "Freight Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/turf/simulated/floor/plating,
+/area/shuttle/freighter_shuttle)
+"LK" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic{
+	layer = 2.81
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"LO" = (
+/obj/effect/shuttle_landmark/tramp_freighter/nav1,
+/turf/template_noop,
+/area/space)
+"LX" = (
+/obj/structure/table/steel,
+/obj/item/toy/desk/newtoncradle{
+	pixel_y = 7;
+	pixel_x = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"Mn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/freighter_shuttle)
+"My" = (
+/obj/machinery/photocopier,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"MU" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/freighter_shuttle)
+"MX" = (
+/turf/simulated/floor/marble,
+/area/space)
+"Ok" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"On" = (
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"Ov" = (
+/obj/effect/step_trigger/teleporter,
+/turf/space,
+/area/space)
+"Pn" = (
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "Qu" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/structure/bed/handrail,
+/turf/simulated/floor/plating,
+/area/shuttle/freighter_shuttle)
+"RN" = (
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"RX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/freighter_shuttle)
+"St" = (
+/obj/machinery/telecomms/allinone/ship,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"SF" = (
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"ST" = (
+/obj/effect/shuttle_landmark/tramp_freighter/nav3,
+/turf/template_noop,
+/area/space)
+"TO" = (
+/obj/structure/bed,
+/obj/item/bedsheet/red,
+/obj/structure/bed/padded/bunk,
+/obj/item/bedsheet/black{
+	pixel_y = 16
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "freighter_crew";
+	name = "igs - freight crew"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"TQ" = (
+/obj/machinery/power/terminal{
+	dir = 1;
+	icon_state = "term"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"TW" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"Ud" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"Ul" = (
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "Tramp Francisca Rotary Gun"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"VK" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/space)
+"VS" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"VV" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/turf/simulated/floor/plating,
+/area/space)
+"VX" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/space)
+"Wc" = (
 /obj/machinery/airlock_sensor/airlock_exterior{
 	pixel_y = -20
 	},
@@ -746,130 +1422,105 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
-"QZ" = (
-/obj/machinery/computer/ship/targeting/terminal{
-	dir = 4
+"Wi" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
 	},
-/obj/effect/floor_decal/industrial/hatch/grey,
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"St" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"SF" = (
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"ST" = (
-/obj/effect/shuttle_landmark/tramp_freighter/nav3,
-/turf/template_noop,
-/area/space)
-"Tr" = (
-/obj/structure/table/steel,
-/obj/item/toy/desk/newtoncradle{
-	pixel_y = 7;
-	pixel_x = 4
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
 	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"Tv" = (
-/obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/alarm/north,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
-"TQ" = (
+"WQ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
+"Xg" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 4
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "aft"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/freighter_shuttle)
+"Xp" = (
+/obj/effect/floor_decal/carpet,
+/turf/simulated/floor/carpet,
+/area/space)
+"Xw" = (
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 6
+	},
+/turf/simulated/floor/carpet,
+/area/space)
+"XV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/random/dirt_75,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
+"Yb" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, gunnery and bridge"
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/space)
-"UB" = (
-/obj/structure/bed/stool/chair/office/bridge/generic{
+"Yy" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"Vb" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"VP" = (
-/obj/machinery/atmospherics/portables_connector/fuel{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/light,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"VX" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/space)
-"Wc" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
-"Wx" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
-	dir = 4
-	},
-/obj/structure/fuel_port/phoron{
-	pixel_x = 32
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"Wy" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/power/apc/west,
-/obj/structure/cable/green{
-	d2 = 4;
-	icon_state = "0-4"
-	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
 /area/space)
-"WW" = (
-/obj/machinery/power/terminal{
-	dir = 1;
-	icon_state = "term"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
+"YU" = (
+/obj/machinery/recharge_station,
+/obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"Zu" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/landmark/entry_point/port{
+	name = "fore"
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
-"XB" = (
-/obj/machinery/mech_recharger,
-/obj/effect/floor_decal/industrial/outline/yellow,
+"ZI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/space)
-"Yb" = (
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
-"Yj" = (
-/obj/machinery/computer/ship/sensors/terminal{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/hatch/grey,
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 
 (1,1,1) = {"
@@ -31082,7 +31733,7 @@ hX
 VX
 VX
 VX
-VX
+Lk
 VX
 VX
 VX
@@ -31337,11 +31988,11 @@ hX
 hX
 hX
 VX
-bR
+TO
 VX
-bv
+TO
 VX
-bR
+TO
 VX
 hX
 hX
@@ -31594,18 +32245,18 @@ VX
 VX
 VX
 VX
+ZI
+ke
 vr
-vr
-vr
-vr
-vr
+zf
+eU
 VX
 hX
-Hy
-Hy
-Hy
-Hy
-Hy
+ry
+ry
+ry
+ry
+ry
 hX
 hX
 hX
@@ -31851,16 +32502,16 @@ bR
 bR
 bR
 VX
-vr
+Bn
+wl
+kk
 Jo
-Jo
-Jo
-vr
+gu
 VX
 hX
-gS
-Hy
-Hy
+FV
+ry
+ry
 hX
 hX
 hX
@@ -32061,11 +32712,11 @@ hX
 hX
 hX
 hX
-qt
-ek
-ac
-ek
-qt
+dC
+MU
+Xg
+MU
+dC
 hX
 hX
 hX
@@ -32108,15 +32759,15 @@ SF
 SF
 SF
 VX
-vr
-Jo
-Jo
-Jo
-vr
+uo
+vH
+oR
+Xp
+lL
 VX
 VX
-cO
-TQ
+Ul
+Yb
 VX
 VX
 hX
@@ -32317,13 +32968,13 @@ hX
 hX
 hX
 hX
-qt
-qt
-PL
-pT
-en
-qt
-qt
+dC
+dC
+AX
+hb
+Mn
+dC
+dC
 hX
 hX
 VX
@@ -32365,20 +33016,20 @@ SF
 jl
 SF
 VX
-vr
-Jo
-Jo
-Jo
-vr
+Ej
+nG
+EP
+Xw
+Ax
 VX
 VX
-Pb
+Yy
 VX
-fY
+hy
 VX
-AE
-AE
-AE
+VV
+VV
+VV
 hX
 hX
 hX
@@ -32574,13 +33225,13 @@ hX
 hX
 hX
 hX
-qt
-nO
-WW
-cZ
-tR
-MQ
-qt
+dC
+ac
+TQ
+jK
+Ud
+BM
+dC
 hX
 hX
 VX
@@ -32622,21 +33273,21 @@ SF
 jl
 SF
 VX
-vr
-vr
-vr
-vr
-vr
+LK
+IX
+vv
+iS
+yS
 VX
 bR
-cw
-DM
-UB
-Wy
-Oa
-QZ
-AE
-AE
+Pn
+GF
+qw
+dX
+Cv
+tE
+VV
+VV
 hX
 hX
 hX
@@ -32831,14 +33482,14 @@ hX
 hX
 hX
 hX
-qt
-gN
-Bc
-St
-Wx
-VP
-qt
-Ib
+dC
+bF
+nM
+wZ
+zb
+Ka
+dC
+Qu
 hX
 VX
 vr
@@ -32879,21 +33530,21 @@ SF
 SF
 SF
 VX
-SF
-SF
-SF
-SF
-SF
+cl
+Jw
+kx
+yi
+YU
 VX
-XB
-yV
-gu
-kk
-Wc
+aB
+Gf
+Ok
+VK
+bJ
 vr
-Tv
-Oe
-AE
+On
+fl
+VV
 hX
 hX
 hX
@@ -33088,14 +33739,14 @@ hX
 hX
 hX
 hX
-qt
-ns
-xu
-vd
-qt
-qt
-qt
-qt
+dC
+ms
+ji
+cL
+dC
+dC
+dC
+dC
 VX
 VX
 VX
@@ -33138,19 +33789,19 @@ VX
 VX
 VX
 VX
-vr
+iY
 VX
 VX
 VX
-AF
-eM
-hb
+My
+bQ
+El
 SF
-Oa
-Oa
-Yj
-AE
-AE
+Cv
+Cv
+jZ
+VV
+VV
 hX
 hX
 hX
@@ -33345,15 +33996,15 @@ hX
 hX
 hX
 hX
-qt
-vd
-JQ
-aB
-eZ
-nd
-em
-FV
-gQ
+dC
+cL
+XV
+Bh
+ae
+Cb
+Ly
+cV
+Gv
 jl
 vr
 SF
@@ -33399,14 +34050,14 @@ SF
 SF
 SF
 vr
-eA
-dO
-hb
-FY
+uM
+iU
+El
+ek
 VX
-AE
-AE
-AE
+VV
+VV
+VV
 hX
 hX
 hX
@@ -33602,15 +34253,15 @@ hX
 hX
 hX
 hX
-qt
-fp
-Yb
-Aq
-de
-mR
-lL
-cV
-aX
+dC
+GO
+pn
+fN
+dI
+pT
+fB
+uA
+VS
 jl
 vr
 SF
@@ -33657,10 +34308,10 @@ SF
 SF
 vr
 SF
-Bn
-Jn
-oj
-AE
+TW
+mu
+cM
+VV
 hX
 hX
 hX
@@ -33859,14 +34510,14 @@ hX
 hX
 hX
 hX
-qt
-xn
-vd
-Qu
-qt
-qt
-qt
-bJ
+dC
+ih
+cL
+Wc
+dC
+dC
+dC
+RX
 VX
 VX
 VX
@@ -33909,15 +34560,15 @@ VX
 VX
 VX
 VX
-vr
+CF
 VX
 VX
 VX
-nE
-vv
+xP
+cO
 fe
-Tr
-AE
+LX
+VV
 hX
 hX
 hX
@@ -34116,14 +34767,14 @@ hX
 hX
 hX
 hX
-qt
-hv
-gW
-wh
-vd
-Gf
-qt
-Nj
+dC
+cf
+Hy
+rl
+cL
+zq
+dC
+uU
 hX
 VX
 vr
@@ -34164,17 +34815,17 @@ SF
 SF
 bR
 VX
-vr
-vr
-vr
-vr
-vr
+wP
+JQ
+IC
+JQ
+WQ
 VX
-bR
-Bg
-Nf
-bR
-AE
+cM
+sK
+cZ
+cM
+VV
 hX
 hX
 hX
@@ -34373,13 +35024,13 @@ hX
 hX
 hX
 hX
-qt
-wP
-vd
-fW
-gW
-gr
-qt
+dC
+AE
+cL
+fp
+Hy
+mQ
+dC
 hX
 hX
 VX
@@ -34421,15 +35072,15 @@ SF
 jl
 bR
 VX
-vr
+Wi
 ov
 ov
 ov
-vr
+zB
 VX
-uU
+St
 bR
-he
+qh
 VX
 VX
 hX
@@ -34630,13 +35281,13 @@ hX
 hX
 hX
 hX
-qt
-qt
-hy
-dU
-Vb
-qt
-qt
+dC
+dC
+Iv
+fJ
+EQ
+dC
+dC
 hX
 hX
 VX
@@ -34678,15 +35329,15 @@ SF
 jl
 bR
 VX
-vr
-ov
-ov
-ov
-vr
+vu
+en
+ln
+bC
+jt
 VX
-AE
-AE
-AE
+VV
+VV
+VV
 VX
 hX
 hX
@@ -34887,13 +35538,13 @@ hX
 hX
 hX
 hX
-sK
-qt
-EP
-uX
-uX
-qt
-My
+AM
+dC
+Zu
+eo
+eo
+dC
+Dd
 hX
 hX
 VX
@@ -34935,11 +35586,11 @@ SF
 jl
 bR
 VX
-vr
-ov
-ov
-ov
-vr
+Jp
+xY
+di
+vY
+RN
 VX
 hX
 hX
@@ -35195,7 +35846,7 @@ VX
 VX
 VX
 VX
-vr
+CF
 VX
 VX
 hX
@@ -35449,10 +36100,10 @@ uf
 uf
 uf
 VX
-vV
-vV
-vV
-vV
+JZ
+mS
+nE
+dO
 vV
 VX
 hX
@@ -35706,11 +36357,11 @@ hX
 hX
 hX
 VX
-vV
-vV
-vV
-vV
-vV
+Dx
+Jn
+cj
+Ay
+Hc
 VX
 hX
 hX
@@ -35964,9 +36615,9 @@ hX
 hX
 VX
 VX
-uf
-uf
-uf
+xy
+hG
+xy
 VX
 VX
 hX
