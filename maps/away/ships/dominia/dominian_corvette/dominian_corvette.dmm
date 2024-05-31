@@ -607,7 +607,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
 "bBK" = (
 /obj/structure/window/reinforced{
@@ -1619,6 +1619,15 @@
 "fnY" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/recroom)
+"for" = (
+/obj/machinery/computer/ship/sensors{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/dominian_shuttle)
 "fpW" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
@@ -1845,9 +1854,12 @@
 /turf/simulated/floor/reinforced,
 /area/ship/dominian_corvette/cannon)
 "fZq" = (
-/obj/effect/overmap/visitable/ship/landable/dominian_shuttle,
-/obj/machinery/hologram/holopad/long_range,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	pixel_y = 26;
+	id_tag = "dominian_shuttle_dock";
+	name = "Dominian Shuttle docking port controller"
+	},
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/dominian_shuttle)
 "gcq" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -1888,6 +1900,11 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/dominian_corvette/hangar)
+"gpl" = (
+/obj/structure/table/steel,
+/obj/item/device/versebook/tribunal,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/dominian_shuttle)
 "grx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3197,18 +3214,10 @@
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
 "kIy" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/item/device/binoculars{
-	pixel_y = 5
+/obj/structure/sign/flag/dominia{
+	pixel_y = 32
 	},
-/obj/machinery/vending/wallmed1{
-	name = "Medical Supplies";
-	pixel_x = 32;
-	req_access = null
-	},
-/obj/item/storage/toolbox/mechanical,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/dominian_shuttle)
 "kII" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
@@ -3517,14 +3526,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering/atmos)
 "lGZ" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, cockpit"
+	},
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	spawn_firedoor = 1;
 	spawn_grille = 1;
 	color = "#E14644";
 	frame_color = "#E14644"
-	},
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, cockpit"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
@@ -4145,6 +4154,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/bridge)
+"obf" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/dominian_shuttle)
 "ocx" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
@@ -4195,10 +4210,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
 "oAQ" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#E14644";
+	frame_color = "#E14644"
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/airless,
 /area/shuttle/dominian_shuttle)
 "oBB" = (
 /obj/machinery/atmospherics/binary/passive_gate/supply{
@@ -4830,18 +4848,10 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/franny)
 "qIu" = (
-/obj/machinery/computer/ship/sensors{
-	dir = 8
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 1
 	},
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	pixel_y = 26;
-	id_tag = "dominian_shuttle_dock";
-	name = "Dominian Shuttle docking port controller"
-	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_shuttle)
 "qJS" = (
 /obj/effect/landmark/entry_point/fore{
@@ -5217,9 +5227,8 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_corvette/engineering/reactor)
 "rLK" = (
-/obj/structure/bed/stool/chair/office/bridge/pilot{
-	dir = 1
-	},
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/dominian_shuttle,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/dominian_shuttle)
 "rOt" = (
@@ -5566,10 +5575,8 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/closet/walllocker/emerglocker/east,
 /obj/machinery/light{
-	dir = 4
-	},
-/obj/structure/sign/flag/dominia{
-	pixel_y = 32
+	dir = 4;
+	pixel_x = 3
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
@@ -5650,6 +5657,20 @@
 /obj/effect/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
+"tFA" = (
+/obj/machinery/vending/wallmed1{
+	name = "Medical Supplies";
+	pixel_x = 32;
+	req_access = null
+	},
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/item/device/binoculars{
+	pixel_y = 5
+	},
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/dominian_shuttle)
 "tGm" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
@@ -5712,6 +5733,10 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
 "ubT" = (
@@ -6108,10 +6133,10 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/machinery/iff_beacon/name_change,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/machinery/iff_beacon/name_change,
 /turf/simulated/floor/airless,
 /area/shuttle/dominian_shuttle)
 "vHb" = (
@@ -38689,8 +38714,8 @@ xRX
 xRX
 xRX
 xRX
-mqx
-cFv
+oAQ
+gpl
 sFI
 aMY
 rxI
@@ -38947,8 +38972,8 @@ xRX
 xRX
 xRX
 lGZ
-uCS
-fZq
+cFv
+aMY
 aow
 asL
 lug
@@ -39204,7 +39229,7 @@ xRX
 xRX
 xRX
 mqx
-orm
+uCS
 rLK
 nva
 ugF
@@ -39460,10 +39485,10 @@ xRX
 xRX
 xRX
 xRX
-iCK
-iCK
+oAQ
+orm
 qIu
-kIy
+aMY
 aMY
 aMY
 aMY
@@ -39717,14 +39742,14 @@ xRX
 xRX
 xRX
 xRX
-vGn
-cMo
-cMo
-cMo
-oAQ
-byV
-oAQ
-oAQ
+iCK
+iCK
+for
+tFA
+aMY
+aMY
+aMY
+aMY
 flC
 cMo
 qZm
@@ -39974,14 +39999,14 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
+vGn
 cMo
-iCK
-fNZ
-iCK
-iCK
+fZq
+cMo
+obf
+byV
+obf
+obf
 tuF
 dMj
 flP
@@ -40234,12 +40259,12 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-iCK
 cMo
+iCK
+fNZ
+iCK
+iCK
+kIy
 cMo
 rbu
 inf

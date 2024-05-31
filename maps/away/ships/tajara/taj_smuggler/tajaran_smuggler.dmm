@@ -680,6 +680,10 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/tajaran_smuggler)
+"cXN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/turf/simulated/wall/shuttle/raider,
+/area/tajaran_smuggler/engine)
 "dhp" = (
 /obj/machinery/computer/ship/helm{
 	req_access = null;
@@ -1322,6 +1326,12 @@
 	temperature = 278.15
 	},
 /area/shuttle/tajaran_smuggler_cargo)
+"gmL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/tajaran_smuggler/engine)
 "gqw" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -3040,10 +3050,8 @@
 	},
 /area/tajaran_smuggler)
 "oUn" = (
-/obj/machinery/power/apc/south{
-	req_access = null
-	},
 /obj/structure/cable/green,
+/obj/machinery/power/apc/high/south,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3211,6 +3219,10 @@
 	temperature = 278.15
 	},
 /area/tajaran_smuggler)
+"pZp" = (
+/obj/machinery/power/apc/high/south,
+/turf/simulated/wall/shuttle/raider,
+/area/tajaran_smuggler)
 "qbP" = (
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/shuttle/raider,
@@ -3237,6 +3249,21 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/tajaran_smuggler)
+"qhv" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/tajaran_smuggler)
@@ -4440,6 +4467,12 @@
 	temperature = 278.15
 	},
 /area/shuttle/tajaran_smuggler_cargo)
+"yjU" = (
+/obj/machinery/power/apc/south,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/tajaran_smuggler)
 "yjW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -33046,7 +33079,7 @@ xRX
 xRX
 xRX
 bxR
-kJl
+gmL
 eEC
 uqg
 fQq
@@ -33303,7 +33336,7 @@ xRX
 xRX
 xRX
 hOL
-kJl
+gmL
 iav
 uqg
 bIa
@@ -33560,7 +33593,7 @@ xRX
 xRX
 xRX
 bxR
-kJl
+gmL
 atB
 kJl
 wqH
@@ -35382,8 +35415,8 @@ nwb
 wrb
 kPZ
 wrb
-wrb
-wrb
+pZp
+pZp
 wrb
 wrb
 wrb
@@ -35654,7 +35687,7 @@ oPT
 oPT
 fYB
 oPT
-oPT
+qhv
 oPT
 lHJ
 pEF
@@ -37188,7 +37221,7 @@ mwV
 jOg
 lGQ
 lGQ
-lGQ
+yjU
 wrb
 pfE
 pfE
@@ -38443,7 +38476,7 @@ xRX
 xRX
 xRX
 bxR
-kJl
+cXN
 atB
 dCR
 kJl
@@ -38700,7 +38733,7 @@ xRX
 xRX
 xRX
 qrf
-kJl
+cXN
 atB
 mIz
 wrb
@@ -38957,7 +38990,7 @@ xRX
 xRX
 xRX
 bxR
-kJl
+cXN
 qil
 fOQ
 wrb
