@@ -226,19 +226,26 @@ Class Procs:
 				return
 	return
 
-/proc/is_operable(var/obj/machinery/M, var/mob/user)
-	return istype(M) && M.operable()
+/**
+ * Check to see if the machine is operable
+ *
+ * * `additional_flags` - Additional flags to check for, that could have been added to the `stat` variable
+ *
+ * Returns `TRUE` if the machine is operable, `FALSE` otherwise
+ */
+/obj/machinery/proc/operable(additional_flags = 0)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 
-/obj/machinery/proc/operable(var/additional_flags = 0)
-	return !inoperable(additional_flags)
-
-/obj/machinery/proc/inoperable(var/additional_flags = 0)
-	return (stat & (NOPOWER|BROKEN|additional_flags))
+	if(stat & (NOPOWER|BROKEN|additional_flags))
+		return FALSE
+	else
+		return TRUE
 
 /obj/machinery/proc/toggle_power(power_set = -1, additional_flags = 0)
 	if(power_set >= 0)
 		update_use_power(power_set)
-	else if (use_power || inoperable(additional_flags))
+	else if (use_power || !operable(additional_flags))
 		update_use_power(POWER_USE_OFF)
 	else
 		update_use_power(initial(use_power))
@@ -277,7 +284,7 @@ Class Procs:
 		return src.attack_hand(user)
 
 /obj/machinery/attack_hand(mob/user as mob)
-	if(inoperable(MAINT))
+	if(!operable(MAINT))
 		return 1
 	if(user.lying || user.stat)
 		return 1
@@ -373,7 +380,7 @@ Class Procs:
 	playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0) //TODO: Check if that one is the correct sound
 
 /obj/machinery/proc/shock(mob/user, prb)
-	if(inoperable())
+	if(!operable())
 		return 0
 	if(!prob(prb))
 		return 0
