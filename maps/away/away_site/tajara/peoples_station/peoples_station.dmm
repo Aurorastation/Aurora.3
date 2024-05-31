@@ -1083,7 +1083,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -4313,7 +4312,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -7166,7 +7164,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -8037,7 +8034,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(209)
 	},
 /turf/simulated/floor/plating{
@@ -9415,7 +9411,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(209)
 	},
 /turf/simulated/floor/wood{
@@ -11201,7 +11196,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -11973,7 +11967,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/white{
@@ -12267,7 +12260,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
