@@ -544,24 +544,53 @@
 /obj/item/proc/on_found(mob/finder as mob)
 	return
 
-// called after an item is placed in an equipment slot
-// user is mob that equipped it
-// slot uses the slot_X defines found in setup.dm
-// for items that can be placed in multiple slots
-/obj/item/proc/equipped(var/mob/user, var/slot)
+/**
+ * Called after an item is placed in an equipment slot. Runs equipped(), then sends a signal.
+ * This should be called last or near-to-last, after all other inventory code stuff is handled.
+ *
+ * Arguments:
+ * * user is mob that equipped it
+ * * slot uses the slot_X defines found in setup.dm for items that can be placed in multiple slots
+ * * initial is used to indicate whether or not this is the initial equipment (job datums etc) or just a player doing it
+ */
+/obj/item/proc/on_equipped(mob/user, slot, initial = FALSE)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	equipped(user, slot, initial)
+	if(SEND_SIGNAL(src, COMSIG_ITEM_POST_EQUIPPED, user, slot) && COMPONENT_EQUIPPED_FAILED)
+		return FALSE
+	return TRUE
+
+
+/**
+ * Called by on_equipped. Don't call this directly, we want the ITEM_POST_EQUIPPED signal to be sent after everything else.
+ *
+ * Note that hands count as slots.
+ *
+ * Arguments:
+ * * user is mob that equipped it
+ * * slot uses the slot_X defines found in setup.dm for items that can be placed in multiple slots
+ * * initial is used to indicate whether or not this is the initial equipment (job datums etc) or just a player doing it
+ */
+/obj/item/proc/equipped(mob/user, slot, initial = FALSE)
 	SHOULD_CALL_PARENT(TRUE)
+	PROTECTED_PROC(TRUE)
+	SEND_SIGNAL(src, COMSIG_ITEM_EQUIPPED, user, slot)
+	SEND_SIGNAL(user, COMSIG_MOB_EQUIPPED_ITEM, src, slot)
 	hud_layerise()
 	equip_slot = slot
 	if(user.client)	user.client.screen |= src
 	if(user.pulling == src) user.stop_pulling()
 	in_inventory = TRUE
-	if(slot == slot_l_hand || slot == slot_r_hand)
-		playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
-	else if(slot_flags && slot)
-		if(equip_sound)
-			playsound(src, equip_sound, EQUIP_SOUND_VOLUME, TRUE, ignore_walls = FALSE)
-		else
-			playsound(src, drop_sound, DROP_SOUND_VOLUME, ignore_walls = FALSE)
+
+	if(!initial)
+		if(slot == slot_l_hand || slot == slot_r_hand)
+			playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
+		else if(slot_flags && slot)
+			if(equip_sound)
+				playsound(src, equip_sound, EQUIP_SOUND_VOLUME, TRUE, ignore_walls = FALSE)
+			else
+				playsound(src, drop_sound, DROP_SOUND_VOLUME, ignore_walls = FALSE)
+
 	if(item_action_slot_check(user, slot))
 		add_verb(user, verbs)
 		for(var/v in verbs)
@@ -570,12 +599,13 @@
 		remove_item_verbs(user)
 
 	//Ěent for observable
-	GLOB.mob_equipped_event.raise_event(user, src, slot)
-	item_equipped_event.raise_event(src, user, slot)
 	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
 	if(user && (z_flags & ZMM_MANGLE_PLANES))
 		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
+
+/obj/item/proc/check_equipped(var/mob/user, var/slot, var/assisted_equip = FALSE)
+	return TRUE
 
 //sometimes we only want to grant the item's action if it's equipped in a specific slot.
 /obj/item/proc/item_action_slot_check(mob/user, slot)
