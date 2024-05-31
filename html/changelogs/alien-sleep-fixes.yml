@@ -1,0 +1,7 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed aliens which sleep upright not laying down during surgery."
+  - bugfix: "Fixed all species being able to sleep indefinitely."
