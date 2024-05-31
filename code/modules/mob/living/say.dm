@@ -368,7 +368,7 @@ var/list/channel_to_radio_key = new
 	else
 		log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
 
-	return 1
+	return TRUE
 
 /proc/animate_speechbubble(image/I, list/show_to, duration)
 	var/matrix/M = matrix()
