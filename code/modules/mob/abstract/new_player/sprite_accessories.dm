@@ -5010,6 +5010,20 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Mecha Eye (Overlay, Left)"
 	icon_state = "mecha_eyeoverlay_l"
 
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay/upper
+	name = "Upper Mecha Eye (Overlay, Right)"
+	icon_state = "mecha_uppereyeoverlay_r"
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eyeoverlay_l/upper
+	name = "Upper Mecha Eye (Overlay, Left)"
+	icon_state = "mecha_uppereyeoverlay_l"
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay/lower
+	name = "Lower Mecha Eye (Overlay, Right)"
+	icon_state = "mecha_lowereyeoverlay_r"
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eyeoverlay_l/lower
+	name = "Lower Mecha Eye (Overlay, Left)"
+	icon_state = "mecha_lowereyeoverlay_l"
+
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l
 	name = "Mecha Eye (Faceplate, Right, Large)"
 	icon_state = "mecha_eye_r_l"

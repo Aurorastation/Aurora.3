@@ -7,14 +7,19 @@
 	requires_contact = FALSE
 
 	var/obj/item/ship_ammunition/ammunition
-	var/atom/target //The target is the actual overmap object we're hitting.
-	var/obj/entry_target //The entry target is where the projectile itself is going to spawn in world.
+	/// The target is the actual overmap object we're hitting.
+	var/atom/target
+	/// The entry target is where the projectile itself is going to spawn in world.
+	var/obj/entry_target
 	var/range = OVERMAP_PROJECTILE_RANGE_MEDIUM
 	var/current_range_counter = 0
-	var/speed = 0 //A projectile with 0 speed does not move. Note that this is the 'lag' variable on walk_towards! Lower speed is better.
+	// A projectile with 0 speed does not move. Note that this is the 'lag' variable on walk_towards! Lower speed is better.
+	var/speed = 0
 
-	var/moving = FALSE //Is the projectile actively moving on the overmap?
-	var/entering = FALSE //Are we entering an entry point?
+	/// Is the projectile actively moving on the overmap?
+	var/moving = FALSE
+	/// Are we entering an entry point?
+	var/entering = FALSE
 
 /obj/effect/overmap/projectile/Initialize(var/maploading, var/sx, var/sy)
 	. = ..()
