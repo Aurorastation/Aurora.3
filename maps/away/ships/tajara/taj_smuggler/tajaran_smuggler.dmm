@@ -553,7 +553,7 @@
 	dir = 4
 	},
 /turf/template_noop,
-/area/shuttle/tajaran_smuggler_cargo)
+/area/space)
 "cds" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
@@ -3218,10 +3218,6 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/tajaran_smuggler)
-"pZp" = (
-/obj/machinery/power/apc/high/south,
-/turf/simulated/wall/shuttle/raider,
 /area/tajaran_smuggler)
 "qbP" = (
 /obj/effect/landmark/entry_point/aft,
@@ -35415,8 +35411,8 @@ nwb
 wrb
 kPZ
 wrb
-pZp
-pZp
+wrb
+wrb
 wrb
 wrb
 wrb
