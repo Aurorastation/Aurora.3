@@ -582,7 +582,7 @@ class ChatRenderer {
   }
 
   clear() {
-    this.pruneMessagesTo(0, 0);
+    this.pruneMessagesTo(0);
   }
 }
 
