@@ -22,6 +22,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	volume = 50
 	var/shaken = 0
 	var/drink_flags
+	possible_transfer_amounts = list(1, 2, 3, 4, 5, 10, 15, 25, 30)
 
 /obj/item/reagent_containers/food/drinks/Initialize()
 	. = ..()

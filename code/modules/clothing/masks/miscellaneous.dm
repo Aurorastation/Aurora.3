@@ -185,3 +185,29 @@
 	item_state = "starveil"
 	down_body_parts_covered = null
 	adjustable = TRUE
+
+/obj/item/clothing/mask/snood
+	name = "snood"
+	desc = "A warm, cozy snood, for keeping your face and neck warm."
+	icon = 'icons/obj/item/clothing/mask/snood.dmi'
+	icon_state = "snood"
+	item_state = "snood"
+	contained_sprite = TRUE
+	w_class = ITEMSIZE_SMALL
+	body_parts_covered = FACE
+	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
+	gas_transfer_coefficient = 0.90
+	permeability_coefficient = 0.5
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
+	down_gas_transfer_coefficient = 1
+	down_body_parts_covered = null
+	adjustable = TRUE
+	icon_auto_adapt = TRUE
+	sprite_sheets = list()
+
+/obj/item/clothing/mask/snood/Initialize()
+	. = ..()
+	if(icon_auto_adapt)
+		build_and_apply_species_adaption()

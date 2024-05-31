@@ -39,11 +39,13 @@
 	},
 /area/adhomai_nuclear_waste)
 "g" = (
-/obj/machinery/porta_turret/ballistic,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/light{
 	dir = 4;
 	status = 2
+	},
+/obj/machinery/porta_turret/ballistic{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 268.15
@@ -105,10 +107,12 @@
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "t" = (
-/obj/machinery/porta_turret/ballistic,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/machinery/porta_turret/ballistic{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 268.15
@@ -137,7 +141,9 @@
 /area/adhomai_nuclear_waste)
 "B" = (
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/porta_turret/ballistic,
+/obj/machinery/porta_turret/ballistic{
+	req_one_access = list(209)
+	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 268.15
 	},
@@ -200,18 +206,13 @@
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
-"S" = (
-/obj/machinery/porta_turret/ballistic,
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/tiled/rust{
-	temperature = 268.15
-	},
-/area/adhomai_nuclear_waste)
 "T" = (
 /obj/machinery/turretid/lethal{
 	pixel_y = -32;
 	req_access = list(209);
-	dir = 1
+	dir = 1;
+	check_arrest = 0;
+	check_records = 0
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "radiation_waste";
@@ -440,12 +441,12 @@ J
 J
 J
 J
-S
+B
 I
 I
 I
 I
-S
+B
 J
 J
 J
@@ -536,12 +537,12 @@ J
 J
 I
 I
-S
+B
 I
 M
 e
 I
-S
+B
 I
 I
 J
@@ -660,7 +661,7 @@ J
 B
 I
 I
-S
+B
 I
 e
 M
@@ -788,7 +789,7 @@ G
 B
 I
 I
-S
+B
 I
 e
 M
@@ -920,12 +921,12 @@ J
 J
 I
 I
-S
+B
 I
 e
 M
 I
-S
+B
 I
 I
 J
@@ -1016,12 +1017,12 @@ J
 J
 J
 J
-S
+B
 I
 I
 I
 I
-S
+B
 J
 J
 J
