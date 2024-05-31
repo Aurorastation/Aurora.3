@@ -23,7 +23,8 @@
 	var/screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 	var/firing = FALSE //Helper variable in case we need to track if we're firing or not. Must be set manually. Used for the Leviathan.
 	var/load_time = 5 SECONDS
-	var/mobile_platform = FALSE //When toggled, targeting computers will be able to force ammunition heading direction. Used for guns on visitables.
+	/// When toggled, targeting computers will be able to force ammunition heading direction. Used for guns on visitables.
+	var/mobile_platform = FALSE
 
 	var/weapon_id //Used to identify a gun in the targeting consoles and connect weapon systems to the relevant ammunition loader. Must be unique!
 	var/list/obj/structure/ship_weapon_dummy/connected_dummies = list()

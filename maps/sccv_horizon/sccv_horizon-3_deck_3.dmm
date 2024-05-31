@@ -1909,7 +1909,7 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/evidence_storage)
 "bnG" = (
-/obj/structure/table/steel,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
 "boM" = (
@@ -2997,8 +2997,8 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
-/obj/machinery/light/floor,
 /obj/structure/railing/mapped,
+/obj/machinery/light/floor,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "cii" = (
@@ -4965,7 +4965,6 @@
 	name = "Consular Office B";
 	req_access = list(72)
 	},
-/obj/effect/map_effect/door_helper/level_access/command_foyer,
 /turf/simulated/floor/tiled,
 /area/lawoffice/consular_two)
 "dRo" = (
@@ -13768,9 +13767,6 @@
 /obj/machinery/recharger/wallcharger{
 	pixel_x = -28;
 	pixel_y = -10
-	},
-/obj/machinery/recharger{
-	pixel_y = 11
 	},
 /obj/machinery/light/small/emergency{
 	dir = 8
@@ -33978,6 +33974,10 @@
 /obj/random/pottedplant_small{
 	pixel_x = 6;
 	pixel_y = 1
+	},
+/obj/machinery/recharger{
+	pixel_y = 8;
+	pixel_x = -5
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
@@ -56402,7 +56402,7 @@ nCP
 kTE
 tzY
 fDJ
-cid
+vOV
 oZv
 lJJ
 swR
@@ -56604,7 +56604,7 @@ nCP
 dHs
 dHr
 vyx
-vOV
+cid
 kwr
 iBY
 lEP

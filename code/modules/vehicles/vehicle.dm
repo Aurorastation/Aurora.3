@@ -191,16 +191,16 @@
 //-------------------------------------------
 /obj/vehicle/proc/turn_on()
 	if(stat)
-		return 0
-	if(powered && cell.charge < charge_use && !organic)
-		return 0
-	on = 1
+		return FALSE
+	if(powered && cell?.charge < charge_use && !organic)
+		return FALSE
+	on = TRUE
 	set_light(initial(light_range))
 	update_icon()
-	return 1
+	return TRUE
 
 /obj/vehicle/proc/turn_off()
-	on = 0
+	on = FALSE
 	set_light(0)
 	update_icon()
 
@@ -297,49 +297,56 @@
 // the vehicle load() definition before
 // calling this parent proc.
 //-------------------------------------------
-/obj/vehicle/proc/load(var/atom/movable/C)
+/**
+ * Loads an /atom onto the vehicle
+ *
+ * * thing_to_load - The thing to load, an `/obj` or `/mob`
+ *
+ * Returns `TRUE` if the load was successful, `FALSE` otherwise
+ */
+/obj/vehicle/proc/load(var/atom/movable/thing_to_load)
 	//This loads objects onto the vehicle so they can still be interacted with.
 	//Define allowed items for loading in specific vehicle definitions.
-	if(!isturf(C.loc)) //To prevent loading things from someone's inventory, which wouldn't get handled properly.
-		return 0
-	if(load || C.anchored)
-		return 0
+	if(!isturf(thing_to_load.loc)) //To prevent loading things from someone's inventory, which wouldn't get handled properly.
+		return FALSE
+	if(load || thing_to_load.anchored)
+		return FALSE
 
 	// if a crate/closet, close before loading
-	var/obj/structure/closet/closet = C
+	var/obj/structure/closet/closet = thing_to_load
 	if(istype(closet))
 		closet.close()
 
-	C.forceMove(loc)
-	C.set_dir(dir)
-	C.anchored = 1
+	thing_to_load.forceMove(loc)
+	thing_to_load.set_dir(dir)
+	thing_to_load.anchored = TRUE
 
-	load = C
+	load = thing_to_load
 
-	C.layer = VEHICLE_LOAD_LAYER
+	thing_to_load.layer = VEHICLE_LOAD_LAYER
 	if(load_item_visible)
-		C.pixel_x += load_offset_x
-		if(ismob(C))
-			C.pixel_y += mob_offset_y
+		thing_to_load.pixel_x += load_offset_x
+		if(ismob(thing_to_load))
+			thing_to_load.pixel_y += mob_offset_y
 		else
-			if(istype(C, /obj/structure/closet/crate))
-				C.pixel_y += load_offset_y
+			if(istype(thing_to_load, /obj/structure/closet/crate))
+				thing_to_load.pixel_y += load_offset_y
 			else
-				C.pixel_y += 10
+				thing_to_load.pixel_y += 10
 
-	if(ismob(C))
-		buckle(C, C)
+	if(ismob(thing_to_load))
+		buckle(thing_to_load, thing_to_load)
 
-	return 1
+	return TRUE
 
-/obj/vehicle/buckle(var/atom/movable/C, mob/user)
+/obj/vehicle/buckle(atom/movable/buckling_atom, mob/user)
 	. = ..()
 	if(. && buckling_sound)
 		playsound(src, buckling_sound, 20)
 
-/obj/vehicle/user_unbuckle(var/mob/user, var/direction)
+/obj/vehicle/user_unbuckle(mob/user)
 	..()
-	unload(user, direction)
+	unload(user)
 	return
 
 /obj/vehicle/proc/unload(var/mob/user, var/direction)

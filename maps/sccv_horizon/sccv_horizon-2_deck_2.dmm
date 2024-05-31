@@ -5019,6 +5019,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/machinery/light/floor{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
 "cdq" = (
@@ -30609,9 +30612,6 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/machinery/light/floor{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
 "oca" = (
@@ -33001,6 +33001,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "pin" = (
