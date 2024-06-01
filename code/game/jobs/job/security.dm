@@ -39,6 +39,8 @@
 	jobtype = /datum/job/hos
 
 	uniform = /obj/item/clothing/under/rank/head_of_security
+	suit = /obj/item/clothing/suit/armor/carrier/hos/roundstart
+
 	head = /obj/item/clothing/head/hos
 	id = /obj/item/card/id/navy
 	shoes = null
@@ -220,6 +222,7 @@
 	jobtype = /datum/job/officer
 
 	uniform = /obj/item/clothing/under/rank/security
+	suit = /obj/item/clothing/suit/armor/carrier/officer/roundstart
 	shoes = null
 
 	headset = /obj/item/device/radio/headset/headset_sec

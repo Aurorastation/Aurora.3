@@ -8,6 +8,7 @@
 	item_state = "legguards_sec"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_LEG_GUARDS
+	accessory_layer = ACCESSORY_LAYER_LOWER
 	w_class = ITEMSIZE_NORMAL
 	armor = list(
 		melee = ARMOR_MELEE_KEVLAR,
@@ -149,6 +150,7 @@
 	item_state = "armguards_sec"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_ARM_GUARDS
+	accessory_layer = ACCESSORY_LAYER_LOWER
 	body_parts_covered = HANDS|ARMS
 	armor = list(
 		melee = ARMOR_MELEE_KEVLAR,

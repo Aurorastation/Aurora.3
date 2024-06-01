@@ -99,25 +99,33 @@
 
 /obj/structure/closet/secure_closet/hos/fill()
 	..()
-	//Supply
+
+	// Supply
 	new /obj/item/storage/box/flashbangs(src)
 	new /obj/item/storage/box/ids(src)
 	new /obj/item/storage/box/stingers(src)
-	//Appearance
+
+	// Appearance
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel/sec(src)
 	new /obj/item/storage/backpack/duffel/sec(src)
-	new /obj/item/clothing/suit/armor/carrier/hos(src)
+
+	// Carrier Accessories
+	new /obj/item/clothing/accessory/armor_plate(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
-	new /obj/item/clothing/head/helmet/hos(src)
 	new /obj/item/clothing/accessory/badge/hos(src)
-	new /obj/item/clothing/suit/storage/security/hos(src)
+	new /obj/item/clothing/accessory/holster/modular(src)
+	new /obj/item/clothing/accessory/storage/modular_pouch/large(src)
+
+	new /obj/item/clothing/head/helmet/hos(src)
+
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
-	//Tools
+
+	// Tools
 	new /obj/item/device/radio/headset/heads/hos(src)
 	new /obj/item/device/radio/headset/heads/hos/alt(src)
 	new /obj/item/device/megaphone/sec(src)
@@ -131,9 +139,11 @@
 	new /obj/item/device/breath_analyzer(src)
 	new /obj/item/crowbar/red(src)
 	new /obj/item/ipc_tag_scanner(src)
-	//Belts
+
+	// Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/storage/belt/security/full(src)
+	new /obj/item/clothing/suit/storage/security/hos(src)
 	new /obj/item/storage/box/fancy/keypouch/sec(src)
 
 /obj/structure/closet/secure_closet/hos2
@@ -240,32 +250,41 @@
 	icon_state = "sec"
 
 /obj/structure/closet/secure_closet/security/fill()
-	//Appearance
+	// Appearance
 	if(prob(50))
 		new /obj/item/storage/backpack/security(src)
 	else
 		new /obj/item/storage/backpack/satchel/sec(src)
+
+	// Backpacks
 	new /obj/item/storage/backpack/duffel/sec(src)
-	new /obj/item/clothing/suit/armor/carrier/officer(src)
+
+	// Carrier Accessories
+	new /obj/item/clothing/accessory/armor_plate(src)
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
-	new /obj/item/clothing/head/helmet/security(src)
 	new /obj/item/clothing/accessory/badge/officer(src)
+	new /obj/item/clothing/accessory/holster/modular(src)
+	new /obj/item/clothing/accessory/storage/modular_pouch(src)
+
+	new /obj/item/clothing/head/helmet/security(src)
+
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
-	//Tools
+
+	// Tools
 	new /obj/item/device/radio/headset/headset_sec(src)
 	new /obj/item/device/radio/headset/headset_sec/alt(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
+
 	new /obj/item/gun/energy/disruptorpistol/security(src)
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/hailer(src)
 	new /obj/item/device/flashlight/flare/glowstick/red(src)
-	//Belts
+
 	new /obj/item/clothing/accessory/storage/black_vest(src)
 	new /obj/item/clothing/accessory/holster/hip(src)
-	new /obj/item/clothing/accessory/holster/modular(src)
 	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/clothing/suit/storage/hazardvest/security/officer(src)
 

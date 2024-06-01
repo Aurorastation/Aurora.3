@@ -110,8 +110,27 @@
 
 /obj/item/clothing/proc/attach_accessory(mob/user, obj/item/clothing/accessory/A)
 	LAZYADD(accessories, A)
+
+	// sort the accessories so that they render correctly
+	var/list/new_accessory_list = list()
+	var/list/accessories_by_layer = list()
+
+	for(var/i = ACCESSORY_LOWEST_LAYER, i <= ACCESSORY_HIGHEST_LAYER, i++)
+		accessories_by_layer["[i]"] = list()
+
+	for(var/obj/item/clothing/accessory/accessory as anything in accessories)
+		accessories_by_layer["[accessory.accessory_layer]"] += accessory
+
+	for(var/i = ACCESSORY_LOWEST_LAYER, i <= ACCESSORY_HIGHEST_LAYER, i++)
+		var/list/layered_accessories = accessories_by_layer["[i]"]
+		for(var/obj/item/clothing/accessory/accessory as anything in layered_accessories)
+			new_accessory_list += accessory
+
+	accessories = new_accessory_list
+
 	A.on_attached(src, user)
-	src.verbs |= /obj/item/clothing/proc/removetie_verb
+	src.verbs |= /obj/item/clothing/proc/remove_accessory_verb
+
 	update_clothing_icon()
 	update_accessory_slowdown()
 	recalculate_body_temperature_change()
@@ -126,23 +145,27 @@
 	update_accessory_slowdown()
 	recalculate_body_temperature_change()
 
-/obj/item/clothing/proc/removetie_verb()
+/obj/item/clothing/proc/remove_accessory_verb()
 	set name = "Remove Accessory"
 	set category = "Object"
 	set src in usr
-	if(!isliving(usr))
+
+	remove_accessory_handler(usr)
+
+/obj/item/clothing/proc/remove_accessory_handler(var/mob/living/user, var/force_radial = FALSE)
+	if(!isliving(user))
 		return
 
-	var/mob/living/M = usr
-
-	if(use_check_and_message(M))
+	if(use_check_and_message(user))
 		return
 
 	if(!LAZYLEN(accessories))
 		return
 
+	var/try_reopen_radial_after_removal = FALSE
+
 	var/obj/item/clothing/accessory/A
-	if(LAZYLEN(accessories) > 1)
+	if(force_radial || LAZYLEN(accessories) > 1)
 		var/list/options = list()
 		for (var/obj/item/clothing/accessory/i in accessories)
 			var/image/radial_button = image(icon = i.icon, icon_state = i.icon_state)
@@ -152,12 +175,19 @@
 				radial_button.ClearOverlays()
 				radial_button.AddOverlays(overlay_image(i.icon, "[i.icon_state]_[i.worn_overlay]", flags=RESET_COLOR))
 			options[i] = radial_button
-		A = show_radial_menu(M, M, options, radius = 42, tooltips = TRUE)
+		A = show_radial_menu(user, user, options, radius = 42, tooltips = TRUE)
+		if(!A)
+			return
+		try_reopen_radial_after_removal = TRUE
 	else
 		A = accessories[1]
-	remove_accessory(usr,A)
-	if(!LAZYLEN(accessories))
-		verbs -= /obj/item/clothing/proc/removetie_verb
+
+	remove_accessory(usr, A)
+
+	if(try_reopen_radial_after_removal)
+		remove_accessory_handler(user, TRUE)
+	else if(!LAZYLEN(accessories))
+		verbs -= /obj/item/clothing/proc/remove_accessory_verb
 
 /obj/item/clothing/emp_act(severity)
 	. = ..()

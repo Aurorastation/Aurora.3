@@ -32,10 +32,18 @@
 		/obj/item/clothing/accessory/storage/modular_pouch
 	)
 
+/obj/item/clothing/suit/armor/carrier/officer/roundstart
+	starting_accessories = list()
+
 /obj/item/clothing/suit/armor/carrier/hos
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate,
 		/obj/item/clothing/accessory/storage/modular_pouch/large,
+		/obj/item/clothing/accessory/sec_commander_stripes
+	)
+
+/obj/item/clothing/suit/armor/carrier/hos/roundstart
+	starting_accessories = list(
 		/obj/item/clothing/accessory/sec_commander_stripes
 	)
 
@@ -132,6 +140,7 @@
 	item_state = "plate_sec"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_ARMOR_PLATE
+	accessory_layer = ACCESSORY_LAYER_LOWER
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	w_class = ITEMSIZE_NORMAL
 	armor = list(
