@@ -9,6 +9,6 @@
 /obj/effect/map_effect/marker/mapmanip/submap/insert
 	name = "mapmanip marker, insert submap"
 	icon = 'icons/effects/map_effects_96x96.dmi'
-	icon_state = "mapmanip_extract"
+	icon_state = "mapmanip_insert"
 	pixel_x = -32
 	pixel_y = -32
