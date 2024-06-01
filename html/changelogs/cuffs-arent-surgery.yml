@@ -1,6 +1,0 @@
-author: Sparky_hotdog
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes attempting surgery with every item while someone is on a bed getting in the way of normal item uses. Surgery will now only stop you using surgical tools at the wrong time."
