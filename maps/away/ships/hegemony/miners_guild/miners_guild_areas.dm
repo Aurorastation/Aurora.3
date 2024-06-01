@@ -65,6 +65,10 @@
 	name = "Miners' Guild Outpost - Healers Room"
 	icon_state = "medbay"
 
+/area/miners_guild/storage
+	name = "Miners' Guild - Gear Prep"
+	icon_state = "storage"
+
 //shuttle
 /area/shuttle/miners_guild
 	name = "Miners' Guild Shuttle"
