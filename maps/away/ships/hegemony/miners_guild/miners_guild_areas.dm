@@ -69,6 +69,24 @@
 	name = "Miners' Guild - Gear Prep"
 	icon_state = "storage"
 
+/area/miners_guild/docking_port_1
+	name = "Miners' Guild Outpost - Docking Port 1"
+	icon_state = "south"
+	ambience = AMBIENCE_HANGAR
+	sound_environment = SOUND_ENVIRONMENT_HANGAR
+
+/area/miners_guild/docking_port_2
+	name = "Miners' Guild Outpost - Docking Port 2"
+	icon_state = "southeast"
+	ambience = AMBIENCE_HANGAR
+	sound_environment = SOUND_ENVIRONMENT_HANGAR
+
+/area/miners_guild/docking_port_3
+	name = "Miners' Guild Outpost - Docking Port 3"
+	icon_state = "southwest"
+	ambience = AMBIENCE_HANGAR
+	sound_environment = SOUND_ENVIRONMENT_HANGAR
+
 //shuttle
 /area/shuttle/miners_guild
 	name = "Miners' Guild Shuttle"
