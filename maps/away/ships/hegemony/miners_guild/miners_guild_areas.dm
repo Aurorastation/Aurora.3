@@ -61,6 +61,10 @@
 	name = "Miners' Guild Outpost - Bathroom"
 	icon_state = "bluenew"
 
+/area/miners_guild/medical
+	name = "Miners' Guild Outpost - Healers Room"
+	icon_state = "medbay"
+
 //shuttle
 /area/shuttle/miners_guild
 	name = "Miners' Guild Shuttle"
