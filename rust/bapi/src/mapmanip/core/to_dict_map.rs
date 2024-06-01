@@ -12,7 +12,9 @@ fn coord3_to_index(coord: dmm::Coord3, size: dmm::Coord3) -> (usize, usize, usiz
 }
 
 fn int_to_key(i: u16) -> dmm::Key {
-    // because `dmm::Key` interior var is private
+    // Unsafe is used here to convert basic int to key type, as `dmm::Key` interior var is private.
+    // This is "safe", as key will always be `u16` to maintain compability with the `dmm` format.
+    // Could be at some point be made safe when the key type is made public in the `dmm_tools` crate.
     unsafe { std::mem::transmute::<u16, dmm::Key>(i) }
 }
 

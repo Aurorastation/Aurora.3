@@ -17,9 +17,9 @@ pub struct Tile {
     pub prefabs: Vec<dmm::Prefab>,
 }
 
-/// Kinda analogous to `dmmtools::dmm::Map`, but instead of being structured like dmm maps are,
+/// This is analogous to `dmmtools::dmm::Map`, but instead of being structured like dmm maps are,
 /// where they have a dictionary of keys-to-prefabs and a separate grid of keys,
-/// this is only a direct coord-prefab grid.
+/// this is only a direct coord-to-prefab grid.
 /// It is not memory efficient, but it allows for much greater flexibility of manipulation.
 #[derive(Clone, Debug)]
 pub struct GridMap {
