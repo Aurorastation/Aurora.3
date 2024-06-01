@@ -35,7 +35,7 @@
 	q = pick(randomquip)
 
 	if(do_after(user, 2.5 SECONDS))
-		to_chat(user, "<span class='notice'>You notice a particular verse: [q]</span>")
+		to_chat(user, SPAN_NOTICE("You notice a particular verse: [q]"))
 	reading = FALSE
 
 /obj/item/device/versebook/tribunal
@@ -47,7 +47,7 @@
 
 /obj/item/device/versebook/tribunal/Initialize()
 	. = ..()
-	randomquip = file2list("ingame_manuals/dominia.txt")  //Needs a .txt file, each line is a 'verse' the book will randomly choose to display to user.
+	randomquip = file2list('texts/ingame_manuals/dominia.txt')  //Needs a .txt file, each line is a 'verse' the book will randomly choose to display to user.
 
 /obj/item/device/versebook/gadpathur
 	name = "\improper gadpathurian morale manual"
@@ -58,7 +58,7 @@
 
 /obj/item/device/versebook/gadpathur/Initialize()
 	. = ..()
-	randomquip = file2list("ingame_manuals/gadpathur.txt")
+	randomquip = file2list('texts/ingame_manuals/gadpathur.txt')
 
 /obj/item/device/versebook/biesel
 	name = "\improper Constitution of The Federal Republic of Biesel"
@@ -69,7 +69,7 @@
 
 /obj/item/device/versebook/biesel/Initialize()
 	. = ..()
-	randomquip = file2list("ingame_manuals/biesel.txt")
+	randomquip = file2list('texts/ingame_manuals/biesel.txt')
 
 /obj/item/device/versebook/trinary
 	name = "\improper The Order (abdridged version)"
@@ -80,7 +80,7 @@
 
 /obj/item/device/versebook/trinary/Initialize()
 	. = ..()
-	randomquip = file2list("ingame_manuals/trinary.txt")
+	randomquip = file2list('texts/ingame_manuals/trinary.txt')
 
 /obj/item/device/versebook/templeist
 	name = "\improper The Voice of Temple (abdridged version)"
@@ -92,7 +92,7 @@
 
 /obj/item/device/versebook/templeist/Initialize()
 	. = ..()
-	randomquip = file2list("ingame_manuals/templeist.txt")
+	randomquip = file2list('texts/ingame_manuals/templeist.txt')
 
 /obj/item/device/versebook/siakh
 	name = "\improper Writings of Judizah Si'akh"
@@ -104,7 +104,7 @@
 
 /obj/item/device/versebook/siakh/Initialize()
 	. = ..()
-	randomquip = file2list("ingame_manuals/siakh.txt")
+	randomquip = file2list('texts/ingame_manuals/siakh.txt')
 
 /obj/item/device/versebook/autakh
 	name = "\improper Reflections upon the Aut'akh Faith"
@@ -116,7 +116,7 @@
 
 /obj/item/device/versebook/autakh/Initialize()
 	. = ..()
-	randomquip = file2list("ingame_manuals/autakh.txt")
+	randomquip = file2list('texts/ingame_manuals/autakh.txt')
 
 /obj/item/device/versebook/skakh
 	name = "\improper Sk'akh Legends"
@@ -128,7 +128,7 @@
 
 /obj/item/device/versebook/skakh/Initialize()
 	. = ..()
-	randomquip = file2list("ingame_manuals/skakh.txt")
+	randomquip = file2list('texts/ingame_manuals/skakh.txt')
 
 /obj/item/device/versebook/thakh
 	name = "\improper collected Th'akh fables"
@@ -139,7 +139,7 @@
 
 /obj/item/device/versebook/thakh/Initialize()
 	. = ..()
-	randomquip = file2list("ingame_manuals/thakh.txt")
+	randomquip = file2list('texts/ingame_manuals/thakh.txt')
 
 /obj/item/device/versebook/assunzione
 	name = "\improper Luceian Book of Scripture"
@@ -151,7 +151,7 @@
 
 /obj/item/device/versebook/assunzione/Initialize()
 	. = ..()
-	randomquip = file2list("ingame_manuals/assunzione.txt")
+	randomquip = file2list('texts/ingame_manuals/assunzione.txt')
 
 /obj/item/device/versebook/assunzione/pocket
 	name = "pocket Luceian Book of Scripture"

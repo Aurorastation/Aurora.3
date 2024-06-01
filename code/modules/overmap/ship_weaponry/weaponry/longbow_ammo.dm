@@ -40,14 +40,14 @@
 		primer = P
 		P.forceMove(src)
 		var/image/OL = image(P.icon, P.primer_state, layer = layer - 0.01)
-		add_overlay(OL)
+		AddOverlays(OL)
 	update_status()
 
 /obj/item/ship_ammunition/longbow/proc/add_warhead(var/obj/item/warhead/W)
 	if(W && !QDELETED(W))
 		warhead = W
 		W.forceMove(src)
-		add_overlay(W.warhead_state)
+		AddOverlays(W.warhead_state)
 		impact_type = W.warhead_type
 		ammunition_flags = initial(ammunition_flags)
 		ammunition_flags |= SHIP_AMMO_FLAG_VERY_FRAGILE
@@ -155,7 +155,9 @@
 /obj/item/warhead/longbow/ex_act(severity)
 	cookoff(TRUE)
 
-/obj/item/warhead/longbow/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/item/warhead/longbow/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(exposed_temperature >= T0C+200)
 		cookoff(TRUE)
 

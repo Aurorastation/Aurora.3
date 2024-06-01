@@ -218,12 +218,12 @@
 
 							if(organs_to_gib.len)
 								var/obj/item/organ/external/E = pick(organs_to_gib)
-								to_chat(H, "<span class='danger'>You partially phase into \the [impediment], causing your [E.name] to violently dematerialize!</span>")
+								to_chat(H, SPAN_DANGER("You partially phase into \the [impediment], causing your [E.name] to violently dematerialize!"))
 								H.apply_damage(35, DAMAGE_BRUTE, E, 0)
 
 					else
 						if(newdest)
-							to_chat(L, "<span class='danger'>You partially phase into \the [impediment], causing a chunk of you to violently dematerialize!</span>")
+							to_chat(L, SPAN_DANGER("You partially phase into \the [impediment], causing a chunk of you to violently dematerialize!"))
 							L.adjustBruteLoss(40)
 
 				else
@@ -254,13 +254,13 @@
 				if(!L.mind && !isvaurca(L))
 
 					if(BS.message_countdown >= 200)
-						to_chat(BS, "<span class='notice'><b>You feel relief wash over you as your harried spirit fills into \the [L] like water into a vase.</b></span>")
+						to_chat(BS, SPAN_NOTICE("<b>You feel relief wash over you as your harried spirit fills into \the [L] like water into a vase.</b>"))
 						BS.mind.transfer_to(L)
 						to_chat(L, "<b>You have been restored to a corporeal form. You retain no memories of your time as a bluespace echo, but regardless of your current form the memories of your time before being a bluespace echo are returned.</b>")
 						qdel(BS)
 
 					else
-						to_chat(BS, "<span class='warning'>You lack the strength of echoes necessary to reattain corporeality in \the [L]!</span>")
+						to_chat(BS, SPAN_WARNING("You lack the strength of echoes necessary to reattain corporeality in \the [L]!"))
 
 					break
 
@@ -306,12 +306,12 @@
 		precision = max(rand(1,100)*bagholding.len,100)
 		if(istype(teleatom, /mob/living))
 			var/mob/living/MM = teleatom
-			to_chat(MM, "<span class='danger'>The Bluespace interface on your [teleatom] interferes with the teleport!</span>")
+			to_chat(MM, SPAN_DANGER("The Bluespace interface on your [teleatom] interferes with the teleport!"))
 	return TRUE
 
 /datum/teleport/instant/science/teleportChecks()
 	if(istype(teleatom, /obj/item/disk/nuclear)) // Don't let nuke disks get teleported --NeoFite
-		teleatom.visible_message("<span class='danger'>\The [teleatom] bounces off of the portal!</span>")
+		teleatom.visible_message(SPAN_DANGER("\The [teleatom] bounces off of the portal!"))
 		return FALSE
 
 
@@ -322,14 +322,14 @@
 	if(!isemptylist(teleatom.search_contents_for(/obj/item/disk/nuclear)))
 		if(istype(teleatom, /mob/living))
 			var/mob/living/MM = teleatom
-			MM.visible_message("<span class='danger'>\The [MM] bounces off of the portal!</span>","<span class='warning'>Something you are carrying seems to be unable to pass through the portal. Better drop it if you want to go through.</span>")
+			MM.visible_message(SPAN_DANGER("\The [MM] bounces off of the portal!"),SPAN_WARNING("Something you are carrying seems to be unable to pass through the portal. Better drop it if you want to go through."))
 		else
-			teleatom.visible_message("<span class='danger'>\The [teleatom] bounces off of the portal!</span>")
+			teleatom.visible_message(SPAN_DANGER("\The [teleatom] bounces off of the portal!"))
 		return FALSE
 
 	if(isAdminLevel(destination.z)) //centcomm z-level
 		if(!isemptylist(teleatom.search_contents_for(/obj/item/storage/backpack/holding)))
-			teleatom.visible_message("<span class='danger'>\The [teleatom] bounces off of the portal!</span>")
+			teleatom.visible_message(SPAN_DANGER("\The [teleatom] bounces off of the portal!"))
 			return FALSE
 
 

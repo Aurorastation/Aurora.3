@@ -38,6 +38,14 @@
 
 	ui_interact(user)
 
+/obj/machinery/suspension_gen/operable(additional_flags)
+	if(stat & (BROKEN|additional_flags))
+		return FALSE
+	if(!cell.charge)
+		return FALSE
+
+	return TRUE
+
 /obj/machinery/suspension_gen/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())
 		if(!open)
@@ -151,9 +159,9 @@
 /obj/machinery/suspension_gen/update_icon()
 	icon_state = "suspension_[anchored ? (suspension_field ? "on" : "wrenched") : "loose"]"
 	if(!screwed)
-		add_overlay("suspension_panel")
+		AddOverlays("suspension_panel")
 	else
-		cut_overlay("suspension_panel")
+		CutOverlays("suspension_panel")
 
 /obj/machinery/suspension_gen/get_cell()
 	return cell

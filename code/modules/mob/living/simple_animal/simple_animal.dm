@@ -190,7 +190,7 @@
 		death()
 
 /mob/living/simple_animal/Destroy()
-	cut_overlay(blood_overlay)
+	CutOverlays(blood_overlay)
 	movement_target = null
 	QDEL_NULL(udder)
 
@@ -222,11 +222,11 @@
 /mob/living/simple_animal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (stat == DEAD)
-		. += "<span class='danger'>It looks dead.</span>"
+		. += SPAN_DANGER("It looks dead.")
 	if (health < maxHealth * 0.5)
-		. += "<span class='danger'>It looks badly wounded.</span>"
+		. += SPAN_DANGER("It looks badly wounded.")
 	else if (health < maxHealth)
-		. += "<span class='warning'>It looks wounded.</span>"
+		. += SPAN_WARNING("It looks wounded.")
 
 /mob/living/simple_animal/can_name(var/mob/living/M)
 	if(named)
@@ -404,7 +404,7 @@
 
 	if(force_reset || current_blood_state != blood_state)
 		if(blood_overlay)
-			cut_overlay(blood_overlay)
+			CutOverlays(blood_overlay)
 		if(blood_state == BLOOD_NONE)
 			return
 		var/blood_overlay_name = get_blood_overlay_name()
@@ -412,7 +412,7 @@
 		I.color = blood_type
 		I.blend_mode = BLEND_INSET_OVERLAY
 		blood_overlay = I
-		add_overlay(blood_overlay)
+		AddOverlays(blood_overlay)
 
 /mob/living/simple_animal/proc/get_blood_overlay_name()
 	return "blood_overlay"

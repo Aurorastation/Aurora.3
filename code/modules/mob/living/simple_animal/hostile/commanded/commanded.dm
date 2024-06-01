@@ -1,4 +1,6 @@
 /mob/living/simple_animal/hostile/commanded
+	abstract_type = /mob/living/simple_animal/hostile/commanded
+
 	name = "commanded"
 	var/short_name = null
 	stance = COMMANDED_STOP

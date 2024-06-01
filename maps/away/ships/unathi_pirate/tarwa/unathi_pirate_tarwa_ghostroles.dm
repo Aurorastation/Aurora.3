@@ -19,6 +19,8 @@
 	away_site = TRUE
 	welcome_message = "The Tarwa Conglomerate is a pirate group, largely operating towards the southeastern edge of the Spur. Little is known of them to others, and your ship likely thrives on this mystique. The wiki page for Unathi Piracy contains more information on this group, and how they operate."
 
+	has_idris_account = FALSE
+
 /datum/ghostspawner/human/tarwa/diona
 	short_name = "tarwa_diona"
 	name = "Tarwa Conglomerate Diona Crewman"

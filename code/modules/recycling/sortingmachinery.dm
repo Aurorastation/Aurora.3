@@ -34,7 +34,7 @@
 		var/obj/item/device/destTagger/O = attacking_item
 		if(O.currTag)
 			if(src.sortTag != O.currTag)
-				to_chat(user, "<span class='notice'>You have labeled the destination as [O.currTag].</span>")
+				to_chat(user, SPAN_NOTICE("You have labeled the destination as [O.currTag]."))
 				if(!src.sortTag)
 					src.sortTag = O.currTag
 					update_icon()
@@ -42,19 +42,19 @@
 					src.sortTag = O.currTag
 				playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 1)
 			else
-				to_chat(user, "<span class='warning'>The package is already labeled for [O.currTag].</span>")
+				to_chat(user, SPAN_WARNING("The package is already labeled for [O.currTag]."))
 		else
-			to_chat(user, "<span class='warning'>You need to set a destination first!</span>")
+			to_chat(user, SPAN_WARNING("You need to set a destination first!"))
 
 	else if(attacking_item.ispen())
 		switch(alert("What would you like to alter?",,"Title","Description", "Cancel"))
 			if("Title")
 				var/str = sanitizeSafe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
 				if(!str || !length(str))
-					to_chat(usr, "<span class='warning'>Invalid text.</span>")
+					to_chat(usr, SPAN_WARNING("Invalid text."))
 					return
 				user.visible_message("\The [user] titles \the [src] with \a [attacking_item], marking down: \"[str]\"",\
-				"<span class='notice'>You title \the [src]: \"[str]\"</span>",\
+				SPAN_NOTICE("You title \the [src]: \"[str]\""),\
 				"You hear someone scribbling a note.")
 				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 				name = "[name] ([str])"
@@ -66,7 +66,7 @@
 			if("Description")
 				var/str = sanitize(input(usr,"Label text?","Set label",""))
 				if(!str || !length(str))
-					to_chat(usr, "<span class='warning'>Invalid text.</span>")
+					to_chat(usr, SPAN_WARNING("Invalid text."))
 					return
 				if(!examtext && !nameset)
 					examtext = str
@@ -74,13 +74,13 @@
 				else
 					examtext = str
 				user.visible_message("\The [user] labels \the [src] with \a [attacking_item], scribbling down: \"[examtext]\"",\
-				"<span class='notice'>You label \the [src]: \"[examtext]\"</span>",\
+				SPAN_NOTICE("You label \the [src]: \"[examtext]\""),\
 				"You hear someone scribbling a note.")
 				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 	return
 
 /obj/structure/bigDelivery/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(nameset || examtext)
 		var/image/I = new/image('icons/obj/storage/misc.dmi',"delivery_label")
 		if(icon_state == "deliverycloset")
@@ -93,7 +93,7 @@
 				label_x = rand(-8, 6)
 			I.pixel_x = label_x
 			I.pixel_y = -3
-		add_overlay(I)
+		AddOverlays(I)
 	if(src.sortTag)
 		var/image/I = new/image('icons/obj/storage/misc.dmi',"delivery_tag")
 		if(icon_state == "deliverycloset")
@@ -106,15 +106,15 @@
 				tag_x = rand(-8, 6)
 			I.pixel_x = tag_x
 			I.pixel_y = -3
-		add_overlay(I)
+		AddOverlays(I)
 
 /obj/structure/bigDelivery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 4)
 		if(sortTag)
-			. += "<span class='notice'>It is labeled \"[sortTag]\".</span>"
+			. += SPAN_NOTICE("It is labeled \"[sortTag]\".")
 		if(examtext)
-			. += "<span class='notice'>It has a note attached which reads, \"[examtext]\".</span>"
+			. += SPAN_NOTICE("It has a note attached which reads, \"[examtext]\".")
 
 /obj/item/smallDelivery
 	desc = "A small wrapped package."
@@ -157,7 +157,7 @@
 		var/obj/item/device/destTagger/O = attacking_item
 		if(O.currTag)
 			if(src.sortTag != O.currTag)
-				to_chat(user, "<span class='notice'>You have labeled the destination as [O.currTag].</span>")
+				to_chat(user, SPAN_NOTICE("You have labeled the destination as [O.currTag]."))
 				if(!src.sortTag)
 					src.sortTag = O.currTag
 					update_icon()
@@ -165,19 +165,19 @@
 					src.sortTag = O.currTag
 				playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 1)
 			else
-				to_chat(user, "<span class='warning'>The package is already labeled for [O.currTag].</span>")
+				to_chat(user, SPAN_WARNING("The package is already labeled for [O.currTag]."))
 		else
-			to_chat(user, "<span class='warning'>You need to set a destination first!</span>")
+			to_chat(user, SPAN_WARNING("You need to set a destination first!"))
 
 	else if(attacking_item.ispen())
 		switch(tgui_input_list(user, "What would you like to alter?", null, list("Title", "Description"), "Cancel"))
 			if("Title")
 				var/str = sanitizeSafe( tgui_input_text(usr, "Label text?", "Set label", "", MAX_NAME_LEN), MAX_NAME_LEN )
 				if(!str || !length(str))
-					to_chat(usr, "<span class='warning'>Invalid text.</span>")
+					to_chat(usr, SPAN_WARNING("Invalid text."))
 					return
 				user.visible_message("\The [user] titles \the [src] with \a [attacking_item], marking down: \"[str]\"",\
-				"<span class='notice'>You title \the [src]: \"[str]\"</span>",\
+				SPAN_NOTICE("You title \the [src]: \"[str]\""),\
 				"You hear someone scribbling a note.")
 				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 				name = "[name] ([str])"
@@ -190,7 +190,7 @@
 			if("Description")
 				var/str = sanitize(tgui_input_text(usr, "Label text?", "Set label", ""))
 				if(!str || !length(str))
-					to_chat(usr, "<span class='warning'>Invalid text.</span>")
+					to_chat(usr, SPAN_WARNING("Invalid text."))
 					return
 				if(!examtext && !nameset)
 					examtext = str
@@ -198,18 +198,18 @@
 				else
 					examtext = str
 				user.visible_message("\The [user] labels \the [src] with \a [attacking_item], scribbling down: \"[examtext]\"",\
-				"<span class='notice'>You label \the [src]: \"[examtext]\"</span>",\
+				SPAN_NOTICE("You label \the [src]: \"[examtext]\""),\
 				"You hear someone scribbling a note.")
 				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 	return
 
 /obj/item/smallDelivery/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if((nameset || examtext) && icon_state != "deliverycrate1")
 		var/image/I = new/image('icons/obj/storage/misc.dmi',"delivery_label")
 		if(icon_state == "deliverycrate5")
 			I.pixel_y = -1
-		add_overlay(I)
+		AddOverlays(I)
 	if(src.sortTag)
 		var/image/I = new/image('icons/obj/storage/misc.dmi',"delivery_tag")
 		switch(icon_state)
@@ -226,15 +226,15 @@
 				I.pixel_y = 3
 			if("deliverycrate5")
 				I.pixel_y = -3
-		add_overlay(I)
+		AddOverlays(I)
 
 /obj/item/smallDelivery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 4)
 		if(sortTag)
-			. += "<span class='notice'>It is labeled \"[sortTag]\".</span>"
+			. += SPAN_NOTICE("It is labeled \"[sortTag]\".")
 		if(examtext)
-			. += "<span class='notice'>It has a note attached which reads, \"[examtext]\".</span>"
+			. += SPAN_NOTICE("It has a note attached which reads, \"[examtext]\".")
 
 /obj/structure/bigDelivery/Destroy()
 	if(wrapped) //sometimes items can disappear. For example, bombs. --rastaf0
@@ -258,12 +258,12 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 
-/obj/item/device/destTagger/proc/openwindow(mob/user as mob)
+/obj/item/device/destTagger/proc/openwindow(mob/user)
 	var/dat = "<tt><center><h1><b>TagMaster 2.3</b></h1></center>"
 
 	dat += "<table style='width:100%; padding:4px;'><tr>"
 	for(var/i = 1, i <= SSdisposals.tagger_locations.len, i++)
-		dat += "<td><a href='?src=\ref[src];nextTag=[SSdisposals.tagger_locations[i]]'>[SSdisposals.tagger_locations[i]]</a></td>"
+		dat += "<td><a href='?src=\ref[src];nextTag=[html_encode(SSdisposals.tagger_locations[i])]'>[SSdisposals.tagger_locations[i]]</a></td>"
 
 		if (i % 4==0)
 			dat += "</tr><tr>"
@@ -273,20 +273,23 @@
 	user << browse(dat, "window=destTagScreen;size=450x375")
 	onclose(user, "destTagScreen")
 
-/obj/item/device/destTagger/attack_self(mob/user as mob)
+/obj/item/device/destTagger/attack_self(mob/user)
 	openwindow(user)
 	return
 
 /obj/item/device/destTagger/Topic(href, href_list)
 	src.add_fingerprint(usr)
-	if(href_list["nextTag"] && (href_list["nextTag"] in SSdisposals.tagger_locations))
-		src.currTag = href_list["nextTag"]
+
+	if(href_list["nextTag"] && (html_decode(href_list["nextTag"]) in SSdisposals.tagger_locations))
+		src.currTag = html_decode(href_list["nextTag"])
+
 	if(href_list["nextTag"] == "CUSTOM")
 		var/dest = input("Please enter custom location.", "Location", src.currTag ? src.currTag : "None")
 		if(dest != "None")
 			src.currTag = dest
 		else
 			src.currTag = 0
+
 	openwindow(usr)
 
 /obj/machinery/disposal/deliveryChute

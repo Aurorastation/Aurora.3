@@ -133,6 +133,7 @@
 	features_budget = 8
 	flora_diversity = 0
 	has_trees = FALSE
+	initial_weather_state = /singleton/state/weather/calm/jungle_planet
 	small_flora_types = list(/datum/seed/xuizi, /datum/seed/gukhe, /datum/seed/sarezhi, /datum/seed/flower/serkiflower, /datum/seed/sthberry)
 	surface_color = "#e8faff"
 	generated_name = FALSE
@@ -152,13 +153,53 @@
 			possible_themes = list(/datum/exoplanet_theme/grass/moghes) //non-nuked theme
 			surface_color = "#164a14"
 			//Untouched Lands ruins
-			ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/moghes_village, /datum/map_template/ruin/exoplanet/moghes_heph_mining, /datum/map_template/ruin/exoplanet/moghes_bar, /datum/map_template/ruin/exoplanet/moghes_hegemony_base, /datum/map_template/ruin/exoplanet/moghes_skakh, /datum/map_template/ruin/exoplanet/moghes_thakh, /datum/map_template/ruin/exoplanet/moghes_kung_fu, /datum/map_template/ruin/exoplanet/moghes_fishing_spot, /datum/map_template/ruin/exoplanet/moghes_memorial, /datum/map_template/ruin/exoplanet/moghes_guild_mining, /datum/map_template/ruin/exoplanet/moghes_threshbeast_herd, /datum/map_template/ruin/exoplanet/moghes_diona_traders, /datum/map_template/ruin/exoplanet/moghes_untouched_tyrant)
+			ruin_type_whitelist = list(
+			/datum/map_template/ruin/exoplanet/moghes_village,
+			/datum/map_template/ruin/exoplanet/moghes_heph_mining,
+			/datum/map_template/ruin/exoplanet/moghes_bar,
+			/datum/map_template/ruin/exoplanet/moghes_hegemony_base,
+			/datum/map_template/ruin/exoplanet/moghes_skakh,
+			/datum/map_template/ruin/exoplanet/moghes_thakh,
+			/datum/map_template/ruin/exoplanet/moghes_kung_fu,
+			/datum/map_template/ruin/exoplanet/moghes_fishing_spot,
+			/datum/map_template/ruin/exoplanet/moghes_memorial,
+			/datum/map_template/ruin/exoplanet/moghes_guild_mining,
+			/datum/map_template/ruin/exoplanet/moghes_threshbeast_herd,
+			/datum/map_template/ruin/exoplanet/moghes_diona_traders,
+			/datum/map_template/ruin/exoplanet/moghes_untouched_tyrant
+		)
 
 		if("Wasteland")
 			possible_themes = list(/datum/exoplanet_theme/desert/wasteland) //nuked theme
 			surface_color = "#faeac5"
+			set_weather(/singleton/state/weather/calm/desert_planet)
 			//Wasteland ruins
-			//ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/moghes_guwandi, /datum/map_template/ruin/exoplanet/moghes_gawgaryn_bikers, /datum/map_template/ruin/exoplanet/moghes_kataphract_wasteland, /datum/map_template/ruin/exoplanet/moghes_wasteland_dorviza, /datum/map_template/ruin/exoplanet/moghes_wasteland_ozeuoi, /datum/map_template/ruin/exoplanet/moghes_wasteland_vihnmes, /datum/map_template/ruin/exoplanet/moghes_wasteland_village, /datum/map_template/ruin/exoplanet/moghes_wasteland_izweski, /datum/map_template/ruin/exoplanet/moghes_siakh, /datum/map_template/ruin/exoplanet/moghes_queendom, /datum/map_template/ruin/exoplanet/moghes_wasteland_klax, /datum/map_template/ruin/exoplanet/moghes_wasteland_reclaimer, /datum/map_template/ruin/exoplanet/moghes_wasteland_mikuetz, /datum/map_template/ruin/exoplanet/moghes_wasteland_crater, /datum/map_template/ruin/exoplanet/moghes_wasteland_oasis, /datum/map_template/ruin/exoplanet/moghes_wasteland_battlefield, /datum/map_template/ruin/exoplanet/moghes_ruined_base, /datum/map_template/ruin/exoplanet/moghes_wasteland_tomb, /datum/map_template/ruin/exoplanet/moghes_wasteland_bomb, /datum/map_template/ruin/exoplanet/moghes_wasteland_crash, /datum/map_template/ruin/exoplanet/moghes_wasteland_priests, /datum/map_template/ruin/exoplanet/moghes_dead_guwandi, /datum/map_template/ruin/exoplanet/moghes_gawgaryn_riders, /datum/map_template/ruin/exoplanet/moghes_wasteland_tyrant)
+			ruin_type_whitelist = list(
+				/datum/map_template/ruin/exoplanet/moghes_guwandi,
+				/datum/map_template/ruin/exoplanet/moghes_gawgaryn_bikers,
+				/datum/map_template/ruin/exoplanet/moghes_kataphract_wasteland,
+				/datum/map_template/ruin/exoplanet/moghes_wasteland_dorviza,
+				/datum/map_template/ruin/exoplanet/moghes_wasteland_ozeuoi,
+				/datum/map_template/ruin/exoplanet/moghes_wasteland_vihnmes,
+				/datum/map_template/ruin/exoplanet/moghes_wasteland_village,
+				/datum/map_template/ruin/exoplanet/moghes_wasteland_izweski,
+				/datum/map_template/ruin/exoplanet/moghes_siakh,
+				/datum/map_template/ruin/exoplanet/moghes_queendom,
+				/datum/map_template/ruin/exoplanet/moghes_wasteland_klax,
+				/datum/map_template/ruin/exoplanet/moghes_wasteland_reclaimer,
+				/datum/map_template/ruin/exoplanet/moghes_wasteland_mikuetz,
+				/datum/map_template/ruin/exoplanet/moghes_wasteland_crater,
+				/datum/map_template/ruin/exoplanet/moghes_wasteland_oasis,
+				/datum/map_template/ruin/exoplanet/moghes_wasteland_battlefield,
+				/datum/map_template/ruin/exoplanet/moghes_ruined_base,
+				/datum/map_template/ruin/exoplanet/moghes_wasteland_tomb,
+				/datum/map_template/ruin/exoplanet/moghes_wasteland_bomb,
+				/datum/map_template/ruin/exoplanet/moghes_wasteland_crash,
+				/datum/map_template/ruin/exoplanet/moghes_wasteland_priests,
+				/datum/map_template/ruin/exoplanet/moghes_dead_guwandi,
+				/datum/map_template/ruin/exoplanet/moghes_gawgaryn_riders,
+				/datum/map_template/ruin/exoplanet/moghes_wasteland_tyrant
+			)
 
 	desc += " The landing sites are located in the [landing_region]."
 
@@ -235,7 +276,22 @@
 	small_flora_types = list(/datum/seed/xuizi, /datum/seed/gukhe, /datum/seed/aghrassh)
 	generated_name = FALSE
 	ruin_planet_type = PLANET_LORE
-	//ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/ouerea_heph_mining, /datum/map_template/ruin/exoplanet/ouerea_village, /datum/map_template/ruin/exoplanet/ouerea_bar, /datum/map_template/ruin/exoplanet/ouerea_autakh, /datum/map_template/ruin/exoplanet/ouerea_hegemony_base, /datum/map_template/ruin/exoplanet/ouerea_farm, /datum/map_template/ruin/exoplanet/ouerea_fishing_spot, /datum/map_template/ruin/exoplanet/ouerea_sol_base, /datum/map_template/ruin/exoplanet/ouerea_skrell_base, /datum/map_template/ruin/exoplanet/ouerea_guild_mining, /datum/map_template/ruin/exoplanet/ouerea_nt_ruin, /datum/map_template/ruin/exoplanet/ouerea_freewater, /datum/map_template/ruin/exoplanet/ouerea_battlefield, /datum/map_template/ruin/exoplanet/ouerea_threshbeast_herd)
+	initial_weather_state = /singleton/state/weather/calm/jungle_planet
+	ruin_type_whitelist = list(
+		/datum/map_template/ruin/exoplanet/ouerea_heph_mining,
+		/datum/map_template/ruin/exoplanet/ouerea_village,
+		/datum/map_template/ruin/exoplanet/ouerea_bar, /datum/map_template/ruin/exoplanet/ouerea_autakh,
+		/datum/map_template/ruin/exoplanet/ouerea_hegemony_base,
+		/datum/map_template/ruin/exoplanet/ouerea_farm,
+		/datum/map_template/ruin/exoplanet/ouerea_fishing_spot,
+		/datum/map_template/ruin/exoplanet/ouerea_sol_base,
+		/datum/map_template/ruin/exoplanet/ouerea_skrell_base,
+		/datum/map_template/ruin/exoplanet/ouerea_guild_mining,
+		/datum/map_template/ruin/exoplanet/ouerea_nt_ruin,
+		/datum/map_template/ruin/exoplanet/ouerea_freewater,
+		/datum/map_template/ruin/exoplanet/ouerea_battlefield,
+		/datum/map_template/ruin/exoplanet/ouerea_threshbeast_herd
+	)
 	place_near_main = list(2,2)
 
 /obj/effect/overmap/visitable/sector/exoplanet/ouerea/generate_habitability()

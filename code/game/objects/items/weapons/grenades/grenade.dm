@@ -21,7 +21,7 @@
 
 /obj/item/grenade/proc/clown_check(var/mob/living/user)
 	if((user.is_clumsy()) && prob(50))
-		to_chat(user, "<span class='warning'>Huh? How does this thing work?</span>")
+		to_chat(user, SPAN_WARNING("Huh? How does this thing work?"))
 
 		activate(user)
 		add_fingerprint(user)
@@ -50,7 +50,7 @@
 /obj/item/grenade/attack_self(mob/user as mob)
 	if(!active)
 		if(clown_check(user))
-			to_chat(user, "<span class='warning'>You prime \the [name]! [det_time/10] seconds!</span>")
+			to_chat(user, SPAN_WARNING("You prime \the [name]! [det_time/10] seconds!"))
 
 			activate(user)
 			add_fingerprint(user)

@@ -147,7 +147,7 @@
 
 /obj/structure/railing/update_icon(var/update_neighbors = TRUE)
 	NeighborsCheck(update_neighbors)
-	overlays.Cut()
+	CutOverlays()
 	if(dir == SOUTH)
 		layer = ABOVE_HUMAN_LAYER
 	else
@@ -157,11 +157,11 @@
 	else
 		icon_state = "railing1-[density]"
 		if(neighbor_status & 32)
-			overlays += image(icon, "corneroverlay[density]")
+			AddOverlays(image(icon, "corneroverlay[density]"))
 		if((neighbor_status & 16) || !(neighbor_status & 32) || (neighbor_status & 64))
-			overlays += image(icon, "frontoverlay_l[density]")
+			AddOverlays(image(icon, "frontoverlay_l[density]"))
 		if(!(neighbor_status & 2) || (neighbor_status & 1) || (neighbor_status & 4))
-			overlays += image(icon, "frontoverlay_r[density]")
+			AddOverlays(image(icon, "frontoverlay_r[density]"))
 			if(neighbor_status & 4)
 				var/pix_offset_x = 0
 				var/pix_offset_y = 0
@@ -174,7 +174,7 @@
 						pix_offset_y = -32
 					if(WEST)
 						pix_offset_y = 32
-				overlays += image(icon, "mcorneroverlay[density]", pixel_x = pix_offset_x, pixel_y = pix_offset_y)
+				AddOverlays(image(icon, "mcorneroverlay[density]", pixel_x = pix_offset_x, pixel_y = pix_offset_y))
 
 /obj/structure/railing/verb/flip() // This will help push railing to remote places, such as open space turfs
 	set name = "Flip Railing"
@@ -273,10 +273,10 @@
 		if(!density)
 			to_chat(user, SPAN_NOTICE("You need to wrench \the [src] from back into place first."))
 			return
-		user.visible_message(anchored ? "<span class='notice'>\The [user] begins unscrewing \the [src].</span>" : "<span class='notice'>\The [user] begins fastening \the [src].</span>" )
+		user.visible_message(anchored ? SPAN_NOTICE("\The [user] begins unscrewing \the [src].") : SPAN_NOTICE("\The [user] begins fastening \the [src].") )
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		if(do_after(user, 10, src) && density)
-			to_chat(user, (anchored ? "<span class='notice'>You have unfastened \the [src] from the floor.</span>" : "<span class='notice'>You have fastened \the [src] to the floor.</span>"))
+			to_chat(user, (anchored ? SPAN_NOTICE("You have unfastened \the [src] from the floor.") : SPAN_NOTICE("You have fastened \the [src] to the floor.")))
 			anchored = !anchored
 			update_icon()
 		return

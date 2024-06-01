@@ -104,12 +104,12 @@
 		updateSilicate()
 
 /obj/structure/window/proc/updateSilicate()
-	cut_overlays()
+	ClearOverlays()
 
 	var/image/img = image(icon, icon_state)
 	img.color = "#ffffff"
 	img.alpha = silicate * 255 / 100
-	add_overlay(img)
+	AddOverlays(img)
 
 /obj/structure/window/proc/shatter(var/display_message = 1)
 	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
@@ -170,7 +170,7 @@
 	if(istype(mover) && mover.checkpass(PASSGLASS))
 		return 1
 	if(is_full_window())
-		return 0	//full tile window, you can't move into it!
+		return !density	//full tile window, you can't move into it if it's solid!
 	if(get_dir(loc, target) & dir)
 		return !density
 	else
@@ -409,7 +409,7 @@
 		return 1
 	return 0
 
-/obj/structure/window/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/structure/window/fire_act(exposed_temperature, exposed_volume)
 	if(exposed_temperature > maximal_heat)
 		hit(damage_per_fire_tick, 0)
 	..()

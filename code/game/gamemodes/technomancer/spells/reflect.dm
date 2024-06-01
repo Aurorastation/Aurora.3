@@ -18,12 +18,12 @@
 /obj/item/spell/reflect/Initialize()
 	. = ..()
 	set_light(3, 2, l_color = "#006AFF")
-	to_chat(owner, "<span class='notice'>Your shield will expire in 5 seconds!</span>")
+	to_chat(owner, SPAN_NOTICE("Your shield will expire in 5 seconds!"))
 	QDEL_IN(src, 5 SECONDS)
 
 /obj/item/spell/reflect/Destroy()
 	if(owner)
-		to_chat(owner, "<span class='danger'>Your shield expires!</span>")
+		to_chat(owner, SPAN_DANGER("Your shield expires!"))
 	return ..()
 
 /obj/item/spell/reflect/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
@@ -33,7 +33,7 @@
 	var/damage_to_energy_cost = (damage_to_energy_multiplier * damage)
 
 	if(!pay_energy(damage_to_energy_cost))
-		to_chat(owner, "<span class='danger'>Your shield fades due to lack of energy!</span>")
+		to_chat(owner, SPAN_DANGER("Your shield fades due to lack of energy!"))
 		qdel(src)
 		return FALSE
 
@@ -45,7 +45,7 @@
 			var/obj/item/projectile/P = damage_source
 
 			if(P.starting && !P.reflected)
-				visible_message("<span class='danger'>\The [user]'s [src.name] reflects [attack_text]!</span>")
+				visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"))
 
 				var/turf/curloc = get_turf(user)
 
@@ -63,7 +63,7 @@
 				if(!reflecting)
 					reflecting = 1
 					spawn(2 SECONDS) //To ensure that most or all of a burst fire cycle is reflected.
-						to_chat(owner, "<span class='danger'>Your shield fades due being used up!</span>")
+						to_chat(owner, SPAN_DANGER("Your shield fades due being used up!"))
 						qdel(src)
 
 				return PROJECTILE_CONTINUE // complete projectile permutation
@@ -72,8 +72,8 @@
 			var/obj/item/W = damage_source
 			if(attacker)
 				W.attack(attacker)
-				to_chat(attacker, "<span class='danger'>Your [damage_source.name] goes through \the [src] in one location, comes out \
-				on the same side, and hits you!</span>")
+				to_chat(attacker, SPAN_DANGER("Your [damage_source.name] goes through \the [src] in one location, comes out \
+				on the same side, and hits you!"))
 
 				spark(src, 5, GLOB.cardinal)
 				playsound(src, 'sound/weapons/blade.ogg', 50, 1)
@@ -83,7 +83,7 @@
 				if(!reflecting)
 					reflecting = 1
 					spawn(2 SECONDS) //To ensure that most or all of a burst fire cycle is reflected.
-						to_chat(owner, "<span class='danger'>Your shield fades due being used up!</span>")
+						to_chat(owner, SPAN_DANGER("Your shield fades due being used up!"))
 						qdel(src)
 		return PROJECTILE_STOPPED
 	return FALSE

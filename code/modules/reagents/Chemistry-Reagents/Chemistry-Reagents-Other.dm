@@ -286,7 +286,7 @@
 		if(istype(T, /turf/simulated/wall))
 			var/turf/simulated/wall/W = T
 			W.thermite = 1
-			W.add_overlay(image('icons/effects/effects.dmi',icon_state = "#673910"))
+			W.AddOverlays(image('icons/effects/effects.dmi',icon_state = "#673910"))
 			remove_self(5, holder)
 	return
 
@@ -599,9 +599,9 @@
 	stored_value += removed
 	if(stored_value >= 1)
 		M.visible_message(\
-			"<span class='warning'>/The [M]'s body shifts and contorts!</span>",\
-			"<span class='danger'>Your body shifts and contorts!</span>",\
-			"<span class='notice'>You hear strange flesh-like noises.</span>"\
+			SPAN_WARNING("/The [M]'s body shifts and contorts!"),\
+			SPAN_DANGER("Your body shifts and contorts!"),\
+			SPAN_NOTICE("You hear strange flesh-like noises.")\
 		)
 		scramble(TRUE, M, 100)
 		M.adjustHalLoss(25)

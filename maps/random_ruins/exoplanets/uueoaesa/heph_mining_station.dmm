@@ -663,9 +663,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/high{
-	dir = 1;
 	name = "north bump";
-	pixel_y = 24;
 	req_access = null
 	},
 /obj/structure/table/rack,

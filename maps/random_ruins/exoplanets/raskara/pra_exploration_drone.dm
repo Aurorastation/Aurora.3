@@ -1,5 +1,5 @@
 /datum/map_template/ruin/exoplanet/pra_exploration_drone
-	name = "PRA Explorion Drone"
+	name = "PRA Exploration Drone"
 	id = "pra_exploration_drone"
 	description = "A exploration drone sent by the People's Republic to explore the surface of this planet."
 

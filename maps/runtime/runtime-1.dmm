@@ -1340,9 +1340,7 @@
 /turf/simulated/floor/tiled/full,
 /area/storage/primary)
 "dq" = (
-/obj/effect/landmark{
-	name = "tdome1"
-	},
+/obj/effect/landmark/thunderdome1,
 /turf/simulated/floor/plating,
 /area/construction)
 "dr" = (
@@ -1399,10 +1397,6 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/construction)
-"dA" = (
-/obj/effect/landmark/force_spawnpoint,
-/turf/simulated/floor/plating,
-/area/construction)
 "dB" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
@@ -1433,6 +1427,27 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/runtime)
+"dV" = (
+/obj/effect/landmark/start{
+	name = "Xenobotanist"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"em" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Physician"
+	},
+/turf/simulated/floor/tiled,
+/area/construction)
+"eq" = (
+/obj/effect/landmark/start{
+	name = "Chef"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "eH" = (
 /obj/machinery/firealarm/south,
 /obj/machinery/firealarm/north,
@@ -1471,12 +1486,30 @@
 "fX" = (
 /turf/template_noop,
 /area/space)
+"gC" = (
+/obj/effect/landmark/start{
+	name = "Atmospheric Technician"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "gF" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"hz" = (
+/obj/effect/landmark/start{
+	name = "Bridge Crew"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"hI" = (
+/obj/effect/landmark/start{
+	name = "Surgeon"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "ie" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/structure/cable{
@@ -1486,6 +1519,27 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/primary/central_one)
+"if" = (
+/obj/effect/landmark/start{
+	name = "Lab Assistant"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"iq" = (
+/obj/effect/landmark/start{
+	name = "Security Officer"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"iA" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Bartender"
+	},
+/turf/simulated/floor/tiled,
+/area/construction)
 "jf" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1530,6 +1584,12 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"kV" = (
+/obj/effect/landmark/start{
+	name = "Hangar Technician"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "mn" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -1543,6 +1603,21 @@
 /obj/machinery/computer/security,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"mT" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Operations Manager"
+	},
+/turf/simulated/floor/tiled,
+/area/construction)
+"nv" = (
+/obj/effect/landmark/start{
+	name = "Research Director"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "nB" = (
 /obj/machinery/atmospherics/binary/pump/high_power/on{
 	dir = 4
@@ -1568,6 +1643,12 @@
 /obj/item/stack/material/glass/full,
 /turf/simulated/floor/plating,
 /area/construction)
+"pd" = (
+/obj/effect/landmark/start{
+	name = "Executive Officer"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "pv" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1577,12 +1658,20 @@
 /obj/effect/overmap/visitable/ship/runtime,
 /turf/simulated/floor/tiled,
 /area/bridge)
-"pM" = (
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Chief Engineer";
-	name = "force spawnpoint (CE)"
+"pD" = (
+/obj/effect/landmark/start{
+	name = "Assistant"
 	},
+/turf/simulated/floor/plating,
+/area/construction)
+"pM" = (
 /turf/simulated/floor/tiled,
+/area/construction)
+"pT" = (
+/obj/effect/landmark/start{
+	name = "Engineer"
+	},
+/turf/simulated/floor/plating,
 /area/construction)
 "pX" = (
 /obj/structure/cable{
@@ -1620,6 +1709,12 @@
 /obj/item/blueprints/shuttle,
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
+"rE" = (
+/obj/effect/landmark/start{
+	name = "Xenoarchaeologist"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "sf" = (
 /obj/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/tiled,
@@ -1645,6 +1740,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"tl" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/landmark/start{
+	name = "Passenger"
+	},
+/turf/simulated/floor/tiled,
+/area/construction)
 "tr" = (
 /obj/machinery/alarm/south,
 /turf/simulated/floor/tiled,
@@ -1664,6 +1766,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/storage/primary)
+"uC" = (
+/obj/effect/landmark/start{
+	name = "Machinist"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "uI" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
@@ -1730,6 +1838,10 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/plating,
 /area/storage/primary)
+"xP" = (
+/obj/effect/landmark/latejoin,
+/turf/simulated/floor/plating,
+/area/construction)
 "yC" = (
 /obj/structure/lattice,
 /obj/machinery/power/terminal{
@@ -1791,10 +1903,20 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/storage/primary)
+"Cu" = (
+/obj/effect/landmark/latejoinlift,
+/turf/simulated/floor/plating,
+/area/construction)
 "Eu" = (
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/r_wall,
 /area/maintenance/maintcentral)
+"Ex" = (
+/obj/effect/landmark/start{
+	name = "Investigator"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "ES" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/shipsensors,
@@ -1808,6 +1930,12 @@
 /obj/machinery/alarm/west,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"FU" = (
+/obj/effect/landmark/start{
+	name = "Chief Engineer"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "FZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/recharge_station,
@@ -1821,12 +1949,42 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"Gp" = (
+/obj/effect/landmark/start{
+	name = "Psychiatrist"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"GF" = (
+/obj/effect/landmark/start{
+	name = "Pharmacist"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"GH" = (
+/obj/effect/landmark/start{
+	name = "Scientist"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"Hg" = (
+/obj/effect/landmark/start{
+	name = "Chaplain"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "HB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"HD" = (
+/obj/effect/landmark/start{
+	name = "Captain"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "HJ" = (
 /obj/structure/cable{
 	d1 = 2;
@@ -1901,6 +2059,27 @@
 	},
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"KM" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Security Cadet"
+	},
+/turf/simulated/floor/tiled,
+/area/construction)
+"KR" = (
+/obj/effect/landmark/start{
+	name = "Head of Security"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"KU" = (
+/obj/effect/landmark/start{
+	name = "Consular Officer"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "Lp" = (
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
@@ -1930,6 +2109,10 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"MW" = (
+/obj/effect/landmark/latejoincryo,
+/turf/simulated/floor/plating,
+/area/construction)
 "Nn" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
@@ -1940,6 +2123,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"Oe" = (
+/obj/effect/landmark/start{
+	name = "Corporate Liaison"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "Ot" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
@@ -1996,10 +2185,28 @@
 /obj/item/device/radio/intercom/south,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"Sj" = (
+/obj/effect/landmark/start{
+	name = "Warden"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "Sz" = (
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"SA" = (
+/obj/effect/landmark/start{
+	name = "First Responder"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"SP" = (
+/obj/effect/landmark/start{
+	name = "Engineering Apprentice"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "Tj" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
@@ -2037,6 +2244,12 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
+/area/construction)
+"TW" = (
+/obj/effect/landmark/start{
+	name = "Gardener"
+	},
+/turf/simulated/floor/plating,
 /area/construction)
 "Uf" = (
 /turf/simulated/floor/plating,
@@ -2084,6 +2297,12 @@
 /obj/turbolift_map_holder/runtime,
 /turf/simulated/floor/plating,
 /area/turbolift/main_station)
+"WV" = (
+/obj/effect/landmark/start{
+	name = "Xenobiologist"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "XQ" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
@@ -2100,6 +2319,12 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"Yi" = (
+/obj/effect/landmark/start{
+	name = "Chief Medical Officer"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "YI" = (
 /obj/machinery/door/airlock/external/khaki{
 	dir = 4
@@ -5975,11 +6200,11 @@ cU
 qH
 oo
 de
+SP
 de
 de
 de
-de
-de
+Oe
 de
 dv
 dx
@@ -6232,11 +6457,11 @@ cV
 de
 de
 de
+pT
 de
 de
 de
-de
-de
+KU
 de
 de
 dx
@@ -6487,9 +6712,9 @@ bB
 cN
 cV
 de
+hz
 de
-dA
-dA
+gC
 dq
 dq
 de
@@ -6744,14 +6969,14 @@ eI
 cK
 cV
 de
+pd
 de
-dA
-dA
+FU
 dq
 dq
+xP
 de
-de
-de
+nv
 de
 du
 cK
@@ -7001,14 +7226,14 @@ bB
 cO
 cV
 de
+HD
 de
-dA
-dA
+de
 dq
 dq
+MW
 de
-de
-de
+if
 de
 dC
 cK
@@ -7256,17 +7481,17 @@ cz
 bB
 bB
 cO
-cV
+tl
 pM
 db
-dA
-dA
-dq
-dq
 de
+de
+dq
+dq
+Cu
 Jd
-de
-de
+GH
+dV
 du
 cK
 ae
@@ -7515,15 +7740,15 @@ bB
 cO
 cV
 de
+KR
 de
-dA
-dA
+GF
 dq
 dq
 de
 de
-de
-de
+rE
+WV
 du
 cK
 ae
@@ -7772,9 +7997,9 @@ zQ
 cK
 WH
 de
+iq
 de
-dA
-dA
+Yi
 dq
 dq
 de
@@ -8029,15 +8254,15 @@ bB
 cN
 cV
 de
+Sj
 de
-dA
-dA
-de
-de
-de
+SA
+Gp
 de
 de
-de
+eq
+Hg
+kV
 ds
 cK
 ae
@@ -8286,15 +8511,15 @@ bB
 cN
 cV
 de
+Ex
+de
+hI
 de
 de
 de
-de
-de
-de
-de
-de
-de
+TW
+pD
+uC
 dk
 cK
 ae
@@ -8543,14 +8768,14 @@ bB
 cK
 cW
 df
+KM
+dj
+em
 dj
 dj
 dj
-dj
-dj
-dj
-dj
-dj
+iA
+mT
 df
 dy
 cK

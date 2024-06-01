@@ -31,7 +31,7 @@
 
 	playsound(src, /singleton/sound_category/button_sound, 10)
 	if(on)
-		cut_overlays()
+		ClearOverlays()
 		worn_overlay = null
 		to_chat(usr, SPAN_NOTICE("You turn the music off."))
 	else
@@ -51,7 +51,7 @@
 
 /obj/item/clothing/ears/earmuffs/earphones/headphones/update_icon()
 	..()
-	add_overlay(overlay_image(icon, "[icon_state]_overlay", flags=RESET_COLOR))
+	AddOverlays(overlay_image(icon, "[icon_state]_overlay", flags=RESET_COLOR))
 
 /obj/item/clothing/ears/earmuffs/earphones/earbuds
 	name = "earbuds"

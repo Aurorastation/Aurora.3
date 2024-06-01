@@ -5,6 +5,7 @@
 
 	icon_screen = "robot"
 	icon_keyboard = "purple_key"
+	icon_keyboard_emis = "purple_key_mask"
 	light_color = LIGHT_COLOR_PURPLE
 
 	req_one_access = list(ACCESS_RD, ACCESS_ROBOTICS)
@@ -75,7 +76,7 @@
 		else
 			message_admins("[key_name_admin(usr)] detonated [target.name]!")
 			log_game("[key_name(usr)] detonated [target.name]!",ckey=key_name(usr))
-			to_chat(target, "<span class='danger'>Self-destruct command received.</span>")
+			to_chat(target, SPAN_DANGER("Self-destruct command received."))
 			spawn(10)
 				target.self_destruct()
 
@@ -164,7 +165,7 @@
 		message_admins("[key_name_admin(usr)] emagged [target.name] using robotic console!")
 		log_game("[key_name(usr)] emagged [target.name] using robotic console!",ckey=key_name(usr))
 		target.emagged = 1
-		to_chat(target, "<span class='notice'>Failsafe protocols overriden. New tools available.</span>")
+		to_chat(target, SPAN_NOTICE("Failsafe protocols overriden. New tools available."))
 
 	// Arms the emergency self-destruct system
 	else if(href_list["arm"])
@@ -195,7 +196,7 @@
 				continue
 			if(R.emagged)
 				continue
-			to_chat(R, "<span class='danger'>Self-destruct command received.</span>")
+			to_chat(R, SPAN_DANGER("Self-destruct command received."))
 			spawn(10)
 				R.self_destruct()
 

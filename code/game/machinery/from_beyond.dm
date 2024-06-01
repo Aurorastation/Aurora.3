@@ -36,13 +36,13 @@
 /obj/machinery/from_beyond/attack_hand(var/mob/living/carbon/human/user as mob)
 
 	if(!active)
-		src.visible_message("<span class='warning'>[user] switches \the [src] on.</span>")
-		to_chat(user, "<span class='warning'>The world beyond opens to your eyes.</span>")
+		src.visible_message(SPAN_WARNING("[user] switches \the [src] on."))
+		to_chat(user, SPAN_WARNING("The world beyond opens to your eyes."))
 		active = TRUE
 
 	else
-		src.visible_message("<span class='warning'>[user] switches \the [src] off.</span>")
-		to_chat(user, "<span class='warning'>The world beyond vanishes before your eyes.</span>")
+		src.visible_message(SPAN_WARNING("[user] switches \the [src] off."))
+		to_chat(user, SPAN_WARNING("The world beyond vanishes before your eyes."))
 		active = FALSE
 
 	update_icon()
@@ -69,20 +69,20 @@
 			L.see_invisible = SEE_INVISIBLE_CULT
 			if(prob(15))
 				var/message = pick(whispers)
-				to_chat(L, "<span class='cult'><b>[message]</b></span>")
+				to_chat(L, SPAN_CULT("<b>[message]</b>"))
 				L.hallucination += 50
 				L.adjustBrainLoss(5, 55)
 
 			if(prob(15))
-				src.visible_message("<span class='warning'>\The [src] hums ominously.</span>")
+				src.visible_message(SPAN_WARNING("\The [src] hums ominously."))
 
 			if(prob(5))
-				src.visible_message("<span class='warning'>\The [src] crackles with energy!</span>")
+				src.visible_message(SPAN_WARNING("\The [src] crackles with energy!"))
 				playsound(src, 'sound/magic/lightningbolt.ogg', 40, 1)
 
 			if(prob(1))
-				to_chat(L, "<span class='cult'><b>Reality feels less stable...</b></span>")
-				src.visible_message("<span class='warning'>\The [src] screeches loudly!</span>")
+				to_chat(L, SPAN_CULT("<b>Reality feels less stable...</b>"))
+				src.visible_message(SPAN_WARNING("\The [src] screeches loudly!"))
 				playsound(src, 'sound/magic/dimensional_rend.ogg', 100, 1)
 				new /obj/effect/gateway/active/rift(src.loc)
 

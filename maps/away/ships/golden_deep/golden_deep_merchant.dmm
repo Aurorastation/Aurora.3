@@ -1506,7 +1506,6 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(217)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -2198,7 +2197,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(217)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -4524,7 +4522,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(217)
 	},
 /turf/simulated/floor/gold,
@@ -5107,7 +5104,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(217)
 	},
 /turf/simulated/floor/gold,

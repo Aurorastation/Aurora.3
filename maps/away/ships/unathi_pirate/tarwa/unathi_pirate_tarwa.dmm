@@ -1627,7 +1627,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(210)
 	},
 /obj/structure/bed/stool/chair/shuttle,
@@ -2106,7 +2105,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(210)
 	},
 /obj/machinery/button/distress{
@@ -2142,7 +2140,6 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(210)
 	},
 /turf/simulated/floor/diona,
@@ -2272,7 +2269,6 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(210)
 	},
 /turf/simulated/floor/diona,
@@ -2727,7 +2723,6 @@
 	dir = 1
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(210)
 	},
 /obj/effect/floor_decal/corner/dark_green/diagonal,
@@ -3705,7 +3700,6 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(210)
 	},
 /turf/simulated/floor/tiled,

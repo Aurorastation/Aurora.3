@@ -22,10 +22,10 @@
 		M.update_inv_belt()
 
 /obj/item/storage/belt/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(content_overlays)
 		for(var/obj/item/I in contents)
-			add_overlay(I.get_belt_overlay())
+			AddOverlays(I.get_belt_overlay())
 	..()
 
 /obj/item/storage/belt/build_additional_parts(H, mob_icon, slot)
@@ -44,7 +44,7 @@
 		var/image/belt_item_image = image(c_icon, c_state)
 		belt_item_image.color = i.color
 		belt_item_image.appearance_flags = RESET_ALPHA
-		I.add_overlay(belt_item_image)
+		I.AddOverlays(belt_item_image)
 	return I
 
 /obj/item/storage/belt/verb/toggle_layer()
@@ -330,6 +330,7 @@
 		/obj/item/device/hailer,
 		/obj/item/device/megaphone,
 		/obj/item/melee,
+		/obj/item/crowbar,
 		/obj/item/gun/projectile/sec,
 		/obj/item/gun/energy/disruptorpistol,
 		/obj/item/taperoll/police,
@@ -337,7 +338,11 @@
 		/obj/item/shield/energy,
 		/obj/item/shield/riot/tact,
 		/obj/item/device/holowarrant,
-		/obj/item/device/radio
+		/obj/item/device/taperecorder,
+		/obj/item/device/radio,
+		/obj/item/device/laser_pointer,
+		/obj/item/device/camera,
+		/obj/item/clipboard,
 		)
 	content_overlays = TRUE
 

@@ -18,7 +18,7 @@
 	else if(istype(attacking_item, /obj/item/clothing/accessory))
 
 		if(!valid_accessory_slots || !valid_accessory_slots.len)
-			to_chat(usr, "<span class='warning'>You cannot attach accessories of any kind to \the [src].</span>")
+			to_chat(usr, SPAN_WARNING("You cannot attach accessories of any kind to \the [src]."))
 			return
 
 		var/obj/item/clothing/accessory/A = attacking_item
@@ -27,7 +27,7 @@
 			attach_accessory(user, A)
 			return
 		else
-			to_chat(user, "<span class='warning'>You cannot attach more accessories of this type to [src].</span>")
+			to_chat(user, SPAN_WARNING("You cannot attach more accessories of this type to [src]."))
 		return
 
 	if(LAZYLEN(accessories))
@@ -149,8 +149,8 @@
 			if(i.color)
 				radial_button.color = i.color
 			if(i.build_from_parts && i.worn_overlay)
-				radial_button.cut_overlays()
-				radial_button.add_overlay(overlay_image(i.icon, "[i.icon_state]_[i.worn_overlay]", flags=RESET_COLOR))
+				radial_button.ClearOverlays()
+				radial_button.AddOverlays(overlay_image(i.icon, "[i.icon_state]_[i.worn_overlay]", flags=RESET_COLOR))
 			options[i] = radial_button
 		A = show_radial_menu(M, M, options, radius = 42, tooltips = TRUE)
 	else

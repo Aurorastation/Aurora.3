@@ -34,28 +34,84 @@
 	minbodytemp = 0
 	speed = -10
 	destroy_surroundings = 0
-	var/bot_type
-	var/bot_amt = 160 //Number of total bots that are spawned before the beacon disappears completely.
-	var/max_bots = 40 //Number of bots linked to this beacon specifically that can exist, before spawning more is halted.
-	var/list/linked_bots = list()
-	var/guard_amt = 0
-	var/harvester_amt = 0
-	var/spawn_delay
-	var/activated = 0
-	var/max_bots_reached
-	var/list/destinations = list()
-	var/list/close_destinations = list()
-	var/area/latest_area
 	attack_emote = "focuses on"
 	psi_pingable = FALSE
 
-/mob/living/simple_animal/hostile/hivebotbeacon/incendiary
-	projectiletype = /obj/item/projectile/beam/hivebot/incendiary
-	projectilesound = 'sound/weapons/plasma_cutter.ogg'
-	rapid = 0
+	/**
+	 * Number of total bots that are spawned before the beacon disappears completely
+	 *
+	 * This gets updated in /Initialize() with a formula based on the
+	 * `total_hivebots_to_spawn_to_playing_players_scaling_factor` variable
+	 */
+	var/total_hivebots_to_spawn = 160
+
+	/**
+	 * The scaling factor for the number of total hivebots to spawn respective to playing players
+	 *
+	 * Eg: scaling factor of 1 would mean that the beacon would spawn 1 additional hivebot per player
+	 */
+	var/total_hivebots_to_spawn_to_playing_players_scaling_factor = 1
+
+	/**
+	 * Number of bots linked to this beacon specifically that can exist, before spawning more is halted
+	 *
+	 * This gets updated in /Initialize() with a formula based on the
+	 * `maximum_linked_and_alive_hivebots_to_playing_players_scaling_factor` variable
+	 */
+	var/maximum_linked_and_alive_hivebots = 40
+
+	/**
+	 * The scaling factor for the maximum number of linked and alive hivebots respective to playing players
+	 *
+	 * Eg: scaling factor of 1 would mean that the beacon would have one additional linked and alive hivebot per player
+	 */
+	var/maximum_linked_and_alive_hivebots_to_playing_players_scaling_factor = 1
+
+	///A list of `/mob/living/simple_animal/hostile` hivebots that are linked to this beacon
+	var/list/mob/living/simple_animal/hostile/hivebot/linked_bots = list()
+
+	///Amount of hivebots spawned and alive linked to this beacon, guardian type
+	var/guard_amt = 0
+
+	///Amount of hivebots spawned and alive linked to this beacon, harvester type
+	var/harvester_amt = 0
+
+	///Calculated delay between spawning new bots, internal use only
+	VAR_PRIVATE/spawn_delay
+
+	/**
+	 * The scaling factor for the subtraction from the calculated `spawn_delay` based on player count
+	 *
+	 * Eg: scaling factor of 1 would mean that each player reduces the `spawn_delay` by 1 decisecond
+	 *
+	 * This only works up to a minumum of 80 deciseconds
+	 */
+	var/spawn_delay_to_playing_players_scaling_factor = 1.8
+
+	/**
+	 * The activation state of the beacon
+	 *
+	 * FALSE (0) -> beacon is off
+	 * TRUE (1) -> beacon is on
+	 * -1 -> beacon is disabled and should not be activated (usually for mapping purposes)
+	 */
+	var/activated = 0
+
+	///Boolean, if the maximum number of bots has been reached, internal use only
+	VAR_PRIVATE/maximum_linked_and_alive_hivebots_reached
+
+	var/list/destinations = list()
+	var/list/close_destinations = list()
+	var/area/latest_area
 
 /mob/living/simple_animal/hostile/hivebotbeacon/Initialize(mapload)
-	.=..()
+	. = ..()
+
+	//Calculate the actual values based on player population, but only if it's on the main map (most likely the Horizon)
+	if(isStationLevel(src.z))
+		total_hivebots_to_spawn = total_hivebots_to_spawn + (length(GLOB.player_list) * total_hivebots_to_spawn_to_playing_players_scaling_factor)
+		maximum_linked_and_alive_hivebots = maximum_linked_and_alive_hivebots + (length(GLOB.player_list) * maximum_linked_and_alive_hivebots_to_playing_players_scaling_factor)
+
 	if(!mapload)
 		var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
 		S.set_up(5, 0, src.loc)
@@ -63,10 +119,24 @@
 		visible_message(SPAN_DANGER("[src] warps in!"))
 		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
 		addtimer(CALLBACK(src, PROC_REF(activate_beacon)), 450)
+
 	latest_area = get_area(src)
 	icon_state = "hivebotbeacon_off"
 	addtimer(CALLBACK(src, PROC_REF(generate_warp_destinations)), 10) //So we don't sleep during init
 	set_light(6,0.5,LIGHT_COLOR_GREEN)
+
+/mob/living/simple_animal/hostile/hivebotbeacon/Destroy()
+	//Remove the reference from all linked bots to us
+	for(var/mob/living/simple_animal/hostile/hivebot/latest_child in linked_bots)
+		latest_child.linked_parent = null
+	linked_bots.Cut()
+
+	//Smoke effect, we disappear in a smoke
+	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
+	S.set_up(5, 0, src.loc)
+	S.start()
+
+	. = ..()
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/generate_warp_destinations()
 
@@ -101,15 +171,6 @@
 	spark(T, 3, GLOB.alldirs)
 	qdel(src)
 	return
-
-/mob/living/simple_animal/hostile/hivebotbeacon/Destroy()
-	for (var/mob/living/simple_animal/hostile/hivebot/latest_child in linked_bots)
-		latest_child.linked_parent = null
-	linked_bots.Cut()
-	var/datum/effect/effect/system/smoke_spread/S = new /datum/effect/effect/system/smoke_spread()
-	S.set_up(5, 0, src.loc)
-	S.start()
-	.=..()
 
 /mob/living/simple_animal/hostile/hivebotbeacon/think()
 	. =..()
@@ -180,7 +241,7 @@
 	activate_beacon()
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/warpbots()
-	if(!bot_amt)
+	if(!total_hivebots_to_spawn)
 		visible_message(SPAN_DANGER("[src] disappears in a cloud of smoke!"))
 		playsound(src.loc, 'sound/effects/teleport.ogg', 25, 1)
 		new /obj/effect/decal/cleanable/greenglow(src.loc)
@@ -190,8 +251,10 @@
 	if(activated == -1)
 		return
 
-	if(linked_bots.len < max_bots)
+	if(linked_bots.len < maximum_linked_and_alive_hivebots)
 		visible_message(SPAN_WARNING("[src] radiates with energy!"))
+
+		var/bot_type
 
 		if(guard_amt < 4 && prob(50))
 			bot_type = GUARDIAN
@@ -245,16 +308,21 @@
 
 		linked_bots += latest_child //Adds the spawned hivebot to the list of the beacon's children.
 		latest_child.faction = faction
-		bot_amt--
+		total_hivebots_to_spawn--
 
-	if(bot_amt>0 && linked_bots.len < max_bots)
+	if(total_hivebots_to_spawn>0 && linked_bots.len < maximum_linked_and_alive_hivebots)
 		calc_spawn_delay()
 		addtimer(CALLBACK(src, PROC_REF(warpbots)), spawn_delay)
 	else
-		max_bots_reached = 1
+		maximum_linked_and_alive_hivebots_reached = 1
 
 /mob/living/simple_animal/hostile/hivebotbeacon/proc/calc_spawn_delay()
-	spawn_delay = 80*1.085**(linked_bots.len + 1)
+	spawn_delay = 80 * (1.085 ** (linked_bots.len + 1))
+
+	//Adapt the value based on player population, but only if it's on the main map (most likely the Horizon)
+	if(isStationLevel(src.z))
+		spawn_delay = min(80, spawn_delay - (length(GLOB.player_list) * spawn_delay_to_playing_players_scaling_factor))
+
 	return
 
 /mob/living/simple_animal/hostile/hivebotbeacon/Life()
@@ -262,10 +330,19 @@
 	if(wander)
 		wander = 0
 		stop_automated_movement = 1
-	if(max_bots_reached && activated == 1 && linked_bots.len < max_bots)
-		max_bots_reached = 0
+	if(maximum_linked_and_alive_hivebots_reached && activated == 1 && linked_bots.len < maximum_linked_and_alive_hivebots)
+		maximum_linked_and_alive_hivebots_reached = 0
 		calc_spawn_delay()
 		addtimer(CALLBACK(src, PROC_REF(warpbots)), spawn_delay)
+
+/*################
+	SUBTYPES
+################*/
+
+/mob/living/simple_animal/hostile/hivebotbeacon/incendiary
+	projectiletype = /obj/item/projectile/beam/hivebot/incendiary
+	projectilesound = 'sound/weapons/plasma_cutter.ogg'
+	rapid = 0
 
 #undef NORMAL
 #undef RANGED

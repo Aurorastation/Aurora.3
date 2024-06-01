@@ -7,7 +7,7 @@
 	suffixes = list("kataphract_ship.dmm")
 
 	ship_cost = 1
-	spawn_weight = 1
+	spawn_weight = 9
 	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 1.5)
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_UUEOAESA, SECTOR_WEEPING_STARS)
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kataphract_transport)
@@ -17,7 +17,7 @@
 	name = "kataphract chapter ship"
 	desc = "A large corvette manufactured by a Hephaestus sponsored Hegemonic Guild. This is a heavily armoured Kataphract Chapter ship of the venerable 'Voidbreaker' class, a relative of the more common 'Foundation' \
 	class used by their counterparts in the Hegemony Navy. These vessels are rarely seen together and strive for maximum self-suffiency as they are the homes and primary means of transportation \
-	for questing Kataphracts and their followers. They usually carry enough firepower to deter the common pirate as well as a set of boarding pods for offensive actions. This ship however has no weapon hardpoints detected. It remains capable due to its sturdy design."
+	for questing Kataphracts and their followers. They usually carry enough firepower to deter the common pirate as well as a set of boarding pods for offensive actions. It remains capable due to its sturdy design."
 	class = "IHKV" //Izweski Hegemony Kataphract Vessel
 	icon_state = "voidbreaker"
 	moving_state = "voidbreaker_moving"
@@ -123,7 +123,7 @@
 	move_time = 20
 	shuttle_area = list(/area/shuttle/kataphract_shuttle/main_compartment, /area/shuttle/kataphract_shuttle/engine_compartment)
 	current_location = "nav_hangar_kataphract_shuttle"
-	dock_target = "kataphract_transport"
+	dock_target = "airlock_kataphract_transport"
 	landmark_transition = "nav_kataphract_transport_transit"
 	range = 2 // It's a big boy
 	fuel_consumption = 4
@@ -146,7 +146,7 @@
 /obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar
 	name = "Shuttle Dock"
 	landmark_tag = "nav_hangar_kataphract_shuttle"
-	master_tag = "airlock_kataphract_ship_shuttle_dock"
+	master_tag = "nav_hangar_kataphract_shuttle"
 
 /obj/effect/shuttle_landmark/kataphract_transport/transit
 	name = "In transit"

@@ -573,6 +573,19 @@
 /obj/structure/sign/flag/ouerea/old/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+/obj/item/flag/fishingleague
+	name = "\improper Fishing League flag"
+	desc = "The standard of the Fishing League guild."
+	flag_path = "fishingleague"
+	flag_structure = /obj/structure/sign/flag/fishingleague
+
+/obj/structure/sign/flag/fishingleague
+	name = "\improper Fishing League flag"
+	desc = "The standard of the Fishing League guild."
+	icon_state = "fishingleague"
+	flag_path = "fishingleague"
+	flag_item = /obj/item/flag/fishingleague
+
 // Nralakk
 
 /obj/item/flag/nralakk
@@ -2717,7 +2730,7 @@
 
 /obj/item/flag/messa
 	name = "\improper Messa Banner"
-	desc = "A banner with the symbol of Messa, the Adhomian god of life, fertility, sunlight, youthful energy, and everything associated with the time of summer and daylight."
+	desc = "A banner with the symbol of Messa, the Adhomian goddess of inevitability, old age, and winter, but also of guidance, wisdom, protection, and patience."
 	flag_path = "messa"
 	flag_structure = /obj/structure/sign/flag/messa
 	stand_icon = "wood_stand"

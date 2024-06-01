@@ -3,7 +3,7 @@
 	category = "Hardsuit (Assemblies)"
 	materials = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_GLASS = 12500)
 	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 2, TECH_MAGNET = 3, TECH_POWER = 3)
-	time = 20
+	time = 20 SECONDS
 
 /datum/design/rig/ce
 	name = "Advanced Voidsuit Control Module Assembly"

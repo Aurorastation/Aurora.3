@@ -28,6 +28,6 @@
 		shadeOverlay.Blend(shade,ICON_ADD)
 		SSicon_cache.crayon_cache["[type]_s"] = shadeOverlay
 
-	add_overlay(list(mainOverlay, shadeOverlay))
+	AddOverlays(list(mainOverlay, shadeOverlay))
 
 	add_hiddenprint(usr)

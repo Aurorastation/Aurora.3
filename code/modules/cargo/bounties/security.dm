@@ -71,7 +71,7 @@
 	reward_high = 3200
 	required_count = 3
 	random_count = 1
-	wanted_types = list(/obj/item/grenade/chem_grenade/gas)
+	wanted_types = list(/obj/item/grenade/chem_grenade/gas, /obj/item/grenade/smokebomb)
 
 /datum/bounty/item/security/pepper
 	name = "Pepper Spray"

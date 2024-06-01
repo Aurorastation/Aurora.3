@@ -75,7 +75,7 @@
 				return
 			var/datum/vampire/vampire = M.mind.antag_datums[MODE_VAMPIRE]
 			vampire.blood_usable += removed
-			to_chat(M, "<span class='notice'>You have accumulated [vampire.blood_usable] unit\s of usable blood. It tastes quite stale.</span>")
+			to_chat(M, SPAN_NOTICE("You have accumulated [vampire.blood_usable] unit\s of usable blood. It tastes quite stale."))
 			return
 	var/dose = M.chem_doses[type]
 	if(dose > 15)
@@ -136,7 +136,7 @@
 		var/removed_heat = between(0, amount * WATER_LATENT_HEAT, -environment.get_thermal_energy_change(min_temperature))
 		environment.add_thermal_energy(-removed_heat)
 		if (prob(5))
-			T.visible_message("<span class='warning'>The water sizzles as it lands on \the [T]!</span>")
+			T.visible_message(SPAN_WARNING("The water sizzles as it lands on \the [T]!"))
 
 	else if(amount >= 10)
 		T.wet_floor(WET_TYPE_WATER,amount)

@@ -56,7 +56,7 @@
 
 /obj/screen/inventory/MouseExited()
 	..()
-	cut_overlay(object_overlays)
+	CutOverlays(object_overlays)
 	object_overlays.Cut()
 
 /obj/screen/inventory/proc/add_overlays()
@@ -74,7 +74,7 @@
 		else
 			item_overlay.color = "#00ff00"
 		object_overlays += item_overlay
-		add_overlay(object_overlays)
+		AddOverlays(object_overlays)
 
 /obj/screen/inventory/proc/set_color_for(var/set_color, var/set_time)
 	if(color_changed)
@@ -139,6 +139,8 @@
 /obj/screen/storage
 	name = "storage"
 	screen_loc = "7,7 to 10,8"
+	plane = HUD_PLANE
+	layer = HUD_BASE_LAYER
 
 /obj/screen/storage/Click()
 	if(!usr.canClick())
@@ -153,7 +155,7 @@
 
 /obj/screen/storage/background
 	name = "background storage"
-	layer = HUD_BASE_LAYER
+	layer = HUD_BELOW_ITEM_LAYER
 
 /obj/screen/storage/background/Initialize(mapload, var/obj/set_master, var/set_icon_state)
 	. = ..()
@@ -281,9 +283,9 @@
 		SEND_SIGNAL(user, COMSIG_MOB_ZONE_SEL_CHANGE, user)
 
 /obj/screen/zone_sel/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	selecting_appearance = mutable_appearance('icons/mob/zone_sel.dmi', "[selecting]")
-	add_overlay(selecting_appearance)
+	AddOverlays(selecting_appearance)
 
 /obj/screen/Click(location, control, params)
 	if(!usr)
@@ -358,9 +360,9 @@
 			if (!T)
 				to_chat(usr, SPAN_NOTICE("There is nothing above you!"))
 			else if (T.is_hole)
-				to_chat(usr, "<span class='notice'>There's no roof above your head! You can see up!</span>")
+				to_chat(usr, SPAN_NOTICE("There's no roof above your head! You can see up!"))
 			else
-				to_chat(usr, "<span class='notice'>You see a ceiling staring back at you.</span>")
+				to_chat(usr, SPAN_NOTICE("You see a ceiling staring back at you."))
 
 		if("module")
 			if(isrobot(usr))
@@ -490,7 +492,7 @@
 			return
 
 		if(C.legcuffed)
-			to_chat(C, "<span class='notice'>You are legcuffed! You cannot run until you get [C.legcuffed] removed!</span>")
+			to_chat(C, SPAN_NOTICE("You are legcuffed! You cannot run until you get [C.legcuffed] removed!"))
 			C.m_intent = M_WALK	//Just incase
 			C.hud_used.move_intent.icon_state = "walking"
 			return 1
@@ -554,7 +556,7 @@
 	if(!removed_hand_overlay)
 		var/state = (hud.l_hand_hud_object == src) ? "l_hand_removed" : "r_hand_removed"
 		removed_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
-	cut_overlays()
+	ClearOverlays()
 	if(hud.mymob && ishuman(hud.mymob))
 		var/mob/living/carbon/human/H = hud.mymob
 		var/obj/item/organ/external/O
@@ -563,11 +565,11 @@
 		else
 			O = H.organs_by_name[BP_R_HAND]
 		if(!O || O.is_stump())
-			add_overlay(removed_hand_overlay)
+			AddOverlays(removed_hand_overlay)
 		else if(O && (!O.is_usable() || O.is_malfunctioning()))
-			add_overlay(disabled_hand_overlay)
+			AddOverlays(disabled_hand_overlay)
 		if(H.handcuffed)
-			add_overlay(handcuff_overlay)
+			AddOverlays(handcuff_overlay)
 
 /obj/screen/inventory/back
 	name = "back"

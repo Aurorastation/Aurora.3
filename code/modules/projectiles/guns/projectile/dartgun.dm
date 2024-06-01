@@ -100,24 +100,24 @@
 /obj/item/gun/projectile/dartgun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (beakers.len)
-		. += "<span class='notice'>[src] contains:</span>"
+		. += SPAN_NOTICE("[src] contains:")
 		for(var/obj/item/reagent_containers/glass/beaker/B in beakers)
 			for(var/_R in B.reagents.reagent_volumes)
 				var/singleton/reagent/R = GET_SINGLETON(_R)
-				. += "<span class='notice'>[B.reagents.reagent_volumes[_R]] units of [R.name]</span>"
+				. += SPAN_NOTICE("[B.reagents.reagent_volumes[_R]] units of [R.name]")
 
 /obj/item/gun/projectile/dartgun/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/reagent_containers/glass))
 		if(!istype(attacking_item, container_type))
-			to_chat(user, "<span class='notice'>[attacking_item] doesn't seem to fit into [src].</span>")
+			to_chat(user, SPAN_NOTICE("[attacking_item] doesn't seem to fit into [src]."))
 			return
 		if(beakers.len >= max_beakers)
-			to_chat(user, "<span class='notice'>[src] already has [max_beakers] beakers in it - another one isn't going to fit!</span>")
+			to_chat(user, SPAN_NOTICE("[src] already has [max_beakers] beakers in it - another one isn't going to fit!"))
 			return
 		var/obj/item/reagent_containers/glass/beaker/B = attacking_item
 		user.drop_from_inventory(B,src)
 		beakers += B
-		to_chat(user, "<span class='notice'>You slot [B] into [src].</span>")
+		to_chat(user, SPAN_NOTICE("You slot [B] into [src]."))
 		src.updateUsrDialog()
 		return 1
 	..()
@@ -156,7 +156,7 @@
 		if(ammo_magazine.stored_ammo && ammo_magazine.stored_ammo.len)
 			dat += "The dart cartridge has [ammo_magazine.stored_ammo.len] shots remaining."
 		else
-			dat += "<span class='warning'>The dart cartridge is empty!</span>"
+			dat += SPAN_WARNING("The dart cartridge is empty!")
 		dat += " \[<A href='?src=\ref[src];eject_cart=1'>Eject</A>\]"
 
 	user << browse(dat, "window=dartgun")

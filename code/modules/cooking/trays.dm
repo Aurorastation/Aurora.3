@@ -106,8 +106,8 @@
 	current_weight += I.w_class
 	add_vis_contents(I)
 	I.vis_flags |= VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
-	item_equipped_event.register(I, src, PROC_REF(pick_up))
-	GLOB.destroyed_event.register(I, src, PROC_REF(unload_item))
+	RegisterSignal(I, COMSIG_ITEM_EQUIPPED, PROC_REF(pick_up))
+	RegisterSignal(I, COMSIG_QDELETING, PROC_REF(unload_item))
 
 /obj/item/tray/verb/unload()
 	set name = "Unload Tray"
@@ -144,7 +144,8 @@
 	unload_item(contained, moved_to)
 
 /obj/item/tray/proc/unload_item(var/obj/item/contained, var/atom/dropspot = null)
-	item_equipped_event.unregister(contained, src)
+	UnregisterSignal(contained, COMSIG_ITEM_EQUIPPED)
+	UnregisterSignal(contained, COMSIG_QDELETING)
 	if(dropspot)
 		contained.forceMove(dropspot)
 	vis_contents.Remove(contained)

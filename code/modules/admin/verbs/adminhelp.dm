@@ -67,7 +67,7 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 	set name = "Adminhelp"
 
 	if(say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
+		to_chat(usr, SPAN_WARNING("Speech is currently admin-disabled."))
 		return
 
 	adminhelped = ADMINHELPED
@@ -103,7 +103,7 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 				src.cmd_admin_pm(admin_client, original_msg, ticket)
 				break
 		if(!admin_found)
-			to_chat(src, "<span class='warning'>Error: Private-Message: Client not found. They may have lost connection, so please be patient!</span>")
+			to_chat(src, SPAN_WARNING("Error: Private-Message: Client not found. They may have lost connection, so please be patient!"))
 		return
 
 	ticket.append_message(src.ckey, null, original_msg)
@@ -111,7 +111,7 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 	//Options bar:  mob, details ( admin = 2, undibbsed admin = 3, mentor = 4, character name (0 = just ckey, 1 = ckey and character name), link? (0 no don't make it a link, 1 do so),
 	//		highlight special roles (0 = everyone has same looking name, 1 = antags / special roles get a golden name)
 
-	msg = "<span class='notice'><b>[create_text_tag("HELP")][get_options_bar(mob, 2, 1, 1, 1, ticket)] (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>):</b> [msg]</span>"
+	msg = SPAN_NOTICE("<b>[create_text_tag("HELP")][get_options_bar(mob, 2, 1, 1, 1, ticket)] (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>):</b> [msg]")
 
 	var/admin_number_present = 0
 	var/admin_number_afk = 0
@@ -128,7 +128,7 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 			to_chat(C, msg)
 
 	//show it to the person adminhelping too
-	to_chat(src, "<span class='notice'>PM to-<b>Staff </b>: [original_msg]</span>")
+	to_chat(src, SPAN_NOTICE("PM to-<b>Staff </b>: [original_msg]"))
 
 	var/admin_number_active = admin_number_present - admin_number_afk
 	log_admin("HELP: [key_name(src)]: [original_msg] - heard by [admin_number_present] non-AFK admins.",admin_key=key_name(src))
