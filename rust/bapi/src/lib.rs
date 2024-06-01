@@ -1,3 +1,6 @@
+// internal modules
+mod mapmanip;
+
 use byondapi::prelude::*;
 
 /// Call stack trace dm method with message.

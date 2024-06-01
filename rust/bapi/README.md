@@ -26,7 +26,7 @@ Safety related stuff:
   And if for whatever reason it is needed, it should be documented well.
 - All rust code (generally, outside of `_ffi`) should be nice, safe, and idiomatic.
 
-# Other stuff
+# Compiling and testing
 
 Command to compile bapi. The resulting `.dll` should be in `./rust/bapi/target/i686-pc-windows-msvc/release/...`.
 The server should try to find and use the `.dll` in that location, otherwise use `./bapi.dll` in main dir.
