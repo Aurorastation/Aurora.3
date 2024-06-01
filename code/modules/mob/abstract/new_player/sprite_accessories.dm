@@ -1530,6 +1530,11 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_fingercurl"
 	chatname = "fluffy hair"
 
+/datum/sprite_accessory/hair/mullet
+	name = "Mullet"
+	icon_state = "hair_mullet"
+	chatname = "mullet"
+
 /datum/sprite_accessory/hair/bug_eyes
 	icon = 'icons/mob/human_face/dionae_hair.dmi'
 	name = "Bug Eyes"
