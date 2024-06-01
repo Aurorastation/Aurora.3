@@ -89,15 +89,20 @@
 /turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "ahU" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "akP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -361,7 +366,7 @@
 /turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "bfn" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -626,6 +631,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -713,6 +723,12 @@
 	temperature = 278.15
 	},
 /area/tajaran_smuggler/engine)
+"dDg" = (
+/obj/structure/foamedmetal,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/tajaran_smuggler/dock)
 "dFZ" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -781,14 +797,8 @@
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
-/obj/effect/shuttle_landmark/tajaran_smuggler/dock/port{
-	dir = 4;
-	landmark_tag = "nav_tajaran_smuggler_dock_port_south";
-	docking_controller = "airlock_tajaran_smuggler_dock_port_south";
-	name = "Dock, Port, South"
-	},
 /turf/simulated/floor/tiled/dark,
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "dWJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
@@ -835,7 +845,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
 /turf/simulated/floor/plating,
-/area/adhomian_circus/hangar)
+/area/tajaran_smuggler/power)
 "ebG" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, maintenance"
@@ -1044,7 +1054,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "eYX" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 8
@@ -1068,7 +1078,7 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
 /turf/simulated/floor/plating,
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "fji" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
@@ -1235,7 +1245,7 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
 /turf/simulated/floor/plating,
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "fXG" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -1461,7 +1471,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
 /turf/simulated/floor/plating,
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "hgE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/firealarm/east,
@@ -1484,7 +1494,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "hiw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -1532,6 +1542,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8;
 	icon_state = "map-scrubbers"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1649,7 +1664,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
 /turf/simulated/floor/plating,
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "hPd" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
@@ -1827,7 +1842,7 @@
 /turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "iOD" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/reagent_containers/food/snacks/avah,
@@ -2016,14 +2031,14 @@
 	},
 /area/tajaran_smuggler)
 "jIP" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector/aux{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "jJQ" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
@@ -2062,6 +2077,15 @@
 	temperature = 278.15
 	},
 /area/tajaran_smuggler/power)
+"jTl" = (
+/obj/effect/shuttle_landmark/tajaran_smuggler/dock/port{
+	dir = 4;
+	landmark_tag = "nav_tajaran_smuggler_dock_port_south";
+	docking_controller = "airlock_tajaran_smuggler_dock_port_south";
+	name = "Dock, Port, South"
+	},
+/turf/template_noop,
+/area/space)
 "jVO" = (
 /obj/machinery/light/small{
 	dir = 8;
@@ -2111,7 +2135,7 @@
 	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "kbf" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor{
@@ -2419,7 +2443,7 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
 /turf/simulated/floor/tiled/dark,
-/area/adhomian_circus/hangar)
+/area/tajaran_smuggler/power)
 "lBm" = (
 /obj/machinery/alarm/cold/north{
 	req_one_access = null
@@ -2591,14 +2615,8 @@
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
-/obj/effect/shuttle_landmark/tajaran_smuggler/dock/port{
-	dir = 4;
-	landmark_tag = "nav_tajaran_smuggler_dock_port_north";
-	docking_controller = "airlock_tajaran_smuggler_dock_port_north";
-	name = "Dock, Port, North"
-	},
 /turf/simulated/floor/tiled/dark,
-/area/adhomian_circus/hangar)
+/area/tajaran_smuggler/power)
 "mgd" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -2615,7 +2633,7 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
 /turf/simulated/floor/tiled/dark,
-/area/adhomian_circus/hangar)
+/area/tajaran_smuggler/power)
 "mjj" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2744,6 +2762,11 @@
 	temperature = 278.15
 	},
 /area/tajaran_smuggler/engine)
+"mLh" = (
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/tajaran_smuggler/dock)
 "mWk" = (
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 4
@@ -2951,10 +2974,15 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "oew" = (
 /obj/structure/cable/green{
 	d2 = 8;
@@ -3072,7 +3100,7 @@
 /turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "pfE" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor{
@@ -3130,7 +3158,7 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
 /turf/simulated/floor/plating,
-/area/adhomian_circus/hangar)
+/area/tajaran_smuggler/power)
 "pPq" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3488,6 +3516,16 @@
 	temperature = 278.15
 	},
 /area/tajaran_smuggler/hangar)
+"rAs" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/tajaran_smuggler/dock)
 "rCw" = (
 /obj/machinery/atmospherics/portables_connector/fuel,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -3585,6 +3623,9 @@
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/tajaran_smuggler)
+"sjG" = (
+/turf/simulated/wall/shuttle/raider,
+/area/tajaran_smuggler/dock)
 "srj" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/structure/cable/green{
@@ -3966,6 +4007,15 @@
 	temperature = 278.15
 	},
 /area/tajaran_smuggler/power)
+"vmj" = (
+/obj/effect/shuttle_landmark/tajaran_smuggler/dock/port{
+	dir = 4;
+	landmark_tag = "nav_tajaran_smuggler_dock_port_north";
+	docking_controller = "airlock_tajaran_smuggler_dock_port_north";
+	name = "Dock, Port, North"
+	},
+/turf/template_noop,
+/area/space)
 "vmq" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -4074,10 +4124,10 @@
 	},
 /area/tajaran_smuggler)
 "vLx" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector/aux{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -4100,7 +4150,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
 /turf/simulated/floor/plating,
-/area/adhomian_circus/hangar)
+/area/tajaran_smuggler/power)
 "vMT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -4108,10 +4158,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "vPL" = (
 /obj/machinery/door/airlock/hatch{
 	name = "EVA";
@@ -4175,7 +4230,7 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
 /turf/simulated/floor/tiled/dark,
-/area/adhomian_circus/hangar)
+/area/tajaran_smuggler/power)
 "wfy" = (
 /obj/structure/closet/crate,
 /obj/effect/decal/cleanable/dirt,
@@ -4310,13 +4365,13 @@
 	},
 /area/tajaran_smuggler/dorms)
 "xpN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "xto" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green{
@@ -4406,7 +4461,7 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
 /turf/simulated/floor/plating,
-/area/adhomian_circus/hangar)
+/area/tajaran_smuggler/power)
 "xRX" = (
 /turf/template_noop,
 /area/space)
@@ -4425,13 +4480,13 @@
 	},
 /area/tajaran_smuggler/captain_quarters)
 "xTp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "xYA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -4465,10 +4520,14 @@
 /area/shuttle/tajaran_smuggler_cargo)
 "yjU" = (
 /obj/machinery/power/apc/south,
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
-/area/tajaran_smuggler)
+/area/tajaran_smuggler/dock)
 "yjW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -36187,13 +36246,13 @@ jOg
 jOg
 jOg
 jOg
-wrb
-wrb
+sjG
+sjG
 obG
-wrb
-wrb
-wrb
-wrb
+sjG
+sjG
+sjG
+sjG
 aMU
 aOU
 aMU
@@ -36447,10 +36506,10 @@ jOg
 bfg
 agg
 vMT
-wrb
-wrb
-pfE
-pfE
+sjG
+sjG
+dDg
+dDg
 aMU
 lnc
 nBN
@@ -36702,12 +36761,12 @@ lOJ
 kmF
 jOg
 iOh
-lGQ
+mLh
 ahU
-wrb
-pfE
-pfE
-pfE
+sjG
+dDg
+dDg
+dDg
 aMU
 uaE
 tWN
@@ -36958,13 +37017,13 @@ ilo
 ilo
 rDk
 jOg
-lGQ
-lGQ
-lGQ
-wrb
-pfE
-pfE
-pfE
+mLh
+mLh
+rAs
+sjG
+dDg
+dDg
+dDg
 aMU
 oew
 oIi
@@ -37215,13 +37274,13 @@ ilo
 ilo
 mwV
 jOg
-lGQ
-lGQ
+mLh
+mLh
 yjU
-wrb
-pfE
-pfE
-pfE
+sjG
+dDg
+dDg
+dDg
 aMU
 jJQ
 qHm
@@ -37472,13 +37531,13 @@ bci
 ilo
 mwV
 jOg
-lGQ
-lGQ
-lGQ
-wrb
-pfE
-pfE
-pfE
+mLh
+mLh
+mLh
+sjG
+dDg
+dDg
+dDg
 aMU
 aMU
 aMU
@@ -37732,11 +37791,11 @@ jOg
 oXk
 xTp
 jIP
-wrb
-pfE
-pfE
-wrb
-wrb
+sjG
+dDg
+dDg
+sjG
+sjG
 xRX
 xRX
 xRX
@@ -37986,13 +38045,13 @@ bci
 ilo
 mwV
 jOg
-lGQ
+mLh
 xpN
-wrb
-wrb
-wrb
-wrb
-wrb
+sjG
+sjG
+sjG
+sjG
+sjG
 xRX
 xRX
 xRX
@@ -38243,9 +38302,9 @@ ilo
 ilo
 mwV
 jOg
-lGQ
+mLh
 xpN
-wrb
+sjG
 xRX
 xRX
 xRX
@@ -38502,7 +38561,7 @@ mwV
 jOg
 kaR
 hhr
-wrb
+sjG
 xRX
 xRX
 xRX
@@ -38732,10 +38791,10 @@ qrf
 cXN
 atB
 mIz
-wrb
+jWT
 lyG
 wbG
-wrb
+jWT
 wrb
 xRX
 xRX
@@ -38759,7 +38818,7 @@ akP
 jOg
 fVv
 gXD
-wrb
+sjG
 xRX
 xRX
 xRX
@@ -38989,10 +39048,10 @@ bxR
 cXN
 qil
 fOQ
-wrb
+jWT
 pGP
 vMF
-wrb
+jWT
 xRX
 xRX
 xRX
@@ -39016,7 +39075,7 @@ jOg
 jOg
 fjf
 hOZ
-wrb
+sjG
 xRX
 xRX
 xRX
@@ -39246,10 +39305,10 @@ kJl
 kJl
 kJl
 kJl
-wrb
+jWT
 xQL
 eaN
-wrb
+jWT
 xRX
 xRX
 xRX
@@ -39273,7 +39332,7 @@ jOg
 jOg
 eYk
 dTw
-wrb
+sjG
 xRX
 xRX
 xRX
@@ -39503,10 +39562,10 @@ xRX
 xRX
 xRX
 xRX
-wrb
+jWT
 mgd
 mdc
-wrb
+jWT
 xRX
 xRX
 xRX
@@ -39529,7 +39588,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+jTl
 xRX
 xRX
 xRX
@@ -39762,7 +39821,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+vmj
 xRX
 xRX
 xRX

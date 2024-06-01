@@ -35,6 +35,9 @@
 	name = "Adhomian Freighter Power Room"
 	icon_state = "substation"
 
+/area/tajaran_smuggler/dock
+	name = "Adhomian Freighter dock"
+	icon_state = "ship"
 //shuttles
 
 /area/shuttle/tajaran_smuggler
