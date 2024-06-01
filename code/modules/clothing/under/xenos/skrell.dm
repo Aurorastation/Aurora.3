@@ -12,7 +12,8 @@
 	icon = 'icons/obj/item/clothing/under/skrell/qeblak_uniform.dmi'
 	icon_state = "qeblak_uniform"
 	item_state = "qeblak_uniform"
-	action_button_name = "Toggle Ceremonial Garment Lights"
+//	action_button_name = "Toggle Ceremonial Garment Lights"
+	actions_types = list()
 	var/lights = FALSE
 
 /obj/item/clothing/under/skrell/qeblak/update_icon()

@@ -5,7 +5,8 @@
 	activable = TRUE
 	organ_tag = BP_AUG_EYE_SENSORS
 	parent_organ = BP_HEAD
-	action_button_name = "Toggle Security Sensors"
+//	action_button_name = "Toggle Security Sensors"
+	actions_types = list()
 	var/active_hud = "disabled"
 
 	var/static/list/hud_types = list(
@@ -41,7 +42,8 @@
 
 /obj/item/organ/internal/augment/eye_sensors/security
 	name = "integrated security HUD sensors"
-	action_button_name = "Toggle Security Sensors"
+//	action_button_name = "Toggle Security Sensors"
+	actions_types = list()
 
 /obj/item/organ/internal/augment/eye_sensors/security/attack_self(var/mob/user)
 	. = ..()
@@ -69,7 +71,8 @@
 			active_hud = "disabled"
 /obj/item/organ/internal/augment/eye_sensors/medical
 	name = "integrated medical HUD sensors"
-	action_button_name = "Toggle Medical Sensors"
+//	action_button_name = "Toggle Medical Sensors"
+	actions_types = list()
 
 /obj/item/organ/internal/augment/eye_sensors/medical/attack_self(var/mob/user)
 	. = ..()

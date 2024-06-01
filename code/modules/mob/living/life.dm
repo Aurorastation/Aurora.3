@@ -34,8 +34,6 @@
 	for(var/obj/item/grab/G in src)
 		G.process()
 
-	handle_actions()
-
 	update_canmove()
 
 	handle_regular_hud_updates()

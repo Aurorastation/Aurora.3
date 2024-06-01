@@ -91,7 +91,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "ghoz_eyes"
 	item_state = "ghoz_eyes"
 	contained_sprite = TRUE
-	action_button_name = "Toggle Eyelids"
+//	action_button_name = "Toggle Eyelids"
+	actions_types = list()
 	species_restricted = list(BODYTYPE_VAURCA) //i think this would make sense since those are some kind of vaurca build prothestic
 
 
@@ -1284,7 +1285,8 @@ All custom items with worn sprites must follow the contained sprite system: http
 	parent_organ = BP_HEAD
 
 	action_button_icon = "goldman_eye"
-	action_button_name = "Activate The Moneymaker Cybernetic Eye"
+//	action_button_name = "Activate The Moneymaker Cybernetic Eye"
+	actions_types = list()
 	activable = TRUE
 	cooldown = 25
 
@@ -1559,7 +1561,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "akara_mask"
 	item_state = "akara_mask"
 	contained_sprite = TRUE
-	action_button_name = "Adjust mask"
+	actions_types = list(/datum/action/item_action/adjust)
 	flash_protection = FLASH_PROTECTION_NONE
 	tint = TINT_NONE
 

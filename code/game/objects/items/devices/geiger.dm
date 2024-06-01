@@ -5,7 +5,7 @@
 	icon_state = "geiger_off"
 	item_state = "multitool"
 	w_class = ITEMSIZE_SMALL
-	action_button_name = "Toggle geiger counter"
+	actions_types = list(/datum/action/item_action/toggle_geiger_counter)
 	var/scanning = 0
 	var/radiation_count = 0
 	var/datum/sound_token/sound_token

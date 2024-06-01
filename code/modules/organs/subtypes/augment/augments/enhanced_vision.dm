@@ -4,7 +4,8 @@
 	icon_state = "enhanced_vision"
 	organ_tag = BP_AUG_ENCHANED_VISION
 	parent_organ = BP_HEAD
-	action_button_name = "Activate Vision Enhanced Retinas"
+//	action_button_name = "Activate Vision Enhanced Retinas"
+	actions_types = list()
 	action_button_icon = "enhanced_vision"
 	cooldown = 30
 	activable = TRUE

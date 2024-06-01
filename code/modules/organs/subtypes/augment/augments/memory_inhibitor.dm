@@ -9,7 +9,8 @@
 	activable = TRUE
 	cooldown = 20
 	action_button_icon = "memory_inhibitor"
-	action_button_name = "Activate Memory Inhibitor"
+//	action_button_name = "Activate Memory Inhibitor"
+	actions_types = list()
 	var/ready_to_erase = FALSE
 
 /obj/item/organ/internal/augment/memory_inhibitor/attack_self(var/mob/user)

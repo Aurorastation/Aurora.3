@@ -14,7 +14,7 @@
 	uv_intensity = 50
 	var/brightness_on = 2 // Moderate bright.
 	light_power = 2
-	action_button_name = null
+	actions_types = list()
 
 /obj/item/device/oxycandle/attack_self(mob/user)
 	if(!on)

@@ -115,7 +115,8 @@
 	organ_tag = "protein valve"
 	parent_organ = BP_CHEST
 	action_button_icon = "screen"
-	action_button_name = "Activate Protein Breakdown Valve"
+//	action_button_name = "Activate Protein Breakdown Valve"
+	actions_types = list()
 	cooldown = 300
 	activable = TRUE
 	var/expended = FALSE
@@ -140,8 +141,9 @@
 	icon_state = "stabilizer"
 	organ_tag = "venomous rest"
 	parent_organ = BP_CHEST
-	action_button_name = "Activate Venomous Rest Implant"
+//	action_button_name = "Activate Venomous Rest Implant"
 	action_button_icon = "stabilizer"
+	actions_types = list()
 	cooldown = 300
 	activable = TRUE
 	var/expended = FALSE
@@ -168,7 +170,8 @@
 	icon_state = "hunterseye"
 	organ_tag = "farseer eye"
 	parent_organ = BP_HEAD
-	action_button_name = "Activate Farseer Eye"
+//	action_button_name = "Activate Farseer Eye"
+	actions_types = list()
 	action_button_icon = "hunterseye"
 	cooldown = 30
 	activable = TRUE
@@ -194,7 +197,8 @@
 	icon_state = "mk1eyes"
 	organ_tag = "eye flashlight"
 	parent_organ = BP_HEAD
-	action_button_name = "Activate Eye Flashlight"
+//	action_button_name = "Activate Eye Flashlight"
+	actions_types = list()
 	action_button_icon = "mk1eyes"
 	cooldown = 50
 	activable = TRUE
@@ -255,15 +259,16 @@
 
 /obj/item/organ/external/hand/right/autakh/tool
 	name = "engineering grasper"
-	action_button_name = "Deploy Mechanical Combitool"
+//	action_button_name = "Deploy Mechanical Combitool"
 	var/augment_type = /obj/item/combitool/robotic
+	actions_types = list()
 
-/obj/item/organ/external/hand/right/autakh/tool/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "digitool"
-		if(action.button)
-			action.button.update_icon()
+///obj/item/organ/external/hand/right/autakh/tool/refresh_action_button()
+//	. = ..()
+//	if(.)
+//		action.button_icon_state = "digitool"
+//		if(action.button)
+//			action.button.update_icon()
 
 /obj/item/organ/external/hand/right/autakh/tool/attack_self(var/mob/user)
 	. = ..()
@@ -318,15 +323,16 @@
 
 /obj/item/organ/external/hand/right/autakh/tool/mining
 	name = "mining grasper"
-	action_button_name = "Deploy Mounted Drill"
+//	action_button_name = "Deploy Mounted Drill"
 	augment_type = /obj/item/pickaxe/drill/integrated
+	actions_types = list()
 
-/obj/item/organ/external/hand/right/autakh/tool/mining/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "drill"
-		if(action.button)
-			action.button.update_icon()
+///obj/item/organ/external/hand/right/autakh/tool/mining/refresh_action_button()
+//	. = ..()
+//	if(.)
+//		action.button_icon_state = "drill"
+//		if(action.button)
+//			action.button.update_icon()
 
 /obj/item/pickaxe/drill/integrated
 	name = "integrated mining drill"
@@ -344,14 +350,15 @@
 
 /obj/item/organ/external/hand/right/autakh/medical
 	name = "medical grasper"
-	action_button_name = "Deploy Mounted Health Scanner"
+//	action_button_name = "Deploy Mounted Health Scanner"
+	actions_types = list()
 
-/obj/item/organ/external/hand/right/autakh/medical/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "health"
-		if(action.button)
-			action.button.update_icon()
+///obj/item/organ/external/hand/right/autakh/medical/refresh_action_button()
+//	. = ..()
+//	if(.)
+//		action.button_icon_state = "health"
+//	/	if(action.button)
+//			action.button.update_icon()
 
 /obj/item/organ/external/hand/right/autakh/medical/attack_self(var/mob/user)
 	. = ..()
@@ -385,14 +392,15 @@
 
 /obj/item/organ/external/hand/right/autakh/security
 	name = "security grasper"
-	action_button_name = "Activate Integrated Electroshock Weapon"
+//	action_button_name = "Activate Integrated Electroshock Weapon"
+	actions_types = list()
 
-/obj/item/organ/external/hand/right/autakh/security/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "baton"
-		if(action.button)
-			action.button.update_icon()
+///obj/item/organ/external/hand/right/autakh/security/refresh_action_button()
+//	. = ..()
+//	if(.)
+//		action.button_icon_state = "baton"
+//		if(action.button)
+//			action.button.update_icon()
 
 /obj/item/organ/external/hand/right/autakh/security/attack_self(var/mob/user)
 	. = ..()
@@ -441,12 +449,13 @@
 
 /obj/item/organ/external/hand/right/autakh/tool/nullrod
 	name = "blessed prosthesis"
-	action_button_name = "Deploy Blessed Prosthesis"
+//	action_button_name = "Deploy Blessed Prosthesis"
 	augment_type = /obj/item/nullrod/autakh
+	actions_types = list()
 
-/obj/item/organ/external/hand/right/autakh/tool/nullrod/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "anchor"
-		if(action.button)
-			action.button.update_icon()
+///obj/item/organ/external/hand/right/autakh/tool/nullrod/refresh_action_button()
+//	. = ..()
+//	if(.)
+///		action.button_icon_state = "anchor"
+//		if(action.button)
+//			action.button.update_icon()

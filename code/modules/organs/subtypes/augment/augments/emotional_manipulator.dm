@@ -5,7 +5,8 @@
 	icon_state = "emotional_manipulator"
 	organ_tag = BP_AUG_EMOTION
 	parent_organ = BP_HEAD
-	action_button_name = "Activate Emotional Manipulator"
+//	action_button_name = "Activate Emotional Manipulator"
+	actions_types = list()
 	activable = TRUE
 	action_button_icon = "emotional_manipulator"
 	cooldown = 10
