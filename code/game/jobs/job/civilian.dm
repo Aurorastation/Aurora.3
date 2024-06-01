@@ -427,7 +427,7 @@
 	bowman = /obj/item/device/radio/headset/headset_cargo/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/cargo
 	wrist_radio = /obj/item/device/radio/headset/wrist/cargo
-	clipon_radio = /obj/item/device/radio/headset/wrist/cargo
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/cargo
 
 /datum/job/mining
 	title = "Shaft Miner"

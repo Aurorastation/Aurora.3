@@ -425,6 +425,7 @@
 #define PROSTHETIC_TESLA_BODY "Industrial Tesla Powered Prosthetics"
 #define PROSTHETIC_VAURCA "Vaurca Robotic Limb"
 #define PROSTHETIC_UNBRANDED "Unbranded"
+#define PROSTHETIC_UNBRANDED_EMISSIVE "Unbranded Emissive"
 #define PROSTHETIC_HOPLAN "Hoplan Head"
 #define PROSTHETIC_RAXUS "Raxus Head"
 #define PROSTHETIC_INDRICUS "Indricus Head"

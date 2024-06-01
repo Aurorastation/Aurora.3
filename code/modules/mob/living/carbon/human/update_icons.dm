@@ -482,6 +482,8 @@ There are several things that need to be remembered:
 	//Reset our hair
 	overlays_raw[HAIR_LAYER] = null
 	overlays_raw[HAIR_LAYER_ALT] = null
+	overlays_raw[HAIR_LAYER_EMISSIVE] = null
+	overlays_raw[HAIR_LAYER_ALT_EMISSIVE] = null
 
 	var/obj/item/organ/external/head/head_organ = get_organ(BP_HEAD)
 	if(!head_organ || head_organ.is_stump() )
@@ -509,6 +511,12 @@ There are several things that need to be remembered:
 
 	var/hair_layer = species.use_alt_hair_layer ? HAIR_LAYER_ALT : HAIR_LAYER
 	overlays_raw[hair_layer] = hair_icon
+
+	if(has_visible_hair)
+		var/datum/sprite_accessory/hair_style = GLOB.hair_styles_list[h_style]
+		if(hair_style)
+			var/hair_emissive_layer = species.use_alt_hair_layer ? HAIR_LAYER_ALT_EMISSIVE : HAIR_LAYER_EMISSIVE
+			overlays_raw[hair_emissive_layer] = emissive_blocker(hair_icon, hair_style.icon_state, MOB_SHADOW_UPPER_LAYER)
 
 	if(update_icons)
 		update_icon()
@@ -782,9 +790,18 @@ There are several things that need to be remembered:
 			else if(l_ear.item_icons && (slot_l_ear_str in l_ear.item_icons))
 				mob_icon = l_ear.item_icons[slot_l_ear_str]
 
-			overlays_raw[L_EAR_LAYER] = l_ear.get_mob_overlay(src, mob_icon, mob_state, slot_l_ear_str)
+			var/layer = L_EAR_LAYER
+			var/layer_alt = L_EAR_LAYER_ALT
+			var/obj/item/device/radio/headset/wrist/W = l_ear
+			if(istype(W) && W.mob_wear_layer == WRISTS_LAYER_OVER)
+				layer = L_EAR_LAYER_ALT
+				layer_alt = L_EAR_LAYER
+
+			overlays_raw[layer] = l_ear.get_mob_overlay(src, mob_icon, mob_state, slot_l_ear_str)
+			overlays_raw[layer_alt] = null
 	else
 		overlays_raw[L_EAR_LAYER] = null
+		overlays_raw[L_EAR_LAYER_ALT] = null
 
 	if(update_icons)
 		update_icon()
@@ -814,10 +831,18 @@ There are several things that need to be remembered:
 			else if(r_ear.item_icons && (slot_r_ear_str in r_ear.item_icons))
 				mob_icon = r_ear.item_icons[slot_r_ear_str]
 
-			overlays_raw[R_EAR_LAYER] = r_ear.get_mob_overlay(src, mob_icon, mob_state, slot_r_ear_str)
+			var/layer = R_EAR_LAYER
+			var/layer_alt = R_EAR_LAYER_ALT
+			var/obj/item/device/radio/headset/wrist/W = r_ear
+			if(istype(W) && W.mob_wear_layer == WRISTS_LAYER_OVER)
+				layer = R_EAR_LAYER_ALT
+				layer_alt = R_EAR_LAYER
+
+			overlays_raw[layer] = r_ear.get_mob_overlay(src, mob_icon, mob_state, slot_r_ear_str)
+			overlays_raw[layer_alt] = null
 	else
 		overlays_raw[R_EAR_LAYER] = null
-
+		overlays_raw[R_EAR_LAYER_ALT] = null
 	if(update_icons)
 		update_icon()
 

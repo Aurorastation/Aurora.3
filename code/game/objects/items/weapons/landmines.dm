@@ -83,6 +83,8 @@
 				return
 		if(isliving(AM))
 			var/mob/living/L = AM
+			if(L.pass_flags & PASSTABLE)
+				return
 			if(L.mob_size >= 5)
 				L.visible_message(
 					SPAN_DANGER("[L] steps on \the [src]."),

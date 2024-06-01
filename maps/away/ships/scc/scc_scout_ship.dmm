@@ -2091,13 +2091,13 @@
 	pixel_y = 3
 	},
 /obj/item/clothing/head/helmet/space/anomaly,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/clothing/suit/space/anomaly{
 	pixel_x = 1;
 	pixel_y = 3
 	},
 /obj/item/clothing/head/helmet/space/anomaly,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/machinery/light,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_ship_shuttle/cargo)

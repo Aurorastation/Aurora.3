@@ -318,9 +318,6 @@
 "aQ" = (
 /obj/machinery/power/apc/east{
 	req_access = list(213);
-	pixel_y = 21;
-	dir = 1;
-	pixel_x = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -5325,8 +5322,6 @@
 /obj/machinery/power/apc/south{
 	is_critical = 1;
 	req_access = list(213);
-	dir = 1;
-	pixel_y = 21
 	},
 /obj/structure/cable/green{
 	d2 = 2;

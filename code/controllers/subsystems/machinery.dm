@@ -1,7 +1,6 @@
 #define SSMACHINERY_PIPENETS 1
 #define SSMACHINERY_MACHINERY 2
 #define SSMACHINERY_POWERNETS 3
-#define SSMACHINERY_POWER_OBJECTS 4
 
 
 #define START_PROCESSING_IN_LIST(Datum, List) \
@@ -27,9 +26,6 @@ if(Datum.datum_flags & DF_ISPROCESSING) {\
 #define START_PROCESSING_POWERNET(Datum) START_PROCESSING_IN_LIST(Datum, powernets)
 #define STOP_PROCESSING_POWERNET(Datum) STOP_PROCESSING_IN_LIST(Datum, powernets)
 
-#define START_PROCESSING_POWER_OBJECT(Datum) START_PROCESSING_IN_LIST(Datum, power_objects)
-#define STOP_PROCESSING_POWER_OBJECT(Datum) STOP_PROCESSING_IN_LIST(Datum, power_objects)
-
 SUBSYSTEM_DEF(machinery)
 	name = "Machinery"
 	init_order = INIT_ORDER_MACHINES
@@ -41,11 +37,9 @@ SUBSYSTEM_DEF(machinery)
 	var/static/tmp/cost_pipenets = 0
 	var/static/tmp/cost_machinery = 0
 	var/static/tmp/cost_powernets = 0
-	var/static/tmp/cost_power_objects = 0
 	var/static/tmp/list/pipenets = list()
 	var/static/tmp/list/machinery = list()
 	var/static/tmp/list/powernets = list()
-	var/static/tmp/list/power_objects = list()
 	var/static/tmp/list/processing = list()
 	var/static/tmp/list/queue = list()
 
@@ -112,15 +106,8 @@ SUBSYSTEM_DEF(machinery)
 		cost_powernets = MC_AVERAGE(cost_powernets, TICK_DELTA_TO_MS(world.tick_usage - timer))
 		if(state != SS_RUNNING && initialized)
 			return
-		current_step = SSMACHINERY_POWER_OBJECTS
-		resumed = FALSE
-	if (current_step == SSMACHINERY_POWER_OBJECTS)
-		timer = world.tick_usage
-		process_power_objects(resumed, no_mc_tick)
-		cost_power_objects = MC_AVERAGE(cost_power_objects, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if (state != SS_RUNNING && initialized)
-			return
 		current_step = SSMACHINERY_PIPENETS
+		resumed = FALSE
 
 /datum/controller/subsystem/machinery/proc/makepowernets()
 	for(var/datum/powernet/powernet as anything in powernets)
@@ -229,38 +216,16 @@ SUBSYSTEM_DEF(machinery)
 			queue.Cut(i)
 			return
 
-/datum/controller/subsystem/machinery/proc/process_power_objects(resumed, no_mc_tick)
-	if (!resumed)
-		queue = power_objects.Copy()
-	var/obj/item/item
-	for (var/i = queue.len to 1 step -1)
-		item = queue[i]
-		if (QDELETED(item))
-			if (item)
-				item.datum_flags &= ~DF_ISPROCESSING
-			power_objects -= item
-			continue
-		if (!item.pwr_drain(wait))
-			item.datum_flags &= ~DF_ISPROCESSING
-			power_objects -= item
-		if (no_mc_tick)
-			CHECK_TICK
-		else if (MC_TICK_CHECK)
-			queue.Cut(i)
-			return
-
 /datum/controller/subsystem/machinery/stat_entry(msg)
 	msg = {"\n\
 		Queues: \
 		Pipes [pipenets.len] \
 		Machines [processing.len] \
 		Networks [powernets.len] \
-		Objects [power_objects.len]\n\
 		Costs: \
 		Pipes [round(cost_pipenets, 1)] \
 		Machines [round(cost_machinery, 1)] \
 		Networks [round(cost_powernets, 1)] \
-		Objects [round(cost_power_objects, 1)]\n\
 		Overall [round(cost ? processing.len / cost : 0, 0.1)]
 	"}
 	return ..()
@@ -292,4 +257,3 @@ SUBSYSTEM_DEF(machinery)
 #undef SSMACHINERY_PIPENETS
 #undef SSMACHINERY_MACHINERY
 #undef SSMACHINERY_POWERNETS
-#undef SSMACHINERY_POWER_OBJECTS
