@@ -14,7 +14,7 @@ fn print_diff(left: &str, right: &str) {
 }
 
 fn all_test_dmm() -> Vec<std::path::PathBuf> {
-    std::fs::read_dir("D:/Git/dmm_parser_rs/test")
+    std::fs::read_dir("src/mapmanip/test-in")
         .unwrap()
         .map(|r| r.unwrap().path())
         .filter(|p| p.extension().unwrap() == "dmm")
@@ -24,10 +24,10 @@ fn all_test_dmm() -> Vec<std::path::PathBuf> {
 
 #[test]
 fn grid_check() {
-    let path = std::path::Path::new("D:/Git/dmm_parser_rs/test/_tiny_test_map.dmm");
+    let path = std::path::Path::new("src/mapmanip/test-in/_tiny_test_map.dmm");
     println!("path: {}", path.display());
 
-    let grid_map = crate::core::GridMap::from_file(&path).unwrap();
+    let grid_map = crate::mapmanip::core::GridMap::from_file(&path).unwrap();
     assert!(grid_map.grid[&dmm::Coord2::new(2, 1)]
         .prefabs
         .iter()
@@ -52,16 +52,13 @@ fn to_grid_and_back() {
         println!("path: {}", path.display());
 
         let dict_map_original = dmmtools::dmm::Map::from_file(&path).unwrap();
-        let grid_map = crate::core::to_grid_map(&dict_map_original);
-        let dict_map_again = crate::core::to_dict_map(&grid_map);
-        let map_str_original = crate::core::map_to_string(&dict_map_original).unwrap();
-        let map_str_from_grid = crate::core::map_to_string(&dict_map_again).unwrap();
+        let grid_map = crate::mapmanip::core::to_grid_map(&dict_map_original);
+        let dict_map_again = crate::mapmanip::core::to_dict_map(&grid_map);
+        let map_str_original = crate::mapmanip::core::map_to_string(&dict_map_original).unwrap();
+        let map_str_from_grid = crate::mapmanip::core::map_to_string(&dict_map_again).unwrap();
 
         dict_map_again
-            .to_file(
-                &std::path::Path::new("D:/Git/dmm_parser_rs/test-out")
-                    .join(path.file_name().unwrap()),
-            )
+            .to_file(&std::path::Path::new("src/mapmanip/test-out").join(path.file_name().unwrap()))
             .unwrap();
 
         print_diff(&map_str_original, &map_str_from_grid);
@@ -74,19 +71,22 @@ fn to_grid_and_back() {
 
 #[test]
 fn extract() {
-    let path_src = std::path::Path::new("D:/Git/dmm_parser_rs/test/_tiny_test_map.dmm");
-    let path_xtr = std::path::Path::new("D:/Git/dmm_parser_rs/test/extracted.dmm");
-    let path_xtr_out = std::path::Path::new("D:/Git/dmm_parser_rs/test-out/extracted_out.dmm");
+    let path_src = std::path::Path::new("src/mapmanip/test-in/_tiny_test_map.dmm");
+    let path_xtr = std::path::Path::new("src/mapmanip/test-in/extracted.dmm");
+    let path_xtr_out = std::path::Path::new("src/mapmanip/test-out/extracted_out.dmm");
 
     let dict_map_src = dmmtools::dmm::Map::from_file(&path_src).unwrap();
     let dict_map_xtr_expected = dmmtools::dmm::Map::from_file(&path_xtr).unwrap();
 
-    let grid_map_src = crate::core::to_grid_map(&dict_map_src);
-    let grid_map_xtr =
-        crate::tools::extract_sub_map(&grid_map_src, Coord2::new(4, 7), Coord2::new(10, 5));
-    let grid_map_xtr_expected = crate::core::to_grid_map(&dict_map_xtr_expected);
+    let grid_map_src = crate::mapmanip::core::to_grid_map(&dict_map_src);
+    let grid_map_xtr = crate::mapmanip::tools::extract_sub_map(
+        &grid_map_src,
+        Coord2::new(4, 7),
+        Coord2::new(10, 5),
+    );
+    let grid_map_xtr_expected = crate::mapmanip::core::to_grid_map(&dict_map_xtr_expected);
 
-    let dict_map_xtr = crate::core::to_dict_map(&grid_map_xtr);
+    let dict_map_xtr = crate::mapmanip::core::to_dict_map(&grid_map_xtr);
     dict_map_xtr.to_file(path_xtr_out).unwrap();
 
     assert_eq!(
@@ -103,14 +103,15 @@ fn extract() {
 
 #[test]
 fn insert() {
-    let path_xtr = std::path::Path::new("D:/Git/dmm_parser_rs/test/extracted.dmm");
-    let path_dst = std::path::Path::new("D:/Git/dmm_parser_rs/test/_tiny_test_map.dmm");
-    let path_dst_expected = std::path::Path::new("D:/Git/dmm_parser_rs/test/inserted.dmm");
+    let path_xtr = std::path::Path::new("src/mapmanip/test-in/extracted.dmm");
+    let path_dst = std::path::Path::new("src/mapmanip/test-in/_tiny_test_map.dmm");
+    let path_dst_expected = std::path::Path::new("src/mapmanip/test-in/inserted.dmm");
 
-    let grid_map_dst_expected = crate::core::GridMap::from_file(&path_dst_expected).unwrap();
-    let grid_map_xtr = crate::core::GridMap::from_file(&path_xtr).unwrap();
-    let mut grid_map_dst = crate::core::GridMap::from_file(&path_dst).unwrap();
-    crate::tools::insert_sub_map(&grid_map_xtr, Coord2::new(6, 4), &mut grid_map_dst);
+    let grid_map_dst_expected =
+        crate::mapmanip::core::GridMap::from_file(&path_dst_expected).unwrap();
+    let grid_map_xtr = crate::mapmanip::core::GridMap::from_file(&path_xtr).unwrap();
+    let mut grid_map_dst = crate::mapmanip::core::GridMap::from_file(&path_dst).unwrap();
+    crate::mapmanip::tools::insert_sub_map(&grid_map_xtr, Coord2::new(6, 4), &mut grid_map_dst);
 
     assert_eq!(
         grid_map_dst_expected.grid.keys().collect::<Vec<_>>(),
@@ -129,16 +130,16 @@ fn keys_deduplicated() {
     // make sure that if multiple tiles have the same key_suggestion
     // they get assigned different keys
 
-    let path_src = std::path::Path::new("D:/Git/dmm_parser_rs/test/_tiny_test_map.dmm");
+    let path_src = std::path::Path::new("src/mapmanip/test-in/_tiny_test_map.dmm");
     let dict_map_src = dmmtools::dmm::Map::from_file(&path_src).unwrap();
-    let grid_map_src = crate::core::to_grid_map(&dict_map_src);
+    let grid_map_src = crate::mapmanip::core::to_grid_map(&dict_map_src);
 
-    let mut grid_map_out = crate::core::to_grid_map(&dict_map_src);
+    let mut grid_map_out = crate::mapmanip::core::to_grid_map(&dict_map_src);
     for tile in grid_map_out.grid.values_mut() {
         tile.key_suggestion = dmm::Key::default();
     }
-    let dict_map_out = crate::core::to_dict_map(&grid_map_out);
-    let grid_map_out = crate::core::to_grid_map(&dict_map_out);
+    let dict_map_out = crate::mapmanip::core::to_dict_map(&grid_map_out);
+    let grid_map_out = crate::mapmanip::core::to_grid_map(&dict_map_out);
 
     for key in grid_map_src.grid.keys() {
         let tile_src = grid_map_src.grid.get(key).unwrap();
