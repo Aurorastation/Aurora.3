@@ -4042,7 +4042,6 @@
 	dir = 5
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(202)
 	},
 /obj/structure/cable/green{

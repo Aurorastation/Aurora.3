@@ -276,6 +276,8 @@
 	. = ..()
 
 /obj/structure/ship_weapon_dummy/examine(mob/user)
+	SHOULD_CALL_PARENT(FALSE)
+
 	if(connected)
 		return connected.examine(user)
 	else

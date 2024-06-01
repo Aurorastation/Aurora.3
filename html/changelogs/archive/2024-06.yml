@@ -1,0 +1,142 @@
+2024-06-01:
+  Ben10083:
+  - rscadd: Holopad added to Machinist Workshop.
+  - rscadd: Very minor mapping fixes for People's Space Station.
+  - code_imp: Code Comment improvements for Sector variables.
+  - spellcheck: PRA Exploration Drone Typo Fixed.
+  - spellcheck: Messa banner now has correct description.
+  CourierBravo:
+  - qol: Expanded the description of four away sites with only a single line or two
+      of flavor.
+  - bugfix: Added chargers throughout the Kataphract ship and its shuttle.
+  - qol: Moves a floor light in the science wing that breaks the pattern of floor
+      lights in the hallway.
+  - qol: Moves a floor light in the deck 3 central primary hallway, to maintain the
+      pattern of floor lights being spaced 4 tiles apart.
+  - bugfix: Removes an access level door helper effect, which I believe is causing
+      the Consular Office B door to be accessible to anyone with that access.
+  - balance: Replaces a table in the CIC with a charger, allowing for IPC members
+      of command or command support to charge safely in the bunker.
+  - rscadd: Places another rubber ducky... somewhere.
+  DreamySkrell:
+  - qol: Makes it so PMCG uniforms' rolled state can be tweaked.
+  FluffyGhost:
+  - bugfix: Fixed RIG constructor sound when using some tools.
+  - bugfix: Fixed the gauss highex projectile from runtiming when hitting a wall (or
+      non movable atoms).
+  - code_imp: Removed a sleep and turned it into an async.
+  - code_imp: Marked some mobs that were not meant to be spawned as abstracts.
+  - bugfix: Updated the reaction of the slime core to not spawn abstract mobs.
+  - bugfix: Fixed changing specie for a mob to throw him into the void until relogged.
+  - code_imp: Improved / refactored some code, particularly around RFD.
+  - rscadd: Added the ability for mining RFD to build the mining train engine and
+      carts.
+  - rscadd: Removed the RFD, carts and engine from the mining vendor.
+  - rscadd: Added the RFD as a roundstart printable protolathe design.
+  - code_imp: Made the mining vendor list a GLOB variable.
+  - bugfix: Resolved a runtime on vehicles trying to turn on without a cell being
+      present.
+  - rscadd: Mining vendor pizzas now have a random pizza subtype.
+  - bugfix: Fixed the champagne bottle being able to be popped multiple times.
+  - bugfix: Fixed destination tagger not working if the destination area has an apostrophe
+      in the name.
+  - code_imp: Cleaned up the examination code a bit, added signal for atom examination,
+      DMDoc'd, SDMM headers.
+  - refactor: Refactored mech missing parts code to be included in the examination.
+  - refactor: Moved atom examine code to a separate file.
+  - refactor: Minor refactor of the APC file, turned biteshifts into the BITFLAG macro,
+      reordering.
+  - rscadd: Added APCs maplints.
+  - refactor: Fixed maps to pass the maplints.
+  - code_imp: APCs now draw time-constant power.
+  - code_imp: Removed power objects handling code, only the powersink existed that
+      used it.
+  - refactor: Refactored powersink to use the processing subsystem, made it time-constant,
+      DMDoc'd.
+  - balance: Made powersinks drain power from an APC faster.
+  - refactor: Refactored item equipement observable away, turned them into signals.
+  - code_imp: Partially ported on_equipped / equipped procs from TG, updated logic,
+      added signals for them.
+  - rscadd: Made hardsuits maintenance panel pryable open, large chance it will shock
+      you if you don't have insulating gloves, takes a while to do.
+  - refactor: Minor refactoring of the attackby code for the hardsuits, DMDoc'd and
+      minor refactor of the electrocute_mob proc.
+  - refactor: Refactored the machinery operable procs into a single one, DMDoc'd,
+      SDMM marked, made more readable.
+  - bugfix: Fixed suspension field generator not being able to be used as it was not
+      checking the power cell for operability.
+  - bugfix: Fixed background inventory screens not being clickable.
+  - rscadd: Clicking on a storage item that is already open now closes it.
+  - refactor: Refactored the mecha fabricator to use a queue system instead of processing.
+  - refactor: Typed a GLOB list for robolimbs.
+  - bugfix: Build time is now correct.
+  - bugfix: Fixed bedsheet bin taking the gripper away from a borg.
+  Geeves:
+  - bugfix: Fixed aim intent triggering clicking messages if someone moves (despite
+      being allowed to move) when you're not on harm intent.
+  - bugfix: Progress bars now render on the HUD layer, meaning it won't be affected
+      by darkness.
+  - bugfix: Fixed footprints having a white footprint attached to it.
+  - rscadd: You can now jump over landmines and other floor traps.
+  GeneralCamo:
+  - bugfix: Midnight HUD auto gun buttons now match the appropriate style.
+  - rscadd: Status Displays now smoothly scroll if their message is too long.
+  - rscadd: Added the ability to add a header to a status display, if the text is
+      surrounded by `-`
+  - qol: Ported new status display icons from /tg/station.
+  Hollyhock:
+  - qol: Adds medkit to Adhomian hunter cabin and Adhomian village, and mop to the
+      Adhomian village .
+  Lavillastrangiato:
+  - qol: Moves the Intrepid seating closer to the cockpit for roleplay purposes.
+  - qol: Moves some of the crates in the Intrepid to make room for archaeology equipment.
+  - qol: Moves around some stuff in the Intrepid hangar.
+  SimpleMaroon:
+  - bugfix: Moved the icon state for the Vaurca Gyne gear harness to a more logical
+      file.
+  - spellcheck: Corrected the word 'representative' in the K'lax Representative Shroud.
+  - spellcheck: Changed 'large shroud' to 'a large shroud' on all the Vaurca Gyne
+      shroud items.
+  - imageadd: Added unique Vaurca Gyne shrouds with Hive flags for all three Hives.
+  - imageadd: Added recolorable Vaurca Gyne shoes, clothes, and shrouds.
+  - imageadd: Added a K'lax rockstone cape to the loadout.
+  - qol: Changed the star cape from the Nralakk Vaurca Gyne suit to an independent
+      accessory, and made the colors of the stars more in line with the cosmic cape
+      to represent Vaurca Gyne longevity.
+  - imagedel: Removed the unnecessary Vaurca Gyne shroud sprites from suit.dmi.
+  - imagedel: Deleted the Nralakk Vaurca Gyne suit due to no longer being needed with
+      the accessory change.
+  - imagedel: Got rid of the Nralakk representative Vaurca Gyne shoes, as they are
+      exactly the same as the C'thur ones.
+  - bugfix: Hive cloaks and Vaurcan shrouds will now show up on character preview.
+  - bugfix: Vaurca shoes and clothes can now be properly colored for Bulwarks.
+  - bugfix: The tunnel cloak backing now remains properly when the cloak's hood is
+      pulled up.
+  - bugfix: The Tret passcard can now be taken by K'lax Breeders.
+  - bugfix: Fixes the misaligned sombrero sprite for Bulwarks.
+  - bugfix: Moves the Bulwark sprites for the webbing vests and waistcoat to accessories.dmi
+      where they belong.
+  - rscdel: Removed Bulwark sprites for the defunct Internal Affairs jacket and blue
+      lawyer jacket.
+  - bugfix: Added the proper suffixes to Bulwark sprites needed to work with the contained
+      sprite system.
+  - imageadd: Added more mecha eye body markings to Vaurca Workers and Warriors that
+      allow you to recolor the upper or lower eyes specifically.
+  Sparky_hotdog:
+  - bugfix: Fixed goggles not showing correctly on mob when pushed up onto your head.
+  - bugfix: Fixes hangar technicians being given the wrong clipon radio.
+  - bugfix: Fixed clip-on radios layering underneath head items when equipped to ear
+      slots.
+  - bugfix: Fixed clip-on radios being one pixel closer to the centre when flipped.
+  - imageadd: Added a new Vaurca Warrior sprite.
+  - bugfix: Fixes accessories not showing accents correctly after their attached items
+      were unequipped.
+  - bugfix: Fixed aliens which sleep upright not laying down during surgery.
+  - bugfix: Fixed all species being able to sleep indefinitely.
+  - bugfix: Fixes attempting surgery with every item while someone is on a bed getting
+      in the way of normal item uses. Surgery will now only stop you using surgical
+      tools at the wrong time.
+  - rscadd: Lowered the minimum timer time to 3 seconds, from 10, allowing shorter
+      grenade fuses.
+  TheDanseMacabre:
+  - bugfix: Fixes the icon for undercut 3.

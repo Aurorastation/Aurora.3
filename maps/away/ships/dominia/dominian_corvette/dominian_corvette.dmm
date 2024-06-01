@@ -5809,9 +5809,6 @@
 "uCl" = (
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_y = 0;
-	dir = 4;
-	pixel_x = 15;
 	req_access = list(212)
 	},
 /obj/structure/cable{

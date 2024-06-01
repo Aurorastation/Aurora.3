@@ -47144,9 +47144,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
-/obj/machinery/power/apc/west{
-	pixel_y = -1
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/table/standard,
 /obj/item/storage/box/sharps,
 /obj/structure/cable/green{
