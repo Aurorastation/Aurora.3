@@ -2091,6 +2091,7 @@
 #include "code\modules\effects\map_effects\marker\airlock_helper.dm"
 #include "code\modules\effects\map_effects\marker\airlock_shuttle.dm"
 #include "code\modules\effects\map_effects\marker\large_tank.dm"
+#include "code\modules\effects\map_effects\marker\mapmanip.dm"
 #include "code\modules\effects\maze_generation\maze_generator.dm"
 #include "code\modules\effects\maze_generation\maze_generator_blockwise.dm"
 #include "code\modules\effects\maze_generation\maze_helper_atoms.dm"

@@ -193,3 +193,9 @@
 		for(var/obj/machinery/computer/holodeck_control/holo in GLOB.holodeck_controls)
 			if(!holo.active)
 				holo.load_random_program()
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ops_warehouse_small_storage
+	name = "Ops Warehouse, Small Storage"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ops_warehouse_small_storage
+	name = "Ops Warehouse, Small Storage"
