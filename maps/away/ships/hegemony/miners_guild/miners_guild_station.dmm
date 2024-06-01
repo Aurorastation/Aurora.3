@@ -119,12 +119,10 @@
 /area/miners_guild/bridge)
 "aP" = (
 /obj/structure/lattice,
-/obj/structure/lattice/catwalk,
 /turf/space,
 /area/space)
 "aT" = (
 /obj/structure/lattice,
-/obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
@@ -2002,7 +2000,6 @@
 /area/miners_guild/solars_starboard)
 "qd" = (
 /obj/structure/lattice,
-/obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/miners_guild/solars_starboard)
 "qf" = (
@@ -3919,7 +3916,6 @@
 /area/miners_guild/hangar)
 "FH" = (
 /obj/structure/lattice,
-/obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /turf/template_noop,
 /area/miners_guild/solars_starboard)
@@ -4269,7 +4265,6 @@
 /area/miners_guild/engineering2)
 "Kf" = (
 /obj/structure/lattice,
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -4431,7 +4426,6 @@
 /area/miners_guild/solars_starboard)
 "Lz" = (
 /obj/structure/lattice,
-/obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 10
 	},
@@ -4777,7 +4771,6 @@
 /area/miners_guild)
 "Pq" = (
 /obj/structure/lattice,
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	density = 0;
 	icon_state = "railing0-0"
@@ -5333,7 +5326,6 @@
 /area/miners_guild/engineering2)
 "TO" = (
 /obj/structure/lattice,
-/obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/simple/hidden/blue,
 /turf/template_noop,
 /area/miners_guild/solars_starboard)
@@ -6136,7 +6128,6 @@
 /area/miners_guild)
 "ZV" = (
 /obj/structure/lattice,
-/obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/miners_guild/solars_port)
 "ZY" = (
