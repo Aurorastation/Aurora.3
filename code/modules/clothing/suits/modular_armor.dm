@@ -884,12 +884,10 @@
 
 // Helmet Accessories
 /obj/item/clothing/accessory/sec_mask
-	name = "corporate protective mask"
-	desc = "A generic camera-assisted mask issued to members of SCC security teams. Mainly used to protect the user \
-	from dust and other irritants, but lacks the capability for much else. While some may complain about the generic \
-	appearance, the Conglomerate continue with their tagline: \"Through uniformity, obedience.\""
+	name = "protective mask"
+	desc = "A generic camera-assisted mask, designed to be fitted to a helmet and hide the wearer's face, providing uniformity and anonymity."
 	icon = 'icons/obj/item/clothing/accessory/security_mask.dmi'
-	icon_state = "sec_mask"
+	icon_state = "sec_mask" //The same as the base SCC one. A new generic sprite can be added in future
 	item_state = "sec_mask"
 	contained_sprite = TRUE
 	accessory_slots = ACCESSORY_SLOT_HELMET
@@ -901,6 +899,23 @@
 /obj/item/clothing/accessory/sec_mask/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	. += design
+
+/obj/item/clothing/accessory/sec_mask/on_attached(obj/item/clothing/S, mob/user)
+	. = ..()
+	S.body_parts_covered |= FACE|EYES
+	S.flags_inv |= HIDEMASK|HIDEEYES|HIDEFACE
+
+/obj/item/clothing/accessory/sec_mask/on_removed(mob/user)
+	if(has_suit)
+		has_suit.body_parts_covered -= FACE|EYES
+		has_suit.flags_inv -= HIDEMASK|HIDEEYES|HIDEFACE
+	return ..()
+
+/obj/item/clothing/accessory/sec_mask/scc
+	name = "corporate protective mask"
+	desc = "A generic camera-assisted mask issued to members of SCC security teams. Mainly used to protect the user \
+	from dust and other irritants, but lacks the capability for much else. While some may complain about the generic \
+	appearance, the Conglomerate continue with their tagline: \"Through uniformity, obedience.\""
 
 /obj/item/clothing/accessory/sec_mask/unathi
 	icon_state = "sec_mask_unathi"

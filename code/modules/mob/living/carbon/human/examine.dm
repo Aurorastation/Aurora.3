@@ -101,9 +101,9 @@
 				tie_msg_warn += " [lowertext(english_list(accessory_descs))]"
 
 		if(head.blood_color)
-			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(head, user)] [head.gender==PLURAL?"some":"a"] [fluid_color_type_map(head.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>[head.name]</a> [head.get_head_examine_text(src)]! [tie_msg_warn]\n")
+			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(head, user)] [head.gender==PLURAL?"some":"a"] [fluid_color_type_map(head.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>[head.name]</a> [head.get_head_examine_text(src)] [tie_msg_warn]\n")
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(head, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>\a [head]</a> [head.get_head_examine_text(src)]. [tie_msg_warn]\n"
+			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(head, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>\a [head]</a> [head.get_head_examine_text(src)] [tie_msg_warn]\n"
 
 	//suit/armor
 	if(wear_suit)

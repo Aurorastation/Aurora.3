@@ -708,12 +708,3 @@
 	path = /obj/item/clothing/accessory/sec_mask
 	flags = 0
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator", "Security Personnel")
-
-/datum/gear/accessory/sec_mask/New()
-	..()
-	var/list/masks = list()
-	masks["corporate protective mask, human"] = /obj/item/clothing/accessory/sec_mask
-	masks["corporate protective mask, unathi"] = /obj/item/clothing/accessory/sec_mask/unathi
-	masks["corporate protective mask, hoplan"] = /obj/item/clothing/accessory/sec_mask/hoplan
-	gear_tweaks += new /datum/gear_tweak/path(masks)
-
