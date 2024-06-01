@@ -2732,12 +2732,6 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/docking_port_3)
-"uF" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/turf/simulated/floor/plating,
-/area/miners_guild/engineering1)
 "uI" = (
 /obj/machinery/airlock_sensor/airlock_exterior{
 	dir = 1;
@@ -22357,7 +22351,7 @@ rv
 wX
 Mi
 QT
-uF
+Yv
 FH
 sF
 mt
