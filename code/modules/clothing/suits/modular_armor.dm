@@ -925,4 +925,4 @@
 /obj/item/clothing/accessory/helmet_mask/hoplan
 	icon_state = "sec_mask_hoplan"
 	item_state = "sec_mask_hoplan"
-	design = "This one vaguely resembles a Godlen Deep Hoplan."
+	design = "This one vaguely resembles a Golden Deep Hoplan."
