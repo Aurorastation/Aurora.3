@@ -415,7 +415,9 @@
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/canteen)
 "eg" = (
-/obj/machinery/atmospherics/binary/pump/fuel/on,
+/obj/machinery/atmospherics/binary/pump/fuel/on{
+	name = "Fuel Line to Canister"
+	},
 /turf/simulated/floor/plating,
 /area/miners_guild/fuel_bay)
 "eh" = (
@@ -755,6 +757,9 @@
 /turf/simulated/floor/airless,
 /area/space)
 "gH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/miners_guild/engineering1)
 "gP" = (
@@ -1370,11 +1375,11 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
@@ -1539,11 +1544,11 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
+	},
+/obj/machinery/atmospherics/portables_connector/scrubber{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
@@ -1705,6 +1710,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
@@ -2217,6 +2225,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
@@ -2971,6 +2982,9 @@
 /area/miners_guild/engineering1)
 "xE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /turf/simulated/floor/plating,
 /area/miners_guild/engineering1)
 "xJ" = (
@@ -3373,6 +3387,10 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/machinery/atmospherics/binary/pump/supply{
+	dir = 4;
+	name = "Air Canister Refill"
+	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
 "AI" = (
@@ -3413,7 +3431,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -3850,6 +3867,7 @@
 /obj/machinery/atmospherics/portables_connector/supply{
 	dir = 1
 	},
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
 /area/shuttle/miners_guild)
 "Eb" = (
@@ -3940,15 +3958,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
@@ -4032,6 +4050,9 @@
 /obj/machinery/atmospherics/portables_connector/scrubber{
 	dir = 1
 	},
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/miners_guild)
 "GJ" = (
@@ -4087,7 +4108,8 @@
 /area/miners_guild)
 "Hs" = (
 /obj/machinery/atmospherics/binary/pump/fuel{
-	dir = 1
+	dir = 1;
+	name = "Canister to Thrusters"
 	},
 /obj/machinery/light{
 	dir = 4
@@ -4197,6 +4219,12 @@
 /obj/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
+"IH" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/miners_guild/engineering1)
 "II" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -4702,6 +4730,15 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
+"NS" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/plating,
+/area/miners_guild/engineering1)
 "NY" = (
 /obj/structure/cable/green{
 	d2 = 4;
@@ -5060,6 +5097,13 @@
 	},
 /turf/simulated/floor/airless,
 /area/miners_guild/solars_starboard)
+"QT" = (
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 1;
+	name = "Tank to Fuel Line"
+	},
+/turf/simulated/floor/plating,
+/area/miners_guild/engineering1)
 "QV" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -5111,6 +5155,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
@@ -5338,9 +5385,11 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
@@ -5800,6 +5849,13 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
+"WV" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/portables_connector/supply{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/miners_guild/engineering1)
 "WZ" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_x = -6;
@@ -5821,6 +5877,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8;
 	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
 /area/shuttle/miners_guild)
@@ -6211,6 +6270,10 @@
 "ZR" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
+	},
+/obj/machinery/atmospherics/binary/pump/scrubber{
+	dir = 8;
+	name = "Canister to Waste Processing"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
@@ -21876,7 +21939,7 @@ ho
 rv
 wX
 Mi
-Du
+QT
 uF
 FH
 sF
@@ -22037,7 +22100,7 @@ MH
 ho
 Ri
 xE
-xE
+IH
 wJ
 xr
 qd
@@ -22361,7 +22424,7 @@ nY
 Th
 AT
 mk
-kB
+WV
 uq
 zH
 qd
@@ -22521,7 +22584,7 @@ xr
 ic
 xr
 gH
-II
+NS
 ll
 kB
 NN
