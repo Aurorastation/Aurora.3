@@ -1,3 +1,5 @@
+// Accessory Slots
+
 #define ACCESSORY_SLOT_GENERIC			"decor"
 #define ACCESSORY_SLOT_UTILITY			"utility"
 #define ACCESSORY_SLOT_UTILITY_MINOR	"minor utility"
@@ -9,6 +11,8 @@
 #define ACCESSORY_SLOT_ARMOR_PIN		"armor pin"
 #define ACCESSORY_SLOT_ARMOR_POCKETS 	"armor pockets"
 #define ACCESSORY_SLOT_HEAD             "head"
+
+// Accessory Layering
 
 #define ACCESSORY_LOWEST_LAYER 0
 #define ACCESSORY_LAYER_LOWER 0

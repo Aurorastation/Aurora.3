@@ -13,6 +13,8 @@
 	)
 
 	var/slot = ACCESSORY_SLOT_GENERIC
+
+	/// Determines how accessories will layer over eachother, with lower being beneath everything, and upper above
 	var/accessory_layer = ACCESSORY_LAYER_MIDDLE
 
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
