@@ -382,7 +382,7 @@
 	description = "Morphine is a very strong medication derived from the opium plant. It is extremely effective at treating severe pain. The drug is highly addictive and sense-numbing. Unlike other painkillers, morphine can be inhaled."
 	reagent_state = LIQUID
 	color = "#5c4033"
-	overdose = 20
+	overdose = 10
 	od_minimum_dose = 2
 	specific_heat = 1
 	scannable = TRUE
@@ -423,13 +423,15 @@
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/6)
 	if(M.losebreath < 15)
 		M.losebreath++
+	if(prob(30))
+		M.seizure(rand(2,3))
 
 /singleton/reagent/tramarine
 	name = "Tramarine"
 	description = "Tramarine is a synthetic form of morphine developed by NanoTrasen early in its history, that can be used in its place for most medical purposes. It is known to be more dangerous however with alcohol, other opiods, or an overdose."
 	reagent_state = LIQUID
 	color = "#c4a05d"
-	overdose = 20
+	overdose = 15
 	od_minimum_dose = 2
 	scannable = TRUE
 	metabolism = REM / 3.33 // 0.06ish units per tick
@@ -484,6 +486,8 @@
 	M.make_jittery(10)
 	M.dizziness = max(150, M.dizziness)
 	M.make_dizzy(10)
+	if(prob(30))
+		M.seizure(rand(2,3))
 
 /singleton/reagent/oxycomorphine
 	name = "Oxycomorphine"
