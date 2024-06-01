@@ -40,6 +40,7 @@ pub unsafe extern "C" fn read_dmm_file_ffi(
     argc: byondapi::sys::u4c,
     argv: *mut byondapi::value::ByondValue,
 ) -> byondapi::value::ByondValue {
+    setup_panic_handler();
     let args = unsafe { ::byondapi::parse_args(argc, argv) };
     match read_dmm_file(args.get(0).map(ByondValue::clone).unwrap_or_default()) {
         Ok(val) => val,
@@ -52,8 +53,6 @@ pub unsafe extern "C" fn read_dmm_file_ffi(
 
 ///
 fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
-    setup_panic_handler();
-
     let path: String = path.get_string()?;
     let path: std::path::PathBuf = path.try_into()?;
 
@@ -63,9 +62,20 @@ fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
     }
 
     // read file and parse with spacemandmm
-    let dmm = dmmtools::dmm::Map::from_file(&path)?;
+    let mut map = dmmtools::dmm::Map::from_file(&path)?;
+
+    // do mapmanip if defined for this dmm
+    let path_mapmanip_config = {
+        let mut p = path.clone();
+        p.set_extension(".jsonc");
+        p
+    };
+    if path_mapmanip_config.exists() {
+        let config = crate::mapmanip::mapmanip_config_parse(&path_mapmanip_config);
+        map = crate::mapmanip::mapmanip(map, &config);
+    }
 
     // return the map converted to string
-    let str = map_to_string(&dmm)?;
+    let str = map_to_string(&map)?;
     Ok(ByondValue::new_str(str)?)
 }
