@@ -38,10 +38,6 @@
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
-	new /obj/item/clothing/accessory/sec_mask/unathi(src)
-	new /obj/item/clothing/accessory/sec_mask/unathi(src)
-	new /obj/item/clothing/accessory/sec_mask/hoplan(src)
-	new /obj/item/clothing/accessory/sec_mask/hoplan(src)
 
 	return
 
