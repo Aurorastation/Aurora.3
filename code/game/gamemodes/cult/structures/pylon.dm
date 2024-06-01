@@ -62,18 +62,18 @@
 	lang = new /datum/language/cultcommon()
 	update_icon()
 
-/obj/structure/cult/pylon/examine(var/mob/user)
+/obj/structure/cult/pylon/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(damagetaken)
 		switch(damagetaken)
 			if(1 to 8)
-				to_chat(user, SPAN_WARNING("It has very faint hairline fractures."))
+				. += SPAN_WARNING("It has very faint hairline fractures.")
 			if(8 to 20)
-				to_chat(user, SPAN_WARNING("It has several cracks across its surface."))
+				. += SPAN_WARNING("It has several cracks across its surface.")
 			if(20 to 30)
-				to_chat(user, SPAN_WARNING("It is chipped and deeply cracked, it may shatter with much more pressure."))
+				. += SPAN_WARNING("It is chipped and deeply cracked, it may shatter with much more pressure.")
 			if(30 to INFINITY)
-				to_chat(user, SPAN_WARNING("It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight."))
+				. += SPAN_WARNING("It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight.")
 
 
 /obj/structure/cult/pylon/Move()
@@ -346,19 +346,19 @@
 			return
 	attackpylon(user, damage, user)
 
-/obj/structure/cult/pylon/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/holder))
-		var/obj/item/holder/H = W
+/obj/structure/cult/pylon/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/holder))
+		var/obj/item/holder/H = attacking_item
 		if(H.contained)
 			present_sacrifice(user, H.contained)
 		return TRUE
 
-	attackpylon(user, W.force, W)
+	attackpylon(user, attacking_item.force, attacking_item)
 
 //Mousedrop so that constructs can drag rats out of maintenance to make turrets
-/obj/structure/cult/pylon/MouseDrop_T(var/atom/movable/C, mob/user)
-	if(istype(C, /mob/living))
-		present_sacrifice(user, C)
+/obj/structure/cult/pylon/MouseDrop_T(atom/dropping, mob/user)
+	if(istype(dropping, /mob/living))
+		present_sacrifice(user, dropping)
 		return
 	return ..()
 
@@ -472,18 +472,18 @@
 
 
 /obj/structure/cult/pylon/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(pylonmode == PYLON_TURRET)
 		anchored = TRUE
 		if(empowered)
-			add_overlay("crystal_overcharge")
+			AddOverlays("crystal_overcharge")
 			set_light(7, 3, l_color = "#a160bf")
 		else
 			set_light(6, 3, l_color = "#3e0000")
-			add_overlay("crystal_turret")
+			AddOverlays("crystal_turret")
 	else if(!isbroken)
 		set_light(5, 2, l_color = "#3e0000")
-		add_overlay("crystal_idle")
+		AddOverlays("crystal_idle")
 		if(pylonmode == PYLON_AWAITING_SACRIFICE)
 			anchored = TRUE
 		else

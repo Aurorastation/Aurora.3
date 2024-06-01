@@ -13,7 +13,7 @@
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_NORMAL
 
-	force = 5.0
+	force = 11
 	throwforce = 10.0
 	throw_speed = 1
 	throw_range = 4
@@ -47,7 +47,7 @@
 
 	return ..()
 
-/obj/item/tank/examine(mob/user, distance, is_adjacent)
+/obj/item/tank/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 0)
 		var/celsius_temperature = air_contents.temperature - T0C
@@ -65,21 +65,21 @@
 				descriptive = "room temperature"
 			else
 				descriptive = "cold"
-		to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
+		. += SPAN_NOTICE("\The [src] feels [descriptive].")
 
-/obj/item/tank/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/tank/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if ((istype(W, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
-		var/obj/item/device/analyzer/A = W
+	if ((istype(attacking_item, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
+		var/obj/item/device/analyzer/A = attacking_item
 		A.analyze_gases(src, user)
 
-	if (istype(W, /obj/item/toy/balloon))
-		var/obj/item/toy/balloon/B = W
+	if (istype(attacking_item, /obj/item/toy/balloon))
+		var/obj/item/toy/balloon/B = attacking_item
 		B.blow(src)
 		src.add_fingerprint(user)
 
-	if(istype(W, /obj/item/device/assembly_holder))
-		bomb_assemble(W,user)
+	if(istype(attacking_item, /obj/item/device/assembly_holder))
+		bomb_assemble(attacking_item, user)
 
 /obj/item/tank/attack_self(mob/user as mob)
 	if (!(src.air_contents))
@@ -154,7 +154,7 @@
 			if(location.internal == src)
 				location.internal = null
 				location.internals.icon_state = "internal0"
-				to_chat(usr, "<span class='notice'>You close the tank release valve.</span>")
+				to_chat(usr, SPAN_NOTICE("You close the tank release valve."))
 				if (location.internals)
 					location.internals.icon_state = "internal0"
 			else
@@ -168,11 +168,11 @@
 
 				if(can_open_valve)
 					location.internal = src
-					to_chat(usr, "<span class='notice'>You open \the [src] valve.</span>")
+					to_chat(usr, SPAN_NOTICE("You open \the [src] valve."))
 					if (location.internals)
 						location.internals.icon_state = "internal1"
 				else
-					to_chat(usr, "<span class='warning'>You need something to connect to \the [src].</span>")
+					to_chat(usr, SPAN_WARNING("You need something to connect to \the [src]."))
 			. = TRUE
 			update_icon()
 	if(action=="setReleasePressure")
@@ -226,9 +226,9 @@
 		return
 
 	last_gauge_pressure = gauge_pressure
-	cut_overlays()
+	ClearOverlays()
 	// SSoverlay will handle icon caching.
-	add_overlay("[gauge_icon][(gauge_pressure == -1) ? "overload" : gauge_pressure]")
+	AddOverlays("[gauge_icon][(gauge_pressure == -1) ? "overload" : gauge_pressure]")
 
 /obj/item/tank/proc/percent()
 	var/gauge_pressure = 0

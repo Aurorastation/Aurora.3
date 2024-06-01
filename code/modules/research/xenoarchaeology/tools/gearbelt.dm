@@ -4,7 +4,7 @@
 	desc = "Can hold various excavation gear."
 	icon_state = "gearbelt"
 	item_state = "utility"
-	storage_slots = 9
+	storage_slots = 10
 	can_hold = list(
 		/obj/item/storage/box/samplebags,
 		/obj/item/device/core_sampler,
@@ -28,5 +28,6 @@
 		/obj/item/storage/box/excavation,
 		/obj/item/anobattery,
 		/obj/item/device/ano_scanner,
-		/obj/item/ore_detector
+		/obj/item/ore_detector,
+		/obj/item/device/spaceflare
 		)

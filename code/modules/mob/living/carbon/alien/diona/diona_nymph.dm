@@ -76,7 +76,7 @@
 
 	flower_color = null
 	flower_image = null
-	cut_overlays()
+	ClearOverlays()
 
 	. = ..()
 	GC_TEMPORARY_HARDDEL

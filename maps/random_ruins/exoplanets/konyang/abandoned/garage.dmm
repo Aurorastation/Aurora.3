@@ -10,12 +10,12 @@
 /obj/item/material/ashtray/bronze{
 	pixel_x = 5
 	},
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "aJ" = (
 /obj/item/stack/rods,
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "aR" = (
 /obj/item/storage/toolbox/mechanical,
@@ -23,7 +23,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "aZ" = (
 /obj/effect/decal/road_marking{
@@ -33,7 +33,7 @@
 	dir = 4
 	},
 /obj/structure/flora/rock/konyang/small,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "ba" = (
 /obj/effect/decal/road_marking{
@@ -42,21 +42,21 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "bx" = (
 /obj/effect/decal/curb{
 	dir = 4
 	},
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "cp" = (
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang/garage)
 "cq" = (
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/sidewalk,
+/turf/simulated/floor/exoplanet/sidewalk,
 /area/exoplanet/grass/konyang)
 "de" = (
 /obj/item/stack/cable_coil/pink{
@@ -69,7 +69,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "do" = (
 /obj/effect/decal/road_marking{
@@ -81,7 +81,7 @@
 /obj/structure/utility_pole/street{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "dx" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -94,35 +94,35 @@
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 8
 	},
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "dC" = (
 /obj/structure/closet/crate/trashcart,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "eI" = (
 /obj/machinery/door/window/southright{
 	dir = 8
 	},
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "eQ" = (
 /obj/structure/trash_pile,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "eR" = (
 /obj/effect/decal/curb,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "fJ" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/toolbox/electrical,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "fW" = (
 /obj/structure/urban_grate,
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/blocks,
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
 /area/exoplanet/grass/konyang)
 "ga" = (
 /obj/effect/floor_decal/konyang_flowers,
@@ -136,7 +136,7 @@
 /obj/effect/decal/curb/corner{
 	dir = 1
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "hs" = (
 /obj/structure/table/reinforced/steel,
@@ -145,21 +145,21 @@
 	pixel_x = -18
 	},
 /obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "hy" = (
 /obj/random/dirt_75,
 /obj/structure/flora/rock/konyang/small,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "hI" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "iz" = (
 /obj/item/wrench,
 /obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "iF" = (
 /obj/structure/flora/bush/konyang_reeds,
@@ -176,16 +176,16 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "iL" = (
-/turf/simulated/floor/sidewalk,
+/turf/simulated/floor/exoplanet/sidewalk,
 /area/exoplanet/grass/konyang)
 "jl" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/smes_coil/weak,
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "jm" = (
 /obj/machinery/autolathe{
@@ -197,7 +197,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "jy" = (
 /obj/structure/bed/stool/chair/office/light,
@@ -206,15 +206,15 @@
 	pixel_y = 26;
 	pixel_x = -5
 	},
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "jA" = (
 /obj/structure/girder,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "jS" = (
 /obj/item/storage/toolbox/mechanical,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "jW" = (
 /obj/machinery/papershredder{
@@ -224,17 +224,17 @@
 	pixel_x = 10;
 	pixel_y = 1
 	},
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "jX" = (
 /obj/item/robot_parts/robot_component/camera,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "kD" = (
 /obj/effect/decal/curb{
 	dir = 6
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "la" = (
 /obj/effect/decal/road_marking,
@@ -245,7 +245,7 @@
 	dir = 10
 	},
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "lb" = (
 /obj/effect/decal/curb/corner{
@@ -259,7 +259,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "lF" = (
 /obj/structure/table/reinforced/steel,
@@ -270,29 +270,29 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "mT" = (
 /obj/random/dirt_75,
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "mV" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "mY" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "no" = (
 /obj/structure/bed/stool/padded/red{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "nu" = (
 /obj/random/dirt_75,
@@ -304,7 +304,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "nM" = (
 /obj/machinery/door/blast/shutters/open,
@@ -312,10 +312,10 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/loading/yellow,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "nP" = (
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "on" = (
 /obj/machinery/door/blast/shutters/open,
@@ -325,7 +325,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "ov" = (
 /obj/effect/decal/road_marking{
@@ -335,42 +335,42 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "oF" = (
 /obj/structure/table/reinforced/steel,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "oO" = (
 /obj/effect/decal/exterior_stairs/half/right{
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "pc" = (
 /obj/random/dirt_75,
 /obj/random/junk,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "pH" = (
 /obj/item/robot_parts/robot_component/actuator,
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "pL" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "pQ" = (
 /obj/effect/decal/curb{
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "qk" = (
 /obj/effect/decal/road_marking{
@@ -382,26 +382,26 @@
 /obj/effect/decal/curb{
 	dir = 5
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "qS" = (
 /obj/item/robot_parts/robot_component/armor,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "qW" = (
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "qX" = (
 /obj/effect/decal/curb{
 	dir = 10
 	},
 /obj/structure/closet/crate/bin/urban/dumpster,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "rv" = (
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "rD" = (
 /turf/simulated/floor/exoplanet/konyang,
@@ -411,13 +411,13 @@
 	dir = 9
 	},
 /obj/structure/closet/crate/bin/urban,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "st" = (
 /obj/effect/decal/road_marking/thin{
 	dir = 1
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "sC" = (
 /obj/machinery/light{
@@ -426,13 +426,13 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "uh" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/curb,
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "uL" = (
 /obj/effect/decal/road_marking{
@@ -442,11 +442,11 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "vt" = (
 /obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "vz" = (
 /obj/effect/decal/curb{
@@ -472,7 +472,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "wU" = (
 /obj/random/dirt_75,
@@ -483,22 +483,22 @@
 /area/konyang/garage)
 "yp" = (
 /obj/structure/closet/crate/bin,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "yK" = (
 /obj/random/dirt_75,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/sidewalk,
+/turf/simulated/floor/exoplanet/sidewalk,
 /area/exoplanet/grass/konyang)
 "yZ" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "zq" = (
 /obj/item/robot_parts/robot_component/diagnosis_unit,
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "zJ" = (
 /obj/effect/decal/road_marking/thin{
@@ -510,12 +510,12 @@
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "zS" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/curb,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "Aj" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -526,11 +526,11 @@
 	},
 /obj/structure/closet/crate/large,
 /obj/structure/fireaxecabinet/west,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "Ap" = (
 /obj/structure/flora/rock/konyang/small,
-/turf/simulated/floor/sidewalk,
+/turf/simulated/floor/exoplanet/sidewalk,
 /area/exoplanet/grass/konyang)
 "Aw" = (
 /obj/random/dirt_75,
@@ -539,26 +539,26 @@
 	pixel_x = -4;
 	pixel_y = 10
 	},
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "Be" = (
 /obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "BP" = (
 /turf/simulated/wall/r_wall,
 /area/konyang/garage)
 "CM" = (
 /obj/machinery/door/window/southright,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "Ea" = (
 /obj/machinery/door/urban,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "Ek" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/blocks,
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
 /area/exoplanet/grass/konyang)
 "El" = (
 /obj/structure/flora/rock/konyang/small,
@@ -567,35 +567,35 @@
 /area/exoplanet/grass/konyang)
 "Em" = (
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/sidewalk/blocks,
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
 /area/exoplanet/grass/konyang)
 "EZ" = (
 /obj/item/screwdriver,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang/garage)
 "FC" = (
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "FG" = (
 /obj/item/stack/material/steel/full,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "FW" = (
 /obj/random/dirt_75,
 /obj/structure/trash_pile,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "Gh" = (
 /obj/structure/table/rack,
 /obj/item/pipewrench,
 /obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "Gp" = (
 /obj/structure/table/rack,
 /obj/item/weldingtool/emergency,
 /obj/effect/floor_decal/industrial/warning/cee,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "Hf" = (
 /obj/effect/decal/road_marking{
@@ -604,7 +604,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "Hv" = (
 /obj/effect/decal/road_marking{
@@ -616,7 +616,7 @@
 /obj/effect/decal/curb{
 	dir = 9
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "HE" = (
 /obj/random/dirt_75,
@@ -631,16 +631,16 @@
 /area/konyang/garage)
 "Ik" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "It" = (
 /obj/structure/table/standard,
 /obj/item/storage/backpack/messenger,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "Iy" = (
 /obj/structure/urban_grate,
-/turf/simulated/floor/sidewalk,
+/turf/simulated/floor/exoplanet/sidewalk,
 /area/exoplanet/grass/konyang)
 "IE" = (
 /obj/effect/decal/cleanable/blood/oil,
@@ -648,20 +648,20 @@
 	pixel_x = 28
 	},
 /obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "IV" = (
 /obj/item/robot_parts/robot_component/actuator,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "JH" = (
 /obj/random/dirt_75,
 /obj/structure/flora/pottedplant/dead,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "JQ" = (
 /obj/structure/flora/rock/konyang/small,
-/turf/simulated/floor/sidewalk/blocks,
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
 /area/exoplanet/grass/konyang)
 "JX" = (
 /obj/effect/decal/road_marking{
@@ -672,31 +672,31 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "KH" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/sidewalk,
+/turf/simulated/floor/exoplanet/sidewalk,
 /area/exoplanet/grass/konyang)
 "KM" = (
 /obj/structure/flora/rock/konyang/small,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "KX" = (
 /obj/machinery/door/blast/shutters/open,
 /obj/effect/floor_decal/industrial/loading/yellow,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "Ld" = (
 /obj/random/junk,
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "Ll" = (
 /obj/effect/decal/road_marking,
 /obj/effect/decal/curb,
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "Ls" = (
 /obj/item/storage/toolbox/electrical{
@@ -706,17 +706,17 @@
 /obj/item/crowbar,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "Lv" = (
 /obj/item/paper,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "LG" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "MO" = (
 /obj/random/junk,
@@ -725,11 +725,11 @@
 "MR" = (
 /obj/random/dirt_75,
 /obj/structure/closet/secure_closet/freezer,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "MZ" = (
 /obj/effect/decal/exterior_stairs/half,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "Nv" = (
 /obj/structure/flora/bush/konyang_reeds,
@@ -739,11 +739,11 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "NT" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "Oh" = (
 /obj/random/dirt_75,
@@ -756,7 +756,7 @@
 /area/exoplanet/grass/konyang)
 "OB" = (
 /obj/effect/decal/curb/corner,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "OK" = (
 /obj/effect/decal/road_marking,
@@ -767,35 +767,35 @@
 	dir = 6
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "Pd" = (
 /obj/structure/table/standard,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "Px" = (
 /obj/item/stack/material/glass/full,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "PG" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "PI" = (
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "PQ" = (
 /obj/structure/bed/stool/chair/office/light,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "Qn" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt_75,
 /obj/structure/trash_pile,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "QD" = (
 /obj/random/dirt_75,
@@ -813,15 +813,15 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "Sa" = (
 /obj/effect/decal/curb,
 /obj/structure/flora/rock/konyang/small,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "Sk" = (
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "SE" = (
 /obj/item/weldingtool/emergency,
@@ -829,7 +829,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "SK" = (
 /obj/effect/decal/road_marking{
@@ -839,7 +839,7 @@
 	dir = 8
 	},
 /obj/structure/flora/bush/konyang_reeds,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "ST" = (
 /obj/effect/floor_decal/konyang_flowers,
@@ -857,31 +857,31 @@
 	dir = 4
 	},
 /obj/structure/flora/rock/konyang/small,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "TC" = (
 /obj/item/stack/material/steel/full,
 /obj/random/dirt_75,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "UA" = (
 /obj/structure/table/wood,
 /obj/random/junk,
 /obj/item/paper,
-/turf/simulated/floor/lino,
+/turf/simulated/floor/exoplanet/lino,
 /area/konyang/garage)
 "Ve" = (
 /obj/effect/decal/curb/corner{
 	dir = 8
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "Wm" = (
 /obj/item/stack/cable_coil/random{
 	pixel_x = -11
 	},
 /obj/item/robot_parts/robot_component/radio,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "WF" = (
 /obj/effect/decal/curb{
@@ -894,10 +894,10 @@
 /obj/effect/decal/exterior_stairs/half/left{
 	dir = 4
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "Xt" = (
-/turf/simulated/floor/sidewalk/blocks,
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
 /area/exoplanet/grass/konyang)
 "XE" = (
 /obj/effect/decal/road_marking{
@@ -906,7 +906,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "YP" = (
 /obj/structure/flora/bush/konyang_reeds,
@@ -918,11 +918,11 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/loading/yellow,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 "ZP" = (
 /obj/random/junk,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/exoplanet/grass/konyang)
 "ZU" = (
 /obj/structure/table/reinforced/steel,
@@ -930,7 +930,7 @@
 	pixel_y = 3
 	},
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/asphalt,
 /area/konyang/garage)
 
 (1,1,1) = {"

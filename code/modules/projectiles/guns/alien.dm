@@ -34,11 +34,11 @@
 	if (spikes < max_spikes)
 		addtimer(CALLBACK(src, PROC_REF(regen_spike)), spike_gen_time, TIMER_UNIQUE)
 
-/obj/item/gun/launcher/spikethrower/examine(mob/user, distance, is_adjacent)
+/obj/item/gun/launcher/spikethrower/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 1)
 		return
-	to_chat(user, "It has [spikes] spike\s remaining.")
+	. += "It has [spikes] spike\s remaining."
 
 /obj/item/gun/launcher/spikethrower/update_icon()
 	icon_state = "spikethrower[spikes]"
@@ -47,7 +47,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.species && H.species.name != SPECIES_VAURCA_WARRIOR)
-			to_chat(user, "<span class='warning'>\The [src] does not respond to you!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] does not respond to you!"))
 			return FALSE
 	return ..()
 
@@ -70,7 +70,7 @@
 	item_state = "noisecannon"
 	recoil = 1
 
-	force = 10
+	force = 15
 	projectile_type = /obj/item/projectile/energy/sonic
 	cell_type = /obj/item/cell/super
 	fire_delay = 40
@@ -86,7 +86,7 @@
 			if(H.species.name == SPECIES_VAURCA_WARRIOR)
 				..()
 				return
-		to_chat(user, "<span class='warning'>\The [src] is far too large for you to pick up.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is far too large for you to pick up."))
 		return
 
 /obj/item/gun/energy/noisecannon/update_icon()

@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/morph/instantiate_hud(var/datum/hud/HUD)
+/mob/living/simple_animal/hostile/morph/instantiate_hud(datum/hud/HUD)
 	HUD.morph_hud()
 
 /datum/hud/proc/morph_hud()
@@ -16,8 +16,8 @@
 
 	mymob.zone_sel = new /obj/screen/zone_sel()
 	mymob.zone_sel.icon = 'icons/mob/screen/morph.dmi'
-	mymob.zone_sel.cut_overlays()
-	mymob.zone_sel.add_overlay(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
+	mymob.zone_sel.ClearOverlays()
+	mymob.zone_sel.AddOverlays(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
 
 	var/obj/screen/resist = new /obj/screen()
 	resist.name = "resist"

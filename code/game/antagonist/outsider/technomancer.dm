@@ -37,14 +37,14 @@ var/datum/antagonist/technomancer/technomancers
 	if(!..())
 		return FALSE
 
-	technomancer_mob.preEquipOutfit(/datum/outfit/admin/techomancer, FALSE)
-	technomancer_mob.equipOutfit(/datum/outfit/admin/techomancer, FALSE)
+	technomancer_mob.preEquipOutfit(/obj/outfit/admin/techomancer, FALSE)
+	technomancer_mob.equipOutfit(/obj/outfit/admin/techomancer, FALSE)
 
 	return TRUE
 
 /datum/antagonist/technomancer/proc/equip_apprentice(var/mob/living/carbon/human/technomancer_mob)
-	technomancer_mob.preEquipOutfit(/datum/outfit/admin/techomancer/apprentice, FALSE)
-	technomancer_mob.equipOutfit(/datum/outfit/admin/techomancer/apprentice, FALSE)
+	technomancer_mob.preEquipOutfit(/obj/outfit/admin/techomancer/apprentice, FALSE)
+	technomancer_mob.equipOutfit(/obj/outfit/admin/techomancer/apprentice, FALSE)
 	return TRUE
 
 /datum/antagonist/technomancer/check_victory()
@@ -56,7 +56,7 @@ var/datum/antagonist/technomancer/technomancers
 		break
 	if(!survivor)
 		feedback_set_details("round_end_result","loss - technomancer killed")
-		to_world("<span class='danger'><font size = 3>The [(current_antagonists.len>1)?"[role_text_plural] have":"[role_text] has"] been killed!</font></span>")
+		to_world(SPAN_DANGER("<font size = 3>The [(current_antagonists.len>1)?"[role_text_plural] have":"[role_text] has"] been killed!</font>"))
 
 /datum/antagonist/technomancer/print_player_summary()
 	..()

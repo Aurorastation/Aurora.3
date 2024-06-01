@@ -14,17 +14,17 @@
 	var/report_print_num = 0
 	var/report_gsr_num = 0
 
-/obj/machinery/microscope/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/microscope/attackby(obj/item/attacking_item, mob/user)
 
 	if(sample)
 		to_chat(user, SPAN_WARNING("There is already a slide in the microscope."))
 		return
 
-	if(istype(W, /obj/item/forensics/slide) || istype(W, /obj/item/sample/print))
-		to_chat(user, SPAN_NOTICE("You insert \the [W] into the microscope."))
-		user.unEquip(W)
-		W.forceMove(src)
-		sample = W
+	if(istype(attacking_item, /obj/item/forensics/slide) || istype(attacking_item, /obj/item/sample/print))
+		to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into the microscope."))
+		user.unEquip(attacking_item)
+		attacking_item.forceMove(src)
+		sample = attacking_item
 		update_icon()
 		return
 

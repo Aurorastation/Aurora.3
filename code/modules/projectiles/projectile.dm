@@ -102,6 +102,9 @@
 
 	var/iff // identify friend or foe. will check mob's IDs to see if they match, if they do, won't hit
 
+	///If the projectile launches a secondary projectile in addition to itself.
+	var/secondary_projectile
+
 /obj/item/projectile/CanPass()
 	return TRUE
 
@@ -115,7 +118,7 @@
 		return FALSE
 	var/mob/living/L = target
 	if(damage_type == DAMAGE_BRUTE && damage > 5) //weak hits shouldn't make you gush blood
-		var/splatter_color = "#A10808"
+		var/splatter_color = COLOR_HUMAN_BLOOD
 		var/mob/living/carbon/human/H = target
 		if (istype(H) && H.species && H.species.blood_color)
 			splatter_color = H.species.blood_color
@@ -167,6 +170,10 @@
 	if(get_turf(target) == get_turf(src))
 		direct_target = target
 
+	if(ispath(secondary_projectile))
+		var/obj/item/projectile/BB = new secondary_projectile(src)
+		BB.launch_projectile(target, target_zone, user, params, angle_override, forced_spread)
+
 	preparePixelProjectile(target, user? user : get_turf(src), params, forced_spread)
 	return fire(angle_override, direct_target)
 
@@ -207,7 +214,7 @@
 		if(PROJECTILE_FORCE_MISS)
 			if(!point_blank)
 				if(!suppressed)
-					target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
+					target_mob.visible_message(SPAN_NOTICE("\The [src] misses [target_mob] narrowly!"))
 					playsound(target_mob, /singleton/sound_category/bulletflyby_sound, 50, 1)
 				return FALSE
 		if(PROJECTILE_DODGED)
@@ -218,9 +225,10 @@
 	var/impacted_organ = target_mob.get_organ_name_from_zone(def_zone)
 	//hit messages
 	if(suppressed)
-		to_chat(target_mob, "<span class='danger'>You've been hit in the [impacted_organ] by \a [src]!</span>")
+		to_chat(target_mob, SPAN_DANGER("You've been hit in the [impacted_organ] by \a [src]!"))
 	else
-		target_mob.visible_message("<span class='danger'>\The [target_mob] is hit by \a [src] in the [impacted_organ]!</span>", "<span class='danger'><font size=2>You are hit by \a [src] in the [impacted_organ]!</font></span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
+		target_mob.visible_message(SPAN_DANGER("\The [target_mob] is hit by \a [src] in the [impacted_organ]!"),
+									SPAN_DANGER("<font size=2>You are hit by \a [src] in the [impacted_organ]!</font>"))//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
 
 	var/no_clients = FALSE
 	//admin logs
@@ -373,7 +381,7 @@
 		return process_hitscan()
 	else
 		generate_muzzle_flash()
-		if(!isprocessing)
+		if(!(datum_flags & DF_ISPROCESSING))
 			START_PROCESSING(SSprojectiles, src)
 		pixel_move(1)	//move it now!
 

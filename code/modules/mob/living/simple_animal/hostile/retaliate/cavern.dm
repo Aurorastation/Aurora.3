@@ -175,7 +175,7 @@
 			break
 
 	if(target_ore)
-		walk_to(src, target_ore, 1, move_to_delay)
+		SSmove_manager.move_to(src, target_ore, 1, move_to_delay)
 	else if(found_turfs.len)
 		for(var/turf/simulated/mineral/M in found_turfs)
 			if(!QDELETED(M) || !M.mineral)
@@ -210,7 +210,7 @@
 	return
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/fall_impact()
-	visible_message("<span class='danger'>\The [src] bounces harmlessly on its inflated wheels.</span>")
+	visible_message(SPAN_DANGER("\The [src] bounces harmlessly on its inflated wheels."))
 	return FALSE
 
 /mob/living/simple_animal/hostile/retaliate/minedrone/get_bullet_impact_effect_type(var/def_zone)

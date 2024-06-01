@@ -102,7 +102,7 @@ var/list/localhost_addresses = list(
 
 	if(href_list["discord_msg"])
 		if(!holder && received_discord_pm < world.time - 6000) //Worse they can do is spam IRC for 10 minutes
-			to_chat(usr, "<span class='warning'>You are no longer able to use this, it's been more then 10 minutes since an admin on Discord has responded to you</span>")
+			to_chat(usr, SPAN_WARNING("You are no longer able to use this, it's been more then 10 minutes since an admin on Discord has responded to you"))
 			return
 		if(mute_discord)
 			to_chat(usr, "<span class='warning'You cannot use this as your client has been muted from sending messages to the admins on Discord</span>")
@@ -145,7 +145,7 @@ var/list/localhost_addresses = list(
 		var/request_id = text2num(href_list["linkingrequest"])
 
 		if (!establish_db_connection(GLOB.dbcon))
-			to_chat(src, "<span class='warning'>Action failed! Database link could not be established!</span>")
+			to_chat(src, SPAN_WARNING("Action failed! Database link could not be established!"))
 			return
 
 
@@ -153,11 +153,11 @@ var/list/localhost_addresses = list(
 		check_query.Execute(list("id" = request_id))
 
 		if (!check_query.NextRow())
-			to_chat(src, "<span class='warning'>No request found!</span>")
+			to_chat(src, SPAN_WARNING("No request found!"))
 			return
 
 		if (ckey(check_query.item[1]) != ckey || check_query.item[2] != "new")
-			to_chat(src, "<span class='warning'>Request authentication failed!</span>")
+			to_chat(src, SPAN_WARNING("Request authentication failed!"))
 			return
 
 		var/query_contents = ""
@@ -169,15 +169,15 @@ var/list/localhost_addresses = list(
 				query_details["new_status"] = "confirmed"
 				query_details["id"] = request_id
 
-				feedback_message = "<span class='good'><b>Account successfully linked!</b></span>"
+				feedback_message = SPAN_DANGER("<b>Account successfully linked!</b>")
 			if ("deny")
 				query_contents = "UPDATE ss13_player_linking SET status = :new_status:, deleted_at = NOW() WHERE id = :id:"
 				query_details["new_status"] = "rejected"
 				query_details["id"] = request_id
 
-				feedback_message = "<span class='warning'><b>Link request rejected!</b></span>"
+				feedback_message = SPAN_WARNING("<b>Link request rejected!</b>")
 			else
-				to_chat(src, "<span class='warning'>Invalid command sent.</span>")
+				to_chat(src, SPAN_WARNING("Invalid command sent."))
 				return
 
 		var/DBQuery/update_query = GLOB.dbcon.NewQuery(query_contents)
@@ -216,7 +216,7 @@ var/list/localhost_addresses = list(
 			// Forum link from various panels.
 			if ("github")
 				if (!GLOB.config.githuburl)
-					to_chat(src, "<span class='danger'>GitHub URL not set in the config. Unable to open the site.</span>")
+					to_chat(src, SPAN_DANGER("GitHub URL not set in the config. Unable to open the site."))
 				else if (alert("This will open the GitHub page in your browser. Are you sure?",, "Yes", "No") == "Yes")
 					if (href_list["pr"])
 						var/pr_link = "[GLOB.config.githuburl]pull/[href_list["pr"]]"
@@ -235,19 +235,6 @@ var/list/localhost_addresses = list(
 			// Web interface href link from various panels.
 			if ("webint")
 				src.open_webint()
-
-			// Handle the updating of MotD and Memo tabs upon click.
-			if ("updateHashes")
-				var/save = 0
-				if (href_list["#motd-tab"])
-					src.prefs.motd_hash = href_list["#motd-tab"]
-					save = 1
-				if (href_list["#memo-tab"])
-					src.prefs.memo_hash = href_list["#memo-tab"]
-					save = 1
-
-				if (save)
-					src.prefs.save_preferences()
 
 		return
 
@@ -285,7 +272,7 @@ var/list/localhost_addresses = list(
 
 		if (spam_alert > 3 && !(prefs.muted & mute_type))
 			cmd_admin_mute(src.mob, mute_type, 1)
-			to_chat(src, "<span class='danger'>You have tripped the macro-trigger. An auto-mute was applied.</span>")
+			to_chat(src, SPAN_DANGER("You have tripped the macro-trigger. An auto-mute was applied."))
 			LOG_DEBUG("SPAM_PROTECT: [src] tripped macro-trigger, now muted.")
 			return TRUE
 
@@ -303,13 +290,13 @@ var/list/localhost_addresses = list(
 		LOG_DEBUG("SPAM_PROTECT: [src] tripped duplicate message filter. Last message count: [last_message_count]. Message: [message]")
 
 		if(last_message_count >= SPAM_TRIGGER_AUTOMUTE)
-			to_chat(src, "<span class='danger'>You have exceeded the spam filter limit for identical messages. An auto-mute was applied.</span>")
+			to_chat(src, SPAN_DANGER("You have exceeded the spam filter limit for identical messages. An auto-mute was applied."))
 			cmd_admin_mute(mob, mute_type, 1)
 			LOG_DEBUG("SPAM_PROTECT: [src] tripped duplicate message filter, now muted.")
 			last_message_count = 0
 			return TRUE
 		else if(last_message_count >= SPAM_TRIGGER_WARNING)
-			to_chat(src, "<span class='danger'>You are nearing the spam filter limit for identical messages.</span>")
+			to_chat(src, SPAN_DANGER("You are nearing the spam filter limit for identical messages."))
 			LOG_DEBUG("SPAM_PROTECT: [src] tripped duplicate message filter, now warned.")
 			return FALSE
 	else
@@ -321,7 +308,7 @@ var/list/localhost_addresses = list(
 	. = FALSE
 
 	if (prefs.muted & mute_type)
-		to_chat(src, "<span class='warning'>You are muted and cannot send messages.</span>")
+		to_chat(src, SPAN_WARNING("You are muted and cannot send messages."))
 		. = TRUE
 	else if (GLOB.config.automute_on && !holder && length(message))
 		. = . || automute_by_time(mute_type)
@@ -334,13 +321,13 @@ var/list/localhost_addresses = list(
 //This stops files larger than UPLOAD_LIMIT being sent from client to server via input(), client.Import() etc.
 /client/AllowUpload(filename, filelength)
 	if(filelength > UPLOAD_LIMIT)
-		to_chat(src, "<span class='warning'>Error: AllowUpload(): File Upload too large. Upload Limit: [UPLOAD_LIMIT/1024]KiB.</span>")
+		to_chat(src, SPAN_WARNING("Error: AllowUpload(): File Upload too large. Upload Limit: [UPLOAD_LIMIT/1024]KiB."))
 		return 0
 /*	//Don't need this at the moment. But it's here if it's needed later.
 	//Helps prevent multiple files being uploaded at once. Or right after eachother.
 	var/time_to_wait = fileaccess_timer - world.time
 	if(time_to_wait > 0)
-		to_chat(src, "<span class='warning'>Error: AllowUpload(): Spam prevention. Please wait [round(time_to_wait/10)] seconds.</span>")
+		to_chat(src, SPAN_WARNING("Error: AllowUpload(): Spam prevention. Please wait [round(time_to_wait/10)] seconds."))
 		return 0
 	fileaccess_timer = world.time + FTPDELAY	*/
 	return 1
@@ -362,6 +349,8 @@ var/list/localhost_addresses = list(
 		del(src)
 		return
 
+	dir = NORTH
+
 	GLOB.clients += src
 	GLOB.directory[ckey] = src
 	connection_time = world.time
@@ -371,7 +360,7 @@ var/list/localhost_addresses = list(
 	if (LAZYLEN(GLOB.config.client_blacklist_version))
 		var/client_version = "[byond_version].[byond_build]"
 		if (client_version in GLOB.config.client_blacklist_version)
-			to_chat_immediate(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
+			to_chat_immediate(src, SPAN_DANGER("<b>Your version of BYOND is explicitly blacklisted from joining this server!</b>"))
 			to_chat_immediate(src, "Your current version: [client_version].")
 			to_chat_immediate(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
 			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
@@ -398,23 +387,32 @@ var/list/localhost_addresses = list(
 		src.InitPrefs()
 		mob.LateLogin()
 
-	/// This spawn is the only thing keeping the stat panels and chat working. By removing this spawn, there will be black screens when loading the game.
-	/// It seems to be affected by the order of statpanel init: if it happens before send_resources(), then the statpanels won't load, but the game won't
-	/// blackscreen.
-	spawn(0)
-		// Initialize stat panel
-		stat_panel.initialize(
-			inline_html = file("html/statbrowser.html"),
-			inline_js = file("html/statbrowser.js"),
-			inline_css = file("html/statbrowser.css"),
-		)
-		addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
+	// Initialize stat panel
+	stat_panel.initialize(
+		inline_html = file("html/statbrowser.html"),
+		inline_js = file("html/statbrowser.js"),
+		inline_css = file("html/statbrowser.css"),
+	)
+	addtimer(CALLBACK(src, PROC_REF(check_panel_loaded)), 30 SECONDS)
 
 	// Initialize tgui panel
 	tgui_panel.initialize()
+
 	tgui_say.initialize()
 
+	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
+	winset(src, null, "command=\".configure graphics-hwmode on\"")
+
+	send_resources()
+
+	if(!winexists(src, "asset_cache_browser")) // The client is using a custom skin, tell them.
+		to_chat(src, SPAN_WARNING("Unable to access asset cache browser, if you are using a custom skin file, please allow DS to download the updated version, if you are not, then make a bug report. This is not a critical issue but can cause issues with resource downloading, as it is impossible to know when extra resources arrived to you."))
+
+	Master.UpdateTickRate()
+
 /client/proc/InitPrefs()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	//preferences datum - also holds some persistant data for the client (because we may as well keep these datums to a minimum)
 	prefs = preferences_datums[ckey]
 	if(!prefs)
@@ -432,7 +430,9 @@ var/list/localhost_addresses = list(
 		toggle_fullscreen(TRUE)
 
 /client/proc/InitClient()
-	to_chat(src, "<span class='alert'>If the title screen is black, resources are still downloading. Please be patient until the title screen appears.</span>")
+	SHOULD_NOT_SLEEP(TRUE)
+
+	to_chat_immediate(src, SPAN_ALERT("If the title screen is black, resources are still downloading. Please be patient until the title screen appears."))
 
 	var/local_connection = (GLOB.config.auto_local_admin && !GLOB.config.use_forumuser_api && (isnull(address) || localhost_addresses[address]))
 	// Automatic admin rights for people connecting locally.
@@ -450,13 +450,13 @@ var/list/localhost_addresses = list(
 	log_client_to_db()
 
 	if (byond_version < GLOB.config.client_error_version)
-		to_chat(src, "<span class='danger'><b>Your version of BYOND is too old!</b></span>")
-		to_chat(src, GLOB.config.client_error_message)
-		to_chat(src, "Your version: [byond_version].")
-		to_chat(src, "Required version: [GLOB.config.client_error_version] or later.")
-		to_chat(src, "Visit http://www.byond.com/download/ to get the latest version of BYOND.")
+		to_chat_immediate(src, SPAN_DANGER("<b>Your version of BYOND is too old!</b>"))
+		to_chat_immediate(src, GLOB.config.client_error_message)
+		to_chat_immediate(src, "Your version: [byond_version].")
+		to_chat_immediate(src, "Required version: [GLOB.config.client_error_version] or later.")
+		to_chat_immediate(src, "Visit http://www.byond.com/download/ to get the latest version of BYOND.")
 		if (holder)
-			to_chat(src, "Admins get a free pass. However, <b>please</b> update your BYOND as soon as possible. Certain things may cause crashes if you play with your present version.")
+			to_chat_immediate(src, "Admins get a free pass. However, <b>please</b> update your BYOND as soon as possible. Certain things may cause crashes if you play with your present version.")
 		else
 			log_access("Failed Login: [key] [computer_id] [address] - Outdated BYOND major version: [byond_version].")
 			del(src)
@@ -467,7 +467,7 @@ var/list/localhost_addresses = list(
 		if (GLOB.config.access_deny_new_players && player_age == -1)
 			log_access("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.", ckey = ckey)
 			message_admins("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.")
-			to_chat(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from never before seen players.</span>")
+			to_chat_immediate(src, SPAN_DANGER("Apologies, but the server is currently not accepting connections from never before seen players."))
 			del(src)
 			return 0
 
@@ -475,7 +475,7 @@ var/list/localhost_addresses = list(
 		if (GLOB.config.access_deny_new_accounts != -1 && account_age != -1 && account_age <= GLOB.config.access_deny_new_accounts)
 			log_access("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.", ckey = ckey)
 			message_admins("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.")
-			to_chat(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from BYOND accounts this young.</span>")
+			to_chat_immediate(src, SPAN_DANGER("Apologies, but the server is currently not accepting connections from BYOND accounts this young."))
 			del(src)
 			return 0
 
@@ -484,11 +484,6 @@ var/list/localhost_addresses = list(
 
 	if(holder)
 		add_admin_verbs()
-
-	// Forcibly enable hardware-accelerated graphics, as we need them for the lighting overlays.
-	winset(src, null, "command=\".configure graphics-hwmode on\"")
-
-	send_resources()
 
 	check_ip_intel()
 
@@ -500,14 +495,30 @@ var/list/localhost_addresses = list(
 //DISCONNECT//
 //////////////
 /client/Del()
+	if(!gc_destroyed)
+		gc_destroyed = world.time
+		if (!QDELING(src))
+			stack_trace("Client does not purport to be QDELING, this is going to cause bugs in other places!")
+
+		Destroy()
+	return ..()
+
+/client/Destroy(force)
 	GLOB.ticket_panels -= src
-	if(holder)
-		holder.owner = null
 	GLOB.staff -= src
 	GLOB.directory -= ckey
 	GLOB.clients -= src
-	return ..()
+	if(holder)
+		holder.owner = null
+		GLOB.staff -= src
 
+	SSping.currentrun -= src
+
+	QDEL_NULL(tooltips)
+
+	Master.UpdateTickRate()
+	..() //Even though we're going to be hard deleted there are still some things that want to know the destroy is happening
+	return QDEL_HINT_HARDDEL_NOW
 
 // here because it's similar to below
 
@@ -526,6 +537,8 @@ var/list/localhost_addresses = list(
 		return -1
 
 /client/proc/log_client_to_db()
+	set waitfor = FALSE
+
 	if (IsGuestKey(src.key))
 		return
 
@@ -648,6 +661,8 @@ var/list/localhost_addresses = list(
 	set name = "Toggle Accent Tag Text"
 	set category = "Preferences"
 	set desc = "Toggles whether accents will be shown as text or images.."
+
+	to_chat(usr, SPAN_NOTICE("You toggle the accent tag text [(prefs?.toggles_secondary & ACCENT_TAG_TEXT) ? "off" : "on"]."))
 
 	prefs.toggles_secondary ^= ACCENT_TAG_TEXT
 	prefs.save_preferences()
@@ -777,7 +792,7 @@ var/list/localhost_addresses = list(
 			if (!holder)
 				message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
 				log_admin("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
-				to_chat(src, "<span class='danger'>Usage of proxies is not permitted by the rules. You are being kicked because of this.</span>")
+				to_chat(src, SPAN_DANGER("Usage of proxies is not permitted by the rules. You are being kicked because of this."))
 				del(src)
 			else
 				message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a Proxy/VPN.")
@@ -806,11 +821,6 @@ var/list/localhost_addresses = list(
 			autofire_aiming_at[1] = over_object
 			autofire_aiming_at[2] = params
 		var/mob/living/M = mob
-		if(istype(get_turf(over_object), /atom))
-			var/atom/A = get_turf(over_object)
-			if(src && src.buildmode)
-				build_click(M, src.buildmode, params, A)
-				return
 
 		if(istype(M) && !M.incapacitated())
 			var/obj/item/I = M.get_active_hand()

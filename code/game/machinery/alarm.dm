@@ -110,6 +110,7 @@ pixel_x = 10;
 	clicksound = /singleton/sound_category/button_sound
 	clickvol = 30
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/alarm_id = null
 	var/breach_detection = 1 // Whether to use automatic breach detection or not
@@ -494,14 +495,14 @@ pixel_x = 10;
 	return 0
 
 /obj/machinery/alarm/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	icon_state = "alarmp"
 
 	if(wiresexposed)
 		icon_state = "alarmx"
 
 	if((stat & (NOPOWER|BROKEN)) || shorted)
-		add_overlay("alarm_fan_off")
+		AddOverlays("alarm_fan_off")
 		set_light(0)
 		return
 
@@ -509,8 +510,11 @@ pixel_x = 10;
 	if(alarm_area?.atmosalm)
 		icon_level = max(icon_level, 1)	//if there's an atmos alarm but everything is okay locally, no need to go past yellow
 
-	alarm_overlay = make_screen_overlay(icon, "alarm[icon_level]")
-	add_overlay(alarm_overlay)
+	alarm_overlay = image(icon, "alarm[icon_level]")
+	AddOverlays(alarm_overlay)
+
+	var/emissive_overlay = emissive_appearance(icon, "alarm[icon_level]")
+	AddOverlays(emissive_overlay)
 
 	var/new_color = null
 	switch(icon_level)
@@ -524,9 +528,9 @@ pixel_x = 10;
 	set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = new_color)
 
 	if(regulating_temperature)
-		add_overlay("alarm_fan_on")
+		AddOverlays("alarm_fan_on")
 	else
-		add_overlay("alarm_fan_off")
+		AddOverlays("alarm_fan_off")
 
 /obj/machinery/alarm/proc/refresh_all()
 	for(var/id_tag in alarm_area.air_vent_names)
@@ -639,7 +643,7 @@ pixel_x = 10;
 	ui_interact(user)
 	wires.interact(user)
 
-/obj/machinery/alarm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, var/master_ui = null, var/datum/ui_state/state = default_state)
+/obj/machinery/alarm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, var/master_ui = null, var/datum/ui_state/state = GLOB.default_state)
 	var/data = list()
 	var/remote_connection = 0
 	var/remote_access = 0
@@ -774,7 +778,7 @@ pixel_x = 10;
 		return STATUS_CLOSE
 
 	if(aidisabled && isAI(user))
-		to_chat(user, "<span class='warning'>AI control for \the [src] interface has been disabled.</span>")
+		to_chat(user, SPAN_WARNING("AI control for \the [src] interface has been disabled."))
 		return STATUS_CLOSE
 
 	. = shorted ? STATUS_DISABLED : STATUS_INTERACTIVE
@@ -932,54 +936,54 @@ pixel_x = 10;
 			apply_mode()
 			return 1
 
-/obj/machinery/alarm/attackby(obj/item/W as obj, mob/user as mob)
-	if(!istype(W, /obj/item/forensics))
+/obj/machinery/alarm/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
 
 	switch(buildstage)
 		if(2)
-			if(W.isscrewdriver())  // Opening that Air Alarm up.
+			if(attacking_item.isscrewdriver())  // Opening that Air Alarm up.
 				wiresexposed = !wiresexposed
-				to_chat(user, "<span class='notice'>You [wiresexposed ? "open" : "close"] the maintenance panel.</span>")
+				to_chat(user, SPAN_NOTICE("You [wiresexposed ? "open" : "close"] the maintenance panel."))
 				update_icon()
 				return TRUE
 
-			if (wiresexposed && W.iswirecutter())
-				user.visible_message("<span class='warning'>[user] has cut the wires inside \the [src]!</span>", "You cut the wires inside \the [src].")
+			if (wiresexposed && attacking_item.iswirecutter())
+				user.visible_message(SPAN_WARNING("[user] has cut the wires inside \the [src]!"), "You cut the wires inside \the [src].")
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
 				buildstage = 1
 				update_icon()
 				return TRUE
 
-			if (W.GetID())// trying to unlock the interface with an ID card
+			if (attacking_item.GetID())// trying to unlock the interface with an ID card
 				if(stat & (NOPOWER|BROKEN))
-					to_chat(user, "<span class='notice'>Nothing happens.</span>")
+					to_chat(user, SPAN_NOTICE("Nothing happens."))
 					return TRUE
 				else
 					if(allowed(usr) && !wires.is_cut(WIRE_IDSCAN))
 						locked = !locked
-						to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the Air Alarm interface.</span>")
+						to_chat(user, SPAN_NOTICE("You [ locked ? "lock" : "unlock"] the Air Alarm interface."))
 					else
-						to_chat(user, "<span class='warning'>Access denied.</span>")
+						to_chat(user, SPAN_WARNING("Access denied."))
 				return TRUE
 
 		if(1)
-			if(W.iscoil())
-				var/obj/item/stack/cable_coil/C = W
+			if(attacking_item.iscoil())
+				var/obj/item/stack/cable_coil/C = attacking_item
 				if (C.use(5))
-					to_chat(user, "<span class='notice'>You wire \the [src].</span>")
+					to_chat(user, SPAN_NOTICE("You wire \the [src]."))
 					buildstage = 2
 					update_icon()
 					first_run()
 					set_frequency(frequency)
 				else
-					to_chat(user, "<span class='warning'>You need 5 pieces of cable to do wire \the [src].</span>")
+					to_chat(user, SPAN_WARNING("You need 5 pieces of cable to do wire \the [src]."))
 				return TRUE
 
-			else if(W.iscrowbar())
+			else if(attacking_item.iscrowbar())
 				to_chat(user, "You start prying out the circuit.")
-				if(W.use_tool(src, user, 20, volume = 50))
+				if(attacking_item.use_tool(src, user, 20, volume = 50))
 					to_chat(user, "You pry out the circuit!")
 					var/obj/item/airalarm_electronics/circuit = new /obj/item/airalarm_electronics()
 					circuit.forceMove(user.loc)
@@ -988,17 +992,17 @@ pixel_x = 10;
 				return TRUE
 
 		if(0)
-			if(istype(W, /obj/item/airalarm_electronics))
+			if(istype(attacking_item, /obj/item/airalarm_electronics))
 				to_chat(user, "You insert the circuit!")
-				qdel(W)
+				qdel(attacking_item)
 				buildstage = 1
 				update_icon()
 				return TRUE
 
-			else if(W.iswrench())
+			else if(attacking_item.iswrench())
 				to_chat(user, "You remove the air alarm assembly from the wall!")
 				new /obj/item/frame/air_alarm(get_turf(user))
-				playsound(src.loc, W.usesound, 50, 1)
+				attacking_item.play_tool_sound(src.loc, 50)
 				qdel(src)
 				return TRUE
 
@@ -1008,12 +1012,12 @@ pixel_x = 10;
 	..()
 	queue_icon_update()
 
-/obj/machinery/alarm/examine(mob/user)
+/obj/machinery/alarm/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (buildstage < 2)
-		to_chat(user, "It is not wired.")
+		. +=  SPAN_WARNING("It is not wired.")
 	if (buildstage < 1)
-		to_chat(user, "The circuit is missing.")
+		. += SPAN_WARNING("The circuit is missing.")
 /*
 AIR ALARM CIRCUIT
 Just a object used in constructing air alarms

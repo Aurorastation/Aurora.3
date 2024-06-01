@@ -125,15 +125,15 @@
 	if(get_trait(TRAIT_CARNIVOROUS))
 		if(get_trait(TRAIT_CARNIVOROUS) == 2)
 			if(affecting)
-				to_chat(target, "<span class='danger'>\The [fruit]'s thorns pierce your [affecting.name] greedily!</span>")
+				to_chat(target, SPAN_DANGER("\The [fruit]'s thorns pierce your [affecting.name] greedily!"))
 			else
-				to_chat(target, "<span class='danger'>\The [fruit]'s thorns pierce your flesh greedily!</span>")
+				to_chat(target, SPAN_DANGER("\The [fruit]'s thorns pierce your flesh greedily!"))
 			damage = get_trait(TRAIT_POTENCY)/2
 		else
 			if(affecting)
-				to_chat(target, "<span class='danger'>\The [fruit]'s thorns dig deeply into your [affecting.name]!</span>")
+				to_chat(target, SPAN_DANGER("\The [fruit]'s thorns dig deeply into your [affecting.name]!"))
 			else
-				to_chat(target, "<span class='danger'>\The [fruit]'s thorns dig deeply into your flesh!</span>")
+				to_chat(target, SPAN_DANGER("\The [fruit]'s thorns dig deeply into your flesh!"))
 			damage = get_trait(TRAIT_POTENCY)/5
 	else
 		return
@@ -162,7 +162,7 @@
 		if(!body_coverage)
 			return
 
-		to_chat(target, "<span class='danger'>You are stung by \the [fruit]!</span>")
+		to_chat(target, SPAN_DANGER("You are stung by \the [fruit]!"))
 		for(var/rid in chems)
 			var/injecting = min(5,max(1,get_trait(TRAIT_POTENCY)/5))
 			target.reagents.add_reagent(rid,injecting)
@@ -246,7 +246,7 @@
 				apply_special_effect(M)
 			splatter(T,thrown)
 		if(origin_turf)
-			origin_turf.visible_message("<span class='danger'>The [thrown.name] explodes!</span>")
+			origin_turf.visible_message(SPAN_DANGER("The [thrown.name] explodes!"))
 		qdel(thrown)
 		return
 
@@ -260,7 +260,7 @@
 	if(get_trait(TRAIT_JUICY) && splatted)
 		splatter(origin_turf,thrown)
 		if(origin_turf)
-			origin_turf.visible_message("<span class='danger'>The [thrown.name] splatters against [target]!</span>")
+			origin_turf.visible_message(SPAN_DANGER("The [thrown.name] splatters against [target]!"))
 		qdel(thrown)
 
 	if(get_trait(TRAIT_TELEPORTING))
@@ -539,7 +539,7 @@
 
 	if(!degree || get_trait(TRAIT_IMMUTABLE) > 0) return
 
-	source_turf.visible_message("<span class='notice'>\The [display_name] quivers!</span>")
+	source_turf.visible_message(SPAN_NOTICE("\The [display_name] quivers!"))
 
 	//This looks like shit, but it's a lot easier to read/change this way.
 	var/total_mutations = rand(1,1+degree)
@@ -547,7 +547,7 @@
 		switch(rand(0,11))
 			if(0) //Plant cancer!
 				set_trait(TRAIT_ENDURANCE,get_trait(TRAIT_ENDURANCE)-rand(10,20),null,0)
-				source_turf.visible_message("<span class='danger'>\The [display_name] withers rapidly!</span>")
+				source_turf.visible_message(SPAN_DANGER("\The [display_name] withers rapidly!"))
 			if(1)
 				set_trait(TRAIT_NUTRIENT_CONSUMPTION,get_trait(TRAIT_NUTRIENT_CONSUMPTION)+rand(-(degree*0.1),(degree*0.1)),5,0)
 				set_trait(TRAIT_WATER_CONSUMPTION,   get_trait(TRAIT_WATER_CONSUMPTION)   +rand(-degree,degree),50,0)
@@ -569,7 +569,7 @@
 				if(prob(degree*5))
 					set_trait(TRAIT_CARNIVOROUS,     get_trait(TRAIT_CARNIVOROUS)+rand(-degree,degree),2, 0)
 					if(get_trait(TRAIT_CARNIVOROUS))
-						source_turf.visible_message("<span class='notice'>\The [display_name] shudders hungrily.</span>")
+						source_turf.visible_message(SPAN_NOTICE("\The [display_name] shudders hungrily."))
 			if(6)
 				set_trait(TRAIT_WEED_TOLERANCE,      get_trait(TRAIT_WEED_TOLERANCE)+(rand(-2,2)*degree),10, 0)
 				if(prob(degree*5))
@@ -583,7 +583,7 @@
 				set_trait(TRAIT_POTENCY,             get_trait(TRAIT_POTENCY)+(rand(-20,20)*degree),200, 0)
 				if(prob(degree*5))
 					set_trait(TRAIT_SPREAD,          get_trait(TRAIT_SPREAD)+rand(-1,1),2, 0)
-					source_turf.visible_message("<span class='notice'>\The [display_name] spasms visibly, shifting in the tray.</span>")
+					source_turf.visible_message(SPAN_NOTICE("\The [display_name] spasms visibly, shifting in the tray."))
 				if(prob(degree*5))
 					set_trait(TRAIT_SPOROUS,         !get_trait(TRAIT_SPOROUS))
 			if(9)
@@ -594,12 +594,12 @@
 				if(prob(degree*2))
 					set_trait(TRAIT_BIOLUM,         !get_trait(TRAIT_BIOLUM))
 					if(get_trait(TRAIT_BIOLUM))
-						source_turf.visible_message("<span class='notice'>\The [display_name] begins to glow!</span>")
+						source_turf.visible_message(SPAN_NOTICE("\The [display_name] begins to glow!"))
 						if(prob(degree*2))
 							set_trait(TRAIT_BIOLUM_COLOUR,get_random_colour(0,75,190))
 							source_turf.visible_message("<span class='notice'>\The [display_name]'s glow </span><font color='[get_trait(TRAIT_BIOLUM_COLOUR)]'>changes colour</font>!")
 					else
-						source_turf.visible_message("<span class='notice'>\The [display_name]'s glow dims...</span>")
+						source_turf.visible_message(SPAN_NOTICE("\The [display_name]'s glow dims..."))
 			if(11)
 				set_trait(TRAIT_TELEPORTING,1)
 
@@ -711,7 +711,7 @@
 		return
 
 	if(!force_amount && get_trait(TRAIT_YIELD) == 0 && !harvest_sample)
-		if(istype(user)) to_chat(user, "<span class='danger'>You fail to harvest anything useful.</span>")
+		if(istype(user)) to_chat(user, SPAN_DANGER("You fail to harvest anything useful."))
 	else
 		if(istype(user)) to_chat(user, "You [harvest_sample ? "take a sample" : "harvest"] from the [display_name].")
 
@@ -768,7 +768,7 @@
 
 	//Handle spawning in living, mobile products (like dionaea).
 	if(istype(product,/mob/living))
-		product.visible_message("<span class='notice'>The pod disgorges [product]!</span>")
+		product.visible_message(SPAN_NOTICE("The pod disgorges [product]!"))
 		handle_living_product(product)
 		if(istype(product,/mob/living/simple_animal/mushroom)) // Gross.
 			var/mob/living/simple_animal/mushroom/mush = product
@@ -810,6 +810,9 @@
 		growth_stages = 0
 
 /datum/seed/proc/get_growth_type()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
 	if(get_trait(TRAIT_SPREAD) == 2)
 		switch(seed_noun)
 			if(SEED_NOUN_CUTTINGS)
@@ -822,28 +825,95 @@
 				return GROWTH_VINES
 	return 0
 
+/**
+ * A list of seed icons, to avoid regenerating images like there's no tomorrow
+ *
+ * Only access this by using the `SEED_ICON_CACHE_KEY` macro
+ *
+ * The structure is an associative list with the result of `SEED_ICON_CACHE_KEY` as the key
+ * and an `/image` as the value
+ */
+GLOBAL_LIST_INIT(seed_icon_cache, list())
+
+///Generates a text hash that works as the key for the `seed_icon_cache` GLOB list
+#define SEED_ICON_CACHE_KEY(file, state, color, leaves_overlay) "[file]|||[state]|||[color]|||[leaves_overlay]"
+
 /datum/seed/proc/get_icon(growth_stage)
-	var/image/res = image('icons/obj/hydroponics_growing.dmi', "[get_trait(TRAIT_PLANT_ICON)]-[growth_stage]")
+	SHOULD_NOT_SLEEP(TRUE)
+	RETURN_TYPE(/image)
+
+	if(isnull(growth_stage))
+		crash_with("No growth stage was supplied when getting the icon!")
+
+	/* Setup a bunch of shit that should have been done in a very different way but alas */
+
+	//The icon of the plant
+	var/icon_trait = get_trait(TRAIT_PLANT_ICON)
+	//The type of growth
 	var/growth_type = get_growth_type()
-	if(growth_type)
-		res.icon_state = "[growth_type]-[growth_stage]"
+	//If it's a vine
+	var/is_vine = (get_trait(TRAIT_SPREAD) == 2)
+	//If the icon is a large one
+	var/is_large_icon = get_trait(TRAIT_LARGE)
+	//The color of the leaves, if any
+	var/leaves_color = get_trait(TRAIT_LEAVES_COLOUR)
+
+	/* The part where we select what to request */
+
+	//Pick what file we want
+	var/icon_file_to_request
+	if(is_vine)
+		icon_file_to_request = 'icons/obj/hydroponics_vines.dmi'
+	else if(is_large_icon)
+		icon_file_to_request = 'icons/obj/hydroponics_large.dmi'
 	else
-		res.icon_state = "[get_trait(TRAIT_PLANT_ICON)]-[growth_stage]"
+		icon_file_to_request = 'icons/obj/hydroponics_growing.dmi'
 
-	if(growth_type == GROWTH_VINES)
-		res.icon = 'icons/obj/hydroponics_vines.dmi'
+	//Pick what icon state to request
+	var/icon_state_to_request = (is_vine) ? "[growth_type]-[growth_stage]" : "[icon_trait]-[growth_stage]"
 
-	res.color = get_trait(TRAIT_PLANT_COLOUR)
+	//Pick the color to assign to the image
+	var/color_to_request = get_trait(TRAIT_PLANT_COLOUR)
 
-	if(get_trait(TRAIT_LARGE))
-		res.icon = 'icons/obj/hydroponics_large.dmi'
-		res.pixel_x = -8
-		res.pixel_y = -16
+	//The leaves color overlay to request
+	var/leaves_overlay_to_request = (leaves_color) ? "[icon_trait]-[growth_stage]-leaves" : null
 
-	if(get_trait(TRAIT_LEAVES_COLOUR))
-		var/image/I = image(res.icon, "[get_trait(TRAIT_PLANT_ICON)]-[growth_stage]-leaves")
-		I.color = get_trait(TRAIT_LEAVES_COLOUR)
-		I.appearance_flags = RESET_COLOR
-		res.add_overlay(I)
+	/* Find or generate the image and return it */
 
-	return res
+	//See if we have this in our cache
+	if(SEED_ICON_CACHE_KEY(icon_file_to_request, icon_state_to_request, color_to_request, leaves_overlay_to_request) in GLOB.seed_icon_cache)
+		return GLOB.seed_icon_cache[SEED_ICON_CACHE_KEY(icon_file_to_request, icon_state_to_request, color_to_request, leaves_overlay_to_request)]
+
+	//No luck, it's not in the cache, time to generate it
+	else
+
+		//Check that there's a valid icon state we can use, abort otherwise
+		var/valid_icon_states = icon_states(icon_file_to_request, 2)
+		if(!(icon_state_to_request in valid_icon_states))
+			crash_with("A seed icon was requested with an invalid icon state! Icon file: [icon_file_to_request] ---- Icon state: [icon_state_to_request]")
+
+		var/image/generated_image = image(icon_file_to_request, icon_state_to_request)
+
+		//Assign the requested
+		generated_image.color = color_to_request
+
+		//If it's a large icon, offset it
+		if(is_large_icon)
+			generated_image.pixel_x = -8
+			generated_image.pixel_y = -16
+
+		//If leaves are requested, add them as overlays
+		if(leaves_overlay_to_request)
+			var/image/leaves_image = image(icon_file_to_request, leaves_overlay_to_request)
+			leaves_image.color = leaves_color
+			leaves_image.appearance_flags = RESET_COLOR
+			//Add ourself as overlays to the generated image
+			generated_image.AddOverlays(leaves_image)
+
+		//Store the image in the cache, so we won't have to keep generating it
+		GLOB.seed_icon_cache[SEED_ICON_CACHE_KEY(icon_file_to_request, icon_state_to_request, color_to_request, leaves_overlay_to_request)] = generated_image
+
+		//Return the image
+		return generated_image
+
+#undef SEED_ICON_CACHE_KEY

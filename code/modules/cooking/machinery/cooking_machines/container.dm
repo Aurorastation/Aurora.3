@@ -38,12 +38,12 @@
 	. = ..()
 	update_icon()
 
-/obj/item/reagent_containers/cooking_container/examine(var/mob/user)
+/obj/item/reagent_containers/cooking_container/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(length(contents))
-		to_chat(user, SPAN_NOTICE(get_content_info()))
+		. += SPAN_NOTICE(get_content_info())
 	if(reagents.total_volume)
-		to_chat(user, SPAN_NOTICE(get_reagent_info()))
+		. += SPAN_NOTICE(get_reagent_info())
 
 /obj/item/reagent_containers/cooking_container/proc/get_content_info()
 	var/string = "It contains:</br><ul><li>"
@@ -71,16 +71,16 @@
 	. = ..()
 	closeToolTip(usr)
 
-/obj/item/reagent_containers/cooking_container/attackby(var/obj/item/I, var/mob/user)
-	if(is_type_in_list(I, insertable))
-		if (!can_fit(I))
+/obj/item/reagent_containers/cooking_container/attackby(obj/item/attacking_item, mob/user)
+	if(is_type_in_list(attacking_item, insertable))
+		if (!can_fit(attacking_item))
 			to_chat(user, SPAN_WARNING("There's no more space in [src] for that!"))
 			return FALSE
 
-		if(!user.unEquip(I))
+		if(!user.unEquip(attacking_item))
 			return
-		I.forceMove(src)
-		to_chat(user, SPAN_NOTICE("You put [I] [place_verb] [src]."))
+		attacking_item.forceMove(src)
+		to_chat(user, SPAN_NOTICE("You put [attacking_item] [place_verb] [src]."))
 		update_icon()
 		return
 
@@ -172,11 +172,11 @@
 				holder.trans_to(I, weights[I] / total)
 
 /obj/item/reagent_containers/cooking_container/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(reagents?.total_volume)
 		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]_filling_overlay")
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 /obj/item/reagent_containers/cooking_container/oven
 	name = "oven dish"
@@ -188,13 +188,13 @@
 	appliancetype = OVEN
 
 /obj/item/reagent_containers/cooking_container/oven/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	for(var/obj/item/I in contents)
 		var/image/food = overlay_image(I.icon, I.icon_state, I.color)
 		var/matrix/M = matrix()
 		M.Scale(0.5)
 		food.transform = M
-		add_overlay(food)
+		AddOverlays(food)
 
 /obj/item/reagent_containers/cooking_container/skillet
 	name = "skillet"
@@ -202,7 +202,7 @@
 	desc = "Chuck ingredients in this to fry something on the stove."
 	icon_state = "skillet"
 	volume = 30
-	force = 11
+	force = 16
 	hitsound = 'sound/weapons/smash.ogg'
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER // Will still react
 	appliancetype = SKILLET
@@ -223,7 +223,7 @@
 	icon_state = "pan"
 	volume = 90
 	slot_flags = SLOT_HEAD
-	force = 8
+	force = 18
 	hitsound = 'sound/weapons/smash.ogg'
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER // Will still react
 	appliancetype = SAUCEPAN
@@ -244,7 +244,7 @@
 	icon_state = "pot"
 	max_space = 50
 	volume = 180
-	force = 8
+	force = 18
 	hitsound = 'sound/weapons/smash.ogg'
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER // Will still react
 	appliancetype = POT
@@ -296,10 +296,10 @@
 	volume = 15 // for things like jelly sandwiches etc
 	max_space = 25
 
-/obj/item/reagent_containers/cooking_container/board/examine(mob/user)
+/obj/item/reagent_containers/cooking_container/board/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(length(contents) || reagents?.total_volume)
-		to_chat(user, SPAN_NOTICE("To attempt cooking; click and hold, then drag this onto your character"))
+		. += SPAN_NOTICE("To attempt cooking: click and hold, then drag this onto your character.")
 
 /obj/item/reagent_containers/cooking_container/board/MouseDrop(var/obj/over_obj)
 	if(over_obj != usr || use_check(usr))
@@ -340,13 +340,13 @@
 	return ..()
 
 /obj/item/reagent_containers/cooking_container/board/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	for(var/obj/item/I in contents)
 		var/image/food = overlay_image(I.icon, I.icon_state, I.color)
 		var/matrix/M = matrix()
 		M.Scale(0.5)
 		food.transform = M
-		add_overlay(food)
+		AddOverlays(food)
 
 /obj/item/reagent_containers/cooking_container/board/bowl
 	name = "mixing bowl"
@@ -362,8 +362,8 @@
 	possible_transfer_amounts = list(5,10,15,25,30,60,180)
 
 /obj/item/reagent_containers/cooking_container/board/bowl/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(reagents?.total_volume)
 		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state][get_filling_state()]")
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)

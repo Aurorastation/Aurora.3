@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(skybox)
 	name = "Space skybox"
-	init_order = SS_INIT_PARALLAX
+	init_order = INIT_ORDER_PARALLAX
 	flags = SS_NO_FIRE
 	var/background_color
 	var/skybox_icon = 'icons/skybox/skybox.dmi' //Path to our background. Lets us use anything we damn well please. Skyboxes need to be 736x736
@@ -17,13 +17,13 @@ SUBSYSTEM_DEF(skybox)
 	space_appearance_cache = new(26)
 	for (var/i in 0 to 25)
 		var/mutable_appearance/dust = mutable_appearance('icons/turf/space_dust.dmi', "[i]")
-		dust.plane = PLANE_SPACE_DUST
+		dust.plane = DUST_PLANE
 		dust.alpha = 80
 		dust.blend_mode = BLEND_ADD
 
 		var/mutable_appearance/space = new /mutable_appearance(/turf/space)
 		space.name = "space"
-		space.plane = PLANE_SPACE_BACKGROUND
+		space.plane = SPACE_PLANE
 		space.icon_state = "white"
 		space.overlays += dust
 		space_appearance_cache[i + 1] = space.appearance

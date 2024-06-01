@@ -376,6 +376,7 @@
 	pmcg_sec_uniforms["Dagamuir Freewater uniform"] = /obj/item/clothing/under/rank/security/pmc/dagamuir_freewater
 	pmcg_sec_uniforms["Ve'katak Phalanx uniform"] = /obj/item/clothing/under/rank/security/pmc/vekatak_phalanx
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_sec_uniforms)
+	gear_tweaks += list(gear_tweak_uniform_rolled_state)
 
 /datum/gear/faction/erisec_patch
 	display_name = "EPMC sleeve patch"
@@ -456,6 +457,22 @@
 	wildlands_flag_patches["flagpatch, solarian provisional government"] = /obj/item/clothing/accessory/flagpatch/spg
 	wildlands_flag_patches["flagpatch, southern solarian military district"] = /obj/item/clothing/accessory/flagpatch/ssmd
 	gear_tweaks += new /datum/gear_tweak/path(wildlands_flag_patches)
+
+/datum/gear/faction/vekatak_rep
+	display_name = "ve'katak phalanx representative uniform"
+	path = /obj/item/clothing/under/rank/pmc/vekatak_phalanx
+	flags = GEAR_HAS_DESC_SELECTION
+	allowed_roles = list("Corporate Liaison")
+	faction = "Private Military Contracting Group"
+	slot = slot_w_uniform
+
+/datum/gear/faction/vekatak_res
+	display_name = "ve'katak phalanx reserve uniform"
+	path = /obj/item/clothing/under/rank/pmc/vekatak_phalanx/reserve
+	flags = GEAR_HAS_DESC_SELECTION
+	allowed_roles = list("Assistant", "Off-Duty Crew Member")
+	faction = "Private Military Contracting Group"
+	slot = slot_w_uniform
 
 //Zeng-Hu
 /datum/gear/faction/zenghu_beret

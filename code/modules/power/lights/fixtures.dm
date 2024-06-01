@@ -12,7 +12,7 @@
 	desc = "A lighting fixture."
 	desc_info = "Use grab intent when interacting with a working light to take it out of its fixture."
 	anchored = TRUE
-	layer = 5  					// They were appearing under mobs which is a little weird - Ostaf
+	layer = ABOVE_HUMAN_LAYER
 	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 2
 	active_power_usage = 20
@@ -76,7 +76,7 @@
 	icon_state = "floortube_example"
 	base_state = "floortube"
 	desc = "A lighting fixture. This one is set into the floor."
-	layer = 2.5
+	layer = ABOVE_TILE_LAYER
 	fitting_has_empty_icon = TRUE
 	fitting_is_on_floor = TRUE
 
@@ -100,8 +100,8 @@
 	icon_state = "floor_example"
 	base_state = "floor"
 	desc = "A small lighting fixture. This one is set into the floor."
-	layer = 2.5
 	fitting_is_on_floor = TRUE
+	layer = ABOVE_TILE_LAYER
 
 /obj/machinery/light/small/emergency
 	icon_state = "bulb_emergency_preview"
@@ -109,6 +109,10 @@
 	brightness_power = 0.45
 	brightness_color = LIGHT_COLOR_EMERGENCY_SOFT
 	randomize_color = FALSE
+
+/obj/machinery/light/small/broken
+	status = LIGHT_BROKEN
+	icon_state = "bulb_broken_preview"
 
 /obj/machinery/light/small/red
 	brightness_range = 2.5
@@ -221,8 +225,12 @@
 	pixel_x = pixel_x
 	pixel_y = pixel_y
 
+/obj/machinery/light/small/floor/set_pixel_offsets()
+	pixel_x = pixel_x
+	pixel_y = pixel_y
+
 /obj/machinery/light/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if ((status == LIGHT_EMPTY) || !fitting_has_empty_icon)
 		icon_state = "[base_state]_empty"
 	else
@@ -240,21 +248,19 @@
 
 			if (on)
 				var/image/I = LIGHT_FIXTURE_CACHE(icon, "[base_state]_on", target_color)
-				if (!fitting_is_on_floor)
-					I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
-				else
-					I.layer = layer
-				add_overlay(I)
+				var/image/E = emissive_appearance(icon, "[base_state]_on")
+				AddOverlays(I)
+				AddOverlays(E)
 			else
-				add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_off", target_color))
+				AddOverlays(LIGHT_FIXTURE_CACHE(icon, "[base_state]_off", target_color))
 
 		if(LIGHT_BURNED)
-			add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_burned", brightness_color))
+			AddOverlays(LIGHT_FIXTURE_CACHE(icon, "[base_state]_burned", brightness_color))
 			stat |= BROKEN
 			stat &= ~MAINT
 
 		if(LIGHT_BROKEN)
-			add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_broken", brightness_color))
+			AddOverlays(LIGHT_FIXTURE_CACHE(icon, "[base_state]_broken", brightness_color))
 			stat |= BROKEN
 			stat &= ~MAINT
 
@@ -383,39 +389,39 @@
 	return TRUE
 
 // examine verb
-/obj/machinery/light/examine(mob/user)
+/obj/machinery/light/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(status)
 		if(LIGHT_OK)
-			to_chat(user, "It is turned [!(stat & POWEROFF) ? "on" : "off"].")
+			. += "It is turned [!(stat & POWEROFF) ? "on" : "off"]."
 		if(LIGHT_EMPTY)
-			to_chat(user, "\The [fitting] has been removed.")
+			. += "\The [fitting] has been removed."
 		if(LIGHT_BURNED)
-			to_chat(user, "\The [fitting] is burnt out.")
+			. += "\The [fitting] is burnt out."
 		if(LIGHT_BROKEN)
-			to_chat(user, "\The [fitting] has been smashed.")
+			. += "\The [fitting] has been smashed."
 	if(cell)
-		to_chat(user, "The charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%.")
+		. += "The charge meter reads [round((cell.charge / cell.maxcharge) * 100, 0.1)]%."
 
 // attack with item - insert light (if right type), otherwise try to break the light
 
-/obj/machinery/light/attackby(obj/item/W, mob/user)
+/obj/machinery/light/attackby(obj/item/attacking_item, mob/user)
 	//Light replacer code
-	if(istype(W, /obj/item/device/lightreplacer))
-		var/obj/item/device/lightreplacer/LR = W
+	if(istype(attacking_item, /obj/item/device/lightreplacer))
+		var/obj/item/device/lightreplacer/LR = attacking_item
 		if(isliving(user))
 			var/mob/living/U = user
 			LR.ReplaceLight(src, U)
 			return
 
 	// attempt to insert light
-	if(istype(W, /obj/item/light))
+	if(istype(attacking_item, /obj/item/light))
 		if(status != LIGHT_EMPTY)
 			to_chat(user, SPAN_WARNING("There's already a [fitting] inserted."))
 			return
 		else
 			src.add_fingerprint(user)
-			var/obj/item/light/L = W
+			var/obj/item/light/L = attacking_item
 			if(istype(L, light_type))
 				status = L.status
 				to_chat(user, SPAN_NOTICE("You insert \the [L]."))
@@ -448,14 +454,14 @@
 		//If xenos decide they want to smash a light bulb with a toolbox, who am I to stop them? /N
 
 	else if(status != LIGHT_BROKEN && status != LIGHT_EMPTY)
-		smash_check(W, user, "smashes", "smashes", TRUE)
+		smash_check(attacking_item, user, "smashes", "smashes", TRUE)
 	else if(status == LIGHT_BROKEN)
-		smash_check(W, user, "completely shatters", "shatters completely", FALSE)
+		smash_check(attacking_item, user, "completely shatters", "shatters completely", FALSE)
 
 	// attempt to stick weapon into light socket
 	else if(status == LIGHT_EMPTY)
-		if(W.isscrewdriver()) //If it's a screwdriver open it.
-			playsound(get_turf(src), W.usesound, 75, 1)
+		if(attacking_item.isscrewdriver()) //If it's a screwdriver open it.
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			user.visible_message(SPAN_NOTICE("\The [user] opens \the [src]'s casing."), SPAN_NOTICE("You open \the [src]'s casing."), SPAN_NOTICE("You hear a noise."))
 			var/obj/machinery/light_construct/newlight = null
 			switch(fitting)
@@ -482,8 +488,8 @@
 			qdel(src)
 			return
 
-		to_chat(user, SPAN_WARNING("You stick \the [W] into the light socket!"))
-		if(has_power() && (W.obj_flags & OBJ_FLAG_CONDUCTABLE))
+		to_chat(user, SPAN_WARNING("You stick \the [attacking_item] into the light socket!"))
+		if(has_power() && (attacking_item.obj_flags & OBJ_FLAG_CONDUCTABLE))
 			spark(src, 3)
 			if(prob(75))
 				electrocute_mob(user, get_area(src), src, rand(0.7,1.0))
@@ -689,7 +695,9 @@
 
 // called when on fire
 
-/obj/machinery/light/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/machinery/light/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(prob(max(0, exposed_temperature - 673)))   //0% at <400C, 100% at >500C
 		broken()
 
@@ -714,3 +722,8 @@
 		if(brightness_color != default_color)
 			brightness_color = default_color
 			update(0)
+
+/obj/machinery/light/clean()
+	. = ..()
+	brightness_color = initial(brightness_color)
+	update()

@@ -5,6 +5,9 @@
 	eventually transforming into what it is today. The religion holds onto very traditional values, promoting collectivism, sharing, helping those in need."
 	book_name = "holy scrolls"
 	book_sprite = "holylight"
+	nulloptions = list(
+		"Tajaran charm" = /obj/item/nullrod/charm
+	)
 
 /datum/religion/matake
 	name = RELIGION_MATAKE
@@ -14,6 +17,14 @@
 	understanding and kindness. He is upheld to be the ultimate Tajara- powerful, wise, and magnanimous. Followers of Mata'ke himself endeavor to emulate his grandeur, while others \
 	attempt to emulate the other gods."
 	book_name = "ma'ta'ke legends"
+	nulloptions = list(
+		"Tajaran charm" = /obj/item/nullrod/charm,
+		"Mata'ke Sword" = /obj/item/nullrod/matake,
+		"Rredouane Sword" = /obj/item/nullrod/rredouane,
+		"Shumaila Hammer" = /obj/item/nullrod/shumaila,
+		"Zhukamir Ladle" = /obj/item/nullrod/zhukamir,
+		"Azubarre Torch" = /obj/item/nullrod/azubarre
+	)
 
 /datum/religion/raskara
 	name = RELIGION_RASKARA
@@ -21,6 +32,9 @@
 	members have been recorded. While Raskara may seem like a single deity it is in fact split into three aspects, each one leading down a different path and seemingly every path \
 	subverting something S'rendarr and Messa stands for."
 	book_name = "ma'ta'ke legends"
+	nulloptions = list(
+		"Tajaran charm" = /obj/item/nullrod/charm
+	)
 
 /datum/religion/raskara/get_records_name()
 	return RELIGION_MATAKE

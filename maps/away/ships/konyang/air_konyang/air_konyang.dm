@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/air_konyang
 	name = "Air Konyang"
 	description = "Air Konyang civilian transport."
-	suffixes = list("ships/konyang/air_konyang/air_konyang.dmm")
+
+	prefix = "ships/konyang/air_konyang/"
+	suffixes = list("air_konyang.dmm")
+
 	sectors = list(SECTOR_HANEUNIM)
 	spawn_weight = 1
 	ship_cost = 1
@@ -12,14 +15,6 @@
 /singleton/submap_archetype/air_konyang
 	map = "Air Konyang"
 	descriptor = "Air Konyang civilian transport."
-
-/obj/effect/overmap/visitable/sector/air_konyang_spawn
-	name = "empty sector"
-	desc = "An empty sector."
-	icon_state = null //this away site only exists so the shuttle can spawn and doesn't need to be seen. Invisible var causes issues when used for this purpose.
-	initial_restricted_waypoints = list(
-		"Air Konyang Transport" = list("nav_air_konyang_start")
-	)
 
 /obj/effect/overmap/visitable/ship/landable/air_konyang
 	name = "Air Konyang Transport"
@@ -39,6 +34,7 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	shuttle = "Air Konyang Transport"
+	use_mapped_z_levels = TRUE
 
 /obj/effect/overmap/visitable/ship/landable/air_konyang/New()
 	designation = "[pick("Qianlima", "Senrima", "Cheollima", "Chollima")]"
@@ -53,21 +49,18 @@
 	move_time = 35
 	range = 2
 	fuel_consumption = 6
-	shuttle_area = list(/area/shuttle/air_konyang, /area/shuttle/air_konyang/atmos, /area/shuttle/air_konyang/engineering, /area/shuttle/air_konyang/storage, /area/shuttle/air_konyang/starbwing, /area/shuttle/air_konyang/crew, /area/shuttle/air_konyang/mainroom, /area/shuttle/air_konyang/bridge)
+	shuttle_area = list(/area/shuttle/air_konyang/atmos, /area/shuttle/air_konyang/engineering, /area/shuttle/air_konyang/storage, /area/shuttle/air_konyang/starbwing, /area/shuttle/air_konyang/crew, /area/shuttle/air_konyang/mainroom, /area/shuttle/air_konyang/bridge, /area/shuttle/air_konyang/rear_hall)
 	current_location = "nav_air_konyang_start"
 	dock_target = "airlock_air_konyang"
 	landmark_transition = "nav_air_konyang_transit"
 	logging_home_tag = "nav_air_konyang_start"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/air_konyang/start
-	name = "Empty Space"
+/obj/effect/shuttle_landmark/ship/air_konyang
+	shuttle_name = "Air Konyang Transport"
 	landmark_tag = "nav_air_konyang_start"
-	base_area = /area/space
-	base_turf = /turf/space
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/effect/shuttle_landmark/air_konyang/transit
+/obj/effect/shuttle_landmark/air_konyang_transit
 	name = "In transit"
 	landmark_tag = "nav_air_konyang_transit"
-	base_turf = /turf/space/transit
+	base_turf = /turf/space/transit/north

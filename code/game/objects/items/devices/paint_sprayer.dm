@@ -16,14 +16,22 @@
 	var/paint_colour = COLOR_WHITE
 
 	var/list/decals = list(
-		"quarter-turf" =      list("path" = /obj/effect/floor_decal/corner, "precise" = 1, "coloured" = 1),
-		"wide quarter-turf" = list("path" = /obj/effect/floor_decal/corner_wide, "precise" = 1, "coloured" = 1),
-		"full quarter-turf" = list("path" = /obj/effect/floor_decal/corner_full, "precise" = 1, "coloured" = 1),
-		"hazard stripes" =    list("path" = /obj/effect/floor_decal/industrial/warning),
-		"corner, hazard" =    list("path" = /obj/effect/floor_decal/industrial/warning/corner),
-		"hatched marking" =   list("path" = /obj/effect/floor_decal/industrial/hatch, "coloured" = 1),
-		"dotted outline" =    list("path" = /obj/effect/floor_decal/industrial/outline, "coloured" = 1),
+		// quarter
+		"quarter-turf" =          list("path" = /obj/effect/floor_decal/corner, "precise" = 1, "coloured" = 1),
+		"wide quarter-turf" =     list("path" = /obj/effect/floor_decal/corner_wide, "precise" = 1, "coloured" = 1),
+		"full quarter-turf" =     list("path" = /obj/effect/floor_decal/corner_full, "precise" = 1, "coloured" = 1),
+		// hazard
+		"hazard stripes" =        list("path" = /obj/effect/floor_decal/industrial/warning),
+		"corner, hazard" =        list("path" = /obj/effect/floor_decal/industrial/warning/corner),
+		// hatch
+		"hatched marking" =       list("path" = /obj/effect/floor_decal/industrial/hatch, "coloured" = 1),
+		"hatched marking small" = list("path" = /obj/effect/floor_decal/industrial/hatch_small, "coloured" = 1),
+		"hatched marking tiny" =  list("path" = /obj/effect/floor_decal/industrial/hatch_tiny, "coloured" = 1),
+		// outline
+		"dotted outline" =        list("path" = /obj/effect/floor_decal/industrial/outline, "coloured" = 1),
+		"arrow" =             list("path" = /obj/effect/floor_decal/industrial/arrow, "precise" = 1, "coloured" = 1),
 		"loading sign" =      list("path" = /obj/effect/floor_decal/industrial/loading),
+		// signs
 		"1" =                 list("path" = /obj/effect/floor_decal/sign),
 		"2" =                 list("path" = /obj/effect/floor_decal/sign/two),
 		"A" =                 list("path" = /obj/effect/floor_decal/sign/a),
@@ -35,6 +43,7 @@
 		"CMO" =               list("path" = /obj/effect/floor_decal/sign/cmo),
 		"V" =                 list("path" = /obj/effect/floor_decal/sign/v),
 		"Psy" =               list("path" = /obj/effect/floor_decal/sign/p),
+		// remove all
 		"remove all decals" = list("path" = /obj/effect/floor_decal/reset)
 		)
 
@@ -78,7 +87,7 @@
 
 	var/mob/living/heavy_vehicle/ES = A
 	if(istype(ES))
-		to_chat(user, "<span class='warning'>You can't paint an active exosuit. Dismantle it first.</span>")
+		to_chat(user, SPAN_WARNING("You can't paint an active exosuit. Dismantle it first."))
 		return
 
 	var/obj/structure/heavy_vehicle_frame/EF = A
@@ -126,11 +135,11 @@
 			config_error = 1
 
 	if(config_error)
-		to_chat(user, "<span class='warning'>\The [src] flashes an error light. You might need to reconfigure it.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] flashes an error light. You might need to reconfigure it."))
 		return
 
 	if(F.decals && F.decals.len > 5 && painting_decal != /obj/effect/floor_decal/reset)
-		to_chat(user, "<span class='warning'>\The [F] has been painted too much; you need to clear it off.</span>")
+		to_chat(user, SPAN_WARNING("\The [F] has been painted too much; you need to clear it off."))
 		return
 
 	var/painting_dir = 0
@@ -289,9 +298,9 @@
 		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
 	return .
 
-/obj/item/device/paint_sprayer/examine(mob/user)
+/obj/item/device/paint_sprayer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "It is configured to produce the '[decal]' decal with a direction of '[paint_dir]' using [paint_colour] paint.")
+	. += "It is configured to produce the '[SPAN_NOTICE(decal)]' decal with a direction of '[SPAN_NOTICE(paint_dir)]' using [SPAN_NOTICE(paint_colour)] paint."
 
 /obj/item/device/paint_sprayer/verb/choose_colour()
 	set name = "Choose Colour"
@@ -315,7 +324,7 @@
 	var/new_colour = input(usr, "Choose a colour.", "paintgun", paint_colour) as null|anything in preset_colors
 	if(new_colour && new_colour != paint_colour)
 		paint_colour = preset_colors[new_colour]
-		to_chat(usr, "<span class='notice'>You set \the [src] to paint with <font color='[paint_colour]'>a new colour</font>.</span>")
+		to_chat(usr, SPAN_NOTICE("You set \the [src] to paint with <font color='[paint_colour]'>a new colour</font>."))
 
 /obj/item/device/paint_sprayer/verb/choose_decal()
 	set name = "Choose Decal"
@@ -329,7 +338,7 @@
 	var/new_decal = tgui_input_list(usr, "Select a decal.", "Paint Sprayer", decals)
 	if(new_decal && !isnull(decals[new_decal]))
 		decal = new_decal
-		to_chat(usr, "<span class='notice'>You set \the [src] decal to '[decal]'.</span>")
+		to_chat(usr, SPAN_NOTICE("You set \the [src] decal to '[decal]'."))
 
 /obj/item/device/paint_sprayer/verb/choose_direction()
 	set name = "Choose Direction"
@@ -343,7 +352,7 @@
 	var/new_dir = tgui_input_list(usr, "Select a direction.", "Paint Sprayer", paint_dirs)
 	if(new_dir && !isnull(paint_dirs[new_dir]))
 		paint_dir = new_dir
-		to_chat(usr, "<span class='notice'>You set \the [src] direction to '[paint_dir]'.</span>")
+		to_chat(usr, SPAN_NOTICE("You set \the [src] direction to '[paint_dir]'."))
 
 #undef AIRLOCK_REGION_PAINT
 #undef AIRLOCK_REGION_STRIPE

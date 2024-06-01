@@ -52,27 +52,27 @@ Protectiveness | Armor %
 	thrown_force_divisor = 0.2
 	var/wired = FALSE
 
-/obj/item/material/armor_plating/attackby(var/obj/O, mob/user)
-	if(istype(O, /obj/item/stack/cable_coil))
-		var/obj/item/stack/cable_coil/S = O
+/obj/item/material/armor_plating/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/cable_coil))
+		var/obj/item/stack/cable_coil/S = attacking_item
 		if(wired)
-			to_chat(user, "<span class='warning'>This already has enough wires on it.</span>")
+			to_chat(user, SPAN_WARNING("This already has enough wires on it."))
 			return
 		if(S.use(20))
-			to_chat(user, "<span class='notice'>You attach several wires to \the [src]..</span>")
+			to_chat(user, SPAN_NOTICE("You attach several wires to \the [src].."))
 			wired = TRUE
 			icon_state = "[initial(icon_state)]_wired"
 			return
 		else
-			to_chat(user, "<span class='notice'>You need more wire for that.</span>")
+			to_chat(user, SPAN_NOTICE("You need more wire for that."))
 			return
-	if(istype(O, /obj/item/material/armor_plating))
-		var/obj/item/material/armor_plating/second_plate = O
+	if(istype(attacking_item, /obj/item/material/armor_plating))
+		var/obj/item/material/armor_plating/second_plate = attacking_item
 		if(!wired && !second_plate.wired)
-			to_chat(user, "<span class='warning'>You need something to hold the two pieces of plating together.</span>")
+			to_chat(user, SPAN_WARNING("You need something to hold the two pieces of plating together."))
 			return
 		if(second_plate.material != src.material)
-			to_chat(user, "<span class='warning'>Both plates need to be the same type of material.</span>")
+			to_chat(user, SPAN_WARNING("Both plates need to be the same type of material."))
 			return
 		//TODO: Possible better animations
 		var/obj/item/clothing/suit/armor/material/makeshift/new_armor = new(src.loc, src.material.name)
@@ -111,18 +111,18 @@ Protectiveness | Armor %
 	item_state = "woodbucket"
 	contained_sprite = 1
 
-/obj/item/clothing/head/helmet/bucket/attackby(var/obj/O, mob/user)
-	if(istype(O, /obj/item/stack/material))
-		var/obj/item/stack/material/S = O
+/obj/item/clothing/head/helmet/bucket/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/material))
+		var/obj/item/stack/material/S = attacking_item
 		if(S.use(2))
-			to_chat(user, "<span class='notice'>You apply some [S.material.use_name] to \the [src]. </span>")
+			to_chat(user, SPAN_NOTICE("You apply some [S.material.use_name] to \the [src]. "))
 			var/obj/item/clothing/head/helmet/material/makeshift/helmet = new(null, S.material.name)
 			user.put_in_hands(helmet)
 			user.drop_from_inventory(src)
 			qdel(src)
 			return
 		else
-			to_chat(user, "<span class='warning'>You don't have enough material to build a helmet!</span>")
+			to_chat(user, SPAN_WARNING("You don't have enough material to build a helmet!"))
 	else
 		..()
 
@@ -151,9 +151,9 @@ Protectiveness | Armor %
 	icon_state = "material_kelly"
 	item_state = "material_kelly"
 
-/obj/item/clothing/suit/armor/material/makeshift/attackby(var/obj/O, mob/user)
-	if(istype(O, /obj/item/clothing/suit/storage/toggle/trench))
-		var/obj/item/clothing/suit/storage/toggle/trench/kelly = O
+/obj/item/clothing/suit/armor/material/makeshift/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/clothing/suit/storage/toggle/trench))
+		var/obj/item/clothing/suit/storage/toggle/trench/kelly = attacking_item
 		user.drop_from_inventory(src)
 		user.drop_from_inventory(kelly)
 		var/obj/item/clothing/suit/armor/material/makeshift/trenchcoat/new_armor = new(null, src.material.name)

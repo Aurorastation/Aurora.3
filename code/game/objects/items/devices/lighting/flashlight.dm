@@ -124,14 +124,14 @@
 		M.update_inv_r_ear()
 		M.update_inv_head()
 
-/obj/item/device/flashlight/examine(mob/user, distance, is_adjacent)
+/obj/item/device/flashlight/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(power_use && brightness_level)
-		to_chat(user, SPAN_NOTICE("\The [src] is set to [brightness_level]."))
+		. += SPAN_NOTICE("\The [src] is set to [brightness_level].")
 		if(cell)
-			to_chat(user, SPAN_NOTICE("\The [src] has \a [cell] attached. It has [round(cell.percent())]% charge remaining."))
+			. += SPAN_NOTICE("\The [src] has \a [cell] attached. It has [round(cell.percent())]% charge remaining.")
 	if(light_wedge && isturf(loc))
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("\The [src] is facing [dir2text(dir)].")))
+		. += FONT_SMALL(SPAN_NOTICE("\The [src] is facing [dir2text(dir)]."))
 
 /obj/item/device/flashlight/attack_self(mob/user)
 	if(always_on)
@@ -169,14 +169,14 @@
 	else
 		return ..()
 
-/obj/item/device/flashlight/attackby(obj/item/W, mob/user)
+/obj/item/device/flashlight/attackby(obj/item/attacking_item, mob/user)
 	if(power_use)
-		if(istype(W, /obj/item/cell))
-			if(istype(W, /obj/item/cell/device) || accepts_large_cells)
+		if(istype(attacking_item, /obj/item/cell))
+			if(istype(attacking_item, /obj/item/cell/device) || accepts_large_cells)
 				if(!cell)
 					user.drop_item()
-					W.loc = src
-					cell = W
+					attacking_item.loc = src
+					cell = attacking_item
 					to_chat(user, SPAN_NOTICE("You install a cell in \the [src]."))
 					playsound(src, 'sound/machines/click.ogg', 30, 1, 0)
 					update_icon()
@@ -298,6 +298,9 @@
 /obj/item/device/flashlight/empty
 	starts_with_cell = FALSE
 
+/obj/item/device/flashlight/on
+	on = TRUE
+
 /obj/item/device/flashlight/pen
 	name = "penlight"
 	desc = "A pen-sized light, used by medical staff."
@@ -332,18 +335,21 @@
 	matter = list(MATERIAL_PLASTIC = 100, MATERIAL_GLASS = 70)
 	light_wedge = LIGHT_SEMI
 
+/obj/item/device/flashlight/heavy/on
+	on = TRUE
+
 /obj/item/device/flashlight/maglight
 	name = "maglight"
 	desc = "A heavy flashlight, designed for security personnel."
 	icon_state = "maglight"
 	item_state = "maglight"
-	force = 10
+	force = 5
 	brightness_on = 5
 	efficiency_modifier = 0.8
 	w_class = ITEMSIZE_NORMAL
 	uv_intensity = 70
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
-	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 100)
+	matter = list(MATERIAL_ALUMINIUM = 200, MATERIAL_GLASS = 100)
 	hitsound = 'sound/weapons/smash.ogg'
 	light_wedge = LIGHT_NARROW
 
@@ -353,6 +359,9 @@
 		item_state = "maglight-on"
 	else
 		item_state = "maglight"
+
+/obj/item/device/flashlight/maglight/on
+	on = TRUE
 
 /obj/item/device/flashlight/slime
 	gender = PLURAL
@@ -409,3 +418,6 @@
 		item_state = "lantern-on"
 	else
 		item_state = "lantern"
+
+/obj/item/device/flashlight/lantern/on
+	on = TRUE

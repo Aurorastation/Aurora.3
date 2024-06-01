@@ -54,6 +54,9 @@
 	var/list/possible_themes = list(/datum/exoplanet_theme)
 	var/datum/exoplanet_theme/theme
 
+	///What weather state to use for this planet initially. If null, will not initialize any weather system. Must be a typepath rather than an instance.
+	var/singleton/state/weather/initial_weather_state = /singleton/state/weather/calm
+
 	var/features_budget = 4
 	var/list/possible_features = list()
 	var/list/spawned_features
@@ -73,7 +76,13 @@
 
 	var/list/mobs_to_tolerate = list()
 	var/generated_name = TRUE
+	///The random name generated for the planet by generate_planet_name()
+	var/planet_name
 	var/ring_chance = 20 //the chance of this exoplanet spawning with a ring on its sprite
+
+	///A list of groups, as strings, that this exoplanet belongs to. When adding new map templates, try to keep this balanced on the CI execution time, or consider adding a new one
+	///ONLY IF IT'S THE LONGEST RUNNING CI POD AND THEY ARE ALREADY BALANCED
+	var/list/unit_test_groups = list()
 
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_habitability()
@@ -93,7 +102,35 @@
 /obj/effect/overmap/visitable/sector/exoplanet/update_icon()
 	icon_state = "globe[rand(1,3)]"
 
-/obj/effect/overmap/visitable/sector/exoplanet/New(nloc, max_x, max_y)
+/obj/effect/overmap/visitable/sector/exoplanet/New(loc, max_x, max_y, being_generated_for_unit_test = FALSE)
+
+	#if defined(UNIT_TEST)
+
+	//If we are being generated for unit testing, determine if we actually want to be generated here or not
+	if(being_generated_for_unit_test)
+
+		//Check that noone forgot to set the test group on an exoplanet, except for the lore ones, we don't care about them
+		//as we do not test them currently
+		if(!length(src.unit_test_groups) && src.ruin_planet_type != PLANET_LORE)
+			SSunit_tests_config.UT.fail("**** The exoplanet --> [src.name] - [src.type] <-- does not have any unit test group set! ****", __FILE__, __LINE__)
+			qdel_self()
+			return FALSE
+
+		//Check that we are in this test group, otherwise skip this exoplanet type from generation
+		var/in_this_test_group = FALSE
+		for(var/unit_test_group in src.unit_test_groups)
+			if((unit_test_group in SSunit_tests_config.config["exoplanet_types_unit_test_groups"]) || SSunit_tests_config.config["exoplanet_types_unit_test_groups"] == "*")
+				in_this_test_group = TRUE
+				break
+
+		if(!in_this_test_group)
+			SSunit_tests_config.UT.debug("**** The exoplanet --> [src.name] - [src.type] <-- was not loaded as its group is not in the exoplanet_types_unit_test_groups! ****", __FILE__, __LINE__)
+			qdel_self()
+			return FALSE
+
+	#endif //UNIT_TEST
+
+
 	if(!SSatlas.current_map.use_overmap)
 		return
 
@@ -102,7 +139,8 @@
 	planetary_area = new planetary_area()
 
 	if(generated_name)
-		name = "[generate_planet_name()], \a [name]"
+		planet_name = generate_planet_name()
+		name = "[planet_name], \a [name]"
 
 	world.maxz++
 	forceMove(locate(1,1,world.maxz))
@@ -165,9 +203,12 @@
 /obj/effect/overmap/visitable/sector/exoplanet/proc/build_level()
 	generate_habitability()
 	generate_atmosphere()
+	if(ispath(initial_weather_state))
+		generate_weather()
 	generate_flora()
 	generate_map()
 	generate_features()
+	theme.after_map_generation(src)
 	generate_landing(2)
 	update_biome()
 	generate_planet_image()
@@ -424,6 +465,10 @@
 			total_moles = max(total_moles - part, 0)
 			i++
 
+/obj/effect/overmap/visitable/sector/exoplanet/generate_ground_survey_result()
+	..()
+	ground_survey_result = ""
+
 /obj/effect/overmap/visitable/sector/exoplanet/get_scan_data(mob/user)
 	. = ..()
 	. += "<br><center><large><b>Scan Details</b></large>"
@@ -471,10 +516,6 @@
 
 	. += jointext(extra_data, "<br>")
 
-/obj/effect/overmap/visitable/sector/exoplanet/get_skybox_representation()
-	return skybox_image
-
-
 /obj/effect/overmap/visitable/sector/exoplanet/proc/get_surface_color()
 	return surface_color
 
@@ -497,3 +538,15 @@
 
 /obj/effect/landmark/exoplanet_spawn/proc/do_spawn(obj/effect/overmap/visitable/sector/exoplanet/planet)
 	return
+
+///Sets the given weather state to our planet replacing the old one, and trigger updates. Can be a type path or instance.
+/obj/effect/overmap/visitable/sector/exoplanet/proc/set_weather(var/singleton/state/weather/W)
+	initial_weather_state = W
+	//Tells all our levels exposed to the sky to force change the weather.
+	SSweather.setup_weather_system(map_z[length(map_z)], initial_weather_state)
+
+///Setup the initial weather state for the planet. Doesn't apply it to our z levels however.
+/obj/effect/overmap/visitable/sector/exoplanet/proc/generate_weather()
+	if(ispath(initial_weather_state))
+		initial_weather_state = GET_SINGLETON(initial_weather_state)
+	set_weather(initial_weather_state)

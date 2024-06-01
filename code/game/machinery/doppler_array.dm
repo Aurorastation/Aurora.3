@@ -19,9 +19,9 @@ var/list/doppler_arrays = list()
 	doppler_arrays -= src
 	return ..()
 
-/obj/machinery/doppler_array/examine(mob/user)
+/obj/machinery/doppler_array/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("\The [src] is [active ? "listening for explosions" : "[SPAN_WARNING("inactive")]"]."))
+	. += SPAN_NOTICE("\The [src] is [active ? "listening for explosions" : "[SPAN_WARNING("inactive")]"].")
 
 /obj/machinery/doppler_array/attack_hand(mob/user)
 	active = !active
@@ -33,10 +33,10 @@ var/list/doppler_arrays = list()
 	if(stat & BROKEN)
 		icon_state = "broken"
 	else
-		cut_overlays()
+		ClearOverlays()
 		if(!(stat & NOPOWER))
 			set_light(2, 1, COLOR_CYAN)
-			add_overlay(image(icon, src, "teleport"))
+			AddOverlays(image(icon, src, "teleport"))
 
 /obj/machinery/doppler_array/proc/sense_explosion(var/x0,var/y0,var/z0,var/devastation_range,var/heavy_impact_range,var/light_impact_range)
 	if(!active)

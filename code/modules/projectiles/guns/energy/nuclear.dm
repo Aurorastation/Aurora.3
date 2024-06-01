@@ -48,7 +48,7 @@
 	item_state = "nucgun"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 5, TECH_POWER = 3)
 	slot_flags = SLOT_BELT
-	force = 8 //looks heavier than a pistol
+	force = 18 //looks heavier than a pistol
 	self_recharge = 1
 	modifystate = null
 	reliability = 95
@@ -68,9 +68,9 @@
 /obj/item/gun/energy/gun/nuclear/small_fail(var/mob/user)
 	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
 		if (M == user)
-			to_chat(M, "<span class='warning'>Your gun feels pleasantly warm for a moment.</span>")
+			to_chat(M, SPAN_WARNING("Your gun feels pleasantly warm for a moment."))
 		else
-			to_chat(M, "<span class='warning'>You feel a warm sensation.</span>")
+			to_chat(M, SPAN_WARNING("You feel a warm sensation."))
 	SSradiation.radiate(src, rand(3, 50))
 	return
 
@@ -82,9 +82,9 @@
 	return
 
 /obj/item/gun/energy/gun/nuclear/critical_fail(var/mob/user)
-	to_chat(user, "<span class='danger'>Your gun's reactor overloads!</span>")
+	to_chat(user, SPAN_DANGER("Your gun's reactor overloads!"))
 	for (var/mob/living/M in range(rand(1,4),src))
-		to_chat(M, "<span class='warning'>You feel a wave of heat wash over you.</span>")
+		to_chat(M, SPAN_WARNING("You feel a wave of heat wash over you."))
 	SSradiation.radiate(src, rand(3, 80))
 	crit_fail = 1 //break the gun so it stops recharging
 	self_recharge = FALSE
@@ -93,33 +93,33 @@
 
 /obj/item/gun/energy/gun/nuclear/proc/update_charge()
 	if (crit_fail)
-		add_overlay("nucgun-whee")
+		AddOverlays("nucgun-whee")
 		return
 	var/ratio = max((power_supply?.charge / power_supply?.maxcharge), 0)
 	ratio = round(ratio, 0.25) * 100
-	add_overlay("nucgun-[ratio]")
+	AddOverlays("nucgun-[ratio]")
 
 /obj/item/gun/energy/gun/nuclear/proc/update_reactor()
 	if(crit_fail)
-		add_overlay("nucgun-crit")
+		AddOverlays("nucgun-crit")
 		return
 	if(lightfail)
-		add_overlay("nucgun-medium")
+		AddOverlays("nucgun-medium")
 	else if ((power_supply?.charge/power_supply?.maxcharge) <= 0.5)
-		add_overlay("nucgun-light")
+		AddOverlays("nucgun-light")
 	else
-		add_overlay("nucgun-clean")
+		AddOverlays("nucgun-clean")
 
 /obj/item/gun/energy/gun/nuclear/proc/update_mode()
 	var/datum/firemode/current_mode = firemodes[sel_mode]
 	switch(current_mode.name)
 		if("stun")
-			add_overlay("nucgun-stun")
+			AddOverlays("nucgun-stun")
 		if("lethal")
-			add_overlay("nucgun-kill")
+			AddOverlays("nucgun-kill")
 
 /obj/item/gun/energy/gun/nuclear/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	update_charge()
 	update_reactor()
 	update_mode()
@@ -175,6 +175,32 @@
 	firemodes = list(
 		list(mode_name="incapacitate", projectile_type=/obj/item/projectile/beam/stun, modifystate="hegemony_pistol", fire_sound='sound/weapons/Taser.ogg'),
 		list(mode_name="smite", projectile_type=/obj/item/projectile/beam/pistol/hegemony, modifystate="hegemony_pistol", fire_sound='sound/weapons/laser1.ogg')
+		)
+
+/obj/item/gun/energy/pistol/goldendeep
+	name = "golden deep ornate energy pistol"
+	desc = "An intricate golden energy pistol, engraved with a quality unlike no other. If you had to describe this pistol in one word, it would be <b>expensive.</b>"
+	desc_extended = "Possessed by only the most affluent affiliates of the Golden Deep, this ornate energy pistol covered in gold is the result of a commission, which had the artistic quality of Ultra Maz combined with the scientific technology acquired by the Estriconian to produce a weapon that many outsiders see as a firearm more valuable than the assets it was made to protect."
+	icon = 'icons/obj/guns/goldendeep_ornatepistol.dmi'
+	icon_state = "ornatepistolstun100"
+	item_state = "ornatepistolstun100"
+	has_item_ratio = FALSE
+	fire_sound = 'sound/weapons/laser2.ogg'
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	max_shots = 10
+	fire_delay = 3
+	can_turret = FALSE
+	secondary_projectile_type = /obj/item/projectile/beam/pistol
+	secondary_fire_sound = 'sound/weapons/laser3.ogg'
+	can_switch_modes = TRUE
+
+	projectile_type = /obj/item/projectile/beam/disorient
+	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
+	modifystate = "ornatepistolstun"
+
+	firemodes = list(
+		list(mode_name="disorient", projectile_type=/obj/item/projectile/beam/disorient, modifystate="ornatepistolstun", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="ornatepistollethal", fire_sound='sound/weapons/laser1.ogg')
 		)
 
 /obj/item/gun/energy/repeater
@@ -246,7 +272,7 @@
 	icon_state = "particlepistol"
 	item_state = "particlepistol"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	force = 5
+	force = 11
 	projectile_type = /obj/item/projectile/beam/stun/skrell
 	secondary_projectile_type = /obj/item/projectile/beam/pulse/skrell
 
@@ -263,7 +289,7 @@
 	item_state = "particlesmg"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_BACK
 	max_shots = 14
-	force = 7
+	force = 16
 	projectile_type = /obj/item/projectile/beam/stun/skrell
 	secondary_projectile_type = /obj/item/projectile/beam/pulse/skrell
 
@@ -319,7 +345,7 @@
 	can_turret = FALSE
 	secondary_projectile_type = /obj/item/projectile/energy/blaster/skrell
 	secondary_fire_sound = 'sound/weapons/laser3.ogg'
-	can_switch_modes = 1
+	can_switch_modes = TRUE
 	projectile_type = /obj/item/projectile/energy/disruptorstun/skrell
 	modifystate = "psipistolstun"
 

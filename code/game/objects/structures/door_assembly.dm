@@ -31,9 +31,9 @@
 	. = ..()
 	update_state()
 
-/obj/structure/door_assembly/examine(mob/user)
+/obj/structure/door_assembly/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "It is currently facing [dir2text(dir)].")
+	. += "It is currently facing [dir2text(dir)]."
 
 /obj/structure/door_assembly/door_assembly_generic
 	base_name = "airlock"
@@ -85,8 +85,8 @@
 			bound_width = world.icon_size
 			bound_height = width * world.icon_size
 
-/obj/structure/door_assembly/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.ispen())
+/obj/structure/door_assembly/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ispen())
 		var/door_name = sanitizeSafe(input(user, "Enter the name for the door.", src.name, src.created_name), MAX_NAME_LEN)
 		if(!door_name)
 			return
@@ -94,16 +94,16 @@
 			return
 		created_name = door_name
 
-	else if(W.iswelder())
+	else if(attacking_item.iswelder())
 		if(!glass || anchored)
 			to_chat(user, SPAN_WARNING("\The [src] isn't ready to be welded yet. It doesn't have any installed glass to remove, and it has to be unsecured to deconstruct it."))
 			return
-		var/obj/item/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(0, user))
 			playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 			if(glass)
 				user.visible_message("<b>[user]</b> starts welding the glass panel out of the airlock assembly.", SPAN_NOTICE("You start welding the glass panel out of the airlock assembly."))
-				if(W.use_tool(src, user, 40, volume = 50))
+				if(attacking_item.use_tool(src, user, 40, volume = 50))
 					if(!src || !WT.isOn())
 						return
 					to_chat(user, SPAN_NOTICE("You weld the glass panel out."))
@@ -111,7 +111,7 @@
 					glass = FALSE
 			else if(!anchored)
 				user.visible_message("<b>[user]</b> starts disassembling the airlock assembly.", SPAN_NOTICE("You start disassembling the airlock assembly."))
-				if(W.use_tool(src, user, 40, volume = 50))
+				if(attacking_item.use_tool(src, user, 40, volume = 50))
 					if(!src || !WT.isOn())
 						return
 					to_chat(user, SPAN_NOTICE("You disassemble the airlock assembly."))
@@ -120,7 +120,7 @@
 			to_chat(user, SPAN_WARNING("You need more welding fuel."))
 			return
 
-	else if(W.iswrench())
+	else if(attacking_item.iswrench())
 		if(state != STATE_UNWIRED)
 			to_chat(user, SPAN_WARNING("You have to remove the wiring before you can use the wrench on \the [src]."))
 			return
@@ -132,30 +132,30 @@
 			user.visible_message("<b>[user]</b> begins securing the airlock assembly to the floor.", \
 								SPAN_NOTICE("You start securing the airlock assembly to the floor."))
 
-		if(W.use_tool(src, user, 40, volume = 50))
+		if(attacking_item.use_tool(src, user, 40, volume = 50))
 			if(!src)
 				return
 			to_chat(user, SPAN_NOTICE("You [anchored? "un" : ""]secure \the [src]."))
 			anchored = !anchored
 
-	else if(W.iscoil())
+	else if(attacking_item.iscoil())
 		if(state > STATE_UNWIRED)
 			to_chat(user, SPAN_WARNING("\The [src] has already been wired."))
 			return
 		if(!anchored)
 			to_chat(user, SPAN_WARNING("\The [src] must be anchored before it can be wired."))
 			return
-		var/obj/item/stack/cable_coil/C = W
+		var/obj/item/stack/cable_coil/C = attacking_item
 		if (C.get_amount() < 3)
 			to_chat(user, SPAN_WARNING("You need three lengths of coil to wire the airlock assembly."))
 			return
 		user.visible_message("<b>[user]</b> starts wiring the airlock assembly.", SPAN_NOTICE("You start wiring the airlock assembly."))
-		if(W.use_tool(src, user, 40, volume = 50) && state == STATE_UNWIRED && anchored)
+		if(attacking_item.use_tool(src, user, 40, volume = 50) && state == STATE_UNWIRED && anchored)
 			if(C.use(3))
 				state = STATE_WIRED
 				to_chat(user, SPAN_NOTICE("You wire the airlock."))
 
-	else if(W.iswirecutter())
+	else if(attacking_item.iswirecutter())
 		if(state == STATE_UNWIRED)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any wires to remove."))
 			return
@@ -166,26 +166,26 @@
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		user.visible_message("<b>[user]</b> starts cutting the wires from the airlock assembly.", SPAN_NOTICE("You start cutting the wires from airlock assembly."))
 
-		if(W.use_tool(src, user, 40, volume = 50))
+		if(attacking_item.use_tool(src, user, 40, volume = 50))
 			if(!src)
 				return
 			to_chat(user, SPAN_NOTICE("You cut the airlock wires."))
 			new /obj/item/stack/cable_coil(src.loc, 1)
 			state = STATE_UNWIRED
 
-	else if(istype(W, /obj/item/airlock_electronics))
+	else if(istype(attacking_item, /obj/item/airlock_electronics))
 		if(state == STATE_UNWIRED)
 			to_chat(user, SPAN_WARNING("\The [src] must be wired before you can install electronics into it."))
 			return
 		else if(state > STATE_WIRED)
 			to_chat(user, SPAN_WARNING("\The [src] already has electronics installed."))
 			return
-		var/obj/item/airlock_electronics/EL = W
+		var/obj/item/airlock_electronics/EL = attacking_item
 		if(!EL.is_installed)
 			playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 			user.visible_message("<b>[user]</b> starts installing \the [EL] into the airlock assembly.", SPAN_NOTICE("You start installing \the [EL] into the airlock assembly."))
 			EL.is_installed = TRUE
-			if(W.use_tool(src, user, 40, volume = 50) && state == STATE_WIRED)
+			if(attacking_item.use_tool(src, user, 40, volume = 50) && state == STATE_WIRED)
 				EL.is_installed = FALSE
 				if(!src)
 					return
@@ -196,7 +196,7 @@
 			else
 				EL.is_installed = FALSE
 
-	else if(W.iscrowbar())
+	else if(attacking_item.iscrowbar())
 		if(state != STATE_ELECTRONICS_INSTALLED)
 			to_chat(user, SPAN_WARNING("\The [src] has no electronics to remove."))
 			return
@@ -210,7 +210,7 @@
 
 		user.visible_message("<b>[user]</b> starts removing the electronics from \the [src].", SPAN_NOTICE("You start removing the electronics from \the [src]."))
 
-		if(W.use_tool(src, user, 40, volume = 50))
+		if(attacking_item.use_tool(src, user, 40, volume = 50))
 			if(!src)
 				return
 			to_chat(user, SPAN_NOTICE("You remove \the [electronics]."))
@@ -218,28 +218,28 @@
 			electronics.forceMove(src.loc)
 			electronics = null
 
-	else if(istype(W, /obj/item/stack/material) && glass_type)
+	else if(istype(attacking_item, /obj/item/stack/material) && glass_type)
 		if(glass)
 			to_chat(user, SPAN_WARNING("\The [src] already has glass installed."))
 			return
-		var/obj/item/stack/S = W
+		var/obj/item/stack/S = attacking_item
 		var/material_name = S.get_material_name()
 		if(S.get_amount() >= 2)
 			if(material_name == MATERIAL_GLASS_REINFORCED)
 				user.visible_message("<b>[user]</b> starts installing \the [S] into the airlock assembly.", SPAN_WARNING("You start installing \the [S] into the airlock assembly."))
-				if(W.use_tool(src, user, 40, volume = 50) && !glass)
+				if(attacking_item.use_tool(src, user, 40, volume = 50) && !glass)
 					if(S.use(2))
 						to_chat(user, SPAN_NOTICE("You install reinforced glass windows into the airlock assembly."))
 						glass = TRUE
 
-	else if(W.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		if(state != STATE_ELECTRONICS_INSTALLED)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any electronics installed."))
 			return
 
 		user.visible_message("<b>[user]</b> starts finishing \the [src].", SPAN_NOTICE("You start finishing \the [src]."))
 
-		if(W.use_tool(src, user, 40, volume = 50))
+		if(attacking_item.use_tool(src, user, 40, volume = 50))
 			if(!src)
 				return
 			to_chat(user, SPAN_NOTICE("You finish the airlock!"))
@@ -250,24 +250,24 @@
 				new airlock_type(loc, dir, FALSE, src)
 			qdel(src)
 
-	else if(istype(W, /obj/item/material/twohanded/chainsaw))
-		var/obj/item/material/twohanded/chainsaw/ChainSawVar = W
+	else if(istype(attacking_item, /obj/item/material/twohanded/chainsaw))
+		var/obj/item/material/twohanded/chainsaw/ChainSawVar = attacking_item
 		if(!ChainSawVar.wielded)
 			to_chat(user, SPAN_WARNING("Cutting the airlock requires the strength of two hands."))
 		else if(ChainSawVar.cutting)
 			to_chat(user, SPAN_WARNING("You are already cutting an airlock open."))
 		else if(!ChainSawVar.powered)
-			to_chat(user, SPAN_WARNING("\The [W] needs to be on in order to tear \the [src] apart."))
+			to_chat(user, SPAN_WARNING("\The [attacking_item] needs to be on in order to tear \the [src] apart."))
 		else
 			ChainSawVar.cutting = TRUE
 			user.visible_message(\
-				SPAN_DANGER("[user] starts cutting \the [src] apart with \the [W]!"), \
+				SPAN_DANGER("[user] starts cutting \the [src] apart with \the [attacking_item]!"), \
 				SPAN_NOTICE("You start cutting \the [src] apart..."), \
 				SPAN_WARNING("You hear a loud buzzing sound and metal grinding on metal...") \
 			)
-			if(do_after(user, ChainSawVar.opendelay SECONDS, user, extra_checks = CALLBACK(src, PROC_REF(CanChainsaw), W)))
+			if(do_after(user, ChainSawVar.opendelay SECONDS, user, extra_checks = CALLBACK(src, PROC_REF(CanChainsaw), attacking_item)))
 				user.visible_message(\
-					SPAN_DANGER("[user] finishes cutting \the [src] apart with the [W]."), \
+					SPAN_DANGER("[user] finishes cutting \the [src] apart with the [attacking_item]."), \
 					SPAN_NOTICE("You finish cutting \the [src] apart."), \
 					SPAN_WARNING("You hear a metal clank and some sparks.") \
 				)

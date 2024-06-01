@@ -25,9 +25,9 @@
 	src.visible_message(SPAN_WARNING("\The [src] has been squashed!"), SPAN_WARNING("You hear a smack."))
 	qdel(src)
 
-/obj/item/reagent_containers/food/snacks/egg/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype( W, /obj/item/pen/crayon ))
-		var/obj/item/pen/crayon/C = W
+/obj/item/reagent_containers/food/snacks/egg/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/pen/crayon ))
+		var/obj/item/pen/crayon/C = attacking_item
 		var/clr = C.colourName
 
 		if(!(clr in list("blue","green","mime","orange","purple","rainbow","red","yellow")))

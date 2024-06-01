@@ -23,6 +23,13 @@
 	return TRUE
 
 /obj/aiming_overlay/proc/trigger(var/perm)
+	if(!owner || !aiming_with || !aiming_at || !locked)
+		return FALSE
+	if(perm && (target_permissions & perm))
+		return FALSE
+	if(!owner.canClick())
+		return FALSE
+
 	var/obj/item/gun/G = aiming_with
 	if(istype(G) && G.safety())
 		if(owner.a_intent == I_HURT)
@@ -30,12 +37,6 @@
 		else
 			G.handle_click_empty(owner)
 			to_chat(owner, SPAN_WARNING("Your [G]'s safety prevents firing."))
-	if(!owner || !aiming_with || !aiming_at || !locked)
-		return FALSE
-	if(perm && (target_permissions & perm))
-		return FALSE
-	if(!owner.canClick())
-		return FALSE
 
 	owner.setClickCooldown(DEFAULT_QUICK_COOLDOWN) // Spam prevention, essentially.
 	owner.visible_message(

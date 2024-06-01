@@ -50,7 +50,7 @@ export const SettingsPanel = (props, context) => {
 };
 
 export const SettingsGeneral = (props, context) => {
-  const { theme, fontFamily, fontSize, lineHeight } = useSelector(
+  const { theme, fontFamily, fontSize, lineHeight, maxMessages } = useSelector(
     context,
     selectSettings
   );
@@ -145,6 +145,24 @@ export const SettingsGeneral = (props, context) => {
               dispatch(
                 updateSettings({
                   lineHeight: value,
+                })
+              )
+            }
+          />
+        </LabeledList.Item>
+        <LabeledList.Item label="Max messages">
+          <NumberInput
+            width="4em"
+            step={50}
+            stepPixelSize={2}
+            minValue={2000}
+            maxValue={16000}
+            value={maxMessages}
+            format={(value) => toFixed(value)}
+            onChange={(e, value) =>
+              dispatch(
+                updateSettings({
+                  maxMessages: value,
                 })
               )
             }

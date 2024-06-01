@@ -65,35 +65,35 @@
 		var/c_state = "battery[battery_level][contained_sprite ? slot_str_to_contained_flag(slot) : ""]"
 		var/image/battery_overlay = image(c_icon, c_state)
 		battery_overlay.appearance_flags = RESET_ALPHA
-		I.add_overlay(battery_overlay)
+		I.AddOverlays(battery_overlay)
 	if(breath_mask)
 		var/c_state = "mask_[mask_on ? "worn" : "idle"][contained_sprite ? slot_str_to_contained_flag(slot) : ""]"
 		var/image/mask_overlay = image(c_icon, c_state)
 		mask_overlay.appearance_flags = RESET_ALPHA
-		I.add_overlay(mask_overlay)
+		I.AddOverlays(mask_overlay)
 	if(tank)
 		if(tank_level)
 			var/c_state = "tank_indicator[tank_level][contained_sprite ? slot_str_to_contained_flag(slot) : ""]"
 			var/image/tank_level_overlay = image(c_icon, c_state)
 			tank_level_overlay.appearance_flags = RESET_ALPHA
-			I.add_overlay(tank_level_overlay)
+			I.AddOverlays(tank_level_overlay)
 		var/c_state = "tank_[tank_type][contained_sprite ? slot_str_to_contained_flag(slot) : ""]"
 		var/image/tank_overlay = image(c_icon, c_state)
 		tank_overlay.appearance_flags = RESET_ALPHA
-		I.add_overlay(tank_overlay)
+		I.AddOverlays(tank_overlay)
 	if(epp_active)
 		var/c_state = "epp_active[cpr_mode ? "_cpr" : ""][contained_sprite ? slot_str_to_contained_flag(slot) : ""]"
 		var/image/epp_overlay = image(c_icon, c_state)
 		epp_overlay.appearance_flags = RESET_ALPHA
-		I.add_overlay(epp_overlay)
+		I.AddOverlays(epp_overlay)
 	return I
 
 /obj/item/auto_cpr/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	item_state = "[cpr_mode ? "med_harness_cpr" : "[initial(item_state)]"]"
 
 	if(breath_mask)
-		add_overlay("mask_[mask_on ? "worn" : "idle"]")
+		AddOverlays("mask_[mask_on ? "worn" : "idle"]")
 	if(battery)
 		switch(battery.percent())
 			if(90 to INFINITY)	battery_level = 6
@@ -103,7 +103,7 @@
 			if(20 to 39)		battery_level = 2
 			if(05 to 19)		battery_level = 1
 			if(-INFINITY to 4)	battery_level = 0
-		add_overlay("battery[battery_level]")
+		AddOverlays("battery[battery_level]")
 	if(tank)
 		switch(tank.percent())
 			if(90 to INFINITY)	tank_level = 6
@@ -113,7 +113,7 @@
 			if(20 to 39)		tank_level = 2
 			if(05 to 19)		tank_level = 1
 			if(-INFINITY to 4)	tank_level = 0
-		add_overlay("tank_indicator[tank_level]")
+		AddOverlays("tank_indicator[tank_level]")
 
 		if(istype(tank, /obj/item/tank/emergency_oxygen/engi))
 			tank_type = "engi"
@@ -121,11 +121,11 @@
 			tank_type = "oxy"
 		else
 			tank_type = "other"
-		add_overlay("tank_[tank_type]")
+		AddOverlays("tank_[tank_type]")
 	if(epp_active)
-		add_overlay("epp_active")
+		AddOverlays("epp_active")
 	if(panel_open)
-		add_overlay("panel_open[battery ? "_battery" : ""]")
+		AddOverlays("panel_open[battery ? "_battery" : ""]")
 
 /obj/item/auto_cpr/mob_can_equip(mob/living/carbon/human/H, slot, disable_warning = 0, force = 0)
 	. = ..()
@@ -155,14 +155,14 @@
 			return
 
 		if(user.unEquip(src))
-			if(!H.equip_to_slot_if_possible(src, slot_wear_suit, del_on_fail=0, disable_warning=1, redraw_mob=1))
+			if(!H.equip_to_slot_if_possible(src, slot_wear_suit, delete_on_fail = FALSE, disable_warning = TRUE, redraw_mob = TRUE))
 				user.put_in_active_hand(src)
 			return 1
 	else
 		return ..()
 
-/obj/item/auto_cpr/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
+/obj/item/auto_cpr/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = loc
 			if(H.get_inventory_slot(src) == slot_wear_suit)
@@ -174,7 +174,7 @@
 		return TRUE
 
 	if(panel_open)
-		if(W.iswrench())
+		if(attacking_item.iswrench())
 			if(!tank)
 				to_chat(user, "There isn't a tank to remove!")
 				return TRUE
@@ -184,7 +184,7 @@
 			tank = null
 			update_icon()
 			return TRUE
-		if(W.iscrowbar())
+		if(attacking_item.iscrowbar())
 			if(!battery)
 				to_chat(user, "There isn't a battery to remove!")
 				return TRUE
@@ -194,34 +194,34 @@
 			battery = null
 			update_icon()
 			return TRUE
-		if(istype(W, /obj/item/cell))
+		if(istype(attacking_item, /obj/item/cell))
 			if(battery)
 				to_chat(user, "There is already \a [battery] installed.")
 				return TRUE
-			user.drop_from_inventory(W, src)
-			battery = W
-			user.visible_message(SPAN_NOTICE("[user] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
+			user.drop_from_inventory(attacking_item, src)
+			battery = attacking_item
+			user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 			update_icon()
 			return TRUE
-		if(istype(W, /obj/item/clothing/mask/breath))
-			if(is_type_in_list(W, mask_blacklist))
-				to_chat(user, "\The [W] is incompatible with \the [src].")
+		if(istype(attacking_item, /obj/item/clothing/mask/breath))
+			if(is_type_in_list(attacking_item, mask_blacklist))
+				to_chat(user, "\The [attacking_item] is incompatible with \the [src].")
 				return TRUE
 			if(breath_mask)
 				to_chat(user, "There is already \a [breath_mask] installed.")
 				return TRUE
-			user.drop_from_inventory(W, src)
-			breath_mask = W
-			user.visible_message(SPAN_NOTICE("[user] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
+			user.drop_from_inventory(attacking_item, src)
+			breath_mask = attacking_item
+			user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 			update_icon()
 			return TRUE
-		if(istype(W, /obj/item/tank/emergency_oxygen))
+		if(istype(attacking_item, /obj/item/tank/emergency_oxygen))
 			if(tank)
 				to_chat(user, "There is already \a [tank] installed!")
 				return TRUE
-			user.drop_from_inventory(W, src)
-			tank = W
-			user.visible_message(SPAN_NOTICE("[user] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
+			user.drop_from_inventory(attacking_item, src)
+			tank = attacking_item
+			user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 			update_icon()
 			return TRUE
 
@@ -477,17 +477,17 @@
 	playsound(usr, 'sound/machines/click.ogg', 50)
 	update_icon()
 
-/obj/item/auto_cpr/examine(mob/user, distance, is_adjacent)
+/obj/item/auto_cpr/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!is_adjacent)
 		return
-	to_chat(user, SPAN_NOTICE("\The [src]'s [EPP] is currently [epp_mode ? "on" : "off"], while the Auto CPR is [cpr_mode ? "on" : "off"]."))
+	. += SPAN_NOTICE("\The [src]'s [EPP] is currently [epp_mode ? "on" : "off"], while the Auto CPR is [cpr_mode ? "on" : "off"].")
 	if(battery)
-		to_chat(user, SPAN_NOTICE("It currently has a battery with [battery.percent()]% charge."))
+		. += SPAN_NOTICE("It currently has a battery with [battery.percent()]% charge.")
 	if(tank)
-		to_chat(user, SPAN_NOTICE("It has [icon2html(tank, user)] \the [tank] installed. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
-		with the pressure set to [round(tank.distribute_pressure)]kPa.[epp_active ? " The [EPP] is active." : ""]"))
+		. += SPAN_NOTICE("It has [icon2html(tank, user)] \the [tank] installed. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
+		with the pressure set to [round(tank.distribute_pressure)]kPa.[epp_active ? " The [EPP] is active." : ""]")
 	if(breath_mask)
-		to_chat(user, SPAN_NOTICE("It has [icon2html(breath_mask, user)] \the [breath_mask] installed."))
+		. += SPAN_NOTICE("It has [icon2html(breath_mask, user)] \the [breath_mask] installed.")
 
 #undef EPP

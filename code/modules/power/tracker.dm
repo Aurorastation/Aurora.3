@@ -57,18 +57,18 @@
 	if(powernet && (powernet == control?.powernet)) //update if we're still in the same powernet
 		control.cdir = angle
 
-/obj/machinery/power/tracker/attackby(var/obj/item/W, var/mob/user)
+/obj/machinery/power/tracker/attackby(obj/item/attacking_item, mob/user)
 
-	if(W.iscrowbar())
+	if(attacking_item.iscrowbar())
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-		user.visible_message("<span class='notice'>[user] begins to take the glass off the solar tracker.</span>")
-		if(W.use_tool(src, user, 50, volume = 50))
+		user.visible_message(SPAN_NOTICE("[user] begins to take the glass off the solar tracker."))
+		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			var/obj/item/solar_assembly/S = locate() in src
 			if(S)
 				S.forceMove(src.loc)
 				S.give_glass()
 			playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
-			user.visible_message("<span class='notice'>[user] takes the glass off the tracker.</span>")
+			user.visible_message(SPAN_NOTICE("[user] takes the glass off the tracker."))
 			qdel(src)
 		return
 	..()

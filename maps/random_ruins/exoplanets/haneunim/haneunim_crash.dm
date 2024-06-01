@@ -5,8 +5,13 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("haneunim/haneunim_crash.dmm")
+
+	prefix = "haneunim/"
+	suffixes = list("haneunim_crash.dmm")
+
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/haneunim_crash)
+
+	unit_test_groups = list(1)
 
 /area/shuttle/haneunim_crash
 	name = "Crashed Shuttle"
@@ -75,11 +80,4 @@
 	name = "scrawled message"
 	info = "They fucking sold us out. I told the LT not to make a deal with those 5-Cheung fucks, but did she listen? No, course not. Bastards are barely better than the corps. Fucking KASF were on us before we had time to blink. Blew out half the engines, was barely able to get us down here, but\
 	it'd take a miracle to get back up again. Either gonna wait for the Konyangers to come arrest us, or wait to starve. If anyone finds this, I didn't want to be a smuggler. Just saw what the corps were doing to Sol, figured I had to take a stand. Fat lot of good that did. Whoever's reading this, take my body back to Mars. Bury me at home, if there's anything left of it."
-
-
-/obj/item/paper/fluff/haneunim_crash/Initialize()
-	. = ..()
-	var/languagetext = "\[lang=1\]"
-	languagetext += "[info]\[/lang\]"
-	info = parsepencode(languagetext)
-	icon_state = "scrap_bloodied"
+	language = LANGUAGE_SOL_COMMON

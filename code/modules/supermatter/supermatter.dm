@@ -3,6 +3,7 @@
 #define THERMAL_RELEASE_MODIFIER 10000		//Higher == more heat released during reaction
 #define PHORON_RELEASE_MODIFIER 1500		//Higher == less phoron released by reaction
 #define OXYGEN_RELEASE_MODIFIER 15000		//Higher == less oxygen released at high temperature/power
+#define RADIATION_RELEASE_MODIFIER 2		//Higher == more radiation released with more power
 #define REACTION_POWER_MODIFIER 1.1			//Higher == more overall power
 
 /*
@@ -56,7 +57,7 @@
 	anchored = FALSE
 	light_range = 4
 	light_power = 1
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 	var/gasefficency = 0.25
 
@@ -78,6 +79,7 @@
 	uv_intensity = 255
 	var/warning_color = "#B8B800"
 	var/emergency_color = "#D9D900"
+	var/rotation_angle = 0
 
 	var/filter_offset = 0
 
@@ -119,7 +121,7 @@
 /obj/machinery/power/supermatter/Initialize()
 	. = ..()
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
-	soundloop = new(list(src), TRUE)
+	soundloop = new(src, TRUE)
 
 /obj/machinery/power/supermatter/Destroy()
 	QDEL_NULL(radio)
@@ -311,22 +313,28 @@
 		if(!istype(l.glasses, /obj/item/clothing/glasses/safety) && !l.is_diona() && !l.isSynthetic())
 			l.hallucination = max(0, min(200, l.hallucination + power * config_hallucination_power * sqrt( 1 / max(1,get_dist(l, src)) ) ) )
 
-	//adjusted range so that a power of 170 (pretty high) results in 9 tiles, roughly the distance from the core to the engine monitoring room.
-	//note that the rads given at the maximum range is a constant 0.2 - as power increases the maximum range merely increases.
-	//adjusted to pseudo take into account obstacles in the way (1/3rd of the range is dropped if no direct visibility between core and target is)
-	var/rad_range = round(sqrt(power / 2))
-	for(var/mob/living/l in range(src, rad_range))
-		var/radius = max(get_dist(l, src), 1)
-		var/rads = (power / 10) * ( 1 / (radius**2) )
-		if (!(l in oview(rad_range, src)) && !(l in range(src, round(rad_range * 2/3))))
-			continue
-		l.apply_damage(rads, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
-		if(l.is_diona())
-			l.adjustToxLoss(-rads)
-			if(last_message_time + 800 < world.time) // Not to spam message
-				to_chat(l, "<span class='notice'>You can feel an extreme level of energy which flows through your body and makes you regenerate very fast.</span>")
-	last_message_time = world.time
+	var/level = Interpolate(0, 50, clamp( (damage - emergency_point) / (explosion_point - emergency_point),0,1))
+	var/list/new_color = color_contrast(level)
+	//Apply visual effects based on damage
+	if(rotation_angle != 0)
+		if(level != 0)
+			new_color = multiply_matrices(new_color, color_rotation(rotation_angle), 4, 3,3)
+		else
+			new_color = color_rotation(rotation_angle)
 
+	color = new_color
+
+	if (damage >= emergency_point && !length(filters))
+		filters = filter(type="rays", size = 64, color = "#ffd04f", factor = 0.6, density = 12)
+		animate(filters[1], time = 10 SECONDS, offset = 10, loop=-1)
+		animate(time = 10 SECONDS, offset = 0, loop=-1)
+
+		animate(filters[1], time = 2 SECONDS, size = 80, loop=-1, flags = ANIMATION_PARALLEL)
+		animate(time = 2 SECONDS, size = 10, loop=-1, flags = ANIMATION_PARALLEL)
+	else if (damage < emergency_point)
+		filters = null
+
+	SSradiation.radiate(src, power * RADIATION_RELEASE_MODIFIER) //Better close those shutters!
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
 
 	return 1
@@ -383,15 +391,19 @@
 		ui = new(user, src, "Supermatter", "Supermatter Crystal", 500, 300)
 		ui.open()
 
-/obj/machinery/power/supermatter/attackby(obj/item/W, mob/living/user)
-	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
-		"<span class=\"danger\">You touch \the [W] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [W] flashes into dust as you flinch away from \the [src].</span>",\
+/obj/machinery/power/supermatter/attackby(obj/item/attacking_item, mob/user)
+	var/mob/living/living_user = user
+	if(!istype(living_user))
+		return
+
+	living_user.visible_message("<span class=\"warning\">\The [living_user] touches \a [attacking_item] to \the [src] as a silence fills the room...</span>",\
+		"<span class=\"danger\">You touch \the [attacking_item] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [attacking_item] flashes into dust as you flinch away from \the [src].</span>",\
 		"<span class=\"warning\">Everything suddenly goes silent.</span>")
 
-	user.drop_from_inventory(W)
-	Consume(W)
+	living_user.drop_from_inventory(attacking_item)
+	Consume(attacking_item)
 
-	user.apply_damage(150, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
+	living_user.apply_damage(150, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /obj/machinery/power/supermatter/CollidedWith(atom/AM as mob|obj)
 	if(!AM.simulated)

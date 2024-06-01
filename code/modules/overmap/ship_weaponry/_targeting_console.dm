@@ -3,6 +3,7 @@
 	desc = "A targeting systems console using Zavodskoi software."
 	icon_screen = "teleport"
 	icon_keyboard = "teal_key"
+	icon_keyboard_emis = "teal_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 	circuit = /obj/item/circuitboard/ship/targeting
 	var/obj/machinery/ship_weapon/cannon
@@ -18,11 +19,11 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "hostile"
 	icon_keyboard = "red_key"
+	icon_keyboard_emis = "red_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
 	light_power_on = 1
-
 
 /obj/machinery/computer/ship/targeting/Initialize()
 	..()
@@ -112,7 +113,7 @@
 			var/result = cannon.firing_command(linked.targeting, LM, platform_direction ? text2dir(platform_direction) : 0)
 			if(isliving(usr) && !isAI(usr) && usr.Adjacent(src))
 				visible_message(SPAN_WARNING("[usr] presses the fire button!"))
-				playsound(src, 'sound/machines/compbeep1.ogg')
+				playsound(src, 'sound/machines/compbeep1.ogg', 60)
 			switch(result)
 				if(SHIP_GUN_ERROR_NO_AMMO)
 					to_chat(usr, SPAN_WARNING("The console shows an error screen: the weapon isn't loaded!"))

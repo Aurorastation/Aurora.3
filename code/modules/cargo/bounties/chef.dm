@@ -141,7 +141,7 @@
 	random_count = 3
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/muffin,
 			/obj/item/reagent_containers/food/snacks/burger/nt_muffin,
-			/obj/item/reagent_containers/food/snacks/berrymuffin)
+			/obj/item/reagent_containers/food/snacks/muffin/berry)
 
 /datum/bounty/item/chef/chawanmush
 	name = "Chawanmushi"
@@ -234,7 +234,9 @@
 			/obj/item/reagent_containers/food/snacks/sliceable/grilled_carp,
 			/obj/item/reagent_containers/food/snacks/sliceable/sushi_roll,
 			/obj/item/reagent_containers/food/snacks/stuffed_meatball,
-			/obj/item/reagent_containers/food/snacks/chilied_eggs)
+			/obj/item/reagent_containers/food/snacks/chilied_eggs,
+			/obj/item/reagent_containers/food/snacks/sliceable/eyebowl,
+			/obj/item/reagent_containers/food/snacks/hatchbowl)
 
 /datum/bounty/item/chef/tajara
 	name = "Adhomai Delicacies"

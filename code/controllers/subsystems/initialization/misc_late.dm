@@ -2,7 +2,7 @@
 
 SUBSYSTEM_DEF(misc_late)
 	name = "Late Miscellaneous Init"
-	init_order = SS_INIT_MISC
+	init_order = INIT_ORDER_MISC
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
 	/// this is a list of things that fire when late misc init is called
@@ -25,7 +25,7 @@ SUBSYSTEM_DEF(misc_late)
 	setupgenetics()
 
 	if (GLOB.config.fastboot)
-		admin_notice("<span class='notice'><b>Fastboot is enabled; some features may not be available.</b></span>", R_DEBUG)
+		admin_notice(SPAN_NOTICE("<b>Fastboot is enabled; some features may not be available.</b>"), R_DEBUG)
 
 	populate_code_phrases()
 

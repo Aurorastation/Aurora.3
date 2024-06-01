@@ -22,11 +22,23 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	volume = 50
 	var/shaken = 0
 	var/drink_flags
+	possible_transfer_amounts = list(1, 2, 3, 4, 5, 10, 15, 25, 30)
 
 /obj/item/reagent_containers/food/drinks/Initialize()
 	. = ..()
 	if(drink_flags & IS_GLASS)
 		unacidable = TRUE
+
+/obj/item/reagent_containers/food/drinks/update_icon()
+	..()
+	if(!reagents.total_volume)
+		if(("[initial(icon_state)]_empty") in icon_states(icon)) // if there's an empty icon state, use it
+			icon_state = "[initial(icon_state)]_empty"
+		else if (empty_icon_state)
+			icon_state = empty_icon_state
+	else
+		icon = initial(icon)	//Necessary for refilling empty drinks
+		icon_state = initial(icon_state)
 
 /obj/item/reagent_containers/food/drinks/on_reagent_change()
 	update_icon()
@@ -55,7 +67,10 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/reagent_containers/food/drinks/proc/boom(mob/user as mob)
-	user.visible_message("<span class='danger'>\The [src] explodes all over [user] as they open it!</span>","<span class='danger'>\The [src] explodes all over you as you open it!</span>","You can hear a soda can explode.")
+	user.visible_message(SPAN_DANGER("\The [src] explodes all over [user] as they open it!"),
+							SPAN_DANGER("\The [src] explodes all over you as you open it!"),
+							"You can hear a soda can explode.")
+
 	playsound(loc,'sound/items/Soda_Burst.ogg', rand(20,50), 1)
 	reagents.clear_reagents()
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
@@ -68,36 +83,36 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 
 /obj/item/reagent_containers/food/drinks/standard_feed_mob(var/mob/user, var/mob/target)
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You need to open \the [src]!"))
 		return 1
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target)
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You need to open \the [src]!"))
 		return 1
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/standard_pour_into(var/mob/user, var/atom/target)
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You need to open \the [src]!"))
 		return 1
 	return ..()
 
-/obj/item/reagent_containers/food/drinks/examine(mob/user, distance, is_adjacent)
+/obj/item/reagent_containers/food/drinks/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (distance > 1)
 		return
 	if(!reagents || reagents.total_volume == 0)
-		to_chat(user, "<span class='notice'>\The [src] is empty!</span>")
+		. += SPAN_NOTICE("\The [src] is empty!")
 	else if (reagents.total_volume <= volume * 0.25)
-		to_chat(user, "<span class='notice'>\The [src] is almost empty!</span>")
+		. += SPAN_NOTICE("\The [src] is almost empty!")
 	else if (reagents.total_volume <= volume * 0.66)
-		to_chat(user, "<span class='notice'>\The [src] is half full!</span>")
+		. += SPAN_NOTICE("\The [src] is half full!")
 	else if (reagents.total_volume <= volume * 0.90)
-		to_chat(user, "<span class='notice'>\The [src] is almost full!</span>")
+		. += SPAN_NOTICE("\The [src] is almost full!")
 	else
-		to_chat(user, "<span class='notice'>\The [src] is full!</span>")
+		. += SPAN_NOTICE("\The [src] is full!")
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -231,12 +246,12 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	reagents_to_add = list(/singleton/reagent/water = 30)
 
 /obj/item/reagent_containers/food/drinks/waterbottle/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(reagents?.total_volume)
 		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 //heehoo bottle flipping
 /obj/item/reagent_containers/food/drinks/waterbottle/throw_impact()
@@ -322,7 +337,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/shaker/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(top)
 		icon_state = "shakertop"
 		item_state = "shakertop"
@@ -332,9 +347,9 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		if(reagents.total_volume)
 			var/mutable_appearance/filling = mutable_appearance('icons/obj/shaker.dmi', "[icon_state]-[get_filling_state()]")
 			filling.color = reagents.get_color()
-			add_overlay(filling)
+			AddOverlays(filling)
 	if(cap)
-		add_overlay("shaker_cap")
+		AddOverlays("shaker_cap")
 	update_held_icon()
 
 /obj/item/reagent_containers/food/drinks/shaker/AltClick(mob/user)
@@ -366,33 +381,33 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	src.add_fingerprint(user)
 	return
 
-/obj/item/reagent_containers/food/drinks/shaker/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/reagent_containers/food/drinks/shaker_cup))
+/obj/item/reagent_containers/food/drinks/shaker/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/food/drinks/shaker_cup))
 		if(cap)
 			to_chat(user, SPAN_WARNING("\The [src] already has \a [cap]."))
 			return TRUE
-		if(W.reagents.total_volume > 0)
-			var/obj/item/reagent_containers/food/drinks/shaker_cup/C = W
+		if(attacking_item.reagents.total_volume > 0)
+			var/obj/item/reagent_containers/food/drinks/shaker_cup/C = attacking_item
 			C.standard_pour_into(user, src)
 			return TRUE
 		if(!top)
-			to_chat(user, SPAN_WARNING("\The [src] lacks a top to fit \the [W] on."))
+			to_chat(user, SPAN_WARNING("\The [src] lacks a top to fit \the [attacking_item] on."))
 			return TRUE
-		to_chat(user, SPAN_NOTICE("You put \the [W] onto \the [src]."))
-		user.drop_from_inventory(W, src)
+		to_chat(user, SPAN_NOTICE("You put \the [attacking_item] onto \the [src]."))
+		user.drop_from_inventory(attacking_item, src)
 		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
-		cap = W
+		cap = attacking_item
 		playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
 		update_icon()
 		return TRUE
-	if(istype(W, /obj/item/shaker_top))
+	if(istype(attacking_item, /obj/item/shaker_top))
 		if(top)
 			to_chat(user, SPAN_WARNING("\The [src] already has \a [top]."))
 			return TRUE
-		to_chat(user, SPAN_NOTICE("You fit \the [W] onto \the [src]."))
+		to_chat(user, SPAN_NOTICE("You fit \the [attacking_item] onto \the [src]."))
 		amount_per_transfer_from_this = 10
-		user.drop_from_inventory(W, src)
-		top = W
+		user.drop_from_inventory(attacking_item, src)
+		top = attacking_item
 		playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
 		update_icon()
 		return TRUE
@@ -461,12 +476,12 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	center_of_mass = list("x" = 16, "y" = 16)
 
 /obj/item/reagent_containers/food/drinks/shaker_cup/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(reagents?.total_volume)
 		var/mutable_appearance/filling = mutable_appearance('icons/obj/shaker.dmi', "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 /obj/item/reagent_containers/food/drinks/shaker_cup/AltClick(mob/user)
 	set_APTFT()
@@ -477,3 +492,13 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	icon_state = "britcup"
 	volume = 30
 	center_of_mass = list("x"=15, "y"=13)
+
+/obj/item/reagent_containers/food/drinks/boba
+	name = "boba pearls"
+	desc = "Tapioca balls, so you can eat your drinks! Yum yum!" // the yum yum is sarcastic these things feel like chewing on rubber.
+	icon_state = "boba"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/drink/boba = 60)
+	is_liquid = FALSE

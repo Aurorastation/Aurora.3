@@ -21,6 +21,10 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	surgerysound = 'sound/items/surgery/scalpel.ogg'
 
+/obj/item/material/knife/bloody/Initialize()
+	. = ..()
+	src.add_blood()
+
 /obj/item/material/knife/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(active == 1)
 		if((target_zone != BP_EYES && target_zone != BP_HEAD) || M.eyes_protected(src, FALSE))
@@ -51,9 +55,9 @@
 	var/obj/item/organ/external/O = available_organs[choice]
 	for(var/thing in O.implants)
 		var/obj/S = thing
-		usr.visible_message("<span class='notice'>[usr] starts carefully digging out something in [H == usr ? "themselves" : H]...</span>")
+		usr.visible_message(SPAN_NOTICE("[usr] starts carefully digging out something in [H == usr ? "themselves" : H]..."))
 		O.take_damage(8, 0, DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, src)
-		H.custom_pain("<font size=3><span class='danger'>It burns!</span></font>", 50)
+		H.custom_pain(SPAN_DANGER("<font size=3>It burns!</font>"), 50)
 		if(do_mob(usr, H, 100))
 			H.remove_implant(S, FALSE)
 			log_and_message_admins("has extracted [S] out of [key_name(H)]")
@@ -67,6 +71,10 @@
 	item_state = "render"
 	contained_sprite = TRUE
 	applies_material_colour = FALSE
+
+/obj/item/material/knife/ritual/bloody/Initialize()
+	. = ..()
+	src.add_blood()
 
 /obj/item/material/knife/raskariim
 	name = "adhomian ritual dagger"
@@ -114,6 +122,11 @@
 
 /obj/item/material/knife/trench/silver/Initialize(newloc, material_key)
 	. = ..(newloc, MATERIAL_SILVER)
+
+/obj/item/material/knife/trench/bloody/Initialize()
+	. = ..()
+	src.add_blood()
+
 
 //Butterfly knives stab your eyes out too!
 
@@ -165,10 +178,10 @@
 /obj/item/material/knife/butterfly/attack_self(mob/user)
 	active = !active
 	if(active)
-		to_chat(user, "<span class='notice'>You flip out \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You flip out \the [src]."))
 		playsound(user, 'sound/weapons/blade_open.ogg', 15, 1)
 	else
-		to_chat(user, "<span class='notice'>\The [src] can now be concealed.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] can now be concealed."))
 		playsound(user, 'sound/weapons/blade_close.ogg', 15, 1)
 	update_force()
 	add_fingerprint(user)

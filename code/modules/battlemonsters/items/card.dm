@@ -19,9 +19,9 @@
 	. = ..()
 	Generate_Card(prefix, root, title, trap, spell)
 
-/obj/item/battle_monsters/card/attackby(var/obj/item/attacking, var/mob/user)
-	if(istype(attacking,/obj/item/battle_monsters/card) && attacking != src)
-		var/obj/item/battle_monsters/card/adding_card = attacking
+/obj/item/battle_monsters/card/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item,/obj/item/battle_monsters/card) && attacking_item != src)
+		var/obj/item/battle_monsters/card/adding_card = attacking_item
 		make_deck(user,adding_card)
 
 /obj/item/battle_monsters/card/resolve_attackby(atom/A, mob/user, var/click_parameters)
@@ -113,7 +113,7 @@
 
 /obj/item/battle_monsters/card/update_icon()
 
-	cut_overlays()
+	ClearOverlays()
 
 	if(facedown)
 		icon_state = "back"
@@ -131,25 +131,25 @@
 		rounded_rarity_score = min(max(round(rounded_rarity_score,1),1),4)
 
 		icon_state = "front_r_[rounded_rarity_score]"
-		add_overlay("front_label")
+		AddOverlays("front_label")
 
 		if(trap_datum && trap_datum.icon_state)
-			add_overlay(trap_datum.icon_state)
+			AddOverlays(trap_datum.icon_state)
 
 		if(spell_datum && spell_datum.icon_state)
-			add_overlay(spell_datum.icon_state)
+			AddOverlays(spell_datum.icon_state)
 
 		if(prefix_datum && prefix_datum.icon_state)
-			add_overlay(prefix_datum.icon_state)
+			AddOverlays(prefix_datum.icon_state)
 
 		if(root_datum && root_datum.icon_state)
-			add_overlay(root_datum.icon_state)
+			AddOverlays(root_datum.icon_state)
 
 		if(suffix_datum && suffix_datum.icon_state)
-			add_overlay(suffix_datum.icon_state)
+			AddOverlays(suffix_datum.icon_state)
 
 		if(rounded_rarity_score >= 2)
-			add_overlay("rarity_animation")
+			AddOverlays("rarity_animation")
 
 	var/matrix/M = matrix()
 	switch(dir)
@@ -164,12 +164,11 @@
 
 	transform = M
 
-/obj/item/battle_monsters/card/examine(mob/user, distance, is_adjacent)
-
+/obj/item/battle_monsters/card/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 
 	if(facedown && src.loc != user)
-		to_chat(user, SPAN_NOTICE("You can't examine \the [src] while it's face down!"))
+		. += SPAN_NOTICE("You can't examine \the [src] while it's face down!")
 		return
 
 	if(trap_datum)

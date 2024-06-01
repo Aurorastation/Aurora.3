@@ -7,7 +7,11 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/psis_outpost.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("psis_outpost.dmm")
+
+	unit_test_groups = list(3)
 
 /area/psis_outpost
 	name = "PSIS Outpost"
@@ -18,6 +22,7 @@
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_HIGHSEC
+	area_blurb = "You feel watched inside this ominous compound."
 
 //ghost roles
 
@@ -31,7 +36,7 @@
 	max_count = 3
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	outfit = /datum/outfit/admin/psis_outpost
+	outfit = /obj/outfit/admin/psis_outpost
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -40,7 +45,7 @@
 	respawn_flag = null
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/psis_outpost
+/obj/outfit/admin/psis_outpost
 	name = "People's Strategic Intelligence Service Agent"
 
 	uniform = /obj/item/clothing/under/tajaran/psis
@@ -56,12 +61,14 @@
 						/obj/item/melee/telebaton = 1,
 						/obj/item/handcuffs = 2
 						)
-
+	backpack_contents = list(
+		/obj/item/clothing/accessory/badge/hadii_card/member = 1
+	)
 	l_ear = null
 
 	id = /obj/item/card/id
 	r_pocket = /obj/item/storage/wallet/random
 	l_pocket = /obj/item/device/radio
 
-/datum/outfit/admin/psis_outpost/get_id_access()
+/obj/outfit/admin/psis_outpost/get_id_access()
 	return list(ACCESS_PRA)

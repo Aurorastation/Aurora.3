@@ -133,29 +133,30 @@
 /mob/living/heavy_vehicle/IsAdvancedToolUser()
 	return 1
 
-/mob/living/heavy_vehicle/examine(var/mob/user)
+/mob/living/heavy_vehicle/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = list()
 	if(!user || !user.client)
 		return TRUE
-	to_chat(user, "That's \a <b>[src]</b>.")
+	. += "That's \a <b>[src]</b>."
 	if(desc)
 		to_chat(user, desc)
 	if(LAZYLEN(pilots) && (!hatch_closed || body.pilot_coverage < 100 || body.transparent_cabin))
 		if(length(pilots) == 0)
-			to_chat(user, "It has <b>no pilot</b>.")
+			. += "It has <b>no pilot</b>."
 		else
 			for(var/pilot in pilots)
-				if(istype(pilot, /mob))
+				if(ismob(pilot))
 					var/mob/M = pilot
-					to_chat(user, "It is being <b>piloted</b> by <a href=?src=\ref[src];examine=\ref[M]>[M.name]</a>.")
+					. += "It is being <b>piloted</b> by <a href=?src=\ref[src];examine=\ref[M]>[M.name]</a>."
 				else
-					to_chat(user, "It is being <b>piloted</b> by <b>[pilot]</b>.")
+					. += "It is being <b>piloted</b> by <b>[pilot]</b>."
 	if(hardpoints.len)
-		to_chat(user, "<span class='notice'>It has the following hardpoints:</span>")
+		. += SPAN_NOTICE("It has the following hardpoints:")
 		for(var/hardpoint in hardpoints)
 			var/obj/item/I = hardpoints[hardpoint]
-			to_chat(user, "- <b>[hardpoint]</b>: [istype(I) ? "<span class='notice'><i>[I]</i></span>" : "nothing"].")
+			. += "- <b>[hardpoint]</b>: [istype(I) ? SPAN_NOTICE("<i>[I]</i>") : "nothing"]."
 	else
-		to_chat(user, "It has <b>no visible hardpoints</b>.")
+		. += "It has <b>no visible hardpoints</b>."
 
 	for(var/obj/item/mech_component/thing in list(arms, legs, head, body))
 		if(!thing)
@@ -165,12 +166,12 @@
 			if(1)
 				damage_string = "undamaged"
 			if(2)
-				damage_string = "<span class='warning'>damaged</span>"
+				damage_string = SPAN_WARNING("damaged")
 			if(3)
-				damage_string = "<span class='warning'>badly damaged</span>"
+				damage_string = SPAN_WARNING("badly damaged")
 			if(4)
-				damage_string = "<span class='danger'>destroyed</span>"
-		to_chat(user, "Its <b>[thing.name]</b> [thing.gender == PLURAL ? "are" : "is"] [damage_string].")
+				damage_string = SPAN_DANGER("destroyed")
+		. += "Its <b>[thing.name]</b> [thing.gender == PLURAL ? "are" : "is"] [damage_string]."
 
 /mob/living/heavy_vehicle/Topic(href,href_list[])
 	if (href_list["examine"])
@@ -288,7 +289,7 @@
 		user.set_machine(src)
 		interact(user)
 	else
-		to_chat(user, "<span class='warning'>The radio is too damaged to function.</span>")
+		to_chat(user, SPAN_WARNING("The radio is too damaged to function."))
 
 /obj/item/device/radio/exosuit/CanUseTopic()
 	. = ..()

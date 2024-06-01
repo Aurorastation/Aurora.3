@@ -26,13 +26,14 @@
 	icon_state = "vacuumflask"
 	volume = 60
 	center_of_mass = list("x"=15, "y"=4)
-
+	var/cup_type = /obj/item/reagent_containers/food/drinks/flask/flask_cup
 	var/obj/item/reagent_containers/food/drinks/flask/flask_cup/cup
 
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask/Initialize()
 	. = ..()
-	cup = new(src)
+	cup = new cup_type(src)
 	atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
+	update_icon()
 
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask/attack_self(mob/user)
 	if(cup)
@@ -42,24 +43,25 @@
 		cup = null
 		update_icon()
 
-/obj/item/reagent_containers/food/drinks/flask/vacuumflask/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/reagent_containers/food/drinks/flask/flask_cup))
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/food/drinks/flask/flask_cup))
 		if(cup)
 			to_chat(user, SPAN_WARNING("\The [src] already has a cap."))
 			return TRUE
-		if(W.reagents.total_volume + reagents.total_volume > volume)
+		if(attacking_item.reagents.total_volume + reagents.total_volume > volume)
 			to_chat(user, SPAN_WARNING("There's too much fluid in both the cap and \the [src]!"))
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You put the cap onto \the [src]."))
-		user.drop_from_inventory(W, src)
+		user.drop_from_inventory(attacking_item, src)
 		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
-		cup = W
+		cup = attacking_item
 		cup.reagents.trans_to_holder(reagents, cup.reagents.total_volume)
 		update_icon()
 		return TRUE
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask/update_icon()
+	..()
 	icon_state = cup ? initial(icon_state) : "[initial(icon_state)]-nobrim"
 
 /obj/item/reagent_containers/food/drinks/flask/flask_cup
@@ -73,3 +75,16 @@
 	if(istype(target, /obj/item/reagent_containers/food/drinks/flask/vacuumflask))
 		return
 	return ..()
+
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash
+	name = "mouthwash bottle"
+	desc = "Minty-fresh and enamel-protecting, ensuring a fresh breath."
+	icon_state = "mouthwash"
+	cup_type = /obj/item/reagent_containers/food/drinks/flask/flask_cup/mouthwash
+	reagents_to_add = list(/singleton/reagent/drink/toothpaste/mouthwash = 60)
+
+/obj/item/reagent_containers/food/drinks/flask/flask_cup/mouthwash
+	name = "mouthwash bottle cap"
+	desc = "The cup that appears in your hands after you unscrew the cap of the bottle and turn it over."
+	icon_state = "mouthwash_cap"
+	center_of_mass = list("x" = 16, "y" = 16)

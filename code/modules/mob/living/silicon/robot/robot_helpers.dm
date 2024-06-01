@@ -1,16 +1,16 @@
 /mob/living/silicon/robot/set_intent(var/set_intent)
 	a_intent = set_intent
-	cut_overlay(eye_overlay)
+	CutOverlays(eye_overlay)
 	if(!length(module_sprites))
 		return
 	if(!length(cached_eye_overlays))
 		setup_eye_cache()
 	if(!stat)
 		eye_overlay = cached_eye_overlays[a_intent]
-		add_overlay(eye_overlay)
+		AddOverlays(eye_overlay)
 
 /mob/living/silicon/robot/proc/handle_panel_overlay()
-	cut_overlay(panel_overlay)
+	CutOverlays(panel_overlay)
 	if(!length(cached_panel_overlays))
 		setup_panel_cache()
 	if(opened)
@@ -20,7 +20,7 @@
 			panel_overlay = cached_panel_overlays[ROBOT_PANEL_CELL]
 		else
 			panel_overlay = cached_panel_overlays[ROBOT_PANEL_NO_CELL]
-		add_overlay(panel_overlay)
+		AddOverlays(panel_overlay)
 
 /mob/living/silicon/robot/proc/setup_icon_cache()
 	if(!module_sprites[icontype])
@@ -29,31 +29,32 @@
 	setup_panel_cache()
 
 /mob/living/silicon/robot/proc/setup_eye_cache()
-	if(!module_sprites[icontype][ROBOT_EYES])
+	if(!module_sprites?[icontype]?[ROBOT_EYES])
 		return
-	var/eye_layer = src.layer
+	var/eye_plane = src.plane
 	if(lights_on && layer == MOB_LAYER) // in case you're hiding. so eyes don't go through tables.
-		eye_layer = EFFECTS_ABOVE_LIGHTING_LAYER //make them glow in the dark if the lamp is on
+		eye_plane = EFFECTS_ABOVE_LIGHTING_PLANE //make them glow in the dark if the lamp is on
 	var/eyeprefix = module_sprites[icontype][ROBOT_EYES]
 	if(speed == -2) // For combat drones with the mobility module.
 		cached_eye_overlays = list(
-			I_HELP = image(icon, "[eyeprefix]-roll-eyes_help", layer = eye_layer),
-			I_HURT = image(icon, "[eyeprefix]-roll-eyes_harm", layer = eye_layer)
+			I_HELP = image(icon, "[eyeprefix]-roll-eyes_help"),
+			I_HURT = image(icon, "[eyeprefix]-roll-eyes_harm")
 		)
 	else
 		cached_eye_overlays = list(
-			I_HELP = image(icon, "[eyeprefix]-eyes_help", layer = eye_layer), //Changed so icontype goes in front. Helps with parsing in this godforsaken engine known as BYOND.
-			I_HURT = image(icon, "[eyeprefix]-eyes_harm", layer = eye_layer)
+			I_HELP = image(icon, "[eyeprefix]-eyes_help"), //Changed so icontype goes in front. Helps with parsing in this godforsaken engine known as BYOND.
+			I_HURT = image(icon, "[eyeprefix]-eyes_harm")
 		)
 	if(eye_overlay)
-		cut_overlay(eye_overlay)
+		CutOverlays(eye_overlay)
 	eye_overlay = cached_eye_overlays[a_intent]
-	add_overlay(eye_overlay)
+	eye_overlay.plane = eye_plane
+	AddOverlays(eye_overlay)
 
 /mob/living/silicon/robot/proc/setup_panel_cache()
 	if(!length(module_sprites))
 		return
-	if(!module_sprites[icontype][ROBOT_PANEL])
+	if(!module_sprites?[icontype]?[ROBOT_PANEL])
 		return
 	var/panelprefix = custom_sprite ? src.ckey : module_sprites[icontype][ROBOT_PANEL] // Shoutout to Geeves.
 	cached_panel_overlays = list(

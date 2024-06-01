@@ -136,7 +136,8 @@
 	update_icon()
 	return
 
-/obj/machinery/bodyscanner/attackby(obj/item/grab/G, mob/user)
+/obj/machinery/bodyscanner/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/grab/G = attacking_item
 	if (!istype(G, /obj/item/grab) || !isliving(G.affecting) )
 		return
 	if (occupant)
@@ -164,17 +165,18 @@
 	qdel(G)
 	return TRUE
 
-/obj/machinery/bodyscanner/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
+/obj/machinery/bodyscanner/MouseDrop_T(atom/dropping, mob/user)
 	if(!istype(user))
 		return
-	if(!ismob(O))
+
+	if(!ismob(dropping))
 		return
-	var/mob/living/M = O//Theres no reason this shouldn't be /mob/living
+
 	if (occupant)
 		to_chat(user, SPAN_NOTICE("<B>The scanner is already occupied!</B>"))
 		return
 
-	var/mob/living/L = O
+	var/mob/living/L = dropping
 	var/bucklestatus = L.bucklecheck(user)
 	if (!bucklestatus)
 		return
@@ -188,11 +190,11 @@
 		if (bucklestatus == 2)
 			var/obj/structure/LB = L.buckled_to
 			LB.user_unbuckle(user)
-		if (M.client)
-			M.client.perspective = EYE_PERSPECTIVE
-			M.client.eye = src
-		M.forceMove(src)
-		occupant = M
+		if (L.client)
+			L.client.perspective = EYE_PERSPECTIVE
+			L.client.eye = src
+		L.forceMove(src)
+		occupant = L
 		update_use_power(POWER_USE_ACTIVE)
 		update_icon()
 		playsound(loc, 'sound/machines/cryopod/cryopod_enter.ogg', 25)
@@ -252,6 +254,7 @@
 	var/has_external_injuries = FALSE
 	density = FALSE
 	anchored = TRUE
+	z_flags = ZMM_MANGLE_PLANES
 	component_types = list(
 			/obj/item/circuitboard/bodyscannerconsole,
 			/obj/item/stock_parts/scanning_module = 2,
@@ -279,13 +282,15 @@
 	update_icon()
 
 /obj/machinery/body_scanconsole/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if((stat & BROKEN) || (stat & NOPOWER))
 		return
 	else
 		if(!console_overlay)
-			console_overlay = make_screen_overlay(icon, "body_scannerconsole-screen")
-		add_overlay(console_overlay)
+			console_overlay = image(icon, "body_scannerconsole-screen")
+		var/emissive_overlay = emissive_appearance(icon, "body_scannerconsole-screen")
+		AddOverlays(console_overlay)
+		AddOverlays(emissive_overlay)
 		set_light(1.4, 1, COLOR_PURPLE)
 
 /obj/machinery/body_scanconsole/Initialize()
@@ -315,7 +320,7 @@
 	switch(action)
 		// shouldn't be reachable if occupant is invalid
 		if("print")
-			var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, format_occupant_data(connected.get_occupant_data()), "Scan ([connected.occupant])", connected.occupant)
+			var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, format_occupant_data(connected.get_occupant_data()), "Scan ([connected.occupant]) ([worldtime2text()])", connected.occupant)
 			print(R, message = "\The [src] beeps, printing \the [R] after a moment.", user = usr)
 
 		if("eject")
@@ -477,19 +482,6 @@
 	return data
 
 /obj/machinery/body_scanconsole/proc/get_internal_damage(var/obj/item/organ/internal/I)
-	if(istype(I, /obj/item/organ/internal/parasite))
-		var/obj/item/organ/internal/parasite/P = I
-		switch(P.stage)
-			if(1)
-				return "Tiny"
-			if(2)
-				return "Small"
-			if(3)
-				return "Large"
-			if(4)
-				return "Massive"
-			else
-				return "Present"
 	if(I.is_broken())
 		return "Severe"
 	if(I.is_bruised())
@@ -564,7 +556,8 @@
 				else if(istype(I, /obj/effect/spider))
 					organic += I
 				else
-					unk += 1
+					if(!istype(I, /obj/item/implant/uplink))
+						unk += 1
 			if (unk)
 				wounds += "unknown objects present"
 			var/friends = length(organic)
@@ -610,6 +603,15 @@
 			var/obj/item/organ/internal/appendix/A = O
 			if(A.inflamed)
 				wounds += "inflamed"
+
+		if(istype(O, /obj/item/organ/internal/parasite))
+			var/obj/item/organ/internal/parasite/P = O
+			if(P.stage)
+				wounds += "stage [P.stage]"
+			if(P.parent_organ)
+				wounds += "growing in [P.parent_organ]"
+			if(istype(P, /obj/item/organ/internal/parasite/malignant_tumour) && P.stage >= 4)
+				wounds += "metastasising"
 
 		if(O.status & ORGAN_DEAD)
 			if(O.can_recover())
@@ -828,7 +830,7 @@
 		dat += "</table>"
 
 	if(occ["missing_limbs"] != "Nothing")
-		dat += text("<span class='warning'>Missing limbs : [occ["missing_limbs"]]</span><BR>")
+		dat += SPAN_WARNING("Missing limbs : [occ["missing_limbs"]]<BR>")
 
 	dat += "<br><b>Internal Organ Status<HR></b>"
 
@@ -852,7 +854,7 @@
 		dat += "</table>"
 
 	if(occ["missing_organs"] != "Nothing")
-		dat += text("<span class='warning'>Missing organs : [occ["missing_organs"]]</span><BR>")
+		dat += SPAN_WARNING("Missing organs : [occ["missing_organs"]]<BR>")
 
 	dat += "</font></font>"
 
@@ -877,7 +879,7 @@
 	return ..()
 
 /obj/machinery/body_scanconsole/embedded/ui_state(mob/user)
-	return human_adjacent_loc_state
+	return GLOB.human_adjacent_loc_state
 
 /obj/machinery/body_scanconsole/embedded/get_connected()
 	if(monitor_console)

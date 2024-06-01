@@ -207,28 +207,28 @@
 	if(!(locate(O) in src.module.modules) && O != src.module.emag)
 		return
 	if(activated(O))
-		to_chat(src, "<span class='notice'>Already activated</span>")
+		to_chat(src, SPAN_NOTICE("Already activated"))
 		return
 	if(!module_state_1)
 		module_state_1 = O
-		O.layer = SCREEN_LAYER
+		O.hud_layerise()
 		O.screen_loc = inv1.screen_loc
 		contents += O
 		O.on_module_hotbar(src)
 	else if(!module_state_2)
 		module_state_2 = O
-		O.layer = SCREEN_LAYER
+		O.hud_layerise()
 		O.screen_loc = inv2.screen_loc
 		contents += O
 		O.on_module_hotbar(src)
 	else if(!module_state_3)
 		module_state_3 = O
-		O.layer = SCREEN_LAYER
+		O.hud_layerise()
 		O.screen_loc = inv3.screen_loc
 		contents += O
 		O.on_module_hotbar(src)
 	else
-		to_chat(src, "<span class='notice'>You need to disable a module first!</span>")
+		to_chat(src, SPAN_NOTICE("You need to disable a module first!"))
 
 /mob/living/silicon/robot/put_in_hands(var/obj/item/W) // Maybe hands.
 	var/obj/item/gripper/G = get_active_hand()
@@ -255,7 +255,7 @@
 	if(istype(module_active, /obj/item/gripper))
 		var/obj/item/gripper/G = module_active
 		if(G.wrapped == O)
-			G.drop(get_turf(src), FALSE) //We don't need to see the "released X item" message if we're putting stuff in fridges and the like.
+			G.drop(get_turf(src), src, FALSE) //We don't need to see the "released X item" message if we're putting stuff in fridges and the like.
 
 /mob/living/silicon/robot/drop_item()
 	if(istype(module_active, /obj/item/gripper))
@@ -272,7 +272,7 @@
 			target = loc
 		if (istype(W.loc, /obj/item/gripper))
 			var/obj/item/gripper/G = W.loc
-			G.drop(target, do_feedback)
+			G.drop(target, src, do_feedback)
 			return TRUE
 	return FALSE
 
@@ -287,14 +287,13 @@
 	var/list/index_module = list(module_state_1,module_state_2,module_state_3)
 	var/result = "   Hardpoint [slot] holds "
 	result += (index_module[slot]) ? "[icon2html(index_module[slot], viewers(get_turf(src)))] [index_module[slot]]." : "nothing."
-	result += "\n"
 	return result
 
 /mob/living/silicon/robot/proc/describe_all_modules()
-	var/result="It has three tool hardpoints.\n"
+	var/result="It has three tool hardpoints."
 	for (var/x = 1; x <=3; x++)
 		result += describe_module(x)
 	var/selected = get_selected_module()
 	if (selected)
-		result += "\nThe activity light on hardpoint [selected] is on.\n"
+		result += "The activity light on hardpoint [selected] is on."
 	return result

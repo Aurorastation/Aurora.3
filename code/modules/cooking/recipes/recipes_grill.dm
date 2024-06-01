@@ -27,3 +27,8 @@
 	for(var/thing in results)
 		var/obj/item/XMG = thing
 		XMG.reagents.del_reagent(/singleton/reagent/acid/polyacid)
+
+/singleton/recipe/grilled_peppers
+	appliance = GRILL | OVEN
+	fruit = list("bellpepper" = 1)
+	result = /obj/item/reagent_containers/food/snacks/grilled_peppers

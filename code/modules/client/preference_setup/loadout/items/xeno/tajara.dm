@@ -1,3 +1,6 @@
+/datum/gear/shoes/tajara
+	abstract_type = /datum/gear/shoes/tajara
+
 /datum/gear/shoes/tajara/boots
 	display_name = "tajaran boots selection"
 	description = "A selection of boots fitted for Tajara."
@@ -113,7 +116,7 @@
 	display_name = "PRA medical coat"
 	path = /obj/item/clothing/suit/storage/toggle/labcoat/tajaran
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Chemist", "First Responder", "Medical Intern", "Medical Personnel")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Medical Personnel")
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/suit/tajaran_surgeon
@@ -453,7 +456,7 @@
 	charm["bone charm"] = /obj/item/clothing/accessory/tajaran/charm/bone
 	charm["silver seashell charm"] = /obj/item/clothing/accessory/tajaran/charm/steel/silver/seashell
 	charm["tajani charm"] = /obj/item/clothing/accessory/tajaran/charm/tajani
-	charm["holy sun rosette"] = /obj/item/clothing/accessory/tajaran/srendarr
+	charm["Kin of S'rendarr rosette"] = /obj/item/clothing/accessory/tajaran/kin_srendarr
 	gear_tweaks += new /datum/gear_tweak/path(charm)
 
 /datum/gear/tail_cloth

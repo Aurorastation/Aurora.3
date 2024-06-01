@@ -38,7 +38,7 @@
 			return
 
 /obj/item/clipboard/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/list/to_add = list()
 	if(toppaper)
 		to_add += toppaper.icon_state
@@ -48,21 +48,21 @@
 	if(haspen)
 		to_add += "clipboard_pen"
 	to_add += "clipboard_over"
-	add_overlay(to_add)
+	AddOverlays(to_add)
 
-/obj/item/clipboard/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clipboard/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(W, /obj/item/paper) || istype(W, /obj/item/photo))
-		user.drop_from_inventory(W,src)
-		if(istype(W, /obj/item/paper))
-			toppaper = W
+	if(istype(attacking_item, /obj/item/paper) || istype(attacking_item, /obj/item/photo))
+		user.drop_from_inventory(attacking_item, src)
+		if(istype(attacking_item, /obj/item/paper))
+			toppaper = attacking_item
 		r_contents = reverselist(contents)
-		to_chat(user, "<span class='notice'>You clip the [W] onto \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You clip the [attacking_item] onto \the [src]."))
 
-	else if(istype(toppaper) && W.ispen())
-		toppaper.attackby(W, user)
+	else if(istype(toppaper) && attacking_item.ispen())
+		toppaper.attackby(attacking_item, user)
 
-	else if(W.ispen())
+	else if(attacking_item.ispen())
 		add_pen(user)
 
 	if(ui_open)
@@ -106,7 +106,7 @@
 		if(W.ispen())
 			user.drop_from_inventory(W,src)
 			haspen = W
-			to_chat(user, "<span class='notice'>You slot the pen into \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You slot the pen into \the [src]."))
 	else
 		to_chat(user, SPAN_NOTICE("This clipboard already has a pen!"))
 
@@ -180,7 +180,7 @@
 			var/obj/item/P = locate(href_list["top"])
 			if(P && (P.loc == src) && istype(P, /obj/item/paper) )
 				toppaper = P
-				to_chat(usr, "<span class='notice'>You move [P.name] to the top.</span>")
+				to_chat(usr, SPAN_NOTICE("You move [P.name] to the top."))
 
 		//Update everything
 		attack_self(usr)

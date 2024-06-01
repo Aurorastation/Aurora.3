@@ -21,6 +21,20 @@
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel and stock"
 
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed
+	name = "strange rifle"
+	desc = DESC_PARENT
+	can_sawoff = FALSE
+	load_method = MAGAZINE
+
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/handle_pump_loading()
+	if(ammo_magazine && length(ammo_magazine.stored_ammo))
+		var/obj/item/ammo_casing/AC = ammo_magazine.stored_ammo[1] //load next casing.
+		if(AC)
+			AC.forceMove(src)
+			ammo_magazine.stored_ammo -= AC
+			chambered = AC
+
 /obj/item/gun/projectile/shotgun/pump/rifle/blank
 	desc = "A replica of a traditional Adhomian bolt action rifle. It has the seal of the Grand Romanovich Casino on its stock."
 	ammo_type = /obj/item/ammo_casing/a762/blank
@@ -56,7 +70,7 @@
 		update_icon()
 	name = "sawn-off bolt action rifle"
 	desc = "A shortened bolt action rifle, not really acurate."
-	to_chat(user, "<span class='warning'>You shorten the barrel and stock of the rifle!</span>")
+	to_chat(user, SPAN_WARNING("You shorten the barrel and stock of the rifle!"))
 
 /obj/item/gun/projectile/shotgun/pump/rifle/obrez
 	name = "sawn-off bolt action rifle"
@@ -70,7 +84,7 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	can_bayonet = FALSE
 
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun
 	name = "pipegun"
 	desc = "An excellent weapon for flushing out tunnel rats and enemy assistants, but its rifling leaves much to be desired."
 	icon = 'icons/obj/guns/pipegun.dmi'
@@ -91,39 +105,31 @@
 
 	jam_chance = -10
 
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/handle_pump_loading()
-	if(ammo_magazine && length(ammo_magazine.stored_ammo))
-		var/obj/item/ammo_casing/AC = ammo_magazine.stored_ammo[1] //load next casing.
-		if(AC)
-			AC.forceMove(src)
-			ammo_magazine.stored_ammo -= AC
-			chambered = AC
-
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/examine(mob/user)
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(jam_chance)
 		if(10 to 20)
-			to_chat(user, SPAN_NOTICE("\The [src] is starting to accumulate fouling. Might want to grab a rag."))
+			. += SPAN_NOTICE("\The [src] is starting to accumulate fouling. Might want to grab a rag.")
 		if(20 to 40)
-			to_chat(user, SPAN_WARNING("\The [src] looks reasonably fouled up. Maybe you should clean it with a rag."))
+			. += SPAN_WARNING("\The [src] looks reasonably fouled up. Maybe you should clean it with a rag.")
 		if(40 to 80)
-			to_chat(user, SPAN_WARNING("\The [src] is starting to look quite gunked up. You should clean it with a rag."))
+			. += SPAN_WARNING("\The [src] is starting to look quite gunked up. You should clean it with a rag.")
 		if(80 to INFINITY)
-			to_chat(user, SPAN_DANGER("\The [src] is completely fouled. You're going to be extremely lucky to get a shot off. Clean it with a rag."))
+			. += SPAN_DANGER("\The [src] is completely fouled. You're going to be extremely lucky to get a shot off. Clean it with a rag.")
 
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/attackby(obj/item/A, mob/user)
-	if(istype(A, /obj/item/reagent_containers/glass/rag))
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass/rag))
 		if(!jam_chance || jam_chance == initial(jam_chance))
 			to_chat(user, SPAN_WARNING("There's no fouling present on \the [src]."))
 			return
-		user.visible_message("<b>[user]</b> starts cleaning \the [src] with \the [A].", SPAN_NOTICE("You start cleaning \the [src] with \the [A]."))
+		user.visible_message("<b>[user]</b> starts cleaning \the [src] with \the [attacking_item].", SPAN_NOTICE("You start cleaning \the [src] with \the [attacking_item]."))
 		if(do_after(user, jam_chance * 5))
 			to_chat(user, SPAN_WARNING("You completely clean \the [src]."))
 			jam_chance = initial(jam_chance)
 		return
 	return ..()
 
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/handle_post_fire(mob/user)
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun/handle_post_fire(mob/user)
 	. = ..()
 	jam_chance = min(jam_chance + 5, 100)
 
@@ -148,7 +154,7 @@
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
 
 /obj/item/gun/projectile/contender
 	name = "pocket rifle"
@@ -169,7 +175,7 @@
 
 /obj/item/gun/projectile/contender/special_check(mob/user)
 	if(retracted_bolt)
-		to_chat(user, "<span class='warning'>You can't fire \the [src] while the bolt is open!</span>")
+		to_chat(user, SPAN_WARNING("You can't fire \the [src] while the bolt is open!"))
 		return 0
 	return ..()
 
@@ -181,7 +187,7 @@
 		loaded -= C
 
 	if(!retracted_bolt)
-		to_chat(user, "<span class='notice'>You cycle back the bolt on \the [src], ejecting the casing and allowing you to reload.</span>")
+		to_chat(user, SPAN_NOTICE("You cycle back the bolt on \the [src], ejecting the casing and allowing you to reload."))
 		playsound(user, 'sound/weapons/riflebolt.ogg', 60, 1)
 		icon_state = icon_retracted
 		item_state = icon_retracted
@@ -191,10 +197,10 @@
 		return 1
 
 	else if(retracted_bolt && loaded.len)
-		to_chat(user, "<span class='notice'>You cycle the loaded round into the chamber, allowing you to fire.</span>")
+		to_chat(user, SPAN_NOTICE("You cycle the loaded round into the chamber, allowing you to fire."))
 
 	else
-		to_chat(user, "<span class='notice'>You cycle the bolt back into position, leaving the gun empty.</span>")
+		to_chat(user, SPAN_NOTICE("You cycle the bolt back into position, leaving the gun empty."))
 
 	icon_state = initial(icon_state)
 	item_state = initial(item_state)
@@ -206,13 +212,13 @@
 
 /obj/item/gun/projectile/contender/load_ammo(var/obj/item/A, mob/user)
 	if(!retracted_bolt)
-		to_chat(user, "<span class='notice'>You can't load \the [src] without cycling the bolt.</span>")
+		to_chat(user, SPAN_NOTICE("You can't load \the [src] without cycling the bolt."))
 		return
 	..()
 
 /obj/item/gun/projectile/contender/unload_ammo(mob/user, var/allow_dump=1)
 	if(!retracted_bolt)
-		to_chat(user, "<span class='notice'>You can't unload \the [src] without cycling the bolt.</span>")
+		to_chat(user, SPAN_NOTICE("You can't unload \the [src] without cycling the bolt."))
 		return
 	..()
 
@@ -236,31 +242,29 @@
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/unique_action(mob/living/user as mob)
 	if(wielded)
-		if(world.time >= recentpump + 10)
-			pump(user)
-			recentpump = world.time
+		pump(user)
 		return
 	else
 		if(open_bolt && has_clip)
 			if(has_clip.stored_ammo.len > 0)
 				load_ammo(has_clip, user)
-				src.cut_overlays()
+				src.ClearOverlays()
 				if(!has_clip.stored_ammo.len)
-					add_overlay("springfield-clip-empty")
+					AddOverlays("springfield-clip-empty")
 				else if(has_clip.stored_ammo.len <= 3)
-					add_overlay("springfield-clip-half")
+					AddOverlays("springfield-clip-half")
 				else
-					add_overlay("springfield-clip-full")
+					AddOverlays("springfield-clip-full")
 			else
-				to_chat(user, "<span class='warning'>There is no ammo in \the [has_clip.name]!</span>")
+				to_chat(user, SPAN_WARNING("There is no ammo in \the [has_clip.name]!"))
 		else if(!open_bolt)
-			to_chat(user, "<span class='warning'>The bolt on \the [src.name] is closed!</span>")
+			to_chat(user, SPAN_WARNING("The bolt on \the [src.name] is closed!"))
 		else
-			to_chat(user, "<span class='warning'>There is no clip in \the [src.name]!</span>")
+			to_chat(user, SPAN_WARNING("There is no clip in \the [src.name]!"))
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/pump(mob/M as mob)
 	if(!wielded)
-		to_chat(M, "<span class='warning'>You cannot work \the [src]'s bolt without gripping it with both hands!</span>")
+		to_chat(M, SPAN_WARNING("You cannot work \the [src]'s bolt without gripping it with both hands!"))
 		return
 	if(!open_bolt)
 		open_bolt = 1
@@ -274,7 +278,7 @@
 	if(has_clip)
 		has_clip.forceMove(get_turf(src))
 		has_clip = null
-		cut_overlays()
+		ClearOverlays()
 
 
 	if(chambered)//We have a shell in the chamber
@@ -288,36 +292,36 @@
 
 	update_icon()
 
-/obj/item/gun/projectile/shotgun/pump/rifle/vintage/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(istype(A, /obj/item/ammo_magazine/boltaction/vintage))
+/obj/item/gun/projectile/shotgun/pump/rifle/vintage/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/ammo_magazine/boltaction/vintage))
 		if(!open_bolt)
-			to_chat(user, "<span class='notice'>You need to open the bolt of \the [src] first.</span>")
+			to_chat(user, SPAN_NOTICE("You need to open the bolt of \the [src] first."))
 			return
 		if(!has_clip)
-			user.drop_from_inventory(A,src)
-			has_clip = A
-			to_chat(user, "<span class='notice'>You load the clip into \the [src].</span>")
+			user.drop_from_inventory(attacking_item, src)
+			has_clip = attacking_item
+			to_chat(user, SPAN_NOTICE("You load the clip into \the [src]."))
 			if(!has_clip.stored_ammo.len)
-				add_overlay("springfield-clip-empty")
+				AddOverlays("springfield-clip-empty")
 			else if(has_clip.stored_ammo.len <= 3)
-				add_overlay("springfield-clip-half")
+				AddOverlays("springfield-clip-half")
 			else
-				add_overlay("springfield-clip-full")
+				AddOverlays("springfield-clip-full")
 		else
-			to_chat(user, "<span class='notice'>There's already a clip in \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("There's already a clip in \the [src]."))
 
 	else
 		..()
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/load_ammo(var/obj/item/A, mob/user)
 	if(!open_bolt)
-		to_chat(user, "<span class='warning'>The bolt is closed on \the [src]!</span>")
+		to_chat(user, SPAN_WARNING("The bolt is closed on \the [src]!"))
 		return
 	..()
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 	if(open_bolt)
-		to_chat(user, "<span class='warning'>The bolt is open on \the [src]!</span>")
+		to_chat(user, SPAN_WARNING("The bolt is open on \the [src]!"))
 		return
 	..()
 
@@ -337,7 +341,7 @@
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS
 
-	force = 10
+	force = 15
 	slot_flags = SLOT_BACK
 	can_bayonet = TRUE
 	knife_x_offset = 23
@@ -420,3 +424,17 @@
 	rack_verb = "work the lever on"
 	can_bayonet = FALSE
 	can_sawoff = FALSE
+
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle
+	name = "crack rifle"
+	desc = "A heavy bolt-action rifle of Moghesian manufacture."
+	desc_extended = "Manufactured by the Azarak Kingdom in 2350, the Azarak-96 'Crack Rifle' is a bolt-action rifle of Moghesian manufacture, easily recognizable by its long bayonet and large magazine wrapped around its trigger guard.\
+	This heavy but powerful weapon is mostly known for its use by the common warrior of the Traditionalist Coalition during the Contact War.\
+	Many of these rifles survived the ravages of the Contact War, a testament to their reliability."
+	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon_state = "crackrifle"
+	item_state = "crackrifle"
+	caliber = "5.8mm"
+	magazine_type = /obj/item/ammo_magazine/crackrifle
+	allowed_magazines = list(/obj/item/ammo_magazine/crackrifle)
+	load_method = MAGAZINE

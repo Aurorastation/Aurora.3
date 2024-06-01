@@ -50,7 +50,7 @@
 	if(ispath(src.trash))
 		desc_info += "This can be crumpled up into a trash item when empty, or forcibly crumpled on harm intent. "
 	if(illustration)
-		add_overlay(illustration)
+		AddOverlays(illustration)
 
 /obj/item/storage/box/proc/damage(var/severity)
 	health -= severity
@@ -81,7 +81,9 @@
 
 			user.do_attack_animation(src)
 			if ((health-damage) <= 0)
-				L.visible_message("<span class='danger'>[L] tears open the [src], spilling its contents everywhere!</span>", "<span class='danger'>You tear open the [src], spilling its contents everywhere!</span>")
+				L.visible_message(SPAN_DANGER("[L] tears open the [src], spilling its contents everywhere!"),
+									SPAN_DANGER("You tear open the [src], spilling its contents everywhere!"))
+
 				spill()
 			else
 				shake_animation()
@@ -90,13 +92,13 @@
 			damage(damage)
 	..()
 
-/obj/item/storage/box/examine(var/mob/user)
+/obj/item/storage/box/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (health < maxHealth)
 		if (health >= (maxHealth * 0.5))
-			to_chat(user, SPAN_WARNING("It is slightly torn."))
+			. += SPAN_WARNING("It is slightly torn.")
 		else
-			to_chat(user, SPAN_DANGER("It is full of tears and holes."))
+			. += SPAN_DANGER("It is full of tears and holes.")
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/storage/box/attack_self(mob/user as mob)
@@ -131,13 +133,13 @@
 			qdel(src)
 			user.put_in_hands(trash)
 
-/obj/item/storage/box/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/stack/packageWrap))
-		var/total_storage_space = W.get_storage_cost()
+/obj/item/storage/box/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/packageWrap))
+		var/total_storage_space = attacking_item.get_storage_cost()
 		for(var/obj/item/I in contents)
 			total_storage_space += I.get_storage_cost()
 		if(total_storage_space <= max_storage_space)
-			var/question = alert(user, "Will you want to wrap \the [src] or store the item inside?", "Wrap or Store", "Wrap", "Store")
+			var/question = tgui_input_list(user, "Will you want to wrap \the [src] or store the item inside?", "Wrap or Store", list("Wrap", "Store"))
 			if(question == "Wrap")
 				return
 			else if(question == "Store")
@@ -348,6 +350,16 @@
 	drop_sound = 'sound/items/drop/ammobox.ogg'
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/tracking = 4)
+
+/obj/item/storage/box/wallgunammo
+	name = "box of wall gun slugs"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "shellbox"
+	item_state = "shellbox"
+	illustration = "lethalslug"
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
+	starts_with = list(/obj/item/ammo_casing/shotgun/moghes = 8)
 
 /obj/item/storage/box/sniperammo
 	name = "box of 14.5mm shells"
@@ -948,18 +960,26 @@
 
 /obj/item/storage/box/toothpaste
 	can_hold = list(/obj/item/reagent_containers/toothpaste,
-					/obj/item/reagent_containers/toothbrush)
+					/obj/item/reagent_containers/toothbrush,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash,
+					)
 
 	starts_with = list(/obj/item/reagent_containers/toothpaste = 1,
-					/obj/item/reagent_containers/toothbrush = 1)
+					/obj/item/reagent_containers/toothbrush = 1,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 1,
+					)
 
 /obj/item/storage/box/toothpaste/green
 	starts_with = list(/obj/item/reagent_containers/toothpaste = 1,
-					/obj/item/reagent_containers/toothbrush/green = 1)
+					/obj/item/reagent_containers/toothbrush/green = 1,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 1,
+					)
 
 /obj/item/storage/box/toothpaste/red
 	starts_with = list(/obj/item/reagent_containers/toothpaste = 1,
-				/obj/item/reagent_containers/toothbrush/red = 1)
+				/obj/item/reagent_containers/toothbrush/red = 1,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 1,
+					)
 
 /obj/item/storage/box/holobadge
 	name = "holobadge box"
@@ -1118,8 +1138,8 @@
 	else if(length(contents) < 8)
 		icon_state = "paperbag_[choice]-food"
 
-/obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
-	if(O.ispen())
+/obj/item/storage/box/papersack/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ispen())
 		if(!papersack_designs)
 			papersack_designs = sortList(list(
 			"None" = image(icon = src.icon, icon_state = "paperbag_None"),
@@ -1150,10 +1170,10 @@
 		update_icon()
 		return
 
-	else if(O.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		if(length(contents) == 0)
 			to_chat(user, SPAN_NOTICE("You begin poking holes in \the [src]."))
-			if(O.use_tool(src, user, 30))
+			if(attacking_item.use_tool(src, user, 30))
 				if(choice == "SmileyFace")
 					var/obj/item/clothing/head/papersack/smiley/S = new()
 					user.put_in_hands(S)
@@ -1234,10 +1254,6 @@
 		/obj/item/reagent_containers/glass/bottle/syrup/caramel = 1,
 	)
 
-/obj/item/storage/box/produce/fill()
-	. = ..()
-	make_exact_fit()
-
 /obj/item/storage/box/cleaner_tablets
 	name = "\improper Idris cleaner tablets box"
 	desc = "A box of advanced formula chemical tablets designed by Idris Incorporated."
@@ -1265,6 +1281,11 @@
 	name = "box of standstill landmines"
 	desc = "A box containing 5 standstill landmines."
 	starts_with = list(/obj/item/landmine/standstill = 5)
+
+/obj/item/storage/box/landmines/door_rigging
+	name = "box of door rigging landmines"
+	desc = "A box containing 5 door rigging landmines."
+	starts_with = list(/obj/item/landmine/frag/door_rigging = 5)
 
 /obj/item/storage/box/landmines/claymore
 	name = "box of claymore landmines"
@@ -1310,3 +1331,19 @@
 		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/jaekseol = 7
 	)
 
+/obj/item/storage/box/telefreedom_kit
+	name = "telefreedom kit"
+	desc = "A box containing a telefreedom full kit."
+	starts_with = list(/obj/item/implant/telefreedom = 4,
+					/obj/item/implanter = 1,
+					//Telepad construction items
+					/obj/item/circuitboard/telesci_pad = 1,
+					/obj/item/bluespace_crystal/artificial = 2,
+					/obj/item/stock_parts/capacitor = 1,
+					/obj/item/stock_parts/console_screen = 1,
+					)
+
+/obj/item/storage/box/telefreedom_kit/fill()
+	. = ..()
+	new /obj/item/stack/cable_coil(src, 6)
+	new /obj/item/stack/material/steel(src, 2)

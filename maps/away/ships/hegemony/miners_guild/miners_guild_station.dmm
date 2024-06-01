@@ -649,7 +649,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = null
 	},
 /turf/simulated/floor/lino/diamond,
@@ -1014,7 +1013,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/green/full{
@@ -1511,7 +1509,7 @@
 /turf/simulated/floor/plating,
 /area/miners_guild)
 "qC" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/condiment/flour,
@@ -2451,7 +2449,6 @@
 "zD" = (
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -3650,7 +3647,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = null
 	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
@@ -3959,7 +3955,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
 "RK" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -4596,7 +4592,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = null
 	},
 /turf/simulated/floor/tiled/white,

@@ -58,7 +58,7 @@
 			is_liquid = FALSE
 		else
 			playsound(user.loc, 'sound/items/eatfood.ogg', rand(10, 50), 1)
-		cut_overlays()
+		ClearOverlays()
 		return
 	else
 		to_chat(user, SPAN_WARNING("You don't have anything on \the [src].")) 	//if we have help intent and no food scooped up DON'T STAB OURSELVES WITH THE FORK)
@@ -70,7 +70,7 @@
 		reagents.clear_reagents()
 		is_liquid = FALSE
 		loaded = null
-		cut_overlays()
+		ClearOverlays()
 	return
 
 /obj/item/material/kitchen/utensil/verb/bite_size()

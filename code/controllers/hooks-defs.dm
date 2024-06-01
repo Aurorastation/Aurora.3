@@ -17,13 +17,6 @@
 /hook/roundend
 
 /**
- * Death hook.
- * Called in death.dm when someone dies.
- * Parameters: var/mob/living/carbon/human, var/gibbed
- */
-/hook/death
-
-/**
  * Cloning hook.
  * Called in cloning.dm when someone is brought back by the wonders of modern science.
  * Parameters: var/mob/living/carbon/human

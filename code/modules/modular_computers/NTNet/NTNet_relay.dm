@@ -36,17 +36,17 @@
 
 /obj/machinery/ntnet_relay/update_icon()
 	icon_state = initial(icon_state)
-	cut_overlays()
+	ClearOverlays()
 	if(panel_open)
 		icon_state += "_o"
 	if(!operable())
 		icon_state += "_off"
 	else if(dos_failure)
-		add_overlay("ntnet_o_problem")
+		AddOverlays("ntnet_o_problem")
 	else if(!enabled)
-		add_overlay("ntnet_o_error")
+		AddOverlays("ntnet_o_error")
 	else
-		add_overlay("ntnet_o_ok")
+		AddOverlays("ntnet_o_ok")
 
 /obj/machinery/ntnet_relay/process()
 	if(operable())
@@ -121,17 +121,17 @@
 		GLOB.ntnet_global.add_log("Quantum relay connection severed. Current amount of linked relays: [NTNet.relays.len]")
 	return ..()
 
-/obj/machinery/ntnet_relay/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
-		playsound(get_turf(src), W.usesound, 50, TRUE)
+/obj/machinery/ntnet_relay/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		panel_open = !panel_open
 		to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance hatch."))
 		return
-	if(W.iscrowbar())
+	if(attacking_item.iscrowbar())
 		if(!panel_open)
 			to_chat(user, SPAN_WARNING("Open the maintenance panel first."))
 			return
-		playsound(get_turf(src), W.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, SPAN_NOTICE("You disassemble \the [src]!"))
 
 		for(var/atom/movable/A in component_parts)

@@ -41,7 +41,7 @@
 
 	for(var/i = 0;i<name_count;i++)
 		new_name = ""
-		for(var/x = rand(FLOOR(syllable_count/syllable_divisor),syllable_count);x>0;x--)
+		for(var/x = rand(FLOOR(syllable_count/syllable_divisor, 1),syllable_count);x>0;x--)
 			new_name += pick(syllables)
 		full_name += " [capitalize(lowertext(new_name))]"
 
@@ -261,8 +261,22 @@
 		default_language = null
 	return ..()
 
-// Can we speak this language, as opposed to just understanding it?
+/**
+ * Check if the language can be spoken by the mob,
+ * not the same thing as understood (you can understand a language without speaking it)
+ *
+ * * speaking - The `/datum/language` to check against, if the mob can speak it
+ *
+ * Returns `TRUE` if the mob speaks the language, `FALSE` otherwise
+ */
 /mob/proc/can_speak(datum/language/speaking)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
+	if(!istype(speaking))
+		stack_trace("No language supplied to check if it can be spoken!")
+		return FALSE
+
 	return (speaking.check_speech_restrict(src) && (universal_speak || (speaking && speaking.flags & INNATE) || (speaking in src.languages)))
 
 /mob/proc/get_language_prefix()

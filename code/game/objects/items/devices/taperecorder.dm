@@ -5,7 +5,7 @@
 	item_state = "analyzer"
 	w_class = ITEMSIZE_SMALL
 
-	matter = list(DEFAULT_WALL_MATERIAL = 60, MATERIAL_GLASS = 30)
+	matter = list(MATERIAL_ALUMINIUM = 60, MATERIAL_GLASS = 30)
 
 	var/emagged = FALSE
 	var/recording = FALSE
@@ -319,12 +319,12 @@
 			icon_state = "taperecorderidle"
 			return
 
-/obj/item/device/taperecorder/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/computer_hardware/hard_drive/portable))
+/obj/item/device/taperecorder/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/computer_hardware/hard_drive/portable))
 		if(portable_drive)
 			to_chat(user, SPAN_WARNING("\The [src] already has a portable drive!"))
 			return
-		user.drop_from_inventory(W, src)
-		portable_drive = W
+		user.drop_from_inventory(attacking_item, src)
+		portable_drive = attacking_item
 	else
 		..()

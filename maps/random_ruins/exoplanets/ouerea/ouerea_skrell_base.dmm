@@ -1,0 +1,1677 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ak" = (
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"ay" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/structure/sign/flag/nralakk/large/west{
+	pixel_x = -32
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"bX" = (
+/turf/simulated/floor/exoplanet/water/shallow{
+	temperature = 298.15
+	},
+/area/ouerea_skrell)
+"dS" = (
+/obj/structure/table/skrell,
+/obj/item/pen/black,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"dT" = (
+/obj/structure/table/skrell,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nralakk,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"eA" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"eI" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"ff" = (
+/obj/structure/sign/flag/nralakk/large/south{
+	pixel_y = -32
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"fL" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 10
+	},
+/obj/machinery/light/skrell,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"fU" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
+	},
+/obj/structure/sign/flag/nralakk/large/east{
+	pixel_x = 32
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"hD" = (
+/turf/simulated/floor/shuttle/skrell,
+/area/ouerea_skrell)
+"hK" = (
+/obj/structure/bed/aqua,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"iF" = (
+/turf/simulated/wall/shuttle/skrell,
+/area/ouerea_skrell)
+"iH" = (
+/obj/machinery/bodyscanner{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"jD" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"jQ" = (
+/obj/machinery/light/skrell,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"lo" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"lB" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"mv" = (
+/obj/machinery/door/airlock/skrell{
+	name = "Laboratory"
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"nw" = (
+/obj/structure/closet/skrell,
+/obj/item/clothing/under/skrell/nralakk/ix,
+/obj/item/clothing/under/skrell/nralakk/ix,
+/obj/item/clothing/under/skrell/nralakk/ix,
+/obj/item/clothing/suit/storage/toggle/skrell/iqi,
+/obj/item/clothing/suit/storage/toggle/skrell/iqi,
+/obj/item/clothing/suit/storage/toggle/labcoat,
+/obj/item/clothing/suit/storage/toggle/labcoat,
+/obj/item/clothing/suit/storage/toggle/labcoat,
+/obj/item/device/camera,
+/obj/item/taperoll/science,
+/obj/item/device/taperecorder,
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"nF" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
+	},
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"oe" = (
+/obj/structure/closet/skrell,
+/obj/item/clothing/under/skrell/nralakk/ix,
+/obj/item/clothing/under/skrell/nralakk/ix,
+/obj/item/clothing/under/skrell/nralakk/ix,
+/obj/item/clothing/under/skrell/nralakk/ix,
+/obj/item/clothing/under/skrell/nralakk/ix,
+/obj/item/clothing/accessory/poncho/skrell,
+/obj/item/clothing/accessory/poncho/skrell/brown,
+/obj/item/clothing/accessory/poncho/skrell/gray,
+/obj/item/clothing/accessory/poncho/skrell/tan,
+/obj/item/clothing/ears/skrell/workcap,
+/obj/item/clothing/ears/skrell/workcap/long,
+/obj/item/clothing/shoes/jackboots/kala,
+/obj/item/clothing/shoes/jackboots/kala,
+/obj/item/clothing/shoes/jackboots/kala,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"ps" = (
+/obj/structure/blocker/steel/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_skrell)
+"pG" = (
+/obj/structure/table/skrell,
+/obj/item/storage/box/fancy/tray,
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"rR" = (
+/obj/structure/closet/skrell,
+/obj/item/clothing/shoes/jackboots/kala,
+/obj/item/clothing/shoes/jackboots/kala,
+/obj/item/clothing/shoes/jackboots/kala,
+/obj/item/clothing/suit/storage/toggle/skrell/ix,
+/obj/item/clothing/suit/storage/toggle/skrell/ix,
+/obj/item/clothing/suit/storage/toggle/skrell/ix,
+/obj/item/clothing/suit/storage/toggle/skrell/ix,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"sp" = (
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_skrell)
+"tb" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"tv" = (
+/obj/machinery/door/airlock/skrell{
+	name = "Medbay"
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"uD" = (
+/obj/structure/table/skrell,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/clothing/mask/surgical/w,
+/obj/item/roller/hover,
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"vt" = (
+/obj/machinery/body_scanconsole{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"wo" = (
+/obj/machinery/light/skrell{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"xj" = (
+/obj/machinery/door/airlock/skrell{
+	name = "Mess Hall"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"xp" = (
+/obj/structure/table/skrell,
+/obj/item/clothing/glasses/safety/goggles/science,
+/obj/item/storage/box/monkeycubes/stokcubes,
+/obj/effect/floor_decal/corner/purple{
+	dir = 5
+	},
+/obj/machinery/light/skrell{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"ym" = (
+/obj/structure/table/skrell,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"yK" = (
+/obj/structure/closet/skrell,
+/obj/item/gun/energy/gun/qukala,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"AX" = (
+/obj/structure/table/skrell,
+/obj/item/skrell_projector{
+	pixel_y = 9
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"Cb" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"Cj" = (
+/obj/machinery/door/blast/shutters,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_skrell)
+"CR" = (
+/obj/structure/table/skrell,
+/obj/item/paper_bin,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"CY" = (
+/obj/structure/sign/flag/nralakk/large/west{
+	pixel_x = -32
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"Dn" = (
+/obj/structure/bed/aqua,
+/obj/structure/sign/flag/nralakk/large/west{
+	pixel_x = -32
+	},
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"Dx" = (
+/obj/structure/closet/skrell,
+/obj/item/clothing/under/skrell/nralakk/iqi,
+/obj/item/clothing/accessory/poncho/shouldercape/cloak/iqi,
+/obj/item/clothing/shoes/jackboots/kala,
+/obj/item/clothing/suit/storage/toggle/skrell/iqi,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"DY" = (
+/turf/simulated/floor/shuttle/skrell/ramp/top,
+/area/ouerea_skrell)
+"EI" = (
+/obj/machinery/door/airlock/skrell{
+	name = "Command"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"Fh" = (
+/obj/structure/closet/skrell,
+/obj/item/clothing/suit/storage/toggle/skrell/ix/security,
+/obj/item/clothing/under/skrell/nralakk/ix/security,
+/obj/item/clothing/shoes/jackboots/kala,
+/obj/item/clothing/head/helmet/security/skrell,
+/obj/item/melee/telebaton/nlom,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"Fn" = (
+/obj/structure/bed/stool/chair/office/hover/command{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"GI" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"Hv" = (
+/obj/structure/closet/skrell,
+/obj/item/storage/belt/security/full,
+/obj/item/storage/box/handcuffs,
+/obj/item/clothing/suit/armor/carrier/officer,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"HM" = (
+/obj/structure/closet/skrell,
+/obj/item/clothing/under/skrell/nralakk/ix/med,
+/obj/item/clothing/under/skrell/nralakk/ix/med,
+/obj/item/clothing/under/skrell/nralakk/ix/med,
+/obj/item/clothing/suit/storage/toggle/skrell/iqi/med,
+/obj/item/clothing/suit/storage/toggle/skrell/iqi/med,
+/obj/item/clothing/suit/storage/toggle/skrell/iqi/med,
+/obj/item/clothing/suit/storage/toggle/labcoat,
+/obj/item/clothing/suit/storage/toggle/labcoat,
+/obj/item/clothing/suit/storage/toggle/labcoat,
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"Ip" = (
+/obj/structure/table/skrell,
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"Iw" = (
+/obj/machinery/door/airlock/skrell{
+	name = "Medbay and Laboratory"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"JL" = (
+/turf/simulated/floor/shuttle/skrell/ramp/top{
+	dir = 1
+	},
+/area/ouerea_skrell)
+"LZ" = (
+/obj/structure/sign/flag/nralakk/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"Mp" = (
+/obj/structure/table/skrell,
+/obj/item/stamp/rd{
+	name = "nralakk federation rubber stamp"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"ME" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"MO" = (
+/obj/structure/sign/flag/nralakk/large/north{
+	pixel_y = 32
+	},
+/obj/structure/closet/skrell,
+/obj/item/gun/energy/gun/qukala,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"Nc" = (
+/obj/structure/sign/flag/nralakk/large/east{
+	pixel_x = 32
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"Nd" = (
+/obj/structure/table/skrell,
+/obj/item/storage/firstaid/empty,
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"Nf" = (
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"NM" = (
+/obj/machinery/optable,
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"Pr" = (
+/obj/effect/floor_decal/corner/purple{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"QN" = (
+/obj/machinery/door/airlock/skrell{
+	name = "Living Quarters"
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/ouerea_skrell)
+"RP" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/ouerea_skrell)
+"Sg" = (
+/obj/machinery/photocopier/faxmachine{
+	req_one_access = null;
+	department = "Unknown - Oueran Surface"
+	},
+/obj/structure/table/skrell,
+/obj/item/paper/skrell_ouerea,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"Tc" = (
+/obj/structure/blocker/steel/fence,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_skrell)
+"Tm" = (
+/obj/machinery/door/airlock/skrell{
+	name = "Security Equipment"
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"Uc" = (
+/obj/machinery/clonepod,
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"Vk" = (
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"Vu" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"Vz" = (
+/obj/structure/sign/flag/nralakk,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_skrell)
+"VH" = (
+/obj/structure/table/skrell,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"VP" = (
+/obj/machinery/door/window{
+	dir = 1;
+	name = "Live Specimen Containment"
+	},
+/obj/effect/floor_decal/corner/purple{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"VT" = (
+/obj/item/material/stool/hover,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"WD" = (
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"WE" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"WQ" = (
+/obj/structure/closet/skrell,
+/obj/machinery/light/skrell{
+	dir = 1
+	},
+/obj/item/storage/box/handcuffs,
+/obj/item/storage/belt/security/full,
+/obj/item/clothing/suit/armor/carrier/officer,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"WZ" = (
+/obj/item/material/stool/hover,
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"Yk" = (
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+"Ze" = (
+/obj/machinery/clonepod,
+/obj/effect/floor_decal/corner/purple{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/ouerea_skrell)
+"ZV" = (
+/obj/structure/table/skrell,
+/obj/item/trash/skrellsnacks,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ouerea_skrell)
+
+(1,1,1) = {"
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+"}
+(2,1,1) = {"
+sp
+iF
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+iF
+sp
+"}
+(3,1,1) = {"
+sp
+ps
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+ps
+sp
+"}
+(4,1,1) = {"
+sp
+ps
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+iF
+iF
+iF
+iF
+iF
+iF
+iF
+iF
+iF
+iF
+iF
+sp
+iF
+iF
+iF
+iF
+iF
+iF
+iF
+sp
+ps
+sp
+"}
+(5,1,1) = {"
+sp
+ps
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+iF
+hK
+Ip
+hK
+VH
+Dn
+AX
+hK
+Ip
+hK
+iF
+sp
+iF
+Sg
+ak
+ak
+CY
+ak
+iF
+sp
+ps
+sp
+"}
+(6,1,1) = {"
+sp
+ps
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+iF
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+iF
+sp
+iF
+Cb
+ak
+ak
+Mp
+jQ
+iF
+sp
+ps
+sp
+"}
+(7,1,1) = {"
+sp
+ps
+sp
+sp
+sp
+hD
+hD
+hD
+hD
+hD
+QN
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+oe
+iF
+hD
+EI
+ak
+ak
+WE
+dS
+Fn
+iF
+sp
+ps
+sp
+"}
+(8,1,1) = {"
+sp
+ps
+sp
+sp
+sp
+hD
+sp
+sp
+sp
+sp
+iF
+LZ
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+rR
+iF
+hD
+iF
+Vk
+ak
+ak
+CR
+jQ
+iF
+sp
+ps
+sp
+"}
+(9,1,1) = {"
+sp
+ps
+sp
+sp
+sp
+hD
+sp
+sp
+sp
+sp
+iF
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+ak
+iF
+hD
+iF
+Vk
+ak
+ak
+Nc
+Dx
+iF
+sp
+ps
+sp
+"}
+(10,1,1) = {"
+sp
+ps
+sp
+sp
+sp
+hD
+sp
+sp
+sp
+sp
+iF
+lB
+lB
+lB
+lB
+lB
+lB
+lB
+lB
+lB
+iF
+hD
+iF
+iF
+iF
+iF
+iF
+iF
+iF
+sp
+ps
+sp
+"}
+(11,1,1) = {"
+sp
+ps
+sp
+sp
+sp
+hD
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+bX
+sp
+sp
+sp
+bX
+bX
+sp
+sp
+hD
+iF
+iH
+ME
+ay
+tb
+NM
+iF
+sp
+ps
+sp
+"}
+(12,1,1) = {"
+sp
+ps
+sp
+sp
+sp
+hD
+sp
+sp
+sp
+sp
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+sp
+hD
+iF
+vt
+Nf
+Nf
+Nf
+pG
+iF
+sp
+ps
+sp
+"}
+(13,1,1) = {"
+sp
+ps
+sp
+sp
+sp
+hD
+sp
+sp
+sp
+sp
+sp
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+sp
+sp
+hD
+iF
+uD
+Nf
+Nf
+Nf
+Nd
+iF
+sp
+ps
+sp
+"}
+(14,1,1) = {"
+sp
+iF
+Vz
+sp
+sp
+hD
+sp
+sp
+sp
+sp
+sp
+sp
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+sp
+hD
+iF
+HM
+eI
+eI
+eI
+ym
+iF
+sp
+ps
+sp
+"}
+(15,1,1) = {"
+sp
+Cj
+hD
+hD
+hD
+hD
+sp
+sp
+sp
+sp
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+sp
+hD
+iF
+iF
+iF
+tv
+iF
+iF
+iF
+sp
+ps
+sp
+"}
+(16,1,1) = {"
+sp
+Cj
+hD
+hD
+hD
+hD
+sp
+sp
+sp
+sp
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+sp
+hD
+iF
+ak
+WD
+ak
+ak
+ak
+iF
+sp
+ps
+sp
+"}
+(17,1,1) = {"
+sp
+iF
+Vz
+sp
+sp
+hD
+hD
+hD
+hD
+JL
+RP
+RP
+RP
+RP
+RP
+RP
+RP
+RP
+RP
+RP
+DY
+hD
+Iw
+ak
+ak
+ak
+ak
+jQ
+iF
+sp
+ps
+sp
+"}
+(18,1,1) = {"
+sp
+ps
+sp
+sp
+sp
+hD
+sp
+sp
+hD
+sp
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+sp
+sp
+iF
+ak
+Yk
+ak
+ak
+ak
+iF
+sp
+ps
+sp
+"}
+(19,1,1) = {"
+sp
+ps
+sp
+sp
+sp
+hD
+sp
+sp
+hD
+sp
+sp
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+sp
+sp
+iF
+iF
+iF
+mv
+iF
+iF
+iF
+sp
+ps
+sp
+"}
+(20,1,1) = {"
+sp
+ps
+sp
+iF
+iF
+Tm
+iF
+iF
+hD
+sp
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+sp
+iF
+nw
+eA
+eA
+eA
+Pr
+iF
+sp
+ps
+sp
+"}
+(21,1,1) = {"
+sp
+ps
+sp
+iF
+ak
+ak
+ak
+iF
+hD
+sp
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+sp
+iF
+xp
+Nf
+Nf
+lo
+jD
+iF
+sp
+ps
+sp
+"}
+(22,1,1) = {"
+sp
+ps
+sp
+iF
+wo
+ak
+ak
+iF
+hD
+sp
+sp
+bX
+bX
+bX
+bX
+bX
+bX
+sp
+sp
+bX
+bX
+sp
+iF
+Ze
+Nf
+Nf
+Vu
+fL
+iF
+sp
+ps
+sp
+"}
+(23,1,1) = {"
+sp
+ps
+sp
+iF
+Fh
+ak
+Fh
+iF
+hD
+sp
+sp
+sp
+sp
+sp
+bX
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+iF
+Uc
+nF
+fU
+VP
+GI
+iF
+sp
+ps
+sp
+"}
+(24,1,1) = {"
+sp
+ps
+sp
+iF
+MO
+ak
+yK
+iF
+hD
+sp
+sp
+iF
+lB
+lB
+lB
+lB
+lB
+lB
+lB
+lB
+iF
+sp
+iF
+iF
+iF
+iF
+iF
+iF
+iF
+sp
+ps
+sp
+"}
+(25,1,1) = {"
+sp
+ps
+sp
+iF
+WQ
+ak
+Hv
+iF
+hD
+sp
+sp
+iF
+ak
+VT
+VT
+VT
+VT
+VT
+VT
+ak
+iF
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+ps
+sp
+"}
+(26,1,1) = {"
+sp
+ps
+sp
+iF
+iF
+iF
+iF
+iF
+hD
+hD
+hD
+xj
+ak
+VH
+VH
+VH
+VH
+ZV
+VH
+ff
+iF
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+ps
+sp
+"}
+(27,1,1) = {"
+sp
+ps
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+iF
+ak
+VH
+ZV
+VH
+VH
+dT
+VH
+ak
+iF
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+ps
+sp
+"}
+(28,1,1) = {"
+sp
+ps
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+iF
+ak
+WZ
+VT
+VT
+WZ
+VT
+VT
+Yk
+iF
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+ps
+sp
+"}
+(29,1,1) = {"
+sp
+ps
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+iF
+iF
+iF
+iF
+iF
+iF
+iF
+iF
+iF
+iF
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+ps
+sp
+"}
+(30,1,1) = {"
+sp
+ps
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+ps
+sp
+"}
+(31,1,1) = {"
+sp
+iF
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+Tc
+iF
+sp
+"}
+(32,1,1) = {"
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+sp
+"}

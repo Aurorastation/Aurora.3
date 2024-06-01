@@ -5,6 +5,7 @@
 	name = "helm control console"
 	icon_screen = "helm"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 	var/autopilot = 0
 	var/list/known_sectors = list()
@@ -29,6 +30,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "helm"
 	icon_keyboard = "security_key"
+	icon_keyboard_emis = "security_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
@@ -43,17 +45,17 @@
 		PH.linked_helm = null
 	return ..()
 
-/obj/machinery/computer/ship/helm/attackby(obj/item/I, user)
-	if(istype(I, /obj/item/clothing/head/helmet/pilot))
+/obj/machinery/computer/ship/helm/attackby(obj/item/attacking_item, user)
+	if(istype(attacking_item, /obj/item/clothing/head/helmet/pilot))
 		if(!connected)
 			to_chat(user, SPAN_WARNING("\The [src] isn't linked to any vessels!"))
 			return
-		var/obj/item/clothing/head/helmet/pilot/PH = I
-		if(I in linked_helmets)
-			to_chat(user, SPAN_NOTICE("You unlink \the [I] from \the [src]."))
+		var/obj/item/clothing/head/helmet/pilot/PH = attacking_item
+		if(attacking_item in linked_helmets)
+			to_chat(user, SPAN_NOTICE("You unlink \the [attacking_item] from \the [src]."))
 			PH.set_console(null)
 		else
-			to_chat(user, SPAN_NOTICE("You link \the [I] to \the [src]."))
+			to_chat(user, SPAN_NOTICE("You link \the [attacking_item] to \the [src]."))
 			PH.set_console(src)
 			PH.set_hud_maptext("| Ship Status | [connected.x]-[connected.y] |<br>Speed: [connected.get_speed()] | Acceleration: [get_acceleration()]<br>ETA to Next Grid: [get_eta()]")
 		check_processing()
@@ -194,13 +196,13 @@
 	if(action == "add")
 		var/datum/computer_file/data/waypoint/R = new()
 		var/sec_name = input("Input naviation entry name", "New navigation entry", "Sector #[known_sectors.len]") as text
-		if(!CanInteract(usr, physical_state))
+		if(!CanInteract(usr, GLOB.physical_state))
 			return FALSE
 		if(!sec_name)
 			sec_name = "Sector #[known_sectors.len]"
 		R.fields["name"] = sec_name
 		if(sec_name in known_sectors)
-			to_chat(usr, "<span class='warning'>Sector with that name already exists, please input a different name.</span>")
+			to_chat(usr, SPAN_WARNING("Sector with that name already exists, please input a different name."))
 			return TRUE
 		switch(params["add"])
 			if("current")
@@ -208,10 +210,10 @@
 				R.fields["y"] = connected.y
 			if("new")
 				var/newx = input("Input new entry x coordinate", "Coordinate input", connected.x) as num
-				if(!CanInteract(usr, physical_state))
+				if(!CanInteract(usr, GLOB.physical_state))
 					return TRUE
 				var/newy = input("Input new entry y coordinate", "Coordinate input", connected.y) as num
-				if(!CanInteract(usr, physical_state))
+				if(!CanInteract(usr, GLOB.physical_state))
 					return FALSE
 				R.fields["x"] = Clamp(newx, 1, world.maxx)
 				R.fields["y"] = Clamp(newy, 1, world.maxy)
@@ -225,14 +227,14 @@
 
 	if (action == "setx")
 		var/newx = input("Input new destination x coordinate", "Coordinate input", dx) as num|null
-		if(!CanInteract(usr, physical_state))
+		if(!CanInteract(usr, GLOB.physical_state))
 			return
 		if (newx)
 			dx = Clamp(newx, 1, world.maxx)
 
 	if (action == "sety")
 		var/newy = input("Input new destination y coordinate", "Coordinate input", dy) as num|null
-		if(!CanInteract(usr, physical_state))
+		if(!CanInteract(usr, GLOB.physical_state))
 			return
 		if (newy)
 			dy = Clamp(newy, 1, world.maxy)
@@ -311,6 +313,7 @@
 	name = "navigation console"
 	icon_screen = "nav"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 	circuit = /obj/item/circuitboard/ship/navigation
 
@@ -327,6 +330,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "nav"
 	icon_keyboard = "generic_key"
+	icon_keyboard_emis = "generic_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE

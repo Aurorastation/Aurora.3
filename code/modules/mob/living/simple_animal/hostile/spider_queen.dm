@@ -103,7 +103,7 @@
 		M.speed = -1
 		M.update_icon()
 		M.pass_flags = PASSTABLE | PASSMOB
-		M.layer = BELOW_MOB_LAYER
+		M.layer = LYING_MOB_LAYER
 		addtimer(CALLBACK(src, PROC_REF(do_landing), M), 1 MINUTE)
 		return TRUE
 	else
@@ -118,11 +118,11 @@
 	S.layer = initial(S.layer)
 	var/turf/target_turf = get_turf(S)
 	if(target_turf)
-		S.visible_message("<span class='danger'>\The [S] lands on the [target_turf]!</span>")
+		S.visible_message(SPAN_DANGER("\The [S] lands on the [target_turf]!"))
 		for(var/mob/living/M in target_turf)
 			if(M != src)
 				M.apply_damage(50, DAMAGE_BRUTE)
-				M.apply_effect(6, STUN, blocked)
+				M.apply_effect(6, STUN)
 	return TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/Life()

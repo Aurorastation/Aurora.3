@@ -10,7 +10,7 @@
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = ITEMSIZE_NORMAL
-	force = 10
+	force = 15
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	can_turret = TRUE
@@ -30,22 +30,22 @@
 	var/named = 0
 	var/described = 0
 
-/obj/item/gun/energy/laser/prototype/examine(mob/user, distance, is_adjacent)
-	. = ..(user)
+/obj/item/gun/energy/laser/prototype/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(distance > 1)
 		return
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-			to_chat(user, "You can see \the [modifier] attached.")
+			. += "You can see \a [modifier] attached."
 	if(capacitor)
-		to_chat(user, "You can see \the [capacitor] attached.")
+		. += "You can see \a [capacitor] attached."
 	if(focusing_lens)
-		to_chat(user, "You can see \the [focusing_lens] attached.")
+		. += "You can see \a [focusing_lens] attached."
 	if(modulator)
-		to_chat(user, "You can see \the [modulator] attached.")
+		. += "You can see \a [modulator] attached."
 
-/obj/item/gun/energy/laser/prototype/attackby(var/obj/item/D, var/mob/user)
-	if(!D.isscrewdriver())
+/obj/item/gun/energy/laser/prototype/attackby(obj/item/attacking_item, mob/user)
+	if(!attacking_item.isscrewdriver())
 		return ..()
 	to_chat(user, "You disassemble \the [src].")
 	disassemble(user)
@@ -226,19 +226,19 @@
 
 /obj/item/gun/energy/laser/prototype/small_fail(var/mob/user)
 	if(capacitor)
-		to_chat(user, "<span class='danger'>\The [src]'s [capacitor] short-circuits!</span>")
+		to_chat(user, SPAN_DANGER("\The [src]'s [capacitor] short-circuits!"))
 		capacitor.small_fail(user, src)
 	return
 
 /obj/item/gun/energy/laser/prototype/medium_fail(var/mob/user)
 	if(capacitor)
-		to_chat(user, "<span class='danger'>\The [src]'s [capacitor] overloads!</span>")
+		to_chat(user, SPAN_DANGER("\The [src]'s [capacitor] overloads!"))
 		capacitor.medium_fail(user, src)
 	return
 
 /obj/item/gun/energy/laser/prototype/critical_fail(var/mob/user)
 	if(capacitor)
-		to_chat(user, "<span class='danger'>\The [src]'s [capacitor] goes critical!</span>")
+		to_chat(user, SPAN_DANGER("\The [src]'s [capacitor] goes critical!"))
 		capacitor.critical_fail(user, src)
 	return
 
@@ -261,22 +261,22 @@
 		if(wielded)
 			toggle_scope(2.0, usr)
 		else
-			to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+			to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
 	else
-		to_chat(usr, "<span class='warning'>This device does not have a scope installed!</span>")
+		to_chat(usr, SPAN_WARNING("This device does not have a scope installed!"))
 
 /obj/item/gun/energy/laser/prototype/special_check(var/mob/user)
 	if(is_charging && chargetime)
-		to_chat(user, "<span class='danger'>\The [src] is already charging!</span>")
+		to_chat(user, SPAN_DANGER("\The [src] is already charging!"))
 		return 0
 	if(!wielded && (origin_chassis == CHASSIS_LARGE))
-		to_chat(user, "<span class='danger'>You require both hands to fire this weapon!</span>")
+		to_chat(user, SPAN_DANGER("You require both hands to fire this weapon!"))
 		return 0
 	if(chargetime)
 		user.visible_message(
-						"<span class='danger'>\The [user] begins charging the [src]!</span>",
-						"<span class='danger'>You begin charging the [src]!</span>",
-						"<span class='danger'>You hear a low pulsing roar!</span>"
+						SPAN_DANGER("\The [user] begins charging the [src]!"),
+						SPAN_DANGER("You begin charging the [src]!"),
+						SPAN_DANGER("You hear a low pulsing roar!")
 						)
 		is_charging = 1
 

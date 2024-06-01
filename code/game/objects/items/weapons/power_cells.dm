@@ -5,7 +5,7 @@
 	icon_state = "cell"
 	item_state = "cell"
 	origin_tech = list(TECH_POWER = 1)
-	force = 5.0
+	force = 11
 	throwforce = 5.0
 	throw_speed = 3
 	throw_range = 5
@@ -211,3 +211,14 @@
 	. = ..()
 	charge = 0
 	update_icon()
+
+/obj/item/cell/hydrogen
+	name = "hydrogen blaster canister"
+	desc = "An industrial-grade hydrogen power cell, used in various blaster weapons- or blaster-adjacent power tools- in place of expensive phoron."
+	icon_state = "hycell"
+	maxcharge = 10000 // hydrogen is actually used today in electric cars
+	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 70)
+	w_class = ITEMSIZE_SMALL
+	drop_sound = 'sound/items/drop/gascan.ogg'
+	pickup_sound = 'sound/items/pickup/gascan.ogg'
+	origin_tech = list(TECH_POWER = 4)

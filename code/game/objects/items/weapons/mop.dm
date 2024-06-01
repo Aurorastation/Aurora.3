@@ -8,7 +8,7 @@
 		)
 	icon_state = "mop"
 	item_state = "mop"
-	force = 3.0
+	force = 3
 	throwforce = 10.0
 	throw_speed = 3
 	throw_range = 7
@@ -61,8 +61,8 @@
 			if(clean_msg)
 				to_chat(user, SPAN_NOTICE("You have finished mopping!"))
 
-/obj/effect/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/mop) || istype(I, /obj/item/soap))
+/obj/effect/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/mop) || istype(attacking_item, /obj/item/soap))
 		return FALSE
 	return ..()
 
@@ -80,7 +80,7 @@
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "advmop"
 	item_state = "advmop"
-	force = 6.0
+	force = 14
 	throwforce = 14
 	throw_range = 8
 	cleantime = 15
@@ -111,6 +111,6 @@
 	if(reagents.total_volume < 30)
 		reagents.add_reagent(refill_reagent, refill_rate)
 
-/obj/item/mop/advanced/examine(mob/user)
+/obj/item/mop/advanced/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("\The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>."))
+	. += SPAN_NOTICE("\The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>.")

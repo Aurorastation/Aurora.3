@@ -223,12 +223,12 @@
 				for(var/turf/T in orange(20, src))
 					move_targets.Add(T)*/
 				stop_automated_movement = 1
-				walk_to(src, pick(orange(20, src)), 1, move_to_delay)
+				SSmove_manager.move_to(src, pick(orange(20, src)), 1, move_to_delay)
 				addtimer(CALLBACK(src, PROC_REF(stop_walking)), 50, TIMER_UNIQUE)
 
 /mob/living/simple_animal/hostile/giant_spider/proc/stop_walking()
 	stop_automated_movement = 0
-	walk(src, 0)
+	SSmove_manager.stop_looping(src)
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/think()
 	..()
@@ -241,7 +241,7 @@
 					if(C.stat)
 						cocoon_target = C
 						busy = MOVING_TO_TARGET
-						walk_to(src, C, 1, move_to_delay)
+						SSmove_manager.move_to(src, C, 1, move_to_delay)
 						//give up if we can't reach them after 10 seconds
 						addtimer(CALLBACK(src, PROC_REF(GiveUp), C), 100, TIMER_UNIQUE)
 						return
@@ -250,7 +250,7 @@
 				var/obj/effect/spider/stickyweb/W = locate() in get_turf(src)
 				if(!W)
 					busy = SPINNING_WEB
-					src.visible_message("<span class='notice'>\The [src] begins to secrete a sticky substance.</span>")
+					src.visible_message(SPAN_NOTICE("\The [src] begins to secrete a sticky substance."))
 					stop_automated_movement = 1
 					addtimer(CALLBACK(src, PROC_REF(finalize_web)), 40, TIMER_UNIQUE)
 				else
@@ -258,7 +258,7 @@
 					var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
 					if(!E && fed > 0)
 						busy = LAYING_EGGS
-						src.visible_message("<span class='notice'>\The [src] begins to lay a cluster of eggs.</span>")
+						src.visible_message(SPAN_NOTICE("\The [src] begins to lay a cluster of eggs."))
 						stop_automated_movement = 1
 						addtimer(CALLBACK(src, PROC_REF(finalize_eggs)), 50, TIMER_UNIQUE)
 					else
@@ -271,16 +271,16 @@
 								cocoon_target = O
 								busy = MOVING_TO_TARGET
 								stop_automated_movement = 1
-								walk_to(src, O, 1, move_to_delay)
+								SSmove_manager.move_to(src, O, 1, move_to_delay)
 								//give up if we can't reach them after 10 seconds
 								GiveUp(O)
 
 			else if(busy == MOVING_TO_TARGET && cocoon_target)
 				if(get_dist(src, cocoon_target) <= 1)
 					busy = SPINNING_COCOON
-					src.visible_message("<span class='notice'>\The [src] begins to secrete a sticky substance around \the [cocoon_target].</span>")
+					src.visible_message(SPAN_NOTICE("\The [src] begins to secrete a sticky substance around \the [cocoon_target]."))
 					stop_automated_movement = 1
-					walk(src,0)
+					SSmove_manager.stop_looping(src)
 					addtimer(CALLBACK(src, PROC_REF(finalize_cocoon)), 50, TIMER_UNIQUE)
 
 		else
@@ -323,7 +323,7 @@
 						continue
 					large_cocoon = 1
 					fed++
-					src.visible_message("<span class='warning'>\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out.</span>")
+					src.visible_message(SPAN_WARNING("\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out."))
 					playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
 					M.forceMove(C)
 					C.pixel_x = M.pixel_x

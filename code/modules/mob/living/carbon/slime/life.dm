@@ -1,6 +1,4 @@
 /mob/living/carbon/slime/Life()
-	set background = BACKGROUND_ENABLED
-
 	if(src.transforming)
 		return
 	..()
@@ -18,6 +16,7 @@
 	handle_speech_and_mood()
 
 /mob/living/carbon/slime/handle_environment(datum/gas_mixture/environment)
+	..()
 	if(!environment)
 		adjustToxLoss(rand(10,20))
 		return

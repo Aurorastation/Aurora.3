@@ -59,7 +59,7 @@
 			D = tgui_input_list(usr, "Choose shuttle destination.", "Shuttle Destination", possible_d)
 		else
 			to_chat(usr, SPAN_WARNING("No valid landing sites in range."))
-		if(CanInteract(user, physical_state) && (D in possible_d))
+		if(CanInteract(user, GLOB.physical_state) && (D in possible_d))
 			shuttle.set_destination(possible_d[D])
 		return TRUE
 
@@ -68,6 +68,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "helm"
 	icon_keyboard = "tech_key"
+	icon_keyboard_emis = "tech_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE

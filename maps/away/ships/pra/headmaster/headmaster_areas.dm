@@ -11,6 +11,10 @@
 	name = "Headmaster Ship Bridge"
 	icon_state = "bridge"
 
+/area/headmaster_ship/cic
+	name = "Headmaster Ship CIC"
+	icon_state = "blue-red2"
+
 /area/headmaster_ship/mess_hall
 	name = "Headmaster Ship Mess Hall"
 	icon_state = "bar"
@@ -19,6 +23,10 @@
 	name = "Headmaster Ship Hangar"
 	icon_state = "quartloading"
 
+/area/headmaster_ship/dock
+	name = "Headmaster Ship Docking Arm"
+	icon_state = "quartoffice"
+
 /area/headmaster_ship/gun_deck
 	name = "Headmaster Ship Gun Deck"
 	icon_state = "Tactical"
@@ -26,6 +34,10 @@
 /area/headmaster_ship/barracks
 	name = "Headmaster Barracks"
 	icon_state = "crew_quarters"
+
+/area/headmaster_ship/bathroom
+	name = "Headmaster Ship Washroom"
+	icon_state = "washroom"
 
 /area/headmaster_ship/captain_quarters
 	name = "Headmaster Ship Captain Quarters"
@@ -50,6 +62,10 @@
 /area/headmaster_ship/armory
 	name = "Headmaster Ship Armory"
 	icon_state = "armory"
+
+/area/headmaster_ship/eva
+	name = "Headmaster Ship EVA"
+	icon_state = "eva"
 
 //Shuttle
 /area/shuttle/headmaster_shuttle

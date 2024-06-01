@@ -62,7 +62,7 @@
 	standing_jump_range = 3
 	stamina = 80 // As opposed to 90
 	brute_mod = 1.3 // More Brute Damage
-	ethanol_resistance = 0.6 // Species Default 0.8
+	ethanol_resistance = 0.7 // Species Default 0.9
 
 	maneuvers = list(
 		/singleton/maneuver/leap/tajara/msai
@@ -188,6 +188,8 @@
 	bump_flag = HEAVY
 	swap_flags = ~HEAVY
 	push_flags = (~HEAVY) ^ ROBOT
+	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any alternate limbs for Tesla suits
+	valid_prosthetics = null
 
 /datum/species/tajaran/tesla_body/New()
 	..()

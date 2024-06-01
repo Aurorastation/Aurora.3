@@ -1,0 +1,434 @@
+2024-05-01:
+  Ben10083:
+  - bugfix: Portable Turrets now work outside of areas with a turret controller, spawning
+      a panel for itself as intended.
+  FluffyGhost:
+  - bugfix: Fixed some latejoin spawnpoints that were not working (eg. borgs).
+  - rscadd: Runtime map now uses proper spawnpoints instead of forced ones.
+  - code_imp: Moved and DMDoc'd force spawnpoints.
+  ReadThisNamePlz:
+  - bugfix: Fixes the freebooter ships power network
+  Sparky_hotdog:
+  - bugfix: Entering a blank OOC message will now cancel the message, rather than
+      sending nothing to chat.
+2024-05-02:
+  Ben10083:
+  - spellcheck: Holy sun rosette now specified as being used for the Kin of S'rendarr.
+      New extended desc added to replace the old one that didn't fit the rosette.
+  - rscadd: Merchants now can state specific greeting based on general species.
+  - rscadd: Merchants now can have biases against different species, upcharging or
+      discounting their prices, or even refusing service.
+  - qol: Skrell pet store owner will now be racist against machines.
+  - code_imp: Functionality for merchants to check for subspecies greeting, and later
+      general species greeting if none is found.
+  - code_imp: New lists that cover all subspecies of each species added (IE ALL_IPCS).
+  Crosarius:
+  - imageadd: Added sprites for Si'akh Priest robes
+  - rscadd: Added Si'akh Priest robes to the Unathi xeno loadout.
+  - qol: Allows Si'akh Priest robes and Sk'akh Priest robes to be taken by Off Duty
+      & Visitor crewmember roles.
+  DreamySkrell:
+  - rscadd: More muffins.
+  FluffyGhost:
+  - balance: Hivebot beacons scale with the currently playing player count, if they
+      spawn on the main map (the Horizon, most likely).
+  - refactor: Refactored the hivebot code slightly, mostly in terms of DMDoc and reordering.
+  - code_imp: Turned various icons into static paths.
+  Geeves:
+  - rscadd: Examining a pipe or cable will now display its color as text.
+  - bugfix: Changing the ID of someone with an alt-title will no longer boot them
+      to the Misc section of the manifest.
+  - rscadd: Added a new type of hair gradient, short highlights, suited to shorter
+      hairstyles. There are upshifted and downshift variants to cater for different
+      lengths of hair.
+  GeneralCamo:
+  - refactor: Ports SSOverlays from baystation12.
+  LynxSolstice:
+  - qol: Swaps the sensors console to the WSO in the Canary, the Engine controls to
+      the pilot, and moves the fuel pump for the fuel can to the thrusters, internally.
+  ReadThisNamePlz:
+  - rscadd: Remapped the entirety of the science department.
+  - rscadd: Relocated the AI core to a more secure location.
+  - rscadd: Gave exploratory chemistry a syringe gun.
+  - rscadd: Added individual cell controls to xenobiology.
+  RustingWithYou:
+  - bugfix: Outpost blueprints will now work properly.
+  - qol: Outpost blueprints will now only display a planet's generated name rather
+      than its planet type.
+  Sparky_hotdog:
+  - bugfix: Bar stools can be properly rotated.
+2024-05-03:
+  Evandorf:
+  - bugfix: Removed access requirements on airlocks; set to null. Removed the ID altogether,
+      per request.
+  nauticall:
+  - code_imp: Consolidates the game's TXT files to be under single 'texts' folder.
+      Should help with centralization and config problems.
+2024-05-04:
+  Hollyhock:
+  - bugfix: Gives daiquiris their own flavor. Wow!
+2024-05-06:
+  Alberyk:
+  - rscadd: Added radios stations to Adhomai.
+  - rscadd: Added unique lobby music to Adhomai's system.
+  Ben10083:
+  - bugfix: The TCAF Shuttle now have engine control panel and targeting console.
+  - rscdel: Most of the AI Law boards beside law upload console in AI Upload have
+      been moved to AI Secure Storage.
+  Crosarius:
+  - qol: Greatly reduces the rate the liver clears alcohol intoxication
+  - qol: Increases applied intoxication coefficient from alcohol (Alcohol is more
+      potent)
+  - qol: Halves the rate that alcohol and butanol are metabolised by the body (You
+      get drunk slower)
+  - qol: Increases butanol metabolism coefficient for Unathi (Unathi metabolise alcohol
+      at a rate roughly equivalent to Humans and Alcohol)
+  - qol: Greatly reduced frequency of vomiting while moderately inebriated.
+  - qol: Changes liver damage from drunkeness to occur when you black out or fall
+      unconscious, rather than when you vomit.
+  - qol: Causes the liver to stop regenerating when BAC rises to dangerous levels.
+  DreamySkrell:
+  - rscadd: 'Abandoned Industrial Station: docks and shuttle landmarks updated to
+      new standards.'
+  - rscadd: 'Abandoned Industrial Station: minor mapping tweaks.'
+  - rscadd: 'Abandoned Industrial Station: removed sector blacklist so it can spawn
+      anywhere.'
+  FluffyGhost:
+  - server: Updated tracy to our v05052024, should fix linux loading.
+  - code_imp: Tweaked gravity check proc to be more inline with TG's version.
+  - code_imp: Added signals for gravity check, that allows atoms to perform anti-gravity.
+  - bugfix: Fixed roller beds thinking they have no gravity and thus not emitting
+      the rolling sound.
+  Geeves:
+  - rscadd: Added hemophilia and major hemophilia to the disabilities list. The former
+      will cause wounds to bleed for twice as long, while the latter will cause wounds
+      to bleed forever.
+  Llywelwyn:
+  - rscadd: Added gradient style/colour selection to the appearance changer.
+  - bugfix: Fixed hair colour being unable to be the same as eye colour.
+  ReadThisNamePlz:
+  - rscadd: Added two additional cameras to the AI area.
+  - rscadd: Added a camera to the CIC Foyer.
+  - rscadd: Added holopads to the AI core.
+  - rscadd: Added a guideline map to help with wiring.
+  TheDanseMacabre:
+  - refactor: Reworks the SFA ghostroles and the SFA corvette to reflect a state of
+      further decay.
+  Tomixcomics:
+  - rscadd: Added 14 new food dishes and food combinations
+  - rscadd: Added Ne'miik (Vaurcan milk) drink
+  crunchypretzels:
+  - rscadd: Added several new Coalition weapons, along with the necessary equipment
+      to use them.
+  nauticall:
+  - rscadd: Revamped the sensor relay to be up to modern standards; it is also more
+      decrepit.
+  - rscadd: Added a new sensor suite sprite for the relay's own sensor array.
+  - rscadd: The new sensor suite reaches farther than the Horizon's sensor suite in
+      exchange for being slower to scan and unable to perform deep scans.
+2024-05-07:
+  Alberyk:
+  - qol: The People's Station should spawn closer to Adhomai now.
+  - qol: The Intrepid can now dock with the People's Station.
+  - qol: Tweaked some adhomian ruins anda away sites to take in consideration newer
+      features like weather.
+  Flpfs:
+  - rscadd: 'The body scanner and CMO hand scanner now print papers with timestamps
+      in their title. '
+  FluffyGhost:
+  - balance: Lowers punji traps infection from three to two.
+  RustingWithYou:
+  - rscadd: Adds several ruins for the Wasteland of Moghes.
+  - qol: The FSF ship now has functional power and atmospherics.
+  SimpleMaroon:
+  - qol: The Tech Support job now spawns with a debugger instead of a laptop.
+  - bugfix: The Tech Support job's tablet computer can now be enrolled properly.
+  - bugfix: The Tech Support job's wristbound computer now spawns on their wrist properly.
+  Sparky_hotdog:
+  - rscadd: Added roller bed racks, which can store 4 roller beds at a time. Replaced
+      the previous stacks of roller beds in medical with racks.
+2024-05-08:
+  DreamySkrell:
+  - rscadd: Adds BAPI - byondapi.
+2024-05-10:
+  CactusMouth:
+  - rscadd: Changed the Listening Outpost's tiles to airfull, so that the hostile
+      mobs there (Grems) do not immediately die.
+  CourierBravo:
+  - bugfix: fixed the off color marble prep-counter in the kitchen. This isn't visble
+      in game, but it is visible in strong.
+  FluffyGhost:
+  - bugfix: Hopefully fix the engine sound volume for the last time.
+  - code_imp: Various DMdocs to the protolathe code.
+  - balance: Increased power draw of the protolathe.
+  - balance: Made the protolathe realtime-constant.
+  - code_imp: Adding materials to the protolathe now uses TGUI input.
+  - code_imp: Removed a basically useless processing, uses a timer / queue handler
+      proc now.
+  - code_imp: DMDoc'd other parts of the code, including corrections between ticks
+      and deciseconds.
+  GeneralCamo:
+  - imageadd: Added sprites for assisted organs.
+  - rscadd: Added assisted brains.
+  Jasorn:
+  - bugfix: Allows ghosts to examine ore box contents.
+  Peppermint96:
+  - rscdel: Removed punpun's banana peel to prevent noise complaints.
+  RustingWithYou:
+  - rscadd: Adds several Ouerea ruins.
+2024-05-12:
+  FluffyGhost:
+  - server: Updated CI to use Rust 3.1.0-a1
+  - bugfix: Ore satchel won't spam failed pickups anymore unless the user does an
+      explicit pickup request (clicking on a turf/item).
+  Jasorn:
+  - bugfix: Fixes the 9mm pistol becoming invisible when removing the magazine.
+  SimpleMaroon:
+  - qol: Changed the name of the Hivenet Voiding verb to Untethering, by request of
+      Vaurca lore.
+2024-05-13:
+  4000daniel1:
+  - rscadd: Added instruments to the loadout for use by off-duties and passengers
+      under the general tab. Also ported some in-hand sprites for them from TG.
+  CactusMouth:
+  - rscadd: Added a new awaysite, the Zavod Shuttle.
+  CourierBravo:
+  - qol: Added several pice scanners and an extra quikpay to operations.
+  - qol: Added more trash bags to janitorial.
+  - qol: Doubled the number of bluespace flares, to encourage their use.
+  - bugfix: Replaced an empty first aid kit in teleporter room with an actual first
+      aid kit.
+  - bugfix: Removed a floor light under a door that shouldn't be there.
+  - bugfix: Properly orented the airtight flaps in the fuel bay and the kitchen.
+  - bugfix: Finally added the rubber ducky mentioned in July, 2022.
+  DreamySkrell:
+  - balance: Lower Badlands spawn weight of some CoC ships.
+  - rscadd: 'Disables ships that do not follow current standards: Wildlands Militia,
+      Taj Migrant, Diona Serz, Diona Rokz.'
+  Evandorf:
+  - rscadd: Adds a new civilian unathi ship, intended to fly into shoals to harvest
+      carp.
+  FluffyGhost:
+  - code_imp: DMDoc'd the vars of /datum/bounty/item.
+  - bugfix: All the two types of gas grenades are now allowed for the gas grenade
+      bounty.
+  - server: Updated the rustg dll to our 3.1.0+a1 version.
+  - rscadd: Added an initial implementation of field howitzers.
+  Geeves:
+  - rscadd: Crates, closets, rollerbeds and wheelchairs now cannot safely traverse
+      stairs.
+  - rscadd: The majority of ghost roles now spawn with an Idris account and some funds.
+  GeneralCamo:
+  - rscadd: Added emissives, objects that can alpha mask the lighting plane while
+      being blocked by blockers.
+  - refactor: Converted all screen overlays and holographic overlays to the new system.
+  - rscdel: Removed bloom.
+  - imageadd: Restored the intended scrubber animation.
+  Hollyhock:
+  - rscadd: 'Gives chaplains a new alternate title, meant for Preimminent chaplains:
+      Shaper.'
+  Karl Johansson:
+  - rscadd: Added wounds and bandages to the health doll.
+  Lavillastrangiato:
+  - qol: Adds many quality of life features to various offships.
+  - bugfix: Adds missing buttons, bad tiles, and other missing things.
+  - qol: Gives the xenoarchaeology belt one extra slot. Adds miscellaneous investigation
+      items to the security belt.
+  MattAtlas:
+  - bugfix: Fixed command announcement encoding.
+  - qol: Made some command console inputs into TGUIs like the rest of the console.
+  SimpleMaroon:
+  - qol: Allows Vaurcae wearing shaper helmets to consume food or drink without having
+      to remove the helmet.
+  - bugfix: Research voidsuit suit cyclers no longer make the voidsuit inside invisible
+      when applying species customization routines.
+  Sparky_hotdog:
+  - bugfix: Fixed an issue where you couldn't access either of the Intrepid copilot
+      chairs without climbing over them.
+  hazelmouse:
+  - rscadd: Adds tinted windows to the bar backroom, so you can have your shady dealings
+      in private.
+  nauticall:
+  - rscadd: Added Aayun Kaiser's custom item, a custom offworlder ESS suit.
+  - qol: The ESS injector module now comes with RMT.
+2024-05-16:
+  ClemTheDuck:
+  - bugfix: Fixed Hegemony Navy voidsuits not having a sprite
+  Crosarius:
+  - rscadd: Adds Moghresian Meat, obtainable by butchering Moghresian animals (otztek,
+      threshbeast, etc)
+  - rscadd: Adds 'synthetic blood' to the biogenerator, for use in food/drink recipies
+      that require blood.
+  - qol: Some small tweaks to reagents_to_add of some Unathi foods.
+  - qol: Changes some Unathi cultural foods to use Moghresian Meat instead of normal
+      meat
+  - qol: Makes the 'They are absolutely tiny compared to you' and 'they tower over
+      you!' height descriptor messages appear at 50 cm height difference instead of
+      100 cm
+  DreamySkrell:
+  - rscadd: Allows Vaurca FR to take mag-claws.
+  Geeves:
+  - refactor: Tweaked some messages to be based on time since last message, instead
+      of being based on probability. This includes low blood messages, infected liver
+      messages, fever messages, and some drug messages.
+  Llywelwyn:
+  - bugfix: Fixed PDA Chat Client not working properly after a PDA loses charge.
+  LynxSolstice:
+  - qol: Brings the fuel tank of the Tajaran Smuggler vessel into the modern age.
+  - bugfix: Fixes all the un-pixelshifted lights, and adds an airlock where someone
+      forgot to add one again when pulling out the old deprecated airlocks.
+2024-05-20:
+  Acetrea:
+  - rscadd: Added sprites for moghresian meat.
+  - rscadd: Added a name for vaurca meat.
+  - balance: Made stok meat type moghresian.
+  - bugfix: Fixed bugmeat sprite.
+  Ben10083:
+  - balance: Some Tajaran ships have different spawn weights in certain allied sectors.
+  - rscdel: Xanu Frigate removed from Badlands.
+  - rscdel: Coalition ship spawn chance in Badlands reduced
+  CourierBravo:
+  - qol: Made various changes to the Iris Wreck away site to make it look more pretty
+      and in line with our current ship designs.
+  - bugfix: Idris Wreck seemed to use two different colors of steel tiles. One for
+      airless and one for pressurized They're nearly identical, but there's a very
+      slight color difference. Standardized on one style of tiles.
+  - bugfix: Fixed some misplaced lighting and infrastructure in the Idris Wreck
+  - bugfix: Replaced the APC in the starboard docking arm with a standard sized APC
+  Crosarius:
+  - bugfix: Selecting diona nymph lunchbox in the loadout now correctly gives you
+      the diona nymph lunchbox on spawn.
+  - rscadd: Added chewing koko. An chewable form of the Unathi narcotic 'Koko', available
+      in vending machines and the loadout.
+  Evandorf:
+  - bugfix: Corrected Dock Target, verified vars, and removed extra docking controller
+      to resolve the Kataphract shuttle not docking properly.
+  FluffyGhost:
+  - refactor: Minor span refactoring.
+  - rscadd: Added telefreedom implants, including a box with (almost) everything you
+      need to make them work for 4 people, and added it to the uplink. The implant
+      allows you to teleport to the linked telepad (you link it by clicking on the
+      telepad with the implent in hand before implanting) one time before melting.
+  - bugfix: Fixed implanters not taking the implant and dropping it to the ground
+      when hit by one (while keeping it referenced).
+  - bugfix: Fixed newline issue in custom item descriptions.
+  Hazelmouse:
+  - rscadd: Added more hivebots to the Hivebot Hub offsite.
+  - bugfix: Fixed airlock on the Izharshan Shuttle offship.
+  - bugfix: Fixed port CO2 console on Scarab Salvager offship.
+  - qol: Various quality-of-life tweaks to the Scarab Salvager and Izharshan Shuttle
+      offships.
+  Pirouette:
+  - bugfix: Replaced a camera gun mapped into research with an actual camera.
+  RustingWithYou:
+  - qol: Blueprints display wire schemas again.
+  SimpleMaroon:
+  - qol: Made some of the pixels for Mecha Eyes for Vaurca Workers and Warriors much
+      less bright, improving the look overall.
+  Tzui5020:
+  - bugfix: Fixes the Aft Airlock on the Ranger Gunship not working.
+  - qol: Adds an Autolathe to the Ranger Gunship.
+  - qol: Adds more navpoints for Boarding actions or anything else
+  - qol: Adds some Lights to the Thrusters too so you can see
+2024-05-23:
+  Alberyk:
+  - bugfix: The Sani'Orios should have proper radio and power now.
+  Ben10083:
+  - bugfix: PSIS and Nuclear Waste Turrets Fixed to not fire upon Loyal PRA Citizens
+      (Only if they are Hadiist Supporters).
+  CactusMouth:
+  - rscadd: Adds ability to get to the Zavod Destroyed Shuttle. Also some new minor
+      props.
+  FluffyGhost:
+  - rscadd: Attacking a fire alarm with harm intent will trigger the fire alarm.
+  - refactor: Refactored fire alarms from NanoUI to TGUI.
+  Geeves:
+  - rscadd: Augments such as the Idris Faceplate are now visible in the character
+      preview screen.
+  GeneralCamo:
+  - qol: Hovering over an item in an inventory, not in storage, will now show a tooltip
+      and outline.
+  - rscadd: The supermatter reactor now produces radiation via SSRadiation. Better
+      wear your suit!
+  - rscadd: The supermatter reactor now has a ray effect and color shifts if it is
+      damaged.
+  Hollyhock:
+  - qol: Improves NKA Merchant and DPRA Hailstorm ships.
+  - bugfix: Fixes targetting for the NKA and PRA ships.
+  SimpleMaroon:
+  - qol: K'lax Vaurcae can now take the Unathite straw hat.
+  - qol: Mi'kuetz Vaurcae can now take the Wastelander kilt and goggles.
+  Sparky_hotdog:
+  - rscadd: Drinks can now select a transfer rate as low as 1 unit, allowing for smaller
+      sips.
+  - bugfix: Fixes bodybags being affected by stairs.
+  - rscadd: Vaurcae, IPCs & Dionae will now all remain upright when sleeping.
+  - rscadd: Added unique messages when entering sleep for alien species, as well as
+      unique sleep examine text.
+  - rscadd: Added unique different snoring replacements for alien species.
+  - rscadd: Varcae, IPCs & Dionae can now all choose to remain asleep indefinitely.
+  - rscadd: Added clip-on radios, available in the radio selection. They can be equipped
+      in either ear slot or the wrist slot.
+  - bugfix: Fixed an issue causing wrist radios to not display on mob.
+  - rscadd: Added snoods to the loadout, for even more warm winter wear.
+  hazelmouse:
+  - bugfix: Fixed a bug in which you had to target the fore of the DPRA Hailstorm
+      offship to make contact with ship guns while facing its aft, and vice versa.
+2024-05-24:
+  Crosarius:
+  - refactor: Fixed up alcohol and butanol affect_ingest()
+  - qol: Generally buffed intoxication resistances for Unathi, Tajara, and Skrell,
+      to compensate for recent changes to alcohol potency.
+  - qol: Alcohol poisoning now no longer kills you by destroying your liver. Instead,
+      it causes the patient to fall into a coma, and stop breathing.
+  - qol: Better messages for drunkeness.
+  - qol: Ethylredoxrazine now prevents people from falling into comas from alcohol
+      toxicity alltogether.
+  - qol: Vomiting from being intoxicated now happens much less often, and at a higher
+      level of intoxication.
+  - qol: Being drunk enough to cause vomiting now has a pulsing message to go along
+      with other drunkeness messages.
+  - bugfix: You can now correctly black out or fall into an alcoholic coma while buckled
+      to a bed or laying down.
+  - bugfix: Unathi are no longer poisoned by butanol.
+  - bugfix: Unathi are now correctly poisoned by alcohol
+  - bugfix: Non-Unathi are no longer intoxicated by butanol.
+  DreamySkrell:
+  - rscadd: BAPI - spacemandmm dmm reading.
+  FluffyGhost:
+  - bugfix: Fixed exosuit frame icon not updating when you remove parts from it.
+  - code_imp: Minor exosuit code improvements.
+  - balance: Made all the design template production speed into seconds, slowing the
+      printing down.
+  - bugfix: This also works in fixing the UI hitting the rate limit.
+  GeneralCamo:
+  - bugfix: The location blurb will now correctly show on the HUD plane.
+  Hollyhock:
+  - bugfix: Hopefully fixes footprints indoors on Adhomai.
+  Jasorn:
+  - bugfix: Adds the Adhomai faction flag to the cavern geist so it doesn't get swarmed
+      by hostile wildlife and die.
+  Sparky_hotdog:
+  - bugfix: Clip-on Security radios now spawn correctly.
+2024-05-25:
+  GeneralCamo:
+  - rscadd: Added a Norinori plushie to the loadout and random plush spawns.
+2024-05-27:
+  FluffyGhost:
+  - refactor: Refactored fire_act() to be in line with TG version, removed useless
+      parameter, added signal, made non sleepable and forced to call parent.
+  - refactor: Added atom_act.dm file for the various *_act procs.
+2024-05-29:
+  Geeves:
+  - rscadd: Synthetic eyes can now glow in the dark. In character creation, when selecting
+      the brand of the eyes, select Unbranded Emissive.
+  Hollyhock:
+  - qol: Gives the Sani'Orios base a medbay, jetpacks, a tool belt, and a fuel tank
+      for refuelling their fellows in the DPRA.
+  - qol: Gives the poor Hadiist silo guard some rations, cigarettes, a radio, and
+      a Hadiist manifesto. Hadii's grace.
+  - qol: Moves the Hailstorm's reactor and telecomms back to where they were.
+  Sparky_hotdog:
+  - rscadd: Science goggles can now be toggled onto your forehead.
+  TheDanseMacabre:
+  - rscadd: Added a new hairstyle based off of the undercut, Short Curtain.

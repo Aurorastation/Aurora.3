@@ -54,7 +54,7 @@
 	if(enemies.len && prob(10))
 		enemies = list()
 		LoseTarget()
-		src.visible_message("<span class='notice'>[src] calms down.</span>")
+		src.visible_message(SPAN_NOTICE("[src] calms down."))
 
 	if(!pulledby)
 		var/obj/effect/plant/food = locate(/obj/effect/plant) in oview(5,loc)
@@ -105,7 +105,9 @@
 
 /mob/living/simple_animal/cow/attack_hand(mob/living/carbon/M as mob)
 	if(!stat && M.a_intent == I_DISARM && icon_state != icon_dead)
-		M.visible_message("<span class='warning'>[M] tips over [src].</span>","<span class='notice'>You tip over [src].</span>")
+		M.visible_message(SPAN_WARNING("[M] tips over [src]."),
+							SPAN_NOTICE("You tip over [src]."))
+
 		Weaken(30)
 		icon_state = icon_dead
 		spawn(rand(20,50))
@@ -250,17 +252,17 @@
 	chicken_count -= 1
 	desc = "Now it's ready for plucking and cooking!"
 
-/mob/living/simple_animal/chicken/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(istype(O, /obj/item/reagent_containers/food/snacks/grown)) //feedin' dem chickens
-		var/obj/item/reagent_containers/food/snacks/grown/G = O
+/mob/living/simple_animal/chicken/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/grown)) //feedin' dem chickens
+		var/obj/item/reagent_containers/food/snacks/grown/G = attacking_item
 		if(G.seed && G.seed.kitchen_tag == "wheat")
 			if(!stat && eggsleft < 8)
 				user.visible_message(
-					SPAN_NOTICE("\The [user] feeds \the [O] to \the [name]! It clucks happily."),
-					SPAN_NOTICE("You feed \the [O] to \the [name]! It clucks happily."),
+					SPAN_NOTICE("\The [user] feeds \the [attacking_item] to \the [name]! It clucks happily."),
+					SPAN_NOTICE("You feed \the [attacking_item] to \the [name]! It clucks happily."),
 					"You hear a cluck.")
-				user.drop_from_inventory(O,get_turf(src))
-				qdel(O)
+				user.drop_from_inventory(attacking_item,get_turf(src))
+				qdel(attacking_item)
 				eggsleft += rand(1, 4)
 			else
 				to_chat(user, "\The [name] doesn't seem hungry!")

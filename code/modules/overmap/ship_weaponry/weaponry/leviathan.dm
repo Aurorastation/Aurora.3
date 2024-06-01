@@ -9,14 +9,14 @@
 	projectile_type = /obj/item/projectile/ship_ammo/leviathan
 	use_ammunition = FALSE
 	heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/leviathan_fire.ogg'
-	caliber = SHIP_CALIBER_ZTA
+	caliber = SHIP_CALIBER_ZAT
 	firing_effects = FIRING_EFFECT_FLAG_THROW_MOBS|FIRING_EFFECT_FLAG_EXTREMELY_LOUD
 	screenshake_type = SHIP_GUN_SCREENSHAKE_ALL_MOBS
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 	use_power = POWER_USE_OFF //Start off.
-	idle_power_usage = 100 KILOWATTS
-	active_power_usage = 20 MEGAWATTS
+	idle_power_usage = 100 KILO WATTS
+	active_power_usage = 20 MEGA WATTS
 	var/obj/machinery/power/smes/buildable/smes
 
 /obj/machinery/ship_weapon/leviathan/Destroy()
@@ -125,8 +125,8 @@
 	name = "zero-point artillery beam"
 	desc = "A beam of pure energy."
 	range = OVERMAP_PROJECTILE_RANGE_ULTRAHIGH
-	caliber = SHIP_CALIBER_ZTA
-	impact_type = SHIP_AMMO_IMPACT_ZTA
+	caliber = SHIP_CALIBER_ZAT
+	impact_type = SHIP_AMMO_IMPACT_ZAT
 	overmap_icon_state = "heavy_pulse"
 
 /obj/item/ship_ammunition/leviathan/Initialize()
@@ -166,29 +166,29 @@
 	on_hit(A)
 	return TRUE
 
-/obj/machinery/zta_lever
+/obj/machinery/zat_lever
 	name = "activation lever"
 	desc = "An old-style lever that couples the Leviathan's capacitors. <span class='danger'>Flicking this will result in extreme power usage!</span>"
 	icon = 'icons/obj/power.dmi'
 	icon_state = "lever1"
-	var/obj/machinery/ship_weapon/leviathan/ZTA
+	var/obj/machinery/ship_weapon/leviathan/ZAT
 	var/toggled = FALSE
 	var/cooldown = 0
 
-/obj/machinery/zta_lever/Initialize(mapload, d, populate_components, is_internal)
+/obj/machinery/zat_lever/Initialize(mapload, d, populate_components, is_internal)
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/zta_lever/LateInitialize()
+/obj/machinery/zat_lever/LateInitialize()
 	for(var/obj/machinery/ship_weapon/leviathan/cannon in get_area(src))
-		ZTA = cannon
+		ZAT = cannon
 		break
 
-/obj/machinery/zta_lever/Destroy()
-	ZTA = null
+/obj/machinery/zat_lever/Destroy()
+	ZAT = null
 	return..()
 
-/obj/machinery/zta_lever/attack_hand(mob/user)
+/obj/machinery/zat_lever/attack_hand(mob/user)
 	if(!use_check_and_message(user, USE_DISALLOW_SILICONS) && !stat && (cooldown + 10 SECONDS < world.time))
 		if(do_after(user, 1 SECOND))
 			visible_message(SPAN_DANGER("[user] pulls \the [src] [toggled ? "up" : "down"]!"))
@@ -196,12 +196,12 @@
 			switch(toggled)
 				if(FALSE)
 					flick("lever3", src)
-					ZTA.disable()
+					ZAT.disable()
 					sleep(2)
 					icon_state = "lever1"
 				if(TRUE)
 					flick("lever2", src)
-					ZTA.enable()
+					ZAT.enable()
 					sleep(2)
 					icon_state = "lever_down"
 			playsound(src, 'sound/effects/spring.ogg', 100)
@@ -260,13 +260,13 @@
 		LK = null
 		icon_state = "key_case-e"
 
-/obj/item/leviathan_case/attackby(obj/item/I, mob/user)
+/obj/item/leviathan_case/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	if(use_check_and_message(user))
 		return
 	if(!LK && open)
-		if(istype(I, /obj/item/leviathan_key))
-			var/obj/item/leviathan_key/key = I
+		if(istype(attacking_item, /obj/item/leviathan_key))
+			var/obj/item/leviathan_key/key = attacking_item
 			user.visible_message(SPAN_NOTICE("[user] puts \the [key] back into \the [src]."))
 			LK = key
 			user.drop_from_inventory(key, src)
@@ -322,19 +322,19 @@
 	flick("safeguard_opening", src)
 	icon_state = "safeguard_open"
 
-/obj/machinery/leviathan_safeguard/attackby(obj/item/I, mob/user)
+/obj/machinery/leviathan_safeguard/attackby(obj/item/attacking_item, mob/user)
 	if(!opened || locked)
 		return
-	if(istype(I, /obj/item/leviathan_key) && !key && !stat)
-		var/obj/item/leviathan_key/LK = I
+	if(istype(attacking_item, /obj/item/leviathan_key) && !key && !stat)
+		var/obj/item/leviathan_key/LK = attacking_item
 		if(use_check_and_message(user))
 			return
 		if(do_after(user, 1 SECOND))
 			visible_message(SPAN_WARNING("[user] places \the [LK] inside \the [src]'s keyhole!"))
 			key = LK
-			user.drop_from_inventory(I, src)
+			user.drop_from_inventory(attacking_item, src)
 			icon_state = "safeguard_open"
-			playsound(src, 'sound/effects/ship_weapons/levi_key_insert.ogg')
+			playsound(src, 'sound/effects/ship_weapons/levi_key_insert.ogg', 50)
 
 /obj/machinery/leviathan_safeguard/attack_hand(mob/user)
 	if(key && !stat && opened && !locked)
@@ -345,7 +345,7 @@
 			flick("safeguard_locking", src)
 			icon_state = "safeguard_locked"
 			locked = TRUE
-			playsound(src, 'sound/effects/ship_weapons/levi_key_twist.ogg')
+			playsound(src, 'sound/effects/ship_weapons/levi_key_twist.ogg', 50)
 			button.open()
 
 /obj/machinery/leviathan_button
@@ -401,7 +401,7 @@
 			if(length(possible_entry_points) && !(targeted_landmark == SHIP_HAZARD_TARGET))
 				landmark = possible_entry_points[targeted_landmark]
 			if(do_after(user, 1 SECOND) && !use_check_and_message(user))
-				playsound(src, 'sound/effects/ship_weapons/levi_button_press.ogg')
+				playsound(src, 'sound/effects/ship_weapons/levi_button_press.ogg', 50)
 				visible_message(SPAN_DANGER("[user] presses \the [src]!"))
 				for(var/obj/machinery/ship_weapon/leviathan/LT in linked.ship_weapons)
 					if(istype(LT))

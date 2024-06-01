@@ -17,7 +17,7 @@
 	dissipate = 1
 	dissipate_delay = 10
 	dissipate_strength = 1
-	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	blend_mode = BLEND_ADD
 	var/failed_direction = 0
 	var/list/orbiting_balls = list()
@@ -69,10 +69,10 @@
 	else
 		..()
 
-/obj/singularity/energy_ball/examine(mob/user)
+/obj/singularity/energy_ball/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(orbiting_balls.len)
-		to_chat(user, "There are [orbiting_balls.len] energy balls orbiting \the [src].")
+		. +=  "There are [orbiting_balls.len] energy balls orbiting \the [src]."
 
 
 /obj/singularity/energy_ball/proc/move_the_basket_ball(var/move_amount)

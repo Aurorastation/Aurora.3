@@ -8,27 +8,12 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	external_examine(user)
 	. = ..()
 
-// This should be used when someone is examining while the case is opened.
-/obj/item/integrated_circuit/proc/internal_examine(mob/user)
-	to_chat(user, "This board has [inputs.len] input pin\s, [outputs.len] output pin\s and [activators.len] activation pin\s.")
-	for(var/datum/integrated_io/I in inputs)
-		if(I.linked.len)
-			to_chat(user, "The '[I]' is connected to [I.get_linked_to_desc()].")
-	for(var/datum/integrated_io/O in outputs)
-		if(O.linked.len)
-			to_chat(user, "The '[O]' is connected to [O.get_linked_to_desc()].")
-	for(var/datum/integrated_io/activate/A in activators)
-		if(A.linked.len)
-			to_chat(user, "The '[A]' is connected to [A.get_linked_to_desc()].")
-	any_examine(user)
-	interact(user)
-
 // This should be used when someone is examining from an 'outside' perspective, e.g. reading a screen or LED.
 /obj/item/integrated_circuit/proc/external_examine(mob/user)
 	any_examine(user)
 
 /obj/item/integrated_circuit/proc/any_examine(mob/user)
-	return
+	. = list()
 
 /obj/item/integrated_circuit/Initialize()
 	displayed_name = name
@@ -78,7 +63,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 /obj/item/integrated_circuit/proc/check_interactivity(mob/user)
 	if(assembly)
 		return assembly.check_interactivity(user)
-	else if(!CanInteract(user, physical_state))
+	else if(!CanInteract(user, GLOB.physical_state))
 		return 0
 	return 1
 
@@ -93,7 +78,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 	var/input = sanitizeSafe(input("What do you want to name the circuit?", "Rename", src.name) as null|text, MAX_NAME_LEN)
 	if(src && input && assembly.check_interactivity(M))
-		to_chat(M, "<span class='notice'>The circuit '[src.name]' is now labeled '[input]'.</span>")
+		to_chat(M, SPAN_NOTICE("The circuit '[src.name]' is now labeled '[input]'."))
 		displayed_name = input
 
 /obj/item/integrated_circuit/interact(mob/user)
@@ -195,11 +180,11 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	B.set_content(HTML.Join())
 	B.open()
 
-/obj/item/integrated_circuit/Topic(href, href_list, state = always_state)
+/obj/item/integrated_circuit/Topic(href, href_list, state = GLOB.always_state)
 	if(!check_interactivity(usr))
 		return
 	if (assembly && !assembly.opened)
-		to_chat(usr, "<span class='warning'>\The [assembly] is not open!</span>")
+		to_chat(usr, SPAN_WARNING("\The [assembly] is not open!"))
 		return
 	if(..())
 		return 1
@@ -263,7 +248,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 			if(pin)
 				debugger.write_data(pin, usr)
 		else
-			to_chat(usr, "<span class='warning'>You can't do a whole lot without the proper tools.</span>")
+			to_chat(usr, SPAN_WARNING("You can't do a whole lot without the proper tools."))
 
 	if(href_list["examine"])
 		var/obj/item/integrated_circuit/examined
@@ -290,23 +275,23 @@ a creative player the means to solve many problems.  Circuits are held inside an
 			if(D.accepting_refs)
 				D.afterattack(src, usr, TRUE)
 			else
-				to_chat(usr, "<span class='warning'>The Debugger's 'ref scanner' needs to be on.</span>")
+				to_chat(usr, SPAN_WARNING("The Debugger's 'ref scanner' needs to be on."))
 		else
-			to_chat(usr, "<span class='warning'>You need a multitool/debugger set to 'ref' mode to do that.</span>")
+			to_chat(usr, SPAN_WARNING("You need a multitool/debugger set to 'ref' mode to do that."))
 
 	if(href_list["return"])
 		if(A)
 			update_to_assembly = 1
 			usr << browse(null, "window=circuit-\ref[src]")
 		else
-			to_chat(usr, "<span class='warning'>This circuit is not in an assembly!</span>")
+			to_chat(usr, SPAN_WARNING("This circuit is not in an assembly!"))
 
 	if(href_list["remove"])
 		if(!A)
-			to_chat(usr, "<span class='warning'>This circuit is not in an assembly!</span>")
+			to_chat(usr, SPAN_WARNING("This circuit is not in an assembly!"))
 			return
 		if(!removable)
-			to_chat(usr, "<span class='warning'>\The [src] seems to be permanently attached to the case.</span>")
+			to_chat(usr, SPAN_WARNING("\The [src] seems to be permanently attached to the case."))
 			return
 		var/obj/item/device/electronic_assembly/ea = loc
 		disconnect_all()
@@ -314,7 +299,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		forceMove(T)
 		assembly = null
 		playsound(T, 'sound/items/crowbar_pry.ogg', 50, 1)
-		to_chat(usr, "<span class='notice'>You pop \the [src] out of the case, and slide it out.</span>")
+		to_chat(usr, SPAN_NOTICE("You pop \the [src] out of the case, and slide it out."))
 
 		if(istype(ea))
 			ea.interact(usr)

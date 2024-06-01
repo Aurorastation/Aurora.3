@@ -3,7 +3,7 @@
 	desc = "Goo extracted from a slime. Legends claim these to have \"magical powers\"."
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "grey slime extract"
-	force = 1.0
+	force = 1
 	w_class = ITEMSIZE_TINY
 	throwforce = 0
 	throw_speed = 3
@@ -13,8 +13,8 @@
 	var/enhanced = FALSE //has it been enhanced before?
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
-/obj/item/slime_extract/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/extract_enhancer))
+/obj/item/slime_extract/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/extract_enhancer))
 		if(enhanced)
 			to_chat(user, SPAN_WARNING("This extract has already been enhanced!"))
 			return ..()
@@ -24,7 +24,7 @@
 		to_chat(user, SPAN_NOTICE("You apply the enhancer. It now has triple the amount of uses."))
 		uses *= 3
 		enhanced = TRUE
-		qdel(O)
+		qdel(attacking_item)
 		return TRUE
 	. = ..()
 
@@ -135,7 +135,7 @@
 	. = ..()
 	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_PINK
-	add_overlay(filling)
+	AddOverlays(filling)
 
 /obj/item/docility_serum/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
 	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
@@ -178,7 +178,7 @@
 	. = ..()
 	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_PALE_PINK
-	add_overlay(filling)
+	AddOverlays(filling)
 
 /obj/item/advanced_docility_serum/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
 	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
@@ -226,7 +226,7 @@
 
 	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_GREEN
-	add_overlay(filling)
+	AddOverlays(filling)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -265,7 +265,7 @@
 
 	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_BLUE
-	add_overlay(filling)
+	AddOverlays(filling)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -326,8 +326,8 @@
 	G.accent = G.origin.possible_accents[1]
 	G.citizenship = G.origin.possible_citizenships[1]
 	G.religion = G.origin.possible_religions[1]
-	G.preEquipOutfit(/datum/outfit/admin/golem, FALSE)
-	G.equipOutfit(/datum/outfit/admin/golem, FALSE)
+	G.preEquipOutfit(/obj/outfit/admin/golem, FALSE)
+	G.equipOutfit(/obj/outfit/admin/golem, FALSE)
 	G.client.init_verbs()
 	to_chat(G, SPAN_NOTICE("You are a golem. Serve your master, and assist them in completing their goals at any cost."))
 

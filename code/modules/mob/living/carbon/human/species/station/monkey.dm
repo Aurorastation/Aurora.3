@@ -142,6 +142,7 @@
 	name = SPECIES_MONKEY_UNATHI
 	short_name = "sto"
 	name_plural = LANGUAGE_STOK
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 
 	icobase = 'icons/mob/human_races/monkeys/r_stok.dmi'
 	deform = 'icons/mob/human_races/monkeys/r_stok.dmi'

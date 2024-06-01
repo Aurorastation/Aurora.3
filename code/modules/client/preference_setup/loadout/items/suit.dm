@@ -81,6 +81,7 @@
 	l_hoodie["short-sleeved hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/short
 	l_hoodie["crop top hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/crop
 	l_hoodie["sleeveless hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
+	l_hoodie["sleeveless crop top hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless_crop
 	gear_tweaks += new /datum/gear_tweak/path(l_hoodie)
 
 /datum/gear/suit/mars
@@ -375,6 +376,8 @@
 	jacket["departmental jacket, service"] = /obj/item/clothing/suit/storage/toggle/serv_dep_jacket
 	gear_tweaks += new /datum/gear_tweak/path(jacket)
 
+/datum/gear/suit/miscellaneous
+	abstract_type = /datum/gear/suit/miscellaneous
 
 /datum/gear/suit/miscellaneous/peacoat
 	display_name = "peacoat"

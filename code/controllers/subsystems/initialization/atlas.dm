@@ -3,7 +3,7 @@
 SUBSYSTEM_DEF(atlas)
 	name = "Atlas"
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_MAPLOAD
+	init_order = INIT_ORDER_MAPPING
 	init_stage = INITSTAGE_EARLY
 
 	// Whatever map is currently loaded. Null until SSatlas Initialize() starts.
@@ -143,7 +143,7 @@ SUBSYSTEM_DEF(atlas)
 /datum/controller/subsystem/atlas/Initialize(timeofday)
 	// Quick sanity check.
 	if (world.maxx != WORLD_MIN_SIZE || world.maxy != WORLD_MIN_SIZE || world.maxz != 1)
-		to_world("<span class='warning'>WARNING: Suspected pre-compiled map: things may break horribly!</span>")
+		to_world(SPAN_WARNING("WARNING: Suspected pre-compiled map: things may break horribly!"))
 		log_subsystem_atlas("-- WARNING: Suspected pre-compiled map! --")
 
 	maploader = new
@@ -165,7 +165,7 @@ SUBSYSTEM_DEF(atlas)
 	if (!map_override)
 		map_override = get_selected_map()
 
-	admin_notice("<span class='danger'>Loading map [map_override].</span>", R_DEBUG)
+	admin_notice(SPAN_DANGER("Loading map [map_override]."), R_DEBUG)
 	log_subsystem_atlas("Using map '[map_override]'.")
 
 	current_map = known_maps[map_override]
@@ -173,7 +173,6 @@ SUBSYSTEM_DEF(atlas)
 		world.map_panic("Selected map does not exist!")
 
 	load_map_meta()
-	setup_spawnpoints()
 
 	world.update_status()
 
@@ -181,7 +180,7 @@ SUBSYSTEM_DEF(atlas)
 	var/maps_loaded = load_map_directory("maps/[current_map.path]/", TRUE)
 
 	log_subsystem_atlas("Loaded [maps_loaded] maps.")
-	admin_notice("<span class='danger'>Loaded [maps_loaded] levels.</span>")
+	admin_notice(SPAN_DANGER("Loaded [maps_loaded] levels."))
 
 	if (!maps_loaded)
 		world.map_panic("No maps loaded!")
@@ -209,6 +208,10 @@ SUBSYSTEM_DEF(atlas)
 		log_subsystem_atlas("Unable to select [chosen_sector] as a valid space sector. Tau Ceti will be used instead.")
 	else
 		current_sector = selected_sector
+
+	current_sector.setup_current_sector()
+
+	setup_spawnpoints()
 
 	return SS_INIT_SUCCESS
 
@@ -300,9 +303,21 @@ SUBSYSTEM_DEF(atlas)
 	if (!possible_sectors.len)
 		crash_with("No space sectors located in SSatlas.")
 
+/// Checks if today is a Port of Call day at current_sector.
+/// Returns FALSE if no port_of_call defined in current_map.ports_of_call, or if today is not listed as a Port of Call day in current_sector.scheduled_port_visits
+/datum/controller/subsystem/atlas/proc/is_port_call_day()
+	if(!current_map || !current_sector)
+		return FALSE
+	if(current_map.ports_of_call && length(current_sector.scheduled_port_visits))
+		/// Get today
+		var/today = GLOB.all_days[GLOB.all_days.Find(time2text(world.realtime, "Day"))]
+		if(today in current_sector.scheduled_port_visits) //checks if today is a port of call day
+			return TRUE
+	return FALSE
+
 // Called when there's a fatal, unrecoverable error in mapload. This reboots the server.
 /world/proc/map_panic(reason)
-	to_chat(world, "<span class='danger'>Fatal error during map setup, unable to continue! Server will reboot in 60 seconds.</span>")
+	to_chat(world, SPAN_DANGER("Fatal error during map setup, unable to continue! Server will reboot in 60 seconds."))
 	log_subsystem_atlas("-- FATAL ERROR DURING MAP SETUP: [uppertext(reason)] --")
 	sleep(1 MINUTE)
 	world.Reboot()

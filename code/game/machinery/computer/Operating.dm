@@ -7,6 +7,7 @@
 	anchored = TRUE
 	icon_screen = "crew"
 	icon_keyboard = "teal_key"
+	icon_keyboard_emis = "teal_key_mask"
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/operating
 
@@ -84,14 +85,14 @@
 
 	return TRUE
 
-/obj/machinery/computer/operating/attackby(obj/item/item, mob/user)
-	if(istype(item, /obj/item/paper/medscan))
+/obj/machinery/computer/operating/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper/medscan))
 		if(primer)
 			to_chat(user, SPAN_WARNING("\The [src] already has a primer!"))
 			return
-		user.visible_message("\The [user] slides \the [item] into \the [src].", SPAN_NOTICE("You slide \the [item] into \the [src]."), range = 3)
-		user.drop_from_inventory(item, src)
-		primer = item
+		user.visible_message("\The [user] slides \the [attacking_item] into \the [src].", SPAN_NOTICE("You slide \the [attacking_item] into \the [src]."), range = 3)
+		user.drop_from_inventory(attacking_item, src)
+		primer = attacking_item
 
 /obj/machinery/computer/operating/attack_ai(mob/user)
 	if(!ai_can_interact(user))
@@ -121,6 +122,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "med_comp"
 	icon_keyboard = "med_key"
+	icon_keyboard_emis = "med_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE

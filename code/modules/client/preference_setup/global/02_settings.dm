@@ -7,8 +7,6 @@
 	S["default_slot"]     >> pref.default_slot
 	S["toggles"]          >> pref.toggles
 	S["sfx_toggles"]        >> pref.sfx_toggles
-	S["motd_hash"]        >> pref.motd_hash
-	S["memo_hash"]        >> pref.memo_hash
 	S["toggles_secondary"] >> pref.toggles_secondary
 
 /datum/category_item/player_setup_item/player_global/settings/save_preferences(var/savefile/S)
@@ -16,8 +14,6 @@
 	S["default_slot"]     << pref.default_slot
 	S["toggles"]          << pref.toggles
 	S["sfx_toggles"]        << pref.sfx_toggles
-	S["motd_hash"]        << pref.motd_hash
-	S["memo_hash"]        << pref.memo_hash
 	S["toggles_secondary"] << pref.toggles_secondary
 
 /datum/category_item/player_setup_item/player_global/settings/gather_load_query()
@@ -28,8 +24,6 @@
 				"current_character",
 				"toggles",
 				"sfx_toggles",
-				"lastmotd" = "motd_hash",
-				"lastmemo" = "memo_hash",
 				"toggles_secondary"
 			),
 			"args" = list("ckey")
@@ -46,8 +40,6 @@
 			"current_character",
 			"toggles",
 			"sfx_toggles",
-			"lastmotd",
-			"lastmemo",
 			"ckey" = 1,
 			"toggles_secondary",
 		)
@@ -60,8 +52,6 @@
 		"current_character" = pref.current_character,
 		"toggles" = pref.toggles,
 		"sfx_toggles" = pref.sfx_toggles,
-		"lastmotd" = pref.motd_hash,
-		"lastmemo" = pref.memo_hash,
 		"toggles_secondary" = pref.toggles_secondary
 	)
 
@@ -74,8 +64,6 @@
 	pref.default_slot   = sanitize_integer(text2num(pref.default_slot), 1, GLOB.config.character_slots, initial(pref.default_slot))
 	pref.toggles        = sanitize_integer(text2num(pref.toggles), 0, BITFIELDMAX, initial(pref.toggles))
 	pref.sfx_toggles      = sanitize_integer(text2num(pref.sfx_toggles), 0, BITFIELDMAX, initial(pref.toggles))
-	pref.motd_hash      = sanitize_text(pref.motd_hash, initial(pref.motd_hash))
-	pref.memo_hash      = sanitize_text(pref.memo_hash, initial(pref.memo_hash))
 	pref.toggles_secondary  = sanitize_integer(text2num(pref.toggles_secondary), 0, BITFIELDMAX, initial(pref.toggles_secondary))
 
 /datum/category_item/player_setup_item/player_global/settings/content(mob/user)
@@ -86,6 +74,8 @@
 		"<b>Ghost sight:</b> <a href='?src=\ref[src];toggle=[CHAT_GHOSTSIGHT]'><b>[(pref.toggles & CHAT_GHOSTSIGHT) ? "All Emotes" : "Nearest Creatures"]</b></a><br>",
 		"<b>Ghost radio:</b> <a href='?src=\ref[src];toggle=[CHAT_GHOSTRADIO]'><b>[(pref.toggles & CHAT_GHOSTRADIO) ? "All Chatter" : "Nearest Speakers"]</b></a><br>",
 		"<b>Observer LOOC:</b> <a href='?src=\ref[src];toggle=[CHAT_GHOSTLOOC]'><b>[(pref.toggles & CHAT_GHOSTLOOC) ? "Visible" : "Hidden"]</b></a><br>",
+		"<b>Item Outlines:</b> <a href='?src=\ref[src];paratoggle=[SEE_ITEM_OUTLINES]'><b>[(pref.toggles_secondary & SEE_ITEM_OUTLINES) ? "Visible" : "Hidden"]</b></a><br>",
+		"<b>Hide Item Tooltips:</b> <a href='?src=\ref[src];paratoggle=[HIDE_ITEM_TOOLTIPS]'><b>[(pref.toggles_secondary & HIDE_ITEM_TOOLTIPS) ? "Yes" : "No"]</b></a><br>",
 		"<b>Progress Bars:</b> <a href='?src=\ref[src];paratoggle=[PROGRESS_BARS]'><b>[(pref.toggles_secondary & PROGRESS_BARS) ? "Yes" : "No"]</b></a><br>",
 		"<b>Floating Messages:</b> <a href='?src=\ref[src];paratoggle=[FLOATING_MESSAGES]'><b>[(pref.toggles_secondary & FLOATING_MESSAGES) ? "Yes" : "No"]</b></a><br>",
 		"<b>Hotkey Mode Default:</b> <a href='?src=\ref[src];paratoggle=[HOTKEY_DEFAULT]'><b>[(pref.toggles_secondary & HOTKEY_DEFAULT) ? "On" : "Off"]</b></a><br>"

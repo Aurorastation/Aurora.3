@@ -66,13 +66,13 @@
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
 		var/image/cape_backing = image(mob_icon, null, cape_backing_state, human ? human.layer - 0.01 : MOB_LAYER - 0.01)
-		I.add_overlay(cape_backing)
+		I.AddOverlays(cape_backing)
 	return I
 
 /obj/item/clothing/accessory/poncho/dominia_cape/get_accessory_mob_overlay(mob/living/carbon/human/human, force)
 	var/image/base = ..()
 	var/image/cape_backing = image(icon, null, cape_backing_state, human ? human.layer - 0.01 : MOB_LAYER - 0.01)
-	base.add_overlay(cape_backing)
+	base.AddOverlays(cape_backing)
 	return base
 
 /obj/item/clothing/accessory/poncho/dominia_cape/strelitz
@@ -684,6 +684,9 @@
 	name = "retired tribunal investigator card"
 	desc = "A silver-gilded card given to those who have since retired from the Tribunal Investigations Constabulary, otherwise known as TIC. \
 			This card holds a sleek grey coloration strip, denoting the owner as having been a standard investigator."
+	desc_extended = "The day-to-day work of investigating religious crimes and violations falls upon the shoulders of the people who fill the \
+	ranks of the Tribunal Investigation Constabulary. These investigators often collaborate with and work alongside the nominally secular \
+	His Imperial Majesty's Constable Service (HIMCS), the Empire's main policing agency."
 	icon_state = "tic_card_ret"
 	item_state = "tic_card_ret"
 
@@ -691,6 +694,9 @@
 	name = "retired tribunal investigator card"
 	desc = "A silver-gilded card given to those who have since retired from the Tribunal Investigations Constabulary, otherwise known as TIC. \
 			This card holds a color strip of House Caladius, denoting the owner as a priest of the Tribunal."
+	desc_extended = "The day-to-day work of investigating religious crimes and violations falls upon the shoulders of the people who fill the \
+	ranks of the Tribunal Investigation Constabulary. These investigators often collaborate with and work alongside the nominally secular \
+	His Imperial Majesty's Constable Service (HIMCS), the Empire's main policing agency."
 	icon_state = "tic_card_ret_alt"
 	item_state = "tic_card_ret_alt"
 

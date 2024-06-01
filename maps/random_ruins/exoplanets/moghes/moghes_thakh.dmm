@@ -1,0 +1,1356 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"by" = (
+/obj/structure/flora/grass/junglegrass/random,
+/turf/simulated/floor/exoplanet/water/shallow/moghes,
+/area/moghes_thakh)
+"ci" = (
+/turf/simulated/floor/exoplanet/wood/walnut{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"cC" = (
+/obj/structure/table/stone/marble,
+/obj/item/material/hatchet/unathiknife,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"de" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"dz" = (
+/obj/structure/flora/tree/jungle/random,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"eZ" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"fM" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_thakh";
+	identifier = "moghes_thakh"
+	},
+/turf/simulated/floor/exoplanet/wood/walnut{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"jj" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/suit/unathi/robe{
+	color = "#1c4213"
+	},
+/obj/item/clothing/suit/unathi/robe{
+	color = "#1c4213"
+	},
+/obj/item/clothing/suit/unathi/robe{
+	color = "#1e213b"
+	},
+/obj/item/clothing/suit/unathi/robe{
+	color = "#1e213b"
+	},
+/obj/item/clothing/under/unathi/himation,
+/obj/item/clothing/under/unathi/himation,
+/obj/item/clothing/under/unathi,
+/obj/item/clothing/under/unathi,
+/obj/item/clothing/under/unathi,
+/turf/simulated/floor/exoplanet/wood/walnut{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"kf" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_thakh_faithful";
+	identifier = "moghes_thakh_faithful"
+	},
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"kH" = (
+/obj/structure/bonfire/fireplace,
+/turf/simulated/floor/exoplanet/wood/walnut{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"mP" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"mQ" = (
+/turf/simulated/floor/exoplanet/water/shallow/moghes,
+/area/moghes_thakh)
+"oC" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/wood/walnut{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"oQ" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "edge";
+	dir = 6
+	},
+/area/moghes_thakh)
+"ps" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_thakh)
+"qO" = (
+/obj/item/flame/candle,
+/obj/structure/table/fancy/black,
+/turf/simulated/floor/exoplanet/wood/walnut{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"tn" = (
+/turf/simulated/wall/sandstone,
+/area/moghes_thakh)
+"tQ" = (
+/obj/structure/flora/grass/junglegrass/random,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "edge";
+	dir = 4
+	},
+/area/moghes_thakh)
+"tX" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/xuiziseed,
+/obj/item/seeds/xuiziseed,
+/obj/item/seeds/xuiziseed,
+/obj/item/seeds/xuiziseed,
+/obj/item/seeds/xuiziseed,
+/obj/item/seeds/xuiziseed,
+/obj/item/seeds/gukheseed,
+/obj/item/seeds/gukheseed,
+/obj/item/seeds/gukheseed,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"uQ" = (
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"vW" = (
+/obj/structure/table/rack,
+/obj/item/material/hatchet/lumber,
+/obj/item/material/hatchet/lumber,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"yQ" = (
+/obj/structure/simple_door/wood,
+/turf/simulated/floor/exoplanet/wood/walnut{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"Bp" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "edge";
+	dir = 8
+	},
+/area/moghes_thakh)
+"CC" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "edge";
+	dir = 4
+	},
+/area/moghes_thakh)
+"De" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"EP" = (
+/obj/structure/table/stone/marble,
+/obj/item/flame/candle,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"Fx" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"Gm" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/wood/walnut{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"HI" = (
+/obj/structure/railing/fence,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"Ij" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/walnut{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"Ir" = (
+/obj/item/device/versebook/thakh,
+/obj/structure/table/fancy/black,
+/turf/simulated/floor/exoplanet/wood/walnut{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"Jo" = (
+/obj/structure/flora/grass/junglegrass/random,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"Jp" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "edge";
+	dir = 1
+	},
+/area/moghes_thakh)
+"Jt" = (
+/obj/structure/table/rack,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/saddle,
+/obj/item/saddle,
+/obj/item/saddle,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"JJ" = (
+/obj/structure/table/stone/marble,
+/obj/item/fossil/skull/horned,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"Lf" = (
+/obj/structure/flora/grass/junglegrass/random,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_thakh)
+"Mf" = (
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"Nq" = (
+/obj/structure/table/rack,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"Ou" = (
+/obj/structure/closet/cabinet,
+/obj/item/device/versebook/thakh,
+/obj/item/device/versebook/thakh,
+/obj/item/device/versebook/thakh,
+/obj/item/device/versebook/thakh,
+/obj/item/device/versebook/thakh,
+/obj/item/device/versebook/thakh,
+/obj/item/device/versebook/thakh,
+/turf/simulated/floor/exoplanet/wood/walnut{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"Pa" = (
+/obj/structure/closet/cabinet,
+/obj/item/nullrod/shaman,
+/obj/item/torch,
+/obj/item/flame/lighter,
+/turf/simulated/floor/exoplanet/wood/walnut{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"PP" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"QY" = (
+/obj/structure/flora/grass/junglegrass/random,
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"Sc" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"Sl" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_thakh_shaman";
+	identifier = "moghes_thakh_shaman"
+	},
+/turf/simulated/floor/exoplanet/wood/walnut{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"SH" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "edge"
+	},
+/area/moghes_thakh)
+"TS" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/item/seeds/ghostmushroomseed,
+/obj/item/seeds/ghostmushroomseed,
+/obj/item/seeds/ghostmushroomseed,
+/obj/item/seeds/ghostmushroomseed,
+/obj/item/seeds/ghostmushroomseed,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"UM" = (
+/obj/structure/simple_door/sandstone,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"Vj" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/walnut{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"Wo" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "edge";
+	dir = 10
+	},
+/area/moghes_thakh)
+"Xj" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"Zn" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/exoplanet/wood/walnut{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+"Zs" = (
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_thakh)
+"ZC" = (
+/turf/simulated/wall/walnutwood,
+/area/moghes_thakh)
+"ZL" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_thakh_faithful";
+	identifier = "moghes_thakh_faithful"
+	},
+/turf/simulated/floor/exoplanet/wood/walnut{
+	temperature = 303.15
+	},
+/area/moghes_thakh)
+
+(1,1,1) = {"
+uQ
+uQ
+uQ
+uQ
+Jo
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+Jo
+Jo
+Jo
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+"}
+(2,1,1) = {"
+uQ
+uQ
+uQ
+uQ
+Jo
+uQ
+Jo
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+Jo
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+Jo
+uQ
+"}
+(3,1,1) = {"
+uQ
+uQ
+dz
+Jo
+Jo
+uQ
+uQ
+uQ
+dz
+uQ
+uQ
+uQ
+ZC
+ZC
+ZC
+ZC
+ZC
+ZC
+ZC
+tX
+Jo
+uQ
+De
+Fx
+eZ
+Sc
+uQ
+uQ
+uQ
+uQ
+"}
+(4,1,1) = {"
+uQ
+uQ
+uQ
+uQ
+Jo
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+ZC
+Sl
+Zn
+ci
+ci
+fM
+ZC
+TS
+uQ
+uQ
+Xj
+uQ
+uQ
+HI
+uQ
+Jo
+uQ
+uQ
+"}
+(5,1,1) = {"
+uQ
+uQ
+uQ
+Jo
+Jo
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+ZC
+ci
+ci
+ci
+ci
+fM
+ZC
+Jt
+uQ
+QY
+Xj
+uQ
+uQ
+HI
+uQ
+uQ
+uQ
+uQ
+"}
+(6,1,1) = {"
+uQ
+uQ
+uQ
+uQ
+uQ
+Jo
+uQ
+uQ
+Jo
+uQ
+uQ
+uQ
+ZC
+kH
+ci
+ci
+ci
+ci
+ZC
+vW
+uQ
+uQ
+Xj
+uQ
+uQ
+HI
+uQ
+uQ
+uQ
+uQ
+"}
+(7,1,1) = {"
+uQ
+uQ
+uQ
+dz
+uQ
+uQ
+uQ
+Jo
+Jo
+uQ
+uQ
+uQ
+ZC
+ci
+ci
+ci
+ci
+jj
+ZC
+Nq
+Jo
+uQ
+Xj
+uQ
+uQ
+HI
+Jo
+uQ
+Jo
+uQ
+"}
+(8,1,1) = {"
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+dz
+uQ
+ZC
+Pa
+Gm
+ci
+ci
+Ou
+ZC
+uQ
+uQ
+uQ
+Xj
+uQ
+uQ
+HI
+uQ
+Zs
+uQ
+uQ
+"}
+(9,1,1) = {"
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+ZC
+ZC
+ZC
+yQ
+ZC
+ZC
+ZC
+uQ
+uQ
+uQ
+PP
+uQ
+mP
+de
+uQ
+uQ
+uQ
+uQ
+"}
+(10,1,1) = {"
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+SH
+ps
+Jp
+Jo
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+"}
+(11,1,1) = {"
+uQ
+uQ
+tn
+tn
+tn
+tn
+tn
+tn
+uQ
+uQ
+uQ
+uQ
+uQ
+Jo
+SH
+ps
+Jp
+uQ
+uQ
+uQ
+uQ
+Jo
+Zs
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+"}
+(12,1,1) = {"
+uQ
+uQ
+tn
+Mf
+EP
+EP
+Mf
+tn
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+SH
+ps
+Jp
+uQ
+Jo
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+dz
+uQ
+"}
+(13,1,1) = {"
+uQ
+uQ
+tn
+cC
+Mf
+Mf
+Mf
+tn
+CC
+CC
+CC
+tQ
+CC
+CC
+oQ
+ps
+Jp
+uQ
+uQ
+Jo
+Jo
+uQ
+uQ
+Jo
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+"}
+(14,1,1) = {"
+uQ
+uQ
+tn
+JJ
+Mf
+Mf
+Mf
+UM
+ps
+ps
+ps
+ps
+ps
+ps
+ps
+ps
+Jp
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+Jo
+uQ
+"}
+(15,1,1) = {"
+uQ
+uQ
+tn
+cC
+Mf
+Mf
+Mf
+tn
+Bp
+Bp
+Bp
+Bp
+Bp
+Bp
+Wo
+ps
+Jp
+uQ
+uQ
+Jo
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+"}
+(16,1,1) = {"
+uQ
+uQ
+tn
+Mf
+EP
+EP
+Mf
+tn
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+SH
+Lf
+Jp
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+Jo
+uQ
+uQ
+uQ
+uQ
+"}
+(17,1,1) = {"
+uQ
+uQ
+tn
+tn
+tn
+tn
+tn
+tn
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+SH
+ps
+Jp
+kf
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+"}
+(18,1,1) = {"
+uQ
+uQ
+uQ
+uQ
+uQ
+Jo
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+SH
+ps
+Jp
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+dz
+uQ
+uQ
+uQ
+Jo
+uQ
+uQ
+"}
+(19,1,1) = {"
+uQ
+uQ
+uQ
+by
+uQ
+mQ
+uQ
+uQ
+kf
+uQ
+uQ
+ZC
+ZC
+ZC
+ZC
+yQ
+ZC
+ZC
+ZC
+ZC
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+"}
+(20,1,1) = {"
+uQ
+uQ
+uQ
+mQ
+mQ
+uQ
+uQ
+mQ
+Jo
+Jo
+uQ
+ZC
+ci
+ci
+ci
+ci
+ci
+ci
+ci
+ZC
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+"}
+(21,1,1) = {"
+uQ
+uQ
+dz
+mQ
+mQ
+mQ
+mQ
+uQ
+uQ
+uQ
+uQ
+ZC
+Vj
+ci
+ci
+ci
+ci
+ci
+oC
+ZC
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+"}
+(22,1,1) = {"
+uQ
+uQ
+uQ
+mQ
+mQ
+mQ
+mQ
+mQ
+uQ
+uQ
+uQ
+ZC
+ci
+Ij
+Ij
+ci
+Ij
+Ij
+ci
+ZC
+uQ
+uQ
+uQ
+uQ
+dz
+uQ
+Jo
+uQ
+uQ
+uQ
+"}
+(23,1,1) = {"
+uQ
+uQ
+uQ
+mQ
+uQ
+uQ
+Jo
+mQ
+uQ
+uQ
+uQ
+ZC
+ci
+ci
+ci
+ci
+ci
+ci
+ci
+ZC
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+"}
+(24,1,1) = {"
+uQ
+uQ
+uQ
+uQ
+Jo
+uQ
+uQ
+uQ
+Jo
+Jo
+uQ
+ZC
+ci
+Ij
+Ij
+ci
+ZL
+Ij
+ci
+ZC
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+"}
+(25,1,1) = {"
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+ZC
+ci
+ci
+ci
+ci
+ci
+ci
+ci
+ZC
+uQ
+uQ
+uQ
+uQ
+uQ
+Jo
+uQ
+uQ
+uQ
+uQ
+"}
+(26,1,1) = {"
+uQ
+uQ
+uQ
+Jo
+uQ
+Jo
+uQ
+uQ
+dz
+uQ
+uQ
+ZC
+Vj
+ci
+qO
+Ir
+qO
+ci
+oC
+ZC
+uQ
+uQ
+dz
+Jo
+uQ
+uQ
+uQ
+uQ
+Jo
+uQ
+"}
+(27,1,1) = {"
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+ZC
+ci
+ci
+ci
+ci
+ci
+ci
+ci
+ZC
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+"}
+(28,1,1) = {"
+uQ
+uQ
+uQ
+dz
+uQ
+uQ
+Jo
+uQ
+Jo
+uQ
+uQ
+ZC
+ZC
+ZC
+ZC
+ZC
+ZC
+ZC
+ZC
+ZC
+uQ
+uQ
+uQ
+Jo
+uQ
+uQ
+uQ
+dz
+uQ
+uQ
+"}
+(29,1,1) = {"
+uQ
+uQ
+uQ
+uQ
+uQ
+Jo
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+Jo
+uQ
+uQ
+uQ
+Jo
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+"}
+(30,1,1) = {"
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+Jo
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+uQ
+"}

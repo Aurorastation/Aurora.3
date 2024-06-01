@@ -45,6 +45,8 @@
 
 	smoothing_flags = SMOOTH_MORE | SMOOTH_NO_CLEAR_ICON | SMOOTH_UNDERLAYS
 
+	pathing_pass_method = TURF_PATHING_PASS_NO //Literally a wall, until we implement bots that can wallwarp, we might aswell save the processing
+
 // Walls always hide the stuff below them.
 /turf/simulated/wall/levelupdate(mapload)
 	if (mapload)
@@ -125,28 +127,28 @@
 			plant.pixel_y = 0
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/effect/plant, update_neighbors))
 
-/turf/simulated/wall/ChangeTurf(var/newtype)
+/turf/simulated/wall/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
 	clear_plants()
 	clear_bulletholes()
-	..(newtype)
+	..()
 
 //Appearance
-/turf/simulated/wall/examine(mob/user)
+/turf/simulated/wall/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 
 	if(!damage)
-		to_chat(user, SPAN_NOTICE("It looks fully intact."))
+		. += SPAN_NOTICE("It looks fully intact.")
 	else
 		var/dam = damage / material.integrity
 		if(dam <= 0.3)
-			to_chat(user, SPAN_WARNING("It looks slightly damaged."))
+			. += SPAN_WARNING("It looks slightly damaged.")
 		else if(dam <= 0.6)
-			to_chat(user, SPAN_WARNING("It looks moderately damaged."))
+			. += SPAN_WARNING("It looks moderately damaged.")
 		else
-			to_chat(user, SPAN_DANGER("It looks heavily damaged."))
+			. += SPAN_DANGER("It looks heavily damaged.")
 
 	if(locate(/obj/effect/overlay/wallrot) in src)
-		to_chat(user, SPAN_WARNING("There is fungus growing on [src]."))
+		. += SPAN_WARNING("There is fungus growing on [src].")
 
 //Damage
 
@@ -181,7 +183,8 @@
 
 	return
 
-/turf/simulated/wall/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume) //Doesn't fucking work because walls don't interact with air :[
+/turf/simulated/wall/fire_act(exposed_temperature, exposed_volume) //Doesn't fucking work because walls don't interact with air :[
+	. = ..()
 	burn(exposed_temperature)
 
 /turf/simulated/wall/adjacent_fire_act(turf/simulated/floor/adj_turf, datum/gas_mixture/adj_air, adj_temp, adj_volume)

@@ -1558,7 +1558,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/hivebot_burrows_1)
 "Du" = (
-/turf/simulated/abyss,
+/turf/simulated/floor/exoplanet/abyss,
 /area/hivebot_burrows_1)
 "Dz" = (
 /obj/random/dirt_75,

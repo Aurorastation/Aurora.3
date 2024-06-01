@@ -7,7 +7,7 @@
 	unacidable = TRUE
 	simulated = 0
 	invisibility = 101
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	pixel_x = -32
 	pixel_y = -32
 
@@ -28,6 +28,11 @@
 
 	/// Effects that show where the shuttle will land, to prevent unfair squishing
 	var/list/landing_indicators
+
+	/// List of ghostspawners to activate on shuttle arrival.
+	/// Arrival, means any shuttle that arrives and calls `shuttle_arrived()`.
+	/// Ghostspawners, means their `short_name` vars.
+	var/list/ghostspawners_to_activate_on_shuttle_arrival
 
 /obj/effect/shuttle_landmark/Initialize()
 	. = ..()
@@ -92,8 +97,17 @@
 /obj/effect/shuttle_landmark/proc/cannot_depart(datum/shuttle/shuttle)
 	return FALSE
 
+/obj/effect/shuttle_landmark/proc/activate_ghostroles()
+	if(!islist(ghostspawners_to_activate_on_shuttle_arrival))
+		return
+	for(var/spawner_name in ghostspawners_to_activate_on_shuttle_arrival)
+		var/datum/ghostspawner/spawner = SSghostroles.spawners[spawner_name]
+		if(istype(spawner))
+			spawner.enable()
+
 /obj/effect/shuttle_landmark/proc/shuttle_arrived(datum/shuttle/shuttle)
 	clear_landing_indicators()
+	activate_ghostroles()
 
 /proc/check_collision(area/target_area, list/target_turfs)
 	for(var/target_turf in target_turfs)
@@ -154,35 +168,110 @@
 /obj/item/device/spaceflare
 	name = "bluespace flare"
 	desc = "Burst transmitter used to broadcast all needed information for shuttle navigation systems. Has a flare attached for marking the spot where you probably shouldn't be standing."
+	icon = 'icons/obj/space_flare.dmi'
 	icon_state = "bluflare"
 	light_color = "#3728ff"
-	var/active
+	origin_tech = list(TECH_BLUESPACE = 4, TECH_MAGNET = 3, TECH_DATA = 2)
+	/// Boolean. Whether or not the spaceflare has been activated.
+	var/active = FALSE
+	/// The shuttle landmark synced to this beacon. This is set when the beacon is activated.
+	var/obj/effect/shuttle_landmark/automatic/spaceflare/landmark
 
 /obj/item/device/spaceflare/attack_self(var/mob/user)
-	if(!active)
-		visible_message("<span class='notice'>[user] pulls the cord, activating \the [src].</span>")
-		activate()
+	if(activate(user))
+		user.visible_message(SPAN_NOTICE("\The [user] pulls the cord, activating \the [src]."), SPAN_NOTICE("You pull the cord, activating \the [src]."), SPAN_ITALIC("You hear the sound of something being struck and ignited."))
 
-/obj/item/device/spaceflare/proc/activate()
+/obj/item/device/spaceflare/proc/activate(mob/user)
 	if(active)
-		return
+		to_chat(user, SPAN_WARNING("\The [src] is already active."))
+		return FALSE
 	var/turf/T = get_turf(src)
-	var/mob/M = loc
-	if(istype(M) && !M.unEquip(src, T))
-		return
+	if(isspaceturf(T) || isopenspace(T))
+		to_chat(user, SPAN_WARNING("\The [src] needs to be activated on solid ground."))
+		return FALSE
+	if(istype(user) && !user.unEquip(src, T))
+		return FALSE
+	if(loc != T)
+		return FALSE
 
-	active = 1
-	anchored = 1
+	active = TRUE
+	anchored = TRUE
 
-	var/obj/effect/shuttle_landmark/automatic/mark = new(T)
-	mark.name = "beacon signal ([T.x],[T.y])"
-	T.hotspot_expose(1500, 5)
+	log_and_message_admins("activated a bluespace flare in [get_area(src)]", user, get_turf(src))
+	landmark = new(T, src)
 	update_icon()
+	return TRUE
+
+/obj/item/device/spaceflare/proc/deactivate(silent = FALSE)
+	if (!active)
+		return FALSE
+
+	active = FALSE
+	anchored = FALSE
+	QDEL_NULL(landmark)
+	update_icon()
+	if (!silent)
+		visible_message(SPAN_WARNING("\The [src] stops burning and deactivates."))
+	return TRUE
 
 /obj/item/device/spaceflare/update_icon()
-	if(active)
-		icon_state = "bluflare_on"
+	if (active)
+		icon_state = "[initial(icon_state)]_on"
 		set_light(0.3, 0.1, 6, 2, "85d1ff")
+	else
+		icon_state = initial(icon_state)
+		set_light(0)
+
+/obj/item/device/spaceflare/Destroy()
+	deactivate(TRUE)
+	. = ..()
+
+/obj/item/device/spaceflare/attack_hand(mob/user)
+	if(active)
+		var/choice = tgui_alert(user, "Do you want to deactivate \the [src]?", "Bluespace Flare", list("Yes","No"))
+		if(choice == "Yes")
+			user.visible_message(SPAN_NOTICE("\The [user] presses a button, deactivating \the [src]'s signal"), SPAN_NOTICE("You press a button on the side of \the [src], shutting down its signal."), SPAN_ITALIC("You hear the sound of a flare fizzling out."))
+			deactivate()
+	else
+		..()
+
+//Activated by a bluespace flare
+/obj/effect/shuttle_landmark/automatic/spaceflare
+	name = "Bluespace Beacon Signal"
+	/// The beacon object synced to this landmark. If this is ever null or qdeleted the landmark should delete itself.
+	var/obj/item/device/spaceflare/beacon
+
+/obj/effect/shuttle_landmark/automatic/spaceflare/Initialize(mapload, obj/item/device/spaceflare/beacon)
+	. = ..()
+
+	if(!istype(beacon))
+		stack_trace("\A [src] was initialized with an invalid or nonexistent beacon.")
+		return INITIALIZE_HINT_QDEL
+
+	if(beacon.landmark && beacon.landmark != src)
+		stack_trace("\A [src] was initialized with a beacon that already has a synced landmark.")
+		return INITIALIZE_HINT_QDEL
+
+	src.beacon = beacon
+	RegisterSignal(beacon, COMSIG_MOVABLE_MOVED, PROC_REF(update_beacon_moved), TRUE)
+	//GLOB.moved_event.register(beacon, src, /obj/effect/shuttle_landmark/automatic/spaceflare/proc/update_beacon_moved)
+
+/obj/effect/shuttle_landmark/automatic/spaceflare/Destroy()
+	UnregisterSignal(beacon, COMSIG_MOVABLE_MOVED)
+	//GLOB.moved_event.unregister(beacon, src, /obj/effect/shuttle_landmark/automatic/spaceflare/proc/update_beacon_moved)
+	if (beacon?.active)
+		stack_trace("\A [src] was destroyed with a still active beacon.")
+		beacon.deactivate()
+	beacon = null
+	. = ..()
+
+/obj/effect/shuttle_landmark/automatic/spaceflare/proc/update_beacon_moved(atom/movable/moving_instance, atom/old_loc, atom/new_loc)
+	if(!isturf(new_loc) || isspaceturf(new_loc) || isopenturf(new_loc))
+		stack_trace("\A [src]'s beacon was moved to a non-turf or unacceptable location.")
+		beacon.deactivate()
+		return
+	forceMove(new_loc)
+	name = "[initial(name)] ([x],[y])"
 
 //This one activates away site ghostroles on the z-level.
 /obj/effect/shuttle_landmark/automatic/ghostrole_activation

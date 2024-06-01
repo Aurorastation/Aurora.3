@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(mapping)
 	name = "Mapping"
-	init_order = SS_INIT_AWAY_MAPS
+	init_order = INIT_ORDER_AWAY_MAPS
 	flags = SS_NO_FIRE
 
 	var/list/map_templates = list()

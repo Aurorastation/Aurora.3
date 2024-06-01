@@ -35,7 +35,7 @@
 /area/shuttle/haneunim_crash)
 "hF" = (
 /obj/machinery/atmospherics/unary/engine,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/shuttle/haneunim_crash)
 "hP" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -125,7 +125,6 @@
 /area/shuttle/haneunim_crash)
 "oL" = (
 /obj/machinery/atmospherics/binary/pump{
-	dir = 2;
 	name = "pump to waste"
 	},
 /turf/simulated/floor/plating,
@@ -223,6 +222,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/haneunim_crash)
+"uy" = (
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/haneunim_crash)
 "uG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -248,6 +251,10 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
+"xt" = (
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/shuttle/raider,
 /area/shuttle/haneunim_crash)
 "yc" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -515,6 +522,11 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/shuttle/haneunim_crash)
+"Pt" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
 "Pu" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -622,6 +634,10 @@
 /obj/item/gun/projectile/pistol/sol,
 /obj/random/contraband,
 /turf/simulated/floor/tiled/dark,
+/area/shuttle/haneunim_crash)
+"TT" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/wall/shuttle/raider,
 /area/shuttle/haneunim_crash)
 "Vv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -977,7 +993,7 @@ GY
 GY
 Ic
 Ic
-Ic
+xt
 rD
 rD
 rD
@@ -1167,7 +1183,7 @@ bL
 VT
 Ki
 tF
-vw
+Pt
 rD
 rD
 rD
@@ -1184,7 +1200,7 @@ rD
 rD
 rD
 rD
-Ic
+TT
 DO
 AR
 DO
@@ -1343,7 +1359,7 @@ ZA
 Ic
 Ic
 Ic
-Ic
+uy
 Ic
 Ic
 Ic
