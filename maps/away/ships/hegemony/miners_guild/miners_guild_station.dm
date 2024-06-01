@@ -104,6 +104,14 @@
 /obj/machinery/computer/shuttle_control/explore/miners_guild
 	name = "shuttle control console"
 	shuttle_tag = "Miners' Guild Shuttle"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "helm"
+	icon_keyboard = "security_key"
+	icon_keyboard_emis = "security_key_mask"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
 
 /datum/shuttle/autodock/overmap/miners_guild
 	name = "Miners' Guild Shuttle"
