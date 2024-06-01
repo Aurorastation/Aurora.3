@@ -67,6 +67,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
 "aB" = (
@@ -537,6 +540,11 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/white,
 /area/miners_guild/medical)
 "fh" = (
@@ -584,6 +592,9 @@
 	},
 /obj/machinery/door/firedoor{
 	req_one_access = null
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/miners_guild/medical)
@@ -722,12 +733,14 @@
 /area/miners_guild/bridge)
 "gD" = (
 /obj/machinery/power/apc/north{
-	is_critical = 1;
-	pixel_x = 0;
 	req_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/white,
 /area/miners_guild/cryo)
@@ -897,7 +910,6 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	is_critical = 1;
 	req_access = null
 	},
 /turf/simulated/floor/lino/diamond,
@@ -1052,6 +1064,9 @@
 	dir = 4;
 	req_one_access = null
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/full,
 /area/miners_guild)
 "iY" = (
@@ -1079,6 +1094,11 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
 "jg" = (
@@ -1427,8 +1447,6 @@
 	dir = 8
 	},
 /obj/machinery/power/apc/north{
-	is_critical = 1;
-	pixel_x = 0;
 	req_access = null
 	},
 /obj/structure/cable/green{
@@ -1571,6 +1589,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/firedoor{
 	req_one_access = null
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/full,
 /area/miners_guild)
@@ -1762,6 +1783,9 @@
 	},
 /obj/machinery/alarm/north{
 	req_one_access = null
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
@@ -2526,6 +2550,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
 "uz" = (
@@ -2643,6 +2670,11 @@
 	icon_state = "map-scrubbers"
 	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
 "vD" = (
@@ -2792,6 +2824,9 @@
 	},
 /obj/machinery/door/firedoor{
 	req_one_access = null
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
 /area/miners_guild/cryo)
@@ -3331,6 +3366,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
 "AO" = (
@@ -3509,6 +3547,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
 "Cf" = (
@@ -3569,8 +3610,6 @@
 	dir = 5
 	},
 /obj/machinery/power/apc/north{
-	is_critical = 1;
-	pixel_x = 0;
 	req_access = null
 	},
 /obj/structure/cable/green{
@@ -4128,6 +4167,11 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/white,
 /area/miners_guild/cryo)
 "Ix" = (
@@ -4180,9 +4224,11 @@
 /area/miners_guild/processing)
 "Jg" = (
 /obj/machinery/power/apc/north{
-	is_critical = 1;
-	pixel_x = 0;
 	req_access = null
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/white,
 /area/miners_guild/medical)
@@ -4441,6 +4487,24 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/processing)
+"LN" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/miners_guild)
 "Mg" = (
 /obj/structure/table/steel,
 /obj/item/plastique/seismic,
@@ -4632,6 +4696,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
 "NY" = (
@@ -4640,7 +4707,6 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/north{
-	is_critical = 1;
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -5127,6 +5193,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
 "RR" = (
@@ -5191,6 +5260,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
@@ -5826,6 +5900,13 @@
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/lino/diamond,
 /area/miners_guild/canteen)
+"XS" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/miners_guild)
 "XU" = (
 /obj/structure/cable/green{
 	d2 = 4;
@@ -18384,8 +18465,8 @@ hZ
 hZ
 aE
 iR
-uw
-On
+LN
+XS
 wL
 It
 mG
@@ -20004,8 +20085,8 @@ aP
 aP
 gF
 jO
-uw
-On
+LN
+XS
 fF
 fa
 eH
