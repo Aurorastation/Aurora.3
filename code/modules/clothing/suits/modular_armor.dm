@@ -914,8 +914,7 @@
 /obj/item/clothing/accessory/helmet_mask/scc
 	name = "corporate protective mask"
 	desc = "A generic camera-assisted mask issued to members of SCC security teams. Mainly used to protect the user \
-	from dust and other irritants, but lacks the capability for much else. While some may complain about the generic \
-	appearance, the Conglomerate continue with their tagline: \"Through uniformity, obedience.\""
+	from dust and other irritants, but lacks the capability for much else."
 
 /obj/item/clothing/accessory/helmet_mask/unathi
 	icon_state = "sec_mask_unathi"
