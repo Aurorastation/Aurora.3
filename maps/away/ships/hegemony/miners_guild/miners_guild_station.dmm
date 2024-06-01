@@ -432,7 +432,7 @@
 /area/miners_guild/bridge)
 "ee" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/miners_guild)
 "ef" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -922,16 +922,12 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
 "hL" = (
@@ -1554,12 +1550,6 @@
 /turf/simulated/floor/airless,
 /area/miners_guild/engineering1)
 "lR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
@@ -1577,6 +1567,13 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1;
+	icon_state = "map-supply"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/crew)
@@ -2507,7 +2504,7 @@
 /area/miners_guild/fuel_bay)
 "sN" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/miners_guild)
 "sO" = (
 /obj/structure/cable/green{
@@ -2721,9 +2718,6 @@
 /area/miners_guild/bridge)
 "uC" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
-/obj/machinery/door/airlock/multi_tile{
-	name = "Docking Bay"
-	},
 /obj/machinery/door/firedoor{
 	req_one_access = null
 	},
@@ -2732,15 +2726,27 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Docking Bay"
+	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/docking_port_3)
 "uF" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
 "uI" = (
@@ -3146,20 +3152,19 @@
 /turf/simulated/floor/plating,
 /area/miners_guild/engineering1)
 "xJ" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1;
-	icon_state = "map-supply"
-	},
 /obj/effect/floor_decal/corner/green{
 	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
 	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/crew)
@@ -3491,7 +3496,7 @@
 "Al" = (
 /obj/machinery/alarm/east,
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/miners_guild)
 "Ao" = (
 /turf/simulated/floor/tiled/white,
@@ -3775,14 +3780,14 @@
 /area/miners_guild/engineering2)
 "Ce" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
@@ -4206,11 +4211,11 @@
 /area/miners_guild/processing)
 "FD" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
-/obj/machinery/door/airlock/multi_tile{
-	name = "Docking Bay"
-	},
 /obj/machinery/door/firedoor{
 	req_one_access = null
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Docking Bay"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/docking_port_1)
@@ -5519,7 +5524,7 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
-"Rm" = (
+"Rn" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/cable/green{
 	d1 = 2;
@@ -5528,30 +5533,12 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel,
-/area/miners_guild)
-"Rn" = (
-/obj/effect/floor_decal/corner_wide/brown/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
@@ -5815,8 +5802,11 @@
 /area/space)
 "Ty" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild)
 "TB" = (
@@ -6049,11 +6039,11 @@
 /area/miners_guild/processing)
 "Vv" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
-/obj/machinery/door/airlock/multi_tile{
-	name = "Docking Bay"
-	},
 /obj/machinery/door/firedoor{
 	req_one_access = null
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Docking Bay"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/docking_port_2)
@@ -18987,7 +18977,7 @@ hZ
 aE
 iR
 Rn
-Ai
+Ty
 wL
 It
 mG
@@ -19149,7 +19139,7 @@ aP
 gF
 jO
 Ce
-Ty
+On
 qI
 yk
 Uk
@@ -20606,8 +20596,8 @@ aP
 aP
 gF
 jO
-Rm
 uF
+Ty
 fF
 fa
 eH
