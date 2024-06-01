@@ -295,6 +295,27 @@
 			return L[i+1]
 	return L[1]
 
+/// Returns the value after the current value in a key-value pair associated list. If this is the last element, or the element isn't present in the list, it'll return the first value in the list
+/proc/next_in_assoc_list(element, list/our_list)
+	// this is the index we'll use to get the key at the end of the function, which is used to get the value
+	var/index = 1
+
+	// loop through to the list to find where exactly our value element is in the list
+	for(var/i = 1, i < our_list.len, i++)
+		var/key = our_list[i]
+		if(our_list[key] == element)
+			// we've found our value, now we need to check if it's at the end of the list
+			// if not, we can select our index + 1
+			if(i != length(our_list))
+				index = i + 1
+			// otherwise we wrap back to the start of the list
+			else
+				index = 1
+			break
+
+	var/new_key = our_list[index]
+	return our_list[new_key]
+
 /*
  * Sorting
  */
