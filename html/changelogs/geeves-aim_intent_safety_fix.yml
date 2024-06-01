@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed aim intent triggering clicking messages if someone moves (despite being allowed to move) when you're not on harm intent."
