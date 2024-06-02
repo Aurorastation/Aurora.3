@@ -107,6 +107,12 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/bridge)
+"aD" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, reactor"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/tramp_freighter/power)
 "aG" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -165,10 +171,6 @@
 	},
 /obj/machinery/alarm/south{
 	req_one_access = null
-	},
-/obj/item/reagent_containers/food/condiment/enzyme{
-	pixel_y = 12;
-	pixel_x = -8
 	},
 /turf/simulated/floor/marble,
 /area/tramp_freighter/kitchen)
@@ -292,6 +294,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/bridge)
+"bK" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/port_docking)
 "bO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
@@ -373,9 +385,6 @@
 /obj/random/contraband,
 /obj/structure/closet/crate/secure,
 /obj/item/stack/material/phoron/full,
-/obj/random/highvalue/no_weapon,
-/obj/random/highvalue/no_weapon,
-/obj/random/highvalue/no_weapon,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "bY" = (
@@ -396,6 +405,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboardthrust)
+"ca" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_berth";
+	name = "port_berth_docking_port";
+	master_tag = "port_berth_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/port_docking)
 "cf" = (
 /obj/structure/cable{
 	icon_state = "0-8"
@@ -470,6 +491,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/bridge)
+"cQ" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 30;
+	pixel_y = 6;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_aft";
+	name = "port_aft_docking_port";
+	master_tag = "port_aft_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/port_docking)
 "cS" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -605,9 +643,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/armory)
 "dx" = (
-/obj/machinery/door/airlock/external,
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_stbd_berth";
+	name = "starboard_berth_docking_port";
+	master_tag = "starboard_berth_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboard_docking)
 "dz" = (
@@ -833,6 +875,14 @@
 /obj/machinery/light,
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/bridge)
+"em" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/port_docking)
 "en" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/one,
@@ -864,20 +914,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboard_docking)
-"ev" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/machinery/airlock_sensor/airlock_exterior{
-	pixel_y = 4;
-	pixel_x = -25;
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "tramp_shuttle_dock";
-	master_tag = "tramp_shuttle_dock";
-	landmark_tag = "nav_tramp_start"
-	},
-/turf/simulated/floor/plating,
-/area/tramp_freighter/afthallway)
 "eB" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/tramp_freighter/crew_quarters)
@@ -984,8 +1020,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/apc/south{
+	req_access = null
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "eW" = (
@@ -1034,6 +1075,23 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/bridge)
+"fm" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_stbd_berth";
+	name = "starboard_berth_docking_port";
+	master_tag = "starboard_berth_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/starboard_docking)
 "fp" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 4
@@ -1088,6 +1146,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/port_docking)
 "fD" = (
@@ -1151,11 +1210,23 @@
 /turf/simulated/floor/reinforced/airmix,
 /area/tramp_freighter/atmos)
 "fN" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = -30;
+	pixel_y = 6;
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_stbd_fore";
+	name = "starboard_fore_docking_port";
+	master_tag = "starboard_fore_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/tramp_freighter/port_docking)
+/area/tramp_freighter/starboard_docking)
 "fS" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/condiment/flour{
@@ -1245,6 +1316,11 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "gv" = (
@@ -1303,12 +1379,21 @@
 "gR" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
 "hb" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/freighter_shuttle)
+"hd" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/bridge)
 "hh" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/light/small{
@@ -1394,6 +1479,9 @@
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille{
 	id = "tramp_office"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/tramp_freighter/captain_bed)
@@ -1572,6 +1660,13 @@
 /obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
+"iQ" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/port_docking)
 "iS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -1628,6 +1723,7 @@
 	target_pressure = 15000;
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboardthrust)
 "iY" = (
@@ -1728,22 +1824,22 @@
 "jF" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/tramp_freighter/washroom)
-"jH" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/port_docking)
 "jK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
+"jM" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_berth";
+	name = "port_berth_docking_port";
+	master_tag = "port_berth_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/port_docking)
 "jU" = (
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	dir = 4;
@@ -1798,6 +1894,7 @@
 	name = "starboard_aft_docking_port";
 	master_tag = "starboard_aft_docking_port"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboard_docking)
 "kc" = (
@@ -1814,6 +1911,9 @@
 "kd" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille{
 	id = "tramp_office"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/tramp_freighter/captain_bed)
@@ -1962,6 +2062,19 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/starboard_docking)
+"lt" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_fore";
+	name = "port_fore_docking_port";
+	master_tag = "port_fore_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/port_docking)
 "lx" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
@@ -1982,6 +2095,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboardthrust)
+"lB" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/port_docking)
 "lC" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
@@ -2000,6 +2125,7 @@
 "lE" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
 "lL" = (
@@ -2008,12 +2134,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/power/apc/south{
-	req_access = null
-	},
 /obj/structure/cable/green{
-	icon_state = "0-4"
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "lN" = (
@@ -2200,6 +2326,7 @@
 	name = "starboard_aft_docking_port";
 	master_tag = "starboard_aft_docking_port"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboard_docking)
 "np" = (
@@ -2314,10 +2441,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/closet/crate/bin/filled,
 /obj/structure/sign/poster{
 	pixel_y = -32
 	},
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
 "nV" = (
@@ -2348,6 +2475,11 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/power)
+"nZ" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/freighter_shuttle)
 "od" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark,
@@ -2404,6 +2536,7 @@
 	name = "starboard_aft_docking_port";
 	master_tag = "starboard_aft_docking_port"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboard_docking)
 "ov" = (
@@ -2433,9 +2566,6 @@
 /obj/structure/closet/crate/secure,
 /obj/item/tank/phoron/shuttle,
 /obj/item/tank/phoron/shuttle,
-/obj/random/highvalue/no_weapon,
-/obj/random/highvalue/no_weapon,
-/obj/random/highvalue/no_weapon,
 /obj/random/highvalue/no_weapon,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
@@ -2535,11 +2665,14 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/tramp_freighter/port_docking)
 "pn" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/port_docking)
 "pr" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -2571,6 +2704,7 @@
 	name = "starboard_aft_docking_port";
 	master_tag = "starboard_aft_docking_port"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboard_docking)
 "pz" = (
@@ -2676,16 +2810,38 @@
 /area/tramp_freighter/lounge)
 "ql" = (
 /obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -30;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_stbd_fore";
+	name = "starboard_fore_docking_port";
+	master_tag = "starboard_fore_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboard_docking)
+"qm" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_fore";
+	name = "port_fore_docking_port";
+	master_tag = "port_fore_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/port_docking)
 "qn" = (
 /obj/random/pottedplant,
 /obj/effect/decal/cleanable/generic{
 	layer = 2.81
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
 "qs" = (
@@ -2767,6 +2923,12 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_berth";
+	name = "port_berth_docking_port";
+	master_tag = "port_berth_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/port_docking)
 "qV" = (
@@ -2779,6 +2941,7 @@
 /area/tramp_freighter/port_docking)
 "qX" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
 "ra" = (
@@ -2809,6 +2972,27 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboard_docking)
+"rh" = (
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_fore";
+	name = "port_fore_docking_port";
+	master_tag = "port_fore_docking_port"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -24;
+	dir = 4;
+	frequency = 1380
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/port_docking)
 "rj" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2975,11 +3159,14 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_stbd_berth";
+	name = "starboard_berth_docking_port";
+	master_tag = "starboard_berth_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboard_docking)
 "rX" = (
@@ -3200,6 +3387,10 @@
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/afthallway)
 "tj" = (
@@ -3229,7 +3420,9 @@
 "tq" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/suit_cycler/mining/prepared,
+/obj/machinery/suit_cycler/mining/prepared{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/equipment)
 "tr" = (
@@ -3376,6 +3569,7 @@
 /area/tramp_freighter/hydroponics)
 "uf" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor,
 /area/tramp_freighter/port_docking)
 "ui" = (
@@ -3419,8 +3613,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/alarm/north{
-	req_one_access = null
+/obj/machinery/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
@@ -3438,6 +3632,17 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_y = -30;
+	pixel_x = -5;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_stbd_berth";
+	name = "starboard_berth_docking_port";
+	master_tag = "starboard_berth_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboard_docking)
 "uA" = (
@@ -3621,8 +3826,17 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_berth";
+	name = "port_berth_docking_port";
+	master_tag = "port_berth_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/port_docking)
 "vr" = (
@@ -3693,6 +3907,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor,
 /area/tramp_freighter/port_docking)
 "vS" = (
@@ -3796,12 +4011,6 @@
 	},
 /turf/simulated/floor/carpet,
 /area/tramp_freighter/crew_quarters)
-"wm" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/tramp_freighter/starboard_docking)
 "wn" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3858,6 +4067,27 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/afthallway)
+"wC" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_y = 28;
+	pixel_x = 32
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_stbd_berth";
+	name = "starboard_berth_docking_port";
+	master_tag = "starboard_berth_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/starboard_docking)
 "wE" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -3932,16 +4162,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/captain)
 "wT" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
-/area/tramp_freighter/port_docking)
+/area/tramp_freighter/bridge)
 "wW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -4176,9 +4400,6 @@
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
-/obj/item/storage/box/produce{
-	layer = 2.99
-	},
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -4187,6 +4408,12 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/light,
+/obj/item/storage/box/produce{
+	layer = 2.99
+	},
+/obj/item/storage/box/produce{
+	layer = 2.99
+	},
 /turf/simulated/floor/marble,
 /area/tramp_freighter/kitchen)
 "ye" = (
@@ -4291,7 +4518,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -4452,15 +4678,21 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/afthallway)
 "zF" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 5
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -24;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_stbd_fore";
+	name = "starboard_fore_docking_port";
+	master_tag = "starboard_fore_docking_port"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/port_docking)
+/turf/simulated/floor/plating,
+/area/tramp_freighter/starboard_docking)
 "zG" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, armory"
@@ -4713,6 +4945,12 @@
 /obj/effect/shuttle_landmark/tramp_freighter/port_aft,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_aft";
+	name = "port_aft_docking_port";
+	master_tag = "port_aft_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/port_docking)
 "AX" = (
@@ -4754,10 +4992,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
-	},
-/obj/machinery/light_switch{
-	dir = 1;
-	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
@@ -4849,10 +5083,20 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/bridge)
-"Cz" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+"CB" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_y = 4;
+	pixel_x = -25;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "tramp_shuttle_dock";
+	master_tag = "tramp_shuttle_dock";
+	landmark_tag = "nav_tramp_start"
+	},
 /turf/simulated/floor/plating,
-/area/tramp_freighter/starboard_docking)
+/area/tramp_freighter/afthallway)
 "CF" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4916,18 +5160,6 @@
 /obj/machinery/vending/snack,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/port_docking)
-"Da" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/port_docking)
 "Db" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -5185,7 +5417,6 @@
 	icon_state = "0-8"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/portthrust)
 "Fz" = (
@@ -5262,6 +5493,16 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 30;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_fore";
+	name = "port_fore_docking_port";
+	master_tag = "port_fore_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/port_docking)
 "Ga" = (
@@ -5300,6 +5541,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/bridge)
+"Gg" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/airlock_sensor{
+	pixel_x = 24;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_aft";
+	name = "port_aft_docking_port";
+	master_tag = "port_aft_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/port_docking)
 "Gv" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/airlock/external,
@@ -5503,13 +5758,24 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
 "HM" = (
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_tramp_freighter_stbd_aft";
-	name = "starboard_aft_docking_port";
-	master_tag = "starboard_aft_docking_port"
+/obj/machinery/door/airlock/external{
+	dir = 4
 	},
-/turf/template_noop,
-/area/space)
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_y = -30;
+	pixel_x = 4;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_berth";
+	name = "port_berth_docking_port";
+	master_tag = "port_berth_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/port_docking)
 "HN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -5828,7 +6094,9 @@
 	icon_state = "0-2"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/suit_cycler/mining/prepared,
+/obj/machinery/suit_cycler/mining/prepared{
+	req_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/equipment)
 "JQ" = (
@@ -5972,6 +6240,23 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/engi)
+"KR" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = 30;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_aft";
+	name = "port_aft_docking_port";
+	master_tag = "port_aft_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/port_docking)
 "KS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -5990,6 +6275,7 @@
 	target_pressure = 15000;
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/portthrust)
 "KZ" = (
@@ -6011,20 +6297,25 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/centralhallway)
-"Lb" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 5
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/port_docking)
 "Lk" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, crew quarters"
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/tramp_freighter/crew_quarters)
+"Ll" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_aft";
+	name = "port_aft_docking_port";
+	master_tag = "port_aft_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/port_docking)
 "Lp" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -6035,12 +6326,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/portthrust)
-"Lq" = (
+"Lx" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/effect/landmark/entry_point/port{
-	name = "port, reactor"
+	name = "port, bridge"
 	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/tramp_freighter/power)
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/tramp_freighter/bridge)
 "Ly" = (
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_tramp_shuttle";
@@ -6100,12 +6395,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic{
 	layer = 2.81
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
@@ -6136,6 +6431,15 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_stbd_berth";
+	name = "starboard_berth_docking_port";
+	master_tag = "starboard_berth_docking_port"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 26
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboard_docking)
 "LX" = (
@@ -6442,6 +6746,16 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -30;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_stbd_fore";
+	name = "starboard_fore_docking_port";
+	master_tag = "starboard_fore_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboard_docking)
 "Ov" = (
@@ -6467,11 +6781,24 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
 "OD" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 24;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_fore";
+	name = "port_fore_docking_port";
+	master_tag = "port_fore_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/port_docking)
 "OE" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor,
 /area/tramp_freighter/starboard_docking)
 "OJ" = (
@@ -6485,6 +6812,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/port_docking)
+"OL" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_stbd_berth";
+	name = "starboard_berth_docking_port";
+	master_tag = "starboard_berth_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/starboard_docking)
 "OM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -6524,10 +6863,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/refinery2)
-"OY" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/turf/simulated/floor/plating,
-/area/tramp_freighter/port_docking)
 "OZ" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6698,12 +7033,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/atmos)
-"PX" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/tramp_freighter/port_docking)
 "Qa" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 1
@@ -6755,6 +7084,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_berth";
+	name = "port_berth_docking_port";
+	master_tag = "port_berth_docking_port"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 26
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/port_docking)
 "Ql" = (
@@ -6770,6 +7108,27 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/centralhallway)
+"Qn" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_y = 28;
+	pixel_x = -32
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_berth";
+	name = "port_berth_docking_port";
+	master_tag = "port_berth_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/port_docking)
 "Qu" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -6983,6 +7342,7 @@
 	name = "starboard_aft_docking_port";
 	master_tag = "starboard_aft_docking_port"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboard_docking)
 "RN" = (
@@ -7094,8 +7454,20 @@
 /area/tramp_freighter/lounge)
 "Sp" = (
 /obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = 30;
+	pixel_y = 6;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_fore";
+	name = "port_fore_docking_port";
+	master_tag = "port_fore_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/port_docking)
 "Ss" = (
@@ -7233,12 +7605,6 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/port_docking)
-"Tw" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, propulsion"
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/tramp_freighter/starboardthrust)
 "Ty" = (
 /obj/item/bedsheet/red,
 /obj/structure/bed/padded/bunk,
@@ -7378,10 +7744,20 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
+/obj/machinery/airlock_sensor{
+	pixel_y = 24
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_stbd_berth";
+	name = "starboard_berth_docking_port";
+	master_tag = "starboard_berth_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboard_docking)
 "Uu" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
 "Ux" = (
@@ -7592,6 +7968,19 @@
 /obj/item/storage/box/stunshells,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/armory)
+"Vm" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_stbd_fore";
+	name = "starboard_fore_docking_port";
+	master_tag = "starboard_fore_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/starboard_docking)
 "Vo" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -7702,6 +8091,17 @@
 	must_start_working = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_aft";
+	name = "port_aft_docking_port";
+	master_tag = "port_aft_docking_port"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -24;
+	dir = 4;
+	frequency = 1380
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/port_docking)
 "VS" = (
@@ -7724,6 +8124,9 @@
 /area/tramp_freighter/portthrust)
 "VV" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/bridge)
 "VW" = (
@@ -7806,14 +8209,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
-"Wm" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
-/area/tramp_freighter/starboard_docking)
 "Wn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/portables_connector{
@@ -7902,13 +8297,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/cargo)
-"WI" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/port_docking)
 "WK" = (
 /obj/effect/floor_decal/corner/dark_green,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7931,11 +8319,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
-"WM" = (
-/obj/machinery/atmospherics/portables_connector,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/freighter_shuttle)
 "WQ" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -8127,8 +8510,24 @@
 	},
 /obj/effect/shuttle_landmark/tramp_freighter/starboard_aft,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboard_docking)
+"Ye" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = 24
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_port_berth";
+	name = "port_berth_docking_port";
+	master_tag = "port_berth_docking_port"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/port_docking)
 "Yk" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
@@ -8167,6 +8566,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/port_docking)
 "YA" = (
@@ -8293,6 +8693,17 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_tramp_freighter_stbd_fore";
+	name = "starboard_fore_docking_port";
+	master_tag = "starboard_fore_docking_port"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = 24;
+	dir = 8;
+	frequency = 1380
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboard_docking)
 "Ze" = (
@@ -8353,10 +8764,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_y = 30
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "ZL" = (
@@ -8369,16 +8781,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/tramp_freighter/bridge)
-"ZM" = (
-/obj/machinery/light/small{
-	dir = 8;
-	must_start_working = 1
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/tramp_freighter/port_docking)
 "ZP" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -8406,6 +8808,12 @@
 	},
 /turf/simulated/floor/marble,
 /area/tramp_freighter/kitchen)
+"ZT" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, propulsion"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/tramp_freighter/starboardthrust)
 "ZV" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -32963,7 +33371,7 @@ hX
 hX
 hX
 hX
-HM
+hX
 hX
 hX
 hX
@@ -33477,7 +33885,7 @@ hX
 hX
 hX
 Ex
-Wm
+rW
 uy
 Ex
 hX
@@ -33735,7 +34143,7 @@ hX
 hX
 Ex
 Uq
-Uq
+OL
 Ex
 hX
 hX
@@ -33992,7 +34400,7 @@ hX
 hX
 Ex
 LT
-Cz
+dx
 Ex
 hX
 hX
@@ -34248,8 +34656,8 @@ hX
 hX
 hX
 Ex
-rW
-rW
+wC
+fm
 Ex
 hX
 hX
@@ -36049,9 +36457,9 @@ no
 kb
 lN
 vI
+fN
+zF
 ql
-wm
-dx
 hX
 hX
 hX
@@ -36306,7 +36714,7 @@ pw
 RK
 DQ
 UI
-ql
+Vm
 Zb
 Oq
 hX
@@ -38079,7 +38487,7 @@ pr
 Pv
 jU
 xz
-Tw
+ZT
 xz
 hX
 hX
@@ -39926,7 +40334,7 @@ hy
 rd
 VV
 VV
-VV
+wT
 hX
 hX
 hX
@@ -40183,7 +40591,7 @@ qw
 dX
 Cv
 tE
-VV
+wT
 VV
 hX
 hX
@@ -40441,7 +40849,7 @@ bJ
 of
 On
 fl
-VV
+hd
 hX
 hX
 hX
@@ -40697,7 +41105,7 @@ eb
 Cv
 Cv
 jZ
-VV
+wT
 VV
 hX
 hX
@@ -40894,7 +41302,7 @@ hX
 hX
 hX
 dC
-WM
+nZ
 XV
 Bh
 ae
@@ -40902,7 +41310,7 @@ Cb
 Ly
 cV
 Gv
-ev
+CB
 lx
 od
 Al
@@ -40954,7 +41362,7 @@ ek
 rd
 VV
 VV
-VV
+wT
 hX
 hX
 hX
@@ -41208,7 +41616,7 @@ Sz
 TW
 mu
 zM
-VV
+wT
 ZL
 hX
 hX
@@ -41465,7 +41873,7 @@ xP
 cO
 fe
 LX
-VV
+wT
 hX
 hX
 hX
@@ -41722,7 +42130,7 @@ cM
 sK
 cZ
 zM
-VV
+wT
 hX
 hX
 hX
@@ -42233,7 +42641,7 @@ bC
 jt
 ZH
 VV
-VV
+Lx
 VV
 rd
 hX
@@ -43482,7 +43890,7 @@ wv
 Nn
 Nn
 We
-Lq
+aD
 We
 We
 GP
@@ -45812,12 +46220,12 @@ hX
 hX
 AV
 VQ
-pn
-zF
+Ll
+bK
 Hv
-pn
-ZM
-Sp
+lt
+rh
+qm
 hX
 hX
 hX
@@ -46067,13 +46475,13 @@ hX
 hX
 hX
 hX
-Sp
-OY
-pn
-Lb
+cQ
+Gg
+KR
+em
 uQ
-pn
-fN
+Sp
+OD
 FZ
 hX
 hX
@@ -46841,8 +47249,8 @@ nN
 hX
 pj
 Tp
-jH
-Da
+pn
+lB
 Wn
 pj
 hX
@@ -47098,7 +47506,7 @@ hX
 hX
 pj
 Tp
-WI
+iQ
 zZ
 Wn
 pj
@@ -47869,8 +48277,8 @@ hX
 hX
 hX
 pj
-wT
-wT
+Qn
+vm
 pj
 hX
 hX
@@ -48127,7 +48535,7 @@ hX
 hX
 pj
 Qh
-OD
+jM
 pj
 hX
 hX
@@ -48383,8 +48791,8 @@ nN
 hX
 hX
 pj
-PX
-PX
+Ye
+ca
 pj
 hX
 hX
@@ -48641,7 +49049,7 @@ hX
 hX
 pj
 qQ
-vm
+HM
 pj
 hX
 hX
