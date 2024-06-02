@@ -66,7 +66,7 @@ pub fn mapmanip(
 
                 // find all the insert markers
                 let mut marker_insert_coords = vec![];
-                for (coord, tile) in submaps_map.grid.iter() {
+                for (coord, tile) in map.grid.iter() {
                     if tile.prefabs.iter().any(|p| p.path == *marker_insert) {
                         marker_insert_coords.push(*coord);
                     }

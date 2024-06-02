@@ -24,6 +24,11 @@
 /obj/item/stack/material/steel/full,
 /turf/simulated/floor/tiled,
 /area/space)
+"f" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled,
+/area/space)
 "g" = (
 /turf/simulated/floor/tiled,
 /area/space)
@@ -41,6 +46,15 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm/west,
 /obj/structure/closet/crate,
+/turf/simulated/floor/tiled,
+/area/space)
+"m" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled,
 /area/space)
 "n" = (
@@ -175,20 +189,6 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled,
 /area/space)
-"V" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/turf/simulated/floor/tiled,
-/area/space)
-"X" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/structure/table/rack,
-/turf/simulated/floor/tiled,
-/area/space)
 "Y" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -199,11 +199,6 @@
 /area/space)
 
 (1,1,1) = {"
-E
-E
-E
-E
-E
 E
 E
 E
@@ -244,18 +239,8 @@ E
 E
 E
 E
-E
-E
-E
-E
-E
 "}
 (3,1,1) = {"
-E
-E
-E
-E
-E
 E
 E
 E
@@ -280,11 +265,6 @@ E
 E
 E
 E
-E
-E
-E
-E
-E
 g
 a
 P
@@ -303,11 +283,6 @@ E
 E
 "}
 (5,1,1) = {"
-E
-E
-E
-E
-E
 E
 E
 E
@@ -348,18 +323,8 @@ E
 E
 E
 E
-E
-E
-E
-E
-E
 "}
 (7,1,1) = {"
-E
-E
-E
-E
-E
 E
 E
 E
@@ -400,18 +365,8 @@ E
 E
 E
 E
-E
-E
-E
-E
-E
 "}
 (9,1,1) = {"
-E
-E
-E
-E
-E
 E
 E
 E
@@ -436,11 +391,6 @@ E
 E
 E
 E
-E
-E
-E
-E
-E
 g
 a
 P
@@ -459,11 +409,6 @@ E
 E
 "}
 (11,1,1) = {"
-E
-E
-E
-E
-E
 E
 E
 E
@@ -504,18 +449,8 @@ E
 E
 E
 E
-E
-E
-E
-E
-E
 "}
 (13,1,1) = {"
-E
-E
-E
-E
-E
 E
 E
 E
@@ -556,26 +491,16 @@ E
 E
 E
 E
-E
-E
-E
-E
-E
 "}
 (15,1,1) = {"
-E
-E
-E
-E
-E
 E
 E
 E
 G
 i
 K
-V
-X
+f
+m
 E
 E
 E
@@ -589,11 +514,6 @@ E
 E
 "}
 (16,1,1) = {"
-E
-E
-E
-E
-E
 E
 E
 E
@@ -618,13 +538,8 @@ E
 E
 E
 E
-E
-E
-E
-E
-E
 L
-V
+f
 J
 y
 b
@@ -641,11 +556,6 @@ E
 E
 "}
 (18,1,1) = {"
-E
-E
-E
-E
-E
 E
 E
 E
@@ -686,122 +596,8 @@ E
 E
 E
 E
-E
-E
-E
-E
-E
 "}
 (20,1,1) = {"
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-"}
-(21,1,1) = {"
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-"}
-(22,1,1) = {"
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-"}
-(23,1,1) = {"
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-E
-"}
-(24,1,1) = {"
-E
-E
-E
-E
-E
 E
 E
 E
