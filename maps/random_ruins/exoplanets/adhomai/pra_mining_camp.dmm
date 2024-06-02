@@ -221,6 +221,9 @@
 /obj/item/ore_detector,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "wW" = (
