@@ -52,11 +52,11 @@ var/list/holder_mob_icon_cache = list()
 		release_mob()
 	return ..()
 
-/obj/item/holder/examine(mob/user)
+/obj/item/holder/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
 
 	if(contained)
-		return contained.examine(user)
+		return contained.examine(user, distance, is_adjacent, infix, suffix, show_extended)
 	return TRUE
 
 /obj/item/holder/process()

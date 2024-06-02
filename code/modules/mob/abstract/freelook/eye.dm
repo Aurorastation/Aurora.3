@@ -69,7 +69,7 @@
 	set src = usr.contents
 	return 0
 
-/mob/abstract/eye/examine(mob/user)
+/mob/abstract/eye/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
 
 	return TRUE

@@ -40,7 +40,7 @@
 /obj/item/clothing/wrists/watch/spy/checktime()
 	to_chat(usr, "You check your watch. Unfortunately for you, it's not a real watch, dork.")
 
-/obj/item/clothing/wrists/watch/examine(mob/user, distance, is_adjacent)
+/obj/item/clothing/wrists/watch/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if (distance <= 1)
 		checktime()

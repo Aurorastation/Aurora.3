@@ -99,7 +99,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		return 1
 	return ..()
 
-/obj/item/reagent_containers/food/drinks/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/item/reagent_containers/food/drinks/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
 	. = ..()
 	if (distance > 1)
 		return
