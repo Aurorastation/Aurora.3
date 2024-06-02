@@ -525,8 +525,7 @@
 	name = "aft, airlock"
 	},
 /obj/effect/shuttle_landmark/orion_express_shuttle/hangar{
-	base_area = /area/space;
-	base_turf = /area/space
+	base_area = /area/space
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_hangar_orion_express";
@@ -536,7 +535,6 @@
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
 	icon_state = "door_locked";
-	id_tag = "orion_traveler_n_out";
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -1008,7 +1006,9 @@
 	dir = 4;
 	pixel_y = 6;
 	pixel_x = -20;
-	tag_interior_sensor = "orion_shuttle_interior"
+	tag_interior_sensor = "orion_shuttle_interior";
+	id_tag = "orion_traveler_n_out";
+	frequency = 1380
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_hangar_orion_express";
@@ -1038,6 +1038,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
+"dWt" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "dYg" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 10
@@ -1290,6 +1296,7 @@
 "fuh" = (
 /obj/item/clothing/head/beret/janitor,
 /obj/structure/table/steel,
+/obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor,
 /area/ship/orion/forehall)
 "fva" = (
@@ -1645,7 +1652,8 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 4;
 	pixel_y = 6;
-	pixel_x = -20
+	pixel_x = -20;
+	frequency = 1380
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "orion_shuttle";
@@ -2184,6 +2192,10 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/bridge)
+"iXe" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/ship/orion/mainhall)
 "jgn" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/chemical_dispenser/bar_soft/full{
@@ -2702,6 +2714,10 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
+"lBu" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/orion/engie)
 "lCK" = (
 /obj/item/trash/can/adhomian_can,
 /turf/simulated/floor,
@@ -3635,7 +3651,9 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 4;
 	pixel_y = 6;
-	pixel_x = -20
+	pixel_x = -20;
+	id_tag = "orion_traveler_port";
+	frequency = 1380
 	},
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
@@ -4260,6 +4278,10 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
+"rUD" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/template_noop,
+/area/space)
 "rVo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -4809,8 +4831,7 @@
 /obj/machinery/door/airlock/external{
 	dir = 1;
 	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "orion_traveler_n_out"
+	icon_state = "door_locked"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor,
@@ -35798,13 +35819,13 @@ xRX
 xRX
 xRX
 xRX
+dWt
 xRX
 xRX
+dWt
 xRX
 xRX
-xRX
-xRX
-xRX
+dWt
 xRX
 xRX
 xRX
@@ -36310,7 +36331,7 @@ wrd
 wrd
 wrd
 xRX
-xRX
+rUD
 xRX
 xRX
 xRX
@@ -37081,7 +37102,7 @@ fUj
 bld
 qXP
 wrd
-xRX
+rUD
 xRX
 xRX
 xRX
@@ -37852,7 +37873,7 @@ oTa
 haV
 auV
 auV
-haV
+iXe
 xRX
 xRX
 xRX
@@ -39137,7 +39158,7 @@ ssp
 ssp
 tUl
 aiv
-riA
+lBu
 xRX
 xRX
 xRX
@@ -39908,7 +39929,7 @@ fwA
 lYc
 riA
 riA
-xRX
+rUD
 xRX
 xRX
 xRX
@@ -40679,7 +40700,7 @@ wzW
 riA
 xRX
 xRX
-xRX
+rUD
 xRX
 xRX
 xRX
@@ -41195,13 +41216,13 @@ xRX
 xRX
 xRX
 xRX
+dWt
 xRX
 xRX
+dWt
 xRX
 xRX
-xRX
-xRX
-xRX
+dWt
 xRX
 xRX
 xRX
