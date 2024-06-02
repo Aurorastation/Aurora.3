@@ -140,3 +140,21 @@
       grenade fuses.
   TheDanseMacabre:
   - bugfix: Fixes the icon for undercut 3.
+2024-06-02:
+  Acetrea:
+  - balance: Adjusts the overdose threshold of Morphine and Tramarine.
+  - rscadd: Adds seizures to the overdose effects of Morphine and Tramarine.
+  FluffyGhost:
+  - bugfix: Body scan now respects the known/hidden setting in the implant.
+  - rscadd: Body scan now reports how many unknown implanted things are present in
+      an organ.
+  RustingWithYou:
+  - rscadd: Adds unique away sites for the Uueoa-Esa sector.
+  SimpleMaroon:
+  - bugfix: Fixed the Vaurca Breeder left foot and leg being misaligned.
+  - bugfix: Fixed the K'lax rockstone cape being mixed up with the Unathi rockstone
+      cape in the loadout.
+  - refactor: Made wrist item sprites into contained sprites.
+  - bugfix: Bulwark wrist item sprites now work as intended.
+  Sparky_Hotdog:
+  - rscadd: Added a mullet hairstyle.
