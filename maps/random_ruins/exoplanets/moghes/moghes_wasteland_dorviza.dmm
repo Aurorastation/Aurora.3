@@ -5,21 +5,18 @@
 	},
 /area/moghes_dorviza)
 "b" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/desert{
-	temperature = 315.15
-	},
+/obj/structure/curtain/open,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/red,
 /area/moghes_dorviza)
 "c" = (
 /obj/structure/closet/crate/medical,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/obj/item/roller,
+/obj/item/roller,
+/turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza)
 "d" = (
 /obj/structure/flora/grass/desert/bush,
@@ -30,15 +27,16 @@
 "e" = (
 /obj/structure/closet/crate/medical,
 /obj/item/storage/box/syringes,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/obj/item/storage/firstaid/radiation,
+/obj/item/storage/firstaid/radiation,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza)
 "f" = (
 /obj/machinery/iv_drip,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza)
 "h" = (
 /obj/structure/bed/stool/wood,
@@ -55,7 +53,7 @@
 /area/moghes_dorviza)
 "l" = (
 /obj/structure/curtain/open,
-/turf/simulated/floor/exoplanet/carpet/rubber{
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
@@ -84,9 +82,7 @@
 /obj/item/clothing/accessory/sinta_hood{
 	color = "#DBC684"
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/turf/simulated/floor/carpet/red,
 /area/moghes_dorviza)
 "n" = (
 /obj/effect/ghostspawpoint{
@@ -98,10 +94,7 @@
 	},
 /area/moghes_dorviza)
 "o" = (
-/obj/machinery/light/small,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/turf/simulated/floor/carpet/red,
 /area/moghes_dorviza)
 "p" = (
 /obj/structure/sink/puddle,
@@ -115,18 +108,15 @@
 	name = "igs - moghes_dorviza";
 	identifier = "moghes_dorviza"
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/turf/simulated/floor/carpet/red,
 /area/moghes_dorviza)
 "r" = (
 /obj/structure/closet/crate,
 /obj/item/material/twohanded/spear/steel,
 /obj/random/sword,
 /obj/random/sword,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/red,
 /area/moghes_dorviza)
 "s" = (
 /obj/structure/flora/grass/desert,
@@ -135,18 +125,17 @@
 	},
 /area/moghes_dorviza)
 "t" = (
-/obj/structure/table/steel,
+/obj/structure/table/rack/cafe_table,
 /obj/item/storage/firstaid/surgery,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/obj/item/device/flashlight/lamp/box,
+/turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza)
 "u" = (
 /obj/structure/closet/crate,
 /obj/item/device/flashlight/lantern,
 /obj/item/device/flashlight/lantern,
 /obj/item/device/flashlight/lantern,
-/turf/simulated/floor/exoplanet/carpet/rubber{
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
@@ -156,12 +145,14 @@
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
+"w" = (
+/obj/structure/curtain/open,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_dorviza)
 "x" = (
-/obj/item/flame/lighter/random,
-/obj/structure/closet/crate,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/red,
 /area/moghes_dorviza)
 "y" = (
 /obj/structure/closet/secure_closet/medical2{
@@ -171,9 +162,7 @@
 /obj/item/clothing/mask/breath,
 /obj/item/tank/anesthetic,
 /obj/item/tank/anesthetic,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza)
 "z" = (
 /obj/structure/closet/crate/medical,
@@ -181,9 +170,9 @@
 /obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/mask/surgical,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/obj/random/soap,
+/obj/item/reagent_containers/glass/rag,
+/turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza)
 "A" = (
 /turf/simulated/floor/exoplanet/water/shallow{
@@ -197,29 +186,16 @@
 	},
 /area/moghes_dorviza)
 "C" = (
-/obj/structure/closet/crate/medical,
-/obj/item/roller,
-/obj/item/roller,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza)
 "D" = (
 /obj/structure/bed,
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza)
 "E" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/obj/item/device/versebook/thakh,
+/obj/item/lore_radio,
+/turf/simulated/floor/carpet/red,
 /area/moghes_dorviza)
 "F" = (
 /obj/item/nullrod/shaman,
@@ -231,7 +207,7 @@
 /obj/item/clothing/accessory/poncho/unathimantle{
 	color = "#42330f"
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
@@ -243,29 +219,23 @@
 	},
 /area/moghes_dorviza)
 "H" = (
-/obj/machinery/light/small,
+/obj/item/device/flashlight/lamp/box,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
 "I" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/desert{
-	temperature = 315.15
-	},
+/obj/item/device/flashlight/lamp/box,
+/turf/simulated/floor/carpet/red,
 /area/moghes_dorviza)
 "J" = (
-/obj/random/firstaid,
-/obj/random/firstaid,
-/obj/random/firstaid,
-/obj/item/storage/firstaid/radiation,
-/obj/item/storage/firstaid/radiation,
-/obj/structure/closet/crate/medical,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
+/obj/item/bedsheet/brown,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_dorviza";
+	identifier = "moghes_dorviza"
 	},
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/red,
 /area/moghes_dorviza)
 "K" = (
 /obj/structure/flora/tree/desert/tiny,
@@ -277,7 +247,7 @@
 /obj/structure/closet/crate,
 /obj/item/saddle,
 /obj/item/saddle,
-/turf/simulated/floor/exoplanet/carpet/rubber{
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
@@ -293,9 +263,12 @@
 /obj/item/clothing/accessory/poncho/unathimantle{
 	color = "#42330f"
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/obj/item/flame/lighter/random,
+/turf/simulated/floor/carpet/red,
+/area/moghes_dorviza)
+"N" = (
+/obj/item/toy/desk/fan,
+/turf/simulated/floor/carpet/red,
 /area/moghes_dorviza)
 "O" = (
 /obj/structure/diona/bulb,
@@ -313,14 +286,10 @@
 /obj/item/gun/projectile/pistol/spitter,
 /obj/item/ammo_magazine/spitterpistol,
 /obj/item/ammo_magazine/spitterpistol,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/turf/simulated/floor/carpet/red,
 /area/moghes_dorviza)
 "Q" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
+/obj/structure/closet/crate,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
@@ -331,9 +300,7 @@
 /obj/item/seeds/clam,
 /obj/item/seeds/clam,
 /obj/structure/closet/crate/hydroponics,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/turf/simulated/floor/carpet/red,
 /area/moghes_dorviza)
 "S" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
@@ -353,7 +320,11 @@
 /obj/item/reagent_containers/glass/bottle/ammonia,
 /obj/item/reagent_containers/glass/bucket/wood,
 /obj/item/reagent_containers/glass/bucket/wood,
-/turf/simulated/floor/exoplanet/carpet/rubber{
+/turf/simulated/floor/carpet/red,
+/area/moghes_dorviza)
+"U" = (
+/obj/item/device/flashlight/lantern/on,
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
@@ -361,9 +332,8 @@
 /turf/simulated/wall/cloth,
 /area/moghes_dorviza)
 "W" = (
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza)
 "X" = (
 /obj/structure/closet/crate/freezer,
@@ -379,9 +349,7 @@
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 315.15
-	},
+/turf/simulated/floor/carpet/red,
 /area/moghes_dorviza)
 "Y" = (
 /turf/simulated/floor/exoplanet/diona{
@@ -489,9 +457,9 @@ a
 a
 V
 V
-W
-E
-W
+o
+x
+o
 V
 V
 a
@@ -525,10 +493,10 @@ a
 a
 a
 V
-q
-W
-W
-W
+J
+x
+E
+x
 x
 V
 a
@@ -563,9 +531,9 @@ a
 a
 V
 q
-W
-W
-W
+o
+I
+N
 m
 V
 a
@@ -599,10 +567,10 @@ s
 a
 a
 V
-q
-W
-W
-W
+J
+x
+x
+x
 M
 V
 a
@@ -637,9 +605,9 @@ s
 a
 V
 V
-W
-W
-W
+o
+x
+o
 V
 V
 a
@@ -675,7 +643,7 @@ s
 a
 V
 V
-l
+b
 V
 V
 a
@@ -710,10 +678,10 @@ a
 s
 s
 s
+U
 a
-b
 a
-b
+a
 a
 a
 a
@@ -926,7 +894,7 @@ c
 f
 V
 V
-a
+Q
 a
 a
 s
@@ -958,12 +926,12 @@ a
 a
 V
 y
+C
 W
-W
-W
+C
 W
 V
-I
+a
 a
 p
 s
@@ -979,10 +947,10 @@ a
 a
 H
 V
-W
-W
-W
-W
+x
+o
+x
+o
 X
 V
 a
@@ -996,10 +964,10 @@ a
 V
 D
 W
-W
-W
-W
-l
+C
+C
+C
+w
 a
 s
 A
@@ -1016,10 +984,10 @@ s
 a
 a
 l
-W
-W
-W
-W
+a
+x
+x
+x
 o
 V
 a
@@ -1032,32 +1000,32 @@ a
 a
 V
 t
-W
-W
-W
+C
+C
+C
 W
 V
+O
+a
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+a
+a
+a
+V
+a
+a
+x
+o
 I
-a
-A
-A
-A
-A
-A
-A
-A
-A
-A
-A
-a
-a
-H
-V
-W
-W
-W
-W
-W
 V
 a
 a
@@ -1071,7 +1039,7 @@ V
 V
 e
 z
-J
+C
 V
 V
 a
@@ -1265,9 +1233,9 @@ a
 s
 a
 a
-Q
+O
 a
-Q
+a
 a
 a
 a
@@ -1339,8 +1307,8 @@ a
 a
 V
 V
-W
-W
+a
+a
 Y
 V
 V
@@ -1375,10 +1343,10 @@ a
 a
 a
 V
-W
-W
+a
+a
 Y
-W
+a
 F
 V
 a
@@ -1413,10 +1381,10 @@ a
 a
 V
 Y
-W
+a
 n
 O
-W
+a
 V
 a
 a
@@ -1449,10 +1417,10 @@ a
 a
 a
 V
-W
+a
 O
-W
-W
+a
+a
 Y
 V
 a
@@ -1487,9 +1455,9 @@ a
 a
 V
 V
-W
+a
 Y
-W
+a
 V
 V
 a

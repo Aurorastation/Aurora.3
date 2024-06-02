@@ -63,6 +63,7 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -181,6 +182,19 @@
 "lh" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"lC" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/item/bedsheet/black,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_villager";
+	identifier = "moghes_villager"
+	},
+/obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -473,6 +487,12 @@
 	temperature = 303.15
 	},
 /area/moghes_village)
+"Di" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
 "Dp" = (
 /obj/machinery/light{
 	dir = 8
@@ -530,6 +550,12 @@
 	temperature = 303.15
 	},
 /area/moghes_village)
+"Hi" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_village)
 "Hm" = (
 /obj/structure/railing/fence{
 	dir = 4
@@ -551,6 +577,10 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
+/area/moghes_village)
+"HS" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grass/moghes,
 /area/moghes_village)
 "HV" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
@@ -686,6 +716,19 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
+/area/moghes_village)
+"Qp" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"Ra" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/moghes_village)
 "Rd" = (
 /obj/structure/table/rack,
@@ -989,7 +1032,7 @@ UG
 XM
 XM
 fq
-WD
+Hi
 XM
 UG
 ab
@@ -1000,7 +1043,7 @@ MP
 MP
 EL
 UG
-pm
+lC
 pm
 UG
 ss
@@ -1015,8 +1058,8 @@ lF
 XM
 UG
 KH
-KH
-KH
+Ra
+Ra
 KH
 KH
 UG
@@ -1057,14 +1100,14 @@ UG
 XM
 XM
 XM
-WD
+Hi
 XM
 UG
 UG
 UG
 fb
 qP
-qP
+Qp
 qP
 eW
 UG
@@ -1132,7 +1175,7 @@ XM
 UG
 CP
 wt
-wt
+Di
 Pa
 rL
 UG
@@ -1193,7 +1236,7 @@ RQ
 WD
 WD
 WD
-WD
+Hi
 XM
 XM
 XM
@@ -1227,7 +1270,7 @@ UG
 kl
 XM
 XM
-WD
+Hi
 XM
 XM
 lF
@@ -1261,7 +1304,7 @@ UG
 XM
 XM
 XM
-WD
+Hi
 XM
 XM
 XM
@@ -1271,10 +1314,10 @@ XM
 WD
 WD
 WD
+Hi
 WD
-WD
-WD
-WD
+Hi
+Hi
 WD
 UG
 UG
@@ -1295,7 +1338,7 @@ UG
 XM
 XM
 XM
-WD
+Hi
 XM
 wi
 Eo
@@ -1370,7 +1413,7 @@ qT
 Sa
 XM
 XM
-WD
+Hi
 XM
 XM
 XM
@@ -1512,7 +1555,7 @@ WD
 WD
 WD
 Gp
-qP
+Qp
 qP
 DP
 nO
@@ -1540,14 +1583,14 @@ XM
 aK
 XM
 XM
-WD
+Hi
 XM
 XM
 XM
 pt
 UG
 ZL
-wt
+Di
 oJ
 nO
 nO
@@ -1567,7 +1610,7 @@ XM
 XM
 XM
 XM
-WD
+Hi
 XM
 XM
 XM
@@ -1642,7 +1685,7 @@ XM
 XM
 lF
 tM
-WD
+Hi
 tM
 XM
 XM
@@ -1668,7 +1711,7 @@ bC
 Oi
 XM
 XM
-XM
+HS
 WD
 lF
 lF
@@ -1701,9 +1744,9 @@ bC
 bC
 ID
 WD
+Hi
 WD
-WD
-WD
+Hi
 lF
 lF
 XM
