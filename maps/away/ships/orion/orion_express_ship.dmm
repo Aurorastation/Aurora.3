@@ -514,13 +514,6 @@
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster1)
 "bIY" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1380;
-	master_tag = "orion_traveler_n_port";
-	name = "exterior access button";
-	pixel_x = -32
-	},
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, airlock"
 	},
@@ -538,8 +531,17 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
+"bPp" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/template_noop,
+/area/space)
 "bUj" = (
 /obj/structure/sign/flag/orion_express,
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -1038,12 +1040,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
-"dWt" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3{
-	dir = 4
-	},
-/turf/template_noop,
-/area/space)
 "dYg" = (
 /obj/effect/floor_decal/corner_wide/beige{
 	dir = 10
@@ -2192,10 +2188,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/bridge)
-"iXe" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/ship/orion/mainhall)
 "jgn" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/chemical_dispenser/bar_soft/full{
@@ -2714,10 +2706,6 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
-"lBu" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3,
-/turf/simulated/wall/shuttle/scc_space_ship,
-/area/ship/orion/engie)
 "lCK" = (
 /obj/item/trash/can/adhomian_can,
 /turf/simulated/floor,
@@ -3470,6 +3458,10 @@
 /obj/structure/bookcase,
 /turf/simulated/floor,
 /area/ship/orion/atmos)
+"onL" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/ship/orion/mainhall)
 "ovT" = (
 /turf/simulated/wall/shuttle/scc_space_ship,
 /area/ship/orion/captain)
@@ -4278,10 +4270,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
-"rUD" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3,
-/turf/template_noop,
-/area/space)
 "rVo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -4834,6 +4822,11 @@
 	icon_state = "door_locked"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
 "tEO" = (
@@ -4850,6 +4843,12 @@
 /obj/effect/floor_decal/industrial/outline/custodial,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle/cockpit)
+"tGb" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "tGB" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5195,13 +5194,11 @@
 	landmark_tag = "nav_orion_express_ship_3"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1380;
-	name = "exterior access button";
-	pixel_x = -32
-	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	dir = 2
+	},
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
 "vhp" = (
@@ -5388,6 +5385,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/orion/mainhall)
+"vKh" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/ship/orion/engie)
 "vKn" = (
 /obj/machinery/atm{
 	pixel_x = 32
@@ -6145,6 +6146,10 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	dir = 2
+	},
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
 
@@ -35819,13 +35824,13 @@ xRX
 xRX
 xRX
 xRX
-dWt
+tGb
 xRX
 xRX
-dWt
+tGb
 xRX
 xRX
-dWt
+tGb
 xRX
 xRX
 xRX
@@ -36331,7 +36336,7 @@ wrd
 wrd
 wrd
 xRX
-rUD
+bPp
 xRX
 xRX
 xRX
@@ -37102,7 +37107,7 @@ fUj
 bld
 qXP
 wrd
-rUD
+bPp
 xRX
 xRX
 xRX
@@ -37873,7 +37878,7 @@ oTa
 haV
 auV
 auV
-iXe
+onL
 xRX
 xRX
 xRX
@@ -39158,7 +39163,7 @@ ssp
 ssp
 tUl
 aiv
-lBu
+vKh
 xRX
 xRX
 xRX
@@ -39929,7 +39934,7 @@ fwA
 lYc
 riA
 riA
-rUD
+bPp
 xRX
 xRX
 xRX
@@ -40700,7 +40705,7 @@ wzW
 riA
 xRX
 xRX
-rUD
+bPp
 xRX
 xRX
 xRX
@@ -41216,13 +41221,13 @@ xRX
 xRX
 xRX
 xRX
-dWt
+tGb
 xRX
 xRX
-dWt
+tGb
 xRX
 xRX
-dWt
+tGb
 xRX
 xRX
 xRX
