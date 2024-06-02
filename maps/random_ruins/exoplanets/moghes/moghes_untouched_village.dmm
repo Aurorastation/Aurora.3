@@ -162,6 +162,7 @@
 /obj/item/clothing/under/unathi/huytai{
 	color = "#4a3407"
 	},
+/obj/item/storage/firstaid,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
