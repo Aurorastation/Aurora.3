@@ -6,7 +6,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "ar" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/corner_wide/red/diagonal,
@@ -15,6 +15,15 @@
 	temperature = 303.15
 	},
 /area/moghes/hegemony_base)
+"ax" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base/outdoors)
 "aW" = (
 /obj/machinery/light{
 	dir = 8
@@ -33,7 +42,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "cb" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/optable,
@@ -103,13 +112,13 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "dj" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "dJ" = (
 /obj/effect/floor_decal/concrete{
 	dir = 9
@@ -121,7 +130,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "ek" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 32;
@@ -149,6 +158,11 @@
 	temperature = 303.15
 	},
 /area/moghes/hegemony_base)
+"eY" = (
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base/outdoors)
 "fE" = (
 /obj/machinery/vending/snack,
 /obj/effect/floor_decal/corner_wide/red/diagonal,
@@ -187,11 +201,11 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "gO" = (
 /obj/item/beach_ball,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "gR" = (
 /obj/machinery/door/airlock/command{
 	name = "Captain's Quarters";
@@ -206,7 +220,7 @@
 /obj/item/toy/sword,
 /obj/item/toy/sword,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "hk" = (
 /obj/machinery/door/blast/shutters{
 	id = "hegemony_base_entry"
@@ -322,7 +336,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "jQ" = (
 /obj/effect/floor_decal/concrete,
 /obj/effect/floor_decal/concrete{
@@ -331,7 +345,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "ki" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -340,6 +354,14 @@
 	temperature = 303.15
 	},
 /area/moghes/hegemony_base)
+"kj" = (
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base/outdoors)
 "kk" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/concrete{
@@ -363,7 +385,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "kx" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -432,7 +454,7 @@
 	status = 2
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "lM" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/exoplanet/wood/birch{
@@ -485,6 +507,15 @@
 	temperature = 303.15
 	},
 /area/moghes/hegemony_base)
+"mS" = (
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base/outdoors)
 "nv" = (
 /obj/effect/floor_decal/concrete/large/cee{
 	dir = 4
@@ -493,7 +524,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "nU" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -541,7 +572,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "pz" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/civilian,
@@ -641,7 +672,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "ux" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
@@ -796,7 +827,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "yO" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/closet/crate/freezer/rations,
@@ -876,7 +907,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "zO" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
@@ -973,7 +1004,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "Dz" = (
 /obj/effect/floor_decal/concrete{
 	dir = 10
@@ -984,7 +1015,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "DF" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/body_scanconsole{
@@ -1032,7 +1063,7 @@
 "ER" = (
 /obj/machinery/light,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "FK" = (
 /obj/structure/bookcase/libraryspawn/fiction,
 /turf/simulated/floor/exoplanet/concrete/square{
@@ -1041,7 +1072,15 @@
 /area/moghes/hegemony_base)
 "FV" = (
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
+"Ga" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base/outdoors)
 "Gr" = (
 /obj/effect/floor_decal/concrete{
 	dir = 10
@@ -1053,7 +1092,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "GA" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/closet/walllocker/medical/secure{
@@ -1092,6 +1131,14 @@
 	temperature = 303.15
 	},
 /area/moghes/hegemony_base)
+"GX" = (
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_base/outdoors)
 "Hs" = (
 /obj/machinery/light{
 	dir = 1
@@ -1105,7 +1152,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "Ia" = (
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/moghes/hegemony_base)
@@ -1125,7 +1172,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "IG" = (
 /obj/effect/floor_decal/concrete{
 	dir = 5
@@ -1186,7 +1233,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "JB" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/sign/flag/hegemony/large/east{
@@ -1203,7 +1250,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "JZ" = (
 /obj/effect/floor_decal/concrete/large{
 	dir = 8
@@ -1270,6 +1317,9 @@
 	temperature = 303.15
 	},
 /area/moghes/hegemony_base)
+"KQ" = (
+/turf/simulated/wall/concrete,
+/area/moghes/hegemony_base/outdoors)
 "Lb" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -1301,7 +1351,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "LT" = (
 /obj/machinery/button/remote/blast_door{
 	id = "hegemony_base_garage";
@@ -1310,13 +1360,13 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "Me" = (
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "Mu" = (
 /obj/vehicle/bike/speeder/izweski,
 /turf/simulated/floor/exoplanet/concrete/square{
@@ -1340,11 +1390,11 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "Nh" = (
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "OA" = (
 /obj/structure/closet/secure_closet{
 	req_access = list(113)
@@ -1429,7 +1479,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "QG" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(113);
@@ -1463,7 +1513,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "RY" = (
 /obj/structure/window/reinforced,
 /turf/simulated/floor/exoplanet/concrete/square{
@@ -1481,7 +1531,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "Sh" = (
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/exoplanet/concrete/square{
@@ -1723,7 +1773,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "Zv" = (
 /obj/effect/floor_decal/concrete{
 	dir = 4
@@ -1733,7 +1783,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes/hegemony_base)
+/area/moghes/hegemony_base/outdoors)
 "Zz" = (
 /obj/structure/bed,
 /obj/item/bedsheet/black,
@@ -1854,36 +1904,36 @@ YW
 YW
 YW
 YW
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
 YW
 YW
 YW
@@ -1893,7 +1943,7 @@ YW
 YW
 YW
 YW
-VG
+KQ
 FV
 FV
 FV
@@ -1922,7 +1972,7 @@ FV
 FV
 FV
 FV
-VG
+KQ
 YW
 YW
 YW
@@ -1932,7 +1982,7 @@ YW
 YW
 YW
 YW
-VG
+KQ
 FV
 VG
 VG
@@ -1961,7 +2011,7 @@ VG
 VG
 VG
 FV
-VG
+KQ
 YW
 YW
 YW
@@ -1971,7 +2021,7 @@ YW
 YW
 YW
 YW
-VG
+KQ
 FV
 VG
 Zz
@@ -2000,7 +2050,7 @@ Jp
 Wc
 VG
 FV
-VG
+KQ
 YW
 YW
 YW
@@ -2010,7 +2060,7 @@ YW
 YW
 YW
 YW
-VG
+KQ
 FV
 VG
 kp
@@ -2039,7 +2089,7 @@ rr
 nV
 VG
 FV
-VG
+KQ
 YW
 YW
 YW
@@ -2049,7 +2099,7 @@ YW
 YW
 YW
 YW
-VG
+KQ
 FV
 VG
 UU
@@ -2078,7 +2128,7 @@ rl
 Jj
 VG
 FV
-VG
+KQ
 YW
 YW
 YW
@@ -2088,7 +2138,7 @@ YW
 YW
 YW
 YW
-VG
+KQ
 FV
 VG
 zr
@@ -2117,7 +2167,7 @@ Eg
 Jj
 VG
 FV
-VG
+KQ
 YW
 YW
 YW
@@ -2127,7 +2177,7 @@ YW
 YW
 YW
 YW
-VG
+KQ
 FV
 VG
 Xc
@@ -2156,7 +2206,7 @@ kk
 Jj
 VG
 FV
-VG
+KQ
 YW
 YW
 YW
@@ -2166,7 +2216,7 @@ YW
 YW
 YW
 YW
-VG
+KQ
 FV
 VG
 VG
@@ -2195,7 +2245,7 @@ IG
 lb
 VG
 FV
-VG
+KQ
 YW
 YW
 YW
@@ -2205,7 +2255,7 @@ YW
 YW
 YW
 YW
-VG
+KQ
 FV
 FV
 FV
@@ -2234,7 +2284,7 @@ Jp
 JB
 VG
 FV
-VG
+KQ
 YW
 YW
 YW
@@ -2273,7 +2323,7 @@ VG
 VG
 VG
 FV
-VG
+KQ
 YW
 YW
 YW
@@ -2312,7 +2362,7 @@ FV
 FV
 FV
 FV
-VG
+KQ
 YW
 YW
 YW
@@ -2351,7 +2401,7 @@ FV
 FV
 FV
 FV
-VG
+KQ
 YW
 YW
 YW
@@ -2390,7 +2440,7 @@ FV
 FV
 FV
 FV
-VG
+KQ
 YW
 YW
 YW
@@ -2404,32 +2454,32 @@ cC
 Kd
 cr
 cC
-Kd
+mS
 dg
-cr
-Kd
+kj
+mS
 LI
 Qw
-Kd
-cr
-cr
+mS
+kj
+kj
 gF
-cr
-cr
-cr
+kj
+kj
+kj
 gF
-cr
-cr
-cr
+kj
+kj
+kj
 dJ
-cr
-cr
-Kd
+kj
+kj
+mS
 dJ
-cr
-cr
+kj
+kj
 kq
-VG
+KQ
 YW
 YW
 YW
@@ -2443,32 +2493,32 @@ hk
 uj
 uj
 hk
-uj
+eY
 jH
-uj
-uj
+eY
+eY
 jH
-VG
+KQ
 jH
 jH
-uj
-VG
-uj
+eY
+KQ
+eY
 jH
-uj
-VG
-uj
+eY
+KQ
+eY
 jH
-uj
-VG
-uj
-uj
-uj
-VG
-uj
-uj
-Jj
-VG
+eY
+KQ
+eY
+eY
+eY
+KQ
+eY
+eY
+GX
+KQ
 YW
 YW
 YW
@@ -2482,32 +2532,32 @@ jo
 VZ
 Ye
 jo
-VZ
+Ga
 ur
-VZ
+Ga
 jQ
-VZ
+Ga
 zv
-VZ
+Ga
 Zv
-VZ
+Ga
 Nb
-VZ
-VZ
-VZ
+Ga
+Ga
+Ga
 zv
 jQ
-VZ
-Ye
+Ga
+ax
 Nb
-VZ
-Ye
-VZ
+Ga
+ax
+Ga
 Jy
-VZ
-VZ
+Ga
+Ga
 oP
-VG
+KQ
 YW
 YW
 YW
@@ -2546,7 +2596,7 @@ yA
 FV
 FV
 FV
-VG
+KQ
 YW
 YW
 YW
@@ -2585,7 +2635,7 @@ ah
 lA
 FV
 FV
-VG
+KQ
 YW
 YW
 YW
@@ -2624,7 +2674,7 @@ gR
 VG
 VG
 VG
-VG
+KQ
 YW
 YW
 YW
@@ -2663,7 +2713,7 @@ Lb
 Lb
 qt
 VG
-VG
+KQ
 YW
 YW
 YW
@@ -2673,7 +2723,7 @@ YW
 YW
 YW
 YW
-VG
+KQ
 FV
 FV
 FV
@@ -2702,7 +2752,7 @@ lM
 Eo
 Ra
 VG
-VG
+KQ
 YW
 YW
 YW
@@ -2712,7 +2762,7 @@ YW
 YW
 YW
 YW
-VG
+KQ
 VG
 VG
 VG
@@ -2741,7 +2791,7 @@ pz
 ih
 vU
 VG
-VG
+KQ
 YW
 YW
 YW
@@ -2751,7 +2801,7 @@ YW
 YW
 YW
 YW
-VG
+KQ
 VG
 Wr
 CL
@@ -2780,7 +2830,7 @@ kx
 za
 DJ
 VG
-VG
+KQ
 YW
 YW
 YW
@@ -2790,13 +2840,13 @@ YW
 YW
 YW
 YW
-VG
+KQ
 VG
 Mu
 zr
 zr
 BS
-cr
+kj
 Dz
 VG
 PC
@@ -2819,7 +2869,7 @@ VG
 VG
 gR
 VG
-VG
+KQ
 YW
 YW
 YW
@@ -2829,13 +2879,13 @@ YW
 YW
 YW
 YW
-VG
+KQ
 VG
 Mu
 CL
 zr
 BS
-VZ
+Ga
 oP
 VG
 hD
@@ -2858,7 +2908,7 @@ Ia
 Ia
 Ia
 VG
-VG
+KQ
 YW
 YW
 YW
@@ -2868,7 +2918,7 @@ YW
 YW
 YW
 YW
-VG
+KQ
 VG
 Wr
 zr
@@ -2897,7 +2947,7 @@ VP
 Ia
 Ia
 VG
-VG
+KQ
 YW
 YW
 YW
@@ -2907,7 +2957,7 @@ YW
 YW
 YW
 YW
-VG
+KQ
 VG
 VG
 VG
@@ -2936,7 +2986,7 @@ VG
 VG
 VG
 VG
-VG
+KQ
 YW
 YW
 YW
@@ -2946,7 +2996,7 @@ YW
 YW
 YW
 YW
-VG
+KQ
 FV
 FV
 FV
@@ -2975,7 +3025,7 @@ FV
 FV
 FV
 FV
-VG
+KQ
 YW
 YW
 YW
@@ -2985,7 +3035,7 @@ YW
 YW
 YW
 YW
-VG
+KQ
 FV
 FV
 FV
@@ -3014,7 +3064,7 @@ FV
 FV
 FV
 FV
-VG
+KQ
 YW
 YW
 YW
@@ -3024,36 +3074,36 @@ YW
 YW
 YW
 YW
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
-VG
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
+KQ
 YW
 YW
 YW

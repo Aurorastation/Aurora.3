@@ -198,7 +198,7 @@
 /area/moghes)
 "iZ" = (
 /turf/simulated/wall/sandstone,
-/area/moghes)
+/area/moghes_wasteland_village)
 "kz" = (
 /obj/structure/table/standard,
 /obj/item/material/hatchet/butch,
@@ -221,7 +221,7 @@
 "lB" = (
 /obj/structure/simple_door/sandstone,
 /turf/simulated/floor/exoplanet/marble,
-/area/moghes)
+/area/moghes_wasteland_village)
 "lI" = (
 /obj/structure/railing/fence{
 	dir = 4
@@ -271,7 +271,7 @@
 /turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/moghes_wasteland_village)
 "nJ" = (
 /obj/structure/table/wood,
 /obj/item/material/twohanded/pike/pitchfork,
@@ -429,7 +429,7 @@
 /turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/moghes_wasteland_village)
 "tY" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/glass/bucket/wood,
@@ -583,7 +583,7 @@
 /turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/moghes_wasteland_village)
 "Ck" = (
 /obj/structure/simple_door/wood,
 /turf/simulated/floor/exoplanet/barren{
@@ -646,7 +646,7 @@
 /turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/moghes_wasteland_village)
 "EM" = (
 /obj/structure/railing/fence{
 	dir = 4
@@ -726,7 +726,7 @@
 /turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/moghes_wasteland_village)
 "IE" = (
 /obj/effect/decal/cleanable/blood,
 /turf/simulated/floor/exoplanet/wood/birch{
@@ -893,7 +893,7 @@
 /turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/moghes_wasteland_village)
 "Rr" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/exoplanet/carpet/orange{
