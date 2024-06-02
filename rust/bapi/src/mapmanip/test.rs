@@ -149,3 +149,26 @@ fn keys_deduplicated() {
 
     assert_eq!(dict_map_src.dictionary.len(), dict_map_out.dictionary.len())
 }
+
+#[test]
+fn mapmanip_configs_parse() {
+    let foo = vec![crate::mapmanip::MapManipulation::InsertExtract {
+        submap_size_x: 1,
+        submap_size_y: 2,
+        submaps_dmm: "a".to_owned(),
+        marker_extract: "b".to_owned(),
+        marker_insert: "c".to_owned(),
+    }];
+    dbg!(serde_json::to_string(&foo));
+
+    let mapmanip_configs = walkdir::WalkDir::new("../../maps")
+        .into_iter()
+        .map(|d| d.unwrap().path().to_owned())
+        .filter(|p| p.extension().is_some())
+        .filter(|p| p.extension().unwrap() == "jsonc")
+        .collect_vec();
+    assert_ne!(mapmanip_configs.len(), 0);
+    for config in mapmanip_configs {
+        let _ = crate::mapmanip::mapmanip_config_parse(&config);
+    }
+}

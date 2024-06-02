@@ -34,3 +34,5 @@ rand = "^0.8"
 serde = { version = "1.0", features = ["derive"] }
 # json implementation for serde
 serde_json = { version = "1.0" }
+# walking through a dir recursively
+walkdir = "2.5.0"

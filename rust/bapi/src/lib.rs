@@ -4,7 +4,7 @@ mod mapmanip;
 use byondapi::prelude::*;
 
 /// Call stack trace dm method with message.
-fn dm_call_stack_trace(msg: String) {
+pub(crate) fn dm_call_stack_trace(msg: String) {
     let msg = byondapi::value::ByondValue::try_from(msg).unwrap();
     byondapi::global_call::call_global_id(
         {
@@ -67,12 +67,16 @@ fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
     // do mapmanip if defined for this dmm
     let path_mapmanip_config = {
         let mut p = path.clone();
-        p.set_extension(".jsonc");
+        p.set_extension("jsonc");
         p
     };
     if path_mapmanip_config.exists() {
+        // get path for dir of this dmm
+        let path_dir = path.parent().unwrap();
+        // parse config
         let config = crate::mapmanip::mapmanip_config_parse(&path_mapmanip_config);
-        map = crate::mapmanip::mapmanip(map, &config);
+        // do actual map manipulation
+        map = crate::mapmanip::mapmanip(path_dir, map, &config);
     }
 
     // return the map converted to string

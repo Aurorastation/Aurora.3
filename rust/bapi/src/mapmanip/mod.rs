@@ -10,12 +10,12 @@ use serde::{Deserialize, Serialize};
 mod test;
 
 /// foobar
-#[derive(Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum MapManipulation {
     InsertExtract {
-        submap_size_x: i32,
-        submap_size_y: i32,
+        submap_size_x: i64,
+        submap_size_y: i64,
         submaps_dmm: String,
         marker_extract: String,
         marker_insert: String,
@@ -24,11 +24,15 @@ pub enum MapManipulation {
 
 pub fn mapmanip_config_parse(config_path: &std::path::Path) -> Vec<MapManipulation> {
     let config = std::fs::read_to_string(config_path).unwrap();
-    let config: Vec<MapManipulation> = serde_json::from_str(&config).unwrap();
-    config
+    let config = serde_json::from_str::<Vec<MapManipulation>>(&config);
+    config.unwrap()
 }
 
-pub fn mapmanip(map: dmmtools::dmm::Map, config: &Vec<MapManipulation>) -> dmmtools::dmm::Map {
+pub fn mapmanip(
+    map_dir_path: &std::path::Path,
+    map: dmmtools::dmm::Map,
+    config: &Vec<MapManipulation>,
+) -> dmmtools::dmm::Map {
     // convert to gridmap
     let mut map = core::to_grid_map(&map);
 
@@ -42,10 +46,14 @@ pub fn mapmanip(map: dmmtools::dmm::Map, config: &Vec<MapManipulation>) -> dmmto
                 marker_extract,
                 marker_insert,
             } => {
-                let submap_size = dmmtools::dmm::Coord2::new(*submap_size_x, *submap_size_y);
+                let submap_size = dmmtools::dmm::Coord2::new(
+                    (*submap_size_x).try_into().unwrap(),
+                    (*submap_size_y).try_into().unwrap(),
+                );
 
                 // get the submaps map
                 let submaps_dmm: std::path::PathBuf = submaps_dmm.try_into().unwrap();
+                let submaps_dmm = map_dir_path.join(submaps_dmm);
                 let submaps_map = GridMap::from_file(&submaps_dmm).unwrap();
 
                 // find all the extract markers
@@ -71,7 +79,6 @@ pub fn mapmanip(map: dmmtools::dmm::Map, config: &Vec<MapManipulation>) -> dmmto
                         .unwrap();
                     let extracted =
                         tools::extract_sub_map(&submaps_map, extract_coord, submap_size);
-
                     tools::insert_sub_map(&extracted, insert_coord, &mut map);
                 }
             }
