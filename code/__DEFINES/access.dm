@@ -801,5 +801,6 @@
 	desc = "Guest Room 10"
 
 #define ACCESS_FISHING_LEAGUE 241
+/datum/access/unathi_trawler_access
 	id = ACCESS_FISHING_LEAGUE
 	desc = "General Fishing Trawler Access"

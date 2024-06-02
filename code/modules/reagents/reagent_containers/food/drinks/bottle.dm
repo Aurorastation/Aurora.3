@@ -789,8 +789,8 @@
 	name = "Boryeong '45 soju"
 	desc = "A rice-based liquor commonly consumed by the non-synthetic residents of Konyang. This particular brand originates from the city of Boreyeong, on Konyang."
 	desc_extended = "While most commonly associated with Konyang, soju can be found throughout the Sol Alliance thanks to the inexpensive cost of producing it and a successful \
-	marketing campaign carried out during the robotics boom on Konyang. It is traditionally consumed neat, or without mixing any other liquids into it. The '45 in this brand's \
-	name refers to its alcohol by volume content, and not a calendar year."
+	marketing campaign carried out during the robotics boom on Konyang. It is traditionally consumed neat, or without mixing any other liquids into it. The '45 in this brand's name \
+	refers to its alcohol by volume content, and not a calendar year."
 	icon_state = "sojubottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/singleton/reagent/alcohol/soju = 100)
