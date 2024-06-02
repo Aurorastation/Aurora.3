@@ -71,10 +71,6 @@
 	name = "Independent Freighter - Kitchen"
 	icon_state = "kitchen"
 
-/area/tramp_freighter/freezer
-	name = "Independent Freighter - Freezer"
-	icon_state = "kitchen"
-
 /area/tramp_freighter/equipment
 	name = "Independent Freighter - Equipment Storage"
 	icon_state = "eva"

@@ -40,7 +40,7 @@
 	sizeclass = "Catspaw Class Freighter"
 	shiptype = "Long-term shipping utilities"
 	initial_restricted_waypoints = list(
-		"Freight Shuttle" = list("nav_hangar_tramp")
+		"Freight Shuttle" = list("nav_tramp_start")
 	)
 
 	initial_generic_waypoints = list(
@@ -48,7 +48,12 @@
 		"nav_tramp_freighter_2",
 		"nav_tramp_freighter_3",
 		"nav_tramp_freighter_4",
-		"nav_tramp_freighter_dock"
+		"nav_tramp_freighter_stbd_aft",
+		"nav_tramp_freighter_stbd_fore",
+		"nav_tramp_freighter_stbd_berth",
+		"nav_tramp_freighter_port_aft",
+		"nav_tramp_freighter_port_fore",
+		"nav_tramp_freighter_port_berth"
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -146,21 +151,21 @@
 
 
 /datum/shuttle/autodock/overmap/freighter_shuttle
-	name = "Freight Shuttle"
-	move_time = 20
-	shuttle_area = list(/area/shuttle/freighter_shuttle)
-	current_location = "nav_hangar_tramp"
-	landmark_transition = "nav_transit_freighter_shuttle"
-	range = 1
-	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_tramp"
-	dock_target = "freighter_hangar"
-	defer_initialisation = TRUE
+    name = "Freight Shuttle"
+    move_time = 20
+    shuttle_area = list(/area/shuttle/freighter_shuttle)
+    dock_target = "airlock_tramp_shuttle"
+    current_location = "nav_tramp_start"
+    landmark_transition = "nav_transit_freighter_shuttle"
+    range = 1
+    fuel_consumption = 2
+    logging_home_tag = "nav_tramp_start"
+    defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/freighter_shuttle/hangar
-	name = "Freight Shuttle Hangar"
-	landmark_tag = "nav_hangar_tramp"
-	docking_controller = "freighter_shuttle_dock"
+    name = "Freight Shuttle Dock"
+    landmark_tag = "nav_tramp_start"
+    docking_controller = "tramp_shuttle_dock"
 
 /obj/effect/shuttle_landmark/freighter_shuttle/transit
 	name = "In transit"
