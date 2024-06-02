@@ -4254,6 +4254,18 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/hangar1)
+"ty" = (
+/obj/machinery/button/remote/airlock{
+	dir = 1;
+	id = "bolts_reclamation_cell";
+	name = "Containment Airlock Bolts";
+	pixel_x = -6;
+	pixel_y = 24;
+	req_one_access = list(113);
+	specialfunctions = 4
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt/beach,
+/area/ihss_reclamation/envirosim)
 "tD" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/template_noop,
@@ -10695,9 +10707,10 @@
 	name = "Hazardous Specimen Containment";
 	id = "ihss_biglizard"
 	},
-/obj/machinery/door/airlock/glass_research{
-	name = "Hazardous Specimen Containment";
-	req_access = list(113)
+/obj/machinery/door/airlock/highsecurity{
+	id_tag = "bolts_reclamation_cell";
+	req_access = list(113);
+	name = "Hazardous Specimen Containment"
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "edge"
@@ -52111,7 +52124,7 @@ sg
 sg
 sg
 sg
-Os
+ty
 NC
 NC
 wF
