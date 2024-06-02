@@ -27,17 +27,17 @@
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /turf/simulated/floor/exoplanet/carpet/orange,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "e" = (
 /obj/effect/floor_decal/spline/plain/blue,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/lightblue,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "g" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/exoplanet/carpet/orange,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "h" = (
 /turf/simulated/wall/rusty,
 /area/moghes/kataphract_wasteland)
@@ -56,7 +56,7 @@
 /obj/item/reagent_containers/pill/thetamycin,
 /obj/item/reagent_containers/pill/thetamycin,
 /turf/simulated/floor/exoplanet/carpet/orange,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "k" = (
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/exoplanet/desert{
@@ -73,11 +73,11 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/exoplanet/carpet/orange,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "n" = (
 /obj/item/device/flashlight/lamp/box,
 /turf/simulated/floor/exoplanet/carpet/lightblue,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "o" = (
 /obj/structure/closet/crate,
 /obj/item/saddle,
@@ -88,7 +88,7 @@
 /obj/item/device/gps,
 /obj/item/gun/energy/pistol/hegemony,
 /turf/simulated/floor/exoplanet/carpet/orange,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "p" = (
 /obj/structure/bed/stool/wood,
 /turf/simulated/floor/exoplanet/desert{
@@ -102,35 +102,35 @@
 /area/moghes/kataphract_wasteland)
 "r" = (
 /turf/simulated/floor/exoplanet/carpet/lightblue,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "s" = (
 /obj/structure/closet/crate,
 /obj/item/clothing/accessory/poncho/red,
 /obj/item/clothing/shoes/sandals/caligae,
 /turf/simulated/floor/exoplanet/carpet/orange,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "v" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/exoplanet/carpet/lightblue,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "w" = (
 /obj/structure/curtain/open,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/orange,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "D" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/orange,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "F" = (
 /obj/effect/floor_decal/spline/plain/blue{
 	dir = 10
 	},
 /turf/simulated/floor/exoplanet/carpet/lightblue,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "H" = (
 /turf/simulated/floor/exoplanet/carpet/orange,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "J" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled{
@@ -144,20 +144,20 @@
 	identifier = "moghes_kataphract_wasteland_knight"
 	},
 /turf/simulated/floor/exoplanet/carpet/lightblue,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "N" = (
 /obj/random/dirt_75,
 /obj/item/device/flashlight/lamp/box,
 /turf/simulated/floor/exoplanet/carpet/orange,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "O" = (
 /obj/random/dirt_75,
 /obj/item/device/flashlight/lantern,
 /turf/simulated/floor/exoplanet/carpet/orange,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "R" = (
 /turf/simulated/wall/cloth,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "S" = (
 /obj/structure/sign/flag/hegemony/large/north{
 	pixel_y = 32
@@ -169,7 +169,7 @@
 "T" = (
 /obj/effect/floor_decal/spline/plain/blue,
 /turf/simulated/floor/exoplanet/carpet/lightblue,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "V" = (
 /obj/item/bedsheet/orange,
 /obj/effect/ghostspawpoint{
@@ -177,11 +177,11 @@
 	identifier = "moghes_kataphract_wasteland"
 	},
 /turf/simulated/floor/exoplanet/carpet/orange,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "W" = (
 /obj/item/device/flashlight/lantern,
 /turf/simulated/floor/exoplanet/carpet/orange,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "X" = (
 /obj/structure/closet/crate,
 /obj/item/clothing/accessory/poncho,
@@ -204,14 +204,14 @@
 /obj/item/gun/energy/pistol/hegemony,
 /obj/item/gun/energy/pistol/hegemony,
 /turf/simulated/floor/exoplanet/carpet/orange,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 "Z" = (
 /obj/effect/floor_decal/spline/plain/blue{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/lightblue,
-/area/moghes/kataphract_wasteland)
+/area/moghes/kataphract_wasteland/tent)
 
 (1,1,1) = {"
 a
