@@ -24,9 +24,16 @@
 /obj/item/stack/material/steel/full,
 /turf/simulated/floor/tiled,
 /area/space)
+"e" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/tiled,
+/area/space)
 "f" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
+/obj/random/tech_supply,
+/obj/random/tool,
 /turf/simulated/floor/tiled,
 /area/space)
 "g" = (
@@ -55,6 +62,9 @@
 	},
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/table/rack,
+/obj/random/tech_supply,
+/obj/random/tool,
+/obj/random/loot,
 /turf/simulated/floor/tiled,
 /area/space)
 "n" = (
@@ -71,6 +81,14 @@
 /area/space)
 "q" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/trash_pile,
+/turf/simulated/floor/tiled,
+/area/space)
+"t" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled,
 /area/space)
@@ -134,6 +152,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"H" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/random/junk,
+/turf/simulated/floor/tiled,
+/area/space)
 "I" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -161,6 +187,9 @@
 	dir = 4
 	},
 /obj/structure/table/rack,
+/obj/random/tech_supply,
+/obj/random/tool,
+/obj/random/loot,
 /turf/simulated/floor/tiled,
 /area/space)
 "N" = (
@@ -183,10 +212,45 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"S" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/tool,
+/obj/random/toolbox,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled,
+/area/space)
+"T" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/closet/crate/medical,
+/obj/random/firstaid,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/turf/simulated/floor/tiled,
+/area/space)
 "U" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm/west,
 /obj/structure/trash_pile,
+/turf/simulated/floor/tiled,
+/area/space)
+"V" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/trashcart,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/space)
 "Y" = (
@@ -598,6 +662,111 @@ E
 E
 "}
 (20,1,1) = {"
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+"}
+(21,1,1) = {"
+E
+E
+E
+t
+i
+K
+V
+w
+E
+E
+E
+T
+i
+K
+e
+w
+E
+E
+E
+"}
+(22,1,1) = {"
+E
+E
+E
+g
+a
+P
+Q
+n
+E
+E
+E
+g
+a
+P
+Q
+n
+E
+E
+E
+"}
+(23,1,1) = {"
+E
+E
+E
+b
+V
+J
+y
+H
+E
+E
+E
+b
+S
+J
+y
+b
+E
+E
+E
+"}
+(24,1,1) = {"
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+"}
+(25,1,1) = {"
 E
 E
 E
