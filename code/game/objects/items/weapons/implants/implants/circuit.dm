@@ -39,6 +39,8 @@
 	IC.emp_act(severity)
 
 /obj/item/implant/integrated_circuit/examine(mob/user, distance, is_adjacent)
+	SHOULD_CALL_PARENT(FALSE)
+
 	return IC.examine(user, distance, is_adjacent)
 
 /obj/item/implant/integrated_circuit/attackby(obj/item/attacking_item, mob/user)

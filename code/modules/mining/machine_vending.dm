@@ -4,7 +4,11 @@
 //VENDOR: Obj/item's are immediately dispensed by the vendor. Machines, structures, vehicles, and etc get spawned on the cargo shuttle.
 //Think up of lots of items. Not everything needs to be unique or even mining-special, but it should be neat. Convert most of /tg/'s items. 25% of this at least
 //	should be bling. Things that shorten the distance between base and mining. Instant-teleporters should be one use.
-var/global/list/minevendor_list = list( //keep in order of price
+GLOBAL_LIST_INIT(minevendor_list, list(
+	/*
+	Format:
+	new /datum/data/mining_equipment(	[TYPEPATH], [AMOUNT], [COST], [SHUTTLE?]	),
+	*/
 	new /datum/data/mining_equipment(/obj/item/reagent_containers/food/snacks/liquidfood,		10,					5),
 	new /datum/data/mining_equipment(/obj/item/contraband/poster,								10,					20),
 	new /datum/data/mining_equipment(/obj/item/ore_radar,										10,					50),
@@ -13,7 +17,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment(/obj/item/stack/flag/yellow,								10,					50),
 	new /datum/data/mining_equipment(/obj/item/stack/flag/purple,								10,					50),
 	new /datum/data/mining_equipment(/obj/item/storage/bag/ore,									25,					50),
-	new /datum/data/mining_equipment(/obj/item/pizzabox/meat,									25,					50),
+	new /datum/data/mining_equipment(pick(subtypesof(/obj/item/pizzabox)), 									25,					50),
 	new /datum/data/mining_equipment(/obj/item/device/flashlight/lantern,						10,					75),
 	new /datum/data/mining_equipment(/obj/item/shovel,											15,					100),
 	new /datum/data/mining_equipment(/obj/item/pickaxe,											10,					100),
@@ -38,16 +42,13 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment(/obj/item/warp_core,										25,					500),
 	new /datum/data/mining_equipment(/obj/item/extraction_pack,									25,					600),
 	new /datum/data/mining_equipment(/obj/item/device/mine_bot_upgrade/health,					20,					600),
-	new /datum/data/mining_equipment(/obj/item/rfd/mining,										10,					600),
 	new /datum/data/mining_equipment(/obj/item/storage/firstaid/trauma,							30,					600),
 	new /datum/data/mining_equipment(/obj/item/oremagnet,										10,					600),
-	new /datum/data/mining_equipment(/obj/vehicle/train/cargo/trolley/mining,					-1,					600,	1),
 	new /datum/data/mining_equipment(/obj/item/resonator,										10,					700),
 	new /datum/data/mining_equipment(/obj/item/device/wormhole_jaunter,							20,					750),
 	new /datum/data/mining_equipment(/obj/item/rig/industrial,									5,					1000),
 	new /datum/data/mining_equipment(/obj/item/mass_driver_diy,									5,					800),
 	new /datum/data/mining_equipment(/mob/living/silicon/robot/drone/mining,					15,					800),
-	new /datum/data/mining_equipment(/obj/vehicle/train/cargo/engine/mining,					-1,					800,	1),
 	new /datum/data/mining_equipment(/obj/item/device/mine_bot_upgrade/ka,						10,					800),
 	new /datum/data/mining_equipment(/obj/item/oreportal,										35,					800),
 	new /datum/data/mining_equipment(/obj/item/device/spaceflare,								5,					800),
@@ -60,7 +61,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	new /datum/data/mining_equipment(/obj/item/device/orbital_dropper/minecart,					5,					2000),
 	new /datum/data/mining_equipment(/obj/item/device/orbital_dropper/drill,					10,					3250),
 	new /datum/data/mining_equipment(/obj/item/device/orbital_dropper/mecha/miner,				2,					3500)
-	)
+	))
 
 /obj/machinery/mineral/equipment_vendor
 	name = "mining equipment vendor"
@@ -126,7 +127,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 	else
 		data["hasId"] = FALSE
 	var/list/prize_list = list()
-	for(var/datum/data/mining_equipment/prize as anything in minevendor_list)
+	for(var/datum/data/mining_equipment/prize as anything in GLOB.minevendor_list)
 		prize_list += list(list("name" = prize.equipment_name, "desc" = prize.equipment_description, "cost" = prize.cost, "stock" = prize.amount, "ref" = "\ref[prize]"))
 	data["prizeList"] = prize_list
 	return data
@@ -140,7 +141,7 @@ var/global/list/minevendor_list = list( //keep in order of price
 		var/obj/item/card/id/ID = usr.GetIdCard()
 		if(ID)
 			var/datum/data/mining_equipment/prize = locate(params["purchase"])
-			if(!prize || !(prize in minevendor_list))
+			if(!prize || !(prize in GLOB.minevendor_list))
 				return
 			if(prize.amount <= 0 && prize.amount != -1)
 				return

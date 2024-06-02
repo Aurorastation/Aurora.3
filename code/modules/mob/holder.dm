@@ -53,8 +53,11 @@ var/list/holder_mob_icon_cache = list()
 	return ..()
 
 /obj/item/holder/examine(mob/user)
+	SHOULD_CALL_PARENT(FALSE)
+
 	if(contained)
 		return contained.examine(user)
+	return TRUE
 
 /obj/item/holder/process()
 	if (!contained)
