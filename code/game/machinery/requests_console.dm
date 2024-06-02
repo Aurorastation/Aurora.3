@@ -450,7 +450,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 					//err... hacking code, which has no reason for existing... but anyway... it was once supposed to unlock priority 3 messanging on that console (EXTREME priority...), but the code for that was removed.
 /obj/machinery/requests_console/attackby(obj/item/attacking_item, mob/user)
 	if (istype(attacking_item, /obj/item/card/id))
-		if(inoperable(MAINT)) return TRUE
+		if(!operable(MAINT)) return TRUE
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/card/id/T = attacking_item
 			msgVerified = text("<font color='green'><b>Verified by [T.registered_name], [T.assignment]</b></font>")
@@ -466,7 +466,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			updateUsrDialog()
 		return TRUE
 	else if (istype(attacking_item, /obj/item/stamp))
-		if(inoperable(MAINT)) return
+		if(!operable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/stamp/T = attacking_item
 			msgStamped = SPAN_NOTICE("<b>Stamped with the [T.name]</b>")

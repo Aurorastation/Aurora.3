@@ -1263,7 +1263,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(202)
 	},
 /turf/simulated/floor,

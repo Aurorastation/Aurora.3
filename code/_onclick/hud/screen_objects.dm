@@ -139,6 +139,8 @@
 /obj/screen/storage
 	name = "storage"
 	screen_loc = "7,7 to 10,8"
+	plane = HUD_PLANE
+	layer = HUD_BASE_LAYER
 
 /obj/screen/storage/Click()
 	if(!usr.canClick())
@@ -153,7 +155,7 @@
 
 /obj/screen/storage/background
 	name = "background storage"
-	layer = HUD_BASE_LAYER
+	layer = HUD_BELOW_ITEM_LAYER
 
 /obj/screen/storage/background/Initialize(mapload, var/obj/set_master, var/set_icon_state)
 	. = ..()

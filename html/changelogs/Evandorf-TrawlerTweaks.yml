@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: SimpleMaroon
+author: Evandorf
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,11 +55,7 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Hive cloaks and Vaurcan shrouds will now show up on character preview."
-  - bugfix: "Vaurca shoes and clothes can now be properly colored for Bulwarks."
-  - bugfix: "The tunnel cloak backing now remains properly when the cloak's hood is pulled up."
-  - bugfix: "The Tret passcard can now be taken by K'lax Breeders."
-  - bugfix: "Fixes the misaligned sombrero sprite for Bulwarks."
-  - bugfix: "Moves the Bulwark sprites for the webbing vests and waistcoat to accessories.dmi where they belong."
-  - rscdel: "Removed Bulwark sprites for the defunct Internal Affairs jacket and blue lawyer jacket."
-  - bugfix: "Added the proper suffixes to Bulwark sprites needed to work with the contained sprite system."
+  - bugfix: "Altered the Crewman ghostrole to allow for non-listed players."
+  - bugfix: "Added the Uueoaesa sector to list of sectors."
+
+

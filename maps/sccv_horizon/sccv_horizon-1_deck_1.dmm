@@ -19404,6 +19404,9 @@
 	pixel_x = 20;
 	pixel_y = 4
 	},
+/obj/item/bikehorn/rubberducky{
+	pixel_y = 5
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "nqp" = (
