@@ -22,18 +22,14 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm/west,
 /obj/item/stack/material/steel/full,
-/turf/simulated/floor/tiled,
-/area/space)
-"e" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/freezer/rations,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled,
 /area/space)
 "f" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
 /obj/random/tech_supply,
-/obj/random/tool,
+/obj/random/bomb_supply,
 /turf/simulated/floor/tiled,
 /area/space)
 "g" = (
@@ -49,10 +45,27 @@
 /obj/machinery/alarm/west,
 /turf/simulated/floor/tiled,
 /area/space)
+"j" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/random/junk,
+/turf/simulated/floor/tiled,
+/area/space)
 "k" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm/west,
 /obj/structure/closet/crate,
+/turf/simulated/floor/tiled,
+/area/space)
+"l" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
+/obj/structure/trash_pile,
 /turf/simulated/floor/tiled,
 /area/space)
 "m" = (
@@ -76,19 +89,11 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/obj/structure/closet/crate,
+/obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled,
 /area/space)
 "q" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/trash_pile,
-/turf/simulated/floor/tiled,
-/area/space)
-"t" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small{
-	dir = 8
-	},
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled,
 /area/space)
@@ -98,6 +103,7 @@
 	dir = 4
 	},
 /obj/item/stack/material/plastic/full,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled,
 /area/space)
 "v" = (
@@ -107,6 +113,7 @@
 	},
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/item/stack/material/cardboard/full,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled,
 /area/space)
 "w" = (
@@ -123,6 +130,7 @@
 	dir = 4
 	},
 /obj/item/stack/material/steel/full,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled,
 /area/space)
 "y" = (
@@ -132,6 +140,7 @@
 "A" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/wood/full,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled,
 /area/space)
 "B" = (
@@ -142,22 +151,31 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled,
 /area/space)
+"C" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/tiled,
+/area/space)
 "E" = (
 /turf/template_noop,
+/area/space)
+"F" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/tool,
+/obj/random/toolbox,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled,
 /area/space)
 "G" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
-/area/space)
-"H" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/space)
 "I" = (
@@ -188,13 +206,32 @@
 	},
 /obj/structure/table/rack,
 /obj/random/tech_supply,
-/obj/random/tool,
 /obj/random/loot,
 /turf/simulated/floor/tiled,
 /area/space)
 "N" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/stack/material/cardboard/full,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled,
+/area/space)
+"O" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/closet/crate/medical,
+/obj/random/firstaid,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
 /turf/simulated/floor/tiled,
 /area/space)
 "P" = (
@@ -212,31 +249,27 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"R" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled,
+/area/space)
 "S" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/tool,
-/obj/random/toolbox,
-/obj/random/tool,
-/obj/random/tool,
-/obj/random/tool,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
-/obj/random/tech_supply,
+/obj/structure/closet/crate/trashcart,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
 /turf/simulated/floor/tiled,
 /area/space)
 "T" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/structure/closet/crate/medical,
-/obj/random/firstaid,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
-/obj/random/medical,
+/obj/structure/table/rack,
+/obj/random/tech_supply,
+/obj/random/tool,
 /turf/simulated/floor/tiled,
 /area/space)
 "U" = (
@@ -245,20 +278,20 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled,
 /area/space)
-"V" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/trashcart,
-/obj/random/junk,
-/obj/random/junk,
-/obj/random/junk,
-/turf/simulated/floor/tiled,
-/area/space)
 "Y" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/largecrate,
+/turf/simulated/floor/tiled,
+/area/space)
+"Z" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/trash_pile,
 /turf/simulated/floor/tiled,
 /area/space)
 
@@ -312,7 +345,7 @@ G
 U
 K
 y
-w
+l
 E
 E
 E
@@ -354,7 +387,7 @@ B
 y
 J
 q
-B
+R
 E
 E
 E
@@ -479,7 +512,7 @@ E
 u
 y
 J
-N
+y
 x
 E
 E
@@ -603,7 +636,7 @@ E
 E
 E
 L
-f
+T
 J
 y
 b
@@ -686,18 +719,18 @@ E
 E
 E
 E
-t
+Z
 i
 K
-V
+S
 w
 E
 E
 E
-T
+O
 i
 K
-e
+C
 w
 E
 E
@@ -729,15 +762,15 @@ E
 E
 E
 b
-V
+S
 J
 y
-H
+j
 E
 E
 E
-b
-S
+N
+F
 J
 y
 b
