@@ -4448,7 +4448,7 @@
 	name = "Hazardous Specimen Containment";
 	id = "ihss_biglizard"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "edge"
 	},
