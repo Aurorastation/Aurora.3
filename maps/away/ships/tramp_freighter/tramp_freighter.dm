@@ -1,5 +1,5 @@
 /datum/map_template/ruin/away_site/tramp_freighter
-	map = "Independent Freighter"
+	name = "Independent Freighter"
 	description = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an external docking port capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and scant defenses to speak of, the Catspaw is risky to operate in unpoliced space."
 
 	prefix = "ships/tramp_freighter/"
@@ -16,7 +16,7 @@
 
 /singleton/submap_archetype/tramp_freighter
 	map = "Independent Freighter"
-	description = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an external docking port capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and scant defenses to speak of, the Catspaw is risky to operate in unpoliced space."
+	descriptor = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an external docking port capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and scant defenses to speak of, the Catspaw is risky to operate in unpoliced space."
 
 //ship stuff
 
