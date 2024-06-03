@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/tramp_freighter
-	name = "Tramp Freighter"
-	description = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space."
+	map = "Independent Freighter"
+	description = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an external docking port capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and scant defenses to speak of, the Catspaw is risky to operate in unpoliced space."
 
 	prefix = "ships/tramp_freighter/"
 	suffixes = list("tramp_freighter.dmm")
@@ -15,15 +15,15 @@
 	unit_test_groups = list(3)
 
 /singleton/submap_archetype/tramp_freighter
-	map = "Tramp Freighter"
-	descriptor = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space."
+	map = "Independent Freighter"
+	description = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an external docking port capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and scant defenses to speak of, the Catspaw is risky to operate in unpoliced space."
 
 //ship stuff
 
 /obj/effect/overmap/visitable/ship/tramp_freighter
-	name = "Tramp Freighter"
+	name = "Independent Freighter"
 	class = "ICV"
-	desc = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space."
+	desc = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an external docking port capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and scant defenses to speak of, the Catspaw is risky to operate in unpoliced space."
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
 	colors = list("#c3c7eb", "#a0a8ec")
@@ -39,6 +39,7 @@
 	weapons = "Starboard low-end ballistic weapon mount, aft obscured flight craft bay"
 	sizeclass = "Catspaw Class Freighter"
 	shiptype = "Long-term shipping utilities"
+
 	initial_restricted_waypoints = list(
 		"Freight Shuttle" = list("nav_tramp_start")
 	)
@@ -145,7 +146,7 @@
 	fore_dir = EAST
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/freighter_shuttle
+/obj/machinery/computer/shuttle_control/explore/terminal/freighter_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Freight Shuttle"
 
