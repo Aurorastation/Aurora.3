@@ -1,21 +1,38 @@
 /datum/trader
-	var/name = "unsuspicious trader"                            //The name of the trader in question
-	var/origin = "some place"                                   //The place that they are trading from
-	var/list/possible_origins                                   //Possible names of the trader origin
-	var/disposition = 0                                         //The current disposition of them to us.
-	var/trade_flags = TRADER_MONEY                              //Flags
-	var/name_language                                                //If this is set to a language name this will generate a name from the language
-	var/icon/portrait                                           //The icon that shows up in the menu @TODO
+	/// The name of the trader in question
+	var/name = "unsuspicious trader"
+	/// The place that they are trading from
+	var/origin = "some place"
+	/// Possible names of the trader origin
+	var/list/possible_origins
+	/// The current disposition of them to us.
+	var/disposition = 0
+	/// Flags
+	var/trade_flags = TRADER_MONEY
+	/// If this is set to a language name this will generate a name from the language
+	var/name_language
+	/// The icon that shows up in the menu @TODO
+	var/icon/portrait
+	/// List of species that trader will have a bias against (type = variant)
+	var/list/species_bias = list() //for silicons (robots), use "Silicon"
 
-	var/list/wanted_items = list()                              //What items they enjoy trading for. Structure is (type = known/unknown)
-	var/list/possible_wanted_items                              //List of all possible wanted items. Structure is (type = mode)
-	var/list/possible_trading_items                             //List of all possible trading items. Structure is (type = mode)
-	var/list/trading_items = list()                             //What items they are currently trading away.
+	/// What items they enjoy trading for. Structure is (type = known/unknown)
+	var/list/wanted_items = list()
+	/// List of all possible wanted items. Structure is (type = mode)
+	var/list/possible_wanted_items
+	/// List of all possible trading items. Structure is (type = mode)
+	var/list/possible_trading_items
+	/// What items they are currently trading away.
+	var/list/trading_items = list()
+	/// Things they will automatically refuse
 	var/list/blacklisted_trade_items = list(/mob/living/carbon/human)
+	/// Which sector(s) this merchant can show up
 	var/list/allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL,
-										SECTOR_GAKAL, SECTOR_UUEOAESA)	//which sector this merchant can show up                                                            //Things they will automatically refuse
+										SECTOR_GAKAL, SECTOR_UUEOAESA)
 
-	var/list/speech = list()                                    //The list of all their replies and messages. Structure is (id = talk)
+	/// The list of all their replies and messages. Structure is (id = talk)
+	var/list/speech = list()
+
 	/*SPEECH IDS:
 	hail_generic		When merchants hail a person
 	hail_[race]			Race specific hails
@@ -33,12 +50,17 @@
 	what_want			What the person says when they are asked if they want something
 
 	*/
-	var/want_multiplier = 2                                     //How much wanted items are multiplied by when traded for
-	var/insult_drop = 5                                         //How far disposition drops on insult
-	var/compliment_increase = 5                                 //How far compliments increase disposition
-	var/refuse_comms = 0                                        //Whether they refuse further communication
+	/// How much wanted items are multiplied by when traded for
+	var/want_multiplier = 2
+	/// How far disposition drops on insult
+	var/insult_drop = 5
+	/// How far compliments increase disposition
+	var/compliment_increase = 5
+	/// Whether they refuse further communication
+	var/refuse_comms = FALSE
 
-	var/mob_transfer_message = "You are transported to ORIGIN." //What message gets sent to mobs that get sold.
+	/// What message gets sent to mobs that get sold.
+	var/mob_transfer_message = "You are transported to ORIGIN."
 
 /datum/trader/New()
 	..()
@@ -72,6 +94,29 @@
 		var/i = rand(1,pool.len)
 		pool[pool[i]] = null
 		pool -= pool[i]
+
+/// Gets bias from trader
+/datum/trader/proc/get_bias(var/mob/user)
+	var/species
+	if(ishuman(user))
+		var/mob/living/carbon/human/person = user
+		species = person.species.name
+	else if (issilicon(user))
+		species = "Silicon"
+
+	if(!species || !species_bias) // No species to be biased against
+		return FALSE
+
+	// Flatten list
+	for(var/item in species_bias)
+		var/result = species_bias[item]
+		if(islist(item))
+			if(species in flatten_list(item))
+				return result
+		else if(species == item)
+			return result
+	// At this point, species is not on bias list
+	return FALSE
 
 /datum/trader/proc/add_to_pool(var/list/pool, var/list/possible, var/base_chance = 100, var/force = 0)
 	var/divisor = 1
@@ -119,40 +164,48 @@
 		var/atom/movable/M = trading_items[num]
 		return "[initial(M.name)]"
 
-/datum/trader/proc/get_item_value(var/trading_num)
+/datum/trader/proc/get_item_value(var/trading_num, var/mob/user)
 	if(!trading_items[trading_items[trading_num]])
 		var/type = trading_items[trading_num]
 		var/value = get_value(type)
 		value = round(rand(80,100)/100 * value) //For some reason rand doesn't like decimals.
 		trading_items[type] = value
-	return trading_items[trading_items[trading_num]]
+	// Apply Racism
+	// defaults at 1, adjusts based on bias
+	var/modifier = 1
+	var/bias = get_bias(user)
+	if(bias == TRADER_BIAS_UPCHARGE)
+		modifier = 1.2 // 20% upcharge
+	else if(bias == TRADER_BIAS_DISCOUNT)
+		modifier = 0.8 // 20% discount
+	return round(trading_items[trading_items[trading_num]] * modifier)
 
-/datum/trader/proc/offer_money_for_trade(var/trade_num, var/money_amount)
+/datum/trader/proc/offer_money_for_trade(var/trade_num, var/money_amount, var/mob/user)
 	if(!(trade_flags & TRADER_MONEY))
 		return TRADER_NO_MONEY
-	var/value = get_item_value(trade_num)
+	var/value = get_item_value(trade_num, user)
 	if(money_amount < value)
 		return TRADER_NOT_ENOUGH
 
 	return value
 
-/datum/trader/proc/offer_items_for_trade(var/list/offers, var/num, var/turf/location)
+/datum/trader/proc/offer_items_for_trade(var/list/offers, var/num, var/turf/location, var/mob/user)
 	if(!offers || !offers.len)
 		return TRADER_NOT_ENOUGH
 	num = Clamp(num, 1, trading_items.len)
 	var/offer_worth = 0
 	for(var/item in offers)
 		var/atom/movable/offer = item
-		var/is_wanted = 0
+		var/is_wanted = FALSE
 		if(is_type_in_list(offer,wanted_items))
-			is_wanted = 1
+			is_wanted = TRUE
 		if(blacklisted_trade_items && blacklisted_trade_items.len)
 			if(ishuman(offer))
 				var/mob/living/carbon/human/A = offer
 				if(is_type_in_list(A.species, blacklisted_trade_items))
-					return 0
+					return FALSE
 			else if(is_type_in_list(offer,blacklisted_trade_items))
-				return 0
+				return FALSE
 
 		if(istype(offer,/obj/item/spacecash))
 			if(!(trade_flags & TRADER_MONEY))
@@ -166,7 +219,7 @@
 		offer_worth += get_value(offer) * (is_wanted ? want_multiplier : 1)
 	if(!offer_worth)
 		return TRADER_NOT_ENOUGH
-	var/trading_worth = get_item_value(num)
+	var/trading_worth = get_item_value(num, user)
 	if(!trading_worth)
 		return TRADER_NOT_ENOUGH
 	var/percent = offer_worth/trading_worth
@@ -175,21 +228,44 @@
 	return TRADER_NOT_ENOUGH
 
 /datum/trader/proc/hail(var/mob/user)
+	// specific subspecies
 	var/specific
-	if(istype(user, /mob/living/carbon/human))
+	// species, used if specific hail not found
+	var/general
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.species)
+			var/list/all_lists = list(
+				ALL_HUMAN_SPECIES  = "Human",
+				ALL_DIONA_SPECIES  = "Diona",
+				ALL_SKRELL_SPECIES = "Skrell",
+				ALL_TAJARA_SPECIES = "Tajara",
+				ALL_VAURCA_SPECIES = "Vaurca",
+				ALL_IPC_SPECIES    = "IPC"
+			)
+			for(var/list/species_list in all_lists)
+				if(H.species.name in species_list)
+					general = all_lists[species_list]
+					break
+			// grab subspecies
 			specific = H.species.name
 	else if(istype(user, /mob/living/silicon))
 		specific = "silicon"
 	if(!speech["hail_[specific]"])
-		specific = "generic"
+		//check for generic
+		if(speech["hail_[general]"])
+			specific = general //we override specific with general to call it
+		else
+			specific = "generic"
 	. = get_response("hail_[specific]", "Greetings, MOB!")
 	. = replacetext(., "MOB", user.name)
 
-/datum/trader/proc/can_hail()
+/datum/trader/proc/can_hail(var/mob/user)
 	if(!refuse_comms && prob(-disposition))
-		refuse_comms = 1
+		refuse_comms = TRUE
+	else if(!refuse_comms && get_bias(user) == TRADER_BIAS_DENY)
+		refuse_comms = TRUE
+
 	return !refuse_comms
 
 /datum/trader/proc/insult()
@@ -225,10 +301,10 @@
 
 	return M
 
-/datum/trader/proc/how_much_do_you_want(var/num)
+/datum/trader/proc/how_much_do_you_want(var/num, var/mob/user)
 	var/atom/movable/M = trading_items[num]
 	. = get_response("how_much", "Hmm.... how about VALUE credits?")
-	. = replacetext(.,"VALUE",get_item_value(num))
+	. = replacetext(.,"VALUE",get_item_value(num, user))
 	. = replacetext(.,"ITEM", initial(M.name))
 
 /datum/trader/proc/what_do_you_want()

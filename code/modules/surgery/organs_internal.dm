@@ -74,11 +74,11 @@
 	for(var/obj/item/organ/internal/I in affected.internal_organs)
 		if(I && I.is_damaged() && !BP_IS_ROBOTIC(I))
 			if(I.status & ORGAN_DEAD && I.can_recover())
-				user.visible_message("<span class='notice'>\The [user] treats damage to [target]'s [I.name] with [tool_name], though it needs to be recovered further.</span>", \
-				"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name], though it needs to be recovered further.</span>" )
+				user.visible_message(SPAN_NOTICE("\The [user] treats damage to [target]'s [I.name] with [tool_name], though it needs to be recovered further."), \
+				SPAN_NOTICE("You treat damage to [target]'s [I.name] with [tool_name], though it needs to be recovered further.") )
 			else
-				user.visible_message("<span class='notice'>[user] treats damage to [target]'s [I.name] with [tool_name].</span>", \
-				"<span class='notice'>You treat damage to [target]'s [I.name] with [tool_name].</span>")
+				user.visible_message(SPAN_NOTICE("[user] treats damage to [target]'s [I.name] with [tool_name]."), \
+				SPAN_NOTICE("You treat damage to [target]'s [I.name] with [tool_name]."))
 			I.surgical_fix(user)
 			user.visible_message("\The [user] finishes treating damage within \the [target]'s [affected.name] with [tool_name].", \
 			"You finish treating damage within \the [target]'s [affected.name] with [tool_name].")

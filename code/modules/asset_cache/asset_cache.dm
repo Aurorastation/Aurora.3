@@ -659,8 +659,8 @@ var/list/asset_datums = list()
 			Insert(imgid, I, forced=I)
 		else
 			item.update_icon()
-			if(item.overlay_queued)
-				item.compile_overlays()
+			if(item.atom_flags & ATOM_AWAITING_OVERLAY_UPDATE)
+				item.UpdateOverlays()
 			if(item.overlays.len)
 				I = getFlatIcon(item) // forgive me for my performance sins
 				Insert(imgid, I, forced=I)

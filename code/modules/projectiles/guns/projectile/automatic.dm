@@ -452,11 +452,10 @@
 	item_state = "l6closedmag"
 	w_class = ITEMSIZE_LARGE
 	force = 10
-	slot_flags = 0
+	slot_flags = SLOT_BACK
 	max_shells = 50
 	caliber = "a762"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 2)
-	slot_flags = SLOT_BACK
 	ammo_type = "/obj/item/ammo_casing/a762"
 	allowed_magazines = list(/obj/item/ammo_magazine/a762)
 	fire_sound = 'sound/weapons/gunshot/gunshot_saw.ogg'
@@ -473,13 +472,13 @@
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw/special_check(mob/user)
 	if(cover_open)
-		to_chat(user, "<span class='warning'>[src]'s cover is open! Close it before firing!</span>")
+		to_chat(user, SPAN_WARNING("[src]'s cover is open! Close it before firing!"))
 		return 0
 	return ..()
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw/proc/toggle_cover(mob/user)
 	cover_open = !cover_open
-	to_chat(user, "<span class='notice'>You [cover_open ? "open" : "close"] [src]'s cover.</span>")
+	to_chat(user, SPAN_NOTICE("You [cover_open ? "open" : "close"] [src]'s cover."))
 	if(cover_open)
 		playsound(user, 'sound/weapons/sawopen.ogg', 60, 1)
 	else
@@ -507,13 +506,13 @@
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw/load_ammo(var/obj/item/A, mob/user)
 	if(!cover_open)
-		to_chat(user, "<span class='warning'>You need to open the cover to load [src].</span>")
+		to_chat(user, SPAN_WARNING("You need to open the cover to load [src]."))
 		return
 	..()
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw/unload_ammo(mob/user, var/allow_dump=1)
 	if(!cover_open)
-		to_chat(user, "<span class='warning'>You need to open the cover to unload [src].</span>")
+		to_chat(user, SPAN_WARNING("You need to open the cover to unload [src]."))
 		return
 	..()
 
@@ -561,9 +560,6 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 
 	is_wieldable = TRUE
-
-	can_bayonet = TRUE
-
 
 	magazine_type = /obj/item/ammo_magazine/c762/dpra
 	allowed_magazines = list(/obj/item/ammo_magazine/c762/dpra)
@@ -639,7 +635,6 @@
 	suppressor_y_offset = null
 	handle_casings = DELETE_CASINGS
 	max_shells = 30
-	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag/assassin)
 
 /obj/item/gun/projectile/automatic/tommygun/assassin/update_icon()
 	..()
@@ -760,7 +755,7 @@
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
 
 /obj/item/gun/projectile/automatic/rifle/konyang/k556
 	name = "konyang assault rifle"

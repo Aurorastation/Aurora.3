@@ -135,7 +135,7 @@
 /turf/unsimulated/floor/asteroid/ash/Initialize()
 	. = ..()
 	if (prob(20))
-		add_overlay("asteroid[rand(0, 9)]", TRUE)
+		AddOverlays("asteroid[rand(0, 9)]", TRUE)
 
 /turf/unsimulated/floor/asteroid/ash/rocky
 	name = "rocky ash"

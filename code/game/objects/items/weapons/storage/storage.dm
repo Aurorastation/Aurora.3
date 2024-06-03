@@ -113,7 +113,7 @@
 
 		//If we found a turf, pick up things from there
 		if(location_to_pickup)
-			pickup_items_from_loc_and_feedback(user, location_to_pickup)
+			pickup_items_from_loc_and_feedback(user, location_to_pickup, explicit_request = TRUE)
 
 	//Pick up one thing at a time
 	else
@@ -127,13 +127,15 @@
  *
  * * user - The user trying to pick up things
  * * location - A `/turf` to pick up things from
+ * * explicit_request - Boolean, if the request to pick up was explicit (eg. user clicking on something) or not (eg. auto-grabbing),
+ * suppresses the failure if nothing was picked up
  */
-/obj/item/storage/proc/pickup_items_from_loc_and_feedback(mob/user, turf/location)
+/obj/item/storage/proc/pickup_items_from_loc_and_feedback(mob/user, turf/location, explicit_request = FALSE)
 	set waitfor = FALSE
 
 	//pickup_result[1] is if there's any success, pickup_result[2] is if there's any failure
 	//both are booleans
-	var/list/pickup_result = pickup_items_from_loc(user, location)
+	var/list/pickup_result = pickup_items_from_loc(user, location, detail_insertions = explicit_request)
 
 	//Choose the feedback message depending on what happened and send it to the user
 	var/pickup_feedback_message
@@ -143,7 +145,7 @@
 	else if(pickup_result[1] && pickup_result[2])
 		pickup_feedback_message = SPAN_NOTICE("You put some things in \the [src].")
 
-	else if(!pickup_result[1] && pickup_result[2])
+	else if(explicit_request && (!pickup_result[1] && pickup_result[2]))
 		pickup_feedback_message = SPAN_NOTICE("You fail to pick anything up with \the [src].")
 
 	//Check if we got a feedback message and, if so, send it to the user
@@ -158,8 +160,9 @@
  *
  * * user - The user trying to pick up things
  * * location - A `/turf` to pick up things from
+ * * detail_insertions - A boolean, if `TRUE`, `can_be_inserted()` will be told to give feedbacks
  */
-/obj/item/storage/proc/pickup_items_from_loc(mob/user, turf/location)
+/obj/item/storage/proc/pickup_items_from_loc(mob/user, turf/location, detail_insertions = TRUE)
 
 	//In the format of list(SUCCESS, FAILURE)
 	var/list/return_status = list(FALSE, FALSE)
@@ -177,7 +180,7 @@
 		if (user && get_turf(user) != original_location)
 			break
 
-		if(!can_be_inserted(item))	// Note can_be_inserted still makes noise when the answer is no
+		if(!can_be_inserted(item, !detail_insertions))	// Note can_be_inserted still makes noise when the answer is no
 			rejections[item.type] = TRUE	// therefore full bags are still a little spammy
 			return_status[2] = TRUE
 			CHECK_TICK
@@ -200,6 +203,7 @@
 		. += "It contains: [counting_english_list(contents)]"
 
 /obj/item/storage/MouseDrop(obj/over_object)
+	. = ..()
 	if(!canremove)
 		return
 	if(!over_object || over_object == src)
@@ -360,12 +364,12 @@
 			ND.sample_object.maptext = SMALL_FONTS(7, "[(ND.number > 1)? "[ND.number]" : ""]")
 			ND.sample_object.hud_layerise()
 			if(display_contents_initials)
-				ND.sample_object.cut_overlays() // a limitation of this code is that overlays get blasted off the item, since we need to add one to add the second maptext. woe is me
+				ND.sample_object.ClearOverlays() // a limitation of this code is that overlays get blasted off the item, since we need to add one to add the second maptext. woe is me
 				var/object_initials = handle_name_initials(ND.sample_object.name)
 				var/image/name_overlay = image(null)
 				name_overlay.maptext = SMALL_FONTS(7, object_initials)
 				name_overlay.maptext_x = 22 - ((length(object_initials) - 1) * 6)
-				ND.sample_object.add_overlay(name_overlay)
+				ND.sample_object.AddOverlays(name_overlay)
 			cx++
 			if (cx > (4+cols))
 				cx = 4
@@ -395,7 +399,7 @@
 	var/stored_cap_width = 4 //length of sprite for start and end of the box representing the stored item
 	var/storage_width = min( round( 224 * max_storage_space/baseline_max_storage_space ,1) ,284) //length of sprite for the box representing total storage space
 
-	storage_start.cut_overlays()
+	storage_start.ClearOverlays()
 
 	var/matrix/M = matrix()
 	M.Scale((storage_width-storage_cap_width*2+3)/32,1)
@@ -439,7 +443,7 @@
 		O.hud_layerise()
 
 	if (!defer_overlays)
-		storage_start.compile_overlays()
+		storage_start.UpdateOverlays()
 
 	closer.screen_loc = "4:[storage_width+19],2:16"
 	return
@@ -654,7 +658,7 @@
 	if(W.maptext)
 		W.maptext = ""
 	if(display_contents_initials)
-		W.cut_overlays()
+		W.ClearOverlays()
 	W.on_exit_storage(src)
 	update_icon()
 	return TRUE
@@ -734,7 +738,7 @@
 		var/obj/item/tray/T = attacking_item
 		if(T.current_weight > 0)
 			T.spill(user)
-			to_chat(user, "<span class='warning'>Trying to place a loaded tray into [src] was a bad idea.</span>")
+			to_chat(user, SPAN_WARNING("Trying to place a loaded tray into [src] was a bad idea."))
 			return
 
 	if(istype(attacking_item, /obj/item/device/hand_labeler))
@@ -761,7 +765,11 @@
 			return
 
 	if (src.loc == user)
-		src.open(user)
+		//If the storage is already open, close it, otherwise open it
+		if(user.s_active == src)
+			src.close(user)
+		else
+			src.open(user)
 	else
 		..()
 		for(var/mob/M in range(1, get_turf(src)) - user)

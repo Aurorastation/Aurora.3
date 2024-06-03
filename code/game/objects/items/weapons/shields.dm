@@ -87,7 +87,7 @@
 /obj/item/shield/riot/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/melee/baton))
 		if(cooldown < world.time - 25)
-			user.visible_message("<span class='warning'>[user] bashes [src] with [attacking_item]!</span>")
+			user.visible_message(SPAN_WARNING("[user] bashes [src] with [attacking_item]!"))
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 			cooldown = world.time
 	else
@@ -316,8 +316,8 @@
 	var/active = 0
 
 /obj/item/shield/riot/tact/legion
-	name = "legion ballistic shield"
-	desc = "A highly advanced ballistic shield crafted from durable materials and plated ablative panels. Can be collapsed for mobility. This one has been painted in the colors of the Tau Ceti Foreign Legion."
+	name = "\improper TCAF ballistic shield"
+	desc = "A highly advanced ballistic shield crafted from durable materials and plated ablative panels. Can be collapsed for mobility. This one has been painted in the colors of the Tau Ceti Armed Forces."
 	icon_state = "legion_tactshield"
 	item_state = "legion_tactshield"
 

@@ -27,7 +27,7 @@
 	},
 /area/headmaster_ship)
 "ag" = (
-/obj/structure/ship_weapon_dummy,
+/obj/structure/ship_weapon_dummy/barrel,
 /turf/template_noop,
 /area/space)
 "ai" = (
@@ -38,9 +38,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
+/turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "aj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -445,7 +443,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "aZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -730,7 +728,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "bQ" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -760,9 +758,7 @@
 /obj/machinery/ammunition_loader/grauwolf{
 	weapon_id = "Headmaster Grauwolf Flak Battery"
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
+/turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "bV" = (
 /obj/machinery/hologram/holopad/long_range,
@@ -1259,31 +1255,19 @@
 	},
 /area/headmaster_ship/hangar)
 "dn" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, airlock"
-	},
-/obj/structure/bed/handrail{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/machinery/airlock_sensor/airlock_exterior{
-	pixel_x = -21;
-	pixel_y = 8;
-	dir = 4
+	pixel_x = -35;
+	pixel_y = -21;
+	dir = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "headmaster_shuttle";
-	name = "headmaster_shuttle";
-	req_one_access = list(209);
-	shuttle_tag = "Orbital Fleet Shuttle"
+/obj/effect/shuttle_landmark/headmaster_shuttle/hangar{
+	dir = 1
 	},
 /turf/simulated/floor,
-/area/shuttle/headmaster_shuttle)
+/area/headmaster_ship/hangar)
 "dp" = (
 /obj/structure/bed/handrail{
 	dir = 4
@@ -1591,7 +1575,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "ek" = (
 /obj/machinery/computer/ship/helm/terminal,
@@ -1888,12 +1872,8 @@
 	},
 /area/headmaster_ship/barracks)
 "fq" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4;
-	icon_state = "map"
-	},
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/headmaster_shuttle)
+/turf/simulated/floor/plating/cooled,
+/area/headmaster_ship/hangar)
 "fu" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -2554,9 +2534,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/shuttle_landmark/headmaster_shuttle/hangar{
-	dir = 1
-	},
 /turf/simulated/floor/plating/cooled,
 /area/headmaster_ship/hangar)
 "hx" = (
@@ -2970,7 +2947,7 @@
 /obj/machinery/door/window{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "iS" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
@@ -3017,16 +2994,11 @@
 	},
 /area/headmaster_ship/barracks)
 "iW" = (
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
 	},
-/obj/effect/decal/cleanable/liquid_fuel,
-/obj/effect/decal/cleanable/liquid_fuel,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/plating/cooled,
-/area/headmaster_ship/hangar)
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/headmaster_shuttle)
 "iY" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/regular{
@@ -3148,10 +3120,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/cic)
 "jv" = (
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 1
-	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3160,9 +3128,9 @@
 	dir = 1
 	},
 /obj/machinery/access_button{
-	pixel_x = -22;
-	dir = 4;
-	pixel_y = 30
+	pixel_x = -26;
+	dir = 1;
+	pixel_y = 10
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -3172,6 +3140,9 @@
 	name = "headmaster_shuttle";
 	req_one_access = list(209);
 	shuttle_tag = "Orbital Fleet Shuttle"
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, airlock"
 	},
 /turf/simulated/floor,
 /area/shuttle/headmaster_shuttle)
@@ -3314,7 +3285,7 @@
 /area/headmaster_ship/medbay)
 "jU" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8;
+	dir = 1;
 	icon_state = "map"
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -3734,7 +3705,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "lq" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -3998,7 +3969,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "mg" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -4755,7 +4726,7 @@
 	},
 /area/headmaster_ship/captain_quarters)
 "qW" = (
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "qY" = (
 /obj/machinery/computer/ship/targeting/terminal,
@@ -4974,9 +4945,7 @@
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
+/turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "tq" = (
 /obj/effect/floor_decal/corner/red{
@@ -5008,7 +4977,7 @@
 "tw" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "ty" = (
 /obj/structure/bed/stool/bar/padded/red,
@@ -5276,7 +5245,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "xr" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -5737,7 +5706,7 @@
 /obj/machinery/door/window{
 	dir = 1
 	},
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "Co" = (
 /obj/structure/cable{
@@ -6677,12 +6646,11 @@
 	},
 /area/headmaster_ship/dock)
 "Mb" = (
-/obj/effect/decal/cleanable/blood/oil,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
 	},
-/turf/simulated/floor/plating/cooled,
-/area/headmaster_ship/hangar)
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/headmaster_shuttle)
 "Mc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
@@ -6740,7 +6708,7 @@
 	dir = 1
 	},
 /obj/machinery/light/small/emergency,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "Nb" = (
 /obj/effect/floor_decal/corner/green{
@@ -7665,7 +7633,7 @@
 	},
 /obj/item/device/multitool,
 /obj/item/hoist_kit,
-/turf/simulated/floor/reinforced/airless,
+/turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "We" = (
 /obj/structure/closet/crate/freezer/rations,
@@ -37117,7 +37085,7 @@ Bz
 ub
 gg
 bK
-Mb
+hg
 RS
 hA
 Jn
@@ -37372,9 +37340,9 @@ nq
 oh
 Bz
 gg
-hg
-Jn
-Jn
+fq
+IO
+Mb
 Jn
 kS
 TF
@@ -37629,7 +37597,7 @@ Jv
 oh
 Bz
 dY
-Rm
+fq
 jU
 Pb
 dp
@@ -38143,8 +38111,8 @@ in
 oh
 Bz
 uh
-IO
 fq
+jU
 sn
 mF
 aj
@@ -38400,9 +38368,9 @@ mj
 oh
 Bz
 Bx
-FU
-Jn
-Jn
+fq
+Rm
+iW
 Jn
 kS
 ly
@@ -38659,7 +38627,7 @@ Bz
 dq
 kw
 Lc
-iW
+FU
 EC
 aN
 Jn

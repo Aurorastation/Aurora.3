@@ -413,7 +413,7 @@ var/list/worths = list(
 //GLASSES,
 					/obj/item/clothing/glasses/meson/prescription = 880,
 					/obj/item/clothing/glasses/meson = 800,
-					/obj/item/clothing/glasses/science = 400,
+					/obj/item/clothing/glasses/safety/goggles/science = 400,
 					/obj/item/clothing/glasses/night = 1000,
 					/obj/item/clothing/glasses/regular/hipster = 400, //Hipstering is an expensive lifestyle yo,
 					/obj/item/clothing/glasses/regular = 300,

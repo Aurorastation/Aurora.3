@@ -204,6 +204,7 @@
 
 	icon_screen = "rdcomp"
 	icon_keyboard = "purple_key"
+	icon_keyboard_emis = "purple_key_mask"
 	light_color = LIGHT_COLOR_PURPLE
 
 	circuit = /obj/item/circuitboard/rdservercontrol
@@ -220,7 +221,7 @@
 	add_fingerprint(usr)
 	usr.set_machine(src)
 	if(!allowed(usr) && !emagged)
-		to_chat(usr, "<span class='warning'>You do not have the required access level</span>")
+		to_chat(usr, SPAN_WARNING("You do not have the required access level"))
 		return
 
 	if(href_list["main"])
@@ -356,7 +357,7 @@
 	if(!emagged)
 		playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 		emagged = 1
-		to_chat(user, "<span class='notice'>You you disable the security protocols.</span>")
+		to_chat(user, SPAN_NOTICE("You you disable the security protocols."))
 		src.updateUsrDialog()
 		return 1
 

@@ -67,7 +67,7 @@
 
 /datum/gear/suit/unathi_robe/kilt
 	display_name = "wasteland kilt"
-	origin_restriction = list(/singleton/origin_item/origin/wastelander)
+	origin_restriction = list(/singleton/origin_item/origin/wastelander, /singleton/origin_item/origin/mikuetz)
 	path = /obj/item/clothing/suit/unathi/robe/kilt
 
 /datum/gear/suit/robe_coat
@@ -167,7 +167,7 @@
 /datum/gear/head/sinta_ronin
 	display_name = "straw hat"
 	path = /obj/item/clothing/head/unathi
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/head/sinta_ronin/New()
@@ -188,8 +188,8 @@
 /datum/gear/eyes/wasteland_goggles
 	display_name = "wasteland goggles"
 	path = /obj/item/clothing/glasses/safety/goggles/wasteland
-	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/wastelander)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	origin_restriction = list(/singleton/origin_item/origin/wastelander, /singleton/origin_item/origin/mikuetz)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/accessory/sinta_hood
@@ -464,7 +464,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
-	allowed_roles = list("Chaplain")
+	allowed_roles = list("Chaplain", "Off-Duty Crew Member")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/unathi/skakh/New()
@@ -475,3 +475,12 @@
 	robes["Sk'akh healer's robes"] = /obj/item/clothing/under/unathi/skakh/healer
 	robes["Sk'akh warrior's robes"] = /obj/item/clothing/under/unathi/skakh/warrior
 	gear_tweaks += new /datum/gear_tweak/path(robes)
+
+/datum/gear/uniform/unathi/siakh
+	display_name = "Siakh robes"
+	path = /obj/item/clothing/under/unathi/siakh
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	allowed_roles = list("Chaplain", "Off-Duty Crew Member")
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

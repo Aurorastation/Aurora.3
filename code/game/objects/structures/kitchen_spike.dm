@@ -31,17 +31,17 @@
 	if(!istype(victim))
 		return
 
-	cut_overlays()
+	ClearOverlays()
 	if(istype(victim, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = victim
 		if(!issmall(H))
 			return 0
 		meat_type = H.species.meat_type
-		add_overlay(overlay_image(icon, "spikebloody"))
+		AddOverlays(overlay_image(icon, "spikebloody"))
 	else if(istype(victim, /mob/living/carbon/alien))
 		var/mob/living/carbon/alien/A = victim
 		meat_type = A.meat_type
-		add_overlay(overlay_image(icon, "spikebloodygreen"))
+		AddOverlays(overlay_image(icon, "spikebloodygreen"))
 	else
 		return 0
 

@@ -1,3 +1,14 @@
+GLOBAL_LIST_INIT(cable_coil_colours, list(
+	"Yellow" = COLOR_YELLOW,
+	"Green" = COLOR_LIME,
+	"Pink" = COLOR_PINK,
+	"Blue" = COLOR_BLUE,
+	"Orange" = COLOR_ORANGE,
+	"Cyan" = COLOR_CYAN,
+	"Red" = COLOR_RED,
+	"White" = COLOR_WHITE
+))
+
 ///////////////////////////////
 //CABLE STRUCTURE
 ///////////////////////////////
@@ -35,6 +46,16 @@ By design, d1 is the smallest direction and d2 is the highest
 	layer = EXPOSED_WIRE_LAYER
 	color = COLOR_RED
 	var/obj/machinery/power/breakerbox/breaker_box
+
+/obj/structure/cable/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	var/found_color_name = "Unknown"
+	for(var/color_name in GLOB.cable_coil_colours)
+		var/color_value = GLOB.cable_coil_colours[color_name]
+		if(color == color_value)
+			found_color_name = color_name
+			break
+	. += "This cable is: <span style='color:[color]'>[found_color_name]</span>"
 
 /obj/structure/cable/drain_power(var/drain_check, var/surge, var/amount = 0)
 
@@ -490,16 +511,6 @@ By design, d1 is the smallest direction and d2 is the highest
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	surgerysound = 'sound/items/surgery/fixovein.ogg'
-	var/static/list/possible_cable_coil_colours = list(
-		"Yellow" = COLOR_YELLOW,
-		"Green" = COLOR_LIME,
-		"Pink" = COLOR_PINK,
-		"Blue" = COLOR_BLUE,
-		"Orange" = COLOR_ORANGE,
-		"Cyan" = COLOR_CYAN,
-		"Red" = COLOR_RED,
-		"White" = COLOR_WHITE
-	)
 	build_from_parts = TRUE
 	worn_overlay = "end"
 
@@ -516,6 +527,22 @@ By design, d1 is the smallest direction and d2 is the highest
 	pixel_y = rand(-2,2)
 	update_icon()
 	update_wclass()
+
+/obj/item/stack/cable_coil/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+
+	var/found_color_name = "Unknown"
+	for(var/color_name in GLOB.cable_coil_colours)
+		var/color_value = GLOB.cable_coil_colours[color_name]
+		if(color == color_value)
+			found_color_name = color_name
+			break
+	. += "This cable is: <span style='color:[color]'>[found_color_name]</span>"
+
+	if(!uses_charge)
+		. += "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil."
+	else
+		. += "You have enough charge to produce <b>[get_amount()]</b>."
 
 /obj/item/stack/cable_coil/attack(mob/living/carbon/M, mob/user)
 	if(ishuman(M) && user.a_intent == I_HELP)
@@ -610,7 +637,7 @@ By design, d1 is the smallest direction and d2 is the highest
 
 /obj/item/stack/cable_coil/update_icon()
 	if(!color)
-		color = pick(possible_cable_coil_colours)
+		color = pick(GLOB.cable_coil_colours)
 	name = "[initial(name)]"
 	if(amount == 1)
 		icon_state = "[initial(icon_state)]1"
@@ -625,8 +652,8 @@ By design, d1 is the smallest direction and d2 is the highest
 		item_state = "[initial(icon_state)]"
 		name += " coil"
 	update_held_icon()
-	cut_overlays()
-	add_overlay(overlay_image(icon, "[icon_state]_end", flags=RESET_COLOR))
+	ClearOverlays()
+	AddOverlays(overlay_image(icon, "[icon_state]_end", flags=RESET_COLOR))
 	check_maptext(SMALL_FONTS(7, get_amount()))
 
 /obj/item/stack/cable_coil/attackby(obj/item/attacking_item, mob/user)
@@ -635,16 +662,16 @@ By design, d1 is the smallest direction and d2 is the highest
 	return ..()
 
 /obj/item/stack/cable_coil/proc/choose_cable_color(var/user)
-	var/selected_type = tgui_input_list(user, "Pick a new colour.", "Cable Colour", possible_cable_coil_colours)
+	var/selected_type = tgui_input_list(user, "Pick a new colour.", "Cable Colour", GLOB.cable_coil_colours)
 	set_cable_color(selected_type, user)
 
 /obj/item/stack/cable_coil/proc/set_cable_color(selected_color, var/user)
 	if(!selected_color)
 		return
 
-	var/final_color = possible_cable_coil_colours[selected_color]
+	var/final_color = GLOB.cable_coil_colours[selected_color]
 	if(!final_color)
-		final_color = possible_cable_coil_colours["Red"]
+		final_color = GLOB.cable_coil_colours["Red"]
 		selected_color = "Red"
 	color = final_color
 	to_chat(user, SPAN_NOTICE("You change \the [src]'s color to [lowertext(selected_color)]."))
@@ -656,13 +683,6 @@ By design, d1 is the smallest direction and d2 is the highest
 	else
 		w_class = ITEMSIZE_SMALL
 		slot_flags = SLOT_BELT
-
-/obj/item/stack/cable_coil/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(!uses_charge)
-		. += "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s of cable in the coil."
-	else
-		. += "You have enough charge to produce <b>[get_amount()]</b>."
 
 /obj/item/stack/cable_coil/verb/make_restraint()
 	set name = "Make Cable Restraints"
@@ -985,8 +1005,9 @@ By design, d1 is the smallest direction and d2 is the highest
 	color = COLOR_WHITE
 
 /obj/item/stack/cable_coil/random/Initialize()
-	color = pick(possible_cable_coil_colours)
-	. = ..()
+	var/color_name = pick(GLOB.cable_coil_colours)
+	color = GLOB.cable_coil_colours[color_name]
+	return ..()
 
 //////////////////////////////
 // Nooses.
@@ -1058,13 +1079,13 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/structure/noose/post_buckle(mob/living/M)
 	if(M == buckled)
 		layer = MOB_LAYER
-		add_overlay(over)
+		AddOverlays(over)
 		START_PROCESSING(SSprocessing, src)
 		M.pixel_y = initial(M.pixel_y) + 8 //rise them up a bit
 		M.dir = SOUTH
 	else
 		reset_plane_and_layer()
-		cut_overlay(over)
+		CutOverlays(over)
 		STOP_PROCESSING(SSprocessing, src)
 		pixel_x = initial(pixel_x)
 		M.pixel_x = initial(M.pixel_x)

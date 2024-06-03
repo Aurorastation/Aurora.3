@@ -6,6 +6,7 @@
 	geology = "Non-existent tectonic activity, minimal geothermal signature"
 	weather = "Global full-atmosphere geothermal weather system. Barely-habitable ambient high temperatures. Slow-moving, stagnant meteorological activity prone to unpredictable upset in wind condition"
 	planetary_area = /area/exoplanet/desert
+	initial_weather_state = /singleton/state/weather/calm/desert_planet
 	rock_colors = list(COLOR_BEIGE, COLOR_PALE_YELLOW, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = list("#efdd6f","#7b4a12","#e49135","#ba6222","#5c755e","#420d22")
 	possible_themes = list(/datum/exoplanet_theme/desert)
@@ -90,30 +91,30 @@
 		if(user == buckled)
 			delay *=2
 			user.visible_message(
-				"<span class='notice'>\The [user] tries to climb out of \the [src].</span>",
-				"<span class='notice'>You begin to pull yourself out of \the [src].</span>",
-				"<span class='notice'>You hear water sloushing.</span>"
+				SPAN_NOTICE("\The [user] tries to climb out of \the [src]."),
+				SPAN_NOTICE("You begin to pull yourself out of \the [src]."),
+				SPAN_NOTICE("You hear water sloushing.")
 				)
 		else
 			user.visible_message(
-				"<span class='notice'>\The [user] begins pulling \the [buckled] out of \the [src].</span>",
-				"<span class='notice'>You begin to pull \the [buckled] out of \the [src].</span>",
-				"<span class='notice'>You hear water sloushing.</span>"
+				SPAN_NOTICE("\The [user] begins pulling \the [buckled] out of \the [src]."),
+				SPAN_NOTICE("You begin to pull \the [buckled] out of \the [src]."),
+				SPAN_NOTICE("You hear water sloushing.")
 				)
 		busy = 1
 		if(do_after(user, delay, src))
 			busy = 0
 			if(user == buckled)
 				if(prob(80))
-					to_chat(user, "<span class='warning'>You slip and fail to get out!</span>")
+					to_chat(user, SPAN_WARNING("You slip and fail to get out!"))
 					return
-				user.visible_message("<span class='notice'>\The [buckled] pulls himself out of \the [src].</span>")
+				user.visible_message(SPAN_NOTICE("\The [buckled] pulls himself out of \the [src]."))
 			else
-				user.visible_message("<span class='notice'>\The [buckled] has been freed from \the [src] by \the [user].</span>")
+				user.visible_message(SPAN_NOTICE("\The [buckled] has been freed from \the [src] by \the [user]."))
 			unbuckle()
 		else
 			busy = 0
-			to_chat(user, "<span class='warning'>You slip and fail to get out!</span>")
+			to_chat(user, SPAN_WARNING("You slip and fail to get out!"))
 			return
 
 /obj/structure/quicksand/unbuckle()
@@ -138,7 +139,7 @@
 /obj/structure/quicksand/proc/expose()
 	if(exposed)
 		return
-	visible_message("<span class='warning'>The upper crust breaks, exposing treacherous quicksands underneath!</span>")
+	visible_message(SPAN_WARNING("The upper crust breaks, exposing treacherous quicksands underneath!"))
 	name = "quicksand"
 	desc = "There is no candy at the bottom."
 	exposed = 1

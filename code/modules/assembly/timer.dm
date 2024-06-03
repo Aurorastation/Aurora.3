@@ -11,7 +11,7 @@
 	secured = FALSE
 
 	var/timing = FALSE
-	var/time = 10
+	var/time = 3
 
 /obj/item/device/assembly/timer/activate()
 	. = ..()
@@ -51,10 +51,10 @@
 			time = 10
 
 /obj/item/device/assembly/timer/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	attached_overlays = list()
 	if(timing)
-		add_overlay("timer_timing")
+		AddOverlays("timer_timing")
 		attached_overlays += "timer_timing"
 	if(holder)
 		holder.update_icon()

@@ -9,6 +9,7 @@
 	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/hailstorm_shuttle)
+	spawn_weight_sector_dependent = list(SECTOR_SRANDMARR = 2, SECTOR_GAKAL = 2)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_GAKAL)
 	unit_test_groups = list(1)
 
@@ -88,7 +89,7 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/terminal/hailstorm_shuttle

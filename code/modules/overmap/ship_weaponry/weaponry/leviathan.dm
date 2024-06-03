@@ -9,7 +9,7 @@
 	projectile_type = /obj/item/projectile/ship_ammo/leviathan
 	use_ammunition = FALSE
 	heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/leviathan_fire.ogg'
-	caliber = SHIP_CALIBER_ZTA
+	caliber = SHIP_CALIBER_ZAT
 	firing_effects = FIRING_EFFECT_FLAG_THROW_MOBS|FIRING_EFFECT_FLAG_EXTREMELY_LOUD
 	screenshake_type = SHIP_GUN_SCREENSHAKE_ALL_MOBS
 	layer = ABOVE_HUMAN_LAYER
@@ -125,8 +125,8 @@
 	name = "zero-point artillery beam"
 	desc = "A beam of pure energy."
 	range = OVERMAP_PROJECTILE_RANGE_ULTRAHIGH
-	caliber = SHIP_CALIBER_ZTA
-	impact_type = SHIP_AMMO_IMPACT_ZTA
+	caliber = SHIP_CALIBER_ZAT
+	impact_type = SHIP_AMMO_IMPACT_ZAT
 	overmap_icon_state = "heavy_pulse"
 
 /obj/item/ship_ammunition/leviathan/Initialize()
@@ -166,29 +166,29 @@
 	on_hit(A)
 	return TRUE
 
-/obj/machinery/zta_lever
+/obj/machinery/zat_lever
 	name = "activation lever"
 	desc = "An old-style lever that couples the Leviathan's capacitors. <span class='danger'>Flicking this will result in extreme power usage!</span>"
 	icon = 'icons/obj/power.dmi'
 	icon_state = "lever1"
-	var/obj/machinery/ship_weapon/leviathan/ZTA
+	var/obj/machinery/ship_weapon/leviathan/ZAT
 	var/toggled = FALSE
 	var/cooldown = 0
 
-/obj/machinery/zta_lever/Initialize(mapload, d, populate_components, is_internal)
+/obj/machinery/zat_lever/Initialize(mapload, d, populate_components, is_internal)
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/zta_lever/LateInitialize()
+/obj/machinery/zat_lever/LateInitialize()
 	for(var/obj/machinery/ship_weapon/leviathan/cannon in get_area(src))
-		ZTA = cannon
+		ZAT = cannon
 		break
 
-/obj/machinery/zta_lever/Destroy()
-	ZTA = null
+/obj/machinery/zat_lever/Destroy()
+	ZAT = null
 	return..()
 
-/obj/machinery/zta_lever/attack_hand(mob/user)
+/obj/machinery/zat_lever/attack_hand(mob/user)
 	if(!use_check_and_message(user, USE_DISALLOW_SILICONS) && !stat && (cooldown + 10 SECONDS < world.time))
 		if(do_after(user, 1 SECOND))
 			visible_message(SPAN_DANGER("[user] pulls \the [src] [toggled ? "up" : "down"]!"))
@@ -196,12 +196,12 @@
 			switch(toggled)
 				if(FALSE)
 					flick("lever3", src)
-					ZTA.disable()
+					ZAT.disable()
 					sleep(2)
 					icon_state = "lever1"
 				if(TRUE)
 					flick("lever2", src)
-					ZTA.enable()
+					ZAT.enable()
 					sleep(2)
 					icon_state = "lever_down"
 			playsound(src, 'sound/effects/spring.ogg', 100)

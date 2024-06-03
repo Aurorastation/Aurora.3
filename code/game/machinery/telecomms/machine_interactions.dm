@@ -59,11 +59,11 @@
 			if(attacking_item.iscoil())
 				var/obj/item/stack/cable_coil/A = attacking_item
 				if (A.use(5))
-					to_chat(user, "<span class='notice'>You insert the cables.</span>")
+					to_chat(user, SPAN_NOTICE("You insert the cables."))
 					construct_op--
 					stat &= ~BROKEN // the machine's not borked anymore!
 				else
-					to_chat(user, "<span class='warning'>You need five coils of wire for this.</span>")
+					to_chat(user, SPAN_WARNING("You need five coils of wire for this."))
 				. = TRUE
 			if(attacking_item.iscrowbar())
 				to_chat(user, SPAN_NOTICE("You begin prying out the circuit board's components..."))

@@ -137,7 +137,7 @@
 	fruit = list("lime" = 1)
 	reagents = list(/singleton/reagent/sodiumchloride = 1)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/dwellermeat,
+		/obj/item/reagent_containers/food/snacks/meat/moghes,
 		/obj/item/reagent_containers/food/snacks/egg
 	)
 	result = /obj/item/reagent_containers/food/snacks/razirnoodles
@@ -155,8 +155,7 @@
 	fruit = list("gukhe" = 1)
 	reagents = list(/singleton/reagent/spacespice = 1)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/rawcutlet,
-		/obj/item/reagent_containers/food/snacks/rawcutlet
+		/obj/item/reagent_containers/food/snacks/meat/moghes,
 	)
 	result = /obj/item/reagent_containers/food/snacks/stokkebab
 
@@ -174,7 +173,8 @@
 	fruit = list("aghrassh nut" = 1)
 	reagents = list(/singleton/reagent/sodiumchloride = 3, /singleton/reagent/blackpepper = 3, /singleton/reagent/nutriment/coco = 3, /singleton/reagent/spacespice = 1)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/egg
+		/obj/item/reagent_containers/food/snacks/egg,
+		/obj/item/reagent_containers/food/snacks/meat/moghes
 	)
 	result = /obj/item/reagent_containers/food/snacks/aghrasshcake
 
@@ -183,7 +183,7 @@
 	fruit = list("aghrassh nut" = 1, "tomato" = 1)
 	reagents = list(/singleton/reagent/blackpepper = 2, /singleton/reagent/nutriment/protein/egg = 6)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/meat
+		/obj/item/reagent_containers/food/snacks/meat/moghes
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/eyebowl
 	reagent_mix = RECIPE_REAGENT_REPLACE

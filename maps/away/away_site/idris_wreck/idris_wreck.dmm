@@ -1,9 +1,20 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/captain)
 "ad" = (
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "ae" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -34,14 +45,28 @@
 "ap" = (
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/bridge)
+"ar" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/starbthrust)
 "aC" = (
 /obj/machinery/anti_bluespace,
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
+"aJ" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/atmos)
 "aK" = (
 /obj/machinery/light,
 /obj/item/organ/external/arm,
@@ -65,18 +90,23 @@
 "aO" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/random/civgun/rifle,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "aQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/bridge)
 "aY" = (
 /turf/template_noop,
 /area/space)
 "aZ" = (
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/cryo)
 "bh" = (
@@ -102,7 +132,10 @@
 /obj/structure/closet/crate/rad,
 /obj/item/stack/material/uranium/full,
 /obj/item/stack/material/uranium/full,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 2
+	},
+/turf/simulated/floor,
 /area/idris_wreck/vault)
 "bp" = (
 /obj/structure/cable/green{
@@ -110,22 +143,24 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/safe/cash,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "br" = (
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/power/portgen/basic/advanced,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor,
 /area/idris_wreck/vault)
 "bu" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/idris_wreck/engi)
 "bw" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -155,8 +190,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
+"bA" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/tiled,
+/area/idris_wreck/central)
 "bB" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_alc/full{
@@ -167,12 +210,26 @@
 	initial_gas = null
 	},
 /area/idris_wreck/kitchen)
+"bC" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/portthrust)
 "bF" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/sign/flag/idris/large/east{
 	pixel_x = 32
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
+/area/idris_wreck/bridge)
+"bG" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "bJ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -192,12 +249,34 @@
 /obj/effect/landmark/corpse/idris,
 /turf/template_noop,
 /area/space)
+"bR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/idris_wreck/mainthall)
 "bS" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/idris_wreck/engi)
 "bT" = (
 /obj/structure/table/standard,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "bU" = (
@@ -207,15 +286,23 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/airless,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/armory)
 "bX" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/effect/landmark/scorcher,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/portthrust)
+"cd" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/central)
 "cj" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -227,8 +314,10 @@
 /turf/simulated/floor/reinforced,
 /area/idris_wreck/vault)
 "cm" = (
-/obj/structure/plasticflaps/airtight,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/structure/plasticflaps/airtight{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/engi)
 "cp" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
@@ -237,15 +326,27 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
+"cv" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/central)
 "cx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
+"cB" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/portthrust)
 "cF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -272,24 +373,45 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/starbthrust)
+"da" = (
+/obj/machinery/door/firedoor/noid/closed,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/full/airless,
+/area/idris_wreck/forehall)
+"df" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/idris_wreck/central)
 "dp" = (
 /obj/item/clothing/mask/breath,
 /turf/template_noop,
 /area/space)
 "du" = (
 /obj/effect/landmark/corpse/izharshan,
-/obj/effect/decal/cleanable/blood/splatter,
 /obj/random/civgun/rifle,
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "dx" = (
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/afthall)
 "dA" = (
 /obj/effect/landmark/scorcher,
@@ -307,9 +429,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/firedoor/noid/closed,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "dM" = (
 /turf/simulated/floor/reinforced/airless,
@@ -322,15 +443,15 @@
 /obj/effect/landmark/scorcher,
 /turf/simulated/floor/airless,
 /area/idris_wreck/starbthrust)
+"dY" = (
+/obj/effect/landmark/scorcher,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/starbthrust)
 "ee" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/obj/structure/sign/flag/idris/large/south{
-	pixel_y = -32
-	},
-/turf/simulated/floor/exoplanet/tiled,
-/area/idris_wreck/central)
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/idris_wreck/armory)
 "ei" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/empty{
@@ -339,7 +460,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/airless,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "ek" = (
 /obj/machinery/porta_turret/stationary{
@@ -349,7 +471,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "el" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -361,13 +483,12 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/glass_security{
 	dir = 4;
 	name = "EVA Storage";
 	req_access = list(220)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/eva)
 "eq" = (
 /turf/simulated/wall/shuttle/idris,
@@ -384,36 +505,68 @@
 /obj/structure/sign/flag/idris/large/east{
 	pixel_x = 32
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/cryo)
 "eL" = (
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/machinery/power/portgen/basic/fusion,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/airless,
 /area/idris_wreck/engi)
+"eO" = (
+/obj/effect/landmark/scorcher,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/central)
 "fg" = (
 /mob/living/simple_animal/hostile/icarus_drone/malf,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "fj" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/eva)
+"fo" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/central)
 "fs" = (
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
+"fv" = (
+/turf/simulated/floor/airless,
+/area/idris_wreck/kitchen)
 "fw" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(220)
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/armory)
+"fy" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/portthrust)
 "fA" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/sign/flag/idris/large/west{
@@ -426,7 +579,7 @@
 /obj/item/gun/projectile/shotgun/pump,
 /obj/item/storage/box/shotgunammo,
 /obj/item/storage/box/shotgunammo,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/armory)
 "fD" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
@@ -456,12 +609,12 @@
 /obj/machinery/computer/cryopod{
 	pixel_x = 32
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/cryo)
 "fJ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty/phoron,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "fK" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -473,8 +626,18 @@
 /obj/random/finances,
 /obj/random/highvalue/no_crystal,
 /obj/random/highvalue/no_crystal,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
+"fL" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/obj/effect/landmark/corpse/idris/robot,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/item/gun/energy/rifle/laser/noctiluca,
+/turf/simulated/floor/tiled,
+/area/idris_wreck/central)
 "fM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -486,17 +649,29 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/bridge)
 "gd" = (
-/obj/effect/landmark/scorcher,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/idris_wreck/engi)
 "gk" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
+/obj/effect/landmark/scorcher,
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
 	},
-/turf/simulated/floor/exoplanet/tiled,
-/area/idris_wreck/armory)
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/atmos)
+"gp" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/idris_wreck/eva)
 "gu" = (
 /obj/machinery/vending/snack,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/kitchen)
 "gz" = (
@@ -504,14 +679,29 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/empty/east,
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "gF" = (
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/forehall)
+"gG" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/portthrust)
 "gJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -522,7 +712,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/central)
 "gK" = (
@@ -534,21 +723,33 @@
 /obj/item/paper_bin,
 /obj/item/pen/black,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "gM" = (
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/airless,
 /area/idris_wreck/engi)
+"gN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/landmark/scorcher,
+/turf/simulated/floor/airless,
+/area/idris_wreck/central)
 "gS" = (
 /obj/machinery/door/airlock/vault/bolted{
 	req_access = list(103);
 	id_tag = "idris_wreck_vault";
 	name = "Vault"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "gT" = (
 /obj/structure/cable/green{
@@ -559,12 +760,12 @@
 	id_tag = "idris_wreck_vault1";
 	name = "Vault"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/vault)
 "gW" = (
 /obj/effect/landmark/corpse/idris,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "gX" = (
 /obj/machinery/telecomms/allinone/ship,
@@ -578,20 +779,27 @@
 /obj/random/contraband,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "he" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/idris_wreck,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "hh" = (
 /obj/structure/sign/flag/idris/large/north{
 	pixel_y = 32
 	},
 /obj/effect/landmark/scorcher,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/airless,
 /area/idris_wreck/central)
+"hi" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/portthrust)
 "ht" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -638,7 +846,11 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/captain)
 "hH" = (
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "hL" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -646,8 +858,14 @@
 	},
 /obj/structure/bed/stool/chair/padded/teal,
 /obj/effect/landmark/corpse/idris,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/cryo)
+"hQ" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/idris_wreck/armory)
 "hT" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 32;
@@ -657,7 +875,7 @@
 	pixel_x = 32;
 	pixel_y = -5
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/armory)
 "hU" = (
 /obj/structure/cable/green{
@@ -665,7 +883,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/safe/highvalue,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "hV" = (
 /obj/structure/table/wood/mahogany,
@@ -677,14 +895,15 @@
 /obj/item/gun/energy/rifle,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/landmark/scorcher,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/airless,
 /area/idris_wreck/forehall)
 "ia" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
 /obj/effect/landmark/scorcher,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/airless,
 /area/idris_wreck/central)
 "id" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -695,11 +914,18 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/forehall)
+"ii" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/central)
 "ip" = (
 /obj/effect/landmark/corpse/idris,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/item/gun/bang/sec,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "iq" = (
 /obj/effect/landmark/scorcher,
@@ -710,8 +936,23 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
+"iA" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/idris_wreck/mainthall)
 "iE" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/airless,
@@ -720,8 +961,15 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/armory)
+"iS" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/central)
 "jd" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -736,6 +984,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
 /turf/simulated/floor/airless,
 /area/idris_wreck/forehall)
 "je" = (
@@ -744,7 +993,7 @@
 	},
 /obj/structure/closet/secure_closet/engineering_welding,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/engi)
 "jl" = (
 /obj/effect/floor_decal/industrial/outline/security,
@@ -771,13 +1020,13 @@
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/clothing/accessory/holster/hip,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/armory)
 "jo" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/kitchen)
 "jt" = (
 /obj/machinery/turretid/lethal{
@@ -789,20 +1038,20 @@
 	req_one_access = list(103)
 	},
 /obj/machinery/light,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "jx" = (
 /obj/machinery/door/airlock/security{
 	req_access = list(220);
 	name = "Security Unit Storage"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/armory)
 "jy" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/central)
 "jC" = (
 /obj/effect/floor_decal/spline/plain{
@@ -815,12 +1064,22 @@
 /area/idris_wreck/kitchen)
 "jF" = (
 /obj/machinery/atmospherics/pipe/tank/air,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "jU" = (
-/obj/structure/closet/radiation,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/structure/table/standard,
+/obj/item/stack/material/glass/full{
+	pixel_y = 5;
+	pixel_x = -6
+	},
+/obj/item/stack/material/steel/full{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "jX" = (
 /obj/structure/cable/green{
@@ -828,17 +1087,47 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
+"kg" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/central)
+"kl" = (
+/obj/effect/landmark/scorcher,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/central)
 "kH" = (
 /obj/item/toy/desk/dippingbird,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "kK" = (
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/afthall)
 "kQ" = (
 /obj/effect/landmark/scorcher,
@@ -852,7 +1141,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "kZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -868,15 +1157,27 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/forehall)
 "ln" = (
 /obj/structure/table/wood/mahogany,
 /obj/machinery/photocopier/faxmachine{
 	department = "Idris Vault Ship - Captain's Office"
 	},
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
+"lH" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/idris_wreck/cryoentrance)
 "lN" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = -6
@@ -884,7 +1185,11 @@
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = 6
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "lT" = (
 /obj/effect/floor_decal/industrial/outline/security,
@@ -894,7 +1199,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/device/suit_cooling_unit,
 /obj/item/clothing/mask/breath,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/eva)
 "md" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -913,12 +1218,13 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/landmark/scorcher,
+/obj/random/dirt_75,
 /turf/simulated/floor/airless,
 /area/idris_wreck/armory)
 "mf" = (
 /obj/structure/closet/firecloset,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "mh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -930,11 +1236,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "mn" = (
 /obj/effect/landmark/corpse/idris,
 /obj/machinery/light,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73"
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/portthrust)
 "mo" = (
@@ -943,18 +1256,30 @@
 /obj/structure/sign/flag/idris/large/west{
 	pixel_x = -32
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "mp" = (
 /obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
+/area/idris_wreck/central)
+"mq" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/central)
 "mF" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin,
 /obj/item/pen/fountain/head,
 /obj/item/stamp/idris,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "mL" = (
 /obj/effect/shuttle_landmark/idris_wreck/nav1,
@@ -963,7 +1288,7 @@
 "mP" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/phoron_scarce,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "mW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -984,6 +1309,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "nb" = (
@@ -992,13 +1320,17 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/empty/north,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/portthrust)
 "nm" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/cryo)
 "nw" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1007,8 +1339,15 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/afthall)
+"nG" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/eva)
 "nN" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -1023,14 +1362,19 @@
 /obj/random/finances,
 /obj/random/highvalue/no_crystal,
 /obj/random/highvalue/no_crystal,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "nR" = (
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/airless,
 /area/idris_wreck/forehall)
 "oa" = (
-/turf/simulated/floor/tiled/airless,
-/area/idris_wreck/engi)
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/wall/shuttle/idris,
+/area/idris_wreck/portthrust)
 "od" = (
 /obj/machinery/button/remote/airlock{
 	dir = 1;
@@ -1042,12 +1386,13 @@
 	req_access = list(220)
 	},
 /obj/machinery/light,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "og" = (
 /obj/machinery/light,
 /obj/effect/landmark/scorcher,
-/turf/simulated/floor/tiled/airless,
+/obj/random/dirt_75,
+/turf/simulated/floor/airless,
 /area/idris_wreck/starbthrust)
 "om" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1062,6 +1407,13 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/idris_wreck/afthall)
+"ow" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/cryoentrance)
 "oy" = (
 /turf/simulated/wall/shuttle/idris{
 	can_open = 1
@@ -1071,15 +1423,43 @@
 /obj/structure/bed/stool/chair/padded/teal{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/airless,
 /area/idris_wreck/kitchen)
+"oC" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full/airless,
+/area/idris_wreck/atmos)
 "oG" = (
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/portthrust)
 "oJ" = (
 /obj/machinery/light,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/portthrust)
+"oK" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/bridge)
+"oM" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/idris_wreck/mainthall)
 "oO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1090,13 +1470,20 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/central)
 "oT" = (
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "oZ" = (
 /obj/structure/sign/flag/idris/large/south{
 	pixel_y = -32
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/central)
 "pa" = (
 /obj/effect/landmark/corpse/idris/captain,
@@ -1110,12 +1497,11 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/service{
 	name = "Cryogenics";
 	req_access = list(220)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/cryo)
 "pj" = (
 /turf/simulated/floor/carpet/brown,
@@ -1137,26 +1523,37 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "py" = (
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/airless,
 /area/idris_wreck/forehall)
+"pF" = (
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/atmos)
 "pI" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/captain)
 "pJ" = (
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
 /obj/structure/reagent_dispensers/coolanttank,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "pL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1171,14 +1568,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/engineering{
 	dir = 4;
 	req_access = list(220);
 	name = "Port Nacelle"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/portthrust)
+"pM" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/kitchen)
 "pX" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -1207,6 +1610,13 @@
 	initial_gas = null
 	},
 /area/idris_wreck/kitchen)
+"qo" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/captain)
 "qt" = (
 /obj/structure/sign/flag/idris/large/north{
 	pixel_y = 32
@@ -1218,7 +1628,7 @@
 /obj/item/clothing/shoes/magboots,
 /obj/item/device/suit_cooling_unit,
 /obj/item/clothing/mask/breath,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/eva)
 "qA" = (
 /obj/effect/landmark/corpse/izharshan,
@@ -1233,7 +1643,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "qS" = (
 /obj/structure/lattice,
@@ -1249,7 +1659,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "rp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1269,11 +1682,9 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/cryo)
 "rs" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/tiled,
-/area/idris_wreck/central)
+/obj/effect/landmark/scorcher,
+/turf/simulated/floor/airless,
+/area/idris_wreck/starbthrust)
 "ry" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1281,7 +1692,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "rB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1303,7 +1714,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/starbthrust)
 "rE" = (
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/eva)
 "rK" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
@@ -1314,23 +1725,12 @@
 /turf/template_noop,
 /area/space)
 "sd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/mainthall)
 "sg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1339,7 +1739,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/idris_wreck/engi)
+"sj" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "sk" = (
 /obj/effect/floor_decal/industrial/outline/security,
@@ -1358,23 +1771,34 @@
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/armory)
+"ss" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/forehall)
 "su" = (
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "sx" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/bridge)
 "sC" = (
 /obj/machinery/light,
 /obj/effect/landmark/scorcher,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "sI" = (
@@ -1385,10 +1809,13 @@
 "sO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/recharge_station,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/armory)
 "sV" = (
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "ta" = (
 /obj/machinery/porta_turret/stationary{
@@ -1398,7 +1825,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "tb" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -1413,10 +1840,43 @@
 /area/idris_wreck/cryoentrance)
 "tk" = (
 /mob/living/simple_animal/hostile/icarus_drone/malf,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/airless,
 /area/idris_wreck/forehall)
+"to" = (
+/obj/structure/closet/secure_closet{
+	name = "employee equipment"
+	},
+/obj/item/clothing/under/rank/security/idris,
+/obj/item/storage/backpack/satchel/idris,
+/obj/item/clothing/shoes/jackboots{
+	name = "Walk Like Idris jackboots"
+	},
+/obj/item/clothing/head/beret/corporate/idris,
+/obj/item/clothing/accessory/holster/hip,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/cryo)
+"ty" = (
+/obj/effect/landmark/scorcher,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/portthrust)
 "tz" = (
 /obj/effect/landmark/scorcher,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/portthrust)
 "tA" = (
@@ -1439,7 +1899,11 @@
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "tF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1451,17 +1915,16 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/service{
 	dir = 4;
 	name = "Cafeteria";
 	req_access = list(220)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/kitchen)
 "tJ" = (
 /obj/structure/closet/crate/bin/filled,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/airless,
 /area/idris_wreck/kitchen)
 "tQ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -1469,14 +1932,26 @@
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/starbthrust)
 "tV" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
+/turf/simulated/floor/airless,
+/area/idris_wreck/starbthrust)
+"tW" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/portthrust)
+"tY" = (
+/turf/simulated/floor/airless,
+/area/idris_wreck/forehall)
+"tZ" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
 	},
 /turf/simulated/floor/tiled/airless,
-/area/idris_wreck/starbthrust)
-"tY" = (
-/turf/simulated/floor/tiled/airless,
-/area/idris_wreck/forehall)
+/area/idris_wreck/portthrust)
 "ue" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/closet/crate/secure{
@@ -1488,7 +1963,7 @@
 /obj/random/finances,
 /obj/random/highvalue/no_crystal,
 /obj/random/highvalue/no_crystal,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "ug" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -1530,14 +2005,25 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/idris_wreck/portthrust)
+"uI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
+/turf/simulated/floor/airless,
+/area/idris_wreck/portthrust)
 "uM" = (
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "uO" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "uS" = (
@@ -1547,8 +2033,12 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/armory)
 "uU" = (
-/turf/template_noop,
-/area/idris_wreck/portthrust)
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/cryoentrance)
 "uW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -1566,13 +2056,24 @@
 /obj/effect/landmark/corpse/idris,
 /turf/simulated/floor/airless,
 /area/idris_wreck/portthrust)
+"vh" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/central)
 "vm" = (
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/empty/north,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "vn" = (
 /obj/effect/shuttle_landmark/idris_wreck/nav4,
@@ -1582,20 +2083,23 @@
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/starbthrust)
 "vu" = (
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/obj/machinery/power/apc/empty/east,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/closet/radiation,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/afthall)
 "vJ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/mainthall)
 "vQ" = (
 /obj/effect/decal/cleanable/blood/oil,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "vU" = (
@@ -1617,20 +2121,19 @@
 "vZ" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/machinery/portable_atmospherics/canister/empty/phoron,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "wc" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/landmark/scorcher,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/idris_wreck/engi)
 "wd" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "wi" = (
 /obj/effect/landmark/corpse/izharshan,
@@ -1640,7 +2143,11 @@
 	dir = 4
 	},
 /obj/effect/landmark/scorcher,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/airless,
 /area/idris_wreck/forehall)
 "wn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1648,15 +2155,18 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/firedoor/noid/closed,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/central)
 "wo" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/central)
 "wq" = (
 /obj/structure/table/wood/mahogany,
@@ -1667,22 +2177,45 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "ws" = (
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
+"wy" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/mainthall)
 "wz" = (
 /obj/item/clothing/accessory/holster/hip,
 /turf/template_noop,
 /area/space)
+"wC" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/starbthrust)
 "wD" = (
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "wI" = (
@@ -1705,11 +2238,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "xf" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -1726,8 +2258,30 @@
 /area/idris_wreck/kitchen)
 "xr" = (
 /obj/machinery/light,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/starbthrust)
+"xA" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/central)
+"xB" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/portthrust)
+"xE" = (
+/turf/simulated/floor/tiled,
+/area/idris_wreck/central)
 "xH" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
@@ -1751,6 +2305,14 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/sign/radiation{
+	pixel_x = 32;
+	pixel_y = -32
+	},
+/obj/structure/sign/radiation{
+	pixel_x = 32;
+	pixel_y = 32
+	},
 /turf/simulated/floor/plating,
 /area/idris_wreck/afthall)
 "xO" = (
@@ -1778,6 +2340,9 @@
 /area/idris_wreck/afthall)
 "xQ" = (
 /obj/machinery/atmospherics/binary/passive_gate/on,
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "xW" = (
@@ -1785,23 +2350,42 @@
 /obj/structure/sign/flag/idris/large/north{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/central)
 "yb" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/engi)
+"yc" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/afthall)
 "yg" = (
 /obj/item/photo{
 	desc = "A picture of a smiling human woman in a wedding dress, standing on what looks like a beautiful Silversun beach. The photograph is faded, and stained with dried blood"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "yj" = (
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/eva)
+"yn" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/mainthall)
+"yu" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/idris_wreck/central)
 "yB" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -1809,6 +2393,10 @@
 	},
 /obj/machinery/power/apc/empty/north,
 /obj/structure/reagent_dispensers/water_cooler,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "yC" = (
@@ -1830,15 +2418,14 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/command{
 	name = "Bridge";
 	req_access = list(220)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/forehall)
 "yO" = (
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/armory)
 "yR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1879,12 +2466,39 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/central)
 "zn" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/kitchen)
 "zp" = (
 /obj/structure/bed/stool/chair/sofa/right/teal,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
+"zu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
+/turf/simulated/floor/airless,
+/area/idris_wreck/starbthrust)
+"zv" = (
+/obj/machinery/power/apc/empty/east,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/afthall)
 "zE" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -1893,17 +2507,39 @@
 	name = "Reactor Array";
 	req_access = list(220)
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/engi)
 "zG" = (
 /obj/machinery/computer/ship/engines,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "zI" = (
 /obj/machinery/photocopier,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/captain)
+"zL" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/central)
+"zP" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "zR" = (
@@ -1911,7 +2547,10 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/empty/west,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "zT" = (
 /obj/effect/landmark/corpse/izharshan,
@@ -1920,15 +2559,27 @@
 /area/space)
 "zX" = (
 /obj/structure/table/wood/mahogany,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "Ah" = (
-/obj/machinery/door/firedoor/noid{
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/portthrust)
+"Ai" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
 	dir = 4
 	},
-/obj/machinery/light,
-/turf/simulated/floor/exoplanet/tiled,
-/area/idris_wreck/mainthall)
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/central)
 "An" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -1939,59 +2590,57 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/command{
 	name = "Captain's Office";
 	req_access = list(220);
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/captain)
 "Ap" = (
 /obj/effect/landmark/scorcher,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/airless,
 /area/idris_wreck/atmos)
 "AE" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/central)
 "AF" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
 	},
-/obj/effect/landmark/scorcher,
-/turf/simulated/floor/tiled/airless,
-/area/idris_wreck/central)
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/idris_wreck/mainthall)
 "AJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/security{
 	req_access = list(220);
 	name = "Armory"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/armory)
 "AL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/security{
 	req_access = list(220);
 	name = "Security Unit Storage"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/armory)
 "AM" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/mainthall)
 "AN" = (
 /obj/structure/cable{
@@ -2000,34 +2649,52 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/idris_wreck/engi)
 "AO" = (
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 9
 	},
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "AQ" = (
 /obj/effect/landmark/scorcher,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/airless,
 /area/idris_wreck/atmos)
 "AS" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "AU" = (
 /obj/machinery/vending/cola,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/cryoentrance)
+"AZ" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/idris_wreck/engi)
 "Bg" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2038,8 +2705,14 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/idris_wreck/engi)
+"Bh" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/bridge)
 "Bj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -2050,11 +2723,14 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "Bp" = (
 /obj/machinery/door/firedoor/noid/closed,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/forehall)
 "Bt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -2084,6 +2760,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "BB" = (
@@ -2096,14 +2775,22 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/landmark/scorcher,
+/obj/random/dirt_75,
 /turf/simulated/floor/airless,
 /area/idris_wreck/portthrust)
 "BK" = (
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/afthall)
 "BU" = (
 /obj/structure/table/wood/mahogany,
 /obj/machinery/light,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 4
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "BX" = (
@@ -2118,12 +2805,15 @@
 /obj/machinery/computer/ship/navigation{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "Ca" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/eva)
 "Cc" = (
 /obj/effect/floor_decal/spline/plain{
@@ -2137,8 +2827,15 @@
 /area/idris_wreck/kitchen)
 "Ch" = (
 /obj/machinery/vending/dinnerware,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/kitchen)
+"Cj" = (
+/turf/simulated/floor/airless,
+/area/idris_wreck/central)
 "Cw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2148,6 +2845,17 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/idris_wreck/afthall)
+"CH" = (
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/bridge)
 "CJ" = (
 /turf/simulated/floor/lino{
 	initial_gas = null
@@ -2162,7 +2870,7 @@
 	id_tag = "idris_wreck_vault";
 	name = "Vault"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "CS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2174,28 +2882,40 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/cryo)
 "CY" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/airless,
+/obj/random/dirt_75,
+/turf/simulated/floor/airless,
 /area/idris_wreck/starbthrust)
 "CZ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/tank/phoron/shuttle,
 /obj/item/tank/phoron/shuttle,
 /obj/structure/closet/crate/secure/phoron,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "Dc" = (
 /obj/structure/table/steel,
 /obj/machinery/chemical_dispenser/coffeemaster/full{
 	pixel_y = 7
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
+"Dd" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full/airless,
+/area/idris_wreck/forehall)
 "Df" = (
-/obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "Dh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -2221,15 +2941,29 @@
 /obj/effect/landmark/scorcher,
 /turf/simulated/floor/airless,
 /area/idris_wreck/central)
+"Dn" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/afthall)
 "Dx" = (
 /obj/structure/table/steel,
 /obj/machinery/photocopier/faxmachine{
 	department = "Idris Vault Ship - Bridge"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "DI" = (
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/cryoentrance)
 "DJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2240,7 +2974,7 @@
 "DN" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "DR" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
@@ -2248,10 +2982,17 @@
 /area/idris_wreck/cryo)
 "DW" = (
 /obj/structure/cable,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
 /area/idris_wreck/engi)
 "DX" = (
 /obj/effect/landmark/scorcher,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/cryo)
 "Ea" = (
@@ -2269,7 +3010,7 @@
 /obj/machinery/door/firedoor/noid/closed{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "Ec" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -2280,8 +3021,19 @@
 	dir = 1
 	},
 /obj/machinery/light,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
+"Eh" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/idris_wreck/central)
 "El" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
@@ -2290,6 +3042,10 @@
 /obj/structure/sign/flag/idris/large/west{
 	pixel_x = -32
 	},
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "Eq" = (
@@ -2297,7 +3053,11 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/empty/east,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/eva)
 "Ey" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2312,17 +3072,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/mainthall)
 "EC" = (
 /obj/effect/landmark/corpse/izharshan,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/random/civgun/rifle,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/airless,
 /area/idris_wreck/forehall)
 "EG" = (
 /obj/random/spacecash,
@@ -2350,7 +3113,7 @@
 	req_access = list(220)
 	},
 /obj/item/gun/energy/rifle,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/armory)
 "ES" = (
 /obj/structure/bed/stool/chair/sofa/left/teal{
@@ -2359,13 +3122,16 @@
 /obj/structure/sign/flag/idris/large/west{
 	pixel_x = -32
 	},
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73"
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "EZ" = (
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/airless,
 /area/idris_wreck/central)
 "Ff" = (
 /turf/simulated/wall/shuttle/idris,
@@ -2387,6 +3153,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/idris_wreck/mainthall)
 "Fp" = (
@@ -2399,8 +3166,23 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/idris_wreck/vault)
+"Fx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
+/turf/simulated/floor/airless,
+/area/idris_wreck/central)
 "FB" = (
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "FD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
@@ -2416,6 +3198,22 @@
 /obj/effect/landmark/corpse/idris/robot,
 /turf/template_noop,
 /area/space)
+"FL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/airless,
+/area/idris_wreck/starbthrust)
+"FR" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/starbthrust)
 "FU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -2431,14 +3229,24 @@
 	req_access = list(220);
 	name = "Engineering"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/engi)
 "Ga" = (
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/cryoentrance)
 "Gc" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/airless,
+/area/idris_wreck/forehall)
+"Gd" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "Gg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2455,8 +3263,26 @@
 /area/idris_wreck/central)
 "Gl" = (
 /obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/airless,
 /area/idris_wreck/forehall)
+"Gx" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/afthall)
+"GN" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/bridge)
 "GU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2464,16 +3290,19 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/engineering{
 	name = "Thrusters";
 	req_access = list(220)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/afthall)
 "GV" = (
 /obj/machinery/vending/cigarette,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/cryoentrance)
 "GW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2482,8 +3311,17 @@
 /obj/machinery/atmospherics/binary/pump/fuel{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
+"Hf" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/starbthrust)
 "Hi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2500,15 +3338,31 @@
 /area/idris_wreck/central)
 "Hp" = (
 /obj/structure/table/steel,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/cryoentrance)
+"Hx" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/forehall)
 "HC" = (
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/empty/north,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/central)
 "HF" = (
 /obj/machinery/button/remote/airlock{
@@ -2519,6 +3373,10 @@
 	pixel_y = 25;
 	specialfunctions = 4;
 	req_access = list(220)
+	},
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
 	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
@@ -2539,11 +3397,17 @@
 	pixel_x = 32;
 	pixel_y = 5
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/armory)
 "HL" = (
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
+"HM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/idris_wreck/starbthrust)
 "HQ" = (
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/starbthrust)
@@ -2559,7 +3423,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/landmark/scorcher,
 /turf/simulated/floor/airless,
 /area/idris_wreck/portthrust)
@@ -2569,9 +3432,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/firedoor/noid/closed,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/forehall)
 "Ib" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2595,15 +3457,75 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
+"Io" = (
+/obj/effect/landmark/corpse/idris,
+/obj/item/gun/energy/rifle,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/landmark/scorcher,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/forehall)
+"Ip" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/central)
 "Iv" = (
 /obj/machinery/computer/ship/sensors,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
+"Iy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
+/turf/simulated/floor/airless,
+/area/idris_wreck/central)
 "IB" = (
-/turf/simulated/wall/shuttle/idris,
-/area/space)
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/airless,
+/area/idris_wreck/portthrust)
+"ID" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/idris_wreck/central)
+"IF" = (
+/obj/effect/landmark/scorcher,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/starbthrust)
 "IG" = (
 /obj/structure/window_frame/empty,
 /turf/simulated/floor/airless,
@@ -2611,13 +3533,30 @@
 "IR" = (
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/central)
+"IW" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/mainthall)
+"Jc" = (
+/obj/machinery/door/firedoor/noid/closed,
+/turf/simulated/floor/tiled/full,
+/area/idris_wreck/central)
 "Je" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
-/obj/structure/closet/radiation,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/structure/table/standard,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 13
+	},
+/obj/item/storage/toolbox/electrical,
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "Jm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2631,14 +3570,23 @@
 /area/idris_wreck/central)
 "Jo" = (
 /obj/machinery/atmospherics/pipe/tank,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "Jr" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/landmark/scorcher,
 /turf/simulated/floor/airless,
 /area/idris_wreck/starbthrust)
+"JE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/idris_wreck/forehall)
 "JF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -2661,6 +3609,12 @@
 "JM" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/airless,
+/area/idris_wreck/forehall)
+"JO" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled/airless,
 /area/idris_wreck/forehall)
 "JQ" = (
 /obj/effect/floor_decal/spline/plain{
@@ -2694,6 +3648,10 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "Kb" = (
@@ -2706,13 +3664,25 @@
 	initial_gas = null
 	},
 /area/idris_wreck/kitchen)
+"Kc" = (
+/obj/effect/landmark/scorcher,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/starbthrust)
+"Ke" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/starbthrust)
 "Kj" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/structure/closet/secure_closet/engineering_electrical,
 /obj/effect/floor_decal/industrial/outline/engineering,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/engi)
 "Km" = (
 /obj/item/storage/backpack/satchel/idris,
@@ -2733,7 +3703,11 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/mainthall)
 "KA" = (
 /obj/machinery/appliance/cooker/oven,
@@ -2745,21 +3719,32 @@
 /obj/machinery/computer/ship/sensors{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "KD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/bed/stool/chair/padded/teal{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/idris_wreck/kitchen)
+"KJ" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/brown,
+/area/idris_wreck/captain)
+"KP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/effect/landmark/scorcher,
+/turf/simulated/floor/airless,
+/area/idris_wreck/starbthrust)
 "KQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2798,8 +3783,14 @@
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/clothing/accessory/holster/hip,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/armory)
+"KY" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/central)
 "Lc" = (
 /mob/living/simple_animal/hostile/icarus_drone/malf,
 /turf/template_noop,
@@ -2820,6 +3811,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/idris_wreck/forehall)
+"Li" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/kitchen)
 "Ll" = (
 /obj/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/lino{
@@ -2830,11 +3829,21 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "Lr" = (
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/portthrust)
+"Lt" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/idris_wreck/central)
 "Lz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -2845,11 +3854,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "LH" = (
 /obj/machinery/vending/boozeomat/abandoned,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/airless,
 /area/idris_wreck/captain)
 "LI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2866,7 +3878,11 @@
 /area/idris_wreck/eva)
 "LL" = (
 /obj/machinery/light,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/mainthall)
 "LN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2878,24 +3894,29 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/firedoor/noid/closed{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "LT" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/safe/highvalue,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "Mf" = (
 /obj/structure/cable,
 /obj/machinery/power/portgen/basic/fusion,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/airless,
 /area/idris_wreck/engi)
 "Mh" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/blue,
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "Mm" = (
@@ -2909,6 +3930,10 @@
 	},
 /obj/item/clothing/head/beret/corporate/idris,
 /obj/item/clothing/accessory/holster/hip,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/cryo)
 "Mn" = (
@@ -2921,9 +3946,8 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/effect/landmark/scorcher,
 /obj/effect/landmark/corpse/idris/robot,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/idris_wreck/engi)
 "Mv" = (
 /obj/effect/landmark/scorcher,
@@ -2946,14 +3970,14 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "MF" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/structure/closet/crate/rad,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "MH" = (
 /obj/structure/cable/green{
@@ -2967,7 +3991,7 @@
 /obj/random/vault_weapon,
 /obj/random/finances,
 /obj/random/finances,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "ML" = (
 /obj/effect/landmark/scorcher,
@@ -2986,18 +4010,30 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
+"Nr" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/idris_wreck/mainthall)
 "ND" = (
 /obj/effect/shuttle_landmark/idris_wreck/nav2,
 /turf/template_noop,
 /area/space)
+"NG" = (
+/turf/simulated/floor/tiled,
+/area/idris_wreck/cryoentrance)
 "NH" = (
 /obj/structure/sign/flag/idris/large/south{
 	pixel_y = -32
 	},
 /obj/effect/landmark/scorcher,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/airless,
 /area/idris_wreck/armory)
 "NL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -3013,7 +4049,11 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "Oh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -3040,6 +4080,13 @@
 /obj/structure/closet/secure_closet{
 	name = "employee equipment"
 	},
+/turf/simulated/floor/airless,
+/area/idris_wreck/cryo)
+"OB" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/cryo)
 "OH" = (
@@ -3048,13 +4095,21 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/empty/west,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled/airless,
 /area/idris_wreck/forehall)
 "OP" = (
 /obj/structure/sign/flag/idris/large/east{
 	pixel_x = 32
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/central)
 "OT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3066,21 +4121,31 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/service{
 	dir = 4;
 	name = "Cryogenics";
 	req_access = list(220)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/cryoentrance)
 "Pb" = (
 /obj/structure/bed/stool/chair/padded/teal,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/kitchen)
+"Pc" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/forehall)
 "Pg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -3099,13 +4164,26 @@
 /area/idris_wreck/kitchen)
 "Pj" = (
 /obj/machinery/cryopod,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/cryo)
+"Pn" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/mainthall)
+"Px" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/cryoentrance)
 "PB" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "PF" = (
 /obj/machinery/door/airlock/vault/bolted{
@@ -3113,7 +4191,7 @@
 	id_tag = "idris_wreck_vault1";
 	name = "Vault"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/vault)
 "PT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3128,13 +4206,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/engineering{
 	dir = 4;
 	req_access = list(220);
 	name = "Starboard Nacelle"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/mainthall)
 "PU" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -3143,14 +4220,14 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/afthall)
 "Qa" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/captain)
 "Qe" = (
 /obj/structure/cable/green{
@@ -3161,8 +4238,18 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
+"Qv" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/captain)
 "Qw" = (
 /obj/random/civgun/rifle,
 /turf/template_noop,
@@ -3172,17 +4259,21 @@
 /turf/simulated/floor/plating,
 /area/idris_wreck/atmos)
 "QA" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
 /obj/effect/landmark/scorcher,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/airless,
 /area/idris_wreck/portthrust)
+"QB" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/afthall)
 "QD" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/recharge_station,
 /obj/effect/landmark/scorcher,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/armory)
 "QE" = (
 /turf/simulated/wall/shuttle/idris,
@@ -3191,15 +4282,21 @@
 /obj/machinery/computer/ship/navigation{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "QG" = (
 /obj/machinery/power/smes/buildable/main_engine,
-/obj/effect/floor_decal/industrial/hatch/red,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor,
 /area/idris_wreck/vault)
 "QK" = (
 /obj/structure/closet/secure_closet/cabinet,
@@ -3217,9 +4314,16 @@
 	},
 /turf/simulated/floor/carpet/brown,
 /area/idris_wreck/captain)
+"QL" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/mainthall)
 "QR" = (
 /obj/effect/floor_decal/industrial/outline/security,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "QU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3235,6 +4339,7 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
 /turf/simulated/floor/airless,
 /area/idris_wreck/starbthrust)
 "QW" = (
@@ -3243,19 +4348,44 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/empty/north,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/starbthrust)
+"Ra" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/idris_wreck/central)
 "Rb" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/empty/north,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/cryo)
+"Rj" = (
+/obj/structure/cable,
+/obj/machinery/power/portgen/basic/fusion,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/idris_wreck/engi)
 "Rn" = (
 /obj/machinery/atmospherics/binary/pump{
 	name = "scrubbers to waste";
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
 	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
@@ -3293,9 +4423,18 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/idris_wreck/central)
+"RI" = (
+/obj/effect/landmark/scorcher,
+/obj/random/dirt_75,
+/turf/simulated/floor/airless,
+/area/idris_wreck/starbthrust)
 "RM" = (
 /obj/machinery/computer/ship/helm,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "RQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3323,11 +4462,29 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
+"RU" = (
+/turf/simulated/floor/tiled,
+/area/idris_wreck/bridge)
+"RZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/wall/shuttle/idris,
+/area/idris_wreck/starbthrust)
 "Sb" = (
 /turf/simulated/wall/r_wall,
 /area/idris_wreck/vault)
+"Sc" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/starbthrust)
 "Sf" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/closet/crate/secure{
@@ -3345,35 +4502,43 @@
 /obj/random/rig_module,
 /obj/random/rig_module,
 /obj/random/rig_module,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "Si" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/airless,
 /area/idris_wreck/captain)
+"So" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/bridge)
 "Sq" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/machinery/light,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/mainthall)
 "St" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/atmos)
 "SB" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "SC" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "SD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3404,71 +4569,72 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor,
 /area/idris_wreck/engi)
 "SP" = (
 /obj/machinery/door/airlock/command{
 	name = "Captain's Quarters";
 	req_access = list(220)
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/captain)
 "SQ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/structure/table/standard,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/airless,
 /area/idris_wreck/kitchen)
 "SR" = (
 /obj/effect/landmark/corpse/idris,
 /obj/effect/landmark/scorcher,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/airless,
 /area/idris_wreck/cryo)
 "SW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/landmark/scorcher,
 /turf/simulated/floor/airless,
 /area/idris_wreck/portthrust)
 "SY" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/structure/safe/cash,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "Tb" = (
 /obj/structure/table/steel,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/airless,
 /area/idris_wreck/cryo)
 "Te" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "Tg" = (
 /mob/living/simple_animal/hostile/icarus_drone/malf,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/forehall)
 "Tn" = (
-/obj/effect/landmark/corpse/idris/robot,
-/obj/item/gun/energy/rifle/laser/noctiluca,
-/obj/effect/decal/cleanable/blood/oil,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "Tr" = (
 /obj/structure/table/wood/mahogany,
@@ -3478,11 +4644,14 @@
 "Tt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "Tv" = (
 /obj/effect/landmark/scorcher,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/airless,
 /area/idris_wreck/armory)
 "Tw" = (
 /turf/simulated/wall/shuttle/idris,
@@ -3505,7 +4674,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/airless,
 /area/idris_wreck/central)
 "TN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3514,13 +4683,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "TO" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/landmark/corpse/idris,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
 "TU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3534,15 +4707,19 @@
 /area/idris_wreck/afthall)
 "Ut" = (
 /obj/effect/landmark/scorcher,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/airless,
 /area/idris_wreck/forehall)
 "UB" = (
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/machinery/power/portgen/basic/fusion,
-/obj/effect/landmark/scorcher,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/airless,
 /area/idris_wreck/engi)
 "UC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3550,12 +4727,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/airlock/glass_command{
 	name = "Central Ring";
 	req_access = list(220)
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/central)
 "UH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3577,34 +4753,56 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/effect/landmark/scorcher,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/idris_wreck/engi)
 "UP" = (
 /obj/machinery/door/firedoor/noid/closed,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/central)
 "UR" = (
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/mainthall)
 "US" = (
 /turf/simulated/wall/shuttle/idris,
 /area/idris_wreck/engi)
+"UT" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/central)
 "UU" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/cryoentrance)
+"UX" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/central)
 "Vl" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/eva)
 "Vq" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/mainthall)
 "Vv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3626,8 +4824,18 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
+"VD" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/bridge)
 "VG" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
@@ -3665,16 +4873,43 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/empty/north,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/mainthall)
+"VY" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/forehall)
 "Wa" = (
 /obj/structure/cable/green{
 	d2 = 4;
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/empty/north,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/armory)
+"Wd" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/captain)
+"Wf" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/portthrust)
 "Wi" = (
 /obj/item/grenade/empgrenade,
 /obj/structure/lattice,
@@ -3713,7 +4948,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/engi)
 "Wr" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -3739,16 +4977,17 @@
 /turf/simulated/floor/airless,
 /area/idris_wreck/starbthrust)
 "Wv" = (
-/obj/machinery/light{
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/airless,
-/area/idris_wreck/central)
+/area/idris_wreck/portthrust)
 "Wy" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/forehall)
 "WA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3762,11 +5001,12 @@
 /area/idris_wreck/cryo)
 "WC" = (
 /obj/machinery/light,
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "WD" = (
 /obj/machinery/suit_cycler/security,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/eva)
 "WE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -3786,14 +5026,42 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/empty/west,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/cryoentrance)
 "WR" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/cryoentrance)
+"WZ" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/idris_wreck/bridge)
+"Xm" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/starbthrust)
+"Xr" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/airless,
+/area/idris_wreck/kitchen)
+"Xt" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/central)
 "Xu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -3804,19 +5072,35 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
+"Xy" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/portthrust)
 "XD" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "XK" = (
 /obj/item/material/shard,
 /obj/item/stack/rods,
 /turf/template_noop,
 /area/space)
+"XO" = (
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/idris_wreck/central)
 "XS" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -3824,13 +5108,20 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor,
 /area/idris_wreck/engi)
 "XT" = (
 /obj/effect/landmark/corpse/izharshan,
 /obj/item/thermal_drill,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/landmark/scorcher,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/central)
 "XX" = (
@@ -3838,8 +5129,20 @@
 	dir = 1
 	},
 /obj/effect/landmark/scorcher,
+/obj/effect/floor_decal/corner/full{
+	color = "#4B7A73";
+	dir = 1
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/starbthrust)
+"XY" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/idris_wreck/central)
 "Yb" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -3855,10 +5158,17 @@
 	pixel_x = -32
 	},
 /obj/machinery/door/firedoor/noid/closed,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/full/airless,
 /area/idris_wreck/central)
+"Yt" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/starbthrust)
 "Yu" = (
-/turf/simulated/floor/exoplanet/tiled,
+/turf/simulated/floor/tiled,
 /area/idris_wreck/vault)
 "Yx" = (
 /obj/structure/table/stone/marble,
@@ -3880,12 +5190,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#4B7A73"
+	},
 /turf/simulated/floor/tiled/airless,
 /area/idris_wreck/atmos)
 "YO" = (
 /obj/effect/shuttle_landmark/idris_wreck/nav3,
 /turf/template_noop,
 /area/space)
+"YQ" = (
+/obj/effect/landmark/scorcher,
+/turf/simulated/floor/airless,
+/area/idris_wreck/cryo)
 "Zg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -3906,8 +5223,31 @@
 /obj/structure/sign/flag/idris/large/north{
 	pixel_y = 32
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/cryoentrance)
+"Zu" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/idris_wreck/central)
+"Zv" = (
+/obj/structure/sign/flag/idris/large/east{
+	pixel_x = 32
+	},
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/idris_wreck/central)
 "ZE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3925,12 +5265,34 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/tiled,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full,
 /area/idris_wreck/engi)
+"ZN" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/airless,
+/area/idris_wreck/portthrust)
 "ZO" = (
 /obj/item/gun/bang/sec,
-/turf/simulated/floor/exoplanet/tiled,
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
 /area/idris_wreck/bridge)
+"ZS" = (
+/obj/effect/floor_decal/corner{
+	color = "#4B7A73";
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/idris_wreck/mainthall)
 "ZU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -10885,7 +12247,7 @@ aY
 aY
 aY
 aY
-aY
+vs
 vs
 vs
 vs
@@ -11042,8 +12404,8 @@ aY
 aY
 aY
 aY
-aY
 Kr
+RZ
 Oh
 HQ
 HQ
@@ -11199,10 +12561,10 @@ aY
 aY
 aY
 aY
-aY
 vs
-WE
-HQ
+vs
+tV
+tV
 aK
 vs
 vs
@@ -11359,9 +12721,9 @@ aY
 aY
 qS
 qS
-kQ
-HQ
-kQ
+rs
+tV
+rs
 qS
 aY
 aY
@@ -12462,7 +13824,7 @@ qS
 qS
 qS
 qS
-dU
+KP
 og
 vs
 vs
@@ -12617,11 +13979,11 @@ aY
 aY
 qS
 Jr
-kQ
-kQ
+RI
+rs
 dU
 HI
-HQ
+Hf
 vs
 aY
 aY
@@ -12771,14 +14133,14 @@ aY
 aY
 aY
 aY
-aY
+vs
 vs
 dU
 kQ
 HQ
 WE
 bn
-HQ
+Sc
 vs
 vs
 aY
@@ -12928,15 +14290,15 @@ aY
 aY
 aY
 aY
-aY
 Kr
+RZ
 fH
-kQ
+dY
 HQ
-WE
-HQ
-HQ
-HQ
+zu
+Ke
+wC
+Hf
 vs
 aY
 aY
@@ -13085,10 +14447,10 @@ aY
 aY
 aY
 aY
-aY
+vs
 vs
 XX
-kQ
+IF
 HQ
 WE
 HQ
@@ -13245,13 +14607,13 @@ aY
 aY
 vs
 vs
-kQ
-HQ
-WE
+Kc
+Xm
+zu
 JK
 rD
-HQ
-HQ
+wC
+Hf
 vs
 aY
 aY
@@ -13401,14 +14763,14 @@ aY
 aY
 aY
 aY
-IB
-IB
+vs
+vs
 QW
 cT
 Wr
 Wu
 QU
-HQ
+FR
 vs
 vs
 aY
@@ -13559,12 +14921,12 @@ aY
 aY
 aY
 aY
-IB
-HQ
-HQ
+vs
+tV
+tV
 CY
 tV
-cF
+FL
 HQ
 yW
 vs
@@ -13716,13 +15078,13 @@ aY
 aY
 aY
 aY
-IB
+vs
 VP
 aY
 aY
 aY
-cF
-HQ
+HM
+Ke
 tQ
 vs
 vs
@@ -13877,7 +15239,7 @@ aY
 aY
 aY
 aY
-Ec
+tV
 cF
 HQ
 tQ
@@ -14033,10 +15395,10 @@ aY
 aY
 aY
 aY
-Ec
+tV
 Ec
 cF
-HQ
+Ke
 tQ
 yW
 vs
@@ -14190,7 +15552,7 @@ aY
 aY
 aY
 vs
-Ec
+ar
 xf
 cF
 HQ
@@ -14350,7 +15712,7 @@ vs
 vs
 Ec
 cF
-HQ
+Yt
 sI
 VO
 VO
@@ -14662,38 +16024,38 @@ aY
 aY
 aY
 Tw
-UR
+QL
 yR
-UR
+yn
 eq
 jF
 Vy
-oT
-Ap
+pF
+gk
 Ap
 aY
-iq
+Ap
 aY
 IR
-FB
-FB
-ad
-FB
+iS
+xA
+UT
+xA
 mp
+xA
+xA
+UT
+xA
+Ra
+ID
+xA
+UT
+xA
+Jc
 FB
 FB
 ad
-FB
-XD
-FB
-FB
-ad
-FB
-UP
-bU
-bU
-Wv
-bU
+zL
 Rp
 Ch
 qS
@@ -14821,7 +16183,7 @@ aY
 Tw
 UR
 yR
-UR
+ZS
 eq
 St
 Mh
@@ -14832,7 +16194,7 @@ fD
 Ok
 iq
 IR
-FB
+Ip
 Ry
 oO
 Bu
@@ -14850,7 +16212,7 @@ dF
 BX
 BX
 Zg
-bU
+SC
 Rp
 Pb
 qS
@@ -14978,7 +16340,7 @@ aY
 Tw
 UR
 yR
-UR
+wy
 eq
 kX
 AO
@@ -14989,25 +16351,25 @@ Qx
 dM
 dM
 IR
-FB
+Ip
 Jm
-FB
-FB
+xE
+KY
 mp
+Zv
+Xt
+Xt
+Xt
+Lt
+Xt
+Xt
+XY
 OP
-FB
-FB
-FB
-rs
-FB
-FB
-FB
-OP
-UP
-bU
+Jc
+fo
 bU
 Rt
-bU
+SC
 Rp
 FE
 qS
@@ -15148,8 +16510,8 @@ eq
 IR
 wo
 Jm
-FB
-FB
+Eh
+XO
 IR
 IR
 IR
@@ -15161,10 +16523,10 @@ IR
 IR
 IR
 IR
-bU
-bU
-Rt
-bU
+cd
+ii
+Fx
+SC
 Rp
 gu
 ah
@@ -15175,7 +16537,7 @@ aY
 YA
 qS
 qS
-zn
+fv
 xH
 xn
 JQ
@@ -15319,7 +16681,7 @@ Sb
 Sb
 Sb
 IR
-bU
+Df
 Rt
 sC
 Rp
@@ -15332,7 +16694,7 @@ aY
 aY
 qS
 oA
-zn
+Li
 JV
 CJ
 bB
@@ -15447,22 +16809,22 @@ aY
 aY
 aY
 Tw
-AM
 sd
-AM
+yR
+wy
 eq
 oT
-oT
+pF
 TN
 Lz
 Xu
 oT
-fJ
+oC
 mP
 IR
-Gc
-SH
-ee
+Ip
+Jm
+oZ
 IR
 Sb
 Sb
@@ -15604,12 +16966,12 @@ aY
 aY
 aY
 Tw
-UR
-yR
-UR
+AM
+bR
+AM
 eq
 oT
-wD
+aJ
 gz
 Bz
 oT
@@ -15619,7 +16981,7 @@ fJ
 IR
 HC
 Ib
-FB
+vh
 IR
 Sb
 Sb
@@ -15635,7 +16997,7 @@ Sb
 IR
 vQ
 UH
-gK
+ia
 qS
 aY
 aY
@@ -15652,12 +17014,12 @@ CJ
 Di
 Rp
 AU
-DI
+ow
 WN
-DI
-DI
+ow
+Px
 HR
-Mm
+to
 Mm
 hL
 Tb
@@ -15775,8 +17137,8 @@ eq
 eq
 IR
 Tn
-Gg
-FB
+SH
+yu
 IR
 Sb
 Sb
@@ -15792,7 +17154,7 @@ Fp
 IR
 HF
 Dm
-gK
+ia
 qS
 aY
 aY
@@ -15803,13 +17165,13 @@ aY
 qS
 SQ
 Pg
-zn
+Li
 Kb
 CJ
 Ll
 Rp
 Zr
-DI
+NG
 SD
 Ea
 Ea
@@ -15819,8 +17181,8 @@ DJ
 WA
 qS
 qS
-DX
-DX
+YQ
+YQ
 DX
 HR
 ap
@@ -15918,22 +17280,22 @@ aY
 aY
 aY
 Tw
-UR
+sd
 yR
-UR
+wy
 QE
-BK
+QB
 dx
-BK
+yc
 RQ
-BK
+yc
 nw
-BK
+yc
 BK
 IR
-FB
+mq
 Gg
-FB
+fL
 IR
 Sb
 Sb
@@ -15948,7 +17310,7 @@ PF
 Yu
 gS
 gK
-Dm
+gN
 qS
 qS
 aY
@@ -15958,7 +17320,7 @@ aY
 aY
 YA
 aY
-zn
+Xr
 rB
 zn
 jC
@@ -15969,16 +17331,16 @@ GV
 UU
 tb
 WR
-DI
+uU
 HR
 Rb
 aZ
 nm
-DX
+YQ
 SR
 rq
 aZ
-aZ
+OB
 HR
 mo
 mf
@@ -16079,9 +17441,9 @@ VT
 ug
 Fk
 GU
-TU
-TU
 om
+TU
+TU
 xP
 Cw
 JF
@@ -16090,7 +17452,7 @@ Cw
 UC
 ps
 Wm
-FB
+vh
 IR
 Sb
 Sb
@@ -16117,7 +17479,7 @@ YA
 qS
 tJ
 rB
-zn
+pM
 qf
 CJ
 vU
@@ -16126,7 +17488,7 @@ Hp
 DI
 yC
 DI
-DI
+lH
 HR
 eJ
 Pj
@@ -16137,11 +17499,11 @@ Pj
 eJ
 Pj
 HR
-hH
+oK
 hH
 lN
 tC
-gL
+CH
 BY
 ap
 ap
@@ -16234,20 +17596,20 @@ aY
 Tw
 UR
 hz
-UR
+wy
 QE
-BK
+zv
 kK
 vu
 xN
-BK
+vu
 PU
-BK
-BK
+Dn
+Gx
 IR
-FB
+bA
 rp
-FB
+Zu
 IR
 Sb
 Sb
@@ -16261,7 +17623,7 @@ wr
 gT
 wr
 CM
-AF
+ia
 qS
 aY
 aY
@@ -16295,7 +17657,7 @@ HR
 HR
 HR
 vm
-hH
+WZ
 ip
 yg
 ME
@@ -16389,9 +17751,9 @@ aY
 aY
 aY
 Tw
-Kz
+oM
 hz
-LL
+Nr
 US
 US
 US
@@ -16403,8 +17765,8 @@ US
 US
 IR
 du
-rp
-FB
+Rq
+yu
 IR
 Sb
 Sb
@@ -16418,7 +17780,7 @@ WC
 Sb
 cj
 IR
-gK
+ia
 Wi
 qS
 qS
@@ -16429,34 +17791,34 @@ aY
 qS
 tY
 tY
-tY
+nR
 aL
 Bp
-nR
+Hx
 Wy
 tk
-nR
+Hx
 nR
 nR
 ZE
 EC
-nR
+Hx
 nR
 OH
 nR
-hZ
+Io
 Wy
 nR
+Hx
 nR
-nR
-nR
+JO
 rK
 NW
-hH
+RU
 sx
-hH
-hH
-hH
+Bh
+VD
+So
 hH
 zG
 ZY
@@ -16548,7 +17910,7 @@ aY
 Tw
 AM
 Ey
-Ah
+AM
 US
 jU
 sV
@@ -16559,7 +17921,7 @@ eL
 AN
 Mf
 IR
-Df
+Ip
 Hi
 oZ
 IR
@@ -16584,7 +17946,7 @@ aY
 aY
 qS
 qS
-id
+Gc
 id
 tA
 jd
@@ -16593,14 +17955,14 @@ Or
 pX
 Or
 Or
-Or
+JE
 Or
 ae
 kZ
 Or
 Or
 KQ
-Or
+JE
 Or
 pX
 Or
@@ -16613,7 +17975,7 @@ MY
 fM
 fg
 he
-hH
+oK
 TO
 RM
 ZY
@@ -16705,20 +18067,20 @@ aY
 Tw
 UR
 hz
-UR
+wy
 US
 Je
 jX
 Qe
 Bj
 bS
-oa
+gd
 bu
-oa
+gd
 IR
-Gc
-Rq
-SC
+Ip
+rp
+vh
 IR
 Sb
 Sb
@@ -16744,34 +18106,34 @@ JM
 gF
 Tg
 MB
-gF
-Bp
-nR
-li
+py
+da
+Pc
+Dd
 wi
-nR
-nR
-nR
+Pc
+Pc
+VY
 Lh
 Gl
 hZ
 Ut
-nR
+VY
 py
-nR
+Pc
 li
-nR
+Pc
 py
-nR
-nR
+VY
+ss
 rK
 ZO
-hH
+RU
 aQ
 hH
-hH
-hH
-hH
+GN
+bG
+Bh
 Iv
 ZY
 aY
@@ -16861,7 +18223,7 @@ aY
 aY
 Tw
 Vq
-TB
+iA
 Sq
 US
 Kj
@@ -16871,7 +18233,7 @@ sg
 bS
 gM
 Bg
-Mf
+Rj
 IR
 Eb
 LN
@@ -16922,12 +18284,12 @@ kS
 kS
 kS
 kS
-hH
+oK
 gW
-hH
-hH
+RU
+WZ
 SB
-hH
+Bh
 mF
 ap
 ap
@@ -17019,7 +18381,7 @@ aY
 Tw
 Kz
 hz
-UR
+AF
 US
 je
 Wn
@@ -17032,8 +18394,8 @@ gd
 IR
 ws
 zb
-bU
-bU
+Gd
+zL
 IR
 IR
 IR
@@ -17045,7 +18407,7 @@ IR
 IR
 IR
 IR
-gK
+ia
 qS
 qS
 qS
@@ -17056,7 +18418,7 @@ qS
 qS
 Ff
 zp
-HL
+aa
 Vv
 bT
 ES
@@ -17065,7 +18427,7 @@ LH
 ha
 Ff
 lT
-rE
+nG
 LI
 Ca
 kS
@@ -17079,8 +18441,8 @@ sO
 sO
 sO
 kS
-hH
-hH
+oK
+Bh
 Dc
 KB
 gL
@@ -17174,34 +18536,34 @@ aY
 aY
 aY
 Tw
-UR
+sd
 hz
-UR
+wy
 US
-Lq
+sj
 ZF
 sV
-Te
+AZ
 bS
 UB
 Mn
 DW
 IR
-bU
+Df
 zb
 bU
 aO
 UP
 Eo
-bU
-bU
-bU
+FB
+FB
+FB
 jy
-bU
-bU
-bU
+FB
+UX
+FB
 Yh
-gK
+ia
 qS
 qS
 aY
@@ -17227,8 +18589,8 @@ md
 Vl
 kS
 Wa
-yO
-gk
+ee
+hQ
 yO
 jx
 bW
@@ -17333,7 +18695,7 @@ aY
 Tw
 UR
 hz
-UR
+ZS
 US
 Lq
 sV
@@ -17344,20 +18706,20 @@ aY
 aY
 aY
 aY
-gK
+kl
 Wk
 ZU
 mW
 wn
 mW
 mW
-mW
+Iy
 mW
 wI
 mW
+Iy
 mW
-mW
-mW
+df
 qS
 qS
 aY
@@ -17367,13 +18729,13 @@ aY
 qS
 qS
 qS
-bU
+Cj
 Ff
 yB
 Qa
 hB
 pI
-HL
+Wd
 Ff
 qd
 pj
@@ -17488,9 +18850,9 @@ aY
 aY
 aY
 Tw
-UR
+Pn
 hz
-UR
+IW
 US
 SO
 XS
@@ -17503,18 +18865,18 @@ aY
 aY
 aY
 aY
-gK
-gK
+eO
+eO
 UP
-bU
-EZ
-bU
-bU
+cv
+kg
+cv
+XD
 AE
-bU
-EZ
-bU
-gK
+cv
+kg
+XD
+ia
 qS
 aY
 aY
@@ -17524,19 +18886,19 @@ aY
 aY
 aY
 qS
-bU
+Cj
 Ff
-HL
+Qv
 dE
 Tr
 ai
-HL
+qo
 Ff
 QK
 pj
 Ff
 lT
-rE
+gp
 Eq
 WD
 kS
@@ -17681,7 +19043,7 @@ aY
 YA
 qS
 qS
-bU
+Cj
 Ff
 ln
 HL
@@ -17689,7 +19051,7 @@ cp
 HL
 kH
 SP
-pj
+KJ
 pj
 Ff
 yj
@@ -17802,10 +19164,10 @@ qS
 aY
 aY
 oG
-Lr
+Wv
 EH
-Lr
-Lr
+xB
+fy
 US
 gX
 US
@@ -17838,13 +19200,13 @@ aY
 qS
 qS
 gJ
-bU
+SC
 Ff
 JY
 HL
 HL
 HL
-HL
+qo
 Ff
 pj
 uu
@@ -17959,10 +19321,10 @@ aY
 aY
 aY
 qS
-tz
+QA
 uW
-Lr
-Lr
+Xy
+hi
 US
 US
 US
@@ -17995,10 +19357,10 @@ aY
 aY
 qS
 EZ
-bU
+Ai
 Ff
 zI
-HL
+zP
 zX
 zX
 BU
@@ -18119,7 +19481,7 @@ qS
 qS
 SW
 Lr
-Lr
+gG
 mn
 oG
 oG
@@ -18275,9 +19637,9 @@ aY
 qS
 qS
 qS
-tz
-tz
-tz
+QA
+QA
+ty
 oG
 aY
 aY
@@ -19838,7 +21200,7 @@ aY
 aY
 oG
 tz
-tz
+QA
 QA
 qS
 qS
@@ -20150,13 +21512,13 @@ aY
 aY
 oG
 oG
-Lr
-Lr
+Ah
+Wf
 Ku
 bX
 et
-tz
-tz
+QA
+QA
 aY
 aY
 aY
@@ -20304,15 +21666,15 @@ aY
 aY
 aY
 aY
-aY
 oG
-Lr
-Lr
+oG
+Wv
+Wf
 Lr
 Ku
+Xy
 Lr
-Lr
-Lr
+hi
 oG
 oG
 aY
@@ -20461,15 +21823,15 @@ aY
 aY
 aY
 aY
-aY
 iE
+oa
 Dh
 Lr
-Lr
+Xy
 Ku
 Lr
-Lr
-Lr
+cB
+bC
 oG
 aY
 aY
@@ -20618,7 +21980,7 @@ aY
 aY
 aY
 aY
-aY
+oG
 oG
 NL
 Lr
@@ -20775,14 +22137,14 @@ aY
 aY
 aY
 aY
-aY
 iE
+oa
 FD
-Lr
+Xy
 Lr
 Ku
-Lr
-Lr
+cB
+bC
 oG
 aY
 aY
@@ -20932,13 +22294,13 @@ aY
 aY
 aY
 aY
-aY
+oG
 oG
 Bt
+Xy
 Lr
-Lr
-Ku
-Lr
+uI
+tW
 oG
 oG
 aY
@@ -21089,13 +22451,13 @@ aY
 aY
 aY
 aY
-aY
 iE
+oa
 WM
 xO
 xO
 uH
-Lr
+bC
 oG
 aY
 aY
@@ -21246,12 +22608,12 @@ aY
 aY
 aY
 aY
-aY
+oG
 oG
 Bt
 Lr
-Lr
-Lr
+Xy
+hi
 oG
 oG
 aY
@@ -21403,12 +22765,12 @@ aY
 aY
 aY
 aY
-aY
 iE
+oa
 FD
-Lr
-Lr
-Lr
+Xy
+cB
+bC
 oG
 aY
 aY
@@ -21560,13 +22922,13 @@ aY
 aY
 aY
 aY
-aY
 oG
-NL
+oG
+IB
 Lr
-oJ
+ZN
 oG
-uU
+oG
 aY
 aY
 aY
@@ -21717,11 +23079,11 @@ aY
 aY
 aY
 aY
-aY
 iE
+oa
 uH
-Lr
-Lr
+tZ
+bC
 oG
 aY
 aY
@@ -21874,7 +23236,7 @@ aY
 aY
 aY
 aY
-aY
+oG
 oG
 oG
 oG

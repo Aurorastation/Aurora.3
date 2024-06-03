@@ -68,7 +68,7 @@
 	new /obj/item/clothing/under/rank/scientist(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/shoes/sneakers/medsci(src)
-	new /obj/item/clothing/glasses/science(src)
+	new /obj/item/clothing/glasses/safety/goggles/science(src)
 	new /obj/item/device/radio/headset/headset_sci(src)
 	new /obj/item/storage/belt/archaeology(src)
 	new /obj/item/storage/box/excavation(src)

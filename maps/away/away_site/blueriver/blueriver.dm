@@ -105,9 +105,9 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
 	user.visible_message(
-		"<span class='danger'>[user] hits \the [src] with \the [attacking_item]!</span>",
-		"<span class='danger'>You hit \the [src] with \the [attacking_item]!</span>",
-		"<span class='danger'>You hear something breaking!</span>"
+		SPAN_DANGER("[user] hits \the [src] with \the [attacking_item]!"),
+		SPAN_DANGER("You hit \the [src] with \the [attacking_item]!"),
+		SPAN_DANGER("You hear something breaking!")
 		)
 
 /obj/item/paper/blueriver/expedition_log_1

@@ -211,7 +211,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 /obj/item/organ/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(status & ORGAN_DEAD)
-		. += "<span class='notice'>The decay has set in.</span>"
+		. += SPAN_NOTICE("The decay has set in.")
 
 /obj/item/organ/proc/handle_germ_effects()
 	//** Handle the effects of infections
@@ -389,6 +389,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 			name = "pacemaker-assisted [initial(name)]"
 		if(BP_EYES)
 			name = "retinal overlayed [initial(name)]"
+		if(BP_BRAIN)
+			name = "positronic-implanted [initial(name)]"
 		else
 			name = "mechanically assisted [initial(name)]"
 	icon_state = initial(icon_state)
@@ -401,7 +403,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 	var/organ_fragility = 0.5
 
-	if((status & ORGAN_ROBOT))	//fully robotic organs take the normal emp damage, assited ones only suffer half of it
+	if((status & ORGAN_ROBOT))	//fully robotic organs take the normal emp damage, assisted ones only suffer half of it
 		organ_fragility = 1
 
 	switch (severity)
@@ -478,7 +480,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		return ..()
 
 	if(alert("Do you really want to use this organ as food? It will be useless for anything else afterwards.",,"No.","Yes.") == "No.")
-		to_chat(user, "<span class='notice'>You successfully repress your cannibalistic tendencies.</span>")
+		to_chat(user, SPAN_NOTICE("You successfully repress your cannibalistic tendencies."))
 		return
 
 	user.drop_from_inventory(src)

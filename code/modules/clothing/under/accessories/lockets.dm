@@ -3,9 +3,8 @@
 	desc = "A silver locket that seems to have space for a photo within."
 	icon_state = "locket"
 	item_state = "locket"
-	slot_flags = 0
-	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_MASK | SLOT_TIE
+	w_class = ITEMSIZE_SMALL
 	var/open
 	var/obj/item/held //Item inside locket.
 

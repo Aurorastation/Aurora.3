@@ -19,7 +19,7 @@
 
 /obj/effect/overmap/visitable/wrecked_nt_ship
 	name = "wrecked NT ship"
-	desc = "A wrecked ship once owned by NanoTrasen."
+	desc = "A wrecked ship once owned by NanoTrasen, embedded within an asteroid. The ship is cold, with a faint possible lifesign detected within. Sensors have picked up exotic particles on site."
 
 /area/wrecked_nt_ship
 	name = "wrecked NT ship"
@@ -28,3 +28,7 @@
 	base_turf = /turf/space
 	no_light_control = TRUE
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
+
+/area/wrecked_nt_ship/exterior
+	name = "wrecked NT ship exterior"
+	icon_state = "exterior"

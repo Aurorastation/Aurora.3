@@ -1764,7 +1764,7 @@
 /area/shuttle/orion_shuttle/storage)
 "hlg" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/north{
 	req_access = list(201)
 	},
 /turf/simulated/floor,

@@ -44,7 +44,7 @@
 	var/list/nearby_things = range(0, get_turf(src))
 	for(var/mob/M in nearby_things)
 		var/obj/O = assembly ? assembly : src
-		to_chat(M, "<span class='notice'>[icon2html(O, viewers(get_turf(src)))] [stuff_to_display]</span>")
+		to_chat(M, SPAN_NOTICE("[icon2html(O, viewers(get_turf(src)))] [stuff_to_display]"))
 
 /obj/item/integrated_circuit/output/screen/large
 	name = "large screen"
@@ -55,7 +55,7 @@
 /obj/item/integrated_circuit/output/screen/large/do_work()
 	..()
 	var/obj/O = assembly ? loc : assembly
-	O.visible_message("<span class='notice'>[icon2html(O, viewers(get_turf(src)))] [stuff_to_display]</span>")
+	O.visible_message(SPAN_NOTICE("[icon2html(O, viewers(get_turf(src)))] [stuff_to_display]"))
 
 /obj/item/integrated_circuit/output/light
 	name = "light"
@@ -399,12 +399,12 @@
 			stuff_to_print = copytext(stuff_to_print, MAX_PAPER_MESSAGE_LEN)
 			if(stuff_to_print || eject)
 				paper_sheet = paper_source.get_item(TRUE)
-				audible_message("<span class='notice'>\The [src] buzzes and spits out a sheet of paper.</span>")
+				audible_message(SPAN_NOTICE("\The [src] buzzes and spits out a sheet of paper."))
 				paper_sheet.forceMove(get_turf(src))
 				if(using_tray)
 					paper_sheet = paper_source.get_item(FALSE)
 					if(!paper_sheet)
-						audible_message("<span class='notice'>\The [src] beeps, out of paper.</span>")
+						audible_message(SPAN_NOTICE("\The [src] beeps, out of paper."))
 						return
 	else
-		audible_message("<span class='notice'>\The [src] beeps, out of paper.</span>")
+		audible_message(SPAN_NOTICE("\The [src] beeps, out of paper."))

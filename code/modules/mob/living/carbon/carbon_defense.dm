@@ -37,7 +37,7 @@
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
 		if(H.bg)
-			visible_message("<span class='danger'>[P] hit [src] waking [get_pronoun("him")] up!</span>")
+			visible_message(SPAN_DANGER("[P] hit [src] waking [get_pronoun("him")] up!"))
 			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
@@ -45,9 +45,9 @@
 			else
 				to_chat(H, SPAN_DANGER("You sense great disturbance to your physical body!"))
 		else if(!vr_mob)
-			visible_message("<span class='danger'>[P] hit [src], but they do not respond... Maybe they have S.S.D?</span>")
+			visible_message(SPAN_DANGER("[P] hit [src], but they do not respond... Maybe they have S.S.D?"))
 	else if(client && willfully_sleeping)
-		visible_message("<span class='danger'>[P] hit [src] waking [get_pronoun("him")] up!</span>")
+		visible_message(SPAN_DANGER("[P] hit [src] waking [get_pronoun("him")] up!"))
 		sleeping = 0
 		willfully_sleeping = FALSE
 
@@ -66,11 +66,11 @@
 			else
 				to_chat(H, SPAN_DANGER("You sense great disturbance to your physical body!"))
 		else if(!vr_mob)
-			user.visible_message("<span class='danger'>[user] attacks [src] with [I] waking [get_pronoun("him")] up!</span>", \
-									"<span class='danger'>You attack [src] with [I], but they do not respond... Maybe they have S.S.D?</span>")
+			user.visible_message(SPAN_DANGER("[user] attacks [src] with [I] waking [get_pronoun("him")] up!"), \
+									SPAN_DANGER("You attack [src] with [I], but they do not respond... Maybe they have S.S.D?"))
 	else if(client && willfully_sleeping)
-		user.visible_message("<span class='danger'>[user] attacked [src] with [I] waking [get_pronoun("him")] up!</span>", \
-							"<span class='danger'>You attack [src] with [I], waking [get_pronoun("him")] up!</span>")
+		user.visible_message(SPAN_DANGER("[user] attacked [src] with [I] waking [get_pronoun("him")] up!"), \
+							SPAN_DANGER("You attack [src] with [I], waking [get_pronoun("him")] up!"))
 		sleeping = 0
 		willfully_sleeping = FALSE
 
@@ -119,7 +119,7 @@
 	if(!(damage_flags & (DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)) || W.damtype != DAMAGE_BRUTE)
 		return FALSE //unsuitable weapon
 
-	user.visible_message("<span class='danger'>\The [user] begins to slit [src]'s throat with \the [W]!</span>")
+	user.visible_message(SPAN_DANGER("\The [user] begins to slit [src]'s throat with \the [W]!"))
 
 	user.next_move = world.time + 20 //also should prevent user from triggering this repeatedly
 	if(!W.use_tool(src, user, 20, volume = 50))
@@ -149,9 +149,9 @@
 
 	if(total_damage)
 		if(getOxyLoss() >= 40)
-			user.visible_message("<span class='danger'>\The [user] slices [src]'s throat open with \the [W]!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] slices [src]'s throat open with \the [W]!"))
 		else
-			user.visible_message("<span class='danger'>\The [user] cuts [src]'s neck open with \the [W]!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] cuts [src]'s neck open with \the [W]!"))
 
 		if(W.hitsound)
 			playsound(loc, W.hitsound, W.get_clamped_volume(), 1, -1)

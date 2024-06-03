@@ -338,7 +338,7 @@
 /mob/living/LaserEyes(atom/A, params)
 	setClickCooldown(4)
 	var/turf/T = get_turf(src)
-	src.visible_message("<span class='danger'>\The [src]'s eyes flare with ruby light!</span>")
+	src.visible_message(SPAN_DANGER("\The [src]'s eyes flare with ruby light!"))
 	var/obj/item/projectile/beam/LE = new (T)
 	LE.muzzle_type = /obj/effect/projectile/muzzle/eyelaser
 	LE.tracer_type = /obj/effect/projectile/tracer/eyelaser
@@ -348,7 +348,7 @@
 
 /mob/living/carbon/human/LaserEyes(atom/A, params)
 	if(nutrition <= 0)
-		to_chat(src, "<span class='warning'>You're out of energy!  You need food!</span>")
+		to_chat(src, SPAN_WARNING("You're out of energy!  You need food!"))
 		return
 	..()
 	adjustNutritionLoss(rand(1,5))

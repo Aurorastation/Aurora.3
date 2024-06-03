@@ -4,6 +4,7 @@
 	icon = 'icons/turf/flooring/urban_turfs.dmi'
 	icon_state = "sidewalk-tile"
 	has_resources = FALSE
+	does_footprint = FALSE
 
 /turf/simulated/floor/exoplanet/sidewalk/blocks
 	name = "blocked sidewalk tiles"

@@ -2152,7 +2152,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
@@ -3558,7 +3558,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
@@ -3690,7 +3690,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{

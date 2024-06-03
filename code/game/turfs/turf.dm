@@ -205,7 +205,7 @@
 
 /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
 	if(movement_disabled && usr.ckey != movement_disabled_exception)
-		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
+		to_chat(usr, SPAN_WARNING("Movement is admin-disabled.")) //This is to identify lag problems)
 		return
 
 	..()
@@ -251,7 +251,7 @@ var/const/enterloopsanity = 100
 
 /turf/Entered(atom/movable/arrived, atom/old_loc)
 	if(movement_disabled)
-		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
+		to_chat(usr, SPAN_WARNING("Movement is admin-disabled.")) //This is to identify lag problems)
 		return
 
 	ASSERT(istype(arrived))
@@ -292,10 +292,10 @@ var/const/enterloopsanity = 100
 					if(!S.blood_overlay)
 						S.generate_blood_overlay()
 					if(S.blood_overlay?.color != footprint_color)
-						S.cut_overlay(S.blood_overlay, TRUE)
+						S.CutOverlays(S.blood_overlay, ATOM_ICON_CACHE_PROTECTED)
 
 					S.blood_overlay.color = footprint_color
-					S.add_overlay(S.blood_overlay, TRUE)
+					S.AddOverlays(S.blood_overlay, ATOM_ICON_CACHE_PROTECTED)
 			else
 				H.footprint_color = footprint_color
 				H.track_footprint = max(track_distance, H.track_footprint)

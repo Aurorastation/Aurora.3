@@ -67,7 +67,7 @@
 	..()
 	ion = new ion_type(src)
 	turn_off()
-	add_overlay(image(icon, "[icon_state]_off_overlay", MOB_LAYER + 1))
+	AddOverlays(image(icon, "[icon_state]_off_overlay", MOB_LAYER + 1))
 	icon_state = "[bike_icon]_off"
 	if(storage_type)
 		storage_compartment = new storage_type(src)
@@ -256,13 +256,13 @@
 	..()
 
 /obj/vehicle/bike/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(on)
-		add_overlay(image(icon, "[bike_icon]_on_overlay", MOB_LAYER + 1))
+		AddOverlays(image(icon, "[bike_icon]_on_overlay", MOB_LAYER + 1))
 		icon_state = "[bike_icon]_on"
 	else
-		add_overlay(image(icon, "[bike_icon]_off_overlay", MOB_LAYER + 1))
+		AddOverlays(image(icon, "[bike_icon]_off_overlay", MOB_LAYER + 1))
 		icon_state = "[bike_icon]_off"
 
 	..()
@@ -409,7 +409,6 @@
 	icon_state = "snow_on"
 
 	bike_icon = "snow"
-	land_speed = 2
 	land_speed = 4
 	protection_percent = 10
 	can_hover = FALSE
@@ -527,3 +526,9 @@
 /obj/vehicle/bike/motor/moped/blue
 	icon_state = "bluemoped_on"
 	bike_icon = "bluemoped"
+
+/obj/vehicle/bike/motor/sand
+	name = "sandbike"
+	desc = "A specialised bike, designed for travelling on sand. Often used by Unathi of the Wasteland."
+	icon_state = "sport_on" //replace when we have a unique sprite
+	bike_icon = "sport"

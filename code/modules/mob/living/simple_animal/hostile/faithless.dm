@@ -11,7 +11,7 @@
 	response_help = "passes through"
 	response_disarm = "shoves"
 	response_harm = "hits"
-	speed = -1
+	speed = 4
 	maxHealth = 80
 	health = 80
 	environment_smash = 2
@@ -32,7 +32,6 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
-	speed = 4
 
 	faction = "faithless"
 

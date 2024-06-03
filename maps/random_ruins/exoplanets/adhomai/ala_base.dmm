@@ -52,7 +52,7 @@
 /area/ala_base)
 "bD" = (
 /obj/item/storage/secure/safe,
-/turf/simulated/wall/iron,
+/turf/unsimulated/wall/steel,
 /area/ala_base)
 "bR" = (
 /obj/structure/closet/crate/medical,
@@ -488,7 +488,7 @@
 /obj/structure/barricade/metal/wired{
 	pixel_y = 16
 	},
-/turf/simulated/wall/iron,
+/turf/unsimulated/wall/steel,
 /area/ala_base)
 "vT" = (
 /obj/machinery/light{
@@ -853,7 +853,7 @@
 	},
 /area/exoplanet/adhomai)
 "Hq" = (
-/turf/simulated/wall/iron,
+/turf/unsimulated/wall/steel,
 /area/ala_base)
 "HA" = (
 /obj/machinery/light,

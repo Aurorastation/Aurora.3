@@ -421,7 +421,7 @@
 /obj/machinery/light/broken{
 	dir = 8
 	},
-/obj/item/clothing/glasses/science{
+/obj/item/clothing/glasses/safety/goggles/science{
 	pixel_x = 3;
 	pixel_y = 8
 	},
@@ -3049,7 +3049,7 @@
 "GX" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/table/steel,
-/obj/item/clothing/glasses/science{
+/obj/item/clothing/glasses/safety/goggles/science{
 	pixel_x = 3;
 	pixel_y = 8
 	},
@@ -4446,7 +4446,7 @@
 /area/crystal_planet_outpost/power)
 "TT" = (
 /obj/structure/table/standard,
-/obj/item/clothing/glasses/science{
+/obj/item/clothing/glasses/safety/goggles/science{
 	pixel_x = 3;
 	pixel_y = 8
 	},

@@ -19,7 +19,7 @@
 
 /obj/effect/overmap/visitable/sector/big_derelict
 	name = "large derelict"
-	desc = "A very large derelict station. According to the starmap, it shouldn't exist."
+	desc = "A very large derelict station. The sensor array is picking up large amounts of echo, suggesting large, hollow spaces within. Unknown biological lifesigns have been detected inside the station. There is no starmap record of a station ever being in this location."
 
 /obj/effect/overmap/visitable/sector/big_derelict/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/wrecks.dmi', "debris_large2")
