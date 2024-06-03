@@ -1798,9 +1798,8 @@
 	w_class = 3;
 	canhear_range = 6;
 	throwforce = 12;
-	pixel_y = 10;
+	pixel_y = 10
 	},
-	pixel_x = -5
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "Rf" = (
