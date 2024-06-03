@@ -118,6 +118,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes/kataphract_wasteland/tent)
+"y" = (
+/obj/effect/floor_decal/spline/plain/blue{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/moghes/kataphract_wasteland/tent)
 "D" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/orange,
@@ -666,7 +672,7 @@ a
 a
 a
 R
-r
+y
 Z
 F
 H
