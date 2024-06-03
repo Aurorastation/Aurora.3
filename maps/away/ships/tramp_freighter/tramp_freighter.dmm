@@ -5447,6 +5447,16 @@
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
+/obj/item/trash/dipbowl{
+	pixel_x = -5
+	},
+/obj/effect/decal/cleanable/generic{
+	layer = 2.81
+	},
+/obj/item/trash/chips/dirtberry{
+	pixel_x = 7;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "El" = (
@@ -6549,9 +6559,6 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
 	},
