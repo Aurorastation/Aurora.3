@@ -190,8 +190,8 @@
 
 /datum/gear/augment/zenghu_plate
 	display_name = "zeng-hu veterancy plate"
-	description = "A clear sign of Zeng-Hu's best, this plate bearing the company's symbol is installed on those who prove themselves in the hyper-competitive environment"
-	path = /obj/item/organ/internal/augment/zenghu_plate
+	description = "A clear sign of Zeng-Hu's best, this plate bearing the company's symbol is installed on those who prove themselves in the hyper-competitive environment."
+	path = /obj/item/organ/internal/augment/eye_sensors/medical/zenghu_plate
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	faction = "Zeng-Hu Pharmaceuticals"
 	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Corporate Liaison", "Research Director","Scientist", "Xenobiologist", "Xenobotanist", "Xenoarchaeologist", "Lab Assistant", "Assistant", "Off-Duty Crew Member", "Captain", "Medical Personnel", "Science Personnel")
