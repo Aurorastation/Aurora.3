@@ -3612,6 +3612,9 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrusts)
 "ixC" = (
@@ -4279,6 +4282,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hiskyn_revanchists)
+"mkA" = (
+/turf/simulated/floor/tiled/dark,
+/area/hiskyn_ship/armory)
 "mmy" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -5144,12 +5150,17 @@
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/hiskyn_ship/blaster)
 "rIK" = (
-/obj/random/dirt_75,
-/obj/random/contraband,
-/obj/item/trash/kokobar,
-/obj/item/trash/kokobar,
-/obj/item/trash/kokobar,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Telecomms"
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'SERVER ROOM'.";
+	name = "TELECOMMS ROOM - COLD!";
+	pixel_y = 32
+	},
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/plating,
 /area/hiskyn_ship/armory)
 "rKq" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
@@ -5882,9 +5893,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hiskyn_revanchists)
 "vSl" = (
-/obj/item/trash/kokobar,
-/obj/item/trash/kokobar,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/telecomms/allinone/ship,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
 /area/hiskyn_ship/armory)
 "vSA" = (
 /turf/simulated/wall/shuttle/space_ship{
@@ -36194,8 +36210,8 @@ aEV
 beV
 gdc
 gdc
-vSl
-rIK
+vIY
+vIY
 acL
 nGu
 aao
@@ -36451,7 +36467,7 @@ lKU
 kbm
 gdc
 nPJ
-xsr
+vIY
 vSl
 acL
 tYI
@@ -36709,7 +36725,7 @@ abw
 gdc
 gdc
 gdc
-vIY
+rIK
 acL
 acL
 aHf
@@ -36964,9 +36980,9 @@ aVy
 eoo
 kxd
 mSr
-mSr
-tcX
 mqx
+tcX
+mkA
 uZs
 aRt
 aai

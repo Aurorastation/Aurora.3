@@ -2120,7 +2120,12 @@
 	name = "TELECOMMS ROOM - COLD!";
 	pixel_y = -32
 	},
-/turf/simulated/wall/shuttle/raider,
+/obj/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Telecomms";
+	req_one_access = list(210)
+	},
+/turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "Ef" = (
 /obj/machinery/shipsensors,
@@ -3202,6 +3207,9 @@
 /area/tarwa_ship/diona)
 "Qa" = (
 /obj/machinery/telecomms/allinone/ship,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
