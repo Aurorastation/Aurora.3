@@ -41,7 +41,7 @@
 	emote_see = list("flutters its wings")
 
 	speak_chance = 1//1% (1 in 100) chance every tick; So about once per 150 seconds, assuming an average tick is 1.5s
-	universal_speak = FALSE
+	universal_speak = TRUE
 	turns_per_move = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/cracker/
 
@@ -50,7 +50,6 @@
 	response_disarm = "gently moves aside"
 	response_harm   = "swats"
 	stop_automated_movement = 1
-	universal_speak = 1
 	canbrush = TRUE
 
 	flying = TRUE

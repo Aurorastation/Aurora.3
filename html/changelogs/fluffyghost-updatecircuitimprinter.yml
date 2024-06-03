@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: Acetrea
+author: FluffyGhost
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,5 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - balance: "Adjusts the overdose threshold of Morphine and Tramarine."
-  - rscadd: "Adds seizures to the overdose effects of Morphine and Tramarine."
+  - code_imp: "Circuit imprinter now uses a queue system to build circuits, avoid the need to keep processing to check the queue."
+  - code_imp: "Refactored some of the circuit imprinter code."
+  - bugfix: "Fixed some issues with the R&D console in regards to the circuit imprinter."

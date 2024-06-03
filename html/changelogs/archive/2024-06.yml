@@ -140,3 +140,46 @@
       grenade fuses.
   TheDanseMacabre:
   - bugfix: Fixes the icon for undercut 3.
+2024-06-02:
+  Acetrea:
+  - balance: Adjusts the overdose threshold of Morphine and Tramarine.
+  - rscadd: Adds seizures to the overdose effects of Morphine and Tramarine.
+  FluffyGhost:
+  - bugfix: Body scan now respects the known/hidden setting in the implant.
+  - rscadd: Body scan now reports how many unknown implanted things are present in
+      an organ.
+  RustingWithYou:
+  - rscadd: Adds unique away sites for the Uueoa-Esa sector.
+  SimpleMaroon:
+  - bugfix: Fixed the Vaurca Breeder left foot and leg being misaligned.
+  - bugfix: Fixed the K'lax rockstone cape being mixed up with the Unathi rockstone
+      cape in the loadout.
+  - refactor: Made wrist item sprites into contained sprites.
+  - bugfix: Bulwark wrist item sprites now work as intended.
+  Sparky_Hotdog:
+  - rscadd: Added a mullet hairstyle.
+2024-06-03:
+  DreamySkrell:
+  - rscadd: Tret Industrial Facility away site.
+  - rscadd: Away site exoplanet generation.
+  Evandorf:
+  - bugfix: Altered the Crewman ghostrole to allow for non-listed players.
+  - bugfix: Added the Uueoaesa sector to list of sectors.
+  FluffyGhost:
+  - refactor: Slight refactor and improvement of the hands inventory handling procs,
+      DMDoc, SDMM markings.
+  - bugfix: Fixed a runtime with RIG cells removal.
+  - code_imp: Fixed vars getting set twice in the same class.
+  GeneralCamo:
+  - bugfix: Fluff examine text now shows in an examine box.
+  Llywelwyn:
+  - rscadd: Increased the upper limit for max messages saved in the chatlog.
+  - rscadd: Chat log pruning and rebuilding now uses the max messages value, so reconnects
+      and the fix-chat verb will no longer wipe most of the chatlog.
+  RustingWithYou:
+  - bugfix: Sk'akh faithful can no longer be humans.
+  - qol: Moghes animals will no longer constantly spam chat by attacking each other.
+  Sparky_hotdog:
+  - bugfix: Fixed the xenoarchaeological outpost ruin spawning with no air inside.
+  - bugfix: Fixes coat racks always removing both hats and coats, when only one is
+      selected.

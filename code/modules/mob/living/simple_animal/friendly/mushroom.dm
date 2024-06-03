@@ -22,7 +22,6 @@
 	var/min_explode_time = 1200
 	density = 0
 	holder_type = /obj/item/holder/mushroom
-	mob_size = 2
 	canbrush = TRUE
 	brush = /obj/item/reagent_containers/glass/rag
 

@@ -59,7 +59,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	attacktext = "kicked"
+	attacktext = "gored"
 	faction = "Moghes"
 
 	maxHealth = 200
@@ -70,7 +70,6 @@
 	melee_damage_lower = 15
 	melee_damage_upper = 15
 	armor_penetration = 20
-	attacktext = "gored"
 	attack_sound = 'sound/weapons/pierce.ogg'
 	canbrush = TRUE
 	brush = /obj/item/reagent_containers/glass/rag

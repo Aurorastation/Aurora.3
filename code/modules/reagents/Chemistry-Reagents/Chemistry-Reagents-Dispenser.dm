@@ -588,6 +588,5 @@
 	reagent_state = SOLID
 	color = "#DCDCDC"
 	taste_mult = 0 //no taste
-	fallback_specific_heat = 18
 
 	fallback_specific_heat = 0.859
