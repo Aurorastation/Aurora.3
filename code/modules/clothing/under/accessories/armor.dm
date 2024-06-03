@@ -17,7 +17,6 @@
 		bomb = ARMOR_BOMB_PADDED
 	)
 	body_parts_covered = LEGS|FEET
-	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
@@ -158,7 +157,6 @@
 		bomb = ARMOR_BOMB_PADDED
 	)
 	w_class = ITEMSIZE_NORMAL
-	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 

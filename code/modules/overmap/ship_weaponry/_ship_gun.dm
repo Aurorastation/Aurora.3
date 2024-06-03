@@ -275,11 +275,11 @@
 	icon_state = null
 	. = ..()
 
-/obj/structure/ship_weapon_dummy/examine(mob/user)
+/obj/structure/ship_weapon_dummy/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
 
 	if(connected)
-		return connected.examine(user)
+		return connected.examine(user, distance, is_adjacent, infix, suffix, show_extended)
 	else
 		return TRUE
 

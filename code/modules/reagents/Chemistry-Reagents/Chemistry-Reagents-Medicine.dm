@@ -384,12 +384,11 @@
 	color = "#5c4033"
 	overdose = 10
 	od_minimum_dose = 2
-	specific_heat = 1
+	specific_heat = 1.2
 	scannable = TRUE
 	metabolism = REM / 3.33 // 0.06ish units per tick
 	ingest_met = REM / 1.5 // Should be 0.13 units per tick
 	breathe_met = REM * 4 // .8 units per tick
-	specific_heat = 1.2
 
 /singleton/reagent/morphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	var/list/joy_messages = list("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")
