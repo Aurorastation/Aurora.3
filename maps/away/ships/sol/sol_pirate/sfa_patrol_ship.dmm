@@ -476,6 +476,9 @@
 /obj/item/storage/belt/utility,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
+/obj/item/tape_roll,
+/obj/item/stack/material/plasteel/full,
+/obj/item/stack/material/steel/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "bbb" = (
@@ -2755,9 +2758,10 @@
 "ivQ" = (
 /obj/structure/table/standard,
 /obj/item/blueprints,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/plasteel/full,
-/obj/item/tape_roll,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "izK" = (

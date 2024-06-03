@@ -1375,10 +1375,11 @@
 "eo" = (
 /obj/structure/table/standard,
 /obj/random/dirt_75,
-/obj/item/book/manual/wiki/engineering_construction{
-	pixel_x = 3;
-	pixel_y = 6
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
 	},
+/obj/item/blueprints,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/engineering)
 "ep" = (

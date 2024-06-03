@@ -1830,6 +1830,15 @@
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
+"AA" = (
+/obj/structure/table/standard,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/turf/simulated/floor/diona,
+/area/tarwa_ship/engineering2)
 "AI" = (
 /obj/machinery/light{
 	dir = 1
@@ -15458,7 +15467,7 @@ IN
 kV
 LT
 XU
-HG
+AA
 Gd
 ci
 Gd
