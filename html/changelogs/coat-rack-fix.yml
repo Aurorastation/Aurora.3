@@ -1,5 +1,0 @@
-author: Sparky_hotdog
-
-delete-after: True
-changes:
-  - bugfix: "Fixes coat racks always removing both hats and coats, when only one is selected."
