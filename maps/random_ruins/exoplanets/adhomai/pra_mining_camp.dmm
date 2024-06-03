@@ -172,9 +172,9 @@
 /area/pra_mining_camp)
 "um" = (
 /obj/structure/closet/crate/plastic,
-/obj/item/storage/firstaid,
-/obj/item/storage/firstaid,
-/obj/item/storage/firstaid,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/stab,
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "up" = (
