@@ -277,7 +277,10 @@
 /area/ship/fishing/trawler/fishing_catwalk)
 "cv" = (
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	name = "Bathroom";
+	req_access = list(241)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/crew_quarters)
 "cw" = (
@@ -365,7 +368,8 @@
 /obj/structure/curtain/black,
 /obj/machinery/door/airlock/command/gold{
 	req_access = list(241);
-	dir = 4
+	dir = 4;
+	name = "Captain's Quarters"
 	},
 /turf/simulated/floor/wood,
 /area/ship/fishing_trawler/Captain)
@@ -1390,7 +1394,8 @@
 "lv" = (
 /obj/machinery/door/airlock/command{
 	dir = 4;
-	req_access = list(241)
+	req_access = list(241);
+	name = "Bridge"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2118,7 +2123,9 @@
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/airlock,
+/obj/machinery/door/airlock{
+	name = "Bathroom"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/Captain)
 "qs" = (
@@ -2594,7 +2601,8 @@
 	dir = 8
 	},
 /obj/machinery/vending/wallmed1{
-	pixel_y = 27
+	pixel_y = 27;
+	req_access = list(241)
 	},
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
@@ -2611,7 +2619,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	pixel_x = 30
+	pixel_x = 30;
+	req_access = list(241)
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
@@ -3406,7 +3415,7 @@
 	dir = 1
 	},
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = null
+	req_access = list(241)
 	},
 /obj/item/gun/energy/pistol/hegemony,
 /obj/item/gun/energy/pistol/hegemony,
@@ -3602,7 +3611,7 @@
 /area/shuttle/fishing_trawler)
 "Bt" = (
 /obj/machinery/suit_cycler{
-	req_access = null
+	req_access = list(241)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -3826,7 +3835,8 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/command{
 	dir = 4;
-	req_access = list(241)
+	req_access = list(241);
+	name = "Bridge"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/bridge)
@@ -4717,7 +4727,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	pixel_x = 27
+	pixel_x = 27;
+	req_access = list(241)
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "fishing_trawler_shuttle";
@@ -5109,7 +5120,8 @@
 /area/ship/fishing_trawler/EVA_starboard)
 "MB" = (
 /obj/machinery/vending/wallmed2{
-	pixel_x = -28
+	pixel_x = -28;
+	req_access = list(241)
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -5705,7 +5717,7 @@
 /area/ship/fishing_trawler/engineering/Starboard)
 "RH" = (
 /obj/machinery/suit_cycler{
-	req_access = null
+	req_access = list(241)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -6076,7 +6088,8 @@
 	dir = 1
 	},
 /obj/machinery/door/airlock/command/gold{
-	req_access = list(241)
+	req_access = list(241);
+	name = "Captain's Quarters"
 	},
 /turf/simulated/floor/wood,
 /area/ship/fishing_trawler/bridge)
@@ -6439,7 +6452,8 @@
 	},
 /obj/machinery/door/airlock/glass_medical{
 	dir = 4;
-	req_access = list(241)
+	req_access = list(241);
+	name = "Medical"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/medical)
@@ -6524,7 +6538,8 @@
 /area/ship/fishing_trawler/medical)
 "YA" = (
 /obj/machinery/door/airlock/hatch{
-	req_access = list(241)
+	req_access = list(241);
+	name = "Reactor"
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/structure/cable/yellow{
