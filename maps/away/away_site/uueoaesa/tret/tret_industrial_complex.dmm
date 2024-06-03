@@ -246,10 +246,11 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/atmos)
 "abm" = (
-/obj/structure/table/standard,
-/obj/item/vaurca/box,
 /obj/machinery/light/small/emergency{
 	dir = 8
+	},
+/obj/machinery/cryopod{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
@@ -2834,7 +2835,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
 "aoW" = (
-/obj/structure/table/standard,
 /obj/item/skrell_projector/vaurca_projector{
 	pixel_x = 4;
 	pixel_y = 3
@@ -2842,6 +2842,11 @@
 /obj/machinery/light/colored/decayed{
 	dir = 2
 	},
+/obj/item/vaurca/box{
+	pixel_x = -10;
+	pixel_y = 8
+	},
+/obj/structure/table/steel,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
 "apc" = (
@@ -4109,10 +4114,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_docks)
 "aAx" = (
-/obj/structure/table/steel,
 /obj/item/stack/rods{
 	pixel_y = 3
 	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/crew)
 "aAy" = (
@@ -6241,12 +6246,12 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "aRQ" = (
-/obj/structure/table/steel,
 /obj/item/clothing/accessory/flagpatch/klax,
 /obj/item/clothing/gloves/fingerless{
 	pixel_y = 16;
 	pixel_x = 1
 	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/crew)
 "aRX" = (
@@ -6752,15 +6757,15 @@
 /turf/simulated/floor/tiled/white,
 /area/tret_industrial/inside/botany)
 "aVN" = (
-/obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hegemony{
 	pixel_x = -5;
 	pixel_y = 9
 	},
 /obj/machinery/recharger{
-	pixel_x = 10;
+	pixel_x = 5;
 	pixel_y = 1
 	},
+/obj/structure/table/steel,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
 "aVP" = (
@@ -53935,7 +53940,7 @@ itk
 abS
 aCr
 sBh
-sBh
+aMV
 xfA
 arD
 arD
@@ -54191,8 +54196,8 @@ itk
 itk
 elj
 xfA
-atd
 aMV
+atd
 xfA
 arD
 arD
