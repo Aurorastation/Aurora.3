@@ -4,4 +4,4 @@ author: DreamySkrell
 delete-after: True
 
 changes:
-  - bugfix: "Tret away site fixes."
+  - bugfix: "Tret away site fixes: broken shuttle, missing gear."
