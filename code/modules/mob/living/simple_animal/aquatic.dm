@@ -1,5 +1,7 @@
 //For things that swim and don't do much else.
 /mob/living/simple_animal/aquatic
+	abstract_type = /mob/living/simple_animal/aquatic
+
 	name = "aquatic animal"
 	desc = DESC_PARENT
 	icon = 'icons/mob/npc/fish.dmi'

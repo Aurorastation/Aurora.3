@@ -220,10 +220,10 @@
 	detonate(TRUE)
 	. = ..()
 
-/obj/item/reagent_containers/food/drinks/cans/fire_act()
+/obj/item/reagent_containers/food/drinks/cans/fire_act(exposed_temperature, exposed_volume)
 	if(can_light())
 		fuselit = TRUE
-		detonate(FALSE)
+		INVOKE_ASYNC(src, PROC_REF(detonate), FALSE)
 		visible_message(SPAN_WARNING("<b>\The [name]'s fuse catches on fire!</b>"))
 	. = ..()
 

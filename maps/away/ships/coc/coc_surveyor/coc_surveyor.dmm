@@ -2160,7 +2160,7 @@
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/item/storage/box/gloves,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/research)
 "sL" = (
@@ -3877,7 +3877,7 @@
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/item/storage/box/gloves,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/research)
 "Ga" = (

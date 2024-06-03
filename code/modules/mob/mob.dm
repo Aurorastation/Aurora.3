@@ -858,8 +858,12 @@
 			lying = TRUE
 			lying_is_intentional = TRUE
 			canmove = TRUE
+		else if(sleeping)
+			lying = resting || is_dead() || (MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN) && sleeps_horizontal()) // Vaurca, IPCs and Diona sleep standing up, unless they were already lying down
+			lying_is_intentional = FALSE
+			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 		else
-			lying = MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN)
+			lying = resting || is_dead() || MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN) && !recently_slept
 			lying_is_intentional = FALSE
 			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 
@@ -891,6 +895,9 @@
 
 	return canmove
 
+
+/mob/proc/sleeps_horizontal()
+	return TRUE
 
 /mob/proc/facedir(var/ndir, var/force_change = FALSE)
 	if(!canface() || (client && client.moving))
@@ -992,6 +999,8 @@
 
 /mob/proc/AdjustSleeping(amount)
 	sleeping = max(sleeping + amount,0)
+	if(!sleeping)
+		recently_slept = 10
 	return
 
 /mob/proc/Resting(amount)

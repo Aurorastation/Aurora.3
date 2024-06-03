@@ -167,26 +167,7 @@
 	return
 
 /singleton/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed, var/datum/reagents/holder)
-
-	if(alien != IS_DIONA)
-		M.intoxication += (strength / 100) * removed * 6
-
-		if (druggy != 0)
-			M.druggy = max(M.druggy, druggy)
-
-		if (halluci)
-			M.hallucination = max(M.hallucination, halluci)
-
-		if(caffeine)
-			M.add_chemical_effect(CE_PULSE, caffeine*2)
-			M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
-
-	if (adj_temp > 0 && M.bodytemperature < targ_temp) // 310 is the normal bodytemp. 310.055
-		M.bodytemperature = min(targ_temp, M.bodytemperature + (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
-	if (adj_temp < 0 && M.bodytemperature > targ_temp)
-		M.bodytemperature = min(targ_temp, M.bodytemperature - (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
-
-	if(ishuman(M))
+	if(alien != IS_DIONA && ishuman(M))
 		var/has_valid_aug = FALSE
 		var/obj/item/organ/internal/augment/ethanol_burner/aug = M.internal_organs_by_name[BP_AUG_ETHANOL_BURNER]
 		if(aug && !aug.is_broken())
@@ -194,13 +175,31 @@
 
 		var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
 		if(!has_valid_aug && (alien == IS_VAURCA || (istype(P) && P.stage >= 3)))//Vaurca are damaged instead of getting nutrients, but they can still get drunk
-			M.adjustToxLoss(1.5 * removed * (strength / 100))
-		else
+			M.adjustToxLoss(12 * removed * (strength / 100))
+
+		if (!has_valid_aug && alien == IS_UNATHI) //unathi are poisoned by alcohol as well
+			M.adjustToxLoss(12 * removed * (strength / 100))
+			if(!M.lastpuke)
+				to_chat(M, SPAN_WARNING("Your gizzard lurches as the alcohol burns its way down your gullet!"))//Make it clear that you should not be drinking this.
+			var/mob/living/carbon/human/H = M
+			H.delayed_vomit()
+
+		if (has_valid_aug | alien != IS_UNATHI)
+			M.intoxication += (strength / 100) * removed * 6
+			if (druggy != 0)
+				M.druggy = max(M.druggy, druggy)
+			if (halluci)
+				M.hallucination = max(M.hallucination, halluci)
+			if(caffeine)
+				M.add_chemical_effect(CE_PULSE, caffeine*2)
+				M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
 			M.adjustNutritionLoss(-nutriment_factor * removed)
 			M.adjustHydrationLoss(-hydration_factor * removed)
 
-		if (!has_valid_aug && alien == IS_UNATHI)//unathi are poisoned by alcohol as well
-			M.adjustToxLoss(1.5 * removed * (strength / 100))
+	if (adj_temp > 0 && M.bodytemperature < targ_temp) // 310 is the normal bodytemp. 310.055
+		M.bodytemperature = min(targ_temp, M.bodytemperature + (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
+	if (adj_temp < 0 && M.bodytemperature > targ_temp)
+		M.bodytemperature = min(targ_temp, M.bodytemperature - (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
 
 /singleton/reagent/alcohol/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O, /obj/item/paper))
@@ -243,7 +242,7 @@
 	description = "A fairly harmless alcohol that has intoxicating effects on certain species."
 	reagent_state = LIQUID
 	color = "#404030"
-	ingest_met = REM * 0.25 //Extremely slow metabolic rate means the liver will generally purge it faster than it can intoxicate you
+	ingest_met = REM * 2.5
 	flammability_divisor = 7	//Butanol is a bit less flammable than ethanol
 
 	taste_description = "alcohol"
@@ -257,19 +256,26 @@
 	distillation_point = T0C + 117.7
 
 /singleton/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(!istype(M))
-		return
-	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
-	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
-		M.adjustToxLoss(removed * (strength / 100))
-	else
+	if (alien == IS_UNATHI)
+		M.intoxication += (strength / 100) * removed * 6
+		if (druggy != 0)
+			M.druggy = max(M.druggy, druggy)
+		if (halluci)
+			M.hallucination = max(M.hallucination, halluci)
+		if(caffeine)
+			M.add_chemical_effect(CE_PULSE, caffeine*2)
+			M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
+
 		M.adjustNutritionLoss(-nutriment_factor * removed)
 		M.adjustHydrationLoss(-hydration_factor * removed)
 
-	if (alien == IS_UNATHI)
-		ingest_met = initial(ingest_met)*9
-
-	..()
+		if (adj_temp > 0 && M.bodytemperature < targ_temp) // 310 is the normal bodytemp. 310.055
+			M.bodytemperature = min(targ_temp, M.bodytemperature + (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
+		if (adj_temp < 0 && M.bodytemperature > targ_temp)
+			M.bodytemperature = min(targ_temp, M.bodytemperature - (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
+	else
+		strength = 0 //Only Unathi are intoxicated by butanol.
+		..()
 
 /singleton/reagent/hydrazine
 	name = "Hydrazine"

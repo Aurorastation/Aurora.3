@@ -217,7 +217,6 @@
 	dir = 5
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -1913,7 +1912,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -2437,7 +2435,6 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -2484,7 +2481,6 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -2690,7 +2686,6 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /obj/machinery/light{
@@ -3231,7 +3226,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{

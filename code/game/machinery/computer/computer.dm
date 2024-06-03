@@ -32,7 +32,7 @@
 	update_icon()
 
 /obj/machinery/computer/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = TRUE)
-	if(inoperable() || isNotStationLevel(z) || user.stat)
+	if(!operable() || isNotStationLevel(z) || user.stat)
 		user.unset_machine()
 		return
 

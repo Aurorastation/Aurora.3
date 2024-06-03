@@ -57,7 +57,7 @@
 		return
 
 	if(ishuman(M) || isrobot(M) || isbot(M) || istype(M, /mob/living/simple_animal/spiderbot) || ismech(M))
-		if(inoperable())
+		if(!operable())
 			if(do_after(M, 1 SECOND, src))
 				// The VM here is before open and the wording is backwards because density gets set after a background sleep in open
 				visible_message("\The [M] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")
@@ -68,7 +68,7 @@
 
 /obj/machinery/door/window/allowed(mob/M)
 	. = ..()
-	if(inoperable() || !density) // Unpowered windoors can just be slid open, open windoors can always be closed
+	if(!operable() || !density) // Unpowered windoors can just be slid open, open windoors can always be closed
 		return TRUE
 	use_power_oneoff(50) // Just powering the RFID and maybe a weak motor
 	if(operable() && . == FALSE)
@@ -183,7 +183,7 @@
 		return TRUE
 
 	if(isobj(attacking_item) && attacking_item.iscrowbar() && user.a_intent == I_HELP)
-		if(inoperable())
+		if(!operable())
 			visible_message("\The [user] forces \the [src] [density ? "open" : "closed"].")
 			if(density)
 				open(TRUE)
@@ -207,7 +207,7 @@
 		src.add_fingerprint(user)
 
 	if(allowed(user))
-		if(inoperable())
+		if(!operable())
 			if(!do_after(user, 1 SECOND, src))
 				return TRUE
 			visible_message("\The [user] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")
@@ -229,7 +229,7 @@
 
 
 /obj/machinery/door/window/brigdoor/allowed(mob/M)
-	if(inoperable()) // Brigdoors are the exception to the "fail open" windoor - they lock closed
+	if(!operable()) // Brigdoors are the exception to the "fail open" windoor - they lock closed
 		to_chat(M, SPAN_WARNING("\The [src] refuses to budge in its unpowered state."))
 		return FALSE
 	. = ..()

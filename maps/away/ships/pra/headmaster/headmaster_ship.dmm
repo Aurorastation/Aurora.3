@@ -27,7 +27,7 @@
 	},
 /area/headmaster_ship)
 "ag" = (
-/obj/structure/ship_weapon_dummy,
+/obj/structure/ship_weapon_dummy/barrel,
 /turf/template_noop,
 /area/space)
 "ai" = (

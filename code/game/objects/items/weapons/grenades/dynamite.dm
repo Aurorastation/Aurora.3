@@ -57,6 +57,8 @@
 	if(!active)
 		prime()
 
-/obj/item/grenade/dynamite/fire_act()
+/obj/item/grenade/dynamite/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(!active)
 		prime()

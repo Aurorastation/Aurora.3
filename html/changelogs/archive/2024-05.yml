@@ -330,3 +330,105 @@
   - qol: Adds an Autolathe to the Ranger Gunship.
   - qol: Adds more navpoints for Boarding actions or anything else
   - qol: Adds some Lights to the Thrusters too so you can see
+2024-05-23:
+  Alberyk:
+  - bugfix: The Sani'Orios should have proper radio and power now.
+  Ben10083:
+  - bugfix: PSIS and Nuclear Waste Turrets Fixed to not fire upon Loyal PRA Citizens
+      (Only if they are Hadiist Supporters).
+  CactusMouth:
+  - rscadd: Adds ability to get to the Zavod Destroyed Shuttle. Also some new minor
+      props.
+  FluffyGhost:
+  - rscadd: Attacking a fire alarm with harm intent will trigger the fire alarm.
+  - refactor: Refactored fire alarms from NanoUI to TGUI.
+  Geeves:
+  - rscadd: Augments such as the Idris Faceplate are now visible in the character
+      preview screen.
+  GeneralCamo:
+  - qol: Hovering over an item in an inventory, not in storage, will now show a tooltip
+      and outline.
+  - rscadd: The supermatter reactor now produces radiation via SSRadiation. Better
+      wear your suit!
+  - rscadd: The supermatter reactor now has a ray effect and color shifts if it is
+      damaged.
+  Hollyhock:
+  - qol: Improves NKA Merchant and DPRA Hailstorm ships.
+  - bugfix: Fixes targetting for the NKA and PRA ships.
+  SimpleMaroon:
+  - qol: K'lax Vaurcae can now take the Unathite straw hat.
+  - qol: Mi'kuetz Vaurcae can now take the Wastelander kilt and goggles.
+  Sparky_hotdog:
+  - rscadd: Drinks can now select a transfer rate as low as 1 unit, allowing for smaller
+      sips.
+  - bugfix: Fixes bodybags being affected by stairs.
+  - rscadd: Vaurcae, IPCs & Dionae will now all remain upright when sleeping.
+  - rscadd: Added unique messages when entering sleep for alien species, as well as
+      unique sleep examine text.
+  - rscadd: Added unique different snoring replacements for alien species.
+  - rscadd: Varcae, IPCs & Dionae can now all choose to remain asleep indefinitely.
+  - rscadd: Added clip-on radios, available in the radio selection. They can be equipped
+      in either ear slot or the wrist slot.
+  - bugfix: Fixed an issue causing wrist radios to not display on mob.
+  - rscadd: Added snoods to the loadout, for even more warm winter wear.
+  hazelmouse:
+  - bugfix: Fixed a bug in which you had to target the fore of the DPRA Hailstorm
+      offship to make contact with ship guns while facing its aft, and vice versa.
+2024-05-24:
+  Crosarius:
+  - refactor: Fixed up alcohol and butanol affect_ingest()
+  - qol: Generally buffed intoxication resistances for Unathi, Tajara, and Skrell,
+      to compensate for recent changes to alcohol potency.
+  - qol: Alcohol poisoning now no longer kills you by destroying your liver. Instead,
+      it causes the patient to fall into a coma, and stop breathing.
+  - qol: Better messages for drunkeness.
+  - qol: Ethylredoxrazine now prevents people from falling into comas from alcohol
+      toxicity alltogether.
+  - qol: Vomiting from being intoxicated now happens much less often, and at a higher
+      level of intoxication.
+  - qol: Being drunk enough to cause vomiting now has a pulsing message to go along
+      with other drunkeness messages.
+  - bugfix: You can now correctly black out or fall into an alcoholic coma while buckled
+      to a bed or laying down.
+  - bugfix: Unathi are no longer poisoned by butanol.
+  - bugfix: Unathi are now correctly poisoned by alcohol
+  - bugfix: Non-Unathi are no longer intoxicated by butanol.
+  DreamySkrell:
+  - rscadd: BAPI - spacemandmm dmm reading.
+  FluffyGhost:
+  - bugfix: Fixed exosuit frame icon not updating when you remove parts from it.
+  - code_imp: Minor exosuit code improvements.
+  - balance: Made all the design template production speed into seconds, slowing the
+      printing down.
+  - bugfix: This also works in fixing the UI hitting the rate limit.
+  GeneralCamo:
+  - bugfix: The location blurb will now correctly show on the HUD plane.
+  Hollyhock:
+  - bugfix: Hopefully fixes footprints indoors on Adhomai.
+  Jasorn:
+  - bugfix: Adds the Adhomai faction flag to the cavern geist so it doesn't get swarmed
+      by hostile wildlife and die.
+  Sparky_hotdog:
+  - bugfix: Clip-on Security radios now spawn correctly.
+2024-05-25:
+  GeneralCamo:
+  - rscadd: Added a Norinori plushie to the loadout and random plush spawns.
+2024-05-27:
+  FluffyGhost:
+  - refactor: Refactored fire_act() to be in line with TG version, removed useless
+      parameter, added signal, made non sleepable and forced to call parent.
+  - refactor: Added atom_act.dm file for the various *_act procs.
+2024-05-29:
+  Geeves:
+  - rscadd: Synthetic eyes can now glow in the dark. In character creation, when selecting
+      the brand of the eyes, select Unbranded Emissive.
+  Hollyhock:
+  - qol: Gives the Sani'Orios base a medbay, jetpacks, a tool belt, and a fuel tank
+      for refuelling their fellows in the DPRA.
+  - qol: Gives the poor Hadiist silo guard some rations, cigarettes, a radio, and
+      a Hadiist manifesto. Hadii's grace.
+  - qol: Moves the Hailstorm's reactor and telecomms back to where they were.
+  Sparky_hotdog:
+  - rscadd: Science goggles can now be toggled onto your forehead.
+  TheDanseMacabre:
+  - rscadd: Added a new hairstyle based off of the undercut, Short Curtain.

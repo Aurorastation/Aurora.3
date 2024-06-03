@@ -2727,7 +2727,7 @@
 	if(!istype(M))
 		return
 	if(alien == IS_VAURCA)
-		M.intoxication += (strength / 100) * removed * 3.5
+		M.intoxication += (strength / 100) * removed * 6
 
 /singleton/reagent/drink/toothpaste/cold_gate
 	name = "Cold Gate"

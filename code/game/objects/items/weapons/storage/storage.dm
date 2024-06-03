@@ -203,6 +203,7 @@
 		. += "It contains: [counting_english_list(contents)]"
 
 /obj/item/storage/MouseDrop(obj/over_object)
+	. = ..()
 	if(!canremove)
 		return
 	if(!over_object || over_object == src)
@@ -764,7 +765,11 @@
 			return
 
 	if (src.loc == user)
-		src.open(user)
+		//If the storage is already open, close it, otherwise open it
+		if(user.s_active == src)
+			src.close(user)
+		else
+			src.open(user)
 	else
 		..()
 		for(var/mob/M in range(1, get_turf(src)) - user)

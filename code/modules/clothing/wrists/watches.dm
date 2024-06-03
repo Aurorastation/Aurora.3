@@ -4,9 +4,6 @@
 	desc_extended = "For those who want too much time on their wrists instead."
 	icon_state = "watch"
 	item_state = "watch"
-	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/wrist.dmi'
-	)
 	var/wired = TRUE
 	var/screwed = TRUE
 

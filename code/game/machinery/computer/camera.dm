@@ -27,7 +27,7 @@
 	return attack_hand(user)
 
 /obj/machinery/computer/security/check_eye(var/mob/user as mob)
-	if (user.stat || user.blinded || inoperable())
+	if (user.stat || user.blinded || !operable())
 		return -1
 	if(!current_camera)
 		return 0
@@ -37,7 +37,7 @@
 	return viewflag
 
 /obj/machinery/computer/security/grants_equipment_vision(var/mob/user as mob)
-	if(user.stat || user.blinded || inoperable())
+	if(user.stat || user.blinded || !operable())
 		return FALSE
 	if(!current_camera)
 		return FALSE
@@ -131,7 +131,7 @@
 		A.client.eye = A.eyeobj
 		return 1
 
-	if (user.stat || user.blinded || inoperable())
+	if (user.stat || user.blinded || !operable())
 		return 0
 	set_current(C)
 
