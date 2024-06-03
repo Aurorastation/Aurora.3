@@ -57,6 +57,8 @@
 	var/door_hinge = -6.5 // for closets, x away from the centre of the closet. typically good to add a 0.5 so it's centered on the edge of the closet.
 	var/door_hinge_alt = 6.5 // for closets with two doors. why a seperate var? because some closets may be weirdly shaped or something.
 	var/door_anim_time = 2.5 // set to 0 to make the door not animate at all
+	/// Set to TRUE to have the locker not be filled with items, useful for ruins where we dont want people to have the items inside
+	var/no_fill = FALSE
 
 
 /obj/structure/closet/LateInitialize()
@@ -76,7 +78,7 @@
 	if(content_size > storage_capacity-5)
 		storage_capacity = content_size + 5
 
-/obj/structure/closet/Initialize(mapload, var/no_fill)
+/obj/structure/closet/Initialize(mapload)
 	. = ..()
 	update_icon()
 	if(!no_fill)

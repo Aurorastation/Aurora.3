@@ -572,8 +572,9 @@
 	var/rarity = 1
 	var/quantity = 10
 	var/list/spawntypes
+	no_fill = TRUE
 
-/obj/structure/closet/crate/loot/Initialize(mapload, no_fill)
+/obj/structure/closet/crate/loot/Initialize(mapload)
 	. = ..()
 
 	spawntypes = list(
