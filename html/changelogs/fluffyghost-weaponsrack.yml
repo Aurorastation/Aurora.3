@@ -60,4 +60,4 @@ changes:
   - refactor: "Refactored some circuitboard code, moved the defines, applied the defines, DMDocs."
   - refactor: "Moved mutable appearance appearance flag set to the mutable appearance file."
   - qol: "Reorganized the Horizon armory with the weapons racks, moved things around, put down markers on lockers depending on the danger level of their content, reorganized content of the remaining lockers."
-  - rscadd: "Made weapons racks constructable with circuitboards."
+  - rscadd: "Made weapons racks constructable with a circuitboards."
