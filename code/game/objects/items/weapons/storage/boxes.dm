@@ -1347,3 +1347,10 @@
 	. = ..()
 	new /obj/item/stack/cable_coil(src, 6)
 	new /obj/item/stack/material/steel(src, 2)
+
+/obj/item/storage/box/stressball
+	name = "box of stress balls"
+	desc = "A box containing a number of stress balls."
+	starts_with = list(
+		/obj/item/toy/stressball = 6
+	)

@@ -112,3 +112,8 @@
 	for(var/obj/item/toy/mech/mecha as anything in subtypesof(/obj/item/toy/mech))
 		mechas[initial(mecha.name)] = mecha
 	gear_tweaks += new /datum/gear_tweak/path(mechas)
+
+/datum/gear/toy/stressball
+	display_name = "stress ball"
+	description = "A squishy, red stress ball. This one has a squeaker inside."
+	path = /obj/item/toy/stressball
