@@ -4,7 +4,7 @@
 	prefix = "ships/fed_humanitarian/"
 	suffixes = list("fed_humanitarian_ship.dmm")
 	sectors = list(SECTOR_UUEOAESA)
-	spawn_weight = 1
+	spawn_weight = 10
 	ship_cost = 1
 	id = "skrell_humanitarian"
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
@@ -81,6 +81,16 @@
 	name = "Nralakk Humanitarian Ship - Starboard Dock"
 	landmark_tag = "fed_humanitarian_dock2"
 	docking_controller = "airlock_fed_humanitarian_stbd"
+
+/obj/effect/shuttle_landmark/fed_humanitarian/portaftdock
+	name = "Nralakk Humanitarian Ship - Port Aft Dock"
+	landmark_tag = "fed_humanitarian_dock3"
+	docking_controller = "airlock_fed_humanitarian_aft_starboard"
+
+/obj/effect/shuttle_landmark/fed_humanitarian/starbaftdock
+	name = "Nralakk Humanitarian Ship - Starboard Aft Dock"
+	landmark_tag = "fed_humanitarian_dock3"
+	docking_controller = "airlock_fed_humanitarian_aft_port"
 
 //Shuttle
 /obj/effect/overmap/visitable/ship/landable/fed_humanitarian_shuttle
