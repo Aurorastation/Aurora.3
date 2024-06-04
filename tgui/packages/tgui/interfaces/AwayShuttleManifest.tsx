@@ -23,7 +23,15 @@ type ShuttleAssignment = {
   mission: string;
   departure_time: string;
   return_time: string;
-}
+};
+
+const num2bearing = function (num) {
+  let bearing = '000';
+  if (num < 10) bearing = '00' + num;
+  else if (num < 100) bearing = '0' + num;
+  else bearing = num;
+  return bearing;
+};
 
 export const AwayShuttleManifest = (props, context) => {
   const { act, data } = useBackend<AwayShuttleData>(context);
@@ -91,59 +99,101 @@ export const AllShuttles = (props, context) => {
 
   return (
     <>
-      <Collapsible title="SCCV Canary" color="blue">
+      <Collapsible title="SCCV Canary" color="blue" icon="binoculars">
+        <Section title="SCCV Canary">
+          <Flex>
+            <Table>
+              <Table.Row header>
+                <Table.Cell>Shuttle Assignment: </Table.Cell>
+              </Table.Row>
+              {data.shuttle_assignments
+                .filter((m) => m.shuttle === 'SCCV Canary')
+                .map((ShuttleAssignment) => (
+                  <Table.Row key={ShuttleAssignment.shuttle}>
+                    <Table.Cell>
+                      <Flex.Item>
+                        Destination:
+                        <Button
+                          content={ShuttleAssignment.destination}
+                          onClick={() =>
+                            act('editdestination', {
+                              editdestination: ShuttleAssignment.shuttle,
+                            })
+                          }
+                        />
+                      </Flex.Item>
+                    </Table.Cell>
+                    <Table.Cell>
+                      <Flex.Item>
+                        Heading:
+                        <Button
+                          content={num2bearing(ShuttleAssignment.heading)}
+                          onClick={() =>
+                            act('editheading', {
+                              editheading: ShuttleAssignment.shuttle,
+                            })
+                          }
+                        />
+                      </Flex.Item>
+                    </Table.Cell>
+                    <Table.Cell>
+                      <Flex.Item>
+                        Mission:
+                        <Button
+                          content={ShuttleAssignment.mission}
+                          onClick={() =>
+                            act('editmission', {
+                              editmission: ShuttleAssignment.shuttle,
+                            })
+                          }
+                        />
+                      </Flex.Item>
+                    </Table.Cell>
+                    <Table.Cell>
+                      <Flex.Item>
+                        Departure Time:
+                        <Button
+                          content={ShuttleAssignment.departure_time}
+                          onClick={() =>
+                            act('editdeparturetime', {
+                              editdeparturetime: ShuttleAssignment.shuttle,
+                            })
+                          }
+                        />
+                      </Flex.Item>
+                    </Table.Cell>
+                    <Table.Cell>
+                      <Flex.Item>
+                        Return Time:
+                        <Button
+                          content={ShuttleAssignment.return_time}
+                          onClick={() =>
+                            act('editreturntime', {
+                              editreturntime: ShuttleAssignment.shuttle,
+                            })
+                          }
+                        />
+                      </Flex.Item>
+                    </Table.Cell>
+                  </Table.Row>
+                ))}
+            </Table>
+          </Flex>
+        </Section>
         <Section
-          title="SCCV Canary"
+          title="Shuttle Manifest"
           buttons={
-            <Button icon="plus" color="green" onClick={() => act('addentry')} />
+            <Button
+              icon="user-plus"
+              color="green"
+              onClick={() => act('addentry')}
+            />
           }>
-          {data.shuttle_assignments.filter((m => m.shuttle === 'SCCV Canary')).map((ShuttleAssignment) => (
-          <Table.Row key={ShuttleAssignment.shuttle}>
-            <Table.Cell>
-              <Flex.Item>
-                Destination:
-                <Button
-                  content={ShuttleAssignment.destination}
-                  onClick={() =>
-                    act('editdestination', { editdestination: ShuttleAssignment.shuttle })
-                  }
-                />
-                Heading:
-                <Button
-                  content={ShuttleAssignment.heading}
-                  onClick={() =>
-                    act('editheading', { editheading: ShuttleAssignment.shuttle })
-                  }
-                />
-                Mission:
-                <Button
-                  content={ShuttleAssignment.mission}
-                  onClick={() =>
-                    act('editmission', { editmission: ShuttleAssignment.shuttle })
-                  }
-                />
-                Departure Time:
-                <Button
-                  content={ShuttleAssignment.departure_time}
-                  onClick={() =>
-                    act('editdeparturetime', { editdeparturetime: ShuttleAssignment.shuttle })
-                  }
-                />
-                Return Time:
-                <Button
-                  content={ShuttleAssignment.return_time}
-                  onClick={() =>
-                    act('editreturntime', { editreturntime: ShuttleAssignment.shuttle })
-                  }
-                />
-              </Flex.Item>
-            </Table.Cell>
-          </Table.Row>))}
           {data.shuttle_manifest && data.shuttle_manifest.length ? (
             <Flex>
               <Table>
                 <Table.Row header>
-                  <Table.Cell>Name</Table.Cell>
+                  <Table.Cell>Crew Onboard: </Table.Cell>
                 </Table.Row>
                 {data.shuttle_manifest
                   .filter((m) => m.shuttle === 'SCCV Canary')
@@ -152,7 +202,13 @@ export const AllShuttles = (props, context) => {
                       <Table.Cell>
                         <Flex.Item>
                           <Button
-                            icon = {ShuttleCrew.lead ? "star" : null}
+                            icon={
+                              ShuttleCrew.lead ? 'star-half-stroke' : 'user'
+                            }
+                            tooltip={
+                              (ShuttleCrew.lead ? 'Remove' : 'Set') +
+                              ' Expedition Leader'
+                            }
                             color={ShuttleCrew.lead ? 'green' : 'blue'}
                             onClick={() =>
                               act('editlead', { editlead: ShuttleCrew.id })
@@ -165,7 +221,12 @@ export const AllShuttles = (props, context) => {
                             }
                           />
                           <Button
-                            content={ShuttleCrew.pilot ? 'P' : 'O'}
+                            icon={
+                              ShuttleCrew.pilot ? 'rocket' : 'suitcase-rolling'
+                            }
+                            tooltip={
+                              (ShuttleCrew.pilot ? 'Remove' : 'Set') + ' Pilot'
+                            }
                             color={ShuttleCrew.pilot ? 'green' : 'blue'}
                             onClick={() =>
                               act('editpilot', { editpilot: ShuttleCrew.id })
@@ -182,59 +243,89 @@ export const AllShuttles = (props, context) => {
           )}
         </Section>
       </Collapsible>
-      <Collapsible title="SCCV Intrepid" color="purple">
+      <Collapsible title="SCCV Intrepid" color="purple" icon="compass">
+        <Section title="SCCV Intrepid">
+          <Flex>
+            <Table>
+              <Table.Row header>
+                <Table.Cell>Shuttle Assignment: </Table.Cell>
+              </Table.Row>
+              {data.shuttle_assignments
+                .filter((m) => m.shuttle === 'SCCV Intrepid')
+                .map((ShuttleAssignment) => (
+                  <Table.Row key={ShuttleAssignment.shuttle}>
+                    <Table.Cell>
+                      <Flex.Item>
+                        Destination:
+                        <Button
+                          content={ShuttleAssignment.destination}
+                          onClick={() =>
+                            act('editdestination', {
+                              editdestination: ShuttleAssignment.shuttle,
+                            })
+                          }
+                        />
+                        {'\t'}
+                        Heading:
+                        <Button
+                          content={num2bearing(ShuttleAssignment.heading)}
+                          onClick={() =>
+                            act('editheading', {
+                              editheading: ShuttleAssignment.shuttle,
+                            })
+                          }
+                        />
+                        {'\t'}
+                        Mission:
+                        <Button
+                          content={ShuttleAssignment.mission}
+                          onClick={() =>
+                            act('editmission', {
+                              editmission: ShuttleAssignment.shuttle,
+                            })
+                          }
+                        />
+                        {'\n'}
+                        Departure Time:
+                        <Button
+                          content={ShuttleAssignment.departure_time}
+                          onClick={() =>
+                            act('editdeparturetime', {
+                              editdeparturetime: ShuttleAssignment.shuttle,
+                            })
+                          }
+                        />
+                        {'\t'}
+                        Return Time:
+                        <Button
+                          content={ShuttleAssignment.return_time}
+                          onClick={() =>
+                            act('editreturntime', {
+                              editreturntime: ShuttleAssignment.shuttle,
+                            })
+                          }
+                        />
+                      </Flex.Item>
+                    </Table.Cell>
+                  </Table.Row>
+                ))}
+            </Table>
+          </Flex>
+        </Section>
         <Section
-          title="SCCV Intrepid"
+          title="Shuttle Manifest"
           buttons={
-            <Button icon="plus" color="green" onClick={() => act('addentry')} />
+            <Button
+              icon="user-plus"
+              color="green"
+              onClick={() => act('addentry')}
+            />
           }>
-          {data.shuttle_assignments.filter((m => m.shuttle === 'SCCV Intrepid')).map((ShuttleAssignment) => (
-          <Table.Row key={ShuttleAssignment.shuttle}>
-            <Table.Cell>
-              <Flex.Item>
-              Destination:
-                <Button
-                  content={ShuttleAssignment.destination}
-                  onClick={() =>
-                    act('editdestination', { editdestination: ShuttleAssignment.shuttle })
-                  }
-                />
-                Heading:
-                <Button
-                  content={ShuttleAssignment.heading}
-                  onClick={() =>
-                    act('editheading', { editheading: ShuttleAssignment.shuttle })
-                  }
-                />
-                Mission:
-                <Button
-                  content={ShuttleAssignment.mission}
-                  onClick={() =>
-                    act('editmission', { editmission: ShuttleAssignment.shuttle })
-                  }
-                />
-                Departure Time:
-                <Button
-                  content={ShuttleAssignment.departure_time}
-                  onClick={() =>
-                    act('editdeparturetime', { editdeparturetime: ShuttleAssignment.shuttle })
-                  }
-                />
-                Return Time:
-                <Button
-                  content={ShuttleAssignment.return_time}
-                  onClick={() =>
-                    act('editreturntime', { editreturntime: ShuttleAssignment.shuttle })
-                  }
-                />
-              </Flex.Item>
-            </Table.Cell>
-          </Table.Row>))}
           {data.shuttle_manifest && data.shuttle_manifest.length ? (
             <Flex>
               <Table>
                 <Table.Row header>
-                  <Table.Cell>Name</Table.Cell>
+                  <Table.Cell>Crew Onboard: </Table.Cell>
                 </Table.Row>
                 {data.shuttle_manifest
                   .filter((m) => m.shuttle === 'SCCV Intrepid')
@@ -243,7 +334,13 @@ export const AllShuttles = (props, context) => {
                       <Table.Cell>
                         <Flex.Item>
                           <Button
-                            icon = {ShuttleCrew.lead ? "star" : null}
+                            icon={
+                              ShuttleCrew.lead ? 'star-half-stroke' : 'user'
+                            }
+                            tooltip={
+                              (ShuttleCrew.lead ? 'Remove' : 'Set') +
+                              ' Expedition Leader'
+                            }
                             color={ShuttleCrew.lead ? 'green' : 'blue'}
                             onClick={() =>
                               act('editlead', { editlead: ShuttleCrew.id })
@@ -256,7 +353,12 @@ export const AllShuttles = (props, context) => {
                             }
                           />
                           <Button
-                            content={ShuttleCrew.pilot ? 'P' : 'O'}
+                            icon={
+                              ShuttleCrew.pilot ? 'rocket' : 'suitcase-rolling'
+                            }
+                            tooltip={
+                              (ShuttleCrew.pilot ? 'Remove' : 'Set') + ' Pilot'
+                            }
                             color={ShuttleCrew.pilot ? 'green' : 'blue'}
                             onClick={() =>
                               act('editpilot', { editpilot: ShuttleCrew.id })
@@ -273,59 +375,89 @@ export const AllShuttles = (props, context) => {
           )}
         </Section>
       </Collapsible>
-      <Collapsible title="SCCV Spark" color="brown">
+      <Collapsible title="SCCV Spark" color="brown" icon="gem">
+        <Section title="SCCV Spark">
+          <Flex>
+            <Table>
+              <Table.Row header>
+                <Table.Cell>Shuttle Assignment: </Table.Cell>
+              </Table.Row>
+              {data.shuttle_assignments
+                .filter((m) => m.shuttle === 'SCCV Spark')
+                .map((ShuttleAssignment) => (
+                  <Table.Row key={ShuttleAssignment.shuttle}>
+                    <Table.Cell>
+                      <Flex.Item>
+                        Destination:
+                        <Button
+                          content={ShuttleAssignment.destination}
+                          onClick={() =>
+                            act('editdestination', {
+                              editdestination: ShuttleAssignment.shuttle,
+                            })
+                          }
+                        />
+                        {'\t'}
+                        Heading:
+                        <Button
+                          content={num2bearing(ShuttleAssignment.heading)}
+                          onClick={() =>
+                            act('editheading', {
+                              editheading: ShuttleAssignment.shuttle,
+                            })
+                          }
+                        />
+                        {'\t'}
+                        Mission:
+                        <Button
+                          content={ShuttleAssignment.mission}
+                          onClick={() =>
+                            act('editmission', {
+                              editmission: ShuttleAssignment.shuttle,
+                            })
+                          }
+                        />
+                        {'\n'}
+                        Departure Time:
+                        <Button
+                          content={ShuttleAssignment.departure_time}
+                          onClick={() =>
+                            act('editdeparturetime', {
+                              editdeparturetime: ShuttleAssignment.shuttle,
+                            })
+                          }
+                        />
+                        {'\t'}
+                        Return Time:
+                        <Button
+                          content={ShuttleAssignment.return_time}
+                          onClick={() =>
+                            act('editreturntime', {
+                              editreturntime: ShuttleAssignment.shuttle,
+                            })
+                          }
+                        />
+                      </Flex.Item>
+                    </Table.Cell>
+                  </Table.Row>
+                ))}
+            </Table>
+          </Flex>
+        </Section>
         <Section
-          title="SCCV Spark"
+          title="Shuttle Manifest"
           buttons={
-            <Button icon="plus" color="green" onClick={() => act('addentry')} />
+            <Button
+              icon="user-plus"
+              color="green"
+              onClick={() => act('addentry')}
+            />
           }>
-          {data.shuttle_assignments.filter((m => m.shuttle === 'SCCV Spark')).map((ShuttleAssignment) => (
-          <Table.Row key={ShuttleAssignment.shuttle}>
-            <Table.Cell>
-              <Flex.Item>
-              Destination:
-                <Button
-                  content={ShuttleAssignment.destination}
-                  onClick={() =>
-                    act('editdestination', { editdestination: ShuttleAssignment.shuttle })
-                  }
-                />
-                Heading:
-                <Button
-                  content={ShuttleAssignment.heading}
-                  onClick={() =>
-                    act('editheading', { editheading: ShuttleAssignment.shuttle })
-                  }
-                />
-                Mission:
-                <Button
-                  content={ShuttleAssignment.mission}
-                  onClick={() =>
-                    act('editmission', { editmission: ShuttleAssignment.shuttle })
-                  }
-                />
-                Departure Time:
-                <Button
-                  content={ShuttleAssignment.departure_time}
-                  onClick={() =>
-                    act('editdeparturetime', { editdeparturetime: ShuttleAssignment.shuttle })
-                  }
-                />
-                Return Time:
-                <Button
-                  content={ShuttleAssignment.return_time}
-                  onClick={() =>
-                    act('editreturntime', { editreturntime: ShuttleAssignment.shuttle })
-                  }
-                />
-              </Flex.Item>
-            </Table.Cell>
-          </Table.Row>))}
           {data.shuttle_manifest && data.shuttle_manifest.length ? (
             <Flex>
               <Table>
                 <Table.Row header>
-                  <Table.Cell>Name</Table.Cell>
+                  <Table.Cell>Crew Onboard: </Table.Cell>
                 </Table.Row>
                 {data.shuttle_manifest
                   .filter((m) => m.shuttle === 'SCCV Spark')
@@ -334,7 +466,13 @@ export const AllShuttles = (props, context) => {
                       <Table.Cell>
                         <Flex.Item>
                           <Button
-                            icon = {ShuttleCrew.lead ? "star" : null}
+                            icon={
+                              ShuttleCrew.lead ? 'star-half-stroke' : 'user'
+                            }
+                            tooltip={
+                              (ShuttleCrew.lead ? 'Remove' : 'Set') +
+                              ' Expedition Leader'
+                            }
                             color={ShuttleCrew.lead ? 'green' : 'blue'}
                             onClick={() =>
                               act('editlead', { editlead: ShuttleCrew.id })
@@ -347,7 +485,12 @@ export const AllShuttles = (props, context) => {
                             }
                           />
                           <Button
-                            content={ShuttleCrew.pilot ? 'P' : 'O'}
+                            icon={
+                              ShuttleCrew.pilot ? 'rocket' : 'suitcase-rolling'
+                            }
+                            tooltip={
+                              (ShuttleCrew.pilot ? 'Remove' : 'Set') + ' Pilot'
+                            }
                             color={ShuttleCrew.pilot ? 'green' : 'blue'}
                             onClick={() =>
                               act('editpilot', { editpilot: ShuttleCrew.id })

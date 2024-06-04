@@ -37,7 +37,7 @@ SUBSYSTEM_DEF(records)
 	viruses = list()
 	shuttle_assignments = list()
 	for(var/shuttle in HORIZON_SHUTTLES)
-		var/datum/record/shuttle/assignment/A = new /datum/record/shuttle/assignment/A(src, shuttle)
+		var/datum/record/shuttle_assignment/A = new /datum/record/shuttle_assignment(shuttle)
 		shuttle_assignments += A
 	shuttle_manifests = list()
 	excluded_fields = list()
@@ -111,9 +111,9 @@ SUBSYSTEM_DEF(records)
 			warrants += record
 		if(/datum/record/virus)
 			viruses += record
-		if(/datum/record/shuttle/manifest)
+		if(/datum/record/shuttle_manifest)
 			shuttle_manifests += record
-		if(/datum/record/shuttle/assignment)
+		if(/datum/record/shuttle_assignment)
 			shuttle_assignments += record
 	onCreate(record)
 
@@ -128,9 +128,9 @@ SUBSYSTEM_DEF(records)
 			warrants |= record
 		if(/datum/record/virus)
 			viruses |= record
-		if(/datum/record/shuttle/manifest)
+		if(/datum/record/shuttle_manifest)
 			shuttle_manifests |= record
-		if(/datum/record/shuttle/assignment)
+		if(/datum/record/shuttle_assignment)
 			shuttle_assignments |= record
 	onModify(record)
 
@@ -145,9 +145,9 @@ SUBSYSTEM_DEF(records)
 			warrants -= record
 		if(/datum/record/virus)
 			viruses *= record
-		if(/datum/record/shuttle/manifest)
+		if(/datum/record/shuttle_manifest)
 			shuttle_manifests -= record
-		if(/datum/record/shuttle/assignment)
+		if(/datum/record/shuttle_assignment)
 			shuttle_assignments -= record
 	onDelete(record)
 	qdel(record)

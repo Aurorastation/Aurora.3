@@ -34,7 +34,11 @@
 				"pilot" = m.pilot,
 				"lead" = m.lead
 			))
-		for(var/datum/record/shuttle_assignment/a in SSrecord.shuttle_assignments)
+		for(var/datum/record/shuttle_assignment/a in SSrecords.shuttle_assignments)
+			if(!a.departure_time)
+				a.departure_time = worldtime2text()
+			if(!a.return_time)
+				a.return_time = worldtime2text(world.time + 1 HOUR)
 			allassignments += list(list(
 				"shuttle" = a.shuttle,
 				"destination" = a.destination,
@@ -120,7 +124,7 @@
 
 		if("editentryshuttle")
 			. = TRUE
-			var/newshuttle = sanitize(input("Please enter shuttle.") as null|anything in list("SCCV Canary", "SCCV Intrepid", "SCCV Spark"))
+			var/newshuttle = sanitize(input("Please enter shuttle.") as null|anything in HORIZON_SHUTTLES)
 			if(!computer.use_check_and_message(usr))
 				if(!newshuttle)
 					return
@@ -138,7 +142,7 @@
 		if("editheading")
 			for(var/datum/record/shuttle_assignment/a in SSrecords.shuttle_assignments)
 				if(a.shuttle == params["editheading"])
-					var/new_head = floor(input(usr, "Please enter heading.") as null|number)
+					var/new_head = floor(input(usr, "Please enter heading.") as null|num)
 					if(new_head < 0 || new_head > 359 || !new_head)
 						new_head = 0
 					if(!computer.use_check_and_message(usr))
@@ -146,8 +150,8 @@
 
 		if("editmission")
 			for(var/datum/record/shuttle_assignment/a in SSrecords.shuttle_assignments)
-				if(a.shuttle == params["editdestination"])
-					var/new_mis = sanitize(input(usr, "Please select mission.") as null|anything in list("Exploration", "Research", "Prospecting", "Transport", "Combat", "Rescue", "Training"))
+				if(a.shuttle == params["editmission"])
+					var/new_mis = sanitize(input(usr, "Please select primary mission.") as null|anything in list("Exploration", "Research", "Prospecting", "Transport", "Combat", "Rescue", "Training"))
 					if(!computer.use_check_and_message(usr))
 						if(!new_mis)
 							return
@@ -155,7 +159,7 @@
 
 		if("editdeparturetime")
 			for(var/datum/record/shuttle_assignment/a in SSrecords.shuttle_assignments)
-				if(a.shuttle === params["editdeparturetime"])
+				if(a.shuttle == params["editdeparturetime"])
 					var/new_depart = sanitize(input(usr, "Please enter new departure time.") as null|text)
 					if(!computer.use_check_and_message(usr))
 						if(!new_depart)
@@ -164,7 +168,7 @@
 
 		if("editreturntime")
 			for(var/datum/record/shuttle_assignment/a in SSrecords.shuttle_assignments)
-				if(a.shuttle === params["editreturntime"])
+				if(a.shuttle == params["editreturntime"])
 					var/new_return = sanitize(input(usr, "Please enter new return time.") as null|text)
 					if(!computer.use_check_and_message(usr))
 						if(!new_return)

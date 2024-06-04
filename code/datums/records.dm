@@ -276,5 +276,3 @@ var/shuttle_uid = 0
 /datum/record/shuttle_assignment/New(var/for_shuttle)
 	. = ..()
 	shuttle = for_shuttle
-	departure_time = worldtime2text()
-	return_time = worldtime2text(world.time + 1 HOUR)
