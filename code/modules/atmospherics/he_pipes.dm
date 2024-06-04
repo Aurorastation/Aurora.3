@@ -58,8 +58,20 @@
 		..()
 	else
 		var/datum/gas_mixture/pipe_air = return_air()
+
 		if(istype(loc, /turf/space) || (isopenturf(loc) && (istype(GetBelow(loc), /turf/space) || istype(GetAbove(loc), /turf/space))))
 			parent.radiate_heat_to_space(surface, 1)
+
+		else if(istype(loc, /turf/simulated/lava))
+			// we want to heat up the pipe to some arbitrary temperature of lava
+			// need to add some thermal energy to pipe air
+			// but only up to a limit so it does not heat up instantly to max
+			// and stop heating when it is at that temperature
+			var/max_energy_change = 200 KILO WATTS
+			var/lava_temperature = 1500
+			var/energy_to_temp = parent.air.get_thermal_energy_change(lava_temperature)
+			parent.air.add_thermal_energy(max(min(energy_to_temp, max_energy_change), 0))
+
 		else if(istype(loc, /turf/simulated/))
 			var/environment_temperature = 0
 			if(loc:blocks_air)

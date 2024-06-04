@@ -11,8 +11,14 @@
 	variables = list() //Variables of that mob
 
 	//Vars related to human mobs
-	var/obj/outfit/outfit = null //Outfit to equip
-	var/list/species_outfits = list() //Outfit overwrite for the species
+
+	/// Outfit to equip
+	/// Should either be a subtype of `/obj/outfit`, and then it is that specific outfit
+	/// Or a list of subtypes, where it randomly picks one outfit from that list
+	var/outfit = null
+	/// Outfit overwrite for the species
+	var/list/species_outfits = list()
+
 	var/uses_species_whitelist = TRUE //Do you need the whitelist to play the species?
 	var/possible_species = list(SPECIES_HUMAN)
 	var/allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -28,6 +34,18 @@
 	var/list/origin_restriction = list()
 
 	mob_name = null
+
+	/// Determines whether the mob will have an Idris banking account when they spawn in
+	var/has_idris_account = TRUE
+
+	/// Determines whether the Idris banking account will be visible on the station's account terminal
+	var/is_idris_account_public = FALSE
+
+	/// The minimum amount of money the account can spawn with
+	var/idris_account_min = 100
+
+	/// The maximum amount of money the account can spawn with
+	var/idris_account_max = 500
 
 //Return a error message if the user CANT spawn. Otherwise FALSE
 /datum/ghostspawner/human/cant_spawn(mob/user)
@@ -138,12 +156,17 @@
 		age = rand(35, 50)
 	M.age = Clamp(age, 21, 65)
 
+	if(has_idris_account)
+		SSeconomy.create_and_assign_account(M, null, rand(idris_account_min, idris_account_max), is_idris_account_public)
+
 	//Setup the Outfit
 	if(picked_species in species_outfits)
 		var/obj/outfit/species_outfit = species_outfits[picked_species]
 		M.preEquipOutfit(species_outfit, FALSE)
 		M.equipOutfit(species_outfit, FALSE)
 	else if(outfit)
+		if(islist(outfit))
+			outfit = pick(outfit)
 		M.preEquipOutfit(outfit, FALSE)
 		M.equipOutfit(outfit, FALSE)
 
@@ -181,7 +204,3 @@
 /// Used for cryo to free up a slot when a ghost cryos.
 /mob/living/carbon/human
 	var/datum/weakref/ghost_spawner
-
-/mob/living/carbon/human/Destroy()
-	ghost_spawner = null
-	. = ..()

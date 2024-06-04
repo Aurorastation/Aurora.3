@@ -7,7 +7,7 @@
 	spell_flags = Z2NOCAST | INCLUDEUSER
 	invocation = "BIRUZ BENNAR"
 	invocation_type = SpI_SHOUT
-	message = "<span class='notice'>You feel strong! You feel a pressure building behind your eyes!</span>"
+	message = SPAN_NOTICE("You feel strong! You feel a pressure building behind your eyes!")
 	range = 0
 	max_targets = 1
 	cast_sound = 'sound/magic/Mutate.ogg'

@@ -171,11 +171,6 @@
 	else
 		. = ..()
 
-/mob/living/bot/cleanbot/think()
-	if(pAI) // no AI if we have a pAI installed
-		return
-	..()
-
 /mob/living/bot/emag_act()
 	return FALSE
 

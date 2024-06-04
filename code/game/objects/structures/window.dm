@@ -104,12 +104,12 @@
 		updateSilicate()
 
 /obj/structure/window/proc/updateSilicate()
-	cut_overlays()
+	ClearOverlays()
 
 	var/image/img = image(icon, icon_state)
 	img.color = "#ffffff"
 	img.alpha = silicate * 255 / 100
-	add_overlay(img)
+	AddOverlays(img)
 
 /obj/structure/window/proc/shatter(var/display_message = 1)
 	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
@@ -170,7 +170,7 @@
 	if(istype(mover) && mover.checkpass(PASSGLASS))
 		return 1
 	if(is_full_window())
-		return 0	//full tile window, you can't move into it!
+		return !density	//full tile window, you can't move into it if it's solid!
 	if(get_dir(loc, target) & dir)
 		return !density
 	else
@@ -376,24 +376,40 @@
 	update_nearby_tiles()
 	var/turf/location = loc
 	loc = null
+
 	for(var/obj/structure/window/W in orange(location, 1))
 		W.update_icon()
+
+	for(var/obj/structure/table/T in view(location, 1))
+		T.update_connections()
+		T.update_icon()
+
 	loc = location
+
 	return ..()
 
 /obj/structure/window/Move()
 	var/ini_dir = dir
+	var/oldloc = loc
+
 	update_nearby_tiles(need_rebuild=1)
+
 	..()
+
 	set_dir(ini_dir)
 	update_nearby_tiles(need_rebuild=1)
+
+	if(loc != oldloc)
+		for(var/obj/structure/table/T in view(oldloc, 1) | view(loc, 1))
+			T.update_connections()
+			T.update_icon()
 
 /obj/structure/window/proc/is_fulltile() // Checks if this window is a full-tile one.
 	if(dir & (dir - 1))
 		return 1
 	return 0
 
-/obj/structure/window/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/structure/window/fire_act(exposed_temperature, exposed_volume)
 	if(exposed_temperature > maximal_heat)
 		hit(damage_per_fire_tick, 0)
 	..()
@@ -537,12 +553,11 @@
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
 	icon = 'icons/obj/smooth/shuttle_window.dmi'
 	icon_state = "shuttle_window"
-	basestate = "window"
+	basestate = "w"
 	atom_flags = 0
 	obj_flags = null
 	maxhealth = 40
 	reinf = TRUE
-	basestate = "w"
 	dir = 5
 	smoothing_flags = SMOOTH_TRUE
 	can_be_unanchored = TRUE

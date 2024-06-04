@@ -218,7 +218,6 @@
 	banners["banner, Free Tajaran Council"] = /obj/item/flag/ftc
 	banners["banner, Republic of Biesel"] = /obj/item/flag/biesel
 	banners["banner, Solarian Colonial Mandate of Tau Ceti"] = /obj/item/flag/biesel/antique
-	banners["banner, CT-EUM"] = /obj/item/flag/cteum
 	banners["banner, Trinary Perfection"] = /obj/item/flag/trinaryperfection
 	banners["banner, Golden Deep"] = /obj/item/flag/goldendeep
 	banners["banner, Hephaestus Industries"] = /obj/item/flag/heph
@@ -428,6 +427,21 @@
 	display_name = "aurora miniature"
 	description = "A commemorative miniature of the NSS Aurora."
 	path = /obj/item/toy/aurora
+
+/datum/gear/instruments
+	display_name = "instrument selection"
+	description = "A selection of instruments for the musically inclined."
+	path = /obj/item/device/synthesized_instrument
+	allowed_roles = list("Off-Duty Crew Member", "Passenger")
+
+/datum/gear/instruments/New()
+	..()
+	var/list/instruments = list()
+	instruments["guitar"] = /obj/item/device/synthesized_instrument/guitar
+	instruments["polyguitar"] = /obj/item/device/synthesized_instrument/guitar/multi
+	instruments["violin"] = /obj/item/device/synthesized_instrument/violin
+	instruments["Omnitrumpet"] = /obj/item/device/synthesized_instrument/trumpet
+	gear_tweaks += new /datum/gear_tweak/path(instruments)
 
 /datum/gear/lore_radio
 	display_name = "analog radio"

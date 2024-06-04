@@ -694,11 +694,13 @@
 #define ACCESS_COALITION 221
 /datum/access/coalition
 	id = ACCESS_COALITION
+	desc = "Coalition of Colonies"
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_COALITION_NAVY 222
 /datum/access/coalition_navy
 	id = ACCESS_COALITION_NAVY
+	desc = "Coalition Navy"
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_GADPATHUR_NAVY 223
@@ -719,6 +721,16 @@
 #define ACCESS_HOUSE_VOLVALAAD_SHIP 226
 /datum/access/house_volvalaad_ship
 	id = ACCESS_HOUSE_VOLVALAAD_SHIP
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_OZEUOI 227
+/datum/access/moghes_wasteland_ozeuoi
+	id = ACCESS_OZEUOI
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_AUTAKH 228
+/datum/access/autakh
+	id = ACCESS_AUTAKH
 	access_type = ACCESS_TYPE_CENTCOM
 
 //guest rooms - for any ship/event that requires hotel-esque rooms
@@ -787,3 +799,8 @@
 /datum/access/guest_room_10
 	id = ACCESS_GUEST_ROOM_10
 	desc = "Guest Room 10"
+
+#define ACCESS_FISHING_LEAGUE 241
+/datum/access/unathi_trawler_access
+	id = ACCESS_FISHING_LEAGUE
+	desc = "General Fishing Trawler Access"

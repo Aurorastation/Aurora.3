@@ -41,7 +41,11 @@
 	{{if data.current}}
 		<div class="item">
 			<div class="itemLabelWide">
-				<b>Now: {{:data.current}}</b> ({{:data.builtperc}}% ready)
+				{{if data.timeleft}}
+					<b>Time left: {{:data.current}}</b> ({{:data.timeleft / 10}} seconds)
+				{{else}}
+					<b>{{:data.current}} (Awaiting to start)</b>
+				{{/if}}
 			</div>
 			<div class="itemContentMedium">
 				{{:helper.link('Cancel', null, {'remove' : 1})}}

@@ -127,10 +127,10 @@
 			plant.pixel_y = 0
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/effect/plant, update_neighbors))
 
-/turf/simulated/wall/ChangeTurf(var/newtype)
+/turf/simulated/wall/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
 	clear_plants()
 	clear_bulletholes()
-	..(newtype)
+	..()
 
 //Appearance
 /turf/simulated/wall/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
@@ -183,7 +183,8 @@
 
 	return
 
-/turf/simulated/wall/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume) //Doesn't fucking work because walls don't interact with air :[
+/turf/simulated/wall/fire_act(exposed_temperature, exposed_volume) //Doesn't fucking work because walls don't interact with air :[
+	. = ..()
 	burn(exposed_temperature)
 
 /turf/simulated/wall/adjacent_fire_act(turf/simulated/floor/adj_turf, datum/gas_mixture/adj_air, adj_temp, adj_volume)

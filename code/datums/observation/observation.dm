@@ -99,6 +99,7 @@
 	return is_listening(event_source)
 
 /singleton/observ/proc/register(datum/event_source, datum/listener, proc_call)
+	CAN_BE_REDEFINED(TRUE)
 	// Sanity checking.
 	if (!(event_source && listener && proc_call))
 		return FALSE
@@ -130,6 +131,7 @@
 	return TRUE
 
 /singleton/observ/proc/unregister(event_source, datum/listener, proc_call)
+	CAN_BE_REDEFINED(TRUE)
 	// Sanity.
 	if (!event_source || !listener || !event_sources[event_source])
 		return FALSE
@@ -164,6 +166,7 @@
 	return TRUE
 
 /singleton/observ/proc/register_global(datum/listener, proc_call)
+	CAN_BE_REDEFINED(TRUE)
 	// Sanity.
 	if (!(listener && proc_call))
 		return FALSE
@@ -179,6 +182,7 @@
 	return TRUE
 
 /singleton/observ/proc/unregister_global(datum/listener, proc_call)
+	CAN_BE_REDEFINED(TRUE)
 	// Return false unless the listener is set as a global listener.
 	if (!(listener && global_listeners[listener]))
 		return FALSE

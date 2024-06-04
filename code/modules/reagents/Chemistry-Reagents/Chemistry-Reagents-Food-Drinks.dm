@@ -277,6 +277,27 @@
 	color = "#EDB91F"
 	taste_description = "cheese"
 
+/singleton/reagent/nakarka
+	name = "Nakarka Cheese"
+	color = "#5bbd22"
+	taste_description = "sharp tangy cheese"
+	reagent_state = SOLID
+	taste_mult = 3
+
+/singleton/reagent/nakarka/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	..()
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(prob(10) && !(alien in list(IS_VAURCA, IS_SKRELL, IS_DIONA, IS_UNATHI)))
+			var/list/nemiik_messages = list(
+				"Your stomache feels a bit unsettled...",
+				"Your throat tingles slightly...",
+				"You feel like you may need the restroom soon...",
+				"Your stomach hurts a little bit...",
+				"You feel the need to burp."
+			)
+			to_chat(H, SPAN_WARNING(pick(nemiik_messages)))
+
 //Fats
 //=========================
 /singleton/reagent/nutriment/triglyceride
@@ -508,7 +529,7 @@
 /singleton/reagent/nutriment/teagrounds/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
 		if(last_taste_time + 800 < world.time) // Not to spam message
-			to_chat(M, "<span class='danger'>Your body withers as you feel slight pain throughout.</span>")
+			to_chat(M, SPAN_DANGER("Your body withers as you feel slight pain throughout."))
 			last_taste_time = world.time
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)
@@ -829,7 +850,7 @@
 
 	var/agony_dose = 15 // Capsaicin required to proc agony. (3 to 5 chilis.)
 	var/agony_amount = 1
-	var/discomfort_message = "<span class='danger'>Your insides feel uncomfortably hot.</span>"
+	var/discomfort_message = SPAN_DANGER("Your insides feel uncomfortably hot.")
 	var/slime_temp_adj = 10
 
 /singleton/reagent/capsaicin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -872,7 +893,7 @@
 	color = "#B31008"
 	agony_dose = 0.5
 	agony_amount = 4
-	discomfort_message = "<span class='danger'>You feel like your insides are burning!</span>"
+	discomfort_message = SPAN_DANGER("You feel like your insides are burning!")
 	slime_temp_adj = 15
 	fallback_specific_heat = 4
 
@@ -911,11 +932,11 @@
 	var/message = null
 	if(eyes_covered)
 		if (!mouth_covered && (eyes_covered & EYES_PROTECTED))
-			message = "<span class='warning'>Your [eye_protection] protects your eyes from the pepperspray!</span>"
+			message = SPAN_WARNING("Your [eye_protection] protects your eyes from the pepperspray!")
 		else if (eyes_covered & EYES_MECH)
-			message = "<span class='warning'>Your mechanical eyes are invulnerable to pepperspray!</span>"
+			message = SPAN_WARNING("Your mechanical eyes are invulnerable to pepperspray!")
 	else
-		message = "<span class='warning'>The pepperspray gets in your eyes!</span>"
+		message = SPAN_WARNING("The pepperspray gets in your eyes!")
 		if(mouth_covered)
 			M.eye_blurry = max(M.eye_blurry, 15)
 			M.eye_blind = max(M.eye_blind, 5)
@@ -925,9 +946,9 @@
 
 	if(mouth_covered)
 		if(!message)
-			message = "<span class='warning'>Your [face_protection] protects you from the pepperspray!</span>"
+			message = SPAN_WARNING("Your [face_protection] protects you from the pepperspray!")
 	else if(!no_pain)
-		message = "<span class='danger'>Your face and throat burn!</span>"
+		message = SPAN_DANGER("Your face and throat burn!")
 		if(prob(25))
 			M.visible_message("<b>[M]</b> [pick("coughs!","coughs hysterically!","splutters!")]")
 		M.apply_effect(30, DAMAGE_PAIN)
@@ -939,7 +960,8 @@
 			return
 	M.apply_effect(10, DAMAGE_PAIN)
 	if(prob(5))
-		M.visible_message("<span class='warning'>[M] [pick("dry heaves!","coughs!","splutters!")]</span>", "<span class='danger'>You feel like your insides are burning!</span>")
+		M.visible_message(SPAN_WARNING("[M] [pick("dry heaves!","coughs!","splutters!")]"),
+							SPAN_DANGER("You feel like your insides are burning!"))
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(15, 30)
 	holder.remove_reagent(/singleton/reagent/frostoil, 5)
@@ -1461,6 +1483,29 @@
 			H.custom_pain("You feel a stinging pain in your abdomen!")
 			H.Stun(3)
 
+/singleton/reagent/drink/milk/nemiik
+	name = "Ne'miik"
+	description = "A thick, pus-like substance extracted from the Sky'au creatures native to Sedantis. It is largely believed the louder and more horrifying the Sky'au's screams are as it is being milked, the tastier the ne'miik is. It is full of minerals! It's safe for Vaurcae and Skrell to drink, but generally causes some discomfort in other species."
+	taste_description = "tangy sweet ooze"
+	color = "#71fa21"
+	glass_name = "glass of ne'miik"
+	glass_desc = "A thick, pus-like substance extracted from the Sky'au creatures native to Sedantis. It is largely believed the louder and more horrifying the Sky'au's screams are as it is being milked, the tastier the ne'miik is. It is full of minerals! It's safe for Vaurcae and Skrell to drink, but generally causes some discomfort in other species."
+	glass_icon_state = "nemiik"
+
+/singleton/reagent/drink/milk/nemiik/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	..()
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(prob(10) && !(alien in list(IS_VAURCA, IS_SKRELL, IS_DIONA, IS_UNATHI)))
+			var/list/nemiik_messages = list(
+				"Your stomache feels a bit unsettled...",
+				"Your throat tingles slightly...",
+				"Your stomach hurts a little bit...",
+				"You feel like you may need the restroom soon...",
+				"You feel the need to burp."
+			)
+			to_chat(H, SPAN_WARNING(pick(nemiik_messages)))
+
 /singleton/reagent/drink/tea
 	name = "Tea"
 	description = "Tasty black tea, it has antioxidants, it's good for you!"
@@ -1479,7 +1524,7 @@
 /singleton/reagent/drink/tea/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
 		if(last_taste_time + 800 < world.time) // Not to spam message
-			to_chat(M, "<span class='danger'>Your body withers as you feel slight pain throughout.</span>")
+			to_chat(M, SPAN_DANGER("Your body withers as you feel slight pain throughout."))
 			last_taste_time = world.time
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)
@@ -2678,14 +2723,11 @@
 	glass_desc = "Dentists recommend drinking zero glasses a day, and instead brushing normally."
 	glass_center_of_mass = list("x"=7, "y"=8)
 
-
 /singleton/reagent/drink/toothpaste/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
-
 	if(!istype(M))
 		return
-
 	if(alien == IS_VAURCA)
-		M.intoxication += (strength / 100) * removed * 3.5
+		M.intoxication += (strength / 100) * removed * 6
 
 /singleton/reagent/drink/toothpaste/cold_gate
 	name = "Cold Gate"
@@ -2700,8 +2742,8 @@
 
 /singleton/reagent/drink/toothpaste/waterfresh
 	name = "Waterfresh"
-	description = "A concoction of toothpaste and mouthwash, for when you need to show your pearly whites."
-	strength = 40
+	description = "A concoction of toothpaste and water, for when you need to show your pearly whites."
+	strength = 30
 	taste_description = "bubble bath"
 
 	glass_icon_state = "waterfresh"
@@ -2712,7 +2754,7 @@
 /singleton/reagent/drink/toothpaste/sedantian_firestorm
 	name = "Sedantian Firestorm"
 	description = "Florinated phoron, is the drink suppose to be on fire?"
-	strength = 80
+	strength = 70
 	taste_description = "melting asphalt"
 	adj_temp = 25
 	default_temperature = T0C + 60
@@ -2725,7 +2767,7 @@
 /singleton/reagent/drink/toothpaste/kois_odyne
 	name = "K'ois Odyne"
 	description = "A favourite among the younger vaurca, born from an accident involving nanopaste and the repair of internal augments."
-	strength = 60
+	strength = 40
 	taste_description = "chalk"
 
 	glass_icon_state = "kois_odyne"
@@ -2744,16 +2786,65 @@
 	glass_name = "cup of teathpaste"
 	glass_desc = "Recommended by 1 out of 5 dentists."
 
-
 	var/last_taste_time = -100
 
 /singleton/reagent/drink/toothpaste/teathpaste/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
 		if(last_taste_time + 800 < world.time) // Not to spam message
-			to_chat(M, "<span class='danger'>Your body withers as you feel slight pain throughout.</span>")
+			to_chat(M, SPAN_DANGER("Your body withers as you feel slight pain throughout."))
 			last_taste_time = world.time
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)
+
+/singleton/reagent/drink/toothpaste/mouthwash
+	name = "Mouthwash"
+	description = "A fluid commonly used in oral hygiene."
+	reagent_state = LIQUID
+	color = "#9df8ff"
+	taste_description = "mouthwash"
+	overdose = REAGENTS_OVERDOSE
+	strength = 75
+
+	glass_icon_state = "mouthwash"
+	glass_name = "glass of mouthwash"
+	glass_desc = "A minty sip and you're buzzing."
+	glass_center_of_mass = list("x"=7, "y"=8)
+
+/singleton/reagent/drink/toothpaste/mouthwash/mouthgarita
+	name = "Mouthgarita"
+	description = "Very simple cocktail of mouthwash and lime juice."
+	taste_description = "sour and minty"
+	color = "#9dffd1"
+	strength = 60
+
+	glass_icon_state = "mouthgarita"
+	glass_name = "glass of Mouthgarita"
+	glass_desc = "Very simple cocktail of mouthwash and lime juice."
+	glass_center_of_mass = list("x"=7, "y"=8)
+
+/singleton/reagent/drink/toothpaste/mouthwash/caprician_sunrise
+	name = "Caprician Sunrise"
+	description = "Vaurcesian take on the classic screwdriver."
+	taste_description = "spicy orange"
+	color = "#9dffd6"
+	strength = 60
+
+	glass_icon_state = "caprician_sunrise"
+	glass_name = "glass of Caprician Sunrise"
+	glass_desc = "Vaurcesian take on the classic screwdriver."
+	glass_center_of_mass = list("x"=7, "y"=8)
+
+/singleton/reagent/drink/toothpaste/mouthwash/flagsdale_mule
+	name = "Flagsdale Mule"
+	description = "A hard-kicking cocktail, said to be invented in the better parts of Flagsdale."
+	strength = 80
+	taste_description = "refreshing, spicy lime, and bulwark's kick"
+	color = "#9dfff2"
+
+	glass_icon_state = "flagsdale_mule"
+	glass_name = "glass of Flagsdale Mule"
+	glass_desc = "A hard-kicking cocktail, said to be invented in the better parts of Flagsdale."
+	glass_center_of_mass = list("x"=7, "y"=8)
 
 /* Alcohol */
 
@@ -3284,7 +3375,6 @@
 	taste_description = "orange peel"
 	color = "#fc782b"
 	strength = 12
-	taste_description = "orange peel"
 
 	glass_icon_state = "glass_orange"
 	glass_name = "glass of triple sec"
@@ -4429,10 +4519,10 @@
 
 /singleton/reagent/alcohol/daiquiri
 	name = "Daiquiri"
-	description = "Exotically blue, fruity drink, distilled from oranges."
+	description = "A splendid looking cocktail."
 	color = "#efd08d"
 	strength = 15
-	taste_description = "oranges"
+	taste_description = "lime and sugar"
 
 	glass_icon_state = "daiquiri"
 	glass_name = "glass of Daiquiri"
@@ -4778,7 +4868,7 @@
 	taste_mult = 1.2
 	var/agony_dose = 5
 	var/agony_amount = 1
-	var/discomfort_message = "<span class='danger'>Your insides feel uncomfortably hot!</span>"
+	var/discomfort_message = SPAN_DANGER("Your insides feel uncomfortably hot!")
 	var/slime_temp_adj = 3
 
 /singleton/reagent/alcohol/fireball/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -4801,7 +4891,7 @@
 			M.apply_effect(agony_amount, DAMAGE_PAIN, 0)
 			if(prob(5))
 				M.visible_message("<b>[M]</b> [pick("dry heaves!","coughs!","splutters!")]")
-				to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
+				to_chat(M, SPAN_DANGER("You feel like your insides are burning!"))
 		if(istype(M, /mob/living/carbon/slime))
 			M.bodytemperature += rand(0, 15) + slime_temp_adj
 		holder.remove_reagent(/singleton/reagent/frostoil, 2)
@@ -5179,7 +5269,7 @@
 
 	var/agony_dose = 5
 	var/agony_amount = 1
-	var/discomfort_message = "<span class='danger'>Your insides feel uncomfortably hot!</span>"
+	var/discomfort_message = SPAN_DANGER("Your insides feel uncomfortably hot!")
 	var/slime_temp_adj = 3
 
 /singleton/reagent/alcohol/songwater/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -5202,7 +5292,7 @@
 			M.apply_effect(agony_amount, DAMAGE_PAIN, 0)
 			if(prob(5))
 				M.visible_message("<b>[M]</b> [pick("dry heaves!","coughs!","splutters!")]")
-				to_chat(M, "<span class='danger'>You feel like your insides are burning!</span>")
+				to_chat(M, SPAN_DANGER("You feel like your insides are burning!"))
 		if(istype(M, /mob/living/carbon/slime))
 			M.bodytemperature += rand(0, 15) + slime_temp_adj
 		holder.remove_reagent(/singleton/reagent/frostoil, 2)
@@ -5505,7 +5595,6 @@
 
 	glass_icon_state = "darmadhirbrew_glass"
 	glass_name = "glass of Darmadhir Brew"
-	description = "A rare and expensive brand of nm'shaan liquor."
 
 /singleton/reagent/alcohol/treebark_firewater
 	name = "Tree-Bark Firewater"
@@ -5764,7 +5853,7 @@
 /singleton/reagent/alcohol/butanol/trizkizki_tea/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	if(alien == IS_DIONA)
 		if(last_taste_time + 800 < world.time) // Not to spam message
-			to_chat(M, "<span class='danger'>Your body withers as you feel slight pain throughout.</span>")
+			to_chat(M, SPAN_DANGER("Your body withers as you feel slight pain throughout."))
 			last_taste_time = world.time
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)
@@ -5815,16 +5904,31 @@
 	taste_description = "fruity grape"
 
 /singleton/reagent/drink/zorasoda/klax
-	name = "K'laxan Energy Crush"
+	name = "K'lax Energy Crush"
 	description = "An orange zest cream soda with a delicious smooth taste."
 	color = "#E78108"
 	taste_description = "fizzy and creamy orange zest"
+
+/singleton/reagent/drink/zorasoda/xuizi
+	name = "K'lax Xuizi Xplosion"
+	description = "A fizzy soda, made with genuine xuizi juice."
+	color = "#91de47"
+	taste_description = "sparkling cactus water"
+	species_taste_description = list(
+		SPECIES_UNATHI = "an electric kick of strawberry and watermelon"
+	)
 
 /singleton/reagent/drink/zorasoda/cthur
 	name = "C'thur Rockin' Raspberry"
 	description = "A raspberry concoction you're pretty sure is already on recall."
 	color = "#0000CD"
 	taste_description = "sweet flowery raspberry"
+
+/singleton/reagent/drink/zorasoda/dyn
+	name = "C'thur Dyn-A-Mite"
+	description = "Tastes like dyn, if it punched you in the mouth."
+	color = "#00e0e0"
+	taste_description = "an explosion of menthol"
 
 /singleton/reagent/drink/zorasoda/venomgrass
 	name = "Zo'ra Sour Venom Grass"
@@ -5850,6 +5954,24 @@
 	description = "Tastes exactly like how a kitchen smells after boiling brussel sprouts."
 	color = "#DCD9CD"
 	taste_description = "sugary cabbage"
+
+/singleton/reagent/drink/zorasoda/mixedberry
+	name = "Zo'ra Caprician Craze"
+	description = "A mixed berry soda. Which berries are those? You can't tell!"
+	color = "#F9190F"
+	taste_description = "energizing berries"
+
+/singleton/reagent/drink/zorasoda/lemonlime
+	name = "Zo'ra Seismic Slammer"
+	description = "A potently effervescent lemon-lime energy drink."
+	color = "#E3E3E3"
+	taste_description = "electric zestiness"
+
+/singleton/reagent/drink/zorasoda/buzz
+	name = "Buzzin' Cola"
+	description = "A remarkably bubbly cola flavoured energy drink."
+	color = "#3C090B"
+	taste_description = "a fizzing swarm of cola"
 
 /singleton/reagent/drink/zorasoda/drone
 	name = "Vaurca Drone Fuel"
@@ -5920,7 +6042,6 @@
 	description = "A delicious seasonal flavoring."
 	color = "#AE771C"
 	taste_description = "autumn bliss"
-	condiment_name = "bottle of pumpkin spice"
 	condiment_name = "Pumpkin Spice"
 	condiment_desc = "Every teenager's favorite seasonal ingredient."
 	condiment_icon_state = "pumpkinspice"
@@ -6312,7 +6433,6 @@
 
 	glass_icon_state = "pulque_dyn"
 	glass_name = "dyn pulque"
-	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is dyn flavored."
 
 /singleton/reagent/alcohol/pulque/banana
 	name = "Banana Pulque"
@@ -6322,7 +6442,6 @@
 
 	glass_icon_state = "pulque_banana"
 	glass_name = "banana pulque"
-	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is banana flavored."
 
 /singleton/reagent/alcohol/pulque/berry
 	name = "Berry Pulque"
@@ -6332,7 +6451,6 @@
 
 	glass_icon_state = "pulque_berry"
 	glass_name = "berry pulque"
-	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is berry flavored."
 
 /singleton/reagent/alcohol/pulque/coffee
 	name = "Coffee Pulque"
@@ -6342,7 +6460,6 @@
 
 	glass_icon_state = "pulque_coffee"
 	glass_name = "coffee pulque"
-	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is coffee flavored."
 
 /singleton/reagent/drink/jyalra
 	name = "Jyalra"

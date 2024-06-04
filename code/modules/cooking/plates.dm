@@ -45,11 +45,11 @@ Plates that can hold your cooking stuff
 					SPAN_NOTICE("You scoop up some of \the [src]'s contents with \the [U]!")
 				)
 
-				U.cut_overlays()
+				U.ClearOverlays()
 				U.loaded = src.name
 				var/image/I = new(U.icon, "loadedfood")
 				I.color = reagents.get_color()
-				U.add_overlay(I)
+				U.AddOverlays(I)
 				reagents.trans_to_obj(U, min(reagents.total_volume,U.transfer_amt))
 				U.is_liquid = TRUE
 				return
@@ -85,7 +85,7 @@ Plates that can hold your cooking stuff
 	return
 
 /obj/item/reagent_containers/bowl/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(grease)
 		icon_state = "[initial(icon_state)]_mess"
 	else
@@ -95,7 +95,7 @@ Plates that can hold your cooking stuff
 		var/image/I = image(icon=icon, icon_state="[icon_state]_over")
 		I.color = reagents.get_color()
 		LAZYADD(O, I)
-	set_overlays(O)
+	SetOverlays(O)
 	return ..()
 
 /obj/item/reagent_containers/bowl/plate
@@ -167,7 +167,7 @@ Plates that can hold your cooking stuff
 	return
 
 /obj/item/reagent_containers/bowl/plate/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/list/O = list()
 	if(grease)
 		icon_state = "[initial(icon_state)]_mess"
@@ -176,7 +176,7 @@ Plates that can hold your cooking stuff
 	if(holding)
 		holding.update_icon() // Just to be safe.
 		LAZYADD(O, image(icon=holding.icon, icon_state=holding.icon_state))
-	set_overlays(O)
+	SetOverlays(O)
 
 /obj/item/reagent_containers/bowl/zhukamir
 	name = "\improper Zhukamir cauldron"

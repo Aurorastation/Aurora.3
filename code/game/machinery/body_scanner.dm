@@ -247,13 +247,13 @@
 	icon = 'icons/obj/sleeper.dmi'
 	icon_state = "body_scannerconsole"
 	var/obj/machinery/bodyscanner/connected
-	var/known_implants = list(/obj/item/implant/chem, /obj/item/implant/death_alarm, /obj/item/implant/mindshield, /obj/item/implant/tracking, /obj/item/implant/integrated_circuit)
 	var/collapse_desc = ""
 	var/broken_desc = ""
 	var/has_internal_injuries = FALSE
 	var/has_external_injuries = FALSE
 	density = FALSE
 	anchored = TRUE
+	z_flags = ZMM_MANGLE_PLANES
 	component_types = list(
 			/obj/item/circuitboard/bodyscannerconsole,
 			/obj/item/stock_parts/scanning_module = 2,
@@ -281,13 +281,15 @@
 	update_icon()
 
 /obj/machinery/body_scanconsole/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if((stat & BROKEN) || (stat & NOPOWER))
 		return
 	else
 		if(!console_overlay)
-			console_overlay = make_screen_overlay(icon, "body_scannerconsole-screen")
-		add_overlay(console_overlay)
+			console_overlay = image(icon, "body_scannerconsole-screen")
+		var/emissive_overlay = emissive_appearance(icon, "body_scannerconsole-screen")
+		AddOverlays(console_overlay)
+		AddOverlays(emissive_overlay)
 		set_light(1.4, 1, COLOR_PURPLE)
 
 /obj/machinery/body_scanconsole/Initialize()
@@ -317,7 +319,7 @@
 	switch(action)
 		// shouldn't be reachable if occupant is invalid
 		if("print")
-			var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, format_occupant_data(connected.get_occupant_data()), "Scan ([connected.occupant])", connected.occupant)
+			var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, format_occupant_data(connected.get_occupant_data()), "Scan ([connected.occupant]) ([worldtime2text()])", connected.occupant)
 			print(R, message = "\The [src] beeps, printing \the [R] after a moment.", user = usr)
 
 		if("eject")
@@ -479,19 +481,6 @@
 	return data
 
 /obj/machinery/body_scanconsole/proc/get_internal_damage(var/obj/item/organ/internal/I)
-	if(istype(I, /obj/item/organ/internal/parasite))
-		var/obj/item/organ/internal/parasite/P = I
-		switch(P.stage)
-			if(1)
-				return "Tiny"
-			if(2)
-				return "Small"
-			if(3)
-				return "Large"
-			if(4)
-				return "Massive"
-			else
-				return "Present"
 	if(I.is_broken())
 		return "Severe"
 	if(I.is_bruised())
@@ -522,7 +511,7 @@
 /obj/machinery/body_scanconsole/proc/get_external_wound_data(var/mob/living/carbon/human/H)
 	// Limbs.
 	var/organs = list()
-	for (var/obj/item/organ/external/O in H.organs)
+	for(var/obj/item/organ/external/O in H.organs)
 		var/list/data = list()
 		data["name"] = capitalize_first_letters(O.name)
 		var/burn_damage = get_severity(O.burn_dam, TRUE)
@@ -532,47 +521,68 @@
 
 		var/list/wounds = list()
 
-		if (O.status & ORGAN_ROBOT)
+		if(O.status & ORGAN_ROBOT)
 			wounds += "inorganic"
-		if (O.status & ORGAN_ARTERY_CUT)
+		if(O.status & ORGAN_ARTERY_CUT)
 			wounds += "severed [O.artery_name]"
-		if (O.tendon_status() & TENDON_CUT)
+		if(O.tendon_status() & TENDON_CUT)
 			wounds += "severed [O.tendon.name]"
-		if (O.status & ORGAN_SPLINTED)
+		if(O.status & ORGAN_SPLINTED)
 			wounds += "splinted"
-		if (O.status & ORGAN_BLEEDING)
+		if(O.status & ORGAN_BLEEDING)
 			wounds += "bleeding"
 		if(ORGAN_IS_DISLOCATED(O))
 			wounds += "dislocated"
-		if (O.status & ORGAN_BROKEN)
+		if(O.status & ORGAN_BROKEN)
 			wounds += "[O.broken_description]"
-		if (O.open)
+		if(O.open)
 			wounds += "open"
 
 		var/list/infection = list()
-		if (O.germ_level)
+		if(O.germ_level)
 			var/level = get_infection_level(O.germ_level)
 			if (level && level != "")
 				infection += "[level]"
-		if (O.rejecting)
+		if(O.rejecting)
 			infection += "rejection"
 
-		if (O.implants.len)
+		if(length(O.implants))
 			var/unk = 0
 			var/list/organic = list()
-			for (var/atom/movable/I in O.implants)
-				if(is_type_in_list(I, known_implants))
-					wounds += "[I.name] installed"
-				else if(istype(I, /obj/effect/spider))
-					organic += I
-				else
-					if(!istype(I, /obj/item/implant/uplink))
+
+			for(var/atom/movable/object_in_organ in O.implants)
+				//Handle actual implants
+				if(istype(object_in_organ, /obj/item/implant))
+					var/obj/item/implant/implant_in_organ = object_in_organ
+					//If the implant is hidden, skip it, no report in the scan
+					if(implant_in_organ.hidden)
+						continue
+
+					//If it's a known implant, report it with its full name
+					if(implant_in_organ.known)
+						wounds += "[implant_in_organ.name] installed"
+					//Otherwise, just let the player know there's something unknown there and call it a day
+					else
 						unk += 1
-			if (unk)
-				wounds += "unknown objects present"
-			var/friends = length(organic)
-			if(friends)
-				wounds += friends > 1 ? "multiple abnormal organic bodies" : "abnormal organic body"
+
+					//We did our job with implants, continue
+					continue
+
+				//Ok, implants fucked off above thanks to the continue, handle gremorian eggs now, they report as organics
+				//and whatever else is present, is unknown
+				if(istype(object_in_organ, /obj/effect/spider))
+					organic += object_in_organ
+				else
+					unk += 1
+
+			//If we found unknown objects, report them as such
+			if(unk)
+				wounds += "[unk] unknown object(s) present"
+
+			//If we found organic things present, report them as one or many
+			if(length(organic))
+				wounds += length(organic) > 1 ? "multiple abnormal organic bodies" : "abnormal organic body"
+
 
 		if(length(wounds) || brute_damage != "None" || burn_damage != "None")
 			has_external_injuries = TRUE
@@ -613,6 +623,15 @@
 			var/obj/item/organ/internal/appendix/A = O
 			if(A.inflamed)
 				wounds += "inflamed"
+
+		if(istype(O, /obj/item/organ/internal/parasite))
+			var/obj/item/organ/internal/parasite/P = O
+			if(P.stage)
+				wounds += "stage [P.stage]"
+			if(P.parent_organ)
+				wounds += "growing in [P.parent_organ]"
+			if(istype(P, /obj/item/organ/internal/parasite/malignant_tumour) && P.stage >= 4)
+				wounds += "metastasising"
 
 		if(O.status & ORGAN_DEAD)
 			if(O.can_recover())
@@ -831,7 +850,7 @@
 		dat += "</table>"
 
 	if(occ["missing_limbs"] != "Nothing")
-		dat += text("<span class='warning'>Missing limbs : [occ["missing_limbs"]]</span><BR>")
+		dat += SPAN_WARNING("Missing limbs : [occ["missing_limbs"]]<BR>")
 
 	dat += "<br><b>Internal Organ Status<HR></b>"
 
@@ -855,7 +874,7 @@
 		dat += "</table>"
 
 	if(occ["missing_organs"] != "Nothing")
-		dat += text("<span class='warning'>Missing organs : [occ["missing_organs"]]</span><BR>")
+		dat += SPAN_WARNING("Missing organs : [occ["missing_organs"]]<BR>")
 
 	dat += "</font></font>"
 

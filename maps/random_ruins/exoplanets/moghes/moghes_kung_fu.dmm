@@ -1,0 +1,442 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "corner";
+	dir = 1
+	},
+/area/template_noop)
+"c" = (
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/exoplanet/wood,
+/area/template_noop)
+"d" = (
+/turf/simulated/floor/exoplanet/wood,
+/area/template_noop)
+"i" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/template_noop)
+"j" = (
+/obj/structure/flora/grass/jungle,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/template_noop)
+"k" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "edge";
+	dir = 1
+	},
+/area/template_noop)
+"m" = (
+/obj/structure/punching_bag,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "edge";
+	dir = 8
+	},
+/area/template_noop)
+"n" = (
+/obj/structure/bonfire,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/template_noop)
+"q" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "water"
+	},
+/area/template_noop)
+"s" = (
+/obj/structure/closet/cabinet,
+/turf/simulated/floor/exoplanet/wood,
+/area/template_noop)
+"t" = (
+/obj/structure/flora/log_bench{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "edge";
+	dir = 4
+	},
+/area/template_noop)
+"w" = (
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/template_noop)
+"x" = (
+/obj/structure/table/steel,
+/obj/item/material/hatchet/butch,
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/exoplanet/wood,
+/area/template_noop)
+"y" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/template_noop)
+"z" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "corner"
+	},
+/area/template_noop)
+"D" = (
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/template_noop)
+"E" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "corner";
+	dir = 8
+	},
+/area/template_noop)
+"F" = (
+/obj/structure/closet/secure_closet/freezer,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/turf/simulated/floor/exoplanet/wood,
+/area/template_noop)
+"I" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "corner";
+	dir = 4
+	},
+/area/template_noop)
+"J" = (
+/obj/item/bedsheet/brown,
+/obj/structure/bed,
+/obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_kung_fu";
+	identifier = "moghes_kung_fu"
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/template_noop)
+"K" = (
+/obj/structure/flora/log_bench{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "edge";
+	dir = 1
+	},
+/area/template_noop)
+"L" = (
+/obj/item/material/hatchet/lumber,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "edge";
+	dir = 4
+	},
+/area/template_noop)
+"N" = (
+/obj/structure/simple_door/wood,
+/turf/simulated/floor/exoplanet/wood,
+/area/template_noop)
+"P" = (
+/turf/simulated/wall/wood,
+/area/template_noop)
+"Q" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lantern,
+/obj/item/material/hatchet/unathiknife,
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask,
+/turf/simulated/floor/exoplanet/wood,
+/area/template_noop)
+"S" = (
+/obj/structure/target_stake,
+/obj/item/target,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "edge";
+	dir = 8
+	},
+/area/template_noop)
+"T" = (
+/obj/structure/closet/cabinet,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/flame/lighter,
+/obj/item/martial_manual/unathi,
+/obj/item/clothing/shoes/footwraps{
+	color = "#2a2b2c"
+	},
+/obj/item/clothing/gloves/unathi{
+	color = "#2a2b2c"
+	},
+/obj/item/clothing/suit/unathi/robe/beige,
+/obj/item/clothing/under/unathi/zazali{
+	color = "#3a4b56"
+	},
+/obj/item/clothing/accessory/sinta_hood{
+	color = "#DBC684"
+	},
+/obj/item/clothing/accessory/poncho/unathimantle{
+	color = "#423509"
+	},
+/obj/item/clothing/accessory/poncho/unathimantle/mountain{
+	color = "#423509"
+	},
+/obj/item/saddle,
+/obj/item/clothing/accessory/storage/knifeharness,
+/turf/simulated/floor/exoplanet/wood,
+/area/template_noop)
+"Y" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bucket/wood,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/template_noop)
+"Z" = (
+/obj/structure/flora/tree/jungle/small,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/template_noop)
+
+(1,1,1) = {"
+j
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(2,1,1) = {"
+D
+D
+D
+j
+D
+D
+D
+Z
+D
+D
+D
+D
+D
+D
+D
+"}
+(3,1,1) = {"
+D
+D
+j
+D
+D
+D
+D
+D
+D
+D
+D
+D
+j
+D
+D
+"}
+(4,1,1) = {"
+P
+P
+P
+P
+D
+D
+D
+D
+D
+q
+D
+Z
+D
+D
+D
+"}
+(5,1,1) = {"
+P
+x
+d
+N
+D
+D
+D
+D
+D
+D
+q
+q
+q
+D
+D
+"}
+(6,1,1) = {"
+P
+P
+P
+P
+P
+z
+L
+t
+t
+E
+q
+q
+q
+j
+D
+"}
+(7,1,1) = {"
+P
+J
+d
+s
+P
+i
+i
+i
+i
+K
+D
+q
+D
+q
+D
+"}
+(8,1,1) = {"
+P
+c
+d
+d
+N
+i
+i
+n
+i
+K
+D
+D
+D
+D
+D
+"}
+(9,1,1) = {"
+P
+Q
+T
+F
+P
+i
+i
+i
+i
+k
+D
+D
+Z
+D
+D
+"}
+(10,1,1) = {"
+P
+P
+P
+P
+P
+i
+i
+i
+i
+k
+D
+D
+D
+D
+D
+"}
+(11,1,1) = {"
+Y
+y
+y
+y
+w
+a
+S
+m
+m
+I
+D
+D
+D
+D
+D
+"}
+(12,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+j
+D
+"}
+(13,1,1) = {"
+D
+D
+j
+D
+D
+D
+D
+D
+D
+D
+D
+D
+j
+D
+D
+"}
+(14,1,1) = {"
+D
+D
+D
+D
+D
+D
+Z
+D
+D
+D
+D
+Z
+D
+D
+D
+"}
+(15,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+j
+D
+D
+D
+D
+D
+D
+D
+"}

@@ -1,8 +1,12 @@
 /datum/map_template/ruin/away_site/coc_surveyor
 	name = "COC Survey Ship"
 	description = "Coalition science ship."
-	suffixes = list("ships/coc/coc_surveyor/coc_surveyor.dmm")
+
+	prefix = "ships/coc/coc_surveyor/"
+	suffixes = list("coc_surveyor.dmm")
+
 	sectors = list(SECTOR_BADLANDS, ALL_COALITION_SECTORS, ALL_VOID_SECTORS)
+	spawn_weight_sector_dependent = list(ALL_BADLAND_SECTORS = 0.3)
 	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA)
 	spawn_weight = 1
 	ship_cost = 1

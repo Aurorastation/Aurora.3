@@ -63,7 +63,7 @@
 			inject(M, user, M.Adjacent(user))
 
 /obj/item/reagent_containers/hypospray/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / (volume / 5)))
 	icon_state = "[initial(icon_state)]_[rounded_vol]"
@@ -74,7 +74,7 @@
 		filling.icon_state = "[initial(icon_state)][rounded_vol]"
 
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 /obj/item/reagent_containers/hypospray/proc/inject(var/mob/M, var/mob/user, proximity)
 	if(!proximity || !istype(M))
@@ -173,10 +173,10 @@
 	. = ..()
 
 /obj/item/reagent_containers/hypospray/autoinjector/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(!is_open_container())
 		var/mutable_appearance/backing_overlay = mutable_appearance(icon, "autoinjector_secured")
-		add_overlay(backing_overlay)
+		AddOverlays(backing_overlay)
 
 	icon_state = "[initial(icon_state)][spent]"
 	item_state = "[initial(item_state)][spent]"
@@ -184,7 +184,7 @@
 	if(reagents.total_volume)
 		var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinjector_reagents")
 		reagent_overlay.color = reagents.get_color()
-		add_overlay(reagent_overlay)
+		AddOverlays(reagent_overlay)
 	update_held_icon()
 
 /obj/item/reagent_containers/hypospray/autoinjector/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
@@ -321,7 +321,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/sanasomnum
 	name = "sanasomnum autoinjector"
-	desc = "A special autoinjector loaded with outlawed biomechanical stem cells, inducing a regenerative coma so intense it can heal almost any injury - even broken bones, organ and brain damage, severed tendons, and arterial damage. Upon use one will fall immediately into a state of unconsciousness lasting roughly three to five minutes, arising completely healed. The only thing it cannot fix are organs that have been destroyed outright, or so much cumulative damage that death is all but certain. The only downside is that Sanasomnum use guarantees extreme cancerous growth months or years down the line, which is invariably fatal in the long-term. However, in the short-term, it will save your life."
+	desc = "An autoinjector loaded with sanasomnum, an experimental and outlawed combination medicine known to cause paralysis and cancerous growths in the few human studies it was trialled during. As a result, little further research has been done on it... nothing that's available to the public, at least." //antag chemical. this is the non-antag facing description so no one reads the autoinjector desc and considers it fairgame to then use it.
 	volume = 20
 	amount_per_transfer_from_this = 20
 

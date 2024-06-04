@@ -36,7 +36,8 @@
 	bar_loc = target
 	location_type = bar_loc.type
 	bar = image('icons/effects/progressbar.dmi', bar_loc, "prog_bar_0")
-	bar.layer = 21 //TODO: Move this to a proper plane and layer when that PR is finished
+	bar.layer = HUD_ABOVE_ITEM_LAYER
+	bar.plane = HUD_PLANE
 	bar.appearance_flags = RESET_COLOR|RESET_TRANSFORM|NO_CLIENT_COLOR|RESET_ALPHA|PIXEL_SCALE
 	user = User
 

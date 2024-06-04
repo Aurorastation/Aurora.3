@@ -44,11 +44,6 @@
 	teleport(user, A, TRUE)
 
 /datum/rune/teleport/proc/teleport(mob/living/user, atom/movable/A, is_rune = FALSE)
-	var/turf/T = get_turf(user)
-	if(isNotStationLevel(T.z))
-		to_chat(user, SPAN_WARNING("You are too far from the station, Nar'sie is unable to reach you here."))
-		return fizzle(user, A)
-
 	var/list/datum/rune/teleport/possible_runes = list()
 	for(var/datum/rune/teleport/R in SScult.teleport_runes)
 		if(R == src)
@@ -68,9 +63,9 @@
 			to_chat(user, SPAN_CULT("The rune is still recharging!"))
 			return fizzle(user, A)
 		user.say("Sas'so c'arta forbici!")//Only you can stop auto-muting
-		user.visible_message("<span class='warning'>[user] disappears in a flash of red light!</span>", \
-		"<span class='cult'>You feel as if your body gets dragged through Redspace!</span>", \
-		"<span class='warning'>You hear a sickening crunch and sloshing of viscera.</span>")
+		user.visible_message(SPAN_WARNING("[user] disappears in a flash of red light!"), \
+		SPAN_CULT("You feel as if your body gets dragged through Redspace!"), \
+		SPAN_WARNING("You hear a sickening crunch and sloshing of viscera."))
 		var/datum/rune/teleport/valid_rune = pick(possible_runes)
 		gibs(get_turf(user))
 		playsound(user, 'sound/magic/enter_blood.ogg', 50, 1)
@@ -85,4 +80,5 @@
 	else
 		return fizzle(user, A)
 
-
+/obj/effect/rune/teleport/Initialize(mapload)
+	. = ..(mapload, SScult.runes_by_name[/datum/rune/teleport::name])

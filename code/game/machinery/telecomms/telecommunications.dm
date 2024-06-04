@@ -22,7 +22,7 @@
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 600 // WATTS
-	active_power_usage = 2 KILOWATTS
+	active_power_usage = 2 KILO WATTS
 
 	var/list/links = list() // list of machines this machine is linked to
 	/*
@@ -114,7 +114,7 @@
 
 /obj/machinery/telecomms/process()
 	if(!use_power) return PROCESS_KILL
-	if(inoperable(EMPED))
+	if(!operable(EMPED))
 		toggle_power(additional_flags = EMPED)
 		return PROCESS_KILL
 
@@ -171,7 +171,7 @@
 		delay = initial(delay)
 
 /obj/machinery/telecomms/proc/produce_heat()
-	if (!produces_heat || !use_power || inoperable(EMPED))
+	if (!produces_heat || !use_power || !operable(EMPED))
 		return
 
 	var/turf/simulated/L = loc

@@ -1,0 +1,19 @@
+[package]
+name = "bapi"
+version = "1.0.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+
+# -------------------------------------------------------
+
+[dependencies]
+# byondapi
+byondapi = { git = "https://github.com/spacestation13/byondapi-rs", rev = "5afdd9863a0fc1d8d1d42dd2128c9978f54e12ca" }
+# error-handling
+eyre = "0.6.12"
+# spacemandmm, also used by strongmandmm
+dmmtools = { git = "https://github.com/SpaceManiac/SpacemanDMM", rev = "6c5a751516ae0e8add4b2aa4388a1e84e96e7082", package = "dmm-tools" }

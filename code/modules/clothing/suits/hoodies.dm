@@ -323,6 +323,10 @@
 	icon_state = "hoodie_sleeveless"
 	item_state = "hoodie_sleeveless"
 
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless_crop
+	icon_state = "hoodie_sleeveless_crop"
+	item_state = "hoodie_sleeveless_crop"
+
 /obj/item/clothing/suit/storage/hooded/wintercoat/konyang
 	name = "konyang village coat"
 	desc = "A highly prized hooded coat with unmatched breathability and insulation. Imported from Konyang, this garment is made with a weave derived from the feathers of indigenous birds."

@@ -1764,8 +1764,14 @@
 /area/shuttle/orion_shuttle/storage)
 "hlg" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc{
+/obj/machinery/power/apc/north{
 	req_access = list(201)
+	},
+/obj/structure/table/standard,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
 	},
 /turf/simulated/floor,
 /area/ship/orion/engie)
@@ -3488,6 +3494,9 @@
 /obj/structure/table/steel,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/glass/full,
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor,
 /area/ship/orion/engie)
 "oIu" = (

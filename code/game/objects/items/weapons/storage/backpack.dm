@@ -75,7 +75,7 @@
 					wearable = 1
 
 			if(!wearable && !(slot in list(slot_l_store, slot_r_store, slot_s_store)))
-				to_chat(H, "<span class='danger'>Your species cannot wear [src].</span>")
+				to_chat(H, SPAN_DANGER("Your species cannot wear [src]."))
 				return 0
 	return 1
 
@@ -96,7 +96,7 @@
 
 /obj/item/storage/backpack/holding/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/storage/backpack/holding))
-		to_chat(user, "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>")
+		to_chat(user, SPAN_WARNING("The Bluespace interfaces of the two devices conflict and malfunction."))
 		qdel(attacking_item)
 		return
 	..()
@@ -927,7 +927,6 @@
 	contained_sprite = FALSE
 	sprite_sheets = list(BODYTYPE_VAURCA = 'icons/mob/species/vaurca/back.dmi', BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/back.dmi')
 	var/hooded = FALSE
-	var/cape_backing_state = "cape_backing"
 
 /obj/item/storage/backpack/cloak/verb/toggle_cloak_hood()
 	set name = "Toggle Cloak Hood"
@@ -946,8 +945,8 @@
 
 /obj/item/storage/backpack/cloak/get_mob_overlay(var/mob/living/carbon/human/human, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
-	var/image/cape_backing = image(mob_icon, null, "[icon_state]_backing", MOB_SHADOW_LAYER)
-	I.add_overlay(cape_backing)
+	var/image/cape_backing = image(mob_icon, null, "[initial(icon_state)]_backing", MOB_SHADOW_LAYER)
+	I.AddOverlays(cape_backing)
 	return I
 
 /obj/item/storage/backpack/cloak/sedantis

@@ -31,19 +31,19 @@
 
 /obj/item/gun/energy/rifle/icelance/unique_action(mob/living/user)
 	if(is_charging)
-		to_chat(user, "<span class='warning'>You are already charging \the [src].</span>")
+		to_chat(user, SPAN_WARNING("You are already charging \the [src]."))
 		return
 	if(power_supply.charge < power_supply.maxcharge)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		user.visible_message(
-				"<span class='notice'>\The [user] begins to crank \the [src]!</span>",
-				"<span class='notice'>You begin to rotate \the [src]'s crank!</span>"
+				SPAN_NOTICE("\The [user] begins to crank \the [src]!"),
+				SPAN_NOTICE("You begin to rotate \the [src]'s crank!")
 				)
 		playsound(user.loc, 'sound/items/crank.ogg', 60, 1)
 		is_charging = TRUE
 		flick("crank", src)
 		if(do_after(user,2 SECONDS))
-			to_chat(user, "<span class='notice'>You finish charging \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You finish charging \the [src]."))
 			power_supply.give(charge_cost)
 			update_maptext()
 			update_icon()

@@ -1,0 +1,183 @@
+2015-05-02:
+  HarpyEagle:
+  - bugfix: Neck-grabbing someone now stuns them properly.
+  PsiOmegaDelta:
+  - tweak: The spider infestation event now makes an announcement much sooner.
+  - rscadd: Admins can now toggle OOC/LOOC separately.
+  - tweak: Mice are now numbered to aid admins.
+  Yoshax:
+  - rscadd: Adds an option and verb to the AI to send emergency messages to Central,
+      functions same as comms console option.
+  - tweak: Changes comms console to only have one level of ID require, meaning all
+      heads of staff have what was captain access, allowing them to change alert,
+      send emergency messages and make announcements.
+  - rscadd: Adds an emergency bluespace relay machine which is mapped into teletcomms,
+      this machine takes emergency messages and sends them to central, if one does
+      not exist on any Z, you cannot send any emergency messages.
+  - rscadd: Adds an emergency bluespace relay assembly kit orderable from cargo for
+      when the ones on telecomms are destroyed. Assembly is required.
+  - rscadd: Adds the emergency bluespace relay circuitboard to be researchable and
+      printable in R&D, with sufficient tech levels.
+2015-05-05:
+  PsiOmegaDelta:
+  - tweak: Grilles no longer return too many rods when destroyed (using means other
+      than wirecutters).
+  RavingManiac:
+  - tweak: Intent menu now appears while zooming with a sniper rifle.
+2015-05-06:
+  PsiOmegaDelta:
+  - rscadd: Examining a pen or crayon now lists the available special commands in
+      the examine tab.
+2015-05-07:
+  HarpyEagle:
+  - rscadd: Breaking out of lockers now has sound and animation.
+  PsiOmegaDelta:
+  - bugfix: The cloning computer can again successfully locate nearby cloning vats
+      and DNA scanners at round start.
+  - rscadd: Security equipment now treats individuals with CentCom ids with the greatest
+      respect.
+  - maptweak: Adds stretches of power cable around the construction outpost, ensuring
+      one does not have to climb over machines to being laying cables.
+  RavingManiac:
+  - rscadd: Muzzle-flash lighting effect for guns
+  - rscadd: Energy guns now display shots remaining on examine
+2015-05-09:
+  Yoshax:
+  - rscadd: Maps in the top mounted 9mm practice rounds, .45 practice rounds, and
+      practice shotgun shells into the armory.
+2015-05-10:
+  GinjaNinja32:
+  - rscadd: Acting jobs on the manifest will now sort with their non-acting counterparts.
+      All assignments beginning with the word 'acting', 'temporary', or 'interim'
+      will do this.
+  Yoshax:
+  - tweak: Removes sleepy chems from being cloned, adds a consistent period of 30
+      tick sleep.
+2015-05-11:
+  Mloc:
+  - experiment: Rewritten lighting system.
+  - rscadd: Better coloured lights.
+  - rscadd: Animated transitions.
+  PsiOmegaDelta:
+  - bugfix: As an observer, using antagHUD should now always restrict you from respawning
+      without admin intervention.
+  Techhead:
+  - rscadd: Voidsuits can have tanks inserted into the storage slot.
+  - rscadd: Voidsuits display helpful information on their contents on examine.
+  - rscadd: Magboots can be equipped over other shoes. Except other magboots.
+2015-05-12:
+  Dennok:
+  - imageadd: New buildmode icons made by BartNixon.
+  HarpyEagle:
+  - rscadd: Masks and helmets that cover the face block feeding food, drinks, and
+      pills.
+  MrSnapwalk:
+  - imageadd: Added seven new AI core displays.
+  - tweak: Changed the pAI sprite and added several new expressions.
+  PsiOmegaDelta:
+  - rscadd: The space vine event now comes with a station announcement.
+2015-05-14:
+  PsiOmegaDelta:
+  - maptweak: Should now be more evident that the brig disposal chute sends its goods
+      to the common brig area.
+  - bugfix: Cells now drain when using more charge than what is available.
+  - tweak: The rig stealth module now requires as much power to run as the energy
+      blade module.
+  Techhead:
+  - rscadd: Vox will spawn with emergency nitrogen tanks in their survival boxes.
+  - rscadd: Diona will spawn with an emergency flare instead of a survival box.
+  - rscdel: Engineers no longer spawn with extended-capacity oxygen tanks.
+  - bugfix: Vox spawning without backpacks will have their nitrogen tank equipped
+      to their back.
+  - tweak: The Bartender's spare beanbag shells have been moved into bar backroom
+      with the shotgun.
+  - bugfix: Portable air pumps now fill based on external/airtank pressure when pumping
+      in.
+2015-05-16:
+  GinjaNinja32:
+  - rscadd: Rewrote tables. To construct a table, use steel to make a table frame,
+      then plate the frame with a material such as steel, gold, wood, etc. Hold a
+      stack in your hand and drag it to the table to reinforce it. To deconstruct
+      a table, use a screwdriver to remove the reinforcements (if present), then a
+      wrench to remove the plating, and a wrench again to dismantle the frame. Use
+      a welder to repair any damage. Use a carpet tile on a table to add felt, and
+      a crowbar to remove it.
+  HarpyEagle:
+  - rscadd: Adds tail animations for tajaran and unathi. Animations are controlled
+      using emotes.
+2015-05-17:
+  PsiOmegaDelta:
+  - bugfix: Teleporter artifacts should no longer teleport mobs inside objects.
+2015-05-18:
+  Hubblenaut:
+  - rscadd: Adds a light for available backup power on airlocks.
+  Kelenius:
+  - tweak: 'There has been a big update to the reagent system. A full-ish changelog
+      can be found here: http://pastebin.com/imHXTRHz. In particular:'
+  - tweak: Reagents now differentiate between being ingested (food, pills, smoke),
+      injected (syringes, IV drips), and put on the skin (sprays, beaker splashing).
+  - tweak: Injecting food and drinks will cause bad effects.
+  - tweak: Healing reagents, generally speaking, have stronger effects when injected.
+  - tweak: Toxins now work slower and deal more damage. Seek medical help!
+  - tweak: Alcohol robustness has been lowered.
+  - tweak: Acid will no longer melt large numbers of items at once.
+  - tweak: Synaptizine is no longer hilariously deadly.
+  Loganbacca:
+  - tweak: Changed MULE destination selection to be list based.
+  PsiOmegaDelta:
+  - tweak: Destroying a camera by brute force now has a chance to break the wiring
+      within.
+  - rscadd: Turf are now processed. This, for example, causes radioactive walls to
+      regularly irradiate nearby mobs.
+  - bugfix: Welders should now always update their icon and inhand states properly.
+2015-05-22:
+  Ccomp5950:
+  - bugfix: Beepsky no longer kills goats.
+  - tweak: Goats will move towards vines that are 4 spaces away now instead of 1
+  - bugfix: Goats will eat the spawning plants for vines as well as the vines themselves.
+  Chinsky:
+  - rscadd: Ghetto diagnosis. Grab patient, aim at bodypart you want to check, click
+      on them with help intent. This will tell you about their wounds, fractures and
+      other oddities (toxins/oxygen) for that bodypart.
+  - rscadd: Fractures are visible on very damaged limbs. Dislocations are always visible.
+      Surgery incisions now visible too.
+  - rscadd: Stethoscopes actually make sense now. They care for heart/lungs status
+      when reporting pulse and respiration now.
+  HarpyEagle:
+  - rscadd: Re-implemented fuel fires. Tweaked fire behaviour overall.
+  Yoshax:
+  - tweak: Bear traps now do damage when stood on, enough to break bones! Bear traps
+      can now affect any limb of a person who is on the ground, including head! Bear
+      traps are no longer legcuffs and instead embed in the limb they attack.
+  - tweak: Bear traps now take several seconds to deploy and cannot be picked up when
+      armed, they must be disarmed by clicking on them. They also cannot be moved
+      then they are deployed.
+  Zuhayr:
+  - rscadd: Massive material refactor. Walls, beds, chairs, stools, tables, ashtrays,
+      knives, baseball bats, axes, simple doors, barricades, so on.
+  - rscadd: Tables are now built via steel then another sheet on the resulting frame.
+      They can then be reinforced by dragging a stack of sheets onto the table.
+  - rscadd: Walls are built with steel for girders, then right-click the girder and
+      select the reinforce verb while holding a stack, then click the girders with
+      a final sheet.
+  - rscadd: Various things can be built with various sheet types. Experiment! Just
+      keep in mind that uranium is now radioactive and phoron is now flammable.
+2015-05-27:
+  PsiOmegaDelta:
+  - tweak: The inactive check process now respects client holder status and can be
+      configured how long clients may remain inactive before being kicked.
+2015-05-30:
+  Atlantis:
+  - rscadd: Malfunction Overhaul - Whole gamemode was completely reworked from scratch.
+      Most old abilities have been removed and quite a lot of new abilities was added.
+      AI also has to hack APCs to unlock higher tier abilities faster, instead of
+      having access to them from the round start. Most forced things, such as, shuttle
+      recalling were removed and are instead controlled by the AI. Code is fully modular
+      allowing for future modifications.
+  HarpyEagle:
+  - bugfix: Fixes Engineer ERT gloves not being insulated.
+  - tweak: IV stands are no longer bullet shields. They also allow mice, drones, pAIs
+      et al to pass though.
+  PsiOmegaDelta:
+  - rscadd: You can now review the server revision date and hash by using the 'Show
+      Server Revision' verb in the OOC category.

@@ -24,7 +24,7 @@
 	var/icon_gib = null	//We only try to show a gibbing animation if this exists.
 
 	appearance_flags = KEEP_TOGETHER
-	var/blood_type = "#A10808" //Blood colour for impact visuals.
+	var/blood_type = COLOR_HUMAN_BLOOD //Blood colour for impact visuals.
 	var/blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	var/blood_state = BLOOD_NONE
 	var/image/blood_overlay
@@ -190,7 +190,7 @@
 		death()
 
 /mob/living/simple_animal/Destroy()
-	cut_overlay(blood_overlay)
+	CutOverlays(blood_overlay)
 	movement_target = null
 	QDEL_NULL(udder)
 
@@ -222,11 +222,11 @@
 /mob/living/simple_animal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (stat == DEAD)
-		. += "<span class='danger'>It looks dead.</span>"
+		. += SPAN_DANGER("It looks dead.")
 	if (health < maxHealth * 0.5)
-		. += "<span class='danger'>It looks badly wounded.</span>"
+		. += SPAN_DANGER("It looks badly wounded.")
 	else if (health < maxHealth)
-		. += "<span class='warning'>It looks wounded.</span>"
+		. += SPAN_WARNING("It looks wounded.")
 
 /mob/living/simple_animal/can_name(var/mob/living/M)
 	if(named)
@@ -404,7 +404,7 @@
 
 	if(force_reset || current_blood_state != blood_state)
 		if(blood_overlay)
-			cut_overlay(blood_overlay)
+			CutOverlays(blood_overlay)
 		if(blood_state == BLOOD_NONE)
 			return
 		var/blood_overlay_name = get_blood_overlay_name()
@@ -412,7 +412,7 @@
 		I.color = blood_type
 		I.blend_mode = BLEND_INSET_OVERLAY
 		blood_overlay = I
-		add_overlay(blood_overlay)
+		AddOverlays(blood_overlay)
 
 /mob/living/simple_animal/proc/get_blood_overlay_name()
 	return "blood_overlay"
@@ -599,6 +599,12 @@
 			harvest(user)
 	else
 		attacked_with_item(attacking_item, user)
+
+	if(attacking_item.damtype == DAMAGE_PAIN)
+		playsound(loc, 'sound/weapons/tap.ogg', attacking_item.get_clamped_volume(), 1, -1)
+		return TRUE
+	else
+		return ..()
 
 //TODO: refactor mob attackby(), attacked_by(), and friends.
 /mob/living/simple_animal/proc/attacked_with_item(obj/item/O, mob/user, var/proximity)
@@ -817,9 +823,12 @@
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb
 
-/mob/living/simple_animal/put_in_hands(var/obj/item/W) // No hands.
-	W.forceMove(get_turf(src))
-	return 1
+/mob/living/simple_animal/put_in_hands(obj/item/item_to_equip)
+	if(QDELETED(item_to_equip) || !istype(item_to_equip))
+		return FALSE
+
+	item_to_equip.forceMove(get_turf(src))
+	return FALSE
 
 // Harvest an animal's delicious byproducts
 /mob/living/simple_animal/proc/harvest(var/mob/user)

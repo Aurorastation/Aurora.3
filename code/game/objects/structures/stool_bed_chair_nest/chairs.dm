@@ -29,12 +29,12 @@
 	generate_overlay_cache(material, CACHE_TYPE_OVER, ABOVE_HUMAN_LAYER) // Generate overlay for backrest
 	// Padding overlay.
 	if(padding_material)
-		generate_overlay_cache(padding_material, CACHE_TYPE_PADDING_OVER, ABOVE_HUMAN_LAYER, TRUE) // Generate padding overlay for backrest
+		generate_overlay_cache(padding_material, CACHE_TYPE_PADDING_OVER, ABOVE_ABOVE_HUMAN_LAYER, TRUE) // Generate padding overlay for backrest
 
 	if(buckled)
 		generate_overlay_cache(material, CACHE_TYPE_ARMREST, ABOVE_HUMAN_LAYER) // Generate armrests
 		if(padding_material)
-			generate_overlay_cache(padding_material, CACHE_TYPE_PADDING_ARMREST, ABOVE_HUMAN_LAYER, TRUE) // Generate padding overlay for armrest
+			generate_overlay_cache(padding_material, CACHE_TYPE_PADDING_ARMREST, ABOVE_ABOVE_HUMAN_LAYER, TRUE) // Generate padding overlay for armrest
 
 /obj/structure/bed/stool/chair/set_dir()
 	. = ..()

@@ -67,7 +67,7 @@
 		SSticker.mode.check_win()
 
 	if(wearing_rig?.ai_override_enabled)
-		wearing_rig.notify_ai("<span class='danger'>Warning: user death event. Mobility control passed to integrated intelligence system.</span>")
+		wearing_rig.notify_ai(SPAN_DANGER("Warning: user death event. Mobility control passed to integrated intelligence system."))
 
 	. = ..(gibbed, species.death_message, species.death_message_range)
 
@@ -107,9 +107,11 @@
 	if((mutations & SKELETON))
 		return
 
-	if(f_style)
+	var/datum/sprite_accessory/hair/hair = GLOB.hair_styles_list[h_style]
+	var/datum/sprite_accessory/facial_hair/facial = GLOB.facial_hair_styles_list[f_style]
+	if(!facial.keep_as_skeleton && f_style)
 		f_style = "Shaved"
-	if(h_style)
+	if(!hair.keep_as_skeleton && h_style)
 		h_style = "Bald"
 	update_hair(0)
 

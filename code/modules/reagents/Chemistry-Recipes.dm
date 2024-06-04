@@ -132,7 +132,7 @@
 		if(mix_message)
 			var/list/seen = viewers(4, T)
 			for(var/mob/M in seen)
-				M.show_message("<span class='notice'>[icon2html(container, viewers(get_turf(src)))] [mix_message]</span>", 1)
+				M.show_message(SPAN_NOTICE("[icon2html(container, viewers(get_turf(src)))] [mix_message]"), 1)
 		if(reaction_sound)
 			playsound(T, reaction_sound, 80, 1)
 
@@ -161,7 +161,7 @@
 	name = "Mortaphenyl"
 	id = "mortaphenyl"
 	result = /singleton/reagent/mortaphenyl
-	required_reagents = list(/singleton/reagent/inaprovaline = 1, /singleton/reagent/alcohol = 1, /singleton/reagent/acetone = 1)
+	required_reagents = list(/singleton/reagent/inaprovaline = 1, /singleton/reagent/alcohol/ethanol = 1, /singleton/reagent/acetone = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/perconol
@@ -205,7 +205,7 @@
 	name = "Sterilizine"
 	id = "sterilizine"
 	result = /singleton/reagent/sterilizine
-	required_reagents = list(/singleton/reagent/alcohol = 1, /singleton/reagent/dylovene = 1, /singleton/reagent/acid/hydrochloric = 1)
+	required_reagents = list(/singleton/reagent/alcohol/ethanol = 1, /singleton/reagent/dylovene = 1, /singleton/reagent/acid/hydrochloric = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/silicate
@@ -450,7 +450,7 @@
 	name = "Cytophenolate"
 	id = "cytophenolate"
 	result = /singleton/reagent/cytophenolate
-	required_reagents = list(/singleton/reagent/fluvectionem = 1, /singleton/reagent/alcohol = 1, /singleton/reagent/sugar = 1)
+	required_reagents = list(/singleton/reagent/fluvectionem = 1, /singleton/reagent/alcohol/ethanol = 1, /singleton/reagent/sugar = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/antiparasitic
@@ -493,7 +493,7 @@
 	name = "Verunol Syrup"
 	id = "verunol"
 	result = /singleton/reagent/verunol
-	required_reagents = list(/singleton/reagent/hydrazine = 1, /singleton/reagent/dylovene = 1, /singleton/reagent/alcohol = 1)
+	required_reagents = list(/singleton/reagent/hydrazine = 1, /singleton/reagent/dylovene = 1, /singleton/reagent/alcohol/ethanol = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/adipemcina
@@ -515,7 +515,7 @@
 	name = "Polysomnine"
 	id = "polysomnine"
 	result = /singleton/reagent/polysomnine
-	required_reagents = list(/singleton/reagent/alcohol = 1, /singleton/reagent/acid/hydrochloric = 3, /singleton/reagent/water = 1)
+	required_reagents = list(/singleton/reagent/alcohol/ethanol = 1, /singleton/reagent/acid/hydrochloric = 3, /singleton/reagent/water = 1)
 	result_amount = 1
 
 /datum/chemical_reaction/potassium_chloride
@@ -557,7 +557,7 @@
 	name = "Lipozine"
 	id = "Lipozine"
 	result = /singleton/reagent/lipozine
-	required_reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/alcohol = 1, /singleton/reagent/radium = 1)
+	required_reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/alcohol/ethanol = 1, /singleton/reagent/radium = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/coagzolug
@@ -578,7 +578,7 @@
 	name = "Diethylamine"
 	id = "diethylamine"
 	result = /singleton/reagent/diethylamine
-	required_reagents = list(/singleton/reagent/ammonia = 1, /singleton/reagent/alcohol = 1)
+	required_reagents = list(/singleton/reagent/ammonia = 1, /singleton/reagent/alcohol/ethanol = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/space_cleaner
@@ -613,7 +613,7 @@
 	name = "Glycerol"
 	id = "glycerol"
 	result = /singleton/reagent/glycerol
-	required_reagents = list(/singleton/reagent/nutriment/triglyceride = 1, /singleton/reagent/alcohol = 2) // transesterification of triglycerides into butanol and glycerol
+	required_reagents = list(/singleton/reagent/nutriment/triglyceride = 1, /singleton/reagent/alcohol/ethanol = 2) // transesterification of triglycerides into butanol and glycerol
 	catalysts = list(/singleton/reagent/acid = 5) // using acid as a catalyst
 	result_amount = 3 //each triglyceride has 3 glycerin chains.
 
@@ -733,7 +733,8 @@
 	name = "Cataleptinol"
 	id = "cataleptinol"
 	result = /singleton/reagent/cataleptinol
-	required_reagents = list(/singleton/reagent/toxin/phoron = 0.1, /singleton/reagent/alkysine = 1, /singleton/reagent/cryoxadone = 0.1)
+	required_reagents = list(/singleton/reagent/toxin/phoron = 0.5, /singleton/reagent/alkysine = 2, /singleton/reagent/clonexadone = 1)
+	catalysts = list(/singleton/reagent/cryosilicate = 5)
 	result_amount = 1
 
 /datum/chemical_reaction/coughsyrup
@@ -798,7 +799,7 @@
 	name = "Emoxanyl"
 	id = "emoxanyl"
 	result = /singleton/reagent/mental/emoxanyl
-	required_reagents = list(/singleton/reagent/drugs/mindbreaker = 1, /singleton/reagent/silicon = 1, /singleton/reagent/alcohol = 1)
+	required_reagents = list(/singleton/reagent/drugs/mindbreaker = 1, /singleton/reagent/silicon = 1, /singleton/reagent/alcohol/ethanol = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/orastabin
@@ -812,7 +813,7 @@
 	name = "Neurapan"
 	id = "neurapan"
 	result = /singleton/reagent/mental/neurapan
-	required_reagents = list(/singleton/reagent/drugs/mindbreaker = 1, /singleton/reagent/drugs/mms = 1, /singleton/reagent/alcohol = 1)
+	required_reagents = list(/singleton/reagent/drugs/mindbreaker = 1, /singleton/reagent/drugs/mms = 1, /singleton/reagent/alcohol/ethanol = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/nerospectan
@@ -909,7 +910,7 @@
 	name = "Colorspace"
 	id = "colorspace"
 	result = /singleton/reagent/drugs/colorspace
-	required_reagents = list(/singleton/reagent/hydrazine = 1, /singleton/reagent/alcohol = 1, /singleton/reagent/silicon = 1)
+	required_reagents = list(/singleton/reagent/hydrazine = 1, /singleton/reagent/alcohol/ethanol = 1, /singleton/reagent/silicon = 1)
 	result_amount = 1
 
 /* Solidification */
@@ -1072,7 +1073,7 @@
 	var/location = get_turf(holder.my_atom)
 
 	for(var/mob/M in viewers(5, location))
-		to_chat(M, "<span class='warning'>The solution spews out foam!</span>")
+		to_chat(M, SPAN_WARNING("The solution spews out foam!"))
 
 	var/datum/effect/effect/system/foam_spread/s = new()
 	s.set_up(created_volume, location, holder, 0)
@@ -1091,7 +1092,7 @@
 	var/location = get_turf(holder.my_atom)
 
 	for(var/mob/M in viewers(5, location))
-		to_chat(M, "<span class='warning'>The solution spews out a metalic foam!</span>")
+		to_chat(M, SPAN_WARNING("The solution spews out a metalic foam!"))
 
 	var/datum/effect/effect/system/foam_spread/s = new()
 	s.set_up(created_volume, location, holder, 1)
@@ -1109,7 +1110,7 @@
 	var/location = get_turf(holder.my_atom)
 
 	for(var/mob/M in viewers(5, location))
-		to_chat(M, "<span class='warning'>The solution spews out a metalic foam!</span>")
+		to_chat(M, SPAN_WARNING("The solution spews out a metalic foam!"))
 
 	var/datum/effect/effect/system/foam_spread/s = new()
 	s.set_up(created_volume, location, holder, 2)
@@ -1242,6 +1243,7 @@
 	required = /obj/item/slime_extract/gold
 
 /datum/chemical_reaction/slime/crit/on_reaction(var/datum/reagents/holder)
+	//exclusion list for things you don't want the reaction to create
 	var/blocked = list(
 		/mob/living/simple_animal/hostile,
 		/mob/living/simple_animal/hostile/pirate,
@@ -1254,10 +1256,8 @@
 		/mob/living/simple_animal/hostile/syndicate/ranged,
 		/mob/living/simple_animal/hostile/syndicate/ranged/space,
 		/mob/living/simple_animal/hostile/faithless,
-		/mob/living/simple_animal/hostile/retaliate,
 		/mob/living/simple_animal/hostile/retaliate/clown,
 		/mob/living/simple_animal/hostile/true_changeling,
-		/mob/living/simple_animal/hostile/commanded,
 		/mob/living/simple_animal/hostile/commanded/dog,
 		/mob/living/simple_animal/hostile/commanded/dog/amaskan,
 		/mob/living/simple_animal/hostile/commanded/dog/columbo,
@@ -1280,7 +1280,7 @@
 		/mob/living/simple_animal/hostile/cavern_geist/augmented,
 		/mob/living/simple_animal/hostile/retaliate/pra_exploration_drone
 	)
-	//exclusion list for things you don't want the reaction to create.
+
 	var/list/critters = typesof(/mob/living/simple_animal/hostile) - blocked // list of possible hostile mobs
 	var/turf/location = get_turf(holder.my_atom)
 	playsound(location, 'sound/effects/phasein.ogg', 100, 1)
@@ -1289,6 +1289,15 @@
 
 	for(var/i = 1, i <= 5, i++)
 		var/chosen = pick(critters)
+		//No abstract mobs
+		while(is_abstract(chosen))
+			critters -= chosen
+			if(!length(critters))
+				crash_with("No critters left to pick from!")
+				return
+
+			chosen = pick(critters)
+
 		var/mob/living/simple_animal/hostile/C = new chosen
 		C.faction = "slimesummon"
 		C.forceMove(location)
@@ -1876,6 +1885,20 @@
 	var/location = get_turf(holder.my_atom)
 	for(var/i = 1, i <= created_volume, i++)
 		new /obj/item/reagent_containers/food/snacks/sliceable/cheesewheel(location)
+	return
+
+/datum/chemical_reaction/nakarka
+	name = "Nakarka Cheese"
+	id = "nakarka"
+	result = null
+	required_reagents = list(/singleton/reagent/drink/milk/nemiik = 40)
+	catalysts = list(/singleton/reagent/enzyme = 5)
+	result_amount = 1
+
+/datum/chemical_reaction/nakarka/on_reaction(var/datum/reagents/holder, var/created_volume)
+	var/location = get_turf(holder.my_atom)
+	for(var/i = 1, i <= created_volume, i++)
+		new /obj/item/reagent_containers/food/snacks/sliceable/nakarka(location)
 	return
 
 /datum/chemical_reaction/meatball
@@ -3273,7 +3296,7 @@
 	name = "Fringe Weaver"
 	id = "fringeweaver"
 	result = /singleton/reagent/alcohol/fringeweaver
-	required_reagents = list(/singleton/reagent/alcohol = 2, /singleton/reagent/sugar = 1)
+	required_reagents = list(/singleton/reagent/alcohol/ethanol = 2, /singleton/reagent/sugar = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/junglejuice
@@ -3791,6 +3814,27 @@
 	required_reagents = list(/singleton/reagent/drink/tea = 2, /singleton/reagent/drink/toothpaste = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/drink/mouthgarita
+	name = "Mouthgarita"
+	id = "mouthgarita"
+	result = /singleton/reagent/drink/toothpaste/mouthwash/mouthgarita
+	required_reagents = list(/singleton/reagent/drink/toothpaste/mouthwash = 2, /singleton/reagent/drink/limejuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/caprician_sunrise
+	name = "Caprician Sunrise"
+	id = "caprician_sunrise"
+	result = /singleton/reagent/drink/toothpaste/mouthwash/caprician_sunrise
+	required_reagents = list(/singleton/reagent/drink/toothpaste/mouthwash = 2, /singleton/reagent/drink/orangejuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/flagsdale_mule
+	name = "Flagsdale Mule"
+	id = "flagsdale_mule"
+	result = /singleton/reagent/drink/toothpaste/mouthwash/flagsdale_mule
+	required_reagents = list(/singleton/reagent/drink/toothpaste/mouthwash = 1, /singleton/reagent/drink/toothpaste = 1, /singleton/reagent/drink/mintsyrup = 1)
+	result_amount = 3
+
 /datum/chemical_reaction/drink/thewake
 	name = "The Wake"
 	id = "thewake"
@@ -3891,41 +3935,41 @@
 	result_amount = 4
 	required_reagents = list(/singleton/reagent/silicate = 1, /singleton/reagent/acid = 1, /singleton/reagent/hydrazine = 1, /singleton/reagent/iron = 1)
 
-/datum/chemical_reaction/cryosurfactant
-	name = "Cryosurfactant"
-	id = "cryosurfactant"
-	result = /singleton/reagent/cryosurfactant
+/datum/chemical_reaction/cryosilicate
+	name = "Cryosilicate"
+	id = "cryosilicate"
+	result = /singleton/reagent/cryosilicate
 	result_amount = 3
-	required_reagents = list(/singleton/reagent/surfactant = 1, /singleton/reagent/drink/ice = 1, /singleton/reagent/sodium = 1)
+	required_reagents = list(/singleton/reagent/silicate = 1, /singleton/reagent/drink/ice = 1, /singleton/reagent/sodium = 1)
 
 //WATER
-/datum/chemical_reaction/cryosurfactant_cooling_water
-	name = "Cryosurfactant Cooling Water"
-	id = "cryosurfactant_cooling_water"
+/datum/chemical_reaction/cryosilicate_cooling_water
+	name = "Cryosilicate Cooling Water"
+	id = "cryosilicate_cooling_water"
 	result = null
 	result_amount = 1
-	required_reagents = list(/singleton/reagent/cryosurfactant = 1)
+	required_reagents = list(/singleton/reagent/cryosilicate = 1)
 	inhibitors = list(/singleton/reagent/pyrosilicate = 1)
 	catalysts = list(/singleton/reagent/water = 1)
 	mix_message = "The solution begins to freeze."
 
-/datum/chemical_reaction/cryosurfactant_cooling_water/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
-	holder.del_reagent(/singleton/reagent/cryosurfactant)
+/datum/chemical_reaction/cryosilicate_cooling_water/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
+	holder.del_reagent(/singleton/reagent/cryosilicate)
 	holder.add_thermal_energy(-created_volume*500)
 
 //ICE
-/datum/chemical_reaction/cryosurfactant_cooling_ice
-	name = "Cryosurfactant Cooling Ice"
-	id = "cryosurfactant_cooling_ice"
+/datum/chemical_reaction/cryosilicate_cooling_ice
+	name = "Cryosilicate Cooling Ice"
+	id = "cryosilicate_cooling_ice"
 	result = null
 	result_amount = 1
-	required_reagents = list(/singleton/reagent/cryosurfactant = 1)
+	required_reagents = list(/singleton/reagent/cryosilicate = 1)
 	inhibitors = list(/singleton/reagent/pyrosilicate = 1)
 	catalysts = list(/singleton/reagent/drink/ice = 1)
 	mix_message = "The solution begins to freeze."
 
-/datum/chemical_reaction/cryosurfactant_cooling_ice/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
-	holder.del_reagent(/singleton/reagent/cryosurfactant)
+/datum/chemical_reaction/cryosilicate_cooling_ice/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
+	holder.del_reagent(/singleton/reagent/cryosilicate)
 	holder.add_thermal_energy(-created_volume*500)
 
 /datum/chemical_reaction/pyrosilicate_heating
@@ -3934,22 +3978,22 @@
 	result = null
 	result_amount = 1
 	required_reagents = list(/singleton/reagent/pyrosilicate = 1)
-	inhibitors = list(/singleton/reagent/cryosurfactant = 1)
+	inhibitors = list(/singleton/reagent/cryosilicate = 1)
 	catalysts = list(/singleton/reagent/sodiumchloride = 1)
 
 /datum/chemical_reaction/pyrosilicate_heating/on_reaction(var/datum/reagents/holder, var/created_volume)
 	holder.del_reagent(/singleton/reagent/pyrosilicate)
 	holder.add_thermal_energy(created_volume*1000)
 
-/datum/chemical_reaction/pyrosilicate_cryosurfactant
-	name = "Pyrosilicate Cryosurfactant Reaction"
-	id = "pyrosilicate_cryosurfactant"
+/datum/chemical_reaction/pyrosilicate_cryosilicate
+	name = "Pyrosilicate Cryosilicate Reaction"
+	id = "pyrosilicate_cryosilicate"
 	result = null
-	required_reagents = list(/singleton/reagent/pyrosilicate = 1, /singleton/reagent/cryosurfactant = 1)
+	required_reagents = list(/singleton/reagent/pyrosilicate = 1, /singleton/reagent/cryosilicate = 1)
 	required_temperature_min = T0C //Does not react when below these temperatures.
 	result_amount = 1
 
-/datum/chemical_reaction/pyrosilicate_cryosurfactant/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
+/datum/chemical_reaction/pyrosilicate_cryosilicate/on_reaction(var/datum/reagents/holder, var/created_volume, var/created_thermal_energy)
 	if(created_volume)
 		var/turf/simulated/floor/T = get_turf(holder.my_atom.loc)
 		if(istype(T))

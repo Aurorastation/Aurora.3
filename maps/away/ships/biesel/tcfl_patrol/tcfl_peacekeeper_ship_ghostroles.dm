@@ -50,6 +50,7 @@
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
+		H.update_body()
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 	if(isipc(H))

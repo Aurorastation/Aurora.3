@@ -31,7 +31,7 @@
 /obj/effect/forcefield/attackby(obj/item/attacking_item, mob/user)
 	..()
 	if(istype(attacking_item, /obj/item/nullrod))
-		to_chat(user, "<span class='notice'>\the [src] dissipates at the touch of the \the [attacking_item].</span>")
+		to_chat(user, SPAN_NOTICE("\the [src] dissipates at the touch of the \the [attacking_item]."))
 		qdel(src)
 
 /obj/effect/forcefield/cultify()

@@ -4,6 +4,7 @@
 	animate_movement = 2
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 	sight = DEFAULT_SIGHT
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	var/datum/mind/mind
 	var/static/next_mob_id = 0
 
@@ -96,6 +97,9 @@
 	var/phoron = null
 	var/sleeping = 0					//Carbon
 	var/sleeping_msg_debounce = FALSE	//Carbon - Used to show a message once every time someone falls asleep.
+	var/recently_slept = 0				//Carbon - Used to avoid falling over after waking up
+	var/sleeping_indefinitely = FALSE
+	var/sleep_buffer = 0				//Used for indefinite sleeping
 	var/resting = 0						//Carbon
 	var/lying = 0	// Is the mob lying down?
 	var/lying_prev = 0	// Was the mob lying down before?
@@ -258,3 +262,6 @@
 	var/atom/movable/typing_indicator/typing_indicator
 	/// User is thinking in character. Used to revert to thinking state after stop_typing
 	var/thinking_IC = FALSE
+
+	/// A assoc lazylist of to_chat notifications, key = string message, value = world time integer
+	var/list/message_notifications

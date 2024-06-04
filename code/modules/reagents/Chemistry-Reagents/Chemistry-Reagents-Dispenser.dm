@@ -20,11 +20,11 @@
 		if(amount < 5)
 			return
 		if(istype(O, /obj/item/book/tome))
-			to_chat(usr, "<span class='notice'>The solution does nothing. Whatever this is, it isn't normal ink.</span>")
+			to_chat(usr, SPAN_NOTICE("The solution does nothing. Whatever this is, it isn't normal ink."))
 			return
 		var/obj/item/book/affectedbook = O
 		affectedbook.dat = null
-		to_chat(usr, "<span class='notice'>The solution dissolves the ink on the book.</span>")
+		to_chat(usr, SPAN_NOTICE("The solution dissolves the ink on the book."))
 	return
 
 /singleton/reagent/aluminum
@@ -115,12 +115,28 @@
 	if (alien & IS_SKRELL)
 		M.add_chemical_effect(CE_BLOODRESTORE, 3 * removed)
 
-/singleton/reagent/alcohol //Parent class for all alcoholic reagents, though this one shouldn't be used anywhere.
-	name = null	// This null name should prevent alcohol from being added to global lists.
+/**
+ * #Alcoholic Reagents
+ *
+ * Parent class for all alcoholic reagents, though this one shouldn't be used anywhere
+ */
+/singleton/reagent/alcohol
+	abstract_type = /singleton/reagent/alcohol
+	name = null
 	description = DESC_PARENT
 	reagent_state = LIQUID
 	color = "#404030"
-	ingest_met = REM * 5
+	ingest_met = REM * 2.5
+	fallback_specific_heat = 0.605
+	germ_adjust = 20 // as good as sterilizine, but only if you have pure ethanol. or rubbing alcohol if we get that eventually
+
+	unaffected_species = IS_MACHINE
+
+	taste_description = "mistakes"
+
+	glass_icon_state = "glass_clear"
+	glass_name = "glass of coder fuckups"
+	glass_desc = "A glass of distilled maintainer tears."
 
 	var/hydration_factor = 1 //How much hydration to add per unit.
 	var/nutriment_factor = 0.5 //How much nutrition to add per unit.
@@ -135,15 +151,6 @@
 	var/flammability_divisor = 10
 
 	var/distillation_point = T0C + 100
-	germ_adjust = 20 // as good as sterilizine, but only if you have pure ethanol. or rubbing alcohol if we get that eventually
-
-	unaffected_species = IS_MACHINE
-
-	taste_description = "mistakes"
-
-	glass_icon_state = "glass_clear"
-	glass_name = "glass of coder fuckups"
-	glass_desc = "A glass of distilled maintainer tears."
 
 	var/blood_to_ingest_scale = 2
 
@@ -160,60 +167,39 @@
 	return
 
 /singleton/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed, var/datum/reagents/holder)
+	if(alien != IS_DIONA && ishuman(M))
+		var/has_valid_aug = FALSE
+		var/obj/item/organ/internal/augment/ethanol_burner/aug = M.internal_organs_by_name[BP_AUG_ETHANOL_BURNER]
+		if(aug && !aug.is_broken())
+			has_valid_aug = TRUE
 
-	if(alien != IS_DIONA)
-		M.intoxication += (strength / 100) * removed * 3.5
+		var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
+		if(!has_valid_aug && (alien == IS_VAURCA || (istype(P) && P.stage >= 3)))//Vaurca are damaged instead of getting nutrients, but they can still get drunk
+			M.adjustToxLoss(12 * removed * (strength / 100))
 
-		if (druggy != 0)
-			M.druggy = max(M.druggy, druggy)
+		if (!has_valid_aug && alien == IS_UNATHI) //unathi are poisoned by alcohol as well
+			M.adjustToxLoss(12 * removed * (strength / 100))
+			if(!M.lastpuke)
+				to_chat(M, SPAN_WARNING("Your gizzard lurches as the alcohol burns its way down your gullet!"))//Make it clear that you should not be drinking this.
+			var/mob/living/carbon/human/H = M
+			H.delayed_vomit()
 
-		if (halluci)
-			M.hallucination = max(M.hallucination, halluci)
-
-		if(caffeine)
-			M.add_chemical_effect(CE_PULSE, caffeine*2)
-			M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
+		if (has_valid_aug | alien != IS_UNATHI)
+			M.intoxication += (strength / 100) * removed * 6
+			if (druggy != 0)
+				M.druggy = max(M.druggy, druggy)
+			if (halluci)
+				M.hallucination = max(M.hallucination, halluci)
+			if(caffeine)
+				M.add_chemical_effect(CE_PULSE, caffeine*2)
+				M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
+			M.adjustNutritionLoss(-nutriment_factor * removed)
+			M.adjustHydrationLoss(-hydration_factor * removed)
 
 	if (adj_temp > 0 && M.bodytemperature < targ_temp) // 310 is the normal bodytemp. 310.055
 		M.bodytemperature = min(targ_temp, M.bodytemperature + (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
 	if (adj_temp < 0 && M.bodytemperature > targ_temp)
 		M.bodytemperature = min(targ_temp, M.bodytemperature - (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
-
-/singleton/reagent/alcohol
-	name = "Ethanol"
-	description = "A well-known alcohol with a variety of applications."
-	flammability_divisor = 10
-
-	taste_description = "pure alcohol"
-
-	glass_icon_state = "glass_clear"
-	glass_name = "glass of ethanol"
-	glass_desc = "A well-known alcohol with a variety of applications."
-
-	fallback_specific_heat = 0.605
-
-	distillation_point = T0C + 78.37
-
-/singleton/reagent/alcohol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(!istype(M))
-		return
-
-	var/has_valid_aug = FALSE
-	var/obj/item/organ/internal/augment/ethanol_burner/aug = M.internal_organs_by_name[BP_AUG_ETHANOL_BURNER]
-	if(aug && !aug.is_broken())
-		has_valid_aug = TRUE
-
-	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
-	if(!has_valid_aug && (alien == IS_VAURCA || (istype(P) && P.stage >= 3)))//Vaurca are damaged instead of getting nutrients, but they can still get drunk
-		M.adjustToxLoss(1.5 * removed * (strength / 100))
-	else
-		M.adjustNutritionLoss(-nutriment_factor * removed)
-		M.adjustHydrationLoss(-hydration_factor * removed)
-
-	if (!has_valid_aug && alien == IS_UNATHI)//unathi are poisoned by alcohol as well
-		M.adjustToxLoss(1.5 * removed * (strength / 100))
-
-	..()
 
 /singleton/reagent/alcohol/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O, /obj/item/paper))
@@ -225,22 +211,38 @@
 		if(amount < 5)
 			return
 		if(istype(O, /obj/item/book/tome))
-			to_chat(usr, "<span class='notice'>The solution does nothing. Whatever this is, it isn't normal ink.</span>")
+			to_chat(usr, SPAN_NOTICE("The solution does nothing. Whatever this is, it isn't normal ink."))
 			return
 		var/obj/item/book/affectedbook = O
 		affectedbook.dat = null
-		to_chat(usr, "<span class='notice'>The solution dissolves the ink on the book.</span>")
+		to_chat(usr, SPAN_NOTICE("The solution dissolves the ink on the book."))
 	return
 
+/**
+ * # Ethanol
+ */
+/singleton/reagent/alcohol/ethanol
+	name = "Ethanol"
+	description = "A well-known alcohol with a variety of applications."
+	taste_description = "pure alcohol"
 
-// Butanol is a common alcohol that is fairly ineffective for humans and most other species, but highly intoxicating to unathi.
-// Most behavior is inherited from alcohol.
+	glass_name = "glass of ethanol"
+	glass_desc = "A well-known alcohol with a variety of applications."
+
+	distillation_point = T0C + 78.37
+
+/**
+ * # Butanol
+ *
+ * Butanol is a common alcohol that is fairly ineffective for humans and most other species, but highly intoxicating to unathi
+ *
+ */
 /singleton/reagent/alcohol/butanol
 	name = "Butanol"
 	description = "A fairly harmless alcohol that has intoxicating effects on certain species."
 	reagent_state = LIQUID
 	color = "#404030"
-	ingest_met = REM * 0.5 //Extremely slow metabolic rate means the liver will generally purge it faster than it can intoxicate you
+	ingest_met = REM * 2.5
 	flammability_divisor = 7	//Butanol is a bit less flammable than ethanol
 
 	taste_description = "alcohol"
@@ -254,19 +256,26 @@
 	distillation_point = T0C + 117.7
 
 /singleton/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(!istype(M))
-		return
-	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
-	if((alien == IS_VAURCA) || (istype(P) && P.stage >= 3))
-		M.adjustToxLoss(removed * (strength / 100))
-	else
+	if (alien == IS_UNATHI)
+		M.intoxication += (strength / 100) * removed * 6
+		if (druggy != 0)
+			M.druggy = max(M.druggy, druggy)
+		if (halluci)
+			M.hallucination = max(M.hallucination, halluci)
+		if(caffeine)
+			M.add_chemical_effect(CE_PULSE, caffeine*2)
+			M.add_up_to_chemical_effect(CE_SPEEDBOOST, 1)
+
 		M.adjustNutritionLoss(-nutriment_factor * removed)
 		M.adjustHydrationLoss(-hydration_factor * removed)
 
-	if (alien == IS_UNATHI)
-		ingest_met = initial(ingest_met)*3
-
-	..()
+		if (adj_temp > 0 && M.bodytemperature < targ_temp) // 310 is the normal bodytemp. 310.055
+			M.bodytemperature = min(targ_temp, M.bodytemperature + (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
+		if (adj_temp < 0 && M.bodytemperature > targ_temp)
+			M.bodytemperature = min(targ_temp, M.bodytemperature - (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
+	else
+		strength = 0 //Only Unathi are intoxicated by butanol.
+		..()
 
 /singleton/reagent/hydrazine
 	name = "Hydrazine"
@@ -433,11 +442,11 @@
 		var/mob/living/carbon/human/H = M
 		if(H.head)
 			if(H.head.unacidable)
-				to_chat(H, "<span class='danger'>Your [H.head] protects you from the acid.</span>")
+				to_chat(H, SPAN_DANGER("Your [H.head] protects you from the acid."))
 				remove_self(REAGENT_VOLUME(holder, type))
 				return
 			else if(removed > meltdose)
-				to_chat(H, "<span class='danger'>Your [H.head] melts away!</span>")
+				to_chat(H, SPAN_DANGER("Your [H.head] melts away!"))
 				qdel(H.head)
 				H.update_inv_head(1)
 				H.update_hair(1)
@@ -447,11 +456,11 @@
 
 		if(H.wear_mask)
 			if(H.wear_mask.unacidable)
-				to_chat(H, "<span class='danger'>Your [H.wear_mask] protects you from the acid.</span>")
+				to_chat(H, SPAN_DANGER("Your [H.wear_mask] protects you from the acid."))
 				remove_self(REAGENT_VOLUME(holder, type))
 				return
 			else if(removed > meltdose)
-				to_chat(H, "<span class='danger'>Your [H.wear_mask] melts away!</span>")
+				to_chat(H, SPAN_DANGER("Your [H.wear_mask] melts away!"))
 				qdel(H.wear_mask)
 				H.update_inv_wear_mask(1)
 				H.update_hair(1)
@@ -461,10 +470,10 @@
 
 		if(H.glasses)
 			if(H.glasses.unacidable)
-				to_chat(H, "<span class='danger'>Your [H.glasses] partially protect you from the acid!</span>")
+				to_chat(H, SPAN_DANGER("Your [H.glasses] partially protect you from the acid!"))
 				removed /= 2
 			else if(removed > meltdose)
-				to_chat(H, "<span class='danger'>Your [H.glasses] melt away!</span>")
+				to_chat(H, SPAN_DANGER("Your [H.glasses] melt away!"))
 				qdel(H.glasses)
 				H.update_inv_glasses(1)
 				removed -= meltdose / 2
@@ -494,7 +503,7 @@
 		var/obj/effect/decal/cleanable/molten_item/I = new/obj/effect/decal/cleanable/molten_item(get_turf(O))
 		I.desc = "Looks like this was \an [O] some time ago."
 		for(var/mob/M in viewers(get_turf(O), 5))
-			to_chat(M, "<span class='warning'>\The [O] melts.</span>")
+			to_chat(M, SPAN_WARNING("\The [O] melts."))
 		qdel(O)
 		remove_self(meltdose, holder) // 10 units of acid will not melt EVERYTHING on the tile
 
@@ -579,6 +588,5 @@
 	reagent_state = SOLID
 	color = "#DCDCDC"
 	taste_mult = 0 //no taste
-	fallback_specific_heat = 18
 
 	fallback_specific_heat = 0.859

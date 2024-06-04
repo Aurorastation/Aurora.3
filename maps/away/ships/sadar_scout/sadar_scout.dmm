@@ -1733,6 +1733,9 @@
 	dir = 1
 	},
 /obj/machinery/light/colored/decayed/dimmed,
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/lead/full,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/utility)
 "nh" = (
@@ -6616,6 +6619,11 @@
 /obj/random/powercell,
 /obj/random/powercell,
 /obj/machinery/light/colored/decayed/dimmed,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/tools)
 "WN" = (

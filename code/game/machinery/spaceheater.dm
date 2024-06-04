@@ -9,7 +9,7 @@
 	clicksound = /singleton/sound_category/switch_sound
 	var/on = FALSE
 	var/active = 0
-	var/heating_power = 40 KILOWATTS
+	var/heating_power = 40 KILO WATTS
 	var/set_temperature = T0C + 20
 
 	var/obj/item/cell/apc/cell
@@ -20,7 +20,7 @@
 	update_icon()
 
 /obj/machinery/space_heater/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(!on)
 		icon_state = "sheater-off"
 		set_light(0)
@@ -34,7 +34,7 @@
 		icon_state = "sheater-standby"
 		set_light(0)
 	if(panel_open)
-		add_overlay("sheater-open")
+		AddOverlays("sheater-open")
 
 /obj/machinery/space_heater/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()

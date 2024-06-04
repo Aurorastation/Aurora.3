@@ -59,9 +59,9 @@
 			yarn_overlay.color = ball.color
 		else
 			yarn_overlay.appearance_flags = RESET_COLOR
-		add_overlay(yarn_overlay)
+		AddOverlays(yarn_overlay)
 	else
-		cut_overlays()
+		ClearOverlays()
 	update_held_icon()
 
 /obj/item/knittingneedles/attackby(obj/item/attacking_item, mob/user)

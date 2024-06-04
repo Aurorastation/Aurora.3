@@ -360,10 +360,9 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
 
-/obj/item/clothing/head/helmet/space/void/lancer/unathi/Initialize()
-	. = ..()
+/obj/item/clothing/head/helmet/space/void/lancer/unathi
 	desc = "A sleek helmet with a bright yellow visor, expertly made in and colored in the iconic branding of Ceres' Lance. This one is fitted to Unathi."
-	refit_contained(BODYTYPE_UNATHI)
+	refit_initialize = BODYTYPE_UNATHI
 
 /obj/item/clothing/suit/space/void/lancer
 	name = "lancer voidsuit"
@@ -389,10 +388,9 @@
 	species_restricted = list(BODYTYPE_HUMAN)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_UNATHI)
 
-/obj/item/clothing/suit/space/void/lancer/unathi/Initialize()
-	. = ..()
+/obj/item/clothing/suit/space/void/lancer/unathi
 	desc = "A bulky void suit with heavy plating. Looks to be colored in the branding of Ceres' Lance. This one is fitted to Unathi."
-	refit_contained(BODYTYPE_UNATHI)
+	refit_initialize = BODYTYPE_UNATHI
 
 //Einstein Engines espionage voidsuit
 /obj/item/clothing/head/helmet/space/void/einstein
@@ -625,7 +623,6 @@
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
 
 /obj/item/clothing/suit/space/void/freelancer
-	icon_state = "freelancer"
 	name = "armored voidsuit"
 	desc = "A suit from a commercial combat voidsuit design. Acceptably well-armored and prolific thoughout the Orion Spur, it can be seen in use by everyone from mercenaries to militia groups to police forces."
 	icon = 'icons/obj/clothing/voidsuit/mercenary.dmi'

@@ -21,6 +21,18 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("tortilla" = 3, "corn" = 3))
 	bitesize = 4
 
+/obj/item/reagent_containers/food/snacks/grilled_peppers
+	name = "grilled peppers"
+	desc = "A bowl full of strips of grilled peppers makes for a colorful side dish!"
+	icon = 'icons/obj/item/reagent_containers/food/mexican.dmi'
+	icon_state = "grilled_peppers"
+	trash = /obj/item/trash/bowl_small
+	filling_color = "#df850f"
+	center_of_mass = list("x"=16, "y"=8)
+	reagents_to_add = list(/singleton/reagent/nutriment = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("bell peppers" = 4))
+	bitesize = 2
+
 // Tacos
 //=========================
 /obj/item/reagent_containers/food/snacks/taco

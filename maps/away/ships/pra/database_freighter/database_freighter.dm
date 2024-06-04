@@ -2,7 +2,10 @@
 	name = "Database Freighter"
 	id = "database_freighter"
 	description = "Made from adapted designs of the first freighter Tajara ever worked upon, Database freighters are PRA vessels made specially for gathering information on star systems and what passes through them."
-	suffixes = list("ships/pra/database_freighter/database_freighter.dmm")
+
+	prefix = "ships/pra/database_freighter/"
+	suffixes = list("database_freighter.dmm")
+
 	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/database_freighter_shuttle)
@@ -23,7 +26,7 @@
 	colors = list("#8C8A81")
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	scanimage = "pra_freighter.png"
 	designer = "People's Republic of Adhomai"
@@ -91,7 +94,7 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/database_freighter_shuttle

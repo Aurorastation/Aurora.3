@@ -44,6 +44,11 @@
 			)
 		)
 
+	cockpit = new
+	if(loc)
+		cockpit.copy_from(loc.return_air())
+	air_supply = new /obj/machinery/portable_atmospherics/canister/air(src)
+
 /obj/item/mech_component/chassis/update_components()
 	diagnostics = locate() in src
 	cell =        locate() in src
@@ -57,13 +62,15 @@
 	QDEL_NULL(air_supply)
 	. = ..()
 
-/obj/item/mech_component/chassis/show_missing_parts(var/mob/user)
+/obj/item/mech_component/chassis/get_missing_parts_text()
+	. = ..()
+
 	if(!cell)
-		to_chat(user, SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=cell'>power cell</a>."))
+		. += SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=cell'>power cell</a>.")
 	if(!diagnostics)
-		to_chat(user, SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=diagnostics'>diagnostics unit</a>."))
+		. += SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=diagnostics'>diagnostics unit</a>.")
 	if(!mech_armor)
-		to_chat(user, SPAN_WARNING("It is missing <a href='?src=\ref[src];info=diagnostics'>armor plating</a>."))
+		. += SPAN_WARNING("It is missing <a href='?src=\ref[src];info=diagnostics'>armor plating</a>.")
 
 /obj/item/mech_component/chassis/Topic(href, href_list)
 	. = ..()
@@ -87,13 +94,6 @@
 		to_chat(user, SPAN_NOTICE("  - Armor Integrity: <b>[round(((mech_armor.max_dam - mech_armor.total_dam) / mech_armor.max_dam) * 100, 0.1)]%</b>"))
 	else
 		to_chat(user, SPAN_WARNING("  - Armor Missing or Non-functional."))
-
-/obj/item/mech_component/chassis/Initialize()
-	. = ..()
-	cockpit = new
-	if(loc)
-		cockpit.copy_from(loc.return_air())
-	air_supply = new /obj/machinery/portable_atmospherics/canister/air(src)
 
 /obj/item/mech_component/chassis/proc/update_air(var/take_from_supply)
 

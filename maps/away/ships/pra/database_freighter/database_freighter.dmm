@@ -337,6 +337,8 @@
 	dir = 8
 	},
 /obj/machinery/light,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/survey_probe/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -614,6 +616,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints/outpost{
+	pixel_y = 6
+	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2150,7 +2161,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
@@ -3556,7 +3567,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
@@ -3688,7 +3699,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
@@ -4651,6 +4662,13 @@
 	temperature = 278.15
 	},
 /area/database_freighter/engineering)
+"So" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/survey_probe/pra,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/database_freighter/hangar)
 "SV" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -4702,6 +4720,16 @@
 	temperature = 278.15
 	},
 /area/database_freighter/captain_quarters)
+"To" = (
+/obj/structure/sign/vacuum{
+	pixel_x = 32
+	},
+/obj/structure/survey_probe/pra,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/database_freighter/hangar)
 "Tu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor{
@@ -4966,6 +4994,13 @@
 	temperature = 278.15
 	},
 /area/database_freighter)
+"XH" = (
+/obj/structure/survey_probe/pra,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/database_freighter/hangar)
 "XZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood{
@@ -15164,7 +15199,7 @@ Ni
 pH
 rj
 xw
-Nf
+XH
 Nf
 rH
 Ql
@@ -15326,7 +15361,7 @@ YC
 zh
 uY
 xw
-gT
+To
 Nf
 Nf
 Nf
@@ -15342,7 +15377,7 @@ Nf
 Nf
 Nf
 gT
-Nf
+So
 yo
 cq
 tR

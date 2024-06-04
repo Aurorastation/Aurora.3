@@ -16,6 +16,9 @@
 	name = "Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/captain)
 "aD" = (
@@ -26,6 +29,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/engineering)
 "aF" = (
@@ -46,6 +52,9 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/engineering)
 "aR" = (
@@ -229,12 +238,12 @@
 /area/tcaf_corvette/francisca)
 "cB" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
 	layer = 2.8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -390,6 +399,9 @@
 	name = "Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/francisca)
 "dn" = (
@@ -398,11 +410,19 @@
 	},
 /obj/structure/closet/cabinet,
 /obj/item/clothing/shoes/jackboots,
-/obj/item/material/twohanded/pike/flag,
 /obj/item/clothing/accessory/legion,
 /obj/item/device/megaphone/command,
 /obj/item/clothing/under/legion/tcaf,
 /obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
+/obj/item/flag/biesel,
+/obj/item/flag/biesel,
+/obj/item/flag/biesel/l,
+/obj/item/flag/biesel/l,
+/obj/item/rig/retro/equipped{
+	req_access = list(204);
+	req_one_access = null
+	},
+/obj/item/material/twohanded/pike/flag,
 /turf/simulated/floor/carpet/lightblue,
 /area/tcaf_corvette/captain)
 "dp" = (
@@ -495,6 +515,9 @@
 	req_access = list(204);
 	dir = 1
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/medical)
 "dS" = (
@@ -542,6 +565,9 @@
 	name = "Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/francisca)
 "et" = (
@@ -559,6 +585,10 @@
 	name = "Docking Port";
 	req_access = list(204);
 	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/dock)
@@ -618,6 +648,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/bridge)
 "eL" = (
@@ -694,6 +727,9 @@
 	id = "tcaf_grau";
 	name = "Blast Doors";
 	opacity = 0
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/grauwolf)
@@ -792,6 +828,10 @@
 	name = "Security";
 	req_access = list(204)
 	},
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 8;
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/security)
 "ge" = (
@@ -810,6 +850,18 @@
 /obj/machinery/power/apc/super/east{
 	req_access = list(204)
 	},
+/obj/item/stack/material/plastic/full{
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/obj/item/stack/material/aluminium/full{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/stack/material/lead/full{
+	pixel_y = 3
+	},
+/obj/item/device/robotanalyzer,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
 "gh" = (
@@ -818,6 +870,11 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/reinforced,
+/area/tcaf_corvette/engineering)
+"gl" = (
+/obj/structure/closet/radiation,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
 "gm" = (
 /obj/structure/table/stone/marble,
@@ -906,6 +963,9 @@
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armory";
 	req_access = list(204)
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/storage)
@@ -1127,7 +1187,7 @@
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcaf)
 "iU" = (
-/obj/machinery/computer/shuttle_control/explore/tcaf_shuttle,
+/obj/machinery/computer/ship/targeting,
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcaf)
 "iV" = (
@@ -1181,6 +1241,9 @@
 "jj" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/table/rack,
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 34
+	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcaf)
 "jk" = (
@@ -1228,6 +1291,10 @@
 	dir = 4;
 	name = "Reactor";
 	req_access = list(204)
+	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/reinforced,
 /area/tcaf_corvette/engineering)
@@ -1304,6 +1371,9 @@
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armory";
 	req_access = list(204)
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/storage)
@@ -1475,6 +1545,9 @@
 	name = "gun cabinet (law enforcement)";
 	req_access = list(204)
 	},
+/obj/item/storage/belt/security/full,
+/obj/item/storage/belt/security/full,
+/obj/item/storage/belt/security/full,
 /obj/item/storage/belt/security/full,
 /obj/item/storage/belt/security/full,
 /obj/item/gun/energy/taser,
@@ -1700,6 +1773,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/security)
 "og" = (
@@ -1749,6 +1826,9 @@
 	id = "tcaf_captain";
 	name = "Blast Doors";
 	opacity = 0
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/captain)
@@ -1975,9 +2055,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/messhall)
 "qt" = (
-/obj/structure/closet/radiation,
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/table/reinforced/steel,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
@@ -2051,6 +2136,9 @@
 	name = "Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tcaf)
 "rh" = (
@@ -2073,6 +2161,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/computer/ship/engines,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcaf)
 "rH" = (
@@ -2090,6 +2179,10 @@
 	name = "Bridge";
 	req_access = list(204);
 	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/messhall)
@@ -2127,6 +2220,7 @@
 /area/tcaf_corvette/grauwolf)
 "sb" = (
 /obj/machinery/vending/tool,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
 "sd" = (
@@ -2177,11 +2271,17 @@
 	name = "Operating Theatre 1";
 	req_access = list(204)
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
 "sy" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized{
 	id = "tcafsurgery2"
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/medical)
@@ -2262,6 +2362,7 @@
 /obj/item/clothing/accessory/storage/chestpouch,
 /obj/item/clothing/accessory/storage/chestpouch,
 /obj/item/clothing/accessory/tcaf_senior_legion_pauldron,
+/obj/item/shield/riot/tact/legion,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/armory)
 "sN" = (
@@ -2407,6 +2508,10 @@
 /area/tcaf_corvette/hangar)
 "ug" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/reinforced,
 /area/tcaf_corvette/engineering)
 "ul" = (
@@ -2510,6 +2615,11 @@
 	},
 /turf/simulated/wall/shuttle/legion,
 /area/tcaf_corvette/engineering)
+"uN" = (
+/obj/structure/table/steel,
+/obj/item/lore_radio,
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/messhall)
 "uO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -2545,6 +2655,10 @@
 	opacity = 0
 	},
 /obj/structure/grille,
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/bridge)
 "vb" = (
@@ -2668,6 +2782,9 @@
 	name = "Operating Theatre 2";
 	req_access = list(204)
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
 "wq" = (
@@ -2682,6 +2799,10 @@
 /area/tcaf_corvette/captain)
 "wx" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/engineering)
 "wy" = (
@@ -2798,6 +2919,9 @@
 	opacity = 0
 	},
 /obj/structure/grille,
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/bridge)
 "xk" = (
@@ -2874,6 +2998,9 @@
 	id = "tcaf_mess";
 	name = "Blast Doors";
 	opacity = 0
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/messhall)
@@ -3195,6 +3322,9 @@
 	name = "Commanding Officer's Quarters";
 	req_access = list(204)
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/wood/walnut,
 /area/tcaf_corvette/captain)
 "Bo" = (
@@ -3312,6 +3442,10 @@
 	name = "Medical Bay";
 	req_access = list(204)
 	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/medical)
 "CE" = (
@@ -3362,6 +3496,9 @@
 	req_access = list(204);
 	dir = 1
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/crew)
 "CM" = (
@@ -3391,7 +3528,6 @@
 /obj/item/clothing/head/helmet/pilot/legion{
 	name = "tau ceti flight helmet"
 	},
-/obj/item/stamp/biesel,
 /obj/item/gun/energy/blaster/pilot_special,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/bridge)
@@ -3475,6 +3611,9 @@
 	name = "EVA Storage";
 	req_access = list(204)
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/grauwolf)
 "Ek" = (
@@ -3485,7 +3624,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/storage)
 "El" = (
-/obj/structure/table/rack,
+/obj/machinery/computer/shuttle_control/explore/tcaf_shuttle{
+	dir = 4
+	},
 /obj/machinery/light,
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcaf)
@@ -3528,6 +3669,9 @@
 	req_access = list(204);
 	dir = 1
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/thruststarb)
 "EF" = (
@@ -3541,6 +3685,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/security)
@@ -3706,6 +3854,9 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized{
 	id = "tcafsurgery1"
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tcaf_corvette/medical)
 "Gh" = (
@@ -3805,6 +3956,10 @@
 	req_access = list(204);
 	dir = 4
 	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/hangar)
 "GX" = (
@@ -3880,6 +4035,9 @@
 	name = "Bathroom";
 	req_access = list(204);
 	dir = 1
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/grauwolf)
@@ -4014,6 +4172,10 @@
 	name = "Commanding Officer";
 	req_access = list(204)
 	},
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 8;
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/shuttle/tan,
 /area/tcaf_corvette/captain)
 "IZ" = (
@@ -4123,6 +4285,21 @@
 	},
 /turf/simulated/floor/lino,
 /area/tcaf_corvette/messhall)
+"Kj" = (
+/obj/structure/window/shuttle/legion,
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "tcaf_bridge";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
+/turf/simulated/floor/plating,
+/area/tcaf_corvette/bridge)
 "Kk" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -4217,6 +4394,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/thruststarb)
+"KS" = (
+/obj/structure/window/shuttle/legion,
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "tcaf_captain";
+	name = "Blast Doors";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
+	},
+/turf/simulated/floor/plating,
+/area/tcaf_corvette/captain)
 "KV" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -4479,6 +4673,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
 "MS" = (
@@ -4497,6 +4692,9 @@
 	name = "Propulsion";
 	req_access = list(204);
 	dir = 1
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/thrustport)
@@ -4540,6 +4738,9 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/messhall)
 "Ni" = (
@@ -4563,6 +4764,10 @@
 	name = "Bridge";
 	req_access = list(204);
 	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette)
@@ -4647,6 +4852,10 @@
 	dir = 4;
 	name = "Crew Quarters";
 	req_access = list(204)
+	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/grauwolf)
@@ -5019,6 +5228,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/engineering)
 "Ru" = (
@@ -5048,6 +5260,9 @@
 "RB" = (
 /obj/structure/window/shuttle/legion,
 /obj/structure/grille,
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tcaf)
 "RC" = (
@@ -5091,6 +5306,9 @@
 	id = "tcaf_mess";
 	name = "Blast Doors";
 	opacity = 0
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/messhall)
@@ -5159,7 +5377,8 @@
 /obj/random/mre,
 /obj/random/mre,
 /obj/random/mre,
-/obj/random/mre,
+/obj/item/storage/box/fancy/mre/menu12,
+/obj/item/storage/box/fancy/mre/menu12,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/messhall)
 "Sz" = (
@@ -5177,6 +5396,10 @@
 	id = "tcaf_bridge";
 	name = "Bridge Blast Doors";
 	opacity = 0
+	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/bridge)
@@ -5437,6 +5660,10 @@
 	pixel_y = 5
 	},
 /obj/item/pen/fountain/captain,
+/obj/item/stamp/biesel{
+	pixel_x = -4;
+	pixel_y = 8
+	},
 /turf/simulated/floor/carpet/lightblue,
 /area/tcaf_corvette/captain)
 "Vy" = (
@@ -5492,6 +5719,9 @@
 	dir = 4;
 	id = "tcaf_cic";
 	name = "CIC Blast Door"
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/cic)
@@ -5596,6 +5826,13 @@
 	req_access = list(204);
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/engineering)
 "WB" = (
@@ -5626,6 +5863,10 @@
 	name = "Francisca";
 	req_access = list(204);
 	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/francisca)
@@ -5697,6 +5938,7 @@
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
 "Xi" = (
@@ -5825,6 +6067,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/engineering)
 "Yk" = (
@@ -5833,6 +6079,10 @@
 	name = "Telecomms";
 	req_access = list(204);
 	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/thruststarb)
@@ -5924,6 +6174,9 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/bridge)
 "YM" = (
@@ -5944,6 +6197,9 @@
 	name = "Blast Doors";
 	opacity = 0
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tcaf)
 "YS" = (
@@ -5956,6 +6212,10 @@
 	id = "tcaf_francisca";
 	name = "Blast Doors";
 	opacity = 0
+	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/francisca)
@@ -6004,6 +6264,9 @@
 	dir = 1;
 	name = "Cockpit";
 	req_access = list(204)
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcaf)
@@ -31099,7 +31362,7 @@ Jp
 gr
 dn
 Jp
-ai
+KS
 ai
 UI
 UI
@@ -31333,7 +31596,7 @@ Jm
 wq
 Xh
 Gm
-Sd
+gl
 RA
 Yg
 wx
@@ -31870,7 +32133,7 @@ Jp
 Jp
 Jp
 Jp
-ai
+KS
 ai
 UI
 UI
@@ -34440,7 +34703,7 @@ uu
 NZ
 On
 SC
-SC
+Kj
 UI
 UI
 UI
@@ -34697,7 +34960,7 @@ ti
 Qm
 PQ
 Ng
-SC
+Kj
 xc
 UI
 UI
@@ -36239,7 +36502,7 @@ sN
 Qm
 uq
 WL
-SC
+Kj
 xc
 UI
 UI
@@ -36496,7 +36759,7 @@ Nb
 rQ
 Vr
 SC
-SC
+Kj
 UI
 UI
 UI
@@ -38287,7 +38550,7 @@ BI
 BK
 vE
 zN
-zN
+uN
 zN
 RO
 UI

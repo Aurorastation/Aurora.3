@@ -41,7 +41,7 @@
 		var/throw_dist = get_dist(throw_source, loc)
 		if(speed >= throw_speed && smash_check(throw_dist)) //not as reliable as smashing directly
 			if(reagents)
-				hit_atom.visible_message("<span class='notice'>The contents of \the [src] splash all over [hit_atom]!</span>")
+				hit_atom.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [hit_atom]!"))
 				reagents.splash(hit_atom, reagents.total_volume)
 			src.smash(loc, hit_atom)
 
@@ -105,7 +105,7 @@
 	if(!(drink_flags & IS_GLASS) || rag)
 		return
 	if(user.unEquip(R))
-		to_chat(user, "<span class='notice'>You stuff [R] into [src].</span>")
+		to_chat(user, SPAN_NOTICE("You stuff [R] into [src]."))
 		rag = R
 		rag.forceMove(src)
 		atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
@@ -133,12 +133,12 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/update_icon()
 	underlays.Cut()
-	cut_overlays()
+	ClearOverlays()
 	if("[icon_state]-[get_filling_state()]" in icon)
 		if(reagents?.total_volume)
 			var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
 			filling.color = reagents.get_color()
-			add_overlay(filling)
+			AddOverlays(filling)
 	set_light(0)
 	if(rag)
 		var/underlay_image = image(icon='icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', icon_state=rag.on_fire? "[rag_underlay]_lit" : rag_underlay)
@@ -170,15 +170,15 @@
 	var/mob/living/carbon/human/H = target
 	if(istype(H) && H.headcheck(hit_zone))
 		var/obj/item/organ/affecting = H.get_organ(hit_zone) //headcheck should ensure that affecting is not null
-		user.visible_message("<span class='danger'>[user] smashes [src] into [H]'s [affecting.name]!</span>")
+		user.visible_message(SPAN_DANGER("[user] smashes [src] into [H]'s [affecting.name]!"))
 		if(weaken_duration)
 			target.apply_effect(min(weaken_duration, 5), WEAKEN, blocked) // Never weaken more than a flash!
 	else
-		user.visible_message("<span class='danger'>\The [user] smashes [src] into [target]!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] smashes [src] into [target]!"))
 
 	//The reagents in the bottle splash all over the target, thanks for the idea Nodrak
 	if(reagents)
-		user.visible_message("<span class='notice'>The contents of \the [src] splash all over [target]!</span>")
+		user.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [target]!"))
 		reagents.splash(target, reagents.total_volume)
 
 	//Finally, smash the bottle. This kills (qdel) the bottle.
@@ -220,7 +220,7 @@
 	var/mutable_appearance/froth = mutable_appearance('icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', "froth_bottle_[intensity_state]")
 	froth.pixel_x = offset_x
 	froth.pixel_y = offset_y
-	add_overlay(froth)
+	AddOverlays(froth)
 	CUT_OVERLAY_IN(froth, 2 SECONDS)
 
 //Keeping this here for now, I'll ask if I should keep it here.
@@ -353,7 +353,8 @@
 		return ..()
 	balloon_alert(user, "fiddling with cork...")
 	if(do_after(user, 1 SECONDS, src))
-		return open(user, sabrage = FALSE, froth_severity = pick(0, 1))
+		if(!is_open_container())
+			return open(user, sabrage = FALSE, froth_severity = pick(0, 1))
 
 /obj/item/reagent_containers/food/drinks/bottle/champagne/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
@@ -371,6 +372,12 @@
 	playsound(user, 'sound/weapons/holster/sheathout.ogg', 25, TRUE)
 	balloon_alert(user, "preparing to swing...")
 	if(!do_after(user, 2 SECONDS, src)) //takes longer because you are supposed to take the foil off the bottle first
+		return
+
+	if(is_open_container())
+		balloon_alert(user, "the bottle was already open, you spill some on the floor...")
+		if(reagents.total_volume)
+			src.reagents.remove_any(reagents.total_volume / 5)
 		return
 
 	///The bonus to success chance that the user gets for being a command role
@@ -782,8 +789,8 @@
 	name = "Boryeong '45 soju"
 	desc = "A rice-based liquor commonly consumed by the non-synthetic residents of Konyang. This particular brand originates from the city of Boreyeong, on Konyang."
 	desc_extended = "While most commonly associated with Konyang, soju can be found throughout the Sol Alliance thanks to the inexpensive cost of producing it and a successful \
-	marketing campaign carried out during the robotics boom on Konyang. It is traditionally consumed neat, or without mixing any other liquids into it. The '45 in this brand's \
-	name refers to its alcohol by volume content, and not a calendar year."
+	marketing campaign carried out during the robotics boom on Konyang. It is traditionally consumed neat, or without mixing any other liquids into it. The '45 in this brand's name \
+	refers to its alcohol by volume content, and not a calendar year."
 	icon_state = "sojubottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/singleton/reagent/alcohol/soju = 100)
@@ -1053,3 +1060,11 @@
 	center_of_mass = list("x"=16, "y"=8)
 
 	reagents_to_add = list(/singleton/reagent/alcohol/bottle/skrellwineylpha = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/nemiik
+	name = "vrozka farms ne'miik"
+	desc = "A bottle of Ne'miik under the label 'Vrozka Farms' from Caprice. It has labels in Basic boasting 'rich in minerals!' and warning that 'consumption by Humans or Tajara may cause negative effects', whatever that means."
+	icon_state = "vrozka_nemiik"
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/drink/milk/nemiik = 80)
+	empty_icon_state = "vrozka_empty"

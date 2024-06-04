@@ -68,9 +68,9 @@
 /obj/item/gun/energy/gun/nuclear/small_fail(var/mob/user)
 	for (var/mob/living/M in range(0,src)) //Only a minor failure, enjoy your radiation if you're in the same tile or carrying it
 		if (M == user)
-			to_chat(M, "<span class='warning'>Your gun feels pleasantly warm for a moment.</span>")
+			to_chat(M, SPAN_WARNING("Your gun feels pleasantly warm for a moment."))
 		else
-			to_chat(M, "<span class='warning'>You feel a warm sensation.</span>")
+			to_chat(M, SPAN_WARNING("You feel a warm sensation."))
 	SSradiation.radiate(src, rand(3, 50))
 	return
 
@@ -82,9 +82,9 @@
 	return
 
 /obj/item/gun/energy/gun/nuclear/critical_fail(var/mob/user)
-	to_chat(user, "<span class='danger'>Your gun's reactor overloads!</span>")
+	to_chat(user, SPAN_DANGER("Your gun's reactor overloads!"))
 	for (var/mob/living/M in range(rand(1,4),src))
-		to_chat(M, "<span class='warning'>You feel a wave of heat wash over you.</span>")
+		to_chat(M, SPAN_WARNING("You feel a wave of heat wash over you."))
 	SSradiation.radiate(src, rand(3, 80))
 	crit_fail = 1 //break the gun so it stops recharging
 	self_recharge = FALSE
@@ -93,33 +93,33 @@
 
 /obj/item/gun/energy/gun/nuclear/proc/update_charge()
 	if (crit_fail)
-		add_overlay("nucgun-whee")
+		AddOverlays("nucgun-whee")
 		return
 	var/ratio = max((power_supply?.charge / power_supply?.maxcharge), 0)
 	ratio = round(ratio, 0.25) * 100
-	add_overlay("nucgun-[ratio]")
+	AddOverlays("nucgun-[ratio]")
 
 /obj/item/gun/energy/gun/nuclear/proc/update_reactor()
 	if(crit_fail)
-		add_overlay("nucgun-crit")
+		AddOverlays("nucgun-crit")
 		return
 	if(lightfail)
-		add_overlay("nucgun-medium")
+		AddOverlays("nucgun-medium")
 	else if ((power_supply?.charge/power_supply?.maxcharge) <= 0.5)
-		add_overlay("nucgun-light")
+		AddOverlays("nucgun-light")
 	else
-		add_overlay("nucgun-clean")
+		AddOverlays("nucgun-clean")
 
 /obj/item/gun/energy/gun/nuclear/proc/update_mode()
 	var/datum/firemode/current_mode = firemodes[sel_mode]
 	switch(current_mode.name)
 		if("stun")
-			add_overlay("nucgun-stun")
+			AddOverlays("nucgun-stun")
 		if("lethal")
-			add_overlay("nucgun-kill")
+			AddOverlays("nucgun-kill")
 
 /obj/item/gun/energy/gun/nuclear/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	update_charge()
 	update_reactor()
 	update_mode()

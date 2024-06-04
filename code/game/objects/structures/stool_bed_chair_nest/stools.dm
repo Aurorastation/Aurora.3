@@ -80,9 +80,6 @@
 /obj/structure/bed/stool/padded/violet/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_VIOLET)
 
-/obj/structure/bed/stool/wood/New(var/newloc)
-	..(newloc, MATERIAL_WOOD)
-
 /obj/structure/bed/stool/bar
 	name = "bar stool"
 	desc = "It has some unsavory stains on it..."
@@ -90,6 +87,7 @@
 	item_state = "bar_stool"
 	base_icon = "bar_stool"
 	held_item = /obj/item/material/stool/bar
+	obj_flags = OBJ_FLAG_ROTATABLE_ANCHORED
 
 /obj/structure/bed/stool/bar/wood/New(var/newloc)
 	..(newloc, MATERIAL_WOOD)
@@ -136,10 +134,6 @@
 /obj/structure/bed/stool/bar/padded/violet/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_VIOLET)
 
-
-/obj/structure/bed/stool/bar/wood/New(var/newloc)
-	..(newloc, MATERIAL_WOOD)
-
 /obj/structure/bed/stool/hover
 	name = "hoverstool"
 	desc = "As comfortable as a cloud."
@@ -157,10 +151,9 @@
 /obj/structure/bed/chair/stool/bamboo
 	name = "bamboo stool"
 	desc = "A makeshift bamboo stool with a rustic look."
-	icon_state = "bamboo_stool_item"
-	item_state = "bamboo_stool"
-	base_icon = "bamboo_stool"
 	icon_state = "bamboo_stool"
+	item_state = "bamboo_stool_item"
+	base_icon = "bamboo_stool"
 	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 	held_item = /obj/item/material/stool/bamboo
 	can_pad = FALSE
@@ -228,20 +221,6 @@
 		use_material_shatter = FALSE
 		shatter()
 
-/obj/item/material/stool/ex_act(severity)
-	switch(severity)
-		if(1.0)
-			qdel(src)
-			return
-		if(2.0)
-			if (prob(50))
-				qdel(src)
-				return
-		if(3.0)
-			if (prob(5))
-				qdel(src)
-				return
-
 /obj/item/material/stool/proc/deploy(mob/user)
 	for(var/obj/A in get_turf(loc))
 		if(istype(A, /obj/structure/bed))
@@ -264,7 +243,7 @@
 
 /obj/item/material/stool/update_icon()
 	icon_state = "[base_icon]_item"
-	cut_overlays()
+	ClearOverlays()
 	if(padding_material)	// Handles padding overlay and inhand overlays.
 		var/image/padding_overlay = image(icon, "[base_icon]_item_padding")
 		padding_overlay.appearance_flags = RESET_COLOR
@@ -276,7 +255,7 @@
 		else if(padding_material.icon_colour)
 			padding_overlay.color = padding_material.icon_colour
 			worn_overlay_color = padding_material.icon_colour
-		add_overlay(padding_overlay)
+		AddOverlays(padding_overlay)
 	else
 		build_from_parts = FALSE
 	update_held_icon()
@@ -343,7 +322,9 @@
 	anchored = FALSE
 	density = FALSE
 
-/obj/structure/flora/log_bench/fire_act()
+/obj/structure/flora/log_bench/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	for(var/obj/structure/bonfire/B in get_turf(src))
 		if(B.on_fire)
 			B.fuel = min(B.max_fuel, B.fuel + 300)

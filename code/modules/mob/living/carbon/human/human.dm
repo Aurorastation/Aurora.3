@@ -101,7 +101,14 @@
 	if(length(species.unarmed_attacks))
 		set_default_attack(species.unarmed_attacks[1])
 
-/mob/living/carbon/human/Destroy()
+/mob/living/carbon/human/Destroy(force)
+	ghost_spawner = null
+
+	//Srom (Shared Dreaming)
+	srom_pulled_by = null
+	srom_pulling = null
+	bg = null //Just to be sure.
+
 	GLOB.human_mob_list -= src
 	GLOB.intent_listener -= src
 	QDEL_LIST(organs)
@@ -227,6 +234,21 @@
 		if(changeling)
 			. += "Chemical Storage: [changeling.chem_charges]"
 			. += "Genetic Damage Time: [changeling.geneticdamage]"
+
+	if(. && istype(back,/obj/item/rig))
+		var/obj/item/rig/R = back
+		if(R && !R.canremove && R.installed_modules.len)
+			var/cell_status = R.cell ? "[R.cell.charge]/[R.cell.maxcharge]" : "ERROR"
+			. += "Suit Charge: [cell_status]"
+
+	var/obj/item/technomancer_core/core = get_technomancer_core()
+	if(core)
+		var/charge_status = "[core.energy]/[core.max_energy] ([round( (core.energy / core.max_energy) * 100)]%) \
+		([round(core.energy_delta)]/s)"
+		var/instability_delta = instability - last_instability
+		var/instability_status = "[src.instability] ([round(instability_delta, 0.1)]/s)"
+		. += "Core Charge: [charge_status]"
+		. += "User instability: [instability_status]"
 
 /mob/living/carbon/human/ex_act(severity)
 	if(!blinded)
@@ -816,12 +838,28 @@
 			+ SPAN_WARNING("Remember, this is OOC information.")
 		to_chat(usr, EXAMINE_BLOCK(message))
 
+	if(href_list["default_attk"])
+		if(href_list["default_attk"] == "reset_attk")
+			set_default_attack(null)
+		else
+			var/datum/unarmed_attack/u_attack = locate(href_list["default_attk"])
+			if(u_attack && (u_attack in species.unarmed_attacks))
+				set_default_attack(u_attack)
+		check_attacks()
+		return 1
+
 	..()
 	return
 
 ///eyecheck()
 ///Returns a number between -1 to 2
 /mob/living/carbon/human/get_flash_protection(ignore_inherent = FALSE)
+
+	//Ling
+	var/datum/changeling/changeling = changeling_power(0, 0, 0)
+	if(changeling && changeling.using_thermals)
+		return FLASH_PROTECTION_REDUCED
+
 	if(!species.vision_organ || !species.has_organ[species.vision_organ]) //No eyes, can't hurt them.
 		return FLASH_PROTECTION_MAJOR
 
@@ -1477,12 +1515,9 @@
 	if (vessel)
 		restore_blood()
 
-	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
-	if(client && client.screen)
-		client.screen.len = null
-		if(hud_used)
-			qdel(hud_used)
-		hud_used = new /datum/hud(src)
+	// Rebuild the HUD and visual elements.
+	if(client)
+		LateLogin()
 
 	if (src.is_diona())
 		setup_gestalt(1)
@@ -1491,6 +1526,8 @@
 	brute_mod = species.brute_mod
 
 	max_stamina = species.stamina
+	if(HAS_TRAIT(src, TRAIT_ORIGIN_STAMINA_BONUS))
+		max_stamina *= 1.1
 	stamina = max_stamina
 	sprint_speed_factor = species.sprint_speed_factor
 	sprint_cost_factor = species.sprint_cost_factor
@@ -1542,7 +1579,6 @@
 		return TRUE
 	else
 		return FALSE
-
 
 /mob/living/carbon/human/proc/fill_out_culture_data()
 	set_culture(GET_SINGLETON(species.possible_cultures[1]))
@@ -1615,7 +1651,7 @@
 			to_chat(src, SPAN_WARNING("You ran out of blood to write with!"))
 
 		var/obj/effect/decal/cleanable/blood/writing/W = new(T)
-		W.basecolor = (hand_blood_color) ? hand_blood_color : "#A10808"
+		W.basecolor = (hand_blood_color) ? hand_blood_color : COLOR_HUMAN_BLOOD
 		W.update_icon()
 		W.message = message
 		W.add_fingerprint(src)
@@ -1827,6 +1863,8 @@
 	..()
 	if(update_hud)
 		handle_regular_hud_updates()
+	if(eyeobj)
+		eyeobj.remove_visual(src)
 
 
 /mob/living/carbon/human/can_stand_overridden()
@@ -1883,11 +1921,11 @@
 		return
 	var/datum/category_item/underwear/UWI = all_underwear[UWC.name]
 	if(!UWI || UWI.name == "None")
-		to_chat(src, "<span class='notice'>You do not have [UWC.gender==PLURAL ? "[UWC.display_name]" : "any [UWC.display_name]"].</span>")
+		to_chat(src, SPAN_NOTICE("You do not have [UWC.gender==PLURAL ? "[UWC.display_name]" : "any [UWC.display_name]"]."))
 		return
 	hide_underwear[UWC.name] = !hide_underwear[UWC.name]
 	update_underwear(1)
-	to_chat(src, "<span class='notice'>You [hide_underwear[UWC.name] ? "take off" : "put on"] your [UWC.display_name].</span>")
+	to_chat(src, SPAN_NOTICE("You [hide_underwear[UWC.name] ? "take off" : "put on"] your [UWC.display_name]."))
 
 /mob/living/carbon/human/verb/pull_punches()
 	set name = "Pull Punches"
@@ -1956,7 +1994,7 @@
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 	return heart ? heart.pulse : PULSE_NONE
 
-/mob/living/carbon/human/move_to_stomach(atom/movable/victim)
+/mob/living/carbon/human/proc/move_to_stomach(atom/movable/victim)
 	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 	if(istype(stomach))
 		victim.forceMove(stomach)
@@ -2236,9 +2274,9 @@
 			visible_message(SPAN_NOTICE("[src] looks up."), SPAN_NOTICE("You look up."))
 			reset_view(z_eye)
 			return
-		to_chat(src, "<span class='notice'>You can see \the [above ? above : "ceiling"].</span>")
+		to_chat(src, SPAN_NOTICE("You can see \the [above ? above : "ceiling"]."))
 	else
-		to_chat(src, "<span class='notice'>You can't look up right now.</span>")
+		to_chat(src, SPAN_NOTICE("You can't look up right now."))
 
 /mob/living/verb/lookdown()
 	set name = "Look Down"
@@ -2263,9 +2301,9 @@
 				visible_message(SPAN_NOTICE("[src] leans over to look below."), SPAN_NOTICE("You lean over to look below."))
 				reset_view(z_eye)
 				return
-		to_chat(src, "<span class='notice'>You can see \the [T ? T : "floor"].</span>")
+		to_chat(src, SPAN_NOTICE("You can see \the [T ? T : "floor"]."))
 	else
-		to_chat(src, "<span class='notice'>You can't look below right now.</span>")
+		to_chat(src, SPAN_NOTICE("You can't look below right now."))
 
 /mob/living/carbon/human/get_speech_bubble_state_modifier()
 	if(speech_bubble_type)

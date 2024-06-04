@@ -149,16 +149,6 @@
 			return O
 	return
 
-/mob/living/LateLogin()
-	. = ..()
-	if(ability_master)
-		ability_master.toggle_open(2)
-		client.screen -= ability_master
-
-/mob/living/Initialize()
-	. = ..()
-	ability_master = new /obj/screen/movable/ability_master(FALSE, src)
-
 ///////////ACTUAL ABILITIES////////////
 //This is what you click to do things//
 ///////////////////////////////////////
@@ -222,7 +212,7 @@
 	if(!mob)
 		return // Paranoid.
 	if(isnull(slot) || !isnum(slot))
-		to_chat(src, "<span class='warning'>.activate_ability requires a number as input, corrisponding to the slot you wish to use.</span>")
+		to_chat(src, SPAN_WARNING(".activate_ability requires a number as input, corrisponding to the slot you wish to use."))
 		return // Bad input.
 	if(!mob.ability_master)
 		return // No abilities.

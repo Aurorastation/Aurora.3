@@ -140,7 +140,7 @@
 	icon_state = "white"
 	anchored = TRUE
 	simulated = FALSE
-	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	alpha = 100
 	var/datum/weakref/source
 
@@ -157,9 +157,9 @@
 	if(!istype(I))
 		qdel(src)
 		return
-	cut_overlays()
+	ClearOverlays()
 	var/mutable_appearance/MA = new(I)
-	MA.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	MA.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	MA.appearance_flags = RESET_ALPHA
 	MA.alpha = 170
 	MA.pixel_x = 0
@@ -171,13 +171,13 @@
 	desc = "It's currently showing \the [I]."
 	update_icon()
 
-/obj/effect/projection/examine(mob/user, distance, is_adjacent)
+/obj/effect/projection/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	var/obj/item/slide = source.resolve()
 	if(!istype(slide))
 		qdel(src)
 		return
-	return slide.examine(user, max(distance, 1), FALSE)
+	return slide.examine(user, max(distance, 1), FALSE, show_extended = show_extended)
 
 /obj/effect/projection/photo
 	alpha = 170
@@ -202,6 +202,6 @@
 	if(!istype(P))
 		qdel(src)
 		return
-	cut_overlays()
+	ClearOverlays()
 	if(P.info)
 		icon_state = "text[rand(1,3)]"

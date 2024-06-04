@@ -275,7 +275,7 @@ update_flag
 */
 
 	if (src.destroyed)
-		cut_overlays()
+		ClearOverlays()
 		set_light(FALSE)
 		src.icon_state = text("[]-1", src.canister_color)
 		return
@@ -286,34 +286,36 @@ update_flag
 	if(check_change()) //Returns 1 if no change needed to icons.
 		return
 
-	cut_overlays()
+	ClearOverlays()
 	set_light(FALSE)
 
 	if(signaler)
-		add_overlay("signaler")
+		AddOverlays("signaler")
 
 	if(update_flag & 1)
-		add_overlay("can-open")
+		AddOverlays("can-open")
 	if(update_flag & 2)
-		add_overlay("can-connector")
+		AddOverlays("can-connector")
 	if(update_flag & 4)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o0", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(indicator_overlay)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o0", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		AddOverlays(indicator_overlay)
 		set_light(1.4, 1, COLOR_RED_LIGHT)
 	if(update_flag & 8)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o1", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(indicator_overlay)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o1", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		AddOverlays(indicator_overlay)
 		set_light(1.4, 1, COLOR_RED_LIGHT)
 	else if(update_flag & 16)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o2", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(indicator_overlay)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o2", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		AddOverlays(indicator_overlay)
 		set_light(1.4, 1, COLOR_YELLOW)
 	else if(update_flag & 32)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o3", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(indicator_overlay)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o3", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		AddOverlays(indicator_overlay)
 		set_light(1.4, 1, COLOR_BRIGHT_GREEN)
 
-/obj/machinery/portable_atmospherics/canister/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/machinery/portable_atmospherics/canister/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(exposed_temperature > temperature_resistance)
 		health -= 5
 		healthcheck()
@@ -593,7 +595,3 @@ update_flag
 	canister_color = "poisonous"
 	desc = "A canister of Chlorine, with a warning label for poisonous gasses."
 	can_label = 0
-/obj/machinery/portable_atmospherics/canister/chlorine/Initialize()
-	. = ..()
-
-	src.air_contents.adjust_gas(GAS_CHLORINE, MolesForPressure())

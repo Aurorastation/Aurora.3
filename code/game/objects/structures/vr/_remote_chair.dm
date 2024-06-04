@@ -47,7 +47,7 @@
 		if(H.old_mob)
 			to_chat(H, SPAN_WARNING("The chair rejects you! You cannot recursively control bodies."))
 			return
-	add_overlay(image('icons/obj/furniture.dmi', src, "vr_helmet", FLY_LAYER))
+	AddOverlays(image('icons/obj/furniture.dmi', src, "vr_helmet", FLY_LAYER))
 	START_PROCESSING(SSprocessing, src)
 
 
@@ -64,6 +64,6 @@
 		var/mob/M = buckled
 		if(istype(M) && M.vr_mob)
 			M.vr_mob.body_return()
-		cut_overlays()
+		ClearOverlays()
 		STOP_PROCESSING(SSprocessing, src)
 	..()

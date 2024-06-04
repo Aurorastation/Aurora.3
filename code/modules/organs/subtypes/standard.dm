@@ -240,6 +240,8 @@
 	return "[owner.get_pronoun("has")] [blood_type] running down [owner.get_pronoun("his")] neck!"
 
 /obj/item/organ/external/head/removed()
+	get_icon()
+
 	if(owner)
 		name = "[owner.real_name]'s head"
 		owner.drop_from_inventory(owner.glasses)
@@ -247,8 +249,8 @@
 		owner.drop_from_inventory(owner.l_ear)
 		owner.drop_from_inventory(owner.r_ear)
 		owner.drop_from_inventory(owner.wear_mask)
-		spawn(1)
-			owner.update_hair()
+		owner.update_hair()
+
 	..()
 
 /obj/item/organ/external/head/take_damage(brute, burn, damage_flags, used_weapon = null, list/forbidden_limbs = list(), var/silent)

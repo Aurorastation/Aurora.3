@@ -22,7 +22,7 @@
 
 /obj/item/melee/classic_baton/attack(mob/M as mob, mob/living/user as mob, var/target_zone)
 	if ((user.is_clumsy()) && prob(50))
-		to_chat(user, "<span class='warning'>You club yourself over the head.</span>")
+		to_chat(user, SPAN_WARNING("You club yourself over the head."))
 		user.Weaken(3 * force)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
@@ -77,13 +77,13 @@
 	add_fingerprint(user)
 
 	if(blood_overlay && blood_DNA && (blood_DNA.len >= 1)) //updates blood overlay, if any
-		cut_overlay(blood_overlay, TRUE)
+		CutOverlays(blood_overlay, ATOM_ICON_CACHE_PROTECTED)
 		var/icon/I = new /icon(src.icon, src.icon_state)
 		I.Blend(new /icon('icons/effects/blood.dmi', rgb(255,255,255)),ICON_ADD)
 		I.Blend(new /icon('icons/effects/blood.dmi', "itemblood"),ICON_MULTIPLY)
 		blood_overlay = image(I)
 		blood_overlay.color = blood_color
-		add_overlay(blood_overlay, TRUE)
+		AddOverlays(blood_overlay, ATOM_ICON_CACHE_PROTECTED)
 		update_icon()
 
 	return

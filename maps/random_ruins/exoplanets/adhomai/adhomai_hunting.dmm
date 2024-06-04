@@ -280,6 +280,18 @@
 /area/adhomai_hunting)
 "Nd" = (
 /obj/structure/table/wood/gamblingtable,
+/obj/item/storage/firstaid/regular{
+	pixel_y = 7;
+	pixel_x = 5
+	},
+/obj/random/medical{
+	pixel_x = -3;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -7;
+	pixel_y = 12
+	},
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "Ne" = (

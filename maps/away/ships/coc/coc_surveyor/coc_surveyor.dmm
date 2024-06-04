@@ -271,7 +271,12 @@
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/quarters)
 "cG" = (
-/obj/machinery/mining/drill,
+/obj/machinery/mining/brace{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 10
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
@@ -1898,18 +1903,11 @@
 	dir = 4
 	},
 /obj/structure/table/steel,
-/obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for a vessel.";
-	icon = 'icons/obj/items.dmi';
-	icon_state = "blueprints";
-	item_icons = null;
-	item_state = null;
-	name = "ship blueprints"
-	},
 /obj/item/pen/drafting/blue{
 	pixel_y = 5
 	},
 /obj/machinery/light,
+/obj/item/blueprints,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/atmos)
 "ra" = (
@@ -2162,7 +2160,7 @@
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/item/storage/box/gloves,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/research)
 "sL" = (
@@ -2351,6 +2349,8 @@
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/survey_probe/coc,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
 "ux" = (
@@ -2573,6 +2573,17 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/coc_survey_ship/engineering)
+"wC" = (
+/obj/machinery/light,
+/obj/machinery/mining/brace{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/coc_survey_ship/miningeva)
 "wF" = (
 /obj/item/flame/lighter/zippo/coalition,
 /obj/item/flame/lighter/zippo/coalition,
@@ -3790,10 +3801,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/coc_survey_ship/engineering)
 "FB" = (
-/obj/machinery/mining/brace{
-	dir = 8
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/survey_probe/coc,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
 "FC" = (
@@ -3842,11 +3854,9 @@
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/atmos)
 "FU" = (
-/obj/structure/sign/flag/himeo{
-	pixel_y = -32
-	},
-/obj/machinery/mining/brace{
-	dir = 4
+/obj/machinery/mining/drill,
+/obj/effect/floor_decal/corner_wide/orange{
+	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
@@ -3867,7 +3877,7 @@
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/item/storage/box/gloves,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/research)
 "Ga" = (
@@ -5079,6 +5089,8 @@
 	dir = 10
 	},
 /obj/machinery/light,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/survey_probe/coc,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
 "Ql" = (
@@ -5605,6 +5617,12 @@
 "UF" = (
 /turf/simulated/wall,
 /area/coc_survey_ship/anomaly)
+"UH" = (
+/obj/structure/table/steel,
+/obj/item/device/hand_labeler,
+/obj/item/blueprints/outpost,
+/turf/simulated/floor/tiled,
+/area/coc_survey_ship/miningeva)
 "UI" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -5650,6 +5668,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/atmos)
 "UN" = (
@@ -11353,7 +11374,7 @@ YW
 cr
 oo
 Lr
-Qh
+wC
 Vh
 rn
 zj
@@ -11863,7 +11884,7 @@ Vh
 Vh
 WN
 Lr
-oS
+FB
 Vh
 oX
 Dz
@@ -11961,7 +11982,7 @@ Fb
 MH
 MH
 bM
-TF
+UH
 vs
 MH
 Lr

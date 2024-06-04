@@ -23,7 +23,6 @@
 	max_n2 = 0
 	minbodytemp = 0
 	speed = 4
-	see_in_dark = 8
 	emote_hear = list("emits a harsh noise")
 	emote_sounds = list(
 		'sound/effects/creatures/hivebot/synth_possessed.ogg',
@@ -41,6 +40,9 @@
 	///Overlay of a screen to display on the zombie's monitor
 	var/image/screen_overlay
 
+	///Emissive overlay of above
+	var/image/emissive_overlay
+
 	///IPC corpse to spawn on the simplemob's death
 	var/corpse = /obj/effect/landmark/corpse/ipc_zombie
 
@@ -49,17 +51,21 @@
 	icon_state = pick("baseline_grey", "baseline_red", "baseline_green", "baseline_yellow")
 	icon_dead = "[icon_state]_off"
 	screen = pick("screen_blue", "screen_red", "screen_orange", "screen_lumi_eyes", "screen_goggles", "screen_console", "screen_static2", "screen_static3")
-	screen_overlay = image('icons/mob/npc/ipc_zombie.dmi', "[screen]", EFFECTS_ABOVE_LIGHTING_LAYER)
+	screen_overlay = image('icons/mob/npc/ipc_zombie.dmi', "[screen]")
 	screen_overlay.appearance_flags = KEEP_APART
-	add_overlay(screen_overlay)
+	AddOverlays(screen_overlay)
+	emissive_overlay = emissive_appearance('icons/mob/npc/ipc_zombie.dmi', "[screen]")
+	AddOverlays(emissive_overlay)
 	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 2, LIGHT_COLOR_TUNGSTEN)
 
 /mob/living/simple_animal/hostile/ipc_zombie/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(screen && stat != DEAD)
-		screen_overlay = image('icons/mob/npc/ipc_zombie.dmi', "[screen]", EFFECTS_ABOVE_LIGHTING_LAYER)
+		screen_overlay = image('icons/mob/npc/ipc_zombie.dmi', "[screen]")
 		screen_overlay.appearance_flags = KEEP_APART
-		add_overlay(screen_overlay)
+		AddOverlays(screen_overlay)
+		emissive_overlay = emissive_appearance('icons/mob/npc/ipc_zombie.dmi', "[screen]")
+		AddOverlays(emissive_overlay)
 
 /mob/living/simple_animal/hostile/ipc_zombie/death()
 	..()

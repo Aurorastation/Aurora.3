@@ -14,7 +14,8 @@
 	var/base_icon = 'icons/effects/blood.dmi'
 	var/list/viruses = list()
 	blood_DNA = list()
-	var/basecolor="#A10808" // Color when wet.
+	color = COLOR_HUMAN_BLOOD
+	var/basecolor = COLOR_HUMAN_BLOOD // Color when wet.
 	var/list/datum/disease2/disease/virus2 = list()
 	var/amount = 5
 	var/drytime
@@ -105,11 +106,11 @@
 				if(!S.blood_DNA)
 					S.blood_DNA = list()
 					S.blood_overlay.color = basecolor
-					S.add_overlay(S.blood_overlay)
+					S.AddOverlays(S.blood_overlay)
 				if(S.blood_overlay && S.blood_overlay.color != basecolor)
-					S.cut_overlay(S.blood_overlay, TRUE)
+					S.CutOverlays(S.blood_overlay, ATOM_ICON_CACHE_PROTECTED)
 					S.blood_overlay.color = basecolor
-					S.add_overlay(S.blood_overlay, TRUE)
+					S.AddOverlays(S.blood_overlay, ATOM_ICON_CACHE_PROTECTED)
 				if(blood_DNA)
 					S.blood_DNA |= blood_DNA.Copy()
 
@@ -143,7 +144,7 @@
 			return
 		var/taken = rand(1,amount)
 		amount -= taken
-		to_chat(user, "<span class='notice'>You get some of \the [src] on your hands.</span>")
+		to_chat(user, SPAN_NOTICE("You get some of \the [src] on your hands."))
 		LAZYINITLIST(user.blood_DNA)
 
 		if (blood_DNA)
@@ -216,8 +217,8 @@
 	blood.Blend(basecolor,ICON_MULTIPLY)
 
 	icon = blood
-	cut_overlays()
-	add_overlay(giblets)
+	ClearOverlays()
+	AddOverlays(giblets)
 
 /obj/effect/decal/cleanable/blood/gibs/up
 	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gibup1","gibup1","gibup1")

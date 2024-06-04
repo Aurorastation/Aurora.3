@@ -45,20 +45,20 @@
 				var/mob/living/M = AM
 				M.Weaken(5)
 				M.adjustBruteLoss(5)
-				to_chat(M, "<span class='danger'>You're slammed into the floor by a mystical force!</span>")
+				to_chat(M, SPAN_DANGER("You're slammed into the floor by a mystical force!"))
 		else
 			if(istype(AM, /mob/living))
 				var/mob/living/M = AM
 				M.Weaken(2)
-				to_chat(M, "<span class='danger'>You're thrown back by a mystical force!</span>")
+				to_chat(M, SPAN_DANGER("You're thrown back by a mystical force!"))
 				AM.throw_at(throwtarget, ((Clamp((5 - (Clamp(distfromcaster - 2, 0, distfromcaster))), 3, 5))), 1)
 
 	log_and_message_admins("used tornado sweep(Plasma Fist)", "[A]")
 	return
 
 /datum/martial_art/plasma_fist/proc/Throwback(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	D.visible_message("<span class='danger'>[A] has hit [D] with plasma punch!</span>", \
-								"<span class='danger'>[A] has hit [D] with plasma punch!</span>")
+	D.visible_message(SPAN_DANGER("[A] has hit [D] with plasma punch!"), \
+								SPAN_DANGER("[A] has hit [D] with plasma punch!"))
 	playsound(D.loc, "punch", 50, 1, -1)
 	var/atom/throw_target = get_edge_target_turf(D, get_dir(D, get_step_away(D, A)))
 	D.throw_at(throw_target, 200, 4,A)
@@ -70,8 +70,8 @@
 	A.do_attack_animation(D)
 	playsound(D.loc, 'sound/magic/Disintegrate.ogg', 50, 1, -1)
 	A.say("PLASMA FIST!")
-	D.visible_message("<span class='danger'>[A] has hit [D] with the plasma fist technique!</span>", \
-								"<span class='danger'>[A] has hit [D] with the plasma fist technique!</span>")
+	D.visible_message(SPAN_DANGER("[A] has hit [D] with the plasma fist technique!"), \
+								SPAN_DANGER("[A] has hit [D] with the plasma fist technique!"))
 	D.gib()
 	log_and_message_admins("[A] gibbed [D] with the plasma fist (Plasma Fist)")
 	return

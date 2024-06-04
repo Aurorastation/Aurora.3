@@ -100,7 +100,7 @@
 		return FALSE
 
 	//Wikipedia says this is the upper limit for a medium non directional beacon, deal with it
-	use_power_oneoff(2 KILOWATTS)
+	use_power_oneoff(2 KILO WATTS)
 
 	var/datum/radio_frequency/frequency = SSradio.return_frequency(freq)
 
@@ -155,7 +155,7 @@
 				src.locked = !src.locked
 				to_chat(user, "Controls are now [src.locked ? "locked." : "unlocked."]")
 			else
-				to_chat(user, "<span class='warning'>Access denied.</span>")
+				to_chat(user, SPAN_WARNING("Access denied."))
 			updateDialog()
 		else
 			to_chat(user, "You must open the cover first!")

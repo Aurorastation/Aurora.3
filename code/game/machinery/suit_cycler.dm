@@ -35,6 +35,7 @@
 	icon_state = "base"
 
 	req_access = list(ACCESS_CAPTAIN, ACCESS_HEADS)
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/active = FALSE		// PLEASE HOLD.
 	var/safeties = TRUE		// The cycler won't start with a living thing inside it unless safeties are off.
@@ -96,40 +97,47 @@
 	return ..()
 
 /obj/machinery/suit_cycler/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(helmet)
 		//copied straight from the human update_icons thing
 		var/image/helmet_image = helmet.return_own_image()
 		if(helmet_image)
-			add_overlay(helmet_image)
+			AddOverlays(helmet_image)
 	if(suit)
 		var/image/suit_image = suit.return_own_image()
 		if(suit_image)
-			add_overlay(suit_image)
+			AddOverlays(suit_image)
 	if(occupant)
 		var/image/occupant_image = image(occupant.icon, occupant.icon_state)
 		occupant_image.overlays = occupant.overlays
-		add_overlay(occupant_image)
+		AddOverlays(occupant_image)
 	var/image/overbase = image(icon, "overbase", layer = ABOVE_HUMAN_LAYER)
-	add_overlay(overbase)
+	AddOverlays(overbase)
 	if(locked || active)
 		var/image/closed = image(icon, "closed", layer = ABOVE_HUMAN_LAYER)
-		add_overlay(closed)
+		AddOverlays(closed)
 	else
 		var/image/open = image(icon, "open", layer = ABOVE_HUMAN_LAYER)
-		add_overlay(open)
+		AddOverlays(open)
 	if(panel_open)
 		var/image/panel = image(icon, "panel", layer = ABOVE_HUMAN_LAYER)
-		add_overlay(panel)
+		AddOverlays(panel)
 
+	var/mutable_appearance/lights_emissive = emissive_appearance(icon, "light_radiation")
 	if(irradiating)
-		var/image/irradiating_lights = make_screen_overlay(icon, "light_radiation")
-		add_overlay(irradiating_lights)
+		var/image/irradiating_lights = overlay_image(icon, "light_radiation")
+		AddOverlays(list(
+			irradiating_lights,
+			lights_emissive
+		))
 		set_light(3, 0.8, COLOR_RED_LIGHT)
 	else if(active)
-		var/image/active_lights = make_screen_overlay(icon, "light_active")
-		add_overlay(active_lights)
+		var/image/active_lights = overlay_image(icon, "light_active")
+		AddOverlays(list(
+			active_lights,
+			lights_emissive
+		))
 		set_light(3, 0.8, COLOR_YELLOW)
 	else
 		set_light(0)
@@ -619,12 +627,12 @@
 				suit.icon_state = "syndie"
 		if("Research")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/captain.dmi'
+				helmet.icon = 'icons/obj/clothing/voidsuit/station/research.dmi'
 				helmet.name = "research voidsuit helmet"
 				helmet.icon_state = "research_helm"
 				helmet.item_state = "research_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/captain.dmi'
+				suit.icon = 'icons/obj/clothing/voidsuit/station/research.dmi'
 				suit.name = "research voidsuit"
 				suit.item_state = "research"
 				suit.icon_state = "research"

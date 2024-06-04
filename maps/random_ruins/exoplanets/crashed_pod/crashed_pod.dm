@@ -2,10 +2,15 @@
 	name = "crashed survival pod" //This map is not very elaborate and is meant to be an example on how to make a ruin.
 	id = "crashed_pod"
 	description = "A crashed survival pod from a destroyed ship."
-	suffixes = list("crashed_pod/crashed_pod.dmm")
+
+	prefix = "crashed_pod/"
+	suffixes = list("crashed_pod.dmm")
+
 	template_flags = TEMPLATE_FLAG_NO_RUINS | TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	ruin_tags = RUIN_LOWPOP|RUIN_WRECK
 	spawn_weight = 0.33
+
+	unit_test_groups = list(2)
 
 /singleton/submap_archetype/crashed_pod
 	descriptor = "crashed survival pod"

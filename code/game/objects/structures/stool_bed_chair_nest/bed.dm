@@ -78,7 +78,7 @@
 	generate_strings()
 	// Prep icon.
 	icon_state = ""
-	cut_overlays()
+	ClearOverlays()
 	// Base icon.
 
 	generate_overlay_cache(material) //Generate base icon cache
@@ -105,7 +105,7 @@
 			else if(overlay_material.icon_colour) // Either that, or just fall back on the regular material color.
 				I.color = overlay_material.icon_colour
 		furniture_cache[cache_key] = I
-	add_overlay(furniture_cache[cache_key]) // Use image from cache key!
+	AddOverlays(furniture_cache[cache_key]) // Use image from cache key!
 
 /obj/structure/bed/proc/generate_strings()
 	if(material_alteration & MATERIAL_ALTERATION_NAME)
@@ -202,7 +202,7 @@
 	else if(istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/G = attacking_item
 		var/mob/living/affecting = G.affecting
-		user.visible_message("<span class='notice'>[user] attempts to buckle [affecting] into \the [src]!</span>")
+		user.visible_message(SPAN_NOTICE("[user] attempts to buckle [affecting] into \the [src]!"))
 		if(do_after(user, 2 SECONDS, affecting, DO_UNIQUE))
 			affecting.forceMove(loc)
 			spawn(0)
@@ -308,6 +308,21 @@
 		else
 			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
+/obj/structure/bed/stair_act()
+	if(!buckled)
+		return
+
+	var/atom/movable/unbuckled_atom = unbuckle()
+	if(!unbuckled_atom)
+		return
+
+	unbuckled_atom.visible_message("<b>\The [unbuckled_atom]</b> goes flying out of \the [src] as it bounces on the stairs!", SPAN_WARNING("You go flying out of \the [src] as it bounces on the stairs!"))
+	unbuckled_atom.throw_at_random(FALSE, 1, 2)
+
+	if(ismob(unbuckled_atom))
+		var/mob/unbuckled_mob = unbuckled_atom
+		unbuckled_mob.Paralyse(5)
+
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
 	desc = "For prime comfort during psychiatric evaluations."
@@ -390,7 +405,7 @@
 	return ..()
 
 /obj/structure/bed/roller/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	vis_contents = list()
 	if(density)
 		if(anchored)
@@ -404,15 +419,15 @@
 		var/percentage = round((beaker.reagents.total_volume / beaker.volume) * 100, 25)
 		var/image/filling = image(icon, "iv_filling[percentage]")
 		filling.color = beaker.reagents.get_color()
-		iv.add_overlay(filling)
+		iv.AddOverlays(filling)
 		if(percentage < 25)
-			iv.add_overlay(image(icon, "light_low"))
+			iv.AddOverlays(image(icon, "light_low"))
 		if(density)
 			iv.pixel_y = 7
-		add_overlay(iv)
+		AddOverlays(iv)
 		if(has_iv_light)
 			var/image/light = image(icon, "iv[iv_attached]_l")
-			add_overlay(light)
+			AddOverlays(light)
 	if(vitals)
 		vitals.update_monitor()
 		add_vis_contents(vitals)
@@ -565,11 +580,15 @@
 	.=..()
 	set_light(2,1,LIGHT_COLOR_CYAN)
 
+/obj/structure/bed/roller/hover/stair_act()
+	return
+
 /obj/item/roller
 	name = "roller bed"
 	desc = "A collapsed roller bed that can be carried around."
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "standard_folded"
+	base_icon = "standard"
 	item_state = "rbed"
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/axe.ogg'
@@ -582,6 +601,7 @@
 	name = "medical hoverbed"
 	desc = "A collapsed hoverbed that can be carried around."
 	icon_state = "hover_folded"
+	base_icon = "hover"
 	item_state = "rbed_hover"
 	origin_type = /obj/structure/bed/roller/hover
 
@@ -633,3 +653,85 @@
 	R.add_fingerprint(user)
 	qdel(held)
 	held = null
+
+/**
+ * # Roller Rack
+ *
+ * A rack structure that can hold up to four roller bed items (Or subtypes i.e. Hoverbeds), stored in the `held` list.
+ *
+ * The `initial_beds` variable controls the number of beds the rack will spawn with.
+*/
+/obj/structure/roller_rack
+	name = "roller bed rack"
+	desc = "A rack for holding collapsed roller beds."
+	icon = 'icons/obj/rollerbed.dmi'
+	icon_state = "holder"
+
+	/**
+	 * List of held roller bed items.
+	 */
+	var/list/obj/item/roller/held = list()
+
+	/**
+	 * The number of beds the rack spawns with
+	 */
+	var/initial_beds = 4
+
+/obj/structure/roller_rack/Initialize()
+	. = ..()
+	for(var/_ in 1 to initial_beds)
+		var/obj/item/roller/RB = new /obj/item/roller(src)
+		held += RB
+	update_icon()
+
+/obj/structure/roller_rack/Destroy()
+	QDEL_LIST(held)
+	return ..()
+
+/obj/structure/roller_rack/update_icon()
+	. = ..()
+	ClearOverlays()
+	var/beds = 0
+	for(var/obj/item/roller/RB in held)
+		var/image/I = overlay_image(icon, "[icon_state]_bed_[RB.base_icon]")
+		I.pixel_x = (5 * beds)
+		beds++
+		AddOverlays(I)
+
+/obj/structure/roller_rack/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	desc = "[initial(desc)] \nIt is holding [LAZYLEN(held)] beds."
+	. = ..()
+
+/obj/structure/roller_rack/attack_hand(mob/user)
+	if(!LAZYLEN(held))
+		to_chat(user, SPAN_NOTICE("The rack is empty."))
+		return
+
+	var/obj/item/roller/RB = held[LAZYLEN(held)]
+	user.put_in_hands(RB)
+	held -= RB
+	to_chat(user, SPAN_NOTICE("You retrieve \the [RB] from the rack."))
+	update_icon()
+
+/obj/structure/roller_rack/attackby(obj/item/attacking_item, mob/user)
+	if(iswrench(attacking_item))
+		anchored = !anchored
+		to_chat(user, SPAN_NOTICE("You [anchored ? "bolt" : "unbolt"] \the [src] [anchored ? "to" : "from"] the ground."))
+
+	if(istype(attacking_item, /obj/item/roller))
+		var/obj/item/roller/RB = attacking_item
+
+		if(LAZYLEN(held) >= 4)
+			to_chat(user, SPAN_NOTICE("The rack has no space for \the [RB]"))
+			return
+
+		user.drop_from_inventory(RB, src)
+		held += RB
+		to_chat(user, SPAN_NOTICE("You place \the [RB] on the rack."))
+		update_icon()
+
+/obj/structure/roller_rack/two
+	initial_beds = 2
+
+/obj/structure/roller_rack/three
+	initial_beds = 3

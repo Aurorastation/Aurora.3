@@ -104,7 +104,7 @@ var/datum/antagonist/raider/raiders
 		else
 			win_msg += "<B>The Raiders were repelled!</B>"
 
-	to_world("<span class='danger'><font size = 3>[win_type] [win_group] victory!</font></span>")
+	to_world(SPAN_DANGER("<font size = 3>[win_type] [win_group] victory!</font>"))
 	to_world("[win_msg]")
 	feedback_set_details("round_end_result","heist - [win_type] [win_group]")
 

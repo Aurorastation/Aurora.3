@@ -62,7 +62,7 @@ In short:
 	set waitfor = FALSE
 	for(var/turf/T in world)	// Expensive, but CHECK_TICK should prevent lag.
 		if(istype(T, /turf/space))
-			T.add_overlay("hell01")
+			T.AddOverlays("hell01")
 		else
 			var/static/image/I = image('icons/turf/space.dmi', "hell01")
 			T.underlays += I
