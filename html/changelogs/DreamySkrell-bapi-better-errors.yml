@@ -1,0 +1,7 @@
+
+author: ChangeMe
+
+delete-after: True
+
+changes:
+  - rscadd: "BAPI - better error handling."
