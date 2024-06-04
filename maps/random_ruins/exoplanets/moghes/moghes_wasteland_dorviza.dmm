@@ -49,6 +49,9 @@
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
+"kD" = (
+/turf/template_noop,
+/area/exoplanet/moghes)
 "lk" = (
 /obj/structure/closet/crate,
 /obj/item/device/flashlight/lantern,
@@ -414,9 +417,6 @@
 	},
 /turf/simulated/floor/exoplanet/carpet/darkblue,
 /area/moghes_dorviza/tent)
-"XX" = (
-/turf/template_noop,
-/area/moghes_dorviza)
 "XY" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/diona{
@@ -448,14 +448,14 @@
 /area/moghes_dorviza/tent)
 
 (1,1,1) = {"
-XX
-XX
-XX
-XX
-XX
-XX
-XX
-XX
+kD
+kD
+kD
+kD
+kD
+kD
+kD
+kD
 Nk
 Nk
 Nk
@@ -476,22 +476,22 @@ Nk
 Nk
 Nk
 Nk
-XX
-XX
-XX
-XX
-XX
-XX
-XX
+kD
+kD
+kD
+kD
+kD
+kD
+kD
 "}
 (2,1,1) = {"
-XX
-XX
-XX
-XX
-XX
-XX
-XX
+kD
+kD
+kD
+kD
+kD
+kD
+kD
 Nk
 Nk
 Nk
@@ -515,20 +515,20 @@ Nk
 Nk
 Nk
 Nk
-XX
-XX
-XX
-XX
-XX
+kD
+kD
+kD
+kD
+kD
 "}
 (3,1,1) = {"
-XX
-XX
-XX
-XX
-XX
-XX
-XX
+kD
+kD
+kD
+kD
+kD
+kD
+kD
 Nk
 Nk
 Nk
@@ -554,17 +554,17 @@ Nk
 Nk
 Nk
 Nk
-XX
-XX
-XX
+kD
+kD
+kD
 "}
 (4,1,1) = {"
-XX
-XX
-XX
-XX
-XX
-XX
+kD
+kD
+kD
+kD
+kD
+kD
 Nk
 Nk
 Nk
@@ -592,16 +592,16 @@ Nk
 Nk
 Nk
 Nk
-XX
-XX
+kD
+kD
 "}
 (5,1,1) = {"
-XX
-XX
-XX
-XX
-XX
-XX
+kD
+kD
+kD
+kD
+kD
+kD
 Nk
 Nk
 Nk
@@ -630,15 +630,15 @@ Nk
 Nk
 Nk
 Nk
-XX
+kD
 "}
 (6,1,1) = {"
-XX
-XX
-XX
-XX
-XX
-XX
+kD
+kD
+kD
+kD
+kD
+kD
 Nk
 Nk
 Nk
@@ -667,15 +667,15 @@ Nk
 Nk
 Nk
 Nk
-XX
+kD
 "}
 (7,1,1) = {"
-XX
-XX
-XX
-XX
-XX
-XX
+kD
+kD
+kD
+kD
+kD
+kD
 Nk
 Nk
 Nk
@@ -704,15 +704,15 @@ Nk
 Nk
 Nk
 Nk
-XX
+kD
 "}
 (8,1,1) = {"
-XX
-XX
-XX
-XX
-XX
-XX
+kD
+kD
+kD
+kD
+kD
+kD
 Nk
 Nk
 Nk
@@ -741,13 +741,13 @@ Nk
 Nk
 Nk
 Nk
-XX
+kD
 "}
 (9,1,1) = {"
-XX
-XX
-XX
-XX
+kD
+kD
+kD
+kD
 Nk
 Nk
 Nk
@@ -781,9 +781,9 @@ Nk
 Nk
 "}
 (10,1,1) = {"
-XX
-XX
-XX
+kD
+kD
+kD
 Nk
 Nk
 Nk
@@ -818,8 +818,8 @@ Nk
 Nk
 "}
 (11,1,1) = {"
-XX
-XX
+kD
+kD
 Nk
 Nk
 Nk
@@ -855,7 +855,7 @@ Nk
 Nk
 "}
 (12,1,1) = {"
-XX
+kD
 Nk
 Nk
 Nk
@@ -1373,7 +1373,7 @@ Nk
 Nk
 "}
 (26,1,1) = {"
-XX
+kD
 Nk
 Nk
 Nk
@@ -1410,8 +1410,8 @@ Nk
 Nk
 "}
 (27,1,1) = {"
-XX
-XX
+kD
+kD
 Nk
 Nk
 Nk
@@ -1447,9 +1447,9 @@ Nk
 Nk
 "}
 (28,1,1) = {"
-XX
-XX
-XX
+kD
+kD
+kD
 Nk
 Nk
 Nk
@@ -1481,12 +1481,12 @@ Nk
 Nk
 Nk
 Nk
-XX
+kD
 "}
 (29,1,1) = {"
-XX
-XX
-XX
+kD
+kD
+kD
 Nk
 Nk
 Nk
@@ -1518,12 +1518,12 @@ Nk
 Nk
 Nk
 Nk
-XX
+kD
 "}
 (30,1,1) = {"
-XX
-XX
-XX
+kD
+kD
+kD
 Nk
 Nk
 Nk
@@ -1555,12 +1555,12 @@ Nk
 Nk
 Nk
 Nk
-XX
+kD
 "}
 (31,1,1) = {"
-XX
-XX
-XX
+kD
+kD
+kD
 Nk
 Nk
 Nk
@@ -1592,13 +1592,13 @@ Nk
 Nk
 Nk
 Nk
-XX
+kD
 "}
 (32,1,1) = {"
-XX
-XX
-XX
-XX
+kD
+kD
+kD
+kD
 Nk
 Nk
 Nk
@@ -1628,15 +1628,15 @@ Nk
 Nk
 Nk
 Nk
-XX
-XX
+kD
+kD
 "}
 (33,1,1) = {"
-XX
-XX
-XX
-XX
-XX
+kD
+kD
+kD
+kD
+kD
 Nk
 Nk
 Nk
@@ -1663,18 +1663,18 @@ Nk
 Nk
 Nk
 Nk
-XX
-XX
-XX
-XX
+kD
+kD
+kD
+kD
 "}
 (34,1,1) = {"
-XX
-XX
-XX
-XX
-XX
-XX
+kD
+kD
+kD
+kD
+kD
+kD
 Nk
 Nk
 Nk
@@ -1699,23 +1699,21 @@ Nk
 Nk
 Nk
 Nk
-XX
-XX
-XX
-XX
-XX
+kD
+kD
+kD
+kD
+kD
 "}
 (35,1,1) = {"
-XX
-XX
-XX
-XX
-XX
-XX
+kD
+kD
+kD
+kD
+kD
+kD
 Nk
-XX
-Nk
-Nk
+kD
 Nk
 Nk
 Nk
@@ -1735,10 +1733,12 @@ Nk
 Nk
 Nk
 Nk
-XX
-XX
-XX
-XX
-XX
-XX
+Nk
+Nk
+kD
+kD
+kD
+kD
+kD
+kD
 "}

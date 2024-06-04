@@ -75,7 +75,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "cC" = (
 /obj/machinery/door/blast/shutters{
 	id = "hegemony_base_entry"
@@ -186,7 +186,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "gF" = (
 /obj/effect/floor_decal/concrete{
 	dir = 1
@@ -651,7 +651,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "tH" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/bodyscanner,
@@ -691,7 +691,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "uL" = (
 /obj/machinery/light,
 /obj/structure/closet/secure_closet/guncabinet{
@@ -734,7 +734,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "vU" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/exoplanet/wood/birch{
@@ -1260,7 +1260,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Kd" = (
 /obj/effect/floor_decal/concrete{
 	dir = 9
@@ -1764,10 +1764,10 @@
 	pixel_y = -24
 	},
 /turf/simulated/floor/exoplanet/grass/moghes,
-/area/moghes)
+/area/exoplanet/moghes)
 "YW" = (
 /turf/simulated/floor/exoplanet/grass/moghes,
-/area/moghes)
+/area/exoplanet/moghes)
 "Zh" = (
 /obj/effect/floor_decal/concrete/large{
 	dir = 4

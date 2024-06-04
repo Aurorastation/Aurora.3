@@ -14,7 +14,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "ay" = (
 /obj/machinery/light/colored/decayed{
 	dir = 8
@@ -87,7 +87,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "cm" = (
 /obj/structure/simple_door/wood,
 /turf/simulated/floor/exoplanet/wood/birch{
@@ -189,13 +189,13 @@
 /area/moghes_vihnmes)
 "fE" = (
 /turf/template_noop,
-/area/moghes)
+/area/exoplanet/moghes)
 "gh" = (
 /obj/structure/flora/rock/desert,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "gs" = (
 /obj/structure/table/rack,
 /obj/item/reagent_containers/glass/bucket/wood,
@@ -210,7 +210,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "hy" = (
 /obj/structure/simple_door/wood{
 	name = "room three";
@@ -327,7 +327,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "oS" = (
 /obj/machinery/light/colored/decayed{
 	dir = 1
@@ -411,7 +411,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "sH" = (
 /obj/machinery/door/window{
 	dir = 4
@@ -533,7 +533,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "wh" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/wood/birch{
@@ -547,7 +547,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "wv" = (
 /obj/structure/closet/cabinet,
 /obj/item/storage/box/shotgunshells,
@@ -577,7 +577,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "wQ" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/box,
@@ -589,7 +589,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "xp" = (
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 1
@@ -627,7 +627,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "yf" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/exoplanet/wood/birch,
@@ -648,7 +648,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "yP" = (
 /obj/structure/simple_door/wood,
 /obj/effect/decal/cleanable/dirt,
@@ -753,7 +753,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Fb" = (
 /obj/structure/reagent_dispensers/keg/xuizikeg,
 /obj/machinery/light/colored/decayed{
@@ -771,7 +771,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "FJ" = (
 /obj/structure/railing/fence{
 	dir = 4
@@ -780,7 +780,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Gp" = (
 /obj/effect/ghostspawpoint{
 	name = "igs - moghes_vihnmes";
@@ -938,7 +938,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "NB" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze{
@@ -965,7 +965,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Ov" = (
 /obj/structure/bookcase/libraryspawn/religion,
 /obj/effect/floor_decal/spline/plain/beige,
@@ -1006,7 +1006,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "PV" = (
 /obj/structure/table/wood,
 /obj/item/flora/pottedplant_small/dead{
@@ -1024,7 +1024,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Qx" = (
 /obj/structure/closet/crate/bin,
 /obj/effect/floor_decal/spline/plain/beige{
@@ -1046,7 +1046,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Rm" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/kitchenspike,
@@ -1082,7 +1082,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "SH" = (
 /obj/machinery/light/colored/decayed{
 	dir = 1
@@ -1102,7 +1102,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Tv" = (
 /obj/machinery/light{
 	dir = 1
@@ -1110,7 +1110,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Ue" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/cleanable/dirt,
@@ -1148,12 +1148,12 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Vl" = (
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "VB" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/item/seeds/clam,
@@ -1164,7 +1164,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "VJ" = (
 /turf/simulated/wall/sandstone,
 /area/moghes_vihnmes)
@@ -1180,7 +1180,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Xd" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/cleanable/flour,
@@ -1240,7 +1240,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 
 (1,1,1) = {"
 fE

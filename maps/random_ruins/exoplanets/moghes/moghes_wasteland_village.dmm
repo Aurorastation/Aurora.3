@@ -8,7 +8,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "an" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -17,14 +17,14 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "ay" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "bK" = (
 /obj/machinery/light{
 	dir = 4;
@@ -33,7 +33,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "bL" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -42,7 +42,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "bO" = (
 /obj/machinery/light{
 	dir = 8
@@ -50,7 +50,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "ch" = (
 /obj/structure/table/rack,
 /obj/item/material/hatchet,
@@ -59,13 +59,13 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "cp" = (
 /obj/structure/flora/log_bench,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "cJ" = (
 /obj/structure/railing/fence{
 	dir = 8
@@ -73,7 +73,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "cL" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lantern,
@@ -84,7 +84,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "dc" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
@@ -95,7 +95,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "dp" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
@@ -103,58 +103,58 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "dI" = (
 /obj/item/material/stool/chair/wood,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "dQ" = (
 /obj/structure/table/rack,
 /obj/item/reagent_containers/glass/bucket/wood,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "fb" = (
 /mob/living/simple_animal/threshbeast,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "fG" = (
 /obj/structure/bed/stool/chair/wood,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "fT" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "gj" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "go" = (
 /obj/structure/simple_door/wood,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "gt" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "gF" = (
 /obj/structure/bed/stool/chair/sofa/left/brown,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
@@ -164,13 +164,13 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "hm" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "id" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -178,7 +178,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "ig" = (
 /obj/machinery/light{
 	dir = 1
@@ -186,7 +186,7 @@
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "ii" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -195,7 +195,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "iZ" = (
 /turf/simulated/wall/sandstone,
 /area/moghes_wasteland_village)
@@ -206,21 +206,21 @@
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "lh" = (
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "lo" = (
 /obj/machinery/light,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "lz" = (
 /turf/template_noop,
-/area/moghes)
+/area/exoplanet/moghes)
 "lB" = (
 /obj/structure/simple_door/sandstone,
 /turf/simulated/floor/exoplanet/marble,
@@ -235,7 +235,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "lR" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -244,7 +244,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "mf" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -253,7 +253,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "mg" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
@@ -261,13 +261,13 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "mE" = (
 /obj/item/bedsheet/black,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "nh" = (
 /obj/structure/table/stone,
 /obj/item/trash/candle,
@@ -284,7 +284,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "nZ" = (
 /obj/machinery/light{
 	dir = 1
@@ -293,7 +293,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "oo" = (
 /obj/structure/railing/fence{
 	dir = 8
@@ -302,27 +302,27 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "ox" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "pa" = (
 /obj/effect/decal/cleanable/flour,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "pb" = (
 /obj/structure/railing/fence,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "pZ" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/board/bowl,
@@ -343,7 +343,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "qi" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 1
@@ -352,7 +352,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "qJ" = (
 /obj/structure/railing/fence{
 	dir = 1
@@ -360,14 +360,14 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "rq" = (
 /mob/living/simple_animal/threshbeast,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "rY" = (
 /obj/structure/closet/cabinet,
 /obj/item/gun/projectile/shotgun/doublebarrel,
@@ -380,18 +380,18 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "sH" = (
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "sM" = (
 /obj/effect/decal/cleanable/floor_damage/wood_broken4,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "tm" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
@@ -399,7 +399,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "tw" = (
 /obj/structure/railing/fence{
 	dir = 4
@@ -407,7 +407,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "tJ" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/unathi/himation,
@@ -425,7 +425,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "tL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood,
@@ -442,7 +442,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "ud" = (
 /obj/machinery/appliance/cooker/oven,
 /obj/effect/decal/cleanable/cobweb,
@@ -452,7 +452,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "uA" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -461,13 +461,13 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "uB" = (
 /obj/structure/coatrack,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "uF" = (
 /obj/structure/railing/fence,
 /obj/structure/railing/fence{
@@ -476,14 +476,14 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "uN" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "uR" = (
 /obj/structure/table/rack,
 /obj/item/reagent_containers/glass/bottle/ammonia,
@@ -498,7 +498,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "vb" = (
 /obj/machinery/light{
 	dir = 1
@@ -506,19 +506,19 @@
 /turf/simulated/floor/exoplanet/carpet/orange{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "vB" = (
 /obj/item/material/stool/chair/wood,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "wc" = (
 /obj/structure/bonfire,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "xH" = (
 /obj/structure/flora/log_bench{
 	dir = 4
@@ -526,14 +526,14 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "yy" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/floor_damage/wood_broken4,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "AH" = (
 /obj/item/material/stool/chair/wood{
 	dir = 4
@@ -541,7 +541,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "AS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -550,19 +550,19 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Bg" = (
 /obj/machinery/light,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "BA" = (
 /obj/structure/simple_door/wood,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "BS" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -570,7 +570,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "BU" = (
 /obj/item/material/stool/chair/wood{
 	dir = 4
@@ -581,7 +581,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Cb" = (
 /turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
@@ -592,7 +592,7 @@
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 303.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Cu" = (
 /obj/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -601,7 +601,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "CP" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -609,7 +609,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "DB" = (
 /obj/structure/bed/stool/chair/sofa/right/yellow{
 	dir = 1
@@ -617,7 +617,7 @@
 /turf/simulated/floor/exoplanet/carpet/orange{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "DO" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/board/bowl,
@@ -638,7 +638,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "ED" = (
 /obj/structure/table/stone/marble,
 /obj/item/clothing/wrists/unathi/maxtlatl,
@@ -660,7 +660,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Fd" = (
 /obj/structure/table/wood,
 /obj/item/saddle,
@@ -668,7 +668,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "FP" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/machinery/light{
@@ -680,11 +680,11 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Gg" = (
 /obj/random/dirt_75,
 /turf/simulated/wall/birchwood,
-/area/moghes)
+/area/exoplanet/moghes)
 "GB" = (
 /obj/structure/simple_door/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -693,7 +693,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "GR" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
@@ -701,13 +701,13 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Hv" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "HF" = (
 /obj/structure/table/rack,
 /obj/item/wirecutters/clippers,
@@ -715,15 +715,15 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Ig" = (
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Il" = (
 /turf/simulated/wall/birchwood,
-/area/moghes)
+/area/exoplanet/moghes)
 "Iy" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/marble/dark{
@@ -735,20 +735,20 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "IP" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/flour,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "IY" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/orange{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "IZ" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
@@ -756,26 +756,26 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Jj" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/carpet/orange{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "JA" = (
 /obj/structure/railing/fence,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Kk" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Ks" = (
 /obj/machinery/light{
 	dir = 1
@@ -784,7 +784,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "KY" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/random/dirt_75,
@@ -794,7 +794,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Lu" = (
 /obj/structure/railing/fence{
 	dir = 1
@@ -805,13 +805,13 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "MD" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "MO" = (
 /obj/structure/flora/log_bench{
 	dir = 8
@@ -819,13 +819,13 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Nc" = (
 /obj/structure/bed/stool/chair/wood,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Nm" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/condiment/enzyme{
@@ -870,38 +870,38 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Nu" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "NV" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "OM" = (
 /obj/structure/table/wood,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Pz" = (
 /obj/structure/flora/grass/desert,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Rr" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/exoplanet/carpet/orange{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "RD" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
@@ -913,13 +913,13 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "TB" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "TP" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -928,7 +928,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Uk" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/condiment/enzyme{
@@ -971,7 +971,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "UL" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
@@ -983,7 +983,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Vd" = (
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
@@ -1007,20 +1007,20 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "VM" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Xq" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "XZ" = (
 /obj/structure/flora/log_bench{
 	dir = 1;
@@ -1029,13 +1029,13 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Yg" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "YA" = (
 /obj/structure/table/rack,
 /obj/item/material/hatchet/lumber,
@@ -1048,7 +1048,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "YR" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1057,7 +1057,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Zn" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1066,7 +1066,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "Zs" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1075,7 +1075,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 "ZM" = (
 /obj/item/material/stool/chair/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1084,7 +1084,7 @@
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 315.15
 	},
-/area/moghes)
+/area/exoplanet/moghes)
 
 (1,1,1) = {"
 lz
