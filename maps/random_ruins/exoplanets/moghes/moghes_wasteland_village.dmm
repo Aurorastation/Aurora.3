@@ -218,6 +218,9 @@
 	temperature = 315.15
 	},
 /area/moghes)
+"lz" = (
+/turf/template_noop,
+/area/moghes)
 "lB" = (
 /obj/structure/simple_door/sandstone,
 /turf/simulated/floor/exoplanet/marble,
@@ -1084,6 +1087,12 @@
 /area/moghes)
 
 (1,1,1) = {"
+lz
+lz
+lz
+lz
+lz
+lz
 sH
 sH
 sH
@@ -1109,21 +1118,15 @@ sH
 sH
 sH
 sH
-sH
-sH
-sH
-sH
-sH
-sH
-sH
+lz
 "}
 (2,1,1) = {"
+lz
+lz
 sH
 sH
 sH
-sH
-sH
-sH
+lz
 sH
 sH
 sH
@@ -1152,7 +1155,7 @@ oo
 sH
 "}
 (3,1,1) = {"
-sH
+lz
 sH
 sH
 sH
@@ -1186,7 +1189,7 @@ pb
 sH
 "}
 (4,1,1) = {"
-sH
+lz
 sH
 sH
 Il
@@ -1730,7 +1733,7 @@ Il
 sH
 "}
 (20,1,1) = {"
-sH
+lz
 sH
 sH
 sH
@@ -1764,7 +1767,7 @@ Il
 sH
 "}
 (21,1,1) = {"
-sH
+lz
 sH
 sH
 sH
@@ -1798,7 +1801,7 @@ Il
 sH
 "}
 (22,1,1) = {"
-sH
+lz
 sH
 sH
 sH
@@ -2101,9 +2104,10 @@ sH
 sH
 sH
 sH
-sH
+lz
 "}
 (31,1,1) = {"
+lz
 sH
 sH
 sH
@@ -2112,10 +2116,9 @@ sH
 sH
 sH
 sH
-sH
-sH
-sH
-sH
+lz
+lz
+lz
 sH
 sH
 sH
@@ -2134,10 +2137,24 @@ sH
 sH
 sH
 sH
-sH
-sH
+lz
+lz
 "}
 (32,1,1) = {"
+lz
+lz
+lz
+lz
+lz
+lz
+lz
+lz
+lz
+lz
+lz
+lz
+lz
+lz
 sH
 sH
 sH
@@ -2153,21 +2170,7 @@ sH
 sH
 sH
 sH
-sH
-sH
-sH
-sH
-sH
-sH
-sH
-sH
-sH
-sH
-sH
-sH
-sH
-sH
-sH
-sH
-sH
+lz
+lz
+lz
 "}

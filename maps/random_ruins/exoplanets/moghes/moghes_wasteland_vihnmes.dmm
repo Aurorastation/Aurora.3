@@ -103,9 +103,18 @@
 	},
 /area/moghes_vihnmes)
 "cG" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/accessory/poncho,
+/obj/item/clothing/accessory/poncho/blue,
+/obj/item/clothing/accessory/poncho/red,
+/obj/item/clothing/shoes/sandals/caligae,
+/obj/item/clothing/under/unathi/jizixi,
+/obj/item/clothing/under/unathi/jizixi/blue,
+/obj/item/clothing/suit/unathi/robe/beige,
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 1
 	},
+/obj/item/clothing/shoes/sandals/caligae,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -127,7 +136,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/brown,
 /obj/effect/floor_decal/spline/plain/beige{
-	dir = 4
+	dir = 6
 	},
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
@@ -179,21 +188,8 @@
 	},
 /area/moghes_vihnmes)
 "fE" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/accessory/poncho,
-/obj/item/clothing/accessory/poncho/blue,
-/obj/item/clothing/accessory/poncho/red,
-/obj/item/clothing/shoes/sandals/caligae,
-/obj/item/clothing/under/unathi/jizixi,
-/obj/item/clothing/under/unathi/jizixi/green,
-/obj/item/clothing/suit/unathi/robe/beige,
-/obj/effect/floor_decal/spline/plain/beige{
-	dir = 10
-	},
-/turf/simulated/floor/exoplanet/wood/birch{
-	temperature = 303.15
-	},
-/area/moghes_vihnmes)
+/turf/template_noop,
+/area/moghes)
 "gh" = (
 /obj/structure/flora/rock/desert,
 /turf/simulated/floor/exoplanet/desert{
@@ -632,6 +628,10 @@
 	temperature = 315.15
 	},
 /area/moghes)
+"yf" = (
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/turf/simulated/floor/exoplanet/wood/birch,
+/area/moghes_vihnmes)
 "ym" = (
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 10
@@ -791,17 +791,8 @@
 	},
 /area/moghes_vihnmes)
 "GE" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/accessory/poncho,
-/obj/item/clothing/accessory/poncho/blue,
-/obj/item/clothing/accessory/poncho/red,
-/obj/item/clothing/shoes/sandals/caligae,
-/obj/item/clothing/under/unathi/jizixi,
-/obj/item/clothing/under/unathi/jizixi/blue,
-/obj/item/clothing/suit/unathi/robe/beige,
-/obj/effect/floor_decal/spline/plain/beige{
-	dir = 6
-	},
+/obj/structure/table/wood,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -927,7 +918,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/brown,
 /obj/effect/floor_decal/spline/plain/beige{
-	dir = 8
+	dir = 10
 	},
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
@@ -1252,6 +1243,11 @@
 /area/moghes)
 
 (1,1,1) = {"
+fE
+fE
+fE
+fE
+fE
 xh
 xh
 xh
@@ -1271,23 +1267,18 @@ xh
 xh
 xh
 xh
+fE
+fE
 xh
+fE
 xh
-xh
-xh
-xh
-xh
-xh
-xh
-xh
-xh
-xh
-xh
-xh
+fE
+fE
+fE
 "}
 (2,1,1) = {"
-xh
-xh
+fE
+fE
 xh
 xh
 xh
@@ -1313,13 +1304,34 @@ xh
 xh
 xh
 xh
-xh
+fE
 xh
 Zm
-xh
-xh
+fE
+fE
 "}
 (3,1,1) = {"
+fE
+fE
+xh
+Zm
+xh
+xh
+xh
+xh
+xh
+Zm
+xh
+xh
+xh
+xh
+xh
+Zm
+Zm
+xh
+xh
+xh
+xh
 xh
 xh
 xh
@@ -1329,29 +1341,8 @@ xh
 xh
 xh
 xh
-Zm
-xh
-xh
-xh
-xh
-xh
-Zm
-Zm
-xh
-xh
-xh
-xh
-xh
-xh
-xh
-Zm
-xh
-xh
-xh
-xh
-xh
-xh
-xh
+fE
+fE
 "}
 (4,1,1) = {"
 xh
@@ -1384,8 +1375,8 @@ xh
 xh
 xh
 xh
-xh
-xh
+fE
+fE
 "}
 (5,1,1) = {"
 xh
@@ -1419,7 +1410,7 @@ xh
 xh
 xh
 xh
-xh
+fE
 "}
 (6,1,1) = {"
 gh
@@ -1453,7 +1444,7 @@ xh
 xh
 xh
 xh
-xh
+fE
 "}
 (7,1,1) = {"
 xh
@@ -1474,7 +1465,7 @@ Yr
 VJ
 VJ
 VJ
-VJ
+xh
 Fy
 xh
 xh
@@ -1507,8 +1498,8 @@ wh
 dY
 Hc
 LS
-fE
 VJ
+xh
 xh
 xh
 xh
@@ -1541,9 +1532,9 @@ Bf
 iL
 oy
 dd
-GE
 VJ
 wO
+xh
 xh
 xh
 xh
@@ -1780,7 +1771,7 @@ jD
 Sf
 Xf
 jD
-jD
+GE
 YJ
 wh
 Ho
@@ -1841,7 +1832,7 @@ ba
 HH
 VJ
 xp
-zw
+yf
 Sf
 wh
 Sf
@@ -2031,7 +2022,7 @@ xh
 xh
 Zm
 xh
-xh
+fE
 "}
 (24,1,1) = {"
 xh
@@ -2065,7 +2056,7 @@ xh
 xh
 Zm
 xh
-xh
+fE
 "}
 (25,1,1) = {"
 xh
@@ -2099,7 +2090,7 @@ Zm
 xh
 xh
 xh
-xh
+fE
 "}
 (26,1,1) = {"
 xh
@@ -2133,7 +2124,7 @@ xh
 Zm
 xh
 xh
-xh
+fE
 "}
 (27,1,1) = {"
 xh
@@ -2167,7 +2158,7 @@ xh
 Zm
 xh
 xh
-xh
+fE
 "}
 (28,1,1) = {"
 xh
@@ -2201,7 +2192,7 @@ xh
 xh
 xh
 Zm
-xh
+fE
 "}
 (29,1,1) = {"
 xh
@@ -2235,7 +2226,7 @@ xh
 xh
 xh
 xh
-xh
+fE
 "}
 (30,1,1) = {"
 xh
@@ -2269,9 +2260,20 @@ xh
 xh
 gh
 xh
-xh
+fE
 "}
 (31,1,1) = {"
+fE
+xh
+xh
+xh
+xh
+Zm
+xh
+xh
+xh
+xh
+xh
 xh
 xh
 xh
@@ -2285,30 +2287,19 @@ xh
 xh
 xh
 xh
-xh
-xh
-xh
-Zm
-xh
-xh
-xh
-xh
-xh
-xh
-xh
 Zm
 Zm
 xh
 xh
 xh
 xh
-xh
-xh
+fE
+fE
 "}
 (32,1,1) = {"
-xh
-xh
-xh
+fE
+fE
+fE
 xh
 xh
 xh
@@ -2334,8 +2325,8 @@ xh
 xh
 xh
 xh
-xh
-xh
-xh
-xh
+fE
+fE
+fE
+fE
 "}
