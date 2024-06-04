@@ -84,6 +84,12 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/shuttle/fed_humanitarian_shuttle)
+"aN" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, armory"
+	},
+/turf/simulated/wall/shuttle/skrell,
+/area/fed_humanitarian_ship/armory)
 "aO" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -209,6 +215,10 @@
 /obj/machinery/light/skrell,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/fed_humanitarian_ship/armory)
+"bT" = (
+/obj/effect/overmap/visitable/ship/landable/fed_humanitarian_shuttle,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/shuttle/fed_humanitarian_shuttle)
 "bV" = (
 /obj/machinery/door/airlock/skrell{
 	req_access = list(208);
@@ -302,6 +312,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/shuttle_landmark/fed_humanitarian_shuttle/dock{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/hangar)
 "cM" = (
@@ -455,6 +468,10 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/fed_humanitarian_ship/forehall)
+"eO" = (
+/obj/effect/shuttle_landmark/fed_humanitarian/nav4,
+/turf/template_noop,
+/area/space)
 "eT" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -728,6 +745,12 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/shuttle/fed_humanitarian_shuttle)
+"hk" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, crew compartment"
+	},
+/turf/simulated/wall/shuttle/skrell,
+/area/shuttle/fed_humanitarian_shuttle)
 "hl" = (
 /obj/machinery/light/skrell,
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -995,6 +1018,12 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/starbdock)
+"jx" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, surgery"
+	},
+/turf/simulated/wall/shuttle/skrell,
+/area/fed_humanitarian_ship/medical)
 "jA" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1047,6 +1076,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/engineering)
+"jY" = (
+/obj/effect/shuttle_landmark/fed_humanitarian/nav1,
+/turf/template_noop,
+/area/space)
 "kb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9;
@@ -1139,6 +1172,10 @@
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/fed_humanitarian_ship/bridge)
+"kG" = (
+/obj/effect/shuttle_landmark/fed_humanitarian/nav2,
+/turf/template_noop,
+/area/space)
 "kJ" = (
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/thruster/port)
@@ -1149,6 +1186,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/warehouse)
+"kS" = (
+/obj/effect/landmark/entry_point/north{
+	name = "aft, right engines"
+	},
+/turf/simulated/wall/shuttle/skrell,
+/area/shuttle/fed_humanitarian_shuttle/engine)
 "kT" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -1297,8 +1340,8 @@
 /turf/simulated/floor/tiled/white,
 /area/fed_humanitarian_ship/medical)
 "mL" = (
-/obj/structure/window/shuttle/skrell,
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/thruster)
 "mP" = (
@@ -1321,9 +1364,8 @@
 /turf/simulated/wall/shuttle/skrell,
 /area/fed_humanitarian_ship/toolstorage)
 "nr" = (
-/obj/structure/window/shuttle/skrell,
-/obj/structure/grille,
 /obj/machinery/door/firedoor/noid,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/thruster/port)
 "nv" = (
@@ -1458,7 +1500,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1332;
-	id_tag = "fed_humanitarian_shuttle_dock";
+	id_tag = s;
 	req_one_access = list(208);
 	pixel_x = -27
 	},
@@ -1479,6 +1521,13 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/fed_humanitarian_ship/eva)
+"pm" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/landmark/entry_point/aft{
+	name = "fore, crew compartment"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/fed_humanitarian_shuttle)
 "po" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -2387,6 +2436,9 @@
 	name = "airlock_fed_humanitarian_stbd"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/fed_humanitarian/portdock{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/starbdock)
 "wO" = (
@@ -2481,6 +2533,12 @@
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/fed_humanitarian_ship/bridge)
+"xB" = (
+/obj/effect/landmark/entry_point/north{
+	name = "aft, left engines"
+	},
+/turf/simulated/wall/shuttle/skrell,
+/area/shuttle/fed_humanitarian_shuttle/engine)
 "xE" = (
 /obj/machinery/light/skrell{
 	dir = 1
@@ -3007,6 +3065,9 @@
 	name = "airlock_fed_humanitarian_port"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/fed_humanitarian/starbdock{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/portdock)
 "Df" = (
@@ -3242,14 +3303,13 @@
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/warehouse)
 "Fw" = (
-/obj/structure/window/shuttle/skrell,
 /obj/machinery/door/firedoor,
-/obj/structure/grille,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Bridge Blast Door";
 	id = "fed_bridge_lockdown"
 	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/bridge)
 "FB" = (
@@ -3341,10 +3401,23 @@
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/warehouse)
 "Gf" = (
-/obj/structure/window/shuttle/skrell,
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/captain/quarters)
+"Go" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	name = "Bridge Blast Door";
+	id = "fed_bridge_lockdown"
+	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating,
+/area/fed_humanitarian_ship/bridge)
 "Gp" = (
 /obj/structure/table/skrell,
 /obj/item/skrell_projector,
@@ -3375,6 +3448,12 @@
 /obj/machinery/chem_master,
 /turf/simulated/floor/tiled/white,
 /area/fed_humanitarian_ship/medical)
+"GK" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port engine"
+	},
+/turf/simulated/wall/shuttle/skrell,
+/area/fed_humanitarian_ship/thruster/port)
 "GS" = (
 /obj/machinery/light/skrell{
 	dir = 4
@@ -3544,6 +3623,7 @@
 	pixel_x = -28;
 	pixel_y = 12
 	},
+/obj/effect/shuttle_landmark/fed_humanitarian/portaftdock,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/starbdock)
 "HX" = (
@@ -3754,6 +3834,7 @@
 	dir = 9
 	},
 /obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/fed_humanitarian_ship,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/fed_humanitarian_ship/bridge)
 "JE" = (
@@ -3964,11 +4045,10 @@
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/atmos)
 "KC" = (
-/obj/structure/window/shuttle/skrell,
-/obj/structure/grille,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/thruster/port)
 "KF" = (
@@ -4168,8 +4248,7 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/fed_humanitarian_ship/forehall)
 "Nm" = (
-/obj/structure/window/shuttle/skrell,
-/obj/structure/grille,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/engineering)
 "Nt" = (
@@ -4259,12 +4338,11 @@
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/portdock)
 "Oe" = (
-/obj/structure/window/shuttle/skrell,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 8
 	},
-/obj/structure/grille,
 /obj/machinery/door/firedoor/noid,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/thruster/port)
 "Og" = (
@@ -4458,6 +4536,16 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/fed_humanitarian_ship/quarters)
+"PE" = (
+/obj/effect/shuttle_landmark/fed_humanitarian/nav3,
+/turf/template_noop,
+/area/space)
+"PF" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard engine"
+	},
+/turf/simulated/wall/shuttle/skrell,
+/area/fed_humanitarian_ship/thruster)
 "PL" = (
 /obj/machinery/light/skrell,
 /turf/simulated/floor/plating,
@@ -4682,6 +4770,7 @@
 	pixel_x = -28;
 	pixel_y = 12
 	},
+/obj/effect/shuttle_landmark/fed_humanitarian/starbaftdock,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/portdock)
 "Sc" = (
@@ -4760,6 +4849,12 @@
 /obj/machinery/light/skrell,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/fed_humanitarian_ship/armory)
+"SS" = (
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/turf/simulated/wall/shuttle/skrell,
+/area/shuttle/fed_humanitarian_shuttle)
 "ST" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -4966,8 +5061,8 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/fed_humanitarian_ship/cic)
 "UF" = (
-/obj/structure/window/shuttle/skrell,
 /obj/machinery/door/firedoor,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/quarters)
 "UK" = (
@@ -5367,7 +5462,7 @@
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/forehall)
 "XS" = (
-/obj/machinery/computer/ship/engines,
+/obj/machinery/computer/shuttle_control/explore/fed_humanitarian_shuttle,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/shuttle/fed_humanitarian_shuttle)
 "XT" = (
@@ -5464,8 +5559,7 @@
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/forehall)
 "Zl" = (
-/obj/structure/window/shuttle/skrell,
-/obj/structure/grille,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/fed_humanitarian_shuttle)
 "Zs" = (
@@ -5550,12 +5644,11 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/fed_humanitarian_ship/eva)
 "ZQ" = (
-/obj/structure/window/shuttle/skrell,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
-/obj/structure/grille,
 /obj/machinery/door/firedoor/noid,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/thruster/port)
 "ZZ" = (
@@ -13078,7 +13171,7 @@ lj
 lj
 lj
 lj
-lj
+PE
 lj
 lj
 lj
@@ -15159,7 +15252,7 @@ lj
 lj
 lj
 lj
-so
+PF
 Dy
 so
 so
@@ -16146,7 +16239,7 @@ qZ
 Lq
 Qx
 Qx
-Qx
+jx
 Qx
 Qx
 Qx
@@ -16159,7 +16252,7 @@ aD
 aD
 Im
 Im
-Im
+aN
 Im
 Im
 Im
@@ -18306,7 +18399,7 @@ lj
 lj
 lj
 lj
-lj
+jY
 lj
 lj
 lj
@@ -18385,7 +18478,7 @@ lj
 lj
 lj
 lj
-lj
+kG
 lj
 lj
 lj
@@ -18454,7 +18547,7 @@ fP
 Ju
 Nt
 xA
-Fw
+Go
 lj
 lj
 lj
@@ -19230,7 +19323,7 @@ ip
 ip
 xf
 xf
-xf
+SS
 xf
 xf
 Ws
@@ -19728,7 +19821,7 @@ iZ
 lP
 Oa
 zS
-iZ
+xB
 ip
 ip
 eU
@@ -19874,10 +19967,10 @@ Yh
 XT
 ip
 ip
-Zl
+pm
 Ko
 qr
-nU
+bT
 EQ
 ma
 vm
@@ -20052,7 +20145,7 @@ iZ
 Sg
 oV
 zS
-iZ
+kS
 ip
 ip
 eU
@@ -20343,7 +20436,7 @@ lj
 lj
 lj
 lj
-Uy
+GK
 Hp
 kJ
 qK
@@ -20528,7 +20621,7 @@ xf
 xf
 xf
 xf
-xf
+hk
 xf
 xf
 xf
@@ -23607,7 +23700,7 @@ lj
 lj
 lj
 lj
-lj
+eO
 lj
 lj
 lj
