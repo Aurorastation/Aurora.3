@@ -580,6 +580,7 @@
 	dir = 8;
 	pixel_x = -12
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -989,6 +990,14 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/hangar1)
+"eo" = (
+/obj/structure/flora/grass/junglegrass/random,
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/exoplanet/grass/moghes{
+	icon_state = "edge";
+	dir = 1
+	},
+/area/ihss_reclamation/envirosim)
 "er" = (
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_ihss_reclamation_dock2";
@@ -1388,6 +1397,7 @@
 	name = "Hazardous Specimen";
 	req_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "edge"
 	},
@@ -2073,6 +2083,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
@@ -2242,6 +2253,18 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/fuel)
+"kx" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/plating{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/hangar1)
 "kF" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2468,6 +2491,12 @@
 "lp" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ihss_reclamation/westhall)
+"lq" = (
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/easthall)
 "lr" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -3576,6 +3605,10 @@
 	},
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/ihss_reclamation/envirosim)
+"qj" = (
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/ihss_reclamation/simulation)
 "qn" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark{
@@ -3944,6 +3977,7 @@
 /area/ihss_reclamation/storage)
 "sl" = (
 /obj/effect/floor_decal/corner/mauve/full,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -4054,6 +4088,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
@@ -4193,6 +4228,12 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/westhall)
+"tg" = (
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/plating{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/solars)
 "th" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
@@ -4273,6 +4314,12 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/hangar1)
+"tu" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/southhall)
 "tD" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/template_noop,
@@ -4466,6 +4513,7 @@
 	id = "ihss_biglizard"
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "edge"
 	},
@@ -4841,6 +4889,7 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -5425,6 +5474,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -6503,10 +6553,17 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/solars)
+"DD" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/crew)
 "DK" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/wood{
 	temperature = 303.15
 	},
@@ -6607,6 +6664,15 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/crew/eight)
+"Eo" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/medsci)
 "Eq" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
@@ -6827,9 +6893,11 @@
 	},
 /area/ihss_reclamation/easthall)
 "FM" = (
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/wall/shuttle/raider,
-/area/ihss_reclamation/southhall)
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/dock)
 "FN" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 4
@@ -7278,6 +7346,12 @@
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor/airless,
 /area/ihss_reclamation/solars)
+"HG" = (
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/easthall)
 "HI" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -7571,6 +7645,12 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/crew)
+"II" = (
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/northhall)
 "IJ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -7702,6 +7782,12 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/crew/eight)
+"Jv" = (
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/crew)
 "Jw" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
@@ -7722,6 +7808,12 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/xenobot)
+"Jz" = (
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/hangarhall)
 "JA" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -8093,6 +8185,7 @@
 	_wifi_id = "ihss_crema";
 	pixel_y = 25
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -8253,6 +8346,7 @@
 	color = "#ba9122";
 	dir = 4
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -8470,6 +8564,7 @@
 	color = "#ba9122";
 	dir = 5
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -8763,6 +8858,12 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/crew/six)
+"Oo" = (
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/northhall)
 "Op" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 4
@@ -9042,6 +9143,12 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/crew)
+"Pr" = (
+/obj/machinery/firealarm/west,
+/turf/simulated/floor/plating{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/hangar1)
 "Ps" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -9100,6 +9207,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 10
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
@@ -9797,6 +9905,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -9812,6 +9921,12 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/atmos)
+"SJ" = (
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/dock)
 "SK" = (
 /obj/effect/floor_decal/corner/red/full{
 	color = "#941307";
@@ -9910,6 +10025,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -10727,6 +10843,7 @@
 	name = "Hazardous Specimen Containment";
 	locked = 1
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "edge"
 	},
@@ -11423,6 +11540,7 @@
 	name = "Armory";
 	req_one_access = list(113)
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -36495,7 +36613,7 @@ iW
 lk
 iW
 dA
-iW
+Jv
 bB
 EU
 ar
@@ -37248,7 +37366,7 @@ lp
 lp
 lp
 lp
-iW
+DD
 EY
 iW
 bB
@@ -38781,7 +38899,7 @@ dO
 nj
 AS
 AS
-AS
+II
 LI
 YO
 YO
@@ -39023,7 +39141,7 @@ TA
 FA
 wn
 FA
-FA
+Pr
 FA
 FA
 FA
@@ -39834,7 +39952,7 @@ Lg
 lp
 lp
 lp
-Tu
+tu
 dK
 ax
 Tu
@@ -42423,7 +42541,7 @@ gn
 gn
 zc
 Ki
-lJ
+SJ
 rq
 zT
 tQ
@@ -43656,7 +43774,7 @@ AA
 AA
 Ih
 AA
-AA
+kx
 vb
 Mt
 yq
@@ -44687,7 +44805,7 @@ tl
 QJ
 TE
 TE
-TE
+Jz
 XS
 AS
 vG
@@ -44980,7 +45098,7 @@ np
 Tu
 hu
 pE
-lJ
+FM
 lJ
 lJ
 pE
@@ -45749,7 +45867,7 @@ Tu
 dK
 RU
 Tu
-FM
+hu
 uJ
 Tu
 WM
@@ -46792,7 +46910,7 @@ gn
 gn
 zc
 Ki
-lJ
+SJ
 Uh
 zT
 tS
@@ -48028,7 +48146,7 @@ oP
 vz
 Jh
 Do
-hB
+tg
 dO
 AS
 vG
@@ -49086,7 +49204,7 @@ ja
 cb
 cb
 cb
-Tu
+tu
 dK
 RU
 Tu
@@ -49320,7 +49438,7 @@ vG
 hi
 AS
 Su
-Hl
+HG
 Hl
 Hl
 Hl
@@ -50089,7 +50207,7 @@ dO
 AS
 AS
 AS
-AS
+Oo
 Su
 Hl
 Hl
@@ -50112,7 +50230,7 @@ Hl
 yu
 FH
 Hl
-Hl
+lq
 Su
 Tu
 Tu
@@ -50602,7 +50720,7 @@ NJ
 uW
 OX
 aV
-dk
+eo
 qg
 oc
 iI
@@ -52682,7 +52800,7 @@ ie
 IY
 IY
 IY
-IY
+qj
 dY
 dS
 bg
@@ -52925,7 +53043,7 @@ Xq
 Xq
 Xq
 Xq
-iT
+Eo
 NS
 MS
 GQ
