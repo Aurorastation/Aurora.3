@@ -31,6 +31,7 @@ var/list/mineral_can_smooth_with = list(
 
 	// canSmoothWith is set in Initialize().
 	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	turf_flags = TURF_FLAG_BACKGROUND
 
 	initial_gas = null
 	opacity = TRUE

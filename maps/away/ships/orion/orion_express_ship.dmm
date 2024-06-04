@@ -1767,6 +1767,12 @@
 /obj/machinery/power/apc/north{
 	req_access = list(201)
 	},
+/obj/structure/table/standard,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor,
 /area/ship/orion/engie)
 "hlr" = (

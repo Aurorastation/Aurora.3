@@ -411,7 +411,9 @@
 "fz" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/filingcabinet/chestdrawer,
-/obj/structure/sign/flag/hegemony/large/north,
+/obj/structure/sign/flag/hegemony/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/bridge)
 "fE" = (
@@ -3659,6 +3661,11 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
 "On" = (
