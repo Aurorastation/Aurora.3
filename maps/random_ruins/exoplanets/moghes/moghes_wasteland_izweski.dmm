@@ -89,7 +89,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "be" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/bodyscanner,
@@ -104,7 +104,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "bD" = (
 /obj/machinery/button/remote/blast_door{
 	id = "hegemony_base_entry";
@@ -115,7 +115,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "bV" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/sign/flag/hegemony/large/south{
@@ -184,7 +184,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "dw" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -229,7 +229,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "fe" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/effect/decal/cleanable/dirt,
@@ -301,7 +301,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "hv" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -368,7 +368,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "ia" = (
 /obj/machinery/light/colored/decayed{
 	dir = 1
@@ -385,7 +385,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "ij" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/table/steel,
@@ -487,7 +487,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "lX" = (
 /obj/effect/floor_decal/concrete{
 	dir = 1
@@ -496,7 +496,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "mA" = (
 /obj/effect/floor_decal/concrete{
 	dir = 5
@@ -504,13 +504,13 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "mP" = (
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "nj" = (
 /obj/machinery/light/colored/decayed,
 /obj/effect/floor_decal/corner/yellow{
@@ -530,7 +530,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "nw" = (
 /obj/machinery/cryopod{
 	dir = 2
@@ -567,7 +567,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "oD" = (
 /obj/machinery/door/airlock/security{
 	name = "Armory";
@@ -611,13 +611,13 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "qT" = (
 /obj/structure/flora/grass/desert/bush,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "qY" = (
 /turf/simulated/wall/concrete,
 /area/moghes/hegemony_wasteland)
@@ -628,7 +628,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "rt" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
@@ -843,7 +843,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "zG" = (
 /obj/structure/sign/flag/hegemony/large/east{
 	pixel_x = 32
@@ -866,7 +866,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "Bw" = (
 /obj/machinery/door/airlock{
 	req_access = list(113);
@@ -901,7 +901,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "DD" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -915,7 +915,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "Ey" = (
 /obj/machinery/button/remote/blast_door{
 	id = "hegemony_base_garage";
@@ -926,7 +926,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "EA" = (
 /obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/exoplanet/concrete/square{
@@ -943,7 +943,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "FI" = (
 /obj/machinery/door/airlock/security{
 	name = "Briefing Room";
@@ -983,7 +983,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "GC" = (
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
@@ -1001,6 +1001,9 @@
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
+"Hs" = (
+/turf/simulated/wall/concrete,
+/area/moghes/hegemony_wasteland/outdoors)
 "Hy" = (
 /obj/structure/closet/crate{
 	name = "footlocker"
@@ -1073,7 +1076,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "Ie" = (
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -1086,7 +1089,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "Ix" = (
 /obj/effect/floor_decal/concrete{
 	dir = 10
@@ -1095,7 +1098,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "Jy" = (
 /obj/effect/floor_decal/concrete{
 	dir = 6
@@ -1103,7 +1106,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "JD" = (
 /obj/effect/floor_decal/concrete{
 	dir = 8
@@ -1114,7 +1117,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "JU" = (
 /obj/machinery/light/colored/decayed,
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -1187,7 +1190,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "Lg" = (
 /obj/structure/table/stone/marble,
 /obj/item/toy/bosunwhistle,
@@ -1245,7 +1248,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "OR" = (
 /obj/vehicle/bike/speeder/izweski,
 /obj/machinery/light/colored/decayed{
@@ -1264,7 +1267,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "PA" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 32;
@@ -1289,7 +1292,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "PI" = (
 /obj/machinery/door/airlock/security{
 	name = "Checkpoint";
@@ -1318,7 +1321,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "Qb" = (
 /obj/structure/curtain/open/shower,
 /obj/machinery/shower{
@@ -1347,13 +1350,13 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "QO" = (
 /obj/structure/flora/grass/desert,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "Rr" = (
 /obj/structure/closet/crate{
 	name = "footlocker"
@@ -1376,7 +1379,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "SZ" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/reagent_dispensers/watertank,
@@ -1390,7 +1393,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "TV" = (
 /obj/effect/floor_decal/concrete{
 	dir = 4
@@ -1403,7 +1406,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "Un" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/sink/kitchen{
@@ -1423,7 +1426,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "VU" = (
 /obj/machinery/button/remote/blast_door{
 	id = "hegemony_base_entry";
@@ -1471,7 +1474,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "XI" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/toolbox/mechanical,
@@ -1484,7 +1487,7 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
-/area/moghes/hegemony_wasteland)
+/area/moghes/hegemony_wasteland/outdoors)
 "YU" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -1566,7 +1569,7 @@ FE
 "}
 (2,1,1) = {"
 bD
-qY
+Hs
 PG
 PG
 PG
@@ -1595,7 +1598,7 @@ PG
 PG
 PG
 PG
-qY
+Hs
 FE
 "}
 (3,1,1) = {"
@@ -2552,7 +2555,7 @@ FE
 "}
 (31,1,1) = {"
 FE
-qY
+Hs
 PG
 PG
 PG
@@ -2581,7 +2584,7 @@ PG
 PG
 PG
 PG
-qY
+Hs
 FE
 "}
 (32,1,1) = {"
