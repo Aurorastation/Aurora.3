@@ -4289,13 +4289,13 @@
 /area/miners_guild/storage)
 "Gp" = (
 /obj/structure/table/standard,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu{
-	pixel_y = 10
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/item/blueprints{
+	pixel_y = 7
+	},
+/obj/item/pen/drafting/blue,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
 "Gz" = (
