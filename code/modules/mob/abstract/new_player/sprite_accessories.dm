@@ -1479,7 +1479,6 @@ Follow by example and make good judgement based on length which list to include 
 	chatname = "unshaved hair"
 	name = "Undercut 3"
 	icon_state = "hair_undercut3"
-	chatname = "unshaved hair"
 
 /datum/sprite_accessory/hair/undercut4
 	name = "Undercut 4"
@@ -1529,6 +1528,11 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Fingerwave"
 	icon_state = "hair_fingercurl"
 	chatname = "fluffy hair"
+
+/datum/sprite_accessory/hair/mullet
+	name = "Mullet"
+	icon_state = "hair_mullet"
+	chatname = "mullet"
 
 /datum/sprite_accessory/hair/bug_eyes
 	icon = 'icons/mob/human_face/dionae_hair.dmi'

@@ -10,13 +10,12 @@
 	pickup_sound = 'sound/items/pickup/knife.ogg'
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	w_class = ITEMSIZE_TINY
-	thrown_force_divisor = 1
+	thrown_force_divisor = 0.25 // 5 when thrown with weight 20 (steel)
 	origin_tech = list(TECH_MATERIAL = 1)
 	attack_verb = list("attacked", "stabbed", "poked")
 	sharp = FALSE
 	edge = FALSE
 	force_divisor = 0.1 // 6 when wielded with hardness 60 (steel)
-	thrown_force_divisor = 0.25 // 5 when thrown with weight 20 (steel)
 	var/loaded      //Descriptive string for currently loaded food object.
 	var/is_liquid = FALSE //whether you've got liquid on your utensil
 	var/scoop_food = 1

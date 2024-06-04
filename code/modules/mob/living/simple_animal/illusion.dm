@@ -29,11 +29,11 @@
 
 // Because we can't perfectly duplicate some examine() output, we directly examine the AM it is copying.  It's messy but
 // this is to prevent easy checks from the opposing force.
-/mob/living/simple_animal/illusion/examine(mob/user, distance, is_adjacent)
+/mob/living/simple_animal/illusion/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
 
 	if(copying)
-		return copying.examine(user, distance, is_adjacent)
+		return copying.examine(user, distance, is_adjacent, infix, suffix, show_extended)
 	else
 		return list("???")
 

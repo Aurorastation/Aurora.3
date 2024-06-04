@@ -1293,6 +1293,13 @@
 	temperature = 303.15
 	},
 /area/heph_mining_station/medbay)
+"sI" = (
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/turf/simulated/floor/airless,
+/area/heph_mining_station/mining)
 "sO" = (
 /obj/structure/reagent_dispensers/keg/xuizikeg,
 /turf/simulated/floor/tiled/dark{
@@ -2776,8 +2783,13 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
-/obj/item/storage/toolbox/electrical,
-/obj/item/storage/toolbox/mechanical,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints/outpost{
+	pixel_y = 6
+	},
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -3736,7 +3748,7 @@ Rk
 (17,1,1) = {"
 Rk
 MI
-MI
+sI
 MI
 MI
 Sf

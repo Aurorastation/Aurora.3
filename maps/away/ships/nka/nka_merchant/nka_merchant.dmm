@@ -5257,11 +5257,15 @@
 	},
 /area/nka_merchant/mess)
 "IJ" = (
-/obj/machinery/pipedispenser/disposal,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

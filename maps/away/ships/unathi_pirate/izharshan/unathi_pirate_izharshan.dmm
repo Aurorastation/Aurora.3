@@ -1786,6 +1786,11 @@
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
 	},
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints/shuttle,
 /obj/item/device/radio{
 	name = "old radio";
 	icon_state = "radio";
@@ -1793,8 +1798,7 @@
 	w_class = 3;
 	canhear_range = 6;
 	throwforce = 12;
-	pixel_y = 10;
-	pixel_x = -5
+	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)

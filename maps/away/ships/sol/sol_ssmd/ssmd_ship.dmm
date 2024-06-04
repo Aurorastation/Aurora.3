@@ -3393,14 +3393,6 @@
 	dir = 1
 	},
 /obj/structure/table/steel,
-/obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for an Uhlan-class vessel.";
-	icon = 'icons/obj/items.dmi';
-	icon_state = "blueprints";
-	item_icons = null;
-	item_state = null;
-	name = "ship blueprints"
-	},
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -7288,8 +7280,11 @@
 	dir = 4
 	},
 /obj/structure/table/steel,
-/obj/item/modular_computer/laptop/preset/civilian,
-/obj/item/pen/drafting/blue,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/portengine)
 "vMV" = (
