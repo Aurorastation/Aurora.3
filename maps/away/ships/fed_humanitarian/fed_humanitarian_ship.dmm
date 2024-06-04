@@ -1331,7 +1331,6 @@
 /turf/simulated/floor/tiled/white,
 /area/fed_humanitarian_ship/medical)
 "mL" = (
-/obj/machinery/door/firedoor,
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/thruster)
@@ -1354,11 +1353,6 @@
 "np" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/fed_humanitarian_ship/toolstorage)
-"nr" = (
-/obj/machinery/door/firedoor/noid,
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/turf/simulated/floor/plating,
-/area/fed_humanitarian_ship/thruster/port)
 "nv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9;
@@ -1443,7 +1437,6 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_fed_humanitarian";
 	name = "airlock_shuttle_fed_humanitarian";
 	req_one_access = list(208);
@@ -1501,7 +1494,8 @@
 	frequency = 1380;
 	req_one_access = list(208);
 	pixel_x = -27;
-	id_tag = "fed_humanitarian_shuttle_dock"
+	id_tag = "fed_humanitarian_shuttle_dock";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/hangar)
@@ -1577,7 +1571,6 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_fed_humanitarian";
 	name = "airlock_shuttle_fed_humanitarian";
 	req_one_access = list(208);
@@ -1618,7 +1611,6 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_fed_humanitarian";
 	name = "airlock_shuttle_fed_humanitarian";
 	req_one_access = list(208);
@@ -1994,7 +1986,6 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_fed_humanitarian";
 	name = "airlock_shuttle_fed_humanitarian";
 	req_one_access = list(208);
@@ -2467,7 +2458,6 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_fed_humanitarian";
 	name = "airlock_shuttle_fed_humanitarian";
 	req_one_access = list(208);
@@ -3340,7 +3330,6 @@
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/warehouse)
 "Fw" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Bridge Blast Door";
@@ -3449,7 +3438,6 @@
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/warehouse)
 "Gf" = (
-/obj/machinery/door/firedoor,
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/captain/quarters)
@@ -3627,7 +3615,6 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_fed_humanitarian";
 	name = "airlock_shuttle_fed_humanitarian";
 	req_one_access = list(208);
@@ -4066,7 +4053,6 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_fed_humanitarian";
 	name = "airlock_shuttle_fed_humanitarian";
 	req_one_access = list(208);
@@ -4092,9 +4078,6 @@
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/atmos)
 "KC" = (
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/thruster/port)
@@ -4221,7 +4204,6 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_fed_humanitarian";
 	name = "airlock_shuttle_fed_humanitarian";
 	req_one_access = list(208);
@@ -4398,7 +4380,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 8
 	},
-/obj/machinery/door/firedoor/noid,
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/thruster/port)
@@ -4728,7 +4709,6 @@
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/starbdock)
 "Rg" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Bridge Blast Door";
@@ -5117,7 +5097,6 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/fed_humanitarian_ship/cic)
 "UF" = (
-/obj/machinery/door/firedoor,
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/quarters)
@@ -5275,7 +5254,6 @@
 	pixel_x = -21
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_fed_humanitarian";
 	name = "airlock_shuttle_fed_humanitarian";
 	req_one_access = list(208);
@@ -5341,7 +5319,6 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_shuttle_fed_humanitarian";
 	name = "airlock_shuttle_fed_humanitarian";
 	req_one_access = list(208);
@@ -5723,7 +5700,6 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/thruster/port)
@@ -20193,7 +20169,7 @@ kJ
 Uy
 Oe
 ZQ
-nr
+KC
 Gt
 yE
 Gt
