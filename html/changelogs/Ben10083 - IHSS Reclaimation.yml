@@ -57,3 +57,4 @@ delete-after: True
 changes:
   - bugfix: "An investigation revealed that the engineer responsible for installing the Plains Tyrant Containment Cell on the IHSS Reclamation stole the rare material for their own gain. They have been exiled and the cell has been repaired."
   - rscadd: "Adds missing firelocks to IHSS Reclamation."
+  - code_imp: "Window spawners now pass their req_one_access to their firelocks."
