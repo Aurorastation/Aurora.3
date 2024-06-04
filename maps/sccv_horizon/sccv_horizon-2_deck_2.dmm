@@ -4182,7 +4182,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "bLB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -6422,7 +6422,7 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "cRs" = (
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -13585,7 +13585,7 @@
 "gis" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "giv" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -17286,7 +17286,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "hMm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -18052,7 +18052,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "iji" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
@@ -20187,7 +20187,7 @@
 /area/horizon/security/hallway)
 "jfH" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "jgc" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
@@ -23827,7 +23827,7 @@
 	req_access = list(63)
 	},
 /turf/simulated/floor/tiled/full,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "kUz" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 8
@@ -25091,7 +25091,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "lEd" = (
-/obj/machinery/shieldwallgen,
+/obj/machinery/shieldwallgen{
+	req_access = list(55);
+	anchored = 1;
+	wrenched = 1
+	},
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/machinery/camera/network/research{
 	c_tag = "Xenobiology - Hazardous Specimen";
@@ -25541,7 +25545,7 @@
 	name = "fore, armoury"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "lMQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -26342,7 +26346,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "mfX" = (
 /obj/structure/cable/green,
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
@@ -26811,7 +26815,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "msu" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -30761,7 +30765,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "ogV" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
@@ -33066,7 +33070,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "pjA" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -37103,7 +37107,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "reZ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -37123,7 +37127,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "rfG" = (
 /obj/structure/table/reinforced/glass,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -40222,7 +40226,7 @@
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "sKJ" = (
 /turf/simulated/wall,
 /area/horizon/crew_quarters/lounge/bar)
@@ -46155,7 +46159,11 @@
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "vwC" = (
-/obj/machinery/shieldwallgen,
+/obj/machinery/shieldwallgen{
+	req_access = list(55);
+	anchored = 1;
+	wrenched = 1
+	},
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
 	},
@@ -47000,7 +47008,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "vOS" = (
 /obj/structure/cable/orange{
 	icon_state = "1-2"
@@ -47408,7 +47416,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "vXB" = (
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Xenobiology Fore";
@@ -48813,7 +48821,7 @@
 /area/horizon/bar)
 "wAm" = (
 /turf/simulated/wall/r_wall,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "wAT" = (
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
@@ -52007,7 +52015,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "xYX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
