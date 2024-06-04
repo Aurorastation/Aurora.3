@@ -89,7 +89,7 @@
 
 /obj/effect/shuttle_landmark/fed_humanitarian/starbaftdock
 	name = "Nralakk Humanitarian Ship - Starboard Aft Dock"
-	landmark_tag = "fed_humanitarian_dock3"
+	landmark_tag = "fed_humanitarian_dock4"
 	docking_controller = "airlock_fed_humanitarian_aft_port"
 
 //Shuttle
