@@ -2,14 +2,14 @@
 "a" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "b" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "c" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -17,34 +17,34 @@
 	},
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "d" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm/west,
 /obj/item/stack/material/steel/full,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "f" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
 /obj/random/tech_supply,
 /obj/random/bomb_supply,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "g" = (
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "h" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/largecrate,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "i" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm/west,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "j" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -52,13 +52,13 @@
 	},
 /obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "k" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm/west,
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "l" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -67,7 +67,7 @@
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "m" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -79,11 +79,11 @@
 /obj/random/tool,
 /obj/random/loot,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "n" = (
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "p" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -91,12 +91,12 @@
 	},
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "q" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "u" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -105,7 +105,7 @@
 /obj/item/stack/material/plastic/full,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "v" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -115,7 +115,7 @@
 /obj/item/stack/material/cardboard/full,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "w" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -123,7 +123,7 @@
 	},
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "x" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -132,17 +132,17 @@
 /obj/item/stack/material/steel/full,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "y" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "A" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/wood/full,
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "B" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -150,12 +150,12 @@
 	},
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "C" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "E" = (
 /turf/template_noop,
 /area/space)
@@ -170,19 +170,19 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "G" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "I" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "J" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -191,14 +191,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "K" = (
 /obj/machinery/camera/network/supply{
 	c_tag = "Operations - Warehouse Starboard Aft Storage Room";
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "L" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -208,7 +208,7 @@
 /obj/random/tech_supply,
 /obj/random/loot,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "N" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -218,7 +218,7 @@
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "O" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -233,7 +233,7 @@
 /obj/random/medical,
 /obj/random/medical,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "P" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -242,13 +242,13 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "Q" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "R" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -256,7 +256,7 @@
 	},
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "S" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/trashcart,
@@ -264,20 +264,20 @@
 /obj/random/junk,
 /obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "T" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
 /obj/random/tech_supply,
 /obj/random/tool,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "U" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm/west,
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "Y" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -285,7 +285,7 @@
 	},
 /obj/structure/largecrate,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 "Z" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
@@ -293,7 +293,7 @@
 	},
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/operations/storage)
 
 (1,1,1) = {"
 E
