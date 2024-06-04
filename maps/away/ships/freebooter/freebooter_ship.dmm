@@ -9861,12 +9861,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
 "vUu" = (
+/obj/structure/ship_weapon_dummy,
 /obj/machinery/ship_weapon/francisca{
 	pixel_x = -64;
 	pixel_y = -162;
 	weapon_id = "Freebooter Francisca Rotary Gun"
 	},
-/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
 /area/ship/freebooter_ship/exterior)
 "vVy" = (
