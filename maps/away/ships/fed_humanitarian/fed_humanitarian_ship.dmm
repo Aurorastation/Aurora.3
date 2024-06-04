@@ -3974,8 +3974,11 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/shuttle/fed_humanitarian_shuttle)
 "JW" = (
-/turf/simulated/wall/shuttle/skrell,
-/area/fed_humanitarian_ship/forehall)
+/obj/effect/shuttle_landmark/fed_humanitarian_shuttle/transit{
+	dir = 8
+	},
+/turf/space,
+/area/space)
 "Ka" = (
 /obj/machinery/computer/ship/engines,
 /turf/simulated/floor/plating,
@@ -7013,7 +7016,7 @@ EP
 EP
 EP
 EP
-EP
+JW
 EP
 EP
 EP
@@ -22016,7 +22019,7 @@ lj
 lj
 fk
 fk
-JW
+fk
 Mw
 Mw
 Mw
