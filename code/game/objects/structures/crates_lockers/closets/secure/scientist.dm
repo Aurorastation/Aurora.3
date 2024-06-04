@@ -46,7 +46,7 @@
 	req_access = list(ACCESS_RD)
 	icon_state = "rd"
 
-/obj/structure/closet/secure_closet/RD2/fill()
+/obj/structure/closet/secure_closet/RD/empty/fill()
 
 /obj/structure/closet/secure_closet/RD2
 	name = "research director's attire"
