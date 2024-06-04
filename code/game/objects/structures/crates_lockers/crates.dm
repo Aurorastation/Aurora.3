@@ -569,12 +569,11 @@
 /obj/structure/closet/crate/loot
 	icon = 'icons/obj/random.dmi'
 	icon_state = "loot_crate"
-	no_fill = TRUE
 	var/rarity = 1
 	var/quantity = 10
 	var/list/spawntypes
 
-/obj/structure/closet/crate/loot/Initialize(mapload)
+/obj/structure/closet/crate/loot/Initialize(mapload, no_fill)
 	. = ..()
 
 	spawntypes = list(

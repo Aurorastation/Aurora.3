@@ -72,8 +72,6 @@
 	var/door_hinge_alt = 6.5
 	/// Set to 0 to make the door not animate at all
 	var/door_anim_time = 2.5
-	/// Set to TRUE to have the locker not be filled with items, useful for ruins where we dont want people to have the items inside
-	var/no_fill = FALSE
 
 
 /obj/structure/closet/LateInitialize()
@@ -93,7 +91,7 @@
 	if(content_size > storage_capacity-5)
 		storage_capacity = content_size + 5
 
-/obj/structure/closet/Initialize(mapload)
+/obj/structure/closet/Initialize(mapload, var/no_fill)
 	. = ..()
 	update_icon()
 	if(!no_fill)
@@ -102,7 +100,7 @@
 		verbs += /obj/structure/closet/proc/verb_togglelock
 	return mapload ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_NORMAL
 
-// Fill lockers with this.
+/// Fill lockers with this.
 /obj/structure/closet/proc/fill()
 
 /obj/structure/closet/proc/content_info(mob/user, content_size)

@@ -40,6 +40,14 @@
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/device/memorywiper(src)
 
+/// Used for when we want to populate the contents of this locker ourself. Good for away sites
+/obj/structure/closet/secure_closet/RD/empty
+	name = "research director's locker"
+	req_access = list(ACCESS_RD)
+	icon_state = "rd"
+
+/obj/structure/closet/secure_closet/RD2/fill()
+
 /obj/structure/closet/secure_closet/RD2
 	name = "research director's attire"
 	req_access = list(ACCESS_RD)
@@ -54,24 +62,3 @@
 	new /obj/item/device/radio/headset/heads/rd(src)
 	new /obj/item/device/radio/headset/heads/rd/alt(src)
 	new /obj/item/device/megaphone/sci(src)
-
-/obj/structure/closet/secure_closet/RD3 //For ruins. Similar to RD loot but we remove stuff like the radios
-	name = "research director's locker"
-	req_access = list(ACCESS_RD)
-	icon_state = "rd"
-
-/obj/structure/closet/secure_closet/RD3/fill()
-	new /obj/item/clothing/suit/hazmat/research(src)
-	new /obj/item/clothing/head/hazmat/research(src)
-	new /obj/item/clothing/under/rank/research_director(src)
-	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-	new /obj/item/clothing/shoes/sneakers/brown(src)
-	new /obj/item/clothing/shoes/laceup/brown(src)
-	new /obj/item/clothing/gloves/latex/nitrile(src)
-	new /obj/item/tank/air(src)
-	new /obj/item/clothing/mask/gas(src)
-	new /obj/item/device/flash(src)
-	new /obj/item/storage/box/firingpinsRD(src)
-	new /obj/item/device/pin_extractor(src)
-	new /obj/item/storage/box/tethers(src)
-	new /obj/item/taperoll/science(src)
