@@ -108,7 +108,7 @@
 			var/names = list()
 			for(var/datum/record/general/r in SSrecords.records)
 				names += r.name
-			var/newname = sanitize(input(usr, "Please enter name.") as null|anything in names)
+			var/newname = sanitize(tgui_input_list(usr, "Please select name.", "Name select", names, active_record.name))
 			if(!computer.use_check_and_message(usr))
 				if(!newname)
 					return
@@ -116,7 +116,7 @@
 
 		if("editentrynamecustom")
 			. = TRUE
-			var/newname = sanitize(input("Please enter name.") as null|text)
+			var/newname = sanitize(tgui_input_text(usr, "Please enter name.", "Name entry", active_record.name))
 			if(!computer.use_check_and_message(usr))
 				if(!newname)
 					return
@@ -124,7 +124,7 @@
 
 		if("editentryshuttle")
 			. = TRUE
-			var/newshuttle = sanitize(input("Please enter shuttle.") as null|anything in HORIZON_SHUTTLES)
+			var/newshuttle = tgui_input_list(usr, "Please select shuttle.", "Shuttle select", HORIZON_SHUTTLES, active_record.shuttle)
 			if(!computer.use_check_and_message(usr))
 				if(!newshuttle)
 					return
@@ -133,7 +133,7 @@
 		if("editdestination")
 			for(var/datum/record/shuttle_assignment/a in SSrecords.shuttle_assignments)
 				if(a.shuttle == params["editdestination"])
-					var/new_dest = sanitize(input(usr, "Please enter destination.") as null|text)
+					var/new_dest = sanitize(tgui_input_text(usr, "Please enter destination.", "Destination entry", a.destination))
 					if(!computer.use_check_and_message(usr))
 						if(!new_dest)
 							return
@@ -142,7 +142,7 @@
 		if("editheading")
 			for(var/datum/record/shuttle_assignment/a in SSrecords.shuttle_assignments)
 				if(a.shuttle == params["editheading"])
-					var/new_head = floor(input(usr, "Please enter heading.") as null|num)
+					var/new_head = floor(tgui_input_number(usr, "Please enter heading.", "Heading entry", a.heading, 359, 0))
 					if(new_head < 0 || new_head > 359 || !new_head)
 						new_head = 0
 					if(!computer.use_check_and_message(usr))
@@ -151,7 +151,7 @@
 		if("editmission")
 			for(var/datum/record/shuttle_assignment/a in SSrecords.shuttle_assignments)
 				if(a.shuttle == params["editmission"])
-					var/new_mis = sanitize(input(usr, "Please select primary mission.") as null|anything in list("Exploration", "Research", "Prospecting", "Transport", "Combat", "Rescue", "Training"))
+					var/new_mis = tgui_input_list(usr, "Please select mission.", "Mission select", SHUTTLE_MISSIONS, a.mission)
 					if(!computer.use_check_and_message(usr))
 						if(!new_mis)
 							return
@@ -160,7 +160,7 @@
 		if("editdeparturetime")
 			for(var/datum/record/shuttle_assignment/a in SSrecords.shuttle_assignments)
 				if(a.shuttle == params["editdeparturetime"])
-					var/new_depart = sanitize(input(usr, "Please enter new departure time.") as null|text)
+					var/new_depart = sanitize(tgui_input_text(usr, "Please enter new departure time.", "Departure time entry", a.departure_time))
 					if(!computer.use_check_and_message(usr))
 						if(!new_depart)
 							return
@@ -169,7 +169,7 @@
 		if("editreturntime")
 			for(var/datum/record/shuttle_assignment/a in SSrecords.shuttle_assignments)
 				if(a.shuttle == params["editreturntime"])
-					var/new_return = sanitize(input(usr, "Please enter new return time.") as null|text)
+					var/new_return = sanitize(tgui_input_text(usr, "Please enter new return time.", "Return time entry", a.departure_time))
 					if(!computer.use_check_and_message(usr))
 						if(!new_return)
 							return

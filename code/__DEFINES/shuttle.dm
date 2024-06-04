@@ -15,3 +15,4 @@
 #define SLANDMARK_FLAG_ZERO_G  2    // Zero-G shuttles moved here will lose gravity unless the area has ambient gravity.
 
 #define HORIZON_SHUTTLES list("SCCV Canary", "SCCV Intrepid", "SCCV Spark")
+#define SHUTTLE_MISSIONS list("Exploration", "Research", "Prospecting", "Transport", "Combat", "Rescue", "Training")
