@@ -26,7 +26,7 @@
 		to_chat(user, SPAN_WARNING("The locking mechanism refuses to work!"))
 		return
 
-	if(user.r_ear != src && user.l_ear != src)
+	if(user.r_ear != src && user.l_ear != src && user.head != src)
 		to_chat(user, SPAN_WARNING("Your antennae must be on your head for the locking mechanism to work."))
 		return
 
