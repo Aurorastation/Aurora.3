@@ -255,6 +255,10 @@
 "yH" = (
 /obj/structure/table/wood,
 /obj/item/stamp/rd,
+/obj/item/paper/nt_ouerea{
+	pixel_x = 8;
+	pixel_y = 6
+	},
 /turf/simulated/floor/exoplanet/carpet/lightblue{
 	temperature = 298.15
 	},
@@ -488,17 +492,11 @@
 	},
 /area/ouerea_nt_ruin)
 "SQ" = (
-/obj/structure/closet/secure_closet/RD{
-	no_fill = 1
-	},
-/obj/item/clothing/head/hazmat/research,
-/obj/item/clothing/suit/hazmat/research,
-/obj/item/clothing/under/rank/research_director,
+/obj/structure/closet/secure_closet/RD3,
 /obj/item/clothing/suit/storage/toggle/labcoat/nt,
-/obj/item/taperoll/science,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/taperoll/science,
 /obj/item/storage/briefcase/nt,
+/obj/item/research_slip/nt_ouerea,
 /turf/simulated/floor/exoplanet/carpet/lightblue{
 	temperature = 298.15
 	},
