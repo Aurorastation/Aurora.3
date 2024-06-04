@@ -504,6 +504,7 @@
 
 /mob/living/simple_animal/borer/proc/set_starting_psi_points()
 	host.psi.psi_points = 3// You don't get a lot at the start.
+	host.psi.last_psionic_rank = host.psi.psionic_rank
 
 /mob/living/simple_animal/borer/verb/advance_psionics()
 	set category = "Abilities"
