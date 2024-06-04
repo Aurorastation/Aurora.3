@@ -4365,6 +4365,12 @@
 	icon_state = "2-4"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/table/reinforced/steel,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},

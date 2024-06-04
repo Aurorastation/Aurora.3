@@ -313,7 +313,6 @@
 	icon_state = "capjacket"
 	item_state = "capjacket"
 	contained_sprite = TRUE
-	contained_sprite = TRUE
 
 /obj/item/clothing/suit/storage/tajaran/hunting
 	name = "adhomian hunting coat"

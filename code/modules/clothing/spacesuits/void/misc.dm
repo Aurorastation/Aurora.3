@@ -623,7 +623,6 @@
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
 
 /obj/item/clothing/suit/space/void/freelancer
-	icon_state = "freelancer"
 	name = "armored voidsuit"
 	desc = "A suit from a commercial combat voidsuit design. Acceptably well-armored and prolific thoughout the Orion Spur, it can be seen in use by everyone from mercenaries to militia groups to police forces."
 	icon = 'icons/obj/clothing/voidsuit/mercenary.dmi'

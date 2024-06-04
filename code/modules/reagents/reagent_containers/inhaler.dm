@@ -15,7 +15,6 @@
 	possible_transfer_amounts = null
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	slot_flags = SLOT_BELT
-	center_of_mass = null
 	var/name_label
 	var/spent = FALSE
 	matter = list(MATERIAL_GLASS = 400, DEFAULT_WALL_MATERIAL = 200)

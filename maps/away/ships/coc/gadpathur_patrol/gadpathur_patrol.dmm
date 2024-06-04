@@ -5480,6 +5480,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/galley)
+"Rj" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/blueprints,
+/obj/item/pen/drafting,
+/turf/simulated/floor,
+/area/ship/gadpathur_patrol/engineering)
 "Rn" = (
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /obj/machinery/light/floor{
@@ -35059,7 +35065,7 @@ LJ
 Zs
 Mz
 rY
-Wl
+Rj
 Zs
 Zs
 Zs

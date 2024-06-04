@@ -3314,6 +3314,12 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},

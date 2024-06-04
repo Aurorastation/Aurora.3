@@ -73,7 +73,7 @@
 		return TRUE
 	return ..()
 
-/obj/item/holomenu/examine(mob/user, distance, is_adjacent)
+/obj/item/holomenu/examine(mob/user, distance, is_adjacent, show_extended)
 	if(anchored && length(menu_text))
 		interact(user)
 		return TRUE

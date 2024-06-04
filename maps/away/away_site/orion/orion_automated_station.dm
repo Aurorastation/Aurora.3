@@ -29,7 +29,6 @@
 		with Orion Express only delivering to the automated stations and other distribution points. \
 		This particular station is of the smaller variety, with very few facilities.\
 		"
-	icon_state = "ox_auto_station"
 
 	static_vessel = TRUE
 	generic_object = FALSE

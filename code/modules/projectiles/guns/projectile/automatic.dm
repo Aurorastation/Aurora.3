@@ -452,11 +452,10 @@
 	item_state = "l6closedmag"
 	w_class = ITEMSIZE_LARGE
 	force = 10
-	slot_flags = 0
+	slot_flags = SLOT_BACK
 	max_shells = 50
 	caliber = "a762"
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 2)
-	slot_flags = SLOT_BACK
 	ammo_type = "/obj/item/ammo_casing/a762"
 	allowed_magazines = list(/obj/item/ammo_magazine/a762)
 	fire_sound = 'sound/weapons/gunshot/gunshot_saw.ogg'
@@ -562,9 +561,6 @@
 
 	is_wieldable = TRUE
 
-	can_bayonet = TRUE
-
-
 	magazine_type = /obj/item/ammo_magazine/c762/dpra
 	allowed_magazines = list(/obj/item/ammo_magazine/c762/dpra)
 
@@ -639,7 +635,6 @@
 	suppressor_y_offset = null
 	handle_casings = DELETE_CASINGS
 	max_shells = 30
-	allowed_magazines = list(/obj/item/ammo_magazine/submachinemag/assassin)
 
 /obj/item/gun/projectile/automatic/tommygun/assassin/update_icon()
 	..()

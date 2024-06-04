@@ -102,7 +102,7 @@
 /obj/effect/bluegoast/proc/mirror_dir(var/atom/movable/am, var/old_dir, var/new_dir)
 	set_dir(GLOB.reverse_dir[new_dir])
 
-/obj/effect/bluegoast/examine()
+/obj/effect/bluegoast/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
 
 	return daddy?.examine(arglist(args))

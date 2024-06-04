@@ -332,7 +332,7 @@
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/vaurca_rockstone
-	display_name = "rockstone cape"
+	display_name = "klax rockstone cape"
 	description = "A cape for Moghesian nobility for a K'lax Vaurca."
 	path = /obj/item/clothing/accessory/vaurca_breeder/rockstone_cape
 	cost = 1

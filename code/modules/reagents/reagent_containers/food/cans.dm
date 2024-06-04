@@ -259,7 +259,6 @@
 	name = "getmore energy can"
 	desc = "An extremely ill-advised combination of excessive caffeine and alcohol. Getmore's most controversial product to date!"
 	icon_state = "thirteen_loko"
-	icon_state = "thirteen_loko"
 	center_of_mass = list("x"=16, "y"=10)
 
 	reagents_to_add = list(/singleton/reagent/alcohol/thirteenloko = 30)

@@ -47,7 +47,6 @@
 		"a",  "a",  "e",  "e",  "i",  "i",  "o",  "o",  "u",  "u",  "s",  "s"
 	)
 	partial_understanding = list(LANGUAGE_AZAZIBA = 25)
-	allow_accents = TRUE
 
 /datum/language/unathi_azaziba
 	name = LANGUAGE_AZAZIBA

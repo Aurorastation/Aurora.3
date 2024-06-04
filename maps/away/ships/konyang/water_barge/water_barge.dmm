@@ -4377,12 +4377,14 @@
 /turf/simulated/floor/plating,
 /area/water_barge/fuelbay)
 "Qy" = (
-/obj/structure/closet/secure_closet/engineering_electrical{
-	req_access = null
-	},
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1
 	},
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
+/obj/structure/table/steel,
+/obj/item/blueprints,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/toolstorage)
 "QB" = (

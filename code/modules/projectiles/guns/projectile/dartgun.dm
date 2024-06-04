@@ -46,7 +46,6 @@
 	desc = "A small gas-powered dartgun, capable of delivering chemical cocktails swiftly across short distances."
 	icon = 'icons/obj/guns/dartgun.dmi'
 	icon_state = "dartgun-empty"
-	icon_state = "dartgun-empty"
 	caliber = "dart"
 	fire_sound = 'sound/weapons/click.ogg'
 	fire_sound_text = "a metallic click"

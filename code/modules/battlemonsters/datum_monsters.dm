@@ -126,11 +126,10 @@
 	power_add = BATTLE_MONSTERS_POWER_COMMON
 	defense_add = 4
 	attack_add = 1
-	rarity = 0.25
+	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
 	description = "a proud male %SPECIES %NAME dorned in heavy %ELEMENT_AND armor and wielding a decorative %WEAPON_AND. They're sworn to protect the Great Kingdom of Garoosh from Barbarians."
 	special_effects = "%SPECIES_C Protection: As long as %NAME is visible, all other %SPECIES monsters are attack immune."
 	attack_type = BATTLE_MONSTERS_ATTACKTYPE_SWORDSMAN
-	rarity = BATTLE_MONSTERS_RARITY_UNCOMMON
 	rarity_score = 0
 
 /datum/battle_monsters/monster/human/king

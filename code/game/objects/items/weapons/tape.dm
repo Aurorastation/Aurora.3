@@ -102,10 +102,10 @@
 	. = ..()
 	item_flags |= ITEM_FLAG_NO_BLUDGEON
 
-/obj/item/ducttape/examine(mob/user)
+/obj/item/ducttape/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
 
-	return stuck.examine(user)
+	return stuck.examine(user, distance, is_adjacent, infix, suffix, show_extended)
 
 /obj/item/ducttape/proc/attach(var/obj/item/W)
 	stuck = W
