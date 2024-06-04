@@ -149,16 +149,6 @@
 			return O
 	return
 
-/mob/living/LateLogin()
-	. = ..()
-	if(ability_master)
-		ability_master.toggle_open(2)
-		client.screen -= ability_master
-
-/mob/living/Initialize()
-	. = ..()
-	ability_master = new /obj/screen/movable/ability_master(FALSE, src)
-
 ///////////ACTUAL ABILITIES////////////
 //This is what you click to do things//
 ///////////////////////////////////////
