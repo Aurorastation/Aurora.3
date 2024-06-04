@@ -145,9 +145,7 @@
 	name = "Biological Research";
 	req_access = list(113)
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -529,6 +527,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -1129,7 +1130,9 @@
 	name = "Fuel Bay";
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating{
 	temperature = 303.15
@@ -1699,9 +1702,7 @@
 	name = "Bridge";
 	req_access = list(113)
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -2688,7 +2689,7 @@
 	},
 /area/ihss_reclamation/dock)
 "mt" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -2868,7 +2869,9 @@
 	name = "Habitation";
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -3040,7 +3043,7 @@
 	},
 /area/ihss_reclamation/medsci)
 "oc" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -3229,7 +3232,9 @@
 /obj/structure/plasticflaps/airtight{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -3690,9 +3695,7 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Solars"
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -4130,6 +4133,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
@@ -4309,9 +4315,7 @@
 	name = "Bridge";
 	req_access = list(113)
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -4520,6 +4524,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
@@ -4810,7 +4815,9 @@
 	dir = 1;
 	color = "#ba9122"
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -5017,7 +5024,9 @@
 	req_access = list(113);
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -5705,6 +5714,7 @@
 /area/ihss_reclamation/crew/six)
 "zP" = (
 /obj/machinery/smartfridge,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -5790,9 +5800,7 @@
 	name = "Environmental Simulation Chamber";
 	req_access = list(113)
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -6509,7 +6517,9 @@
 	req_access = list(113);
 	dir = 8
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -6816,6 +6826,10 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/easthall)
+"FM" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/wall/shuttle/raider,
+/area/ihss_reclamation/southhall)
 "FN" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 4
@@ -7404,6 +7418,7 @@
 /obj/machinery/door/airlock/hatch{
 	name = "EVA Access"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -7839,9 +7854,7 @@
 	name = "Armory";
 	req_one_access = list(113)
 	},
-/obj/machinery/door/firedoor/multi_tile{
-	req_one_access = null
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -8010,6 +8023,7 @@
 /obj/machinery/door/airlock/glass_command{
 	name = "Hangar"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -9021,7 +9035,9 @@
 	name = "Habitation";
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -9040,6 +9056,7 @@
 	name = "Reactor";
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/reinforced,
 /area/ihss_reclamation/solars)
 "Pv" = (
@@ -9074,9 +9091,7 @@
 /obj/machinery/door/airlock/glass_service{
 	name = "Mess Hall"
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -9263,9 +9278,7 @@
 	name = "Botanical Lab";
 	req_access = list(113)
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -9573,9 +9586,7 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering Storage"
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -9824,7 +9835,9 @@
 	name = "Hangar";
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating{
 	temperature = 303.15
@@ -10023,9 +10036,7 @@
 /obj/machinery/door/airlock/atmos{
 	name = "Atmospherics"
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -10453,9 +10464,7 @@
 	name = "Captain's Quarters";
 	req_one_access = list(114)
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -10641,6 +10650,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -10649,6 +10661,7 @@
 /obj/machinery/door/airlock/service{
 	name = "Custodial"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -11151,6 +11164,7 @@
 	name = "Armory";
 	req_one_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -45735,7 +45749,7 @@ Tu
 dK
 RU
 Tu
-hu
+FM
 uJ
 Tu
 WM
