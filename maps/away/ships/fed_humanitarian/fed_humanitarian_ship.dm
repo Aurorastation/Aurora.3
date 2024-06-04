@@ -1,7 +1,8 @@
 /datum/map_template/ruin/away_site/fed_humanitarian_ship
 	name = "Nralakk Humanitarian Ship"
-	description = "Ship with skrell, here to help :)."
-	suffixes = list("ships/nralakk/fed_humanitarian/fed_humanitarian_ship.dmm")
+	description = "Luxupi-class freighters are one of the most common civilian vessels of the Nralakk Federation. Usually outfitted with midsized warp drives, they transport all manner of goods and cargo across the Nralakk Federation - sometimes even to other nations within the Orion Spur. These ships are capable of atmospheric operations depending on size, with the smaller vessels being used as intermediaries between larger freighters and planets. Freighters that do not travel outside of the inner systems do not normally have weapons, but will be outfitted with basic weaponry if travelling into known Marauder hotspots within the Traverse."
+	prefix = "ships/fed_humanitarian/"
+	suffixes = list("fed_humanitarian_ship.dmm")
 	sectors = list(SECTOR_UUEOAESA)
 	spawn_weight = 1
 	ship_cost = 1
@@ -44,6 +45,8 @@
 		"fed_humanitarian_dock1",
 		"fed_humanitarian_dock2"
 	)
+
+	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/fed_humanitarian_ship/New()
 	designation = "[pick("Aweijiin Bounty", "Indomitable Progress", "Vitality", "Stellar Wanderer", "Hand of Friendship", "Interstellar Harmony", "Burning Quasar")]"
