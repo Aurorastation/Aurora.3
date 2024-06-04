@@ -57,4 +57,3 @@ delete-after: True
 changes:
   - bugfix: "Changed req access on trawler nanomeds."
   - bugfix: "Fixed missing grille on kataphract ship"
-  - bugfix: "Replaced the 3 empty first aid kits in the PRA mining camp with two full kits and one stabilization kit."
