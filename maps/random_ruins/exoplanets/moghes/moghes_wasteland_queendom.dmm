@@ -4,7 +4,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes_queendom)
+/area/moghes)
 "b" = (
 /obj/structure/railing/fence{
 	dir = 4
@@ -15,7 +15,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes_queendom)
+/area/moghes)
 "c" = (
 /obj/structure/railing/fence{
 	dir = 8
@@ -23,20 +23,20 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes_queendom)
+/area/moghes)
 "d" = (
 /obj/structure/railing/fence,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes_queendom)
+/area/moghes)
 "e" = (
 /obj/structure/flora/grass/desert,
 /mob/living/simple_animal/hostile/retaliate/hegeranzi,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes_queendom)
+/area/moghes)
 "f" = (
 /obj/structure/railing/fence{
 	dir = 4
@@ -44,7 +44,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes_queendom)
+/area/moghes)
 "g" = (
 /obj/structure/closet/crate,
 /obj/item/material/twohanded/pike/halberd,
@@ -58,9 +58,8 @@
 /obj/item/storage/box/wallgunammo,
 /obj/item/gun/projectile/automatic/tempestsmg,
 /obj/item/ammo_magazine/tempestsmg,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
-	},
+/obj/effect/floor_decal/spline/plain/blue,
+/turf/simulated/floor/exoplanet/carpet/darkblue,
 /area/moghes_queendom)
 "h" = (
 /obj/structure/railing/fence{
@@ -70,7 +69,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes_queendom)
+/area/moghes)
 "k" = (
 /turf/simulated/wall/cloth,
 /area/moghes_queendom)
@@ -80,7 +79,7 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes_queendom)
+/area/moghes)
 "n" = (
 /obj/structure/railing/fence,
 /obj/structure/railing/fence{
@@ -89,62 +88,51 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes_queendom)
+/area/moghes)
 "o" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
-	},
+/obj/effect/floor_decal/spline/plain/brown,
+/turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_queendom)
 "p" = (
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes_queendom)
+/area/moghes)
 "q" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
-	},
+/obj/effect/floor_decal/spline/plain/blue,
+/turf/simulated/floor/exoplanet/carpet/darkblue,
 /area/moghes_queendom)
 "r" = (
 /obj/item/bedsheet/brown,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
-	},
+/turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_queendom)
 "u" = (
 /obj/structure/flora/log_bench,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
+/area/moghes)
+"v" = (
+/turf/simulated/floor/exoplanet/carpet/darkblue,
 /area/moghes_queendom)
 "w" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/desert{
-	temperature = 315.15
-	},
-/area/moghes_queendom)
+/turf/template_noop,
+/area/moghes)
 "x" = (
 /obj/item/bedsheet/brown,
 /obj/effect/ghostspawpoint{
 	name = "igs - moghes_queendom";
 	identifier = "moghes_queendom"
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
-	},
+/turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_queendom)
 "y" = (
 /mob/living/simple_animal/threshbeast,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes_queendom)
+/area/moghes)
 "z" = (
 /obj/structure/railing/fence{
 	dir = 4
@@ -153,6 +141,12 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
+/area/moghes)
+"B" = (
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_queendom)
 "C" = (
 /obj/structure/closet/crate,
@@ -167,9 +161,10 @@
 /obj/item/device/geiger,
 /obj/item/device/geiger,
 /obj/item/device/geiger,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
+/obj/effect/floor_decal/spline/plain/blue{
+	dir = 1
 	},
+/turf/simulated/floor/exoplanet/carpet/darkblue,
 /area/moghes_queendom)
 "E" = (
 /obj/structure/closet/crate/freezer,
@@ -185,20 +180,37 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
+/turf/simulated/floor/exoplanet/carpet/darkblue,
+/area/moghes_queendom)
+"F" = (
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 6
 	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_queendom)
+"I" = (
+/turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_queendom)
 "J" = (
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
-	},
+/obj/effect/floor_decal/spline/plain/blue,
+/turf/simulated/floor/exoplanet/carpet/darkblue,
+/area/moghes_queendom)
+"K" = (
+/obj/effect/floor_decal/spline/plain/brown,
+/obj/item/device/flashlight/lamp/box,
+/turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_queendom)
 "M" = (
 /obj/structure/curtain,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/moghes_queendom)
+"N" = (
+/obj/item/bedsheet/brown,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_queendom";
+	identifier = "moghes_queendom"
 	},
+/turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/moghes_queendom)
 "O" = (
 /obj/structure/closet/crate,
@@ -210,9 +222,7 @@
 	dir = 4
 	},
 /obj/item/material/hatchet/lumber,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
-	},
+/turf/simulated/floor/exoplanet/carpet/darkblue,
 /area/moghes_queendom)
 "P" = (
 /obj/item/storage/firstaid/radiation,
@@ -221,9 +231,8 @@
 /obj/item/storage/firstaid,
 /obj/random/firstaid,
 /obj/structure/closet/crate,
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
-	},
+/obj/item/clothing/accessory/stethoscope,
+/turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/moghes_queendom)
 "R" = (
 /obj/structure/railing/fence,
@@ -234,6 +243,12 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
+/area/moghes)
+"S" = (
+/obj/effect/floor_decal/spline/plain/blue{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/darkblue,
 /area/moghes_queendom)
 "T" = (
 /obj/structure/railing/fence{
@@ -242,14 +257,18 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
+/area/moghes)
+"U" = (
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/moghes_queendom)
+"V" = (
+/obj/item/device/flashlight/lantern/on,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes)
 "W" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
-	temperature = 303.15
-	},
+/turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/moghes_queendom)
 "X" = (
 /obj/structure/railing/fence{
@@ -261,15 +280,27 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
+/area/moghes)
+"Y" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/moghes_queendom)
 "Z" = (
 /obj/structure/bonfire/light_up,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/moghes_queendom)
+/area/moghes)
 
 (1,1,1) = {"
+w
+w
+w
+w
+w
+w
 p
 p
 p
@@ -287,21 +318,18 @@ p
 p
 p
 p
-p
-p
-p
-p
-p
-p
-p
-p
-p
-p
-p
-p
-p
+w
+w
+w
+w
+w
+w
+w
 "}
 (2,1,1) = {"
+w
+w
+w
 p
 p
 p
@@ -325,15 +353,14 @@ p
 p
 p
 p
-p
-p
-p
-p
-p
-p
-p
+w
+w
+w
+w
 "}
 (3,1,1) = {"
+w
+w
 p
 p
 p
@@ -359,14 +386,12 @@ p
 p
 p
 p
-p
-p
-p
-p
-p
+w
+w
+w
 "}
 (4,1,1) = {"
-p
+w
 p
 p
 p
@@ -394,10 +419,11 @@ p
 p
 p
 p
-p
-p
+w
+w
 "}
 (5,1,1) = {"
+w
 p
 p
 p
@@ -426,11 +452,10 @@ p
 p
 p
 p
-p
-p
+w
 "}
 (6,1,1) = {"
-p
+w
 p
 p
 p
@@ -462,7 +487,7 @@ p
 p
 "}
 (7,1,1) = {"
-p
+w
 p
 p
 p
@@ -494,7 +519,7 @@ p
 p
 "}
 (8,1,1) = {"
-p
+w
 p
 p
 p
@@ -664,15 +689,15 @@ k
 k
 r
 o
-J
-J
-J
+U
+U
+S
 E
 q
 k
 k
 p
-p
+V
 p
 p
 p
@@ -694,16 +719,16 @@ p
 p
 k
 x
+I
+o
+U
+U
+S
+v
 J
-J
-J
-J
-J
-J
-J
-J
+U
 k
-w
+p
 u
 p
 p
@@ -726,14 +751,14 @@ p
 p
 k
 x
+I
+K
+U
+U
+S
+v
 J
-J
-J
-J
-J
-J
-J
-J
+U
 M
 p
 u
@@ -758,16 +783,16 @@ p
 p
 k
 x
+B
+F
+Y
+Y
+S
+v
 J
-J
-J
-J
-J
-J
-J
-J
+U
 k
-w
+p
 u
 p
 p
@@ -790,9 +815,9 @@ p
 p
 k
 k
-x
+N
 W
-J
+W
 P
 C
 O
@@ -1038,7 +1063,7 @@ p
 p
 "}
 (25,1,1) = {"
-p
+w
 p
 p
 p
@@ -1070,9 +1095,9 @@ p
 p
 "}
 (26,1,1) = {"
-p
-p
-p
+w
+w
+w
 p
 p
 p
@@ -1102,9 +1127,9 @@ p
 p
 "}
 (27,1,1) = {"
-p
-p
-p
+w
+w
+w
 p
 p
 p
@@ -1134,6 +1159,10 @@ p
 p
 "}
 (28,1,1) = {"
+w
+w
+w
+w
 p
 p
 p
@@ -1159,18 +1188,14 @@ p
 p
 p
 p
-p
-p
-p
-p
-p
+w
 "}
 (29,1,1) = {"
-p
-p
-p
-p
-p
+w
+w
+w
+w
+w
 p
 p
 p
@@ -1194,10 +1219,18 @@ p
 p
 p
 a
-p
-p
+w
+w
 "}
 (30,1,1) = {"
+w
+w
+w
+w
+w
+w
+w
+w
 p
 p
 p
@@ -1216,16 +1249,8 @@ p
 p
 p
 p
+w
 p
-p
-p
-p
-p
-p
-p
-p
-p
-p
-p
-p
+w
+w
 "}
