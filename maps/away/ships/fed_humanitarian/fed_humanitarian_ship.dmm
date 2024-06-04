@@ -131,7 +131,7 @@
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#6e2c6e"
 	},
-/area/fed_humanitarian_ship/atmos)
+/area/fed_humanitarian_ship/medical)
 "bl" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty/air,
@@ -306,8 +306,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/shuttle_landmark/fed_humanitarian_shuttle/dock{
-	dir = 8;
-	docking_controller = s
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/hangar)
@@ -504,6 +503,12 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/shuttle/fed_humanitarian_shuttle)
+"fk" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#8c2b8c";
+	can_open = 1
+	},
+/area/fed_humanitarian_ship/forehall)
 "fl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
@@ -545,20 +550,10 @@
 /obj/random/firstaid,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/warehouse)
-"ft" = (
-/obj/effect/shuttle_landmark/fed_humanitarian/nav2,
-/turf/template_noop,
-/area/space)
 "fu" = (
 /obj/machinery/iv_drip,
 /turf/simulated/floor/tiled/white,
 /area/fed_humanitarian_ship/medical)
-"fv" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, port engine"
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/fed_humanitarian_ship/thruster/port)
 "fG" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -576,6 +571,10 @@
 /obj/effect/step_trigger/teleporter,
 /turf/space,
 /area/space)
+"fJ" = (
+/obj/machinery/vending/medical,
+/turf/simulated/wall/shuttle/skrell,
+/area/fed_humanitarian_ship/medical)
 "fK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -597,14 +596,6 @@
 /obj/machinery/light/skrell,
 /turf/simulated/floor/reinforced,
 /area/fed_humanitarian_ship/engineering)
-"fO" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, surgery"
-	},
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#6e2c6e"
-	},
-/area/fed_humanitarian_ship/medical)
 "fP" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -662,19 +653,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/fed_humanitarian_ship/medical)
-"gx" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 4;
-	name = "Bridge Blast Door";
-	id = "fed_bridge_lockdown"
-	},
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, bridge"
-	},
-/turf/simulated/floor/plating,
-/area/fed_humanitarian_ship/bridge)
 "gB" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm/west{
@@ -885,10 +863,6 @@
 "ip" = (
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/hangar)
-"is" = (
-/obj/effect/overmap/visitable/ship/landable/fed_humanitarian_shuttle,
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/shuttle/fed_humanitarian_shuttle)
 "iu" = (
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -958,28 +932,12 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/fed_humanitarian_ship/forehall)
-"iW" = (
-/obj/effect/landmark/entry_point/east{
-	name = "port, crew compartment"
-	},
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#6e2c6e"
-	},
-/area/shuttle/fed_humanitarian_shuttle)
 "iX" = (
 /obj/structure/closet/crate/freezer/rations,
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/warehouse)
 "iZ" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#6e2c6e"
-	},
-/area/shuttle/fed_humanitarian_shuttle/engine)
-"ji" = (
-/obj/effect/landmark/entry_point/north{
-	name = "aft, left engines"
-	},
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#6e2c6e"
 	},
@@ -1224,7 +1182,10 @@
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/rearairlock)
 "kX" = (
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#8c2b8c";
+	can_open = 1
+	},
 /area/fed_humanitarian_ship/rearairlock)
 "lc" = (
 /obj/structure/cable{
@@ -1270,6 +1231,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/atmos)
+"lG" = (
+/obj/effect/landmark/entry_point/west{
+	name = "starboard, crew compartment"
+	},
+/turf/simulated/wall/shuttle/skrell,
+/area/shuttle/fed_humanitarian_shuttle)
 "lM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -1347,10 +1314,6 @@
 /obj/machinery/computer/operating,
 /turf/simulated/floor/tiled/white,
 /area/fed_humanitarian_ship/medical)
-"mD" = (
-/obj/effect/shuttle_landmark/fed_humanitarian/nav4,
-/turf/template_noop,
-/area/space)
 "mF" = (
 /obj/machinery/light/skrell,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -1514,6 +1477,12 @@
 "oV" = (
 /turf/simulated/floor/plating,
 /area/shuttle/fed_humanitarian_shuttle/engine)
+"oW" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port engine"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/fed_humanitarian_ship/thruster/port)
 "oY" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/blue,
 /turf/simulated/floor/plating,
@@ -1688,10 +1657,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/thruster)
-"ql" = (
-/obj/machinery/vending/medical,
-/turf/simulated/wall/shuttle/skrell,
-/area/fed_humanitarian_ship/medical)
 "qr" = (
 /obj/structure/bed/stool/chair/office/hover/command{
 	dir = 1
@@ -1862,6 +1827,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/hangar)
+"sc" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, surgery"
+	},
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#6e2c6e"
+	},
+/area/fed_humanitarian_ship/medical)
 "se" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -2031,7 +2004,9 @@
 /turf/simulated/floor/plating,
 /area/shuttle/fed_humanitarian_shuttle)
 "tf" = (
-/turf/simulated/wall/shuttle/space_ship,
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#6e2c6e"
+	},
 /area/fed_humanitarian_ship/atmos)
 "tg" = (
 /obj/machinery/door/airlock/skrell{
@@ -2041,11 +2016,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/fed_humanitarian_ship/medical)
-"tj" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#6e2c6e"
-	},
-/area/fed_humanitarian_ship/thruster)
+"ti" = (
+/obj/effect/shuttle_landmark/fed_humanitarian/nav2,
+/turf/template_noop,
+/area/space)
 "tC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -2366,14 +2340,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/thruster)
-"wq" = (
-/obj/effect/landmark/entry_point/north{
-	name = "aft, right engines"
-	},
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#6e2c6e"
-	},
-/area/shuttle/fed_humanitarian_shuttle/engine)
 "ws" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#8c2b8c";
@@ -2621,6 +2587,14 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/shuttle/fed_humanitarian_shuttle)
+"ya" = (
+/obj/effect/landmark/entry_point/north{
+	name = "aft, port engines"
+	},
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#6e2c6e"
+	},
+/area/shuttle/fed_humanitarian_shuttle/engine)
 "yh" = (
 /obj/structure/closet/walllocker{
 	req_access = list(208);
@@ -2660,10 +2634,8 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/fed_humanitarian_ship/cic)
 "yy" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#6e2c6e"
-	},
-/area/fed_humanitarian_ship/medical)
+/turf/simulated/wall/shuttle/space_ship,
+/area/fed_humanitarian_ship/atmos)
 "yz" = (
 /obj/structure/bed/aqua,
 /turf/simulated/floor/beach/water/pool,
@@ -2773,6 +2745,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/shuttle/fed_humanitarian_shuttle)
+"zW" = (
+/obj/effect/shuttle_landmark/fed_humanitarian/nav4,
+/turf/template_noop,
+/area/space)
 "Ah" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2962,6 +2938,10 @@
 	color = "#6e2c6e"
 	},
 /area/shuttle/fed_humanitarian_shuttle/engine)
+"By" = (
+/obj/effect/overmap/visitable/ship/landable/fed_humanitarian_shuttle,
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/shuttle/fed_humanitarian_shuttle)
 "BB" = (
 /obj/machinery/light/skrell{
 	dir = 4
@@ -3286,6 +3266,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/fed_humanitarian_ship/medical)
+"Ev" = (
+/obj/effect/landmark/entry_point/north{
+	name = "aft, starboard engines"
+	},
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#6e2c6e"
+	},
+/area/shuttle/fed_humanitarian_shuttle/engine)
 "EE" = (
 /obj/structure/cable/green{
 	d2 = 4;
@@ -3311,11 +3299,6 @@
 /obj/structure/closet/firecloset/full,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/shuttle/skrell,
-/area/fed_humanitarian_ship/forehall)
-"EM" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#6e2c6e"
-	},
 /area/fed_humanitarian_ship/forehall)
 "EN" = (
 /obj/structure/table/skrell,
@@ -3416,6 +3399,14 @@
 	can_open = 1
 	},
 /area/fed_humanitarian_ship/starbdock)
+"FI" = (
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#6e2c6e"
+	},
+/area/shuttle/fed_humanitarian_shuttle)
 "FO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/cable/green{
@@ -3462,17 +3453,14 @@
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/captain/quarters)
-"Gj" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#8c2b8c";
-	can_open = 1
-	},
-/area/fed_humanitarian_ship/rearairlock)
 "Gp" = (
 /obj/structure/table/skrell,
 /obj/item/skrell_projector,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/fed_humanitarian_ship/captain/quarters)
+"Gq" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/fed_humanitarian_ship/rearairlock)
 "Gt" = (
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/engineering)
@@ -3673,12 +3661,6 @@
 /obj/effect/shuttle_landmark/fed_humanitarian/portaftdock,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/starbdock)
-"HP" = (
-/obj/effect/landmark/entry_point/west{
-	name = "starboard, crew compartment"
-	},
-/turf/simulated/wall/shuttle/skrell,
-/area/shuttle/fed_humanitarian_shuttle)
 "HX" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
@@ -3715,6 +3697,14 @@
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/hangar)
+"Ik" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, armory"
+	},
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#695391"
+	},
+/area/fed_humanitarian_ship/armory)
 "Im" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#695391"
@@ -3795,13 +3785,6 @@
 /obj/item/stellascope,
 /turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/fed_humanitarian_ship/thruster)
-"IP" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/obj/effect/landmark/entry_point/aft{
-	name = "fore, crew compartment"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/fed_humanitarian_shuttle)
 "IR" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -4147,6 +4130,11 @@
 /obj/machinery/light/skrell,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/atmos)
+"Lt" = (
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#6e2c6e"
+	},
+/area/fed_humanitarian_ship/forehall)
 "LB" = (
 /obj/machinery/door/airlock/skrell{
 	dir = 4;
@@ -4673,12 +4661,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/fed_humanitarian_ship/engineering)
-"Qw" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, starboard engine"
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/fed_humanitarian_ship/thruster)
 "Qx" = (
 /turf/simulated/wall/shuttle/skrell,
 /area/fed_humanitarian_ship/medical)
@@ -4742,6 +4724,19 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/starbdock)
+"Rg" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	name = "Bridge Blast Door";
+	id = "fed_bridge_lockdown"
+	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, bridge"
+	},
+/turf/simulated/floor/plating,
+/area/fed_humanitarian_ship/bridge)
 "Rk" = (
 /obj/structure/closet/secure_closet/contraband{
 	req_access = list(208);
@@ -4776,14 +4771,6 @@
 /obj/structure/bed/stool/chair/office/hover/command,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/fed_humanitarian_ship/portdock)
-"RF" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, armory"
-	},
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#695391"
-	},
-/area/fed_humanitarian_ship/armory)
 "RI" = (
 /obj/structure/bed/stool/chair/office/hover{
 	dir = 4
@@ -5101,10 +5088,9 @@
 /area/fed_humanitarian_ship/forehall)
 "Ud" = (
 /turf/simulated/wall/shuttle/space_ship{
-	color = "#8c2b8c";
-	can_open = 1
+	color = "#6e2c6e"
 	},
-/area/fed_humanitarian_ship/forehall)
+/area/fed_humanitarian_ship/thruster)
 "Uq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5222,6 +5208,13 @@
 	pixel_x = -27
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
+/area/shuttle/fed_humanitarian_shuttle)
+"VR" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/landmark/entry_point/aft{
+	name = "fore, crew compartment"
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/fed_humanitarian_shuttle)
 "VW" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -5390,6 +5383,10 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/fed_humanitarian_ship/bridge)
+"WH" = (
+/obj/effect/shuttle_landmark/fed_humanitarian/nav3,
+/turf/template_noop,
+/area/space)
 "WJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
@@ -5496,6 +5493,12 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/fed_humanitarian_ship/armory)
+"Xz" = (
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard engine"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/fed_humanitarian_ship/thruster)
 "XA" = (
 /obj/effect/map_effect/marker/airlock{
 	frequency = 3556;
@@ -5657,10 +5660,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/forehall)
-"Zx" = (
-/obj/effect/shuttle_landmark/fed_humanitarian/nav3,
-/turf/template_noop,
-/area/space)
 "Zy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -13245,7 +13244,7 @@ lj
 lj
 lj
 lj
-Zx
+WH
 lj
 lj
 lj
@@ -15326,7 +15325,7 @@ lj
 lj
 lj
 lj
-Qw
+Xz
 Dy
 so
 so
@@ -15373,10 +15372,10 @@ lj
 lj
 lj
 lj
-Ud
-Ud
-Ud
-Ud
+fk
+fk
+fk
+fk
 FG
 FG
 FG
@@ -15534,8 +15533,8 @@ lj
 lj
 lj
 lj
-Ud
-Ud
+fk
+fk
 LP
 EJ
 FG
@@ -15696,7 +15695,7 @@ lj
 lj
 lj
 Oi
-Ud
+fk
 oe
 vx
 vx
@@ -15858,7 +15857,7 @@ Oi
 Oi
 Oi
 Oi
-Ud
+fk
 vx
 He
 Dq
@@ -15981,10 +15980,10 @@ Dy
 qH
 uM
 Wm
-tf
-tf
-tf
-tf
+yy
+yy
+yy
+yy
 lj
 lj
 lj
@@ -16020,7 +16019,7 @@ Oi
 OA
 mG
 dC
-Ud
+fk
 vx
 wu
 vx
@@ -16143,13 +16142,13 @@ Dy
 fb
 bl
 qH
-tf
+yy
 lg
 Jk
-tf
-tf
-tf
-tf
+yy
+yy
+yy
+yy
 lj
 lj
 lj
@@ -16182,11 +16181,11 @@ Oi
 iE
 mG
 dC
-Ud
+fk
 vx
 wu
 vx
-Ud
+fk
 Ou
 sm
 Ta
@@ -16305,28 +16304,28 @@ Dy
 Ml
 uA
 mF
-tf
+yy
 DD
 Cm
 US
 qZ
 Lq
-yy
-yy
-fO
-yy
-yy
-yy
-yy
-yy
-yy
+bk
+bk
+sc
+bk
+bk
+bk
+bk
+bk
+bk
 aD
 aD
 aD
 aD
 Im
 Im
-RF
+Ik
 Im
 Im
 Im
@@ -16344,11 +16343,11 @@ Oi
 LL
 mG
 dC
-Ud
+fk
 oe
 wu
 vx
-Ud
+fk
 FG
 FG
 FG
@@ -16467,21 +16466,21 @@ Dy
 Dy
 Dy
 Dy
-tf
+yy
 za
 rk
 ZD
 oY
 MY
-yy
+bk
 Hc
 pZ
 mK
-yy
+bk
 GH
 Et
 tU
-yy
+bk
 hD
 ij
 yn
@@ -16506,11 +16505,11 @@ Oi
 LL
 mG
 mP
-Ud
+fk
 vx
 wu
 vx
-Ud
+fk
 lj
 lj
 lj
@@ -16629,21 +16628,21 @@ Dy
 Dy
 Dy
 Dy
-tf
+yy
 hV
 aE
 za
 Mm
 bw
-yy
+bk
 sT
 Vz
 fu
-yy
+bk
 SU
 Tu
 Vz
-yy
+bk
 bm
 Tw
 Oc
@@ -16668,11 +16667,11 @@ Oi
 Oi
 OB
 Oi
-Ud
+fk
 vx
 wu
 vx
-Ud
+fk
 lj
 lj
 lj
@@ -16791,21 +16790,21 @@ Dy
 zs
 Dy
 GU
-tf
+yy
 za
 lu
 za
 aE
 za
-yy
+bk
 hY
 Vz
 QP
-yy
+bk
 Ak
 Vz
 iw
-yy
+bk
 UA
 BP
 fG
@@ -16830,11 +16829,11 @@ TH
 TH
 TH
 TH
-Ud
+fk
 vx
 wu
 vx
-EM
+Lt
 lj
 lj
 lj
@@ -16959,15 +16958,15 @@ FO
 YL
 QX
 za
-yy
+bk
 JS
 Vz
 mx
-yy
+bk
 xW
 Vz
 Vz
-yy
+bk
 aD
 aD
 wy
@@ -16992,11 +16991,11 @@ TH
 TH
 TH
 zB
-Ud
+fk
 vx
 wu
 vx
-Ud
+fk
 lj
 lj
 lj
@@ -17115,21 +17114,21 @@ Dy
 EH
 Dy
 qk
-tf
+yy
 aE
 aE
 za
 cM
 za
-yy
-yy
+bk
+bk
 tg
 Qx
-ql
+fJ
 iJ
 NL
 gu
-yy
+bk
 ph
 qF
 Ic
@@ -17154,7 +17153,7 @@ TH
 Sq
 Sq
 Sq
-Ud
+fk
 dq
 rU
 dq
@@ -17277,13 +17276,13 @@ Dy
 Dy
 Dy
 Dy
-tf
+yy
 Kz
 vY
 za
 cM
 bw
-yy
+bk
 Vz
 Cv
 Vz
@@ -17291,7 +17290,7 @@ Vz
 Vz
 Vz
 Vz
-yy
+bk
 Io
 bc
 eu
@@ -17316,7 +17315,7 @@ Sq
 Sa
 iL
 uf
-Ud
+fk
 UV
 Be
 GY
@@ -17434,26 +17433,26 @@ lj
 lj
 lj
 lj
-tj
-tj
-tj
-tj
+Ud
+Ud
+Ud
+Ud
 KI
-bk
+tf
 QE
 QE
 za
 cM
 Ja
-yy
-yy
-yy
-yy
+bk
+bk
+bk
+bk
 Te
 Vz
 df
 dX
-yy
+bk
 aj
 qF
 Ic
@@ -17478,7 +17477,7 @@ tW
 Nu
 TH
 TH
-Ud
+fk
 vx
 wu
 vx
@@ -17601,21 +17600,21 @@ mL
 Op
 Df
 Pj
-bk
+tf
 gP
 gP
 PW
 FB
 wO
-yy
+bk
 rS
 co
-yy
+bk
 IF
 Uq
 tC
 Tn
-yy
+bk
 aj
 qF
 rC
@@ -17640,7 +17639,7 @@ Sq
 Sc
 TH
 pY
-Ud
+fk
 vx
 wu
 vx
@@ -17763,21 +17762,21 @@ mL
 EN
 Df
 jH
-bk
+tf
 jt
 gP
 za
 cM
 eq
-yy
+bk
 FU
 Vz
-yy
+bk
 Bf
 DV
 ky
 PT
-yy
+bk
 aj
 qF
 qF
@@ -17802,7 +17801,7 @@ Sq
 PC
 TH
 ut
-Ud
+fk
 vx
 wu
 vx
@@ -17921,17 +17920,17 @@ lj
 lj
 lj
 lj
-tj
-tj
+Ud
+Ud
 xE
 jH
-bk
+tf
 FS
 FS
 za
 cM
 Dg
-yy
+bk
 cw
 Vz
 Kk
@@ -17939,7 +17938,7 @@ mc
 Vz
 tD
 Tn
-yy
+bk
 aj
 qF
 qF
@@ -17964,7 +17963,7 @@ Sq
 ah
 TH
 LR
-Ud
+fk
 vx
 wu
 vx
@@ -18084,24 +18083,24 @@ lj
 lj
 lj
 lj
-tj
+Ud
 IN
 KF
-bk
+tf
 FS
 IJ
 Wq
 wD
 Dg
-yy
+bk
 hE
 hq
-yy
+bk
 Km
 Vz
 Mu
 Xx
-yy
+bk
 uy
 qF
 qF
@@ -18126,7 +18125,7 @@ sD
 Qp
 yh
 jj
-Ud
+fk
 Wa
 Hv
 vx
@@ -18246,24 +18245,24 @@ lj
 lj
 lj
 lj
-tj
-bk
-bk
-bk
+Ud
 tf
 tf
 tf
+yy
+yy
+yy
 MX
-tf
 yy
-yy
-yy
-yy
+bk
+bk
+bk
+bk
 TJ
-yy
-yy
-yy
-yy
+bk
+bk
+bk
+bk
 oq
 oq
 oq
@@ -18288,7 +18287,7 @@ Oi
 Oi
 Oi
 Oi
-Ud
+fk
 oe
 wu
 vx
@@ -18409,15 +18408,15 @@ lj
 lj
 lj
 lj
-kX
-kX
-kX
-kX
+Gq
+Gq
+Gq
+Gq
 RY
 JE
 fK
 dl
-Gj
+kX
 vx
 vx
 Fc
@@ -18552,7 +18551,7 @@ lj
 lj
 lj
 lj
-ft
+ti
 lj
 lj
 lj
@@ -18621,7 +18620,7 @@ fP
 Ju
 Nt
 xA
-gx
+Rg
 lj
 lj
 lj
@@ -18741,7 +18740,7 @@ AS
 uU
 FE
 kT
-Gj
+kX
 vx
 vx
 ll
@@ -19397,7 +19396,7 @@ ip
 ip
 xf
 xf
-iW
+FI
 xf
 xf
 Ws
@@ -19895,7 +19894,7 @@ iZ
 lP
 Oa
 zS
-ji
+Ev
 ip
 ip
 eU
@@ -20041,10 +20040,10 @@ Yh
 XT
 ip
 ip
-IP
+VR
 Ko
 qr
-is
+By
 EQ
 ma
 vm
@@ -20219,7 +20218,7 @@ iZ
 Sg
 oV
 zS
-wq
+ya
 ip
 ip
 eU
@@ -20236,7 +20235,7 @@ eU
 vx
 wu
 vx
-Ud
+fk
 lj
 lj
 lj
@@ -20398,7 +20397,7 @@ eU
 vx
 wu
 vx
-Ud
+fk
 lj
 lj
 lj
@@ -20510,7 +20509,7 @@ lj
 lj
 lj
 lj
-fv
+oW
 Hp
 kJ
 qK
@@ -20560,7 +20559,7 @@ eU
 vx
 wu
 vx
-Ud
+fk
 lj
 lj
 lj
@@ -20695,7 +20694,7 @@ xf
 xf
 xf
 xf
-HP
+lG
 xf
 xf
 xf
@@ -20722,7 +20721,7 @@ eU
 vx
 wu
 vx
-Ud
+fk
 lj
 lj
 lj
@@ -20884,7 +20883,7 @@ eU
 oe
 wu
 vx
-Ud
+fk
 lj
 lj
 lj
@@ -21853,7 +21852,7 @@ lj
 lj
 lj
 eU
-Ud
+fk
 LP
 EJ
 Mw
@@ -22015,8 +22014,8 @@ lj
 lj
 lj
 lj
-Ud
-Ud
+fk
+fk
 JW
 Mw
 Mw
@@ -23774,7 +23773,7 @@ lj
 lj
 lj
 lj
-mD
+zW
 lj
 lj
 lj

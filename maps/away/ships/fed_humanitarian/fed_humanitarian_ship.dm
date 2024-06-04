@@ -118,7 +118,7 @@
 	shuttle_area = list(/area/shuttle/fed_humanitarian_shuttle, /area/shuttle/fed_humanitarian_shuttle/engine)
 	current_location = "fed_humanitarian_hangar"
 	landmark_transition = "fed_humanitarian_transit"
-	dock_target = "fed_humanitarian_shuttle"
+	dock_target = "airlock_shuttle_fed_humanitarian"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "fed_humanitarian_hangar"
