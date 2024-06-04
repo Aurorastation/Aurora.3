@@ -74,3 +74,9 @@
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
 	path = /obj/item/storage/box/closet_teleporter
+
+/datum/uplink_item/item/stealth_items/sawn_doublebarrel_shotgun
+	name = "Sawn-off Double-Barrel Shotgun"
+	desc = "A box for a sidearm double barrel shotgun, containing a sawn-off double barrel shotgun, a holster and some ammo."
+	telecrystal_cost = 4
+	path = /obj/item/storage/box/sawn_doublebarrel_shotgun
