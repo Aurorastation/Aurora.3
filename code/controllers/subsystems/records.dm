@@ -7,6 +7,7 @@ SUBSYSTEM_DEF(records)
 
 	var/list/warrants
 	var/list/viruses
+	var/list/shuttle_assignments
 	var/list/shuttle_manifests
 
 	var/list/excluded_fields
@@ -34,6 +35,10 @@ SUBSYSTEM_DEF(records)
 	records_locked = list()
 	warrants = list()
 	viruses = list()
+	shuttle_assignments = list()
+	for(var/shuttle in HORIZON_SHUTTLES)
+		var/datum/record/shuttle/assignment/A = new /datum/record/shuttle/assignment/A(src, shuttle)
+		shuttle_assignments += A
 	shuttle_manifests = list()
 	excluded_fields = list()
 	localized_fields = list()
@@ -106,8 +111,10 @@ SUBSYSTEM_DEF(records)
 			warrants += record
 		if(/datum/record/virus)
 			viruses += record
-		if(/datum/record/shuttle_manifest)
+		if(/datum/record/shuttle/manifest)
 			shuttle_manifests += record
+		if(/datum/record/shuttle/assignment)
+			shuttle_assignments += record
 	onCreate(record)
 
 /datum/controller/subsystem/records/proc/update_record(var/datum/record/record)
@@ -121,8 +128,10 @@ SUBSYSTEM_DEF(records)
 			warrants |= record
 		if(/datum/record/virus)
 			viruses |= record
-		if(/datum/record/shuttle_manifest)
+		if(/datum/record/shuttle/manifest)
 			shuttle_manifests |= record
+		if(/datum/record/shuttle/assignment)
+			shuttle_assignments |= record
 	onModify(record)
 
 /datum/controller/subsystem/records/proc/remove_record(var/datum/record/record)
@@ -136,8 +145,10 @@ SUBSYSTEM_DEF(records)
 			warrants -= record
 		if(/datum/record/virus)
 			viruses *= record
-		if(/datum/record/shuttle_manifest)
+		if(/datum/record/shuttle/manifest)
 			shuttle_manifests -= record
+		if(/datum/record/shuttle/assignment)
+			shuttle_assignments -= record
 	onDelete(record)
 	qdel(record)
 
