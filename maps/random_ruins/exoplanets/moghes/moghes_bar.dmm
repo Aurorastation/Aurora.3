@@ -274,6 +274,13 @@
 	temperature = 303.15
 	},
 /area/moghes_bar)
+"jr" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes_bar)
 "jM" = (
 /obj/machinery/media/jukebox,
 /turf/simulated/floor/exoplanet/wood{
@@ -398,6 +405,16 @@
 	temperature = 303.15
 	},
 /area/moghes_bar)
+"ok" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/machinery/appliance/mixer/candy{
+	pixel_y = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes_bar)
 "oK" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -465,6 +482,22 @@
 	temperature = 303.15
 	},
 /area/moghes_bar)
+"rE" = (
+/obj/item/reagent_containers/cooking_container/board/bowl,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/structure/table/stone/marble,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/moghes_bar)
 "rJ" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -496,15 +529,11 @@
 	},
 /area/moghes_bar)
 "rQ" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/structure/table/stone/marble,
-/obj/machinery/appliance/mixer/candy{
-	pixel_y = 8
-	},
 /obj/machinery/light{
 	dir = 4;
 	status = 2
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -736,20 +765,10 @@
 	},
 /area/moghes_bar)
 "Gg" = (
-/obj/item/reagent_containers/cooking_container/board/bowl,
-/obj/item/reagent_containers/glass/beaker{
-	pixel_x = -6;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/food/condiment/sugar{
-	pixel_x = 7;
-	pixel_y = 8
-	},
-/obj/structure/table/wood,
-/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -1340,9 +1359,9 @@ cY
 (8,1,1) = {"
 QW
 tK
-ci
-IJ
-sN
+Dz
+QZ
+QZ
 QZ
 dC
 gM
@@ -1374,11 +1393,11 @@ cY
 (9,1,1) = {"
 QW
 tK
+Zd
 QZ
 QZ
 QZ
-QZ
-QZ
+dQ
 QZ
 QZ
 Tf
@@ -1408,12 +1427,12 @@ cY
 (10,1,1) = {"
 QW
 tK
+px
 QZ
-QZ
-QZ
-dQ
-QZ
-QZ
+ci
+rE
+jr
+IJ
 QZ
 tK
 nc
@@ -1442,7 +1461,7 @@ cY
 (11,1,1) = {"
 QW
 tK
-QZ
+ok
 QZ
 QZ
 QZ
@@ -1476,11 +1495,11 @@ cY
 (12,1,1) = {"
 QW
 tK
-Dz
+sN
 rQ
-px
+QZ
 Gg
-Zd
+QZ
 gk
 kC
 tK
