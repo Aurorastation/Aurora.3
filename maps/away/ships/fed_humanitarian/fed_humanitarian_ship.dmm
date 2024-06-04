@@ -101,7 +101,8 @@
 	name = "EVA Storage"
 	},
 /obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/plating)
+/turf/simulated/floor/plating,
+/area/fed_humanitarian_ship/eva)
 "aU" = (
 /obj/machinery/light/skrell{
 	dir = 1
@@ -353,7 +354,7 @@
 	pixel_y = -4;
 	dir = 2
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/starbdock)
 "dl" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -437,7 +438,7 @@
 	name = "airlock_fed_humanitarian_aft_port"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/template_noop,
+/turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/portdock)
 "eE" = (
 /obj/machinery/alarm/east{
@@ -992,7 +993,7 @@
 	name = "airlock_fed_humanitarian_aft_starboard"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/starbdock)
 "jA" = (
 /obj/structure/cable/green{
@@ -1046,9 +1047,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/engineering)
-"jY" = (
-/turf/simulated/wall/shuttle/skrell,
-/area/space)
 "kb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9;
@@ -1392,7 +1390,8 @@
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/warehouse)
 "oq" = (
-/turf/simulated/wall/shuttle/skrell)
+/turf/simulated/wall/shuttle/skrell,
+/area/fed_humanitarian_ship/eva)
 "oC" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3545,7 +3544,7 @@
 	pixel_x = -28;
 	pixel_y = 12
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/starbdock)
 "HX" = (
 /obj/machinery/door/airlock/external{
@@ -3565,7 +3564,7 @@
 	pixel_y = -4;
 	dir = 2
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/portdock)
 "Ic" = (
 /obj/structure/cable/green{
@@ -3725,7 +3724,7 @@
 	name = "airlock_fed_humanitarian_aft_starboard"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/starbdock)
 "Jh" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
@@ -4149,7 +4148,8 @@
 	dir = 8;
 	name = "Atmospherics"
 	},
-/turf/simulated/floor/plating)
+/turf/simulated/floor/plating,
+/area/fed_humanitarian_ship/atmos)
 "MY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 9
@@ -4682,7 +4682,7 @@
 	pixel_x = -28;
 	pixel_y = 12
 	},
-/turf/template_noop,
+/turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/portdock)
 "Sc" = (
 /obj/structure/table/skrell,
@@ -5208,7 +5208,7 @@
 	name = "airlock_fed_humanitarian_aft_port"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/portdock)
 "Wz" = (
 /obj/effect/floor_decal/industrial/warning/full,
@@ -15652,7 +15652,7 @@ Dy
 DH
 so
 so
-jY
+so
 lj
 lj
 lj
@@ -18085,9 +18085,9 @@ tf
 tf
 tf
 tf
-oq
+tf
 MX
-oq
+tf
 Qx
 Qx
 Qx
@@ -19380,10 +19380,10 @@ Uy
 Gt
 yE
 Dj
-oq
-oq
-oq
-oq
+md
+md
+md
+md
 Yh
 ip
 ip
@@ -20028,10 +20028,10 @@ nr
 Gt
 yE
 Gt
-oq
-oq
-oq
-oq
+md
+md
+md
+md
 Yh
 ip
 ip
