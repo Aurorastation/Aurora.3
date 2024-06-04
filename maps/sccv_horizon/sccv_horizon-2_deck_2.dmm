@@ -4017,7 +4017,8 @@
 	pixel_x = -19;
 	pixel_y = 29;
 	req_one_access = list(20,41);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7126,7 +7127,8 @@
 	pixel_x = 22;
 	pixel_y = -20;
 	req_one_access = list(19,43);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -8191,7 +8193,8 @@
 	pixel_x = -40;
 	pixel_y = -8;
 	req_one_access = list(75);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
@@ -19028,7 +19031,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 8;
-	pixel_x = -23
+	pixel_x = -23;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -19042,7 +19046,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 8;
-	pixel_x = -22
+	pixel_x = -22;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -25241,7 +25246,8 @@
 	specialfunctions = 4;
 	dir = 10;
 	pixel_x = -6;
-	pixel_y = 1
+	pixel_y = 1;
+	desiredstate = 1
 	},
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
@@ -28578,7 +28584,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 4;
-	pixel_x = 23
+	pixel_x = 23;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -28771,7 +28778,8 @@
 	pixel_x = 22;
 	pixel_y = 12;
 	req_one_access = list(19,43);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 8;
@@ -34759,7 +34767,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 8;
-	pixel_x = -23
+	pixel_x = -23;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/foyer)
@@ -39015,7 +39024,8 @@
 	name = "Xenobiology External Access Bolts";
 	pixel_y = -21;
 	req_access = list(55);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
@@ -40421,7 +40431,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 10;
-	pixel_x = 32
+	pixel_x = 32;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/foyer)
@@ -41117,7 +41128,8 @@
 	pixel_x = 22;
 	pixel_y = 22;
 	req_one_access = list(19,43);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -42780,7 +42792,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 4;
-	pixel_x = 22
+	pixel_x = 22;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/foyer)
@@ -46175,7 +46188,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 4;
-	pixel_x = 23
+	pixel_x = 23;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/hazardous)
@@ -51024,7 +51038,8 @@
 	pixel_x = 22;
 	pixel_y = -22;
 	req_one_access = list(19,43);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -52507,7 +52522,8 @@
 	specialfunctions = 4;
 	dir = 4;
 	pixel_x = 23;
-	pixel_y = 32
+	pixel_y = 32;
+	desiredstate = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/xenobiology/dissection)
