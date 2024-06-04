@@ -1,0 +1,6 @@
+author: crosarius
+
+delete-after: True
+
+changes:
+  - bugfix: "Attempts to correct butanol sometimes having no effect on Unathi."

@@ -255,7 +255,7 @@
 
 	distillation_point = T0C + 117.7
 
-/singleton/reagent/alcohol/butanol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
+/singleton/reagent/alcohol/butanol/affect_ingest(mob/living/carbon/human/M, alien, removed, var/datum/reagents/holder)
 	if (alien == IS_UNATHI)
 		M.intoxication += (strength / 100) * removed * 6
 		if (druggy != 0)
