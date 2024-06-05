@@ -45,7 +45,7 @@
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
-/area/fed_humanitarian_ship/hangar)
+/area/fed_humanitarian_ship/forehall)
 "aD" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#695391"
@@ -1235,7 +1235,9 @@
 /obj/effect/landmark/entry_point/west{
 	name = "starboard, crew compartment"
 	},
-/turf/simulated/wall/shuttle/skrell,
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#6e2c6e"
+	},
 /area/shuttle/fed_humanitarian_shuttle)
 "lM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1353,6 +1355,10 @@
 "np" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/fed_humanitarian_ship/toolstorage)
+"nr" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/turf/simulated/floor/plating,
+/area/fed_humanitarian_ship/thruster/port)
 "nv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9;
@@ -1492,10 +1498,9 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
-	req_one_access = list(208);
 	pixel_x = -27;
-	id_tag = "fed_humanitarian_shuttle_dock";
-	dir = 4
+	dir = 4;
+	id_tag = "fed_humanitarian_shuttle_dock"
 	},
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/hangar)
@@ -3683,7 +3688,7 @@
 "Ii" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
-/area/fed_humanitarian_ship/hangar)
+/area/fed_humanitarian_ship/forehall)
 "Ik" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, armory"
@@ -4078,9 +4083,11 @@
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/atmos)
 "KC" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/alarm/west{
+	req_one_access = list(208)
+	},
 /turf/simulated/floor/plating,
-/area/fed_humanitarian_ship/thruster/port)
+/area/fed_humanitarian_ship/hangar)
 "KF" = (
 /obj/structure/table/skrell,
 /obj/item/deck/tarot/nralakk,
@@ -5182,12 +5189,6 @@
 	},
 /obj/machinery/light/skrell{
 	dir = 8
-	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1332;
-	id_tag = "fed_humanitarian_shuttle_dock";
-	req_one_access = list(208);
-	pixel_x = -27
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/shuttle/fed_humanitarian_shuttle)
@@ -17916,7 +17917,7 @@ Kk
 mc
 Vz
 tD
-Tn
+Vz
 bk
 aj
 qF
@@ -18881,29 +18882,29 @@ md
 md
 Ai
 md
-Yh
-Yh
-Yh
-Yh
-Yh
-Yh
-Yh
+kX
+fk
+fk
+fk
+fk
+fk
+fk
 Ii
 Ii
 Ii
 Ii
-Yh
+fk
 ay
-Yh
+fk
 Ii
 Ii
 Ii
 Ii
 Ii
 Ii
-Yh
-Yh
-Yh
+fk
+fk
+fk
 eU
 eU
 eU
@@ -19043,12 +19044,12 @@ xa
 Gt
 yE
 UK
-Yh
+kX
 ip
 ip
 ip
 ip
-ip
+KC
 AP
 hu
 hu
@@ -19205,7 +19206,7 @@ Cz
 uT
 jN
 RW
-Yh
+kX
 ip
 ip
 ip
@@ -19367,7 +19368,7 @@ io
 io
 Hi
 IZ
-Yh
+kX
 XT
 ip
 ip
@@ -19529,7 +19530,7 @@ md
 md
 md
 md
-Yh
+kX
 ip
 ip
 ip
@@ -19683,7 +19684,7 @@ lj
 Uy
 Qf
 Qf
-KC
+nr
 Gt
 yE
 Dj
@@ -19691,7 +19692,7 @@ Nm
 Yn
 um
 zc
-Yh
+kX
 ip
 ip
 ip
@@ -19845,7 +19846,7 @@ lj
 Uy
 Qf
 Qf
-KC
+nr
 Gt
 yE
 Wh
@@ -19853,7 +19854,7 @@ Bb
 ix
 BI
 fM
-Yh
+kX
 ip
 ip
 ip
@@ -20007,7 +20008,7 @@ Uy
 Uy
 Ya
 Pz
-KC
+nr
 YT
 pI
 OE
@@ -20015,7 +20016,7 @@ Nm
 Qv
 hF
 Ty
-Yh
+kX
 XT
 ip
 ip
@@ -20169,7 +20170,7 @@ kJ
 Uy
 Oe
 ZQ
-KC
+nr
 Gt
 yE
 Gt
@@ -20177,7 +20178,7 @@ md
 md
 md
 md
-Yh
+kX
 ip
 ip
 ip
@@ -20339,7 +20340,7 @@ np
 SE
 SE
 Ve
-Yh
+kX
 ip
 ip
 ip
@@ -20501,7 +20502,7 @@ np
 Vq
 SE
 fc
-Yh
+kX
 ip
 ip
 ip
@@ -20663,7 +20664,7 @@ OJ
 IS
 SE
 FP
-Yh
+kX
 XT
 ip
 ip
@@ -20825,7 +20826,7 @@ np
 MM
 SE
 Xg
-Yh
+kX
 ip
 ip
 ip
@@ -20987,7 +20988,7 @@ np
 SE
 SE
 Qy
-Yh
+kX
 ip
 ip
 ip
@@ -21149,7 +21150,7 @@ md
 md
 md
 md
-Yh
+kX
 Yh
 NE
 NE
