@@ -3875,7 +3875,6 @@
 	dir = 4
 	},
 /obj/machinery/light,
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
