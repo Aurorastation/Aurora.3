@@ -38,10 +38,14 @@
 
 /obj/machinery/stasis_cage/Destroy()
 	release()
-	QDEL_NULL(airtank)
-	QDEL_NULL(contained)
-	QDEL_NULL(cell)
-	QDEL_NULL(wires)
+	qdel(airtank)
+	airtank = null
+	qdel(contained)
+	contained = null
+	qdel(cell)
+	cell = null
+	qdel(wires)
+	wires = null
 	return ..()
 
 /obj/machinery/stasis_cage/process()
