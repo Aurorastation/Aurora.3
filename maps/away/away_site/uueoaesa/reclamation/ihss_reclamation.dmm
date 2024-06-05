@@ -2296,6 +2296,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "ks" = (
@@ -2352,6 +2355,12 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/atmos)
+"kI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/shuttle/ihss_reclamation)
 "kM" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
@@ -2419,9 +2428,8 @@
 	dir = 4;
 	color = "#941307"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9;
-	icon_state = "intact"
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -3088,7 +3096,7 @@
 	},
 /area/ihss_reclamation/plantroom)
 "nQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
 /obj/effect/floor_decal/corner/red/diagonal{
@@ -3276,6 +3284,25 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/armoryfoyer)
+"oL" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	dir = 8;
+	pixel_x = 24;
+	id_tag = "reclamation_hangar";
+	name = "Hangar Docking Controller";
+	req_access = list(113);
+	frequency = 1380
+	},
+/turf/simulated/floor/plating{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/hangar1)
 "oM" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark{
@@ -4645,7 +4672,9 @@
 	req_one_access = list(113);
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 1
+	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating{
 	temperature = 303.15
@@ -6056,7 +6085,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "AD" = (
@@ -6517,7 +6548,9 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "CU" = (
@@ -6860,25 +6893,6 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/storage)
-"Ff" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	dir = 8;
-	pixel_x = 24;
-	id_tag = "reclamation_hangar";
-	name = "Hangar Docking Controller";
-	req_access = list(113);
-	frequency = 1380
-	},
-/turf/simulated/floor/plating{
-	temperature = 303.15
-	},
-/area/ihss_reclamation/hangar1)
 "Fg" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/wood,
@@ -7089,7 +7103,7 @@
 	dir = 4;
 	color = "#941307"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -7638,8 +7652,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -9162,8 +9176,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -9224,7 +9238,9 @@
 	dir = 4;
 	color = "#941307"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -9508,9 +9524,6 @@
 	icon_state = "map-supply"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "Qz" = (
@@ -10254,6 +10267,9 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "Tk" = (
@@ -11036,8 +11052,8 @@
 	},
 /area/ihss_reclamation/westhall)
 "WG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
 	},
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
@@ -11093,9 +11109,6 @@
 "WZ" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
@@ -11386,7 +11399,9 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "XY" = (
@@ -42394,7 +42409,7 @@ dl
 ej
 FA
 yg
-WG
+kI
 Hm
 fU
 Hm
@@ -43949,7 +43964,7 @@ AA
 AA
 AA
 Ih
-Ff
+oL
 je
 vb
 Mt
