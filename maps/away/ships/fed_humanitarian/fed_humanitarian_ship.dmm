@@ -446,16 +446,7 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/portdock)
-"eE" = (
-/obj/machinery/alarm/east{
-	req_one_access = list(208)
-	},
-/turf/simulated/floor/shuttle/skrell,
-/area/fed_humanitarian_ship/forehall)
 "eH" = (
-/obj/machinery/power/apc/east{
-	req_access = list(208)
-	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
@@ -3967,11 +3958,11 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/shuttle/fed_humanitarian_shuttle)
 "JW" = (
-/obj/machinery/alarm/west{
-	req_one_access = list(208)
+/obj/effect/shuttle_landmark/fed_humanitarian_shuttle/transit{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/fed_humanitarian_ship/hangar)
+/turf/space,
+/area/space)
 "Ka" = (
 /obj/machinery/computer/ship/engines,
 /turf/simulated/floor/plating,
@@ -4084,11 +4075,11 @@
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/atmos)
 "KC" = (
-/obj/effect/shuttle_landmark/fed_humanitarian_shuttle/transit{
-	dir = 8
+/obj/machinery/alarm/west{
+	req_one_access = list(208)
 	},
-/turf/space,
-/area/space)
+/turf/simulated/floor/plating,
+/area/fed_humanitarian_ship/hangar)
 "KF" = (
 /obj/structure/table/skrell,
 /obj/item/deck/tarot/nralakk,
@@ -6994,7 +6985,7 @@ EP
 EP
 EP
 EP
-KC
+JW
 EP
 EP
 EP
@@ -18726,7 +18717,7 @@ vx
 vx
 ll
 eH
-eE
+vx
 ST
 vx
 vx
@@ -19050,7 +19041,7 @@ ip
 ip
 ip
 ip
-JW
+KC
 AP
 hu
 hu
