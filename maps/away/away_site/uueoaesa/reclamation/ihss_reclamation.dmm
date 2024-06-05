@@ -2289,11 +2289,11 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_reclamation_shuttle";
 	name = "airlock_reclamation_shuttle";
 	req_one_access = list(113);
-	shuttle_tag = "IHSS Reclamation Shuttle"
+	shuttle_tag = "IHSS Reclamation Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
@@ -5174,7 +5174,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
-/obj/structure/bed/handrail,
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "xa" = (
@@ -5388,11 +5387,11 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_reclamation_shuttle";
 	name = "airlock_reclamation_shuttle";
 	req_one_access = list(113);
-	shuttle_tag = "IHSS Reclamation Shuttle"
+	shuttle_tag = "IHSS Reclamation Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating{
@@ -5758,11 +5757,11 @@
 	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_reclamation_shuttle";
 	name = "airlock_reclamation_shuttle";
 	req_one_access = list(113);
-	shuttle_tag = "IHSS Reclamation Shuttle"
+	shuttle_tag = "IHSS Reclamation Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -6021,11 +6020,11 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_reclamation_shuttle";
 	name = "airlock_reclamation_shuttle";
 	req_one_access = list(113);
-	shuttle_tag = "IHSS Reclamation Shuttle"
+	shuttle_tag = "IHSS Reclamation Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
@@ -6035,7 +6034,6 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/airlock_sensor/airlock_exterior{
-	dir = 1;
 	pixel_y = 20
 	},
 /turf/simulated/floor/plating{
@@ -6294,11 +6292,11 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_reclamation_shuttle";
 	name = "airlock_reclamation_shuttle";
 	req_one_access = list(113);
-	shuttle_tag = "IHSS Reclamation Shuttle"
+	shuttle_tag = "IHSS Reclamation Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating{
@@ -7688,11 +7686,11 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_reclamation_shuttle";
 	name = "airlock_reclamation_shuttle";
 	req_one_access = list(113);
-	shuttle_tag = "IHSS Reclamation Shuttle"
+	shuttle_tag = "IHSS Reclamation Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating{
@@ -9223,11 +9221,11 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_reclamation_shuttle";
 	name = "airlock_reclamation_shuttle";
 	req_one_access = list(113);
-	shuttle_tag = "IHSS Reclamation Shuttle"
+	shuttle_tag = "IHSS Reclamation Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating{
@@ -10174,11 +10172,11 @@
 	icon_state = "4-8"
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_reclamation_shuttle";
 	name = "airlock_reclamation_shuttle";
 	req_one_access = list(113);
-	shuttle_tag = "IHSS Reclamation Shuttle"
+	shuttle_tag = "IHSS Reclamation Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
@@ -10906,11 +10904,11 @@
 	},
 /obj/machinery/light,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
 	master_tag = "airlock_reclamation_shuttle";
 	name = "airlock_reclamation_shuttle";
 	req_one_access = list(113);
-	shuttle_tag = "IHSS Reclamation Shuttle"
+	shuttle_tag = "IHSS Reclamation Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
