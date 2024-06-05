@@ -1,4 +1,5 @@
-var/list/dream_entries = list()
+///A list of `/turf` where the Srom is located, and people entering the shared dream (presumably Skrells sleeping) will be casted to
+GLOBAL_LIST_EMPTY_TYPED(dream_entries, /turf)
 
 /mob
 	var/mob/living/brain_ghost/bg
@@ -8,6 +9,8 @@ var/list/dream_entries = list()
 	var/datum/weakref/srom_pulling
 
 /mob/living/carbon/human/proc/handle_shared_dreaming(var/force_wakeup = FALSE)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	// If they're an Unconsious person with the abillity to do Skrellepathy.
 	// If either changes, they should be nocked back to the real world.
 	var/mob/living/carbon/human/srom_puller = srom_pulled_by?.resolve()
