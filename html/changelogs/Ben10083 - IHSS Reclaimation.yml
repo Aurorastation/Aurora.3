@@ -55,6 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "An investigation revealed that the engineer responsible for installing the Plains Tyrant Containment Cell on the IHSS Reclamation stole the rare material for their own gain. They have been exiled and the cell has been repaired."
+  - bugfix: "An investigation revealed that the engineer responsible for installing the Plains Tyrant Containment Cell on the IHSS Reclamation stole the rare materials for the construction for their own gain. They have been exiled and the cell has been strengthed."
   - rscadd: "Adds missing firelocks to IHSS Reclamation."
   - code_imp: "Window spawners now pass their req_one_access to their firelocks."

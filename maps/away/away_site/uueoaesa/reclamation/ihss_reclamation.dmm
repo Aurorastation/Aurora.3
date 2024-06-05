@@ -1420,6 +1420,9 @@
 	req_access = list(113)
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "edge"
 	},
@@ -3099,12 +3102,12 @@
 	},
 /area/ihss_reclamation/medsci)
 "oc" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
-	req_one_access = list(113)
+/obj/machinery/door/blast/regular/open{
+	name = "Environment Simulation Chamber";
+	id = "ihss_environment"
 	},
-/turf/simulated/floor/tiled/white{
-	temperature = 303.15
-	},
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/grass/moghes,
 /area/ihss_reclamation/envirosim)
 "od" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4554,8 +4557,10 @@
 	name = "Hazardous Specimen Containment";
 	id = "ihss_biglizard"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /obj/machinery/door/firedoor/noid,
+/obj/structure/chainlink_fence{
+	desc_extended = "There is an electrical hazard sign on the fence, but the electricity has been cut from it for some time."
+	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "edge"
 	},
@@ -5901,11 +5906,16 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/regular/open{
+	name = "Environment Simulation Chamber";
+	id = "ihss_environment"
+	},
 /obj/machinery/door/airlock/glass_research{
 	name = "Environmental Simulation Chamber";
-	req_access = list(113)
+	req_access = list(113);
+	id_tag = "bolts_environment_cell"
 	},
-/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -7682,10 +7692,21 @@
 	dir = 5
 	},
 /obj/structure/table/standard,
-/obj/item/device/taperecorder,
-/obj/item/device/camera{
-	pixel_x = 5;
-	pixel_y = 5
+/obj/machinery/button/remote/airlock{
+	dir = 1;
+	id = "bolts_environment_cell";
+	name = "Chamber Airlock Bolts";
+	pixel_x = -6;
+	req_one_access = list(113);
+	specialfunctions = 4;
+	pixel_y = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	name = "Environment Simulation Chamber Blast Doors";
+	id = "ihss_environment";
+	dir = 1;
+	pixel_y = -3;
+	pixel_x = -6
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
@@ -9190,6 +9211,10 @@
 /obj/structure/table/standard,
 /obj/item/storage/box/monkeycubes/stokcubes,
 /obj/item/storage/box/monkeycubes/stokcubes,
+/obj/item/paper/fluff/ihss_reclamation_cell{
+	pixel_x = 6;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -9928,6 +9953,7 @@
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/southhall)
 "SA" = (
+/obj/effect/decal/cleanable/blood,
 /obj/effect/decal/remains,
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/ihss_reclamation/envirosim)
@@ -10663,7 +10689,8 @@
 /obj/machinery/button/remote/blast_door{
 	name = "Hazardous Specimen Blast Doors";
 	id = "ihss_biglizard";
-	pixel_y = 25
+	pixel_y = 25;
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt/beach,
 /area/ihss_reclamation/envirosim)
@@ -10792,6 +10819,11 @@
 /obj/structure/table/standard,
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/item/device/camera{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/device/taperecorder,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
