@@ -16,7 +16,7 @@ GLOBAL_LIST_EMPTY_TYPED(dream_entries, /turf)
 	var/mob/living/carbon/human/srom_puller = srom_pulled_by?.resolve()
 	if((has_psionics() || (srom_puller && Adjacent(srom_puller))) && stat == UNCONSCIOUS && sleeping > 1)
 		if(!istype(bg) && client) // Don't spawn a brainghost if we're not logged in.
-			bg = new /mob/living/brain_ghost(src) // Generate a new brainghost.
+			bg = new /mob/living/brain_ghost(src, src) // Generate a new brainghost.
 			if(isnull(bg)) // Prevents you from getting kicked if the brain ghost didn't spawn - geeves
 				return
 			vr_mob = bg
