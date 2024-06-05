@@ -1498,16 +1498,17 @@
 		return
 	cooldown = world.time + 2 SECONDS
 	var/volume = 0
-	if(user.a_intent == I_HELP)
-		user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] plays with \the [src]!"), SPAN_NOTICE("You play with \the [src]!"))
-	else if (user.a_intent == I_DISARM)
-		user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] squeezes \the [src]!"), SPAN_NOTICE("You squeeze \the [src]!"))
-		volume = 30
-	else if (user.a_intent == I_GRAB)
-		user.visible_message(SPAN_NOTICE(SPAN_BOLD("\The [user] pinches \the [src]!")), SPAN_NOTICE(SPAN_BOLD("You pinch \the [src]!")))
-		volume = 40
-	else
-		user.visible_message(SPAN_WARNING(SPAN_BOLD("\The [user] crushes \the [src]!")), SPAN_WARNING(SPAN_BOLD("You crush the [src]!")))
-		volume = 50
-	if(volume > 0)
-		playsound(src.loc, squeeze_sound, volume, 1)
+	switch(user.a_intent)
+		if(I_HELP)
+			user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] plays with \the [src]!"), SPAN_NOTICE("You play with \the [src]!"))
+		if(I_DISARM)
+			user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] squeezes \the [src]!"), SPAN_NOTICE("You squeeze \the [src]!"))
+			volume = 30
+		if(I_GRAB)
+			user.visible_message(SPAN_NOTICE(SPAN_BOLD("\The [user] pinches \the [src]!")), SPAN_NOTICE(SPAN_BOLD("You pinch \the [src]!")))
+			volume = 40
+		if(I_HURT)
+			user.visible_message(SPAN_WARNING(SPAN_BOLD("\The [user] crushes \the [src]!")), SPAN_WARNING(SPAN_BOLD("You crush the [src]!")))
+			volume = 50
+	if(volume)
+		playsound(src.loc, squeeze_sound, volume, TRUE)
