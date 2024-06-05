@@ -15,6 +15,9 @@ GLOBAL_LIST_EMPTY(map_sectors)
 	icon_state = "map"
 	permit_ao = FALSE
 
+	//Stargazing stuff
+	var/list/visible_constellations = list()
+
 /turf/unsimulated/map/edge
 	opacity = 1
 	density = 1
@@ -49,6 +52,19 @@ GLOBAL_LIST_EMPTY(map_sectors)
 		if(x == SSatlas.current_map.overmap_size)
 			I.pixel_x = 5*i + 2
 		overlays += I
+
+	var/constellations = 0
+	var/list/possible_constellations = SSatlas.possible_constellations.Copy()
+	if(prob(40))
+		constellations = 2
+	else if(prob(30))
+		constellations = 3
+	else if(prob(15))
+		constellations = 5
+	for(var/_ in 1 to constellations)
+		var/datum/constellation/C = pick(possible_constellations)
+		visible_constellations += C
+		possible_constellations -= C
 
 //list used to track which zlevels are being 'moved' by the proc below
 var/list/moving_levels = list()

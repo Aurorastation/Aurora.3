@@ -16274,6 +16274,7 @@
 	name = "Library Showcase";
 	req_access = list(37)
 	},
+/obj/structure/fossil_stand,
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)
 "hpQ" = (
@@ -31744,6 +31745,7 @@
 	pixel_x = 4;
 	pixel_y = 17
 	},
+/obj/structure/fossil_stand,
 /turf/simulated/floor/carpet/red,
 /area/horizon/library)
 "oBZ" = (

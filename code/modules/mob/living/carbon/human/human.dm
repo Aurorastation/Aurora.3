@@ -2310,3 +2310,35 @@
 		return speech_bubble_type
 	else
 		return ..()
+
+/mob/living/carbon/human/verb/stargaze()
+	set name = "Stargaze"
+	set desc = "Look up at the stars."
+	set category = "IC"
+
+	if(!stat)
+		if(!is_outside())
+			to_chat(src, SPAN_NOTICE("You need to be outside to get a view of the stars."))
+			return
+		if(!lying)
+			to_chat(src, SPAN_NOTICE("You must be lying down to stargaze."))
+			return
+		to_chat(src, SPAN_NOTICE("You look up at the stars, searching for constellations."))
+		if(!do_after(src, 10 SECONDS, incapacitation_flags = INCAPACITATION_ALLOW_LYING))
+			return
+		var/turf/unsimulated/map/M = get_turf(GLOB.map_sectors["[z]"])
+		var/min_spot = 1
+		var/max_spot = 2
+		if(isskrell(src))
+			min_spot = 2
+			max_spot = 3
+		var/list/can_see = M.visible_constellations.Copy()
+		var/sighted
+		for(var/_ in 1 to rand(min_spot, max_spot))
+			if(LAZYLEN(can_see))
+				var/datum/constellation/C = pick(can_see)
+				can_see -= C
+				to_chat(src, SPAN_NOTICE("You see [SPAN_BOLD(C.name)] - [C.description]"))
+				sighted = TRUE
+		if(!sighted)
+			to_chat(src, SPAN_NOTICE("You don't see any constellations visible here."))

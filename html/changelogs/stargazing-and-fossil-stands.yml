@@ -1,0 +1,7 @@
+author: Sparky_hotdog
+
+delete-after: True
+changes:
+  - rscadd: "Added a mechanic for stargazing, requiring you to be outside and lying down. Skrell are better at this than other species."
+  - rscadd: "Added telescopes, which let you spot all constellations visible from your location. One is available in research EVA storage."
+  - rscadd: "Added fossil stands for displaying fossils. There are small ones - able to display shells and plants - in xenoarchaeology and the library, with a large one for building a model skeleton in xenoarchaeology."
