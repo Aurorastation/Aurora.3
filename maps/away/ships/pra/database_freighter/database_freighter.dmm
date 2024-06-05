@@ -2447,7 +2447,11 @@
 	},
 /area/database_freighter)
 "lv" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	spawn_firedoor = 1;
+	req_one_access = list(209);
+	spawn_grille = 1
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2860,16 +2864,6 @@
 	temperature = 278.15
 	},
 /area/database_freighter/engine)
-"nR" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	spawn_firedoor = 1;
-	req_one_access = list(209);
-	spawn_grille = 1
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/database_freighter)
 "nY" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
@@ -5252,7 +5246,11 @@
 /turf/simulated/wall/shuttle/raider,
 /area/database_freighter/captain_quarters)
 "Zq" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	spawn_firedoor = 1;
+	req_one_access = list(209);
+	spawn_grille = 1
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -11996,10 +11994,10 @@ Zq
 iB
 iB
 mb
-nR
-nR
+Zq
+Zq
 Rg
-nR
+Zq
 mb
 iB
 iB
