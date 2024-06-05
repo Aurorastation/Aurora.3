@@ -290,13 +290,13 @@
 		if (WIRE_RELEASE)
 			if (stasis_cage.contained && !mend)
 				stasis_cage.release()
-				update_icon()
+				holder.update_icon()
 		if (WIRE_LOCK)
 			if (!mend)
 				playsound(stasis_cage.loc, 'sound/machines/BoltsDown.ogg', 60)
 				holder.visible_message(SPAN_WARNING("The cage's lid bolts down destructively, denting itself!"), SPAN_NOTICE("You notice the cage lid override flag blink hastily."))
 				stasis_cage.broken = TRUE
-				update_icon()
+				holder.update_icon()
 
 
 /datum/wires/stasis_cage/on_pulse(wire)
