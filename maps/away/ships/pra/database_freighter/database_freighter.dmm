@@ -47,7 +47,11 @@
 /area/database_freighter/bridge)
 "aj" = (
 /obj/effect/landmark/entry_point/fore,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	spawn_firedoor = 1;
+	req_one_access = list(209);
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/database_freighter_shuttle)
 "al" = (
@@ -1589,7 +1593,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/alarm/north,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/database_freighter_shuttle)
 "gT" = (
@@ -2749,7 +2755,11 @@
 	},
 /area/database_freighter/laboratory)
 "nq" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	spawn_firedoor = 1;
+	req_one_access = list(209);
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/database_freighter_shuttle)
 "nr" = (
