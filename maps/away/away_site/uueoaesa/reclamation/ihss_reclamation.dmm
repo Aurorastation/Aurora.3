@@ -1701,25 +1701,6 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/hangar1)
-"hH" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	dir = 8;
-	pixel_x = 24;
-	id_tag = "reclamation_hangar";
-	name = "Hangar Docking Controller";
-	req_access = list(113);
-	frequency = 1380
-	},
-/turf/simulated/floor/plating{
-	temperature = 303.15
-	},
-/area/ihss_reclamation/hangar1)
 "hJ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2144,7 +2125,7 @@
 	},
 /area/ihss_reclamation/armoryfoyer)
 "jP" = (
-/obj/machinery/atmospherics/binary/passive_gate{
+/obj/machinery/atmospherics/binary/passive_gate/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -6879,6 +6860,25 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/storage)
+"Ff" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	dir = 8;
+	pixel_x = 24;
+	id_tag = "reclamation_hangar";
+	name = "Hangar Docking Controller";
+	req_access = list(113);
+	frequency = 1380
+	},
+/turf/simulated/floor/plating{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/hangar1)
 "Fg" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/wood,
@@ -43949,7 +43949,7 @@ AA
 AA
 AA
 Ih
-hH
+Ff
 je
 vb
 Mt
