@@ -227,7 +227,8 @@
 /obj/effect/map_effect/marker/airlock{
 	frequency = 1003;
 	master_tag = "airlock_ihss_solars";
-	name = "airlock_ihss_solars"
+	name = "airlock_ihss_solars";
+	req_one_access = list(113)
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
@@ -1157,7 +1158,8 @@
 	},
 /obj/machinery/door/airlock/atmos{
 	name = "Fuel Bay";
-	dir = 4
+	dir = 4;
+	req_access = list(113)
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -3794,7 +3796,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/engineering{
-	name = "Solars"
+	name = "Solars";
+	req_access = list(113)
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
@@ -6696,7 +6699,8 @@
 "DT" = (
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Telecomms";
-	dir = 4
+	dir = 4;
+	req_access = list(113)
 	},
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/plating{
@@ -7326,6 +7330,24 @@
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor/airless,
 /area/ihss_reclamation/solars)
+"Hb" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	dir = 8;
+	pixel_x = 24;
+	id_tag = "reclamation_hangar";
+	name = "Hangar Docking Controller";
+	req_access = list(113)
+	},
+/turf/simulated/floor/plating{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/hangar1)
 "Hg" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark{
@@ -8226,7 +8248,8 @@
 	color = "#ba9122"
 	},
 /obj/machinery/door/airlock/glass_command{
-	name = "Hangar"
+	name = "Hangar";
+	req_access = list(113)
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
@@ -9827,7 +9850,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/engineering{
-	name = "Engineering Storage"
+	name = "Engineering Storage";
+	req_access = list(113)
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
@@ -10081,7 +10105,8 @@
 	},
 /obj/machinery/door/airlock/glass_command{
 	name = "Hangar";
-	dir = 4
+	dir = 4;
+	req_access = list(113)
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -10283,7 +10308,8 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/atmos{
-	name = "Atmospherics"
+	name = "Atmospherics";
+	req_access = list(113)
 	},
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
@@ -43922,7 +43948,7 @@ AA
 AA
 AA
 Ih
-AA
+Hb
 je
 vb
 Mt
