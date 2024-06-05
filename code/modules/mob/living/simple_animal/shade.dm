@@ -32,6 +32,7 @@
 	var/obj/item/residue = /obj/item/ectoplasm
 
 	psi_pingable = FALSE
+	has_cells = FALSE
 
 /mob/living/simple_animal/shade/cultify()
 	return

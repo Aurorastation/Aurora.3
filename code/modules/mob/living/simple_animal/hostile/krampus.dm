@@ -43,6 +43,7 @@
 	var/is_punishing = FALSE
 
 	psi_pingable = FALSE
+	has_cells = FALSE
 
 /mob/living/simple_animal/hostile/krampus/death(gibbed)
 	..()

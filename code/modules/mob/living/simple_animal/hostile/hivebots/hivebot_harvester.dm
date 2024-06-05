@@ -43,6 +43,7 @@
 	mob_push_flags = 0
 
 	psi_pingable = FALSE
+	has_cells = FALSE
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
 	if(hivebotbeacon)

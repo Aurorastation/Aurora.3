@@ -59,6 +59,7 @@
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	psi_pingable = FALSE
+	has_cells = FALSE
 
 /mob/living/simple_animal/hostile/icarus_drone/Initialize()
 	. = ..()

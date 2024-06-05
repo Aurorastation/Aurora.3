@@ -14,6 +14,7 @@
 	ruin_allowed_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 
 	unit_test_groups = list(3)
+	soil_data = list("Porous crystal layer", "High density silicon carbide layer", "Layer of fused refractive crystals", "Degrading volatile layer", "Silica aerogel layer", "Crystal mush layer")
 
 /obj/effect/overmap/visitable/sector/exoplanet/crystal/generate_habitability()
 	return HABITABILITY_BAD

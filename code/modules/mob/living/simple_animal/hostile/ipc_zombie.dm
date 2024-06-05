@@ -34,6 +34,7 @@
 	tameable = FALSE
 	psi_pingable = FALSE
 	stop_automated_movement_when_pulled = 0
+	has_cells = FALSE
 	///Icon state for screen overlay
 	var/screen
 

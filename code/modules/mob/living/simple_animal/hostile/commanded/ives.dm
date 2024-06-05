@@ -54,6 +54,7 @@
 	attack_emote = "blares a tiny siren"
 
 	psi_pingable = FALSE
+	has_cells = FALSE
 
 /mob/living/simple_animal/hostile/commanded/baby_harvester/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL

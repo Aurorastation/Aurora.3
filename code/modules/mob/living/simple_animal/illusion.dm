@@ -11,6 +11,7 @@
 	var/realistic = FALSE // If true, things like bullets and weapons will hit it, to be a bit more convincing from a distance.
 
 	psi_pingable = FALSE
+	has_cells = FALSE
 
 /mob/living/simple_animal/illusion/update_icon() // We don't want the appearance changing AT ALL unless by copy_appearance().
 	return

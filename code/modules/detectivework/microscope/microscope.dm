@@ -13,6 +13,7 @@
 	var/report_fiber_num = 0
 	var/report_print_num = 0
 	var/report_gsr_num = 0
+	var/report_cell_num = 0
 
 /obj/machinery/microscope/attackby(obj/item/attacking_item, mob/user)
 
@@ -32,6 +33,15 @@
 
 	if(!sample)
 		to_chat(user, SPAN_WARNING("The microscope has no sample to examine."))
+		return
+
+	if(istype(sample, /obj/item/forensics/slide))
+		var/obj/item/forensics/slide/slide = sample
+		if((slide.has_swab && !can_analyse_swabs()) || (slide.has_sample && !can_analyse_fibers()) || (slide.reagents.total_volume && !can_analyse_cells()))
+			to_chat(user, SPAN_NOTICE("The magnification of \the [src] is too low to analyse this."))
+			return
+	else if(istype(sample, /obj/item/sample/print) && !can_analyse_fingerprints())
+		to_chat(user, SPAN_NOTICE("The magnification of \the [src] is too low to analyse this."))
 		return
 
 	to_chat(user, SPAN_NOTICE("The microscope whirrs as you examine \the [sample]."))
@@ -75,6 +85,18 @@
 				info += "</ul>"
 			else
 				info += "No fibers found."
+		else if(slide.reagents.total_volume)
+			report_cell_num++
+			pname = "Cell report #[report_cell_num]"
+			var/list/tissue = REAGENT_DATA(slide.reagents, /singleton/reagent/cells)
+			if(tissue)
+				info = "<b><font size=\"4\">Cell anaylsis report #[report_cell_num]</font></b><HR>"
+				info += "Optical analysis has revealed unique cellular characteristics<ul>"
+				for(var/characteristic in tissue)
+					info += "<li>[characteristic]</li>"
+				info += "</ul>"
+			else
+				info += "No cells found."
 		else
 			pname = "Empty slide report #[report_fiber_num]"
 			info = "Evidence suggests that there's nothing in this slide."
@@ -143,3 +165,15 @@
 	icon_state = "microscope"
 	if(sample)
 		icon_state += "slide"
+
+/obj/machinery/microscope/proc/can_analyse_fingerprints()
+	return TRUE
+
+/obj/machinery/microscope/proc/can_analyse_swabs()
+	return TRUE
+
+/obj/machinery/microscope/proc/can_analyse_fibers()
+	return TRUE
+
+/obj/machinery/microscope/proc/can_analyse_cells()
+	return TRUE

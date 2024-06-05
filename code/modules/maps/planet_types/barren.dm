@@ -13,6 +13,8 @@
 	ruin_allowed_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
 	unit_test_groups = list(1)
 
+	soil_data = list("Rich iron oxide layer", "Low density silicon dioxide layer", "Large rock particle layer", "Trace organic particle layer", "Trace ice crytal layer")
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/generate_habitability()
 	return HABITABILITY_BAD
 

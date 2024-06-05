@@ -253,6 +253,10 @@ var/global/area/overmap/map_overmap
 	/// Lore planets and static away sites that are planets should keep it to static text trivia.
 	/// For random planets, should be filled with random trivia or blurbs or the like.
 	var/ground_survey_result = null
+	/// Fluff descriptions found from soil sampling
+	var/list/soil_data = list()
+	/// Fluff desctiptions found on water sampling
+	var/list/water_data = list()
 
 /obj/effect/overmap/visitable/sector/Initialize()
 	. = ..()

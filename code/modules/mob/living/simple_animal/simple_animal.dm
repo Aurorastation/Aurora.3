@@ -18,6 +18,7 @@
 	var/damage_type = DAMAGE_BRUTE
 
 	var/show_stat_health = 1	//does the percentage health show in the stat panel for the mob
+	var/in_stasis = FALSE
 
 	var/icon_living = ""
 	var/icon_dead = ""
@@ -155,6 +156,15 @@
 
 	var/dead_on_map = FALSE //if true, kills the mob when it spawns (it is for mapping)
 	var/vehicle_version = null
+
+	/**
+	 * List of fluff characteristics to be found on cellular analysis
+	 */
+	var/list/sample_data = list("Cellular structure typical of medium sized fauna")
+	/**
+	 * Whether this mob has cells to be sampled
+	 */
+	var/has_cells = TRUE
 
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor
@@ -1005,6 +1015,8 @@
 /mob/living/simple_animal/get_speech_bubble_state_modifier()
 	return isSynthetic() ? "machine" : "rough"
 
+/mob/living/simple_animal/InStasis()
+	return in_stasis
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT

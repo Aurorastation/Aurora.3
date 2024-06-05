@@ -47,6 +47,8 @@
 
 	simple_default_language = LANGUAGE_CULT
 
+	has_cells = FALSE
+
 
 /mob/living/simple_animal/construct/cultify()
 	return

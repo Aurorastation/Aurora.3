@@ -1,0 +1,10 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - rscadd: "Ported stasis cages from Baystation. They can be used to load captured mobs into for safe return to the Horizon. Replaced two of the suspension field generators in EVA storage with these."
+  - rscadd: "Added safari nets, a weaker form of energy net which xenobiologists can source from a dispenser in their labs. They are unstable, however, and require storage in a special container, also found in their lab."
+  - rscadd: "Added a science sampling device, with three modes of operation: tissue, soil and water. It must be loaded with a vial. Found in scientist and xenobotanists lockers and the xenobiology lab."
+  - rscadd: "Added a low power microscope for analysis of tissue samples, located in R&D, xenobotany and xenobiology. The fluff desciptions this provides are presently focused on common mobs such as carps and griemorians and Moghes mobs."
+  - rscadd: "Added a centrifuge for analysis of soil samples, and a spectrophotometer for analysis of water samples, both located in R&D."

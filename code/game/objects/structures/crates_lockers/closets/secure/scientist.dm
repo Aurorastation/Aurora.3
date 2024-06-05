@@ -12,6 +12,7 @@
 	new /obj/item/tank/air(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/taperoll/science(src)
+	new /obj/item/sampler(src)
 
 /obj/structure/closet/secure_closet/RD
 	name = "research director's locker"
@@ -39,6 +40,7 @@
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/device/memorywiper(src)
+	new /obj/item/sampler(src)
 
 /obj/structure/closet/secure_closet/RD2
 	name = "research director's attire"

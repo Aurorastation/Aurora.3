@@ -15,6 +15,7 @@
 	water_color = null
 	ruin_planet_type = PLANET_LAVA
 	ruin_allowed_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
+	soil_data = list("Low density silicon dioxide layer", "Iron pyroxene layer", "Magnesium olivine layer", "Large rock particle layer", "Aluminium biotite layer")
 
 	unit_test_groups = list(1)
 
