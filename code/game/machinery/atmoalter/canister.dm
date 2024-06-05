@@ -167,6 +167,7 @@
 	icon_state = "grey"
 	canister_color = "grey"
 	can_label = 0
+
 /obj/machinery/portable_atmospherics/canister/air/airlock
 	start_pressure = 3 * ONE_ATMOSPHERE
 
@@ -588,6 +589,10 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/air/cold/Initialize()
 	. = ..()
 	src.air_contents.temperature = 283
+
+/obj/machinery/portable_atmospherics/canister/air/warm/Initialize()
+	. = ..()
+	src.air_contents.temperature = 303.15
 
 /obj/machinery/portable_atmospherics/canister/chlorine/antag // Keeping the chlorine canister with the skull on it seems fun for antags.
 	name = "Canister: \[Cl2\]"
