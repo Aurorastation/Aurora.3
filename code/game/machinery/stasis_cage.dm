@@ -36,6 +36,13 @@
 
 	wires = new/datum/wires/stasis_cage(src)
 
+/obj/machinery/stasis_cage/Destroy()
+	release()
+	QDEL_NULL(airtank)
+	QDEL_NULL(contained)
+	QDEL_NULL(cell)
+	return ..()
+
 /obj/machinery/stasis_cage/process()
 	if (use_power)
 		return
@@ -178,15 +185,6 @@
 	for(var/obj/item/stock_parts/capacitor/C in component_parts)
 		charge_multiplier += C.rating / 2
 	change_power_consumption(initial(active_power_usage) / charge_multiplier, POWER_USE_ACTIVE)
-
-
-/obj/machinery/stasis_cage/Destroy()
-	release()
-	QDEL_NULL(airtank)
-	QDEL_NULL(contained)
-	QDEL_NULL(cell)
-	return ..()
-
 
 /obj/machinery/stasis_cage/emp_act(severity)
 	. = ..()
