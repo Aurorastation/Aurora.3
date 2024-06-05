@@ -21,12 +21,12 @@
 
 /obj/machinery/stasis_cage/Initialize()
 	. = ..()
-	airtank = new()
+	airtank = new /datum/gas_mixture(src)
 	airtank.temperature = T20C
 	airtank.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, FALSE)
 	airtank.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD)
 
-	cell = get_cell()
+	cell = new /obj/item/cell(src)
 
 	var/mob/living/A = locate() in loc
 	if(!A)
@@ -34,18 +34,14 @@
 	else
 		contain(A)
 
-	wires = new/datum/wires/stasis_cage(src)
+	wires = new /datum/wires/stasis_cage(src)
 
 /obj/machinery/stasis_cage/Destroy()
 	release()
-	qdel(airtank)
-	airtank = null
-	qdel(contained)
-	contained = null
-	qdel(cell)
-	cell = null
-	qdel(wires)
-	wires = null
+	QDEL_NULL(airtank)
+	QDEL_NULL(contained)
+	QDEL_NULL(cell)
+	QDEL_NULL(wires)
 	return ..()
 
 /obj/machinery/stasis_cage/process()
