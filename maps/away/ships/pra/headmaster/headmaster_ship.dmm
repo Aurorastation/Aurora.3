@@ -7062,15 +7062,15 @@
 /obj/machinery/light/spot{
 	dir = 4
 	},
-/obj/machinery/embedded_controller/radio/docking_port_multi{
-	pixel_x = 24;
-	id_tag = "headmaster_shuttle";
-	child_names_txt = "Orbital Fleet Shuttle Airlock";
-	child_tags_txt = "headmaster_shuttle";
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	dir = 8;
+	pixel_x = 24;
+	frequency = 1380;
+	name = "Headmaster Shuttle Hangar Docking Controller";
+	id_tag = "headmaster_shuttle_dock"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
