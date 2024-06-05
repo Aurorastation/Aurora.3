@@ -8,7 +8,7 @@
 	var/mob/living/carbon/human/body = null
 
 
-/mob/living/brain_ghost/Initialize(mob/living/carbon/human/dreamer)
+/mob/living/brain_ghost/Initialize(mapload, mob/living/carbon/human/dreamer)
 	. = ..()
 
 	body = dreamer
