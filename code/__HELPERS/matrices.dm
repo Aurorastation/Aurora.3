@@ -282,14 +282,6 @@ round(cos_inv_third+sqrt3_sin, 0.001), round(cos_inv_third-sqrt3_sin, 0.001), ro
 	LUMA_B + cos * -LUMA_B + sin * (1-LUMA_B), LUMA_B + cos * -LUMA_B + sin * constC, LUMA_B + cos * (1-LUMA_B) + sin * LUMA_B
 	)
 
-///Makes everything brighter or darker without regard to existing color or brightness
-/proc/color_brightness(power)
-	RETURN_TYPE(/list)
-	power = clamp(power, -255, 255)
-	power = power/255
-
-	return list(1,0,0, 0,1,0, 0,0,1, power,power,power)
-
 var/global/list/delta_index = list(
 	0,    0.01, 0.02, 0.04, 0.05, 0.06, 0.07, 0.08, 0.1,  0.11,
 	0.12, 0.14, 0.15, 0.16, 0.17, 0.18, 0.20, 0.21, 0.22, 0.24,
