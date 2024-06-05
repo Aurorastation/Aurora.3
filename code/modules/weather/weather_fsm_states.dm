@@ -181,7 +181,7 @@
 
 /singleton/state/weather/rain/hail/handle_exposure_effects(var/mob/living/M, var/obj/abstract/weather_system/weather)
 	to_chat(M, SPAN_DANGER("You are pelted by a shower of hail!"))
-	M.adjustBruteLoss(rand(1,3))
+	M.apply_damage(rand(1,3), DAMAGE_BRUTE)
 
 /singleton/state/weather/ash
 	name =  "Ash"
@@ -204,7 +204,7 @@
 
 /singleton/state/weather/sandstorm/handle_exposure_effects(mob/living/M, obj/abstract/weather_system/weather)
 	to_chat(M, SPAN_DANGER("You are blasted by a gust of stinging sand!"))
-	M.adjustBruteLoss(rand(1,5))
+	M.apply_damage(rand(1,5), DAMAGE_BRUTE)
 
 //planet weathers
 
