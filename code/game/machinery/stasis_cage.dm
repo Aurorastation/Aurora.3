@@ -36,13 +36,6 @@
 
 	wires = new/datum/wires/stasis_cage(src)
 
-/obj/machinery/stasis_cage/Destroy()
-	. = ..()
-	qdel(wires)
-	qdel(contained)
-	qdel(airtank)
-	qdel(cell)
-
 /obj/machinery/stasis_cage/process()
 	if (use_power)
 		return
@@ -191,8 +184,7 @@
 	release()
 	QDEL_NULL(airtank)
 	QDEL_NULL(contained)
-	if (cell)
-		QDEL_NULL(cell)
+	QDEL_NULL(cell)
 	return ..()
 
 
