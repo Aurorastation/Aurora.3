@@ -35,6 +35,11 @@
 	"hivebot_nav5",
 	"hivebot_nav6"
 	)
+	max_age = 15
+	wreck_details = list(WRECK_DAMAGE = "a firefight on-board")
+
+/obj/effect/overmap/visitable/sector/hivebot_hub/is_wreck()
+	return TRUE
 
 // Areas
 /area/hivebothub

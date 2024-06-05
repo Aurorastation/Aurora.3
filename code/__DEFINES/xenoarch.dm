@@ -17,3 +17,9 @@
 #define TRIGGER_CO2 11
 #define TRIGGER_NITRO 12
 #define MAX_TRIGGER 12
+
+#define WRECK_NAME "name"
+#define WRECK_AGE "age"
+#define WRECK_DAMAGE "damage"
+
+#define PARTICLE_TYPES list("Kaons", "Pions", "Protons", "Neutrons", "Positrons", "Electrons", "Muons", "Neutrinos")

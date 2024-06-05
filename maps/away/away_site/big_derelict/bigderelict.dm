@@ -26,3 +26,6 @@
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
+
+/obj/effect/overmap/visitable/sector/big_derelict/is_wreck()
+	return TRUE

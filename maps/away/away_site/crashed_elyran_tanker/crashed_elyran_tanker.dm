@@ -32,6 +32,10 @@
 	initial_restricted_waypoints = list(
 		"Intrepid" = list("nav_crashed_elyran_tanker_dock_aft_intrepid"),
 	)
+	max_age = 50
+
+/obj/effect/overmap/visitable/crashed_elyran_tanker/is_wreck()
+	return TRUE
 
 // ---------------- landmarks
 /obj/effect/shuttle_landmark/nav_crashed_elyran_tanker/dock_aft

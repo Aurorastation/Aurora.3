@@ -19,6 +19,10 @@
 /obj/effect/overmap/visitable/sector/overgrown_mining_station
 	name = "derelict mining station"
 	desc = "An abandoned space structure."
+	wreck_details = list(WRECK_DAMAGE = "the growth of an external lifeform")
+
+/obj/effect/overmap/visitable/sector/overgrown_mining_station/is_wreck()
+	return TRUE
 
 /area/overgrown_mining_station
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP

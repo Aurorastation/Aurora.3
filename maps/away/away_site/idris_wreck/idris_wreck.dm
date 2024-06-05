@@ -33,6 +33,9 @@
 	designation = "[pick("Vigilance", "Astronomical", "Unlimited", "Celestial")]"
 	..()
 
+/obj/effect/overmap/visitable/idris_wreck/is_wreck()
+	return TRUE
+
 /obj/effect/shuttle_landmark/idris_wreck
 	base_turf = /turf/space
 	base_area = /area/space

@@ -1,0 +1,7 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - rscadd: "Added the hull surveyor tool, which can scan the hull of derelict away sites to determine their age and the source of damage. Available in excavation tools lockers, mining lockers and engineering lockers."
+  - rscadd: "Split survey probes into three types: atmospheric, ground and a new magnetic variant. Replaced some of the extra mapped in probes with the new types."
