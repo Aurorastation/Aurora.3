@@ -16,8 +16,7 @@
 		//This is to handle the unit tests
 		if(!isnull(body))
 			stack_trace("No /mob/living/carbon/human found for brain ghost as loc!")
-		qdel(src)
-		return
+		return INITIALIZE_HINT_QDEL
 
 	name = body.real_name
 	old_mob = body
