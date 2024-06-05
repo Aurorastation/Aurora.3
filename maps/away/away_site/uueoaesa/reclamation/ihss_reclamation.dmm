@@ -302,6 +302,12 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/northhall)
+"bd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/shuttle/ihss_reclamation)
 "bg" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
@@ -425,25 +431,6 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/dock)
-"bJ" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	dir = 8;
-	pixel_x = 24;
-	id_tag = "reclamation_hangar";
-	name = "Hangar Docking Controller";
-	req_access = list(113);
-	frequency = 1380
-	},
-/turf/simulated/floor/plating{
-	temperature = 303.15
-	},
-/area/ihss_reclamation/hangar1)
 "bK" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
 	req_one_access = list(113)
@@ -2304,7 +2291,7 @@
 	req_one_access = list(113);
 	shuttle_tag = "IHSS Reclamation Shuttle"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -8732,6 +8719,25 @@
 /obj/structure/bed/handrail,
 /turf/template_noop,
 /area/space)
+"MI" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	dir = 8;
+	pixel_x = 24;
+	id_tag = "reclamation_hangar";
+	name = "Hangar Docking Controller";
+	req_access = list(113);
+	frequency = 1380
+	},
+/turf/simulated/floor/plating{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/hangar1)
 "MJ" = (
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -10145,7 +10151,7 @@
 	req_one_access = list(113);
 	shuttle_tag = "IHSS Reclamation Shuttle"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
 /obj/structure/bed/handrail,
@@ -10256,12 +10262,6 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/northhall)
-"Tb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/shuttle/ihss_reclamation)
 "Tf" = (
 /obj/machinery/atmospherics/binary/pump/fuel{
 	dir = 8
@@ -42409,7 +42409,7 @@ dl
 ej
 FA
 yg
-Tb
+bd
 Hm
 fU
 Hm
@@ -43964,7 +43964,7 @@ AA
 AA
 AA
 Ih
-bJ
+MI
 je
 vb
 Mt
