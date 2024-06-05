@@ -29,8 +29,6 @@
 				else if(C.y == y2)
 					C.icon_state = "canvas_dir"
 					C.dir = SOUTH
-			var/image/I = overlay_image(C.icon, "[C.icon_state]_shadow")
-			C.AddOverlays(I)
 
 /obj/item/tent
 	name = "expedition tent"

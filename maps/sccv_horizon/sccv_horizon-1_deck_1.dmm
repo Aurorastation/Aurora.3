@@ -15462,6 +15462,15 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/hangar/intrepid)
+"kHa" = (
+/obj/item/tent,
+/obj/item/sleeping_bag,
+/obj/item/sleeping_bag,
+/obj/item/sleeping_bag,
+/obj/item/sleeping_bag,
+/obj/structure/closet/crate,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "kHg" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -27799,6 +27808,7 @@
 	pixel_y = -2
 	},
 /obj/item/clothing/mask/breath,
+/obj/item/tent/big,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/quarters)
 "tgR" = (
@@ -29237,6 +29247,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/item/tent/big,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
 "udC" = (
@@ -57016,7 +57027,7 @@ aEl
 kLb
 qeD
 rPN
-iRC
+kHa
 iRC
 iRC
 iRC
