@@ -4008,6 +4008,10 @@
 	dir = 1
 	},
 /obj/structure/bed/stool/chair/padded/beige,
+/obj/effect/ghostspawpoint{
+	name = "igs - ihss_security";
+	identifier = "ihss_security"
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -7706,7 +7710,8 @@
 	id = "ihss_environment";
 	dir = 1;
 	pixel_y = -3;
-	pixel_x = -6
+	pixel_x = -6;
+	req_one_access = list(113)
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
@@ -10690,7 +10695,8 @@
 	name = "Hazardous Specimen Blast Doors";
 	id = "ihss_biglizard";
 	pixel_y = 25;
-	dir = 1
+	dir = 1;
+	req_access = list(113)
 	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt/beach,
 /area/ihss_reclamation/envirosim)

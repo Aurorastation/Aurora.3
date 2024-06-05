@@ -3,7 +3,6 @@
 	short_name = "ihss_reclamation"
 	desc = "Crew the IHSS Reclamation"
 	tags = list("External")
-
 	spawnpoints = list("ihss_crew")
 	req_perms = null
 	max_count = 4
@@ -11,7 +10,7 @@
 	possible_species = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	welcome_message = "You are a crewmember aboard the IHSS Reclamation, an Izweski Hegemony ecological monitoring and terraforming station for coordinating the restoration of the Moghes Wasteland.\
-	IMPORTANT - If you choose to play a Vaurca, know that they are very a alien species, and difficult to roleplay. Reading the wiki page for the species is highly encouraged."
+	IMPORTANT - If you choose to play a Vaurca, know that they are a very alien species, and difficult to roleplay. Reading the wiki page for the species is highly encouraged."
 	assigned_role = "IHSS Reclamation Crewmember"
 	special_role = "IHSS Reclamation Crewmember"
 	extra_languages = list(LANGUAGE_UNATHI)
@@ -45,6 +44,7 @@
 /datum/ghostspawner/human/ihss_reclamation/security
 	name = "IHSS Reclamation Security"
 	desc = "Protect the crew of the IHSS Reclamation"
+	spawnpoints = list("ihss_security")
 	max_count = 3
 	uses_species_whitelist = TRUE
 	possible_species = list(SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR)
