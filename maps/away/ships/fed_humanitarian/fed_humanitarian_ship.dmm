@@ -2354,7 +2354,6 @@
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/forehall)
 "wy" = (
-/obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -3244,6 +3243,7 @@
 /obj/item/clothing/accessory/poncho/shouldercape/cloak/oqi,
 /obj/item/clothing/under/skrell/nralakk/oqi/security,
 /obj/item/toy/plushie/xana,
+/obj/item/storage/toolbox/lunchbox/swimstars_xana/filled,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/fed_humanitarian_ship/captain/quarters)
 "Et" = (
