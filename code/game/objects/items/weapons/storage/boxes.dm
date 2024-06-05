@@ -1350,7 +1350,7 @@
 
 /obj/item/storage/box/stressball
 	name = "box of stress balls"
-	desc = "A box containing a number of stress balls."
+	desc = "A box containing a number of randomly-coloured stress balls."
 	starts_with = list(
 		/obj/item/toy/stressball = 6
 	)

@@ -1480,7 +1480,7 @@
 // Stress ball
 /obj/item/toy/stressball
 	name = "stress ball"
-	desc = "A squishy, red stress ball. This one has a squeaker inside."
+	desc = "A small, squishy stress ball. This one has a squeaker inside."
 	icon_state = "stressball"
 	drop_sound = 'sound/items/drop/plushie.ogg'
 	pickup_sound = 'sound/items/pickup/plushie.ogg'
@@ -1494,7 +1494,9 @@
 	update_icon()
 
 /obj/item/toy/stressball/attack_self(mob/user as mob)
-	(cooldown > world.time) ? return : cooldown = world.time + 2 SECONDS
+	if(cooldown > world.time)
+		return
+	cooldown = world.time + 2 SECONDS
 	var/volume = 0
 	if(user.a_intent == I_HELP)
 		user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] plays with \the [src]!"), SPAN_NOTICE("You play with \the [src]!"))

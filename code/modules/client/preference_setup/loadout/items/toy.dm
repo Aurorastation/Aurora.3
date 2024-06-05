@@ -115,6 +115,6 @@
 
 /datum/gear/toy/stressball
 	display_name = "stress ball"
-	description = "A squishy, red stress ball. This one has a squeaker inside."
+	description = "A small, squishy stress ball. This one has a squeaker inside."
 	path = /obj/item/toy/stressball
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
