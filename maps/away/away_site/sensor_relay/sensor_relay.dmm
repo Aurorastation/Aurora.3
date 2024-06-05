@@ -638,11 +638,6 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
-/obj/structure/cable/yellow{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/sensor_relay)
@@ -822,12 +817,15 @@
 /turf/simulated/floor/carpet/rubber,
 /area/sensor_relay/workshop)
 "afC" = (
-/obj/structure/cable/yellow{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
+/obj/machinery/power/solar_control{
+	dir = 1
 	},
-/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/airless,
 /area/sensor_relay)
 "afL" = (
@@ -1439,7 +1437,7 @@
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay/quarters)
 "aoW" = (
-/obj/machinery/shipsensors/strong/relay,
+/obj/machinery/shipsensors/strong/relay/sol,
 /turf/simulated/floor/airless,
 /area/sensor_relay)
 "apv" = (
@@ -1519,6 +1517,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/sensor_relay)
 "aqP" = (
@@ -1729,15 +1728,16 @@
 /area/sensor_relay/airlocks)
 "auE" = (
 /obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 4;
 	d2 = 8;
-	icon_state = "0-8"
+	icon_state = "4-8"
 	},
-/obj/machinery/power/solar_control{
-	dir = 1
-	},
-/obj/machinery/light/colored/decayed{
-	dir = 1
-	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/sensor_relay)
 "auV" = (
@@ -2114,6 +2114,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/sensor_relay)
 "aDh" = (
@@ -2155,6 +2156,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/sensor_relay)
 "aDq" = (
@@ -2187,6 +2189,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/sensor_relay)
 "aDE" = (
@@ -3050,6 +3053,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/sensor_relay)
 "aVZ" = (
@@ -34298,7 +34302,7 @@ acL
 aFs
 aIJ
 uRP
-auE
+aZQ
 aZn
 anw
 anw
@@ -36869,7 +36873,7 @@ aRq
 aRL
 aNP
 afC
-aMa
+aZn
 anw
 anw
 anw
@@ -37125,8 +37129,8 @@ ahN
 aIy
 wXv
 vYn
-aZn
-anw
+auE
+aMa
 anw
 anw
 anw

@@ -654,7 +654,7 @@
 
 /obj/machinery/shipsensors/strong/relay
 	name = "\improper S-24 Beacon sensor array"
-	desc = "A vintage sensor array found on Solarian beacon relays throughout the galaxy. While it lacks deep scanning capabilities, it does have a high heat capacity."
+	desc = "A vintage sensor array of Solarian design. While it lacks deep scanning capabilities, it does have a high heat capacity."
 	icon = 'icons/obj/machinery/sensors_relay.dmi'
 	density = 1
 	layer = ABOVE_HUMAN_LAYER
@@ -673,3 +673,9 @@
 	)
 	pixel_x = -32
 	pixel_y = -16
+
+/obj/machinery/shipsensors/strong/relay/sol
+	name = "\improper S-24M Beacon sensor array"
+	desc = "A vintage sensor array found on Solarian sensor relays throughout the galaxy. While it lacks deep scanning capabilities, it does have a high heat capacity. This one is emblazoned with the fading flag of the pre-war Solarian Alliance."
+	icon = 'icons/obj/machinery/sensors_relay_sol.dmi'
+	desc_extended = ""
