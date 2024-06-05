@@ -12,10 +12,12 @@
 	. = ..()
 
 	body = loc
+	#if !defined(UNIT_TEST)
 	if(!istype(body))
 		stack_trace("No /mob/living/carbon/human found for brain ghost as loc!")
 		qdel(src)
 		return
+	#endif
 
 	name = body.real_name
 	old_mob = body
