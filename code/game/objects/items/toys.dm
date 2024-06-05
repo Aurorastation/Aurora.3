@@ -1508,7 +1508,7 @@
 			user.visible_message(SPAN_NOTICE(SPAN_BOLD("\The [user] pinches \the [src]!")), SPAN_NOTICE(SPAN_BOLD("You pinch \the [src]!")))
 			volume = 40
 		if(I_HURT)
-			user.visible_message(SPAN_WARNING(SPAN_BOLD("\The [user] crushes \the [src]!")), SPAN_WARNING(SPAN_BOLD("You crush the [src]!")))
+			user.visible_message(SPAN_WARNING(SPAN_BOLD("\The [user] crushes \the [src]!")), SPAN_WARNING(SPAN_BOLD("You crush \the [src]!")))
 			volume = 50
 	if(volume)
 		playsound(src.loc, squeeze_sound, volume, TRUE)
