@@ -132,12 +132,12 @@
 	name = "Rules of Observation"
 	info = "<center>IHSS Reclamation<br>Hazardous Specimen Containment Rules of Observation</center><hr>\
 	I thought this crew could be trusted to not do the obvious, but I have witnessed firsthand that this was a <u>foolish</u> hope of mine. \
-	If they wish to not end up like others, they are to at least try to understand the following before entering:<br>\
+	If you wish to not end up like others, you are to at least try to understand the following before entering:<br>\
 	<ol><li>Approach the cell slowly.</li><li>Do not touch or <u>shake</u> the fence.</li>\
 	<li>Do not knock on the glass.</li><li>Do not put their appendages or tail through the fence holes.</li>\
 	<li>Have means of escape prepared in event of containment failure.</li>\
 	<li>Check cell exterior periodically, if damage to cell is seen, engage the lockdown <b>immediately</b>.</li>\
-	<li>Do not unbolt or especially <i>open</i> the cell door unless they know what they are doing.</li>\
+	<li>Do not unbolt or especially <i>open</i> the cell door unless you know what you are doing.</li>\
 	<li>The Skrazi is not to be used against any 'hostiles'. Stop asking.</li>\
 	<li>Put only food items in the delivery chute.</li>\
 	<li>Do not fall into the delivery chute. Rescue attempts are <u>not</u> to be made before the Skrazi is sedated.</li>\
