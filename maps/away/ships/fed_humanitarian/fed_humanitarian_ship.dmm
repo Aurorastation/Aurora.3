@@ -3252,6 +3252,7 @@
 /obj/structure/closet/skrell,
 /obj/item/clothing/accessory/poncho/shouldercape/cloak/oqi,
 /obj/item/clothing/under/skrell/nralakk/oqi/security,
+/obj/item/toy/plushie/xana,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/fed_humanitarian_ship/captain/quarters)
 "Et" = (
@@ -3966,11 +3967,11 @@
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/shuttle/fed_humanitarian_shuttle)
 "JW" = (
-/obj/effect/shuttle_landmark/fed_humanitarian_shuttle/transit{
-	dir = 8
+/obj/machinery/alarm/west{
+	req_one_access = list(208)
 	},
-/turf/space,
-/area/space)
+/turf/simulated/floor/plating,
+/area/fed_humanitarian_ship/hangar)
 "Ka" = (
 /obj/machinery/computer/ship/engines,
 /turf/simulated/floor/plating,
@@ -4083,11 +4084,11 @@
 /turf/simulated/floor/plating,
 /area/fed_humanitarian_ship/atmos)
 "KC" = (
-/obj/machinery/alarm/west{
-	req_one_access = list(208)
+/obj/effect/shuttle_landmark/fed_humanitarian_shuttle/transit{
+	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/fed_humanitarian_ship/hangar)
+/turf/space,
+/area/space)
 "KF" = (
 /obj/structure/table/skrell,
 /obj/item/deck/tarot/nralakk,
@@ -6993,7 +6994,7 @@ EP
 EP
 EP
 EP
-JW
+KC
 EP
 EP
 EP
@@ -19049,7 +19050,7 @@ ip
 ip
 ip
 ip
-KC
+JW
 AP
 hu
 hu
