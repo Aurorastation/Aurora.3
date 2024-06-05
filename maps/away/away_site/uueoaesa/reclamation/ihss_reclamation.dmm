@@ -64,7 +64,9 @@
 	},
 /area/ihss_reclamation/crew/eight)
 "an" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(113)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
@@ -423,7 +425,9 @@
 	},
 /area/ihss_reclamation/dock)
 "bK" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(113)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -637,7 +641,7 @@
 	},
 /area/ihss_reclamation/fuel)
 "cF" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -1443,9 +1447,13 @@
 /obj/item/bedsheet/red,
 /obj/structure/bed,
 /obj/structure/curtain/open/bed,
-/obj/effect/ghostspawpoint{
+/obj/effect/ghostspawpoint/one_use{
 	name = "igs - ihss_crew";
 	identifier = "ihss_crew"
+	},
+/obj/effect/ghostspawpoint/one_use{
+	name = "igs - ihss_security";
+	identifier = "ihss_security"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -2241,9 +2249,13 @@
 /obj/item/bedsheet/red,
 /obj/structure/bed,
 /obj/structure/curtain/open/bed,
-/obj/effect/ghostspawpoint{
+/obj/effect/ghostspawpoint/one_use{
 	name = "igs - ihss_crew";
 	identifier = "ihss_crew"
+	},
+/obj/effect/ghostspawpoint/one_use{
+	name = "igs - ihss_security";
+	identifier = "ihss_security"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -2450,9 +2462,13 @@
 /obj/item/bedsheet/red,
 /obj/structure/bed,
 /obj/structure/curtain/open/bed,
-/obj/effect/ghostspawpoint{
+/obj/effect/ghostspawpoint/one_use{
 	name = "igs - ihss_crew";
 	identifier = "ihss_crew"
+	},
+/obj/effect/ghostspawpoint/one_use{
+	name = "igs - ihss_security";
+	identifier = "ihss_security"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -3313,7 +3329,7 @@
 	},
 /area/ihss_reclamation/botanyhazard)
 "oV" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -3522,9 +3538,13 @@
 /obj/item/bedsheet/red,
 /obj/structure/bed,
 /obj/structure/curtain/open/bed,
-/obj/effect/ghostspawpoint{
+/obj/effect/ghostspawpoint/one_use{
 	name = "igs - ihss_crew";
 	identifier = "ihss_crew"
+	},
+/obj/effect/ghostspawpoint/one_use{
+	name = "igs - ihss_security";
+	identifier = "ihss_security"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -4008,10 +4028,6 @@
 	dir = 1
 	},
 /obj/structure/bed/stool/chair/padded/beige,
-/obj/effect/ghostspawpoint{
-	name = "igs - ihss_security";
-	identifier = "ihss_security"
-	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -4205,9 +4221,13 @@
 /obj/item/bedsheet/red,
 /obj/structure/bed,
 /obj/structure/curtain/open/bed,
-/obj/effect/ghostspawpoint{
+/obj/effect/ghostspawpoint/one_use{
 	name = "igs - ihss_crew";
 	identifier = "ihss_crew"
+	},
+/obj/effect/ghostspawpoint/one_use{
+	name = "igs - ihss_security";
+	identifier = "ihss_security"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -5794,9 +5814,13 @@
 /obj/item/bedsheet/red,
 /obj/structure/bed,
 /obj/structure/curtain/open/bed,
-/obj/effect/ghostspawpoint{
+/obj/effect/ghostspawpoint/one_use{
 	name = "igs - ihss_crew";
 	identifier = "ihss_crew"
+	},
+/obj/effect/ghostspawpoint/one_use{
+	name = "igs - ihss_security";
+	identifier = "ihss_security"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -6657,9 +6681,13 @@
 /obj/item/bedsheet/red,
 /obj/structure/bed,
 /obj/structure/curtain/open/bed,
-/obj/effect/ghostspawpoint{
+/obj/effect/ghostspawpoint/one_use{
 	name = "igs - ihss_crew";
 	identifier = "ihss_crew"
+	},
+/obj/effect/ghostspawpoint/one_use{
+	name = "igs - ihss_security";
+	identifier = "ihss_security"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -7778,7 +7806,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ihss_reclamation/atmos)
 "Jd" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -8632,7 +8660,7 @@
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "Mz" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
 	req_one_access = list(113)
 	},
 /turf/simulated/floor/plating,
@@ -10830,6 +10858,10 @@
 	pixel_y = 5
 	},
 /obj/item/device/taperecorder,
+/obj/machinery/recharger{
+	pixel_x = -6;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -11416,9 +11448,13 @@
 /obj/item/bedsheet/red,
 /obj/structure/bed,
 /obj/structure/curtain/open/bed,
-/obj/effect/ghostspawpoint{
+/obj/effect/ghostspawpoint/one_use{
 	name = "igs - ihss_crew";
 	identifier = "ihss_crew"
+	},
+/obj/effect/ghostspawpoint/one_use{
+	name = "igs - ihss_security";
+	identifier = "ihss_security"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15

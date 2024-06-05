@@ -42,6 +42,7 @@
 		H.equip_or_collect(new /obj/item/device/uv_light, slot_in_backpack)
 
 /datum/ghostspawner/human/ihss_reclamation/security
+	short_name = "ihss_security"
 	name = "IHSS Reclamation Security"
 	desc = "Protect the crew of the IHSS Reclamation"
 	spawnpoints = list("ihss_security")
@@ -60,6 +61,7 @@
 	accessory_contents = /obj/item/gun/energy/pistol/hegemony
 
 /datum/ghostspawner/human/ihss_reclamation/captain
+	short_name = "ihss_captain"
 	name = "IHSS Reclamation Captain"
 	desc = "Command the IHSS Reclamation"
 	spawnpoints = list("ihss_captain")
