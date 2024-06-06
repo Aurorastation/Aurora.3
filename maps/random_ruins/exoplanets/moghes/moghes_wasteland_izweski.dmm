@@ -73,7 +73,8 @@
 /area/moghes/hegemony_wasteland)
 "aR" = (
 /obj/machinery/door/airlock/medical{
-	name = "Healer's Bay"
+	name = "Healer's Bay";
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -128,6 +129,8 @@
 	},
 /obj/machinery/light,
 /obj/item/device/geiger,
+/obj/item/clothing/accessory/poncho,
+/obj/item/clothing/glasses/safety/goggles/tactical/generic,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -358,6 +361,19 @@
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
+"mS" = (
+/obj/structure/closet/crate{
+	name = "footlocker"
+	},
+/obj/item/device/geiger,
+/obj/item/clothing/accessory/poncho/unathimantle/mountain{
+	color = "#42330f"
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical/generic,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_wasteland)
 "nj" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/yellow{
@@ -404,7 +420,8 @@
 "oD" = (
 /obj/machinery/door/airlock/security{
 	name = "Armory";
-	req_access = list(113)
+	req_access = list(113);
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -455,6 +472,7 @@
 /obj/structure/sign/flag/hegemony/large/east{
 	pixel_x = 32
 	},
+/obj/item/clothing/accessory/poncho/red,
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/moghes/hegemony_wasteland)
 "qY" = (
@@ -627,7 +645,8 @@
 "Bw" = (
 /obj/machinery/door/airlock{
 	req_access = list(113);
-	name = "Barracks"
+	name = "Barracks";
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -737,6 +756,10 @@
 	dir = 1
 	},
 /obj/item/device/geiger,
+/obj/item/clothing/accessory/poncho/unathimantle/mountain{
+	color = "#42330f"
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical/generic,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -899,6 +922,20 @@
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
+"Pl" = (
+/obj/structure/closet/crate{
+	name = "footlocker"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/device/geiger,
+/obj/item/clothing/accessory/poncho,
+/obj/item/clothing/glasses/safety/goggles/tactical/generic,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_wasteland)
 "Pr" = (
 /obj/effect/floor_decal/concrete,
 /obj/effect/floor_decal/concrete{
@@ -1002,6 +1039,24 @@
 	name = "footlocker"
 	},
 /obj/item/device/geiger,
+/obj/item/clothing/accessory/poncho/unathimantle{
+	color = "#42330f"
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical/generic,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/moghes/hegemony_wasteland)
+"Sx" = (
+/obj/structure/closet/crate{
+	name = "footlocker"
+	},
+/obj/machinery/light,
+/obj/item/device/geiger,
+/obj/item/clothing/accessory/poncho/unathimantle{
+	color = "#42330f"
+	},
+/obj/item/clothing/glasses/safety/goggles/tactical/generic,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -1040,7 +1095,8 @@
 "VB" = (
 /obj/machinery/door/airlock/command{
 	name = "Captain's Quarters";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/moghes/hegemony_wasteland)
@@ -1846,7 +1902,7 @@ Rr
 Ie
 Ie
 Ie
-Rr
+mS
 qY
 FE
 qY
@@ -1910,11 +1966,11 @@ FE
 FE
 hp
 qY
-Hy
+Pl
 Ie
 Ie
 Ie
-cL
+Sx
 qY
 FE
 qY

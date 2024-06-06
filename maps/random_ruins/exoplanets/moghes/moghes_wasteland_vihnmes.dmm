@@ -352,6 +352,21 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/clothing/suit/unathi/robe/kilt{
+	color = "#DBC684"
+	},
+/obj/item/clothing/suit/unathi/robe/kilt{
+	color = "#DBC684"
+	},
+/obj/item/clothing/suit/unathi/robe/kilt{
+	color = "#DBC684"
+	},
+/obj/item/clothing/accessory/poncho/unathimantle{
+	color = "#42330f"
+	},
+/obj/item/clothing/accessory/poncho/unathimantle{
+	color = "#42330f"
+	},
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},

@@ -49,13 +49,18 @@
 /obj/outfit/admin/moghes_siakh
 	name = "Si'akh Knight"
 	uniform = list(/obj/item/clothing/under/unathi, /obj/item/clothing/under/unathi/zazali)
-	suit = /obj/item/clothing/suit/armor/unathi
-	head = /obj/item/clothing/head/helmet/unathi
+	suit = /obj/item/clothing/accessory/poncho/unathimantle
+	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
 	back = /obj/item/storage/backpack/satchel/leather
 	shoes = /obj/item/clothing/shoes/sandals/caligae
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(/obj/item/gun/projectile/pistol/spitter = 1)
-	backpack_contents = list(/obj/item/ammo_magazine/spitterpistol = 1, /obj/item/device/versebook/siakh = 1)
+	backpack_contents = list(
+		/obj/item/ammo_magazine/spitterpistol = 1,
+		/obj/item/device/versebook/siakh = 1,
+		/obj/item/clothing/suit/armor/unathi = 1,
+		/obj/item/clothing/head/helmet/unathi = 1
+	)
 	belt = /obj/random/sword
 	id = null
 	l_ear = null
@@ -65,3 +70,5 @@
 		return
 	if(H.w_uniform)
 		H.w_uniform.color = pick("#42330f", "#DBC684")
+	if(H.wear_suit)
+		H.wear_suit.color = pick("#42330f", "#DBC684")
