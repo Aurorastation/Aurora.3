@@ -83,6 +83,10 @@
 	///A list of groups, as strings, that this exoplanet belongs to. When adding new map templates, try to keep this balanced on the CI execution time, or consider adding a new one
 	///ONLY IF IT'S THE LONGEST RUNNING CI POD AND THEY ARE ALREADY BALANCED
 	var/list/unit_test_groups = list()
+	///For mutually exclusive exoplanet types
+	var/list/banned_exoplanets = list()
+	///For guaranteed exoplanet types
+	var/list/guaranteed_exoplanets = list()
 
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_habitability()

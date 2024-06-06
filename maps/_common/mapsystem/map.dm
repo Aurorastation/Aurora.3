@@ -175,6 +175,8 @@
 	var/datum/space_sector/sector = SSatlas.current_sector
 	var/list/possible_exoplanets = sector.possible_exoplanets
 	var/list/guaranteed_exoplanets = sector.guaranteed_exoplanets
+	possible_exoplanets.Remove(sector.banned_exoplanets)
+	guaranteed_exoplanets.Remove(sector.banned_exoplanets)
 
 	if(length(guaranteed_exoplanets))
 		for(var/j in guaranteed_exoplanets)
@@ -182,6 +184,11 @@
 			log_module_exoplanets("Building new exoplanet with type: [guaranteed_exoplanet_type] and size: [planet_size[1]] [planet_size[2]]")
 			var/obj/effect/overmap/visitable/sector/exoplanet/P = new guaranteed_exoplanet_type(null, planet_size[1], planet_size[2])
 			P.build_level()
+			for(var/forced_exoplanet in P.guaranteed_exoplanets)
+				LAZYDISTINCTADD(guaranteed_exoplanets, forced_exoplanet)
+			for(var/banned_exoplanet in P.banned_exoplanets)
+				LAZYDISTINCTADD(sector.banned_exoplanets, banned_exoplanet)
+				LAZYREMOVE(possible_exoplanets, banned_exoplanet)
 
 	if(!length(possible_exoplanets))
 		log_module_exoplanets("No possible exoplanets found!")
@@ -198,6 +205,11 @@
 		log_module_exoplanets("Building new exoplanet with type: [exoplanet_type] and size: [planet_size[1]] [planet_size[2]]")
 		var/obj/effect/overmap/visitable/sector/exoplanet/new_planet = new exoplanet_type(null, planet_size[1], planet_size[2])
 		new_planet.build_level()
+		for(var/forced_exoplanet in new_planet.guaranteed_exoplanets)
+			LAZYDISTINCTADD(guaranteed_exoplanets, forced_exoplanet)
+		for(var/banned_exoplanet in new_planet.banned_exoplanets)
+			LAZYDISTINCTADD(sector.banned_exoplanets, banned_exoplanet)
+			LAZYREMOVE(possible_exoplanets, banned_exoplanet)
 
 /* It is perfectly possible to create loops with TEMPLATE_FLAG_ALLOW_DUPLICATES and force/allow. Don't. */
 /proc/resolve_site_selection(datum/map_template/ruin/away_site/site, list/selected, list/available, list/unavailable, list/by_type)
@@ -237,6 +249,17 @@
 			if (!(allowed.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES))
 				continue
 		available[allowed] = allowed.spawn_weight
+
+	var/datum/space_sector/S = SSatlas.current_sector
+	for(var/forced_exoplanet in site.force_exoplanets)
+		if(forced_exoplanet in S.banned_exoplanets)
+			continue
+		S.guaranteed_exoplanets += forced_exoplanet
+
+	for(var/banned_exoplanet in site.ban_exoplanets)
+		if(banned_exoplanet in S.guaranteed_exoplanets)
+			continue
+		S.banned_exoplanets += banned_exoplanet
 
 	return list(spawn_cost, player_cost, ship_cost)
 
