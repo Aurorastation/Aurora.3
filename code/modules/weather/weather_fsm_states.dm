@@ -190,6 +190,14 @@
 	cosmetic_span_class = "warning"
 	cosmetic_messages = list("Drifts of ash fall from the sky.")
 
+/singleton/state/weather/sandfall
+	name =  "Sand"
+	icon_state = "sand_light"
+	descriptor = "The wind rises, stirring up gusts of sand."
+	cosmetic_span_class = "warning"
+	cosmetic_messages = list("Scattered gusts of sand fall from the sky.")
+	transitions = list(/singleton/state/weather/sandstorm)
+
 /singleton/state/weather/sandstorm
 	name = "Sandstorm"
 	icon_state = "sandstorm"
@@ -199,7 +207,6 @@
 		"The wind howls around you.",
 		"Swirling sand obscures your vision."
 	)
-	transitions = list(/singleton/state/weather/calm)
 	protected_messages = list("$ITEM$ shields you from the howling sandstorm.")
 	ambient_sounds = list('sound/effects/weather/sandstorm.ogg')
 
@@ -284,10 +291,19 @@
 /singleton/state/weather/rain/hail/arctic_planet
 	transitions = list(/singleton/state_transition/weather/calm/arctic_planet)
 
-//desert planet - only calm or sandstorm
+//desert planet - only calm, sandfall, or sandstorm
 
 /singleton/state/weather/calm/desert_planet
-	transitions = list(/singleton/state_transition/weather/sandstorm/desert_planet)
+	transitions = list(/singleton/state_transition/weather/sandfall/desert_planet)
+
+/singleton/state/weather/sandfall/desert_planet
+	transitions = list(
+		/singleton/state_transition/weather/calm/desert_planet,
+		/singleton/state_transition/weather/sandstorm/desert_planet
+	)
 
 /singleton/state/weather/sandstorm/desert_planet
-	transitions = list(/singleton/state_transition/weather/calm/desert_planet)
+	transitions = list(
+		/singleton/state_transition/weather/calm/desert_planet,
+		/singleton/state_transition/weather/sandfall/desert_planet
+	)
