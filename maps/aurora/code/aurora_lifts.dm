@@ -106,8 +106,6 @@
 	lift_floor_label = "Lower Sec"
 	lift_floor_name = "Lower Sec"
 
-	base_turf = /turf/simulated/floor/plating
-
 //Research
 /obj/turbolift_map_holder/aurora/research
 	name = "Aurora lift placeholder - Research"
@@ -136,8 +134,6 @@
 
 	lift_floor_label = "Sub-Level (Research)"
 	lift_floor_name = "Sub-Level (Research)"
-
-	base_turf = /turf/simulated/floor/plating
 
 //Engineering
 /obj/turbolift_map_holder/aurora/engineering

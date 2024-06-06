@@ -144,7 +144,7 @@
 			return
 		var/taken = rand(1,amount)
 		amount -= taken
-		to_chat(user, "<span class='notice'>You get some of \the [src] on your hands.</span>")
+		to_chat(user, SPAN_NOTICE("You get some of \the [src] on your hands."))
 		LAZYINITLIST(user.blood_DNA)
 
 		if (blood_DNA)

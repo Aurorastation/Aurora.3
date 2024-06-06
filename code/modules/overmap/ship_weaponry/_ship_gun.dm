@@ -23,7 +23,8 @@
 	var/screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 	var/firing = FALSE //Helper variable in case we need to track if we're firing or not. Must be set manually. Used for the Leviathan.
 	var/load_time = 5 SECONDS
-	var/mobile_platform = FALSE //When toggled, targeting computers will be able to force ammunition heading direction. Used for guns on visitables.
+	/// When toggled, targeting computers will be able to force ammunition heading direction. Used for guns on visitables.
+	var/mobile_platform = FALSE
 
 	var/weapon_id //Used to identify a gun in the targeting consoles and connect weapon systems to the relevant ammunition loader. Must be unique!
 	var/list/obj/structure/ship_weapon_dummy/connected_dummies = list()
@@ -79,12 +80,12 @@
 		if(20 to 40)
 			. = "It has a few holes through which you can see some machinery."
 		if(40 to 60)
-			. = "<span class='warning'>Some fairly important parts are missing... but it should work anyway.</span>"
+			. = SPAN_WARNING("Some fairly important parts are missing... but it should work anyway.")
 		if(60 to 80)
-			. = "<span class='danger'>It needs repairs direly. Both aiming and firing components are missing or broken. It has a lot of holes, too. It definitely wouldn't \
-				pass inspection.</span>"
+			. = SPAN_DANGER("It needs repairs direly. Both aiming and firing components are missing or broken. It has a lot of holes, too. It definitely wouldn't \
+				pass inspection.")
 		if(90 to 100)
-			. = "<span class='danger'>It's falling apart! Just touching it might make the whole thing collapse!</span>"
+			. = SPAN_DANGER("It's falling apart! Just touching it might make the whole thing collapse!")
 		else //At roundstart, weapons start with 0 damage, so it'd be 0 / 1000 * 100 -> 0
 			return "It looks to be in tip top shape and not damaged at all."
 
@@ -274,9 +275,11 @@
 	icon_state = null
 	. = ..()
 
-/obj/structure/ship_weapon_dummy/examine(mob/user)
+/obj/structure/ship_weapon_dummy/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	SHOULD_CALL_PARENT(FALSE)
+
 	if(connected)
-		return connected.examine(user)
+		return connected.examine(user, distance, is_adjacent, infix, suffix, show_extended)
 	else
 		return TRUE
 

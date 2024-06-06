@@ -175,11 +175,11 @@
 
 	if (disabilities & EPILEPSY)
 		if ((prob(1) && paralysis < 1))
-			to_chat(src, "<span class='warning'>You have a seizure!</span>")
+			to_chat(src, SPAN_WARNING("You have a seizure!"))
 			for(var/mob/O in viewers(src, null))
 				if(O == src)
 					continue
-				O.show_message(text("<span class='danger'>[src] starts having a seizure!</span>"), 1)
+				O.show_message(SPAN_DANGER("[src] starts having a seizure!"), 1)
 			Paralyse(10)
 			make_jittery(1000)
 	if (disabilities & COUGHING)
@@ -230,13 +230,13 @@
 				total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
 					src.apply_radiation(-5 * RADIATION_SPEED_COEFFICIENT)
-					to_chat(src, "<span class='warning'>You feel weak.</span>")
+					to_chat(src, SPAN_WARNING("You feel weak."))
 					Weaken(3)
 					if(!lying)
 						emote("collapse")
 				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == SPECIES_HUMAN) //apes go bald
 					if((h_style != "Bald" || f_style != "Shaved" ))
-						to_chat(src, "<span class='warning'>Your hair falls out.</span>")
+						to_chat(src, SPAN_WARNING("Your hair falls out."))
 						h_style = "Bald"
 						f_style = "Shaved"
 						update_hair()
@@ -246,9 +246,9 @@
 				damage = 7
 				if(prob(5))
 					take_overall_damage(0, 10 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
-					to_chat(src, "<span class='warning'>You feel a burning sensation!</span>")
+					to_chat(src, SPAN_WARNING("You feel a burning sensation!"))
 				if(prob(1))
-					to_chat(src, "<span class='warning'>You feel strange!</span>")
+					to_chat(src, SPAN_WARNING("You feel strange!"))
 					adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
 					emote("gasp")
 				hallucination = max(hallucination, 20) //At this level, you're in a constant state of low-level hallucinations. As if you didn't have enough problems.
@@ -630,7 +630,7 @@
 				set_see_invisible(SEE_INVISIBLE_CULT)
 				make_jittery(5)
 				if(prob(5))
-					visible_message("<b>[src]</b> trembles uncontrollably.", "<span class='warning'>You tremble uncontrollably.</span>")
+					visible_message("<b>[src]</b> trembles uncontrollably.", SPAN_WARNING("You tremble uncontrollably."))
 					to_chat(src, SPAN_CULT(pick("You feel fingers tracing up your back.", "You hear the distant wailing and sobbing of a departed loved one.", "You feel like you are being closely watched.", "You hear the hysterical laughter of a departed loved one.", "You no longer feel the reassuring presence of a departed loved one.", "You feel a hand taking hold of yours, digging its nails into you as it clings on.")))
 			if(haunted >= 10)
 				if(prob(5))
@@ -732,6 +732,9 @@
 	if(status_flags & GODMODE)
 		return 0
 
+	if(recently_slept)
+		recently_slept -= 1
+
 	//SSD check, if a logged player is awake put them back to sleep!
 	if(species.show_ssd && (!client && !vr_mob) && !teleop && ((world.realtime - disconnect_time) >= 5 MINUTES)) //only sleep after 5 minutes, should help those with intermittent internet connections
 		Sleeping(2)
@@ -752,13 +755,14 @@
 
 		if(get_shock() >= species.total_health)
 			if(!stat && !paralysis)
-				to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
+				to_chat(src, SPAN_WARNING("[species.halloss_message_self]"))
 				src.visible_message("<B>[src]</B> [species.halloss_message]")
 			Paralyse(10)
 
 		if(paralysis || sleeping || InStasis())
 			blinded = TRUE
-			if(sleeping)
+			if(sleeping && !stat)
+				species.sleep_msg(src)
 				set_stat(UNCONSCIOUS)
 				if(!sleeping_msg_debounce)
 					sleeping_msg_debounce = TRUE
@@ -778,10 +782,13 @@
 			if(mind)
 				//Are they SSD? If so we'll keep them asleep but work off some of that sleep var in case of stoxin or similar.
 				if(client || sleeping > 3 || istype(bg))
-					AdjustSleeping(-1)
-			if(prob(2) && health && !failed_last_breath && !isSynthetic() && !InStasis())
+					if(sleeping_indefinitely)
+						sleep_buffer++
+					else
+						AdjustSleeping(-1)
+			if(prob(2) && health && !failed_last_breath && !InStasis())
 				if(!paralysis)
-					emote("snore")
+					emote(species.snore_key)
 
 		//CONSCIOUS
 		else if(!InStasis())

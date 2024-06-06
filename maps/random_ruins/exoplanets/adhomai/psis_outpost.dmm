@@ -34,7 +34,9 @@
 	},
 /obj/machinery/turretid/lethal{
 	pixel_y = 32;
-	req_access = list(209)
+	req_access = list(209);
+	check_arrest = 0;
+	check_records = 0
 	},
 /mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic,
 /turf/simulated/floor/tiled/dark{
@@ -42,7 +44,9 @@
 	},
 /area/psis_outpost)
 "dd" = (
-/obj/machinery/porta_turret/ballistic,
+/obj/machinery/porta_turret/ballistic{
+	req_one_access = list(209)
+	},
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark{
@@ -231,13 +235,16 @@
 	pixel_y = 5;
 	pixel_x = 8
 	},
+/obj/item/storage/box/syndie_kit/spy/hidden,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
 /area/psis_outpost)
 "lf" = (
-/obj/machinery/porta_turret/ballistic,
 /obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/porta_turret/ballistic{
+	req_one_access = list(209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -391,6 +398,16 @@
 	temperature = 268.15
 	},
 /area/psis_outpost)
+"vc" = (
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/light,
+/obj/machinery/porta_turret/ballistic{
+	req_one_access = list(209)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 268.15
+	},
+/area/psis_outpost)
 "vd" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 6
@@ -442,6 +459,13 @@
 /turf/simulated/floor/reinforced{
 	temperature = 268.15
 	},
+/area/psis_outpost)
+"An" = (
+/obj/machinery/turretid/lethal{
+	pixel_y = 32;
+	req_access = list(209)
+	},
+/turf/simulated/wall/r_wall,
 /area/psis_outpost)
 "Bh" = (
 /obj/structure/filingcabinet/chestdrawer,
@@ -666,9 +690,9 @@
 /obj/structure/closet/crate,
 /obj/item/storage/box/folders,
 /obj/item/storage/box/folders,
-/obj/item/storage/field_ration,
-/obj/item/storage/field_ration,
-/obj/item/storage/field_ration,
+/obj/item/storage/field_ration/army,
+/obj/item/storage/field_ration/army,
+/obj/item/storage/field_ration/army,
 /obj/item/storage/field_ration,
 /obj/item/storage/field_ration,
 /obj/item/storage/field_ration,
@@ -1030,12 +1054,16 @@
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/projectile/automatic/tommygun,
-/obj/item/ammo_magazine/submachinedrum,
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
 /obj/item/gun/energy/rifle/icelance,
+/obj/item/ammo_magazine/submachinedrum,
 /obj/item/gun/energy/pistol,
+/obj/item/gun/projectile/automatic/tommygun,
+/obj/item/ammo_magazine/submachinedrum,
+/obj/item/ammo_magazine/submachinedrum,
+/obj/item/ammo_magazine/submachinedrum,
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -1508,7 +1536,7 @@ Mq
 Mq
 Mq
 Mq
-Mq
+An
 Mq
 jx
 Kl
@@ -1665,7 +1693,7 @@ Mq
 lf
 Hc
 Tn
-dd
+vc
 Mq
 Ke
 Tn

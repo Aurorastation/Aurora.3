@@ -223,8 +223,11 @@
 		if((equip_preview_mob & EQUIP_PREVIEW_JOB) && previewJob)
 			previewJob.equip_preview(mannequin, player_alt_titles[previewJob.title], faction)
 
-		if(equip_preview_mob & EQUIP_PREVIEW_LOADOUT && leftovers.len)
+		if((equip_preview_mob & EQUIP_PREVIEW_LOADOUT) && leftovers.len)
 			SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)
+
+		if(equip_preview_mob & EQUIP_PREVIEW_LOADOUT)
+			SSjobs.EquipAugments(mannequin, src)
 
 		if (!SSATOMS_IS_PROBABLY_DONE)
 			SSatoms.CreateAtoms(list(mannequin))

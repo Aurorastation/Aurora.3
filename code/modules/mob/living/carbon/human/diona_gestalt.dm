@@ -351,7 +351,7 @@
 	//In this unfathomably rare case, the gestalt player simply dies as its mob is qdel'd.
 	//We will generally prevent this from happening by ensuring any nymph-joining functions leave one free for the host
 
-	visible_message("<span class='warning'>\The [src] quivers slightly, then splits apart with a wet slithering noise.</span>")
+	visible_message(SPAN_WARNING("\The [src] quivers slightly, then splits apart with a wet slithering noise."))
 	qdel(src)
 
 #undef COLD_DAMAGE_LEVEL_1

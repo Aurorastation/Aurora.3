@@ -438,7 +438,7 @@
 			vision_flags = 0
 			see_invisible = -1
 
-	to_chat(usr, "<span class='notice'>\The [src]'s vision mode is now <b>[mode]</b>.</span>")
+	to_chat(usr, SPAN_NOTICE("\The [src]'s vision mode is now <b>[mode]</b>."))
 
 /obj/item/clothing/glasses/sunglasses/bst/attack_hand()
 	if(!usr)

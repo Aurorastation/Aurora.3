@@ -5,3 +5,4 @@
 	footstep_sound = /singleton/sound_category/grass_footstep
 	initial_flooring = /singleton/flooring/diona
 	has_resources = FALSE
+	does_footprint = FALSE

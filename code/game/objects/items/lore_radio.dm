@@ -17,7 +17,7 @@
 		toggle_receiving()
 	RegisterSignal(SSdcs, COMSIG_GLOB_LORE_RADIO_BROADCAST, PROC_REF(relay_lore_radio))
 
-/obj/item/lore_radio/examine(var/mob/user)
+/obj/item/lore_radio/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	to_chat(user, SPAN_NOTICE("\The [src] is turned [receiving ? "on" : "off"]."))
 	if(current_station)

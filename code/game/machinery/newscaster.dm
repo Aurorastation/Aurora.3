@@ -334,7 +334,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 						if(FC.is_admin_channel)
 							dat+="<B><FONT style='BACKGROUND-COLOR: LightGreen '><A href='?src=\ref[src];show_channel=\ref[FC]'>[FC.channel_name]</A></font></B><BR>"
 						else
-							dat+="<B><A href='?src=\ref[src];show_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<span class='warning'>***</span>") : null]<BR></B>"
+							dat+="<B><A href='?src=\ref[src];show_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? (SPAN_WARNING("***")) : null]<BR></B>"
 				dat+="<BR><HR><A href='?src=\ref[src];refresh=1'>Refresh</A>"
 				dat+="<BR><A href='?src=\ref[src];setScreen=[0]'>Back</A>"
 			if(2)
@@ -408,7 +408,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 			if(9)
 				dat+="<B>[src.viewing_channel.channel_name]: </B><FONT SIZE=1>\[created by: <span class='boldannounce'>[src.viewing_channel.author]</span>\]</font><HR>"
 				if(src.viewing_channel.censored)
-					dat+="<span class='warning'><B>ATTENTION:</B></span> This channel has been deemed as threatening to the welfare of the station, and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>"
+					dat += SPAN_WARNING("<B>ATTENTION:</B> ") + "This channel has been deemed as threatening to the welfare of the station, and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>"
 					dat+="No further feed story additions are allowed while the D-Notice is in effect.<BR><BR>"
 				else
 					if( isemptylist(src.viewing_channel.messages) )
@@ -438,7 +438,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 				else
 					for(var/channel in SSnews.network_channels)
 						var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
-						dat+="<A href='?src=\ref[src];pick_censor_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<span class='warning'>***</span>") : null]<BR>"
+						dat+="<A href='?src=\ref[src];pick_censor_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? (SPAN_WARNING("***")) : null]<BR>"
 				dat+="<BR><A href='?src=\ref[src];setScreen=[0]'>Cancel</A>"
 			if(11)
 				dat+="<B>[SSatlas.current_map.company_name] D-Notice Handler</B><HR>"
@@ -450,7 +450,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 				else
 					for(var/channel in SSnews.network_channels)
 						var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
-						dat+="<A href='?src=\ref[src];pick_d_notice=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<span class='warning'>***</span>") : null]<BR>"
+						dat+="<A href='?src=\ref[src];pick_d_notice=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? (SPAN_WARNING("***")) : null]<BR>"
 
 				dat+="<BR><A href='?src=\ref[src];setScreen=[0]'>Back</A>"
 			if(12)
@@ -469,7 +469,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 				dat+="<B>[src.viewing_channel.channel_name]: </B><FONT SIZE=1>\[ created by: <span class='boldannounce'>[src.viewing_channel.author]</span> \]</font><BR>"
 				dat+="Channel messages listed below. If you deem them dangerous to the station, you can <A href='?src=\ref[src];toggle_d_notice=\ref[src.viewing_channel]'>Bestow a D-Notice upon the channel</A>.<HR>"
 				if(src.viewing_channel.censored)
-					dat+="<span class='warning'><B>ATTENTION:</B></span> This channel has been deemed as threatening to the welfare of the station, and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>"
+					dat += SPAN_WARNING("<B>ATTENTION:</B> ") + "This channel has been deemed as threatening to the welfare of the station, and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>"
 					dat+="No further feed story additions are allowed while the D-Notice is in effect.<BR><BR>"
 				else
 					if( isemptylist(src.viewing_channel.messages) )
@@ -899,7 +899,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 						O.show_message("[user.name] forcefully slams the [src.name] with the [attacking_item.name]!" )
 					playsound(src.loc, 'sound/effects/glass_hit.ogg', 100, 1)
 		else
-			to_chat(user, "<span class='notice'>This does nothing.</span>")
+			to_chat(user, SPAN_NOTICE("This does nothing."))
 	src.update_icon()
 
 /datum/news_photo
@@ -1097,7 +1097,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 									SPAN_NOTICE("You unroll \the [src] to write on it."))
 			rolled()
 		if(src.scribble_page == src.curr_page)
-			to_chat(user, "<span class='notice'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</span>")
+			to_chat(user, SPAN_NOTICE("There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?"))
 		else
 			var/s = sanitize( tgui_input_text(user, "Write something", "Newspaper", "") )
 			if (!s)

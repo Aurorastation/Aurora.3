@@ -11947,6 +11947,7 @@
 /obj/item/storage/box/fancy/crayons/chalkbox{
 	pixel_y = 8
 	},
+/obj/item/blueprints,
 /obj/item/device/radio/intercom/ship/west,
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/engineering)

@@ -80,6 +80,7 @@
 	var/bowman = /obj/item/device/radio/headset/alt
 	var/double_headset = /obj/item/device/radio/headset/alt/double
 	var/wrist_radio = /obj/item/device/radio/headset/wrist
+	var/clipon_radio = /obj/item/device/radio/headset/wrist/clip
 
 	var/id_iff = IFF_DEFAULT // when spawning in, the ID will be set to this iff, preventing friendly fire
 
@@ -285,6 +286,9 @@
 				wrist = wrist_radio
 				if(H.headset_choice == OUTFIT_THIN_WRISTRAD)
 					radio_callback = CALLBACK(src, PROC_REF(turn_into_thinset))
+			if(OUTFIT_CLIPON)
+				l_ear = null
+				wrist = clipon_radio
 			else
 				l_ear = headset //Department headset
 	if(l_ear)

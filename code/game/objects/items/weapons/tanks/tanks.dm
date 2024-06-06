@@ -154,7 +154,7 @@
 			if(location.internal == src)
 				location.internal = null
 				location.internals.icon_state = "internal0"
-				to_chat(usr, "<span class='notice'>You close the tank release valve.</span>")
+				to_chat(usr, SPAN_NOTICE("You close the tank release valve."))
 				if (location.internals)
 					location.internals.icon_state = "internal0"
 			else
@@ -168,11 +168,11 @@
 
 				if(can_open_valve)
 					location.internal = src
-					to_chat(usr, "<span class='notice'>You open \the [src] valve.</span>")
+					to_chat(usr, SPAN_NOTICE("You open \the [src] valve."))
 					if (location.internals)
 						location.internals.icon_state = "internal1"
 				else
-					to_chat(usr, "<span class='warning'>You need something to connect to \the [src].</span>")
+					to_chat(usr, SPAN_WARNING("You need something to connect to \the [src]."))
 			. = TRUE
 			update_icon()
 	if(action=="setReleasePressure")

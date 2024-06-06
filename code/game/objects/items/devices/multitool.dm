@@ -173,40 +173,41 @@
 
 /obj/item/device/multitool/proc/wire(datum/integrated_io/io, mob/user)
 	if(!io.holder.assembly)
-		to_chat(user, "<span class='warning'>\The [io.holder] needs to be secured inside an assembly first.</span>")
+		to_chat(user, SPAN_WARNING("\The [io.holder] needs to be secured inside an assembly first."))
 		return
 
 	if(selected_io)
 		if(io == selected_io)
-			to_chat(user, "<span class='warning'>Wiring \the [selected_io.holder]'s '[selected_io.name]' pin into itself is rather pointless.</span>")
+			to_chat(user, SPAN_WARNING("Wiring \the [selected_io.holder]'s '[selected_io.name]' pin into itself is rather pointless."))
 			return
 		if(io.io_type != selected_io.io_type)
-			to_chat(user, "<span class='warning'>Those two types of channels are incompatable.  The first is a [selected_io.io_type], \
-			while the second is a [io.io_type].</span>")
+			to_chat(user, SPAN_WARNING("Those two types of channels are incompatable.  The first is a [selected_io.io_type], \
+			while the second is a [io.io_type]."))
+
 			return
 		if(io.holder.assembly && io.holder.assembly != selected_io.holder.assembly)
-			to_chat(user, "<span class='warning'>Both \the [io.holder] and \the [selected_io.holder] need to be inside the same assembly.</span>")
+			to_chat(user, SPAN_WARNING("Both \the [io.holder] and \the [selected_io.holder] need to be inside the same assembly."))
 			return
 		selected_io.linked |= io
 		io.linked |= selected_io
 
-		to_chat(user, "<span class='notice'>You connect \the [selected_io.holder]'s '[selected_io.name]' pin to \the [io.holder]'s '[io.name]' pin.</span>")
+		to_chat(user, SPAN_NOTICE("You connect \the [selected_io.holder]'s '[selected_io.name]' pin to \the [io.holder]'s '[io.name]' pin."))
 		selected_io.holder.interact(user) // This is to update the UI.
 		selected_io = null
 
 	else
 		selected_io = io
-		to_chat(user, "<span class='notice'>You link \the multitool to \the [selected_io.holder]'s [selected_io.name] data channel.</span>")
+		to_chat(user, SPAN_NOTICE("You link \the multitool to \the [selected_io.holder]'s [selected_io.name] data channel."))
 
 	update_icon()
 
 /obj/item/device/multitool/proc/unwire(datum/integrated_io/io1, datum/integrated_io/io2, mob/user)
 	if(!io1.linked.len || !io2.linked.len)
-		to_chat(user, "<span class='warning'>There is nothing connected to the data channel.</span>")
+		to_chat(user, SPAN_WARNING("There is nothing connected to the data channel."))
 		return
 
 	if(!(io1 in io2.linked) || !(io2 in io1.linked) )
-		to_chat(user, "<span class='warning'>These data pins aren't connected!</span>")
+		to_chat(user, SPAN_WARNING("These data pins aren't connected!"))
 		return
 	else
 		io1.linked.Remove(io2)

@@ -526,7 +526,7 @@ var/list/diona_banned_languages = list(
 		if (prob(chance))
 			add_language(L.name)
 		else
-			to_chat(src, "<span class='danger'>You have forgotten the [L.name] language!</span>")
+			to_chat(src, SPAN_DANGER("You have forgotten the [L.name] language!"))
 
 /mob/living/carbon/alien/diona/proc/switch_to_gestalt()
 	set name = "Switch to Gestalt"

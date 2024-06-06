@@ -60,10 +60,10 @@
 			if(attacking_item.iscoil())
 				var/obj/item/stack/cable_coil/C = attacking_item
 				if(C.use(2))
-					to_chat(user, "<span class='notice'>You add wires to the assembly.</span>")
+					to_chat(user, SPAN_NOTICE("You add wires to the assembly."))
 					state = 3
 				else
-					to_chat(user, "<span class='warning'>You need 2 coils of wire to wire the assembly.</span>")
+					to_chat(user, SPAN_WARNING("You need 2 coils of wire to wire the assembly."))
 				return TRUE
 
 			else if(attacking_item.iswelder())
@@ -167,7 +167,7 @@
 	if(!WT.isOn())
 		return 0
 
-	to_chat(user, "<span class='notice'>You start to weld the [src]..</span>")
+	to_chat(user, SPAN_NOTICE("You start to weld the [src].."))
 	playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 	user.flash_act(FLASH_PROTECTION_MAJOR)
 	busy = 1

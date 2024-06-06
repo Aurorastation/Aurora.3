@@ -217,7 +217,6 @@
 	dir = 5
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -414,6 +413,14 @@
 /obj/structure/sign/flag/hegemony/large/south,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
+"fn" = (
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
+/obj/structure/table/standard,
+/obj/item/blueprints,
+/turf/simulated/floor/plating,
+/area/merchants_guild/starboardengine)
 "fq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1905,7 +1912,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /turf/simulated/floor/tiled,
@@ -2429,7 +2435,6 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /obj/structure/cable/green{
@@ -2476,7 +2481,6 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -2682,7 +2686,6 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /obj/machinery/light{
@@ -3223,7 +3226,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -15635,7 +15637,7 @@ Lk
 Bu
 gM
 HN
-Wd
+fn
 uz
 Wd
 Wd

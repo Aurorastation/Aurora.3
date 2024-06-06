@@ -222,11 +222,11 @@
 /mob/living/simple_animal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (stat == DEAD)
-		. += "<span class='danger'>It looks dead.</span>"
+		. += SPAN_DANGER("It looks dead.")
 	if (health < maxHealth * 0.5)
-		. += "<span class='danger'>It looks badly wounded.</span>"
+		. += SPAN_DANGER("It looks badly wounded.")
 	else if (health < maxHealth)
-		. += "<span class='warning'>It looks wounded.</span>"
+		. += SPAN_WARNING("It looks wounded.")
 
 /mob/living/simple_animal/can_name(var/mob/living/M)
 	if(named)
@@ -823,9 +823,12 @@
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb
 
-/mob/living/simple_animal/put_in_hands(var/obj/item/W) // No hands.
-	W.forceMove(get_turf(src))
-	return 1
+/mob/living/simple_animal/put_in_hands(obj/item/item_to_equip)
+	if(QDELETED(item_to_equip) || !istype(item_to_equip))
+		return FALSE
+
+	item_to_equip.forceMove(get_turf(src))
+	return FALSE
 
 // Harvest an animal's delicious byproducts
 /mob/living/simple_animal/proc/harvest(var/mob/user)

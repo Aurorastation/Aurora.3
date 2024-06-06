@@ -58,7 +58,7 @@
 		if(I)
 
 			if(is_path_in_list(I.type, blacklisted_items))
-				to_chat(user, "<span class='danger'>You can't use \the [I] while warping!</span>")
+				to_chat(user, SPAN_DANGER("You can't use \the [I] while warping!"))
 				return
 
 			if(istype(I, /obj/item))

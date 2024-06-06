@@ -35,7 +35,7 @@
 	q = pick(randomquip)
 
 	if(do_after(user, 2.5 SECONDS))
-		to_chat(user, "<span class='notice'>You notice a particular verse: [q]</span>")
+		to_chat(user, SPAN_NOTICE("You notice a particular verse: [q]"))
 	reading = FALSE
 
 /obj/item/device/versebook/tribunal

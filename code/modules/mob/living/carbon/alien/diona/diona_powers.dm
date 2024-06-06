@@ -362,6 +362,6 @@
 	if(hat)
 		src.drop_from_inventory(hat)
 		hat = null
-		visible_message("<span class='warning'>[src] removes their hat!</span>")
+		visible_message(SPAN_WARNING("[src] removes their hat!"))
 	else
 		to_chat(src, SPAN_WARNING("You have no hat!"))

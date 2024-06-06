@@ -91,7 +91,6 @@
 	knife_x_offset = 23
 	knife_y_offset = 13
 	fire_delay = 25
-	w_class = ITEMSIZE_LARGE
 	accuracy = -3
 	scoped_accuracy = 4
 
@@ -108,7 +107,7 @@
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
 
 /obj/item/gun/energy/blaster/tcaf
 	name = "blaster rifle"
@@ -209,7 +208,7 @@
 		power_supply.forceMove(get_turf(src.loc))
 		user.visible_message(
 			"[power_supply] pops out of the cell mount!",
-			"<span class='notice'>[power_supply] pops out of \the [src] and clatters on the floor!</span>"
+			SPAN_NOTICE("[power_supply] pops out of \the [src] and clatters on the floor!")
 			)
 		power_supply.update_icon()
 		power_supply = null

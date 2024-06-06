@@ -159,7 +159,7 @@
 
 /obj/item/storage/secure/briefcase/attack_hand(mob/user as mob)
 	if((src.loc == user) && (src.locked == 1))
-		to_chat(usr, "<span class='warning'>[src] is locked and cannot be opened!</span>")
+		to_chat(usr, SPAN_WARNING("[src] is locked and cannot be opened!"))
 	else if((src.loc == user) && (!src.locked))
 		src.open(usr)
 	else

@@ -12,13 +12,13 @@
 	dir = 8;
 	pixel_y = -6
 	},
-/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "ac" = (
@@ -1577,6 +1577,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/cell_charger{
+	pixel_y = 9
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "fG" = (
@@ -2125,6 +2128,15 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
+	},
+/obj/machinery/recharger{
+	pixel_y = 3;
+	pixel_x = 7
+	},
+/obj/machinery/recharger/wallcharger{
+	layer = 3.3;
+	pixel_x = 5;
+	pixel_y = 21
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -3834,6 +3846,10 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/plasteel/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/rods/full,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "nk" = (
@@ -3871,6 +3887,11 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_y = 27
+	},
+/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "nr" = (
@@ -3891,17 +3912,17 @@
 /area/kataphract_chapter/bruiser)
 "nt" = (
 /obj/machinery/door/airlock/external,
-/obj/effect/shuttle_landmark/kataphract_transport/hangar,
 /obj/machinery/access_button{
 	pixel_x = -28;
 	pixel_y = 12;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/shuttle_landmark/kataphract_transport/hangar,
+/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "nw" = (
@@ -4233,13 +4254,6 @@
 "rt" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
-	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	dir = 1;
-	pixel_y = -21;
-	name = "Kataphract Shuttle docking port controller";
-	frequency = 1380;
-	id_tag = "kataphract_dock"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
@@ -4795,6 +4809,10 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/hepht,
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 10
+	},
+/obj/machinery/recharger{
+	pixel_x = -7;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/cic)
@@ -5649,15 +5667,18 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/bruiser)
 "FP" = (
-/obj/structure/table/rack,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/plasteel/full,
-/obj/item/stack/rods/full,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/standard,
+/obj/item/blueprints{
+	pixel_y = 5
+	},
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "FX" = (
@@ -5846,15 +5867,11 @@
 "Ip" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
-	},
-/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "Iq" = (
@@ -6729,6 +6746,16 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
+/obj/machinery/recharger/wallcharger{
+	layer = 3.3;
+	pixel_x = 5;
+	pixel_y = 23
+	},
+/obj/machinery/recharger/wallcharger{
+	layer = 3.3;
+	pixel_x = 5;
+	pixel_y = 34
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
 "Rv" = (
@@ -7317,6 +7344,10 @@
 "Ws" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner_wide/dark_blue/full,
+/obj/machinery/recharger{
+	pixel_y = 7;
+	pixel_x = -6
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
 "WI" = (

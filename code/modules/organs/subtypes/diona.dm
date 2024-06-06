@@ -131,12 +131,10 @@
 	body_part = FOOT_RIGHT
 	icon_position = RIGHT
 	parent_organ = BP_R_LEG
-	joint = "right ankle"
-	amputation_point = "right ankle"
-	limb_flags = ORGAN_CAN_MAIM | ORGAN_CAN_AMPUTATE | ORGAN_CAN_STAND
-	dislocated = -1
 	joint = "structural ligament"
 	amputation_point = "branch"
+	limb_flags = ORGAN_CAN_MAIM | ORGAN_CAN_AMPUTATE | ORGAN_CAN_STAND
+	dislocated = -1
 
 /obj/item/organ/external/hand/diona
 	name = "left grasper"
