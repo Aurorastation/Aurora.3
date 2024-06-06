@@ -33,6 +33,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 	..()
 
+/obj/item/organ/internal/augment/fluff //used for custom item that are augments
 
 /obj/item/clothing/accessory/badge/fluff/dylan_tags //Dog Tags - Dylan Sutton - catnippy
 	name = "dog tags"
