@@ -199,6 +199,14 @@
 		//AB is a universal receiver.
 	return 0
 
+/mob/living/carbon/proc/get_blood_color()
+	if(HAS_TRAIT(src, TRAIT_DISABILITY_SYNTH_BLOOD))
+		return COLOR_SYNTH_BLOOD
+	else if(species)
+		return species.blood_color
+	else
+		return COLOR_HUMAN_BLOOD
+
 /mob/living/carbon/proc/get_blood_data()
 	var/data = list()
 	data["donor"] = WEAKREF(src)
@@ -210,7 +218,7 @@
 		data["blood_type"] = "O+"
 	if(species)
 		data["species"] = species.bodytype
-		data["blood_colour"] = species.blood_color
+		data["blood_colour"] = get_blood_color()
 	var/list/temp_chem = list()
 	for(var/R in reagents.reagent_volumes)
 		temp_chem[R] = REAGENT_VOLUME(reagents, R)

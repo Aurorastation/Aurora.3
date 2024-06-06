@@ -88,4 +88,4 @@
 	"
 
 /datum/character_disabilities/synth_blood/apply_self(var/mob/living/carbon/human/H)
-	// H.blood_color = COLOR_SYNTH_BLOOD
+	ADD_TRAIT(H, TRAIT_DISABILITY_SYNTH_BLOOD, DISABILITY_TRAIT)

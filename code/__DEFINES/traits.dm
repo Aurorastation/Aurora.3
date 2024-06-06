@@ -184,3 +184,6 @@
 
 /// Causes the mob to never clot their wounds
 #define TRAIT_DISABILITY_HEMOPHILIA_MAJOR "disability_hemophilia_major"
+
+/// Causes the mob to never clot their wounds
+#define TRAIT_DISABILITY_SYNTH_BLOOD "disability_synth_blood"
