@@ -83,7 +83,7 @@
 /datum/character_disabilities/synth_blood
 	name = "Synthetic Blood Substitute"
 	desc = "\
-		Normal blood produced by your body is not enough for you, and you require a synthetic blood substitute, \
+		Normal blood produced by your body is not enough, and you require a synthetic blood substitute, \
 		that can carry more oxygen, cool you better, or has whatever other improved characteristics.\
 	"
 
