@@ -2733,23 +2733,15 @@
 /area/sensor_relay/hydroponics)
 "cUv" = (
 /obj/structure/table/steel,
+/obj/random/junk,
+/obj/structure/extinguisher_cabinet/west,
+/obj/item/clothing/head/hardhat/orange,
+/obj/item/clothing/head/hardhat/orange,
+/obj/item/stack/cable_coil/yellow,
+/obj/item/stack/cable_coil/yellow,
 /obj/item/rfd/construction{
 	pixel_y = 7
 	},
-/obj/item/stack/cable_coil/yellow,
-/obj/random/junk,
-/obj/structure/extinguisher_cabinet/west,
-/obj/item/stack/cable_coil/yellow,
-/obj/item/clothing/head/hardhat/orange,
-/obj/item/clothing/head/hardhat/orange,
-/obj/structure/table/steel,
-/obj/item/rfd/construction{
-	pixel_y = 7
-	},
-/obj/item/stack/cable_coil/yellow,
-/obj/random/junk,
-/obj/structure/extinguisher_cabinet/west,
-/obj/item/stack/cable_coil/yellow,
 /obj/item/blueprints,
 /turf/simulated/floor/tiled/dark/full,
 /area/sensor_relay/maintenance)
