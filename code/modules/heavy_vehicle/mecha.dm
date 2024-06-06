@@ -2,7 +2,6 @@
 /mob/living/heavy_vehicle
 	name = "exosuit"
 	density = TRUE
-	opacity = TRUE
 	anchored = TRUE
 	status_flags = PASSEMOTES
 	a_intent = I_HURT

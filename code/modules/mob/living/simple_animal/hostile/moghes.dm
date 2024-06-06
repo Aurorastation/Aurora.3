@@ -19,8 +19,8 @@
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
 	blood_overlay_icon = null
-	maxHealth = 500
-	health = 500
+	maxHealth = 400
+	health = 400
 	harm_intent_damage = 0
 	melee_damage_lower = 40
 	melee_damage_upper = 40
@@ -49,7 +49,34 @@
 
 /mob/living/simple_animal/hostile/biglizard/Life()
 	..()
-	adjustBruteLoss(-5)
+
+	//It's a predator, supposedly it shouldn't always alert his victims to be nearby
+	//(also saves some processing)
+	if(prob(30))
+		for(var/mob/living/poor_soul_approaching in get_hearers_in_range(world.view*1.8, src))
+			//No point in sending a message if there's no client
+			if(!poor_soul_approaching.client)
+				continue
+
+			var/message
+
+			var/poor_soul_distance_from_tyrant = get_dist(src, poor_soul_approaching)
+			//They can see us, no point
+			if(poor_soul_distance_from_tyrant <= world.view)
+				continue
+
+			//RUN FOR YOUR LIFE
+			else if(poor_soul_distance_from_tyrant <= world.view*1.4)
+				message = SPAN_HIGHDANGER(SPAN_BOLD("YOU HEAR LOUD STOMPING NEARBY, SOMETHING TERRIFYINGLY LARGE IS NEARBY!"))
+
+			//Fairly close, a normal warning should suffice
+			else
+				message = SPAN_DANGER("You hear a bone-chilling roar in the distance!")
+
+			poor_soul_approaching.notify_message(message, 10 SECONDS, key = "biglizard-[REF(src)]")
+
+
+	adjustBruteLoss(-1)
 
 /mob/living/simple_animal/hostile/biglizard/verb/devour(mob/living/target as mob in oview())
 	set category = "Plains Tyrant"
