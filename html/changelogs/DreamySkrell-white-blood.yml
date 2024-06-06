@@ -1,0 +1,8 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Shell IPCs now have white blood."
+  - rscadd: "Adds synthetic blood substitute character trait."

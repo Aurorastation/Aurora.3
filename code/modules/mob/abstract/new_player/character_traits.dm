@@ -79,3 +79,13 @@
 	name = "Major Hemophilia"
 	desc = "Your blood lacks ALL clotting factors, causing wounds to never stop bleeding."
 	trait_type = TRAIT_DISABILITY_HEMOPHILIA_MAJOR
+
+/datum/character_disabilities/synth_blood
+	name = "Synthetic Blood Substitute"
+	desc = "\
+		Normal blood produced by your body is not enough for you, and you require a synthetic blood substitute, \
+		that can carry more oxygen, cool you better, or has whatever other improved characteristics.\
+	"
+
+/datum/character_disabilities/synth_blood/apply_self(var/mob/living/carbon/human/H)
+	// H.blood_color = COLOR_SYNTH_BLOOD
