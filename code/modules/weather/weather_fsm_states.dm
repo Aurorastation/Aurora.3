@@ -228,10 +228,9 @@
 				to_chat(H, SPAN_WARNING("\The [C] shields your eyes from the sand."))
 				return
 		to_chat(H, SPAN_DANGER("The stinging sand gets in your eyes!"))
-		if(eyes)
-			H.eye_blurry = max(H.eye_blurry, 15)
-			H.eye_blind = max(H.eye_blind, 5)
-			H.apply_effect(rand(5,10), DAMAGE_PAIN)
+		H.eye_blurry = max(H.eye_blurry, 15)
+		H.eye_blind = max(H.eye_blind, 5)
+		H.apply_effect(rand(5,10), DAMAGE_PAIN)
 
 //planet weathers
 
