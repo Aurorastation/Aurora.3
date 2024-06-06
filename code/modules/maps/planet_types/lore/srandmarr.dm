@@ -192,6 +192,12 @@
 			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/north_pole_monolith, /datum/map_template/ruin/exoplanet/north_pole_nka_expedition, /datum/map_template/ruin/exoplanet/north_pole_worm)
 			initial_weather_state = /singleton/state/weather/calm/arctic_planet
 
+	if(Holiday == "Shi-rra Arr’Kahata")  // Messa weeps.
+		if(landing_faction != "North Pole")
+			possible_themes = list(/datum/exoplanet_theme/snow/adhomai/darkest_eclipse)
+		else
+			possible_themes = list(/datum/exoplanet_theme/snow/tundra/adhomai/darkest_eclipse)
+
 	desc += " The landing sites are located at the [landing_faction]'s territory."
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_habitability()
