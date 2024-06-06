@@ -81,6 +81,7 @@ var/global/Holiday = null
 		if(6)	//Jun
 			switch(DD)
 				if(6)							Holiday = "Mictlani Tago de Eksterterano"
+				//TODO: NEED A DATE FOR THIS BEFORE MERGE DO NOT MERGE IF THIS IS HERE if(6)							Holiday = "Shi-rr’ata"
 				if(14)
 					Holiday = "New Gibson Remembrance Day"
 					if(prob(50))				Holiday = "Skrell Qu'Qyu-Poxii"

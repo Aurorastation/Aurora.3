@@ -200,6 +200,12 @@
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_map()
 	if(prob(75))
 		lightlevel = rand(3,10)/10
+	switch(Holiday)	// Handle eclipses
+		if("Shi-rr’ata") // Messa Eclipse
+			lightlevel = 9/10
+			lightcolor = COLOR_CYAN
+		if("Shi-rra Arr’Kahata") //Raskara Eclipse. Board your windows.
+			lightlevel = 0
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_planet_image()
