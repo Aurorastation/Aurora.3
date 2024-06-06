@@ -324,6 +324,8 @@
 	return TRUE
 
 /mob/living/simple_animal/hostile/proc/OpenFire(target_mob)
+	set waitfor = FALSE
+
 	if(!see_target())
 		LoseTarget()
 	var/target = target_mob
