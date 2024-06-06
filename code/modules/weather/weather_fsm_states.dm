@@ -199,12 +199,39 @@
 		"The wind howls around you.",
 		"Swirling sand obscures your vision."
 	)
-	protected_messages = list("Stinging sand blows against $ITEM$.")
+	transitions = list(/singleton/state/weather/calm)
+	protected_messages = list("$ITEM$ shields you from the howling sandstorm.")
 	ambient_sounds = list('sound/effects/weather/sandstorm.ogg')
 
 /singleton/state/weather/sandstorm/handle_exposure_effects(mob/living/M, obj/abstract/weather_system/weather)
-	to_chat(M, SPAN_DANGER("You are blasted by a gust of stinging sand!"))
-	M.apply_damage(rand(1,5), DAMAGE_BRUTE)
+	if(istype(M, /mob/living/simple_animal) && M.faction == "Moghes") //Not realistic that they're just immune, but we don't have AI for simplemobs seeking shelter from storms.
+		return
+	else if(isvaurca(M)) //Bugs have sealed carapaces
+		to_chat(M, SPAN_WARNING("Your carapace protects you from the stinging sand!"))
+	else if(isipc(M) || issilicon(M)) //Metal is more durable than meat
+		to_chat(M, SPAN_DANGER("Your chassis is scratched by a gust of stinging sand!"))
+		M.apply_damage(1, DAMAGE_BRUTE)
+	else
+		to_chat(M, SPAN_DANGER("You are blasted by a gust of stinging sand!"))
+		M.apply_damage(rand(1,3), DAMAGE_BRUTE)
+
+	if(ishuman(M) && prob(50)) //only a 50% chance of getting in the eyes to avoid being too punishing
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/internal/eyes/E = H.get_eyes()
+		if (istype(E) && (E.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT)))
+			to_chat(H, SPAN_WARNING("Your mechanical eyes are immune to the sandstorm!"))
+			return
+		if(!E) //No eyes, no problem
+			return
+		for(var/obj/item/clothing/C in list(H.wear_mask, H.head, H.glasses))
+			if(C.body_parts_covered & EYES)
+				to_chat(H, SPAN_WARNING("\The [C] shields your eyes from the sand."))
+				return
+		to_chat(H, SPAN_DANGER("The stinging sand gets in your eyes!"))
+		if(eyes)
+			H.eye_blurry = max(H.eye_blurry, 15)
+			H.eye_blind = max(H.eye_blind, 5)
+			H.apply_effect(rand(5,10), DAMAGE_PAIN)
 
 //planet weathers
 

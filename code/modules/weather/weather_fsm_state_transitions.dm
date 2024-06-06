@@ -68,7 +68,7 @@
 //arctic planets
 
 /singleton/state_transition/weather/calm/arctic_planet
-	target = /singleton/state/weather/calm/lava_planet
+	target = /singleton/state/weather/calm/arctic_planet
 
 /singleton/state_transition/weather/hail/arctic_planet
 	target = /singleton/state/weather/rain/hail/arctic_planet
