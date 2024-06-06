@@ -4841,6 +4841,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
 	},
+/obj/machinery/ringer/south{
+	department = "XO Office";
+	id = "hop_ringer"
+	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
 "dNi" = (
@@ -4962,6 +4966,7 @@
 	name = "Consular Office B";
 	req_access = list(72)
 	},
+/obj/effect/map_effect/door_helper/level_access/command_foyer,
 /turf/simulated/floor/tiled,
 /area/lawoffice/consular_two)
 "dRo" = (
@@ -13383,7 +13388,7 @@
 /obj/structure/table/rack,
 /obj/random/loot,
 /turf/simulated/floor,
-/area/maintenance/security_port)
+/area/maintenance/security_starboard)
 "jiq" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -33461,9 +33466,9 @@
 	},
 /obj/structure/table/reinforced/steel,
 /obj/machinery/ringer_button{
-	id = "hop_ringer";
 	pixel_x = 12;
-	pixel_y = 3
+	pixel_y = 3;
+	id = "hop_ringer"
 	},
 /obj/machinery/door/window/desk/southright{
 	name = "Executive Officer's Desk";
@@ -56389,7 +56394,7 @@ nCP
 kTE
 tzY
 fDJ
-vOV
+cid
 oZv
 lJJ
 swR
@@ -56591,7 +56596,7 @@ nCP
 dHs
 dHr
 vyx
-cid
+vOV
 kwr
 iBY
 lEP
