@@ -263,3 +263,8 @@
 	desc = "A mask which allows the wearer to view local camera feeds they have access to."
 	telecrystal_cost = 6
 	path = /obj/item/clothing/mask/ai
+
+/datum/uplink_item/item/tools/memorywiper
+	name = "Portable memory wiper"
+	desc = "Inset into a sturdy pelican case, this computer holds the software and wiring necessary to wipe and factory reset any IPC."
+	bluecrystal_cost = 8 //Probably half the gimmick would be around this

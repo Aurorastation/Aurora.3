@@ -16,10 +16,11 @@
 	var/wipe_start_time = 0
 
 /obj/item/device/memorywiper/Destroy()
-	if(attached)
-		attached = null
-	wiping = FALSE
-	return ..()
+	STOP_PROCESSING(SSprocessing, src)
+	attached = null
+	QDEL_NULL(wipe_bar)
+
+	. = ..()
 
 
 /obj/item/device/memorywiper/AltClick()
@@ -67,7 +68,7 @@
 					plug(over_object)
 					visible_message("[usr] plugs \the [src] into \the [attached]'s maintenance port.")
 
-/obj/item/device/memorywiper/attack_hand(user as mob)
+/obj/item/device/memorywiper/attack_hand(mob/user)
 	if(attached)
 		to_chat(user, SPAN_NOTICE("You initialize the memory wipe protocols. This procedure will take approximately 30 seconds."))
 		to_chat(attached, SPAN_WARNING("The computer hums to life and you feel your memories bleed away into nothingness."))
@@ -92,9 +93,9 @@
 	if(attached && wiping)
 		visible_message(SPAN_NOTICE("\The [src] pings, \"Memory wipe protocols complete.\""))
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
-		to_chat(attached, "<b>The process finishes, leaving you with nothing beyond your base programming and databases.</b>")
+		to_chat(attached, SPAN_BOLD("The process finishes, leaving you with nothing beyond your base programming and databases."))
 		wiping = FALSE
-		switch(alert(attached, "You've lost your memories! You can choose to ghost, or stay and be manipulated for someone else's ulterior motives...", "Memory Loss", "Ghost", "Stay"))
+		switch(tgui_alert(attached, "You've lost your memories! You can choose to ghost, or stay and be manipulated for someone else's ulterior motives...", "Memory Loss", list("Ghost", "Stay")))
 			if("Ghost")
 				attached.ghostize(0)
 
