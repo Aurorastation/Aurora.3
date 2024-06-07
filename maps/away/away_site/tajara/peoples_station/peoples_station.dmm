@@ -390,6 +390,12 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
 	},
+/obj/structure/cargo_receptacle{
+	override_name = "People's Station - Mess Hall";
+	payment_modifier = 0.4;
+	max_spawn = 2;
+	min_spawn = 1
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2559,15 +2565,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/training)
-"jH" = (
-/obj/effect/ghostspawpoint{
-	identifier = "peoples_station_crew";
-	name = "igs - peoples_station_crew"
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/range)
 "jL" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Station Hatch";
@@ -3543,8 +3540,8 @@
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/captain_quarters)
 "mT" = (
-/obj/effect/floor_decal/corner/dark_blue/full{
-	dir = 1
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -4587,22 +4584,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
-"rg" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/obj/machinery/door/firedoor{
-	dir = 8;
-	req_one_access = list(24,11,67,209)
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "rj" = (
 /obj/machinery/ammunition_loader/francisca{
 	weapon_id = "People's Station Rotary Gun"
@@ -4777,18 +4758,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
-"rQ" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "rR" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -5335,18 +5304,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
-"tF" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "tG" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -6110,7 +6067,7 @@
 /area/peoples_station/living_quarters)
 "xj" = (
 /obj/effect/floor_decal/corner/dark_blue{
-	dir = 6
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -8465,10 +8422,6 @@
 /obj/structure/bed/stool/chair/sofa/red{
 	dir = 4
 	},
-/obj/effect/ghostspawpoint{
-	identifier = "peoples_station_crew";
-	name = "igs - peoples_station_crew"
-	},
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/living_quarters)
 "Gg" = (
@@ -8528,7 +8481,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9643,18 +9598,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/transport_hangar)
-"Lt" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "Lv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -9845,16 +9788,6 @@
 	temperature = 268.15
 	},
 /area/peoples_station/visitor)
-"Mj" = (
-/obj/structure/bed/stool/bar/padded/red,
-/obj/effect/ghostspawpoint{
-	identifier = "peoples_station_crew";
-	name = "igs - peoples_station_crew"
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/mess_hall)
 "Ml" = (
 /obj/machinery/light{
 	dir = 8
@@ -9912,16 +9845,6 @@
 /obj/machinery/computer/arcade/battle,
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/living_quarters)
-"Mx" = (
-/obj/structure/bed/stool/chair/office/bridge/generic,
-/obj/effect/ghostspawpoint{
-	identifier = "peoples_station_crew";
-	name = "igs - peoples_station_crew"
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/bridge)
 "My" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -11150,9 +11073,6 @@
 	},
 /area/peoples_station)
 "Rs" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -11969,25 +11889,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
-"Uk" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/door/firedoor{
-	dir = 8;
-	req_one_access = list(24,11,67,209)
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "Ul" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, crew compartment"
@@ -12874,17 +12775,19 @@
 	},
 /area/peoples_station/fang)
 "Yf" = (
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 4
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 1
 	},
-/obj/effect/ghostspawpoint{
-	identifier = "peoples_station_crew";
-	name = "igs - peoples_station_crew"
+/obj/structure/cargo_receptacle{
+	override_name = "People's Station - Training Wing";
+	payment_modifier = 0.6;
+	max_spawn = 2;
+	min_spawn = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/peoples_station/defenses)
+/area/peoples_station/training)
 "Yh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -42588,7 +42491,7 @@ Uy
 Dx
 xo
 JB
-Yf
+bq
 oU
 Kn
 Kn
@@ -45093,7 +44996,7 @@ Kn
 Kn
 BJ
 Bx
-jH
+Bx
 Bx
 iO
 BJ
@@ -45869,7 +45772,7 @@ BJ
 BJ
 BJ
 HB
-HB
+Yf
 mT
 TH
 pA
@@ -46125,7 +46028,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
+HB
 HB
 HB
 HB
@@ -48228,7 +48131,7 @@ JL
 jZ
 LA
 jZ
-Mj
+aM
 aM
 aM
 aM
@@ -48999,7 +48902,7 @@ Wp
 yE
 Lf
 jZ
-Mj
+aM
 aM
 aM
 aM
@@ -50006,7 +49909,7 @@ bs
 UP
 Gz
 DJ
-Mx
+YG
 EJ
 iD
 VS
@@ -50802,7 +50705,7 @@ aM
 aM
 aM
 aM
-Mj
+aM
 aM
 aM
 aM
@@ -51573,7 +51476,7 @@ aM
 aM
 aM
 aM
-Mj
+aM
 aM
 aM
 aM
@@ -60065,7 +59968,7 @@ Cu
 fS
 Kn
 lI
-tF
+qa
 Gn
 fG
 Px
@@ -60579,8 +60482,8 @@ Kn
 Kn
 Kn
 lI
-rg
-Uk
+qa
+VZ
 lI
 Kn
 Kn
@@ -61350,8 +61253,8 @@ Kn
 Kn
 Kn
 lI
-rQ
-Lt
+qa
+BO
 DM
 Kn
 Kn
