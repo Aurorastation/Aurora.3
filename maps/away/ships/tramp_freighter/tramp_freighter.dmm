@@ -441,8 +441,8 @@
 /obj/machinery/alarm/north{
 	req_one_access = null
 	},
-/obj/machinery/vending/cigarette,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/arcade/orion_trail,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
 "cL" = (
@@ -834,6 +834,9 @@
 /area/tramp_freighter/bridge)
 "ef" = (
 /obj/structure/bed/stool/chair/sofa/right/brown,
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
 "eg" = (
@@ -1490,6 +1493,7 @@
 	pixel_y = -4;
 	pixel_x = -7
 	},
+/obj/effect/decal/cleanable/greenglow,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "hJ" = (
@@ -3000,16 +3004,13 @@
 /obj/item/circuitboard/shipsensors{
 	pixel_y = -3
 	},
-/obj/item/circuitboard/arcade/orion_trail{
-	pixel_y = 2
-	},
-/obj/item/circuitboard/arcade/battle{
-	pixel_y = 6
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/circuitboard/arcade/battle{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/engi)
 "qG" = (
@@ -5057,6 +5058,7 @@
 	pixel_y = -32
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "Ay" = (
@@ -5563,7 +5565,7 @@
 	pixel_y = 32
 	},
 /obj/item/trash/dipbowl{
-	pixel_x = -5
+	pixel_x = -8
 	},
 /obj/effect/decal/cleanable/generic{
 	layer = 2.81
@@ -6140,8 +6142,8 @@
 /obj/random/bomb_supply,
 /obj/random/technology_scanner,
 /obj/item/device/robotanalyzer,
-/obj/item/storage/bag/circuits/all,
 /obj/random/vault_rig,
+/obj/item/storage/bag/circuits/basic,
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/cargo)
 "HX" = (
@@ -7447,7 +7449,6 @@
 "PT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/greenglow,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/starboardthrust)
 "PV" = (
@@ -7605,6 +7606,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/afthallway)
+"QG" = (
+/obj/machinery/computer/pod/old,
+/turf/template_noop,
+/area/space)
 "QM" = (
 /obj/random/dirt_75,
 /obj/machinery/computer/ship/sensors/terminal{
@@ -53222,7 +53227,7 @@ hX
 hX
 hX
 hX
-hX
+QG
 hX
 hX
 hX
