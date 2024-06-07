@@ -347,6 +347,7 @@
 	pmcg_headwear["PMCG woolen hat"] = /obj/item/clothing/head/wool/pmc
 	pmcg_headwear["EPMC woolen hat"] = /obj/item/clothing/head/wool/pmc/alt
 	pmcg_headwear["PMCG garrison cap"] = /obj/item/clothing/head/sidecap/pmcg
+	pmcg_headwear["Grupo Amapola utility cover"] = /obj/item/clothing/head/grupo_amapola/ute
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_headwear)
 
 /datum/gear/faction/pmc_modsuit
@@ -480,14 +481,6 @@
 	path = /obj/item/clothing/head/misc/grupo_amapola
 	flags = GEAR_HAS_DESC_SELECTION
 	allowed_roles = list("Head of Security")
-	faction = "Private Military Contracting Group"
-	slot = slot_head
-
-/datum/gear/faction/grupo_amapola_enlist
- 	display_name = "grupo amapola utility cover"
-	path = /obj/item/clothing/head/misc/grupo_amapola/ute
-	flags = GEAR_HAS_DESC_SELECTION
-	allowed_roles = list("Security Cadet", "Security Officer", "Investigator", "Warden", "Security Personnel")
 	faction = "Private Military Contracting Group"
 	slot = slot_head
 
