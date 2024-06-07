@@ -477,7 +477,7 @@
 
 /datum/gear/faction/grupo_amapola_officer
  	display_name = "grupo amapola officer cap"
-	path = /obj/item/clothing/head/grupo_amapola
+	path = /obj/item/clothing/head/misc/grupo_amapola
 	flags = GEAR_HAS_DESC_SELECTION
 	allowed_roles = list("Head of Security")
 	faction = "Private Military Contracting Group"
@@ -485,7 +485,7 @@
 
 /datum/gear/faction/grupo_amapola_enlist
  	display_name = "grupo amapola utility cover"
-	path = /obj/item/clothing/head/grupo_amapola/ute
+	path = /obj/item/clothing/head/misc/grupo_amapola/ute
 	flags = GEAR_HAS_DESC_SELECTION
 	allowed_roles = list("Security Cadet", "Security Officer", "Investigator", "Warden", "Security Personnel")
 	faction = "Private Military Contracting Group"
