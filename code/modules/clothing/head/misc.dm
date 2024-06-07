@@ -718,6 +718,7 @@
 	icon = 'icons/clothing/head/pmcg/.dmi'
 	icon_state = "amapola_officer_hat"
 	item_state = "amapola_officer_hat"
+	contained_sprite = TRUE
 
 /obj/item/clothing/head/grupo_amapola/ute
 	name = "Grupo Amapola utility cover"

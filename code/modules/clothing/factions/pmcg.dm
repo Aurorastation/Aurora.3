@@ -109,3 +109,4 @@
 	icon = 'icons/clothing/under/uniforms/pmcg.dmi'
 	icon_state = "amapola_uni"
 	item_state = "amapola_uni"
+	contained_sprite = TRUE
