@@ -7506,6 +7506,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
