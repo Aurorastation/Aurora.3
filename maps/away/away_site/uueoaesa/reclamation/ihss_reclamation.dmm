@@ -3783,6 +3783,9 @@
 /area/ihss_reclamation/bridge)
 "sQ" = (
 /obj/machinery/firealarm/south,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/equipment)
 "sR" = (
