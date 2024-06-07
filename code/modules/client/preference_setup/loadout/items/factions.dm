@@ -375,6 +375,7 @@
 	pmcg_sec_uniforms["wildlands squadron uniform"] = /obj/item/clothing/under/rank/security/pmc/wildlands_squadron
 	pmcg_sec_uniforms["Dagamuir Freewater uniform"] = /obj/item/clothing/under/rank/security/pmc/dagamuir_freewater
 	pmcg_sec_uniforms["Ve'katak Phalanx uniform"] = /obj/item/clothing/under/rank/security/pmc/vekatak_phalanx
+	pmcg_sec_uniforms["Grupo Amapola uniform"] = /obj/item/clothing/under/rank/security/pmc/grupo_amapola
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_sec_uniforms)
 	gear_tweaks += list(gear_tweak_uniform_rolled_state)
 
