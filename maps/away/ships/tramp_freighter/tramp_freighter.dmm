@@ -390,6 +390,7 @@
 /obj/random/contraband,
 /obj/random/contraband,
 /obj/structure/closet/crate,
+/obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "bY" = (
@@ -448,11 +449,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freighter_shuttle)
 "cM" = (
-/obj/structure/table/steel,
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/random/loot,
+/obj/machinery/blackbox_recorder,
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/bridge)
 "cO" = (
@@ -752,6 +752,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector/stimpack,
 /obj/item/reagent_containers/hypospray/autoinjector/stimpack,
 /obj/item/reagent_containers/hypospray/autoinjector/impedrezene,
+/obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "dW" = (
@@ -1397,6 +1398,7 @@
 	must_start_working = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/space_heater,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
 "hk" = (
@@ -2105,10 +2107,6 @@
 /obj/structure/table/steel,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/random/loot{
-	pixel_x = -3;
-	pixel_y = 6
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/starboard_docking)
 "lx" = (
@@ -3016,10 +3014,7 @@
 "qG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood/gamblingtable,
-/obj/random/contraband{
-	pixel_y = -2;
-	pixel_x = -3
-	},
+/obj/random/contraband,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/starboard_docking)
 "qI" = (
@@ -4676,10 +4671,7 @@
 "yG" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/effect/decal/cleanable/dirt,
-/obj/random/contraband{
-	pixel_x = 7;
-	pixel_y = 9
-	},
+/obj/random/contraband,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/port_docking)
 "yJ" = (
@@ -4697,9 +4689,8 @@
 	dir = 4
 	},
 /obj/machinery/access_button{
-	pixel_x = -8;
-	pixel_y = 28;
-	dir = 8
+	pixel_x = -28;
+	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock{
 	name = "airlock_tramp_port";
@@ -6716,6 +6707,7 @@
 	pixel_y = 35
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/mucus,
 /turf/simulated/floor/marble,
 /area/tramp_freighter/washroom)
 "LH" = (
@@ -7458,6 +7450,7 @@
 "PT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/greenglow,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/starboardthrust)
 "PV" = (
@@ -7479,6 +7472,9 @@
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic{
+	layer = 2.81
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
 "Qb" = (
@@ -8891,9 +8887,8 @@
 	dir = 4
 	},
 /obj/machinery/access_button{
-	pixel_x = 8;
-	pixel_y = 28;
-	dir = 4
+	pixel_x = 28;
+	pixel_y = 28
 	},
 /obj/effect/map_effect/marker/airlock{
 	name = "airlock_tramp_starboard";
@@ -8927,8 +8922,8 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed,
 /obj/item/material/kitchen/utensil/knife/boot{
-	pixel_x = -4;
-	pixel_y = 1
+	pixel_x = -1;
+	pixel_y = -5
 	},
 /obj/machinery/light/small/emergency{
 	dir = 8
