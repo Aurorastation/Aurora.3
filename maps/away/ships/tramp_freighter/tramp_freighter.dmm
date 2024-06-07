@@ -1402,7 +1402,6 @@
 	must_start_working = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/space_heater,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
 "hk" = (
@@ -3151,6 +3150,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/atmos)
 "ry" = (
@@ -4797,7 +4797,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/machinery/space_heater,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
 "zt" = (
