@@ -54,25 +54,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/crew/eight)
 "an" = (
-/obj/effect/floor_decal/corner/yellow/diagonal{
-	dir = 1;
-	color = "#ba9122"
-	},
-/obj/effect/floor_decal/corner/red/diagonal{
+/obj/machinery/light{
 	dir = 4;
-	color = "#941307"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ihss_reclamation/dock)
+/area/ihss_reclamation/hangarhall)
 "ao" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
 	max_pressure_setting = 5000;
@@ -351,39 +338,31 @@
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/solars)
 "by" = (
-/obj/effect/floor_decal/corner/yellow/diagonal{
-	dir = 1;
-	color = "#ba9122"
-	},
-/obj/effect/floor_decal/corner/red/diagonal{
-	dir = 4;
-	color = "#941307"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/machinery/light{
+	pixel_y = -2
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ihss_reclamation/dock)
+/area/ihss_reclamation/southhall)
 "bB" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ihss_reclamation/crew)
 "bC" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
+/obj/machinery/door/airlock/external{
+	dir = 4
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
+/obj/machinery/access_button{
+	pixel_x = -8;
 	pixel_y = 28;
-	pixel_x = -6
-	},
-/obj/machinery/airlock_sensor{
-	pixel_x = 6;
-	pixel_y = 28
+	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_ihss_reclamation_dock4";
 	master_tag = "airlock_reclamation_dock4";
 	name = "airlock_reclamation_dock4"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/dock)
@@ -511,10 +490,6 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/medsci)
-"cj" = (
-/obj/machinery/alarm/warm/north,
-/turf/simulated/floor/tiled/dark,
-/area/ihss_reclamation/dock)
 "ck" = (
 /obj/structure/sink{
 	pixel_y = 28
@@ -611,17 +586,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/westhall)
 "cM" = (
-/obj/effect/floor_decal/corner/red{
-	color = "#941307";
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
 	},
-/obj/effect/floor_decal/corner/yellow{
-	color = "#ba9122"
+/obj/machinery/light,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_ihss_reclamation_dock4";
+	master_tag = "airlock_reclamation_dock4";
+	name = "airlock_reclamation_dock4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/ihss_reclamation/dock)
 "cO" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1046,15 +1020,6 @@
 	dir = 4;
 	color = "#941307"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
 "fh" = (
@@ -1247,6 +1212,25 @@
 "gn" = (
 /turf/template_noop,
 /area/space)
+"go" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_ihss_reclamation_dock2";
+	master_tag = "airlock_reclamation_dock2";
+	name = "airlock_reclamation_dock2"
+	},
+/turf/simulated/floor/plating,
+/area/ihss_reclamation/dock)
 "gr" = (
 /obj/machinery/door/blast/regular/open{
 	name = "Hazardous Specimen Containment";
@@ -1301,8 +1285,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/crew/three)
 "gw" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_ihss_reclamation_dock4";
+	master_tag = "airlock_reclamation_dock4";
+	name = "airlock_reclamation_dock4"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/plating,
 /area/ihss_reclamation/dock)
 "gx" = (
 /obj/structure/cable/green{
@@ -1328,12 +1321,11 @@
 	},
 /area/ihss_reclamation/envirosim)
 "gB" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(113);
-	spawn_firedoor = 1
+/obj/machinery/light{
+	pixel_y = -2
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ihss_reclamation/dock)
+/area/ihss_reclamation/northhall)
 "gD" = (
 /obj/structure/cable{
 	icon_state = "1-2";
@@ -1418,6 +1410,19 @@
 /obj/item/device/radio,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/storage)
+"gU" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_ihss_reclamation_dock2";
+	master_tag = "airlock_reclamation_dock2";
+	name = "airlock_reclamation_dock2"
+	},
+/turf/simulated/floor/plating,
+/area/ihss_reclamation/dock)
 "gZ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white{
@@ -1466,12 +1471,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/bridge)
-"hp" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ihss_reclamation/dock)
 "hq" = (
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
@@ -1554,21 +1553,6 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/bridge)
-"hX" = (
-/obj/effect/floor_decal/corner/yellow/diagonal{
-	dir = 1;
-	color = "#ba9122"
-	},
-/obj/effect/floor_decal/corner/red/diagonal{
-	dir = 4;
-	color = "#941307"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ihss_reclamation/dock)
 "hZ" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
@@ -1580,21 +1564,15 @@
 	},
 /area/ihss_reclamation/xenobot)
 "ib" = (
-/obj/effect/floor_decal/corner/yellow/diagonal{
-	dir = 1;
-	color = "#ba9122"
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_ihss_reclamation_dock2";
+	master_tag = "airlock_reclamation_dock2";
+	name = "airlock_reclamation_dock2"
 	},
-/obj/effect/floor_decal/corner/red/diagonal{
-	dir = 4;
-	color = "#941307"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/nav_ihss_reclamation/dock2,
+/turf/simulated/floor/plating,
 /area/ihss_reclamation/dock)
 "ie" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1602,6 +1580,10 @@
 	},
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/ihss_reclamation/simulation)
+"if" = (
+/obj/machinery/alarm/warm/east,
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/dock)
 "ig" = (
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 4;
@@ -1868,18 +1850,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/armoryfoyer)
-"jE" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
-	},
-/obj/machinery/light,
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_ihss_reclamation_dock4";
-	master_tag = "airlock_reclamation_dock4";
-	name = "airlock_reclamation_dock4"
-	},
-/turf/simulated/floor/plating,
-/area/ihss_reclamation/dock)
 "jK" = (
 /obj/structure/table/standard,
 /obj/machinery/light{
@@ -2060,18 +2030,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/ihss_reclamation)
-"km" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4
-	},
-/obj/machinery/light,
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_ihss_reclamation_dock3";
-	master_tag = "airlock_reclamation_dock3";
-	name = "airlock_reclamation_dock3"
-	},
-/turf/simulated/floor/plating,
-/area/ihss_reclamation/dock)
 "kr" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
@@ -2128,19 +2086,16 @@
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/atmos)
 "kM" = (
-/obj/effect/floor_decal/corner/yellow/diagonal{
-	dir = 1;
-	color = "#ba9122"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
 	},
-/obj/effect/floor_decal/corner/red/diagonal{
-	dir = 4;
-	color = "#941307"
+/obj/machinery/light,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_ihss_reclamation_dock3";
+	master_tag = "airlock_reclamation_dock3";
+	name = "airlock_reclamation_dock3"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/ihss_reclamation/dock)
 "kO" = (
 /obj/machinery/door/airlock/external,
@@ -2331,19 +2286,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
-"ly" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
-	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_ihss_reclamation_dock2";
-	master_tag = "airlock_reclamation_dock2";
-	name = "airlock_reclamation_dock2"
-	},
-/turf/simulated/floor/plating,
-/area/ihss_reclamation/dock)
 "lB" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -2417,6 +2359,32 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/northhall)
+"mc" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/dock)
+"mf" = (
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 1;
+	color = "#ba9122"
+	},
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4;
+	color = "#941307"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/dock)
 "mg" = (
 /obj/machinery/alarm/warm/west{
 	req_one_access = list(113)
@@ -2532,21 +2500,6 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/xenobot)
-"mz" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1
-	},
-/obj/machinery/light{
-	dir = 8;
-	icon_state = "tube_empty"
-	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_ihss_reclamation_dock1";
-	master_tag = "airlock_reclamation_dock1";
-	name = "airlock_reclamation_dock1"
-	},
-/turf/simulated/floor/plating,
-/area/ihss_reclamation/dock)
 "mA" = (
 /obj/machinery/alarm/warm/east{
 	req_one_access = list(113)
@@ -2863,6 +2816,16 @@
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/northhall)
+"og" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/powered/pump,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ihss_reclamation/equipment)
 "ok" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
@@ -2979,12 +2942,6 @@
 "oP" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ihss_reclamation/solars)
-"oR" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ihss_reclamation/dock)
 "oS" = (
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
@@ -3254,6 +3211,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/bridge)
+"pQ" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8;
+	icon_state = "tube_empty"
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_ihss_reclamation_dock1";
+	master_tag = "airlock_reclamation_dock1";
+	name = "airlock_reclamation_dock1"
+	},
+/turf/simulated/floor/plating,
+/area/ihss_reclamation/dock)
 "pR" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(113)
@@ -3318,6 +3290,10 @@
 	req_one_access = list(113)
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/light{
+	dir = 4;
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/equipment)
 "qg" = (
@@ -3339,25 +3315,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/equipment)
-"qs" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 8;
-	pixel_y = 6;
-	pixel_x = 20
-	},
-/obj/machinery/airlock_sensor{
-	pixel_x = 20;
-	dir = 8;
-	pixel_y = -6
-	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_ihss_reclamation_dock2";
-	master_tag = "airlock_reclamation_dock2";
-	name = "airlock_reclamation_dock2"
-	},
-/turf/simulated/floor/plating,
-/area/ihss_reclamation/dock)
 "qt" = (
 /obj/machinery/light{
 	dir = 1
@@ -3378,6 +3335,21 @@
 /obj/effect/shuttle_landmark/ihss_reclamation_transit,
 /turf/space/transit/north,
 /area/space)
+"qD" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 8;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_ihss_reclamation_dock2";
+	master_tag = "airlock_reclamation_dock2";
+	name = "airlock_reclamation_dock2"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/ihss_reclamation/dock)
 "qF" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3422,10 +3394,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/mess)
-"qO" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled/dark,
-/area/ihss_reclamation/dock)
 "qP" = (
 /obj/machinery/power/portgen/basic/fusion,
 /obj/structure/cable{
@@ -3511,6 +3479,26 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/easthall)
+"ri" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 6;
+	pixel_y = 28
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_ihss_reclamation_dock4";
+	master_tag = "airlock_reclamation_dock4";
+	name = "airlock_reclamation_dock4"
+	},
+/turf/simulated/floor/plating,
+/area/ihss_reclamation/dock)
 "rk" = (
 /obj/structure/bed/stool/chair/office/dark,
 /obj/machinery/light{
@@ -3562,24 +3550,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/equipment)
-"rx" = (
-/obj/effect/floor_decal/corner/yellow/diagonal{
-	dir = 1;
-	color = "#ba9122"
-	},
-/obj/effect/floor_decal/corner/red/diagonal{
-	dir = 4;
-	color = "#941307"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ihss_reclamation/dock)
 "rz" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
@@ -3595,6 +3565,12 @@
 "rD" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
+	},
+/obj/structure/cargo_receptacle{
+	override_name = "IHSS Reclamation - Research and Development";
+	payment_modifier = 0.7;
+	min_spawn = 1;
+	max_spawn = 2
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
@@ -3909,21 +3885,22 @@
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/solars)
 "te" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
-	pixel_x = -28;
-	pixel_y = -8
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 1;
+	color = "#ba9122"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4;
+	color = "#941307"
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_ihss_reclamation_dock2";
-	master_tag = "airlock_reclamation_dock2";
-	name = "airlock_reclamation_dock2"
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
 "tf" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -4007,6 +3984,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/hangar1)
+"tu" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/dock)
 "tz" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4292,6 +4273,19 @@
 	dir = 4
 	},
 /area/ihss_reclamation/envirosim)
+"va" = (
+/obj/effect/floor_decal/corner/red{
+	color = "#941307";
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	color = "#ba9122"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/dock)
 "vb" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4382,6 +4376,19 @@
 /obj/item/recharger_backpack/high,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/armory)
+"vm" = (
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4;
+	color = "#941307"
+	},
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 1;
+	color = "#ba9122"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/dock)
 "vo" = (
 /obj/machinery/pipedispenser,
 /turf/simulated/floor/tiled/dark,
@@ -4413,15 +4420,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/solars)
-"vA" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/bed/handrail{
-	buckle_dir = 4;
-	dir = 4;
-	pixel_x = -5
-	},
-/turf/template_noop,
-/area/space)
 "vB" = (
 /obj/effect/floor_decal/corner/red{
 	color = "#941307";
@@ -4621,6 +4619,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/ihss_reclamation)
+"wy" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/dock)
 "wz" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -4905,6 +4909,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/easthall)
+"xU" = (
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 1;
+	color = "#ba9122"
+	},
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4;
+	color = "#941307"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/dock)
 "xV" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5695,6 +5716,26 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/ihss_reclamation)
+"Br" = (
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 1;
+	color = "#ba9122"
+	},
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4;
+	color = "#941307"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/dock)
 "Bs" = (
 /obj/structure/cable/green,
 /obj/structure/cable/green{
@@ -5963,12 +6004,6 @@
 	color = "#941307"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6155,6 +6190,9 @@
 /area/ihss_reclamation/westhall)
 "Eg" = (
 /obj/machinery/telecomms/allinone/ship,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -6186,6 +6224,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/crew/four)
+"EG" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
+/turf/template_noop,
+/area/space)
+"EI" = (
+/obj/machinery/alarm/warm/north,
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/dock)
 "ET" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark,
@@ -6431,22 +6479,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/research)
 "Gg" = (
-/obj/effect/floor_decal/corner/yellow/diagonal{
-	dir = 1;
-	color = "#ba9122"
-	},
-/obj/effect/floor_decal/corner/red/diagonal{
-	dir = 4;
-	color = "#941307"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_one_access = list(113);
+	spawn_firedoor = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
@@ -6474,19 +6509,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/fuel)
-"Gl" = (
-/obj/effect/floor_decal/corner/yellow/diagonal{
-	dir = 1;
-	color = "#ba9122"
-	},
-/obj/effect/floor_decal/corner/red/diagonal{
-	dir = 4;
-	color = "#941307"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/dark,
-/area/ihss_reclamation/dock)
 "Gm" = (
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 4;
@@ -6570,19 +6592,16 @@
 	},
 /area/ihss_reclamation/research)
 "GH" = (
-/obj/effect/floor_decal/corner/yellow/diagonal{
-	dir = 1;
-	color = "#ba9122"
-	},
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 4;
 	color = "#941307"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 1;
+	color = "#ba9122"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
@@ -6970,6 +6989,13 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/equipment)
+"Ip" = (
+/obj/machinery/light{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/southhall)
 "Iq" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -6978,24 +7004,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/mess)
 "Iu" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 1;
+	color = "#ba9122"
 	},
-/obj/machinery/access_button{
-	pixel_x = -8;
-	pixel_y = 28;
-	dir = 8
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4;
+	color = "#941307"
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_ihss_reclamation_dock4";
-	master_tag = "airlock_reclamation_dock4";
-	name = "airlock_reclamation_dock4"
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
 "Iv" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -7052,21 +7073,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/crew)
-"IF" = (
-/obj/effect/floor_decal/corner/yellow/diagonal{
-	dir = 1;
-	color = "#ba9122"
-	},
-/obj/effect/floor_decal/corner/red/diagonal{
-	dir = 4;
-	color = "#941307"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ihss_reclamation/dock)
 "IJ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -7362,6 +7368,10 @@
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/structure/table/rack,
+/obj/machinery/light{
+	dir = 4;
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/equipment)
 "Kp" = (
@@ -7410,6 +7420,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/armory)
+"KE" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
+/turf/template_noop,
+/area/space)
 "KH" = (
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "nav_ihss_reclamation_dock1";
@@ -7483,23 +7501,6 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/northhall)
-"KY" = (
-/obj/effect/floor_decal/corner/yellow/diagonal{
-	dir = 1;
-	color = "#ba9122"
-	},
-/obj/effect/floor_decal/corner/red/diagonal{
-	dir = 4;
-	color = "#941307"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ihss_reclamation/dock)
 "KZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -7556,19 +7557,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/bridge)
-"Lj" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_ihss_reclamation_dock2";
-	master_tag = "airlock_reclamation_dock2";
-	name = "airlock_reclamation_dock2"
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
-/area/ihss_reclamation/dock)
 "Lk" = (
 /obj/machinery/button/switch/crematorium{
 	_wifi_id = "ihss_crema";
@@ -7582,16 +7570,25 @@
 	},
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/atmos)
-"Lo" = (
-/obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_ihss_reclamation_dock2";
-	master_tag = "airlock_reclamation_dock2";
-	name = "airlock_reclamation_dock2"
+"Lp" = (
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 1;
+	color = "#ba9122"
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/shuttle_landmark/nav_ihss_reclamation/dock2,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4;
+	color = "#941307"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
 "Ls" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -7761,16 +7758,19 @@
 	},
 /area/ihss_reclamation/medsci)
 "Mh" = (
-/obj/effect/floor_decal/corner/red/diagonal{
-	dir = 4;
-	color = "#941307"
-	},
 /obj/effect/floor_decal/corner/yellow/diagonal{
 	dir = 1;
 	color = "#ba9122"
 	},
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4;
+	color = "#941307"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
@@ -8093,13 +8093,26 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/armory)
 "Ny" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
 	},
-/obj/structure/lattice/catwalk,
-/obj/item/hullbeacon/red,
-/turf/template_noop,
-/area/space)
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_ihss_reclamation_dock1";
+	master_tag = "airlock_reclamation_dock1";
+	name = "airlock_reclamation_dock1"
+	},
+/turf/simulated/floor/plating,
+/area/ihss_reclamation/dock)
 "Nz" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/atmospherics/portables_connector{
@@ -8111,7 +8124,9 @@
 /turf/simulated/floor/exoplanet/water/shallow/moghes,
 /area/ihss_reclamation/envirosim)
 "NE" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
 "NF" = (
@@ -8153,6 +8168,12 @@
 "NS" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ihss_reclamation/medsci)
+"NT" = (
+/obj/machinery/light{
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/southhall)
 "NZ" = (
 /turf/simulated/floor/reinforced/airmix,
 /area/ihss_reclamation/atmos)
@@ -8194,11 +8215,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/crew/six)
 "Op" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3,
-/obj/structure/lattice/catwalk,
-/obj/item/hullbeacon/red,
-/turf/template_noop,
-/area/space)
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/dock)
 "Or" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -8215,6 +8234,19 @@
 "Os" = (
 /turf/simulated/floor/exoplanet/grass/moghes/dirt/beach,
 /area/ihss_reclamation/envirosim)
+"Ov" = (
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 1;
+	color = "#ba9122"
+	},
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4;
+	color = "#941307"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/dock)
 "OG" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -8374,16 +8406,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/southhall)
 "Pi" = (
-/obj/effect/floor_decal/corner/yellow/diagonal{
-	dir = 1;
-	color = "#ba9122"
+/obj/machinery/suit_cycler/offship/hephaestus{
+	req_access = list(113)
 	},
-/obj/effect/floor_decal/corner/red/diagonal{
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/light{
 	dir = 4;
-	color = "#941307"
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ihss_reclamation/dock)
+/turf/simulated/floor/plating,
+/area/ihss_reclamation/equipment)
 "Pj" = (
 /obj/structure/undies_wardrobe,
 /turf/simulated/floor/carpet/lightblue,
@@ -8411,6 +8443,15 @@
 /obj/structure/lattice/catwalk,
 /turf/simulated/floor/airless,
 /area/ihss_reclamation/solars)
+"Pm" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/bed/handrail{
+	buckle_dir = 4;
+	dir = 4;
+	pixel_x = -5
+	},
+/turf/template_noop,
+/area/space)
 "Pq" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -8620,25 +8661,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/northhall)
 "QB" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4
+/obj/machinery/light{
+	dir = 8;
+	pixel_x = -12
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
-	pixel_y = 28;
-	pixel_x = -6
-	},
-/obj/machinery/airlock_sensor{
-	pixel_x = 6;
-	pixel_y = 28
-	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_ihss_reclamation_dock3";
-	master_tag = "airlock_reclamation_dock3";
-	name = "airlock_reclamation_dock3"
-	},
-/turf/simulated/floor/plating,
-/area/ihss_reclamation/dock)
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/southhall)
 "QD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -9365,6 +9393,26 @@
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/airless,
 /area/ihss_reclamation/bridge)
+"TL" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 6;
+	pixel_y = 28
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_ihss_reclamation_dock3";
+	master_tag = "airlock_reclamation_dock3";
+	name = "airlock_reclamation_dock3"
+	},
+/turf/simulated/floor/plating,
+/area/ihss_reclamation/dock)
 "TM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
@@ -9681,16 +9729,23 @@
 	},
 /area/ihss_reclamation/captain)
 "Vk" = (
-/obj/effect/floor_decal/corner/red/diagonal{
-	dir = 4;
-	color = "#941307"
-	},
 /obj/effect/floor_decal/corner/yellow/diagonal{
 	dir = 1;
 	color = "#ba9122"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4;
+	color = "#941307"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
 "Vl" = (
@@ -9712,6 +9767,13 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/crew)
+"Vq" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/dock)
 "Vt" = (
 /obj/machinery/button/remote/blast_door{
 	name = "Hazardous Specimen Blast Doors";
@@ -9946,6 +10008,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
+"Wy" = (
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 1;
+	color = "#ba9122"
+	},
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4;
+	color = "#941307"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/dock)
 "Wz" = (
 /obj/machinery/door/blast/regular/open{
 	name = "Hazardous Specimen Containment";
@@ -10032,25 +10109,14 @@
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "Xa" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_one_access = list(113);
+	spawn_firedoor = 1
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 8;
-	pixel_y = 6;
-	pixel_x = 20
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
-/obj/machinery/airlock_sensor{
-	pixel_x = 20;
-	dir = 8;
-	pixel_y = -6
-	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_ihss_reclamation_dock1";
-	master_tag = "airlock_reclamation_dock1";
-	name = "airlock_reclamation_dock1"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
 "Xd" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -10072,19 +10138,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/hangar1)
-"Xg" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_ihss_reclamation_dock4";
-	master_tag = "airlock_reclamation_dock4";
-	name = "airlock_reclamation_dock4"
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/simulated/floor/plating,
-/area/ihss_reclamation/dock)
 "Xk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -10341,6 +10394,19 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/research)
+"XZ" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_ihss_reclamation_dock2";
+	master_tag = "airlock_reclamation_dock2";
+	name = "airlock_reclamation_dock2"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/ihss_reclamation/dock)
 "Yg" = (
 /obj/machinery/light{
 	dir = 4
@@ -10350,16 +10416,6 @@
 	dir = 4
 	},
 /area/ihss_reclamation/envirosim)
-"Yi" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	req_one_access = list(113);
-	spawn_firedoor = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ihss_reclamation/dock)
 "Yo" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/standard,
@@ -10428,13 +10484,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/crew/eight)
-"YG" = (
-/obj/machinery/light{
-	dir = 4;
-	status = 2
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ihss_reclamation/dock)
 "YI" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
@@ -10486,6 +10535,23 @@
 "YO" = (
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/westhall)
+"YP" = (
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 1;
+	color = "#ba9122"
+	},
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4;
+	color = "#941307"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/dock)
 "YS" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -10552,19 +10618,19 @@
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/solars)
 "Zk" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
-	pixel_x = 28;
-	pixel_y = 8;
-	dir = 1
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 1;
+	color = "#ba9122"
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_ihss_reclamation_dock2";
-	master_tag = "airlock_reclamation_dock2";
-	name = "airlock_reclamation_dock2"
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4;
+	color = "#941307"
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
 "Zn" = (
 /obj/structure/cable/green{
@@ -10586,6 +10652,12 @@
 "Zo" = (
 /obj/effect/floor_decal/corner/red/full{
 	color = "#941307"
+	},
+/obj/structure/cargo_receptacle{
+	override_name = "IHSS Reclamation - Mess Hall";
+	payment_modifier = 0.4;
+	min_spawn = 0;
+	max_spawn = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/mess)
@@ -10631,6 +10703,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/armory)
+"ZJ" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/dock)
 "ZW" = (
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 4;
@@ -10661,6 +10737,23 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/southhall)
+"ZY" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_ihss_reclamation_dock2";
+	master_tag = "airlock_reclamation_dock2";
+	name = "airlock_reclamation_dock2"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/ihss_reclamation/dock)
 
 (1,1,1) = {"
 gn
@@ -38022,7 +38115,7 @@ YO
 LI
 JP
 Tu
-Tu
+QB
 Tu
 hu
 zc
@@ -38794,7 +38887,7 @@ LI
 Tu
 dK
 ax
-Tu
+by
 hu
 zc
 gn
@@ -39537,7 +39630,7 @@ dO
 AS
 vG
 oZ
-AS
+gB
 dO
 gn
 gn
@@ -40360,8 +40453,8 @@ gn
 zc
 Pa
 Ki
-QB
-km
+TL
+kM
 Ki
 MF
 zc
@@ -40822,7 +40915,7 @@ dO
 AS
 vG
 oZ
-AS
+gB
 dO
 gn
 gn
@@ -41139,7 +41232,7 @@ Jp
 Jp
 lJ
 JZ
-mz
+pQ
 KH
 PO
 gn
@@ -41396,7 +41489,7 @@ iE
 iE
 TM
 Bk
-Xa
+Ny
 KH
 kO
 gn
@@ -43186,9 +43279,9 @@ Ki
 Ki
 Ki
 Ki
-gB
+Gg
 Wl
-Yi
+Xa
 Ki
 Ki
 Ki
@@ -43431,7 +43524,7 @@ Np
 lJ
 kU
 lJ
-OS
+mc
 lJ
 lJ
 Np
@@ -43701,12 +43794,12 @@ vZ
 vZ
 HR
 vZ
-an
-Vk
-Vk
-Vk
-Gl
-IF
+mf
+vm
+vm
+vm
+Ov
+Zk
 iE
 cB
 Uf
@@ -43890,17 +43983,17 @@ gn
 zc
 iB
 TE
+an
 TE
 TE
 TE
-TE
-TE
+an
 TE
 TE
 tl
 QJ
 TE
-TE
+an
 wG
 XS
 AS
@@ -43958,12 +44051,12 @@ Ng
 Ng
 Zu
 Ng
-kM
-Mh
-Mh
-Mh
+Iu
+GH
+GH
+GH
 Ng
-Dg
+Br
 iE
 cB
 xg
@@ -44196,13 +44289,13 @@ hu
 pE
 FJ
 lJ
-lJ
+if
 pE
 tQ
 lJ
 lJ
 lJ
-YG
+Vq
 lJ
 lJ
 tQ
@@ -44411,7 +44504,7 @@ Eg
 uL
 Rm
 Rm
-dN
+og
 dN
 vo
 pY
@@ -44476,9 +44569,9 @@ Ki
 Ki
 Ki
 Ki
-gB
+Gg
 cd
-Yi
+Xa
 Ki
 Ki
 Ki
@@ -44714,7 +44807,7 @@ hu
 zc
 zc
 zc
-vA
+Pm
 zc
 zc
 zc
@@ -44725,7 +44818,7 @@ zc
 zc
 zc
 zc
-vA
+Pm
 zc
 zc
 zc
@@ -44735,7 +44828,7 @@ zc
 Ki
 lJ
 Uh
-cM
+va
 lJ
 Ki
 zc
@@ -44991,8 +45084,8 @@ gn
 zc
 Ki
 lJ
-Gg
-by
+Vk
+Dg
 lJ
 Ki
 zc
@@ -45248,8 +45341,8 @@ gn
 zc
 Ki
 QU
-Gg
-by
+Vk
+Dg
 lJ
 bK
 zc
@@ -45436,7 +45529,7 @@ gn
 zc
 uL
 lg
-lg
+Pi
 IB
 pi
 qc
@@ -45448,7 +45541,7 @@ dO
 AS
 vG
 YW
-AS
+gB
 dO
 gn
 gn
@@ -45505,8 +45598,8 @@ gn
 zc
 Ki
 lJ
-Gg
-by
+Vk
+Dg
 lJ
 bK
 zc
@@ -45761,10 +45854,10 @@ gn
 gn
 Pa
 Ki
-gw
-rx
-ib
-oR
+ZJ
+te
+YP
+NE
 bK
 zc
 gn
@@ -46019,8 +46112,8 @@ gn
 zc
 Ki
 lJ
-Gg
-by
+Vk
+Dg
 lJ
 Ki
 zc
@@ -46275,9 +46368,9 @@ tD
 gn
 zc
 Ki
-cj
-Gg
-by
+EI
+Vk
+Dg
 lJ
 Ki
 zc
@@ -46533,9 +46626,9 @@ gn
 zc
 Ki
 ae
-Gg
-by
-qO
+Vk
+Dg
+Op
 Ki
 MF
 gn
@@ -46790,8 +46883,8 @@ gn
 zc
 Ki
 lJ
-Gg
-by
+Vk
+Dg
 lJ
 Ki
 zc
@@ -47042,13 +47135,13 @@ gn
 gn
 gn
 gn
-Op
+EG
 zc
 zc
 Ki
-lJ
-Gg
-by
+QU
+Vk
+Dg
 lJ
 bK
 zc
@@ -47247,7 +47340,7 @@ dO
 AS
 vG
 hi
-AS
+gB
 dO
 gn
 gn
@@ -47304,8 +47397,8 @@ bK
 Ki
 Ki
 lJ
-Gg
-by
+Vk
+Dg
 lJ
 bK
 zc
@@ -47556,13 +47649,13 @@ gn
 gn
 gn
 gn
-Lo
+ib
 er
-ly
-te
+gU
+ZY
 TM
-fd
-by
+Lp
+Dg
 lJ
 bK
 zc
@@ -47813,13 +47906,13 @@ gn
 gn
 gn
 gn
-Zk
+qD
 er
-qs
-Lj
+go
+XZ
 lJ
-GH
-by
+Mh
+Dg
 lJ
 Ki
 zc
@@ -48015,7 +48108,7 @@ bO
 yM
 LO
 dO
-AS
+qt
 vG
 hi
 AS
@@ -48075,8 +48168,8 @@ bK
 Ki
 Ki
 lJ
-GH
-by
+Mh
+Dg
 lJ
 Ki
 zc
@@ -48327,14 +48420,14 @@ gn
 gn
 gn
 gn
-Op
+EG
 zc
 zc
 Ki
 lJ
-GH
-by
-lJ
+Mh
+Dg
+Op
 Ki
 zc
 gn
@@ -48589,8 +48682,8 @@ gn
 zc
 Ki
 QU
-GH
-by
+Mh
+Dg
 lJ
 Ki
 zc
@@ -48817,7 +48910,7 @@ lr
 dp
 dp
 yH
-Tu
+NT
 hu
 zc
 gn
@@ -48846,8 +48939,8 @@ gn
 zc
 Ki
 lJ
-GH
-by
+Mh
+Dg
 lJ
 bK
 zc
@@ -49103,8 +49196,8 @@ gn
 zc
 Ki
 lJ
-GH
-by
+Mh
+Dg
 lJ
 bK
 zc
@@ -49329,7 +49422,7 @@ Hl
 Bo
 Su
 PI
-Tu
+Ip
 Tu
 Tu
 hu
@@ -49359,10 +49452,10 @@ gn
 gn
 Pa
 Ki
-NE
-KY
-hX
-hp
+tu
+xU
+Wy
+wy
 bK
 zc
 gn
@@ -49617,8 +49710,8 @@ gn
 zc
 Ki
 lJ
-Pi
-by
+fd
+Dg
 lJ
 Ki
 zc
@@ -49876,7 +49969,7 @@ Ki
 lJ
 lJ
 zT
-lJ
+Op
 Ki
 zc
 gn
@@ -50131,8 +50224,8 @@ gn
 zc
 Ki
 Ki
-Iu
-Xg
+bC
+gw
 Ki
 Ki
 MF
@@ -50388,8 +50481,8 @@ gn
 zc
 zc
 Ki
-bC
-jE
+ri
+cM
 Ki
 zc
 zc
@@ -50900,12 +50993,12 @@ gn
 YI
 gn
 gn
-Ny
+KE
 Ki
 Kl
 AK
 Ki
-Ny
+KE
 gn
 gn
 YI

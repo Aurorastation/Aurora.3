@@ -59,6 +59,7 @@ changes:
   - bugfix: "IHSS Reclamation Ghostspawners fixed."
   - bugfix: "IHSS Reclamation Shuttle Hangar Docking fixed."
   - rscadd: "Adds missing firelocks to IHSS Reclamation."
+  - rscadd: "IHSS Reclamation now has cargo delivery points."
   - rscadd: "Fore docking port added to IHSS Reclamation."
   - code_imp: "Window spawners now pass their req_one_access to their firelocks."
   - rscadd: "New Warm variants for air canister and air alarm, so Unathi can feel comfy."
