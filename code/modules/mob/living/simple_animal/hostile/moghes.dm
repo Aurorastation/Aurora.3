@@ -67,7 +67,7 @@
 
 			//RUN FOR YOUR LIFE
 			else if(poor_soul_distance_from_tyrant <= world.view*1.4)
-				message = SPAN_HIGHDANGER(SPAN_BOLD("YOU HEAR LOUD STOMPING NEARBY, SOMETHING TERRIFYINGLY LARGE IS NEARBY!"))
+				message = SPAN_HIGHDANGER(SPAN_BOLD("You hear loud stomping nearby!"))
 
 			//Fairly close, a normal warning should suffice
 			else
