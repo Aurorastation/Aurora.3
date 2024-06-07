@@ -51,8 +51,6 @@
 
 	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_EYE_COLOR | HAS_FBP | HAS_SKIN_PRESET | HAS_UNDERWEAR | HAS_SOCKS | HAS_LIPS
 
-	blood_color = COLOR_SYNTH_BLOOD
-
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/ipc/shell),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin/ipc/shell),
