@@ -715,7 +715,7 @@
 /obj/item/clothing/head/grupo_amapola
 	name = "Grupo Amapola officer cap"
 	desc = "A peaked officer's cap bearing the poppy of the military contracting group Grupo Amapola."
-	icon = 'icons/clothing/head/pmcg/.dmi'
+	icon = 'icons/clothing/head/pmcg.dmi'
 	icon_state = "amapola_officer_hat"
 	item_state = "amapola_officer_hat"
 	contained_sprite = TRUE
