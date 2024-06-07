@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/tramp_freighter
 	name = "Independent Freighter"
-	description = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an external docking port capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and scant defenses to speak of, the Catspaw is risky to operate in unpoliced space."
+	description = "A favourite of small-scale independent businesses, the Farthing-class is one of few popular commercial designs of hauling vessel not manufactured by any particular megacorporation. Designed as a versatile tool, it popularly finds itself used to freight for remote areas of space. Tolerances are cut throughout the ship to achieve its legendary cost efficiency, making it a horribly oppressive ship to live on, and a vulnerable target for pirates - between its vulnerable bridge and limited means of self-defence, the Farthing is risky to operate in unpoliced space."
 
 	prefix = "ships/tramp_freighter/"
 	suffixes = list("tramp_freighter.dmm")
@@ -16,14 +16,14 @@
 
 /singleton/submap_archetype/tramp_freighter
 	map = "Independent Freighter"
-	descriptor = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an external docking port capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and scant defenses to speak of, the Catspaw is risky to operate in unpoliced space."
+	descriptor = "A favourite of small-scale independent businesses, the Farthing-class is one of few popular commercial designs of hauling vessel not manufactured by any particular megacorporation. Designed as a versatile tool, it popularly finds itself used to freight for remote areas of space. Tolerances are cut throughout the ship to achieve its legendary cost efficiency, making it a horribly oppressive ship to live on, and a vulnerable target for pirates - between its vulnerable bridge and limited means of self-defence, the Farthing is risky to operate in unpoliced space."
 
 //ship stuff
 
 /obj/effect/overmap/visitable/ship/tramp_freighter
 	name = "Independent Freighter"
 	class = "ICV"
-	desc = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an external docking port capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and scant defenses to speak of, the Catspaw is risky to operate in unpoliced space."
+	desc = "A favourite of small-scale independent businesses, the Farthing-class is one of few popular commercial designs of hauling vessel not manufactured by any particular megacorporation. Designed as a versatile tool, it popularly finds itself used to freight for remote areas of space. Tolerances are cut throughout the ship to achieve its legendary cost efficiency, making it a horribly oppressive ship to live on, and a vulnerable target for pirates - between its vulnerable bridge and limited means of self-defence, the Farthing is risky to operate in unpoliced space."
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
 	colors = list("#c3c7eb", "#a0a8ec")
@@ -34,10 +34,10 @@
 	vessel_size = SHIP_SIZE_SMALL
 	scanimage = "tramp_freighter.png"
 	designer = "Independent, Unknown"
-	volume = "49 meters length, 46 meters beam/width, 12 meters vertical height"
+	volume = "49 meters length, 26 meters beam/width, 11 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
-	weapons = "Starboard low-end ballistic weapon mount, aft obscured flight craft bay"
-	sizeclass = "Catspaw Class Freighter"
+	weapons = "Fore low-end ballistic weapon mount, aft flight craft dock"
+	sizeclass = "Farthing Class Freighter"
 	shiptype = "Long-term shipping utilities"
 
 	initial_restricted_waypoints = list(
