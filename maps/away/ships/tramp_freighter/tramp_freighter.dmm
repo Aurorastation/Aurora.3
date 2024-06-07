@@ -5057,10 +5057,6 @@
 	pixel_y = -32
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/bin,
-/obj/structure/closet/crate/bin,
-/obj/structure/closet/crate/bin,
-/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "Ay" = (
