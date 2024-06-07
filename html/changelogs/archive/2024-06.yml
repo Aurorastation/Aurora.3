@@ -205,3 +205,8 @@
   - rscadd: Adds blueprints to most overmap ships, as well as several away sites and
       ruins.
   - qol: Shuttles will no longer pull mineral turfs with them when taking off.
+2024-06-07:
+  FluffyGhost:
+  - server: Updated CI actions to the latest version.
+  - server: Set concurrency level to the workflow level for faster canceling on re-runs
+      (hopefully).
