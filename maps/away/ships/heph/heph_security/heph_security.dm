@@ -10,7 +10,6 @@
 	ship_cost = 1
 	id = "Hephaestus Security Vessel"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/hephsec_shuttle)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(2)
 
