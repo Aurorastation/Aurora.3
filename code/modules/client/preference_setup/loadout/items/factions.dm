@@ -475,6 +475,22 @@
 	faction = "Private Military Contracting Group"
 	slot = slot_w_uniform
 
+/datum/gear/faction/grupo_amapola_officer
+ 	display_name = "grupo amapola officer cap"
+	path = /obj/item/clothing/head/grupo_amapola
+	flags = GEAR_HAS_DESC_SELECTION
+	allowed_roles = list("Head of Security")
+	faction = "Private Military Contracting Group"
+	slot = slot_w_uniform
+
+/datum/gear/faction/grupo_amapola_enlist
+ 	display_name = "grupo amapola utility cover"
+	path = /obj/item/clothing/head/grupo_amapola/ute
+	flags = GEAR_HAS_DESC_SELECTION
+	allowed_roles = list("Security Cadet", "Security Officer", "Investigator", "Warden", "Security Personnel")
+	faction = "Private Military Contracting Group"
+	slot = slot_w_uniform
+
 //Zeng-Hu
 /datum/gear/faction/zenghu_beret
 	display_name = "zeng-hu headwear selection"
