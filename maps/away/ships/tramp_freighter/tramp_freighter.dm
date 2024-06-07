@@ -152,21 +152,21 @@
 
 
 /datum/shuttle/autodock/overmap/freighter_shuttle
-    name = "Freight Shuttle"
-    move_time = 20
-    shuttle_area = list(/area/shuttle/freighter_shuttle)
-    dock_target = "airlock_tramp_shuttle"
-    current_location = "nav_tramp_start"
-    landmark_transition = "nav_transit_freighter_shuttle"
-    range = 1
-    fuel_consumption = 2
-    logging_home_tag = "nav_tramp_start"
-    defer_initialisation = TRUE
+	name = "Freight Shuttle"
+	move_time = 20
+	shuttle_area = list(/area/shuttle/freighter_shuttle)
+	dock_target = "airlock_tramp_shuttle"
+	current_location = "nav_tramp_start"
+	landmark_transition = "nav_transit_freighter_shuttle"
+	range = 1
+	fuel_consumption = 2
+	logging_home_tag = "nav_tramp_start"
+	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/freighter_shuttle/hangar
-    name = "Freight Shuttle Dock"
-    landmark_tag = "nav_tramp_start"
-    docking_controller = "tramp_shuttle_dock"
+	name = "Freight Shuttle Dock"
+	landmark_tag = "nav_tramp_start"
+	docking_controller = "tramp_shuttle_dock"
 
 /obj/effect/shuttle_landmark/freighter_shuttle/transit
 	name = "In transit"
