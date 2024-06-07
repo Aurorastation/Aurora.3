@@ -125,6 +125,9 @@
 		ground_survey_result = "<br>High concretation of dense metal in the mantle"
 
 // --------------------------------- Adhomai
+// NOTE: To trigger Adhomai 'event' (eclipses). Use the set holiday verb to the eclipse name BEFORE this planet is initialized, or have holiday added to holidays.dm
+// "Shi-rr’ata" : Messa Eclipse. Lighting changes.
+// "Shi-rra Arr’Kahata" : Raskara Eclipse. This makes planet covered in darkness and increases hostile animal spawns (Adhomai Hell)
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai
 	name = "Adhomai"
 	desc = "The Tajaran homeworld. Adhomai is a cold and icy world, suffering from almost perpetual snowfall and extremely low temperatures."
