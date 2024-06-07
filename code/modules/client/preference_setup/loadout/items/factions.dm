@@ -481,7 +481,7 @@
 	flags = GEAR_HAS_DESC_SELECTION
 	allowed_roles = list("Head of Security")
 	faction = "Private Military Contracting Group"
-	slot = slot_w_uniform
+	slot = slot_head
 
 /datum/gear/faction/grupo_amapola_enlist
  	display_name = "grupo amapola utility cover"
@@ -489,7 +489,7 @@
 	flags = GEAR_HAS_DESC_SELECTION
 	allowed_roles = list("Security Cadet", "Security Officer", "Investigator", "Warden", "Security Personnel")
 	faction = "Private Military Contracting Group"
-	slot = slot_w_uniform
+	slot = slot_head
 
 //Zeng-Hu
 /datum/gear/faction/zenghu_beret
