@@ -70,7 +70,6 @@
 	//HIDING MOB
 	#define HIDING_MOB_LAYER 2.15
 	#define SHALLOW_FLUID_LAYER 2.16
-	#define MOB_SHADOW_LAYER 2.17
 	// OBJ
 	#define BELOW_DOOR_LAYER 2.18
 	#define OPEN_DOOR_LAYER 2.19
@@ -81,6 +80,9 @@
 	#define STRUCTURE_LAYER 2.24
 	//OBJ_LAYER 3
 	#define ABOVE_OBJ_LAYER 3.01
+	#define MOB_SHADOW_LAYER 3.011
+	#define MOB_EMISSIVE_LAYER 3.012
+	#define MOB_SHADOW_UPPER_LAYER 3.013
 	#define UNDERDOOR 3.015		//Just barely under a closed door. TODO: Obsolete?
 	#define CLOSED_DOOR_LAYER 3.02
 	#define ABOVE_DOOR_LAYER 3.03
@@ -155,6 +157,7 @@
 #define HUD_PLANE 7
 	#define UNDER_HUD_LAYER 1
 	#define HUD_BASE_LAYER 2
+	#define HUD_BELOW_ITEM_LAYER 2.9
 	#define HUD_ITEM_LAYER 3
 	#define HUD_ABOVE_ITEM_LAYER 4
 	#define RADIAL_BACKGROUND_LAYER 5

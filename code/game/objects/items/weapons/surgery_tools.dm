@@ -18,6 +18,10 @@
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	recyclable = TRUE
 
+/obj/item/surgery/Initialize(mapload, ...)
+	. = ..()
+	item_flags |= ITEM_FLAG_SURGERY
+
 /*
  * Retractor
  */

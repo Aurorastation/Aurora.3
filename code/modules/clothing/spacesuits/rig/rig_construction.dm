@@ -201,13 +201,13 @@
 		else
 			return 0
 	else if(I.iswrench())
-		I.play_tool_sound(get_turf(src), 50)
+		I.play_tool_sound(get_turf(I), 50)
 
 	else if(I.isscrewdriver())
-		I.play_tool_sound(get_turf(src), 50)
+		I.play_tool_sound(get_turf(I), 50)
 
 	else if(I.iswirecutter())
-		I.play_tool_sound(get_turf(src), 50)
+		I.play_tool_sound(get_turf(I), 50)
 
 	else if(I.iscoil())
 		var/obj/item/stack/cable_coil/C = used_atom

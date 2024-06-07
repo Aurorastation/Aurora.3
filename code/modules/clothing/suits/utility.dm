@@ -77,10 +77,9 @@
 		bomb = ARMOR_BOMB_SHIELDED
 	)
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
-	siemens_coefficient = 0.1
+	siemens_coefficient = 0
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES
 	body_parts_covered = HEAD|FACE|EYES
-	siemens_coefficient = 0
 	tint = TINT_HEAVY
 
 
@@ -105,7 +104,7 @@
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_SHIELDED
 	)
-	siemens_coefficient = 0.1
+	siemens_coefficient = 0
 	item_flags = ITEM_FLAG_THICK_MATERIAL
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
@@ -113,7 +112,6 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
-	siemens_coefficient = 0
 	var/mob/living/carbon/human/wearer = null
 	var/suit_temp = T20C
 

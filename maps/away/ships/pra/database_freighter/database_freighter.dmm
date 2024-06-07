@@ -616,6 +616,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints/outpost{
+	pixel_y = 6
+	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2152,7 +2161,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
@@ -3558,7 +3567,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{
@@ -3690,7 +3699,7 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/tank/oxygen,
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/machinery/door/window/southleft{

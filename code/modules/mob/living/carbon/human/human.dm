@@ -1515,12 +1515,9 @@
 	if (vessel)
 		restore_blood()
 
-	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
-	if(client && client.screen)
-		client.screen.len = null
-		if(hud_used)
-			qdel(hud_used)
-		hud_used = new /datum/hud(src)
+	// Rebuild the HUD and visual elements.
+	if(client)
+		LateLogin()
 
 	if (src.is_diona())
 		setup_gestalt(1)
@@ -1582,7 +1579,6 @@
 		return TRUE
 	else
 		return FALSE
-
 
 /mob/living/carbon/human/proc/fill_out_culture_data()
 	set_culture(GET_SINGLETON(species.possible_cultures[1]))

@@ -2238,6 +2238,9 @@
 /obj/machinery/light/skrell{
 	dir = 8
 	},
+/obj/item/reagent_containers/weldpack{
+	pixel_y = 8
+	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/engi)
 "po" = (
@@ -6471,13 +6474,15 @@
 /area/ship/tirakqi_smuggler/port_hall)
 "NI" = (
 /obj/structure/table/skrell,
-/obj/item/reagent_containers/weldpack{
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
 	pixel_y = 8
 	},
 /obj/item/clothing/glasses/welding{
 	pixel_x = 4;
 	pixel_y = -2
 	},
+/obj/item/blueprints,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/engi)
 "NM" = (

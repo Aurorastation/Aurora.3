@@ -411,7 +411,9 @@
 "fz" = (
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/structure/filingcabinet/chestdrawer,
-/obj/structure/sign/flag/hegemony/large/north,
+/obj/structure/sign/flag/hegemony/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/bridge)
 "fE" = (
@@ -649,7 +651,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = null
 	},
 /turf/simulated/floor/lino/diamond,
@@ -1014,7 +1015,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/green/full{
@@ -2451,7 +2451,6 @@
 "zD" = (
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -3650,7 +3649,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = null
 	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
@@ -3663,6 +3661,11 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/steel,
 /area/miners_guild/engineering1)
 "On" = (
@@ -4596,7 +4599,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = null
 	},
 /turf/simulated/floor/tiled/white,

@@ -6,7 +6,8 @@
 		- ALT-click the truck to remove the key from the ignition.<br>\
 		- Click the truck to open a UI menu.<br>\
 		- Click the resist button or type \"resist\" in the command bar at the bottom of your screen to get off the truck.<br>\
-		- If latched, you can use a wrench to unlatch."
+		- If latched, you can use a wrench to unlatch.<br>\
+		- Click-drag on a trolley to latch and tow it."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "cargo_engine"
 	on = 0
@@ -33,7 +34,7 @@
 
 /obj/vehicle/train/cargo/trolley
 	name = "cargo train trolley"
-	desc_info = "You can use a wrench to unlatch this."
+	desc_info = "You can use a wrench to unlatch this, click-drag to link it to another trolley to tow."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "cargo_trailer"
 	anchored = 0
@@ -242,6 +243,10 @@
 
 	if(is_train_head())
 		if(direction == reverse_direction(dir) && tow)
+			//Allow the engine to rotate, but only if there's not another piece in the new direction
+			//Basically, to allow the first rotation at spawn to align with the rest of the convoy, without it being a CBT
+			if(!(locate(/obj/vehicle/train) in get_step(src, direction)))
+				set_dir(direction)
 			return 0
 		if(Move(get_step(src, direction)))
 			return 1
@@ -277,6 +282,10 @@
 		if("Toggle Latching")
 			if(tow)
 				tow.unattach(user)
+			else
+				var/obj/vehicle/train/cargo/trolley/nearby_trolley = locate() in orange(src, 1)
+				if(nearby_trolley)
+					src.latch(nearby_trolley)
 
 /obj/vehicle/train/cargo/engine/AltClick(var/mob/user)
 	if(Adjacent(user))

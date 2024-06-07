@@ -113,7 +113,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 		return FALSE
 
 	var/flags = issilicon(user) ? USE_ALLOW_NON_ADJACENT : 0
-	if (use_check_and_message(user, flags) || user.blinded || inoperable() || !linked)
+	if (use_check_and_message(user, flags) || user.blinded || !operable() || !linked)
 		return -1
 	else
 		return SEE_THRU

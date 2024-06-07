@@ -3567,6 +3567,33 @@
 /obj/machinery/suit_cycler/mining/prepared{
 	req_access = null
 	},
+/obj/item/stack/material/glass/full{
+	pixel_y = 6;
+	pixel_x = -3
+	},
+/obj/item/stack/material/glass/full{
+	pixel_y = 6;
+	pixel_x = -3
+	},
+/obj/item/stack/material/steel/full{
+	pixel_y = 6;
+	pixel_x = 2
+	},
+/obj/item/stack/material/steel/full{
+	pixel_y = 6;
+	pixel_x = 2
+	},
+/obj/item/stack/material/aluminium/full{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/stack/material/plastic/full{
+	pixel_y = 6;
+	pixel_x = -5
+	},
+/obj/item/stack/material/lead/full{
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/equipment)
 "tr" = (

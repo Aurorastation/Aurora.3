@@ -318,9 +318,6 @@
 "aQ" = (
 /obj/machinery/power/apc/east{
 	req_access = list(213);
-	pixel_y = 21;
-	dir = 1;
-	pixel_x = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -5260,11 +5257,15 @@
 	},
 /area/nka_merchant/mess)
 "IJ" = (
-/obj/machinery/pipedispenser/disposal,
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -5325,8 +5326,6 @@
 /obj/machinery/power/apc/south{
 	is_critical = 1;
 	req_access = list(213);
-	dir = 1;
-	pixel_y = 21
 	},
 /obj/structure/cable/green{
 	d2 = 2;

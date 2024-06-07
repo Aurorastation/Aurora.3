@@ -1,7 +1,7 @@
 GLOBAL_LIST_EMPTY(all_robolimbs)
 GLOBAL_LIST_EMPTY(internal_robolimbs)
 GLOBAL_LIST_EMPTY(chargen_robolimbs)
-GLOBAL_LIST_EMPTY(fabricator_robolimbs)
+GLOBAL_LIST_EMPTY_TYPED(fabricator_robolimbs, /datum/robolimb)
 GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 
 /proc/populate_robolimb_list()
@@ -45,6 +45,8 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	)
 	/// If this prosthetic type is paintable.
 	var/paintable = 0
+	/// If this prosthetic glows in the dark
+	var/emissive = FALSE
 	/// Which IPC species this prosthetic type will create.
 	var/linked_frame = SPECIES_IPC_UNBRANDED
 	/// How resistant this prosthetic type is to brute damage.
@@ -80,6 +82,13 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 
 /datum/robolimb/proc/malfunctioning_check()
 	return FALSE
+
+/datum/robolimb/emissive
+	company = PROSTHETIC_UNBRANDED_EMISSIVE
+	emissive = TRUE
+
+	allowed_internal_organs = list(BP_EYES)
+	allowed_external_organs = list()
 
 /datum/robolimb/bishop
 	company = PROSTHETIC_BC

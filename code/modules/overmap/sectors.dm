@@ -1,18 +1,22 @@
 //===================================================================================
 //Overmap object representing zlevel(s)
 //===================================================================================
-var/global/area/overmap/map_overmap // Global object used to locate the overmap area.
+/// Global object used to locate the overmap area.
+var/global/area/overmap/map_overmap
 
 /obj/effect/overmap/visitable
 	name = "map object"
 	scannable = TRUE
 	sensor_range_override = TRUE
-	var/designation //Actual name of the object.
-	var/class //Imagine a ship or station's class. "NTCC" Odin, "SCCV" Horizon, ...
+	/// Actual name of the object.
+	var/designation
+	/// Imagine a ship or station's class. "NTCC" Odin, "SCCV" Horizon, ...
+	var/class
 	unknown_id = "Bogey"
 	var/obfuscated_name = "unidentified object"
 	var/obfuscated_desc = "This object is not displaying its IFF signature."
-	var/obfuscated = FALSE //Whether we hide our name and class or not.
+	/// Whether we hide our name and class or not.
+	var/obfuscated = FALSE
 
 	/// Landmark tags of landmarks that should be added to the actual lists below on init.
 	/// Generic, meaning usable by any shuttle.
@@ -25,14 +29,20 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	/// Can contain nested lists, as it is flattened on init.
 	var/list/tracked_dock_tags
 
-	var/list/generic_waypoints = list()    //waypoints that any shuttle can use
-	var/list/restricted_waypoints = list() //waypoints for specific shuttles
+	/// Waypoints that any shuttle can use
+	var/list/generic_waypoints = list()
+	/// Waypoints for specific shuttles
+	var/list/restricted_waypoints = list()
 
-	var/start_x			//Coordinates for self placing
-	var/start_y			//will use random values if unset
+	/// Coordinates for self placing
+	var/start_x
+	/// Will use random values if unset
+	var/start_y
 
-	var/base = 0		//starting sector, counts as station_levels
-	var/in_space = 1	//can be accessed via lucky EVA
+	/// Starting sector, counts as station_levels
+	var/base = FALSE
+	/// Can be accessed via lucky EVA
+	var/in_space = TRUE
 
 	var/has_called_distress_beacon = FALSE
 	var/image/applied_distress_overlay
@@ -52,11 +62,14 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/freq_name = ""
 	/// Whether away ship comms have access to the common channel / PUB_FREQ
 	var/use_common = FALSE
-	var/list/navigation_viewers // list of weakrefs to people viewing the overmap via this ship
+	/// list of weakrefs to people viewing the overmap via this ship
+	var/list/navigation_viewers
 	var/list/consoles
 
-	var/list/datalink_requests = list()// A list of datalink requests that we received
-	var/list/datalinked        = list()// Other effects that we are datalinked with
+	/// A list of datalink requests that we received
+	var/list/datalink_requests = list()
+	/// Other effects that we are datalinked with
+	var/list/datalinked        = list()
 
 	/// null | num | list. If a num or a (num, num) list, the radius or random bounds for placing this sector near the main map's overmap icon.
 	var/list/place_near_main

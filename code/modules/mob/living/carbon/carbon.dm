@@ -8,7 +8,7 @@
 	. = ..()
 
 	if(species && species.indefinite_sleep)
-		add_verb(client, /mob/verb/toggle_indefinite_sleep)
+		add_verb(src, /verb/toggle_indefinite_sleep)
 
 /mob/living/carbon/Life()
 	if(!..())
@@ -335,7 +335,7 @@
 
 // ++++ROCKDTBEN++++ MOB PROCS //END
 
-/mob/living/carbon/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/mob/living/carbon/fire_act(exposed_temperature, exposed_volume)
 	..()
 	var/temp_inc = max(min(BODYTEMP_HEATING_MAX*(1-get_heat_protection()), exposed_temperature - bodytemperature), 0)
 	bodytemperature += temp_inc
@@ -388,16 +388,17 @@
 		return FALSE
 	return ..()
 
-/mob/verb/toggle_indefinite_sleep()
+/verb/toggle_indefinite_sleep()
 	set name = "Toggle Indefinite Sleep"
 	set category = "IC"
+	if(ismob(usr))
+		var/mob/M = usr
+		M.sleeping_indefinitely = !M.sleeping_indefinitely
+		to_chat(M, SPAN_NOTICE("You will [M.sleeping_indefinitely ? "now" : "no longer"] sleep indefinitely."))
 
-	sleeping_indefinitely = !sleeping_indefinitely
-	to_chat(usr, SPAN_NOTICE("You will [sleeping_indefinitely ? "now" : "no longer"] sleep indefinitely."))
-
-	if(!sleeping_indefinitely)
-		AdjustSleeping(-1*sleep_buffer)
-		sleep_buffer = 0
+		if(!M.sleeping_indefinitely)
+			M.AdjustSleeping(-1*M.sleep_buffer)
+			M.sleep_buffer = 0
 
 /mob/living/carbon/Collide(atom/A)
 	if(now_pushing)

@@ -258,12 +258,12 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 
-/obj/item/device/destTagger/proc/openwindow(mob/user as mob)
+/obj/item/device/destTagger/proc/openwindow(mob/user)
 	var/dat = "<tt><center><h1><b>TagMaster 2.3</b></h1></center>"
 
 	dat += "<table style='width:100%; padding:4px;'><tr>"
 	for(var/i = 1, i <= SSdisposals.tagger_locations.len, i++)
-		dat += "<td><a href='?src=\ref[src];nextTag=[SSdisposals.tagger_locations[i]]'>[SSdisposals.tagger_locations[i]]</a></td>"
+		dat += "<td><a href='?src=\ref[src];nextTag=[html_encode(SSdisposals.tagger_locations[i])]'>[SSdisposals.tagger_locations[i]]</a></td>"
 
 		if (i % 4==0)
 			dat += "</tr><tr>"
@@ -273,20 +273,23 @@
 	user << browse(dat, "window=destTagScreen;size=450x375")
 	onclose(user, "destTagScreen")
 
-/obj/item/device/destTagger/attack_self(mob/user as mob)
+/obj/item/device/destTagger/attack_self(mob/user)
 	openwindow(user)
 	return
 
 /obj/item/device/destTagger/Topic(href, href_list)
 	src.add_fingerprint(usr)
-	if(href_list["nextTag"] && (href_list["nextTag"] in SSdisposals.tagger_locations))
-		src.currTag = href_list["nextTag"]
+
+	if(href_list["nextTag"] && (html_decode(href_list["nextTag"]) in SSdisposals.tagger_locations))
+		src.currTag = html_decode(href_list["nextTag"])
+
 	if(href_list["nextTag"] == "CUSTOM")
 		var/dest = input("Please enter custom location.", "Location", src.currTag ? src.currTag : "None")
 		if(dest != "None")
 			src.currTag = dest
 		else
 			src.currTag = 0
+
 	openwindow(usr)
 
 /obj/machinery/disposal/deliveryChute
