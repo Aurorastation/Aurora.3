@@ -39,7 +39,9 @@
 		"nav_peoples_station_ship_3",
 		"nav_peoples_station_ship_4",
 		"nav_peoples_station_fore_dock",
-		"nav_peoples_station_port_dock"
+		"nav_peoples_station_aft_dock",
+		"nav_peoples_station_port_dock",
+		"nav_peoples_station_starboard_dock"
 	)
 	initial_restricted_waypoints = list(
 		"Orbital Fleet Fang" = list("nav_hangar_peoples_station_fang"),

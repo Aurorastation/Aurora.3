@@ -21,6 +21,17 @@
 	temperature = 278.15
 	},
 /area/peoples_station/training)
+"ag" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "ai" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
@@ -40,6 +51,21 @@
 	temperature = 278.15
 	},
 /area/peoples_station/armory)
+"as" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/structure/sign/flag/pra/large/west{
+	pixel_x = -32;
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "ax" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
@@ -129,31 +155,45 @@
 	},
 /area/peoples_station)
 "aF" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/peoples_station/living_quarters)
-"aH" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/door/firedoor{
-	dir = 4
+"aL" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/blast/regular{
+	id = "peoples_egg"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/peoples_station/hangar)
+/area/peoples_station/armory)
 "aM" = (
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
+"aN" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "aP" = (
 /obj/machinery/door/airlock/external{
 	dir = 1
@@ -216,6 +256,7 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -232,6 +273,20 @@
 	temperature = 278.15
 	},
 /area/peoples_station/training)
+"bc" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "be" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/machinery/airlock_sensor{
@@ -369,7 +424,11 @@
 	id = "peoples_station_transport_blast";
 	dir = 4
 	},
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/peoples_station_transport)
 "bB" = (
@@ -489,20 +548,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/range)
-"bY" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "bZ" = (
 /obj/machinery/computer/cryopod/living_quarters{
 	pixel_y = 32
@@ -511,18 +556,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
-"ce" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
-	},
-/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "ch" = (
 /obj/machinery/shower{
 	dir = 4
@@ -735,17 +768,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
-"cQ" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "cT" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light,
@@ -765,6 +787,17 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/peoples_station_transport)
+"cY" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "cZ" = (
 /obj/machinery/firealarm/south,
 /obj/structure/cable/green{
@@ -849,6 +882,16 @@
 	temperature = 278.15
 	},
 /area/peoples_station/solars)
+"dn" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "dr" = (
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -935,6 +978,12 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
+"dE" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/iff_beacon/name_change,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/airless,
+/area/peoples_station/bridge)
 "dG" = (
 /obj/machinery/computer/ship/helm/terminal{
 	dir = 1
@@ -994,16 +1043,6 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/template_noop,
 /area/space)
-"dT" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "dU" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white{
@@ -1197,6 +1236,20 @@
 	temperature = 278.15
 	},
 /area/peoples_station/visitor)
+"eK" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/mob/living/heavy_vehicle/premade/pra_egg{
+	dir = 4;
+	faction = "PRA"
+	},
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/armory)
 "eM" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Fang Hangar";
@@ -1220,6 +1273,9 @@
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
+	},
+/obj/effect/shuttle_landmark/peoples_station_transport/hangar{
+	dir = 1
 	},
 /turf/simulated/floor/plating/cooled,
 /area/peoples_station/transport_hangar)
@@ -1403,6 +1459,22 @@
 	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
+"fk" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/structure/sign/flag/pra/large/east{
+	dir = 4;
+	pixel_x = 32
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "fq" = (
 /obj/structure/table/steel,
 /obj/item/device/multitool,
@@ -1693,14 +1765,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/restroom)
-"gq" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "gr" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -1956,20 +2020,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/transport_hangar)
-"hm" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/obj/machinery/door/firedoor{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "hn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating{
@@ -2046,6 +2096,19 @@
 	temperature = 278.15
 	},
 /area/peoples_station/fang)
+"hF" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "hG" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2094,22 +2157,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/fang)
-"hO" = (
-/obj/machinery/door/airlock/external{
-	dir = 1
-	},
-/obj/machinery/access_button{
-	pixel_x = -28;
-	pixel_y = 12;
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/shuttle_landmark/nav_peoples_station/aft_dock,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "hS" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2208,16 +2255,6 @@
 	},
 /turf/template_noop,
 /area/space)
-"it" = (
-/obj/machinery/door/airlock/external{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "iw" = (
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2251,7 +2288,11 @@
 	},
 /area/peoples_station/solars)
 "iD" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2444,22 +2485,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
-"jB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/door/airlock/external{
-	dir = 1
-	},
-/obj/machinery/access_button{
-	dir = 8;
-	pixel_x = 24;
-	pixel_y = -27
-	},
-/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "jG" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 5
@@ -2803,6 +2828,34 @@
 	temperature = 278.15
 	},
 /area/peoples_station/transport_hangar)
+"kL" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
+"kN" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "kO" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -2860,16 +2913,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/restroom)
-"kU" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/obj/machinery/door/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "kV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -3195,6 +3238,24 @@
 	temperature = 278.15
 	},
 /area/peoples_station/fang)
+"lV" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "md" = (
 /obj/structure/sign/flag/pra/large/north{
 	pixel_y = 32
@@ -3479,6 +3540,20 @@
 	temperature = 278.15
 	},
 /area/peoples_station/armory)
+"nn" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "no" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
@@ -3497,18 +3572,35 @@
 	},
 /area/peoples_station/armory)
 "ns" = (
-/obj/effect/shuttle_landmark/peoples_station_transport/hangar{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
 	},
-/turf/simulated/floor/plating{
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/peoples_station/transport_hangar)
+/area/peoples_station/hangar)
 "nz" = (
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
 /area/peoples_station/medbay)
+"nB" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "nC" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -3714,6 +3806,21 @@
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
+"oi" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "on" = (
 /obj/machinery/light/small/emergency,
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -3890,7 +3997,11 @@
 	},
 /area/peoples_station/training)
 "oU" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3945,21 +4056,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/peoples_station/defenses)
-"pj" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "po" = (
 /obj/machinery/light{
 	dir = 8
@@ -4073,6 +4169,23 @@
 	temperature = 278.15
 	},
 /area/peoples_station/training)
+"pE" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "pF" = (
 /obj/machinery/ammunition_loader/francisca{
 	weapon_id = "Fang Rotary Gun"
@@ -4085,21 +4198,6 @@
 	temperature = 278.15
 	},
 /area/shuttle/fang)
-"pG" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/red,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "pH" = (
 /obj/structure/window/reinforced,
 /obj/machinery/light,
@@ -4183,7 +4281,11 @@
 	},
 /area/peoples_station/armory)
 "pZ" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -4240,21 +4342,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
-"qm" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "qn" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -4343,7 +4430,11 @@
 	id = "peoples_station_transport_blast";
 	dir = 4
 	},
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/peoples_station_transport)
 "qJ" = (
@@ -4721,6 +4812,24 @@
 	temperature = 278.15
 	},
 /area/peoples_station/fang)
+"sh" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "si" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -5207,7 +5316,11 @@
 	},
 /area/peoples_station/fang)
 "tS" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -5450,23 +5563,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/barracks)
-"uT" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "uV" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
@@ -5687,24 +5783,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/barracks)
-"vY" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/obj/machinery/access_button{
-	pixel_x = -24;
-	pixel_y = -20;
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/floor_decal/industrial/warning/cee,
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/port,
-/turf/simulated/floor/tiled/dark,
-/area/peoples_station/hangar)
 "wb" = (
 /obj/machinery/vending/engineering{
 	req_access = list(209)
@@ -5806,6 +5884,24 @@
 	temperature = 278.15
 	},
 /area/peoples_station/medbay)
+"wD" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/access_button{
+	pixel_x = -24;
+	pixel_y = -20;
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/port,
+/turf/simulated/floor/tiled/dark,
+/area/peoples_station/hangar)
 "wG" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -5839,21 +5935,6 @@
 	},
 /turf/simulated/floor/plating/cooled,
 /area/peoples_station/transport_hangar)
-"wN" = (
-/obj/machinery/door/airlock/external{
-	dir = 1
-	},
-/obj/machinery/access_button{
-	pixel_x = 28;
-	pixel_y = 12;
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "wQ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -5932,17 +6013,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/transport_hangar)
-"xg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 9
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "xh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -6092,6 +6162,17 @@
 	temperature = 278.15
 	},
 /area/peoples_station/medbay)
+"xC" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "xE" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped,
@@ -6353,6 +6434,29 @@
 "yK" = (
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/living_quarters)
+"yL" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
+"yN" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "yQ" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced,
@@ -6723,22 +6827,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
-"Ac" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/obj/structure/sign/flag/pra/large/east{
-	dir = 4;
-	pixel_x = 32
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "Ae" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
@@ -6834,7 +6922,11 @@
 	},
 /area/peoples_station/training)
 "AB" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/fang)
 "AD" = (
@@ -6875,6 +6967,19 @@
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
+"AQ" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "AT" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
@@ -6908,6 +7013,20 @@
 	temperature = 278.15
 	},
 /area/peoples_station/fang)
+"Be" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Bh" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -7014,17 +7133,6 @@
 "Bz" = (
 /turf/simulated/wall/shuttle/raider,
 /area/peoples_station/living_quarters)
-"BB" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "BC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7201,17 +7309,6 @@
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced/airless,
 /area/peoples_station/defenses)
-"Cl" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "Cn" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 1
@@ -7307,12 +7404,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced,
 /area/shuttle/peoples_station_transport)
-"CC" = (
-/obj/effect/floor_decal/corner/red/full,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "CH" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -7429,6 +7520,18 @@
 	temperature = 278.15
 	},
 /area/shuttle/fang)
+"Db" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Dc" = (
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, firing range"
@@ -7460,14 +7563,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
-"Dj" = (
-/obj/effect/floor_decal/corner/red/full{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "Dk" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -7492,6 +7587,14 @@
 	temperature = 278.15
 	},
 /area/peoples_station/captain_quarters)
+"Dn" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Do" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/effect/floor_decal/corner/red{
@@ -7599,17 +7702,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/fang)
-"DG" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "DI" = (
 /obj/effect/floor_decal/corner/red/full,
 /obj/machinery/alarm/cold/south{
@@ -7642,7 +7734,11 @@
 	},
 /area/peoples_station/training)
 "DM" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -7758,6 +7854,18 @@
 	temperature = 278.15
 	},
 /area/peoples_station/atmos)
+"Em" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "En" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -7779,8 +7887,20 @@
 	},
 /area/peoples_station/fang)
 "Ep" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/turf/simulated/wall/shuttle/raider,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/nav_peoples_station/aft_dock,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/peoples_station/hangar)
 "Eq" = (
 /obj/effect/floor_decal/corner/red{
@@ -7793,15 +7913,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
-"Et" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "Ew" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -7898,21 +8009,14 @@
 	temperature = 278.15
 	},
 /area/peoples_station/bridge)
-"EO" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 8;
-	pixel_y = 6;
-	pixel_x = 20
+"EP" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
-/turf/simulated/floor/plating{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
@@ -7947,6 +8051,21 @@
 	temperature = 278.15
 	},
 /area/peoples_station/range)
+"EY" = (
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Fa" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -7966,7 +8085,11 @@
 	},
 /area/peoples_station/solars)
 "Fe" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -8006,6 +8129,22 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
+"Fu" = (
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Fv" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
@@ -8283,13 +8422,11 @@
 /area/peoples_station/commissar_quarters)
 "Gn" = (
 /obj/effect/floor_decal/corner/red,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -8543,15 +8680,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
-"Hq" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "Hr" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
@@ -8593,6 +8721,17 @@
 "HB" = (
 /turf/simulated/wall/shuttle/raider,
 /area/peoples_station/training)
+"HC" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "HD" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating/cooled,
@@ -8666,6 +8805,17 @@
 	temperature = 278.15
 	},
 /area/peoples_station/range)
+"HZ" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Ia" = (
 /obj/machinery/atmospherics/portables_connector/aux,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -8708,14 +8858,13 @@
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
-"Ij" = (
+"Im" = (
 /obj/effect/floor_decal/corner/red{
-	dir = 6
+	dir = 9
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -8781,6 +8930,17 @@
 	temperature = 278.15
 	},
 /area/peoples_station/visitor)
+"IE" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "IF" = (
 /obj/effect/floor_decal/corner/red/full,
 /obj/structure/dispenser/oxygen,
@@ -8841,6 +9001,16 @@
 	},
 /turf/template_noop,
 /area/peoples_station/bridge)
+"IN" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "IS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/suit_cycler/offship/pra,
@@ -9014,6 +9184,10 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
+/obj/effect/ghostspawpoint/one_use{
+	identifier = "peoples_station_crew";
+	name = "igs - peoples_station_crew"
+	},
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
@@ -9058,6 +9232,24 @@
 	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
+"JO" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "JQ" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -9093,7 +9285,9 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/alarm/cold/north,
+/obj/machinery/alarm/cold/north{
+	req_one_access = list(209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9149,24 +9343,6 @@
 "Kn" = (
 /turf/template_noop,
 /area/space)
-"Ku" = (
-/obj/machinery/airlock_sensor{
-	pixel_x = 20;
-	dir = 8;
-	pixel_y = -6
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "Kv" = (
 /obj/effect/floor_decal/corner_wide/black{
 	dir = 10
@@ -9187,6 +9363,17 @@
 	temperature = 278.15
 	},
 /area/peoples_station/zero_g)
+"Kx" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "KB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -9262,21 +9449,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/restroom)
-"KS" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/structure/sign/flag/pra/large/west{
-	pixel_x = -32;
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "KU" = (
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 8;
@@ -9296,8 +9468,12 @@
 	},
 /area/peoples_station/hangar)
 "KZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -9350,6 +9526,16 @@
 "Lk" = (
 /turf/simulated/wall/shuttle/raider,
 /area/peoples_station/transport_hangar)
+"Lm" = (
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Lp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -9386,6 +9572,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -9457,7 +9646,11 @@
 /turf/simulated/floor/reinforced,
 /area/shuttle/fang)
 "LH" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -9562,6 +9755,21 @@
 	temperature = 268.15
 	},
 /area/peoples_station/visitor)
+"Mf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Mj" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/ghostspawpoint{
@@ -9699,6 +9907,17 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
+"MK" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "MM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -9790,18 +10009,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/commissar_quarters)
-"MZ" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "Ne" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -9929,6 +10136,21 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
+"NA" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/sign/flag/pra/large/west{
+	pixel_x = -32;
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "NE" = (
 /obj/structure/cable/green{
 	d2 = 4;
@@ -10001,32 +10223,6 @@
 /obj/structure/railing/mapped,
 /turf/template_noop,
 /area/peoples_station/bridge)
-"Oa" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/mob/living/heavy_vehicle/premade/pra_egg{
-	dir = 4;
-	faction = "PRA"
-	},
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/obj/machinery/mech_recharger,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/armory)
-"Ob" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "Od" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -10076,7 +10272,11 @@
 /turf/simulated/floor/airless,
 /area/peoples_station/solars)
 "Ok" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -10492,17 +10692,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/ammo_storage)
-"PI" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "PM" = (
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 1
@@ -10635,6 +10824,18 @@
 	temperature = 278.15
 	},
 /area/peoples_station/visitor)
+"Qn" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Qo" = (
 /obj/machinery/light{
 	dir = 1
@@ -10751,7 +10952,11 @@
 /obj/machinery/door/blast/regular/open{
 	id = "peoples_station_transport_blast"
 	},
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/peoples_station_transport)
 "QX" = (
@@ -10830,10 +11035,6 @@
 /area/peoples_station/bridge)
 "Rm" = (
 /obj/structure/bed/stool/chair/office/dark,
-/obj/effect/ghostspawpoint{
-	identifier = "peoples_station_crew";
-	name = "igs - peoples_station_crew"
-	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -10909,15 +11110,12 @@
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
-"Ry" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/blast/regular{
-	id = "peoples_egg"
-	},
+"Rz" = (
+/obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/peoples_station/armory)
+/area/peoples_station/hangar)
 "RA" = (
 /obj/effect/shuttle_landmark/nav_peoples_station/nav2,
 /turf/template_noop,
@@ -10942,19 +11140,16 @@
 	},
 /area/peoples_station/mess_hall)
 "RF" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/brown,
-/obj/structure/sign/painting_frame/hadii{
-	pixel_y = 32
+/obj/effect/floor_decal/corner/red{
+	dir = 5
 	},
-/obj/effect/ghostspawpoint{
-	identifier = "peoples_station_crew";
-	name = "igs - peoples_station_crew"
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/peoples_station/barracks)
+/area/peoples_station/hangar)
 "RI" = (
 /obj/effect/floor_decal/corner/black,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -10967,6 +11162,17 @@
 	temperature = 278.15
 	},
 /area/peoples_station/visitor)
+"RJ" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "RK" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
@@ -10981,7 +11187,11 @@
 	},
 /area/peoples_station/training)
 "RM" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_access = list(209);
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -10999,6 +11209,22 @@
 	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
+"RP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/door/airlock/external{
+	dir = 1
+	},
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = 24;
+	pixel_y = -27
+	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "RQ" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced,
@@ -11034,6 +11260,20 @@
 	temperature = 253.15
 	},
 /area/peoples_station/mess_hall)
+"RU" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "RX" = (
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 8
@@ -11059,6 +11299,17 @@
 	temperature = 278.15
 	},
 /area/peoples_station/visitor)
+"Sg" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "Sj" = (
 /obj/structure/bed/handrail{
 	dir = 8
@@ -11318,6 +11569,10 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/peoples_station_transport)
+"Tg" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/peoples_station/bridge)
 "Th" = (
 /obj/structure/bed/stool/chair/office/dark,
 /obj/machinery/turretid/lethal{
@@ -11498,6 +11753,38 @@
 	temperature = 278.15
 	},
 /area/peoples_station/fang)
+"TJ" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8;
+	icon_state = "map-scrubbers"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
+"TL" = (
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "TN" = (
 /obj/effect/floor_decal/corner_wide/white/full{
 	dir = 6
@@ -11642,6 +11929,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -12005,22 +12295,6 @@
 /obj/effect/shuttle_landmark/nav_peoples_station/nav1,
 /turf/template_noop,
 /area/space)
-"Wd" = (
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "Wf" = (
 /obj/machinery/light,
 /obj/structure/table/standard,
@@ -12110,23 +12384,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/atmos)
-"WB" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/door/firedoor{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "WD" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/floor_decal/corner_wide/red{
@@ -12234,18 +12491,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
-"WU" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "WV" = (
 /obj/machinery/pipedispenser,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -12358,15 +12603,6 @@
 	temperature = 253.15
 	},
 /area/peoples_station/mess_hall)
-"Xu" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "Xw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -12438,17 +12674,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/peoples_station/armory)
-"XH" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/obj/machinery/light{
+"XI" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark{
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft,
+/turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
@@ -12500,18 +12734,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/restroom)
-"XT" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/structure/sign/flag/pra/large/west{
-	pixel_x = -32;
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "XV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -12783,19 +13005,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
-"YY" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 "YZ" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(209);
@@ -12932,6 +13141,17 @@
 	temperature = 278.15
 	},
 /area/peoples_station/armory)
+"ZA" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station/hangar)
 "ZD" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -13049,17 +13269,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
-"ZZ" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/peoples_station/hangar)
 
 (1,1,1) = {"
 Kn
@@ -41423,7 +41632,7 @@ Kn
 Kn
 Kn
 Mz
-Oa
+eK
 Mz
 Kn
 Kn
@@ -41680,7 +41889,7 @@ Mz
 Mz
 Mz
 Mz
-Ry
+aL
 Mz
 Mz
 Kn
@@ -49146,9 +49355,9 @@ DJ
 YG
 pH
 iD
-Kn
-Kn
-Kn
+LJ
+NP
+qn
 CR
 Nr
 Ms
@@ -49403,9 +49612,9 @@ yv
 lf
 RQ
 iD
-LJ
-NP
-qn
+VS
+dE
+NV
 CR
 Nr
 Ms
@@ -49661,7 +49870,7 @@ Mx
 EJ
 iD
 VS
-WP
+Tg
 NV
 CR
 Iu
@@ -49917,8 +50126,8 @@ DJ
 Fv
 kQ
 iD
-IM
-Fo
+VS
+WP
 NV
 CR
 Nr
@@ -50174,9 +50383,9 @@ DJ
 YG
 pH
 iD
-Kn
-Kn
-Kn
+IM
+Fo
+NV
 CR
 Nr
 Ms
@@ -53805,7 +54014,7 @@ lI
 lI
 lI
 lI
-ik
+IE
 Ne
 lI
 Kn
@@ -54319,7 +54528,7 @@ sb
 PR
 Df
 DM
-ik
+RF
 cj
 lI
 dR
@@ -54529,7 +54738,7 @@ ch
 ch
 FC
 PY
-RF
+JI
 bD
 tU
 vF
@@ -55605,7 +55814,7 @@ Kn
 Kn
 lI
 aZ
-WB
+lV
 lI
 lI
 lI
@@ -55861,34 +56070,34 @@ Kn
 Kn
 Kn
 lI
-bY
-pj
-Ob
-Cl
-Cl
-KS
-YY
-dT
-dT
-dT
-dT
-qm
-Xu
-Hq
-xg
-gq
-gq
-gq
-gq
-gq
-gq
-gq
-gq
-Et
-gq
-XT
-PI
-CC
+nn
+oi
+AQ
+Sg
+Sg
+NA
+TJ
+EP
+EP
+EP
+EP
+kN
+ag
+HZ
+ns
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+RU
+Im
+as
+RJ
+Rz
 lI
 Kn
 Kn
@@ -56071,7 +56280,7 @@ fC
 fC
 bO
 PY
-RF
+JI
 bD
 tU
 vF
@@ -56118,32 +56327,32 @@ Kn
 Kn
 lI
 lI
-ZZ
-pG
-kU
+cY
+Mf
+ZA
 Zq
 Zq
-MZ
-Ij
-Zq
-Zq
-Zq
-Zq
-Ac
+Em
+nB
 Zq
 Zq
 Zq
 Zq
-WU
+fk
+Zq
+Zq
+Zq
+Zq
+kL
 Zq
 Zq
 Zq
 Zq
 Zq
-WU
-kU
-Zq
-Zq
+kL
+bc
+IN
+hF
 Zq
 BY
 lI
@@ -56375,15 +56584,15 @@ Kn
 Kn
 lI
 Ia
-cQ
-uT
+MK
+pE
 lI
 lI
 lI
 lI
 DM
 DM
-Ep
+DM
 DM
 lI
 lI
@@ -56402,7 +56611,7 @@ lI
 lI
 lI
 LE
-vY
+wD
 lI
 Kn
 Kn
@@ -58666,7 +58875,7 @@ Kn
 Kn
 Lk
 mh
-ns
+Cu
 eN
 Ao
 vR
@@ -58688,8 +58897,8 @@ Cu
 fS
 Kn
 lI
-qa
-PV
+Db
+Qn
 lI
 Kn
 Kn
@@ -60230,8 +60439,8 @@ Kn
 Kn
 Kn
 lI
-hm
-aH
+aN
+JO
 lI
 Kn
 Kn
@@ -61259,7 +61468,7 @@ Kn
 Kn
 lI
 qa
-BO
+HC
 DM
 Kn
 Kn
@@ -61515,8 +61724,8 @@ Kn
 Kn
 Kn
 lI
-XH
-BO
+Be
+HC
 DM
 Kn
 Kn
@@ -61772,8 +61981,8 @@ Kn
 Kn
 Kn
 lI
-qa
-BO
+yN
+yL
 lI
 Kn
 Kn
@@ -62800,7 +63009,7 @@ dR
 Kn
 Kn
 lI
-XH
+Be
 BO
 lI
 Kn
@@ -63310,11 +63519,11 @@ Kn
 Kn
 Kn
 Kn
-hO
-ce
-Wd
-it
-DG
+Ep
+XI
+Fu
+Lm
+Kx
 BO
 lI
 Kn
@@ -63567,12 +63776,12 @@ Kn
 Kn
 Kn
 Kn
-wN
-Ku
-EO
-jB
-BB
-Dj
+EY
+TL
+sh
+RP
+xC
+Dn
 lI
 Kn
 Kn
