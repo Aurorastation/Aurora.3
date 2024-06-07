@@ -7046,6 +7046,10 @@
 /obj/item/folder/blue{
 	pixel_x = -3
 	},
+/obj/item/clipboard{
+	pixel_x = -7;
+	pixel_y = 2
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/bridge)
 "Ny" = (
@@ -7965,9 +7969,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/afthallway)
 "St" = (
-/obj/effect/floor_decal/industrial/hatch/grey,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/blackbox_recorder,
+/obj/structure/table/steel,
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/bridge)
 "Su" = (
@@ -9126,8 +9129,12 @@
 "Yp" = (
 /obj/structure/table/steel,
 /obj/item/device/multitool{
-	pixel_x = 7;
+	pixel_x = -7;
 	pixel_y = 4
+	},
+/obj/item/device/taperecorder{
+	pixel_x = 10;
+	pixel_y = 3
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/bridge)
