@@ -452,7 +452,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/blackbox_recorder,
+/obj/machinery/telecomms/allinone/ship,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/bridge)
 "cO" = (
@@ -7963,9 +7964,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/afthallway)
 "St" = (
-/obj/machinery/telecomms/allinone/ship,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/blackbox_recorder,
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/bridge)
 "Su" = (
