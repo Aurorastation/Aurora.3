@@ -47,6 +47,7 @@
 				"departure_time" = a.departure_time,
 				"return_time" = a.return_time
 			))
+		data["shuttles"] = SSatlas.current_map.shuttle_manifests
 		data["shuttle_manifest"] = allshuttles
 		data["shuttle_assignments"] = allassignments
 		data["active_record"] = null
@@ -124,7 +125,7 @@
 
 		if("editentryshuttle")
 			. = TRUE
-			var/newshuttle = tgui_input_list(usr, "Please select shuttle.", "Shuttle select", HORIZON_SHUTTLES, active_record.shuttle)
+			var/newshuttle = tgui_input_list(usr, "Please select shuttle.", "Shuttle select", SSatlas.current_map.shuttle_manifests, active_record.shuttle)
 			if(!computer.use_check_and_message(usr))
 				if(!newshuttle)
 					return
@@ -151,7 +152,7 @@
 		if("editmission")
 			for(var/datum/record/shuttle_assignment/a in SSrecords.shuttle_assignments)
 				if(a.shuttle == params["editmission"])
-					var/new_mis = tgui_input_list(usr, "Please select mission.", "Mission select", SHUTTLE_MISSIONS, a.mission)
+					var/new_mis = tgui_input_list(usr, "Please select mission.", "Mission select", SSatlas.current_map.shuttle_missions, a.mission)
 					if(!computer.use_check_and_message(usr))
 						if(!new_mis)
 							return

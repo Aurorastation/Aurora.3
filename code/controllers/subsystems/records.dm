@@ -24,6 +24,10 @@ SUBSYSTEM_DEF(records)
 	for(var/type in localized_fields)
 		localized_fields[type] = compute_localized_field(type)
 
+	for(var/shuttle in SSatlas.current_map.shuttle_manifests)
+		var/datum/record/shuttle_assignment/A = new /datum/record/shuttle_assignment(shuttle)
+		shuttle_assignments += A
+
 	InitializeCitizenships()
 	InitializeReligions()
 	InitializeAccents()
@@ -36,9 +40,6 @@ SUBSYSTEM_DEF(records)
 	warrants = list()
 	viruses = list()
 	shuttle_assignments = list()
-	for(var/shuttle in HORIZON_SHUTTLES)
-		var/datum/record/shuttle_assignment/A = new /datum/record/shuttle_assignment(shuttle)
-		shuttle_assignments += A
 	shuttle_manifests = list()
 	excluded_fields = list()
 	localized_fields = list()

@@ -141,6 +141,12 @@
 
 	warehouse_basearea = /area/operations/storage
 
+	shuttle_manifests = list(
+		"SCCV Canary" = list("color" = "blue", "icon" = "binoculars"),
+		"SCCV Intrepid" = list("color" = "purple", "icon" = "compass"),
+		"SCCV Spark" = list("color" = "brown", "icon" = "gem"))
+	shuttle_missions = list("Exploration", "Research", "Prospecting", "Transport", "Combat", "Rescue", "Training")
+
 /datum/map/sccv_horizon/send_welcome()
 	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
 
