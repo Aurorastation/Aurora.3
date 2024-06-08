@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: Ben10083
+author: Llywelwyn
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,5 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "The People's Republic announces that dissidents that attempted to stem the march of Hadiism by sabotaging mining efforts planetside with empty medkits have been captured."
-  - bugfix: "Increased funding to PRA-NT Mining Camps to provide GPS units, radios, and even more Hadiism."
+  - rscadd: "Added colourable stress balls to the loadout."
+  - rscadd: "Added a box of stress balls to the psychiatrist's locker."

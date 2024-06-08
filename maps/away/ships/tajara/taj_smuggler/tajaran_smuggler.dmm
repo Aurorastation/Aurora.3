@@ -755,6 +755,12 @@
 	temperature = 278.15
 	},
 /area/tajaran_smuggler/atmos)
+"dQe" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/tajaran_smuggler/hangar)
 "dQZ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -776,12 +782,9 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
-/obj/effect/shuttle_landmark/tajaran_smuggler/dock/port{
-	dir = 4;
+/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
 	landmark_tag = "nav_tajaran_smuggler_dock_port_south";
-	docking_controller = "airlock_tajaran_smuggler_dock_port_south";
-	name = "Dock, Port, South"
+	master_tag = "airlock_tajaran_smuggler_dock_port_south"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajaran_smuggler)
@@ -829,9 +832,12 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red,
-/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
+	master_tag = "airlock_tajaran_smuggler_dock_port_north";
+	landmark_tag = "nav_tajaran_smuggler_dock_port_north"
+	},
 /turf/simulated/floor/plating,
-/area/adhomian_circus/hangar)
+/area/tajaran_smuggler)
 "ebG" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, maintenance"
@@ -1033,11 +1039,20 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
+	landmark_tag = "nav_tajaran_smuggler_dock_port_south";
+	master_tag = "airlock_tajaran_smuggler_dock_port_south"
+	},
 /obj/machinery/access_button{
 	pixel_x = 12;
 	pixel_y = 28;
 	dir = 4
+	},
+/obj/effect/shuttle_landmark/tajaran_smuggler/dock/port{
+	dir = 8;
+	landmark_tag = "nav_tajaran_smuggler_dock_port_south";
+	docking_controller = "airlock_tajaran_smuggler_dock_port_south";
+	name = "Dock, Port, South"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajaran_smuggler)
@@ -1062,7 +1077,10 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
+	landmark_tag = "nav_tajaran_smuggler_dock_port_south";
+	master_tag = "airlock_tajaran_smuggler_dock_port_south"
+	},
 /turf/simulated/floor/plating,
 /area/tajaran_smuggler)
 "fji" = (
@@ -1229,7 +1247,10 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
+	landmark_tag = "nav_tajaran_smuggler_dock_port_south";
+	master_tag = "airlock_tajaran_smuggler_dock_port_south"
+	},
 /turf/simulated/floor/plating,
 /area/tajaran_smuggler)
 "fXG" = (
@@ -1449,7 +1470,10 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red,
-/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
+	landmark_tag = "nav_tajaran_smuggler_dock_port_south";
+	master_tag = "airlock_tajaran_smuggler_dock_port_south"
+	},
 /turf/simulated/floor/plating,
 /area/tajaran_smuggler)
 "hgE" = (
@@ -1469,7 +1493,10 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
+	landmark_tag = "nav_tajaran_smuggler_dock_port_south";
+	master_tag = "airlock_tajaran_smuggler_dock_port_south"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
@@ -1637,7 +1664,10 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red,
-/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
+	landmark_tag = "nav_tajaran_smuggler_dock_port_south";
+	master_tag = "airlock_tajaran_smuggler_dock_port_south"
+	},
 /turf/simulated/floor/plating,
 /area/tajaran_smuggler)
 "hPd" = (
@@ -2095,7 +2125,10 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
+	landmark_tag = "nav_tajaran_smuggler_dock_port_south";
+	master_tag = "airlock_tajaran_smuggler_dock_port_south"
+	},
 /obj/machinery/access_button{
 	pixel_x = -25;
 	pixel_y = 28
@@ -2108,6 +2141,12 @@
 	temperature = 278.15
 	},
 /area/tajaran_smuggler)
+"kcL" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "kgm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -2407,9 +2446,12 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
+	master_tag = "airlock_tajaran_smuggler_dock_port_north";
+	landmark_tag = "nav_tajaran_smuggler_dock_port_north"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/adhomian_circus/hangar)
+/area/tajaran_smuggler)
 "lBm" = (
 /obj/machinery/alarm/cold/north{
 	req_one_access = null
@@ -2580,15 +2622,12 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
-/obj/effect/shuttle_landmark/tajaran_smuggler/dock/port{
-	dir = 4;
-	landmark_tag = "nav_tajaran_smuggler_dock_port_north";
-	docking_controller = "airlock_tajaran_smuggler_dock_port_north";
-	name = "Dock, Port, North"
+/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
+	master_tag = "airlock_tajaran_smuggler_dock_port_north";
+	landmark_tag = "nav_tajaran_smuggler_dock_port_north"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/adhomian_circus/hangar)
+/area/tajaran_smuggler)
 "mgd" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -2603,9 +2642,18 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
+	master_tag = "airlock_tajaran_smuggler_dock_port_north";
+	landmark_tag = "nav_tajaran_smuggler_dock_port_north"
+	},
+/obj/effect/shuttle_landmark/tajaran_smuggler/dock/port{
+	dir = 8;
+	landmark_tag = "nav_tajaran_smuggler_dock_port_north";
+	docking_controller = "airlock_tajaran_smuggler_dock_port_north";
+	name = "Dock, Port, North"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/adhomian_circus/hangar)
+/area/tajaran_smuggler)
 "mjj" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2960,6 +3008,10 @@
 	temperature = 278.15
 	},
 /area/tajaran_smuggler/dorms)
+"ofF" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/template_noop,
+/area/space)
 "oie" = (
 /obj/effect/landmark/entry_point/fore,
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
@@ -3120,9 +3172,12 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
+	master_tag = "airlock_tajaran_smuggler_dock_port_north";
+	landmark_tag = "nav_tajaran_smuggler_dock_port_north"
+	},
 /turf/simulated/floor/plating,
-/area/adhomian_circus/hangar)
+/area/tajaran_smuggler)
 "pPq" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -4075,9 +4130,12 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red,
-/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
+	master_tag = "airlock_tajaran_smuggler_dock_port_north";
+	landmark_tag = "nav_tajaran_smuggler_dock_port_north"
+	},
 /turf/simulated/floor/plating,
-/area/adhomian_circus/hangar)
+/area/tajaran_smuggler)
 "vMT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -4150,9 +4208,12 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
+	master_tag = "airlock_tajaran_smuggler_dock_port_north";
+	landmark_tag = "nav_tajaran_smuggler_dock_port_north"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/adhomian_circus/hangar)
+/area/tajaran_smuggler)
 "wfy" = (
 /obj/structure/closet/crate,
 /obj/effect/decal/cleanable/dirt,
@@ -4365,6 +4426,12 @@
 	icon_state = "2-4"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/table/reinforced/steel,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -4381,9 +4448,12 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
+	master_tag = "airlock_tajaran_smuggler_dock_port_north";
+	landmark_tag = "nav_tajaran_smuggler_dock_port_north"
+	},
 /turf/simulated/floor/plating,
-/area/adhomian_circus/hangar)
+/area/tajaran_smuggler)
 "xRX" = (
 /turf/template_noop,
 /area/space)
@@ -39234,24 +39304,24 @@ xRX
 xRX
 xRX
 xRX
+kcL
 xRX
 xRX
+kcL
 xRX
 xRX
-xRX
-xRX
-jOg
+dQe
 jOg
 eYk
 dTw
 wrb
+kcL
 xRX
 xRX
+kcL
 xRX
 xRX
-xRX
-xRX
-xRX
+kcL
 xRX
 xRX
 xRX
@@ -39467,24 +39537,24 @@ xRX
 xRX
 xRX
 xRX
+kcL
 xRX
 xRX
+kcL
 xRX
 xRX
-xRX
-xRX
-xRX
+kcL
 wrb
 mgd
 mdc
 wrb
+kcL
 xRX
 xRX
+kcL
 xRX
 xRX
-xRX
-xRX
-xRX
+kcL
 xRX
 xRX
 xRX
@@ -39746,6 +39816,7 @@ xRX
 xRX
 xRX
 xRX
+ofF
 xRX
 xRX
 xRX
@@ -39766,8 +39837,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+ofF
 xRX
 xRX
 xRX
@@ -39979,6 +40049,7 @@ xRX
 wBq
 xRX
 xRX
+ofF
 xRX
 xRX
 xRX
@@ -39999,8 +40070,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+ofF
 xRX
 xRX
 xRX
@@ -40517,6 +40587,7 @@ xRX
 xRX
 xRX
 xRX
+ofF
 xRX
 xRX
 xRX
@@ -40537,8 +40608,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+ofF
 xRX
 xRX
 xRX
@@ -40750,6 +40820,7 @@ xRX
 xRX
 xRX
 xRX
+ofF
 xRX
 xRX
 xRX
@@ -40770,8 +40841,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+ofF
 xRX
 xRX
 xRX
@@ -41288,6 +41358,7 @@ xRX
 xRX
 xRX
 xRX
+ofF
 xRX
 xRX
 xRX
@@ -41308,8 +41379,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+ofF
 xRX
 xRX
 xRX
@@ -41521,6 +41591,7 @@ xRX
 xRX
 xRX
 xRX
+ofF
 xRX
 xRX
 xRX
@@ -41541,8 +41612,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
+ofF
 xRX
 xRX
 xRX
@@ -42334,7 +42404,7 @@ xRX
 xRX
 xRX
 xRX
-vtr
+xRX
 xRX
 xRX
 xRX
@@ -45678,7 +45748,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+vtr
 xRX
 xRX
 xRX

@@ -1695,12 +1695,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bruiser)
 "gg" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
 	id = "katabridgeshutter"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/bridge)
@@ -3846,6 +3847,10 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/plasteel/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/rods/full,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "nk" = (
@@ -5663,15 +5668,18 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/bruiser)
 "FP" = (
-/obj/structure/table/rack,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/plasteel/full,
-/obj/item/stack/rods/full,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/standard,
+/obj/item/blueprints{
+	pixel_y = 5
+	},
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "FX" = (

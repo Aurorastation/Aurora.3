@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixes a lot of weirdness surrounding guns on full-auto mode. Safety checks will now be skipped on harm intent, the gun will stop shooting when dropped, and putting the gun in a storage item will no longer shoot it."

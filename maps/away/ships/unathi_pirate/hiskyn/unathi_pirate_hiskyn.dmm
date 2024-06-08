@@ -2438,9 +2438,11 @@
 /area/shuttle/hiskyn_revanchists)
 "bQp" = (
 /obj/structure/table/reinforced/steel,
-/obj/random/tool,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/engineering)
 "bTY" = (
@@ -2926,6 +2928,7 @@
 /obj/random/dirt_75,
 /obj/structure/table/reinforced/steel,
 /obj/random/tool,
+/obj/item/clothing/gloves/yellow/specialu,
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrusts)
 "fmj" = (
@@ -5815,6 +5818,12 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced/airless,
+/area/space)
+"vfJ" = (
+/obj/item/stack/material/lead/full{
+	pixel_y = 3
+	},
+/turf/template_noop,
 /area/space)
 "viZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -9304,7 +9313,7 @@ aOr
 aOr
 aOr
 aOr
-aOr
+vfJ
 aOr
 aOr
 aOr

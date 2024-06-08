@@ -183,3 +183,38 @@
   - bugfix: Fixed the xenoarchaeological outpost ruin spawning with no air inside.
   - bugfix: Fixes coat racks always removing both hats and coats, when only one is
       selected.
+2024-06-04:
+  Ben10083:
+  - bugfix: The People's Republic announces that dissidents that attempted to stem
+      the march of Hadiism by sabotaging mining efforts planetside with empty medkits
+      have been captured.
+  - bugfix: Increased funding to PRA-NT Mining Camps to provide GPS units, radios,
+      and even more Hadiism.
+  - bugfix: Removes stray pixel from brown webbing.
+  - bugfix: Hiskyn Revanchists have successfully stolen and installed telecommunications
+      equipment for their vessels.
+  - bugfix: Hiskyn Pirate ship missing fuel pipe placed.
+  - bugfix: Tarwa Pirate ship telecommunications now accessible.
+  - spellcheck: Port Security Maintenance now uses proper area.
+  FluffyGhost:
+  - code_imp: Circuit imprinter now uses a queue system to build circuits, avoid the
+      need to keep processing to check the queue.
+  - code_imp: Refactored some of the circuit imprinter code.
+  - bugfix: Fixed some issues with the R&D console in regards to the circuit imprinter.
+  RustingWithYou:
+  - rscadd: Adds blueprints to most overmap ships, as well as several away sites and
+      ruins.
+  - qol: Shuttles will no longer pull mineral turfs with them when taking off.
+2024-06-07:
+  FluffyGhost:
+  - server: Updated CI actions to the latest version.
+  - server: Set concurrency level to the workflow level for faster canceling on re-runs
+      (hopefully).
+2024-06-08:
+  FluffyGhost:
+  - bugfix: Fixed seed duplication with grippers for borgs.
+  - code_imp: Minor refactor, QDELs.
+  RustingWithYou:
+  - bugfix: Vaurca ghostroles on Ouerea now spawn with filter ports.
+  WickedCybs:
+  - bugfix: Removed some errant pixels on the taj jackboot sprites.

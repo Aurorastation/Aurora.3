@@ -64,6 +64,8 @@
 		ORE_SILVER 		= 0.7,
 		ORE_COAL 		= 0.9,
 		ORE_IRON 		= 0.92,
+		ORE_BAUXITE     = 0.8,
+		ORE_GALENA      = 0.75,
 	)
 
 	/// This is more straight forward. We use three noise maps and assign drillables based on that
@@ -79,7 +81,8 @@
 			ORE_GOLD = list(1, 3),
 			ORE_SILVER = list(1, 3),
 			ORE_URANIUM = list(1, 3),
-			ORE_PLATINUM = list(1, 3)
+			ORE_PLATINUM = list(1, 3),
+			ORE_GALENA = list(1, 3)
 		),
 		DEEP_ORES = list(
 			ORE_URANIUM = list(0, 2),
