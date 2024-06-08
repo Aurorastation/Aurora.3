@@ -16,23 +16,72 @@
 	if(..())
 		for(var/obj/structure/component/tent_canvas/C in grouped_structures)
 			if(dir & (NORTH | SOUTH))
-				if(C.x == x1)
+				if(C.x == x1 || C.x == x2)
 					C.icon_state = "canvas_dir"
+				var/mid = Mean(x1, x2)
+				if(C.x < mid)
 					C.dir = WEST
-				else if(C.x == x2)
-					C.icon_state = "canvas_dir"
+				else
 					C.dir = EAST
 			else
-				if(C.y == y1)
+				if(C.y == y1 || C.y == y2)
 					C.icon_state = "canvas_dir"
-					C.dir = NORTH
-				else if(C.y == y2)
-					C.icon_state = "canvas_dir"
+					if(C.y == y2)
+						C.layer = ABOVE_WINDOW_LAYER
+				var/mid = Mean(y1, y2)
+				if(C.y < mid)
 					C.dir = SOUTH
+				else
+					C.dir = NORTH
+			var/obj/item/tent/source = source_item
+			if(istype(source))
+				var/obj/structure/component/tent_canvas/roof/roof = new /obj/structure/component/tent_canvas/roof(C.loc)
+				roof.dir = C.dir
+				if(source.decal && C.x == x1 && C.y == y1)
+					roof.AddOverlays(overlay_image('icons/obj/item/tent_decals.dmi', source.decal, flags=RESET_COLOR))
+				roof.icon_state = "roof_[get_roof_type(C)]"
+				C.add_vis_contents(roof)
+				if(!roof.color)
+					roof.color = color //Sometimes it doesn't inherit this. Not sure why.
+
+/datum/large_structure/tent/structure_entered(turf/T, atom/movable/AM)
+	. = ..()
+	if(!.)
+		return FALSE
+	var/mob/M = AM
+	var/atom/movable/renderer/roofs/roof_plane = M.renderers["[ROOF_PLANE]"]
+	if(roof_plane)
+		roof_plane.alpha = 76
+
+/datum/large_structure/tent/mob_moved(mob/M, turf/T)
+	. = ..()
+	if(!.)
+		var/atom/movable/renderer/roofs/roof_plane = M.renderers["[ROOF_PLANE]"]
+		if(roof_plane)
+			roof_plane.alpha = 255
+
+/datum/large_structure/tent/proc/get_roof_type(var/obj/structure/component/tent_canvas/C)
+	var/edge1
+	var/edge2
+	var/axis
+	if(dir & (NORTH | SOUTH))
+		edge1 = x1
+		edge2 = x2
+		axis = C.x
+	else
+		edge1 = y1
+		edge2 = y2
+		axis = C.y
+	if(axis == edge1 || axis == edge2)
+		return "edge"
+	else if(axis == Mean(edge1, edge2))
+		return "mid"
+	return "norm"
 
 /obj/item/tent
 	name = "expedition tent"
 	desc = "A rolled up tent, ready to be assembled to make a base camp, shelter, or just a cozy place to chat."
+	desc_info = "Drag this to yourself to begin assembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it to themselves as well."
 	icon = 'icons/obj/item/camping.dmi'
 	icon_state = "tent"
 	item_state = "tent"
@@ -41,6 +90,7 @@
 	color = "#58a178"
 	var/width = 2
 	var/length = 3
+	var/decal
 
 	var/datum/large_structure/tent/my_tent
 
@@ -48,26 +98,6 @@
 	. = ..()
 	w_class = min(ceil(width * length / 1.5), ITEMSIZE_IMMENSE) // 2x2 = ITEMSIZE_NORMAL
 	desc += "\nThis one is [width] x [length] in size."
-
-/obj/item/tent/Move()
-	if(my_tent) //Delete the structure datum if we're moved
-		qdel(my_tent)
-		my_tent = null
-	. = ..()
-
-/obj/item/tent/afterattack(obj/target, mob/user, proximity)
-	. = ..()
-	if(!proximity)
-		return
-	var/turf/T = target
-	if(istype(T))
-		deploy_tent(T, user)
-
-/obj/item/tent/attack_self(mob/user)
-	. = ..()
-	var/turf/T = get_turf(user)
-	if(istype(T))
-		deploy_tent(T, user)
 
 /obj/item/tent/MouseDrop(over_object, src_location, over_location)
 	. = ..()
@@ -80,8 +110,11 @@
 /obj/item/tent/proc/deploy_tent(var/turf/target, var/mob/user)
 
 	if(my_tent)
-		my_tent.assemble(1 SECOND, user)
-		return
+		if(my_tent.origin == get_turf(src)) //Not moved
+			my_tent.assemble(1 SECOND, user)
+			return
+		else
+			QDEL_NULL(my_tent)
 
 	var/deploy_dir = get_compass_dir(user,target)
 	if(target == get_turf(user))
@@ -95,6 +128,7 @@
 	my_tent.z1 = target.z
 	my_tent.z2 = target.z
 	my_tent.source_item_type = type
+	my_tent.origin = get_turf(src)
 
 	if(deploy_dir & NORTH)
 		my_tent.x1 = target.x - floor((width-1)/2)
@@ -104,26 +138,33 @@
 	else if(deploy_dir & SOUTH)
 		my_tent.x1 = target.x - ceil((width-1)/2)
 		my_tent.x2 = target.x + floor((width-1)/2)
-		my_tent.y1 = target.y
-		my_tent.y2 = target.y - (length-1)
+		my_tent.y1 = target.y - (length-1)
+		my_tent.y2 = target.y
 	else if(deploy_dir & EAST)
 		my_tent.x1 = target.x
 		my_tent.x2 = target.x + (length-1)
-		my_tent.y1 = target.y + floor((width-1)/2)
-		my_tent.y2 = target.y - ceil((width-1)/2)
+		my_tent.y1 = target.y - ceil((width-1)/2)
+		my_tent.y2 = target.y + floor((width-1)/2)
 	else
-		my_tent.x1 = target.x
-		my_tent.x2 = target.x - (length-1)
-		my_tent.y1 = target.y + ceil((width-1)/2)
-		my_tent.y2 = target.y - floor((width-1)/2)
+		my_tent.x1 = target.x - (length-1)
+		my_tent.x2 = target.x
+		my_tent.y1 = target.y - floor((width-1)/2)
+		my_tent.y2 = target.y + ceil((width-1)/2)
 
 	my_tent.assemble(1 SECOND, user)
 
 /obj/item/tent/big
-	name = "basecamp tent"
+	name = "scc base camp tent"
 	color = "#2e3763"
 	width = 3
 	length = 4
+	decal = "scc"
+
+/obj/item/tent/mining
+	name = "miners' tent"
+	color = "#8b7242"
+	width = 3
+	length = 3
 
 /obj/structure/component/tent_canvas
 	name = "tent canvas"
@@ -158,6 +199,9 @@
 		return
 	part_of.disassemble(2 SECONDS, usr, src)
 
+/obj/structure/component/tent_canvas/roof
+	plane = ROOF_PLANE
+
 /*
 	Sleeping bags
 */
@@ -173,7 +217,8 @@
 
 /obj/item/sleeping_bag/Initialize(mapload, ...)
 	. = ..()
-	color = pick(COLOR_NAVY_BLUE, COLOR_GREEN, COLOR_MAROON, COLOR_VIOLET, COLOR_OLIVE, COLOR_SEDONA)
+	if(!color)
+		color = pick(COLOR_NAVY_BLUE, COLOR_GREEN, COLOR_MAROON, COLOR_VIOLET, COLOR_OLIVE, COLOR_SEDONA)
 
 /obj/item/sleeping_bag/afterattack(obj/target, mob/user, proximity)
 	. = ..()
@@ -202,6 +247,9 @@
 	var/obj/structure/bed/sleeping_bag/S = new /obj/structure/bed/sleeping_bag(T, MATERIAL_CLOTH)
 	S.color = color
 	qdel(src)
+
+/obj/item/sleeping_bag/mining
+	color = COLOR_DARK_BROWN
 
 /obj/structure/bed/sleeping_bag
 	name = "sleeping bag"

@@ -20,7 +20,6 @@
 	 * The item used to set up this structure in the first place
 	 */
 	var/source_item_type
-
 	var/color
 	var/obj/item/source_item
 	var/dir
@@ -30,6 +29,7 @@
 	var/y2
 	var/z1
 	var/z2
+	var/turf/origin
 
 /datum/large_structure/Destroy()
 	QDEL_LIST(grouped_structures)
@@ -57,6 +57,7 @@
 			if(!(istype(T)))
 				to_chat(user, SPAN_ALERT("You cannot set up \the [src] here. Try and find a big enough solid surface."))
 				return FALSE
+			RegisterSignal(T, COMSIG_TURF_ENTERED, PROC_REF(structure_entered), override = TRUE)
 
 	interacting += user
 
@@ -120,6 +121,19 @@
 	var/obj/item/I = new source_item_type(get_turf(user))
 	I.color = color
 	qdel(src)
+	return TRUE
+
+/datum/large_structure/proc/structure_entered(var/turf/T, var/atom/movable/AM)
+	if(!ismob(AM))
+		return FALSE
+	var/mob/M = AM
+	RegisterSignal(M, COMSIG_MOB_MOVED, PROC_REF(mob_moved), override = TRUE)
+	return TRUE
+
+/datum/large_structure/proc/mob_moved(var/mob/M, var/turf/T)
+	if(!(T in target_turfs))
+		UnregisterSignal(M, COMSIG_MOB_MOVED)
+		return FALSE
 	return TRUE
 
 /obj/structure/component

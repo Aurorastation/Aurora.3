@@ -29218,6 +29218,7 @@
 /obj/item/material/hatchet/machete/steel,
 /obj/item/clothing/accessory/holster/utility/machete,
 /obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/tent/mining,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "ucG" = (

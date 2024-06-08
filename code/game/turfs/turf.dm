@@ -256,6 +256,10 @@ var/const/enterloopsanity = 100
 
 	ASSERT(istype(arrived))
 
+	SEND_SIGNAL(src, COMSIG_TURF_ENTERED, arrived)
+	if(ismob(arrived))
+		SEND_SIGNAL(arrived, COMSIG_MOB_MOVED, src)
+
 	if(ismob(arrived))
 		var/mob/M = arrived
 		if(!M.lastarea)

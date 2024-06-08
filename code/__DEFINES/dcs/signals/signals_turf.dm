@@ -4,3 +4,5 @@
 
 ///from base of atom/has_gravity(): (atom/asker, list/forced_gravities)
 #define COMSIG_TURF_HAS_GRAVITY "turf_has_gravity"
+
+#define COMSIG_TURF_ENTERED "turf_entered"
