@@ -254,11 +254,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
 "aec" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 10
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 8
 	},
 /turf/simulated/floor/lino,
 /area/horizon/bar)
@@ -14883,7 +14883,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/machinery/vending/dinnerware/bar,
+/obj/machinery/chem_heater,
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "gHV" = (
@@ -30269,6 +30269,9 @@
 /obj/item/reagent_containers/glass/bottle/syrup/vanilla{
 	pixel_x = 9;
 	pixel_y = 4
+	},
+/obj/machinery/vending/dinnerware/bar{
+	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
@@ -47281,12 +47284,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 6
 	},
-/obj/machinery/chem_master/condimaster,
-/obj/effect/floor_decal/corner/grey{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/hatch/grey,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/lino,
 /area/horizon/bar)
 "vUK" = (
 /obj/structure/bed/stool/chair/office/light{
@@ -51541,8 +51539,9 @@
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/xenobiology/dissection)
 "xPY" = (
-/obj/machinery/chem_heater,
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/chem_master/condimaster,
+/obj/effect/floor_decal/corner/grey/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/bar)
 "xQj" = (
@@ -71803,8 +71802,8 @@ uZh
 nxI
 uws
 bKX
-exU
 vUm
+exU
 sKJ
 gHV
 uTY

@@ -328,6 +328,9 @@
 
 	// Ensure we don't splash beakers and similar containers.
 	if(!target.is_open_container() && istype(target, /obj/item/reagent_containers))
+		if(istype(target, /obj/item/reagent_containers/glass/bottle/syrup))
+			var/obj/item/reagent_containers/glass/bottle/syrup/dispenser = target
+			return dispenser.standard_pour_into(user, src)
 		to_chat(user, SPAN_NOTICE("\The [target] is closed."))
 		return 1
 	// Otherwise don't care about splashing.
