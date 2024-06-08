@@ -7611,9 +7611,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/afthallway)
 "QG" = (
-/obj/machinery/computer/pod/old,
-/turf/template_noop,
-/area/space)
+/obj/effect/landmark/entry_point/aft{
+	name = "starboard"
+	},
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/freighter_shuttle)
 "QM" = (
 /obj/random/dirt_75,
 /obj/machinery/computer/ship/sensors/terminal{
@@ -42155,7 +42157,7 @@ hX
 hX
 hX
 hX
-dC
+QG
 Rf
 Hy
 QR
@@ -53234,7 +53236,7 @@ hX
 hX
 hX
 hX
-QG
+hX
 hX
 hX
 hX
