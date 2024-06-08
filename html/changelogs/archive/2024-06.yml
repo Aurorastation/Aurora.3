@@ -210,3 +210,11 @@
   - server: Updated CI actions to the latest version.
   - server: Set concurrency level to the workflow level for faster canceling on re-runs
       (hopefully).
+2024-06-08:
+  FluffyGhost:
+  - bugfix: Fixed seed duplication with grippers for borgs.
+  - code_imp: Minor refactor, QDELs.
+  RustingWithYou:
+  - bugfix: Vaurca ghostroles on Ouerea now spawn with filter ports.
+  WickedCybs:
+  - bugfix: Removed some errant pixels on the taj jackboot sprites.
