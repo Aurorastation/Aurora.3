@@ -305,18 +305,13 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	var/list/details = list("Customer" = null, "Order" = null)
 
 /obj/item/reagent_containers/food/drinks/takeaway_cup_idris/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ispen())
-		var/choice = tgui_input_list(user, "Which detail to edit?", "Detail edit", list("Customer", "Order"))
+	if(attacking_item.ispen() && !use_check_and_message(user))
+		var/choice = tgui_input_list(user, "Which detail do you want to edit?", "Detail Editor", list("Customer", "Order"))
 		switch(choice)
 			if("Customer")
-				details["Customer"] = tgui_input_text(user, "Enter customer name", "Enter name")
+				details["Customer"] = sanitize(tgui_input_text(user, "What is the customer's name?", "Enter Customer Name"))
 			if("Order")
-				details["Order"] = tgui_input_text(user, "Enter ordered drink", "Enter order")
-		name = initial(name)
-		if(details["Order"])
-			name += " - [details["Order"]]"
-		if(details["Customer"])
-			name += " ([details["Customer"]])"
+				details["Order"] = sanitize(tgui_input_text(user, "What is the ordered drink?", "Enter Ordered Drink"))
 		return
 	return ..()
 
