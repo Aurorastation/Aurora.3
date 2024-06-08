@@ -13,10 +13,10 @@
 
 		// table header
 		msg += "<tr>"
-		msg += "<td>ckey</td>"
-		msg += "<td>char</td>"
-		msg += "<td>status</td>"
-		msg += "<td>age</td>"
+		msg += "<td>Client Key</td>"
+		msg += "<td>Character</td>"
+		msg += "<td>Status</td>"
+		msg += "<td>Age</td>"
 		msg += "<td></td>"
 		msg += "<td></td>"
 		msg += "<td></td>"
@@ -70,12 +70,12 @@
 
 			// antag
 			if(is_special_character(client.mob))
-				msg += "<td><span class='warning'>Antagonist</span></b></td>"
+				msg += "<td><b>Antagonist</b></td>"
 			else
 				msg += "<td></td>"
 
 			// more info button
-			msg += "<td><A HREF='?_src_=holder;adminmoreinfo=\ref[client.mob]'>?</A></td>"
+			msg += "<td><A HREF='?_src_=holder;adminmoreinfo=[REF(client.mob)]'>?</A></td>"
 
 			total_num++
 			msg += "</tr>"
