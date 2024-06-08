@@ -30,6 +30,5 @@
 #pragma EmptyBlock error
 #pragma SuspiciousSwitchCase error
 #pragma AssignmentInConditional error
-#pragma PickWeightedSyntax error
 
 #endif
