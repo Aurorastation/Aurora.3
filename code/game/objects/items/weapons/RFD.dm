@@ -5,11 +5,14 @@
 // Defines
 #define MATERIALIZATION_FAIL_MESSAGE "You can't materialize two constructions of the same type."
 
-//
-// Rapid Fabrication Device
-//
-
+/**
+ * # Rapid Fabrication Device
+ *
+ * A device used for rapid fabrication of things, built from a compressed matter cartridge
+ */
 /obj/item/rfd
+	abstract_type = /obj/item/rfd //This is an abstract, use one of the subtypes instead
+
 	name = "\improper Rapid Fabrication Device"
 	desc = "A device used for rapid fabrication. The matter decompression matrix is untuned, rendering it useless."
 	icon = 'icons/obj/rfd.dmi'
@@ -32,19 +35,25 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 50000)
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
+
+	/**
+	 * A K-V list of modes that the RFD will show as selectable in the radial menu
+	 *
+	 * Key is a string, the name of the mode
+	 * Value is an image, to be displayed inside the radial menu button
+	 */
+	var/list/radial_modes = list()
+
 	var/stored_matter = 30 // Starts of full.
 	var/working = FALSE
+
+	///The mode the RFD is currently operating in
 	var/mode = RFD_FLOORS_AND_WALL
+
 	var/number_of_modes = 1
 	var/list/modes
 	var/crafting = FALSE
 
-	// A list of atoms that will be sent to the alter_atom proc if we click on them, rather than their turf.
-	var/list/valid_atoms = list(
-		/obj/machinery/door/airlock,
-		/obj/structure/window_frame,
-		/obj/structure/window/full
-	)
 	var/build_cost = 0
 	var/build_type
 	var/build_atom
@@ -141,6 +150,11 @@
 
 	overlays += "[icon_state]-[ratio]"
 
+/**
+ * # RFD Compressed Matter Cartridge
+ *
+ * Highly compressed matter for the RFD, basically RFD ammos
+ */
 /obj/item/rfd_ammo
 	name = "compressed matter cartridge"
 	desc = "Highly compressed matter for the RFD."
@@ -152,6 +166,12 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 2000)
 	recyclable = TRUE
 
+
+/*##############
+	SUBTYPES
+##############*/
+
+
 //
 // RFD - Construction Class
 //
@@ -159,9 +179,15 @@
 /obj/item/rfd/construction
 	name = "\improper Rapid Fabrication Device C-Class"
 	desc = "A RFD, modified to construct walls and floors."
-	var/list/radial_modes = list()
 	var/can_rwall = FALSE
 	var/disabled = FALSE
+
+	///A list of types that will be sent to the alter_atom proc if we click on them, rather than their turf.
+	var/list/valid_atoms = list(
+		/obj/machinery/door/airlock,
+		/obj/structure/window_frame,
+		/obj/structure/window/full
+	)
 
 /obj/item/rfd/construction/Initialize()
 	. = ..()
@@ -382,7 +408,6 @@
 	desc = "A RFD, modified to deploy service items."
 	icon_state = "rfd-s"
 	item_state = "rfd-s"
-	var/list/radial_modes = list()
 
 /obj/item/rfd/service/Initialize()
 	. = ..()
@@ -466,23 +491,43 @@
 		stored_matter--
 		to_chat(user, "The RSF now holds [stored_matter]/30 fabrication-units.")
 
-//
-// RFD - Mining Class
-//
 
+
+/*#######################
+	RFD - Mining Class
+#######################*/
+
+#define RFD_MINING_MODE_MINE_TRACK "Mine Track"
+#define RFD_MINING_MODE_MINE_CART "Mine Cart"
+#define RFD_MINING_MODE_MINE_CART_ENGINE "Mine Cart Engine"
 /obj/item/rfd/mining
 	name = "\improper Rapid Fabrication Device M-Class"
 	desc = "A RFD, modified to deploy mine tracks."
 	icon_state = "rfd-m"
 	item_state = "rfd-m"
 
-/obj/item/rfd/mining/attack_self(mob/user)
-	return
+/obj/item/rfd/mining/Initialize()
+	. = ..()
 
-/obj/item/rfd/mining/afterattack(atom/A, mob/user, proximity, click_parameters, var/report_duplicate = TRUE)
-	if(!proximity)
+	radial_modes = list(
+		RFD_MINING_MODE_MINE_TRACK = image(/obj/structure/track),
+		RFD_MINING_MODE_MINE_CART_ENGINE = image(/obj/vehicle/train/cargo/engine/mining),
+		RFD_MINING_MODE_MINE_CART = image(/obj/vehicle/train/cargo/trolley/mining)
+	)
+
+/obj/item/rfd/mining/attack_self(mob/user)
+	var/current_mode = RADIAL_INPUT(user, radial_modes)
+	if(current_mode in radial_modes)
+		mode = current_mode
+
+	if(current_mode)
+		to_chat(user, SPAN_NOTICE("You switch the selection dial to <i>\"[current_mode]\"</i>."))
+
+/obj/item/rfd/mining/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	if(!proximity_flag)
 		return
 
+	//Handle consumption of resources, either from the RFD matter cartridge or from a robot cell
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.stat || !R.cell || R.cell.charge <= 200)
@@ -501,30 +546,73 @@
 				flick("[icon_state]-empty", src)
 			return
 
-	if(!istype(A, /turf/simulated/floor) && !istype(A, /turf/unsimulated/floor))
+	//Can only be used on floors
+	if(!istype(target, /turf/simulated/floor) && !istype(target, /turf/unsimulated/floor))
 		return
 
-	if(locate(/obj/structure/track) in A)
-		if(report_duplicate)
-			to_chat(user, SPAN_WARNING("There is already a track on \the [A]!"))
-		return
+	var/item_to_make = null
+	switch(mode)
+		if(RFD_MINING_MODE_MINE_TRACK)
+			if(locate(/obj/structure/track) in target)
+				to_chat(user, SPAN_WARNING("There is already a track on \the [target]!"))
+				return
+			item_to_make = /obj/structure/track
+
+		if(RFD_MINING_MODE_MINE_CART_ENGINE)
+			//Check that there's a track
+			if(!(locate(/obj/structure/track) in target))
+				to_chat(user, SPAN_WARNING("There is no track on \the [target]!"))
+				return
+
+			//Check that there's no trolley or engine already
+			if(locate(/obj/vehicle/train/cargo) in target)
+				to_chat(user, SPAN_WARNING("There is already an engine or trolley on \the [target]!"))
+				return
+			item_to_make = /obj/vehicle/train/cargo/engine/mining
+
+		if(RFD_MINING_MODE_MINE_CART)
+			//Check that there's a track
+			if(!(locate(/obj/structure/track) in target))
+				to_chat(user, SPAN_WARNING("There is no track on \the [target]!"))
+				return
+
+			//Check that there's no trolley or engine already
+			if(locate(/obj/vehicle/train/cargo) in target)
+				to_chat(user, SPAN_WARNING("There is already an engine or trolley on \the [target]!"))
+				return
+
+			item_to_make = /obj/vehicle/train/cargo/trolley/mining
+
+		else
+			to_chat(user, SPAN_WARNING("There's no valid mode selected for this RFD!"))
+			return
 
 	playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
 
-	new /obj/structure/track(get_turf(A))
+	new item_to_make(get_turf(target))
 
-	to_chat(user, SPAN_NOTICE("You deploy a mine track on \the [A]."))
+	to_chat(user, SPAN_NOTICE("You deploy \a [mode] on \the [target]."))
 	update_icon()
 
+
+	//In case of success, consume the resources
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
 			R.cell.use(200)
 	else
 		stored_matter--
-		to_chat(user, SPAN_NOTICE("The RFD now holds <b>[stored_matter]/30</b> fabrication-units."))
+		to_chat(user, SPAN_NOTICE("The RFD now holds <b>[stored_matter]/[initial(stored_matter)]</b> fabrication-units.")) //As they start full, initial(stored_matter) also gives the maximum
 
 	return TRUE
+
+/obj/item/rfd/mining/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += FONT_SMALL(SPAN_WARNING("The printed mining units have to either be placed down in order, or linked manually after deployment."))
+
+#undef RFD_MINING_MODE_MINE_TRACK
+#undef RFD_MINING_MODE_MINE_CART
+#undef RFD_MINING_MODE_MINE_CART_ENGINE
 
 
 // Malf AI RFD Transformer

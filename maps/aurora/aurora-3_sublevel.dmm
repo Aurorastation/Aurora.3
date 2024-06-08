@@ -3452,10 +3452,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/power/apc/south{
-	req_access = null;
-	req_one_access = list(7,11)
-	},
+/obj/machinery/power/apc/south,
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_b)
 "aim" = (
@@ -9125,10 +9122,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/power/apc/south{
-	req_access = null;
-	req_one_access = list(7,11)
-	},
+/obj/machinery/power/apc/south,
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_a)
 "arn" = (
@@ -12139,10 +12133,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/power/apc/south{
-	req_access = null;
-	req_one_access = list(7,11)
-	},
+/obj/machinery/power/apc/south,
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_c)
 "axi" = (
@@ -32888,10 +32879,7 @@
 	pixel_x = 12;
 	pixel_y = -24
 	},
-/obj/machinery/power/apc/south{
-	req_access = null;
-	req_one_access = list(7,11)
-	},
+/obj/machinery/power/apc/south,
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_harvest)
 "ryu" = (

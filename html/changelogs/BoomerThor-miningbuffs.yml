@@ -1,0 +1,9 @@
+author: BoomerThor
+
+delete-after: True
+
+changes:
+  - imageadd: "Added a sprite for the raw hydrogen ore."
+  - rscadd: "Made galena and bauxite ore spawn on exoplanets."
+  - rscadd: "Made galena spawn in the turf as a rare ore."
+  - qol: "Made iron, aluminium, lead, marble, metallic hydrogen, tritium, and osmium have have icon variance based on stack size."

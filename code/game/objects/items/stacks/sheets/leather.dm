@@ -3,11 +3,10 @@
 	desc = "The by-product of some animal farming."
 	singular_name = "hide piece"
 	icon_state = "sheet-hide"
-	default_type = "hide"
+	default_type = MATERIAL_HIDE
 	icon_has_variants = TRUE
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
-	default_type = MATERIAL_HIDE
 	var/bare = FALSE //is this hair devoid of fur, hair, scales, carapace? Prevents re-stripping. Can also apply it to a hide type if we don't want to tan, like, xeno hide.
 	var/hide_type = "hair" //type of skin this animal has; scales for lizard, carapace for xeno.
 

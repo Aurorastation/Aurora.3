@@ -698,7 +698,7 @@
 		beds++
 		AddOverlays(I)
 
-/obj/structure/roller_rack/examine(mob/user)
+/obj/structure/roller_rack/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	desc = "[initial(desc)] \nIt is holding [LAZYLEN(held)] beds."
 	. = ..()
 

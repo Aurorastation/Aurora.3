@@ -409,7 +409,6 @@
 	icon_state = "snow_on"
 
 	bike_icon = "snow"
-	land_speed = 2
 	land_speed = 4
 	protection_percent = 10
 	can_hover = FALSE

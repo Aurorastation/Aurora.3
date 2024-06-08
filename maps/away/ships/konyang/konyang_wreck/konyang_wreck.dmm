@@ -2826,6 +2826,11 @@
 /obj/item/stack/material/lead/full{
 	pixel_y = 5
 	},
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "xO" = (

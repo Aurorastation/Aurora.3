@@ -204,7 +204,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 				holographic_mobs -= P
 				P.derez()
 
-	if(inoperable())
+	if(!operable())
 		return
 	if(active)
 		use_power_oneoff(item_power_usage * (holographic_objs.len + holographic_mobs.len))

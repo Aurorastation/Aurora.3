@@ -146,6 +146,7 @@
 
 	sleeps_upright = TRUE
 	snore_key = "beep"
+	indefinite_sleep = TRUE
 
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()

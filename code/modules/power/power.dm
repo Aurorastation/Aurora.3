@@ -254,14 +254,22 @@
 
 	return net1
 
-//Determines how strong could be shock, deals damage to mob, uses power.
-//M is a mob who touched wire/whatever
-//power_source is a source of electricity, can be powercell, area, apc, cable, powernet or null
-//source is an object caused electrocuting (airlock, grille, etc)
-//No animations will be performed by this proc.
-/proc/electrocute_mob(mob/living/carbon/M as mob, var/power_source, var/obj/source, var/siemens_coeff = 1.0, var/contact_zone = "hand")
+/**
+ * Determines how strong could be shock, deals damage to mob, uses power
+ *
+ * No animations will be performed by this proc
+ *
+ * * victim - The mob who has to be shocked
+ * * power_source - is a source of electricity, can be power cell, area, apc, cable, powernet or null
+ * * source - An object caused electrocuting (airlock, grille, etc)
+ * * siemens_coeff - Layman's terms, conductivity
+ * * contact_zone - Where the electrocution is happening, see BP_* defines in `code\__DEFINES\mobs.dm`
+ *
+ * Returns the amount of energy that was used to electrocute the mob, or `null` / `FALSE` if the electrocution didn't happen
+ */
+/proc/electrocute_mob(mob/living/carbon/victim, power_source, obj/source, siemens_coeff = 1.0, contact_zone = "hand")
 
-	if (!M)
+	if (!victim)
 		return 0
 	var/area/source_area
 	if(istype(power_source,/area))
@@ -286,15 +294,15 @@
 	else if (!power_source)
 		return 0
 	else
-		log_admin("ERROR: /proc/electrocute_mob([M], [power_source], [source]): wrong power_source")
+		log_admin("ERROR: /proc/electrocute_mob([victim], [power_source], [source]): wrong power_source")
 		return 0
 	//Triggers powernet warning, but only for 5 ticks (if applicable)
 	//If following checks determine user is protected we won't alarm for long.
 	if(PN)
 		PN.trigger_warning(5)
 	var/mob/living/carbon/human/H
-	if(ishuman(M))
-		H = M
+	if(ishuman(victim))
+		H = victim
 	if(H)
 		if(H.species.siemens_coefficient == 0)
 			return
@@ -327,14 +335,14 @@
 	var/drained_hp
 	var/touchy_hand
 	if(contact_zone == "hand")
-		if(M.hand)
+		if(victim.hand)
 			touchy_hand = BP_R_HAND
 		else
 			touchy_hand = BP_L_HAND
 	if(!touchy_hand)
-		drained_hp = M.electrocute_act(shock_damage, source, siemens_coeff, ground_zero = contact_zone) //zzzzzzap!
+		drained_hp = victim.electrocute_act(shock_damage, source, siemens_coeff, ground_zero = contact_zone) //zzzzzzap!
 	else
-		drained_hp = M.electrocute_act(shock_damage, source, siemens_coeff, ground_zero = touchy_hand) //zzzzzzap!
+		drained_hp = victim.electrocute_act(shock_damage, source, siemens_coeff, ground_zero = touchy_hand) //zzzzzzap!
 	var/drained_energy = drained_hp*20
 
 	if (source_area)

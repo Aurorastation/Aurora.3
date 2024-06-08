@@ -1118,6 +1118,7 @@
 /obj/item/clothing/gloves/yellow,
 /obj/item/ladder_mobile,
 /obj/item/hoist_kit,
+/obj/item/blueprints,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/engistorage)
 "fz" = (
@@ -6238,7 +6239,6 @@
 	},
 /obj/machinery/power/apc/high/north{
 	req_access = null;
-	cell_type = /obj/item/cell/super
 	},
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 8

@@ -10,7 +10,7 @@
 
 	outfit = /obj/outfit/admin/fishing_trawler_crewman
 	possible_species = list(SPECIES_UNATHI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
-	uses_species_whitelist = TRUE
+	uses_species_whitelist = FALSE
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Fishing League Trawler Crewman"
