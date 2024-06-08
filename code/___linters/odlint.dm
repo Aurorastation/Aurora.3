@@ -28,7 +28,6 @@
 
 //3000-3999
 #pragma EmptyBlock error
-#pragma UnsafeClientAccess error
 #pragma SuspiciousSwitchCase error
 #pragma AssignmentInConditional error
 #pragma PickWeightedSyntax error
