@@ -13,7 +13,6 @@
 #pragma SoftReservedKeyword error
 #pragma DuplicateVariable error
 #pragma DuplicateProcDefinition error
-#pragma TooManyArguments error
 #pragma PointlessParentCall error
 #pragma PointlessBuiltinCall error
 #pragma SuspiciousMatrixCall error
@@ -29,7 +28,6 @@
 
 //3000-3999
 #pragma EmptyBlock error
-#pragma EmptyProc error
 #pragma UnsafeClientAccess error
 #pragma SuspiciousSwitchCase error
 #pragma AssignmentInConditional error
