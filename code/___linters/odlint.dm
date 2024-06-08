@@ -17,14 +17,22 @@
 #pragma PointlessParentCall error
 #pragma PointlessBuiltinCall error
 #pragma SuspiciousMatrixCall error
+#pragma FallbackBuiltinArgument error
+#pragma PointlessScopeOperator error
 #pragma MalformedRange error
 #pragma InvalidRange error
 #pragma InvalidSetStatement error
 #pragma InvalidOverride error
 #pragma DanglingVarType error
 #pragma MissingInterpolatedExpression error
+#pragma AmbiguousResourcePath error
 
 //3000-3999
 #pragma EmptyBlock error
+#pragma EmptyProc error
+#pragma UnsafeClientAccess error
+#pragma SuspiciousSwitchCase error
+#pragma AssignmentInConditional error
+#pragma PickWeightedSyntax error
 
 #endif
