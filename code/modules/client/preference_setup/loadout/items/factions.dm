@@ -480,7 +480,7 @@
  	display_name = "grupo amapola officer cap"
 	path = /obj/item/clothing/head/misc/grupo_amapola
 	flags = GEAR_HAS_DESC_SELECTION
-	allowed_roles = list("Head of Security")
+	allowed_roles = list("Head of Security", "Corporate Liaison")
 	faction = "Private Military Contracting Group"
 	slot = slot_head
 
