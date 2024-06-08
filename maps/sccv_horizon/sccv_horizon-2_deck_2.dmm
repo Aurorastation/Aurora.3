@@ -6812,6 +6812,7 @@
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/structure/disposalpipe/segment,
 /obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "dcF" = (
@@ -51198,6 +51199,7 @@
 "xHv" = (
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "xHX" = (

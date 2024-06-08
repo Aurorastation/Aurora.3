@@ -11153,7 +11153,7 @@
 /turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "hIo" = (
-/obj/machinery/computer/aiupload{
+/obj/machinery/computer/borgupload{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_blue{
