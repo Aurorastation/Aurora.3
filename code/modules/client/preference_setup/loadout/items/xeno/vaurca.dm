@@ -76,6 +76,12 @@
 	capes["tunnel cloak, cargo"] = /obj/item/storage/backpack/cloak/cargo
 	capes["tunnel cloak, science"] = /obj/item/storage/backpack/cloak/sci
 	capes["tunnel cloak, security"] = /obj/item/storage/backpack/cloak/sec
+	capes["tunnel cloak, NanoTrasen"] = /obj/item/storage/backpack/cloak/nt
+	capes["tunnel cloak, Orion Express"] = /obj/item/storage/backpack/cloak/orion
+	capes["tunnel cloak, Hephaestus Industries"] = /obj/item/storage/backpack/cloak/heph
+	capes["tunnel cloak, Zavodskoi Interstellar"] = /obj/item/storage/backpack/cloak/zavod
+	capes["tunnel cloak, Zeng-Hu Pharmaceuticals"] = /obj/item/storage/backpack/cloak/zeng
+	capes["tunnel cloak, Ve'katak Phalanx"] = /obj/item/storage/backpack/cloak/phalanx
 	gear_tweaks += new /datum/gear_tweak/path(capes)
 
 /datum/gear/vaurca_robe
