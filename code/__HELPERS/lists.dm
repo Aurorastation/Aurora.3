@@ -301,20 +301,15 @@
 	var/index = 1
 
 	// loop through to the list to find where exactly our value element is in the list
-	for(var/i = 1, i < our_list.len, i++)
-		var/key = our_list[i]
-		if(our_list[key] == element)
+	for(var/i in 1 to length(our_list)
+		if(our_list[our_list[i]] == element)
 			// we've found our value, now we need to check if it's at the end of the list
 			// if not, we can select our index + 1
-			if(i != length(our_list))
-				index = i + 1
-			// otherwise we wrap back to the start of the list
-			else
-				index = 1
+			// First element in the list if we're at the end of it, next one otherwise
+			index = ((i == length(our_list)) ? 1 : i+1)
 			break
 
-	var/new_key = our_list[index]
-	return our_list[new_key]
+	return our_list[our_list[index]]
 
 /*
  * Sorting
