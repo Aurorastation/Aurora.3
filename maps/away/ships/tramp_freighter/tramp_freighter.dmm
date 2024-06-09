@@ -3007,6 +3007,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/circuitboard/bodyscanner,
 /obj/item/circuitboard/arcade/battle{
 	pixel_y = 4
 	},
@@ -4311,14 +4312,14 @@
 /area/tramp_freighter/port_docking)
 "wN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/item/smes_coil/super_io,
-/obj/item/smes_coil/super_io,
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm/south{
 	req_one_access = null
 	},
-/turf/simulated/floor/carpet/rubber,
+/obj/item/stack/material/graphite/full{
+	pixel_y = 3
+	},
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/power)
 "wP" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -4556,6 +4557,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/power)
@@ -6435,15 +6439,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/captain)
 "JW" = (
-/obj/structure/table/rack,
-/obj/item/smes_coil/super_capacity,
-/obj/item/smes_coil/super_capacity,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/device/geiger,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/power)
 "JY" = (
@@ -8961,12 +8964,13 @@
 /turf/simulated/floor/carpet,
 /area/tramp_freighter/crew_quarters)
 "Xz" = (
-/obj/structure/table/rack,
-/obj/item/smes_coil,
-/obj/item/smes_coil,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light,
+/obj/machinery/power/portgen/basic{
+	anchored = 1
+	},
+/obj/structure/cable,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/power)
 "XA" = (
