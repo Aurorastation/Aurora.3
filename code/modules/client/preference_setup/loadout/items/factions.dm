@@ -477,8 +477,8 @@
 	slot = slot_w_uniform
 
 /datum/gear/faction/grupo_amapola_officer
- 	display_name = "grupo amapola officer cap"
-	path = /obj/item/clothing/head/misc/grupo_amapola
+	display_name = "grupo amapola officer cap"
+	path = /obj/item/clothing/head/grupo_amapola
 	flags = GEAR_HAS_DESC_SELECTION
 	allowed_roles = list("Head of Security")
 	faction = "Private Military Contracting Group"
