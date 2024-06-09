@@ -243,8 +243,9 @@
 	frame_color = "#5B5B5B"
 
 /obj/effect/map_effect/window_spawner/full/shuttle/raider
-	icon_state = "full_rwindow_shuttle_merc"
+	icon_state = "full_rwindow_shuttle"
 	frame_color = "#6C7364"
+	color = "#6C7364"
 
 //Coalition window frames
 /obj/effect/map_effect/window_spawner/full/shuttle/coalition

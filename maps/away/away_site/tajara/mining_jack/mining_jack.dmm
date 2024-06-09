@@ -1016,6 +1016,15 @@
 /obj/machinery/power/apc/east{
 	req_access = list(202)
 	},
+/obj/item/blueprints,
+/obj/structure/table/steel,
+/obj/item/blueprints/outpost{
+	pixel_y = 6
+	},
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},

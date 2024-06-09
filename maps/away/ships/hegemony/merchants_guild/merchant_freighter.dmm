@@ -413,6 +413,14 @@
 /obj/structure/sign/flag/hegemony/large/south,
 /turf/simulated/floor/tiled,
 /area/merchants_guild/office)
+"fn" = (
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
+/obj/structure/table/standard,
+/obj/item/blueprints,
+/turf/simulated/floor/plating,
+/area/merchants_guild/starboardengine)
 "fq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -15629,7 +15637,7 @@ Lk
 Bu
 gM
 HN
-Wd
+fn
 uz
 Wd
 Wd

@@ -45,6 +45,8 @@
 		/datum/unarmed_attack/bite/warrior
 	)
 
+	valid_prosthetics = list(PROSTHETIC_VAURCA, PROSTHETIC_VAURCA_WARRIOR)
+
 
 
 /datum/species/bug/type_c

@@ -31,7 +31,7 @@
 	attacktext = "chomped"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
-	faction = "lizard"
+	faction = "Moghes"
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 20)
 	var/is_devouring = FALSE
 
@@ -133,6 +133,7 @@
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 1, /obj/item/reagent_containers/food/snacks/meat/bat = 2)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 	meat_amount = 10
+	faction = "Moghes"
 	var/shriek_time = 0
 
 /mob/living/simple_animal/hostile/shrieker/proc/shriek(turf/T, mob/living/M)

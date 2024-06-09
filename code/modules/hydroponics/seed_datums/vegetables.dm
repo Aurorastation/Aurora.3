@@ -78,7 +78,6 @@
 	mutants = list("deathnettle")
 	chems = list(/singleton/reagent/nutriment = list(1,50), /singleton/reagent/acid = list(0,1))
 	kitchen_tag = "nettle"
-	kitchen_tag = "nettle"
 
 /datum/seed/nettle/setup_traits()
 	..()

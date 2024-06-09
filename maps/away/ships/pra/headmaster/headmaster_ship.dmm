@@ -898,7 +898,8 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1;
 	color = "#6C7364";
-	frame_color = "#6C7364"
+	frame_color = "#6C7364";
+	req_one_access = list(209)
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
@@ -1214,7 +1215,8 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1;
 	color = "#6C7364";
-	frame_color = "#6C7364"
+	frame_color = "#6C7364";
+	req_one_access = list(209)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "elyran_shuttle_shutters";
@@ -1360,7 +1362,9 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "dA" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor{
+	req_one_access = list(209)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor{
 	temperature = 278.15
@@ -1955,7 +1959,8 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1;
 	color = "#6C7364";
-	frame_color = "#6C7364"
+	frame_color = "#6C7364";
+	req_one_access = list(209)
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, cockpit"
@@ -3270,7 +3275,13 @@
 	},
 /area/headmaster_ship/eva)
 "jK" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#6C7364";
+	frame_color = "#6C7364";
+	req_one_access = list(209)
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3416,7 +3427,8 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1;
 	color = "#6C7364";
-	frame_color = "#6C7364"
+	frame_color = "#6C7364";
+	req_one_access = list(209)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -4517,7 +4529,8 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1;
 	color = "#6C7364";
-	frame_color = "#6C7364"
+	frame_color = "#6C7364";
+	req_one_access = list(209)
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, eva storage"
@@ -4942,7 +4955,9 @@
 	},
 /area/headmaster_ship/eva)
 "th" = (
-/mob/living/heavy_vehicle/premade/ripley/loader,
+/mob/living/heavy_vehicle/premade/ripley/loader{
+	faction = "PRA"
+	},
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/reinforced/cooled,
@@ -5305,7 +5320,8 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1;
 	color = "#6C7364";
-	frame_color = "#6C7364"
+	frame_color = "#6C7364";
+	req_one_access = list(209)
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "elyran_shuttle_shutters"
@@ -5364,7 +5380,9 @@
 /turf/simulated/floor/plating/cooled,
 /area/headmaster_ship/hangar)
 "yw" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor{
+	req_one_access = list(209)
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -5541,6 +5559,12 @@
 "AB" = (
 /obj/machinery/alarm/cold/north{
 	req_one_access = list(209)
+	},
+/obj/item/blueprints,
+/obj/structure/table/reinforced/steel,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
 	},
 /turf/simulated/floor/plating/cooled,
 /area/headmaster_ship/engineering)
@@ -6477,7 +6501,8 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1;
 	color = "#6C7364";
-	frame_color = "#6C7364"
+	frame_color = "#6C7364";
+	req_one_access = list(209)
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
@@ -6747,7 +6772,8 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1;
 	color = "#6C7364";
-	frame_color = "#6C7364"
+	frame_color = "#6C7364";
+	req_one_access = list(209)
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
@@ -7056,15 +7082,15 @@
 /obj/machinery/light/spot{
 	dir = 4
 	},
-/obj/machinery/embedded_controller/radio/docking_port_multi{
-	pixel_x = 24;
-	id_tag = "headmaster_shuttle";
-	child_names_txt = "Orbital Fleet Shuttle Airlock";
-	child_tags_txt = "headmaster_shuttle";
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	dir = 8;
+	pixel_x = 24;
+	frequency = 1380;
+	name = "Headmaster Shuttle Hangar Docking Controller";
+	id_tag = "headmaster_shuttle_dock"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -7361,7 +7387,13 @@
 	},
 /area/headmaster_ship/captain_quarters)
 "Tl" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#6C7364";
+	frame_color = "#6C7364";
+	req_one_access = list(209)
+	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, kitchen"
 	},
@@ -7492,11 +7524,13 @@
 "Uy" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /mob/living/heavy_vehicle/premade/pra_egg{
-	dir = 8
+	dir = 8;
+	faction = "PRA"
 	},
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
