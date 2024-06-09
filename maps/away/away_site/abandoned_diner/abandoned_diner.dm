@@ -20,7 +20,6 @@
 	name = "Abandoned Space Diner"//This and desc is visible ingame when the object is scanned by any scanner
 	desc = "A former space diner once operated by Starjack, a chain of rest stops and diners on space stations throughout the Spur, partially owned by NanoTrasen. The company went bankrupt in 2447, forcing its over 60 stations to be vacated in a hurry. \
 	This one has no signs of life; however, scans do indicate power and a pressurized atmosphere."
-	icon_state = "outpost"
 
 	static_vessel = TRUE
 	generic_object = FALSE

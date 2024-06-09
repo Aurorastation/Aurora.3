@@ -715,7 +715,14 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/obj/item/material/shard,
+/obj/item/blueprints/outpost{
+	pixel_y = 6
+	},
+/obj/structure/table/steel,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled,
 /area/old_outpost/refinery)
 "nS" = (

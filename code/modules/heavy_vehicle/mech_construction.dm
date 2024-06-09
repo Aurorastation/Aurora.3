@@ -178,7 +178,7 @@
 		system.forceMove(get_turf(user))
 		user.put_in_hands(system)
 		to_chat(user, SPAN_NOTICE("You remove \the [system] in \the [src]'s [system_hardpoint]."))
-		playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+		playsound(get_turf(user), 'sound/items/Screwdriver.ogg', 100, 1)
 
 /mob/living/heavy_vehicle/proc/remove_system(var/system_hardpoint, var/force)
 	if((hardpoints_locked && !force) || !hardpoints[system_hardpoint])
@@ -208,6 +208,6 @@
 
 	hud_elements -= system
 	refresh_hud()
-	queue_icon_update()
+	SSicon_update.add_to_queue(src)
 
 	return system

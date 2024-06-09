@@ -15,7 +15,7 @@
 	desc_extended = "This model of survey probe seems to be very old. A plaque on the side bears some words in Sinta'Unathi beneath the seal of the Izweski Hegemony."
 	start_deployed = TRUE
 
-/obj/structure/survey_probe/hegemony/old/examine(mob/user)
+/obj/structure/survey_probe/hegemony/old/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if(GLOB.all_languages[LANGUAGE_UNATHI] in user.languages)
 		to_chat(user, SPAN_NOTICE("The probe's plaque identifies it as property of the Izweski Hegemony Extraterrestrial Surveying Guild - a space exploration guild dissolved shortly following First Contact. The date displayed on the ancient screen would read as 2361 by the common human calendar."))

@@ -1779,6 +1779,7 @@
 /obj/random/junk,
 /obj/structure/extinguisher_cabinet/west,
 /obj/item/stack/cable_coil/yellow,
+/obj/item/blueprints,
 /turf/simulated/floor/tiled/dark/full,
 /area/sensor_relay/maintenance)
 "awM" = (

@@ -1,4 +1,6 @@
 /mob/living/simple_animal/hostile
+	abstract_type = /mob/living/simple_animal/hostile
+
 	faction = "hostile"
 	var/stance = HOSTILE_STANCE_IDLE	//Used to determine behavior
 	var/mob/living/target_mob
@@ -322,6 +324,8 @@
 	return TRUE
 
 /mob/living/simple_animal/hostile/proc/OpenFire(target_mob)
+	set waitfor = FALSE
+
 	if(!see_target())
 		LoseTarget()
 	var/target = target_mob

@@ -163,7 +163,7 @@ var/list/preferences_datums = list()
 	var/metadata = ""
 
 	// SPAAAACE
-	var/toggles_secondary = PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
+	var/toggles_secondary = SEE_ITEM_OUTLINES | PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
 	var/clientfps = 100
 	var/floating_chat_color
 	var/speech_bubble_type = "default"
@@ -495,7 +495,7 @@ var/list/preferences_datums = list()
 
 	character.pda_choice = pda_choice
 
-	if(headset_choice > OUTFIT_THIN_WRISTRAD || headset_choice < OUTFIT_NOTHING)
+	if(headset_choice > OUTFIT_CLIPON || headset_choice < OUTFIT_NOTHING)
 		headset_choice = OUTFIT_HEADSET
 
 	character.headset_choice = headset_choice

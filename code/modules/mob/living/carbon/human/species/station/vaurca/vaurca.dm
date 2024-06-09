@@ -150,6 +150,10 @@
 	possible_speech_bubble_types = list("robot", "default")
 	valid_prosthetics = list(PROSTHETIC_VAURCA)
 
+	sleeps_upright = TRUE
+	snore_key = "chitter"
+	indefinite_sleep = TRUE
+
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	H.gender = NEUTER
@@ -174,3 +178,9 @@
 		return TRUE
 	return FALSE
 
+/datum/species/bug/sleep_msg(var/mob/M)
+	M.visible_message(SPAN_NOTICE("\The [M] locks [M.get_pronoun("his")] carapace in place, becoming completely still."))
+	to_chat(M, SPAN_NOTICE("You lock your carapace into place, becoming completely still."))
+
+/datum/species/bug/sleep_examine_msg(var/mob/M)
+	return SPAN_NOTICE("[M.get_pronoun("He")] has locked [M.get_pronoun("his")] carapace in place, and is standing completely still.\n")

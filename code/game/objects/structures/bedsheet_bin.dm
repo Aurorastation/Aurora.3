@@ -400,14 +400,14 @@ LINEN BINS
 
 /obj/structure/bedsheetbin/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/bedsheet))
-		user.drop_from_inventory(attacking_item,src)
-		sheets.Add(attacking_item)
-		amount++
-		to_chat(user, SPAN_NOTICE("You put [attacking_item] in [src]."))
+		if(user.unEquip(attacking_item, target = src))
+			sheets.Add(attacking_item)
+			amount++
+			to_chat(user, SPAN_NOTICE("You put [attacking_item] in [src]."))
 	else if(amount && !hidden && attacking_item.w_class < 4)	//make sure there's sheets to hide it among, make sure nothing else is hidden in there.
-		user.drop_from_inventory(attacking_item,src)
-		hidden = attacking_item
-		to_chat(user, SPAN_NOTICE("You hide [attacking_item] among the sheets."))
+		if(user.unEquip(attacking_item, target = src))
+			hidden = attacking_item
+			to_chat(user, SPAN_NOTICE("You hide [attacking_item] among the sheets."))
 
 /obj/structure/bedsheetbin/attack_hand(mob/user as mob)
 	if(amount >= 1)

@@ -153,9 +153,9 @@
 		to_chat(src, SPAN_WARNING("You are too small to pull that."))
 		return
 
-/mob/living/carbon/alien/diona/put_in_hands(var/obj/item/W) // No hands.
-	W.forceMove(get_turf(src))
-	return TRUE
+/mob/living/carbon/alien/diona/put_in_hands(obj/item/item_to_equip) // No hands.
+	item_to_equip.forceMove(get_turf(src))
+	return FALSE
 
 //Functions duplicated from humans, albeit slightly modified
 /mob/living/carbon/alien/diona/proc/set_species(var/new_species)

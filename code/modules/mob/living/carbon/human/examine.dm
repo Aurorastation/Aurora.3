@@ -33,6 +33,8 @@
 				to_chat(user, "<span class='deadsay'>[get_pronoun("He")] [get_pronoun("has")] a pulse!</span>")
 
 /mob/living/carbon/human/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	SHOULD_CALL_PARENT(FALSE) //Special snowflake case
+
 	. = list()
 	var/skipbody = get_covered_body_parts()
 	var/skipbody_thick = get_covered_body_parts(TRUE)
@@ -200,7 +202,7 @@
 
 	//wrists
 	if(wrists && !skipwrists)
-		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wrists, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[wrists]'>\a [wrists]</a> on [get_pronoun("his")] [wrists.gender==PLURAL?"wrists":"wrist"].\n"
+		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wrists, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[wrists]'>\a [wrists]</a> [wrists.get_wrist_examine_text(src)].\n"
 
 	//Jitters
 	if(is_jittery)
@@ -268,6 +270,8 @@
 		have_client = bg.client
 		inactivity =  have_client ? bg.client.inactivity : null
 
+	if(sleeping)
+		msg += species.sleep_examine_msg(src)
 
 	if(species.show_ssd && (!species.has_organ[BP_BRAIN] || has_brain()) && stat != DEAD && !(status_flags & FAKEDEATH))
 		if(!vr_mob && !key)

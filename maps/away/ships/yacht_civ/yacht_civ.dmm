@@ -5104,6 +5104,10 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/engineering)
 "SQ" = (

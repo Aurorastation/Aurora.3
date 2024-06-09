@@ -329,7 +329,7 @@
 	name = "gauss thumper"
 	desc = "An outdated gauss weapon which sees sparing use in modern times."
 	w_class = ITEMSIZE_NORMAL
-	slot_flags = 0
+	slot_flags = SLOT_BACK
 	magazine_type = /obj/item/ammo_magazine/gauss
 	allowed_magazines = list(/obj/item/ammo_magazine/gauss)
 	icon = 'icons/obj/guns/gauss_thumper.dmi'
@@ -342,7 +342,6 @@
 	handle_casings = DELETE_CASINGS
 
 	force = 15
-	slot_flags = SLOT_BACK
 	can_bayonet = TRUE
 	knife_x_offset = 23
 	knife_y_offset = 13

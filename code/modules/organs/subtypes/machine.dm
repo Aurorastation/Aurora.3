@@ -206,6 +206,7 @@
 	icon_state = "camera"
 	dead_icon = "camera_broken"
 	robotic_sprite = FALSE
+	possible_modifications = list("Mechanical")
 
 /obj/item/organ/internal/eyes/optical_sensor/Initialize()
 	robotize()

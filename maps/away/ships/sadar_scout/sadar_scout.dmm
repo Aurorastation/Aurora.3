@@ -6619,6 +6619,11 @@
 /obj/random/powercell,
 /obj/random/powercell,
 /obj/machinery/light/colored/decayed/dimmed,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/tools)
 "WN" = (

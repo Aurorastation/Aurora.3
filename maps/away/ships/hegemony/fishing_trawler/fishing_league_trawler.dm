@@ -5,7 +5,7 @@
 	prefix = "ships/hegemony/fishing_trawler/"
 	suffixes = list("fishing_league_trawler.dmm")
 
-	sectors = list(SECTOR_BADLANDS)
+	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA)
 	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 3)
 	spawn_weight = 1
 	ship_cost = 1

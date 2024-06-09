@@ -88,6 +88,7 @@
 
 /obj/structure/heavy_vehicle_frame/update_icon()
 	//As mech icons uses a caching system, any changes here, particularly to layers, must be reflected in /mob/living/heavy_vehicle/update_icon().
+	ClearOverlays()
 	AddOverlays(get_mech_icon(list(body), MECH_BASE_LAYER))
 	if(body)
 		density = TRUE
@@ -96,7 +97,7 @@
 		density = FALSE
 	if(head)
 		AddOverlays(get_mech_image("[head.icon_state]", head.on_mech_icon, head.color, MECH_HEAD_LAYER))
-		AddOverlays(get_mech_image("[head.icon_state]_eyes", head.on_mech_icon, null, EYEGLOW_LAYER))
+		AddOverlays(get_mech_image("[head.icon_state]_eyes", head.on_mech_icon, null, EYE_GLOW_LAYER))
 	if(arms)
 		AddOverlays(get_mech_image(arms.icon_state, arms.on_mech_icon, arms.color, MECH_ARM_LAYER))
 	if(legs)
