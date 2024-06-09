@@ -2108,7 +2108,7 @@
 /area/rnd/isolation_c)
 "aff" = (
 /obj/structure/table/rack,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/gloves/latex/nitrile,
 /obj/item/clothing/suit/hazmat/anomaly,
@@ -3452,10 +3452,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/power/apc/south{
-	req_access = null;
-	req_one_access = list(7,11)
-	},
+/obj/machinery/power/apc/south,
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_b)
 "aim" = (
@@ -5150,7 +5147,7 @@
 	req_access = list(7)
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/clothing/mask/gas/half{
 	pixel_x = -6;
 	pixel_y = -4
@@ -5202,7 +5199,7 @@
 	req_access = list(7)
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/clothing/mask/gas/half{
 	pixel_x = -6;
 	pixel_y = -4
@@ -9125,10 +9122,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/power/apc/south{
-	req_access = null;
-	req_one_access = list(7,11)
-	},
+/obj/machinery/power/apc/south,
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_a)
 "arn" = (
@@ -10203,7 +10197,7 @@
 	req_access = list(7)
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/clothing/mask/gas/half{
 	pixel_x = -6;
 	pixel_y = -4
@@ -12139,10 +12133,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/power/apc/south{
-	req_access = null;
-	req_one_access = list(7,11)
-	},
+/obj/machinery/power/apc/south,
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_c)
 "axi" = (
@@ -32888,10 +32879,7 @@
 	pixel_x = 12;
 	pixel_y = -24
 	},
-/obj/machinery/power/apc/south{
-	req_access = null;
-	req_one_access = list(7,11)
-	},
+/obj/machinery/power/apc/south,
 /turf/simulated/floor/tiled,
 /area/outpost/research/anomaly_harvest)
 "ryu" = (

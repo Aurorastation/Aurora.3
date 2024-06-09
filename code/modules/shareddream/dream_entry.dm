@@ -1,4 +1,5 @@
-var/list/dream_entries = list()
+///A list of `/turf` where the Srom is located, and people entering the shared dream (presumably Skrells sleeping) will be casted to
+GLOBAL_LIST_EMPTY_TYPED(dream_entries, /turf)
 
 /mob
 	var/mob/living/brain_ghost/bg
@@ -8,20 +9,22 @@ var/list/dream_entries = list()
 	var/datum/weakref/srom_pulling
 
 /mob/living/carbon/human/proc/handle_shared_dreaming(var/force_wakeup = FALSE)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	// If they're an Unconsious person with the abillity to do Skrellepathy.
 	// If either changes, they should be nocked back to the real world.
 	var/mob/living/carbon/human/srom_puller = srom_pulled_by?.resolve()
 	if((has_psionics() || (srom_puller && Adjacent(srom_puller))) && stat == UNCONSCIOUS && sleeping > 1)
 		if(!istype(bg) && client) // Don't spawn a brainghost if we're not logged in.
-			bg = new /mob/living/brain_ghost(src) // Generate a new brainghost.
+			bg = new /mob/living/brain_ghost(src, src) // Generate a new brainghost.
 			if(isnull(bg)) // Prevents you from getting kicked if the brain ghost didn't spawn - geeves
 				return
 			vr_mob = bg
 			bg.ckey = ckey
 			bg.client = client
 			ckey = "@[bg.ckey]"
-			to_chat(bg, "<span class='notice'>As you lose consiousness, you feel yourself entering Srom.</span>")
-			to_chat(bg, "<span class='warning'>Whilst in shared dreaming, you find it difficult to hide your secrets.</span>")
+			to_chat(bg, SPAN_NOTICE("As you lose consiousness, you feel yourself entering Srom."))
+			to_chat(bg, SPAN_WARNING("Whilst in shared dreaming, you find it difficult to hide your secrets."))
 			if(willfully_sleeping)
 				to_chat(bg, "To wake up, use the \"Awaken\" verb in the IC tab.")
 			if(!srom_pulling && has_psionics())
@@ -83,7 +86,7 @@ var/list/dream_entries = list()
 				return_text = "You are ripped from the Srom." // You're dead - ensures there's no message about feeling weird or waking up.
 
 			return_mob.ckey = old_bg.ckey
-			old_bg.visible_message("<span class='notice'>[old_bg] begins to fade as they depart from the dream...</span>")
+			old_bg.visible_message(SPAN_NOTICE("[old_bg] begins to fade as they depart from the dream..."))
 			animate(old_bg, alpha=0, time = 20)
 			QDEL_IN(old_bg, 20)
 			to_chat(return_mob, SPAN_WARNING("[return_text]"))

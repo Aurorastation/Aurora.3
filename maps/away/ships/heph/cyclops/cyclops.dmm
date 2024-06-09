@@ -1329,6 +1329,9 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
+/obj/structure/closet/secure_closet/engineering_electrical{
+	req_access = list(216)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "nb" = (
@@ -4639,8 +4642,13 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/structure/closet/secure_closet/engineering_electrical{
-	req_access = list(216)
+/obj/structure/table/reinforced/steel,
+/obj/item/blueprints,
+/obj/item/blueprints/outpost{
+	pixel_y = 6
+	},
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_engineering)

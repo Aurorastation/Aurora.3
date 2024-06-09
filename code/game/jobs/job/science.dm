@@ -48,6 +48,7 @@
 	bowman = /obj/item/device/radio/headset/heads/rd/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/rd
 	wrist_radio = /obj/item/device/radio/headset/wrist/rd
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/rd
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/research/rd
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
@@ -96,6 +97,7 @@
 	bowman = /obj/item/device/radio/headset/headset_sci/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/sci
 	wrist_radio = /obj/item/device/radio/headset/wrist/sci
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/sci
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
@@ -145,6 +147,7 @@
 	bowman = /obj/item/device/radio/headset/headset_xenoarch/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/xenoarch
 	wrist_radio = /obj/item/device/radio/headset/wrist/xenoarch
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xenoarch
 
 /datum/job/xenobiologist
 	title = "Xenobiologist"
@@ -236,6 +239,7 @@
 	bowman = /obj/item/device/radio/headset/headset_sci/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/sci
 	wrist_radio = /obj/item/device/radio/headset/wrist/sci
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/sci
 
 	backpack = /obj/item/storage/backpack/toxins
 	backpack_faction = /obj/item/storage/backpack/nt

@@ -18,7 +18,6 @@
 	response_harm   = "stomps"
 	stop_automated_movement = 1
 	friendly = "pinches"
-	mob_size = 5
 	hunger_enabled = 0
 	var/obj/item/inventory_head
 	var/obj/item/inventory_mask

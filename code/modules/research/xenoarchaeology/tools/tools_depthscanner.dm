@@ -25,7 +25,7 @@
 	var/material = "unknown"
 
 /obj/item/device/depth_scanner/proc/scan_atom(var/mob/user, var/atom/A)
-	user.visible_message("<span class='notice'>[user] scans [A], the air around them humming gently.</span>")
+	user.visible_message(SPAN_NOTICE("[user] scans [A], the air around them humming gently."))
 	if(istype(A,/turf/simulated/mineral))
 		var/turf/simulated/mineral/M = A
 		if((M.finds && M.finds.len) || M.artifact_find)
@@ -47,7 +47,7 @@
 			positive_locations.Add(D)
 
 			for(var/mob/L in range(src, 1))
-				to_chat(L, "<span class='notice'>[icon2html(src, L)] [src] pings.</span>")
+				to_chat(L, SPAN_NOTICE("[icon2html(src, L)] [src] pings."))
 				playsound(loc, 'sound/machines/twobeep.ogg', 40)
 
 	else if(istype(A,/obj/structure/boulder))
@@ -67,7 +67,7 @@
 			positive_locations.Add(D)
 
 			for(var/mob/L in range(src, 1))
-				to_chat(L, "<span class='notice'>[icon2html(src, L)] [src] pings [pick("madly","wildly","excitedly","crazily")]!</span>")
+				to_chat(L, SPAN_NOTICE("[icon2html(src, L)] [src] pings [pick("madly","wildly","excitedly","crazily")]!"))
 				playsound(loc, 'sound/machines/triplebeep.ogg', 40)
 
 /obj/item/device/depth_scanner/attack_self(var/mob/user as mob)

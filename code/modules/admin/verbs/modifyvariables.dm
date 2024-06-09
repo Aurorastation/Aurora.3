@@ -405,7 +405,7 @@ var/list/VVdynamic_lock = list(
 	if(!check_rights(R_VAREDIT|R_DEV))	return
 
 	if(istype(O, /client) && (param_var_name == "ckey" || param_var_name == "key"))
-		to_chat(usr, "<span class='danger'>You cannot edit ckeys on client objects.</span>")
+		to_chat(usr, SPAN_DANGER("You cannot edit ckeys on client objects."))
 		return
 
 	if(!O.can_vv_get(param_var_name))

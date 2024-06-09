@@ -19,7 +19,7 @@
 	pixel_x = -16
 	layer = ABOVE_HUMAN_LAYER
 
-/obj/structure/sign/moghes_memorial/examine(mob/user)
+/obj/structure/sign/moghes_memorial/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if(GLOB.all_languages[LANGUAGE_UNATHI] in user.languages)
 		to_chat(user, SPAN_NOTICE("The inscription on the monolith reads as follows: \"This is the fifteen thousand six hundred and eighty-sixth monument erected by the Keepers of Heirlooms, \

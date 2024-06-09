@@ -119,13 +119,13 @@ pixel_x = 8;
 
 	if (istype(attacking_item, /obj/item/modular_computer))
 		if(!check_access(attacking_item))
-			to_chat(user, "<span class='warning'>Access Denied.</span>")
+			to_chat(user, SPAN_WARNING("Access Denied."))
 			return TRUE
 		else if (attacking_item in rings_pdas)
-			to_chat(user, "<span class='notice'>You unlink \the [attacking_item] from \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You unlink \the [attacking_item] from \the [src]."))
 			remove_pda(attacking_item)
 			return TRUE
-		to_chat(user, "<span class='notice'>You link \the [attacking_item] to \the [src], it will now ring upon someone using \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You link \the [attacking_item] to \the [src], it will now ring upon someone using \the [src]."))
 		rings_pdas += attacking_item
 		// WONT FIX: This requires callbacks fuck my dick.
 		GLOB.destroyed_event.register(attacking_item, src, PROC_REF(remove_pda))
@@ -144,11 +144,11 @@ pixel_x = 8;
 		return
 
 	if(!on)
-		to_chat(user, "<span class='notice'>You turn \the [src] on, now all PDAs linked to it will be notified.</span>")
+		to_chat(user, SPAN_NOTICE("You turn \the [src] on, now all PDAs linked to it will be notified."))
 		on = TRUE
 
 	else
-		to_chat(user, "<span class='notice'>You turn \the [src] off.</span>")
+		to_chat(user, SPAN_NOTICE("You turn \the [src] off."))
 		on = FALSE
 
 	update_icon()

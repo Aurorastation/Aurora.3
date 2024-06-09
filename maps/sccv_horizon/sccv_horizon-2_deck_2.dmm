@@ -4017,7 +4017,8 @@
 	pixel_x = -19;
 	pixel_y = 29;
 	req_one_access = list(20,41);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4182,7 +4183,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "bLB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -5018,6 +5019,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
+	},
+/obj/machinery/light/floor{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
@@ -6419,7 +6423,7 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "cRs" = (
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -6809,6 +6813,7 @@
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/structure/disposalpipe/segment,
 /obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "dcF" = (
@@ -6921,8 +6926,8 @@
 /obj/structure/closet/secure_closet/scientist,
 /obj/item/storage/box/masks,
 /obj/item/storage/box/gloves,
-/obj/item/clothing/glasses/science,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
@@ -7123,7 +7128,8 @@
 	pixel_x = 22;
 	pixel_y = -20;
 	req_one_access = list(19,43);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -8188,7 +8194,8 @@
 	pixel_x = -40;
 	pixel_y = -8;
 	req_one_access = list(75);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
@@ -10577,7 +10584,7 @@
 /obj/item/stock_parts/capacitor,
 /obj/item/stock_parts/capacitor,
 /obj/item/stack/cable_coil,
-/obj/item/clothing/glasses/science{
+/obj/item/clothing/glasses/safety/goggles/science{
 	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/white,
@@ -13582,7 +13589,7 @@
 "gis" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "giv" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -17283,7 +17290,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "hMm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -18049,7 +18056,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "iji" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/engineering{
@@ -19025,7 +19032,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 8;
-	pixel_x = -23
+	pixel_x = -23;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -19039,7 +19047,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 8;
-	pixel_x = -22
+	pixel_x = -22;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -20184,7 +20193,7 @@
 /area/horizon/security/hallway)
 "jfH" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "jgc" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
@@ -21240,7 +21249,7 @@
 "jES" = (
 /obj/structure/table/standard,
 /obj/item/device/firing_pin/test_range,
-/obj/item/clothing/glasses/science{
+/obj/item/clothing/glasses/safety/goggles/science{
 	pixel_y = 10
 	},
 /obj/structure/reagent_dispensers/acid{
@@ -22934,7 +22943,6 @@
 /area/horizon/zat)
 "kwS" = (
 /obj/structure/table/standard,
-/obj/item/gun/projectile/shotgun/foldable/cameragun,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
@@ -22944,6 +22952,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/item/device/camera,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/foyer)
 "kwW" = (
@@ -23824,7 +23833,7 @@
 	req_access = list(63)
 	},
 /turf/simulated/floor/tiled/full,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "kUz" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 8
@@ -25088,7 +25097,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "lEd" = (
-/obj/machinery/shieldwallgen,
+/obj/machinery/shieldwallgen{
+	req_access = list(55);
+	anchored = 1;
+	wrenched = 1
+	},
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/machinery/camera/network/research{
 	c_tag = "Xenobiology - Hazardous Specimen";
@@ -25234,7 +25247,8 @@
 	specialfunctions = 4;
 	dir = 10;
 	pixel_x = -6;
-	pixel_y = 1
+	pixel_y = 1;
+	desiredstate = 1
 	},
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
@@ -25538,7 +25552,7 @@
 	name = "fore, armoury"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "lMQ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -26339,7 +26353,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "mfX" = (
 /obj/structure/cable/green,
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille/firedoor{
@@ -26808,7 +26822,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "msu" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -28571,7 +28585,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 4;
-	pixel_x = 23
+	pixel_x = 23;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -28764,7 +28779,8 @@
 	pixel_x = 22;
 	pixel_y = 12;
 	req_one_access = list(19,43);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 8;
@@ -30609,9 +30625,6 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/machinery/light/floor{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
 "oca" = (
@@ -30761,7 +30774,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "ogV" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
@@ -33001,6 +33014,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "pin" = (
@@ -33065,7 +33079,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "pjA" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -34754,7 +34768,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 8;
-	pixel_x = -23
+	pixel_x = -23;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/foyer)
@@ -37102,7 +37117,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "reZ" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -37122,7 +37137,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "rfG" = (
 /obj/structure/table/reinforced/glass,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -39010,7 +39025,8 @@
 	name = "Xenobiology External Access Bolts";
 	pixel_y = -21;
 	req_access = list(55);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
@@ -40221,7 +40237,7 @@
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "sKJ" = (
 /turf/simulated/wall,
 /area/horizon/crew_quarters/lounge/bar)
@@ -40416,7 +40432,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 10;
-	pixel_x = 32
+	pixel_x = 32;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/foyer)
@@ -41112,7 +41129,8 @@
 	pixel_x = 22;
 	pixel_y = 22;
 	req_one_access = list(19,43);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -42775,7 +42793,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 4;
-	pixel_x = 22
+	pixel_x = 22;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/foyer)
@@ -46154,7 +46173,11 @@
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "vwC" = (
-/obj/machinery/shieldwallgen,
+/obj/machinery/shieldwallgen{
+	req_access = list(55);
+	anchored = 1;
+	wrenched = 1
+	},
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
 	},
@@ -46166,7 +46189,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 4;
-	pixel_x = 23
+	pixel_x = 23;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/hazardous)
@@ -46999,7 +47023,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "vOS" = (
 /obj/structure/cable/orange{
 	icon_state = "1-2"
@@ -47143,9 +47167,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
-/obj/machinery/power/apc/west{
-	pixel_y = -1
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/table/standard,
 /obj/item/storage/box/sharps,
 /obj/structure/cable/green{
@@ -47409,7 +47431,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "vXB" = (
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Xenobiology Fore";
@@ -48814,7 +48836,7 @@
 /area/horizon/bar)
 "wAm" = (
 /turf/simulated/wall/r_wall,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "wAT" = (
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/chief)
@@ -51017,7 +51039,8 @@
 	pixel_x = 22;
 	pixel_y = -22;
 	req_one_access = list(19,43);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -51199,6 +51222,7 @@
 "xHv" = (
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "xHX" = (
@@ -52008,7 +52032,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/maintenance/security_starboard)
+/area/maintenance/security_port)
 "xYX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -52500,7 +52524,8 @@
 	specialfunctions = 4;
 	dir = 4;
 	pixel_x = 23;
-	pixel_y = 32
+	pixel_y = 32;
+	desiredstate = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/xenobiology/dissection)

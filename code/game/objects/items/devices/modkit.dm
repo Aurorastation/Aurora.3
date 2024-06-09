@@ -132,7 +132,7 @@
 		return
 
 	if(!parts)
-		to_chat(user, "<span class='warning'>This kit has no parts for this modification left.</span>")
+		to_chat(user, SPAN_WARNING("This kit has no parts for this modification left."))
 		user.drop_from_inventory(src,W)
 		qdel(src)
 		return
@@ -252,7 +252,7 @@
 		return
 
 	if(!parts)
-		to_chat(user, "<span class='warning'>This kit has no parts for this modification left.</span>")
+		to_chat(user, SPAN_WARNING("This kit has no parts for this modification left."))
 		user.drop_from_inventory(src,W)
 		qdel(src)
 		return

@@ -31,7 +31,7 @@
 	attacktext = "chomped"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
-	faction = "lizard"
+	faction = "Moghes"
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 20)
 	var/is_devouring = FALSE
 
@@ -41,7 +41,7 @@
 	if(istype(L))
 		if(prob(25))
 			L.Weaken(3)
-			L.visible_message("<span class='danger'>\The [src] knocks down \the [L]!</span>")
+			L.visible_message(SPAN_DANGER("\The [src] knocks down \the [L]!"))
 
 /mob/living/simple_animal/hostile/biglizard/death(gibbed)
 	..()
@@ -133,6 +133,7 @@
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 1, /obj/item/reagent_containers/food/snacks/meat/bat = 2)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 	meat_amount = 10
+	faction = "Moghes"
 	var/shriek_time = 0
 
 /mob/living/simple_animal/hostile/shrieker/proc/shriek(turf/T, mob/living/M)

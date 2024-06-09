@@ -31,6 +31,7 @@ var/list/mineral_can_smooth_with = list(
 
 	// canSmoothWith is set in Initialize().
 	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	turf_flags = TURF_FLAG_BACKGROUND
 
 	initial_gas = null
 	opacity = TRUE
@@ -676,7 +677,12 @@ var/list/mineral_can_smooth_with = list(
 	mined_turf = /turf/simulated/floor/exoplanet/basalt
 
 /turf/simulated/mineral/lava
+	color = "#444444"
 	mined_turf = /turf/simulated/floor/exoplanet/basalt
+
+/turf/simulated/mineral/lava/tret
+	color = "#444455"
+	mined_turf = /turf/simulated/floor/exoplanet/basalt/tret
 
 /**********************Asteroid**************************/
 

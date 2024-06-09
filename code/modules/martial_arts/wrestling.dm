@@ -12,15 +12,15 @@
 	var/obj/item/grab/G = A.get_active_hand()
 	if(G && prob(50))
 		G.state = GRAB_AGGRESSIVE
-		D.visible_message("<span class='danger'>[A] has [D] in a clinch!</span>")
+		D.visible_message(SPAN_DANGER("[A] has [D] in a clinch!"))
 	else
-		D.visible_message("<span class='danger'>[A] fails to get [D] in a clinch!</span>")
+		D.visible_message(SPAN_DANGER("[A] fails to get [D] in a clinch!"))
 	return 1
 
 
 /datum/martial_art/wrestling/proc/Suplex(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 
-	D.visible_message("<span class='danger'>[A] suplexes [D]!</span>")
+	D.visible_message(SPAN_DANGER("[A] suplexes [D]!"))
 	D.forceMove(A.loc)
 	D.apply_damage(30, DAMAGE_BRUTE)
 	D.apply_effect(6, WEAKEN)
@@ -44,7 +44,7 @@
 
 /datum/martial_art/wrestling/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	D.grabbedby(A,1)
-	D.visible_message("<span class='danger'>[A] holds [D] down!</span>")
+	D.visible_message(SPAN_DANGER("[A] holds [D] down!"))
 	var/obj/item/organ/external/affecting = D.get_organ(ran_zone(A.zone_sel.selecting))
 	D.apply_damage(40, DAMAGE_PAIN, affecting)
 	return 1

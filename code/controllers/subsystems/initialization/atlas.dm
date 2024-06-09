@@ -143,7 +143,7 @@ SUBSYSTEM_DEF(atlas)
 /datum/controller/subsystem/atlas/Initialize(timeofday)
 	// Quick sanity check.
 	if (world.maxx != WORLD_MIN_SIZE || world.maxy != WORLD_MIN_SIZE || world.maxz != 1)
-		to_world("<span class='warning'>WARNING: Suspected pre-compiled map: things may break horribly!</span>")
+		to_world(SPAN_WARNING("WARNING: Suspected pre-compiled map: things may break horribly!"))
 		log_subsystem_atlas("-- WARNING: Suspected pre-compiled map! --")
 
 	maploader = new
@@ -165,7 +165,7 @@ SUBSYSTEM_DEF(atlas)
 	if (!map_override)
 		map_override = get_selected_map()
 
-	admin_notice("<span class='danger'>Loading map [map_override].</span>", R_DEBUG)
+	admin_notice(SPAN_DANGER("Loading map [map_override]."), R_DEBUG)
 	log_subsystem_atlas("Using map '[map_override]'.")
 
 	current_map = known_maps[map_override]
@@ -180,7 +180,7 @@ SUBSYSTEM_DEF(atlas)
 	var/maps_loaded = load_map_directory("maps/[current_map.path]/", TRUE)
 
 	log_subsystem_atlas("Loaded [maps_loaded] maps.")
-	admin_notice("<span class='danger'>Loaded [maps_loaded] levels.</span>")
+	admin_notice(SPAN_DANGER("Loaded [maps_loaded] levels."))
 
 	if (!maps_loaded)
 		world.map_panic("No maps loaded!")
@@ -317,7 +317,7 @@ SUBSYSTEM_DEF(atlas)
 
 // Called when there's a fatal, unrecoverable error in mapload. This reboots the server.
 /world/proc/map_panic(reason)
-	to_chat(world, "<span class='danger'>Fatal error during map setup, unable to continue! Server will reboot in 60 seconds.</span>")
+	to_chat(world, SPAN_DANGER("Fatal error during map setup, unable to continue! Server will reboot in 60 seconds."))
 	log_subsystem_atlas("-- FATAL ERROR DURING MAP SETUP: [uppertext(reason)] --")
 	sleep(1 MINUTE)
 	world.Reboot()

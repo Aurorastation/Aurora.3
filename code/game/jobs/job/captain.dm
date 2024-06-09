@@ -40,6 +40,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	bowman = /obj/item/device/radio/headset/heads/captain/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/captain
 	wrist_radio = /obj/item/device/radio/headset/wrist/captain
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/captain
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/command/captain
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/captain
@@ -122,6 +123,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	bowman = /obj/item/device/radio/headset/heads/xo/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/xo
 	wrist_radio = /obj/item/device/radio/headset/wrist/xo
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xo
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/command/xo
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/xo
@@ -172,4 +174,5 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	bowman = /obj/item/device/radio/headset/headset_com/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/command
 	wrist_radio = /obj/item/device/radio/headset/wrist/command
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/command
 	messengerbag = /obj/item/storage/backpack/messenger/com

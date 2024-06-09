@@ -59,24 +59,23 @@
 		accessory_mob_overlay = null // reset the overlay
 	else
 		I = INV_ACCESSORIES_DEF_ICON
-	if(!accessory_mob_overlay || force)
-		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
-		if(icon_override)
-			if(contained_sprite)
-				auto_adapt_species(H)
-				tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
-			else if("[tmp_icon_state]_mob" in icon_states(I))
-				tmp_icon_state = "[tmp_icon_state]_mob"
-		else if(contained_sprite)
+	var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
+	if(icon_override)
+		if(contained_sprite)
 			auto_adapt_species(H)
 			tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
-		accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
-		if(build_from_parts || has_accents)
-			accessory_mob_overlay.ClearOverlays()
-		if(build_from_parts)
-			accessory_mob_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
-		if(has_accents)
-			accessory_mob_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_acc", accent_color, flags=accent_flags))
+		else if("[tmp_icon_state]_mob" in icon_states(I))
+			tmp_icon_state = "[tmp_icon_state]_mob"
+	else if(contained_sprite)
+		auto_adapt_species(H)
+		tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
+	accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
+	if(build_from_parts || has_accents)
+		accessory_mob_overlay.ClearOverlays()
+	if(build_from_parts)
+		accessory_mob_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+	if(has_accents)
+		accessory_mob_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_acc", accent_color, flags=accent_flags))
 	if(color)
 		accessory_mob_overlay.color = color
 	accessory_mob_overlay.appearance_flags = RESET_ALPHA|RESET_COLOR
@@ -90,7 +89,7 @@
 	loc = has_suit
 	has_suit.AddOverlays(get_inv_overlay())
 	if(user)
-		to_chat(user, "<span class='notice'>You attach \the [src] to \the [has_suit].</span>")
+		to_chat(user, SPAN_NOTICE("You attach \the [src] to \the [has_suit]."))
 		src.add_fingerprint(user)
 	update_light()
 
@@ -396,7 +395,7 @@
 
 	if(allow_tail_hiding)
 		flags_inv ^= HIDETAIL
-		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail.</span>")
+		to_chat(usr, SPAN_NOTICE("[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail."))
 
 /obj/item/clothing/accessory/poncho/big
 	name = "large poncho"

@@ -61,7 +61,6 @@
 	filling_color = "#ffeb94"
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/gelatin = 5)
 	reagent_data = list(/singleton/reagent/nutriment = list("pineapple sorbet" = 5, "cherry jello" = 5))
-	trash = /obj/item/trash/snack_bowl
 	bitesize = 2
 
 /obj/item/reagent_containers/food/snacks/floatingisland/update_icon()

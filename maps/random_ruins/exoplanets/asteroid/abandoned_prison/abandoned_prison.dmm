@@ -762,6 +762,13 @@
 	},
 /obj/structure/table/steel,
 /obj/item/storage/box/fancy/cigarettes/dromedaryco,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints/outpost{
+	pixel_y = 6
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_prison/engineering)
 "kC" = (

@@ -48,7 +48,7 @@
 			user.remove_from_mob(attacking_item)
 			contents += attacking_item
 			has_extinguisher = attacking_item
-			to_chat(user, "<span class='notice'>You place [attacking_item] in [src].</span>")
+			to_chat(user, SPAN_NOTICE("You place [attacking_item] in [src]."))
 			playsound(src.loc, 'sound/effects/extin.ogg', 50, 0)
 		else
 			opened = !opened
@@ -67,7 +67,7 @@
 		return 0
 	if(has_extinguisher)
 		user.put_in_hands(has_extinguisher)
-		to_chat(user, "<span class='notice'>You take [has_extinguisher] from [src].</span>")
+		to_chat(user, SPAN_NOTICE("You take [has_extinguisher] from [src]."))
 		playsound(src.loc, 'sound/effects/extout.ogg', 50, 0)
 		has_extinguisher = null
 		opened = TRUE

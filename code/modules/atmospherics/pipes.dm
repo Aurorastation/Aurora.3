@@ -107,16 +107,16 @@
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
 		if(!istype(attacking_item, /obj/item/pipewrench))
-			to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
+			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 			add_fingerprint(user)
 			return TRUE
 		else
-			to_chat(user, "<span class='warning'>You struggle to unwrench \the [src] with your pipe wrench.</span>")
-	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
+			to_chat(user, SPAN_WARNING("You struggle to unwrench \the [src] with your pipe wrench."))
+	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
 	if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
 		user.visible_message( \
-			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
-			"<span class='notice'>You have unfastened \the [src].</span>", \
+			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
+			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear a ratchet.")
 		new /obj/item/pipe(loc, make_from=src)
 		for (var/obj/machinery/meter/meter in T)
@@ -242,7 +242,7 @@
 	else return 1
 
 /obj/machinery/atmospherics/pipe/simple/proc/burst()
-	src.visible_message("<span class='danger'>\The [src] bursts!</span>");
+	src.visible_message(SPAN_DANGER("\The [src] bursts!"));
 	playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
 	var/datum/effect/effect/system/smoke_spread/smoke = new
 	smoke.set_up(1,0, src.loc, 0)

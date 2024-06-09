@@ -55,7 +55,7 @@
 			valid_extension = TRUE
 
 	if( !fexists(path) || !valid_extension )
-		to_chat(src, "<span class='warning'>Error: browse_files(): File not found/Invalid file([path]).</span>")
+		to_chat(src, SPAN_WARNING("Error: browse_files(): File not found/Invalid file([path])."))
 		return
 
 	return path
@@ -69,7 +69,7 @@
 /client/proc/file_spam_check()
 	var/time_to_wait = GLOB.fileaccess_timer - world.time
 	if(time_to_wait > 0)
-		to_chat(src, "<span class='warning'>Error: file_spam_check(): Spam. Please wait [round(time_to_wait/10)] seconds.</span>")
+		to_chat(src, SPAN_WARNING("Error: file_spam_check(): Spam. Please wait [round(time_to_wait/10)] seconds."))
 		return 1
 	GLOB.fileaccess_timer = world.time + FTPDELAY
 	return 0

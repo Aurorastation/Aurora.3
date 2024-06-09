@@ -30,7 +30,7 @@
 			parry_bonus = has_parry_bonus // proc returns the parry multiplier
 
 	if(default_parry_check(user, attacker, damage_source) && prob(parry_chance * parry_bonus))
-		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 		playsound(user.loc, 'sound/weapons/bladeparry.ogg', 50, 1)
 		return PROJECTILE_STOPPED
 	return FALSE

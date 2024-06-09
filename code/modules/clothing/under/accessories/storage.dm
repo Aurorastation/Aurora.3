@@ -174,7 +174,6 @@
 
 /obj/item/clothing/accessory/storage/pouches/colour
 	icon_state = "thigh_colour"
-	icon_state = "thigh_colour"
 
 /obj/item/clothing/accessory/storage/knifeharness
 	name = "decorated harness"

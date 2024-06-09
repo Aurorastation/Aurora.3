@@ -57,7 +57,7 @@
 		if(istype(attacking_item, /obj/item/paper))
 			toppaper = attacking_item
 		r_contents = reverselist(contents)
-		to_chat(user, "<span class='notice'>You clip the [attacking_item] onto \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You clip the [attacking_item] onto \the [src]."))
 
 	else if(istype(toppaper) && attacking_item.ispen())
 		toppaper.attackby(attacking_item, user)
@@ -106,7 +106,7 @@
 		if(W.ispen())
 			user.drop_from_inventory(W,src)
 			haspen = W
-			to_chat(user, "<span class='notice'>You slot the pen into \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You slot the pen into \the [src]."))
 	else
 		to_chat(user, SPAN_NOTICE("This clipboard already has a pen!"))
 
@@ -180,7 +180,7 @@
 			var/obj/item/P = locate(href_list["top"])
 			if(P && (P.loc == src) && istype(P, /obj/item/paper) )
 				toppaper = P
-				to_chat(usr, "<span class='notice'>You move [P.name] to the top.</span>")
+				to_chat(usr, SPAN_NOTICE("You move [P.name] to the top."))
 
 		//Update everything
 		attack_self(usr)
