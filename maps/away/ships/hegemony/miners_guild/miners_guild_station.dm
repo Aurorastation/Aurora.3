@@ -32,9 +32,14 @@
 		"miners_guild_nav1",
 		"miners_guild_nav2",
 		"miners_guild_nav3",
-		"miners_guild_nav4"
+		"miners_guild_nav4",
+		"miners_guild_dock1",
+		"miners_guild_dock2",
+		"miners_guild_dock3"
 	)
-	initial_restricted_waypoints = list()
+	initial_restricted_waypoints = list(
+		"Miners' Guild Shuttle" = list("miners_guild_navhangar")
+	)
 
 /obj/effect/shuttle_landmark/miners_guild
 	base_turf = /turf/space
