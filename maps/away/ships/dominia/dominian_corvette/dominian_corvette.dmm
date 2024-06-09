@@ -4535,6 +4535,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/item/pen/drafting,
+/obj/item/blueprints,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
 "pJj" = (
@@ -5809,9 +5811,6 @@
 "uCl" = (
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_y = 0;
-	dir = 4;
-	pixel_x = 15;
 	req_access = list(212)
 	},
 /obj/structure/cable{

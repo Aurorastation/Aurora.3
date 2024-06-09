@@ -28,7 +28,7 @@
 		/obj/item/clothing/glasses/regular,
 		/obj/item/clothing/glasses/regular,
 		/obj/item/clothing/glasses/safety/goggles,
-		/obj/item/clothing/glasses/science,
+		/obj/item/clothing/glasses/safety/goggles/science,
 	)
 	shoes = list(
 		/obj/item/clothing/shoes/workboots,

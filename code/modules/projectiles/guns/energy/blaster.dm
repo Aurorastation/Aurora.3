@@ -91,7 +91,6 @@
 	knife_x_offset = 23
 	knife_y_offset = 13
 	fire_delay = 25
-	w_class = ITEMSIZE_LARGE
 	accuracy = -3
 	scoped_accuracy = 4
 

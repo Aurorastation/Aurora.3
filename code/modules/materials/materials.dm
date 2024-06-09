@@ -646,8 +646,6 @@
 	created_window = /obj/structure/window/borosilicate/reinforced
 	hardness = 40
 	weight = 30
-	stack_origin_tech = list(TECH_MATERIAL = 2)
-	composite_material = list() //todo
 	rod_product = null
 
 /material/plastic

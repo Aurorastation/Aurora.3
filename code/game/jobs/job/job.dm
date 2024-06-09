@@ -199,6 +199,7 @@
 	bowman = /obj/item/device/radio/headset/alt
 	double_headset = /obj/item/device/radio/headset/alt/double
 	wrist_radio = /obj/item/device/radio/headset/wrist
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian

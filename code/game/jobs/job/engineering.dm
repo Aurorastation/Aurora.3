@@ -48,6 +48,7 @@
 	bowman = /obj/item/device/radio/headset/heads/ce/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/ce
 	wrist_radio = /obj/item/device/radio/headset/wrist/ce
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/ce
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/engineering/ce
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering/ce
@@ -110,6 +111,7 @@
 	bowman = /obj/item/device/radio/headset/headset_eng/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/eng
 	wrist_radio = /obj/item/device/radio/headset/wrist/eng
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/eng
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/engineering
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/engineering
@@ -175,6 +177,7 @@
 	bowman = /obj/item/device/radio/headset/headset_eng/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/eng
 	wrist_radio = /obj/item/device/radio/headset/wrist/eng
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/eng
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
@@ -250,6 +253,7 @@
 	bowman = /obj/item/device/radio/headset/headset_eng/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/eng
 	wrist_radio = /obj/item/device/radio/headset/wrist/eng
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/eng
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
@@ -284,6 +288,7 @@
 	bowman = /obj/item/device/radio/headset/headset_eng/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/eng
 	wrist_radio = /obj/item/device/radio/headset/wrist/eng
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/eng
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng

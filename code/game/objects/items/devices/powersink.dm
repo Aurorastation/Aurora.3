@@ -14,11 +14,22 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 750)
 
 	origin_tech = list(TECH_POWER = 3, TECH_ILLEGAL = 5)
-	var/drain_rate = 1500000		// amount of power to drain per tick
-	var/apc_drain_rate = 5000 		// Max. amount drained from single APC. In Watts.
-	var/dissipation_rate = 20000	// Passive dissipation of drained power. In Watts.
-	var/power_drained = 0 			// Amount of power drained.
-	var/max_power = 8e8				// Detonation point. Roughly 18 minutes with default setup.
+
+	///Amount of power to drain per second, in watts
+	var/drain_rate = 1.5 MEGA WATTS
+
+	///Maximum amount of power to drain from a single APW, in watts
+	var/apc_drain_rate = 50 KILO WATTS
+
+	///Passive dissipation of drained power in Watts
+	var/dissipation_rate = 20000
+
+	///Amount of power drained, in watts
+	var/power_drained = 04
+
+	///Power at which the sink will explode (after having absorbed that), in watts
+	var/max_power = 800 MEGA WATTS
+
 	var/mode = 0					// 0 = off, 1=clamped (off), 2=operating
 	var/drained_this_tick = 0		// This is unfortunately necessary to ensure we process powersinks BEFORE other machinery such as APCs.
 
@@ -26,8 +37,8 @@
 	var/obj/structure/cable/attached		// the attached cable
 
 /obj/item/device/powersink/Destroy()
-	STOP_PROCESSING_POWER_OBJECT(src)
-	GLOB.processing_power_items -= src
+	PN = null
+	attached = null
 
 	return ..()
 
@@ -48,8 +59,7 @@
 			return TRUE
 		else
 			if (mode == 2)
-				STOP_PROCESSING_POWER_OBJECT(src)
-				GLOB.processing_power_items.Remove(src)
+				STOP_PROCESSING(SSprocessing, src)
 			anchored = 0
 			mode = 0
 			visible_message(SPAN_NOTICE("\The [user] detaches \the [src] from the cable!"))
@@ -73,18 +83,16 @@
 			mode = 2
 			icon_state = "powersink1"
 			item_state = "powersink1"
-			START_PROCESSING_POWER_OBJECT(src)
-			GLOB.processing_power_items += src
+			START_PROCESSING(SSprocessing, src)
 		if(2)  //This switch option wasn't originally included. It exists now. --NeoFite
 			visible_message(SPAN_NOTICE("\The [user] deactivates \the [src]!"))
 			mode = 1
 			set_light(0)
 			icon_state = "powersink0"
 			item_state = "powersink0"
-			STOP_PROCESSING_POWER_OBJECT(src)
-			GLOB.processing_power_items -= src
+			STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/device/powersink/pwr_drain()
+/obj/item/device/powersink/proc/siphon_power(seconds_per_tick)
 	if(!attached)
 		return 0
 
@@ -100,26 +108,26 @@
 	set_light(12)
 	PN.trigger_warning()
 	// found a powernet, so drain up to max power from it
-	drained = PN.draw_power(drain_rate)
+	drained = PN.draw_power(drain_rate * seconds_per_tick)
 	// if tried to drain more than available on powernet
 	// now look for APCs and drain their cells
-	if(drained < drain_rate)
+	if(drained < drain_rate * seconds_per_tick)
 		for(var/obj/machinery/power/terminal/T in PN.nodes)
 			// Enough power drained this tick, no need to torture more APCs
-			if(drained >= drain_rate)
+			if(drained >= drain_rate * seconds_per_tick)
 				break
 			if(istype(T.master, /obj/machinery/power/apc))
 				var/obj/machinery/power/apc/A = T.master
 				if(A.operating && A.cell)
 					var/cur_charge = A.cell.charge / CELLRATE
-					var/drain_val = min(apc_drain_rate, cur_charge)
+					var/drain_val = min(apc_drain_rate * seconds_per_tick, cur_charge)
 					A.cell.use(drain_val * CELLRATE)
 					drained += drain_val
 	power_drained += drained
 	return 1
 
 
-/obj/item/device/powersink/process()
+/obj/item/device/powersink/process(seconds_per_tick)
 	drained_this_tick = 0
 	power_drained -= min(dissipation_rate, power_drained)
 
@@ -135,6 +143,8 @@
 		handle_overload()
 		qdel(src)
 		return
+
+	siphon_power(seconds_per_tick)
 
 /obj/item/device/powersink/proc/handle_overload()
 	if (QDELETED(src))

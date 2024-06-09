@@ -20,6 +20,26 @@
 	///looping sound datum for our fire alarm siren.
 	var/datum/looping_sound/firealarm/soundloop
 
+/obj/machinery/firealarm/Initialize(mapload, ndir = 0, building)
+	. = ..(mapload, ndir)
+
+	update_icon()
+
+	if(isContactLevel(z))
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(set_security_level), (GLOB.security_level ? get_security_level() : "green"))
+
+	soundloop = new(src, FALSE)
+
+	var/area/A = get_area(src)
+	RegisterSignal(A, COMSIG_AREA_FIRE_ALARM, TYPE_PROC_REF(/atom, update_icon))
+
+	if(!mapload)
+		set_pixel_offsets()
+
+/obj/machinery/firealarm/Destroy()
+	QDEL_NULL(soundloop)
+	. = ..()
+
 /obj/machinery/firealarm/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if((stat & (NOPOWER|BROKEN)) || buildstage != 2)
@@ -55,11 +75,12 @@
 			AddOverlays("fire0")
 			set_light(0)
 
-/obj/machinery/firealarm/fire_act(datum/gas_mixture/air, temperature, volume)
+/obj/machinery/firealarm/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(src.detecting)
-		if(temperature > T0C+200)
+		if(exposed_temperature > T0C+200)
 			src.alarm()			// added check of detector status here
-	return
 
 /obj/machinery/firealarm/bullet_act()
 	return src.alarm()
@@ -142,7 +163,7 @@
 
 	src.alarm()
 
-/obj/machinery/firealarm/process()//Note: this processing was mostly phased out due to other code, and only runs when needed
+/obj/machinery/firealarm/process(seconds_per_tick)//Note: this processing was mostly phased out due to other code, and only runs when needed
 	if(stat & (NOPOWER|BROKEN))
 		return
 
@@ -155,9 +176,7 @@
 		timing = FALSE
 		. = PROCESS_KILL
 	else
-		src.time = src.time - ((world.timeofday - last_process) / 10)
-
-	updateDialog()
+		src.time = src.time - (((world.timeofday - last_process) / 10) * seconds_per_tick)
 
 	last_process = world.timeofday
 
@@ -165,41 +184,58 @@
 	..()
 	queue_icon_update()
 
-/obj/machinery/firealarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = GLOB.default_state)
-	var/data[0]
-	data["alertLevel"] = get_security_level()
-	data["time"] = src.time
-	var/area/A = get_area(src)
-	data["active"] = A.fire
-
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "firealarm.tmpl", "Fire Alarm", 325, 325, state = state)
-		ui.set_initial_data(data)
+/obj/machinery/firealarm/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "FireAlarm")
 		ui.open()
-		ui.set_auto_update(1)
 
 /obj/machinery/firealarm/attack_hand(mob/user as mob)
 	if (buildstage != 2 || stat & (NOPOWER|BROKEN))
 		return
 
-	ui_interact(user)
-	return
+	if(user.a_intent == I_HURT)
+		alarm()
+	else
+		ui_interact(user)
 
-/obj/machinery/firealarm/Topic(href, href_list)
-	..()
+/obj/machinery/firealarm/ui_data(mob/user)
+	var/list/data = list()
 
-	if (href_list["state"] == "active")
-		src.alarm()
-	else if (href_list["state"] == "inactive")
-		src.reset()
-	if (href_list["tmr"] == "set")
-		time = Clamp(input(usr, "Enter time delay", "Fire Alarm Delayed Activation", time) as num, 0, 600)
-	else if (href_list["tmr"] == "start")
-		src.timing = 1
-		START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
-	else if (href_list["tmr"] == "stop")
-		src.timing = 0
+	data["alertLevel"] = get_security_level()
+	data["time"] = src.time
+
+	var/area/A = get_area(src)
+	data["active"] = A.fire
+
+	data["timing"] = src.timing
+
+	return data
+
+/obj/machinery/firealarm/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	switch(action)
+		if("activate_alarm")
+			src.alarm()
+		if("reset_alarm")
+			src.reset()
+		if("set_timer")
+			var/input_time = text2num(params["set_timer"])
+			if(!isnum(input_time))
+				return
+
+			time = Clamp(input_time SECONDS, 1, 600)
+
+		if("start_timer")
+			src.timing = 1
+			START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
+		if("stop_timer")
+			src.timing = 0
+
+	return TRUE
 
 /obj/machinery/firealarm/proc/reset()
 	if (!( src.working ))
@@ -224,26 +260,6 @@
 /obj/machinery/firealarm/set_emergency_state(var/new_security_level)
 	if(seclevel != new_security_level)
 		seclevel = new_security_level
-
-/obj/machinery/firealarm/Initialize(mapload, ndir = 0, building)
-	. = ..(mapload, ndir)
-
-	update_icon()
-
-	if(isContactLevel(z))
-		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(set_security_level), (GLOB.security_level ? get_security_level() : "green"))
-
-	soundloop = new(src, FALSE)
-
-	var/area/A = get_area(src)
-	RegisterSignal(A, COMSIG_AREA_FIRE_ALARM, TYPE_PROC_REF(/atom, update_icon))
-
-	if(!mapload)
-		set_pixel_offsets()
-
-/obj/machinery/firealarm/Destroy()
-	QDEL_NULL(soundloop)
-	. = ..()
 
 /obj/machinery/firealarm/set_pixel_offsets()
 	// Overwrite the mapped in values.
@@ -278,38 +294,3 @@ Just a object used in constructing fire alarms
 	desc = "A circuit. It has a label on it, it says \"Can handle heat levels up to 40 degrees celsius!\""
 	w_class = ITEMSIZE_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
-
-
-/obj/machinery/firealarm/partyalarm
-	name = "\improper PARTY BUTTON"
-	desc = "Cuban Pete is in the house!"
-
-/obj/machinery/firealarm/partyalarm/alarm(var/duration = 0)
-	if (!( working ))
-		return
-	var/area/A = get_area(src)
-	ASSERT(isarea(A))
-	A.partyalert()
-	return
-
-/obj/machinery/firealarm/partyalarm/reset()
-	if (!( working ))
-		return
-	var/area/A = get_area(src)
-	ASSERT(isarea(A))
-	A.partyreset()
-	return
-
-/obj/machinery/firealarm/partyalarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = GLOB.default_state)
-	var/data[0]
-	data["alertLevel"] = get_security_level()
-	data["time"] = src.time
-	var/area/A = get_area(src)
-	data["active"] = A.party
-
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "partyalarm.tmpl", "PARTY ALARM", 325, 325, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)

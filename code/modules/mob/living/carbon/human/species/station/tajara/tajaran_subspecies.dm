@@ -62,7 +62,7 @@
 	standing_jump_range = 3
 	stamina = 80 // As opposed to 90
 	brute_mod = 1.3 // More Brute Damage
-	ethanol_resistance = 0.6 // Species Default 0.8
+	ethanol_resistance = 0.7 // Species Default 0.9
 
 	maneuvers = list(
 		/singleton/maneuver/leap/tajara/msai
@@ -96,7 +96,7 @@
 /datum/species/tajaran/tesla_body
 	name = SPECIES_TAJARA_TESLA_BODY
 	name_plural = "Tesla Rejuvenation Suit Tajara"
-	name_plural = "Created as part of the Tesla prosthetics program, the Tesla Rejuvenation Suit is a hulking suit that allows disabled Tajara to regain their vigor. \
+	blurb = "Created as part of the Tesla prosthetics program, the Tesla Rejuvenation Suit is a hulking suit that allows disabled Tajara to regain their vigor. \
 	Its users are surgically grafted in the machine; their limbs are replaced by large, industrial replacements; their organs are placed in a tank full of healing chemicals \
 	located inside their chest, and finally, a big tesla spine is installed. Only the head remains untouched. The suits are bulky and clumsy, restricting their wearers to jobs \
 	involving weight lifting and other menial tasks. Since this invention is still in its early stage, reports of it malfunctioning or causing pain to its user are not unheard off; \

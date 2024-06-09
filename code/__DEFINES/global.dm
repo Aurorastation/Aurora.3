@@ -5,7 +5,6 @@
 
 
 // Items that ask to be called every cycle.
-GLOBAL_LIST_EMPTY(processing_power_items)
 GLOBAL_LIST_EMPTY(med_hud_users) // List of all entities using a medical HUD.
 GLOBAL_LIST_EMPTY(sec_hud_users) // List of all entities using a security HUD.
 GLOBAL_LIST_EMPTY(hud_icon_reference)

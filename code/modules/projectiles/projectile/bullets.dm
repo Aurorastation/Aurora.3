@@ -474,11 +474,11 @@
 
 /obj/item/projectile/bullet/gauss/highex/on_hit(var/atom/target, var/blocked = 0)
 	explosion(target, -1, 0, 2)
-	sleep(0)
-	var/obj/T = target
-	var/throwdir = get_dir(firer,target)
-	T.throw_at(get_edge_target_turf(target, throwdir),3,3)
-	return 1
+	if(ismovable(target))
+		var/atom/movable/T = target
+		var/throwdir = get_dir(firer,target)
+		INVOKE_ASYNC(T, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(target, throwdir), 3, 3)
+	return TRUE
 
 /obj/item/projectile/bullet/cannonball
 	name = "cannonball"

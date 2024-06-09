@@ -5810,6 +5810,11 @@
 /obj/item/clothing/head/hardhat{
 	pixel_y = 7
 	},
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/engie)
 "Ts" = (

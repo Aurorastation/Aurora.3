@@ -215,7 +215,6 @@
 	contained_sprite = TRUE
 	icon_state = "helm_heavy"
 	item_state = "helm_heavy"
-	contained_sprite = TRUE
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_RIFLE,

@@ -1347,3 +1347,17 @@
 	. = ..()
 	new /obj/item/stack/cable_coil(src, 6)
 	new /obj/item/stack/material/steel(src, 2)
+
+/obj/item/storage/box/sawn_doublebarrel_shotgun
+	name = "sawn-off Dduble-barrel shotgun kit"
+	desc = "A box containing a sawn-off double-barrel shotgun, an holster and some ammo."
+	starts_with = list(/obj/item/gun/projectile/shotgun/doublebarrel/sawn = 1,
+						/obj/item/ammo_casing/shotgun/pellet = 6,
+						/obj/item/clothing/accessory/holster/thigh = 1)
+
+/obj/item/storage/box/stressball
+	name = "box of stress balls"
+	desc = "A box containing a number of randomly-coloured stress balls."
+	starts_with = list(
+		/obj/item/toy/stressball = 6
+	)

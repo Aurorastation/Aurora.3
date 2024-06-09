@@ -104,3 +104,5 @@ var/list/mimic_defines = list(
 #define ITEM_FLAG_HELD_MAP_TEXT FLAG(11)
 /// Cannot be moved from its current inventory slot. Mostly for augments, modules, and other "attached" items.
 #define ITEM_FLAG_NO_MOVE FLAG(12)
+/// Can be used for surgery, giving the "You're not sure what you can do with this." message if no surgery is available.
+#define ITEM_FLAG_SURGERY FLAG(13)

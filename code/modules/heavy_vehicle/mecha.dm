@@ -134,6 +134,8 @@
 	return 1
 
 /mob/living/heavy_vehicle/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	SHOULD_CALL_PARENT(FALSE) //Special snowflake case
+
 	. = list()
 	if(!user || !user.client)
 		return TRUE
