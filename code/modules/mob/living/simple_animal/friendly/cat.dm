@@ -349,7 +349,6 @@
 	named = TRUE
 	gender = FEMALE
 	icon_state = "crusher"
-	icon_state = "crusher"
 	icon_living = "crusher"
 	icon_dead = "crusher_dead"
 	icon_rest = "crusher_rest"

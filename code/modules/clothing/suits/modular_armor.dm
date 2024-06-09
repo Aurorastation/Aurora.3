@@ -18,7 +18,6 @@
 	and weak lasers. It is significantly more comfortable to wear than a full steel plate, and many soldiers on Sun Reach only wear their flak vests — \
 	much to the dismay of officers."
 	icon_state = "dom_carrier"
-	icon_state = "dom_carrier"
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,
 		bullet = ARMOR_BALLISTIC_SMALL,

@@ -1415,13 +1415,32 @@
 			var/player_surname = player_fullname[2]
 			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				LAZYADD(available_vaurca, player)
-	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to ban.", "Hivenet Ban") as null|anything in available_vaurca
-	if(!target || !isvaurca(target))
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+			if(istype(V))
+				LAZYADD(available_vaurca, player)
+	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a target to ban", "Hivenet Ban", available_vaurca)
+	if(!target)
 		return
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
 	var/list/target_fullname = splittext(target.name, " ")
-	var/target_surname = target_fullname[2]
-	to_chat(src, target.real_name)
+	var/target_surname = target_fullname[target_fullname.len]
+	if(istype(V))
+		if(!(GLOB.all_languages[LANGUAGE_VAURCA] in target.languages) && V.banned)
+			target.add_language(LANGUAGE_VAURCA)
+			V.banned = FALSE
+			to_chat(src, SPAN_NOTICE("You extend your will, restoring [target]'s connection to the Hivenet. Hopefully they will be better-behaved in future."))
+			to_chat(target, SPAN_NOTICE("You feel your implant reactivate, as your limited connection to the Hivenet is restored."))
+			return
+		else if((GLOB.all_languages[LANGUAGE_VAURCA] in target.languages) && !V.banned)
+			to_chat(src, SPAN_NOTICE("You extend your will, severing [target]'s connection to the Hivenet. Perhaps now they will learn their lesson."))
+			to_chat(target, SPAN_WARNING("You feel your implant's connection to the Hivenet shut off, as [src]'s will severs it."))
+			target.remove_language(LANGUAGE_VAURCA)
+			V.banned = TRUE
+			host.last_action = world.time + 1 MINUTES
+			return
+
 	if(!(GLOB.all_languages[LANGUAGE_VAURCA] in target.languages) && S.banned)
 		target.add_language(LANGUAGE_VAURCA)
 		S.banned = FALSE
@@ -1505,16 +1524,16 @@
 			var/player_surname = player_fullname[2]
 			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				LAZYADD(available_vaurca, player)
-	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to void.", "Hivenet Void") as null|anything in available_vaurca
+	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a target to void", "Hivenet Void", available_vaurca)
 	if(!target || !isvaurca(target))
 		return
-	var/choice = alert(src, "Are you sure you want to void [target]? This cannot be undone!", "Void User?", "Proceed", "Cancel")
+	var/choice = tgui_alert(src, "Are you sure you want to void [target]? This cannot be undone!", "Void User?", list("Proceed", "Cancel"))
 	if(choice == "Cancel")
 		return
 	msg_admin_attack("[key_name_admin(src)] attempted to void [key_name_admin(target)]'s neural socket! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(target))
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
 	var/list/target_fullname = splittext(target.name, " ")
-	var/target_surname = target_fullname[2]
+	var/target_surname = target_fullname[target_fullname.len]
 	if(target_surname == surname)
 		if(S.shielded)
 			to_chat(src, SPAN_WARNING("You feel a sudden pain in your neural socket as you are repelled by [target]'s countermeasures!"))
@@ -1573,15 +1592,35 @@
 	for(var/mob/living/carbon/human/player in (GLOB.human_mob_list - src))
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			var/list/player_fullname = splittext(player.name, " ")
-			var/player_surname = player_fullname[2]
+			var/player_surname = player_fullname[player_fullname.len]
 			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				LAZYADD(available_vaurca, player)
-	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to mute.", "Hivenet Mute") as null|anything in available_vaurca
-	if(!target || !isvaurca(target))
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+			if(istype(V))
+				LAZYADD(available_vaurca, player)
+
+	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a target to mute", "Hivenet Mute", available_vaurca)
+	if(!target)
 		return
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
 	var/list/target_fullname = splittext(target.name, " ")
-	var/target_surname = target_fullname[2]
+	var/target_surname = target_fullname[target_fullname.len]
+	if(istype(V))
+		if(V.banned)
+			to_chat(src, SPAN_NOTICE("[target] is already banned from the Hivenet. Muting them would be pointless."))
+			return
+		if(V.muted)
+			V.muted = FALSE
+			to_chat(src, SPAN_NOTICE("You extend your will, restoring [target]'s ability to speak over the Hivenet. Hopefully it will be better-behaved in future."))
+			to_chat(target, SPAN_NOTICE("You feel [src]'s restriction on your implant lifted, allowing you to transmit over the Hivenet once more."))
+			return
+		to_chat(src, SPAN_NOTICE("You extend your will, disabling [target]'s Hivenet implant."))
+		to_chat(target, SPAN_WARNING("You feel [src]'s will enter your mind, disabling your implant's transmission function. Though you can still receive Hivenet broadcasts, you are incapable of transmitting."))
+		V.muted = TRUE
+		host.last_action = world.time + 5 MINUTES
+		return
 	if(S.banned)
 		to_chat(src, SPAN_NOTICE("[target] is already banned from the Hivenet. Muting them would be pointless."))
 		return
@@ -1649,14 +1688,34 @@
 	set category = "Hivenet"
 
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = src.internal_organs_by_name[BP_NEURAL_SOCKET]
-	if(!src.can_hivenet())
+	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE]
+	if(src.stat != CONSCIOUS)
+		to_chat(src, SPAN_WARNING("You must be conscious to use this ability!"))
 		return
-	if(S.decryption_key)
-		S.decryption_key = null
-		to_chat(src, SPAN_NOTICE("Your Hivenet decryption key has been reset."))
+
+	if(!(GLOB.all_languages[LANGUAGE_VAURCA] in src.languages))
+		to_chat(src, SPAN_DANGER("Your mind is dark, unable to communicate with the Hive."))
 		return
-	S.decryption_key = input(src, "Enter a new decryption key for Hivenet messages.", "Hivenet Decryption") as text
-	to_chat(src, SPAN_NOTICE("Your Hivenet decryption key has been set to [S.decryption_key]."))
+
+	if(!istype(S) && !istype(V))
+		to_chat(src, SPAN_WARNING("You do not have a functional connection to the Hivenet!"))
+		return
+
+	if(istype(S))
+		if(S.decryption_key)
+			S.decryption_key = null
+			to_chat(src, SPAN_NOTICE("Your Hivenet decryption key has been reset."))
+			return
+		S.decryption_key = tgui_input_text(src, "Enter a new decryption key for Hivenet messages", "Hivenet Decryption")
+		to_chat(src, SPAN_NOTICE("Your Hivenet decryption key has been set to [S.decryption_key]."))
+
+	else if(istype(V))
+		if(V.decryption_key)
+			V.decryption_key = null
+			to_chat(src, SPAN_NOTICE("Your Hivenet decryption key has been reset."))
+			return
+		V.decryption_key = tgui_input_text(src, "Enter a new decryption key for Hivenet messages", "Hivenet Decryption")
+		to_chat(src, SPAN_NOTICE("Your Hivenet decryption key has been set to [V.decryption_key]."))
 
 /mob/living/carbon/human/proc/hivenet_encrypt()
 	set name = "Set Hivenet Encryption"
@@ -1669,7 +1728,7 @@
 		S.encryption_key = null
 		to_chat(src, SPAN_NOTICE("Your Hivenet encryption key has been reset."))
 		return
-	S.encryption_key = input(src, "Enter a new encryption key for Hivenet messages.", "Hivenet Decryption") as text
+	S.encryption_key = tgui_input_text(src, "Enter a new encryption key for Hivenet messages", "Hivenet Encryption")
 	to_chat(src, SPAN_NOTICE("Your Hivenet encryption key has been set to [S.encryption_key]."))
 
 /mob/living/carbon/human/proc/hivenet_decrypt()
@@ -1716,25 +1775,35 @@
 		reset_view(0)
 		return
 	for(var/mob/living/carbon/human/player in (GLOB.human_mob_list - src))
+		if(player.stat != CONSCIOUS)
+			continue
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
-			if(player.stat != CONSCIOUS)
-				continue
 			LAZYADD(available_vaurca, player)
-	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to observe.", "Hivenet Remote Observation") as null|anything in available_vaurca
-	if(!target || !isvaurca(target))
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+			if(istype(V))
+				LAZYADD(available_vaurca, player)
+	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a Vaurca to observe.", "Hivenet Remote Observation", available_vaurca)
+	if(!target)
 		remoteview_target = null
 		reset_view(0)
 		return
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
+	if(istype(V))
+		to_chat(src, SPAN_NOTICE("You extend your mind into the Hivenet, accessing [target]'s senses. Use this verb again to cancel."))
+		remoteview_target = target
+		reset_view(target)
+		return
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
 	var/list/target_fullname = splittext(target.name, " ")
-	var/target_surname = target_fullname[2]
+	var/target_surname = target_fullname[target_fullname.len]
 	if(target_surname == surname && !S.shielded)
 		to_chat(src, SPAN_NOTICE("You extend your mind into the Hivenet, accessing [target]'s senses. Use this verb again to cancel."))
 		remoteview_target = target
 		reset_view(target)
 	else
 		host.last_action = world.time + 5 MINUTES
-		var/choice = alert(target, "[src] is attempting to access your senses. Do you wish to allow this?", "Hivenet Remote Observation", "Deny", "Allow")
+		var/choice = tgui_alert(target, "[src] is attempting to access your senses. Do you wish to allow this?", "Hivenet Remote Observation", list("Deny", "Allow"))
 		if(choice == "Allow")
 			to_chat(src, SPAN_NOTICE("You extend your mind into the Hivenet, accessing [target]'s senses. Use this verb again to cancel."))
 			remoteview_target = target
@@ -1742,7 +1811,7 @@
 
 		if(choice == "Deny")
 			if(HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
-				var/hijack = alert(src, "[target] has denied your access request. Attempt a hijack?", "Hijack Hivenet Senses", "No", "Yes")
+				var/hijack = tgui_alert(src, "[target] has denied your access request. Attempt a hijack?", "Hijack Hivenet Senses", list("No", "Yes"))
 				if(hijack == "Yes")
 					if(prob(40) && !S.shielded)
 						to_chat(src, SPAN_NOTICE("You extend your mind into the Hivenet, accessing [target]'s senses. Use this verb again to cancel."))
@@ -1777,15 +1846,28 @@
 	for(var/mob/living/carbon/human/player in (GLOB.human_mob_list - src))
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			var/list/player_fullname = splittext(player.name, " ")
-			var/player_surname = player_fullname[2]
+			var/player_surname = player_fullname[player_fullname.len]
 			if(player_surname == surname || HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 				LAZYADD(available_vaurca, player)
-	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to shock.", "Neural Shock") as null|anything in available_vaurca
-	if(!target || !isvaurca(target))
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+			if(istype(V))
+				LAZYADD(available_vaurca, player)
+	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a target to shock", "Neural Shock", available_vaurca)
+	if(!target)
+		return
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
+	if(istype(V))
+		to_chat(src, SPAN_WARNING("You lash out over the Hivenet, delivering a neural shock to [target]!"))
+		to_chat(target, SPAN_DANGER("You feel [src]'s will strike out at you, pain burning inside your head!"))
+		target.adjustHalLoss(15)
+		target.flash_pain(15)
+		target.adjustBrainLoss(10)
+		host.last_action = world.time + 5 MINUTES
 		return
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
 	var/list/target_fullname = splittext(target.name, " ")
-	var/target_surname = target_fullname[2]
+	var/target_surname = target_fullname[target_fullname.len]
 	if(!istype(S) || S.is_broken())
 		to_chat(src, SPAN_WARNING("The target must have a functional neural socket!"))
 		return
@@ -1832,10 +1914,9 @@
 	if(HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
 		max = 5
 	if(length(host.shielded_sockets))
-		var/choice = alert(src, "Do you wish to remove your protection from a Vaurca?", "Hivenet Defensive Lattice", "No", "Yes")
-		to_chat(src, SPAN_NOTICE("You chose [choice]"))
+		var/choice = tgui_alert(src, "Do you wish to remove your protection from a Vaurca?", "Hivenet Defensive Lattice", list("No", "Yes"))
 		if(choice == "Yes")
-			var/mob/living/carbon/human/H = input(src, "Select a Vaurca to remove your defenses from.", "Hivenet Defensive Lattice", null) as anything in host.shielded_mobs
+			var/mob/living/carbon/human/H = tgui_input_list(src, "Select a Vaurca to remove your defenses from.", "Hivenet Defensive Lattice", host.shielded_mobs)
 			var/obj/item/organ/internal/vaurca/neuralsocket/S = H.internal_organs_by_name[BP_NEURAL_SOCKET]
 			to_chat(src, SPAN_NOTICE("You remove your protection from [H]'s neural socket."))
 			to_chat(H, SPAN_WARNING("You feel [src]'s protection vanish from you, leaving your neural socket exposed."))
@@ -1882,14 +1963,30 @@
 			continue
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			LAZYADD(available_vaurca, player)
+		if(player.internal_organs_by_name[BP_AUG_LANGUAGE])
+			var/obj/item/organ/internal/augment/language/vekatak/V = player.internal_organs_by_name[BP_AUG_LANGUAGE]
+			if(istype(V))
+				LAZYADD(available_vaurca, player)
 	LAZYADD(available_vaurca, "Cancel")
-	var/mob/living/carbon/human/target = input(src, "Select a target to disrupt", "Disrupt Hivenet User", null) as anything in available_vaurca
+	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a target to disrupt", "Hivenet Disrupt", available_vaurca)
 	if(!istype(target))
 		return
+	var/obj/item/organ/internal/augment/language/vekatak/V = target.internal_organs_by_name[BP_AUG_LANGUAGE]
+	if(istype(V))
+		if(prob(35))
+			to_chat(src, SPAN_DANGER("Your disruption attempt fails, [target]'s countermeasures repelling your assault! You can feel their defenses spring to life, tracing your location!"))
+			to_chat(target, SPAN_DANGER("You feel a presence attempting to block your neural socket, but your countermeasures repel it! Analysing the attack, you sense that it came from [get_area(src)]!"))
+			return
+		to_chat(target, SPAN_DANGER("Suddenly, you feel an attack on your systems, blocking your neural socket's ability to transmit to the Hivenet!"))
+		V.disrupted = TRUE
+		V.disrupttime = world.time + 10 MINUTES
+		host.last_action = world.time + 5 MINUTES
+		return
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
-	if(prob(70) || S.shielded)
+	if(prob(60) || S.shielded)
 		to_chat(src, SPAN_DANGER("Your disruption attempt fails, [target]'s countermeasures repelling your assault! You can feel their defenses spring to life, tracing your location!"))
 		to_chat(target, SPAN_DANGER("You feel a presence attempting to block your neural socket, but your countermeasures repel it! Analysing the attack, you sense that it came from [get_area(src)]!"))
+		return
 	to_chat(target, SPAN_DANGER("Suddenly, you feel an attack on your systems, blocking your neural socket's ability to transmit to the Hivenet!"))
 	S.disrupted = TRUE
 	S.disrupttime = world.time + 10 MINUTES
@@ -1909,7 +2006,7 @@
 			continue
 		if(isvaurca(player) && player.internal_organs_by_name[BP_NEURAL_SOCKET])
 			LAZYADD(available_vaurca, player)
-	var/mob/living/carbon/human/target = input(src, "Select a target to shock", "Neural Shock User", null) as anything in available_vaurca
+	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a target to shock", "Neural Shock", available_vaurca)
 	if(!istype(target))
 		to_chat(src, SPAN_WARNING("Invalid target!"))
 		return
@@ -1954,15 +2051,15 @@
 			if(player.stat != CONSCIOUS)
 				continue
 			LAZYADD(available_vaurca, player)
-	var/mob/living/carbon/human/target = input(src, "Select a Vaurca to observe.", "Hivenet Sensory Hijack") as null|anything in available_vaurca
+	var/mob/living/carbon/human/target = tgui_input_list(src, "Select a target to observe", "Hivenet Sensory Hijack", available_vaurca)
 	if(!target || !isvaurca(target))
 		remoteview_target = null
 		reset_view(0)
 		return
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = target.internal_organs_by_name[BP_NEURAL_SOCKET]
-	var/stealth = alert(src, "Do you wish to ask your target's permission?", "Hivenet Sensory Hijack", "No", "Yes")
+	var/stealth = tgui_alert(src, "Do you wish to ask your target's permission?", "Hivenet Sensory Hijack", list("No", "Yes"))
 	if(stealth == "Yes")
-		var/allowed = alert(target, "Someone is attempting to access your senses through the Hivenet. Do you wish to allow them?", "Hivenet Sensory Access", "Deny", "Allow")
+		var/allowed = tgui_alert(target, "Someone is attempting to access your senses through the Hivenet. Do you wish to allow them?", "Hivenet Sensory Access", list("Allow", "Deny"))
 		if(allowed == "Allow")
 			to_chat(src, SPAN_NOTICE("You extend your mind into the Hivenet, accessing [target]'s senses. Use this verb again to cancel."))
 			remoteview_target = target
@@ -2094,6 +2191,44 @@
 		infest.replaced(H, affected)
 
 		msg_admin_attack("[key_name_admin(src)] infected [key_name_admin(H)] with black k'ois! (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>)",ckey=key_name(src),ckey_target=key_name(H))
+
+/mob/living/carbon/human/proc/phalanx_transmit()
+	set name = "Phalanx Hivenet Transmission"
+	set desc = "Make a preset transmission over the Hivenet."
+	set category = "Hivenet"
+
+	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE]
+	var/list/messages = list(
+		"I remain operational.",
+		"Message received.",
+		"Order completed.",
+		"Cannot complete order.",
+		"I am on standby.",
+		"Minor damage registered.",
+		"Damage registered",
+		"Critical damage registered",
+		"Assistance required at my location.",
+		"Hostiles sighted at my location.",
+		"Location clear of threats."
+	)
+	if(src.stat != CONSCIOUS)
+		to_chat(src, SPAN_WARNING("You are in no state to do that!"))
+		return
+
+	if(!(GLOB.all_languages[LANGUAGE_VAURCA] in src.languages) || !(istype(V)))
+		to_chat(src, SPAN_WARNING("You are not connected to the Hivenet!"))
+		return
+
+	if(within_jamming_range(src))
+		to_chat(src, SPAN_WARNING("You attempt to reach the Hivenet, but find nothing!"))
+		return
+
+	var/message = input("What message do you wish to transmit?","Choose a message") as null|anything in messages
+	if(!message)
+		return
+	V.transmitting = TRUE
+	say(",9[message]")
+	V.transmitting = FALSE
 
 /mob/living/carbon/human/proc/hivenet_manifest()
 	set name = "Hivenet Manifest"

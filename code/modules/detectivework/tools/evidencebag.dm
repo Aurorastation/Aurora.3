@@ -95,10 +95,10 @@
 		icon_state = "evidenceobj"
 	return
 
-/obj/item/evidencebag/examine(mob/user)
+/obj/item/evidencebag/examine(mob/user, show_extended)
 	. = ..()
 	if (stored_item)
-		examinate(user, stored_item)
+		examinate(user, stored_item, show_extended)
 
 /obj/item/evidencebag/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.ispen() || istype(attacking_item, /obj/item/device/flashlight/pen))

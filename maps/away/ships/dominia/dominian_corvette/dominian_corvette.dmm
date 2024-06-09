@@ -4535,6 +4535,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/item/pen/drafting,
+/obj/item/blueprints,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
 "pJj" = (

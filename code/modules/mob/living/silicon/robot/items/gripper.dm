@@ -35,10 +35,10 @@
 
 	var/force_holder
 
-/obj/item/gripper/examine(mob/user)
+/obj/item/gripper/examine(mob/user, show_extended)
 	. = ..()
 	if(wrapped)
-		wrapped.examine(user)
+		wrapped.examine(user, show_extended = show_extended)
 
 /obj/item/gripper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()

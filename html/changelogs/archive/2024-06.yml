@@ -140,3 +140,153 @@
       grenade fuses.
   TheDanseMacabre:
   - bugfix: Fixes the icon for undercut 3.
+2024-06-02:
+  Acetrea:
+  - balance: Adjusts the overdose threshold of Morphine and Tramarine.
+  - rscadd: Adds seizures to the overdose effects of Morphine and Tramarine.
+  FluffyGhost:
+  - bugfix: Body scan now respects the known/hidden setting in the implant.
+  - rscadd: Body scan now reports how many unknown implanted things are present in
+      an organ.
+  RustingWithYou:
+  - rscadd: Adds unique away sites for the Uueoa-Esa sector.
+  SimpleMaroon:
+  - bugfix: Fixed the Vaurca Breeder left foot and leg being misaligned.
+  - bugfix: Fixed the K'lax rockstone cape being mixed up with the Unathi rockstone
+      cape in the loadout.
+  - refactor: Made wrist item sprites into contained sprites.
+  - bugfix: Bulwark wrist item sprites now work as intended.
+  Sparky_Hotdog:
+  - rscadd: Added a mullet hairstyle.
+2024-06-03:
+  DreamySkrell:
+  - rscadd: Tret Industrial Facility away site.
+  - rscadd: Away site exoplanet generation.
+  Evandorf:
+  - bugfix: Altered the Crewman ghostrole to allow for non-listed players.
+  - bugfix: Added the Uueoaesa sector to list of sectors.
+  FluffyGhost:
+  - refactor: Slight refactor and improvement of the hands inventory handling procs,
+      DMDoc, SDMM markings.
+  - bugfix: Fixed a runtime with RIG cells removal.
+  - code_imp: Fixed vars getting set twice in the same class.
+  GeneralCamo:
+  - bugfix: Fluff examine text now shows in an examine box.
+  Llywelwyn:
+  - rscadd: Increased the upper limit for max messages saved in the chatlog.
+  - rscadd: Chat log pruning and rebuilding now uses the max messages value, so reconnects
+      and the fix-chat verb will no longer wipe most of the chatlog.
+  RustingWithYou:
+  - bugfix: Sk'akh faithful can no longer be humans.
+  - qol: Moghes animals will no longer constantly spam chat by attacking each other.
+  Sparky_hotdog:
+  - bugfix: Fixed the xenoarchaeological outpost ruin spawning with no air inside.
+  - bugfix: Fixes coat racks always removing both hats and coats, when only one is
+      selected.
+2024-06-04:
+  Ben10083:
+  - bugfix: The People's Republic announces that dissidents that attempted to stem
+      the march of Hadiism by sabotaging mining efforts planetside with empty medkits
+      have been captured.
+  - bugfix: Increased funding to PRA-NT Mining Camps to provide GPS units, radios,
+      and even more Hadiism.
+  - bugfix: Removes stray pixel from brown webbing.
+  - bugfix: Hiskyn Revanchists have successfully stolen and installed telecommunications
+      equipment for their vessels.
+  - bugfix: Hiskyn Pirate ship missing fuel pipe placed.
+  - bugfix: Tarwa Pirate ship telecommunications now accessible.
+  - spellcheck: Port Security Maintenance now uses proper area.
+  FluffyGhost:
+  - code_imp: Circuit imprinter now uses a queue system to build circuits, avoid the
+      need to keep processing to check the queue.
+  - code_imp: Refactored some of the circuit imprinter code.
+  - bugfix: Fixed some issues with the R&D console in regards to the circuit imprinter.
+  RustingWithYou:
+  - rscadd: Adds blueprints to most overmap ships, as well as several away sites and
+      ruins.
+  - qol: Shuttles will no longer pull mineral turfs with them when taking off.
+2024-06-07:
+  FluffyGhost:
+  - server: Updated CI actions to the latest version.
+  - server: Set concurrency level to the workflow level for faster canceling on re-runs
+      (hopefully).
+2024-06-08:
+  FluffyGhost:
+  - bugfix: Fixed seed duplication with grippers for borgs.
+  - code_imp: Minor refactor, QDELs.
+  RustingWithYou:
+  - bugfix: Vaurca ghostroles on Ouerea now spawn with filter ports.
+  WickedCybs:
+  - bugfix: Removed some errant pixels on the taj jackboot sprites.
+2024-06-09:
+  AlaunusLux:
+  - bugfix: Cortical borers can now properly bestow psi powers upon their host.
+  - bugfix: Borers can now use the host's psi powers when controlling them.
+  - bugfix: Borers can now be removed in surgery, like shrapnel.
+  - bugfix: Borers can now move after devouring a dead host's brain.
+  - bugfix: Borers can now infest a person that is holding them in their hand.
+  - bugfix: Monkey borers will be able to speak Tau Ceti Basic after using the psionic
+      awakening ability.
+  Ben10083:
+  - bugfix: The Orion Express Mobile Refueling Station shuttle can now dock back with
+      the station.
+  - rscadd: The Orion Express Mobile Refueling Station airlocks now have exterior
+      buttons to allow for entry from outside.
+  - rscadd: Kosmostrelki forces now have Baghrar fighting style, as reflected in lore.
+  - bugfix: Adds missing access/air alarms to Idris Cruiser.
+  - bugfix: Missing Cyborg Upload Console added to Ai Upload Chamber.
+  - bugfix: PRA Headmaster Shuttle Hangar now properly docks.
+  - bugfix: IAC ship docking ports now allow for proper docking.
+  - bugfix: PRA Database Freighter Shuttle Airlock remade and fixed.
+  - bugfix: Fixes starboard docking ports from Tajaran Smuggler.
+  - qol: Shield wall generators in Hazardous Containment now start pre-wrenched.
+  - bugfix: Horizon buttons to bolt doors should now not require being pressed twice
+      the first time.
+  - bugfix: Hopefully fixes some ghostrole spawns for ruins on Moghes.
+  BoomerThor:
+  - imageadd: Added a sprite for the raw hydrogen ore.
+  - rscadd: Made galena and bauxite ore spawn on exoplanets.
+  - rscadd: Made galena spawn in the turf as a rare ore.
+  - qol: Made iron, aluminium, lead, marble, metallic hydrogen, tritium, and osmium
+      have have icon variance based on stack size.
+  CourierBravo:
+  - bugfix: Changed req access on trawler nanomeds.
+  - bugfix: Fixed missing grille on kataphract ship
+  Crosarius:
+  - bugfix: Fixes butanol drinks globally becoming strength 0 after being ingested
+      by non-Unathi.
+  DreamySkrell:
+  - bugfix: 'Tret away site fixes: broken shuttle, missing gear.'
+  FluffyGhost:
+  - bugfix: Fixed srom not working properly.
+  - bugfix: Fixed a runtime with translators implants.
+  - bugfix: Aligned runechat correctly in srom mobs.
+  - code_imp: Turned the srom entry points into a GLOB list.
+  - rscadd: Added a sawn-off shotgun to the uplink, box with some ammo and a holster,
+      4TC.
+  - bugfix: Fixed ling stings targeting.
+  - code_imp: A DMDoc and some SDMM markings.
+  - code_imp: Marked one proc for the hostile mobs AI as waitfor = FALSE.
+  - rscadd: Added rotating alarm lights, ported (with modifications) from Baystation
+      12.
+  - code_imp: Cleaned up some code around visual flags and renamed one layer to align
+      with bay's name.
+  - spellcheck: Fixed round extended description grammar as per bug report suggestion.
+  Geeves:
+  - bugfix: Fixes a lot of weirdness surrounding guns on full-auto mode. Safety checks
+      will now be skipped on harm intent, the gun will stop shooting when dropped,
+      and putting the gun in a storage item will no longer shoot it.
+  Llywelwyn:
+  - rscadd: Added colourable stress balls to the loadout.
+  - rscadd: Added a box of stress balls to the psychiatrist's locker.
+  - bugfix: Antennas can now be locked when equipped on the head slot.
+  - spellcheck: Corrected the name of IPC antennae to antennas.
+  SimpleMaroon:
+  - imageadd: Added Vaurca Warrior variants of the Vaurca Robotic Limb hands.
+  - imageadd: Added Vaurca Warrior variants of the Mecha Eye faceplates that work
+      better with the new Warrior sprites.
+  - bugfix: Made the Mecha Mandibles body marking function properly again.
+  - bugfix: Fixed the Vaurca eyes overlay, which was missing the lower eyes.
+  Sparky_hotdog:
+  - rscadd: Added the colourable boonie hat to the colourable hat loadout selection.
+  - rscadd: Added geiger counters to autolathes.

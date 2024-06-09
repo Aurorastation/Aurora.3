@@ -3839,17 +3839,13 @@
 /area/ship/ranger_corvette/gunnery)
 "pFY" = (
 /obj/structure/table/steel,
-/obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for a Xansan-class vessel.";
-	icon = 'icons/obj/items.dmi';
-	icon_state = "blueprints";
-	item_icons = null;
-	item_state = null;
-	name = "ship blueprints"
-	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
+/obj/item/blueprints,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "pHP" = (

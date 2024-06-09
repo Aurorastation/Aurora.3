@@ -5810,6 +5810,8 @@
 /area/ship/dominian_unathi/med)
 "Nw" = (
 /obj/structure/table/standard,
+/obj/item/blueprints,
+/obj/item/pen/drafting,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/engineering)
 "Nx" = (
