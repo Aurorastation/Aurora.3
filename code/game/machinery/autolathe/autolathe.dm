@@ -202,6 +202,19 @@
 		if(!istype(R))
 			CRASH("Unknown recipe given! [R], param is [params["recipe"]].")
 
+		var/ship_security_level = seclevel2num(get_security_level())
+		var/is_on_ship = isStationLevel(z) // since ship security levels are global FOR NOW, we'll ignore the alert check for offship autolathes
+
+		var/is_enabled = TRUE
+		if(!hacked)
+			if(R.hack_only)
+				is_enabled = FALSE
+			else if(is_on_ship && ship_security_level < R.security_level)
+				is_enabled = FALSE
+
+		if(!is_enabled)
+			CRASH("Someone tried to print an un-enabled recipe! [R], param is [params["recipe"]].")
+
 		intent_message(MACHINE_SOUND)
 
 		//Check if we still have the materials.
