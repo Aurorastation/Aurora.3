@@ -5168,12 +5168,12 @@
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "chj" = (
-/obj/structure/closet/secure_closet/security,
 /obj/machinery/alarm/north,
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/secure_closet/security/spare,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint2)
 "chz" = (

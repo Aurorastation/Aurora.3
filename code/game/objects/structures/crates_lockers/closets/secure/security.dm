@@ -260,7 +260,7 @@
 	new /obj/item/storage/backpack/duffel/sec(src)
 
 	// Carrier Accessories
-	new /obj/item/clothing/accessory/armor_plate(src)
+	spawn_armor()
 	new /obj/item/clothing/accessory/arm_guard(src)
 	new /obj/item/clothing/accessory/leg_guard(src)
 	new /obj/item/clothing/accessory/badge/officer(src)
@@ -287,6 +287,14 @@
 	new /obj/item/clothing/accessory/holster/hip(src)
 	new /obj/item/storage/belt/security/full(src)
 	new /obj/item/clothing/suit/storage/hazardvest/security/officer(src)
+
+// this is the locker that spawns in the locker room
+/obj/structure/closet/secure_closet/security/proc/spawn_armor()
+	new /obj/item/clothing/accessory/armor_plate(src)
+
+// this is the locker that spawns in the security checkpoints around the ship
+/obj/structure/closet/secure_closet/security/spare/spawn_armor()
+	new /obj/item/clothing/suit/armor/carrier/officer(src)
 
 /obj/structure/closet/secure_closet/investigator
 	name = "investigator's locker"

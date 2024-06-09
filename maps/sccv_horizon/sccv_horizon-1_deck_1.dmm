@@ -378,7 +378,6 @@
 /area/rnd/xenoarch_atrium)
 "aoR" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "ph_out_portthruster"
 	},
 /turf/simulated/floor/reinforced/phoron,
@@ -2767,7 +2766,6 @@
 /area/hangar/canary)
 "bYq" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "o2_out"
 	},
 /turf/simulated/floor/reinforced/oxygen,
@@ -6065,7 +6063,6 @@
 /area/operations/loading)
 "enn" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "co2_out"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -10470,7 +10467,6 @@
 "heH" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 4;
-	frequency = 1441;
 	id_tag = "o2_out"
 	},
 /turf/simulated/floor/reinforced/oxygen,
@@ -10895,7 +10891,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 1;
-	frequency = 1441;
 	id_tag = "H2_out_portthruster"
 	},
 /turf/simulated/floor/reinforced/hydrogen,
@@ -13129,7 +13124,6 @@
 /area/medical/morgue/lower)
 "jdC" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/structure/closet/secure_closet/security,
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 4;
 	pixel_y = 24
@@ -13140,6 +13134,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/machinery/alarm/east,
+/obj/structure/closet/secure_closet/security/spare,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "jdP" = (
@@ -16830,7 +16825,6 @@
 "lJl" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 1;
-	frequency = 1441;
 	id_tag = "Ph_out_FuelBay"
 	},
 /turf/simulated/floor/reinforced/phoron,
@@ -17058,7 +17052,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 1;
-	frequency = 1441;
 	id_tag = "H2_out_starboardthruster"
 	},
 /turf/simulated/floor/reinforced/hydrogen,
@@ -18595,7 +18588,6 @@
 /area/engineering/atmos)
 "mPU" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "n2o_out"
 	},
 /turf/simulated/floor/reinforced/n20,
@@ -19352,7 +19344,6 @@
 "nnh" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 4;
-	frequency = 1441;
 	id_tag = "h_out"
 	},
 /turf/simulated/floor/reinforced/hydrogen,
@@ -21549,7 +21540,6 @@
 "oQZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 8;
-	frequency = 1441;
 	id_tag = "air_out"
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -23037,7 +23027,6 @@
 /area/turbolift/research/deck_1)
 "pOp" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "CO2_out_fuelbay"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -25631,7 +25620,6 @@
 "rCl" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 1;
-	frequency = 1441;
 	id_tag = "n_out"
 	},
 /turf/simulated/floor/reinforced/nitrogen,
@@ -26576,7 +26564,6 @@
 "soD" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 8;
-	frequency = 1441;
 	id_tag = "n2o_out"
 	},
 /turf/simulated/floor/reinforced/n20,
@@ -28865,7 +28852,6 @@
 	opacity = 0
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "ph_out"
 	},
 /turf/simulated/floor/reinforced/phoron,
@@ -29044,7 +29030,6 @@
 	opacity = 0
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
 	id_tag = "ph_out_starboardthruster"
 	},
 /turf/simulated/floor/reinforced/phoron,
