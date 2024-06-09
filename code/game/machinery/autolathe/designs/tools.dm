@@ -12,6 +12,10 @@
 	name = "multitool"
 	path = /obj/item/device/multitool
 
+/singleton/autolathe_recipe/tools/geiger
+	name = "geiger counter"
+	path = /obj/item/device/geiger
+
 /singleton/autolathe_recipe/tools/t_scanner
 	name = "T-ray scanner"
 	path = /obj/item/device/t_scanner
