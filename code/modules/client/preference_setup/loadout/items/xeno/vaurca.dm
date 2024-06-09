@@ -376,3 +376,12 @@
 	whitelisted = list(SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/retainer_box
+	display_name = "retainer puzzle box"
+	description = "A classic Zo'rane puzzle box, a common sight in Vaurcae colonies. This one has a depiction of a Retainer lifeform engraved."
+	cost = 1
+	path = /obj/item/vaurca/retainer_box
+	sort_category = "Xenowear - Vaurca"
+	whitelisted = list(SPECIES_VAURCA_BREEDER)
+	flags = GEAR_HAS_COLOR_SELECTION

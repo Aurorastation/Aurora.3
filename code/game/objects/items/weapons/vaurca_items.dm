@@ -149,6 +149,13 @@
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 
+/obj/item/vaurca/retainer_box
+	name = "retainer puzzle box"
+	desc = "A classic Zo'rane puzzle box, a common sight in Vaurcae colonies. This one has a depiction of a Retainer lifeform engraved."
+	icon_state = "puzzlebox"
+	contained_sprite = 1
+	icon = 'icons/obj/vaurca_items.dmi'
+
 /obj/item/vaurca/box/attack_self(mob/user as mob)
 
 	if(isvaurca(user))
@@ -183,6 +190,17 @@
 							to_chat(user, SPAN_NOTICE("You find yourself again, and get back to turning pieces. At this point it is just randomly."))
 							if(do_after(user,600))
 								to_chat(user, SPAN_NOTICE("A minute goes by, and with one final turn the box looks just like it did when you started. Fucking bugs."))
+
+/obj/item/vaurca/retainer_box/attack_self(mob/user as mob)
+	if(isvaurca(user))
+		to_chat(user, SPAN_NOTICE("You are familiar with the box's solution and open it, awakening the retainer inside."))
+		var/turf/T = get_turf(src)
+		var/atom/movable/x = new /mob/living/simple_animal/hostile/commanded/vaurca_retainer
+		x.forceMove(T)
+		x.color = color
+		qdel(src)
+	else
+		to_chat(user, SPAN_NOTICE("You stare at the box for a few seconds, trying to even comprehend what you're looking at..."))
 
 /obj/item/melee/vaurca/navcomp
 	name = "navcomp coordinate archive"
