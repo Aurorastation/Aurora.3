@@ -5000,10 +5000,22 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "mecha_eye_r"
 	body_parts = list(BP_HEAD)
 	do_colouration = FALSE
+	species_allowed = list(/datum/species/bug)
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye/warrior
+	name = "Mecha Eye (Faceplate, Right, Warrior)"
+	icon_state = "mecha_eye_warrior_r"
+	species_allowed = list(/datum/species/bug/type_b)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eye_l
 	name = "Mecha Eye (Faceplate, Left)"
 	icon_state = "mecha_eye_l"
+	species_allowed = list(/datum/species/bug)
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eye_l/warrior
+	name = "Mecha Eye (Faceplate, Left, Warrior)"
+	icon_state = "mecha_eye_warrior_l"
+	species_allowed = list(/datum/species/bug/type_b)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay
 	name = "Mecha Eye (Overlay, Right)"
@@ -5017,6 +5029,7 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay/upper
 	name = "Upper Mecha Eye (Overlay, Right)"
 	icon_state = "mecha_uppereyeoverlay_r"
+
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eyeoverlay_l/upper
 	name = "Upper Mecha Eye (Overlay, Left)"
 	icon_state = "mecha_uppereyeoverlay_l"
@@ -5024,6 +5037,7 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay/lower
 	name = "Lower Mecha Eye (Overlay, Right)"
 	icon_state = "mecha_lowereyeoverlay_r"
+
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eyeoverlay_l/lower
 	name = "Lower Mecha Eye (Overlay, Left)"
 	icon_state = "mecha_lowereyeoverlay_l"
@@ -5033,10 +5047,24 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "mecha_eye_r_l"
 	body_parts = list(BP_HEAD)
 	do_colouration = FALSE
+	species_allowed = list(/datum/species/bug)
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l/warrior
+	name = "Mecha Eye (Faceplate, Right, Large, Warrior)"
+	icon_state = "mecha_eye_warrior_r_l"
+	body_parts = list(BP_HEAD)
+	do_colouration = FALSE
+	species_allowed = list(/datum/species/bug/type_b)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l/mecha_eye_r_l
 	name = "Mecha Eye (Faceplate, Left, Large)"
 	icon_state = "mecha_eye_l_l"
+	species_allowed = list(/datum/species/bug)
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l/mecha_eye_r_l/warrior
+	name = "Mecha Eye (Faceplate, Left, Large, Warrior)"
+	icon_state = "mecha_eye_warrior_l_l"
+	species_allowed = list(/datum/species/bug/type_b)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay_l
 	name = "Mecha Eye (Overlay, Right, Large)"
@@ -5047,9 +5075,11 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Mecha Eye (Overlay, Left, Large)"
 	icon_state = "mecha_eyeoverlay_l_l"
 
-/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b/mandible
+/datum/sprite_accessory/marking/vaurca_augs/mandible
 	name = "Mecha Mandibles"
 	icon_state = "mecha_mandibles"
+	body_parts = list(BP_HEAD)
+	do_colouration = FALSE
 
 /datum/sprite_accessory/marking/vaurca_augs/hand_panel_r
 	name = "Hand Panel (Right)"

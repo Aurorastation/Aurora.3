@@ -167,6 +167,7 @@
 	icon_state = "grey"
 	canister_color = "grey"
 	can_label = 0
+
 /obj/machinery/portable_atmospherics/canister/air/airlock
 	start_pressure = 3 * ONE_ATMOSPHERE
 
