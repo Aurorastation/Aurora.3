@@ -47,7 +47,7 @@
 
 	new cult_mech_type(get_turf(A))
 
-	times_used += 1
+	times_used++
 
 /datum/rune/cult_mech/proc/check_conversion_possible(mob/living/heavy_vehicle/mech_on_us, atom/movable/A, mob/living/carbon/human/user)
 	//In case someone steals or moves it while it's being converted
