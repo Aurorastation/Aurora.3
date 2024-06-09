@@ -10,7 +10,7 @@
 
 	var/slot = ACCESSORY_SLOT_GENERIC
 
-	/// When attached to another piece of clothing, it'll increase the size by this amount. the final result is rounded up
+	/// When attached to another piece of clothing, it'll increase the size by this amount. Accepts the ACCESSORY_WEIGHT_* define, which can be found in code/__DEFINES/accessories.dm. The final result is rounded up
 	var/accessory_w_class_adjustment = ACCESSORY_WEIGHT_NONE
 
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
