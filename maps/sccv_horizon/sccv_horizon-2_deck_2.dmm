@@ -10479,6 +10479,9 @@
 /obj/item/stack/material/phoron{
 	amount = 20
 	},
+/obj/item/stack/material/uranium{
+	amount = 10
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/lower/machinist)
 "eTf" = (

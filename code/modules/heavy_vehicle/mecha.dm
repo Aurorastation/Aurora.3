@@ -208,6 +208,8 @@
 		if(source_frame.body)
 			source_frame.body.forceMove(src)
 			body = source_frame.body
+			if(body.cell)
+				RegisterSignal(body.cell, COMSIG_CELL_CHARGE, PROC_REF(handle_cell_charge))
 
 	updatehealth()
 

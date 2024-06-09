@@ -1,0 +1,10 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added power cores, a type of large battery cell that get used by exosuits. The nuclear and phoron variants are self-charging."
+  - balance: "Combat mechs now start with nuclear power cores, allowing them to sustain themselves indefinitely, so long as they stay out of the action for a bit."
+  - rscdel: "Removed basic power cells from the mechfab, replaced with the mech powercores."
+  - rscadd: "Mech cell statuses now instantly update as soon as the cell charges or discharges."
+  - rscadd: "Added a stack of 10 uranium to the machinist's workshop, which can print two nuclear power cores."
