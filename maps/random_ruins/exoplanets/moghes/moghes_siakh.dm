@@ -33,13 +33,13 @@
 
 /datum/ghostspawner/human/moghes_siakh/knight
 	name = "Si'akh Knight"
-	short_name = "siakh_knight"
+	short_name = "moghes_siakh_knight"
 	desc = "Wander the Wasteland as a holy warrior, commanded by the Prophet Si'akh to defend the innocent from the wickedness of the ruined world. Live by the words of the Prophet and lead your Knight-Hopefuls through the harsh wastes."
 	tags = list("External")
 	welcome_message = "You are a knight of the Order of the Flame, absolved of sin and called to a higher purpose by the Prophet Si'akh himself. Defend the innocent, escort your initiates through the harsh Wasteland, and fall upon those who would harm them with the fury of Sk'akh."
 
 	max_count = 2
-	spawnpoints = list("moghes_siakh")
+	spawnpoints = list("moghes_siakh_knight")
 	uses_species_whitelist = TRUE
 
 	assigned_role = "Knight of the Flame"

@@ -4017,7 +4017,8 @@
 	pixel_x = -19;
 	pixel_y = 29;
 	req_one_access = list(20,41);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6812,6 +6813,7 @@
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/structure/disposalpipe/segment,
 /obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "dcF" = (
@@ -7126,7 +7128,8 @@
 	pixel_x = 22;
 	pixel_y = -20;
 	req_one_access = list(19,43);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -8191,7 +8194,8 @@
 	pixel_x = -40;
 	pixel_y = -8;
 	req_one_access = list(75);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
@@ -19028,7 +19032,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 8;
-	pixel_x = -23
+	pixel_x = -23;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -19042,7 +19047,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 8;
-	pixel_x = -22
+	pixel_x = -22;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -25091,7 +25097,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
 "lEd" = (
-/obj/machinery/shieldwallgen,
+/obj/machinery/shieldwallgen{
+	req_access = list(55);
+	anchored = 1;
+	wrenched = 1
+	},
 /obj/effect/floor_decal/corner/mauve/full,
 /obj/machinery/camera/network/research{
 	c_tag = "Xenobiology - Hazardous Specimen";
@@ -25237,7 +25247,8 @@
 	specialfunctions = 4;
 	dir = 10;
 	pixel_x = -6;
-	pixel_y = 1
+	pixel_y = 1;
+	desiredstate = 1
 	},
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
@@ -28574,7 +28585,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 4;
-	pixel_x = 23
+	pixel_x = 23;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
@@ -28767,7 +28779,8 @@
 	pixel_x = 22;
 	pixel_y = 12;
 	req_one_access = list(19,43);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 8;
@@ -34755,7 +34768,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 8;
-	pixel_x = -23
+	pixel_x = -23;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/foyer)
@@ -39011,7 +39025,8 @@
 	name = "Xenobiology External Access Bolts";
 	pixel_y = -21;
 	req_access = list(55);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
@@ -40417,7 +40432,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 10;
-	pixel_x = 32
+	pixel_x = 32;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/foyer)
@@ -41113,7 +41129,8 @@
 	pixel_x = 22;
 	pixel_y = 22;
 	req_one_access = list(19,43);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -42776,7 +42793,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 4;
-	pixel_x = 22
+	pixel_x = 22;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/foyer)
@@ -46155,7 +46173,11 @@
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
 "vwC" = (
-/obj/machinery/shieldwallgen,
+/obj/machinery/shieldwallgen{
+	req_access = list(55);
+	anchored = 1;
+	wrenched = 1
+	},
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
 	},
@@ -46167,7 +46189,8 @@
 	req_access = list(55);
 	specialfunctions = 4;
 	dir = 4;
-	pixel_x = 23
+	pixel_x = 23;
+	desiredstate = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/hazardous)
@@ -51016,7 +51039,8 @@
 	pixel_x = 22;
 	pixel_y = -22;
 	req_one_access = list(19,43);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -51198,6 +51222,7 @@
 "xHv" = (
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/structure/grille,
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "xHX" = (
@@ -52499,7 +52524,8 @@
 	specialfunctions = 4;
 	dir = 4;
 	pixel_x = 23;
-	pixel_y = 32
+	pixel_y = 32;
+	desiredstate = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/xenobiology/dissection)

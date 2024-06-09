@@ -88,7 +88,7 @@
 	zone_sel = null
 
 /mob/var/should_add_to_mob_list = TRUE
-/mob/Initialize()
+/mob/Initialize(mapload)
 	. = ..()
 	if(should_add_to_mob_list)
 		GLOB.mob_list += src
