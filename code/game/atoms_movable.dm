@@ -173,8 +173,7 @@
 		throwing = 0
 		var/turf/T = hit_atom
 		if(T.density)
-			spawn(2)
-				step(src, turn(src.last_move, 180))
+			step(src, turn(src.last_move, 180))
 			if(isliving(src))
 				var/mob/living/M = src
 				M.turf_collision(T, speed)
@@ -387,12 +386,11 @@
 			var/datum/game_mode/nuclear/G = SSticker.mode
 			G.check_nuke_disks()
 
-		spawn(0)
-			if(loc)
-				var/turf/T = loc
-				loc.Entered(src)
-				if(!T.is_hole)
-					fall_impact(text2num(pickweight(list("1" = 60, "2" = 30, "3" = 10))))
+		if(loc)
+			var/turf/T = loc
+			loc.Entered(src)
+			if(!T.is_hole)
+				fall_impact(text2num(pickweight(list("1" = 60, "2" = 30, "3" = 10))))
 
 //by default, transition randomly to another zlevel
 /atom/movable/proc/get_transit_zlevel()

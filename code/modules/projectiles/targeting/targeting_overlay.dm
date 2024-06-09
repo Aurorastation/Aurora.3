@@ -164,8 +164,7 @@
 		return
 
 	if(!owner.incapacitated() && owner.client)
-		spawn(0)
-			owner.set_dir(get_dir(get_turf(owner), get_turf(src)))
+		owner.set_dir(get_dir(get_turf(owner), get_turf(src)))
 
 /obj/aiming_overlay/proc/aim_at(mob/target, obj/thing)
 

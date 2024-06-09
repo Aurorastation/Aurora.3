@@ -218,14 +218,12 @@
 			qdel(src)
 			return
 		if(2.0)
-			if (prob(50))
+			if(prob(50))
 				qdel(src)
 				return
 		if(3.0)
-			if (prob(25))
-				spawn(0)
-					src.malfunction()
-					return
+			if(prob(25))
+				src.malfunction()
 				return
 	return
 
@@ -701,9 +699,8 @@
 		SStgui.update_uis(src)
 
 	if(((src.last_reply + (src.vend_delay + 200)) <= world.time) && src.vend_reply)
-		spawn(0)
-			src.speak(src.vend_reply)
-			src.last_reply = world.time
+		src.speak(src.vend_reply)
+		src.last_reply = world.time
 
 	use_power_oneoff(vend_power_usage)	//actuators and stuff
 	if (src.icon_vend) //Show the vending animation if needed
