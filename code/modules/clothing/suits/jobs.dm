@@ -153,7 +153,6 @@
 /obj/item/clothing/suit/storage/toggle/trench/det_trench // Not security anymore, but used in the loadout.
 	name = "brown trenchcoat"
 	desc = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. Perfect for your next act of autodefenestration!"
-	icon = 'icons/obj/item/clothing/suit/storage/toggle/trenchcoat.dmi'
 	icon_state = "detective"
 	item_state = "detective"
 	blood_overlay_type = "coat"
