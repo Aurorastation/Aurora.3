@@ -18,7 +18,6 @@
 /obj/effect/overmap/visitable/sector/abandoned_industrial_station//This is the actual overmap object that spawns at roundstart
 	name = "Abandoned Industrial Station"//This and desc is visible ingame when the object is scanned by any scanner
 	desc = "Industrial station of unknown designation or origin. Scanners detect it to be mostly cold, likely no movement or life inside, although appears to be pressurized."
-	icon_state = "outpost"
 
 	static_vessel = TRUE
 	generic_object = FALSE

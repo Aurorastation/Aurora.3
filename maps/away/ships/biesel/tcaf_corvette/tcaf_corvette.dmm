@@ -871,6 +871,11 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/tcaf_corvette/engineering)
+"gl" = (
+/obj/structure/closet/radiation,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/engineering)
 "gm" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
@@ -2050,9 +2055,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/messhall)
 "qt" = (
-/obj/structure/closet/radiation,
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/table/reinforced/steel,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
@@ -2210,6 +2220,7 @@
 /area/tcaf_corvette/grauwolf)
 "sb" = (
 /obj/machinery/vending/tool,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
 "sd" = (
@@ -4662,6 +4673,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
 "MS" = (
@@ -5926,6 +5938,7 @@
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
 "Xi" = (
@@ -31583,7 +31596,7 @@ Jm
 wq
 Xh
 Gm
-Sd
+gl
 RA
 Yg
 wx

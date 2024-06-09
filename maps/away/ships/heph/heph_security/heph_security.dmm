@@ -3079,10 +3079,14 @@
 /turf/simulated/floor/tiled,
 /area/heph_security_ship/armory)
 "vU" = (
-/obj/machinery/pipedispenser,
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/engineering)
@@ -6216,6 +6220,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 10
 	},
+/obj/machinery/pipedispenser,
 /turf/simulated/floor,
 /area/heph_security_ship/atmos)
 "Xe" = (

@@ -60,12 +60,12 @@
 			return
 
 	if(reagents.total_volume < amount_per_transfer_from_this)
-		to_chat(user, "<span class='notice'>\The [src] is empty!</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is empty!"))
 		return
 
 	if(safety)
 		playsound(src.loc, 'sound/weapons/safety_click.ogg', 25, 1)
-		to_chat(user, "<span class='notice'>The safety is on!</span>")
+		to_chat(user, SPAN_NOTICE("The safety is on!"))
 		return
 
 	Spray_at(A, user, proximity)
@@ -127,7 +127,7 @@
 	if (alert(usr, "Are you sure you want to empty that?", "Empty Bottle:", "Yes", "No") != "Yes")
 		return
 	if(isturf(usr.loc))
-		to_chat(usr, "<span class='notice'>You empty \the [src] onto the floor.</span>")
+		to_chat(usr, SPAN_NOTICE("You empty \the [src] onto the floor."))
 		reagents.splash(usr.loc, reagents.total_volume)
 
 //space cleaner

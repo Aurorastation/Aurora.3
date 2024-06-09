@@ -12,15 +12,15 @@
 	emote_sounds = list('sound/effects/creatures/monstergrowl.ogg')
 	turns_per_move = 5
 	speak_chance = 5
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
-	meat_amount = 10
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
+	meat_amount = 40
 	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help  = "pets"
 	response_disarm = "shoves"
 	response_harm   = "harmlessly punches"
 	blood_overlay_icon = null
-	maxHealth = 500
-	health = 500
+	maxHealth = 400
+	health = 400
 	harm_intent_damage = 0
 	melee_damage_lower = 40
 	melee_damage_upper = 40
@@ -31,7 +31,7 @@
 	attacktext = "chomped"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
-	faction = "lizard"
+	faction = "Moghes"
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 20)
 	var/is_devouring = FALSE
 
@@ -41,7 +41,7 @@
 	if(istype(L))
 		if(prob(25))
 			L.Weaken(3)
-			L.visible_message("<span class='danger'>\The [src] knocks down \the [L]!</span>")
+			L.visible_message(SPAN_DANGER("\The [src] knocks down \the [L]!"))
 
 /mob/living/simple_animal/hostile/biglizard/death(gibbed)
 	..()
@@ -49,7 +49,34 @@
 
 /mob/living/simple_animal/hostile/biglizard/Life()
 	..()
-	adjustBruteLoss(-5)
+
+	//It's a predator, supposedly it shouldn't always alert his victims to be nearby
+	//(also saves some processing)
+	if(prob(30))
+		for(var/mob/living/poor_soul_approaching in get_hearers_in_range(world.view*1.8, src))
+			//No point in sending a message if there's no client
+			if(!poor_soul_approaching.client)
+				continue
+
+			var/message
+
+			var/poor_soul_distance_from_tyrant = get_dist(src, poor_soul_approaching)
+			//They can see us, no point
+			if(poor_soul_distance_from_tyrant <= world.view)
+				continue
+
+			//RUN FOR YOUR LIFE
+			else if(poor_soul_distance_from_tyrant <= world.view*1.4)
+				message = SPAN_HIGHDANGER(SPAN_BOLD("You hear loud stomping nearby!"))
+
+			//Fairly close, a normal warning should suffice
+			else
+				message = SPAN_DANGER("You hear a bone-chilling roar in the distance!")
+
+			poor_soul_approaching.notify_message(message, 10 SECONDS, key = "biglizard-[REF(src)]")
+
+
+	adjustBruteLoss(-1)
 
 /mob/living/simple_animal/hostile/biglizard/verb/devour(mob/living/target as mob in oview())
 	set category = "Plains Tyrant"
@@ -130,9 +157,10 @@
 	environment_smash = 1
 
 	flying = TRUE
-	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 1)
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
-	meat_amount = 2
+	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 1, /obj/item/reagent_containers/food/snacks/meat/bat = 2)
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
+	meat_amount = 10
+	faction = "Moghes"
 	var/shriek_time = 0
 
 /mob/living/simple_animal/hostile/shrieker/proc/shriek(turf/T, mob/living/M)

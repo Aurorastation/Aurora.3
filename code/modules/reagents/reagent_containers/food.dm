@@ -17,7 +17,7 @@
 	var/empty_icon_state
 
 /obj/item/reagent_containers/food/self_feed_message(var/mob/user)
-	to_chat(user, "<span class='notice'>You [is_liquid ? "drink from" : "eat"] \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You [is_liquid ? "drink from" : "eat"] \the [src]."))
 
 /obj/item/reagent_containers/food/feed_sound(var/mob/user)
 	if(is_liquid)

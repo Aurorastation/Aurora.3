@@ -118,7 +118,7 @@
 	else if (attacking_item.iswrench())
 		if(connected_port)
 			disconnect()
-			to_chat(user, "<span class='notice'>You disconnect \the [src] from the port.</span>")
+			to_chat(user, SPAN_NOTICE("You disconnect \the [src] from the port."))
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			update_icon()
 			SStgui.update_uis(src)
@@ -127,16 +127,16 @@
 			var/obj/machinery/atmospherics/portables_connector/possible_port = locate(/obj/machinery/atmospherics/portables_connector/) in loc
 			if(possible_port)
 				if(connect(possible_port))
-					to_chat(user, "<span class='notice'>You connect \the [src] to the port.</span>")
+					to_chat(user, SPAN_NOTICE("You connect \the [src] to the port."))
 					attacking_item.play_tool_sound(get_turf(src), 50)
 					update_icon()
 					SStgui.update_uis(src)
 					return TRUE
 				else
-					to_chat(user, "<span class='notice'>\The [src] failed to connect to the port.</span>")
+					to_chat(user, SPAN_NOTICE("\The [src] failed to connect to the port."))
 					return TRUE
 			else
-				to_chat(user, "<span class='notice'>Nothing happens.</span>")
+				to_chat(user, SPAN_NOTICE("Nothing happens."))
 				return TRUE
 
 	else if ((istype(attacking_item, /obj/item/device/analyzer)) && Adjacent(user))
@@ -171,17 +171,21 @@
 		user.drop_from_inventory(C,src)
 		C.add_fingerprint(user)
 		cell = C
-		user.visible_message("<span class='notice'>[user] opens the panel on [src] and inserts [C].</span>", "<span class='notice'>You open the panel on [src] and insert [C].</span>")
+		user.visible_message(SPAN_NOTICE("[user] opens the panel on [src] and inserts [C]."),
+								SPAN_NOTICE("You open the panel on [src] and insert [C]."))
+
 		power_change()
 		SStgui.update_uis(src)
 		return TRUE
 
 	if(attacking_item.isscrewdriver())
 		if(!cell)
-			to_chat(user, "<span class='warning'>There is no power cell installed.</span>")
+			to_chat(user, SPAN_WARNING("There is no power cell installed."))
 			return TRUE
 
-		user.visible_message("<span class='notice'>[user] opens the panel on [src] and removes [cell].</span>", "<span class='notice'>You open the panel on [src] and remove [cell].</span>")
+		user.visible_message(SPAN_NOTICE("[user] opens the panel on [src] and removes [cell]."),
+								SPAN_NOTICE("You open the panel on [src] and remove [cell]."))
+
 		cell.add_fingerprint(user)
 		cell.forceMove(src.loc)
 		cell = null

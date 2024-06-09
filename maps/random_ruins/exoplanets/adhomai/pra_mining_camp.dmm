@@ -39,6 +39,9 @@
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
+/obj/structure/sign/painting_frame/hadii{
+	pixel_y = 32
+	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "eJ" = (
@@ -170,11 +173,19 @@
 	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
+"sm" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/structure/sign/painting_frame/hadii{
+	pixel_x = -28
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/pra_mining_camp)
 "um" = (
-/obj/structure/closet/crate/plastic,
-/obj/item/storage/firstaid,
-/obj/item/storage/firstaid,
-/obj/item/storage/firstaid,
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "up" = (
@@ -210,6 +221,9 @@
 /obj/item/ore_detector,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
 /turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "wW" = (
@@ -382,6 +396,13 @@
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /turf/simulated/floor/exoplanet/concrete,
+/area/pra_mining_camp)
+"MC" = (
+/obj/structure/hadii_statue/stone,
+/obj/effect/floor_decal/concrete/large/full,
+/turf/simulated/floor/concrete{
+	temperature = 268.15
+	},
 /area/pra_mining_camp)
 "Nf" = (
 /obj/structure/table/steel,
@@ -984,9 +1005,9 @@ Hg
 Hg
 Hg
 Hg
-Hg
-Hg
-Hg
+zx
+zx
+zx
 zx
 zx
 Hg
@@ -1018,9 +1039,9 @@ Hg
 Hg
 Hg
 Hg
-Hg
-Hg
-Hg
+zx
+MC
+zx
 zx
 zx
 Hg
@@ -1052,9 +1073,9 @@ Hg
 Hg
 Hg
 Hg
-Hg
-Hg
-Hg
+zx
+zx
+zx
 zx
 zx
 PT
@@ -1181,7 +1202,7 @@ Hg
 Fc
 Tn
 dd
-Rc
+sm
 zx
 zx
 Fc

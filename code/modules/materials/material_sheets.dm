@@ -104,6 +104,7 @@
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_IRON
 	apply_colour = TRUE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/iron/full/Initialize()
 	. = ..()
@@ -115,6 +116,7 @@
 	icon_state = "sheet-metal"
 	default_type = MATERIAL_ALUMINIUM
 	apply_colour = TRUE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/aluminium/full/Initialize()
 	. = ..()
@@ -126,6 +128,7 @@
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_LEAD
 	apply_colour = TRUE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/lead/full/Initialize()
 	. = ..()
@@ -147,6 +150,7 @@
 	name = "marble brick"
 	icon_state = "sheet-marble"
 	default_type = MATERIAL_MARBLE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/marble/full/Initialize()
 	. = ..()
@@ -237,6 +241,7 @@
 	name = "metallic hydrogen"
 	icon_state = "sheet-metalhydrogen"
 	default_type = MATERIAL_HYDROGEN_METALLIC
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/mhydrogen/full/Initialize()
 	. = ..()
@@ -249,6 +254,7 @@
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_TRITIUM
 	apply_colour = TRUE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/tritium/ten/Initialize()
 	. = ..()
@@ -265,6 +271,7 @@
 	icon_state = "sheet-silver"
 	default_type = MATERIAL_OSMIUM
 	apply_colour = TRUE
+	icon_has_variants = TRUE
 
 /obj/item/stack/material/osmium/full/Initialize()
 	. = ..()
@@ -452,10 +459,10 @@
 
 /obj/item/stack/material/cloth/attackby(obj/item/attacking_item, mob/user)
 	if(is_sharp(attacking_item))
-		user.visible_message("<span class='notice'>\The [user] begins cutting up [src] with [attacking_item].</span>",
-							"<span class='notice'>You begin cutting up [src] with [attacking_item].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up [src] with [attacking_item]."),
+							SPAN_NOTICE("You begin cutting up [src] with [attacking_item]."))
 		if(attacking_item.use_tool(src, user, 20, volume = 50)) // takes less time than bedsheets, a second per rag produced on average
-			to_chat(user, "<span class='notice'>You cut [src] into pieces!</span>")
+			to_chat(user, SPAN_NOTICE("You cut [src] into pieces!"))
 			for(var/i in 1 to rand(1,3)) // average of 2 per
 				new /obj/item/reagent_containers/glass/rag(get_turf(src))
 			use(1)

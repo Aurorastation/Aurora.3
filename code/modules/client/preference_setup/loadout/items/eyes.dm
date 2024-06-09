@@ -71,7 +71,7 @@
 	goggles["goggles, safety"] = /obj/item/clothing/glasses/safety/goggles
 	goggles["goggles, safety (prescription)"] = /obj/item/clothing/glasses/safety/goggles/prescription
 	goggles["goggles, scanning"] = /obj/item/clothing/glasses/regular/scanners
-	goggles["goggles, science"] = /obj/item/clothing/glasses/science
+	goggles["goggles, science"] = /obj/item/clothing/glasses/safety/goggles/science
 	goggles["goggles, orange"] = /obj/item/clothing/glasses/spiffygogs
 	gear_tweaks += new /datum/gear_tweak/path(goggles)
 

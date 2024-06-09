@@ -48,6 +48,7 @@
 	bowman = /obj/item/device/radio/headset/heads/hos/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/hos
 	wrist_radio = /obj/item/device/radio/headset/wrist/hos
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/hos
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/security/hos
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/hos
@@ -112,6 +113,7 @@
 	bowman = /obj/item/device/radio/headset/headset_warden/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/sec/warden
 	wrist_radio = /obj/item/device/radio/headset/wrist/sec/warden
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/sec/warden
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/security
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
@@ -169,6 +171,7 @@
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/sec
 	wrist_radio = /obj/item/device/radio/headset/wrist/sec
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/sec
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/security/detective
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security/detective
@@ -223,6 +226,7 @@
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/sec
 	wrist_radio = /obj/item/device/radio/headset/wrist/sec
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/sec
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/security
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/security
@@ -290,6 +294,7 @@
 	bowman = /obj/item/device/radio/headset/headset_sec/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/sec
 	wrist_radio = /obj/item/device/radio/headset/wrist/sec
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/sec
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec

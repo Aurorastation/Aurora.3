@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes: 
-  - rscadd: "Crates, closets, rollerbeds and wheelchairs now cannot safely traverse stairs."

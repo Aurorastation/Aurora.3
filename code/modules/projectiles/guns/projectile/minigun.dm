@@ -53,21 +53,21 @@
 		return
 
 	if (user.back!= src)
-		to_chat(user, "<span class='warning'>\The [src] must be worn to deploy \the [gun]!</span>")
+		to_chat(user, SPAN_WARNING("\The [src] must be worn to deploy \the [gun]!"))
 		return
 
 	if(use_check_and_message(user))
 		return
 
 	if(!gun)
-		to_chat(user, "<span class='warning'>There is no weapon attached the \the [src]!</span>")
+		to_chat(user, SPAN_WARNING("There is no weapon attached the \the [src]!"))
 
 	if(armed)
-		to_chat(user, "<span class='warning'>\The [src] has been already deployed!</span>")
+		to_chat(user, SPAN_WARNING("\The [src] has been already deployed!"))
 
 	else
 		if(!user.put_in_hands(gun))
-			to_chat(user, "<span class='warning'>You need a free hand to hold \the [gun]!</span>")
+			to_chat(user, SPAN_WARNING("You need a free hand to hold \the [gun]!"))
 			return
 
 		armed = TRUE
@@ -137,11 +137,11 @@
 
 /obj/item/gun/projectile/automatic/rifle/minigun/special_check(var/mob/user)
 	if(!wielded)
-		to_chat(user, "<span class='danger'>You cannot fire this weapon with just one hand!</span>")
+		to_chat(user, SPAN_DANGER("You cannot fire this weapon with just one hand!"))
 		return FALSE
 
 	if (user.back!= source)
-		to_chat(user, "<span class='warning'>\The [source] must be worn to fire \the [src]!</span>")
+		to_chat(user, SPAN_WARNING("\The [source] must be worn to fire \the [src]!"))
 		return FALSE
 
 	return ..()
@@ -155,7 +155,7 @@
 /obj/item/gun/projectile/automatic/rifle/minigun/dropped(mob/user)
 	..()
 	if(source)
-		to_chat(user, "<span class='notice'>\The [src] snaps back onto \the [source].</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] snaps back onto \the [source]."))
 		INVOKE_ASYNC(source, TYPE_PROC_REF(/obj/item/minigunpack, remove_gun))
 		source.update_icon()
 		user.update_inv_back()

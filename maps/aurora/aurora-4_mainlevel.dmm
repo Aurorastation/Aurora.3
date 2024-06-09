@@ -44750,7 +44750,7 @@
 	dir = 8
 	},
 /obj/structure/table/standard,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/structure/sign/nosmoking_2{
 	pixel_x = -32
 	},

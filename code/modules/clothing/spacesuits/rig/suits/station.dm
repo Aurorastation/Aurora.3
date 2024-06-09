@@ -47,7 +47,6 @@
 	req_one_access = list()
 
 	helm_type = null
-	suit_type = null
 	glove_type = null
 	boot_type = null
 

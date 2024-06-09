@@ -376,6 +376,7 @@
 	pmcg_sec_uniforms["Dagamuir Freewater uniform"] = /obj/item/clothing/under/rank/security/pmc/dagamuir_freewater
 	pmcg_sec_uniforms["Ve'katak Phalanx uniform"] = /obj/item/clothing/under/rank/security/pmc/vekatak_phalanx
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_sec_uniforms)
+	gear_tweaks += list(gear_tweak_uniform_rolled_state)
 
 /datum/gear/faction/erisec_patch
 	display_name = "EPMC sleeve patch"

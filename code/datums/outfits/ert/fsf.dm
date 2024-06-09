@@ -68,10 +68,9 @@
 /obj/outfit/admin/ert/fsf/sapper
 	name = "Free Solarian Fleets Sapper"
 
-	back = /obj/item/storage/backpack/industrial
+	back = /obj/item/storage/backpack/duffel/eng
 	belt = /obj/item/storage/belt/utility/very_full
 	gloves = /obj/item/clothing/gloves/yellow
-	back = /obj/item/storage/backpack/duffel/eng
 	suit_store = /obj/item/gun/projectile/shotgun/pump/combat/sol
 	accessory = /obj/item/clothing/accessory/storage/brown_vest
 	accessory_contents = list(

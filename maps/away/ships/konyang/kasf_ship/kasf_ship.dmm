@@ -8558,15 +8558,6 @@
 	dir = 1
 	},
 /obj/structure/table/steel,
-/obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for a Sai-class corvette.";
-	icon = 'icons/obj/items.dmi';
-	icon_state = "blueprints";
-	item_icons = null;
-	item_state = null;
-	name = "ship blueprints";
-	pixel_y = -1
-	},
 /obj/item/pen/drafting/blue{
 	pixel_x = -6;
 	pixel_y = 8
@@ -8581,6 +8572,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/item/blueprints,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/engie)
 "Xu" = (

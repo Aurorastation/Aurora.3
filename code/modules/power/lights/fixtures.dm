@@ -248,11 +248,9 @@
 
 			if (on)
 				var/image/I = LIGHT_FIXTURE_CACHE(icon, "[base_state]_on", target_color)
-				if (!fitting_is_on_floor)
-					I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-				else
-					I.plane = plane
+				var/image/E = emissive_appearance(icon, "[base_state]_on")
 				AddOverlays(I)
+				AddOverlays(E)
 			else
 				AddOverlays(LIGHT_FIXTURE_CACHE(icon, "[base_state]_off", target_color))
 
@@ -697,7 +695,9 @@
 
 // called when on fire
 
-/obj/machinery/light/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/machinery/light/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(prob(max(0, exposed_temperature - 673)))   //0% at <400C, 100% at >500C
 		broken()
 

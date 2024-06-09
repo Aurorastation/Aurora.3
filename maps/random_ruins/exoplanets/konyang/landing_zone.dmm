@@ -1278,9 +1278,13 @@
 /area/konyang_landing_zone/command_center/living)
 "qz" = (
 /obj/structure/table/wood,
-/obj/item/device/radio/phone,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
+	},
+/obj/item/blueprints/outpost,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
 	},
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)

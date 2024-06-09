@@ -39,6 +39,7 @@
 /obj/item/storage/box/fancy/crayons/chalkbox{
 	pixel_y = 4
 	},
+/obj/item/blueprints,
 /obj/item/stack/cable_coil,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)

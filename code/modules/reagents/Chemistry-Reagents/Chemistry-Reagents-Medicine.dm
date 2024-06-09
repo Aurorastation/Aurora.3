@@ -329,12 +329,9 @@
 	metabolism_min = 0.005
 	breathe_mul = 0
 
-/singleton/reagent/mortaphenyl/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
-	to_chat(M, SPAN_GOOD(pick("You lean back and begin to fall... and fall... and fall.", "A feeling of ecstasy builds within you.", "You're startled by just how amazing you suddenly feel.")))
-
 /singleton/reagent/mortaphenyl/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(prob(3))
-		to_chat(M, SPAN_GOOD(pick("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")))
+	var/list/joy_messages = list("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")
+	M.notify_message(SPAN_GOOD(pick(joy_messages)), rand(20 SECONDS, 40 SECONDS), key = "morta_affect_blood")
 
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 50)
@@ -385,21 +382,17 @@
 	description = "Morphine is a very strong medication derived from the opium plant. It is extremely effective at treating severe pain. The drug is highly addictive and sense-numbing. Unlike other painkillers, morphine can be inhaled."
 	reagent_state = LIQUID
 	color = "#5c4033"
-	overdose = 20
+	overdose = 10
 	od_minimum_dose = 2
-	specific_heat = 1
+	specific_heat = 1.2
 	scannable = TRUE
 	metabolism = REM / 3.33 // 0.06ish units per tick
 	ingest_met = REM / 1.5 // Should be 0.13 units per tick
 	breathe_met = REM * 4 // .8 units per tick
-	specific_heat = 1.2
-
-/singleton/reagent/morphine/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
-	to_chat(M, SPAN_GOOD(pick("You lean back and begin to fall... and fall... and fall.", "A feeling of ecstasy builds within you.", "You're startled by just how amazing you suddenly feel.")))
 
 /singleton/reagent/morphine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(prob(3))
-		to_chat(M, SPAN_GOOD(pick("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")))
+	var/list/joy_messages = list("You feel soothed and at ease.", "You feel content and at peace.", "You feel a pleasant emptiness.", "You feel like sharing the wonderful memories and feelings you're experiencing.", "All your anxieties fade away.", "You feel like you're floating off the ground.", "You don't want this feeling to end.")
+	M.notify_message(SPAN_GOOD(pick(joy_messages)), rand(20 SECONDS, 40 SECONDS), key = "morphine_affect_blood")
 
 	if(check_min_dose(M))
 		M.add_chemical_effect(CE_PAINKILLER, 120)
@@ -429,13 +422,15 @@
 	M.add_chemical_effect(CE_EMETIC, M.chem_doses[type]/6)
 	if(M.losebreath < 15)
 		M.losebreath++
+	if(prob(30))
+		M.seizure(rand(2,3))
 
 /singleton/reagent/tramarine
 	name = "Tramarine"
 	description = "Tramarine is a synthetic form of morphine developed by NanoTrasen early in its history, that can be used in its place for most medical purposes. It is known to be more dangerous however with alcohol, other opiods, or an overdose."
 	reagent_state = LIQUID
 	color = "#c4a05d"
-	overdose = 20
+	overdose = 15
 	od_minimum_dose = 2
 	scannable = TRUE
 	metabolism = REM / 3.33 // 0.06ish units per tick
@@ -490,6 +485,8 @@
 	M.make_jittery(10)
 	M.dizziness = max(150, M.dizziness)
 	M.make_dizzy(10)
+	if(prob(30))
+		M.seizure(rand(2,3))
 
 /singleton/reagent/oxycomorphine
 	name = "Oxycomorphine"

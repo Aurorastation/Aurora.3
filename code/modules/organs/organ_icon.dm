@@ -101,15 +101,26 @@
 	return mob_icon
 
 /obj/item/organ/external/head/get_additional_images(var/mob/living/carbon/human/H)
+	..()
+
 	if(!H.mind)
-		return
+		return mob_overlays
+
+	var/list/bonus_overlays = list()
+
+	var/obj/item/organ/internal/eyes/eyes = H.get_eyes()
+	if(eyes && BP_IS_ROBOTIC(eyes))
+		var/datum/robolimb/robolimb_data = GLOB.all_robolimbs[eyes.model]
+		if(robolimb_data.emissive)
+			var/mutable_appearance/return_image = emissive_appearance(H.species.eyes_icons, H.species.eyes, MOB_EMISSIVE_LAYER)
+			bonus_overlays += return_image
+
 	var/datum/vampire/vampire = H.mind.antag_datums[MODE_VAMPIRE]
 	if(vampire && (vampire.status & VAMP_FRENZIED))
-		var/image/return_image = image(H.species.eyes_icons, H, "[H.species.eyes]_frenzy")
-		return_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		return_image.appearance_flags = KEEP_APART
-		LAZYADD(additional_images, return_image)
-		return list(return_image)
+		var/mutable_appearance/return_image = emissive_appearance(H.species.eyes_icons, "[H.species.eyes]_frenzy")
+		bonus_overlays += return_image
+
+	return mob_overlays + bonus_overlays
 
 /obj/item/organ/external/proc/apply_markings(restrict_to_robotic = FALSE)
 	if (!cached_markings)
@@ -157,8 +168,14 @@
 	if(owner && owner.gender == MALE)
 		gender = "m"
 
+	var/chosen_icon
+	var/chosen_icon_state
+
 	if(force_icon)
-		mob_icon = new /icon(force_icon, "[icon_name][gendered_icon ? "_[gender]" : ""]")
+		chosen_icon = force_icon
+		chosen_icon_state = "[icon_name][gendered_icon ? "_[gender]" : ""]"
+		mob_icon = new /icon(force_icon, chosen_icon_state)
+		AddOverlays(emissive_blocker(chosen_icon, chosen_icon_state))
 		if((painted && skin_color) || robotize_type == PROSTHETIC_SYNTHSKIN)
 			mob_icon.Blend(skin_color, ICON_ADD)
 		if(!isnull(s_tone))
@@ -170,8 +187,14 @@
 		get_internal_organs_overlay()
 	else
 		if(!dna)
-			mob_icon = new /icon('icons/mob/human_races/human/r_human.dmi', "[icon_name][gendered_icon ? "_[gender]" : ""]")
+			chosen_icon = 'icons/mob/human_races/human/r_human.dmi'
+			chosen_icon_state = "[icon_name][gendered_icon ? "_[gender]" : ""]"
+			mob_icon = new /icon(chosen_icon, chosen_icon_state)
+			var/mutable_appearance/limb_em_block = emissive_blocker(chosen_icon, chosen_icon_state, MOB_SHADOW_LAYER)
+			limb_em_block.dir = dir
+			mob_overlays += list(limb_em_block)
 		else
+			chosen_icon_state = "[icon_name][gendered_icon ? "_[gender]" : ""]"
 			if(!gendered_icon)
 				gender = null
 			else
@@ -181,14 +204,18 @@
 					gender = "m"
 
 			if(skeletal)
-				mob_icon = new /icon(species.skeleton_icon, "[icon_name][gender ? "_[gender]" : ""]")
+				chosen_icon = species.skeleton_icon
+				mob_icon = new /icon(chosen_icon, chosen_icon_state)
 			else if (status & ORGAN_ROBOT && !force_skintone)
-				mob_icon = new /icon('icons/mob/human_races/ipc/robotic.dmi', "[icon_name][gender ? "_[gender]" : ""]")
+				chosen_icon = 'icons/mob/human_races/ipc/robotic.dmi'
+				mob_icon = new /icon(chosen_icon, chosen_icon_state)
 			else
 				if (status & ORGAN_MUTATED)
-					mob_icon = new /icon(species.deform, "[icon_name][gender ? "_[gender]" : ""]")
+					chosen_icon = species.deform
 				else
-					mob_icon = new /icon(species.icobase, "[icon_name][gender ? "_[gender]" : ""]")
+					chosen_icon = species.icobase
+
+				mob_icon = new /icon(chosen_icon, chosen_icon_state)
 
 				if(status & ORGAN_DEAD)
 					mob_icon.ColorTone(rgb(10,50,0))
@@ -211,6 +238,10 @@
 			apply_markings()
 			get_internal_organs_overlay()
 
+			var/mutable_appearance/limb_em_block = emissive_blocker(chosen_icon, chosen_icon_state, MOB_SHADOW_LAYER)
+			limb_em_block.dir = dir
+			mob_overlays += list(limb_em_block)
+
 			if(body_hair)
 				var/list/limb_icon_cache = SSicon_cache.limb_icons_cache
 				var/cache_key = "[body_hair]-[icon_name]-[hair_color]"
@@ -226,7 +257,7 @@
 	return mob_icon
 
 /obj/item/organ/external/proc/get_additional_images(var/mob/living/carbon/human/H)
-	return
+	return mob_overlays
 
 /obj/item/organ/external/proc/cut_additional_images(var/mob/living/carbon/human/H)
 	if(LAZYLEN(additional_images))

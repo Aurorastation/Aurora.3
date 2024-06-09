@@ -8954,17 +8954,10 @@
 	dir = 10
 	},
 /obj/structure/table/steel,
-/obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for a vessel.";
-	icon = 'icons/obj/items.dmi';
-	icon_state = "blueprints";
-	item_icons = null;
-	item_state = null;
-	name = "ship blueprints"
-	},
 /obj/item/pen/drafting/blue{
 	pixel_y = 5
 	},
+/obj/item/blueprints,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/engineering)
 "tYU" = (

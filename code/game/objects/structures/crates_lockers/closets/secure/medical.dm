@@ -209,3 +209,4 @@
 	new /obj/item/toy/plushie/slime(src)
 	new /obj/item/toy/plushie/bee(src)
 	new /obj/item/device/flashlight/pen(src)
+	new /obj/item/storage/box/stressball(src)

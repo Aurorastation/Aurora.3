@@ -46,6 +46,7 @@
 	bowman = /obj/item/device/radio/headset/heads/cmo/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/cmo
 	wrist_radio = /obj/item/device/radio/headset/wrist/cmo
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/cmo
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical/cmo
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/cmo
@@ -118,6 +119,7 @@
 	bowman = /obj/item/device/radio/headset/headset_med/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/med
 	wrist_radio = /obj/item/device/radio/headset/wrist/med
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/med
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
@@ -180,6 +182,7 @@
 	bowman = /obj/item/device/radio/headset/headset_med/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/med
 	wrist_radio = /obj/item/device/radio/headset/wrist/med
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/med
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
@@ -233,6 +236,7 @@
 	bowman = /obj/item/device/radio/headset/headset_med/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/med
 	wrist_radio = /obj/item/device/radio/headset/wrist/med
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/med
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical/psych
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical/psych
@@ -290,6 +294,7 @@
 	bowman = /obj/item/device/radio/headset/headset_med/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/med
 	wrist_radio = /obj/item/device/radio/headset/wrist/med
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/med
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/medical
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
@@ -360,6 +365,7 @@
 	bowman = /obj/item/device/radio/headset/headset_med/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/med
 	wrist_radio = /obj/item/device/radio/headset/wrist/med
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/med
 
 	backpack = /obj/item/storage/backpack/medic
 	backpack_faction = /obj/item/storage/backpack/nt

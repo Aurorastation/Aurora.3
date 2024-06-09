@@ -115,7 +115,7 @@
 		/obj/item/clothing/glasses/sunglasses/aviator,
 		/obj/item/clothing/glasses/hud/health/aviator,
 		/obj/item/clothing/glasses/regular,
-		/obj/item/clothing/glasses/science,
+		/obj/item/clothing/glasses/safety/goggles/science,
 		/obj/item/clothing/glasses/safety/goggles,
 	)
 	gloves = list(

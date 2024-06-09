@@ -1,7 +1,7 @@
 /obj/item/gun/energy/scythe
 	name = "\improper Purpose munitions scythe"
-	desc = "<span class='warning'>A seemingly innocuous metal construction the size of a human arm. Through forces unknown, it produces alloy flechettes \
-			capable of piercing even the strongest armor known to the Spur.</span>"
+	desc = SPAN_WARNING("A seemingly innocuous metal construction the size of a human arm. Through forces unknown, it produces alloy flechettes \
+			capable of piercing even the strongest armor known to the Spur.")
 	icon = 'icons/obj/guns/scythe.dmi'
 	icon_state = "hunterkiller_scythe"
 	item_state = "hunterkiller_scythe"
