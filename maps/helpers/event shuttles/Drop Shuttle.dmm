@@ -148,6 +148,11 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/space)
+"cN" = (
+/obj/machinery/chem_master,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "di" = (
 /obj/structure/closet/crate{
 	name = "cooking surfaces parts"
@@ -369,6 +374,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"fX" = (
+/obj/machinery/vending/robotics,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "gn" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/spline/plain/green{
@@ -386,6 +396,12 @@
 /obj/item/auto_cpr,
 /obj/item/auto_cpr,
 /obj/item/auto_cpr,
+/obj/item/storage/box/gloves{
+	pixel_y = -16
+	},
+/obj/item/storage/box/gloves{
+	pixel_y = -16
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "gv" = (
@@ -398,12 +414,33 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/black,
 /area/space)
+"hw" = (
+/obj/structure/closet/crate,
+/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/first_responder,
+/obj/item/device/gps/medical,
+/obj/item/device/gps/medical,
+/obj/item/device/gps/medical,
+/obj/item/device/gps/medical,
+/obj/item/device/gps/medical,
+/obj/item/device/gps/medical,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "hT" = (
-/obj/structure/closet/crate{
-	name = "gas masks"
-	},
 /obj/item/stack/material/plastic/full,
 /obj/item/stack/rods/full,
+/obj/structure/closet/crate,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/space)
 "hY" = (
@@ -600,6 +637,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"ke" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "ko" = (
 /obj/structure/closet/secure_closet/freezer/chicken_and_fish,
 /obj/effect/floor_decal/industrial/outline/service,
@@ -648,6 +690,23 @@
 /obj/machinery/light{
 	name = "adjusted light fixture"
 	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"lm" = (
+/obj/structure/closet/crate,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "lA" = (
@@ -706,6 +765,14 @@
 /obj/structure/table/rack/retail_shelf{
 	name = "shelves"
 	},
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "mv" = (
@@ -789,6 +856,23 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"nj" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "ns" = (
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/tank/oxygen,
@@ -812,9 +896,47 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"nt" = (
+/obj/structure/closet/crate{
+	name = "pharmacy equipment"
+	},
+/obj/item/stack/material/phoron{
+	amount = 6
+	},
+/obj/item/screwdriver,
+/obj/item/storage/box/fancy/vials,
+/obj/item/storage/box/fancy/vials,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/device/hand_labeler,
+/obj/item/reagent_containers/dropper/electronic_pipette,
+/obj/item/reagent_containers/dropper/electronic_pipette,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "nv" = (
 /obj/machinery/vending/engivend,
 /turf/simulated/floor/tiled/steel,
+/area/space)
+"nA" = (
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
 /area/space)
 "nG" = (
 /obj/structure/table/rack/retail_shelf{
@@ -884,6 +1006,11 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/black,
 /area/space)
+"oe" = (
+/obj/machinery/smartfridge/secure/medbay,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "ou" = (
 /obj/machinery/suspension_gen{
 	dir = 4
@@ -915,6 +1042,20 @@
 /obj/machinery/iv_drip,
 /turf/simulated/floor/shuttle/white,
 /area/space)
+"pp" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/storage/box/freezer/organcooler,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "pv" = (
 /obj/structure/closet/crate{
 	name = "insulated gloves crate"
@@ -931,6 +1072,17 @@
 "px" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/shuttle/dark_blue,
+/area/space)
+"pX" = (
+/obj/item/deployable_kit/surgery_table,
+/obj/item/deployable_kit/surgery_table,
+/obj/structure/closet/crate{
+	name = "deployed workstation crate"
+	},
+/obj/item/storage/box/fancy/tray/machinist,
+/obj/item/storage/box/fancy/tray/machinist,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/shuttle/black,
 /area/space)
 "qb" = (
 /turf/template_noop,
@@ -1245,6 +1397,31 @@
 /obj/effect/floor_decal/spline/plain/orange,
 /turf/simulated/floor/carpet/rubber,
 /area/space)
+"sQ" = (
+/obj/structure/closet/crate,
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "ta" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -1313,6 +1490,11 @@
 	dir = 8;
 	pixel_y = 16
 	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"uh" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "uw" = (
@@ -1420,6 +1602,16 @@
 	},
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"vq" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
 /area/space)
 "vC" = (
 /obj/structure/table/standard,
@@ -1625,6 +1817,18 @@
 	},
 /turf/simulated/floor/shuttle/dark_red,
 /area/space)
+"vY" = (
+/obj/structure/closet/crate,
+/obj/item/storage/box/syringes,
+/obj/item/storage/box/syringes,
+/obj/item/storage/box/bloodpacks,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/gloves,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "wd" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1654,6 +1858,19 @@
 /obj/item/clothing/suit/armor/carrier/officer,
 /turf/simulated/floor/shuttle/dark_red,
 /area/space)
+"wn" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/structure/closet/crate{
+	name = "GPS units"
+	},
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/obj/item/device/gps/science,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "wp" = (
 /obj/machinery/optable,
 /obj/machinery/vending/wallmed2{
@@ -1663,6 +1880,41 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"wr" = (
+/obj/structure/closet/crate{
+	name = "tools and gear crate"
+	},
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/head/welding,
+/obj/item/clothing/head/welding,
+/obj/item/clothing/head/welding,
+/obj/item/ipc_tag_scanner,
+/obj/item/device/robotanalyzer,
+/obj/item/device/robotanalyzer,
+/obj/item/device/robotanalyzer,
+/obj/item/device/robotanalyzer,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/obj/item/clothing/accessory/armband/operations,
+/obj/item/clothing/accessory/armband/operations,
+/obj/item/clothing/accessory/armband/operations,
+/obj/item/clothing/accessory/armband/operations,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"xk" = (
+/obj/machinery/floodlight,
+/obj/effect/floor_decal/industrial/outline/research,
+/turf/simulated/floor/shuttle/black,
 /area/space)
 "xm" = (
 /obj/machinery/mech_recharger/hephaestus,
@@ -1805,6 +2057,56 @@
 /area/space)
 "yO" = (
 /obj/structure/bed/handrail,
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"yS" = (
+/obj/structure/closet/crate,
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "yT" = (
@@ -2044,6 +2346,13 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/space)
+"BW" = (
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/rods/full,
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "BX" = (
 /turf/simulated/floor/tiled/full,
 /area/space)
@@ -2146,9 +2455,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "DZ" = (
-/obj/structure/closet/crate{
-	name = "gas masks"
-	},
+/obj/structure/closet/crate,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/space)
 "Ef" = (
@@ -2185,6 +2492,14 @@
 /obj/item/clothing/accessory/armband/operations,
 /obj/item/clothing/accessory/armband/operations,
 /turf/simulated/floor/shuttle/dark_blue,
+/area/space)
+"Es" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/vending/medical,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
 /area/space)
 "Ev" = (
 /obj/machinery/light/floor{
@@ -2358,6 +2673,14 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
+"HE" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "HH" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1
@@ -2420,6 +2743,22 @@
 /obj/item/clothing/accessory/armband/scc,
 /turf/simulated/floor/shuttle/black,
 /area/space)
+"Jw" = (
+/obj/structure/closet/crate{
+	name = "surgical crate"
+	},
+/obj/item/storage/box/fancy/tray,
+/obj/item/storage/box/fancy/tray,
+/obj/item/storage/box/fancy/tray,
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
+/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "JD" = (
 /obj/structure/plasticflaps/airtight{
 	layer = 2.5;
@@ -2475,6 +2814,20 @@
 /obj/item/taperoll/engineering,
 /turf/simulated/floor/shuttle/black,
 /area/space)
+"Kn" = (
+/obj/structure/closet/crate{
+	name = "insulated gloves crate"
+	},
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "Kq" = (
 /obj/machinery/light/floor{
 	dir = 8
@@ -2489,6 +2842,16 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"KA" = (
+/obj/structure/closet/crate{
+	name = "surgical tables"
+	},
+/obj/item/deployable_kit/surgery_table,
+/obj/item/deployable_kit/surgery_table,
+/obj/item/deployable_kit/surgery_table,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
 /area/space)
 "KF" = (
 /obj/machinery/sleeper{
@@ -2583,6 +2946,11 @@
 	pixel_x = -28;
 	pixel_y = 3
 	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"Mn" = (
+/obj/machinery/vending/medical,
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "Mr" = (
@@ -2847,6 +3215,25 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"Pm" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/obj/structure/closet/crate{
+	name = "gas masks"
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "PF" = (
 /obj/effect/floor_decal/industrial/loading/security{
 	dir = 4
@@ -2860,6 +3247,23 @@
 /area/space)
 "PT" = (
 /obj/machinery/autolathe,
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"PX" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/head/surgery,
+/obj/item/clothing/head/surgery,
+/obj/item/clothing/head/surgery,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical,
+/obj/item/clothing/under/rank/medical/surgeon,
+/obj/item/clothing/under/rank/medical/surgeon,
+/obj/item/clothing/under/rank/medical/surgeon,
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "Qn" = (
@@ -2966,6 +3370,17 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/shuttle/black,
 /area/space)
+"Th" = (
+/obj/structure/closet/crate,
+/obj/item/storage/firstaid/large/combat,
+/obj/item/storage/firstaid/large/combat,
+/obj/item/storage/firstaid/large/adv,
+/obj/item/storage/firstaid/large/adv,
+/obj/item/storage/firstaid/large/adv,
+/obj/item/storage/firstaid/large/adv,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "Tx" = (
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
@@ -2982,6 +3397,13 @@
 "TJ" = (
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor,
+/area/space)
+"TS" = (
+/obj/machinery/chemical_dispenser/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
 /area/space)
 "Uf" = (
 /obj/machinery/door/airlock/glass_command{
@@ -3104,6 +3526,31 @@
 /obj/machinery/door/airlock/glass_command,
 /turf/simulated/floor/tiled/full,
 /area/space)
+"WE" = (
+/obj/structure/closet/crate,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"WH" = (
+/obj/structure/closet/wardrobe/pharmacy_white,
+/obj/item/clothing/glasses/safety/goggles,
+/obj/item/clothing/glasses/safety/goggles,
+/obj/item/storage/box/gloves,
+/obj/effect/floor_decal/industrial/outline/medical,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "WL" = (
 /obj/structure/table/rack/retail_shelf{
 	name = "shelves"
@@ -3145,6 +3592,17 @@
 "Xy" = (
 /obj/machinery/reagentgrinder,
 /turf/simulated/floor/shuttle/white,
+/area/space)
+"XA" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/structure/closet/crate{
+	name = "sterile gloves"
+	},
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/gloves,
+/turf/simulated/floor/shuttle/black,
 /area/space)
 "XC" = (
 /obj/structure/closet/secure_closet/freezer/kois/spores,
@@ -3231,6 +3689,12 @@
 /obj/item/auto_cpr,
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/item/storage/box/gloves{
+	pixel_y = -16
+	},
+/obj/item/storage/box/gloves{
+	pixel_y = -16
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -5526,23 +5990,23 @@ qb
 qb
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 On
 On
 On
 On
 On
-On
-On
-On
-On
-On
-On
-On
-On
-On
-On
-On
-On
+TJ
+TJ
+TJ
 On
 On
 On
@@ -5567,26 +6031,26 @@ qb
 qb
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 On
 On
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+cN
+TS
+oe
+yv
+yv
+yv
+uh
+KA
 On
 TD
 TD
@@ -5608,27 +6072,27 @@ qb
 qb
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 On
 On
 iW
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+cN
+TS
+yv
+yv
+yv
+yv
+uh
+Jw
 On
 yO
 yv
@@ -5650,27 +6114,27 @@ qb
 qb
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 On
 vh
 RH
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+Mn
+Mn
+yv
+pp
+pp
+yv
+uh
+uh
 On
 yO
 yv
@@ -5691,28 +6155,28 @@ On
 qb
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 On
 On
 me
 RH
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+Mn
+Mn
+yv
+nA
+nj
+yv
+uh
+Mn
 On
 vm
 XN
@@ -5732,6 +6196,15 @@ On
 (56,1,1) = {"
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 RH
 RH
 On
@@ -5740,21 +6213,12 @@ On
 On
 On
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+yv
+lm
+PX
+yv
+HE
+Es
 On
 iJ
 iJ
@@ -5774,6 +6238,15 @@ On
 (57,1,1) = {"
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 RH
 RH
 On
@@ -5782,21 +6255,12 @@ On
 cH
 xt
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+yv
+yS
+hw
+yv
+pX
+ke
 On
 yO
 yv
@@ -5816,6 +6280,15 @@ On
 (58,1,1) = {"
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 RH
 Qy
 On
@@ -5824,21 +6297,12 @@ On
 cH
 Fm
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+yv
+sQ
+Th
+yv
+Kn
+ke
 On
 yO
 yv
@@ -5858,6 +6322,15 @@ On
 (59,1,1) = {"
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 RH
 RH
 On
@@ -5866,21 +6339,12 @@ On
 cH
 Fm
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+yv
+vY
+WE
+yv
+yv
+fX
 On
 vm
 XN
@@ -5900,6 +6364,15 @@ On
 (60,1,1) = {"
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 RH
 RH
 On
@@ -5908,21 +6381,12 @@ On
 cH
 Fm
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+yv
+vq
+nt
+yv
+yv
+wr
 On
 iJ
 iJ
@@ -5943,6 +6407,15 @@ im
 qb
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 On
 On
 jI
@@ -5950,21 +6423,12 @@ On
 On
 AE
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+yv
+BW
+WH
+yv
+yv
+yv
 On
 ek
 Ya
@@ -5986,27 +6450,27 @@ qb
 qb
 qb
 qb
-On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+Yj
+bE
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
 Mr
 yv
 yv
@@ -6028,27 +6492,27 @@ qb
 qb
 qb
 qb
-On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+Wh
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
 yv
 yv
 yv
@@ -6069,28 +6533,28 @@ im
 qb
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 On
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+mf
+vi
+yv
+qB
+PT
+yv
+Yk
+pe
+yv
+VV
+ou
 On
 ek
 Ya
@@ -6110,29 +6574,29 @@ im
 (65,1,1) = {"
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 RH
 RH
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+Li
+vE
+yv
+yv
+yv
+yv
+XC
+DL
+yv
+cL
+ou
 On
 XN
 XN
@@ -6152,29 +6616,29 @@ im
 (66,1,1) = {"
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 RH
 RH
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+yv
+yv
+yv
+yv
+yv
+yv
+XC
+qJ
+yv
+EE
+Pm
 On
 mK
 iJ
@@ -6194,29 +6658,29 @@ On
 (67,1,1) = {"
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 RH
 Qy
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+Ez
+oz
+yv
+gv
+zR
+yv
+Ta
+NA
+yv
+ar
+XA
 On
 yO
 yv
@@ -6236,29 +6700,29 @@ On
 (68,1,1) = {"
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 RH
 RH
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+ho
+oc
+yv
+dB
+PJ
+yv
+Ta
+dR
+yv
+vj
+wn
 On
 yO
 yv
@@ -6278,29 +6742,29 @@ On
 (69,1,1) = {"
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 RH
 RH
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+GD
+Rh
+yv
+aP
+ko
+yv
+dR
+dR
+yv
+vj
+xk
 On
 XN
 XN
@@ -6321,28 +6785,28 @@ On
 qb
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 On
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+yK
+ZH
+yv
+eq
+ko
+yv
+dR
+dR
+yv
+vj
+xk
 On
 mK
 iJ
@@ -6364,27 +6828,27 @@ qb
 qb
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+nH
+JU
+yv
+di
+iV
+yv
+dR
+dR
+yv
+iP
+iP
 On
 yO
 yv
@@ -6406,27 +6870,27 @@ qb
 qb
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 On
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+mB
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+Or
+iP
 On
 yO
 yv
@@ -6449,26 +6913,26 @@ qb
 qb
 qb
 qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 On
 On
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
-RH
+LH
+BM
+BM
+Or
+Or
+Or
+Or
+Or
+vG
 On
 Id
 Id
@@ -6492,15 +6956,15 @@ qb
 qb
 qb
 qb
-On
-On
-On
-On
-On
-On
-On
-On
-On
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
+qb
 On
 On
 On
