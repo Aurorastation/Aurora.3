@@ -77,6 +77,8 @@
 	else if(istype(attacking_item, /obj/item/card/id))
 		var/obj/item/card/id/identification_card = attacking_item
 		if(!forced_open && has_access(req_one_access = src.req_one_access, accesses = identification_card.access))
+			balloon_alert_to_viewers("[user] [locked ? "unlocks" : "locks"] \the [src]!")
+			playsound(src, 'sound/items/metal_shutter.ogg', 50, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 			toggle_lock(user)
 
 		else
@@ -113,6 +115,10 @@
 
 		//Show the user the radial menu
 		var/obj/item/gun/rifle_to_take = show_radial_menu(user, src, radial_options, require_near = TRUE, tooltips = TRUE)
+
+		//No choice was made, return
+		if(isnull(rifle_to_take))
+			return
 
 		//Assuming the rifle is still in the rack when the user chooses it, deliver the rifle
 		if(rifle_to_take in src.contents)
