@@ -81,6 +81,7 @@
 #include "code\__DEFINES\materials.dm"
 #include "code\__DEFINES\math_physics.dm"
 #include "code\__DEFINES\maths.dm"
+#include "code\__DEFINES\matrices.dm"
 #include "code\__DEFINES\MC.dm"
 #include "code\__DEFINES\minimap.dm"
 #include "code\__DEFINES\mining.dm"
