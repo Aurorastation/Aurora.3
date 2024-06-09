@@ -301,12 +301,12 @@
 	var/index = 1
 
 	// loop through to the list to find where exactly our value element is in the list
-	for(var/i in 1 to length(our_list)
+	for(var/i in 1 to length(our_list))
 		if(our_list[our_list[i]] == element)
 			// we've found our value, now we need to check if it's at the end of the list
 			// if not, we can select our index + 1
 			// First element in the list if we're at the end of it, next one otherwise
-			index = ((i == length(our_list)) ? 1 : i+1)
+			index = ((i == length(our_list)) ? 1 : i + 1)
 			break
 
 	return our_list[our_list[index]]
