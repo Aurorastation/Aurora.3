@@ -1174,7 +1174,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port thrusters"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
 "fJ" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -3654,7 +3654,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard thrusters"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
 "tO" = (
 /obj/effect/decal/cleanable/dirt,
@@ -3910,7 +3910,7 @@
 	dir = 6
 	},
 /obj/structure/bed/handrail,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/shuttle/freighter_shuttle)
 "uV" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -5134,7 +5134,7 @@
 	dir = 5
 	},
 /obj/machinery/iff_beacon/name_change,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/shuttle/freighter_shuttle)
 "AN" = (
 /obj/structure/lattice/catwalk,
@@ -5392,7 +5392,7 @@
 	dir = 6
 	},
 /obj/machinery/shipsensors/weak,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/shuttle/freighter_shuttle)
 "Dh" = (
 /obj/structure/table/stone/marble,
@@ -5953,7 +5953,7 @@
 /area/tramp_freighter/cargo)
 "GU" = (
 /obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
 "GY" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
@@ -6556,7 +6556,7 @@
 /area/tramp_freighter/kitchen)
 "KE" = (
 /obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
 "KH" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -7552,7 +7552,7 @@
 	dir = 10
 	},
 /obj/structure/bed/handrail,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/shuttle/freighter_shuttle)
 "Qv" = (
 /obj/machinery/biogenerator{
@@ -8271,7 +8271,7 @@
 /obj/machinery/ammunition_loader/francisca{
 	weapon_id = "Tramp Rotary"
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/plating,
 /area/tramp_freighter/bridge)
 "Un" = (
 /obj/structure/bed/stool/chair{
