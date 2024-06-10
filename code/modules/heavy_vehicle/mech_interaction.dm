@@ -1,7 +1,7 @@
 /mob/living/MouseDrop(atom/over)
 	if(usr == src && usr != over)
 		if(istype(over, /mob/living/heavy_vehicle))
-			if(usr.mob_size >= MOB_SMALL && usr.mob_size <= 14)
+			if((usr.mob_size >= MOB_SMALL && usr.mob_size <= 14) || istype(usr, /mob/living/simple_animal/spiderbot))
 				var/mob/living/heavy_vehicle/M = over
 				if(M.enter(src))
 					return
