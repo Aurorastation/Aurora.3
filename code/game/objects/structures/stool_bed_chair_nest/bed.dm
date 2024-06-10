@@ -623,6 +623,8 @@
 
 /obj/structure/bed/roller/hover/process(seconds_per_tick)
 	. = ..()
+	if(!last_cell_charge)
+		return . //If we've didn't have charge last time, no need for more checks. Prevents spamming out of power messages.
 	if(!hover && cell && cell.charge)
 		hover = TRUE
 		visible_message(SPAN_WARNING("\The [src] rises from the floor as its hover thrusters kick in."))
@@ -630,7 +632,7 @@
 	if(hover && cell)
 		cell.use(power_draw * seconds_per_tick)
 
-	if((!cell || !cell.charge) && last_cell_charge) // Only do this if we're out of charge AND we used to have charge
+	if((!cell || !cell.charge))
 		hover = FALSE
 		visible_message(SPAN_WARNING("\The [src] falls the the floor as its hover thrusters cut out."))
 		update_icon()
