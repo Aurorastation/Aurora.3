@@ -606,6 +606,8 @@
 	set_light(2,1,hover_color)
 	if(!cell || !cell.charge)
 		hover = FALSE
+	if(cell)
+		last_cell_charge = cell.charge
 	START_PROCESSING(SSprocessing, src)
 
 /obj/structure/bed/roller/hover/Destroy()
