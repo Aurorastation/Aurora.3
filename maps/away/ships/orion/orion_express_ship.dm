@@ -144,7 +144,6 @@
 		"nav_orion_express_ship_2",
 		"nav_orion_express_ship_3",
 		"nav_orion_express_ship_4",
-		"nav_orion_express_ship_dock_shuttle",
 		"nav_orion_express_ship_dock_aft",
 		"nav_orion_express_ship_dock_port",
 		"nav_orion_express_ship_dock_starboard"
@@ -193,19 +192,13 @@
 
 // Docks
 
-/obj/effect/shuttle_landmark/orion_express_ship/fore_shuttle
-	name = "Orion Express Mobile Station - Port Shuttle Dock"
-	landmark_tag = "nav_orion_express_ship_dock_shuttle"
-	base_area = /area/space
-	base_turf = /turf/space/dynamic
-
 /obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle
 	name = "Orion Express Mobile Station - Shuttle Dock"
 	landmark_tag = "nav_orion_express_ship_dock_shuttle"
 	master_tag = "orion_traveler_shuttle"
 
 /obj/effect/shuttle_landmark/orion_express_ship/aft
-	name = "Orion Express Mobile Station - Aft Docking Airlock"
+	name = "Orion Express Mobile Station - Aft Dock"
 	landmark_tag = "nav_orion_express_ship_dock_aft"
 	docking_controller = "orion_traveler_port_aft"
 	base_area = /area/space
@@ -217,7 +210,7 @@
 	master_tag = "orion_traveler_port_aft"
 
 /obj/effect/shuttle_landmark/orion_express_ship/starboard
-	name = "Orion Express Mobile Station - Starboard Docking Airlock"
+	name = "Orion Express Mobile Station - Starboard Dock"
 	landmark_tag = "nav_orion_express_ship_dock_starboard"
 	docking_controller = "orion_traveler_port_starboard"
 	base_area = /area/space
@@ -229,7 +222,7 @@
 	master_tag = "orion_traveler_port_starboard"
 
 /obj/effect/shuttle_landmark/orion_express_ship/port
-	name = "Orion Express Mobile Station - Port Docking Airlock"
+	name = "Orion Express Mobile Station - Port Dock"
 	landmark_tag = "nav_orion_express_ship_dock_port"
 	docking_controller = "orion_traveler_port_port"
 	base_area = /area/space
