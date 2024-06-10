@@ -9,6 +9,7 @@
 	contained_sprite = TRUE
 	accessory_slots = ACCESSORY_SLOT_ARMOR
 	accessory_type = ACCESSORY_LEG_GUARDS
+	accessory_w_class_adjustment = ACCESSORY_WEIGHT_HALF_UNIT
 	w_class = ITEMSIZE_NORMAL
 	armor = list(
 		melee = ARMOR_MELEE_KEVLAR,
@@ -150,6 +151,7 @@
 	contained_sprite = TRUE
 	accessory_slots = ACCESSORY_SLOT_ARMOR
 	accessory_type = ACCESSORY_ARM_GUARDS
+	accessory_w_class_adjustment = ACCESSORY_WEIGHT_HALF_UNIT
 	body_parts_covered = HANDS|ARMS
 	armor = list(
 		melee = ARMOR_MELEE_KEVLAR,

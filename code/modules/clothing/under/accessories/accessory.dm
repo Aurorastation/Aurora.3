@@ -7,6 +7,7 @@
 	overlay_state = null
 	slot_flags = SLOT_TIE
 	w_class = ITEMSIZE_SMALL
+
 	/**
 	 * What type of clothing can we be attached to (Suit =/= Armor, Head =/= Helmet)
 	 */
@@ -15,6 +16,10 @@
 	 * What type of accessory is this?
 	 */
 	var/accessory_type = ACCESSORY_GENERIC
+
+	/// When attached to another piece of clothing, it'll increase the size by this amount. Accepts the ACCESSORY_WEIGHT_* define, which can be found in code/__DEFINES/accessories.dm. The final result is rounded up
+	var/accessory_w_class_adjustment = ACCESSORY_WEIGHT_NONE
+
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
 	var/overlay_in_inventory = TRUE // Whether the worn_overlay should apply when attached to an item of clothing.
