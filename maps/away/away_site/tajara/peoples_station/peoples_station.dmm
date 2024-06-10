@@ -1083,7 +1083,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -4313,7 +4312,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -7166,7 +7164,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -8037,7 +8034,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(209)
 	},
 /turf/simulated/floor/plating{
@@ -9415,7 +9411,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(209)
 	},
 /turf/simulated/floor/wood{
@@ -10578,8 +10573,13 @@
 	},
 /area/peoples_station/atmos)
 "Sw" = (
-/obj/machinery/pipedispenser/disposal,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -11201,7 +11201,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -11973,7 +11972,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/white{
@@ -12267,7 +12265,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark{

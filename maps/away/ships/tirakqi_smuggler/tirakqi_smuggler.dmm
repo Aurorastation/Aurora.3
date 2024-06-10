@@ -452,40 +452,6 @@
 	color = "#8a7387"
 	},
 /area/ship/tirakqi_smuggler/engi)
-"dL" = (
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/closet/cabinet{
-	name = "wardrobe"
-	},
-/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula,
-/obj/item/clothing/accessory/dressshirt/tshirt/skrell/maelstrom,
-/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/black,
-/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/nralakk,
-/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/purple,
-/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/teal,
-/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/white,
-/obj/item/clothing/accessory/dressshirt/tshirt/skrell/ocean,
-/obj/item/clothing/accessory/poncho/skrell,
-/obj/item/clothing/accessory/poncho/skrell/brown,
-/obj/item/clothing/accessory/poncho/skrell/gray,
-/obj/item/clothing/accessory/poncho/skrell/tan,
-/obj/item/clothing/shoes/sandals{
-	color = "#1d6148"
-	},
-/obj/item/clothing/shoes/sandals{
-	color = "#1f4e66"
-	},
-/obj/item/clothing/shoes/sandals{
-	color = "#66205d"
-	},
-/obj/item/clothing/shoes/sandals{
-	color = "#2f2069"
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/ship/tirakqi_smuggler/cargo)
 "dO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -2228,18 +2194,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/bridge)
-"pn" = (
-/obj/structure/table/skrell,
-/obj/item/storage/toolbox/mechanical{
-	pixel_y = 6
-	},
-/obj/item/storage/toolbox/electrical,
-/obj/item/clothing/gloves/yellow,
-/obj/machinery/light/skrell{
-	dir = 8
-	},
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/ship/tirakqi_smuggler/engi)
 "po" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
@@ -3014,6 +2968,40 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/shuttle/tirakqi_smuggler_shuttle)
+"tk" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/closet/cabinet{
+	name = "wardrobe"
+	},
+/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula,
+/obj/item/clothing/accessory/dressshirt/tshirt/skrell/maelstrom,
+/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/black,
+/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/nralakk,
+/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/purple,
+/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/teal,
+/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/white,
+/obj/item/clothing/accessory/dressshirt/tshirt/skrell/ocean,
+/obj/item/clothing/accessory/poncho/skrell,
+/obj/item/clothing/accessory/poncho/skrell/brown,
+/obj/item/clothing/accessory/poncho/skrell/gray,
+/obj/item/clothing/accessory/poncho/skrell/tan,
+/obj/item/clothing/shoes/sandals{
+	color = "#1d6148"
+	},
+/obj/item/clothing/shoes/sandals{
+	color = "#1f4e66"
+	},
+/obj/item/clothing/shoes/sandals{
+	color = "#66205d"
+	},
+/obj/item/clothing/shoes/sandals{
+	color = "#2f2069"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/ship/tirakqi_smuggler/cargo)
 "to" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
@@ -4516,6 +4504,21 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_smuggler/starboard_hall)
+"By" = (
+/obj/structure/table/skrell,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 6
+	},
+/obj/item/storage/toolbox/electrical,
+/obj/item/clothing/gloves/yellow,
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/obj/item/reagent_containers/weldpack{
+	pixel_y = 8
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ship/tirakqi_smuggler/engi)
 "Bz" = (
 /obj/machinery/light/skrell,
 /obj/structure/flora/pottedplant/mysterious{
@@ -6469,17 +6472,6 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/port_hall)
-"NI" = (
-/obj/structure/table/skrell,
-/obj/item/reagent_containers/weldpack{
-	pixel_y = 8
-	},
-/obj/item/clothing/glasses/welding{
-	pixel_x = 4;
-	pixel_y = -2
-	},
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/ship/tirakqi_smuggler/engi)
 "NM" = (
 /obj/machinery/telecomms/allinone/ship,
 /obj/structure/window/borosilicate/reinforced/skrell{
@@ -7342,6 +7334,19 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
+/area/ship/tirakqi_smuggler/engi)
+"TF" = (
+/obj/structure/table/skrell,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/clothing/glasses/welding{
+	pixel_x = 4;
+	pixel_y = -2
+	},
+/obj/item/blueprints,
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/engi)
 "TN" = (
 /obj/effect/landmark/entry_point/aft{
@@ -41504,7 +41509,7 @@ MU
 qm
 Ft
 Hd
-dL
+tk
 Ld
 xe
 uJ
@@ -45107,8 +45112,8 @@ jq
 jq
 ov
 Lq
-pn
-NI
+By
+TF
 ov
 wb
 GU

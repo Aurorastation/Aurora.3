@@ -83,14 +83,13 @@
 	poison_per_bite = 10
 	speed = -2
 	poison_type = /singleton/reagent/soporific
-	poison_per_bite = 3
-	var/playable = TRUE
 	fed = 1
 	minbodytemp = 0
 	maxbodytemp = 350
 	min_oxy = 0
 	max_co2 = 0
 	max_tox = 0
+	var/playable = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant/Life()
 	..()

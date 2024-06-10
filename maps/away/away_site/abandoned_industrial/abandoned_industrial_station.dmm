@@ -1372,15 +1372,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_industrial_station/maint_a1)
-"eo" = (
-/obj/structure/table/standard,
-/obj/random/dirt_75,
-/obj/item/book/manual/wiki/engineering_construction{
-	pixel_x = 3;
-	pixel_y = 6
-	},
-/turf/simulated/floor/tiled,
-/area/abandoned_industrial_station/engineering)
 "ep" = (
 /obj/structure/sign/vacuum{
 	pixel_x = 32;
@@ -9328,6 +9319,16 @@
 	burnt = 3
 	},
 /area/abandoned_industrial_station/engineering)
+"CW" = (
+/obj/structure/table/standard,
+/obj/random/dirt_75,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints,
+/turf/simulated/floor/tiled,
+/area/abandoned_industrial_station/engineering)
 "CX" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/random/dirt_75,
@@ -10172,6 +10173,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/engineering)
+"FO" = (
+/obj/structure/closet,
+/obj/random/colored_jumpsuit,
+/obj/item/clothing/head/softcap/colorable/random,
+/obj/item/clothing/accessory/headband/hachimaki,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled{
+	burnt = 3
+	},
+/area/abandoned_industrial_station/quarters)
 "FR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -10708,16 +10719,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/abandoned_industrial_station/maint_a1)
-"HE" = (
-/obj/structure/closet,
-/obj/random/colored_jumpsuit,
-/obj/item/clothing/head/softcap/colorable/random,
-/obj/item/clothing/accessory/headband/hachimaki,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled{
-	burnt = 3
-	},
-/area/abandoned_industrial_station/quarters)
 "HF" = (
 /obj/item/clothing/suit/armor/carrier/generic{
 	pixel_x = -6;
@@ -49022,7 +49023,7 @@ dV
 IX
 Aq
 DX
-eo
+CW
 eq
 Nw
 DX
@@ -54204,7 +54205,7 @@ fd
 EI
 sP
 Pu
-HE
+FO
 Vc
 ye
 sP

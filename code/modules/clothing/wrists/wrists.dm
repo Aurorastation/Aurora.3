@@ -2,11 +2,7 @@
 /obj/item/clothing/wrists
 	name = "wrists"
 	w_class = ITEMSIZE_TINY
-	icon = 'icons/obj/clothing/wrists.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/clothing/lefthand_wrists.dmi',
-		slot_r_hand_str = 'icons/mob/items/clothing/righthand_wrists.dmi'
-		)
+	icon = 'icons/obj/item/clothing/wrists/wrist.dmi'
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/wrist.dmi'
 	)
@@ -16,6 +12,7 @@
 	siemens_coefficient = 1.0
 	var/flipped = 0
 	var/mob_wear_layer = WRISTS_LAYER_OVER
+	contained_sprite = TRUE
 
 /obj/item/clothing/wrists/update_clothing_icon()
 	if (ismob(src.loc))

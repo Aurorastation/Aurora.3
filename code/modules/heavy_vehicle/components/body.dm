@@ -17,7 +17,8 @@
 
 	var/mech_health = 600
 	var/obj/item/robot_parts/robot_component/diagnosis_unit/diagnostics
-	var/obj/item/cell/cell
+	var/obj/item/cell/mecha/cell
+	var/cell_type = /obj/item/cell/mecha
 	var/obj/item/robot_parts/robot_component/armor/mech_armor
 	var/obj/machinery/portable_atmospherics/canister/air_supply
 	var/datum/gas_mixture/cockpit
@@ -62,13 +63,15 @@
 	QDEL_NULL(air_supply)
 	. = ..()
 
-/obj/item/mech_component/chassis/show_missing_parts(var/mob/user)
+/obj/item/mech_component/chassis/get_missing_parts_text()
+	. = ..()
+
 	if(!cell)
-		to_chat(user, SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=cell'>power cell</a>."))
+		. += SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=cell'>power cell</a>.")
 	if(!diagnostics)
-		to_chat(user, SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=diagnostics'>diagnostics unit</a>."))
+		. += SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=diagnostics'>diagnostics unit</a>.")
 	if(!mech_armor)
-		to_chat(user, SPAN_WARNING("It is missing <a href='?src=\ref[src];info=diagnostics'>armor plating</a>."))
+		. += SPAN_WARNING("It is missing <a href='?src=\ref[src];info=diagnostics'>armor plating</a>.")
 
 /obj/item/mech_component/chassis/Topic(href, href_list)
 	. = ..()
@@ -118,8 +121,9 @@
 
 /obj/item/mech_component/chassis/prebuild()
 	diagnostics = new(src)
-	cell = new /obj/item/cell/mecha(src)
-	cell.charge = cell.maxcharge
+	if(cell_type)
+		cell = new cell_type(src)
+		cell.charge = cell.maxcharge
 
 /obj/item/mech_component/chassis/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/robot_parts/robot_component/diagnosis_unit))

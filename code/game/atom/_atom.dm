@@ -12,6 +12,8 @@
 	var/update_icon_on_init	= FALSE // Default to 'no'.
 
 	layer = TURF_LAYER
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS
+
 	var/level = 2
 	var/atom_flags = 0
 	var/init_flags = 0

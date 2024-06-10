@@ -244,6 +244,7 @@
 	hats_colourable["hat, sun hat with band"] = /obj/item/clothing/head/wide_hat/alt
 	hats_colourable["hat, wide pointed"] = /obj/item/clothing/head/wide_hat/pointed
 	hats_colourable["hat, wide pointed with band"] = /obj/item/clothing/head/wide_hat/pointed/alt
+	hats_colourable["hat, boonie"] = /obj/item/clothing/head/bucket/boonie
 	gear_tweaks += new /datum/gear_tweak/path(hats_colourable)
 
 /datum/gear/head/hijab

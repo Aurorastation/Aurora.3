@@ -741,21 +741,22 @@
 	apply_damage(damage, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_EXPLODE)
 
 /mob/living/simple_animal/proc/SA_attackable(target_mob)
-	if (isliving(target_mob))
+	if(isliving(target_mob))
 		var/mob/living/L = target_mob
 		if(!L.stat)
-			return (0)
-	if (istype(target_mob, /obj/machinery/bot))
+			return FALSE
+	else if(istype(target_mob, /obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
 		if(B.health > 0)
-			return (0)
-	if(istype(target_mob, /obj/machinery/porta_turret/))
+			return FALSE
+	else if(istype(target_mob, /obj/machinery/porta_turret))
 		var/obj/machinery/porta_turret/T = target_mob
 		if(T.health > 0)
-			return (0)
-	if(istype(target_mob, /obj/effect/energy_field))
-		return (0)
-	return 1
+			return FALSE
+	else if(istype(target_mob, /obj/effect/energy_field))
+		return FALSE
+
+	return TRUE
 
 /mob/living/simple_animal/proc/make_noise(var/make_sound = TRUE)
 	set name = "Make Sound"
@@ -823,9 +824,12 @@
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb
 
-/mob/living/simple_animal/put_in_hands(var/obj/item/W) // No hands.
-	W.forceMove(get_turf(src))
-	return 1
+/mob/living/simple_animal/put_in_hands(obj/item/item_to_equip)
+	if(QDELETED(item_to_equip) || !istype(item_to_equip))
+		return FALSE
+
+	item_to_equip.forceMove(get_turf(src))
+	return FALSE
 
 // Harvest an animal's delicious byproducts
 /mob/living/simple_animal/proc/harvest(var/mob/user)

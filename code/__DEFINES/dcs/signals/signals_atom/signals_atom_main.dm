@@ -7,6 +7,8 @@
 #define COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZE "atom_init_success"
 //from SSatoms InitAtom - Only if the  atom was not deleted or failed initialization and has a loc
 #define COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZED_ON "atom_init_success_on"
+///from base of atom/examine(): (/mob, list/examine_text)
+#define COMSIG_ATOM_EXAMINE "atom_examine"
 ///from base of atom/Entered(): (atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 #define COMSIG_ATOM_ENTERED "atom_entered"
 /// Sent from the atom that just Entered src. From base of atom/Entered(): (/atom/destination, atom/old_loc, list/atom/old_locs)

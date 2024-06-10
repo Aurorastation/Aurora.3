@@ -15,9 +15,10 @@
 	QDEL_NULL(motivator)
 	. = ..()
 
-/obj/item/mech_component/propulsion/show_missing_parts(var/mob/user)
+/obj/item/mech_component/propulsion/get_missing_parts_text()
+	. = ..()
 	if(!motivator)
-		to_chat(user, SPAN_WARNING("It is missing an <a href='?src=\ref[src];info=actuator'>actuator</a>."))
+		. += SPAN_WARNING("It is missing an <a href='?src=\ref[src];info=actuator'>actuator</a>.")
 
 /obj/item/mech_component/propulsion/Topic(href, href_list)
 	. = ..()

@@ -152,6 +152,7 @@
 
 	sleeps_upright = TRUE
 	snore_key = "chitter"
+	indefinite_sleep = TRUE
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()

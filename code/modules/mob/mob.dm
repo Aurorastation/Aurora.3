@@ -88,7 +88,7 @@
 	zone_sel = null
 
 /mob/var/should_add_to_mob_list = TRUE
-/mob/Initialize()
+/mob/Initialize(mapload)
 	. = ..()
 	if(should_add_to_mob_list)
 		GLOB.mob_list += src
@@ -859,11 +859,11 @@
 			lying_is_intentional = TRUE
 			canmove = TRUE
 		else if(sleeping)
-			lying = lying && MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN) && sleeps_horizontal() // Vaurca, IPCs and Diona sleep standing up, unless they were already lying down
+			lying = resting || is_dead() || (MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN) && sleeps_horizontal()) // Vaurca, IPCs and Diona sleep standing up, unless they were already lying down
 			lying_is_intentional = FALSE
 			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 		else
-			lying = MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN) && !recently_slept
+			lying = resting || is_dead() || MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN) && !recently_slept
 			lying_is_intentional = FALSE
 			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 

@@ -1,5 +1,7 @@
 //For things that swim and don't do much else, but also bite!
 /mob/living/simple_animal/hostile/retaliate/aquatic
+	abstract_type = /mob/living/simple_animal/hostile/retaliate/aquatic
+
 	name = "aquatic animal"
 	desc = DESC_PARENT
 	icon = 'icons/mob/npc/fish.dmi'

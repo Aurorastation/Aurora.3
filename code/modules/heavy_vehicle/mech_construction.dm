@@ -65,9 +65,11 @@
 		return
 
 	var/obj/structure/heavy_vehicle_frame/frame = dest
-
 	if(istype(frame))
 		frame.body = body
+
+	if(body.cell)
+		UnregisterSignal(body.cell, COMSIG_CELL_CHARGE)
 
 	body.forceMove(dest)
 	body = null

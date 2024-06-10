@@ -2,7 +2,6 @@
 /mob/living/heavy_vehicle
 	name = "exosuit"
 	density = TRUE
-	opacity = TRUE
 	anchored = TRUE
 	status_flags = PASSEMOTES
 	a_intent = I_HURT
@@ -134,6 +133,8 @@
 	return 1
 
 /mob/living/heavy_vehicle/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	SHOULD_CALL_PARENT(FALSE) //Special snowflake case
+
 	. = list()
 	if(!user || !user.client)
 		return TRUE
@@ -207,6 +208,8 @@
 		if(source_frame.body)
 			source_frame.body.forceMove(src)
 			body = source_frame.body
+			if(body.cell)
+				RegisterSignal(body.cell, COMSIG_CELL_CHARGE, PROC_REF(handle_cell_charge))
 
 	updatehealth()
 

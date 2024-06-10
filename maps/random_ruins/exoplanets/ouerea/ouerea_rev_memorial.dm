@@ -18,7 +18,7 @@
 	pixel_x = -16
 	layer = ABOVE_HUMAN_LAYER
 
-/obj/structure/sign/ouerea_memorial/examine(mob/user)
+/obj/structure/sign/ouerea_memorial/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if(GLOB.all_languages[LANGUAGE_UNATHI] in user.languages)
 		to_chat(user, SPAN_NOTICE("The inscription on the monolith reads as follows. \"Let this monument stand, to honor those of us who fought for a world free from the grasping claws of foreign masters. \

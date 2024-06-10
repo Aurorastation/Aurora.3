@@ -348,23 +348,23 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		screen = 4.1
 		updateUsrDialog()
 
-	else if(href_list["disposeI"] && linked_imprinter)  //Causes the circuit imprinter to dispose of a single reagent (all of it)
-		linked_imprinter.reagents.del_reagent(href_list["dispose"])
+	else if(href_list["disposeI"])  //Causes the circuit imprinter to dispose of a single reagent (all of it)
+		linked_imprinter?.reagents.del_reagent(href_list["disposeI"])
 
-	else if(href_list["disposeallI"] && linked_imprinter) //Causes the circuit imprinter to dispose of all it's reagents.
-		linked_imprinter.reagents.clear_reagents()
+	else if(href_list["disposeallI"]) //Causes the circuit imprinter to dispose of all it's reagents.
+		linked_imprinter?.reagents.clear_reagents()
 
-	else if(href_list["removeI"] && linked_lathe)
-		linked_imprinter.removeFromQueue(text2num(href_list["removeI"]))
+	else if(href_list["removeI"])
+		linked_imprinter?.removeFromQueue(text2num(href_list["removeI"]))
 
-	else if(href_list["disposeP"] && linked_lathe)  //Causes the protolathe to dispose of a single reagent (all of it)
-		linked_lathe.reagents.del_reagent(href_list["dispose"])
+	else if(href_list["disposeP"])  //Causes the protolathe to dispose of a single reagent (all of it)
+		linked_lathe?.reagents.del_reagent(href_list["dispose"])
 
-	else if(href_list["disposeallP"] && linked_lathe) //Causes the protolathe to dispose of all it's reagents.
-		linked_lathe.reagents.clear_reagents()
+	else if(href_list["disposeallP"]) //Causes the protolathe to dispose of all it's reagents.
+		linked_lathe?.reagents.clear_reagents()
 
-	else if(href_list["removeP"] && linked_lathe)
-		linked_lathe.removeFromQueue(text2num(href_list["removeP"]))
+	else if(href_list["removeP"])
+		linked_lathe?.removeFromQueue(text2num(href_list["removeP"]))
 
 	else if(href_list["lathe_ejectsheet"] && linked_lathe) //Causes the protolathe to eject a sheet of material
 		var/num_sheets = min(text2num(href_list["amount"]), round(linked_lathe.materials[href_list["lathe_ejectsheet"]] / SHEET_MATERIAL_AMOUNT))

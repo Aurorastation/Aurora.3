@@ -18,6 +18,7 @@
  *		Toy cult sword
  *		Ring bell
  *		Chess Pieces
+ *		Stress ball
  */
 
 
@@ -1475,3 +1476,39 @@
 /obj/item/chess_piece/queen/black
 	name = "black queen"
 	icon_state = "black_queen"
+
+// Stress ball
+/obj/item/toy/stressball
+	name = "stress ball"
+	desc = "A small, squishy stress ball. This one has a squeaker inside."
+	icon_state = "stressball"
+	drop_sound = 'sound/items/drop/plushie.ogg'
+	pickup_sound = 'sound/items/pickup/plushie.ogg'
+	var/squeeze_sound = 'sound/items/drop/plushie.ogg'
+	var/cooldown = 0
+
+/obj/item/toy/stressball/Initialize()
+	. = ..()
+	if(!color)
+		color = RANDOM_RGB
+	update_icon()
+
+/obj/item/toy/stressball/attack_self(mob/user as mob)
+	if(cooldown > world.time)
+		return
+	cooldown = world.time + 2 SECONDS
+	var/volume = 0
+	switch(user.a_intent)
+		if(I_HELP)
+			user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] plays with \the [src]!"), SPAN_NOTICE("You play with \the [src]!"))
+		if(I_DISARM)
+			user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] squeezes \the [src]!"), SPAN_NOTICE("You squeeze \the [src]!"))
+			volume = 30
+		if(I_GRAB)
+			user.visible_message(SPAN_NOTICE(SPAN_BOLD("\The [user] pinches \the [src]!")), SPAN_NOTICE(SPAN_BOLD("You pinch \the [src]!")))
+			volume = 40
+		if(I_HURT)
+			user.visible_message(SPAN_WARNING(SPAN_BOLD("\The [user] crushes \the [src]!")), SPAN_WARNING(SPAN_BOLD("You crush \the [src]!")))
+			volume = 50
+	if(volume)
+		playsound(src.loc, squeeze_sound, volume, TRUE)
