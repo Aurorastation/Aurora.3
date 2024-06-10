@@ -67,9 +67,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 6
 	},
-/obj/machinery/light{
-	name = "adjusted light fixture"
-	},
+/obj/machinery/light,
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/large/stab,
 /obj/item/storage/firstaid/regular,
@@ -77,11 +75,7 @@
 /area/space)
 "cv" = (
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 8;
-	name = "adjusted light fixture";
-	pixel_x = -10
+	dir = 8
 	},
 /turf/simulated/floor/concrete,
 /area/space)
@@ -90,11 +84,7 @@
 	dir = 10
 	},
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 8;
-	name = "adjusted light fixture";
-	pixel_x = -10
+	dir = 8
 	},
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray/machinist,
@@ -102,11 +92,7 @@
 /area/space)
 "cY" = (
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 4;
-	name = "adjusted light fixture";
-	pixel_x = 10
+	dir = 4
 	},
 /turf/simulated/floor/concrete,
 /area/space)
@@ -139,9 +125,7 @@
 /obj/machinery/vending/engivend{
 	req_access = null
 	},
-/obj/machinery/light{
-	name = "adjusted light fixture"
-	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "dP" = (
@@ -156,11 +140,7 @@
 	dir = 10
 	},
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 8;
-	name = "adjusted light fixture";
-	pixel_x = -10
+	dir = 8
 	},
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/large/stab,
@@ -245,11 +225,7 @@
 	dir = 9
 	},
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 1;
-	name = "adjusted light fixture";
-	pixel_y = 19
+	dir = 1
 	},
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/large/stab,
@@ -283,11 +259,7 @@
 	dir = 9
 	},
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 8;
-	name = "adjusted light fixture";
-	pixel_x = -10
+	dir = 8
 	},
 /obj/structure/table/steel,
 /obj/item/pickaxe/drill,
@@ -317,11 +289,7 @@
 	req_access = null
 	},
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 4;
-	name = "adjusted light fixture";
-	pixel_x = 10
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
 /area/space)
@@ -419,11 +387,7 @@
 	dir = 5
 	},
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 4;
-	name = "adjusted light fixture";
-	pixel_x = 10
+	dir = 4
 	},
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray/machinist,
@@ -434,11 +398,7 @@
 	dir = 5
 	},
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 4;
-	name = "adjusted light fixture";
-	pixel_x = 10
+	dir = 4
 	},
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/large/stab,
@@ -453,9 +413,7 @@
 /turf/simulated/floor/concrete,
 /area/space)
 "uG" = (
-/obj/machinery/light{
-	name = "adjusted light fixture"
-	},
+/obj/machinery/light,
 /turf/simulated/floor/concrete,
 /area/space)
 "uJ" = (
@@ -498,18 +456,14 @@
 /obj/item/clothing/head/hardhat,
 /obj/item/clothing/accessory/armband/engine,
 /obj/item/clothing/accessory/armband/engine,
-/obj/machinery/light{
-	name = "adjusted light fixture"
-	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "vo" = (
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 6
 	},
-/obj/machinery/light{
-	name = "adjusted light fixture"
-	},
+/obj/machinery/light,
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray/machinist,
 /turf/simulated/floor/tiled/steel,
@@ -519,11 +473,7 @@
 	dir = 9
 	},
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 8;
-	name = "adjusted light fixture";
-	pixel_x = -10
+	dir = 8
 	},
 /obj/structure/table/standard,
 /obj/item/storage/box/masks,
@@ -535,11 +485,7 @@
 	dir = 6
 	},
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 4;
-	name = "adjusted light fixture";
-	pixel_x = 10
+	dir = 4
 	},
 /obj/structure/table/steel,
 /obj/item/pickaxe/drill,
@@ -673,9 +619,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 10
 	},
-/obj/machinery/light{
-	name = "adjusted light fixture"
-	},
+/obj/machinery/light,
 /obj/structure/table/standard,
 /obj/item/storage/box/masks,
 /obj/item/storage/box/gloves,
@@ -736,9 +680,7 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 10
 	},
-/obj/machinery/light{
-	name = "adjusted light fixture"
-	},
+/obj/machinery/light,
 /obj/structure/table/steel,
 /obj/item/pickaxe/drill,
 /obj/item/material/hatchet/machete/steel,
@@ -756,11 +698,7 @@
 	dir = 6
 	},
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 4;
-	name = "adjusted light fixture";
-	pixel_x = 10
+	dir = 4
 	},
 /obj/structure/table/standard,
 /obj/item/storage/box/masks,
@@ -816,11 +754,7 @@
 	dir = 5
 	},
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 1;
-	name = "adjusted light fixture";
-	pixel_y = 19
+	dir = 1
 	},
 /obj/structure/table/standard,
 /obj/item/storage/box/masks,
@@ -854,11 +788,7 @@
 	dir = 9
 	},
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 1;
-	name = "adjusted light fixture";
-	pixel_y = 19
+	dir = 1
 	},
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray/machinist,
@@ -876,11 +806,7 @@
 	dir = 5
 	},
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 1;
-	name = "adjusted light fixture";
-	pixel_y = 19
+	dir = 1
 	},
 /obj/structure/table/steel,
 /obj/item/pickaxe/drill,
@@ -907,11 +833,7 @@
 	req_access = null
 	},
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 1;
-	name = "adjusted light fixture";
-	pixel_y = 19
+	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
 /area/space)
@@ -989,11 +911,7 @@
 /obj/item/clothing/accessory/armband/engine,
 /obj/item/clothing/accessory/armband/engine,
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 8;
-	name = "adjusted light fixture";
-	pixel_x = -10
+	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
 /area/space)
@@ -1048,11 +966,7 @@
 	req_access = null
 	},
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 8;
-	name = "adjusted light fixture";
-	pixel_x = -10
+	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
 /area/space)
@@ -1066,11 +980,7 @@
 /obj/item/clothing/accessory/armband/engine,
 /obj/item/clothing/accessory/armband/engine,
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 1;
-	name = "adjusted light fixture";
-	pixel_y = 19
+	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
 /area/space)
@@ -1100,21 +1010,13 @@
 /obj/item/clothing/accessory/armband/engine,
 /obj/item/clothing/accessory/armband/engine,
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 4;
-	name = "adjusted light fixture";
-	pixel_x = 10
+	dir = 4
 	},
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "Yc" = (
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 1;
-	name = "adjusted light fixture";
-	pixel_y = 19
+	dir = 1
 	},
 /turf/simulated/floor/concrete,
 /area/space)
