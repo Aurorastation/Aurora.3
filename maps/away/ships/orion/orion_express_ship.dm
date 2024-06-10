@@ -10,6 +10,7 @@
 	ship_cost = 1
 	id = "orion_express_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/orion_express_shuttle)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 	unit_test_groups = list(3)
 
@@ -85,6 +86,11 @@
 	ambience = AMBIENCE_MAINTENANCE
 	icon_state = "engine"
 
+/area/ship/orion/docking
+	name = "Docking Arm"
+	ambience = AMBIENCE_GENERIC
+	icon_state = "exit"
+
 // Shuttle
 /area/shuttle/orion_shuttle/
 	requires_power = TRUE
@@ -136,7 +142,12 @@
 	initial_generic_waypoints = list(
 		"nav_orion_express_ship_1",
 		"nav_orion_express_ship_2",
-		"nav_orion_express_ship_3"
+		"nav_orion_express_ship_3",
+		"nav_orion_express_ship_4",
+		"nav_orion_express_ship_dock_shuttle",
+		"nav_orion_express_ship_dock_aft",
+		"nav_orion_express_ship_dock_port",
+		"nav_orion_express_ship_dock_starboard"
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -158,22 +169,76 @@
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/orion_express_ship/nav2
-	name = "Orion Express Mobile Station - Port Airlock"
+	name = "Orion Express Mobile Station - Starboard Side"
 	landmark_tag = "nav_orion_express_ship_2"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/orion_express_ship/nav3
-	name = "Orion Express Mobile Station - Aft Airlock"
+	name = "Orion Express Mobile Station - Fore Side"
 	landmark_tag = "nav_orion_express_ship_3"
-	docking_controller = "orion_traveler_port"
-	base_area = /area/space
 	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/orion_express_ship/nav4
+	name = "Orion Express Mobile Station - Aft Side"
+	landmark_tag = "nav_orion_express_ship_4"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
 
 /obj/effect/shuttle_landmark/orion_express_ship/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_orion_express_ship"
 	base_turf = /turf/space/transit/north
+
+// Docks
+
+/obj/effect/shuttle_landmark/orion_express_ship/fore_shuttle
+	name = "Orion Express Mobile Station - Port Shuttle Dock"
+	landmark_tag = "nav_orion_express_ship_dock_shuttle"
+	base_area = /area/space
+	base_turf = /turf/space/dynamic
+
+/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle
+	name = "Orion Express Mobile Station - Shuttle Dock"
+	landmark_tag = "nav_orion_express_ship_dock_shuttle"
+	master_tag = "orion_traveler_shuttle"
+
+/obj/effect/shuttle_landmark/orion_express_ship/aft
+	name = "Orion Express Mobile Station - Aft Docking Airlock"
+	landmark_tag = "nav_orion_express_ship_dock_aft"
+	docking_controller = "orion_traveler_port_aft"
+	base_area = /area/space
+	base_turf = /turf/space/dynamic
+
+/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/aft
+	name = "Orion Express Mobile Station - Aft Dock"
+	landmark_tag = "nav_orion_express_ship_dock_aft"
+	master_tag = "orion_traveler_port_aft"
+
+/obj/effect/shuttle_landmark/orion_express_ship/starboard
+	name = "Orion Express Mobile Station - Starboard Docking Airlock"
+	landmark_tag = "nav_orion_express_ship_dock_starboard"
+	docking_controller = "orion_traveler_port_starboard"
+	base_area = /area/space
+	base_turf = /turf/space/dynamic
+
+/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/starboard
+	name = "Orion Express Mobile Station - Starboard Dock"
+	landmark_tag = "nav_orion_express_ship_dock_starboard"
+	master_tag = "orion_traveler_port_starboard"
+
+/obj/effect/shuttle_landmark/orion_express_ship/port
+	name = "Orion Express Mobile Station - Port Docking Airlock"
+	landmark_tag = "nav_orion_express_ship_dock_port"
+	docking_controller = "orion_traveler_port_port"
+	base_area = /area/space
+	base_turf = /turf/space/dynamic
+
+/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/port
+	name = "Orion Express Mobile Station - Port Dock"
+	landmark_tag = "nav_orion_express_ship_dock_port"
+	master_tag = "orion_traveler_port_port"
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/orion_express_shuttle
@@ -211,7 +276,7 @@
 /obj/effect/shuttle_landmark/orion_express_shuttle/hangar
 	name = "Orion Express Shuttle Hangar"
 	landmark_tag = "nav_hangar_orion_express"
-	docking_controller = "orion_traveler_n_port"
+	docking_controller = "orion_traveler_shuttle"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
