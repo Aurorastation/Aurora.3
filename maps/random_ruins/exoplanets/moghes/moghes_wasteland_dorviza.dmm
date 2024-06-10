@@ -301,7 +301,8 @@
 /obj/structure/cargo_receptacle{
 	min_spawn = 0;
 	max_spawn = 1;
-	payment_modifier = 1.8
+	payment_modifier = 1.8;
+	override_name = "Moghes - Dorviza Clan Outpost"
 	},
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15

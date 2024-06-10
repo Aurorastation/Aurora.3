@@ -311,7 +311,8 @@
 /obj/structure/cargo_receptacle{
 	min_spawn = 0;
 	max_spawn = 2;
-	payment_modifier = 1.5
+	payment_modifier = 1.5;
+	override_name = "Moghes - Vihnmes Inn"
 	},
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15

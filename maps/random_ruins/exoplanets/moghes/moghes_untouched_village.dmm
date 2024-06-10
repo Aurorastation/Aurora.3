@@ -775,7 +775,8 @@
 "XN" = (
 /obj/structure/cargo_receptacle{
 	min_spawn = 0;
-	max_spawn = 2
+	max_spawn = 2;
+	override_name = "Moghes - Rural Settlement"
 	},
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/moghes_village)

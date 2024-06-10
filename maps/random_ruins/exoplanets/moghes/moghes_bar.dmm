@@ -629,11 +629,15 @@
 	},
 /area/moghes_bar)
 "yu" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
 /obj/structure/cargo_receptacle{
 	min_spawn = 0;
-	max_spawn = 2
+	max_spawn = 2;
+	override_name = "Moghes - Inn"
 	},
-/turf/simulated/floor/exoplanet/grass/moghes,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/moghes_bar)
 "yS" = (
 /obj/structure/simple_door/wood{
@@ -1149,8 +1153,8 @@ tK
 tK
 tK
 tK
+yu
 Rx
-VS
 VS
 VS
 VS
@@ -1398,7 +1402,7 @@ bk
 bk
 ya
 tK
-yu
+QW
 QW
 QW
 QW
