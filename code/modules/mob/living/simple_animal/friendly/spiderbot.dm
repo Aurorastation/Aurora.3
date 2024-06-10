@@ -67,6 +67,10 @@
 	camera.c_tag = "spiderbot-[real_name]"
 	camera.replace_networks(list("SS13"))
 
+/mob/living/simple_animal/spiderbot/New()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_MECH_PILOT, ROUNDSTART_TRAIT)
+
 /mob/living/simple_animal/spiderbot/Destroy()
 	eject_brain()
 	return ..()

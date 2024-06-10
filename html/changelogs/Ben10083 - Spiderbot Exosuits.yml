@@ -56,3 +56,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "Spiderbots can now once again pilot exosuits."
+  - admin: "New Mech Pilot trait to allow for admins to allow any mob to pilot mechs if they wish."
