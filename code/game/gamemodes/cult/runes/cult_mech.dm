@@ -27,7 +27,7 @@
 
 	var/mob/living/carbon/human/human_user = user
 
-	to_chat(human_user, SPAN_NOTICE("You start to orchestrate the dark mechanical energy tentacles in a quasi-simphony, to convert \the [mech_on_us] into a cult mech!"))
+	to_chat(human_user, SPAN_NOTICE("You start to orchestrate the dark mechanical energy tentacles in a quasi-symphony, to convert \the [mech_on_us] into a cult mech!"))
 	to_chat(human_user, SPAN_INFO("This action will take approximately 2 minutes to perform."))
 
 
