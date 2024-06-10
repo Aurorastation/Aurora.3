@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a system that lets accessories increase the weight class / size of the items they attach to. Currently only implemented on modular armour's arm and leg guards, which will now not fit into bags if those are attached."
