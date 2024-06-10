@@ -585,9 +585,9 @@
 	 */
 	var/obj/item/cell/cell
 	/**
-	 * The power drained from the bed every tick
+	 * The power drained from the bed every second
 	 */
-	var/power_draw = 5
+	var/power_draw = 10
 	/**
 	 * If the hovermode is active
 	 */
@@ -597,9 +597,9 @@
 	 */
 	var/cell_open = FALSE
 	/**
-	 * If we have warned about low power recently
+	 * Our cell's last amount of charge
 	 */
-	var/warned = FALSE
+	var/last_cell_charge
 
 /obj/structure/bed/roller/hover/Initialize()
 	.=..()
@@ -609,6 +609,7 @@
 	START_PROCESSING(SSprocessing, src)
 
 /obj/structure/bed/roller/hover/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
 	QDEL_NULL(cell)
 	return ..()
 
@@ -618,25 +619,26 @@
 	iv_attached = FALSE
 	update_icon()
 
-/obj/structure/bed/roller/hover/process()
+/obj/structure/bed/roller/hover/process(seconds_per_tick)
 	. = ..()
 	if(!hover && cell && cell.charge)
 		hover = TRUE
 		visible_message(SPAN_WARNING("\The [src] rises from the floor as its hover thrusters kick in."))
 		update_icon()
 	if(hover && cell)
-		cell.use(power_draw)
+		cell.use(power_draw * seconds_per_tick)
 
-	if(!cell || !cell.charge)
+	if((!cell || !cell.charge) && last_cell_charge) // Only do this if we're out of charge AND we used to have charge
 		hover = FALSE
 		visible_message(SPAN_WARNING("\The [src] falls the the floor as its hover thrusters cut out."))
 		update_icon()
+		last_cell_charge = 0
 		return . // Even if we are dead, we shouldn't stop the roller IV from working
 
-	else if(cell.charge <= cell.maxcharge/10 && !warned)
+	else if(cell.charge <= cell.maxcharge/10 && last_cell_charge > cell.maxcharge/10) // Only do this is we're at 10% or less AND we used to be above 10%
 		playsound(src, 'sound/machines/twobeep.ogg', 50)
 		visible_message(SPAN_WARNING("\The [src] beeps a warning: 10% charge remaining!"))
-		warned = TRUE
+	last_cell_charge = cell.charge
 	return TRUE // Even if the normal roller functions want to kill, we are still processing
 
 /obj/structure/bed/roller/hover/emp_act(severity)
@@ -662,7 +664,7 @@
 		cell = attacking_item
 		user.drop_from_inventory(cell, src)
 		to_chat(user, SPAN_NOTICE("You insert \the [cell] into \the [src]."))
-		warned = FALSE
+		last_cell_charge = cell.charge
 		START_PROCESSING(SSprocessing, src)
 
 /obj/structure/bed/roller/hover/attack_hand(mob/user)
@@ -694,7 +696,7 @@
 	base_icon = "zeng"
 	held_item = /obj/item/roller/hover/zeng
 	hover_color = LIGHT_COLOR_VIOLET
-	power_draw = 10 //Twice as power thirsty as the skrell ones
+	power_draw = 20 //Twice as power thirsty as the skrell ones
 
 /obj/item/roller
 	name = "roller bed"
@@ -745,8 +747,23 @@
 	base_icon = "hover"
 	item_state = "rbed_hover"
 	origin_type = /obj/structure/bed/roller/hover
+	/**
+	 * The cell powering the hoverbed
+	 */
 	var/obj/item/cell/cell
+	/**
+	 * The type of cell to start with
+	 */
+	var/cell_type = /obj/item/cell/hyper // 50 minutes of charge. These are for mapping, so should be functional initially
+	/**
+	 * If the power cell is accessible or not
+	 */
 	var/cell_open = FALSE
+
+/obj/item/roller/hover/Initialize(mapload, ...)
+	. = ..()
+	if(cell_type)
+		cell = new cell_type(src)
 
 /obj/item/roller/hover/Destroy()
 	QDEL_NULL(cell)
@@ -786,6 +803,7 @@
 	base_icon = "zeng"
 	item_state = "rbed_zeng"
 	origin_type = /obj/structure/bed/roller/hover/zeng
+	cell_type = null // As these are the ones research can print, they shouldn't start with a cell
 
 /obj/item/roller_holder
 	name = "roller bed rack"
