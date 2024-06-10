@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added more backgrounds to choose from in the character preview screen."
+  - rscadd: "You can now selectively hide your job uniform, suit, or hat."

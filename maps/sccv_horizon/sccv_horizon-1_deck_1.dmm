@@ -326,6 +326,9 @@
 /obj/effect/landmark/latejoin,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
+"amP" = (
+/turf/simulated/floor/tiled,
+/area/medical/morgue/lower)
 "any" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -535,15 +538,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"awf" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/alarm/cold/east,
-/turf/simulated/floor/tiled/white{
-	name = "cooled white floor";
-	temperature = 278.15
-	},
-/area/medical/morgue/lower)
 "awr" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -959,15 +953,6 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
-"aMh" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled,
-/area/medical/morgue/lower)
 "aME" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
@@ -1352,20 +1337,6 @@
 /obj/structure/tank_wall/oxygen,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"aYY" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 2;
-	name = "Emergency Supplies Storage"
-	},
-/obj/machinery/door/firedoor/multi_tile{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/full,
-/area/medical/morgue/lower)
 "aZd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/green{
 	dir = 4
@@ -2185,7 +2156,7 @@
 "bDl" = (
 /obj/item/stack/rods,
 /turf/simulated/floor/plating,
-/area/maintenance/operations)
+/area/maintenance/engineering)
 "bDt" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2978,6 +2949,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/engineering/lower)
+"cgP" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/maintenance/engineering)
 "chW" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/camera/network/engineering{
@@ -3136,6 +3111,23 @@
 	},
 /turf/space/dynamic,
 /area/template_noop)
+"cnR" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/structure/closet/crate{
+	name = "Cremation Urn Materials"
+	},
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/bronze/full,
+/obj/item/stack/material/steel/full,
+/obj/item/device/hand_labeler,
+/obj/item/stack/material/wood/full,
+/turf/simulated/floor/tiled/white{
+	name = "cooled white floor";
+	temperature = 278.15
+	},
+/area/medical/morgue/lower)
 "cnV" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -3263,7 +3255,7 @@
 "cqu" = (
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/plating,
-/area/maintenance/operations)
+/area/maintenance/engineering)
 "cqE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
@@ -3403,19 +3395,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
-"cuA" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled,
-/area/medical/morgue/lower)
 "cuY" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
@@ -4772,17 +4751,16 @@
 /turf/simulated/floor/tiled/full,
 /area/horizon/stairwell/central)
 "doK" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/white{
-	name = "cooled white floor";
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "doM" = (
 /obj/structure/cable/green{
@@ -5392,6 +5370,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
+"dKN" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/white{
+	name = "cooled white floor";
+	temperature = 278.15
+	},
+/area/medical/morgue/lower)
 "dKS" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -5688,7 +5674,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
-/area/maintenance/operations)
+/area/maintenance/engineering)
 "dXd" = (
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
@@ -6349,14 +6335,13 @@
 /turf/simulated/floor/wood,
 /area/shuttle/intrepid/quarters)
 "evA" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "shutters_deck1_morgue2";
+	name = "Viewing Shutter"
 	},
-/obj/effect/landmark{
-	name = "borerstart"
-	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/tiled/full,
 /area/medical/morgue/lower)
 "ewy" = (
 /obj/effect/floor_decal/industrial/outline/red,
@@ -6657,10 +6642,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"eHp" = (
-/obj/structure/table/steel,
-/turf/simulated/floor/tiled,
-/area/medical/morgue/lower)
 "eHq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -7725,29 +7706,6 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
-"fmL" = (
-/obj/structure/morgue/crematorium{
-	_wifi_id = "medical_crema"
-	},
-/obj/machinery/button/switch/crematorium{
-	_wifi_id = "medical_crema";
-	dir = 4;
-	pixel_x = 20;
-	pixel_y = 8;
-	req_access = null
-	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Autopsy and Cremation"
-	},
-/turf/simulated/floor/tiled/white{
-	name = "cooled white floor";
-	temperature = 278.15
-	},
-/area/medical/morgue/lower)
 "fmV" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -8272,6 +8230,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"fIi" = (
+/obj/structure/platform_stairs/ramp/north_south{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hangar/auxiliary)
 "fIp" = (
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -10123,9 +10087,6 @@
 /turf/simulated/floor/reinforced,
 /area/outpost/research/anomaly_harvest)
 "gRa" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -10136,6 +10097,10 @@
 	dir = 5
 	},
 /obj/machinery/alarm/north,
+/obj/machinery/power/apc/south,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -11937,7 +11902,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/operations)
+/area/maintenance/engineering)
 "ijU" = (
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
@@ -12401,23 +12366,6 @@
 	name = "thruster mount"
 	},
 /area/engineering/atmos/propulsion)
-"iFL" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/maintenance{
-	dir = 1;
-	name = "Deck 1 Medical Maintenance";
-	req_access = list(5)
-	},
-/obj/machinery/door/blast/shutters{
-	density = 0;
-	dir = 2;
-	icon_state = "shutter0";
-	id = "LCKDshutters";
-	name = "Medical Lockdown Shutters";
-	opacity = 0
-	},
-/turf/simulated/floor/tiled/full,
-/area/medical/morgue/lower)
 "iFU" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -12484,8 +12432,10 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/deck1)
 "iJi" = (
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/structure/window/shuttle/scc_space_ship,
+/obj/structure/grille,
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/plating,
 /area/outpost/research/anomaly_storage)
 "iJt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -13022,7 +12972,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/operations)
+/area/maintenance/engineering)
 "jaP" = (
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	sensors = list("starboard_prop_sensor"="Starboard  Propulsion  Sensor");
@@ -13369,27 +13319,28 @@
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/wing/port/deck1)
-"joW" = (
-/obj/machinery/light/small{
-	dir = 1
+"joI" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
 	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/obj/machinery/firealarm/west,
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/closet/crate{
-	name = "Cremation Urn Materials"
-	},
-/obj/item/stack/material/wood/full,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/bronze/full,
-/obj/item/stack/material/glass/full,
-/obj/item/device/hand_labeler,
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white{
 	name = "cooled white floor";
 	temperature = 278.15
 	},
+/area/medical/morgue/lower)
+"joW" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner/lime/full{
+	dir = 8
+	},
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Morgue Elevator"
+	},
+/turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "jpl" = (
 /obj/structure/shuttle_part/scc/research{
@@ -14271,24 +14222,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
 "jTl" = (
-/obj/machinery/door/firedoor{
-	dir = 4
-	},
-/obj/machinery/door/airlock/medical{
-	dir = 4;
-	name = "Cremation";
-	req_one_access = list(6,33)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/plasticflaps/airtight{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "jTJ" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
@@ -14408,9 +14348,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/storage/lower)
 "jZV" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -14927,7 +14864,7 @@
 "kqO" = (
 /obj/random/junk,
 /turf/simulated/floor/plating,
-/area/maintenance/operations)
+/area/maintenance/engineering)
 "kqT" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -15641,6 +15578,9 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/computer/shuttle_control/multi/lift/medical,
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "kMC" = (
@@ -15883,15 +15823,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
-"kWx" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/medical/morgue/lower)
 "kWB" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -16297,6 +16228,13 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
+"loY" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
+/obj/machinery/door/firedoor,
+/turf/simulated/floor/tiled,
+/area/maintenance/wing/starboard/deck1)
 "lpE" = (
 /obj/structure/table/steel,
 /obj/item/storage/bag/inflatable,
@@ -16703,22 +16641,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_storage)
 "lEQ" = (
-/obj/machinery/button/remote/blast_door{
-	id = "shutters_deck1_morgue2";
-	name = "Viewing Shutters";
-	dir = 4;
-	pixel_x = 20
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/white{
-	name = "cooled white floor";
-	temperature = 278.15
-	},
+/turf/simulated/wall,
 /area/medical/morgue/lower)
 "lFa" = (
 /obj/machinery/hologram/holopad/long_range,
@@ -17866,9 +17792,6 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 1
 	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Morgue Elevator"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -18947,17 +18870,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"mZr" = (
-/obj/effect/floor_decal/corner/lime/full{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/obj/machinery/light/small,
-/obj/machinery/power/apc/east,
-/turf/simulated/floor/tiled,
-/area/medical/morgue/lower)
 "mZD" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 6
@@ -19211,6 +19123,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
+"nhK" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
 "nhU" = (
 /obj/effect/shuttle_landmark/horizon/exterior/deck_1/fore,
 /turf/template_noop,
@@ -23685,23 +23604,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/security/checkpoint)
 "qks" = (
-/obj/structure/railing/mapped{
-	dir = 8
+/obj/machinery/button/remote/blast_door{
+	id = "shutters_deck1_morgue2";
+	name = "Viewing Shutters";
+	dir = 4;
+	pixel_x = 20
 	},
-/obj/effect/floor_decal/corner/lime{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/computer/shuttle_control/lift{
-	pixel_x = -3;
-	pixel_y = 23;
-	shuttle_tag = "Morgue Lift"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
+/obj/structure/table/steel,
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "qlv" = (
@@ -23997,7 +23907,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/operations)
+/area/maintenance/engineering)
 "qvl" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -24197,12 +24107,17 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "qBC" = (
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/corner/lime{
-	dir = 10
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/plasticflaps/airtight,
+/obj/machinery/door/airlock/medical{
+	name = "Cremation";
+	req_one_access = list(6,33)
 	},
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73)
+	},
+/turf/simulated/floor/tiled/full,
 /area/medical/morgue/lower)
 "qBU" = (
 /obj/structure/cable{
@@ -24674,17 +24589,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/eva)
 "qVO" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
 	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -25264,15 +25176,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "rpa" = (
-/obj/structure/platform_stairs/full/east_west_cap{
-	dir = 8
-	},
-/obj/structure/platform{
-	dir = 1
-	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
+	},
+/obj/structure/platform_stairs/ramp/east_west{
+	dir = 4
+	},
+/obj/structure/platform{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white{
 	name = "cooled white floor";
@@ -25390,6 +25302,19 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/storage/eva)
+"rsi" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/machinery/alarm/cold/south,
+/turf/simulated/floor/tiled/white{
+	name = "cooled white floor";
+	temperature = 278.15
+	},
+/area/medical/morgue/lower)
 "rsk" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -25705,9 +25630,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/control)
 "rFO" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
@@ -25716,11 +25638,11 @@
 	name = "Viewing Shutters";
 	pixel_y = 25
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
@@ -26111,7 +26033,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
-/area/maintenance/operations)
+/area/maintenance/engineering)
 "rTG" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -26283,6 +26205,14 @@
 /obj/machinery/atmospherics/pipe/simple/visible/supply,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"rZC" = (
+/obj/machinery/door/firedoor,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/wing/starboard/deck1)
 "sad" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -26484,7 +26414,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stack/tile/floor,
 /turf/simulated/floor/tiled,
-/area/maintenance/operations)
+/area/maintenance/engineering)
 "skq" = (
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 8
@@ -27377,15 +27307,15 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/operations)
+/area/maintenance/engineering)
 "sRe" = (
-/obj/structure/platform_stairs/full/east_west_cap,
-/obj/structure/platform{
-	dir = 1
-	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
+	},
+/obj/structure/platform_stairs/ramp/east_west,
+/obj/structure/platform{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white{
 	name = "cooled white floor";
@@ -28268,7 +28198,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/maintenance/operations)
+/area/maintenance/engineering)
 "txa" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -28635,7 +28565,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/maintenance/operations)
+/area/maintenance/engineering)
 "tJq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/effect/floor_decal/industrial/warning{
@@ -29634,7 +29564,7 @@
 "uqE" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
-/area/maintenance/operations)
+/area/maintenance/engineering)
 "urr" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -30912,11 +30842,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
-"vif" = (
-/obj/machinery/light/small,
-/obj/structure/table/steel,
-/turf/simulated/floor/tiled,
-/area/medical/morgue/lower)
 "vik" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -30970,7 +30895,7 @@
 /obj/random/junk,
 /obj/machinery/alarm/north,
 /turf/simulated/floor/plating,
-/area/maintenance/operations)
+/area/maintenance/engineering)
 "vjM" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -31015,6 +30940,26 @@
 /obj/effect/floor_decal/corner/dark_blue,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"vkj" = (
+/obj/structure/morgue/crematorium{
+	_wifi_id = "medical_crema";
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/button/switch/crematorium{
+	_wifi_id = "medical_crema";
+	pixel_x = 8;
+	pixel_y = -20;
+	req_access = null
+	},
+/turf/simulated/floor/tiled/white{
+	name = "cooled white floor";
+	temperature = 278.15
+	},
+/area/medical/morgue/lower)
 "vkm" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -31708,6 +31653,9 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/reinforced,
 /area/rnd/isolation_a)
+"vLE" = (
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
 "vLJ" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -32302,7 +32250,7 @@
 	icon_state = "medium"
 	},
 /turf/simulated/floor/tiled,
-/area/maintenance/operations)
+/area/maintenance/engineering)
 "wjH" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -32562,7 +32510,7 @@
 "wqj" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
-/area/maintenance/operations)
+/area/maintenance/engineering)
 "wqr" = (
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
 	dir = 4
@@ -32645,16 +32593,15 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "wsT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/corner/lime{
-	dir = 10
+	dir = 9
 	},
-/turf/simulated/floor/tiled/white{
-	name = "cooled white floor";
-	temperature = 278.15
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
 	},
+/turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "wtl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -32960,6 +32907,19 @@
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/hangar/starboard)
+"wHO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white{
+	name = "cooled white floor";
+	temperature = 278.15
+	},
+/area/medical/morgue/lower)
 "wHX" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -33252,6 +33212,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research_sublevel)
+"wRA" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/hangar/auxiliary)
 "wRE" = (
 /turf/simulated/wall,
 /area/storage/eva)
@@ -33625,13 +33602,10 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod3)
 "xej" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/machinery/light/small,
-/obj/effect/floor_decal/corner/lime/full,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/structure/table/steel,
+/obj/machinery/camera/network/medbay{
+	c_tag = "Medical - Autopsy and Cremation"
 	},
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
@@ -33697,10 +33671,8 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/light/small,
 /turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "xgP" = (
@@ -33894,6 +33866,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"xkE" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/maintenance/engineering)
 "xkJ" = (
 /obj/effect/decal/cleanable/cobweb2{
 	icon_state = "cobweb1"
@@ -34522,7 +34498,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/maintenance/operations)
+/area/maintenance/engineering)
 "xCn" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
@@ -34541,6 +34517,14 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/glass_medical{
+	dir = 4;
+	name = "Emergency Supplies Storage"
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,73);
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/medical/morgue/lower)
 "xCT" = (
@@ -34862,15 +34846,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/isolation_a)
-"xNb" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/medical/morgue/lower)
 "xNw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -35016,7 +34991,9 @@
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
 "xRv" = (
-/obj/structure/platform_stairs/full,
+/obj/structure/platform_stairs/ramp/north_south{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "xRF" = (
@@ -35295,13 +35272,11 @@
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "yau" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/obj/machinery/door/blast/shutters{
-	dir = 4;
-	id = "shutters_deck1_morgue2";
-	name = "Viewing Shutter"
+/obj/effect/landmark{
+	name = "borerstart"
 	},
-/turf/simulated/floor/tiled/full,
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled,
 /area/medical/morgue/lower)
 "yaP" = (
 /obj/structure/cable/green{
@@ -35559,38 +35534,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/storage/eva)
-"yml" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/black{
-	dir = 10
-	},
-/obj/machinery/door/firedoor,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/hangar/auxiliary)
-"ymm" = (
-/obj/machinery/door/firedoor,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/maintenance/wing/starboard/deck1)
-"ymn" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 4
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled,
-/area/maintenance/wing/starboard/deck1)
 
 (1,1,1) = {"
 eSV
@@ -45833,7 +45776,7 @@ eSV
 eSV
 hTk
 wVV
-ymn
+loY
 wVV
 wVV
 dLh
@@ -48470,7 +48413,7 @@ eSV
 eSV
 eSV
 hTk
-ymm
+rZC
 wVV
 wVV
 dod
@@ -48886,7 +48829,7 @@ lIg
 lIg
 lIg
 xCD
-aYY
+lIg
 qkh
 qkh
 qkh
@@ -49089,9 +49032,9 @@ ege
 pPU
 lIg
 gRa
-qBC
-fDD
-fDD
+lIg
+cnR
+vkj
 lIg
 ueg
 vqU
@@ -49293,8 +49236,8 @@ rQp
 qZW
 jZV
 evA
-gMp
-fDD
+joI
+dKN
 lIg
 rPA
 vqU
@@ -49496,10 +49439,10 @@ mst
 qZW
 qVO
 qBC
-fDD
-fDD
+wHO
+rsi
 lIg
-vqU
+tkX
 fCT
 niw
 gvZ
@@ -49698,7 +49641,7 @@ sRe
 qEk
 lIg
 rFO
-cuA
+lIg
 qks
 xej
 lIg
@@ -49901,11 +49844,11 @@ wYE
 xll
 iDM
 xgE
-kWx
-xNb
-aMh
-iFL
-vqU
+lIg
+lIg
+lIg
+lIg
+lIg
 jUl
 tZY
 jpT
@@ -50106,9 +50049,9 @@ lIg
 mon
 pnZ
 kLR
-mZr
+fDD
+fDD
 lIg
-rPA
 oDv
 avx
 wPz
@@ -50306,12 +50249,12 @@ hQO
 skq
 caN
 lIg
-lIg
+amP
 jTl
 yau
+gMp
+fDD
 lIg
-lIg
-vqU
 oDv
 tIS
 wkD
@@ -50512,9 +50455,9 @@ lIg
 joW
 doK
 wsT
-vif
+fDD
+fDD
 lIg
-vqU
 oDv
 tIS
 wkD
@@ -50712,12 +50655,12 @@ grm
 wOP
 rUU
 lIg
-fmL
-awf
-lEQ
-eHp
 lIg
-tkX
+lIg
+lEQ
+lIg
+lIg
+lIg
 ohS
 rRb
 wkD
@@ -50915,12 +50858,12 @@ lIg
 lIg
 lIg
 lIg
-lIg
-lIg
-lIg
-lIg
-lIg
-vqU
+vLE
+cgP
+cgP
+vLE
+jsV
+xkE
 oDv
 tIS
 wkD
@@ -51121,9 +51064,9 @@ icm
 twX
 wqj
 tJg
-fCT
-nnw
-vqU
+vLE
+jsV
+xkE
 oDv
 tIS
 wkD
@@ -51325,8 +51268,8 @@ vjI
 sko
 wjr
 rTF
-nnw
-rPA
+jsV
+nhK
 oDv
 xEd
 pWZ
@@ -51529,7 +51472,7 @@ ijn
 dWL
 bDl
 sRd
-vqU
+xkE
 teA
 tYS
 bKP
@@ -51933,7 +51876,7 @@ icm
 cqu
 kqO
 jaN
-fCT
+vLE
 oOk
 hPn
 ych
@@ -52133,10 +52076,10 @@ khO
 icm
 icm
 icm
-nnw
-nnw
+jsV
+jsV
 quA
-nnw
+jsV
 oOk
 jrr
 lyU
@@ -53933,7 +53876,7 @@ pQv
 ybl
 cqE
 tGU
-gVx
+loY
 trc
 oWg
 fZr
@@ -62298,7 +62241,7 @@ xtK
 xtK
 xtK
 xXt
-yml
+wRA
 pPV
 pPV
 pPV
@@ -62705,7 +62648,7 @@ fIp
 xtK
 rrR
 ows
-xRv
+fIi
 bJa
 bJa
 bJa

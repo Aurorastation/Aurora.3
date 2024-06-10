@@ -2226,8 +2226,9 @@
 	var/message = input("What message do you wish to transmit?","Choose a message") as null|anything in messages
 	if(!message)
 		return
+
 	V.transmitting = TRUE
-	say(",9[message]")
+	say("[message]", GLOB.all_languages[LANGUAGE_VAURCA])
 	V.transmitting = FALSE
 
 /mob/living/carbon/human/proc/hivenet_manifest()
