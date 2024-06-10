@@ -149,6 +149,24 @@
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
+"fL" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/aluminium/full{
+	pixel_y = 6
+	},
+/obj/item/stack/material/lead/full{
+	pixel_y = 10
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/wood/full{
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
 "gC" = (
 /obj/machinery/door/blast/shutters{
 	dir = 4;
@@ -189,19 +207,6 @@
 	dir = 5
 	},
 /turf/simulated/floor/exoplanet/carpet/red,
-/area/ouerea_freewater)
-"kW" = (
-/obj/structure/closet/walllocker{
-	name = "Personnel Locker";
-	pixel_x = -32
-	},
-/obj/item/clothing/under/rank/security/pmc/dagamuir_freewater,
-/obj/item/clothing/shoes/sandals/caligae,
-/obj/item/clothing/gloves/black/unathi,
-/obj/item/storage/belt/security/tactical,
-/turf/simulated/floor/exoplanet/wood{
-	temperature = 298.15
-	},
 /area/ouerea_freewater)
 "lw" = (
 /obj/machinery/door/blast/shutters{
@@ -394,6 +399,17 @@
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
+"tN" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full{
+	pixel_y = 7
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
 "tQ" = (
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
@@ -511,13 +527,6 @@
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
-"yK" = (
-/obj/structure/table/stone/marble,
-/obj/random/junk,
-/turf/simulated/floor/exoplanet/wood{
-	temperature = 298.15
-	},
-/area/ouerea_freewater)
 "yS" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass{
@@ -549,23 +558,6 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
 /turf/simulated/floor/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_freewater)
-"AU" = (
-/obj/structure/closet/walllocker{
-	name = "Personnel Locker";
-	pixel_x = -32
-	},
-/obj/item/storage/backpack/cloak/klax,
-/obj/item/clothing/mask/gas/vaurca,
-/obj/item/clothing/mask/gas/vaurca/tactical,
-/obj/item/clothing/mask/gas/vaurca/filter,
-/obj/item/clothing/shoes/sandals/caligae,
-/obj/item/clothing/under/rank/security/pmc/dagamuir_freewater,
-/obj/item/clothing/shoes/vaurca,
-/obj/item/storage/belt/security/tactical,
-/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -610,19 +602,21 @@
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
-"BY" = (
-/obj/structure/table/rack,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/glass/full{
-	pixel_y = 7
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled{
+"CA" = (
+/obj/machinery/media/jukebox,
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
-"CA" = (
-/obj/machinery/media/jukebox,
+"CP" = (
+/obj/structure/closet/walllocker{
+	name = "Personnel Locker";
+	pixel_x = -32
+	},
+/obj/item/clothing/under/rank/security/pmc/dagamuir_freewater,
+/obj/item/clothing/shoes/sandals/caligae,
+/obj/item/clothing/gloves/black/unathi,
+/obj/item/storage/belt/security/tactical,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
@@ -644,6 +638,23 @@
 "EE" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"EX" = (
+/obj/structure/closet/walllocker{
+	name = "Personnel Locker";
+	pixel_x = -32
+	},
+/obj/item/storage/backpack/cloak/klax,
+/obj/item/clothing/mask/gas/vaurca,
+/obj/item/clothing/mask/gas/vaurca/tactical,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/shoes/sandals/caligae,
+/obj/item/clothing/under/rank/security/pmc/dagamuir_freewater,
+/obj/item/clothing/shoes/vaurca,
+/obj/item/storage/belt/security/tactical,
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -678,6 +689,13 @@
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
+"FS" = (
+/obj/structure/table/stone/marble,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
 "FX" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "energy pistol cabinet";
@@ -689,24 +707,6 @@
 /obj/item/gun/energy/rifle/hegemony,
 /obj/machinery/light,
 /turf/simulated/floor/exoplanet/wood{
-	temperature = 298.15
-	},
-/area/ouerea_freewater)
-"HX" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table/rack,
-/obj/item/stack/material/plastic/full,
-/obj/item/stack/material/aluminium/full{
-	pixel_y = 6
-	},
-/obj/item/stack/material/lead/full{
-	pixel_y = 10
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/stack/material/wood/full{
-	pixel_y = 6
-	},
-/turf/simulated/floor/tiled{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -1336,7 +1336,7 @@ ZA
 IA
 yF
 yF
-BY
+tN
 yF
 yF
 dl
@@ -1375,7 +1375,7 @@ ZA
 ds
 yF
 yF
-HX
+fL
 yF
 yF
 rI
@@ -1514,7 +1514,7 @@ sv
 ZA
 cy
 zG
-yK
+FS
 zG
 zG
 RM
@@ -1847,7 +1847,7 @@ sv
 sv
 Uc
 Uc
-sv
+RA
 sv
 sv
 sv
@@ -1963,7 +1963,7 @@ sv
 sv
 sv
 Uc
-Uc
+fd
 Uc
 sv
 sv
@@ -2126,11 +2126,11 @@ sv
 sv
 ZA
 cy
-kW
+CP
 tQ
-AU
+EX
 tQ
-kW
+CP
 ft
 Nt
 Nt
