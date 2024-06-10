@@ -5243,7 +5243,7 @@
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/peoples_station/hangar)
+/area/shuttle/peoples_station_transport)
 "ta" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
@@ -10128,7 +10128,7 @@
 	shuttle_tag = "People's Station Transport Shuttle"
 	},
 /turf/simulated/floor/reinforced,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "MM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -13020,7 +13020,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
-/area/peoples_station/hangar)
+/area/shuttle/peoples_station_transport)
 "XV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
