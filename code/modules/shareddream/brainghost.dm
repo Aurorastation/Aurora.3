@@ -5,25 +5,44 @@
 
 	alpha = 200
 
-	var/image/ghostimage = null
 	var/mob/living/carbon/human/body = null
 
 
-/mob/living/brain_ghost/Initialize()
+/mob/living/brain_ghost/Initialize(mapload, mob/living/carbon/human/dreamer)
 	. = ..()
-	var/mob/living/carbon/human/form = loc
-	if(!istype(form))
-		qdel(src)
-		return
-	overlays += image(form.icon,form,form.icon_state)
-	overlays += form.overlays
-	name = form.real_name
-	loc = pick(dream_entries)
-	body = form
+
+	body = dreamer
+	if(!istype(body))
+		//This is to handle the unit tests
+		if(!isnull(body))
+			stack_trace("No /mob/living/carbon/human found for brain ghost as loc!")
+		return INITIALIZE_HINT_QDEL
+
+	name = body.real_name
 	old_mob = body
 
+	var/mutable_appearance/MA = new(body)
+	MA.appearance_flags |= KEEP_APART | RESET_TRANSFORM
+	MA.transform = matrix() //Mutable appearances copy various vars, including transform, so we have to reset it here
+
+	AddOverlays(MA)
+
+
+	var/turf/T = pick(GLOB.dream_entries)
+	if(!T)
+		stack_trace("No dream entries found for Srom!")
+		awaken_impl(TRUE)
+		return
+
+	src.forceMove(T)
+
 	if(client)
-		client.screen |= body.healths
+		LateLogin()
+
+/mob/living/brain_ghost/Destroy()
+	body = null
+
+	. = ..()
 
 /mob/living/brain_ghost/LateLogin()
 	..()
@@ -79,3 +98,7 @@
 		body.set_stat(UNCONSCIOUS) // Toggled before anything else can happen. Ideally.
 
 	..(message, speaking, verb="says", alt_name="")
+
+
+/mob/living/brain_ghost/get_floating_chat_y_offset()
+	return 8

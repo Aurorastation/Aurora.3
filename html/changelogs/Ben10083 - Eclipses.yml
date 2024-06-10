@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: RustingWithYou
+author: Ben10083
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Vaurca ghostroles on Ouerea now spawn with filter ports."
+  - rscadd: "Adhomian Eclipses Shi-rr’ata and Shi-rra Arr’Kahata added."
+  - admin: "Set Holiday Verb nows allows user to type in a holiday if not given."

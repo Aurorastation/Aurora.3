@@ -91,6 +91,16 @@
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
+"v" = (
+/obj/item/bedsheet/black,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_wasteland_guard";
+	identifier = "moghes_wasteland_guard"
+	},
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
 "x" = (
 /obj/machinery/recharger,
 /obj/structure/table/steel,
@@ -514,7 +524,7 @@ Y
 Y
 s
 H
-j
+v
 p
 a
 a
@@ -541,7 +551,7 @@ Y
 Y
 Y
 H
-j
+v
 p
 a
 a

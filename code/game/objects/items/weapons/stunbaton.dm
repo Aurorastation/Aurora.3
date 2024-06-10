@@ -70,6 +70,9 @@
 
 /obj/item/melee/baton/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/cell))
+		if(attacking_item.w_class != ITEMSIZE_NORMAL)
+			to_chat(user, SPAN_WARNING("\The [attacking_item] is too [attacking_item.w_class < ITEMSIZE_NORMAL ? "small" : "large"] to fit here."))
+			return
 		if(!bcell)
 			user.drop_from_inventory(attacking_item, src)
 			bcell = attacking_item
