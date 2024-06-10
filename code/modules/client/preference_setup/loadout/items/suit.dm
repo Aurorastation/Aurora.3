@@ -212,8 +212,8 @@
 	coat["trenchcoat, dark brown"] = /obj/item/clothing/suit/storage/toggle/trench/alt
 	coat["trenchcoat, grey alternate"] = /obj/item/clothing/suit/storage/toggle/trench/grey_alt
 	coat["trenchcoat, green"] = /obj/item/clothing/suit/storage/toggle/trench/green
-	coat["brown trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench
-	coat["black trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/black
+	coat["brown trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/trench/det_trench
+	coat["black trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/trench/det_trench/black
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/trenchcoat_colorable

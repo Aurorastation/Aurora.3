@@ -3074,7 +3074,7 @@
 	pixel_x = -9;
 	pixel_y = -7
 	},
-/obj/item/clothing/suit/storage/toggle/det_trench,
+/obj/item/clothing/suit/storage/toggle/trench/det_trench,
 /obj/effect/decal/remains,
 /turf/simulated/floor/plating,
 /area/maintenance/security_interstitial)
@@ -6307,7 +6307,7 @@
 	dir = 1
 	},
 /obj/item/handcuffs,
-/obj/item/clothing/suit/storage/toggle/det_trench/black,
+/obj/item/clothing/suit/storage/toggle/trench/det_trench/black,
 /obj/effect/decal/remains,
 /turf/simulated/floor/plating,
 /area/maintenance/security_interstitial)
