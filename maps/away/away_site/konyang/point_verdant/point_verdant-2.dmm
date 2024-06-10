@@ -8778,13 +8778,6 @@
 /area/point_verdant/outdoors)
 "xf" = (
 /obj/structure/table/rack/retail_shelf,
-/obj/item/toy/plushie/fluff/oz_plushie{
-	pixel_y = 10;
-	pixel_x = 12
-	},
-/obj/item/toy/plushie/fluff{
-	pixel_y = 6
-	},
 /obj/item/toy/plushie/ipc{
 	pixel_y = 17;
 	pixel_x = -14
