@@ -5,4 +5,3 @@ delete-after: True
 
 changes:
   - rscadd: "Hivenet aug preset messages tweaks and additions."
-  - rscadd: "Hivenet aug loadout item cost lowered to 3, to be more in line with the other language augment."
