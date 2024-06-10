@@ -1253,9 +1253,6 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/effect/shuttle_landmark/peoples_station_transport/hangar{
-	dir = 1
-	},
 /turf/simulated/floor/plating/cooled,
 /area/peoples_station/transport_hangar)
 "eO" = (
@@ -5241,6 +5238,12 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
+"sY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/peoples_station/hangar)
 "ta" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(209);
@@ -9808,6 +9811,20 @@
 	temperature = 278.15
 	},
 /area/peoples_station/restroom)
+"Lz" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/brown,
+/obj/structure/sign/painting_frame/hadii{
+	pixel_y = 32
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "peoples_station_crew";
+	name = "igs - peoples_station_crew"
+	},
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/peoples_station/barracks)
 "LA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -10091,6 +10108,27 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
+"ML" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "peoples_station_transport_dock";
+	name = "peoples_station_transport_dock";
+	req_one_access = list(209);
+	shuttle_tag = "People's Station Transport Shuttle"
+	},
+/turf/simulated/floor/reinforced,
+/area/peoples_station/transport_hangar)
 "MM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -12509,7 +12547,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
-
 "Wf" = (
 /obj/machinery/light,
 /obj/structure/table/standard,
@@ -12961,13 +12998,29 @@
 	},
 /area/peoples_station/restroom)
 "XU" = (
-/obj/effect/decal/cleanable/liquid_fuel,
-/obj/item/clothing/head/cone,
-/obj/effect/floor_decal/industrial/warning{
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/turf/simulated/floor/plating/cooled,
-/area/peoples_station/transport_hangar)
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "peoples_station_transport_dock";
+	name = "peoples_station_transport_dock";
+	req_one_access = list(209);
+	shuttle_tag = "People's Station Transport Shuttle"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_y = 28;
+	pixel_x = 20;
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/peoples_station/hangar)
 "XV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -56573,7 +56626,7 @@ RF
 bD
 tU
 vF
-RF
+Lz
 bD
 tU
 Zj
@@ -58389,7 +58442,7 @@ Cu
 mO
 gi
 jo
-Li
+XU
 sr
 kB
 dL
@@ -58646,7 +58699,7 @@ Cu
 xY
 dg
 tv
-ns
+sY
 dL
 Tf
 cX
@@ -59931,7 +59984,7 @@ Cu
 Cu
 xh
 kh
-kh
+ML
 tH
 fK
 dL
