@@ -41,6 +41,13 @@
 		hold.max_storage_space = slots * ITEMSIZE_SMALL
 		hold.max_w_class = ITEMSIZE_SMALL
 
+/obj/item/clothing/head/helmet/handle_helmet_storage_overlay(var/image/I, var/slot)
+	if(has_storage && slot == slot_head_str && LAZYLEN(hold.contents))
+		I.AddOverlays(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
+		for(var/obj/item/thing in hold.contents)
+			I.AddOverlays(image('icons/clothing/kit/helmet_garb.dmi', null, initial(thing.icon_state)))
+	return I
+
 /obj/item/clothing/head/helmet/attack_hand(mob/user)
 	if(has_storage && !hold.handle_attack_hand(user))
 		return

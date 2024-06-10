@@ -3,7 +3,7 @@
 	desc = "A neosilk clip-on tie."
 	icon = 'icons/obj/clothing/ties.dmi'
 	icon_state = "bluetie"
-	item_state = "bluetie"	//no inhands
+	item_state = "bluetie"
 	overlay_state = null
 	slot_flags = SLOT_TIE
 	w_class = ITEMSIZE_SMALL
