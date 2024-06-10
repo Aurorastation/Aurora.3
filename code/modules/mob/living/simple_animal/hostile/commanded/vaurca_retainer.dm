@@ -1,6 +1,7 @@
 /mob/living/simple_animal/hostile/commanded/vaurca_retainer
 	name = "vaurca retainer"
 	short_name = "retainer"
+	real_name = "vaurca retainer"
 	desc = "AA Type Workers, also called Retainers, are small and fill similar roles to that of maintenance drones. They are all exclusively Bound and deal with the more trivial repairs to ships, systems, and structures utilized by the various Hives as well as fulfilling extremely simple jobs such as the transportation of small objects. "
 
 	icon = 'icons/mob/npc/vaurca_retainer.dmi'
@@ -11,6 +12,7 @@
 
 	health = 75
 	maxHealth = 75
+	min_oxy = 0
 
 	stop_automated_movement_when_pulled = 1 //so people can drag the bug around
 	density = 1
@@ -20,9 +22,10 @@
 	destroy_surroundings = FALSE
 
 	speak = list("Khzz!", "Zhkhk.", "Khhozz.","Zhhhk!")
-	speak_emote = list("chitters", "shuffles in place", "moves its claws")
+	speak_emote = list("chitters", "clacks its claws", "moves its claws")
 	emote_hear = list("tilts its head and chitters")
 	sad_emote = list("chitters lowly")
+	emote_see = list("shakes its head", "moves its antennae")
 	emote_sounds = list('sound/voice/chitter1.ogg', 'sound/voice/chitter2.ogg', 'sound/voice/chitter3.ogg')
 
 	attacktext = "harmlessly bitten"
@@ -38,6 +41,7 @@
 
 	hunger_enabled = 1 //so you can feed your dog or something
 	max_nutrition = 120
+	metabolic_factor = 0.75
 
 	known_commands = list("stay", "stop", "follow")
 

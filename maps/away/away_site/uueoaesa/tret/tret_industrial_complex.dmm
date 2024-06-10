@@ -4118,6 +4118,9 @@
 	pixel_y = 3
 	},
 /obj/structure/table/standard,
+/obj/item/vaurca/retainer_box{
+	color = 74B72E
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/crew)
 "aAy" = (
@@ -12123,6 +12126,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_docks)
+"sQd" = (
+/mob/living/simple_animal/hostile/commanded/vaurca_retainer{
+	color = 155133
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/tret_industrial/inside/crew)
 "sRX" = (
 /obj/machinery/mining/brace{
 	dir = 4
@@ -13283,6 +13292,12 @@
 	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
+"xnt" = (
+/mob/living/simple_animal/hostile/commanded/vaurca_retainer{
+	color = 32A032
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/tret_industrial/inside/crew)
 "xnD" = (
 /obj/structure/survey_probe/hegemony,
 /turf/simulated/floor/plating,
@@ -53935,7 +53950,7 @@ xfA
 aCr
 xfA
 afy
-itk
+sQd
 itk
 abS
 aCr
@@ -54192,7 +54207,7 @@ xfA
 aMV
 xfA
 aCW
-itk
+xnt
 itk
 elj
 xfA
