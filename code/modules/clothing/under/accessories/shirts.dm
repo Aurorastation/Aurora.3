@@ -278,7 +278,7 @@
 	item_state = "haltertop"
 	contained_sprite = TRUE
 
-/obj/item/clothing/accessory/tanktop
+/obj/item/clothing/accessory/dressshirt/tanktop
 	name = "tank top"
 	desc = "A simple, cheap tank top."
 	icon = 'icons/obj/item/clothing/accessory/tank_top.dmi'
@@ -286,7 +286,7 @@
 	item_state = "tanktop"
 	contained_sprite = TRUE
 
-/obj/item/clothing/accessory/tanktop/feminine
+/obj/item/clothing/accessory/dressshirt/tanktop/feminine
 	icon_state = "tanktop_fem"
 	item_state = "tanktop_fem"
 
