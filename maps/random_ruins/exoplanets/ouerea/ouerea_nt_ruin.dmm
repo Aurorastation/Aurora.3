@@ -1207,7 +1207,7 @@
 	},
 /area/ouerea_nt_ruin)
 "SQ" = (
-/obj/structure/closet/secure_closet/RD,
+/obj/structure/closet/secure_closet/RD2,
 /turf/simulated/floor/exoplanet/carpet/lightblue{
 	temperature = 298.15
 	},
