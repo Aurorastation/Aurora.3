@@ -276,7 +276,7 @@
 				playsound(target, 'sound/effects/stairs_step.ogg', 50)
 
 /obj/structure/stairs/Crossed(obj/O)
-	if(istype(O) && has_gravity(get_turf(src)))
+	if(istype(O))
 		O.stair_act()
 	return ..()
 
@@ -376,13 +376,9 @@
 	anchored = TRUE
 	icon = 'icons/obj/structure/stairs.dmi'
 	icon_state = "np_stair"
-	/**
-	 * If true, this strucutre will trigger the stairs_act() proc for other structures being moved across it.
-	 */
-	var/steps = TRUE
 
 /obj/structure/platform_stairs/Crossed(obj/O)
-	if(istype(O) && has_gravity(get_turf(src)) && steps)
+	if(istype(O))
 		O.stair_act()
 	return ..()
 
@@ -403,18 +399,6 @@
 
 /obj/structure/platform_stairs/full/south_north_cap/half
 	icon_state = "p_stair_sn_half_cap"
-
-/obj/structure/platform_stairs/ramp
-	name = "ramp"
-	desc = "A smooth yet archaic form of locomotion along the vertical axis."
-	steps = FALSE
-	layer = ABOVE_TILE_LAYER //They sit ontop of turfs, but below most other things
-
-/obj/structure/platform_stairs/ramp/north_south
-	icon_state = "p_ramp_sn_full_cap"
-
-/obj/structure/platform_stairs/ramp/east_west
-	icon_state = "p_ramp_ew_full_cap"
 
 /obj/structure/platform
 	name = "platform"
