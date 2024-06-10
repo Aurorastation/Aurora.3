@@ -1,8 +1,0 @@
-author: Sparky_hotdog (code), budg (sprites)
-
-delete-after: True
-
-changes:
-  - rscadd: "Adds non-z-level-traversing ramps, which work like stairs but they are safe to pull objects onto. Replaced some of the more frustrating stairs with ramps."
-  - rscadd: "Slightly remaps medical to allow their lift to reach the third deck as well."
-  - bugfix: "Stairs now check for gravity before having objects fall down them."
