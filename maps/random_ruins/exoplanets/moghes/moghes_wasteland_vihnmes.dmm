@@ -307,6 +307,16 @@
 	temperature = 303.15
 	},
 /area/moghes_vihnmes)
+"uE" = (
+/obj/structure/cargo_receptacle{
+	min_spawn = 0;
+	max_spawn = 2;
+	payment_modifier = 1.5
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_vihnmes)
 "vG" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light{
@@ -986,7 +996,7 @@ Sf
 Sf
 Sf
 VJ
-Vl
+uE
 Vl
 Vl
 Vl

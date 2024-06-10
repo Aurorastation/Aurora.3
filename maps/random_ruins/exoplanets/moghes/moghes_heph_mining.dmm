@@ -331,6 +331,13 @@
 "wZ" = (
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/moghes_heph_mining)
+"xV" = (
+/obj/structure/cargo_receptacle{
+	min_spawn = 0;
+	max_spawn = 2
+	},
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_heph_mining)
 "zF" = (
 /obj/structure/table/steel,
 /obj/item/storage/bag/ore,
@@ -1261,7 +1268,7 @@ wZ
 wZ
 wZ
 wZ
-wZ
+xV
 wZ
 wZ
 wZ

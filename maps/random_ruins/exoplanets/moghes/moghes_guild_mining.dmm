@@ -496,6 +496,13 @@
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
+"Qh" = (
+/obj/structure/cargo_receptacle{
+	min_spawn = 0;
+	max_spawn = 2
+	},
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_guild_mining)
 "QS" = (
 /obj/structure/bed,
 /obj/item/bedsheet/brown,
@@ -1521,7 +1528,7 @@ IV
 Yl
 Yl
 IV
-IV
+Qh
 IV
 IV
 IV

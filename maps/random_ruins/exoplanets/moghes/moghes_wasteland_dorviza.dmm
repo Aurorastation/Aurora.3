@@ -297,6 +297,16 @@
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
+"N" = (
+/obj/structure/cargo_receptacle{
+	min_spawn = 0;
+	max_spawn = 1;
+	payment_modifier = 1.8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
 "O" = (
 /obj/structure/diona/bulb,
 /turf/simulated/floor/exoplanet/diona{
@@ -1126,7 +1136,7 @@ s
 a
 a
 a
-a
+N
 V
 V
 V

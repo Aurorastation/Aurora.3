@@ -772,6 +772,13 @@
 "XM" = (
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/moghes_village)
+"XN" = (
+/obj/structure/cargo_receptacle{
+	min_spawn = 0;
+	max_spawn = 2
+	},
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_village)
 "YM" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/exoplanet/wood/birch{
@@ -1843,7 +1850,7 @@ XM
 XM
 XM
 XM
-XM
+XN
 UG
 UG
 UG
