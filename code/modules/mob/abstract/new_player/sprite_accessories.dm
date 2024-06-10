@@ -577,6 +577,12 @@ Follow by example and make good judgement based on length which list to include 
 	length = 3
 	chatname = "very long hair"
 
+/datum/sprite_accessory/hair/falcon_alt
+	name = "Falcon Alt"
+	icon_state = "hair_falcon_alt"
+	length = 3
+	chatname = "very long hair"
+
 /datum/sprite_accessory/hair/father
 	name = "Father"
 	icon_state = "hair_father"
