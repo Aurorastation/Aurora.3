@@ -74,34 +74,49 @@
 	lift_floor_name = "Main Deck"
 
 //Morgue Lift
-/datum/shuttle/autodock/ferry/lift/scc_ship/morgue
-	name = "Morgue Lift"
-	location = 1
+/datum/shuttle/autodock/multi/lift/morgue
+	name = "Medical Lift"
+	current_location = "nav_morgue_lift_mid"
 	shuttle_area = /area/turbolift/scc_ship/morgue_lift
-	waypoint_station = "nav_morgue_lift_bottom"
-	waypoint_offsite = "nav_morgue_lift_top"
+	destination_tags = list(
+		"nav_morgue_lift_bottom",
+		"nav_morgue_lift_mid",
+		"nav_morgue_lift_top",
+		)
 
 /obj/effect/shuttle_landmark/lift
 	name = "ABSTRACT DEF; DO NOT USE THIS"
 	icon_state = "lift_landmark"
 
 /obj/effect/shuttle_landmark/lift/morgue_top
-	name = "Morgue Top"
+	name = "Medical - Third Deck"
 	landmark_tag = "nav_morgue_lift_top"
+	base_area = /area/hallway/medical/upper
+	base_turf = /turf/simulated/open
+
+/obj/effect/shuttle_landmark/lift/morgue_mid
+	name = "Medical - Second Deck"
+	landmark_tag = "nav_morgue_lift_mid"
 	base_area = /area/hallway/medical
 	base_turf = /turf/simulated/open
 
 /obj/effect/shuttle_landmark/lift/morgue_bottom
-	name = "Morgue Bottom"
+	name = "Medical - First Deck"
 	landmark_tag = "nav_morgue_lift_bottom"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
 	base_area = /area/medical/morgue/lower
 	base_turf = /turf/simulated/floor/plating
 
 /area/turbolift/scc_ship/morgue_lift
-	name = "Morgue Lift"
+	name = "Medical Lift"
 	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	ambience = AMBIENCE_GHOSTLY
+
+/obj/machinery/computer/shuttle_control/multi/lift/medical
+	shuttle_tag = "Medical Lift"
+
+/obj/machinery/computer/shuttle_control/multi/lift/wall/medical
+	shuttle_tag = "Medical Lift"
+	layer = ABOVE_OBJ_LAYER
 
 //Operations Lift
 /datum/shuttle/autodock/multi/lift/operations
