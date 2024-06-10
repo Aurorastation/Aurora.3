@@ -139,6 +139,9 @@
 "aF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/northhall)
 "aG" = (
@@ -908,10 +911,13 @@
 /turf/template_noop,
 /area/ihss_reclamation/bridge)
 "ez" = (
-/obj/machinery/alarm/warm/south{
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/alarm/warm/east{
 	req_one_access = list(113)
 	},
-/turf/simulated/wall/shuttle/raider,
+/turf/simulated/floor/plating,
 /area/ihss_reclamation/atmos)
 "eB" = (
 /obj/structure/cable/green{
@@ -2176,13 +2182,9 @@
 /obj/item/bedsheet/red,
 /obj/structure/bed,
 /obj/structure/curtain/open/bed,
-/obj/effect/ghostspawpoint/one_use{
-	name = "igs - ihss_crew";
-	identifier = "ihss_crew"
-	},
-/obj/effect/ghostspawpoint/one_use{
-	name = "igs - ihss_security";
-	identifier = "ihss_security"
+/obj/effect/ghostspawpoint{
+	identifier = "ihss_security";
+	name = "igs - ihss_security"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/crew/seven)
@@ -2739,6 +2741,9 @@
 	dir = 4;
 	icon_state = "map-scrubbers"
 	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/equipment)
 "nJ" = (
@@ -2887,6 +2892,12 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
+	},
+/obj/machinery/power/apc/high/south{
+	req_access = list(113)
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/equipment)
@@ -3052,6 +3063,9 @@
 /area/ihss_reclamation/xenobot)
 "pi" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/alarm/warm/east{
+	req_one_access = list(113)
+	},
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/equipment)
 "pj" = (
@@ -3401,6 +3415,13 @@
 	},
 /turf/simulated/floor/greengrid,
 /area/ihss_reclamation/solars)
+"qR" = (
+/obj/machinery/cryopod/living_quarters,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/ihss_reclamation/hangarhall)
 "qS" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -4456,6 +4477,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/northhall)
 "vG" = (
@@ -5799,6 +5823,14 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/medsci)
+"BK" = (
+/obj/machinery/computer/cryopod/living_quarters{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/ihss_reclamation/hangarhall)
 "BN" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/yellow{
 	dir = 8
@@ -5931,6 +5963,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/storage)
+"CI" = (
+/obj/effect/floor_decal/industrial/loading/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/ihss_reclamation/hangarhall)
 "CJ" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -6291,6 +6329,23 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/storage)
+"Ff" = (
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4;
+	color = "#941307"
+	},
+/obj/effect/floor_decal/corner/yellow/diagonal{
+	dir = 1;
+	color = "#ba9122"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ihss_reclamation/northhall)
 "Fg" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/table/wood,
@@ -8964,6 +9019,9 @@
 	req_access = list(113)
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/northhall)
 "RI" = (
@@ -10477,13 +10535,9 @@
 /obj/item/bedsheet/red,
 /obj/structure/bed,
 /obj/structure/curtain/open/bed,
-/obj/effect/ghostspawpoint/one_use{
-	name = "igs - ihss_crew";
-	identifier = "ihss_crew"
-	},
-/obj/effect/ghostspawpoint/one_use{
-	name = "igs - ihss_security";
-	identifier = "ihss_security"
+/obj/effect/ghostspawpoint{
+	identifier = "ihss_crew";
+	name = "igs - ihss_crew"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/crew/eight)
@@ -43469,9 +43523,9 @@ zc
 zc
 zc
 zc
-zc
 iB
-TE
+qR
+CI
 TE
 TE
 yh
@@ -43725,10 +43779,10 @@ gn
 gn
 gn
 gn
-gn
 zc
 iB
-TE
+BK
+iM
 iM
 iM
 vk
@@ -43982,10 +44036,10 @@ gn
 gn
 gn
 gn
-gn
 zc
 iB
-TE
+qR
+CI
 an
 TE
 TE
@@ -44239,8 +44293,8 @@ gn
 gn
 gn
 gn
-gn
 zc
+iB
 iB
 iB
 iB
@@ -44496,7 +44550,7 @@ tE
 Jg
 Nf
 GY
-gn
+zc
 zc
 zc
 zc
@@ -45029,7 +45083,7 @@ nH
 RC
 aF
 vF
-YW
+Ff
 AS
 dO
 gn
@@ -49393,7 +49447,7 @@ jn
 jn
 jn
 qI
-tF
+ez
 fy
 dO
 AS
@@ -49651,7 +49705,7 @@ jn
 wQ
 RZ
 ls
-ez
+ls
 dO
 dO
 dO
