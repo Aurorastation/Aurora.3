@@ -23,6 +23,13 @@
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
+"ba" = (
+/obj/structure/bed/stool/bar/padded/green,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
 "bo" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "non-lethal equipment cabinet";
@@ -70,10 +77,8 @@
 	},
 /area/ouerea_freewater)
 "dl" = (
-/obj/structure/bed/stool/chair/sofa/green{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/wood{
+/obj/machinery/vending/tool,
+/turf/simulated/floor/tiled{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -101,7 +106,15 @@
 "dt" = (
 /obj/structure/table/rack,
 /obj/item/storage/toolbox/mechanical,
-/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/electrical{
+	pixel_y = -4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"ek" = (
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled{
 	temperature = 298.15
 	},
@@ -109,6 +122,18 @@
 "ew" = (
 /mob/living/simple_animal/threshbeast,
 /turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"fd" = (
+/obj/structure/flora/grass/junglegrass/random,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"ft" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -235,6 +260,31 @@
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
+"pa" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/structure/filingcabinet/chestdrawer,
+/obj/item/toy/desk/fan{
+	pixel_y = 13
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"po" = (
+/obj/structure/table/wood,
+/obj/machinery/door/window/brigdoor{
+	req_access = null;
+	dir = 8
+	},
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
 "pR" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null;
@@ -261,21 +311,6 @@
 	},
 /area/ouerea_freewater)
 "qb" = (
-/obj/structure/table/wood,
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window{
-	dir = 4;
-	req_access = list(113);
-	name = "VAURCA ONLY"
-	},
-/obj/item/reagent_containers/food/snacks/friedkois,
-/obj/item/reagent_containers/food/snacks/friedkois,
 /obj/item/reagent_containers/food/snacks/koissteak,
 /obj/item/reagent_containers/food/snacks/koissteak,
 /obj/item/reagent_containers/food/snacks/soup/kois,
@@ -283,6 +318,7 @@
 /obj/item/reagent_containers/food/snacks/koiskebab3,
 /obj/item/reagent_containers/food/snacks/koiskebab3,
 /obj/item/reagent_containers/food/snacks/koismuffin,
+/obj/structure/closet/secure_closet/freezer/kois,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
@@ -292,6 +328,21 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"rj" = (
+/obj/structure/table/wood,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"rI" = (
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
+/turf/simulated/floor/tiled{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -321,6 +372,12 @@
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
+"sR" = (
+/obj/effect/decal/cleanable/flour,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
 "tQ" = (
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
@@ -335,6 +392,9 @@
 "vj" = (
 /obj/structure/table/wood,
 /obj/item/device/radio/phone,
+/obj/item/toy/desk/newtoncradle{
+	pixel_y = 10
+	},
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
@@ -649,6 +709,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
@@ -692,6 +753,7 @@
 	req_access = null;
 	dir = 8
 	},
+/obj/item/folder/red,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
@@ -719,8 +781,10 @@
 	},
 /area/ouerea_freewater)
 "Oc" = (
-/obj/structure/simple_door/wood,
-/turf/simulated/floor/exoplanet/grass{
+/obj/structure/table/wood,
+/obj/item/material/ashtray/bronze,
+/obj/item/trash/cigbutt,
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -789,6 +853,12 @@
 "Ru" = (
 /obj/machinery/light,
 /turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"RA" = (
+/obj/structure/flora/grass/junglegrass/random,
+/turf/simulated/floor/exoplanet/grass{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -928,6 +998,12 @@
 "Yx" = (
 /turf/simulated/wall/concrete,
 /area/ouerea_freewater)
+"Zc" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
 "Zx" = (
 /obj/machinery/autolathe,
 /turf/simulated/floor/tiled{
@@ -950,6 +1026,9 @@ sv
 sv
 sv
 sv
+RA
+sv
+RA
 sv
 sv
 sv
@@ -961,10 +1040,7 @@ sv
 sv
 sv
 sv
-sv
-sv
-sv
-sv
+RA
 sv
 sv
 sv
@@ -1025,6 +1101,7 @@ sv
 (3,1,1) = {"
 sv
 jC
+RA
 sv
 sv
 sv
@@ -1043,13 +1120,12 @@ sv
 sv
 sv
 sv
+RA
 sv
 sv
 sv
 sv
-sv
-sv
-sv
+RA
 sv
 sv
 sv
@@ -1078,6 +1154,7 @@ sv
 sv
 sv
 sv
+RA
 sv
 sv
 sv
@@ -1090,8 +1167,7 @@ sv
 sv
 sv
 sv
-sv
-sv
+RA
 sv
 sv
 sv
@@ -1115,7 +1191,7 @@ zK
 ZA
 sv
 sv
-sv
+RA
 sv
 sv
 ZA
@@ -1145,7 +1221,7 @@ jC
 sv
 ZA
 LQ
-yF
+ek
 yF
 yF
 yF
@@ -1162,15 +1238,15 @@ sm
 tQ
 yn
 tQ
+tQ
 Bn
-AZ
 ZA
 sv
 sv
 sv
+RA
 sv
-sv
-sv
+RA
 sv
 sv
 sv
@@ -1189,23 +1265,23 @@ yF
 yF
 yF
 yF
-yF
+dl
 ZA
+RA
 sv
 sv
 sv
-sv
-sv
+RA
 ZA
 tQ
 vj
 Fy
 xk
 Br
-dl
+AZ
 ZA
 sv
-sv
+RA
 sv
 sv
 sv
@@ -1225,10 +1301,10 @@ ZA
 ds
 yF
 yF
+Zc
 yF
 yF
-yF
-yF
+rI
 ZA
 sv
 sv
@@ -1265,14 +1341,14 @@ LQ
 yF
 yF
 yF
-yF
+Zc
 yF
 pV
 ZA
 sv
 sv
 sv
-sv
+RA
 sv
 ZA
 tQ
@@ -1309,7 +1385,7 @@ yF
 yF
 ZA
 sv
-sv
+RA
 sv
 sv
 sv
@@ -1324,9 +1400,9 @@ ZA
 sv
 ZA
 Kg
-tQ
-tQ
-tQ
+ft
+ft
+sR
 tQ
 tQ
 ZA
@@ -1415,7 +1491,7 @@ sv
 (13,1,1) = {"
 sv
 jC
-sv
+RA
 sv
 sv
 sv
@@ -1441,10 +1517,10 @@ sv
 sv
 ZA
 tQ
+tQ
 vc
-vN
-vN
-vc
+ba
+tQ
 tQ
 ZA
 sv
@@ -1458,7 +1534,7 @@ sv
 sv
 sv
 sv
-sv
+RA
 sv
 sv
 Uc
@@ -1483,7 +1559,7 @@ tQ
 vc
 vN
 vN
-vc
+ba
 tQ
 ZA
 sv
@@ -1495,7 +1571,7 @@ sv
 jC
 sv
 sv
-sv
+RA
 sv
 sv
 sv
@@ -1521,7 +1597,7 @@ ZA
 cy
 vc
 vN
-vN
+Oc
 vc
 Dh
 ZA
@@ -1542,7 +1618,7 @@ sv
 Uc
 Uc
 Uc
-sv
+RA
 sv
 UE
 UE
@@ -1598,7 +1674,7 @@ Ru
 ZA
 tQ
 vc
-vN
+rj
 vN
 vc
 tQ
@@ -1637,8 +1713,8 @@ Uc
 Yi
 tQ
 tQ
-tQ
-tQ
+vc
+vc
 tQ
 tQ
 ZA
@@ -1677,7 +1753,7 @@ ZA
 Us
 tQ
 tQ
-tQ
+ft
 tQ
 Dh
 ZA
@@ -1688,7 +1764,7 @@ sv
 (20,1,1) = {"
 sv
 Yx
-MN
+po
 MN
 Yx
 wC
@@ -1731,26 +1807,26 @@ PD
 tQ
 Yi
 Uc
+fd
 Uc
 Uc
 Uc
 Uc
 Uc
-Uc
+sv
+RA
+sv
+sv
+RA
 sv
 sv
 sv
 sv
-sv
-sv
-sv
-sv
-sv
-Uc
 Uc
 Uc
+Uc
 sv
-sv
+RA
 sv
 sv
 sv
@@ -1766,7 +1842,7 @@ sv
 (22,1,1) = {"
 sv
 Yx
-mh
+pa
 tQ
 Yx
 sv
@@ -1819,7 +1895,7 @@ sv
 sv
 sv
 sv
-sv
+RA
 sv
 sv
 sv
@@ -1886,12 +1962,12 @@ jC
 sv
 sv
 sv
-sv
+RA
 sv
 sv
 ZA
 ZA
-Oc
+Yi
 ZA
 ZA
 sv
@@ -1930,7 +2006,7 @@ sv
 sv
 ZA
 bo
-tQ
+ft
 Vy
 ZA
 sv
@@ -1969,7 +2045,7 @@ sv
 sv
 ZA
 MD
-tQ
+ft
 pR
 ZA
 sv
@@ -1981,7 +2057,7 @@ tQ
 yn
 tQ
 tQ
-tQ
+ft
 NX
 dm
 Dh
@@ -2004,7 +2080,7 @@ sv
 sv
 sv
 sv
-sv
+RA
 sv
 ZA
 FE
@@ -2017,10 +2093,10 @@ ZA
 tQ
 tQ
 tQ
+ft
 tQ
 tQ
-tQ
-tQ
+ft
 yS
 kb
 tQ
@@ -2057,8 +2133,8 @@ tQ
 tQ
 tQ
 tQ
-tQ
-tQ
+ft
+ft
 tQ
 xo
 xo
@@ -2080,7 +2156,7 @@ sv
 jC
 sv
 sv
-sv
+RA
 sv
 sv
 sv
@@ -2100,7 +2176,7 @@ tQ
 tQ
 tQ
 tQ
-tQ
+ft
 Dh
 ZA
 sv
@@ -2143,11 +2219,11 @@ nA
 CA
 ZA
 sv
+RA
 sv
 sv
 sv
-sv
-sv
+RA
 sv
 sv
 jC
@@ -2161,7 +2237,7 @@ sv
 sv
 sv
 sv
-sv
+RA
 sv
 sv
 sv
@@ -2206,7 +2282,7 @@ sv
 sv
 sv
 sv
-sv
+RA
 sv
 sv
 sv
