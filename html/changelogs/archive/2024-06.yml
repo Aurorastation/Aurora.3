@@ -290,3 +290,56 @@
   Sparky_hotdog:
   - rscadd: Added the colourable boonie hat to the colourable hat loadout selection.
   - rscadd: Added geiger counters to autolathes.
+2024-06-10:
+  DreamySkrell:
+  - rscadd: Adds weather to Tret away site.
+  FluffyGhost:
+  - code_imp: Ported the various matrix procs and defines from TG.
+  - code_imp: Updated our snowflake procs with the Bay's current version.
+  - refactor: Refactor of our orbit proc to align with the updated procs, tesla energy
+      ball too.
+  - rscadd: Added some notifications of proximity to the plains tyrant.
+  - balance: Reduced health and auto-brute-healing of the plains tyrant.
+  - bugfix: Fixed traps pathing so that mobs should now pass in them.
+  - code_imp: Optimized SA_attackable proc.
+  - bugfix: Mechs are no longer opaque, this fixes the simplemobs not attacking them
+      (because the line of sight check fails as the turf they stand on is opaque if
+      they are opaque too) as well as avoid lighting recomputing on every step.
+  FluffyGhost, Wezzy:
+  - rscadd: Added weapons racks, can be locked/unlocked with an ID card.
+  - imageadd: Added weapons racks sprites, from Wezzy.
+  - refactor: Refactored some circuitboard code, moved the defines, applied the defines,
+      DMDocs.
+  - refactor: Moved mutable appearance appearance flag set to the mutable appearance
+      file.
+  - qol: Reorganized the Horizon armory with the weapons racks, moved things around,
+      put down markers on lockers depending on the danger level of their content,
+      reorganized content of the remaining lockers.
+  - rscadd: Made weapons racks constructable with a circuitboards.
+  Geeves:
+  - rscadd: Added power cores, a type of large battery cell that get used by exosuits.
+      The nuclear and phoron variants are self-charging.
+  - balance: Combat mechs now start with nuclear power cores, allowing them to sustain
+      themselves indefinitely, so long as they stay out of the action for a bit.
+  - rscdel: Removed basic power cells from the mechfab, replaced with the mech powercores.
+  - rscadd: Mech cell statuses now instantly update as soon as the cell charges or
+      discharges.
+  - rscadd: Added a stack of 10 uranium to the machinist's workshop, which can print
+      two nuclear power cores.
+  Pirouette:
+  - rscadd: Bridge Crew and Corporate Reporters can now access Zeng-Hu augments.
+  Pirouette, AlphaM01:
+  - imageadd: Ported a few hairstyles; Eagle, Falcon, Hummingbird, Macaw, and four
+      varieties of Magpie.
+  RustingWithYou:
+  - rscadd: Adds a Ve'katak Phalanx Hivenet receiver augment.
+  - qol: The Vaurca magboot augment now mimics magboot functionality rather than just
+      deploying a pair of shoes.
+  - qol: Standardises combat voidsuit armor values.
+  nauticall:
+  - bugfix: Fixed the sensor relay away site having locked airlocks and undeconstructable
+      windows, alongside other misc changes.
+  - rscadd: Performed other various map tweaks and cleanup to the sensor relay.
+  - imageadd: Added a generic variant of the sensor relay's sensor suite, intended
+      for other away sites. Replaced the sensor relay's Solarian paintjob into its
+      own variant.
