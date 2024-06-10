@@ -5516,6 +5516,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
+/obj/structure/cargo_receptacle,
 /turf/simulated/floor/tiled/ridged,
 /area/tret_industrial/inside/storage_smelting)
 "aKK" = (
