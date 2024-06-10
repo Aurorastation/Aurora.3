@@ -1877,6 +1877,8 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/survey_probe/pra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3756,6 +3758,8 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/survey_probe/pra,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
