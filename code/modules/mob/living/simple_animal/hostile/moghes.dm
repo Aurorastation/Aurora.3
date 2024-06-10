@@ -33,6 +33,7 @@
 
 	faction = "Moghes"
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 20)
+	ignore_weather = TRUE
 	var/is_devouring = FALSE
 
 /mob/living/simple_animal/hostile/biglizard/AttackingTarget()
@@ -161,6 +162,7 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 	meat_amount = 10
 	faction = "Moghes"
+	ignore_weather = TRUE
 	var/shriek_time = 0
 
 /mob/living/simple_animal/hostile/shrieker/proc/shriek(turf/T, mob/living/M)

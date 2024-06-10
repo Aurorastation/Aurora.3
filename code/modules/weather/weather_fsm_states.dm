@@ -67,6 +67,12 @@
 		if(!weather.show_weather(M))
 			weather.show_wind(M)
 
+	// Check if mob should ignore exposure (after we add the pretty stuff above)
+	if(isanimal(M))
+		var/mob/living/simple_animal/SA = M
+		if(SA.ignore_weather)
+			return
+
 	if(exposure != WEATHER_IGNORE && weather.set_cooldown(M))
 		if(exposure == WEATHER_EXPOSED)
 			handle_exposure_effects(M, weather)

@@ -17,30 +17,39 @@
 	/// The type of damage this mob deals.
 	var/damage_type = DAMAGE_BRUTE
 
-	var/show_stat_health = 1	//does the percentage health show in the stat panel for the mob
+	/// Does the percentage health show in the stat panel for the mob
+	var/show_stat_health = TRUE	//does the percentage health show in the stat panel for the mob
 
 	var/icon_living = ""
 	var/icon_dead = ""
-	var/icon_gib = null	//We only try to show a gibbing animation if this exists.
+	/// We only try to show a gibbing animation if this exists.
+	var/icon_gib = null
 
 	appearance_flags = KEEP_TOGETHER
-	var/blood_type = COLOR_HUMAN_BLOOD //Blood colour for impact visuals.
+	/// Blood colour for impact visuals.
+	var/blood_type = COLOR_HUMAN_BLOOD
 	var/blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	var/blood_state = BLOOD_NONE
 	var/image/blood_overlay
 
 	var/bleeding = FALSE
-	var/blood_amount = 20			// set a limit to the amount of blood it can bleed, otherwise it will keep bleeding forever and crunk the server
-	var/previous_bleed_timer = 0	// they only bleed for as many seconds as force damage was applied to them
-	var/blood_timer_mod = 0.25		// tweak to change the amount of seconds a mob will bleed
+	/// Set a limit to the amount of blood it can bleed, otherwise it will keep bleeding forever and crunk the server
+	var/blood_amount = 20
+	/// They only bleed for as many seconds as force damage was applied to them
+	var/previous_bleed_timer = 0
+	/// Tweak to change the amount of seconds a mob will bleed
+	var/blood_timer_mod = 0.25
 
 	var/simple_default_language = LANGUAGE_TCB
-	universal_speak = TRUE // since most mobs verbalize sounds, this is the better option, just set this to false on mobs that don't make noise
+	/// Since most mobs verbalize sounds, this is the better option, just set this to false on mobs that don't make noise
+	universal_speak = TRUE
 
 	var/list/speak = list()
 	var/speak_chance = 0
-	var/list/emote_hear = list()	//Hearable emotes
-	var/list/emote_see = list()		//Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
+	/// Hearable emotes
+	var/list/emote_hear = list()
+	/// Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
+	var/list/emote_see = list()
 
 	///A list of sounds that this animal will randomly play, lazy list
 	var/list/emote_sounds
@@ -48,15 +57,21 @@
 
 	var/turns_per_move = 1
 	var/turns_since_move = 0
-	universal_speak = 0		//No, just no.
+	universal_speak = FALSE	//No, just no.
 	var/meat_amount = 0
 	var/meat_type
-	var/stop_thinking = FALSE // prevents them from doing any AI stuff whatsoever
-	var/stop_automated_movement = 0 //Use this to temporarely stop random movement or to if you write special movement code for animals.
-	var/wander = 1	// Does the mob wander around when idle?
-	var/wanders_diagonally = FALSE // does the mob move diagonally when wandering?
-	var/stop_automated_movement_when_pulled = 1 //When set to 1 this stops the animal from moving when someone is pulling it.
-	var/atom/movement_target = null//Thing we're moving towards
+	/// Prevents them from doing any AI stuff whatsoever
+	var/stop_thinking = FALSE
+	/// Use this to temporarily stop random movement or to if you write special movement code for animals.
+	var/stop_automated_movement = FALSE
+	/// Does the mob wander around when idle?
+	var/wander = TRUE
+	/// Does the mob move diagonally when wandering?
+	var/wanders_diagonally = FALSE
+	/// When set to 1 this stops the animal from moving when someone is pulling it.
+	var/stop_automated_movement_when_pulled = 1
+	/// Thing we're moving towards
+	var/atom/movement_target = null
 	var/turns_since_scan = 0
 
 	//Interaction
@@ -64,13 +79,16 @@
 	var/response_help   = "tries to help"
 	var/response_disarm = "tries to disarm"
 	var/response_harm   = "hurts"
-	var/harm_intent_damage = 3 //The maximum amount of damage this mob can take from simple unarmed attacks that don't have damage values, like punches
+	/// The maximum amount of damage this mob can take from simple unarmed attacks that don't have damage values.
+	var/harm_intent_damage = 3
 
-	//Temperature effect
+	//Temperature effects
 	var/minbodytemp = 250
 	var/maxbodytemp = 350
-	var/heat_damage_per_tick = 3	//amount of damage applied if animal's body temperature is higher than maxbodytemp
-	var/cold_damage_per_tick = 2	//same as heat_damage_per_tick, only if the bodytemperature it's lower than minbodytemp
+	/// Amount of damage applied if animal's body temperature is higher than maxbodytemp
+	var/heat_damage_per_tick = 3
+	/// Same as heat_damage_per_tick, only if the bodytemperature it's lower than minbodytemp
+	var/cold_damage_per_tick = 2
 	var/fire_alert = 0
 
 	//Atmos effect - Yes, you can make creatures that require phoron or co2 to survive. N2O is a trace gas and handled separately, hence why it isn't here. It'd be hard to add it. Hard and me don't mix (Yes, yes make all the dick jokes you want with that.) - Errorage
@@ -96,8 +114,10 @@
 	var/attack_sound = /singleton/sound_category/swing_hit_sound
 	var/friendly = "nuzzles"
 	var/environment_smash = 0
-	var/resistance		  = 0	// Damage reduction
-	var/resist_mod = 1 // a multiplier for the chance the animal has to break out
+	/// Damage reduction
+	var/resistance		  = 0
+	/// A multiplier for the chance the animal has to break out
+	var/resist_mod = 1
 
 	//Null rod stuff
 	var/supernatural = 0
@@ -105,56 +125,78 @@
 
 
 	//Hunger/feeding vars
-	var/hunger_enabled = 1//If set to 0, a creature ignores hunger
+	/// If set to 0, a creature ignores hunger
+	var/hunger_enabled = TRUE
 	max_nutrition = 50
-	var/metabolic_factor = 1//A multiplier on how fast nutrition is lost. used to tweak the rates on a per-animal basis
-	var/nutrition_step = 0.2 //nutrition lost per tick and per step, calculated from mob_size, 0.2 is a fallback
+	/// A multiplier on how fast nutrition is lost. used to tweak the rates on a per-animal basis
+	var/metabolic_factor = 1
+	/// Nutrition lost per tick and per step, calculated from mob_size, 0.2 is a fallback
+	var/nutrition_step = 0.2
 	var/bite_factor = 0.4
-	var/digest_factor = 0.2 //A multiplier on how quickly reagents are digested
+	/// A multiplier on how quickly reagents are digested
+	var/digest_factor = 0.2
 	var/stomach_size_mult = 5
-	var/list/forbidden_foods = list()	//Foods this animal should never eat
+	/// Foods this animal should never eat
+	var/list/forbidden_foods = list()
 
 	//Seeking/Moving behaviour vars
-	var/min_scan_interval = 1//Minimum and maximum number of procs between a scan
+	/// Minimum and maximum number of procs between a scan
+	var/min_scan_interval = 1
 	var/max_scan_interval = 15
-	var/scan_interval = 5//current scan interval, clamped between min and max
-	//It gradually increases up to max when its left alone, to save performance
+	/// Current scan interval, clamped between min and max
+	/// It gradually increases up to max when its left alone, to save performance
+	var/scan_interval = 5
 
-	var/seek_speed = 2//How many tiles per second the animal will move towards something
+	/// How many tiles per second the animal will move towards something
+	var/seek_speed = 2
 	var/seek_move_delay
-	var/scan_range = 6//How far around the animal will look for something
+	/// How far around the animal will look for something
+	var/scan_range = 6
 
-	var/kitchen_tag = "animal" //Used for cooking with animals
+	/// Used for cooking with animals
+	var/kitchen_tag = "animal"
 
 	//brushing
-	var/canbrush = FALSE //can we brush this beautiful creature?
-	var/brush = /obj/item/haircomb //What can we brush it with? Use a rag for things with scales/carapaces/etc
+	/// can we brush this beautiful creature?
+	var/canbrush = FALSE
+	/// What can we brush it with? Use a rag for things with scales/carapaces/etc
+	var/brush = /obj/item/haircomb
 
 	//Napping
 	var/can_nap = 0
 	var/icon_rest = null
 
-	var/tameable = TRUE //if you can tame it, used by the dociler for now
+	//Misc.
+	/// If you can tame it, used by the dociler for now
+	var/tameable = TRUE
 
-	var/flying = FALSE //if they can fly, which stops them from falling down and allows z-space travel
+	/// If they can fly, which stops them from falling down and allows z-space travel
+	var/flying = FALSE
 
+	/// If animal has an udder (and as such can be milked)
 	var/has_udder = FALSE
 	var/datum/reagents/udder = null
 	var/milk_type = /singleton/reagent/drink/milk
 
-	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
+	/// If anything else is created when butchering this creature, like bones and leather
+	var/list/butchering_products
 
 	var/psi_pingable = TRUE
 
 	var/armor_type = /datum/component/armor
-	var/list/natural_armor //what armor animal has
+	/// What armor animal has
+	var/list/natural_armor
 
 	//for simple animals that reflect damage when attacked in melee
 	var/return_damage_min
 	var/return_damage_max
 
-	var/dead_on_map = FALSE //if true, kills the mob when it spawns (it is for mapping)
+	/// If true, kills the mob when it spawns (it is for mapping)
+	var/dead_on_map = FALSE
 	var/vehicle_version = null
+
+	/// If animal ignores weather effects (so damaging weather does not cause barren wastelands)
+	var/ignore_weather = FALSE
 
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor

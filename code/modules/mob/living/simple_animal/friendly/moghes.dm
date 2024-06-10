@@ -30,6 +30,7 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 	meat_amount = 20
 	vehicle_version = /obj/vehicle/animal/threshbeast
+	ignore_weather = TRUE
 	natural_armor = list(
 		melee = ARMOR_MELEE_MEDIUM,
 		bullet = ARMOR_BALLISTIC_MINOR,
@@ -78,6 +79,7 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 	meat_amount = 30
 	vehicle_version = /obj/vehicle/animal/hegeranzi
+	ignore_weather = TRUE
 	natural_armor = list( //big tough war beast, has some more armor particularly against bullets and melee
 		melee = ARMOR_MELEE_MAJOR,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
@@ -96,6 +98,7 @@
 	name = "orszi fish"
 	desc = "A small fish native to the rivers and seas of the planet Moghes, the orzsi or 'swarm fish' is a common food source for noble and common Unathi alike."
 	faction = "Moghes"
+	ignore_weather = TRUE
 
 /mob/living/simple_animal/otzek
 	name = "otzek"
@@ -125,6 +128,7 @@
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 4)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 	meat_amount = 16
+	ignore_weather = TRUE
 
 /mob/living/simple_animal/miervesh
 	name = "miervesh"
@@ -152,6 +156,7 @@
 	butchering_products = list(/obj/item/stack/material/animalhide = 1)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 	meat_amount = 1
+	ignore_weather = TRUE
 	var/chosen_icon
 
 /mob/living/simple_animal/miervesh/Initialize()
