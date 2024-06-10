@@ -99,6 +99,7 @@
 /obj/item/clothing/glasses/welding,
 /obj/item/weldingtool/largetank,
 /obj/item/weldingtool/largetank,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled{
 	temperature = 298.15
 	},
@@ -189,6 +190,19 @@
 	},
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/ouerea_freewater)
+"kW" = (
+/obj/structure/closet/walllocker{
+	name = "Personnel Locker";
+	pixel_x = -32
+	},
+/obj/item/clothing/under/rank/security/pmc/dagamuir_freewater,
+/obj/item/clothing/shoes/sandals/caligae,
+/obj/item/clothing/gloves/black/unathi,
+/obj/item/storage/belt/security/tactical,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
 "lw" = (
 /obj/machinery/door/blast/shutters{
 	id = "dagamuir_base_entry"
@@ -230,13 +244,9 @@
 	},
 /area/ouerea_freewater)
 "nA" = (
-/obj/structure/closet/cabinet{
-	name = "wardrobe"
+/obj/structure/sign/poster{
+	pixel_x = 32
 	},
-/obj/item/clothing/under/rank/security/pmc/dagamuir_freewater,
-/obj/item/clothing/shoes/sandals/caligae,
-/obj/item/clothing/gloves/black/unathi,
-/obj/item/storage/belt/security/tactical,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
@@ -319,14 +329,20 @@
 /obj/item/reagent_containers/food/snacks/koiskebab3,
 /obj/item/reagent_containers/food/snacks/koismuffin,
 /obj/structure/closet/secure_closet/freezer/kois,
+/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
 "qq" = (
-/obj/machinery/light{
-	dir = 4
+/obj/structure/closet/walllocker{
+	name = "Personnel Locker";
+	pixel_x = 32
 	},
+/obj/item/clothing/under/rank/security/pmc/dagamuir_freewater,
+/obj/item/clothing/shoes/sandals/caligae,
+/obj/item/clothing/gloves/black/unathi,
+/obj/item/storage/belt/security/tactical,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
@@ -495,6 +511,13 @@
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
+"yK" = (
+/obj/structure/table/stone/marble,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
 "yS" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass{
@@ -526,6 +549,23 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
 /turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"AU" = (
+/obj/structure/closet/walllocker{
+	name = "Personnel Locker";
+	pixel_x = -32
+	},
+/obj/item/storage/backpack/cloak/klax,
+/obj/item/clothing/mask/gas/vaurca,
+/obj/item/clothing/mask/gas/vaurca/tactical,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/shoes/sandals/caligae,
+/obj/item/clothing/under/rank/security/pmc/dagamuir_freewater,
+/obj/item/clothing/shoes/vaurca,
+/obj/item/storage/belt/security/tactical,
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -570,17 +610,19 @@
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
-"CA" = (
-/obj/structure/closet/cabinet{
-	name = "wardrobe"
+"BY" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full{
+	pixel_y = 7
 	},
-/obj/item/clothing/under/rank/security/pmc/dagamuir_freewater,
-/obj/item/clothing/shoes/sandals/caligae,
-/obj/item/clothing/shoes/vaurca,
-/obj/item/clothing/mask/gas/vaurca/filter,
-/obj/item/clothing/mask/gas/vaurca/tactical,
-/obj/item/clothing/mask/gas/vaurca,
-/obj/item/storage/backpack/cloak/klax,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
+"CA" = (
+/obj/machinery/media/jukebox,
 /turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
@@ -650,6 +692,24 @@
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
+"HX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/aluminium/full{
+	pixel_y = 6
+	},
+/obj/item/stack/material/lead/full{
+	pixel_y = 10
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/wood/full{
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
 "Ic" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null;
@@ -694,18 +754,31 @@
 /obj/machinery/recharger{
 	pixel_x = -6
 	},
+/obj/item/device/gps{
+	pixel_y = 14;
+	pixel_x = -6
+	},
+/obj/item/device/gps{
+	pixel_y = 14;
+	pixel_x = -6
+	},
+/obj/item/device/gps{
+	pixel_y = 14;
+	pixel_x = -6
+	},
+/obj/item/device/gps{
+	pixel_y = 14;
+	pixel_x = -6
+	},
+/obj/item/device/gps{
+	pixel_y = 14;
+	pixel_x = -6
+	},
 /turf/simulated/floor/tiled{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
 "LG" = (
-/obj/structure/closet/cabinet{
-	name = "wardrobe"
-	},
-/obj/item/clothing/under/rank/security/pmc/dagamuir_freewater,
-/obj/item/clothing/shoes/sandals/caligae,
-/obj/item/clothing/gloves/black/unathi,
-/obj/item/storage/belt/security/tactical,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -1006,6 +1079,7 @@
 /area/ouerea_freewater)
 "Zx" = (
 /obj/machinery/autolathe,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled{
 	temperature = 298.15
 	},
@@ -1262,7 +1336,7 @@ ZA
 IA
 yF
 yF
-yF
+BY
 yF
 yF
 dl
@@ -1301,7 +1375,7 @@ ZA
 ds
 yF
 yF
-Zc
+HX
 yF
 yF
 rI
@@ -1440,7 +1514,7 @@ sv
 ZA
 cy
 zG
-zG
+yK
 zG
 zG
 RM
@@ -1551,7 +1625,7 @@ sv
 sv
 Uc
 Uc
-Uc
+sv
 sv
 sv
 ZA
@@ -1627,7 +1701,7 @@ sv
 sv
 UE
 sv
-Uc
+sv
 Uc
 Uc
 sv
@@ -1651,6 +1725,17 @@ TF
 Uc
 lw
 Uc
+sv
+Uc
+Uc
+Uc
+Uc
+Uc
+Uc
+sv
+sv
+Uc
+sv
 Uc
 Uc
 Uc
@@ -1658,18 +1743,7 @@ Uc
 Uc
 Uc
 Uc
-Uc
-Uc
-Uc
-Uc
-Uc
-Uc
-Uc
-Uc
-Uc
-Uc
-Uc
-Uc
+sv
 Ru
 ZA
 tQ
@@ -1742,8 +1816,8 @@ Uc
 Uc
 Uc
 Uc
-Uc
-Uc
+sv
+sv
 Uc
 Uc
 Uc
@@ -1773,19 +1847,19 @@ sv
 sv
 Uc
 Uc
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+sv
+Uc
 Uc
 sv
-sv
-sv
-sv
-sv
-sv
-sv
-sv
-sv
-Uc
-Uc
-Uc
 sv
 sv
 ZA
@@ -1822,7 +1896,7 @@ sv
 sv
 sv
 sv
-Uc
+sv
 Uc
 Uc
 sv
@@ -1861,7 +1935,7 @@ sv
 sv
 sv
 sv
-Uc
+sv
 Uc
 Uc
 sv
@@ -2019,8 +2093,8 @@ ZA
 Ij
 ZA
 tQ
-Nt
-Nt
+tQ
+tQ
 tQ
 ZA
 sv
@@ -2052,14 +2126,14 @@ sv
 sv
 ZA
 cy
+kW
 tQ
+AU
 tQ
-yn
-tQ
-tQ
+kW
 ft
-NX
-dm
+Nt
+Nt
 Dh
 ZA
 sv
@@ -2093,12 +2167,12 @@ ZA
 tQ
 tQ
 tQ
-ft
 tQ
 tQ
+tQ
 ft
-yS
-kb
+NX
+dm
 tQ
 ZA
 sv
@@ -2136,8 +2210,8 @@ tQ
 ft
 ft
 tQ
-xo
-xo
+yS
+kb
 tQ
 ZA
 sv
@@ -2169,14 +2243,14 @@ sv
 sv
 ZA
 cy
-tQ
+qq
 tQ
 qq
 tQ
+qq
 tQ
-tQ
-tQ
-ft
+xo
+xo
 Dh
 ZA
 sv
@@ -2215,7 +2289,7 @@ Ij
 ZA
 LG
 nA
-nA
+tQ
 CA
 ZA
 sv
