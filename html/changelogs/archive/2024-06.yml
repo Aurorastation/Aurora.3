@@ -290,3 +290,87 @@
   Sparky_hotdog:
   - rscadd: Added the colourable boonie hat to the colourable hat loadout selection.
   - rscadd: Added geiger counters to autolathes.
+2024-06-10:
+  DreamySkrell:
+  - rscadd: Adds weather to Tret away site.
+  FluffyGhost:
+  - code_imp: Ported the various matrix procs and defines from TG.
+  - code_imp: Updated our snowflake procs with the Bay's current version.
+  - refactor: Refactor of our orbit proc to align with the updated procs, tesla energy
+      ball too.
+  - rscadd: Added some notifications of proximity to the plains tyrant.
+  - balance: Reduced health and auto-brute-healing of the plains tyrant.
+  - bugfix: Fixed traps pathing so that mobs should now pass in them.
+  - code_imp: Optimized SA_attackable proc.
+  - bugfix: Mechs are no longer opaque, this fixes the simplemobs not attacking them
+      (because the line of sight check fails as the turf they stand on is opaque if
+      they are opaque too) as well as avoid lighting recomputing on every step.
+  FluffyGhost, Wezzy:
+  - rscadd: Added weapons racks, can be locked/unlocked with an ID card.
+  - imageadd: Added weapons racks sprites, from Wezzy.
+  - refactor: Refactored some circuitboard code, moved the defines, applied the defines,
+      DMDocs.
+  - refactor: Moved mutable appearance appearance flag set to the mutable appearance
+      file.
+  - qol: Reorganized the Horizon armory with the weapons racks, moved things around,
+      put down markers on lockers depending on the danger level of their content,
+      reorganized content of the remaining lockers.
+  - rscadd: Made weapons racks constructable with a circuitboards.
+  Geeves:
+  - rscadd: Added power cores, a type of large battery cell that get used by exosuits.
+      The nuclear and phoron variants are self-charging.
+  - balance: Combat mechs now start with nuclear power cores, allowing them to sustain
+      themselves indefinitely, so long as they stay out of the action for a bit.
+  - rscdel: Removed basic power cells from the mechfab, replaced with the mech powercores.
+  - rscadd: Mech cell statuses now instantly update as soon as the cell charges or
+      discharges.
+  - rscadd: Added a stack of 10 uranium to the machinist's workshop, which can print
+      two nuclear power cores.
+  Pirouette:
+  - rscadd: Bridge Crew and Corporate Reporters can now access Zeng-Hu augments.
+  Pirouette, AlphaM01:
+  - imageadd: Ported a few hairstyles; Eagle, Falcon, Hummingbird, Macaw, and four
+      varieties of Magpie.
+  RustingWithYou:
+  - rscadd: Adds a Ve'katak Phalanx Hivenet receiver augment.
+  - qol: The Vaurca magboot augment now mimics magboot functionality rather than just
+      deploying a pair of shoes.
+  - qol: Standardises combat voidsuit armor values.
+  nauticall:
+  - bugfix: Fixed the sensor relay away site having locked airlocks and undeconstructable
+      windows, alongside other misc changes.
+  - rscadd: Performed other various map tweaks and cleanup to the sensor relay.
+  - imageadd: Added a generic variant of the sensor relay's sensor suite, intended
+      for other away sites. Replaced the sensor relay's Solarian paintjob into its
+      own variant.
+2024-06-11:
+  AlaunusLux:
+  - bugfix: Messages from the Expeditionary frequency will now be shown when the 'Radio'
+      filter is selected.
+  Ben10083:
+  - rscdel: Nanotrasen Abandoned facility in Ouerea no longer has certain items in
+      RD locker (No radios for you). A different, special item has been placed there
+      instead
+  - rscadd: "Adhomian Eclipses Shi-rr\u2019ata and Shi-rra Arr\u2019Kahata added."
+  - admin: Set Holiday Verb nows allows user to type in a holiday if not given.
+  BoomerThor:
+  - bugfix: Fixes the detective trenchcoats to display the proper sprites.
+  DreamySkrell:
+  - bugfix: Hivenet aug transmit fix.
+  - rscadd: Better staff who verb window.
+  Geeves:
+  - rscadd: Added overhead emotes, high-fives and fist-bumps. Help intent click someone's
+      arm for a high-five, their hand for fist-bump.
+  - rscadd: Added more backgrounds to choose from in the character preview screen.
+  - rscadd: You can now selectively hide your job uniform, suit, or hat.
+  - rscadd: Added a system that lets accessories increase the weight class / size
+      of the items they attach to. Currently only implemented on modular armour's
+      arm and leg guards, which will now not fit into bags if those are attached.
+  Lavillastrangiato:
+  - bugfix: Fixes the PSS shuttle.
+  - qol: Adds an extra stack of tritium to the Dominian corvette.
+  SimpleMaroon:
+  - imageadd: Added accessory versions of tank tops to the loadout.
+  TheDanseMacabre:
+  - rscadd: Added new patterned Visegradi ponczos to the loadout.
+  - imageadd: Replaced the sprite of the existing Visegradi ponczo.
