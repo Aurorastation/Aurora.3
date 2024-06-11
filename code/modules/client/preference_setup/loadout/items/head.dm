@@ -492,3 +492,10 @@ var/datum/gear_tweak/hair_block/gear_tweak_hair_block = new()
 			H.flags_inv |= BLOCKHEADHAIR
 		if("No")
 			H.flags_inv &= ~BLOCKHEADHAIR
+
+// REV EDITS OH BOY THESE ARE GONNA SUCK WTF AM I DOING
+/datum/gear/head/plain_hood
+	display_name = "colorable hood"
+	path = /obj/item/clothing/head/plain_hood
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+// END REV EDITS
