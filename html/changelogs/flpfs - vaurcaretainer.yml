@@ -55,5 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Adds a commandable simplemob, the Vaurca Retainer, to Tret It has the same AI as Columbo, except that it does not attack. It has an internal storage that is briefcase sized."
+  - rscadd: "Adds a commandable simplemob, the Vaurca Retainer, to Tret. It has the same AI as Columbo, except that it does not attack. It has an internal storage that is briefcase sized."
   - rscadd: "Adds a retainer puzzle box, which utilizes the same sprite as the vaurca puzzle box. The box's coloration decides the mob's color."
+  - rscadd: "Vaurca Consulars can select the vaurca retainer box in their loadout, which allows them to spawn a retainer for their use on-ship."
