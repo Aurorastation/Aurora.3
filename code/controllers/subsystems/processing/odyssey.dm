@@ -9,9 +9,9 @@ PROCESSING_SUBSYSTEM_DEF(odyssey)
 	/// The z-levels that the situation takes place in. If null, it means that there are no loaded zlevels for this situation.
 	/// It probably takes place on the Horizon in that case.
 	var/list/situation_zlevels
-	/// This is the planet the situation takes place on. If null, then the mission takes place on a non-planet zlevel.
-	/// Should only be changed through set_planet().
-	var/obj/effect/overmap/visitable/sector/exoplanet/situation_planet
+	/// This is the site the situation takes place on. If null, then the mission takes place on a non-site zlevel.
+	/// Should only be changed through set_situation_site().
+	var/datum/map_template/ruin/away_site/situation_site
 	/// A list of currently spawned actors for easy access.
 	var/list/actors
 	/// A list of currently spawned storytellers for easy access.
@@ -22,7 +22,7 @@ PROCESSING_SUBSYSTEM_DEF(odyssey)
 
 /datum/controller/subsystem/processing/odyssey/Recover()
 	situation = SSodyssey.situation
-	situation_planet = SSodyssey.situation_planet
+	situation_site = SSodyssey.situation_site
 	situation_zlevels = SSodyssey.situation_zlevels
 	actors = SSodyssey.actors
 	storytellers = SSodyssey.storytellers
@@ -44,17 +44,29 @@ PROCESSING_SUBSYSTEM_DEF(odyssey)
 		return
 
 	situation = pickweight(possible_situations)
+	gamemode_setup()
+	/// Now that we actually have a situation, the subsystem can fire!
 	flags &= ~SS_NO_FIRE
 
 /**
- * This is the proc that should be used to set the situation planet.
+ * This proc overrides the gamemode variables for the amount of actors.
+ * Note that Storytellers spawn through a ghost role.
  */
-/datum/controller/subsystem/processing/odyssey/proc/set_planet(obj/effect/overmap/visitable/sector/exoplanet/planet)
-	if(!istype(planet))
+/datum/controller/subsystem/processing/odyssey/proc/gamemode_setup()
+	SHOULD_CALL_PARENT(TRUE)
+	if(istype(SSticker.mode, /datum/game_mode/odyssey))
+		/// TODOMATT: this has some issues, we need to check the amount of players BEFORE we spawn the template...
+		SSticker.mode.required_players = situation.min_player_amount
+		SSticker.mode.required_enemies = situation.min_actor_amount
+
+/**
+ * This is the proc that should be used to set the situation away site.
+ */
+/datum/controller/subsystem/processing/odyssey/proc/set_situation_site(datum/map_template/ruin/away_site/site)
+	if(!istype(site))
 		return
 
-	situation_planet = planet
-	situation_zlevels = planet.map_z
+	situation_site = site
 
 /**
  * Adds an actor to the subsystem actor list.

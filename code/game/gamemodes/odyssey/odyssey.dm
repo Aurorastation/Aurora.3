@@ -6,7 +6,7 @@
 	config_tag = "odyssey"
 	required_players = 8
 	required_enemies = 1 // The actual antag-setting is handled by the mission singleton.
-	antag_tags = list(MODE_STORYTELLER, MODE_ACTOR)
+	antag_tags = list(MODE_STORYTELLER)
 	antag_scaling_coeff = 1
 
 /datum/game_mode/odyssey/pre_setup()

@@ -12,4 +12,4 @@ GLOBAL_LIST_EMPTY_TYPED(actors, /datum/antagonist/actor)
 
 /datum/antagonist/actor/New()
 	..(1)
-	commandos = src
+	GLOB.actors = src
