@@ -305,6 +305,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "bJ" = (
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
@@ -1333,7 +1337,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/head/softcap,
 /obj/item/clothing/head/softcap,
-/obj/item/clothing/accessory/poncho,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "gv" = (
@@ -2223,6 +2226,7 @@
 /obj/item/storage/backpack/satchel/leather,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/under/sundress,
+/obj/item/clothing/under/dress/tajaran/formal,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "lN" = (
@@ -5933,6 +5937,9 @@
 "GF" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/bridge)
@@ -44594,7 +44601,7 @@ We
 GP
 GP
 GP
-rO
+xf
 hX
 hX
 hX
