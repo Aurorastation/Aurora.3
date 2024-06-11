@@ -14,6 +14,7 @@
 
 /datum/large_structure/tent/build_structures()
 	. = ..()
+	var/list/roofs = list()
 	for(var/obj/structure/component/tent_canvas/C in grouped_structures)
 		if(dir & (NORTH | SOUTH))
 			if(C.x == x1 || C.x == x2)
@@ -34,12 +35,13 @@
 		var/obj/item/tent/source = source_item
 		if(istype(source))
 			var/obj/structure/component/tent_canvas/roof/roof = new /obj/structure/component/tent_canvas/roof(C.loc)
-			grouped_structures += roof
+			roofs += roof
 			roof.color = color
 			roof.dir = C.dir
 			if(source.decal && C.x == x1 && C.y == y1)
 				roof.AddOverlays(overlay_image('icons/obj/item/tent_decals.dmi', source.decal, flags=RESET_COLOR))
 			roof.icon_state = "roof_[get_roof_type(C)]"
+	grouped_structures += roofs
 
 /datum/large_structure/tent/structure_entered(turf/T, atom/movable/AM)
 	. = ..()
