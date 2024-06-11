@@ -6,7 +6,7 @@
 /datum/large_structure
 	var/name = "structure"
 	var/list/turf/target_turfs = list()  // Turfs this structure exists on
-	var/list/obj/structure/grouped_structures = list() // Structures that are part of this structure
+	var/list/obj/structure/component/grouped_structures = list() // Structures that are part of this structure
 	var/list/mob/interacting = list() // Mobs assembling or disassembling this structure
 	/**
 	 * A list of the stages required to assemble or disassemble the large structure. Format: "string" = STAGE
@@ -32,9 +32,9 @@
 	var/turf/origin
 
 /datum/large_structure/Destroy()
+	. = ..()
 	QDEL_LIST(grouped_structures)
 	QDEL_NULL(source_item)
-	return ..()
 
 /datum/large_structure/proc/get_next_stage(var/type)
 	for(var/stage in stages)
