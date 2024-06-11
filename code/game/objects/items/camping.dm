@@ -101,7 +101,7 @@
 
 /obj/item/tent/Destroy()
 	. = ..()
-	if(!my_tent.grouped_structures)
+	if(my_tent && !my_tent.grouped_structures)
 		QDEL_NULL(my_tent)
 
 /obj/item/tent/MouseDrop(over_object, src_location, over_location)
