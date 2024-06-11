@@ -4292,9 +4292,6 @@
 	},
 /area/new_blades/interiors/ruins)
 "PJ" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
-	req_access = "208"
-	},
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/storage/box/produce{
@@ -4314,6 +4311,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/skrell,
+/obj/structure/closet/secure_closet/freezer,
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},

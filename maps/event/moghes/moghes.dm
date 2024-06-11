@@ -11,7 +11,7 @@
 	admin_levels = list(1)
 	contact_levels = list(2, 3)
 	player_levels = list(2, 3)
-	accessible_z_levels = list(2,)
+	accessible_z_levels = list(2,3)
 
 	station_name = "Moghes"
 	station_short = "Moghes"
