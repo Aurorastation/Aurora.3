@@ -150,7 +150,7 @@
 	icon_state = "idris_warden_coat"
 	item_state = "idris_warden_coat"
 
-/obj/item/clothing/suit/storage/toggle/det_trench // Not security anymore, but used in the loadout.
+/obj/item/clothing/suit/storage/toggle/trench/det_trench // Not security anymore, but used in the loadout.
 	name = "brown trenchcoat"
 	desc = "A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. Perfect for your next act of autodefenestration!"
 	icon_state = "detective"
@@ -159,9 +159,10 @@
 	body_parts_covered = UPPER_TORSO|ARMS
 	allowed = list(/obj/item/tank/emergency_oxygen,/obj/item/device/flashlight,/obj/item/gun/energy,/obj/item/gun/projectile,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/storage/box/fancy/cigarettes,/obj/item/flame/lighter,/obj/item/device/taperecorder,/obj/item/clothing/accessory/badge/investigator)
 
-/obj/item/clothing/suit/storage/toggle/det_trench/black
+/obj/item/clothing/suit/storage/toggle/trench/det_trench/black
 	name = "black trenchcoat"
 	icon_state = "detective2"
+	item_state = "detective2"
 
 //Lawyer
 

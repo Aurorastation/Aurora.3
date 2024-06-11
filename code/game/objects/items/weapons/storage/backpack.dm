@@ -963,7 +963,7 @@
 
 /obj/item/storage/backpack/cloak
 	name = "tunnel cloak"
-	desc = "A Vaurca cloak with storage pockets."
+	desc = "A Vaurca cloak with storage pockets. This one is made of a strong T’kuxi silk weave."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "cape"
 	item_state = "cape"
@@ -995,63 +995,99 @@
 
 /obj/item/storage/backpack/cloak/sedantis
 	name = "Sedantis tunnel cloak"
-	desc = "A Vaurca cloak with storage pockets. This one has the Sedantis flag design."
+	desc = "A Vaurca cloak with storage pockets. This one has the Sedantis flag design. This one is made of a strong T’kuxi silk weave."
 	icon_state = "sedcape"
 	item_state = "sedcape"
 
 /obj/item/storage/backpack/cloak/medical
 	name = "medical tunnel cloak"
-	desc = "A Vaurca cloak with storage pockets. This one has the medical department design."
+	desc = "A Vaurca cloak with storage pockets. This one has the medical department design. This one is made of a strong T’kuxi silk weave."
 	icon_state = "medcape"
 	item_state = "medcape"
 
 /obj/item/storage/backpack/cloak/engi
 	name = "engineering tunnel cloak"
-	desc = "A Vaurca cloak with storage pockets. This one has the engineering department design."
+	desc = "A Vaurca cloak with storage pockets. This one has the engineering department design. This one is made of a strong T’kuxi silk weave."
 	icon_state = "engicape"
 	item_state = "engicape"
 
 /obj/item/storage/backpack/cloak/atmos
 	name = "atmospherics tunnel cloak"
-	desc = "A Vaurca cloak with storage pockets. This one has the atmospherics design."
+	desc = "A Vaurca cloak with storage pockets. This one has the atmospherics design. This one is made of a strong T’kuxi silk weave."
 	icon_state = "atmoscape"
 	item_state = "atmoscape"
 
 /obj/item/storage/backpack/cloak/cargo
 	name = "operations tunnel cloak"
-	desc = "A Vaurca cloak with storage pockets. This one has the operations department design."
+	desc = "A Vaurca cloak with storage pockets. This one has the operations department design. This one is made of a strong T’kuxi silk weave."
 	icon_state = "cargocape"
 	item_state = "cargocape"
 
 /obj/item/storage/backpack/cloak/sci
 	name = "science tunnel cloak"
-	desc = "A Vaurca cloak with storage pockets. This one has the science department design."
+	desc = "A Vaurca cloak with storage pockets. This one has the science department design. This one is made of a strong T’kuxi silk weave."
 	icon_state = "scicape"
 	item_state = "scicape"
 
 /obj/item/storage/backpack/cloak/sec
 	name = "security tunnel cloak"
-	desc = "A Vaurca cloak with storage pockets. This one has the security department design."
+	desc = "A Vaurca cloak with storage pockets. This one has the security department design. This one is made of a strong T’kuxi silk weave."
 	icon_state = "seccape"
 	item_state = "seccape"
 
 /obj/item/storage/backpack/cloak/zora
 	name = "\improper Zo'ra tunnel cloak"
-	desc = "A Vaurca cloak with storage pockets. This one has the Zo'ra Hive flag design."
+	desc = "A Vaurca cloak with storage pockets. This one has the Zo'ra Hive flag design. This one is made of a strong T’kuxi silk weave."
 	icon_state = "zoracape"
 	item_state = "zoracape"
 
 /obj/item/storage/backpack/cloak/klax
 	name = "\improper K'lax tunnel cloak"
-	desc = "A Vaurca cloak with storage pockets. This one has the K'lax Hive flag design."
+	desc = "A Vaurca cloak with storage pockets. This one has the K'lax Hive flag design. This one is made of a strong T’kuxi silk weave."
 	icon_state = "klaxcape"
 	item_state = "klaxcape"
 
 /obj/item/storage/backpack/cloak/cthur
 	name = "\improper C'thur tunnel cloak"
-	desc = "A Vaurca cloak with storage pockets. This one has the C'thur Hive flag design."
+	desc = "A Vaurca cloak with storage pockets. This one has the C'thur Hive flag design. This one is made of a strong T’kuxi silk weave."
 	icon_state = "cthurcape"
 	item_state = "cthurcape"
+
+/obj/item/storage/backpack/cloak/nt
+	name = "\improper NanoTrasen tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the Nanotrasen logo design. This one is made of a cheap synthetic silk weave."
+	icon_state = "ntcape"
+	item_state = "ntcape"
+
+/obj/item/storage/backpack/cloak/orion
+	name = "\improper Orion Express tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the Orion Express logo design. This one is made of a cheap synthetic silk weave."
+	icon_state = "orioncape"
+	item_state = "orioncape"
+
+/obj/item/storage/backpack/cloak/heph
+	name = "\improper Hephaestus Industries tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the Hephaestus Industries logo design. This one is made of a cheap synthetic silk weave."
+	icon_state = "hephcape"
+	item_state = "hephcape"
+
+/obj/item/storage/backpack/cloak/zavod
+	name = "\improper Zavodskoi Interstellar tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the Zavodskoi Interstellar logo design. This one is made of a cheap synthetic silk weave."
+	icon_state = "zavodcape"
+	item_state = "zavodcape"
+
+/obj/item/storage/backpack/cloak/zeng
+	name = "\improper Zeng-Hu Pharmaceuticals tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the Zeng-Hu Pharmaceuticals logo design. This one is made of a cheap synthetic silk weave."
+	icon_state = "zengcape"
+	item_state = "zengcape"
+
+/obj/item/storage/backpack/cloak/phalanx
+	name = "\improper Ve'katak Phalanx tunnel cloak"
+	desc = "A Vaurca cloak with storage pockets. This one has the Ve'katak Phalanx logo design. This one is made of a strong T’kuxi silk weave."
+	icon_state = "phalanxcape"
+	item_state = "phalanxcape"
 
 /obj/item/storage/backpack/kala
 	name = "skrell backpack"

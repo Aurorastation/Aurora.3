@@ -99,6 +99,16 @@
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
+"Y" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_siakh_knight";
+	identifier = "moghes_siakh_knight"
+	},
+/obj/item/bedsheet/brown,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "Z" = (
 /obj/structure/bonfire/light_up,
 /turf/simulated/floor/exoplanet/foundation{
@@ -309,7 +319,7 @@ a
 a
 a
 z
-g
+Y
 v
 v
 Z
@@ -331,7 +341,7 @@ a
 a
 z
 z
-g
+Y
 v
 v
 v

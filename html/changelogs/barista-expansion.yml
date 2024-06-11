@@ -1,0 +1,8 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - rscadd: "You can now use pens to add customer names and their orders to takeaway cups."
+  - qol: "Moved the chemical heater to the front of the bar."
+  - qol: "You can now use reagent containers on closed syrup dispensers to dispense syrup into the container without picking up the syrup."

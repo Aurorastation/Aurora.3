@@ -1427,7 +1427,8 @@
 	pixel_x = 22;
 	pixel_y = 11;
 	req_access = list(19);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -11153,7 +11154,7 @@
 /turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "hIo" = (
-/obj/machinery/computer/aiupload{
+/obj/machinery/computer/borgupload{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -33754,7 +33755,8 @@
 	pixel_x = 26;
 	pixel_y = -17;
 	req_access = list(19);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/structure/cable{
 	icon_state = "2-8"

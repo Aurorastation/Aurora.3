@@ -2,6 +2,7 @@
 	layer = OBJ_LAYER
 	glide_size = 6
 	animate_movement = SLIDE_STEPS
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND
 
 	var/last_move = null
 	var/anchored = 0

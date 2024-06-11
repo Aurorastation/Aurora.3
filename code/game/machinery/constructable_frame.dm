@@ -108,7 +108,7 @@
 		if(CIRCUITBOARD_STATE)
 			if(istype(attacking_item, /obj/item/circuitboard))
 				var/obj/item/circuitboard/B = attacking_item
-				if(B.board_type == "machine")
+				if(B.board_type == BOARD_MACHINE)
 					playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, TRUE)
 					to_chat(user, SPAN_NOTICE("You add the circuit board to the blueprint."))
 					circuit = attacking_item

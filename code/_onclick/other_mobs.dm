@@ -39,7 +39,7 @@
 /mob/proc/attack_empty_hand(var/bp_hand)
 	return
 
-/mob/living/carbon/human/RangedAttack(var/atom/A)
+/mob/living/carbon/human/RangedAttack(atom/A)
 	var/obj/item/clothing/gloves/GV = gloves
 	var/obj/item/clothing/glasses/GS = glasses
 

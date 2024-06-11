@@ -155,8 +155,19 @@ var/global/Holiday = null
 /client/proc/Set_Holiday(T as text|null)
 	set name = "Set Holiday"
 	set category = "Fun"
-	set desc = "Force-set the Holiday variable to make the game think it's a certain day."
-	if(!check_rights(R_SERVER))	return
+	set desc = "Force-set the Holiday variable to make the game think it's a certain day. Set to 'None' to unset the Holiday"
+	if(!check_rights(R_SERVER))
+		return FALSE
+
+	if(!T)
+		T = tgui_input_text(src, "Type in a holiday below, or type 'None' to unset any holiday", "What Holiday is today?", "")
+		if(!T)
+			return FALSE
+	else if (T == "None")
+		Holiday = null
+		message_admins(SPAN_NOTICE("ADMIN: Event: [key_name(src)] unset today's Holiday."))
+		log_admin("[key_name(src)] unset today's Holiday",admin_key=key_name(src))
+		return TRUE
 
 	Holiday = T
 
@@ -164,7 +175,7 @@ var/global/Holiday = null
 
 	message_admins(SPAN_NOTICE("ADMIN: Event: [key_name(src)] force-set Holiday to \"[Holiday]\""))
 	log_admin("[key_name(src)] force-set Holiday to \"[Holiday]\"",admin_key=key_name(src))
-
+	return TRUE
 
 //Run at the  start of a round
 /proc/Holiday_Game_Start()

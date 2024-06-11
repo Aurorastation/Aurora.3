@@ -2594,7 +2594,8 @@
 	dir = 8
 	},
 /obj/machinery/vending/wallmed1{
-	pixel_y = 27
+	pixel_y = 27;
+	req_access = list(241)
 	},
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
@@ -5109,7 +5110,8 @@
 /area/ship/fishing_trawler/EVA_starboard)
 "MB" = (
 /obj/machinery/vending/wallmed2{
-	pixel_x = -28
+	pixel_x = -28;
+	req_access = list(241)
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
