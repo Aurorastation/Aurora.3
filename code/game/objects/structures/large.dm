@@ -30,10 +30,6 @@
 	var/z2
 	var/turf/origin
 
-/datum/large_structure/Destroy()
-	. = ..()
-	QDEL_LIST(grouped_structures)
-
 /datum/large_structure/proc/get_next_stage(var/type)
 	for(var/stage in stages)
 		if(stages[stage] == type)
