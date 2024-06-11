@@ -4119,7 +4119,7 @@
 	},
 /obj/structure/table/standard,
 /obj/item/vaurca/retainer_box{
-	color = 74B72E
+	color = "#74b72e"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/crew)
