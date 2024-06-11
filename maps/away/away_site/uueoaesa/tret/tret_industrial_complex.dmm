@@ -8671,26 +8671,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_comms)
-"gsZ" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(216);
-	name = "EVA Storage"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/eva)
 "gtP" = (
 /obj/machinery/mining/brace{
 	dir = 8
@@ -12434,6 +12414,26 @@
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
+"tmo" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_one_access = list(216);
+	name = "EVA Storage"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/eva)
 "tnC" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/oil,
@@ -43297,8 +43297,8 @@ lmR
 mUU
 dBl
 xES
-uMG
-uMG
+aDe
+aDe
 aOW
 dBl
 dBl
@@ -44325,7 +44325,7 @@ aOS
 aMK
 dBl
 amJ
-aDe
+uMG
 kMI
 ruC
 dBl
@@ -47660,7 +47660,7 @@ awl
 afw
 ajd
 adt
-gsZ
+tmo
 abr
 aAY
 rGu
