@@ -155,7 +155,7 @@
 		if(!QDELETED(A))
 			throw_impact(A, throwing)
 			A.CollidedWith(src)
-		throwing.finalize(hit = TRUE, target = A)
+		throwing?.finalize(hit = TRUE, target = A)
 
 	else if (!QDELETED(A))
 		A.CollidedWith(src)
