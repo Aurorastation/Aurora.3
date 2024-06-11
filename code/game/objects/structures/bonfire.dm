@@ -11,6 +11,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	density = FALSE
 	light_color = LIGHT_COLOR_FIRE
 	build_amt = 20
+	pass_flags_self = PASSTABLE | LETPASSTHROW
 	var/fuel = 2000
 	var/max_fuel = 2000
 	var/on_fire = FALSE

@@ -8,6 +8,7 @@
 	climbable = TRUE
 	layer = OBJ_LAYER
 	anchored = FALSE
+	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE
 
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED

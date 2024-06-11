@@ -20,6 +20,8 @@
 	door_anim_time = 3
 	door_anim_angle = 140
 	door_hinge = 3.5
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
+
 	var/tablestatus = 0
 
 	var/azimuth_angle_2 = 180 //in this context the azimuth angle for over 90 degree
