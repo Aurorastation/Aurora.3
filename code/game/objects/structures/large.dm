@@ -33,6 +33,7 @@
 
 /datum/large_structure/Destroy()
 	QDEL_LIST(grouped_structures)
+	QDEL_NULL(source_item)
 	return ..()
 
 /datum/large_structure/proc/get_next_stage(var/type)

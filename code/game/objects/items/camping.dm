@@ -98,6 +98,10 @@
 	w_class = min(ceil(width * length / 1.5), ITEMSIZE_IMMENSE) // 2x2 = ITEMSIZE_NORMAL
 	desc += "\nThis one is [width] x [length] in size."
 
+/obj/item/tent/Destroy()
+	. = ..()
+	QDEL_NULL(my_tent)
+
 /obj/item/tent/MouseDrop(over_object, src_location, over_location)
 	. = ..()
 	if(use_check(usr) || !Adjacent(usr))
