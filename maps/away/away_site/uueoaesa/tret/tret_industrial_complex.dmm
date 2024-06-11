@@ -12128,7 +12128,7 @@
 /area/tret_industrial/inside/hallway_docks)
 "sQd" = (
 /mob/living/simple_animal/hostile/commanded/vaurca_retainer{
-	color = 155133
+	color = "#155133"
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
@@ -13294,7 +13294,7 @@
 /area/tret_industrial/outside/surface)
 "xnt" = (
 /mob/living/simple_animal/hostile/commanded/vaurca_retainer{
-	color = 32A032
+	color = "#32a032"
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
