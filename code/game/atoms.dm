@@ -252,8 +252,6 @@
 	return
 
 /atom/proc/hitby(atom/movable/AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
-	if(density)
-		AM.throwing = 0
 	return
 
 /atom/proc/add_hiddenprint(mob/living/M)

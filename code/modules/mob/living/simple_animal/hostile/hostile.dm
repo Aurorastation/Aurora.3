@@ -136,8 +136,8 @@
 	..()
 	if(istype(AM,/obj/))
 		var/obj/O = AM
-		if((target_mob != O.thrower) && ismob(O.thrower))
-			target_mob = O.thrower
+		if((target_mob != O.throwing?.thrower?.resolve()) && ismob(O.throwing?.thrower?.resolve()))
+			target_mob = O.throwing?.thrower?.resolve()
 			change_stance(HOSTILE_STANCE_ATTACK)
 
 /mob/living/simple_animal/hostile/attack_generic(var/mob/user, var/damage, var/attack_message)
@@ -168,13 +168,13 @@
 	if(target_mob in targets)
 		if(ranged)
 			if(get_dist(src, target_mob) <= ranged_attack_range)
-				SSmove_manager.stop_looping(src)
+				GLOB.move_manager.stop_looping(src)
 				OpenFire(target_mob)
 			else
-				SSmove_manager.move_to(src, target_mob, 6, move_to_delay)
+				GLOB.move_manager.move_to(src, target_mob, 6, move_to_delay)
 		else
 			change_stance(HOSTILE_STANCE_ATTACKING)
-			SSmove_manager.move_to(src, target_mob, 1, move_to_delay)
+			GLOB.move_manager.move_to(src, target_mob, 1, move_to_delay)
 
 /mob/living/simple_animal/hostile/proc/AttackTarget()
 	stop_automated_movement = 1
@@ -265,7 +265,7 @@
 /mob/living/simple_animal/hostile/proc/LoseTarget()
 	change_stance(HOSTILE_STANCE_IDLE)
 	target_mob = null
-	SSmove_manager.stop_looping(src)
+	GLOB.move_manager.stop_looping(src)
 	LostTarget()
 
 /mob/living/simple_animal/hostile/proc/LostTarget()
@@ -276,7 +276,7 @@
 
 /mob/living/simple_animal/hostile/death()
 	..()
-	SSmove_manager.stop_looping(src)
+	GLOB.move_manager.stop_looping(src)
 
 /mob/living/simple_animal/hostile/think()
 	..()

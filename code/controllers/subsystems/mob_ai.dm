@@ -79,7 +79,7 @@ SUBSYSTEM_DEF(mob_ai)
 
 /mob/proc/on_think_disabled()
 	walk_to(src, 0)
-	SSmove_manager.stop_looping(src)
+	QDEL_NULL(move_packet)
 
 /mob/proc/on_think_enabled()
 	return

@@ -74,17 +74,17 @@
 
 	return last_increment
 
-/obj/item/reagent_containers/throw_impact(atom/hit_atom, var/speed)
+/obj/item/reagent_containers/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
 	if(ismob(loc))
 		return
-	if(fragile && (speed >= fragile))
+	if(fragile && (throwingdatum.speed >= fragile))
 		shatter()
 	if(atom_flags && ATOM_FLAG_NO_REACT)
 		return
 	if(!reagents)
 		return
-	reagents.apply_force(speed)
+	reagents.apply_force(throwingdatum.speed)
 
 /obj/item/reagent_containers/proc/shatter(var/obj/item/W, var/mob/user)
 	if(reagents?.total_volume)
