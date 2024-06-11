@@ -1409,6 +1409,12 @@
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/entry)
+"Cv" = (
+/obj/machinery/mineral/equipment_vendor,
+/turf/simulated/floor/tiled/steel{
+	temperature = 303.15
+	},
+/area/miners_guild_outpost/mining)
 "CD" = (
 /obj/structure/table/stone,
 /obj/item/reagent_containers/food/condiment/shaker/spacespice,
@@ -1927,6 +1933,12 @@
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/mess)
+"Kn" = (
+/obj/machinery/mineral/rigpress,
+/turf/simulated/floor/tiled/steel{
+	temperature = 303.15
+	},
+/area/miners_guild_outpost/mining)
 "Kr" = (
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
@@ -3462,9 +3474,9 @@ av
 fI
 gk
 VX
-gk
-gk
-gk
+Cv
+Cv
+Kn
 VX
 aw
 qN
