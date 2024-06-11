@@ -1988,7 +1988,7 @@ About the new airlock wires panel:
 	var/has_opened_hatch = FALSE
 	for(var/turf/turf in locs)
 		for(var/atom/movable/AM in turf)
-			if(hashatch && AM.checkpass(PASSDOORHATCH))
+			if(hashatch && AM.pass_flags & PASSDOORHATCH)
 				if(!has_opened_hatch)
 					open_hatch(AM)
 				has_opened_hatch = TRUE

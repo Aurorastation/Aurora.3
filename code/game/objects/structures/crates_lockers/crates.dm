@@ -98,7 +98,7 @@
 	if (istype(mover,/obj/item/projectile))
 		// Crates on a table always block shots, otherwise they only occasionally do so.
 		return tablestatus == ABOVE_TABLE ? FALSE : (prob(15) ? FALSE : TRUE)
-	else if(istype(mover) && mover.checkpass(PASSTABLE) && tablestatus == ABOVE_TABLE)
+	else if((istype(mover) && (mover.pass_flags & PASSTABLE)) && tablestatus == ABOVE_TABLE)
 		return TRUE
 	return ..()
 

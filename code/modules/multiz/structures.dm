@@ -340,7 +340,7 @@
 /obj/structure/stairs_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover,/obj/item/projectile))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE
@@ -418,7 +418,7 @@
 /obj/structure/platform/CanPass(atom/movable/mover, turf/target, height, air_group)
 	if(istype(mover, /obj/item/projectile))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE

@@ -83,7 +83,7 @@
 		return 1
 
 /obj/machinery/door/window/CheckExit(atom/movable/mover as mob|obj, turf/target as turf)
-	if(istype(mover) && mover.checkpass(PASSGLASS))
+	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return 1
 	if(get_dir(loc, target) == dir)
 		return !density
