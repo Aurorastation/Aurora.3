@@ -413,10 +413,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboardthrust)
 "cf" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/firedoor/noid,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard docking arm"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/tramp_freighter/starboard_docking)
@@ -646,10 +650,14 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/freighter_shuttle)
 "dF" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/firedoor/noid,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, portside docking arm"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/tramp_freighter/port_docking)
@@ -882,7 +890,12 @@
 /turf/simulated/floor/carpet/red,
 /area/tramp_freighter/captain)
 "eo" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "eq" = (
@@ -1214,10 +1227,10 @@
 /turf/simulated/floor/reinforced/airmix,
 /area/tramp_freighter/atmos)
 "fN" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/plating,
-/area/tramp_freighter/bridge)
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/carpet/rubber,
+/area/tramp_freighter/cargo)
 "fS" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/condiment/flour{
@@ -1330,6 +1343,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/head/softcap,
 /obj/item/clothing/head/softcap,
+/obj/item/clothing/accessory/poncho,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "gv" = (
@@ -1478,11 +1492,11 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, captains office"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille{
-	id = "tramp_office"
-	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/tramp_freighter/captain_bed)
@@ -1674,7 +1688,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "iU" = (
@@ -1920,11 +1933,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
 "kd" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized/grille{
-	id = "tramp_office"
-	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/tramp_freighter/captain_bed)
@@ -1935,7 +1948,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "kf" = (
@@ -1966,6 +1978,9 @@
 /obj/item/device/flashlight/lamp/lava/green{
 	pixel_x = -8;
 	pixel_y = 11
+	},
+/obj/item/device/paicard{
+	pixel_x = 7
 	},
 /turf/simulated/floor/carpet,
 /area/tramp_freighter/crew_quarters)
@@ -2064,10 +2079,14 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "la" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/firedoor/noid,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, starboard docking arm"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/tramp_freighter/starboard_docking)
@@ -2098,6 +2117,7 @@
 	pixel_x = 5;
 	pixel_y = 9
 	},
+/obj/item/modular_computer/laptop/preset/civilian,
 /turf/simulated/floor/carpet/red,
 /area/tramp_freighter/captain)
 "lr" = (
@@ -2111,6 +2131,12 @@
 /obj/structure/table/steel,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/diona{
+	pixel_x = 8
+	},
+/obj/item/material/knife/tacknife{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/starboard_docking)
 "lx" = (
@@ -2206,6 +2232,7 @@
 /obj/item/storage/backpack/satchel/leather,
 /obj/item/storage/backpack/satchel/leather,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/under/sundress,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "lN" = (
@@ -2379,6 +2406,9 @@
 "ne" = (
 /obj/machinery/vending/tool,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/engi)
 "ni" = (
@@ -2443,9 +2473,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
 "nz" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/effect/landmark/entry_point/port{
 	name = "port, hydroponics"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/tramp_freighter/hydroponics)
@@ -2547,6 +2582,7 @@
 	pixel_y = -32
 	},
 /obj/structure/closet/crate/bin,
+/obj/random/junk,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
 "nV" = (
@@ -3016,7 +3052,21 @@
 "qG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood/gamblingtable,
-/obj/random/contraband,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_x = -10;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/feni{
+	pixel_y = 5;
+	pixel_x = -3
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/starboard_docking)
 "qI" = (
@@ -3127,10 +3177,10 @@
 "rr" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/clothing/mask/gas/alt{
-	pixel_x = -6
+	pixel_x = -2
 	},
 /obj/item/clothing/mask/gas/alt{
-	pixel_x = -6
+	pixel_x = -9
 	},
 /obj/machinery/power/apc/south{
 	req_access = null
@@ -3467,7 +3517,8 @@
 /area/tramp_freighter/cargo)
 "sV" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/bin/filled,
+/obj/random/junk,
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboard_docking)
 "sX" = (
@@ -3730,8 +3781,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/hydroponics)
 "uf" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/firedoor/noid,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor,
 /area/tramp_freighter/port_docking)
 "ui" = (
@@ -3981,6 +4036,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/atmos)
 "vk" = (
@@ -4020,7 +4076,9 @@
 /area/tramp_freighter/port_docking)
 "vr" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/bin/filled,
+/obj/random/junk,
+/obj/random/junk,
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/port_docking)
 "vu" = (
@@ -4076,11 +4134,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboard_docking)
 "vL" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor,
 /area/tramp_freighter/port_docking)
 "vS" = (
@@ -4371,9 +4433,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/cargo)
 "wZ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/firedoor/noid{
-	dir = 4
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/bridge)
@@ -4474,11 +4538,15 @@
 /obj/structure/table/steel,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/random/contraband,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/port_docking)
 "xy" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor,
 /area/tramp_freighter/hydroponics)
 "xz" = (
@@ -4677,7 +4745,13 @@
 "yG" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/effect/decal/cleanable/dirt,
-/obj/random/contraband,
+/obj/item/reagent_containers/food/drinks/cans/iced_tea{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/snacks/ricetub{
+	pixel_x = -3
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/port_docking)
 "yJ" = (
@@ -4713,7 +4787,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
@@ -4772,7 +4845,6 @@
 /area/tramp_freighter/washroom)
 "zf" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "zm" = (
@@ -5125,6 +5197,7 @@
 	icon_state = "0-2"
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/atmos)
 "AK" = (
@@ -5201,10 +5274,6 @@
 /obj/structure/bed/stool/chair/sofa/right/brown,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
-	},
-/obj/machinery/light_switch{
-	dir = 1;
-	pixel_y = 30
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
@@ -5362,12 +5431,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/refinery2)
 "CW" = (
-/obj/structure/table/stone/marble,
-/obj/machinery/chemical_dispenser/bar_soft/full{
-	dir = 8;
-	pixel_y = 3;
-	pixel_x = 1
-	},
+/obj/machinery/smartfridge/foodheater,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/kitchen)
 "CX" = (
@@ -5426,14 +5490,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/obj/machinery/button/switch/windowtint{
-	dir = 1;
-	id = "tramp_office";
-	pixel_y = 30;
-	pixel_x = 5
-	},
 /obj/machinery/light_switch{
-	pixel_x = -5;
 	pixel_y = 30;
 	dir = 1
 	},
@@ -5527,8 +5584,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/port_docking)
 "DZ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/firedoor/noid,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor,
 /area/tramp_freighter/afthallway)
 "Eb" = (
@@ -6337,7 +6398,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "Jn" = (
@@ -6476,11 +6536,11 @@
 /area/tramp_freighter/captain_bed)
 "Ka" = (
 /obj/machinery/light,
-/obj/machinery/power/smes/buildable/horizon_shuttle,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/smes/buildable/third_party_shuttle,
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "Kc" = (
@@ -6555,6 +6615,11 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/condiment/rice,
+/obj/item/reagent_containers/food/snacks/rawcutlet,
+/obj/item/reagent_containers/food/snacks/rawcutlet,
+/obj/item/reagent_containers/food/snacks/rawcutlet,
+/obj/item/reagent_containers/food/snacks/rawcutlet,
+/obj/item/reagent_containers/food/condiment/flour,
 /turf/simulated/floor/marble,
 /area/tramp_freighter/kitchen)
 "KE" = (
@@ -6930,6 +6995,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/kitchen)
 "MG" = (
@@ -7194,11 +7260,15 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboard_docking)
 "Os" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/bridge)
 "Ov" = (
@@ -7236,8 +7306,12 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/port_docking)
 "OE" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/firedoor/noid,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor,
 /area/tramp_freighter/starboard_docking)
 "OJ" = (
@@ -7339,6 +7413,9 @@
 /obj/item/device/gps/mining,
 /obj/item/device/gps/mining,
 /obj/item/device/gps/mining,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/equipment)
 "Pj" = (
@@ -7360,6 +7437,7 @@
 	icon_state = "0-2"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/gloves/janitor,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/custodial)
 "Pn" = (
@@ -7467,6 +7545,14 @@
 	dir = 10
 	},
 /obj/machinery/meter,
+/obj/item/device/analyzer{
+	pixel_x = -13;
+	pixel_y = -7
+	},
+/obj/item/wrench{
+	pixel_y = -4
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/atmos)
 "Qa" = (
@@ -8256,10 +8342,14 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboard_docking)
 "Ug" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/firedoor/noid,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, portside docking arm"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/tramp_freighter/port_docking)
@@ -8671,12 +8761,14 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
 "VV" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/effect/landmark/entry_point/port{
 	name = "port, bridge"
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/bridge)
@@ -8949,6 +9041,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
+"Xo" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/mob/living/bot/farmbot{
+	req_one_access = list()
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/tramp_freighter/cargo)
 "Xp" = (
 /obj/effect/floor_decal/carpet,
 /turf/simulated/floor/carpet,
@@ -9343,9 +9443,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/refinery1)
 "Zu" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
 /obj/effect/landmark/entry_point/port{
 	name = "fore"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
@@ -40905,7 +41010,7 @@ Ml
 mR
 Ml
 RC
-JY
+fN
 AB
 Ap
 zp
@@ -40937,7 +41042,7 @@ hy
 rd
 wZ
 wZ
-fN
+wZ
 hX
 hX
 hX
@@ -41194,7 +41299,7 @@ qw
 dX
 Cv
 tE
-fN
+wZ
 wZ
 hX
 hX
@@ -41708,7 +41813,7 @@ eb
 KW
 EQ
 jZ
-fN
+wZ
 wZ
 hX
 hX
@@ -41965,7 +42070,7 @@ ek
 rd
 wZ
 wZ
-fN
+wZ
 hX
 hX
 hX
@@ -42219,7 +42324,7 @@ Sz
 TW
 mu
 zM
-fN
+wZ
 ZL
 hX
 hX
@@ -42476,7 +42581,7 @@ xP
 cO
 fe
 LX
-fN
+wZ
 hX
 hX
 hX
@@ -42733,7 +42838,7 @@ cM
 sK
 cZ
 Es
-fN
+wZ
 hX
 hX
 hX
@@ -42990,7 +43095,7 @@ Yp
 AC
 XX
 Nx
-fN
+wZ
 hX
 hX
 hX
@@ -43222,7 +43327,7 @@ hJ
 QZ
 hJ
 YN
-hJ
+Xo
 Wj
 GP
 cC
