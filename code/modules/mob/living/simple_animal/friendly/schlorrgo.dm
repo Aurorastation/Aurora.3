@@ -103,7 +103,8 @@
 	switch(current_size)
 
 		if(EGG_SCHLORRGO)
-			name = "schlorrgo hatchling"
+			if(!named)
+				name = "schlorrgo hatchling"
 			desc = "A fat creature native to the world of Hro'zamal. This one just hatched from an egg."
 			current_size = BABY_SCHLORRGO
 			max_nutrition = 100
@@ -119,7 +120,8 @@
 			holder_type = /obj/item/holder/schlorrgo/baby
 
 		if(BABY_SCHLORRGO)
-			name = "schlorrgo"
+			if(!named)
+				name = "schlorrgo"
 			desc = "A fat creature native to the world of Hro'zamal."
 			current_size = NORMAL_SCHLORRGO
 			max_nutrition = 200
@@ -135,7 +137,8 @@
 			holder_type = /obj/item/holder/schlorrgo
 
 		if(NORMAL_SCHLORRGO)
-			name = "fat schlorrgo"
+			if(!named)
+				name = "fat schlorrgo"
 			desc = "A fat creature native to the world of Hro'zamal. This one is fatter than most schlorrgo."
 			current_size = FAT_SCHLORRGO
 			max_nutrition = 400
@@ -151,7 +154,8 @@
 			holder_type = /obj/item/holder/schlorrgo/fat
 
 		if(FAT_SCHLORRGO)
-			name = "massive schlorrgo"
+			if(!named)
+				name = "massive schlorrgo"
 			desc = "A fat creature native to the world of Hro'zamal. This one is so big it can barely walk."
 			current_size = WIDE_SCHLORRGO
 			max_nutrition = 1000
@@ -176,7 +180,8 @@
 			holder_type = null
 
 		if(WIDE_SCHLORRGO)
-			name = "colossal schlorrgo"
+			if(!named)
+				name = "colossal schlorrgo"
 			desc = "A fat creature native to the world of Hro'zamal. This one has been immobilized by its massive weight."
 			current_size = COLOSSAL_SCHLORRGO
 			max_nutrition = 1500
