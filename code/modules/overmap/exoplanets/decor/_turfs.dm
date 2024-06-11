@@ -28,7 +28,7 @@
 				initial_gas = list()
 				temperature = T0C
 			//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
-			set_light(MINIMUM_USEFUL_LIGHT_RANGE, E.lightlevel, COLOR_WHITE)
+			set_light(MINIMUM_USEFUL_LIGHT_RANGE, E.lightlevel, E.lightcolor)
 			if(E.planetary_area && istype(loc, world.area))
 				ChangeArea(src, E.planetary_area)
 	// if not on an exoplanet, instead just keep the default or mapped in atmos

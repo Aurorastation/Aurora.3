@@ -46,9 +46,11 @@
 /mob/living/simple_animal/borer/LateLogin()
 	..()
 	if(mind)
-		borers.add_antagonist(mind)
-	if(client && host)
-		client.screen += host.healths
+		borers.add_antagonist_mind(mind, 1, borers.role_text, borers.welcome_text)
+	if(client)
+		client.init_verbs()
+		if(host)
+			client.screen += host.healths
 
 /mob/living/simple_animal/borer/Initialize()
 	. = ..()
@@ -110,11 +112,6 @@
 
 	if(ability_bar)
 		QDEL_NULL(ability_bar)
-
-	if(istype(host,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = host
-		var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
-		head.implants -= src
 
 	controlling = FALSE
 

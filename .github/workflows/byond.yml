@@ -35,6 +35,10 @@ env:
   #The maximum number of retries the unit tests (excluding linters) can make, if appropriate for them to
   CI_MAX_RETRIES: 3
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
 
 ###########################################
@@ -112,7 +116,7 @@ jobs:
       # Upload MegaLinter artifacts
       - name: Upload Megalinter Artifacts
         if: failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: MegaLinter reports
           path: |
@@ -146,7 +150,7 @@ jobs:
 
       #Restores SpacemanDMM from the cache repository
       - name: Restore SpacemanDMM cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/SpacemanDMM
           key: ${{ runner.os }}-spacemandmm-${{ env.SPACEMAN_DMM_VERSION }}
@@ -224,7 +228,7 @@ jobs:
 
       #Restore YARN (Node packages) cache
       - name: Restore Yarn cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: tgui/.yarn/cache
           key: ${{ runner.os }}-yarn-${{ hashFiles('tgui/yarn.lock') }}
@@ -354,13 +358,13 @@ jobs:
 
       #Restores BYOND cache
       - name: Restore BYOND cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/BYOND/*
           key: ${{ runner.os }}-byond-${{ env.BYOND_MAJOR }}-${{ env.BYOND_MINOR }}
 
       - name: Restore FlyWay cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/flyway
           key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
@@ -419,7 +423,7 @@ jobs:
           (! grep "runtime error:" log.txt)
 
       - name: Upload Condensed UT Log
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure() || ${{ runner.debug }}
         with:
           name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
@@ -477,13 +481,13 @@ jobs:
 
       #Restores BYOND cache
       - name: Restore BYOND cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/BYOND/*
           key: ${{ runner.os }}-byond-${{ env.BYOND_MAJOR }}-${{ env.BYOND_MINOR }}
 
       - name: Restore FlyWay cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/flyway
           key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
@@ -542,7 +546,7 @@ jobs:
           (! grep "runtime error:" log.txt)
 
       - name: Upload Condensed UT Log
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure() || ${{ runner.debug }}
         with:
           name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
@@ -602,13 +606,13 @@ jobs:
 
       #Restores BYOND cache
       - name: Restore BYOND cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/BYOND/*
           key: ${{ runner.os }}-byond-${{ env.BYOND_MAJOR }}-${{ env.BYOND_MINOR }}
 
       - name: Restore FlyWay cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/flyway
           key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
@@ -667,7 +671,7 @@ jobs:
           (! grep "runtime error:" log.txt)
 
       - name: Upload Condensed UT Log
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure() || ${{ runner.debug }}
         with:
           name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
@@ -727,13 +731,13 @@ jobs:
 
       #Restores BYOND cache
       - name: Restore BYOND cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/BYOND/*
           key: ${{ runner.os }}-byond-${{ env.BYOND_MAJOR }}-${{ env.BYOND_MINOR }}
 
       - name: Restore FlyWay cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/flyway
           key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
@@ -792,7 +796,7 @@ jobs:
           (! grep "runtime error:" log.txt)
 
       - name: Upload Condensed UT Log
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure() || ${{ runner.debug }}
         with:
           name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
@@ -851,13 +855,13 @@ jobs:
 
       #Restores BYOND cache
       - name: Restore BYOND cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/BYOND/*
           key: ${{ runner.os }}-byond-${{ env.BYOND_MAJOR }}-${{ env.BYOND_MINOR }}
 
       - name: Restore FlyWay cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/flyway
           key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
@@ -916,7 +920,7 @@ jobs:
           (! grep "runtime error:" log.txt)
 
       - name: Upload Condensed UT Log
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure() || ${{ runner.debug }}
         with:
           name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log
@@ -974,13 +978,13 @@ jobs:
 
       #Restores BYOND cache
       - name: Restore BYOND cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/BYOND/*
           key: ${{ runner.os }}-byond-${{ env.BYOND_MAJOR }}-${{ env.BYOND_MINOR }}
 
       - name: Restore FlyWay cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/flyway
           key: ${{ runner.os }}-flyway-${{ env.FLYWAY_BUILD }}
@@ -1039,7 +1043,7 @@ jobs:
           (! grep "runtime error:" log.txt)
 
       - name: Upload Condensed UT Log
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: failure() || ${{ runner.debug }}
         with:
           name: condensed-${{ matrix.map }}-${{ matrix.pod }}.log

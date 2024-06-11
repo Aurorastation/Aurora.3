@@ -6359,15 +6359,6 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/elyran_corvette/dorm)
 "JX" = (
-/obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for a Sahin-class corvette.";
-	icon = 'icons/obj/items.dmi';
-	icon_state = "blueprints";
-	item_icons = null;
-	item_state = null;
-	name = "ship blueprints";
-	pixel_y = 6
-	},
 /obj/item/clothing/glasses/welding{
 	pixel_x = 4;
 	pixel_y = -4
@@ -6379,6 +6370,8 @@
 	dir = 4
 	},
 /obj/structure/table/steel,
+/obj/item/blueprints,
+/obj/item/pen/drafting,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/engineering)
 "Ka" = (

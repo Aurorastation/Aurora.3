@@ -214,7 +214,6 @@
 	docking_controller = "orion_traveler_n_port"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/orion_express_shuttle/transit
 	name = "In transit"
