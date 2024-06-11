@@ -115,10 +115,11 @@
 ///**Please stop using this proc, use the `pass_flags_self` flags to determine what can pass unless you literally have no other choice**
 /atom/proc/CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
 	//I have condensed TG's `CanAllowThrough()` into this proc
-	if(mover.pass_flags & pass_flags_self)
-		return TRUE
-	if(mover.throwing && (pass_flags_self & LETPASSTHROW))
-		return TRUE
+	if(mover) //Because some procs send null as a mover
+		if(mover.pass_flags & pass_flags_self)
+			return TRUE
+		if(mover.throwing && (pass_flags_self & LETPASSTHROW))
+			return TRUE
 
 	return (!density || !height || air_group)
 
