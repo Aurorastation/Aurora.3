@@ -102,6 +102,8 @@
 
 /obj/item/tent/Destroy()
 	. = ..()
+	if(!my_tent.grouped_structures)
+		QDEL_NULL(my_tent)
 
 /obj/item/tent/MouseDrop(over_object, src_location, over_location)
 	. = ..()
@@ -126,7 +128,8 @@
 	my_tent = new /datum/large_structure/tent(src)
 	setup_my_tent(deploy_dir, target)
 
-	my_tent.assemble(1 SECOND, user)
+	if(my_tent.assemble(1 SECOND, user))
+		qdel(src)
 
 /obj/item/tent/proc/setup_my_tent(var/deploy_dir, var/turf/target)
 	my_tent.name = name

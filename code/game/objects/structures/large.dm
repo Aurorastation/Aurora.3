@@ -21,7 +21,6 @@
 	 */
 	var/source_item_type
 	var/color
-	var/obj/item/source_item
 	var/dir
 	var/x1
 	var/x2
@@ -69,14 +68,13 @@
 
 	if(get_next_stage(STAGE_DISASSEMBLED)) //Still work to do
 		assemble(time_per_structure, user)
-		return
+		return FALSE
 
 	if(get_next_stage(STAGE_PROGRESS)) //Still work being done
-		return
+		return FALSE
 
 	build_structures()
 
-	QDEL_NULL(source_item)
 	return TRUE
 
 /datum/large_structure/proc/get_target_turfs(var/mob/user, var/force = FALSE)
