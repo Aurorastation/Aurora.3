@@ -1,4 +1,8 @@
-var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-")
+var/global/list/valid_bloodtypes = list(
+	"A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-",
+	"SBS"	// Synthetic Blood Substitute. Intended for heavily augmented characters.
+			// Sanitized below, removed if character is not augmented enough.
+)
 
 /datum/preferences
 	var/equip_preview_mob = EQUIP_PREVIEW_ALL
@@ -216,6 +220,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	if(!pref.bgstate || !(pref.bgstate in pref.bgstate_options))
 		pref.bgstate = "000000"
+
+	//
+		// to_chat(pref.client, SPAN_WARNING("This species does not have psionics! Resetting..."))
 
 /datum/category_item/player_setup_item/general/body/content(var/mob/user)
 	var/list/out = list()

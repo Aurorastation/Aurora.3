@@ -176,31 +176,46 @@
 	vessel.add_reagent(/singleton/reagent/blood, amount, REAGENT_DATA(donor, /singleton/reagent/blood), temperature = species?.body_temperature)
 	..()
 
-/proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
-	if(!donor || !receiver) return 0
+/// Returns true if blood is incompatible, false otherwise.
+/// Checks donor and receiver blood types, both args are strings.
+/// The species args are optional, used for organs transplantations.
+/proc/blood_incompatible(var/donor, var/receiver, var/donor_species, var/receiver_species)
+	// Early exit so as to not check bad args
+	if(!donor || !receiver)
+		return FALSE
 
+	// Check species
 	if(donor_species && receiver_species)
 		if(donor_species != receiver_species)
-			return 1
+			return TRUE
 
+	// Check for Synthetic Blood Substitute (SBS).
+	// SBS is supposed to be incompatible with non-SBS, and the other way around.
+	if(donor=="SBS" || receiver=="SBS")
+		if(donor!=receiver)
+			return TRUE
+
+	// Parse the blood type
 	var/donor_antigen = copytext(donor,1,length(donor))
 	var/receiver_antigen = copytext(receiver,1,length(receiver))
 	var/donor_rh = (findtext(donor,"+")>0)
 	var/receiver_rh = (findtext(receiver,"+")>0)
 
-	if(donor_rh && !receiver_rh) return 1
+	// Do the actual check
+	if(donor_rh && !receiver_rh)
+		return TRUE
 	switch(receiver_antigen)
 		if("A")
-			if(donor_antigen != "A" && donor_antigen != "O") return 1
+			if(donor_antigen != "A" && donor_antigen != "O") return TRUE
 		if("B")
-			if(donor_antigen != "B" && donor_antigen != "O") return 1
+			if(donor_antigen != "B" && donor_antigen != "O") return TRUE
 		if("O")
-			if(donor_antigen != "O") return 1
+			if(donor_antigen != "O") return TRUE
 		//AB is a universal receiver.
-	return 0
+	return FALSE
 
 /mob/living/carbon/proc/get_blood_color()
-	if(HAS_TRAIT(src, TRAIT_DISABILITY_SYNTH_BLOOD))
+	if(dna?.b_type == "SBS") // synthetic blood substitute
 		return COLOR_SYNTH_BLOOD
 	else if(species)
 		return species.blood_color
