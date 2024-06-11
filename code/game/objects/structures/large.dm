@@ -76,7 +76,7 @@
 
 	build_structures()
 
-	qdel(source_item)
+	QDEL_NULL(source_item)
 	return TRUE
 
 /datum/large_structure/proc/get_target_turfs(var/mob/user, var/force = FALSE)
