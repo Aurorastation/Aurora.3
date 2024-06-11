@@ -37,7 +37,7 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define PASSFLAPS (1<<9)
 /// Allows you to pass over airlocks and mineral doors.
 #define PASSDOORS (1<<10)
-/// Allows you to pass over vehicles, ie. mecha, secways, the pimpin' ride, etc.
+/// Allows you to pass over vehicles, ie. mecha
 #define PASSVEHICLE (1<<11)
 /// Allows you to pass over dense items.
 #define PASSITEM (1<<12)

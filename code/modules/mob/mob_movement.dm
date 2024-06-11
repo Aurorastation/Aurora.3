@@ -131,7 +131,7 @@
 	return
 
 //This proc should never be overridden elsewhere at /atom/movable to keep directions sane.
-/atom/movable/Move(atom/newloc, direction, glide_size_override = 0, update_dir = TRUE) //Last 2 parameters are not used but they're catched
+/atom/movable/Move(atom/newloc, direction, glide_size_override = 0, update_dir = TRUE) //Last 2 parameters are not used but they're caught
 	if(SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_MOVE, newloc) & COMPONENT_MOVABLE_BLOCK_PRE_MOVE)
 		return
 
