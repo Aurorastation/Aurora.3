@@ -178,7 +178,6 @@
 
 /// Returns true if blood is incompatible, false otherwise.
 /// Checks donor and receiver blood types, both args are strings.
-/// The species args are optional, used for organs transplantations.
 /proc/blood_incompatible(var/donor, var/receiver, var/donor_species, var/receiver_species)
 	// Early exit so as to not check bad args
 	if(!donor || !receiver)
