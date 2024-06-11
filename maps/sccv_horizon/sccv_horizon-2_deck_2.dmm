@@ -31633,6 +31633,8 @@
 /obj/item/reagent_containers/blood/BPlus,
 /obj/item/reagent_containers/blood/BMinus,
 /obj/item/reagent_containers/blood/BMinus,
+/obj/item/reagent_containers/blood/sbs,
+/obj/item/reagent_containers/blood/sbs,
 /obj/item/reagent_containers/blood/APlus,
 /obj/item/reagent_containers/blood/APlus,
 /obj/item/reagent_containers/blood/AMinus,
@@ -35472,6 +35474,7 @@
 /area/horizon/grauwolf)
 "quV" = (
 /obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/sbs,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/structure/closet/walllocker/medical/secure{
@@ -42782,6 +42785,7 @@
 /area/rnd/xenobiology/foyer)
 "tSC" = (
 /obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/sbs,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/structure/closet/walllocker/medical/secure{
