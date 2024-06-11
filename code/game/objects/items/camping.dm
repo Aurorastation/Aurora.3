@@ -11,6 +11,7 @@
 				"pegs" = STAGE_DISASSEMBLED)
 	component_structure = /obj/structure/component/tent_canvas
 	source_item_type = /obj/item/tent
+	var/decal
 
 /datum/large_structure/tent/build_structures()
 	. = ..()
@@ -32,15 +33,13 @@
 				C.dir = SOUTH
 			else
 				C.dir = NORTH
-		var/obj/item/tent/source = source_item
-		if(istype(source))
-			var/obj/structure/component/tent_canvas/roof/roof = new /obj/structure/component/tent_canvas/roof(C.loc)
-			roofs += roof
-			roof.color = color
-			roof.dir = C.dir
-			if(source.decal && C.x == x1 && C.y == y1)
-				roof.AddOverlays(overlay_image('icons/obj/item/tent_decals.dmi', source.decal, flags=RESET_COLOR))
-			roof.icon_state = "roof_[get_roof_type(C)]"
+		var/obj/structure/component/tent_canvas/roof/roof = new /obj/structure/component/tent_canvas/roof(C.loc)
+		roofs += roof
+		roof.color = color
+		roof.dir = C.dir
+		if(decal && C.x == x1 && C.y == y1)
+			roof.AddOverlays(overlay_image('icons/obj/item/tent_decals.dmi', decal, flags=RESET_COLOR))
+		roof.icon_state = "roof_[get_roof_type(C)]"
 	grouped_structures += roofs
 
 /datum/large_structure/tent/structure_entered(turf/T, atom/movable/AM)
@@ -134,7 +133,7 @@
 /obj/item/tent/proc/setup_my_tent(var/deploy_dir, var/turf/target)
 	my_tent.name = name
 	my_tent.color = color
-	my_tent.source_item = src
+	my_tent.decal = decal
 	my_tent.dir = deploy_dir
 	my_tent.z1 = target.z
 	my_tent.z2 = target.z
