@@ -15469,6 +15469,11 @@
 /obj/item/sleeping_bag,
 /obj/item/sleeping_bag,
 /obj/structure/closet/crate,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/folding_table,
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "kHg" = (

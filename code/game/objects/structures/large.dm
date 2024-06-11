@@ -51,13 +51,9 @@
 		to_chat(user, SPAN_INFO("There is no more work to be done assembling \the [src]."))
 		return FALSE
 
+
 	if(!LAZYLEN(target_turfs))
-		target_turfs = block(x1,y1,z1,x2,y2,z2)
-		for(var/turf/T in target_turfs)
-			if(!(istype(T)))
-				to_chat(user, SPAN_ALERT("You cannot set up \the [src] here. Try and find a big enough solid surface."))
-				return FALSE
-			RegisterSignal(T, COMSIG_TURF_ENTERED, PROC_REF(structure_entered), override = TRUE)
+		get_target_turfs(user)
 
 	interacting += user
 
@@ -78,14 +74,25 @@
 	if(get_next_stage(STAGE_PROGRESS)) //Still work being done
 		return
 
+	build_structures()
+
+	qdel(source_item)
+	return TRUE
+
+/datum/large_structure/proc/get_target_turfs(var/mob/user, var/force = FALSE)
+	target_turfs = block(x1,y1,z1,x2,y2,z2)
+	for(var/turf/T in target_turfs)
+		if(!(istype(T) || force))
+			to_chat(user, SPAN_ALERT("You cannot set up \the [src] here. Try and find a big enough solid surface."))
+			return FALSE
+		RegisterSignal(T, COMSIG_TURF_ENTERED, PROC_REF(structure_entered), override = TRUE)
+
+/datum/large_structure/proc/build_structures()
 	for(var/turf/T in target_turfs)
 		var/obj/structure/component/C = new component_structure(T)
 		C.part_of = src
 		C.color = color
 		grouped_structures += C
-
-	qdel(source_item)
-	return TRUE
 
 /datum/large_structure/proc/disassemble(var/time_per_structure, var/mob/user)
 	if(user in interacting)

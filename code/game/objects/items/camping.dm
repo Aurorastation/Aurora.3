@@ -12,37 +12,37 @@
 	component_structure = /obj/structure/component/tent_canvas
 	source_item_type = /obj/item/tent
 
-/datum/large_structure/tent/assemble()
-	if(..())
-		for(var/obj/structure/component/tent_canvas/C in grouped_structures)
-			if(dir & (NORTH | SOUTH))
-				if(C.x == x1 || C.x == x2)
-					C.icon_state = "canvas_dir"
-				var/mid = Mean(x1, x2)
-				if(C.x < mid)
-					C.dir = WEST
-				else
-					C.dir = EAST
+/datum/large_structure/tent/build_structures()
+	. = ..()
+	for(var/obj/structure/component/tent_canvas/C in grouped_structures)
+		if(dir & (NORTH | SOUTH))
+			if(C.x == x1 || C.x == x2)
+				C.icon_state = "canvas_dir"
+			var/mid = Mean(x1, x2)
+			if(C.x < mid)
+				C.dir = WEST
 			else
-				if(C.y == y1 || C.y == y2)
-					C.icon_state = "canvas_dir"
-					if(C.y == y2)
-						C.layer = ABOVE_WINDOW_LAYER
-				var/mid = Mean(y1, y2)
-				if(C.y < mid)
-					C.dir = SOUTH
-				else
-					C.dir = NORTH
-			var/obj/item/tent/source = source_item
-			if(istype(source))
-				var/obj/structure/component/tent_canvas/roof/roof = new /obj/structure/component/tent_canvas/roof(C.loc)
-				roof.dir = C.dir
-				if(source.decal && C.x == x1 && C.y == y1)
-					roof.AddOverlays(overlay_image('icons/obj/item/tent_decals.dmi', source.decal, flags=RESET_COLOR))
-				roof.icon_state = "roof_[get_roof_type(C)]"
-				C.add_vis_contents(roof)
-				if(!roof.color)
-					roof.color = color //Sometimes it doesn't inherit this. Not sure why.
+				C.dir = EAST
+		else
+			if(C.y == y1 || C.y == y2)
+				C.icon_state = "canvas_dir"
+				if(C.y == y2)
+					C.layer = ABOVE_WINDOW_LAYER
+			var/mid = Mean(y1, y2)
+			if(C.y < mid)
+				C.dir = SOUTH
+			else
+				C.dir = NORTH
+		var/obj/item/tent/source = source_item
+		if(istype(source))
+			var/obj/structure/component/tent_canvas/roof/roof = new /obj/structure/component/tent_canvas/roof(C.loc)
+			roof.dir = C.dir
+			if(source.decal && C.x == x1 && C.y == y1)
+				roof.AddOverlays(overlay_image('icons/obj/item/tent_decals.dmi', source.decal, flags=RESET_COLOR))
+			roof.icon_state = "roof_[get_roof_type(C)]"
+			C.add_vis_contents(roof)
+			if(!roof.color)
+				roof.color = color //Sometimes it doesn't inherit this. Not sure why.
 
 /datum/large_structure/tent/structure_entered(turf/T, atom/movable/AM)
 	. = ..()
@@ -121,6 +121,11 @@
 		deploy_dir = user.dir
 
 	my_tent = new /datum/large_structure/tent(src)
+	setup_my_tent(deploy_dir, target)
+
+	my_tent.assemble(1 SECOND, user)
+
+/obj/item/tent/proc/setup_my_tent(var/deploy_dir, var/turf/target)
 	my_tent.name = name
 	my_tent.color = color
 	my_tent.source_item = src
@@ -150,8 +155,6 @@
 		my_tent.x2 = target.x
 		my_tent.y1 = target.y - floor((width-1)/2)
 		my_tent.y2 = target.y + ceil((width-1)/2)
-
-	my_tent.assemble(1 SECOND, user)
 
 /obj/item/tent/big
 	name = "scc base camp tent"
@@ -201,6 +204,24 @@
 
 /obj/structure/component/tent_canvas/roof
 	plane = ROOF_PLANE
+
+//Pre-fabricated tents for mapping
+/obj/effect/tent
+	name = "Pre-frabricated expedition tent"
+	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "portal_side_a"
+	var/builds = /obj/item/tent
+
+/obj/effect/tent/Initialize(mapload, ...)
+	. = ..()
+	var/obj/item/tent/tent_item = new builds(src)
+	var/datum/large_structure/tent/tent = new /datum/large_structure/tent(src)
+	tent_item.my_tent = tent
+	tent_item.setup_my_tent(dir, get_turf(src))
+	tent.get_target_turfs(null, TRUE)
+	tent.build_structures()
+	qdel(tent_item)
+	qdel(src)
 
 /*
 	Sleeping bags
@@ -290,3 +311,53 @@
 	S.color = color
 	usr.visible_message(SPAN_NOTICE("\The [usr] rolls up \the [src]."))
 	qdel(src)
+
+/*
+	Folding Tables
+*/
+/obj/item/material/folding_table
+	name = "folding table"
+	desc = "A temporary surface, for when you need a table, but only for a little while."
+	icon = 'icons/obj/item/camping.dmi'
+	icon_state = "table_folded"
+	item_state = "table_folded"
+	contained_sprite = TRUE
+	default_material = MATERIAL_ALUMINIUM
+
+/obj/item/material/folding_table/attack_self(mob/user)
+	if(use_check(user) || !Adjacent(user))
+		return
+	deploy(get_turf(user), user.dir, user)
+
+/obj/item/material/folding_table/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	if(use_check(user) || !Adjacent(user))
+		return
+	if(isturf(target))
+		deploy(target, user.dir, user)
+
+/obj/item/material/folding_table/proc/deploy(var/turf/T, var/direction, var/mob/user)
+	new /obj/structure/table/rack/folding_table(T)
+	user.visible_message(SPAN_NOTICE("\The [user] sets up \the [src]."))
+	qdel(src)
+
+/obj/structure/table/rack/folding_table
+	name = "folding table"
+	desc = "A temporary surface, for when you need a table, but only for a little while."
+	icon_state = "camping_table"
+	table_mat = MATERIAL_ALUMINIUM
+
+/obj/structure/table/rack/folding_table/dismantle(obj/item/wrench/W, mob/user)
+	return FALSE
+
+/obj/structure/table/rack/folding_table/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+	. = ..()
+	if(use_check(usr) || !Adjacent(usr))
+		return
+	if(!ishuman(usr) && (!isrobot(usr) || isDrone(usr))) //Humans and borgs can collapse, but not drones
+		return
+	new /obj/item/material/folding_table(get_turf(src))
+	usr.visible_message(SPAN_NOTICE("\The [usr] collapses \the [src]."))
+	qdel(src)
+
+/obj/item/material/stool/chair/folding/camping
+	default_material = MATERIAL_ALUMINIUM
