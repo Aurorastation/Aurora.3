@@ -131,6 +131,10 @@
 	alterable_internal_organs = list()
 	psi_deaf = TRUE
 
+	sleeps_upright = TRUE
+	snore_key = "chirp"
+	indefinite_sleep = TRUE
+
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other
 	if(istype(D))
@@ -190,3 +194,10 @@
 
 /datum/species/diona/bypass_food_fullness(var/mob/living/carbon/human/H)
 	return TRUE
+
+/datum/species/diona/sleep_msg(var/mob/M)
+	M.visible_message(SPAN_NOTICE("\The [M] creaks, entering an introspective state."))
+	to_chat(M, SPAN_NOTICE("You creak, entering an introspective state."))
+
+/datum/species/diona/sleep_examine_msg(var/mob/M)
+	return SPAN_NOTICE("[M.get_pronoun("He")] sways and creaks, in a dormant state.\n")

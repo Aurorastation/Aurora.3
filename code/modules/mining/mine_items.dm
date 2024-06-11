@@ -288,7 +288,6 @@
 
 	can_wield = 0
 	force = 25
-	digspeed = 2
 	digspeed_unwielded = 3
 	force_unwielded = 20.0
 

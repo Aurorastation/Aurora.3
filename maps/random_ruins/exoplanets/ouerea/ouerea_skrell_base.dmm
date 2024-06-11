@@ -244,7 +244,7 @@
 /area/ouerea_skrell)
 "xp" = (
 /obj/structure/table/skrell,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/storage/box/monkeycubes/stokcubes,
 /obj/effect/floor_decal/corner/purple{
 	dir = 5

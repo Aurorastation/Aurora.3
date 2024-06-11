@@ -151,10 +151,9 @@
 /obj/structure/bed/chair/stool/bamboo
 	name = "bamboo stool"
 	desc = "A makeshift bamboo stool with a rustic look."
-	icon_state = "bamboo_stool_item"
-	item_state = "bamboo_stool"
-	base_icon = "bamboo_stool"
 	icon_state = "bamboo_stool"
+	item_state = "bamboo_stool_item"
+	base_icon = "bamboo_stool"
 	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 	held_item = /obj/item/material/stool/bamboo
 	can_pad = FALSE
@@ -323,7 +322,9 @@
 	anchored = FALSE
 	density = FALSE
 
-/obj/structure/flora/log_bench/fire_act()
+/obj/structure/flora/log_bench/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	for(var/obj/structure/bonfire/B in get_turf(src))
 		if(B.on_fire)
 			B.fuel = min(B.max_fuel, B.fuel + 300)

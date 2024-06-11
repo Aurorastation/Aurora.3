@@ -20,6 +20,18 @@
 	icon_state = "globe3"
 	color = COLOR_DARK_BLUE_GRAY
 
+	initial_generic_waypoints = list(
+		"nav_hsaniorios_outpost_1",
+		"nav_hsaniorios_outpost_2",
+		"nav_hsaniorios_outpost_3"
+	)
+	initial_restricted_waypoints = list(
+		"Unmarked Adhomian Shuttle" = list("nav_hangar_saniorios_outpost")
+	)
+
+	comms_support = TRUE
+	comms_name = "dpra asteroid outpost"
+
 /obj/effect/overmap/visitable/sector/saniorios_outpost/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/planet.dmi', "")
 
@@ -56,7 +68,7 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/terminal/saniorios_outpost

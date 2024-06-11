@@ -20,13 +20,15 @@
 	QDEL_NULL(software)
 	. = ..()
 
-/obj/item/mech_component/sensors/show_missing_parts(var/mob/user)
+/obj/item/mech_component/sensors/get_missing_parts_text()
+	. = ..()
+
 	if(!radio)
-		to_chat(user, SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=radio'>radio</a>."))
+		. += SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=radio'>radio</a>.")
 	if(!camera)
-		to_chat(user, SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=camera'>camera</a>."))
+		. += SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=camera'>camera</a>.")
 	if(!software)
-		to_chat(user, SPAN_WARNING("It is missing an <a href='?src=\ref[src];info=module'>exosuit control module</a>."))
+		. += SPAN_WARNING("It is missing an <a href='?src=\ref[src];info=module'>exosuit control module</a>.")
 
 /obj/item/mech_component/sensors/Topic(href, href_list)
 	. = ..()

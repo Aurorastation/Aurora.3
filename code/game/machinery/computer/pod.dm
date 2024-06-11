@@ -91,7 +91,7 @@
 
 
 /obj/machinery/computer/pod/process()
-	if(inoperable())
+	if(!operable())
 		return
 	if(timing)
 		if(time > 0)

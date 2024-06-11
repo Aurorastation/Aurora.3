@@ -145,7 +145,9 @@
 	if(H)
 		H.apply_damage(Proj.damage, DAMAGE_PAIN)
 
-/obj/item/poppet/fire_act()
+/obj/item/poppet/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H)
 		H.adjust_fire_stacks(2)

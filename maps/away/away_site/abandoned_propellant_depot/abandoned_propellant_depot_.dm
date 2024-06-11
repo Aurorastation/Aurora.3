@@ -18,7 +18,6 @@
 /obj/effect/overmap/visitable/sector/abandoned_propellant_depot
 	name = "Abandoned Propellant Depot"
 	desc = "Industrial propellant depot of unknown designation or origin. Scanners detect it to be mostly cold, likely no movement or life inside, although appears to be pressurized."
-	icon_state = "outpost"
 	static_vessel = TRUE
 	generic_object = FALSE
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'

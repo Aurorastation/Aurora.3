@@ -233,6 +233,15 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
+/obj/structure/table/steel,
+/obj/item/blueprints,
+/obj/item/blueprints/outpost{
+	pixel_y = 6
+	},
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/power)
 "cP" = (
@@ -789,6 +798,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
 "jZ" = (
@@ -960,9 +972,6 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
@@ -1306,9 +1315,35 @@
 /area/tramp_freighter/cargo)
 "ox" = (
 /obj/structure/table/steel,
-/obj/random/toolbox,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/item/stack/material/glass/full{
+	pixel_y = 6;
+	pixel_x = -3
+	},
+/obj/item/stack/material/glass/full{
+	pixel_y = 6;
+	pixel_x = -3
+	},
+/obj/item/stack/material/steel/full{
+	pixel_y = 6;
+	pixel_x = 2
+	},
+/obj/item/stack/material/steel/full{
+	pixel_y = 6;
+	pixel_x = 2
+	},
+/obj/item/stack/material/aluminium/full{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/stack/material/plastic/full{
+	pixel_y = 6;
+	pixel_x = -5
+	},
+/obj/item/stack/material/lead/full{
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/engi)
@@ -3711,8 +3746,6 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/atmos)
 "UH" = (
-/obj/structure/table/steel,
-/obj/item/storage/belt/utility/alt,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -3725,6 +3758,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/machinery/autolathe,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/engi)
 "UI" = (

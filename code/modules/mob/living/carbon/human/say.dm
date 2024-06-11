@@ -60,7 +60,7 @@
 
 	// Try to translate with augment if it is installed and not broken.
 	var/obj/item/organ/internal/augment/translator/translator = internal_organs_by_name[BP_AUG_TRANSLATOR]
-	if(!translator?.is_broken() && (speaking.name in translator?.languages))
+	if(!translator?.is_broken() && (speaking?.name in translator?.languages))
 		return TRUE
 
 	return ..()

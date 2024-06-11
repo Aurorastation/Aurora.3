@@ -5,6 +5,7 @@
 	initial_flooring = /singleton/flooring/linoleum
 	tile_outline = "linoleum"
 	has_resources = FALSE
+	does_footprint = FALSE
 
 /turf/simulated/floor/exoplanet/lino/diamond
 	icon_state = "lino_diamond_preview"

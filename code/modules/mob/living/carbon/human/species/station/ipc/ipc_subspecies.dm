@@ -10,6 +10,8 @@
 	default_genders = list(MALE, FEMALE)
 	selectable_pronouns = list(MALE, FEMALE, PLURAL, NEUTER)
 
+	alterable_internal_organs = list(BP_EYES)
+
 	burn_mod = 1.2
 	grab_mod = 1
 

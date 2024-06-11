@@ -35,7 +35,7 @@
 	random_icon_states = null
 	var/dirs=0
 	icon = 'icons/effects/fluidtracks.dmi'
-	icon_state = "human2"
+	icon_state = "" // invisible sprite, our icon is built using overlays instead
 	var/coming_state = "blood1"
 	var/going_state = "blood2"
 

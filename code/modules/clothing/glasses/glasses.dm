@@ -213,23 +213,6 @@ BLIND     // can't see anything
 	icon_state = "panto_med"
 	item_state = "panto_med"
 
-/obj/item/clothing/glasses/science
-	name = "science goggles"
-	desc = "Used to protect your eyes against harmful chemicals!"
-	icon_state = "purple"
-	item_state = "purple"
-	sprite_sheets = list(
-		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
-	)
-	toggleable = 1
-	unacidable = 1
-	item_flags = ITEM_FLAG_AIRTIGHT
-	anomaly_protection = 0.1
-
-/obj/item/clothing/glasses/science/Initialize()
-	. = ..()
-	overlay = global_hud.science
-
 /obj/item/clothing/glasses/night
 	name = "night vision goggles"
 	desc = "You can totally see in the dark now!"
@@ -266,8 +249,10 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/safety
 	name = "safety glasses"
 	desc = "A simple pair of safety glasses. Thinner than their goggle counterparts, for those who can't decide between safety and style."
+	icon = 'icons/obj/item/clothing/eyes/safety.dmi'
 	icon_state = "plaingoggles"
 	item_state = "plaingoggles"
+	contained_sprite = TRUE
 	item_flags = ITEM_FLAG_AIRTIGHT|ITEM_FLAG_THICK_MATERIAL
 	unacidable = 1
 
@@ -284,7 +269,7 @@ BLIND     // can't see anything
 	off_state = "goggles_standard"
 	var/base_icon_state
 	action_button_name = "Flip Goggles"
-	var/change_item_state_on_flip = FALSE
+	var/change_item_state_on_flip = TRUE
 	var/flip_down = "down to protect your eyes."
 	var/flip_up = "up out of your face."
 	var/up = 0
@@ -343,6 +328,30 @@ BLIND     // can't see anything
 	desc = "A simple pair of safety goggles. It's general chemistry all over again. Comes with a prescription overlay."
 	prescription = 7
 
+/obj/item/clothing/glasses/safety/goggles/science
+	name = "science goggles"
+	desc = "Used to protect your eyes against harmful chemicals!"
+	icon_state = "purple"
+	item_state = "purple"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
+	)
+	toggleable = 1
+	unacidable = 1
+	item_flags = ITEM_FLAG_AIRTIGHT
+	anomaly_protection = 0.1
+
+/obj/item/clothing/glasses/safety/goggles/science/Initialize()
+	. = ..()
+	overlay = global_hud.science
+
+/obj/item/clothing/glasses/safety/goggles/science/handle_additional_changes()
+	. = ..()
+	if(up)
+		overlay = null
+	else
+		overlay = global_hud.science
+
 /obj/item/clothing/glasses/safety/goggles/wasteland
 	name = "wasteland goggles"
 	desc = "A pair of old goggles common in the Wasteland. A few denizens unfortunate enough to not \
@@ -351,7 +360,6 @@ BLIND     // can't see anything
 	icon_state = "wasteland_goggles"
 	item_state = "wasteland_goggles"
 	off_state = "wasteland_goggles"
-	contained_sprite = TRUE
 	change_item_state_on_flip = TRUE
 	flip_down = "up to protect your eyes."
 	flip_up = "and let it hang around your neck."
@@ -364,7 +372,6 @@ BLIND     // can't see anything
 	icon = 'icons/clothing/eyes/goon_goggles.dmi'
 	var/sprite_state = "military_goggles"
 	flash_protection = FLASH_PROTECTION_MODERATE //This needs to be set even if the state changes later, otherwise it spawns with no flash protection while appearing to be down
-	contained_sprite = TRUE
 	change_item_state_on_flip = TRUE
 
 /obj/item/clothing/glasses/safety/goggles/tactical/Initialize(mapload, material_key)
@@ -389,7 +396,6 @@ BLIND     // can't see anything
 	icon = 'icons/clothing/eyes/goon_goggles.dmi'
 	var/sprite_state = "security_goggles"
 	flash_protection = FLASH_PROTECTION_MODERATE
-	contained_sprite = TRUE
 	change_item_state_on_flip = TRUE
 
 /obj/item/clothing/glasses/safety/goggles/goon/Initialize(mapload, material_key)
@@ -429,7 +435,6 @@ BLIND     // can't see anything
 	var/brand_name
 	icon = 'icons/clothing/eyes/goon_goggles.dmi'
 	var/sprite_state = "security_goggles"
-	contained_sprite = TRUE
 	change_item_state_on_flip = TRUE
 
 /obj/item/clothing/glasses/safety/goggles/medical/Initialize(mapload, material_key)

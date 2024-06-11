@@ -1,4 +1,6 @@
 /mob/living/simple_animal/hostile/retaliate
+	abstract_type = /mob/living/simple_animal/hostile/retaliate
+
 	var/list/enemies = list()
 
 /mob/living/simple_animal/hostile/retaliate/Destroy()
