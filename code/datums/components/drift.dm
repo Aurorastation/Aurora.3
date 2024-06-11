@@ -37,13 +37,13 @@
 	if(drifting_loop.status & MOVELOOP_STATUS_RUNNING)
 		drifting_start(drifting_loop) // There's a good chance it'll autostart, gotta catch that
 
-	var/visual_delay = movable_parent.inertia_move_delay
+	// var/visual_delay = movable_parent.inertia_move_delay
 
 	// Start delay is essentially a more granular version of instant
 	// Isn't used in the standard case, just for things that have odd wants
 	if(!instant && start_delay)
 		drifting_loop.pause_for(start_delay)
-		visual_delay = start_delay
+		// visual_delay = start_delay
 
 	// apply_initial_visuals(visual_delay) // Used to have this proc in TG, but we don't use gliding
 

@@ -18,6 +18,7 @@
 	air_properties_vary_with_direction = 1
 
 	atmos_canpass = CANPASS_PROC
+	pass_flags_self = PASSGLASS
 
 /obj/machinery/door/window/Initialize(mapload)
 	. = ..()
@@ -75,8 +76,6 @@
 		flick("[base_state]deny", src)
 
 /obj/machinery/door/window/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover) && mover.checkpass(PASSGLASS))
-		return 1
 	if(get_dir(loc, target) == dir) //Make sure looking at appropriate border
 		if(air_group) return 0
 		return !density

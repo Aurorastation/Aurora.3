@@ -173,7 +173,7 @@
 		O.hitby(src, throwingdatum.speed)
 
 	else if(isturf(hit_atom))
-		throwing.finalize(hit = FALSE)
+		throwing?.finalize(hit = FALSE)
 		var/turf/T = hit_atom
 		if(T.density)
 			spawn(2)
