@@ -5105,15 +5105,16 @@
 "Au" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/reagentgrinder{
-	pixel_x = 5
+	pixel_x = 5;
+	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/beaker/large{
 	pixel_x = -9;
-	pixel_y = -4
+	pixel_y = 13
 	},
 /obj/item/reagent_containers/glass/beaker/large{
 	pixel_x = -9;
-	pixel_y = 9
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/kitchen)
