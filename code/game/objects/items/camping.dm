@@ -26,8 +26,6 @@
 		else
 			if(C.y == y1 || C.y == y2)
 				C.icon_state = "canvas_dir"
-				if(C.y == y2)
-					C.layer = ABOVE_WINDOW_LAYER
 			var/mid = Mean(y1, y2)
 			if(C.y < mid)
 				C.dir = SOUTH
@@ -36,19 +34,20 @@
 		var/obj/item/tent/source = source_item
 		if(istype(source))
 			var/obj/structure/component/tent_canvas/roof/roof = new /obj/structure/component/tent_canvas/roof(C.loc)
+			grouped_structures += roof
+			roof.color = color
 			roof.dir = C.dir
 			if(source.decal && C.x == x1 && C.y == y1)
 				roof.AddOverlays(overlay_image('icons/obj/item/tent_decals.dmi', source.decal, flags=RESET_COLOR))
 			roof.icon_state = "roof_[get_roof_type(C)]"
-			C.add_vis_contents(roof)
-			if(!roof.color)
-				roof.color = color //Sometimes it doesn't inherit this. Not sure why.
 
 /datum/large_structure/tent/structure_entered(turf/T, atom/movable/AM)
 	. = ..()
 	if(!.)
-		return FALSE
+		return
 	var/mob/M = AM
+	if(!M.renderers)
+		return
 	var/atom/movable/renderer/roofs/roof_plane = M.renderers["[ROOF_PLANE]"]
 	if(roof_plane)
 		roof_plane.alpha = 76
@@ -108,7 +107,6 @@
 		deploy_tent(T, usr)
 
 /obj/item/tent/proc/deploy_tent(var/turf/target, var/mob/user)
-
 	if(my_tent)
 		if(my_tent.origin == get_turf(src)) //Not moved
 			my_tent.assemble(1 SECOND, user)
