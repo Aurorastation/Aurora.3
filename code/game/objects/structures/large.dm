@@ -34,7 +34,6 @@
 /datum/large_structure/Destroy()
 	. = ..()
 	QDEL_LIST(grouped_structures)
-	QDEL_NULL(source_item)
 
 /datum/large_structure/proc/get_next_stage(var/type)
 	for(var/stage in stages)

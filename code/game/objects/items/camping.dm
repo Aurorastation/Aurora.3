@@ -102,7 +102,6 @@
 
 /obj/item/tent/Destroy()
 	. = ..()
-	QDEL_NULL(my_tent)
 
 /obj/item/tent/MouseDrop(over_object, src_location, over_location)
 	. = ..()
