@@ -307,7 +307,7 @@
 "bJ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/bridge)
 "bO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
