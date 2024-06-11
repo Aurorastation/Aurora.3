@@ -9,6 +9,10 @@
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 3)
 	var/hatchling = /mob/living/simple_animal/chick
 
+/obj/item/reagent_containers/food/snacks/egg/Initialize()
+	. = ..()
+	START_PROCESSING(SSprocessing, src)
+
 /obj/item/reagent_containers/food/snacks/egg/afterattack(obj/O as obj, mob/user as mob, proximity)
 	if(!(proximity && O.is_open_container()))
 		return ..()
