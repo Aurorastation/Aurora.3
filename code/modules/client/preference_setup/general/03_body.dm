@@ -222,8 +222,8 @@ var/global/list/valid_bloodtypes = list(
 		pref.bgstate = "000000"
 
 	// Synthetic Blood Substitute checks.
-	if((pref.b_type == "SBS") && ((length(pref.organ_data) + length(pref.organ_data)) < 6))
-		to_chat(pref.client, SPAN_WARNING("Synthetic Blood Substitute (SBS) is intended for heavily augmented characters. To pick it, you must have at least seven augmented limbs or organs. Resetting blood type..."))
+	if((pref.b_type == "SBS") && ((length(pref.organ_data) + length(pref.rlimb_data)) < 8))
+		to_chat(pref.client, SPAN_WARNING("Synthetic Blood Substitute (SBS) is intended for heavily augmented characters. To pick it, you must have at least eight augmented limbs or organs. Resetting blood type..."))
 		pref.b_type = initial(pref.b_type)
 
 /datum/category_item/player_setup_item/general/body/content(var/mob/user)
