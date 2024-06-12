@@ -377,12 +377,6 @@
 	},
 /area/peoples_station/training)
 "bA" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
-	color = "#6C7364";
-	frame_color = "#6C7364"
-	},
 /obj/machinery/door/blast/regular/open{
 	id = "peoples_station_transport_blast";
 	dir = 4
@@ -4627,12 +4621,6 @@
 	},
 /area/peoples_station/medbay)
 "qI" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
-	color = "#6C7364";
-	frame_color = "#6C7364"
-	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, cockpit"
 	},
@@ -11290,12 +11278,6 @@
 	},
 /area/peoples_station/armory)
 "QR" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
-	color = "#6C7364";
-	frame_color = "#6C7364"
-	},
 /obj/machinery/door/blast/regular/open{
 	id = "peoples_station_transport_blast"
 	},
