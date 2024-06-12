@@ -239,8 +239,8 @@
 
 //Medical
 /obj/item/clothing/suit/storage/toggle/para_jacket
-	name = "Paramedic jacket"
-	desc = "A high-visibility jacket worn by medical Paramedics."
+	name = "paramedic jacket"
+	desc = "A high-visibility jacket worn by medical paramedics."
 	icon = 'icons/obj/item/clothing/department_uniforms/medical.dmi'
 	contained_sprite = TRUE
 	icon_state = "nt_emt_jacket"
@@ -251,12 +251,12 @@
 	body_parts_covered = UPPER_TORSO|ARMS
 
 /obj/item/clothing/suit/storage/toggle/para_jacket/zeng
-	desc = "A Paramedic jacket in the classic white and purple of Zeng-Hu Pharmaceuticals."
+	desc = "A paramedic jacket in the classic white and purple of Zeng-Hu Pharmaceuticals."
 	icon_state = "zeng_emt_jacket"
 	item_state = "zeng_emt_jacket"
 
 /obj/item/clothing/suit/storage/toggle/para_jacket/pmc
-	desc = "A Paramedic jacket in the classic black and blue of the PMCG."
+	desc = "A paramedic jacket in the classic black and blue of the PMCG."
 	icon_state = "pmc_emt_jacket"
 	item_state = "pmc_emt_jacket"
 
@@ -267,7 +267,7 @@
 
 /obj/item/clothing/suit/storage/medical_chest_rig
 	name = "medic chest-rig"
-	desc = "A white chest-rig with pouches worn by medical Paramedics, meant to carry their equipment."
+	desc = "A white chest-rig with pouches worn by paramedics, meant to carry their equipment."
 	icon_state = "paramed_armor"
 	item_state = "paramed_armor"
 	blood_overlay_type = "armor"

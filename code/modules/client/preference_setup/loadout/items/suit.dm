@@ -133,7 +133,7 @@
 	..()
 	var/list/medical_outerwear = list()
 	medical_outerwear["medical chest-rig"] = /obj/item/clothing/suit/storage/medical_chest_rig
-	medical_outerwear["Paramedic jacket"] = /obj/item/clothing/suit/storage/toggle/para_jacket
+	medical_outerwear["paramedic jacket"] = /obj/item/clothing/suit/storage/toggle/para_jacket
 	gear_tweaks += new /datum/gear_tweak/path(medical_outerwear)
 
 /datum/gear/suit/iac_outerwear

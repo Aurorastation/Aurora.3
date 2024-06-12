@@ -231,7 +231,7 @@
 	)
 
 /obj/item/storage/belt/medical/paramedic
-	name = "Paramedic utility belt"
+	name = "paramedic utility belt"
 	desc = "A sturdy black webbing belt with attached pouches."
 	icon_state = "emsbelt"
 	item_state = "emsbelt"

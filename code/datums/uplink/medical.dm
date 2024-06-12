@@ -40,7 +40,7 @@
 	name = "Fully Loaded Combat Medical Belt"
 	bluecrystal_cost = 3
 	path = /obj/item/storage/belt/medical/paramedic/combat/full
-	desc = "A fully loaded medical belt even Zeng-Hu's top Paramedics would be dying to wear. It contains liquid medicines and a hypospray. Combat hypo sold separately."
+	desc = "A fully loaded medical belt even Zeng-Hu's top paramedics would be dying to wear. It contains liquid medicines and a hypospray. Combat hypo sold separately."
 
 /datum/uplink_item/item/medical/defib
 	name = "Combat Defibrillator"

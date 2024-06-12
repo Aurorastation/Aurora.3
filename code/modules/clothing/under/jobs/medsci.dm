@@ -188,8 +188,8 @@
 // Paramedic
 
 /obj/item/clothing/under/rank/medical/paramedic
-	name = "Paramedic jumpsuit"
-	desc = "It's made of a special fiber that provides minor protection against biohazards. It's a special jumpsuit made for Paramedics."
+	name = "paramedic jumpsuit"
+	desc = "It's made of a special fiber that provides minor protection against biohazards. It's a special jumpsuit made for paramedics."
 	icon_state = "nt_emt"
 	item_state = "nt_emt"
 

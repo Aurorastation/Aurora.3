@@ -76,8 +76,8 @@
 	new /obj/item/clothing/glasses/eyepatch/hud/medical(src)
 
 /obj/structure/closet/secure_closet/medical_para
-	name = "Paramedic's locker"
-	desc = "An immobile, card-locked storage unit containing all the necessary equipment for a Paramedic."
+	name = "paramedic's locker"
+	desc = "An immobile, card-locked storage unit containing all the necessary equipment for a paramedic."
 	req_access = list(ACCESS_PARAMEDIC)
 	icon_state = "med"
 

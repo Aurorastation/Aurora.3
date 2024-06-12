@@ -123,7 +123,7 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 /datum/tip/medical
 	category = CATEGORY_MEDICAL
 	messages = list(
-		"As the Chief Medical Officer, coordinate and communicate with your doctors, chemists, and Paramedics during a pirate raid, blob infestation, or some other crisis to keep people alive and fighting.",
+		"As the Chief Medical Officer, coordinate and communicate with your doctors, chemists, and paramedics during a pirate raid, blob infestation, or some other crisis to keep people alive and fighting.",
 		"As a Physician, you can attempt to draw blood from a husk with a syringe to determine the cause. If you can extract blood, it was caused by extreme temperatures or lasers, if there is no blood to extract, it was caused by something unnatural.",
 		"As a Physician, you can surgically implant or extract things from people's chests. This can range from putting in a bomb to pulling out an alien larva.",
 		"As a Physician, remember to target the correct limb and be on help intent when trying to perform surgery on someone.",
