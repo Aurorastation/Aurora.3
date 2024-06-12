@@ -56,6 +56,10 @@
 	if(storage_type)
 		storage_compartment = new storage_type(src)
 
+/mob/living/simple_animal/hostile/commanded/vaurca_retainer/Destroy()
+	contents.RemoveAll(contents)
+	. = ..()
+
 /mob/living/simple_animal/hostile/commanded/vaurca_retainer/verb/befriend()
 	set name = "Befriend Retainer"
 	set category = "IC"
