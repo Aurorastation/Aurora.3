@@ -374,3 +374,36 @@
   TheDanseMacabre:
   - rscadd: Added new patterned Visegradi ponczos to the loadout.
   - imageadd: Replaced the sprite of the existing Visegradi ponczo.
+2024-06-12:
+  Ben10083:
+  - bugfix: An investigation revealed that the engineer responsible for installing
+      the Plains Tyrant Containment Cell on the IHSS Reclamation stole the rare materials
+      for the construction for their own gain. They have been exiled and the cell
+      has been strengthed.
+  - bugfix: IHSS Reclamation Ghostspawners fixed.
+  - bugfix: IHSS Reclamation Shuttle Hangar Docking fixed.
+  - rscadd: Adds missing firelocks to IHSS Reclamation.
+  - rscadd: IHSS Reclamation now has cargo delivery points.
+  - rscadd: Fore docking port added to IHSS Reclamation.
+  - code_imp: Window spawners now pass their req_one_access to their firelocks.
+  - rscadd: New Warm variants for air canister and air alarm, so Unathi can feel comfy.
+  ChangeMe:
+  - rscadd: Shuttle guidelines visual update.
+  FluffyGhost:
+  - bugfix: Fixed claymores not detonating on signal.
+  Lavillastrangiato:
+  - rscadd: Adds Grupo Amapola uniforms and hats.
+  Llywelwyn:
+  - bugfix: Changes the stress ball to be the correct size. It's now a small item.
+  Sparky_hotdog:
+  - rscadd: You can now use pens to add customer names and their orders to takeaway
+      cups.
+  - qol: Moved the chemical heater to the front of the bar.
+  - qol: You can now use reagent containers on closed syrup dispensers to dispense
+      syrup into the container without picking up the syrup.
+  Stev-the-third:
+  - imageadd: Added corporate Vaurca tunnel cloaks
+  - qol: changed the description of all Vaurca tunnel cloaks to include material
+  hazelmouse:
+  - rscadd: Added air alarms to the Hephaestus Security Vessel offship, in addition
+      to a few quality-of-life additions.
