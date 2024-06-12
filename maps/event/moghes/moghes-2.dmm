@@ -2,7 +2,34 @@
 "a" = (
 /turf/simulated/mineral/planet,
 /area/new_blades/underground)
-"b" = (
+"d" = (
+/obj/effect/floor_decal/concrete{
+	dir = 4
+	},
+/turf/simulated/floor/concrete{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"f" = (
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"h" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"i" = (
+/turf/unsimulated/mineral,
+/area/new_blades/underground)
+"j" = (
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -14,156 +41,7 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"c" = (
-/obj/effect/floor_decal/concrete{
-	dir = 6
-	},
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"e" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"h" = (
-/obj/effect/floor_decal/concrete{
-	dir = 10
-	},
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"i" = (
-/turf/unsimulated/mineral,
-/area/new_blades/underground)
-"k" = (
-/obj/effect/decal/cleanable/floor_damage/rust,
-/obj/machinery/door/airlock/hatch{
-	name = "Elevator 2";
-	dir = 4
-	},
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
 "l" = (
-/obj/effect/floor_decal/concrete/large{
-	dir = 4
-	},
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"n" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped,
-/obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"q" = (
-/obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/concrete/square{
-	temperature = 313.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"t" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped,
-/obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"y" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped,
-/obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"z" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped,
-/obj/effect/decal/cleanable/floor_damage/rust,
-/obj/machinery/light/colored/dying,
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"A" = (
-/obj/effect/floor_decal/concrete{
-	dir = 9
-	},
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"C" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Elevator 1"
-	},
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"F" = (
-/obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"I" = (
-/obj/effect/floor_decal/concrete/large{
-	dir = 8
-	},
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"J" = (
-/turf/simulated/floor/exoplanet/water/shallow/moghes{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
-"K" = (
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"L" = (
-/turf/simulated/wall/rusty,
-/area/new_blades/interiors/ruins/bunker)
-"M" = (
-/obj/effect/floor_decal/concrete{
-	dir = 4
-	},
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"O" = (
-/obj/effect/floor_decal/concrete/large,
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"P" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -172,33 +50,7 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"R" = (
-/obj/effect/floor_decal/concrete{
-	dir = 5
-	},
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"S" = (
-/obj/effect/floor_decal/concrete,
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"U" = (
-/obj/effect/decal/cleanable/floor_damage/rust,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"V" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
+"o" = (
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -207,21 +59,7 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"W" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"X" = (
-/turf/simulated/floor/concrete/square{
-	temperature = 313.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"Y" = (
+"p" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/effects/missile_silo.dmi';
 	icon_state = "silo";
@@ -231,11 +69,173 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"Z" = (
+"q" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Elevator 1"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"s" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"u" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 4
+	},
+/turf/simulated/floor/concrete{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"w" = (
+/obj/effect/floor_decal/concrete,
+/turf/simulated/floor/concrete{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"y" = (
+/obj/effect/floor_decal/concrete{
+	dir = 9
+	},
+/turf/simulated/floor/concrete{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"A" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/machinery/light/colored/dying,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"C" = (
+/obj/effect/floor_decal/concrete/large,
+/turf/simulated/floor/concrete{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"D" = (
+/obj/effect/floor_decal/concrete/large{
+	dir = 8
+	},
+/turf/simulated/floor/concrete{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"E" = (
+/turf/simulated/floor/concrete{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"G" = (
+/obj/effect/floor_decal/concrete{
+	dir = 10
+	},
+/turf/simulated/floor/concrete{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"H" = (
+/obj/effect/floor_decal/concrete{
+	dir = 5
+	},
+/turf/simulated/floor/concrete{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"I" = (
+/turf/simulated/wall/rusty,
+/area/new_blades/interiors/ruins/bunker)
+"J" = (
+/turf/simulated/floor/exoplanet/water/shallow/moghes{
+	temperature = 315.15
+	},
+/area/new_blades/underground/aquifer)
+"K" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"L" = (
 /obj/effect/floor_decal/concrete/large{
 	dir = 1
 	},
 /turf/simulated/floor/concrete{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"O" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"P" = (
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"R" = (
+/obj/effect/floor_decal/concrete{
+	dir = 6
+	},
+/turf/simulated/floor/concrete{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"T" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"V" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"X" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Z" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/machinery/door/airlock/hatch{
+	name = "Elevator 2";
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
@@ -3016,11 +3016,11 @@ a
 a
 a
 a
-L
-L
-L
-L
-L
+I
+I
+I
+I
+I
 a
 a
 a
@@ -3273,11 +3273,11 @@ a
 a
 a
 a
-L
-V
-b
-y
-L
+I
+s
+j
+X
+I
 a
 a
 a
@@ -3530,26 +3530,26 @@ a
 a
 a
 a
-L
-U
-F
-n
-L
-a
-a
-a
-a
-a
-a
 I
-A
-A
-A
-A
-A
-A
-A
+V
 O
+K
+I
+a
+a
+a
+a
+a
+a
+D
+y
+y
+y
+y
+y
+y
+y
+C
 a
 a
 a
@@ -3787,26 +3787,26 @@ a
 a
 a
 a
-L
-P
-F
-t
-L
-a
-a
-a
-a
-a
-a
-R
-L
-K
-K
-K
-K
-K
-L
+I
+T
+O
 h
+I
+a
+a
+a
+a
+a
+a
+H
+I
+E
+E
+E
+E
+E
+I
+G
 a
 a
 a
@@ -4044,26 +4044,26 @@ a
 a
 a
 a
-L
-L
-k
-L
-L
+I
+I
+Z
+I
+I
 a
 a
 a
 a
 a
 a
-R
-K
-q
-X
-X
-X
-q
-K
-h
+H
+E
+f
+P
+P
+P
+f
+E
+G
 a
 a
 a
@@ -4312,15 +4312,15 @@ a
 a
 a
 a
-R
-K
-X
-X
-X
-X
-X
-K
-h
+H
+E
+P
+P
+P
+P
+P
+E
+G
 a
 a
 a
@@ -4563,21 +4563,21 @@ a
 a
 a
 a
-L
-L
-L
-L
-L
+I
+I
+I
+I
+I
 a
-R
-K
-X
-X
-Y
-X
-X
-K
-h
+H
+E
+P
+P
+p
+P
+P
+E
+G
 a
 a
 a
@@ -4820,21 +4820,21 @@ a
 a
 a
 a
-L
-V
-e
-y
-L
+I
+s
+o
+X
+I
 a
-R
-K
-X
-X
-X
-X
-X
-K
-h
+H
+E
+P
+P
+P
+P
+P
+E
+G
 a
 a
 a
@@ -5077,21 +5077,21 @@ a
 a
 a
 a
-C
-F
-F
-z
-L
+q
+O
+O
+A
+I
 a
-R
-K
-q
-X
-X
-X
-q
-K
-h
+H
+E
+f
+P
+P
+P
+f
+E
+G
 a
 a
 a
@@ -5334,21 +5334,21 @@ a
 a
 a
 a
-L
-P
-W
-t
-L
-a
-R
-L
-K
-K
-K
-K
-K
-L
+I
+T
+l
 h
+I
+a
+H
+I
+E
+E
+E
+E
+E
+I
+G
 a
 a
 a
@@ -5591,21 +5591,21 @@ a
 a
 a
 a
-L
-L
-L
-L
-L
+I
+I
+I
+I
+I
 a
-Z
-c
-c
-M
-K
-S
-c
-c
-l
+L
+R
+R
+d
+E
+w
+R
+R
+u
 a
 a
 a
