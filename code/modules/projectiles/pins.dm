@@ -305,7 +305,7 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 			var/obj/item/gun/energy/EG = gun
 			if(EG.required_firemode_auth[EG.sel_mode] == WIRELESS_PIN_STUN)
 				return TRUE
-			else if (GLOB.security_level == SEC_LEVEL_YELLOW || GLOB.security_level == SEC_LEVEL_RED || GLOB.security_level == SEC_LEVEL_BLUE)
+			else if (GLOB.security_level == SEC_LEVEL_YELLOW || GLOB.security_level >= SEC_LEVEL_BLUE)
 				return TRUE
 			else
 				fail_message = SPAN_WARNING("Unable to fire: insufficient security level.")
