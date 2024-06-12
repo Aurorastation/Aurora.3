@@ -355,6 +355,11 @@ SUBSYSTEM_DEF(records)
 	if(religion)
 		return religion.get_records_name()
 
+/datum/controller/subsystem/records/proc/get_citizenship_record_name(var/target_citizenship)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[target_citizenship]
+	if(citizenship)
+		return citizenship.get_records_name()
+
 /datum/controller/subsystem/records/proc/compute_localized_field(var/type)
 	if(!localized_fields[type])
 		return
