@@ -1,12 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"ab" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades)
 "ai" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
@@ -17,8 +9,8 @@
 /area/new_blades/interiors/ruins/hegemony_base)
 "aj" = (
 /obj/structure/table/steel,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "an" = (
@@ -47,6 +39,7 @@
 "as" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/structure/closet/crate/rad,
+/obj/item/device/geiger,
 /turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
@@ -100,14 +93,14 @@
 "aJ" = (
 /obj/random/dirt_75,
 /obj/item/material/stool/chair/wood,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "aM" = (
 /obj/item/melee/baton/loaded,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades)
 "aN" = (
@@ -125,8 +118,8 @@
 /area/new_blades/interiors)
 "aU" = (
 /obj/structure/bed/stool/chair/wood,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "aV" = (
@@ -188,16 +181,16 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "bC" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "bG" = (
@@ -223,13 +216,14 @@
 	},
 /area/new_blades/interiors)
 "bL" = (
-/obj/structure/bed/stool/chair{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/floor_damage/rust,
-/obj/machinery/light/colored/dying{
-	dir = 4
+/obj/machinery/recharger{
+	pixel_x = 5
 	},
+/obj/machinery/recharger{
+	pixel_x = -7
+	},
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
@@ -240,8 +234,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "bS" = (
@@ -311,21 +305,20 @@
 "cH" = (
 /obj/random/dirt_75,
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "cI" = (
-/obj/effect/floor_decal/concrete{
-	dir = 6
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/machinery/door/airlock/hatch{
+	name = "Elevator 2";
+	dir = 4
 	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
-/area/new_blades)
+/area/new_blades/interiors/ruins/hegemony_base)
 "cM" = (
 /obj/structure/bed/stool/chair/office/hover/command{
 	dir = 8
@@ -360,8 +353,8 @@
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
 /obj/item/bedsheet/black,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "dc" = (
@@ -423,8 +416,8 @@
 /obj/structure/bed/stool/chair/sofa/beige{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "dz" = (
@@ -444,8 +437,8 @@
 "dA" = (
 /obj/structure/table/rack,
 /obj/random/toolbox,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "dC" = (
@@ -472,18 +465,16 @@
 	},
 /area/new_blades/interiors)
 "dM" = (
-/obj/effect/floor_decal/concrete/large{
-	dir = 4
-	},
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "checkpoint_hegemony";
-	name = "Checkpoint Shutter"
-	},
-/turf/simulated/floor/concrete{
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/structure/closet/crate/elec,
+/obj/item/circuitboard/portgen/advanced,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/capacitor,
+/turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
-/area/new_blades)
+/area/new_blades/interiors/ruins/hegemony_base)
 "ea" = (
 /obj/effect/floor_decal/concrete{
 	dir = 10
@@ -510,8 +501,8 @@
 /area/new_blades/interiors)
 "ep" = (
 /obj/machinery/appliance/cooker/stove,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "eq" = (
@@ -534,8 +525,8 @@
 /area/new_blades/interiors)
 "eG" = (
 /obj/structure/simple_door/iron,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "eJ" = (
@@ -557,8 +548,8 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "fh" = (
@@ -623,8 +614,8 @@
 /obj/structure/table/stone/marble,
 /obj/item/trash/candle,
 /obj/random/dirt_75,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "fC" = (
@@ -655,14 +646,6 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/scc_evac)
-"fJ" = (
-/obj/machinery/door/airlock/hatch{
-	name = "Elevator 2"
-	},
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/hegemony_base)
 "fM" = (
 /obj/structure/closet/skrell,
 /obj/item/clothing/ears/skrell/band/silver,
@@ -705,8 +688,8 @@
 "fX" = (
 /obj/effect/decal/cleanable/floor_damage/wood_broken4,
 /obj/random/dirt_75,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades)
 "gg" = (
@@ -756,8 +739,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "gl" = (
@@ -786,8 +769,8 @@
 "gE" = (
 /obj/random/dirt_75,
 /obj/structure/bonfire/fireplace,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "gI" = (
@@ -818,8 +801,8 @@
 "hg" = (
 /obj/item/storage/box/fancy/matches,
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "hx" = (
@@ -827,8 +810,8 @@
 	dir = 8
 	},
 /obj/machinery/light,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "hz" = (
@@ -840,21 +823,21 @@
 /obj/item/storage/box/gloves,
 /obj/item/storage/box/masks,
 /obj/item/storage/box/masks,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "hC" = (
 /obj/random/dirt_75,
 /obj/structure/table/wood,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "hD" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 4;
-	pixel_y = 32
+/obj/machinery/door/airlock{
+	name = "Showers";
+	dir = 4
 	},
 /turf/simulated/floor/tiled{
 	temperature = 315.15
@@ -879,21 +862,21 @@
 "hP" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "hQ" = (
 /obj/structure/simple_door/wood,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "hS" = (
 /obj/random/dirt_75,
 /obj/structure/trash_pile,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades)
 "hU" = (
@@ -917,16 +900,16 @@
 /obj/structure/bed/stool/chair/sofa/pew/left{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "ii" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "ik" = (
@@ -946,14 +929,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "ir" = (
 /obj/structure/bed/stool/bar,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "iv" = (
@@ -1147,8 +1130,8 @@
 /obj/structure/closet/crate/freezer,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "jD" = (
@@ -1162,36 +1145,36 @@
 /obj/item/clothing/under/unathi/huytai{
 	color = "#4a3407"
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "jG" = (
 /obj/structure/closet/crate/loot,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "jH" = (
 /obj/machinery/light,
 /obj/random/dirt_75,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "jI" = (
 /obj/item/stack/rods,
 /obj/structure/closet/crate,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "jR" = (
 /obj/structure/table/rack,
 /obj/item/material/twohanded/pike/pitchfork,
 /obj/item/material/scythe,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "jT" = (
@@ -1223,8 +1206,8 @@
 /area/new_blades/interiors)
 "jX" = (
 /obj/structure/bed/stool/chair/office/dark,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "kp" = (
@@ -1265,8 +1248,8 @@
 	color = "#0081CD";
 	basecolor = "#0081CD"
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades)
 "kH" = (
@@ -1286,8 +1269,8 @@
 "kL" = (
 /obj/random/dirt_75,
 /obj/structure/trash_pile,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "kP" = (
@@ -1315,8 +1298,8 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "lf" = (
@@ -1324,14 +1307,14 @@
 /obj/item/clothing/glasses/welding,
 /obj/item/clothing/glasses/welding,
 /obj/item/clothing/glasses/welding,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "lh" = (
 /obj/structure/coatrack,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "li" = (
@@ -1394,14 +1377,14 @@
 /area/shuttle/scc_evac)
 "lt" = (
 /obj/structure/bonfire/fireplace,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "ly" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "lA" = (
@@ -1417,8 +1400,8 @@
 /area/new_blades)
 "lB" = (
 /obj/item/stack/rods,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "lD" = (
@@ -1468,8 +1451,8 @@
 /area/new_blades)
 "mm" = (
 /obj/machinery/optable,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "mp" = (
@@ -1521,16 +1504,16 @@
 	pixel_x = -9;
 	pixel_y = 5
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "mA" = (
 /obj/structure/bed/stool/chair/sofa/left/beige{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "mB" = (
@@ -1540,8 +1523,8 @@
 "mC" = (
 /obj/structure/table/steel,
 /obj/item/device/eftpos,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "mE" = (
@@ -1568,8 +1551,8 @@
 /area/new_blades)
 "mJ" = (
 /obj/structure/girder,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "mP" = (
@@ -1636,8 +1619,8 @@
 /obj/structure/bed/stool/chair/sofa/right/beige{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "np" = (
@@ -1646,8 +1629,8 @@
 /obj/item/saddle,
 /obj/item/saddle,
 /obj/item/saddle,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "nq" = (
@@ -1689,8 +1672,8 @@
 	pixel_x = 6;
 	pixel_y = 3
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "nN" = (
@@ -1707,16 +1690,16 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "nU" = (
 /obj/structure/bed/stool/chair/sofa/corner/concave/beige{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "nY" = (
@@ -1741,19 +1724,27 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "oi" = (
-/obj/effect/floor_decal/concrete{
-	dir = 5
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/watercloset.dmi';
+	icon_state = "sink";
+	name = "sink";
+	desc = "A dusty sink basin. Rust and mold gather around the taps. If turned, a few drops of black and metallic-smelling water drip onto a corroded drain.";
+	mouse_opacity = 1;
+	pixel_y = 16
 	},
-/obj/machinery/light,
-/turf/simulated/floor/concrete{
+/obj/structure/mirror{
+	pixel_y = 26
+	},
+/turf/simulated/floor/tiled/freezer{
 	temperature = 315.15
 	},
-/area/new_blades)
+/area/new_blades/interiors/ruins/hegemony_base)
 "om" = (
 /obj/machinery/botany/extractor,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1771,15 +1762,15 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "ou" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "ow" = (
@@ -1795,8 +1786,8 @@
 /area/new_blades/interiors/ruins/hegemony_base)
 "oy" = (
 /obj/structure/curtain/open/bed,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "oG" = (
@@ -1827,8 +1818,8 @@
 /area/new_blades)
 "oR" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades)
 "oT" = (
@@ -1841,15 +1832,6 @@
 "pe" = (
 /turf/simulated/wall/shuttle/skrell,
 /area/new_blades)
-"pj" = (
-/obj/structure/bed/stool/chair{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/hegemony_base)
 "pl" = (
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 315.15
@@ -1921,8 +1903,15 @@
 	},
 /area/new_blades/interiors)
 "pJ" = (
-/turf/simulated/open,
-/area/new_blades/underground)
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/structure/closet/crate/rad{
+	name = "radioactive material crate"
+	},
+/obj/item/stack/material/uranium/full,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/hegemony_base)
 "pT" = (
 /obj/structure/blocker/steel/fence{
 	dir = 4
@@ -1949,13 +1938,16 @@
 /turf/simulated/floor/tiled/white,
 /area/new_blades/interiors)
 "pX" = (
-/obj/structure/closet/crate{
-	name = "footlocker"
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/watercloset.dmi';
+	icon_state = "shower";
+	dir = 4;
+	name = "shower";
+	desc = "An old and rusted showerhead clings to this wall. You don't think there's any water left in whatever pipes are feeding it.";
+	mouse_opacity = 1
 	},
-/obj/machinery/light/colored/dying{
-	dir = 4
-	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/tiled/freezer{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
@@ -1978,14 +1970,14 @@
 /obj/structure/bed/stool/chair/sofa/right/beige{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "qe" = (
 /obj/structure/table/steel,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades)
 "qg" = (
@@ -2000,8 +1992,8 @@
 /area/shuttle/scc_evac)
 "qD" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "qE" = (
@@ -2032,17 +2024,12 @@
 	},
 /area/new_blades)
 "qS" = (
-/obj/effect/floor_decal/concrete{
-	dir = 9
-	},
-/obj/effect/decal/cleanable/blood/drip{
-	color = "#0081CD";
-	basecolor = "#0081CD"
-	},
-/turf/simulated/floor/concrete{
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
-/area/new_blades)
+/area/new_blades/interiors/ruins/hegemony_base)
 "qY" = (
 /obj/structure/table/rack,
 /obj/machinery/light{
@@ -2077,22 +2064,18 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "ro" = (
-/obj/effect/floor_decal/concrete{
-	dir = 10
-	},
-/obj/effect/decal/cleanable/blood/drip{
-	color = "#0081CD";
-	basecolor = "#0081CD"
-	},
-/turf/simulated/floor/concrete{
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/structure/table/rack,
+/obj/item/stack/barbed_wire/full,
+/turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
-/area/new_blades)
+/area/new_blades/interiors/ruins/hegemony_base)
 "rt" = (
 /obj/machinery/bioprinter,
 /turf/simulated/floor/tiled/white{
@@ -2156,9 +2139,8 @@
 /turf/simulated/floor/shuttle/dark_red,
 /area/shuttle/scc_evac)
 "rK" = (
-/obj/machinery/door/airlock{
-	name = "Barracks"
-	},
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
@@ -2235,8 +2217,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "sm" = (
@@ -2246,8 +2228,8 @@
 /obj/structure/sink{
 	pixel_y = 16
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "so" = (
@@ -2280,8 +2262,8 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/scc_evac)
 "sA" = (
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "sC" = (
@@ -2330,8 +2312,8 @@
 /area/new_blades/interiors)
 "sO" = (
 /obj/structure/table/rack/retail_shelf,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "sP" = (
@@ -2348,8 +2330,8 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "sU" = (
@@ -2362,16 +2344,16 @@
 /obj/structure/bed/stool/chair/sofa/pew{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "ta" = (
 /obj/structure/bed/stool/chair/sofa/corner/concave/beige{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "tc" = (
@@ -2383,8 +2365,8 @@
 /obj/structure/bed/stool/chair/sofa/left/beige{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "tj" = (
@@ -2418,16 +2400,14 @@
 	},
 /area/new_blades/interiors)
 "tw" = (
-/obj/effect/floor_decal/concrete{
-	dir = 9
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/structure/railing/mapped{
+	dir = 1
 	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
-/area/new_blades)
+/area/new_blades/interiors/ruins/hegemony_base)
 "tz" = (
 /obj/structure/bed/stool/bar,
 /turf/simulated/floor/exoplanet/desert{
@@ -2494,8 +2474,8 @@
 /obj/machinery/sleeper{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "un" = (
@@ -2538,8 +2518,8 @@
 /obj/structure/reagent_dispensers/keg/xuizikeg{
 	pixel_y = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "uC" = (
@@ -2574,8 +2554,8 @@
 /obj/structure/sign/flag/hegemony/large/south{
 	pixel_y = -32
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades)
 "uV" = (
@@ -2647,8 +2627,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "vO" = (
@@ -2704,8 +2684,8 @@
 /area/new_blades)
 "wn" = (
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "wp" = (
@@ -2761,8 +2741,8 @@
 /obj/structure/bed/stool/chair/sofa/pew/right{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "wO" = (
@@ -2778,8 +2758,8 @@
 	dir = 8;
 	pixel_x = -11
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "xa" = (
@@ -2795,15 +2775,15 @@
 	pixel_x = 6;
 	pixel_y = 3
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "xl" = (
 /obj/structure/table/wood,
 /obj/item/storage/box/fancy/matches,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "xn" = (
@@ -2877,18 +2857,15 @@
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
 "yj" = (
-/obj/effect/floor_decal/concrete{
-	dir = 10
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/machinery/door/airlock/hatch{
+	name = "Storage Shed";
+	dir = 4
 	},
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "checkpoint_hegemony";
-	name = "Checkpoint Shutter"
-	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
-/area/new_blades)
+/area/new_blades/interiors/ruins/hegemony_base)
 "yo" = (
 /obj/effect/floor_decal/concrete/large{
 	dir = 8
@@ -2918,8 +2895,8 @@
 "yv" = (
 /obj/structure/table/wood,
 /obj/item/shaker_top,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "yw" = (
@@ -2980,14 +2957,14 @@
 "yS" = (
 /obj/structure/table/wood,
 /obj/random/dirt_75,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "yT" = (
 /obj/structure/table/rack,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "yX" = (
@@ -3006,8 +2983,8 @@
 /area/new_blades/interiors/ruins)
 "zc" = (
 /obj/machinery/appliance/cooker/stove,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "zd" = (
@@ -3149,8 +3126,8 @@
 	color = "#4a3407"
 	},
 /obj/item/clothing/under/unathi,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Ag" = (
@@ -3184,8 +3161,8 @@
 /area/shuttle/scc_evac)
 "Au" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Av" = (
@@ -3241,8 +3218,8 @@
 	},
 /area/new_blades/interiors)
 "AS" = (
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades)
 "AT" = (
@@ -3287,8 +3264,16 @@
 /turf/simulated/wall/rusty,
 /area/new_blades/interiors/ruins)
 "Bi" = (
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled{
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/watercloset.dmi';
+	icon_state = "shower";
+	dir = 8;
+	name = "shower";
+	desc = "An old and rusted showerhead clings to this wall. You don't think there's any water left in whatever pipes are feeding it.";
+	mouse_opacity = 1
+	},
+/turf/simulated/floor/tiled/freezer{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
@@ -3371,14 +3356,14 @@
 "BI" = (
 /obj/structure/table/rack,
 /obj/structure/closet/crate/loot,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "BJ" = (
 /obj/item/stack/material/steel,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades)
 "BO" = (
@@ -3390,8 +3375,8 @@
 	},
 /area/new_blades)
 "BP" = (
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "BQ" = (
@@ -3399,8 +3384,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "BT" = (
@@ -3418,14 +3403,14 @@
 "BU" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Cc" = (
 /obj/structure/trash_pile,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Cg" = (
@@ -3465,8 +3450,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Cn" = (
@@ -3514,8 +3499,8 @@
 "CH" = (
 /obj/structure/table/rack,
 /obj/structure/closet/crate,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "CJ" = (
@@ -3561,8 +3546,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "CW" = (
@@ -3606,8 +3591,8 @@
 /area/new_blades/interiors)
 "Dh" = (
 /obj/structure/window_frame/wood,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Di" = (
@@ -3635,8 +3620,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "DA" = (
@@ -3650,8 +3635,8 @@
 /area/new_blades/interiors/ruins/hegemony_base)
 "DC" = (
 /obj/structure/closet/cabinet,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "DD" = (
@@ -3735,15 +3720,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
-"Ek" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/structure/sign/flag/hegemony,
-/turf/simulated/floor/exoplanet/desert{
-	temperature = 315.15
-	},
-/area/new_blades)
 "En" = (
 /obj/structure/sign/flag/hegemony{
 	pixel_y = 32;
@@ -3805,8 +3781,8 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "EG" = (
@@ -3843,15 +3819,15 @@
 /area/new_blades/interiors/ruins/hegemony_base)
 "Fc" = (
 /obj/structure/bed/stool/chair/wood,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Fi" = (
 /obj/random/dirt_75,
 /obj/structure/table/rack/retail_shelf,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Fp" = (
@@ -3865,16 +3841,16 @@
 /area/new_blades/interiors)
 "Fs" = (
 /obj/structure/simple_door/wood,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Fv" = (
 /obj/structure/bed/stool/chair/sofa/beige{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "FC" = (
@@ -3882,32 +3858,28 @@
 	dir = 4
 	},
 /obj/machinery/light,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "FG" = (
 /obj/structure/table/stone/marble,
 /obj/item/device/versebook/skakh,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "FL" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/light,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "FP" = (
-/obj/machinery/door/airlock/security{
-	name = "Security Checkpoint"
-	},
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/hegemony_base)
+/obj/structure/flora/grass/desert,
+/turf/simulated/mineral/planet,
+/area/new_blades/underground)
 "FT" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -3934,9 +3906,7 @@
 /area/new_blades/interiors/ruins)
 "Gf" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
-/obj/structure/sign/flag/hegemony/large/west{
-	pixel_x = -32
-	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
@@ -3946,19 +3916,19 @@
 /area/shuttle/scc_evac)
 "Gk" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Gx" = (
-/obj/machinery/button/remote/blast_door{
-	id = "checkpoint_hegemony";
-	name = "shutter control";
-	pixel_y = 25;
-	req_access = null
-	},
 /obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled{
+/obj/machinery/light/colored/dying{
+	dir = 1
+	},
+/obj/structure/table/rack,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/turf/simulated/floor/tiled/freezer{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
@@ -3971,18 +3941,14 @@
 "GE" = (
 /obj/structure/table/steel,
 /obj/random/dirt_75,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades)
 "GF" = (
-/obj/effect/floor_decal/concrete/large,
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "checkpoint_hegemony";
-	name = "Checkpoint Shutter"
-	},
-/turf/simulated/floor/concrete{
+/obj/structure/flora/grass/desert,
+/obj/structure/sign/flag/hegemony,
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/new_blades)
@@ -4035,8 +4001,8 @@
 /obj/machinery/bodyscanner{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "GW" = (
@@ -4098,25 +4064,10 @@
 "HE" = (
 /obj/random/dirt_75,
 /obj/structure/bed/stool/chair/office/dark,
-/turf/simulated/floor/wood{
-	temperature = 313.15
-	},
-/area/new_blades/interiors/ruins)
-"HG" = (
-/obj/effect/floor_decal/concrete{
-	dir = 10
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/structure/sign/flag/hegemony{
-	pixel_y = 32;
-	stand_icon = "banner"
-	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
-/area/new_blades)
+/area/new_blades/interiors/ruins)
 "HH" = (
 /obj/structure/flora/rock/desert/scrub,
 /turf/simulated/floor/exoplanet/desert{
@@ -4151,8 +4102,8 @@
 "HM" = (
 /obj/structure/table/rack,
 /obj/item/melee/whip,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "HN" = (
@@ -4161,8 +4112,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "HP" = (
@@ -4190,8 +4141,8 @@
 "Im" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Is" = (
@@ -4241,8 +4192,8 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "IZ" = (
@@ -4262,15 +4213,15 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Ji" = (
 /obj/item/storage/box/fancy/matches,
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Jl" = (
@@ -4300,15 +4251,15 @@
 "Jq" = (
 /obj/random/dirt_75,
 /obj/structure/table/steel,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Jr" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/shaker,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Jv" = (
@@ -4319,8 +4270,8 @@
 /area/new_blades/underground)
 "Jy" = (
 /obj/effect/decal/cleanable/floor_damage/wood_broken7,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades)
 "Jz" = (
@@ -4336,8 +4287,8 @@
 /obj/structure/bed/stool/chair/sofa/beige{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "JF" = (
@@ -4404,41 +4355,40 @@
 /obj/item/storage/firstaid/large/radiation,
 /obj/item/storage/firstaid/large/radiation,
 /obj/item/storage/firstaid/large/toxin,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Kt" = (
 /obj/machinery/body_scanconsole{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "KB" = (
 /obj/effect/decal/cleanable/floor_damage/wood_broken6,
 /obj/random/dirt_75,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades)
 "KE" = (
 /obj/structure/bed/padded,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "KJ" = (
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "checkpoint_hegemony";
-	name = "Checkpoint Shutter"
-	},
-/turf/simulated/floor/concrete{
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/structure/closet/crate/weapon/alt,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
-/area/new_blades)
+/area/new_blades/interiors/ruins/hegemony_base)
 "KW" = (
 /obj/structure/table/wood/maple,
 /obj/item/device/flashlight/lamp/green,
@@ -4476,8 +4426,8 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Lj" = (
@@ -4544,8 +4494,8 @@
 /obj/structure/sign/flag/hegemony/large/north{
 	pixel_y = 32
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "LG" = (
@@ -4648,8 +4598,8 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "MA" = (
@@ -4662,8 +4612,8 @@
 /area/new_blades/interiors/ruins/hegemony_base)
 "MG" = (
 /obj/structure/bonfire/fireplace,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "MH" = (
@@ -4701,14 +4651,14 @@
 /obj/item/clothing/under/unathi/huytai{
 	color = "#4a3407"
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "MR" = (
 /obj/item/stack/material/wood,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades)
 "MV" = (
@@ -4724,8 +4674,13 @@
 	},
 /area/new_blades/interiors/ruins)
 "MX" = (
-/obj/machinery/door/window/desk/eastright,
-/obj/structure/table/reinforced/steel,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
+/obj/vehicle/bike/speeder/izweski{
+	dir = 4
+	},
 /turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
@@ -4738,14 +4693,14 @@
 /obj/random/firstaid,
 /obj/random/firstaid,
 /obj/item/autopsy_scanner,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Nn" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "No" = (
@@ -4765,8 +4720,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Nt" = (
@@ -4775,8 +4730,8 @@
 /area/new_blades/underground)
 "Nu" = (
 /obj/machinery/appliance/cooker/oven,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Ny" = (
@@ -4799,8 +4754,8 @@
 "NM" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/light,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Oc" = (
@@ -4829,8 +4784,8 @@
 /obj/item/storage/box/shotgunshells,
 /obj/item/storage/box/shotgunshells,
 /obj/item/clothing/accessory/storage/bandolier,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Ox" = (
@@ -4847,14 +4802,15 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "OL" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/structure/closet/crate/tool,
 /obj/item/storage/toolbox/mechanical,
+/obj/item/clothing/gloves/yellow/specialu,
 /turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
@@ -4901,8 +4857,8 @@
 "PA" = (
 /obj/structure/table/stone/marble,
 /obj/random/dirt_75,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "PB" = (
@@ -4911,8 +4867,8 @@
 /area/new_blades/underground)
 "PD" = (
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "PF" = (
@@ -4973,8 +4929,8 @@
 /obj/structure/closet/body_bag,
 /obj/random/dirt_75,
 /obj/effect/landmark/corpse/villager,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "PO" = (
@@ -5002,8 +4958,8 @@
 /obj/structure/bed/stool/chair/sofa/corner/concave/beige{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Qa" = (
@@ -5022,15 +4978,15 @@
 	name = "igs - zaza_villager";
 	identifier = "zaza_villager"
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Qh" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Qj" = (
@@ -5050,23 +5006,22 @@
 /area/shuttle/scc_evac)
 "Qo" = (
 /mob/living/simple_animal/hostile/shrieker,
-/turf/simulated/floor/wood{
-	temperature = 313.15
-	},
-/area/new_blades)
-"Qp" = (
-/obj/effect/floor_decal/concrete{
-	dir = 9
-	},
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "checkpoint_hegemony";
-	name = "Checkpoint Shutter"
-	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
 /area/new_blades)
+"Qp" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/machinery/light/colored/dying{
+	dir = 4
+	},
+/obj/vehicle/bike/speeder/izweski{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/hegemony_base)
 "Qq" = (
 /obj/machinery/body_scanconsole{
 	dir = 8
@@ -5076,8 +5031,8 @@
 /area/shuttle/scc_evac)
 "Qr" = (
 /obj/machinery/appliance/cooker/oven,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Qx" = (
@@ -5101,8 +5056,8 @@
 /obj/structure/bed/stool/chair/sofa/right/beige{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "QX" = (
@@ -5119,8 +5074,8 @@
 /area/new_blades/interiors)
 "Re" = (
 /obj/item/stack/material/steel,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Rg" = (
@@ -5178,8 +5133,8 @@
 /obj/item/seeds/clam,
 /obj/item/seeds/clam,
 /obj/item/seeds/clam,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Rk" = (
@@ -5195,15 +5150,15 @@
 /area/shuttle/scc_evac)
 "Rl" = (
 /obj/structure/closet/crate/hydroponics/prespawned,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Rm" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/machinery/light,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Rq" = (
@@ -5240,12 +5195,18 @@
 /area/new_blades/interiors/ruins/hegemony_base)
 "RA" = (
 /obj/effect/decal/cleanable/floor_damage/wood_broken1,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades)
 "RB" = (
-/obj/structure/bed/stool/chair,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
 /turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
@@ -5261,8 +5222,8 @@
 "RJ" = (
 /obj/item/stack/material/steel,
 /obj/random/dirt_75,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "RY" = (
@@ -5276,8 +5237,8 @@
 "RZ" = (
 /obj/structure/table/rack,
 /obj/item/reagent_containers/glass/bucket/wood,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Sd" = (
@@ -5300,17 +5261,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
-"Sr" = (
-/obj/structure/closet/crate{
-	name = "footlocker"
-	},
-/obj/machinery/light/colored/dying{
-	dir = 8
-	},
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/hegemony_base)
 "Su" = (
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/item/gun/projectile/automatic/tempestsmg,
@@ -5320,8 +5270,8 @@
 /area/new_blades/interiors/ruins/hegemony_base)
 "Sv" = (
 /obj/effect/map_effect/window_spawner/full/wood,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "SJ" = (
@@ -5334,8 +5284,8 @@
 /area/new_blades)
 "SM" = (
 /obj/structure/trash_pile,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades)
 "SN" = (
@@ -5385,8 +5335,8 @@
 /area/new_blades/interiors)
 "Tm" = (
 /obj/machinery/light,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Tn" = (
@@ -5395,8 +5345,8 @@
 /area/shuttle/scc_evac)
 "To" = (
 /obj/effect/decal/cleanable/floor_damage/wood_broken0,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Tt" = (
@@ -5429,8 +5379,8 @@
 /obj/structure/bed/stool/chair/sofa/corner/concave/beige{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "TD" = (
@@ -5446,8 +5396,8 @@
 /area/shuttle/scc_evac)
 "TE" = (
 /obj/machinery/iv_drip,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "TH" = (
@@ -5461,8 +5411,8 @@
 "TI" = (
 /obj/structure/closet/body_bag,
 /obj/effect/landmark/corpse/villager,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "TJ" = (
@@ -5476,14 +5426,14 @@
 "TL" = (
 /obj/structure/closet/crate/freezer/rations,
 /obj/machinery/light,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "TW" = (
 /obj/machinery/light,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "TX" = (
@@ -5514,22 +5464,16 @@
 /obj/random/dirt_75,
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Uo" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/structure/sign/flag/hegemony{
-	pixel_y = 32;
-	stand_icon = "banner"
-	},
-/turf/simulated/floor/concrete{
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/freezer{
 	temperature = 315.15
 	},
-/area/new_blades)
+/area/new_blades/interiors/ruins/hegemony_base)
 "Up" = (
 /obj/effect/decal/road_marking{
 	dir = 4
@@ -5571,8 +5515,8 @@
 "UA" = (
 /obj/structure/table/stone/marble,
 /obj/item/trash/candle,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "UC" = (
@@ -5608,8 +5552,8 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Vb" = (
@@ -5663,18 +5607,20 @@
 /turf/simulated/floor/shuttle/dark_red,
 /area/shuttle/scc_evac)
 "Vi" = (
-/obj/effect/floor_decal/concrete{
-	dir = 6
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/watercloset.dmi';
+	icon_state = "toilet00";
+	dir = 8;
+	name = "toilet";
+	desc = "An old and corroded tollet. Whatever water was once flowing through this device is long-gone.";
+	mouse_opacity = 1
 	},
-/obj/machinery/door/blast/shutters{
-	dir = 2;
-	id = "checkpoint_hegemony";
-	name = "Checkpoint Shutter"
-	},
-/turf/simulated/floor/concrete{
+/obj/structure/curtain/open/privacy,
+/turf/simulated/floor/tiled/freezer{
 	temperature = 315.15
 	},
-/area/new_blades)
+/area/new_blades/interiors/ruins/hegemony_base)
 "Vk" = (
 /obj/structure/railing/fence{
 	dir = 8
@@ -5693,8 +5639,11 @@
 	},
 /area/new_blades)
 "Vo" = (
-/turf/simulated/open,
-/area/new_blades/interiors/ruins/hegemony_base)
+/obj/structure/sign/flag/hegemony,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades)
 "Vq" = (
 /obj/structure/table/skrell,
 /obj/item/skrell_projector,
@@ -5730,8 +5679,8 @@
 /area/shuttle/scc_evac)
 "VJ" = (
 /obj/structure/coatrack,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "VK" = (
@@ -5789,8 +5738,8 @@
 "Wf" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/saddle,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Wk" = (
@@ -5808,16 +5757,19 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Wp" = (
-/obj/machinery/light,
-/turf/simulated/floor/concrete{
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/machinery/door/airlock/multi_tile{
+	name = "Storage"
+	},
+/turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
-/area/new_blades)
+/area/new_blades/interiors/ruins/hegemony_base)
 "Wx" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/structure/table/reinforced/steel,
@@ -5854,8 +5806,8 @@
 	dir = 4
 	},
 /obj/machinery/light,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "WP" = (
@@ -5907,25 +5859,27 @@
 /obj/structure/table/rack,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/glass/full,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Xd" = (
-/obj/machinery/door/window/desk/eastleft,
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled{
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/freezer{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
 "Xf" = (
-/obj/machinery/light{
-	dir = 1
+/obj/machinery/door/airlock{
+	name = "Toilets"
 	},
-/turf/simulated/floor/exoplanet/desert{
+/turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
-/area/new_blades)
+/area/new_blades/interiors/ruins/hegemony_base)
 "Xg" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -5962,16 +5916,16 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Xt" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Xx" = (
@@ -6014,8 +5968,8 @@
 /area/shuttle/scc_evac)
 "XZ" = (
 /obj/machinery/autolathe,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Yl" = (
@@ -6050,16 +6004,16 @@
 "Ys" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Yt" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
 /obj/item/bedsheet/black,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Yu" = (
@@ -6071,16 +6025,16 @@
 /area/new_blades/interiors/ruins/hegemony_base)
 "YA" = (
 /obj/structure/closet/crate,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "YB" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "YF" = (
@@ -6091,8 +6045,8 @@
 "YJ" = (
 /obj/structure/bed/roller/hover,
 /obj/effect/floor_decal/industrial/outline/medical/dark_green,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "YM" = (
@@ -6101,8 +6055,8 @@
 "YP" = (
 /obj/structure/table/rack,
 /obj/item/reagent_containers/glass/bottle/ammonia,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "YQ" = (
@@ -6128,8 +6082,8 @@
 /obj/structure/bed/stool/chair/sofa/right/beige{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Zi" = (
@@ -6137,8 +6091,8 @@
 /obj/structure/table/wood,
 /obj/item/storage/box/gloves,
 /obj/machinery/light,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors)
 "Zj" = (
@@ -6148,12 +6102,13 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/scc_evac)
 "Zl" = (
-/obj/structure/flora/rock/desert,
-/mob/living/simple_animal/hostile/shrieker,
-/turf/simulated/floor/exoplanet/desert{
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
-/area/new_blades)
+/area/new_blades/interiors/ruins/hegemony_base)
 "Zn" = (
 /obj/machinery/vending/medical{
 	density = 0;
@@ -6168,8 +6123,8 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "Zt" = (
@@ -6193,8 +6148,8 @@
 "Zw" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/pickaxe,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "ZA" = (
@@ -6204,18 +6159,19 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
 "ZD" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/concrete{
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/structure/table/rack,
+/obj/item/stack/liquidbags/full,
+/obj/item/stack/liquidbags/full,
+/turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
-/area/new_blades)
+/area/new_blades/interiors/ruins/hegemony_base)
 "ZF" = (
 /obj/random/dirt_75,
 /obj/structure/simple_door/iron,
-/turf/simulated/floor/wood{
-	temperature = 313.15
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
 "ZM" = (
@@ -8749,44 +8705,44 @@ LE
 LE
 LE
 LE
-AH
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-AH
+LE
+LE
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 LE
 LE
 LE
@@ -9006,7 +8962,13 @@ LE
 LE
 LE
 LE
-pT
+LE
+LE
+im
+im
+im
+im
+im
 ji
 ji
 ji
@@ -9023,27 +8985,21 @@ ji
 ji
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 LE
 LE
 LE
@@ -9263,7 +9219,13 @@ LE
 LE
 LE
 LE
-pT
+LE
+LE
+im
+iv
+RB
+sv
+im
 ji
 ji
 ji
@@ -9288,19 +9250,13 @@ ji
 ji
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 LE
 LE
 LE
@@ -9520,13 +9476,13 @@ LE
 LE
 LE
 LE
-pT
+LE
 ji
-ji
-ji
-ji
-ji
-ji
+im
+tw
+Oc
+Zl
+im
 ji
 ji
 ji
@@ -9555,9 +9511,9 @@ ji
 ji
 ji
 ji
-ji
-ji
-pT
+LE
+LE
+LE
 LE
 LE
 LE
@@ -9777,13 +9733,13 @@ LE
 LE
 LE
 LE
-pT
+LE
 ji
-ji
-ji
-ji
-ji
-ji
+im
+XG
+Oc
+Mt
+im
 ji
 ji
 ji
@@ -9812,9 +9768,9 @@ Or
 Or
 Or
 ji
-ji
-ji
-pT
+LE
+LE
+LE
 LE
 LE
 LE
@@ -10034,13 +9990,13 @@ LE
 LE
 LE
 LE
-pT
+LE
 ji
-ji
-ji
-ji
-ji
-ji
+im
+im
+cI
+im
+im
 ji
 ji
 ji
@@ -10069,9 +10025,9 @@ Ox
 Ei
 Or
 ji
-ji
-ji
-pT
+LE
+LE
+LE
 LE
 LE
 LE
@@ -10291,12 +10247,12 @@ LE
 LE
 LE
 LE
-pT
+LE
 ji
 ji
-ji
-ji
-ji
+yo
+RI
+lS
 ji
 ji
 ji
@@ -10327,8 +10283,8 @@ yy
 Or
 ji
 ji
-ji
-pT
+LE
+LE
 LE
 LE
 LE
@@ -10548,18 +10504,18 @@ LE
 LE
 LE
 LE
-pT
+LE
 ji
 ji
+TJ
+ex
+ea
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
+im
+im
+im
+im
+im
 ji
 TJ
 ex
@@ -10584,8 +10540,8 @@ Eu
 Or
 ji
 ji
-ji
-pT
+LE
+LE
 LE
 LE
 LE
@@ -10805,18 +10761,18 @@ LE
 LE
 LE
 LE
-pT
 ji
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
+TJ
+ex
+BO
+lS
+im
+iv
+DA
+sv
+im
 ji
 TJ
 ex
@@ -10842,7 +10798,7 @@ Or
 ji
 ji
 ji
-pT
+ji
 LE
 LE
 LE
@@ -11062,18 +11018,18 @@ LE
 LE
 LE
 LE
-pT
 ji
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
+TJ
+ex
+ex
+ea
+JY
+Oc
+Oc
+vY
+im
 ji
 TJ
 ex
@@ -11099,7 +11055,7 @@ Or
 ji
 ji
 ji
-pT
+ji
 LE
 LE
 LE
@@ -11319,18 +11275,18 @@ LE
 LE
 LE
 LE
-pT
 ji
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
+TJ
+ex
+oN
+ib
+im
+XG
+KY
+Mt
+im
 ji
 TJ
 Hp
@@ -11356,7 +11312,7 @@ Or
 ji
 ji
 ji
-pT
+ji
 LE
 LE
 LE
@@ -11510,84 +11466,84 @@ LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
+TJ
+ex
+ea
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
+im
+im
+im
+im
+im
 ji
 fk
 lT
@@ -11613,7 +11569,7 @@ ji
 ji
 ji
 ji
-pT
+ji
 LE
 LE
 LE
@@ -11767,78 +11723,78 @@ LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-pT
-ji
-ji
-ji
-ji
-ji
+TJ
+ex
+ea
 ji
 ji
 ji
@@ -11870,7 +11826,7 @@ ji
 ji
 ji
 ji
-pT
+ji
 LE
 LE
 LE
@@ -12024,78 +11980,78 @@ LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-pT
-ji
-ji
-ji
-ji
-ji
+TJ
+ex
+ea
 ji
 ji
 ji
@@ -12127,7 +12083,7 @@ ji
 ji
 ji
 ji
-pT
+ji
 LE
 LE
 LE
@@ -12276,83 +12232,83 @@ LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-pT
-ji
-ji
-ji
-ji
-ji
+TJ
+ex
+ea
 ji
 ji
 ji
@@ -12384,7 +12340,7 @@ ji
 ji
 ji
 ji
-pT
+ji
 LE
 LE
 LE
@@ -12533,57 +12489,57 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 LE
 LE
@@ -12604,12 +12560,12 @@ LE
 LE
 LE
 LE
-pT
+Hp
 ji
 ji
-ji
-ji
-ji
+TJ
+ex
+ea
 ji
 ji
 ji
@@ -12641,7 +12597,7 @@ ji
 ji
 ji
 ji
-pT
+ji
 LE
 LE
 LE
@@ -12785,61 +12741,61 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 LE
@@ -12860,13 +12816,13 @@ LE
 LE
 LE
 LE
-LE
+ji
 pT
 ji
 ji
-ji
-ji
-ji
+TJ
+ex
+ea
 ji
 ji
 ji
@@ -12898,7 +12854,7 @@ ji
 ji
 ji
 ji
-pT
+ji
 LE
 LE
 LE
@@ -13042,58 +12998,58 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -13117,13 +13073,13 @@ LE
 LE
 LE
 LE
-LE
+ji
 pT
 ji
 ji
-ji
-ji
-ji
+TJ
+ex
+ea
 ji
 ji
 ji
@@ -13155,7 +13111,7 @@ ji
 ji
 ji
 ji
-pT
+ji
 LE
 LE
 LE
@@ -13299,58 +13255,58 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-AH
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-AH
-Xf
-ji
-ji
-ji
-ji
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -13372,15 +13328,15 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
+ji
+ji
+ji
 pT
 ji
 ji
-ji
-ji
-ji
+TJ
+ex
+ea
 ji
 ji
 ji
@@ -13412,7 +13368,7 @@ ji
 ji
 ji
 ji
-pT
+ji
 LE
 LE
 LE
@@ -13556,88 +13512,88 @@ LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+LE
+LE
+LE
+LE
 ji
 ji
 ji
 pT
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-pT
-ji
-ji
-ji
-ji
-ji
+TJ
+ex
+ea
 ji
 ji
 ji
@@ -13669,7 +13625,7 @@ ji
 ji
 ji
 ji
-pT
+ji
 LE
 LE
 LE
@@ -13815,6 +13771,76 @@ LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
 ji
 ji
 ji
@@ -13822,86 +13848,16 @@ ji
 pT
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
+TJ
+ex
+ea
 ji
 ji
 ji
 ji
 im
 Yu
-Yu
+qS
 Fa
 im
 ji
@@ -13926,7 +13882,7 @@ ji
 ji
 ji
 ji
-pT
+ji
 LE
 LE
 LE
@@ -14072,50 +14028,58 @@ LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
 ji
-pT
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
+yH
 yH
 ji
 ji
@@ -14123,14 +14087,6 @@ ji
 ji
 ji
 ji
-yH
-yH
-ji
-ji
-ji
-ji
-ji
-ji
 ji
 ji
 ji
@@ -14149,9 +14105,9 @@ ji
 pT
 ji
 ji
-ji
-ji
-ji
+TJ
+ex
+ea
 ji
 ji
 ji
@@ -14183,7 +14139,7 @@ ji
 ji
 ji
 ji
-pT
+ji
 LE
 LE
 LE
@@ -14329,25 +14285,55 @@ LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
 ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-im
-im
-im
-im
-im
-im
-im
-im
 ji
 ji
 ji
@@ -14361,16 +14347,6 @@ ji
 ji
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
 ji
 ji
 yH
@@ -14383,32 +14359,12 @@ ji
 ji
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-yH
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
 pT
 ji
 ji
-ji
-ji
-ji
+TJ
+ex
+ea
 ji
 ji
 ji
@@ -14440,7 +14396,7 @@ ji
 ji
 ji
 ji
-pT
+AH
 LE
 LE
 LE
@@ -14586,60 +14542,60 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-im
-mP
-cf
-gv
-Su
-mP
-cf
-im
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-yH
-ji
-ji
-HH
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 HH
 ji
+ji
+ji
+ji
+HH
+ji
 yH
 ji
 ji
@@ -14663,12 +14619,12 @@ ji
 pT
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
+TJ
+ex
+BO
+RI
+RI
+RI
 RI
 RI
 RI
@@ -14698,7 +14654,7 @@ ji
 ji
 ji
 pT
-LE
+ji
 LE
 LE
 LE
@@ -14843,48 +14799,63 @@ LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
 ji
-pT
 ji
 ji
 ji
 ji
 ji
 ji
-im
-lm
-Oc
-Oc
-Fa
-Oc
-Oc
-im
+qa
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-im
-im
-im
-im
-im
-ji
-ji
-pT
 ji
 ji
 ji
@@ -14902,30 +14873,15 @@ qa
 ji
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-qa
-ji
-ji
-ji
 pT
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
+TJ
+Hp
+Cn
+ex
+ex
+ex
 ex
 ex
 ex
@@ -14955,8 +14911,8 @@ ji
 ji
 ji
 pT
-LE
-LE
+ji
+ji
 LE
 LE
 LE
@@ -15100,49 +15056,49 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-im
-hD
-Oc
-Oc
-Oc
-Oc
-Fa
-im
-yo
-RI
-RI
-RI
-RI
-RI
-RI
-RI
-tw
-RI
-RI
-RI
-RI
-RI
-lS
-im
-iv
-DA
-sv
-im
-ji
-ji
-pT
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -15177,12 +15133,12 @@ ji
 pT
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
+TJ
+ex
+oN
+lT
+lT
+lT
 lT
 lT
 lT
@@ -15212,9 +15168,9 @@ ji
 ji
 ji
 pT
-LE
-LE
-LE
+ji
+ji
+ji
 LE
 LE
 LE
@@ -15357,49 +15313,49 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-im
-nN
-Oc
-Oc
-Oc
-Fa
-Fa
-wE
-TJ
-ex
-ex
-ex
-ex
-ex
-ex
-Wp
-Hp
-Uo
-ex
-ex
-ex
-ex
-ea
-JY
-Oc
-Oc
-vY
-im
-ji
-ji
-pT
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -15434,9 +15390,9 @@ yH
 pT
 ji
 ji
-ji
-ji
-ji
+fk
+lT
+ib
 ji
 ji
 ji
@@ -15469,9 +15425,9 @@ ji
 ji
 ji
 pT
-LE
-LE
-LE
+ji
+ji
+ji
 LE
 LE
 LE
@@ -15610,9 +15566,79 @@ LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
+ji
+ji
+yH
+yH
+ji
+ji
+ji
+yH
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+yH
+ji
+ji
+ji
+ji
+yH
+ji
+yH
 ji
 ji
 ji
@@ -15620,81 +15646,11 @@ ji
 ji
 pT
 ji
-ji
-ji
-ji
-ji
-ji
 im
-WD
-Oc
-Oc
-Oc
-Oc
-Fa
 im
-fk
-lT
-lT
-lT
-lT
-lT
-lT
-Vl
-ZD
-oN
-lT
-lT
-lT
-lT
-ib
+yj
 im
-XG
-KY
-Mt
 im
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-yH
-yH
-ji
-ji
-ji
-yH
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-yH
-ji
-ji
-ji
-ji
-yH
-ji
-yH
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
 ji
 im
 im
@@ -15726,10 +15682,10 @@ im
 ji
 ji
 pT
-LE
-LE
-LE
-LE
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -15865,55 +15821,55 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-im
-lm
-Oc
-Oc
-Oc
-Oc
-Oc
-im
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-TJ
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-im
-im
-im
-im
-im
-ji
-ji
-pT
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -15947,11 +15903,11 @@ ji
 ji
 pT
 ji
-ji
-ji
-ji
-ji
-ji
+im
+Oc
+Oc
+Oc
+im
 ji
 im
 Me
@@ -15983,10 +15939,10 @@ im
 ji
 ji
 pT
-LE
-LE
-LE
-LE
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -16122,56 +16078,56 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-im
-mP
-bi
-mP
-DD
-cf
-cf
-im
-ji
-im
-im
-im
-im
-im
-ji
-TJ
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -16204,11 +16160,11 @@ ji
 ji
 pT
 ji
-ji
-ji
-ji
-ji
-ji
+im
+Oc
+Oc
+Oc
+im
 ji
 im
 WV
@@ -16240,11 +16196,11 @@ im
 ji
 ji
 pT
-LE
-LE
-LE
-LE
-LE
+ji
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -16379,11 +16335,81 @@ LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
 ji
 ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+yH
+ji
+ji
+ji
+ji
+ji
+yH
+yH
 ji
 ji
 ji
@@ -16391,81 +16417,11 @@ ji
 ji
 pT
 ji
-ji
-ji
-ji
-ji
-ji
 im
-im
-im
-im
-im
-im
-im
-im
-ji
-im
-as
-Fa
+Oc
+Oc
 Oc
 im
-ji
-TJ
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-yH
-ji
-ji
-ji
-ji
-ji
-yH
-yH
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
 ji
 im
 WV
@@ -16497,11 +16453,11 @@ im
 ji
 ji
 pT
-LE
-LE
-LE
-LE
-LE
+ji
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -16637,6 +16593,55 @@ LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -16645,84 +16650,35 @@ ji
 ji
 ji
 ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+yH
+yH
+ji
+ji
+ji
+yH
 ji
 pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
 ji
 im
-lm
+Oc
 Oc
 Oc
 im
-ji
-TJ
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-yH
-yH
-ji
-ji
-ji
-yH
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
 ji
 im
 qE
@@ -16754,11 +16710,11 @@ im
 ji
 ji
 pT
-LE
-LE
-LE
-LE
-LE
+ji
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -16894,55 +16850,55 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-im
-OL
-Oc
-Fa
-im
-yo
-Qa
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -16975,11 +16931,11 @@ ji
 ji
 pT
 ji
-ji
-ji
-ji
-ji
-ji
+im
+im
+im
+im
+im
 ji
 im
 WD
@@ -17011,12 +16967,12 @@ im
 ji
 ji
 pT
-LE
-LE
-LE
-LE
-LE
-LE
+ji
+ji
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -17153,6 +17109,76 @@ LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
 ji
 ji
 ji
@@ -17161,14 +17187,6 @@ ji
 ji
 ji
 pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
 ji
 ji
 ji
@@ -17177,69 +17195,7 @@ ji
 ji
 ji
 im
-cg
-Oc
-Fa
-Ev
-TJ
-ex
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-im
-Fa
+CO
 Fa
 Fa
 Oc
@@ -17253,11 +17209,11 @@ ji
 im
 sD
 Oc
-Oc
-Oc
-Oc
-Oc
-sD
+pJ
+KJ
+ZD
+ro
+MX
 im
 UQ
 Us
@@ -17268,12 +17224,12 @@ im
 ji
 ji
 pT
-LE
-LE
-LE
-LE
-LE
-LE
+ji
+ji
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -17410,54 +17366,54 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-im
-Oc
-Oc
-Oc
-im
-fk
-Vl
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -17491,12 +17447,12 @@ pT
 ji
 ji
 ji
-ji
-ji
-ji
-ji
 im
-CO
+im
+im
+im
+im
+Pe
 Oc
 Fa
 Fa
@@ -17507,7 +17463,7 @@ Vl
 ex
 BO
 lS
-Oc
+Wp
 Oc
 Oc
 Oc
@@ -17525,12 +17481,12 @@ im
 ji
 ji
 pT
-LE
-LE
-LE
-LE
-LE
-LE
+ji
+ji
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -17667,54 +17623,54 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-im
-lm
-Oc
-Oc
-im
-ji
-TJ
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-nl
-nl
-nl
-nl
-ji
-yH
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 yH
 ji
 ji
@@ -17748,12 +17704,12 @@ pT
 ji
 ji
 ji
-ji
-ji
-ji
-ji
 im
-Pe
+oi
+Xd
+Uo
+Xf
+Oc
 Oc
 Oc
 Oc
@@ -17782,13 +17738,13 @@ im
 ji
 ji
 pT
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+ji
+ji
+ji
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -17923,55 +17879,55 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-yo
-tw
-RI
-RI
-RI
-RI
-RI
-tw
-lS
-ji
-im
-Yu
-Yu
-Fa
-im
-ji
-TJ
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-FP
-Fa
-sD
-nl
-ji
-yH
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -18005,10 +17961,10 @@ pT
 ji
 ji
 ji
-ji
-ji
-ji
-ji
+im
+oi
+Uo
+Uo
 im
 CO
 Oc
@@ -18023,12 +17979,12 @@ ea
 ji
 im
 MM
-Oc
-Oc
-Oc
-Oc
-Oc
-MM
+dM
+bL
+Gf
+rK
+rK
+Qp
 im
 Rq
 Ox
@@ -18039,13 +17995,13 @@ im
 ji
 ji
 pT
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+ji
+ji
+ji
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -18180,6 +18136,58 @@ LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+ji
+ji
+yH
 ji
 ji
 ji
@@ -18188,84 +18196,32 @@ ji
 ji
 ji
 ji
+ji
+ji
+yH
+ji
+ji
+ji
+ji
+ji
+yH
+yH
+ji
+yH
+ji
+ji
+ji
+ji
+ji
+yH
 pT
 ji
 ji
 ji
-ji
-ji
-oi
-Hp
+im
 Uo
-ex
-ex
-ex
-Wp
-Hp
-HG
-ji
-im
-im
-im
-im
-im
-ji
-TJ
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-nl
-Gx
-Oc
-nl
-ji
-ji
-ji
-ji
-ji
-yH
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-yH
-ji
-ji
-ji
-ji
-ji
-yH
-yH
-ji
-yH
-ji
-ji
-ji
-ji
-ji
-yH
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
+Uo
+Uo
 im
 iZ
 Fa
@@ -18296,13 +18252,13 @@ im
 ji
 ji
 pT
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+ji
+ji
+ji
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -18437,6 +18393,76 @@ LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+ji
+ji
+yH
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+yH
+yH
 ji
 ji
 ji
@@ -18449,23 +18475,17 @@ pT
 ji
 ji
 ji
-ji
-ji
-TJ
-ZD
-rd
-rd
-rd
-rd
-rd
-ZD
-ea
-ji
-ji
-ji
-ji
-ji
-ji
+im
+Vi
+Vi
+Vi
+im
+im
+hD
+im
+im
+im
+im
 ji
 TJ
 ex
@@ -18479,70 +18499,6 @@ ji
 ji
 ji
 ji
-nl
-Xd
-MX
-nl
-Ek
-ji
-ji
-ji
-ji
-yH
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-yH
-yH
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-im
-im
-im
-im
-im
-im
-im
-ji
-TJ
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
 ji
 ji
 ji
@@ -18553,13 +18509,13 @@ ji
 ji
 ji
 pT
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+ji
+ji
+ji
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -18694,55 +18650,55 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-TJ
-ex
-rd
-rd
-rd
-rd
-rd
-ex
-BO
-RI
-RI
-RI
-RI
-RI
-RI
-RI
-Qa
-ab
-BO
-RI
-RI
-RI
-RI
-RI
-RI
-RI
-RI
-RI
-Qp
-RI
-RI
-GF
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -18776,16 +18732,16 @@ pT
 ji
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
+im
+im
+im
+im
+im
+Gx
+Uo
+pX
+pX
+im
 ji
 ji
 TJ
@@ -18810,12 +18766,12 @@ ji
 ji
 ji
 pT
-LE
-LE
-LE
-LE
-LE
-LE
+ji
+ji
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -18951,55 +18907,55 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-TJ
-ex
-rd
-rd
-zN
-rd
-rd
-ex
-ex
-ex
-ex
-ex
-ex
-ex
-ex
-ex
-Wp
-Hp
-Uo
-ex
-ex
-ex
-UC
-ex
-ex
-ex
-ex
-ex
-KJ
-ex
-ex
-yj
-ji
-ji
-qa
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -19037,12 +18993,12 @@ ji
 ji
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
+im
+Bi
+Bi
+Bi
+Bi
+im
 ji
 AH
 wj
@@ -19067,11 +19023,11 @@ ji
 ji
 ji
 pT
-LE
-LE
-LE
-LE
-LE
+ji
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -19208,56 +19164,56 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-TJ
-ex
-rd
-rd
-rd
-rd
-rd
-ex
-oN
-lT
-lT
-lT
-lT
-lT
-lT
-lT
-Vl
-ZD
-oN
-lT
-lT
-lT
-lT
-lT
-lT
-lT
-lT
-lT
-Vi
-lT
-lT
-dM
-Xm
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 yH
 ji
 yH
@@ -19294,12 +19250,12 @@ ji
 ji
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
+im
+im
+im
+im
+im
+im
 ji
 AH
 KX
@@ -19325,10 +19281,10 @@ ji
 ji
 pT
 ji
-LE
-LE
-LE
-LE
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -19465,56 +19421,56 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-TJ
-ab
-rd
-rd
-rd
-rd
-rd
-ab
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-TJ
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-AH
-AH
-AH
-AH
-Ek
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 yH
 ji
 ji
@@ -19582,10 +19538,10 @@ ji
 ji
 pT
 ji
-LE
-LE
-LE
-LE
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -19722,56 +19678,56 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-oi
-Hp
-Uo
-ex
-ex
-ex
-Wp
-Hp
-HG
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-TJ
-UC
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -19839,10 +19795,10 @@ kZ
 kZ
 AH
 ji
-LE
-LE
-LE
-LE
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -19979,56 +19935,56 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-fk
-cI
-lT
-lT
-lT
-lT
-lT
-cI
-ib
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-TJ
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -20072,16 +20028,11 @@ ji
 ji
 ji
 yH
+Vo
 ji
 ji
 ji
-ji
-yH
-ji
-ji
-ji
-ji
-ji
+GF
 ji
 ji
 ji
@@ -20096,8 +20047,13 @@ ji
 ji
 ji
 ji
-LE
-LE
+ji
+ji
+ji
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -20236,56 +20192,56 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-TJ
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -20353,8 +20309,8 @@ ji
 ji
 ji
 ji
-LE
-LE
+ji
+ji
 LE
 LE
 LE
@@ -20493,125 +20449,125 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-TJ
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-yH
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-yH
-ji
-ji
-ji
-ji
-ji
-yH
-yH
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-yH
-ji
-ji
-ji
-ji
-ji
-yH
-yH
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-yH
-ji
-ji
-ji
-ji
-ji
-ji
-ji
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+yH
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+yH
+ji
+ji
+ji
+ji
+ji
+yH
+yH
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+yH
+ji
+ji
+ji
+ji
+ji
+yH
+yH
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+yH
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
+ji
 LE
 LE
 LE
@@ -20750,56 +20706,56 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-TJ
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -20867,8 +20823,8 @@ ji
 ji
 ji
 ji
-LE
-LE
+ji
+ji
 LE
 LE
 LE
@@ -21007,56 +20963,56 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-TJ
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 yH
 yH
 ji
@@ -21124,7 +21080,7 @@ ji
 ji
 ji
 ji
-LE
+ji
 LE
 LE
 LE
@@ -21264,56 +21220,56 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-TJ
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 yH
 yH
 HH
@@ -21369,7 +21325,7 @@ ji
 ji
 ji
 ji
-nq
+ji
 ji
 ji
 ji
@@ -21521,56 +21477,56 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-TJ
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 yH
 yH
 ji
@@ -21778,56 +21734,56 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-ji
-ji
-ji
-ji
-ji
-ji
-TJ
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 yH
 yH
 ji
@@ -22035,54 +21991,54 @@ LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-im
-Pe
-CO
-Pe
-Sr
-Pe
-CO
-Oc
-Oc
-Gf
-sD
-Oc
-im
-ji
-ji
-ji
-ji
-ji
-ji
-TJ
-ex
-ea
-ji
-ji
-ji
-ji
-ji
-im
-im
-im
-im
-im
-ji
-ji
-pT
-ji
-qa
 ji
 ji
 ji
@@ -22290,55 +22246,55 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-im
-Oc
-Oc
-Oc
-Fa
-Oc
-Fa
-Oc
-Oc
-Oc
-Fa
-Oc
-im
-yo
-RI
-RI
-RI
-RI
-RI
-Qa
-ab
-BO
-qS
-RI
-RI
-RI
-lS
-im
-Vo
-Vo
-Vo
-im
-ji
-ji
-pT
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 yH
@@ -22547,55 +22503,55 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-im
-Fa
-Oc
-Oc
-Oc
-Oc
-Oc
-Oc
-Fa
-Fa
-Fa
-Oc
-rK
-TJ
-ex
-ex
-ex
-ex
-ex
-Wp
-Hp
-Uo
-ex
-ex
-ex
-ex
-ro
-fJ
-Vo
-Vo
-Vo
-im
-ji
-ji
-pT
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 yH
@@ -22804,56 +22760,56 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-im
-Oc
-Oc
-Oc
-Fa
-Oc
-Oc
-RB
-Bi
-WV
-pj
-Oc
-im
-fk
-lT
-lT
-lT
-lT
-lT
-lT
-cI
-lT
-lT
-lT
-lT
-lT
-ib
-im
-Vo
-Vo
-Vo
-im
-ji
-ji
-pT
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -23063,55 +23019,55 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-im
-xH
-CO
-Pe
-pX
-Pe
-CO
-RB
-Bi
-WV
-bL
-Oc
-im
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-im
-im
-im
-im
-im
-ji
-ji
-pT
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -23320,55 +23276,55 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-im
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -23577,55 +23533,55 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -23837,52 +23793,52 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -24094,52 +24050,52 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-pT
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 yH
 yH
 ji
@@ -24351,53 +24307,53 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-AH
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-kZ
-AH
-Xf
-ji
-ji
-yH
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+FP
 yH
 HH
 ji
@@ -24608,54 +24564,54 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-yH
-yH
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+FP
+FP
 ji
 ji
 ji
@@ -24869,50 +24825,50 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-yH
-yH
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+FP
+FP
 ji
 ji
 ji
@@ -25126,52 +25082,52 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-yH
-yH
-ji
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -25383,53 +25339,53 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-yH
-ji
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+FP
+LE
+LE
+LE
+LE
 ji
 ji
 yH
@@ -25652,6 +25608,41 @@ LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+FP
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -25670,42 +25661,7 @@ ji
 ji
 ji
 ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-yH
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-Zl
+qa
 ji
 ji
 ji
@@ -25909,22 +25865,6 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
 LE
 LE
 LE
@@ -25936,14 +25876,30 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -26193,17 +26149,17 @@ LE
 LE
 LE
 LE
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
-ji
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 ji
 ji
 ji
@@ -31004,7 +30960,7 @@ LE
 LE
 LE
 LE
-pJ
+QX
 LE
 LE
 LE
@@ -31261,9 +31217,9 @@ LE
 LE
 LE
 LE
-pJ
-pJ
-pJ
+QX
+QX
+QX
 LE
 LE
 LE
@@ -31519,9 +31475,9 @@ LE
 LE
 LE
 LE
-pJ
-pJ
-pJ
+QX
+QX
+QX
 QX
 QX
 QX
@@ -31777,7 +31733,7 @@ LE
 LE
 LE
 LE
-pJ
+QX
 QX
 QX
 QX
