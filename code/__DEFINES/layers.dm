@@ -192,7 +192,6 @@
 #define DEFAULT_RENDERER_APPEARANCE_FLAGS (PLANE_MASTER | NO_CLIENT_COLOR)
 
 /image/appearance_flags = DEFAULT_APPEARANCE_FLAGS
-/mutable_appearance/appearance_flags = DEFAULT_APPEARANCE_FLAGS // Inherits /image but re docs, subject to change
 
 /atom/proc/hud_layerise()
 	plane = HUD_PLANE

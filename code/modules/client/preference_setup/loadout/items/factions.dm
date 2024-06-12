@@ -347,6 +347,7 @@
 	pmcg_headwear["PMCG woolen hat"] = /obj/item/clothing/head/wool/pmc
 	pmcg_headwear["EPMC woolen hat"] = /obj/item/clothing/head/wool/pmc/alt
 	pmcg_headwear["PMCG garrison cap"] = /obj/item/clothing/head/sidecap/pmcg
+	pmcg_headwear["Grupo Amapola utility cover"] = /obj/item/clothing/head/grupo_amapola/ute
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_headwear)
 
 /datum/gear/faction/pmc_modsuit
@@ -375,6 +376,7 @@
 	pmcg_sec_uniforms["wildlands squadron uniform"] = /obj/item/clothing/under/rank/security/pmc/wildlands_squadron
 	pmcg_sec_uniforms["Dagamuir Freewater uniform"] = /obj/item/clothing/under/rank/security/pmc/dagamuir_freewater
 	pmcg_sec_uniforms["Ve'katak Phalanx uniform"] = /obj/item/clothing/under/rank/security/pmc/vekatak_phalanx
+	pmcg_sec_uniforms["Grupo Amapola uniform"] = /obj/item/clothing/under/rank/security/pmc/grupo_amapola
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_sec_uniforms)
 	gear_tweaks += list(gear_tweak_uniform_rolled_state)
 
@@ -473,6 +475,14 @@
 	allowed_roles = list("Assistant", "Off-Duty Crew Member")
 	faction = "Private Military Contracting Group"
 	slot = slot_w_uniform
+
+/datum/gear/faction/grupo_amapola_officer
+	display_name = "grupo amapola officer cap"
+	path = /obj/item/clothing/head/grupo_amapola
+	flags = GEAR_HAS_DESC_SELECTION
+	allowed_roles = list("Head of Security")
+	faction = "Private Military Contracting Group"
+	slot = slot_head
 
 //Zeng-Hu
 /datum/gear/faction/zenghu_beret

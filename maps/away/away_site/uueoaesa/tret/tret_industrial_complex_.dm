@@ -21,6 +21,9 @@
 	map = "Tret Industrial Complex"
 	descriptor = "An industrial complex on Tret."
 
+/obj/abstract/weather_marker/tret
+	weather_type = /singleton/state/weather/ash/lava_planet
+
 // --------------------------------------------------- sector
 
 /obj/effect/overmap/visitable/sector/tret_industrial_complex
