@@ -726,7 +726,6 @@
 	icon_state = "amapola_ute_hat"
 	item_state = "amapola_ute_hat"
 
-// REV ADDS HER BOOTLEG GUCCI SHIT HERE
 
 /obj/item/clothing/head/plain_hood
 	name = "plain hood"
@@ -738,4 +737,3 @@
 	flags_inv = HIDEEARS|BLOCKHEADHAIR
 	contained_sprite = TRUE
 
-// OKAY WE CAN GO BACK TO OUR REGULARLY SCHEDULED PROGRAMS REV SIGNING OFF
