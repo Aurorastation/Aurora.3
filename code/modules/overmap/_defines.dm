@@ -15,7 +15,10 @@ GLOBAL_LIST_EMPTY(map_sectors)
 	icon_state = "map"
 	permit_ao = FALSE
 
-	//Stargazing stuff
+	/**
+	 * List of constellation datums taken from SSAtlas.possible_constellations.
+	 * This limits which constellations can be spotted from which overmap location.
+	 */
 	var/list/visible_constellations = list()
 
 /turf/unsimulated/map/edge

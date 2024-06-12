@@ -68,7 +68,7 @@
 
 /datum/constellation/chanter
 	name = "The Star Chanter"
-	description = "IA worshiper praying to the stars they inhabit."
+	description = "A worshiper praying to the stars they inhabit."
 
 /datum/constellation/storm
 	name = "The Stormcloud"

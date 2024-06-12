@@ -22,6 +22,11 @@
 	var/list/ambient_sounds
 	var/list/ambient_indoors_sounds
 
+	/**
+	 * Whether this weather obstructs the view of the sky, for stargazing
+	 */
+	var/blocks_sky = FALSE
+
 /singleton/state/weather/entered_state(datum/holder)
 	. = ..()
 
@@ -114,6 +119,7 @@
 		/singleton/state_transition/weather/snow,
 		/singleton/state_transition/weather/snow_heavy
 	)
+	blocks_sky = TRUE
 
 /singleton/state/weather/snow/heavy
 	name =  "Heavy Snow"
@@ -125,6 +131,7 @@
 		"Thick flurries of snow swirl around you."
 	)
 	cosmetic_span_class = "warning"
+	blocks_sky = TRUE
 
 /singleton/state/weather/rain
 	name =  "Light Rain"
@@ -159,6 +166,7 @@
 	protected_messages = list("Torrential rain thunders against $ITEM$.")
 	roof_messages =      list("Torrential rain thunders against the roof.")
 	ambient_sounds =     list('sound/effects/weather/rain_heavy.ogg')
+	blocks_sky = TRUE
 
 /singleton/state/weather/rain/storm/tick(var/obj/abstract/weather_system/weather)
 	..()
@@ -178,6 +186,7 @@
 	roof_messages =          list("Hail clatters on the roof.")
 	ambient_sounds =         list('sound/effects/weather/rain.ogg')
 	ambient_indoors_sounds = list('sound/effects/weather/hail_indoors.ogg')
+	blocks_sky = TRUE
 
 /singleton/state/weather/rain/hail/handle_exposure_effects(var/mob/living/M, var/obj/abstract/weather_system/weather)
 	to_chat(M, SPAN_DANGER("You are pelted by a shower of hail!"))
@@ -201,6 +210,7 @@
 	)
 	protected_messages = list("Stinging sand blows against $ITEM$.")
 	ambient_sounds = list('sound/effects/weather/sandstorm.ogg')
+	blocks_sky = TRUE
 
 /singleton/state/weather/sandstorm/handle_exposure_effects(mob/living/M, obj/abstract/weather_system/weather)
 	to_chat(M, SPAN_DANGER("You are blasted by a gust of stinging sand!"))

@@ -45,9 +45,13 @@
 	. = ..()
 	if(use_check(user) || !Adjacent(user))
 		return
+	var/obj/abstract/weather_system/WS = SSweather.weather_by_z["[z]"]
+	var/singleton/state/weather/weather = null
+	if(WS)
+		weather = WS.weather_system.current_state
 	var/turf/T = get_turf(src)
-	if(!T.is_outside())
-		to_chat(user, SPAN_NOTICE("You need to be outside to get a view of the stars."))
+	if(!(T.is_outside() && (!weather || !weather.blocks_sky) && T.get_uv_lumcount() <= 0.5))
+		to_chat(user, SPAN_NOTICE("You don't have a view of the stars."))
 		return
 	user.visible_message(SPAN_NOTICE("\The [user] peers into \the [src], analysing the stars."))
 	if(do_after(user, 8 SECONDS))

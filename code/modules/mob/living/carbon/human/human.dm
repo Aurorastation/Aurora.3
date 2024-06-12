@@ -848,6 +848,9 @@
 		check_attacks()
 		return 1
 
+	if (href_list["stargaze"])
+		stargaze()
+
 	..()
 	return
 
@@ -2317,13 +2320,23 @@
 	set category = "IC"
 
 	if(!stat)
-		if(!is_outside())
-			to_chat(src, SPAN_NOTICE("You need to be outside to get a view of the stars."))
+		var/window_gazing = FALSE
+		for(var/turf/T in range(client.view))
+			if(isspaceturf(T))
+				window_gazing = TRUE
+				break
+		var/obj/abstract/weather_system/WS = SSweather.weather_by_z["[z]"]
+		var/singleton/state/weather/weather = null
+		if(WS)
+			weather = WS.weather_system.current_state
+		var/turf/T = get_turf(src)
+		if(!window_gazing && !(	is_outside() && (!weather || !weather.blocks_sky) && T.get_uv_lumcount() <= 0.5))
+			to_chat(src, SPAN_NOTICE("You don't have a view of the stars."))
 			return
-		if(!lying)
+		if(!window_gazing && !lying)
 			to_chat(src, SPAN_NOTICE("You must be lying down to stargaze."))
 			return
-		to_chat(src, SPAN_NOTICE("You look up at the stars, searching for constellations."))
+		to_chat(src, SPAN_NOTICE("You look [window_gazing ? "out" : "up"] at the stars, searching for constellations."))
 		if(!do_after(src, 10 SECONDS, incapacitation_flags = INCAPACITATION_ALLOW_LYING))
 			return
 		var/turf/unsimulated/map/M = get_turf(GLOB.map_sectors["[z]"])

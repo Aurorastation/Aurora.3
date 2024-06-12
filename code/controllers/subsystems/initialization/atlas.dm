@@ -19,6 +19,11 @@ SUBSYSTEM_DEF(atlas)
 	var/datum/space_sector/current_sector
 	var/list/possible_sectors = list()
 
+	/**
+	 * List of constellation datums generated during Initialise, chosen randomly from all /datum/constellation subtypes.
+	 * Used by overmap locations to decide which constellations are visible from where.
+	 * Will not be randomly generated if current_sector.lore_constellations is set, allowing lore systems to have pre-determined constellations.
+	 */
 	var/list/possible_constellations = list()
 
 	//Note that the dirs here are REVERSE because they're used for entry points, so it'd be the dir facing starboard for example.
@@ -216,12 +221,16 @@ SUBSYSTEM_DEF(atlas)
 
 	setup_spawnpoints()
 
-	var/list/all_constellations = subtypesof(/datum/constellation)
-	for(var/_ in 1 to rand(7,14))
-		var/constellation_type = pick(all_constellations)
-		var/datum/constellation/C = new constellation_type
-		possible_constellations += C
-		all_constellations -= constellation_type
+	if(current_sector.lore_constellations)
+		for(var/constellation in current_sector.lore_constellations)
+			possible_constellations += new constellation
+	else
+		var/list/all_constellations = subtypesof(/datum/constellation)
+		for(var/_ in 1 to rand(7,14))
+			var/constellation_type = pick(all_constellations)
+			var/datum/constellation/C = new constellation_type
+			possible_constellations += C
+			all_constellations -= constellation_type
 
 	return SS_INIT_SUCCESS
 
