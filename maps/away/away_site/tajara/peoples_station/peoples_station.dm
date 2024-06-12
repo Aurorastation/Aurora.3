@@ -11,7 +11,7 @@
 	id = "peoples_station"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/peoples_station_fang, /datum/shuttle/autodock/overmap/peoples_station_transport)
 
-	unit_test_groups = list(1)
+	unit_test_groups = list(2)
 
 /singleton/submap_archetype/peoples_station
 	map = "People's Space Station"
