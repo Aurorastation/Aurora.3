@@ -117,7 +117,10 @@
 	if(get_next_stage(STAGE_PROGRESS)) //Still work being done
 		return
 
-	QDEL_LIST(grouped_structures)
+	for(var/obj/I in grouped_structures)
+		grouped_structures -= I
+		qdel(I)
+	grouped_structures = null
 
 	var/obj/item/I = new source_item_type(get_turf(user))
 	I.color = color
