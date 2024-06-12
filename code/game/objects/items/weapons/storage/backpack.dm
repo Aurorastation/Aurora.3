@@ -107,7 +107,7 @@
 /obj/item/storage/backpack/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot, main_call)
 	var/image/I = ..()
 	if(slot == slot_back_str && attached_bag)
-		var/image/over = overlay_image(attached_bag.icon, "[attached_bag.icon_state]_[attached_bag.attached_icon]_ba", attached_bag.color)
+		var/image/over = overlay_image(attached_bag.icon, "[attached_bag.icon_state]_[attached_icon]_ba", attached_bag.color)
 		I.AddOverlays(over)
 	return I
 
