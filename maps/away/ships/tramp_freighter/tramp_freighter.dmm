@@ -3072,6 +3072,9 @@
 	req_access = null
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/power)
 "qP" = (
@@ -4375,6 +4378,9 @@
 	pixel_y = 3
 	},
 /obj/structure/table/rack,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/power)
 "wP" = (
