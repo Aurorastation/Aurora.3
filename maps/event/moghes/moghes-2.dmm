@@ -5,6 +5,11 @@
 "i" = (
 /turf/unsimulated/mineral,
 /area/new_blades/underground)
+"J" = (
+/turf/simulated/floor/exoplanet/water/shallow/moghes{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 
 (1,1,1) = {"
 i
@@ -23775,12 +23780,12 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
+J
+J
+J
+J
+J
+J
 a
 a
 a
@@ -24032,12 +24037,12 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
+J
+J
+J
+J
+J
+J
 a
 a
 a
@@ -24289,12 +24294,12 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
+J
+J
+J
+J
+J
+J
 a
 a
 a
@@ -24546,12 +24551,12 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
+J
+J
+J
+J
+J
+J
 a
 a
 a
@@ -24803,12 +24808,12 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
+J
+J
+J
+J
+J
+J
 a
 a
 a
@@ -25060,12 +25065,12 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
+J
+J
+J
+J
+J
+J
 a
 a
 a
