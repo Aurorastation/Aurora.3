@@ -395,6 +395,9 @@
 		if(welded)
 			to_chat(user, SPAN_WARNING("[attacking_item] detects that [src] is welded shut, and refuses to scan."))
 			return
+		playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 1)
+		playsound(src.loc, 'sound/bureaucracy/print.ogg', 20, 1)
+		sleep(5)
 		Cscanner.print_contents(name, contents, src.loc)
 	else if(istype(attacking_item, /obj/item/stack/packageWrap))
 		return
