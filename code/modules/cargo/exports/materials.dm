@@ -98,7 +98,7 @@
 	material_id = "osmium"
 	message = "osmium ingots"
 
-/datum/export/material/steel 
+/datum/export/material/steel
 	cost = 5
 	material_id = "steel"
 	message = "steel sheets"

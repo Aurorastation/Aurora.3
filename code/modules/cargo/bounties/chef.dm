@@ -43,8 +43,8 @@
 	reward_high = 4500
 	required_count = 4
 	random_count = 1
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/icecreamsandwich, 
-			/obj/item/reagent_containers/food/snacks/icecream, 
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/icecreamsandwich,
+			/obj/item/reagent_containers/food/snacks/icecream,
 			/obj/item/reagent_containers/food/snacks/creamice)
 
 /datum/bounty/item/chef/icecream/applies_to(obj/O)
