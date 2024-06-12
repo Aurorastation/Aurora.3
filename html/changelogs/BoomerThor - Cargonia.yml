@@ -1,0 +1,16 @@
+author: BoomerThor
+
+delete-after: True
+
+changes:
+  - rscadd: "Added export values for plastic, graphite, iron, aluminium, lead, tritium, metallic hydrogen, osmium, and steel."
+  - rscadd: "Added multiple drink and food types to the bounty list. Also added a Vaurca dish bounty."
+  - qol: "Simplifies the cultural food bounty lists to include future contributions."
+  - rscadd: "Added exosuit and hardsuit part bounties."
+  - rscdel: "Removed depreciated bounties (smoke grenades, telecomms traffic, NVGs, monkey hide)."
+  - bugfix: "Fixed the padded chairs bounty to work properly."
+  - spellcheck: "Removes a mention of the Horizon being in the CRZ from the phoron bounty."
+  - rscadd: "Made all cargo scanners beep, the crate scanner also makes a printer noise."
+  - imageadd: "Made a new sprite for the export scanner."
+  - qol: "Changed the access requirements for the Cargo Control and Cargo Delivery programs. OMs and Techs can now download these programs on their laptops."
+  - qol: "Added a mining laptop preset that comes with the shuttle manifest program."
