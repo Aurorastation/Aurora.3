@@ -24,6 +24,7 @@
 	description = replacetext(description, "%COMPNAME", SSatlas.current_map.company_name)
 	description = replacetext(description, "%COMPSHORT", SSatlas.current_map.company_short)
 	description = replacetext(description, "%PERSONNAME","[pick("Trooper", "Commander", "Agent", "Director", "Doctor")] [pick(last_names)]")
+	description = replacetext(description, "%HIVENAME","[pick("Zo'ra","K'lax","C'thur")]")
 
 // Displayed on bounty UI screen.
 /datum/bounty/proc/completion_string()

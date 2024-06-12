@@ -43,12 +43,16 @@
 	reward_high = 4500
 	required_count = 4
 	random_count = 1
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/icecreamsandwich, /obj/item/reagent_containers/food/snacks/icecream)
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/icecreamsandwich, 
+			/obj/item/reagent_containers/food/snacks/icecream, 
+			/obj/item/reagent_containers/food/snacks/creamice)
 
 /datum/bounty/item/chef/icecream/applies_to(obj/O)
 	if(!..())
 		return FALSE
 	if(istype(O, /obj/item/reagent_containers/food/snacks/icecreamsandwich))
+		return TRUE
+	if(istype(O, /obj/item/reagent_containers/food/snacks/creamice))
 		return TRUE
 	var/obj/item/reagent_containers/food/snacks/icecream/I = O
 	if(I?.ice_creamed)
@@ -66,8 +70,12 @@
 			/obj/item/reagent_containers/food/snacks/plump_pie,
 			/obj/item/reagent_containers/food/snacks/xemeatpie,
 			/obj/item/reagent_containers/food/snacks/cherrypie,
+			/obj/item/reagent_containers/food/snacks/chocolate_rikazu,
+			/obj/item/reagent_containers/food/snacks/fruit_rikazu,
+			/obj/item/reagent_containers/food/snacks/meat_rikazu,
 			/obj/item/reagent_containers/food/snacks/sliceable/keylimepie,
-			/obj/item/reagent_containers/food/snacks/sliceable/giffypie)
+			/obj/item/reagent_containers/food/snacks/sliceable/giffypie,
+			/obj/item/reagent_containers/food/snacks/vegetable_rikazu)
 
 /datum/bounty/item/chef/salad
 	name = "Salad"
@@ -87,7 +95,8 @@
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/carrotfries,
 				/obj/item/reagent_containers/food/snacks/fries,
 				/obj/item/reagent_containers/food/snacks/chilicheesefries,
-				/obj/item/reagent_containers/food/snacks/cheesyfries)
+				/obj/item/reagent_containers/food/snacks/cheesyfries,
+				/obj/item/reagent_containers/food/snacks/earthenroot_fries)
 
 /datum/bounty/item/chef/superbite
 	name = "Super Bite Burger"
@@ -160,6 +169,9 @@
 	random_count = 1
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/variable/kebab,
 			/obj/item/reagent_containers/food/snacks/monkeykabob,
+			/obj/item/reagent_containers/food/snacks/neaerakabob,
+			/obj/item/reagent_containers/food/snacks/nomadskewer,
+			/obj/item/reagent_containers/food/snacks/stokkebab,
 			/obj/item/reagent_containers/food/snacks/tofukabob,
 			/obj/item/reagent_containers/food/snacks/koiskebab3,
 			/obj/item/reagent_containers/food/snacks/donerkebab)
@@ -226,17 +238,14 @@
 	reward_high = 5300
 	required_count = 3
 	random_count = 1
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/bacon_stick,
-			/obj/item/reagent_containers/food/snacks/egg_pancake,
-			/obj/item/reagent_containers/food/snacks/hatchling_suprise,
-			/obj/item/reagent_containers/food/snacks/red_sun_special,
-			/obj/item/reagent_containers/food/snacks/riztizkzi_sea,
-			/obj/item/reagent_containers/food/snacks/sliceable/grilled_carp,
-			/obj/item/reagent_containers/food/snacks/sliceable/sushi_roll,
-			/obj/item/reagent_containers/food/snacks/stuffed_meatball,
-			/obj/item/reagent_containers/food/snacks/chilied_eggs,
-			/obj/item/reagent_containers/food/snacks/sliceable/eyebowl,
-			/obj/item/reagent_containers/food/snacks/hatchbowl)
+	wanted_types = list(/obj/item/reagent_containers/food/snacks)
+
+/datum/bounty/item/chef/unathi/applies_to(var/obj/item/reagent_containers/food/snacks/O)
+	if(!..())
+		return FALSE
+	if(O.icon == 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi')
+		return TRUE
+	return FALSE
 
 /datum/bounty/item/chef/tajara
 	name = "Adhomai Delicacies"
@@ -245,16 +254,14 @@
 	reward_high = 5500
 	required_count = 3
 	random_count = 1
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/adhomian_sausage,
-			/obj/item/reagent_containers/food/snacks/fermented_worm,
-			/obj/item/reagent_containers/food/snacks/hardbread,
-			/obj/item/reagent_containers/food/snacks/lardwich,
-			/obj/item/reagent_containers/food/snacks/nomadskewer,
-			/obj/item/reagent_containers/food/snacks/soup/earthenroot,
-			/obj/item/reagent_containers/food/snacks/spicy_clams,
-			/obj/item/reagent_containers/food/snacks/stew/tajaran,
-			/obj/item/reagent_containers/food/snacks/tajaran_bread,
-			/obj/item/reagent_containers/food/snacks/tajcandy)
+	wanted_types = list(/obj/item/reagent_containers/food/snacks)
+
+/datum/bounty/item/chef/tajara/applies_to(var/obj/item/reagent_containers/food/snacks/O)
+	if(!..())
+		return FALSE
+	if(O.icon == 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi')
+		return TRUE
+	return FALSE
 
 /datum/bounty/item/chef/skrell
 	name = "Federation Delicacies"
@@ -263,11 +270,30 @@
 	reward_high = 5700
 	required_count = 3
 	random_count = 1
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/lortl,
-			/obj/item/reagent_containers/food/snacks/soup/qilvo,
-			/obj/item/reagent_containers/food/snacks/soup/zantiri,
-			/obj/item/reagent_containers/food/snacks/xuqqil,
-			/obj/item/reagent_containers/food/snacks/qlguabi)
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/)
+
+/datum/bounty/item/chef/skrell/applies_to(var/obj/item/reagent_containers/food/snacks/O)
+	if(!..())
+		return FALSE
+	if(O.icon == 'icons/obj/item/reagent_containers/food/cultural/skrell.dmi')
+		return TRUE
+	return FALSE
+
+/datum/bounty/item/chef/vaurca
+	name = "Vaurca Delicacies"
+	description = "We're holding a luncheon with some representatives from the %HIVENAME Hive; send some K'ois dishes!"
+	reward_low = 3900
+	reward_high = 5900
+	required_count = 3
+	random_count = 1
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/)
+
+/datum/bounty/item/chef/vaurca/applies_to(var/obj/item/reagent_containers/food/snacks/O)
+	if(!..())
+		return FALSE
+	if(O.reagents.has_reagent(/singleton/reagent/kois))
+		return TRUE
+	return FALSE
 
 /datum/bounty/item/chef/curry
 	name = "Curry"
@@ -278,6 +304,7 @@
 	random_count = 1
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/redcurry,
 			/obj/item/reagent_containers/food/snacks/greencurry,
+			/obj/item/reagent_containers/food/snacks/xanu_curry,
 			/obj/item/reagent_containers/food/snacks/yellowcurry)
 
 /datum/bounty/item/chef/dip
@@ -314,9 +341,7 @@
 	reward_high = 3900
 	required_count = 3
 	random_count = 1
-	wanted_types = list(
-	/obj/item/reagent_containers/food/snacks/ramenbowl
-	)
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/ramenbowl, /obj/item/reagent_containers/food/snacks/aoyama_ramen)
 
 /datum/bounty/item/chef/matsuul
 	name = "Matsuul"
@@ -326,7 +351,7 @@
 	required_count = 3
 	random_count = 1
 	wanted_types = list(
-	/obj/item/reagent_containers/food/snacks/ramenbowl
+	/obj/item/reagent_containers/food/snacks/matsuul
 	)
 /datum/bounty/item/chef/roulades
 	name = "Roulades"
