@@ -27577,6 +27577,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/firealarm/west,
+/obj/item/storage/box/psireceiver,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hor)
 "mHO" = (
