@@ -117,10 +117,7 @@
 	if(get_next_stage(STAGE_PROGRESS)) //Still work being done
 		return
 
-	for(var/obj/I in grouped_structures)
-		grouped_structures -= I
-		qdel(I)
-	grouped_structures = null
+	QDEL_LIST(grouped_structures)
 
 	var/obj/item/I = new source_item_type(get_turf(user))
 	I.color = color
@@ -142,3 +139,8 @@
 
 /obj/structure/component
 	var/datum/large_structure/part_of
+
+/obj/structure/component/Destroy()
+	. = ..()
+	if(part_of)
+		part_of.grouped_structures -= src
