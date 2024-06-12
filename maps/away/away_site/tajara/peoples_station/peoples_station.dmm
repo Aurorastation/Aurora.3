@@ -300,6 +300,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
+	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -562,6 +563,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -688,6 +692,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
+	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
 /obj/structure/cable/green{
@@ -980,6 +985,10 @@
 /area/shuttle/fang)
 "dI" = (
 /obj/structure/curtain/open/bed,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
@@ -1240,6 +1249,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1300,6 +1312,7 @@
 /area/peoples_station/range)
 "eS" = (
 /obj/machinery/door/firedoor{
+	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
 /obj/structure/cable/green{
@@ -1538,6 +1551,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
+	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
 /obj/effect/floor_decal/corner/red{
@@ -1889,9 +1903,6 @@
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/door/firedoor{
-	req_one_access = list(24,11,67,209)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -1994,6 +2005,16 @@
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
+"hb" = (
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/wood{
+	temperature = 278.15
+	},
+/area/peoples_station/barracks)
 "hc" = (
 /obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
@@ -2650,6 +2671,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
+	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2806,6 +2828,10 @@
 	req_access = list(209);
 	dir = 4
 	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2931,6 +2957,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
+	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3302,12 +3329,16 @@
 	req_access = list(209);
 	dir = 1
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "lG" = (
 /obj/machinery/door/firedoor{
+	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
 /obj/machinery/door/airlock/glass_security{
@@ -3450,6 +3481,10 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -3704,6 +3739,10 @@
 /obj/machinery/door/blast/regular/open{
 	id = "peoples_station_armory"
 	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3875,6 +3914,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
+	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
 /obj/machinery/door/blast/regular/open{
@@ -4263,6 +4303,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
+	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4647,6 +4688,9 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -5038,6 +5082,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
+	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5255,6 +5300,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
+	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5750,6 +5796,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
+	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6558,6 +6605,9 @@
 	name = "Restroom";
 	dir = 1
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/freezer{
 	temperature = 278.15
 	},
@@ -6922,6 +6972,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -7278,6 +7331,9 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -8057,6 +8113,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
+	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8424,6 +8481,10 @@
 /obj/machinery/door/blast/regular/open{
 	id = "peoples_station_armory"
 	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -8664,6 +8725,9 @@
 	name = "Fang Hangar";
 	req_access = list(209);
 	dir = 1
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -9150,6 +9214,20 @@
 	temperature = 278.15
 	},
 /area/peoples_station/visitor)
+"IE" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Station Hatch";
+	req_access = list(209);
+	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/peoples_station)
 "IF" = (
 /obj/effect/floor_decal/corner/red/full,
 /obj/structure/dispenser/oxygen,
@@ -9377,6 +9455,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
+	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -9575,6 +9654,10 @@
 	name = "Zero Gravity Chamber";
 	dir = 4
 	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -9607,6 +9690,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -9787,6 +9874,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -10245,6 +10335,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
+	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
@@ -11687,6 +11778,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -12227,6 +12321,10 @@
 	dir = 4
 	},
 /obj/structure/plasticflaps/airtight,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -12415,6 +12513,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -12838,6 +12939,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
+	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -13409,6 +13511,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -13448,6 +13554,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
+	dir = 8;
 	req_one_access = list(24,11,67,209)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -46599,7 +46706,7 @@ CR
 CR
 CR
 CR
-jl
+IE
 CR
 CR
 CR
@@ -53810,7 +53917,7 @@ CR
 CR
 CR
 CR
-jl
+IE
 CR
 CR
 CR
@@ -55592,7 +55699,7 @@ PY
 PY
 vF
 vF
-dI
+hb
 vF
 vF
 vF
