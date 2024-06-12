@@ -25,6 +25,7 @@
 	empty_delay = 0.5 SECOND
 	var/straps = FALSE // Only really used for the verb.
 	var/obj/item/sleeping_bag/attached_bag // For attaching sleeping bags on bags. Should convert this is use accessories later, but that means making backpacks clothing.
+	var/attached_icon = "backpack"
 
 /obj/item/storage/backpack/Initialize()
 	. = ..()
@@ -100,13 +101,13 @@
 	. = ..()
 	ClearOverlays()
 	if(attached_bag)
-		var/image/I = overlay_image(attached_bag.icon, "[attached_bag.icon_state]_backpack", attached_bag.color)
+		var/image/I = overlay_image(attached_bag.icon, "[attached_bag.icon_state]_[attached_icon]", attached_bag.color)
 		AddOverlays(I)
 
 /obj/item/storage/backpack/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot, main_call)
 	var/image/I = ..()
 	if(slot == slot_back_str && attached_bag)
-		var/image/over = overlay_image(attached_bag.icon, "[attached_bag.icon_state]_backpack_ba", attached_bag.color)
+		var/image/over = overlay_image(attached_bag.icon, "[attached_bag.icon_state]_[attached_bag.attached_icon]_ba", attached_bag.color)
 		I.AddOverlays(over)
 	return I
 
@@ -376,6 +377,7 @@
 	icon_state = "satchel"
 	item_state = "satchel"
 	straps = TRUE
+	attached_icon = "satchel"
 
 /obj/item/storage/backpack/satchel/leather/withwallet/New()
 	..()
