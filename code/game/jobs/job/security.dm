@@ -273,6 +273,10 @@
 	selection_color = "#991818"
 	access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_SECURITY, ACCESS_SEC_DOORS)
+	title_accesses = list(
+		"Investigator Intern" = list(ACCESS_FORENSICS_LOCKERS, ACCESS_MORGUE),
+		"Warden Cadet" = ACCESS_BRIG
+	)
 	outfit = /obj/outfit/job/intern_sec/officer
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
