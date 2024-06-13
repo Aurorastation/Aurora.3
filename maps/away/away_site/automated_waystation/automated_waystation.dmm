@@ -21,7 +21,6 @@
 /turf/simulated/floor/tiled/white,
 /area/automated_waystation/medical)
 "aj" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
 /area/automated_waystation/exterior)
@@ -47,23 +46,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/automated_waystation/sensors)
-"aE" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor/airless,
-/area/automated_waystation/exterior)
-"aP" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk,
-/turf/simulated/floor/airless,
-/area/automated_waystation/exterior)
 "bb" = (
 /obj/item/storage/box/produce{
 	layer = 2.99;
@@ -121,7 +103,6 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/medical)
 "bO" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -129,7 +110,6 @@
 /turf/simulated/floor/airless,
 /area/automated_waystation/exterior)
 "ca" = (
-/obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
 /obj/structure/railing/mapped{
 	dir = 8
@@ -159,18 +139,9 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/medical)
 "cC" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	icon_state = "2-4"
 	},
-/turf/simulated/floor/airless,
-/area/automated_waystation/exterior)
-"dl" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk,
 /turf/simulated/floor/airless,
 /area/automated_waystation/exterior)
 "dG" = (
@@ -186,7 +157,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/atmospherics)
 "dW" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
@@ -323,7 +293,6 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/canteen)
 "hL" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -414,15 +383,12 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/atmospherics)
 "kQ" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
 /area/automated_waystation/exterior)
 "lo" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -461,7 +427,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/canteen)
 "lX" = (
-/obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red{
 	pixel_x = 16
 	},
@@ -537,7 +502,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/sensors)
 "nM" = (
-/obj/structure/lattice/catwalk,
 /obj/item/stack/cable_coil/yellow,
 /obj/structure/railing/mapped{
 	dir = 4
@@ -557,7 +521,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/canteen)
 "ob" = (
-/obj/structure/lattice/catwalk,
 /obj/item/stack/cable_coil/yellow,
 /obj/structure/railing/mapped{
 	dir = 8
@@ -573,7 +536,6 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/obj/structure/lattice/catwalk,
 /turf/simulated/floor/airless,
 /area/automated_waystation/exterior)
 "oy" = (
@@ -588,16 +550,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/canteen)
-"oO" = (
-/obj/structure/lattice/catwalk,
-/turf/simulated/floor/airless,
-/area/automated_waystation/exterior)
 "pt" = (
 /obj/machinery/power/solar_control,
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
 	},
-/obj/structure/lattice/catwalk,
 /turf/simulated/floor/plating,
 /area/automated_waystation/exterior)
 "pz" = (
@@ -628,7 +585,6 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/canteen)
 "pT" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
 	},
@@ -667,7 +623,6 @@
 /turf/simulated/floor/airless,
 /area/automated_waystation/exterior)
 "rv" = (
-/obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red{
 	pixel_y = -16
 	},
@@ -731,7 +686,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/sensors)
 "tr" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
@@ -752,7 +706,6 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/sensors)
 "uR" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -823,7 +776,6 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/sensors)
 "vZ" = (
-/obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red{
 	pixel_y = -16
 	},
@@ -845,39 +797,24 @@
 "wR" = (
 /turf/simulated/wall,
 /area/automated_waystation/exterior)
-"wW" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/simulated/floor/airless,
-/area/automated_waystation/exterior)
 "wY" = (
 /obj/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/canteen)
 "xb" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/automated_waystation/sensors)
 "xp" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/airless,
 /area/automated_waystation/exterior)
-"xt" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/cable/yellow{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/airless,
-/area/automated_waystation/exterior)
 "xw" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -887,7 +824,6 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/sensors)
 "xy" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1041,7 +977,6 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/engineering)
 "Ay" = (
-/obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red{
 	pixel_x = 16
 	},
@@ -1052,7 +987,6 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
 /area/automated_waystation/exterior)
@@ -1097,11 +1031,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/atmospherics)
-"Bj" = (
-/obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk,
-/turf/simulated/floor/airless,
-/area/automated_waystation/exterior)
 "Bo" = (
 /obj/machinery/vending/snack,
 /turf/simulated/floor/wood,
@@ -1172,7 +1101,6 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/medical)
 "CN" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
@@ -1187,7 +1115,6 @@
 /turf/template_noop,
 /area/automated_waystation/exterior)
 "Dn" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -1197,7 +1124,6 @@
 /turf/simulated/floor/airless,
 /area/automated_waystation/exterior)
 "Dq" = (
-/obj/structure/lattice/catwalk,
 /turf/simulated/floor/plating,
 /area/automated_waystation/exterior)
 "Dz" = (
@@ -1247,7 +1173,6 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/engineering)
 "Fy" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -1265,14 +1190,12 @@
 /turf/simulated/floor/wood,
 /area/automated_waystation/bedroom)
 "Gf" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
 /area/automated_waystation/exterior)
 "Gh" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -1282,14 +1205,12 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/sensors)
 "Gn" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/automated_waystation/exterior)
 "GR" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -1302,7 +1223,6 @@
 /turf/simulated/wall,
 /area/automated_waystation/canteen)
 "GZ" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -1358,13 +1278,6 @@
 /obj/machinery/vending/engineering,
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/engineering)
-"HM" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor/airless,
-/area/automated_waystation/exterior)
 "Ib" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/item/towel/random{
@@ -1393,7 +1306,6 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/bedroom)
 "IE" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/automated_waystation/sensors)
@@ -1404,7 +1316,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/atmospherics)
 "IY" = (
-/obj/structure/lattice/catwalk,
 /obj/effect/shuttle_landmark/automated_waystation/nav_west{
 	dir = 4
 	},
@@ -1453,7 +1364,6 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/engineering)
 "JI" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
@@ -1468,7 +1378,6 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/engineering)
 "KA" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -1543,24 +1452,12 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/atmospherics)
 "Mq" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/automated_waystation/sensors)
-"Mz" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor/airless,
-/area/automated_waystation/exterior)
 "MV" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
@@ -1574,7 +1471,6 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -1596,7 +1492,6 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
 	},
@@ -1653,7 +1548,6 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/canteen)
 "Pe" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	icon_state = "2-4"
 	},
@@ -1668,7 +1562,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/canteen)
 "Px" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
@@ -1688,7 +1581,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/engineering)
 "PF" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
@@ -1719,7 +1611,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/canteen)
 "Qx" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
@@ -1738,7 +1629,6 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/engineering)
 "Rc" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -1819,7 +1709,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/engineering)
 "TU" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -1864,7 +1753,6 @@
 /turf/simulated/wall,
 /area/automated_waystation/sensors)
 "UI" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -1904,7 +1792,6 @@
 /turf/template_noop,
 /area/space)
 "VW" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
 	},
@@ -1918,7 +1805,6 @@
 /turf/simulated/wall,
 /area/automated_waystation/bedroom)
 "WT" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -1934,7 +1820,6 @@
 /turf/simulated/floor/plating,
 /area/automated_waystation/medical)
 "Xn" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -1986,7 +1871,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/sensors)
 "Yu" = (
-/obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/plating,
 /area/automated_waystation/sensors)
@@ -2009,7 +1893,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/engineering)
 "Zc" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
@@ -28152,8 +28035,8 @@ BL
 BL
 BL
 BL
-oO
-oO
+Hu
+Hu
 BL
 BL
 BL
@@ -28382,13 +28265,13 @@ BL
 BL
 BL
 BL
-aP
+TU
 AH
 BL
 BL
 BL
 Nk
-dl
+AH
 BL
 BL
 BL
@@ -28409,7 +28292,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 aj
 BL
 BL
@@ -28640,12 +28523,12 @@ qg
 qg
 qg
 ow
-oO
-aE
+Hu
+kQ
 ca
-aE
-oO
-Bj
+kQ
+Hu
+aj
 qg
 qg
 qg
@@ -28666,7 +28549,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 aj
 BL
 BL
@@ -28894,17 +28777,13 @@ Hu
 Hu
 Hu
 Hu
-oO
-oO
-oO
-oO
+Hu
+Hu
+Hu
+Hu
 fp
 fp
 fp
-oO
-oO
-oO
-oO
 Hu
 Hu
 Hu
@@ -28912,6 +28791,10 @@ Hu
 Hu
 Hu
 Hu
+Hu
+Hu
+Hu
+Hu
 BL
 BL
 BL
@@ -28923,7 +28806,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 aj
 BL
 BL
@@ -29161,7 +29044,7 @@ fp
 fp
 fp
 fp
-HM
+ow
 PY
 zb
 Of
@@ -29180,7 +29063,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 aj
 BL
 BL
@@ -29418,7 +29301,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 PY
 vn
 Of
@@ -29437,7 +29320,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 aj
 BL
 BL
@@ -29675,7 +29558,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 PY
 vn
 Of
@@ -29684,17 +29567,17 @@ PY
 vn
 Of
 kQ
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-aE
-oO
+kQ
+kQ
+kQ
+kQ
+kQ
+kQ
+kQ
+kQ
+kQ
+kQ
+Hu
 aj
 BL
 BL
@@ -29932,7 +29815,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 PY
 vn
 Of
@@ -30189,7 +30072,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 PY
 vn
 Of
@@ -30446,7 +30329,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 PY
 vn
 Of
@@ -30703,7 +30586,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 PY
 vn
 Of
@@ -30712,7 +30595,7 @@ PY
 vn
 Of
 aj
-BH
+fp
 fp
 fp
 pz
@@ -30960,7 +30843,7 @@ qg
 qg
 BL
 BL
-HM
+ow
 PY
 vn
 Of
@@ -31192,14 +31075,14 @@ BL
 BL
 BL
 Ay
-oO
-aE
-aE
-aE
-aE
-aE
-aE
-aE
+Hu
+kQ
+kQ
+kQ
+kQ
+kQ
+kQ
+kQ
 PY
 vn
 Of
@@ -31207,7 +31090,7 @@ fp
 PY
 vn
 Of
-oO
+Hu
 fp
 fp
 fp
@@ -31217,7 +31100,7 @@ fp
 fp
 fp
 fp
-HM
+ow
 PY
 vn
 Of
@@ -31448,15 +31331,15 @@ BL
 BL
 BL
 BL
-oO
-oO
+Hu
+Hu
 Gn
 Gn
 Gn
 Gn
 Gn
 Gn
-oO
+Hu
 PY
 vn
 Of
@@ -31474,7 +31357,7 @@ hL
 qg
 BL
 BL
-HM
+ow
 PY
 vn
 Of
@@ -31713,7 +31596,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 PY
 vn
 Of
@@ -31731,7 +31614,7 @@ IE
 qg
 BL
 BL
-HM
+ow
 PY
 vn
 Of
@@ -31970,7 +31853,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 PY
 vn
 Of
@@ -31988,7 +31871,7 @@ WT
 qg
 BL
 BL
-HM
+ow
 PY
 vn
 Of
@@ -32227,7 +32110,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 PY
 vn
 Of
@@ -32245,7 +32128,7 @@ fp
 qg
 BL
 BL
-HM
+ow
 PY
 vn
 Of
@@ -32484,7 +32367,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 PY
 vn
 Of
@@ -32502,7 +32385,7 @@ fp
 fp
 fp
 fp
-HM
+ow
 PY
 vn
 Of
@@ -32741,7 +32624,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 PY
 vn
 Of
@@ -32759,7 +32642,7 @@ Rc
 Rc
 Xn
 fp
-HM
+ow
 PY
 vn
 Of
@@ -32998,7 +32881,7 @@ BL
 fp
 fp
 fp
-HM
+ow
 fp
 gj
 fp
@@ -33006,7 +32889,7 @@ fp
 fp
 gj
 fp
-oO
+Hu
 Pe
 Gf
 BL
@@ -33016,7 +32899,7 @@ BL
 BL
 Qx
 NP
-oO
+Hu
 fp
 gj
 fp
@@ -33254,17 +33137,17 @@ BL
 BL
 fp
 TU
-aE
-wW
-aE
-oO
-aE
+kQ
+Hu
+kQ
+Hu
+kQ
 ob
-aE
-oO
-aE
-oO
-xt
+kQ
+Hu
+kQ
+Hu
+bA
 fp
 UH
 PI
@@ -33273,14 +33156,14 @@ PI
 UH
 fp
 xp
-oO
-aE
-oO
-aE
+Hu
+kQ
+Hu
+kQ
 ob
-aE
-oO
-aE
+kQ
+Hu
+kQ
 aj
 fp
 BL
@@ -33510,7 +33393,7 @@ BL
 BL
 BL
 TU
-oO
+Hu
 XB
 XB
 XB
@@ -33766,7 +33649,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 fp
 XB
 yd
@@ -34023,7 +33906,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 rc
 XB
 jC
@@ -34280,7 +34163,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 fp
 XB
 qa
@@ -34538,7 +34421,7 @@ BL
 BL
 BL
 GR
-oO
+Hu
 XB
 XB
 XB
@@ -34799,11 +34682,11 @@ GR
 Gn
 Gn
 Gn
-oO
+Hu
 Gn
 nM
 Gn
-oO
+Hu
 Gn
 Gn
 pT
@@ -34817,11 +34700,11 @@ fp
 cC
 Gn
 Gn
-oO
+Hu
 Gn
 nM
 Gn
-oO
+Hu
 Gn
 aj
 fp
@@ -35080,7 +34963,7 @@ fp
 fp
 fh
 fp
-oO
+Hu
 BH
 fp
 fp
@@ -36622,7 +36505,7 @@ fp
 PY
 Hd
 Of
-Bj
+aj
 fp
 qg
 BL
@@ -37907,13 +37790,13 @@ fp
 PY
 Hd
 Of
-oO
-aE
-aE
-aE
-aE
-aE
-oO
+Hu
+kQ
+kQ
+kQ
+kQ
+kQ
+Hu
 lX
 BL
 BL
@@ -38170,8 +38053,8 @@ Gn
 Gn
 Gn
 Gn
-oO
-oO
+Hu
+Hu
 EP
 BL
 BL
@@ -39691,8 +39574,8 @@ BL
 BL
 BL
 fp
-Mz
-aE
+Nk
+kQ
 Gn
 lo
 lo
@@ -39948,7 +39831,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 aj
 BL
 BL
@@ -40205,7 +40088,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 aj
 BL
 BL
@@ -40462,7 +40345,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 aj
 BL
 BL
@@ -40719,7 +40602,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 aj
 BL
 BL
@@ -40976,7 +40859,7 @@ BL
 BL
 BL
 BL
-HM
+ow
 aj
 BL
 BL
@@ -41233,8 +41116,8 @@ BL
 BL
 BL
 BL
-oO
-oO
+Hu
+Hu
 BL
 BL
 BL
@@ -41491,7 +41374,7 @@ BL
 BL
 BL
 rv
-oO
+Hu
 BL
 BL
 BL
