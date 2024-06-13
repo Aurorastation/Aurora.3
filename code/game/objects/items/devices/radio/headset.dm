@@ -287,7 +287,6 @@
 
 /obj/item/device/radio/headset/headset_service/alt
 	name = "service radio bowman headset"
-	icon_state = "srv_headset_alt"
 	icon_state = "headset_alt"
 
 /obj/item/device/radio/headset/alt/double/service

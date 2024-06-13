@@ -2,6 +2,7 @@
 mod mapmanip;
 
 use byondapi::prelude::*;
+use eyre::Context;
 
 /// Call stack trace dm method with message.
 pub(crate) fn dm_call_stack_trace(msg: String) {
@@ -53,16 +54,26 @@ pub unsafe extern "C" fn read_dmm_file_ffi(
 
 ///
 fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
-    let path: String = path.get_string()?;
-    let path: std::path::PathBuf = path.try_into()?;
+    setup_panic_handler();
 
-    // some checks, just return null if path is bad for whatever reason
+    let path: String = path
+        .get_string()
+        .wrap_err(format!("path arg is not a string: {:?}", path))?;
+    let path: std::path::PathBuf = path
+        .clone()
+        .try_into()
+        .wrap_err(format!("path arg is not a valid file path: {}", path))?;
+
+    // just return null if path is bad for whatever reason
     if !path.is_file() || !path.exists() {
         return Ok(ByondValue::null());
     }
 
     // read file and parse with spacemandmm
-    let mut map = dmmtools::dmm::Map::from_file(&path)?;
+    let mut dmm = dmmtools::dmm::Map::from_file(&path).wrap_err(format!(
+        "spacemandmm parsing error; dmm file path: {}; see error from spacemandmm below for more information",
+        path.display()
+    ))?;
 
     // do mapmanip if defined for this dmm
     let path_mapmanip_config = {
@@ -79,7 +90,12 @@ fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
         map = crate::mapmanip::mapmanip(path_dir, map, &config);
     }
 
-    // return the map converted to string
-    let str = map_to_string(&map)?;
+    // convert the map back to a string
+    let str = map_to_string(&dmm).wrap_err(format!(
+        "error in converting map back to string; dmm file path: {}",
+        path.display()
+    ))?;
+
+    // and return it
     Ok(ByondValue::new_str(str)?)
 }

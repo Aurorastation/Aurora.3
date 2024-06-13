@@ -6,14 +6,13 @@
 	icon_living = "clown"
 	icon_dead = "clown_dead"
 	icon_gib = "clown_gib"
-	speak_chance = 0
+	speak_chance = 1
 	turns_per_move = 5
 	response_help = "pokes"
 	response_disarm = "gently pushes aside"
 	response_harm = "hits"
 	speak = list("HONK", "Honk!", "Welcome to clown planet!")
 	emote_see = list("honks")
-	speak_chance = 1
 	universal_speak = FALSE
 	a_intent = I_HURT
 	stop_automated_movement_when_pulled = 0

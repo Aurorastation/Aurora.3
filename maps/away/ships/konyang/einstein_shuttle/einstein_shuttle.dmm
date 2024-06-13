@@ -323,6 +323,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/room/four)
+"jt" = (
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
+/obj/item/blueprints/shuttle,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/plating,
+/area/shuttle/einstein_shuttle/porteng)
 "jC" = (
 /obj/machinery/power/terminal,
 /obj/structure/cable{
@@ -7802,7 +7810,7 @@ NW
 NW
 Hp
 lH
-iD
+jt
 YJ
 LU
 Wh

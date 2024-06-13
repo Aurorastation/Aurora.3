@@ -2810,6 +2810,12 @@
 /area/shuttle/scrapper_ship/bridge)
 "HP" = (
 /obj/machinery/firealarm/west,
+/obj/structure/table/standard,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints/shuttle,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3815,6 +3821,26 @@
 	name = "cooled floor";
 	temperature = 278
 	},
+/area/scrapper_base/atmos)
+"TI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/blueprints,
+/obj/structure/table/standard,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/scrapper_base/atmos)
 "TL" = (
 /obj/structure/cable/green{
@@ -37846,7 +37872,7 @@ kz
 RN
 fn
 pl
-sE
+TI
 kz
 Uk
 OZ

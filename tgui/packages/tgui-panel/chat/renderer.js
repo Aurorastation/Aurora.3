@@ -7,7 +7,7 @@
 import { EventEmitter } from 'common/events';
 import { classes } from 'common/react';
 import { createLogger } from 'tgui/logging';
-import { COMBINE_MAX_MESSAGES, COMBINE_MAX_TIME_WINDOW, IMAGE_RETRY_DELAY, IMAGE_RETRY_LIMIT, IMAGE_RETRY_MESSAGE_AGE, MAX_PERSISTED_MESSAGES, MESSAGE_TYPES, MESSAGE_TYPE_INTERNAL, MESSAGE_TYPE_UNKNOWN } from './constants';
+import { COMBINE_MAX_MESSAGES, COMBINE_MAX_TIME_WINDOW, IMAGE_RETRY_DELAY, IMAGE_RETRY_LIMIT, IMAGE_RETRY_MESSAGE_AGE, MESSAGE_TYPES, MESSAGE_TYPE_INTERNAL, MESSAGE_TYPE_UNKNOWN } from './constants';
 import { render } from 'inferno';
 import { canPageAcceptType, createMessage, isSameMessage } from './model';
 import { highlightNode, linkifyNode } from './replaceInTextNode';
@@ -468,7 +468,7 @@ class ChatRenderer {
     }
   }
 
-  pruneMessagesTo(max_visible_messages, max_persisted_messages) {
+  pruneMessagesTo(max_visible_messages) {
     if (!this.isReady()) {
       return;
     }
@@ -502,7 +502,7 @@ class ChatRenderer {
     {
       const fromIndex = Math.max(
         0,
-        this.messages.length - max_persisted_messages
+        this.messages.length - max_visible_messages
       );
       if (fromIndex > 0) {
         this.messages = this.messages.slice(fromIndex);
@@ -511,15 +511,12 @@ class ChatRenderer {
     }
   }
 
-  rebuildChat() {
+  rebuildChat(max_visible_messages) {
     if (!this.isReady()) {
       return;
     }
     // Make a copy of messages
-    const fromIndex = Math.max(
-      0,
-      this.messages.length - MAX_PERSISTED_MESSAGES
-    );
+    const fromIndex = Math.max(0, this.messages.length - max_visible_messages);
     const messages = this.messages.slice(fromIndex);
     // Remove existing nodes
     for (let message of messages) {
@@ -585,7 +582,7 @@ class ChatRenderer {
   }
 
   clear() {
-    this.pruneMessagesTo(0, 0);
+    this.pruneMessagesTo(0);
   }
 }
 

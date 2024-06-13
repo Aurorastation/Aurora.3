@@ -121,7 +121,7 @@
 
 	return ..()
 
-/obj/item/storage/wallet/examine(mob/user, distance, is_adjacent)
+/obj/item/storage/wallet/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	var/obj/item/card/id/id = GetID()
 	if(istype(id) && is_adjacent)
