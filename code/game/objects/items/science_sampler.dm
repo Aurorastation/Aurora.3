@@ -88,7 +88,7 @@
 		if(SAMPLE_BIO)
 			if(istype(target, /mob/living/simple_animal))
 				var/mob/living/simple_animal/fauna = target
-				if(!fauna.is_biological)
+				if(!fauna.sample_data)
 					return FALSE
 				vial.reagents.add_reagent(/singleton/reagent/biological_tissue, 10, fauna.sample_data)
 				return TRUE

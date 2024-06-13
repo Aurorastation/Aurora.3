@@ -34,7 +34,7 @@
 	tameable = FALSE
 	psi_pingable = FALSE
 	stop_automated_movement_when_pulled = 0
-	is_biological = FALSE
+	sample_data = null
 	///Icon state for screen overlay
 	var/screen
 

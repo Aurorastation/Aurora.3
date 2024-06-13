@@ -43,7 +43,7 @@
 	var/is_punishing = FALSE
 
 	psi_pingable = FALSE
-	is_biological = FALSE
+	sample_data = null
 
 /mob/living/simple_animal/hostile/krampus/death(gibbed)
 	..()

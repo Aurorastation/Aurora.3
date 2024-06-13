@@ -32,7 +32,7 @@
 	var/obj/item/residue = /obj/item/ectoplasm
 
 	psi_pingable = FALSE
-	is_biological = FALSE
+	sample_data = null
 
 /mob/living/simple_animal/shade/cultify()
 	return
