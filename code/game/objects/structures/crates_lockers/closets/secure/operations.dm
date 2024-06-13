@@ -102,7 +102,6 @@
 	new /obj/item/clothing/head/hardhat/orange(src)
 	new /obj/item/device/radio(src)
 	new /obj/item/device/flashlight/lantern(src)
-	new /obj/item/device/hull_surveyor(src)
 
 // Merchant
 /obj/structure/closet/secure_closet/merchant
