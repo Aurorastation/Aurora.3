@@ -180,21 +180,29 @@ var/list/preferences_datums = list()
 	var/savefile/loaded_character
 	var/datum/category_collection/player_setup_collection/player_setup
 
-	var/bgstate = "000000"
+	var/bgstate = "plain_black"
 	var/list/bgstate_options = list(
-		"FFFFFF",
-		"000000",
-		"tiled_preview",
-		"monotile_preview",
-		"dark_preview",
-		"wood",
-		"grass",
-		"reinforced",
-		"white_preview",
-		"freezer",
-		"carpet",
-		"reinforced"
-		)
+		"Plain Black" = "plain_black",
+		"Plain White" = "plain_white",
+		"Monotile" = "monotile",
+		"Tiles" = "tile",
+		"Dark Tiles" = "dark_tile",
+		"Freezer Tiles" = "freezer_tile",
+		"Reinforced Tiles" = "reinforced",
+		"Wood Floor" = "wood",
+		"Grass" = "grass",
+		"Red Carpet" = "carpet_red",
+		"Cyan Carpet" = "carpet_cyan",
+		"Green Carpet" = "carpet_green",
+		"Purple Carpet" = "carpet_purple",
+		"Magenta Carpet" = "carpet_magenta",
+		"Rubber Carpet" = "carpet_rubber",
+		"Blue Circuits" = "circuit_blue",
+		"Green Circuits" = "circuit_green",
+		"Asteroid Turf" = "asteroid",
+		"Desert Turf" = "desert",
+		"Space" = "space"
+	)
 
 	var/fov_cone_alpha = 255
 
@@ -283,7 +291,7 @@ var/list/preferences_datums = list()
 		BG = new
 		BG.appearance_flags = TILE_BOUND|PIXEL_SCALE|NO_CLIENT_COLOR
 		BG.layer = TURF_LAYER
-		BG.icon = 'icons/turf/flooring/tiles.dmi'
+		BG.icon = 'icons/turf/flooring/character_preview.dmi'
 		LAZYSET(char_render_holders, "BG", BG)
 		client.screen |= BG
 	BG.icon_state = bgstate

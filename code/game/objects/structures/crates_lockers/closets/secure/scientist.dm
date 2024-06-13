@@ -42,6 +42,14 @@
 	new /obj/item/device/memorywiper(src)
 	new /obj/item/sampler(src)
 
+/// Used for when we want to populate the contents of this locker ourself. Good for away sites
+/obj/structure/closet/secure_closet/RD/empty
+	name = "research director's locker"
+	req_access = list(ACCESS_RD)
+	icon_state = "rd"
+
+/obj/structure/closet/secure_closet/RD/empty/fill()
+
 /obj/structure/closet/secure_closet/RD2
 	name = "research director's attire"
 	req_access = list(ACCESS_RD)

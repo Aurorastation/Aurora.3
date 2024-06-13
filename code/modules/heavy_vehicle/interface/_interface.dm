@@ -65,19 +65,7 @@
 		var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
 		if(H) H.update_system_info()
 	handle_hud_icons_health()
-	var/obj/item/cell/C = get_cell()
-	if(istype(C))
-		var/power_percentage = round((get_cell()?.charge / get_cell()?.maxcharge) * 100)
-		if(power_percentage >= 100)
-			hud_power?.maptext_x = 21
-		else if(power_percentage < 10)
-			hud_power?.maptext_x = 25
-		else if(power_percentage < 100)
-			hud_power?.maptext_x = 22
-		hud_power.maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 8px;\">[power_percentage]%</span>"
-	else
-		hud_power?.maptext_x = 13
-		hud_power?.maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">NO CELL</span>"
+	handle_power_hud()
 	refresh_hud()
 
 
@@ -120,3 +108,18 @@
 			GLOB.mecha_damage_overlay_cache["[part]-[state]"] = I
 
 		hud_health?.overlays |= GLOB.mecha_damage_overlay_cache["[part]-[state]"]
+
+/mob/living/heavy_vehicle/proc/handle_power_hud()
+	var/obj/item/cell/C = get_cell()
+	if(istype(C))
+		var/power_percentage = round((get_cell()?.charge / get_cell()?.maxcharge) * 100)
+		if(power_percentage >= 100)
+			hud_power?.maptext_x = 21
+		else if(power_percentage < 10)
+			hud_power?.maptext_x = 25
+		else
+			hud_power?.maptext_x = 22
+		hud_power?.maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 8px;\">[power_percentage]%</span>"
+	else
+		hud_power?.maptext_x = 13
+		hud_power?.maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">NO CELL</span>"

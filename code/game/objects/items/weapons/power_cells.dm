@@ -17,6 +17,9 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
 	recyclable = TRUE
 
+	/// Percentage of maxcharge to recharge per minute, though it will trickle charge every process tick (every ~2 seconds), leave null for no self-recharge
+	var/self_charge_percentage
+
 /// Smaller variant, used by energy guns and similar small devices
 /obj/item/cell/device
 	name = "device power cell"
@@ -82,13 +85,6 @@
 	maxcharge = 10000
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 60)
 
-/obj/item/cell/mecha
-	name = "exosuit-grade power cell"
-	origin_tech = list(TECH_POWER = 3)
-	icon_state = "hcell"
-	maxcharge = 15000
-	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 70)
-
 /obj/item/cell/high/empty/Initialize()
 	. = ..()
 	charge = 0
@@ -151,42 +147,20 @@
 	icon_state = "yellow slime extract"
 	maxcharge = 15000
 	matter = null
-	var/next_recharge
 
-/obj/item/cell/slime/Initialize()
-	. = ..()
-	START_PROCESSING(SSprocessing, src)
-
-/obj/item/cell/slime/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
-	return ..()
-
-/obj/item/cell/slime/process()
-	if(next_recharge < world.time)
-		charge = min(charge + (maxcharge / 10), maxcharge)
-		next_recharge = world.time + 1 MINUTE
+	// slime cores recharges 10% every one minute
+	self_charge_percentage = 10
 
 /obj/item/cell/nuclear
-	name = "miniaturized nuclear power core"
-	desc = "A small self-charging thorium core that can store an immense amount of charge."
+	name = "miniaturized nuclear power cell"
+	desc = "A small self-charging cell with a thorium core that can store an immense amount of charge."
 	origin_tech = list(TECH_POWER = 8, TECH_ILLEGAL = 4)
 	icon_state = "icell"
 	maxcharge = 50000
 	matter = null
-	var/next_recharge
 
-/obj/item/cell/nuclear/Initialize()
-	. = ..()
-	START_PROCESSING(SSprocessing, src)
-
-/obj/item/cell/nuclear/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
-	return ..()
-
-/obj/item/cell/nuclear/process()
-	if(next_recharge < world.time)
-		charge = min(charge + (maxcharge / 10), maxcharge)
-		next_recharge = world.time + 30 SECONDS
+	// nuclear cores recharges 20% every one minute
+	self_charge_percentage = 10
 
 /obj/item/cell/device/emergency_light
 	name = "miniature power cell"
@@ -222,3 +196,31 @@
 	drop_sound = 'sound/items/drop/gascan.ogg'
 	pickup_sound = 'sound/items/pickup/gascan.ogg'
 	origin_tech = list(TECH_POWER = 4)
+
+/obj/item/cell/mecha
+	name = "power core"
+	origin_tech = list(TECH_POWER = 2)
+	icon_state = "core"
+	w_class = ITEMSIZE_LARGE
+	maxcharge = 20000
+	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000)
+
+/obj/item/cell/mecha/nuclear
+	name = "nuclear power core"
+	origin_tech = list(TECH_POWER = 3, TECH_MATERIAL = 3)
+	icon_state = "nuclear_core"
+	maxcharge = 30000
+	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000, MATERIAL_URANIUM = 10000)
+
+	// nuclear mecha cores recharges 5% every one minute
+	self_charge_percentage = 5
+
+/obj/item/cell/mecha/phoron
+	name = "phoron power core"
+	origin_tech = list(TECH_POWER = 5, TECH_MATERIAL = 5)
+	icon_state = "phoron_core"
+	maxcharge = 50000
+	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000, MATERIAL_PHORON = 5000)
+
+	// nuclear mecha cores recharges 10% every one minute
+	self_charge_percentage = 10

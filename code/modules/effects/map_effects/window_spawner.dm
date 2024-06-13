@@ -56,7 +56,9 @@
 	if(spawn_grille)
 		new grille_path(loc)
 	if(spawn_firedoor)
-		new firedoor_path(loc)
+		var/obj/machinery/door/firedoor/new_firedoor = new firedoor_path(loc)
+		if(req_one_access)
+			new_firedoor.req_one_access = req_one_access
 	if(!single_window)
 		var/list/neighbours = list()
 		for (var/dir in GLOB.cardinal)
