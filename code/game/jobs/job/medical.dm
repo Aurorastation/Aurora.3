@@ -348,10 +348,9 @@
 	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE)
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP)
 	title_accesses = list(
-		"First Responder Trainee" = list(ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_FIRST_RESPONDER),
-		"Pharmacy Intern" = list(ACCESS_PHARMACY, ACCESS_VIROLOGY),
-		"Resident Physician" = list(ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA),
-		"Resident Surgeon" = list(ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA),
+		"First Responder Trainee" = list(ACCESS_MAINT_TUNNELS, ACCESS_FIRST_RESPONDER),
+		"Pharmacy Intern" = list(ACCESS_PHARMACY),
+		"Resident Surgeon" = list(ACCESS_SURGERY),
 		"Resident Psychiatrist" = list(ACCESS_PSYCHIATRIST)
 	)
 	minimum_character_age = list(
