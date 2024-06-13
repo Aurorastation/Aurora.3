@@ -27,14 +27,6 @@ fn setup_panic_handler() {
     }))
 }
 
-/// Turns spacemandmm map object to string.
-pub fn map_to_string(map: &dmmtools::dmm::Map) -> eyre::Result<String> {
-    let mut v = vec![];
-    map.to_writer(&mut v)?;
-    let s = String::from_utf8(v)?;
-    Ok(s)
-}
-
 ///
 #[no_mangle]
 pub unsafe extern "C" fn read_dmm_file_ffi(
@@ -91,7 +83,7 @@ fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
     }
 
     // convert the map back to a string
-    let dmm = map_to_string(&dmm).wrap_err(format!(
+    let dmm = crate::mapmanip::core::map_to_string(&dmm).wrap_err(format!(
         "error in converting map back to string; dmm file path:dd {}",
         path.display()
     ))?;

@@ -3,7 +3,6 @@ pub mod tools;
 
 pub use core::GridMap;
 use rand::seq::SliceRandom;
-use rand::thread_rng;
 use serde::{Deserialize, Serialize};
 
 #[cfg(test)]
