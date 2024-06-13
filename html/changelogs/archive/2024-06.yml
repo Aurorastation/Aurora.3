@@ -407,3 +407,8 @@
   hazelmouse:
   - rscadd: Added air alarms to the Hephaestus Security Vessel offship, in addition
       to a few quality-of-life additions.
+2024-06-13:
+  DreamySkrell:
+  - rscadd: Hivenet aug preset messages tweaks and additions.
+  MattAtlas:
+  - bugfix: Removes a changeling error message that spams the chat of admins.
