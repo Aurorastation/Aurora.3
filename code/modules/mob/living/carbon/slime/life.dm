@@ -357,7 +357,7 @@
 	var/sleeptime = movement_delay()
 	if(sleeptime <= 5)
 		sleeptime = 5 // Maximum one action per half a second
-	return
+	AIproc = FALSE
 
 /mob/living/carbon/slime/proc/handle_speech_and_mood()
 	//Mood starts here
