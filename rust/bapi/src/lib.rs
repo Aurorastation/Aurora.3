@@ -92,7 +92,7 @@ fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
 
     // convert the map back to a string
     let dmm = map_to_string(&dmm).wrap_err(format!(
-        "error in converting map back to string; dmm file path:d {}",
+        "error in converting map back to string; dmm file path: {}",
         path.display()
     ))?;
 
