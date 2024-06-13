@@ -4,4 +4,4 @@ author: ChangeMe
 delete-after: True
 
 changes:
-  - rscadd: "BAPI - better error handling."
+  - rscadd: "BAPI - mapmanip insert/extract."
