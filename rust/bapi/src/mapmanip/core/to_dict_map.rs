@@ -1,5 +1,6 @@
 use crate::mapmanip::GridMap;
 use dmmtools::dmm::{self, Coord2};
+use eyre::ContextCompat;
 use fxhash::FxHashMap;
 use std::collections::BTreeSet;
 
@@ -18,7 +19,7 @@ fn int_to_key(i: u16) -> dmm::Key {
     unsafe { std::mem::transmute::<u16, dmm::Key>(i) }
 }
 
-pub fn to_dict_map(grid_map: &GridMap) -> dmm::Map {
+pub fn to_dict_map(grid_map: &GridMap) -> eyre::Result<dmm::Map> {
     let mut dict_map = dmm::Map::new(
         grid_map.size.x as usize,
         grid_map.size.y as usize,
@@ -39,7 +40,7 @@ pub fn to_dict_map(grid_map: &GridMap) -> dmm::Map {
                     .map(int_to_key)
                     .filter(|k| !used_dict_keys.contains(k))
                     .next()
-                    .unwrap();
+                    .wrap_err(format!("ran out of free keys"))?;
                 dictionary_reverse.insert(tile.prefabs.clone(), next_free_key);
                 used_dict_keys.insert(next_free_key);
             } else {
@@ -64,5 +65,5 @@ pub fn to_dict_map(grid_map: &GridMap) -> dmm::Map {
 
     dict_map.adjust_key_length();
 
-    dict_map
+    Ok(dict_map)
 }

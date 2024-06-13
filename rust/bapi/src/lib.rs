@@ -2,7 +2,7 @@
 mod mapmanip;
 
 use byondapi::prelude::*;
-use eyre::Context;
+use eyre::{Context, ContextCompat};
 
 /// Call stack trace dm method with message.
 pub(crate) fn dm_call_stack_trace(msg: String) {
@@ -75,7 +75,7 @@ fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
     };
     if path_mapmanip_config.exists() {
         // get path for dir of this dmm
-        let path_dir = path.parent().unwrap();
+        let path_dir = path.parent().wrap_err("no parent")?;
         // parse config
         let config = crate::mapmanip::mapmanip_config_parse(&path_mapmanip_config).wrap_err(
             format!("config parse fail; path: {:?}", path_mapmanip_config),

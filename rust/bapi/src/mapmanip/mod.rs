@@ -91,5 +91,5 @@ pub fn mapmanip(
         }
     }
 
-    Ok(core::to_dict_map(&map))
+    Ok(core::to_dict_map(&map).wrap_err("failed on `to_dict_map`")?)
 }
