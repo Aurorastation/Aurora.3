@@ -3288,6 +3288,128 @@
 /obj/structure/sign/flag/hiskyn/unmovable
 	unmovable = TRUE
 
+//The Consortium
+
+/obj/item/flag/consortium
+	name = "\improper Consortium flag"
+	desc = "The flag of The Consortium of Hieroartheria."
+	flag_path = "consortium"
+	flag_structure = /obj/structure/sign/flag/consortium
+
+/obj/structure/sign/flag/consortium
+	name = "\improper Consortium flag"
+	desc = "The flag of The Consortium of Hieroartheria."
+	flag_path = "consortium"
+	icon_state = "consortium"
+	flag_item = /obj/item/flag/consortium
+
+/obj/structure/sign/flag/consortium/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/consortium/l
+	name = "large Consortium flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/consortium/large
+
+/obj/structure/sign/flag/consortium/large
+	icon_state = "consortium_l"
+	flag_path = "consortium"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/consortium/l
+
+/obj/structure/sign/flag/consortium/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/consortium/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/consortium/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/consortium/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+	//The Eternal Republic of the Ekane
+/obj/item/flag/ekane
+	name = "\improper Ekane flag"
+	desc = "The flag of the Eternal Republic of the Ekane."
+	flag_path = "ekane"
+	flag_structure = /obj/structure/sign/flag/ekane
+
+/obj/structure/sign/flag/ekane
+	name = "\improper Ekane flag"
+	desc = "The flag of the Eternal Republic of the Ekane"
+	flag_path = "ekane"
+	icon_state = "ekane"
+	flag_item = /obj/item/flag/ekane
+
+/obj/structure/sign/flag/ekane/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/ekane/l
+	name = "large Ekane flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/ekane/large
+
+/obj/structure/sign/flag/ekane/large
+	icon_state = "ekane_l"
+	flag_path = "ekane"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/ekane/l
+
+/obj/structure/sign/flag/ekane/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/ekane/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/ekane/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/ekane/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+//The Union of Gla'orr
+/obj/item/flag/glaorr
+	name = "\improper Gla'orr flag"
+	desc = "The flag of the Union of Gla'orr."
+	flag_path = "glaorr"
+	flag_structure = /obj/structure/sign/flag/glaorr
+
+/obj/structure/sign/flag/glaorr
+	name = "\improper Gla'orr flag"
+	desc = "The flag of the Union of Gla'orr"
+	flag_path = "glaorr"
+	icon_state = "glaorr"
+	flag_item = /obj/item/flag/glaorr
+
+/obj/structure/sign/flag/glaorr/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/glaorr/l
+	name = "large Gla'orr flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/glaorr/large
+
+/obj/structure/sign/flag/glaorr/large
+	icon_state = "glaorr_l"
+	flag_path = "glaorr"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/glaorr/l
+
+/obj/structure/sign/flag/glaorr/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/glaorr/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/glaorr/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/glaorr/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+
 //Unathi Ruin Flags/Tapestries
 /obj/item/flag/unathi_tapestry
 	name = "folded tapestry"
