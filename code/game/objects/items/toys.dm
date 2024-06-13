@@ -1481,6 +1481,7 @@
 /obj/item/toy/stressball
 	name = "stress ball"
 	desc = "A small, squishy stress ball. This one has a squeaker inside."
+	w_class = ITEMSIZE_SMALL
 	icon_state = "stressball"
 	drop_sound = 'sound/items/drop/plushie.ogg'
 	pickup_sound = 'sound/items/pickup/plushie.ogg'

@@ -299,6 +299,26 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	possible_transfer_amounts = null
 	volume = 30
+	/**
+	 * Details written on the cup, a la IRL coffee places
+	 */
+	var/list/details = list("Customer" = null, "Order" = null)
+
+/obj/item/reagent_containers/food/drinks/takeaway_cup_idris/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ispen() && !use_check_and_message(user))
+		var/choice = tgui_input_list(user, "Which detail do you want to edit?", "Detail Editor", list("Customer", "Order"))
+		switch(choice)
+			if("Customer")
+				details["Customer"] = sanitize(tgui_input_text(user, "What is the customer's name?", "Enter Customer Name"))
+			if("Order")
+				details["Order"] = sanitize(tgui_input_text(user, "What is the ordered drink?", "Enter Ordered Drink"))
+		return
+	return ..()
+
+/obj/item/reagent_containers/food/drinks/takeaway_cup_idris/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
+	. = ..()
+	. += "Order: [details["Order"]]"
+	. += "For: [details["Customer"]]"
 
 //////////////////////////drinkingglass and shaker//
 //Note by Darem: This code handles the mixing of drinks. New drinks go in three places: In Chemistry-Reagents.dm (for the drink
