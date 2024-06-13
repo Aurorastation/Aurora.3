@@ -32,7 +32,7 @@
 	attack_emote = "buzzes at"
 
 	psi_pingable = FALSE
-	has_cells = FALSE
+	is_biological = FALSE
 
 /mob/living/simple_animal/hostile/viscerator/death()
 	..(null,"is smashed into pieces!")

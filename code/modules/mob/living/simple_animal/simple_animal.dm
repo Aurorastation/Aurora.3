@@ -160,11 +160,11 @@
 	/**
 	 * List of fluff characteristics to be found on cellular analysis
 	 */
-	var/list/sample_data = list("Cellular structure typical of medium sized fauna")
+	var/list/sample_data = list("Cellular biochemistry indicitive of typical metabolc activity", "Tissue sample contains average muscle content", "No distinctive genetic markers identified")
 	/**
-	 * Whether this mob has cells to be sampled
+	 * Whether this mob has biological tissue to be sampled
 	 */
-	var/has_cells = TRUE
+	var/is_biological = TRUE
 
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor

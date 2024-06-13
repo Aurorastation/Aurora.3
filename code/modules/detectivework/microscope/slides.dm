@@ -18,8 +18,8 @@
 		has_swab = attacking_item
 	else if(istype(attacking_item, /obj/item/sample/fibers))
 		has_sample = attacking_item
-	else if(istype(attacking_item, /obj/item/reagent_containers) && REAGENT_VOLUME(attacking_item.reagents, /singleton/reagent/cells))
-		attacking_item.reagents.trans_type_to(reagents, /singleton/reagent/cells, 5)
+	else if(istype(attacking_item, /obj/item/reagent_containers) && REAGENT_VOLUME(attacking_item.reagents, /singleton/reagent/biological_tissue))
+		attacking_item.reagents.trans_type_to(reagents, /singleton/reagent/biological_tissue, 5)
 	else
 		to_chat(user, SPAN_WARNING("You don't think this will fit."))
 		return

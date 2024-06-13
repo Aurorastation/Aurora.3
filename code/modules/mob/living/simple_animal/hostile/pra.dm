@@ -63,7 +63,7 @@
 	simple_default_language = LANGUAGE_SIIK_MAAS
 
 	psi_pingable = FALSE
-	has_cells = FALSE
+	is_biological = FALSE
 
 /mob/living/simple_animal/hostile/republicon/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL

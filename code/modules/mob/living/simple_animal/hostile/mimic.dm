@@ -38,7 +38,7 @@
 	move_to_delay = 8
 
 	tameable = FALSE
-	has_cells = FALSE
+	is_biological = FALSE
 
 /mob/living/simple_animal/hostile/mimic/FindTarget()
 	. = ..()

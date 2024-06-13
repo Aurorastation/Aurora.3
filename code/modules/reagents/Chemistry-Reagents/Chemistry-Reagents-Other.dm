@@ -875,8 +875,8 @@
 	taste_description = "salt"
 	fallback_specific_heat = 1
 
-/singleton/reagent/cells
-	name = "Cells"
+/singleton/reagent/biological_tissue
+	name = "Biological Tissue"
 	description = "A suspension of the basic unit of life."
 	reagent_state = LIQUID
 	color = "#97b9a7"

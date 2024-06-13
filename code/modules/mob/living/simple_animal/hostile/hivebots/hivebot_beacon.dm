@@ -36,7 +36,7 @@
 	destroy_surroundings = 0
 	attack_emote = "focuses on"
 	psi_pingable = FALSE
-	has_cells = FALSE
+	is_biological = FALSE
 
 	/**
 	 * Number of total bots that are spawned before the beacon disappears completely

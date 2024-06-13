@@ -88,7 +88,7 @@
 		else if(slide.reagents.total_volume)
 			report_cell_num++
 			pname = "Cell report #[report_cell_num]"
-			var/list/tissue = REAGENT_DATA(slide.reagents, /singleton/reagent/cells)
+			var/list/tissue = REAGENT_DATA(slide.reagents, /singleton/reagent/biological_tissue)
 			if(tissue)
 				info = "<b><font size=\"4\">Cell anaylsis report #[report_cell_num]</font></b><HR>"
 				info += "Optical analysis has revealed unique cellular characteristics<ul>"

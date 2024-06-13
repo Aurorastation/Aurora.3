@@ -23,7 +23,7 @@
 	var/image/eye_overlay
 
 	psi_pingable = FALSE
-	has_cells = FALSE
+	is_biological = FALSE
 
 /mob/living/simple_animal/hostile/rogue_drone/Initialize()
 	. = ..()

@@ -38,7 +38,7 @@
 	flying = TRUE
 
 	psi_pingable = FALSE
-	has_cells = FALSE
+	is_biological = FALSE
 
 /mob/living/simple_animal/hostile/faithless/Allow_Spacemove(var/check_drift = 0)
 	return 1

@@ -3,7 +3,12 @@
 */
 /obj/item/sampler
 	name = "science sampler"
-	desc = "A multi-purpose sampling device designed by Zeng-Hu Pharmaceuticals for gathering samples during their research expeditions. It has attachments allowing for sampling of biological tissue, surface soil and water sources."
+	desc = "A multi-purpose sampling device designed by Zeng-Hu Pharmaceuticals for gathering samples during their research expeditions."
+	desc_extended = "The \"Chimera\" model field sampling device was developed by Zeng-Hu Pharmaceuticals in the 2450s to make allow their \
+					researchers to take a variety of samples, ranging from plant and animal tissue to soil or water samples, compacted into \
+					a single handheld device. It became widely popular even among rival corporations and independant research groups, with \
+					its versatility and compact nature making it the tool-of-choice for almost every modern scientific expedition."
+	desc_info = "It has attachments allowing for sampling of biological tissue, surface soil and water sources. Must be loaded with a vial. Alt-click to cycle between attachments."
 	icon = 'icons/obj/item/sampling.dmi'
 	icon_state = "sampler"
 	item_state = "sampler"
@@ -73,32 +78,38 @@
 /obj/item/sampler/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if(!vial || vial.reagents.total_volume)
 		return ..()
+	if(try_sample(target, user))
+		to_chat(user, SPAN_NOTICE("\The [src]'s attachment whirrs as it samples \the [target]."))
+	else
+		to_chat(user, SPAN_NOTICE("\The [src]'s attachment buzzes as it fails to sample \the [target]. Maybe try another attachment?"))
+
+/obj/item/sampler/proc/try_sample(var/atom/target, var/mob/user)
 	switch(attachment)
 		if(SAMPLE_BIO)
 			if(istype(target, /mob/living/simple_animal))
 				var/mob/living/simple_animal/fauna = target
-				if(!fauna.has_cells)
-					return
-				vial.reagents.add_reagent(/singleton/reagent/cells, 10, fauna.sample_data)
-				. = TRUE
+				if(!fauna.is_biological)
+					return FALSE
+				vial.reagents.add_reagent(/singleton/reagent/biological_tissue, 10, fauna.sample_data)
+				return TRUE
 			if(istype(target, /obj/structure/flora))
 				var/obj/structure/flora/flora = target
 				if(flora.is_rock)
-					return
-				vial.reagents.add_reagent(/singleton/reagent/cells, 10, flora.sample_data)
-				. = TRUE
+					return FALSE
+				vial.reagents.add_reagent(/singleton/reagent/biological_tissue, 10, flora.sample_data)
+				return TRUE
 		if(SAMPLE_SOIL)
 			if(istype(target, /obj/structure/flora))
 				var/obj/structure/flora/rock = target
 				if(!rock.is_rock)
-					return
+					return FALSE
 				vial.reagents.add_reagent(/singleton/reagent/soil, 10, rock.sample_data)
-				. = TRUE
+				return TRUE
 			if(istype(target, /turf/simulated/floor/exoplanet))
 				var/turf/simulated/floor/exoplanet/ground = target
 				var/obj/effect/overmap/visitable/sector/planet = GLOB.map_sectors["[target.z]"]
 				if(istype(ground, /turf/simulated/floor/exoplanet/water) || !ground.has_resources || !istype(planet))
-					return
+					return FALSE
 				var/list/possible_data = planet.soil_data.Copy()
 				var/list/data = list()
 				for(var/_ in 1 to rand(2,4))
@@ -106,12 +117,12 @@
 					possible_data -= d
 					data += d
 				vial.reagents.add_reagent(/singleton/reagent/soil, 10, data)
-				. = TRUE
+				return TRUE
 		if(SAMPLE_WATER)
 			if(istype(target, /turf/simulated/floor/exoplanet/water))
 				var/obj/effect/overmap/visitable/sector/planet = GLOB.map_sectors["[target.z]"]
 				if(!istype(planet))
-					return
+					return FALSE
 				var/list/possible_data = planet.water_data.Copy()
 				var/list/data = list()
 				for(var/_ in 1 to rand(2,4))
@@ -119,9 +130,7 @@
 					possible_data -= d
 					data += d
 				vial.reagents.add_reagent(/singleton/reagent/water, 10, data)
-				. = TRUE
-	if(.)
-		to_chat(user, SPAN_NOTICE("\The [src]'s attachment whirrs as it samples \the [target]."))
+				return TRUE
 
 /obj/machinery/microscope/science
 	name = "compound microscope"
