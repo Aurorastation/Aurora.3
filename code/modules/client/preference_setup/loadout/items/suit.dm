@@ -212,8 +212,8 @@
 	coat["trenchcoat, dark brown"] = /obj/item/clothing/suit/storage/toggle/trench/alt
 	coat["trenchcoat, grey alternate"] = /obj/item/clothing/suit/storage/toggle/trench/grey_alt
 	coat["trenchcoat, green"] = /obj/item/clothing/suit/storage/toggle/trench/green
-	coat["brown trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench
-	coat["black trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/det_trench/black
+	coat["brown trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/trench/det_trench
+	coat["black trenchcoat (Detective)"] = /obj/item/clothing/suit/storage/toggle/trench/det_trench/black
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
 /datum/gear/suit/trenchcoat_colorable
@@ -559,3 +559,17 @@
 	galatea_labcoat["galatean labcoat"] = /obj/item/clothing/suit/storage/galatea_labcoat
 	galatea_labcoat["galatean labcoat, alt"] = /obj/item/clothing/suit/storage/galatea_labcoat/alt
 	gear_tweaks += new /datum/gear_tweak/path(galatea_labcoat)
+
+/datum/gear/suit/patterned_ponczo
+	display_name = "visegradi patterned ponczo selection"
+	description = "A patterned style of Visegradi ponczo."
+	path = /obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/patterned_ponczo/New()
+	..()
+	var/list/patterned_ponczo = list()
+	patterned_ponczo["red patterned ponczo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo
+	patterned_ponczo["brown patterned ponczo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo/brown
+	patterned_ponczo["blue patterned ponczo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo/blue
+	gear_tweaks += new /datum/gear_tweak/path(patterned_ponczo)

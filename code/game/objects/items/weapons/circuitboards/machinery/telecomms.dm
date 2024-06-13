@@ -3,7 +3,7 @@
 #endif
 
 /obj/item/circuitboard/telecomms
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 
 /obj/item/circuitboard/telecomms/receiver
 	name = T_BOARD("subspace receiver")

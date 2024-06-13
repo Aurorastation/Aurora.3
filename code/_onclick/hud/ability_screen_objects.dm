@@ -44,7 +44,7 @@
 
 	toggle_open()
 
-/obj/screen/movable/ability_master/proc/toggle_open(var/forced_state = 0)
+/obj/screen/movable/ability_master/proc/toggle_open(var/forced_state = 0, var/mob/user = usr)
 	if(showing && (forced_state != 2)) // We are closing the ability master, hide the abilities.
 		for(var/obj/screen/ability/O in ability_objects)
 			if(my_mob && my_mob.client)
@@ -53,31 +53,31 @@
 		overlays.len = 0
 		overlays.Add(closed_state)
 	else if(forced_state != 1) // We're opening it, show the icons.
-		open_ability_master()
+		open_ability_master(user)
 		update_abilities(1)
 		showing = TRUE
 		overlays.len = 0
 		overlays.Add(open_state)
 	update_icon()
 
-/obj/screen/movable/ability_master/proc/open_ability_master()
+/obj/screen/movable/ability_master/proc/open_ability_master(var/mob/user = usr)
 	var/list/screen_loc_xy = splittext(screen_loc,",")
 
 	//Create list of X offsets
 	var/list/screen_loc_X = splittext(screen_loc_xy[1],":")
-	var/x_position = decode_screen_X(screen_loc_X[1])
+	var/x_position = decode_screen_X(screen_loc_X[1], user)
 	var/x_pix = screen_loc_X[2]
 
 	//Create list of Y offsets
 	var/list/screen_loc_Y = splittext(screen_loc_xy[2],":")
-	var/y_position = decode_screen_Y(screen_loc_Y[1])
+	var/y_position = decode_screen_Y(screen_loc_Y[1], user)
 	var/y_pix = screen_loc_Y[2]
 
 	for(var/i = 1; i <= ability_objects.len; i++)
 		var/obj/screen/ability/A = ability_objects[i]
 		var/xpos = x_position + (x_position < 8 ? 1 : -1)*(i%7)
 		var/ypos = y_position + (y_position < 8 ? round(i/7) : -round(i/7))
-		A.screen_loc = "[encode_screen_X(xpos)]:[x_pix],[encode_screen_Y(ypos)]:[y_pix]"
+		A.screen_loc = "[encode_screen_X(xpos, user)]:[x_pix],[encode_screen_Y(ypos, user)]:[y_pix]"
 		if(my_mob && my_mob.client)
 			my_mob.client.screen += A
 
@@ -299,7 +299,7 @@
 	connected_power = null
 	return ..()
 
-/obj/screen/movable/ability_master/proc/add_psionic_ability(var/obj/object_given, var/ability_icon_given, var/singleton/psionic_power/P)
+/obj/screen/movable/ability_master/proc/add_psionic_ability(var/obj/object_given, var/ability_icon_given, var/singleton/psionic_power/P, var/mob/user)
 	if(!object_given)
 		message_admins("ERROR: add_psionic_ability() was not given an object in its arguments.")
 	if(!P)
@@ -314,7 +314,7 @@
 	A.connected_power = P
 	ability_objects.Add(A)
 	if(my_mob.client)
-		toggle_open(2) //forces the icons to refresh on screen
+		toggle_open(2, user) //forces the icons to refresh on screen
 
 /obj/screen/ability/obj_based/psionic/get_examine_text(mob/user)
 	. = ..()
