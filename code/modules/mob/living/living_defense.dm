@@ -187,7 +187,7 @@
 		src.visible_message(SPAN_WARNING("[src] has been hit by [O]."))
 		apply_damage(throw_damage, dtype, null, damage_flags = O.damage_flags(), used_weapon = O)
 
-		O.throwing = 0		//it hit, so stop moving
+		O.throwing?.finalize(hit = TRUE, target = src)		//it hit, so stop moving
 
 		if(ismob(O.throwing?.thrower?.resolve()))
 			var/mob/M = O.throwing?.thrower?.resolve()

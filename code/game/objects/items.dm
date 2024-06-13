@@ -400,7 +400,7 @@
 	src.pickup(user)
 	if(S)
 		S.remove_from_storage(src)
-	src.throwing = 0
+	QDEL_NULL(throwing)
 	if (src.loc == user)
 		if(!user.prepare_for_slotmove(src))
 			return
