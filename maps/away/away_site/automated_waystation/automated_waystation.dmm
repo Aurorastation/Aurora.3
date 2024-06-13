@@ -20,10 +20,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/automated_waystation/medical)
-"aj" = (
-/obj/structure/railing/mapped,
-/turf/simulated/floor/airless,
-/area/automated_waystation/exterior)
 "az" = (
 /obj/structure/curtain/medical,
 /obj/structure/bed/roller,
@@ -142,6 +138,13 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-4"
 	},
+/turf/simulated/floor/airless,
+/area/automated_waystation/exterior)
+"dl" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
 /area/automated_waystation/exterior)
 "dG" = (
@@ -532,12 +535,6 @@
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/plating,
 /area/automated_waystation/engineering)
-"ow" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor/airless,
-/area/automated_waystation/exterior)
 "oy" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -983,13 +980,6 @@
 /obj/effect/shuttle_landmark/automated_waystation/nav_north,
 /turf/simulated/floor/airless,
 /area/automated_waystation/exterior)
-"AH" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/airless,
-/area/automated_waystation/exterior)
 "AK" = (
 /obj/structure/toilet{
 	dir = 1;
@@ -1031,6 +1021,10 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/atmospherics)
+"Bj" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/airless,
+/area/automated_waystation/exterior)
 "Bo" = (
 /obj/machinery/vending/snack,
 /turf/simulated/floor/wood,
@@ -1041,11 +1035,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/sensors)
-"BH" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/template_noop,
-/area/automated_waystation/exterior)
 "BL" = (
 /turf/template_noop,
 /area/space)
@@ -1108,11 +1097,6 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/airless,
-/area/automated_waystation/exterior)
-"Df" = (
-/obj/structure/lattice,
-/obj/structure/grille,
-/turf/template_noop,
 /area/automated_waystation/exterior)
 "Dn" = (
 /obj/structure/railing/mapped{
@@ -1278,6 +1262,12 @@
 /obj/machinery/vending/engineering,
 /turf/simulated/floor/tiled/dark/full,
 /area/automated_waystation/engineering)
+"HM" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/automated_waystation/exterior)
 "Ib" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/item/towel/random{
@@ -28266,12 +28256,12 @@ BL
 BL
 BL
 TU
-AH
+dl
 BL
 BL
 BL
 Nk
-AH
+dl
 BL
 BL
 BL
@@ -28292,8 +28282,8 @@ BL
 BL
 BL
 BL
-ow
-aj
+HM
+Bj
 BL
 BL
 BL
@@ -28522,13 +28512,13 @@ qg
 qg
 qg
 qg
-ow
+HM
 Hu
 kQ
 ca
 kQ
 Hu
-aj
+Bj
 qg
 qg
 qg
@@ -28549,8 +28539,8 @@ BL
 BL
 BL
 BL
-ow
-aj
+HM
+Bj
 BL
 BL
 BL
@@ -28806,8 +28796,8 @@ BL
 BL
 BL
 BL
-ow
-aj
+HM
+Bj
 BL
 BL
 BL
@@ -29025,7 +29015,7 @@ BL
 BL
 BL
 BL
-Df
+qg
 fp
 PY
 zb
@@ -29034,7 +29024,7 @@ fp
 PY
 zb
 Of
-aj
+Bj
 fp
 fp
 fp
@@ -29044,7 +29034,7 @@ fp
 fp
 fp
 fp
-ow
+HM
 PY
 zb
 Of
@@ -29063,8 +29053,8 @@ BL
 BL
 BL
 BL
-ow
-aj
+HM
+Bj
 BL
 BL
 BL
@@ -29282,7 +29272,7 @@ BL
 BL
 BL
 BL
-Df
+qg
 fp
 PY
 vn
@@ -29291,7 +29281,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 BL
 BL
 BL
@@ -29301,7 +29291,7 @@ BL
 BL
 BL
 BL
-ow
+HM
 PY
 vn
 Of
@@ -29320,8 +29310,8 @@ BL
 BL
 BL
 BL
-ow
-aj
+HM
+Bj
 BL
 BL
 BL
@@ -29539,7 +29529,7 @@ BL
 BL
 BL
 BL
-Df
+qg
 fp
 PY
 vn
@@ -29548,7 +29538,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 BL
 BL
 BL
@@ -29558,7 +29548,7 @@ BL
 BL
 BL
 BL
-ow
+HM
 PY
 vn
 Of
@@ -29578,7 +29568,7 @@ kQ
 kQ
 kQ
 Hu
-aj
+Bj
 BL
 BL
 BL
@@ -29796,7 +29786,7 @@ BL
 BL
 BL
 BL
-Df
+qg
 fp
 PY
 vn
@@ -29805,7 +29795,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 BL
 BL
 BL
@@ -29815,7 +29805,7 @@ BL
 BL
 BL
 BL
-ow
+HM
 PY
 vn
 Of
@@ -30053,7 +30043,7 @@ BL
 BL
 BL
 BL
-Df
+qg
 fp
 PY
 vn
@@ -30062,7 +30052,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 BL
 BL
 BL
@@ -30072,7 +30062,7 @@ BL
 BL
 BL
 BL
-ow
+HM
 PY
 vn
 Of
@@ -30080,7 +30070,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 fp
 BL
 BL
@@ -30310,7 +30300,7 @@ BL
 BL
 BL
 BL
-Df
+qg
 fp
 PY
 vn
@@ -30319,7 +30309,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 BL
 BL
 BL
@@ -30329,7 +30319,7 @@ BL
 BL
 BL
 BL
-ow
+HM
 PY
 vn
 Of
@@ -30337,7 +30327,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 fp
 BL
 BL
@@ -30567,7 +30557,7 @@ BL
 BL
 BL
 BL
-Df
+qg
 fp
 PY
 vn
@@ -30576,7 +30566,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 BL
 BL
 BL
@@ -30586,7 +30576,7 @@ BL
 BL
 BL
 BL
-ow
+HM
 PY
 vn
 Of
@@ -30594,7 +30584,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 fp
 fp
 fp
@@ -30824,7 +30814,7 @@ BL
 BL
 BL
 BL
-Df
+qg
 fp
 PY
 vn
@@ -30833,7 +30823,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 BL
 BL
 qg
@@ -30843,7 +30833,7 @@ qg
 qg
 BL
 BL
-ow
+HM
 PY
 vn
 Of
@@ -30851,7 +30841,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 fp
 BL
 BL
@@ -31100,7 +31090,7 @@ fp
 fp
 fp
 fp
-ow
+HM
 PY
 vn
 Of
@@ -31108,7 +31098,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 fp
 BL
 BL
@@ -31347,7 +31337,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 BL
 BL
 qg
@@ -31357,7 +31347,7 @@ hL
 qg
 BL
 BL
-ow
+HM
 PY
 vn
 Of
@@ -31365,7 +31355,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 fp
 BL
 BL
@@ -31596,7 +31586,7 @@ BL
 BL
 BL
 BL
-ow
+HM
 PY
 vn
 Of
@@ -31604,7 +31594,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 BL
 BL
 qg
@@ -31614,7 +31604,7 @@ IE
 qg
 BL
 BL
-ow
+HM
 PY
 vn
 Of
@@ -31622,7 +31612,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 fp
 BL
 BL
@@ -31853,7 +31843,7 @@ BL
 BL
 BL
 BL
-ow
+HM
 PY
 vn
 Of
@@ -31861,7 +31851,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 BL
 BL
 qg
@@ -31871,7 +31861,7 @@ WT
 qg
 BL
 BL
-ow
+HM
 PY
 vn
 Of
@@ -31879,7 +31869,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 fp
 BL
 BL
@@ -32110,7 +32100,7 @@ BL
 BL
 BL
 BL
-ow
+HM
 PY
 vn
 Of
@@ -32118,7 +32108,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 BL
 BL
 qg
@@ -32128,7 +32118,7 @@ fp
 qg
 BL
 BL
-ow
+HM
 PY
 vn
 Of
@@ -32136,7 +32126,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 fp
 BL
 BL
@@ -32367,7 +32357,7 @@ BL
 BL
 BL
 BL
-ow
+HM
 PY
 vn
 Of
@@ -32375,7 +32365,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 fp
 fp
 fp
@@ -32385,7 +32375,7 @@ fp
 fp
 fp
 fp
-ow
+HM
 PY
 vn
 Of
@@ -32393,7 +32383,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 fp
 BL
 BL
@@ -32624,7 +32614,7 @@ BL
 BL
 BL
 BL
-ow
+HM
 PY
 vn
 Of
@@ -32632,7 +32622,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 fp
 KA
 Rc
@@ -32642,7 +32632,7 @@ Rc
 Rc
 Xn
 fp
-ow
+HM
 PY
 vn
 Of
@@ -32650,7 +32640,7 @@ fp
 PY
 vn
 Of
-aj
+Bj
 fp
 BL
 BL
@@ -32881,7 +32871,7 @@ BL
 fp
 fp
 fp
-ow
+HM
 fp
 gj
 fp
@@ -32907,7 +32897,7 @@ fp
 fp
 gj
 fp
-aj
+Bj
 fp
 fp
 fp
@@ -33164,7 +33154,7 @@ ob
 kQ
 Hu
 kQ
-aj
+Bj
 fp
 BL
 BL
@@ -33649,7 +33639,7 @@ BL
 BL
 BL
 BL
-ow
+HM
 fp
 XB
 yd
@@ -33906,7 +33896,7 @@ BL
 BL
 BL
 BL
-ow
+HM
 rc
 XB
 jC
@@ -34163,7 +34153,7 @@ BL
 BL
 BL
 BL
-ow
+HM
 fp
 XB
 qa
@@ -34706,7 +34696,7 @@ nM
 Gn
 Hu
 Gn
-aj
+Bj
 fp
 BL
 BL
@@ -34964,12 +34954,12 @@ fp
 fh
 fp
 Hu
-BH
 fp
 fp
 fp
 fp
-BH
+fp
+fp
 BL
 BL
 BL
@@ -35220,7 +35210,7 @@ fp
 PY
 Hd
 Of
-aj
+Bj
 fp
 qg
 BL
@@ -35477,7 +35467,7 @@ fp
 PY
 Hd
 Of
-aj
+Bj
 fp
 qg
 BL
@@ -35734,7 +35724,7 @@ fp
 PY
 Hd
 Of
-aj
+Bj
 fp
 qg
 BL
@@ -35991,7 +35981,7 @@ fp
 PY
 Hd
 Of
-aj
+Bj
 fp
 qg
 BL
@@ -36248,7 +36238,7 @@ fp
 PY
 Hd
 Of
-aj
+Bj
 fp
 qg
 BL
@@ -36505,7 +36495,7 @@ fp
 PY
 Hd
 Of
-aj
+Bj
 fp
 qg
 BL
@@ -36762,7 +36752,7 @@ fp
 PY
 Hd
 Of
-aj
+Bj
 fp
 qg
 BL
@@ -37019,7 +37009,7 @@ fp
 PY
 Hd
 Of
-aj
+Bj
 fp
 qg
 BL
@@ -37276,7 +37266,7 @@ fp
 PY
 Hd
 Of
-aj
+Bj
 fp
 qg
 BL
@@ -37533,7 +37523,7 @@ fp
 PY
 Hd
 Of
-aj
+Bj
 fp
 fp
 BL
@@ -39831,8 +39821,8 @@ BL
 BL
 BL
 BL
-ow
-aj
+HM
+Bj
 BL
 BL
 BL
@@ -40088,8 +40078,8 @@ BL
 BL
 BL
 BL
-ow
-aj
+HM
+Bj
 BL
 BL
 BL
@@ -40345,8 +40335,8 @@ BL
 BL
 BL
 BL
-ow
-aj
+HM
+Bj
 BL
 BL
 BL
@@ -40602,8 +40592,8 @@ BL
 BL
 BL
 BL
-ow
-aj
+HM
+Bj
 BL
 BL
 BL
@@ -40859,8 +40849,8 @@ BL
 BL
 BL
 BL
-ow
-aj
+HM
+Bj
 BL
 BL
 BL
