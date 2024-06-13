@@ -2,6 +2,7 @@ pub mod core;
 pub mod tools;
 
 pub use core::GridMap;
+use eyre::Context;
 use rand::seq::SliceRandom;
 use serde::{Deserialize, Serialize};
 
@@ -21,17 +22,19 @@ pub enum MapManipulation {
     },
 }
 
-pub fn mapmanip_config_parse(config_path: &std::path::Path) -> Vec<MapManipulation> {
-    let config = std::fs::read_to_string(config_path).unwrap();
-    let config = serde_json::from_str::<Vec<MapManipulation>>(&config);
-    config.unwrap()
+pub fn mapmanip_config_parse(config_path: &std::path::Path) -> eyre::Result<Vec<MapManipulation>> {
+    let config = std::fs::read_to_string(config_path)
+        .wrap_err(format!("mapmanip config read err: {:?}", config_path))?;
+    let config = serde_json::from_str::<Vec<MapManipulation>>(&config)
+        .wrap_err(format!("mapmanip config json parse err: {:?}", config_path))?;
+    Ok(config)
 }
 
 pub fn mapmanip(
     map_dir_path: &std::path::Path,
     map: dmmtools::dmm::Map,
     config: &Vec<MapManipulation>,
-) -> dmmtools::dmm::Map {
+) -> eyre::Result<dmmtools::dmm::Map> {
     // convert to gridmap
     let mut map = core::to_grid_map(&map);
 
@@ -46,8 +49,12 @@ pub fn mapmanip(
                 marker_insert,
             } => {
                 let submap_size = dmmtools::dmm::Coord2::new(
-                    (*submap_size_x).try_into().unwrap(),
-                    (*submap_size_y).try_into().unwrap(),
+                    (*submap_size_x)
+                        .try_into()
+                        .wrap_err("invalid submap_size_x")?,
+                    (*submap_size_y)
+                        .try_into()
+                        .wrap_err("invalid submap_size_y")?,
                 );
 
                 // get the submaps map
@@ -84,5 +91,5 @@ pub fn mapmanip(
         }
     }
 
-    core::to_dict_map(&map)
+    Ok(core::to_dict_map(&map))
 }
