@@ -868,7 +868,7 @@
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl{
-	pixel_y = -1
+	pixel_y = 3
 	},
 /turf/simulated/floor/marble/dark,
 /area/space)
@@ -938,11 +938,11 @@
 "wq" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl{
-	pixel_y = 1
+	pixel_y = 3
 	},
 /obj/item/material/ashtray/bronze{
 	pixel_x = -4;
-	pixel_y = 9
+	pixel_y = 11
 	},
 /turf/simulated/floor/marble/dark,
 /area/space)
@@ -1613,6 +1613,9 @@
 /obj/item/storage/box/lights/colored/yellow{
 	pixel_x = -6;
 	pixel_y = 2
+	},
+/obj/structure/weapon_rack/double{
+	pixel_y = 32
 	},
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/space)
