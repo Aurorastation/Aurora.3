@@ -345,8 +345,14 @@
 	spawn_positions = 2
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#15903a"
-	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP)
+	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE)
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP)
+	title_accesses = list(
+		"First Responder Trainee" = list(ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_FIRST_RESPONDER),
+		"Pharmacy Intern" = list(ACCESS_PHARMACY, ACCESS_VIROLOGY),
+		"Resident Surgeon" = list(ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA),
+		"Resident Psychiatrist" = list(ACCESS_PSYCHIATRIST)
+	)
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
 		SPECIES_SKRELL = 50,
