@@ -20,10 +20,6 @@
 /obj/effect/overmap/visitable/wrecked_nt_ship
 	name = "wrecked NT ship"
 	desc = "A wrecked ship once owned by NanoTrasen, embedded within an asteroid. The ship is cold, with a faint possible lifesign detected within. Sensors have picked up exotic particles on site."
-	max_age = 15
-
-/obj/effect/overmap/visitable/wrecked_nt_ship/is_wreck()
-	return TRUE
 
 /area/wrecked_nt_ship
 	name = "wrecked NT ship"

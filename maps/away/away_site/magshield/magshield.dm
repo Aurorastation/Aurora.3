@@ -30,9 +30,6 @@
 		"nav_magshield_6"
 	)
 
-/obj/effect/overmap/visitable/sector/magshield/is_wreck()
-	return TRUE
-
 /obj/effect/shuttle_landmark/nav_magshield/nav1
 	name = "Orbital Station Navpoint #1"
 	landmark_tag = "nav_magshield_1"

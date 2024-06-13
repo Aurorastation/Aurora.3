@@ -77,14 +77,6 @@ var/global/area/overmap/map_overmap
 	var/invisible_until_ghostrole_spawn = FALSE
 	var/hide_from_reports = FALSE
 
-	/// Wreck survey results, used by hull analysers to provide details on wrecked away sites.
-	/// A list of details (Name, Age, Source of Wreck)
-	/// Randomly assigned on initialisation if is_wreck() returns TRUE
-	/// Can be manually set in sector define, removing random generation for certain sites
-	var/list/wreck_details = list()
-	/// Maximum age allowed for random wreck detauls
-	var/max_age = 100
-
 /obj/effect/overmap/visitable/Initialize()
 	. = ..()
 	if(. == INITIALIZE_HINT_QDEL)
@@ -102,8 +94,6 @@ var/global/area/overmap/map_overmap
 	move_to_starting_location()
 
 	update_name()
-
-	generate_wreck_details()
 
 	log_module_sectors("Located sector \"[name]\" at [start_x],[start_y], containing Z [english_list(map_z)]")
 
@@ -250,27 +240,6 @@ var/global/area/overmap/map_overmap
 		desc = obfuscated_desc
 	else
 		update_name()
-
-/// Is this a wrecked away site?
-/obj/effect/overmap/visitable/proc/is_wreck()
-	return FALSE
-
-/// Gets information on wrecked away sites, by setting `wreck_details` var.area
-/// Called once at init
-/obj/effect/overmap/visitable/proc/generate_wreck_details()
-	if(!is_wreck())
-		return
-
-	if(!wreck_details[WRECK_NAME])
-		wreck_details[WRECK_NAME] = name
-
-	if(!wreck_details[WRECK_AGE])
-		var/age = rand(1, max_age)
-		wreck_details[WRECK_AGE] = "Reconstruction of hull displacement suggests a high damage event occured approximately [age] years ago."
-
-	if(!wreck_details[WRECK_DAMAGE])
-		var/cause = pick("an equipment malfunction", "a meteor strike", "an electronic storm", "inter-vessel weaponry", "a collision")
-		wreck_details[WRECK_DAMAGE] = "Reconstruction indicates the damage was most likely cause by [cause]."
 
 /obj/effect/overmap/visitable/sector
 	name = "generic sector"
