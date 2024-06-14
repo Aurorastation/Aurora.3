@@ -3,26 +3,15 @@
 /turf/simulated/mineral/planet,
 /area/new_blades/underground)
 "d" = (
-/obj/effect/floor_decal/concrete{
-	dir = 4
-	},
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"f" = (
-/obj/effect/decal/fake_object/light_source/invisible,
+/obj/structure/table/reinforced/steel,
+/obj/machinery/door/window/desk/southright,
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"h" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped,
-/obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled{
+"f" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/concrete{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
@@ -30,43 +19,8 @@
 /turf/unsimulated/mineral,
 /area/new_blades/underground)
 "j" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/floor_damage/rust,
-/obj/machinery/light/colored/dying{
-	dir = 8
-	},
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/plating{
 	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"l" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"o" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"p" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/effects/missile_silo.dmi';
-	icon_state = "silo";
-	pixel_x = -32
-	},
-/turf/simulated/floor/concrete/square{
-	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "q" = (
@@ -77,80 +31,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"s" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"u" = (
-/obj/effect/floor_decal/concrete/large{
-	dir = 4
-	},
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"w" = (
-/obj/effect/floor_decal/concrete,
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"y" = (
-/obj/effect/floor_decal/concrete{
-	dir = 9
-	},
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
 "A" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped,
-/obj/effect/decal/cleanable/floor_damage/rust,
-/obj/machinery/light/colored/dying,
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"C" = (
-/obj/effect/floor_decal/concrete/large,
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"D" = (
-/obj/effect/floor_decal/concrete/large{
-	dir = 8
-	},
-/turf/simulated/floor/concrete{
-	temperature = 315.15
+/obj/structure/table/reinforced/steel,
+/obj/machinery/door/window/desk/southleft,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "E" = (
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"G" = (
-/obj/effect/floor_decal/concrete{
-	dir = 10
-	},
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"H" = (
-/obj/effect/floor_decal/concrete{
-	dir = 5
-	},
 /turf/simulated/floor/concrete{
 	temperature = 315.15
 	},
@@ -163,71 +51,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground/aquifer)
-"K" = (
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped,
-/obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"L" = (
-/obj/effect/floor_decal/concrete/large{
-	dir = 1
-	},
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"O" = (
-/obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
 "P" = (
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "R" = (
-/obj/effect/floor_decal/concrete{
-	dir = 6
-	},
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"T" = (
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"V" = (
-/obj/effect/decal/cleanable/floor_damage/rust,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"X" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/mapped,
-/obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
+/turf/simulated/wall/concrete,
 /area/new_blades/interiors/ruins/bunker)
 "Z" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -3016,11 +2846,11 @@ a
 a
 a
 a
-I
-I
-I
-I
-I
+R
+R
+R
+R
+R
 a
 a
 a
@@ -3273,11 +3103,11 @@ a
 a
 a
 a
-I
-s
+R
 j
-X
-I
+j
+j
+R
 a
 a
 a
@@ -3530,26 +3360,26 @@ a
 a
 a
 a
-I
-V
-O
-K
-I
+R
+j
+j
+j
+R
 a
 a
 a
 a
 a
 a
-D
-y
-y
-y
-y
-y
-y
-y
-C
+a
+a
+a
+a
+a
+a
+a
+a
+a
 a
 a
 a
@@ -3787,26 +3617,26 @@ a
 a
 a
 a
-I
-T
-O
-h
-I
+R
+j
+j
+j
+R
 a
 a
 a
 a
 a
 a
-H
-I
-E
-E
-E
-E
-E
-I
-G
+a
+R
+R
+R
+R
+R
+R
+R
+a
 a
 a
 a
@@ -4044,26 +3874,26 @@ a
 a
 a
 a
-I
-I
+R
+R
 Z
-I
-I
+R
+R
 a
 a
 a
 a
 a
 a
-H
-E
-f
+a
+R
 P
 P
 P
-f
-E
-G
+P
+P
+R
+a
 a
 a
 a
@@ -4301,6 +4131,11 @@ a
 a
 a
 a
+R
+P
+P
+P
+R
 a
 a
 a
@@ -4308,19 +4143,14 @@ a
 a
 a
 a
-a
-a
-a
-a
-H
-E
+R
 P
 P
 P
 P
 P
-E
-G
+R
+a
 a
 a
 a
@@ -4554,30 +4384,30 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-I
-I
-I
-I
-I
-a
-H
-E
+R
+R
+R
+R
+R
 P
 P
-p
+P
+R
+R
+R
+R
+R
+R
+a
+a
+R
 P
 P
 E
-G
+P
+P
+R
+a
 a
 a
 a
@@ -4811,30 +4641,30 @@ a
 a
 a
 a
+R
+P
+P
+P
+A
+P
+P
+P
+R
+R
+j
+j
+j
+R
 a
 a
-a
-a
-a
-a
-a
-a
-a
-I
-s
-o
-X
-I
-a
-H
-E
+R
 P
 P
 P
 P
 P
-E
-G
+R
+a
 a
 a
 a
@@ -5068,30 +4898,30 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+R
+P
+P
+P
+d
+P
+P
+P
+P
 q
-O
-O
-A
-I
+j
+j
+j
+R
 a
-H
-E
-f
+a
+R
 P
 P
 P
-f
-E
-G
+P
+P
+R
+a
 a
 a
 a
@@ -5325,30 +5155,30 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+R
+P
+P
+P
+R
+P
+P
+P
+R
 I
-T
-l
-h
-I
+j
+j
+j
+R
 a
-H
-I
-E
-E
-E
-E
-E
-I
-G
+a
+R
+f
+f
+f
+f
+f
+R
+a
 a
 a
 a
@@ -5582,30 +5412,30 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-I
-I
-I
-I
-I
-a
-L
+R
+P
+P
+P
+P
+P
+P
+P
 R
 R
-d
-E
-w
 R
 R
-u
+R
+R
+a
+a
+R
+P
+P
+P
+P
+P
+R
+a
 a
 a
 a
@@ -5839,6 +5669,15 @@ a
 a
 a
 a
+R
+R
+R
+R
+R
+P
+P
+P
+R
 a
 a
 a
@@ -5846,22 +5685,13 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+R
+P
+P
+P
+P
+P
+R
 a
 a
 a
@@ -6100,6 +5930,11 @@ a
 a
 a
 a
+R
+P
+P
+P
+R
 a
 a
 a
@@ -6107,18 +5942,13 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+R
+P
+P
+P
+P
+P
+R
 a
 a
 a
@@ -6357,6 +6187,11 @@ a
 a
 a
 a
+R
+P
+P
+P
+R
 a
 a
 a
@@ -6364,18 +6199,13 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+R
+P
+P
+P
+P
+P
+R
 a
 a
 a
@@ -6614,6 +6444,11 @@ a
 a
 a
 a
+R
+P
+P
+P
+R
 a
 a
 a
@@ -6621,18 +6456,13 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+R
+R
+P
+P
+P
+R
+R
 a
 a
 a
@@ -6871,6 +6701,11 @@ a
 a
 a
 a
+R
+P
+P
+P
+R
 a
 a
 a
@@ -6879,16 +6714,11 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+R
+P
+R
+P
+R
 a
 a
 a
@@ -7128,28 +6958,28 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+R
+P
+P
+P
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+P
+P
+P
+R
+R
+R
+R
+R
 a
 a
 a
@@ -7385,28 +7215,28 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+R
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
 a
 a
 a
@@ -7642,28 +7472,28 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+R
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
 a
 a
 a
@@ -7899,28 +7729,28 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+R
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
+P
 a
 a
 a
@@ -8156,28 +7986,28 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
+R
 a
 a
 a
