@@ -216,14 +216,14 @@
 	telecrystal_cost = 10
 
 /datum/uplink_item/item/gear_loadout/gadpathur
-    name = "Gadpathur Assets (Group)"
-    desc = "A crate containing gear for a group."
-    path = /obj/structure/closet/crate/secure/gear_loadout/gadpathur
-    telecrystal_cost = 35
+	name =	"Gadpathur Assets (Group)"
+	desc =	"A crate containing gear for a group."
+	path =	/obj/structure/closet/crate/secure/gear_loadout/gadpathur
+	telecrystal_cost = 35
 
 
 /datum/uplink_item/item/gear_loadout/gadpathur_single
-    name = "Gadpathur Assets (Single)"
-    desc = "A crate containing gear for a single individual."
-    path = /obj/structure/closet/crate/secure/gear_loadout/gadpathur/single
-    telecrystal_cost = 10
+    name =	"Gadpathur Assets (Single)"
+    desc =	"A crate containing gear for a single individual."
+    path =	/obj/structure/closet/crate/secure/gear_loadout/gadpathur/single
+    telecrystal_cost =	10
