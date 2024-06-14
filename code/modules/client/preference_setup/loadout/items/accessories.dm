@@ -335,6 +335,17 @@
 	scarfs["zebra scarf"] = /obj/item/clothing/accessory/scarf/zebra
 	gear_tweaks += new /datum/gear_tweak/path(scarfs)
 
+/datum/gear/accessory/shawl
+	display_name = "colorable shawl"
+	path = /obj/item/clothing/accessory/shawl
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/shawl/New()
+	..()
+	var/list/shawls = list()
+	shawls["cozy shawl"] = /obj/item/clothing/accessory/shawl
+	gear_tweaks += new /datum/gear_tweak/path(shawls)
+
 /datum/gear/accessory/dogtags
 	display_name = "dogtags"
 	path = /obj/item/clothing/accessory/dogtags
