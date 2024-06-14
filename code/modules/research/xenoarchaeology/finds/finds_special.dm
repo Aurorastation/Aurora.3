@@ -62,11 +62,15 @@
 	var/eat_interval = 100
 	var/wight_check_index = 1
 	var/list/shadow_wights = list()
+	var/fragile = 15
+	var/material/shatter_material = MATERIAL_STEEL
+	var/shatter_sound = /singleton/sound_category/glass_break_sound
 
 /obj/item/vampiric/New()
 	..()
 	START_PROCESSING(SSprocessing, src)
 	become_hearing_sensitive()
+	shatter_material = SSmaterials.get_material_by_name(shatter_material)
 
 /obj/item/vampiric/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -149,6 +153,30 @@
 		B.blood_DNA = list()
 		B.blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
 		M.vessel.remove_reagent(/singleton/reagent/blood,rand(25,50))
+
+/obj/item/vampiric/proc/bloodcall_final(var/mob/living/carbon/human/M)
+	if(istype(M))
+		var/target = pick(M.organs_by_name)
+		M.apply_damage(rand(200), DAMAGE_BRUTE, target)
+		to_chat(M, SPAN_WARNING("What have you done?! Your [parse_zone(target)] feels like it's being torn from your body! ."))
+		M.vessel.remove_reagent(/singleton/reagent/blood,rand(75,150))
+
+/obj/item/vampiric/proc/shatter(var/obj/item/W, var/mob/user)
+	playsound(src, shatter_sound, 70, 1)
+	audible_message(SPAN_WARNING("\The [src] shatters with a resounding crash!"), SPAN_WARNING("\The [src] breaks."))
+	playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 200, 1, -3)
+	shatter_material.place_shard(get_turf(src))
+	qdel(src)
+
+/obj/item/vampiric/attackby(obj/item/attacking_item, mob/user)
+	if(!(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON) && (user.a_intent == I_HURT) && fragile && (attacking_item.force > fragile))
+		if(do_after(user, 1 SECOND, src))
+			if(!QDELETED(src))
+				visible_message(SPAN_WARNING("[user] smashes [src] with \a [attacking_item]!"))
+				user.do_attack_animation(src)
+				shatter(attacking_item, user)
+				bloodcall_final(user)
+	return ..()
 
 //animated blood 2 SPOOKY
 /obj/effect/decal/cleanable/blood/splatter/animated
