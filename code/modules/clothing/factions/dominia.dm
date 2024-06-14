@@ -138,7 +138,7 @@
 /obj/item/clothing/accessory/poncho/dominia_cape/hansan/white
 	name = "white clan han'san cape"
 	icon_state = "hansan_capew"
-	icon_state = "hansan_capew"
+	item_state = "hansan_capew"
 	cape_backing_state = "capew_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/hansan/zavod
@@ -458,6 +458,10 @@
 	name = "kazhkz noble dress"
 	house = "kazhkz"
 
+/obj/item/clothing/under/dominia/dress/noble/hansan
+	name = "han'san noble dress"
+	house = "hansan"
+
 /obj/item/clothing/under/dominia/dress/noble/caladius
 	name = "caladius noble dress"
 	house = "caladius"
@@ -481,6 +485,10 @@
 /obj/item/clothing/under/dominia/dress/noble/black/kazhkz
 	name = "black kazhkz noble dress"
 	house = "kazhkz"
+
+/obj/item/clothing/under/dominia/dress/noble/black/hansan
+	name = "black han'san noble dress"
+	house = "hansan"
 
 /obj/item/clothing/under/dominia/dress/noble/black/caladius
 	name = "black caladius noble dress"
@@ -771,6 +779,10 @@
 /obj/item/clothing/under/dominia/dress/fancy/kazhkz
 	name = "house kazhkz Morozi dress"
 	house = "kazhkz"
+
+/obj/item/clothing/under/dominia/dress/fancy/hansan
+	name = "clan han'san Morozi dress"
+	house = "hansan"
 
 /obj/item/clothing/under/dominia/fleet
 	name = "fleet voidsman uniform"
