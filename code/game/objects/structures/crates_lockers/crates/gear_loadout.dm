@@ -1120,10 +1120,6 @@
     new /obj/item/clothing/head/helmet/space/void/coalition/gadpathur(src)
     new /obj/item/clothing/head/helmet/space/void/coalition/gadpathur(src)
     new /obj/item/clothing/head/helmet/space/void/coalition/gadpathur(src)
-	new /obj/item/clothing/shoes/magboots(src)
-	new /obj/item/clothing/shoes/magboots(src)
-	new /obj/item/clothing/shoes/magboots(src)
-	new /obj/item/clothing/shoes/magboots(src)
     new /obj/item/gun/projectile/xanupistol(src)
     new /obj/item/gun/projectile/xanupistol(src)
     new /obj/item/gun/projectile/xanupistol(src)
@@ -1156,7 +1152,6 @@
  new /obj/item/ammo_magazine/a65(src)
  new /obj/item/clothing/suit/space/void/coalition/gadpathur(src)
  new /obj/item/clothing/head/helmet/space/void/coalition/gadpathur(src)
- new /obj/item/clothing/shoes/magboots(src)
  new /obj/item/tank/emergency_oxygen/double(src)
  new /obj/item/clothing/accessory/holster/hip(src)
 
