@@ -1,4 +1,0 @@
-author: Llywelwyn
-delete-after: True
-changes:
-  - bugfix: "Removes stray flashing pixels from the 9mm camera gun."

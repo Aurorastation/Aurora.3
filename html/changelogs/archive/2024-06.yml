@@ -412,3 +412,8 @@
   - rscadd: Hivenet aug preset messages tweaks and additions.
   MattAtlas:
   - bugfix: Removes a changeling error message that spams the chat of admins.
+2024-06-14:
+  DreamySkrell:
+  - rscadd: Fixes phalanx uniform and reserve uniforms.
+  Llywelwyn:
+  - bugfix: Removes stray flashing pixels from the 9mm camera gun.
