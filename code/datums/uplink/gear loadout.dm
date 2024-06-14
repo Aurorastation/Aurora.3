@@ -150,7 +150,7 @@
 	name = "NanoTrasen Assets (Group)"
 	desc = "A crate containing gear for a group. The hardsuits are are only usable by humans and skrell."
 	path = /obj/structure/closet/crate/gear_loadout/nanotrasen
-	telecrystal_cost = 35
+	telecrystal_cost = 5045
 
 /datum/uplink_item/item/gear_loadout/nanotrasen_single
 	name = "NanoTrasen Assets (Single)"
@@ -184,7 +184,7 @@
 	name = "Imperial Army Assets (Group)"
 	desc = "A crate containing gear for a group."
 	path = /obj/structure/closet/crate/secure/gear_loadout/imperial_army
-	telecrystal_cost = 35
+	telecrystal_cost = 45
 
 /datum/uplink_item/item/gear_loadout/imperial_army_single
 	name = "Imperial Army Assets (Single)"
@@ -196,7 +196,7 @@
 	name = "Tau Ceti Armed Forces Assets (Group)"
 	desc = "A crate containing gear for a group."
 	path = /obj/structure/closet/crate/secure/gear_loadout/tcaf
-	telecrystal_cost = 35
+	telecrystal_cost = 45
 
 /datum/uplink_item/item/gear_loadout/tcaf_single
 	name = "Tau Ceti Armed Forces Assets (Single)"
