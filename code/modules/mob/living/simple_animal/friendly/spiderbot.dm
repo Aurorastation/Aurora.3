@@ -339,7 +339,7 @@
 	switch(message_mode)
 		if("whisper")
 			if(!whisper)
-				whisper(message, speaking)
+				whisper(message, speaking, say_verb = TRUE)
 				return TRUE
 		if("headset")
 			radio.talk_into(src, message, null, verb, speaking)
