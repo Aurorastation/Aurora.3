@@ -3292,13 +3292,15 @@
 
 /obj/item/flag/consortium
 	name = "\improper Consortium flag"
-	desc = "The flag of The Consortium of Hieroartheria."
+	desc = "The flag of The Consortium of Hieroaetheria."
+	desc_extended = "Founded decades prior to any outside interference, though by the name of the Affiliation - at least according to the direct translation from Rootsong - it was a loose confederation of dozens of conglomerates present across the region of Mede."
 	flag_path = "consortium"
 	flag_structure = /obj/structure/sign/flag/consortium
 
 /obj/structure/sign/flag/consortium
 	name = "\improper Consortium flag"
-	desc = "The flag of The Consortium of Hieroartheria."
+	desc = "The flag of The Consortium of Hieroaetheria."
+	desc_extended = "Founded decades prior to any outside interference, though by the name of the Affiliation - at least according to the direct translation from Rootsong - it was a loose confederation of dozens of conglomerates present across the region of Mede."
 	flag_path = "consortium"
 	icon_state = "consortium"
 	flag_item = /obj/item/flag/consortium
@@ -3333,12 +3335,16 @@
 /obj/item/flag/ekane
 	name = "\improper Ekane flag"
 	desc = "The flag of the Eternal Republic of the Ekane."
+	desc_extended = "A theocratic autocracy, the Eternal Republic of the Ekane was founded after first contact with the Skrell in 2390 CE - in which by then the Eternal spread rife throughout the community.\
+	Roughly a decade following its introduction to Hieroaetheria, the Eternal had managed to conglomerate primarily within the cities dotting the Ekane region of the planet - which eventually saw unification beneath the banner of the Eternal Republic of the Ekane."
 	flag_path = "ekane"
 	flag_structure = /obj/structure/sign/flag/ekane
 
 /obj/structure/sign/flag/ekane
 	name = "\improper Ekane flag"
 	desc = "The flag of the Eternal Republic of the Ekane"
+	desc_extended = "A theocratic autocracy, the Eternal Republic of the Ekane was founded after first contact with the Skrell in 2390 CE - in which by then the Eternal spread rife throughout the community.\
+	Roughly a decade following its introduction to Hieroaetheria, the Eternal had managed to conglomerate primarily within the cities dotting the Ekane region of the planet - which eventually saw unification beneath the banner of the Eternal Republic of the Ekane."
 	flag_path = "ekane"
 	icon_state = "ekane"
 	flag_item = /obj/item/flag/ekane
@@ -3373,12 +3379,14 @@
 /obj/item/flag/glaorr
 	name = "\improper Gla'orr flag"
 	desc = "The flag of the Union of Gla'orr."
+	desc_extended = "Autocratic, and staunchly opposed to further integration of non-Dionae, the Union of Gla'orr is largely considered an affront to all the ideals held by the Consortium, an anti-thesis to the growing democratic tendencies of Hieroaetheria."
 	flag_path = "glaorr"
 	flag_structure = /obj/structure/sign/flag/glaorr
 
 /obj/structure/sign/flag/glaorr
 	name = "\improper Gla'orr flag"
 	desc = "The flag of the Union of Gla'orr"
+	desc_extended = "Autocratic, and staunchly opposed to further integration of non-Dionae, the Union of Gla'orr is largely considered an affront to all the ideals held by the Consortium, an anti-thesis to the growing democratic tendencies of Hieroaetheria."
 	flag_path = "glaorr"
 	icon_state = "glaorr"
 	flag_item = /obj/item/flag/glaorr
