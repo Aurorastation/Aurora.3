@@ -185,31 +185,31 @@
 	icon_state = "pmc_alt_intern"
 	item_state = "pmc_alt_intern"
 
-// First Responder
+// Paramedic
 
-/obj/item/clothing/under/rank/medical/first_responder
-	name = "first responder jumpsuit"
-	desc = "It's made of a special fiber that provides minor protection against biohazards. It's a special jumpsuit made for first responders."
+/obj/item/clothing/under/rank/medical/paramedic
+	name = "paramedic jumpsuit"
+	desc = "It's made of a special fiber that provides minor protection against biohazards. It's a special jumpsuit made for paramedics."
 	icon_state = "nt_emt"
 	item_state = "nt_emt"
 
-/obj/item/clothing/under/rank/medical/first_responder/zeng
+/obj/item/clothing/under/rank/medical/paramedic/zeng
 	icon_state = "zeng_emt"
 	item_state = "zeng_emt"
 
-/obj/item/clothing/under/rank/medical/first_responder/pmc
+/obj/item/clothing/under/rank/medical/paramedic/pmc
 	icon_state = "pmc_emt"
 	item_state = "pmc_emt"
 
-/obj/item/clothing/under/rank/medical/first_responder/pmc/alt
+/obj/item/clothing/under/rank/medical/paramedic/pmc/alt
 	icon_state = "pmc_emt"
 	item_state = "pmc_emt"
 
-/obj/item/clothing/under/rank/medical/first_responder/pmc/epmc
+/obj/item/clothing/under/rank/medical/paramedic/pmc/epmc
 	icon_state = "epmc_emt"
 	item_state = "epmc_emt"
 
-/obj/item/clothing/under/rank/medical/first_responder/pmc/sekh
+/obj/item/clothing/under/rank/medical/paramedic/pmc/sekh
 	icon_state = "sekh_emt"
 	item_state = "sekh_emt"
 
