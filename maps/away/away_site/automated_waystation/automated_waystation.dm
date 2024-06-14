@@ -94,5 +94,5 @@
 	'This is an Automated Waystation, operated by the Coalition of Colonies. You are welcome to use any of the facilities provided, but are required to clean up after. Any attempt to vandalize this Waystation will have a bounty placed on your ship and crew. Your IFF was logged upon docking.'\
 	"
 /area/automated_waystation/exterior
-    name = "Exterior"
-    icon_state = "space"
+	name = "Exterior"
+	icon_state = "space"
