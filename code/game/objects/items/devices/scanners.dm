@@ -583,7 +583,6 @@ BREATH ANALYZER
 	var/value = get_value(target)
 	user.visible_message("\The [user] scans \the [target] with \the [src]")
 	user.show_message("Price estimation of \the [target]: [value ? value : "N/A"] Credits")
-	playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 1)
 
 /obj/item/device/breath_analyzer
 	name = "breath analyzer"
