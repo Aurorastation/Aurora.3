@@ -150,7 +150,7 @@
 	name = "NanoTrasen Assets (Group)"
 	desc = "A crate containing gear for a group. The hardsuits are are only usable by humans and skrell."
 	path = /obj/structure/closet/crate/gear_loadout/nanotrasen
-	telecrystal_cost = 5045
+	telecrystal_cost = 45
 
 /datum/uplink_item/item/gear_loadout/nanotrasen_single
 	name = "NanoTrasen Assets (Single)"
