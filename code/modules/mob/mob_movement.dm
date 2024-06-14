@@ -132,41 +132,51 @@
 
 //This proc should never be overridden elsewhere at /atom/movable to keep directions sane.
 /atom/movable/Move(atom/newloc, direction, glide_size_override = 0, update_dir = TRUE) //Last 2 parameters are not used but they're caught
+	. = FALSE
+	if(!newloc || newloc == loc)
+		return
+
+	if(!direction)
+		direction = get_dir(src, newloc)
+
 	if(SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_MOVE, newloc) & COMPONENT_MOVABLE_BLOCK_PRE_MOVE)
 		return
 
 	var/old_loc = loc
 
-	if (direction & (direction - 1))
-		if (direction & 1)
-			if (direction & 4)
-				if (step(src, NORTH))
-					step(src, EAST)
+	//Cardinal move
+	if(direction & (direction - 1))
+		if(direction & 1)
+			if(direction & 4)
+				if(step(src, NORTH))
+					. = step(src, EAST)
 				else
-					if (step(src, EAST))
-						step(src, NORTH)
+					if(step(src, EAST))
+						. = step(src, NORTH)
 			else
-				if (direction & 8)
-					if (step(src, NORTH))
-						step(src, WEST)
+				if(direction & 8)
+					if(step(src, NORTH))
+						. = step(src, WEST)
 					else
-						if (step(src, WEST))
-							step(src, NORTH)
+						if(step(src, WEST))
+							. = step(src, NORTH)
 		else
-			if (direction & 2)
-				if (direction & 4)
-					if (step(src, SOUTH))
-						step(src, EAST)
+			if(direction & 2)
+				if(direction & 4)
+					if(step(src, SOUTH))
+						. = step(src, EAST)
 					else
-						if (step(src, EAST))
-							step(src, SOUTH)
+						if(step(src, EAST))
+							. = step(src, SOUTH)
 				else
-					if (direction & 8)
-						if (step(src, SOUTH))
-							step(src, WEST)
+					if(direction & 8)
+						if(step(src, SOUTH))
+							. = step(src, WEST)
 						else
-							if (step(src, WEST))
-								step(src, SOUTH)
+							if(step(src, WEST))
+								. = step(src, SOUTH)
+
+	//Diagonal move
 	else
 		var/atom/A = src.loc
 
