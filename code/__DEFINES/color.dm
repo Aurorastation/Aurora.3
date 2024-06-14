@@ -114,8 +114,10 @@
 
 // Blood colors
 #define COLOR_HUMAN_BLOOD      "#A10808"
-#define COLOR_IPC_BLOOD        "#1F181F" // for robots with black oil "blood"
-#define COLOR_SYNTH_BLOOD      "#D9F9FF" // for organics with synthetic blood substitute
+/// for robots with black oil "blood"
+#define COLOR_IPC_BLOOD        "#1F181F"
+/// for organics with synthetic blood substitute
+#define COLOR_SYNTH_BLOOD      "#D9F9FF"
 #define COLOR_DIONA_BLOOD      "#97DD7C"
 #define COLOR_SKRELL_BLOOD     "#0081CD"
 #define COLOR_VAURCA_BLOOD     "#E6E600"
