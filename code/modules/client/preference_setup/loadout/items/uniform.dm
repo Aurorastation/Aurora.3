@@ -261,6 +261,7 @@
 	suit["strelitz dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/strelitz
 	suit["volvalaad dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/volvalaad
 	suit["kazhkz dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/kazhkz
+	suit["han'san dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/hansan
 	suit["caladius dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/caladius
 	suit["zhao dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/zhao
 	suit["lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit

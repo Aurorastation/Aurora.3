@@ -129,6 +129,24 @@
 	item_state = "kazhkz_capez"
 	cape_backing_state = "capez_backing"
 
+/obj/item/clothing/accessory/poncho/dominia_cape/hansan
+	name = "clan han'san cape"
+	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of Clan Han'san."
+	icon_state = "hansan_cape"
+	item_state = "hansan_cape"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/hansan/white
+	name = "white clan han'san cape"
+	icon_state = "hansan_capew"
+	icon_state = "hansan_capew"
+	cape_backing_state = "capew_backing"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/hansan/zavod
+	name = "zavodskoi clan han'san cape"
+	icon_state = "hansan_capez"
+	item_state = "hansan_capez"
+	cape_backing_state = "capez_backing"
+
 /obj/item/clothing/accessory/poncho/dominia_cape/caladius
 	name = "house caladius cape"
 	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of House Caladius."
@@ -276,6 +294,10 @@
 /obj/item/clothing/under/dominia/imperial_suit/kazhkz
 	name = "house kazhkz suit"
 	house = "kazhkz"
+
+/obj/item/clothing/under/dominia/imperial_suit/hansan
+	name = "house han'san suit"
+	house = "hansan"
 
 /obj/item/clothing/under/dominia/imperial_suit/caladius
 	name = "house caladius suit"
