@@ -355,7 +355,15 @@ SUBSYSTEM_DEF(records)
 	if(religion)
 		return religion.get_records_name()
 
+/**
+ * Gets the name of the citizenship to show on records and ID
+ *
+ * * target_citizenship - The citizenship to get the name for, one of the CITIZENSHIP_* constants
+ *
+ * Returns the name of the citizenship (string) or null if the citizenship is not found
+ */
 /datum/controller/subsystem/records/proc/get_citizenship_record_name(var/target_citizenship)
+	SHOULD_NOT_SLEEP(TRUE)
 	var/datum/citizenship/citizenship = SSrecords.citizenships[target_citizenship]
 	if(citizenship)
 		return citizenship.get_records_name()
