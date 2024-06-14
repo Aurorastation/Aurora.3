@@ -134,3 +134,34 @@
 
 		if(hologram_message)
 			visible_message(SPAN_NOTICE("[hologram_message]"))
+
+/obj/item/storage/box/fancy/vkrexi_swollen_organ
+	name = "V'krexi swollen organ"
+	desc = "It has a expiring date two weeks from today."
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "vkrexi_swollen_organ"
+	storage_slots = 1
+	opened = FALSE
+	closable = FALSE
+	icon_overlays = FALSE
+	drop_sound = 'sound/items/drop/gloves.ogg'
+	pickup_sound = 'sound/items/pickup/gloves.ogg'
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	open_sound = /singleton/sound_category/rip_sound
+	open_message = "You tear open the bag, breaking the vacuum seal."
+
+/obj/item/storage/box/fancy/vkrexi_swollen_organ/fill()
+	new /obj/item/reagent_containers/food/drinks/bottle/skyemok(src)
+	. = ..()
+	make_exact_fit()
+
+/obj/item/storage/box/fancy/vkrexi_swollen_organ/attack_self(mob/user)
+	open(user)
+
+/obj/item/storage/box/fancy/vkrexi_swollen_organ/update_icon()
+	. = ..()
+	if(opened)
+		if(contents.len == 0)
+			icon_state = "vkrexi_swollen_organ_empty"
+		else
+			icon_state = "vkrexi_swollen_organ"

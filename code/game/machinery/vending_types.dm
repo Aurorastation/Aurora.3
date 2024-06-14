@@ -147,7 +147,8 @@
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot = 10,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup = 10,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 4,
-		/obj/item/reagent_containers/glass/beaker/pitcher = 4
+		/obj/item/reagent_containers/glass/beaker/pitcher = 4,
+		/obj/item/storage/box/fancy/vkrexi_swollen_organ = 2
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/tea = 10
@@ -1378,7 +1379,8 @@
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/lemonlime = 5,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi = 5,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz = 5
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz = 5,
+		/obj/item/reagent_containers/food/drinks/waterbottle/sedantis_water = 5
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm = 5
@@ -1398,7 +1400,8 @@
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/lemonlime = 29,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi = 29,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn = 29,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz = 29
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz = 29,
+		/obj/item/reagent_containers/food/drinks/waterbottle/sedantis_water = 40
 	)
 	idle_power_usage = 211
 	temperature_setting = -1
