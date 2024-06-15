@@ -156,10 +156,17 @@
 
 /obj/item/vampiric/proc/bloodcall_final(var/mob/living/carbon/human/M)
 	if(istype(M))
-		var/target = pick(M.organs_by_name)
-		M.apply_damage(rand(200), DAMAGE_BRUTE, target)
-		to_chat(M, SPAN_WARNING("What have you done?! Your [parse_zone(target)] feels like it's being torn from your body! ."))
-		M.vessel.remove_reagent(/singleton/reagent/blood,rand(75,150))
+		if(istype(M.species, /datum/species/machine))
+
+			M.apply_damage(700, DAMAGE_BRUTE, BP_GROIN)
+			M.apply_damage(700, DAMAGE_BRUTE, BP_GROIN) //The way IPC limbs seem to act I needed the double damage to ensure it was removed.
+			to_chat(M, SPAN_HIGHDANGER("What have you done?! You feel like you're being ripped in half!"))
+			return
+
+		to_chat(M, SPAN_HIGHDANGER("What have you done?! An immense pull erupts as the statue breaks. The force crushes your hands and pulls your blood into an unseen void."))
+		M.apply_damage(30, DAMAGE_BRUTE, BP_L_HAND)
+		M.apply_damage(30, DAMAGE_BRUTE, BP_R_HAND)
+		M.vessel.remove_reagent(/singleton/reagent/blood,rand(120,175))
 
 /obj/item/vampiric/proc/shatter(var/obj/item/W, var/mob/user)
 	playsound(src, shatter_sound, 70, 1)
