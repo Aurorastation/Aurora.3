@@ -136,9 +136,6 @@
 	if(!newloc || newloc == loc)
 		return
 
-	if(!direction)
-		direction = get_dir(src, newloc)
-
 	if(SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_MOVE, newloc) & COMPONENT_MOVABLE_BLOCK_PRE_MOVE)
 		return
 
