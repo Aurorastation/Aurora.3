@@ -137,6 +137,7 @@
 /obj/item/vampiric/hear_talk(mob/M as mob, text)
 	..()
 	if(world.time - last_bloodcall >= bloodcall_interval && (M in view(7, src)))
+		audible_message(SPAN_NOTICE("\The [src] twitches as it listens."))
 		bloodcall(M)
 
 /obj/item/vampiric/proc/bloodcall(var/mob/living/carbon/human/M)
@@ -163,7 +164,7 @@
 			to_chat(M, SPAN_HIGHDANGER("What have you done?! You feel like you're being ripped in half!"))
 			return
 
-		to_chat(M, SPAN_HIGHDANGER("What have you done?! An immense pull erupts as the statue breaks. The force crushes your hands and pulls your blood into an unseen void."))
+		to_chat(M, SPAN_HIGHDANGER("What have you done?! You feel an incredible pull as the statue breaks. The force crushes your hands and pulls your blood into an unseen void."))
 		M.apply_damage(30, DAMAGE_BRUTE, BP_L_HAND)
 		M.apply_damage(30, DAMAGE_BRUTE, BP_R_HAND)
 		M.vessel.remove_reagent(/singleton/reagent/blood,rand(120,175))
