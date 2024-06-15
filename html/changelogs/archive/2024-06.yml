@@ -417,3 +417,35 @@
   - rscadd: Fixes phalanx uniform and reserve uniforms.
   Llywelwyn:
   - bugfix: Removes stray flashing pixels from the 9mm camera gun.
+2024-06-15:
+  Ben10083:
+  - bugfix: Autohiss and stuttering no longer applies twice when using say :w to whisper.
+  ChangeMe:
+  - rscadd: BAPI - mapmanip insert/extract.
+  Evandorf:
+  - qol: Gives the Plains Tyrant night vision to assist in players with the ghostrole.
+  FluffyGhost:
+  - server: Added some pragmas for OpenDream and removed a removed one.
+  - rscadd: Added a single-use-per-round rune that can convert a mech into a cultist
+      mech, needs 2 minutes to do so and is single use, so max 1 cult mech per round.
+  - balance: Added the ability to upgrade a pylon into turret mode using the cultist
+      blood, by clicking on the pylon with disarm intent.
+  - bugfix: Fixed do_after not using the callbacks at all (because it never passed
+      the parameter to do_after_detailed).
+  - code_imp: Some improvements to the pylons and runes code, DMDocs.
+  Geeves:
+  - rscadd: Synthskin limbs can now have tattoo bodymarkings.
+  LynxSolstice:
+  - qol: Changes the title of the first responder back to paramedic, to be more accurate,
+      since Security Officers are also first responders (or the fabled firefighter
+      atmos tech)
+  Peppermint96:
+  - rscadd: Adds Priestess as an alt title to chaplain
+  Sparky_hotdog:
+  - bugfix: Fixed items with extended descriptions not displaying them properly.
+  Stev-the-third:
+  - imageadd: Flipped the Koi arms, Snake Colourable arms, Snake arms, Band forearms
+      and Moon chests to be aligned properly.
+  - imageadd: Slightly edited the koi legs tattoos to mesh better with the chest.
+  - imageadd: Edited the silverburgh tattoo to be symmetrical.
+  - imageadd: Adds new inhand and wielded sprites to the Thermal Drill
