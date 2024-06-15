@@ -340,7 +340,7 @@
 	path = /obj/item/clothing/head/hachimaki
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/head/gentlecap
+/datum/gear/head/bearpelt
 	display_name = "bear pelt hat"
 	path = /obj/item/clothing/head/bearpelt
 	description = "A fuzzy pelt to wear on your head."
