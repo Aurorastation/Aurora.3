@@ -493,14 +493,15 @@ var/datum/gear_tweak/hair_block/gear_tweak_hair_block = new()
 		if("No")
 			H.flags_inv &= ~BLOCKHEADHAIR
 
-/datum/gear/head/gentlecap
-	display_name = "gentlemans cap"
-	path = /obj/item/clothing/head/wizard/cap
-	description = "A checkered gray flat cap woven together with the rarest of threads."
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/gentlecap
 	display_name = "bear pelt hat"
 	path = /obj/item/clothing/head/bearpelt
 	description = "A fuzzy pelt to wear on your head."
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/gentlecap
+	display_name = "gentlemans cap"
+	path = /obj/item/clothing/head/wizard/cap
+	description = "A checkered gray flat cap woven together with the rarest of threads."
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
