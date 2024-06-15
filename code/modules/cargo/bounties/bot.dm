@@ -22,21 +22,3 @@
 	reward_high = 6000
 	required_count = 2
 	wanted_types = list(/mob/living/bot/medbot)
-
-/datum/bounty/item/bot/hardsuit
-	name = "Hardsuit Modules"
-	description = "%PERSONNAME forgot to order modules with our new hardsuits. Mind sending us some?"
-	reward_low = 5200
-	reward_high = 6000
-	required_count = 2
-	random_count = 1 // One to three
-	wanted_types = list(/obj/item/rig_module)
-
-/datum/bounty/item/bot/exosuit
-	name = "Exosuit Parts"
-	description = "%PERSONNAME piloted a loader down an elevator shaft. Ship some replacement parts."
-	reward_low = 8000
-	reward_high = 12000
-	required_count = 2
-	random_count = 1
-	wanted_types = list(/obj/item/mech_component, /obj/item/mecha_equipment, /obj/item/cell/mecha)

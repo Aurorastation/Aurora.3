@@ -238,14 +238,27 @@
 	reward_high = 5300
 	required_count = 3
 	random_count = 1
-	wanted_types = list(/obj/item/reagent_containers/food/snacks)
-
-/datum/bounty/item/chef/unathi/applies_to(var/obj/item/reagent_containers/food/snacks/O)
-	if(!..())
-		return FALSE
-	if(O.icon == 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi')
-		return TRUE
-	return FALSE
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/aghrasshcake,
+			/obj/item/reagent_containers/food/snacks/bacon_stick,
+			/obj/item/reagent_containers/food/snacks/batwings,
+			/obj/item/reagent_containers/food/snacks/chilied_eggs,
+			/obj/item/reagent_containers/food/snacks/egg_pancake,
+			/obj/item/reagent_containers/food/snacks/father_breakfast,
+			/obj/item/reagent_containers/food/snacks/gukhefish,
+			/obj/item/reagent_containers/food/snacks/hatchbowl,
+			/obj/item/reagent_containers/food/snacks/hatchling_suprise,
+			/obj/item/reagent_containers/food/snacks/jellystew,
+			/obj/item/reagent_containers/food/snacks/razirnoodles,
+			/obj/item/reagent_containers/food/snacks/red_sun_special,
+			/obj/item/reagent_containers/food/snacks/riztizkzi_sea,
+			/obj/item/reagent_containers/food/snacks/sintapudding,
+			/obj/item/reagent_containers/food/snacks/sliceable/eyebowl,
+			/obj/item/reagent_containers/food/snacks/sliceable/grilled_carp,
+			/obj/item/reagent_containers/food/snacks/sliceable/sushi_roll,
+			/obj/item/reagent_containers/food/snacks/stokkebab,
+			/obj/item/reagent_containers/food/snacks/stuffed_meatball,
+			/obj/item/reagent_containers/food/snacks/stuffedcarp,
+			/obj/item/reagent_containers/food/snacks/stuffedfish)
 
 /datum/bounty/item/chef/tajara
 	name = "Adhomai Delicacies"
@@ -254,14 +267,48 @@
 	reward_high = 5500
 	required_count = 3
 	random_count = 1
-	wanted_types = list(/obj/item/reagent_containers/food/snacks)
-
-/datum/bounty/item/chef/tajara/applies_to(var/obj/item/reagent_containers/food/snacks/O)
-	if(!..())
-		return FALSE
-	if(O.icon == 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi')
-		return TRUE
-	return FALSE
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/adhomian_porridge,
+			/obj/item/reagent_containers/food/snacks/adhomian_sausage,
+			/obj/item/reagent_containers/food/snacks/avah,
+			/obj/item/reagent_containers/food/snacks/chipplate/crownfurter,
+			/obj/item/reagent_containers/food/snacks/chipplate/miniavah_basket,
+			/obj/item/reagent_containers/food/snacks/chocolate_rikazu,
+			/obj/item/reagent_containers/food/snacks/clam_pasta,
+			/obj/item/reagent_containers/food/snacks/cone_cake,
+			/obj/item/reagent_containers/food/snacks/creamice,
+			/obj/item/reagent_containers/food/snacks/dip/sarmikhir,
+			/obj/item/reagent_containers/food/snacks/dip/tajhummus,
+			/obj/item/reagent_containers/food/snacks/dirt_roast,
+			/obj/item/reagent_containers/food/snacks/earthenroot_fries,
+			/obj/item/reagent_containers/food/snacks/earthenroot_mash,
+			/obj/item/reagent_containers/food/snacks/earthenroot_wedges,
+			/obj/item/reagent_containers/food/snacks/fermented_worm,
+			/obj/item/reagent_containers/food/snacks/fermented_worm_sandwich,
+			/obj/item/reagent_containers/food/snacks/fruit_rikazu,
+			/obj/item/reagent_containers/food/snacks/fruitgello,
+			/obj/item/reagent_containers/food/snacks/hardbread,
+			/obj/item/reagent_containers/food/snacks/hardbread_pudding,
+			/obj/item/reagent_containers/food/snacks/lardwich,
+			/obj/item/reagent_containers/food/snacks/meat_rikazu,
+			/obj/item/reagent_containers/food/snacks/nomadskewer,
+			/obj/item/reagent_containers/food/snacks/salad/earthenroot,
+			/obj/item/reagent_containers/food/snacks/sarmikhir_sandwich,
+			/obj/item/reagent_containers/food/snacks/seafoodmousse,
+			/obj/item/reagent_containers/food/snacks/sliceable/aspicfatshouter,
+			/obj/item/reagent_containers/food/snacks/sliceable/fatshouter_fillet,
+			/obj/item/reagent_containers/food/snacks/sliceable/fatshouterbake,
+			/obj/item/reagent_containers/food/snacks/sliceable/vegello,
+			/obj/item/reagent_containers/food/snacks/sliceable/zkahnkowafull,
+			/obj/item/reagent_containers/food/snacks/soup/earthenroot,
+			/obj/item/reagent_containers/food/snacks/soup/tajfish,
+			/obj/item/reagent_containers/food/snacks/spicy_clams,
+			/obj/item/reagent_containers/food/snacks/stew/tajaran,
+			/obj/item/reagent_containers/food/snacks/stuffed_earthenroot,
+			/obj/item/reagent_containers/food/snacks/tajaran_bread,
+			/obj/item/reagent_containers/food/snacks/tajcandy,
+			/obj/item/reagent_containers/food/snacks/tunneler_meategg,
+			/obj/item/reagent_containers/food/snacks/tunneler_souffle,
+			/obj/item/reagent_containers/food/snacks/vegetable_rikazu)
 
 /datum/bounty/item/chef/skrell
 	name = "Federation Delicacies"
@@ -270,30 +317,19 @@
 	reward_high = 5700
 	required_count = 3
 	random_count = 1
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/)
-
-/datum/bounty/item/chef/skrell/applies_to(var/obj/item/reagent_containers/food/snacks/O)
-	if(!..())
-		return FALSE
-	if(O.icon == 'icons/obj/item/reagent_containers/food/cultural/skrell.dmi')
-		return TRUE
-	return FALSE
-
-/datum/bounty/item/chef/vaurca
-	name = "Vaurca Delicacies"
-	description = "We're holding a luncheon with some representatives from the %HIVENAME Hive; send some K'ois dishes!"
-	reward_low = 3900
-	reward_high = 5900
-	required_count = 3
-	random_count = 1
-	wanted_types = list(/obj/item/reagent_containers/food/snacks/)
-
-/datum/bounty/item/chef/vaurca/applies_to(var/obj/item/reagent_containers/food/snacks/O)
-	if(!..())
-		return FALSE
-	if(O.reagents.has_reagent(/singleton/reagent/kois))
-		return TRUE
-	return FALSE
+	wanted_types = list(/obj/item/reagent_containers/food/snacks/chipplate/neaeracandy,
+			/obj/item/reagent_containers/food/snacks/fjylozynboiled,
+			/obj/item/reagent_containers/food/snacks/gnaqmi,
+			/obj/item/reagent_containers/food/snacks/jyalrafresh,
+			/obj/item/reagent_containers/food/snacks/konaqu,
+			/obj/item/reagent_containers/food/snacks/lortl,
+			/obj/item/reagent_containers/food/snacks/neaerakabob,
+			/obj/item/reagent_containers/food/snacks/neaeraloaf,
+			/obj/item/reagent_containers/food/snacks/qlguabi,
+			/obj/item/reagent_containers/food/snacks/soup/qilvo,
+			/obj/item/reagent_containers/food/snacks/soup/zantiri,
+			/obj/item/reagent_containers/food/snacks/stew/neaera,
+			/obj/item/reagent_containers/food/snacks/xuqqil)
 
 /datum/bounty/item/chef/curry
 	name = "Curry"

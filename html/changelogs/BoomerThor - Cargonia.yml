@@ -3,10 +3,9 @@ author: BoomerThor
 delete-after: True
 
 changes:
-  - rscadd: "Added export values for plastic, graphite, iron, aluminium, lead, tritium, metallic hydrogen, osmium, and steel."
-  - rscadd: "Added multiple drink and food types to the bounty list. Also added a Vaurca dish bounty."
-  - qol: "Simplifies the cultural food bounty lists to include future contributions."
-  - rscadd: "Added exosuit and hardsuit part bounties."
+  - rscadd: "Created export values for plastic, graphite, iron, aluminium, lead, tritium, metallic hydrogen, osmium, and steel."
+  - rscadd: "Added a Vaurca cultural food bounty."
+  - bugfix: "Updates the cultural food bounty lists to include recent contributions."
   - rscdel: "Removed depreciated bounties (smoke grenades, telecomms traffic, NVGs, monkey hide)."
   - bugfix: "Fixed the padded chairs bounty to work properly."
   - spellcheck: "Removes a mention of the Horizon being in the CRZ from the phoron bounty."
