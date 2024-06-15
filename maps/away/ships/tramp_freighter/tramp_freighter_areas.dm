@@ -99,6 +99,14 @@
 	name = "Independent Freighter - Portside Docking Arm"
 	icon_state = "exit"
 
+/area/tramp_freighter/port_docking_processing
+	name = "Independent Freighter - Portside Docking Arm Processing"
+	icon_state = "bluenew"
+
+/area/tramp_freighter/starboard_docking_processing
+	name = "Independent Freighter - Starboard Docking Arm Processing"
+	icon_state = "bluenew"
+
 /area/shuttle/freighter_shuttle
 	name = "Freight Shuttle"
 	icon_state = "shuttle2"
