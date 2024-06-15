@@ -50,8 +50,13 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 /dmm_suite/proc/load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, x_lower = -INFINITY, x_upper = INFINITY, y_lower = -INFINITY, y_upper = INFINITY)
 	var/tfile = dmm_file//the map file we're creating
 	if(isfile(tfile))
-		// tfile = file2text(tfile)
-		tfile = bapi_read_dmm_file("[tfile]") // `tfile` is of type `File`, this makes it into just a string of its path
+		// read, parse, process, etc; with bapi
+	 	// `tfile` is of type `File`, this makes it into just a string of its path
+		tfile = bapi_read_dmm_file("[tfile]")
+		// if bapi for whatever reason fails and returns null
+		// try to load it the old dm way instead
+		if(!tfile)
+			tfile = file2text(tfile)
 
 	if(!x_offset)
 		x_offset = 1
