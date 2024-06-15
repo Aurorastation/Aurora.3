@@ -53,8 +53,8 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 		// name/path of dmm file, new var so as to not rename the `tfile` var
 		// to maybe maintain compatibility with other codebases
 		var/tfilepath = "[tfile]"
-		// read, parse, process, etc; with bapi
-	 	// `tfile` is of type `File`, this makes it into just a string of its path
+		// use bapi to read, parse, process, mapmanip etc
+		// this will "crash"/stacktrace on fail
 		tfile = bapi_read_dmm_file(tfilepath)
 		// if bapi for whatever reason fails and returns null
 		// try to load it the old dm way instead
