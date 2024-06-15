@@ -53,52 +53,8 @@
 	material_id = "metal"
 	message = "metal sheets"
 
+
 /datum/export/material/glass
 	cost = 5
 	material_id = "glass"
 	message = "glass sheets"
-
-/datum/export/material/plastic
-	cost = 5
-	material_id = "plastic"
-	message = "plastic sheets"
-
-/datum/export/material/graphite
-	cost = 20
-	material_id = "graphite"
-	message = "graphite bars"
-
-/datum/export/material/iron
-	cost = 5
-	material_id = "iron"
-	message = "iron ingots"
-
-/datum/export/material/aluminium
-	cost = 5
-	material_id = "aluminium"
-	message = "aluminium sheets"
-
-/datum/export/material/lead
-	cost = 15
-	material_id = "lead"
-	message = "lead ingots"
-
-/datum/export/material/tritium
-	cost = 20
-	material_id = "tritium"
-	message = "tritium ingots"
-
-/datum/export/material/mhydrogen
-	cost = 50
-	material_id = "mhydrogen"
-	message = "metallic hydrogen sheets"
-
-/datum/export/material/osmium
-	cost = 30
-	material_id = "osmium"
-	message = "osmium ingots"
-
-/datum/export/material/steel
-	cost = 5
-	material_id = "steel"
-	message = "steel sheets"

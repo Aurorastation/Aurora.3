@@ -3,7 +3,6 @@ author: BoomerThor
 delete-after: True
 
 changes:
-  - rscadd: "Created export values for plastic, graphite, iron, aluminium, lead, tritium, metallic hydrogen, osmium, and steel."
   - bugfix: "Updates the cultural food bounty lists to include recent contributions."
   - rscdel: "Removed depreciated bounties (smoke grenades, telecomms traffic, NVGs, monkey hide)."
   - bugfix: "Fixed the padded chairs bounty to work properly."
