@@ -10811,6 +10811,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/maint_center)
+"ojy" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/exoplanet/basalt/tret,
+/area/tret_industrial/outside/surface)
 "ojN" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/pickaxe{
@@ -17180,7 +17186,7 @@ aIs
 glQ
 kRT
 lfy
-lfy
+ojy
 lfy
 lSw
 kRT
