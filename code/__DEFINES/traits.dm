@@ -176,6 +176,11 @@
 /// Traits given by psionics.
 #define TRAIT_SOURCE_PSIONICS "psionics"
 
+/// Traits given by augments
+#define TRAIT_SOURCE_AUGMENT "augment"
+
+/// This trait makes Check_Shoegrip return TRUE. Used for magboot-like behaviour.
+#define TRAIT_SHOE_GRIP "shoe_grip"
 
 // DISABILITY TRAITS
 

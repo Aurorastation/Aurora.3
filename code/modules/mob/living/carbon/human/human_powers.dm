@@ -2199,17 +2199,22 @@
 
 	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE]
 	var/list/messages = list(
-		"I remain operational.",
+		"I am operational.",
+		"I am on standby.",
 		"Message received.",
+		"Positive.",
+		"Negative.",
+		"Uncertain.",
+		"I do not understand.",
 		"Order completed.",
 		"Cannot complete order.",
-		"I am on standby.",
 		"Minor damage registered.",
 		"Damage registered",
 		"Critical damage registered",
 		"Assistance required at my location.",
-		"Hostiles sighted at my location.",
-		"Location clear of threats."
+		"Threat sighted at my location.",
+		"Location clear of threats.",
+		"Praise the Queens.",
 	)
 	if(src.stat != CONSCIOUS)
 		to_chat(src, SPAN_WARNING("You are in no state to do that!"))
@@ -2226,8 +2231,9 @@
 	var/message = input("What message do you wish to transmit?","Choose a message") as null|anything in messages
 	if(!message)
 		return
+
 	V.transmitting = TRUE
-	say(",9[message]")
+	say("[message]", GLOB.all_languages[LANGUAGE_VAURCA])
 	V.transmitting = FALSE
 
 /mob/living/carbon/human/proc/hivenet_manifest()

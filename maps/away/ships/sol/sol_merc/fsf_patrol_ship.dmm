@@ -149,7 +149,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/brig)
 "agg" = (
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/roller,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{

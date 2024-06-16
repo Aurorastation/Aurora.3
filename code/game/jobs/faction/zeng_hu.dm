@@ -45,7 +45,7 @@
 		"Pharmacist" = /obj/outfit/job/pharmacist/zeng_hu,
 		"Psychiatrist" = /obj/outfit/job/psychiatrist/zeng_hu,
 		"Psychologist" = /obj/outfit/job/psychiatrist/zeng_hu,
-		"First Responder" = /obj/outfit/job/med_tech/zeng_hu,
+		"Paramedic" = /obj/outfit/job/med_tech/zeng_hu,
 		"Medical Intern" = /obj/outfit/job/intern_med/zeng_hu,
 		"Scientist" = /obj/outfit/job/scientist/zeng_hu,
 		"Xenobiologist" = /obj/outfit/job/scientist/xenobiologist/zeng_hu,
@@ -116,11 +116,11 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
 
 /obj/outfit/job/med_tech/zeng_hu
-	name = "First Responder - Zeng-Hu"
+	name = "Paramedic - Zeng-Hu"
 
 	head = /obj/item/clothing/head/softcap/zeng
-	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng
-	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
+	uniform = /obj/item/clothing/under/rank/medical/paramedic/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/para_jacket/zeng
 	id = /obj/item/card/id/zeng_hu
 
 	backpack_faction = /obj/item/storage/backpack/zeng

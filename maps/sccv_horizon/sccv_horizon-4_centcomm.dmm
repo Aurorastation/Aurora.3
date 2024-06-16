@@ -21575,12 +21575,12 @@
 /area/centcom/legion/hangar5)
 "beT" = (
 /obj/structure/table/rack,
-/obj/item/storage/belt/medical/first_responder/combat/full{
+/obj/item/storage/belt/medical/paramedic/combat/full{
 	pixel_x = 5;
 	pixel_y = -5
 	},
-/obj/item/storage/belt/medical/first_responder/combat/full,
-/obj/item/storage/belt/medical/first_responder/combat/full{
+/obj/item/storage/belt/medical/paramedic/combat/full,
+/obj/item/storage/belt/medical/paramedic/combat/full{
 	pixel_x = -4;
 	pixel_y = 5
 	},
@@ -25869,11 +25869,11 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/button/remote/blast_door{
+	dir = 1;
 	id = "smindicate2";
 	name = "internal blast door";
 	pixel_y = 26;
-	req_access = list(150);
-	dir = 1
+	req_access = list(150)
 	},
 /obj/machinery/door/blast/regular{
 	density = 0;
@@ -25943,11 +25943,11 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/button/remote/blast_door{
+	dir = 1;
 	id = "smindicate";
 	name = "external blast door";
 	pixel_y = 26;
-	req_access = list(150);
-	dir = 1
+	req_access = list(150)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
@@ -27805,7 +27805,6 @@
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/mask/surgical,
 /obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical/first_responder/combat,
 /obj/item/storage/belt/medical,
 /obj/structure/sink{
 	dir = 4;
@@ -28906,12 +28905,12 @@
 	},
 /obj/machinery/access_button{
 	command = "cycle_exterior";
+	dir = 1;
 	frequency = 1380;
 	master_tag = "raider_east_control";
 	pixel_x = -26;
 	pixel_y = 12;
-	req_access = list(150);
-	dir = 1
+	req_access = list(150)
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
@@ -28922,8 +28921,8 @@
 	id = "raiderblastdoor";
 	name = "blast door";
 	pixel_x = 25;
-	req_access = list(150);
-	pixel_y = 13
+	pixel_y = 13;
+	req_access = list(150)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
@@ -29004,10 +29003,10 @@
 /area/shuttle/skipjack)
 "bwc" = (
 /obj/machinery/airlock_sensor{
+	dir = 4;
 	frequency = 1380;
 	id_tag = "raider_east_sensor";
-	pixel_x = -25;
-	dir = 4
+	pixel_x = -25
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
@@ -29250,14 +29249,14 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 4;
 	frequency = 1380;
 	id_tag = "raider_east_control";
 	pixel_x = -24;
 	tag_airpump = "raider_east_vent";
 	tag_chamber_sensor = "raider_east_sensor";
 	tag_exterior_door = "raider_northeast_lock";
-	tag_interior_door = "raider_southeast_lock";
-	dir = 4
+	tag_interior_door = "raider_southeast_lock"
 	},
 /obj/vehicle/bike{
 	dir = 4
@@ -34681,7 +34680,7 @@
 /obj/item/wirecutters,
 /obj/item/weldingtool,
 /obj/item/device/hand_labeler,
-/obj/item/cell/nuclear,
+/obj/item/cell/mecha/phoron,
 /turf/simulated/floor/carpet/rubber,
 /area/antag/jockey)
 "eWy" = (
@@ -37437,7 +37436,7 @@
 /obj/item/wirecutters,
 /obj/item/weldingtool,
 /obj/item/device/hand_labeler,
-/obj/item/cell/nuclear,
+/obj/item/cell/mecha/phoron,
 /turf/simulated/floor/carpet/rubber,
 /area/antag/jockey)
 "oyi" = (
@@ -37826,7 +37825,7 @@
 	dir = 8
 	},
 /obj/item/device/hand_labeler,
-/obj/item/cell/nuclear,
+/obj/item/cell/mecha/phoron,
 /turf/simulated/floor/carpet/rubber,
 /area/antag/jockey)
 "pEO" = (

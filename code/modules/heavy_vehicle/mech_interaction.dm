@@ -445,9 +445,13 @@
 				visible_message(SPAN_NOTICE("\The [user] pries out \the [body.cell] using the \the [attacking_item]."))
 				power = MECH_POWER_OFF
 				hud_power_control.update_icon()
+				UnregisterSignal(body.cell, COMSIG_CELL_CHARGE)
 				body.cell = null
 				return
 			else if(istype(attacking_item, /obj/item/cell))
+				if(!istype(attacking_item, /obj/item/cell/mecha))
+					to_chat(user, SPAN_WARNING("You can only use power cores in \the [src]!"))
+					return
 				if(!maintenance_protocols)
 					to_chat(user, SPAN_WARNING("The cell compartment remains locked while maintenance protocols are disabled."))
 					return
@@ -458,9 +462,9 @@
 				if(user.unEquip(attacking_item))
 					attacking_item.forceMove(body)
 					body.cell = attacking_item
-					to_chat(user, SPAN_NOTICE("You install \the [body.cell] into \the [src]."))
+					RegisterSignal(body.cell, COMSIG_CELL_CHARGE, PROC_REF(handle_cell_charge))
 					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-					visible_message(SPAN_NOTICE("\The [user] installs \the [body.cell] into \the [src]."))
+					user.visible_message(SPAN_NOTICE("\The [user] installs \the [body.cell] into \the [src]."), SPAN_NOTICE("You install \the [body.cell] into \the [src]."))
 				return
 			else if(istype(attacking_item, /obj/item/device/robotanalyzer))
 				to_chat(user, SPAN_NOTICE("Diagnostic Report for \the [src]:"))
@@ -730,3 +734,8 @@
 							say("Following [ID.registered_name].")
 							break
 				return
+
+/mob/living/heavy_vehicle/proc/handle_cell_charge(var/obj/item/cell/cell, var/new_charge)
+	SIGNAL_HANDLER
+
+	handle_power_hud()

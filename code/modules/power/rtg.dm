@@ -79,7 +79,7 @@
 /obj/item/circuitboard/rtg
 	name = T_BOARD("radioisotope thermoelectric generator")
 	build_path = /obj/machinery/power/rtg
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 	origin_tech = list(
 		TECH_ENGINEERING = 3,
 		TECH_DATA = 2,

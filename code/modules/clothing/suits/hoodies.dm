@@ -373,3 +373,36 @@
 /obj/item/clothing/head/winterhood/colorable/ponczo
 	name = "visegradi ponczo hood"
 	desc = "A hood for a Visegradi ponczo."
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo
+	name = "red visegradi patterned ponczo"
+	desc = "A type of shelter-half or zeltbahn, the ponczo is a ubiquitous article of clothing on the planet of Visegrad. Resembling a long smock or raincoat, the ponczo is as waterproof as it is rugged. While true shelter-halves can be made into a tent, most ponczos are no longer capable of this. This one is red, and has a patterned design."
+	icon_state = "red_ponczo"
+	item_state = "red_ponczo"
+	hoodtype = /obj/item/clothing/head/winterhood/patterned_ponczo
+
+/obj/item/clothing/head/winterhood/patterned_ponczo
+	name = "red visegradi ponczo hood"
+	desc = "A hood for a Visegradi ponczo."
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo/brown
+	name = "brown visegradi patterned ponczo"
+	desc = "A type of shelter-half or zeltbahn, the ponczo is a ubiquitous article of clothing on the planet of Visegrad. Resembling a long smock or raincoat, the ponczo is as waterproof as it is rugged. While true shelter-halves can be made into a tent, most ponczos are no longer capable of this. This one is brown, and has a patterned design."
+	icon_state = "brown_ponczo"
+	item_state = "brown_ponczo"
+	hoodtype = /obj/item/clothing/head/winterhood/patterned_ponczo/brown
+
+/obj/item/clothing/head/winterhood/patterned_ponczo/brown
+	name = "brown visegradi ponczo hood"
+	desc = "A hood for a Visegradi ponczo."
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo/blue
+	name = "blue visegradi patterned ponczo"
+	desc = "A type of shelter-half or zeltbahn, the ponczo is a ubiquitous article of clothing on the planet of Visegrad. Resembling a long smock or raincoat, the ponczo is as waterproof as it is rugged. While true shelter-halves can be made into a tent, most ponczos are no longer capable of this. This one is blue, and has a patterned design."
+	icon_state = "blue_ponczo"
+	item_state = "blue_ponczo"
+	hoodtype = /obj/item/clothing/head/winterhood/patterned_ponczo/blue
+
+/obj/item/clothing/head/winterhood/patterned_ponczo/blue
+	name = "blue visegradi ponczo hood"
+	desc = "A hood for a Visegradi ponczo."
