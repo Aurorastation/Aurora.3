@@ -238,7 +238,7 @@
 				used_radios += R
 				R.talk_into(src,message,null,verb,speaking)
 		if("whisper")
-			whisper(message, speaking, is_singing)
+			whisper(message, speaking, is_singing, say_verb = TRUE)
 			return TRUE
 		else
 			if(message_mode)

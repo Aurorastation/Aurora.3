@@ -7081,7 +7081,7 @@
 /obj/item/clothing/accessory/badge/passcard/elyra,
 /obj/item/clothing/accessory/storage/white_vest,
 /obj/item/clothing/accessory/storage/pouches/white,
-/obj/item/storage/belt/medical/first_responder/combat/full,
+/obj/item/storage/belt/medical/paramedic/combat/full,
 /obj/item/clothing/accessory/armband/medgreen,
 /obj/item/clothing/head/beret/elyra,
 /turf/simulated/floor/carpet/rubber,

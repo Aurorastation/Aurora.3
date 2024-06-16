@@ -596,15 +596,13 @@
 						if(setcriminal != "Cancel")
 							R.security.criminal = setcriminal
 							modified = 1
-
-							spawn()
-								BITSET(hud_updateflag, WANTED_HUD)
-								if(istype(usr,/mob/living/carbon/human))
-									var/mob/living/carbon/human/U = usr
-									U.handle_regular_hud_updates()
-								if(istype(usr,/mob/living/silicon/robot))
-									var/mob/living/silicon/robot/U = usr
-									U.handle_regular_hud_updates()
+							BITSET(hud_updateflag, WANTED_HUD)
+							if(istype(usr,/mob/living/carbon/human))
+								var/mob/living/carbon/human/U = usr
+								U.handle_regular_hud_updates()
+							if(istype(usr,/mob/living/silicon/robot))
+								var/mob/living/silicon/robot/U = usr
+								U.handle_regular_hud_updates()
 
 			if(!modified)
 				to_chat(usr, EXAMINE_BLOCK_RED(SPAN_WARNING("Unable to locate a data core entry for this person.")))
@@ -699,14 +697,12 @@
 						R.physical_status = setmedical
 						modified = 1
 						SSrecords.reset_manifest()
-
-						spawn()
-							if(istype(usr,/mob/living/carbon/human))
-								var/mob/living/carbon/human/U = usr
-								U.handle_regular_hud_updates()
-							if(istype(usr,/mob/living/silicon/robot))
-								var/mob/living/silicon/robot/U = usr
-								U.handle_regular_hud_updates()
+						if(istype(usr,/mob/living/carbon/human))
+							var/mob/living/carbon/human/U = usr
+							U.handle_regular_hud_updates()
+						if(istype(usr,/mob/living/silicon/robot))
+							var/mob/living/silicon/robot/U = usr
+							U.handle_regular_hud_updates()
 
 			if(!modified)
 				to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(SPAN_WARNING("Unable to locate a data core entry for this person.")))

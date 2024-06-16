@@ -77,8 +77,7 @@
 			message_admins("[key_name_admin(usr)] detonated [target.name]!")
 			log_game("[key_name(usr)] detonated [target.name]!",ckey=key_name(usr))
 			to_chat(target, SPAN_DANGER("Self-destruct command received."))
-			spawn(10)
-				target.self_destruct()
+			addtimer(CALLBACK(target, TYPE_PROC_REF(/mob/living/silicon/robot, self_destruct)), 1 SECONDS)
 
 
 

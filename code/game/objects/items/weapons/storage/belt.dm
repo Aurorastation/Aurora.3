@@ -230,13 +230,13 @@
 		/obj/item/storage/box/fancy/med_pouch/trauma = 1,
 	)
 
-/obj/item/storage/belt/medical/first_responder
-	name = "first responder utility belt"
+/obj/item/storage/belt/medical/paramedic
+	name = "paramedic utility belt"
 	desc = "A sturdy black webbing belt with attached pouches."
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
 
-/obj/item/storage/belt/medical/first_responder/full
+/obj/item/storage/belt/medical/paramedic/full
 	starts_with = list(
 		/obj/item/reagent_containers/hypospray = 1,
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
@@ -247,7 +247,7 @@
 		/obj/item/extinguisher/mini = 1,
 	)
 
-/obj/item/storage/belt/medical/first_responder/combat
+/obj/item/storage/belt/medical/paramedic/combat
 	name = "tactical medical belt"
 	desc = "A sturdy black webbing belt with attached pouches. This one is designed for medical professionals who expect to enter conflict zones on the daily. It has increased storage and utility."
 	storage_slots = 9
@@ -293,7 +293,7 @@
 		/obj/item/reagent_containers/blood
 		)
 
-/obj/item/storage/belt/medical/first_responder/combat/full
+/obj/item/storage/belt/medical/paramedic/combat/full
 	starts_with = list(
 		/obj/item/reagent_containers/hypospray/cmo = 1,
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,

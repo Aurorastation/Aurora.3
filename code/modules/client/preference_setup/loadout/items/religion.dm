@@ -176,7 +176,7 @@
 	display_name = "tribunalist medical beret"
 	path = /obj/item/clothing/head/beret/dominia/medical
 	slot = slot_head
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Medical Personnel")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Medical Personnel")
 
 /datum/gear/religion/dominia/robe_consular
 	display_name = "tribunalist consular uniform"
