@@ -34,6 +34,14 @@
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room
 	name = "Crew Quarters Room"
 
+// ----
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/warehouse
+	name = "Warehouse"
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse
+	name = "Warehouse"
+
 // --------------------------------------------------- sector
 
 /obj/effect/overmap/visitable/sector/cryo_outpost
