@@ -185,9 +185,8 @@
 	if (disabilities & COUGHING)
 		if ((prob(5) && paralysis <= 1))
 			drop_item()
-			spawn( 0 )
-				emote("cough")
-				return
+			emote("cough")
+			return
 
 	if((disabilities & ASTHMA) && getOxyLoss() >= 10)
 		if(prob(5))

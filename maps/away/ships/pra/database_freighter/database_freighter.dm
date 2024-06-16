@@ -97,16 +97,15 @@
 	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/database_freighter_shuttle
+/obj/machinery/computer/shuttle_control/explore/terminal/database_freighter_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Database Freighter Shuttle"
-
 
 /datum/shuttle/autodock/overmap/database_freighter_shuttle
 	name = "Database Freighter Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/database_freighter_shuttle)
-	dock_target = "database_freighter_shuttle"
+	dock_target = "airlock_database_freighter_shuttle"
 	current_location = "nav_database_freighter_shuttle"
 	landmark_transition = "nav_transit_database_freighter_shuttle"
 	range = 1
@@ -117,4 +116,5 @@
 /obj/effect/map_effect/marker/airlock/shuttle/database_freighter_shuttle
 	name = "Database Freighter Shuttle"
 	shuttle_tag = "Database Freighter Shuttle"
-	master_tag = "nav_database_freighter_shuttle"
+	master_tag = "airlock_database_freighter_shuttle"
+	req_one_access = list(209)

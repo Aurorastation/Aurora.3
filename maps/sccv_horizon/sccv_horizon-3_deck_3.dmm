@@ -1427,7 +1427,8 @@
 	pixel_x = 22;
 	pixel_y = 11;
 	req_access = list(19);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -11153,7 +11154,7 @@
 /turf/simulated/floor/wood,
 /area/horizon/cafeteria)
 "hIo" = (
-/obj/machinery/computer/aiupload{
+/obj/machinery/computer/borgupload{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -16493,9 +16494,7 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
-/obj/effect/landmark/start{
-	name = "First Responder"
-	},
+/obj/effect/landmark/start,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "llA" = (
@@ -19774,10 +19773,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "nrw" = (
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
 /obj/item/storage/belt/medical{
@@ -26565,7 +26564,7 @@
 	dir = 10
 	},
 /obj/effect/landmark/start{
-	name = "First Responder"
+	name = "Paramedic"
 	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
@@ -33754,7 +33753,8 @@
 	pixel_x = 26;
 	pixel_y = -17;
 	req_access = list(19);
-	specialfunctions = 4
+	specialfunctions = 4;
+	desiredstate = 1
 	},
 /obj/structure/cable{
 	icon_state = "2-8"

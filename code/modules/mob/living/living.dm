@@ -144,33 +144,32 @@ default behaviour is:
 			tmob.LAssailant = WEAKREF(src)
 
 		now_pushing = FALSE
-		spawn(0)
-			. = ..()
-			if (!istype(AM, /atom/movable))
-				return
-			if (!now_pushing)
-				now_pushing = TRUE
+		. = ..()
+		if (!istype(AM, /atom/movable))
+			return
+		if (!now_pushing)
+			now_pushing = TRUE
 
-				if (!AM.anchored)
-					if(isobj(AM))
-						var/obj/O = AM
-						if ((can_pull_size == 0) || (can_pull_size < O.w_class))
-							now_pushing = FALSE
-							return
+			if (!AM.anchored)
+				if(isobj(AM))
+					var/obj/O = AM
+					if ((can_pull_size == 0) || (can_pull_size < O.w_class))
+						now_pushing = FALSE
+						return
 
-					var/t = get_dir(src, AM)
-					if (istype(AM, /obj/structure/window))
-						for(var/obj/structure/window/win in get_step(AM,t))
-							now_pushing = FALSE
-							return
+				var/t = get_dir(src, AM)
+				if (istype(AM, /obj/structure/window))
+					for(var/obj/structure/window/win in get_step(AM,t))
+						now_pushing = FALSE
+						return
 
-					step(AM, t)
-					if(ishuman(AM) && AM:grabbed_by)
-						for(var/obj/item/grab/G in AM:grabbed_by)
-							step(G:assailant, get_dir(G:assailant, AM))
-							G.adjust_position()
+				step(AM, t)
+				if(ishuman(AM) && AM:grabbed_by)
+					for(var/obj/item/grab/G in AM:grabbed_by)
+						step(G:assailant, get_dir(G:assailant, AM))
+						G.adjust_position()
 
-				now_pushing = FALSE
+			now_pushing = FALSE
 
 /**
  * Checks if two mobs can swap with each other based on the density

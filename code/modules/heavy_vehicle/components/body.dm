@@ -17,7 +17,8 @@
 
 	var/mech_health = 600
 	var/obj/item/robot_parts/robot_component/diagnosis_unit/diagnostics
-	var/obj/item/cell/cell
+	var/obj/item/cell/mecha/cell
+	var/cell_type = /obj/item/cell/mecha
 	var/obj/item/robot_parts/robot_component/armor/mech_armor
 	var/obj/machinery/portable_atmospherics/canister/air_supply
 	var/datum/gas_mixture/cockpit
@@ -120,8 +121,9 @@
 
 /obj/item/mech_component/chassis/prebuild()
 	diagnostics = new(src)
-	cell = new /obj/item/cell/mecha(src)
-	cell.charge = cell.maxcharge
+	if(cell_type)
+		cell = new cell_type(src)
+		cell.charge = cell.maxcharge
 
 /obj/item/mech_component/chassis/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/robot_parts/robot_component/diagnosis_unit))

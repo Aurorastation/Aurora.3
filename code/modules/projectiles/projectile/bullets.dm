@@ -522,6 +522,7 @@
 
 /obj/item/projectile/bullet/shard/heavy
 	damage = 30
+	armor_penetration = 15
 
 /obj/item/projectile/bullet/recoilless_rifle
 	name = "anti-tank warhead"

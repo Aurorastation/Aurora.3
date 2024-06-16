@@ -274,6 +274,21 @@ pixel_x = 10;
 /obj/machinery/alarm/cold/south
 	PRESET_SOUTH
 
+/obj/machinery/alarm/warm
+	target_temperature = T20C + 10
+
+/obj/machinery/alarm/warm/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/warm/east
+	PRESET_EAST
+
+/obj/machinery/alarm/warm/west
+	PRESET_WEST
+
+/obj/machinery/alarm/warm/south
+	PRESET_SOUTH
+
 /obj/machinery/alarm/server/Initialize()
 	. = ..()
 	TLV[GAS_OXYGEN] =			list(-1.0, -1.0,-1.0,-1.0) // Partial pressure, kpa

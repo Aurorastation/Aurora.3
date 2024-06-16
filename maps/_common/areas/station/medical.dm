@@ -33,8 +33,8 @@
 	icon_state = "medbay4"
 	ambience = list('sound/ambience/signal.ogg')
 
-/area/medical/first_responder
-	name = "Medical - First Responder Equipment Storage"
+/area/medical/paramedic
+	name = "Medical - Paramedic Equipment Storage"
 	icon_state = "medbay"
 
 /area/medical/temp_morgue

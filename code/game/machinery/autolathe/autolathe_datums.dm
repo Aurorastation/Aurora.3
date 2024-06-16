@@ -59,6 +59,11 @@
 	path = /obj/item/device/multitool
 	category = "Tools"
 
+/singleton/autolathe_recipe/geiger
+	name = "geiger counter"
+	path = /obj/item/device/geiger
+	category = "Tools"
+
 /singleton/autolathe_recipe/t_scanner
 	name = "T-ray scanner"
 	path = /obj/item/device/t_scanner
