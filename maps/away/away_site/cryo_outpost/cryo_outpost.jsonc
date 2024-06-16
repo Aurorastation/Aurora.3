@@ -1,0 +1,18 @@
+[
+	{
+		"type": "InsertExtract",
+		"submap_size_x": 4,
+		"submap_size_y": 3,
+		"submaps_dmm": "cryo_outpost_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/crew_quarters_room"
+	},
+	{
+		"type": "InsertExtract",
+		"submap_size_x": 6,
+		"submap_size_y": 4,
+		"submaps_dmm": "cryo_outpost_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/warehouse"
+	}
+]
