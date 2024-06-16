@@ -1,54 +1,54 @@
 
 // --------------------------------------------------- template
 
-/datum/map_template/ruin/away_site/tret_industrial_complex
-	name = "Tret Industrial Complex"
+/datum/map_template/ruin/away_site/cryo_outpost
+	name = "Cryo Outpost"
 	description = "An industrial complex on Tret."
-	prefix = "away_site/uueoaesa/tret/"
-	suffixes = list("tret_industrial_complex.dmm")
+	prefix = "away_site/uueoaesa/cryo_outpost/"
+	suffixes = list("cryo_outpost.dmm")
 	sectors = list(SECTOR_UUEOAESA)
 	spawn_weight = 1
 	spawn_cost = 1
-	id = "tret_industrial_complex"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tret_industrial)
+	id = "cryo_outpost"
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/cryo_outpost)
 	exoplanet_themes = list(
-		/turf/unsimulated/marker/blue = /datum/exoplanet_theme/volcanic/tret,
-		/turf/unsimulated/marker/red  = /datum/exoplanet_theme/volcanic/tret/mountain
+		/turf/unsimulated/marker/blue = /datum/exoplanet_theme/volcanic/cryo_outpost,
+		/turf/unsimulated/marker/red  = /datum/exoplanet_theme/volcanic/cryo_outpost/mountain
 	)
 	unit_test_groups = list(3)
 
-/singleton/submap_archetype/tret_industrial_complex
-	map = "Tret Industrial Complex"
+/singleton/submap_archetype/cryo_outpost
+	map = "Cryo Outpost"
 	descriptor = "An industrial complex on Tret."
 
-/obj/abstract/weather_marker/tret
+/obj/abstract/weather_marker/cryo_outpost
 	weather_type = /singleton/state/weather/ash/lava_planet
 
 // --------------------------------------------------- sector
 
-/obj/effect/overmap/visitable/sector/tret_industrial_complex
+/obj/effect/overmap/visitable/sector/cryo_outpost
 	name = "Tret"
 	desc = "A large and inhospitable planet, now covered in mines, forges and factories - the new homeworld of the K'lax Hive."
 	icon_state = "globe3"
 	color = "#d69200"
 	initial_generic_waypoints = list(
-		"nav_tret_industrial_dock_outpost_1",
-		"nav_tret_industrial_dock_outpost_2",
-		"nav_tret_industrial_dock_outpost_3",
-		"nav_tret_industrial_dock_outpost_4",
-		"nav_tret_industrial_dock_outpost_5",
-		"nav_tret_industrial_surface_outpost_1",
-		"nav_tret_industrial_surface_outpost_2",
-		"nav_tret_industrial_surface_outpost_3",
-		"nav_tret_industrial_surface_outpost_4",
-		"nav_tret_industrial_surface_outpost_5",
-		"nav_tret_industrial_surface_far_1",
-		"nav_tret_industrial_surface_far_2",
-		"nav_tret_industrial_surface_far_3",
-		"nav_tret_industrial_surface_far_4",
+		"nav_cryo_outpost_dock_outpost_1",
+		"nav_cryo_outpost_dock_outpost_2",
+		"nav_cryo_outpost_dock_outpost_3",
+		"nav_cryo_outpost_dock_outpost_4",
+		"nav_cryo_outpost_dock_outpost_5",
+		"nav_cryo_outpost_surface_outpost_1",
+		"nav_cryo_outpost_surface_outpost_2",
+		"nav_cryo_outpost_surface_outpost_3",
+		"nav_cryo_outpost_surface_outpost_4",
+		"nav_cryo_outpost_surface_outpost_5",
+		"nav_cryo_outpost_surface_far_1",
+		"nav_cryo_outpost_surface_far_2",
+		"nav_cryo_outpost_surface_far_3",
+		"nav_cryo_outpost_surface_far_4",
 	)
 
-/obj/effect/overmap/visitable/sector/tret_industrial_complex/generate_ground_survey_result()
+/obj/effect/overmap/visitable/sector/cryo_outpost/generate_ground_survey_result()
 	..()
 	ground_survey_result += "<br>Aphanitic and phaneritic rocks on the surface, rich in magnesium, iron, carbon"
 	ground_survey_result += "<br>Trace elements of phoron detected in local atmosphere"
@@ -61,7 +61,7 @@
 
 // --------------------------------------------------- shuttle
 
-/obj/effect/overmap/visitable/ship/landable/tret_industrial
+/obj/effect/overmap/visitable/ship/landable/cryo_outpost
 	name = "Tret Mining Shuttle"
 	class = "IHCV" //Izweski Hegemony Civilian Vessel
 	desc = "\
@@ -84,29 +84,29 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/effect/overmap/visitable/ship/landable/tret_industrial/New()
+/obj/effect/overmap/visitable/ship/landable/cryo_outpost/New()
 	designation = pick("Xk'tiik", "Kl'axkia", "Xahth", "Aaxkia'tiik", "Lak'tixa", "Laxka")
 	..()
 
-/obj/machinery/computer/shuttle_control/explore/terminal/tret_industrial
+/obj/machinery/computer/shuttle_control/explore/terminal/cryo_outpost
 	name = "shuttle control console"
 	shuttle_tag = "Tret Mining Shuttle"
 
-/datum/shuttle/autodock/overmap/tret_industrial
+/datum/shuttle/autodock/overmap/cryo_outpost
 	name = "Tret Mining Shuttle"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/tret_industrial/main, /area/shuttle/tret_industrial/propulsion)
-	dock_target = "airlock_tret_industrial_shuttle"
-	current_location = "nav_tret_industrial_dock_outpost_1"
-	logging_home_tag = "nav_tret_industrial_dock_outpost_1"
-	landmark_transition = "nav_tret_industrial_shuttle_transit"
+	shuttle_area = list(/area/shuttle/cryo_outpost/main, /area/shuttle/cryo_outpost/propulsion)
+	dock_target = "airlock_cryo_outpost_shuttle"
+	current_location = "nav_cryo_outpost_dock_outpost_1"
+	logging_home_tag = "nav_cryo_outpost_dock_outpost_1"
+	landmark_transition = "nav_cryo_outpost_shuttle_transit"
 	range = 1
 	fuel_consumption = 2
 	defer_initialisation = TRUE
 
-/obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle
+/obj/effect/map_effect/marker/airlock/shuttle/cryo_outpost_shuttle
 	name = "Tret Mining Shuttle"
 	shuttle_tag = "Tret Mining Shuttle"
-	master_tag = "airlock_tret_industrial_shuttle"
+	master_tag = "airlock_cryo_outpost_shuttle"
 	req_one_access = null
 	req_access = null

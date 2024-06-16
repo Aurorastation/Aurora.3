@@ -1,9 +1,9 @@
 
 // ---------------------- spawners
 
-/datum/ghostspawner/human/tret_industrial
+/datum/ghostspawner/human/cryo_outpost
 	name = "Tret Industrial Worker"
-	short_name = "tret_industrial"
+	short_name = "cryo_outpost"
 	desc = "\
 		You are a Vaurca Worker of the Hive K'lax in one of the many industrial facilities of Tret. \
 		Mine, extract and process valuable materials for the glory of the Hive K'lax.\
@@ -12,10 +12,10 @@
 		You are expected to know the basics of Vaurca lore before playing this role.\
 	"
 	tags = list("External")
-	spawnpoints = list("tret_industrial")
+	spawnpoints = list("cryo_outpost")
 	max_count = 4
 
-	outfit = /obj/outfit/admin/tret_industrial/vaurca
+	outfit = /obj/outfit/admin/cryo_outpost/vaurca
 	possible_species = list(SPECIES_VAURCA_WORKER)
 	uses_species_whitelist = FALSE
 	assigned_role = "Tret Industrial Worker"
@@ -41,9 +41,9 @@
 		It is recommended that you read the wiki page for the species, as well as the Vaurca Hives page for information on K'lax coloration.\
 	"
 
-/datum/ghostspawner/human/tret_industrial/bulwark
+/datum/ghostspawner/human/cryo_outpost/bulwark
 	name = "Tret Industrial Bulwark"
-	short_name = "tret_industrial_bulwark"
+	short_name = "cryo_outpost_bulwark"
 	desc = "\
 		You are a Vaurca Bulwark of the Hive K'lax in one of the many industrial facilities of Tret. \
 		Mine, extract and process valuable materials for the glory of the Hive K'lax.\
@@ -51,7 +51,7 @@
 	desc_ooc = null
 	max_count = 1
 
-	outfit = /obj/outfit/admin/tret_industrial/vaurca/bulwark
+	outfit = /obj/outfit/admin/cryo_outpost/vaurca/bulwark
 	possible_species = list(SPECIES_VAURCA_BULWARK)
 	uses_species_whitelist = TRUE
 
@@ -68,9 +68,9 @@
 	"
 	welcome_message_ooc = null
 
-/datum/ghostspawner/human/tret_industrial/warrior
+/datum/ghostspawner/human/cryo_outpost/warrior
 	name = "Tret Industrial Warrior"
-	short_name = "tret_industrial_warrior"
+	short_name = "cryo_outpost_warrior"
 	desc = "\
 		You are a Vaurca Warrior of the Hive K'lax, assigned to protecting one of the industrial facilities of Tret. \
 		Keep the Workers at this facility safe.\
@@ -80,7 +80,7 @@
 
 	possible_species = list(SPECIES_VAURCA_WARRIOR)
 	uses_species_whitelist = TRUE
-	outfit = /obj/outfit/admin/tret_industrial/vaurca/warrior
+	outfit = /obj/outfit/admin/cryo_outpost/vaurca/warrior
 
 	mob_name_prefix = "Za'Akaix'"
 	mob_name_suffix = " K'lax"
@@ -97,18 +97,18 @@
 
 // ---------------------- dead sinta
 
-/obj/effect/landmark/corpse/tret_industrial_sinta
+/obj/effect/landmark/corpse/cryo_outpost_sinta
 	name = "Cult Base Cultist Corpse"
 	species = list(SPECIES_UNATHI)
-	outfit = list(/obj/outfit/admin/tret_industrial/sinta)
+	outfit = list(/obj/outfit/admin/cryo_outpost/sinta)
 
-/obj/effect/landmark/corpse/tret_industrial_sinta/do_extra_customization(var/mob/living/carbon/human/human)
+/obj/effect/landmark/corpse/cryo_outpost_sinta/do_extra_customization(var/mob/living/carbon/human/human)
 	human.dir = pick(NORTH, SOUTH, EAST, WEST)
 	human.take_overall_damage(150, 20)
 
 // ---------------------- outfits
 
-/obj/outfit/admin/tret_industrial/vaurca
+/obj/outfit/admin/cryo_outpost/vaurca
 	name = "Tret Industrial Worker"
 	uniform = list(
 		/obj/item/clothing/under/vaurca,
@@ -148,16 +148,16 @@
 		/obj/item/device/radio/hailing = 1,
 	)
 
-/obj/outfit/admin/tret_industrial/get_id_access()
+/obj/outfit/admin/cryo_outpost/get_id_access()
 	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_HEPHAESTUS)
 
-/obj/outfit/admin/tret_industrial/vaurca/bulwark
+/obj/outfit/admin/cryo_outpost/vaurca/bulwark
 	name = "Tret Industrial Bulwark"
 	mask = list(/obj/item/clothing/mask/gas/vaurca/filter)
 	uniform = list(/obj/item/clothing/under/gearharness)
 	accessory = null
 
-/obj/outfit/admin/tret_industrial/vaurca/warrior
+/obj/outfit/admin/cryo_outpost/vaurca/warrior
 	name = "Tret Industrial Warrior"
 	mask = list(
 		/obj/item/clothing/mask/gas/vaurca/filter,
@@ -175,7 +175,7 @@
 	)
 	l_hand = list(/obj/item/martial_manual/vaurca)
 
-/obj/outfit/admin/tret_industrial/vaurca/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/cryo_outpost/vaurca/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
@@ -191,7 +191,7 @@
 
 // ---------------------- dead sinta outfit and fluff
 
-/obj/outfit/admin/tret_industrial/sinta
+/obj/outfit/admin/cryo_outpost/sinta
 	uniform = list(/obj/item/clothing/under/unathi/mogazali/blue, /obj/item/clothing/under/unathi/mogazali/orange)
 	wrist = /obj/item/clothing/wrists/unathi/jeweled
 	shoes = /obj/item/clothing/shoes/footwraps
@@ -199,7 +199,7 @@
 	suit = /obj/item/clothing/suit/space
 	accessory = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
 
-/obj/outfit/admin/tret_industrial/sinta/post_equip(mob/living/carbon/human/human, visualsOnly = FALSE)
+/obj/outfit/admin/cryo_outpost/sinta/post_equip(mob/living/carbon/human/human, visualsOnly = FALSE)
 	. = ..()
 
 	// add some items
@@ -210,7 +210,7 @@
 	if(prob(75))
 		human.equip_or_collect(new /obj/item/spacecash/c200, slot_in_backpack)
 	human.equip_or_collect(new /obj/item/folder/white, slot_in_backpack)
-	human.equip_or_collect(new /obj/item/paper/fluff/tret_industrial/inspection_report, slot_in_backpack)
+	human.equip_or_collect(new /obj/item/paper/fluff/cryo_outpost/inspection_report, slot_in_backpack)
 	human.equip_or_collect(new /obj/item/pen/fountain/silver, slot_in_backpack)
 	if(prob(75))
 		human.equip_or_collect(new /obj/item/spacecash/c100, slot_in_backpack)
@@ -223,7 +223,7 @@
 	human.gloves?.add_blood(human)
 	human.shoes?.add_blood(human)
 
-/obj/item/paper/fluff/tret_industrial/inspection_report
+/obj/item/paper/fluff/cryo_outpost/inspection_report
 	name = "inspection report"
 	desc = "A written, unfinished inspection report."
 	language = LANGUAGE_UNATHI
