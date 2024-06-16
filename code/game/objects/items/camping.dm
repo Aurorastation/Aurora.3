@@ -110,8 +110,10 @@
 	desc += "\nThis one is [width] x [length] in size."
 
 /obj/item/tent/Destroy()
-	if(my_tent && !my_tent.grouped_structures)
-		QDEL_NULL(my_tent)
+	if(my_tent)
+		my_tent.source_item = null
+		if(!my_tent.grouped_structures)
+			QDEL_NULL(my_tent)
 	return ..()
 
 /obj/item/tent/MouseDrop(over_object, src_location, over_location)
