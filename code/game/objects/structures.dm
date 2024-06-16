@@ -228,8 +228,7 @@
 		return 0
 	visible_message(SPAN_DANGER("[user] [attack_verb] the [src] apart!"))
 	user.do_attack_animation(src)
-	spawn(1)
-		qdel(src)
+	qdel(src)
 	return 1
 
 /obj/structure/get_material()
