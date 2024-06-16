@@ -274,6 +274,7 @@
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/research/rd,
 /obj/random/dirt_75,
+/obj/item/paper/nt_ouerea,
 /turf/simulated/floor/exoplanet/carpet/lightblue{
 	temperature = 298.15
 	},
