@@ -85,13 +85,15 @@
 		src.ispowered = 1
 		src.update_icon()
 	else
-		spawn(rand(0, 15))
-			src.ispowered = 0
-			src.islocked = 0
-			src.isopen = 1
-			src.dump_everything()
-			src.update_icon()
+		addtimer(CALLBACK(src, PROC_REF(handle_power_return)), rand(1, 15))
 
+
+/obj/machinery/suit_storage_unit/proc/handle_power_return()
+	src.ispowered = 0
+	src.islocked = 0
+	src.isopen = 1
+	src.dump_everything()
+	src.update_icon()
 
 /obj/machinery/suit_storage_unit/ex_act(severity)
 	switch(severity)

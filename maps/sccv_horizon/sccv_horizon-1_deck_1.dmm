@@ -21038,7 +21038,7 @@
 /area/hangar/auxiliary)
 "owJ" = (
 /obj/effect/map_effect/marker/mapmanip/submap/insert/sccv_horizon/ops_warehouse_small_storage,
-/turf/template_noop,
+/turf/simulated/floor/plating,
 /area/operations/storage)
 "owM" = (
 /obj/structure/shuttle_part/scc/research{
@@ -30346,7 +30346,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "uTy" = (
-/turf/template_noop,
+/turf/simulated/floor/plating,
 /area/operations/storage)
 "uTz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,

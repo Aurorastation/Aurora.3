@@ -459,9 +459,8 @@
 				shuttletarget = pick(GLOB.escape_list) //Pick a shuttle target
 			enroute = 1
 			stop_automated_movement = 1
-			spawn()
-				if(!src.stat)
-					horde()
+			if(!src.stat)
+				horde()
 
 		if(get_dist(src, shuttletarget) <= 2)		//The monster reached the escape hallway
 			enroute = 0
@@ -484,9 +483,8 @@
 	Move(T)
 	target_mob = FindTarget()
 	if(!target_mob || enroute)
-		spawn(10)
-			if(!src.stat)
-				horde()
+		if(!src.stat)
+			horde()
 
 //////////////////////////////
 ///////VALIDATOR PROCS////////

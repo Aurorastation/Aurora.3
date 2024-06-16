@@ -475,8 +475,7 @@
 		break
 	if(!throw_item)
 		return FALSE
-	spawn(0)
-		throw_item.throw_at(target,16,3,src)
+	throw_item.throw_at(target,16,3,src)
 	visible_message(SPAN_DANGER("[src] launches [throw_item.name] at [target.name]!"))
 	return TRUE
 

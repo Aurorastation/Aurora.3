@@ -10,10 +10,10 @@
 /area/miners_guild_outpost/mining)
 "aw" = (
 /obj/structure/table/rack,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/device/radio/hailing,
+/obj/item/device/radio/hailing,
+/obj/item/device/radio/hailing,
+/obj/item/device/radio/hailing,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/steel{
 	temperature = 303.15
@@ -363,11 +363,6 @@
 	},
 /area/miners_guild_outpost)
 "ge" = (
-/obj/machinery/conveyor{
-	id = "miners_guild_outpost";
-	layer = 2.9;
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -493,8 +488,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/high{
-	name = "north bump";
+/obj/machinery/power/apc/high/north{
 	req_access = null
 	},
 /obj/effect/floor_decal/corner/green{
@@ -543,11 +537,6 @@
 	},
 /area/miners_guild_outpost)
 "it" = (
-/obj/machinery/conveyor{
-	id = "miners_guild_outpost";
-	layer = 2.9;
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/railing/mapped,
 /obj/machinery/mineral/processing_unit{
@@ -1420,6 +1409,12 @@
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/entry)
+"Cv" = (
+/obj/machinery/mineral/equipment_vendor,
+/turf/simulated/floor/tiled/steel{
+	temperature = 303.15
+	},
+/area/miners_guild_outpost/mining)
 "CD" = (
 /obj/structure/table/stone,
 /obj/item/reagent_containers/food/condiment/shaker/spacespice,
@@ -1723,11 +1718,6 @@
 	},
 /area/miners_guild_outpost/engineering)
 "GM" = (
-/obj/machinery/conveyor{
-	id = "miners_guild_outpost";
-	layer = 2.9;
-	dir = 2
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -1811,11 +1801,6 @@
 	},
 /area/miners_guild_outpost/mess)
 "Hz" = (
-/obj/machinery/conveyor{
-	id = "miners_guild_outpost";
-	layer = 2.9;
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -1948,6 +1933,12 @@
 	temperature = 303.15
 	},
 /area/miners_guild_outpost/mess)
+"Kn" = (
+/obj/machinery/mineral/rigpress,
+/turf/simulated/floor/tiled/steel{
+	temperature = 303.15
+	},
+/area/miners_guild_outpost/mining)
 "Kr" = (
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
@@ -2122,11 +2113,6 @@
 	},
 /area/miners_guild_outpost/engineering)
 "PA" = (
-/obj/machinery/conveyor{
-	id = "miners_guild_outpost";
-	layer = 2.9;
-	dir = 2
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -2498,11 +2484,6 @@
 	},
 /area/miners_guild_outpost/engineering)
 "XV" = (
-/obj/machinery/conveyor{
-	id = "miners_guild_outpost";
-	layer = 2.9;
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -3493,9 +3474,9 @@ av
 fI
 gk
 VX
-gk
-gk
-gk
+Cv
+Cv
+Kn
 VX
 aw
 qN

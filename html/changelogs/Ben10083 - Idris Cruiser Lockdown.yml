@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: FluffyGhost
+author: Ben10083
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,7 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added a single-use-per-round rune that can convert a mech into a cultist mech, needs 2 minutes to do so and is single use, so max 1 cult mech per round."
-  - balance: "Added the ability to upgrade a pylon into turret mode using the cultist blood, by clicking on the pylon with disarm intent."
-  - bugfix: "Fixed do_after not using the callbacks at all (because it never passed the parameter to do_after_detailed)."
-  - code_imp: "Some improvements to the pylons and runes code, DMDocs."
+  - bugfix: "Idris Cruiser docking lockdown buttons now have access restrictions."

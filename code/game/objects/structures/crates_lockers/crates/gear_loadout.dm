@@ -87,7 +87,7 @@
 	new /obj/item/clothing/under/rank/security/pmc/epmc(src)
 	new /obj/item/clothing/under/rank/security/pmc/epmc(src)
 	new /obj/item/clothing/under/rank/security/pmc/epmc(src)
-	new /obj/item/clothing/under/rank/medical/first_responder/pmc/epmc(src)
+	new /obj/item/clothing/under/rank/medical/paramedic/pmc/epmc(src)
 	new /obj/item/clothing/under/rank/security/pmc/epmc/alt(src)
 	new /obj/item/clothing/head/beret/corporate/pmc/epmc(src)
 	new /obj/item/clothing/head/beret/corporate/pmc/epmc(src)

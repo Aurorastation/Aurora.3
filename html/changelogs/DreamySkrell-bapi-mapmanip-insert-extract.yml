@@ -1,7 +1,0 @@
-
-author: ChangeMe
-
-delete-after: True
-
-changes:
-  - rscadd: "BAPI - mapmanip insert/extract."
