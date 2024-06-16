@@ -7,24 +7,38 @@
 /obj/item/bedsheet/random,
 /turf/simulated/floor/tiled,
 /area/space)
-"e" = (
+"c" = (
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
+"e" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/warehouse)
 "f" = (
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
+"g" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/warehouse)
 "h" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/drop,
 /obj/random/civgun/rifle,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 "j" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/freezer/rations,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 "k" = (
 /turf/simulated/floor/tiled,
 /area/space)
@@ -34,8 +48,9 @@
 /obj/structure/closet/crate,
 /obj/random/loot,
 /obj/random/loot,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 "m" = (
 /obj/structure/table/steel,
 /obj/random/medical{
@@ -46,13 +61,15 @@
 "n" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/freezer/kois/rations,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 "p" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/iron/full,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 "q" = (
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/tiled,
@@ -61,8 +78,9 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse,
 /obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 "s" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
@@ -72,6 +90,13 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
 /area/space)
+"u" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/item/stack/material/steel/full,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/warehouse)
 "v" = (
 /obj/structure/closet/cabinet,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
@@ -82,6 +107,11 @@
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
 /turf/simulated/floor/tiled,
 /area/space)
+"y" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/warehouse)
 "z" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
 /turf/simulated/floor/tiled,
@@ -89,79 +119,127 @@
 "A" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/steel/full,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
+"B" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/warehouse)
 "C" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/plastic/full,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 "D" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/drop,
 /obj/random/civgun,
 /obj/random/civgun,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
+"E" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/warehouse)
+"F" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/warehouse)
+"G" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/warehouse)
 "I" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 "J" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 "K" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/glass/full,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 "L" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/space)
+"M" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/warehouse)
+"N" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/warehouse)
 "O" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
 /obj/random/loot,
 /obj/random/loot,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 "P" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 "Q" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/plastic/full,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 "R" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/largecrate,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 "S" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/graphite/full,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 "T" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/gold/full,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 "U" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 "V" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/drop,
@@ -169,8 +247,9 @@
 /obj/item/clothing/suit/armor/carrier/generic,
 /obj/item/clothing/head/helmet/security/generic,
 /obj/item/clothing/head/helmet/security/generic,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 "W" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp/off{
@@ -186,7 +265,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
-/area/space)
+/area/cryo_outpost/inside/warehouse)
 
 (1,1,1) = {"
 a
@@ -319,7 +398,7 @@ I
 a
 a
 P
-Y
+E
 f
 I
 a
@@ -370,10 +449,10 @@ f
 f
 a
 a
-f
-f
-P
-f
+N
+N
+g
+N
 a
 a
 a
@@ -422,10 +501,10 @@ e
 e
 a
 a
-e
-e
-e
-e
+y
+B
+B
+y
 a
 a
 a
@@ -474,10 +553,10 @@ e
 e
 a
 a
-e
-e
-e
-e
+y
+B
+B
+y
 a
 a
 a
@@ -526,10 +605,10 @@ f
 f
 a
 a
-f
-f
-f
-f
+N
+F
+F
+N
 a
 a
 a
@@ -578,7 +657,7 @@ R
 f
 a
 a
-Y
+E
 P
 f
 P
@@ -730,7 +809,7 @@ a
 a
 Y
 Y
-f
+M
 U
 a
 a
@@ -775,15 +854,15 @@ a
 a
 a
 f
-f
-f
-f
+N
+N
+N
 a
 a
 f
-f
+M
 Y
-f
+M
 a
 a
 f
@@ -827,18 +906,18 @@ a
 a
 a
 e
-e
-e
-e
+y
+y
+y
 a
 a
 e
 e
-e
-e
+c
+c
 a
 a
-e
+y
 e
 e
 e
@@ -879,20 +958,20 @@ a
 a
 a
 e
-e
-e
-e
+y
+y
+y
 a
 a
 e
+y
 e
-e
-e
+c
 a
 a
 e
-e
-e
+y
+y
 e
 a
 a
@@ -932,19 +1011,19 @@ a
 a
 f
 f
-Y
+E
 f
 a
 a
 f
 f
-Y
-f
+E
+M
 a
 a
 f
 p
-A
+u
 A
 a
 a
@@ -982,14 +1061,14 @@ a
 a
 a
 a
-Y
-Y
-Y
-Y
+E
+E
+E
+E
 a
 a
 f
-Y
+E
 f
 Y
 a
@@ -1202,9 +1281,9 @@ f
 V
 a
 a
-P
-f
-f
+g
+N
+N
 f
 a
 a
@@ -1248,15 +1327,15 @@ e
 e
 a
 a
-e
-e
-e
+B
+B
+y
 e
 a
 a
-e
-e
-e
+y
+y
+y
 e
 a
 a
@@ -1300,9 +1379,9 @@ e
 e
 a
 a
-e
-e
-e
+B
+G
+B
 e
 a
 a
@@ -1352,9 +1431,9 @@ O
 O
 a
 a
-f
-f
-f
+N
+F
+N
 f
 a
 a

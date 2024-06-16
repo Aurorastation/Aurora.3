@@ -97,16 +97,24 @@
 
 // ------------- engineering
 
+/area/cryo_outpost/inside/warehouse
+	name = "Warehouse"
+	icon_state = "storage"
+
 /area/cryo_outpost/inside/engineering
 	name = "Engineering"
 	icon_state = "engineering"
 
 /area/cryo_outpost/inside/engi_storage
-	name = "Engineering Storage"
+	name = "Engineering, Storage"
 	icon_state = "engineering"
 
-/area/cryo_outpost/inside/atmos
-	name = "Atmospherics"
+/area/cryo_outpost/inside/engi_powergen
+	name = "Engineering, Power Generation"
+	icon_state = "engineering"
+
+/area/cryo_outpost/inside/engi_atmos
+	name = "Engineering, Atmospherics"
 	icon_state = "engineering"
 
 // ------------------------- shuttle
