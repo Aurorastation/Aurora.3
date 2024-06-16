@@ -161,7 +161,7 @@
 /obj/item/storage/box/fancy/vkrexi_swollen_organ/update_icon()
 	. = ..()
 	if(opened)
-		if(contents.len == 0)
+		if(!length(contents))
 			icon_state = "vkrexi_swollen_organ_empty"
 		else
 			icon_state = "vkrexi_swollen_organ"
