@@ -51,6 +51,8 @@ var/list/mimic_defines = list(
 #define ATOM_FLAG_HTML_USE_INITIAL_ICON FLAG(6)
 /// If a dense atom like a platform does not allow movement through it like a window pane BUT allows pickup.
 #define ATOM_FLAG_ALWAYS_ALLOW_PICKUP FLAG(7)
+/// A reagent container that can dispense when being attacked by another container.
+#define ATOM_FLAG_DISPENSER FLAG(8)
 
 #define ATOM_AWAITING_OVERLAY_UPDATE FLAG(10)
 

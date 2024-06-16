@@ -48,6 +48,15 @@
 
 	///Vertical offset in pixel used as a baseline for the runechat images (chat text above the mob when it talks)
 	var/floating_chat_y_offset = 8
+
+	// special consideration should be made when adding new emote types to different species, as they'll be able to initiate it, but their target might not be able to
+	// reciprocate the emote in any way
+	/// An associated list of list, where a list of body parts are the key for a specific emote (ex: list(BP_L_ARM, BP_R_ARM) = /singleton/overhead_emote/highfive)
+	var/list/overhead_emote_types = list(
+		list(BP_L_ARM, BP_R_ARM) = /singleton/overhead_emote/highfive,
+		list(BP_L_HAND, BP_R_HAND) = /singleton/overhead_emote/fistbump
+	)
+
 	var/eyes = "eyes_s"                                  // Icon for eyes.
 	var/eyes_icons = 'icons/mob/human_face/eyes.dmi'     // DMI file for eyes, mostly for none 32x32 species.
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)

@@ -670,7 +670,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
  *
  */
 /proc/do_after(mob/user, delay, atom/target, do_flags = DO_DEFAULT, incapacitation_flags = INCAPACITATION_DEFAULT, datum/callback/extra_checks)
-	return !do_after_detailed(user, delay, target, do_flags, incapacitation_flags)
+	return !do_after_detailed(user, delay, target, do_flags, incapacitation_flags, extra_checks)
 
 /**
  * See [/proc/do_after]

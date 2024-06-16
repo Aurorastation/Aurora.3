@@ -1904,7 +1904,7 @@
 "ahy" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
+/area/tret_industrial/inside/hallway_medical)
 "ahD" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/exoplanet/basalt/tret,
@@ -9131,6 +9131,10 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
+"inm" = (
+/obj/abstract/weather_marker/tret,
+/turf/simulated/floor/tiled/gunmetal,
+/area/tret_industrial/inside/comms)
 "inI" = (
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/tret_industrial/main)
@@ -45199,11 +45203,11 @@ ajW
 ajW
 ajW
 ajW
-ahy
+efU
 ebo
 aFw
 iee
-ahy
+efU
 ajW
 ajW
 ajW
@@ -45456,11 +45460,11 @@ ajW
 ajW
 ajW
 ajW
-ahy
+efU
 iee
 aFw
 iee
-ahy
+efU
 ajW
 ajW
 ajW
@@ -45717,7 +45721,7 @@ ahy
 awo
 aFw
 iee
-ahy
+efU
 ajW
 ajW
 ajW
@@ -45974,7 +45978,7 @@ ahy
 awo
 gSL
 iee
-ahy
+efU
 ajW
 ajW
 ajW
@@ -48269,7 +48273,7 @@ arD
 arD
 azK
 aLp
-gLI
+inm
 ars
 aEx
 hCb

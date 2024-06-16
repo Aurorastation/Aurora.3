@@ -25,8 +25,8 @@
 	belt = list(
 		/obj/item/storage/belt/medical/full,
 		/obj/item/storage/belt/medical/full/inaprov,
-		/obj/item/storage/belt/medical/first_responder/full,
-		/obj/item/storage/belt/medical/first_responder/combat/full,
+		/obj/item/storage/belt/medical/paramedic/full,
+		/obj/item/storage/belt/medical/paramedic/combat/full,
 	)
 	glasses = list(
 		/obj/item/clothing/glasses/hud/health,
