@@ -731,7 +731,7 @@
 	return 0
 
 /atom/movable/proc/get_floating_chat_y_offset()
-	return 0
+	return 8
 
 /atom/movable/proc/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
 	return TRUE
