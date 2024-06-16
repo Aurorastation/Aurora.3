@@ -150,7 +150,7 @@ var/list/channel_to_radio_key = new
 			I.talk_into(src, message, verb, speaking)
 
 	if(message_mode == "whisper" && !whisper)
-		whisper(message, speaking)
+		whisper(message, speaking, say_verb = TRUE)
 		return TRUE
 
 	return FALSE
@@ -185,7 +185,7 @@ var/list/channel_to_radio_key = new
 	return "statement"
 
 
-/mob/living/say(var/message, var/datum/language/speaking = null, var/verb, var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/living/say(var/message, var/datum/language/speaking = null, var/verb, var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	if(stat)
 		if(stat == DEAD)
 			return say_dead(message)
@@ -252,7 +252,7 @@ var/list/channel_to_radio_key = new
 
 	message = trim_left(message)
 	var/message_range = world.view
-	if(!(speaking && (speaking.flags & NO_STUTTER)))
+	if(!skip_edit && !(speaking && (speaking.flags & NO_STUTTER)))
 		message = handle_autohiss(message, speaking)
 		var/list/hsp_params = handle_speech_problems(message, verb, message_mode, message_range)
 		if(hsp_params)

@@ -22,3 +22,7 @@
 	name = "Research Director's Log"
 	info = "I fucking hate this place. The other day, one of my scientists somehow managed to wind up, in the process of a standard dissection, cutting his own fucking arm off. \
 	I thought NanoTrasen was supposed to hire the best and brightest of the Spur? At least I have you, Special Reserve..."
+
+/obj/item/research_slip/nt_ouerea
+	desc = "A small slip of plastic with an embedded chip. It is commonly used to store small amounts of research data. This one appears worn down from age. Why did they leave this behind?"
+	origin_tech = list(TECH_BLUESPACE = 6, TECH_MAGNET = 3, TECH_ARCANE = 1)

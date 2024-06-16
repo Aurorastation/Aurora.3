@@ -8,28 +8,37 @@
 	slowdown = 5
 
 	var/icon_door = null
-	var/icon_door_override = FALSE //override to have open overlay use icon different to its base's
-	var/icon_door_overlay = "" //handles secure locker overlays like the locking lights
+	/// Override to have open overlay use icon different to its base's
+	var/icon_door_override = FALSE
+	/// Handles secure locker overlays like the locking lights
+	var/icon_door_overlay = ""
 
-	var/secure = FALSE //secure locker or not. typically it shouldn't need lights if it's insecure
-	var/secure_lights = FALSE // whether to display secure lights when open.
+	/// Secure locker or not. typically it shouldn't need lights if it's insecure
+	var/secure = FALSE
+	/// Whether to display secure lights when open.
+	var/secure_lights = FALSE
 	var/opened = FALSE
 	var/welded = FALSE
 	var/locked = FALSE
 	var/broken = FALSE
 
-	var/large = TRUE // if you can shove people in it
-	var/canbemoved = FALSE // if it can be moved by people using the right tools. basically means if you can change the anchored var.
-	var/screwed = TRUE // if its screwed in place
-	var/wrenched = TRUE // if its wrenched down
+	/// If you can shove people in it.
+	var/large = TRUE
+	/// If it can be moved by people using the right tools. basically means if you can change the anchored var.
+	var/canbemoved = FALSE
+	/// If its screwed in place
+	var/screwed = TRUE
+	/// If its wrenched down
+	var/wrenched = TRUE
 
-	var/wall_mounted = FALSE //never solid (You can always pass over it)
+	/// Never solid (You can always pass over it)
+	var/wall_mounted = FALSE
 	var/health = 100
-	var/breakout = 0 //if someone is currently breaking out. mutex
+	/// If someone is currently breaking out. mutex
+	var/breakout = 0
 
+	/// This is so that someone can't pack hundreds of items in a locker/crate then open it in a populated area to crash clients.
 	var/storage_capacity = 45 //Tying this to mob sizes was dumb
-	//This is so that someone can't pack hundreds of items in a locker/crate
-							//then open it in a populated area to crash clients.
 
 	var/open_sound = 'sound/effects/closet_open.ogg'
 	var/close_sound = 'sound/effects/closet_close.ogg'
@@ -51,12 +60,18 @@
 	var/obj/effect/overlay/closet_door/door_obj
 	var/obj/effect/overlay/closet_door/door_obj_alt
 	var/is_animating_door = FALSE
-	var/door_underlay = FALSE //used if you want to have an overlay below the door. used for guncabinets.
-	var/door_anim_squish = 0.12 // Multiplier on proc/get_door_transform. basically, how far you want this to swing out. value of 1 means the length of the door is unchanged (and will swing out of the tile), 0 means it will just slide back and forth.
+
+	/// Used if you want to have an overlay below the door. used for guncabinets.
+	var/door_underlay = FALSE
+	/// Multiplier on proc/get_door_transform. basically, how far you want this to swing out. value of 1 means the length of the door is unchanged (and will swing out of the tile), 0 means it will just slide back and forth.
+	var/door_anim_squish = 0.12
 	var/door_anim_angle = 147
-	var/door_hinge = -6.5 // for closets, x away from the centre of the closet. typically good to add a 0.5 so it's centered on the edge of the closet.
-	var/door_hinge_alt = 6.5 // for closets with two doors. why a seperate var? because some closets may be weirdly shaped or something.
-	var/door_anim_time = 2.5 // set to 0 to make the door not animate at all
+	/// For closets, x away from the centre of the closet. typically good to add a 0.5 so it's centered on the edge of the closet.
+	var/door_hinge = -6.5
+	/// For closets with two doors. why a seperate var? because some closets may be weirdly shaped or something.
+	var/door_hinge_alt = 6.5
+	/// Set to 0 to make the door not animate at all
+	var/door_anim_time = 2.5
 
 
 /obj/structure/closet/LateInitialize()
@@ -85,7 +100,7 @@
 		verbs += /obj/structure/closet/proc/verb_togglelock
 	return mapload ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_NORMAL
 
-// Fill lockers with this.
+/// Fill lockers with this.
 /obj/structure/closet/proc/fill()
 
 /obj/structure/closet/proc/content_info(mob/user, content_size)

@@ -1715,7 +1715,7 @@
 /area/tarwa_ship/gun)
 "zg" = (
 /obj/machinery/light,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/reagent_containers/hypospray,
 /obj/structure/table/rack,
 /obj/item/storage/firstaid/fire{

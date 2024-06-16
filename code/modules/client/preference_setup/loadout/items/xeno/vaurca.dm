@@ -76,6 +76,12 @@
 	capes["tunnel cloak, cargo"] = /obj/item/storage/backpack/cloak/cargo
 	capes["tunnel cloak, science"] = /obj/item/storage/backpack/cloak/sci
 	capes["tunnel cloak, security"] = /obj/item/storage/backpack/cloak/sec
+	capes["tunnel cloak, NanoTrasen"] = /obj/item/storage/backpack/cloak/nt
+	capes["tunnel cloak, Orion Express"] = /obj/item/storage/backpack/cloak/orion
+	capes["tunnel cloak, Hephaestus Industries"] = /obj/item/storage/backpack/cloak/heph
+	capes["tunnel cloak, Zavodskoi Interstellar"] = /obj/item/storage/backpack/cloak/zavod
+	capes["tunnel cloak, Zeng-Hu Pharmaceuticals"] = /obj/item/storage/backpack/cloak/zeng
+	capes["tunnel cloak, Ve'katak Phalanx"] = /obj/item/storage/backpack/cloak/phalanx
 	gear_tweaks += new /datum/gear_tweak/path(capes)
 
 /datum/gear/vaurca_robe
@@ -279,17 +285,17 @@
 	path = /obj/item/organ/external/hand/right/vaurca/medical
 	whitelisted = list(SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER)
 	sort_category = "Xenowear - Vaurca"
-	allowed_roles = list("Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Pharmacist", "Medical Personnel")
+	allowed_roles = list("Physician", "Surgeon", "Paramedic", "Medical Intern", "Psychiatrist", "Pharmacist", "Medical Personnel")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/vaurcamag
 	display_name = "vaurca integrated mag-claws"
 	description = "An integrated magnetic grip system, designed for Vaurcae without easy access to magboots."
 	cost = 2
-	path = /obj/item/organ/internal/augment/tool/vaurcamag
+	path = /obj/item/organ/internal/augment/vaurca_mag
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
-	allowed_roles = list("Shaft Miner", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Xenoarchaeologist", "Engineering Personnel", "Operations Personnel", "First Responder", "Medical Personnel")
+	allowed_roles = list("Shaft Miner", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Xenoarchaeologist", "Engineering Personnel", "Operations Personnel", "Paramedic", "Medical Personnel")
 
 /datum/gear/accessory/tret_passcard
 	display_name = "tret passcard"

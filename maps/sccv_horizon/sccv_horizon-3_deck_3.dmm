@@ -16494,9 +16494,7 @@
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
-/obj/effect/landmark/start{
-	name = "First Responder"
-	},
+/obj/effect/landmark/start,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
 "llA" = (
@@ -19775,10 +19773,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "nrw" = (
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
 /obj/item/storage/belt/medical{
@@ -26566,7 +26564,7 @@
 	dir = 10
 	},
 /obj/effect/landmark/start{
-	name = "First Responder"
+	name = "Paramedic"
 	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
