@@ -876,6 +876,17 @@
 	temperature = 303.15
 	},
 /area/moghes_vihnmes)
+"IN" = (
+/obj/structure/cargo_receptacle{
+	max_spawn = 2;
+	min_spawn = 0;
+	override_name = "Moghes - Vihnmes Inn";
+	payment_modifier = 1.8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "IW" = (
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 8
@@ -1499,7 +1510,7 @@ dY
 Hc
 LS
 VJ
-xh
+IN
 xh
 xh
 xh
