@@ -20,6 +20,66 @@
 /obj/structure/table/rack/retail_shelf{
 	name = "shelves"
 	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/maglight{
+	pixel_y = -9
+	},
+/obj/item/device/gps{
+	pixel_x = 5
+	},
+/obj/item/device/gps{
+	pixel_x = 5
+	},
+/obj/item/device/gps{
+	pixel_x = 5
+	},
+/obj/item/device/gps{
+	pixel_x = 5
+	},
+/obj/item/device/gps{
+	pixel_x = 5
+	},
+/obj/item/device/gps{
+	pixel_x = 5
+	},
+/obj/item/device/gps{
+	pixel_x = 5
+	},
+/obj/item/device/gps{
+	pixel_x = 5
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "bb" = (
@@ -63,6 +123,29 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"ck" = (
+/obj/machinery/recharger/wallcharger{
+	layer = 3.3;
+	pixel_x = 2;
+	pixel_y = 18
+	},
+/obj/machinery/recharger/wallcharger{
+	layer = 3.3;
+	pixel_x = 2;
+	pixel_y = 28
+	},
+/obj/machinery/recharger/wallcharger{
+	layer = 3.3;
+	pixel_x = 22;
+	pixel_y = 18
+	},
+/obj/machinery/recharger/wallcharger{
+	layer = 3.3;
+	pixel_x = 22;
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "cs" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -123,6 +206,36 @@
 "ew" = (
 /obj/effect/floor_decal/spline/plain/orange,
 /turf/simulated/floor/carpet/rubber,
+/area/space)
+"eX" = (
+/obj/structure/table/rack/retail_shelf{
+	name = "shelves"
+	},
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/clothing/accessory/armband/sec,
+/obj/item/device/hand_labeler{
+	pixel_y = 14
+	},
+/obj/item/device/hand_labeler{
+	pixel_y = 14
+	},
+/obj/item/device/hand_labeler{
+	pixel_y = 14
+	},
+/obj/item/device/hand_labeler{
+	pixel_y = 14
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "fk" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -428,6 +541,108 @@
 /obj/machinery/smartfridge/secure/medbay,
 /turf/simulated/floor/carpet/rubber,
 /area/space)
+"qJ" = (
+/obj/structure/table/rack/retail_shelf{
+	name = "shelves"
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/device/radio/off{
+	pixel_y = 5;
+	pixel_x = 7
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 5;
+	pixel_x = -4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "qK" = (
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -509,6 +724,12 @@
 /obj/item/auto_cpr,
 /obj/item/auto_cpr,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"ts" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "tW" = (
 /obj/effect/floor_decal/spline/plain/corner/green{
@@ -788,6 +1009,19 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"FS" = (
+/obj/machinery/recharger/wallcharger{
+	layer = 3.3;
+	pixel_x = 10;
+	pixel_y = 18
+	},
+/obj/machinery/recharger/wallcharger{
+	layer = 3.3;
+	pixel_x = 10;
+	pixel_y = 28
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "Gu" = (
 /obj/machinery/light{
 	dir = 4
@@ -813,6 +1047,8 @@
 /obj/item/ammo_magazine/a556/ap,
 /obj/item/recharger_backpack,
 /obj/item/cell/super,
+/obj/item/device/gps,
+/obj/item/clothing/accessory/holster/armpit,
 /turf/simulated/floor/tiled,
 /area/space)
 "Ix" = (
@@ -992,6 +1228,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"QN" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "QX" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
@@ -1095,6 +1337,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"Tf" = (
+/obj/structure/closet/wardrobe/red,
+/turf/simulated/floor/tiled,
+/area/space)
 "TA" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/regular{
@@ -1167,6 +1413,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"TN" = (
+/obj/machinery/door/window/brigdoor/northleft{
+	req_access = list(2)
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "Ua" = (
 /obj/machinery/chemical_dispenser/full{
 	dir = 1
@@ -1219,6 +1471,15 @@
 /area/space)
 "VN" = (
 /turf/simulated/floor/tiled/white,
+/area/space)
+"Wh" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "XE" = (
 /obj/structure/table/standard,
@@ -5332,12 +5593,12 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
-MF
+BE
+BE
+BE
+BE
+BE
+BE
 MF
 MF
 MF
@@ -5535,10 +5796,10 @@ MF
 MF
 MF
 BE
-BE
-BE
-BE
-BE
+Ix
+Ix
+ts
+Ix
 BE
 MF
 MF
@@ -5739,7 +6000,7 @@ MF
 BE
 Ix
 Ix
-Ix
+TN
 Ix
 BE
 MF
@@ -5941,8 +6202,8 @@ MF
 BE
 Ix
 Ix
-Ix
-Ix
+Wh
+QN
 BE
 MF
 MF
@@ -6143,7 +6404,7 @@ MF
 BE
 Ix
 Ix
-Ix
+TN
 Ix
 BE
 MF
@@ -6345,8 +6606,8 @@ MF
 BE
 Ix
 Ix
-Ix
-Ix
+Wh
+QN
 BE
 MF
 MF
@@ -6547,7 +6808,7 @@ MF
 BE
 Ix
 Ix
-Ix
+TN
 Ix
 BE
 MF
@@ -6749,8 +7010,8 @@ MF
 BE
 Ix
 Ix
-Ix
-Ix
+Wh
+QN
 BE
 MF
 MF
@@ -6951,7 +7212,7 @@ MF
 BE
 Ix
 Ix
-Ix
+TN
 Ix
 BE
 MF
@@ -7351,8 +7612,8 @@ cs
 Mu
 fk
 yu
-Ix
-Ix
+Tf
+Tf
 Ix
 Ix
 Ix
@@ -7549,7 +7810,7 @@ MF
 MF
 MF
 BE
-Ix
+ck
 Ix
 Ix
 Ix
@@ -7751,7 +8012,7 @@ MF
 MF
 MF
 BE
-Ix
+FS
 Ix
 Ix
 Ix
@@ -7955,8 +8216,8 @@ MF
 BE
 DZ
 DZ
-aR
-aR
+qJ
+eX
 aR
 Ix
 Ix
