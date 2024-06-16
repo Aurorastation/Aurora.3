@@ -590,6 +590,10 @@ update_flag
 	. = ..()
 	src.air_contents.temperature = 283
 
+/obj/machinery/portable_atmospherics/canister/air/warm/Initialize()
+	. = ..()
+	src.air_contents.temperature = 303.15
+
 /obj/machinery/portable_atmospherics/canister/chlorine/antag // Keeping the chlorine canister with the skull on it seems fun for antags.
 	name = "Canister: \[Cl2\]"
 	icon_state = "poisonous"

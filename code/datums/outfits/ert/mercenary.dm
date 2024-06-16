@@ -41,7 +41,7 @@
 	name = "Mercenary Freelancer Medic"
 
 	glasses = /obj/item/clothing/glasses/hud/health/aviator
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	gloves = /obj/item/clothing/gloves/latex
 
 	backpack_contents = list(
