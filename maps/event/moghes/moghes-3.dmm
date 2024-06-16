@@ -14,6 +14,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"ab" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/asteroid,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ac" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -25,6 +33,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"ad" = (
+/obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ae" = (
 /obj/machinery/door/airlock/glass/tirakqi{
 	name = "Pharmacy"
@@ -207,6 +222,22 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"ay" = (
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/vehicle/train/cargo/trolley/mining,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/item/broken_device{
+	pixel_y = -8;
+	pixel_x = 8
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "az" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -231,6 +262,15 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"aB" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "aC" = (
 /obj/effect/floor_decal/spline/plain{
 	color = "#b6efe1";
@@ -299,7 +339,11 @@
 /area/new_blades/underground)
 "aH" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/asphalt,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
 /area/new_blades/underground)
 "aI" = (
 /obj/structure/flora/tree/desert/tiny{
@@ -456,6 +500,16 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"ba" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt2";
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "bb" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -588,6 +642,16 @@
 /obj/item/gun/projectile/shotgun/wallgun,
 /turf/unsimulated/floor,
 /area/new_blades/interiors)
+"br" = (
+/obj/structure/table/wood,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "bs" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -892,6 +956,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"bY" = (
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "bZ" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -1063,6 +1137,16 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"cq" = (
+/obj/random/dirt_75,
+/obj/item/ore/iron{
+	pixel_x = -8;
+	pixel_y = 10
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "cr" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/concrete{
@@ -1260,6 +1344,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"cO" = (
+/obj/random/dirt_75,
+/obj/item/ore/iron{
+	pixel_y = 8;
+	pixel_x = -5
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "cP" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/concrete/large/cee{
@@ -1295,6 +1389,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"cS" = (
+/obj/random/dirt_75,
+/obj/item/ore/aluminium{
+	pixel_y = 5;
+	pixel_x = 6
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "cT" = (
 /turf/simulated/floor/asphalt{
 	temperature = 315.15
@@ -1521,6 +1625,14 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"dq" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/track,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "dr" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
@@ -1547,6 +1659,17 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"dv" = (
+/obj/random/dirt_75,
+/obj/item/arrow/rod{
+	pixel_x = -2;
+	pixel_y = -8
+	},
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "dw" = (
 /obj/machinery/light{
 	dir = 8
@@ -1672,6 +1795,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"dK" = (
+/obj/random/dirt_75,
+/obj/vehicle/train/cargo/trolley/mining,
+/turf/simulated/floor/exoplanet/mineral{
+	temperature = 315.15
+	},
+/area/new_blades)
 "dL" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1721,6 +1851,25 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"dS" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"dT" = (
+/obj/random/dirt_75,
+/obj/structure/pit,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "dV" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -1741,6 +1890,12 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"dX" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "dY" = (
 /obj/effect/floor_decal/spline/plain{
 	color = "#b6efe1";
@@ -1750,6 +1905,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"dZ" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ea" = (
 /obj/effect/floor_decal/concrete{
 	dir = 10
@@ -1758,6 +1920,14 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"ec" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/material/shard/shrapnel,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ed" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1778,6 +1948,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"ef" = (
+/obj/random/dirt_75,
+/obj/structure/track,
+/turf/simulated/floor/exoplanet/mineral{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "eg" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1797,6 +1974,27 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"ei" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"ej" = (
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ek" = (
 /obj/structure/table/standard{
 	flipped = 1;
@@ -1959,6 +2157,20 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"eE" = (
+/obj/random/dirt_75,
+/obj/item/arrow/rod{
+	pixel_x = 9;
+	pixel_y = 1
+	},
+/obj/item/ore/aluminium{
+	pixel_y = 7;
+	pixel_x = -8
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "eF" = (
 /obj/machinery/door/airlock/multi_tile/glass/tirakqi{
 	name = "Hydroponics";
@@ -2008,6 +2220,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"eK" = (
+/obj/random/dirt_75,
+/obj/item/ore/coal{
+	pixel_y = 6;
+	pixel_x = -4
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "eL" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/barricade_stacks.dmi';
@@ -2207,6 +2429,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"fj" = (
+/obj/effect/floor_decal/asteroid,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "fk" = (
 /obj/effect/floor_decal/concrete/large{
 	dir = 1
@@ -2277,6 +2506,12 @@
 "fq" = (
 /turf/simulated/floor/sidewalk/dark/grid,
 /area/new_blades)
+"fr" = (
+/obj/item/trash/match,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "fs" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
@@ -2298,6 +2533,13 @@
 /obj/item/material/shard,
 /turf/simulated/floor/sidewalk/blocks,
 /area/new_blades/underground)
+"fv" = (
+/obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/exoplanet/mineral{
+	temperature = 315.15
+	},
+/area/new_blades)
 "fw" = (
 /obj/random/dirt_75,
 /obj/machinery/light,
@@ -2395,7 +2637,8 @@
 	},
 /area/new_blades)
 "fF" = (
-/turf/simulated/floor/exoplanet/asphalt,
+/obj/random/dirt_75,
+/turf/simulated/mineral/planet,
 /area/new_blades/underground)
 "fG" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -2429,6 +2672,19 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"fJ" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/rope_railing{
+	dir = 8
+	},
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "fK" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/generic,
@@ -2549,6 +2805,13 @@
 /mob/living/carbon/human/unathi,
 /turf/unsimulated/floor,
 /area/new_blades/interiors)
+"fV" = (
+/obj/random/dirt_75,
+/obj/structure/track,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "fW" = (
 /obj/structure/bed/stool/hover{
 	dir = 8
@@ -2749,6 +3012,18 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"gk" = (
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 1
+	},
+/obj/item/arrow/rod,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "gl" = (
 /obj/machinery/telecomms/server/presets/service,
 /turf/unsimulated/floor,
@@ -2834,6 +3109,20 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"gw" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 4
+	},
+/obj/item/ore/iron,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "gx" = (
 /obj/structure/table/wood,
 /obj/random/dirt_75,
@@ -2849,6 +3138,20 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"gy" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 1
+	},
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "gz" = (
 /obj/machinery/hologram/holopad,
 /obj/effect/floor_decal/spline/plain/black,
@@ -3003,6 +3306,14 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"gS" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post,
+/obj/structure/rope_railing,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "gU" = (
 /obj/structure/table/standard,
 /obj/item/material/kitchen/utensil/fork/chopsticks,
@@ -3153,6 +3464,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
+"hi" = (
+/obj/item/trash/match,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "hj" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -3520,6 +3838,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"hR" = (
+/obj/item/trash/can,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "hS" = (
 /obj/random/dirt_75,
 /obj/structure/trash_pile,
@@ -3544,6 +3868,24 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"hV" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/structure/table/wood,
+/obj/item/pickaxe/drill/weak{
+	pixel_y = 6;
+	pixel_x = -2
+	},
+/obj/item/device/flashlight/lantern/on{
+	pixel_y = 4;
+	pixel_x = 4
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "hW" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/barricade_stacks.dmi';
@@ -3551,6 +3893,32 @@
 	name = "metal debris"
 	},
 /turf/simulated/floor/wood/maple{
+	temperature = 315.15
+	},
+/area/new_blades)
+"hX" = (
+/obj/structure/table/wood,
+/obj/item/crowbar/red{
+	pixel_x = -1;
+	pixel_y = 5
+	},
+/obj/item/storage/bag/ore{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/item/device/flashlight/flare{
+	pixel_x = 1;
+	pixel_y = -11
+	},
+/obj/item/device/flashlight/flare{
+	pixel_x = -4;
+	pixel_y = -11
+	},
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/mineral{
 	temperature = 315.15
 	},
 /area/new_blades)
@@ -3612,6 +3980,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
+"ie" = (
+/obj/random/dirt_75,
+/obj/item/stack/rods,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "if" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/detail{
@@ -3757,6 +4133,19 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"it" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/item/ore/iron{
+	pixel_y = -6;
+	pixel_x = 7
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "iu" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
@@ -3809,6 +4198,23 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"iz" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "iA" = (
 /obj/structure/table/skrell,
 /obj/item/reagent_containers/food/drinks/jyalra{
@@ -3830,6 +4236,14 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"iC" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "iD" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -4054,6 +4468,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
+"iY" = (
+/obj/random/dirt_75,
+/obj/item/arrow/rod{
+	pixel_x = 5;
+	pixel_y = -7
+	},
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "iZ" = (
 /obj/structure/bed,
 /obj/item/bedsheet/black,
@@ -4149,6 +4574,21 @@
 /obj/machinery/light/broken,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
+"jd" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/asteroid,
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_x = -8;
+	pixel_y = -4
+	},
+/obj/item/ore/iron{
+	pixel_x = 13;
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "je" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gridded{
@@ -4247,6 +4687,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
+"jp" = (
+/obj/structure/rope_post{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "jq" = (
 /obj/item/trash/board,
 /turf/simulated/floor/wood/maple{
@@ -4259,6 +4707,16 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
+"js" = (
+/obj/random/dirt_75,
+/obj/item/arrow/rod{
+	pixel_y = 6;
+	pixel_x = 10
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "jt" = (
 /turf/simulated/wall,
 /area/new_blades/underground)
@@ -4343,6 +4801,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
+"jB" = (
+/obj/random/dirt_75,
+/obj/item/ore/aluminium{
+	pixel_y = -6;
+	pixel_x = 3
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "jC" = (
 /obj/item/stack/material/steel,
 /turf/simulated/floor/wood/maple{
@@ -4396,6 +4864,11 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
+"jJ" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/beach/sand,
+/area/new_blades/underground)
 "jK" = (
 /obj/item/paper/crumpled{
 	pixel_x = 5;
@@ -4584,6 +5057,20 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"ke" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 4
+	},
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "kf" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline_door/yellow{
@@ -4827,6 +5314,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
+"kE" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "kF" = (
 /obj/effect/decal/cleanable/blood/drip{
 	color = "#0081CD";
@@ -4967,6 +5461,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"kV" = (
+/obj/random/dirt_75,
+/obj/item/arrow/rod{
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "kW" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -5375,6 +5878,28 @@
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/new_blades/underground)
+"lJ" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/rope_post,
+/obj/structure/rope_railing,
+/obj/structure/rope_railing{
+	dir = 8
+	},
+/obj/structure/rope_post{
+	dir = 8
+	},
+/obj/item/ore/aluminium{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "lK" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
@@ -5468,6 +5993,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"lR" = (
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "lS" = (
 /obj/effect/floor_decal/concrete/large,
 /obj/effect/floor_decal/concrete{
@@ -5535,9 +6070,9 @@
 /area/new_blades)
 "ma" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/device/flashlight/lamp/off,
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
@@ -5634,6 +6169,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
+"ml" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/arrow/rod,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "mm" = (
 /obj/machinery/optable,
 /turf/simulated/floor/concrete{
@@ -5676,6 +6220,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
+"ms" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "mt" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -5699,6 +6254,17 @@
 "mv" = (
 /obj/structure/table/rack/retail_shelf,
 /turf/simulated/floor/wood/maple{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"mw" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/asteroid,
+/obj/item/pickaxe{
+	pixel_x = 8;
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -5812,6 +6378,16 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"mG" = (
+/obj/item/arrow/rod{
+	pixel_x = -10;
+	pixel_y = -10
+	},
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "mH" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
@@ -6025,6 +6601,19 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"nf" = (
+/obj/random/dirt_75,
+/obj/item/stack/rods{
+	pixel_y = -7;
+	pixel_x = -8
+	},
+/obj/item/ore/lead{
+	pixel_x = 9
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "nh" = (
 /obj/item/device/flashlight/lantern,
 /turf/simulated/floor/exoplanet/desert{
@@ -6127,6 +6716,11 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"ns" = (
+/obj/random/dirt_75,
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/redgrid,
+/area/new_blades/underground)
 "nt" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/generic,
@@ -6134,6 +6728,17 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"nu" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/asteroid,
+/obj/item/pickaxe/drill/weak{
+	pixel_x = -10;
+	pixel_y = -10
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "nv" = (
 /obj/random/dirt_75,
 /obj/item/broken_bottle{
@@ -6210,6 +6815,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"nF" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/ore/iron{
+	pixel_y = -4
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "nG" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/concrete{
@@ -6219,6 +6834,19 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"nH" = (
+/obj/item/pickaxe{
+	pixel_y = -6;
+	pixel_x = -8
+	},
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "nI" = (
 /obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 1
@@ -6327,6 +6955,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"nT" = (
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt2";
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "nU" = (
 /obj/structure/bed/stool/chair/sofa/corner/concave/beige{
 	dir = 4
@@ -6344,6 +6981,16 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"nW" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt3";
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "nX" = (
 /obj/random/dirt_75,
 /obj/structure/table/wood,
@@ -6472,6 +7119,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"ol" = (
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "om" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -6681,6 +7334,18 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"oH" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/rope_railing{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "oI" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
@@ -6749,6 +7414,20 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"oS" = (
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/obj/item/ore/iron{
+	pixel_x = -8;
+	pixel_y = -1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "oT" = (
 /obj/structure/bed/stool/chair/office/bridge,
 /obj/effect/landmark/force_spawnpoint{
@@ -6862,6 +7541,13 @@
 	},
 /turf/simulated/floor/concrete,
 /area/new_blades/interiors)
+"pf" = (
+/obj/random/dirt_75,
+/obj/structure/track,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "pg" = (
 /obj/random/dirt_75,
 /obj/machinery/door/airlock/hatch/broken,
@@ -6901,11 +7587,39 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"pk" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/rope_railing{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "pl" = (
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 315.15
 	},
 /area/new_blades)
+"pm" = (
+/obj/random/dirt_75,
+/obj/item/material/shard/shrapnel,
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"pn" = (
+/obj/random/dirt_75,
+/obj/structure/table/wood,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "po" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/sleeper{
@@ -6988,6 +7702,15 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"pw" = (
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt2";
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "px" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -7121,6 +7844,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"pI" = (
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "pJ" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/structure/closet/crate/rad{
@@ -7334,6 +8063,14 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"qf" = (
+/obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "qg" = (
 /obj/structure/table/standard,
 /obj/item/clothing/glasses/hud/health,
@@ -7347,6 +8084,16 @@
 "qh" = (
 /obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/wood/maple{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"qi" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -7368,6 +8115,16 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"ql" = (
+/obj/item/arrow/rod{
+	pixel_x = 5
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "qm" = (
 /obj/structure/bed/stool/hover{
 	dir = 4
@@ -7377,6 +8134,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"qn" = (
+/obj/random/dirt_75,
+/obj/item/ore/aluminium{
+	pixel_x = 8
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "qo" = (
 /obj/item/storage/box/botanydisk{
 	pixel_x = 2;
@@ -7428,6 +8194,22 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"qq" = (
+/obj/random/dirt_75,
+/obj/item/ore/iron{
+	pixel_x = -4;
+	pixel_y = 10
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"qr" = (
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "qt" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/random/dirt_75,
@@ -7445,6 +8227,13 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"qv" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "qw" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/concrete{
@@ -7454,6 +8243,15 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"qx" = (
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "qy" = (
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 4
@@ -7608,6 +8406,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
+"qO" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/mineral{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "qP" = (
 /obj/item/material/scythe{
 	pixel_x = 12;
@@ -7655,6 +8460,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"qX" = (
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "qY" = (
 /obj/structure/table/rack,
 /obj/machinery/light{
@@ -7676,6 +8491,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"qZ" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/ore/coal{
+	pixel_y = -3;
+	pixel_x = 6
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ra" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
@@ -7738,6 +8564,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"rh" = (
+/obj/structure/flora/rock/desert,
+/turf/simulated/floor/exoplanet/mineral{
+	temperature = 315.15
+	},
+/area/new_blades)
 "ri" = (
 /obj/structure/closet/secure_closet/xenoarchaeologist{
 	anchored = 1;
@@ -7752,6 +8584,16 @@
 /obj/machinery/light,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/wood,
+/area/new_blades/underground)
+"rj" = (
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
 /area/new_blades/underground)
 "rk" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -7795,6 +8637,12 @@
 "rp" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/wood/maple{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"rq" = (
+/obj/structure/ore_box,
+/turf/simulated/floor/exoplanet/barren/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -8059,6 +8907,12 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"rR" = (
+/obj/structure/track,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "rS" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced{
 	color = "#4e4378";
@@ -8079,6 +8933,20 @@
 "rV" = (
 /turf/simulated/wall/sandstone,
 /area/new_blades/interiors)
+"rW" = (
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_y = 12;
+	pixel_x = 12
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "rY" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -8149,6 +9017,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"se" = (
+/obj/random/dirt_75,
+/obj/item/device/flashlight/flare{
+	pixel_x = 14;
+	pixel_y = -3
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "sf" = (
 /obj/machinery/light{
 	dir = 1
@@ -8186,6 +9064,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"si" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt2";
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "sj" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -8275,12 +9164,12 @@
 /area/shuttle/scc_evac)
 "su" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
-	pixel_x = -6;
-	pixel_y = 4
-	},
 /obj/item/material/hatchet/unathiknife{
 	pixel_x = 4
+	},
+/obj/item/device/flashlight/lamp/off{
+	pixel_x = -6;
+	pixel_y = 4
 	},
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
@@ -8309,6 +9198,14 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"sz" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/track,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "sA" = (
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
@@ -8404,6 +9301,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"sK" = (
+/obj/random/dirt_75,
+/obj/item/ore/aluminium{
+	pixel_y = 8;
+	pixel_x = -6
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "sL" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
@@ -8423,6 +9330,19 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"sN" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/item/ore/aluminium{
+	pixel_y = -6;
+	pixel_x = 3
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "sO" = (
 /obj/structure/table/rack/retail_shelf,
 /turf/simulated/floor/wood/maple{
@@ -8641,6 +9561,23 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/scc_evac)
+"tk" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/rope_railing{
+	dir = 8
+	},
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "tl" = (
 /obj/random/dirt_75,
 /obj/structure/railing/fence,
@@ -8706,6 +9643,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"tu" = (
+/obj/random/dirt_75,
+/obj/item/ore/iron{
+	pixel_x = 3
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "tv" = (
 /obj/effect/floor_decal/industrial/outline_door/yellow{
 	dir = 4
@@ -8757,6 +9703,15 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"tA" = (
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt3";
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "tC" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -8813,6 +9768,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"tJ" = (
+/obj/random/dirt_75,
+/obj/item/stack/rods{
+	pixel_x = 10
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "tK" = (
 /obj/effect/decal/road_marking/center{
 	dir = 8
@@ -9182,6 +10146,23 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang/cave,
 /area/new_blades/underground)
+"ux" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/rope_railing{
+	dir = 8
+	},
+/obj/structure/rope_post,
+/obj/structure/rope_railing,
+/obj/structure/rope_post{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "uy" = (
 /obj/structure/table/stone/marble,
 /obj/structure/reagent_dispensers/keg/xuizikeg{
@@ -9228,6 +10209,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"uD" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "uF" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -9275,6 +10266,15 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"uK" = (
+/obj/random/dirt_75,
+/obj/item/pickaxe,
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "uL" = (
 /obj/structure/bed/padded,
 /obj/random/dirt_75,
@@ -9303,14 +10303,14 @@
 /area/new_blades/underground)
 "uP" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp{
-	pixel_x = -6;
-	pixel_y = 4
-	},
 /obj/item/material/hatchet/unathiknife{
 	pixel_x = 4
 	},
 /obj/random/dirt_75,
+/obj/item/device/flashlight/lamp/off{
+	pixel_x = -6;
+	pixel_y = 4
+	},
 /turf/simulated/floor/sidewalk/flat{
 	temperature = 315.15
 	},
@@ -9423,6 +10423,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"uZ" = (
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/rope_railing{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "va" = (
 /obj/structure/sign/directions/medical{
 	pixel_y = -24
@@ -9825,6 +10836,27 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"vQ" = (
+/obj/effect/floor_decal/asteroid,
+/obj/random/dirt_75,
+/obj/item/ore/lead{
+	pixel_x = 9;
+	pixel_y = -10
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"vR" = (
+/obj/random/dirt_75,
+/obj/item/ore/aluminium{
+	pixel_y = 3;
+	pixel_x = -12
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "vS" = (
 /obj/structure/railing/fence{
 	dir = 8
@@ -9857,6 +10889,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"vV" = (
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "vX" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	color = "#b6efe1";
@@ -9912,6 +10953,13 @@
 /obj/random/dirt_75,
 /obj/structure/table/wood,
 /turf/simulated/floor/sidewalk/blocks,
+/area/new_blades/underground)
+"wc" = (
+/obj/random/dirt_75,
+/obj/structure/pit,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
 /area/new_blades/underground)
 "wd" = (
 /obj/structure/platform/ledge,
@@ -9981,6 +11029,23 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"wm" = (
+/obj/structure/table/wood,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/item/storage/bag/ore{
+	pixel_x = -4
+	},
+/obj/item/device/flashlight/lantern/on{
+	pixel_x = 5;
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "wn" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/floor_decal/industrial/outline_door/yellow{
@@ -10028,6 +11093,13 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"wr" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ws" = (
 /obj/effect/floor_decal/concrete{
 	dir = 8
@@ -10062,6 +11134,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
+"ww" = (
+/obj/random/dirt_75,
+/obj/item/ore/coal{
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "wx" = (
 /turf/simulated/floor/tiled/gridded,
 /area/new_blades/underground)
@@ -10162,6 +11243,23 @@
 /obj/random/junk,
 /turf/simulated/floor/exoplanet/wood,
 /area/new_blades/underground)
+"wL" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/rope_railing{
+	dir = 8
+	},
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2";
+	pixel_y = -6
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "wM" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
@@ -10253,10 +11351,10 @@
 /area/new_blades/interiors)
 "wZ" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/device/flashlight/lamp/off,
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
@@ -10274,6 +11372,20 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"xc" = (
+/obj/random/dirt_75,
+/obj/item/pickaxe/hammer{
+	pixel_x = 7;
+	pixel_y = -5
+	},
+/obj/item/ore/coal{
+	pixel_x = -7;
+	pixel_y = 12
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "xd" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/board,
@@ -10324,6 +11436,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"xi" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post,
+/obj/structure/rope_railing,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "xj" = (
 /obj/structure/railing/fence{
 	dir = 8
@@ -10388,6 +11508,16 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"xp" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "xq" = (
 /obj/structure/bed/roller/hover,
 /obj/effect/floor_decal/spline/plain/corner{
@@ -10411,6 +11541,28 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"xt" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/structure/table/wood,
+/obj/random/dirt_75,
+/obj/item/wrench{
+	pixel_y = 5;
+	pixel_x = 5
+	},
+/obj/item/screwdriver{
+	pixel_x = 4
+	},
+/obj/item/device/flashlight/lantern/on{
+	pixel_x = -7;
+	pixel_y = 5
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "xu" = (
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 5
@@ -10456,6 +11608,21 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"xy" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/mineral{
+	temperature = 315.15
+	},
+/area/new_blades)
 "xz" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -10637,6 +11804,13 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
+"xU" = (
+/obj/structure/closet/crate/miningcart/ore,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "xW" = (
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/machinery/light/colored/dying{
@@ -10719,6 +11893,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"ye" = (
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "yf" = (
 /obj/structure/railing/fence{
 	dir = 1
@@ -10730,8 +11912,8 @@
 /area/new_blades)
 "yg" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
 /obj/random/dirt_75,
+/obj/item/device/flashlight/lamp/off,
 /turf/simulated/floor/sidewalk/flat{
 	temperature = 315.15
 	},
@@ -10764,6 +11946,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"yk" = (
+/obj/structure/track,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ym" = (
 /obj/effect/floor_decal/spline/plain{
 	color = "#b6efe1";
@@ -11021,6 +12209,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"yO" = (
+/obj/structure/track,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "yP" = (
 /obj/structure/table/wood/maple,
 /obj/item/pen/fountain/silver,
@@ -11061,6 +12256,12 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"yW" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/mineral{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "yX" = (
 /obj/machinery/vending/wallmed2{
 	pixel_x = 28;
@@ -11068,9 +12269,25 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_evac)
+"yY" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/beach/sand,
+/area/new_blades/underground)
 "yZ" = (
 /obj/item/paper/crumpled,
 /turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"za" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt3";
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -11124,6 +12341,21 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"zf" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/pickaxe{
+	pixel_y = -6;
+	pixel_x = -8
+	},
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "zg" = (
 /obj/structure/bed/stool/bar,
 /turf/simulated/floor/exoplanet/desert{
@@ -11173,6 +12405,16 @@
 /obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/new_blades/interiors)
+"zm" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt2";
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "zn" = (
 /obj/random/dirt_75,
 /turf/simulated/wall/sandstone,
@@ -11192,6 +12434,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
+"zq" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "zr" = (
 /obj/structure/table/wood,
 /obj/random/dirt_75,
@@ -11215,6 +12463,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"zs" = (
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "zt" = (
 /obj/structure/flora/grass/desert/bush,
 /turf/simulated/floor/exoplanet/barren{
@@ -11245,6 +12502,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"zw" = (
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "zx" = (
 /turf/simulated/floor/concrete,
 /area/new_blades/interiors)
@@ -11325,6 +12588,16 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"zG" = (
+/obj/random/dirt_75,
+/obj/item/ore/coal{
+	pixel_y = 10;
+	pixel_x = 16
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "zH" = (
 /obj/machinery/light{
 	dir = 1
@@ -11341,6 +12614,21 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"zJ" = (
+/obj/random/dirt_75,
+/obj/item/ore/lead{
+	pixel_y = -5;
+	pixel_x = 5
+	},
+/obj/item/ore/iron{
+	pixel_y = 6;
+	pixel_x = -12
+	},
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "zK" = (
 /obj/item/stack/rods{
 	pixel_y = -8;
@@ -11350,6 +12638,15 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"zL" = (
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt3";
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "zM" = (
 /obj/item/newspaper,
 /turf/simulated/floor/exoplanet/desert{
@@ -11425,9 +12722,36 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/new_blades/underground)
+"zS" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "zT" = (
 /obj/machinery/door/urban,
 /turf/simulated/floor/wood/maple{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"zU" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"zV" = (
+/obj/random/dirt_75,
+/obj/item/ore/iron{
+	pixel_x = -5;
+	pixel_y = 7
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -11515,6 +12839,13 @@
 /obj/machinery/telecomms/server/presets/medical,
 /turf/unsimulated/floor,
 /area/new_blades/underground)
+"Ah" = (
+/obj/random/dirt_75,
+/obj/item/material/shard/shrapnel,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Ai" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
@@ -11592,6 +12923,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"Ap" = (
+/obj/item/ore/lead,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Aq" = (
 /obj/structure/flora/grass/desert,
 /obj/effect/decal/curb{
@@ -11645,7 +12982,10 @@
 	},
 /area/new_blades)
 "Aw" = (
-/turf/simulated/floor/asphalt{
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -11787,6 +13127,15 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"AP" = (
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "AQ" = (
 /turf/simulated/floor/sidewalk/flat{
 	temperature = 315.15
@@ -11868,6 +13217,13 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"AY" = (
+/obj/structure/track,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "AZ" = (
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
@@ -11918,6 +13274,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"Bg" = (
+/obj/structure/flora/rock/konyang,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Bi" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/effect/decal/fake_object{
@@ -11957,6 +13320,13 @@
 "Bl" = (
 /turf/unsimulated/floor,
 /area/new_blades/interiors)
+"Bm" = (
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
+/turf/simulated/floor/beach/sand,
+/area/new_blades/underground)
 "Bn" = (
 /obj/effect/decal/curb{
 	dir = 5
@@ -11997,6 +13367,12 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
+"Bs" = (
+/obj/item/ore/aluminium,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Bt" = (
 /obj/effect/decal/curb,
 /turf/simulated/floor/exoplanet/desert{
@@ -12062,6 +13438,28 @@
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/wood,
+/area/new_blades/underground)
+"BB" = (
+/obj/item/shovel{
+	pixel_x = -16;
+	pixel_y = 4
+	},
+/obj/random/dirt_75,
+/obj/structure/pit,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"BC" = (
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/turf/simulated/floor/beach/sand,
 /area/new_blades/underground)
 "BE" = (
 /obj/effect/floor_decal/spline/plain/cee/black,
@@ -12201,7 +13599,7 @@
 /area/new_blades)
 "BU" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/device/flashlight/lamp/off,
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
@@ -12256,6 +13654,21 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"BZ" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/ore/coal{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/obj/item/ore/lead{
+	pixel_x = -5;
+	pixel_y = -6
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Cb" = (
 /obj/structure/closet/crate/hydroponics/prespawned,
 /obj/item/reagent_containers/glass/fertilizer/rh,
@@ -12375,6 +13788,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
+"Cj" = (
+/obj/random/dirt_75,
+/obj/item/ore/coal{
+	pixel_y = -11;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Ck" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/gridded,
@@ -12407,6 +13830,16 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/new_blades)
+"Co" = (
+/obj/random/dirt_75,
+/obj/item/ore/lead{
+	pixel_x = 9
+	},
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Cq" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
@@ -12520,6 +13953,15 @@
 /obj/structure/trash_pile,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/maple{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"CF" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -12710,11 +14152,29 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"CY" = (
+/obj/random/dirt_75,
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/exoplanet/gold,
+/area/new_blades/underground)
 "CZ" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/random/dirt_75,
 /obj/structure/flora/pottedplant/woodyshrubdying,
 /turf/simulated/floor/exoplanet/wood,
+/area/new_blades/underground)
+"Da" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/rope_railing{
+	dir = 1
+	},
+/obj/structure/rope_post{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
 /area/new_blades/underground)
 "Db" = (
 /obj/structure/railing/fence{
@@ -12774,6 +14234,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"Dj" = (
+/obj/random/dirt_75,
+/obj/item/ore/lead{
+	pixel_x = 9
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Dk" = (
 /obj/item/stack/material/sandstone,
 /turf/simulated/floor/exoplanet/desert{
@@ -12794,6 +14263,13 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/new_blades/interiors)
+"Dn" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Do" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -12815,9 +14291,38 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
+"Dq" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/ore/iron{
+	pixel_y = -10;
+	pixel_x = 8
+	},
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Dr" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/mineral{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Ds" = (
 /obj/item/material/shard/shrapnel,
 /turf/simulated/floor/wood/maple{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Dt" = (
+/obj/random/dirt_75,
+/obj/item/material/shard/shrapnel,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -12834,6 +14339,17 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Dv" = (
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Dw" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -12855,6 +14371,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"Dz" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "DA" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -12985,6 +14508,14 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"DM" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "DN" = (
 /obj/effect/decal/fake_object{
 	desc = "The proudly waving flag of the Izweski Nation.";
@@ -13009,6 +14540,27 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"DQ" = (
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/structure/table/wood,
+/obj/item/fossil/skull/horned{
+	pixel_y = 7
+	},
+/obj/item/fossil/bone{
+	pixel_x = 6
+	},
+/obj/item/device/flashlight/lantern/on{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "DR" = (
 /turf/simulated/floor/tiled/ridged,
 /area/new_blades/underground)
@@ -13105,6 +14657,18 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"Eb" = (
+/obj/random/dirt_75,
+/obj/structure/ore_box,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Ed" = (
+/obj/random/dirt_75,
+/obj/structure/track,
+/turf/simulated/floor/beach/sand,
+/area/new_blades/underground)
 "Ee" = (
 /obj/random/dirt_75,
 /obj/structure/table/rack/retail_shelf,
@@ -13126,6 +14690,23 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"Eh" = (
+/obj/structure/table/wood,
+/obj/item/storage/toolbox{
+	pixel_x = 4;
+	pixel_y = 1
+	},
+/obj/item/pickaxe/drill/weak{
+	pixel_y = 9
+	},
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/mineral{
+	temperature = 315.15
+	},
+/area/new_blades)
 "Ei" = (
 /obj/structure/bed/stool/chair/sofa/left/beige{
 	dir = 1
@@ -13269,6 +14850,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"Ew" = (
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt2";
+	pixel_y = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Ex" = (
 /obj/structure/simple_door/iron,
 /turf/simulated/floor/wood/maple{
@@ -13368,6 +14959,16 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/new_blades/interiors)
+"EI" = (
+/obj/structure/closet/crate/miningcart/ore,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/mineral{
+	temperature = 315.15
+	},
+/area/new_blades)
 "EJ" = (
 /obj/random/dirt_75,
 /obj/structure/table/wood,
@@ -13458,6 +15059,21 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"ET" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/device/flashlight/flare/glowstick/orange{
+	pixel_x = 12;
+	pixel_y = -2
+	},
+/obj/item/ore/iron{
+	pixel_x = -15;
+	pixel_y = 8
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "EU" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -13494,6 +15110,14 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"EY" = (
+/obj/random/dirt_75,
+/obj/item/material/shard/shrapnel,
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Fa" = (
 /turf/simulated/floor/tiled{
 	temperature = 315.15
@@ -13543,6 +15167,22 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
+"Fg" = (
+/obj/random/dirt_75,
+/obj/structure/table/wood,
+/obj/item/shovel,
+/obj/item/pickaxe{
+	pixel_x = -2;
+	pixel_y = 6
+	},
+/obj/item/device/flashlight/lantern/on{
+	pixel_x = 7;
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Fh" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -13586,6 +15226,10 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
+"Fm" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/beach/sand,
+/area/new_blades)
 "Fn" = (
 /obj/structure/closet/skrell,
 /obj/effect/floor_decal/spline/plain/black{
@@ -13598,6 +15242,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"Fo" = (
+/obj/structure/flora/rock/pile,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Fp" = (
 /obj/effect/floor_decal/spline/plain{
 	color = "#b6efe1";
@@ -13654,6 +15304,12 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Fy" = (
+/obj/item/device/flashlight/flare,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Fz" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
@@ -13696,6 +15352,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"FE" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "FF" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -13795,6 +15459,13 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"FR" = (
+/obj/structure/pit,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "FS" = (
 /obj/structure/reagent_dispensers/keg/xuizikeg,
 /turf/simulated/floor/exoplanet/desert{
@@ -13830,6 +15501,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"FW" = (
+/obj/random/dirt_75,
+/obj/item/shovel{
+	pixel_x = -9;
+	pixel_y = 1
+	},
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "FX" = (
 /obj/structure/morgue{
 	dir = 8
@@ -13907,9 +15589,39 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"Gg" = (
+/obj/item/trash/match,
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Gh" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Gi" = (
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_evac)
+"Gj" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Gk" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/wood/maple{
@@ -13964,6 +15676,17 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Go" = (
+/obj/random/dirt_75,
+/obj/item/pickaxe{
+	pixel_y = -6;
+	pixel_x = -8
+	},
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Gp" = (
 /obj/random/dirt_75,
 /obj/structure/bed/stool/chair/office/dark,
@@ -14083,6 +15806,17 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"GA" = (
+/obj/random/dirt_75,
+/obj/item/ore/aluminium{
+	pixel_y = 10;
+	pixel_x = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "GB" = (
 /obj/effect/floor_decal/spline/plain{
 	color = "#b6efe1";
@@ -14431,6 +16165,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"Hk" = (
+/obj/random/dirt_75,
+/obj/item/ore/iron{
+	pixel_y = -2;
+	pixel_x = -5
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Hl" = (
 /obj/machinery/telecomms/allinone/ship/station_relay,
 /turf/unsimulated/floor,
@@ -14686,6 +16430,19 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"HO" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 4
+	},
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "HP" = (
 /obj/machinery/door/airlock/glass,
 /turf/simulated/floor/shuttle/dark_blue,
@@ -14697,12 +16454,9 @@
 /turf/simulated/floor/concrete,
 /area/new_blades)
 "HR" = (
-/obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#ffffff"
-	},
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/desert{
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/barren/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -14730,6 +16484,16 @@
 	basecolor = "#400000"
 	},
 /turf/simulated/floor/tiled/full,
+/area/new_blades/underground)
+"HU" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
 /area/new_blades/underground)
 "HV" = (
 /obj/structure/table,
@@ -14802,9 +16566,35 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Ic" = (
+/obj/random/dirt_75,
+/obj/structure/track,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Id" = (
+/obj/random/dirt_75,
+/obj/item/pickaxe/hammer,
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Ie" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
+/area/new_blades/underground)
+"If" = (
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
 /area/new_blades/underground)
 "Ig" = (
 /obj/structure/table/rack,
@@ -14934,6 +16724,18 @@
 /obj/machinery/blackbox_recorder,
 /turf/unsimulated/floor,
 /area/new_blades/underground)
+"It" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Iv" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -15056,6 +16858,14 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
+"IH" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/track,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "II" = (
 /turf/simulated/floor/sidewalk/detail{
 	temperature = 315.15
@@ -15135,6 +16945,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"IQ" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "IS" = (
 /obj/random/dirt_75,
 /obj/item/material/scythe{
@@ -15260,6 +17079,25 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Jg" = (
+/obj/random/dirt_75,
+/obj/structure/table/wood,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/item/device/flashlight/lantern/on{
+	pixel_x = -6;
+	pixel_y = 10
+	},
+/obj/item/storage/toolbox{
+	pixel_x = 3;
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Jh" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /obj/effect/floor_decal/industrial/warning{
@@ -15415,6 +17253,9 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Jx" = (
+/turf/simulated/mineral/crystal,
+/area/new_blades/underground)
 "Jy" = (
 /obj/effect/decal/cleanable/floor_damage/wood_broken7,
 /turf/simulated/floor/wood/maple{
@@ -15453,6 +17294,21 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"JC" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/rope_railing{
+	dir = 8
+	},
+/obj/item/ore/lead{
+	pixel_x = 9
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "JD" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 9
@@ -15462,6 +17318,12 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"JE" = (
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "JF" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -15485,10 +17347,8 @@
 	},
 /area/new_blades/interiors/ruins)
 "JI" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/asphalt{
-	temperature = 315.15
-	},
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/exoplanet/gold,
 /area/new_blades/underground)
 "JJ" = (
 /obj/structure/table,
@@ -15536,6 +17396,16 @@
 /obj/random/dirt_75,
 /turf/simulated/wall/sandstone,
 /area/new_blades/underground)
+"JQ" = (
+/obj/random/dirt_75,
+/obj/item/material/shard/shrapnel,
+/obj/item/arrow/rod{
+	pixel_y = -15
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "JR" = (
 /obj/machinery/light{
 	dir = 1
@@ -15564,6 +17434,16 @@
 	},
 /turf/simulated/floor/concrete,
 /area/new_blades)
+"JW" = (
+/obj/random/dirt_75,
+/obj/item/storage/bag/ore{
+	pixel_y = 12;
+	pixel_x = 8
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "JX" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -15588,6 +17468,14 @@
 "JZ" = (
 /obj/item/reagent_containers/glass/rag,
 /turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Ka" = (
+/obj/structure/flora/rock/konyang,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -15661,6 +17549,15 @@
 /area/new_blades)
 "Kg" = (
 /obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Kh" = (
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt3";
+	pixel_y = 4
+	},
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
@@ -15792,6 +17689,18 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Ks" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/asteroid,
+/obj/item/pickaxe{
+	pixel_y = 16;
+	pixel_x = -8
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Kt" = (
 /obj/machinery/body_scanconsole{
 	dir = 8;
@@ -15805,6 +17714,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"Ku" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt3";
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Kv" = (
 /obj/random/dirt_75,
 /obj/item/material/shard/shrapnel,
@@ -15986,11 +17905,12 @@
 	},
 /area/new_blades/interiors)
 "KO" = (
-/obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#ffffff"
+/obj/structure/ore_box,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/mineral{
+	temperature = 315.15
 	},
-/turf/simulated/floor/beach/sand,
-/area/new_blades/underground)
+/area/new_blades)
 "KP" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
@@ -16033,6 +17953,19 @@
 "KT" = (
 /turf/simulated/floor/sidewalk/blocks,
 /area/new_blades)
+"KU" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/rope_post,
+/obj/structure/rope_post{
+	dir = 8
+	},
+/obj/structure/rope_railing,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "KV" = (
 /obj/effect/floor_decal/concrete{
 	dir = 4
@@ -16170,6 +18103,19 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Li" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/flora/rock/konyang,
+/obj/structure/rope_railing{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Lj" = (
 /obj/structure/table/wood/maple,
 /obj/item/paper_bin,
@@ -16197,6 +18143,12 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Ln" = (
+/obj/structure/boulder,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Lo" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/random/dirt_75,
@@ -16228,6 +18180,16 @@
 /obj/machinery/light,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
+"Ls" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Lt" = (
 /obj/effect/decal/fake_object{
 	density = 1;
@@ -16446,6 +18408,20 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"LN" = (
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/item/ore/lead{
+	pixel_x = 9;
+	pixel_y = -8
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "LO" = (
 /obj/effect/floor_decal/spline/plain{
 	color = "#b6efe1";
@@ -16522,6 +18498,14 @@
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
 /area/new_blades/interiors)
+"LX" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "LZ" = (
 /obj/structure/table/wood,
 /obj/item/newspaper{
@@ -16633,6 +18617,16 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Mn" = (
+/obj/random/dirt_75,
+/obj/item/ore/iron{
+	pixel_x = -8;
+	pixel_y = 10
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Mo" = (
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 9
@@ -16700,6 +18694,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"Mu" = (
+/obj/random/dirt_75,
+/obj/structure/ore_box,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Mv" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/board,
@@ -16776,9 +18781,25 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"MC" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/exoplanet/gold,
+/area/new_blades/underground)
 "MD" = (
 /obj/structure/grille/broken,
 /turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"ME" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt2";
+	pixel_y = 5
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -16841,6 +18862,16 @@
 /obj/machinery/light,
 /turf/simulated/open,
 /area/new_blades/interiors)
+"ML" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "MM" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/machinery/light/colored/dying{
@@ -16881,6 +18912,15 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"MP" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "MQ" = (
 /obj/machinery/door/airlock/multi_tile/glass/tirakqi{
 	dir = 2;
@@ -17016,9 +19056,12 @@
 /area/new_blades/interiors)
 "Ng" = (
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/beach/sand,
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
 /area/new_blades/underground)
 "Nh" = (
 /obj/effect/decal/curb/corner,
@@ -17211,6 +19254,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
+"NB" = (
+/obj/random/dirt_75,
+/obj/item/shovel{
+	pixel_y = -12;
+	pixel_x = -2
+	},
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "NC" = (
 /obj/effect/decal/curb{
 	dir = 5
@@ -17304,6 +19358,14 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"NL" = (
+/obj/random/dirt_75,
+/obj/structure/track,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "NM" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/glass/rag{
@@ -17346,6 +19408,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"NP" = (
+/obj/item/pickaxe/drill/weak,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "NR" = (
 /obj/effect/floor_decal/spline/plain{
 	color = "#b6efe1";
@@ -17451,6 +19519,23 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"NZ" = (
+/obj/random/dirt_75,
+/obj/structure/rope_railing{
+	dir = 1
+	},
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/effect/floor_decal/asteroid,
+/obj/item/ore/iron{
+	pixel_y = -6;
+	pixel_x = 7
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Oa" = (
 /obj/structure/bed/stool/chair/wood,
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -17517,6 +19602,26 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Oj" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/mineral{
+	temperature = 315.15
+	},
+/area/new_blades)
+"Ok" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Ol" = (
 /obj/effect/decal/curb,
 /obj/structure/closet/outhouse,
@@ -17646,6 +19751,22 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"Oy" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Oz" = (
 /obj/effect/decal/curb,
 /obj/random/dirt_75,
@@ -17782,6 +19903,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"OM" = (
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt2";
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ON" = (
 /turf/simulated/floor/concrete,
 /area/new_blades)
@@ -17789,6 +19919,26 @@
 /obj/structure/table/rack/retail_shelf,
 /obj/item/pickaxe,
 /turf/simulated/floor/wood/maple{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"OP" = (
+/obj/random/dirt_75,
+/obj/structure/rope_railing{
+	dir = 1
+	},
+/obj/structure/rope_railing{
+	dir = 8
+	},
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2";
+	pixel_y = -6
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -17869,6 +20019,13 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"OV" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "OW" = (
 /obj/random/dirt_75,
 /obj/structure/flora/grass/desert,
@@ -17880,6 +20037,24 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"OX" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/rope_railing{
+	dir = 4
+	},
+/obj/item/pickaxe{
+	pixel_y = -6;
+	pixel_x = -8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "OY" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 1;
@@ -17942,6 +20117,17 @@
 "Pf" = (
 /obj/machinery/telecomms/processor/preset_one,
 /turf/unsimulated/floor,
+/area/new_blades/underground)
+"Pg" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
 /area/new_blades/underground)
 "Ph" = (
 /obj/structure/closet/skrell,
@@ -18030,6 +20216,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"Pm" = (
+/obj/random/dirt_75,
+/obj/structure/pit,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Pn" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -18056,6 +20249,15 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Pp" = (
+/obj/random/dirt_75,
+/obj/item/stack/rods{
+	pixel_x = -6
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Pq" = (
 /obj/random/dirt_75,
 /obj/effect/decal/curb{
@@ -18387,6 +20589,24 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"PW" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 4
+	},
+/obj/structure/rope_post,
+/obj/structure/rope_post{
+	dir = 8
+	},
+/obj/structure/rope_railing,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "PX" = (
 /obj/item/material/hatchet/unathiknife,
 /turf/simulated/floor/exoplanet/desert{
@@ -18464,6 +20684,18 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"Qd" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/rope_railing{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Qe" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
@@ -18727,6 +20959,16 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"QH" = (
+/obj/random/dirt_75,
+/obj/item/ore/lead{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "QI" = (
 /obj/structure/table/wood,
 /obj/random/dirt_75,
@@ -18778,6 +21020,16 @@
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/new_blades)
+"QN" = (
+/obj/random/dirt_75,
+/obj/item/ore/coal{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "QO" = (
 /obj/structure/bed/stool/chair/sofa/right/beige{
 	dir = 8
@@ -18786,6 +21038,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"QP" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "QQ" = (
 /obj/item/stack/material/wood/coloured/maple{
 	pixel_y = 8;
@@ -18806,6 +21067,13 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"QS" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "QT" = (
 /obj/structure/table/skrell,
 /obj/machinery/photocopier/faxmachine{
@@ -19314,6 +21582,16 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"RR" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "RS" = (
 /obj/structure/table/wood,
 /obj/item/trash/bowl_small{
@@ -19394,6 +21672,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"Sa" = (
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt3";
+	pixel_y = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Sb" = (
 /obj/effect/decal/curb,
 /obj/random/dirt_75,
@@ -19434,13 +21722,19 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+/turf/simulated/floor/exoplanet/barren/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
 "Sg" = (
 /obj/machinery/telecomms/bus/preset_two,
 /turf/unsimulated/floor,
+/area/new_blades/underground)
+"Si" = (
+/obj/item/material/shard/shrapnel,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
 /area/new_blades/underground)
 "Sj" = (
 /obj/item/modular_computer/console/preset/research{
@@ -19474,6 +21768,24 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"So" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt2";
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Sp" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/asteroid,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Sq" = (
 /obj/structure/chainlink_fence,
 /obj/effect/decal/cleanable/dirt,
@@ -19535,7 +21847,7 @@
 /area/new_blades/interiors)
 "Sx" = (
 /obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
+/obj/item/device/flashlight/lamp/off,
 /turf/simulated/floor/sidewalk/flat{
 	temperature = 315.15
 	},
@@ -19545,6 +21857,15 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Sz" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "SA" = (
 /obj/structure/table/wood,
 /obj/random/dirt_75,
@@ -19564,6 +21885,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"SB" = (
+/obj/random/dirt_75,
+/obj/item/ore/iron{
+	pixel_y = 6;
+	pixel_x = -5
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "SC" = (
 /obj/structure/pit,
 /turf/simulated/floor/exoplanet/desert{
@@ -19612,6 +21943,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"SI" = (
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "SJ" = (
 /obj/structure/sign/flag/hegemony/large/south{
 	pixel_y = -32
@@ -19798,6 +22137,32 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"Td" = (
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Te" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Tf" = (
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/beach/sand,
+/area/new_blades/underground)
 "Tg" = (
 /obj/structure/flora/grass/desert,
 /obj/random/dirt_75,
@@ -19809,6 +22174,20 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Th" = (
+/obj/random/dirt_75,
+/obj/item/ore/aluminium{
+	pixel_y = 9;
+	pixel_x = -12
+	},
+/obj/random/dirt_75,
+/obj/item/trash/match{
+	pixel_y = 10
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Tj" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/tiled_broken3,
@@ -19854,6 +22233,19 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
+"Tp" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt3";
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Tq" = (
 /obj/structure/railing/fence,
 /obj/random/dirt_75,
@@ -19861,6 +22253,25 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Tr" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt2";
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Ts" = (
+/obj/random/dirt_75,
+/obj/structure/track,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Tt" = (
 /obj/machinery/door/airlock/glass_medical{
 	dir = 4
@@ -20094,6 +22505,14 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"TP" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "TQ" = (
 /obj/effect/decal/curb{
 	dir = 10
@@ -20213,6 +22632,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"Uc" = (
+/obj/random/dirt_75,
+/obj/item/ore/coal{
+	pixel_y = 6;
+	pixel_x = -4
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Ue" = (
 /obj/structure/closet/skrell,
 /obj/item/clothing/under/skrell/nralakk/oqi/engineer,
@@ -20439,6 +22868,19 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
+"Uz" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "UA" = (
 /obj/structure/table/stone/marble,
 /obj/item/trash/candle,
@@ -20460,6 +22902,22 @@
 	basecolor = "#0081CD"
 	},
 /turf/simulated/floor/concrete/square,
+/area/new_blades)
+"UD" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"UE" = (
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/mineral{
+	temperature = 315.15
+	},
 /area/new_blades)
 "UF" = (
 /obj/structure/table/wood,
@@ -20485,6 +22943,21 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"UH" = (
+/obj/effect/floor_decal/asteroid,
+/obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"UI" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "UJ" = (
 /obj/item/wirecutters,
 /obj/effect/decal/cleanable/dirt,
@@ -20516,6 +22989,16 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"UM" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "UO" = (
 /obj/effect/floor_decal/spline/plain{
 	color = "#b6efe1";
@@ -20743,6 +23226,23 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Vm" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 1
+	},
+/obj/item/ore/coal{
+	pixel_y = -4;
+	pixel_x = 8
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Vn" = (
 /obj/item/stack/material/wood{
 	pixel_x = -7;
@@ -20897,6 +23397,17 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"VF" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "VG" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/secure_closet/engineering_electrical{
@@ -21019,6 +23530,14 @@
 	color = "#6e2c6e"
 	},
 /area/new_blades/interiors)
+"VS" = (
+/obj/random/dirt_75,
+/obj/vehicle/train/cargo/trolley/mining,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "VT" = (
 /obj/structure/sign/flag/hegemony/large/south{
 	pixel_y = -32
@@ -21033,6 +23552,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"VU" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 1
+	},
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/beach/sand,
+/area/new_blades/underground)
 "VV" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/board,
@@ -21141,6 +23671,22 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Wc" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/rope_railing{
+	dir = 8
+	},
+/obj/item/ore/iron{
+	pixel_x = 13;
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Wd" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -21172,6 +23718,12 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Wh" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/track,
+/turf/simulated/floor/beach/sand,
+/area/new_blades/underground)
 "Wi" = (
 /obj/item/tray/tea,
 /turf/simulated/floor/wood/maple{
@@ -21508,6 +24060,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"WQ" = (
+/obj/structure/ore_box,
+/turf/simulated/floor/exoplanet/mineral{
+	temperature = 315.15
+	},
+/area/new_blades)
 "WR" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/optable,
@@ -21516,6 +24074,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"WS" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 8
+	},
+/obj/structure/rope_post,
+/obj/structure/rope_railing,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "WT" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -21579,6 +24148,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
+"Xb" = (
+/obj/random/dirt_75,
+/obj/item/stack/rods{
+	pixel_y = 7
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Xc" = (
 /obj/structure/railing/fence{
 	dir = 4
@@ -21622,6 +24200,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/scc_evac)
+"Xh" = (
+/obj/effect/floor_decal/asteroid,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Xi" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
@@ -21638,6 +24223,20 @@
 /obj/structure/television,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/wood,
+/area/new_blades/underground)
+"Xk" = (
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/item/storage/bag/ore{
+	pixel_y = 12;
+	pixel_x = 4
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
 /area/new_blades/underground)
 "Xl" = (
 /obj/effect/landmark/force_spawnpoint{
@@ -21754,6 +24353,12 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Xz" = (
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "XA" = (
 /obj/effect/decal/cleanable/floor_damage/tiled_broken4,
 /obj/random/dirt_75,
@@ -21856,6 +24461,13 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"XI" = (
+/obj/random/dirt_75,
+/obj/structure/ore_box,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "XJ" = (
 /obj/effect/decal/fake_object{
 	desc = "The proudly waving flag of the Izweski Nation.";
@@ -21949,6 +24561,16 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"XQ" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt2";
+	pixel_y = 5
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "XR" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -22014,6 +24636,22 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"XY" = (
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 4
+	},
+/obj/structure/rope_railing{
+	dir = 4
+	},
+/obj/item/ore/aluminium{
+	pixel_y = 9;
+	pixel_x = -7
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "XZ" = (
 /obj/machinery/autolathe,
 /obj/effect/floor_decal/industrial/outline_door/yellow,
@@ -22044,6 +24682,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"Yc" = (
+/obj/item/stack/rods,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Yd" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -22058,6 +24702,23 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Ye" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Yf" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/ore/lead{
+	pixel_x = 10
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Yg" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -22087,6 +24748,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"Yi" = (
+/obj/structure/flora/rock/konyang,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Yj" = (
 /obj/structure/table/wood,
 /obj/item/trash/wooden_platter{
@@ -22209,6 +24877,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"Yv" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Yw" = (
 /obj/structure/kitchenspike,
 /obj/structure/railing/fence{
@@ -22223,12 +24899,31 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Yx" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Yy" = (
 /obj/item/material/shard/shrapnel,
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
 /area/new_blades)
+"Yz" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2";
+	pixel_x = -6
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "YA" = (
 /obj/structure/closet/crate,
 /turf/simulated/floor/wood/maple{
@@ -22251,6 +24946,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
+"YE" = (
+/obj/structure/bed/stool/chair/wood,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/mineral{
+	temperature = 315.15
+	},
+/area/new_blades)
 "YF" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/autolathe,
@@ -22437,6 +25142,23 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/wood,
 /area/new_blades/underground)
+"Zb" = (
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_y = 8;
+	pixel_x = 8
+	},
+/obj/item/trash/proteinbar{
+	pixel_x = -7
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Zc" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline_door/yellow{
@@ -22452,6 +25174,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"Zd" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/asteroid,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Ze" = (
 /obj/structure/bed/stool/chair/sofa/right/beige{
 	dir = 4
@@ -22460,6 +25190,20 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
+"Zf" = (
+/obj/random/dirt_75,
+/obj/item/pickaxe{
+	pixel_y = -6;
+	pixel_x = -8
+	},
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Zg" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -22472,6 +25216,13 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"Zh" = (
+/obj/random/dirt_75,
+/obj/item/ore/iron,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Zi" = (
 /obj/item/storage/firstaid/surgery,
 /obj/structure/table/wood,
@@ -22488,6 +25239,16 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/scc_evac)
+"Zk" = (
+/obj/random/dirt_75,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Zl" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped,
@@ -22642,6 +25403,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"ZC" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ZD" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/structure/table/rack,
@@ -22651,6 +25420,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"ZE" = (
+/obj/random/dirt_75,
+/obj/item/device/flashlight/flare/glowstick/orange,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ZF" = (
 /obj/random/dirt_75,
 /obj/structure/simple_door/iron,
@@ -22721,6 +25497,20 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
+"ZK" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/rope_post{
+	dir = 1
+	},
+/obj/structure/rope_railing{
+	dir = 8
+	},
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ZL" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
@@ -22759,6 +25549,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"ZP" = (
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ZQ" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -22812,6 +25611,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"ZT" = (
+/obj/item/device/flashlight/flare/glowstick/orange,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ZU" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/spline/plain/black{
@@ -22859,6 +25664,16 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"ZY" = (
+/obj/random/dirt_75,
+/obj/item/stack/rods{
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 
 (1,1,1) = {"
 Hc
@@ -23552,8 +26367,8 @@ LE
 LE
 LE
 LE
-FP
-FP
+rt
+vV
 LE
 LE
 LE
@@ -23807,13 +26622,13 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-FP
-FP
-FP
+Td
+up
+OV
+eg
+kZ
+up
+DM
 LE
 LE
 LE
@@ -24063,17 +26878,17 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
+rt
+Dz
+eg
+dZ
 LE
 LE
-FP
-FP
-FP
-FP
-FP
+uD
+Yv
+rt
+up
+zs
 LE
 LE
 LE
@@ -24320,18 +27135,18 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
+HR
+eg
+kZ
 LE
 LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
+zq
+kZ
+eg
+OV
 LE
 LE
 LE
@@ -24576,8 +27391,8 @@ LE
 LE
 LE
 LE
-FP
-FP
+zs
+kZ
 LE
 LE
 LE
@@ -24587,10 +27402,10 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
+rt
+eg
+Aw
+kZ
 LE
 LE
 LE
@@ -24777,17 +27592,49 @@ LE
 LE
 LE
 LE
-RG
+dX
+qi
+OV
+kZ
+kZ
+SI
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+Dz
+qr
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+qx
+iC
+up
 rt
+up
+Aw
 kZ
-kZ
-kZ
-FP
-LE
-LE
-LE
-LE
-LE
+vV
 LE
 LE
 LE
@@ -24802,24 +27649,7 @@ LE
 LE
 LE
 rt
-RG
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-RG
-RG
-RG
-RG
-RG
-FP
-FP
-FP
+Zd
 LE
 LE
 LE
@@ -24830,25 +27660,10 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-FP
+Td
+up
+kZ
+iC
 LE
 LE
 LE
@@ -25033,16 +27848,16 @@ LE
 LE
 LE
 LE
-RG
+rt
 rt
 kZ
 eg
 kZ
-rt
+Dz
 rt
 eg
 kZ
-kZ
+uD
 LE
 LE
 LE
@@ -25056,9 +27871,9 @@ LE
 LE
 LE
 LE
-RG
+ye
 rt
-kZ
+HR
 up
 rt
 LE
@@ -25067,19 +27882,19 @@ LE
 LE
 LE
 LE
-RG
-RG
-RG
-RG
-RG
-RG
-RG
-RG
-RG
-FP
-FP
-FP
-FP
+zL
+kZ
+kZ
+rt
+Ye
+rt
+Dz
+rt
+rt
+eg
+eg
+OV
+rj
 LE
 LE
 LE
@@ -25090,23 +27905,23 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
+QS
+up
+qx
 LE
 LE
 LE
 LE
-FP
+nT
 LE
 LE
 LE
 LE
 LE
 LE
-FP
-jV
-FP
+vV
+kZ
+eg
 LE
 LE
 LE
@@ -25289,82 +28104,82 @@ LE
 LE
 LE
 RG
+Dz
+eg
+aB
+LE
+LE
+LE
+LE
+RG
+QS
+Dz
 rt
+kZ
+pI
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+RG
+Yv
+eg
+FP
+FP
+eg
+ZP
+LE
+LE
+LE
+LE
+LE
+OV
+HR
+fj
+LE
+LE
+LE
+LE
+LE
+qi
+Dz
+dZ
 eg
 kZ
-LE
-LE
-LE
-LE
-RG
 rt
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 rt
 kZ
+LE
+LE
+rj
+OV
+dT
+Dz
+Ku
+LE
+LE
+LE
+LE
+LE
+GM
 kZ
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-RG
-up
-eg
-FP
-FP
-eg
-RG
-LE
-LE
-LE
-LE
-LE
-RG
-RG
-RG
-LE
-LE
-LE
-LE
-LE
-RG
-RG
-FP
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-LE
-LE
-FP
-FP
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-kZ
-kZ
-FP
+fj
 LE
 LE
 LE
@@ -25544,10 +28359,10 @@ LE
 LE
 LE
 LE
-RG
-RG
+Ku
+rt
 eg
-FP
+zq
 LE
 LE
 LE
@@ -25557,46 +28372,46 @@ LE
 LE
 LE
 RG
-RG
+dX
 rt
 kZ
 eg
-FP
+pI
 LE
 LE
 LE
 LE
 LE
-rt
+qi
 up
-eg
+FE
 FP
+LE
+LE
+LE
+OV
+kZ
+LE
+LE
+LE
 LE
 LE
 LE
 kZ
+rt
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 kZ
-LE
-LE
-LE
-LE
-LE
-LE
-RG
-RG
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-FP
+Zd
+rt
+zs
 LE
 LE
 LE
@@ -25606,13 +28421,13 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-FP
-FP
-FP
+kZ
+iC
+kZ
+up
+rt
+QS
+Ng
 LE
 LE
 LE
@@ -25620,9 +28435,9 @@ LE
 LE
 LE
 FP
+Aw
 Kg
-kZ
-FP
+rj
 LE
 LE
 LE
@@ -25801,9 +28616,9 @@ LE
 LE
 LE
 LE
-RG
+QS
 rt
-kZ
+uD
 LE
 LE
 LE
@@ -25816,16 +28631,16 @@ LE
 LE
 LE
 LE
-RG
+ye
 rt
 eg
 kZ
 FP
-kZ
-kZ
+HR
+OV
 rt
 up
-kZ
+OV
 LE
 LE
 LE
@@ -25833,40 +28648,14 @@ LE
 LE
 LE
 kZ
+zq
 LE
 LE
 LE
 LE
 LE
-LE
-RG
-RG
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-FP
+rt
+QS
 LE
 LE
 LE
@@ -25877,9 +28666,35 @@ LE
 LE
 LE
 LE
+HR
+kZ
+eg
+up
+Td
 LE
-FP
-jV
+LE
+LE
+LE
+LE
+LE
+LE
+eg
+HR
+rt
+Bg
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+kZ
+GM
 LE
 LE
 LE
@@ -26058,7 +28873,7 @@ Wl
 Wl
 LE
 LE
-up
+Yv
 kZ
 LE
 LE
@@ -26075,11 +28890,27 @@ LE
 LE
 LE
 LE
-RG
-RG
+ZP
+JE
 kZ
 kZ
 rt
+Ng
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+rt
+kZ
+LE
+LE
+LE
+LE
+Ng
 rt
 LE
 LE
@@ -26089,53 +28920,37 @@ LE
 LE
 LE
 LE
-JI
-Aw
-LE
-LE
-LE
-LE
-RG
-RG
 LE
 LE
 LE
 LE
 LE
+fj
+eg
+rt
+Ye
 LE
 LE
 LE
 LE
 LE
-LE
-LE
-LE
-FP
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+vV
+eg
 kZ
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+Zd
 jV
 LE
 LE
@@ -26346,14 +29161,14 @@ LE
 LE
 LE
 LE
-Aw
-Aw
-LE
-LE
-LE
-LE
 RG
-RG
+OV
+LE
+LE
+LE
+LE
+kZ
+fj
 LE
 LE
 LE
@@ -26369,20 +29184,16 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
+kZ
+kZ
+fj
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-LE
-LE
-LE
-LE
+kZ
+kZ
+OV
+kZ
 LE
 LE
 LE
@@ -26392,9 +29203,13 @@ LE
 LE
 LE
 LE
-jV
-Kg
-Kg
+LE
+LE
+LE
+LE
+GM
+kZ
+zm
 LE
 LE
 LE
@@ -26573,6 +29388,43 @@ Wl
 LE
 LE
 RG
+OV
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+Ng
+up
+FP
+LE
+LE
+zq
+kZ
 kZ
 LE
 LE
@@ -26590,68 +29442,31 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-Aw
-Aw
-LE
-LE
-LE
-RG
-RG
-RG
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-Kg
+vV
 eg
+kZ
+eg
+Dz
+up
+QS
+kZ
+kZ
+eg
+HR
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 Kg
+iC
+jV
 LE
 LE
 LE
@@ -26829,54 +29644,8 @@ Wl
 Wl
 LE
 LE
-RG
-kZ
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
 rt
-LE
-LE
-LE
-Aw
-Aw
-RG
-RG
-RG
-RG
-RG
-RG
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-VK
-VK
+HR
 LE
 LE
 LE
@@ -26885,30 +29654,76 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-FP
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+QS
+LE
+LE
+LE
+LE
+QS
+rt
+kZ
+kZ
+kZ
+OV
+rt
+Jx
+LE
+LE
+LE
+LE
+LE
+LE
+pS
+pS
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+kZ
+QS
+rt
+Td
+LE
+LE
+LE
+Td
+Dz
+kZ
+kZ
+vV
+LE
+LE
+LE
+nW
+Sz
+kZ
+LE
+LE
+LE
+dL
 Kg
-kZ
-Kg
-LE
-LE
-LE
-kZ
-jV
-kZ
+HR
 LE
 LE
 LE
@@ -27086,7 +29901,7 @@ Wl
 Wl
 LE
 LE
-RG
+rt
 kZ
 LE
 LE
@@ -27113,37 +29928,37 @@ LE
 LE
 LE
 rt
+Ku
+LE
+LE
+LE
+LE
+LE
+ZP
+JE
+kZ
+FP
+rt
+QS
 rt
 LE
 LE
 LE
 LE
 LE
-RG
-RG
-RG
-RG
-RG
-RG
-RG
+pS
+pS
+pS
+pS
+pS
 LE
 LE
 LE
 LE
 LE
-VK
-VK
-WT
-VK
-VK
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
+fj
+rt
+rt
 LE
 LE
 LE
@@ -27151,20 +29966,20 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
+rt
+rt
+kZ
+kZ
 LE
 LE
 LE
-FP
+eg
 jV
-FP
+zw
 LE
 LE
-Kg
 jV
+dL
 LE
 LE
 LE
@@ -27343,85 +30158,85 @@ Wl
 Wl
 LE
 LE
-RG
+ZP
 rt
-FP
+pI
 LE
 LE
 LE
 LE
 LE
-RG
-RG
+qr
+JE
+rt
+QS
+qi
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+Ng
+rt
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+Jx
 rt
 rt
 rt
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-rt
-RG
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-RG
-RG
-RG
 LE
 LE
 VK
-WT
-VK
+pk
+Qd
+ux
 pS
 pS
-VK
-VK
+pS
 LE
 LE
 LE
-LE
-FP
-FP
-LE
-LE
-LE
-LE
+Jx
+rt
+RG
 LE
 LE
 LE
 LE
 LE
 LE
-FP
-FP
 LE
 LE
 LE
 LE
-FP
+QS
+kZ
+LE
+LE
+LE
+LE
+kE
 jV
-kZ
+dL
+Dn
 Kg
-Kg
-kZ
+jV
 LE
 LE
 LE
@@ -27607,79 +30422,79 @@ LE
 LE
 LE
 LE
-RG
+ZP
 rt
 eg
 eg
+OV
+eg
+rt
+ye
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+si
+Dz
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+rt
+rt
 kZ
-eg
-rt
-RG
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-eg
-rt
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-RG
-RG
-FP
-FP
-FP
+kZ
+kZ
 WT
-WT
-pS
-pS
 WT
 VK
+Qd
+pk
+Qd
 LE
 LE
 LE
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
+kZ
+rt
+Jx
 LE
 LE
 LE
 LE
 LE
 LE
+LE
+LE
+LE
+rt
+rt
+LE
+LE
+LE
+LE
+LE
+LE
+dL
 Kg
-Kg
-FP
 jV
-Kg
 jV
+dL
+ML
 LE
 LE
 LE
@@ -27858,7 +30673,7 @@ Wl
 LE
 LE
 LE
-RG
+ye
 rt
 kZ
 LE
@@ -27866,12 +30681,12 @@ LE
 LE
 RG
 kZ
-kZ
+HR
 LE
 LE
 FP
 eg
-eg
+iC
 up
 LE
 LE
@@ -27881,9 +30696,38 @@ LE
 LE
 LE
 LE
+HR
+kZ
+uD
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+rt
+rt
+kZ
+eg
+CY
+aH
+aH
+VK
+VK
+VK
+LE
+LE
+LE
 kZ
 kZ
-kZ
 LE
 LE
 LE
@@ -27893,37 +30737,8 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-FP
-FP
-VK
-WT
-VK
-VK
-VK
-LE
-LE
-LE
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
+Ye
+rt
 FP
 LE
 LE
@@ -27932,12 +30747,12 @@ LE
 LE
 LE
 jV
-Kg
+Sz
 LE
 LE
 Kg
 jV
-kZ
+OV
 LE
 LE
 LE
@@ -28116,84 +30931,84 @@ LE
 LE
 LE
 LE
-RG
+dX
 kZ
+OV
+zq
 kZ
+OV
+kZ
+LE
+LE
+LE
+LE
+LE
+zq
+kZ
+qi
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+UI
+iC
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 FP
-kZ
-kZ
-kZ
-LE
-LE
-LE
-LE
-LE
-FP
-kZ
-rt
-LE
-LE
-LE
-LE
-LE
-LE
-LE
 kZ
 eg
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-WT
+aH
 VK
 LE
 LE
 LE
 LE
 FP
-FP
+kZ
 LE
 LE
-FP
-FP
+rt
+RG
 LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
+Bg
+rt
+kZ
+uD
 LE
 LE
 LE
 LE
 Kg
-Kg
+dL
 jV
 LE
 LE
 LE
 LE
-Kg
+GM
 Kg
 LE
 LE
@@ -28374,7 +31189,7 @@ LE
 LE
 LE
 LE
-RG
+ZP
 kZ
 eg
 kZ
@@ -28386,8 +31201,8 @@ LE
 LE
 LE
 LE
+OV
 kZ
-kZ
 LE
 LE
 LE
@@ -28395,7 +31210,7 @@ LE
 LE
 LE
 LE
-eg
+Pg
 rt
 LE
 LE
@@ -28420,38 +31235,38 @@ LE
 LE
 LE
 FP
-FP
+kZ
 LE
 LE
 LE
 LE
 LE
+kZ
+kZ
+kZ
 FP
-FP
-FP
-FP
-FP
-FP
-FP
+rt
+rt
+rt
 LE
 LE
-FP
-FP
-FP
+rt
+SI
+kZ
 LE
 LE
 LE
 LE
 Kg
-jV
+jJ
 LE
 LE
 LE
 LE
 LE
 LE
-kZ
-jV
+aB
+GM
 Kg
 LE
 LE
@@ -28636,14 +31451,14 @@ LE
 LE
 LE
 RG
+Dz
 rt
-rt
-RG
+ZP
 LE
 LE
 LE
 LE
-FP
+zq
 eg
 kZ
 LE
@@ -28653,7 +31468,7 @@ LE
 LE
 LE
 kZ
-rt
+QS
 LE
 LE
 LE
@@ -28684,17 +31499,17 @@ LE
 LE
 LE
 FP
+kZ
 FP
-FP
-FP
-FP
+kZ
+kZ
 LE
 LE
 LE
 LE
 LE
-FP
-FP
+zq
+nT
 LE
 LE
 LE
@@ -28708,8 +31523,8 @@ LE
 LE
 LE
 LE
+kZ
 Kg
-jV
 LE
 LE
 LE
@@ -28893,7 +31708,7 @@ LE
 LE
 LE
 LE
-RG
+ye
 kZ
 rt
 LE
@@ -28902,47 +31717,47 @@ LE
 LE
 LE
 rt
-eg
-kZ
+iC
+HR
 LE
 LE
 LE
 LE
 RG
+Dz
+Ng
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+RG
+kZ
+kZ
+kZ
 rt
-rt
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-FP
-FP
 LE
 LE
 LE
@@ -28966,7 +31781,7 @@ LE
 LE
 LE
 LE
-jV
+jJ
 LE
 LE
 LE
@@ -29152,8 +31967,8 @@ LE
 LE
 LE
 FP
-up
-rt
+Yv
+Ng
 LE
 LE
 LE
@@ -29161,11 +31976,11 @@ LE
 LE
 up
 eg
+Jx
 LE
 LE
-LE
-LE
-RG
+Jx
+ZP
 rt
 LE
 LE
@@ -29178,28 +31993,28 @@ LE
 LE
 LE
 kZ
-up
-rt
-up
+zS
+QS
+Yv
+ye
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 RG
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-FP
+rt
+rt
+kZ
+kZ
+kZ
+kZ
+rt
+RG
 LE
 LE
 LE
@@ -29408,7 +32223,7 @@ LE
 LE
 LE
 LE
-kZ
+HR
 kZ
 rt
 LE
@@ -29416,14 +32231,14 @@ LE
 LE
 LE
 LE
-RG
+ye
 rt
 FP
 LE
 LE
 kZ
 up
-RG
+dX
 LE
 LE
 LE
@@ -29433,29 +32248,29 @@ LE
 LE
 LE
 RG
-eg
+UD
+kZ
+OV
+rt
+So
+LE
+LE
+LE
+RG
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+FP
 kZ
 kZ
+JI
+kZ
+FP
 rt
-rt
-LE
-LE
-LE
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-FP
-FP
-FP
-FP
 LE
 LE
 LE
@@ -29667,7 +32482,20 @@ LE
 LE
 kZ
 FP
+Te
+LE
+LE
+LE
+LE
+LE
+Jx
+RG
 rt
+FP
+kZ
+eg
+rt
+Jx
 LE
 LE
 LE
@@ -29675,11 +32503,19 @@ LE
 LE
 LE
 RG
-rt
-FP
+QS
+iC
 kZ
-eg
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 rt
+rt
+kZ
 LE
 LE
 LE
@@ -29687,32 +32523,11 @@ LE
 LE
 LE
 LE
+kZ
+kZ
+kZ
+rt
 RG
-rt
-eg
-kZ
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-FP
-FP
 LE
 LE
 LE
@@ -29922,8 +32737,8 @@ LE
 LE
 LE
 LE
+Dz
 kZ
-FP
 LE
 LE
 LE
@@ -29943,32 +32758,32 @@ LE
 LE
 LE
 LE
+JE
+xp
+kZ
+nW
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 RG
-up
+rt
 kZ
+eg
 kZ
+rt
+RG
 LE
 LE
 LE
 LE
 LE
-LE
-LE
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
+RG
+rt
+RG
 LE
 LE
 LE
@@ -30178,9 +32993,9 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
+dX
+rt
+kZ
 LE
 LE
 LE
@@ -30212,13 +33027,13 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-FP
-FP
-FP
+rt
+CY
+kZ
+eg
+kZ
+kZ
+RG
 LE
 LE
 LE
@@ -30434,10 +33249,10 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
+OM
+Dz
+kZ
+kZ
 LE
 LE
 LE
@@ -30447,9 +33262,22 @@ LE
 LE
 LE
 rt
-kZ
+CY
 kZ
 up
+LE
+LE
+LE
+LE
+LE
+LE
+QS
+up
+LE
+LE
+LE
+LE
+LE
 LE
 LE
 LE
@@ -30457,26 +33285,13 @@ LE
 LE
 LE
 rt
-up
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-FP
+rt
+kZ
+kZ
+kZ
+kZ
+kZ
+kZ
 LE
 LE
 LE
@@ -30691,10 +33506,10 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
+qi
+rt
+kZ
+iC
 LE
 LE
 LE
@@ -30713,30 +33528,30 @@ LE
 LE
 LE
 LE
-rt
+Dz
 kZ
 LE
 LE
 LE
 LE
-FP
-FP
+So
+Ng
 LE
 LE
 LE
 LE
 LE
-FP
-FP
-FP
+rt
+rt
+RG
 LE
 LE
-FP
-FP
-FP
-LE
-FP
-FP
+rt
+up
+kZ
+Jx
+OV
+ba
 LE
 LE
 LE
@@ -30949,10 +33764,10 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
+RG
+HR
+eg
+aB
 LE
 LE
 LE
@@ -30966,34 +33781,34 @@ kZ
 eg
 kZ
 rt
-LE
+Jx
 LE
 LE
 rt
+rt
+UI
+LE
+LE
+LE
+LE
+qr
+wc
+Dz
+dZ
+LE
+LE
+LE
+LE
+RG
+LE
+LE
+LE
+Jx
+Ng
 rt
 kZ
-LE
-LE
-LE
-LE
 FP
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-FP
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-FP
-FP
+HR
 LE
 LE
 LE
@@ -31206,38 +34021,38 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-RG
-rt
-rt
-RG
-rt
-rt
-rt
-rt
-FP
+JE
 kZ
 FP
+rt
+rt
+uD
 LE
 LE
 LE
 LE
 LE
-LE
+RG
+rt
+rt
+RG
+rt
+rt
+rt
+Dz
 FP
+HR
 FP
-FP
-FP
+LE
+LE
+LE
+LE
+LE
+LE
+JE
+kZ
+eg
+uD
 LE
 LE
 LE
@@ -31247,9 +34062,9 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
+Ye
+up
+uD
 LE
 LE
 LE
@@ -31462,14 +34277,14 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
+rt
+kZ
+kZ
 LE
 LE
-FP
-FP
-FP
+JE
+rt
+HR
 LE
 LE
 LE
@@ -31478,11 +34293,24 @@ LE
 RG
 rt
 LE
-LE
-FP
+Jx
+zq
 FP
 kZ
+aB
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+rt
+aB
 kZ
+kZ
+OV
 LE
 LE
 LE
@@ -31491,22 +34319,9 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
+rt
+kZ
+zw
 LE
 LE
 LE
@@ -31717,21 +34532,17 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-FP
-FP
+ye
+rt
+kZ
 FP
 LE
 LE
 LE
 LE
+rt
+rt
+OV
 LE
 LE
 LE
@@ -31748,21 +34559,25 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-FP
-FP
+LE
+LE
+LE
+fF
+up
+kZ
+OV
+HR
+kZ
+aB
 LE
 LE
 LE
 LE
 LE
 LE
-FP
-FP
-FP
+qi
+up
+fj
 LE
 LE
 LE
@@ -31973,43 +34788,18 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
+RG
+rt
+OV
+HR
 LE
 LE
 LE
 LE
 LE
 LE
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-FP
-LE
-LE
-FP
+Ng
+rt
 FP
 LE
 LE
@@ -32017,8 +34807,33 @@ LE
 LE
 LE
 LE
-FP
-FP
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+oS
+TP
+tu
+kZ
+LE
+LE
+eg
+kZ
+LE
+LE
+LE
+LE
+LE
+LE
+rt
+kZ
 LE
 LE
 LE
@@ -32226,12 +35041,12 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-FP
-FP
+uD
+OV
+HR
+kZ
+kZ
+eg
 LE
 LE
 LE
@@ -32241,9 +35056,9 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
+RG
+rt
+HR
 LE
 LE
 LE
@@ -32259,23 +35074,23 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
+bY
+mw
+cS
 LE
 LE
 LE
 LE
-FP
-FP
+kZ
+dZ
 LE
 LE
 LE
 LE
 LE
-FP
-FP
-FP
+dZ
+eg
+OV
 LE
 LE
 LE
@@ -32482,13 +35297,13 @@ LE
 LE
 LE
 FP
-FP
-FP
-FP
-FP
-FP
-FP
-FP
+kZ
+kZ
+RG
+rt
+rt
+Dz
+kZ
 LE
 LE
 LE
@@ -32499,8 +35314,8 @@ LE
 LE
 LE
 LE
-FP
-FP
+Xh
+kZ
 LE
 LE
 LE
@@ -32516,22 +35331,22 @@ LE
 LE
 LE
 LE
-FP
-FP
+DM
+zG
 LE
 LE
 LE
 LE
-FP
-FP
+qi
+kZ
 LE
 LE
 LE
 LE
 LE
 LE
-FP
-FP
+kZ
+kZ
 LE
 LE
 LE
@@ -32736,28 +35551,18 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
+RG
+kZ
+OV
+aB
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
+qi
+RG
+up
+aB
+OV
 LE
 LE
 LE
@@ -32766,29 +35571,39 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-FP
+rt
 FP
 LE
 LE
 LE
 LE
 LE
-FP
-FP
-FP
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+jd
+rt
+kZ
+LE
+LE
+LE
+LE
+rt
+OV
+LE
+LE
+LE
+LE
+LE
+OV
+eg
+SI
 LE
 LE
 LE
@@ -32991,10 +35806,10 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
+So
+Dz
+eg
+HR
 LE
 LE
 LE
@@ -33003,19 +35818,19 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
+kZ
+uD
+HR
+tA
 LE
 LE
 LE
 LE
 LE
 LE
-FP
-FP
-FP
+HR
+kZ
+uD
 LE
 LE
 LE
@@ -33023,28 +35838,28 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-FP
+Te
+ZE
+rt
+Dz
+qi
+rt
+up
+Yf
+HR
 LE
 LE
 LE
 LE
-FP
-FP
-FP
+rt
+rt
+HR
 LE
 LE
 LE
-FP
-FP
-FP
+kZ
+eg
+kZ
 LE
 LE
 LE
@@ -33248,9 +36063,9 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
+ZP
+eg
+kZ
 LE
 LE
 LE
@@ -33261,46 +36076,46 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
+qr
+rt
+qi
+JE
 LE
 LE
 LE
 LE
 LE
 LE
-FP
-FP
+kZ
+rt
 LE
 LE
 LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-FP
+Dz
+rt
+sz
+fV
+fV
+pf
+IH
+pf
+kZ
+OV
+Jg
 LE
 LE
 LE
 LE
-FP
-FP
+rt
+kZ
 LE
 LE
-FP
-FP
-FP
+kZ
+rt
+QS
 LE
 LE
 LE
@@ -33504,31 +36319,8 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-FP
+Dz
+kZ
 FP
 LE
 LE
@@ -33536,27 +36328,50 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-VK
-VK
-FP
 LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-FP
-FP
+LE
+LE
+LE
+dX
+Ng
+OM
+LE
+LE
+LE
+LE
+LE
+kZ
+Dz
+LE
+LE
+LE
+LE
+LE
+LE
+fV
+fV
+pf
+HR
+kZ
+Wc
+oH
+MP
+xc
+Zh
+UI
+LE
+LE
+LE
+LE
+zs
+Dz
+eg
+kZ
+up
+Td
 LE
 LE
 LE
@@ -33761,9 +36576,9 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
+Ng
+Dz
+kZ
 LE
 LE
 LE
@@ -33785,34 +36600,34 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
+aB
+up
+dX
 LE
 LE
 LE
 LE
-FP
-FP
-FP
+rR
+sz
+OV
 LE
 LE
-FP
-FP
-VK
-VK
-WT
-VK
-VK
+Mu
+lR
+nu
+HO
+ke
+XY
+Tp
 LE
 LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
+rt
+HR
+eg
+Dz
 LE
 LE
 LE
@@ -34019,8 +36834,8 @@ LE
 LE
 LE
 LE
-FP
-FP
+dX
+kZ
 LE
 LE
 LE
@@ -34029,9 +36844,9 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
+Ng
+Dz
+So
 LE
 LE
 LE
@@ -34043,23 +36858,23 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
+kZ
+up
+Dz
 LE
 LE
-FP
-FP
-FP
+qi
+fV
+kZ
 LE
 LE
 LE
 LE
-VK
-WT
+ad
+KU
 pS
 pS
-VK
+pS
 LE
 LE
 LE
@@ -34067,9 +36882,9 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
+qx
+rt
+Sa
 LE
 LE
 LE
@@ -34276,21 +37091,21 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
+rt
+kZ
+Dz
 LE
 LE
 LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-FP
-FP
+rt
+rt
+qi
+kZ
+HR
+SI
 LE
 LE
 LE
@@ -34301,13 +37116,13 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-FP
-FP
-FP
+kZ
+rt
+rt
+Dz
+Pp
+yk
+aB
 LE
 LE
 LE
@@ -34534,36 +37349,36 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-FP
+kZ
+kZ
+QS
+rt
+Ng
 LE
 LE
-FP
-FP
-FP
+Dz
+Ok
+kZ
 LE
 LE
-FP
-FP
-FP
-LE
-LE
-LE
+uD
+OV
+zL
 LE
 LE
 LE
 LE
 LE
 LE
+LE
+LE
+LE
+qx
+kZ
+HR
 FP
-FP
-FP
-FP
-FP
-FP
+Si
+js
 LE
 LE
 LE
@@ -34791,62 +37606,62 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-LE
-LE
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-RG
+UI
+eg
+Sf
+eg
 rt
+rt
+kZ
+uD
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+zL
+LE
+LE
+kZ
+kZ
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+dX
+Ku
+LE
+LE
+Jx
 LE
 LE
 LE
@@ -35049,25 +37864,11 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+qx
 kZ
+kZ
+iC
+eg
 kZ
 LE
 LE
@@ -35077,8 +37878,22 @@ LE
 LE
 LE
 LE
-FP
-FP
+LE
+LE
+LE
+LE
+pS
+pS
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+Ah
+ZY
 LE
 LE
 LE
@@ -35089,8 +37904,8 @@ LE
 LE
 LE
 LE
-rt
-RG
+qi
+Ka
 LE
 LE
 LE
@@ -35098,12 +37913,12 @@ LE
 LE
 LE
 LE
-rt
-rt
-up
-up
-rt
-rt
+Te
+kZ
+eg
+Ok
+Dz
+UM
 LE
 LE
 LE
@@ -35309,59 +38124,59 @@ LE
 LE
 LE
 LE
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
 kZ
-VK
-VK
+FP
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+pS
+pS
+pS
+pS
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+mG
 kZ
+Dt
+So
 LE
 LE
 LE
 LE
 LE
 LE
-LE
-FP
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-rt
-RG
-RG
-rt
-RG
-LE
-LE
-LE
-LE
-LE
-LE
-rt
-rt
-rt
+Sp
+QS
 up
-up
-rt
-rt
+kZ
+Dz
+LE
+LE
+LE
+LE
+LE
+LE
+uD
+iC
+pf
+IH
+IH
+fV
+fV
 RG
 LE
 LE
@@ -35566,13 +38381,46 @@ LE
 LE
 LE
 LE
-FP
-FP
+rt
+HR
 LE
 LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+XQ
+lJ
+pS
+pS
+pS
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+yk
+dv
+Dz
+LE
+LE
+LE
+LE
+LE
+fV
+IH
+pf
+pf
+pf
+Ng
 LE
 LE
 LE
@@ -35580,46 +38428,13 @@ LE
 LE
 LE
 kZ
-VK
-pS
-pS
-VK
+pf
+rR
+qi
+Jx
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-rt
-up
-rt
-rt
-rt
-rt
-LE
-LE
-LE
-LE
-LE
-LE
-aH
-aH
-RG
-rt
-LE
-LE
-rt
-up
+fV
+sz
 kZ
 kZ
 LE
@@ -35789,8 +38604,8 @@ Wl
 Wl
 Wl
 Wl
-ya
-aE
+Wl
+Wl
 Wl
 Wl
 Wl
@@ -35821,63 +38636,63 @@ LE
 LE
 LE
 LE
-LE
-LE
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-kZ
-WT
-pS
-pS
-VK
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
 LE
 LE
 rt
-LE
-rt
-up
-rt
-LE
-LE
-rt
-rt
-LE
-LE
-LE
-LE
-LE
-LE
-aH
-aH
-fF
-LE
-LE
-LE
-LE
-kZ
 eg
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+aB
+ZC
+pk
+ZK
+ms
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+pf
+Xb
+qi
+LE
+LE
+So
+LE
+fV
+IH
+aB
+LE
+LE
+pf
+pf
+Jx
+LE
+LE
+LE
+LE
+Jx
+pf
+fV
+Xh
+LE
+LE
+LE
+LE
+pf
+IH
 rt
 LE
 LE
@@ -36044,10 +38859,6 @@ LE
 LE
 LE
 Wl
-Xa
-Wl
-nh
-Mg
 Wl
 Wl
 Wl
@@ -36064,6 +38875,10 @@ Wl
 Wl
 Wl
 Wl
+Wl
+Wl
+Wl
+Wl
 LE
 LE
 LE
@@ -36077,66 +38892,66 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-kZ
-kZ
-VK
-WT
-kZ
-RG
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
 LE
 LE
 LE
 rt
-up
-RG
-RG
-LE
-LE
-LE
-rt
-up
-RG
-LE
-LE
-LE
-LE
-fF
-aH
-fF
+fj
 LE
 LE
 LE
 LE
 LE
-kZ
+LE
+LE
+LE
+LE
+LE
+Yi
+Go
+cO
+Ls
+ET
+Cj
+ad
+LE
+LE
+LE
+LE
+LE
+LE
+aB
+pf
+Dz
+LE
+LE
+LE
+Dz
+sz
+pf
 eg
-RG
+LE
+LE
+LE
+HR
+IH
 rt
+LE
+LE
+LE
+LE
+dX
+pf
+ye
+LE
+LE
+LE
+LE
+LE
+kZ
+IH
+rR
+fV
 rt
 LE
 LE
@@ -36301,14 +39116,14 @@ FP
 FP
 LE
 Wl
-Ob
-SL
-RD
 Wl
 Wl
 Wl
 Wl
 Wl
+Wl
+Wl
+Wl
 em
 em
 em
@@ -36336,55 +39151,55 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-rt
+Ng
+up
 kZ
-kZ
-kZ
-kZ
-kZ
-eg
-rt
 LE
 LE
 LE
 LE
 LE
-FP
-FP
-FP
+LE
+LE
+LE
+LE
+qi
+zV
+qX
+rW
+OV
+qn
+FE
+uD
 LE
 LE
 LE
 LE
 LE
-RG
-rt
+QS
+IH
+pf
 LE
 LE
 LE
 LE
 LE
-rt
-rt
+fV
+iC
 LE
 LE
 LE
 LE
-rt
-aH
+Jx
+pf
+Sp
 LE
+LE
+LE
+LE
+fV
+pf
+Jx
 LE
 LE
 LE
@@ -36558,9 +39373,9 @@ Ir
 Ir
 LE
 Wl
-uh
-NH
-ld
+Wl
+Wl
+Wl
 Wl
 Wl
 Wl
@@ -36587,69 +39402,69 @@ LE
 LE
 LE
 LE
+Xa
+Wl
+ya
+aE
+LE
+LE
+rt
+OV
 LE
 LE
 LE
 LE
 LE
 LE
-FP
-FP
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-RG
+Ye
 up
 rt
 LE
 LE
+wm
+LN
+zf
+So
+LE
+LE
+LE
+LE
+LE
+LE
+rt
+pf
+LE
+LE
+LE
+LE
+LE
+LE
+pf
+bY
+LE
+LE
+LE
+LE
+LE
+pf
+fV
+LE
+LE
 RG
+rt
+pf
 kZ
-up
-rt
 LE
 LE
 LE
 LE
-LE
-LE
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-rt
-RG
-LE
-LE
-LE
-LE
-LE
-RG
-rt
-LE
-LE
-RG
-rt
-rt
-RG
-LE
-LE
-LE
-LE
-kZ
 kZ
 VK
-VK
-kZ
+It
+It
+QP
 rt
 rt
 rt
@@ -36815,9 +39630,9 @@ gs
 gs
 LE
 Wl
-PU
-NH
-Os
+Wl
+Wl
+Wl
 Wl
 Wl
 Wl
@@ -36844,69 +39659,69 @@ mr
 mr
 mr
 LE
+Ob
+SL
+nh
+Mg
 LE
 LE
-LE
-LE
-LE
-LE
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-rt
-rt
-RG
-LE
-LE
-LE
-LE
-RG
-rt
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-RG
-rt
-LE
-LE
-LE
-LE
-LE
-LE
-RG
-up
-rt
-RG
-rt
-up
-rt
-LE
-LE
-LE
-LE
-LE
-FP
-WT
-pS
-pS
+kZ
 eg
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+aB
+kZ
+Dz
+LE
+LE
+LE
+LE
+zs
+Te
+LE
+LE
+LE
+LE
+LE
+Te
+rt
+iC
+uD
+LE
+LE
+LE
+LE
+LE
+dZ
+pf
+LE
+LE
+LE
+LE
+LE
+LE
+kZ
+pf
+fV
+rR
+pf
+IH
+pf
+LE
+LE
+LE
+LE
+FP
+mr
+PW
+pS
+pS
+Uz
 kZ
 rt
 LE
@@ -37101,70 +39916,70 @@ mr
 mr
 mr
 LE
+uh
+NH
+RD
+fr
 LE
 LE
-LE
-LE
-LE
-LE
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-RG
 up
-rt
+Aw
 LE
 LE
 LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-RG
-up
-rt
-LE
-LE
-LE
-LE
-LE
-LE
-RG
-up
-rt
-rt
-rt
-LE
-LE
-LE
-LE
-LE
-LE
-kZ
-kZ
-VK
-pS
-pS
-VK
+Yi
 eg
+rt
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+Dz
+rt
+rt
+HR
+vV
+LE
+LE
+LE
+LE
+LE
+OV
+IH
+pf
+LE
+LE
+LE
+LE
+LE
+LE
+FP
+eg
+kZ
+kZ
+kZ
+LE
+LE
+LE
+LE
+LE
+LE
+kZ
+WS
+pS
+pS
+pS
+Gh
+MC
 rt
 LE
 LE
@@ -37329,9 +40144,9 @@ Qn
 eC
 LE
 Wl
-SC
-Mi
-iI
+Wl
+Wl
+Wl
 Wl
 Wl
 Wl
@@ -37358,69 +40173,69 @@ mr
 mr
 mr
 LE
+PU
+gk
+ld
+Fy
 LE
 LE
-LE
-LE
-LE
-LE
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-rt
-up
-rt
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-FP
-FP
-FP
-LE
-LE
-LE
-LE
-LE
-RG
-rt
-LE
-LE
-LE
-LE
-LE
-LE
-RG
-rt
-rt
-rt
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-rt
+Dz
 kZ
-VK
+LE
+LE
+LE
+LE
+LE
+LE
+kZ
+Yv
+rt
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+SI
+kZ
+zq
+iC
+kZ
+kZ
+LE
+LE
+LE
+LE
+LE
+pf
+pf
+LE
+LE
+LE
+LE
+LE
+LE
+RG
+kZ
+kZ
+eg
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+RG
+kZ
+gS
 pS
 pS
-VK
+pS
+Gh
 eg
 RG
 LE
@@ -37577,7 +40392,7 @@ LE
 LE
 LE
 gq
-Wl
+hR
 rG
 jo
 eW
@@ -37586,9 +40401,9 @@ Nz
 Pj
 LE
 Wl
-JL
-my
-EA
+Wl
+Wl
+Wl
 Wl
 Wl
 Wl
@@ -37615,24 +40430,24 @@ RG
 RG
 RG
 LE
+aD
+Yc
+Os
+ZT
 LE
 LE
-LE
-LE
-LE
-LE
-FP
-FP
-FP
-FP
-LE
-LE
-Aw
-Aw
+Te
 rt
-RG
+kZ
+OV
+LE
+LE
+Dz
+up
 rt
-RG
+QS
+rt
+up
 LE
 LE
 LE
@@ -37641,30 +40456,29 @@ LE
 LE
 LE
 LE
+up
+OV
+LE
+LE
+LE
+QS
+OV
+LE
+LE
+LE
+LE
+pf
+rj
+LE
+LE
+LE
+LE
+LE
+LE
+rt
+ns
 FP
-FP
-LE
-LE
-LE
-FP
-FP
-LE
-LE
-LE
-LE
-rt
-RG
-LE
-LE
-LE
-LE
-LE
-LE
-rt
-rt
-RG
-rt
-LE
+kZ
 LE
 LE
 LE
@@ -37674,9 +40488,10 @@ LE
 LE
 rt
 kZ
-VK
-VK
-WT
+kZ
+Qd
+Qd
+Yx
 eg
 kZ
 LE
@@ -37843,8 +40658,8 @@ fb
 qh
 LE
 Wl
-nR
-bd
+Wl
+Wl
 Wl
 Wl
 Wl
@@ -37872,6 +40687,25 @@ RG
 RG
 RG
 LE
+CF
+Wu
+NP
+Wl
+LE
+LE
+LE
+Dz
+qi
+eg
+eg
+kZ
+kZ
+qi
+LE
+LE
+pI
+eg
+rt
 LE
 LE
 LE
@@ -37879,58 +40713,39 @@ LE
 LE
 LE
 LE
-FP
-FP
-FP
-Aw
-Aw
-Aw
-Aw
+qi
+rt
+LE
+LE
+LE
+rt
+qi
+LE
+LE
+LE
+LE
+pf
+LE
+LE
+LE
+LE
 LE
 LE
 RG
+rt
+rt
+kZ
+kZ
+FP
+rt
 up
 RG
 LE
 LE
 LE
 LE
-LE
-LE
-LE
-Aw
-Aw
-LE
-LE
-LE
-FP
-FP
-LE
-LE
-LE
-LE
 rt
-LE
-LE
-LE
-LE
-LE
-LE
-RG
-rt
-rt
-rt
-rt
-RG
-rt
-up
-RG
-LE
-LE
-LE
-LE
-rt
-rt
+kZ
 kZ
 VK
 eg
@@ -38129,43 +40944,25 @@ RG
 RG
 RG
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-Aw
-Aw
+SC
+Mi
+Wl
+Ln
 LE
 LE
 LE
 LE
 LE
 rt
-up
-RG
+kZ
+OV
 LE
 LE
 LE
 LE
 LE
-LE
-Aw
-Aw
-LE
-LE
-LE
-FP
-FP
-FP
-LE
-LE
-LE
+HR
+eg
 rt
 LE
 LE
@@ -38173,14 +40970,32 @@ LE
 LE
 LE
 LE
+qZ
+QS
+LE
+LE
+LE
+ba
+Dz
+QS
+LE
+LE
+LE
+pf
+LE
+LE
+LE
+LE
+LE
+LE
 RG
 rt
 rt
 LE
 LE
-RG
-RG
-RG
+rt
+rt
+rt
 eg
 FP
 LE
@@ -38386,44 +41201,44 @@ FP
 FP
 FP
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
-LE
-LE
+JL
+my
+EA
+Xz
 LE
 LE
 LE
 LE
 LE
 rt
-up
+QS
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+kZ
+iC
 rt
 LE
 LE
 LE
-FP
-LE
-Aw
-Aw
-LE
-LE
-LE
-LE
-LE
-FP
-LE
-LE
+ay
+xt
+Si
 rt
-up
+LE
+LE
+LE
+LE
+LE
+Ku
+LE
+LE
+UM
+IH
 LE
 LE
 LE
@@ -38440,12 +41255,12 @@ LE
 LE
 FP
 kZ
+Jx
 LE
 LE
 LE
-LE
-RG
-RG
+rt
+rt
 kZ
 LE
 LE
@@ -38643,6 +41458,16 @@ FP
 FP
 FP
 LE
+nR
+bd
+iI
+Fo
+LE
+LE
+LE
+LE
+LE
+Ku
 LE
 LE
 LE
@@ -38651,59 +41476,49 @@ LE
 LE
 LE
 LE
-LE
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-RG
-rt
-rt
-rt
-kZ
-FP
-FP
-kZ
-kZ
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-rt
-rt
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-kZ
+Yz
+pf
+Ts
+fV
+fV
+NL
+NL
+pf
+iY
 kZ
 LE
 LE
 LE
 LE
-RG
-RG
+LE
+LE
+LE
+LE
+QS
+pf
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+Jx
+kV
+OV
+LE
+LE
+LE
+LE
+rt
+rt
 LE
 LE
 LE
@@ -38916,35 +41731,35 @@ LE
 LE
 LE
 LE
-RG
+OV
+kZ
+pf
+fV
+Xh
+Ye
+jB
+tk
+JC
+HU
+HR
+nf
+UI
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+fV
+pf
+LE
+LE
+LE
+LE
+LE
+Ku
 rt
-rt
-rt
-RG
-FP
-kZ
-eg
-kZ
-pS
-pS
-kZ
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-rt
-rt
-LE
-LE
-LE
-LE
-LE
-kZ
-kZ
 LE
 LE
 LE
@@ -38955,7 +41770,7 @@ LE
 LE
 LE
 kZ
-kZ
+up
 LE
 LE
 LE
@@ -39172,49 +41987,49 @@ LE
 LE
 LE
 LE
-rt
-up
-rt
-RG
-rt
-LE
-LE
-LE
-FP
-VK
-pS
-pS
-VK
 kZ
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-RG
+IH
+fV
+rR
 rt
 LE
 LE
 LE
-LE
-LE
-kZ
-kZ
-LE
-LE
-LE
-LE
-kZ
-kZ
+Li
+OX
+gw
+zU
+JW
+pm
+rR
 LE
 LE
 LE
 LE
-kZ
-kZ
-FP
+LE
+LE
+yO
+OV
+LE
+LE
+LE
+LE
+LE
+QS
+Ng
+LE
+LE
+LE
+LE
+rt
+rt
+LE
+LE
+LE
+LE
+EY
+tJ
+HR
 LE
 LE
 LE
@@ -39423,56 +42238,56 @@ LE
 LE
 LE
 LE
+Dz
 rt
-rt
-RG
+zs
 LE
 LE
-kZ
-kZ
-up
+pf
+pf
+sz
 LE
 LE
-rt
+QS
 LE
 LE
-kZ
-kZ
-VK
 pS
 pS
-VK
-kZ
+pS
+pS
+gy
+qv
+eE
+sz
+UH
+LE
+LE
+LE
+LE
+qi
+pf
 eg
+OM
+LE
+LE
+LE
+qr
+Dz
 FP
 LE
 LE
 LE
 LE
-RG
 rt
-RG
-RG
-LE
-LE
-LE
-FP
 kZ
 FP
 LE
 LE
 LE
 LE
-kZ
-kZ
-FP
-LE
-LE
-LE
-LE
-kZ
-kZ
-FP
+rt
+fV
+yk
 LE
 LE
 LE
@@ -39678,49 +42493,49 @@ LE
 LE
 LE
 LE
+pf
+pf
+pf
+yk
+fV
+fV
+rR
+yk
+eg
+Dz
+LE
+LE
+LE
+LE
+LE
+LE
+pS
+pS
+pS
+Vm
+nF
 kZ
-kZ
-kZ
-FP
+pf
+fV
+LE
+LE
+LE
+LE
+rt
+IH
+Ok
+Dz
+LE
+LE
+LE
+up
+Pg
+LE
+LE
+LE
+LE
 rt
 rt
-LE
-FP
-eg
-RG
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-kZ
-VK
-FP
-FP
-kZ
-kZ
-LE
-LE
-LE
-LE
-RG
-up
-up
-RG
-LE
-LE
-LE
-eg
-eg
-LE
-LE
-LE
-LE
-kZ
-kZ
 kZ
 kZ
 LE
@@ -39728,9 +42543,9 @@ LE
 LE
 LE
 LE
-eg
-eg
-FP
+Yv
+IH
+aB
 LE
 LE
 LE
@@ -39933,66 +42748,66 @@ LE
 LE
 LE
 LE
-FP
-kZ
-up
-RG
+uD
+pf
+sz
+rt
 LE
 LE
 LE
-kZ
-kZ
-eg
-kZ
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-kZ
-kZ
-FP
+OV
 kZ
 eg
-kZ
+HR
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+za
+qv
+Ks
+UI
+rt
+sz
+fV
+LE
+LE
+LE
+pf
+IH
+rt
+LE
+LE
+LE
+Ng
+FE
+FP
 LE
 LE
 LE
 rt
 up
+CY
+kZ
 rt
 LE
 LE
 LE
-kZ
-eg
-FP
 LE
 LE
 LE
-kZ
-eg
-kZ
-kZ
-kZ
+fV
+pf
 LE
 LE
 LE
-LE
-LE
-LE
-kZ
-kZ
-LE
-LE
-LE
-rt
-RG
+Te
+Ew
 LE
 LE
 LE
@@ -40189,66 +43004,66 @@ LE
 LE
 LE
 LE
-FP
+yk
+fV
+fV
+DM
+LE
+LE
+LE
+LE
+LE
+uD
+UI
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+vQ
+QS
+sz
+fV
+pf
+pf
+pf
+Dz
+Ng
+LE
+LE
+LE
 rt
-rt
-RG
+OV
+nT
 LE
 LE
 LE
-LE
-LE
+up
 kZ
-kZ
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-FP
 eg
-rt
-rt
-rt
-rt
-rt
-rt
-LE
-LE
-LE
 kZ
-kZ
-FP
-LE
-LE
-LE
-eg
-kZ
-eg
-kZ
-kZ
-LE
-LE
-LE
-LE
-LE
-LE
-LE
 rt
-kZ
 LE
 LE
-eg
+LE
+LE
+LE
+LE
+LE
+fV
+OV
+LE
+LE
+UD
 up
 LE
 LE
@@ -40445,9 +43260,9 @@ LE
 LE
 LE
 LE
-kZ
-rt
-rt
+pf
+fV
+Dz
 LE
 LE
 LE
@@ -40471,18 +43286,18 @@ LE
 LE
 LE
 LE
-kZ
+Eb
 LE
 LE
 LE
-RG
-rt
+Td
+OV
 Sf
 up
 LE
 LE
 LE
-FP
+zw
 kZ
 kZ
 LE
@@ -40493,21 +43308,21 @@ rt
 kZ
 kZ
 kZ
-kZ
-kZ
-LE
-LE
-LE
-LE
-LE
-LE
-RG
 rt
-kZ
-kZ
-kZ
-kZ
-FP
+rt
+LE
+LE
+LE
+LE
+LE
+LE
+yO
+Ts
+pf
+eg
+ie
+OV
+HR
 LE
 LE
 LE
@@ -40701,47 +43516,47 @@ LE
 LE
 LE
 LE
-kZ
-eg
+pf
+IH
+QS
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+pS
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+rt
+NB
 rt
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-VK
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-rt
-rt
-rt
-LE
-LE
-LE
+Dz
 kZ
-kZ
-kZ
+HR
 LE
 LE
 LE
@@ -40751,20 +43566,20 @@ LE
 LE
 kZ
 kZ
-kZ
-kZ
+rt
+rt
 LE
 LE
 LE
 LE
 LE
 LE
-RG
-kZ
-kZ
-kZ
-FP
-kZ
+QS
+pf
+pf
+pf
+ql
+Ah
 LE
 LE
 LE
@@ -40958,71 +43773,71 @@ LE
 LE
 LE
 LE
+pf
+OV
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+OM
+LE
+LE
+LE
+LE
+LE
+LE
+pS
+pS
+pS
+NZ
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+Te
+FR
+Dz
+LE
+LE
+LE
+ZP
+rt
+kZ
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
 kZ
 FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-RG
-LE
-LE
-LE
-LE
-LE
-LE
-VK
-VK
-VK
-VK
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
 rt
 RG
-rt
-LE
-LE
-LE
-FP
-kZ
-kZ
 LE
 LE
 LE
 LE
 LE
-LE
-LE
-LE
-kZ
-FP
-kZ
-FP
-LE
-LE
-LE
+Te
+Dz
+uD
 LE
 LE
 rt
-rt
-FP
-LE
-LE
-rt
-eg
+iC
 LE
 LE
 LE
@@ -41184,6 +43999,15 @@ LE
 LE
 LE
 LE
+nR
+JL
+SC
+CF
+aD
+PU
+uh
+Ob
+Xa
 LE
 LE
 LE
@@ -41205,17 +44029,8 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-kZ
+dZ
+pf
 LE
 LE
 LE
@@ -41225,48 +44040,49 @@ LE
 LE
 LE
 rt
-rt
-rt
+Dz
+Ng
 LE
 LE
 LE
 LE
 LE
-VK
 pS
 pS
-VK
-VK
+OP
+IQ
+Id
 LE
 LE
-rt
-FP
-LE
-LE
-LE
-LE
+qf
+rq
 LE
 LE
 LE
 LE
-rt
 LE
 LE
 LE
 LE
-FP
+Ng
+LE
+LE
+LE
+LE
+Dz
 eg
-FP
+zq
 LE
 LE
 LE
 LE
 LE
 LE
-LE
+Jx
 FP
 kZ
 kZ
+Jx
 LE
 LE
 LE
@@ -41277,10 +44093,9 @@ LE
 LE
 LE
 LE
-LE
-RG
+VF
 rt
-FP
+zq
 LE
 LE
 LE
@@ -41441,6 +44256,15 @@ LE
 LE
 LE
 LE
+bd
+my
+Mi
+Bs
+Ap
+uZ
+uZ
+jp
+Wl
 LE
 LE
 LE
@@ -41461,68 +44285,59 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-eg
-eg
+kZ
+IH
+IH
 rt
+QS
+LE
+LE
+LE
+LE
+LE
+LE
+qr
 rt
 LE
 LE
 LE
 LE
 LE
-LE
-RG
-rt
-LE
-LE
-LE
-LE
-LE
-VK
-VK
 pS
 pS
-VK
-FP
-rt
-rt
+pS
+Da
+vR
+Co
+Hk
+TP
+Th
+ww
+Dz
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+tA
+LE
+LE
+LE
+LE
+tA
+up
 kZ
-rt
-rt
+SI
 LE
 LE
 LE
 LE
 LE
-LE
-LE
-RG
-LE
-LE
-LE
-LE
-FP
-eg
 kZ
-FP
-LE
-LE
-LE
-LE
-LE
-FP
-kZ
-kZ
+OV
+FE
 kZ
 LE
 LE
@@ -41536,7 +44351,7 @@ LE
 LE
 LE
 LE
-RG
+up
 rt
 LE
 LE
@@ -41698,6 +44513,15 @@ LE
 LE
 LE
 LE
+iI
+EA
+Wl
+NP
+Os
+ld
+RD
+nh
+ya
 LE
 LE
 LE
@@ -41716,23 +44540,14 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
+OV
+pf
+fV
+sz
 kZ
-rt
+uD
 up
-FP
-kZ
-up
-rt
+Dz
 LE
 LE
 LE
@@ -41745,57 +44560,57 @@ LE
 LE
 LE
 LE
-kZ
-VK
-pS
-pS
-VK
-kZ
+pk
+wL
+fJ
+it
+DQ
+lR
+Dz
+LE
+LE
+LE
+HR
+UI
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+qi
+eg
+eg
+jJ
+ZP
+LE
+LE
+Ng
+sz
+pf
+pf
+pf
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+zL
+LE
+LE
+LE
+LE
+LE
 rt
-LE
-LE
-LE
-kZ
-kZ
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-kZ
-eg
-eg
-FP
-FP
-LE
-LE
-kZ
-eg
-kZ
-kZ
-kZ
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-LE
-LE
-LE
-LE
-LE
-rt
-RG
+Ng
 LE
 LE
 LE
@@ -41955,6 +44770,15 @@ LE
 LE
 LE
 LE
+Fo
+Xz
+Ln
+Wl
+ZT
+Fy
+fr
+Mg
+aE
 LE
 LE
 LE
@@ -41970,45 +44794,36 @@ LE
 LE
 LE
 LE
+qx
+pf
+sz
+fV
+fV
+rt
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
 kZ
 up
-rt
-rt
-RG
+cq
 LE
 LE
 LE
-FP
-up
-rt
-LE
-LE
-LE
-FP
-eg
+se
+FE
 LE
 LE
 LE
 LE
 LE
 LE
-eg
-kZ
+FE
 VK
-VK
-eg
-rt
-RG
+eK
+Oy
+iz
+sN
+BB
 LE
 LE
 LE
@@ -42017,7 +44832,7 @@ LE
 LE
 LE
 LE
-FP
+tA
 LE
 LE
 LE
@@ -42029,29 +44844,29 @@ LE
 LE
 LE
 dL
+HR
+IH
+rR
+fV
+fV
+pf
+dS
 kZ
-GM
-FP
-kZ
-kZ
-kZ
-kZ
-FP
-kZ
-kZ
-kZ
+IH
+rR
+Ng
 LE
 LE
 LE
 LE
-kZ
-kZ
+Ng
+OV
 LE
 LE
 LE
 LE
 LE
-FP
+pI
 up
 LE
 LE
@@ -42235,36 +45050,36 @@ LE
 LE
 LE
 LE
-kZ
+pf
+fV
+fV
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+dZ
 rt
-rt
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-FP
-rt
-LE
-LE
-LE
-kZ
+uD
 eg
 LE
 LE
 LE
 LE
 LE
-RG
-RG
-kZ
-kZ
-kZ
-kZ
-RG
+Te
+nH
+zJ
+HR
+pf
+pf
+rR
 LE
 LE
 LE
@@ -42274,8 +45089,8 @@ LE
 LE
 LE
 LE
-kZ
-kZ
+Dz
+Ng
 LE
 LE
 LE
@@ -42286,31 +45101,31 @@ LE
 LE
 LE
 jV
-FP
+pf
+pf
+qx
+LE
+LE
+LE
+LE
+LE
+fj
+pf
+fV
+Ew
+LE
+LE
+LE
+rt
+QS
+nT
+LE
+LE
+LE
+LE
+uD
 kZ
-FP
-LE
-LE
-LE
-LE
-LE
-FP
-kZ
-kZ
-FP
-LE
-LE
-LE
-kZ
-kZ
-FP
-LE
-LE
-LE
-LE
-FP
-kZ
-FP
+up
 LE
 LE
 LE
@@ -42469,80 +45284,9 @@ ji
 ji
 ji
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-kZ
-up
-rt
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-kZ
-FP
-LE
-LE
-kZ
-kZ
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-RG
-rt
-kZ
-rt
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-kZ
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-kZ
+Xz
+If
+JL
 Kg
 LE
 LE
@@ -42552,23 +45296,94 @@ LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+pf
+sz
+Dz
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+QN
+kZ
+LE
+LE
+OV
+lR
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+ME
+fV
+pf
+QS
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+dX
+rt
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+Kg
+Ed
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+Aw
+pf
+rt
+LE
+LE
+LE
+LE
+qi
+Dz
+LE
+LE
+LE
+LE
+LE
 kZ
 kZ
-kZ
-LE
-LE
-LE
-LE
-kZ
-kZ
-LE
-LE
-LE
-LE
-LE
-kZ
-kZ
-FP
+pI
 LE
 LE
 LE
@@ -42726,6 +45541,30 @@ ji
 ji
 ji
 LE
+Kh
+AP
+my
+Fy
+LE
+LE
+LE
+pf
+pf
+Jx
+LE
+LE
+LE
+LE
+Jx
+pf
+fV
+LE
+LE
+LE
+LE
+zq
+IH
+up
 LE
 LE
 LE
@@ -42737,19 +45576,22 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
+Zb
+kZ
+OV
+Gg
 eg
-rt
+Gj
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+fV
+Dz
 LE
 LE
 LE
@@ -42762,45 +45604,18 @@ LE
 LE
 LE
 kZ
+Dz
+LE
+LE
+LE
+LE
+LE
+Sz
+pI
 kZ
-kZ
-FP
-kZ
-RG
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-rt
-RG
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-kZ
-kZ
-LE
-LE
-LE
-LE
-LE
+kE
 Kg
-FP
-kZ
-jV
-Kg
-jV
+Ed
 LE
 LE
 LE
@@ -42809,22 +45624,22 @@ LE
 LE
 LE
 LE
-kZ
-kZ
-eg
-FP
+rt
+pf
+Yv
+Td
 LE
 LE
 LE
 LE
-kZ
-FP
+rt
+SI
 LE
 LE
 LE
 LE
 LE
-kZ
+Ok
 kZ
 LE
 LE
@@ -42983,56 +45798,46 @@ HH
 ji
 ji
 LE
+pw
+nR
+Bs
+ZT
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-kZ
-kZ
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-RG
-rt
-kZ
-kZ
+HR
+IH
 rt
 LE
 LE
 LE
 LE
+dX
+pf
+ye
+LE
+LE
+LE
+LE
+pf
+fV
 LE
 LE
 LE
 LE
 LE
-rt
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+hV
+Dz
+GA
+qq
+Xk
 LE
 LE
 LE
@@ -43042,23 +45847,33 @@ LE
 LE
 LE
 LE
+fV
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+pf
+pf
+yk
+pf
+pf
+qx
+LE
+LE
+LE
+zq
 kZ
-kZ
-FP
-kZ
-kZ
-FP
-LE
-LE
-LE
-FP
-FP
+Wh
+Ic
+Ic
+jV
 dL
-jV
-Kg
-jV
-kZ
-Kg
+aB
 LE
 LE
 LE
@@ -43066,22 +45881,22 @@ LE
 LE
 LE
 LE
-kZ
-FP
-eg
-FP
+Dz
+yk
+IH
+rt
 LE
 LE
 LE
 LE
-kZ
-kZ
+up
+HR
 LE
 LE
 LE
 LE
 LE
-FP
+rt
 kZ
 LE
 LE
@@ -43247,6 +46062,27 @@ LE
 LE
 LE
 LE
+Jx
+pf
+Yv
+LE
+LE
+LE
+LE
+fV
+pf
+Jx
+LE
+LE
+LE
+LE
+IH
+Dz
+LE
+LE
+LE
+LE
+Te
 LE
 LE
 LE
@@ -43255,19 +46091,10 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-eg
-FP
-LE
-LE
-LE
-LE
-kZ
+zs
+uK
+BZ
+RR
 LE
 LE
 LE
@@ -43275,75 +46102,63 @@ LE
 LE
 LE
 LE
-LE
-RG
 rt
-up
-RG
+QS
+pf
 LE
 LE
 LE
 LE
 LE
 LE
-LE
-FP
-rt
-kZ
-LE
-LE
+rj
+pf
+pf
+pf
 LE
 LE
 LE
-LE
-FP
-kZ
-kZ
-kZ
+yk
+pf
+pf
 LE
 LE
-LE
-FP
-kZ
-kZ
-LE
-LE
-kZ
-kZ
-eg
-Kg
-kZ
-Kg
-kZ
+pf
+Ic
+dq
 jV
-LE
-LE
-LE
-LE
-LE
-LE
-FP
 kZ
+jJ
+Kg
+OV
+LE
+LE
+LE
+LE
+LE
+LE
+Td
+rt
 kZ
-kZ
-kZ
+pf
+QS
 LE
 LE
 LE
 LE
-kZ
-kZ
+eg
+OV
 LE
 LE
 LE
 LE
 LE
-kZ
-FP
+up
+aB
 LE
 LE
-FP
-kZ
+tA
+Dz
 LE
 LE
 LE
@@ -43497,111 +46312,111 @@ ji
 ji
 ji
 LE
+Xa
+Wl
+ya
+aE
 LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+pf
+fV
 LE
 LE
 RG
-kZ
-LE
-LE
-LE
-LE
-LE
-kZ
-kZ
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
 rt
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+pf
 kZ
-eg
-kZ
-kZ
-FP
 LE
 LE
 LE
-FP
-kZ
-rt
-RG
+LE
+Ng
+pf
 LE
 LE
 LE
 LE
 LE
-FP
-kZ
-FP
-kZ
+Dz
+Ng
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+ab
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+dS
+IH
+pf
+pf
+yk
+LE
+LE
+LE
+yk
+pf
+fV
+Dz
+LE
+LE
+LE
+LE
+LE
+pI
+pf
+yk
+pf
+Ic
+jJ
+LE
+LE
+qx
 Kg
-jV
-LE
-LE
-FP
-Kg
-jV
+yY
 dL
-FP
+ol
 LE
 LE
 LE
-FP
+zw
+Dz
+up
+FE
 kZ
-eg
-eg
-FP
-FP
-kZ
-LE
-LE
-LE
-kZ
-eg
-kZ
-kZ
-LE
-LE
-LE
-FP
-kZ
+pf
+pf
 LE
 LE
 LE
 kZ
-eg
-FP
+FE
+kZ
+uD
+LE
+LE
+LE
+Dz
+rt
+LE
+LE
+LE
+HR
+xp
+OM
 LE
 LE
 LE
@@ -43754,35 +46569,35 @@ ji
 ji
 ji
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-RG
-RG
-kZ
-LE
-LE
+Ob
+SL
+nh
+Mg
 LE
 LE
 LE
 LE
 kZ
+pf
+fV
+rR
+pf
+IH
+pf
+LE
+LE
+LE
+LE
+Tr
+Dz
+pf
+LE
+LE
+LE
+LE
+LE
+LE
+rt
 LE
 LE
 LE
@@ -43799,66 +46614,66 @@ LE
 LE
 LE
 LE
+OV
+pf
+pf
+yO
+rt
+Ok
+IH
+pf
+pf
+pf
+pf
+sK
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+SI
+jJ
 FP
-kZ
-kZ
-RG
-RG
-up
-eg
-kZ
-kZ
-kZ
-kZ
-RG
+qx
 LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-FP
-jV
-FP
-FP
-LE
-LE
-LE
-LE
-FP
-Kg
+Tf
+Dn
 GM
 jV
-FP
+zw
+LE
+LE
+Ng
+Ok
+kZ
+LE
+LE
+SI
+pf
+pf
+yk
+pf
+fV
+rR
+JQ
+kZ
 LE
 LE
 rt
 up
-FP
-LE
-LE
-FP
-kZ
-kZ
-FP
-kZ
-kZ
-FP
-kZ
-kZ
-LE
-LE
-kZ
-eg
-kZ
+uD
 LE
 LE
 LE
 LE
 kZ
-kZ
+Dz
 LE
 LE
 LE
@@ -44011,62 +46826,62 @@ ji
 ji
 ji
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-rt
-kZ
-kZ
-LE
+uh
+NH
+RD
+fr
 LE
 LE
 LE
 LE
 FP
-kZ
-LE
-LE
-LE
-FP
-kZ
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-kZ
-kZ
-kZ
 eg
-FP
+kZ
+kZ
+kZ
 LE
 LE
 LE
-RG
-RG
-rt
-eg
+LE
+LE
+LE
+LE
 up
-RG
+pf
+uD
+LE
+LE
+LE
+LE
+LE
+FR
+rt
+LE
+LE
+LE
+Dz
+QS
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+uD
+pf
+pf
+IH
+yk
+LE
+LE
+LE
+Dz
+SB
+Uc
+Dq
+up
+Yv
 LE
 LE
 LE
@@ -44078,54 +46893,54 @@ LE
 LE
 LE
 FP
-FP
+zw
 LE
 LE
 LE
 LE
 LE
-FP
-jV
+br
+Zk
 Kg
 dL
+uD
+LE
+LE
+LE
+tA
+LE
+LE
+LE
+LE
+OV
+HR
+up
+Dz
+Ng
+LE
+LE
+ie
+OV
+up
+Ok
 kZ
 LE
 LE
 LE
-RG
+LE
+LE
+kZ
+Ok
 LE
 LE
 LE
 LE
-kZ
-kZ
-eg
-kZ
-kZ
 LE
 LE
-kZ
-kZ
-eg
-eg
+LE
+LE
 FP
-LE
-LE
-LE
-LE
-LE
-FP
-kZ
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-kZ
+rt
 LE
 LE
 LE
@@ -44268,66 +47083,61 @@ yH
 ji
 ji
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+PU
+NH
+ld
+Fy
 LE
 LE
 LE
 RG
-rt
+kZ
+pn
 eg
-FP
 LE
 LE
 LE
 LE
 LE
+LE
+LE
+LE
+LE
+Dz
+fV
+IH
 kZ
+LE
+LE
+LE
+LE
+LE
+FW
 kZ
 LE
 LE
-kZ
-FP
-kZ
-kZ
+fV
+yk
+pf
+pf
 LE
 LE
 LE
 LE
-kZ
-eg
-FP
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-RG
-rt
-rt
+iC
+IH
+yk
 LE
 LE
 LE
 LE
 LE
+LE
+LE
+LE
+Dv
+QH
+QS
 LE
 LE
 LE
@@ -44342,10 +47152,15 @@ LE
 LE
 LE
 LE
-jV
-Kg
+LE
+LE
+LE
+LE
+LE
+BC
+kE
 GM
-Kg
+XI
 LE
 LE
 LE
@@ -44354,35 +47169,35 @@ LE
 LE
 LE
 LE
-kZ
-kZ
-FP
+qi
+rt
+Bg
 LE
 LE
 LE
 LE
+FE
+ec
 eg
+OV
+LE
+LE
+LE
+LE
+aB
+OV
 eg
-eg
-FP
-LE
-LE
-LE
-LE
 kZ
-kZ
-FP
-FP
+Jx
 LE
 LE
 LE
 LE
 LE
 LE
-LE
-kZ
-eg
-FP
+rt
+up
+RG
 LE
 LE
 LE
@@ -44525,60 +47340,60 @@ ji
 HH
 ji
 LE
+aD
+Ap
+Os
+ZT
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-RG
 rt
-kZ
-LE
-LE
-LE
-LE
-LE
+FP
 FP
 kZ
 LE
 LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+DM
+fV
+pf
+LE
+LE
+LE
+LE
+LE
 kZ
+OV
 LE
 LE
-kZ
-FP
+pf
 LE
 LE
-kZ
-eg
-rt
+pf
+yk
 LE
 LE
-LE
-LE
-LE
-LE
+pf
+IH
+fV
 LE
 LE
 LE
-rt
-rt
+LE
+LE
+LE
+LE
+LE
+LE
+LX
+Zf
 LE
 LE
 LE
@@ -44601,7 +47416,7 @@ LE
 LE
 LE
 jV
-Kg
+Dn
 LE
 LE
 LE
@@ -44610,34 +47425,34 @@ LE
 LE
 LE
 LE
-FP
+tA
+QS
+LE
+LE
+LE
+LE
+LE
+LE
+rt
+pf
+LE
+LE
+LE
+LE
+LE
+OV
+up
+QS
+rt
 kZ
+Pg
 LE
 LE
 LE
 LE
-LE
-LE
-kZ
-kZ
-LE
-LE
-LE
-LE
-LE
-kZ
-eg
-kZ
-FP
-kZ
-eg
-LE
-LE
-LE
-LE
-kZ
-kZ
-kZ
+rt
+rt
+rt
 kZ
 LE
 LE
@@ -44782,47 +47597,20 @@ ji
 ji
 ji
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+CF
+Bs
+NP
+Wl
 LE
 LE
 RG
+rt
+rt
 kZ
-kZ
-LE
-LE
-LE
-LE
-LE
-FP
 kZ
 FP
-kZ
-LE
-LE
-LE
-kZ
-kZ
-kZ
-eg
+rt
+up
 RG
 LE
 LE
@@ -44831,11 +47619,38 @@ LE
 LE
 LE
 LE
+rt
+pf
+iC
 LE
 LE
 LE
 LE
-RG
+LE
+rj
+kZ
+Ed
+pf
+LE
+LE
+LE
+pf
+pf
+pf
+IH
+rt
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+LE
+Sa
 LE
 LE
 LE
@@ -44858,7 +47673,7 @@ LE
 LE
 LE
 jV
-Kg
+kE
 LE
 LE
 LE
@@ -44875,24 +47690,24 @@ LE
 LE
 LE
 LE
+Ng
+sz
+LE
+LE
+LE
+LE
+qx
+rt
+rt
+LE
+Jx
+rt
+iC
 kZ
-eg
 LE
 LE
-LE
-LE
-FP
-kZ
-kZ
-LE
-LE
-kZ
-eg
-kZ
-LE
-LE
-kZ
-kZ
+rt
+rt
 eg
 kZ
 LE
@@ -45039,47 +47854,47 @@ HH
 ji
 yH
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+SC
+Mi
+Wl
+Ln
 LE
 LE
 RG
-kZ
+rt
+rt
 LE
 LE
-LE
-LE
-LE
-kZ
-jV
+rt
+rt
+rt
+eg
 FP
 LE
 LE
 LE
 LE
-rt
-FP
-RG
-rt
+LE
+LE
+LE
+rR
+NL
+LE
+LE
+LE
+LE
+LE
+kZ
+ef
+yk
+LE
+LE
+LE
+LE
+Dz
+kZ
+QS
+Ng
 LE
 LE
 LE
@@ -45109,7 +47924,7 @@ ji
 qa
 ji
 ji
-ji
+LE
 LE
 LE
 LE
@@ -45133,19 +47948,19 @@ LE
 LE
 LE
 LE
-kZ
-eg
+fV
+sz
 LE
 LE
 LE
-kZ
-kZ
+OV
+up
 LE
 LE
 LE
-FP
-kZ
-kZ
+Bg
+rt
+rt
 kZ
 kZ
 kZ
@@ -45296,6 +48111,10 @@ ji
 ji
 yH
 LE
+JL
+my
+EA
+Xz
 LE
 LE
 LE
@@ -45306,36 +48125,32 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-kZ
-kZ
-LE
-LE
-LE
-LE
-kZ
-Kg
 FP
+kZ
+Jx
 LE
 LE
 LE
 LE
 LE
-RG
-RG
+LE
+LE
+pf
+Aw
+LE
+LE
+LE
+LE
+ef
+Ed
+kZ
+LE
+LE
+LE
+LE
+LE
+Te
+Dz
 LE
 LE
 LE
@@ -45390,21 +48205,21 @@ LE
 LE
 LE
 LE
-FP
-eg
-eg
-eg
+qx
+sz
+ml
+iC
 kZ
 kZ
-FP
+rt
 LE
 LE
 LE
 LE
 LE
-kZ
-kZ
-kZ
+rt
+rt
+CY
 kZ
 LE
 LE
@@ -45553,6 +48368,10 @@ yH
 ji
 yH
 LE
+nR
+bd
+iI
+Fo
 LE
 LE
 LE
@@ -45563,6 +48382,9 @@ LE
 LE
 LE
 LE
+Jx
+kV
+OV
 LE
 LE
 LE
@@ -45570,21 +48392,14 @@ LE
 LE
 LE
 LE
+AY
+Ed
 LE
 LE
 LE
 LE
-LE
-LE
-LE
-FP
-GM
-LE
-LE
-LE
-LE
-jV
-kZ
+dq
+OV
 LE
 LE
 LE
@@ -45649,19 +48464,19 @@ LE
 LE
 LE
 LE
-FP
-kZ
+RG
+Ah
 eg
-eg
-FP
-FP
+FE
+Dz
+Ew
 LE
 LE
 LE
 LE
 LE
-FP
-kZ
+RG
+rt
 kZ
 LE
 LE
@@ -45835,13 +48650,13 @@ LE
 LE
 LE
 LE
-kZ
-kZ
+pf
+ef
 LE
 LE
-FP
-kZ
-FP
+FE
+Ed
+yW
 LE
 LE
 LE
@@ -45908,19 +48723,19 @@ LE
 LE
 LE
 LE
+zw
 FP
-FP
-kZ
-kZ
+Pm
+Ng
 LE
 LE
 LE
 LE
 LE
 LE
-kZ
+rt
 eg
-kZ
+rt
 LE
 LE
 LE
@@ -46082,6 +48897,8 @@ LE
 LE
 LE
 LE
+pS
+pS
 LE
 LE
 LE
@@ -46091,13 +48908,11 @@ LE
 LE
 LE
 LE
-LE
-LE
-jV
-kZ
-FP
-kZ
-GM
+Ed
+Dr
+jJ
+wr
+Ed
 LE
 LE
 LE
@@ -46175,10 +48990,10 @@ LE
 LE
 LE
 LE
+rt
 kZ
 kZ
-kZ
-FP
+RG
 LE
 LE
 LE
@@ -46338,6 +49153,10 @@ LE
 LE
 LE
 LE
+pS
+pS
+pS
+pS
 LE
 LE
 LE
@@ -46346,15 +49165,11 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-Kg
-Kg
-FP
-dL
-Kg
+Ed
+ei
+GM
+xi
+pf
 LE
 LE
 LE
@@ -46435,7 +49250,7 @@ LE
 LE
 LE
 FP
-kZ
+rt
 LE
 LE
 LE
@@ -46594,6 +49409,11 @@ LE
 LE
 LE
 LE
+XQ
+lJ
+pS
+pS
+pS
 LE
 LE
 LE
@@ -46602,16 +49422,11 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-kZ
-GM
-kZ
-GM
-FP
+VS
+VU
+qO
+jV
+uD
 LE
 LE
 LE
@@ -46851,6 +49666,11 @@ LE
 LE
 LE
 LE
+aB
+ZC
+pk
+ZK
+ms
 LE
 LE
 LE
@@ -46859,15 +49679,10 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-FP
+HR
 dL
-eg
-FP
+yW
+OV
 LE
 LE
 LE
@@ -47107,6 +49922,13 @@ LE
 LE
 LE
 LE
+Yi
+Go
+cO
+Ls
+ET
+Cj
+ad
 LE
 LE
 LE
@@ -47114,17 +49936,10 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-Kg
-Ng
-FP
+Fg
+Dn
+jV
+kZ
 LE
 LE
 LE
@@ -47363,6 +50178,14 @@ LE
 LE
 LE
 LE
+qi
+zV
+qX
+rW
+OV
+qn
+FE
+uD
 LE
 LE
 LE
@@ -47371,17 +50194,9 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-FP
-jV
+xU
 dL
+Kg
 LE
 LE
 LE
@@ -47618,27 +50433,27 @@ LE
 LE
 LE
 LE
+Ye
+up
+rt
+LE
+LE
+wm
+LN
+zf
+So
 LE
 LE
 LE
 LE
 LE
+WQ
 LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-QX
-LE
-LE
-LE
-LE
-KO
-HR
+jV
+Kg
 LE
 LE
 LE
@@ -47875,27 +50690,27 @@ LE
 LE
 LE
 LE
+kZ
+Dz
+LE
+LE
+LE
+LE
+zs
+Te
 LE
 LE
 LE
 LE
 LE
 LE
+fv
+dK
+xy
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-QX
-QX
-QX
-LE
-LE
-Kg
-jV
+ej
+Bm
 LE
 LE
 LE
@@ -48132,6 +50947,7 @@ LE
 LE
 LE
 LE
+rt
 LE
 LE
 LE
@@ -48146,13 +50962,12 @@ LE
 LE
 LE
 LE
-LE
-QX
-QX
-QX
-QX
+KO
+Oj
+FQ
 QX
 FQ
+Fm
 LE
 LE
 LE
@@ -48405,12 +51220,12 @@ LE
 LE
 LE
 LE
-QX
-QX
-QX
-QX
-QX
-QX
+YE
+FQ
+FQ
+FQ
+FQ
+UE
 LE
 LE
 LE
@@ -48643,6 +51458,9 @@ LE
 LE
 LE
 LE
+pI
+eg
+RG
 LE
 LE
 LE
@@ -48650,6 +51468,8 @@ LE
 LE
 LE
 LE
+rt
+JE
 LE
 LE
 LE
@@ -48657,20 +51477,15 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-QX
-QX
-QX
-QX
-QX
-QX
+EI
+hX
+Eh
+rh
+FQ
+FQ
 QX
 ji
-ji
+yH
 ji
 ji
 yH
@@ -48901,6 +51716,17 @@ LE
 LE
 LE
 LE
+HR
+eg
+RG
+LE
+LE
+LE
+LE
+LE
+LE
+qZ
+QS
 LE
 LE
 LE
@@ -48912,20 +51738,9 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+yH
+ji
+ji
 yH
 ji
 ji
@@ -49159,6 +51974,16 @@ LE
 LE
 LE
 LE
+kZ
+iC
+rt
+LE
+LE
+LE
+ay
+xt
+Si
+rt
 LE
 LE
 LE
@@ -49171,18 +51996,8 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+ji
+ji
 ji
 ji
 yH
@@ -49416,16 +52231,16 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+Yz
+pf
+Ts
+fV
+fV
+NL
+NL
+pf
+iY
+kZ
 LE
 LE
 LE
@@ -49671,19 +52486,19 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+OV
+kZ
+pf
+fV
+JE
+dX
+jB
+tk
+JC
+HU
+HR
+nf
+UI
 LE
 LE
 LE
@@ -49928,20 +52743,20 @@ LE
 LE
 LE
 LE
+IH
+fV
+rR
+rt
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+Li
+OX
+gw
+zU
+JW
+pm
+rR
 LE
 LE
 LE
@@ -50185,21 +53000,21 @@ LE
 LE
 LE
 LE
+sz
 LE
 LE
+QS
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+pS
+pS
+pS
+pS
+gy
+qv
+eE
+sz
+UH
 LE
 LE
 LE
@@ -50442,6 +53257,7 @@ LE
 LE
 LE
 LE
+RG
 LE
 LE
 LE
@@ -50449,14 +53265,13 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+pS
+pS
+Vm
+nF
+kZ
+pf
+fV
 LE
 LE
 LE
@@ -50702,18 +53517,18 @@ LE
 LE
 LE
 LE
+pS
 LE
 LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+za
+qv
+Ks
+UI
+rt
+sz
 LE
 LE
 LE
@@ -50957,6 +53772,10 @@ LE
 LE
 LE
 LE
+pS
+pS
+pS
+NZ
 LE
 LE
 LE
@@ -50965,12 +53784,8 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
+Xh
+Dj
 LE
 LE
 LE
@@ -51214,24 +54029,24 @@ LE
 LE
 LE
 LE
+pS
+pS
+OP
+IQ
+Id
+LE
+LE
+qf
+rq
 LE
 LE
 LE
+Eb
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+oS
+TP
+tu
 LE
 LE
 LE
@@ -51470,24 +54285,24 @@ LE
 LE
 LE
 LE
+pS
+pS
+pS
+Da
+vR
+Co
+Hk
+TP
+Th
+ww
+Dz
 LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+bY
+mw
+cS
 LE
 LE
 LE
@@ -51727,23 +54542,23 @@ ji
 LE
 LE
 LE
+pk
+wL
+fJ
+it
+DQ
+lR
+Dz
 LE
 LE
 LE
+HR
+UI
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+DM
+zG
 LE
 LE
 LE
@@ -51984,6 +54799,13 @@ ji
 LE
 LE
 LE
+FE
+VK
+eK
+Oy
+iz
+sN
+BB
 LE
 LE
 LE
@@ -51991,16 +54813,9 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+jd
+rt
+kZ
 LE
 LE
 LE
@@ -52240,24 +55055,24 @@ yH
 ji
 LE
 LE
+Te
+nH
+zJ
+HR
+pf
+pf
+rR
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+ZE
+rt
+Dz
+qi
+rt
+up
+Yf
+HR
 LE
 LE
 LE
@@ -52499,23 +55314,23 @@ LE
 LE
 LE
 LE
+ME
+fV
+pf
+QS
 LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+sz
+fV
+fV
+pf
+IH
+pf
+kZ
+OV
+Jg
 LE
 LE
 ji
@@ -52757,22 +55572,22 @@ LE
 LE
 LE
 LE
+fV
+Dz
 LE
 LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+pf
+HR
+kZ
+Wc
+oH
+MP
+xc
+Zh
+UI
 LE
 LE
 ji
@@ -53014,6 +55829,7 @@ LE
 LE
 LE
 LE
+fV
 LE
 LE
 LE
@@ -53022,14 +55838,13 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
-LE
+Mu
+lR
+nu
+HO
+ke
+XY
+Tp
 LE
 LE
 ji
@@ -53281,11 +56096,11 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
+ad
+KU
+pS
+pS
+pS
 LE
 LE
 LE
@@ -53540,8 +56355,8 @@ LE
 LE
 LE
 LE
-LE
-LE
+pS
+pS
 LE
 LE
 LE
@@ -53788,14 +56603,14 @@ LE
 LE
 LE
 LE
+rt
 LE
 LE
 LE
 LE
 LE
-LE
-LE
-LE
+eg
+rt
 LE
 LE
 LE
@@ -54045,13 +56860,13 @@ LE
 LE
 LE
 LE
+up
+cq
 LE
 LE
 LE
-LE
-LE
-LE
-LE
+se
+FE
 LE
 LE
 LE
@@ -54302,13 +57117,13 @@ LE
 LE
 LE
 LE
+zq
+rt
 LE
 LE
 LE
-LE
-LE
-LE
-LE
+kZ
+eg
 LE
 LE
 LE
@@ -54560,12 +57375,12 @@ LE
 LE
 LE
 LE
+QN
+kZ
 LE
 LE
-LE
-LE
-LE
-LE
+OV
+lR
 LE
 LE
 LE
@@ -54817,12 +57632,12 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
-LE
+Zb
+kZ
+OV
+hi
+eg
+Gj
 LE
 LE
 LE
@@ -55074,11 +57889,11 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
-LE
+hV
+Dz
+GA
+Mn
+Xk
 LE
 LE
 LE
@@ -55332,10 +58147,10 @@ LE
 LE
 LE
 LE
-LE
-LE
-LE
-LE
+zs
+uK
+BZ
+RR
 LE
 LE
 LE
@@ -55591,7 +58406,7 @@ LE
 LE
 LE
 LE
-LE
+ab
 LE
 LE
 LE
