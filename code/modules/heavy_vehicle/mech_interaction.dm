@@ -363,6 +363,7 @@
 					remote_type = RM.type
 					become_remote()
 					qdel(attacking_item)
+				return
 			else if(attacking_item.ismultitool())
 				if(hardpoints_locked)
 					to_chat(user, SPAN_WARNING("Hardpoint system access is disabled."))
@@ -405,7 +406,7 @@
 							qdel(pilot)
 							new remote_type(get_turf(src))
 					dismantle()
-					return
+				return
 			else if(attacking_item.iswelder())
 				if(!getBruteLoss())
 					return

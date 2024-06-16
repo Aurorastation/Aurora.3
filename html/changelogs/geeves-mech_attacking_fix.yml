@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Moving away from a mech while using a wrench or a remote upgrade will no longer hit it."
