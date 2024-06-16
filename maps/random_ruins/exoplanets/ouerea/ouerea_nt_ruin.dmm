@@ -1,5 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-
 "at" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/item/reagent_containers/syringe/antiparasitic,
@@ -584,8 +583,7 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
-	temperature = 298.15
-	},
+/turf/space,
 /area/ouerea_nt_ruin)
 "uR" = (
 /obj/effect/decal/cleanable/dirt,
@@ -752,13 +750,6 @@
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"BF" = (
-/obj/structure/bed/stool,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
 "Bl" = (
 /obj/structure/bed/stool,
 /obj/effect/decal/cleanable/dirt,
@@ -766,6 +757,14 @@
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 298.15
 	},
+/area/ouerea_nt_ruin)
+"BF" = (
+/obj/machinery/vending/snack,
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/floor_decal/corner/green/full{
+	dir = 8/turf/simulated/floor/exoplanet/tiled{temperature=298.15
+	},
+/turf/space,
 /area/ouerea_nt_ruin)
 "Cc" = (
 /obj/structure/table/wood,
@@ -1012,13 +1011,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"IP" = (
-/obj/machinery/light,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
@@ -1384,6 +1376,11 @@
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
+"WA" = (
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
 "Xs" = (
 /obj/machinery/chemical_dispenser,
 /obj/effect/floor_decal/spline/plain/cee{
@@ -1404,15 +1401,6 @@
 /obj/structure/bed/stool/chair/office/dark,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/exoplanet/carpet/lightblue{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"XJ" = (
-/obj/machinery/vending/snack,
-/obj/effect/decal/cleanable/cobweb,
-/obj/effect/floor_decal/corner/green/full{
-	dir = 8
-/turf/simulated/floor/exoplanet/tiled{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
@@ -1570,7 +1558,7 @@ Ck
 fx
 Be
 Ck
-XJ
+BF
 Ut
 uR
 rq
@@ -1670,7 +1658,7 @@ fs
 fs
 Ck
 Ck
-zI
+ui
 fW
 bf
 IB
@@ -2026,7 +2014,7 @@ Ck
 lO
 Yu
 yH
-ov
+ka
 Ey
 po
 Zn
@@ -2094,7 +2082,7 @@ Ck
 yH
 yM
 df
-ov
+ka
 Ey
 RQ
 dK
@@ -2146,11 +2134,10 @@ fs
 fs
 Ck
 mu
-zI
+ui
 ui
 UM
 UM
-ui
 sk
 sk
 Ck
@@ -2217,7 +2204,8 @@ Ck
 DZ
 UM
 ui
-zI
+ui
+ui
 IO
 Ks
 Ck
@@ -2349,19 +2337,16 @@ fs
 fs
 fs
 Ck
-zI
-zI
-zI
+ui
+ui
+ui
 ui
 zd
 UM
 ui
-ui
-ui
-ui
 Ck
-fs
-fs
+WA
+WA
 "}
 (27,1,1) = {"
 fs
