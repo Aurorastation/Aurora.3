@@ -1,6 +1,3 @@
-/mob
-	var/list/screens = list()
-
 /mob/proc/set_fullscreen(condition, screen_name, screen_type, arg)
 	condition ? overlay_fullscreen(screen_name, screen_type, arg) : clear_fullscreen(screen_name)
 
@@ -36,17 +33,18 @@
 
 	screens -= category
 
-	if(animated)
-		spawn(0)
-			animate(screen, alpha = 0, time = animated)
-			sleep(animated)
-			if(client)
-				client.screen -= screen
-			qdel(screen)
+	if(!QDELETED(src) && animated)
+		animate(screen, alpha = 0, time = animated)
+		addtimer(CALLBACK(src, PROC_REF(clear_fullscreen_after_animate), screen), animated, TIMER_CLIENT_TIME)
 	else
 		if(client)
 			client.screen -= screen
 		qdel(screen)
+
+/mob/proc/clear_fullscreen_after_animate(obj/screen/fullscreen/screen)
+	if(client)
+		client.screen -= screen
+	qdel(screen)
 
 /mob/proc/clear_fullscreens()
 	for(var/category in screens)

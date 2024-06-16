@@ -31,6 +31,8 @@
 	attacktext = "chomped"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+
 	faction = "Moghes"
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 20)
 	var/is_devouring = FALSE

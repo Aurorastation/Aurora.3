@@ -17,8 +17,14 @@
 	requires_power = FALSE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
+	is_outside = OUTSIDE_NO
 	base_turf = /turf/simulated/floor/exoplanet/desert
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
+
+/area/moghes/hegemony_wasteland/outdoors
+	name = "Hegemony Wasteland Outpost"
+	icon_state = "bluenew"
+	is_outside = OUTSIDE_YES
 	area_blurb = "An outpost of the Izweski Hegemony, standing in the Wasteland. Red-and-gold banners snap in the wind."
 
 /datum/ghostspawner/human/moghes_hegemony_wasteland

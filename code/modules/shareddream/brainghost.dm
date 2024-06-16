@@ -80,7 +80,7 @@
 		awaken_impl(TRUE)
 		body.handle_shared_dreaming(TRUE)
 
-/mob/living/brain_ghost/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/living/brain_ghost/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	if(!istype(body) || body.stat!=UNCONSCIOUS)
 		return
 	if(prob(20)) // 1/5 chance to mumble out anything you say in the dream.

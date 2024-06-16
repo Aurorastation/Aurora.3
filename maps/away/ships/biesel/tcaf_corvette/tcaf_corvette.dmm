@@ -3263,8 +3263,8 @@
 /area/tcaf_corvette/medical)
 "AN" = (
 /obj/structure/table/steel,
-/obj/item/storage/belt/medical/first_responder/combat,
-/obj/item/storage/belt/medical/first_responder/combat,
+/obj/item/storage/belt/medical/paramedic/combat,
+/obj/item/storage/belt/medical/paramedic/combat,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,

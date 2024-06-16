@@ -156,6 +156,8 @@
 	var/obj/item/storage/s_active = null//Carbon
 	var/obj/item/clothing/mask/wear_mask = null//Carbon
 
+	var/list/screens = list()
+
 	var/seer = 0 //for cult//Carbon, probably Human
 
 	var/datum/hud/hud_used = null

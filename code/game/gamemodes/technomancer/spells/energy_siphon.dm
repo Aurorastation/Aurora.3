@@ -163,15 +163,14 @@
 
 /obj/item/spell/energy_siphon/proc/create_lightning(mob/user, atom/source)
 	if(user && source && user != source)
-		spawn(0)
-			var/i = 7 // process() takes two seconds to tick, this ensures the appearance of a ongoing beam.
-			while(i)
-				var/obj/item/projectile/beam/lightning/energy_siphon/lightning = new(get_turf(source))
-				lightning.firer = user
-				lightning.old_style_target(user)
-				lightning.fire()
-				i--
-				sleep(3)
+		var/i = 7 // process() takes two seconds to tick, this ensures the appearance of a ongoing beam.
+		while(i)
+			var/obj/item/projectile/beam/lightning/energy_siphon/lightning = new(get_turf(source))
+			lightning.firer = user
+			lightning.old_style_target(user)
+			lightning.fire()
+			i--
+			sleep(3)
 
 /obj/item/projectile/beam/lightning/energy_siphon
 	name = "energy stream"

@@ -679,7 +679,7 @@
 	to_chat(src, SPAN_WARNING("There is no perch nearby to sit on."))
 	return
 
-/mob/living/simple_animal/parrot/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/living/simple_animal/parrot/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 
 	if(stat)
 		return
