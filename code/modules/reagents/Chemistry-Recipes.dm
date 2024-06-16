@@ -1056,8 +1056,7 @@
 	S.attach(location)
 	S.set_up(holder, created_volume, 0, location, 80)
 	playsound(location, 'sound/effects/smoke.ogg', 50, 1, -3)
-	spawn(0)
-		S.start()
+	S.start()
 	holder.clear_reagents()
 	return
 
