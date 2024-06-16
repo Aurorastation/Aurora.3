@@ -71,15 +71,22 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/tramp_freighter/captain_bed)
 "au" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/plating,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "aw" = (
 /obj/structure/bed/stool/wood{
 	dir = 8
@@ -139,6 +146,7 @@
 	icon_state = "1-8"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/centralhallway)
 "aH" = (
@@ -167,6 +175,9 @@
 	},
 /obj/effect/floor_decal/industrial/arrow/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -229,8 +240,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/plating,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "bh" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -323,18 +339,21 @@
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "bJ" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
 "bO" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/conveyor{
-	id = "freighter_mining";
-	dir = 8
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/tramp_freighter/refinery1)
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/disposals)
 "bQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -346,6 +365,9 @@
 	icon_state = "1-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/bridge)
 "bR" = (
@@ -384,6 +406,9 @@
 	},
 /obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
 "bW" = (
@@ -430,7 +455,7 @@
 "cf" = (
 /obj/machinery/mineral/stacking_machine,
 /turf/simulated/floor/plating,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "cj" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -444,6 +469,14 @@
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
+"cn" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/space/dynamic,
+/area/tramp_freighter/disposals)
 "cu" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/tramp_freighter/kitchen)
@@ -691,10 +724,11 @@
 /area/shuttle/freighter_shuttle)
 "dJ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/trash_pile,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/trash_pile,
 /turf/simulated/floor/tiled/ridged,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "dM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 10
@@ -735,6 +769,7 @@
 	name = "Cargo Bay"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
 "dT" = (
@@ -780,7 +815,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "dX" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/decal/cleanable/dirt,
@@ -827,6 +862,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
 "ef" = (
@@ -876,6 +912,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/machinery/light,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
 "en" = (
@@ -911,9 +948,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/equipment)
 "eu" = (
-/obj/machinery/mineral/processing_unit,
+/obj/machinery/conveyor{
+	id = "tramp_recycling"
+	},
 /turf/simulated/floor/plating,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "eB" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/tramp_freighter/crew_quarters)
@@ -922,10 +961,15 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/survey_probe/hegemony,
+/obj/structure/closet/crate,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/contraband,
 /obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
 /turf/simulated/floor/tiled/ridged,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "eD" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -1068,10 +1112,13 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/tramp_freighter/bridge)
 "fi" = (
-/obj/effect/floor_decal/industrial/loading/yellow,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/refinery1)
+/obj/structure/disposaloutlet,
+/obj/structure/plasticflaps/airtight,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/tramp_freighter/disposals)
 "fj" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -1084,6 +1131,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
 "fp" = (
@@ -1101,6 +1149,10 @@
 /area/tramp_freighter/port_docking)
 "fy" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
 "fz" = (
@@ -1183,6 +1235,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/portthrust)
+"fI" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor,
+/area/tramp_freighter/disposals)
 "fJ" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -1209,6 +1270,9 @@
 	icon_state = "1-4"
 	},
 /obj/structure/bed/stool/bar/padded/brown,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/lino,
 /area/tramp_freighter/lounge)
 "fL" = (
@@ -1363,6 +1427,9 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
 "gC" = (
@@ -1375,6 +1442,34 @@
 	},
 /turf/simulated/floor/marble,
 /area/tramp_freighter/kitchen)
+"gI" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = 18;
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/disposals)
+"gJ" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/plating,
+/area/tramp_freighter/cargo)
 "gL" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed,
@@ -1389,7 +1484,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/plating,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "gR" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -1407,6 +1502,9 @@
 	must_start_working = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/radioactive_waste{
+	pixel_x = -7
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
 "hk" = (
@@ -1427,6 +1525,9 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/port_docking_processing)
 "hl" = (
@@ -1441,9 +1542,8 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/survey_probe/hegemony,
 /turf/simulated/floor/tiled/ridged,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "hv" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -1474,6 +1574,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "hC" = (
@@ -1512,7 +1613,7 @@
 "hJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "hR" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1678,6 +1779,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "iU" = (
@@ -1686,6 +1788,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/bridge)
@@ -1751,8 +1857,16 @@
 	door_color = "#4d4d4d";
 	name = "Crew Quarters"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
+"ja" = (
+/obj/structure/disposalpipe/segment,
+/obj/structure/lattice/catwalk/indoor,
+/turf/space/dynamic,
+/area/tramp_freighter/disposals)
 "jg" = (
 /obj/vehicle/bike/monowheel,
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -1774,17 +1888,12 @@
 /turf/simulated/floor/carpet/red,
 /area/tramp_freighter/captain)
 "jl" = (
-/obj/machinery/mineral/stacking_unit_console{
-	pixel_x = -32
-	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic{
-	pixel_y = -5;
-	pixel_x = 2
+/obj/structure/bed/stool/chair{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "jm" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -1802,6 +1911,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/afthallway)
 "jr" = (
@@ -1855,6 +1965,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/port_docking)
+"jN" = (
+/obj/structure/disposalpipe/trunk,
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/disposaloutlet{
+	dir = 4
+	},
+/turf/space/dynamic,
+/area/tramp_freighter/disposals)
 "jU" = (
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	dir = 4;
@@ -1884,6 +2002,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
 "ka" = (
@@ -1992,6 +2111,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
 "kB" = (
@@ -2034,9 +2156,9 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/port_docking)
 "kP" = (
-/obj/structure/closet/secure_closet/freezer/kois/spores,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/freezer/kois/spores,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
 "kU" = (
@@ -2130,14 +2252,25 @@
 /turf/simulated/floor/carpet/red,
 /area/tramp_freighter/captain)
 "lr" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate,
-/obj/random/loot,
-/obj/random/loot,
-/obj/random/contraband,
+/obj/structure/table/standard,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/paper_bin{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/obj/item/pen/black{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/obj/item/clothing/head/softcap/custodian{
+	pixel_x = -7;
+	pixel_y = -1
+	},
+/obj/structure/reagent_dispensers/peppertank/spacecleaner{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "ls" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -2193,6 +2326,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tramp_freighter/bridge)
 "lE" = (
@@ -2246,7 +2380,6 @@
 /obj/item/storage/backpack/satchel/leather,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/under/sundress,
-/obj/item/clothing/under/dress/tajaran/formal,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "lN" = (
@@ -2277,11 +2410,11 @@
 "ml" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "mq" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "ms" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -2346,6 +2479,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
 "mM" = (
@@ -2373,6 +2509,9 @@
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
@@ -2412,6 +2551,9 @@
 	},
 /obj/effect/floor_decal/corner/brown,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboard_docking_processing)
 "mW" = (
@@ -2424,7 +2566,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "mX" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -2441,6 +2583,9 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
 "ne" = (
@@ -2625,6 +2770,9 @@
 	},
 /obj/structure/closet/crate/bin,
 /obj/random/junk,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
 "nV" = (
@@ -2677,6 +2825,9 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/arrow/yellow,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/port_docking_processing)
 "od" = (
@@ -2692,14 +2843,11 @@
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/effect/overmap/visitable/ship/tramp_freighter,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
 "oi" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/hatch{
-	dir = 4;
-	name = "Refinery #1"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -2715,8 +2863,16 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	dir = 8;
+	door_color = "#4d4d4d";
+	name = "Disposals"
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "ol" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2792,8 +2948,14 @@
 "oB" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/plating,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "oL" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -2805,8 +2967,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "oQ" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -2860,7 +3023,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "pj" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/tramp_freighter/port_docking)
@@ -3009,6 +3172,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/bar/padded/brown,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/lino,
 /area/tramp_freighter/lounge)
 "ql" = (
@@ -3034,14 +3201,15 @@
 /area/tramp_freighter/lounge)
 "qp" = (
 /obj/machinery/conveyor_switch/oneway{
-	id = "freighter_mining_2"
+	id = "freighter_mining_2";
+	pixel_x = -9
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/refinery2)
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/refinery)
 "qq" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/tramp_freighter/starboard_docking_processing)
@@ -3149,16 +3317,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/power)
-"qK" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 5
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/starboard_docking)
 "qP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 5
@@ -3296,6 +3454,7 @@
 	name = "Crew Amenities"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/centralhallway)
 "rF" = (
@@ -3325,6 +3484,7 @@
 	icon_state = "1-4"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
 "rI" = (
@@ -3369,7 +3529,7 @@
 /area/tramp_freighter/afthallway)
 "rO" = (
 /turf/simulated/wall/shuttle/space_ship,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "rT" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -3387,6 +3547,10 @@
 	d1 = 1;
 	d2 = 8;
 	icon_state = "1-8"
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 1;
+	icon_state = "pipe-j2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
@@ -3415,16 +3579,10 @@
 /area/tramp_freighter/starboard_docking)
 "rX" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate,
-/obj/random/loot,
-/obj/random/loot,
-/obj/random/loot,
-/obj/random/loot,
-/obj/random/contraband,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/ridged,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "sa" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
@@ -3432,7 +3590,6 @@
 "sc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/portthrust)
 "sd" = (
@@ -3500,7 +3657,7 @@
 /obj/structure/trash_pile,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "sC" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
@@ -3587,6 +3744,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "sV" = (
@@ -3641,10 +3802,34 @@
 /area/tramp_freighter/power)
 "ta" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/ore_box,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/generic{
+	pixel_y = -4;
+	pixel_x = -9
+	},
 /turf/simulated/floor/tiled/ridged,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
+"te" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/port_docking)
 "ti" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
@@ -3702,6 +3887,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/afthallway)
 "ts" = (
@@ -3718,6 +3904,9 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/bar/padded/brown,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/lino,
 /area/tramp_freighter/lounge)
 "tz" = (
@@ -3740,6 +3929,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
 "tF" = (
@@ -3794,7 +3984,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled/ridged,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "tY" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -3834,7 +4024,7 @@
 /obj/random/contraband,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/ridged,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "ue" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3889,6 +4079,9 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboard_docking_processing)
 "ui" = (
@@ -3901,6 +4094,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/centralhallway)
 "ul" = (
@@ -3913,6 +4107,10 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
@@ -3950,8 +4148,9 @@
 /obj/random/loot,
 /obj/random/contraband,
 /obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
 /turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "uy" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -4018,6 +4217,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/junction{
+	dir = 1;
+	icon_state = "pipe-j2"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
 "uP" = (
@@ -4030,12 +4233,26 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hydroponics)
 "uQ" = (
-/obj/machinery/mineral/unloading_machine,
-/obj/machinery/light{
-	dir = 4
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
 	},
-/turf/simulated/floor/plating,
-/area/tramp_freighter/refinery1)
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/starboard_docking)
 "uR" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -4092,6 +4309,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/port_docking_processing)
 "uW" = (
@@ -4127,13 +4347,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /obj/structure/cable/green{
-	d1 = 2;
+	d1 = 4;
 	d2 = 8;
-	icon_state = "2-8"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "vf" = (
 /obj/effect/floor_decal/industrial/warning{
 	layer = 2.71;
@@ -4219,6 +4442,10 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "vH" = (
@@ -4247,24 +4474,17 @@
 /area/tramp_freighter/port_docking)
 "vS" = (
 /obj/structure/table/steel,
-/obj/item/storage/box/lights/mixed{
-	pixel_x = 5;
-	pixel_y = 7
-	},
-/obj/item/storage/box/lights/mixed{
-	pixel_x = 5
-	},
 /obj/item/reagent_containers/glass/bucket{
-	pixel_y = -2;
-	pixel_x = -9
+	pixel_y = 3;
+	pixel_x = 6
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
-/obj/item/clothing/head/softcap/custodian{
-	pixel_x = -7;
-	pixel_y = 14
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
+	},
+/obj/item/bikehorn/rubberducky{
+	pixel_y = 9;
+	pixel_x = -6
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/custodial)
@@ -4316,12 +4536,19 @@
 /turf/simulated/floor/carpet/red,
 /area/tramp_freighter/captain)
 "wf" = (
-/obj/machinery/conveyor{
-	id = "freighter_mining";
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/tramp_freighter/refinery1)
+/obj/structure/disposalpipe/segment,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack,
+/obj/item/clothing/gloves/janitor,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/grenade/chem_grenade/cleaner,
+/obj/item/mop,
+/obj/item/reagent_containers/spray/cleaner,
+/obj/item/storage/belt/custodial,
+/obj/item/taperoll/custodial,
+/obj/item/reagent_containers/glass/rag/advanced,
+/turf/simulated/floor/tiled/dark/full,
+/area/tramp_freighter/disposals)
 "wg" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/machinery/door/firedoor/noid,
@@ -4345,6 +4572,14 @@
 	},
 /turf/simulated/floor/carpet,
 /area/tramp_freighter/crew_quarters)
+"wm" = (
+/obj/machinery/disposal/deliveryChute{
+	dir = 1
+	},
+/obj/structure/plasticflaps/airtight,
+/obj/structure/disposalpipe/trunk,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/disposals)
 "wn" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4355,6 +4590,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
@@ -4399,6 +4637,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/afthallway)
 "wE" = (
@@ -4418,18 +4657,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboard_docking)
 "wF" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/mineral/processing_unit_console{
-	pixel_x = -32
-	},
-/obj/structure/bed/stool/chair{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/loot,
+/obj/structure/closet/crate/trashcart,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
 /turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "wH" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4537,10 +4775,15 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/bridge)
 "xb" = (
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/disposal,
+/obj/structure/disposalpipe/trunk,
+/obj/structure/sign/vacuum{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "xc" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -4560,7 +4803,7 @@
 /area/tramp_freighter/starboard_docking)
 "xf" = (
 /turf/simulated/wall/shuttle/space_ship,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "xj" = (
 /obj/machinery/recharge_station,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -4576,7 +4819,7 @@
 "xk" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/mob/living/heavy_vehicle/premade/miner,
+/mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/armory)
 "xp" = (
@@ -4593,7 +4836,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "xs" = (
 /obj/structure/closet/crate/loot,
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -4614,9 +4857,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/atmos)
 "xu" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/bin,
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/disposalpipe/trunk,
+/obj/machinery/disposal,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/port_docking)
 "xy" = (
@@ -4665,6 +4908,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "xP" = (
@@ -4746,9 +4990,11 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/tramp_freighter/lounge)
 "yi" = (
-/obj/structure/undies_wardrobe,
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/table/rack/clothing{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
 "yj" = (
@@ -4763,16 +5009,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/freighter_shuttle)
-"yl" = (
-/obj/effect/floor_decal/corner/dark_green{
-	dir = 5
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/port_docking)
 "yq" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -4815,10 +5051,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/portthrust)
 "yu" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/bin,
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/disposalpipe/trunk,
+/obj/machinery/disposal,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/starboard_docking)
 "yE" = (
@@ -4834,6 +5069,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
 "yG" = (
@@ -4882,8 +5120,38 @@
 	icon_state = "1-8"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/obj/machinery/disposal/small/north,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
+"yX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/standard,
+/obj/item/clothing/mask/smokable/cigarette/wulu{
+	pixel_x = -11;
+	pixel_y = 9
+	},
+/obj/item/clothing/mask/smokable/cigarette/adhomai/menthol{
+	pixel_y = 10;
+	pixel_x = -5
+	},
+/obj/item/clothing/mask/smokable/pipe{
+	pixel_x = 8;
+	pixel_y = 12
+	},
+/obj/item/storage/chewables/rollable/fine{
+	pixel_x = -8;
+	pixel_y = -2
+	},
+/obj/item/storage/box/fancy/cigpaper{
+	pixel_y = -3;
+	pixel_x = 7
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/disposals)
 "yY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic{
@@ -5070,6 +5338,7 @@
 	pixel_y = 1;
 	pixel_x = -2
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
 "zN" = (
@@ -5077,7 +5346,7 @@
 /obj/structure/closet/crate/loot,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/ridged,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "zS" = (
 /obj/effect/floor_decal/corner/dark_green,
 /obj/effect/decal/cleanable/dirt,
@@ -5178,23 +5447,23 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "Ap" = (
-/obj/item/material/stool/chair/plastic,
-/obj/item/material/stool/chair/plastic{
-	pixel_y = 5
-	},
-/obj/item/material/stool/chair/plastic{
-	pixel_y = 10
-	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
 "Ar" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, warehouse"
 	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/tramp_freighter/refinery1)
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor,
+/area/tramp_freighter/disposals)
 "At" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -5268,6 +5537,7 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "AC" = (
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
 "AE" = (
@@ -5391,10 +5661,32 @@
 /obj/machinery/alarm/north{
 	req_one_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "conpipe-c"
+	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/storage/bag/trash{
+	pixel_y = 6;
+	pixel_x = 4
+	},
+/obj/item/storage/bag/trash{
+	pixel_x = 8;
+	pixel_y = 5
+	},
+/obj/item/storage/box/lights/mixed{
+	pixel_x = -7;
+	pixel_y = 10
+	},
+/obj/item/storage/box/lights/mixed{
+	pixel_x = -7
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "BA" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/marble,
@@ -5434,6 +5726,9 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "Cb" = (
@@ -5475,6 +5770,10 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/machinery/disposal/small/west,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/centralhallway)
 "Cu" = (
@@ -5524,20 +5823,21 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "CJ" = (
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "CW" = (
 /obj/machinery/smartfridge/foodheater,
 /turf/simulated/floor/tiled/dark/full,
@@ -5597,10 +5897,13 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "Dx" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -5616,8 +5919,9 @@
 	dir = 8;
 	layer = 2.71
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "DD" = (
 /obj/structure/table/rack{
 	dir = 8
@@ -5749,10 +6053,17 @@
 /area/tramp_freighter/crew_quarters)
 "El" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 6
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/arrow/yellow{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "Es" = (
 /obj/structure/table/steel,
 /obj/item/toy/desk/fan{
@@ -5811,6 +6122,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/starboard_docking)
+"EW" = (
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/wall/shuttle/space_ship,
+/area/tramp_freighter/atmos)
 "EX" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, reactor"
@@ -5830,6 +6145,9 @@
 	dir = 8
 	},
 /obj/structure/bed/stool/bar/padded/brown,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/lino,
 /area/tramp_freighter/lounge)
 "Fj" = (
@@ -5852,6 +6170,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
+	},
+/obj/structure/disposalpipe/junction/yjunction{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
@@ -5876,6 +6197,9 @@
 	dir = 2;
 	door_color = "#4d4d4d";
 	name = "Lounge"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
@@ -5911,7 +6235,7 @@
 	id = "freighter_mining_2"
 	},
 /turf/simulated/floor/plating,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "FB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
@@ -5961,8 +6285,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "FW" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/alarm/east,
@@ -6015,6 +6344,10 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/bridge)
 "Gv" = (
@@ -6060,6 +6393,9 @@
 /obj/effect/floor_decal/industrial/outline_door/yellow{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tramp_freighter/bridge)
 "GG" = (
@@ -6104,8 +6440,13 @@
 "GN" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "GO" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
@@ -6133,7 +6474,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "GZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
@@ -6163,6 +6504,30 @@
 /obj/item/pen,
 /turf/simulated/floor/wood,
 /area/tramp_freighter/captain_bed)
+"Hf" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/junction{
+	dir = 1;
+	icon_state = "pipe-j2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/centralhallway)
 "Hv" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -6269,12 +6634,15 @@
 /obj/machinery/power/apc/east{
 	req_access = null
 	},
-/obj/structure/cable/green,
 /obj/structure/closet/crate/miningcart/ore,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/random/junk,
 /turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "HO" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
@@ -6323,6 +6691,9 @@
 /obj/item/storage/bag/circuits/basic,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/head/circuitry,
+/obj/item/clothing/under/circuitry,
+/obj/item/clothing/glasses/circuitry,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
 "HX" = (
@@ -6361,10 +6732,13 @@
 /area/tramp_freighter/starboardthrust)
 "Ik" = (
 /obj/machinery/conveyor{
-	id = "freighter_mining"
+	id = "tramp_recycling"
+	},
+/obj/structure/railing/mapped{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "Ir" = (
 /obj/structure/bed/stool/chair,
 /turf/simulated/floor/tiled/dark,
@@ -6492,7 +6866,7 @@
 	name = "starboard, warehouse"
 	},
 /turf/simulated/wall/shuttle/space_ship,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "IX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -6561,6 +6935,24 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/port_docking)
+"Jz" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/tramp_freighter/cargo)
 "JF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
@@ -6578,6 +6970,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/turf/simulated/floor/plating,
+/area/tramp_freighter/cargo)
+"JO" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "JP" = (
@@ -6659,8 +7056,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/light,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/machinery/disposal/small/north,
 /turf/simulated/floor/marble,
 /area/tramp_freighter/kitchen)
 "Kf" = (
@@ -6813,6 +7213,7 @@
 /obj/machinery/alarm/west{
 	req_one_access = null
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/centralhallway)
 "Lk" = (
@@ -6863,18 +7264,33 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
+"LA" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/port_docking)
 "LC" = (
 /obj/machinery/power/apc/west{
 	req_access = null
 	},
-/obj/structure/cable/green,
-/obj/structure/bed/stool/chair{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/trashcart,
+/obj/random/loot,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
 /turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "LD" = (
 /obj/structure/sink{
 	pixel_y = 20
@@ -6922,6 +7338,9 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/arrow/yellow,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboard_docking_processing)
 "LK" = (
@@ -7042,6 +7461,10 @@
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/freighter_shuttle)
+"Mp" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/wall/shuttle/space_ship,
+/area/tramp_freighter/disposals)
 "Mt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 6
@@ -7076,6 +7499,7 @@
 	name = "Engineering & Shuttle Dock"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/afthallway)
 "My" = (
@@ -7099,6 +7523,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/centralhallway)
 "MB" = (
@@ -7120,8 +7545,19 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/kitchen)
+"MC" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/space/dynamic,
+/area/tramp_freighter/disposals)
 "MG" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7146,6 +7582,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/power)
+"MI" = (
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/space/dynamic,
+/area/tramp_freighter/disposals)
 "MJ" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/service,
@@ -7160,6 +7603,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/atmos)
+"MN" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "MP" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -7176,6 +7625,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
 "MU" = (
@@ -7184,6 +7636,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
+"MW" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/plating,
+/area/tramp_freighter/cargo)
 "MX" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/cable/green{
@@ -7215,6 +7677,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/afthallway)
 "Nn" = (
@@ -7362,11 +7825,16 @@
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/bridge)
 "On" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
 "Os" = (
@@ -7482,9 +7950,6 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "OW" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/mineral/processing_unit_console{
 	pixel_x = 32
 	},
@@ -7492,7 +7957,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "OZ" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7555,9 +8020,7 @@
 /obj/item/soap/golden_soap,
 /obj/item/soap/golden_soap,
 /obj/item/soap/golden_soap,
-/obj/item/reagent_containers/spray/cleaner,
 /obj/item/reagent_containers/glass/rag/advanced,
-/obj/item/mop,
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/machinery/power/apc/north{
 	req_access = null
@@ -7566,9 +8029,6 @@
 	icon_state = "0-2"
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/gloves/janitor,
-/obj/item/grenade/chem_grenade/cleaner,
-/obj/item/grenade/chem_grenade/cleaner,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/custodial)
 "Pn" = (
@@ -7697,13 +8157,20 @@
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/machinery/disposal/small/south,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
 "Qb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "Qf" = (
 /obj/structure/closet/crate/weapon,
 /obj/random/melee,
@@ -7753,7 +8220,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/centralhallway)
 "Qo" = (
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic{
 	pixel_y = 3;
@@ -7762,8 +8228,8 @@
 /obj/machinery/alarm/north{
 	req_one_access = null
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/refinery2)
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/refinery)
 "Qt" = (
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/airless,
@@ -7837,7 +8303,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "QG" = (
 /obj/effect/landmark/entry_point/aft{
 	name = "starboard"
@@ -7866,8 +8332,9 @@
 /area/shuttle/freighter_shuttle)
 "QN" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/refinery1)
+/area/tramp_freighter/disposals)
 "QQ" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -7877,6 +8344,10 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
@@ -7992,8 +8463,21 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/arrow/yellow,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboard_docking_processing)
+"RB" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/port_docking)
 "RC" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8015,6 +8499,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/junction{
+	dir = 1;
+	icon_state = "pipe-j2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
 "RE" = (
@@ -8030,6 +8518,9 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboard_docking_processing)
 "RF" = (
@@ -8271,13 +8762,17 @@
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "SR" = (
-/obj/machinery/conveyor_switch/oneway{
-	id = "freighter_mining"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning/corner,
-/obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/refinery1)
+/obj/machinery/conveyor_switch/oneway{
+	id = "tramp_recycling";
+	pixel_x = 4
+	},
+/obj/structure/disposalpipe/segment,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/disposals)
 "SS" = (
 /obj/item/toy/comic/inspector{
 	pixel_y = -2
@@ -8317,6 +8812,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
 "Ti" = (
@@ -8484,9 +8980,14 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboard_docking)
 "Ug" = (
-/obj/machinery/mineral/stacking_machine,
-/turf/simulated/floor/plating,
-/area/tramp_freighter/refinery1)
+/obj/structure/closet/crate/trashcart{
+	opened = 1
+	},
+/obj/structure/disposalpipe/junction,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/tramp_freighter/disposals)
 "Uj" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8628,10 +9129,6 @@
 /area/tramp_freighter/atmos)
 "UT" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/hatch{
-	dir = 4;
-	name = "Refinery #2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -8647,8 +9144,13 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock/hatch{
+	dir = 8;
+	door_color = "#4d4d4d";
+	name = "Refinery"
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "UW" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
@@ -8674,6 +9176,9 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
 "UZ" = (
@@ -8688,6 +9193,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
@@ -8742,6 +9250,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/port_docking_processing)
 "Vf" = (
@@ -8783,7 +9294,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "Vr" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -8874,6 +9385,10 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
 	},
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/machinery/disposal/small/west,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/afthallway)
 "VN" = (
@@ -8939,7 +9454,7 @@
 "VW" = (
 /obj/machinery/mineral/processing_unit,
 /turf/simulated/floor/plating,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "VX" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/tramp_freighter/atmos)
@@ -8954,6 +9469,9 @@
 	},
 /obj/effect/floor_decal/corner/brown,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/port_docking_processing)
 "Wc" = (
@@ -8974,6 +9492,25 @@
 "We" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/tramp_freighter/power)
+"Wf" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/arrow/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/disposals)
+"Wh" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/tramp_freighter/disposals)
 "Wi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -9004,6 +9541,16 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/port_docking)
+"Wo" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/starboard_docking)
 "Wt" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -9068,6 +9615,7 @@
 	name = "Bridge"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/centralhallway)
 "WF" = (
@@ -9093,6 +9641,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
 "WL" = (
@@ -9219,8 +9770,9 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/tramp_freighter/refinery2)
+/area/tramp_freighter/refinery)
 "XF" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -9269,6 +9821,9 @@
 	name = "Lounge"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
 "XR" = (
@@ -9429,6 +9984,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/junction{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/centralhallway)
 "YD" = (
@@ -9505,9 +10063,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hydroponics)
 "YU" = (
-/obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/undies_wardrobe,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
 "YV" = (
@@ -9523,6 +10081,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
 "YY" = (
@@ -9577,14 +10136,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
 "Zq" = (
-/obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/floor_decal/industrial/arrow/yellow{
-	dir = 8
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
 	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/refinery1)
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/dark,
+/area/tramp_freighter/starboard_docking)
 "Zu" = (
 /obj/effect/landmark/entry_point/port{
 	name = "fore"
@@ -9649,6 +10206,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/extinguisher_cabinet/west,
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/centralhallway)
 "ZQ" = (
@@ -9675,6 +10233,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/afthallway)
@@ -34736,7 +35298,7 @@ nN
 hX
 Ex
 Ex
-qK
+Wo
 XF
 Ex
 Ex
@@ -38334,8 +38896,8 @@ nN
 hX
 Ex
 yu
-Wz
-xc
+Zq
+uQ
 UA
 OE
 hX
@@ -41410,9 +41972,9 @@ JY
 OJ
 Ml
 Ge
-kP
-OV
 JY
+OV
+kP
 OV
 pE
 Wj
@@ -41913,7 +42475,7 @@ it
 zV
 it
 it
-VX
+EW
 Uz
 VX
 VX
@@ -42174,10 +42736,10 @@ Nj
 jm
 tr
 Mw
-Wt
+MW
 xI
 hB
-Wt
+MW
 QQ
 HA
 ds
@@ -42185,8 +42747,8 @@ HS
 ul
 xI
 CH
-Wt
-Wt
+MW
+MW
 dQ
 RD
 uM
@@ -42202,7 +42764,7 @@ ui
 YC
 KZ
 ZP
-aG
+Hf
 Mz
 Mz
 WD
@@ -42692,10 +43254,10 @@ dZ
 xs
 sP
 dz
-ul
-Wt
+gJ
+MW
 Fm
-OV
+JO
 sS
 eD
 xW
@@ -42951,7 +43513,7 @@ OV
 JY
 ol
 WF
-RC
+Jz
 xs
 rF
 Ml
@@ -43208,7 +43770,7 @@ OJ
 Ml
 OJ
 Ml
-RC
+Jz
 Ml
 OJ
 Ml
@@ -43465,7 +44027,7 @@ FW
 Ml
 Bp
 Ml
-RC
+Jz
 JY
 QZ
 JY
@@ -43983,7 +44545,7 @@ ve
 wF
 LC
 jl
-ml
+yX
 eC
 dJ
 xf
@@ -44237,10 +44799,10 @@ xf
 xb
 QN
 au
-oB
+Wh
 oB
 Dr
-Zq
+ml
 ta
 rX
 xf
@@ -44494,10 +45056,10 @@ xf
 Bt
 SR
 FV
-FV
-FV
-El
+Wf
 bO
+El
+gI
 xf
 xf
 xf
@@ -44749,14 +45311,14 @@ GP
 GP
 xf
 fi
-uQ
+Ik
 Ik
 eu
-Ik
+wm
 Ug
 wf
-xf
-hX
+Mp
+MC
 PX
 AM
 uW
@@ -45006,14 +45568,14 @@ hX
 hX
 xf
 xf
-xf
-xf
+fI
+fI
 Ar
+fI
+fI
 xf
 xf
-xf
-xf
-hX
+MI
 qC
 Fw
 Xm
@@ -45268,9 +45830,9 @@ hX
 hX
 hX
 hX
-hX
-hX
-hX
+jN
+ja
+cn
 qC
 Fw
 Xm
@@ -46301,8 +46863,8 @@ nN
 hX
 pj
 xu
-Ga
-eN
+LA
+te
 TX
 uf
 hX
@@ -47838,7 +48400,7 @@ hX
 hX
 hX
 hX
-hX
+MN
 nN
 hX
 pj
@@ -49899,7 +50461,7 @@ nN
 hX
 pj
 pj
-yl
+RB
 Jx
 pj
 pj

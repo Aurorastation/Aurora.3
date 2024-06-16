@@ -75,12 +75,12 @@
 	name = "Independent Freighter - Equipment Storage"
 	icon_state = "eva"
 
-/area/tramp_freighter/refinery1
-	name = "Independent Freighter - Refinery #1"
-	icon_state = "outpost_mine_main"
+/area/tramp_freighter/disposals
+	name = "Independent Freighter - Disposals"
+	icon_state = "disposal"
 
-/area/tramp_freighter/refinery2
-	name = "Independent Freighter - Refinery #2"
+/area/tramp_freighter/refinery
+	name = "Independent Freighter - Refinery"
 	icon_state = "outpost_mine_main"
 
 /area/tramp_freighter/hydroponics
