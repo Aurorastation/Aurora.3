@@ -32,16 +32,16 @@
 /area/space)
 "v" = (
 /obj/structure/closet/cabinet,
-/obj/effect/map_effect/marker/mapmanip/submap/extract,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
 /turf/simulated/floor/tiled,
 /area/space)
 "w" = (
 /obj/structure/closet,
-/obj/effect/map_effect/marker/mapmanip/submap/extract,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
 /turf/simulated/floor/tiled,
 /area/space)
 "z" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
 /turf/simulated/floor/tiled,
 /area/space)
 "L" = (

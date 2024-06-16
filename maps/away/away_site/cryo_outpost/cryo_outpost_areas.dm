@@ -6,49 +6,34 @@
 	requires_power = TRUE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
-	base_turf = /turf/simulated/floor/exoplanet/basalt/cryo_outpost
+	base_turf = /turf/simulated/floor/exoplanet/barren
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP //| AREA_FLAG_INDESTRUCTIBLE_TURFS
 
 // ------------------------- outside
 
 /area/cryo_outpost/outside
-	area_blurb = "The planet Tret, home of the K'lax Hive. Beneath you, the ground vibrates slightly - vast machinery deep below carrying out its work."
+	area_blurb = "TODO"
 	is_outside = OUTSIDE_YES
 
 /area/cryo_outpost/outside/landing
-	name = "Tret - Landing Pad"
+	name = "Landing Pads"
 	icon_state = "yellow"
 
 /area/cryo_outpost/outside/surface
-	name = "Tret - Surface"
+	name = "Surface"
+
+/area/cryo_outpost/outside/cave
+	name = "Cave"
 
 // ------------------------- inside
 
 /area/cryo_outpost/inside
-	area_blurb = "The complex is pitch-dark, without any sign of lighting systems. The hums and whirs of vast alien machinery reverberate through the walls."
+	area_blurb = "TODO"
 	is_outside = OUTSIDE_NO
 
 // ------------- hallways
 
-/area/cryo_outpost/inside/hallway_comms
-	name = "Hallway, Comms"
-	icon_state = "hallC"
 
-/area/cryo_outpost/inside/hallway_botany
-	name = "Hallway, Botany"
-	icon_state = "hallC"
-
-/area/cryo_outpost/inside/hallway_medical
-	name = "Hallway, Medical"
-	icon_state = "hallC"
-
-/area/cryo_outpost/inside/hallway_docks
-	name = "Hallway, Docks"
-	icon_state = "hallC"
-
-/area/cryo_outpost/inside/hallway_smelting
-	name = "Hallway, Smelting"
-	icon_state = "hallC"
 
 // ------------- crew
 
@@ -90,34 +75,7 @@
 	name = "Atmospherics"
 	icon_state = "engineering"
 
-/area/cryo_outpost/inside/maint_center
-	name = "Maint, Center"
-	icon_state = "maintenance"
-
-// ------------- smelting/storage
-
-/area/cryo_outpost/inside/smelting_east
-	name = "Smelting, East"
-	icon_state = "mining"
-
-/area/cryo_outpost/inside/smelting_west
-	name = "Smelting, West"
-	icon_state = "mining"
-
-/area/cryo_outpost/inside/storage_smelting
-	name = "Storage, Smelting"
-	icon_state = "mining"
-
-/area/cryo_outpost/inside/storage_engineering
-	name = "Storage, Engineering"
-	icon_state = "mining"
-
 // ------------------------- shuttle
 
-/area/shuttle/cryo_outpost/propulsion
-	name = "Tret Mining Shuttle - Propulsion"
-
-/area/shuttle/cryo_outpost/main
-	name = "Tret Mining Shuttle - Main"
 
 // ------------------------- fin

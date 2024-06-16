@@ -3,7 +3,7 @@
 
 /obj/effect/shuttle_landmark/cryo_outpost
 	base_area = /area/cryo_outpost/outside/landing
-	base_turf = /turf/simulated/floor/exoplanet/basalt/cryo_outpost
+	base_turf = /turf/simulated/floor/exoplanet/barren
 
 /obj/effect/map_effect/marker/airlock/docking/cryo_outpost/dock
 	cycle_to_external_air = TRUE
@@ -12,71 +12,11 @@
 
 // --------------------- shuttle
 
-/obj/effect/shuttle_landmark/cryo_outpost/transit
-	name = "In transit"
-	landmark_tag = "nav_cryo_outpost_shuttle_transit"
-	base_turf = /turf/space/transit/north
-	base_area = /area/space
-
-// --------------------- docks
-
-/obj/effect/shuttle_landmark/cryo_outpost/dock/outpost_1
-	name = "Dock, Landing Pad 1"
-	landmark_tag = "nav_cryo_outpost_dock_outpost_1"
-	docking_controller = "airlock_cryo_outpost_dock_outpost_1"
-
-/obj/effect/map_effect/marker/airlock/docking/cryo_outpost/dock/outpost_1
-	name = "Dock, Landing Pad 1"
-	landmark_tag = "nav_cryo_outpost_dock_outpost_1"
-	master_tag = "airlock_cryo_outpost_dock_outpost_1"
-
-// ----
-
-/obj/effect/shuttle_landmark/cryo_outpost/dock/outpost_2
-	name = "Dock, Landing Pad 2"
-	landmark_tag = "nav_cryo_outpost_dock_outpost_2"
-	docking_controller = "airlock_cryo_outpost_dock_outpost_2"
-
-/obj/effect/map_effect/marker/airlock/docking/cryo_outpost/dock/outpost_2
-	name = "Dock, Landing Pad 2"
-	landmark_tag = "nav_cryo_outpost_dock_outpost_2"
-	master_tag = "airlock_cryo_outpost_dock_outpost_2"
-
-// ----
-
-/obj/effect/shuttle_landmark/cryo_outpost/dock/outpost_3
-	name = "Dock, Landing Pad 3"
-	landmark_tag = "nav_cryo_outpost_dock_outpost_3"
-	docking_controller = "airlock_cryo_outpost_dock_outpost_3"
-
-/obj/effect/map_effect/marker/airlock/docking/cryo_outpost/dock/outpost_3
-	name = "Dock, Landing Pad 3"
-	landmark_tag = "nav_cryo_outpost_dock_outpost_3"
-	master_tag = "airlock_cryo_outpost_dock_outpost_3"
-
-// ----
-
-/obj/effect/shuttle_landmark/cryo_outpost/dock/outpost_4
-	name = "Dock, Landing Pad 4"
-	landmark_tag = "nav_cryo_outpost_dock_outpost_4"
-	docking_controller = "airlock_cryo_outpost_dock_outpost_4"
-
-/obj/effect/map_effect/marker/airlock/docking/cryo_outpost/dock/outpost_4
-	name = "Dock, Landing Pad 4"
-	landmark_tag = "nav_cryo_outpost_dock_outpost_4"
-	master_tag = "airlock_cryo_outpost_dock_outpost_4"
-
-// ----
-
-/obj/effect/shuttle_landmark/cryo_outpost/dock/outpost_5
-	name = "Dock, Landing Pad 5"
-	landmark_tag = "nav_cryo_outpost_dock_outpost_5"
-	docking_controller = "airlock_cryo_outpost_dock_outpost_5"
-
-/obj/effect/map_effect/marker/airlock/docking/cryo_outpost/dock/outpost_5
-	name = "Dock, Landing Pad 5"
-	landmark_tag = "nav_cryo_outpost_dock_outpost_5"
-	master_tag = "airlock_cryo_outpost_dock_outpost_5"
+// /obj/effect/shuttle_landmark/cryo_outpost/transit
+// 	name = "In transit"
+// 	landmark_tag = "nav_cryo_outpost_shuttle_transit"
+// 	base_turf = /turf/space/transit/north
+// 	base_area = /area/space
 
 // --------------------- surface, outpost
 
