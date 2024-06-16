@@ -82,7 +82,6 @@
 	var/ship_security_level = seclevel2num(get_security_level())
 	var/is_on_ship = isStationLevel(z) // since ship security levels are global FOR NOW, we'll ignore the alert check for offship autolathes
 
-	var/is_enabled = TRUE
 	if(!hacked)
 		if(recipe.hack_only)
 			return FALSE
