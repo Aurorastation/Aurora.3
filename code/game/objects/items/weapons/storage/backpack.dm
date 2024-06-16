@@ -24,7 +24,13 @@
 	allow_quick_empty = TRUE
 	empty_delay = 0.5 SECOND
 	var/straps = FALSE // Only really used for the verb.
-	var/obj/item/sleeping_bag/attached_bag // For attaching sleeping bags on bags. Should convert this is use accessories later, but that means making backpacks clothing.
+	/**
+	 * References a sleeping bag attached to this bag. Should convert this to use accessories later, but that means making backpacks clothing.
+	 */
+	var/obj/item/sleeping_bag/attached_bag
+	/**
+	 * Suffix used for overlays with an attached sleeping bag, because satchels are at people's sides while other bags are on people's backs.
+	 */
 	var/attached_icon = "backpack"
 
 /obj/item/storage/backpack/Initialize()
@@ -34,8 +40,8 @@
 		verbs += /obj/item/storage/backpack/proc/adjust_backpack_straps
 
 /obj/item/storage/backpack/Destroy()
+	QDEL_NULL(attached_bag)
 	. = ..()
-	qdel(attached_bag)
 
 /obj/item/storage/backpack/proc/adjust_backpack_straps()
 	set name = "Adjust Bag Straps"
@@ -85,10 +91,10 @@
 				return 0
 	return 1
 
-/obj/item/storage/backpack/attackby(atom/A, mob/user, click_parameters)
-	if(istype(A, /obj/item/sleeping_bag) && !attached_bag && ishuman(user))
+/obj/item/storage/backpack/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/sleeping_bag) && !attached_bag && ishuman(user))
 		var/mob/living/carbon/human/H = user
-		attached_bag = A
+		attached_bag = attacking_item
 		update_icon()
 		if(H.back == src)
 			H.update_inv_back() // Add overlay to backpack if on back

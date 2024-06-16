@@ -11,6 +11,10 @@
 				"pegs" = STAGE_DISASSEMBLED)
 	component_structure = /obj/structure/component/tent_canvas
 	source_item_type = /obj/item/tent
+	/**
+	 * The state name of an overlay in `icons/obj/item/tent_decals.dmi`
+	 * Used for branded tents, such as the SCC base camp tent
+	 */
 	var/decal
 
 /datum/large_structure/tent/build_structures()
@@ -42,36 +46,42 @@
 		roof.icon_state = "roof_[get_roof_type(C)]"
 	grouped_structures += roofs
 
-/datum/large_structure/tent/structure_entered(turf/T, atom/movable/AM)
+/datum/large_structure/tent/structure_entered(turf/entry_point, atom/movable/entering)
 	. = ..()
 	if(!.)
 		return
-	var/mob/M = AM
+	var/mob/M = entering
 	if(!M.renderers)
 		return
 	var/atom/movable/renderer/roofs/roof_plane = M.renderers["[ROOF_PLANE]"]
 	if(roof_plane)
 		roof_plane.alpha = 76
 
-/datum/large_structure/tent/mob_moved(mob/M, turf/T)
+/datum/large_structure/tent/mob_moved(mob/mover, turf/exit_point)
 	. = ..()
 	if(!.)
-		var/atom/movable/renderer/roofs/roof_plane = M.renderers["[ROOF_PLANE]"]
+		var/atom/movable/renderer/roofs/roof_plane = mover.renderers["[ROOF_PLANE]"]
 		if(roof_plane)
 			roof_plane.alpha = 255
 
-/datum/large_structure/tent/proc/get_roof_type(var/obj/structure/component/tent_canvas/C)
+/**
+ * Determines roof state over each canvas structure
+ * Returns `edge` for structures on the edge of the tent, so they don't cover the walls
+ * Returns `mid` for structures in the centre of the tent, for odd number widths
+ * Otherwise returns `norm` for other structures
+ */
+/datum/large_structure/tent/proc/get_roof_type(var/obj/structure/component/tent_canvas/canvas)
 	var/edge1
 	var/edge2
 	var/axis
 	if(dir & (NORTH | SOUTH))
 		edge1 = x1
 		edge2 = x2
-		axis = C.x
+		axis = canvas.x
 	else
 		edge1 = y1
 		edge2 = y2
-		axis = C.y
+		axis = canvas.y
 	if(axis == edge1 || axis == edge2)
 		return "edge"
 	else if(axis == Mean(edge1, edge2))
@@ -100,9 +110,9 @@
 	desc += "\nThis one is [width] x [length] in size."
 
 /obj/item/tent/Destroy()
-	. = ..()
 	if(my_tent && !my_tent.grouped_structures)
 		QDEL_NULL(my_tent)
+	return ..()
 
 /obj/item/tent/MouseDrop(over_object, src_location, over_location)
 	. = ..()
@@ -127,8 +137,7 @@
 	my_tent = new /datum/large_structure/tent(src)
 	setup_my_tent(deploy_dir, target)
 
-	if(my_tent.assemble(1 SECOND, user))
-		qdel(src)
+	my_tent.assemble(1 SECOND, user)
 
 /obj/item/tent/proc/setup_my_tent(var/deploy_dir, var/turf/target)
 	my_tent.name = name
@@ -138,6 +147,7 @@
 	my_tent.z1 = target.z
 	my_tent.z2 = target.z
 	my_tent.source_item_type = type
+	my_tent.source_item = src
 	my_tent.origin = get_turf(src)
 
 	if(deploy_dir & NORTH)
@@ -268,9 +278,12 @@
 	if(istype(T))
 		unroll(T, usr)
 
-/obj/item/sleeping_bag/proc/unroll(var/turf/T, var/mob/user)
+/**
+ * Creates sleeping bag structure on the target turf, deleting this item in the process
+ */
+/obj/item/sleeping_bag/proc/unroll(var/turf/target, var/mob/user)
 	user.visible_message(SPAN_NOTICE("\The [user] unrolls \the [src]."))
-	var/obj/structure/bed/sleeping_bag/S = new /obj/structure/bed/sleeping_bag(T, MATERIAL_CLOTH)
+	var/obj/structure/bed/sleeping_bag/S = new /obj/structure/bed/sleeping_bag(target, MATERIAL_CLOTH)
 	S.color = color
 	qdel(src)
 

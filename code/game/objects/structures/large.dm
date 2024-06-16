@@ -4,10 +4,22 @@
  * This datum controls a large, multi-tile structure, capable of being assembled or disassembled as a unit (i.e. tents).
  */
 /datum/large_structure
+	/**
+	 * Name of this structure
+	 */
 	var/name = "structure"
-	var/list/turf/target_turfs = list()  // Turfs this structure exists on
-	var/list/obj/structure/component/grouped_structures = list() // Structures that are part of this structure
-	var/list/mob/interacting = list() // Mobs assembling or disassembling this structure
+	/**
+	 * Turfs this structure exists on
+	 */
+	var/list/turf/target_turfs = list()
+	/**
+	 * Structures that are part of this structure
+	 */
+	var/list/obj/structure/component/grouped_structures = list()
+	/**
+	 * Mobs assembling or disassembling this structure
+	 */
+	var/list/mob/interacting = list()
 	/**
 	 * A list of the stages required to assemble or disassemble the large structure. Format: "string" = STAGE
 	 */
@@ -17,9 +29,17 @@
 	 */
 	var/component_structure
 	/**
-	 * The item used to set up this structure in the first place
+	 * The type item used to set up this structure in the first place, made on disassembly
 	 */
 	var/source_item_type
+	/**
+	 * The item used to set up this structure, deleted after assembly
+	 */
+	var/obj/item/source_item
+	/**
+	 * The turf this structure started from. Used to check if the source_item building this has moved.
+	 */
+	var/turf/origin
 	var/color
 	var/dir
 	var/x1
@@ -28,8 +48,10 @@
 	var/y2
 	var/z1
 	var/z2
-	var/turf/origin
 
+/**
+ * Returns the first stage with value `type`
+ */
 /datum/large_structure/proc/get_next_stage(var/type)
 	for(var/stage in stages)
 		if(stages[stage] == type)
@@ -70,7 +92,7 @@
 		return FALSE
 
 	build_structures()
-
+	qdel(source_item)
 	return TRUE
 
 /datum/large_structure/proc/get_target_turfs(var/mob/user, var/force = FALSE)
@@ -79,7 +101,6 @@
 		if(!(istype(T) || force))
 			to_chat(user, SPAN_ALERT("You cannot set up \the [src] here. Try and find a big enough solid surface."))
 			return FALSE
-		RegisterSignal(T, COMSIG_TURF_ENTERED, PROC_REF(structure_entered), override = TRUE)
 
 /datum/large_structure/proc/build_structures()
 	for(var/turf/T in target_turfs)
@@ -87,6 +108,7 @@
 		C.part_of = src
 		C.color = color
 		grouped_structures += C
+		RegisterSignal(T, COMSIG_ATOM_ENTERED, PROC_REF(structure_entered), override = TRUE)
 
 /datum/large_structure/proc/disassemble(var/time_per_structure, var/mob/user)
 	if(user in interacting)
@@ -124,16 +146,15 @@
 	qdel(src)
 	return TRUE
 
-/datum/large_structure/proc/structure_entered(var/turf/T, var/atom/movable/AM)
-	if(!ismob(AM))
+/datum/large_structure/proc/structure_entered(var/turf/entry_point, var/atom/movable/entering)
+	if(!isliving(entering))
 		return FALSE
-	var/mob/M = AM
-	RegisterSignal(M, COMSIG_MOB_MOVED, PROC_REF(mob_moved), override = TRUE)
+	RegisterSignal(entering, COMSIG_MOVABLE_MOVED, PROC_REF(mob_moved), override = TRUE)
 	return TRUE
 
-/datum/large_structure/proc/mob_moved(var/mob/M, var/turf/T)
-	if(!(T in target_turfs))
-		UnregisterSignal(M, COMSIG_MOB_MOVED)
+/datum/large_structure/proc/mob_moved(var/mob/mover)
+	if(!(get_turf(mover) in target_turfs))
+		UnregisterSignal(mover, COMSIG_MOVABLE_MOVED)
 		return FALSE
 	return TRUE
 
@@ -141,6 +162,6 @@
 	var/datum/large_structure/part_of
 
 /obj/structure/component/Destroy()
-	. = ..()
 	if(part_of)
 		part_of.grouped_structures -= src
+	return ..()
