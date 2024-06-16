@@ -970,12 +970,6 @@
 /obj/item/device/gps/medical{
 	pixel_x = 5
 	},
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
@@ -2107,6 +2101,10 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
+/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "MK" = (

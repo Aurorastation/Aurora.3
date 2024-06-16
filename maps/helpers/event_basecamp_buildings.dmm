@@ -16,6 +16,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"aR" = (
+/obj/structure/table/rack/retail_shelf{
+	name = "shelves"
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "bb" = (
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 9
@@ -31,6 +37,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
+/area/space)
+"bu" = (
+/obj/machinery/door/airlock/medical{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
 /area/space)
 "bI" = (
 /obj/item/reagent_containers/blood/OMinus,
@@ -51,6 +63,21 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"cs" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "rifle and carbine cabinet"
+	},
+/obj/item/gun/projectile/automatic/rifle/jingya,
+/obj/item/gun/projectile/automatic/rifle/jingya,
+/obj/item/gun/projectile/automatic/rifle/jingya,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/turf/simulated/floor/tiled,
 /area/space)
 "cz" = (
 /obj/machinery/light{
@@ -82,12 +109,51 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"dB" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "PEAC (Emergency Use Only)"
+	},
+/obj/item/gun/projectile/peac,
+/obj/item/ammo_casing/peac,
+/obj/item/ammo_casing/peac,
+/obj/item/ammo_casing/peac/he,
+/obj/item/ammo_casing/peac/he,
+/turf/simulated/floor/tiled,
+/area/space)
 "ew" = (
 /obj/effect/floor_decal/spline/plain/orange,
 /turf/simulated/floor/carpet/rubber,
 /area/space)
+"fk" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "sidearm cabinet"
+	},
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/turf/simulated/floor/tiled,
+/area/space)
 "fp" = (
 /turf/simulated/floor/tiled/full,
+/area/space)
+"fG" = (
+/obj/machinery/door/airlock/security{
+	dir = 1;
+	id_tag = "HoSdoor";
+	name = "Head of Security's Prep";
+	req_access = list(58);
+	secured_wires = 1
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "fX" = (
 /obj/structure/table/standard,
@@ -102,6 +168,42 @@
 	pixel_x = 5;
 	pixel_y = 5
 	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_y = 0;
+	pixel_x = -11
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_y = 0;
+	pixel_x = -11
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_y = 0;
+	pixel_x = -11
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_y = 0;
+	pixel_x = -11
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_y = 0;
+	pixel_x = -11
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_y = 0;
+	pixel_x = -11
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_y = 0;
+	pixel_x = -11
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_y = 0;
+	pixel_x = -11
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_y = 0;
+	pixel_x = -11
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "gt" = (
@@ -109,6 +211,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
+/area/space)
+"gN" = (
+/obj/structure/table/wood/mahogany,
+/turf/simulated/floor/tiled,
 /area/space)
 "hy" = (
 /obj/item/reagent_containers/blood/OMinus,
@@ -160,6 +266,10 @@
 /obj/effect/floor_decal/industrial/loading/security{
 	dir = 8
 	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"lg" = (
+/obj/structure/table/reinforced/glass,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "mT" = (
@@ -250,6 +360,37 @@
 	pixel_x = -5;
 	pixel_y = 5
 	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = 14;
+	pixel_y = 6
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_x = 15
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_x = 15
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_x = 15
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_x = 15
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_x = 15
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_x = 15
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_x = 15
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_x = 15
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_x = 15
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "oJ" = (
@@ -322,6 +463,16 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 10
 	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"rE" = (
+/obj/effect/floor_decal/spline/plain/corner/green{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/obj/effect/floor_decal/sign/cmo,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "sq" = (
@@ -417,6 +568,24 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"yu" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "sidearm ammo cabinet"
+	},
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/obj/item/ammo_magazine/c45m/rubber,
+/turf/simulated/floor/tiled,
+/area/space)
 "yE" = (
 /obj/structure/curtain/medical,
 /turf/simulated/floor/tiled/full,
@@ -438,6 +607,12 @@
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"zB" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "AI" = (
 /obj/effect/floor_decal/spline/plain/green{
@@ -515,6 +690,17 @@
 /obj/item/clothing/head/surgery,
 /obj/item/clothing/head/surgery,
 /obj/effect/floor_decal/spline/plain/green,
+/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Dx" = (
@@ -552,6 +738,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"DZ" = (
+/obj/machinery/vending/security,
+/turf/simulated/floor/tiled,
+/area/space)
 "Eh" = (
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/tank/oxygen,
@@ -577,18 +767,10 @@
 /area/space)
 "Ek" = (
 /obj/structure/table/standard,
-/obj/item/clothing/accessory/armband/med,
-/obj/item/clothing/accessory/armband/med,
-/obj/item/clothing/accessory/armband/med,
-/obj/item/clothing/accessory/armband/med,
-/obj/item/clothing/accessory/armband/med,
-/obj/item/clothing/accessory/armband/med,
-/obj/item/clothing/accessory/armband/med,
-/obj/item/clothing/accessory/armband/med,
-/obj/item/clothing/accessory/armband/med,
-/obj/item/clothing/accessory/armband/med,
-/obj/item/clothing/accessory/armband/med,
 /obj/effect/floor_decal/spline/plain/green,
+/obj/structure/roller_rack/three{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "EF" = (
@@ -611,6 +793,30 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"HK" = (
+/obj/structure/closet,
+/obj/item/storage/box/gloves,
+/obj/item/reagent_containers/hypospray/cmo,
+/obj/item/gun/energy/disruptorpistol/miniature,
+/obj/item/clothing/accessory/holster/armpit,
+/obj/item/modular_computer/laptop/preset/medical/cmo,
+/obj/item/toy/figure/cmo,
+/obj/item/device/advanced_healthanalyzer,
+/obj/item/storage/belt/medical,
+/obj/item/clothing/glasses/hud/health,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"HQ" = (
+/obj/structure/closet,
+/obj/item/ammo_magazine/a556/ap,
+/obj/item/ammo_magazine/a556/ap,
+/obj/item/recharger_backpack,
+/obj/item/cell/super,
+/turf/simulated/floor/tiled,
+/area/space)
+"Ix" = (
+/turf/simulated/floor/tiled,
 /area/space)
 "IB" = (
 /obj/structure/table/standard,
@@ -639,6 +845,12 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 6
 	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"KW" = (
+/obj/structure/table/reinforced/glass,
+/obj/item/roller/hover,
+/obj/item/roller/hover,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "LY" = (
@@ -680,6 +892,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"Mu" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "556 ammo cabinet"
+	},
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/turf/simulated/floor/tiled,
+/area/space)
 "MF" = (
 /turf/template_noop,
 /area/space)
@@ -693,12 +917,26 @@
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"NS" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/corner/green,
+/obj/effect/floor_decal/sign/cmo,
+/turf/simulated/floor/tiled/white,
+/area/space)
 "OC" = (
 /obj/effect/floor_decal/spline/plain/green,
 /obj/machinery/sleeper{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"Pg" = (
+/obj/structure/weapons_rack,
+/obj/item/gun/projectile/automatic/rifle/w556,
+/obj/item/gun/energy/rifle,
+/turf/simulated/floor/tiled,
 /area/space)
 "Pv" = (
 /obj/structure/table/standard,
@@ -751,6 +989,12 @@
 /obj/structure/sink{
 	dir = 8;
 	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"QX" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -820,12 +1064,17 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/structure/bed/roller,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Sk" = (
 /obj/effect/floor_decal/spline/plain/green,
 /obj/machinery/chemical_dispenser/full,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"Ss" = (
+/obj/machinery/door/airlock/glass_security,
+/turf/simulated/floor/tiled/full,
 /area/space)
 "SD" = (
 /obj/structure/table/standard,
@@ -898,6 +1147,10 @@
 	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 1
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = 14;
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -1054,12 +1307,6 @@
 /obj/item/device/gps/medical{
 	pixel_x = 5
 	},
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
 /obj/effect/floor_decal/spline/plain/green,
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -1469,10 +1716,10 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
+BE
+BE
+BE
+BE
 BE
 BE
 BE
@@ -1671,10 +1918,10 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
+BE
+HK
+cz
+VN
 BE
 BY
 cz
@@ -1873,10 +2120,10 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
+kw
+lg
+VN
+VN
 BE
 pU
 Ub
@@ -2075,10 +2322,10 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
+kw
+lg
+QX
+VN
 BE
 zl
 VN
@@ -2277,10 +2524,10 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
+BE
+KW
+Gu
+VN
 BE
 sq
 Gu
@@ -2479,10 +2726,10 @@ MF
 MF
 MF
 MF
-MF
-MF
 BE
 BE
+BE
+bu
 BE
 BE
 BE
@@ -2684,7 +2931,7 @@ MF
 MF
 MF
 BE
-bb
+rE
 Bv
 hy
 bI
@@ -2885,8 +3132,8 @@ MF
 MF
 MF
 MF
-kw
-XE
+BE
+Na
 VN
 VN
 IK
@@ -4508,7 +4755,7 @@ kw
 BE
 BE
 BE
-BE
+kw
 BE
 fp
 mU
@@ -5287,12 +5534,12 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
-MF
+BE
+BE
+BE
+BE
+BE
+BE
 MF
 MF
 MF
@@ -5489,12 +5736,12 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
-MF
+BE
+Ix
+Ix
+Ix
+Ix
+BE
 MF
 MF
 MF
@@ -5691,12 +5938,12 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
-MF
+BE
+Ix
+Ix
+Ix
+Ix
+BE
 MF
 MF
 MF
@@ -5893,12 +6140,12 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
-MF
+BE
+Ix
+Ix
+Ix
+Ix
+BE
 MF
 MF
 MF
@@ -6095,12 +6342,12 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
-MF
+BE
+Ix
+Ix
+Ix
+Ix
+BE
 MF
 MF
 MF
@@ -6297,12 +6544,12 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
-MF
+BE
+Ix
+Ix
+Ix
+Ix
+BE
 MF
 MF
 MF
@@ -6499,12 +6746,12 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
-MF
+BE
+Ix
+Ix
+Ix
+Ix
+BE
 MF
 MF
 MF
@@ -6701,12 +6948,12 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
-MF
+BE
+Ix
+Ix
+Ix
+Ix
+BE
 MF
 MF
 MF
@@ -6724,7 +6971,7 @@ MF
 MF
 MF
 BE
-Rw
+NS
 Eh
 qK
 dw
@@ -6897,20 +7144,18 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
+BE
+BE
+BE
+BE
+BE
+BE
+BE
+Ix
+BE
+BE
+BE
+BE
 MF
 MF
 MF
@@ -6927,6 +7172,8 @@ MF
 MF
 BE
 BE
+BE
+bu
 BE
 BE
 BE
@@ -7099,6 +7346,18 @@ MF
 MF
 MF
 MF
+BE
+cs
+Mu
+fk
+yu
+Ix
+Ix
+Ix
+Ix
+Ix
+Ix
+BE
 MF
 MF
 MF
@@ -7113,22 +7372,10 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
+BE
+KW
+cz
+VN
 BE
 BY
 cz
@@ -7301,6 +7548,18 @@ MF
 MF
 MF
 MF
+BE
+Ix
+Ix
+Ix
+Ix
+Ix
+Ix
+Ix
+Ix
+Ix
+Ix
+BE
 MF
 MF
 MF
@@ -7315,22 +7574,10 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
+kw
+lg
+VN
+VN
 BE
 zl
 VN
@@ -7503,6 +7750,18 @@ MF
 MF
 MF
 MF
+BE
+Ix
+Ix
+Ix
+Ix
+Ix
+Ix
+Ix
+Ix
+Ix
+Ix
+BE
 MF
 MF
 MF
@@ -7517,22 +7776,10 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
+kw
+lg
+QX
+VN
 BE
 pU
 Ub
@@ -7705,6 +7952,18 @@ MF
 MF
 MF
 MF
+BE
+DZ
+DZ
+aR
+aR
+aR
+Ix
+Ix
+Ix
+Ix
+Ix
+Ss
 MF
 MF
 MF
@@ -7719,22 +7978,10 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
+BE
+HK
+Gu
+VN
 BE
 sq
 Gu
@@ -7907,6 +8154,18 @@ MF
 MF
 MF
 MF
+BE
+BE
+BE
+BE
+BE
+BE
+BE
+Ix
+Ix
+Ix
+Ix
+BE
 MF
 MF
 MF
@@ -7921,22 +8180,10 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
+BE
+BE
+BE
+BE
 BE
 BE
 BE
@@ -8111,16 +8358,16 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
+BE
+Pg
+Ix
+Ix
+fG
+Ix
+Ix
+Ix
+Ix
+BE
 MF
 MF
 MF
@@ -8313,16 +8560,16 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
+BE
+HQ
+Ix
+zB
+BE
+Ix
+Ix
+Ix
+Ix
+BE
 MF
 MF
 MF
@@ -8515,16 +8762,16 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
-MF
+BE
+dB
+Ix
+gN
+BE
+BE
+BE
+BE
+BE
+BE
 MF
 MF
 MF
@@ -8717,11 +8964,11 @@ MF
 MF
 MF
 MF
-MF
-MF
-MF
-MF
-MF
+BE
+BE
+BE
+BE
+BE
 MF
 MF
 MF
