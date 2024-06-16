@@ -61,6 +61,40 @@
 	name = "EVA Storage"
 	icon_state = "storage"
 
+// ------------- labs
+
+/area/cryo_outpost/inside/hallway
+	name = "Labs, Hallway"
+	icon_state = "hallC"
+
+/area/cryo_outpost/inside/labs_cryo_n
+	name = "Labs, Cryo North"
+	icon_state = "cryo"
+
+/area/cryo_outpost/inside/labs_cryo_s
+	name = "Labs, Cryo South"
+	icon_state = "cryo"
+
+/area/cryo_outpost/inside/labs_offices
+	name = "Labs, Offices"
+	icon_state = "research"
+
+/area/cryo_outpost/inside/labs_surgery
+	name = "Labs, Surgery"
+	icon_state = "surgery"
+
+/area/cryo_outpost/inside/labs_rnd
+	name = "Labs, RnD"
+	icon_state = "research"
+
+/area/cryo_outpost/inside/labs_maint_w
+	name = "Labs, Maint, West"
+	icon_state = "maintenance"
+
+/area/cryo_outpost/inside/labs_maint_e
+	name = "Labs, Maint, East"
+	icon_state = "maintenance"
+
 // ------------- engineering
 
 /area/cryo_outpost/inside/engineering
