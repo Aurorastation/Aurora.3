@@ -228,6 +228,7 @@
 	user.forceMove(src)
 	LAZYDISTINCTADD(pilots, user)
 	RegisterSignal(user, COMSIG_MOB_FACEDIR, PROC_REF(handle_user_turn))
+	RegisterSignal(user, COMSIG_LIVING_SAY, PROC_REF(get_say_modifiers))
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, 1)
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
@@ -258,11 +259,22 @@
 		set_intent(I_HURT)
 		LAZYREMOVE(pilots, user)
 		UnregisterSignal(user, COMSIG_MOB_FACEDIR)
+		UnregisterSignal(user, COMSIG_LIVING_SAY)
 		UNSETEMPTY(pilots)
 
 /mob/living/heavy_vehicle/proc/handle_user_turn(var/mob/living/user, var/direction)
 	SIGNAL_HANDLER
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, relaymove), user, direction, TRUE)
+
+/mob/living/heavy_vehicle/proc/get_say_modifiers(var/mob/speaker, var/list/variables)
+	SIGNAL_HANDLER
+
+	if(!loudening)
+		return
+
+	variables["font_size"] = FONT_SIZE_LARGE
+	variables["speech_sound"] = 'sound/items/megaphone.ogg'
+	variables["sound_vol"] = 80
 
 /mob/living/heavy_vehicle/relaymove(var/mob/living/user, var/direction, var/turn_only = FALSE)
 	if(!can_move(user))

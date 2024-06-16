@@ -807,7 +807,6 @@ All custom items with worn sprites must follow the contained sprite system: http
 	w_class = ITEMSIZE_SMALL
 	contained_sprite = TRUE
 	activation_sound = null
-	needs_user_location = FALSE
 
 /obj/item/fluff/akinyi_stand //Telescopic Mic Stand - Akinyi Idowu - kyres1
 	name = "telescopic mic stand"

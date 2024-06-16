@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed exosuit megaspeakers making the spoken text gigantic."
+  - rscadd: "Megaphones now only need to be held in your hand for it to work. Use it in-hand to flick it on and off."
+  - rscdel: "Megaphones can no longer be emagged."

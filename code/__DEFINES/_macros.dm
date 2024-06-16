@@ -37,11 +37,11 @@
 #define EXAMINE_BLOCK_RED(str) ("<div class='examine_block--red'>" + str + "</div>")
 #define EXAMINE_BLOCK_DEEP_CYAN(str) ("<div class='examine_block--deep-cyan'>" + str + "</div>")
 
-#define FONT_SIZE_SMALL "10px"
-#define FONT_SIZE_NORMAL "13px"
-#define FONT_SIZE_LARGE "16px"
-#define FONT_SIZE_HUGE "18px"
-#define FONT_SIZE_GIANT "24px"
+#define FONT_SIZE_SMALL "80%"
+#define FONT_SIZE_NORMAL "100%"
+#define FONT_SIZE_LARGE "120%"
+#define FONT_SIZE_HUGE "150%"
+#define FONT_SIZE_GIANT "200%"
 
 #define FONT_SMALL(X) SPAN_SIZE(FONT_SIZE_SMALL, X)
 #define FONT_NORMAL(X) SPAN_SIZE(FONT_SIZE_NORMAL, X)

@@ -169,13 +169,6 @@ var/list/channel_to_radio_key = new
 		return "asks"
 	return verb
 
-/mob/living/proc/get_font_size_modifier()
-	if(ismech(loc))
-		var/mob/living/heavy_vehicle/HV = loc
-		if(HV.loudening)
-			return FONT_SIZE_LARGE
-	return null
-
 /mob/proc/check_speech_punctuation_state(var/text)
 	var/ending = copytext(text, length(text))
 	if (ending == "?")
@@ -283,13 +276,18 @@ var/list/channel_to_radio_key = new
 		return TRUE
 
 	var/list/handle_v = handle_speech_sound()
-	var/sound/speech_sound = handle_v[1]
-	var/sound_vol = handle_v[2]
-	var/italics = handle_v[3]
+	var/list/say_variables = list(
+		"speech_sound" = handle_v[1],
+		"sound_vol" = handle_v[2],
+		"italics" = handle_v[3],
+		"font_size" = null
+	)
+
+	SEND_SIGNAL(src, COMSIG_LIVING_SAY, say_variables)
 
 	//speaking into radios
 	if(length(used_radios))
-		italics = TRUE
+		say_variables["italics"] = TRUE
 		message_range = 1
 		if(speaking)
 			message_range = speaking.get_talkinto_msg_range(message)
@@ -297,15 +295,15 @@ var/list/channel_to_radio_key = new
 			var/msg = SPAN_NOTICE("\The [src] talks into \the [used_radios[1]].")
 			for (var/mob/living/L in get_hearers_in_view(5, src) - src)
 				L.show_message(msg)
-		if(speech_sound)
-			sound_vol *= 0.5
+		if(say_variables["speech_sound"])
+			say_variables["sound_vol"] *= 0.5
 
 	var/list/listening = list()
 	var/turf/T = get_turf(src)
 
 	if(whisper)
 		message_range = 1
-		italics = TRUE
+		say_variables["italics"] = TRUE
 
 	if(T)
 		if(!speaking || !(speaking.flags & PRESSUREPROOF))
@@ -316,8 +314,8 @@ var/list/channel_to_radio_key = new
 				message_range = 1
 
 			if (pressure < ONE_ATMOSPHERE*0.4) //sound distortion pressure, to help clue people in that the air is thin, even if it isn't a vacuum yet
-				italics = TRUE
-				sound_vol *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
+				say_variables["italics"] = TRUE
+				say_variables["sound_vol"] *= 0.5 //muffle the sound a bit, so it's like we're actually talking through contact
 
 		listening = get_hearers_in_view(message_range, src)
 
@@ -332,7 +330,7 @@ var/list/channel_to_radio_key = new
 
 	var/list/hear_clients = list()
 	for(var/mob/M in listening)
-		var/heard_say = M.hear_say(message, verb, speaking, alt_name, italics, src, speech_sound, sound_vol, get_font_size_modifier())
+		var/heard_say = M.hear_say(message, verb, speaking, alt_name, say_variables["italics"], src, say_variables["speech_sound"], say_variables["sound_vol"], say_variables["font_size"])
 		if(heard_say && M.client)
 			hear_clients += M.client
 		listening -= M
@@ -352,7 +350,7 @@ var/list/channel_to_radio_key = new
 	speech_bubble.appearance_flags = RESET_COLOR|RESET_ALPHA
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(animate_speechbubble), speech_bubble, hear_clients, 30)
 
-	animate_chat(message, speaking, italics, hear_clients, 30)
+	animate_chat(message, speaking, say_variables["italics"], hear_clients, 30)
 
 	var/bypass_listen_obj = (speaking && (speaking.flags & PASSLISTENOBJ))
 	if(!bypass_listen_obj)

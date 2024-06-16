@@ -61,19 +61,25 @@
 			else
 				to_chat(src, "<span class='name'>[speaker_name]</span>[alt_name] talks but you cannot hear them.")
 	else
+		var/name = span("name", speaker_name)
+		var/hear_message = "[track][accent_icon ? accent_icon + " " : ""]"
+
 		if(language)
-			if(font_size)
-				on_hear_say("[track][accent_icon ? accent_icon + " " : ""]<font size='[font_size]'><span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [language.format_message(message, verb)]</span></font>")
-			else
-				on_hear_say("[track][accent_icon ? accent_icon + " " : ""]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [language.format_message(message, verb)]</span>")
+			hear_message = span("game say", name + " " + language.format_message(message, verb))
 		else
-			if(font_size)
-				on_hear_say("[track][accent_icon ? accent_icon + " " : ""]<font size='[font_size]'><span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span></font>")
-			else
-				on_hear_say("[track][accent_icon ? accent_icon + " " : ""]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
-		if (speech_sound && (get_dist(speaker, src) <= world.view && src.z == speaker.z))
-			var/turf/source = speaker? get_turf(speaker) : get_turf(src)
-			playsound(source, speech_sound, sound_vol, vary = TRUE)
+			var/formatted_message = "[alt_name] [verb], [span("message", span("body", "\"[message]\""))]"
+			hear_message = span("game say", name + formatted_message)
+
+		if(font_size)
+			hear_message = SPAN_SIZE(font_size, hear_message)
+
+		on_hear_say(hear_message)
+
+		var/turf/our_turf = get_turf(src)
+		var/turf/speaker_turf = get_turf(speaker)
+		if (speech_sound && (get_dist(speaker_turf, our_turf) <= world.view && our_turf.z == speaker_turf.z))
+			playsound(speaker_turf || our_turf, speech_sound, sound_vol, vary = TRUE)
+
 		return TRUE
 
 /mob/proc/cant_hear()
