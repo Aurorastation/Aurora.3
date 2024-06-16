@@ -1209,9 +1209,11 @@
 /obj/machinery/vending/snack,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/floor_decal/corner/green/full{
-	dir = 8/turf/simulated/floor/exoplanet/tiled{temperature=298.15
+	dir = 8
 	},
-/turf/space,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
 /area/ouerea_nt_ruin)
 "OJ" = (
 /obj/structure/table/standard,
