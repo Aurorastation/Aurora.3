@@ -62,9 +62,10 @@
 	var/eat_interval = 100
 	var/wight_check_index = 1
 	var/list/shadow_wights = list()
+	///Amount of force required by the weapon to smash the statue.
 	var/fragile = 15
+	///Sets the type of material for use by the place shard proc.
 	var/material/shatter_material = MATERIAL_STEEL
-	var/shatter_sound = /singleton/sound_category/glass_break_sound
 
 /obj/item/vampiric/New()
 	..()
@@ -136,7 +137,7 @@
 
 /obj/item/vampiric/hear_talk(mob/M as mob, text)
 	..()
-	if(world.time - last_bloodcall >= bloodcall_interval && (M in view(7, src)))
+	if(world.time - last_bloodcall >= bloodcall_interval && (M in get_hearers_in_LOS(7, src)))
 		audible_message(SPAN_NOTICE("\The [src] twitches as it listens."))
 		bloodcall(M)
 
@@ -155,34 +156,35 @@
 		B.blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
 		M.vessel.remove_reagent(/singleton/reagent/blood,rand(25,50))
 
-/obj/item/vampiric/proc/bloodcall_final(var/mob/living/carbon/human/M)
-	if(istype(M))
-		if(istype(M.species, /datum/species/machine))
+///Is called when the statue is destroyed. Deals sufficiently consequential damage to IPCs and non-IPCS. Dionae are the least affected.
+/obj/item/vampiric/proc/bloodcall_final(var/mob/living/carbon/human/hero)
+	if(!istype(hero))
+		return
+	if(!istype(hero.species, /datum/species/machine))
+		to_chat(hero, SPAN_HIGHDANGER("What have you done?! You feel an incredible pull as the statue breaks. The force crushes your hands and pulls your blood into an unseen void."))
+		hero.apply_damage(40, DAMAGE_BRUTE, BP_L_HAND)
+		hero.apply_damage(40, DAMAGE_BRUTE, BP_R_HAND)
+		hero.vessel.remove_reagent(/singleton/reagent/blood,rand(120,175))
+		return
 
-			M.apply_damage(700, DAMAGE_BRUTE, BP_GROIN)
-			M.apply_damage(700, DAMAGE_BRUTE, BP_GROIN) //The way IPC limbs seem to act I needed the double damage to ensure it was removed.
-			to_chat(M, SPAN_HIGHDANGER("What have you done?! You feel like you're being ripped in half!"))
-			return
+	hero.apply_damage(700, DAMAGE_BRUTE, BP_GROIN)
+	hero.apply_damage(700, DAMAGE_BRUTE, BP_GROIN) //The way IPC limbs seem to act I needed the double damage to ensure it was removed.
+	to_chat(hero, SPAN_HIGHDANGER("What have you done?! You feel like you're being ripped in half!"))
+	return
 
-		to_chat(M, SPAN_HIGHDANGER("What have you done?! You feel an incredible pull as the statue breaks. The force crushes your hands and pulls your blood into an unseen void."))
-		M.apply_damage(30, DAMAGE_BRUTE, BP_L_HAND)
-		M.apply_damage(30, DAMAGE_BRUTE, BP_R_HAND)
-		M.vessel.remove_reagent(/singleton/reagent/blood,rand(120,175))
-
-/obj/item/vampiric/proc/shatter(var/obj/item/W, var/mob/user)
-	playsound(src, shatter_sound, 70, 1)
-	audible_message(SPAN_WARNING("\The [src] shatters with a resounding crash!"), SPAN_WARNING("\The [src] breaks."))
-	playsound(src.loc, pick('sound/hallucinations/wail.ogg','sound/hallucinations/veryfar_noise.ogg','sound/hallucinations/far_noise.ogg'), 200, 1, -3)
-	shatter_material.place_shard(get_turf(src))
-	qdel(src)
-
+///Adds an option to attack the statue with an item in-hand. If you have sufficient force it destroys the statue and calls the bloodcall_final proc.
 /obj/item/vampiric/attackby(obj/item/attacking_item, mob/user)
 	if(!(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON) && (user.a_intent == I_HURT) && fragile && (attacking_item.force > fragile))
 		if(do_after(user, 1 SECOND, src))
 			if(!QDELETED(src))
 				visible_message(SPAN_WARNING("[user] smashes [src] with \a [attacking_item]!"))
 				user.do_attack_animation(src)
-				shatter(attacking_item, user)
+				audible_message(SPAN_WARNING("\The [src] shatters with a resounding crash!"))
+				playsound(get_turf(src), 'sound/effects/projectile_impact/ion_any.ogg', 70, 1)
+				playsound(get_turf(src), 'sound/species/revenant/grue_screech.ogg', 200, TRUE)
+				playsound(get_turf(src), 'sound/magic/exit_blood.ogg', 70, 1)
+				shatter_material.place_shard(get_turf(src))
+				qdel(src)
 				bloodcall_final(user)
 	return ..()
 
