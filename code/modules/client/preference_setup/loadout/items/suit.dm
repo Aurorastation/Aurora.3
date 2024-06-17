@@ -292,7 +292,6 @@
 	dominiacape["dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao
 	dominiacape["white dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao/white
 	dominiacape["dominian cape, military"]	= /obj/item/clothing/accessory/poncho/dominia_cape/mantle
-	dominiacape["dominian cape, medical"] = /obj/item/clothing/accessory/poncho/dominia_cape/hospital
 	gear_tweaks += new /datum/gear_tweak/path(dominiacape)
 
 /datum/gear/suit/dominia_medical_cape
