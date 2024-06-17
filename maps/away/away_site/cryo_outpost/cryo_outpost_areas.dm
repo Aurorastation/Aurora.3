@@ -33,12 +33,38 @@
 
 // ------------- hallways
 
+/area/cryo_outpost/inside/entrance_main
+	name = "Entrance, Main"
+	icon_state = "storage"
 
+/area/cryo_outpost/inside/entrance_aux_east
+	name = "Entrance, Aux East"
+	icon_state = "storage"
+
+/area/cryo_outpost/inside/entrance_aux_west
+	name = "Entrance, Aux West"
+	icon_state = "storage"
+
+/area/cryo_outpost/inside/hallway_central
+	name = "Hallway, Central"
+	icon_state = "hallC"
+
+/area/cryo_outpost/inside/hallway_east
+	name = "Hallway, East"
+	icon_state = "hallC"
+
+/area/cryo_outpost/inside/hallway_west
+	name = "Hallway, West"
+	icon_state = "hallC"
 
 // ------------- crew
 
-/area/cryo_outpost/inside/crew
-	name = "Habitation"
+/area/cryo_outpost/inside/habitation_east
+	name = "Habitation, East"
+	icon_state = "crew_quarters"
+
+/area/cryo_outpost/inside/habitation_west
+	name = "Habitation, West"
 	icon_state = "crew_quarters"
 
 /area/cryo_outpost/inside/canteen
@@ -57,13 +83,9 @@
 	name = "Communications"
 	icon_state = "bridge"
 
-/area/cryo_outpost/inside/eva
-	name = "EVA Storage"
-	icon_state = "storage"
-
 // ------------- labs
 
-/area/cryo_outpost/inside/hallway
+/area/cryo_outpost/inside/labs_hallway
 	name = "Labs, Hallway"
 	icon_state = "hallC"
 
@@ -103,10 +125,6 @@
 
 /area/cryo_outpost/inside/engineering
 	name = "Engineering"
-	icon_state = "engineering"
-
-/area/cryo_outpost/inside/engi_storage
-	name = "Engineering, Storage"
 	icon_state = "engineering"
 
 /area/cryo_outpost/inside/engi_powergen
