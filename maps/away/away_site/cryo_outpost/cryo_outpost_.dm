@@ -70,4 +70,12 @@
 	..()
 	// TODO
 
-// --------------------------------------------------- shuttle
+// --------------------------------------------------- camera
+
+/obj/machinery/camera/network/cryo_outpost
+	network = list(NETWORK_CRYO_OUTPOST)
+
+/obj/machinery/computer/security/terminal/cryo_outpost
+	network = list(NETWORK_CRYO_OUTPOST)
+
+// ---------------------------------------------------

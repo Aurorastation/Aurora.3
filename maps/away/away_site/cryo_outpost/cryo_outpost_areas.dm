@@ -83,6 +83,10 @@
 	name = "Communications"
 	icon_state = "bridge"
 
+/area/cryo_outpost/inside/security
+	name = "Security"
+	icon_state = "security"
+
 // ------------- labs
 
 /area/cryo_outpost/inside/labs_hallway
@@ -135,7 +139,39 @@
 	name = "Engineering, Atmospherics"
 	icon_state = "engineering"
 
-// ------------------------- shuttle
+/area/cryo_outpost/inside/sensors_iff
+	name = "Sensors and IFF"
+	icon_state = "engineering"
+
+/area/cryo_outpost/inside/eva
+	name = "EVA"
+	icon_state = "engineering"
+
+// ------------------------- maint
+
+/area/cryo_outpost/inside/maint_medbay
+	name = "Maint, Medbay"
+	icon_state = "maintenance"
+
+/area/cryo_outpost/inside/maint_habitation
+	name = "Maint, Habitation"
+	icon_state = "maintenance"
+
+/area/cryo_outpost/inside/maint_warehouse
+	name = "Maint, Warehouse"
+	icon_state = "maintenance"
+
+/area/cryo_outpost/inside/maint_botany
+	name = "Maint, Botany"
+	icon_state = "maintenance"
+
+/area/cryo_outpost/inside/maint_entrance
+	name = "Maint, Entrance"
+	icon_state = "maintenance"
+
+/area/cryo_outpost/inside/maint_engineering
+	name = "Maint, Engineering"
+	icon_state = "maintenance"
 
 
 // ------------------------- fin
