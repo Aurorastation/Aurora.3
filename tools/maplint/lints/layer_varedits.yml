@@ -2,3 +2,5 @@ help: "Do not edit layer manually in the map."
 "*":
   banned_variables:
   - layer
+  - open_layer
+  - closed_layer
