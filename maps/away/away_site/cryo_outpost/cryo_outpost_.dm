@@ -70,12 +70,16 @@
 	..()
 	// TODO
 
-// --------------------------------------------------- camera
+// --------------------------------------------------- misc
 
 /obj/machinery/camera/network/cryo_outpost
 	network = list(NETWORK_CRYO_OUTPOST)
 
 /obj/machinery/computer/security/terminal/cryo_outpost
 	network = list(NETWORK_CRYO_OUTPOST)
+
+/obj/item/research_slip/cryo_outpost
+	desc = "A small slip of plastic with an embedded chip. It is commonly used to store small amounts of research data."
+	origin_tech = list(TECH_BIO = 8, TECH_MATERIAL = 7, TECH_MAGNET = 7, TECH_DATA = 7)
 
 // ---------------------------------------------------
