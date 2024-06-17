@@ -226,4 +226,4 @@
 	name =	"Gadpathur Assets (Single)"
 	desc =	"A crate containing gear for a single individual."
 	path =	/obj/structure/closet/crate/secure/gear_loadout/gadpathur/single
-	telecrystal_cost =	10
+	telecrystal_cost = 10
