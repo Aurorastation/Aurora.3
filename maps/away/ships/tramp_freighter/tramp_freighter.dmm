@@ -1669,12 +1669,6 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
-"iC" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/effect/decal/cleanable/flour,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/marble,
-/area/tramp_freighter/kitchen)
 "iH" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	layer = 2.8;
@@ -7510,7 +7504,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/effect/decal/cleanable/flour,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -41783,7 +41776,7 @@ At
 Pj
 Fi
 fS
-iC
+pV
 FE
 bB
 dt
