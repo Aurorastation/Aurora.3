@@ -1,4 +1,12 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aC" = (
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "aM" = (
 /obj/structure/bed/stool/bar,
 /obj/structure/sign/flag/hegemony/large/south{
@@ -8,6 +16,12 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"aP" = (
+/obj/machinery/light/colored/decayed,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "aW" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -29,12 +43,6 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"bm" = (
-/obj/machinery/light/colored/decayed,
-/turf/simulated/floor/tiled/dark{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "bq" = (
 /obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/concrete/square{
@@ -54,22 +62,13 @@
 /obj/structure/kitchenspike,
 /turf/simulated/floor/tiled/freezer,
 /area/new_blades/interiors/ruins/bunker)
-"cO" = (
-/obj/structure/closet/crate/rad,
-/obj/item/stack/material/tritium,
-/turf/simulated/floor/tiled/dark{
-	temperature = 315.15
+"dm" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light/colored/decayed,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
 	},
-/area/new_blades/underground)
-"dw" = (
-/obj/structure/table/steel,
-/obj/machinery/light/colored/decayed{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "dR" = (
 /obj/structure/sink{
 	dir = 8;
@@ -79,10 +78,11 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"eP" = (
-/obj/machinery/iv_drip,
+"eH" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -121,19 +121,55 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"gA" = (
+"ge" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/bodyscanner{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"gX" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/body_scanconsole,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"il" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 303.15
+"hn" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/area/new_blades/interiors/ruins/bunker)
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"hQ" = (
+/obj/structure/closet/secure_closet/engineering_electrical,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"if" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/highsecurity{
+	name = "Reactor"
+	},
+/turf/simulated/floor/tiled/dark/full{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ip" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/concrete{
@@ -146,12 +182,6 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"jp" = (
-/obj/structure/filingcabinet/chestdrawer,
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "jA" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/desk/southleft,
@@ -170,10 +200,8 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"jO" = (
-/obj/structure/table/steel,
-/obj/item/paper_bin,
-/turf/simulated/floor/tiled{
+"kh" = (
+/turf/simulated/floor/exoplanet/barren/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -193,6 +221,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"kz" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "kI" = (
 /obj/machinery/shower{
 	dir = 8
@@ -205,11 +241,27 @@
 "lq" = (
 /turf/simulated/wall/rusty,
 /area/new_blades/interiors/ruins/bunker)
+"lv" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "lO" = (
 /obj/structure/table/steel,
 /obj/item/material/hatchet/butch,
 /turf/simulated/floor/tiled/freezer,
 /area/new_blades/interiors/ruins/bunker)
+"lU" = (
+/obj/structure/closet/crate/rad,
+/obj/item/stack/material/tritium,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "mc" = (
 /obj/structure/bed/padded,
 /obj/structure/bed/padded/bunk,
@@ -221,6 +273,15 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"mO" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"mR" = (
+/turf/simulated/wall/concrete,
+/area/new_blades/underground)
 "mY" = (
 /obj/structure/toilet{
 	dir = 4
@@ -238,49 +299,48 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"nK" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc/empty/north,
-/obj/structure/table/steel,
-/obj/item/paper_bin,
-/turf/simulated/floor/tiled/dark{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
-"nN" = (
-/obj/machinery/light/colored/decayed{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
-"oJ" = (
-/obj/machinery/optable,
-/obj/machinery/light/colored/decayed{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 303.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"oN" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 303.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"oO" = (
+"nv" = (
 /obj/structure/bed/stool/chair/office/dark{
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
-"pA" = (
+"oa" = (
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"oL" = (
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light/colored/decayed,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"pv" = (
+/obj/machinery/door/airlock/highsecurity{
+	name = "Reactor"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"qp" = (
+/obj/structure/closet/secure_closet,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"qr" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"rH" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/bodyscanner{
 	dir = 1
@@ -292,42 +352,6 @@
 	temperature = 303.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"pC" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
-"ql" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/table/rack,
-/obj/random/firstaid,
-/obj/random/firstaid,
-/obj/random/firstaid,
-/obj/random/firstaid,
-/obj/item/storage/belt/medical/first_responder/combat,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 303.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"qp" = (
-/obj/structure/closet/secure_closet,
-/turf/simulated/floor/concrete/square{
-	temperature = 313.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"rr" = (
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 1
-	},
-/turf/simulated/floor/tiled{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "tJ" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/plain,
@@ -358,6 +382,17 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "uf" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"uH" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
@@ -368,28 +403,64 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"wl" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1
+"vT" = (
+/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
-/turf/simulated/floor/tiled/dark{
+/turf/simulated/floor/tiled/dark/full{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
-"wo" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/light/colored/decayed{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 303.15
-	},
-/area/new_blades/interiors/ruins/bunker)
 "wK" = (
 /obj/structure/table/steel,
 /obj/item/material/ashtray,
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"wP" = (
+/obj/structure/closet/walllocker/medical{
+	name = "surgical supplies";
+	pixel_x = 32
+	},
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/storage/box/masks,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"xl" = (
+/obj/machinery/door/airlock/medical{
+	name = "Surgical Suite"
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"xN" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/empty/north,
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"yb" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/table/rack,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/item/storage/belt/medical/first_responder/combat,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "yw" = (
@@ -402,26 +473,18 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"zy" = (
-/obj/structure/closet/secure_closet/engineering_electrical,
-/obj/effect/floor_decal/industrial/outline/engineering,
-/turf/simulated/floor/tiled/dark{
+"ze" = (
+/turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
-"Az" = (
-/obj/structure/cable/green{
-	icon_state = "0-4"
+"zR" = (
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
 	},
-/obj/machinery/power/terminal{
-	dir = 8;
-	icon_state = "term"
-	},
-/obj/machinery/light/colored/decayed,
-/turf/simulated/floor/tiled/dark{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "BC" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/concrete/square{
@@ -436,11 +499,10 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"BT" = (
+"Cc" = (
+/obj/machinery/iv_drip,
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/light/colored/decayed{
-	dir = 8
-	},
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -455,22 +517,15 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"CK" = (
-/obj/machinery/door/airlock/medical{
-	name = "Surgical Suite"
+"Di" = (
+/obj/machinery/optable,
+/obj/machinery/light/colored/decayed{
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"CQ" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "Dk" = (
 /obj/machinery/shower{
 	dir = 8
@@ -485,6 +540,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"DC" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/obj/item/reagent_containers/glass/bucket{
+	pixel_x = -7;
+	pixel_y = -6
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "DI" = (
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
@@ -496,49 +561,20 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"Ed" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/table/rack,
-/obj/item/reagent_containers/hypospray,
-/obj/random/firstaid,
-/obj/random/firstaid,
-/obj/random/firstaid,
-/obj/item/storage/belt/medical/first_responder/combat,
-/obj/item/storage/belt/medical/first_responder/combat,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 303.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"El" = (
-/obj/structure/sink{
-	dir = 8;
-	pixel_x = -12
-	},
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 303.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"Ff" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark{
+"EY" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
-"Ft" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+"Fa" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113)
 	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "Fu" = (
 /obj/structure/table/rack,
 /obj/item/towel/random,
@@ -546,40 +582,21 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"Gi" = (
-/obj/structure/table/reinforced/glass,
-/obj/item/storage/box/fancy/tray,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 303.15
+"Hj" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
 	},
-/area/new_blades/interiors/ruins/bunker)
-"Gs" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/bodyscanner{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 303.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"Hd" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/turf/simulated/floor/tiled/dark/full{
+/turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
-"Ip" = (
-/obj/structure/closet/walllocker/medical{
-	name = "surgical supplies";
-	pixel_x = 32
+"Hq" = (
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
 	},
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/storage/box/masks,
+/area/new_blades/underground)
+"Iw" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -595,10 +612,10 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"IX" = (
-/obj/structure/cable/green,
-/obj/machinery/power/smes/buildable/third_party_shuttle/empty,
-/obj/effect/floor_decal/industrial/hatch/red,
+"IK" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
@@ -615,6 +632,19 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"JM" = (
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/terminal{
+	dir = 8;
+	icon_state = "term"
+	},
+/obj/machinery/light/colored/decayed,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "KV" = (
 /obj/machinery/vending/dinnerware,
 /turf/simulated/floor/concrete/square{
@@ -622,31 +652,40 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "Lt" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
-"LH" = (
-/obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/tiled/dark{
-	temperature = 315.15
+"LD" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/sleeper{
+	dir = 1
 	},
-/area/new_blades/underground)
-"Mi" = (
-/obj/machinery/photocopier,
-/turf/simulated/floor/tiled{
-	temperature = 315.15
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "Mn" = (
 /obj/structure/bed/stool/bar,
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Mo" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Mx" = (
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "MH" = (
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
@@ -669,9 +708,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground/aquifer)
-"OA" = (
-/turf/simulated/wall/concrete,
-/area/new_blades/underground)
+"Ow" = (
+/obj/structure/table/reinforced/glass,
+/obj/item/storage/box/fancy/tray,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "OD" = (
 /obj/machinery/conveyor{
 	name = "running machine"
@@ -683,81 +726,68 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"OO" = (
-/obj/machinery/door/airlock/highsecurity{
-	name = "Reactor"
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
-"QA" = (
-/obj/structure/bed/roller,
+"PM" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/light/colored/decayed,
+/obj/structure/table/rack,
+/obj/item/reagent_containers/hypospray,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/item/storage/belt/medical/first_responder/combat,
+/obj/item/storage/belt/medical/first_responder/combat,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"Rm" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113)
-	},
-/turf/simulated/floor/concrete/square{
-	temperature = 313.15
-	},
-/area/new_blades/underground)
 "RI" = (
 /obj/structure/punching_bag,
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"RP" = (
-/obj/structure/bed/roller,
-/obj/effect/floor_decal/corner/lime/diagonal,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 303.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"Sc" = (
-/turf/simulated/floor/concrete/square{
-	temperature = 313.15
-	},
-/area/new_blades/underground)
 "Sm" = (
 /turf/simulated/floor/concrete{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"SP" = (
+"SC" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
-"TH" = (
-/turf/simulated/floor/tiled{
+"TI" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"TL" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
 "TS" = (
 /turf/simulated/wall/concrete,
 /area/new_blades/interiors/ruins/bunker)
-"Ve" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/light/colored/decayed,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 303.15
+"Vh" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
 	},
-/area/new_blades/interiors/ruins/bunker)
-"VQ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark{
+/turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -767,66 +797,41 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"Wg" = (
-/obj/structure/reagent_dispensers/coolanttank,
-/obj/item/reagent_containers/glass/bucket{
-	pixel_x = -7;
-	pixel_y = -6
+"WS" = (
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"XG" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"XR" = (
+/obj/structure/cable/green,
+/obj/machinery/power/smes/buildable/third_party_shuttle/empty,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Ys" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
-"WM" = (
-/obj/machinery/power/portgen/basic/fusion,
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/tiled/dark/full{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
-"WU" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/dark{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
-"Xq" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/door/airlock/highsecurity{
-	name = "Reactor"
-	},
-/turf/simulated/floor/tiled/dark/full{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
-"XS" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/sleeper{
+"ZN" = (
+/obj/structure/table/steel,
+/obj/machinery/light/colored/decayed{
 	dir = 1
-	},
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 303.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"Yo" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
-"YV" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
@@ -4848,8 +4853,8 @@ CF
 CF
 CF
 CF
-CF
-CF
+kh
+kh
 CF
 CF
 CF
@@ -5104,11 +5109,11 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
+kh
+kh
+kh
+kh
+kh
 CF
 CF
 CF
@@ -5361,12 +5366,12 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
+kh
+kh
+kh
+kh
+kh
+kh
 CF
 CF
 CF
@@ -9029,15 +9034,15 @@ CF
 CF
 CF
 TS
-Gi
-El
-oN
-BT
-il
-il
-RP
-RP
-QA
+Ow
+TI
+Iw
+lv
+Mo
+Mo
+zR
+zR
+oL
 TS
 DI
 DI
@@ -9045,14 +9050,14 @@ DI
 TS
 CF
 CF
-OA
-OA
-OA
-OA
-OA
-OA
-OA
-OA
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
 CF
 CF
 MS
@@ -9279,37 +9284,37 @@ CF
 CF
 CF
 CF
-OA
-OA
-OA
-OA
-OA
-OA
 TS
-oJ
-Ip
-CK
-il
-il
-il
-eP
-eP
-eP
+TS
+TS
+TS
+TS
+TS
+TS
+Di
+wP
+xl
+Mo
+Mo
+Mo
+Cc
+Cc
+Cc
 TS
 DI
 DI
 DI
 TS
-OA
-OA
-OA
-jp
-TH
-jO
-TH
-jO
-TH
-OA
+mR
+mR
+mR
+Mx
+ze
+WS
+ze
+WS
+ze
+mR
 CF
 CF
 MS
@@ -9536,37 +9541,37 @@ CF
 CF
 CF
 CF
-OA
-Rm
-Sc
-Sc
-Sc
-Rm
+TS
+Fa
+DI
+DI
+DI
+Fa
 TS
 TS
 TS
 TS
-il
-il
-il
-RP
-RP
-RP
+Mo
+Mo
+Mo
+zR
+zR
+zR
 TS
 DI
 DI
 DI
 TS
-Mi
-oO
-TH
-TH
-TH
-TH
-rr
-TH
-rr
-OA
+XG
+Vh
+ze
+ze
+ze
+ze
+nv
+ze
+nv
+mR
 CF
 CF
 MS
@@ -9793,37 +9798,37 @@ CF
 CF
 CF
 CF
-OA
-Rm
-Sc
-Sc
-Sc
-Rm
 TS
-Gi
-El
-oN
-il
-il
-il
-il
-gA
-pA
+Fa
+DI
+DI
+DI
+Fa
+TS
+Ow
+TI
+Iw
+Mo
+Mo
+Mo
+Mo
+gX
+rH
 TS
 DI
 DI
 DI
 TS
-TH
-jO
-TH
-TH
-TH
-TH
-TH
-TH
-TH
-OA
+ze
+WS
+ze
+ze
+ze
+ze
+ze
+ze
+ze
+mR
 CF
 CF
 MS
@@ -10050,37 +10055,37 @@ CF
 CF
 CF
 CF
-OA
-Rm
-Sc
-Sc
-Sc
-Rm
 TS
-oJ
-Ip
-CK
-il
-il
-il
-il
-gA
-Gs
+Fa
+DI
+DI
+DI
+Fa
+TS
+Di
+wP
+xl
+Mo
+Mo
+Mo
+Mo
+gX
+ge
 TS
 DI
 DI
 DI
 TS
-TH
-TH
-TH
-TH
-TH
-TH
-rr
-TH
-rr
-OA
+ze
+ze
+ze
+ze
+ze
+ze
+nv
+ze
+nv
+mR
 CF
 CF
 MS
@@ -10307,37 +10312,37 @@ CF
 CF
 CF
 CF
-OA
-Rm
-Sc
-Sc
-Sc
-Rm
+TS
+Fa
+DI
+DI
+DI
+Fa
 TS
 TS
 TS
 TS
-il
-il
-il
-il
-il
-XS
+Mo
+Mo
+Mo
+Mo
+Mo
+LD
 TS
 DI
 DI
 DI
 TS
-TH
-TH
-TH
-TH
-TH
-jO
-TH
-jO
-TH
-OA
+ze
+ze
+ze
+ze
+ze
+WS
+ze
+WS
+ze
+mR
 CF
 CF
 MS
@@ -10564,39 +10569,39 @@ CF
 CF
 CF
 CF
-OA
-Rm
-Sc
-Sc
-Sc
-Rm
 TS
-Gi
-El
-oN
-il
-il
-il
-il
-il
-il
+Fa
+DI
+DI
+DI
+Fa
+TS
+Ow
+TI
+Iw
+Mo
+Mo
+Mo
+Mo
+Mo
+Mo
 TS
 DI
 DI
 DI
 TS
-TH
-TH
-TH
-OA
-OA
-OA
-OA
-OA
-OA
-OA
-OA
-OA
+ze
+ze
+ze
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
 MS
 "}
 (39,1,1) = {"
@@ -10821,39 +10826,39 @@ CF
 CF
 CF
 CF
-OA
-Rm
-Sc
-Sc
-Sc
-Rm
 TS
-oJ
-Ip
-CK
-wo
-il
-Ed
-ql
-il
-Ve
+Fa
+DI
+DI
+DI
+Fa
+TS
+Di
+wP
+xl
+eH
+Mo
+PM
+yb
+Mo
+dm
 TS
 DI
 DI
 DI
 TS
-TH
-TH
-TH
-OA
-nK
-Yo
-Yo
-Yo
-Yo
-Yo
-IX
-OA
+ze
+ze
+ze
+mR
+xN
+hn
+hn
+hn
+hn
+hn
+XR
+mR
 MS
 "}
 (40,1,1) = {"
@@ -11092,25 +11097,25 @@ TS
 TS
 TS
 TS
-il
-il
+Mo
+Mo
 TS
 DI
 TS
 DI
 TS
-OA
-Sc
-OA
-OA
-dw
-LH
-YV
-YV
-YV
-SP
-Az
-OA
+mR
+Hq
+mR
+mR
+ZN
+qr
+uH
+uH
+uH
+Hj
+JM
+mR
 MS
 "}
 (41,1,1) = {"
@@ -11356,18 +11361,18 @@ DI
 DI
 DI
 DI
-Sc
-Sc
-Sc
-OA
-uf
-WU
-Hd
-Hd
-Hd
-Ff
-pC
-OA
+Hq
+Hq
+Hq
+mR
+oa
+mO
+EY
+EY
+EY
+kz
+Ys
+mR
 MS
 "}
 (42,1,1) = {"
@@ -11613,18 +11618,18 @@ DI
 DI
 DI
 TS
-Sc
-Sc
-Sc
-OO
-uf
-WU
-Hd
-WM
-Xq
-Ft
-Lt
-OA
+Hq
+Hq
+Hq
+pv
+oa
+mO
+EY
+vT
+if
+TL
+IK
+mR
 MS
 "}
 (43,1,1) = {"
@@ -11870,18 +11875,18 @@ DI
 DI
 DI
 DI
-Sc
-Sc
-Sc
-OA
-uf
-WU
-Hd
-Hd
-Hd
-Ff
-uf
-OA
+Hq
+Hq
+Hq
+mR
+oa
+mO
+EY
+EY
+EY
+kz
+oa
+mR
 MS
 "}
 (44,1,1) = {"
@@ -12029,10 +12034,10 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
+kh
+kh
+kh
+kh
 CF
 CF
 CF
@@ -12127,18 +12132,18 @@ TS
 TS
 TS
 TS
-OA
-OA
-OA
-OA
-nN
-CQ
-VQ
-VQ
-VQ
-wl
-bm
-OA
+mR
+mR
+mR
+mR
+aC
+uf
+Lt
+Lt
+Lt
+SC
+aP
+mR
 MS
 "}
 (45,1,1) = {"
@@ -12286,6 +12291,9 @@ CF
 CF
 CF
 CF
+kh
+kh
+kh
 CF
 CF
 CF
@@ -12384,18 +12392,15 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-OA
-zy
-zy
-Wg
-Wg
-cO
-uf
-uf
-OA
+mR
+hQ
+hQ
+DC
+DC
+lU
+oa
+oa
+mR
 MS
 "}
 (46,1,1) = {"
@@ -12644,15 +12649,15 @@ CF
 CF
 CF
 CF
-OA
-OA
-OA
-OA
-OA
-OA
-OA
-OA
-OA
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
+mR
 MS
 "}
 (47,1,1) = {"
@@ -13040,8 +13045,8 @@ CF
 CF
 CF
 CF
-CF
-CF
+kh
+kh
 CF
 CF
 CF
@@ -13296,10 +13301,10 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
+kh
+kh
+kh
+kh
 CF
 CF
 CF
@@ -13553,10 +13558,10 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
+kh
+kh
+kh
+kh
 CF
 CF
 CF
@@ -14876,9 +14881,9 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
+kh
+kh
+kh
 CF
 CF
 CF
@@ -15133,9 +15138,9 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
+kh
+kh
+kh
 CF
 CF
 CF
@@ -15390,9 +15395,9 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
+kh
+kh
+kh
 CF
 CF
 CF
@@ -17409,10 +17414,10 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
+kh
+kh
+kh
+kh
 CF
 CF
 CF
@@ -17667,9 +17672,9 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
+kh
+kh
+kh
 CF
 CF
 CF
@@ -18693,7 +18698,7 @@ CF
 CF
 CF
 CF
-CF
+kh
 CF
 CF
 CF
@@ -18948,9 +18953,9 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
+kh
+kh
+kh
 CF
 CF
 CF
@@ -19205,9 +19210,9 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
+kh
+kh
+kh
 CF
 CF
 CF
@@ -19461,10 +19466,10 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
+kh
+kh
+kh
+kh
 CF
 CF
 CF
