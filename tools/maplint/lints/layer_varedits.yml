@@ -1,0 +1,4 @@
+help: "Do not edit layer manually in the map."
+"*":
+  banned_variables:
+  - layer
