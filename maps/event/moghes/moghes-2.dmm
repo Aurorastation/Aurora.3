@@ -29,6 +29,12 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"bm" = (
+/obj/machinery/light/colored/decayed,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "bq" = (
 /obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/concrete/square{
@@ -48,6 +54,22 @@
 /obj/structure/kitchenspike,
 /turf/simulated/floor/tiled/freezer,
 /area/new_blades/interiors/ruins/bunker)
+"cO" = (
+/obj/structure/closet/crate/rad,
+/obj/item/stack/material/tritium,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"dw" = (
+/obj/structure/table/steel,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "dR" = (
 /obj/structure/sink{
 	dir = 8;
@@ -55,6 +77,14 @@
 	},
 /turf/simulated/floor/tiled/freezer{
 	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"eP" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "fA" = (
@@ -91,6 +121,19 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"gA" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/body_scanconsole,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"il" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "ip" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/concrete{
@@ -103,6 +146,12 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"jp" = (
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "jA" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/desk/southleft,
@@ -121,6 +170,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"jO" = (
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "kr" = (
 /obj/structure/reagent_dispensers/keg/xuizikeg,
 /obj/structure/table/steel,
@@ -182,12 +238,96 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"nK" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/empty/north,
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"nN" = (
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"oJ" = (
+/obj/machinery/optable,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"oN" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"oO" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"pA" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/bodyscanner{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"pC" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"ql" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/table/rack,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/item/storage/belt/medical/first_responder/combat,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "qp" = (
 /obj/structure/closet/secure_closet,
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"rr" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "tJ" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/plain,
@@ -217,10 +357,32 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"uf" = (
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "vb" = (
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"wl" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"wo" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "wK" = (
@@ -240,6 +402,26 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"zy" = (
+/obj/structure/closet/secure_closet/engineering_electrical,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Az" = (
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/terminal{
+	dir = 8;
+	icon_state = "term"
+	},
+/obj/machinery/light/colored/decayed,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "BC" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/concrete/square{
@@ -254,6 +436,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"BT" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "CF" = (
 /turf/simulated/mineral/planet,
 /area/new_blades/underground)
@@ -264,6 +455,22 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"CK" = (
+/obj/machinery/door/airlock/medical{
+	name = "Surgical Suite"
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"CQ" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Dk" = (
 /obj/machinery/shower{
 	dir = 8
@@ -289,11 +496,92 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Ed" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/table/rack,
+/obj/item/reagent_containers/hypospray,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/item/storage/belt/medical/first_responder/combat,
+/obj/item/storage/belt/medical/first_responder/combat,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"El" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Ff" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Ft" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Fu" = (
 /obj/structure/table/rack,
 /obj/item/towel/random,
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Gi" = (
+/obj/structure/table/reinforced/glass,
+/obj/item/storage/box/fancy/tray,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Gs" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/bodyscanner{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Hd" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/turf/simulated/floor/tiled/dark/full{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Ip" = (
+/obj/structure/closet/walllocker/medical{
+	name = "surgical supplies";
+	pixel_x = 32
+	},
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/storage/box/masks,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "IF" = (
@@ -307,6 +595,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"IX" = (
+/obj/structure/cable/green,
+/obj/machinery/power/smes/buildable/third_party_shuttle/empty,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Jl" = (
 /obj/machinery/shower{
 	dir = 8
@@ -325,6 +621,26 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Lt" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"LH" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Mi" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Mn" = (
 /obj/structure/bed/stool/bar,
 /turf/simulated/floor/concrete/square{
@@ -353,6 +669,9 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground/aquifer)
+"OA" = (
+/turf/simulated/wall/concrete,
+/area/new_blades/underground)
 "OD" = (
 /obj/machinery/conveyor{
 	name = "running machine"
@@ -364,26 +683,155 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"OO" = (
+/obj/machinery/door/airlock/highsecurity{
+	name = "Reactor"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"QA" = (
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light/colored/decayed,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Rm" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113)
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/underground)
 "RI" = (
 /obj/structure/punching_bag,
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"RP" = (
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Sc" = (
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/underground)
 "Sm" = (
 /turf/simulated/floor/concrete{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"SP" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"TH" = (
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "TS" = (
 /turf/simulated/wall/concrete,
 /area/new_blades/interiors/ruins/bunker)
+"Ve" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light/colored/decayed,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"VQ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "VV" = (
 /obj/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Wg" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/obj/item/reagent_containers/glass/bucket{
+	pixel_x = -7;
+	pixel_y = -6
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"WM" = (
+/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/dark/full{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"WU" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Xq" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/highsecurity{
+	name = "Reactor"
+	},
+/turf/simulated/floor/tiled/dark/full{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"XS" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/sleeper{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Yo" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"YV" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 
 (1,1,1) = {"
 MS
@@ -7275,21 +7723,10 @@ CF
 CF
 TS
 DI
-DI
-DI
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
 TS
 DI
-DI
-DI
+TS
+TS
 TS
 TS
 TS
@@ -7300,6 +7737,17 @@ TS
 TS
 DI
 DI
+DI
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+DI
+DI
 TS
 TS
 TS
@@ -7312,7 +7760,7 @@ DI
 TS
 TS
 TS
-TS
+DI
 DI
 TS
 TS
@@ -7567,7 +8015,7 @@ DI
 DI
 DI
 DI
-TS
+DI
 DI
 DI
 DI
@@ -7824,7 +8272,7 @@ DI
 DI
 DI
 DI
-TS
+DI
 DI
 DI
 DI
@@ -8081,7 +8529,7 @@ DI
 DI
 DI
 DI
-TS
+DI
 DI
 DI
 DI
@@ -8580,16 +9028,16 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+TS
+Gi
+El
+oN
+BT
+il
+il
+RP
+RP
+QA
 TS
 DI
 DI
@@ -8597,14 +9045,14 @@ DI
 TS
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+OA
+OA
+OA
+OA
+OA
+OA
+OA
+OA
 CF
 CF
 MS
@@ -8831,37 +9279,37 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+OA
+OA
+OA
+OA
+OA
+OA
+TS
+oJ
+Ip
+CK
+il
+il
+il
+eP
+eP
+eP
 TS
 DI
 DI
 DI
 TS
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+OA
+OA
+OA
+jp
+TH
+jO
+TH
+jO
+TH
+OA
 CF
 CF
 MS
@@ -9088,37 +9536,37 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+OA
+Rm
+Sc
+Sc
+Sc
+Rm
+TS
+TS
+TS
+TS
+il
+il
+il
+RP
+RP
+RP
 TS
 DI
 DI
 DI
 TS
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Mi
+oO
+TH
+TH
+TH
+TH
+rr
+TH
+rr
+OA
 CF
 CF
 MS
@@ -9345,37 +9793,37 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+OA
+Rm
+Sc
+Sc
+Sc
+Rm
+TS
+Gi
+El
+oN
+il
+il
+il
+il
+gA
+pA
 TS
 DI
 DI
 DI
 TS
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+TH
+jO
+TH
+TH
+TH
+TH
+TH
+TH
+TH
+OA
 CF
 CF
 MS
@@ -9602,37 +10050,37 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+OA
+Rm
+Sc
+Sc
+Sc
+Rm
+TS
+oJ
+Ip
+CK
+il
+il
+il
+il
+gA
+Gs
 TS
 DI
 DI
 DI
 TS
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+TH
+TH
+TH
+TH
+TH
+TH
+rr
+TH
+rr
+OA
 CF
 CF
 MS
@@ -9859,37 +10307,37 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+OA
+Rm
+Sc
+Sc
+Sc
+Rm
+TS
+TS
+TS
+TS
+il
+il
+il
+il
+il
+XS
 TS
 DI
 DI
 DI
 TS
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+TH
+TH
+TH
+TH
+TH
+jO
+TH
+jO
+TH
+OA
 CF
 CF
 MS
@@ -10116,39 +10564,39 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+OA
+Rm
+Sc
+Sc
+Sc
+Rm
+TS
+Gi
+El
+oN
+il
+il
+il
+il
+il
+il
 TS
 DI
 DI
 DI
 TS
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+TH
+TH
+TH
+OA
+OA
+OA
+OA
+OA
+OA
+OA
+OA
+OA
 MS
 "}
 (39,1,1) = {"
@@ -10373,39 +10821,39 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+OA
+Rm
+Sc
+Sc
+Sc
+Rm
+TS
+oJ
+Ip
+CK
+wo
+il
+Ed
+ql
+il
+Ve
 TS
 DI
 DI
 DI
 TS
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+TH
+TH
+TH
+OA
+nK
+Yo
+Yo
+Yo
+Yo
+Yo
+IX
+OA
 MS
 "}
 (40,1,1) = {"
@@ -10614,55 +11062,55 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+TS
+DI
+DI
+DI
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+DI
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+il
+il
+TS
+DI
+TS
+DI
+TS
+OA
+Sc
+OA
+OA
+dw
+LH
+YV
+YV
+YV
+SP
+Az
+OA
 MS
 "}
 (41,1,1) = {"
@@ -10871,55 +11319,55 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+Sc
+Sc
+Sc
+OA
+uf
+WU
+Hd
+Hd
+Hd
+Ff
+pC
+OA
 MS
 "}
 (42,1,1) = {"
@@ -11128,55 +11576,55 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+TS
+Sc
+Sc
+Sc
+OO
+uf
+WU
+Hd
+WM
+Xq
+Ft
+Lt
+OA
 MS
 "}
 (43,1,1) = {"
@@ -11385,55 +11833,55 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+Sc
+Sc
+Sc
+OA
+uf
+WU
+Hd
+Hd
+Hd
+Ff
+uf
+OA
 MS
 "}
 (44,1,1) = {"
@@ -11642,55 +12090,55 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+OA
+OA
+OA
+OA
+nN
+CQ
+VQ
+VQ
+VQ
+wl
+bm
+OA
 MS
 "}
 (45,1,1) = {"
@@ -11939,15 +12387,15 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+OA
+zy
+zy
+Wg
+Wg
+cO
+uf
+uf
+OA
 MS
 "}
 (46,1,1) = {"
@@ -12196,15 +12644,15 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+OA
+OA
+OA
+OA
+OA
+OA
+OA
+OA
+OA
 MS
 "}
 (47,1,1) = {"
