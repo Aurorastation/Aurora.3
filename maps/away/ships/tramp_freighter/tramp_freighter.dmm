@@ -1378,7 +1378,6 @@
 /area/tramp_freighter/hydroponics)
 "gw" = (
 /obj/structure/table/wood/gamblingtable,
-/obj/item/deck/cards,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -1393,6 +1392,21 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/item/reagent_containers/food/drinks/bottle/feni{
+	pixel_y = 5;
+	pixel_x = -3
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_x = -10;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
+	pixel_x = 9
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
@@ -1435,7 +1449,7 @@
 /obj/machinery/conveyor{
 	id = "freighter_mining";
 	dir = 6;
-	movedir = 4
+	reversed = 1
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/refinery)
@@ -3211,21 +3225,7 @@
 "qG" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood/gamblingtable,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
-	pixel_x = 7;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
-	pixel_x = 9
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
-	pixel_x = -10;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/food/drinks/bottle/feni{
-	pixel_y = 5;
-	pixel_x = -3
-	},
+/obj/item/deck/cards,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/starboard_docking)
 "qI" = (
@@ -5426,6 +5426,18 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
+"AE" = (
+/obj/machinery/button/remote/airlock{
+	dir = 10;
+	id = "starboard_docking_arm";
+	name = "Starboard Docking Arm Bolt Control";
+	specialfunctions = 4;
+	pixel_x = -6;
+	pixel_y = -1;
+	req_one_access = list(242)
+	},
+/turf/template_noop,
+/area/space)
 "AJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -6114,7 +6126,8 @@
 	dir = 2;
 	door_color = "#4d4d4d";
 	name = "Portside Docking Arm";
-	id_tag = "port_docking_arm"
+	id_tag = "port_docking_arm";
+	locked = 1
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -9686,7 +9699,8 @@
 	dir = 2;
 	door_color = "#4d4d4d";
 	name = "Starboard Docking Arm";
-	id_tag = "starboard_docking_arm"
+	id_tag = "starboard_docking_arm";
+	locked = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment{
@@ -54668,7 +54682,7 @@ hX
 hX
 hX
 hX
-hX
+AE
 hX
 hX
 hX
