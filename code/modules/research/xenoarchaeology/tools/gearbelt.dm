@@ -16,6 +16,7 @@
 		/obj/item/pickaxe,
 		/obj/item/device/depth_scanner,
 		/obj/item/device/camera,
+		/obj/item/device/camera_film,
 		/obj/item/paper,
 		/obj/item/photo,
 		/obj/item/folder,
