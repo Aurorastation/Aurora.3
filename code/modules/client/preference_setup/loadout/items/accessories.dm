@@ -703,3 +703,9 @@
 	display_name = "visegradi patterned sweater"
 	path = /obj/item/clothing/accessory/sweater/visegradi
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/nco_badge
+	display_name = "imperial army badge"
+	path = /obj/item/clothing/accessory/dominia/nco_badge
+	flags = GEAR_HAS_DESC_SELECTION
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
