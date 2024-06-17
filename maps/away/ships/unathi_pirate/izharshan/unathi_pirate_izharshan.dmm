@@ -278,7 +278,6 @@
 "fR" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 10
 	},
 /turf/simulated/floor/reinforced,
@@ -318,7 +317,6 @@
 /area/shuttle/unathi_pirate_izharshan/helm)
 "gL" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/structure/cable{
@@ -570,7 +568,6 @@
 "oA" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 4
 	},
 /turf/simulated/floor/reinforced,
@@ -593,7 +590,6 @@
 "pb" = (
 /obj/structure/viewport/unathi,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 6
 	},
 /turf/simulated/floor/reinforced,
@@ -644,7 +640,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -870,7 +865,6 @@
 /area/shuttle/unathi_pirate_izharshan/operations)
 "vv" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
@@ -888,7 +882,6 @@
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "wz" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/structure/cable{
@@ -1130,7 +1123,6 @@
 	req_access = list(210)
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1316,7 +1308,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -1416,9 +1407,7 @@
 /turf/simulated/floor/airless,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "Ib" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;

@@ -537,9 +537,7 @@
 /turf/simulated/floor/tiled,
 /area/derelict)
 "uG" = (
-/obj/effect/decal/cleanable/dirt{
-	layer = 3.1
-	},
+/obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/fake_object{
 	density = 1;
 	desc = "An old cryogenic freezer .";
@@ -999,9 +997,7 @@
 	name = "dilapitated cryogenic freezer";
 	pixel_x = 1
 	},
-/obj/effect/decal/cleanable/dirt{
-	layer = 3.1
-	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/airless,
 /area/derelict)
 "SI" = (
