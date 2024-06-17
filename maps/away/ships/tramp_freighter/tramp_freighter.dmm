@@ -1027,17 +1027,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/starboard_docking)
 "eU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc/south{
-	req_access = list(242)
-	},
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/crew_quarters)
 "eW" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -1326,43 +1317,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/afthallway)
 "gu" = (
-/obj/structure/closet,
-/obj/item/clothing/suit/storage/toggle/bomber,
-/obj/item/clothing/suit/storage/toggle/flannel/red,
-/obj/item/clothing/under/pants/jeansblack,
-/obj/item/clothing/head/cowboy,
-/obj/item/clothing/shoes/cowboy/classic,
-/obj/item/clothing/shoes/jackboots,
-/obj/item/clothing/head/softcap/himeo,
-/obj/item/clothing/accessory/storage/overalls,
-/obj/item/clothing/under/pants/black,
-/obj/item/clothing/accessory/bandanna,
-/obj/item/clothing/accessory/bandanna/black,
-/obj/item/clothing/accessory/bandanna/blue,
-/obj/item/clothing/suit/storage/toggle/trench/green,
-/obj/item/clothing/glasses/fakesunglasses/aviator,
-/obj/item/clothing/glasses/regular/circle,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/shoes/laceup,
-/obj/item/clothing/shoes/laceup,
-/obj/item/clothing/gloves/fingerless,
-/obj/item/clothing/gloves/fingerless,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
-/obj/item/clothing/suit/armor/material/makeshift/plasteel,
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
+	dir = 5
+	},
+/obj/machinery/power/apc/south{
+	req_access = list(242)
 	},
 /obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+	icon_state = "0-4"
 	},
-/obj/item/clothing/under/vaurca/gearharness,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/head/softcap,
-/obj/item/clothing/head/softcap,
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/coatrack{
+	pixel_x = -7
+	},
+/turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
 "gv" = (
 /obj/machinery/portable_atmospherics/hydroponics{
@@ -2006,15 +1973,6 @@
 	},
 /turf/simulated/floor,
 /area/tramp_freighter/captain_bed)
-"ke" = (
-/obj/structure/coatrack{
-	pixel_x = -7
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/crew_quarters)
 "kf" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/atmospherics/portables_connector/supply,
@@ -2036,15 +1994,7 @@
 /turf/simulated/floor/marble,
 /area/tramp_freighter/kitchen)
 "kk" = (
-/obj/effect/floor_decal/carpet{
-	dir = 8
-	},
-/obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/lava/green{
-	pixel_x = -8;
-	pixel_y = 11
-	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
 "kx" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -2286,6 +2236,28 @@
 /area/tramp_freighter/portthrust)
 "lL" = (
 /obj/structure/closet,
+/obj/item/clothing/suit/storage/toggle/bomber,
+/obj/item/clothing/suit/storage/toggle/flannel/red,
+/obj/item/clothing/under/pants/jeansblack,
+/obj/item/clothing/head/cowboy,
+/obj/item/clothing/shoes/cowboy/classic,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/head/softcap/himeo,
+/obj/item/clothing/accessory/storage/overalls,
+/obj/item/clothing/under/pants/black,
+/obj/item/clothing/accessory/bandanna,
+/obj/item/clothing/accessory/bandanna/black,
+/obj/item/clothing/accessory/bandanna/blue,
+/obj/item/clothing/suit/storage/toggle/trench/green,
+/obj/item/clothing/glasses/fakesunglasses/aviator,
+/obj/item/clothing/glasses/regular/circle,
+/obj/item/clothing/under/pants/tacticool,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/shoes/laceup,
+/obj/item/clothing/gloves/fingerless,
+/obj/item/clothing/gloves/fingerless,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
+/obj/item/clothing/suit/armor/material/makeshift/plasteel,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -2295,40 +2267,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/light,
-/obj/item/clothing/under/color/grey,
-/obj/item/clothing/under/color/grey,
-/obj/item/clothing/under/color/black,
-/obj/item/clothing/under/color/black,
-/obj/item/clothing/accessory/storage/webbingharness/pouches,
-/obj/item/clothing/accessory/storage/webbingharness/pouches,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/designer,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
-/obj/item/clothing/under/suit_jacket,
-/obj/item/clothing/under/sl_suit,
-/obj/item/clothing/accessory/scarf{
-	color = "#4D6857"
-	},
-/obj/item/clothing/accessory/wcoat_rec{
-	color = "#494949"
-	},
-/obj/item/clothing/gloves/black,
-/obj/item/clothing/gloves/evening{
-	color = "#7B5143"
-	},
-/obj/item/clothing/accessory/tie/black,
-/obj/item/clothing/accessory/storage/pouches/brown,
-/obj/item/clothing/accessory/storage/pouches/brown,
-/obj/item/storage/backpack/satchel/eng,
-/obj/item/storage/backpack/satchel/eng,
-/obj/item/storage/backpack/duffel/eng,
-/obj/item/storage/backpack/duffel/eng,
-/obj/item/storage/backpack/messenger,
-/obj/item/storage/backpack/messenger,
-/obj/item/storage/backpack/satchel/leather,
-/obj/item/storage/backpack/satchel/leather,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/under/sundress,
+/obj/item/clothing/under/vaurca/gearharness,
+/obj/item/clothing/head/softcap,
+/obj/item/clothing/head/softcap,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "lN" = (
@@ -2634,16 +2575,10 @@
 /turf/simulated/floor/wood,
 /area/tramp_freighter/captain_bed)
 "nG" = (
-/obj/effect/floor_decal/carpet{
-	dir = 4
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
+/obj/effect/floor_decal/spline/plain/brown{
 	dir = 5
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/crew_quarters)
 "nH" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -2920,12 +2855,18 @@
 /area/tramp_freighter/cargo)
 "oR" = (
 /obj/structure/table/wood,
-/obj/item/flame/lighter,
 /obj/item/flame/lighter{
-	pixel_x = -8;
-	pixel_y = 1
+	pixel_y = 9;
+	pixel_x = 13
 	},
-/turf/simulated/floor/carpet,
+/obj/item/flame/lighter{
+	pixel_y = 6;
+	pixel_x = 4
+	},
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/crew_quarters)
 "oS" = (
 /obj/structure/curtain/open/shower,
@@ -4028,14 +3969,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
 "uo" = (
-/obj/structure/bed/stool/chair/sofa/left/brown,
+/obj/structure/bed/stool/chair/sofa/right/brown,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
 "uq" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -4336,13 +4274,13 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
 "vH" = (
-/obj/effect/floor_decal/carpet{
-	dir = 1
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 9
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/crew_quarters)
 "vI" = (
 /obj/effect/floor_decal/industrial/arrow/yellow{
@@ -4456,16 +4394,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/centralhallway)
 "wl" = (
-/obj/effect/floor_decal/carpet{
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/effect/floor_decal/carpet{
+/obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/carpet{
-	dir = 9
-	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "wm" = (
 /obj/machinery/disposal/deliveryChute{
@@ -4876,9 +4811,7 @@
 "yi" = (
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table/rack/clothing{
-	dir = 4
-	},
+/obj/structure/weightlifter,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
 "yj" = (
@@ -5001,12 +4934,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
 /obj/machinery/disposal/small/north,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
 "yX" = (
 /obj/effect/decal/cleanable/dirt,
@@ -5098,10 +5030,6 @@
 	},
 /turf/simulated/floor/marble,
 /area/tramp_freighter/washroom)
-"zf" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/crew_quarters)
 "zm" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/effect/decal/cleanable/dirt,
@@ -5379,6 +5307,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/kitchen)
 "Ax" = (
+/obj/structure/closet,
+/obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -5387,11 +5317,38 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/structure/sign/poster{
-	pixel_y = -32
+/obj/item/clothing/under/color/grey,
+/obj/item/clothing/under/color/grey,
+/obj/item/clothing/under/color/black,
+/obj/item/clothing/under/color/black,
+/obj/item/clothing/accessory/storage/webbingharness/pouches,
+/obj/item/clothing/accessory/storage/webbingharness/pouches,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/designer,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
+/obj/item/clothing/under/suit_jacket,
+/obj/item/clothing/under/sl_suit,
+/obj/item/clothing/accessory/scarf{
+	color = "#4D6857"
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table/wood,
+/obj/item/clothing/accessory/wcoat_rec{
+	color = "#494949"
+	},
+/obj/item/clothing/gloves/black,
+/obj/item/clothing/gloves/evening{
+	color = "#7B5143"
+	},
+/obj/item/clothing/accessory/tie/black,
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/storage/backpack/satchel/eng,
+/obj/item/storage/backpack/satchel/eng,
+/obj/item/storage/backpack/duffel/eng,
+/obj/item/storage/backpack/duffel/eng,
+/obj/item/storage/backpack/messenger,
+/obj/item/storage/backpack/messenger,
+/obj/item/storage/backpack/satchel/leather,
+/obj/item/storage/backpack/satchel/leather,
+/obj/item/clothing/under/sundress,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "Ay" = (
@@ -5424,18 +5381,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
-"AE" = (
-/obj/machinery/button/remote/airlock{
-	dir = 10;
-	id = "starboard_docking_arm";
-	name = "Starboard Docking Arm Bolt Control";
-	specialfunctions = 4;
-	pixel_x = -6;
-	pixel_y = -1;
-	req_one_access = list(242)
-	},
-/turf/template_noop,
-/area/space)
 "AJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -5544,11 +5489,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboard_docking)
 "Bn" = (
-/obj/structure/bed/stool/chair/sofa/right/brown,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
+/obj/machinery/alarm/north{
+	req_one_access = list(242)
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
 "Bp" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -5946,22 +5893,11 @@
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "Ej" = (
+/obj/structure/bed/stool/chair/sofa/left/brown,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/table/wood,
-/obj/structure/sign/poster{
-	pixel_y = 32
-	},
-/obj/item/trash/dipbowl{
-	pixel_x = -8
-	},
-/obj/item/trash/chips/dirtberry{
-	pixel_x = 9;
-	pixel_y = 5
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
 "El" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -6001,15 +5937,12 @@
 /turf/template_noop,
 /area/space)
 "EP" = (
-/obj/effect/floor_decal/carpet{
-	dir = 4
-	},
 /obj/structure/table/wood,
-/obj/item/storage/box/fancy/cigarettes/nka{
-	pixel_y = 1
-	},
 /obj/item/storage/box/fancy/cigarettes/oracle{
 	pixel_x = 9
+	},
+/obj/item/storage/box/fancy/cigarettes/nka{
+	pixel_y = 1
 	},
 /obj/item/storage/box/fancy/cigarettes/nicotine{
 	pixel_x = -8
@@ -6018,7 +5951,10 @@
 	pixel_y = 7;
 	pixel_x = -4
 	},
-/turf/simulated/floor/carpet,
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/crew_quarters)
 "EQ" = (
 /obj/structure/table/reinforced/steel,
@@ -6799,14 +6735,11 @@
 /turf/simulated/floor/wood,
 /area/tramp_freighter/captain_bed)
 "Jo" = (
-/obj/effect/floor_decal/carpet{
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/carpet,
-/obj/effect/floor_decal/carpet{
-	dir = 10
-	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "Jp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7255,23 +7188,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
 "LR" = (
-/obj/structure/bed/padded/bunk,
-/obj/item/bedsheet/black{
-	pixel_y = 16
-	},
 /obj/effect/ghostspawpoint{
 	identifier = "freighter_crew";
 	name = "igs - freight crew"
 	},
 /obj/structure/bed/padded,
 /obj/item/bedsheet/orange,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/crew_quarters)
 "LT" = (
@@ -8758,19 +8689,6 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/port_docking)
-"Ty" = (
-/obj/item/bedsheet/red,
-/obj/structure/bed/padded/bunk,
-/obj/item/bedsheet/black{
-	pixel_y = 16
-	},
-/obj/effect/ghostspawpoint{
-	identifier = "freighter_crew";
-	name = "igs - freight crew"
-	},
-/obj/structure/bed/padded,
-/turf/simulated/floor/carpet/rubber,
-/area/tramp_freighter/crew_quarters)
 "TB" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -8817,14 +8735,13 @@
 /area/tramp_freighter/engi)
 "TO" = (
 /obj/item/bedsheet/red,
-/obj/structure/bed/padded/bunk,
 /obj/effect/ghostspawpoint{
 	identifier = "freighter_crew";
 	name = "igs - freight crew"
 	},
 /obj/structure/bed/padded,
-/obj/item/bedsheet/black{
-	pixel_y = 16
+/obj/machinery/light/small/emergency{
+	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/crew_quarters)
@@ -9618,18 +9535,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
 "Xp" = (
-/obj/effect/floor_decal/carpet,
-/turf/simulated/floor/carpet,
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 10
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/crew_quarters)
 "Xw" = (
-/obj/effect/floor_decal/carpet,
-/obj/effect/floor_decal/carpet{
-	dir = 4
-	},
-/obj/effect/floor_decal/carpet{
+/obj/effect/floor_decal/spline/plain/brown{
 	dir = 6
 	},
-/turf/simulated/floor/carpet,
+/turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/crew_quarters)
 "Xz" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -9811,9 +9726,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
-"Yu" = (
-/turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/crew_quarters)
 "Yy" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -10042,16 +9954,6 @@
 "ZH" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/tramp_freighter/captain)
-"ZI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/alarm/north{
-	req_one_access = list(242)
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/tramp_freighter/crew_quarters)
 "ZL" = (
 /obj/machinery/iff_beacon{
 	pixel_y = 4
@@ -40578,7 +40480,7 @@ TO
 eB
 LR
 eB
-Ty
+TO
 eB
 AN
 qX
@@ -40831,10 +40733,10 @@ dt
 zG
 dt
 eB
-ZI
-ke
-Yu
-zf
+eU
+eB
+eU
+eB
 eU
 eB
 AN
@@ -54680,7 +54582,7 @@ hX
 hX
 hX
 hX
-AE
+hX
 hX
 hX
 hX
