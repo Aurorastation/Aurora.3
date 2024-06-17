@@ -5379,7 +5379,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/kitchen)
 "Ax" = (
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -5392,8 +5391,7 @@
 	pixel_y = -32
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/bin,
-/obj/random/contraband,
+/obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
 "Ay" = (
