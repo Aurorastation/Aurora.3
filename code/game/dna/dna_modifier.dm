@@ -54,8 +54,12 @@
 		/obj/item/stack/cable_coil = 2
 	)
 
-/obj/machinery/dna_scannernew/relaymove(mob/user as mob)
-	if (user.stat)
+/obj/machinery/dna_scannernew/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
+	if(user.stat)
 		return
 	src.go_out()
 	return

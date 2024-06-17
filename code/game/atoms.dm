@@ -228,11 +228,6 @@
 			found += A.search_contents_for(path,filter_path)
 	return found
 
-// Called by mobs when e.g. having the atom as their machine, pulledby, loc (AKA mob being inside the atom) or buckled_to var set.
-// See code/modules/mob/mob_movement.dm for more.
-/atom/proc/relaymove()
-	return
-
 // Called to set the atom's dir and used to add behaviour to dir-changes.
 /atom/proc/set_dir(new_dir)
 	. = new_dir != dir

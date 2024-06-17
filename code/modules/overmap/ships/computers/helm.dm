@@ -109,7 +109,11 @@
 		PH.set_hud_maptext("| Ship Status | [connected.x]-[connected.y] |<br>Speed: [round(connected.get_speed()*1000, 0.01)] | Acceleration: [get_acceleration()]<br>ETA to Next Grid: [get_eta()]")
 		PH.check_ship_overlay(PH.loc, connected)
 
-/obj/machinery/computer/ship/helm/relaymove(var/mob/user, direction)
+/obj/machinery/computer/ship/helm/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if(viewing_overmap(user) && connected)
 		connected.relaymove(user, direction, accellimit)
 		return 1

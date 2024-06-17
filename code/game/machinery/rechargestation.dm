@@ -119,7 +119,11 @@
 		return 0
 	return cell.percent()
 
-/obj/machinery/recharge_station/relaymove(mob/user as mob)
+/obj/machinery/recharge_station/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if(user.stat)
 		return
 	go_out()
