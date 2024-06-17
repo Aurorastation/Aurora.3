@@ -100,6 +100,10 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
 	},
+/obj/machinery/camera/network/cryo_outpost{
+	dir = 8;
+	c_tag = "Labs, Offices"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_offices)
 "anJ" = (
@@ -557,6 +561,14 @@
 /obj/structure/reagent_dispensers/water_cooler,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/canteen)
+"boL" = (
+/obj/random/dirt_75,
+/obj/machinery/camera/network/cryo_outpost{
+	dir = 2;
+	c_tag = "Outside, Landing Pads, Far"
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/cryo_outpost/outside/surface)
 "bpx" = (
 /obj/structure/table/rack,
 /obj/random/civgun,
@@ -1012,6 +1024,10 @@
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_east)
 "coC" = (
+/obj/item/stack/tile/floor_white{
+	pixel_x = -8;
+	pixel_y = -6
+	},
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/labs_rnd)
 "cqy" = (
@@ -1308,6 +1324,13 @@
 "dkR" = (
 /turf/simulated/floor/exoplanet/barren,
 /area/cryo_outpost/outside/surface)
+"dlv" = (
+/obj/machinery/camera/network/cryo_outpost{
+	dir = 2;
+	c_tag = "Labs, Cryo 1"
+	},
+/turf/simulated/floor/tiled,
+/area/cryo_outpost/inside/labs_cryo_n)
 "dmB" = (
 /obj/structure/toilet{
 	pixel_y = 13
@@ -1688,6 +1711,10 @@
 	pixel_x = 5;
 	pixel_y = 4
 	},
+/obj/item/stack/tile/floor_white{
+	pixel_x = -15;
+	pixel_y = 4
+	},
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/labs_rnd)
 "epK" = (
@@ -1919,6 +1946,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/habitation_west)
+"eNR" = (
+/obj/machinery/portable_atmospherics/canister/empty,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/engi_atmos)
 "ePm" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -2314,6 +2345,13 @@
 /obj/machinery/light/colored/decayed,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/hallway_central)
+"fDM" = (
+/obj/machinery/camera/network/cryo_outpost{
+	dir = 2;
+	c_tag = "Engineering"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/engineering)
 "fGA" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -2445,6 +2483,13 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_s)
+"fXi" = (
+/obj/machinery/camera/network/cryo_outpost{
+	dir = 2;
+	c_tag = "Outside, Entrance, Aux, East"
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/cryo_outpost/outside/surface)
 "fYj" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -3014,6 +3059,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_rnd)
+"hEe" = (
+/obj/effect/overmap/visitable/sector/cryo_outpost,
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/comms)
 "hEK" = (
 /obj/effect/floor_decal/corner/pink,
 /obj/machinery/light{
@@ -3146,6 +3195,11 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_habitation)
+"hUr" = (
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/engi_atmos)
 "hUT" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -3197,6 +3251,11 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/cryo_outpost/outside/surface)
+"ici" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/engineering)
 "icv" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -3427,6 +3486,10 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/entrance_main)
+"iNV" = (
+/obj/abstract/weather_marker/cryo_outpost,
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/comms)
 "iOf" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3583,6 +3646,10 @@
 	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/item/stack/nanopaste{
+	pixel_x = 5;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_rnd)
@@ -3901,6 +3968,13 @@
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/outside/surface)
+"jRt" = (
+/obj/machinery/camera/network/cryo_outpost{
+	dir = 8;
+	c_tag = "Outside, River Bridge"
+	},
+/turf/simulated/floor/exoplanet/grass,
+/area/cryo_outpost/outside/surface)
 "jRT" = (
 /obj/effect/floor_decal/corner/pink,
 /turf/simulated/floor/tiled/white,
@@ -4195,9 +4269,9 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 1
 	},
-/obj/item/circuitboard/clonescanner{
-	pixel_x = 3;
-	pixel_y = 6
+/obj/item/research_slip/cryo_outpost{
+	pixel_y = 1;
+	pixel_x = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_rnd)
@@ -4232,6 +4306,16 @@
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_rnd)
+"kHI" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/machinery/camera/network/cryo_outpost{
+	dir = 4;
+	c_tag = "Hallway, Central, EVA"
+	},
+/turf/simulated/floor/tiled,
+/area/cryo_outpost/inside/hallway_central)
 "kId" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -4428,12 +4512,34 @@
 	},
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/outside/surface)
+"ldV" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/engineering)
 "leh" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_rnd)
+"lfs" = (
+/obj/machinery/camera/network/cryo_outpost{
+	dir = 2;
+	c_tag = "Outside, Entrance, Main"
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/cryo_outpost/outside/surface)
+"lgE" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/machinery/camera/network/cryo_outpost{
+	dir = 4;
+	c_tag = "Hallway, Central, Security"
+	},
+/turf/simulated/floor/tiled,
+/area/cryo_outpost/inside/hallway_central)
 "lgL" = (
 /obj/machinery/atmospherics/unary/freezer,
 /turf/simulated/floor/tiled/dark,
@@ -4816,6 +4922,14 @@
 	temperature = 278
 	},
 /area/cryo_outpost/inside/canteen)
+"lZJ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/camera/network/cryo_outpost{
+	dir = 2;
+	c_tag = "Outside, Landing Pads, Close"
+	},
+/turf/simulated/floor/plating/asteroid,
+/area/cryo_outpost/outside/surface)
 "mbi" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/device/flashlight/lamp/off{
@@ -4997,6 +5111,13 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/medical)
+"mDn" = (
+/obj/machinery/camera/network/cryo_outpost{
+	dir = 2;
+	c_tag = "Labs, Cryo 2"
+	},
+/turf/simulated/floor/tiled,
+/area/cryo_outpost/inside/labs_cryo_s)
 "mGc" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -5034,6 +5155,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/entrance_aux_east)
+"mLV" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/machinery/camera/network/cryo_outpost{
+	dir = 2;
+	c_tag = "Crew Quarters"
+	},
+/turf/simulated/floor/tiled,
+/area/cryo_outpost/inside/habitation_east)
 "mMz" = (
 /obj/structure/table/standard,
 /obj/machinery/chemical_dispenser/coffeemaster/full{
@@ -5674,6 +5805,10 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 1
 	},
+/obj/item/circuitboard/clonescanner{
+	pixel_x = 1;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_rnd)
 "oBJ" = (
@@ -5942,6 +6077,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch_small/yellow,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engi_atmos)
 "oYH" = (
@@ -6495,6 +6631,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
 /area/cryo_outpost/outside/surface)
+"qqx" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/machinery/camera/network/cryo_outpost{
+	dir = 4;
+	c_tag = "Labs, RnD"
+	},
+/turf/simulated/floor/tiled,
+/area/cryo_outpost/inside/labs_rnd)
 "qrn" = (
 /obj/structure/table/glass,
 /obj/effect/floor_decal/corner/pink/diagonal,
@@ -7287,6 +7433,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_entrance)
+"skw" = (
+/obj/machinery/camera/network/cryo_outpost{
+	dir = 2;
+	c_tag = "Outside, Entrance, Aux, West"
+	},
+/turf/simulated/floor/exoplanet/desert,
+/area/cryo_outpost/outside/surface)
 "skX" = (
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/canteen)
@@ -7438,6 +7591,25 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/security)
+"sAb" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/camera/network/cryo_outpost{
+	dir = 4;
+	c_tag = "Outside, Path"
+	},
+/turf/simulated/floor/exoplanet/grass,
+/area/cryo_outpost/outside/surface)
+"sBC" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/machinery/camera/network/cryo_outpost{
+	dir = 2;
+	c_tag = "Canteen"
+	},
+/turf/simulated/floor/tiled,
+/area/cryo_outpost/inside/canteen)
 "sBE" = (
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/entrance_main)
@@ -7523,6 +7695,11 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/cryo_outpost/outside/surface)
+"sOt" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/engi_atmos)
 "sOI" = (
 /obj/machinery/light{
 	dir = 1
@@ -9068,6 +9245,16 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/hallway_central)
+"weF" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/obj/machinery/camera/network/cryo_outpost{
+	dir = 2;
+	c_tag = "Entrance, Main"
+	},
+/turf/simulated/floor/tiled,
+/area/cryo_outpost/inside/entrance_main)
 "weW" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -10058,6 +10245,13 @@
 /obj/random/tool,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engineering)
+"yiN" = (
+/obj/item/stack/tile/floor_white{
+	pixel_x = 5;
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/labs_rnd)
 "yjd" = (
 /obj/machinery/photocopier,
 /obj/effect/floor_decal/corner/pink/diagonal,
@@ -34594,7 +34788,7 @@ kHg
 wmr
 fBg
 fvU
-atm
+sBC
 nzR
 kja
 xSr
@@ -35863,7 +36057,7 @@ gFT
 jLy
 gFT
 gFT
-rYy
+mLV
 oFn
 gFT
 xFl
@@ -39493,7 +39687,7 @@ adg
 adg
 adg
 adg
-tqr
+skw
 tqr
 dkR
 viQ
@@ -42926,8 +43120,8 @@ rvR
 rvR
 rvR
 rvR
-rvR
-lrp
+wpQ
+boL
 lrp
 loA
 tqr
@@ -46127,7 +46321,7 @@ fOU
 oHz
 jIj
 biE
-xTA
+kHI
 xTA
 biE
 xTA
@@ -46142,7 +46336,7 @@ uko
 biE
 wel
 biE
-uko
+lgE
 uko
 biE
 uko
@@ -46427,7 +46621,7 @@ dkR
 dkR
 wpQ
 fzf
-fzf
+dkR
 fzf
 dkR
 lrp
@@ -46611,7 +46805,7 @@ aGb
 aGb
 ggO
 xEw
-xEw
+iNV
 tGJ
 qwQ
 lmD
@@ -46683,7 +46877,7 @@ dkR
 dkR
 dkR
 wpQ
-fzf
+lfs
 dkR
 dkR
 lXv
@@ -46868,7 +47062,7 @@ aGb
 aGb
 nad
 aNf
-xEw
+hEe
 tGJ
 qwQ
 lmD
@@ -47010,7 +47204,7 @@ xdy
 xdy
 xdy
 xdy
-xdy
+wpQ
 xdy
 dkR
 rvR
@@ -47267,7 +47461,7 @@ lXv
 rfp
 prL
 prL
-prL
+sAb
 xdy
 dkR
 dkR
@@ -47440,7 +47634,7 @@ qvw
 fzf
 fzf
 jjp
-axh
+weF
 lsf
 ojZ
 tDH
@@ -47994,7 +48188,7 @@ xih
 orv
 prL
 xdy
-xdy
+jRt
 xih
 xdy
 xdy
@@ -48251,7 +48445,7 @@ orv
 orv
 xdy
 xdy
-xih
+wpQ
 xih
 xih
 xih
@@ -49184,7 +49378,7 @@ pok
 pok
 pok
 pok
-eBe
+dlv
 icv
 jNZ
 unF
@@ -49192,7 +49386,7 @@ tRT
 tRT
 tRT
 tRT
-ugu
+mDn
 ugu
 bIT
 aCF
@@ -52259,7 +52453,7 @@ vdu
 vdu
 hDz
 oDg
-oDg
+yiN
 oDg
 oDg
 oDg
@@ -52529,7 +52723,7 @@ dmM
 dmM
 aVZ
 aVZ
-aVZ
+qqx
 qlx
 nJO
 aVZ
@@ -54643,7 +54837,7 @@ qwt
 qwt
 qmQ
 qXz
-dkR
+fXi
 dkR
 wqg
 sat
@@ -57470,12 +57664,12 @@ aZi
 rrN
 uJC
 nbL
-aZi
-aZi
+sOt
+hUr
 vZT
 vZT
+lZJ
 xRs
-aul
 vsj
 iqA
 gXJ
@@ -57975,7 +58169,7 @@ ylq
 vZT
 cxd
 aZi
-aZi
+eNR
 vZT
 vYt
 vYt
@@ -58741,7 +58935,7 @@ toa
 fin
 hvA
 hvA
-ifk
+fDM
 lsj
 hvA
 kwx
@@ -60541,7 +60735,7 @@ plE
 aWw
 hvA
 aWw
-aWw
+ici
 ifk
 ifk
 hvA
@@ -61566,9 +61760,9 @@ hvA
 yiy
 kwx
 kwx
-aWw
+ici
 hvA
-aWw
+ldV
 aWw
 aWw
 yiy
