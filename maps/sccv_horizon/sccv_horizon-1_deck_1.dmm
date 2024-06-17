@@ -27813,7 +27813,7 @@
 	pixel_y = -2
 	},
 /obj/item/clothing/mask/breath,
-/obj/item/tent/big,
+/obj/item/tent/big/scc,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/quarters)
 "tgR" = (
@@ -29253,7 +29253,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/item/tent/big,
+/obj/item/tent/big/scc,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
 "udC" = (

@@ -174,10 +174,13 @@
 		my_tent.y2 = target.y + ceil((width-1)/2)
 
 /obj/item/tent/big
-	name = "scc base camp tent"
+	name = "base camp tent"
 	color = "#2e3763"
 	width = 3
 	length = 4
+
+/obj/item/tent/big/scc
+	name = "scc base camp tent"
 	decal = "scc"
 
 /obj/item/tent/mining
