@@ -209,7 +209,7 @@
 	pixel_y = 2
 	},
 /obj/machinery/alarm/south{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /turf/simulated/floor/marble,
 /area/tramp_freighter/kitchen)
@@ -241,7 +241,7 @@
 	dir = 5
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/afthallway)
@@ -468,7 +468,7 @@
 "cC" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/computer/arcade/orion_trail,
@@ -636,7 +636,7 @@
 /obj/machinery/vending/hydronutrients,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hydroponics)
@@ -705,6 +705,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/machinery/portable_atmospherics/canister/phoron,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/ridged,
 /area/tramp_freighter/starboardthrust)
 "dO" = (
@@ -736,7 +737,8 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 1;
 	door_color = "#4d4d4d";
-	name = "Cargo Bay"
+	name = "Cargo Bay";
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment,
@@ -1030,7 +1032,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/power/apc/south{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
@@ -1045,7 +1047,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/south{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -1370,7 +1372,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/green,
 /obj/machinery/power/apc/south{
-	req_access = null
+	req_access = list(242)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/hydroponics)
@@ -1492,6 +1494,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/miningcart/ore,
 /turf/simulated/floor/tiled/ridged,
 /area/tramp_freighter/refinery)
 "hv" = (
@@ -1799,7 +1802,8 @@
 /obj/machinery/door/airlock/glass{
 	dir = 4;
 	door_color = "#4d4d4d";
-	name = "Crew Quarters"
+	name = "Crew Quarters";
+	req_one_access = list(242)
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -1858,10 +1862,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/afthallway)
-"jn" = (
-/obj/effect/map_effect/marker/airlock/docking/tramp_freighter/shuttle_dock,
-/turf/template_noop,
-/area/space)
 "jr" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -2207,12 +2207,21 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/button/remote/airlock{
+	dir = 4;
+	id = "starboard_docking_arm";
+	name = "Starboard Docking Arm Bolt Control";
+	pixel_x = 22;
+	pixel_y = -3;
+	specialfunctions = 4;
+	req_one_access = list(242)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboard_docking_processing)
 "lx" = (
@@ -2532,7 +2541,8 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 1;
 	door_color = "#4d4d4d";
-	name = "Thruster Compartment"
+	name = "Thruster Compartment";
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -2688,7 +2698,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/dark_green,
+/turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
 "nV" = (
 /obj/structure/ship_weapon_dummy,
@@ -2784,7 +2795,8 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Disposals"
+	name = "Disposals";
+	req_one_access = list(242)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/disposals)
@@ -2925,6 +2937,15 @@
 "oY" = (
 /obj/random/pottedplant,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/button/remote/airlock{
+	dir = 4;
+	id = "port_docking_arm";
+	name = "Port Docking Arm Bolt Control";
+	pixel_x = 22;
+	pixel_y = -3;
+	specialfunctions = 4;
+	req_one_access = list(242)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
 "pf" = (
@@ -2959,7 +2980,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/west{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/ridged,
@@ -3070,7 +3091,6 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/bar/padded/brown,
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -3093,6 +3113,15 @@
 	layer = 2.81
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/button/remote/airlock{
+	dir = 8;
+	id = "starboard_docking_arm";
+	name = "Starboard Docking Arm Bolt Control";
+	pixel_x = -22;
+	pixel_y = -3;
+	specialfunctions = 4;
+	req_one_access = list(242)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
 "qp" = (
@@ -3205,7 +3234,7 @@
 /obj/machinery/light,
 /obj/structure/cable/green,
 /obj/machinery/power/apc/east{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -3296,7 +3325,8 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Portside Thrust Control"
+	name = "Portside Thrust Control";
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -3314,7 +3344,7 @@
 	pixel_x = -9
 	},
 /obj/machinery/power/apc/south{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/structure/cable/green,
 /obj/effect/decal/cleanable/dirt,
@@ -3350,7 +3380,8 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 1;
 	door_color = "#4d4d4d";
-	name = "Crew Amenities"
+	name = "Crew Amenities";
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment,
@@ -3603,7 +3634,8 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Starboard Thrust Control"
+	name = "Starboard Thrust Control";
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -3777,25 +3809,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/afthallway)
-"ts" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/bed/stool/bar/padded/brown,
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/floor/lino,
-/area/tramp_freighter/lounge)
 "tz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -3847,7 +3860,8 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Engineering Storage"
+	name = "Engineering Storage";
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -3900,7 +3914,9 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic{
-	layer = 2.81
+	layer = 2.81;
+	pixel_x = -11;
+	pixel_y = -4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/afthallway)
@@ -3932,7 +3948,8 @@
 /obj/machinery/door/airlock/glass{
 	dir = 4;
 	door_color = "#4d4d4d";
-	name = "Hydroponics"
+	name = "Hydroponics";
+	req_one_access = list(242)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/hydroponics)
@@ -4432,7 +4449,8 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 1;
 	door_color = "#4d4d4d";
-	name = "Crew Amenities"
+	name = "Crew Amenities";
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -4501,7 +4519,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/west{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4558,7 +4576,7 @@
 /area/tramp_freighter/port_docking)
 "wK" = (
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
@@ -4583,7 +4601,7 @@
 "wN" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm/south{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/item/stack/material/graphite/full{
 	pixel_y = 3
@@ -4678,7 +4696,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/machinery/alarm/south{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/custodial)
@@ -4746,7 +4764,7 @@
 	pixel_y = -1
 	},
 /obj/machinery/power/apc/south{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/structure/cable/green,
 /obj/effect/decal/cleanable/dirt,
@@ -4787,7 +4805,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
@@ -4866,7 +4884,7 @@
 "yj" = (
 /obj/structure/table/rack,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/effect/decal/cleanable/dirt,
@@ -4911,7 +4929,8 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 1;
 	door_color = "#4d4d4d";
-	name = "Thruster Compartment"
+	name = "Thruster Compartment";
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -5067,7 +5086,7 @@
 	pixel_y = 1
 	},
 /obj/machinery/alarm/south{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/machinery/button/remote/airlock{
 	dir = 8;
@@ -5092,7 +5111,7 @@
 "zp" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/alarm/west{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
@@ -5120,7 +5139,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	req_access = null
+	req_access = list(242)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
@@ -5137,7 +5156,7 @@
 	dir = 8
 	},
 /obj/machinery/power/apc/south{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -5241,7 +5260,8 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "EVA Storage"
+	name = "EVA Storage";
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -5406,12 +5426,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
-"AE" = (
-/obj/machinery/recharger{
-	pixel_y = 1
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/tramp_freighter/equipment)
 "AJ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -5422,7 +5436,7 @@
 	target_pressure = 15000
 	},
 /obj/machinery/power/apc/north{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/structure/cable/green{
 	d2 = 2;
@@ -5448,12 +5462,21 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/button/remote/airlock{
+	dir = 8;
+	id = "port_docking_arm";
+	name = "Port Docking Arm Bolt Control";
+	pixel_x = -22;
+	pixel_y = -3;
+	specialfunctions = 4;
+	req_one_access = list(242)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/port_docking_processing)
 "AN" = (
@@ -5526,7 +5549,7 @@
 /area/tramp_freighter/cargo)
 "Bt" = (
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -5646,6 +5669,10 @@
 "Cv" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/device/binoculars{
+	pixel_y = -4;
+	pixel_x = 7
+	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
 "CF" = (
@@ -5667,7 +5694,8 @@
 /obj/machinery/door/airlock/glass{
 	dir = 4;
 	door_color = "#4d4d4d";
-	name = "Captain's Office"
+	name = "Captain's Office";
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -5718,7 +5746,7 @@
 /area/tramp_freighter/kitchen)
 "CX" = (
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/effect/floor_decal/corner/brown/full{
 	dir = 1
@@ -5986,11 +6014,26 @@
 /obj/structure/table/reinforced/steel,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/button/distress{
-	pixel_x = -6
+	pixel_x = -6;
+	pixel_y = 8
 	},
-/obj/item/device/binoculars{
-	pixel_y = -4;
-	pixel_x = 7
+/obj/machinery/button/remote/airlock{
+	dir = 10;
+	id = "port_docking_arm";
+	name = "Port Docking Arm Bolt Control";
+	pixel_x = 6;
+	specialfunctions = 4;
+	pixel_y = -1;
+	req_one_access = list(242)
+	},
+/obj/machinery/button/remote/airlock{
+	dir = 10;
+	id = "starboard_docking_arm";
+	name = "Starboard Docking Arm Bolt Control";
+	specialfunctions = 4;
+	pixel_x = -6;
+	pixel_y = -1;
+	req_one_access = list(242)
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
@@ -6070,7 +6113,8 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
 	door_color = "#4d4d4d";
-	name = "Lounge"
+	name = "Portside Docking Arm";
+	id_tag = "port_docking_arm"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -6084,7 +6128,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/power/apc/east{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -6301,7 +6345,8 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Reactor Chamber"
+	name = "Reactor Chamber";
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -6360,7 +6405,9 @@
 	pixel_y = 5;
 	pixel_x = 6
 	},
-/obj/machinery/power/apc/south,
+/obj/machinery/power/apc/south{
+	req_access = list(242)
+	},
 /obj/structure/cable/green,
 /obj/item/journal{
 	pixel_x = -6;
@@ -6435,7 +6482,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/south{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -6480,14 +6527,14 @@
 /area/shuttle/freighter_shuttle)
 "HN" = (
 /obj/machinery/power/apc/east{
-	req_access = null
+	req_access = list(242)
 	},
-/obj/structure/closet/crate/miningcart/ore,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
+/obj/structure/ore_box,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/refinery)
 "HO" = (
@@ -6568,7 +6615,7 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/ridged,
@@ -6656,7 +6703,7 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/south{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -6706,7 +6753,8 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Anti-Piracy Armory"
+	name = "Anti-Piracy Armory";
+	req_one_access = list(242)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/armory)
@@ -6829,7 +6877,7 @@
 "JP" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/power/apc/north{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -6881,7 +6929,7 @@
 	name = "igs - freight captain"
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /turf/simulated/floor/wood,
 /area/tramp_freighter/captain_bed)
@@ -6946,7 +6994,7 @@
 "Kw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/power/apc/north{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -7060,7 +7108,7 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/alarm/west{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
@@ -7118,7 +7166,7 @@
 /area/tramp_freighter/port_docking)
 "LC" = (
 /obj/machinery/power/apc/west{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/trashcart,
@@ -7166,7 +7214,8 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Captain's Quarters"
+	name = "Captain's Quarters";
+	req_one_access = list(242)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/captain_bed)
@@ -7316,6 +7365,7 @@
 /obj/random/contraband,
 /obj/random/contraband,
 /obj/random/contraband,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/ridged,
 /area/tramp_freighter/portthrust)
 "Mw" = (
@@ -7329,7 +7379,8 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Engineering & Shuttle Dock"
+	name = "Engineering & Shuttle Dock";
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment,
@@ -7343,7 +7394,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	req_access = null
+	req_access = list(242)
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
@@ -7364,7 +7415,8 @@
 	pixel_y = -32
 	},
 /obj/machinery/door/window{
-	dir = 4
+	dir = 4;
+	req_access = list(242)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -7411,7 +7463,8 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Reactor Foyer"
+	name = "Reactor Foyer";
+	req_one_access = list(242)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/power)
@@ -7479,6 +7532,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
 "MU" = (
@@ -7568,7 +7622,7 @@
 /obj/item/ammo_magazine/c38,
 /obj/item/gun/energy/pistol,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/random/civgun,
 /obj/random/civgun,
@@ -7788,7 +7842,7 @@
 	dir = 8
 	},
 /obj/machinery/power/apc/east{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/structure/cable/green{
 	d2 = 8;
@@ -7872,7 +7926,7 @@
 /obj/item/reagent_containers/glass/rag/advanced,
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/machinery/power/apc/north{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -8060,7 +8114,7 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/east{
-	req_access = null
+	req_access = list(242)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/centralhallway)
@@ -8071,7 +8125,7 @@
 	pixel_x = -3
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark/full,
@@ -8102,7 +8156,7 @@
 /obj/structure/table/steel,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -8223,7 +8277,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/visible/supply,
 /obj/machinery/alarm/south{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -8233,7 +8287,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /turf/simulated/floor/tiled/ridged,
 /area/tramp_freighter/starboardthrust)
@@ -8320,7 +8374,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/port_docking)
@@ -8586,7 +8640,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/west{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -8722,7 +8776,7 @@
 "TF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/dirt,
@@ -8741,7 +8795,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/south{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -8881,7 +8935,8 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Atmospherics"
+	name = "Atmospherics";
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -8971,7 +9026,8 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Refinery"
+	name = "Refinery";
+	req_one_access = list(242)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/refinery)
@@ -9131,7 +9187,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/east{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/machinery/light{
 	dir = 1
@@ -9331,7 +9387,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -9357,7 +9413,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/starboard_docking)
@@ -9406,7 +9462,8 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 1;
 	door_color = "#4d4d4d";
-	name = "Cargo Bay"
+	name = "Cargo Bay";
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -9422,7 +9479,8 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 8;
 	door_color = "#4d4d4d";
-	name = "Bridge"
+	name = "Bridge";
+	req_one_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment,
@@ -9438,7 +9496,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
 "WK" = (
-/obj/effect/floor_decal/corner/dark_green,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
@@ -9453,6 +9510,9 @@
 /obj/machinery/light,
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/lounge)
@@ -9625,7 +9685,8 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
 	door_color = "#4d4d4d";
-	name = "Lounge"
+	name = "Starboard Docking Arm";
+	id_tag = "starboard_docking_arm"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment{
@@ -9791,7 +9852,9 @@
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/power/apc/north,
+/obj/machinery/power/apc/north{
+	req_access = list(242)
+	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -9840,7 +9903,7 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/east{
-	req_access = null
+	req_access = list(242)
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
@@ -9973,7 +10036,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm/north{
-	req_one_access = null
+	req_one_access = list(242)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/crew_quarters)
@@ -40208,7 +40271,7 @@ HI
 iX
 gR
 UJ
-AE
+it
 Yo
 it
 it
@@ -42031,7 +42094,7 @@ Wj
 GP
 iu
 Pj
-ts
+Fi
 gp
 BA
 ZQ
@@ -57424,7 +57487,7 @@ hX
 hX
 hX
 hX
-jn
+hX
 hX
 hX
 hX
