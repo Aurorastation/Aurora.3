@@ -227,11 +227,6 @@
 	density = FALSE
 	opacity = FALSE
 
-/obj/machinery/door/blast/shutters/half_open
-	icon_state = "shutterhalf"
-	density = TRUE
-	opacity = FALSE
-
 // SUBTYPE: Odin
 // Found on the odin, or where people really shouldnt get into
 /obj/machinery/door/blast/odin
