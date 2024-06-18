@@ -36,15 +36,31 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"bJ" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lamp{
+	pixel_x = 5;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "bM" = (
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"bN" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/space)
 "df" = (
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/wood/bamboo,
 /area/space)
 "dl" = (
 /obj/structure/table/steel,
+/obj/random/pottedplant_small{
+	pixel_x = 6;
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "dJ" = (
@@ -66,6 +82,12 @@
 /obj/machinery/light/colored/decayed,
 /turf/simulated/floor/lino/diamond,
 /area/space)
+"er" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
 "ff" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/plastic/full,
@@ -79,10 +101,29 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"fU" = (
+/obj/random/dirt_75,
+/obj/structure/table/standard,
+/obj/random/tech_supply,
+/turf/simulated/floor/wood/bamboo,
+/area/space)
+"if" = (
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
 "iD" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /turf/simulated/floor/wood/bamboo,
+/area/space)
+"jb" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/plating/asteroid,
+/area/space)
+"jc" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
 /area/space)
 "jg" = (
 /obj/random/pottedplant,
@@ -100,15 +141,64 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"js" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/bed/stool/chair/folding{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"jy" = (
+/obj/structure/closet,
+/obj/item/book/manual/tcaf_pamphlet,
+/turf/simulated/floor/tiled,
+/area/space)
+"jJ" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/space)
+"jL" = (
+/obj/machinery/door/blast/shutters/open{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/space)
+"ky" = (
+/obj/machinery/door/urban,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/space)
+"kE" = (
+/obj/structure/table/steel,
+/obj/item/paper_bin{
+	pixel_y = 4
+	},
+/obj/item/pen{
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "kJ" = (
 /obj/structure/closet,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/space)
+"kR" = (
+/turf/simulated/wall/wood,
+/area/space)
 "mt" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
+/area/space)
+"mQ" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
 /area/space)
 "na" = (
 /obj/structure/table/rack/cafe_table,
@@ -142,12 +232,37 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"nE" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert,
+/area/space)
 "ox" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/freezer/rations,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"oA" = (
+/obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/turf/simulated/floor/wood,
+/area/space)
+"oK" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
+"oS" = (
+/obj/random/dirt_75,
+/obj/structure/table/wood,
+/obj/random/pottedplant_small,
+/turf/simulated/floor/wood,
+/area/space)
 "pa" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -157,6 +272,27 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"pE" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/item/stack/material/wood{
+	pixel_x = 5;
+	pixel_y = -17
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"pL" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/space)
+"pO" = (
+/obj/random/dirt_75,
+/obj/structure/table/standard,
+/turf/simulated/floor/wood/bamboo,
+/area/space)
 "pY" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
 /obj/structure/closet,
@@ -168,6 +304,12 @@
 /obj/structure/closet/crate/solar,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"qh" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/freezer,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/space)
 "qi" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
 /obj/random/dirt_75,
@@ -179,6 +321,16 @@
 /obj/structure/closet/cabinet,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/mahogany,
+/area/space)
+"rH" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/beach_ball/holoball{
+	pixel_x = 6;
+	pixel_y = 9
+	},
+/turf/simulated/floor/plating/asteroid,
 /area/space)
 "rW" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -192,6 +344,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"sq" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/material/stool/chair/folding{
+	pixel_y = 3;
+	pixel_x = 7
+	},
+/turf/simulated/floor/wood,
+/area/space)
 "sM" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/iron/full,
@@ -201,6 +362,19 @@
 "sP" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/lino/diamond,
+/area/space)
+"th" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/structure/bed/stool/chair/folding{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"tm" = (
+/obj/structure/light_pole,
+/turf/simulated/floor/exoplanet/barren,
 /area/space)
 "tn" = (
 /obj/structure/table/standard,
@@ -213,6 +387,12 @@
 /obj/structure/closet,
 /turf/simulated/floor/tiled,
 /area/space)
+"tO" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating/asteroid,
+/area/space)
 "ua" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -222,6 +402,13 @@
 "uc" = (
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled,
+/area/space)
+"ue" = (
+/obj/item/stack/barricade/wood/full{
+	pixel_x = 13;
+	pixel_y = 3
+	},
+/turf/simulated/floor/plating/asteroid,
 /area/space)
 "up" = (
 /obj/random/dirt_75,
@@ -238,6 +425,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"uJ" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/landing_pads,
+/turf/unsimulated/marker/khaki,
+/area/space)
 "uL" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse,
@@ -245,6 +436,11 @@
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"uS" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/space)
 "ve" = (
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/tiled,
@@ -255,6 +451,21 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled,
+/area/space)
+"vO" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
+"vZ" = (
+/obj/machinery/door/blast/shutters/open{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/space)
+"we" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/river,
+/turf/unsimulated/marker/green,
 /area/space)
 "wC" = (
 /obj/structure/closet,
@@ -271,6 +482,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"xj" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/space)
 "xC" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -303,6 +519,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/space)
+"xZ" = (
+/obj/item/material/shard{
+	pixel_x = -13;
+	pixel_y = -4
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
 "zn" = (
 /obj/structure/table/steel,
 /obj/item/towel/random{
@@ -313,6 +536,12 @@
 /area/space)
 "zG" = (
 /turf/simulated/floor/lino/diamond,
+/area/space)
+"zY" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/plating/asteroid,
 /area/space)
 "Ac" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
@@ -339,6 +568,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"AE" = (
+/obj/item/material/shard{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/turf/simulated/floor/exoplanet/desert,
+/area/space)
 "AK" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
@@ -365,6 +601,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"Cl" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/space)
 "CA" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse,
@@ -372,6 +614,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"CU" = (
+/obj/structure/structural_support,
+/turf/simulated/floor/plating/asteroid,
+/area/space)
 "CZ" = (
 /obj/structure/table/steel,
 /obj/random/medical{
@@ -379,14 +625,55 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"Dj" = (
+/obj/effect/map_effect/window_spawner/full/wood,
+/turf/simulated/floor/plating/asteroid,
+/area/space)
 "Ds" = (
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/lino/diamond,
+/area/space)
+"Dx" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/loot,
+/turf/simulated/floor/plating/asteroid,
+/area/space)
+"Eg" = (
+/turf/unsimulated/marker/khaki,
+/area/space)
+"Ek" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/plating/asteroid,
 /area/space)
 "Es" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
 /obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/space)
+"Eu" = (
+/obj/item/material/shard{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/space)
+"EH" = (
+/turf/simulated/floor/exoplanet/desert,
+/area/space)
+"EL" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/landing_pads,
+/turf/simulated/wall,
+/area/space)
+"Fp" = (
+/obj/structure/table/steel,
+/obj/random/tool,
 /turf/simulated/floor/tiled,
 /area/space)
 "Ge" = (
@@ -396,12 +683,29 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"Gs" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/space)
 "Gz" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
 /obj/random/dirt_75,
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/space)
+"Hq" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/warehouse)
+"HX" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/warehouse)
 "Im" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
@@ -413,10 +717,37 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/bamboo,
 /area/space)
+"IN" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/loot,
+/obj/random/loot,
+/turf/simulated/floor/plating/asteroid,
+/area/space)
+"IZ" = (
+/obj/item/stack/material/wood/branch{
+	pixel_x = 12;
+	pixel_y = 5
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
 "Jt" = (
 /obj/structure/closet,
 /obj/random/junk,
 /turf/simulated/floor/tiled,
+/area/space)
+"Jx" = (
+/obj/random/dirt_75,
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/space)
+"Jz" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/turf/simulated/floor/wood,
 /area/space)
 "JE" = (
 /obj/structure/table/steel,
@@ -452,6 +783,20 @@
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/space)
+"JU" = (
+/obj/random/dirt_75,
+/obj/item/material/shard{
+	pixel_y = -12
+	},
+/turf/simulated/floor/exoplanet/desert,
+/area/space)
+"JX" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/structure/table/steel,
+/turf/simulated/floor/wood,
+/area/space)
 "Ko" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
@@ -474,6 +819,30 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"Lk" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/item/reagent_containers/food/drinks/dry_ramen{
+	pixel_y = 8;
+	pixel_x = -8
+	},
+/obj/structure/table/steel,
+/turf/simulated/floor/wood,
+/area/space)
+"Mx" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/plating/asteroid,
+/area/space)
+"ME" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/space)
 "MF" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/drop,
@@ -492,6 +861,24 @@
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
+/area/space)
+"Oe" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood/bamboo,
+/area/space)
+"Oq" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/item/stack/material/wood/branch,
+/turf/simulated/floor/wood,
+/area/space)
+"OQ" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/desert,
 /area/space)
 "OT" = (
 /obj/structure/table/steel,
@@ -516,6 +903,19 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"Pz" = (
+/obj/structure/window_frame/wood,
+/turf/simulated/floor/plating/asteroid,
+/area/space)
+"PB" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass,
+/area/space)
+"PF" = (
+/turf/unsimulated/marker/green,
+/area/space)
 "Qt" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -529,6 +929,9 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"QH" = (
+/turf/simulated/wall,
+/area/space)
 "QJ" = (
 /turf/template_noop,
 /area/space)
@@ -539,6 +942,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"Rt" = (
+/obj/structure/table/steel,
+/obj/item/modular_computer/laptop/preset/civilian{
+	pixel_y = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/space)
 "RG" = (
 /obj/structure/table/steel,
 /obj/random/pottedplant_small{
@@ -546,6 +957,11 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled,
+/area/space)
+"RW" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass,
 /area/space)
 "RY" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
@@ -560,8 +976,23 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"Tg" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass,
+/area/space)
+"To" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
 "Tp" = (
 /turf/simulated/floor/wood/bamboo,
+/area/space)
+"Tw" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
 /area/space)
 "TN" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -569,6 +1000,20 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"TY" = (
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/space)
+"Vj" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/desert,
+/area/space)
 "VB" = (
 /obj/structure/bed/stool/chair/plastic,
 /obj/random/dirt_75,
@@ -586,6 +1031,23 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"WP" = (
+/obj/random/dirt_75,
+/obj/structure/table/wood,
+/obj/item/device/flashlight/flare{
+	pixel_x = 7;
+	pixel_y = -6
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Xi" = (
+/obj/random/dirt_75,
+/obj/random/toolbox{
+	pixel_y = -14;
+	pixel_x = -4
+	},
+/turf/simulated/floor/wood,
+/area/space)
 "Xj" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/drop,
@@ -593,12 +1055,26 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"XP" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/structure/table/wood,
+/obj/item/pen/black{
+	pixel_y = -2;
+	pixel_x = -6
+	},
+/turf/simulated/floor/wood,
+/area/space)
 "XQ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/graphite/full,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"Yg" = (
+/turf/simulated/floor/exoplanet/grass,
+/area/space)
 "YG" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -610,17 +1086,42 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/wood/bamboo,
 /area/space)
+"YP" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/warehouse)
 "Za" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"Ze" = (
+/obj/structure/table/steel,
+/obj/item/paper_bin{
+	pixel_y = 4;
+	pixel_x = -5
+	},
+/obj/item/pen{
+	pixel_y = 5;
+	pixel_x = -5
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "Zp" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
+/area/space)
+"ZI" = (
+/obj/item/stack/material/wood/full{
+	pixel_x = -17;
+	pixel_y = 7
+	},
+/turf/simulated/floor/plating/asteroid,
 /area/space)
 "ZV" = (
 /obj/structure/bed/padded,
@@ -632,6 +1133,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"ZW" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/space)
 "ZX" = (
 /obj/structure/closet,
 /obj/machinery/light/colored/decayed{
@@ -641,6 +1147,11 @@
 /area/space)
 
 (1,1,1) = {"
+QJ
+QJ
+QJ
+QJ
+QJ
 QJ
 QJ
 QJ
@@ -743,8 +1254,18 @@ QJ
 QJ
 QJ
 QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 "}
 (3,1,1) = {"
+QJ
+QJ
+QJ
+QJ
+QJ
 QJ
 QJ
 QJ
@@ -810,6 +1331,11 @@ QJ
 QJ
 QJ
 QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 ox
 WD
 ox
@@ -842,13 +1368,18 @@ zG
 Ds
 QJ
 QJ
-dl
+Ze
 Zp
 Es
 QJ
 QJ
 "}
 (5,1,1) = {"
+QJ
+QJ
+QJ
+QJ
+QJ
 QJ
 QJ
 QJ
@@ -914,6 +1445,11 @@ QJ
 QJ
 QJ
 QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 ph
 ph
 ph
@@ -966,6 +1502,11 @@ QJ
 QJ
 QJ
 QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 WD
 ox
 ox
@@ -1005,6 +1546,11 @@ QJ
 QJ
 "}
 (8,1,1) = {"
+QJ
+QJ
+QJ
+QJ
+QJ
 QJ
 QJ
 QJ
@@ -1092,6 +1638,11 @@ QJ
 QJ
 QJ
 QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 xX
 mt
 Gz
@@ -1109,6 +1660,11 @@ QJ
 QJ
 "}
 (10,1,1) = {"
+QJ
+QJ
+QJ
+QJ
+QJ
 QJ
 QJ
 QJ
@@ -1174,6 +1730,11 @@ QJ
 QJ
 QJ
 QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 nq
 nq
 nq
@@ -1226,6 +1787,11 @@ QJ
 QJ
 QJ
 QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 WD
 QG
 QG
@@ -1233,7 +1799,7 @@ QG
 QJ
 QJ
 WD
-Py
+HX
 xE
 Py
 QJ
@@ -1258,13 +1824,18 @@ ab
 tH
 QJ
 QJ
-tH
+jy
 mt
 tH
 QJ
 QJ
 "}
 (13,1,1) = {"
+QJ
+QJ
+QJ
+QJ
+QJ
 QJ
 QJ
 QJ
@@ -1330,6 +1901,11 @@ QJ
 QJ
 QJ
 QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 ph
 dK
 dK
@@ -1382,6 +1958,11 @@ QJ
 QJ
 QJ
 QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 WD
 WD
 rW
@@ -1421,6 +2002,11 @@ QJ
 QJ
 "}
 (16,1,1) = {"
+QJ
+QJ
+QJ
+QJ
+QJ
 QJ
 QJ
 QJ
@@ -1508,6 +2094,11 @@ QJ
 QJ
 QJ
 QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 RG
 sP
 OT
@@ -1525,6 +2116,11 @@ QJ
 QJ
 "}
 (18,1,1) = {"
+QJ
+QJ
+QJ
+QJ
+QJ
 QJ
 QJ
 QJ
@@ -1590,6 +2186,11 @@ QJ
 QJ
 QJ
 QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 AC
 WD
 WD
@@ -1629,6 +2230,11 @@ QJ
 QJ
 "}
 (20,1,1) = {"
+QJ
+QJ
+QJ
+QJ
+QJ
 QJ
 QJ
 QJ
@@ -1694,6 +2300,11 @@ QJ
 QJ
 QJ
 QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 ph
 ph
 ph
@@ -1733,6 +2344,11 @@ QJ
 QJ
 "}
 (22,1,1) = {"
+QJ
+QJ
+QJ
+QJ
+QJ
 QJ
 QJ
 QJ
@@ -1798,6 +2414,11 @@ QJ
 QJ
 QJ
 QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 AC
 WD
 AC
@@ -1850,7 +2471,12 @@ QJ
 QJ
 QJ
 QJ
-WD
+QJ
+QJ
+QJ
+QJ
+QJ
+Hq
 AC
 WD
 AC
@@ -1930,13 +2556,18 @@ QJ
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+we
 QJ
 QJ
 "}
@@ -1982,13 +2613,18 @@ QJ
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
 QJ
 QJ
 "}
@@ -2006,6 +2642,11 @@ QJ
 QJ
 QJ
 QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 WD
 WD
 aU
@@ -2018,7 +2659,7 @@ WD
 TN
 QJ
 QJ
-WD
+YP
 WD
 WD
 uL
@@ -2029,22 +2670,27 @@ QJ
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
 QJ
 QJ
 "}
 (28,1,1) = {"
+QJ
+QJ
+QJ
+QJ
+QJ
 QJ
 QJ
 QJ
@@ -2081,18 +2727,18 @@ QJ
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+Tg
+Yg
+Yg
+Yg
+Yg
+PF
+PF
+PF
+PF
+PF
+Yg
+Tg
 QJ
 QJ
 "}
@@ -2110,6 +2756,11 @@ QJ
 QJ
 QJ
 QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 dK
 ph
 ph
@@ -2133,18 +2784,18 @@ QJ
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+RW
+RW
+RW
+RW
+Yg
+Yg
+PF
+PF
+Yg
+Yg
+Tg
+Tg
 QJ
 QJ
 "}
@@ -2162,6 +2813,11 @@ QJ
 QJ
 QJ
 QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 ph
 dK
 dK
@@ -2185,18 +2841,18 @@ QJ
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+Yg
+Yg
+Yg
+RW
+RW
+RW
+RW
+RW
+Tg
+Tg
+Yg
+Yg
 QJ
 QJ
 "}
@@ -2214,6 +2870,11 @@ QJ
 QJ
 QJ
 QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 WD
 ua
 QG
@@ -2237,18 +2898,18 @@ QJ
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+PF
+PF
+PF
+PF
+Tg
+Tg
+Tg
+Tg
+Yg
+PF
+PF
+PF
 QJ
 QJ
 "}
@@ -2266,6 +2927,11 @@ QJ
 QJ
 QJ
 QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 ua
 WD
 WD
@@ -2289,18 +2955,18 @@ QJ
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
 QJ
 QJ
 "}
@@ -2346,13 +3012,18 @@ QJ
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
 QJ
 QJ
 "}
@@ -2398,13 +3069,18 @@ QJ
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
 QJ
 QJ
 "}
@@ -2450,13 +3126,18 @@ QJ
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
 QJ
 QJ
 "}
@@ -2502,13 +3183,18 @@ QJ
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
 QJ
 QJ
 "}
@@ -2554,13 +3240,18 @@ QJ
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
 QJ
 QJ
 "}
@@ -2606,13 +3297,18 @@ QJ
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
 QJ
 QJ
 "}
@@ -2658,102 +3354,117 @@ QJ
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
 QJ
 QJ
 "}
 (40,1,1) = {"
 QJ
 QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+uJ
+QJ
+QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+QH
+QH
+QH
+QH
+QH
+QH
+EL
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
 QJ
 QJ
 "}
 (41,1,1) = {"
 QJ
 QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+QH
+Cl
+uS
+jJ
+uS
+uS
+QH
 QJ
 QJ
 QJ
@@ -2775,37 +3486,42 @@ QJ
 (42,1,1) = {"
 QJ
 QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+CU
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+Eg
+EH
+Eg
+EH
+Eg
+Eg
+Eg
+Eg
+EH
+EH
+QH
+pL
+ZW
+bN
+qh
+uS
+QH
 QJ
 QJ
 QJ
@@ -2827,318 +3543,923 @@ QJ
 (43,1,1) = {"
 QJ
 QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+if
+QJ
+QJ
+Vj
+Vj
+EH
+EH
+Vj
+Vj
+EH
+EH
+EH
+vO
+QH
+jJ
+mQ
+mQ
+bN
+jJ
+QH
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+PF
+we
 QJ
 QJ
 "}
 (44,1,1) = {"
 QJ
 QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+vO
+if
+QJ
+QJ
+EH
+jc
+jc
+IZ
+EH
+EH
+Vj
+Vj
+if
+vO
+QH
+jJ
+bN
+mQ
+bN
+jJ
+QH
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+PF
+PF
+PF
+Yg
+Yg
+Yg
+PF
+PF
+PF
+PF
+PF
+PF
 QJ
 QJ
 "}
 (45,1,1) = {"
 QJ
 QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+if
+jc
+QJ
+QJ
+EH
+vO
+if
+kR
+ue
+ZI
+kR
+kR
+kR
+vO
+QH
+uS
+bN
+bN
+bN
+uS
+QH
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+PF
+Yg
+Yg
+Yg
+Yg
+Yg
+Yg
+Yg
+Yg
+PF
+PF
+PF
 QJ
 QJ
 "}
 (46,1,1) = {"
 QJ
 QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+vO
+vO
+QJ
+QJ
+Eg
+vO
+vO
+kR
+Jz
+pE
+sq
+Lk
+kR
+if
+QH
+uS
+TY
+ME
+ME
+uS
+QH
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+Yg
+Tg
+Tg
+Tg
+Tg
+Tg
+Tg
+Tg
+Yg
+Tg
+Tg
+Tg
 QJ
 QJ
 "}
 (47,1,1) = {"
 QJ
 QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+if
+vO
+Vj
+QJ
+QJ
+Eg
+Eg
+AE
+Pz
+Jz
+Oq
+xj
+JX
+Pz
+xZ
+QH
+QH
+jL
+vZ
+vZ
+QH
+QH
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+Tg
+Tg
+RW
+PB
+Tg
+vO
+Tg
+Tg
+RW
+Tg
+Yg
+Tg
 QJ
 QJ
 "}
 (48,1,1) = {"
 QJ
 QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+vO
+vO
+Vj
+QJ
+QJ
+Eg
+Eg
+EH
+Pz
+Eu
+Jz
+Jz
+xj
+kR
+if
+JU
+Vj
+nE
+To
+To
+EH
+Vj
 QJ
 QJ
 QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
-QJ
+Yg
+Tg
+Yg
+RW
+RW
+er
+jc
+oK
+vO
+Tg
+Tg
+Yg
 QJ
 QJ
 "}
 (49,1,1) = {"
 QJ
 QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+vO
+EH
+Vj
+QJ
+QJ
+Eg
+Eg
+Vj
+Pz
+xj
+th
+Jz
+xj
+ky
+vO
+Vj
+Eg
+Vj
+Vj
+vO
+EH
+Vj
+QJ
+QJ
+QJ
+Yg
+Tg
+Tg
+vO
+vO
+vO
+vO
+vO
+if
+if
+Yg
+Yg
+QJ
+QJ
+"}
+(50,1,1) = {"
+QJ
+QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+if
+Vj
+EH
+QJ
+QJ
+Eg
+Eg
+Vj
+kR
+XP
+Gs
+xj
+Jz
+kR
+Vj
+Eg
+Eg
+Eg
+Vj
+Vj
+Vj
+EH
+QJ
+QJ
+QJ
+Yg
+Tg
+kR
+kR
+Dj
+Dj
+kR
+Dj
+Dj
+kR
+kR
+PF
+QJ
+QJ
+"}
+(51,1,1) = {"
+QJ
+QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+EH
+Vj
+EH
+QJ
+QJ
+Eg
+Eg
+Vj
+kR
+kR
+Dj
+Dj
+kR
+kR
+Vj
+Eg
+Eg
+Eg
+Eg
+Vj
+Vj
+EH
+QJ
+QJ
+QJ
+Yg
+vO
+kR
+WP
+oS
+Jx
+mt
+IB
+fU
+pO
+kR
+PF
+QJ
+QJ
+"}
+(52,1,1) = {"
+QJ
+QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+EH
+EH
+OQ
+Vj
+QJ
+QJ
+Eg
+EH
+Vj
+EH
+EH
+vO
+vO
+tm
+OQ
+Vj
+Eg
+Eg
+Eg
+EH
+EH
+OQ
+Vj
+QJ
+QJ
+QJ
+Yg
+jc
+ky
+Tw
+Tw
+oA
+pa
+Oe
+up
+pO
+kR
+PF
+QJ
+QJ
+"}
+(53,1,1) = {"
+QJ
+QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+EH
+EH
+OQ
+Vj
+EH
+QJ
+QJ
+Eg
+Eg
+Eg
+Eg
+EH
+EH
+vO
+jc
+vO
+EH
+Eg
+Eg
+EH
+EH
+OQ
+Vj
+EH
+QJ
+QJ
+QJ
+Yg
+kR
+kR
+Tw
+Tw
+Xi
+ab
+Oe
+Oe
+IB
+kR
+Yg
+QJ
+QJ
+"}
+(54,1,1) = {"
+QJ
+QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+EH
+EH
+OQ
+EH
+EH
+Eg
+QJ
+QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+EH
+if
+vO
+EH
+EH
+Eg
+EH
+EH
+OQ
+EH
+EH
+Eg
+QJ
+QJ
+QJ
+Yg
+kR
+bJ
+mt
+pa
+mt
+kR
+jb
+Ek
+Dx
+kR
+Yg
+QJ
+QJ
+"}
+(55,1,1) = {"
+QJ
+QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+EH
+OQ
+OQ
+EH
+Eg
+Eg
+QJ
+QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+EH
+Vj
+EH
+Eg
+Eg
+EH
+OQ
+OQ
+EH
+Eg
+Eg
+QJ
+QJ
+QJ
+Yg
+Dj
+Rt
+js
+mt
+mt
+kR
+IN
+zY
+Ek
+kR
+Yg
+QJ
+QJ
+"}
+(56,1,1) = {"
+QJ
+QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+EH
+Vj
+EH
+EH
+EH
+Eg
+Eg
+QJ
+QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Vj
+Eg
+Eg
+EH
+Vj
+EH
+EH
+EH
+Eg
+Eg
+QJ
+QJ
+QJ
+PF
+kR
+Fp
+kE
+mt
+ab
+kR
+tO
+rH
+Mx
+kR
+PF
+QJ
+QJ
+"}
+(57,1,1) = {"
+QJ
+QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+EH
+Vj
+Vj
+EH
+EH
+Eg
+Eg
+Eg
+QJ
+QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+EH
+Eg
+EH
+Vj
+Vj
+EH
+EH
+Eg
+Eg
+Eg
+QJ
+QJ
+QJ
+PF
+kR
+kR
+Dj
+Dj
+kR
+kR
+kR
+kR
+kR
+kR
+PF
+QJ
+QJ
+"}
+(58,1,1) = {"
+QJ
+QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+EH
+EH
+Vj
+EH
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+QJ
+QJ
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+EH
+EH
+Vj
+EH
+Eg
+Eg
+Eg
+Eg
+Eg
+Eg
+QJ
+QJ
+QJ
+PF
+PF
+Yg
+Yg
+Yg
+Yg
+Yg
+Yg
+Yg
+Yg
+PF
+PF
+QJ
+QJ
+"}
+(59,1,1) = {"
+QJ
+QJ
+QJ
+QJ
+QJ
+QJ
+QJ
 QJ
 QJ
 QJ
@@ -3188,7 +4509,12 @@ QJ
 QJ
 QJ
 "}
-(50,1,1) = {"
+(60,1,1) = {"
+QJ
+QJ
+QJ
+QJ
+QJ
 QJ
 QJ
 QJ

@@ -14,5 +14,21 @@
 		"submaps_dmm": "cryo_outpost_submaps.dmm",
 		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse",
 		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/warehouse"
+	},
+	{
+		"type": "InsertExtract",
+		"submap_size_x": 16,
+		"submap_size_y": 12,
+		"submaps_dmm": "cryo_outpost_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/river",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/river"
+	},
+	{
+		"type": "InsertExtract",
+		"submap_size_x": 19,
+		"submap_size_y": 17,
+		"submaps_dmm": "cryo_outpost_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/landing_pads",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/landing_pads"
 	}
 ]

@@ -42,6 +42,22 @@
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse
 	name = "Warehouse"
 
+// ----
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/river
+	name = "River"
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/river
+	name = "River"
+
+// ----
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/landing_pads
+	name = "Landing Pads"
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/landing_pads
+	name = "Landing Pads"
+
 // --------------------------------------------------- sector
 
 /obj/effect/overmap/visitable/sector/cryo_outpost
