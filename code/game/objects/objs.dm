@@ -301,7 +301,3 @@
 /obj/proc/clean()
 	clean_blood()
 	color = initial(color)
-
-/// This fires when the object /crosses() a stair object
-/obj/proc/stair_act()
-	return
