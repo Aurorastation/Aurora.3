@@ -303,6 +303,16 @@
 	temperature = 298.15
 	},
 /area/ouerea_farm)
+"N" = (
+/obj/structure/cargo_receptacle{
+	max_spawn = 2;
+	min_spawn = 0;
+	override_name = "Ouerea - Aquacultural Center"
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
 "O" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled{
@@ -1519,7 +1529,7 @@ i
 i
 i
 i
-i
+N
 i
 i
 i
