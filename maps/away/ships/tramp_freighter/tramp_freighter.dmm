@@ -108,9 +108,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tramp_freighter/bridge)
 "aG" = (
@@ -144,7 +142,6 @@
 "aK" = (
 /obj/machinery/shipsensors,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 10
 	},
 /turf/simulated/floor/airless,
@@ -257,7 +254,6 @@
 /area/tramp_freighter/atmos)
 "bn" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/machinery/atmospherics/portables_connector/scrubber{
@@ -399,9 +395,7 @@
 "bW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /obj/random/contraband,
 /obj/random/contraband,
 /obj/random/contraband,
@@ -642,8 +636,7 @@
 /area/tramp_freighter/hydroponics)
 "dw" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -1117,7 +1110,6 @@
 "fz" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	layer = 2.8;
 	name = "Thrusters to Canister";
 	target_pressure = 15000
 	},
@@ -1325,9 +1317,6 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
-	},
-/obj/structure/coatrack{
-	pixel_x = -7
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
@@ -1625,8 +1614,7 @@
 /area/tramp_freighter/lounge)
 "il" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
@@ -1655,7 +1643,6 @@
 /area/tramp_freighter/lounge)
 "iH" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	layer = 2.8;
 	name = "Canister to Tank";
 	target_pressure = 15000
 	},
@@ -1756,7 +1743,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/binary/pump/high_power{
-	layer = 2.8;
 	name = "Tank to Thrusters";
 	target_pressure = 15000;
 	dir = 1
@@ -1998,8 +1984,7 @@
 /area/tramp_freighter/crew_quarters)
 "kx" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2330,9 +2315,7 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/tramp_freighter/bridge)
 "mx" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /obj/machinery/atmospherics/binary/pump/supply{
 	dir = 4;
@@ -2583,7 +2566,6 @@
 "nH" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2658,7 +2640,6 @@
 "nX" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -3064,9 +3045,7 @@
 /area/tramp_freighter/starboard_docking)
 "qn" = (
 /obj/random/pottedplant,
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/button/remote/airlock{
 	dir = 8;
@@ -3224,7 +3203,6 @@
 "ra" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	layer = 2.8;
 	name = "Canister to Thrusters";
 	target_pressure = 15000
 	},
@@ -3296,7 +3274,6 @@
 /area/tramp_freighter/armory)
 "rt" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 6
 	},
 /obj/machinery/atmospherics/portables_connector/supply{
@@ -3534,7 +3511,6 @@
 /area/tramp_freighter/afthallway)
 "sF" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3643,7 +3619,6 @@
 "sZ" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3855,7 +3830,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/generic{
-	layer = 2.81;
 	pixel_x = -11;
 	pixel_y = -4
 	},
@@ -4191,7 +4165,6 @@
 /area/tramp_freighter/disposals)
 "vf" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 4
 	},
 /obj/structure/cable/green{
@@ -4573,8 +4546,7 @@
 /area/tramp_freighter/starboard_docking)
 "wW" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -4665,7 +4637,6 @@
 /area/tramp_freighter/cargo)
 "xt" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow,
@@ -4747,7 +4718,6 @@
 "xS" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/item/reagent_containers/glass/bucket{
@@ -4971,9 +4941,7 @@
 /area/tramp_freighter/disposals)
 "yY" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "za" = (
@@ -5714,7 +5682,6 @@
 "Db" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8;
 	name = "Canister to Thrusters";
 	target_pressure = 15000
 	},
@@ -5775,8 +5742,7 @@
 /area/tramp_freighter/captain_bed)
 "Dy" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -6070,8 +6036,7 @@
 /area/tramp_freighter/lounge)
 "Ft" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/power/apc/east{
@@ -6496,7 +6461,6 @@
 "HP" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/item/reagent_containers/glass/bucket{
@@ -6625,9 +6589,7 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboardthrust)
 "II" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
 	dir = 4
@@ -6945,12 +6907,8 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/secure_closet/freezer,
-/obj/item/storage/box/produce{
-	layer = 2.99
-	},
-/obj/item/storage/box/produce{
-	layer = 2.99
-	},
+/obj/item/storage/box/produce,
+/obj/item/storage/box/produce,
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/storage/box/fancy/egg_box,
@@ -7014,7 +6972,6 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/binary/pump/high_power{
-	layer = 2.8;
 	name = "Tank to Thrusters";
 	target_pressure = 15000;
 	dir = 1
@@ -7190,6 +7147,10 @@
 	},
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
+	},
+/obj/structure/coatrack{
+	pixel_x = -12;
+	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
@@ -7974,7 +7935,6 @@
 /area/tramp_freighter/starboardthrust)
 "PV" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
@@ -8689,6 +8649,18 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/port_docking)
+"Ty" = (
+/obj/item/bedsheet/red,
+/obj/effect/ghostspawpoint{
+	identifier = "freighter_crew";
+	name = "igs - freight crew"
+	},
+/obj/structure/bed/padded,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/tramp_freighter/crew_quarters)
 "TB" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -8733,18 +8705,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/engi)
-"TO" = (
-/obj/item/bedsheet/red,
-/obj/effect/ghostspawpoint{
-	identifier = "freighter_crew";
-	name = "igs - freight crew"
-	},
-/obj/structure/bed/padded,
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/tramp_freighter/crew_quarters)
 "TQ" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -8925,7 +8885,6 @@
 /area/tramp_freighter/starboardthrust)
 "UP" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/machinery/light{
@@ -9127,7 +9086,6 @@
 "Vz" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8;
 	name = "Thrusters to Canister";
 	target_pressure = 15000
 	},
@@ -9481,7 +9439,6 @@
 /area/tramp_freighter/equipment)
 "Xa" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	layer = 2.8;
 	name = "Canister to Tank";
 	target_pressure = 15000
 	},
@@ -9623,8 +9580,7 @@
 /area/tramp_freighter/lounge)
 "XR" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/light{
 	dir = 1
@@ -9959,7 +9915,6 @@
 	pixel_y = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 6
 	},
 /turf/simulated/floor/airless,
@@ -40476,11 +40431,11 @@ hX
 hX
 hX
 eB
-TO
+Ty
 eB
 LR
 eB
-TO
+Ty
 eB
 AN
 qX
