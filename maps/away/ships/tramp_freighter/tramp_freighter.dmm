@@ -6911,12 +6911,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/secure_closet/freezer,
-/obj/item/storage/box/produce{
-	layer = 2.99
-	},
-/obj/item/storage/box/produce{
-	layer = 2.99
-	},
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /obj/item/storage/box/fancy/egg_box,
@@ -6934,6 +6928,8 @@
 /obj/item/reagent_containers/food/snacks/rawcutlet,
 /obj/item/reagent_containers/food/snacks/rawcutlet,
 /obj/item/reagent_containers/food/condiment/flour,
+/obj/item/storage/box/produce,
+/obj/item/storage/box/produce,
 /turf/simulated/floor/marble,
 /area/tramp_freighter/kitchen)
 "KE" = (
