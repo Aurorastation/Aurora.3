@@ -863,6 +863,14 @@
 	temperature = 303.15
 	},
 /area/moghes_bar)
+"yu" = (
+/obj/structure/cargo_receptacle{
+	max_spawn = 2;
+	min_spawn = 0;
+	override_name = "Moghes - Inn"
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes)
 "yS" = (
 /obj/structure/simple_door/wood{
 	name = "room four";
@@ -1963,7 +1971,7 @@ bk
 bk
 ya
 tK
-QW
+yu
 QW
 QW
 QW
