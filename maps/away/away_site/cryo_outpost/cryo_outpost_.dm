@@ -24,7 +24,7 @@
 	descriptor = "TODO."
 
 /obj/abstract/weather_marker/cryo_outpost
-	weather_type = /singleton/state/weather/ash/lava_planet
+	weather_type = /singleton/state/weather/calm/desert_planet
 
 // --------------------------------------------------- mapmanip
 

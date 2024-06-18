@@ -24,6 +24,8 @@
 
 /area/cryo_outpost/outside/cave
 	name = "Cave"
+	icon_state = "red"
+	is_outside = OUTSIDE_NO
 
 /area/cryo_outpost/outside/buildings
 	name = "Building"

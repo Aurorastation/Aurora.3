@@ -10,11 +10,16 @@
 	mountain_threshold = 0.0
 
 /datum/exoplanet_theme/grass/cryo_outpost
+
+	surface_color = "#5c5142"
+
 	surface_turfs = list(
 		/turf/simulated/floor/exoplanet/grass,
 		/turf/simulated/mineral/planet
 	)
+
 	mountain_threshold = 0.9
+
 	possible_biomes = list(
 		BIOME_COOL = list(
 			BIOME_ARID = /singleton/biome/grass/chaparral,
