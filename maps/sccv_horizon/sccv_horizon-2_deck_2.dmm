@@ -19288,6 +19288,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
+"iKQ" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room/rust)
 "iKU" = (
 /obj/machinery/ammunition_loader/grauwolf{
 	weapon_id = "Grauwolf Flak Battery"
@@ -24705,15 +24714,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
 "lui" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
-/obj/machinery/atmospherics/binary/pump{
-	dir = 1
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "r_ust_core_blast";
 	name = "INDRA Reactor Blast Doors"
 	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
 "luo" = (
@@ -36290,10 +36297,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/atmospherics/binary/pump{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
 "qPo" = (
@@ -36898,7 +36904,6 @@
 "rbr" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
-	icon_state = "door_locked";
 	locked = 1;
 	name = "INDRA Reactor Core Access";
 	req_one_access = list(11,24)
@@ -45616,6 +45621,15 @@
 /obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/chemistry)
+"vgs" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room/rust)
 "vgt" = (
 /obj/structure/disposaloutlet{
 	dir = 1;
@@ -76789,7 +76803,7 @@ rkO
 tOr
 lui
 qPf
-ssK
+vgs
 iHo
 ums
 gVl
@@ -77597,7 +77611,7 @@ fJI
 uUa
 lui
 qPf
-ssK
+iKQ
 eoh
 aCU
 gVl
