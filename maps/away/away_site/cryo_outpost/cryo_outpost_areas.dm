@@ -16,7 +16,7 @@
 	is_outside = OUTSIDE_YES
 
 /area/cryo_outpost/outside/landing
-	name = "Landing Pads"
+	name = "Landing Pad"
 	icon_state = "yellow"
 
 /area/cryo_outpost/outside/surface
@@ -24,6 +24,10 @@
 
 /area/cryo_outpost/outside/cave
 	name = "Cave"
+
+/area/cryo_outpost/outside/buildings
+	name = "Building"
+	is_outside = OUTSIDE_NO
 
 // ------------------------- inside
 
