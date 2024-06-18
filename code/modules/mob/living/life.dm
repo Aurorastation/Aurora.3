@@ -160,15 +160,16 @@
 		setEarDamage(-1, max(ear_deaf, 1))
 
 /mob/living/proc/update_sight()
-	set_sight(0)
-	if(stat == DEAD || (eyeobj && !eyeobj.living_eye))
-		update_dead_sight()
-	else
-		update_living_sight()
+	if(!stop_sight_update)
+		set_sight(0)
+		if(stat == DEAD || (eyeobj && !eyeobj.living_eye))
+			update_dead_sight()
+		else
+			update_living_sight()
 
-	var/list/vision = get_accumulated_vision_handlers()
-	set_sight(sight | vision[1])
-	set_see_invisible(max(vision[2], see_invisible))
+		var/list/vision = get_accumulated_vision_handlers()
+		set_sight(sight | vision[1])
+		set_see_invisible(max(vision[2], see_invisible))
 
 /mob/living/proc/update_living_sight()
 	var/set_sight_flags = is_ventcrawling ? (SEE_TURFS) : sight & ~(SEE_TURFS|SEE_MOBS|SEE_OBJS)
