@@ -6,6 +6,7 @@ var/list/tape_roll_applications = list()
 	icon = 'icons/obj/policetape.dmi'
 	icon_state = "tape"
 	w_class = ITEMSIZE_SMALL
+	pass_flags_self = PASSTABLE
 	var/static/list/hazard_overlays
 	var/turf/start
 	var/turf/end

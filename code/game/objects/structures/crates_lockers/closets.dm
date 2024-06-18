@@ -6,6 +6,7 @@
 	density = TRUE
 	build_amt = 2
 	slowdown = 5
+	pass_flags_self = PASSTRACE
 
 	var/icon_door = null
 	/// Override to have open overlay use icon different to its base's
@@ -139,9 +140,7 @@
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0 || wall_mounted)) return 1
-	if(istype(mover) && mover.checkpass(PASSTRACE))
-		return 1
-	return (!density)
+	return ..()
 
 /obj/structure/closet/proc/can_open()
 	if(welded || locked)

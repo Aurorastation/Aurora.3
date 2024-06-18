@@ -6,6 +6,10 @@
  */
 
 /atom
+
+	/// pass_flags that we are. If any of this matches a pass_flag on a moving thing, by default, we let them through.
+	var/pass_flags_self = NONE
+
 	///First atom flags var
 	var/flags_1 = NONE
 
@@ -103,6 +107,22 @@
 
 	. = ..()
 
+
+///Purpose: Determines if the object (or airflow) can pass this atom.
+///Called by: Movement, airflow.
+///Inputs: The moving atom (optional), target turf, "height" and air group
+///Outputs: Boolean if can pass.
+///**Please stop using this proc, use the `pass_flags_self` flags to determine what can pass unless you literally have no other choice**
+/atom/proc/CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
+	//I have condensed TG's `CanAllowThrough()` into this proc
+	if(mover) //Because some procs send null as a mover
+		if(mover.pass_flags & pass_flags_self)
+			return TRUE
+		if(mover.throwing && (pass_flags_self & LETPASSTHROW))
+			return TRUE
+
+	return (!density || !height || air_group)
+
 /**
  * An atom has entered this atom's contents
  *
@@ -193,6 +213,6 @@
  * If this is NOT you, ensure you edit your can_astar_pass variable. Check __DEFINES/path.dm
  **/
 /atom/proc/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
-	if(pass_info.pass_flags & pass_flags)
+	if(pass_info.pass_flags & pass_flags_self)
 		return TRUE
 	. = !density

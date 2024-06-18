@@ -715,7 +715,7 @@
 			SPAN_WARNING("You leap horizontally at \the [T]!"),
 			SPAN_WARNING("You hear an electric <i>whirr</i> followed by a weighty thump!"))
 		H.face_atom(T)
-		H.throw_at(T, leapDistance, 1, src, do_throw_animation = FALSE)
+		H.throw_at(T, leapDistance, 1, src, spin = FALSE)
 		return TRUE
 	else
 		var/turf/simulated/open/TA = GetAbove(src)

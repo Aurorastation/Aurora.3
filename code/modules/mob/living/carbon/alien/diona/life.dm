@@ -48,6 +48,6 @@
 	if(!gestalt)
 		if(stat != DEAD)
 			if(master_nymph && !client && master_nymph != src)
-				SSmove_manager.move_to(src, master_nymph, 1, movement_delay())
+				GLOB.move_manager.move_to(src, master_nymph, 1, movement_delay())
 			else
-				SSmove_manager.stop_looping(src)
+				GLOB.move_manager.stop_looping(src)

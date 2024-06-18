@@ -333,8 +333,8 @@
 
 	if(istype(AM,/obj/))
 		var/obj/O = AM
-		if(ismob(O.thrower))
-			if(O.thrower == master)
+		if(ismob(O.throwing?.thrower?.resolve()))
+			if(O.throwing?.thrower?.resolve() == master)
 				target_mob = null
 				change_stance(HOSTILE_STANCE_IDLE)
 				audible_emote("[pick(sad_emote)].",0)
