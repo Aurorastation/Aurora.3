@@ -36991,7 +36991,7 @@
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_meetinghall)
 "nJQ" = (
-/obj/structure/table/wood/maple,
+/obj/structure/table/wood/yew,
 /obj/item/clothing/suit/maid_costume,
 /obj/item/clothing/suit/maid_costume,
 /obj/item/clothing/suit/maid_costume,
@@ -39521,7 +39521,7 @@
 /turf/simulated/floor/plating,
 /area/centcom/shared_dream)
 "wrv" = (
-/obj/structure/table/wood/mahogany,
+/obj/structure/table/wood/yew,
 /obj/item/clothing/suit/dog_costume,
 /obj/item/clothing/suit/dog_costume,
 /obj/item/clothing/suit/dog_costume,
@@ -39546,7 +39546,7 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
 "wwU" = (
-/obj/structure/table/wood/mahogany,
+/obj/structure/table/wood/yew,
 /obj/item/flora/pottedplant_small/woodyshrubbloom{
 	pixel_y = 4
 	},
