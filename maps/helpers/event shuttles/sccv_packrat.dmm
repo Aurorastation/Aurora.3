@@ -1754,20 +1754,6 @@
 /obj/structure/bed/handrail,
 /turf/simulated/floor/shuttle/black,
 /area/space)
-"Vq" = (
-/obj/structure/plasticflaps/airtight{
-	layer = 2.5;
-	dir = 8
-	},
-/obj/machinery/door/airlock/multi_tile{
-	dir = 2;
-	name = "external airlock"
-	},
-/obj/structure/plasticflaps/airtight{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/full,
-/area/space)
 "Vy" = (
 /obj/machinery/power/smes/magical,
 /obj/structure/cable{
@@ -2079,7 +2065,7 @@ Fl
 Fl
 Fl
 wA
-Vq
+vc
 Fl
 Fl
 Fl

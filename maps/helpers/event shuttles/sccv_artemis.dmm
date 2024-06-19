@@ -2247,7 +2247,6 @@
 /area/space)
 "VZ" = (
 /obj/structure/sink/kitchen{
-	layer = 3.5;
 	pixel_y = 27
 	},
 /turf/simulated/floor/shuttle/dark_blue,
