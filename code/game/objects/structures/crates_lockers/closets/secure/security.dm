@@ -20,6 +20,8 @@
 	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/melee/telebaton(src)
+	new /obj/item/device/radio/off(src)
+	new /obj/item/device/taperecorder(src)
 	// uniform briefcases
 	new /obj/item/storage/briefcase/nt/captain(src)
 	new /obj/item/storage/briefcase/nt/captain_white(src)

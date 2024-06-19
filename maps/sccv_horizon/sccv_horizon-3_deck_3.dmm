@@ -8780,9 +8780,6 @@
 /obj/item/folder/yellow{
 	pixel_x = 3
 	},
-/obj/item/device/radio/off{
-	pixel_y = 9
-	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
 "gjn" = (
@@ -12140,12 +12137,9 @@
 /area/bridge/cciaroom/lounge)
 "iuR" = (
 /obj/structure/closet/secure_closet/captains,
-/obj/item/device/megaphone/command,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/item/device/taperecorder,
-/obj/item/device/radio/off,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "ivg" = (
