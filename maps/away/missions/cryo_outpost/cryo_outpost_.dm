@@ -4,7 +4,7 @@
 /datum/map_template/ruin/away_site/cryo_outpost
 	name = "Cryo Outpost"
 	description = "TODO."
-	prefix = "away_site/cryo_outpost/"
+	prefix = "missions/cryo_outpost/"
 	suffixes = list("cryo_outpost.dmm")
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	spawn_weight = 1
