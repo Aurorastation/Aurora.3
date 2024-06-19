@@ -499,3 +499,37 @@
   - qol: The Vaurca Tradeband implant is now designated for Los Azquiles to use as
       well. Removed mention of Eridani from the name of the implant.
   - qol: Tech Support workers now have access to Technical Storage.
+2024-06-19:
+  Ben10083:
+  - qol: Adds missing stairs at Command Substation..
+  - rscadd: Adds Orion Delivery Points to various away sites in Ouerea.
+  - rscadd: Adds Orion Delivery Points to various away sites in Moghes.
+  - rscadd: Adds Firedoors and aft/starboard docking port for the People's Station.
+  - rscadd: People's Station now has cargo delivery points.
+  - rscadd: Cargo Delivery Point added to Tret Industrial Complex.
+  - qol: Small tweaks and improvements to Tret Industrial Complex to improve player
+      experience.
+  Flpfs:
+  - rscadd: Adds Sedantis Water to the Zo'ra Soda vendor.
+  - rscadd: Adds Skye'mok in a V'krexi organ to the Booze-o-Mat
+  - rscdel: Adds a new sprite for the Flagsdale Mule drink.
+  FluffyGhost:
+  - rscadd: Ported SSThrowing from TG, to handle throwings.
+  - rscadd: Updated movement system to the latest iteration, made it a datum as per
+      latest iteration.
+  - rscadd: Updated pass/hit handling of atoms, introduced pass_flag_self to determine
+      what atoms allow to pass.
+  - refactor: Moved procs and defines around to make them more organized.
+  Geeves:
+  - bugfix: Fixed the floating chat offset when you speak from inside a mech.
+  - bugfix: Moving away from a mech while using a wrench or a remote upgrade will
+      no longer hit it.
+  SimpleMaroon:
+  - imageadd: The Zeng-Hu Pharmaceuticals veterancy plate now has a less senior alternative,
+      designed to be less invasive and more unique; this includes unique variants
+      for Vaurcae (including Bulwarks) and Skrell.
+  - qol: The Zeng-Hu veterancy plate is now a variant of the medical eye sensor augmentation
+      in order to add useful functionality.
+  Stev-the-third:
+  - imageadd: Adds three Hieroaetheria faction flags.
+  - rscadd: Adds the Hieroaetheria faction flags to the loadout.
