@@ -31373,7 +31373,9 @@
 /obj/structure/window/reinforced/holowindow{
 	dir = 8
 	},
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 8
+	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_battlemonsters)
 "bGq" = (
@@ -31912,7 +31914,9 @@
 /obj/structure/window/reinforced/holowindow{
 	dir = 8
 	},
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 8
+	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_boxingcourt)
 "bHU" = (
@@ -32094,7 +32098,9 @@
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bIs" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 8
+	},
 /turf/simulated/floor/holofloor/lino,
 /area/horizon/holodeck/source_chapel)
 "bIu" = (
@@ -34784,7 +34790,9 @@
 /obj/structure/window/reinforced/holowindow{
 	dir = 4
 	},
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 4
+	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_boxingcourt)
 "gLB" = (
@@ -34978,6 +34986,12 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_battlemonsters)
+"hoi" = (
+/obj/structure/holostool{
+	dir = 4
+	},
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "hqA" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/spline/fancy{
@@ -35081,7 +35095,9 @@
 /obj/structure/window/reinforced/holowindow{
 	dir = 4
 	},
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 4
+	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_battlemonsters)
 "hMP" = (
@@ -36964,6 +36980,12 @@
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_pool)
+"obF" = (
+/obj/structure/holostool{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/lino,
+/area/horizon/holodeck/source_theatre)
 "ogd" = (
 /obj/structure/table/wood,
 /obj/effect/decal/fake_object{
@@ -37654,6 +37676,12 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_trinary)
+"qpi" = (
+/obj/structure/holostool{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/beach/sand,
+/area/horizon/holodeck/source_picnicarea)
 "qrO" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 1
@@ -37740,6 +37768,12 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
+"qFE" = (
+/obj/structure/holostool{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/beach/sand,
+/area/horizon/holodeck/source_picnicarea)
 "qHa" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
@@ -38050,6 +38084,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/hapt)
+"rwi" = (
+/obj/structure/holostool{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/holodeck/source_pool)
 "rzL" = (
 /obj/effect/floor_decal/carpet,
 /turf/simulated/floor/holofloor/carpet,
@@ -38285,6 +38325,17 @@
 /obj/effect/spider/cocoon,
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
+"sUn" = (
+/obj/structure/holostool{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/grass{
+	desc = "Lush, mossy grass. A staple of Konyang.";
+	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
+	icon_state = "grass";
+	name = "mossy grass"
+	},
+/area/horizon/holodeck/source_konyang)
 "sVf" = (
 /obj/structure/coatrack{
 	pixel_x = 10;
@@ -38334,6 +38385,12 @@
 /obj/structure/grille/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
+"tcE" = (
+/obj/structure/holostool{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/lino,
+/area/horizon/holodeck/source_theatre)
 "tcP" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/misc/beach.dmi';
@@ -38674,6 +38731,12 @@
 	icon_state = "beach"
 	},
 /area/centcom/shared_dream)
+"uju" = (
+/obj/structure/holostool{
+	dir = 8
+	},
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "ulF" = (
 /obj/effect/floor_decal/carpet{
 	dir = 4
@@ -39692,6 +39755,12 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_moghes)
+"xxs" = (
+/obj/structure/holostool{
+	dir = 1
+	},
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "xCd" = (
 /obj/item/beach_ball,
 /turf/simulated/floor/holofloor/beach/sand{
@@ -77560,7 +77629,7 @@ bHC
 bLc
 bIM
 bHv
-bIM
+rwi
 bLc
 bHC
 bFf
@@ -77574,10 +77643,10 @@ bGm
 bFf
 crk
 crk
-jNQ
+hoi
 crk
 crk
-jNQ
+hoi
 crk
 bFf
 aaa
@@ -77832,10 +77901,10 @@ bFf
 crk
 jNQ
 wwU
-jNQ
+xxs
 jNQ
 wwU
-jNQ
+xxs
 bFf
 aaa
 aaa
@@ -80145,10 +80214,10 @@ bFf
 crk
 jNQ
 wwU
-jNQ
+xxs
 jNQ
 wwU
-jNQ
+xxs
 bFf
 aaa
 aaa
@@ -80401,10 +80470,10 @@ bJU
 bFf
 crk
 crk
-jNQ
+uju
 crk
 crk
-jNQ
+uju
 crk
 bFf
 aaa
@@ -84738,8 +84807,8 @@ bKV
 bFf
 bGC
 bGC
-bIU
-bIU
+obF
+obF
 bGC
 bIU
 hYO
@@ -84973,7 +85042,7 @@ bJb
 bIf
 bIS
 bID
-bIS
+qpi
 bIf
 bJS
 bFf
@@ -84999,7 +85068,7 @@ bHa
 bHa
 bKk
 bGC
-bIU
+tcE
 bFf
 miw
 bHx
@@ -85230,7 +85299,7 @@ bJS
 fQK
 bIS
 bID
-bIS
+qpi
 bIV
 bJS
 bFf
@@ -85487,7 +85556,7 @@ bJS
 bIV
 bIS
 bID
-bIS
+qpi
 bGE
 bJS
 bFf
@@ -86256,8 +86325,8 @@ aaa
 bFf
 ygU
 bGJ
-bIS
-bIS
+qFE
+qFE
 bGJ
 bJh
 bJS
@@ -86793,8 +86862,8 @@ bKV
 bKV
 bFf
 hYO
-bIU
-bIU
+obF
+obF
 bGC
 bGC
 bGC
@@ -87806,7 +87875,7 @@ bFR
 bFf
 qza
 qza
-bIa
+sUn
 oYm
 mrZ
 bLf
