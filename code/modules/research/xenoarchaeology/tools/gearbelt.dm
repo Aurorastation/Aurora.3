@@ -44,4 +44,4 @@
 		/obj/item/device/ano_scanner = 1,
 		/obj/item/ore_detector = 1,
 		/obj/item/wrench = 1,
-	)
+		)
