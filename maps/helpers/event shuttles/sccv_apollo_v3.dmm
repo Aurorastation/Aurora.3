@@ -66,14 +66,10 @@
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "bH" = (
-/obj/structure/plasticflaps/airtight{
-	layer = 2.5;
-	dir = 8
-	},
+/obj/machinery/door/blast/regular/open,
 /obj/structure/plasticflaps/airtight{
 	dir = 4
 	},
-/obj/machinery/door/blast/regular/open,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "cr" = (
@@ -154,10 +150,10 @@
 /area/space)
 "cO" = (
 /obj/machinery/door/airlock/multi_tile,
-/obj/structure/plasticflaps/airtight,
 /obj/machinery/door/blast/regular/open{
 	dir = 8
 	},
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor,
 /area/space)
 "dd" = (
@@ -669,10 +665,10 @@
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "ki" = (
-/obj/structure/plasticflaps/airtight,
 /obj/machinery/door/blast/regular/open{
 	dir = 8
 	},
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor,
 /area/space)
 "kr" = (
@@ -1006,18 +1002,14 @@
 /turf/simulated/floor/tiled/full,
 /area/space)
 "sc" = (
+/obj/machinery/door/blast/regular/open,
 /obj/structure/plasticflaps/airtight{
-	layer = 2.5;
-	dir = 8
+	dir = 4
 	},
 /obj/machinery/door/airlock/multi_tile{
 	dir = 2;
 	name = "external airlock"
 	},
-/obj/structure/plasticflaps/airtight{
-	dir = 4
-	},
-/obj/machinery/door/blast/regular/open,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "sn" = (

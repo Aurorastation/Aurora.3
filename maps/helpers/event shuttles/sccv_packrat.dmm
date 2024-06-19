@@ -786,6 +786,16 @@
 /obj/item/device/gps/science,
 /turf/simulated/floor/shuttle/black,
 /area/space)
+"vc" = (
+/obj/machinery/door/airlock/multi_tile{
+	dir = 2;
+	name = "external airlock"
+	},
+/obj/structure/plasticflaps/airtight{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
 "vW" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/off{
@@ -822,10 +832,6 @@
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "wA" = (
-/obj/structure/plasticflaps/airtight{
-	layer = 2.5;
-	dir = 8
-	},
 /obj/structure/plasticflaps/airtight{
 	dir = 4
 	},
@@ -2786,7 +2792,7 @@ Fl
 Fl
 Fl
 wA
-Vq
+vc
 Fl
 Fl
 Fl

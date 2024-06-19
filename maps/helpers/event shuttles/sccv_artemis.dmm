@@ -1339,10 +1339,10 @@
 /area/space)
 "DY" = (
 /obj/machinery/door/airlock/multi_tile,
-/obj/structure/plasticflaps/airtight,
 /obj/machinery/door/blast/regular/open{
 	dir = 8
 	},
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor,
 /area/space)
 "Eh" = (
@@ -2213,14 +2213,10 @@
 /turf/simulated/floor/tiled/full,
 /area/space)
 "UE" = (
-/obj/structure/plasticflaps/airtight{
-	layer = 2.5;
-	dir = 8
-	},
+/obj/machinery/door/blast/regular/open,
 /obj/structure/plasticflaps/airtight{
 	dir = 4
 	},
-/obj/machinery/door/blast/regular/open,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "Vp" = (
@@ -2237,10 +2233,10 @@
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "VO" = (
-/obj/structure/plasticflaps/airtight,
 /obj/machinery/door/blast/regular/open{
 	dir = 8
 	},
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor,
 /area/space)
 "VW" = (
@@ -2288,18 +2284,14 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "WU" = (
+/obj/machinery/door/blast/regular/open,
 /obj/structure/plasticflaps/airtight{
-	layer = 2.5;
-	dir = 8
+	dir = 4
 	},
 /obj/machinery/door/airlock/multi_tile{
 	dir = 2;
 	name = "external airlock"
 	},
-/obj/structure/plasticflaps/airtight{
-	dir = 4
-	},
-/obj/machinery/door/blast/regular/open,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "WZ" = (

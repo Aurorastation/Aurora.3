@@ -461,10 +461,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "fZ" = (
-/obj/structure/plasticflaps/airtight{
-	layer = 2.5;
-	dir = 8
-	},
+/obj/machinery/door/blast/regular/open,
 /obj/machinery/door/airlock/multi_tile{
 	dir = 2;
 	name = "external airlock"
@@ -472,7 +469,6 @@
 /obj/structure/plasticflaps/airtight{
 	dir = 4
 	},
-/obj/machinery/door/blast/regular/open,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "ga" = (
@@ -1073,14 +1069,10 @@
 /turf/simulated/floor,
 /area/space)
 "rB" = (
-/obj/structure/plasticflaps/airtight{
-	layer = 2.5;
-	dir = 8
-	},
+/obj/machinery/door/blast/regular/open,
 /obj/structure/plasticflaps/airtight{
 	dir = 4
 	},
-/obj/machinery/door/blast/regular/open,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "rD" = (
