@@ -615,7 +615,7 @@
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
 /obj/effect/floor_decal/corner/green/full,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},

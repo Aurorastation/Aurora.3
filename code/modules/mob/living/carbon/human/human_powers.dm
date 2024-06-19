@@ -167,7 +167,7 @@
 	visible_message(SPAN_DANGER("[src] leaps at [T]!"),
 					SPAN_DANGER("You leap at [T]!"))
 
-	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src, do_throw_animation = FALSE)
+	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src, spin = FALSE)
 
 	sleep(5)
 
@@ -2199,17 +2199,22 @@
 
 	var/obj/item/organ/internal/augment/language/vekatak/V = src.internal_organs_by_name[BP_AUG_LANGUAGE]
 	var/list/messages = list(
-		"I remain operational.",
+		"I am operational.",
+		"I am on standby.",
 		"Message received.",
+		"Positive.",
+		"Negative.",
+		"Uncertain.",
+		"I do not understand.",
 		"Order completed.",
 		"Cannot complete order.",
-		"I am on standby.",
 		"Minor damage registered.",
 		"Damage registered",
 		"Critical damage registered",
 		"Assistance required at my location.",
-		"Hostiles sighted at my location.",
-		"Location clear of threats."
+		"Threat sighted at my location.",
+		"Location clear of threats.",
+		"Praise the Queens.",
 	)
 	if(src.stat != CONSCIOUS)
 		to_chat(src, SPAN_WARNING("You are in no state to do that!"))

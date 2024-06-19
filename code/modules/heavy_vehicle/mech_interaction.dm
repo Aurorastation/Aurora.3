@@ -232,7 +232,7 @@
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
-	SSmove_manager.stop_looping(src) // stop it from auto moving when the pilot gets in
+	GLOB.move_manager.stop_looping(src) // stop it from auto moving when the pilot gets in
 	return 1
 
 /mob/living/heavy_vehicle/proc/eject(var/mob/user, var/silent)
@@ -363,6 +363,7 @@
 					remote_type = RM.type
 					become_remote()
 					qdel(attacking_item)
+				return
 			else if(attacking_item.ismultitool())
 				if(hardpoints_locked)
 					to_chat(user, SPAN_WARNING("Hardpoint system access is disabled."))
@@ -405,7 +406,7 @@
 							qdel(pilot)
 							new remote_type(get_turf(src))
 					dismantle()
-					return
+				return
 			else if(attacking_item.iswelder())
 				if(!getBruteLoss())
 					return
@@ -582,6 +583,9 @@
 /mob/living/heavy_vehicle/get_floating_chat_x_offset()
 	return -offset_x // reverse the offset
 
+/mob/living/heavy_vehicle/get_floating_chat_y_offset()
+	return 20
+
 /mob/living/heavy_vehicle/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
 	if(can_listen())
 		addtimer(CALLBACK(src, PROC_REF(handle_hear_say), speaker, message), 0.5 SECONDS)
@@ -701,7 +705,7 @@
 			// stop following who you were assigned to follow
 			if(findtext(text, "stop"))
 				unassign_following()
-				SSmove_manager.stop_looping(src)
+				GLOB.move_manager.stop_looping(src)
 				say("Holding position.")
 				return
 

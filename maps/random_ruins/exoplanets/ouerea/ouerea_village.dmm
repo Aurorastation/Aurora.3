@@ -760,6 +760,16 @@
 	temperature = 303.15
 	},
 /area/ouerea_village)
+"UV" = (
+/obj/structure/cargo_receptacle{
+	max_spawn = 2;
+	min_spawn = 0;
+	override_name = "Ouerea - Rural Settlement"
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
 "VC" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
@@ -1916,7 +1926,7 @@ yv
 yv
 yv
 yv
-yv
+UV
 Uk
 Uk
 Uk

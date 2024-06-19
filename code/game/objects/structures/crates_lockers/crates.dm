@@ -20,6 +20,8 @@
 	door_anim_time = 3
 	door_anim_angle = 140
 	door_hinge = 3.5
+	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
+
 	var/tablestatus = 0
 
 	var/azimuth_angle_2 = 180 //in this context the azimuth angle for over 90 degree
@@ -96,7 +98,7 @@
 	if (istype(mover,/obj/item/projectile))
 		// Crates on a table always block shots, otherwise they only occasionally do so.
 		return tablestatus == ABOVE_TABLE ? FALSE : (prob(15) ? FALSE : TRUE)
-	else if(istype(mover) && mover.checkpass(PASSTABLE) && tablestatus == ABOVE_TABLE)
+	else if((istype(mover) && (mover.pass_flags & PASSTABLE)) && tablestatus == ABOVE_TABLE)
 		return TRUE
 	return ..()
 

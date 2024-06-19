@@ -1874,7 +1874,8 @@
 	pixel_x = 20;
 	pixel_y = 4;
 	id = "idriscruiser_docking_lockdown";
-	name = "Docking Arm Lockdown"
+	name = "Docking Arm Lockdown";
+	req_access = list(220)
 	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/port_lobby)
@@ -2549,7 +2550,8 @@
 	pixel_x = -8;
 	pixel_y = -20;
 	id = "idriscruiser_docking_lockdown";
-	name = "Docking Arm Lockdown"
+	name = "Docking Arm Lockdown";
+	req_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -9276,7 +9278,8 @@
 	pixel_x = -20;
 	pixel_y = 4;
 	id = "idriscruiser_docking_lockdown";
-	name = "Docking Arm Lockdown"
+	name = "Docking Arm Lockdown";
+	req_access = list(220)
 	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/starboard_lobby)
@@ -13562,7 +13565,8 @@
 	pixel_x = 8;
 	pixel_y = -20;
 	id = "idriscruiser_docking_lockdown";
-	name = "Docking Arm Lockdown"
+	name = "Docking Arm Lockdown";
+	req_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)

@@ -338,7 +338,7 @@
 
 	if(istype(V))
 		if(!V.transmitting || V.disrupted || V.muted)
-			to_chat(speaker, SPAN_WARNING("Your implant cannot transmit over the Hivenet!"))
+			to_chat(speaker, SPAN_WARNING("Your implant cannot freely transmit over the Hivenet!"))
 			return FALSE
 	else
 		return TRUE

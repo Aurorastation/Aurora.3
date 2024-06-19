@@ -104,7 +104,7 @@
 	return TRUE
 
 /obj/structure/barricade/CheckExit(atom/movable/O as mob|obj, target as turf)
-	if(istype(O) && O.checkpass(PASSTABLE))
+	if(istype(O) && O.pass_flags & PASSTABLE)
 		return TRUE
 	if (get_dir(loc, target) == dir)
 		return !density
