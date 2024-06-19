@@ -375,7 +375,7 @@
 	var/list/tcfl = list()
 	tcfl["tcfl beret, dress"] = /obj/item/clothing/head/beret/legion
 	tcfl["tcfl beret, field"] = /obj/item/clothing/head/beret/legion/field
-	tcfl["softcap, tcfl"] = /obj/item/clothing/head/softcap/tcfl
+	tcfl["tcfl softcap"] = /obj/item/clothing/head/softcap/tcfl
 	gear_tweaks += new /datum/gear_tweak/path(tcfl)
 
 /datum/gear/head/padded_cap
