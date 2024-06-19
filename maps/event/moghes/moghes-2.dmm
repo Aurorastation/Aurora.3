@@ -1,4 +1,21 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ah" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Storage";
+	dir = 4
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"aw" = (
+/obj/structure/sign/flag/hegemony/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "aC" = (
 /obj/machinery/light/colored/decayed{
 	dir = 1
@@ -6,7 +23,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "aM" = (
 /obj/structure/bed/stool/bar,
 /obj/structure/sign/flag/hegemony/large/south{
@@ -21,7 +38,13 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
+"aS" = (
+/obj/structure/bed/stool/chair/office/dark,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "aW" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -32,6 +55,15 @@
 	},
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"aY" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Checkpoint";
+	dir = 4
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "bj" = (
@@ -49,6 +81,33 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"by" = (
+/obj/machinery/door/airlock/multi_tile{
+	insecure = 0;
+	dir = 1;
+	name = "Commander's Office"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"bR" = (
+/obj/structure/sign/flag/hegemony/large/west{
+	pixel_x = -32
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"bT" = (
+/obj/structure/closet/secure_closet,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "ca" = (
 /obj/structure/closet/secure_closet/freezer,
 /turf/simulated/floor/tiled/freezer,
@@ -58,9 +117,45 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"cj" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/item/clothing/suit/armor/unathi/hegemony,
+/obj/item/clothing/suit/armor/unathi/hegemony,
+/obj/item/clothing/head/helmet/unathi/hegemony,
+/turf/simulated/floor/tiled/dark/full{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "cK" = (
 /obj/structure/kitchenspike,
 /turf/simulated/floor/tiled/freezer,
+/area/new_blades/interiors/ruins/bunker)
+"de" = (
+/obj/structure/table/wood/maple,
+/obj/machinery/photocopier/faxmachine{
+	department = "Operations Bunker 415"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"df" = (
+/obj/structure/toilet{
+	dir = 8
+	},
+/obj/structure/sink{
+	pixel_y = 16
+	},
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/obj/structure/curtain/open/privacy,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
 /area/new_blades/interiors/ruins/bunker)
 "dm" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -78,6 +173,25 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"en" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"ex" = (
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "eH" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light/colored/decayed{
@@ -85,6 +199,18 @@
 	},
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"eZ" = (
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null;
+	name = "security closet"
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "fA" = (
@@ -121,6 +247,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"fP" = (
+/obj/machinery/door/airlock/security{
+	name = "Security Checkpoint";
+	insecure = 0
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "ge" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/bodyscanner{
@@ -131,6 +266,37 @@
 	},
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"gp" = (
+/turf/simulated/floor/tiled/dark/full{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"gA" = (
+/obj/machinery/door/airlock/security{
+	name = "Armory";
+	insecure = 0;
+	dir = 4
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"gM" = (
+/obj/structure/bed/chair,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"gS" = (
+/obj/item/device/flashlight/lamp/green,
+/obj/structure/table/wood/maple,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "gX" = (
@@ -149,14 +315,20 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
+"hA" = (
+/obj/structure/table/wood/maple,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "hQ" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "if" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -169,10 +341,25 @@
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 315.15
 	},
+/area/new_blades/interiors/ruins/bunker)
+"im" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
 /area/new_blades/underground)
 "ip" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/concrete{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"iU" = (
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
@@ -182,9 +369,48 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"je" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/water/shallow/moghes{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"jj" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null;
+	name = "security closet"
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"jk" = (
+/obj/machinery/door/airlock/multi_tile{
+	insecure = 0;
+	dir = 1;
+	name = "Mess Hall"
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"jm" = (
+/obj/structure/bed/chair,
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "jA" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/desk/southleft,
+/obj/item/paper_bin,
+/obj/item/pen/black,
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
 	},
@@ -228,13 +454,26 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "kI" = (
 /obj/machinery/shower{
 	dir = 8
 	},
 /obj/machinery/door/window/westright,
 /turf/simulated/floor/tiled/freezer{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"li" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/item/melee/hammer/powered/hegemony,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
@@ -261,7 +500,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "mc" = (
 /obj/structure/bed/padded,
 /obj/structure/bed/padded/bunk,
@@ -273,18 +512,34 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"mg" = (
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/freezer{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"mK" = (
+/turf/simulated/floor/exoplanet/water/shallow/moghes{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "mO" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "mR" = (
 /turf/simulated/wall/concrete,
 /area/new_blades/underground)
 "mY" = (
 /obj/structure/toilet{
 	dir = 4
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/freezer{
 	temperature = 315.15
@@ -306,18 +561,60 @@
 /turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
+"nV" = (
+/obj/machinery/light/colored/decayed,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"nW" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 28;
+	pixel_x = 5
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 38;
+	pixel_x = 5
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "oa" = (
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
+"oj" = (
+/obj/structure/table/wood/maple,
+/obj/machinery/recharger,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"oo" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 8
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "oL" = (
 /obj/structure/bed/roller,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light/colored/decayed,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"oV" = (
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "pv" = (
@@ -327,7 +624,27 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
+"pI" = (
+/obj/structure/bed/stool/chair{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"pO" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/water/shallow/moghes{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "qp" = (
 /obj/structure/closet/secure_closet,
 /turf/simulated/floor/concrete/square{
@@ -339,7 +656,14 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
+"ry" = (
+/obj/structure/table,
+/obj/item/stack/material/steel,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "rH" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/bodyscanner{
@@ -352,10 +676,66 @@
 	temperature = 303.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"se" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"ss" = (
+/turf/simulated/wall/concrete{
+	can_open = 1
+	},
+/area/new_blades/interiors/ruins/bunker)
+"st" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"sD" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/water/shallow/moghes{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"sJ" = (
+/obj/machinery/porta_turret/ballistic{
+	cover_set = 1;
+	health = 120;
+	icon_state = "cover_1";
+	maxhealth = 120
+	},
+/turf/simulated/floor/concrete{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"tD" = (
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
+/obj/machinery/light/colored/decayed,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "tJ" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/plain,
+/obj/machinery/light/colored/decayed,
 /turf/simulated/floor/carpet/rubber{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"tQ" = (
+/obj/structure/sign/flag/hegemony/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
@@ -385,10 +765,26 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
+/obj/item/storage/toolbox/electrical,
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
+"uy" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/exoplanet/water/shallow/moghes{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"uA" = (
+/obj/item/storage/box/syringes,
+/obj/item/clothing/gloves/latex/unathi,
+/obj/item/clothing/gloves/latex/unathi,
+/obj/structure/table/rack,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "uH" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -396,9 +792,38 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "vb" = (
 /obj/machinery/appliance/cooker/stove,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"vh" = (
+/obj/machinery/light/colored/red,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"vx" = (
+/obj/machinery/light/broken{
+	dir = 4
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"vF" = (
+/obj/structure/flora/pottedplant/tall,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"vH" = (
+/obj/machinery/door/airlock/highsecurity{
+	dir = 4;
+	name = "Silo Control"
+	},
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
 	},
@@ -411,7 +836,23 @@
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
+"wj" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 1
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"wp" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/door/window/desk/southright,
+/obj/item/gun/projectile/pistol/spitter,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "wK" = (
 /obj/structure/table/steel,
 /obj/item/material/ashtray,
@@ -432,12 +873,37 @@
 	temperature = 303.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"xe" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"xh" = (
+/obj/structure/table/steel,
+/obj/item/device/flashlight/maglight,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "xl" = (
 /obj/machinery/door/airlock/medical{
 	name = "Surgical Suite"
 	},
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"xz" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/recharge_station,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "xN" = (
@@ -450,7 +916,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "yb" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/rack,
@@ -458,7 +924,6 @@
 /obj/random/firstaid,
 /obj/random/firstaid,
 /obj/random/firstaid,
-/obj/item/storage/belt/medical/first_responder/combat,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -473,16 +938,92 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"yN" = (
+/obj/machinery/door/airlock/multi_tile{
+	insecure = 0;
+	dir = 1;
+	name = "Water Purifier"
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "ze" = (
 /turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
+"zf" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"zD" = (
+/obj/machinery/door/airlock/security{
+	name = "Equipment Storage";
+	insecure = 0
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"zO" = (
+/obj/machinery/light/colored/decayed,
+/turf/simulated/floor/tiled/freezer{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"zQ" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "zR" = (
 /obj/structure/bed/roller,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"zY" = (
+/obj/machinery/porta_turret/ballistic{
+	cover_set = 1;
+	health = 120;
+	icon_state = "cover_1";
+	maxhealth = 120
+	},
+/turf/simulated/floor/tiled/dark/full{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Al" = (
+/obj/structure/table/rack,
+/obj/item/device/taperecorder,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Av" = (
+/obj/random/dirt_75,
+/obj/item/ladder_mobile,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"AA" = (
+/obj/machinery/light/colored/decayed,
+/turf/simulated/floor/tiled/freezer,
+/area/new_blades/interiors/ruins/bunker)
+"Bt" = (
+/obj/machinery/door/airlock/multi_tile{
+	insecure = 0;
+	dir = 1;
+	name = "Gym"
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "BC" = (
@@ -495,6 +1036,13 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Elevator 1"
 	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"BV" = (
+/obj/structure/table/wood/maple,
+/obj/item/pen/fountain/silver,
 /turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
@@ -513,6 +1061,14 @@
 "CI" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/desk/southright,
+/obj/item/stamp{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/stamp/denied{
+	pixel_x = -4;
+	pixel_y = 6
+	},
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
 	},
@@ -540,6 +1096,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Dy" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/item/ammo_magazine/spitterpistol,
+/turf/simulated/floor/tiled/dark/full{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "DC" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /obj/item/reagent_containers/glass/bucket{
@@ -549,7 +1115,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "DI" = (
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
@@ -557,6 +1123,27 @@
 /area/new_blades/interiors/ruins/bunker)
 "DN" = (
 /obj/structure/plasticflaps/airtight,
+/obj/machinery/door/airlock/freezer{
+	insecure = 0
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"EN" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/door/window/desk/southleft,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"EW" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/obj/machinery/light/colored/decayed,
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
 	},
@@ -566,18 +1153,77 @@
 /turf/simulated/floor/tiled/dark/full{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "Fa" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(113)
+/obj/structure/bed/stool/chair{
+	dir = 1
 	},
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Ff" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/door/airlock/multi_tile{
+	insecure = 0;
+	dir = 1;
+	name = "Infirmary"
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "Fu" = (
 /obj/structure/table/rack,
 /obj/item/towel/random,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"FB" = (
+/obj/machinery/door/airlock/multi_tile{
+	insecure = 0;
+	dir = 1;
+	name = "Brig"
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"FC" = (
+/obj/machinery/door/airlock/security{
+	name = "Cell";
+	insecure = 0
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"FV" = (
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"GE" = (
+/obj/item/clothing/glasses/sunglasses/blindfold,
+/obj/structure/table/rack,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"GW" = (
+/obj/machinery/door/window/southright,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"GY" = (
+/obj/machinery/light/colored/red{
+	dir = 1
+	},
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
 	},
@@ -589,16 +1235,50 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "Hq" = (
+/obj/machinery/door/airlock/highsecurity{
+	dir = 4;
+	name = "Communications"
+	},
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
+"Iq" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/brown,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "Iw" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Iy" = (
+/obj/structure/girder,
+/turf/simulated/floor/plating{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Iz" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"IB" = (
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	name = "Aquifer Access";
+	id = "water"
+	},
+/turf/simulated/floor/exoplanet/water/shallow/moghes{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "IF" = (
@@ -619,7 +1299,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "Jl" = (
 /obj/machinery/shower{
 	dir = 8
@@ -630,6 +1310,15 @@
 	},
 /turf/simulated/floor/tiled/freezer{
 	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Jm" = (
+/obj/structure/punching_bag,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "JM" = (
@@ -644,9 +1333,39 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
+"JO" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Ke" = (
+/obj/structure/closet/crate/freezer{
+	name = "emergency rations"
+	},
+/obj/item/reagent_containers/glass/bottle/polysomnine,
+/obj/item/reagent_containers/glass/bottle/stoxin,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"KK" = (
+/obj/structure/closet/secure_closet,
+/obj/machinery/light/colored/decayed,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "KV" = (
 /obj/machinery/vending/dinnerware,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Lr" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/light/colored/decayed,
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
 	},
@@ -658,7 +1377,16 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
+"LB" = (
+/obj/machinery/door/airlock{
+	name = "Showers";
+	dir = 4
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "LD" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/sleeper{
@@ -666,6 +1394,29 @@
 	},
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"LR" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 38;
+	pixel_x = 5
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = 28;
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"LX" = (
+/obj/machinery/door/airlock{
+	name = "Lower Barracks";
+	dir = 4;
+	insecure = 0
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "Mn" = (
@@ -682,10 +1433,13 @@
 /area/new_blades/interiors/ruins/bunker)
 "Mx" = (
 /obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
 /turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "MH" = (
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
@@ -697,8 +1451,23 @@
 "MX" = (
 /turf/simulated/floor/tiled/freezer,
 /area/new_blades/interiors/ruins/bunker)
+"MZ" = (
+/turf/simulated/mineral/planet,
+/area/new_blades/interiors/ruins/bunker)
+"Nd" = (
+/obj/structure/bed/stool/bar,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "Nl" = (
 /obj/structure/closet/secure_closet/freezer,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
 	},
@@ -708,6 +1477,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground/aquifer)
+"Ov" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "Ow" = (
 /obj/structure/table/reinforced/glass,
 /obj/item/storage/box/fancy/tray,
@@ -726,6 +1501,46 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"OK" = (
+/obj/item/handcuffs,
+/obj/item/handcuffs,
+/obj/structure/table/rack,
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"OL" = (
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Pg" = (
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
+/obj/machinery/light/colored/decayed,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Py" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "PM" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/rack,
@@ -733,10 +1548,53 @@
 /obj/random/firstaid,
 /obj/random/firstaid,
 /obj/random/firstaid,
-/obj/item/storage/belt/medical/first_responder/combat,
-/obj/item/storage/belt/medical/first_responder/combat,
+/obj/item/storage/belt/medical/paramedic/combat,
+/obj/item/storage/belt/medical/paramedic/combat,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"PZ" = (
+/obj/structure/bed/stool/bar,
+/obj/machinery/light/colored/decayed,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"QA" = (
+/obj/structure/table/wood/maple,
+/obj/item/paper_bin,
+/obj/item/stamp{
+	icon_state = "stamp-ce";
+	name = "izweski hegemony rubber stamp"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"QG" = (
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"QV" = (
+/obj/structure/closet/secure_closet/cabinet{
+	name = "wardrobe"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"QX" = (
+/obj/machinery/porta_turret/ballistic{
+	cover_set = 1;
+	health = 120;
+	icon_state = "cover_1";
+	maxhealth = 120
+	},
+/turf/simulated/floor/concrete{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "RI" = (
@@ -745,9 +1603,27 @@
 	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Sl" = (
+/obj/item/reagent_containers/glass/rag{
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = -7;
+	pixel_x = 7
+	},
+/turf/simulated/floor/carpet/rubber{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "Sm" = (
 /turf/simulated/floor/concrete{
 	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Su" = (
+/obj/structure/bed/stool/chair,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "SC" = (
@@ -757,7 +1633,22 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
+"Tx" = (
+/obj/machinery/photocopier,
+/obj/machinery/light/broken,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"TG" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Checkpoint"
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "TI" = (
 /obj/structure/sink{
 	dir = 8;
@@ -779,9 +1670,36 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "TS" = (
 /turf/simulated/wall/concrete,
+/area/new_blades/interiors/ruins/bunker)
+"Ul" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled/dark/full{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Uu" = (
+/obj/structure/table/steel,
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_x = 32
+	},
+/obj/machinery/recharger,
+/obj/item/reagent_containers/spray/pepper,
+/obj/item/melee/baton/stunrod,
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber{
+	temperature = 315.15
+	},
 /area/new_blades/interiors/ruins/bunker)
 "Vh" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -790,11 +1708,34 @@
 /turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "VV" = (
 /obj/machinery/appliance/cooker/fryer,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
 /turf/simulated/floor/concrete/square{
 	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"WG" = (
+/obj/machinery/turretid{
+	check_arrest = 0;
+	check_records = 0;
+	check_wildlife = 0;
+	pixel_x = -29;
+	pixel_y = -6;
+	req_access = list(150)
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"WR" = (
+/obj/item/material/knife/trench/bloody,
+/obj/structure/table/rack,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
 "WS" = (
@@ -803,13 +1744,16 @@
 /turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "XG" = (
 /obj/machinery/photocopier,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
 /turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "XR" = (
 /obj/structure/cable/green,
 /obj/machinery/power/smes/buildable/third_party_shuttle/empty,
@@ -817,7 +1761,32 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
+"Yk" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Yn" = (
+/obj/structure/reagent_dispensers/peppertank{
+	pixel_y = 32
+	},
+/obj/structure/closet/secure_closet,
+/obj/item/storage/box/handcuffs,
+/obj/item/reagent_containers/spray/pepper,
+/obj/item/gun/energy/taser,
+/obj/item/melee/baton/loaded,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Yr" = (
+/obj/structure/bed/stool/chair/office/dark,
+/turf/simulated/floor/concrete/square{
+	temperature = 313.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "Ys" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -827,7 +1796,30 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
+"YO" = (
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Zm" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"ZF" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/water/shallow/moghes{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "ZN" = (
 /obj/structure/table/steel,
 /obj/machinery/light/colored/decayed{
@@ -836,7 +1828,21 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
+"ZV" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/tiled/dark/full{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"ZX" = (
+/obj/structure/table/rack,
+/obj/item/device/flashlight/maglight,
+/turf/simulated/floor/carpet/rubber{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 
 (1,1,1) = {"
 MS
@@ -3647,15 +4653,15 @@ DN
 MX
 MX
 MX
-MX
+AA
 TS
+mg
 cc
 cc
 cc
 cc
 cc
-cc
-cc
+zO
 TS
 CF
 CF
@@ -4163,7 +5169,7 @@ TS
 TS
 TS
 TS
-DI
+LB
 TS
 TS
 TS
@@ -4406,6 +5412,7 @@ TS
 TS
 CF
 TS
+FV
 DI
 DI
 DI
@@ -4414,8 +5421,7 @@ DI
 DI
 DI
 DI
-DI
-DI
+nV
 TS
 mc
 DI
@@ -4655,11 +5661,11 @@ CF
 CF
 CF
 TS
+GY
 DI
 DI
 DI
-DI
-DI
+vh
 TS
 CF
 TS
@@ -4674,11 +5680,11 @@ BC
 BC
 aM
 TS
-qp
+bT
 DI
 DI
 DI
-qp
+KK
 TS
 CF
 CF
@@ -5159,7 +6165,7 @@ TS
 TS
 DI
 DI
-DI
+nV
 TS
 TS
 TS
@@ -5410,9 +6416,9 @@ CF
 CF
 CF
 TS
+Yn
 DI
-DI
-DI
+Yr
 jA
 DI
 DI
@@ -5667,7 +6673,7 @@ CF
 CF
 CF
 TS
-DI
+nW
 DI
 DI
 CI
@@ -5683,11 +6689,11 @@ TS
 CF
 CF
 TS
+GY
 DI
 DI
 DI
-DI
-DI
+vh
 TS
 CF
 TS
@@ -5924,7 +6930,7 @@ CF
 CF
 CF
 TS
-DI
+QG
 DI
 DI
 TS
@@ -5948,7 +6954,7 @@ ip
 TS
 CF
 TS
-Mn
+Nd
 BC
 BC
 Mn
@@ -5957,7 +6963,7 @@ DI
 Mn
 BC
 BC
-Mn
+PZ
 TS
 mc
 DI
@@ -5965,7 +6971,7 @@ DI
 DI
 mc
 TS
-RI
+Jm
 RI
 DI
 jF
@@ -6181,10 +7187,10 @@ CF
 CF
 CF
 TS
+JO
 DI
 DI
-DI
-DI
+fP
 DI
 DI
 DI
@@ -6197,11 +7203,11 @@ TS
 CF
 CF
 TS
+se
 DI
+Ov
 DI
-DI
-DI
-DI
+EW
 TS
 CF
 TS
@@ -6222,7 +7228,7 @@ DI
 DI
 qp
 TS
-DI
+aw
 DI
 DI
 uc
@@ -6444,21 +7450,21 @@ TS
 TS
 DI
 DI
-DI
+nV
+TS
+TS
 TS
 CF
 CF
 CF
 CF
 CF
-CF
-CF
 TS
 DI
+oo
 DI
-DI
-DI
-DI
+oo
+Ov
 TS
 CF
 TS
@@ -6696,26 +7702,26 @@ CF
 CF
 CF
 CF
+TS
+QX
+Sm
+DI
+DI
+DI
+Sm
+QX
+TS
+CF
+CF
+CF
 CF
 CF
 TS
 DI
 DI
 DI
-TS
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-TS
 DI
-DI
-DI
-DI
-DI
+JO
 TS
 CF
 TS
@@ -6953,26 +7959,26 @@ CF
 CF
 CF
 CF
-CF
-CF
+TS
+TS
 TS
 DI
 DI
 DI
 TS
-CF
-CF
+TS
+TS
 CF
 CF
 CF
 CF
 CF
 TS
+se
 DI
 DI
 DI
-DI
-DI
+Lr
 TS
 CF
 TS
@@ -7231,7 +8237,7 @@ DI
 DI
 TS
 TS
-CF
+TS
 TS
 tV
 BC
@@ -7244,11 +8250,11 @@ BC
 BC
 aM
 TS
-qp
+bT
 DI
 DI
 DI
-qp
+KK
 TS
 OD
 DI
@@ -7472,7 +8478,7 @@ CF
 TS
 DI
 DI
-DI
+nV
 TS
 CF
 CF
@@ -7483,13 +8489,14 @@ CF
 CF
 CF
 TS
-DI
+vH
 TS
-DI
+vH
 TS
-CF
-CF
+QX
 TS
+TS
+FV
 DI
 DI
 DI
@@ -7498,8 +8505,7 @@ DI
 DI
 DI
 DI
-DI
-DI
+nV
 TS
 mc
 DI
@@ -7507,11 +8513,11 @@ DI
 DI
 mc
 TS
+FV
 DI
 DI
 DI
-DI
-DI
+nV
 TS
 CF
 CF
@@ -7727,22 +8733,11 @@ CF
 CF
 CF
 TS
-DI
+aY
 TS
-DI
-TS
-TS
+aY
 TS
 TS
-TS
-TS
-TS
-TS
-TS
-TS
-DI
-DI
-DI
 TS
 TS
 TS
@@ -7753,6 +8748,9 @@ TS
 TS
 DI
 DI
+DI
+TS
+Sm
 TS
 TS
 TS
@@ -7760,13 +8758,21 @@ TS
 TS
 TS
 DI
+jk
+TS
+TS
+TS
+TS
+TS
+TS
+LX
+TS
+LX
+TS
+TS
 TS
 DI
-TS
-TS
-TS
-DI
-DI
+Bt
 TS
 TS
 TS
@@ -8004,7 +9010,7 @@ DI
 DI
 DI
 DI
-DI
+TG
 DI
 DI
 DI
@@ -8241,7 +9247,7 @@ CF
 CF
 CF
 TS
-DI
+FV
 DI
 DI
 DI
@@ -8502,40 +9508,40 @@ DI
 DI
 DI
 DI
+ex
+DI
+DI
+DI
+DI
+ex
 DI
 DI
 DI
 DI
 DI
+ex
+DI
+DI
+DI
+ex
+TG
+DI
+ex
+DI
+DI
+DI
+DI
+ex
+DI
+DI
+DI
+ex
 DI
 DI
 DI
 DI
 DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
+ex
 DI
 DI
 TS
@@ -8755,11 +9761,9 @@ CF
 CF
 CF
 TS
-DI
+aY
 TS
-DI
-TS
-TS
+aY
 TS
 TS
 TS
@@ -8774,6 +9778,7 @@ TS
 TS
 TS
 TS
+Sm
 TS
 TS
 TS
@@ -8787,9 +9792,10 @@ TS
 TS
 TS
 TS
-DI
 TS
-DI
+aY
+TS
+aY
 TS
 TS
 TS
@@ -9009,28 +10015,28 @@ CF
 CF
 CF
 CF
-CF
-CF
+TS
+TS
 TS
 DI
 DI
-DI
+nV
+TS
+TS
+TS
+Zm
+WG
+ze
+ze
+gS
+Iq
 TS
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+TS
+QX
+TS
 CF
 CF
 TS
@@ -9044,20 +10050,20 @@ zR
 zR
 oL
 TS
-DI
+FV
 DI
 DI
 TS
 CF
 CF
-mR
-mR
-mR
-mR
-mR
-mR
-mR
-mR
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
 CF
 CF
 MS
@@ -9266,30 +10272,30 @@ CF
 CF
 CF
 CF
-CF
-CF
 TS
+QX
+Sm
 DI
 DI
 DI
+Sm
+QX
 TS
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+de
+ze
+ze
+ze
+ze
+ze
 TS
 TS
 TS
 TS
 TS
 TS
+TS
+CF
+CF
 TS
 Di
 wP
@@ -9305,16 +10311,16 @@ DI
 DI
 DI
 TS
-mR
-mR
-mR
+TS
+TS
+TS
 Mx
 ze
 WS
 ze
 WS
-ze
-mR
+YO
+TS
 CF
 CF
 MS
@@ -9520,33 +10526,33 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
+TS
+TS
+TS
+TS
+TS
 TS
 DI
 DI
 DI
 TS
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
 TS
-Fa
-DI
-DI
-DI
-Fa
+TS
+ze
+xe
+ze
+ze
+ze
+ze
+TS
+ZV
+xz
+ZV
+TS
+CF
+CF
+CF
+CF
 TS
 TS
 TS
@@ -9571,7 +10577,7 @@ ze
 nv
 ze
 nv
-mR
+TS
 CF
 CF
 MS
@@ -9777,33 +10783,33 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
+TS
+DI
+DI
+DI
+DI
 TS
 DI
 DI
 DI
 TS
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+MZ
 TS
-Fa
-DI
-DI
-DI
-Fa
+QA
+BV
+oj
+ze
+hA
+QV
+TS
+LR
+oa
+oa
+TS
+TS
+TS
+TS
+TS
 TS
 Ow
 TI
@@ -9819,7 +10825,6 @@ DI
 DI
 DI
 TS
-ze
 WS
 ze
 ze
@@ -9828,7 +10833,8 @@ ze
 ze
 ze
 ze
-mR
+ze
+TS
 CF
 CF
 MS
@@ -10034,32 +11040,32 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
+TS
+DI
+DI
+DI
+DI
 TS
 DI
 DI
 DI
 TS
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+MZ
 TS
-Fa
+pI
+pI
+pI
+ze
+TS
+TS
+TS
+oa
+oa
+oa
+oa
+EN
 DI
-DI
-DI
+bR
 Fa
 TS
 Di
@@ -10076,7 +11082,7 @@ DI
 DI
 DI
 TS
-ze
+tQ
 ze
 ze
 ze
@@ -10085,7 +11091,7 @@ ze
 nv
 ze
 nv
-mR
+TS
 CF
 CF
 MS
@@ -10291,33 +11297,33 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
+TS
+DI
+DI
+DI
+nV
 TS
 DI
 DI
 DI
 TS
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+MZ
 TS
-Fa
+ze
+ze
+ze
+ze
+TS
+zY
+gp
+oa
+oa
+oa
+aS
+wp
 DI
 DI
-DI
-Fa
+tD
 TS
 TS
 TS
@@ -10336,13 +11342,13 @@ TS
 ze
 ze
 ze
-ze
-ze
-WS
+iU
 ze
 WS
 ze
-mR
+WS
+iU
+TS
 CF
 CF
 MS
@@ -10548,30 +11554,30 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
+TS
+DI
+DI
+DI
+DI
 TS
 DI
 DI
 DI
 TS
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+MZ
 TS
-Fa
-DI
+ze
+ze
+ze
+ze
+TS
+TS
+TS
+LR
+oa
+oa
+oa
+GW
 DI
 DI
 Fa
@@ -10593,15 +11599,15 @@ TS
 ze
 ze
 ze
-mR
-mR
-mR
-mR
-mR
-mR
-mR
-mR
-mR
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
 MS
 "}
 (39,1,1) = {"
@@ -10805,30 +11811,30 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
 TS
 DI
 DI
 DI
-TS
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-TS
-Fa
 DI
+TS
+DI
+DI
+nV
+TS
+MZ
+TS
+vF
+ze
+ze
+Iz
+TS
+MZ
+TS
+li
+cj
+Dy
+Py
+Ul
 DI
 DI
 Fa
@@ -10843,22 +11849,22 @@ yb
 Mo
 dm
 TS
-DI
+FV
 DI
 DI
 TS
+oV
 ze
 ze
-ze
-mR
+TS
 xN
 hn
-hn
+en
 hn
 hn
 hn
 XR
-mR
+TS
 MS
 "}
 (40,1,1) = {"
@@ -11057,57 +12063,57 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-TS
-DI
-DI
-DI
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-DI
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-Mo
-Mo
-TS
-DI
-TS
-DI
-TS
 mR
+TS
+TS
+TS
+TS
+TS
+TS
+ah
+TS
+TS
+TS
+aY
+TS
+aY
+TS
+TS
+TS
+TS
+ze
+by
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+gA
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+Mo
+Ff
+TS
+aY
+TS
+aY
+TS
+TS
 Hq
-mR
-mR
+TS
+TS
 ZN
 qr
 uH
@@ -11115,7 +12121,7 @@ uH
 uH
 Hj
 JM
-mR
+TS
 MS
 "}
 (41,1,1) = {"
@@ -11314,57 +12320,57 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-Hq
-Hq
-Hq
 mR
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+TG
+DI
+DI
+DI
+TS
 oa
 mO
 EY
@@ -11372,7 +12378,7 @@ EY
 EY
 kz
 Ys
-mR
+TS
 MS
 "}
 (42,1,1) = {"
@@ -11571,16 +12577,16 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+mR
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
+DI
 DI
 DI
 DI
@@ -11618,9 +12624,9 @@ DI
 DI
 DI
 TS
-Hq
-Hq
-Hq
+FV
+DI
+DI
 pv
 oa
 mO
@@ -11629,7 +12635,7 @@ vT
 if
 TL
 IK
-mR
+TS
 MS
 "}
 (43,1,1) = {"
@@ -11823,62 +12829,62 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+kh
+kh
+kh
+kh
+kh
+Iy
+DI
+DI
+ex
+DI
+DI
+DI
+DI
+DI
+ex
+DI
+DI
+DI
+DI
+ex
+DI
+DI
+DI
+DI
+DI
+ex
 DI
 DI
 DI
 DI
 DI
 DI
+ex
 DI
 DI
 DI
 DI
 DI
+ex
 DI
 DI
 DI
 DI
 DI
+ex
 DI
 DI
 DI
 DI
 DI
+ex
+TG
 DI
 DI
 DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-DI
-Hq
-Hq
-Hq
-mR
+TS
 oa
 mO
 EY
@@ -11886,7 +12892,7 @@ EY
 EY
 kz
 oa
-mR
+TS
 MS
 "}
 (44,1,1) = {"
@@ -12076,66 +13082,66 @@ CF
 CF
 CF
 CF
+kh
+kh
+kh
+kh
+kh
+kh
+kh
+kh
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
-TS
 mR
-mR
-mR
-mR
+TS
+TS
+TS
+TS
+TS
+DI
+yN
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+DI
+FB
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+Sm
+TS
+TS
 aC
 uf
 Lt
@@ -12143,7 +13149,7 @@ Lt
 Lt
 SC
 aP
-mR
+TS
 MS
 "}
 (45,1,1) = {"
@@ -12329,6 +13335,28 @@ CF
 CF
 CF
 CF
+kh
+kh
+kh
+kh
+kh
+kh
+kh
+kh
+kh
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+TS
+DI
+DI
+TS
 CF
 CF
 CF
@@ -12348,35 +13376,10 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+TS
+FV
+DI
+TS
 CF
 CF
 CF
@@ -12393,6 +13396,9 @@ CF
 CF
 CF
 mR
+sJ
+mR
+TS
 hQ
 hQ
 DC
@@ -12400,7 +13406,7 @@ DC
 lU
 oa
 oa
-mR
+TS
 MS
 "}
 (46,1,1) = {"
@@ -12584,6 +13590,30 @@ CF
 CF
 CF
 CF
+kh
+kh
+kh
+kh
+kh
+kh
+kh
+kh
+kh
+kh
+kh
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+TS
+FV
+DI
+TS
 CF
 CF
 CF
@@ -12601,41 +13631,14 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+TS
+TS
+TS
+DI
+DI
+TS
+TS
+TS
 CF
 CF
 CF
@@ -12652,12 +13655,15 @@ CF
 mR
 mR
 mR
-mR
-mR
-mR
-mR
-mR
-mR
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
 MS
 "}
 (47,1,1) = {"
@@ -12839,6 +13845,11 @@ CF
 CF
 CF
 CF
+kh
+kh
+kh
+kh
+kh
 CF
 CF
 CF
@@ -12856,6 +13867,10 @@ CF
 CF
 CF
 CF
+TS
+DI
+DI
+TS
 CF
 CF
 CF
@@ -12873,23 +13888,14 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+TS
+QX
+Sm
+DI
+DI
+Sm
+QX
+TS
 CF
 CF
 CF
@@ -13089,6 +14095,16 @@ CF
 CF
 CF
 CF
+kh
+kh
+kh
+kh
+kh
+kh
+kh
+kh
+kh
+kh
 CF
 CF
 CF
@@ -13107,6 +14123,12 @@ CF
 CF
 CF
 CF
+TS
+TS
+DI
+yN
+TS
+TS
 CF
 CF
 CF
@@ -13123,30 +14145,14 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+TS
+TS
+TS
+OL
+DI
+TS
+TS
+TS
 CF
 CF
 CF
@@ -13345,6 +14351,15 @@ CF
 CF
 CF
 CF
+kh
+kh
+Nz
+Nz
+Nz
+Nz
+kh
+kh
+kh
 CF
 CF
 CF
@@ -13365,6 +14380,12 @@ CF
 CF
 CF
 CF
+TS
+oa
+oa
+oa
+oa
+TS
 CF
 CF
 CF
@@ -13379,32 +14400,17 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+TS
+TS
+TS
+TS
+TS
+DI
+FB
+TS
+TS
+TS
+TS
 CF
 CF
 CF
@@ -13601,6 +14607,15 @@ CF
 CF
 CF
 CF
+kh
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+kh
 CF
 CF
 CF
@@ -13622,6 +14637,12 @@ CF
 CF
 CF
 CF
+TS
+aC
+oa
+oa
+oa
+TS
 CF
 CF
 CF
@@ -13636,32 +14657,17 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+TS
+gM
+Su
+BC
+zQ
+DI
+DI
+BC
+QG
+nV
+TS
 CF
 CF
 CF
@@ -13857,6 +14863,16 @@ CF
 CF
 CF
 CF
+kh
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+kh
 CF
 CF
 CF
@@ -13878,6 +14894,12 @@ CF
 CF
 CF
 CF
+TS
+oa
+oa
+oa
+oa
+TS
 CF
 CF
 CF
@@ -13892,33 +14914,17 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+TS
+df
+DI
+DI
+FC
+DI
+DI
+DI
+wj
+DI
+TS
 CF
 CF
 CF
@@ -14114,6 +15120,17 @@ CF
 CF
 CF
 CF
+kh
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+kh
+kh
 CF
 CF
 CF
@@ -14133,6 +15150,14 @@ CF
 CF
 CF
 CF
+TS
+TS
+oa
+oa
+oa
+oa
+TS
+TS
 CF
 CF
 CF
@@ -14146,36 +15171,17 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+TS
+TS
+TS
+TS
+TS
+DI
+DI
+BC
+xh
+DI
+TS
 CF
 CF
 CF
@@ -14368,6 +15374,20 @@ CF
 CF
 CF
 CF
+kh
+kh
+kh
+kh
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+kh
 CF
 CF
 CF
@@ -14387,6 +15407,14 @@ CF
 CF
 CF
 CF
+TS
+oa
+oa
+oa
+oa
+oa
+oa
+TS
 CF
 CF
 CF
@@ -14400,46 +15428,24 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+TS
+eZ
+Yk
+ry
+zQ
+DI
+DI
+DI
+DI
+zf
+ss
+st
+st
+st
+st
+st
+st
+st
 CF
 CF
 CF
@@ -14625,8 +15631,20 @@ CF
 CF
 CF
 CF
+kh
+kh
+kh
 CF
 CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+kh
 CF
 CF
 CF
@@ -14646,6 +15664,14 @@ CF
 CF
 CF
 CF
+TS
+oa
+uy
+ZF
+ZF
+uy
+oa
+TS
 CF
 CF
 CF
@@ -14659,50 +15685,30 @@ CF
 CF
 CF
 CF
+TS
+df
+jj
+jj
+FC
+DI
+DI
+DI
+DI
+DI
+TS
 CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+st
+st
+st
+st
+st
+st
+st
+st
+st
 CF
 CF
 CF
@@ -14887,6 +15893,15 @@ kh
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+kh
 CF
 CF
 CF
@@ -14906,6 +15921,14 @@ CF
 CF
 CF
 CF
+TS
+oa
+sD
+mK
+mK
+je
+oa
+TS
 CF
 CF
 CF
@@ -14919,6 +15942,17 @@ CF
 CF
 CF
 CF
+TS
+TS
+TS
+TS
+TS
+DI
+DI
+DI
+BC
+Tx
+TS
 CF
 CF
 CF
@@ -14930,37 +15964,9 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+st
+st
+st
 CF
 CF
 CF
@@ -15139,8 +16145,19 @@ CF
 CF
 CF
 kh
+Nz
+Nz
+CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 kh
-kh
 CF
 CF
 CF
@@ -15161,6 +16178,14 @@ CF
 CF
 CF
 CF
+TS
+aC
+sD
+mK
+mK
+je
+aP
+TS
 CF
 CF
 CF
@@ -15174,6 +16199,19 @@ CF
 CF
 CF
 CF
+TS
+jm
+Su
+BC
+zQ
+DI
+DI
+TS
+TS
+TS
+TS
+TS
+TS
 CF
 CF
 CF
@@ -15185,41 +16223,9 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+st
+st
+st
 CF
 CF
 CF
@@ -15396,8 +16402,18 @@ CF
 CF
 CF
 kh
-kh
-kh
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -15419,6 +16435,14 @@ CF
 CF
 CF
 CF
+TS
+oa
+uy
+pO
+pO
+uy
+oa
+TS
 CF
 CF
 CF
@@ -15432,6 +16456,19 @@ CF
 CF
 CF
 CF
+TS
+df
+DI
+DI
+FC
+DI
+DI
+TS
+OK
+uA
+Al
+ZX
+TS
 CF
 CF
 CF
@@ -15444,40 +16481,9 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+st
+st
+st
 CF
 CF
 CF
@@ -15653,7 +16659,17 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
+Nz
+Nz
 CF
 CF
 CF
@@ -15676,6 +16692,14 @@ CF
 CF
 CF
 CF
+TS
+oa
+TS
+mK
+mK
+TS
+oa
+TS
 CF
 CF
 CF
@@ -15689,6 +16713,19 @@ CF
 CF
 CF
 CF
+TS
+TS
+TS
+TS
+TS
+DI
+DI
+TS
+Sl
+MH
+MH
+MH
+TS
 CF
 CF
 CF
@@ -15702,39 +16739,8 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+st
+st
 CF
 CF
 CF
@@ -15911,6 +16917,13 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -15936,6 +16949,14 @@ CF
 CF
 CF
 CF
+TS
+TS
+TS
+IB
+IB
+TS
+TS
+TS
 CF
 CF
 CF
@@ -15949,6 +16970,19 @@ CF
 CF
 CF
 CF
+TS
+gM
+Su
+BC
+zQ
+DI
+DI
+zD
+MH
+MH
+MH
+Pg
+TS
 CF
 CF
 CF
@@ -15962,36 +16996,8 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+st
+st
 CF
 CF
 CF
@@ -16168,6 +17174,13 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -16196,6 +17209,8 @@ CF
 CF
 CF
 CF
+Nz
+Nz
 CF
 CF
 CF
@@ -16212,6 +17227,19 @@ CF
 CF
 CF
 CF
+TS
+df
+DI
+DI
+FC
+vx
+DI
+TS
+MH
+MH
+MH
+MH
+TS
 CF
 CF
 CF
@@ -16226,30 +17254,8 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+st
+st
 CF
 CF
 CF
@@ -16425,6 +17431,11 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -16454,6 +17465,9 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -16470,6 +17484,19 @@ CF
 CF
 CF
 CF
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+TS
+Uu
+GE
+WR
+Ke
+TS
 CF
 CF
 CF
@@ -16484,30 +17511,9 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+st
+st
+im
 CF
 CF
 CF
@@ -16682,6 +17688,11 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -16711,6 +17722,8 @@ CF
 CF
 CF
 CF
+Nz
+Nz
 CF
 CF
 CF
@@ -16735,6 +17748,12 @@ CF
 CF
 CF
 CF
+TS
+TS
+TS
+TS
+TS
+TS
 CF
 CF
 CF
@@ -16749,22 +17768,9 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+st
+Av
+st
 CF
 CF
 CF
@@ -16939,6 +17945,11 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -16966,6 +17977,10 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -17010,18 +18025,9 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+st
+st
+st
 CF
 CF
 CF
@@ -17196,6 +18202,10 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -17223,14 +18233,10 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -17452,6 +18458,11 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -17477,17 +18488,12 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -17709,6 +18715,10 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -17734,15 +18744,11 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -17966,6 +18972,10 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -17989,16 +18999,12 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -18221,6 +19227,11 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -18242,18 +19253,13 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -18478,6 +19484,11 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -18497,19 +19508,14 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -18735,6 +19741,11 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -18750,22 +19761,17 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -18992,6 +19998,10 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -19005,20 +20015,16 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -19248,6 +20254,11 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -19259,21 +20270,16 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -19505,6 +20511,11 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -19514,21 +20525,16 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -19762,6 +20768,11 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -19769,18 +20780,13 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -20019,22 +21025,22 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -20275,22 +21281,22 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -20532,21 +21538,21 @@ CF
 CF
 CF
 CF
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -20789,18 +21795,18 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -21046,16 +22052,16 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -21301,17 +22307,17 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -21552,20 +22558,20 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -21806,20 +22812,20 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -22061,19 +23067,19 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -22315,21 +23321,21 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -22571,19 +23577,19 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -22827,18 +23833,18 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -23080,19 +24086,19 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -23333,19 +24339,19 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -23587,19 +24593,19 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -23843,17 +24849,17 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -24097,17 +25103,17 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -24353,14 +25359,14 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -24613,9 +25619,9 @@ Nz
 Nz
 Nz
 Nz
-CF
-CF
-CF
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -24861,18 +25867,18 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
 Nz
 Nz
 Nz
 Nz
 Nz
 Nz
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -25118,17 +26124,17 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
 Nz
 Nz
 Nz
 Nz
 Nz
 Nz
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -25374,18 +26380,18 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
 Nz
 Nz
 Nz
 Nz
 Nz
 Nz
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -25631,18 +26637,18 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
 Nz
 Nz
 Nz
 Nz
 Nz
 Nz
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -25888,19 +26894,19 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
 Nz
 Nz
 Nz
 Nz
 Nz
 Nz
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -26145,19 +27151,19 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -26402,19 +27408,19 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -26659,19 +27665,19 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -26917,18 +27923,18 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -27174,18 +28180,18 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -27430,19 +28436,19 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -27687,18 +28693,18 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -27944,18 +28950,18 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -28201,18 +29207,18 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF
@@ -28458,14 +29464,14 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 CF

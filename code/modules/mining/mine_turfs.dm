@@ -527,7 +527,7 @@ var/list/mineral_can_smooth_with = list(
 	. = ..()
 
 /turf/simulated/mineral/random/exoplanet
-	mined_turf = /turf/simulated/floor/exoplanet/mineral
+	mined_turf = /turf/simulated/floor/exoplanet/barren/warm
 
 /turf/simulated/mineral/random/adhomai
 	color = "#97A7AA"
@@ -667,7 +667,7 @@ var/list/mineral_can_smooth_with = list(
 	mined_turf = /turf/unsimulated/floor/asteroid/ash
 
 /turf/simulated/mineral/planet
-	mined_turf = /turf/simulated/floor/exoplanet/mineral
+	mined_turf = /turf/simulated/floor/exoplanet/barren/warm
 
 /turf/simulated/mineral/adhomai
 	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai

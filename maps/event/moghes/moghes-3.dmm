@@ -2140,6 +2140,9 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"eB" = (
+/turf/simulated/open,
+/area/new_blades/underground)
 "eC" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
@@ -4238,8 +4241,6 @@
 /obj/item/bodybag/cryobag,
 /obj/item/storage/belt/medical,
 /obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
 	},
@@ -5565,6 +5566,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"ls" = (
+/obj/item/pickaxe/drill/weak,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "lt" = (
 /obj/structure/bonfire/fireplace,
 /turf/simulated/floor/wood/maple{
@@ -41386,7 +41393,7 @@ LE
 LE
 LE
 LE
-LE
+SC
 LE
 LE
 LE
@@ -41641,9 +41648,9 @@ ji
 ji
 LE
 LE
-LE
-LE
-LE
+ls
+eB
+SC
 LE
 LE
 LE
@@ -41898,9 +41905,9 @@ ji
 ji
 LE
 LE
-LE
-LE
-LE
+SC
+SC
+SC
 LE
 LE
 LE
@@ -42154,8 +42161,8 @@ ji
 yH
 ji
 LE
-LE
-LE
+SC
+SC
 LE
 LE
 LE
