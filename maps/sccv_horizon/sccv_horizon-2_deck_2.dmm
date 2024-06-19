@@ -27557,15 +27557,6 @@
 "mHM" = (
 /obj/structure/closet/secure_closet/RD,
 /obj/effect/floor_decal/industrial/outline/research,
-/obj/item/aicard,
-/obj/item/device/paicard,
-/obj/item/storage/box/gloves,
-/obj/item/device/megaphone/sci,
-/obj/item/device/taperecorder,
-/obj/item/clothing/glasses/welding/superior,
-/obj/item/rig/hazmat/equipped,
-/obj/item/clothing/mask/gas/half,
-/obj/item/storage/box/fancy/candle_box,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -27577,7 +27568,6 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/firealarm/west,
-/obj/item/storage/box/psireceiver,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hor)
 "mHO" = (
