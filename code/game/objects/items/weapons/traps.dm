@@ -129,6 +129,8 @@
 			return
 	if(deployed && isliving(AM))
 		var/mob/living/L = AM
+		if(L.pass_flags & PASSTABLE)
+			return
 		attack_mob(L)
 		update_icon()
 		shake_animation()
@@ -171,13 +173,15 @@
 	deployed = FALSE
 	time_to_escape = 3 // Minutes
 	can_buckle = list(/mob/living)
+	health = 100
+	can_astar_pass = CANASTARPASS_ALWAYS_PROC
+
 	var/breakout = FALSE
 	var/last_shake = 0
 	var/list/allowed_mobs = list(/mob/living/simple_animal/rat, /mob/living/simple_animal/chick, /mob/living/simple_animal/lizard)
 	var/release_time = 0
 	var/list/resources = list(rods = 6)
 	var/spider = TRUE
-	health = 100
 	var/datum/weakref/captured = null
 
 /obj/item/trap/animal/MouseDrop_T(atom/dropping, mob/user)
@@ -525,6 +529,10 @@
 
 /obj/item/trap/animal/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	return TRUE
+
+/obj/item/trap/animal/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
+	return TRUE
+
 
 /**
  * # Animal trap (Medium)

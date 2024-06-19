@@ -67,11 +67,11 @@
 	if(following)
 		if(isturf(loc) && can_move())
 			if(resolved_following)
-				SSmove_manager.move_to(src, resolved_following, follow_distance, legs.move_delay)
+				GLOB.move_manager.move_to(src, resolved_following, follow_distance, legs.move_delay)
 			else
 				unassign_following()
 		else
-			SSmove_manager.stop_looping(src)
+			GLOB.move_manager.stop_looping(src)
 
 /mob/living/heavy_vehicle/get_cell(force)
 	RETURN_TYPE(/obj/item/cell)

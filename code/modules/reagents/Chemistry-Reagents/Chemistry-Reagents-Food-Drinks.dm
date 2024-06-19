@@ -2727,7 +2727,7 @@
 	if(!istype(M))
 		return
 	if(alien == IS_VAURCA)
-		M.intoxication += (strength / 100) * removed * 3.5
+		M.intoxication += (strength / 100) * removed * 6
 
 /singleton/reagent/drink/toothpaste/cold_gate
 	name = "Cold Gate"
@@ -2845,6 +2845,17 @@
 	glass_name = "glass of Flagsdale Mule"
 	glass_desc = "A hard-kicking cocktail, said to be invented in the better parts of Flagsdale."
 	glass_center_of_mass = list("x"=7, "y"=8)
+
+/singleton/reagent/drink/toothpaste/skyemok
+	name = "Skye'mok mead"
+	description = "A traditional mead produced by V'krexi fermentation of the Skye'mok fungus."
+	strength = 25
+	taste_description = "fresh, tangy, and lingering taste"
+	color = "#8ae5bf"
+	glass_icon_state = "skyemok_glass"
+	glass_name = "glass of Skye'mok"
+	glass_desc = "A plastic recipient meant to look like a V'krexi head full of a gooey fungus."
+	glass_center_of_mass = list("x"=14, "y"=8)
 
 /* Alcohol */
 
@@ -3375,7 +3386,6 @@
 	taste_description = "orange peel"
 	color = "#fc782b"
 	strength = 12
-	taste_description = "orange peel"
 
 	glass_icon_state = "glass_orange"
 	glass_name = "glass of triple sec"
@@ -5596,7 +5606,6 @@
 
 	glass_icon_state = "darmadhirbrew_glass"
 	glass_name = "glass of Darmadhir Brew"
-	description = "A rare and expensive brand of nm'shaan liquor."
 
 /singleton/reagent/alcohol/treebark_firewater
 	name = "Tree-Bark Firewater"
@@ -6044,7 +6053,6 @@
 	description = "A delicious seasonal flavoring."
 	color = "#AE771C"
 	taste_description = "autumn bliss"
-	condiment_name = "bottle of pumpkin spice"
 	condiment_name = "Pumpkin Spice"
 	condiment_desc = "Every teenager's favorite seasonal ingredient."
 	condiment_icon_state = "pumpkinspice"
@@ -6436,7 +6444,6 @@
 
 	glass_icon_state = "pulque_dyn"
 	glass_name = "dyn pulque"
-	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is dyn flavored."
 
 /singleton/reagent/alcohol/pulque/banana
 	name = "Banana Pulque"
@@ -6446,7 +6453,6 @@
 
 	glass_icon_state = "pulque_banana"
 	glass_name = "banana pulque"
-	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is banana flavored."
 
 /singleton/reagent/alcohol/pulque/berry
 	name = "Berry Pulque"
@@ -6456,7 +6462,6 @@
 
 	glass_icon_state = "pulque_berry"
 	glass_name = "berry pulque"
-	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is berry flavored."
 
 /singleton/reagent/alcohol/pulque/coffee
 	name = "Coffee Pulque"
@@ -6466,7 +6471,6 @@
 
 	glass_icon_state = "pulque_coffee"
 	glass_name = "coffee pulque"
-	description = "A traditional Mictlanian drink made from fermented sap of maguey. This one is coffee flavored."
 
 /singleton/reagent/drink/jyalra
 	name = "Jyalra"

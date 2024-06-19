@@ -479,6 +479,12 @@ Follow by example and make good judgement based on length which list to include 
 	length = 3
 	chatname = "hair drills"
 
+/datum/sprite_accessory/hair/eagle
+	name = "Eagle"
+	icon_state = "hair_eagle"
+	length = 1
+	chatname = "short hair"
+
 /datum/sprite_accessory/hair/emo
 	name = "Emo"
 	icon_state = "hair_emo"
@@ -564,6 +570,12 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Fade, None"
 	icon_state = "hair_fade_none"
 	chatname = "short hair"
+
+/datum/sprite_accessory/hair/falcon
+	name = "Falcon"
+	icon_state = "hair_falcon"
+	length = 3
+	chatname = "very long hair"
 
 /datum/sprite_accessory/hair/father
 	name = "Father"
@@ -702,6 +714,12 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_hitop"
 	chatname = "hitop"
 
+/datum/sprite_accessory/hair/hummingbird
+	name = "Hummingbird"
+	icon_state = "hair_hummingbird"
+	length = 2
+	chatname = "long hair"
+
 /datum/sprite_accessory/hair/jade
 	name = "Jade"
 	icon_state = "hair_jade"
@@ -758,6 +776,28 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_long_verylong"
 	length = 4
 	chatname = "very long hair"
+
+/datum/sprite_accessory/hair/macaw
+	name = "Macaw"
+	icon_state = "hair_macaw"
+	length = 2
+	chatname = "long hair"
+
+/datum/sprite_accessory/hair/magpie
+	name = "Magpie, 1"
+	icon_state = "hair_magpie"
+
+/datum/sprite_accessory/hair/magpie/two
+	name = "Magpie, 2"
+	icon_state = "hair_magpie2"
+
+/datum/sprite_accessory/hair/magpie/three
+	name = "Magpie, 3"
+	icon_state = "hair_magpie3"
+
+/datum/sprite_accessory/hair/magpie/four
+	name = "Magpie, 4"
+	icon_state = "hair_magpie4"
 
 /datum/sprite_accessory/hair/marysue
 	name = "Mary Sue"
@@ -1479,7 +1519,6 @@ Follow by example and make good judgement based on length which list to include 
 	chatname = "unshaved hair"
 	name = "Undercut 3"
 	icon_state = "hair_undercut3"
-	chatname = "unshaved hair"
 
 /datum/sprite_accessory/hair/undercut4
 	name = "Undercut 4"
@@ -1489,6 +1528,11 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/hair/undercut5
 	name = "Undercut 5"
 	icon_state = "hair_undercut5"
+	chatname = "unshaved hair"
+
+/datum/sprite_accessory/hair/curtain
+	name = "Short Curtain"
+	icon_state = "hair_curtain"
 	chatname = "unshaved hair"
 
 /datum/sprite_accessory/hair/unkept
@@ -1524,6 +1568,11 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Fingerwave"
 	icon_state = "hair_fingercurl"
 	chatname = "fluffy hair"
+
+/datum/sprite_accessory/hair/mullet
+	name = "Mullet"
+	icon_state = "hair_mullet"
+	chatname = "mullet"
 
 /datum/sprite_accessory/hair/bug_eyes
 	icon = 'icons/mob/human_face/dionae_hair.dmi'
@@ -4991,10 +5040,22 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "mecha_eye_r"
 	body_parts = list(BP_HEAD)
 	do_colouration = FALSE
+	species_allowed = list(/datum/species/bug)
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye/warrior
+	name = "Mecha Eye (Faceplate, Right, Warrior)"
+	icon_state = "mecha_eye_warrior_r"
+	species_allowed = list(/datum/species/bug/type_b)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eye_l
 	name = "Mecha Eye (Faceplate, Left)"
 	icon_state = "mecha_eye_l"
+	species_allowed = list(/datum/species/bug)
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eye_l/warrior
+	name = "Mecha Eye (Faceplate, Left, Warrior)"
+	icon_state = "mecha_eye_warrior_l"
+	species_allowed = list(/datum/species/bug/type_b)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay
 	name = "Mecha Eye (Overlay, Right)"
@@ -5005,15 +5066,45 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Mecha Eye (Overlay, Left)"
 	icon_state = "mecha_eyeoverlay_l"
 
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay/upper
+	name = "Upper Mecha Eye (Overlay, Right)"
+	icon_state = "mecha_uppereyeoverlay_r"
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eyeoverlay_l/upper
+	name = "Upper Mecha Eye (Overlay, Left)"
+	icon_state = "mecha_uppereyeoverlay_l"
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay/lower
+	name = "Lower Mecha Eye (Overlay, Right)"
+	icon_state = "mecha_lowereyeoverlay_r"
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eyeoverlay_l/lower
+	name = "Lower Mecha Eye (Overlay, Left)"
+	icon_state = "mecha_lowereyeoverlay_l"
+
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l
 	name = "Mecha Eye (Faceplate, Right, Large)"
 	icon_state = "mecha_eye_r_l"
 	body_parts = list(BP_HEAD)
 	do_colouration = FALSE
+	species_allowed = list(/datum/species/bug)
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l/warrior
+	name = "Mecha Eye (Faceplate, Right, Large, Warrior)"
+	icon_state = "mecha_eye_warrior_r_l"
+	body_parts = list(BP_HEAD)
+	do_colouration = FALSE
+	species_allowed = list(/datum/species/bug/type_b)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l/mecha_eye_r_l
 	name = "Mecha Eye (Faceplate, Left, Large)"
 	icon_state = "mecha_eye_l_l"
+	species_allowed = list(/datum/species/bug)
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l/mecha_eye_r_l/warrior
+	name = "Mecha Eye (Faceplate, Left, Large, Warrior)"
+	icon_state = "mecha_eye_warrior_l_l"
+	species_allowed = list(/datum/species/bug/type_b)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay_l
 	name = "Mecha Eye (Overlay, Right, Large)"
@@ -5024,9 +5115,11 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Mecha Eye (Overlay, Left, Large)"
 	icon_state = "mecha_eyeoverlay_l_l"
 
-/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b/mandible
+/datum/sprite_accessory/marking/vaurca_augs/mandible
 	name = "Mecha Mandibles"
 	icon_state = "mecha_mandibles"
+	body_parts = list(BP_HEAD)
+	do_colouration = FALSE
 
 /datum/sprite_accessory/marking/vaurca_augs/hand_panel_r
 	name = "Hand Panel (Right)"

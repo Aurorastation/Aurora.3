@@ -287,7 +287,6 @@
 
 /obj/item/device/radio/headset/headset_service/alt
 	name = "service radio bowman headset"
-	icon_state = "srv_headset_alt"
 	icon_state = "headset_alt"
 
 /obj/item/device/radio/headset/alt/double/service
@@ -672,7 +671,7 @@
 	item_state = "wristset_sec"
 	ks2type = /obj/item/device/encryptionkey/headset_sec
 
-/obj/item/device/radio/headset/wrist/sec
+/obj/item/device/radio/headset/wrist/clip/sec
 	name = "clip-on security radio"
 	icon_state = "clip_sec"
 	item_state = "clip_sec"

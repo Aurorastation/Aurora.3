@@ -571,9 +571,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "cfi" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -660,8 +658,7 @@
 /area/ship/ranger_corvette/engine1)
 "cpO" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "coc_fore";
@@ -1002,7 +999,6 @@
 "epG" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1450,7 +1446,6 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = null;
-	cell_type = /obj/item/cell/hyper
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
@@ -1984,9 +1979,7 @@
 /area/ship/ranger_corvette/crew)
 "ian" = (
 /obj/structure/table/wood,
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /obj/item/trash/dipbowl,
 /turf/simulated/floor/carpet,
 /area/ship/ranger_corvette/foyer)
@@ -2106,7 +2099,6 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = null;
-	cell_type = /obj/item/cell/hyper
 	},
 /obj/machinery/autolathe,
 /turf/simulated/floor/tiled/dark,
@@ -3277,8 +3269,7 @@
 /area/ship/ranger_corvette/bridge)
 "nCd" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
@@ -3551,7 +3542,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -3841,17 +3831,13 @@
 /area/ship/ranger_corvette/gunnery)
 "pFY" = (
 /obj/structure/table/steel,
-/obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for a Xansan-class vessel.";
-	icon = 'icons/obj/items.dmi';
-	icon_state = "blueprints";
-	item_icons = null;
-	item_state = null;
-	name = "ship blueprints"
-	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
+/obj/item/blueprints,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "pHP" = (
@@ -4198,12 +4184,10 @@
 "qSw" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/item/reagent_containers/food/drinks/bottle/whiskey{
-	layer = 3.1;
 	pixel_x = 2;
 	pixel_y = 17
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
-	layer = 3.2;
 	pixel_x = -5;
 	pixel_y = 11
 	},
@@ -4623,7 +4607,6 @@
 "sEf" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4717,11 +4700,8 @@
 /area/space)
 "sSQ" = (
 /obj/structure/coatrack,
-/obj/item/clothing/suit/storage/toggle/himeo{
-	layer = 4.2
-	},
+/obj/item/clothing/suit/storage/toggle/himeo,
 /obj/item/clothing/head/softcap/himeo{
-	layer = 4.21;
 	pixel_y = 12
 	},
 /obj/item/clothing/accessory/flagpatch/himeo,
@@ -4894,7 +4874,7 @@
 /obj/item/storage/belt/utility/full,
 /obj/item/storage/belt/utility/very_full,
 /obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical/first_responder/combat/full,
+/obj/item/storage/belt/medical/paramedic/combat/full,
 /obj/item/clothing/accessory/flagpatch/coalition,
 /obj/item/clothing/accessory/flagpatch/coalition,
 /obj/item/clothing/accessory/flagpatch/coalition,
@@ -5201,9 +5181,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/engine1)
 "tXd" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/button/remote/blast_door{
 	id = "coc_fore";
@@ -5317,7 +5295,6 @@
 	},
 /obj/item/bedsheet/black,
 /obj/item/clothing/head/bearpelt{
-	layer = 4;
 	name = "bear pelt blanket"
 	},
 /obj/machinery/light{
@@ -5653,7 +5630,6 @@
 "vyy" = (
 /obj/structure/table/steel,
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/machinery/door/window/northleft{
@@ -6106,7 +6082,6 @@
 "wSM" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/decal/cleanable/ash{
-	layer = 3;
 	pixel_y = 10
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -6248,7 +6223,6 @@
 /area/ship/ranger_corvette/munitions)
 "xuX" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,

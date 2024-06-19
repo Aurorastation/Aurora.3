@@ -8,10 +8,9 @@
 	icon_state = "grille"
 	density = TRUE
 	anchored = TRUE
-	obj_flags = OBJ_FLAG_CONDUCTABLE
+	obj_flags = OBJ_FLAG_CONDUCTABLE | OBJ_FLAG_MOVES_UNSUPPORTED
 	explosion_resistance = 1
 	layer = BELOW_OBJ_LAYER
-	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/health = 10
 	var/destroyed = 0
 
@@ -103,7 +102,7 @@
 
 /obj/structure/grille/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return 1
-	if(istype(mover) && mover.checkpass(PASSGRILLE))
+	if(istype(mover) && mover.pass_flags & PASSGRILLE)
 		return 1
 	else
 		if(istype(mover, /obj/item/projectile))
@@ -274,7 +273,7 @@
 			return 0
 	return 0
 
-/obj/structure/grille/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/structure/grille/fire_act(exposed_temperature, exposed_volume)
 	if(!destroyed)
 		if(exposed_temperature > T0C + 1500)
 			health -= 1

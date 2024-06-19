@@ -9192,7 +9192,6 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "RDStorage";
@@ -30957,7 +30956,6 @@
 	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -32479,7 +32477,6 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
@@ -32589,7 +32586,6 @@
 	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -33316,7 +33312,6 @@
 	dir = 1
 	},
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
@@ -34112,7 +34107,6 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -34866,7 +34860,6 @@
 	pixel_y = 5
 	},
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -40678,7 +40671,7 @@
 /area/hallway/primary/central_one)
 "bwd" = (
 /turf/simulated/wall,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bwe" = (
 /obj/machinery/computer/guestpass{
 	pixel_x = -28
@@ -40694,7 +40687,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bwg" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -41381,7 +41374,6 @@
 /area/rnd/lab)
 "bxn" = (
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -41452,7 +41444,7 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bxv" = (
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
@@ -41468,7 +41460,7 @@
 /obj/item/storage/firstaid/o2,
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bxw" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/adv{
@@ -41479,7 +41471,7 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bxx" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/closet/walllocker/medical/secure{
@@ -41496,7 +41488,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
 /obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bxy" = (
 /obj/machinery/power/apc/north{
 	is_critical = 1
@@ -41507,7 +41499,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bxz" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/closet/walllocker/medical/secure{
@@ -41522,7 +41514,7 @@
 /obj/item/reagent_containers/syringe/antibiotic,
 /obj/item/reagent_containers/syringe/antibiotic,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bxA" = (
 /obj/machinery/light{
 	dir = 1
@@ -41530,7 +41522,7 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/suit_cycler/medical,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bxB" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/window/reinforced{
@@ -41551,7 +41543,7 @@
 	req_access = list(67)
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bxC" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/disposalpipe/segment{
@@ -41566,7 +41558,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bxD" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -42042,7 +42034,6 @@
 /area/rnd/lab)
 "byO" = (
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -42113,21 +42104,21 @@
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "byT" = (
 /obj/structure/disposalpipe/junction{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "byU" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "byV" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/disposalpipe/segment{
@@ -42137,11 +42128,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "byW" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "byX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -42165,7 +42156,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "byZ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -42184,7 +42175,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
-/obj/effect/floor_decal/sign/first_responder,
+/obj/effect/floor_decal/sign/paramedic,
 /turf/simulated/floor/tiled/white,
 /area/medical/medbay)
 "bza" = (
@@ -42650,7 +42641,6 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -42694,13 +42684,13 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bzY" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/window/reinforced,
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bzZ" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced{
@@ -42723,7 +42713,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/plating,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bAb" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/disposalpipe/segment{
@@ -42741,12 +42731,12 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bAc" = (
 /obj/structure/bed/stool/chair/office/light,
 /obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bAd" = (
 /obj/structure/extinguisher_cabinet/west,
 /obj/structure/bed/stool/chair/plastic{
@@ -43042,7 +43032,7 @@
 	},
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bAO" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -43095,10 +43085,10 @@
 	name = "First Responder Garage Door"
 	},
 /turf/simulated/floor/plating,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bAV" = (
 /turf/simulated/floor/plating,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bAW" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -43112,7 +43102,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bAZ" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/sign/securearea{
@@ -43127,7 +43117,7 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bBc" = (
 /obj/random/pottedplant,
 /obj/machinery/alarm/west,
@@ -43351,7 +43341,7 @@
 	},
 /obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bBH" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -43431,7 +43421,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bBP" = (
 /turf/simulated/wall,
 /area/crew_quarters/sleep/main)
@@ -43771,7 +43761,7 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "bCC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -43844,7 +43834,6 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -44750,7 +44739,7 @@
 	dir = 8
 	},
 /obj/structure/table/standard,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/structure/sign/nosmoking_2{
 	pixel_x = -32
 	},
@@ -49097,9 +49086,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/machinery/door/window/westleft{
-	closed_layer = 2.9;
 	name = "Display Window";
-	open_layer = 2.9;
 	req_access = list(28)
 	},
 /obj/machinery/door/blast/shutters{
@@ -58440,7 +58427,7 @@
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "eqc" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
@@ -58879,7 +58866,6 @@
 /obj/structure/window/reinforced,
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
@@ -60005,7 +59991,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "gZP" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 9
@@ -61009,7 +60995,6 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -62973,7 +62958,7 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/bed/stool/chair/office/light,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "nbB" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -63712,7 +63697,6 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -63927,7 +63911,6 @@
 /obj/structure/window/reinforced,
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
@@ -64222,7 +64205,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/door/airlock/engineering{
 	name = "Supply (Main Level) Substation";
-	open_layer = 2.8;
 	req_one_access = list(11,24);
 	dir = 1
 	},
@@ -65820,7 +65802,6 @@
 	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -65855,7 +65836,6 @@
 	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
@@ -66210,9 +66190,7 @@
 	dir = 1
 	},
 /obj/machinery/door/window/westright{
-	closed_layer = 2.9;
 	name = "Display Window";
-	open_layer = 2.9;
 	req_access = list(28)
 	},
 /obj/machinery/door/blast/shutters{
@@ -66396,7 +66374,6 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -66417,9 +66394,9 @@
 /area/crew_quarters/kitchen/freezer)
 "tiv" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/structure/closet/secure_closet/medical_fr,
+/obj/structure/closet/secure_closet/medical_para,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "tjb" = (
 /obj/item/chess_piece/queen/black,
 /turf/simulated/floor/marble/dark,
@@ -66892,7 +66869,6 @@
 	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
@@ -68563,7 +68539,6 @@
 	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";

@@ -409,8 +409,7 @@
 /obj/item/ship_ammunition/lammergeier,
 /obj/item/ship_ammunition/lammergeier,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -521,8 +520,7 @@
 /area/ship/dominian_unathi/med)
 "dY" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/structure/window/reinforced{
@@ -540,8 +538,7 @@
 /area/ship/dominian_unathi/bridgefoyer)
 "dZ" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/plating,
@@ -1770,8 +1767,7 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -2071,12 +2067,10 @@
 /area/ship/dominian_unathi/captain)
 "pp" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/gun)
@@ -2196,8 +2190,7 @@
 "qg" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -2437,8 +2430,7 @@
 /area/ship/dominian_unathi/armory)
 "rG" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
@@ -2695,8 +2687,7 @@
 /obj/item/ship_ammunition/francisca/ap,
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/structure/window/reinforced,
 /obj/machinery/light,
@@ -3727,8 +3718,7 @@
 	icon_state = "rwindow"
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/corner/orange{
@@ -3774,7 +3764,6 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /obj/machinery/light{
@@ -3937,8 +3926,7 @@
 /area/ship/dominian_unathi/portthrust)
 "Bx" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty{
@@ -3976,8 +3964,7 @@
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/machinery/light,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
@@ -4048,8 +4035,7 @@
 /area/ship/dominian_unathi/bridgefoyer)
 "Ct" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -4292,8 +4278,7 @@
 /obj/item/ship_ammunition/lammergeier,
 /obj/item/ship_ammunition/lammergeier,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -4452,8 +4437,7 @@
 /obj/item/ship_ammunition/lammergeier,
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -5333,8 +5317,7 @@
 /area/ship/dominian_unathi/captain)
 "Kd" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
@@ -5353,8 +5336,7 @@
 /area/ship/dominian_unathi/loot)
 "Ki" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
@@ -5810,6 +5792,8 @@
 /area/ship/dominian_unathi/med)
 "Nw" = (
 /obj/structure/table/standard,
+/obj/item/blueprints,
+/obj/item/pen/drafting,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/engineering)
 "Nx" = (
@@ -6397,8 +6381,7 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -6931,7 +6914,7 @@
 /obj/item/bodybag/cryobag,
 /obj/item/reagent_containers/hypospray,
 /obj/item/storage/pill_bottle/dylovene,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/auto_cpr{
 	pixel_x = 6;
 	pixel_y = -1
@@ -7153,12 +7136,10 @@
 /area/ship/dominian_unathi/eva)
 "WF" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,

@@ -239,8 +239,7 @@
 "cB" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -355,8 +354,7 @@
 /area/tcaf_corvette)
 "cW" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
@@ -871,6 +869,11 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/tcaf_corvette/engineering)
+"gl" = (
+/obj/structure/closet/radiation,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/engineering)
 "gm" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
@@ -1010,7 +1013,6 @@
 /area/tcaf_corvette/medical)
 "hu" = (
 /obj/machinery/ship_weapon/francisca/compact{
-	layer = 3;
 	pixel_x = -40;
 	pixel_y = -64;
 	weapon_id = "TCAF Shuttle Francisca Rotary Gun"
@@ -1490,7 +1492,6 @@
 "kZ" = (
 /obj/structure/toilet{
 	dir = 4;
-	layer = 2.6;
 	pixel_y = 1
 	},
 /obj/structure/extinguisher_cabinet/west,
@@ -2050,9 +2051,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/messhall)
 "qt" = (
-/obj/structure/closet/radiation,
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/table/reinforced/steel,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
@@ -2210,6 +2216,7 @@
 /area/tcaf_corvette/grauwolf)
 "sb" = (
 /obj/machinery/vending/tool,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
 "sd" = (
@@ -2673,7 +2680,6 @@
 "vh" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8;
 	name = "CO2 to Thrusters"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3252,8 +3258,8 @@
 /area/tcaf_corvette/medical)
 "AN" = (
 /obj/structure/table/steel,
-/obj/item/storage/belt/medical/first_responder/combat,
-/obj/item/storage/belt/medical/first_responder/combat,
+/obj/item/storage/belt/medical/paramedic/combat,
+/obj/item/storage/belt/medical/paramedic/combat,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,
 /obj/item/reagent_containers/hypospray/autoinjector/survival,
@@ -3542,7 +3548,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -4662,6 +4667,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
 "MS" = (
@@ -5926,6 +5932,7 @@
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
 "Xi" = (
@@ -5959,7 +5966,6 @@
 "XH" = (
 /obj/structure/table/wood/mahogany,
 /obj/item/storage/box/fancy/cigarettes/cigar{
-	layer = 3.01;
 	pixel_x = -5;
 	pixel_y = 6
 	},
@@ -31583,7 +31589,7 @@ Jm
 wq
 Xh
 Gm
-Sd
+gl
 RA
 Yg
 wx

@@ -74,17 +74,17 @@
 
 	return last_increment
 
-/obj/item/reagent_containers/throw_impact(atom/hit_atom, var/speed)
+/obj/item/reagent_containers/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
 	if(ismob(loc))
 		return
-	if(fragile && (speed >= fragile))
+	if(fragile && (throwingdatum.speed >= fragile))
 		shatter()
 	if(atom_flags && ATOM_FLAG_NO_REACT)
 		return
 	if(!reagents)
 		return
-	reagents.apply_force(speed)
+	reagents.apply_force(throwingdatum.speed)
 
 /obj/item/reagent_containers/proc/shatter(var/obj/item/W, var/mob/user)
 	if(reagents?.total_volume)
@@ -327,7 +327,10 @@
 		return 0
 
 	// Ensure we don't splash beakers and similar containers.
-	if(!target.is_open_container() && istype(target, /obj/item/reagent_containers))
+	if(!target.is_open_container())
+		if(target.atom_flags & ATOM_FLAG_DISPENSER && istype(target, /obj/item/reagent_containers))
+			var/obj/item/reagent_containers/dispenser = target
+			return dispenser.standard_pour_into(user, src)
 		to_chat(user, SPAN_NOTICE("\The [target] is closed."))
 		return 1
 	// Otherwise don't care about splashing.

@@ -2227,6 +2227,7 @@
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/stack/material/tritium/full,
 /turf/simulated/floor/plating,
 /area/ship/dominian_corvette/engineering/reactor)
 "hru" = (
@@ -3280,7 +3281,7 @@
 	pixel_x = -32
 	},
 /obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/hypospray,
 /obj/item/auto_cpr,
@@ -4535,6 +4536,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/item/pen/drafting,
+/obj/item/blueprints,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
 "pJj" = (
@@ -4910,7 +4913,6 @@
 "qRq" = (
 /obj/structure/table/wood,
 /obj/item/storage/box/fancy/cigarettes/cigar{
-	layer = 3.01;
 	pixel_x = -5;
 	pixel_y = 6
 	},
@@ -5809,9 +5811,6 @@
 "uCl" = (
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_y = 0;
-	dir = 4;
-	pixel_x = 15;
 	req_access = list(212)
 	},
 /obj/structure/cable{
@@ -6064,7 +6063,6 @@
 "vBe" = (
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{

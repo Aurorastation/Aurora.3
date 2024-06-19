@@ -843,7 +843,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -1035,7 +1034,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -1412,8 +1410,7 @@
 	icon_state = "co2-2"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/ship/gadpathur_patrol/fuel)
@@ -1653,8 +1650,7 @@
 /area/shuttle/gadpathur_shuttle)
 "nj" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/hangar)
@@ -1786,8 +1782,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	layer = 2.78
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/gadpathur_shuttle)
@@ -2495,8 +2490,7 @@
 	name = "starboard, fuel compartment"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /turf/simulated/floor/airless,
 /area/ship/gadpathur_patrol/fuel)
@@ -2541,8 +2535,7 @@
 "tx" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /turf/simulated/floor/reinforced{
 	blocks_air = 1;
@@ -2741,7 +2734,6 @@
 /obj/structure/platform_stairs/full/east_west_cap/half,
 /obj/structure/platform{
 	dir = 8;
-	layer = 3;
 	pixel_y = 14
 	},
 /turf/simulated/floor,
@@ -3179,8 +3171,7 @@
 /area/ship/gadpathur_patrol/thrusters/starboard)
 "zi" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/light/small{
 	dir = 8
@@ -4031,8 +4022,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
 	frequency = 1385;
-	id_tag = "gadpathur_shuttle_pump_out_internal";
-	layer = 2.8
+	id_tag = "gadpathur_shuttle_pump_out_internal"
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4317,8 +4307,7 @@
 	icon_state = "co2-4"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /turf/simulated/floor/airless,
 /area/ship/gadpathur_patrol/fuel)
@@ -4424,15 +4413,13 @@
 "IF" = (
 /obj/structure/tank_wall/carbon_dioxide,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/ship/gadpathur_patrol/fuel)
 "IG" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/machinery/light/floor{
 	dir = 1
@@ -4588,8 +4575,7 @@
 	icon_state = "co2-3"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/ship/gadpathur_patrol/fuel)
@@ -5313,8 +5299,7 @@
 /area/ship/gadpathur_patrol/fuel)
 "PN" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	layer = 2.78
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/gadpathur_patrol/reactor)
@@ -5480,6 +5465,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/galley)
+"Rj" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/blueprints,
+/obj/item/pen/drafting,
+/turf/simulated/floor,
+/area/ship/gadpathur_patrol/engineering)
 "Rn" = (
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /obj/machinery/light/floor{
@@ -5605,7 +5596,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -6176,8 +6166,7 @@
 	icon_state = "co2-10"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /turf/simulated/floor/airless,
 /area/ship/gadpathur_patrol/fuel)
@@ -6395,7 +6384,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -6588,8 +6576,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	layer = 2.78
+	dir = 4
 	},
 /obj/machinery/shipsensors/weak,
 /turf/simulated/floor/reinforced,
@@ -6621,8 +6608,7 @@
 "ZU" = (
 /obj/machinery/power/portgen/basic/fusion,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable/green{
@@ -35059,7 +35045,7 @@ LJ
 Zs
 Mz
 rY
-Wl
+Rj
 Zs
 Zs
 Zs

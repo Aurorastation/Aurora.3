@@ -345,9 +345,8 @@ GLOBAL_LIST_EMPTY(sparring_attack_cache)
 	attack_noun = list("tap","light strike")
 	attack_verb = list("tapped", "lightly struck")
 	desc = "Sparring: A light strike to your opponent. So light, it won't even leave a mark! They WILL feel this, but will suffer no dangerous side effect, unless you punch them into cardiac arrest!"
-	damage = 2
-	shredding = 0
 	damage = 0
+	shredding = 0
 	sharp = 0
 	edge = FALSE
 	attack_name = "light hit"

@@ -11,6 +11,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	density = FALSE
 	light_color = LIGHT_COLOR_FIRE
 	build_amt = 20
+	pass_flags_self = PASSTABLE | LETPASSTHROW
 	var/fuel = 2000
 	var/max_fuel = 2000
 	var/on_fire = FALSE
@@ -344,6 +345,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	safe = TRUE
 	density = TRUE
 	burn_out = FALSE
+	pass_flags_self = PASSTABLE
 
 /obj/structure/bonfire/fireplace/New(var/newloc, var/material_name)
 	..()
@@ -373,8 +375,6 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 		AddOverlays("fireplace_glow")
 
 /obj/structure/bonfire/fireplace/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(!istype(mover) || mover.checkpass(PASSTABLE))
-		return TRUE
 	if(get_dir(loc, target) == NORTH)
 		return !density
 	return TRUE

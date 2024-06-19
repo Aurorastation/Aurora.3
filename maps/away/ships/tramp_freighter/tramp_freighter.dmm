@@ -85,7 +85,6 @@
 	desc = "A lightweight support lattice.";
 	icon = 'icons/obj/smooth/lattice.dmi';
 	icon_state = "lattice";
-	layer = 2.31;
 	name = "lattice"
 	},
 /obj/machinery/light{
@@ -233,6 +232,15 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
+/obj/structure/table/steel,
+/obj/item/blueprints,
+/obj/item/blueprints/outpost{
+	pixel_y = 6
+	},
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/power)
 "cP" = (
@@ -346,8 +354,7 @@
 /area/tramp_freighter/mess)
 "em" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
@@ -657,7 +664,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -788,6 +794,9 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
@@ -961,9 +970,6 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
 "lt" = (
@@ -1100,7 +1106,6 @@
 	desc = "A lightweight support lattice.";
 	icon = 'icons/obj/smooth/lattice.dmi';
 	icon_state = "lattice";
-	layer = 2.31;
 	name = "lattice"
 	},
 /turf/simulated/floor/plating,
@@ -1306,9 +1311,35 @@
 /area/tramp_freighter/cargo)
 "ox" = (
 /obj/structure/table/steel,
-/obj/random/toolbox,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/item/stack/material/glass/full{
+	pixel_y = 6;
+	pixel_x = -3
+	},
+/obj/item/stack/material/glass/full{
+	pixel_y = 6;
+	pixel_x = -3
+	},
+/obj/item/stack/material/steel/full{
+	pixel_y = 6;
+	pixel_x = 2
+	},
+/obj/item/stack/material/steel/full{
+	pixel_y = 6;
+	pixel_x = 2
+	},
+/obj/item/stack/material/aluminium/full{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/stack/material/plastic/full{
+	pixel_y = 6;
+	pixel_x = -5
+	},
+/obj/item/stack/material/lead/full{
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/engi)
@@ -1860,7 +1891,6 @@
 "xu" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	layer = 2.8;
 	name = "Tank To Thrusters"
 	},
 /turf/simulated/floor/plating,
@@ -2054,7 +2084,6 @@
 /obj/item/bedsheet/blue,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/effect/ghostspawpoint{
@@ -3711,8 +3740,6 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/atmos)
 "UH" = (
-/obj/structure/table/steel,
-/obj/item/storage/belt/utility/alt,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -3725,13 +3752,13 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/machinery/autolathe,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/engi)
 "UI" = (
 /obj/structure/bed,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/item/bedsheet/brown,

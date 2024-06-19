@@ -217,7 +217,6 @@
 	pixel_y = -15
 	},
 /obj/structure/flora/pottedplant/aquatic{
-	layer = 3.21;
 	pixel_y = -1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -952,7 +951,6 @@
 	desc = "A lightweight support lattice.";
 	icon = 'icons/obj/smooth/lattice.dmi';
 	icon_state = "lattice";
-	layer = 2.31;
 	name = "lattice"
 	},
 /obj/structure/table/rack,
@@ -1048,8 +1046,7 @@
 "hc" = (
 /obj/machinery/shower{
 	dir = 4;
-	pixel_y = -8;
-	layer = 4.1
+	pixel_y = -8
 	},
 /turf/simulated/floor/beach/water/pool,
 /area/ship/tirakqi_smuggler/wash)
@@ -1683,7 +1680,6 @@
 	desc = "A lightweight support lattice.";
 	icon = 'icons/obj/smooth/lattice.dmi';
 	icon_state = "lattice";
-	layer = 2.31;
 	name = "lattice"
 	},
 /obj/structure/table/rack,
@@ -1722,8 +1718,7 @@
 	pixel_y = 32
 	},
 /obj/structure/sink{
-	pixel_y = 24;
-	layer = 3.1
+	pixel_y = 24
 	},
 /obj/machinery/light/skrell{
 	dir = 8
@@ -1911,7 +1906,6 @@
 	pixel_y = -15
 	},
 /obj/structure/flora/pottedplant/aquatic{
-	layer = 3.21;
 	pixel_y = -1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -1929,7 +1923,6 @@
 	dir = 8
 	},
 /obj/structure/flora/pottedplant/aquatic{
-	layer = 3.21;
 	pixel_x = 2
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -2238,6 +2231,9 @@
 /obj/machinery/light/skrell{
 	dir = 8
 	},
+/obj/item/reagent_containers/weldpack{
+	pixel_y = 8
+	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/engi)
 "po" = (
@@ -2262,8 +2258,7 @@
 "pz" = (
 /obj/structure/table/skrell,
 /obj/structure/sink/kitchen{
-	pixel_y = 24;
-	layer = 2.79
+	pixel_y = 24
 	},
 /obj/item/reagent_containers/food/condiment/shaker/spacespice{
 	pixel_x = -4;
@@ -2833,7 +2828,6 @@
 	desc = "A lightweight support lattice.";
 	icon = 'icons/obj/smooth/lattice.dmi';
 	icon_state = "lattice";
-	layer = 2.31;
 	name = "lattice"
 	},
 /obj/structure/table/rack,
@@ -3273,7 +3267,6 @@
 	desc = "A lightweight support lattice.";
 	icon = 'icons/obj/smooth/lattice.dmi';
 	icon_state = "lattice";
-	layer = 2.31;
 	name = "lattice"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3506,8 +3499,7 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/iv_drip,
 /obj/structure/sink/kitchen{
-	pixel_y = 26;
-	layer = 2.7
+	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_smuggler/med)
@@ -3652,8 +3644,7 @@
 	icon = 'icons/obj/item/skrell/stellascope.dmi';
 	icon_state = "starprojection";
 	name = "Star Projection";
-	pixel_y = 14;
-	layer = 3.1
+	pixel_y = 14
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine{
 	pixel_x = 10;
@@ -4224,15 +4215,13 @@
 	pixel_y = 32
 	},
 /obj/structure/sink{
-	pixel_y = 24;
-	layer = 3.1
+	pixel_y = 24
 	},
 /obj/machinery/light/skrell{
 	dir = 4
 	},
 /obj/structure/sink{
-	pixel_y = 24;
-	layer = 3.1
+	pixel_y = 24
 	},
 /turf/simulated/floor/beach/water/pool,
 /area/ship/tirakqi_smuggler/wash)
@@ -4443,12 +4432,8 @@
 /obj/item/reagent_containers/food/snacks/meat/neaera,
 /obj/item/reagent_containers/food/snacks/meat/neaera,
 /obj/item/reagent_containers/food/snacks/meat/neaera,
-/obj/item/storage/box/produce{
-	layer = 2.99
-	},
-/obj/item/storage/box/produce{
-	layer = 2.99
-	},
+/obj/item/storage/box/produce,
+/obj/item/storage/box/produce,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_x = -9;
@@ -4697,7 +4682,6 @@
 	desc = "A lightweight support lattice.";
 	icon = 'icons/obj/smooth/lattice.dmi';
 	icon_state = "lattice";
-	layer = 2.31;
 	name = "lattice"
 	},
 /turf/simulated/floor/plating,
@@ -6365,8 +6349,7 @@
 "MT" = (
 /obj/machinery/shower{
 	dir = 8;
-	pixel_y = -8;
-	layer = 4.1
+	pixel_y = -8
 	},
 /turf/simulated/floor/beach/water/pool,
 /area/ship/tirakqi_smuggler/wash)
@@ -6464,20 +6447,21 @@
 	pixel_y = -15
 	},
 /obj/structure/flora/pottedplant/mysterious{
-	pixel_y = -1;
-	layer = 3.21
+	pixel_y = -1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/port_hall)
 "NI" = (
 /obj/structure/table/skrell,
-/obj/item/reagent_containers/weldpack{
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
 	pixel_y = 8
 	},
 /obj/item/clothing/glasses/welding{
 	pixel_x = 4;
 	pixel_y = -2
 	},
+/obj/item/blueprints,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/engi)
 "NM" = (
@@ -6501,7 +6485,6 @@
 	dir = 4
 	},
 /obj/structure/flora/pottedplant/aquatic{
-	layer = 3.21;
 	pixel_x = -2
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
@@ -7607,8 +7590,7 @@
 	pixel_y = -15
 	},
 /obj/structure/flora/pottedplant/mysterious{
-	pixel_y = -1;
-	layer = 3.21
+	pixel_y = -1
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/starboard_hall)

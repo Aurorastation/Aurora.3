@@ -2810,6 +2810,12 @@
 /area/shuttle/scrapper_ship/bridge)
 "HP" = (
 /obj/machinery/firealarm/west,
+/obj/structure/table/standard,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints/shuttle,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2822,7 +2828,6 @@
 	icon_state = "door_locked";
 	id_tag = "tajara_scrapper_hatch";
 	name = "Ship External Access";
-	open_layer = 2.8;
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3580,7 +3585,6 @@
 	icon_state = "door_locked";
 	id_tag = "tajara_scrapper_hatch";
 	name = "Ship External Access";
-	open_layer = 2.8;
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3816,6 +3820,26 @@
 	temperature = 278
 	},
 /area/scrapper_base/atmos)
+"TI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/blueprints,
+/obj/structure/table/standard,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/scrapper_base/atmos)
 "TL" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -4042,7 +4066,6 @@
 	dir = 5
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(202)
 	},
 /obj/structure/cable/green{
@@ -37847,7 +37870,7 @@ kz
 RN
 fn
 pl
-sE
+TI
 kz
 Uk
 OZ

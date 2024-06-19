@@ -19,7 +19,7 @@
 
 /obj/effect/overmap/visitable/sector/cursed
 	name = "lone asteroid"
-	desc = "A lone asteroid with a hangar. Latest data from this sector shows it as a Hephaestus mining station, two years ago."
+	desc = "A lone asteroid with a hangar. Latest data from this sector shows it was a Hephaestus mining station, two years ago. Unknown biological lifesigns have been detected inside, though the station is cold. There's various low and high frequency radiation sources across the spectrum within the rock. Extraordinarily high exotic particle counts are being detected as well."
 
 
 /area/cursed

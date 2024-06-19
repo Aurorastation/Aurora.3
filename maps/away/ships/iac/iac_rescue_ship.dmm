@@ -63,8 +63,7 @@
 /area/ship/iac_rescue_ship/machinist)
 "ado" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -126,8 +125,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_fore";
-	master_tag = "airlock_idriscruiser_dock_port_fore";
-	landmark_tag = "nav_idris_cruiser_port_fore"
+	master_tag = "airlock_iac_rescue_dock_port_fore";
+	landmark_tag = "nav_iac_rescue_port_fore"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -142,8 +141,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_aft";
-	landmark_tag = "nav_idris_cruiser_stbd_aft";
-	master_tag = "airlock_idriscruiser_dock_stbd_aft"
+	landmark_tag = "nav_iac_rescue_stbd_aft";
+	master_tag = "airlock_iac_rescue_dock_stbd_aft"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -205,8 +204,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_berth";
-	master_tag = "airlock_idriscruiser_dock_stbd_berth";
-	landmark_tag = "nav_idris_cruiser_stbd_berth"
+	master_tag = "airlock_iac_rescue_dock_stbd_berth";
+	landmark_tag = "nav_iac_rescue_stbd_berth"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/starboarddocking)
@@ -308,8 +307,8 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_aft";
-	master_tag = "airlock_idriscruiser_dock_port_aft";
-	landmark_tag = "nav_idris_cruiser_port_aft"
+	master_tag = "airlock_iac_rescue_dock_port_aft";
+	landmark_tag = "nav_iac_rescue_port_aft"
 	},
 /obj/machinery/light/small{
 	dir = 4
@@ -378,9 +377,7 @@
 /area/ship/iac_rescue_ship/surgery)
 "aCu" = (
 /obj/effect/overmap/visitable/ship/iac_rescue_ship,
-/obj/machinery/hologram/holopad/long_range{
-	layer = 3.04
-	},
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/bridge)
 "aDs" = (
@@ -412,8 +409,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_berth";
-	master_tag = "nav_idris_cruiser_port_berth";
-	landmark_tag = "nav_idris_cruiser_port_berth"
+	master_tag = "airlock_iac_rescue_dock_port_berth";
+	landmark_tag = "nav_iac_rescue_port_berth"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -678,8 +675,7 @@
 	},
 /obj/machinery/atmospherics/binary/pump{
 	name = "Shuttle Scrubbers Drain";
-	use_power = 1;
-	layer = 2.45
+	use_power = 1
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/hangar)
@@ -693,8 +689,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_aft";
-	master_tag = "airlock_idriscruiser_dock_port_aft";
-	landmark_tag = "nav_idris_cruiser_port_aft"
+	master_tag = "airlock_iac_rescue_dock_port_aft";
+	landmark_tag = "nav_iac_rescue_port_aft"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -837,8 +833,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/valve/open{
-	name = "CO2 to Starboard Thrusters";
-	layer = 2.42
+	name = "CO2 to Starboard Thrusters"
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/starboardengine)
@@ -854,8 +849,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_berth";
-	master_tag = "airlock_idriscruiser_dock_stbd_berth";
-	landmark_tag = "nav_idris_cruiser_stbd_berth"
+	master_tag = "airlock_iac_rescue_dock_stbd_berth";
+	landmark_tag = "nav_iac_rescue_stbd_berth"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/starboarddocking)
@@ -903,8 +898,8 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_fore";
-	master_tag = "airlock_idriscruiser_dock_port_fore";
-	landmark_tag = "nav_idris_cruiser_port_fore"
+	master_tag = "airlock_iac_rescue_dock_port_fore";
+	landmark_tag = "nav_iac_rescue_port_fore"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -1052,8 +1047,7 @@
 "bSo" = (
 /obj/machinery/atmospherics/valve{
 	dir = 4;
-	name = "Propellant Merge Valve";
-	layer = 2.42
+	name = "Propellant Merge Valve"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
@@ -1121,19 +1115,14 @@
 /area/ship/iac_rescue_ship/afthallway)
 "bWO" = (
 /obj/structure/table/steel,
-/obj/item/stack/material/steel/full{
-	pixel_x = -8
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/stack/material/steel/full{
-	pixel_x = -8
+/obj/item/blueprints,
+/obj/item/blueprints/outpost{
+	pixel_y = 6
 	},
-/obj/item/stack/material/glass/full,
-/obj/item/stack/material/glass/full,
-/obj/item/stack/material/steel/full{
-	pixel_x = -8
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
 	},
-/obj/item/stack/material/glass/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/engineering)
 "bXv" = (
@@ -1300,8 +1289,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_berth";
-	master_tag = "nav_idris_cruiser_port_berth";
-	landmark_tag = "nav_idris_cruiser_port_berth"
+	master_tag = "airlock_iac_rescue_dock_port_berth";
+	landmark_tag = "nav_iac_rescue_port_berth"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/portdocking)
@@ -1317,8 +1306,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_berth";
-	master_tag = "airlock_idriscruiser_dock_stbd_berth";
-	landmark_tag = "nav_idris_cruiser_stbd_berth"
+	master_tag = "airlock_iac_rescue_dock_stbd_berth";
+	landmark_tag = "nav_iac_rescue_stbd_berth"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/starboarddocking)
@@ -1575,8 +1564,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_fore";
-	master_tag = "airlock_idriscruiser_dock_stbd_fore";
-	landmark_tag = "nav_idris_cruiser_stbd_fore"
+	master_tag = "airlock_iac_rescue_dock_stbd_fore";
+	landmark_tag = "nav_iac_rescue_stbd_fore"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/starboarddocking)
@@ -2039,8 +2028,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_fore";
-	master_tag = "airlock_idriscruiser_dock_stbd_fore";
-	landmark_tag = "nav_idris_cruiser_stbd_fore"
+	master_tag = "airlock_iac_rescue_dock_stbd_fore";
+	landmark_tag = "nav_iac_rescue_stbd_fore"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -2105,8 +2094,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_fore";
-	master_tag = "airlock_idriscruiser_dock_port_fore";
-	landmark_tag = "nav_idris_cruiser_port_fore"
+	master_tag = "airlock_iac_rescue_dock_port_fore";
+	landmark_tag = "nav_iac_rescue_port_fore"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -2216,8 +2205,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_berth";
-	master_tag = "nav_idris_cruiser_port_berth";
-	landmark_tag = "nav_idris_cruiser_port_berth"
+	master_tag = "airlock_iac_rescue_dock_port_berth";
+	landmark_tag = "nav_iac_rescue_port_berth"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -2340,8 +2329,7 @@
 	},
 /obj/machinery/atmospherics/binary/pump{
 	name = "Scrubbers to Waste";
-	use_power = 1;
-	layer = 2.8
+	use_power = 1
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/atmospherics)
@@ -2995,8 +2983,7 @@
 /area/shuttle/iac_shuttle)
 "gcF" = (
 /obj/structure/table/rack{
-	dir = 8;
-	layer = 2.9
+	dir = 8
 	},
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
@@ -3144,8 +3131,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/atmospherics/valve{
 	dir = 4;
-	name = "Propellant Merge Valve";
-	layer = 2.42
+	name = "Propellant Merge Valve"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -3260,7 +3246,6 @@
 /obj/structure/bed/padded,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/effect/ghostspawpoint{
@@ -3443,8 +3428,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_berth";
-	master_tag = "airlock_idriscruiser_dock_stbd_berth";
-	landmark_tag = "nav_idris_cruiser_stbd_berth"
+	master_tag = "airlock_iac_rescue_dock_stbd_berth";
+	landmark_tag = "nav_iac_rescue_stbd_berth"
 	},
 /obj/machinery/light/small{
 	dir = 1
@@ -3489,8 +3474,7 @@
 	},
 /obj/machinery/atmospherics/binary/pump{
 	name = "Shuttle Air Resupply";
-	use_power = 1;
-	layer = 2.45
+	use_power = 1
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/hangar)
@@ -3534,7 +3518,6 @@
 /obj/structure/bed/padded,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/effect/ghostspawpoint{
@@ -3922,8 +3905,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_berth";
-	master_tag = "nav_idris_cruiser_port_berth";
-	landmark_tag = "nav_idris_cruiser_port_berth"
+	master_tag = "airlock_iac_rescue_dock_port_berth";
+	landmark_tag = "nav_iac_rescue_port_berth"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -3949,8 +3932,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_berth";
-	master_tag = "nav_idris_cruiser_port_berth";
-	landmark_tag = "nav_idris_cruiser_port_berth"
+	master_tag = "airlock_iac_rescue_dock_port_berth";
+	landmark_tag = "nav_iac_rescue_port_berth"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/portdocking)
@@ -4197,10 +4180,10 @@
 /obj/item/storage/belt/medical{
 	pixel_y = -4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
 /obj/machinery/alarm/north{
@@ -4412,8 +4395,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_fore";
-	master_tag = "airlock_idriscruiser_dock_stbd_fore";
-	landmark_tag = "nav_idris_cruiser_stbd_fore"
+	master_tag = "airlock_iac_rescue_dock_stbd_fore";
+	landmark_tag = "nav_iac_rescue_stbd_fore"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -4542,8 +4525,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_fore";
-	master_tag = "airlock_idriscruiser_dock_port_fore";
-	landmark_tag = "nav_idris_cruiser_port_fore"
+	master_tag = "airlock_iac_rescue_dock_port_fore";
+	landmark_tag = "nav_iac_rescue_port_fore"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -5180,8 +5163,8 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/cyan,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_berth";
-	master_tag = "airlock_idriscruiser_dock_stbd_berth";
-	landmark_tag = "nav_idris_cruiser_stbd_berth"
+	master_tag = "airlock_iac_rescue_dock_stbd_berth";
+	landmark_tag = "nav_iac_rescue_stbd_berth"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/starboarddocking)
@@ -5243,8 +5226,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_aft";
-	master_tag = "airlock_idriscruiser_dock_port_aft";
-	landmark_tag = "nav_idris_cruiser_port_aft"
+	master_tag = "airlock_iac_rescue_dock_port_aft";
+	landmark_tag = "nav_iac_rescue_port_aft"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -5385,8 +5368,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_aft";
-	master_tag = "airlock_idriscruiser_dock_port_aft";
-	landmark_tag = "nav_idris_cruiser_port_aft"
+	master_tag = "airlock_iac_rescue_dock_port_aft";
+	landmark_tag = "nav_iac_rescue_port_aft"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -5417,8 +5400,8 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/cyan,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_berth";
-	master_tag = "nav_idris_cruiser_port_berth";
-	landmark_tag = "nav_idris_cruiser_port_berth"
+	master_tag = "airlock_iac_rescue_dock_port_berth";
+	landmark_tag = "nav_iac_rescue_port_berth"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/portdocking)
@@ -5849,8 +5832,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_berth";
-	master_tag = "nav_idris_cruiser_port_berth";
-	landmark_tag = "nav_idris_cruiser_port_berth"
+	master_tag = "airlock_iac_rescue_dock_port_berth";
+	landmark_tag = "nav_iac_rescue_port_berth"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -5859,7 +5842,6 @@
 /obj/structure/bed/padded,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/effect/ghostspawpoint{
@@ -5886,9 +5868,7 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/ship/iac_rescue_ship/portdocking)
 "nma" = (
-/obj/machinery/hologram/holopad/long_range{
-	layer = 3.04
-	},
+/obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/iac_shuttle,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/iac_shuttle)
@@ -5963,8 +5943,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_aft";
-	landmark_tag = "nav_idris_cruiser_stbd_aft";
-	master_tag = "airlock_idriscruiser_dock_stbd_aft"
+	landmark_tag = "nav_iac_rescue_stbd_aft";
+	master_tag = "airlock_iac_rescue_dock_stbd_aft"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -6039,7 +6019,6 @@
 /obj/structure/bed/padded,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/effect/ghostspawpoint{
@@ -6083,8 +6062,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_berth";
-	master_tag = "nav_idris_cruiser_port_berth";
-	landmark_tag = "nav_idris_cruiser_port_berth"
+	master_tag = "airlock_iac_rescue_dock_port_berth";
+	landmark_tag = "nav_iac_rescue_port_berth"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/portdocking)
@@ -6332,7 +6311,7 @@
 /obj/item/clothing/head/softcap/iac,
 /obj/item/clothing/accessory/storage/white_vest,
 /obj/item/clothing/accessory/storage/pouches/white,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/storage/belt/medical,
 /obj/item/clothing/accessory/stethoscope,
 /obj/item/clothing/accessory/poncho/roles/iac,
@@ -6348,8 +6327,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/portengine)
@@ -6613,8 +6591,8 @@
 /obj/effect/shuttle_landmark/iac_rescue_ship/starboard_aft,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_aft";
-	landmark_tag = "nav_idris_cruiser_stbd_aft";
-	master_tag = "airlock_idriscruiser_dock_stbd_aft"
+	landmark_tag = "nav_iac_rescue_stbd_aft";
+	master_tag = "airlock_iac_rescue_dock_stbd_aft"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -6831,8 +6809,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/door/window/northleft{
-	dir = 8;
-	layer = 3.3
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
@@ -6906,8 +6883,8 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_fore";
-	master_tag = "airlock_idriscruiser_dock_port_fore";
-	landmark_tag = "nav_idris_cruiser_port_fore"
+	master_tag = "airlock_iac_rescue_dock_port_fore";
+	landmark_tag = "nav_iac_rescue_port_fore"
 	},
 /obj/machinery/light/small{
 	dir = 4
@@ -6963,8 +6940,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_berth";
-	master_tag = "airlock_idriscruiser_dock_stbd_berth";
-	landmark_tag = "nav_idris_cruiser_stbd_berth"
+	master_tag = "airlock_iac_rescue_dock_stbd_berth";
+	landmark_tag = "nav_iac_rescue_stbd_berth"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -7224,8 +7201,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_berth";
-	master_tag = "airlock_idriscruiser_dock_stbd_berth";
-	landmark_tag = "nav_idris_cruiser_stbd_berth"
+	master_tag = "airlock_iac_rescue_dock_stbd_berth";
+	landmark_tag = "nav_iac_rescue_stbd_berth"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -7352,8 +7329,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_berth";
-	master_tag = "nav_idris_cruiser_port_berth";
-	landmark_tag = "nav_idris_cruiser_port_berth"
+	master_tag = "airlock_iac_rescue_dock_port_berth";
+	landmark_tag = "nav_iac_rescue_port_berth"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/portdocking)
@@ -7573,8 +7550,8 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_aft";
-	landmark_tag = "nav_idris_cruiser_stbd_aft";
-	master_tag = "airlock_idriscruiser_dock_stbd_aft"
+	landmark_tag = "nav_iac_rescue_stbd_aft";
+	master_tag = "airlock_iac_rescue_dock_stbd_aft"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -7818,8 +7795,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_fore";
-	master_tag = "airlock_idriscruiser_dock_stbd_fore";
-	landmark_tag = "nav_idris_cruiser_stbd_fore"
+	master_tag = "airlock_iac_rescue_dock_stbd_fore";
+	landmark_tag = "nav_iac_rescue_stbd_fore"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -7831,8 +7808,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_fore";
-	master_tag = "airlock_idriscruiser_dock_stbd_fore";
-	landmark_tag = "nav_idris_cruiser_stbd_fore"
+	master_tag = "airlock_iac_rescue_dock_stbd_fore";
+	landmark_tag = "nav_iac_rescue_stbd_fore"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -7881,8 +7858,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_berth";
-	master_tag = "nav_idris_cruiser_port_berth";
-	landmark_tag = "nav_idris_cruiser_port_berth"
+	master_tag = "airlock_iac_rescue_dock_port_berth";
+	landmark_tag = "nav_iac_rescue_port_berth"
 	},
 /obj/machinery/light/small{
 	dir = 1
@@ -8058,8 +8035,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_aft";
-	master_tag = "airlock_idriscruiser_dock_port_aft";
-	landmark_tag = "nav_idris_cruiser_port_aft"
+	master_tag = "airlock_iac_rescue_dock_port_aft";
+	landmark_tag = "nav_iac_rescue_port_aft"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/portdocking)
@@ -8103,8 +8080,7 @@
 /area/ship/iac_rescue_ship/medical)
 "sDt" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/hangar)
@@ -8164,7 +8140,7 @@
 /obj/item/clothing/accessory/storage/pouches/white,
 /obj/item/reagent_containers/hypospray,
 /obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/clothing/accessory/stethoscope,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/pharmacy)
@@ -8190,8 +8166,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_berth";
-	master_tag = "airlock_idriscruiser_dock_stbd_berth";
-	landmark_tag = "nav_idris_cruiser_stbd_berth"
+	master_tag = "airlock_iac_rescue_dock_stbd_berth";
+	landmark_tag = "nav_iac_rescue_stbd_berth"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/starboarddocking)
@@ -8230,8 +8206,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/door/window/northleft{
-	dir = 4;
-	layer = 3.1
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
@@ -8742,8 +8717,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_berth";
-	master_tag = "airlock_idriscruiser_dock_stbd_berth";
-	landmark_tag = "nav_idris_cruiser_stbd_berth"
+	master_tag = "airlock_iac_rescue_dock_stbd_berth";
+	landmark_tag = "nav_iac_rescue_stbd_berth"
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark/full,
@@ -8797,8 +8772,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_aft";
-	landmark_tag = "nav_idris_cruiser_stbd_aft";
-	master_tag = "airlock_idriscruiser_dock_stbd_aft"
+	landmark_tag = "nav_iac_rescue_stbd_aft";
+	master_tag = "airlock_iac_rescue_dock_stbd_aft"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/starboarddocking)
@@ -9020,8 +8995,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_fore";
-	master_tag = "airlock_idriscruiser_dock_port_fore";
-	landmark_tag = "nav_idris_cruiser_port_fore"
+	master_tag = "airlock_iac_rescue_dock_port_fore";
+	landmark_tag = "nav_iac_rescue_port_fore"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/portdocking)
@@ -9302,8 +9277,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_berth";
-	master_tag = "nav_idris_cruiser_port_berth";
-	landmark_tag = "nav_idris_cruiser_port_berth"
+	master_tag = "airlock_iac_rescue_dock_port_berth";
+	landmark_tag = "nav_iac_rescue_port_berth"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/portdocking)
@@ -9327,8 +9302,8 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_fore";
-	master_tag = "airlock_idriscruiser_dock_stbd_fore";
-	landmark_tag = "nav_idris_cruiser_stbd_fore"
+	master_tag = "airlock_iac_rescue_dock_stbd_fore";
+	landmark_tag = "nav_iac_rescue_stbd_fore"
 	},
 /obj/machinery/light/small{
 	dir = 4
@@ -9602,8 +9577,8 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_aft";
-	landmark_tag = "nav_idris_cruiser_stbd_aft";
-	master_tag = "airlock_idriscruiser_dock_stbd_aft"
+	landmark_tag = "nav_iac_rescue_stbd_aft";
+	master_tag = "airlock_iac_rescue_dock_stbd_aft"
 	},
 /obj/machinery/light/small{
 	dir = 4
@@ -9620,8 +9595,7 @@
 "wxT" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/door/window/northleft{
-	dir = 8;
-	layer = 3.3
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/portables_connector{
@@ -9726,8 +9700,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_berth";
-	master_tag = "airlock_idriscruiser_dock_stbd_berth";
-	landmark_tag = "nav_idris_cruiser_stbd_berth"
+	master_tag = "airlock_iac_rescue_dock_stbd_berth";
+	landmark_tag = "nav_iac_rescue_stbd_berth"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/starboarddocking)
@@ -9776,11 +9750,9 @@
 "xeu" = (
 /obj/structure/table/stone/marble,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_y = 9
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_y = 3
 	},
 /obj/item/material/kitchen/rollingpin{
@@ -9788,7 +9760,6 @@
 	pixel_y = 10
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /turf/simulated/floor/tiled/white,
@@ -9920,8 +9891,7 @@
 /area/ship/iac_rescue_ship/portengine)
 "xzk" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -10044,8 +10014,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_berth";
-	master_tag = "airlock_idriscruiser_dock_stbd_berth";
-	landmark_tag = "nav_idris_cruiser_stbd_berth"
+	master_tag = "airlock_iac_rescue_dock_stbd_berth";
+	landmark_tag = "nav_iac_rescue_stbd_berth"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -10073,8 +10043,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_stbd_berth";
-	master_tag = "airlock_idriscruiser_dock_stbd_berth";
-	landmark_tag = "nav_idris_cruiser_stbd_berth"
+	master_tag = "airlock_iac_rescue_dock_stbd_berth";
+	landmark_tag = "nav_iac_rescue_stbd_berth"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
@@ -10106,8 +10076,8 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_berth";
-	master_tag = "nav_idris_cruiser_port_berth";
-	landmark_tag = "nav_idris_cruiser_port_berth"
+	master_tag = "airlock_iac_rescue_dock_port_berth";
+	landmark_tag = "nav_iac_rescue_port_berth"
 	},
 /obj/machinery/light/small,
 /turf/simulated/floor/tiled/dark/full,
@@ -10117,8 +10087,8 @@
 /obj/effect/shuttle_landmark/iac_rescue_ship/port_aft,
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_iac_rescue_dock_port_aft";
-	master_tag = "airlock_idriscruiser_dock_port_aft";
-	landmark_tag = "nav_idris_cruiser_port_aft"
+	master_tag = "airlock_iac_rescue_dock_port_aft";
+	landmark_tag = "nav_iac_rescue_port_aft"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
@@ -10173,8 +10143,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/valve/open{
-	name = "CO2 to Port Thrusters";
-	layer = 2.42
+	name = "CO2 to Port Thrusters"
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/portengine)

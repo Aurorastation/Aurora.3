@@ -129,7 +129,7 @@ var/const/NO_EMAG_ACT = -50
 	. = ..()
 	GC_TEMPORARY_HARDDEL
 
-/obj/item/card/id/examine(mob/user, distance)
+/obj/item/card/id/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if (distance <= 1)
 		show(user)

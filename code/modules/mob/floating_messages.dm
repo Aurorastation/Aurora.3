@@ -103,17 +103,14 @@ var/list/floating_chat_colors = list()
 
 	I.plane = HUD_PLANE
 	I.layer = UNDER_HUD_LAYER
-	I.pixel_x = (-round(I.maptext_width/2) + 16) + attached_holder.get_floating_chat_x_offset()
 	I.appearance_flags = RESET_COLOR|RESET_ALPHA|RESET_TRANSFORM
 
 	I.alpha = 0
 
 	I.maptext_width = CHAT_MESSAGE_WIDTH
 
-	I.maptext_x = (CHAT_MESSAGE_WIDTH - src.bound_width) * -0.5
-
-	I.pixel_y = src.get_floating_chat_y_offset()
-	I.pixel_x = src.get_floating_chat_x_offset()
+	I.pixel_y = attached_holder.get_floating_chat_y_offset()
+	I.pixel_x = (-round(I.maptext_width/2) + 16) + attached_holder.get_floating_chat_x_offset()
 
 	//Select the various parameters for the maptext, to ensure pixel-perfect scaling
 	var/font_family

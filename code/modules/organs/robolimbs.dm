@@ -1,7 +1,7 @@
 GLOBAL_LIST_EMPTY(all_robolimbs)
 GLOBAL_LIST_EMPTY(internal_robolimbs)
 GLOBAL_LIST_EMPTY(chargen_robolimbs)
-GLOBAL_LIST_EMPTY(fabricator_robolimbs)
+GLOBAL_LIST_EMPTY_TYPED(fabricator_robolimbs, /datum/robolimb)
 GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 
 /proc/populate_robolimb_list()
@@ -45,6 +45,8 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	)
 	/// If this prosthetic type is paintable.
 	var/paintable = 0
+	/// If this prosthetic glows in the dark
+	var/emissive = FALSE
 	/// Which IPC species this prosthetic type will create.
 	var/linked_frame = SPECIES_IPC_UNBRANDED
 	/// How resistant this prosthetic type is to brute damage.
@@ -80,6 +82,13 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 
 /datum/robolimb/proc/malfunctioning_check()
 	return FALSE
+
+/datum/robolimb/emissive
+	company = PROSTHETIC_UNBRANDED_EMISSIVE
+	emissive = TRUE
+
+	allowed_internal_organs = list(BP_EYES)
+	allowed_external_organs = list()
 
 /datum/robolimb/bishop
 	company = PROSTHETIC_BC
@@ -182,10 +191,16 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 
 /datum/robolimb/vaurca
 	company = PROSTHETIC_VAURCA
-	desc = "This limb design is from old Sedantis, still manufactured by the Hives when providing maintenace to most of the basic Vaurcesian bioforms."
+	desc = "This limb design is from old Sedantis, still manufactured by the Hives when providing maintenance to most of the basic Vaurcesian bioforms."
 	icon = 'icons/mob/human_races/vaurca/r_vaurcalimbs.dmi'
 	species_can_use = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	allows_internal = FALSE
+
+/datum/robolimb/vaurca/warrior
+	company = PROSTHETIC_VAURCA_WARRIOR
+	icon = 'icons/mob/human_races/vaurca/r_vaurcawarriorlimbs.dmi'
+	species_can_use = list(SPECIES_VAURCA_WARRIOR)
+	allowed_external_organs = list(BP_L_HAND, BP_R_HAND)
 
 /datum/robolimb/hoplan
 	company = PROSTHETIC_HOPLAN

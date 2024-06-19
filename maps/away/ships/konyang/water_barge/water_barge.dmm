@@ -1572,7 +1572,6 @@
 	pixel_y = 10
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -2953,7 +2952,7 @@
 	dir = 4
 	},
 /obj/structure/cable/green,
-/obj/machinery/power/apc,
+/obj/machinery/power/apc/north,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
@@ -4377,18 +4376,19 @@
 /turf/simulated/floor/plating,
 /area/water_barge/fuelbay)
 "Qy" = (
-/obj/structure/closet/secure_closet/engineering_electrical{
-	req_access = null
-	},
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1
 	},
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
+/obj/structure/table/steel,
+/obj/item/blueprints,
 /turf/simulated/floor/tiled/dark,
 /area/water_barge/toolstorage)
 "QB" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	layer = 2.8;
 	name = "CO2 to Thrusters"
 	},
 /obj/effect/floor_decal/industrial/warning/full,

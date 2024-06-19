@@ -32,7 +32,7 @@
 	update_icon()
 
 /obj/machinery/computer/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = TRUE)
-	if(inoperable() || isNotStationLevel(z) || user.stat)
+	if(!operable() || isNotStationLevel(z) || user.stat)
 		user.unset_machine()
 		return
 
@@ -204,7 +204,7 @@
 			return 1
 		else
 			return 0
-	else if(mover.checkpass(PASSTABLE) && can_pass_under)
+	else if((mover.pass_flags & PASSTABLE) && can_pass_under)
 //Animals can run under them, lots of empty space
 		return 1
 	return ..()

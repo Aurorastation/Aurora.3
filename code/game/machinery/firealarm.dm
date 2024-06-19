@@ -75,11 +75,12 @@
 			AddOverlays("fire0")
 			set_light(0)
 
-/obj/machinery/firealarm/fire_act(datum/gas_mixture/air, temperature, volume)
+/obj/machinery/firealarm/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(src.detecting)
-		if(temperature > T0C+200)
+		if(exposed_temperature > T0C+200)
 			src.alarm()			// added check of detector status here
-	return
 
 /obj/machinery/firealarm/bullet_act()
 	return src.alarm()
@@ -139,11 +140,10 @@
 				else if(attacking_item.iscrowbar())
 					to_chat(user, "You pry out the circuit!")
 					attacking_item.play_tool_sound(get_turf(src), 50)
-					spawn(20)
-						var/obj/item/firealarm_electronics/circuit = new /obj/item/firealarm_electronics()
-						circuit.forceMove(user.loc)
-						buildstage = 0
-						update_icon()
+					var/obj/item/firealarm_electronics/circuit = new /obj/item/firealarm_electronics()
+					circuit.forceMove(user.loc)
+					buildstage = 0
+					update_icon()
 					return TRUE
 			if(0)
 				if(istype(attacking_item, /obj/item/firealarm_electronics))

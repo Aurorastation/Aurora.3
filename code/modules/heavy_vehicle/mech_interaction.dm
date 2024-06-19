@@ -232,7 +232,7 @@
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
-	SSmove_manager.stop_looping(src) // stop it from auto moving when the pilot gets in
+	GLOB.move_manager.stop_looping(src) // stop it from auto moving when the pilot gets in
 	return 1
 
 /mob/living/heavy_vehicle/proc/eject(var/mob/user, var/silent)
@@ -363,6 +363,7 @@
 					remote_type = RM.type
 					become_remote()
 					qdel(attacking_item)
+				return
 			else if(attacking_item.ismultitool())
 				if(hardpoints_locked)
 					to_chat(user, SPAN_WARNING("Hardpoint system access is disabled."))
@@ -405,7 +406,7 @@
 							qdel(pilot)
 							new remote_type(get_turf(src))
 					dismantle()
-					return
+				return
 			else if(attacking_item.iswelder())
 				if(!getBruteLoss())
 					return
@@ -445,9 +446,13 @@
 				visible_message(SPAN_NOTICE("\The [user] pries out \the [body.cell] using the \the [attacking_item]."))
 				power = MECH_POWER_OFF
 				hud_power_control.update_icon()
+				UnregisterSignal(body.cell, COMSIG_CELL_CHARGE)
 				body.cell = null
 				return
 			else if(istype(attacking_item, /obj/item/cell))
+				if(!istype(attacking_item, /obj/item/cell/mecha))
+					to_chat(user, SPAN_WARNING("You can only use power cores in \the [src]!"))
+					return
 				if(!maintenance_protocols)
 					to_chat(user, SPAN_WARNING("The cell compartment remains locked while maintenance protocols are disabled."))
 					return
@@ -458,9 +463,9 @@
 				if(user.unEquip(attacking_item))
 					attacking_item.forceMove(body)
 					body.cell = attacking_item
-					to_chat(user, SPAN_NOTICE("You install \the [body.cell] into \the [src]."))
+					RegisterSignal(body.cell, COMSIG_CELL_CHARGE, PROC_REF(handle_cell_charge))
 					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-					visible_message(SPAN_NOTICE("\The [user] installs \the [body.cell] into \the [src]."))
+					user.visible_message(SPAN_NOTICE("\The [user] installs \the [body.cell] into \the [src]."), SPAN_NOTICE("You install \the [body.cell] into \the [src]."))
 				return
 			else if(istype(attacking_item, /obj/item/device/robotanalyzer))
 				to_chat(user, SPAN_NOTICE("Diagnostic Report for \the [src]:"))
@@ -577,6 +582,9 @@
 
 /mob/living/heavy_vehicle/get_floating_chat_x_offset()
 	return -offset_x // reverse the offset
+
+/mob/living/heavy_vehicle/get_floating_chat_y_offset()
+	return 20
 
 /mob/living/heavy_vehicle/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
 	if(can_listen())
@@ -697,7 +705,7 @@
 			// stop following who you were assigned to follow
 			if(findtext(text, "stop"))
 				unassign_following()
-				SSmove_manager.stop_looping(src)
+				GLOB.move_manager.stop_looping(src)
 				say("Holding position.")
 				return
 
@@ -730,3 +738,8 @@
 							say("Following [ID.registered_name].")
 							break
 				return
+
+/mob/living/heavy_vehicle/proc/handle_cell_charge(var/obj/item/cell/cell, var/new_charge)
+	SIGNAL_HANDLER
+
+	handle_power_hud()

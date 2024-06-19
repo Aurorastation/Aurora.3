@@ -50,6 +50,7 @@
 						/obj/item/ammo_magazine/mc9mm = 2
 						)
 	r_hand = /obj/item/storage/field_ration
+	l_hand = /obj/item/martial_manual/tajara
 
 /obj/outfit/admin/pra_cosmonaut/commissar
 	name = "Party Commissar"
@@ -68,4 +69,4 @@
 						/obj/item/storage/box/hadii_card = 1
 						)
 	l_hand = /obj/item/device/megaphone
-	r_hand = null
+	r_hand = /obj/item/martial_manual/tajara

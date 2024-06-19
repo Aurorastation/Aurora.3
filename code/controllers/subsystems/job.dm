@@ -864,8 +864,9 @@ SUBSYSTEM_DEF(jobs)
 	T.icon_state = "nothing"
 	T.maptext_height = 64
 	T.maptext_width = 512
-	T.layer = HUD_ABOVE_ITEM_LAYER
-	T.plane = FLOAT_PLANE
+	T.layer = FLOAT_LAYER
+	T.plane = HUD_PLANE
+	T.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 	T.screen_loc = "LEFT+1,BOTTOM+2"
 
 	C.screen += T

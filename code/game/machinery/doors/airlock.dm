@@ -32,6 +32,7 @@
 	normalspeed = TRUE
 	pixel_x = -16
 	pixel_y = -16
+	pass_flags_self = PASSDOORS
 	/// Boolean. Whether or not the AI control mechanism is disabled.
 	var/ai_control_disabled = FALSE
 	/// Boolean. If set, the door cannot by hacked or bypassed by the AI.
@@ -780,7 +781,9 @@
 	door_color = COLOR_VIOLET
 	mineral = MATERIAL_PHORON
 
-/obj/machinery/door/airlock/phoron/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/machinery/door/airlock/phoron/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(exposed_temperature > 300)
 		PhoronBurn(exposed_temperature)
 
@@ -1985,7 +1988,7 @@ About the new airlock wires panel:
 	var/has_opened_hatch = FALSE
 	for(var/turf/turf in locs)
 		for(var/atom/movable/AM in turf)
-			if(hashatch && AM.checkpass(PASSDOORHATCH))
+			if(hashatch && AM.pass_flags & PASSDOORHATCH)
 				if(!has_opened_hatch)
 					open_hatch(AM)
 				has_opened_hatch = TRUE

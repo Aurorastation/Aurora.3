@@ -11,8 +11,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/spline/plain{
-	dir = 8;
-	layer = 2.41
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
@@ -201,9 +200,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
 "bB" = (
@@ -628,9 +625,7 @@
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
@@ -1030,9 +1025,7 @@
 /area/space)
 "jo" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/galley)
 "jp" = (
@@ -1440,9 +1433,7 @@
 	dir = 5
 	},
 /obj/machinery/meter,
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
 "lO" = (
@@ -1516,8 +1507,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/effect/floor_decal/spline/plain{
-	dir = 8;
-	layer = 2.41
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
@@ -1638,12 +1628,9 @@
 /obj/machinery/door/airlock/freezer{
 	dir = 4;
 	name = "Freezer";
-	req_access = list(241);
-	layer = 2.8
+	req_access = list(241)
 	},
-/obj/structure/plasticflaps/airtight{
-	layer = 2
-	},
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/freezer)
 "ne" = (
@@ -1705,12 +1692,10 @@
 	pixel_y = 10
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 7
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 1
 	},
@@ -2340,8 +2325,7 @@
 /area/ship/fishing_trawler/corridor/central)
 "sc" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/fishing_trawler/engineering/port)
@@ -2594,7 +2578,8 @@
 	dir = 8
 	},
 /obj/machinery/vending/wallmed1{
-	pixel_y = 27
+	pixel_y = 27;
+	req_access = list(241)
 	},
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
@@ -3023,8 +3008,7 @@
 /area/ship/fishing_trawler/corridor/central)
 "wE" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3560,9 +3544,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/port)
 "Bh" = (
@@ -3654,8 +3636,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
@@ -4369,8 +4350,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -4636,8 +4616,7 @@
 /area/ship/fishing_trawler/corridor/starboard)
 "Jo" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	layer = 2.71
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/fishing_trawler/engineering/port)
@@ -5109,7 +5088,8 @@
 /area/ship/fishing_trawler/EVA_starboard)
 "MB" = (
 /obj/machinery/vending/wallmed2{
-	pixel_x = -28
+	pixel_x = -28;
+	req_access = list(241)
 	},
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -5763,9 +5743,7 @@
 /turf/simulated/floor/airless,
 /area/ship/fishing/trawler/fishing_catwalk)
 "Sk" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/port)
@@ -5942,7 +5920,6 @@
 /obj/item/reagent_containers/food/snacks/fish/carpmeat,
 /obj/item/reagent_containers/food/snacks/fish/carpmeat,
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -6196,8 +6173,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
@@ -6230,8 +6206,7 @@
 "VT" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/spline/plain{
-	dir = 8;
-	layer = 2.41
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
@@ -6297,9 +6272,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
 "Wy" = (
-/obj/structure/plasticflaps/airtight{
-	layer = 2
-	},
+/obj/structure/plasticflaps/airtight,
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/freezer{
 	dir = 4;
@@ -6624,9 +6597,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ship/fishing_trawler/freezer)
 "Zk" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},

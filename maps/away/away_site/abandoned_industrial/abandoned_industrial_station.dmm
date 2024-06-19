@@ -761,8 +761,7 @@
 "cp" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "ab_ind_station_conv";
-	layer = 2.9
+	id = "ab_ind_station_conv"
 	},
 /obj/item/ore/coal,
 /obj/item/ore/coal{
@@ -1120,8 +1119,7 @@
 /area/abandoned_industrial_station/docks_east)
 "dB" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/reinforced/airless,
@@ -1375,10 +1373,11 @@
 "eo" = (
 /obj/structure/table/standard,
 /obj/random/dirt_75,
-/obj/item/book/manual/wiki/engineering_construction{
-	pixel_x = 3;
-	pixel_y = 6
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
 	},
+/obj/item/blueprints,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/engineering)
 "ep" = (
@@ -1675,7 +1674,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/portables_connector{
@@ -2175,7 +2173,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/portables_connector{
@@ -2820,7 +2817,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/portables_connector{
@@ -3925,8 +3921,7 @@
 /area/abandoned_industrial_station/quarters)
 "mK" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/abandoned_industrial_station/atmos)
@@ -4854,12 +4849,10 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/abandoned_industrial_station/atmos)
@@ -4988,7 +4981,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/portables_connector{
@@ -5205,8 +5197,7 @@
 /area/abandoned_industrial_station/engineering)
 "qE" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/reinforced/airless,
@@ -5308,7 +5299,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/portables_connector{
@@ -5987,7 +5977,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/portables_connector{
@@ -6040,12 +6029,10 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/reinforced/airless,
@@ -6966,8 +6953,7 @@
 "wj" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "ab_ind_station_conv";
-	layer = 2.9
+	id = "ab_ind_station_conv"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -8926,12 +8912,10 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor/reinforced/airless,
@@ -9409,8 +9393,7 @@
 /area/abandoned_industrial_station/engineering)
 "Do" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -9549,7 +9532,6 @@
 "DL" = (
 /obj/machinery/conveyor{
 	id = "ab_ind_station_conv";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/item/stack/material/steel{
@@ -10048,12 +10030,10 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/reinforced/airless,
@@ -10357,12 +10337,10 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/reinforced/airless,
@@ -10684,7 +10662,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/portables_connector{
@@ -11199,8 +11176,7 @@
 "Jc" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "ab_ind_station_conv";
-	layer = 2.9
+	id = "ab_ind_station_conv"
 	},
 /obj/item/ore/coal{
 	pixel_x = 8;
@@ -12658,8 +12634,7 @@
 /area/abandoned_industrial_station/hallways)
 "NK" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/reinforced/airless,
@@ -13311,7 +13286,6 @@
 /obj/machinery/conveyor{
 	dir = 10;
 	id = "ab_ind_station_conv";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/item/stack/material/steel{
@@ -13323,7 +13297,6 @@
 /area/abandoned_industrial_station/hangar)
 "Qc" = (
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -15313,12 +15286,10 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/reinforced/airless,
@@ -15698,7 +15669,6 @@
 "XL" = (
 /obj/structure/table/stone/marble,
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -15796,7 +15766,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/portables_connector{
@@ -16191,12 +16160,10 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/abandoned_industrial_station/atmos)
@@ -16387,12 +16354,10 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/reinforced/airless,

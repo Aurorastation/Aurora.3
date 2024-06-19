@@ -486,7 +486,6 @@
 	icon_state = "toilet01"
 	},
 /obj/structure/sink{
-	layer = 3;
 	pixel_x = -7;
 	pixel_y = 23
 	},
@@ -917,7 +916,6 @@
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /obj/structure/cable{
@@ -990,9 +988,7 @@
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/atmos)
 "jt" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	layer = 2.8
-	},
+/obj/machinery/atmospherics/binary/pump/high_power,
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
 	},
@@ -1011,8 +1007,7 @@
 /area/coc_survey_ship/anomaly)
 "jI" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1;
-	layer = 2.8
+	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
@@ -1431,9 +1426,7 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/east,
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/quarters)
 "mv" = (
@@ -1495,7 +1488,6 @@
 /obj/machinery/conveyor{
 	dir = 10;
 	id = "Coallit_Mining_1";
-	layer = 2.9;
 	reversed = 1
 	},
 /turf/simulated/floor,
@@ -1758,9 +1750,7 @@
 	dir = 4
 	},
 /obj/machinery/alarm/east,
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
 /area/coc_survey_ship/cargo)
 "pw" = (
@@ -1903,18 +1893,11 @@
 	dir = 4
 	},
 /obj/structure/table/steel,
-/obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for a vessel.";
-	icon = 'icons/obj/items.dmi';
-	icon_state = "blueprints";
-	item_icons = null;
-	item_state = null;
-	name = "ship blueprints"
-	},
 /obj/item/pen/drafting/blue{
 	pixel_y = 5
 	},
 /obj/machinery/light,
+/obj/item/blueprints,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/atmos)
 "ra" = (
@@ -2167,7 +2150,7 @@
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/item/storage/box/gloves,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/research)
 "sL" = (
@@ -2188,7 +2171,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -3773,7 +3755,6 @@
 "Fr" = (
 /obj/machinery/mineral/processing_unit_console{
 	id = "coalition_miner";
-	layer = 3.3;
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner_wide/orange{
@@ -3833,8 +3814,7 @@
 "FK" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "Coallit_Mining_1";
-	layer = 2.9
+	id = "Coallit_Mining_1"
 	},
 /turf/simulated/floor,
 /area/coc_survey_ship/miningeva)
@@ -3884,7 +3864,7 @@
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/item/storage/box/gloves,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/research)
 "Ga" = (
@@ -4505,8 +4485,7 @@
 /area/shuttle/coc_survey_shuttle)
 "KX" = (
 /obj/machinery/conveyor{
-	id = "Coallit_Mining_1";
-	layer = 2.9
+	id = "Coallit_Mining_1"
 	},
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor,
@@ -5139,8 +5118,7 @@
 /area/shuttle/coc_survey_shuttle)
 "Qx" = (
 /obj/machinery/conveyor{
-	id = "Coallit_Mining_1";
-	layer = 2.9
+	id = "Coallit_Mining_1"
 	},
 /turf/simulated/floor,
 /area/coc_survey_ship/miningeva)
@@ -5524,9 +5502,7 @@
 /obj/item/storage/box/fancy/mre/random,
 /obj/item/storage/box/fancy/mre/random,
 /obj/machinery/light,
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/quarters)
 "TY" = (
@@ -5624,6 +5600,12 @@
 "UF" = (
 /turf/simulated/wall,
 /area/coc_survey_ship/anomaly)
+"UH" = (
+/obj/structure/table/steel,
+/obj/item/device/hand_labeler,
+/obj/item/blueprints/outpost,
+/turf/simulated/floor/tiled,
+/area/coc_survey_ship/miningeva)
 "UI" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -5818,8 +5800,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
@@ -6111,7 +6092,6 @@
 "XU" = (
 /obj/item/bedsheet/black,
 /obj/item/bedsheet/black{
-	layer = 4.2;
 	pixel_y = 13
 	},
 /obj/structure/railing/mapped{
@@ -6312,7 +6292,6 @@
 "Zo" = (
 /obj/item/bedsheet/black,
 /obj/item/bedsheet/black{
-	layer = 4.2;
 	pixel_y = 13
 	},
 /obj/structure/railing/mapped{
@@ -11983,7 +11962,7 @@ Fb
 MH
 MH
 bM
-TF
+UH
 vs
 MH
 Lr

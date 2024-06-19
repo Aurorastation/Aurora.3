@@ -433,8 +433,7 @@
 /area/ship/coc_scarab/thrust1)
 "cI" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	layer = 2.78
+	dir = 4
 	},
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/airless,
@@ -544,9 +543,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/starboardhallway)
 "dn" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 5
 	},
@@ -868,7 +865,6 @@
 /area/ship/coc_scarab/cargobay)
 "eH" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1041,7 +1037,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -1118,6 +1113,7 @@
 /obj/item/clothing/gloves/yellow,
 /obj/item/ladder_mobile,
 /obj/item/hoist_kit,
+/obj/item/blueprints,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/engistorage)
 "fz" = (
@@ -1387,7 +1383,6 @@
 	sensors = list("scav_sensor"="Combustion Chamber")
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/machinery/button/ignition{
@@ -1779,7 +1774,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/structure/sign/emergency/evacuation{
-	layer = 2.1;
 	pixel_x = 32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1853,7 +1847,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/structure/sign/emergency/evacuation{
-	layer = 2.1;
 	pixel_x = -32
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1999,7 +1992,6 @@
 /obj/structure/closet/crate/tool,
 /obj/structure/sign/emergency/evacuation{
 	dir = 8;
-	layer = 2.1;
 	pixel_x = -32
 	},
 /obj/structure/bed/handrail{
@@ -2396,15 +2388,12 @@
 /obj/machinery/light/floor/decayed{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/grass,
 /area/ship/coc_scarab/hydroponics)
 "mD" = (
 /obj/structure/platform,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/machinery/light/colored/decayed/dimmed{
@@ -2458,7 +2447,6 @@
 	pixel_y = -10
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 4
 	},
 /obj/item/device/binoculars,
@@ -2687,8 +2675,7 @@
 /area/ship/coc_scarab/porthallway)
 "ok" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/portable_atmospherics/canister/hydrogen,
@@ -2720,7 +2707,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -2732,7 +2718,6 @@
 /area/ship/coc_scarab/atmospherics)
 "ov" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	layer = 2.8;
 	target_pressure = 15000;
 	name = "Canister to Tank"
 	},
@@ -2846,7 +2831,6 @@
 /area/ship/coc_scarab/engine)
 "pj" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -3067,7 +3051,6 @@
 	pixel_x = -1
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment{
@@ -3198,8 +3181,7 @@
 	id = "scarab_thrust2_dump"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	layer = 2.78
+	dir = 4
 	},
 /obj/machinery/air_sensor{
 	id_tag = "scarab_thrust2_dump_sensor";
@@ -3427,9 +3409,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ship/coc_scarab/washroom)
 "sa" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/visible/blue{
 	dir = 9
 	},
@@ -3587,12 +3567,10 @@
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk,
 /obj/item/reagent_containers/food/drinks/cans/beetle_milk,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = 4
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -3793,7 +3771,6 @@
 	target_pressure = 15000
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -3866,7 +3843,6 @@
 /area/ship/coc_scarab/cargobay)
 "tX" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	layer = 2.8;
 	target_pressure = 15000;
 	name = "Canister to Tank"
 	},
@@ -4387,7 +4363,6 @@
 /area/ship/coc_scarab/hydroponics)
 "wP" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -4499,7 +4474,6 @@
 /obj/item/clothing/head/helmet/space/emergency,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/item/tank/emergency_oxygen/engi,
@@ -4523,7 +4497,6 @@
 "xE" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -4702,9 +4675,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/grass,
 /area/ship/coc_scarab/hydroponics)
 "yD" = (
@@ -4756,8 +4727,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/grauwolf)
@@ -4910,7 +4880,6 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/grey{
@@ -4934,7 +4903,6 @@
 "zG" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	layer = 2.8;
 	name = "Tank to Thrusters";
 	target_pressure = 15000
 	},
@@ -5349,8 +5317,7 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/platform_deco,
 /obj/structure/platform_deco{
-	dir = 8;
-	layer = 2.7
+	dir = 8
 	},
 /obj/structure/bed/handrail,
 /obj/machinery/alarm/north,
@@ -5533,7 +5500,6 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5550,7 +5516,6 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/sign/emergency/evacuation{
 	dir = 4;
-	layer = 2.1;
 	pixel_x = 32
 	},
 /obj/structure/bed/handrail{
@@ -5565,9 +5530,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 8
 	},
@@ -5575,8 +5538,7 @@
 /area/ship/coc_scarab/hydroponics)
 "Cr" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk,
@@ -5634,7 +5596,6 @@
 "CA" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
@@ -5769,7 +5730,6 @@
 	dir = 1
 	},
 /obj/structure/sign/emergency/evacuation{
-	layer = 2.1;
 	pixel_y = -32
 	},
 /obj/structure/extinguisher_cabinet/south,
@@ -5812,8 +5772,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
@@ -6038,7 +5997,6 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -6238,7 +6196,6 @@
 	},
 /obj/machinery/power/apc/high/north{
 	req_access = null;
-	cell_type = /obj/item/cell/super
 	},
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 8
@@ -6300,7 +6257,6 @@
 	target_pressure = 15000
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -6318,7 +6274,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/brown,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6539,7 +6494,6 @@
 "HJ" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8;
 	name = "Canister to Air";
 	target_pressure = 15000
 	},
@@ -6566,7 +6520,6 @@
 /area/ship/coc_scarab/exterior)
 "HS" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
@@ -6593,9 +6546,7 @@
 /obj/machinery/light/floor/decayed{
 	dir = 8
 	},
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/grass,
 /area/ship/coc_scarab/hydroponics)
 "Ia" = (
@@ -6753,14 +6704,12 @@
 "II" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	layer = 2.8;
 	name = "Scrubbers to Space";
 	target_pressure = 15000
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/machinery/computer/general_air_control/large_tank_control/wall{
 	pixel_y = 32;
@@ -6780,7 +6729,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -7118,7 +7066,6 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7283,9 +7230,7 @@
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/bridge)
 "LJ" = (
@@ -7526,7 +7471,6 @@
 	sensors = list("scav_sensor"="Combustion Chamber")
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -7620,8 +7564,7 @@
 /area/ship/coc_scarab/engihallway)
 "Nu" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 1336;
@@ -7788,7 +7731,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/grey{
@@ -8721,7 +8663,6 @@
 	},
 /obj/structure/table/steel,
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = 10;
 	pixel_y = 5
 	},
@@ -8866,7 +8807,6 @@
 /area/ship/coc_scarab/armory)
 "SZ" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -8879,7 +8819,6 @@
 /area/ship/coc_scarab/engine)
 "Tk" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -8902,7 +8841,6 @@
 /area/ship/coc_scarab/engistorage)
 "Ts" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71;
 	dir = 4
 	},
 /obj/structure/table/reinforced/steel,
@@ -9106,7 +9044,6 @@
 "Ut" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	layer = 2.8;
 	name = "Tank to Thrusters";
 	target_pressure = 15000
 	},
@@ -9310,7 +9247,6 @@
 	dir = 1
 	},
 /obj/structure/sign/emergency/evacuation{
-	layer = 2.1;
 	pixel_y = -32
 	},
 /obj/structure/extinguisher_cabinet/south,
@@ -9616,7 +9552,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sink/kitchen{
 	pixel_y = 20;
-	layer = 2.89;
 	name = "surgery sink"
 	},
 /turf/simulated/floor/tiled/white,
@@ -9637,7 +9572,6 @@
 /area/ship/coc_scarab/cargobay)
 "Xd" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
@@ -9982,7 +9916,6 @@
 /area/ship/coc_scarab/cargobay)
 "YF" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/universal{

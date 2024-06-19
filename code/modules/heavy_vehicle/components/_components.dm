@@ -38,13 +38,25 @@
 	if(ready_to_install())
 		. += SPAN_NOTICE("It is ready for installation.")
 	else
-		. = show_missing_parts(user)
+		. += get_missing_parts_text(user)
 
 /obj/item/mech_component/set_dir()
 	..(SOUTH)
 
-/obj/item/mech_component/proc/show_missing_parts(var/mob/user)
-	return
+/**
+ * Get a list of missing parts text, each line is one element of the list
+ *
+ * Used by the `get_examine_text` proc to display missing parts
+ *
+ * All implementations must append (**NOT** overwrite or manipulate, only append) to the return of the parent proc
+ *
+ * Returns a `/list` of strings
+ */
+/obj/item/mech_component/proc/get_missing_parts_text()
+	SHOULD_CALL_PARENT(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	. = list()
 
 /obj/item/mech_component/proc/return_diagnostics(var/mob/user)
 	. = list()

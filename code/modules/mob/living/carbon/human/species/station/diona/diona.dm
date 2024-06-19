@@ -133,6 +133,7 @@
 
 	sleeps_upright = TRUE
 	snore_key = "chirp"
+	indefinite_sleep = TRUE
 
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other
