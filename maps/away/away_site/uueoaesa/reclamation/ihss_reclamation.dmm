@@ -5501,8 +5501,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
 	id_tag = "ihss_shuttle_pump_out_external";
-	frequency = 1385;
-	layer = 2.8
+	frequency = 1385
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/airlock_sensor/airlock_exterior{
@@ -7219,7 +7218,6 @@
 	dir = 4
 	},
 /obj/machinery/ship_weapon/francisca/compact{
-	layer = 3;
 	pixel_x = -40;
 	pixel_y = -64;
 	weapon_id = "IHSS Rotary Gun"

@@ -103,8 +103,7 @@
 /area/ouerea_sol)
 "ir" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	dir = 4;
-	layer = 2.71
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ouerea_sol)
@@ -679,9 +678,7 @@
 /turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "OI" = (
-/obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning/corner,
 /turf/simulated/floor/plating,
 /area/ouerea_sol)
 "Pv" = (
@@ -774,8 +771,7 @@
 /area/ouerea_sol)
 "US" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ouerea_sol)

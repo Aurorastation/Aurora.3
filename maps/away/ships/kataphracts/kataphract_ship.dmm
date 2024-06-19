@@ -2135,7 +2135,6 @@
 	pixel_x = 7
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 5;
 	pixel_y = 21
 	},
@@ -6748,12 +6747,10 @@
 	dir = 5
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 5;
 	pixel_y = 23
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 5;
 	pixel_y = 34
 	},
