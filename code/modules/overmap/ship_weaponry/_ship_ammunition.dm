@@ -43,7 +43,11 @@
 	return ..()
 
 /obj/item/ship_ammunition/attackby(obj/item/attacking_item, mob/user)
-	if(attacking_item.ispen())
+	if(attacking_item.force > 10 && (ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE))
+		log_and_message_admins("[user] has caused the cookoff of [src] by attacking it with [attacking_item]!", user)
+		cookoff(FALSE)
+
+	else if(attacking_item.ispen())
 		var/obj/item/pen/P = attacking_item
 		if(!use_check_and_message(user))
 			var/friendly_message = sanitizeSafe( tgui_input_text(user, "What do you want to write on \the [src]?", "Personal Message", "", 32), 32 )
@@ -97,17 +101,13 @@
 	if(prob(50) && ((ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE) || (ammunition_flags & SHIP_AMMO_FLAG_VULNERABLE)))
 		cookoff(FALSE)
 
-/obj/item/ship_ammunition/attackby(obj/item/attacking_item, mob/user)
-	. = ..()
-	if(attacking_item.force > 10 && (ammunition_flags & SHIP_AMMO_FLAG_VERY_FRAGILE))
-		log_and_message_admins("[user] has caused the cookoff of [src] by attacking it with [attacking_item]!", user)
-		cookoff(FALSE)
-
 /obj/item/ship_ammunition/ex_act(severity)
 	if(ammunition_flags & SHIP_AMMO_FLAG_INFLAMMABLE)
 		cookoff(TRUE)
 
-/obj/item/ship_ammunition/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/item/ship_ammunition/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(ammunition_flags & SHIP_AMMO_FLAG_INFLAMMABLE)
 		if(exposed_temperature >= T0C+200)
 			cookoff(TRUE)
@@ -155,7 +155,7 @@
 	return TRUE
 
 /obj/item/ship_ammunition/proc/get_additional_info()
-	. += "<span class='danger'>[name_override ? name_override : name]</span><br>"
+	. += SPAN_DANGER("[name_override ? name_override : name]<br>")
 	. += "[desc]<br>"
 	. += "Caliber: [caliber]<br>"
 	. += "Ammunition Type: [capitalize_first_letters(impact_type)]<br>"

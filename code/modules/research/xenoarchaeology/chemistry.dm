@@ -18,7 +18,7 @@
 		var/new_label = sanitizeSafe( tgui_input_text(user, "What should the new label be?", "Label solution tray", max_length = MAX_NAME_LEN), MAX_NAME_LEN )
 		if(new_label)
 			name = "solution tray ([new_label])"
-			to_chat(user, "<span class='notice'>You write on the label of the solution tray.</span>")
+			to_chat(user, SPAN_NOTICE("You write on the label of the solution tray."))
 	else
 		return ..()
 

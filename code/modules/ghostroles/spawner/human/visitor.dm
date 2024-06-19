@@ -4,7 +4,7 @@
 	tags = list("External")
 
 	enabled = FALSE
-	landmark_name = "JoinLate"
+	landmark_type = /obj/effect/landmark/latejoin
 	req_perms = null
 	max_count = 1
 

@@ -5,4 +5,8 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/swamp_1.dmm")
+
+	prefix = "konyang/"
+	suffixes = list("swamp_1.dmm")
+
+	unit_test_groups = list(3)

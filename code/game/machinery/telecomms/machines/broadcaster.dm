@@ -11,7 +11,7 @@
 	desc = "A dish-shaped machine used to broadcast processed subspace signals."
 	telecomms_type = /obj/machinery/telecomms/broadcaster
 	idle_power_usage = 100 // WATTS
-	active_power_usage = 3 KILOWATTS
+	active_power_usage = 3 KILO WATTS
 	produces_heat = FALSE
 	delay = 7
 	circuitboard = "/obj/item/circuitboard/telecomms/broadcaster"
@@ -52,5 +52,7 @@
 	/* --- Do a snazzy animation! --- */
 	flick("broadcaster_send", src)
 
-	spawn(10)
-		recent_broadcasts -= signal_message
+	addtimer(CALLBACK(src, PROC_REF(remove_signal_message_from_recent_broadcasts), signal_message), 1 SECONDS)
+
+/obj/machinery/telecomms/broadcaster/proc/remove_signal_message_from_recent_broadcasts(signal_message)
+	recent_broadcasts -= signal_message

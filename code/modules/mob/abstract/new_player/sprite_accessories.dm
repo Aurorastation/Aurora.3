@@ -17,27 +17,34 @@
 */
 
 /datum/sprite_accessory
-
-	var/icon			// the icon file the accessory is located in
-	var/icon_state		// the icon_state of the accessory
-	var/preview_state	// a custom preview state for whatever reason
-
-	var/name			// the preview name of the accessory
-
-	// Determines if the accessory will be skipped or included in random hair generations
+	/// The icon file the accessory is located in.
+	var/icon
+	/// The icon_state of the accessory.
+	var/icon_state
+	/// A custom preview state if wanted.
+	var/preview_state
+	/// The name of the accessory.
+	var/name
+	/// Determines if the accessory will be skipped or included in random hair generation.
 	var/gender = NEUTER
-
-	// Restrict some styles to specific species. This requires the type path of the datum of the species in question, as well as all children of that datum if applicable.
-	var/list/species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
-
-	// Whether or not the accessory can be affected by colouration
-	var/do_colouration = 1
-
-	// The blend mode to use when blending this icon with its color. May not apply to all sprite_accessory types, and must be a ICON_* blend mode, not BLEND_*!
+	/// Restrict some styles to specific species. This requires the type path of the datum of the species in question, as well as all children if applicable.
+	var/list/species_allowed = list(
+		/datum/species/human,
+		/datum/species/human/offworlder,
+		/datum/species/machine/shell,
+		/datum/species/machine/shell/rogue,
+		/datum/species/zombie
+	)
+	/// Whether or not the accessory can be affected by colouration.
+	var/do_colouration = TRUE
+	/// The blend mode to use when blending this icon with its color. May not apply to all sprite_accessory types, and must be a ICON_* blend mode, not BLEND_*!
 	var/icon_blend_mode = ICON_ADD
-
-	//This is to provide safe names to use for hair/sprite to text. See Skrell tentacles for example
-	var/chatname = null
+	/// This is to provide safe names to use for hair/sprite to text. See Skrell tentacles for an example.
+	var/chatname
+	/// The organ the markings go over. Used to check if a marking can go over a certain organ. Must be an organ tag.
+	var/required_organ
+	/// Required prosthetic types to use this marking, if any. List is "any of". Null means no robotize type required. Empty list means there must be NO robotize type.
+	var/list/robotize_type_required
 
 
 /*
@@ -64,6 +71,8 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/hair
 	icon = 'icons/mob/human_face/hair.dmi'	  // default icon for all hairs
 	var/length = 1
+	///Should this hairstyle be kept on a skeleton?
+	var/keep_as_skeleton = FALSE
 
 /datum/sprite_accessory/hair/bald
 	name = "Bald"   // try to capitalize the names please~
@@ -470,6 +479,12 @@ Follow by example and make good judgement based on length which list to include 
 	length = 3
 	chatname = "hair drills"
 
+/datum/sprite_accessory/hair/eagle
+	name = "Eagle"
+	icon_state = "hair_eagle"
+	length = 1
+	chatname = "short hair"
+
 /datum/sprite_accessory/hair/emo
 	name = "Emo"
 	icon_state = "hair_emo"
@@ -555,6 +570,12 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Fade, None"
 	icon_state = "hair_fade_none"
 	chatname = "short hair"
+
+/datum/sprite_accessory/hair/falcon
+	name = "Falcon"
+	icon_state = "hair_falcon"
+	length = 3
+	chatname = "very long hair"
 
 /datum/sprite_accessory/hair/father
 	name = "Father"
@@ -693,6 +714,12 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_hitop"
 	chatname = "hitop"
 
+/datum/sprite_accessory/hair/hummingbird
+	name = "Hummingbird"
+	icon_state = "hair_hummingbird"
+	length = 2
+	chatname = "long hair"
+
 /datum/sprite_accessory/hair/jade
 	name = "Jade"
 	icon_state = "hair_jade"
@@ -749,6 +776,28 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_long_verylong"
 	length = 4
 	chatname = "very long hair"
+
+/datum/sprite_accessory/hair/macaw
+	name = "Macaw"
+	icon_state = "hair_macaw"
+	length = 2
+	chatname = "long hair"
+
+/datum/sprite_accessory/hair/magpie
+	name = "Magpie, 1"
+	icon_state = "hair_magpie"
+
+/datum/sprite_accessory/hair/magpie/two
+	name = "Magpie, 2"
+	icon_state = "hair_magpie2"
+
+/datum/sprite_accessory/hair/magpie/three
+	name = "Magpie, 3"
+	icon_state = "hair_magpie3"
+
+/datum/sprite_accessory/hair/magpie/four
+	name = "Magpie, 4"
+	icon_state = "hair_magpie4"
 
 /datum/sprite_accessory/hair/marysue
 	name = "Mary Sue"
@@ -1470,7 +1519,6 @@ Follow by example and make good judgement based on length which list to include 
 	chatname = "unshaved hair"
 	name = "Undercut 3"
 	icon_state = "hair_undercut3"
-	chatname = "unshaved hair"
 
 /datum/sprite_accessory/hair/undercut4
 	name = "Undercut 4"
@@ -1480,6 +1528,11 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/hair/undercut5
 	name = "Undercut 5"
 	icon_state = "hair_undercut5"
+	chatname = "unshaved hair"
+
+/datum/sprite_accessory/hair/curtain
+	name = "Short Curtain"
+	icon_state = "hair_curtain"
 	chatname = "unshaved hair"
 
 /datum/sprite_accessory/hair/unkept
@@ -1515,6 +1568,11 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Fingerwave"
 	icon_state = "hair_fingercurl"
 	chatname = "fluffy hair"
+
+/datum/sprite_accessory/hair/mullet
+	name = "Mullet"
+	icon_state = "hair_mullet"
+	chatname = "mullet"
 
 /datum/sprite_accessory/hair/bug_eyes
 	icon = 'icons/mob/human_face/dionae_hair.dmi'
@@ -1922,7 +1980,7 @@ Follow by example and make good judgement based on length which list to include 
 
 /datum/sprite_accessory/hair_gradients/none_48
 	name = "None (Vaurca Type C/E)"
-	icon = "icons/mob/base_48.dmi"
+	icon = 'icons/mob/base_48.dmi'
 	icon_state = "none"
 	species_allowed = list(/datum/species/bug/type_e, /datum/species/bug/type_c)
 
@@ -1953,6 +2011,18 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/hair_gradients/horizontal
 	name = "Horizontal Split"
 	icon_state = "hsplit"
+
+/datum/sprite_accessory/hair_gradients/short_highlights
+	name = "Short Highlights"
+	icon_state = "short_highlights"
+
+/datum/sprite_accessory/hair_gradients/short_highlights/upshift
+	name = "Short Highlights (+1 Upshift)"
+	icon_state = "short_highlights+1"
+
+/datum/sprite_accessory/hair_gradients/short_highlights/downshift
+	name = "Short Highlights (-1 Downshift)"
+	icon_state = "short_highlights-1"
 
 /datum/sprite_accessory/hair_gradients/taj_inner_ear_fur
 	name = "Inner Ear Fur"
@@ -1996,6 +2066,8 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair
 	icon = 'icons/mob/human_face/facial_hair.dmi'
 	gender = MALE // barf (unless you're a dorf, dorfs dig chix /w beards :P)
+	///Should a skeleton keep this beard?
+	var/keep_as_skeleton = FALSE
 
 /datum/sprite_accessory/facial_hair/shaved
 	name = "Shaved"
@@ -2202,6 +2274,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_bighorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_bighorns/una_bighorns_noside
 	name = "Unathi Big Horns (No Sides)"
@@ -2212,12 +2285,14 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_chinhorns"
 	length = 0
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_curlhorn
 	name = "Unathi Curled Horns"
 	icon_state = "unathi_curledhorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_dorsalfrill
 	name = "Unathi Dorsal Frill"
@@ -2236,12 +2311,14 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_drachorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_hornadorns
 	name = "Unathi Horn Adorns"
 	icon_state = "unathi_hornadorns"
 	length = 0
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_longdorsal
 	name = "Unathi Long Dorsal Frill"
@@ -2266,12 +2343,14 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_longspines"
 	length = 0
 	chatname = "spines"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_lowerhorn
 	name = "Unathi Lower Horns"
 	icon_state = "unathi_lowerhorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_mohawk
 	name = "Unathi Mohawk"
@@ -2284,12 +2363,14 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_ramhorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_ramhornlong
 	name = "Unathi Long Ram Horns"
 	icon_state = "unathi_ramhorn2"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_shortfrill
 	name = "Unathi Short Frills"
@@ -2308,12 +2389,14 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_shorthorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_shortspines
 	name = "Unathi Short Spines"
 	icon_state = "unathi_shortspines"
 	length = 0
 	chatname = "spines"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_sidefrills
 	name = "Unathi Side Frills"
@@ -2326,60 +2409,70 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_simplehorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_smallhorns
 	name = "Unathi Small Horns"
 	icon_state = "unathi_smallhorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_spikehorn
 	name = "Unathi Spike Horns"
 	icon_state = "unathi_spikehorn"
 	length = 5
 	chatname = "spiked horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_swepthorns
 	name = "Unathi Swept-Forward Horns"
 	icon_state = "unathi_swepthorn"
 	length = 0
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_swepthorns2
 	name = "Unathi Swept-Forward Horns 2"
 	icon_state = "unathi_swepthorn2"
 	length = 0
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_demonforward
 	name = "Unathi Forward Demon Horns"
 	icon_state = "unathi_demonforward"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_bullhorns
 	name = "Unathi Bull Horns"
 	icon_state = "unathi_bullhorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_longhorns
 	name = "Unathi Long Bull Horns"
 	icon_state = "unathi_longhorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_faun
 	name = "Unathi Faun Horns"
 	icon_state = "unathi_faun"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_double
 	name = "Unathi Double Horns"
 	icon_state = "unathi_dubhorns"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_hood
 	name = "Unathi Cobra Hood"
@@ -2392,12 +2485,14 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_skewers"
 	length = 6
 	chatname = "huge horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_chameleon
 	name = "Unathi Chameleon Horns"
 	icon_state = "unathi_chameleon"
 	length = 3
 	chatname = "small horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_dilocrest
 	name = "Unathi Dilo Crest"
@@ -2428,12 +2523,14 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "albertahorns"
 	length = 5
 	chatname = "small horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_styrahorn
 	name = "Unathi Styra Horn"
 	icon_state = "styrahorn"
 	length = 5
 	chatname = "massive horn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_styracrest
 	name = "Unathi Styra Frill"
@@ -2464,24 +2561,28 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_simplehornbusted"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_ramhornshortbusted
 	name = "Unathi Short Ram Horns-Busted"
 	icon_state = "unathi_ramhornbusted"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_shorthornbusted
 	name = "Unathi Short Horns-Busted"
 	icon_state = "unathi_shorthornbusted"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_drachornbusted
 	name = "Unathi Draconic Horns-Busted"
 	icon_state = "unathi_drachornbusted"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_shortfrill2busted
 	name = "Unathi Short Frills 2-Busted"
@@ -2494,6 +2595,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "styrahornbusted"
 	length = 2
 	chatname = "horn stub"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/finhawk
 	name = "Unathi Mohawk Fin"
@@ -2518,6 +2620,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "curved_up"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/curved/down
 	name = "Unathi Curved-Down Horns"
@@ -2528,16 +2631,19 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "samurai"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/headspikes
 	name = "Unathi Head Spikes"
 	icon_state = "head_spikes"
 	length = 5
 	chatname = "spiked horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/headspikes/overgrown
 	name = "Unathi Overgrown Head Spikes"
 	icon_state = "overgrown_head_spikes"
+	keep_as_skeleton = TRUE
 
 //skrell tentacles
 
@@ -3942,14 +4048,17 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_bighorns
 	name = "Unathi Big Horns"
 	icon_state = "facial_bighorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_chinhorn
 	name = "Unathi Chin Horn"
 	icon_state = "facial_chinhorns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_curlhorn
 	name = "Unathi Curled Horns"
 	icon_state = "facial_curledhorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_dorsalfrill
 	name = "Unathi Dorsal Frill"
@@ -3962,10 +4071,12 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_drachorn
 	name = "Unathi Draconic Horns"
 	icon_state = "facial_drachorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_hornadorns
 	name = "Unathi Horn Adorns"
 	icon_state = "facial_hornadorns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_longdorsal
 	name = "Unathi Long Dorsal Frill"
@@ -3982,10 +4093,12 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_longspines
 	name = "Unathi Long Spines"
 	icon_state = "facial_longspines"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_lowerhorn
 	name = "Unathi Lower Horns"
 	icon_state = "facial_lowerhorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_mohawk
 	name = "Unathi Mohawk"
@@ -3994,10 +4107,12 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_ramhornshort
 	name = "Unathi Short Ram Horns"
 	icon_state = "facial_ramhorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_ramhornlong
 	name = "Unathi Long Ram Horns"
 	icon_state = "facial_ramhorn2"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_shortfrill
 	name = "Unathi Short Frills"
@@ -4010,10 +4125,12 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_shorthorn
 	name = "Unathi Short Horns"
 	icon_state = "facial_shorthorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_shortspines
 	name = "Unathi Short Spines"
 	icon_state = "facial_shortspines"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_sidefrills
 	name = "Unathi Side Frills"
@@ -4022,42 +4139,52 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_horns
 	name = "Unathi Horns"
 	icon_state = "facial_simplehorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_smallhorns
 	name = "Unathi Small Horns"
 	icon_state = "facial_smallhorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_spikehorn
 	name = "Unathi Spike Horns"
 	icon_state = "facial_spikehorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_swepthorns
 	name = "Unathi Swept-Forward Horns"
 	icon_state = "facial_swepthorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_swepthorns2
 	name = "Unathi Swept-Forward Horns 2"
 	icon_state = "facial_swepthorn2"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_demonforward
 	name = "Unathi Forward Demon Horns"
 	icon_state = "facial_demonforward"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_bullhorns
 	name = "Unathi Bull Horns"
 	icon_state = "facial_bullhorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_longhorns
 	name = "Unathi Long Bull Horns"
 	icon_state = "facial_longhorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_faun
 	name = "Unathi Faun Horns"
 	icon_state = "facial_faun"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_double
 	name = "Unathi Double Horns"
 	icon_state = "facial_dubhorns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_hood
 	name = "Unathi Cobra Hood"
@@ -4066,10 +4193,12 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_skewers
 	name = "Unathi Super Long Horns"
 	icon_state = "facial_skewers"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_chameleon
 	name = "Unathi Chameleon Horns"
 	icon_state = "facial_chameleon"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_dilocrest
 	name = "Unathi Dilo Crest"
@@ -4090,10 +4219,13 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_albertahorns
 	name = "Unathi Alberta Horns"
 	icon_state = "albertahorns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_styrahorn
 	name = "Unathi Styra Horn"
 	icon_state = "styrahorn"
+	keep_as_skeleton = TRUE
+
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_styracrest
 	name = "Unathi Styra Frill"
 	icon_state = "styrafrill"
@@ -4113,18 +4245,22 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_hornsbusted
 	name = "Unathi Horns-Busted"
 	icon_state = "unathi_simplehornbusted"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_ramhornshortbusted
 	name = "Unathi Short Ram Horns-Busted"
 	icon_state = "unathi_ramhornbusted"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_shorthornbusted
 	name = "Unathi Short Horns-Busted"
 	icon_state = "unathi_shorthornbusted"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_drachornbusted
 	name = "Unathi Draconic Horns-Busted"
 	icon_state = "unathi_drachornbusted"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_shortfrill2busted
 	name = "Unathi Short Frills 2-Busted"
@@ -4133,6 +4269,7 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_styrahornbusted
 	name = "Unathi Styra Horn-Busted"
 	icon_state = "styrahornbusted"
+	keep_as_skeleton = TRUE
 
 //ipc screens
 
@@ -4141,7 +4278,14 @@ Follow by example and make good judgement based on length which list to include 
 	name = "blank IPC screen"
 	icon_state = "ipc_blank"
 	species_allowed = list(/datum/species/machine)
+	robotize_type_required = list()
+	required_organ = BP_HEAD
 	gender = NEUTER
+
+/datum/sprite_accessory/facial_hair/ipc_screen_blank/none
+	name = "no IPC screen"
+	icon_state = "none"
+	robotize_type_required = list(PROSTHETIC_HOPLAN, PROSTHETIC_RAXUS, PROSTHETIC_INDRICUS)
 
 /datum/sprite_accessory/facial_hair/ipc_screen_blank/ipc_screen_blue
 	name = "blue IPC screen"
@@ -4545,8 +4689,6 @@ Follow by example and make good judgement based on length which list to include 
 	var/is_genetic = TRUE	// If TRUE, the marking is considered genetic and is embedded into DNA.
 	var/is_painted = FALSE	// If TRUE, the marking can be put on prosthetics/robolimbs.
 
-	var/robotize_type_required // if set, this marking will only apply when put on a valid robolimb type
-
 /datum/sprite_accessory/marking/bandage_head
 	name = "Bandage, head 1"
 	icon_state = "bandage1"
@@ -4898,10 +5040,22 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "mecha_eye_r"
 	body_parts = list(BP_HEAD)
 	do_colouration = FALSE
+	species_allowed = list(/datum/species/bug)
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye/warrior
+	name = "Mecha Eye (Faceplate, Right, Warrior)"
+	icon_state = "mecha_eye_warrior_r"
+	species_allowed = list(/datum/species/bug/type_b)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eye_l
 	name = "Mecha Eye (Faceplate, Left)"
 	icon_state = "mecha_eye_l"
+	species_allowed = list(/datum/species/bug)
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eye_l/warrior
+	name = "Mecha Eye (Faceplate, Left, Warrior)"
+	icon_state = "mecha_eye_warrior_l"
+	species_allowed = list(/datum/species/bug/type_b)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay
 	name = "Mecha Eye (Overlay, Right)"
@@ -4912,15 +5066,45 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Mecha Eye (Overlay, Left)"
 	icon_state = "mecha_eyeoverlay_l"
 
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay/upper
+	name = "Upper Mecha Eye (Overlay, Right)"
+	icon_state = "mecha_uppereyeoverlay_r"
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eyeoverlay_l/upper
+	name = "Upper Mecha Eye (Overlay, Left)"
+	icon_state = "mecha_uppereyeoverlay_l"
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay/lower
+	name = "Lower Mecha Eye (Overlay, Right)"
+	icon_state = "mecha_lowereyeoverlay_r"
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eyeoverlay_l/lower
+	name = "Lower Mecha Eye (Overlay, Left)"
+	icon_state = "mecha_lowereyeoverlay_l"
+
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l
 	name = "Mecha Eye (Faceplate, Right, Large)"
 	icon_state = "mecha_eye_r_l"
 	body_parts = list(BP_HEAD)
 	do_colouration = FALSE
+	species_allowed = list(/datum/species/bug)
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l/warrior
+	name = "Mecha Eye (Faceplate, Right, Large, Warrior)"
+	icon_state = "mecha_eye_warrior_r_l"
+	body_parts = list(BP_HEAD)
+	do_colouration = FALSE
+	species_allowed = list(/datum/species/bug/type_b)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l/mecha_eye_r_l
 	name = "Mecha Eye (Faceplate, Left, Large)"
 	icon_state = "mecha_eye_l_l"
+	species_allowed = list(/datum/species/bug)
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l/mecha_eye_r_l/warrior
+	name = "Mecha Eye (Faceplate, Left, Large, Warrior)"
+	icon_state = "mecha_eye_warrior_l_l"
+	species_allowed = list(/datum/species/bug/type_b)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay_l
 	name = "Mecha Eye (Overlay, Right, Large)"
@@ -4931,9 +5115,11 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Mecha Eye (Overlay, Left, Large)"
 	icon_state = "mecha_eyeoverlay_l_l"
 
-/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b/mandible
+/datum/sprite_accessory/marking/vaurca_augs/mandible
 	name = "Mecha Mandibles"
 	icon_state = "mecha_mandibles"
+	body_parts = list(BP_HEAD)
+	do_colouration = FALSE
 
 /datum/sprite_accessory/marking/vaurca_augs/hand_panel_r
 	name = "Hand Panel (Right)"
@@ -6172,6 +6358,58 @@ Follow by example and make good judgement based on length which list to include 
 	body_parts = list(BP_GROIN)
 	do_colouration = FALSE
 
+// Baseline markings.
+/datum/sprite_accessory/marking/baseline_head
+	name = "Baseline - Raxus Primary Colors"
+	icon = 'icons/mob/human_races/markings_baseline.dmi'
+	icon_state = "raxus_primary"
+	icon_blend_mode = ICON_MULTIPLY
+	is_painted = TRUE
+	body_parts = list(BP_HEAD)
+	robotize_type_required = list(PROSTHETIC_RAXUS)
+
+/datum/sprite_accessory/marking/baseline_head/lights
+	name = "Baseline - Raxus Head Lights"
+	icon_state = "raxus_lights"
+
+/datum/sprite_accessory/marking/baseline_head/indricus
+	name = "Baseline - Indricus Primary Colors"
+	icon_state = "indricus_primary"
+	robotize_type_required = list(PROSTHETIC_INDRICUS)
+
+/datum/sprite_accessory/marking/baseline_head/indricus/lights
+	name = "Baseline - Indricus Lights"
+	icon_state = "indricus_lights"
+
+/datum/sprite_accessory/marking/baseline_head/hoplan
+	name = "Baseline - Hoplan Primary Colors"
+	icon_state = "hoplan_primary"
+	robotize_type_required = list(PROSTHETIC_HOPLAN)
+
+/datum/sprite_accessory/marking/baseline_color
+	name = "Baseline - Primary Colors"
+	icon = 'icons/mob/human_races/markings_baseline.dmi'
+	icon_state = "machine_primary"
+	icon_blend_mode = ICON_MULTIPLY
+	is_painted = TRUE
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST)
+
+/datum/sprite_accessory/marking/baseline_color/arm
+	name = "Baseline - Primary Arm Colors"
+	body_parts = list(BP_R_ARM,BP_L_ARM,BP_R_HAND,BP_L_HAND)
+
+/datum/sprite_accessory/marking/baseline_color/leg
+	name = "Baseline - Primary Leg Colors"
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_R_LEG,BP_L_LEG)
+
+/datum/sprite_accessory/marking/baseline_color/head
+	name = "Baseline - Primary Head Colors"
+	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/baseline_color/chest
+	name = "Baseline - Primary Chest Colors"
+	body_parts = list(BP_GROIN,BP_CHEST)
+
 //bishop
 /datum/sprite_accessory/marking/bishop_lights
 	name = "Bishop - Lights Colour"
@@ -6180,7 +6418,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_HEAD)
-	robotize_type_required = PROSTHETIC_BC
+	robotize_type_required = list(PROSTHETIC_BC)
 
 /datum/sprite_accessory/marking/bishop_lights/bishop_mask
 	name = "Bishop - Face Mask"
@@ -6217,7 +6455,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
-	robotize_type_required = PROSTHETIC_IND
+	robotize_type_required = list(PROSTHETIC_IND)
 
 /datum/sprite_accessory/marking/g1_panels/g1_head
 	name = "G1 - Head Panel Colors"
@@ -6244,7 +6482,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
-	robotize_type_required = PROSTHETIC_HI
+	robotize_type_required = list(PROSTHETIC_HI)
 
 /datum/sprite_accessory/marking/g2_panels/g2_head
 	name = "G2 - Head Panel Colors"
@@ -6271,7 +6509,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
-	robotize_type_required = PROSTHETIC_ZH
+	robotize_type_required = list(PROSTHETIC_ZH)
 
 /datum/sprite_accessory/marking/zeng_panels/zeng_head
 	name = "Zeng-Hu - Head Panel Colors"
@@ -6298,7 +6536,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
-	robotize_type_required = PROSTHETIC_XMG
+	robotize_type_required = list(PROSTHETIC_XMG)
 
 /datum/sprite_accessory/marking/xion_panels/xion_head
 	name = "Xion - Head Panel Colors"
@@ -6321,77 +6559,77 @@ Follow by example and make good judgement based on length which list to include 
 
 /datum/sprite_accessory/marking/taj_tigerstripes
 	name = "Tiger Stripes (Tajara)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "tiger"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN)
 	species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi,/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_paw_socks
 	name = "Socks Coloration (Tajara)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_pawsocks"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_pawsocks_alternate
 	name = "Socks Coloration (Tajara Alternate)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_pawsocks_alternate"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_gloves
 	name = "Socks Coloration (Gloves)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_pawsocks"
 	body_parts = list(BP_L_HAND,BP_R_HAND)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_paws
 	name = "Socks Coloration (Paws)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_pawsocks"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_glovesfull
 	name = "Socks Coloration (Full Gloves)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_pawsocks"
 	body_parts = list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_pawsfull
 	name = "Socks Coloration (Full Paws)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_pawsocks"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_glovesfull_alt
 	name = "Socks Coloration (Full Gloves Alt)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_pawsocks_alternate"
 	body_parts = list(BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_pawsfull_alt
 	name = "Socks Coloration (Full Paws Alt)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_pawsocks_alternate"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_glovesfull_alt2
 	name = "Socks Coloration (Full Gloves Alt 2)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_bellyhandsfeet_minor"
 	body_parts = list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_pawsfull_alt2
 	name = "Socks Coloration (Full Paws Alt 2)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_bellyhandsfeet_minor"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
@@ -6404,147 +6642,147 @@ Follow by example and make good judgement based on length which list to include 
 
 /datum/sprite_accessory/marking/taj_tigerhead_veryminor
 	name = "Tiger Stripes (Head, Very Minor)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "tigerheadminor"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona,  /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 /datum/sprite_accessory/marking/taj_tigerface
 	name = "Tiger Stripes (Head, Major)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "tigerface"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_nose
 	name = "Nose Color"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_nose"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_muzzle
 	name = "Muzzle Color"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_muzzle"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_muzzle_female
 	name = "Muzzle Color (Female)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_muzzle_female"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_face_minor
 	name = "Cheeks Color (Minor)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_face_minor"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_face
 	name = "Cheeks Color"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_face"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_all
 	name = "All Tajara Head"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_all"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_belly_hands_feet_minor
 	name = "Hands,Feet,Belly Color (Minor)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_bellyhandsfeet_minor"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_belly_hands_feet_minor_female
 	name = "Hands,Feet,Belly Color (Female, Minor)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_bellyhandsfeet_minor_female"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_belly_male
 	name = "Belly Color (Male)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_bellyhandsfeet_minor"
 	body_parts = list(BP_GROIN,BP_CHEST)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_belly_female
 	name = "Belly Color (Female)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_bellyhandsfeet_minor_female"
 	body_parts = list(BP_GROIN,BP_CHEST)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_chest_male
 	name = "Chest,Belly Coloration (Male)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_bellyhandsfeet"
 	body_parts = list(BP_GROIN,BP_CHEST)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_chest_female
 	name = "Chest,Belly Coloration (Female)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_bellyhandsfeet_female"
 	body_parts = list(BP_GROIN,BP_CHEST)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_patches_full
 	name = "Color Patches (Full)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_patches"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_CHEST,BP_GROIN)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_patches_leftleg
 	name = "Color Patches (Left Leg)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_patches"
 	body_parts = list(BP_L_FOOT,BP_L_LEG)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_patches_rightleg
 	name = "Color Patches (Right Leg)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_patches"
 	body_parts = list(BP_R_FOOT,BP_R_LEG)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_patches_leftarm
 	name = "Color Patches (Left Arm)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_patches"
 	body_parts = list(BP_L_ARM,BP_L_HAND)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_patches_rightarm
 	name = "Color Patches (Right Arm)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_patches"
 	body_parts = list(BP_R_ARM,BP_R_HAND)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_patches_chest
 	name = "Color Patches (Torso)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_patches"
 	body_parts = list(BP_CHEST,BP_GROIN)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_patchesface
 	name = "Color Patches (Face)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_patchesface"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)

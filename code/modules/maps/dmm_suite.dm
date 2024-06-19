@@ -60,3 +60,4 @@
  */
 
 /dmm_suite/verb/load_map(var/dmm_file as file, var/x_offset as num, var/y_offset as num, var/z_offset as num, var/cropMap as num, var/measureOnly as num, no_changeturf as num)
+	CAN_BE_REDEFINED(TRUE)

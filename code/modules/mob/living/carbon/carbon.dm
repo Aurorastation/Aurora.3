@@ -7,6 +7,9 @@
 
 	. = ..()
 
+	if(species && species.indefinite_sleep)
+		add_verb(src, /verb/toggle_indefinite_sleep)
+
 /mob/living/carbon/Life()
 	if(!..())
 		return
@@ -273,8 +276,11 @@
 					M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to wake [get_pronoun("him")] up!"), \
 										SPAN_NOTICE("You shake [src], but they do not respond... Maybe they have S.S.D?"))
 			else if(lying)
-				if(src.sleeping)
-					src.sleeping = max(0,src.sleeping-5)
+				if(sleeping)
+					if(sleeping_indefinitely)
+						sleep_buffer += 5
+					else
+						AdjustSleeping(-5)
 					M.visible_message(SPAN_NOTICE("[M] shakes [src] trying to wake [get_pronoun("him")] up!"), \
 										SPAN_NOTICE("You shake [src] trying to wake [get_pronoun("him")] up!"))
 				else
@@ -306,6 +312,19 @@
 							M.resting = 0
 
 				else if(istype(tapper))
+					var/skip_emote_check = on_fire
+					if(!skip_emote_check)
+						var/tapper_selected_zone = tapper.zone_sel.selecting
+						for(var/list/body_part_key in tapper.species.overhead_emote_types)
+							if(tapper_selected_zone in body_part_key)
+								var/emote_type = tapper.species.overhead_emote_types[body_part_key]
+								var/datum/component/overhead_emote/emote_component = GetComponent(/datum/component/overhead_emote)
+								if(emote_component)
+									var/singleton/overhead_emote/emote_singleton = GET_SINGLETON(emote_component.emote_type)
+									emote_singleton.reciprocate_emote(tapper, src, emote_type)
+								else
+									tapper.AddComponent(/datum/component/overhead_emote, emote_type, src)
+								return
 					tapper.species.tap(tapper,src)
 				else
 					M.visible_message("<b>[M]</b> taps [src] to get their attention!", \
@@ -329,7 +348,7 @@
 
 // ++++ROCKDTBEN++++ MOB PROCS //END
 
-/mob/living/carbon/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/mob/living/carbon/fire_act(exposed_temperature, exposed_volume)
 	..()
 	var/temp_inc = max(min(BODYTEMP_HEATING_MAX*(1-get_heat_protection()), exposed_temperature - bodytemperature), 0)
 	bodytemperature += temp_inc
@@ -376,6 +395,23 @@
 		willfully_sleeping = TRUE
 		usr.sleeping = 20 // Short nap.
 		usr.eye_blurry = 20
+
+/mob/living/carbon/sleeps_horizontal()
+	if(species && species.sleeps_upright)
+		return FALSE
+	return ..()
+
+/verb/toggle_indefinite_sleep()
+	set name = "Toggle Indefinite Sleep"
+	set category = "IC"
+	if(ismob(usr))
+		var/mob/M = usr
+		M.sleeping_indefinitely = !M.sleeping_indefinitely
+		to_chat(M, SPAN_NOTICE("You will [M.sleeping_indefinitely ? "now" : "no longer"] sleep indefinitely."))
+
+		if(!M.sleeping_indefinitely)
+			M.AdjustSleeping(-1*M.sleep_buffer)
+			M.sleep_buffer = 0
 
 /mob/living/carbon/Collide(atom/A)
 	if(now_pushing)

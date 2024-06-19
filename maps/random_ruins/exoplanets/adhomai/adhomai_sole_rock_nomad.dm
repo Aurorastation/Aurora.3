@@ -7,8 +7,11 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
-	suffixes = list("adhomai/adhomai_sole_rock_nomad.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("adhomai_sole_rock_nomad.dmm")
+
+	unit_test_groups = list(3)
 
 //ghost roles
 

@@ -50,7 +50,7 @@
 	update_icon()
 
 /obj/machinery/media/jukebox/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(stat & (NOPOWER|BROKEN) || !anchored)
 		if(stat & BROKEN)
 			icon_state = "[state_base]-broken"
@@ -60,16 +60,16 @@
 	icon_state = state_base
 	if(playing)
 		if(emagged)
-			add_overlay("[state_base]-emagged")
+			AddOverlays("[state_base]-emagged")
 		else
-			add_overlay("[state_base]-running")
+			AddOverlays("[state_base]-running")
 
 /obj/machinery/media/jukebox/Topic(href, href_list)
 	if(..() || !(Adjacent(usr) || istype(usr, /mob/living/silicon)))
 		return
 
 	if(!anchored)
-		to_chat(usr, "<span class='warning'>You must secure \the [src] first.</span>")
+		to_chat(usr, SPAN_WARNING("You must secure \the [src] first."))
 		return
 
 	if(stat & (NOPOWER|BROKEN))
@@ -152,7 +152,7 @@
 
 /obj/machinery/media/jukebox/proc/explode()
 	walk_to(src,0)
-	visible_message("<span class='danger'>\the [src] blows apart!</span>")
+	visible_message(SPAN_DANGER("\the [src] blows apart!"))
 
 	explosion(src.loc, 0, 0, 1, rand(1,2), 1)
 
@@ -168,7 +168,7 @@
 	if(attacking_item.iswrench())
 		if(playing)
 			StopPlaying()
-		user.visible_message("<span class='warning'>[user] has [anchored ? "un" : ""]secured \the [src].</span>", "<span class='notice'>You [anchored ? "un" : ""]secure \the [src].</span>")
+		user.visible_message(SPAN_WARNING("[user] has [anchored ? "un" : ""]secured \the [src]."), "<span class='notice'>You [anchored ? "un" : ""]secure \the [src].")
 		anchored = !anchored
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		power_change()
@@ -180,7 +180,7 @@
 	if(!emagged)
 		emagged = 1
 		StopPlaying()
-		visible_message("<span class='danger'>\The [src] makes a fizzling sound.</span>")
+		visible_message(SPAN_DANGER("\The [src] makes a fizzling sound."))
 		update_icon()
 		return 1
 
@@ -219,10 +219,10 @@
 	)
 
 /obj/machinery/media/jukebox/phonograph/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	icon_state = state_base
 	if(playing)
-		add_overlay("[state_base]-running")
+		AddOverlays("[state_base]-running")
 
 /obj/machinery/media/jukebox/audioconsole
 	name = "audioconsole"
@@ -245,10 +245,10 @@
 	)
 
 /obj/machinery/media/jukebox/audioconsole/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	icon_state = state_base
 	if(playing)
-		add_overlay("[state_base]-running")
+		AddOverlays("[state_base]-running")
 
 /obj/machinery/media/jukebox/audioconsole/wall
 	icon = 'icons/obj/audioconsole_wall.dmi'
@@ -271,7 +271,7 @@
 	)
 
 /obj/machinery/media/jukebox/gramophone/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	icon_state = state_base
 	if(playing)
-		add_overlay("[state_base]-running")
+		AddOverlays("[state_base]-running")

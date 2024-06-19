@@ -4,6 +4,7 @@
 
 // Pants Parent Item
 /obj/item/clothing/under/pants
+	abstract_type = /obj/item/clothing/under/pants
 	name = "pants parent item"
 	desc = DESC_PARENT
 	icon = 'icons/obj/item/clothing/under/pants.dmi'
@@ -49,12 +50,26 @@
 	icon_state = "pants_highvis"
 	item_state = "pants_highvis"
 
+/obj/item/clothing/under/pants/highvis/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_w_uniform_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "pants_highvis_un-emis", alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
+
 /obj/item/clothing/under/pants/highvis_alt
 	name = "high visibility pants"
 	desc = "A pair of bright yellow pants with reflective stripes. For use in operations, engineering, and sometimes even law enforcement, in cold and poor weather or when visibility is low."
 	icon = 'icons/clothing/kit/highvis.dmi'
 	icon_state = "pants_highvis_alt"
 	item_state = "pants_highvis_alt"
+
+/obj/item/clothing/under/pants/highvis_alt/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_w_uniform_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "pants_highvis_alt_un-emis", alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
 
 /obj/item/clothing/under/pants/camo
 	name = "camouflage pants"

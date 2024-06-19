@@ -21,14 +21,14 @@
 
 /obj/item/stellascope/throw_impact(atom/hit_atom)
 	..()
-	visible_message("<span class='notice'>\The [src] lands on \the [pick_constellation()].</span>")
+	visible_message(SPAN_NOTICE("\The [src] lands on \the [pick_constellation()]."))
 
 /obj/item/stellascope/attack_self(mob/user as mob)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(isskrell(H))
-			H.visible_message("<span class='notice'>\The [H] holds the brassy instrument up to [H.get_pronoun("his")] eye and peers at something unseen.</span>",
-							"<span class='notice'>You see the starry edge of srom floating on the void of space.</span>")
+			H.visible_message(SPAN_NOTICE("\The [H] holds the brassy instrument up to [H.get_pronoun("his")] eye and peers at something unseen."),
+							SPAN_NOTICE("You see the starry edge of srom floating on the void of space."))
 			if(projection_ready)
 				new/obj/effect/temp_visual/constellation (get_turf(user))
 				projection_ready = FALSE
@@ -50,26 +50,27 @@
 	icon_state = "starprojection"
 	mouse_opacity = TRUE
 	duration = 30 SECONDS
-	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	light_power = 1
 	light_range = 1
 	light_color = LIGHT_COLOR_HALOGEN
+	z_flags = ZMM_MANGLE_PLANES
 	var/global/image/glow_state
 
 /obj/effect/temp_visual/constellation/Initialize()
 	. = ..()
 	if(!glow_state)
-		glow_state = make_screen_overlay(icon, icon_state)
-	add_overlay(glow_state)
+		glow_state = overlay_image(icon, icon_state)
+	AddOverlays(glow_state)
 
 /obj/effect/temp_visual/constellation/attackby(obj/item/attacking_item, mob/user)
-	visible_message("<span class='notice'>\The [src] vanishes!</span>")
+	visible_message(SPAN_NOTICE("\The [src] vanishes!"))
 	qdel(src)
 	return TRUE
 
 /obj/effect/temp_visual/constellation/attack_hand(mob/user as mob)
 	if(user.a_intent == I_HURT)
-		visible_message("<span class='notice'>\The [src] vanishes!</span>")
+		visible_message(SPAN_NOTICE("\The [src] vanishes!"))
 		qdel(src)
 		return
 
@@ -150,10 +151,10 @@
 	update_icon()
 
 /obj/item/skrell_projector/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(working)
 		var/image/overlay = overlay_image(icon, "projector_light", light_color, RESET_COLOR)
-		add_overlay(overlay)
+		AddOverlays(overlay)
 
 /obj/item/skrell_projector/process()
 	if(!selected_world)
@@ -214,7 +215,7 @@
 
 
 		if(hologram_message)
-			visible_message("<span class='notice'>[hologram_message]</span>")
+			visible_message(SPAN_NOTICE("[hologram_message]"))
 
 /obj/item/skrell_projector/dream // Subtype that starts processing on init, for mapping/use in the dream - lly
 	name = "dream projector"

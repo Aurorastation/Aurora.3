@@ -691,3 +691,37 @@
 	desc = "A white colored helmet made from advanced ceramic."
 	icon_state = "helmet_pilot"
 	item_state = "helmet_pilot"
+
+/obj/item/clothing/head/xanu
+	name = "xanu armed forces garrison cap"
+	desc = "A garrison cap belonging to a member of the All-Xanu Spacefleet."
+	icon = 'icons/clothing/under/uniforms/xanu.dmi'
+	icon_state = "xanu_garrison_enlisted"
+	item_state = "xanu_garrison_enlisted"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/xanu/officer
+	name = "xanu armed forces officer garrison cap"
+	desc = "A garrison cap belonging to an officer of the All-Xanu Spacefleet."
+	icon_state = "xanu_garrison_comm"
+	item_state = "xanu_garrison_comm"
+
+/obj/item/clothing/head/xanu/senior
+	name = "xanu armed forces senior officer garrison cap"
+	desc = "A garrison cap belonging to a high-ranking officer of the All-Xanu Spacefleet."
+	icon_state = "xanu_garrison_cap"
+	item_state = "xanu_garrison_cap"
+
+/obj/item/clothing/head/grupo_amapola
+	name = "Grupo Amapola officer cap"
+	desc = "A peaked officer's cap bearing the poppy of the military contracting group Grupo Amapola."
+	icon = 'icons/clothing/head/pmcg.dmi'
+	icon_state = "amapola_officer_hat"
+	item_state = "amapola_officer_hat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/grupo_amapola/ute
+	name = "Grupo Amapola utility cover"
+	desc = "A softcap in green camo, issued to members of the military contracting group Grupo Amapola."
+	icon_state = "amapola_ute_hat"
+	item_state = "amapola_ute_hat"

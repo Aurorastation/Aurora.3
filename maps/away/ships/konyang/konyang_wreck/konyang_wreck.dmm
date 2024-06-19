@@ -2808,11 +2808,29 @@
 /area/konyang_wreck/pod2)
 "xA" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full{
+	pixel_x = 6
+	},
 /obj/item/stack/material/glass/full{
-	pixel_y = 6
+	pixel_y = 6;
+	pixel_x = 6
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/item/stack/material/aluminium/full{
+	pixel_x = -5
+	},
+/obj/item/stack/material/plastic/full{
+	pixel_y = 6;
+	pixel_x = -5
+	},
+/obj/item/stack/material/lead/full{
+	pixel_y = 5
+	},
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "xO" = (
@@ -2842,8 +2860,7 @@
 /area/konyang_wreck/pod8)
 "yh" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
@@ -3282,8 +3299,7 @@
 /area/konyang_wreck/engineering)
 "BC" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/empty/air,
 /turf/simulated/floor/tiled/dark,
@@ -3759,7 +3775,6 @@
 /area/konyang_wreck/pod5)
 "GP" = (
 /obj/machinery/atmospherics/pipe/tank/air{
-	layer = 3.5;
 	start_pressure = 5066.26;
 	dir = 4
 	},
@@ -4027,8 +4042,7 @@
 /area/konyang_wreck/pod1)
 "Ju" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/corner/brown{
@@ -5544,8 +5558,7 @@
 /area/konyang_wreck/mechbay)
 "Xc" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,

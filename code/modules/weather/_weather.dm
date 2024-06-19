@@ -69,7 +69,7 @@
 	. = ..()
 
 // Called by /turf/examine() to show current weather status.
-/obj/abstract/weather_system/examine(mob/user, distance)
+/obj/abstract/weather_system/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
 	var/singleton/state/weather/weather_state = weather_system.current_state
 	if(istype(weather_state))
@@ -91,8 +91,8 @@
 
 // Dummy object for lightning flash animation.
 /obj/abstract/lightning_overlay
-	plane             = DEFAULT_PLANE + 1 //Future EMISSIVE_PLANE
-	layer             = ABOVE_LIGHTING_LAYER
+	plane             = EFFECTS_ABOVE_LIGHTING_PLANE //Future EMISSIVE_PLANE
+	layer             = LIGHTNING_LAYER
 	icon              = 'icons/effects/weather.dmi'
 	icon_state        = "full"
 	alpha             = 0

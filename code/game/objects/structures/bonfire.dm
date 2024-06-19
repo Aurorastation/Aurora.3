@@ -11,6 +11,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	density = FALSE
 	light_color = LIGHT_COLOR_FIRE
 	build_amt = 20
+	pass_flags_self = PASSTABLE | LETPASSTHROW
 	var/fuel = 2000
 	var/max_fuel = 2000
 	var/on_fire = FALSE
@@ -181,9 +182,9 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 			reagent_level = reagents.reagent_volumes[R.type]
 			fuel = min(max_fuel, fuel + (reagent_level * 25))
 
-		if(reagents.has_reagent(/singleton/reagent/alcohol))
-			R = GET_SINGLETON(/singleton/reagent/alcohol)
-			var/singleton/reagent/alcohol/A = R
+		if(reagents.has_reagent(/singleton/reagent/alcohol/ethanol))
+			R = GET_SINGLETON(/singleton/reagent/alcohol/ethanol)
+			var/singleton/reagent/alcohol/ethanol/A = R
 			reagent_level = reagents.reagent_volumes[A.type]
 			fuel = min(max_fuel, fuel + (reagent_level * (A.strength/20)))
 
@@ -344,6 +345,7 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	safe = TRUE
 	density = TRUE
 	burn_out = FALSE
+	pass_flags_self = PASSTABLE
 
 /obj/structure/bonfire/fireplace/New(var/newloc, var/material_name)
 	..()
@@ -357,24 +359,22 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	name = "[material.display_name] fireplace"
 
 /obj/structure/bonfire/fireplace/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(on_fire)
 		switch(fuel)
 			if(0 to 250)
-				add_overlay("fireplace_fire0")
+				AddOverlays("fireplace_fire0")
 			if(251 to 750)
-				add_overlay("fireplace_fire1")
+				AddOverlays("fireplace_fire1")
 			if(751 to 1200)
-				add_overlay("fireplace_fire2")
+				AddOverlays("fireplace_fire2")
 			if(1201 to 1700)
-				add_overlay("fireplace_fire3")
+				AddOverlays("fireplace_fire3")
 			if(1700 to 2000)
-				add_overlay("fireplace_fire4")
-		add_overlay("fireplace_glow")
+				AddOverlays("fireplace_fire4")
+		AddOverlays("fireplace_glow")
 
 /obj/structure/bonfire/fireplace/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(!istype(mover) || mover.checkpass(PASSTABLE))
-		return TRUE
 	if(get_dir(loc, target) == NORTH)
 		return !density
 	return TRUE

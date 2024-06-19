@@ -20,7 +20,6 @@
 	icon_state = "warning"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
@@ -126,9 +125,7 @@
 /area/abandoned_prison/exterior)
 "bP" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -489,7 +486,6 @@
 /area/abandoned_prison/wardenoffice)
 "gH" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 5
 	},
 /turf/simulated/floor/airless,
@@ -762,6 +758,13 @@
 	},
 /obj/structure/table/steel,
 /obj/item/storage/box/fancy/cigarettes/dromedaryco,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints/outpost{
+	pixel_y = 6
+	},
 /turf/simulated/floor/plating,
 /area/abandoned_prison/engineering)
 "kC" = (
@@ -777,11 +780,9 @@
 /area/abandoned_prison/exterior)
 "kI" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -801,8 +802,7 @@
 "lb" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "pmining_2";
-	layer = 2.9
+	id = "pmining_2"
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -885,8 +885,7 @@
 "lJ" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "pmining_1";
-	layer = 2.9
+	id = "pmining_1"
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -901,15 +900,13 @@
 /area/abandoned_prison/wardenoffice)
 "lO" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "lQ" = (
 /obj/machinery/atmospherics/pipe/tank/air{
-	dir = 8;
-	layer = 3.5
+	dir = 8
 	},
 /obj/effect/decal/cleanable/cobweb2,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -918,13 +915,11 @@
 "lT" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "mining_1";
-	layer = 2.9
+	id = "mining_1"
 	},
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "pmining_1";
-	layer = 2.9
+	id = "pmining_1"
 	},
 /turf/simulated/floor/airless{
 	icon_state = "asteroidplating"
@@ -988,9 +983,7 @@
 "mo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/eva_prep)
@@ -1265,9 +1258,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/abandoned_prison/wardenbathroom)
 "qB" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -1981,9 +1972,7 @@
 /turf/simulated/floor/wood/walnut,
 /area/abandoned_prison/wardenoffice)
 "yg" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/airless,
 /area/abandoned_prison/exterior)
 "yh" = (
@@ -2208,11 +2197,9 @@
 /obj/machinery/suit_storage_unit,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
@@ -2510,8 +2497,7 @@
 "GU" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "pmining_1";
-	layer = 2.9
+	id = "pmining_1"
 	},
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor/airless{
@@ -2790,8 +2776,7 @@
 "Kv" = (
 /obj/machinery/conveyor{
 	dir = 4;
-	id = "pmining_2";
-	layer = 2.9
+	id = "pmining_2"
 	},
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor/airless{
@@ -3227,7 +3212,6 @@
 /area/abandoned_prison/engineering)
 "RA" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -3255,11 +3239,9 @@
 "RO" = (
 /obj/machinery/suit_storage_unit,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
@@ -3283,7 +3265,6 @@
 /area/abandoned_prison/eva_prep)
 "Sg" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 4
 	},
 /turf/simulated/floor/airless,
@@ -3446,7 +3427,6 @@
 /area/abandoned_prison/exterior)
 "Vt" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 6
 	},
 /turf/simulated/floor/airless,
@@ -3461,7 +3441,6 @@
 /area/abandoned_prison/exterior)
 "Wc" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 10
 	},
 /turf/simulated/floor/airless,

@@ -2,18 +2,7 @@
 	/// The mimic (if any) that's *directly* copying us.
 	var/tmp/atom/movable/openspace/mimic/bound_overlay
 	/// If TRUE, this atom is ignored by Z-Mimic.
-	var/no_z_overlay
-
-/atom/movable/forceMove(atom/dest)
-	. = ..(dest)
-	if (. && bound_overlay)
-		// The overlay will handle cleaning itself up on non-openspace turfs.
-		if (isturf(dest))
-			bound_overlay.forceMove(get_step(src, UP))
-			if (dir != bound_overlay.dir)
-				bound_overlay.set_dir(dir)
-		else	// Not a turf, so we need to destroy immediately instead of waiting for the destruction timer to proc.
-			qdel(bound_overlay)
+	var/z_flags
 
 /atom/movable/set_dir(ndir)
 	. = ..()
@@ -75,12 +64,8 @@
 	icon_state = "dark"
 	plane = OPENTURF_MAX_PLANE
 	layer = MIMICED_LIGHTING_LAYER
-	blend_mode = BLEND_MULTIPLY
-	color = list(
-		SHADOWER_DARKENING_FACTOR, 0, 0,
-		0, SHADOWER_DARKENING_FACTOR, 0,
-		0, 0, SHADOWER_DARKENING_FACTOR
-	)
+//	blend_mode = BLEND_MULTIPLY
+	color = "#00000033"
 
 /atom/movable/openspace/multiplier/Destroy()
 	var/turf/myturf = loc
@@ -93,9 +78,9 @@
 	appearance = LO
 	layer = MIMICED_LIGHTING_LAYER
 	plane = OPENTURF_MAX_PLANE
-	set_invisibility(101)
-	blend_mode = BLEND_MULTIPLY
+	set_invisibility(0)
 	if (icon_state == null)
+		blend_mode = BLEND_MULTIPLY
 		// We're using a color matrix, so just darken the colors across the board.
 		// Bay stores lights as inverted so the lighting PM can invert it for darksight, but
 		//   we don't have a plane master, so invert it again.
@@ -143,6 +128,7 @@
 	var/mimiced_type
 	var/original_z
 	var/override_depth
+	var/have_performed_fixup = FALSE
 
 /atom/movable/openspace/mimic/Initialize(mapload, ...)
 	. = ..()
@@ -166,7 +152,7 @@
 /atom/movable/openspace/mimic/attack_hand(mob/user)
 	to_chat(user, SPAN_NOTICE("You cannot reach \the [src] from here."))
 
-/atom/movable/openspace/mimic/examine(...)
+/atom/movable/openspace/mimic/examine(..., show_extended)
 	SHOULD_CALL_PARENT(FALSE)
 	. = associated_atom.examine(arglist(args))	// just pass all the args to the copied atom
 
@@ -190,7 +176,7 @@
 /atom/movable/openspace/turf_proxy
 	plane = OPENTURF_MAX_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	no_z_overlay = TRUE  // Only one of these should ever be visible at a time, the mimic logic will handle that.
+	z_flags = ZMM_IGNORE  // Only one of these should ever be visible at a time, the mimic logic will handle that.
 
 /atom/movable/openspace/turf_proxy/attackby(obj/item/attacking_item, mob/user)
 	loc.attackby(attacking_item, user)
@@ -201,9 +187,9 @@
 /atom/movable/openspace/turf_proxy/attack_generic(mob/user as mob)
 	loc.attack_generic(user)
 
-/atom/movable/openspace/turf_proxy/examine(mob/examiner)
+/atom/movable/openspace/turf_proxy/examine(mob/examiner, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
-	. = loc.examine(examiner)
+	. = loc.examine(examiner, show_extended = show_extended)
 
 
 // -- TURF MIMIC --
@@ -228,6 +214,6 @@
 /atom/movable/openspace/turf_mimic/attack_generic(mob/user as mob)
 	to_chat(user, SPAN_NOTICE("You cannot reach \the [src] from here."))
 
-/atom/movable/openspace/turf_mimic/examine(mob/examiner)
+/atom/movable/openspace/turf_mimic/examine(mob/examiner, show_extended)
 	SHOULD_CALL_PARENT(FALSE)
-	. = delegate.examine(examiner)
+	. = delegate.examine(examiner, show_extended = show_extended)

@@ -5,7 +5,11 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/abandoned/office.dmm")
+
+	prefix = "konyang/abandoned/"
+	suffixes = list("office.dmm")
+
+	unit_test_groups = list(3)
 
 /area/konyang/office
 	name = "Konyang Office"

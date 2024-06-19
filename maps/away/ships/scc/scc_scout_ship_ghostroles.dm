@@ -4,8 +4,19 @@
 /datum/ghostspawner/human/scc_scout_ship_crew_captain
 	short_name = "scc_scout_ship_captain"
 	name = "SCC Scout Ship Captain"
-	desc = "You are the captain. Pilot the ship, lead your crew, start expeditions, explore worlds."
-	welcome_message = "You are the captain, ultimate authority on this ship, but that authority does not extend anywhere else so do not try to boss around other SCC ships. Your mission is to scout, survey, and explore the stars, and you have a crew that depends on you. But if another SCC ship needs help you may provide it, just remember your own ship is not equipped for combat at all."
+	desc = "\
+		Pilot the ship, lead your crew, start expeditions, explore worlds. \
+		"
+	desc_ooc = "\
+		While you have authority over a tiny scout ship, \
+		you are still a SCC Captain, and are expected to act like one. \
+		"
+	welcome_message = "\
+		You are the captain, entrusted by SCC to be the ultimate authority on this ship, \
+		but that authority does not extend anywhere else, so do not try to boss around other SCC ships. \
+		Your mission is to scout, survey, and explore the stars, and you have a crew that depends on you. \
+		But if another SCC ship needs help, you may provide it, just remember your own ship is not equipped for combat at all.\
+		"
 	tags = list("External")
 
 	spawnpoints = list("scc_scout_ship_captain")
@@ -19,10 +30,13 @@
 	special_role = "SCC Scout Ship Captain"
 	respawn_flag = null
 
+	idris_account_min = 1200
+	idris_account_max = 2500
+
 /datum/ghostspawner/human/scc_scout_ship_crew_orion
 	short_name = "scc_scout_ship_orion"
 	name = "SCC Scout Ship Orion Express Crew"
-	desc = "You are a Orion Express crew member. Be the ship's mechanist, cargo and fuel technician, miner, chef, or a general crew/assistant who knows a tiny bit of everything."
+	desc = "Be the ship's mechanist, cargo and fuel technician, miner, chef, or a general crew/assistant who knows a tiny bit of everything."
 	welcome_message = "You are a Orion Express crew member. Listen to your captain, do the job appropriate for your corporation, explore, survey, and scout the stars."
 	tags = list("External")
 
@@ -48,7 +62,7 @@
 /datum/ghostspawner/human/scc_scout_ship_crew_heph
 	short_name = "scc_scout_ship_heph"
 	name = "SCC Scout Ship Hephaestus Crew"
-	desc = "You are a Hephaestus Industries crew member. Be the ship's engineer, cargo and fuel technician, a miner, or a general crew/assistant who knows a tiny bit of everything."
+	desc = "Be the ship's engineer, cargo and fuel technician, a miner, or a general crew/assistant who knows a tiny bit of everything."
 	welcome_message = "You are a Hephaestus Industries crew member. Listen to your captain, do the job appropriate for your corporation, explore, survey, and scout the stars."
 	tags = list("External")
 
@@ -74,7 +88,7 @@
 /datum/ghostspawner/human/scc_scout_ship_crew_zeng
 	short_name = "scc_scout_ship_zeng"
 	name = "SCC Scout Ship Zeng-Hu Crew"
-	desc = "You are a Zeng-Hu Pharmaceuticals crew member. Be the ship's scientist, archeologist, physician, surgeon, or a general crew/assistant who knows a tiny bit of everything."
+	desc = "Be the ship's scientist, archeologist, physician, surgeon, or a general crew/assistant who knows a tiny bit of everything."
 	welcome_message = "You are a Zeng-Hu Pharmaceuticals crew member. Listen to your captain, do the job appropriate for your corporation, explore, survey, and scout the stars."
 	tags = list("External")
 
@@ -98,7 +112,7 @@
 /datum/ghostspawner/human/scc_scout_ship_crew_nanotrasen
 	short_name = "scc_scout_ship_nanotrasen"
 	name = "SCC Scout Ship NanoTrasen Crew"
-	desc = "You are a NanoTrasen Corporation crew member. Be the ship's physician, surgeon, scientist, archeologist, or a general crew/assistant who knows a tiny bit of everything."
+	desc = "Be the ship's physician, surgeon, scientist, archeologist, or a general crew/assistant who knows a tiny bit of everything."
 	welcome_message = "You are a NanoTrasen Corporation crew member. Listen to your captain, do the job appropriate for your corporation, explore, survey, and scout the stars."
 	tags = list("External")
 
@@ -124,7 +138,7 @@
 /datum/ghostspawner/human/scc_scout_ship_crew_zavod
 	short_name = "scc_scout_ship_zavod"
 	name = "SCC Scout Ship Zavod Crew"
-	desc = "You are a Zavodskoi Interstellar crew member. Be the ship's engineer, scientist, archeologist, or a general crew/assistant who knows a tiny bit of everything."
+	desc = "Be the ship's engineer, scientist, archeologist, or a general crew/assistant who knows a tiny bit of everything."
 	welcome_message = "You are a Zavodskoi Interstellar crew member. Listen to your captain, do the job appropriate for your corporation, explore, survey, and scout the stars."
 	tags = list("External")
 
@@ -175,17 +189,6 @@
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 		H.equip_or_collect(new /obj/item/reagent_containers/inhaler/phoron_special, slot_in_backpack)
-		var/list/fullname = splittext(H.name, " ")
-		var/surname = fullname[fullname.len]
-		switch(surname)
-			if("K'lax")
-				var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
-				var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-				A.replaced(H, affected)
-			if("C'thur")
-				var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/cthur(H)
-				var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-				A.replaced(H, affected)
 		H.update_body()
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/clothing/accessory/offworlder/bracer, slot_in_backpack)

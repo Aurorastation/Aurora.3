@@ -23,7 +23,7 @@
 		return..()
 
 	if(M.has_brain_worms()) //Borer stuff - RR
-		to_chat(user, "<span class='warning'>This being is corrupted by an alien intelligence and cannot be soul trapped.</span>")
+		to_chat(user, SPAN_WARNING("This being is corrupted by an alien intelligence and cannot be soul trapped."))
 		return..()
 
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their soul captured with [src.name] by [user.name] ([user.ckey])</font>")

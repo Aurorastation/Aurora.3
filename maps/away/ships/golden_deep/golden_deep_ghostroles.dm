@@ -17,6 +17,9 @@
 	extra_languages = list(LANGUAGE_EAL)
 	away_site = TRUE
 
+	idris_account_min = 12
+	idris_account_max = 30
+
 /datum/ghostspawner/human/golden_deep/boss
 	short_name = "golden_deep_boss"
 	name = "Golden Deep Vessel Owner"
@@ -28,6 +31,9 @@
 	outfit = /obj/outfit/admin/golden_deep/boss
 	assigned_role = "Golden Deep Merchant"
 	special_role = "Golden Deep Merchant"
+
+	idris_account_min = 12000
+	idris_account_max = 30000
 
 /obj/outfit/admin/golden_deep
 	name = "Golden Deep Owned Synthetic"

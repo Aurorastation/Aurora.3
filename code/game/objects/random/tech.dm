@@ -30,10 +30,12 @@
 	icon = 'icons/obj/random.dmi'
 	icon_state = "cell"
 	problist = list(
-		/obj/item/cell/crap = 10,
 		/obj/item/cell = 40,
 		/obj/item/cell/high = 40,
+		/obj/item/cell/crap = 10,
+		/obj/item/cell/mecha = 10,
 		/obj/item/cell/super = 9,
+		/obj/item/cell/mecha/nuclear = 5,
 		/obj/item/cell/hyper = 1
 	)
 

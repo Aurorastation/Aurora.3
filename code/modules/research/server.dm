@@ -204,6 +204,7 @@
 
 	icon_screen = "rdcomp"
 	icon_keyboard = "purple_key"
+	icon_keyboard_emis = "purple_key_mask"
 	light_color = LIGHT_COLOR_PURPLE
 
 	circuit = /obj/item/circuitboard/rdservercontrol
@@ -220,7 +221,7 @@
 	add_fingerprint(usr)
 	usr.set_machine(src)
 	if(!allowed(usr) && !emagged)
-		to_chat(usr, "<span class='warning'>You do not have the required access level</span>")
+		to_chat(usr, SPAN_WARNING("You do not have the required access level"))
 		return
 
 	if(href_list["main"])
@@ -230,13 +231,20 @@
 		temp_server = null
 		consoles = list()
 		servers = list()
+		var/turf/T = get_turf(src)
 		for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
+			var/turf/ST = get_turf(S)
+			if(ST && !AreConnectedZLevels(ST.z, T.z))
+				continue
 			if(S.server_id == text2num(href_list["access"]) || S.server_id == text2num(href_list["data"]) || S.server_id == text2num(href_list[TRANSFER_CREW]))
 				temp_server = S
 				break
 		if(href_list["access"])
 			screen = 1
 			for(var/obj/machinery/computer/rdconsole/C in SSmachinery.machinery)
+				var/turf/CT = get_turf(C)
+				if(CT && !AreConnectedZLevels(CT.z, T.z))
+					continue
 				if(C.sync)
 					consoles += C
 		else if(href_list["data"])
@@ -244,7 +252,8 @@
 		else if(href_list[TRANSFER_CREW])
 			screen = 3
 			for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
-				if(S == src)
+				var/turf/ST = get_turf(S)
+				if(S == src || (ST && !AreConnectedZLevels(ST.z, T.z)))
 					continue
 				servers += S
 
@@ -289,9 +298,10 @@
 	switch(screen)
 		if(0) //Main Menu
 			dat += "Connected Servers:<BR><BR>"
-
+			var/turf/T = get_turf(src)
 			for(var/obj/machinery/r_n_d/server/S in SSmachinery.machinery)
-				if(istype(S, /obj/machinery/r_n_d/server/centcom) && !badmin)
+				var/turf/ST = get_turf(S)
+				if((istype(S, /obj/machinery/r_n_d/server/centcom) && !badmin) || (ST && !AreConnectedZLevels(ST.z, T.z)))
 					continue
 				dat += "[S.name] || "
 				dat += "<A href='?src=\ref[src];access=[S.server_id]'> Access Rights</A> | "
@@ -347,7 +357,7 @@
 	if(!emagged)
 		playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 		emagged = 1
-		to_chat(user, "<span class='notice'>You you disable the security protocols.</span>")
+		to_chat(user, SPAN_NOTICE("You you disable the security protocols."))
 		src.updateUsrDialog()
 		return 1
 

@@ -1627,7 +1627,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(210)
 	},
 /obj/structure/bed/stool/chair/shuttle,
@@ -1716,7 +1715,7 @@
 /area/tarwa_ship/gun)
 "zg" = (
 /obj/machinery/light,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/reagent_containers/hypospray,
 /obj/structure/table/rack,
 /obj/item/storage/firstaid/fire{
@@ -1831,6 +1830,15 @@
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
+"AA" = (
+/obj/structure/table/standard,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/turf/simulated/floor/diona,
+/area/tarwa_ship/engineering2)
 "AI" = (
 /obj/machinery/light{
 	dir = 1
@@ -2106,7 +2114,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(210)
 	},
 /obj/machinery/button/distress{
@@ -2122,7 +2129,12 @@
 	name = "TELECOMMS ROOM - COLD!";
 	pixel_y = -32
 	},
-/turf/simulated/wall/shuttle/raider,
+/obj/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Telecomms";
+	req_one_access = list(210)
+	},
+/turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "Ef" = (
 /obj/machinery/shipsensors,
@@ -2142,7 +2154,6 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(210)
 	},
 /turf/simulated/floor/diona,
@@ -2272,7 +2283,6 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(210)
 	},
 /turf/simulated/floor/diona,
@@ -2727,7 +2737,6 @@
 	dir = 1
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(210)
 	},
 /obj/effect/floor_decal/corner/dark_green/diagonal,
@@ -3207,6 +3216,9 @@
 /area/tarwa_ship/diona)
 "Qa" = (
 /obj/machinery/telecomms/allinone/ship,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
@@ -3395,8 +3407,7 @@
 /area/tarwa_ship/gun)
 "Sa" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
@@ -3705,7 +3716,6 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(210)
 	},
 /turf/simulated/floor/tiled,
@@ -15456,7 +15466,7 @@ IN
 kV
 LT
 XU
-HG
+AA
 Gd
 ci
 Gd

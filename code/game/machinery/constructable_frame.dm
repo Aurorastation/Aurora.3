@@ -108,7 +108,7 @@
 		if(CIRCUITBOARD_STATE)
 			if(istype(attacking_item, /obj/item/circuitboard))
 				var/obj/item/circuitboard/B = attacking_item
-				if(B.board_type == "machine")
+				if(B.board_type == BOARD_MACHINE)
 					playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, TRUE)
 					to_chat(user, SPAN_NOTICE("You add the circuit board to the blueprint."))
 					circuit = attacking_item
@@ -174,6 +174,10 @@
 					if(component_check)
 						attacking_item.play_tool_sound(get_turf(src), 50)
 						var/obj/machinery/new_machine = new circuit.build_path(loc, dir, FALSE)
+						if(istype(circuit, /obj/item/circuitboard/unary_atmos))
+							var/obj/item/circuitboard/unary_atmos/U = circuit
+							U.init_dirs = dir
+							U.machine_dir = U
 						if(istype(new_machine))
 							if(new_machine.component_parts)
 								new_machine.component_parts.Cut()
@@ -233,7 +237,7 @@
 			return TRUE
 		else
 			return FALSE
-	else if(mover.checkpass(PASSTABLE)) // Animals can run under them, lots of empty space
+	else if(mover.pass_flags & PASSTABLE) // Animals can run under them, lots of empty space
 		return TRUE
 	return ..()
 

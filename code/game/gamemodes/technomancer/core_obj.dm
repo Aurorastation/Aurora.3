@@ -130,7 +130,7 @@
 				addtimer(CALLBACK(src, PROC_REF(remove_summon), L), 1)
 
 /obj/item/technomancer_core/proc/remove_summon(var/mob/living/L)
-	L.visible_message("<span class='notice'>\The [L] begins to fade away...</span>")
+	L.visible_message(SPAN_NOTICE("\The [L] begins to fade away..."))
 	animate(L, alpha = 255, alpha = 0, time = 30) // Makes them fade into nothingness.
 	sleep(30)
 	qdel(L)
@@ -206,18 +206,6 @@
 	. = ..()
 	src.loc = loc
 	src.core = loc
-
-/mob/living/carbon/human/get_status_tab_items()
-	. = ..()
-
-	var/obj/item/technomancer_core/core = get_technomancer_core()
-	if(core)
-		var/charge_status = "[core.energy]/[core.max_energy] ([round( (core.energy / core.max_energy) * 100)]%) \
-		([round(core.energy_delta)]/s)"
-		var/instability_delta = instability - last_instability
-		var/instability_status = "[src.instability] ([round(instability_delta, 0.1)]/s)"
-		. += "Core Charge: [charge_status]"
-		. += "User instability: [instability_status]"
 
 /obj/item/technomancer_core/proc/add_spell(var/path, var/new_name, var/ability_icon_state)
 	if(!path || !ispath(path))
@@ -332,7 +320,7 @@
 		if(prob(30))
 			give_energy(round(amount / 2))
 			if(amount >= 50) // Managing to recover less than half of this isn't worth telling the user about.
-				to_chat(wearer, "<span class='notice'>\The [src] has recovered [amount/2 >= 1000 ? "a lot of" : "some"] energy.</span>")
+				to_chat(wearer, SPAN_NOTICE("\The [src] has recovered [amount/2 >= 1000 ? "a lot of" : "some"] energy."))
 	return success
 
 // For those dedicated to summoning hoards of things.
@@ -413,4 +401,4 @@
 	set src in usr
 
 	canremove = !canremove
-	to_chat(usr, "<span class='notice'>You [canremove ? "de" : ""]activate the locking mechanism on \the [src].</span>")
+	to_chat(usr, SPAN_NOTICE("You [canremove ? "de" : ""]activate the locking mechanism on \the [src]."))

@@ -244,6 +244,7 @@
 	hats_colourable["hat, sun hat with band"] = /obj/item/clothing/head/wide_hat/alt
 	hats_colourable["hat, wide pointed"] = /obj/item/clothing/head/wide_hat/pointed
 	hats_colourable["hat, wide pointed with band"] = /obj/item/clothing/head/wide_hat/pointed/alt
+	hats_colourable["hat, boonie"] = /obj/item/clothing/head/bucket/boonie
 	gear_tweaks += new /datum/gear_tweak/path(hats_colourable)
 
 /datum/gear/head/hijab
@@ -297,7 +298,7 @@
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
 	path = /obj/item/clothing/head/surgery/pmc
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel")
 
 /datum/gear/head/surgical/New()
 	..()
@@ -339,11 +340,23 @@
 	path = /obj/item/clothing/head/hachimaki
 	flags = GEAR_HAS_DESC_SELECTION
 
+/datum/gear/head/bearpelt
+	display_name = "bear pelt hat"
+	path = /obj/item/clothing/head/bearpelt
+	description = "A fuzzy pelt to wear on your head."
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/gentlecap
+	display_name = "gentlemans cap"
+	path = /obj/item/clothing/head/wizard/cap
+	description = "A checkered gray flat cap woven together with the rarest of threads."
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
 /datum/gear/head/iac
 	display_name = "IAC headgear selection"
 	description = "A selection of hats worn by Interstellar Aid Corps volunteers."
 	path = /obj/item/clothing/head/softcap/iac
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Medical Personnel")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Medical Personnel")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/iac/New()
@@ -491,3 +504,4 @@ var/datum/gear_tweak/hair_block/gear_tweak_hair_block = new()
 			H.flags_inv |= BLOCKHEADHAIR
 		if("No")
 			H.flags_inv &= ~BLOCKHEADHAIR
+

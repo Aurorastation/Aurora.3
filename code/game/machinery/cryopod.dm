@@ -261,23 +261,23 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 	disallow_occupant_types = list(/mob/living/silicon/robot)
 
 /obj/machinery/cryopod/living_quarters/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/image/I = image(icon, "pod_top")
-	add_overlay(I)
+	AddOverlays(I)
 
 
 	if(occupant)
 		I = image(icon, "pod_back")
-		add_overlay(I)
+		AddOverlays(I)
 
 		name = "[name] ([occupant])"
 		I = image(occupant.icon, occupant.icon_state, dir = SOUTH)
 		I.overlays = occupant.overlays
 		I.pixel_z = 11
-		add_overlay(I)
+		AddOverlays(I)
 
 		I = image(icon, "pod_door")
-		add_overlay(I)
+		AddOverlays(I)
 	else
 		name = initial(name)
 
@@ -492,7 +492,7 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 	// Book keeping!
 	var/turf/location = get_turf(src)
 	log_admin("[key_name_admin(M)] has entered a [initial(src.name)].",ckey=key_name(M))
-	message_admins("<span class='notice'>[key_name_admin(M)] has entered a [initial(src.name)].(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)</span>")
+	message_admins(SPAN_NOTICE("[key_name_admin(M)] has entered a [initial(src.name)].(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)"))
 
 	//Despawning occurs when process() is called with an occupant without a client.
 	src.add_fingerprint(user)

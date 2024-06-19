@@ -21,22 +21,22 @@
 /obj/item/storage/lockbox/attackby(attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/card/id))
 		if(src.broken)
-			to_chat(user, "<span class='warning'>It appears to be broken.</span>")
+			to_chat(user, SPAN_WARNING("It appears to be broken."))
 			return
 		if(src.allowed(user))
 			src.locked = !( src.locked )
 			if(src.locked)
 				src.icon_state = src.icon_locked
 				item_state = icon_state
-				to_chat(user, "<span class='notice'>You lock \the [src]!</span>")
+				to_chat(user, SPAN_NOTICE("You lock \the [src]!"))
 				return
 			else
 				src.icon_state = src.icon_closed
 				item_state = icon_state
-				to_chat(user, "<span class='notice'>You unlock \the [src]!</span>")
+				to_chat(user, SPAN_NOTICE("You unlock \the [src]!"))
 				return
 		else
-			to_chat(user, "<span class='warning'>Access Denied</span>")
+			to_chat(user, SPAN_WARNING("Access Denied"))
 	else if(istype(attacking_item, /obj/item/melee/energy/blade))
 		if(emag_act(INFINITY, user, attacking_item, "The locker has been sliced open by [user] with an energy blade!", "You hear metal being sliced and sparks flying."))
 			var/obj/item/melee/energy/blade/blade = attacking_item
@@ -46,12 +46,12 @@
 	if(!locked)
 		..()
 	else
-		to_chat(user, "<span class='warning'>It's locked!</span>")
+		to_chat(user, SPAN_WARNING("It's locked!"))
 	return
 
 /obj/item/storage/lockbox/show_to(mob/user as mob)
 	if(locked)
-		to_chat(user, "<span class='warning'>It's locked!</span>")
+		to_chat(user, SPAN_WARNING("It's locked!"))
 	else
 		..()
 	return
@@ -59,13 +59,13 @@
 /obj/item/storage/lockbox/emag_act(var/remaining_charges, var/mob/user, var/emag_source, var/visual_feedback = "", var/audible_feedback = "")
 	if(!broken)
 		if(visual_feedback)
-			visual_feedback = "<span class='warning'>[visual_feedback]</span>"
+			visual_feedback = SPAN_WARNING("[visual_feedback]")
 		else
-			visual_feedback = "<span class='warning'>The locker has been sliced open by [user] with an electromagnetic card!</span>"
+			visual_feedback = SPAN_WARNING("The locker has been sliced open by [user] with an electromagnetic card!")
 		if(audible_feedback)
-			audible_feedback = "<span class='warning'>[audible_feedback]</span>"
+			audible_feedback = SPAN_WARNING("[audible_feedback]")
 		else
-			audible_feedback = "<span class='warning'>You hear a faint electrical spark.</span>"
+			audible_feedback = SPAN_WARNING("You hear a faint electrical spark.")
 
 		broken = 1
 		locked = 0

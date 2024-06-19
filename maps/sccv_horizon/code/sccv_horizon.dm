@@ -115,6 +115,7 @@
 		/datum/shuttle/autodock/multi/antag/merc_ship,
 		/datum/shuttle/autodock/multi/legion,
 		/datum/shuttle/autodock/multi/distress,
+		/datum/shuttle/autodock/multi/crescent,
 		/datum/shuttle/autodock/overmap/intrepid,
 		/datum/shuttle/autodock/overmap/mining,
 		/datum/shuttle/autodock/overmap/canary,
@@ -192,3 +193,9 @@
 		for(var/obj/machinery/computer/holodeck_control/holo in GLOB.holodeck_controls)
 			if(!holo.active)
 				holo.load_random_program()
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage
+	name = "Ops Warehouse, Small Storage"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/sccv_horizon/ops_warehouse_small_storage
+	name = "Ops Warehouse, Small Storage"

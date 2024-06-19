@@ -1,0 +1,361 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/exoplanet/ouerea)
+"b" = (
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"c" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"s" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"v" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"y" = (
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"A" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"F" = (
+/turf/simulated/floor/exoplanet/water/shallow{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"J" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"N" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/snacks/sliceable/sushi_roll,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"Q" = (
+/obj/item/material/twohanded/spear/steel{
+	name = "fishing spear"
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"S" = (
+/obj/structure/closet/crate/freezer{
+	name = "cooler"
+	},
+/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice,
+/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice,
+/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice,
+/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice,
+/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"Y" = (
+/obj/structure/closet/crate/freezer{
+	name = "catches"
+	},
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+
+(1,1,1) = {"
+F
+F
+F
+F
+a
+a
+F
+F
+F
+a
+a
+a
+y
+a
+a
+"}
+(2,1,1) = {"
+a
+F
+F
+a
+F
+F
+F
+F
+F
+F
+F
+F
+y
+y
+a
+"}
+(3,1,1) = {"
+a
+F
+a
+F
+F
+F
+F
+F
+F
+F
+F
+y
+y
+y
+y
+"}
+(4,1,1) = {"
+a
+a
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+y
+y
+a
+"}
+(5,1,1) = {"
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+y
+y
+y
+y
+"}
+(6,1,1) = {"
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+b
+b
+y
+y
+"}
+(7,1,1) = {"
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+Y
+b
+y
+y
+"}
+(8,1,1) = {"
+F
+F
+F
+F
+F
+F
+F
+J
+A
+A
+A
+b
+b
+y
+y
+"}
+(9,1,1) = {"
+F
+F
+F
+F
+F
+F
+F
+s
+v
+v
+v
+b
+b
+y
+y
+"}
+(10,1,1) = {"
+a
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+Q
+N
+y
+y
+"}
+(11,1,1) = {"
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+c
+S
+y
+y
+"}
+(12,1,1) = {"
+F
+a
+F
+F
+F
+F
+F
+F
+F
+F
+F
+F
+y
+y
+y
+"}
+(13,1,1) = {"
+a
+a
+F
+F
+F
+F
+F
+F
+F
+F
+F
+y
+y
+y
+a
+"}
+(14,1,1) = {"
+a
+a
+a
+F
+F
+F
+F
+F
+F
+a
+F
+F
+y
+a
+a
+"}
+(15,1,1) = {"
+a
+a
+a
+F
+F
+F
+F
+F
+F
+F
+a
+a
+y
+a
+a
+"}

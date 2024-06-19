@@ -18,6 +18,7 @@
 	air_properties_vary_with_direction = 1
 
 	atmos_canpass = CANPASS_PROC
+	pass_flags_self = PASSGLASS
 
 /obj/machinery/door/window/Initialize(mapload)
 	. = ..()
@@ -57,7 +58,7 @@
 		return
 
 	if(ishuman(M) || isrobot(M) || isbot(M) || istype(M, /mob/living/simple_animal/spiderbot) || ismech(M))
-		if(inoperable())
+		if(!operable())
 			if(do_after(M, 1 SECOND, src))
 				// The VM here is before open and the wording is backwards because density gets set after a background sleep in open
 				visible_message("\The [M] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")
@@ -68,15 +69,13 @@
 
 /obj/machinery/door/window/allowed(mob/M)
 	. = ..()
-	if(inoperable() || !density) // Unpowered windoors can just be slid open, open windoors can always be closed
+	if(!operable() || !density) // Unpowered windoors can just be slid open, open windoors can always be closed
 		return TRUE
 	use_power_oneoff(50) // Just powering the RFID and maybe a weak motor
 	if(operable() && . == FALSE)
 		flick("[base_state]deny", src)
 
 /obj/machinery/door/window/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover) && mover.checkpass(PASSGLASS))
-		return 1
 	if(get_dir(loc, target) == dir) //Make sure looking at appropriate border
 		if(air_group) return 0
 		return !density
@@ -84,7 +83,7 @@
 		return 1
 
 /obj/machinery/door/window/CheckExit(atom/movable/mover as mob|obj, turf/target as turf)
-	if(istype(mover) && mover.checkpass(PASSGLASS))
+	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return 1
 	if(get_dir(loc, target) == dir)
 		return !density
@@ -138,7 +137,8 @@
 	if(istype(H) && H.species.can_shred(H))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
-		user.visible_message("<span class='danger'>[user] smashes against [src].</span>", "<span class='danger'>You smash against [src]!</span>")
+		user.visible_message(SPAN_DANGER("[user] smashes against [src]."),
+								SPAN_DANGER("You smash against [src]!"))
 		take_damage(25)
 		return
 	else
@@ -165,7 +165,7 @@
 			spark(src.loc, 5)
 			playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
 			playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
-			visible_message("<span class='warning'>The glass door was sliced open by [user]!</span>")
+			visible_message(SPAN_WARNING("The glass door was sliced open by [user]!"))
 		return TRUE
 
 	//If it's emagged, crowbar can pry electronics out.
@@ -182,7 +182,7 @@
 		return TRUE
 
 	if(isobj(attacking_item) && attacking_item.iscrowbar() && user.a_intent == I_HELP)
-		if(inoperable())
+		if(!operable())
 			visible_message("\The [user] forces \the [src] [density ? "open" : "closed"].")
 			if(density)
 				open(TRUE)
@@ -197,7 +197,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		var/aforce = attacking_item.force
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
-		visible_message("<span class='danger'>[src] was hit by [attacking_item].</span>")
+		visible_message(SPAN_DANGER("[src] was hit by [attacking_item]."))
 		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
 			take_damage(aforce)
 		return TRUE
@@ -206,7 +206,7 @@
 		src.add_fingerprint(user)
 
 	if(allowed(user))
-		if(inoperable())
+		if(!operable())
 			if(!do_after(user, 1 SECOND, src))
 				return TRUE
 			visible_message("\The [user] [density ? "pushes" : "pulls"] \the [src] [density ? "open" : "closed"].")
@@ -228,7 +228,7 @@
 
 
 /obj/machinery/door/window/brigdoor/allowed(mob/M)
-	if(inoperable()) // Brigdoors are the exception to the "fail open" windoor - they lock closed
+	if(!operable()) // Brigdoors are the exception to the "fail open" windoor - they lock closed
 		to_chat(M, SPAN_WARNING("\The [src] refuses to budge in its unpowered state."))
 		return FALSE
 	. = ..()

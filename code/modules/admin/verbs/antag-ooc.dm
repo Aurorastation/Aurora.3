@@ -4,7 +4,7 @@
 	set desc = "Antagonist OOC"
 
 	if (istype(src.mob, /mob/abstract/observer) && !check_rights(R_ADMIN|R_MOD|R_CCIAA, 0))
-		to_chat(src, "<span class='warning'>You cannot use AOOC while ghosting/observing!</span>")
+		to_chat(src, SPAN_WARNING("You cannot use AOOC while ghosting/observing!"))
 		return
 
 	if (handle_spam_prevention(msg, MUTE_AOOC))

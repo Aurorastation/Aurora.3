@@ -103,7 +103,7 @@ var/list/medical_positions = list(
 	"Surgeon",
 	"Psychiatrist",
 	"Pharmacist",
-	"First Responder",
+	"Paramedic",
 	"Medical Intern",
 	"Medical Personnel"
 )

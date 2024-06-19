@@ -10,13 +10,17 @@
 /datum/shuttle/autodock/overmap/New(var/_name, var/obj/effect/shuttle_landmark/start_waypoint)
 	..(_name, start_waypoint)
 	refresh_fuel_ports_list()
+	for(var/area/A in shuttle_area) //If shuttles initialize after the blueprints, they won't set correctly so we do it here.
+		var/obj/item/blueprints/shuttle/blueprints = locate() in A
+		if(blueprints)
+			blueprints.set_valid_z_levels()
 
 /datum/shuttle/autodock/overmap/proc/refresh_fuel_ports_list() //loop through all
 	fuel_ports = list()
 	for(var/area/A in shuttle_area)
 		for(var/obj/structure/fuel_port/fuel_port_in_area in A)
 			fuel_port_in_area.parent_shuttle = src
-			fuel_ports += fuel_port_in_area
+			fuel_ports |= fuel_port_in_area
 
 /datum/shuttle/autodock/overmap/fuel_check(var/check_only = FALSE) // "check_only" lets you check the fuel levels without using any.
 	if(!src.try_consume_fuel(check_only)) //insufficient fuel
@@ -107,22 +111,66 @@
 			S.halt()
 			S.unhalt()
 
+#define FUEL_PORT_UNSECURED 0
+#define FUEL_PORT_BOLTED	1
+#define FUEL_PORT_WELDED	2
+
 /obj/structure/fuel_port //empty
 	name = "fuel port"
 	desc = "The fuel input port of the shuttle. Holds one fuel tank. Use a crowbar to open and close it."
+	desc_info = "The fuel port must be wrenched and welded in place before it can be loaded and used by the shuttle."
 	icon = 'icons/turf/shuttle.dmi'
 	icon_state = "fuel_port"
 	density = 0
 	anchored = 1
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	var/state = FUEL_PORT_WELDED
 	var/icon_closed = "fuel_port"
 	var/icon_empty = "fuel_port_empty"
 	var/icon_full = "fuel_port_full"
 	var/opened = 0
 	var/parent_shuttle
+	var/port_item_path = /obj/item/fuel_port
+
+/obj/structure/fuel_port/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	switch(state)
+		if(FUEL_PORT_UNSECURED)
+			. += SPAN_NOTICE("\The [src] is in place, but not attached to anything.")
+		if(FUEL_PORT_BOLTED)
+			. += SPAN_NOTICE("\The [src]'s external reinforcing bolts are deployed and locked.")
+		if(FUEL_PORT_WELDED)
+			. += SPAN_NOTICE("\The [src] is bolted and welded in place.")
+
+/obj/structure/fuel_port/Initialize(mapload, var/placement_dir, var/constructed)
+	. = ..()
+	switch(placement_dir)
+		if(NORTH)
+			pixel_y = 32
+		if(SOUTH)
+			pixel_y = -32
+		if(EAST)
+			pixel_x = 32
+		if(WEST)
+			pixel_x = -32
+	if(constructed)
+		state = FUEL_PORT_UNSECURED
+	update_shuttle()
+
+/obj/structure/fuel_port/New(loc, var/placement_dir, var/constructed = FALSE)
+	. = ..()
+
+/obj/structure/fuel_port/Destroy()
+	update_shuttle()
+	return ..()
 
 /obj/structure/fuel_port/attack_hand(mob/user)
-	if(!opened)
+	if(state == FUEL_PORT_UNSECURED)
+		to_chat(user, SPAN_NOTICE("You remove \the [src] from its position."))
+		var/obj/item/fuel_port/P = new port_item_path(user.loc)
+		user.put_in_active_hand(P)
+		qdel(src)
+	else if(!opened)
 		to_chat(user, SPAN_WARNING("\The [src] is secured tightly. You'll need to pry it open with a crowbar."))
 		return
 	else if(contents.len > 0)
@@ -141,7 +189,10 @@
 
 /obj/structure/fuel_port/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iscrowbar())
-		if(opened)
+		if(state != FUEL_PORT_WELDED)
+			to_chat(user, SPAN_WARNING("\The [src] must be bolted and welded in place before it can be opened!"))
+			return
+		else if(opened)
 			to_chat(user, SPAN_NOTICE("You close \the [src]."))
 			playsound(src.loc, 'sound/effects/closet_close.ogg', 25, 0, -3)
 			opened = 0
@@ -150,12 +201,75 @@
 			playsound(src.loc, 'sound/effects/closet_open.ogg', 15, 1, -3)
 			opened = 1
 	else if(istype(attacking_item, /obj/item/tank))
+		if(state != FUEL_PORT_WELDED)
+			to_chat(user, SPAN_WARNING("\The [src] must be welded in place before a new tank can be added!"))
+			return
 		if(!opened)
 			to_chat(user, SPAN_NOTICE("\The [src] isn't open!"))
 			return
 		if(contents.len == 0)
 			user.unEquip(attacking_item, TRUE, src)
+	else if(attacking_item.iswrench())
+		switch(state)
+			if(FUEL_PORT_WELDED)
+				to_chat(user, SPAN_WARNING("\The [src] is welded in place!"))
+				return
+			if(FUEL_PORT_BOLTED)
+				attacking_item.play_tool_sound(get_turf(src), 75)
+				user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src]'s reinforcing bolts from the wall."), \
+					SPAN_NOTICE("You undo \the [src]'s external reinforcing bolts."), \
+					SPAN_WARNING("You hear a ratcheting noise."))
+				state = FUEL_PORT_UNSECURED
+			if(FUEL_PORT_UNSECURED)
+				attacking_item.play_tool_sound(get_turf(src), 75)
+				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the wall."), \
+					SPAN_NOTICE("You secure \the [src]'s external reinforcing bolts."), \
+					SPAN_WARNING("You hear a ratcheting noise."))
+				state = FUEL_PORT_BOLTED
+	else if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
+		switch(state)
+			if(FUEL_PORT_UNSECURED)
+				to_chat(user, SPAN_WARNING("\The [src]'s external reinforcing bolts must be secured!"))
+				return
+			if(FUEL_PORT_BOLTED)
+				if(WT.use(5, user))
+					playsound(get_turf(src), 'sound/items/welder_pry.ogg', 50, TRUE)
+					user.visible_message(SPAN_NOTICE("\The [user] starts to weld \the [src] to the wall."), \
+						SPAN_NOTICE("You start to weld \the [src] to the wall."), \
+						SPAN_WARNING("You hear the sound of metal being welded."))
+					if(attacking_item.use_tool(src, user, 20, volume = 50))
+						if(!src || !WT.isOn())
+							return
+						state = FUEL_PORT_WELDED
+						to_chat(user, SPAN_NOTICE("You weld \the [src] to the wall."))
+				else
+					to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
+			if(FUEL_PORT_WELDED)
+				if(contents.len > 0)
+					to_chat(user, SPAN_WARNING("\The [src] cannot be detached with a tank inside!"))
+					return
+				if(WT.use(0, user))
+					playsound(get_turf(src), 'sound/items/welder_pry.ogg', 50, TRUE)
+					user.visible_message(SPAN_NOTICE("\The [user] starts to cut \the [src] free from the wall."), \
+						SPAN_NOTICE("You start to cut \the [src] free from the wall."), \
+						SPAN_WARNING("You hear the sound of metal being welded."))
+					if(attacking_item.use_tool(src, user, 20, volume = 50))
+						if(!src || !WT.isOn())
+							return
+						state = FUEL_PORT_BOLTED
+						to_chat(user, SPAN_NOTICE("You cut \the [src] free from the wall."))
+				else
+					to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 	update_icon()
+
+/obj/structure/fuel_port/proc/update_shuttle()
+	var/area/A = get_area(src)
+	if(A in SSshuttle.shuttle_areas) //Check if we're in a shuttle and refresh its fuel ports
+		for(var/shuttle_tag in SSshuttle.shuttles)
+			var/datum/shuttle/autodock/overmap/S = SSshuttle.shuttles[shuttle_tag]
+			if(istype(S) && (A in S.shuttle_area))
+				S.refresh_fuel_ports_list()
 
 // Walls hide stuff inside them, but we want to be visible.
 /obj/structure/fuel_port/hide()
@@ -176,4 +290,36 @@
 	. = ..()
 	new /obj/item/tank/hydrogen/shuttle(src)
 
+/obj/item/fuel_port
+	name = "fuel port"
+	desc = "The fuel input port of the shuttle. Must be attached to a wall."
+	icon = 'icons/turf/shuttle.dmi'
+	icon_state = "fuel_port"
+	item_state = "fuel_port"
+	var/port_path = /obj/structure/fuel_port
+
+/obj/item/fuel_port/afterattack(atom/A, mob/user, proximity_flag, click_parameters)
+	if(!proximity_flag)
+		return
+	if(use_check_and_message(user))
+		return
+	if(!iswall(A) || !isturf(user.loc))
+		to_chat(user, SPAN_WARNING("You can't place this here!"))
+		return
+	if(get_area(A) != get_area(user)) //To make sure that we don't get fuel ports attached outside the shuttle area, etc
+		to_chat(user, SPAN_WARNING("You must be in the same area as the target location to attach \the [src]!"))
+		return
+	var/placement_dir = get_dir(user, A)
+	if (!(placement_dir in GLOB.cardinal))
+		to_chat(user, SPAN_WARNING("You must stand directly in front of the location you wish to place that on."))
+		return
+
+	user.visible_message(SPAN_NOTICE("\The [user] fastens \the [src] to \the [A]."), SPAN_NOTICE("You fasten \the [src] to \the [A]."))
+	user.drop_from_inventory(src)
+	new port_path(user.loc, placement_dir, TRUE)
+	qdel(src)
+
+#undef FUEL_PORT_UNSECURED
+#undef FUEL_PORT_BOLTED
+#undef FUEL_PORT_WELDED
 #undef waypoint_sector

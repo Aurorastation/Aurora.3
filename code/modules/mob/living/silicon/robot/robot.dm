@@ -512,7 +512,7 @@
 	set name = "Rebuild Overlays"
 	set desc = "An OOC tool that rebuilds your overlays, useful if your talk bubble gets stuck to you."
 
-	cut_overlays()
+	ClearOverlays()
 	handle_panel_overlay()
 	set_intent(a_intent)
 
@@ -965,49 +965,6 @@
 /mob/living/silicon/robot/proc/radio_menu()
 	radio.interact(src) //Just use the radio's Topic() instead of bullshit special-snowflake code
 
-/mob/living/silicon/robot/Move(a, b, flag)
-	. = ..()
-
-	if(module)
-		if(module.type == /obj/item/robot_module/janitor)
-			var/obj/item/robot_module/janitor/J = module
-			var/turf/tile = get_turf(src)
-			if(isturf(tile) && J.mopping)
-				tile.clean_blood()
-				if(istype(tile, /turf/simulated))
-					var/turf/simulated/S = tile
-					S.dirt = FALSE
-					S.color = null
-				for(var/A in tile)
-					if(istype(A, /obj/effect))
-						if(istype(A, /obj/effect/decal/cleanable))
-							qdel(A)
-						if(istype(A, /obj/effect/overlay))
-							var/obj/effect/overlay/O = A
-							if(O.no_clean)
-								continue
-							qdel(O)
-					else if(istype(A, /obj/item))
-						var/obj/item/cleaned_item = A
-						cleaned_item.clean_blood()
-					else if(istype(A, /mob/living/carbon/human))
-						var/mob/living/carbon/human/cleaned_human = A
-						if(cleaned_human.lying)
-							if(cleaned_human.head)
-								cleaned_human.head.clean_blood()
-								cleaned_human.update_inv_head(0)
-							if(cleaned_human.wear_suit)
-								cleaned_human.wear_suit.clean_blood()
-								cleaned_human.update_inv_wear_suit(0)
-							else if(cleaned_human.w_uniform)
-								cleaned_human.w_uniform.clean_blood()
-								cleaned_human.update_inv_w_uniform(0)
-							if(cleaned_human.shoes)
-								cleaned_human.shoes.clean_blood()
-								cleaned_human.update_inv_shoes(0)
-							cleaned_human.clean_blood(1)
-							to_chat(cleaned_human, SPAN_WARNING("\The [src] runs its bottom mounted bristles all over you!"))
-
 /mob/living/silicon/robot/proc/start_self_destruct(var/anti_theft = FALSE)
 	if(self_destructing)
 		return
@@ -1039,12 +996,6 @@
 	density = FALSE
 	fragem(src, 50, 100, 2, 1, 5, 1, FALSE)
 	gib()
-
-/mob/living/silicon/robot/update_canmove() // to fix lockdown issues w/ chairs
-	. = ..()
-	if(lock_charge)
-		canmove = FALSE
-		. = FALSE
 
 /mob/living/silicon/robot/proc/UnlinkSelf()
 	disconnect_from_ai()

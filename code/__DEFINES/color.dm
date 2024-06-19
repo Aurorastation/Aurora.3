@@ -92,6 +92,7 @@
 #define COLOR_DIAMOND          "#d8d4ea"
 #define COLOR_TCFL             "#849bc1"
 #define COLOR_IAC              "#96bcde"
+#define COLOR_COALITION		   "#949ea3"
 #define COLOR_RIPLEY           "#ffbc37"
 #define COLOR_CULT             "#402821"
 #define COLOR_CULT_REINFORCED  "#8f3329"
@@ -101,6 +102,7 @@
 #define COLOR_SNOW             "#9CADAD"
 #define COLOR_LING_HIVEMIND    "#583012"
 #define COLOR_LINOLEUM         "#4E4D41"
+#define COLOR_LEATHER          "#5C4831"
 
 #define COLOR_TOOLS            "#eac041"
 
@@ -153,6 +155,15 @@
 #define COLOR_ASSEMBLY_PURPLE   "#6F6192"
 #define COLOR_ASSEMBLY_HOT_PINK "#FF69B4"
 
+/// Colors for status/incident displays
+#define COLOR_DISPLAY_RED "#BE3455"
+#define COLOR_DISPLAY_ORANGE "#FF9900"
+#define COLOR_DISPLAY_YELLOW "#FFF743"
+#define COLOR_DISPLAY_GREEN "#3CF046"
+#define COLOR_DISPLAY_CYAN "#22FFCC"
+#define COLOR_DISPLAY_BLUE "#22CCFF"
+#define COLOR_DISPLAY_PURPLE "#5D5DFC"
+
 #define COLOR_DARKMODE_BACKGROUND "#202020"
 #define COLOR_DARKMODE_DARKBACKGROUND "#171717"
 #define COLOR_DARKMODE_TEXT "#a4bad6"
@@ -164,3 +175,11 @@
 #define BLOB_COLOR_PULS         "#b5ff5b"
 
 #define RANDOM_RGB rgb(rand(0,255), rand(0,255), rand(0,255))
+
+///Main colors for UI themes
+#define COLOR_THEME_MIDNIGHT "#6086A0"
+#define COLOR_THEME_PLASMAFIRE "#FFB200"
+#define COLOR_THEME_RETRO "#24CA00"
+#define COLOR_THEME_SLIMECORE "#4FB259"
+#define COLOR_THEME_OPERATIVE "#B8221F"
+#define COLOR_THEME_CLOCKWORK "#CFBA47"

@@ -1,0 +1,1980 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bn" = (
+/obj/structure/television,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/ouerea_village)
+"bI" = (
+/obj/structure/kitchenspike,
+/turf/simulated/floor/tiled/freezer,
+/area/ouerea_village)
+"cb" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/cooking_container/board/bowl,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"ci" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/ouerea_village)
+"cp" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"dq" = (
+/obj/structure/bed/stool/chair/sofa/left/brown,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"ds" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"dP" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"eC" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/water/shallow{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"eE" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/item/bedsheet/black,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"ff" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"fm" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"fU" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"gf" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"gt" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/sofa/right/brown,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"ib" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"io" = (
+/obj/structure/table/rack,
+/obj/item/material/hatchet,
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"kb" = (
+/obj/structure/sink/kitchen{
+	dir = 8;
+	pixel_x = 21
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"kA" = (
+/obj/machinery/door/urban{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"lJ" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/ouerea_village)
+"mH" = (
+/obj/structure/bed/stool/chair/sofa/left/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/ouerea_village)
+"nu" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"oo" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"oA" = (
+/obj/structure/bed/stool/chair/sofa/pew/right{
+	name = "bench";
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"qe" = (
+/obj/structure/table/rack,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"qF" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"qT" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/wulumunushaseed,
+/obj/item/seeds/wulumunushaseed,
+/obj/item/seeds/wulumunushaseed,
+/obj/item/seeds/wulumunushaseed,
+/obj/item/seeds/wulumunushaseed,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"rK" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/ouerea_village)
+"rT" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/sign/flag/ouerea/large/west{
+	pixel_x = -32
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"sh" = (
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"th" = (
+/obj/structure/table/wood,
+/obj/item/saddle,
+/obj/item/saddle,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"tk" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"tB" = (
+/obj/structure/flora/log_bench{
+	dir = 1;
+	pixel_y = 15
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"uM" = (
+/obj/structure/table/wood,
+/obj/item/material/twohanded/pike/pitchfork,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"ve" = (
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"vn" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"wi" = (
+/obj/structure/railing/fence,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/water/shallow{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"wk" = (
+/obj/structure/table/rack,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bucket/wood,
+/obj/item/reagent_containers/glass/bucket/wood,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"wz" = (
+/obj/structure/closet/crate/hydroponics,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"wB" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"wE" = (
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"wH" = (
+/obj/structure/table/rack,
+/obj/item/reagent_containers/glass/bucket/wood,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"xk" = (
+/obj/machinery/door/urban{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"xn" = (
+/obj/structure/flora/log_bench{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"yv" = (
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"yw" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"zC" = (
+/obj/structure/bed/stool/chair/sofa/pew/left{
+	dir = 1;
+	name = "bench"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"AD" = (
+/turf/simulated/floor/tiled/freezer,
+/area/ouerea_village)
+"AI" = (
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"AY" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"BV" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"Ca" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/ouerea_village)
+"CK" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"CT" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"Dc" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"Dx" = (
+/mob/living/simple_animal/aquatic/fish/moghes,
+/turf/simulated/floor/exoplanet/water/shallow{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"DH" = (
+/obj/structure/flora/log_bench,
+/obj/effect/ghostspawpoint{
+	name = "igs - ouerea_villager";
+	identifier = "ouerea_villager"
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"Eq" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"Fb" = (
+/obj/structure/table/standard,
+/obj/item/material/hatchet/butch,
+/turf/simulated/floor/tiled/freezer,
+/area/ouerea_village)
+"Fo" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/under/unathi/himation,
+/obj/item/clothing/under/unathi/himation,
+/obj/item/clothing/under/unathi{
+	color = "#4a3407"
+	},
+/obj/item/clothing/under/unathi,
+/obj/item/clothing/under/unathi/huytai{
+	color = "#4a3407"
+	},
+/obj/item/clothing/under/unathi/zozo{
+	color = "#100942"
+	},
+/obj/item/clothing/under/skrell/wetsuit{
+	color = "#100942"
+	},
+/obj/item/clothing/under/pants/jeans,
+/obj/item/clothing/under/pants/tan,
+/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/accessory/tshirt,
+/obj/item/clothing/accessory/tshirt/skrell/ocean,
+/obj/item/clothing/head/cowboy,
+/obj/item/clothing/shoes/workboots,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"FK" = (
+/obj/structure/bed/stool/chair/sofa/right/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/ouerea_village)
+"Gv" = (
+/obj/structure/closet/cabinet,
+/obj/item/gun/projectile/shotgun/doublebarrel,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shotgunshells,
+/obj/item/clothing/accessory/storage/bandolier,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"HY" = (
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"Ia" = (
+/obj/structure/sink/kitchen{
+	pixel_y = 26
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"JB" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"JG" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/obj/structure/sign/flag/ouerea/large/east{
+	pixel_x = 32
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"JZ" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/under/unathi/himation,
+/obj/item/clothing/under/unathi/himation,
+/obj/item/clothing/under/unathi{
+	color = "#4a3407"
+	},
+/obj/item/clothing/under/unathi,
+/obj/item/clothing/under/unathi/huytai{
+	color = "#4a3407"
+	},
+/obj/item/clothing/under/unathi/zozo{
+	color = "#100942"
+	},
+/obj/item/clothing/under/skrell/wetsuit{
+	color = "#100942"
+	},
+/obj/item/clothing/under/pants/jeans,
+/obj/item/clothing/under/pants/tan,
+/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/accessory/tshirt,
+/obj/item/clothing/accessory/tshirt/skrell/nebula/teal,
+/obj/item/clothing/head/cowboy,
+/obj/item/clothing/shoes/workboots,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"KW" = (
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/fish,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"Ly" = (
+/obj/structure/table/rack,
+/obj/item/material/hatchet/lumber,
+/obj/item/material/hatchet/lumber,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"MS" = (
+/obj/structure/coatrack,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"MX" = (
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"MZ" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/ouerea_village)
+"Na" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"Nh" = (
+/obj/machinery/gibber,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/ouerea_village)
+"OY" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/cooking_container/board/bowl,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"Pe" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"Qe" = (
+/obj/structure/bed/stool/chair/sofa/pew{
+	dir = 1;
+	name = "bench"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"Qz" = (
+/obj/structure/table/rack,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"RM" = (
+/obj/structure/bed/stool/chair/wood,
+/obj/effect/ghostspawpoint{
+	name = "igs - ouerea_villager";
+	identifier = "ouerea_villager"
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"Sq" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"SZ" = (
+/obj/item/device/radio/phone,
+/obj/structure/table/wood,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"To" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -9;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -4;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 3;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 8;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/obj/machinery/reagentgrinder,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"TA" = (
+/obj/machinery/vending/dinnerware,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"Ua" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"Uk" = (
+/turf/simulated/wall/birchwood,
+/area/ouerea_village)
+"US" = (
+/obj/structure/light_pole,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"UV" = (
+/obj/structure/cargo_receptacle{
+	max_spawn = 2;
+	min_spawn = 0;
+	override_name = "Ouerea - Rural Settlement"
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"VC" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"VR" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"VS" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/coatrack,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"VZ" = (
+/obj/structure/bed/stool/chair/wood,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"Wi" = (
+/obj/structure/bonfire,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"Wl" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - ouerea_villager";
+	identifier = "ouerea_villager"
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/ouerea_village)
+"WN" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"WS" = (
+/obj/structure/light_pole/r,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"WV" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/ouerea_village)
+"Xl" = (
+/turf/simulated/floor/exoplanet/water/shallow{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"XB" = (
+/obj/structure/bed/stool/chair/wood,
+/obj/effect/ghostspawpoint{
+	name = "igs - ouerea_villager";
+	identifier = "ouerea_villager"
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"XJ" = (
+/obj/structure/flora/log_bench{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+"YA" = (
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/ouerea_village)
+"YH" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"Zs" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"ZS" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/glass/bucket/wood,
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 298.15
+	},
+/area/ouerea_village)
+
+(1,1,1) = {"
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+"}
+(2,1,1) = {"
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+sh
+yv
+Uk
+Uk
+Uk
+Uk
+Uk
+Uk
+Uk
+Uk
+Uk
+yv
+yv
+yv
+dP
+oo
+oo
+oo
+oo
+Sq
+yv
+"}
+(3,1,1) = {"
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+sh
+yv
+Uk
+ve
+HY
+Ua
+cp
+rT
+cp
+vn
+Uk
+Uk
+Uk
+Uk
+Pe
+eC
+yv
+eC
+yv
+wi
+yv
+"}
+(4,1,1) = {"
+yv
+Uk
+Uk
+Uk
+Uk
+Uk
+Uk
+Uk
+yv
+yv
+yv
+sh
+yv
+Uk
+To
+HY
+tk
+Wl
+Wl
+ci
+JB
+Uk
+Fo
+wB
+Uk
+Pe
+eC
+yv
+eC
+yv
+wi
+yv
+"}
+(5,1,1) = {"
+yv
+Uk
+wE
+wE
+wE
+MX
+wE
+Uk
+yv
+yv
+yv
+sh
+yv
+Uk
+OY
+HY
+tk
+rK
+rK
+rK
+JB
+Eq
+HY
+HY
+Uk
+Pe
+eC
+yv
+eC
+yv
+wi
+yv
+"}
+(6,1,1) = {"
+yv
+Uk
+CT
+MX
+wE
+wE
+wE
+Uk
+yv
+yv
+US
+sh
+yv
+Uk
+KW
+HY
+tk
+rK
+rK
+rK
+JB
+Uk
+eE
+eE
+Uk
+Pe
+eC
+yv
+eC
+yv
+wi
+yv
+"}
+(7,1,1) = {"
+yv
+Uk
+wE
+wE
+wE
+MX
+wE
+Uk
+yv
+yv
+yv
+sh
+yv
+Uk
+TA
+kb
+tk
+lJ
+lJ
+lJ
+JB
+Uk
+Uk
+Uk
+Uk
+Pe
+eC
+yv
+eC
+yv
+wi
+yv
+"}
+(8,1,1) = {"
+yv
+Uk
+MX
+wE
+wE
+wE
+wE
+Uk
+yv
+yv
+yv
+sh
+yv
+Uk
+Uk
+Uk
+VC
+YH
+YH
+YH
+fU
+Uk
+yv
+yv
+yv
+Pe
+eC
+yv
+eC
+yv
+wi
+yv
+"}
+(9,1,1) = {"
+yv
+Uk
+wE
+wE
+wE
+wE
+wE
+Uk
+yv
+yv
+yv
+sh
+yv
+yv
+yv
+Uk
+gt
+HY
+HY
+HY
+Zs
+Uk
+yv
+yv
+yv
+Pe
+eC
+yv
+eC
+yv
+wi
+yv
+"}
+(10,1,1) = {"
+yv
+Uk
+AY
+AY
+AY
+Uk
+xk
+Uk
+gf
+yv
+yv
+sh
+yv
+yv
+yv
+Uk
+dq
+HY
+HY
+MS
+SZ
+Uk
+yv
+yv
+yv
+BV
+qF
+yv
+qF
+qF
+yw
+yv
+"}
+(11,1,1) = {"
+yv
+Uk
+AY
+AY
+AY
+AY
+wE
+VR
+sh
+sh
+sh
+sh
+yv
+yv
+yv
+Uk
+Uk
+Uk
+kA
+Uk
+Uk
+Uk
+yv
+yv
+yv
+yv
+yv
+sh
+yv
+WS
+yv
+yv
+"}
+(12,1,1) = {"
+yv
+Uk
+CT
+wE
+wE
+wE
+wE
+VR
+sh
+sh
+sh
+sh
+yv
+yv
+yv
+yv
+yv
+WN
+sh
+WN
+yv
+yv
+yv
+yv
+yv
+sh
+sh
+sh
+sh
+sh
+sh
+yv
+"}
+(13,1,1) = {"
+yv
+Uk
+wE
+wE
+wE
+wE
+uM
+Uk
+gf
+yv
+yv
+sh
+yv
+yv
+yv
+yv
+yv
+yv
+sh
+yv
+yv
+yv
+yv
+US
+yv
+sh
+yv
+yv
+yv
+yv
+AI
+yv
+"}
+(14,1,1) = {"
+yv
+Uk
+Dc
+th
+wE
+wE
+ZS
+Uk
+yv
+yv
+yv
+sh
+yv
+yv
+yv
+yv
+yv
+yv
+sh
+sh
+sh
+sh
+sh
+sh
+sh
+sh
+Uk
+Uk
+Uk
+Uk
+Uk
+yv
+"}
+(15,1,1) = {"
+yv
+Uk
+Uk
+Uk
+kA
+Uk
+Uk
+Uk
+yv
+yv
+yv
+sh
+yv
+yv
+xn
+yv
+yv
+yv
+sh
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+Uk
+eE
+eE
+wB
+Uk
+yv
+"}
+(16,1,1) = {"
+yv
+yv
+Uk
+AD
+AD
+AD
+Uk
+yv
+yv
+yv
+yv
+sh
+yv
+tB
+Wi
+DH
+yv
+yv
+sh
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+Uk
+HY
+HY
+HY
+Uk
+yv
+"}
+(17,1,1) = {"
+yv
+yv
+Uk
+Ca
+AD
+WV
+Uk
+yv
+yv
+yv
+yv
+sh
+yv
+yv
+XJ
+yv
+yv
+yv
+sh
+yv
+yv
+yv
+yv
+Uk
+Uk
+Uk
+Uk
+Gv
+JZ
+HY
+Uk
+yv
+"}
+(18,1,1) = {"
+yv
+yv
+Uk
+Fb
+bI
+Nh
+Uk
+yv
+yv
+yv
+yv
+sh
+yv
+yv
+yv
+yv
+yv
+yv
+sh
+yv
+yv
+yv
+yv
+Uk
+YA
+mH
+Uk
+Uk
+Uk
+kA
+Uk
+yv
+"}
+(19,1,1) = {"
+yv
+yv
+Uk
+Uk
+Uk
+Uk
+Uk
+yv
+yv
+yv
+yv
+sh
+yv
+yv
+yv
+yv
+yv
+yv
+sh
+yv
+yv
+yv
+yv
+Uk
+bn
+FK
+JB
+ff
+ff
+Zs
+Uk
+yv
+"}
+(20,1,1) = {"
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+sh
+yv
+yv
+yv
+yv
+yv
+yv
+sh
+yv
+yv
+yv
+ds
+Uk
+MZ
+YA
+RM
+Na
+Na
+ib
+Uk
+yv
+"}
+(21,1,1) = {"
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+sh
+sh
+sh
+sh
+sh
+sh
+sh
+sh
+sh
+sh
+sh
+sh
+Eq
+YH
+YH
+XB
+Na
+Na
+ib
+Uk
+yv
+"}
+(22,1,1) = {"
+yv
+yv
+yv
+yv
+yv
+Xl
+Xl
+Xl
+yv
+yv
+yv
+sh
+yv
+yv
+yv
+WS
+yv
+yv
+sh
+yv
+yv
+yv
+ds
+Uk
+VS
+HY
+VZ
+Na
+Na
+ib
+Uk
+yv
+"}
+(23,1,1) = {"
+yv
+yv
+yv
+Xl
+Xl
+Xl
+Xl
+Xl
+yv
+yv
+yv
+sh
+yv
+yv
+yv
+yv
+yv
+yv
+sh
+yv
+yv
+yv
+yv
+Uk
+SZ
+HY
+HY
+fm
+JG
+Zs
+Uk
+yv
+"}
+(24,1,1) = {"
+yv
+yv
+yv
+Xl
+Xl
+Xl
+Dx
+Xl
+yv
+yv
+yv
+sh
+yv
+yv
+yv
+yv
+yv
+yv
+sh
+yv
+yv
+yv
+yv
+Uk
+Uk
+Uk
+kA
+Uk
+Uk
+Uk
+Uk
+yv
+"}
+(25,1,1) = {"
+yv
+yv
+Xl
+Dx
+Xl
+Xl
+Xl
+Xl
+Xl
+yv
+yv
+sh
+yv
+yv
+yv
+yv
+yv
+CK
+sh
+CK
+yv
+yv
+yv
+yv
+Uk
+HY
+HY
+HY
+KW
+Uk
+yv
+yv
+"}
+(26,1,1) = {"
+yv
+yv
+Xl
+Xl
+Xl
+Dx
+Xl
+Xl
+Xl
+zC
+sh
+sh
+yv
+yv
+yv
+Uk
+Uk
+Uk
+kA
+Uk
+Uk
+Uk
+yv
+yv
+Uk
+Ia
+HY
+HY
+HY
+Uk
+yv
+yv
+"}
+(27,1,1) = {"
+yv
+yv
+Xl
+Xl
+Xl
+Xl
+Xl
+Xl
+Xl
+Qe
+sh
+sh
+yv
+yv
+yv
+Uk
+qT
+HY
+HY
+HY
+wH
+Uk
+yv
+yv
+Uk
+TA
+ve
+To
+cb
+Uk
+yv
+yv
+"}
+(28,1,1) = {"
+yv
+yv
+Xl
+Xl
+Dx
+Dx
+Xl
+Xl
+Xl
+oA
+sh
+sh
+yv
+yv
+yv
+Uk
+nu
+HY
+HY
+HY
+io
+Uk
+yv
+yv
+Uk
+Uk
+Uk
+Uk
+Uk
+Uk
+yv
+yv
+"}
+(29,1,1) = {"
+yv
+yv
+Xl
+Xl
+Xl
+Xl
+Xl
+Xl
+Xl
+yv
+yv
+WS
+yv
+yv
+yv
+Uk
+wz
+HY
+HY
+HY
+Qz
+Uk
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+"}
+(30,1,1) = {"
+yv
+yv
+yv
+Xl
+Xl
+Xl
+Xl
+Xl
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+Uk
+Uk
+Ly
+qe
+wk
+Uk
+Uk
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+"}
+(31,1,1) = {"
+yv
+yv
+yv
+yv
+Xl
+Xl
+Xl
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+UV
+Uk
+Uk
+Uk
+Uk
+Uk
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+"}
+(32,1,1) = {"
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+yv
+"}

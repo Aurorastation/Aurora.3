@@ -30,13 +30,13 @@
 	update_icon()
 
 /obj/item/reagent_containers/glass/paint/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(!is_open_container())
-		add_overlay("paint_lid")
+		AddOverlays("paint_lid")
 	else if(reagents.total_volume)
 		var/image/I = image(icon, "paint_full")
 		I.color = reagents.get_color()
-		add_overlay(I)
+		AddOverlays(I)
 
 /obj/item/reagent_containers/glass/paint/on_reagent_change()
 	update_icon()

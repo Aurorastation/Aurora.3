@@ -15,7 +15,7 @@
 		if(status[1] == HUMAN_EATING_NO_MOUTH)
 			to_chat(src, "Where do you intend to put \the [food]? You don't have a mouth!")
 		else if(status[1] == HUMAN_EATING_BLOCKED_MOUTH)
-			to_chat(src, "<span class='warning'>\The [status[2]] is in the way!</span>")
+			to_chat(src, SPAN_WARNING("\The [status[2]] is in the way!"))
 	return 0
 
 /mob/living/carbon/human/can_force_feed(var/feeder, var/food, var/feedback = 1)
@@ -26,7 +26,7 @@
 		if(status[1] == HUMAN_EATING_NO_MOUTH)
 			to_chat(feeder, "Where do you intend to put \the [food]? \The [src] doesn't have a mouth!")
 		else if(status[1] == HUMAN_EATING_BLOCKED_MOUTH)
-			to_chat(feeder, "<span class='warning'>\The [status[2]] is in the way!</span>")
+			to_chat(feeder, SPAN_WARNING("\The [status[2]] is in the way!"))
 	return 0
 
 /mob/living/carbon/human/proc/can_eat_status()
@@ -104,7 +104,7 @@
 				O.status = 0
 				switch(status)
 
-					if ("amputated")
+					if (ORGAN_PREF_AMPUTATED)
 						organs_by_name[O.limb_name] = null
 						organs -= O
 						if(O.children) // This might need to become recursive.
@@ -112,14 +112,14 @@
 								organs_by_name[child.limb_name] = null
 								organs -= child
 
-					if ("nymph")
+					if (ORGAN_PREF_NYMPH)
 						if (organ_data[name])
 							O.AddComponent(/datum/component/nymph_limb)
 							var/datum/component/nymph_limb/D = O.GetComponent(/datum/component/nymph_limb)
 							if(D)
 								D.nymphize(src, O.limb_name, TRUE)
 
-					if ("cyborg")
+					if (ORGAN_PREF_CYBORG)
 						if (rlimb_data[name])
 							O.force_skintone = FALSE
 							for(var/thing in O.children)
@@ -132,14 +132,14 @@
 				var/obj/item/organ/I = internal_organs_by_name[name]
 				if(I)
 					switch (status)
-						if ("assisted")
+						if (ORGAN_PREF_ASSISTED)
 							I.mechassist()
-						if ("mechanical")
+						if (ORGAN_PREF_MECHANICAL)
 							if (rlimb_data[name])
 								I.robotize(rlimb_data[name])
 							else
 								I.robotize()
-						if ("removed")
+						if (ORGAN_PREF_REMOVED)
 							qdel(I)
 
 	if (apply_markings)
@@ -162,7 +162,7 @@
 			for(var/BP in mark_datum.body_parts)
 				var/obj/item/organ/external/O = organs_by_name[BP]
 				if(O)
-					if(mark_datum.robotize_type_required && O.robotize_type != mark_datum.robotize_type_required)
+					if(length(mark_datum.robotize_type_required) && !(O.robotize_type in mark_datum.robotize_type_required))
 						continue
 					var/list/attr = list("color" = mark_color, "datum" = mark_datum)
 					if (mark_datum.is_genetic)
@@ -254,13 +254,13 @@
 		return 0
 	else if(bodytemperature > species.cold_level_2)
 		. = 5 * (1 - (bodytemperature - species.cold_level_2) / (species.cold_level_1 - species.cold_level_2))
-		. = max(2, .)
+		. = max(2, .) //stasis factor range: 2 to 5 after rounding
 	else if(bodytemperature > species.cold_level_3)
-		. = 20 * (1 - (bodytemperature - species.cold_level_3) / (species.cold_level_2 - species.cold_level_3))
-		. = max(5, .)
+		. = 11 * (1 - (bodytemperature - species.cold_level_3) / (species.cold_level_2 - species.cold_level_3))
+		. = max(5, .) //stasis factor range: 5 to 10 after rounding. we still want chemicals to metabolise at a bearable speed for those sick pharmacy beaker mixes.
 	else
 		. = 80 * (1 - bodytemperature / species.cold_level_3)
-		. = max(20, .)
+		. = max(20, .) //stasis factor range: 20 to 80 after rounding. irl cryonics ''achieves full stasis'' in bodies at 80K.
 	if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
 		var/obj/machinery/atmospherics/unary/cryo_cell/cryo = loc
 		if(cryo.current_stasis_mult)

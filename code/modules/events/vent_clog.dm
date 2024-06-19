@@ -30,7 +30,7 @@
 		/singleton/reagent/stone_dust = 0.5,
 		/singleton/reagent/crayon_dust = 1,
 		/singleton/reagent/alcohol/butanol = 2,
-		/singleton/reagent/alcohol = 2,
+		/singleton/reagent/alcohol/ethanol = 2,
 		/singleton/reagent/sugar = 2,
 		/singleton/reagent/drink/coffee = 4,
 		/singleton/reagent/wulumunusha = 0.25,

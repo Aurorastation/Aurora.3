@@ -1,0 +1,1548 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"b" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/structure/table/rack,
+/obj/item/device/analyzer/plant_analyzer,
+/obj/item/device/analyzer/plant_analyzer,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"d" = (
+/obj/item/bedsheet/brown,
+/obj/structure/bed,
+/obj/structure/curtain/open/bed,
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"f" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/structure/closet/crate/hydroponics,
+/obj/item/reagent_containers/spray/plantbgone,
+/obj/item/reagent_containers/spray/plantbgone,
+/obj/item/reagent_containers/spray/plantbgone,
+/obj/item/reagent_containers/spray/plantbgone,
+/obj/item/reagent_containers/spray/plantbgone,
+/obj/item/watertank,
+/obj/item/watertank,
+/obj/item/watertank,
+/obj/item/watertank,
+/obj/item/watertank,
+/obj/item/reagent_containers/spray/chemsprayer/mister,
+/obj/item/reagent_containers/spray/chemsprayer/mister,
+/obj/item/reagent_containers/spray/chemsprayer/mister,
+/obj/item/reagent_containers/spray/chemsprayer/mister,
+/obj/item/reagent_containers/spray/chemsprayer/mister,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"g" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/item/clothing/gloves/botanic_leather/unathi,
+/obj/item/clothing/gloves/botanic_leather/unathi,
+/obj/item/clothing/gloves/botanic_leather/unathi,
+/obj/item/clothing/gloves/botanic_leather/unathi,
+/obj/item/clothing/gloves/botanic_leather/unathi,
+/obj/structure/closet,
+/obj/item/clothing/head/unathi,
+/obj/item/clothing/head/unathi,
+/obj/item/clothing/head/unathi,
+/obj/item/clothing/head/unathi,
+/obj/item/clothing/head/unathi,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"h" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/structure/closet/crate/freezer/rations,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"i" = (
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"j" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/machinery/vending/dinnerware,
+/obj/structure/sign/flag/heph/large/east{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"l" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/door/airlock/service{
+	name = "Living Quarters"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"n" = (
+/obj/machinery/door/airlock/glass_service{
+	name = "Storage and Habitation"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"o" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/structure/reagent_dispensers/fertilizer,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"p" = (
+/obj/structure/bed/stool/bar/padded/green,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"q" = (
+/turf/simulated/floor/exoplanet/water/shallow{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"r" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/structure/sink/kitchen{
+	dir = 4;
+	pixel_x = -20;
+	name = "industrial sink"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"s" = (
+/obj/machinery/light,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"t" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/structure/table/rack,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"u" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/machinery/vending/hydronutrients/xenobotany,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"x" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/machinery/appliance/cooker/stove,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"A" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/sign/flag/heph/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"B" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"C" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"F" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/structure/reagent_dispensers/fertilizer,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"G" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/light,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"H" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/structure/table/rack,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"J" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"L" = (
+/turf/simulated/wall,
+/area/ouerea_farm)
+"M" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/machinery/vending/hydroseeds,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"N" = (
+/obj/structure/cargo_receptacle{
+	max_spawn = 2;
+	min_spawn = 0;
+	override_name = "Ouerea - Aquacultural Center"
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"O" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"Q" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/structure/reagent_dispensers/keg/xuizikeg,
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"R" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/closet,
+/obj/item/clothing/under/unathi/himation,
+/obj/item/clothing/under/unathi/himation,
+/obj/item/clothing/under/unathi/himation,
+/obj/item/clothing/under/unathi/himation,
+/obj/item/clothing/shoes/sandal,
+/obj/item/clothing/shoes/sandal,
+/obj/item/clothing/shoes/sandal,
+/obj/item/clothing/shoes/sandal,
+/obj/item/clothing/under/unathi,
+/obj/item/clothing/under/unathi,
+/obj/item/clothing/under/unathi,
+/obj/item/clothing/under/unathi,
+/obj/item/clothing/under/unathi/zozo,
+/obj/item/clothing/under/unathi/zozo,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"T" = (
+/obj/item/bedsheet/brown,
+/obj/structure/bed,
+/obj/structure/curtain/open/bed,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/ghostspawpoint{
+	name = "igs - ouerea_fisher";
+	identifier = "ouerea_fisher"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"U" = (
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"V" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"W" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"X" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"Y" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+"Z" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/structure/closet/crate/hydroponics,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/riceseed,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/cabbageseed,
+/obj/item/seeds/cabbageseed,
+/obj/item/seeds/cabbageseed,
+/obj/item/seeds/cabbageseed,
+/obj/item/seeds/cabbageseed,
+/obj/item/seeds/cabbageseed,
+/obj/item/seeds/cabbageseed,
+/obj/item/seeds/cabbageseed,
+/obj/structure/sign/flag/heph/large/west{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_farm)
+
+(1,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(2,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+q
+"}
+(3,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+q
+"}
+(4,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+W
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(5,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+q
+"}
+(6,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+q
+"}
+(7,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+W
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(8,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+q
+"}
+(9,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+q
+"}
+(10,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+W
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(11,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+q
+"}
+(12,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+q
+"}
+(13,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+W
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(14,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+q
+"}
+(15,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+q
+"}
+(16,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+W
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(17,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+q
+"}
+(18,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+q
+"}
+(19,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+W
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+"}
+(20,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+"}
+(21,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+i
+"}
+(22,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+W
+L
+b
+t
+H
+f
+Z
+u
+M
+r
+L
+g
+O
+O
+T
+L
+i
+"}
+(23,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+L
+X
+U
+U
+U
+U
+U
+U
+C
+L
+Y
+O
+G
+L
+L
+i
+"}
+(24,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+L
+X
+p
+p
+p
+p
+p
+U
+C
+L
+A
+O
+O
+T
+L
+i
+"}
+(25,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+s
+L
+X
+B
+B
+B
+B
+B
+U
+C
+L
+O
+O
+O
+L
+L
+i
+"}
+(26,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+n
+U
+B
+B
+B
+B
+B
+U
+C
+l
+O
+O
+O
+T
+L
+i
+"}
+(27,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+s
+L
+X
+B
+B
+B
+B
+B
+U
+C
+L
+A
+O
+O
+L
+L
+i
+"}
+(28,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+W
+L
+X
+p
+p
+p
+p
+p
+U
+C
+L
+O
+O
+O
+T
+L
+i
+"}
+(29,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+L
+X
+U
+U
+U
+U
+U
+U
+C
+L
+Y
+O
+G
+L
+L
+i
+"}
+(30,1,1) = {"
+q
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+W
+L
+o
+F
+Q
+j
+h
+J
+x
+V
+L
+R
+O
+O
+d
+L
+i
+"}
+(31,1,1) = {"
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+q
+W
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+L
+i
+"}
+(32,1,1) = {"
+q
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+N
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+"}

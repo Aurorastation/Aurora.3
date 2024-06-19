@@ -28,7 +28,7 @@
 	return
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/generate_ground_survey_result()
-	ground_survey_result = "" // so it does not get randomly generated survey results
+	ground_survey_result = "<br>High concentrations of silicate detected"
 
 // --------------------------------- Az'Mar
 
@@ -65,7 +65,7 @@
 	return
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/generate_ground_survey_result()
-	ground_survey_result = "" // so it does not get randomly generated survey results
+	ground_survey_result = "<br>No notable concentration of valuable minerals detected in the mantle"
 
 // --------------------------------- Sahul
 /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul
@@ -83,7 +83,7 @@
 	return
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul/generate_ground_survey_result()
-	ground_survey_result = "" // so it does not get randomly generated survey results
+	ground_survey_result = "<br>Molten metals detected in the crust"
 
 // --------------------------------- Raskara
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara
@@ -119,15 +119,22 @@
 	skybox_image.pixel_y = rand(128,256)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara/generate_ground_survey_result()
-	ground_survey_result = "" // so it does not get randomly generated survey results
+	if(prob(1))
+		ground_survey_result = "<br>Unidentified anomalous readings detected in the inner core"
+	else
+		ground_survey_result = "<br>High concretation of dense metal in the mantle"
 
 // --------------------------------- Adhomai
+// NOTE: To trigger Adhomai 'event' (eclipses). Use the set holiday verb to the eclipse name BEFORE this planet is initialized, or have holiday added to holidays.dm
+// "Shi-rr’ata" : Messa Eclipse. Lighting changes.
+// "Shi-rra Arr’Kahata" : Raskara Eclipse. This makes planet covered in darkness and increases hostile animal spawns (Adhomai Hell)
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai
 	name = "Adhomai"
 	desc = "The Tajaran homeworld. Adhomai is a cold and icy world, suffering from almost perpetual snowfall and extremely low temperatures."
 	icon_state = "globe2"
 	color = "#b5dfeb"
 	planetary_area = /area/exoplanet/adhomai
+	initial_weather_state = /singleton/state/weather/calm/snow_planet
 	scanimage = "adhomai.png"
 	massvolume = "0.86/0.98"
 	surfacegravity = "0.80"
@@ -186,6 +193,13 @@
 			features_budget = 1
 			possible_themes = list(/datum/exoplanet_theme/snow/tundra/adhomai)
 			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/north_pole_monolith, /datum/map_template/ruin/exoplanet/north_pole_nka_expedition, /datum/map_template/ruin/exoplanet/north_pole_worm)
+			initial_weather_state = /singleton/state/weather/calm/arctic_planet
+
+	if(Holiday == "Shi-rra Arr’Kahata")  // Messa weeps.
+		if(landing_faction != "North Pole")
+			possible_themes = list(/datum/exoplanet_theme/snow/adhomai/darkest_eclipse)
+		else
+			possible_themes = list(/datum/exoplanet_theme/snow/tundra/adhomai/darkest_eclipse)
 
 	desc += " The landing sites are located at the [landing_faction]'s territory."
 
@@ -195,6 +209,12 @@
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_map()
 	if(prob(75))
 		lightlevel = rand(3,10)/10
+	switch(Holiday)	// Handle eclipses
+		if("Shi-rr’ata") // Messa Eclipse
+			lightlevel = 9/10
+			lightcolor = COLOR_CYAN
+		if("Shi-rra Arr’Kahata") //Raskara Eclipse. Board your windows.
+			lightlevel = 0
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_planet_image()
@@ -218,4 +238,4 @@
 	return
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_ground_survey_result()
-	ground_survey_result = "" // so it does not get randomly generated survey results
+	ground_survey_result = "<br>High quality minerals detected in the crust and mantle"

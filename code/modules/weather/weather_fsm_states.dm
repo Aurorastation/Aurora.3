@@ -189,3 +189,79 @@
 	descriptor = "A rain of ash falls from the sky."
 	cosmetic_span_class = "warning"
 	cosmetic_messages = list("Drifts of ash fall from the sky.")
+
+/singleton/state/weather/sandstorm
+	name = "Sandstorm"
+	icon_state = "sandstorm"
+	descriptor = "A sandstorm is raging."
+	cosmetic_span_class = "warning"
+	cosmetic_messages = list(
+		"The wind howls around you.",
+		"Swirling sand obscures your vision."
+	)
+	protected_messages = list("Stinging sand blows against $ITEM$.")
+	ambient_sounds = list('sound/effects/weather/sandstorm.ogg')
+
+/singleton/state/weather/sandstorm/handle_exposure_effects(mob/living/M, obj/abstract/weather_system/weather)
+	to_chat(M, SPAN_DANGER("You are blasted by a gust of stinging sand!"))
+	M.adjustBruteLoss(rand(1,5))
+
+//planet weathers
+
+//snow planet - only snow or calm
+
+/singleton/state/weather/calm/snow_planet
+	transitions = list(/singleton/state_transition/weather/snow/snow_planet)
+
+/singleton/state/weather/snow/snow_planet
+	transitions = list(
+		/singleton/state_transition/weather/calm/snow_planet,
+		/singleton/state_transition/weather/snow_medium/snow_planet
+	)
+
+/singleton/state/weather/snow/medium/snow_planet
+	transitions = list(
+		/singleton/state_transition/weather/snow/snow_planet,
+		/singleton/state_transition/weather/snow_heavy/snow_planet
+	)
+
+/singleton/state/weather/snow/heavy/snow_planet
+	transitions = list(/singleton/state_transition/weather/snow_medium/snow_planet)
+
+//jungle planets - only calm or rain
+
+/singleton/state/weather/calm/jungle_planet
+	transitions = list(/singleton/state_transition/weather/rain/jungle_planet)
+
+/singleton/state/weather/rain/jungle_planet
+	transitions = list(
+		/singleton/state_transition/weather/calm/jungle_planet,
+		/singleton/state_transition/weather/storm/jungle_planet
+	)
+
+/singleton/state/weather/rain/storm/jungle_planet
+	transitions = list(/singleton/state_transition/weather/rain/jungle_planet)
+
+//lava planets - only calm or ash
+
+/singleton/state/weather/calm/lava_planet
+	transitions = list(/singleton/state_transition/weather/ash/lava_planet)
+
+/singleton/state/weather/ash/lava_planet
+	transitions = list(/singleton/state_transition/weather/calm/lava_planet)
+
+//arctic planet - only calm or hail
+
+/singleton/state/weather/calm/arctic_planet
+	transitions = list(/singleton/state_transition/weather/hail/arctic_planet)
+
+/singleton/state/weather/rain/hail/arctic_planet
+	transitions = list(/singleton/state_transition/weather/calm/arctic_planet)
+
+//desert planet - only calm or sandstorm
+
+/singleton/state/weather/calm/desert_planet
+	transitions = list(/singleton/state_transition/weather/sandstorm/desert_planet)
+
+/singleton/state/weather/sandstorm/desert_planet
+	transitions = list(/singleton/state_transition/weather/calm/desert_planet)
