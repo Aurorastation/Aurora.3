@@ -25291,10 +25291,6 @@
 	dir = 10
 	},
 /obj/structure/closet/secure_closet/xo,
-/obj/item/device/eftpos{
-	eftpos_name = "HoP EFTPOS scanner"
-	},
-/obj/item/book/manual/wiki/security_space_law,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
 "rmh" = (
