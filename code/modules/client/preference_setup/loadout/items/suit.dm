@@ -573,3 +573,9 @@
 	patterned_ponczo["brown patterned ponczo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo/brown
 	patterned_ponczo["blue patterned ponczo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo/blue
 	gear_tweaks += new /datum/gear_tweak/path(patterned_ponczo)
+
+/datum/gear/suit/gentlecoat
+	display_name = "gentlemans coat"
+	description = "A heavy threaded tweed gray jacket. For a different sort of Gentleman."
+	path = /obj/item/clothing/suit/storage/toggle/wizrobe/gentlecoat
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
