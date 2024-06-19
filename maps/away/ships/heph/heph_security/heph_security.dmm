@@ -599,7 +599,6 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -619,9 +618,7 @@
 /turf/simulated/floor,
 /area/heph_security_ship/thrusterport)
 "eu" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/reinforced,
 /area/heph_security_ship/engineering)
 "ew" = (
@@ -1980,7 +1977,6 @@
 "ob" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8;
 	name = "Fuel To Thrusters"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2117,8 +2113,7 @@
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/effect/floor_decal/spline/plain{
-	dir = 4;
-	layer = 2.41
+	dir = 4
 	},
 /obj/machinery/light{
 	dir = 4
@@ -2389,8 +2384,7 @@
 /area/heph_security_ship/captain)
 "qt" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	layer = 2.71
+	dir = 4
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark/full,
@@ -3338,8 +3332,7 @@
 /area/heph_security_ship/grauwolf)
 "xE" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -3678,7 +3671,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 8
 	},
 /turf/simulated/floor,
@@ -5204,7 +5196,6 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector,
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/structure/window/reinforced{
@@ -5643,8 +5634,7 @@
 /obj/machinery/atmospherics/pipe/manifold/visible/red,
 /obj/machinery/atmospherics/pipe/manifold/visible/red,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/heph_security_ship/atmos)
@@ -6109,8 +6099,7 @@
 /area/heph_security_ship/atmos)
 "UF" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 4;
-	layer = 2.71
+	dir = 4
 	},
 /turf/simulated/floor/airless,
 /area/heph_security_ship/francisca)
@@ -6722,8 +6711,7 @@
 	pixel_x = -32
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 1;
-	layer = 2.8
+	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,

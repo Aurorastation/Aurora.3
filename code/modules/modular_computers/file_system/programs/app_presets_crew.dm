@@ -296,6 +296,20 @@
 	)
 	return flatten_list(_prg_list)
 
+/datum/modular_computer_app_presets/supply/mining
+	name = "operations_mining"
+	display_name = "Mining"
+	description = "Contains the most common EVA programs."
+	available = TRUE
+
+/datum/modular_computer_app_presets/supply/mining/return_install_programs(obj/item/modular_computer/comp)
+	var/list/_prg_list = list(
+		COMPUTER_APP_PRESET_SYSTEM,
+		COMPUTER_APP_PRESET_HORIZON_CIVILIAN,
+		new /datum/computer_file/program/away_manifest(comp),
+	)
+	return flatten_list(_prg_list)
+
 /datum/modular_computer_app_presets/supply/machinist
 	name = "operations_machinist"
 	display_name = "Operations - Machinist"

@@ -12383,7 +12383,6 @@
 	icon_state = "door_locked";
 	id_tag = "science_shuttle_in";
 	name = "Crew Cabin";
-	open_layer = 2.8;
 	dir = 1
 	},
 /turf/simulated/floor/plating,
@@ -25260,9 +25259,7 @@
 /area/hallway/secondary/entry/dock)
 "vZO" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/door/firedoor{
-	open_layer = 2.8
-	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
 /area/shuttle/research)
 "wai" = (

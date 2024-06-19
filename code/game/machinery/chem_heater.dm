@@ -8,6 +8,7 @@
 	use_power = POWER_USE_OFF
 	idle_power_usage = 100
 	density = 1
+	pass_flags_self = PASSMACHINE | LETPASSTHROW
 	anchored = 1
 	var/obj/item/reagent_containers/container
 	var/target_temperature = 300 //Measured in kelvin.

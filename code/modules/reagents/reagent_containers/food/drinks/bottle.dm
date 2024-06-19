@@ -33,13 +33,13 @@
 	return ..()
 
 //when thrown on impact, bottles smash and spill their contents
-/obj/item/reagent_containers/food/drinks/bottle/throw_impact(atom/hit_atom, var/speed)
+/obj/item/reagent_containers/food/drinks/bottle/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	..()
 
-	var/mob/M = thrower
+	var/mob/M = throwing?.thrower?.resolve()
 	if((drink_flags & IS_GLASS) && istype(M) && M.a_intent == I_HURT)
-		var/throw_dist = get_dist(throw_source, loc)
-		if(speed >= throw_speed && smash_check(throw_dist)) //not as reliable as smashing directly
+		var/throw_dist = get_dist(throwing?.thrower?.resolve(), loc)
+		if(throwingdatum.speed >= throw_speed && smash_check(throw_dist)) //not as reliable as smashing directly
 			if(reagents)
 				hit_atom.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [hit_atom]!"))
 				reagents.splash(hit_atom, reagents.total_volume)
@@ -1068,3 +1068,18 @@
 	center_of_mass = list("x"=16, "y"=11)
 	reagents_to_add = list(/singleton/reagent/drink/milk/nemiik = 80)
 	empty_icon_state = "vrozka_empty"
+
+// Vaurca alcoholic drinks
+//=====================================
+
+/obj/item/reagent_containers/food/drinks/bottle/skyemok
+	name = "bottle of Skye'mok"
+	desc = "Traditional Sedantian drink. Looks like it's inside a pulsating stomach."
+	desc_extended = "A traditional Sedantian brew crafted from a special fungus fed to V'krexi, this unique beverage ferments in the swollen stomachs of these creatures. It is served traditionally on the head of the V'krexi it was prepared in."
+	icon_state = "skyemok"
+	empty_icon_state = "skyemok_empty"
+	drop_sound = 'sound/items/drop/flesh.ogg'
+	pickup_sound = 'sound/items/pickup/flesh.ogg'
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/drink/toothpaste/skyemok= 80)
+

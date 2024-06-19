@@ -984,8 +984,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	else
 		..()
 
-/obj/item/flame/lighter/throw_impact(mob/living/carbon/M as mob)
+/obj/item/flame/lighter/throw_impact(atom/hit_atom)
 	. = ..()
+	var/mob/living/carbon/M = hit_atom
 	if(istype(M) && lit && M.IgniteMob())
 		M.visible_message(SPAN_DANGER("\The [M] is ignited by \the [src]!"))
 

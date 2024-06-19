@@ -58,4 +58,3 @@
 	cost = 5
 	material_id = "glass"
 	message = "glass sheets"
-

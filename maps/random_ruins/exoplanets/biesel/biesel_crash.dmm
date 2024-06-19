@@ -233,7 +233,6 @@
 /area/template_noop)
 "hI" = (
 /obj/machinery/atmospherics/pipe/tank/air{
-	layer = 3.5;
 	start_pressure = 5066.26;
 	dir = 4
 	},
@@ -743,7 +742,6 @@
 /area/template_noop)
 "yg" = (
 /obj/item/bedsheet/black{
-	layer = 4.2;
 	pixel_y = 13
 	},
 /obj/structure/railing/mapped{

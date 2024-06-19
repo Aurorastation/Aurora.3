@@ -449,3 +449,87 @@
   - imageadd: Slightly edited the koi legs tattoos to mesh better with the chest.
   - imageadd: Edited the silverburgh tattoo to be symmetrical.
   - imageadd: Adds new inhand and wielded sprites to the Thermal Drill
+2024-06-16:
+  Ben10083:
+  - qol: Tweaks to the Uueoa-Esa Heph Mining Station to improve user experience.
+2024-06-17:
+  Ben10083:
+  - bugfix: Idris Cruiser docking lockdown buttons now have access restrictions.
+  BoomerThor:
+  - bugfix: Updates the cultural food bounty lists to include recent contributions.
+  - rscdel: Removed depreciated bounties (smoke grenades, telecomms traffic, NVGs,
+      monkey hide).
+  - bugfix: Fixed the padded chairs bounty to work properly.
+  - spellcheck: Removes a mention of the Horizon being in the CRZ from the phoron
+      bounty.
+  - qol: Changed the access requirements for the Cargo Control and Cargo Delivery
+      programs. OMs and Techs can now download these programs on their laptops.
+  - qol: Added a mining laptop preset that comes with the shuttle manifest program.
+  CourierBravo and Ben10083:
+  - bugfix: Made several bugfixes for the unathi mining guild station mapping wise.
+      Includes things like air alarms being in walls, air alarms facing the wrong
+      direction, pipes or pumps facing the wrong directions, things like that.
+  - bugfix: Fixed the spawner for the unathi mining guild station away site leader,
+      allowing them to spawn.
+  - rscadd: Dramatically revamped the unathi mining guild station away site. Condensed
+      engineering, ensures there's enough air on site to completely repressurize the
+      station, adds a minor healers room, etc.
+  - rscadd: Revamped the unathi mining guild station's shuttle, bringing it into line
+      with current shuttle standards
+  - balance: Replaced the randomized weapons with weapons that the unathi mining guild
+      station would reasonably use.
+  - qol: Replaced depreciated airlocks on the mining guild station with semi complient
+      airlocks.
+  - bugfix: Fixed the various docking markers on the mining guild station. Thank you,
+      Ben10083!
+  DreamySkrell:
+  - rscadd: BAPI - mapmanip insert/extract failsafe.
+  FluffyGhost:
+  - code_imp: Turned various spawns into timers / removed.
+  - sounddel: Removed the magnet machinery and sd alerts, ancient code that was not
+      used anywhere anyways.
+  Lavillastrangiato:
+  - qol: Adds interior areas to some Moghresian away sites so that they protect from
+      sandstorms. Adds extra items and QOL stuff/decorations to Moghresian away sites.
+  MattAtlas:
+  - bugfix: Fixed many bugs with Dionae detaching nymphs and merging them.
+  - bugfix: Switching to-and-fro a Gestalt and a Nymph will now properly update your
+      verbs.
+  SimpleMaroon:
+  - qol: The Vaurca Tradeband implant is now designated for Los Azquiles to use as
+      well. Removed mention of Eridani from the name of the implant.
+  - qol: Tech Support workers now have access to Technical Storage.
+2024-06-19:
+  Ben10083:
+  - qol: Adds missing stairs at Command Substation..
+  - rscadd: Adds Orion Delivery Points to various away sites in Ouerea.
+  - rscadd: Adds Orion Delivery Points to various away sites in Moghes.
+  - rscadd: Adds Firedoors and aft/starboard docking port for the People's Station.
+  - rscadd: People's Station now has cargo delivery points.
+  - rscadd: Cargo Delivery Point added to Tret Industrial Complex.
+  - qol: Small tweaks and improvements to Tret Industrial Complex to improve player
+      experience.
+  Flpfs:
+  - rscadd: Adds Sedantis Water to the Zo'ra Soda vendor.
+  - rscadd: Adds Skye'mok in a V'krexi organ to the Booze-o-Mat
+  - rscdel: Adds a new sprite for the Flagsdale Mule drink.
+  FluffyGhost:
+  - rscadd: Ported SSThrowing from TG, to handle throwings.
+  - rscadd: Updated movement system to the latest iteration, made it a datum as per
+      latest iteration.
+  - rscadd: Updated pass/hit handling of atoms, introduced pass_flag_self to determine
+      what atoms allow to pass.
+  - refactor: Moved procs and defines around to make them more organized.
+  Geeves:
+  - bugfix: Fixed the floating chat offset when you speak from inside a mech.
+  - bugfix: Moving away from a mech while using a wrench or a remote upgrade will
+      no longer hit it.
+  SimpleMaroon:
+  - imageadd: The Zeng-Hu Pharmaceuticals veterancy plate now has a less senior alternative,
+      designed to be less invasive and more unique; this includes unique variants
+      for Vaurcae (including Bulwarks) and Skrell.
+  - qol: The Zeng-Hu veterancy plate is now a variant of the medical eye sensor augmentation
+      in order to add useful functionality.
+  Stev-the-third:
+  - imageadd: Adds three Hieroaetheria faction flags.
+  - rscadd: Adds the Hieroaetheria faction flags to the loadout.

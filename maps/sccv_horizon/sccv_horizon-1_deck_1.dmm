@@ -15444,6 +15444,20 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/hangar/intrepid)
+"kHa" = (
+/obj/item/tent,
+/obj/item/sleeping_bag,
+/obj/item/sleeping_bag,
+/obj/item/sleeping_bag,
+/obj/item/sleeping_bag,
+/obj/structure/closet/crate,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/folding_table,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "kHg" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -21038,7 +21052,7 @@
 /area/hangar/auxiliary)
 "owJ" = (
 /obj/effect/map_effect/marker/mapmanip/submap/insert/sccv_horizon/ops_warehouse_small_storage,
-/turf/template_noop,
+/turf/simulated/floor/plating,
 /area/operations/storage)
 "owM" = (
 /obj/structure/shuttle_part/scc/research{
@@ -27770,6 +27784,7 @@
 	pixel_y = -2
 	},
 /obj/item/clothing/mask/breath,
+/obj/item/tent/big/scc,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/quarters)
 "tgR" = (
@@ -29179,6 +29194,7 @@
 /obj/item/material/hatchet/machete/steel,
 /obj/item/clothing/accessory/holster/utility/machete,
 /obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/tent/mining,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "ucG" = (
@@ -29208,6 +29224,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/item/tent/big/scc,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
 "udC" = (
@@ -30346,7 +30363,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "uTy" = (
-/turf/template_noop,
+/turf/simulated/floor/plating,
 /area/operations/storage)
 "uTz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -56985,7 +57002,7 @@ aEl
 kLb
 qeD
 rPN
-iRC
+kHa
 iRC
 iRC
 iRC
