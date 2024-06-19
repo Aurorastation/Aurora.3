@@ -8752,14 +8752,6 @@
 	icon_state = "white"
 	},
 /area/centcom/holding)
-"azH" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/fancy/tray,
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/centcom/holding)
 "azI" = (
 /obj/machinery/chemical_dispenser/ert{
 	pixel_x = -3
@@ -33616,6 +33608,9 @@
 	icon_state = "seashallow"
 	},
 /area/centcom/shared_dream)
+"crk" = (
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "crw" = (
 /obj/item/clothing/suit/storage/hazardvest/white{
 	desc = "A high-visibility vest coated with a water-repellent material. ";
@@ -33909,6 +33904,14 @@
 	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
+"dwf" = (
+/obj/structure/table/wood/mahogany,
+/obj/item/clothing/suit/dog_costume,
+/obj/item/clothing/suit/dog_costume,
+/obj/item/clothing/suit/dog_costume,
+/obj/effect/floor_decal/spline/fancy/full,
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "dwR" = (
 /obj/structure/flora/grass/green,
 /turf/simulated/floor/holofloor/snow,
@@ -35731,6 +35734,10 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/horizon/holodeck/source_trinary)
+"jNQ" = (
+/obj/structure/holostool,
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "jOZ" = (
 /obj/structure/flora/grass/green,
 /obj/effect/floor_decal/spline/plain{
@@ -35778,6 +35785,16 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_thunderdomecourt)
+"jVB" = (
+/obj/item/toy/stressball{
+	pixel_x = 5;
+	pixel_y = 8
+	},
+/obj/effect/landmark{
+	name = "Animal Baby Spawn Random"
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "jYW" = (
 /obj/structure/table/wood,
 /obj/item/wrench,
@@ -36886,6 +36903,10 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_meetinghall)
+"nJZ" = (
+/obj/structure/bed/stool/chair/sofa/right/purple,
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "nLZ" = (
 /turf/simulated/wall/shuttle/unique/ccia{
 	icon_state = "4,0"
@@ -37000,6 +37021,15 @@
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"onU" = (
+/obj/item/toy/stressball{
+	pixel_x = -8
+	},
+/obj/effect/landmark{
+	name = "Animal Baby Spawn Random"
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "opa" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -37303,6 +37333,9 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_courtroom)
+"pda" = (
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "pfb" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -37572,6 +37605,16 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_trinary)
+"qjf" = (
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 10
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "qlw" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
@@ -37647,6 +37690,12 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"qBm" = (
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "qEC" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/misc/beach.dmi';
@@ -38103,6 +38152,16 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_trinary)
+"stx" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 6
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "syj" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
@@ -38113,6 +38172,12 @@
 	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
+"sys" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "szG" = (
 /obj/structure/bonfire/fireplace,
 /obj/item/clothing/accessory/scarf/zebra{
@@ -38190,6 +38255,10 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_thunderdomecourt)
+"sQG" = (
+/obj/effect/floor_decal/carpet,
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "sTs" = (
 /obj/effect/spider/cocoon,
 /turf/simulated/floor/exoplanet/barren/raskara,
@@ -38205,6 +38274,12 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood/yew,
 /area/centcom/shared_dream)
+"sWf" = (
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "sYp" = (
 /obj/structure/bed/stool/chair/holochair{
 	dir = 4
@@ -38573,6 +38648,18 @@
 	icon_state = "beach"
 	},
 /area/centcom/shared_dream)
+"ulF" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 5
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "ulM" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
@@ -38775,6 +38862,12 @@
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
+"uPh" = (
+/obj/effect/landmark{
+	name = "Animal Baby Spawn Random"
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "uRN" = (
 /obj/effect/decal/battlemonsters_logo{
 	dir = 1;
@@ -38868,6 +38961,10 @@
 /obj/structure/flora/log_bench,
 /turf/simulated/floor/holofloor/snow,
 /area/horizon/holodeck/source_adhomai)
+"vaj" = (
+/obj/item/reagent_containers/food/snacks/fluff/taffy/pink,
+/turf/template_noop,
+/area/template_noop)
 "vbf" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
@@ -39010,6 +39107,10 @@
 	dir = 4
 	},
 /area/horizon/holodeck/source_chapel)
+"vDE" = (
+/obj/structure/bed/stool/chair/sofa/left/purple,
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "vEB" = (
 /obj/structure/table/rack,
 /obj/item/mecha_equipment/shield,
@@ -39291,6 +39392,26 @@
 	},
 /turf/simulated/floor/plating,
 /area/centcom/shared_dream)
+"wrv" = (
+/obj/structure/table/wood/maple,
+/obj/item/clothing/suit/maid_costume,
+/obj/item/clothing/suit/maid_costume,
+/obj/item/clothing/suit/maid_costume,
+/obj/item/clothing/head/pin/flower/pink{
+	pixel_x = 4;
+	pixel_y = 8
+	},
+/obj/item/clothing/head/pin/flower/pink{
+	pixel_x = 4;
+	pixel_y = 8
+	},
+/obj/item/clothing/head/pin/flower/pink{
+	pixel_x = 4;
+	pixel_y = 8
+	},
+/obj/effect/floor_decal/spline/fancy/full,
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "wrH" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/beach/sand{
@@ -39307,6 +39428,13 @@
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
+"wwU" = (
+/obj/structure/table/wood/mahogany,
+/obj/random/pottedplant_small{
+	pixel_y = 4
+	},
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "wxl" = (
 /turf/simulated/floor/exoplanet/water/shallow{
 	dir = 9;
@@ -39486,6 +39614,18 @@
 	icon_state = "beach"
 	},
 /area/centcom/shared_dream)
+"xlV" = (
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 9
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "xnA" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -56726,7 +56866,7 @@ avk
 awz
 awy
 ayE
-azH
+avk
 aug
 aBb
 ayK
@@ -76401,7 +76541,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+vaj
 aaa
 aaa
 aaa
@@ -77175,14 +77315,14 @@ bFf
 bFf
 bFf
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+bFf
+bFf
+bFf
+bFf
+bFf
+bFf
+bFf
+bFf
 aaa
 aaa
 aaa
@@ -77432,14 +77572,14 @@ bJU
 bJU
 bGm
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+dwf
+crk
+jNQ
+crk
+crk
+jNQ
+crk
+bFf
 aaa
 aaa
 aaa
@@ -77689,14 +77829,14 @@ bJU
 bJU
 bJU
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+crk
+jNQ
+wwU
+jNQ
+jNQ
+wwU
+jNQ
+bFf
 aaa
 aaa
 aaa
@@ -77946,14 +78086,14 @@ lqT
 bJU
 bJU
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+crk
+crk
+crk
+crk
+crk
+crk
+crk
+bFf
 aaa
 aaa
 aaa
@@ -78203,14 +78343,14 @@ bGi
 bHp
 bHp
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+crk
+xlV
+qBm
+qBm
+qBm
+qjf
+crk
+bFf
 aaa
 aaa
 aaa
@@ -78460,14 +78600,14 @@ rYl
 bHp
 bHp
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+crk
+sWf
+uPh
+pda
+onU
+sQG
+crk
+bFf
 aaa
 aaa
 aaa
@@ -78717,14 +78857,14 @@ rYl
 bHp
 bHp
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+nJZ
+sWf
+pda
+pda
+pda
+sQG
+crk
+bFf
 aaa
 aaa
 aaa
@@ -78974,14 +79114,14 @@ rYl
 bHp
 bHp
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+vDE
+sWf
+pda
+pda
+pda
+sQG
+crk
+bFf
 aaa
 aaa
 aaa
@@ -79231,14 +79371,14 @@ rYl
 bHp
 bHp
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+crk
+sWf
+jVB
+pda
+uPh
+sQG
+crk
+bFf
 aaa
 aaa
 aaa
@@ -79488,14 +79628,14 @@ xbL
 bHp
 bHp
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+crk
+ulF
+sys
+sys
+sys
+stx
+crk
+bFf
 aaa
 aaa
 aaa
@@ -79745,14 +79885,14 @@ mEQ
 bJU
 bJU
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+crk
+crk
+crk
+crk
+crk
+crk
+crk
+bFf
 aaa
 aaa
 aaa
@@ -80002,14 +80142,14 @@ bJU
 bJU
 bHw
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+crk
+jNQ
+wwU
+jNQ
+jNQ
+wwU
+jNQ
+bFf
 aaa
 aaa
 aaa
@@ -80259,14 +80399,14 @@ bJU
 bJU
 bJU
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+wrv
+crk
+jNQ
+crk
+crk
+jNQ
+crk
+bFf
 aaa
 aaa
 aaa
@@ -80516,14 +80656,14 @@ bFf
 bFf
 bFf
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+bFf
+bFf
+bFf
+bFf
+bFf
+bFf
+bFf
+bFf
 aaa
 aaa
 aaa
