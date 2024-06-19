@@ -15,8 +15,8 @@
 			strength *= reflexive_modifier
 		animate(user, pixel_z = 16, time = 3, easing = SINE_EASING | EASE_IN)
 		animate(pixel_z = 0, time = 3, easing = SINE_EASING | EASE_OUT)
-		user.throw_at(get_turf(target), strength, 1, user, FALSE)
-		end_leap(user, target, old_pass_flags)
+		var/end_leap_callback = CALLBACK(src, PROC_REF(end_leap), user, target, old_pass_flags)
+		user.throw_at(get_turf(target), strength, 1, user, spin = FALSE, diagonals_first = TRUE, callback = end_leap_callback)
 
 /singleton/maneuver/leap/proc/end_leap(var/mob/living/user, var/atom/target, var/pass_flag)
 	SHOULD_NOT_SLEEP(TRUE)

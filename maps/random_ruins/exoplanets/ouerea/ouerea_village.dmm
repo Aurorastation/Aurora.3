@@ -156,6 +156,16 @@
 	},
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/ouerea_village)
+"lV" = (
+/obj/structure/cargo_receptacle{
+	max_spawn = 2;
+	min_spawn = 0;
+	override_name = "Ouerea - Rural Settlement"
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_village)
 "mH" = (
 /obj/structure/bed/stool/chair/sofa/left/yellow{
 	dir = 1
@@ -185,6 +195,34 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"oX" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/under/unathi/himation,
+/obj/item/clothing/under/unathi/himation,
+/obj/item/clothing/under/unathi{
+	color = "#4a3407"
+	},
+/obj/item/clothing/under/unathi,
+/obj/item/clothing/under/unathi/huytai{
+	color = "#4a3407"
+	},
+/obj/item/clothing/under/unathi/zozo{
+	color = "#100942"
+	},
+/obj/item/clothing/under/skrell/wetsuit{
+	color = "#100942"
+	},
+/obj/item/clothing/under/pants/jeans,
+/obj/item/clothing/under/pants/tan,
+/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/accessory/dressshirt/tshirt,
+/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/teal,
+/obj/item/clothing/head/cowboy,
+/obj/item/clothing/shoes/workboots,
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/ouerea_village)
@@ -245,6 +283,34 @@
 /area/ouerea_village)
 "sh" = (
 /turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/ouerea_village)
+"sj" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/under/unathi/himation,
+/obj/item/clothing/under/unathi/himation,
+/obj/item/clothing/under/unathi{
+	color = "#4a3407"
+	},
+/obj/item/clothing/under/unathi,
+/obj/item/clothing/under/unathi/huytai{
+	color = "#4a3407"
+	},
+/obj/item/clothing/under/unathi/zozo{
+	color = "#100942"
+	},
+/obj/item/clothing/under/skrell/wetsuit{
+	color = "#100942"
+	},
+/obj/item/clothing/under/pants/jeans,
+/obj/item/clothing/under/pants/tan,
+/obj/item/clothing/accessory/silversun/random,
+/obj/item/clothing/accessory/dressshirt/tshirt,
+/obj/item/clothing/accessory/dressshirt/tshirt/skrell/ocean,
+/obj/item/clothing/head/cowboy,
+/obj/item/clothing/shoes/workboots,
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/ouerea_village)
@@ -465,34 +531,6 @@
 /obj/item/material/hatchet/butch,
 /turf/simulated/floor/tiled/freezer,
 /area/ouerea_village)
-"Fo" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/under/unathi/himation,
-/obj/item/clothing/under/unathi/himation,
-/obj/item/clothing/under/unathi{
-	color = "#4a3407"
-	},
-/obj/item/clothing/under/unathi,
-/obj/item/clothing/under/unathi/huytai{
-	color = "#4a3407"
-	},
-/obj/item/clothing/under/unathi/zozo{
-	color = "#100942"
-	},
-/obj/item/clothing/under/skrell/wetsuit{
-	color = "#100942"
-	},
-/obj/item/clothing/under/pants/jeans,
-/obj/item/clothing/under/pants/tan,
-/obj/item/clothing/accessory/silversun/random,
-/obj/item/clothing/accessory/dressshirt/tshirt,
-/obj/item/clothing/accessory/dressshirt/tshirt/skrell/ocean,
-/obj/item/clothing/head/cowboy,
-/obj/item/clothing/shoes/workboots,
-/turf/simulated/floor/exoplanet/wood/birch{
-	temperature = 303.15
-	},
-/area/ouerea_village)
 "FK" = (
 /obj/structure/bed/stool/chair/sofa/right/yellow{
 	dir = 1
@@ -537,34 +575,6 @@
 /obj/structure/sign/flag/ouerea/large/east{
 	pixel_x = 32
 	},
-/turf/simulated/floor/exoplanet/wood/birch{
-	temperature = 303.15
-	},
-/area/ouerea_village)
-"JZ" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/under/unathi/himation,
-/obj/item/clothing/under/unathi/himation,
-/obj/item/clothing/under/unathi{
-	color = "#4a3407"
-	},
-/obj/item/clothing/under/unathi,
-/obj/item/clothing/under/unathi/huytai{
-	color = "#4a3407"
-	},
-/obj/item/clothing/under/unathi/zozo{
-	color = "#100942"
-	},
-/obj/item/clothing/under/skrell/wetsuit{
-	color = "#100942"
-	},
-/obj/item/clothing/under/pants/jeans,
-/obj/item/clothing/under/pants/tan,
-/obj/item/clothing/accessory/silversun/random,
-/obj/item/clothing/accessory/dressshirt/tshirt,
-/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/teal,
-/obj/item/clothing/head/cowboy,
-/obj/item/clothing/shoes/workboots,
 /turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
@@ -1005,7 +1015,7 @@ Wl
 ci
 JB
 Uk
-Fo
+sj
 wB
 Uk
 Pe
@@ -1453,7 +1463,7 @@ Uk
 Uk
 Uk
 Gv
-JZ
+oX
 HY
 Uk
 yv
@@ -1916,7 +1926,7 @@ yv
 yv
 yv
 yv
-yv
+lV
 Uk
 Uk
 Uk

@@ -642,8 +642,8 @@
 
 /mob/living/simple_animal/hitby(atom/movable/AM, speed)
 	. = ..()
-	if(ismob(AM.thrower))
-		handle_attack_by(AM.thrower)
+	if(ismob(AM.throwing?.thrower?.resolve()))
+		handle_attack_by(AM.throwing?.thrower?.resolve())
 
 /mob/living/simple_animal/bullet_act(obj/item/projectile/P, def_zone)
 	. = ..()
@@ -700,7 +700,7 @@
 
 	if(movement_target)
 		stop_automated_movement = 1
-		SSmove_manager.move_to(src, movement_target, 0, seek_move_delay)
+		GLOB.move_manager.move_to(src, movement_target, 0, seek_move_delay)
 
 /mob/living/simple_animal/get_status_tab_items()
 	. = ..()
@@ -715,7 +715,7 @@
 		death()
 
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
-	SSmove_manager.stop_looping(src)
+	GLOB.move_manager.stop_looping(src)
 	movement_target = null
 	density = FALSE
 	if (isopenturf(loc))
@@ -881,7 +881,7 @@
 		set_stat(UNCONSCIOUS)
 		canmove = 0
 		wander = 0
-		SSmove_manager.stop_looping(src)
+		GLOB.move_manager.stop_looping(src)
 		movement_target = null
 		update_icon()
 

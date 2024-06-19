@@ -86,6 +86,7 @@ Class Procs:
 	w_class = ITEMSIZE_IMMENSE
 	layer = STRUCTURE_LAYER
 	init_flags = INIT_MACHINERY_PROCESS_SELF
+	pass_flags_self = PASSMACHINE | LETPASSCLICKS
 
 	var/stat = 0
 	var/emagged = 0
