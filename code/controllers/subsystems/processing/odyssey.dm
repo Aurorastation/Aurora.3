@@ -1,4 +1,4 @@
-PROCESSING_SUBSYSTEM_DEF(odyssey)
+SUBSYSTEM_DEF(odyssey)
 	name = "Odyssey"
 	init_order = INIT_ORDER_ODYSSEY
 	flags = SS_BACKGROUND|SS_NO_FIRE
@@ -16,26 +16,35 @@ PROCESSING_SUBSYSTEM_DEF(odyssey)
 	var/list/actors
 	/// A list of currently spawned storytellers for easy access.
 	var/list/storytellers
+	/// Whether or not we've sent the situation's roundstart report yet.
+	var/has_sent_roundstart_announcement = FALSE
+	/// The Horizon's overmap object. We keep it here for convenience.
+	var/obj/effect/overmap/visitable/ship/horizon
 
-/datum/controller/subsystem/processing/odyssey/Initialize()
+/datum/controller/subsystem/odyssey/Initialize()
 	return SS_INIT_SUCCESS
 
-/datum/controller/subsystem/processing/odyssey/Recover()
+/datum/controller/subsystem/odyssey/Recover()
 	situation = SSodyssey.situation
 	situation_site = SSodyssey.situation_site
 	situation_zlevels = SSodyssey.situation_zlevels
 	actors = SSodyssey.actors
 	storytellers = SSodyssey.storytellers
 
+/datum/controller/subsystem/odyssey/fire()
+	. = ..()
+	if(!has_sent_roundstart_announcement)
+		addtimer(CALLBACK(situation, TYPE_PROC_REF(/singleton/situation, notify_horizon), horizon), rand(4 MINUTES, 5 MINUTES))
+
 /**
  * Picks a random situation while keeping in mind sector requirements.
  * If successful, makes the SS start firing.
  */
-/datum/controller/subsystem/processing/odyssey/proc/pick_situation()
+/datum/controller/subsystem/odyssey/proc/pick_situation()
 	var/list/all_situations = GET_SINGLETON_SUBTYPE_LIST(/singleton/situation)
 	var/list/possible_situations = list()
 	for(var/singleton/situation/S in all_situations)
-		if(SSatlas.current_sector.name in S.sector_whitelist || !length(S.sector_whitelist))
+		if((SSatlas.current_sector.name in S.sector_whitelist) || !length(S.sector_whitelist))
 			possible_situations[S] = S.weight
 
 	if(!length(possible_situations))
@@ -47,12 +56,13 @@ PROCESSING_SUBSYSTEM_DEF(odyssey)
 	gamemode_setup()
 	/// Now that we actually have a situation, the subsystem can fire!
 	flags &= ~SS_NO_FIRE
+	horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
 
 /**
  * This proc overrides the gamemode variables for the amount of actors.
  * Note that Storytellers spawn through a ghost role.
  */
-/datum/controller/subsystem/processing/odyssey/proc/gamemode_setup()
+/datum/controller/subsystem/odyssey/proc/gamemode_setup()
 	SHOULD_CALL_PARENT(TRUE)
 	if(istype(SSticker.mode, /datum/game_mode/odyssey))
 		/// TODOMATT: this has some issues, we need to check the amount of players BEFORE we spawn the template...
@@ -62,7 +72,7 @@ PROCESSING_SUBSYSTEM_DEF(odyssey)
 /**
  * This is the proc that should be used to set the situation away site.
  */
-/datum/controller/subsystem/processing/odyssey/proc/set_situation_site(datum/map_template/ruin/away_site/site)
+/datum/controller/subsystem/odyssey/proc/set_situation_site(datum/map_template/ruin/away_site/site)
 	if(!istype(site))
 		return
 
@@ -71,23 +81,23 @@ PROCESSING_SUBSYSTEM_DEF(odyssey)
 /**
  * Adds an actor to the subsystem actor list.
  */
-/datum/controller/subsystem/processing/odyssey/proc/add_actor(mob/living/carbon/human/H)
+/datum/controller/subsystem/odyssey/proc/add_actor(mob/living/carbon/human/H)
 	LAZYADD(actors, H)
 
 /**
  * Adds a storyteller to the subsystem storyteller list.
  */
-/datum/controller/subsystem/processing/odyssey/proc/add_storyteller(mob/living/storyteller/S)
+/datum/controller/subsystem/odyssey/proc/add_storyteller(mob/living/storyteller/S)
 	LAZYADD(storytellers, S)
 
 /**
  * Removes an actor from the subsystem actor list.
  */
-/datum/controller/subsystem/processing/odyssey/proc/remove_actor(mob/living/carbon/human/H)
+/datum/controller/subsystem/odyssey/proc/remove_actor(mob/living/carbon/human/H)
 	LAZYREMOVE(actors, H)
 
 /**
  * Removes a storyteller from the subsystem storyteller list.
  */
-/datum/controller/subsystem/processing/odyssey/proc/remove_storyteller(mob/living/storyteller/S)
+/datum/controller/subsystem/odyssey/proc/remove_storyteller(mob/living/storyteller/S)
 	LAZYREMOVE(storytellers, S)

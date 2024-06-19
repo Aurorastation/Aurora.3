@@ -9,8 +9,11 @@
 	antag_tags = list(MODE_STORYTELLER)
 	antag_scaling_coeff = 1
 
-/datum/game_mode/odyssey/pre_setup()
-	. = ..()
+/datum/game_mode/odyssey/post_finalize_vote()
+	GLOB.round_progressing = FALSE
 	SSodyssey.pick_situation()
-	to_world(SPAN_NOTICE("The Situation picked for this round is: <b>[SSodyssey.situation.name]</b>."))
+	to_world(FONT_LARGE(EXAMINE_BLOCK_DEEP_CYAN("The Situation picked for this round is: <b>[SPAN_NOTICE(SSodyssey.situation.name)]</b>.\n\
+			[SSodyssey.situation.desc]\n\
+			It is a <b>[SSodyssey.situation.mission_type == SITUATION_TYPE_NONCANON ? "non-canon" : "canon"]</b> situation.")))
 	SSodyssey.situation.setup_situation()
+	GLOB.round_progressing = TRUE

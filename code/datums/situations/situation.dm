@@ -9,12 +9,14 @@
 	var/mission_type = SITUATION_TYPE_NONCANON
 
 	/**
-	 * All Situations happen in an away site, which is manually spawned when the situation is picked.
+	 * All situations happen in an away site, which is manually spawned when the situation is picked.
 	 * This away site can have its exoplanet themes defined and then mapped to give the semblance of being on a planet (see the Tret away site).
 	 * Alternatively, without defining exoplanet themes, it can take place in space, for example.
 	 * In the future there will likely be support for no-away site Situations that take place on the Horizon.
 	 */
-	/// This
+	/// The ID of the situation to spawn. This is what you should edit, set it to the away site's id variable.
+	var/situation_site_id
+	/// This is the away site where the situation takes place. Do not edit this variable - it's set automatically.
 	var/datum/map_template/ruin/away_site/situation_site
 	/// Weight given to the situation in pickweight when being picked.
 	var/weight = 20
@@ -27,16 +29,23 @@
 	/// The maximum amount of storytellers we want to spawn in this situation.
 	var/max_storyteller_amount = 1
 
+	/// The title for the message sent to the Horizon at roundstart.
+	var/horizon_announcement_title = "Central Command Situation Report"
+	/// The announcement message sent to the Horizon at roundstart, typically telling them to go investigate the Situation and why.
+	var/horizon_announcement_message = "There is a situation on the Away Site. Go investigate it, yo."
+
+
 /**
  * This proc handles the creation and spawning of everything that the situation needs.
  * This could be a map or landmarks or whatever.
  */
 /singleton/situation/proc/setup_situation()
 	SHOULD_NOT_OVERRIDE(TRUE)
+	situation_site = SSmapping.away_sites_templates[situation_site_id]
 	if(istype(situation_site))
-		to_world(FONT_LARGE("Setting up this round's Odyssey..."))
+		to_world(FONT_LARGE(SPAN_DANGER("Setting up this round's Odyssey...")))
 		setup_away_site()
-		to_world(FONT_LARGE("The Odyssey is all set!"))
+		to_world(FONT_LARGE(SPAN_DANGER("Your Odyssey is ready!")))
 	else
 		log_and_message_admins(FONT_HUGE("CRITICAL FAILURE: SITUATION DOES NOT HAVE A VALID SITE!"))
 		return FALSE
@@ -49,3 +58,16 @@
 /singleton/situation/proc/setup_away_site()
 	situation_site.load_new_z()
 	LAZYADD(SSodyssey.situation_zlevels, world.maxz)
+
+/**
+ * This proc is what you should override if you want anything specific to be messaged to the Horizon.
+ * This is essentially the distress signal or central command order that makes the Horizon investigate the situation point.
+ */
+/singleton/situation/proc/notify_horizon(var/obj/effect/overmap/visitable/ship/horizon)
+	command_announcement.Announce(horizon_announcement_message, horizon_announcement_title, do_print = TRUE)
+
+/obj/effect/landmark/actor_landmark
+	name = "Actor Spawn Landmark"
+
+/obj/effect/landmark/storyteller_landmark
+	name = "Storyteller Landmark"

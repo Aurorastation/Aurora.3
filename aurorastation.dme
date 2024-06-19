@@ -518,6 +518,7 @@
 #include "code\datums\repositories\sound_channels.dm"
 #include "code\datums\repositories\unique.dm"
 #include "code\datums\situations\situation.dm"
+#include "code\datums\situations\noncanon\tret.dm"
 #include "code\datums\state_machine\state.dm"
 #include "code\datums\state_machine\transition.dm"
 #include "code\datums\tips\tips.dm"
