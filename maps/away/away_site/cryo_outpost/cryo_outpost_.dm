@@ -10,7 +10,6 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "cryo_outpost"
-	// shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/cryo_outpost)
 	exoplanet_themes = list(
 		/turf/unsimulated/marker/khaki = /datum/exoplanet_theme/desert/cryo_outpost,
 		/turf/unsimulated/marker/red   = /datum/exoplanet_theme/desert/cryo_outpost/mountain,
