@@ -367,6 +367,7 @@
 					remote_type = RM.type
 					become_remote()
 					qdel(attacking_item)
+				return
 			else if(attacking_item.ismultitool())
 				if(hardpoints_locked)
 					to_chat(user, SPAN_WARNING("Hardpoint system access is disabled."))
@@ -409,7 +410,7 @@
 							qdel(pilot)
 							new remote_type(get_turf(src))
 					dismantle()
-					return
+				return
 			else if(attacking_item.iswelder())
 				if(!getBruteLoss())
 					return
@@ -585,6 +586,9 @@
 
 /mob/living/heavy_vehicle/get_floating_chat_x_offset()
 	return -offset_x // reverse the offset
+
+/mob/living/heavy_vehicle/get_floating_chat_y_offset()
+	return 20
 
 /mob/living/heavy_vehicle/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
 	if(can_listen())

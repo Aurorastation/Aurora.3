@@ -270,6 +270,17 @@
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
+"KU" = (
+/obj/structure/cargo_receptacle{
+	max_spawn = 2;
+	min_spawn = 0;
+	override_name = "Moghes - Dorviza Clan Outpost";
+	payment_modifier = 1.8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
 "LW" = (
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
@@ -1182,7 +1193,7 @@ RC
 RC
 RC
 RC
-Nk
+KU
 Nk
 Nk
 Nk
