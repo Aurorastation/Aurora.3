@@ -875,12 +875,10 @@
 /area/space)
 "oS" = (
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 10;
 	pixel_y = 18
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 10;
 	pixel_y = 28
 	},
@@ -1016,22 +1014,18 @@
 /area/space)
 "qB" = (
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 2;
 	pixel_y = 18
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 2;
 	pixel_y = 28
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 22;
 	pixel_y = 18
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 22;
 	pixel_y = 28
 	},

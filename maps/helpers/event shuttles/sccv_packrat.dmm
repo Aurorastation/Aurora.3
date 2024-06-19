@@ -88,6 +88,25 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/black,
 /area/space)
+"bN" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 18
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 28
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 24;
+	pixel_y = 18
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 24;
+	pixel_y = 28
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "bW" = (
 /obj/item/modular_computer/console/preset/research{
 	dir = 1
@@ -457,6 +476,17 @@
 	},
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Captain"
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"oQ" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 12;
+	pixel_y = 18
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 12;
+	pixel_y = 28
 	},
 /turf/simulated/floor/shuttle/black,
 /area/space)
@@ -2665,7 +2695,7 @@ yl
 yl
 oD
 Fl
-yl
+bN
 yl
 yl
 bm
@@ -2696,7 +2726,7 @@ yl
 yl
 yl
 Fl
-yl
+oQ
 yl
 yl
 Zf
