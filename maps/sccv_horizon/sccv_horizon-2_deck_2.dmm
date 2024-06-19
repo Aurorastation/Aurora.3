@@ -9289,7 +9289,6 @@
 /obj/machinery/power/apc/low/north,
 /obj/machinery/alarm/west,
 /obj/structure/closet/secure_closet/operations_manager,
-/obj/item/device/price_scanner,
 /turf/simulated/floor/tiled,
 /area/operations/qm)
 "epN" = (
