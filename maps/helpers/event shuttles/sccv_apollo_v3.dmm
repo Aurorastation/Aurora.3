@@ -219,6 +219,9 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
+/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "dA" = (
@@ -1322,6 +1325,10 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/space)
+"xT" = (
+/obj/structure/closet/wardrobe/red,
+/turf/simulated/floor/shuttle/dark_red,
+/area/space)
 "yu" = (
 /obj/machinery/atmospherics/unary/engine/scc_shuttle,
 /turf/simulated/floor,
@@ -1439,12 +1446,6 @@
 /obj/item/device/gps/medical{
 	pixel_x = 5
 	},
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
@@ -2958,7 +2959,7 @@ JM
 IO
 bp
 nt
-nt
+xT
 SC
 SC
 Zl

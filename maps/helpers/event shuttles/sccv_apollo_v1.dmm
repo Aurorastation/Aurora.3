@@ -1613,6 +1613,10 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/black,
 /area/space)
+"Ch" = (
+/obj/structure/closet/wardrobe/red,
+/turf/simulated/floor/shuttle/dark_red,
+/area/space)
 "Cn" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "PEAC (Emergency Use Only)"
@@ -3091,7 +3095,7 @@ Db
 Ue
 MF
 Gh
-Gh
+Ch
 zL
 zL
 Ap

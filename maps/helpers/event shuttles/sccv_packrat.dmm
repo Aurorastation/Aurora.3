@@ -78,6 +78,9 @@
 /obj/item/clothing/under/rank/medical/surgeon,
 /obj/item/clothing/under/rank/medical/surgeon,
 /obj/effect/floor_decal/industrial/outline/medical,
+/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "bI" = (
@@ -800,12 +803,6 @@
 /area/space)
 "xA" = (
 /obj/structure/closet/crate,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
 /obj/item/device/gps/medical,
 /obj/item/device/gps/medical,
 /obj/item/device/gps/medical,
@@ -1321,6 +1318,10 @@
 /obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/adrenaline,
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/shuttle/black,
+/area/space)
+"Ln" = (
+/obj/structure/closet/wardrobe/red,
+/turf/simulated/floor/shuttle/dark_red,
 /area/space)
 "Lp" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -2636,7 +2637,7 @@ TL
 yl
 yl
 yl
-bm
+Ln
 Fl
 "}
 (22,1,1) = {"
