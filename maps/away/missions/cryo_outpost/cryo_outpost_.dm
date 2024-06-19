@@ -88,6 +88,8 @@
 
 // --------------------------------------------------- misc
 
+#define NETWORK_CRYO_OUTPOST "AZ-578 Outpost"
+
 /obj/machinery/camera/network/cryo_outpost
 	network = list(NETWORK_CRYO_OUTPOST)
 
