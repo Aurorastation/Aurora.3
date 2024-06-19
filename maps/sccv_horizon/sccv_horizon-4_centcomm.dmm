@@ -33905,13 +33905,9 @@
 	},
 /area/horizon/holodeck/source_moghes)
 "dwf" = (
-/obj/structure/table/wood/mahogany,
-/obj/item/clothing/suit/dog_costume,
-/obj/item/clothing/suit/dog_costume,
-/obj/item/clothing/suit/dog_costume,
-/obj/effect/floor_decal/spline/fancy/full,
-/turf/simulated/floor/wood/maple,
-/area/horizon/holodeck/source_cafe)
+/obj/item/reagent_containers/food/snacks/fluff/taffy/pink,
+/turf/template_noop,
+/area/template_noop)
 "dwR" = (
 /obj/structure/flora/grass/green,
 /turf/simulated/floor/holofloor/snow,
@@ -34297,6 +34293,12 @@
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
+"eOn" = (
+/obj/effect/landmark{
+	name = "Animal Baby Spawn Random"
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "ePz" = (
 /obj/item/device/flashlight/lantern,
 /obj/item/pickaxe,
@@ -34333,6 +34335,26 @@
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
+"eTn" = (
+/obj/structure/table/wood/maple,
+/obj/item/clothing/suit/maid_costume,
+/obj/item/clothing/suit/maid_costume,
+/obj/item/clothing/suit/maid_costume,
+/obj/item/clothing/head/pin/flower/pink{
+	pixel_x = 4;
+	pixel_y = 8
+	},
+/obj/item/clothing/head/pin/flower/pink{
+	pixel_x = 4;
+	pixel_y = 8
+	},
+/obj/item/clothing/head/pin/flower/pink{
+	pixel_x = 4;
+	pixel_y = 8
+	},
+/obj/effect/floor_decal/spline/fancy/full,
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "eTB" = (
 /turf/simulated/floor/exoplanet/water/shallow{
 	icon_state = "pool"
@@ -35998,6 +36020,10 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_battlemonsters)
+"kJF" = (
+/obj/structure/bed/stool/chair/sofa/left/purple,
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "kLW" = (
 /obj/effect/floor_decal/snowdrift,
 /obj/effect/decal/fake_object/light_source/invisible{
@@ -36903,10 +36929,6 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_meetinghall)
-"nJZ" = (
-/obj/structure/bed/stool/chair/sofa/right/purple,
-/turf/simulated/floor/wood/maple,
-/area/horizon/holodeck/source_cafe)
 "nLZ" = (
 /turf/simulated/wall/shuttle/unique/ccia{
 	icon_state = "4,0"
@@ -38041,6 +38063,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
+"rEy" = (
+/obj/structure/table/wood/mahogany,
+/obj/item/clothing/suit/dog_costume,
+/obj/item/clothing/suit/dog_costume,
+/obj/item/clothing/suit/dog_costume,
+/obj/effect/floor_decal/spline/fancy/full,
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "rIq" = (
 /obj/machinery/door/airlock/highsecurity{
 	dir = 4;
@@ -38862,12 +38892,6 @@
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
-"uPh" = (
-/obj/effect/landmark{
-	name = "Animal Baby Spawn Random"
-	},
-/turf/simulated/floor/carpet/magenta,
-/area/horizon/holodeck/source_cafe)
 "uRN" = (
 /obj/effect/decal/battlemonsters_logo{
 	dir = 1;
@@ -38961,10 +38985,6 @@
 /obj/structure/flora/log_bench,
 /turf/simulated/floor/holofloor/snow,
 /area/horizon/holodeck/source_adhomai)
-"vaj" = (
-/obj/item/reagent_containers/food/snacks/fluff/taffy/pink,
-/turf/template_noop,
-/area/template_noop)
 "vbf" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
@@ -39107,10 +39127,6 @@
 	dir = 4
 	},
 /area/horizon/holodeck/source_chapel)
-"vDE" = (
-/obj/structure/bed/stool/chair/sofa/left/purple,
-/turf/simulated/floor/wood/maple,
-/area/horizon/holodeck/source_cafe)
 "vEB" = (
 /obj/structure/table/rack,
 /obj/item/mecha_equipment/shield,
@@ -39393,23 +39409,7 @@
 /turf/simulated/floor/plating,
 /area/centcom/shared_dream)
 "wrv" = (
-/obj/structure/table/wood/maple,
-/obj/item/clothing/suit/maid_costume,
-/obj/item/clothing/suit/maid_costume,
-/obj/item/clothing/suit/maid_costume,
-/obj/item/clothing/head/pin/flower/pink{
-	pixel_x = 4;
-	pixel_y = 8
-	},
-/obj/item/clothing/head/pin/flower/pink{
-	pixel_x = 4;
-	pixel_y = 8
-	},
-/obj/item/clothing/head/pin/flower/pink{
-	pixel_x = 4;
-	pixel_y = 8
-	},
-/obj/effect/floor_decal/spline/fancy/full,
+/obj/structure/bed/stool/chair/sofa/right/purple,
 /turf/simulated/floor/wood/maple,
 /area/horizon/holodeck/source_cafe)
 "wrH" = (
@@ -76541,7 +76541,7 @@ aaa
 aaa
 aaa
 aaa
-vaj
+dwf
 aaa
 aaa
 aaa
@@ -77572,7 +77572,7 @@ bJU
 bJU
 bGm
 bFf
-dwf
+crk
 crk
 jNQ
 crk
@@ -78343,7 +78343,7 @@ bGi
 bHp
 bHp
 bFf
-crk
+rEy
 xlV
 qBm
 qBm
@@ -78600,9 +78600,9 @@ rYl
 bHp
 bHp
 bFf
-crk
+wrv
 sWf
-uPh
+eOn
 pda
 onU
 sQG
@@ -78857,7 +78857,7 @@ rYl
 bHp
 bHp
 bFf
-nJZ
+kJF
 sWf
 pda
 pda
@@ -79114,7 +79114,7 @@ rYl
 bHp
 bHp
 bFf
-vDE
+eTn
 sWf
 pda
 pda
@@ -79375,7 +79375,7 @@ crk
 sWf
 jVB
 pda
-uPh
+eOn
 sQG
 crk
 bFf
@@ -80399,7 +80399,7 @@ bJU
 bJU
 bJU
 bFf
-wrv
+crk
 crk
 jNQ
 crk
