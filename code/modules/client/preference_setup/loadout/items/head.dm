@@ -271,6 +271,11 @@
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	slot = slot_r_ear
 
+/datum/gear/head/plain_hood
+	display_name = "colorable hood"
+	path = /obj/item/clothing/head/plain_hood
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/head/turban
 	display_name = "turban selection"
 	path = /obj/item/clothing/head/turban
@@ -339,6 +344,18 @@
 	display_name = "konyanger hachimaki"
 	path = /obj/item/clothing/accessory/headband/hachimaki
 	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/bearpelt
+	display_name = "bear pelt hat"
+	path = /obj/item/clothing/head/bearpelt
+	description = "A fuzzy pelt to wear on your head."
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/gentlecap
+	display_name = "gentlemans cap"
+	path = /obj/item/clothing/head/wizard/cap
+	description = "A checkered gray flat cap woven together with the rarest of threads."
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/iac
 	display_name = "IAC headgear selection"
@@ -492,3 +509,4 @@ var/datum/gear_tweak/hair_block/gear_tweak_hair_block = new()
 			H.flags_inv |= BLOCKHEADHAIR
 		if("No")
 			H.flags_inv &= ~BLOCKHEADHAIR
+

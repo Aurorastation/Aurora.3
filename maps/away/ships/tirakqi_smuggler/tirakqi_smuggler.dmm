@@ -11,6 +11,15 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/hall)
+"ai" = (
+/obj/effect/decal/fake_object{
+	desc = "A lightweight support lattice.";
+	icon = 'icons/obj/smooth/lattice.dmi';
+	icon_state = "lattice";
+	name = "lattice"
+	},
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_smuggler/cargo)
 "al" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -211,17 +220,6 @@
 	color = "#8a7387"
 	},
 /area/ship/tirakqi_smuggler/port_arm)
-"bB" = (
-/obj/structure/window/borosilicate/reinforced/skrell{
-	dir = 1;
-	pixel_y = -15
-	},
-/obj/structure/flora/pottedplant/aquatic{
-	layer = 3.21;
-	pixel_y = -1
-	},
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/ship/tirakqi_smuggler/starboard_hall)
 "bE" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -424,6 +422,22 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
+/area/ship/tirakqi_smuggler/cargo)
+"dq" = (
+/obj/effect/decal/fake_object{
+	desc = "A lightweight support lattice.";
+	icon = 'icons/obj/smooth/lattice.dmi';
+	icon_state = "lattice";
+	name = "lattice"
+	},
+/obj/structure/table/rack,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/mask/breath/skrell,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/skrell/black,
+/obj/item/clothing/head/helmet/space/void/skrell/black,
+/turf/simulated/floor/plating,
 /area/ship/tirakqi_smuggler/cargo)
 "ds" = (
 /obj/effect/floor_decal/spline/plain/black{
@@ -718,6 +732,15 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/starboard_hall)
+"fq" = (
+/obj/structure/window/borosilicate/reinforced/skrell{
+	dir = 8
+	},
+/obj/structure/flora/pottedplant/aquatic{
+	pixel_x = 2
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ship/tirakqi_smuggler/starboard_arm)
 "fs" = (
 /obj/machinery/light/skrell,
 /obj/effect/floor_decal/spline/plain/black{
@@ -768,6 +791,55 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_smuggler/bridge)
+"fH" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/spline/plain{
+	color = "#b6efe1";
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain{
+	color = "#b6efe1";
+	dir = 4
+	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#00D6FF";
+	name = "projector light source";
+	light_range = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/table/skrell,
+/obj/effect/decal/fake_object{
+	name = "Projector";
+	icon = 'icons/obj/item/skrell/nralakk_projector.dmi';
+	icon_state = "projector";
+	pixel_y = 2
+	},
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/item/skrell/nralakk_projector.dmi';
+	icon_state = "projector_light";
+	color = "#00D6FF";
+	alpha = 100;
+	name = "Projector Light";
+	pixel_y = 2
+	},
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/item/skrell/stellascope.dmi';
+	icon_state = "starprojection";
+	name = "Star Projection";
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine{
+	pixel_x = 10;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine{
+	pixel_x = -8;
+	pixel_y = 4
+	},
+/turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_smuggler/capt)
 "fJ" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
@@ -913,23 +985,6 @@
 /obj/item/stack/material/plastic/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/tirakqi_smuggler/engi)
-"gF" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	layer = 2.31;
-	name = "lattice"
-	},
-/obj/structure/table/rack,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/mask/breath/skrell,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/skrell/black,
-/obj/item/clothing/head/helmet/space/void/skrell/black,
-/turf/simulated/floor/plating,
-/area/ship/tirakqi_smuggler/cargo)
 "gH" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -1011,14 +1066,6 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/hall)
-"hc" = (
-/obj/machinery/shower{
-	dir = 4;
-	pixel_y = -8;
-	layer = 4.1
-	},
-/turf/simulated/floor/beach/water/pool,
-/area/ship/tirakqi_smuggler/wash)
 "hh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -1359,6 +1406,16 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/tirakqi_smuggler/bridge)
+"jx" = (
+/obj/structure/window/borosilicate/reinforced/skrell{
+	dir = 1;
+	pixel_y = -15
+	},
+/obj/structure/flora/pottedplant/mysterious{
+	pixel_y = -1
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ship/tirakqi_smuggler/starboard_hall)
 "jy" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped{
@@ -1416,6 +1473,16 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/tirakqi_smuggler_shuttle)
+"kf" = (
+/obj/effect/decal/fake_object{
+	desc = "A lightweight support lattice.";
+	icon = 'icons/obj/smooth/lattice.dmi';
+	icon_state = "lattice";
+	name = "lattice"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_smuggler/cargo)
 "kh" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#695391"
@@ -1555,6 +1622,36 @@
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_smuggler/bridge)
+"lo" = (
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
+	req_access = null;
+	anchored = 1
+	},
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat/neaera,
+/obj/item/reagent_containers/food/snacks/meat/neaera,
+/obj/item/reagent_containers/food/snacks/meat/neaera,
+/obj/item/reagent_containers/food/snacks/meat/neaera,
+/obj/item/storage/box/produce,
+/obj/item/storage/box/produce,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/obj/effect/floor_decal/spline/plain/black,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/machinery/light/skrell{
+	dir = 1
+	},
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/turf/simulated/floor/shuttle/skrell,
+/area/ship/tirakqi_smuggler/mess)
 "lq" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -1644,22 +1741,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/tirakqi_smuggler_shuttle)
-"lY" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	layer = 2.31;
-	name = "lattice"
-	},
-/obj/structure/table/rack,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/mask/breath/skrell,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/skrell/black,
-/obj/item/clothing/head/helmet/space/void/skrell/black,
-/turf/simulated/floor/plating,
-/area/ship/tirakqi_smuggler/cargo)
 "ma" = (
 /obj/effect/shuttle_landmark/tirakqi_smuggler/nav4,
 /turf/template_noop,
@@ -1683,19 +1764,6 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_smuggler/starboard_hall)
-"mg" = (
-/obj/structure/mirror{
-	pixel_y = 32
-	},
-/obj/structure/sink{
-	pixel_y = 24;
-	layer = 3.1
-	},
-/obj/machinery/light/skrell{
-	dir = 8
-	},
-/turf/simulated/floor/beach/water/pool,
-/area/ship/tirakqi_smuggler/wash)
 "mr" = (
 /obj/effect/floor_decal/spline/plain{
 	color = "#b6efe1";
@@ -1871,17 +1939,6 @@
 	color = "#6e2c6e"
 	},
 /area/ship/tirakqi_smuggler/hall)
-"ne" = (
-/obj/structure/window/borosilicate/reinforced/skrell{
-	dir = 1;
-	pixel_y = -15
-	},
-/obj/structure/flora/pottedplant/aquatic{
-	layer = 3.21;
-	pixel_y = -1
-	},
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/ship/tirakqi_smuggler/port_hall)
 "nn" = (
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard shuttle clamp"
@@ -1889,16 +1946,6 @@
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#8a7387"
 	},
-/area/ship/tirakqi_smuggler/starboard_arm)
-"no" = (
-/obj/structure/window/borosilicate/reinforced/skrell{
-	dir = 8
-	},
-/obj/structure/flora/pottedplant/aquatic{
-	layer = 3.21;
-	pixel_x = 2
-	},
-/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/starboard_arm)
 "nr" = (
 /obj/structure/cable{
@@ -1943,6 +1990,18 @@
 /obj/random/contraband,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_smuggler/med)
+"nJ" = (
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/obj/structure/sink{
+	pixel_y = 24
+	},
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/beach/water/pool,
+/area/ship/tirakqi_smuggler/wash)
 "nT" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, cargo compartment"
@@ -2194,6 +2253,21 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/bridge)
+"pn" = (
+/obj/structure/table/skrell,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 6
+	},
+/obj/item/storage/toolbox/electrical,
+/obj/item/clothing/gloves/yellow,
+/obj/machinery/light/skrell{
+	dir = 8
+	},
+/obj/item/reagent_containers/weldpack{
+	pixel_y = 8
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ship/tirakqi_smuggler/engi)
 "po" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
@@ -2213,32 +2287,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_smuggler/atmos)
-"pz" = (
-/obj/structure/table/skrell,
-/obj/structure/sink/kitchen{
-	pixel_y = 24;
-	layer = 2.79
-	},
-/obj/item/reagent_containers/food/condiment/shaker/spacespice{
-	pixel_x = -4;
-	pixel_y = 6
-	},
-/obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_x = 10;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_x = 10
-	},
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 8
-	},
-/obj/item/material/kitchen/rollingpin{
-	pixel_x = 4;
-	pixel_y = 10
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/ship/tirakqi_smuggler/mess)
 "pG" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -2782,22 +2830,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_smuggler/cargo)
-"sx" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	layer = 2.31;
-	name = "lattice"
-	},
-/obj/structure/table/rack,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/mask/breath/skrell,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/skrell/white,
-/obj/item/clothing/head/helmet/space/void/skrell/white,
-/turf/simulated/floor/plating,
-/area/ship/tirakqi_smuggler/cargo)
 "sz" = (
 /obj/machinery/computer/ship/engines{
 	dir = 8
@@ -2968,40 +3000,6 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/shuttle/tirakqi_smuggler_shuttle)
-"tk" = (
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/closet/cabinet{
-	name = "wardrobe"
-	},
-/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula,
-/obj/item/clothing/accessory/dressshirt/tshirt/skrell/maelstrom,
-/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/black,
-/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/nralakk,
-/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/purple,
-/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/teal,
-/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/white,
-/obj/item/clothing/accessory/dressshirt/tshirt/skrell/ocean,
-/obj/item/clothing/accessory/poncho/skrell,
-/obj/item/clothing/accessory/poncho/skrell/brown,
-/obj/item/clothing/accessory/poncho/skrell/gray,
-/obj/item/clothing/accessory/poncho/skrell/tan,
-/obj/item/clothing/shoes/sandals{
-	color = "#1d6148"
-	},
-/obj/item/clothing/shoes/sandals{
-	color = "#1f4e66"
-	},
-/obj/item/clothing/shoes/sandals{
-	color = "#66205d"
-	},
-/obj/item/clothing/shoes/sandals{
-	color = "#2f2069"
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/ship/tirakqi_smuggler/cargo)
 "to" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
@@ -3256,17 +3254,6 @@
 	color = "#6e2c6e"
 	},
 /area/ship/tirakqi_smuggler/port_hall)
-"uV" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	layer = 2.31;
-	name = "lattice"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating,
-/area/ship/tirakqi_smuggler/cargo)
 "uY" = (
 /obj/machinery/meter{
 	name = "Air Distro Meter"
@@ -3489,16 +3476,6 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/port_hall)
-"we" = (
-/obj/effect/floor_decal/spline/plain/black,
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/iv_drip,
-/obj/structure/sink/kitchen{
-	pixel_y = 26;
-	layer = 2.7
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/tirakqi_smuggler/med)
 "wf" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
@@ -3603,56 +3580,6 @@
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/starboard_arm)
-"wV" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/spline/plain{
-	color = "#b6efe1";
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain{
-	color = "#b6efe1";
-	dir = 4
-	},
-/obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#00D6FF";
-	name = "projector light source";
-	light_range = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/table/skrell,
-/obj/effect/decal/fake_object{
-	name = "Projector";
-	icon = 'icons/obj/item/skrell/nralakk_projector.dmi';
-	icon_state = "projector";
-	pixel_y = 2
-	},
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/item/skrell/nralakk_projector.dmi';
-	icon_state = "projector_light";
-	color = "#00D6FF";
-	alpha = 100;
-	name = "Projector Light";
-	pixel_y = 2
-	},
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/item/skrell/stellascope.dmi';
-	icon_state = "starprojection";
-	name = "Star Projection";
-	pixel_y = 14;
-	layer = 3.1
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine{
-	pixel_x = 10;
-	pixel_y = 2
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine{
-	pixel_x = -8;
-	pixel_y = 4
-	},
-/turf/simulated/floor/shuttle/skrell,
-/area/ship/tirakqi_smuggler/capt)
 "xe" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4207,23 +4134,6 @@
 /obj/item/gun/energy/pistol,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_smuggler/bridge)
-"zu" = (
-/obj/structure/mirror{
-	pixel_y = 32
-	},
-/obj/structure/sink{
-	pixel_y = 24;
-	layer = 3.1
-	},
-/obj/machinery/light/skrell{
-	dir = 4
-	},
-/obj/structure/sink{
-	pixel_y = 24;
-	layer = 3.1
-	},
-/turf/simulated/floor/beach/water/pool,
-/area/ship/tirakqi_smuggler/wash)
 "zv" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 4
@@ -4419,40 +4329,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_smuggler/bridge)
-"Bf" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null;
-	anchored = 1
-	},
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat/neaera,
-/obj/item/reagent_containers/food/snacks/meat/neaera,
-/obj/item/reagent_containers/food/snacks/meat/neaera,
-/obj/item/reagent_containers/food/snacks/meat/neaera,
-/obj/item/storage/box/produce{
-	layer = 2.99
-	},
-/obj/item/storage/box/produce{
-	layer = 2.99
-	},
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/condiment/enzyme{
-	pixel_x = -9;
-	pixel_y = 5
-	},
-/obj/effect/floor_decal/spline/plain/black,
-/obj/item/reagent_containers/food/drinks/carton/milk,
-/obj/item/reagent_containers/food/drinks/carton/milk,
-/obj/item/reagent_containers/food/drinks/carton/soymilk,
-/obj/machinery/light/skrell{
-	dir = 1
-	},
-/obj/item/reagent_containers/food/condiment/flour,
-/obj/item/reagent_containers/food/condiment/flour,
-/turf/simulated/floor/shuttle/skrell,
-/area/ship/tirakqi_smuggler/mess)
 "Bm" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/machinery/atmospherics/portables_connector{
@@ -4504,21 +4380,6 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_smuggler/starboard_hall)
-"By" = (
-/obj/structure/table/skrell,
-/obj/item/storage/toolbox/mechanical{
-	pixel_y = 6
-	},
-/obj/item/storage/toolbox/electrical,
-/obj/item/clothing/gloves/yellow,
-/obj/machinery/light/skrell{
-	dir = 8
-	},
-/obj/item/reagent_containers/weldpack{
-	pixel_y = 8
-	},
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/ship/tirakqi_smuggler/engi)
 "Bz" = (
 /obj/machinery/light/skrell,
 /obj/structure/flora/pottedplant/mysterious{
@@ -4695,16 +4556,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/tirakqi_smuggler/port_hall)
-"Cw" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	layer = 2.31;
-	name = "lattice"
-	},
-/turf/simulated/floor/plating,
-/area/ship/tirakqi_smuggler/cargo)
 "Cx" = (
 /obj/item/hullbeacon/red,
 /obj/structure/lattice,
@@ -5132,6 +4983,16 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/tirakqi_smuggler_shuttle)
+"Fa" = (
+/obj/structure/window/borosilicate/reinforced/skrell{
+	dir = 1;
+	pixel_y = -15
+	},
+/obj/structure/flora/pottedplant/aquatic{
+	pixel_y = -1
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ship/tirakqi_smuggler/starboard_hall)
 "Fo" = (
 /obj/structure/table/skrell,
 /obj/item/device/radio/off{
@@ -5369,6 +5230,21 @@
 	},
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/carpet/rubber,
+/area/ship/tirakqi_smuggler/cargo)
+"GR" = (
+/obj/effect/decal/fake_object{
+	desc = "A lightweight support lattice.";
+	icon = 'icons/obj/smooth/lattice.dmi';
+	icon_state = "lattice";
+	name = "lattice"
+	},
+/obj/structure/table/rack,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/mask/breath/skrell,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/skrell/white,
+/obj/item/clothing/head/helmet/space/void/skrell/white,
+/turf/simulated/floor/plating,
 /area/ship/tirakqi_smuggler/cargo)
 "GT" = (
 /turf/space/transit/north,
@@ -5677,6 +5553,13 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/tirakqi_smuggler/bridge)
+"Jf" = (
+/obj/machinery/shower{
+	dir = 8;
+	pixel_y = -8
+	},
+/turf/simulated/floor/beach/water/pool,
+/area/ship/tirakqi_smuggler/wash)
 "Jh" = (
 /obj/structure/bed/stool/hover{
 	dir = 1
@@ -6365,14 +6248,6 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/hall)
-"MT" = (
-/obj/machinery/shower{
-	dir = 8;
-	pixel_y = -8;
-	layer = 4.1
-	},
-/turf/simulated/floor/beach/water/pool,
-/area/ship/tirakqi_smuggler/wash)
 "MU" = (
 /turf/space,
 /area/space)
@@ -6461,17 +6336,19 @@
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/mess)
-"NC" = (
-/obj/structure/window/borosilicate/reinforced/skrell{
-	dir = 1;
-	pixel_y = -15
+"NI" = (
+/obj/structure/table/skrell,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
 	},
-/obj/structure/flora/pottedplant/mysterious{
-	pixel_y = -1;
-	layer = 3.21
+/obj/item/clothing/glasses/welding{
+	pixel_x = 4;
+	pixel_y = -2
 	},
+/obj/item/blueprints,
 /turf/simulated/floor/shuttle/skrell/blue,
-/area/ship/tirakqi_smuggler/port_hall)
+/area/ship/tirakqi_smuggler/engi)
 "NM" = (
 /obj/machinery/telecomms/allinone/ship,
 /obj/structure/window/borosilicate/reinforced/skrell{
@@ -6488,16 +6365,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_smuggler/cargo)
-"NQ" = (
-/obj/structure/window/borosilicate/reinforced/skrell{
-	dir = 4
-	},
-/obj/structure/flora/pottedplant/aquatic{
-	layer = 3.21;
-	pixel_x = -2
-	},
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/ship/tirakqi_smuggler/port_arm)
 "NR" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -6533,6 +6400,31 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/tirakqi_smuggler/engi)
+"Oj" = (
+/obj/structure/table/skrell,
+/obj/structure/sink/kitchen{
+	pixel_y = 24
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 10;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 10
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = 4;
+	pixel_y = 10
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/ship/tirakqi_smuggler/mess)
 "Ol" = (
 /obj/machinery/door/airlock/external{
 	dir = 1
@@ -6851,6 +6743,21 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/tirakqi_smuggler_shuttle)
+"PM" = (
+/obj/effect/decal/fake_object{
+	desc = "A lightweight support lattice.";
+	icon = 'icons/obj/smooth/lattice.dmi';
+	icon_state = "lattice";
+	name = "lattice"
+	},
+/obj/structure/table/rack,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/mask/breath/skrell,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/skrell/black,
+/obj/item/clothing/head/helmet/space/void/skrell/black,
+/turf/simulated/floor/plating,
+/area/ship/tirakqi_smuggler/cargo)
 "PY" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
@@ -6914,6 +6821,13 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_smuggler/bridge)
+"Qx" = (
+/obj/machinery/shower{
+	dir = 4;
+	pixel_y = -8
+	},
+/turf/simulated/floor/beach/water/pool,
+/area/ship/tirakqi_smuggler/wash)
 "QA" = (
 /obj/structure/window/borosilicate/reinforced/skrell{
 	dir = 4
@@ -7146,6 +7060,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_smuggler/med)
+"So" = (
+/obj/structure/window/borosilicate/reinforced/skrell{
+	dir = 1;
+	pixel_y = -15
+	},
+/obj/structure/flora/pottedplant/aquatic{
+	pixel_y = -1
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ship/tirakqi_smuggler/port_hall)
 "Sr" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -7328,25 +7252,46 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_smuggler/cargo)
+"Tw" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/closet/cabinet{
+	name = "wardrobe"
+	},
+/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula,
+/obj/item/clothing/accessory/dressshirt/tshirt/skrell/maelstrom,
+/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/black,
+/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/nralakk,
+/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/purple,
+/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/teal,
+/obj/item/clothing/accessory/dressshirt/tshirt/skrell/nebula/white,
+/obj/item/clothing/accessory/dressshirt/tshirt/skrell/ocean,
+/obj/item/clothing/accessory/poncho/skrell,
+/obj/item/clothing/accessory/poncho/skrell/brown,
+/obj/item/clothing/accessory/poncho/skrell/gray,
+/obj/item/clothing/accessory/poncho/skrell/tan,
+/obj/item/clothing/shoes/sandals{
+	color = "#1d6148"
+	},
+/obj/item/clothing/shoes/sandals{
+	color = "#1f4e66"
+	},
+/obj/item/clothing/shoes/sandals{
+	color = "#66205d"
+	},
+/obj/item/clothing/shoes/sandals{
+	color = "#2f2069"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/ship/tirakqi_smuggler/cargo)
 "Tz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
-/area/ship/tirakqi_smuggler/engi)
-"TF" = (
-/obj/structure/table/skrell,
-/obj/item/pen/drafting/blue{
-	pixel_x = -6;
-	pixel_y = 8
-	},
-/obj/item/clothing/glasses/welding{
-	pixel_x = 4;
-	pixel_y = -2
-	},
-/obj/item/blueprints,
-/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/engi)
 "TN" = (
 /obj/effect/landmark/entry_point/aft{
@@ -7369,6 +7314,21 @@
 	},
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_smuggler/engi)
+"TU" = (
+/obj/structure/mirror{
+	pixel_y = 32
+	},
+/obj/structure/sink{
+	pixel_y = 24
+	},
+/obj/machinery/light/skrell{
+	dir = 4
+	},
+/obj/structure/sink{
+	pixel_y = 24
+	},
+/turf/simulated/floor/beach/water/pool,
+/area/ship/tirakqi_smuggler/wash)
 "TW" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -7418,6 +7378,16 @@
 	name = "fore, atmospherics"
 	},
 /turf/simulated/floor/tiled/full,
+/area/ship/tirakqi_smuggler/port_hall)
+"Uq" = (
+/obj/structure/window/borosilicate/reinforced/skrell{
+	dir = 1;
+	pixel_y = -15
+	},
+/obj/structure/flora/pottedplant/mysterious{
+	pixel_y = -1
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/port_hall)
 "Us" = (
 /turf/simulated/wall/shuttle/space_ship{
@@ -7606,17 +7576,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/tirakqi_smuggler_shuttle)
-"Vj" = (
-/obj/structure/window/borosilicate/reinforced/skrell{
-	dir = 1;
-	pixel_y = -15
-	},
-/obj/structure/flora/pottedplant/mysterious{
-	pixel_y = -1;
-	layer = 3.21
-	},
-/turf/simulated/floor/shuttle/skrell/blue,
-/area/ship/tirakqi_smuggler/starboard_hall)
 "Vm" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -7691,6 +7650,15 @@
 	},
 /turf/simulated/floor/beach/water/pool,
 /area/ship/tirakqi_smuggler/mess)
+"VK" = (
+/obj/structure/window/borosilicate/reinforced/skrell{
+	dir = 4
+	},
+/obj/structure/flora/pottedplant/aquatic{
+	pixel_x = -2
+	},
+/turf/simulated/floor/shuttle/skrell/blue,
+/area/ship/tirakqi_smuggler/port_arm)
 "VO" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -8049,6 +8017,15 @@
 	},
 /turf/simulated/floor/beach/water/pool,
 /area/shuttle/tirakqi_smuggler_shuttle)
+"Yv" = (
+/obj/effect/floor_decal/spline/plain/black,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/iv_drip,
+/obj/structure/sink/kitchen{
+	pixel_y = 26
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/tirakqi_smuggler/med)
 "Yx" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -37407,7 +37384,7 @@ xL
 ft
 Cf
 Zu
-bB
+Fa
 at
 sY
 sY
@@ -37664,7 +37641,7 @@ nU
 nU
 yt
 ds
-Vj
+jx
 at
 sY
 sY
@@ -38421,7 +38398,7 @@ sY
 sY
 sY
 kh
-Bf
+lo
 NA
 Ci
 rR
@@ -38936,7 +38913,7 @@ oL
 oL
 kh
 kh
-pz
+Oj
 Wc
 DI
 OY
@@ -39704,9 +39681,9 @@ VH
 IP
 VH
 VH
-no
+fq
 gI
-sx
+GR
 eZ
 fz
 dm
@@ -39963,11 +39940,11 @@ MU
 VH
 IP
 gI
-lY
+PM
 jy
 Kb
 Td
-Cw
+ai
 jl
 LV
 yW
@@ -40224,7 +40201,7 @@ gI
 do
 Mn
 ya
-uV
+kf
 To
 Mn
 tE
@@ -40481,7 +40458,7 @@ qm
 XX
 Zx
 sw
-Cw
+ai
 vi
 Km
 uJ
@@ -41251,9 +41228,9 @@ MU
 MU
 qm
 LP
-Cw
-Cw
-uV
+ai
+ai
+kf
 yy
 pQ
 GW
@@ -41261,7 +41238,7 @@ rK
 eQ
 Nb
 nr
-wV
+fH
 XP
 UD
 TW
@@ -41509,7 +41486,7 @@ MU
 qm
 Ft
 Hd
-tk
+Tw
 Ld
 xe
 uJ
@@ -42023,7 +42000,7 @@ qm
 XX
 Zx
 CV
-Cw
+ai
 Pf
 GP
 uJ
@@ -42280,7 +42257,7 @@ gI
 kV
 SJ
 uj
-uV
+kf
 ZL
 Mn
 po
@@ -42533,11 +42510,11 @@ MU
 fe
 qt
 gI
-gF
+dq
 SI
 wQ
 rB
-uV
+kf
 DB
 vU
 Wo
@@ -42788,9 +42765,9 @@ fe
 qt
 fe
 fe
-NQ
+VK
 gI
-sx
+GR
 sJ
 mx
 wN
@@ -43826,9 +43803,9 @@ MD
 oT
 Ds
 jq
-mg
+nJ
 tW
-hc
+Qx
 mU
 PI
 WQ
@@ -44340,9 +44317,9 @@ Zt
 fK
 Vs
 jq
-zu
+TU
 aZ
-MT
+Jf
 mU
 mJ
 NV
@@ -44849,7 +44826,7 @@ sY
 jq
 jq
 jq
-we
+Yv
 EY
 gs
 jq
@@ -44860,7 +44837,7 @@ mU
 mU
 SF
 eV
-NC
+Uq
 kr
 sY
 sY
@@ -45112,12 +45089,12 @@ jq
 jq
 ov
 Lq
-By
-TF
+pn
+NI
 ov
 wb
 GU
-ne
+So
 kr
 sY
 sY

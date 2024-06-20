@@ -7,19 +7,6 @@
 	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
-"an" = (
-/obj/structure/table/stone/marble,
-/obj/item/reagent_containers/food/condiment/enzyme{
-	pixel_x = -12;
-	pixel_y = 7
-	},
-/obj/item/material/kitchen/rollingpin,
-/obj/item/material/knife{
-	layer = 2.99;
-	pixel_x = -4
-	},
-/turf/simulated/floor/exoplanet/lino/diamond,
-/area/konyang_telecomms_outpost)
 "av" = (
 /obj/structure/chainlink_fence{
 	dir = 4
@@ -55,6 +42,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/lino/diamond,
+/area/konyang_telecomms_outpost)
+"cy" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green{
+	pixel_x = -2;
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/wood,
 /area/konyang_telecomms_outpost)
 "cT" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -197,15 +192,6 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/exoplanet/asphalt,
 /area/konyang_telecomms_outpost)
-"kl" = (
-/obj/structure/table/wood,
-/obj/item/clothing/accessory/headband/hachimaki,
-/obj/item/clothing/accessory/headband/hachimaki{
-	pixel_x = -6;
-	pixel_y = 8
-	},
-/turf/simulated/floor/exoplanet/lino/diamond,
-/area/konyang_telecomms_outpost)
 "ku" = (
 /obj/structure/bed/stool/padded/brown,
 /turf/simulated/floor/exoplanet/lino/diamond,
@@ -221,6 +207,15 @@
 	name = "Garage"
 	},
 /turf/simulated/floor/exoplanet/asphalt,
+/area/konyang_telecomms_outpost)
+"ll" = (
+/obj/structure/table/wood,
+/obj/item/clothing/accessory/headband/hachimaki,
+/obj/item/clothing/accessory/headband/hachimaki{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/turf/simulated/floor/exoplanet/lino/diamond,
 /area/konyang_telecomms_outpost)
 "ln" = (
 /obj/machinery/light{
@@ -453,20 +448,6 @@
 "wV" = (
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/konyang_telecomms_outpost)
-"xB" = (
-/obj/structure/table/stone/marble,
-/obj/item/storage/box/produce{
-	layer = 2.99;
-	pixel_x = 3;
-	pixel_y = -5
-	},
-/obj/item/storage/box/produce{
-	layer = 2.99;
-	pixel_x = 3;
-	pixel_y = 4
-	},
-/turf/simulated/floor/exoplanet/lino/diamond,
-/area/konyang_telecomms_outpost)
 "yA" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/board,
@@ -681,6 +662,30 @@
 	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/konyang_telecomms_outpost)
+"JD" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -12;
+	pixel_y = 7
+	},
+/obj/item/material/kitchen/rollingpin,
+/obj/item/material/knife{
+	pixel_x = -4
+	},
+/turf/simulated/floor/exoplanet/lino/diamond,
+/area/konyang_telecomms_outpost)
+"JM" = (
+/obj/structure/table/wood,
+/obj/effect/decal/fake_object{
+	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
+	dir = 4;
+	icon = 'icons/effects/city.dmi';
+	icon_state = "flatscreen";
+	name = "expensive flatscreen holovision";
+	pixel_y = 15
+	},
+/turf/simulated/floor/exoplanet/lino/diamond,
+/area/konyang_telecomms_outpost)
 "Kw" = (
 /obj/structure/sink{
 	dir = 4;
@@ -715,17 +720,6 @@
 	},
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/konyang_telecomms_outpost)
-"Nh" = (
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "A bland air conditioning unit.";
-	icon = 'icons/effects/city.dmi';
-	icon_state = "ac";
-	layer = 2.7;
-	name = "AC unit"
-	},
-/turf/simulated/floor/bluegrid/cooled,
-/area/konyang_telecomms_outpost)
 "Nm" = (
 /obj/structure/flora/bush/konyang_reeds/water,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
@@ -757,6 +751,18 @@
 /obj/item/storage/box/fancy/mre/random,
 /obj/machinery/light{
 	dir = 1
+	},
+/turf/simulated/floor/exoplanet/lino/diamond,
+/area/konyang_telecomms_outpost)
+"NH" = (
+/obj/structure/table/stone/marble,
+/obj/item/storage/box/produce{
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/produce{
+	pixel_x = 3;
+	pixel_y = 4
 	},
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/konyang_telecomms_outpost)
@@ -805,15 +811,6 @@
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_telecomms_outpost)
-"Qg" = (
-/obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green{
-	layer = 4.1;
-	pixel_x = -2;
-	pixel_y = 6
-	},
-/turf/simulated/floor/exoplanet/wood,
-/area/konyang_telecomms_outpost)
 "Qk" = (
 /obj/structure/flora/pottedplant/orchid,
 /turf/simulated/floor/exoplanet/wood,
@@ -848,6 +845,16 @@
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/asphalt,
+/area/konyang_telecomms_outpost)
+"RY" = (
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "A bland air conditioning unit.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "ac";
+	name = "AC unit"
+	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/konyang_telecomms_outpost)
 "St" = (
 /obj/random/dirt_75,
@@ -999,19 +1006,6 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
 	pixel_y = 14;
 	pixel_x = 8
-	},
-/turf/simulated/floor/exoplanet/lino/diamond,
-/area/konyang_telecomms_outpost)
-"YL" = (
-/obj/structure/table/wood,
-/obj/effect/decal/fake_object{
-	desc = "An expensive flatscreen holo-television. This one's connection to the extranet seems to be severed.";
-	dir = 4;
-	icon = 'icons/effects/city.dmi';
-	icon_state = "flatscreen";
-	layer = 6.1;
-	name = "expensive flatscreen holovision";
-	pixel_y = 15
 	},
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/konyang_telecomms_outpost)
@@ -1713,11 +1707,11 @@ eD
 eD
 eD
 qg
-Nh
+RY
 Et
-Nh
+RY
 Et
-Nh
+RY
 qg
 fp
 Oj
@@ -2091,11 +2085,11 @@ eD
 eD
 eD
 qg
-Nh
+RY
 DK
-Nh
+RY
 DK
-Nh
+RY
 qg
 fp
 Oj
@@ -2198,8 +2192,8 @@ wM
 uh
 wS
 Hi
-xB
-an
+NH
+JD
 yA
 uh
 Oj
@@ -2319,7 +2313,7 @@ Qe
 Oj
 uh
 pN
-Qg
+cy
 pN
 uh
 rs
@@ -2449,7 +2443,7 @@ uh
 uh
 uh
 ku
-kl
+ll
 WZ
 nX
 Hp
@@ -2535,7 +2529,7 @@ VM
 Hp
 Hp
 Hp
-YL
+JM
 Eh
 uh
 Oj

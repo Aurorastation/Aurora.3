@@ -169,8 +169,7 @@
 	dir = 4
 	},
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/basement)
@@ -839,8 +838,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/effect/decal/exterior_stairs/half{
-	dir = 1;
-	layer = 2.9
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
@@ -932,8 +930,7 @@
 /area/point_verdant/sewer)
 "cS" = (
 /obj/structure/table/rack/clothing{
-	dir = 4;
-	layer = 3.1
+	dir = 4
 	},
 /obj/item/clothing/suit/storage/hooded/wintercoat,
 /obj/item/clothing/under/konyang/male/sleeveless,
@@ -950,9 +947,7 @@
 "cX" = (
 /obj/structure/ledge,
 /obj/structure/flora/bush/konyang_reeds/water,
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/interior/tunnels)
 "cZ" = (
@@ -984,8 +979,7 @@
 /area/point_verdant/interior/offices/kaf)
 "de" = (
 /obj/effect/decal/curb{
-	dir = 1;
-	layer = 2.02
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang/sand,
 /area/point_verdant/outdoors)
@@ -1107,9 +1101,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "dw" = (
-/obj/structure/road_barrier/bot_end{
-	layer = 9.1
-	},
+/obj/structure/road_barrier/bot_end,
 /obj/structure/utility_pole/street/crosswalk{
 	pixel_x = 10
 	},
@@ -1147,8 +1139,7 @@
 /area/point_verdant/interior/tunnels)
 "dH" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/point_verdant/outdoors)
@@ -1244,9 +1235,7 @@
 /area/point_verdant/outdoors)
 "dX" = (
 /obj/effect/decal/road_marking/no_park,
-/obj/effect/decal/curb{
-	layer = 2.02
-	},
+/obj/effect/decal/curb,
 /obj/structure/closet/crate/bin/urban/dumpster,
 /obj/random/junk,
 /obj/random/junk,
@@ -1380,8 +1369,7 @@
 	dir = 8
 	},
 /obj/effect/decal/curb{
-	dir = 1;
-	layer = 2.02
+	dir = 1
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -1436,9 +1424,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/road_barrier{
-	layer = 9.1
-	},
+/obj/structure/road_barrier,
 /obj/structure/utility_pole/street/on{
 	dir = 1
 	},
@@ -1611,9 +1597,7 @@
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 1
 	},
-/obj/effect/decal/curb{
-	layer = 2.02
-	},
+/obj/effect/decal/curb,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "eS" = (
@@ -1803,7 +1787,6 @@
 /obj/structure/stairs/north,
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -2351,7 +2334,6 @@
 "gZ" = (
 /obj/structure/konyang_cliff{
 	icon_state = "cliff1-bottom";
-	layer = 2.1;
 	pixel_y = 19
 	},
 /obj/effect/step_trigger/thrower{
@@ -2663,8 +2645,7 @@
 	},
 /obj/structure/ledge/quarter,
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
@@ -2841,7 +2822,6 @@
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /obj/item/gun/energy/rifle/ionrifle{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/energy/rifle/ionrifle{
@@ -2853,7 +2833,6 @@
 "iC" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /obj/structure/rod_railing{
@@ -2915,7 +2894,6 @@
 /area/point_verdant/interior/spaceport)
 "iN" = (
 /obj/structure/chainlink_fence{
-	layer = 9.1;
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -2982,8 +2960,7 @@
 /area/point_verdant/interior/offices)
 "iU" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/structure/flora/rock/konyang/small,
 /obj/effect/decal/cleanable/dirt,
@@ -3112,7 +3089,6 @@
 "jA" = (
 /obj/effect/decal/exterior_stairs/left{
 	dir = 4;
-	layer = 2.01;
 	icon_state = "stairs-left-bot"
 	},
 /turf/simulated/floor/sidewalk/blocks,
@@ -3131,8 +3107,7 @@
 	},
 /obj/structure/sign/urban/staff{
 	pixel_y = 19;
-	pixel_x = -1;
-	layer = 9
+	pixel_x = -1
 	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/bar)
@@ -3144,7 +3119,6 @@
 "jH" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -3195,8 +3169,7 @@
 	dir = 1
 	},
 /obj/structure/road_barrier/bot_end{
-	dir = 1;
-	layer = 9.1
+	dir = 1
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/tunnels)
@@ -3232,19 +3205,15 @@
 	pixel_y = -1
 	},
 /obj/item/gun/projectile/automatic/wt550/lethal{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/projectile/automatic/wt550/lethal{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/projectile/automatic/wt550/lethal{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/projectile/automatic/wt550/lethal{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/ammo_magazine/mc9mmt,
@@ -3329,7 +3298,6 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/sink/kitchen{
-	layer = 3.5;
 	pixel_y = 27;
 	name = "sink"
 	},
@@ -3379,8 +3347,7 @@
 /area/point_verdant/interior/pharmacy)
 "kk" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/sidewalk/flat,
@@ -3530,8 +3497,7 @@
 /area/point_verdant/interior/police)
 "kH" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -3631,8 +3597,7 @@
 /area/point_verdant/interior/hotel/basement)
 "kW" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/structure/rod_railing{
 	dir = 4
@@ -3823,7 +3788,6 @@
 "ls" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/chainlink_fence{
-	layer = 9.1;
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/sewage,
@@ -3974,8 +3938,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/effect/decal/exterior_stairs/half{
-	dir = 8;
-	layer = 2.9
+	dir = 8
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
@@ -4306,8 +4269,7 @@
 /area/point_verdant/interior/police)
 "mQ" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /turf/unsimulated/wall/konyang,
 /area/point_verdant/interior/offices/kaf)
@@ -4383,7 +4345,6 @@
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/item/reagent_containers/hypospray/cmo{
-	layer = 2.99;
 	pixel_x = -2;
 	pixel_y = 14
 	},
@@ -4463,8 +4424,7 @@
 "ns" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/effect/decal/exterior_stairs/half{
-	dir = 1;
-	layer = 2.9
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/point_verdant/outdoors)
@@ -4629,8 +4589,7 @@
 /area/point_verdant/interior/offices/einstein)
 "nP" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/flat,
@@ -4672,8 +4631,7 @@
 	pixel_y = -23
 	},
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/streetvendor)
@@ -4843,8 +4801,7 @@
 /area/point_verdant/outdoors)
 "oD" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/offices/kaf)
@@ -5054,7 +5011,6 @@
 "pl" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /turf/simulated/floor/sidewalk/flat,
@@ -5305,8 +5261,7 @@
 /area/point_verdant/interior/tunnels)
 "qc" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/effect/decal/exterior_stairs/half/center{
 	dir = 4
@@ -5466,7 +5421,6 @@
 /obj/structure/table/steel,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/vending/wallmed1{
-	layer = 3.3;
 	name = "Emergency NanoMed";
 	pixel_x = -12;
 	pixel_y = 28;
@@ -5589,9 +5543,7 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/road_barrier{
-	layer = 9.1
-	},
+/obj/structure/road_barrier,
 /obj/structure/utility_pole/street/on{
 	dir = 1
 	},
@@ -5766,8 +5718,7 @@
 /area/point_verdant/interior)
 "rt" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
@@ -5989,8 +5940,7 @@
 /area/point_verdant/interior/bar)
 "se" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/item/stack/rods,
 /obj/effect/decal/cleanable/dirt,
@@ -6016,7 +5966,6 @@
 	desc = "A data processing server of some kind.";
 	icon = 'icons/obj/machinery/telecomms.dmi';
 	icon_state = "hub";
-	layer = 2.7;
 	name = "Server"
 	},
 /turf/simulated/floor/bluegrid,
@@ -6176,35 +6125,27 @@
 "sz" = (
 /obj/structure/table/rack,
 /obj/item/gun/energy/rifle{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/energy/rifle{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/energy/rifle{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/energy/rifle{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/energy/rifle{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/energy/rifle{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/energy/rifle{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/energy/rifle{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/energy/rifle{
@@ -6420,8 +6361,7 @@
 /area/point_verdant/outdoors)
 "tn" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/kaf)
@@ -6441,8 +6381,7 @@
 "tq" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/effect/decal/exterior_stairs/half{
-	dir = 1;
-	layer = 2.9
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
@@ -6899,9 +6838,7 @@
 /obj/structure/utility_pole/street/on{
 	dir = 1
 	},
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/tunnels)
 "uN" = (
@@ -7236,8 +7173,7 @@
 /area/point_verdant/outdoors)
 "vJ" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/random/dirt_75,
@@ -7419,7 +7355,6 @@
 /area/point_verdant/outdoors)
 "wl" = (
 /obj/structure/chainlink_fence{
-	layer = 9.1;
 	dir = 1
 	},
 /obj/structure/flora/rock/konyang/small,
@@ -7952,8 +7887,7 @@
 /area/point_verdant/interior)
 "ya" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/point_verdant/interior/tunnels)
@@ -8137,8 +8071,7 @@
 "yG" = (
 /obj/structure/stairs/east,
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /turf/simulated/floor/lino,
 /area/point_verdant/interior/streetvendor)
@@ -8356,9 +8289,7 @@
 /obj/effect/decal/road_marking/center{
 	dir = 8
 	},
-/obj/effect/decal/curb{
-	layer = 2.02
-	},
+/obj/effect/decal/curb,
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -8477,7 +8408,6 @@
 "zR" = (
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/chainlink_fence{
-	layer = 9.1;
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -8702,8 +8632,7 @@
 	},
 /obj/structure/ledge/quarter,
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/structure/rod_railing{
 	dir = 4
@@ -8743,7 +8672,6 @@
 	dir = 4;
 	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
 	icon_state = "bench";
-	layer = 2.4;
 	name = "bench"
 	},
 /turf/simulated/floor/sidewalk/paved,
@@ -8780,9 +8708,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/obj/effect/decal/exterior_stairs/half{
-	layer = 2.8
-	},
+/obj/effect/decal/exterior_stairs/half,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/outdoors)
 "AH" = (
@@ -8821,7 +8747,6 @@
 /area/point_verdant/interior/police)
 "AO" = (
 /obj/structure/chainlink_fence{
-	layer = 9.1;
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -8843,8 +8768,7 @@
 	dir = 4
 	},
 /obj/effect/decal/curb{
-	dir = 1;
-	layer = 2.02
+	dir = 1
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
@@ -8963,8 +8887,7 @@
 /area/point_verdant/interior/offices/basement)
 "Bn" = (
 /obj/machinery/shower{
-	dir = 4;
-	layer = 5
+	dir = 4
 	},
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/concrete,
@@ -9041,7 +8964,6 @@
 /obj/structure/stairs/south,
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -9238,9 +9160,7 @@
 /obj/structure/ledge/corner{
 	dir = 1
 	},
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/interior/tunnels)
 "Cj" = (
@@ -9562,7 +9482,6 @@
 /obj/structure/table/steel,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/vending/wallmed1{
-	layer = 3.3;
 	name = "Emergency NanoMed";
 	pixel_x = -12;
 	pixel_y = 28;
@@ -9950,32 +9869,26 @@
 	pixel_y = 2
 	},
 /obj/item/ammo_magazine/c45x{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
 /obj/item/ammo_magazine/c45x{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
 /obj/item/ammo_magazine/c45x{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
 /obj/item/ammo_magazine/c45x{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
 /obj/item/ammo_magazine/c45x{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
 /obj/item/ammo_magazine/c45x{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
@@ -10045,7 +9958,6 @@
 	desc = "A data processing server of some kind.";
 	icon = 'icons/obj/machinery/research.dmi';
 	icon_state = "server";
-	layer = 2.7;
 	name = "Server"
 	},
 /turf/simulated/floor/bluegrid,
@@ -10658,8 +10570,7 @@
 	dir = 6
 	},
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -10778,7 +10689,6 @@
 	desc = "A data processing server of some kind.";
 	icon = 'icons/obj/machinery/telecomms.dmi';
 	icon_state = "comm_server";
-	layer = 2.7;
 	name = "Server"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -10804,8 +10714,7 @@
 /area/point_verdant/outdoors)
 "GL" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/item/stack/rods,
 /obj/effect/decal/cleanable/dirt,
@@ -11160,7 +11069,6 @@
 	desc = "A data processing server of some kind.";
 	icon = 'icons/obj/machinery/telecomms.dmi';
 	icon_state = "bus";
-	layer = 2.7;
 	name = "Server"
 	},
 /turf/simulated/floor/bluegrid,
@@ -11527,7 +11435,6 @@
 "It" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/structure/sink/kitchen{
-	layer = 3.5;
 	pixel_y = 27;
 	name = "sink"
 	},
@@ -11594,7 +11501,6 @@
 	desc = "A data processing server of some kind.";
 	icon = 'icons/obj/machinery/telecomms.dmi';
 	icon_state = "comm_server";
-	layer = 2.7;
 	name = "Server"
 	},
 /turf/simulated/floor/bluegrid,
@@ -12070,8 +11976,7 @@
 /area/point_verdant/interior/offices/basement)
 "Ka" = (
 /obj/structure/table/rack/clothing{
-	dir = 4;
-	layer = 3.1
+	dir = 4
 	},
 /obj/item/clothing/under/suit_jacket/burgundy,
 /obj/item/clothing/under/suit_jacket/charcoal,
@@ -12117,8 +12022,7 @@
 /area/point_verdant/interior/police)
 "Ke" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/structure/ledge/quarter,
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
@@ -12527,7 +12431,6 @@
 "Lw" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -12737,12 +12640,10 @@
 	pixel_y = -2
 	},
 /obj/item/gun/energy/pistol{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = 3
 	},
 /obj/item/gun/energy/pistol{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = 3
 	},
@@ -13009,17 +12910,14 @@
 /area/point_verdant/interior/streetvendor)
 "MC" = (
 /obj/structure/sink{
-	layer = 3;
 	pixel_x = -7;
 	pixel_y = 23
 	},
 /obj/structure/sink{
-	layer = 3;
 	pixel_x = -24;
 	pixel_y = 23
 	},
 /obj/structure/sink{
-	layer = 3;
 	pixel_x = 8;
 	pixel_y = 23
 	},
@@ -13153,9 +13051,7 @@
 /area/point_verdant/interior)
 "MW" = (
 /obj/structure/ledge,
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/point_verdant/interior/tunnels)
 "MY" = (
@@ -13194,8 +13090,7 @@
 	dir = 1
 	},
 /obj/structure/road_barrier/bot_end{
-	dir = 1;
-	layer = 9.1
+	dir = 1
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
@@ -13382,7 +13277,6 @@
 	pixel_y = -5
 	},
 /obj/structure/sink/kitchen{
-	layer = 3.5;
 	pixel_y = 27;
 	name = "sink"
 	},
@@ -13572,8 +13466,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/urban/staff{
-	pixel_y = 40;
-	layer = 9
+	pixel_y = 40
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices)
@@ -13664,7 +13557,6 @@
 "OE" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/structure/sink/kitchen{
-	layer = 3.5;
 	pixel_y = 27;
 	name = "sink"
 	},
@@ -13715,8 +13607,7 @@
 /area/point_verdant/interior/tunnels)
 "OK" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -14081,9 +13972,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/police)
 "PR" = (
-/obj/effect/decal/curb{
-	layer = 2.02
-	},
+/obj/effect/decal/curb,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "PS" = (
@@ -14186,8 +14075,7 @@
 	pixel_y = 8
 	},
 /obj/machinery/vending/boozeomat{
-	req_access = null;
-	layer = 2.89
+	req_access = null
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "konyang_bar";
@@ -14233,8 +14121,7 @@
 	},
 /obj/structure/sign/urban/staff{
 	pixel_y = 42;
-	pixel_x = -29;
-	layer = 9
+	pixel_x = -29
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/flat,
@@ -14277,7 +14164,6 @@
 	dir = 4
 	},
 /obj/structure/sink/kitchen{
-	layer = 3.5;
 	pixel_y = 27;
 	name = "sink"
 	},
@@ -14389,7 +14275,6 @@
 "QA" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
@@ -14492,7 +14377,6 @@
 /area/point_verdant/interior/bar)
 "QR" = (
 /obj/structure/sink/kitchen{
-	layer = 3.5;
 	pixel_y = 27
 	},
 /obj/random/dirt_75,
@@ -14501,9 +14385,7 @@
 "QS" = (
 /obj/structure/closet/crate/bin/urban/dumpster,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/effect/decal/curb{
-	layer = 2.02
-	},
+/obj/effect/decal/curb,
 /obj/random/junk,
 /obj/random/junk,
 /obj/random/dirt_75,
@@ -14568,7 +14450,6 @@
 	pixel_y = 5
 	},
 /obj/item/gun/projectile/automatic/rifle/z8{
-	layer = 2.99;
 	pixel_y = 10
 	},
 /obj/item/ammo_magazine/a556{
@@ -14915,8 +14796,7 @@
 /area/point_verdant/outdoors)
 "RW" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/structure/rod_railing{
 	dir = 8
@@ -15009,27 +14889,22 @@
 	pixel_y = 1
 	},
 /obj/item/reagent_containers/hypospray/cmo{
-	layer = 2.99;
 	pixel_x = -2;
 	pixel_y = 14
 	},
 /obj/item/reagent_containers/hypospray/cmo{
-	layer = 2.99;
 	pixel_x = -2;
 	pixel_y = 14
 	},
 /obj/item/reagent_containers/hypospray/cmo{
-	layer = 2.99;
 	pixel_x = -2;
 	pixel_y = 14
 	},
 /obj/item/reagent_containers/hypospray/cmo{
-	layer = 2.99;
 	pixel_x = -2;
 	pixel_y = 14
 	},
 /obj/item/reagent_containers/hypospray/cmo{
-	layer = 2.99;
 	pixel_x = -2;
 	pixel_y = 14
 	},
@@ -15616,7 +15491,6 @@
 	pixel_y = -2
 	},
 /obj/item/gun/energy/rifle/ionrifle{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /turf/simulated/floor/sidewalk/dark,
@@ -15978,7 +15852,6 @@
 	desc = "A data processing server of some kind.";
 	icon = 'icons/obj/machinery/telecomms.dmi';
 	icon_state = "bus";
-	layer = 2.7;
 	name = "Server"
 	},
 /obj/machinery/light/small{
@@ -16584,12 +16457,10 @@
 	},
 /obj/structure/ledge/quarter,
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -16670,9 +16541,7 @@
 "WS" = (
 /obj/structure/closet/crate/bin/urban/dumpster,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/effect/decal/curb{
-	layer = 2.02
-	},
+/obj/effect/decal/curb,
 /obj/random/junk,
 /obj/random/junk,
 /obj/random/dirt_75,
@@ -16691,8 +16560,7 @@
 /area/point_verdant/interior/tunnels)
 "WV" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -16819,7 +16687,6 @@
 	desc = "A data processing server of some kind.";
 	icon = 'icons/obj/machinery/research.dmi';
 	icon_state = "server";
-	layer = 2.7;
 	name = "Server"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -17137,7 +17004,6 @@
 /area/point_verdant/interior)
 "Yb" = (
 /obj/structure/chainlink_fence{
-	layer = 9.1;
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -17222,8 +17088,7 @@
 /area/point_verdant/interior/tunnels)
 "Ys" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/point_verdant/interior/tunnels)
@@ -17270,8 +17135,7 @@
 /area/point_verdant/outdoors)
 "YC" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/structure/structural_support,
 /turf/simulated/floor/sidewalk/flat,
@@ -17352,7 +17216,6 @@
 "YQ" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -17484,7 +17347,6 @@
 /area/point_verdant/interior)
 "Zk" = (
 /obj/structure/sink{
-	layer = 3;
 	pixel_x = -8;
 	pixel_y = 23
 	},
@@ -17685,8 +17547,7 @@
 	},
 /obj/structure/sign/urban/staff{
 	pixel_y = 19;
-	pixel_x = -1;
-	layer = 9
+	pixel_x = -1
 	},
 /turf/simulated/floor/lino/diamond,
 /area/point_verdant/interior/bar)

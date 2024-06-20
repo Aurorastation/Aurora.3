@@ -2343,7 +2343,6 @@
 	dir = 5
 	},
 /obj/structure/sink/kitchen{
-	layer = 3.3;
 	pixel_y = 26;
 	name = "sink"
 	},

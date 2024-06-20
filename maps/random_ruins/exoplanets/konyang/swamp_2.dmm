@@ -10,6 +10,33 @@
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/konyang/wilting,
 /area/exoplanet/grass/konyang)
+"f" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/item/material/sword/katana{
+	pixel_x = 4;
+	pixel_y = 14
+	},
+/obj/item/clothing/accessory/headband/hachimaki{
+	pixel_x = 10;
+	pixel_y = 2;
+	layer = 2.0
+	},
+/obj/merge_conflict_marker{
+	name = "---Merge Conflict Marker---";
+	
+	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
+	},
+/obj/effect/floor_decal/konyang_flowers,
+/obj/item/material/sword/katana{
+	pixel_x = 4;
+	pixel_y = 14
+	},
+/obj/item/clothing/head/hachimaki{
+	pixel_x = 10;
+	pixel_y = 2
+	},
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/exoplanet/grass/konyang)
 "i" = (
 /obj/structure/flora/rock/konyang/moss{
 	density = 0
@@ -97,19 +124,6 @@
 /area/exoplanet/grass/konyang)
 "H" = (
 /turf/simulated/floor/exoplanet/konyang/wilting,
-/area/exoplanet/grass/konyang)
-"J" = (
-/obj/effect/floor_decal/konyang_flowers,
-/obj/item/material/sword/katana{
-	pixel_x = 4;
-	pixel_y = 14
-	},
-/obj/item/clothing/accessory/headband/hachimaki{
-	pixel_x = 10;
-	pixel_y = 2;
-	layer = 2.0
-	},
-/turf/simulated/floor/exoplanet/konyang/pink,
 /area/exoplanet/grass/konyang)
 "K" = (
 /obj/random/dirt_75,
@@ -596,7 +610,7 @@ c
 O
 o
 q
-J
+f
 v
 O
 c

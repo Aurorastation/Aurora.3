@@ -1972,16 +1972,6 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/pirate_shuttle/storage)
-"jg" = (
-/obj/machinery/body_scanconsole{
-	dir = 1;
-	layer = 3.01;
-	pixel_y = 6
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/corner/lime/diagonal,
-/turf/simulated/floor/tiled/white,
-/area/shuttle/pirate_shuttle/med)
 "jq" = (
 /obj/machinery/door/airlock/glass{
 	dir = 4
@@ -2166,13 +2156,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/piratebase/hallway_south)
-"kn" = (
-/obj/structure/closet,
-/obj/item/clothing/accessory/dressshirt/tshirt,
-/obj/item/clothing/accessory/holster/utility/machete,
-/obj/item/material/hatchet/machete/steel,
-/turf/simulated/floor/tiled/yellow,
-/area/shuttle/pirate_shuttle/living)
 "kp" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
@@ -4491,6 +4474,25 @@
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/piratebase/quarters)
+"wi" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	name = "adjusted reinforced window";
+	pixel_y = -6
+	},
+/obj/item/clothing/accessory/crucifix/gold{
+	pixel_x = -8;
+	pixel_y = 5
+	},
+/obj/item/clothing/wrists/watch/gold{
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled,
+/area/piratebase/hallway_north)
 "wo" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/cable{
@@ -4726,6 +4728,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/piratebase/power)
+"xA" = (
+/obj/machinery/body_scanconsole{
+	dir = 1;
+	pixel_y = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/shuttle/pirate_shuttle/med)
 "xB" = (
 /turf/simulated/floor/plating,
 /area/piratebase/maint_south)
@@ -5052,6 +5063,29 @@
 	},
 /turf/simulated/floor/plating,
 /area/piratebase/maint_airlock)
+"zf" = (
+/obj/structure/closet/cabinet,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/machinery/power/apc/north,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/item/clothing/head/bearpelt,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old,
+/obj/item/clothing/under/service_overalls,
+/obj/item/clothing/suit/storage/toggle/leather_vest,
+/obj/item/clothing/head/softcap/himeo,
+/obj/item/clothing/suit/storage/toggle/trench/grey,
+/obj/item/clothing/under/color/brown,
+/obj/item/clothing/under/pants/black,
+/obj/item/clothing/under/tactical,
+/obj/item/clothing/under/syndicate/tacticool,
+/obj/item/clothing/accessory/dressshirt/longsleeve_s,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
+/turf/simulated/floor/tiled,
+/area/piratebase/quarters)
 "zj" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -5732,6 +5766,32 @@
 /obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/piratebase/hallway_south)
+"CH" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/storage/box/produce{
+	pixel_x = 3;
+	pixel_y = -5
+	},
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/turf/simulated/floor/tiled/freezer,
+/area/piratebase/kitchen)
 "CL" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
@@ -5955,6 +6015,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/piratebase/hallway_north)
+"Eh" = (
+/obj/structure/closet,
+/obj/item/clothing/accessory/dressshirt/tshirt,
+/obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/material/hatchet/machete/steel,
+/turf/simulated/floor/tiled/yellow,
+/area/shuttle/pirate_shuttle/living)
 "Ei" = (
 /obj/random/dirt_75,
 /obj/machinery/light/small/emergency{
@@ -6089,6 +6156,66 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/piratebase/maint_north)
+"ES" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/belt/utility/alt{
+	pixel_x = -1;
+	pixel_y = 13
+	},
+/obj/item/storage/belt/utility/alt{
+	pixel_x = -1;
+	pixel_y = 13
+	},
+/obj/item/storage/belt/utility/alt{
+	pixel_x = -1;
+	pixel_y = 13
+	},
+/obj/item/storage/box/zipties{
+	pixel_x = 11;
+	pixel_y = -2
+	},
+/obj/item/clothing/mask/balaclava/grey{
+	pixel_x = -3;
+	pixel_y = -9
+	},
+/obj/item/clothing/mask/balaclava/grey{
+	pixel_x = -3;
+	pixel_y = -9
+	},
+/obj/item/clothing/mask/balaclava/grey{
+	pixel_x = -3;
+	pixel_y = -9
+	},
+/obj/item/clothing/mask/balaclava/grey{
+	pixel_x = -3;
+	pixel_y = -9
+	},
+/obj/item/clothing/mask/balaclava/grey{
+	pixel_x = -3;
+	pixel_y = -9
+	},
+/obj/item/clothing/mask/balaclava/grey{
+	pixel_x = -3;
+	pixel_y = -9
+	},
+/obj/item/device/flashlight/flare/glowstick/random{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/device/flashlight/flare/glowstick/random{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/device/flashlight/flare/glowstick/random{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/device/flashlight/flare/glowstick/random{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/piratebase/equipment)
 "EV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
@@ -8387,67 +8514,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/piratebase/living)
-"PV" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/storage/belt/utility/alt{
-	pixel_x = -1;
-	pixel_y = 13
-	},
-/obj/item/storage/belt/utility/alt{
-	pixel_x = -1;
-	pixel_y = 13
-	},
-/obj/item/storage/belt/utility/alt{
-	pixel_x = -1;
-	pixel_y = 13
-	},
-/obj/item/storage/box/zipties{
-	layer = 2.99;
-	pixel_x = 11;
-	pixel_y = -2
-	},
-/obj/item/clothing/mask/balaclava/grey{
-	pixel_x = -3;
-	pixel_y = -9
-	},
-/obj/item/clothing/mask/balaclava/grey{
-	pixel_x = -3;
-	pixel_y = -9
-	},
-/obj/item/clothing/mask/balaclava/grey{
-	pixel_x = -3;
-	pixel_y = -9
-	},
-/obj/item/clothing/mask/balaclava/grey{
-	pixel_x = -3;
-	pixel_y = -9
-	},
-/obj/item/clothing/mask/balaclava/grey{
-	pixel_x = -3;
-	pixel_y = -9
-	},
-/obj/item/clothing/mask/balaclava/grey{
-	pixel_x = -3;
-	pixel_y = -9
-	},
-/obj/item/device/flashlight/flare/glowstick/random{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/device/flashlight/flare/glowstick/random{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/device/flashlight/flare/glowstick/random{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/device/flashlight/flare/glowstick/random{
-	pixel_x = -4;
-	pixel_y = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/piratebase/equipment)
 "PX" = (
 /obj/random/dirt_75,
 /obj/item/device/flashlight/marshallingwand{
@@ -8910,33 +8976,6 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/piratebase/medbay)
-"Se" = (
-/obj/structure/closet/crate/freezer,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/reagent_containers/food/snacks/meat,
-/obj/item/storage/box/produce{
-	layer = 2.99;
-	pixel_x = 3;
-	pixel_y = -5
-	},
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/snacks/meat/chicken,
-/obj/item/reagent_containers/food/snacks/meat/chicken,
-/obj/item/storage/box/fancy/egg_box,
-/obj/item/reagent_containers/food/drinks/carton/milk,
-/obj/item/reagent_containers/food/drinks/carton/milk,
-/obj/item/reagent_containers/food/drinks/carton/milk,
-/obj/item/reagent_containers/food/drinks/carton/milk,
-/obj/item/reagent_containers/food/drinks/carton/soymilk,
-/obj/item/reagent_containers/food/drinks/carton/soymilk,
-/obj/item/reagent_containers/food/drinks/carton/milk,
-/turf/simulated/floor/tiled/freezer,
-/area/piratebase/kitchen)
 "Sf" = (
 /obj/structure/table/steel,
 /obj/item/trash/proteinbar,
@@ -9248,6 +9287,25 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/piratebase/hallway_north)
+"Tx" = (
+/obj/structure/closet,
+/obj/item/clothing/under/suit_jacket/charcoal,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/midriff,
+/obj/item/clothing/suit/storage/toggle/varsity,
+/obj/item/clothing/under/pants/tacticool,
+/obj/item/clothing/under/pants/ripped,
+/obj/item/clothing/accessory/dressshirt/university/black,
+/obj/item/clothing/suit/storage/toggle/track/red,
+/obj/item/clothing/suit/storage/toggle/flannel/gray,
+/obj/item/clothing/head/beret,
+/obj/item/clothing/head/headbando/random,
+/obj/item/clothing/under/vysoka,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/piratebase/quarters)
 "Ty" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
@@ -9484,26 +9542,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/pirate_shuttle/port)
-"UB" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	layer = 5;
-	name = "adjusted reinforced window";
-	pixel_y = -6
-	},
-/obj/item/clothing/accessory/crucifix/gold{
-	pixel_x = -8;
-	pixel_y = 5
-	},
-/obj/item/clothing/wrists/watch/gold{
-	pixel_x = 5
-	},
-/turf/simulated/floor/tiled,
-/area/piratebase/hallway_north)
 "UD" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -10068,29 +10106,6 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/piratebase/hallway_north)
-"XI" = (
-/obj/structure/closet/cabinet,
-/obj/effect/floor_decal/corner/blue{
-	dir = 5
-	},
-/obj/machinery/power/apc/north,
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
-/obj/item/clothing/head/bearpelt,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old,
-/obj/item/clothing/under/service_overalls,
-/obj/item/clothing/suit/storage/toggle/leather_vest,
-/obj/item/clothing/head/softcap/himeo,
-/obj/item/clothing/suit/storage/toggle/trench/grey,
-/obj/item/clothing/under/color/brown,
-/obj/item/clothing/under/pants/black,
-/obj/item/clothing/under/tactical,
-/obj/item/clothing/under/syndicate/tacticool,
-/obj/item/clothing/accessory/dressshirt/longsleeve_s,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
-/turf/simulated/floor/tiled,
-/area/piratebase/quarters)
 "XP" = (
 /obj/structure/table/rack,
 /obj/item/device/flashlight/lantern{
@@ -10381,25 +10396,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/piratebase/medbay)
-"Zi" = (
-/obj/structure/closet,
-/obj/item/clothing/under/suit_jacket/charcoal,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/midriff,
-/obj/item/clothing/suit/storage/toggle/varsity,
-/obj/item/clothing/under/pants/tacticool,
-/obj/item/clothing/under/pants/ripped,
-/obj/item/clothing/accessory/dressshirt/university/black,
-/obj/item/clothing/suit/storage/toggle/track/red,
-/obj/item/clothing/suit/storage/toggle/flannel/gray,
-/obj/item/clothing/head/beret,
-/obj/item/clothing/head/headbando/random,
-/obj/item/clothing/under/vysoka,
-/obj/item/clothing/suit/storage/toggle/leather_jacket/military/tan,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/full,
-/area/piratebase/quarters)
 "Zk" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -10417,24 +10413,6 @@
 /obj/random/junk,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/piratebase/hallway_north)
-"Zo" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/window/reinforced{
-	layer = 5;
-	name = "adjusted reinforced window";
-	pixel_y = -6
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/item/stack/material/phoron/full,
-/obj/item/stack/material/phoron{
-	pixel_x = -4;
-	pixel_y = 7
-	},
-/turf/simulated/floor/tiled,
 /area/piratebase/hallway_north)
 "Zq" = (
 /obj/structure/reagent_dispensers/radioactive_waste{
@@ -10517,6 +10495,23 @@
 /obj/structure/closet/toolcloset,
 /turf/simulated/floor/plating,
 /area/piratebase/atmos)
+"ZN" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/window/reinforced{
+	name = "adjusted reinforced window";
+	pixel_y = -6
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/stack/material/phoron/full,
+/obj/item/stack/material/phoron{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled,
+/area/piratebase/hallway_north)
 "ZO" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -44231,7 +44226,7 @@ QC
 QC
 QC
 PC
-jg
+xA
 AV
 sg
 AV
@@ -44609,7 +44604,7 @@ WA
 rc
 bz
 Ql
-UB
+wi
 up
 IG
 OH
@@ -45123,7 +45118,7 @@ pW
 GX
 if
 Ql
-Zo
+ZN
 zR
 IG
 JD
@@ -45263,7 +45258,7 @@ Ze
 FO
 SZ
 va
-kn
+Eh
 Xm
 vh
 xO
@@ -48447,7 +48442,7 @@ Ya
 pd
 HV
 OI
-PV
+ES
 vt
 BJ
 QX
@@ -50523,7 +50518,7 @@ WH
 WH
 Xr
 Xr
-XI
+zf
 eN
 xE
 QD
@@ -50784,7 +50779,7 @@ Wn
 Vj
 El
 Zw
-Zi
+Tx
 Xr
 Nf
 bc
@@ -51542,7 +51537,7 @@ mI
 mI
 ao
 WH
-Se
+CH
 PP
 sh
 WH

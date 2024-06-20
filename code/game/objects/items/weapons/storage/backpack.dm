@@ -24,12 +24,24 @@
 	allow_quick_empty = TRUE
 	empty_delay = 0.5 SECOND
 	var/straps = FALSE // Only really used for the verb.
+	/**
+	 * References a sleeping bag attached to this bag. Should convert this to use accessories later, but that means making backpacks clothing.
+	 */
+	var/obj/item/sleeping_bag/attached_bag
+	/**
+	 * Suffix used for overlays with an attached sleeping bag, because satchels are at people's sides while other bags are on people's backs.
+	 */
+	var/attached_icon = "backpack"
 
 /obj/item/storage/backpack/Initialize()
 	. = ..()
 	if(straps == TRUE)
 		alpha_mask = "normal"
 		verbs += /obj/item/storage/backpack/proc/adjust_backpack_straps
+
+/obj/item/storage/backpack/Destroy()
+	QDEL_NULL(attached_bag)
+	. = ..()
 
 /obj/item/storage/backpack/proc/adjust_backpack_straps()
 	set name = "Adjust Bag Straps"
@@ -78,6 +90,44 @@
 				to_chat(H, SPAN_DANGER("Your species cannot wear [src]."))
 				return 0
 	return 1
+
+/obj/item/storage/backpack/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/sleeping_bag) && !attached_bag && ishuman(user))
+		var/mob/living/carbon/human/H = user
+		attached_bag = attacking_item
+		update_icon()
+		if(H.back == src)
+			H.update_inv_back() // Add overlay to backpack if on back
+		H.drop_from_inventory(attached_bag)
+		attached_bag.loc = null
+		return
+	return ..()
+
+/obj/item/storage/backpack/update_icon()
+	. = ..()
+	ClearOverlays()
+	if(attached_bag)
+		var/image/I = overlay_image(attached_bag.icon, "[attached_bag.icon_state]_[attached_icon]", attached_bag.color)
+		AddOverlays(I)
+
+/obj/item/storage/backpack/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot, main_call)
+	var/image/I = ..()
+	if(slot == slot_back_str && attached_bag)
+		var/image/over = overlay_image(attached_bag.icon, "[attached_bag.icon_state]_[attached_icon]_ba", attached_bag.color)
+		I.AddOverlays(over)
+	return I
+
+/obj/item/storage/backpack/AltClick(mob/usr)
+	if(attached_bag && ishuman(usr))
+		var/mob/living/carbon/human/H = usr
+		H.put_in_hands(attached_bag)
+		attached_bag = null
+		update_icon()
+		if(H.back == src)
+			H.update_inv_back()
+		return
+	return ..()
+
 
 /*
  * Backpack Types
@@ -333,6 +383,7 @@
 	icon_state = "satchel"
 	item_state = "satchel"
 	straps = TRUE
+	attached_icon = "satchel"
 
 /obj/item/storage/backpack/satchel/leather/withwallet/New()
 	..()
@@ -927,6 +978,7 @@
 	contained_sprite = FALSE
 	sprite_sheets = list(BODYTYPE_VAURCA = 'icons/mob/species/vaurca/back.dmi', BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/back.dmi')
 	var/hooded = FALSE
+	var/cape_backing_state = "cape_backing"
 
 /obj/item/storage/backpack/cloak/verb/toggle_cloak_hood()
 	set name = "Toggle Cloak Hood"
@@ -945,7 +997,7 @@
 
 /obj/item/storage/backpack/cloak/get_mob_overlay(var/mob/living/carbon/human/human, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
-	var/image/cape_backing = image(mob_icon, null, "[initial(icon_state)]_backing", MOB_SHADOW_LAYER)
+	var/image/cape_backing = image(mob_icon, null, "[icon_state]_backing", MOB_SHADOW_LAYER)
 	I.AddOverlays(cape_backing)
 	return I
 

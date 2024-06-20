@@ -3211,7 +3211,6 @@
 	icon_state = "door_locked";
 	id_tag = "fang_hatch";
 	name = "Ship External Access";
-	open_layer = 2.8;
 	dir = 1
 	},
 /obj/effect/landmark/entry_point/aft{
@@ -5606,9 +5605,7 @@
 	},
 /area/peoples_station/training)
 "uu" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating/cooled,
 /area/peoples_station/transport_hangar)
 "uv" = (
@@ -11591,8 +11588,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -12816,7 +12812,6 @@
 	icon_state = "door_locked";
 	id_tag = "fang_hatch";
 	name = "Ship External Access";
-	open_layer = 2.8;
 	dir = 1
 	},
 /obj/structure/cable/green{
@@ -13462,8 +13457,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 24

@@ -1340,7 +1340,7 @@
 		var/mob/living/carbon/human/H = C
 		if(!blood_DNA[H.dna.unique_enzymes])
 			blood_DNA[H.dna.unique_enzymes] = H.dna.b_type
-		hand_blood_color = H.species?.blood_color
+		hand_blood_color = H.get_blood_color()
 	src.update_inv_gloves()	//handles bloody hands overlays and updating
 	add_verb(src, /mob/living/carbon/human/proc/bloody_doodle)
 	return TRUE //we applied blood to the item
