@@ -225,10 +225,10 @@
 	if(ishuman(M) && prob(50)) //only a 50% chance of getting in the eyes to avoid being too punishing
 		var/mob/living/carbon/human/H = M
 		var/obj/item/organ/internal/eyes/E = H.get_eyes()
+		if(!E) //No eyes, no problem
+			return
 		if (istype(E) && (E.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT)))
 			to_chat(H, SPAN_WARNING("Your mechanical eyes are immune to the sandstorm!"))
-			return
-		if(!E) //No eyes, no problem
 			return
 		for(var/obj/item/clothing/C in list(H.wear_mask, H.head, H.glasses))
 			if(C.body_parts_covered & EYES)
