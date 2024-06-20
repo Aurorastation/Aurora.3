@@ -19,7 +19,6 @@
 /obj/item/clothing/accessory/headband/hachimaki{
 	pixel_x = 10;
 	pixel_y = 2;
-	layer = 2.0
 	},
 /obj/effect/floor_decal/konyang_flowers,
 /obj/item/material/sword/katana{
