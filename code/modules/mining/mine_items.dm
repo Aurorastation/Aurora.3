@@ -1235,7 +1235,7 @@ var/list/total_extraction_beacons = list()
 		if(sculpted == TRUE_QDEL)
 			qdel(src)
 
-/obj/structure/sculpting_block/proc/sculpture_options(var/choice, var/mob/user)
+/obj/structure/sculpting_block/proc/sculpture_options(choice, mob/user)
 	switch(choice)
 		if("sculpture")
 			var/mob/living/old_T
@@ -1243,7 +1243,7 @@ var/list/total_extraction_beacons = list()
 				old_T = T
 
 			var/list/choices = list()
-			for(var/mob/living/M in view(7,user))
+			for(var/mob/living/M in get_hearers_in_LOS(7, user))
 				choices += M
 			T = tgui_input_list(user, "Who do you wish to sculpt?", "Sculpt Options", choices)
 			if(!T)
@@ -1286,7 +1286,7 @@ var/list/total_extraction_beacons = list()
 				return FALSE
 			return TRUE
 
-/obj/structure/sculpting_block/proc/finish_sculpture(var/choice, var/mob/user)
+/obj/structure/sculpting_block/proc/finish_sculpture(choice, mob/user)
 	switch(choice)
 		if("sculpture")
 			appearance = T
@@ -1305,13 +1305,13 @@ var/list/total_extraction_beacons = list()
 
 			obj_flags = OBJ_FLAG_ROTATABLE
 
-			var/title = sanitize(input(usr, "If you would like to name your art, do so here.", "Christen Your Sculpture", "") as text|null)
+			var/title = tgui_input_text(usr, "If you would like to name your art, do so here.", "Christen Your Sculpture", multiline = FALSE)
 			if(title)
 				name = title
 			else
 				name = T.name
 
-			var/legend = sanitize(input(usr, "If you would like to describe your art, do so here.", "Story Your Sculpture", "") as message|null)
+			var/legend = tgui_input_text(usr, "If you would like to describe your art, do so here.", "Story Your Sculpture", multiline = TRUE)
 			if(legend)
 				desc = legend
 			else
@@ -1320,6 +1320,7 @@ var/list/total_extraction_beacons = list()
 			T = null // null T out, we don't need the ref to them anymore
 
 			return TRUE
+
 		if("ladder")
 			var/turf/above = GET_ABOVE(src)
 			if(!above)
@@ -1332,6 +1333,9 @@ var/list/total_extraction_beacons = list()
 			new /obj/structure/ladder/up/mining(get_turf(src))
 			new /obj/structure/ladder/mining(above)
 			return TRUE_QDEL
+
+/obj/structure/sculpting_block/update_icon()
+	return
 
 #undef TRUE_QDEL
 
