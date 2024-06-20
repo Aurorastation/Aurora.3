@@ -270,6 +270,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kazhkz_crash)
+"pA" = (
+/obj/item/blueprints/outpost{
+	pixel_y = 6
+	},
+/turf/template_noop,
+/area/template_noop)
 "pC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -699,6 +705,7 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/item/blueprints/shuttle,
 /turf/simulated/floor/tiled/slate,
 /area/shuttle/kazhkz_crash)
 "QA" = (
@@ -1625,7 +1632,7 @@ TJ
 TJ
 TJ
 TJ
-TJ
+pA
 TJ
 UK
 UK

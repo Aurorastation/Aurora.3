@@ -15,6 +15,7 @@
 	ambience = AMBIENCE_RUINS
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
+	is_outside = OUTSIDE_NO
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	base_turf = /turf/simulated/floor/exoplanet/desert
 	area_blurb = "This ancient place is quiet and still, dust hanging in the air between intricately carved sandstone walls. You feel that you are one of the first people to set foot here in a very, very long time."

@@ -140,11 +140,10 @@
 				else if(attacking_item.iscrowbar())
 					to_chat(user, "You pry out the circuit!")
 					attacking_item.play_tool_sound(get_turf(src), 50)
-					spawn(20)
-						var/obj/item/firealarm_electronics/circuit = new /obj/item/firealarm_electronics()
-						circuit.forceMove(user.loc)
-						buildstage = 0
-						update_icon()
+					var/obj/item/firealarm_electronics/circuit = new /obj/item/firealarm_electronics()
+					circuit.forceMove(user.loc)
+					buildstage = 0
+					update_icon()
 					return TRUE
 			if(0)
 				if(istype(attacking_item, /obj/item/firealarm_electronics))

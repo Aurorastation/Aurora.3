@@ -230,7 +230,7 @@
 		var/list/nearby = oview(5, src)
 		if(nearby.len)
 			var/target_atom = pick(nearby)
-			SSmove_manager.move_to(src, target_atom, 0, 5)
+			GLOB.move_manager.move_to(src, target_atom, 0, 5)
 			if(prob(25))
 				src.visible_message(SPAN_NOTICE("\The [src] skitters[pick(" away"," around","")]."))
 	else if(prob(5))
@@ -238,7 +238,7 @@
 		for(var/obj/machinery/atmospherics/unary/vent_pump/v in view(7,src))
 			if(!v.welded)
 				entry_vent = v
-				SSmove_manager.move_to(src, entry_vent, 0, 5)
+				GLOB.move_manager.move_to(src, entry_vent, 0, 5)
 				break
 
 	if(isturf(loc) && amount_grown >= 100)
@@ -275,7 +275,7 @@
 		visible_message(SPAN_WARNING("\The [user] tries to stomp on \the [src], but misses!"))
 		var/list/nearby = oview(2, src)
 		if(length(nearby))
-			SSmove_manager.move_to(src, pick(nearby), 0, 2)
+			GLOB.move_manager.move_to(src, pick(nearby), 0, 2)
 			return
 	visible_message(SPAN_WARNING("\The [user] stomps \the [src] dead!"))
 	die()

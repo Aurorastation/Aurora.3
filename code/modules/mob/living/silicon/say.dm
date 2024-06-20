@@ -16,7 +16,7 @@
 
 /mob/living/silicon/robot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
 	if(message_mode == "whisper" && !whisper)
-		whisper(message, speaking)
+		whisper(message, speaking, say_verb = TRUE)
 		return TRUE
 	if(message_mode)
 		if(!is_component_functioning("radio"))
@@ -32,7 +32,7 @@
 
 /mob/living/silicon/ai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
 	if(message_mode == "whisper" && !whisper)
-		whisper(message, speaking)
+		whisper(message, speaking, say_verb = TRUE)
 		return TRUE
 	if(message_mode == "department")
 		log_say("[key_name(src)] : [message]",ckey=key_name(src))
@@ -49,7 +49,7 @@
 /mob/living/silicon/pai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
 	if(message_mode)
 		if(message_mode == "whisper" && !whisper)
-			whisper(message, speaking)
+			whisper(message, speaking, say_verb = TRUE)
 			return TRUE
 		if(message_mode == "general")
 			message_mode = null

@@ -39,6 +39,7 @@
 /obj/item/storage/box/fancy/crayons/chalkbox{
 	pixel_y = 4
 	},
+/obj/item/blueprints,
 /obj/item/stack/cable_coil,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
@@ -11344,7 +11345,7 @@
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/storage/white_vest,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "MY" = (

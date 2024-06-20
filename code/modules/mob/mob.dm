@@ -88,7 +88,7 @@
 	zone_sel = null
 
 /mob/var/should_add_to_mob_list = TRUE
-/mob/Initialize()
+/mob/Initialize(mapload)
 	. = ..()
 	if(should_add_to_mob_list)
 		GLOB.mob_list += src
@@ -752,7 +752,7 @@
 
 	src.pulling = AM
 	AM.pulledby = src
-	SSmove_manager.stop_looping(AM)
+	GLOB.move_manager.stop_looping(AM)
 
 	if(pullin)
 		pullin.icon_state = "pull1"

@@ -3261,7 +3261,10 @@
 	dir = 1
 	},
 /obj/structure/table/steel,
-/obj/item/book/manual/evaguide,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/golden_deep/atmos)
 "Fy" = (

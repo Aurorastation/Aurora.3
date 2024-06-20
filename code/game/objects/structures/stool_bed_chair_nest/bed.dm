@@ -27,6 +27,7 @@
 	buckle_dir = SOUTH
 	buckle_lying = 1
 	build_amt = 2
+	pass_flags_self = PASSTABLE
 	var/material/padding_material
 
 	var/base_icon = "bed"
@@ -127,10 +128,7 @@
 		buckled.forceMove(dest)
 
 /obj/structure/bed/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover) && mover.checkpass(PASSTABLE))
-		return 1
-	else
-		return ..()
+	return ..()
 
 /obj/structure/bed/ex_act(severity)
 	switch(severity)

@@ -503,6 +503,16 @@
 	temperature = 303.15
 	},
 /area/ouerea_heph_mining)
+"Fz" = (
+/obj/structure/cargo_receptacle{
+	max_spawn = 2;
+	override_name = "Ouerea - Hephaestus Mining Camp";
+	min_spawn = 1
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_heph_mining)
 "Hb" = (
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/exoplanet/concrete{
@@ -1242,7 +1252,7 @@ zl
 zl
 zl
 zl
-zl
+Fz
 zl
 zl
 zl

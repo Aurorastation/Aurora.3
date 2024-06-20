@@ -5810,6 +5810,8 @@
 /area/ship/dominian_unathi/med)
 "Nw" = (
 /obj/structure/table/standard,
+/obj/item/blueprints,
+/obj/item/pen/drafting,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_unathi/engineering)
 "Nx" = (
@@ -6931,7 +6933,7 @@
 /obj/item/bodybag/cryobag,
 /obj/item/reagent_containers/hypospray,
 /obj/item/storage/pill_bottle/dylovene,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/auto_cpr{
 	pixel_x = 6;
 	pixel_y = -1

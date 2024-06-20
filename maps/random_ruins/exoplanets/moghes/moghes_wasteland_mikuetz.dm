@@ -25,6 +25,7 @@
 	short_name = "moghes_mikuetz"
 	desc = "Wander the Wasteland as a Queenless Vaurca."
 	tags = list("External")
+	spawnpoints = list("moghes_mikuetz")
 	welcome_message = "You are a Vaurca of the group known as the Mi'kuetz, merry traders and wanderers in the Wasteland of Moghes."
 	mob_name_pick_message = "Pick a Vaurca name."
 

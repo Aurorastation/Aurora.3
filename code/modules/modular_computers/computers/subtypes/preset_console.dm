@@ -4,9 +4,6 @@
 	//Holoscreens are non solid, and the frames of the computers are thin. So projectiles will usually
 	//pass through
 			return TRUE
-	else if(istype(mover) && mover.checkpass(PASSTABLE))
-	//Animals can run under them, lots of empty space
-		return TRUE
 	return ..()
 
 /obj/item/modular_computer/console/preset/install_default_hardware()

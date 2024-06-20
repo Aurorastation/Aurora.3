@@ -13,18 +13,24 @@
 
 /area/moghes/hegemony_base
 	name = "Hegemony Base"
-	icon_state = "bluenew"
+	icon_state = "red"
 	requires_power = FALSE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
+	is_outside = OUTSIDE_NO
 	base_turf = /turf/simulated/floor/exoplanet/grass/moghes/dirt
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
+
+/area/moghes/hegemony_base/outdoors
+	name = "Hegemony Base"
+	icon_state = "bluenew"
+	is_outside = OUTSIDE_YES
 	area_blurb = "A tall fence encircles squat concrete buildings. The red-and-gold banners of the Izweski Hegemony snap in the wind."
 
 /datum/ghostspawner/human/moghes_hegemony_base
 	name = "Izweski Hegemony Soldier"
 	short_name = "hegemony_base_soldier"
-	desc = "Man an Izweski Hegemony outpost in the Untouched Lands"
+	desc = "Man an Izweski Hegemony outpost in the Untouched Lands."
 	welcome_message = "As an Unathi warrior, abide by the Warrior's Code - act with righteousness, mercy, integrity, courage and loyalty. Defend the life and honor of Hegemony citizens, and ensure that enemies of the Izweski cannot threaten your base."
 
 	spawnpoints = list("hegemony_base_soldier")

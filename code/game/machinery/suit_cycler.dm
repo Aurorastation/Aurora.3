@@ -384,9 +384,8 @@
 		playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
 		active = TRUE
 		update_icon()
-		spawn(100)
-			repair_suit()
-			finished_job()
+		addtimer(CALLBACK(src, PROC_REF(repair_suit)), 10 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(finished_job)), 10 SECONDS)
 
 	else if(action == "apply_paintjob")
 		if(!suit && !helmet)
@@ -406,9 +405,8 @@
 		playsound(loc, 'sound/machines/suitstorage_lockdoor.ogg', 50, FALSE)
 		active = TRUE
 		update_icon()
-		spawn(100)
-			apply_paintjob()
-			finished_job()
+		addtimer(CALLBACK(src, PROC_REF(apply_paintjob)), 10 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(finished_job)), 10 SECONDS)
 
 	else if(action == "toggle_lock")
 		if(src.allowed(usr))
