@@ -28,7 +28,7 @@
 		"physical_status" = list("Active", "*Deceased*", "*SSD*", "*Missing*", "Physically Unfit", "Disabled"),
 		"criminal_status" = list("None", "*Arrest*", "Search", "Incarcerated", "Parolled", "Released"),
 		"mental_status" = list("Stable", "*Insane*", "*Unstable*", "*Watch*"),
-		"medical" = list("A-", "B-", "AB-", "O-", "A+", "B+", "AB+", "O+")
+		"medical" = list("A-", "B-", "AB-", "O-", "A+", "B+", "AB+", "O+", "SBS")
 	)
 
 /datum/computer_file/program/records/New()
