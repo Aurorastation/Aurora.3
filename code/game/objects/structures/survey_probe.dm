@@ -123,7 +123,7 @@
 /obj/structure/survey_probe/proc/get_report(var/turf/T, var/is_exoplanet, var/is_asteroid)
 	. = "<b>Atmospheric survey results:</b>"
 	var/datum/gas_mixture/air = T.return_air()
-	if(air.total_moles>0)
+	if(air && air.total_moles>0)
 		. += "<br><small>[english_list(atmosanalyzer_scan(T, air))]</small>"
 		if((is_exoplanet || is_asteroid) && SSatlas.current_map.use_overmap)
 			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = GLOB.map_sectors["[z]"]
