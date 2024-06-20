@@ -26,7 +26,7 @@
 
 	base_turf_by_z = list(
 		"1" = /turf/space,
-		"2" = /turf/simulated/floor/exoplanet/mineral,
+		"2" = /turf/simulated/floor/exoplanet/barren/warm,
 		"3" = /turf/simulated/open
 	)
 
