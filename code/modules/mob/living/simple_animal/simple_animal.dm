@@ -157,7 +157,7 @@
 	var/vehicle_version = null
 
 	///If true, ignores weather effects
-	var/resist_weather = FALSE
+	var/resists_weather = FALSE
 
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor
