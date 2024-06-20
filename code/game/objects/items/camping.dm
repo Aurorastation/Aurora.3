@@ -256,7 +256,7 @@
 
 /obj/structure/component/tent_canvas/MouseDrop(over_object, src_location, over_location)
 	..()
-	if(use_check(usr, USE_ALLOW_NON_ADJACENT)) // Allows non-adjacent because otherwise we can't assemble from outside due to density issues.
+	if(use_check(usr, USE_ALLOW_NON_ADJACENT) || (get_dist(usr, src) > 1)) // use_check() can't check for adjacency due to density issues, so we check range as well
 		return
 	part_of.disassemble(2 SECONDS, usr, src)
 
@@ -291,6 +291,8 @@
 	tent_item.setup_my_tent(dir, get_turf(src))
 	tent.get_target_turfs(null, TRUE)
 	tent.build_structures()
+	for(var/stage in tent.stages)
+		tent.stages[stage] = STAGE_ASSEMBLED
 	qdel(tent_item)
 	qdel(src)
 

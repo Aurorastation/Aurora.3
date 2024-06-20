@@ -9,3 +9,4 @@ changes:
   - bugfix: "Fixed tent sprites to be 3/4th compliant."
   - bugfix: "Fixed tent roofs not disappering when you disassemble one you are inside of."
   - bugfix: "Fixed tent canvas not having a description."
+  - bugfix: "Fixed pre-fabricated tents not being disassembleable."
