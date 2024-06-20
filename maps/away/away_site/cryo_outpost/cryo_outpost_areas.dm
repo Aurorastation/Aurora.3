@@ -107,6 +107,10 @@
 	name = "Labs, Cryo South"
 	icon_state = "cryo"
 
+/area/cryo_outpost/inside/labs_cryo_pods
+	name = "Labs, Cryo Pods"
+	icon_state = "cryo"
+
 /area/cryo_outpost/inside/labs_offices
 	name = "Labs, Offices"
 	icon_state = "research"
