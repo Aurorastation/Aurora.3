@@ -1,8 +1,0 @@
-
-author: DreamySkrell
-
-delete-after: True
-
-changes:
-  - rscadd: "Kills all layer vars on every dmm map."
-  - rscadd: "Adds layer maplint."

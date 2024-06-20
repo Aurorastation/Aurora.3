@@ -1,8 +1,0 @@
-author: Sparky_hotdog
-
-delete-after: True
-
-changes:
-  - rscadd: "Added tents, which can be set up individually, or as a team with greater efficiency, and provide shelter from the weather. There is one tent in each excavation tools locker, one in the Intrepid hangar, one in the Spark, and two larger tents in the Intrepid."
-  - rscadd: "Added sleeping bags, which can be attached to bags for ease of carrying. Four are available in the Intrepid hangar, and one in each miner's locker."
-  - rscadd: "Added foldable tables. Added a foldable table to the Intrepid hangar, along with four folding chairs."

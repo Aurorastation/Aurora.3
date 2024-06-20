@@ -14,7 +14,7 @@
 		I.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)), rand(1,3), round(30/I.w_class))
 
 	..(species.gibbed_anim)
-	gibs(loc, viruses, dna, null, species.flesh_color, species.blood_color)
+	gibs(loc, viruses, dna, null, species.flesh_color, get_blood_color())
 
 /mob/living/carbon/human/dust()
 	vr_disconnect()
