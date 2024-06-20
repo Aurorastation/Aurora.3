@@ -138,23 +138,25 @@
 
 #define OBSERVER_PLANE 3
 
-#define LIGHTING_PLANE 4
+#define ROOF_PLANE 4
+
+#define LIGHTING_PLANE 5
 	#define LIGHTING_LAYER 1
 
-#define EFFECTS_ABOVE_LIGHTING_PLANE 5
-	#define EYEGLOW_LAYER 1
+#define EFFECTS_ABOVE_LIGHTING_PLANE 6
+	#define EYE_GLOW_LAYER 1
 	#define BEAM_PROJECTILE_LAYER 2
 	#define SUPERMATTER_WALL_LAYER 3
 	#define LIGHTNING_LAYER 4
 
-#define FULLSCREEN_PLANE 6
+#define FULLSCREEN_PLANE 7
 	#define FULLSCREEN_LAYER 1
 	#define DAMAGE_LAYER 2
 	#define IMPAIRED_LAYER 3
 	#define BLIND_LAYER 4
 	#define CRIT_LAYER 5
 
-#define HUD_PLANE 7
+#define HUD_PLANE 8
 	#define UNDER_HUD_LAYER 1
 	#define HUD_BASE_LAYER 2
 	#define HUD_BELOW_ITEM_LAYER 2.9
@@ -191,10 +193,7 @@
 
 #define DEFAULT_RENDERER_APPEARANCE_FLAGS (PLANE_MASTER | NO_CLIENT_COLOR)
 
-/atom/appearance_flags = DEFAULT_APPEARANCE_FLAGS
-/atom/movable/appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND // Most AMs are not visibly bigger than a tile.
 /image/appearance_flags = DEFAULT_APPEARANCE_FLAGS
-/mutable_appearance/appearance_flags = DEFAULT_APPEARANCE_FLAGS // Inherits /image but re docs, subject to change
 
 /atom/proc/hud_layerise()
 	plane = HUD_PLANE

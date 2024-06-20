@@ -2,7 +2,6 @@
 /mob/living/heavy_vehicle
 	name = "exosuit"
 	density = TRUE
-	opacity = TRUE
 	anchored = TRUE
 	status_flags = PASSEMOTES
 	a_intent = I_HURT
@@ -11,6 +10,7 @@
 	can_be_buckled = FALSE
 	accent = ACCENT_TTS
 	appearance_flags = KEEP_TOGETHER
+	pass_flags_self = PASSVEHICLE
 	var/decal
 
 	var/emp_damage = 0
@@ -209,6 +209,8 @@
 		if(source_frame.body)
 			source_frame.body.forceMove(src)
 			body = source_frame.body
+			if(body.cell)
+				RegisterSignal(body.cell, COMSIG_CELL_CHARGE, PROC_REF(handle_cell_charge))
 
 	updatehealth()
 

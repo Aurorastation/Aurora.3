@@ -38,6 +38,14 @@
 	detach()
 	leave_host()
 
+/mob/living/simple_animal/borer/proc/is_held_by(var/mob/living/carbon/M)
+	if (istype(usr.loc, /obj/item/holder))
+		var/obj/item/holder/H = usr.loc
+		if (istype(H.loc, /mob/living/carbon/human))
+			var/mob/living/carbon/human/held_by = H.loc
+			return held_by == M
+
+	return FALSE
 
 /mob/living/simple_animal/borer/verb/infest()
 	set category = "Abilities"
@@ -56,6 +64,12 @@
 		if(src.Adjacent(C))
 			choices += C
 
+	if (istype(usr.loc, /obj/item/holder))
+		var/obj/item/holder/H = usr.loc
+		if (istype(H.loc, /mob/living/carbon/human))
+			var/mob/living/carbon/human/held_by = H.loc
+			choices += held_by
+
 	if(!length(choices))
 		to_chat(src, SPAN_NOTICE("There are no viable hosts within range."))
 		return
@@ -73,7 +87,7 @@
 		return
 	if(!M || !src)
 		return
-	if(!Adjacent(M))
+	if(!Adjacent(M) && !is_held_by(M))
 		return
 	if(M.has_brain_worms())
 		to_chat(src, SPAN_WARNING("You cannot infest someone who is already infested!"))
@@ -103,7 +117,7 @@
 	to_chat(M, SPAN_WARNING("Something slimy begins probing at the opening of your ear canal..."))
 	to_chat(src, SPAN_WARNING("You slither up [M] and begin probing at their ear canal..."))
 
-	if(!do_after(src,30))
+	if(!do_after(src,30) && !is_held_by(M))
 		to_chat(src, SPAN_WARNING("As [M] moves away, you are dislodged and fall to the ground."))
 		return
 	if(!M || !src)
@@ -112,7 +126,7 @@
 		to_chat(src, SPAN_NOTICE("You cannot infest a target in your current state."))
 		return
 
-	if(M in view(1, src))
+	if((M in view(1, src)) || is_held_by(M))
 		to_chat(src, SPAN_NOTICE("You wiggle into [M]'s ear."))
 		if(!M.stat)
 			to_chat(M, SPAN_DANGER("Something disgusting and slimy wiggles into your ear!"))
@@ -121,7 +135,7 @@
 		src.host.status_flags |= PASSEMOTES
 		src.forceMove(M)
 
-		if(client)
+		if(client && host.healths)
 			client.screen += host.healths
 
 		//Update their traitor status.
@@ -187,6 +201,8 @@
 	if(src.mind)
 		src.mind.special_role = "Borer Husk"
 		src.mind.transfer_to(host)
+		if(host.client)
+			host.client.init_verbs()
 
 	var/obj/item/organ/internal/borer/B = new(H)
 	var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
@@ -207,8 +223,8 @@
 		H.lastKnownIP = s2h_ip
 
 	// Since the host is dead, we want to kick it back into action immediately, then redo it to ensure they're good to go
-	H.rejuvenate()
-	addtimer(CALLBACK(H, PROC_REF(rejuvenate)), 30)
+	H.revive()
+	addtimer(CALLBACK(H, PROC_REF(revive)), 30)
 
 /mob/living/simple_animal/borer/verb/secrete_chemicals()
 	set category = "Abilities"
@@ -481,9 +497,14 @@
 		return
 
 	to_chat(src, SPAN_NOTICE("You succeed in interfacing with the host's zona bovinae, this will be a painful process for them."))
-	host.awaken_psi_basic("something in your head")
-	host.psi.psi_points = 3 /// You don't get a lot at the start.
+	host.psi = new(host)
 	host.add_language(LANGUAGE_TCB) // if we don't have TCB, give them TCB | this allows monkey borers to RP
+	host.awaken_psi_basic("something in your head")
+	addtimer(CALLBACK(src, PROC_REF(set_starting_psi_points)), 4.7 SECONDS)
+
+/mob/living/simple_animal/borer/proc/set_starting_psi_points()
+	host.psi.psi_points = 3// You don't get a lot at the start.
+	host.psi.last_psionic_rank = host.psi.psionic_rank
 
 /mob/living/simple_animal/borer/verb/advance_psionics()
 	set category = "Abilities"

@@ -31,7 +31,7 @@
 /obj/outfit/admin/ert/scc/medic
 	name = "ERT Medical Specialist (SCC)"
 
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	back = /obj/item/rig/ert/scc/medical
 	r_hand = /obj/item/storage/firstaid/combat
 

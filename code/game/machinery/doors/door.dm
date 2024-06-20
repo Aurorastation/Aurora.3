@@ -209,9 +209,9 @@
 /obj/machinery/door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group) return !block_air_zones
 	if (istype(mover))
-		if(mover.checkpass(PASSGLASS))
+		if(mover.pass_flags & PASSGLASS)
 			return !opacity
-		if(density && hashatch && mover.checkpass(PASSDOORHATCH))
+		if(density && hashatch && mover.pass_flags & PASSDOORHATCH)
 			if (istype(mover, /mob/living/silicon/pai))
 				var/mob/living/silicon/pai/P = mover
 				if (allowed(P))

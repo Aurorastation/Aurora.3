@@ -910,7 +910,6 @@
 /obj/machinery/conveyor{
 	dir = 9;
 	id = "burzsia_mining";
-	layer = 2.9;
 	reversed = 1
 	},
 /turf/simulated/floor/plating,
@@ -1428,7 +1427,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "burzsia_mining";
-	layer = 2.9;
 	backwards = 1
 	},
 /turf/simulated/floor/plating,
@@ -1732,7 +1730,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "burzsia_mining";
-	layer = 2.9;
 	backwards = 1
 	},
 /obj/structure/railing/mapped,
@@ -1850,7 +1847,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "burzsia_mining";
-	layer = 2.9;
 	backwards = 1
 	},
 /obj/effect/floor_decal/industrial/warning/cee{

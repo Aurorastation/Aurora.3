@@ -21,3 +21,4 @@
 	screensaver_light_range = 1.4
 	screensaver_light_color = LIGHT_COLOR_WHITE
 	is_holographic = TRUE
+	pass_flags_self = PASSTABLE

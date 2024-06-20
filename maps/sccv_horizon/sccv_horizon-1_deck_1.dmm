@@ -1117,6 +1117,7 @@
 /area/engineering/atmos/propulsion)
 "aQN" = (
 /obj/machinery/firealarm/north,
+/obj/structure/cargo_receptacle/horizon,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "aRG" = (
@@ -2871,15 +2872,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/rnd/test_range)
-"ccU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "ccZ" = (
 /obj/item/material/shard{
 	icon_state = "small"
@@ -12495,10 +12487,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
-"iJJ" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "iJM" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 8;
@@ -15222,12 +15210,6 @@
 /obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled,
 /area/hangar/canary)
-"kAn" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "kAG" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/door/window/northleft{
@@ -15461,6 +15443,20 @@
 "kGf" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
+/area/hangar/intrepid)
+"kHa" = (
+/obj/item/tent,
+/obj/item/sleeping_bag,
+/obj/item/sleeping_bag,
+/obj/item/sleeping_bag,
+/obj/item/sleeping_bag,
+/obj/structure/closet/crate,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/folding_table,
+/turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "kHg" = (
 /obj/structure/cable/green{
@@ -19773,10 +19769,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"nzG" = (
-/obj/machinery/firealarm/south,
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "nAn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -21059,8 +21051,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
 "owJ" = (
-/obj/structure/cargo_receptacle/horizon,
-/turf/simulated/floor/tiled,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/sccv_horizon/ops_warehouse_small_storage,
+/turf/simulated/floor/plating,
 /area/operations/storage)
 "owM" = (
 /obj/structure/shuttle_part/scc/research{
@@ -21835,13 +21827,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
-"pcv" = (
-/obj/machinery/camera/network/supply{
-	c_tag = "Operations - Warehouse Starboard Aft Storage Room";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "pcw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -27799,6 +27784,7 @@
 	pixel_y = -2
 	},
 /obj/item/clothing/mask/breath,
+/obj/item/tent/big/scc,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/quarters)
 "tgR" = (
@@ -29208,6 +29194,7 @@
 /obj/item/material/hatchet/machete/steel,
 /obj/item/clothing/accessory/holster/utility/machete,
 /obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/tent/mining,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "ucG" = (
@@ -29237,6 +29224,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/item/tent/big/scc,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
 "udC" = (
@@ -30375,9 +30363,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "uTy" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm/west,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/plating,
 /area/operations/storage)
 "uTz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -45638,11 +45624,11 @@ hdK
 bmx
 fif
 qdE
-tiV
 uTy
-pcv
-giX
-tiV
+uTy
+uTy
+uTy
+owJ
 qdE
 tiV
 qQa
@@ -45841,11 +45827,11 @@ lVt
 vtn
 fif
 qdE
-owJ
-iJJ
-ccU
-kAn
-nzG
+uTy
+uTy
+uTy
+uTy
+uTy
 qdE
 aQN
 nCV
@@ -46044,11 +46030,11 @@ fif
 uCB
 fif
 qdE
-iQI
-giX
-sWr
-giX
-iQI
+uTy
+uTy
+uTy
+uTy
+uTy
 qdE
 iQI
 giX
@@ -57016,7 +57002,7 @@ aEl
 kLb
 qeD
 rPN
-iRC
+kHa
 iRC
 iRC
 iRC

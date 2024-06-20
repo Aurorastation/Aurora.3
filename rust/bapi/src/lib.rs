@@ -1,7 +1,11 @@
+// internal modules
+mod mapmanip;
+
 use byondapi::prelude::*;
+use eyre::{Context, ContextCompat};
 
 /// Call stack trace dm method with message.
-fn dm_call_stack_trace(msg: String) {
+pub(crate) fn dm_call_stack_trace(msg: String) {
     let msg = byondapi::value::ByondValue::try_from(msg).unwrap();
     byondapi::global_call::call_global_id(
         {
@@ -23,20 +27,13 @@ fn setup_panic_handler() {
     }))
 }
 
-/// Turns spacemandmm map object to string.
-pub fn map_to_string(map: &dmmtools::dmm::Map) -> eyre::Result<String> {
-    let mut v = vec![];
-    map.to_writer(&mut v)?;
-    let s = String::from_utf8(v)?;
-    Ok(s)
-}
-
 ///
 #[no_mangle]
 pub unsafe extern "C" fn read_dmm_file_ffi(
     argc: byondapi::sys::u4c,
     argv: *mut byondapi::value::ByondValue,
 ) -> byondapi::value::ByondValue {
+    setup_panic_handler();
     let args = unsafe { ::byondapi::parse_args(argc, argv) };
     match read_dmm_file(args.get(0).map(ByondValue::clone).unwrap_or_default()) {
         Ok(val) => val,
@@ -51,18 +48,48 @@ pub unsafe extern "C" fn read_dmm_file_ffi(
 fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
     setup_panic_handler();
 
-    let path: String = path.get_string()?;
-    let path: std::path::PathBuf = path.try_into()?;
+    let path: String = path
+        .get_string()
+        .wrap_err(format!("path arg is not a string: {:?}", path))?;
+    let path: std::path::PathBuf = path
+        .clone()
+        .try_into()
+        .wrap_err(format!("path arg is not a valid file path: {}", path))?;
 
-    // some checks, just return null if path is bad for whatever reason
+    // just return null if path is bad for whatever reason
     if !path.is_file() || !path.exists() {
         return Ok(ByondValue::null());
     }
 
     // read file and parse with spacemandmm
-    let dmm = dmmtools::dmm::Map::from_file(&path)?;
+    let mut dmm = dmmtools::dmm::Map::from_file(&path).wrap_err(format!(
+        "spacemandmm parsing error; dmm file path: {}; see error from spacemandmm below for more information",
+        path.display()
+    ))?;
 
-    // return the map converted to string
-    let str = map_to_string(&dmm)?;
-    Ok(ByondValue::new_str(str)?)
+    // do mapmanip if defined for this dmm
+    let path_mapmanip_config = {
+        let mut p = path.clone();
+        p.set_extension("jsonc");
+        p
+    };
+    if path_mapmanip_config.exists() {
+        // get path for dir of this dmm
+        let path_dir = path.parent().wrap_err("no parent")?;
+        // parse config
+        let config = crate::mapmanip::mapmanip_config_parse(&path_mapmanip_config).wrap_err(
+            format!("config parse fail; path: {:?}", path_mapmanip_config),
+        )?;
+        // do actual map manipulation
+        dmm = crate::mapmanip::mapmanip(path_dir, dmm, &config).wrap_err("mapmanip fail")?;
+    }
+
+    // convert the map back to a string
+    let dmm = crate::mapmanip::core::map_to_string(&dmm).wrap_err(format!(
+        "error in converting map back to string; dmm file path:dd {}",
+        path.display()
+    ))?;
+
+    // and return it
+    Ok(ByondValue::new_str(dmm)?)
 }

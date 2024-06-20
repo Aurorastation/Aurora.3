@@ -185,9 +185,8 @@
 	if (disabilities & COUGHING)
 		if ((prob(5) && paralysis <= 1))
 			drop_item()
-			spawn( 0 )
-				emote("cough")
-				return
+			emote("cough")
+			return
 
 	if((disabilities & ASTHMA) && getOxyLoss() >= 10)
 		if(prob(5))
@@ -944,13 +943,13 @@
 				// Add wound overlays
 				for(var/obj/item/organ/external/O in organs)
 					if(O.damage_state == "00") continue
-					var/cache_index = "[O.damage_state]/[O.icon_name]/[species.blood_color]/[species.get_bodytype()]"
+					var/cache_index = "[O.damage_state]/[O.icon_name]/[get_blood_color()]/[species.get_bodytype()]"
 					var/list/damage_icon_parts = SSicon_cache.damage_icon_parts
 					var/icon/DI = damage_icon_parts[cache_index]
 					if(!DI)
 						DI = new /icon(species.damage_overlays, O.damage_state)			// the damage icon for whole human
 						DI.Blend(new /icon(species.damage_mask, O.icon_name), ICON_MULTIPLY)	// mask with this organ's pixels
-						DI.Blend(species.blood_color, ICON_MULTIPLY)
+						DI.Blend(get_blood_color(), ICON_MULTIPLY)
 						damage_icon_parts[cache_index] = DI
 					health_images += DI
 					if(O.is_stump())
