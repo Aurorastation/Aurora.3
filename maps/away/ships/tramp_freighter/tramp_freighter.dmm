@@ -6059,7 +6059,7 @@
 "Fz" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/vending/boozeomat{
-	req_access = null
+	req_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/marble,
@@ -7521,7 +7521,7 @@
 /area/tramp_freighter/bridge)
 "Ny" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = null;
+	req_access = list(242);
 	name = "Sidearms"
 	},
 /obj/effect/floor_decal/industrial/outline/security,
@@ -9054,7 +9054,7 @@
 "Vl" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = null;
+	req_access = list(242);
 	name = "Longarms"
 	},
 /obj/item/gun/energy/rifle,
