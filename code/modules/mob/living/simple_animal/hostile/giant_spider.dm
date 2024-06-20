@@ -375,7 +375,8 @@
 		src.visible_message("\The [src] begins to secrete a sticky substance around \the [P].")
 		if(!do_after(src, 80))
 			return
-		if(P && isturf(get_turf(P)) && get_dist(src,P) <= 1)
+
+		if(P && isturf(P.loc) && get_dist(src, P) <= 1)
 			var/obj/effect/spider/cocoon/C = new(get_turf(P))
 			var/large_cocoon = FALSE
 			C.pixel_x = P.pixel_x
