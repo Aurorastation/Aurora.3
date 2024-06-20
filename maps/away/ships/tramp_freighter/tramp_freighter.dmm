@@ -85,7 +85,6 @@
 	desc = "A lightweight support lattice.";
 	icon = 'icons/obj/smooth/lattice.dmi';
 	icon_state = "lattice";
-	layer = 2.31;
 	name = "lattice"
 	},
 /obj/machinery/light{
@@ -355,8 +354,7 @@
 /area/tramp_freighter/mess)
 "em" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
@@ -666,7 +664,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -1109,7 +1106,6 @@
 	desc = "A lightweight support lattice.";
 	icon = 'icons/obj/smooth/lattice.dmi';
 	icon_state = "lattice";
-	layer = 2.31;
 	name = "lattice"
 	},
 /turf/simulated/floor/plating,
@@ -1895,7 +1891,6 @@
 "xu" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	layer = 2.8;
 	name = "Tank To Thrusters"
 	},
 /turf/simulated/floor/plating,
@@ -2089,7 +2084,6 @@
 /obj/item/bedsheet/blue,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/effect/ghostspawpoint{
@@ -3765,7 +3759,6 @@
 /obj/structure/bed,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/item/bedsheet/brown,

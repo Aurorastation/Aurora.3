@@ -5081,7 +5081,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/door/airlock/maintenance_hatch{
 	name = "Elevator Maintenance";
-	open_layer = 2.8;
 	req_access = list(12);
 	dir = 1
 	},

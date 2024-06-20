@@ -34,7 +34,6 @@
 "do" = (
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/structure/railing/mapped{
@@ -64,7 +63,6 @@
 "gU" = (
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
-	layer = 2.9;
 	dir = 10
 	},
 /obj/structure/railing/mapped{
@@ -118,7 +116,6 @@
 "kP" = (
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/structure/railing/mapped{
@@ -210,7 +207,6 @@
 "sT" = (
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/structure/railing/mapped,
@@ -243,7 +239,6 @@
 "uX" = (
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
-	layer = 2.9;
 	dir = 2
 	},
 /obj/structure/railing/mapped{
@@ -376,7 +371,6 @@
 "Gy" = (
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
-	layer = 2.9;
 	dir = 2
 	},
 /obj/structure/railing/mapped{
@@ -394,7 +388,6 @@
 /area/moghes_guild_mining)
 "Hl" = (
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 24
 	},
@@ -495,6 +488,14 @@
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
+/area/moghes_guild_mining)
+"Qh" = (
+/obj/structure/cargo_receptacle{
+	min_spawn = 0;
+	max_spawn = 2;
+	override_name = "Moghes - Miners' Guild Camp"
+	},
+/turf/simulated/floor/exoplanet/grass/moghes,
 /area/moghes_guild_mining)
 "QS" = (
 /obj/structure/bed,
@@ -606,7 +607,6 @@
 "Zj" = (
 /obj/machinery/conveyor{
 	id = "miners_guild_outpost";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/structure/railing/mapped,
@@ -1521,7 +1521,7 @@ IV
 Yl
 Yl
 IV
-IV
+Qh
 IV
 IV
 IV

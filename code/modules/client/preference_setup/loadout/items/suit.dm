@@ -122,24 +122,24 @@
 	display_name = "surgical apron"
 	path = /obj/item/clothing/accessory/apron/surgery
 	cost = 1
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
 
 /datum/gear/suit/medical_outerwear
 	display_name = "medical outerwear (jackets, vests, rigs)"
-	path = /obj/item/clothing/suit/storage/toggle/fr_jacket
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Medical Personnel")
+	path = /obj/item/clothing/suit/storage/toggle/para_jacket
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Medical Personnel")
 
 /datum/gear/suit/medical_outerwear/New()
 	..()
 	var/list/medical_outerwear = list()
 	medical_outerwear["medical chest-rig"] = /obj/item/clothing/suit/storage/medical_chest_rig
-	medical_outerwear["first responder jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket
+	medical_outerwear["paramedic jacket"] = /obj/item/clothing/suit/storage/toggle/para_jacket
 	gear_tweaks += new /datum/gear_tweak/path(medical_outerwear)
 
 /datum/gear/suit/iac_outerwear
 	display_name = "IAC outerwear (jackets, vests, rigs)"
 	path = /obj/item/clothing/suit/storage/hazardvest/iac
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Medical Personnel")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Medical Personnel")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/iac_outerwear/New()
@@ -291,13 +291,14 @@
 	dominiacape["white dominian cape, caladius"] = /obj/item/clothing/accessory/poncho/dominia_cape/caladius/white
 	dominiacape["dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao
 	dominiacape["white dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao/white
+	dominiacape["dominian cape, military"]	= /obj/item/clothing/accessory/poncho/dominia_cape/mantle
 	gear_tweaks += new /datum/gear_tweak/path(dominiacape)
 
 /datum/gear/suit/dominia_medical_cape
 	display_name = "tribunalist medical cape"
 	path = /obj/item/clothing/accessory/poncho/dominia_cape/hospital
 	flags = GEAR_HAS_DESC_SELECTION
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern")
 	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/suit/dominia
@@ -573,3 +574,9 @@
 	patterned_ponczo["brown patterned ponczo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo/brown
 	patterned_ponczo["blue patterned ponczo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo/blue
 	gear_tweaks += new /datum/gear_tweak/path(patterned_ponczo)
+
+/datum/gear/suit/gentlecoat
+	display_name = "gentlemans coat"
+	description = "A heavy threaded tweed gray jacket. For a different sort of Gentleman."
+	path = /obj/item/clothing/suit/storage/toggle/wizrobe/gentlecoat
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

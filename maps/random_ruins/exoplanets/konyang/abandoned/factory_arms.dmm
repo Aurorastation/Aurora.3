@@ -205,8 +205,7 @@
 /area/exoplanet/grass/konyang)
 "is" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/flat,
@@ -215,7 +214,6 @@
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /turf/simulated/floor/sidewalk/flat,
@@ -250,7 +248,6 @@
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /turf/simulated/floor/sidewalk/flat,
@@ -315,8 +312,7 @@
 /area/konyang/arms_factory)
 "lN" = (
 /obj/effect/decal/exterior_stairs/center{
-	dir = 8;
-	layer = 2.6
+	dir = 8
 	},
 /turf/simulated/floor/asphalt,
 /area/exoplanet/grass/konyang)
@@ -480,8 +476,7 @@
 	dir = 4
 	},
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/exoplanet/grass/konyang)
@@ -798,7 +793,6 @@
 	},
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -946,15 +940,13 @@
 /area/exoplanet/grass/konyang)
 "LU" = (
 /obj/effect/decal/exterior_stairs/left{
-	dir = 4;
-	layer = 2.01
+	dir = 4
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/exoplanet/grass/konyang)
 "Nc" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /turf/simulated/floor/sidewalk/flat,
@@ -1014,12 +1006,10 @@
 "Po" = (
 /obj/structure/flora/bush/konyang_reeds,
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /turf/simulated/floor/sidewalk/flat,
@@ -1078,7 +1068,6 @@
 "Se" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1133,12 +1122,9 @@
 /turf/simulated/floor/sidewalk/dark/detail,
 /area/konyang/arms_factory)
 "Uv" = (
-/obj/structure/ledge{
-	layer = 3
-	},
+/obj/structure/ledge,
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
@@ -1215,8 +1201,7 @@
 /area/exoplanet/grass/konyang)
 "Yd" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/exoplanet/grass/konyang)

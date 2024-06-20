@@ -12066,7 +12066,6 @@
 	id_tag = "research_inner";
 	locked = 1;
 	name = "Xenoarchaeology Internal Airlock";
-	open_layer = 2.8;
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -20812,22 +20811,22 @@
 /obj/item/storage/belt/medical{
 	pixel_y = -4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
 /obj/item/clothing/accessory/stethoscope,
@@ -32998,7 +32997,6 @@
 /obj/effect/decal/warning_stripes,
 /obj/machinery/door/window{
 	base_state = "right";
-	closed_layer = 4.1;
 	name = "Remote Mech Storage";
 	req_access = list(20)
 	},

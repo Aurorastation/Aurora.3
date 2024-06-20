@@ -2846,6 +2846,17 @@
 	glass_desc = "A hard-kicking cocktail, said to be invented in the better parts of Flagsdale."
 	glass_center_of_mass = list("x"=7, "y"=8)
 
+/singleton/reagent/drink/toothpaste/skyemok
+	name = "Skye'mok mead"
+	description = "A traditional mead produced by V'krexi fermentation of the Skye'mok fungus."
+	strength = 25
+	taste_description = "fresh, tangy, and lingering taste"
+	color = "#8ae5bf"
+	glass_icon_state = "skyemok_glass"
+	glass_name = "glass of Skye'mok"
+	glass_desc = "A plastic recipient meant to look like a V'krexi head full of a gooey fungus."
+	glass_center_of_mass = list("x"=14, "y"=8)
+
 /* Alcohol */
 
 // Basic

@@ -2135,7 +2135,6 @@
 	pixel_x = 7
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 5;
 	pixel_y = 21
 	},
@@ -2705,7 +2704,7 @@
 "kf" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/storage/belt/medical,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/hypospray,
@@ -6748,12 +6747,10 @@
 	dir = 5
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 5;
 	pixel_y = 23
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 5;
 	pixel_y = 34
 	},

@@ -1,0 +1,822 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"b" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"c" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"d" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/west,
+/obj/item/stack/material/steel/full,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"f" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/random/tech_supply,
+/obj/random/bomb_supply,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"g" = (
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"h" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/largecrate,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"i" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"j" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/random/junk,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"k" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/west,
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"l" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
+/obj/structure/trash_pile,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"m" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
+/obj/structure/table/rack,
+/obj/random/tech_supply,
+/obj/random/tool,
+/obj/random/loot,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"n" = (
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"p" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"q" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/trash_pile,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"u" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/item/stack/material/plastic/full,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"v" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
+/obj/item/stack/material/cardboard/full,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"w" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"x" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/item/stack/material/steel/full,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"y" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"A" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/wood/full,
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"B" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/trash_pile,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"C" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"E" = (
+/turf/template_noop,
+/area/space)
+"F" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/tool,
+/obj/random/toolbox,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tool,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"G" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"I" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"J" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"K" = (
+/obj/machinery/camera/network/supply{
+	c_tag = "Operations - Warehouse Starboard Aft Storage Room";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"L" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/random/tech_supply,
+/obj/random/loot,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"N" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"O" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/closet/crate/medical,
+/obj/random/firstaid,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"P" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"Q" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"R" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"S" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/trashcart,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"T" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/random/tech_supply,
+/obj/random/tool,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"U" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/west,
+/obj/structure/trash_pile,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"Y" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/structure/largecrate,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+"Z" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/trash_pile,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
+
+(1,1,1) = {"
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+"}
+(2,1,1) = {"
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+"}
+(3,1,1) = {"
+E
+E
+E
+G
+U
+K
+y
+l
+E
+E
+E
+G
+i
+K
+y
+w
+E
+E
+E
+"}
+(4,1,1) = {"
+E
+E
+E
+g
+a
+P
+Q
+n
+E
+E
+E
+g
+a
+P
+Q
+n
+E
+E
+E
+"}
+(5,1,1) = {"
+E
+E
+E
+B
+y
+J
+q
+R
+E
+E
+E
+b
+y
+J
+y
+b
+E
+E
+E
+"}
+(6,1,1) = {"
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+"}
+(7,1,1) = {"
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+"}
+(8,1,1) = {"
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+"}
+(9,1,1) = {"
+E
+E
+E
+G
+d
+K
+A
+v
+E
+E
+E
+p
+k
+K
+I
+w
+E
+E
+E
+"}
+(10,1,1) = {"
+E
+E
+E
+g
+a
+P
+Q
+n
+E
+E
+E
+g
+a
+P
+Q
+n
+E
+E
+E
+"}
+(11,1,1) = {"
+E
+E
+E
+u
+y
+J
+y
+x
+E
+E
+E
+c
+y
+J
+y
+c
+E
+E
+E
+"}
+(12,1,1) = {"
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+"}
+(13,1,1) = {"
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+"}
+(14,1,1) = {"
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+"}
+(15,1,1) = {"
+E
+E
+E
+G
+i
+K
+f
+m
+E
+E
+E
+G
+i
+K
+h
+w
+E
+E
+E
+"}
+(16,1,1) = {"
+E
+E
+E
+g
+a
+P
+Q
+n
+E
+E
+E
+g
+a
+P
+Q
+n
+E
+E
+E
+"}
+(17,1,1) = {"
+E
+E
+E
+L
+T
+J
+y
+b
+E
+E
+E
+Y
+h
+J
+y
+b
+E
+E
+E
+"}
+(18,1,1) = {"
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+"}
+(19,1,1) = {"
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+"}
+(20,1,1) = {"
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+"}
+(21,1,1) = {"
+E
+E
+E
+Z
+i
+K
+S
+w
+E
+E
+E
+O
+i
+K
+C
+w
+E
+E
+E
+"}
+(22,1,1) = {"
+E
+E
+E
+g
+a
+P
+Q
+n
+E
+E
+E
+g
+a
+P
+Q
+n
+E
+E
+E
+"}
+(23,1,1) = {"
+E
+E
+E
+b
+S
+J
+y
+j
+E
+E
+E
+N
+F
+J
+y
+b
+E
+E
+E
+"}
+(24,1,1) = {"
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+"}
+(25,1,1) = {"
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+E
+"}

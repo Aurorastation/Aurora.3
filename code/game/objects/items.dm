@@ -354,7 +354,7 @@
 	//Changed this switch to ranges instead of tiered values, to cope with granularity and also
 	//things outside its range ~Nanako
 
-	. = ..(user, distance, "", "It is a [size] item.")
+	. = ..(user, distance, "", "It is a [size] item.", get_extended = get_extended)
 	var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 	if(armor_component)
 		. += FONT_SMALL(SPAN_NOTICE("\[?\] This item has armor values. <a href=?src=\ref[src];examine_armor=1>\[Show Armor Values\]</a>"))
@@ -400,7 +400,7 @@
 	src.pickup(user)
 	if(S)
 		S.remove_from_storage(src)
-	src.throwing = 0
+	QDEL_NULL(throwing)
 	if (src.loc == user)
 		if(!user.prepare_for_slotmove(src))
 			return
@@ -449,7 +449,7 @@
 		else
 				return 0
 
-/obj/item/throw_impact(atom/hit_atom)
+/obj/item/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	if(isliving(hit_atom)) //Living mobs handle hit sounds differently.
 		var/mob/living/L = hit_atom
 		if(L.in_throw_mode)

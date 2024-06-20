@@ -31,6 +31,8 @@
 	attacktext = "chomped"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+
 	faction = "Moghes"
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 20)
 	sample_data = list("Cellular biochemistry shows high metabolic capacity", "Tissue sample contains high muscle content", "Genetic biomarkers identified linked with aggressiveness", "Intracellular keratin synthesis present")

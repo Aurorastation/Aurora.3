@@ -275,6 +275,13 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	volume = 100
 	reagents_to_add = list(/singleton/reagent/water = 100)
 
+/obj/item/reagent_containers/food/drinks/waterbottle/sedantis_water
+	name = "bottle of Sedantis Water"
+	desc = "Wow! It's water! From Sedantis! The Court of Queens' private reserve, it's 100% safe to drink."
+	desc_extended = "Sedantis Water is a brand of purified bottled water. According to marketing materials, Sedantis Water comes from the artesian aquifer Klox Vitu found in the Veii'kt Plate in Sedantis. \
+	It was hailed by the Hiveships and preserved for over 2000 years. A tiny disclaimer informs that each bottle is actually purified municipal water with 'droplets' of the Klox Vitu reserve."
+	icon_state = "sedantis_water"
+
 /obj/item/reagent_containers/food/drinks/sillycup
 	name = "paper cup"
 	desc = "A paper water cup."

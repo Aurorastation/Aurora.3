@@ -252,8 +252,6 @@
 	return
 
 /atom/proc/hitby(atom/movable/AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
-	if(density)
-		AM.throwing = 0
 	return
 
 /atom/proc/add_hiddenprint(mob/living/M)
@@ -418,7 +416,7 @@
 			M.dna.real_name = M.real_name
 		M.check_dna()
 		if (M.species)
-			blood_color = M.species.blood_color
+			blood_color = M.get_blood_color()
 	. = 1
 	return 1
 
@@ -484,9 +482,6 @@
 		return list("x"=cur_x,"y"=cur_y)
 	else
 		return 0
-
-/atom/proc/checkpass(passflag)
-	return pass_flags&passflag
 
 /atom/proc/isinspace()
 	if(istype(get_turf(src), /turf/space))
