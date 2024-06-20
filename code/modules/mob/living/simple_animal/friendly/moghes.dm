@@ -35,6 +35,7 @@
 		bullet = ARMOR_BALLISTIC_MINOR,
 		bomb = ARMOR_BOMB_MINOR
 	)
+	resists_weather = TRUE
 
 /mob/living/simple_animal/threshbeast/saddle
 	desc = "Large herbivorous reptiles native to Moghes, the azkrazal or 'threshbeast' is commonly used as a mount, beast of burden, or convenient food source by Unathi. They are highly valued for their speed and strength, capable of running at 30-42 miles per hour at top speed. This one has been fitted with a saddle."
@@ -84,6 +85,7 @@
 		laser = ARMOR_LASER_MINOR,
 		bomb = ARMOR_BOMB_MINOR
 	)
+	resists_weather = TRUE
 
 /mob/living/simple_animal/hostile/retaliate/hegeranzi/saddle
 	name = "warmount"
@@ -96,6 +98,7 @@
 	name = "orszi fish"
 	desc = "A small fish native to the rivers and seas of the planet Moghes, the orzsi or 'swarm fish' is a common food source for noble and common Unathi alike."
 	faction = "Moghes"
+	resists_weather = TRUE
 
 /mob/living/simple_animal/otzek
 	name = "otzek"
@@ -125,6 +128,7 @@
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 4)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 	meat_amount = 16
+	resists_weather = TRUE
 
 /mob/living/simple_animal/miervesh
 	name = "miervesh"
@@ -152,6 +156,7 @@
 	butchering_products = list(/obj/item/stack/material/animalhide = 1)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 	meat_amount = 1
+	resists_weather = TRUE
 	var/chosen_icon
 
 /mob/living/simple_animal/miervesh/Initialize()
