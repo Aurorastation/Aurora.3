@@ -7,3 +7,5 @@ changes:
   - bugfix: "Fixed tents having invisible walls inside of them."
   - bugfix: "Fixed ghosts being unable to see inside tents."
   - bugfix: "Fixed tent sprites to be 3/4th compliant."
+  - bugfix: "Fixed tent roofs not disappering when you disassemble one you are inside of."
+  - bugfix: "Fixed tent canvas not having a description."

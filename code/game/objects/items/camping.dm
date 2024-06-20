@@ -227,6 +227,8 @@
 
 /obj/structure/component/tent_canvas
 	name = "tent canvas"
+	desc = "The fabric and poles which make up the wall of a tent. Not air-tight, but able to keep out the weather, and very cozy."
+	desc_info = "Drag this to yourself to begin disassembly. This will take some time, in 4 stages. Others can start working on the other stages by dragging it, or other sections, to themselves as well."
 	icon = 'icons/obj/item/camping.dmi'
 	icon_state = "canvas"
 	item_state = "canvas"
@@ -254,7 +256,7 @@
 
 /obj/structure/component/tent_canvas/MouseDrop(over_object, src_location, over_location)
 	..()
-	if(use_check(usr) || !Adjacent(usr))
+	if(use_check(usr, USE_ALLOW_NON_ADJACENT)) // Allows non-adjacent because otherwise we can't assemble from outside due to density issues.
 		return
 	part_of.disassemble(2 SECONDS, usr, src)
 
