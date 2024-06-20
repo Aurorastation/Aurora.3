@@ -151,6 +151,9 @@
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/head/unathi/deco/dark/blue,
 /obj/item/device/versebook/thakh,
+/obj/item/clothing/accessory/poncho/red,
+/obj/item/clothing/accessory/poncho/red,
+/obj/item/clothing/accessory/poncho,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -1064,6 +1067,7 @@
 /obj/item/device/versebook/skakh,
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/under/unathi/mogazali/green,
+/obj/item/clothing/accessory/poncho,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -1258,20 +1262,6 @@
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
-"Pl" = (
-/obj/structure/closet/crate{
-	name = "footlocker"
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/item/device/geiger,
-/obj/item/clothing/accessory/poncho,
-/obj/item/clothing/glasses/safety/goggles/tactical/generic,
-/turf/simulated/floor/exoplanet/concrete/square{
-	temperature = 303.15
-	},
-/area/moghes/hegemony_wasteland)
 "Pr" = (
 /obj/effect/floor_decal/concrete,
 /obj/effect/floor_decal/concrete{
@@ -1379,20 +1369,6 @@
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/head/unathi/dark,
 /obj/item/device/versebook/thakh,
-/turf/simulated/floor/exoplanet/concrete/square{
-	temperature = 303.15
-	},
-/area/moghes/hegemony_wasteland)
-"Sx" = (
-/obj/structure/closet/crate{
-	name = "footlocker"
-	},
-/obj/machinery/light,
-/obj/item/device/geiger,
-/obj/item/clothing/accessory/poncho/unathimantle{
-	color = "#42330f"
-	},
-/obj/item/clothing/glasses/safety/goggles/tactical/generic,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
