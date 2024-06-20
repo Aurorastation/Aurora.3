@@ -340,7 +340,6 @@
 	path = /obj/item/clothing/accessory/shawl
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-
 /datum/gear/accessory/dogtags
 	display_name = "dogtags"
 	path = /obj/item/clothing/accessory/dogtags
