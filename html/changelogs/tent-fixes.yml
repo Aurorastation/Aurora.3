@@ -1,0 +1,9 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed tents not allowing assembly/disassembly by someone who was interrupted."
+  - bugfix: "Fixed tents having invisible walls inside of them."
+  - bugfix: "Fixed ghosts being unable to see inside tents."
+  - bugfix: "Fixed tent sprites to be 3/4th compliant."

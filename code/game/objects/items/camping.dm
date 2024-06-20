@@ -21,21 +21,27 @@
 	. = ..()
 	var/list/roofs = list()
 	for(var/obj/structure/component/tent_canvas/C in grouped_structures)
+		var/perspective_fix = FALSE // Used to make E/W facing even tents have similar perspective to odd ones
 		if(dir & (NORTH | SOUTH))
 			if(C.x == x1 || C.x == x2)
-				C.icon_state = "canvas_dir"
+				C.icon_state = "canvas_[get_location(C)]"
 			var/mid = Mean(x1, x2)
 			if(C.x < mid)
 				C.dir = WEST
 			else
 				C.dir = EAST
 		else
+			var/width = y2 - y1
 			if(C.y == y1 || C.y == y2)
-				C.icon_state = "canvas_dir"
+				C.icon_state = "canvas_[get_location(C)]"
+				if(C.y == y2) //Upper wall
+					C.layer = ABOVE_TILE_LAYER
 			var/mid = Mean(y1, y2)
 			if(C.y < mid)
 				C.dir = SOUTH
 			else
+				if(ISODD(width) && C.y == Ceil(mid)) // `width` is actually 1 less than the width, so we need to check if this is odd
+					perspective_fix = TRUE
 				C.dir = NORTH
 		var/obj/structure/component/tent_canvas/roof/roof = new /obj/structure/component/tent_canvas/roof(C.loc)
 		roofs += roof
@@ -43,7 +49,10 @@
 		roof.dir = C.dir
 		if(decal && C.x == x1 && C.y == y1)
 			roof.AddOverlays(overlay_image('icons/obj/item/tent_decals.dmi', decal, flags=RESET_COLOR))
-		roof.icon_state = "roof_[get_roof_type(C)]"
+		roof.icon_state = "roof_[get_location(C)]"
+		if(perspective_fix)
+			roof.AddOverlays(overlay_image(roof.icon, "[roof.icon_state]_p"))
+
 	grouped_structures += roofs
 
 /datum/large_structure/tent/structure_entered(turf/entry_point, atom/movable/entering)
@@ -65,27 +74,54 @@
 			roof_plane.alpha = 255
 
 /**
- * Determines roof state over each canvas structure
- * Returns `edge` for structures on the edge of the tent, so they don't cover the walls
- * Returns `mid` for structures in the centre of the tent, for odd number widths
+ * Determines the state to use for each section of the tent
+ * Returns `edge` for structures on the edge of the tent
+ * Returns `entrance_top` for structures acting as an entrance, at the north/east of the tent
+ * Returns `entrance_bot` for structures acting as an entrance, at the south/west of the tent
+ * Returns `edge_entrance_top` for structures on the edge of the tent, and acting as an entrance, at the north/east of the tent
+ * Returns `edge_entrance_bot` for structures on the edge of the tent, and acting as an entrance, at the south/west of the tent
+ * Returns `mid` for structures in the exact centre of the tent, for odd number widths
+ * Returns `mid_entrance_top` for structures in the exact centre of the tent, for odd number widths, acting as an entrance, at the north/east of the tent
+ * Returns `mid_entrance_bot` for structures in the exact centre of the tent, for odd number widths, acting as an entrance, at the south/west of the tent
  * Otherwise returns `norm` for other structures
  */
-/datum/large_structure/tent/proc/get_roof_type(var/obj/structure/component/tent_canvas/canvas)
+/datum/large_structure/tent/proc/get_location(var/obj/structure/component/tent_canvas/canvas)
 	var/edge1
 	var/edge2
-	var/axis
+	var/side_coord
+	var/top_coord
+	var/top_edge
+	var/bot_edge
 	if(dir & (NORTH | SOUTH))
 		edge1 = x1
 		edge2 = x2
-		axis = canvas.x
+		side_coord = canvas.x
+		top_edge = y2
+		bot_edge = y1
+		top_coord = canvas.y
 	else
 		edge1 = y1
 		edge2 = y2
-		axis = canvas.y
-	if(axis == edge1 || axis == edge2)
+		side_coord = canvas.y
+		top_edge = x2
+		bot_edge = x1
+		top_coord = canvas.x
+	if(side_coord == edge1 || side_coord == edge2)
+		if(top_coord == top_edge)
+			return "edge_entrance_top"
+		else if(top_coord == bot_edge)
+			return "edge_entrance_bot"
 		return "edge"
-	else if(axis == Mean(edge1, edge2))
+	else if(side_coord == Mean(edge1, edge2))
+		if(top_coord == top_edge)
+			return "mid_entrance_top"
+		else if(top_coord == bot_edge)
+			return "mid_entrance_bot"
 		return "mid"
+	else if(top_coord == top_edge)
+		return "entrance_top"
+	else if(top_coord == bot_edge)
+		return "entrance_bot"
 	return "norm"
 
 /obj/item/tent
@@ -202,7 +238,7 @@
 
 /obj/structure/component/tent_canvas/CanPass(atom/movable/mover, turf/target, height, air_group)
 	. = ..()
-	if(icon_state == "canvas")
+	if(icon_state in list("canvas", "canvas_mid", "canvas_entrance_top", "canvas_entrace_bot"))
 		return TRUE	//Non-directional, always allow passage
 	if(get_dir(loc, target) & dir)
 		return !density
@@ -210,7 +246,7 @@
 
 /obj/structure/component/tent_canvas/CheckExit(atom/movable/O, turf/target)
 	. = ..()
-	if(icon_state == "canvas")
+	if(icon_state in list("canvas", "canvas_mid", "canvas_entrance_top", "canvas_entrace_bot"))
 		return TRUE	//Non-directional, always allow passage
 	if(get_dir(O.loc, target) & dir)
 		return !density
@@ -222,8 +258,21 @@
 		return
 	part_of.disassemble(2 SECONDS, usr, src)
 
+/obj/structure/component/tent_canvas/Destroy() //When we're destroyed, make sure we return the roof plane to anyone inside
+	for(var/mob/M in loc)
+		var/atom/movable/renderer/roofs/roof_plane = M.renderers["[ROOF_PLANE]"]
+		if(roof_plane)
+			roof_plane.alpha = 255
+	return ..()
+
 /obj/structure/component/tent_canvas/roof
 	plane = ROOF_PLANE
+
+/obj/structure/component/tent_canvas/roof/CanPass(atom/movable/mover, turf/target, height, air_group)
+	return TRUE
+
+/obj/structure/component/tent_canvas/roof/CheckExit(atom/movable/O, turf/target)
+	return TRUE
 
 //Pre-fabricated tents for mapping
 /obj/effect/tent
