@@ -38613,10 +38613,6 @@
 	density = 1
 	},
 /area/centcom/shared_dream)
-"tBK" = (
-/obj/item/reagent_containers/food/snacks/fluff/taffy/pink,
-/turf/template_noop,
-/area/template_noop)
 "tCd" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
@@ -76658,7 +76654,7 @@ aaa
 aaa
 aaa
 aaa
-tBK
+aaa
 aaa
 aaa
 aaa
