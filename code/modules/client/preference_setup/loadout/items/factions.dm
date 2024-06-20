@@ -445,10 +445,11 @@
 
 /datum/gear/faction/wildlands_flagpatches
 	display_name = "wildlands flagpatch selection"
-	description = "A selection of flagpatches from the now defunct groups of the Human Wildlands."
+	description = "A selection of flagpatches from the defunct groups of the Human Wildlands."
 	path = /obj/item/clothing/accessory/flagpatch/fsf
 	slot = slot_tie
 	faction = "Private Military Contracting Group"
+	allowed_roles = list("Physician", "Surgeon", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Medical Personnel", "Security Cadet", "Security Officer", "Investigator", "Warden", "Security Personnel",  "Bridge Crew")
 	flags = null
 
 /datum/gear/faction/wildlands_flagpatches/New()
