@@ -211,7 +211,7 @@
 	ambient_sounds = list('sound/effects/weather/sandstorm.ogg')
 
 /singleton/state/weather/sandstorm/handle_exposure_effects(mob/living/M, obj/abstract/weather_system/weather)
-	if((istype(M, /mob/living/simple_animal) && M.resists_weather) || M.get_species(FALSE) == SPECIES_MONKEY_UNATHI) //Not realistic that they're just immune, but we don't have AI for simplemobs seeking shelter from storms.
+	if(M.resists_weather) //Not realistic that they're just immune, but we don't have AI for simplemobs seeking shelter from storms.
 		return
 	else if(isvaurca(M)) //Bugs have sealed carapaces
 		to_chat(M, SPAN_WARNING("Your carapace protects you from the stinging sand!"))

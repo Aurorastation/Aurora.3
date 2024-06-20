@@ -156,9 +156,6 @@
 	var/dead_on_map = FALSE //if true, kills the mob when it spawns (it is for mapping)
 	var/vehicle_version = null
 
-	///If true, ignores weather effects
-	var/resists_weather = FALSE
-
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor
 	bite_factor = mob_size * 0.3
