@@ -109,7 +109,7 @@
 	set category = "Object"
 	set name = "Eject Primer"
 
-	if(isobserver(usr) || (usr.stat != CONSCIOUS))
+	if(use_check(usr))
 		return
 
 	if(!primer)
