@@ -251,10 +251,10 @@
 	name = "destination tagger"
 	desc = "Used to set the destination of properly wrapped packages."
 	icon_state = "dest_tagger"
+	item_state = "dest_tagger"
 	var/currTag = 0
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
 	w_class = ITEMSIZE_SMALL
-	item_state = "electronic"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 
