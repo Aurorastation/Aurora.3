@@ -128,9 +128,6 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"You should watch Tasting History with Max Miller",
 		"You should listen to ghost chat, who always have your best interests at heart.",
 		"As an Assunzionii, breaking spaghetti in half is both a moral sin and against the law.",
-		"As a Gadpathurian, be slightly more normal.",
-		"As a Solarian, be slightly more normal.",
-		"As a Dominian, be slightly more normal",
 		"As an Eridian, you have the second best lingo in lore. Its blue sky writing, or some milk.",
 		"As a Colonial Marine, you're probably on the wrong server. Oorah?"
 	)
@@ -240,7 +237,7 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"As a Security Officer, your sechuds or HUDsunglasses can not only see crewmates' job assignments and criminal status, but also if they have a mindshield implant. Use this to your advantage in a revolution to definitively tell who is on your side!",
 		"As a Security Officer, examining someone while wearing sechuds or HUDsunglasses will let you set their arrest level.",
 		"As a Security Officer, you're not here to kill your coworkers. Try non lethal ammo and weapons first.",
-		"As a Security Officer, you can stun people without doing brute damage, by attacking with the help intent. You can do both stun and do brute damage by attacking on harm intent.",
+		"Using your Officer issue stun baton, you can either stun by attacking someone with it on help intent. Or, both stun and brute damage by attacking on harm intent.",
 		"As a Security Officer, try to go talk to people! Don't just sit in the lobby, go build a rapport.",
 		"As the Investigator, you can dust almost any surface for prints. People leave fingerprints on everywhere they touch unless they are wearing gloves. However, as gloves leave fibres specific to their type, such as black or nitrile, it is possible to guess what general department they come from.",
 		"As the Investigator, you're not just solving violent crimes. Try solving other crimes, too!"
