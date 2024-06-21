@@ -47,7 +47,9 @@
 
 	valid_prosthetics = list(PROSTHETIC_VAURCA, PROSTHETIC_VAURCA_WARRIOR)
 
-
+	tail = "No Gaster"
+	tail_animation = 'icons/mob/species/vaurca/tail.dmi'
+	selectable_tails = list("No Gaster", "Gaster")
 
 /datum/species/bug/type_c
 	name = SPECIES_VAURCA_BREEDER
