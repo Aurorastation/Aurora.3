@@ -68,8 +68,7 @@
 	var/atom/cocoon_target
 	poison_type = /singleton/reagent/soporific
 	var/fed = 0
-	smart_melee = FALSE
-
+	
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant
 	name = "greimorian servant"
 	desc = "A greimorian with a startling intelligence to its bulbous yellow eyes. Its needle-like mandibles look like they could easily punch through armor - or flesh."
