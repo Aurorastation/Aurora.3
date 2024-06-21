@@ -439,13 +439,18 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/random/pottedplant,
 /turf/simulated/floor/wood,
 /area/tramp_freighter/captain_bed)
 "cl" = (
 /obj/machinery/cryopod,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/cobweb2,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
 "cn" = (
@@ -708,13 +713,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
 	},
 /turf/simulated/floor/wood,
 /area/tramp_freighter/captain_bed)
@@ -1692,7 +1697,7 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
 "iU" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -2406,11 +2411,17 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "mS" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/effect/floor_decal/carpet{
 	dir = 8
 	},
-/obj/structure/undies_wardrobe,
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 10
+	},
+/obj/item/storage/secure/safe{
+	pixel_x = -32
+	},
+/turf/simulated/floor/carpet,
 /area/tramp_freighter/captain_bed)
 "mT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2538,26 +2549,18 @@
 /turf/simulated/floor,
 /area/tramp_freighter/hydroponics)
 "nE" = (
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c1000,
-/obj/item/spacecash/c1000,
-/obj/item/spacecash/c1000,
-/obj/item/spacecash/c1000,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
+/obj/machinery/light_switch{
+	dir = 8;
+	pixel_x = -24
 	},
-/obj/structure/closet/cabinet,
-/obj/item/clothing/suit/armor/material/makeshift/trenchcoat,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/wood,
 /area/tramp_freighter/captain_bed)
 "nG" = (
-/obj/effect/floor_decal/spline/plain/brown{
+/obj/effect/floor_decal/spline/plain/grey{
 	dir = 5
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -2843,7 +2846,7 @@
 	pixel_y = 6;
 	pixel_x = 4
 	},
-/obj/effect/floor_decal/spline/plain/brown{
+/obj/effect/floor_decal/spline/plain/grey{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -4250,7 +4253,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
 "vH" = (
-/obj/effect/floor_decal/spline/plain/brown{
+/obj/effect/floor_decal/spline/plain/grey{
 	dir = 9
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -4297,11 +4300,11 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/structure/bed/stool/chair/office/dark{
-	dir = 4
-	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/structure/bed/stool/chair/padded/brown{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/tramp_freighter/captain_bed)
@@ -4373,7 +4376,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
 "wm" = (
 /obj/machinery/disposal/deliveryChute{
@@ -5329,13 +5332,22 @@
 	dir = 9;
 	pixel_y = 0
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
+	},
+/obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	pixel_x = -4;
+	pixel_y = 12
+	},
+/obj/random/coin{
+	pixel_x = 7;
+	pixel_y = -2
+	},
+/obj/random/spacecash{
+	pixel_x = -5
 	},
 /turf/simulated/floor/wood,
 /area/tramp_freighter/captain_bed)
@@ -5734,14 +5746,29 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/disposals)
 "Dx" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
-	},
-/obj/machinery/light_switch{
-	pixel_y = 30;
+/obj/structure/closet/cabinet,
+/obj/effect/floor_decal/carpet{
 	dir = 1
 	},
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 5
+	},
+/obj/item/clothing/suit/armor/material/makeshift/trenchcoat,
+/obj/item/device/flash,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c500,
+/obj/item/storage/secure/briefcase,
+/turf/simulated/floor/carpet,
 /area/tramp_freighter/captain_bed)
 "Dy" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -5921,7 +5948,7 @@
 	pixel_y = 7;
 	pixel_x = -4
 	},
-/obj/effect/floor_decal/spline/plain/brown{
+/obj/effect/floor_decal/spline/plain/grey{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -6313,10 +6340,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/obj/random/pottedplant_small{
-	pixel_x = -4;
-	pixel_y = 10
-	},
 /obj/random/lavalamp{
 	pixel_y = 5;
 	pixel_x = 6
@@ -6329,7 +6352,14 @@
 	pixel_x = -6;
 	pixel_y = -4
 	},
-/obj/item/pen,
+/obj/item/pen{
+	pixel_y = 17;
+	pixel_x = -4
+	},
+/obj/item/paper_bin{
+	pixel_x = -5;
+	pixel_y = 18
+	},
 /turf/simulated/floor/wood,
 /area/tramp_freighter/captain_bed)
 "Hf" = (
@@ -6682,7 +6712,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
 "Jm" = (
 /obj/structure/lattice/catwalk,
@@ -6694,18 +6724,21 @@
 /turf/space/dynamic,
 /area/space)
 "Jn" = (
-/obj/effect/floor_decal/spline/fancy/wood{
+/obj/effect/floor_decal/carpet{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 6
+	},
+/turf/simulated/floor/carpet,
 /area/tramp_freighter/captain_bed)
 "Jo" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
 "Jp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6726,7 +6759,7 @@
 /area/tramp_freighter/afthallway)
 "Jw" = (
 /obj/machinery/cryopod,
-/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/crew_quarters)
@@ -6823,25 +6856,31 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
 "JZ" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/alarm/north{
+	req_one_access = list(242)
 	},
 /obj/structure/bed,
 /obj/item/bedsheet/rd{
 	desc = "A surprisingly soft linen bedsheet.";
 	name = "fancy bedsheet"
 	},
-/obj/machinery/light{
-	dir = 8
-	},
 /obj/effect/ghostspawpoint{
 	identifier = "freighter_crew_captain";
 	name = "igs - freight captain"
 	},
-/obj/machinery/alarm/north{
-	req_one_access = list(242)
+/obj/effect/floor_decal/carpet{
+	dir = 1
 	},
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 9
+	},
+/turf/simulated/floor/carpet,
 /area/tramp_freighter/captain_bed)
 "Ka" = (
 /obj/machinery/light,
@@ -9498,13 +9537,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
 "Xp" = (
-/obj/effect/floor_decal/spline/plain/brown{
+/obj/effect/floor_decal/spline/plain/grey{
 	dir = 10
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/tramp_freighter/crew_quarters)
 "Xw" = (
-/obj/effect/floor_decal/spline/plain/brown{
+/obj/effect/floor_decal/spline/plain/grey{
 	dir = 6
 	},
 /turf/simulated/floor/carpet/rubber,
