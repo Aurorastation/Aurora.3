@@ -462,7 +462,7 @@
 	display_name = "Skakh robes selection"
 	path = /obj/item/clothing/under/unathi/skakh
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
@@ -479,6 +479,6 @@
 	display_name = "Siakh robes"
 	path = /obj/item/clothing/under/unathi/siakh
 	cost = 1
-	whitelisted = list(SPECIES_UNATHI, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
