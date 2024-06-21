@@ -19,9 +19,9 @@
 	name = "Zazalai Caverns"
 	icon_state = "bluenew"
 	lighting = FALSE
-	base_turf = /turf/simulated/floor/exoplanet/mineral
+	base_turf = /turf/simulated/floor/exoplanet/barren/warm
 	ambience = AMBIENCE_RUINS
-	area_flags = AREA_FLAG_RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
 	area_blurb = "The caverns are dark and quiet, a merciful reprise from the Wasteland outside."
 
 /area/new_blades/underground/aquifer
@@ -45,6 +45,10 @@
 	name = "Wasteland Ruins"
 	requires_power = TRUE
 	area_blurb = "Though a ruined shell, this building appears somewhat intact. A potential shelter, should the weather turn."
+
+/area/new_blades/interiors/ruins/hegemony_spaceport
+	name = "Abandoned Spaceport"
+	area_blurb = "The buildings here are ancient and rusting - a monument to the war that left this world sundered and bleeding."
 
 /area/new_blades/interiors/ruins/hegemony_base
 	name = "Abandoned Base"
