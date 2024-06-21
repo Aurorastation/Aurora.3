@@ -44,6 +44,7 @@
 	move_to_delay = 6
 	speed = 3
 	mob_size = 6
+	smart_melee = FALSE
 
 	attacktext = "bitten"
 	attack_emote = "skitters toward"
@@ -67,6 +68,7 @@
 	var/atom/cocoon_target
 	poison_type = /singleton/reagent/soporific
 	var/fed = 0
+	smart_melee = FALSE
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant
 	name = "greimorian servant"
