@@ -415,7 +415,7 @@
 /area/tramp_freighter/cargo)
 "bY" = (
 /obj/effect/shuttle_landmark/freighter_shuttle/transit,
-/turf/space,
+/turf/space/transit/east,
 /area/space)
 "bZ" = (
 /obj/structure/cable/green{
@@ -5799,7 +5799,7 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/custodial)
 "DP" = (
-/turf/space,
+/turf/space/transit/east,
 /area/space)
 "DQ" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -7673,7 +7673,7 @@
 /area/tramp_freighter/starboard_docking_processing)
 "Ov" = (
 /obj/effect/step_trigger/teleporter,
-/turf/space,
+/turf/space/transit/east,
 /area/space)
 "Ox" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
