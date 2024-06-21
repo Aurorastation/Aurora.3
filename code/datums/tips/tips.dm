@@ -125,7 +125,6 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"Extended voters always win, the game was rigged from the start.",
 		"#BringBackVirology",
 		"You are not Literally Him, you're just dehydrated.",
-		"You should watch Tasting History with Max Miller",
 		"You should listen to ghost chat, who always have your best interests at heart.",
 		"As an Assunzionii, breaking spaghetti in half is both a moral sin and against the law.",
 		"As an Eridian, you have the second best lingo in lore. Its blue sky writing, or some milk.",
