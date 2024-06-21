@@ -3975,6 +3975,7 @@
 #include "maps\away\ships\tramp_freighter\tramp_freighter.dm"
 #include "maps\away\ships\tramp_freighter\tramp_freighter_areas.dm"
 #include "maps\away\ships\tramp_freighter\tramp_freighter_ghostroles.dm"
+#include "maps\away\ships\tramp_freighter\tramp_freighter_landmarks.dm"
 #include "maps\away\ships\unathi_pirate\hiskyn\unathi_pirate_hiskyn.dm"
 #include "maps\away\ships\unathi_pirate\hiskyn\unathi_pirate_hiskyn_areas.dm"
 #include "maps\away\ships\unathi_pirate\hiskyn\unathi_pirate_hiskyn_ghostroles.dm"
