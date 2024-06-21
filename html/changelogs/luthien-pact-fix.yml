@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - bugfix: "The Aut'akh Luthien Pact origin is now correctly selectable."
