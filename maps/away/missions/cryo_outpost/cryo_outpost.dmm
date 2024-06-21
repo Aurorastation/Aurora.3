@@ -6092,6 +6092,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
+"jwo" = (
+/obj/effect/ghostspawpoint/storyteller,
+/turf/simulated/floor/tiled,
+/area/cryo_outpost/outside/cave)
 "jwF" = (
 /obj/item/crowbar{
 	pixel_x = 14;
@@ -52588,7 +52592,7 @@ pgW
 pgW
 pgW
 pgW
-pgW
+jwo
 pgW
 aGb
 aGb

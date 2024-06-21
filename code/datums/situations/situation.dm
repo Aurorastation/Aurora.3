@@ -24,10 +24,6 @@
 	var/min_player_amount = 8
 	/// The minimum amount of actors we want to spawn in this situation.
 	var/min_actor_amount = 1
-	/// The minimum amount of storytellers we want to spawn in this situation.
-	var/min_storyteller_amount = 0
-	/// The maximum amount of storytellers we want to spawn in this situation.
-	var/max_storyteller_amount = 1
 
 	/// The title for the message sent to the Horizon at roundstart.
 	var/horizon_announcement_title = "Central Command Situation Report"
@@ -69,5 +65,6 @@
 /obj/effect/landmark/actor_landmark
 	name = "Actor Spawn Landmark"
 
-/obj/effect/landmark/storyteller_landmark
+/obj/effect/ghostspawpoint/storyteller
 	name = "Storyteller Landmark"
+	identifier = "storyteller"

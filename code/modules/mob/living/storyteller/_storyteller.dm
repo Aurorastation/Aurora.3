@@ -135,3 +135,14 @@
 /mob/abstract/eye/storyteller
 	name = "Storyteller Eye"
 	see_invisible = SEE_INVISIBLE_OBSERVER
+
+/datum/ghostspawner/storyteller
+	name = "Storyteller"
+	desc = "Tell your story to the world."
+	tags = list("Odyssey")
+	loc_type = GS_LOC_POS
+	enabled = FALSE
+
+	show_on_job_select = TRUE
+	landmark_name = "storyteller"
+	spawn_mob = /mob/living/storyteller

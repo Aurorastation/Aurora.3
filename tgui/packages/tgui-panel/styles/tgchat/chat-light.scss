@@ -652,6 +652,11 @@ h2.alert {
     @extend .examine_block;
     border-color: #0a5c47;
   }
+
+  &--odyssey {
+    @extend .examine_block;
+    border-color: #0077ff;
+  }
 }
 
 .examine_block .icon {
