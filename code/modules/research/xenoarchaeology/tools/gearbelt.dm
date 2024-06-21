@@ -21,7 +21,7 @@
 		/obj/item/photo,
 		/obj/item/folder,
 		/obj/item/pen,
-		/obj/item/reagent_containers/glass/beaker
+		/obj/item/reagent_containers/glass/beaker,
 		/obj/item/clipboard,
 		/obj/item/anodevice,
 		/obj/item/clothing/glasses,
