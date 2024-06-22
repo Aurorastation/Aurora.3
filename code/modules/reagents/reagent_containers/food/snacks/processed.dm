@@ -17,10 +17,10 @@
 	bitesize = 12
 	filling_color = "#ADAC7F"
 	center_of_mass = list("x"=16, "y"=14)
-	desc_extended = "The manufacture of a cubed animal is limited to a select few and has deleterious effects on the ones in question. Higher brain functions are all but destroyed \
-	and the life expectancy of the animal is greatly reduced, with most expiring only a few days after introduction with water. The practice is not without controversy and the \
+	desc_extended = "The manufacture of a cubed animal produces subjects that are similar but have marked differences compared to their ordinary cousins. Higher brain functions are all but destroyed \
+	and the life expectancy of the cubed animal is greatly reduced, with most expiring only a few days after introduction with water. The practice is not without controversy and the \
 	use of cubed animals is highly regulated. They are typically used in circumstances where the safety of a regular animal can't be guaranteed. Those who use them should always \
-	remember that they are still alive and should be treated humanely."
+	remember that they are still alive and should be treated as humanely as possible."
 
 	var/wrapped = 0
 	var/monkey_type = SPECIES_MONKEY
@@ -66,10 +66,10 @@
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "monkeycubewrap"
 	wrapped = 1
-	desc_extended = "The manufacture of a cubed animal is limited to a select few and has deleterious effects on the ones in question. Higher brain functions are all but destroyed \
-	and the life expectancy of the animal is greatly reduced, with most expiring only a few days after introduction with water. The practice is not without controversy and the \
+	desc_extended = "The manufacture of a cubed animal produces subjects that are similar but have marked differences compared to their ordinary cousins. Higher brain functions are all but destroyed \
+	and the life expectancy of the cubed animal is greatly reduced, with most expiring only a few days after introduction with water. The practice is not without controversy and the \
 	use of cubed animals is highly regulated. They are typically used in circumstances where the safety of a regular animal can't be guaranteed. Those who use them should always \
-	remember that they are still alive and should be treated humanely."
+	remember that they are still alive and should be treated as humanely as possible."
 
 /obj/item/reagent_containers/food/snacks/monkeycube/farwacube
 	name = "farwa cube"

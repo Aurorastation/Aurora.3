@@ -623,10 +623,10 @@
 /obj/item/storage/box/monkeycubes
 	name = "monkey cube box"
 	desc = "Drymate brand monkey cubes. Just add water!"
-	desc_extended = "The manufacture of a cubed animal is limited to a select few and has deleterious effects on the ones in question. Higher brain functions are all but destroyed \
-	and the life expectancy of the animal is greatly reduced, with most expiring only a few days after introduction with water. The practice is not without controversy and the \
+	desc_extended = "The manufacture of a cubed animal produces subjects that are similar but have marked differences compared to their ordinary cousins. Higher brain functions are all but destroyed \
+	and the life expectancy of the cubed animal is greatly reduced, with most expiring only a few days after introduction with water. The practice is not without controversy and the \
 	use of cubed animals is highly regulated. They are typically used in circumstances where the safety of a regular animal can't be guaranteed. Those who use them should always \
-	remember that they are still alive and should be treated humanely."
+	remember that they are still alive and should be treated as humanely as possible."
 	icon_state = "monkeycubebox"
 	can_hold = list(/obj/item/reagent_containers/food/snacks/monkeycube)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped = 5)
