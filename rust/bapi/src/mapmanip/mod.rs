@@ -3,6 +3,7 @@ pub mod tools;
 
 pub use core::GridMap;
 use eyre::Context;
+use eyre::ContextCompat;
 use rand::seq::SliceRandom;
 use serde::{Deserialize, Serialize};
 
@@ -58,9 +59,13 @@ pub fn mapmanip(
                 );
 
                 // get the submaps map
-                let submaps_dmm: std::path::PathBuf = submaps_dmm.try_into().unwrap();
+                let submaps_dmm: std::path::PathBuf =
+                    submaps_dmm.try_into().wrap_err("invalid path")?;
                 let submaps_dmm = map_dir_path.join(submaps_dmm);
-                let submaps_map = GridMap::from_file(&submaps_dmm).unwrap();
+                let submaps_map = GridMap::from_file(&submaps_dmm).wrap_err(format!(
+                    "can't read and parse submap dmm: {}",
+                    submaps_dmm.display()
+                ))?;
 
                 // find all the extract markers
                 let mut marker_extract_coords = vec![];
@@ -82,10 +87,13 @@ pub fn mapmanip(
                 for insert_coord in marker_insert_coords {
                     let extract_coord = *marker_extract_coords
                         .choose(&mut rand::thread_rng())
-                        .unwrap();
-                    let extracted =
-                        tools::extract_sub_map(&submaps_map, extract_coord, submap_size);
-                    tools::insert_sub_map(&extracted, insert_coord, &mut map);
+                        .wrap_err("no extract markers")?;
+
+                    let extracted = tools::extract_submap(&submaps_map, extract_coord, submap_size)
+                        .wrap_err("submap extraction failed")?;
+
+                    tools::insert_submap(&extracted, insert_coord, &mut map)
+                        .wrap_err("submap insertion failed")?;
                 }
             }
         }
