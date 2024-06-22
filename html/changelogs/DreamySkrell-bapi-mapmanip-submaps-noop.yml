@@ -4,4 +4,5 @@ author: DreamySkrell
 delete-after: True
 
 changes:
-  - rscadd: "BAPI - mapmanip insert/extract noop handling."
+  - rscadd: "BAPI - mapmanip submap noop handling."
+  - rscadd: "BAPI - mapmanip submap repeat setting."
