@@ -405,9 +405,7 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/captains_spare
 	name = "captain's spare identification card"
 	desc = "A captain's spare identification card."
-	icon_state = "gold"
-	item_state = "gold_id"
-	overlay_state = "gold"
+	icon_state = "captain_card"
 	registered_name = "Captain"
 	assignment = "Captain"
 
