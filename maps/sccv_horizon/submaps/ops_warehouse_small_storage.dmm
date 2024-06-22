@@ -10,12 +10,12 @@
 /turf/template_noop,
 /area/template_noop)
 "d" = (
-/obj/structure/table/rack,
+/obj/structure/table/rack/no_cargo,
 /obj/item/stack/material/steel/full,
 /turf/template_noop,
 /area/template_noop)
 "f" = (
-/obj/structure/table/rack,
+/obj/structure/table/rack/no_cargo,
 /obj/random/tech_supply,
 /obj/random/bomb_supply,
 /turf/template_noop,
@@ -35,7 +35,7 @@
 /area/template_noop)
 "m" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/structure/table/rack,
+/obj/structure/table/rack/no_cargo,
 /obj/random/tech_supply,
 /obj/random/tool,
 /obj/random/loot,
@@ -52,13 +52,13 @@
 /turf/template_noop,
 /area/template_noop)
 "u" = (
-/obj/structure/table/rack,
+/obj/structure/table/rack/no_cargo,
 /obj/item/stack/material/plastic/full,
 /turf/template_noop,
 /area/template_noop)
 "v" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/structure/table/rack,
+/obj/structure/table/rack/no_cargo,
 /obj/item/stack/material/cardboard/full,
 /turf/template_noop,
 /area/template_noop)
@@ -67,7 +67,7 @@
 /turf/template_noop,
 /area/template_noop)
 "A" = (
-/obj/structure/table/rack,
+/obj/structure/table/rack/no_cargo,
 /obj/item/stack/material/wood/full,
 /turf/template_noop,
 /area/template_noop)
@@ -96,14 +96,14 @@
 /turf/template_noop,
 /area/template_noop)
 "L" = (
-/obj/structure/table/rack,
+/obj/structure/table/rack/no_cargo,
 /obj/random/tech_supply,
 /obj/random/bomb_supply,
 /obj/random/loot,
 /turf/template_noop,
 /area/template_noop)
 "N" = (
-/obj/structure/table/rack,
+/obj/structure/table/rack/no_cargo,
 /obj/random/tech_supply,
 /obj/random/tech_supply,
 /turf/template_noop,
@@ -131,7 +131,7 @@
 /turf/template_noop,
 /area/template_noop)
 "T" = (
-/obj/structure/table/rack,
+/obj/structure/table/rack/no_cargo,
 /obj/random/tech_supply,
 /obj/random/tool,
 /turf/template_noop,
