@@ -14,7 +14,7 @@ mod test;
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum MapManipulation {
-    InsertExtract {
+    SubmapExtractInsert {
         submap_size_x: i64,
         submap_size_y: i64,
         submaps_dmm: String,
@@ -43,7 +43,7 @@ pub fn mapmanip(
     // go through all the manipulations in `.jsonc` config for this `.dmm`
     for manipulation in config {
         match manipulation {
-            MapManipulation::InsertExtract {
+            MapManipulation::SubmapExtractInsert {
                 submap_size_x,
                 submap_size_y,
                 submaps_dmm,
