@@ -4,13 +4,13 @@ pub mod tools;
 pub use core::GridMap;
 use eyre::Context;
 use eyre::ContextCompat;
-use rand::seq::SliceRandom;
+use rand::prelude::IteratorRandom;
 use serde::{Deserialize, Serialize};
 
 #[cfg(test)]
 mod test;
 
-/// foobar
+///
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum MapManipulation {
@@ -20,6 +20,7 @@ pub enum MapManipulation {
         submaps_dmm: String,
         marker_extract: String,
         marker_insert: String,
+        submaps_can_repeat: bool,
     },
 }
 
@@ -48,6 +49,7 @@ pub fn mapmanip(
                 submaps_dmm,
                 marker_extract,
                 marker_insert,
+                submaps_can_repeat,
             } => {
                 let submap_size = dmmtools::dmm::Coord2::new(
                     (*submap_size_x)
@@ -67,7 +69,7 @@ pub fn mapmanip(
                     submaps_dmm.display()
                 ))?;
 
-                // find all the extract markers
+                // find all the submap extract markers
                 let mut marker_extract_coords = vec![];
                 for (coord, tile) in submaps_map.grid.iter() {
                     if tile.prefabs.iter().any(|p| p.path == *marker_extract) {
@@ -85,13 +87,26 @@ pub fn mapmanip(
 
                 // do all the extracts-inserts
                 for insert_coord in marker_insert_coords {
-                    let extract_coord = *marker_extract_coords
+                    // pick a submap
+                    let (extract_coord_index, extract_coord) = marker_extract_coords
+                        .iter()
+                        .cloned()
+                        .enumerate()
                         .choose(&mut rand::thread_rng())
-                        .wrap_err("no extract markers")?;
+                        .wrap_err(
+                            "can't pick a submap to extract/insert, no more extract markers; all used up, or there were none in the first place",
+                        )?;
 
+                    // if submaps should not be repeating, remove this one from the list
+                    if !submaps_can_repeat {
+                        marker_extract_coords.remove(extract_coord_index);
+                    }
+
+                    // extract that submap from the submap dmm
                     let extracted = tools::extract_submap(&submaps_map, extract_coord, submap_size)
                         .wrap_err("submap extraction failed")?;
 
+                    // and insert the submap into the manipulated map
                     tools::insert_submap(&extracted, insert_coord, &mut map)
                         .wrap_err("submap insertion failed")?;
                 }
