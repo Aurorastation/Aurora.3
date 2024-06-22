@@ -392,6 +392,16 @@ var/const/NO_EMAG_ACT = -50
 	access = get_all_station_access() | get_all_centcom_access()
 	..()
 
+/obj/item/card/id/command
+	desc = "A high-tech holocard displaying the credentials of a Command member."
+	icon_state = "command_card"
+/obj/item/card/id/command/captain
+	desc = "A high-tech holocard displaying the commanding credentials of a ship captain."
+	icon_state = "captain_card"
+/obj/item/card/id/command/bridge
+	desc = "A high-tech holocard displaying the lowly credentials of a Bridge Crewman."
+	icon_state = "bridge_card"
+
 /obj/item/card/id/captains_spare
 	name = "captain's spare identification card"
 	desc = "A captain's spare identification card."
@@ -447,7 +457,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/centcom
 	name = "\improper CentCom identification card"
-	desc = "An ID straight from CentCom."
+	desc = "A high-tech holocard displaying the commanding credentials of a Central Command official."
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	registered_name = "Central Command"
@@ -459,7 +469,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/ccia
 	name = "\improper CentCom. Internal Affairs identification card"
-	desc = "An ID straight from CentCom. Internal Affairs."
+	desc = "A high-tech holocard displaying the blood-chilling credentials of an Internal Affairs agent."
 	icon_state = "ccia"
 	overlay_state = "ccia"
 	drop_sound = /singleton/sound_category/generic_drop_sound
@@ -472,7 +482,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/ccia/bssb
 	name = "\improper Biesel Security Services Bureau identification card"
-	desc = "An ID straight from the Biesel Security Services Bureau."
+	desc = "A synthleather ID straight from the Biesel Security Services Bureau."
 	icon_state = "bssb"
 
 /obj/item/card/id/ert
@@ -500,7 +510,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/distress
 	name = "\improper Freelancer Mercenary identification card"
-	icon_state = "centcom"
+	icon_state = "data"
 	assignment = "Freelancer Mercenary"
 
 /obj/item/card/id/distress/New()
@@ -509,16 +519,17 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/distress/fsf
 	name = "\improper Free Solarian Fleets identification card"
-	icon_state = "centcom"
+	icon_state = "data"
 	assignment = "Free Solarian Fleets Marine"
 
 /obj/item/card/id/distress/kataphract
 	name = "\improper Kataphract identification card"
-	icon_state = "centcom"
+	icon_state = "data"
 	assignment = "Kataphract"
 
 /obj/item/card/id/distress/legion
 	name = "\improper Tau Ceti Foreign Legion identification card"
+	desc = "An old-fashioned, practical plastic card. Cheaply produced for Tau Ceti's finest."
 	assignment = "Tau Ceti Foreign Legion Volunteer"
 	icon_state = "legion"
 
