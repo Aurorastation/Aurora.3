@@ -76,7 +76,11 @@
 
 		src.help_up_offer = 0
 
-/mob/living/carbon/relaymove(var/mob/living/user, direction)
+/mob/living/carbon/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if((user in contents) && istype(user))
 		if(user.last_special <= world.time)
 			user.last_special = world.time + 50

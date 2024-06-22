@@ -6,16 +6,33 @@
 	density = 1
 	anchored = 1
 	idle_power_usage = 75
-	var/mob/occupant = null
+	/**
+	 * The `/mob/living` that is currently occupying the charger
+	 */
+	var/mob/living/occupant = null
+
+	/**
+	 * The `/obj/item/cell` that is currently inside the charger
+	 */
 	var/obj/item/cell/cell = null
+
 	var/icon_update_tick = 0	// Used to rebuild the overlay only once every 10 ticks
-	var/charging = 0
-	var/charging_efficiency = 1.3//Multiplier applied to all operations of giving power to cells, represents entropy. Efficiency increases with upgrades
-	var/charging_power			// W. Power rating drawn from internal cell to recharge occupant's cell 60 kW unupgraded
-	var/restore_power_active	// W. Power drawn from APC to recharge internal cell when an occupant is charging. 40 kW if un-upgraded
-	var/restore_power_passive	// W. Power drawn from APC to recharge internal cell when idle. 7 kW if un-upgraded
-	var/weld_rate = 0			// How much brute damage is repaired per tick
-	var/wire_rate = 0			// How much burn damage is repaired per tick
+
+	///Multiplier applied to all operations of giving power to cells, represents entropy, efficiency increases with upgrades
+	var/charging_efficiency = 1.3
+
+	///Watts, Power rating drawn from internal cell to recharge occupant's cell 60 kW unupgraded
+	var/charging_power
+
+	///Watts, Power drawn from APC to recharge internal cell when an occupant is charging. 40 kW if un-upgraded
+	var/restore_power_active
+	///Watts, Power drawn from APC to recharge internal cell when idle. 7 kW if un-upgraded
+	var/restore_power_passive
+
+	///How much brute damage is repaired per second
+	var/weld_rate = 0
+	///How much burn damage is repaired per second
+	var/wire_rate = 0
 
 	var/weld_power_use = 2300	// power used per point of brute damage repaired. 2.3 kW ~ about the same power usage of a handheld arc welder
 	var/wire_power_use = 500	// power used per point of burn damage repaired.
@@ -32,10 +49,15 @@
 	. = ..()
 	update_icon()
 
+/obj/machinery/recharge_station/Destroy()
+	QDEL_NULL(cell)
+
+	. = ..()
+
 /obj/machinery/recharge_station/proc/has_cell_power()
 	return cell && cell.percent() > 0
 
-/obj/machinery/recharge_station/process()
+/obj/machinery/recharge_station/process(seconds_per_tick)
 	if(stat & (BROKEN))
 		return
 	if(!cell) // Shouldn't be possible, but sanity check
@@ -49,13 +71,13 @@
 
 	//First, draw from the internal power cell to recharge/repair/etc the occupant
 	if(occupant)
-		process_occupant()
+		process_occupant(seconds_per_tick)
 
 	//Then, if external power is available, recharge the internal cell
 	var/recharge_amount = 0
 	if(!(stat & NOPOWER))
 		// Calculating amount of power to draw
-		recharge_amount = (occupant ? restore_power_active : restore_power_passive) * CELLRATE
+		recharge_amount = (occupant ? restore_power_active : restore_power_passive) * CELLRATE * seconds_per_tick
 
 		recharge_amount = cell.give(recharge_amount*charging_efficiency)
 		use_power_oneoff(recharge_amount / CELLRATE)
@@ -71,7 +93,7 @@
 		update_icon()
 
 //Processes the occupant, drawing from the internal power cell if needed.
-/obj/machinery/recharge_station/proc/process_occupant()
+/obj/machinery/recharge_station/proc/process_occupant(seconds_per_tick = 1)
 	if(!isrobot(occupant) && !ishuman(occupant))
 		return
 
@@ -80,14 +102,14 @@
 		var/mob/living/silicon/robot/R = occupant
 
 		if(R.module)
-			R.module.respawn_consumable(R, charging_power * CELLRATE / 250) //consumables are magical, apparently
+			R.module.respawn_consumable(R, charging_power * CELLRATE * seconds_per_tick / 250) //consumables are magical, apparently
 		target = R.cell
 
 		//Lastly, attempt to repair the cyborg if enabled
-		if(weld_rate && R.getBruteLoss() && cell.checked_use(weld_power_use * weld_rate * CELLRATE))
-			R.adjustBruteLoss(-weld_rate)
-		if(wire_rate && R.getFireLoss() && cell.checked_use(wire_power_use * wire_rate * CELLRATE))
-			R.adjustFireLoss(-wire_rate)
+		if(weld_rate && R.getBruteLoss() && cell.checked_use(weld_power_use * weld_rate * CELLRATE * seconds_per_tick))
+			R.adjustBruteLoss(-weld_rate * seconds_per_tick)
+		if(wire_rate && R.getFireLoss() && cell.checked_use(wire_power_use * wire_rate * CELLRATE * seconds_per_tick))
+			R.adjustFireLoss(-wire_rate * seconds_per_tick)
 
 	if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
@@ -100,7 +122,7 @@
 				target = R.cell
 
 	if(target && !target.fully_charged())
-		var/diff = min(target.maxcharge - target.charge, charging_power * CELLRATE) // Capped by charging_power / tick
+		var/diff = min(target.maxcharge - target.charge, charging_power * CELLRATE * seconds_per_tick) // Capped by charging_power / tick
 		var/charge_used = cell.use(diff)
 		target.give(charge_used*charging_efficiency)
 
@@ -119,7 +141,11 @@
 		return 0
 	return cell.percent()
 
-/obj/machinery/recharge_station/relaymove(mob/user as mob)
+/obj/machinery/recharge_station/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if(user.stat)
 		return
 	go_out()
@@ -215,10 +241,11 @@
 	if(icon_update_tick == 0)
 		build_overlays()
 
-/obj/machinery/recharge_station/CollidedWith(var/mob/living/silicon/robot/R)
-	go_in(R)
+/obj/machinery/recharge_station/CollidedWith(atom/movable/AM)
+	if(isliving(AM))
+		go_in(AM)
 
-/obj/machinery/recharge_station/proc/go_in(var/mob/M)
+/obj/machinery/recharge_station/proc/go_in(mob/living/M)
 	if(occupant)
 		return
 	if(!hascell(M))
@@ -230,9 +257,12 @@
 	M.reset_view(src)
 	occupant = M
 	update_icon()
-	return 1
+	return TRUE
 
 /obj/machinery/recharge_station/proc/hascell(var/mob/M)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
 	if(isrobot(M))
 		var/mob/living/silicon/robot/R = M
 		if(R.cell)
@@ -251,7 +281,7 @@
 	if(!occupant)
 		return
 
-	occupant.forceMove(loc)
+	occupant.forceMove(get_turf(src))
 	occupant.reset_view()
 	occupant = null
 	update_icon()
@@ -268,27 +298,6 @@
 	else
 		to_chat(usr, SPAN_DANGER("Cancelled loading [R] into the charger. You and [R] must stay still!"))
 	return
-
-/obj/machinery/recharge_station/verb/move_eject()
-	set category = "Object"
-	set name = "Eject Recharger"
-	set src in oview(1)
-
-	if(usr.incapacitated())
-		return
-
-	go_out()
-	add_fingerprint(usr)
-	return
-
-/obj/machinery/recharge_station/verb/move_inside()
-	set category = "Object"
-	set name = "Enter Recharger"
-	set src in oview(1)
-
-	if(!usr.incapacitated())
-		return
-	go_in(usr)
 
 /obj/machinery/recharge_station/MouseDrop_T(atom/dropping, mob/user)
 	if (istype(dropping, /mob/living/silicon/robot))
