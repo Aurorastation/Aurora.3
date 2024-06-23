@@ -49,48 +49,50 @@
 		color = coloration
 	excavation_level = rand(5,50)
 
-/obj/structure/boulder/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/device/core_sampler))
+/obj/structure/boulder/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/device/core_sampler))
 		src.geologic_data.artifact_distance = rand(-100,100) / 100
 		src.geologic_data.artifact_id = artifact_find.artifact_id
 
-		var/obj/item/device/core_sampler/C = W
+		var/obj/item/device/core_sampler/C = attacking_item
 		C.sample_item(src, user)
 		return
 
-	if (istype(W, /obj/item/device/depth_scanner))
-		var/obj/item/device/depth_scanner/C = W
+	if (istype(attacking_item, /obj/item/device/depth_scanner))
+		var/obj/item/device/depth_scanner/C = attacking_item
 		C.scan_atom(user, src)
 		return
 
-	if (istype(W, /obj/item/device/measuring_tape))
-		var/obj/item/device/measuring_tape/P = W
-		user.visible_message("<span class='notice'>[user] extends [P] towards [src].</span>","<span class='notice'>You extend [P] towards [src].</span>")
+	if (istype(attacking_item, /obj/item/device/measuring_tape))
+		var/obj/item/device/measuring_tape/P = attacking_item
+		user.visible_message(SPAN_NOTICE("[user] extends [P] towards [src]."),
+								SPAN_NOTICE("You extend [P] towards [src]."))
+
 		if(do_after(user,40))
-			to_chat(user, "<span class='notice'>[icon2html(P, user)] [src] has been excavated to a depth of [2*src.excavation_level]cm.</span>")
+			to_chat(user, SPAN_NOTICE("[icon2html(P, user)] [src] has been excavated to a depth of [2*src.excavation_level]cm."))
 		return
 
-	if (istype(W, /obj/item/pickaxe))
-		var/obj/item/pickaxe/P = W
+	if (istype(attacking_item, /obj/item/pickaxe))
+		var/obj/item/pickaxe/P = attacking_item
 
 		if(last_act + P.digspeed > world.time)//prevents message spam
 			return
 		last_act = world.time
 
-		to_chat(user, "<span class='warning'>You start [P.drill_verb] [src].</span>")
+		to_chat(user, SPAN_WARNING("You start [P.drill_verb] [src]."))
 
 
 
 		if(!do_after(user,P.digspeed))
 			return
 
-		to_chat(user, "<span class='notice'>You finish [P.drill_verb] [src].</span>")
+		to_chat(user, SPAN_NOTICE("You finish [P.drill_verb] [src]."))
 		excavation_level += P.excavation_amount
 
 		if(excavation_level > 100)
 			//failure
-			user.visible_message("<span class='warning'><b>[src] suddenly crumbles away.</b></span>",\
-			"<span class='warning'>[src] has disintegrated under your onslaught, any secrets it was holding are long gone.</span>")
+			user.visible_message(SPAN_WARNING("<b>[src] suddenly crumbles away.</b>"),\
+			SPAN_WARNING("[src] has disintegrated under your onslaught, any secrets it was holding are long gone."))
 			qdel(src)
 			return
 
@@ -103,10 +105,10 @@
 					var/obj/machinery/artifact/X = O
 					if(X.my_effect)
 						X.my_effect.artifact_id = artifact_find.artifact_id
-				src.visible_message("<span class='warning'><b>[src] suddenly crumbles away.</b></span>")
+				src.visible_message(SPAN_WARNING("<b>[src] suddenly crumbles away.</b>"))
 			else
-				user.visible_message("<span class='warning'><b>[src] suddenly crumbles away.</b></span>",\
-				"<span class='notice'>[src] has been whittled away under your careful excavation, but there was nothing of interest inside.</span>")
+				user.visible_message(SPAN_WARNING("<b>[src] suddenly crumbles away.</b>"),\
+				SPAN_NOTICE("[src] has been whittled away under your careful excavation, but there was nothing of interest inside."))
 			qdel(src)
 
 /obj/structure/boulder/CollidedWith(AM)

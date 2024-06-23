@@ -277,7 +277,7 @@ var/global/list/wire_name_directory = list()
 	return UI_CLOSE
 
 /datum/wires/ui_state(mob/user)
-	return physical_state
+	return GLOB.physical_state
 
 
 /datum/wires/ui_interact(mob/user, datum/tgui/ui)

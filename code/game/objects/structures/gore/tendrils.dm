@@ -18,7 +18,6 @@
 	desc = "Clumped up flesh, pulsating in rhythm with the tendrils that surround it."
 	icon_state = "tendril_node"
 	density = TRUE
-	layer = ABOVE_CABLE_LAYER + 0.2
 	maxHealth = 150
 	light_range = NODERANGE
 	light_color = LIGHT_COLOR_EMERGENCY
@@ -133,7 +132,9 @@
 			health -= maxHealth / 5
 	healthcheck()
 
-/obj/structure/gore/tendrils/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/structure/gore/tendrils/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(exposed_temperature > 300 + T0C)
 		health -= 5
 		healthcheck()

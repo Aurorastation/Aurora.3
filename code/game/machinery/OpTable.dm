@@ -4,6 +4,7 @@
 	desc_info = "Click your target with Grab intent, then click on the table with an empty hand, to place them on it."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table2-idle"
+	pass_flags_self = PASSTABLE
 	density = TRUE
 	anchored = TRUE
 	use_power = POWER_USE_IDLE
@@ -118,9 +119,9 @@
 
 	patient.reset_view(null)
 
-/obj/machinery/optable/examine(var/mob/user)
+/obj/machinery/optable/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("The neural suppressors are switched [suppressing ? "on" : "off"]."))
+	. += SPAN_NOTICE("The neural suppressors are switched [suppressing ? "on" : "off"].")
 
 /obj/machinery/optable/ex_act(severity)
 	switch(severity)
@@ -161,17 +162,6 @@
 		suppressing = !suppressing
 		user.visible_message(SPAN_NOTICE("\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor."), intent_message = BUTTON_FLICK)
 		playsound(loc, /singleton/sound_category/switch_sound, 50, 1)
-
-/obj/machinery/optable/CanPass(atom/movable/mover, turf/target, height = 0, air_group = 0)
-	if(air_group || (height == 0))
-		return FALSE
-
-	return istype(mover) && mover.checkpass(PASSTABLE)
-
-/obj/machinery/optable/MouseDrop_T(obj/O, mob/user)
-	if(istype(O, /obj/item))
-		user.drop_from_inventory(O,get_turf(src))
-	..()
 
 /**
  * Refreshes the icon state based on the table status
@@ -221,7 +211,7 @@
 			if(stat & NOPOWER)
 				return FALSE
 
-			src.use_power_oneoff(2 KILOWATTS)
+			src.use_power_oneoff(2 KILO WATTS)
 
 			//Set it to unwillful sleep
 			occupant_resolved.Sleeping(3.5*seconds_per_tick)
@@ -271,6 +261,9 @@
 	return TRUE
 
 /obj/machinery/optable/MouseDrop_T(atom/dropping, mob/user)
+	if(istype(dropping, /obj/item))
+		user.drop_from_inventory(dropping, get_turf(src))
+
 	var/mob/living/carbon/patient = dropping
 	//No point if it's not a possible patient
 	if(!istype(patient))

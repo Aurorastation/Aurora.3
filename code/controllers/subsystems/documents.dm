@@ -2,7 +2,7 @@ SUBSYSTEM_DEF(docs)
 	name = "Documents"
 	wait = 30 SECONDS
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 
 	var/total_docs = 0
 	var/list/docs = list()

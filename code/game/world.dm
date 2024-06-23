@@ -9,6 +9,7 @@
 */
 GLOBAL_DATUM_INIT(init, /datum/global_init, new)
 GLOBAL_DATUM(config, /datum/configuration)
+GLOBAL_VAR(motd)
 GLOBAL_PROTECT(config)
 
 /**
@@ -87,8 +88,12 @@ GLOBAL_PROTECT(config)
 	GLOB.diary_date_string = time2text(world.realtime, "YYYY/MM/DD")
 	GLOB.href_logfile = file("data/logs/[GLOB.diary_date_string] hrefs.htm")
 	GLOB.diary = "data/logs/[GLOB.diary_date_string]_[GLOB.round_id].log"
+
+	var/latest_changelog = file("html/changelogs/archive/" + time2text(world.timeofday, "YYYY-MM") + ".yml")
+	GLOB.changelog_hash = fexists(latest_changelog) ? md5(latest_changelog) : 0 //for telling if the changelog has changed recently
+
 	log_startup()
-	GLOB.changelog_hash = md5('html/changelog.html')					//used for telling if the changelog has changed recently
+	load_motd()
 
 	if(GLOB.config.logsettings["log_runtime"])
 		GLOB.diary_runtime = file("data/logs/_runtime/[GLOB.diary_date_string]-runtime.log")
@@ -517,5 +522,8 @@ var/list/world_api_rate_limit = list()
 	if (dll)
 		call_ext(dll, "auxtools_init")()
 		enable_debugging()
+
+/world/proc/load_motd()
+	GLOB.motd = file2text("config/motd.txt")
 
 #undef FAILED_DB_CONNECTION_CUTOFF

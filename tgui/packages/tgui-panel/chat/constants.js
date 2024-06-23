@@ -4,8 +4,6 @@
  * @license MIT
  */
 
-export const MAX_VISIBLE_MESSAGES = 2500;
-export const MAX_PERSISTED_MESSAGES = 1000;
 export const MESSAGE_SAVE_INTERVAL = 10000;
 export const MESSAGE_PRUNE_INTERVAL = 60000;
 export const COMBINE_MAX_MESSAGES = 5;
@@ -60,7 +58,7 @@ export const MESSAGE_TYPES = [
     name: 'Radio',
     description: 'All departments of radio messages',
     selector:
-      '.alert, .minorannounce, .syndradio, .centradio, .aiprivradio, .comradio, .entradio, .hailradio, .shipradio, .secradio, .engradio, .medradio, .sciradio, .supradio, .srvradio, .radio, .deptradio, .binarysay, .newscaster, .alien, .changeling, .coalitionradio',
+      '.alert, .minorannounce, .syndradio, .centradio, .aiprivradio, .comradio, .entradio, .hailradio, .shipradio, .secradio, .engradio, .medradio, .sciradio, .supradio, .srvradio, .radio, .deptradio, .binarysay, .newscaster, .alien, .changeling, .coalitionradio, .expradio',
   },
   {
     type: MESSAGE_TYPE_INFO,

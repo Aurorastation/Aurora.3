@@ -2,6 +2,7 @@
 	name = "shuttle control console"
 	icon_screen = "shuttle"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 
 	var/shuttle_tag      // Used to coordinate data in shuttle controller.
@@ -27,14 +28,14 @@
 		PH.linked_console = null
 	return ..()
 
-/obj/machinery/computer/shuttle_control/attackby(obj/item/I, user)
-	if(istype(I, /obj/item/clothing/head/helmet/pilot))
-		var/obj/item/clothing/head/helmet/pilot/PH = I
-		if(I in linked_helmets)
-			to_chat(user, SPAN_NOTICE("You unlink \the [I] from \the [src]."))
+/obj/machinery/computer/shuttle_control/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/clothing/head/helmet/pilot))
+		var/obj/item/clothing/head/helmet/pilot/PH = attacking_item
+		if(attacking_item in linked_helmets)
+			to_chat(user, SPAN_NOTICE("You unlink \the [attacking_item] from \the [src]."))
 			PH.set_console(null)
 		else
-			to_chat(user, SPAN_NOTICE("You link \the [I] to \the [src]."))
+			to_chat(user, SPAN_NOTICE("You link \the [attacking_item] to \the [src]."))
 			PH.set_console(src)
 			PH.set_hud_maptext("Shuttle Status: [get_shuttle_status(SSshuttle.shuttles[shuttle_tag])]")
 		return

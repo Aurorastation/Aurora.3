@@ -84,8 +84,9 @@ Class Procs:
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
 	w_class = ITEMSIZE_IMMENSE
-	layer = OBJ_LAYER - 0.1
+	layer = STRUCTURE_LAYER
 	init_flags = INIT_MACHINERY_PROCESS_SELF
+	pass_flags_self = PASSMACHINE | LETPASSCLICKS
 
 	var/stat = 0
 	var/emagged = 0
@@ -129,6 +130,9 @@ Class Procs:
 	var/manufacturer = null
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
+	//Stupid macro used in power usage
+	CAN_BE_REDEFINED(TRUE)
+
 	. = ..()
 	if(d)
 		set_dir(d)
@@ -156,6 +160,9 @@ Class Procs:
 			RefreshParts()
 
 /obj/machinery/Destroy()
+	//Stupid macro used in power usage
+	CAN_BE_REDEFINED(TRUE)
+
 	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_ALL)
 	SSmachinery.machinery -= src
 
@@ -170,10 +177,10 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/examine(mob/user, distance, is_adjacent)
+/obj/machinery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(signaler && is_adjacent)
-		to_chat(user, SPAN_WARNING("\The [src] has a hidden signaler attached to it."))
+		. += SPAN_WARNING("\The [src] has a hidden signaler attached to it.")
 
 // /obj/machinery/proc/process_all()
 // 	/* Uncomment this if/when you need component processing
@@ -220,19 +227,26 @@ Class Procs:
 				return
 	return
 
-/proc/is_operable(var/obj/machinery/M, var/mob/user)
-	return istype(M) && M.operable()
+/**
+ * Check to see if the machine is operable
+ *
+ * * `additional_flags` - Additional flags to check for, that could have been added to the `stat` variable
+ *
+ * Returns `TRUE` if the machine is operable, `FALSE` otherwise
+ */
+/obj/machinery/proc/operable(additional_flags = 0)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 
-/obj/machinery/proc/operable(var/additional_flags = 0)
-	return !inoperable(additional_flags)
-
-/obj/machinery/proc/inoperable(var/additional_flags = 0)
-	return (stat & (NOPOWER|BROKEN|additional_flags))
+	if(stat & (NOPOWER|BROKEN|additional_flags))
+		return FALSE
+	else
+		return TRUE
 
 /obj/machinery/proc/toggle_power(power_set = -1, additional_flags = 0)
 	if(power_set >= 0)
 		update_use_power(power_set)
-	else if (use_power || inoperable(additional_flags))
+	else if (use_power || !operable(additional_flags))
 		update_use_power(POWER_USE_OFF)
 	else
 		update_use_power(initial(use_power))
@@ -271,13 +285,13 @@ Class Procs:
 		return src.attack_hand(user)
 
 /obj/machinery/attack_hand(mob/user as mob)
-	if(inoperable(MAINT))
+	if(!operable(MAINT))
 		return 1
 	if(user.lying || user.stat)
 		return 1
 	if ( ! (istype(usr, /mob/living/carbon/human) || \
 			istype(usr, /mob/living/silicon)))
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(usr, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return 1
 /*
 	//distance checks are made by atom/proc/DblClick
@@ -287,30 +301,30 @@ Class Procs:
 	if (ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.getBrainLoss() >= 60)
-			visible_message("<span class='warning'>[H] stares cluelessly at [src] and drools.</span>")
+			visible_message(SPAN_WARNING("[H] stares cluelessly at [src] and drools."))
 			return 1
 		else if(prob(H.getBrainLoss()))
-			to_chat(user, "<span class='warning'>You momentarily forget how to use [src].</span>")
+			to_chat(user, SPAN_WARNING("You momentarily forget how to use [src]."))
 			return 1
 
 	src.add_fingerprint(user)
 
 	return ..()
 
-/obj/machinery/attackby(obj/item/W, mob/user)
+/obj/machinery/attackby(obj/item/attacking_item, mob/user)
 	if(obj_flags & OBJ_FLAG_SIGNALER)
-		if(issignaler(W))
+		if(issignaler(attacking_item))
 			if(signaler)
 				to_chat(user, SPAN_WARNING("\The [src] already has a signaler attached."))
 				return TRUE
-			var/obj/item/device/assembly/signaler/S = W
-			user.drop_from_inventory(W, src)
+			var/obj/item/device/assembly/signaler/S = attacking_item
+			user.drop_from_inventory(attacking_item, src)
 			signaler = S
 			S.machine = src
 			user.visible_message("<b>[user]</b> attaches \the [S] to \the [src].", SPAN_NOTICE("You attach \the [S] to \the [src]."), range = 3)
 			log_and_message_admins("has attached a signaler to \the [src].", user, get_turf(src))
 			return TRUE
-		else if(W.iswirecutter() && signaler)
+		else if(attacking_item.iswirecutter() && signaler)
 			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] from \the [src]."), range = 3)
 			user.put_in_hands(detach_signaler())
 			return TRUE
@@ -367,7 +381,7 @@ Class Procs:
 	playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0) //TODO: Check if that one is the correct sound
 
 /obj/machinery/proc/shock(mob/user, prb)
-	if(inoperable())
+	if(!operable())
 		return 0
 	if(!prob(prb))
 		return 0
@@ -393,9 +407,9 @@ Class Procs:
 /obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/S)
 	if(!istype(S) || !S.isscrewdriver())
 		return FALSE
-	playsound(src.loc, S.usesound, 50, 1)
+	S.play_tool_sound(get_turf(src), 50)
 	panel_open = !panel_open
-	to_chat(user, "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>")
+	to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance hatch of [src]."))
 	update_icon()
 	return TRUE
 
@@ -423,7 +437,7 @@ Class Procs:
 						component_parts -= G
 						component_parts += B
 						B.forceMove(src)
-						to_chat(user, "<span class='notice'>[G.name] replaced with [B.name].</span>")
+						to_chat(user, SPAN_NOTICE("[G.name] replaced with [B.name]."))
 						break
 		for(var/obj/item/stock_parts/A in component_parts)
 			for(var/D in CB.req_components)
@@ -439,13 +453,13 @@ Class Procs:
 						component_parts -= A
 						component_parts += B
 						B.forceMove(src)
-						to_chat(user, "<span class='notice'>[A.name] replaced with [B.name].</span>")
+						to_chat(user, SPAN_NOTICE("[A.name] replaced with [B.name]."))
 						parts_replaced = TRUE
 						break
 		RefreshParts()
 		update_icon()
 	else
-		to_chat(user, "<span class='notice'>The following parts have been detected in \the [src]:</span>")
+		to_chat(user, SPAN_NOTICE("The following parts have been detected in \the [src]:"))
 		to_chat(user, counting_english_list(component_parts))
 	if(parts_replaced) //only play sound when RPED actually replaces parts
 		playsound(src, 'sound/items/rped.ogg', 40, TRUE)

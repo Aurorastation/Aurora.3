@@ -92,31 +92,6 @@
 	if(!istype(M) || user.a_intent == I_HURT)
 		return FALSE
 
-	var/static/list/safety_check_exceptions = list(
-		/obj/item/auto_cpr,
-		/obj/item/device/healthanalyzer,
-		/obj/item/modular_computer,
-		/obj/item/reagent_containers,
-		/obj/item/device/advanced_healthanalyzer,
-		/obj/item/device/robotanalyzer,
-		/obj/item/stack/medical,
-		/obj/item/stack/nanopaste,
-		/obj/item/device/breath_analyzer,
-		/obj/item/personal_inhaler,
-		/obj/item/clothing/accessory/stethoscope,
-		/obj/item/autopsy_scanner,
-		/obj/item/device/flashlight/pen,
-		/obj/item/spell/resurrect,
-		/obj/item/spell/mend_organs,
-		/obj/item/spell/modifier/mend_life,
-		/obj/item/spell/modifier/mend_synthetic,
-		/obj/item/grab,
-
-		//Defibrillator stuffs
-		/obj/item/defibrillator,
-		/obj/item/shockpaddles,
-
-		)
 	// Check for multi-surgery drifting.
 	var/zone = user.zone_sel.selecting
 	if(zone in M.op_stage.in_progress)
@@ -148,10 +123,10 @@
 
 	// We didn't find a surgery, or decided not to perform one.
 	if(!istype(S))
-		if(is_type_in_list(tool, safety_check_exceptions))
-			return FALSE//These tools are safe to bypass hippocratic oath
-		to_chat(user, SPAN_WARNING("You aren't sure what you could do to \the [M] with \the [tool]."))
-		return TRUE
+		if(tool.item_flags & ITEM_FLAG_SURGERY) //Is this supposed to be used for surgery?
+			to_chat(user, SPAN_WARNING("You aren't sure what you could do to \the [M] with \the [tool]."))
+			return TRUE
+		return FALSE //Just do the normal use for the tool instead
 
 	// Otherwise we can make a start on surgery!
 	else if(istype(M) && !QDELETED(M) && tool)

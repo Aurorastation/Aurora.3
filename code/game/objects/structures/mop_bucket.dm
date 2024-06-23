@@ -18,26 +18,26 @@
 	GLOB.janitorial_supplies -= src
 	return ..()
 
-/obj/structure/mopbucket/examine(mob/user, distance, is_adjacent)
+/obj/structure/mopbucket/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
-		to_chat(user, "Contains [reagents.total_volume] unit\s of water.")
+		. += "It contains [reagents.total_volume] unit\s of water."
 
-/obj/structure/mopbucket/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/mop))
+/obj/structure/mopbucket/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/mop))
 		if(reagents.total_volume < 1)
-			to_chat(user, "<span class='warning'>\The [src] is out of water!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is out of water!"))
 		else
-			reagents.trans_to_obj(I, 5)
-			to_chat(user, "<span class='notice'>You wet \the [I] in \the [src].</span>")
+			reagents.trans_to_obj(attacking_item, 5)
+			to_chat(user, SPAN_NOTICE("You wet \the [attacking_item] in \the [src]."))
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		return ..()
 	update_icon()
 
 /obj/structure/mopbucket/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(reagents.total_volume > 0)
-		add_overlay("mopbucket_water")
+		AddOverlays("mopbucket_water")
 
 /obj/structure/mopbucket/on_reagent_change()
 	. = ..()

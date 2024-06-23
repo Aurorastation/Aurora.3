@@ -1,8 +1,11 @@
 /datum/gear/accessory
+	abstract_type = /datum/gear/accessory
+	sort_category = "Accessories"
+
+/datum/gear/accessory/locket
 	display_name = "silver locket"
 	path = /obj/item/clothing/accessory/locket
 	slot = slot_tie
-	sort_category = "Accessories"
 
 /datum/gear/accessory/suspenders
 	display_name = "suspenders"
@@ -42,7 +45,7 @@
 	armbands["red armband"] = /obj/item/clothing/accessory/armband
 	armbands["security armband"] = /obj/item/clothing/accessory/armband/sec
 	armbands["operations armband"] = /obj/item/clothing/accessory/armband/operations
-	armbands["first responder armband"] = /obj/item/clothing/accessory/armband/medgreen
+	armbands["paramedic armband"] = /obj/item/clothing/accessory/armband/medgreen
 	armbands["medical armband"] = /obj/item/clothing/accessory/armband/med
 	armbands["engineering armband"] = /obj/item/clothing/accessory/armband/engine
 	armbands["hydroponics armband"] = /obj/item/clothing/accessory/armband/hydro
@@ -60,7 +63,7 @@
 	display_name = "holster selection"
 	path = /obj/item/clothing/accessory/holster/armpit
 	allowed_roles = list("Captain", "Executive Officer", "Bridge Crew", "Security Officer", "Warden", "Head of Security","Investigator", "Security Cadet", "Corporate Liaison", "Consular Officer",
-		"Chief Engineer", "Chief Medical Officer", "Research Director", "Operations Manager", "Security Personnel")
+		"Chief Engineer", "Chief Medical Officer", "Research Director", "Operations Manager", "Diplomatic Aide", "Security Personnel")
 
 /datum/gear/accessory/holster/New()
 	..()
@@ -119,7 +122,7 @@
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
 	path = /obj/item/clothing/accessory/storage/white_vest
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "First Responder", "Medical Intern", "Medical Personnel")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Intern", "Medical Personnel")
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
@@ -166,7 +169,7 @@
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
 	path = /obj/item/clothing/accessory/storage/pouches/white
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "First Responder", "Medical Intern", "Medical Personnel")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Intern", "Medical Personnel")
 
 /datum/gear/accessory/pouches
 	display_name = "drop pouches, simple"
@@ -286,6 +289,8 @@
 	shirt["long-sleeved blouse"] = /obj/item/clothing/accessory/longblouse
 	shirt["puffy blouse"] = /obj/item/clothing/accessory/puffyblouse
 	shirt["halter top"] = /obj/item/clothing/accessory/haltertop
+	shirt["tank top"] = /obj/item/clothing/accessory/tanktop
+	shirt["tank top, feminine"] = /obj/item/clothing/accessory/tanktop/feminine
 	gear_tweaks += new /datum/gear_tweak/path(shirt)
 
 /datum/gear/accessory/silversun
@@ -623,6 +628,10 @@
 	flagpatch_national["flagpatch, nralakk"] = /obj/item/clothing/accessory/flagpatch/nralakk
 	flagpatch_national["flagpatch, hegemony"] = /obj/item/clothing/accessory/flagpatch/hegemony
 	flagpatch_national["flagpatch, port antillia"] = /obj/item/clothing/accessory/flagpatch/portantillia
+	flagpatch_national["flagpatch, sedantis"] = /obj/item/clothing/accessory/flagpatch/sedantis
+	flagpatch_national["flagpatch, zo'ra"] = /obj/item/clothing/accessory/flagpatch/zora
+	flagpatch_national["flagpatch, k'lax"] = /obj/item/clothing/accessory/flagpatch/klax
+	flagpatch_national["flagpatch, c'thur"] = /obj/item/clothing/accessory/flagpatch/cthur
 	gear_tweaks += new /datum/gear_tweak/path(flagpatch_national)
 
 /datum/gear/accessory/aodai

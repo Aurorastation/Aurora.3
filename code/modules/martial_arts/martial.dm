@@ -41,7 +41,7 @@
 	var/obj/item/organ/external/affecting = D.get_organ(hit_zone)
 
 	if(!affecting || affecting.is_stump())
-		to_chat(A, "<span class='danger'>They are missing that limb!</span>")
+		to_chat(A, SPAN_DANGER("They are missing that limb!"))
 		return 1
 
 	switch(D.a_intent)
@@ -85,7 +85,7 @@
 	if(!attack_message)
 		attack.show_attack(A, D, hit_zone, rand_damage)
 	else
-		D.visible_message("<span class='danger'>[attack_message]</span>")
+		D.visible_message(SPAN_DANGER("[attack_message]"))
 
 	playsound(D.loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
 	A.attack_log += text("\[[time_stamp()]\] <span class='warning'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [D.name] ([D.ckey])</span>")
@@ -206,14 +206,19 @@
 	icon_state ="cqcmanual"
 	item_state ="book1"
 	var/martial_art = /datum/martial_art/sol_combat
+	///List of species capable of learning this martial art.
+	var/list/species_restriction
 
 /obj/item/martial_manual/attack_self(mob/user as mob)
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
+	if(species_restriction && !(H.species.name in species_restriction))
+		to_chat(H, SPAN_WARNING("Your species is incapable of learning this martial art!"))
+		return
 	var/datum/martial_art/F = new martial_art(null)
 	F.teach(H)
-	to_chat(H, "<span class='notice'>You have learned the martial art of [F.name].</span>")
+	to_chat(H, SPAN_NOTICE("You have learned the martial art of [F.name]."))
 	if(F.possible_weapons)
 		var/weapon = pick(F.possible_weapons)
 		var/obj/item/W = new weapon(get_turf(user))

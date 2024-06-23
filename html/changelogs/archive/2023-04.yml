@@ -1,0 +1,325 @@
+2023-04-02:
+  SleepyGemmy:
+  - bugfix: Fixed OM not having access to the vault.
+  Sniblet:
+  - spellcheck: A whole lot of spellchecks and clarity/brevity/grammatical rewrites
+      in accent description texts for all races.
+2023-04-03:
+  Alberyk, Wowzewow (Wezzy):
+  - imageadd: Added sprites for wielding the adhomian assault rifle.
+  - rscadd: Added golden plated version of the adhomian assault rifle.
+  Fluffyghost:
+  - refactor: Refactored the various unit tests to use macros to indicate pass/fail
+      and logging.
+  - backend: Added a new unit tests logging system that integrates with github output,
+      prettifying it, and is able to be switched back to terminal-reading mode with
+      a flick of a commented header/define.
+  - rscadd: Added a manual unit tests define file, for when you want to run the unit
+      tests locally, with logging to terminal output readability.
+  - rscadd: Added some assertion macros to be used for unit tests, to make their writing
+      less annoying.
+  - rscadd: All unit tests logging now report from what file and line they come from,
+      instead of having you guess and search around for where they originate.
+  - rscadd: Added a create and destroy unit test, it verifies that all items can be
+      created and destroyed without issues, do not sleep during, runtime, error out,
+      are not set as initialized, and returns an hint during initialization, and do
+      not harddel at their destroy, at least in their default state.
+  - rscadd: Added a subsystem initialization unit test, that verify all subsystems
+      initialize correctly.
+  - rscadd: Added an SStimer unit test, that verify the bucket does not go negative.
+  kyres1:
+  - rscadd: Adds a more complete readout of information to scan results. These readouts
+      include non-mechanical statistics for the scanned objects, like its length,
+      or an exoplanet&#x27;s geology.
+  - rscadd: Added visible scan images for all exoplanets and third-party ships seen
+      ingame, with exception to most shuttles. These show up on printed papers, too!
+  - bugfix: Fixed the skybox sprites of the TCFL corvette and the tramp freighter
+      being swapped.
+2023-04-05:
+  Fluffyghost:
+  - rscadd: Fixes slot machines not giving some cash winnings amounts.
+  - bugfix: Fixed PDA charging cable immediately retracting on APC connection.
+  - bugfix: You can now point at things if you are buckled, aka cannot move. You still
+      cannot if you are restrained or dead.
+  Geeves:
+  - rscadd: Unathi can now take more augments, such as the welding fuel cell processor.
+  Geeves, CNEGecko:
+  - rscadd: Added a culture for Aut&#x27;akh, as well as an origin for the various
+      communes. Additionally, added a unique accent for Aut&#x27;akh.
+  WickedCybs:
+  - bugfix: Adds minor fixes and mapping improvements to the ruin spawns and actually
+      allows them to spawn.
+2023-04-06:
+  Fluffyghost:
+  - refactor: Modernized our github issue template, so it uses the new format, as
+      the old one is deprecated.
+  - backend: Modernized our codeowners template for PRs pings, added some additional
+      ones, reassigned away from skull to currently-in-team devs.
+2023-04-07:
+  Garnascus:
+  - bugfix: Changes the tranquilizer dart box to use the shellbox sprite.
+  MattAtlas:
+  - bugfix: Switching tabs in the character setup should now be more performant.
+  - bugfix: Loading a new character should now refresh the preview.
+  TheDanseMacabre:
+  - imageadd: Ported a new full gasmask sprite from Baystation.
+2023-04-08:
+  Fluffyghost:
+  - experiment: Apparently github now wants it inside a folder with the same name
+      as the previous file, and with the extension as YAML, this should be it.
+  JohnWildkins:
+  - bugfix: Fixed ruins not being generated due to planet_type lists not being initialized.
+2023-04-09:
+  Fluffyghost:
+  - backend: Updated the default rust_g dll to 1.2.0+a2 from our other repository
+      release.
+  - backend: Added a debug verb for our custom udp send module used in rustg.
+  SimpleMaroon:
+  - tweak: Examining wallets or modular computers that contain IDs while adjacent
+      will now show you the ID menu.
+  TheDanseMacabre:
+  - tweak: Made minor tweaks to the asymmetrical shirt.
+  Yonnimer:
+  - rscadd: Adds new religions, origins, and an accent for Dionae hailing from EUM.
+  - rscadd: Adds a consular role for EUM, only played by Dionae
+  - rscadd: Adds a new origin and accent for Skrell hailing from EUM
+  - rscadd: Adds some new EUM clothing and a flag
+2023-04-10:
+  GeneralCamo:
+  - refactor: Simplified screen overlay/bloom code.
+  - rscadd: Added fuel pipes. Fuel pipes are intended to carry fuel for vessels, and
+      have their own dedicated pump and connector for this.
+  - rscadd: Added auxiliary pipes. Auxiliary pipes are intended primarily for airlocks,
+      but can be used in other various means. They have their own dedicated pump,
+      connector, and vent.
+  - rscadd: Added a mode to airlock controllers to cycle air externally. This prevents
+      external, potentially poisonous air from mixing with clean air.
+  - tweak: Thrusters can now attach directly to fuel pipes.
+  - tweak: Pressure tanks can now attach directly to all pipes.
+  - maptweak: The Intrepid now has externally cycled airlocks, and utilizes the new
+      pipes.
+  - maptweak: Added a scrubber to the Spark, which is directly vented out into space.
+  - imageadd: Ported Keekenox#1337&#x27;s vents and scrubbers.
+  JohnWildkins:
+  - bugfix: Fixed several hard-deletion issues that were causing a severe performance
+      impact.
+  - bugfix: Fixed mobs not being removed from AI targeting spatial grid cells when
+      they moved to a new cell.
+  - bugfix: Fixed valves not properly disconnecting, leading to a hanging hardref.
+  - backend: Added several procs to allow removing body parts from mechs, and fixed
+      mech wreckage deleting contained parts.
+  - backend: Adjusted SSatoms init loops to be slightly more performant.
+  - backend: Changed failsafe messages to a more visible color.
+  - backend: Ported an updated version of reference tracking from tgstation; included
+      optional debug flags to track down hardref issues.
+  MattAtlas:
+  - bugfix: Speech bubble prefs now persist on the character even after changing the
+      pref in round.
+  - bugfix: Holopads now properly convey accents.
+  - bugfix: Fixed wheelchairs causing double teleportation on stairs.
+  - bugfix: Fixed the old military jackets not having an open sprite. They will also
+      work on coat racks now.
+  - bugfix: Autolathes now properly update icons when printing things.
+  - bugfix: Silencing humans (through the silent sting, covering mouth, etc) now works
+      again. How long was that broken for...?
+  - bugfix: Added some helpful text on how to actually use changeling stings.
+  - bugfix: Atmospheric control computers can no longer use bluespace to interact
+      with air alarms outside of the Horizon.
+  - bugfix: Navigation and targeting systems consoles can now actually be repaired.
+  - bugfix: Fixed changeling fake death not actually faking death.
+  - bugfix: Fixed the tie hair verb not respecting consciousness.
+  - bugfix: Fixed adrenaline jittering not stopping once dead or faking death.
+  - bugfix: Fixed vacuum fizz taste description.
+  - bugfix: Adrenaline sacs now actually create reagents, meaning that lings can now
+      actually benefit from synaptizine/hyperzine/oxycomorphine, thus massively helping
+      lings against stuns. Use it!
+  - bugfix: Fixed IPC blood being red in some cases.
+  - bugfix: Fixed oil-stained clothes sometimes showing up as blood-stained.
+  - bugfix: Fixed simple mobs being permanently sleepy and falling asleep when they
+      actually want to wake up. The horror.
+  - bugfix: Fixed the secure ammunition storage turrets not being linked to the turret
+      control.
+  - bugfix: Fixed robotic organ repair with nanopaste not working.
+  - bugfix: Fixes D3 wiring.
+  MattAtlas (porting), Spookerton (original author):
+  - rscadd: Added a new subsystem to handle speech bubbles.
+  - bugfix: Fixed speech bubbles persisting when they shouldn&#x27;t.
+  - rscadd: Added different styles of speech bubbles for ghosts, animals, machines.
+  - bugfix: Speech indicators now work with the command bar.
+  - rscadd: Added a speech bubble type preference to character setup. Your choices
+      depend on the species&#x27; list of possible speech bubble types.
+  ReadThisNamePlz:
+  - bugfix: Fixes Ammunition storage turret control access
+  RustingWithYou:
+  - tweak: Vaurca Bulwark unarmed attacks no longer have a chance to cause bleeding,
+      but deal slightly more brute damage and have a chance to knock back the unfortunate
+      victim.
+  - tweak: Vaurca Bulwarks are easier to grab and have a higher resist modifier to
+      bring them in line with other large mobs.
+  - tweak: Vaurca Bulwarks now use the heavy sparring attack instead of the light
+      one, because they are giant bugs.
+  atteria:
+  - imageadd: Resprited most kitchen appliances.
+  - imageadd: Added smoke effects to show when food is about to burn.
+  - bugfix: Fixed the stove&#x27;s turned on animation not displaying.
+  - bugfix: Fixed the cutting board and mixing bowl sprites.
+  kyres1:
+  - maptweak: Condenses the existing recreational area into holodeck presets.
+  - maptweak: Practically doubles the size of the existing holodeck.
+  - rscadd: Adds a second holodeck! It&#x27;s adjacent to the new holodeck and can
+      run different programs simultaneously with the other one.
+  - rscadd: Added a Trinarist and Tribunal chapel holodeck preset, a Jupiter atmosphere
+      holodeck preset, a Mendell city rooftop holodeck preset and a Moghresian jungle
+      holodeck preset.
+  - rscadd: Added an organized selection of dedicated fake props to the effects folder,
+      for use in situations that have no mechanical usage, like holograms.
+  - maptweak: Moves the command bunker, or CIC to fit nicely where the previous shield
+      generator was, adjacent to the crew armory.
+  - maptweak: Moves the self-destruct terminal into maintenance adjacent to the crew
+      armory, behind the CIC.
+  - maptweak: Adjusts the engineering shield generator to be connected to the engineering
+      break room.
+2023-04-11:
+  JohnWildkins:
+  - backend: Slightly reduced init time required to build vending UI spritesheets.
+2023-04-12:
+  Geeves:
+  - tweak: Exosuits are now more responsive when moving, they turn and take a step
+      as one action, they turn when the facedir command is used, and will permanently
+      face a direction if you lock yourself to one direction.
+  kyres1:
+  - bugfix: Fixed a duplicate air alarm in Holodeck Beta.
+  - bugfix: Fixed some catwalks being the wrong type and thus invisible on Deck 3
+      exterior.
+  - bugfix: Re-added a ball to the holodeck basketball court.
+2023-04-13:
+  Yonnimer:
+  - rscadd: Adds the ct-eum flag to the loadout.
+  - tweak: Fixes the narrows jumpsuit to be for the the narrows origin, not eum.
+2023-04-14:
+  DreamySkrell:
+  - rscadd: Goonchat cookie namespacing.
+  - maptweak: Tweaks and rearranges the CIC/bunker.
+  MattAtlas:
+  - rscadd: Hostile mobs no longer target players that have logged out.
+2023-04-15:
+  Ben10083:
+  - balance: Exosuit laser now considered a heavy laser, damage buffed to 35 per shot
+      from 25 (less than usual heavy laser)
+  - rscadd: Exosuit mounted smg can now switch firemodes from semiauto to 3-shot burst
+      with alt click
+  - tweak: Exosuit mounted smg capacity increased to 30 bullets to allow for 10 3-shot
+      bursts
+  DreamySkrell:
+  - maptweak: Adds missing cameras to CIC, locker room, and holodecks.
+  FluffyGhost:
+  - rscadd: Added a grauwolf probe projectile, can reveal things in a radius, does
+      not hit anything and possess no damage, basically a minigame to extend sensor
+      range.
+  Fluffyghost:
+  - backend: Use stack_trace when addtimer fails for QDEL&#x27;d or negative timers.
+  Huntime:
+  - maptweak: Modified the starboard &amp; port thrusters, adding a Hydrogen line
+      for new combustion/burn opportunities; modifies the atmospherics locker room,
+      adds additional scrubber/pump connectors.
+  Lancer, NiennaB, Stryker, Kyres1, Geeves:
+  - rscadd: Added an IPC overloader vendor to the bar lounge. Overloaders are legal
+      luxury items that contain software that act like drugs for IPCs.
+  RustingWithYou:
+  - rscadd: Adds new colors for the mogazali attire, jizixi dress and straw hat. Also
+      adds a Hephaestus Industries Unathi mantle, available in loadout
+  Ryverstyx:
+  - rscadd: Adds two more Skrell tuux styles.
+  TheDanseMacabre:
+  - tweak: The description for the sensor relay has been changed.
+2023-04-16:
+  Alberyk, Kyres1:
+  - rscadd: 'Added three more adhomian animals: the climber, the snow strider and
+      the nose-horn.'
+  - rscadd: You can ride the climber if you use a saddle on it.
+  JohnWildkins:
+  - bugfix: Fixed rock nomads spawning outside Adhomai, causing (among other things)
+      unit test failures.
+  RustingWithYou:
+  - rscadd: Adds a Vaurca version of the combitool augment, available from loadout
+      for Bulwarks and Workers.
+2023-04-17:
+  Fluffyghost:
+  - backend: Added a DMM (map) inclusion guard in the code_check for the CI.
+2023-04-18:
+  FlamingLily:
+  - tweak: Replaced the generic EFTPOS device in Operations with an Operations-set
+      Quikpay, allowing transactions without an OM present.
+2023-04-19:
+  DreamySkrell:
+  - rscadd: Expands third deck aft starboard maintenance tunnels. Also with an airlock
+      and a ladder connecting it to second deck.
+  - maptweak: Minor OM office remap.
+  JohnWildkins:
+  - refactor: Increase init speed by removing the global turfs list and reverting
+      to turf in world loops.
+2023-04-22:
+  DreamySkrell:
+  - tweak: Ghost roles listing in lobby tweak.
+2023-04-23:
+  Fluffyghost:
+  - maptweak: Added a rack with the Grauwolf probes in the Grauwolf room. There are
+      ten probes on it.
+  Sniblet:
+  - spellcheck: Removed an incorrect apostrophe from the kitten plushie&#x27;s description.
+2023-04-24:
+  GeneralCamo:
+  - rscadd: Added a new double-breasted Konyanger jacket, with minor heat protection.
+      Sprites by Niennab.
+  meep109:
+  - rscadd: Added Diulszi as an option to the Nralakk projector.
+2023-04-25:
+  JohnWildkins:
+  - rscadd: Complete overhaul of exoplanet generation, with updated themes for asteroids,
+      barren, desert, grove, and lava planets.
+  - rscadd: Implemented grass and snow planet generation.
+  - rscadd: 'Added two new planet types: crystalline and swampland/marshland.'
+  - tweak: In general, mineral walls are far less frequent on mineral poor worlds,
+      namely grove/grass/snow planets (except Adhomai).
+  - backend: Updated rust-g to latest version, including new methods of noise generation.
+  - backend: Replaced the random_map system with exoplanet themes and biomes, all
+      now located within overmap/exoplanets.
+  - tweak: Several performance tweaks in ChangeTurf and turf init/destroy to increase
+      mapgen performance.
+  RyverStyx:
+  - rscadd: Added 2 new eyebrow styles to bodymarkings.
+  meep109:
+  - spellcheck: Fixes a typo in a Nralakk Federation uniform.
+2023-04-27:
+  Sheeplets:
+  - bugfix: Replaced the power cells in stabilizer harnesses with regular power cells,
+      raising the charge from 100w to 1000w. Back to their original value.
+2023-04-29:
+  Alberyk:
+  - tweak: Barren and lava planets no longer have asteroid mobs.
+  Captain Gecko, Geeves:
+  - rscadd: Added Unathi, Tajara, and Skrell specific sprites for the Anomaly Suit,
+      Softsuit, and Emergency Softsuit.
+  Huntime:
+  - maptweak: Resolves missing lights in new atmospherics locker room.
+  N8-Toe:
+  - rscadd: Added a bridge crew cap to their locker to cover their bald heads.
+  William Murdoch:
+  - bugfix: Fixes the alarm monitor screen from not showing up on wristbounds.
+  kyres1:
+  - tweak: Updated Akinyi&#x27;s custom item sprites and path to be a functioning
+      instrument.
+  meep109:
+  - spellcheck: Fixes minor typos in Vaurcae accent descriptions.
+2023-04-30:
+  Alberyk, Happy_fox:
+  - rscadd: Added an adhomian traveling circus ship.
+  Captain Gecko, Triogenix, Geeves:
+  - rscadd: Added a Queendom origin and Accent.
+  Geeves:
+  - rscadd: Added footprints to exoplanet turfs that would make sense to have footprints.
+  - rscadd: You can now click on the background of an item inside a box/backpack to
+      pick it up. This only affects storages that don&#x27;t use the square slots
+      for now.
+  harryob:
+  - backend: Removed all instances of relative pathing, and lints against it.

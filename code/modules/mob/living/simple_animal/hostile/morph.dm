@@ -56,8 +56,10 @@
 /mob/living/simple_animal/hostile/morph/Initialize()
 	. = ..()
 
-	add_verb(src, /mob/living/proc/ventcrawl)
+	name = "morph ([rand(100, 999)])"
+	add_language(LANGUAGE_CHANGELING)
 	add_verb(src, /mob/living/simple_animal/verb/change_name)
+	add_verb(src, /mob/living/proc/ventcrawl)
 
 	var/list/morph_spells = list(/spell/aoe_turf/conjure/node, /spell/aoe_turf/conjure/nest)
 	for(var/spell in morph_spells)
@@ -98,11 +100,9 @@
 	else
 		see_invisible = SEE_INVISIBLE_NOLIGHTING
 
-/mob/living/simple_animal/hostile/morph/examine(mob/user, distance, is_adjacent)
+/mob/living/simple_animal/hostile/morph/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	if(morphed)
-		. = form.examine(user)
-		if(distance <= 2)
-			to_chat(user, SPAN_WARNING("It doesn't look quite right..."))
+		return form.examine(user)
 	else
 		return ..()
 
@@ -169,7 +169,7 @@
 	name = initial(name)
 	icon = initial(icon)
 	icon_state = initial(icon_state)
-	cut_overlays()
+	ClearOverlays()
 	overlays = null
 
 	//Baseline stats
@@ -207,7 +207,7 @@
 			return
 	return ..()
 
-/mob/living/simple_animal/hostile/morph/attackby(obj/item/O, mob/user)
+/mob/living/simple_animal/hostile/morph/attackby(obj/item/attacking_item, mob/user)
 	..()
 	if(morphed && user != src)
 		restore()

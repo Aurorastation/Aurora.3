@@ -12,7 +12,7 @@
 	icon = 'icons/obj/status_display.dmi'
 	icon_state = "frame"
 	req_access = list(ACCESS_BRIG)
-	layer = OBJ_LAYER
+	layer = ABOVE_WINDOW_LAYER
 	anchored = TRUE
 	density = FALSE
 	var/id = null     		// id of door it controls.
@@ -56,14 +56,15 @@
 		stat |= BROKEN
 	update_icon()
 
-/obj/machinery/door_timer/examine(mob/user)
+/obj/machinery/door_timer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if(stat & (NOPOWER|BROKEN))	return
+	if(stat & (NOPOWER|BROKEN))
+		return
 
 	if(src.timing)
 		var/second = round(timeleft() % 60)
 		var/minute = round((timeleft() - second) / 60)
-		to_chat(user, "Time remaining: [minute]:[second]")
+		. += "Time remaining: [minute]:[second]"
 
 //Main door timer loop, if it's timing and time is >0 reduce time by 1.
 // if it's less than 0, open door, reset timer
@@ -108,15 +109,13 @@
 	for(var/obj/machinery/door/airlock/D in targets)
 		if(D.density)
 			continue
-		spawn(0)
-			D.close()
+		D.close()
 
 	// Windoors
 	for(var/obj/machinery/door/window/D2 in targets)
 		if(D2.density)
 			continue
-		spawn(0)
-			D2.close()
+		D2.close()
 
 	for(var/obj/structure/closet/secure_closet/brig/C in targets)
 		if(C.broken)
@@ -145,15 +144,13 @@
 	for(var/obj/machinery/door/airlock/D in targets)
 		if(!D.density)
 			continue
-		spawn(0)
-			D.open()
+		D.open()
 
 	// Windoors
 	for(var/obj/machinery/door/window/D2 in targets)
 		if(!D2.density)
 			continue
-		spawn(0)
-			D2.open()
+		D2.open()
 
 	for(var/obj/structure/closet/secure_closet/brig/C in targets)
 		if(C.broken)
@@ -293,18 +290,18 @@
 
 	return .
 
-/obj/machinery/door_timer/attackby(obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/paper/incident))
+/obj/machinery/door_timer/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper/incident))
 		if(!incident)
-			if(import(O, user))
+			if(import(attacking_item, user))
 				ping("\The <b>[src]</b> states, \"Successfully imported incident report!\"")
-				user.drop_from_inventory(O,get_turf(src))
-				qdel(O)
+				user.drop_from_inventory(attacking_item,get_turf(src))
+				qdel(attacking_item)
 				src.updateUsrDialog()
 		else
 			to_chat(user, SPAN_ALERT("\The <b>[src]</b> states, \"There's already an active sentence.\""))
 		return TRUE
-	else if(istype(O, /obj/item/paper))
+	else if(istype(attacking_item, /obj/item/paper))
 		to_chat(user, SPAN_ALERT("\The <b>[src]</b> states, \"This console only accepts authentic incident reports. Copies are invalid.\""))
 		return TRUE
 
@@ -413,8 +410,8 @@
 // Adds an icon in case the screen is broken/off, stolen from status_display.dm
 /obj/machinery/door_timer/proc/set_picture(var/state)
 	picture_state = state
-	cut_overlays()
-	add_overlay(picture_state)
+	ClearOverlays()
+	AddOverlays(picture_state)
 
 //Checks to see if there's 1 line or 2, adds text-icons-numbers/letters over display
 // Stolen from status_display
@@ -437,7 +434,7 @@
 		var/image/ID = image('icons/obj/status_display.dmi', icon_state=char)
 		ID.pixel_x = -(d-1)*5 + px
 		ID.pixel_y = py
-		I.add_overlay(ID)
+		I.AddOverlays(ID)
 	return I
 
 // Door Timers

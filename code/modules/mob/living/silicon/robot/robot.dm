@@ -147,7 +147,7 @@
 
 	robot_modules_background = new()
 	robot_modules_background.icon_state = "block"
-	robot_modules_background.layer = SCREEN_LAYER //Objects that appear on screen are on layer 20, UI should be just below it.
+	robot_modules_background.layer = HUD_BASE_LAYER
 	updatename(mod_type)
 
 	if(!client)
@@ -253,7 +253,7 @@
 	if(has_jetpack)
 		jetpack = new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 
-	playsound(get_turf(src), spawn_sound, 75, pitch_toggle)
+	playsound(get_turf(src), spawn_sound, 75, pitch_toggle, ignore_walls = FALSE)
 
 /mob/living/silicon/robot/SetName(pickedName as text)
 	custom_name = pickedName
@@ -326,7 +326,7 @@
 				to_chat(src, SPAN_WARNING("Custom Sprite Sheet does not contain a valid icon_state for [sprite.synthicon]-[mod_type]"))
 		else
 			icontype = module_sprites[1]
-		icon_state = module_sprites[icontype][ROBOT_CHASSIS]
+		icon_state = module_sprites?[icontype]?[ROBOT_CHASSIS]
 	return module_sprites
 
 /mob/living/silicon/robot/proc/pick_module(var/set_module)
@@ -338,7 +338,7 @@
 		return
 	var/list/modules = list()
 	modules.Add(GLOB.robot_module_types)
-	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level == SEC_LEVEL_DELTA || crisis == TRUE)
+	if((crisis_override && GLOB.security_level == SEC_LEVEL_RED) || GLOB.security_level == SEC_LEVEL_DELTA || crisis == TRUE)
 		to_chat(src, SPAN_WARNING("Crisis mode active. Combat module available."))
 		modules += "Combat"
 	mod_type = tgui_input_list(src, "Please, select a module!", "Robot", modules)
@@ -512,7 +512,7 @@
 	set name = "Rebuild Overlays"
 	set desc = "An OOC tool that rebuilds your overlays, useful if your talk bubble gets stuck to you."
 
-	cut_overlays()
+	ClearOverlays()
 	handle_panel_overlay()
 	set_intent(a_intent)
 
@@ -573,35 +573,35 @@
 		spark_system.queue()
 	return 2
 
-/mob/living/silicon/robot/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/handcuffs)) // fuck i don't even know why isrobot() in handcuff code isn't working so this will have to do
+/mob/living/silicon/robot/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/handcuffs)) // fuck i don't even know why isrobot() in handcuff code isn't working so this will have to do
 		return
 
 	if(opened) // Are they trying to insert something?
-		if(istype(W, /obj/item/robot_parts/robot_component/jetpack)) //If they're inserting a jetpack, check that this chassis allows it.
-			if(!src.module || !(W.type in src.module.supported_upgrades))
+		if(istype(attacking_item, /obj/item/robot_parts/robot_component/jetpack)) //If they're inserting a jetpack, check that this chassis allows it.
+			if(!src.module || !(attacking_item.type in src.module.supported_upgrades))
 				to_chat(user, SPAN_WARNING("\The [src]'s module does not support a jetpack."))
 				return
 
 		for(var/V in components)
 			var/datum/robot_component/C = components[V]
-			if(!C.installed && istype(W, C.external_type))
-				C.wrapped = W
+			if(!C.installed && istype(attacking_item, C.external_type))
+				C.wrapped = attacking_item
 				C.install()
 				user.drop_item()
-				W.loc = null
+				attacking_item.loc = null
 
-				var/obj/item/robot_parts/robot_component/WC = W
+				var/obj/item/robot_parts/robot_component/WC = attacking_item
 				if(istype(WC))
 					C.brute_damage = WC.brute
 					C.electronics_damage = WC.burn
 
-				to_chat(user, SPAN_NOTICE("You install the [W.name] into \the [src]."))
+				to_chat(user, SPAN_NOTICE("You install the [attacking_item.name] into \the [src]."))
 				handle_panel_overlay()
 				return
 
-		if(istype(W, /obj/item/gripper)) //Code for allowing cyborgs to use rechargers
-			var/obj/item/gripper/gripper = W
+		if(istype(attacking_item, /obj/item/gripper)) //Code for allowing cyborgs to use rechargers
+			var/obj/item/gripper/gripper = attacking_item
 			if(!wires_exposed)
 				var/datum/robot_component/cell_component = components["power cell"]
 				if(cell)
@@ -619,14 +619,14 @@
 						cell_component.installed = 0
 						to_chat(user, SPAN_NOTICE("You remove \the [cell_component.wrapped]."))
 	if(user.a_intent == I_HELP)
-		if(W.iswelder())
+		if(attacking_item.iswelder())
 			if(src == user)
 				to_chat(user, SPAN_WARNING("You lack the reach to be able to repair yourself."))
 				return
 			if(!getBruteLoss())
 				to_chat(user, SPAN_WARNING("There is nothing to fix here!"))
 				return
-			var/obj/item/weldingtool/WT = W
+			var/obj/item/weldingtool/WT = attacking_item
 			if(!WT.welding)
 				to_chat(user, SPAN_WARNING("Your welding tool is not lit!")) // it aint lit fam :fire:
 				return
@@ -637,22 +637,22 @@
 				add_fingerprint(user)
 				visible_message(SPAN_WARNING("\The [user] has fixed some of the dents on \the [src]!"))
 				return
-		else if(W.iscoil() && (wires_exposed || istype(src,/mob/living/silicon/robot/drone)))
+		else if(attacking_item.iscoil() && (wires_exposed || istype(src,/mob/living/silicon/robot/drone)))
 			if(!getFireLoss())
 				to_chat(user, SPAN_WARNING("There is nothing to fix here!"))
 				return
-			var/obj/item/stack/cable_coil/coil = W
+			var/obj/item/stack/cable_coil/coil = attacking_item
 			if(coil.use(2))
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 				adjustFireLoss(-30)
 				updatehealth()
 				visible_message(SPAN_WARNING("\The [user] has fixed some of the burnt wires on \the [src]!"))
 				return
-		else if(W.iscrowbar())	// crowbar means open or close the cover
+		else if(attacking_item.iscrowbar())	// crowbar means open or close the cover
 			if(opened)
 				if(cell)
 					user.visible_message(SPAN_NOTICE("\The [user] begins clasping shut \the [src]'s maintenance hatch."), SPAN_NOTICE("You begin closing up \the [src]'s maintenance hatch."))
-					if(W.use_tool(src, user, 50, volume = 50))
+					if(attacking_item.use_tool(src, user, 50, volume = 50))
 						if(!Adjacent(user))
 							to_chat(user, SPAN_WARNING("You are too far from \the [src] to close its hatch."))
 							return
@@ -665,7 +665,7 @@
 						to_chat(user, SPAN_WARNING("\The [src] has no brain to remove.")) // me irl - geeves
 						return
 					user.visible_message(SPAN_NOTICE("\The [user] begins ripping \the [mmi] from \the [src]."), SPAN_NOTICE("You jam the crowbar into the robot and begin levering out \the [mmi]."))
-					if(W.use_tool(src, user, 50, volume = 50))
+					if(attacking_item.use_tool(src, user, 50, volume = 50))
 						to_chat(user, SPAN_NOTICE("You damage some parts of the chassis, but eventually manage to rip out \the [mmi]!"))
 						new /obj/item/robot_parts/robot_suit/equipped(get_turf(src))
 						new /obj/item/robot_parts/chest(get_turf(src))
@@ -699,70 +699,70 @@
 					to_chat(user, SPAN_WARNING("The cover is locked and cannot be opened."))
 				else
 					user.visible_message(SPAN_NOTICE("\The [user] begins prying open \the [src]'s maintenance hatch."), SPAN_NOTICE("You start opening \the [src]'s maintenance hatch."))
-					if(W.use_tool(src, user, 50, volume = 50))
+					if(attacking_item.use_tool(src, user, 50, volume = 50))
 						if(!Adjacent(user))
 							to_chat(user, SPAN_NOTICE("You are too far from \the [src] to open its hatch."))
 							return
 						to_chat(user, SPAN_NOTICE("You open \the [src]'s maintenance hatch."))
 						opened = TRUE
 						handle_panel_overlay()
-		else if(istype(W, /obj/item/stock_parts/matter_bin) && opened) // Installing/swapping a matter bin
+		else if(istype(attacking_item, /obj/item/stock_parts/matter_bin) && opened) // Installing/swapping a matter bin
 			if(storage)
-				to_chat(user, SPAN_NOTICE("You replace \the [storage] with \the [W]"))
+				to_chat(user, SPAN_NOTICE("You replace \the [storage] with \the [attacking_item]"))
 				storage.forceMove(get_turf(src))
 				storage = null
 			else
-				to_chat(user, SPAN_NOTICE("You install \the [W]"))
-			storage = W
-			user.drop_from_inventory(W, src)
+				to_chat(user, SPAN_NOTICE("You install \the [attacking_item]"))
+			storage = attacking_item
+			user.drop_from_inventory(attacking_item, src)
 			to_chat(src, SPAN_NOTICE("\The [user] has installed \the [storage] into you."))
 			recalculate_synth_capacities()
-		else if(istype(W, /obj/item/cell) && opened)	// trying to put a cell inside
+		else if(istype(attacking_item, /obj/item/cell) && opened)	// trying to put a cell inside
 			var/datum/robot_component/C = components["power cell"]
 			if(wires_exposed)
-				to_chat(user, SPAN_WARNING("You cannot install \the [W] while \the [src]'s wires are exposed."))
+				to_chat(user, SPAN_WARNING("You cannot install \the [attacking_item] while \the [src]'s wires are exposed."))
 				return
 			else if(cell)
 				to_chat(user, SPAN_WARNING("There is a power cell already installed."))
 				return
-			else if(W.w_class != 3)
-				to_chat(user, SPAN_WARNING("\The [W] is too [W.w_class < 3 ? "small" : "large"] to fit here."))
+			else if(attacking_item.w_class != 3)
+				to_chat(user, SPAN_WARNING("\The [attacking_item] is too [attacking_item.w_class < 3 ? "small" : "large"] to fit here."))
 				return
 			else
-				user.drop_from_inventory(W, src)
-				cell = W
+				user.drop_from_inventory(attacking_item, src)
+				cell = attacking_item
 				to_chat(user, SPAN_NOTICE("You insert the power cell."))
 				to_chat(src, SPAN_NOTICE("\The [user] has installed \the [cell] into you."))
 				C.installed = TRUE
-				C.wrapped = W
+				C.wrapped = attacking_item
 				C.install()
 				//This will mean that removing and replacing a power cell will repair the mount, but I don't care at this point. ~Z
 				C.brute_damage = 0
 				C.electronics_damage = 0
 				handle_panel_overlay()
-		else if(W.iswirecutter() || W.ismultitool())
+		else if(attacking_item.iswirecutter() || attacking_item.ismultitool())
 			if(wires_exposed)
 				wires.interact(user)
 			else
 				to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
 				return
-		else if(W.isscrewdriver() && opened && !cell)	// haxing
+		else if(attacking_item.isscrewdriver() && opened && !cell)	// haxing
 			wires_exposed = !wires_exposed
 			user.visible_message(SPAN_NOTICE("\The [user] [wires_exposed ? "exposes" : "covers"] \the [src]'s wires."), SPAN_NOTICE("You [wires_exposed ? "expose" : "cover"] \the [src]'s wires."))
 			handle_panel_overlay()
-		else if(W.isscrewdriver() && opened && cell)	// radio
+		else if(attacking_item.isscrewdriver() && opened && cell)	// radio
 			if(radio)
-				radio.attackby(W, user) //Push it to the radio to let it handle everything
+				radio.attackby(attacking_item, user) //Push it to the radio to let it handle everything
 			else
 				to_chat(user, SPAN_WARNING("\The [src] does not have a radio installed!"))
 				return
-		else if(istype(W, /obj/item/device/encryptionkey) && opened)
+		else if(istype(attacking_item, /obj/item/device/encryptionkey) && opened)
 			if(radio) //sanityyyyyy
-				radio.attackby(W, user) //GTFO, you have your own procs
+				radio.attackby(attacking_item, user) //GTFO, you have your own procs
 			else
 				to_chat(user, SPAN_WARNING("\The [src] does not have a radio installed!"))
 				return
-		else if(W.GetID() || istype(W, /obj/item/card/robot))			// trying to unlock the interface with an ID card
+		else if(attacking_item.GetID() || istype(attacking_item, /obj/item/card/robot))			// trying to unlock the interface with an ID card
 			if(emagged && !is_traitor()) //still allow them to open the cover. is_traitor() dodges this text as being made traitor sets emagged to TRUE.
 				to_chat(user, SPAN_NOTICE("You notice that \the [src]'s interface appears to be damaged."))
 			if(opened)
@@ -776,8 +776,8 @@
 				else
 					to_chat(user, SPAN_WARNING("Access denied."))
 					return
-		else if(istype(W, /obj/item/borg/upgrade))
-			var/obj/item/borg/upgrade/U = W
+		else if(istype(attacking_item, /obj/item/borg/upgrade))
+			var/obj/item/borg/upgrade/U = attacking_item
 			if(!opened)
 				to_chat(user, SPAN_WARNING("You cannot install \the [U] while the maintenance hatch is closed."))
 				return
@@ -791,7 +791,7 @@
 					user.drop_from_inventory(U, src)
 				return
 		else
-			if(W.force && !(istype(W, /obj/item/device/robotanalyzer) || istype(W, /obj/item/device/healthanalyzer)) )
+			if(attacking_item.force && !(istype(attacking_item, /obj/item/device/robotanalyzer) || istype(attacking_item, /obj/item/device/healthanalyzer)) )
 				spark_system.queue()
 			return ..()
 	else
@@ -825,7 +825,7 @@
 
 //Robots take half damage from basic attacks.
 /mob/living/silicon/robot/attack_generic(var/mob/user, var/damage, var/attack_message)
-	return ..(user,FLOOR(damage/2),attack_message)
+	return ..(user,FLOOR(damage/2, 1),attack_message)
 
 /mob/living/silicon/robot/proc/allowed(mob/M)
 	// Check if the borg doesn't require any access at all
@@ -921,19 +921,19 @@
 			return TRUE
 		if(!module_state_1)
 			module_state_1 = O
-			O.layer = SCREEN_LAYER
+			O.hud_layerise()
 			contents += O
 			if(istype(module_state_1,/obj/item/borg/sight))
 				sight_mode |= module_state_1:sight_mode
 		else if(!module_state_2)
 			module_state_2 = O
-			O.layer = SCREEN_LAYER
+			O.hud_layerise()
 			contents += O
 			if(istype(module_state_2,/obj/item/borg/sight))
 				sight_mode |= module_state_2:sight_mode
 		else if(!module_state_3)
 			module_state_3 = O
-			O.layer = SCREEN_LAYER
+			O.hud_layerise()
 			contents += O
 			if(istype(module_state_3,/obj/item/borg/sight))
 				sight_mode |= module_state_3:sight_mode
@@ -964,49 +964,6 @@
 
 /mob/living/silicon/robot/proc/radio_menu()
 	radio.interact(src) //Just use the radio's Topic() instead of bullshit special-snowflake code
-
-/mob/living/silicon/robot/Move(a, b, flag)
-	. = ..()
-
-	if(module)
-		if(module.type == /obj/item/robot_module/janitor)
-			var/obj/item/robot_module/janitor/J = module
-			var/turf/tile = get_turf(src)
-			if(isturf(tile) && J.mopping)
-				tile.clean_blood()
-				if(istype(tile, /turf/simulated))
-					var/turf/simulated/S = tile
-					S.dirt = FALSE
-					S.color = null
-				for(var/A in tile)
-					if(istype(A, /obj/effect))
-						if(istype(A, /obj/effect/decal/cleanable))
-							qdel(A)
-						if(istype(A, /obj/effect/overlay))
-							var/obj/effect/overlay/O = A
-							if(O.no_clean)
-								continue
-							qdel(O)
-					else if(istype(A, /obj/item))
-						var/obj/item/cleaned_item = A
-						cleaned_item.clean_blood()
-					else if(istype(A, /mob/living/carbon/human))
-						var/mob/living/carbon/human/cleaned_human = A
-						if(cleaned_human.lying)
-							if(cleaned_human.head)
-								cleaned_human.head.clean_blood()
-								cleaned_human.update_inv_head(0)
-							if(cleaned_human.wear_suit)
-								cleaned_human.wear_suit.clean_blood()
-								cleaned_human.update_inv_wear_suit(0)
-							else if(cleaned_human.w_uniform)
-								cleaned_human.w_uniform.clean_blood()
-								cleaned_human.update_inv_w_uniform(0)
-							if(cleaned_human.shoes)
-								cleaned_human.shoes.clean_blood()
-								cleaned_human.update_inv_shoes(0)
-							cleaned_human.clean_blood(1)
-							to_chat(cleaned_human, SPAN_WARNING("\The [src] runs its bottom mounted bristles all over you!"))
 
 /mob/living/silicon/robot/proc/start_self_destruct(var/anti_theft = FALSE)
 	if(self_destructing)
@@ -1039,12 +996,6 @@
 	density = FALSE
 	fragem(src, 50, 100, 2, 1, 5, 1, FALSE)
 	gib()
-
-/mob/living/silicon/robot/update_canmove() // to fix lockdown issues w/ chairs
-	. = ..()
-	if(lock_charge)
-		canmove = FALSE
-		. = FALSE
 
 /mob/living/silicon/robot/proc/UnlinkSelf()
 	disconnect_from_ai()
@@ -1118,8 +1069,8 @@
 	if(!icontype)
 		return
 
-	icon_state = module_sprites[icontype][ROBOT_CHASSIS]
-	if(!module_sprites[icontype][ROBOT_ICON])
+	icon_state = module_sprites?[icontype]?[ROBOT_CHASSIS]
+	if(!module_sprites?[icontype]?[ROBOT_ICON])
 		icon = initial(icon)
 	icon_selected = TRUE
 

@@ -145,7 +145,8 @@
 		if(nymph.nutrition > 100 && nutrilevel < 10)
 			nymph.adjustNutritionLoss((10-nutrilevel)*5)
 			nutrilevel = 10
-			nymph.visible_message("<span class='notice'><b>[nymph]</b> secretes a trickle of green liquid, refilling [src].</span>","<span class='notice'>You secrete a trickle of green liquid, refilling [src].</span>")
+			nymph.visible_message(SPAN_NOTICE("<b>[nymph]</b> secretes a trickle of green liquid, refilling [src]."),
+												SPAN_NOTICE("You secrete a trickle of green liquid, refilling [src]."))
 		return//Nymphs cant open and close lids
 	if(mechanical && !usr.incapacitated() && Adjacent(usr))
 		close_lid(usr)
@@ -180,18 +181,21 @@
 		if(weedlevel > 0)
 			nymph.ingested.add_reagent(/singleton/reagent/nutriment, weedlevel/6)
 			weedlevel = 0
-			nymph.visible_message("<span class='notice'><b>[nymph]</b> roots through [src], ripping out weeds and eating them noisily.</span>","<span class='notice'>You root through [src], ripping out weeds and eating them noisily.</span>")
+			nymph.visible_message(SPAN_NOTICE("<b>[nymph]</b> roots through [src], ripping out weeds and eating them noisily."),
+												SPAN_NOTICE("You root through [src], ripping out weeds and eating them noisily."))
 			return
 		if (dead)//Let nymphs eat dead plants
 			nymph.ingested.add_reagent(/singleton/reagent/nutriment, 1)
-			nymph.visible_message("<span class='notice'><b>[nymph]</b> rips out the dead plants from [src], and loudly munches them.</span>","<span class='notice'>You root out the dead plants in [src], eating them with loud chewing sounds.</span>")
+			nymph.visible_message(SPAN_NOTICE("<b>[nymph]</b> rips out the dead plants from [src], and loudly munches them."),
+												SPAN_NOTICE("You root out the dead plants in [src], eating them with loud chewing sounds."))
 			remove_dead(user)
 			return
 		if (harvest)
 			harvest(user)
 			return
 		else
-			nymph.visible_message("<span class='notice'><b>[nymph]</b> rolls around in [src] for a bit.</span>","<span class='notice'>You roll around in [src] for a bit.</span>")
+			nymph.visible_message(SPAN_NOTICE("<b>[nymph]</b> rolls around in [src] for a bit."),
+												SPAN_NOTICE("You roll around in [src] for a bit."))
 		return
 
 /obj/machinery/portable_atmospherics/hydroponics/New()
@@ -228,7 +232,7 @@
 /obj/machinery/portable_atmospherics/hydroponics/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return TRUE
 
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return TRUE
 	else
 		return !density
@@ -248,7 +252,7 @@
 	if(prob(min(25,max(1,seed.get_trait(TRAIT_POTENCY/2)))))
 		if(seed.get_trait(TRAIT_SPOROUS) && !closed_system)
 			seed.create_spores(get_turf(src))
-			visible_message("<span class='danger'>\The [src] releases its spores!</span>")
+			visible_message(SPAN_DANGER("\The [src] releases its spores!"))
 
 //Process reagents being input into the tray.
 /obj/machinery/portable_atmospherics/hydroponics/proc/process_reagents()
@@ -319,7 +323,7 @@
 	// Reset values.
 	if(seed.get_trait(TRAIT_SPOROUS))
 		seed.create_spores(get_turf(src))
-		visible_message("<span class='danger'>\The [src] releases its spores!</span>")
+		visible_message(SPAN_DANGER("\The [src] releases its spores!"))
 	harvest = 0
 	lastproduce = age
 
@@ -372,7 +376,7 @@
 	pestlevel = 0
 	sampled = 0
 	update_icon()
-	visible_message("<span class='notice'>[src] has been overtaken by [seed.display_name].</span>")
+	visible_message(SPAN_NOTICE("[src] has been overtaken by [seed.display_name]."))
 
 	return
 
@@ -450,15 +454,15 @@
 	weedlevel = 0
 
 	update_icon()
-	visible_message("<span class='danger'>The </span><span class='notice'>[previous_plant]</span><span class='danger'> has suddenly mutated into </span><span class='notice'>[seed.display_name]!</span>")
+	visible_message(SPAN_DANGER("The </span><span class='notice'>[previous_plant]</span><span class='danger'> has suddenly mutated into </span><span class='notice'>[seed.display_name]!"))
 
 	return
 
-/obj/machinery/portable_atmospherics/hydroponics/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/portable_atmospherics/hydroponics/attackby(obj/item/attacking_item, mob/user)
 
 	//A special case for if the container has only water, for manual watering with buckets
-	if (istype(O,/obj/item/reagent_containers))
-		var/obj/item/reagent_containers/RC = O
+	if (istype(attacking_item, /obj/item/reagent_containers))
+		var/obj/item/reagent_containers/RC = attacking_item
 		if(!RC.is_open_container())
 			to_chat(user, SPAN_WARNING("You need to open \the [RC] first!"))
 			return
@@ -473,10 +477,10 @@
 					to_chat(user, SPAN_WARNING("This tray is full of water already."))
 				return TRUE
 
-	if (O.is_open_container())
+	if (attacking_item.is_open_container())
 		return FALSE
 
-	if(O.iswirecutter() || istype(O, /obj/item/surgery/scalpel))
+	if(attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel))
 
 		if(!seed)
 			to_chat(user, "There is nothing to take a sample from in \the [src].")
@@ -504,9 +508,9 @@
 
 		return
 
-	else if(istype(O, /obj/item/reagent_containers/syringe))
+	else if(istype(attacking_item, /obj/item/reagent_containers/syringe))
 
-		var/obj/item/reagent_containers/syringe/S = O
+		var/obj/item/reagent_containers/syringe/S = attacking_item
 
 		if (S.mode == 1)
 			if(seed)
@@ -522,16 +526,16 @@
 				to_chat(user, "There's nothing to draw something from.")
 			return TRUE
 
-	else if (istype(O, /obj/item/seeds))
+	else if (istype(attacking_item, /obj/item/seeds))
 
 		if(!seed)
 
-			var/obj/item/seeds/S = O
-			user.remove_from_mob(O)
+			var/obj/item/seeds/S = attacking_item
+			user.remove_from_mob(attacking_item)
 
 			if(!S.seed)
 				to_chat(user, "The packet seems to be empty. You throw it away.")
-				qdel(O)
+				qdel(attacking_item)
 				return
 
 			if(S.seed.hydrotray_only && !mechanical)
@@ -547,61 +551,63 @@
 			health = (istype(S, /obj/item/seeds/cutting) ? round(seed.get_trait(TRAIT_ENDURANCE)/rand(2,5)) : seed.get_trait(TRAIT_ENDURANCE))
 			lastcycle = world.time
 
-			qdel(O)
+			qdel(attacking_item)
 
 			check_health()
 
 		else
-			to_chat(user, "<span class='danger'>\The [src] already has seeds in it!</span>")
+			to_chat(user, SPAN_DANGER("\The [src] already has seeds in it!"))
 
-	else if (istype(O, /obj/item/material/minihoe))  // The minihoe
+	else if (istype(attacking_item, /obj/item/material/minihoe))  // The minihoe
 
 		if(weedlevel > 0)
-			user.visible_message("<span class='danger'>[user] starts uprooting the weeds.</span>", "<span class='danger'>You remove the weeds from the [src].</span>")
+			user.visible_message(SPAN_DANGER("[user] starts uprooting the weeds."),
+									SPAN_DANGER("You remove the weeds from the [src]."))
+
 			weedlevel = 0
 			update_icon()
 		else
-			to_chat(user, "<span class='danger'>This plot is completely devoid of weeds. It doesn't need uprooting.</span>")
+			to_chat(user, SPAN_DANGER("This plot is completely devoid of weeds. It doesn't need uprooting."))
 
-	else if (istype(O, /obj/item/storage/bag/plants))
+	else if (istype(attacking_item, /obj/item/storage/bag/plants))
 
 		attack_hand(user)
 
-		var/obj/item/storage/bag/plants/S = O
+		var/obj/item/storage/bag/plants/S = attacking_item
 		for (var/obj/item/reagent_containers/food/snacks/grown/G in locate(user.x,user.y,user.z))
 			if(!S.can_be_inserted(G))
 				return
 			S.handle_item_insertion(G, 1)
 
-	else if ( istype(O, /obj/item/plantspray) )
+	else if ( istype(attacking_item, /obj/item/plantspray) )
 
-		var/obj/item/plantspray/spray = O
-		user.remove_from_mob(O)
+		var/obj/item/plantspray/spray = attacking_item
+		user.remove_from_mob(attacking_item)
 		toxins += spray.toxicity
 		pestlevel -= spray.pest_kill_str
 		weedlevel -= spray.weed_kill_str
-		to_chat(user, "You spray [src] with [O].")
+		to_chat(user, "You spray [src] with [attacking_item].")
 		playsound(loc, 'sound/effects/spray3.ogg', 50, 1, -6)
-		qdel(O)
+		qdel(attacking_item)
 		check_health()
 
-	else if(mechanical && O.iswrench())
+	else if(mechanical && attacking_item.iswrench())
 
 		//If there's a connector here, the portable_atmospherics setup can handle it.
 		if(locate(/obj/machinery/atmospherics/portables_connector/) in loc)
 			return ..()
 
-		playsound(loc, O.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "wrench" : "unwrench"] \the [src].")
 
-	else if(O.force && seed)
+	else if(attacking_item.force && seed)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		user.visible_message("<span class='danger'>\The [seed.display_name] has been attacked by [user] with \the [O]!</span>")
+		user.visible_message(SPAN_DANGER("\The [seed.display_name] has been attacked by [user] with \the [attacking_item]!"))
 		if(!dead)
-			var/total_damage = O.force
-			if ((O.sharp) || (O.damtype == "fire")) //fire and sharp things are more effective when dealing with plants
-				total_damage = 2*O.force
+			var/total_damage = attacking_item.force
+			if ((attacking_item.sharp) || (attacking_item.damtype == "fire")) //fire and sharp things are more effective when dealing with plants
+				total_damage = 2*attacking_item.force
 			health -= total_damage
 			check_health()
 	return
@@ -622,31 +628,29 @@
 	else if(dead)
 		remove_dead(user)
 
-/obj/machinery/portable_atmospherics/hydroponics/examine(mob/user, distance, is_adjacent)
-
+/obj/machinery/portable_atmospherics/hydroponics/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-
 	if(!seed)
-		to_chat(usr, "[src] is empty.")
+		. += "[src] is empty."
 		return
 
-	to_chat(usr, "<span class='notice'>[seed.display_name] are growing here.</span>")
+	. += SPAN_NOTICE("[seed.display_name] are growing here.")
 
 	if(!is_adjacent)
 		return
 
-	to_chat(usr, "Water: [round(waterlevel,0.1)]/100")
-	to_chat(usr, "Nutrient: [round(nutrilevel,0.1)]/10")
+	. += "The water gauge displays [round(waterlevel,0.1)]/100."
+	. += "The nutrient gauge displays [round(nutrilevel,0.1)]/10."
 
 	if(weedlevel >= 5)
-		to_chat(usr, "\The [src] is <span class='danger'>infested with weeds</span>!")
+		. += "\The [src] is <span class='danger'>infested with weeds</span>!"
 	if(pestlevel >= 5)
-		to_chat(usr, "\The [src] is <span class='danger'>infested with tiny worms</span>!")
+		. += "\The [src] is <span class='danger'>infested with tiny worms</span>!"
 
 	if(dead)
-		to_chat(usr, "<span class='danger'>The plant is dead.</span>")
+		. += SPAN_DANGER("The plant is dead.")
 	else if(health <= (seed.get_trait(TRAIT_ENDURANCE)/ 2))
-		to_chat(usr, "The plant looks <span class='danger'>unhealthy</span>.")
+		. += "The plant looks <span class='danger'>unhealthy</span>."
 
 	if(mechanical)
 		var/turf/T = loc
@@ -674,7 +678,7 @@
 
 			light_string = "a light level of [light_available] lumens"
 
-		to_chat(usr, "The tray's sensor suite is reporting [light_string] and a temperature of [environment.temperature]K.")
+		. += "The tray's sensor suite is reporting [light_string] and a temperature of [environment.temperature]K."
 
 /obj/machinery/portable_atmospherics/hydroponics/verb/close_lid_verb()
 	set name = "Toggle Tray Lid"

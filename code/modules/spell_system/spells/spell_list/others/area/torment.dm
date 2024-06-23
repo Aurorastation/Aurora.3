@@ -10,7 +10,7 @@
 	range = 5
 	level_max = list(Sp_TOTAL = 1, Sp_SPEED = 0, Sp_POWER = 1)
 	cooldown_min = 50
-	message = "<span class='danger'>So much pain! All you can hear is screaming!</span>"
+	message = SPAN_DANGER("So much pain! All you can hear is screaming!")
 
 	max_targets = 0
 	compatible_mobs = list(/mob/living/carbon/human)

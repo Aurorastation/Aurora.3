@@ -21,10 +21,10 @@
 	unload_warrant()
 	return ..()
 
-/obj/item/device/holowarrant/examine(mob/user, distance, is_adjacent)
+/obj/item/device/holowarrant/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(selected_warrant)
-		to_chat(user, "It's a holographic warrant for '[selected_warrant.name]'.")
+		. += "It's a holographic warrant for '[selected_warrant.name]'."
 
 /obj/item/device/holowarrant/attack_self(mob/living/user as mob)
 	if(!LAZYLEN(SSrecords.warrants))

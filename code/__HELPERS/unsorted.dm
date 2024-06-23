@@ -662,7 +662,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
  *
  * Arguments:
  * * user: The user to check for.
- * * delay: The delay in ticks to wait before returning TRUE.
+ * * delay: The delay in deciseconds to wait before returning TRUE.
  * * target: The target to check for. Optional.
  * * do_flags: Flags that determine what the user and target can and cannot do, defined in [mobs.dm]. Defaults to DO_DEFAULT.
  * * incapacitation_flags: Incapacitation flags that determines if the user can be incapacitated. Defaults to INCAPACITATION_DEFAULT.
@@ -670,7 +670,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
  *
  */
 /proc/do_after(mob/user, delay, atom/target, do_flags = DO_DEFAULT, incapacitation_flags = INCAPACITATION_DEFAULT, datum/callback/extra_checks)
-	return !do_after_detailed(user, delay, target, do_flags, incapacitation_flags)
+	return !do_after_detailed(user, delay, target, do_flags, incapacitation_flags, extra_checks)
 
 /**
  * See [/proc/do_after]

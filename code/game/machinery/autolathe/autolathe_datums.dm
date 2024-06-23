@@ -59,6 +59,11 @@
 	path = /obj/item/device/multitool
 	category = "Tools"
 
+/singleton/autolathe_recipe/geiger
+	name = "geiger counter"
+	path = /obj/item/device/geiger
+	category = "Tools"
+
 /singleton/autolathe_recipe/t_scanner
 	name = "T-ray scanner"
 	path = /obj/item/device/t_scanner
@@ -114,6 +119,12 @@
 	path = /obj/item/stack/material/steel
 	category = "General"
 	is_stack = 1
+
+/singleton/autolathe_recipe/aluminium
+	name = "aluminium sheets"
+	path = /obj/item/stack/material/aluminium
+	category = "General"
+	is_stack = TRUE
 
 /singleton/autolathe_recipe/glass
 	name = "glass sheets"

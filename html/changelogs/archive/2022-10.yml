@@ -1,0 +1,166 @@
+2022-10-03:
+  Niennab:
+  - rscadd: Added a unique sprite for ian. Changed code to reference ian instead of
+      corgi.
+  - tweak: Tweaked the corgi, lisa, puppy, ian plushie, and ian clothing sprites.
+  SleepyGemmy:
+  - imageadd: Tweaks the hoodie hood sprite slightly to make it more form-fitting.
+  listerla:
+  - tweak: Hijabs now take the ear slot by default, as to be more easily taken with
+      a hat.
+2022-10-04:
+  Omicega:
+  - rscadd: Added the new health scanner sound effects to PDA scanners and mech scanners
+      too.
+  TheDanseMacabre:
+  - tweak: Made a few generic weapons better integrated with the lore, with new descriptions
+      and fluff.
+  WickedCybs:
+  - bugfix: Medical&#x27;s back entrance requires med access now. Formerly, it was
+      all access
+2022-10-07:
+  MattAtlas:
+  - bugfix: Fixed mobs being unable to be thrown with grabs.
+  Omicega:
+  - maptweak: Adds some vents, scrubbers, and air alarms to generally tidy up areas
+      with messy atmos alarms.
+  - maptweak: Adds some more holopads around the ship.
+  - maptweak: Removed the emergency beacon spawn in the Tesla room itself to help
+      curb teslas getting loose.
+  SpaceBaa:
+  - bugfix: Solar Control Computer now has an icon.
+  WickedCybs:
+  - rscadd: A pair of high powered binoculars was added to the Intrepid.
+  - tweak: 'Changes the robco vending machine selection and adds some more stuff to
+      it while removing the horizon engineering clothing from it. It&#x27;s more of
+      a rarely seen all-in-one engineering vendor now. '
+  anconfuzedrock:
+  - rscadd: Operations now has a long-range holopad at the front desk that can be
+      used to call the hangar&#x27;s shuttles.
+2022-10-09:
+  Alberyk:
+  - rscadd: Added new traders to the merchant console.
+  DreamySkrell:
+  - rscadd: Adds a psionics firing pin. Fires only if the user is capable of psionics.
+  WickedCybs:
+  - tweak: The rescue and burglar pods won&#x27;t spawn as a random event anymore.
+      They can still be manually spawned by an admin if desired for now.
+2022-10-12:
+  Wowzewow (Wezzy):
+  - rscadd: Re-adds looping sounds, fixed this time.
+2022-10-13:
+  Alberyk, Kyres1:
+  - rscadd: Added a Tajaran smuggler ship.
+  Ben10083:
+  - imageadd: Added small variants to all flags and logos. It can be done by adding
+      _small to the end of the command
+  - imageadd: Golden deep logo replaced with properly sized version.
+  - imageadd: '[barcode] images properly formatted.'
+  - bugfix: Paperwork for Nanotrasen now uses the correct new NT Logo.
+  - bugfix: SCC logo downsized to scale with other logos.
+  - bugfix: Glowbulbs no longer spawn diona when destroyed.
+  - bugfix: Operation Manager wristbound radio now has the command channel.
+  - refactor: some references to qm in computer code corrected to om.
+  DreamySkrell:
+  - bugfix: Fixes broken skrell rescue rig leg sprites.
+  Granodd:
+  - rscadd: Gives the OM access to the Intrepid and EVA, as it feels necessary being
+      the head of staff in charge of the Hangar.
+  Niennab:
+  - bugfix: Fixed bug where cloudy eridani wouldn&#x27;t spawn with proper sprite.
+  SleepyGemmy:
+  - bugfix: Fixes the cargo shuttle dock not working properly.
+  - bugfix: Fixes conveyors layering over things.
+  - bugfix: Fixes the merchant shuttle not using cardinal-directional windows.
+  - tweak: Restores the old CCIA shuttle design.
+  - bugfix: Fixes three mapping bugs. Issue 14895, 14898, and 14906.
+  WickedCybs:
+  - rscadd: Adds one PDA to the Kataphract ship bridge. They can link it to their
+      holopad to not worry about missing a call.
+  - rscadd: There&#x27;s a door to maint from the medical recovery room now.
+  - tweak: Phoron punch was moved to the softdrink vending machine&#x27;s contraband
+      list. There&#x27;s also a little less due to the scarcity.
+  Wowzewow (Wezzy):
+  - rscadd: Re-adds old grey PMCG uniforms as an alt option.
+  - rscadd: Accessories relating to PMCG have been finally updated with new pallete.
+      Old grey accessories are alt options.
+  - rscadd: PMCG Medical palette has been updated to match PMCG Security. As always,
+      old uniforms are an alt option. Old(er) FT uniform is now called Sekhmet Intergalactic
+      FT uniform. Highlights are blue to avoid confusion with Zavodskoi.
+  - rscadd: Adds new corporate detective alt uniforms similar to the old detective
+      alt uniform.
+2022-10-14:
+  Ben10083:
+  - bugfix: Walls under the grates in maintenance by the Armory have been removed.
+  SleepyGemmy:
+  - tweak: Changes ambience trigger from a possibility once every 30 seconds to once
+      every 5 minutes.
+2022-10-16:
+  Sheeplets:
+  - tweak: Allowed the PMCG shoulder patch to be selected in the loadout by any member
+      of the faction.
+2022-10-17:
+  Sheeplets:
+  - tweak: Replaced the cough syrup in NanoMed Plus vendors with two bottles of liquid
+      coagzolug.
+  Wowzewow (Wezzy):
+  - bugfix: Adds missing PMCG alt sec uniforms.
+2022-10-19:
+  Ben10083:
+  - bugfix: Mimics now have sprites. Careful which crates you open.
+  - maptweak: Recovery Ward holopad moved.
+  - bugfix: TCFL Deployable Barrier Kit now has sprite.
+  - spellcheck: TCFL Deployable Barrier Kit now has correct description
+2022-10-20:
+  DreamySkrell:
+  - rscadd: Adds a random suit item for mapping stuff.
+  - rscadd: Adds a cargo radio key pouch to OM&#x27;s locker.
+  - tweak: Replaces XO&#x27;s cargo radio key pouch with a security one.
+  - rscadd: Adds XO&#x27;s white beret and gloves.
+  - tweak: Tweaks the contents of XO&#x27;s attire locker.
+  - tweak: Moves SCC loadout items to the faction tab.
+  - rscadd: Adds a SCC beret to the loadout.
+  - tweak: Tweaks the descriptions of the new San Colettish bridge crew uniforms.
+  - rscadd: Adds holsters to lockers of heads that did not have them.
+  - tweak: Allows loadout holsters to be selected by all heads.
+2022-10-21:
+  WickedCybs:
+  - bugfix: Moves the navpoint for the second horizon hangar navpoint (the one third
+      parties use to go inside) up by one tile. This will stop the Orion Express shuttle
+      from using the pad and destroying the hangar wires and floors, as it was perfectly
+      sized to land in just barely.
+  kyres1:
+  - bugfix: Fixes the idris_cruise map not being opened properly.
+2022-10-22:
+  Ben10083:
+  - rscadd: Biesel Consulars now are given a blaster revolver for self-defence.
+  - tweak: Blaster Revolver now considered small.
+  - tweak: Blaster Revolver cylinder spin now under unique action.
+  Butterrobber202:
+  - tweak: Cult armour has been tweaked to not have as high of a protection against
+      lasers. Its ballistics protection has been raised to compensate.
+  DreamySkrell:
+  - bugfix: Fixes stun talisman not actually stunning.
+  Flpfs:
+  - rscadd: Handheld health scanner now displays blood type.
+  - tweak: The bolding and formatting on the handheld health scanner has been made
+      consistent.
+  - tweak: Body temperature on the handheld scanner now rounds to one digit after
+      the dot.
+  SleepyGemmy:
+  - maptweak: Fixes the ninja spawn area on the centcomm z-level having a buggy skybox
+      by replacing it with a cool and edgy cave.
+  - maptweak: Adds a single light to the engineering hallway.
+  WickedCybs:
+  - bugfix: 'The Taj smuggler ship fuel port will start with a fuel tank in it now. '
+  - bugfix: The engineering cycler in the Taj smuggler ship should be access unrestricted
+      now.
+  Wowzewow (Wezzy), PositiveEntropy, Triiodine:
+  - rscadd: Compresses bag types and adds seperate color selection option in the loadout.
+      Color selection only works for leather satchels, pocketbooks and rucksacks.
+      Select &#x27;None&#x27; for default color.
+  - rscadd: Adds Faction-specific Backpacks! Matches your corporation.
+  - rscadd: Adds new Job-specific bags, namely for all the Heads of Staff, the Psychiatrist,
+      and EMTs.
+  - imageadd: Adds resprited backpacks and satchels from /tg/, the rest sprited by
+      yours truly.

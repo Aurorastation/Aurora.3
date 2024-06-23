@@ -4,7 +4,6 @@
 	icon = 'icons/obj/smooth/chalkline-smooth.dmi'
 	icon_state = "preview"
 	color = "#FFFFFF"
-	layer = 2.1
 	anchored = TRUE
 	smoothing_flags = SMOOTH_TRUE
 
@@ -115,6 +114,6 @@
 	update_icon()
 
 /obj/item/storage/box/fancy/crayons/chalkbox/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	for(var/obj/item/pen/drafting/chalk in contents)
-		add_overlay("[chalk.colorName]")
+		AddOverlays("[chalk.colorName]")

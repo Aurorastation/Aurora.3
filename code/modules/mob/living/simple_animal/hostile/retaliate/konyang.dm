@@ -14,8 +14,8 @@
 	mob_size = 12
 	organ_names = list("torso", "left wing", "right wing", "head")
 
-	maxHealth = 150
-	health = 150
+	maxHealth = 300
+	health = 300
 
 	melee_damage_lower = 20
 	melee_damage_upper = 30

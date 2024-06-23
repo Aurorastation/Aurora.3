@@ -17,11 +17,11 @@
 
 	. = ..()
 
-/obj/item/device/assembly/electronic_assembly/attackby(obj/item/I, mob/user)
-	if (I.iscrowbar())
+/obj/item/device/assembly/electronic_assembly/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.iscrowbar())
 		toggle_open(user)
 	else if (opened)
-		EA.attackby(I, user)
+		EA.attackby(attacking_item, user)
 	else
 		..()
 
@@ -29,7 +29,7 @@
 	playsound(get_turf(src), 'sound/items/crowbar_pry.ogg', 50, 1)
 	opened = !opened
 	EA.opened = opened
-	to_chat(user, "<span class='notice'>You [opened ? "open" : "close"] \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You [opened ? "open" : "close"] \the [src]."))
 	secured = 1
 	update_icon()
 
@@ -51,7 +51,7 @@
 		for(var/obj/item/integrated_circuit/built_in/device_input/I in EA.contents)
 			I.do_work()
 
-/obj/item/device/assembly/electronic_assembly/examine(mob/user)
+/obj/item/device/assembly/electronic_assembly/examine(mob/user, show_extended)
 	. = ..()
 	if(EA)
 		for(var/obj/item/integrated_circuit/IC in EA.contents)
@@ -99,6 +99,6 @@
 	. = ..()
 
 /obj/item/device/electronic_assembly/device/check_interactivity(mob/user)
-	if(!CanInteract(user, state = deep_inventory_state))
+	if(!CanInteract(user, state = GLOB.deep_inventory_state))
 		return 0
 	return 1

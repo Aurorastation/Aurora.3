@@ -18,10 +18,11 @@
 	stuff_to_display = null
 
 /obj/item/integrated_circuit/output/screen/any_examine(mob/user)
+	. = ..()
 	if (displayed_name)
-		to_chat(user, "There is a little screen labeled '[displayed_name]', which displays [!isnull(stuff_to_display) ? "'[stuff_to_display]'" : "nothing"].")
+		. += "There is a little screen labeled '[displayed_name]', which displays [!isnull(stuff_to_display) ? "'[stuff_to_display]'" : "nothing"]."
 	else
-		to_chat(user, "There is an unlabelled little screen, which displays [!isnull(stuff_to_display) ? "'[stuff_to_display]'" : "nothing"].")
+		. += "There is an unlabelled little screen, which displays [!isnull(stuff_to_display) ? "'[stuff_to_display]'" : "nothing"]."
 
 /obj/item/integrated_circuit/output/screen/do_work()
 	var/datum/integrated_io/I = inputs[1]
@@ -43,7 +44,7 @@
 	var/list/nearby_things = range(0, get_turf(src))
 	for(var/mob/M in nearby_things)
 		var/obj/O = assembly ? assembly : src
-		to_chat(M, "<span class='notice'>[icon2html(O, viewers(get_turf(src)))] [stuff_to_display]</span>")
+		to_chat(M, SPAN_NOTICE("[icon2html(O, viewers(get_turf(src)))] [stuff_to_display]"))
 
 /obj/item/integrated_circuit/output/screen/large
 	name = "large screen"
@@ -54,7 +55,7 @@
 /obj/item/integrated_circuit/output/screen/large/do_work()
 	..()
 	var/obj/O = assembly ? loc : assembly
-	O.visible_message("<span class='notice'>[icon2html(O, viewers(get_turf(src)))] [stuff_to_display]</span>")
+	O.visible_message(SPAN_NOTICE("[icon2html(O, viewers(get_turf(src)))] [stuff_to_display]"))
 
 /obj/item/integrated_circuit/output/light
 	name = "light"
@@ -302,6 +303,7 @@
 	push_data()
 
 /obj/item/integrated_circuit/output/led/any_examine(mob/user)
+	. = ..()
 	var/text_output = list()
 	var/initial_name = initial(name)
 
@@ -312,7 +314,7 @@
 	else
 		text_output += "\an ["\improper[initial_name]"] labeled '[name]'"
 	text_output += " which is currently [get_pin_data(IC_INPUT, 1) ? "lit <font color=[led_color]>[color_name]</font>" : "unlit."]"
-	to_chat(user,jointext(text_output,null))
+	. += jointext(text_output,null)
 
 /obj/item/integrated_circuit/output/led/red
 	name = "red LED"
@@ -397,12 +399,12 @@
 			stuff_to_print = copytext(stuff_to_print, MAX_PAPER_MESSAGE_LEN)
 			if(stuff_to_print || eject)
 				paper_sheet = paper_source.get_item(TRUE)
-				audible_message("<span class='notice'>\The [src] buzzes and spits out a sheet of paper.</span>")
+				audible_message(SPAN_NOTICE("\The [src] buzzes and spits out a sheet of paper."))
 				paper_sheet.forceMove(get_turf(src))
 				if(using_tray)
 					paper_sheet = paper_source.get_item(FALSE)
 					if(!paper_sheet)
-						audible_message("<span class='notice'>\The [src] beeps, out of paper.</span>")
+						audible_message(SPAN_NOTICE("\The [src] beeps, out of paper."))
 						return
 	else
-		audible_message("<span class='notice'>\The [src] beeps, out of paper.</span>")
+		audible_message(SPAN_NOTICE("\The [src] beeps, out of paper."))

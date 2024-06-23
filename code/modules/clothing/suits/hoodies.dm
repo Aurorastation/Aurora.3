@@ -46,6 +46,7 @@
 		bio = ARMOR_BIO_MINOR
 	)
 	siemens_coefficient = 0.75
+	protects_against_weather = TRUE
 
 /obj/item/clothing/head/winterhood
 	name = "winter hood"
@@ -59,6 +60,7 @@
 	flags_inv = HIDEEARS | BLOCKHAIR | HIDEEARS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	canremove = 0
+	protects_against_weather = TRUE
 	var/hooded = FALSE
 
 /obj/item/clothing/head/winterhood/Initialize(mapload, material_key)
@@ -321,6 +323,10 @@
 	icon_state = "hoodie_sleeveless"
 	item_state = "hoodie_sleeveless"
 
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless_crop
+	icon_state = "hoodie_sleeveless_crop"
+	item_state = "hoodie_sleeveless_crop"
+
 /obj/item/clothing/suit/storage/hooded/wintercoat/konyang
 	name = "konyang village coat"
 	desc = "A highly prized hooded coat with unmatched breathability and insulation. Imported from Konyang, this garment is made with a weave derived from the feathers of indigenous birds."
@@ -366,4 +372,37 @@
 
 /obj/item/clothing/head/winterhood/colorable/ponczo
 	name = "visegradi ponczo hood"
+	desc = "A hood for a Visegradi ponczo."
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo
+	name = "red visegradi patterned ponczo"
+	desc = "A type of shelter-half or zeltbahn, the ponczo is a ubiquitous article of clothing on the planet of Visegrad. Resembling a long smock or raincoat, the ponczo is as waterproof as it is rugged. While true shelter-halves can be made into a tent, most ponczos are no longer capable of this. This one is red, and has a patterned design."
+	icon_state = "red_ponczo"
+	item_state = "red_ponczo"
+	hoodtype = /obj/item/clothing/head/winterhood/patterned_ponczo
+
+/obj/item/clothing/head/winterhood/patterned_ponczo
+	name = "red visegradi ponczo hood"
+	desc = "A hood for a Visegradi ponczo."
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo/brown
+	name = "brown visegradi patterned ponczo"
+	desc = "A type of shelter-half or zeltbahn, the ponczo is a ubiquitous article of clothing on the planet of Visegrad. Resembling a long smock or raincoat, the ponczo is as waterproof as it is rugged. While true shelter-halves can be made into a tent, most ponczos are no longer capable of this. This one is brown, and has a patterned design."
+	icon_state = "brown_ponczo"
+	item_state = "brown_ponczo"
+	hoodtype = /obj/item/clothing/head/winterhood/patterned_ponczo/brown
+
+/obj/item/clothing/head/winterhood/patterned_ponczo/brown
+	name = "brown visegradi ponczo hood"
+	desc = "A hood for a Visegradi ponczo."
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo/blue
+	name = "blue visegradi patterned ponczo"
+	desc = "A type of shelter-half or zeltbahn, the ponczo is a ubiquitous article of clothing on the planet of Visegrad. Resembling a long smock or raincoat, the ponczo is as waterproof as it is rugged. While true shelter-halves can be made into a tent, most ponczos are no longer capable of this. This one is blue, and has a patterned design."
+	icon_state = "blue_ponczo"
+	item_state = "blue_ponczo"
+	hoodtype = /obj/item/clothing/head/winterhood/patterned_ponczo/blue
+
+/obj/item/clothing/head/winterhood/patterned_ponczo/blue
+	name = "blue visegradi ponczo hood"
 	desc = "A hood for a Visegradi ponczo."

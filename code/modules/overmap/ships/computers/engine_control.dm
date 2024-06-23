@@ -4,6 +4,7 @@
 	name = "engine control console"
 	icon_screen = "enginecontrol"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 	circuit = /obj/item/circuitboard/ship/engines
 	var/display_state = "status"
@@ -21,6 +22,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "engines"
 	icon_keyboard = "tech_key"
+	icon_keyboard_emis = "tech_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
@@ -77,7 +79,7 @@
 
 	if(href_list["set_global_limit"])
 		var/newlim = tgui_input_number(usr, "Input the new thrust limit.", "Thrust Limit", connected.thrust_limit*100, 100, 0)
-		if(!CanInteract(usr, physical_state))
+		if(!CanInteract(usr, GLOB.physical_state))
 			return TOPIC_NOACTION
 		connected.thrust_limit = Clamp(newlim/100, 0, 1)
 		for(var/datum/ship_engine/E in connected.engines)
@@ -94,7 +96,7 @@
 		if(href_list["set_limit"])
 			var/datum/ship_engine/E = locate(href_list["engine"])
 			var/newlim = tgui_input_number(usr, "Input the new thrust limit.", "Thrust Limit", E.get_thrust_limit(), 100, 0)
-			if(!CanInteract(usr, physical_state))
+			if(!CanInteract(usr, GLOB.physical_state))
 				return
 			var/limit = Clamp(newlim/100, 0, 1)
 			if(istype(E))

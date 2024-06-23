@@ -32,8 +32,8 @@
 /obj/item/mecha_equipment/sleeper/attack()
 	return
 
-/obj/item/mecha_equipment/sleeper/attackby(var/obj/item/I, var/mob/user)
-	return sleeper.attackby(I, user)
+/obj/item/mecha_equipment/sleeper/attackby(obj/item/attacking_item, mob/user)
+	return sleeper.attackby(attacking_item, user)
 
 /obj/item/mecha_equipment/sleeper/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
@@ -56,7 +56,7 @@
 		return
 
 	//All good, load the person
-	visible_message("<span class='notice'>\The [src] begins loading \the [target] into \the [src].</span>")
+	visible_message(SPAN_NOTICE("\The [src] begins loading \the [target] into \the [src]."))
 	sleeper.go_in(person_to_load, user)
 
 /obj/item/mecha_equipment/sleeper/get_hardpoint_maptext()
@@ -87,16 +87,20 @@
 		return S.owner
 	return null
 
-/obj/machinery/sleeper/mounted/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/reagent_containers/glass))
-		if(!user.unEquip(I, src))
+/obj/machinery/sleeper/mounted/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass))
+		if(!user.unEquip(attacking_item, src))
 			return TRUE
 
 		if(beaker)
 			beaker.forceMove(get_turf(src))
-			user.visible_message("<span class='notice'>\The [user] removes \the [beaker] from \the [src].</span>", "<span class='notice'>You remove \the [beaker] from \the [src].</span>")
-		beaker = I
-		user.visible_message("<span class='notice'>\The [user] adds \a [I] to \the [src].</span>", "<span class='notice'>You add \a [I] to \the [src].</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] removes \the [beaker] from \the [src]."),
+									SPAN_NOTICE("You remove \the [beaker] from \the [src]."))
+
+		beaker = attacking_item
+		user.visible_message(SPAN_NOTICE("\The [user] adds \a [attacking_item] to \the [src]."),
+								SPAN_NOTICE("You add \a [attacking_item] to \the [src]."))
+
 		return TRUE
 
 /obj/item/mecha_equipment/crisis_drone
@@ -225,7 +229,7 @@
 
 /obj/item/mecha_equipment/crisis_drone/proc/shut_down()
 	if(enabled)
-		owner.visible_message("<span class='notice'>\The [owner]'s [src] buzzes as its drone returns to port.</span>")
+		owner.visible_message(SPAN_NOTICE("\The [owner]'s [src] buzzes as its drone returns to port."))
 		toggle_drone()
 	if(!isnull(Target))
 		Target = null

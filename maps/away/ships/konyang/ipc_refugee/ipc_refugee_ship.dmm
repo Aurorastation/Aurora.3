@@ -1781,8 +1781,7 @@
 	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi';
 	icon_state = "r_foot";
 	name = "G2 Right Foot";
-	pixel_y = 18;
-	layer = 3.01
+	pixel_y = 18
 	},
 /obj/effect/decal/fake_object{
 	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi';
@@ -1796,8 +1795,7 @@
 	icon_state = "hardhat_yellow_he";
 	dir = 8;
 	pixel_y = 20;
-	name = "Hardhat";
-	layer = 3.01
+	name = "Hardhat"
 	},
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/meteor.dmi';
@@ -1822,8 +1820,7 @@
 	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi';
 	icon_state = "r_hand";
 	name = "G2 Right Hand";
-	pixel_y = 19;
-	layer = 3.01
+	pixel_y = 19
 	},
 /obj/effect/decal/fake_object{
 	icon = 'icons/mob/human_races/ipc/r_ind_hephaestus.dmi';
@@ -1846,8 +1843,7 @@
 	icon_state = "impact_wrench_lh";
 	dir = 8;
 	pixel_y = 20;
-	pixel_x = 5;
-	layer = 3.01
+	pixel_x = 5
 	},
 /turf/simulated/floor/airless,
 /area/ship/ipc_refugee/cargopod_b)
@@ -5168,7 +5164,6 @@
 /area/ship/ipc_refugee/mainhall)
 "Nl" = (
 /obj/item/bedsheet/black{
-	layer = 4.2;
 	pixel_y = 13
 	},
 /obj/structure/railing/mapped{
@@ -5809,6 +5804,11 @@
 	},
 /obj/item/clothing/head/hardhat{
 	pixel_y = 7
+	},
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ipc_refugee/engie)
@@ -6523,9 +6523,7 @@
 	pixel_y = -3;
 	pixel_x = -6
 	},
-/obj/item/paper/ipc_refugee_ship/overloaders{
-	layer = 3.3
-	},
+/obj/item/paper/ipc_refugee_ship/overloaders,
 /obj/structure/curtain{
 	color = "#854636"
 	},

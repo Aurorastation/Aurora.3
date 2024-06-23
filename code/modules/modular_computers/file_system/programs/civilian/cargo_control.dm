@@ -7,9 +7,9 @@
 	size = 12
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	required_access_download = ACCESS_HOP
+	required_access_download = ACCESS_CARGO
 	required_access_run = ACCESS_CARGO
-	usage_flags = PROGRAM_CONSOLE | PROGRAM_TELESCREEN
+	usage_flags = PROGRAM_LAPTOP | PROGRAM_CONSOLE | PROGRAM_TELESCREEN
 	tgui_id = "CargoControl"
 
 	var/page = "overview_main" //overview_main - Main Menu, overview_submitted - Submitted Order Overview, overview_approved - Approved Order Overview, settings - Settings, details - order details, bounties - centcom bounties
@@ -219,7 +219,7 @@
 					if(!P.stamped)
 						P.stamped = new
 					P.stamped += /obj/item/stamp
-					P.add_overlay(stampoverlay)
+					P.AddOverlays(stampoverlay)
 					P.stamps += "<HR><i>This paper has been stamped by the Shipping Server.</i>"
 					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
 		if("bounty_print")

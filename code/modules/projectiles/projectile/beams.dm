@@ -222,6 +222,33 @@
 	tracer_type = /obj/effect/projectile/tracer/stun
 	impact_type = /obj/effect/projectile/impact/stun
 
+/obj/item/projectile/beam/disorient
+	name = "disorienting pulse"
+	icon_state = "stun"
+	damage = 1
+	sharp = FALSE
+	eyeblur = 1
+	agony = 30
+	damage_type = DAMAGE_BURN
+
+	muzzle_type = /obj/effect/projectile/muzzle/disabler
+	tracer_type = /obj/effect/projectile/tracer/disabler
+	impact_type = /obj/effect/projectile/impact/disabler
+
+/obj/item/projectile/beam/disorient/on_hit(var/atom/target, var/blocked = 0)
+	if(ishuman(target) && blocked < 100 && !issilicon(target) && !isipc(target)) //Make them trip
+		var/mob/living/carbon/human/H = target
+		H.druggy = min(H.druggy + 15, 75)
+
+		//do some maths to determine amount of dizzy to add
+		var/makeDizzy = 250 - H.dizziness
+		makeDizzy = min(makeDizzy, 50) //This should make it go back to 50
+		H.make_dizzy(makeDizzy)
+
+		H.confused = 5
+		H.slurring = min(H.slurring + 15, 75)
+	. = ..()
+
 /obj/item/projectile/beam/gatlinglaser
 	name = "diffused laser"
 	icon_state = "heavylaser"
@@ -260,7 +287,7 @@
 			distance = 0
 		if(distance <= range)
 			if (M.mob_size <= 3 && (M.find_type() & TYPE_ORGANIC))
-				M.visible_message("<span class='danger'>\The [M] gets fried!</span>")
+				M.visible_message(SPAN_DANGER("\The [M] gets fried!"))
 				M.color = "#4d4d4d" //get fried
 				M.death()
 				spark(M, 3, GLOB.alldirs)
@@ -275,7 +302,7 @@
 
 					if(A.mob_size <= 3 && (A.find_type() & TYPE_ORGANIC))
 						H.release_mob()
-						A.visible_message("<span class='danger'>\The [A] gets fried!</span>")
+						A.visible_message(SPAN_DANGER("\The [A] gets fried!"))
 						A.color = "#4d4d4d" //get fried
 						A.death()
 
@@ -303,7 +330,7 @@
 			distance = 0
 		if(distance <= range)
 			if(M.mob_size <= 4 && (M.find_type() & TYPE_ORGANIC))
-				M.visible_message("<span class='danger'>[M] bursts like a balloon!</span>")
+				M.visible_message(SPAN_DANGER("[M] bursts like a balloon!"))
 				M.gib()
 				spark(M, 3, GLOB.alldirs)
 			else if(iscarbon(M) && M.contents.len)
@@ -317,7 +344,7 @@
 
 					if(A.mob_size <= 4 && (A.find_type() & TYPE_ORGANIC))
 						H.release_mob()
-						A.visible_message("<span class='danger'>[A] bursts like a balloon!</span>")
+						A.visible_message(SPAN_DANGER("[A] bursts like a balloon!"))
 						A.gib()
 
 			to_chat(M, 'sound/effects/basscannon.ogg')

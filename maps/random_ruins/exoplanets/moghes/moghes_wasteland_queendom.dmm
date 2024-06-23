@@ -1,0 +1,1256 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"b" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"c" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"d" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"e" = (
+/obj/structure/flora/grass/desert,
+/mob/living/simple_animal/hostile/retaliate/hegeranzi,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"f" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"g" = (
+/obj/structure/closet/crate,
+/obj/item/material/twohanded/pike/halberd,
+/obj/item/material/twohanded/pike/halberd,
+/obj/random/sword,
+/obj/random/sword,
+/obj/item/clothing/suit/armor/unathi,
+/obj/item/clothing/suit/armor/unathi,
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
+/obj/item/gun/projectile/shotgun/wallgun,
+/obj/item/storage/box/wallgunammo,
+/obj/item/gun/projectile/automatic/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/effect/floor_decal/spline/plain/blue,
+/turf/simulated/floor/exoplanet/carpet/darkblue,
+/area/moghes_queendom)
+"h" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"i" = (
+/obj/effect/floor_decal/spline/plain/brown,
+/obj/item/device/flashlight/lamp/box,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_queendom)
+"k" = (
+/turf/simulated/wall/cloth,
+/area/moghes_queendom)
+"m" = (
+/obj/structure/railing/fence,
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"n" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"o" = (
+/obj/effect/floor_decal/spline/plain/brown,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_queendom)
+"p" = (
+/turf/template_noop,
+/area/exoplanet/moghes)
+"q" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/floor_decal/spline/plain/blue,
+/turf/simulated/floor/exoplanet/carpet/darkblue,
+/area/moghes_queendom)
+"r" = (
+/obj/item/bedsheet/brown,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_queendom)
+"s" = (
+/obj/effect/floor_decal/spline/plain/blue,
+/turf/simulated/floor/exoplanet/carpet/darkblue,
+/area/moghes_queendom)
+"u" = (
+/obj/structure/flora/log_bench,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"w" = (
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"x" = (
+/obj/item/bedsheet/brown,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_queendom";
+	identifier = "moghes_queendom"
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_queendom)
+"y" = (
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"z" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"A" = (
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_queendom)
+"B" = (
+/turf/simulated/floor/exoplanet/carpet/darkblue,
+/area/moghes_queendom)
+"C" = (
+/obj/structure/closet/crate,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/radio,
+/obj/item/torch,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/obj/effect/floor_decal/spline/plain/blue{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/darkblue,
+/area/moghes_queendom)
+"E" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/darkblue,
+/area/moghes_queendom)
+"F" = (
+/obj/item/bedsheet/brown,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_queendom";
+	identifier = "moghes_queendom"
+	},
+/turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/moghes_queendom)
+"H" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/moghes_queendom)
+"I" = (
+/obj/effect/floor_decal/spline/plain/blue{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/darkblue,
+/area/moghes_queendom)
+"J" = (
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/moghes_queendom)
+"L" = (
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_queendom)
+"M" = (
+/obj/structure/curtain,
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/moghes_queendom)
+"O" = (
+/obj/structure/closet/crate,
+/obj/item/saddle,
+/obj/item/saddle,
+/obj/item/saddle,
+/obj/item/saddle,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/item/material/hatchet/lumber,
+/turf/simulated/floor/exoplanet/carpet/darkblue,
+/area/moghes_queendom)
+"P" = (
+/obj/item/storage/firstaid/radiation,
+/obj/item/storage/firstaid/radiation,
+/obj/item/storage/firstaid,
+/obj/item/storage/firstaid,
+/obj/random/firstaid,
+/obj/structure/closet/crate,
+/obj/item/clothing/accessory/stethoscope,
+/turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/moghes_queendom)
+"Q" = (
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_queendom)
+"R" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"T" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"V" = (
+/obj/item/device/flashlight/lantern/on,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"W" = (
+/turf/simulated/floor/exoplanet/carpet/lightblue,
+/area/moghes_queendom)
+"X" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"Z" = (
+/obj/structure/bonfire/light_up,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+
+(1,1,1) = {"
+p
+p
+p
+p
+p
+p
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+p
+p
+p
+p
+p
+p
+p
+"}
+(2,1,1) = {"
+p
+p
+p
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+p
+p
+p
+p
+"}
+(3,1,1) = {"
+p
+p
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+p
+p
+p
+"}
+(4,1,1) = {"
+p
+w
+w
+w
+w
+w
+a
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+p
+p
+"}
+(5,1,1) = {"
+p
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+p
+"}
+(6,1,1) = {"
+p
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+a
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+"}
+(7,1,1) = {"
+p
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+a
+w
+w
+w
+w
+w
+w
+w
+w
+w
+a
+w
+w
+a
+w
+w
+w
+w
+w
+"}
+(8,1,1) = {"
+p
+w
+w
+w
+w
+w
+a
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+"}
+(9,1,1) = {"
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+a
+w
+a
+w
+w
+w
+a
+w
+w
+w
+w
+w
+"}
+(10,1,1) = {"
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+a
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+"}
+(11,1,1) = {"
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+"}
+(12,1,1) = {"
+w
+w
+w
+w
+w
+w
+w
+k
+k
+k
+k
+k
+k
+k
+k
+k
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+"}
+(13,1,1) = {"
+w
+w
+w
+w
+w
+w
+k
+k
+r
+o
+J
+J
+I
+E
+q
+k
+k
+w
+V
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+"}
+(14,1,1) = {"
+w
+w
+w
+w
+w
+w
+k
+x
+Q
+o
+J
+J
+I
+B
+s
+J
+k
+w
+u
+w
+w
+w
+u
+w
+w
+w
+w
+w
+w
+w
+"}
+(15,1,1) = {"
+w
+w
+w
+w
+w
+w
+k
+x
+Q
+i
+J
+J
+I
+B
+s
+J
+M
+w
+u
+w
+Z
+w
+u
+w
+w
+w
+w
+w
+a
+w
+"}
+(16,1,1) = {"
+w
+w
+w
+w
+w
+w
+k
+x
+L
+A
+H
+H
+I
+B
+s
+J
+k
+w
+u
+w
+w
+w
+u
+w
+w
+w
+w
+w
+w
+w
+"}
+(17,1,1) = {"
+w
+w
+w
+w
+w
+w
+k
+k
+F
+W
+W
+P
+C
+O
+g
+k
+k
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+"}
+(18,1,1) = {"
+w
+w
+w
+w
+w
+w
+w
+k
+k
+k
+k
+k
+k
+k
+k
+k
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+"}
+(19,1,1) = {"
+w
+w
+w
+a
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+X
+c
+w
+c
+R
+w
+w
+w
+w
+w
+w
+"}
+(20,1,1) = {"
+w
+w
+w
+w
+w
+w
+w
+a
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+T
+a
+w
+w
+d
+w
+w
+w
+w
+w
+w
+"}
+(21,1,1) = {"
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+a
+w
+w
+w
+T
+y
+a
+e
+d
+w
+w
+w
+w
+w
+w
+"}
+(22,1,1) = {"
+w
+w
+a
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+T
+a
+w
+w
+d
+w
+w
+w
+a
+w
+w
+"}
+(23,1,1) = {"
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+T
+y
+y
+w
+m
+w
+w
+w
+w
+w
+w
+"}
+(24,1,1) = {"
+w
+w
+w
+w
+w
+w
+w
+a
+w
+w
+w
+a
+w
+w
+w
+w
+w
+w
+w
+b
+z
+f
+h
+n
+w
+w
+w
+w
+w
+w
+"}
+(25,1,1) = {"
+p
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+a
+w
+w
+"}
+(26,1,1) = {"
+p
+p
+p
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+a
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+"}
+(27,1,1) = {"
+p
+p
+p
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+a
+w
+w
+w
+w
+w
+"}
+(28,1,1) = {"
+p
+p
+p
+p
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+p
+"}
+(29,1,1) = {"
+p
+p
+p
+p
+p
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+a
+p
+p
+"}
+(30,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+w
+p
+w
+p
+p
+"}

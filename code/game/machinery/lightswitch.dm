@@ -12,6 +12,7 @@
 	var/area/area = null
 	var/otherarea = null
 	power_channel = LIGHT
+	z_flags = ZMM_MANGLE_PLANES
 	//	luminosity = 1
 
 /obj/machinery/light_switch/Initialize()
@@ -29,18 +30,21 @@
 	update_icon()
 
 /obj/machinery/light_switch/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(!(stat & NOPOWER))
-		holographic_overlay(src, icon, "light[on]-overlay")
+		var/switch_overlay = image(icon, "light[on]-overlay")
+		var/emissive_overlay = emissive_appearance(icon, "light[on]-overlay")
+		AddOverlays(switch_overlay)
+		AddOverlays(emissive_overlay)
 		if (!light_range || light_color != on ? "#82ff4c" : "#f86060")
 			set_light(2, 0.3, on ? "#82ff4c" : "#f86060")
 	else if (light_range)
 		set_light(FALSE)
 
-/obj/machinery/light_switch/examine(mob/user, distance, is_adjacent)
+/obj/machinery/light_switch/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
-		to_chat(user, "A light switch. It is [on? "on" : "off"].")
+		. += "It is [on ? "on" : "off"]."
 
 /obj/machinery/light_switch/attack_hand(mob/user)
 	playsound(src, /singleton/sound_category/switch_sound, 30)

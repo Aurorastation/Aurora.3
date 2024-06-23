@@ -55,12 +55,12 @@
 		target_up = null
 	return ..()
 
-/obj/structure/ladder/attackby(obj/item/C, mob/user)
+/obj/structure/ladder/attackby(obj/item/attacking_item, mob/user)
 	if(LAZYLEN(destroy_tools))
-		if(is_type_in_list(C, destroy_tools))
-			user.visible_message("<b>[user]</b> starts breaking down \the [src] with \the [C]!", SPAN_NOTICE("You start breaking down \the [src] with \the [C]."))
+		if(is_type_in_list(attacking_item, destroy_tools))
+			user.visible_message("<b>[user]</b> starts breaking down \the [src] with \the [attacking_item]!", SPAN_NOTICE("You start breaking down \the [src] with \the [attacking_item]."))
 			if(do_after(user, 10 SECONDS, src, DO_REPAIR_CONSTRUCT))
-				user.visible_message("<b>[user]</b> breaks down \the [src] with \the [C]!", SPAN_NOTICE("You break down \the [src] with \the [C]."))
+				user.visible_message("<b>[user]</b> breaks down \the [src] with \the [attacking_item]!", SPAN_NOTICE("You break down \the [src] with \the [attacking_item]."))
 				qdel(src)
 			return
 	attack_hand(user)
@@ -81,7 +81,7 @@
 		G = M.r_hand
 
 	if(!M.Move(get_turf(src)))
-		to_chat(M, "<span class='notice'>You fail to reach \the [src].</span>")
+		to_chat(M, SPAN_NOTICE("You fail to reach \the [src]."))
 		return
 
 	if (istype(G))
@@ -89,11 +89,11 @@
 
 	var/direction = target_ladder == target_up ? "up" : "down"
 
-	M.visible_message("<span class='notice'>\The [M] begins climbing [direction] \the [src]!</span>",
+	M.visible_message(SPAN_NOTICE("\The [M] begins climbing [direction] \the [src]!"),
 	"You begin climbing [direction] \the [src]!",
 	"You hear the grunting and clanging of a metal ladder being used.")
 
-	target_ladder.audible_message("<span class='notice'>You hear something coming [direction] \the [src]</span>")
+	target_ladder.audible_message(SPAN_NOTICE("You hear something coming [direction] \the [src]"))
 
 	if(do_after(M, istype(G) ? (climb_time*2) : climb_time))
 		climbLadder(M, target_ladder)
@@ -105,7 +105,7 @@
 
 /obj/structure/ladder/proc/getTargetLadder(var/mob/M)
 	if((!target_up && !target_down) || (target_up && !istype(target_up.loc, /turf) || (target_down && !istype(target_down.loc,/turf))))
-		to_chat(M, "<span class='notice'>\The [src] is incomplete and can't be climbed.</span>")
+		to_chat(M, SPAN_NOTICE("\The [src] is incomplete and can't be climbed."))
 		return
 	if(target_down && target_up)
 		var/direction = alert(M,"Do you want to go up or down?", "Ladder", "Up", "Down", "Cancel")
@@ -126,23 +126,23 @@
 
 /mob/proc/may_climb_ladders(var/ladder)
 	if(!Adjacent(ladder))
-		to_chat(src, "<span class='warning'>You need to be next to \the [ladder] to start climbing.</span>")
+		to_chat(src, SPAN_WARNING("You need to be next to \the [ladder] to start climbing."))
 		return FALSE
 	if(incapacitated())
-		to_chat(src, "<span class='warning'>You are physically unable to climb \the [ladder].</span>")
+		to_chat(src, SPAN_WARNING("You are physically unable to climb \the [ladder]."))
 		return FALSE
 	return TRUE
 
 /mob/living/silicon/may_climb_ladders(ladder)
-	to_chat(src, "<span class='warning'>You're too heavy to climb [ladder]!</span>")
+	to_chat(src, SPAN_WARNING("You're too heavy to climb [ladder]!"))
 	return FALSE
 
 /mob/living/silicon/robot/drone/may_climb_ladders(ladder)
 	if(!Adjacent(ladder))
-		to_chat(src, "<span class='warning'>You need to be next to \the [ladder] to start climbing.</span>")
+		to_chat(src, SPAN_WARNING("You need to be next to \the [ladder] to start climbing."))
 		return FALSE
 	if(incapacitated())
-		to_chat(src, "<span class='warning'>You are physically unable to climb \the [ladder].</span>")
+		to_chat(src, SPAN_WARNING("You are physically unable to climb \the [ladder]."))
 		return FALSE
 	return TRUE
 
@@ -158,15 +158,15 @@
 	if(istype(target_ladder, target_down))
 		direction = DOWN
 	if(!LAD.CanZPass(M, direction))
-		to_chat(M, "<span class='notice'>\The [LAD.GetZPassBlocker()] is blocking \the [src].</span>")
+		to_chat(M, SPAN_NOTICE("\The [LAD.GetZPassBlocker()] is blocking \the [src]."))
 		return FALSE
 	if(!T.CanZPass(M, direction))
-		to_chat(M, "<span class='notice'>\The [T.GetZPassBlocker()] is blocking \the [src].</span>")
+		to_chat(M, SPAN_NOTICE("\The [T.GetZPassBlocker()] is blocking \the [src]."))
 		return FALSE
 	for(var/atom/A in T)
 		if(!isliving(A))
 			if(!A.CanPass(M, M.loc, 1.5, 0))
-				to_chat(M, "<span class='notice'>\The [A] is blocking \the [src].</span>")
+				to_chat(M, SPAN_NOTICE("\The [A] is blocking \the [src]."))
 				return FALSE
 	playsound(src, pick(climbsounds), climb_sound_vol, climb_sound_vary)
 	playsound(target_ladder, pick(climbsounds), climb_sound_vol, climb_sound_vary)
@@ -201,16 +201,38 @@
 /obj/structure/ladder/away //a ladder that just looks like it's going down
 	icon_state = "ladderawaydown"
 
-/// Note that stairs facing left/right may need the stairs_lower structure if they're not placed against walls.
+/**
+ * #Stairs
+ *
+ * Stairs allow you to traverse up and down between Z-levels
+ *
+ * They _MUST_ follow this bound rules:
+ *
+ * -If facing NORTH: `bound_height` to 64 and `bound_y` to -32
+ *
+ * -If facing SOUTH: `bound_height` to 64
+ *
+ * -If facing EAST: `bound_width` to 64 and `bound_x` to -32
+ *
+ * -If facing WEST: `bound_width` to 64
+ *
+ * No other bounds should be set on them except the ones described above
+ *
+ * A subtype must be defined, and those bounds set in code. DO NOT SET IT ON THE MAP ITSELF!
+ *
+ * Note that stairs facing left/right may need the stairs_lower structure if they're not placed against walls
+ */
 /obj/structure/stairs
 	name = "stairs"
 	desc = "Stairs leading to another floor. Not too useful if the gravity goes out."
 	icon = 'icons/obj/stairs.dmi'
 	icon_state = "stairs_3d"
-	layer = TURF_LAYER
+	layer = RUNE_LAYER
 	density = FALSE
 	opacity = FALSE
 	anchored = TRUE
+
+	can_astar_pass = CANASTARPASS_ALWAYS_PROC
 
 /obj/structure/stairs/Initialize()
 	. = ..()
@@ -253,6 +275,11 @@
 				playsound(src, 'sound/effects/stairs_step.ogg', 50)
 				playsound(target, 'sound/effects/stairs_step.ogg', 50)
 
+/obj/structure/stairs/Crossed(obj/O)
+	if(istype(O))
+		O.stair_act()
+	return ..()
+
 /obj/structure/stairs/proc/upperStep(var/turf/T)
 	return (T == loc)
 
@@ -265,6 +292,9 @@
 		return FALSE
 
 	return !density
+
+/obj/structure/stairs/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
+	return FALSE //I do not want to deal with stairs and the snowflake passcode, they can be unmovable walls for all I care here
 
 /obj/structure/stairs/proc/mob_fall(mob/living/L)
 	if(isopenturf(L.loc) || get_turf(L) == get_turf(src) || !ishuman(L))
@@ -298,9 +328,6 @@
 	dir = WEST
 	bound_width = 64
 
-/obj/structure/stairs/flat
-	icon_state = "stairs_flat"
-
 /// Snowflake railing object for 64x64 stairs.
 /obj/structure/stairs_railing
 	name = "railing"
@@ -313,7 +340,7 @@
 /obj/structure/stairs_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover,/obj/item/projectile))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE
@@ -349,6 +376,11 @@
 	anchored = TRUE
 	icon = 'icons/obj/structure/stairs.dmi'
 	icon_state = "np_stair"
+
+/obj/structure/platform_stairs/Crossed(obj/O)
+	if(istype(O))
+		O.stair_act()
+	return ..()
 
 /obj/structure/platform_stairs/south_north_solo
 	icon_state = "p_stair_sn_solo_cap"
@@ -386,7 +418,7 @@
 /obj/structure/platform/CanPass(atom/movable/mover, turf/target, height, air_group)
 	if(istype(mover, /obj/item/projectile))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE

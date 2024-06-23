@@ -27,7 +27,7 @@
 	item_state = "wrench"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 8
+	force = 18
 	throwforce = 7
 	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
@@ -56,7 +56,7 @@
 	item_state = "screwdriver"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_EARS
-	force = 8
+	force = 18
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 5
@@ -75,7 +75,7 @@
 	. = ..()
 	if(build_from_parts) //random colors!
 		color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
-		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
+		AddOverlays(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
 
 /obj/item/screwdriver/update_icon()
 	var/matrix/tf = matrix()
@@ -88,7 +88,7 @@
 	var/mutable_appearance/body = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "screwdriver")
 	var/mutable_appearance/head = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "screwdriver_head")
 	body.color = color
-	head.add_overlay(body)
+	head.AddOverlays(body)
 	return head
 
 /obj/item/screwdriver/pickup(mob/user)
@@ -130,7 +130,7 @@
 	item_state = "wirecutters"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 6
+	force = 14
 	throw_speed = 2
 	throw_range = 9
 	w_class = ITEMSIZE_SMALL
@@ -153,7 +153,7 @@
 	. = ..()
 	if(build_from_parts)
 		color = pick(color_options)
-		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
+		AddOverlays(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
 
 /obj/item/wirecutters/update_icon()
 	var/matrix/tf = matrix()
@@ -166,7 +166,7 @@
 	var/mutable_appearance/body = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "wirecutters")
 	var/mutable_appearance/head = mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "wirecutters_head")
 	body.color = color
-	head.add_overlay(body)
+	head.AddOverlays(body)
 	return head
 
 /obj/item/wirecutters/pickup(mob/user)
@@ -304,14 +304,15 @@
 	update_icon()
 
 /obj/item/weldingtool/use_tool(atom/target, mob/living/user, delay, amount, volume, datum/callback/extra_checks)
-	var/image/welding_sparks = image('icons/effects/effects.dmi', welding_state, EFFECTS_ABOVE_LIGHTING_LAYER)
-	target.add_overlay(welding_sparks)
+	var/image/welding_sparks = image('icons/effects/effects.dmi', welding_state)
+	welding_sparks.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	target.AddOverlays(welding_sparks)
 	. = ..()
-	target.cut_overlay(welding_sparks)
+	target.CutOverlays(welding_sparks)
 
 /obj/item/weldingtool/proc/update_torch()
 	if(welding)
-		add_overlay("[initial(icon_state)]-on")
+		AddOverlays("[initial(icon_state)]-on")
 		item_state = "[initial(item_state)]1"
 	else
 		item_state = "[initial(item_state)]"
@@ -324,11 +325,11 @@
 		set_light(0)
 
 /obj/item/weldingtool/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(change_icons)
 		var/ratio = get_fuel() / max_fuel
 		ratio = CEILING(ratio*4, 1) * 25
-		add_overlay("[initial(icon_state)][ratio]")
+		AddOverlays("[initial(icon_state)][ratio]")
 	update_torch()
 	var/mob/M = loc
 	if(istype(M))
@@ -339,13 +340,13 @@
 	STOP_PROCESSING(SSprocessing, src)
 	return ..()
 
-/obj/item/weldingtool/examine(mob/user, distance, is_adjacent)
+/obj/item/weldingtool/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 0)
-		to_chat(user, text("[icon2html(src, user)] [] contains []/[] units of fuel!", src.name, get_fuel(),src.max_fuel ))
+		. += "It contains [get_fuel()]/[max_fuel] units of fuel."
 
-/obj/item/weldingtool/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
+/obj/item/weldingtool/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(isrobot(loc))
 			to_chat(user, SPAN_ALERT("You cannot modify your own welder!"))
 			return TRUE
@@ -360,8 +361,8 @@
 		add_fingerprint(user)
 		return TRUE
 
-	if(!status && (istype(W, /obj/item/stack/rods)))
-		var/obj/item/stack/rods/R = W
+	if(!status && (istype(attacking_item, /obj/item/stack/rods)))
+		var/obj/item/stack/rods/R = attacking_item
 		R.use(1)
 		add_fingerprint(user)
 		user.drop_from_inventory(src)
@@ -400,7 +401,7 @@
 		if(!(S.status & ORGAN_ASSISTED) || user.a_intent != I_HELP)
 			return ..()
 
-		if(H.isSynthetic() && H == user && !(H.get_species() == SPECIES_IPC_TERMINATOR))
+		if(H.isSynthetic() && H == user && !(H.get_species() == SPECIES_IPC_PURPOSE_HK))
 			to_chat(user, SPAN_WARNING("You can't repair damage to your own body - it's against OH&S."))
 			return
 
@@ -434,7 +435,7 @@
 			)
 			affecting.heal_damage(brute = 15, robo_repair = TRUE)
 			user.visible_message(SPAN_WARNING("\The [user] [pick(repair_messages)] on [target]'s [affecting.name] with \the [src]."))
-			playsound(target, usesound, 15)
+			playsound(target, usesound, 15, extrarange = SILENCED_SOUND_EXTRARANGE)
 			repair_organ(user, target, affecting)
 
 /obj/item/weldingtool/afterattack(obj/O, mob/user, proximity)
@@ -442,7 +443,7 @@
 		return
 	if(istype(O, /obj/structure/reagent_dispensers/fueltank) && O.Adjacent(user) && !welding)
 		O.reagents.trans_to_obj(src, max_fuel)
-		to_chat(user, "<span class='notice'>You refuel your welder.</span>")
+		to_chat(user, SPAN_NOTICE("You refuel your welder."))
 		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 	else if(istype(O, /obj/structure/reagent_dispensers/fueltank) && O.Adjacent(user) && welding)
@@ -451,9 +452,9 @@
 			return
 		var/obj/structure/reagent_dispensers/fueltank/tank = O
 		if(tank.armed)
-			to_chat(user, "<span class='warning'>You are already heating \the [O]!</span>")
+			to_chat(user, SPAN_WARNING("You are already heating \the [O]!"))
 			return
-		user.visible_message("<span class='warning'>[user] begins heating \the [O]...</span>", "<span class='warning'>You start to heat \the [O]!</span>")
+		user.visible_message(SPAN_WARNING("[user] begins heating \the [O]..."), SPAN_WARNING("You start to heat \the [O]!"))
 		switch(alert("Are you sure you want to do this? It is quite dangerous and could get you in trouble.", "Heat up fuel tank", "No", "Yes"))
 			if("Yes")
 				log_and_message_admins("is attempting to welderbomb", user)
@@ -533,11 +534,11 @@
 	if(set_welding && !welding)
 		if (get_fuel() > 0)
 			if(M)
-				to_chat(M, "<span class='notice'>You switch the [src] on.</span>")
+				to_chat(M, SPAN_NOTICE("You switch the [src] on."))
 			else if(T)
-				T.visible_message("<span class='danger'>\The [src] turns on.</span>")
-			playsound(loc, 'sound/items/welder_activate.ogg', 50, 1)
-			force = 15
+				T.visible_message(SPAN_DANGER("\The [src] turns on."))
+			playsound(loc, 'sound/items/welder_activate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
+			force = 22
 			damtype = DAMAGE_BURN
 			w_class = ITEMSIZE_LARGE
 			welding = TRUE
@@ -547,15 +548,15 @@
 			set_processing(TRUE)
 		else
 			if(M)
-				to_chat(M, "<span class='notice'>You need more welding fuel to complete this task.</span>")
+				to_chat(M, SPAN_NOTICE("You need more welding fuel to complete this task."))
 			return
 	//Otherwise
 	else if(!set_welding && welding)
 		if(M)
-			to_chat(M, "<span class='notice'>You switch \the [src] off.</span>")
+			to_chat(M, SPAN_NOTICE("You switch \the [src] off."))
 		else if(T)
-			T.visible_message("<span class='warning'>\The [src] turns off.</span>")
-		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, 1)
+			T.visible_message(SPAN_WARNING("\The [src] turns off."))
+		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 		force = 3
 		damtype = DAMAGE_BRUTE
 		w_class = initial(w_class)
@@ -572,32 +573,28 @@
 	else
 		STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/weldingtool/Destroy()
-	STOP_PROCESSING(SSprocessing, src)	//Stop processing when destroyed regardless of conditions
-	return ..()
-
-/obj/item/weldingtool/experimental/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/eyeshield))
+/obj/item/weldingtool/experimental/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/eyeshield))
 		if(eyeshield)
 			to_chat(user, SPAN_WARNING("\The [src] already has an eye shield installed!"))
 			return TRUE
-		user.drop_from_inventory(I, src)
-		to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]."))
-		eyeshield = I
+		user.drop_from_inventory(attacking_item, src)
+		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] into \the [src]."))
+		eyeshield = attacking_item
 		produces_flash = FALSE
-		add_overlay("eyeshield_attached", TRUE)
+		AddOverlays("eyeshield_attached", ATOM_ICON_CACHE_PROTECTED)
 		return TRUE
-	if(istype(I, /obj/item/overcapacitor))
+	if(istype(attacking_item, /obj/item/overcapacitor))
 		if(overcap)
 			to_chat(user, SPAN_WARNING("\The [src] already has an overcapacitor installed!"))
 			return TRUE
-		user.drop_from_inventory(I, src)
-		to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]."))
-		overcap = I
-		add_overlay("overcap_attached", TRUE)
+		user.drop_from_inventory(attacking_item, src)
+		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] into \the [src]."))
+		overcap = attacking_item
+		AddOverlays("overcap_attached", ATOM_ICON_CACHE_PROTECTED)
 		toolspeed *= 2
 		return TRUE
-	if(I.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		if(!eyeshield && !overcap)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any accessories to remove!"))
 			return TRUE
@@ -622,7 +619,7 @@
 			return TRUE
 		user.put_in_hands(remove_accessory)
 		to_chat(user, SPAN_NOTICE("You remove \the [remove_accessory] into \the [src]."))
-		cut_overlay("[remove_accessory.icon_state]_attached", TRUE)
+		CutOverlays("[remove_accessory.icon_state]_attached", ATOM_ICON_CACHE_PROTECTED)
 		return TRUE
 	return ..()
 
@@ -690,7 +687,7 @@
 	item_state = "crowbar"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 8
+	force = 18
 	throwforce = 7
 	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/items/drop/crowbar.ogg'
@@ -715,7 +712,7 @@
 	icon_state = "rescue_axe"
 	item_state = "rescue_axe"
 	w_class = ITEMSIZE_NORMAL
-	force = 12
+	force = 18
 	throwforce = 12
 	obj_flags = null //Handle is insulated, so this means it won't conduct electricity and hurt you.
 	sharp = TRUE
@@ -737,6 +734,9 @@
 
 	return TRUE
 
+/obj/item/crowbar/rescue_axe/can_woodcut()
+	return TRUE
+
 /obj/item/crowbar/rescue_axe/red
 	icon_state = "rescue_axe_red"
 	item_state = "rescue_axe_red"
@@ -754,7 +754,7 @@
 	item_state = "pipewrench"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 8
+	force = 18
 	throwforce = 7
 	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 2)
@@ -795,10 +795,10 @@
 		tools[tool] = image('icons/obj/tools.dmi', icon_state = "[icon_state]-[tool]")
 	. = ..()
 
-/obj/item/combitool/examine(var/mob/user)
+/obj/item/combitool/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(tools.len)
-		to_chat(user, "It has the following fittings: <b>[english_list(tools)]</b>.")
+		. += "It has the following fittings: <b>[english_list(tools)]</b>."
 
 /obj/item/combitool/iswrench()
 	return current_tool == "wrench"
@@ -823,8 +823,24 @@
 		current_tool = 1
 	var/tool = RADIAL_INPUT(user, tools)
 	if(tool)
-		playsound(user, 'sound/items/penclick.ogg', 25)
+		playsound(user, 'sound/items/penclick.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 		current_tool = tool
+		switch(tool)
+			if("wrench")
+				usesound = 'sound/items/wrench.ogg'
+				surgerysound = 'sound/items/surgery/bonesetter.ogg'
+			if("screwdriver")
+				usesound = 'sound/items/screwdriver.ogg'
+				surgerysound = 'sound/items/screwdriver.ogg'
+			if("wirecutters")
+				usesound = 'sound/items/wirecutter.ogg'
+				surgerysound = 'sound/items/surgery/hemostat.ogg'
+			if("crowbar")
+				usesound = /singleton/sound_category/crowbar_sound
+				surgerysound = 'sound/items/surgery/retractor.ogg'
+			if("multitool")
+				usesound = null
+				surgerysound = null
 		update_tool()
 	return 1
 
@@ -836,7 +852,7 @@
 	item_state = "impact_wrench"
 	contained_sprite = TRUE
 	item_flags = ITEM_FLAG_HELD_MAP_TEXT
-	force = 8
+	force = 18
 	attack_verb = list("gored", "drilled", "screwed", "punctured")
 	w_class = ITEMSIZE_SMALL
 	toolspeed = 3
@@ -854,12 +870,12 @@
 /obj/item/powerdrill/set_initial_maptext()
 	held_maptext = SMALL_FONTS(7, "S")
 
-/obj/item/powerdrill/examine(var/mob/user)
+/obj/item/powerdrill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(tools.len)
-		to_chat(user, "It has the following fittings:")
+		. += "It has the following fittings:"
 		for(var/tool in tools)
-			to_chat(user, "- [tool][tools[current_tool] == tool ? " (selected)" : ""]")
+			. += "- [tool][tools[current_tool] == tool ? " (selected)" : ""]"
 
 /obj/item/powerdrill/MouseEntered(location, control, params)
 	. = ..()
@@ -916,19 +932,21 @@
 /obj/item/steelwool/isFlameSource()
 	return lit
 
-/obj/item/steelwool/attackby(obj/item/W, mob/user)
-	if(W.isFlameSource())
-		ignite(W, user)
+/obj/item/steelwool/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isFlameSource())
+		ignite(attacking_item, user)
 		return TRUE
-	else if(istype(W, /obj/item/cell))
-		var/obj/item/cell/S = W
+	else if(istype(attacking_item, /obj/item/cell))
+		var/obj/item/cell/S = attacking_item
 		if(S.charge)
-			ignite(W, user)
+			ignite(attacking_item, user)
 		else
 			to_chat(user, SPAN_WARNING("The cell isn't charged!"))
 		return TRUE
 
-/obj/item/steelwool/fire_act()
+/obj/item/steelwool/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	ignite()
 
 /obj/item/steelwool/proc/ignite(var/L, mob/user)
@@ -939,7 +957,7 @@
 		lit = TRUE
 		if(user)
 			user.visible_message(SPAN_NOTICE("[user] ignites the steel wool with \the [L]."), SPAN_NOTICE("You ignite the steel wool with \the [L]"), SPAN_NOTICE("You hear a gentle flame crackling."))
-		playsound(get_turf(src), 'sound/items/flare.ogg', 50)
+		playsound(get_turf(src), 'sound/items/flare.ogg', 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 		desc += " Watch your hands!"
 		icon_state = "burning_wool"
 		set_light(2, 2, LIGHT_COLOR_LAVA)
@@ -974,7 +992,7 @@
 	item_state = "hammer"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 8
+	force = 18
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 3
@@ -989,7 +1007,7 @@
 	. = ..()
 	var/mutable_appearance/handle = mutable_appearance('icons/obj/tools.dmi', "hammer_handle")
 	handle.color = pick(COLOR_BLUE, COLOR_RED, COLOR_PURPLE, COLOR_BROWN, COLOR_GREEN, COLOR_CYAN, COLOR_YELLOW)
-	add_overlay(handle)
+	AddOverlays(handle)
 
 /obj/item/hammer/ishammer()
 	return TRUE

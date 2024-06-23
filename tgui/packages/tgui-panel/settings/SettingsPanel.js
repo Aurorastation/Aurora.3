@@ -50,7 +50,7 @@ export const SettingsPanel = (props, context) => {
 };
 
 export const SettingsGeneral = (props, context) => {
-  const { theme, fontFamily, fontSize, lineHeight } = useSelector(
+  const { theme, fontFamily, fontSize, lineHeight, maxMessages } = useSelector(
     context,
     selectSettings
   );
@@ -150,6 +150,24 @@ export const SettingsGeneral = (props, context) => {
             }
           />
         </LabeledList.Item>
+        <LabeledList.Item label="Max messages">
+          <NumberInput
+            width="4em"
+            step={50}
+            stepPixelSize={2}
+            minValue={2000}
+            maxValue={32000}
+            value={maxMessages}
+            format={(value) => toFixed(value)}
+            onChange={(e, value) =>
+              dispatch(
+                updateSettings({
+                  maxMessages: value,
+                })
+              )
+            }
+          />
+        </LabeledList.Item>
       </LabeledList>
       <Divider />
       <Button icon="eraser" onClick={() => dispatch(clearChatMessages())}>
@@ -164,6 +182,7 @@ export const SettingsGeneral = (props, context) => {
 
 const TextHighlightSettings = (props, context) => {
   const highlightSettings = useSelector(context, selectHighlightSettings);
+  const settings = useSelector(context, selectSettings);
   const dispatch = useDispatch(context);
   return (
     <Section fill scrollable height="200px">
@@ -192,7 +211,9 @@ const TextHighlightSettings = (props, context) => {
       </Section>
       <Divider />
       <Box>
-        <Button icon="check" onClick={() => dispatch(rebuildChat())}>
+        <Button
+          icon="check"
+          onClick={() => dispatch(rebuildChat(settings.maxMessages))}>
           Apply now
         </Button>
         <Box inline fontSize="0.9em" ml={1} color="label">

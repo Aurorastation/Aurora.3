@@ -19,8 +19,8 @@
 
 /obj/machinery/mineral/stacking_unit_console/Initialize(mapload, d, populate_components)
 	..()
-	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "production_console-screen", EFFECTS_ABOVE_LIGHTING_LAYER)
-	add_overlay(screen_overlay)
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "production_console-screen", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+	AddOverlays(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 	return INITIALIZE_HINT_LATELOAD
 
@@ -50,12 +50,12 @@
 
 	return machine
 
-/obj/machinery/mineral/stacking_unit_console/attackby(obj/item/I, mob/user)
-	if(default_deconstruction_screwdriver(user, I))
+/obj/machinery/mineral/stacking_unit_console/attackby(obj/item/attacking_item, mob/user)
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	if(default_deconstruction_crowbar(user, I))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return
-	if(default_part_replacement(user, I))
+	if(default_part_replacement(user, attacking_item))
 		return
 	return ..()
 
@@ -63,7 +63,7 @@
 	add_fingerprint(user)
 	ui_interact(user)
 
-/obj/machinery/mineral/stacking_unit_console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/ui_state/state = default_state)
+/obj/machinery/mineral/stacking_unit_console/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, datum/ui_state/state = GLOB.default_state)
 	if(!setup_machine(user))
 		return
 
@@ -164,12 +164,12 @@
 		console.machine = null
 	return ..()
 
-/obj/machinery/mineral/stacking_machine/attackby(obj/item/I, mob/user)
-	if(default_deconstruction_screwdriver(user, I))
+/obj/machinery/mineral/stacking_machine/attackby(obj/item/attacking_item, mob/user)
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	if(default_deconstruction_crowbar(user, I))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return
-	if(default_part_replacement(user, I))
+	if(default_part_replacement(user, attacking_item))
 		return
 	return ..()
 

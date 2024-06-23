@@ -54,16 +54,9 @@
 /obj/structure/ledge/quarter{
 	dir = 8
 	},
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
-/area/konyang_landing_zone/command_center_abandoned/landing_pads)
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_landing_zone)
 "aB" = (
 /obj/structure/table/wood,
 /obj/structure/window/reinforced,
@@ -143,7 +136,6 @@
 /area/konyang_landing_zone)
 "bK" = (
 /obj/structure/chainlink_fence{
-	layer = 9.1;
 	dir = 1
 	},
 /obj/structure/flora/bush/konyang_reeds,
@@ -168,8 +160,9 @@
 /area/konyang_landing_zone)
 "bX" = (
 /obj/structure/ledge/quarter{
-	dir = 9
+	dir = 1
 	},
+/obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_landing_zone)
 "ci" = (
@@ -196,7 +189,7 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "cA" = (
-/obj/effect/decal/exterior_stairs/right{
+/obj/effect/decal/exterior_stairs/center{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
@@ -231,10 +224,10 @@
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "cY" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/visible/cyan{
+	dir = 10
 	},
+/obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "di" = (
@@ -260,6 +253,15 @@
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
+"dD" = (
+/obj/structure/utility_pole/street/on{
+	dir = 8
+	},
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_landing_zone)
 "dH" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -276,9 +278,7 @@
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 "dK" = (
@@ -314,17 +314,9 @@
 /obj/structure/ledge/quarter{
 	dir = 8
 	},
-/obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "2-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 10
-	},
-/obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
-/area/konyang_landing_zone/command_center_abandoned/landing_pads)
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
+/area/konyang_landing_zone)
 "ef" = (
 /obj/structure/ledge/quarter{
 	dir = 8
@@ -377,11 +369,8 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "eU" = (
-/obj/effect/decal/curb{
-	dir = 1
-	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/asphalt,
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
 "fe" = (
 /obj/machinery/cryopod{
@@ -418,6 +407,9 @@
 "fl" = (
 /obj/effect/decal/curb,
 /obj/item/hullbeacon/red,
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "fq" = (
@@ -442,13 +434,12 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "fZ" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal{
-	dir = 4
+/obj/effect/decal/exterior_stairs/half/center,
+/obj/structure/railing/mapped{
+	dir = 8
 	},
-/obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
-/area/konyang_landing_zone/command_center_abandoned/landing_pads)
+/turf/simulated/floor/concrete,
+/area/konyang_landing_zone)
 "ge" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -475,9 +466,6 @@
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
 "gm" = (
-/obj/structure/ledge/quarter/corner{
-	dir = 4
-	},
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_landing_zone)
@@ -538,8 +526,7 @@
 	},
 /obj/machinery/atmospherics/binary/pump/aux{
 	dir = 4;
-	name = "Air to Connector";
-	layer = 2.8
+	name = "Air to Connector"
 	},
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
@@ -572,6 +559,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
+"hi" = (
+/obj/structure/ledge/quarter{
+	dir = 9
+	},
+/obj/item/toy/plushie/herring_gull,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
+/area/konyang_landing_zone)
 "hp" = (
 /obj/effect/decal/exterior_stairs/center,
 /obj/structure/cable/yellow{
@@ -635,8 +629,11 @@
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "hZ" = (
-/obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "ib" = (
@@ -655,16 +652,18 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 10
 	},
-/obj/structure/railing/mapped,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "iG" = (
-/obj/effect/decal/road_marking,
-/obj/item/hullbeacon/red,
-/turf/simulated/floor/asphalt,
+/obj/effect/decal/exterior_stairs/half/center,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
 "iJ" = (
 /obj/structure/cable{
@@ -749,16 +748,17 @@
 /area/konyang_landing_zone/command_center_abandoned/living)
 "jE" = (
 /obj/structure/chainlink_fence{
-	layer = 9.1;
 	dir = 1
 	},
 /obj/effect/floor_decal/konyang_flowers,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
 "jG" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/railing/mapped,
-/turf/simulated/floor/plating,
+/obj/effect/decal/curb,
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "jI" = (
 /obj/structure/flora/rock/konyang/small,
@@ -809,15 +809,15 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center_abandoned)
 "kd" = (
-/obj/effect/floor_decal/big/scc_full,
-/turf/simulated/floor/concrete,
+/obj/structure/ledge/quarter{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
 "ke" = (
-/obj/structure/utility_pole/street/on{
-	dir = 4
-	},
-/obj/structure/ledge/quarter{
-	dir = 9
+/obj/effect/floor_decal/konyang_flowers,
+/obj/structure/chainlink_fence{
+	dir = 8
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
@@ -827,6 +827,16 @@
 	},
 /obj/structure/flora/bush/konyang_reeds,
 /turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_landing_zone)
+"kh" = (
+/obj/structure/road_sign/yield{
+	name = "NO TRESPASSING sign";
+	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
+	},
+/obj/structure/ledge/quarter/corner{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
 "ko" = (
 /obj/structure/ledge/quarter{
@@ -910,18 +920,16 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
 "lr" = (
+/obj/structure/utility_pole/street/on{
+	dir = 4
+	},
 /obj/structure/ledge/quarter{
-	dir = 4
+	dir = 8
 	},
-/obj/effect/decal/exterior_stairs/right{
-	dir = 4
-	},
-/turf/simulated/floor/asphalt,
+/turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 "lt" = (
-/obj/effect/decal/exterior_stairs/half/right{
-	layer = 3
-	},
+/obj/effect/decal/exterior_stairs/half/right,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 "lz" = (
@@ -1036,12 +1044,6 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
@@ -1060,14 +1062,18 @@
 /area/konyang_landing_zone)
 "mS" = (
 /obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/structure/chainlink_fence{
 	dir = 4
 	},
-/obj/structure/road_sign/yield{
-	name = "NO TRESPASSING sign";
-	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
+/obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/exoplanet/dirt_konyang,
-/area/konyang_landing_zone)
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "mW" = (
 /turf/simulated/wall,
 /area/konyang_landing_zone/command_center_abandoned/reactor)
@@ -1077,15 +1083,20 @@
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center_abandoned/living)
 "nf" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "ng" = (
 /obj/structure/ledge/corner{
 	dir = 1
+	},
+/obj/structure/road_sign/yield{
+	name = "NO TRESPASSING sign";
+	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_landing_zone)
@@ -1128,7 +1139,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -1137,9 +1147,7 @@
 /obj/machinery/door/blast/regular{
 	id = "lz_vehiclebay"
 	},
-/obj/structure/plasticflaps/airtight{
-	layer = 2.5
-	},
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center_abandoned/garage)
 "oh" = (
@@ -1154,6 +1162,10 @@
 "oz" = (
 /obj/structure/ledge/corner{
 	dir = 8
+	},
+/obj/structure/road_sign/yield{
+	name = "NO TRESPASSING sign";
+	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
 	},
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_landing_zone)
@@ -1182,9 +1194,9 @@
 /obj/machinery/button/remote/blast_door{
 	id = "lz_gate";
 	name = "Main Gate";
-	pixel_y = -20;
-	dir = 1
+	pixel_y = -19
 	},
+/obj/effect/floor_decal/big/scc_full,
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
 "pk" = (
@@ -1214,8 +1226,7 @@
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "pz" = (
 /obj/effect/decal/curb{
-	dir = 1;
-	layer = 2.02
+	dir = 1
 	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
@@ -1237,9 +1248,7 @@
 /obj/structure/utility_pole/street/on{
 	dir = 8
 	},
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "pU" = (
@@ -1286,12 +1295,22 @@
 /area/konyang_landing_zone/command_center_abandoned/living)
 "qz" = (
 /obj/structure/table/wood,
-/obj/item/device/radio/phone,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
+/obj/item/blueprints/outpost,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center_abandoned)
+"qP" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/konyang_landing_zone)
 "qQ" = (
 /obj/machinery/door/urban,
 /obj/structure/cable{
@@ -1335,7 +1354,13 @@
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center_abandoned/garage)
 "rp" = (
-/obj/effect/shuttle_landmark/automatic/canary,
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/item/hullbeacon/red,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "rs" = (
@@ -1356,14 +1381,12 @@
 /obj/structure/tank_wall/air{
 	density = 0;
 	icon_state = "air11";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airmix,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "rF" = (
 /obj/structure/chainlink_fence{
-	layer = 9.1;
 	dir = 1
 	},
 /obj/structure/chainlink_fence{
@@ -1476,8 +1499,8 @@
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
 "sH" = (
-/obj/item/hullbeacon/red,
-/turf/simulated/floor/concrete,
+/obj/effect/decal/exterior_stairs/half/center,
+/turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
 "sK" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -1507,14 +1530,11 @@
 /obj/structure/ledge{
 	dir = 6
 	},
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "tj" = (
 /obj/structure/chainlink_fence{
-	layer = 9.1;
 	dir = 1
 	},
 /obj/machinery/light/small,
@@ -1543,11 +1563,9 @@
 /area/konyang_landing_zone)
 "tp" = (
 /obj/structure/chainlink_fence{
-	layer = 9.1
-	},
-/obj/structure/chainlink_fence{
 	dir = 4
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
 "tt" = (
@@ -1565,6 +1583,13 @@
 /obj/structure/closet/firecloset/full,
 /turf/simulated/floor/tiled/full,
 /area/konyang_landing_zone/command_center_abandoned/reactor)
+"tB" = (
+/obj/structure/ledge/quarter{
+	dir = 6
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_landing_zone)
 "tF" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
@@ -1589,14 +1614,14 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
 /obj/structure/utility_pole/street/on{
 	dir = 8
+	},
+/obj/structure/chainlink_fence{
+	dir = 4
 	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
@@ -1645,13 +1670,10 @@
 /obj/structure/ledge/quarter/corner{
 	dir = 4
 	},
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/effect/decal/curb{
 	dir = 5
 	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "we" = (
@@ -1685,9 +1707,7 @@
 /area/konyang_landing_zone/command_center_abandoned)
 "wj" = (
 /obj/structure/ledge,
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /obj/structure/utility_pole/street/on{
 	dir = 1
 	},
@@ -1892,7 +1912,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -1954,11 +1973,11 @@
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
+/obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
+/obj/structure/chainlink_fence{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "zg" = (
@@ -2003,7 +2022,10 @@
 /obj/effect/decal/curb{
 	dir = 10
 	},
-/obj/structure/railing/mapped{
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
+/obj/structure/chainlink_fence{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
@@ -2012,6 +2034,14 @@
 /obj/structure/railing/mapped,
 /obj/structure/ledge/quarter,
 /turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_landing_zone)
+"zC" = (
+/obj/structure/railing/mapped,
+/obj/structure/ledge/quarter,
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
 "zR" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2024,12 +2054,12 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center_abandoned)
 "zX" = (
-/obj/structure/railing/mapped,
 /obj/item/hullbeacon/red,
 /obj/effect/decal/curb{
 	dir = 1
 	},
 /obj/effect/decal/road_marking,
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Ab" = (
@@ -2063,6 +2093,9 @@
 /area/konyang_landing_zone/command_center_abandoned)
 "Az" = (
 /obj/structure/ledge/quarter/corner,
+/obj/structure/ledge/quarter{
+	dir = 10
+	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 "AC" = (
@@ -2085,7 +2118,6 @@
 /area/konyang_landing_zone)
 "AK" = (
 /obj/structure/chainlink_fence{
-	layer = 9.1;
 	dir = 1
 	},
 /obj/structure/flora/bush/konyang_reeds,
@@ -2103,6 +2135,16 @@
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center_abandoned/garage)
+"AQ" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 4
+	},
+/obj/structure/road_sign/yield{
+	name = "NO TRESPASSING sign";
+	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_landing_zone)
 "Bi" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/reinforced,
@@ -2213,10 +2255,10 @@
 "BZ" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
 /obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/railing/mapped{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/chainlink_fence{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "Ca" = (
@@ -2242,12 +2284,10 @@
 	},
 /obj/structure/railing/mapped,
 /obj/structure/cable/yellow{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 5
+	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/plating,
@@ -2307,8 +2347,8 @@
 /obj/effect/decal/curb{
 	dir = 1
 	},
-/obj/structure/railing/mapped,
 /obj/effect/decal/road_marking,
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Dv" = (
@@ -2333,19 +2373,19 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
 "DS" = (
-/obj/effect/shuttle_landmark/automatic/spark,
-/turf/simulated/floor/plating,
+/obj/effect/shuttle_landmark/automatic/spark{
+	dir = 1
+	},
+/turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "DT" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/effect/decal/exterior_stairs/half/left{
-	layer = 3
-	},
+/obj/effect/decal/exterior_stairs/half/left,
 /obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/railing/mapped{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/chainlink_fence{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "DY" = (
@@ -2378,11 +2418,11 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /obj/structure/utility_pole/street/on{
 	dir = 8
+	},
+/obj/structure/chainlink_fence{
+	dir = 4
 	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
@@ -2400,9 +2440,7 @@
 /obj/structure/ledge{
 	dir = 10
 	},
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Ep" = (
@@ -2420,6 +2458,10 @@
 /obj/effect/decal/road_marking/no_park,
 /obj/machinery/floodlight,
 /turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
+"Ey" = (
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 "ED" = (
 /obj/structure/cable{
@@ -2447,10 +2489,15 @@
 /turf/simulated/floor/airless,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "EO" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
 /obj/structure/lattice/catwalk/indoor/urban,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "EV" = (
 /obj/effect/decal/curb{
@@ -2487,6 +2534,18 @@
 /obj/effect/decal/curb,
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
+"FB" = (
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "FF" = (
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
@@ -2513,13 +2572,9 @@
 /area/konyang_landing_zone)
 "Gg" = (
 /obj/structure/ledge/quarter{
-	dir = 8
+	dir = 10
 	},
-/obj/structure/flora/bush/konyang_reeds,
-/obj/structure/road_sign/yield{
-	name = "NO TRESPASSING sign";
-	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
-	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 "Gk" = (
@@ -2533,9 +2588,8 @@
 /obj/structure/ledge/quarter{
 	dir = 4
 	},
-/obj/effect/decal/exterior_stairs/left{
-	dir = 4;
-	layer = 2.01
+/obj/effect/decal/exterior_stairs/center{
+	dir = 4
 	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
@@ -2619,9 +2673,12 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center_abandoned)
 "Hd" = (
-/obj/effect/decal/exterior_stairs/left,
-/turf/simulated/floor/asphalt,
-/area/konyang_landing_zone)
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "Hf" = (
 /obj/structure/closet/crate/secure/large,
 /obj/structure/cable{
@@ -2696,10 +2753,10 @@
 /obj/effect/decal/curb{
 	dir = 5
 	},
-/obj/structure/railing/mapped{
+/obj/structure/chainlink_fence{
 	dir = 8
 	},
-/obj/structure/railing/mapped,
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "HY" = (
@@ -2710,17 +2767,19 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Ic" = (
-/obj/effect/decal/exterior_stairs/half/right,
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/structure/ledge/quarter{
+	dir = 1
 	},
-/turf/simulated/floor/concrete,
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
 "Ih" = (
-/obj/structure/railing/mapped,
 /obj/effect/decal/curb{
 	dir = 1
 	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Ii" = (
@@ -2730,7 +2789,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
+/obj/structure/chainlink_fence{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
@@ -2763,24 +2822,27 @@
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "Is" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/railing/mapped{
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_landing_zone)
+"Iv" = (
+/obj/structure/chainlink_fence{
 	dir = 4
 	},
-/obj/structure/railing/mapped{
-	dir = 8
+/obj/structure/ledge/quarter{
+	dir = 1
 	},
-/turf/simulated/floor/plating,
-/area/konyang_landing_zone/command_center_abandoned/landing_pads)
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_landing_zone)
 "Iy" = (
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/structure/utility_pole/street/on{
 	dir = 4
+	},
+/obj/structure/chainlink_fence{
+	dir = 8
 	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
@@ -2803,20 +2865,15 @@
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center_abandoned/greenhouse)
 "IL" = (
-/obj/structure/ledge/quarter{
+/obj/effect/shuttle_landmark/automatic/canary{
 	dir = 1
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "lz_gate";
-	name = "Main Gate";
-	pixel_y = 26
-	},
-/turf/simulated/floor/exoplanet/konyang/no_edge,
+/turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "IM" = (
-/obj/structure/ledge/quarter,
-/obj/structure/railing/mapped,
-/turf/simulated/floor/exoplanet/konyang/no_edge,
+/obj/effect/floor_decal/konyang_flowers,
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 "IO" = (
 /obj/structure/ledge/quarter{
@@ -2842,18 +2899,17 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/effect/decal/road_marking{
 	dir = 4
+	},
+/obj/structure/chainlink_fence{
+	dir = 8
 	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Jd" = (
-/obj/effect/decal/exterior_stairs/half/center{
-	layer = 3
-	},
+/obj/effect/decal/road_marking/no_park,
+/obj/effect/decal/exterior_stairs/half/center,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Jf" = (
@@ -2869,6 +2925,13 @@
 /obj/effect/decal/road_marking/no_park,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
+"Jl" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
+/area/konyang_landing_zone)
 "Jm" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
@@ -2877,6 +2940,10 @@
 /area/konyang_landing_zone)
 "Jp" = (
 /obj/structure/ledge/corner,
+/obj/structure/road_sign/yield{
+	name = "NO TRESPASSING sign";
+	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
+	},
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_landing_zone)
 "Ju" = (
@@ -2892,9 +2959,7 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "JA" = (
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "JK" = (
@@ -2910,7 +2975,6 @@
 /obj/structure/tank_wall/air{
 	density = 0;
 	icon_state = "air6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -2955,6 +3019,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "KD" = (
@@ -3014,15 +3079,11 @@
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_landing_zone)
 "Lf" = (
-/obj/structure/chainlink_fence{
-	dir = 4
+/obj/structure/railing/mapped{
+	dir = 8
 	},
-/obj/effect/floor_decal/konyang_flowers,
-/obj/structure/road_sign/yield{
-	name = "NO TRESPASSING sign";
-	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
-	},
-/turf/simulated/floor/exoplanet/dirt_konyang,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
 "Ll" = (
 /obj/structure/ledge/quarter,
@@ -3063,11 +3124,11 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
-	dir = 4
-	},
 /obj/effect/decal/road_marking{
 	dir = 8
+	},
+/obj/structure/chainlink_fence{
+	dir = 4
 	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
@@ -3082,7 +3143,7 @@
 /obj/effect/decal/curb{
 	dir = 4
 	},
-/obj/structure/railing/mapped{
+/obj/structure/chainlink_fence{
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
@@ -3094,16 +3155,15 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 "LX" = (
-/obj/structure/closet/secure_closet/freezer/meat/super_meat,
+/obj/structure/closet/secure_closet/freezer/meat/grill,
 /obj/effect/floor_decal/corner/pink/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center_abandoned/living)
 "Mf" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/structure/chainlink_fence{
+	dir = 8
 	},
-/obj/item/hullbeacon/red,
-/turf/simulated/floor/concrete,
+/turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 "Ms" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -3162,13 +3222,14 @@
 /turf/simulated/floor/reinforced/airmix,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "MW" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/effect/decal/road_marking/no_pass{
+	dir = 1
 	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/plating,
-/area/konyang_landing_zone/command_center_abandoned/landing_pads)
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
 "Nc" = (
 /obj/structure/bed/stool/chair/sofa/right/red{
 	dir = 4
@@ -3184,17 +3245,16 @@
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center_abandoned/greenhouse)
 "Nk" = (
-/obj/structure/ledge/quarter{
-	dir = 8
+/obj/effect/decal/curb{
+	dir = 10
 	},
-/obj/structure/road_sign/yield{
-	name = "NO TRESPASSING sign";
-	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
+/obj/structure/chainlink_fence{
+	dir = 4
 	},
-/turf/simulated/floor/exoplanet/dirt_konyang,
+/turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Nu" = (
-/turf/simulated/wall,
+/turf/simulated/wall/r_wall,
 /area/konyang_landing_zone)
 "Nw" = (
 /obj/structure/cable{
@@ -3215,12 +3275,9 @@
 /turf/simulated/floor/sidewalk/flat,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "NG" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 10
-	},
-/obj/structure/railing/mapped,
-/turf/simulated/floor/plating,
-/area/konyang_landing_zone/command_center_abandoned/landing_pads)
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
+/area/konyang_landing_zone)
 "NW" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -3234,11 +3291,18 @@
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/obj/structure/chainlink_fence{
-	layer = 9.1
+/obj/structure/chainlink_fence,
+/obj/machinery/atmospherics/pipe/simple/visible/black{
+	dir = 5
 	},
-/turf/simulated/floor/concrete,
-/area/konyang_landing_zone)
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
+/area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "Ob" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/pink/diagonal,
@@ -3263,15 +3327,12 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/portables_connector/aux{
-	layer = 2.8
-	},
+/obj/machinery/atmospherics/portables_connector/aux,
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/sidewalk/flat,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "Os" = (
 /obj/structure/chainlink_fence{
-	layer = 9.1;
 	dir = 1
 	},
 /obj/structure/flora/bush/konyang_reeds,
@@ -3293,16 +3354,14 @@
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "OE" = (
-/obj/structure/ledge/quarter{
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
+/obj/structure/chainlink_fence{
 	dir = 8
 	},
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
-/area/konyang_landing_zone/command_center_abandoned/landing_pads)
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_landing_zone)
 "OJ" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -3311,16 +3370,12 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "OR" = (
-/obj/machinery/meter{
-	name = "Fuel Reserve"
-	},
-/obj/machinery/atmospherics/pipe/simple/visible/black{
+/obj/structure/chainlink_fence{
 	dir = 4
 	},
-/obj/structure/railing/mapped,
-/obj/structure/lattice/catwalk/indoor/urban,
-/turf/simulated/floor/plating,
-/area/konyang_landing_zone/command_center_abandoned/landing_pads)
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/konyang_landing_zone)
 "OV" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -3331,13 +3386,10 @@
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "OW" = (
-/obj/structure/chainlink_fence{
+/obj/structure/ledge/quarter{
 	dir = 4
 	},
-/obj/structure/road_sign/yield{
-	name = "NO TRESPASSING sign";
-	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
-	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
 "OZ" = (
@@ -3378,20 +3430,18 @@
 /area/konyang_landing_zone)
 "Py" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/urban,
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "PD" = (
+/obj/structure/ledge/quarter,
 /obj/structure/railing/mapped,
-/obj/structure/ledge/quarter{
-	dir = 10
-	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 "PF" = (
@@ -3419,13 +3469,13 @@
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "PL" = (
-/obj/structure/railing/mapped,
 /obj/effect/decal/curb{
 	dir = 9
 	},
-/obj/structure/railing/mapped{
+/obj/structure/chainlink_fence{
 	dir = 4
 	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "PZ" = (
@@ -3458,9 +3508,9 @@
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center_abandoned/living)
 "Ql" = (
-/obj/structure/railing/mapped,
 /obj/structure/ledge/quarter,
 /obj/structure/flora/bush/konyang_reeds,
+/obj/structure/railing/mapped,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 "Qn" = (
@@ -3546,9 +3596,7 @@
 /area/konyang_landing_zone)
 "Rh" = (
 /obj/structure/ledge,
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Rj" = (
@@ -3574,15 +3622,19 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center_abandoned)
 "Rs" = (
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
 "RD" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center_abandoned/greenhouse)
+"RF" = (
+/obj/structure/ledge/quarter{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_landing_zone)
 "RP" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3609,12 +3661,10 @@
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Se" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
+/obj/structure/ledge/quarter{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
 "Sg" = (
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -3661,7 +3711,10 @@
 /obj/effect/decal/curb{
 	dir = 6
 	},
-/obj/structure/railing/mapped{
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
+/obj/structure/chainlink_fence{
 	dir = 8
 	},
 /turf/simulated/floor/asphalt,
@@ -3691,11 +3744,14 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center_abandoned)
 "SO" = (
-/obj/effect/decal/exterior_stairs/left{
-	dir = 4;
-	layer = 2.01
+/obj/structure/ledge/quarter{
+	dir = 1
 	},
-/turf/simulated/floor/asphalt,
+/obj/structure/road_sign/yield{
+	name = "NO TRESPASSING sign";
+	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 "SU" = (
 /obj/structure/ledge/quarter{
@@ -3746,13 +3802,16 @@
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/visible/black{
-	dir = 4
+	dir = 10
 	},
-/turf/simulated/floor/concrete,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/lattice/catwalk/indoor/urban,
+/turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
 "TD" = (
 /turf/simulated/wall,
@@ -3812,7 +3871,7 @@
 /obj/effect/decal/curb{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
+/obj/structure/chainlink_fence{
 	dir = 4
 	},
 /turf/simulated/floor/asphalt,
@@ -3822,20 +3881,17 @@
 /obj/structure/utility_pole/street/on{
 	dir = 1
 	},
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "UH" = (
-/obj/effect/decal/exterior_stairs/right,
-/turf/simulated/floor/asphalt,
+/obj/effect/decal/exterior_stairs/half/center,
+/turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_landing_zone)
 "UI" = (
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -3851,7 +3907,6 @@
 /obj/structure/tank_wall/air{
 	density = 0;
 	icon_state = "air12";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -3872,7 +3927,7 @@
 /obj/effect/decal/curb{
 	dir = 9
 	},
-/obj/structure/railing/mapped,
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Va" = (
@@ -3893,16 +3948,17 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center_abandoned/living)
 "Vc" = (
-/obj/effect/decal/exterior_stairs/half/left{
-	layer = 3
+/obj/effect/decal/road_marking/no_park,
+/obj/effect/decal/road_marking{
+	dir = 8
 	},
+/obj/effect/decal/exterior_stairs/half/left,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Vd" = (
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -3929,7 +3985,6 @@
 /obj/structure/tank_wall/air{
 	density = 0;
 	icon_state = "air5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -3953,27 +4008,19 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center_abandoned/living)
 "Wa" = (
-/obj/structure/chainlink_fence{
-	layer = 9.1
-	},
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/concrete,
 /area/konyang_landing_zone)
 "WB" = (
-/obj/structure/lattice/catwalk/indoor/urban,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
+/obj/effect/decal/exterior_stairs/half/center,
+/turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 "WF" = (
 /obj/structure/utility_pole/street/on{
 	dir = 4
 	},
 /obj/structure/ledge/quarter{
-	dir = 9
+	dir = 8
 	},
 /turf/simulated/floor/exoplanet/konyang/no_edge,
 /area/konyang_landing_zone)
@@ -3998,6 +4045,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/konyang_landing_zone/command_center_abandoned/landing_pads)
+"Xj" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/item/hullbeacon/red,
+/turf/simulated/floor/asphalt,
+/area/konyang_landing_zone)
 "Xk" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -4005,7 +4062,7 @@
 /obj/effect/decal/road_marking{
 	dir = 1
 	},
-/obj/structure/railing/mapped,
+/obj/structure/chainlink_fence,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Xo" = (
@@ -4075,13 +4132,19 @@
 /area/konyang_landing_zone/command_center_abandoned/garage)
 "YQ" = (
 /obj/structure/chainlink_fence{
-	layer = 9.1;
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
 "YV" = (
 /turf/simulated/floor/exoplanet/konyang,
+/area/konyang_landing_zone)
+"YX" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 "YY" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -4145,6 +4208,10 @@
 "ZU" = (
 /obj/structure/ledge/quarter/corner,
 /obj/structure/flora/bush/konyang_reeds,
+/obj/structure/road_sign/yield{
+	name = "NO TRESPASSING sign";
+	desc = "A sign which declares this area as SCC property and staunchly declines any thought of trespassing."
+	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 
@@ -4158,13 +4225,13 @@ WK
 rf
 rf
 rf
-dt
+rf
 rf
 YV
-YV
+rz
 YV
 rf
-dt
+rf
 rf
 rf
 rf
@@ -4174,7 +4241,7 @@ rf
 ym
 rf
 rf
-dt
+rf
 rf
 rf
 rf
@@ -4187,11 +4254,11 @@ rf
 rf
 rf
 rf
+rf
+rf
+rf
+rf
 dt
-rf
-rf
-rf
-rf
 YV
 rf
 rf
@@ -4270,7 +4337,7 @@ YV
 YV
 YV
 YV
-IM
+IZ
 Sw
 LV
 LV
@@ -4287,7 +4354,7 @@ Iy
 Jb
 LV
 Jb
-LV
+rp
 HX
 BF
 YV
@@ -4327,7 +4394,7 @@ WK
 YV
 YV
 sS
-IM
+IZ
 fl
 zh
 zh
@@ -4344,7 +4411,7 @@ zh
 zh
 zh
 zh
-iG
+Sb
 Xk
 MB
 YV
@@ -4384,8 +4451,8 @@ YV
 YV
 sS
 sS
-IM
-jn
+IZ
+jG
 zh
 zh
 zh
@@ -4402,7 +4469,7 @@ zh
 zh
 zh
 zh
-eU
+Ih
 MB
 YV
 WK
@@ -4441,8 +4508,8 @@ YV
 YV
 YV
 YV
-IM
-jn
+IZ
+jG
 zh
 oH
 lH
@@ -4498,8 +4565,8 @@ YV
 sS
 YV
 YV
-IM
-jn
+IZ
+jG
 Gb
 pu
 zh
@@ -4516,7 +4583,7 @@ zh
 zh
 zh
 zh
-eU
+Ih
 BF
 YV
 sS
@@ -4555,8 +4622,8 @@ YV
 sS
 YV
 YV
-IM
-jn
+IZ
+jG
 FL
 pu
 zh
@@ -4605,15 +4672,15 @@ YV
 rf
 "}
 (9,1,1) = {"
-dt
+rf
 YV
 YV
 WK
 YV
 YV
 YV
-IM
-jn
+IZ
+jG
 zo
 pu
 zh
@@ -4630,7 +4697,7 @@ zh
 zh
 zh
 zh
-eU
+Ih
 BF
 YV
 sS
@@ -4669,7 +4736,7 @@ YV
 YV
 WK
 YV
-IM
+IZ
 fl
 MM
 tF
@@ -4686,7 +4753,7 @@ zh
 zh
 zh
 zh
-iG
+Sb
 Xk
 BF
 YV
@@ -4726,11 +4793,11 @@ Pa
 YV
 WK
 YV
-IM
+IZ
 zy
 Ii
 mI
-lr
+Go
 Go
 tk
 yq
@@ -4743,7 +4810,7 @@ yq
 tk
 hP
 tk
-hP
+Xj
 UY
 lI
 xc
@@ -4786,7 +4853,7 @@ YV
 Jp
 Lb
 Ll
-lX
+FB
 dK
 dK
 mF
@@ -4833,7 +4900,7 @@ YV
 rf
 "}
 (13,1,1) = {"
-rf
+dt
 YV
 WK
 YV
@@ -4861,12 +4928,12 @@ EV
 dK
 dK
 dK
-kd
+dK
 dK
 gk
 BF
 YV
-rz
+YV
 Aj
 rf
 rf
@@ -4921,9 +4988,9 @@ dK
 dK
 pd
 Nu
-IL
+BF
 rf
-rf
+dt
 rf
 rf
 rf
@@ -4944,10 +5011,10 @@ WK
 YV
 YV
 rf
-rf
+dt
 "}
 (15,1,1) = {"
-rz
+YV
 YV
 YV
 sS
@@ -4979,33 +5046,33 @@ dK
 dK
 Cq
 Vc
-zh
-zh
+Aq
+MW
 rf
 rf
-zh
+Aq
 rf
 rf
 rf
-zh
-zh
-zh
-zh
+Aq
+Aq
+Aq
+Aq
 YV
 YV
 sS
 YV
-zh
-zh
+Aq
+Aq
 YV
 sS
 YV
 YV
-rf
+Aq
 "}
 (16,1,1) = {"
 rf
-YQ
+YV
 YV
 sS
 rf
@@ -5057,7 +5124,7 @@ yd
 YV
 sS
 WK
-YV
+zh
 rf
 "}
 (17,1,1) = {"
@@ -5114,12 +5181,12 @@ YV
 YV
 YV
 YV
-YV
-dt
+zh
+rf
 "}
 (18,1,1) = {"
 rf
-YQ
+YV
 sS
 YV
 rf
@@ -5172,18 +5239,18 @@ Cw
 YV
 YV
 rf
-rf
+dt
 "}
 (19,1,1) = {"
 rf
-YQ
 YV
 YV
+rz
 Ji
 Hg
 Hg
 Ji
-YV
+rz
 ew
 wl
 gM
@@ -5201,9 +5268,9 @@ jL
 jL
 Pl
 Pl
-EO
-jL
-jL
+Pl
+Pl
+Pl
 Pl
 Dv
 rM
@@ -5225,15 +5292,15 @@ BZ
 BZ
 Py
 zf
-IO
-ym
-rf
-rf
+Ic
+ke
+Mf
+YX
 rf
 "}
 (20,1,1) = {"
 YV
-YQ
+YV
 YV
 YV
 Ji
@@ -5277,15 +5344,15 @@ Oz
 Oz
 dK
 dK
-Gc
+iG
+gL
 dK
-sH
 aZ
-OR
-IO
+zo
+sH
 YV
 rf
-YV
+eU
 rf
 "}
 (21,1,1) = {"
@@ -5333,21 +5400,21 @@ lM
 Gu
 Em
 dK
-dK
-Ic
-gL
+Rg
+xT
+Gg
 dK
 hV
 WX
 am
 cN
 xc
-xc
+Jl
 xY
 "}
 (22,1,1) = {"
 YV
-YQ
+YV
 YV
 Mw
 ac
@@ -5358,7 +5425,7 @@ do
 ko
 uD
 Vl
-Hd
+FY
 zh
 zh
 qc
@@ -5390,8 +5457,8 @@ zh
 zh
 Rh
 dK
-Wa
-xT
+Rg
+GH
 PD
 dK
 TQ
@@ -5403,8 +5470,8 @@ nR
 GH
 "}
 (23,1,1) = {"
-dt
-YQ
+rf
+YV
 Kl
 Xo
 gu
@@ -5447,9 +5514,9 @@ zh
 qc
 Rh
 dK
-Wa
+Rg
 GH
-zA
+PD
 dK
 TQ
 bG
@@ -5461,7 +5528,7 @@ GH
 "}
 (24,1,1) = {"
 rf
-YQ
+OE
 gu
 gu
 gu
@@ -5472,7 +5539,7 @@ gu
 Og
 oh
 mR
-UH
+FY
 zh
 uc
 fq
@@ -5504,7 +5571,7 @@ zh
 zh
 UB
 dK
-Wa
+Rg
 GH
 Ql
 dK
@@ -5517,7 +5584,7 @@ kB
 GH
 "}
 (25,1,1) = {"
-rf
+dt
 YQ
 gu
 vt
@@ -5561,7 +5628,7 @@ zh
 zh
 Rh
 dK
-Wa
+Rg
 GH
 zA
 dK
@@ -5571,7 +5638,7 @@ Vd
 FF
 UI
 Ms
-GH
+SO
 "}
 (26,1,1) = {"
 rf
@@ -5618,7 +5685,7 @@ zh
 zh
 Rh
 dK
-Wa
+Rg
 GH
 zA
 dK
@@ -5675,16 +5742,16 @@ zh
 zh
 Rh
 dK
-Wa
+Rg
 GH
 zA
 dK
 Qe
-Rg
-jG
+hi
+Lb
 WF
 Lb
-Lb
+ea
 Pt
 "}
 (28,1,1) = {"
@@ -5732,16 +5799,16 @@ zh
 zh
 UB
 dK
-Wa
+Rg
 GH
 zA
 dK
 KC
-WB
-Se
 BF
+Kl
+Kl
 yd
-YV
+Rs
 rf
 "}
 (29,1,1) = {"
@@ -5789,16 +5856,16 @@ zh
 zh
 Rh
 dK
-Wa
+Rg
 GH
 zA
 dK
 Qe
 bX
-Lb
+Kl
 gm
 YV
-rf
+Is
 rf
 "}
 (30,1,1) = {"
@@ -5814,7 +5881,7 @@ wh
 wS
 Zi
 dK
-UH
+FY
 zh
 uc
 fq
@@ -5846,20 +5913,20 @@ zh
 zh
 Rh
 dK
-Wa
+Rg
 kf
 zA
 dK
-Qe
+nf
 BF
 YV
 sS
 rf
-ym
-dt
+IM
+rf
 "}
 (31,1,1) = {"
-rf
+dt
 YQ
 YV
 au
@@ -5871,7 +5938,64 @@ kJ
 oq
 ld
 mR
-UH
+FY
+zh
+uc
+fq
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+zh
+Rh
+dK
+Rg
+GH
+zA
+dK
+nf
+BF
+YV
+YV
+YV
+Is
+dt
+"}
+(32,1,1) = {"
+YV
+YQ
+Fi
+IZ
+Ca
+wJ
+Yr
+vR
+TO
+Ca
+Zi
+KG
+FY
 zh
 uc
 HY
@@ -5903,73 +6027,16 @@ zh
 zh
 Rh
 dK
-Wa
+Rg
 GH
 zA
 dK
-Qe
-BF
-YV
-YV
-YV
-rf
-rf
-"}
-(32,1,1) = {"
-rz
-YQ
-Fi
-IZ
-Ca
-wJ
-Yr
-vR
-TO
-Ca
-Zi
-KG
+Hd
 UH
-zh
-uc
-fq
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-zh
-Rh
-dK
-Wa
-GH
-zA
-dK
-Qe
-BF
 YV
 yd
 rf
-rf
+Is
 rf
 "}
 (33,1,1) = {"
@@ -5985,7 +6052,7 @@ sy
 Ca
 Zi
 sF
-UH
+FY
 zh
 uc
 fq
@@ -6017,17 +6084,17 @@ zh
 zh
 Rh
 dK
-Wa
+Rg
 Oe
 zA
 dK
-Qe
-am
-xc
-cN
-xc
-xc
-xY
+nf
+BF
+Fi
+Kl
+Kl
+NG
+rf
 "}
 (34,1,1) = {"
 rf
@@ -6042,7 +6109,7 @@ oq
 oq
 ld
 dK
-UH
+FY
 zh
 uc
 fq
@@ -6074,17 +6141,17 @@ zh
 zh
 Rh
 dK
-Wa
+Rg
 GH
 zA
 dK
-fZ
-nR
-Jf
-NW
-fh
-nR
-GH
+nf
+IO
+YV
+YV
+YV
+Rs
+rf
 "}
 (35,1,1) = {"
 rf
@@ -6131,17 +6198,17 @@ zh
 zh
 Rh
 dK
-Wa
+Rg
 GH
 zA
 dK
 nf
-CY
-VK
-MO
-rC
-hg
-GH
+IO
+rf
+rf
+rf
+Rs
+rf
 "}
 (36,1,1) = {"
 jr
@@ -6188,17 +6255,17 @@ zh
 zh
 wj
 dK
-Wa
+Rg
 GH
 zA
 dK
-NG
-ge
-PZ
-yK
-MO
-lz
-GH
+nf
+IO
+sS
+Aj
+rf
+Rs
+rf
 "}
 (37,1,1) = {"
 jr
@@ -6245,17 +6312,17 @@ zh
 zh
 Rh
 dK
-Wa
+Rg
 GH
 zA
 dK
-hZ
-Fo
-JO
-MO
-UU
-eK
-GH
+nf
+kd
+Se
+dD
+Se
+OW
+xY
 "}
 (38,1,1) = {"
 jr
@@ -6302,15 +6369,15 @@ zh
 zh
 Rh
 dK
-Wa
-GH
-zA
+Rg
+RW
+tB
 dK
-hZ
+nf
 nR
-OV
-qn
-AC
+Jf
+NW
+fh
 nR
 GH
 "}
@@ -6342,7 +6409,7 @@ zh
 zh
 zh
 zh
-pu
+zh
 zh
 zh
 zh
@@ -6359,17 +6426,17 @@ zh
 qc
 Rh
 dK
-Wa
-GH
-zA
+dK
+fZ
+qP
 dK
 hZ
-Rg
-hZ
-ke
-qm
-qm
-Pt
+CY
+VK
+MO
+rC
+hg
+GH
 "}
 (40,1,1) = {"
 rf
@@ -6416,20 +6483,20 @@ zh
 zh
 wj
 dK
-Wa
-GH
-zA
-Mf
+dK
+Gc
+dK
+dK
 cY
-Is
-MW
+ge
+PZ
+yK
+MO
+lz
 GH
-rf
-rf
-rf
 "}
 (41,1,1) = {"
-dt
+rf
 bK
 At
 oU
@@ -6474,16 +6541,16 @@ zh
 Rh
 dK
 Wa
-GH
+xT
 Az
-qm
-qm
-qm
-qm
-Pt
-rf
-rf
-rz
+dK
+Rg
+Fo
+JO
+MO
+UU
+eK
+GH
 "}
 (42,1,1) = {"
 YV
@@ -6498,7 +6565,7 @@ IX
 oq
 ld
 dK
-Hd
+FY
 zh
 zh
 zh
@@ -6533,17 +6600,17 @@ dK
 Wa
 Oe
 YV
-rf
-rf
-rf
-rf
-rf
-rf
-YV
-YV
+dK
+Rg
+nR
+OV
+qn
+AC
+nR
+GH
 "}
 (43,1,1) = {"
-YV
+rz
 jE
 Ca
 Hy
@@ -6572,7 +6639,7 @@ uc
 zh
 qc
 cA
-SO
+cA
 Ci
 Ly
 Ly
@@ -6588,16 +6655,16 @@ Ly
 tc
 dK
 Wa
+RW
+RF
+dK
+dK
+Lf
 GH
-YV
-YV
-rf
-YV
-rf
-rf
-rf
-YV
-YV
+lr
+qm
+eU
+kh
 "}
 (44,1,1) = {"
 rf
@@ -6612,7 +6679,7 @@ Sn
 oq
 Zi
 dK
-UH
+FY
 zh
 zh
 zh
@@ -6644,16 +6711,16 @@ gB
 gB
 gB
 dK
-Wa
-GH
+dK
+dK
+dK
+dK
+dK
+dK
+WB
 rf
-YV
 rf
-YV
-rf
-rf
-rf
-rf
+Ey
 YV
 "}
 (45,1,1) = {"
@@ -6701,16 +6768,16 @@ Xv
 Xv
 Xv
 Xv
+Xv
+Xv
+Xv
+Xv
+Xv
 tp
-RW
-xY
-rf
-rf
-YV
-rf
-rf
-rf
-rf
+Iv
+dO
+dO
+OR
 rf
 "}
 (46,1,1) = {"
@@ -6740,9 +6807,9 @@ mF
 mF
 mF
 TB
-wz
-wz
-Xv
+mS
+mS
+EO
 Oa
 Vt
 xI
@@ -6760,11 +6827,11 @@ xn
 yb
 xn
 vZ
-GH
-rf
-YV
-YV
-rf
+xT
+qm
+ef
+ef
+Pt
 rf
 YV
 Aj
@@ -6796,9 +6863,9 @@ qm
 tt
 bm
 LW
-ea
-OE
-OE
+ef
+ef
+ef
 aA
 Cd
 hL
@@ -6975,19 +7042,19 @@ PJ
 GG
 fi
 fi
-zh
-zh
-zh
-zh
-rp
-zh
+IL
 zh
 zh
 zh
 zh
 zh
 zh
-eU
+zh
+zh
+zh
+zh
+zh
+Ih
 GH
 rf
 YV
@@ -6999,7 +7066,7 @@ Tb
 rf
 "}
 (51,1,1) = {"
-dt
+rf
 YQ
 kH
 Vb
@@ -7199,8 +7266,8 @@ Mw
 YV
 WK
 Rs
-qa
-zy
+zC
+Nk
 Uz
 Uz
 LE
@@ -7227,9 +7294,9 @@ Aj
 rf
 "}
 (55,1,1) = {"
-rf
+dt
 rF
-mS
+dO
 cG
 Fz
 dO
@@ -7238,7 +7305,7 @@ Fz
 wr
 dO
 Fz
-Lf
+cG
 dO
 dO
 wr
@@ -7246,7 +7313,7 @@ dO
 DQ
 Fz
 lp
-OW
+Fz
 Fz
 wr
 dO
@@ -7254,7 +7321,7 @@ dO
 Fz
 dO
 cG
-mS
+dO
 dJ
 ZU
 GK
@@ -7262,7 +7329,7 @@ ef
 ef
 SU
 ef
-Nk
+qm
 GK
 GK
 hz
@@ -7272,8 +7339,8 @@ ef
 ef
 Il
 Il
-Gg
-Pt
+GK
+AQ
 rf
 rf
 sS

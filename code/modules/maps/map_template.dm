@@ -26,6 +26,8 @@
 	if(rename)
 		name = rename
 
+	..()
+
 /datum/map_template/proc/preload_size(paths)
 	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
 	var/z_offset = 1 // needed to calculate z-bounds correctly
@@ -86,7 +88,7 @@
 	SSicon_smooth.can_fire = TRUE
 	loaded++
 
-	return locate(world.maxx/2, world.maxy/2, world.maxz)
+	return bounds
 
 /datum/map_template/proc/pre_init_shuttles()
 	. = SSshuttle.block_queue

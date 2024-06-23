@@ -5,7 +5,6 @@
 
 
 // Items that ask to be called every cycle.
-GLOBAL_LIST_EMPTY(processing_power_items)
 GLOBAL_LIST_EMPTY(med_hud_users) // List of all entities using a medical HUD.
 GLOBAL_LIST_EMPTY(sec_hud_users) // List of all entities using a security HUD.
 GLOBAL_LIST_EMPTY(hud_icon_reference)
@@ -36,9 +35,6 @@ GLOBAL_PROTECT(href_logfile)
 GLOBAL_VAR_INIT(game_version, "Aurorastation")
 GLOBAL_PROTECT(game_version)
 
-GLOBAL_VAR_INIT(changelog_hash, "")
-GLOBAL_PROTECT(changelog_hash)
-
 GLOBAL_VAR_INIT(game_year, (text2num(time2text(world.realtime, "YYYY")) + 442))
 
 GLOBAL_VAR_INIT(round_progressing, 1)
@@ -65,18 +61,16 @@ GLOBAL_LIST_EMPTY(reg_dna)
 
 GLOBAL_DATUM(newplayer_start, /turf)
 
+GLOBAL_DATUM(lobby_mobs_location, /turf)
+
 //Spawnpoints.
 GLOBAL_LIST_EMPTY(latejoin)
-GLOBAL_LIST_EMPTY(latejoin_gateway)
 GLOBAL_LIST_EMPTY(latejoin_cryo)
-GLOBAL_LIST_EMPTY(latejoin_cryo_command)
 GLOBAL_LIST_EMPTY(latejoin_cyborg)
-GLOBAL_LIST_EMPTY(latejoin_merchant)
 GLOBAL_LIST_EMPTY(latejoin_living_quarters_lift)
 GLOBAL_LIST_EMPTY(kickoffsloc)
 GLOBAL_LIST_EMPTY(virtual_reality_spawn)
 
-GLOBAL_LIST_EMPTY(asteroid_spawn) // Asteroid "Dungeons" spawn at these.
 GLOBAL_LIST_EMPTY(tdome1)
 GLOBAL_LIST_EMPTY(tdome2)
 GLOBAL_LIST_EMPTY(tdomeobserve)
@@ -91,6 +85,7 @@ GLOBAL_LIST_INIT(reverse_dir, list( // reverse_dir[dir] = reverse of dir
 	41, 43, 36, 38, 37, 39, 44, 46, 45, 47, 16, 18, 17, 19, 24, 26, 25, 27, 20, 22, 21,
 	23, 28, 30, 29, 31, 48, 50, 49, 51, 56, 58, 57, 59, 52, 54, 53, 55, 60, 62, 61, 63
 ))
+GLOBAL_LIST_INIT(all_days, list("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))
 
 GLOBAL_LIST_EMPTY(combatlog)
 GLOBAL_PROTECT(lawchanges)

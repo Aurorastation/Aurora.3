@@ -44,7 +44,7 @@
 	if(locked && !emagged)
 		locked = 0
 		emagged = 1
-		to_chat(user, "<span class='warning'>You short out [src]'s maintenance hatch lock.</span>")
+		to_chat(user, SPAN_WARNING("You short out [src]'s maintenance hatch lock."))
 		log_and_message_admins("emagged [src]'s maintenance hatch lock")
 		return 1
 
@@ -53,39 +53,38 @@
 		log_and_message_admins("emagged [src]'s inner circuits")
 		return 1
 
-/obj/machinery/bot/examine(mob/user)
+/obj/machinery/bot/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (src.health < maxhealth)
 		if (src.health > maxhealth/3)
-			to_chat(user, "<span class='warning'>[src]'s parts look loose.</span>")
+			. += SPAN_WARNING("[src]'s parts look loose.")
 		else
-			to_chat(user, "<span class='danger'>[src]'s parts look very loose!</span>")
-	return
+			. += SPAN_DANGER("[src]'s parts look very loose!")
 
-/obj/machinery/bot/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.isscrewdriver())
+/obj/machinery/bot/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(!locked)
 			open = !open
-			to_chat(user, "<span class='notice'>Maintenance panel is now [src.open ? "opened" : "closed"].</span>")
+			to_chat(user, SPAN_NOTICE("Maintenance panel is now [src.open ? "opened" : "closed"]."))
 		return TRUE
-	else if(W.iswelder())
+	else if(attacking_item.iswelder())
 		if(health < maxhealth)
 			if(open)
 				health = min(maxhealth, health+10)
-				user.visible_message("<span class='warning'>[user] repairs [src]!</span>","<span class='notice'>You repair [src]!</span>")
+				user.visible_message(SPAN_WARNING("[user] repairs [src]!"),SPAN_NOTICE("You repair [src]!"))
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			else
-				to_chat(user, "<span class='notice'>Unable to repair with the maintenance panel closed.</span>")
+				to_chat(user, SPAN_NOTICE("Unable to repair with the maintenance panel closed."))
 		else
-			to_chat(user, "<span class='notice'>[src] does not need a repair.</span>")
+			to_chat(user, SPAN_NOTICE("[src] does not need a repair."))
 		return TRUE
 	else
-		if(hasvar(W,"force") && hasvar(W,"damtype"))
-			switch(W.damtype)
+		if(hasvar(attacking_item,"force") && hasvar(attacking_item,"damtype"))
+			switch(attacking_item.damtype)
 				if("fire")
-					src.health -= W.force * fire_dam_coeff
+					src.health -= attacking_item.force * fire_dam_coeff
 				if("brute")
-					src.health -= W.force * brute_dam_coeff
+					src.health -= attacking_item.force * brute_dam_coeff
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			. = ..()
 			healthcheck()
@@ -153,7 +152,7 @@
 
 	if(user.species.can_shred(user))
 		src.health -= rand(15,30)*brute_dam_coeff
-		src.visible_message("<span class='danger'>[user] has slashed [src]!</span>")
+		src.visible_message(SPAN_DANGER("[user] has slashed [src]!"))
 		playsound(src.loc, 'sound/weapons/slice.ogg', 25, 1, -1)
 		if(prob(10))
 			new /obj/effect/decal/cleanable/blood/oil(src.loc)

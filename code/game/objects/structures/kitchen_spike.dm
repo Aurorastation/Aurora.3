@@ -7,13 +7,15 @@
 	desc = "A spike for collecting meat from animals."
 	density = 1
 	anchored = 1
+	pass_flags_self = PASSTABLE
 	var/meat = 0
 	var/occupied
 	var/meat_type
 	var/victim_name = "corpse"
 
-/obj/structure/kitchenspike/attackby(obj/item/grab/G as obj, mob/user as mob)
-	if(!istype(G, /obj/item/grab) || !G.affecting)
+/obj/structure/kitchenspike/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/grab/G = attacking_item
+	if(!istype(G) || !G.affecting)
 		return
 	if(occupied)
 		to_chat(user, SPAN_DANGER("The spike already has something on it, finish collecting its meat first!"))
@@ -30,17 +32,17 @@
 	if(!istype(victim))
 		return
 
-	cut_overlays()
+	ClearOverlays()
 	if(istype(victim, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = victim
 		if(!issmall(H))
 			return 0
 		meat_type = H.species.meat_type
-		add_overlay(overlay_image(icon, "spikebloody"))
+		AddOverlays(overlay_image(icon, "spikebloody"))
 	else if(istype(victim, /mob/living/carbon/alien))
 		var/mob/living/carbon/alien/A = victim
 		meat_type = A.meat_type
-		add_overlay(overlay_image(icon, "spikebloodygreen"))
+		AddOverlays(overlay_image(icon, "spikebloodygreen"))
 	else
 		return 0
 
@@ -71,7 +73,4 @@
 			return 1
 		else
 			return 0
-	else if(mover.checkpass(PASSTABLE))
-//Animals can run under them, lots of empty space
-		return 1
 	return ..()

@@ -26,7 +26,7 @@
 	var/turf/T = get_turf(M)
 	if(T)
 		var/obj/effect/energy_net/net = new net_type(T)
-		net.layer = M.layer + 1
+		net.layer = ABOVE_HUMAN_LAYER
 		M.captured = TRUE
 		M.update_canmove()
 		net.affecting = M
@@ -104,9 +104,9 @@
 	user.visible_message(SPAN_WARNING("\The [user] claws at \the [src]!"), SPAN_WARNING("You claw at \the [src]!"))
 	health_check()
 
-/obj/effect/energy_net/attackby(obj/item/W, mob/user)
-	user.do_attack_animation(src, W)
-	var/attack_force = W.force
+/obj/effect/energy_net/attackby(obj/item/attacking_item, mob/user)
+	user.do_attack_animation(src, attacking_item)
+	var/attack_force = attacking_item.force
 	if(user == affecting)
 		attack_force /= 2
 	health -= attack_force
@@ -118,7 +118,7 @@
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "canesword"
 	item_state = "canesword"
-	force = 20
+	force = 25
 	throwforce = 5
 	w_class = ITEMSIZE_LARGE
 	sharp = 1
@@ -143,6 +143,6 @@
 	attack_verb = list("banned")
 
 /obj/item/banhammer/attack(mob/M as mob, mob/user as mob)
-	to_chat(M, "<span class='warning'><b> You have been banned FOR NO REISIN by [user]</b></span>")
-	to_chat(user, "<span class='warning'> You have <b>BANNED</b> [M]</span>")
+	to_chat(M, SPAN_WARNING("<b> You have been banned FOR NO REISIN by [user]</b>"))
+	to_chat(user, SPAN_WARNING(" You have <b>BANNED</b> [M]"))
 	playsound(loc, 'sound/effects/adminhelp.ogg', 15)

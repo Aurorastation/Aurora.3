@@ -17,37 +17,65 @@
 		return 1
 	return 0
 
-//This is a SAFE proc. Use this instead of equip_to_slot()!
-//set del_on_fail to have it delete W if it fails to equip
-//set disable_warning to disable the 'you are unable to equip that' warning.
-//unset redraw_mob to prevent the mob from being redrawn at the end.
-/mob/proc/equip_to_slot_if_possible(obj/item/W as obj, slot, del_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, ignore_blocked = FALSE, assisted_equip = FALSE)
-	if(!istype(W))
+/**
+ * Equips an item to a slot if possible
+ *
+ * Returns `FALSE` if it's not possible, `TRUE` otherwise
+ *
+ * This is a SAFE proc to equip items with
+ *
+ * * item_to_equip - An `obj/item` to try to equip
+ * * slot - The slot to equip it to, one of the `slot_*` defines in `code\__DEFINES\items_clothing.dm`
+ * * delete_on_fail - A boolean, if the item should be deleted if the equipping fails
+ * * disable_warning - A boolean, if `TRUE` it does not send the eventual equipping failure feedback message to the mob
+ * * redraw_mob - A boolean, if `TRUE` the icon is asked to be redrawn
+ * * bypass_blocked_check - A boolean, if `TRUE` it does not check if the slot is accessible
+ * * assisted_equip - A boolean, I have no idea wtf this is supposed to do, seems unused but, you're on your own here
+ */
+/mob/proc/equip_to_slot_if_possible(obj/item/item_to_equip, slot, delete_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, bypass_blocked_check = FALSE, assisted_equip = FALSE)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if(!istype(item_to_equip))
 		return FALSE
-	if(W.item_flags & ITEM_FLAG_NO_MOVE) //Cannot move ITEM_FLAG_NO_MOVE items from one inventory slot to another. Cannot do canremove here because then BSTs spawn naked.
+	if(item_to_equip.item_flags & ITEM_FLAG_NO_MOVE) //Cannot move ITEM_FLAG_NO_MOVE items from one inventory slot to another. Cannot do canremove here because then BSTs spawn naked.
 		return FALSE
 
-	if(!W.mob_can_equip(src, slot, disable_warning, ignore_blocked))
-		if(del_on_fail)
-			qdel(W)
+	if(!item_to_equip.mob_can_equip(src, slot, disable_warning, bypass_blocked_check))
+		if(delete_on_fail)
+			qdel(item_to_equip)
 		else
 			if(!disable_warning)
-				to_chat(src, "<span class='warning'>You are unable to equip [W].</span>")  //Only print if del_on_fail is false
-		return 0
+				to_chat(src, SPAN_WARNING("You are unable to equip [item_to_equip]."))  //Only print if delete_on_fail is false
+		return FALSE
 
-	equip_to_slot(W, slot, redraw_mob, assisted_equip) //This proc should not ever fail.
-	return 1
+	equip_to_slot(item_to_equip, slot, redraw_mob, assisted_equip) //This proc should not ever fail.
+	return TRUE
 
 //This is an UNSAFE proc. It merely handles the actual job of equipping. All the checks on whether you can or can't eqip need to be done before! Use mob_can_equip() for that task.
 //In most cases you will want to use equip_to_slot_if_possible()
-/mob/proc/equip_to_slot(obj/item/W, slot, redraw_mob, assisted_equip)
-	W.on_slotmove(src, slot)
-
-//This is just a commonly used configuration for the equip_to_slot_if_possible() proc, used to equip people when the rounds tarts and when events happen and such.
-/mob/proc/equip_to_slot_or_del(obj/item/W as obj, slot)
+/**
+ * Equips an item to a slot
+ *
+ * This is an _UNSAFE_ proc that does not perform any check, it merely handles the movement of the item,
+ * all the prerequisite checks are left to the caller of this, therefore _DO NOT_ use it if you don't know what you're doing
+ */
+/mob/proc/equip_to_slot(obj/item/item_to_equip, slot, redraw_mob, assisted_equip)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	. = equip_to_slot_if_possible(W, slot, TRUE, TRUE, FALSE, TRUE)
+	item_to_equip.on_slotmove(src, slot)
+
+/**
+ * Equips an item to the mob if possible, delete it otherwise
+ *
+ * Returns `TRUE` if the equipping was successful, `FALSE` otherwise
+ *
+ * * item_to_equip - An `/obj/item` to try to equip
+ * * slot - The slot to equip it to, one of the `slot_*` defines in `code\__DEFINES\items_clothing.dm`
+ */
+/mob/proc/equip_to_slot_or_del(obj/item/item_to_equip, slot)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	. = equip_to_slot_if_possible(item_to_equip, slot, TRUE, TRUE, FALSE, TRUE)
 
 // Convinience proc.  Collects crap that fails to equip either onto the mob's back, or drops it.
 // Used in job equipping so shit doesn't pile up at the start loc.
@@ -102,7 +130,7 @@ var/list/slot_equipment_priority = list( \
 	if(!istype(W)) return 0
 
 	for(var/slot in slot_equipment_priority)
-		if(equip_to_slot_if_possible(W, slot, del_on_fail=0, disable_warning=1, redraw_mob=1))
+		if(equip_to_slot_if_possible(W, slot, delete_on_fail = FALSE, disable_warning = TRUE, redraw_mob = TRUE))
 			return 1
 
 	return 0
@@ -150,33 +178,63 @@ var/list/slot_equipment_priority = list( \
 			return l_hand
 		return
 
-//Puts the item into our active hand if possible. returns 1 on success.
-/mob/proc/put_in_active_hand(var/obj/item/W)
-	return 0 // Moved to human procs because only they need to use hands.
+/**
+ * Puts the item in the active hand of the mob, if possible
+ *
+ * * item_to_equip - An `/obj/item` to try to equip in the hand
+ *
+ * Returns `TRUE` on success, `FALSE` otherwise
+ */
+/mob/proc/put_in_active_hand(obj/item/item_to_equip)
+	SHOULD_NOT_SLEEP(TRUE)
 
-//Puts the item into our inactive hand if possible. returns 1 on success.
-/mob/proc/put_in_inactive_hand(var/obj/item/W)
-	return 0 // As above.
+	return FALSE
 
-//Puts the item our active hand if possible. Failing that it tries our inactive hand. Returns 1 on success.
-//If both fail it drops it on the floor and returns 0.
-//This is probably the main one you need to know :)
-/mob/proc/put_in_hands(var/obj/item/W, var/check_adjacency = FALSE)
-	if(!W || !istype(W))
-		return 0
+/**
+ * Puts the item in the active hand of the mob, if possible
+ *
+ * * item_to_equip - An `/obj/item` to try to equip in the hand
+ *
+ * Returns `TRUE` on success, `FALSE` otherwise
+ */
+/mob/proc/put_in_inactive_hand(obj/item/item_to_equip)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	return FALSE
+
+/**
+ * Puts the item in an active hand if possible, failing that it tries an inactive hand
+ *
+ * If both fails, it drops the item on the floor and returns `FALSE`
+ *
+ * * item_to_equip - An `obj/item` to try to equip
+ * * check_adjacency - A boolean, if `TRUE` it checks if the mob is adjacent to the target
+ *
+ * Returns `TRUE` on successful equip on an hand, `FALSE` otherwise
+ */
+/mob/proc/put_in_hands(obj/item/item_to_equip, check_adjacency = FALSE)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if(QDELETED(item_to_equip))
+		return FALSE
+
+	if(!istype(item_to_equip))
+		return FALSE
+
 	var/move_to_src = TRUE
 	if(check_adjacency)
 		move_to_src = FALSE
-		var/turf/origin = get_turf(W)
+		var/turf/origin = get_turf(item_to_equip)
 		if(Adjacent(origin))
 			move_to_src = TRUE
 	if(move_to_src)
-		W.forceMove(get_turf(src))
+		item_to_equip.forceMove(get_turf(src))
 	else
-		W.forceMove(get_turf(W))
-	W.layer = initial(W.layer)
-	W.dropped(src)
-	return 0
+		item_to_equip.forceMove(get_turf(item_to_equip))
+	item_to_equip.reset_plane_and_layer()
+	item_to_equip.dropped(src)
+
+	return FALSE
 
 // Removes an item from inventory and places it in the target atom.
 // If canremove or other conditions need to be checked then use unEquip instead.
@@ -288,7 +346,7 @@ var/list/slot_equipment_priority = list( \
 	src.u_equip(I)
 	if (src.client)
 		src.client.screen -= I
-	I.layer = initial(I.layer)
+	I.reset_plane_and_layer()
 	I.screen_loc = null
 
 	I.on_slotmove(src)
@@ -301,7 +359,7 @@ var/list/slot_equipment_priority = list( \
 	src.u_equip(O)
 	if (src.client)
 		src.client.screen -= O
-	O.layer = initial(O.layer)
+	O.reset_plane_and_layer()
 	O.screen_loc = null
 	if(istype(O, /obj/item))
 		var/obj/item/I = O
@@ -357,7 +415,7 @@ var/list/slot_equipment_priority = list( \
 			var/turf/end_T = get_turf(target)
 			if(start_T && end_T)
 				if(is_pacified())
-					to_chat(src, "<span class='notice'>You gently let go of [M].</span>")
+					to_chat(src, SPAN_NOTICE("You gently let go of [M]."))
 					src.remove_from_mob(item)
 					item.loc = src.loc
 					return TRUE
@@ -424,12 +482,12 @@ var/list/slot_equipment_priority = list( \
 		return TRUE
 
 	if(is_pacified())
-		to_chat(src, "<span class='notice'>You set [item] down gently on the ground.</span>")
+		to_chat(src, SPAN_NOTICE("You set [item] down gently on the ground."))
 		return TRUE
 
 	//actually throw it!
 	if(item)
-		src.visible_message("<span class='warning'>[src] throws \a [item].</span>")
+		src.visible_message(SPAN_WARNING("[src] throws \a [item]."))
 		if(!src.lastarea)
 			src.lastarea = get_area(src.loc)
 		if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity() == 0))
@@ -464,7 +522,9 @@ var/list/slot_equipment_priority = list( \
 			. += I
 
 /mob/living/carbon/human/proc/equipOutfit(outfit, visualsOnly = FALSE)
-	var/datum/outfit/O = null
+	SHOULD_NOT_SLEEP(TRUE)
+
+	var/obj/outfit/O = null
 
 	if(ispath(outfit))
 		O = new outfit
@@ -478,7 +538,7 @@ var/list/slot_equipment_priority = list( \
 	return O.equip(src, visualsOnly)
 
 /mob/living/carbon/human/proc/preEquipOutfit(outfit, visualsOnly = FALSE)
-	var/datum/outfit/O = null
+	var/obj/outfit/O = null
 
 	if(ispath(outfit))
 		O = new outfit

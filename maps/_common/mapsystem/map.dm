@@ -57,6 +57,10 @@
 	var/bluespace_called_message
 	var/bluespace_recall_message
 
+	/// If this map has ports of call and refuels there. Crew are implied to be able to leave to these ports.
+	/// Ports of call are taken from the current map sector.
+	var/ports_of_call = FALSE
+
 	var/evac_controller_type = /datum/evacuation_controller
 
 	var/list/station_networks = list() 		// Camera networks that will show up on the console.
@@ -265,6 +269,11 @@
 			guaranteed += site
 			if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 				available[site] = site.spawn_weight
+		else if((site.template_flags & TEMPLATE_FLAG_PORT_SPAWN) && (site.spawns_in_current_sector()))
+			if(SSatlas.is_port_call_day()) //we check here as we only want sites with PORT_SPAWN flag to spawn if this is true, else we want it not considered.
+				guaranteed += site
+				if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
+					available[site] = site.spawn_weight
 		else if (!(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED) && (site.spawns_in_current_sector()))
 			available[site] = site.spawn_weight
 		by_type[site.type] = site
@@ -297,6 +306,14 @@
 
 	for (var/datum/map_template/template in selected)
 		if (template.load_new_z())
+			// do away site exoplanet generation, if needed
+			var/datum/map_template/ruin/away_site/away_site = template
+			if(istype(away_site) && away_site.exoplanet_themes)
+				for(var/marker_turf_type in away_site.exoplanet_themes)
+					var/datum/exoplanet_theme/exoplanet_theme_type = away_site.exoplanet_themes[marker_turf_type]
+					var/datum/exoplanet_theme/exoplanet_theme = new exoplanet_theme_type()
+					exoplanet_theme.generate_map(world.maxz-1, 1, 1, 254, 254, marker_turf_type)
+			// fin
 			log_admin("Loaded away site [template]!")
 		else
 			log_admin("Failed loading away site [template]!")

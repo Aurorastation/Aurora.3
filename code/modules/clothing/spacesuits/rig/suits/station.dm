@@ -47,7 +47,6 @@
 	req_one_access = list()
 
 	helm_type = null
-	suit_type = null
 	glove_type = null
 	boot_type = null
 
@@ -288,6 +287,7 @@
 	req_one_access = list()
 
 	allowed_module_types = MODULE_GENERAL | MODULE_UTILITY
+	anomaly_protection = TRUE
 
 /obj/item/rig/hazmat/equipped
 
@@ -331,7 +331,7 @@
 
 /obj/item/rig/medical/equipped
 
-	req_access = list(ACCESS_FIRST_RESPONDER)
+	req_access = list(ACCESS_PARAMEDIC)
 
 	initial_modules = list(
 		/obj/item/rig_module/chem_dispenser/injector/paramedic,

@@ -305,7 +305,7 @@
 	if(!powered())
 		return
 	if(!src.allowed(user))
-		to_chat(user, "<span class='warning'>Access denied.</span>")
+		to_chat(user, SPAN_WARNING("Access denied."))
 		return
 	..()
 
@@ -343,11 +343,11 @@
 			else
 				go_to_side()
 
-/obj/machinery/atmospherics/tvalve/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if (!W.iswrench())
+/obj/machinery/atmospherics/tvalve/attackby(obj/item/attacking_item, mob/user)
+	if (!attacking_item.iswrench())
 		return ..()
 	if (istype(src, /obj/machinery/atmospherics/tvalve/digital))
-		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it's too complicated.</span>")
+		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it's too complicated."))
 		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
 	if(!loc) return FALSE
@@ -356,11 +356,11 @@
 		to_chat(user, "<span class='warnng'>You cannot unwrench \the [src], it too exerted due to internal pressure.</span>")
 		add_fingerprint(user)
 		return TRUE
-	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
-	if(W.use_tool(src, user, istype(W, /obj/item/pipewrench) ? 80 : 40, volume = 50))
+	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
+	if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
 		user.visible_message( \
-			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
-			"<span class='notice'>You have unfastened \the [src].</span>", \
+			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
+			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear a ratchet.")
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
@@ -448,7 +448,7 @@
 	if(!powered())
 		return
 	if(!src.allowed(user))
-		to_chat(user, "<span class='warning'>Access denied.</span>")
+		to_chat(user, SPAN_WARNING("Access denied."))
 		return
 	..()
 

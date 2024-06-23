@@ -4,8 +4,29 @@
 
 /obj/item/cell/Initialize()
 	. = ..()
+
 	charge = maxcharge
+
+	if(self_charge_percentage)
+		START_PROCESSING(SSprocessing, src)
+
 	update_icon()
+
+/obj/item/cell/Destroy()
+	if(self_charge_percentage)
+		STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/obj/item/cell/process(seconds_per_tick)
+	if(self_charge_percentage)
+		// we wanna recharge [self_charge_percentage% of the max charge] amount every 60 seconds
+		var/recharge_amount_per_minute = (maxcharge / 100) * self_charge_percentage
+		// since process fires every ~2 seconds, we wanna get the recharge amount per second
+		var/recharge_amount_per_second = recharge_amount_per_minute / 60
+		// multiply the amount per second with how many seconds this tick took, then round it to prevent float errors
+		var/recharge_for_this_process = round(recharge_amount_per_second * (seconds_per_tick / 10)) // divides seconds_per_tick by 10 to turn deciseconds into seconds
+		// finally, charge the cell
+		give(recharge_for_this_process)
 
 /obj/item/cell/Created()
 	//Newly built cells spawn with no charge to prevent power exploits
@@ -28,14 +49,14 @@
 	return use(cell_amt) / CELLRATE
 
 /obj/item/cell/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	switch(percent())
 		if(95 to 100)
-			add_overlay("cell-o2")
+			AddOverlays("cell-o2")
 		if(25 to 94)
-			add_overlay("cell-o1")
+			AddOverlays("cell-o1")
 		if(0.05 to 25)
-			add_overlay("cell-o0")
+			AddOverlays("cell-o0")
 		if(0 to 0.05)
 			return
 
@@ -59,6 +80,7 @@
 		return 0
 	var/used = min(charge, amount)
 	charge -= used
+	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)
 	return used
 
 // Checks if the specified amount can be provided. If it can, it removes the amount
@@ -78,23 +100,26 @@
 
 	var/amount_used = min(maxcharge-charge,amount)
 	charge += amount_used
+	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)
 	return amount_used
 
 
-/obj/item/cell/examine(mob/user, distance, is_adjacent)
+/obj/item/cell/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-
 	if(distance > 1)
 		return
 
 	if(maxcharge <= 2500)
-		to_chat(user, "[desc]\nThe manufacturer's label states this cell has a power rating of [maxcharge]J, and that you should not swallow it.\nThe charge meter reads [round(src.percent() )]%.")
+		. += "[desc]"
+		. += "The manufacturer's label states this cell has a power rating of [maxcharge]J, and that you should not swallow it."
+		. += "The charge meter reads [round(src.percent() )]%."
 	else
-		to_chat(user, "This power cell has an exciting chrome finish, as it is an uber-capacity cell type! It has a power rating of [maxcharge]J!\nThe charge meter reads [round(src.percent() )]%.")
+		. += "This power cell has an exciting chrome finish, as it is an uber-capacity cell type! It has a power rating of [maxcharge]J!"
+		. += "The charge meter reads [round(src.percent() )]%."
 
-/obj/item/cell/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/reagent_containers/syringe))
-		var/obj/item/reagent_containers/syringe/S = W
+/obj/item/cell/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/syringe))
+		var/obj/item/reagent_containers/syringe/S = attacking_item
 
 		to_chat(user, "You inject the solution into the power cell.")
 
@@ -107,8 +132,8 @@
 
 		S.reagents.clear_reagents()
 		return
-	else if(istype(W, /obj/item/device/assembly_holder))
-		var/obj/item/device/assembly_holder/assembly = W
+	else if(istype(attacking_item, /obj/item/device/assembly_holder))
+		var/obj/item/device/assembly_holder/assembly = attacking_item
 		if (istype(assembly.a_left, /obj/item/device/assembly/signaler) && istype(assembly.a_right, /obj/item/device/assembly/signaler))
 			//TODO: Look into this bad code
 			user.drop_item()
@@ -116,9 +141,9 @@
 
 			new /obj/item/device/radiojammer/improvised(assembly, src, user)
 		else
-			to_chat(user, "<span class='notice'>You'd need both devices to be signallers for this to work.</span>")
+			to_chat(user, SPAN_NOTICE("You'd need both devices to be signallers for this to work."))
 		return
-	else if(W.ismultitool() && ishuman(user) && user.get_inactive_hand() == src)
+	else if(attacking_item.ismultitool() && ishuman(user) && user.get_inactive_hand() == src)
 		if(charge < 10)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have enough charge to produce sufficient current!"))
 			return
@@ -127,10 +152,10 @@
 		if(H.gloves)
 			siemens_coeff = H.gloves.siemens_coefficient
 		if(siemens_coeff >= 0.75 && prob(10 * siemens_coeff))
-			to_chat(H, SPAN_WARNING("You probe \the [src] with \the [W] and feel a jolt of electricity shoot through you! It reads out that [100 * siemens_coeff]% of the current was let through."))
+			to_chat(H, SPAN_WARNING("You probe \the [src] with \the [attacking_item] and feel a jolt of electricity shoot through you! It reads out that [100 * siemens_coeff]% of the current was let through."))
 			H.electrocute_act(5, src, siemens_coeff, H.hand ? BP_R_HAND : BP_L_HAND) // hand holding the battery gets shocked
 		else
-			to_chat(H, SPAN_NOTICE("You probe \the [src] with \the [W]. It reads out that [100 * siemens_coeff]% of the current was let through."))
+			to_chat(H, SPAN_NOTICE("You probe \the [src] with \the [attacking_item]. It reads out that [100 * siemens_coeff]% of the current was let through."))
 		return
 	return ..()
 
@@ -178,6 +203,7 @@
 	charge -= maxcharge / severity
 	if (charge < 0)
 		charge = 0
+	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)
 
 /**
  * Drains a percentage of the power from the battery
@@ -194,6 +220,7 @@
 	charge -= maxcharge / divisor
 	if (charge < 0)
 		charge = 0
+	SEND_SIGNAL(src, COMSIG_CELL_CHARGE, charge)
 
 /obj/item/cell/ex_act(severity)
 

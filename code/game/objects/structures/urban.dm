@@ -9,7 +9,7 @@
 
 /obj/structure/automobile/random/Initialize(mapload)
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	name = "[pick("deluxe Shibata Sport automotive","beat-up Poplar Auto Group automotive","weathered Shibata Sport automotive","beat-up Langenfeld automotive","deluxe Langenfeld automotive","weathered Langenfeld automotive")]"
 	desc = "A [name] vehicle of working condition."
 	icon_state = "car[rand(1, 10)]"
@@ -68,22 +68,54 @@
 	desc = "This sign indicates this crossing street is called [street_name]."
 
 /obj/structure/stairs/urban
+	abstract_type = /obj/structure/stairs/urban
 	icon = 'icons/obj/structure/urban/ledges.dmi'
 	icon_state = "stairs-single"
 	layer = 2.01
 	opacity = 1
+
+/obj/structure/stairs/urban/right
+	dir = EAST
+	bound_width = 64
+	bound_x = -32
+
+/obj/structure/stairs/urban/left
+	dir = WEST
+	bound_width = 64
+
+/obj/structure/stairs/urban/north
+	dir = NORTH
+	bound_height = 64
+	bound_y = -32
+
+/obj/structure/stairs/urban/south
+	dir = SOUTH
+	bound_height = 64
 
 /obj/structure/stairs/urban/road_ramp
 	name = "inclined asphalt ramp"
 	desc = "A solid asphalt ramp to allow your vehicle to traverse inclines with ease."
 	icon_state = "road-ramp-center"
 	layer = 2.02
+	abstract_type = /obj/structure/stairs/urban/road_ramp
 
 /obj/structure/stairs/urban/road_ramp/right
-	icon_state = "road-ramp-right"
+	dir = EAST
+	bound_width = 64
+	bound_x = -32
 
 /obj/structure/stairs/urban/road_ramp/left
-	icon_state = "road-ramp-left"
+	dir = WEST
+	bound_width = 64
+
+/obj/structure/stairs/urban/road_ramp/north
+	dir = NORTH
+	bound_height = 64
+	bound_y = -32
+
+/obj/structure/stairs/urban/road_ramp/south
+	dir = SOUTH
+	bound_height = 64
 
 /obj/structure/closet/crate/bin/urban
 	name = "tall garbage can"
@@ -131,12 +163,12 @@
 	anchored = TRUE
 	var/open = 0
 
-/obj/structure/manhole/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.iscrowbar())
+/obj/structure/manhole/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar())
 		playsound(src.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 		to_chat(user, "You forcibly relocate the manhole, hopefully in the right way.")
 	if(!open)
-		visible_message("<span class='warning'>A horrid smell erupts from the abyss of the manhole, not one any soul should inhale. Some mistakes were made.</span>")
+		visible_message(SPAN_WARNING("A horrid smell erupts from the abyss of the manhole, not one any soul should inhale. Some mistakes were made."))
 		icon_state = "manhole_open"
 		desc = "This looks pretty dangerous, stinks horribly, and doesn't have a ladder inside. Watch out!"
 		open = 1
@@ -144,7 +176,7 @@
 		turf.is_hole = TRUE
 		return
 	if(open)
-		visible_message("<span class='warning'>The manhole clunks and seals back into place, safely burying our problems underground for someone else later.</span>")
+		visible_message(SPAN_WARNING("The manhole clunks and seals back into place, safely burying our problems underground for someone else later."))
 		icon_state = "manhole_closed"
 		desc = "It looks recently opened and sloppily closed."
 		open = 0
@@ -157,7 +189,6 @@
 	desc = "An emergency water hydrant for emergency watering of things."
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "hydrant"
-	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
 /obj/structure/urban_grate
@@ -173,7 +204,6 @@
 	desc = "A parking meter that seems to be turned off."
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "parking"
-	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
 /obj/structure/television
@@ -188,7 +218,6 @@
 	desc = "A divider for an environment where you're probably swapping clothes, made with your privacy in mind."
 	icon = 'icons/obj/structure/urban/tailoring.dmi'
 	icon_state = "divider1"
-	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
 
 /obj/structure/neon_sign
@@ -197,7 +226,7 @@
 	icon = 'icons/obj/structure/urban/konyang_neon.dmi'
 	icon_state = "sign1"
 	anchored = TRUE
-	layer = 7
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/shipping_container
 	name = "freight container"
@@ -206,13 +235,13 @@
 	icon_state = "blue1"
 	anchored = TRUE
 	density = TRUE
-	layer = 7
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/effect/overlay/container_logo
 	name = "Hephaestus Industries emblem"
 	icon = 'icons/obj/structure/industrial/shipping_containers.dmi'
 	icon_state = "heph1"
-	layer = 7.01
+	layer = ABOVE_HUMAN_LAYER + 0.01
 
 /obj/effect/overlay/container_logo/einstein
 	name = "Einstein Engines emblem"
@@ -231,13 +260,12 @@
 	density = TRUE
 	throwpass = TRUE
 	climbable = TRUE
-	layer = 4.01
 	anchored = TRUE
 
 /obj/structure/rod_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover,/obj/item/projectile))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE
@@ -262,7 +290,6 @@
 	density = TRUE
 	throwpass = TRUE
 	anchored = TRUE
-	layer = 4.01
 
 /obj/structure/road_barrier
 	name = "roadway barrier"
@@ -273,7 +300,6 @@
 	throwpass = TRUE
 	climbable = TRUE
 	anchored = TRUE
-	layer = 4.01
 
 //smoothing these things would suck so here you go. i have no idea why you would want these buildable. map them manually
 /obj/structure/road_barrier/bot_in
@@ -291,7 +317,7 @@
 /obj/structure/road_barrier/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover,/obj/item/projectile))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE
@@ -317,18 +343,22 @@
 	color = null
 	anchored = TRUE
 	can_be_unanchored = FALSE
-	layer = ABOVE_ALL_MOB_LAYER
 
-/obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover,/obj/item/projectile))
+/obj/structure/chainlink_fence/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
+	if(air_group || (height==0))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(istype(mover, /obj/item/projectile))
+		var/obj/item/projectile/P = mover
+		if(P.original == src)
+			return FALSE
+		if(P.firer && Adjacent(P.firer))
+			return TRUE
+		return prob(35)
+	if(isliving(mover))
+		return FALSE
+	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return TRUE
-	if(mover.throwing)
-		return TRUE
-	if(get_dir(loc, target) == dir)
-		return !density
-	return TRUE
+	return FALSE
 
 /obj/structure/chainlink_fence/CheckExit(var/atom/movable/O, var/turf/target)
 	if(istype(O) && CanPass(O, target))
@@ -348,12 +378,11 @@
 	color = null
 	anchored = TRUE
 	can_be_unanchored = FALSE
-	layer = 3.01
 
 /obj/structure/rope_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover,/obj/item/projectile))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE
@@ -377,7 +406,6 @@
 	icon_state = "post"
 	density = FALSE
 	anchored = TRUE
-	layer = 3
 
 /obj/structure/statue
 	name = "statue of Neopolymus"
@@ -386,19 +414,24 @@
 	icon_state = "neopolymus"
 	density = TRUE
 	anchored = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+
 
 /obj/structure/statue/buddha
 	name = "buddha statue"
 	desc = "A bronze statue of the Amitabha Buddha, the Buddha of Limitless Light."
 	icon_state = "buddha"
 
+/obj/structure/statue/gusoku
+	name = "gusoku"
+	desc = "A set of armor modelled after historical designs. Pieces replicating ancient artifacts are common on Konyang and viewed as favored pieces of art."
+	icon_state = "gusoku"
+
 /obj/structure/sign/urban
 	name = "exit sign"
 	desc = "A sign indicating where you should probably go in a hurry."
 	icon = 'icons/obj/structure/urban/infrastructure.dmi'
 	icon_state = "exit"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/sign/billboard
 	name = "commercial billboard"
@@ -406,18 +439,17 @@
 	icon = 'icons/obj/structure/urban/billboard.dmi'
 	icon_state = "board-l"
 	density = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/sign/billboard/advert
 	name = "billboard advertisement"
 	desc = null
 	icon_state = "sign"
 	density = TRUE
-	layer = 4.6
 
 /obj/structure/sign/billboard/advert/random/Initialize(mapload)
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	icon_state = "sign[rand(1, 14)]"
 	return
 
@@ -444,7 +476,6 @@
 	icon = 'icons/obj/structure/urban/restaurant.dmi'
 	icon_state = "menu_off"
 	density = 1
-	layer = ABOVE_ALL_MOB_LAYER
 	light_color = LIGHT_COLOR_CYAN
 	light_range = 1.8
 	var/menu_text = ""
@@ -455,10 +486,10 @@
 		menu_text = pencode2html(new_text)
 		update_icon()
 
-/obj/structure/restaurant_menu/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/paper))
-		var/obj/item/paper/P = I
-		to_chat(user, SPAN_NOTICE("You scan \the [I.name] into \the [name]."))
+/obj/structure/restaurant_menu/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper))
+		var/obj/item/paper/P = attacking_item
+		to_chat(user, SPAN_NOTICE("You scan \the [attacking_item.name] into \the [name]."))
 		menu_text = P.info
 		menu_text = replacetext(menu_text, "color=black>", "color=white>")
 		icon_state = "menu_active"
@@ -550,7 +581,7 @@
 	//basestate = "wall_half"
 	health = 200
 	maxhealth = 200
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/blocker/exterior_wall/red
 	color = COLOR_PALE_RED_GRAY
@@ -648,11 +679,11 @@
 				flick("[base_icon]c1", src)
 	return
 
-/obj/machinery/door/urban/attackby(obj/item/I, mob/user)
+/obj/machinery/door/urban/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(I, /obj/item/key/door_key))
+	if(istype(attacking_item, /obj/item/key/door_key))
 
-		if(check_access(I))
+		if(check_access(attacking_item))
 			if(src.density && !(length(previous_req_one_access) || length(previous_req_access)))
 
 				//Only say that it's unlocked if there actually was an access list that did the locking

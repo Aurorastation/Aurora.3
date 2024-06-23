@@ -24,7 +24,7 @@
 	update_icon()
 
 /obj/structure/closet/secure_closet/guncabinet/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/lazors = 0
 	var/shottas = 0
 	for (var/obj/item/gun/G in contents)
@@ -36,10 +36,10 @@
 		for (var/i = 0 to 2)
 			if (lazors > 0 && (shottas <= 0 || prob(50)))
 				lazors--
-				add_overlay("laser[i]")
+				AddOverlays("laser[i]")
 			else if (shottas > 0)
 				shottas--
-				add_overlay("projectile[i]")
+				AddOverlays("projectile[i]")
 	. = ..()
 
 /obj/structure/closet/secure_closet/guncabinet/sci

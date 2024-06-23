@@ -60,12 +60,12 @@
 			return
 
 	if(reagents.total_volume < amount_per_transfer_from_this)
-		to_chat(user, "<span class='notice'>\The [src] is empty!</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is empty!"))
 		return
 
 	if(safety)
 		playsound(src.loc, 'sound/weapons/safety_click.ogg', 25, 1)
-		to_chat(user, "<span class='notice'>The safety is on!</span>")
+		to_chat(user, SPAN_NOTICE("The safety is on!"))
 		return
 
 	Spray_at(A, user, proximity)
@@ -113,10 +113,10 @@
 	spray_size = next_in_list(spray_size, spray_sizes)
 	to_chat(user, SPAN_NOTICE("You adjusted the pressure nozzle. You'll now use [amount_per_transfer_from_this] units per spray, with a [spray_size] lane spray."))
 
-/obj/item/reagent_containers/spray/examine(mob/user, distance, is_adjacent)
+/obj/item/reagent_containers/spray/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
-		to_chat(user, "[round(reagents.total_volume)] units left.")
+		. += "[round(reagents.total_volume)] units left."
 
 /obj/item/reagent_containers/spray/verb/empty()
 
@@ -127,7 +127,7 @@
 	if (alert(usr, "Are you sure you want to empty that?", "Empty Bottle:", "Yes", "No") != "Yes")
 		return
 	if(isturf(usr.loc))
-		to_chat(usr, "<span class='notice'>You empty \the [src] onto the floor.</span>")
+		to_chat(usr, SPAN_NOTICE("You empty \the [src] onto the floor."))
 		reagents.splash(usr.loc, reagents.total_volume)
 
 //space cleaner
@@ -171,10 +171,10 @@
 	safety = 1
 	reagents_to_add = list(/singleton/reagent/capsaicin/condensed = 40)
 
-/obj/item/reagent_containers/spray/pepper/examine(mob/user, distance, is_adjacent)
+/obj/item/reagent_containers/spray/pepper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
-		to_chat(user, "The safety is [safety ? "on" : "off"].")
+		. += "The safety is [safety ? "on" : "off"]."
 
 /obj/item/reagent_containers/spray/pepper/AltClick()
 	return //No altclick functionality for pepper spray

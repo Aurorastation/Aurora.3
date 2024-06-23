@@ -1,39 +1,7 @@
-/atom
-	layer = 2
-	var/level = 2
-	var/atom_flags = 0
-	var/init_flags = 0
-	var/list/fingerprints
-	var/list/fingerprintshidden
-	var/fingerprintslast = null
-	var/list/blood_DNA
-	var/list/other_DNA
-	var/other_DNA_type = null
-	var/was_bloodied
-	var/blood_color
-	var/last_bumped = 0
-	var/pass_flags = 0
-	var/throwpass = 0
-	var/germ_level = GERM_LEVEL_AMBIENT // The higher the germ level, the more germ on the atom.
-	var/simulated = 1 // Filter for actions. Used by lighting overlays.
-	var/fluorescent // Shows up under a UV light.
-
-	/// Chemistry.
-	var/datum/reagents/reagents = null
-	var/list/reagents_to_add
-	var/list/reagent_data
-
-	var/list/atom_colours // Used to store the different colors on an atom, such as its inherent color, the colored paint applied on it, special color effect, and so on.
-
-	// Detective work, used for the duplicate data points kept in the scanners.
-	var/list/original_atom
-
-	var/gfi_layer_rotation = GFI_ROTATION_DEFAULT
-
-	// Extra descriptions.
-	var/desc_extended = null // Regular text about the atom's extended description, if any exists.
-	var/desc_info = null // Blue text (SPAN_NOTICE()), informing the user about how to use the item or about game controls.
-	var/desc_antag = null // Red text (SPAN_ALERT()), informing the user about how they can use an object to antagonize.
+/*############################################
+		THIS FILE IS DEPRECATED,
+	USE code\game\atom\_atom.dm INSTEAD
+############################################*/
 
 /atom/proc/reveal_blood()
 	return
@@ -91,6 +59,7 @@
 	return
 
 /atom/proc/additional_sight_flags()
+	SHOULD_BE_PURE(TRUE)
 	return 0
 
 /atom/proc/additional_see_invisible()
@@ -205,7 +174,9 @@
 
 /**
  * Checks if a mob can use an atom, message the user if not with an appropriate reason
+ *
  * Returns 0 (FALSE) if they can use it, a value representing why they can't if not
+ *
  * See `code\__DEFINES\misc.dm` for the list of flags and return codes
  *
  * * user - The `mob` to check against, if it can perform said use
@@ -259,105 +230,6 @@
 			found += A.search_contents_for(path,filter_path)
 	return found
 
-// Examination code for all atoms.
-// Returns TRUE, the caller always expects TRUE
-// This is used rather than SHOULD_CALL_PARENT as it enforces that subtypes of a type that explicitly returns still call parent
-/atom/proc/examine(mob/user, distance, is_adjacent, infix = "", suffix = "")
-	var/f_name = "\a [src]. [infix]"
-	if(src.blood_DNA && !istype(src, /obj/effect/decal))
-		if(gender == PLURAL)
-			f_name = "some "
-		else
-			f_name = "a "
-		if(blood_color != COLOR_IPC_BLOOD && blood_color != COLOR_OIL)
-			f_name += "<span class='danger'>blood-stained</span> [name][infix]!"
-		else
-			f_name += "oil-stained [name][infix]."
-
-	to_chat(user, "[icon2html(src, user)] That's [f_name] [suffix]") // Object name. I.e. "This is an Object. It is a normal-sized item."
-
-	if(src.desc)
-		to_chat(user, src.desc)	// Object description.
-
-	// Extra object descriptions examination code.
-	if(desc_extended || desc_info || (desc_antag && player_is_antag(user.mind))) // Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine information available. <a href=?src=\ref[src];examine_fluff=1>\[Show In Chat\]</a>"))) // If any of the above are true, show that the object has more information available.
-		if(desc_extended) // If the item has a extended description, show that it is available.
-			to_chat(user, FONT_SMALL("- This object has an extended description."))
-		if(desc_info) // If the item has a description regarding game mechanics, show that it is available.
-			to_chat(user, FONT_SMALL(SPAN_NOTICE("- This object has additional information about mechanics.")))
-		if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show that it is available.
-			to_chat(user, FONT_SMALL(SPAN_ALERT("- This object has additional information for antagonists.")))
-
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.glasses)
-			H.glasses.glasses_examine_atom(src, H)
-
-	return TRUE
-
-// Same as examine(), but without the "this object has more info" thing and with the extra information instead.
-/atom/proc/examine_fluff(mob/user, distance, is_adjacent, infix = "", suffix = "")
-	var/f_name = "\a [src][infix]."
-	if(src.blood_DNA && !istype(src, /obj/effect/decal))
-		if(gender == PLURAL)
-			f_name = "some "
-		else
-			f_name = "a "
-		if(blood_color != "#030303")
-			f_name += "<span class='danger'>blood-stained</span> [name][infix]!"
-		else
-			f_name += "oil-stained [name][infix]."
-
-	to_chat(user, "[icon2html(src, user)] That's [f_name] [suffix]") // Object name. I.e. "This is an Object."
-	to_chat(user, desc) // Object description.
-	if(desc_extended) // If the item has a extended description, show it.
-		to_chat(user, desc_extended)
-	if(desc_info) // If the item has a description regarding game mechanics, show it.
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("- [desc_info]")))
-	if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show it.
-		to_chat(user, FONT_SMALL(SPAN_ALERT("- [desc_antag]")))
-
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.glasses)
-			H.glasses.glasses_examine_atom(src, H)
-
-	return TRUE
-
-// Used to check if "examine_fluff" from the HTML link in examine() is true, i.e. if it was clicked.
-/atom/Topic(href, href_list)
-	. = ..()
-	if (.)
-		return
-
-	if(href_list["examine_fluff"])
-		examinate(usr, src, show_extended = TRUE)
-
-	var/client/usr_client = usr.client
-	var/list/paramslist = list()
-	if(href_list["statpanel_item_click"])
-		switch(href_list["statpanel_item_click"])
-			if("left")
-				paramslist[LEFT_CLICK] = "1"
-			if("right")
-				paramslist[RIGHT_CLICK] = "1"
-			if("middle")
-				paramslist[MIDDLE_CLICK] = "1"
-			else
-				return
-
-		if(href_list["statpanel_item_shiftclick"])
-			paramslist[SHIFT_CLICK] = "1"
-		if(href_list["statpanel_item_ctrlclick"])
-			paramslist[CTRL_CLICK] = "1"
-		if(href_list["statpanel_item_altclick"])
-			paramslist[ALT_CLICK] = "1"
-
-		var/mouseparams = list2params(paramslist)
-		usr_client.Click(src, loc, null, mouseparams)
-		return TRUE
-
 // Called by mobs when e.g. having the atom as their machine, pulledby, loc (AKA mob being inside the atom) or buckled_to var set.
 // See code/modules/mob/mob_movement.dm for more.
 /atom/proc/relaymove()
@@ -378,22 +250,10 @@
 				L.source_atom.update_light()
 		GLOB.dir_set_event.raise_event(src, old_dir, dir)
 
-/atom/proc/ex_act()
-	set waitfor = FALSE
-	return
-
-/atom/proc/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
-	return NO_EMAG_ACT
-
-/atom/proc/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
-	return
-
 /atom/proc/melt()
 	return
 
 /atom/proc/hitby(atom/movable/AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
-	if(density)
-		AM.throwing = 0
 	return
 
 /atom/proc/add_hiddenprint(mob/living/M)
@@ -551,14 +411,14 @@
 		blood_DNA = list()
 
 	was_bloodied = 1
-	blood_color = "#A10808"
+	blood_color = COLOR_HUMAN_BLOOD
 	if(istype(M))
 		if (!istype(M.dna, /datum/dna))
 			M.dna = new /datum/dna(null)
 			M.dna.real_name = M.real_name
 		M.check_dna()
 		if (M.species)
-			blood_color = M.species.blood_color
+			blood_color = M.get_blood_color()
 	. = 1
 	return 1
 
@@ -587,7 +447,13 @@
 		if(toxvomit)
 			this.icon_state = "vomittox_[pick(1,4)]"
 
-/mob/living/proc/handle_additional_vomit_reagents(var/obj/effect/decal/cleanable/vomit/vomit)
+/mob/living/proc/handle_additional_vomit_reagents(obj/effect/decal/cleanable/vomit/vomit)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
+	if(!istype(vomit))
+		return
+
 	vomit.reagents.add_reagent(/singleton/reagent/acid/stomach, 5)
 
 /atom/proc/clean_blood()
@@ -618,9 +484,6 @@
 		return list("x"=cur_x,"y"=cur_y)
 	else
 		return 0
-
-/atom/proc/checkpass(passflag)
-	return pass_flags&passflag
 
 /atom/proc/isinspace()
 	if(istype(get_turf(src), /turf/space))
@@ -664,7 +527,7 @@
 // "deaf_message" (optional) is what deaf people will see.
 // "hearing_distance" (optional) is the range, how many tiles away the message can be heard.
 /atom/proc/audible_message(var/message, var/deaf_message, var/hearing_distance, var/intent_message = null, var/intent_range = 7)
-	set waitfor = FALSE
+	SHOULD_NOT_SLEEP(TRUE)
 
 	if(!hearing_distance)
 		hearing_distance = world.view
@@ -678,7 +541,7 @@
 		intent_message(intent_message, intent_range, hearers) // pass our hearers list through to intent_message so it doesn't have to call get_hearers again
 
 /atom/proc/intent_message(var/message, var/range = 7, var/list/hearers = list())
-	set waitfor = FALSE
+	SHOULD_NOT_SLEEP(TRUE)
 	if(air_sound(src))
 		if(!hearers.len)
 			hearers = get_hearers_in_view(range, src)
@@ -707,9 +570,15 @@
 /atom/movable/onDropInto(var/atom/movable/AM)
 	return loc // If onDropInto returns something, then dropInto will attempt to drop AM there.
 
-// This proc is used by ghost spawners to assign a player to a specific atom.
-// It receives the current mob of the player's argument and MUST return the mob the player has been assigned.
-/atom/proc/assign_player(var/mob/user)
+/**
+ * This proc is used by ghost spawners to assign a player to a specific atom
+ *
+ * It receives the current mob of the player's argument and MUST return the mob the player has been assigned
+ *
+ * Returns the `/mob` the player was assigned to
+ */
+/atom/proc/assign_player(mob/user)
+	RETURN_TYPE(/mob)
 	return
 
 /atom/proc/get_contained_external_atoms()

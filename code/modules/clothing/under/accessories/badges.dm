@@ -66,18 +66,23 @@
 	if(isliving(user))
 		if(badge_string)
 			if(stored_name)
-				user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [stored_name], [badge_string].</span>","<span class='notice'>You display your [src.name].\nIt reads: [stored_name], [badge_string].</span>")
+				user.visible_message(SPAN_NOTICE("[user] displays their [src.name].\nIt reads: [stored_name], [badge_string]."),
+										SPAN_NOTICE("You display your [src.name].\nIt reads: [stored_name], [badge_string]."))
 			else
-				user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [badge_string].</span>","<span class='notice'>You display your [src.name]. It reads: [badge_string].</span>")
+				user.visible_message(SPAN_NOTICE("[user] displays their [src.name].\nIt reads: [badge_string]."),
+										SPAN_NOTICE("You display your [src.name]. It reads: [badge_string]."))
 		else
 			if(stored_name)
-				user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [stored_name].</span>","<span class='notice'>You display your [src.name].\nIt reads: [stored_name].</span>")
+				user.visible_message(SPAN_NOTICE("[user] displays their [src.name].\nIt reads: [stored_name]."),
+										SPAN_NOTICE("You display your [src.name].\nIt reads: [stored_name]."))
 			else
-				user.visible_message("<span class='notice'>[user] displays their [src.name].</span>","<span class='notice'>You display your [src.name].</span>")
+				user.visible_message(SPAN_NOTICE("[user] displays their [src.name]."),
+										SPAN_NOTICE("You display your [src.name]."))
 
 /obj/item/clothing/accessory/badge/attack(mob/living/carbon/human/M, mob/living/user)
 	if(isliving(user))
-		user.visible_message("<span class='danger'>[user] invades [M]'s personal space, thrusting [src] into their face insistently.</span>","<span class='danger'>You invade [M]'s personal space, thrusting [src] into their face insistently.</span>")
+		user.visible_message(SPAN_DANGER("[user] invades [M]'s personal space, thrusting [src] into their face insistently."),
+								SPAN_DANGER("You invade [M]'s personal space, thrusting [src] into their face insistently."))
 
 /obj/item/clothing/accessory/badge/verb/flip_side()
 	set category = "Object"
@@ -134,17 +139,17 @@
 
 /obj/item/clothing/accessory/badge/holo/emag_act(var/remaining_charges, var/mob/user)
 	if (emagged)
-		to_chat(user, "<span class='danger'>\The [src] is already cracked.</span>")
+		to_chat(user, SPAN_DANGER("\The [src] is already cracked."))
 		return
 	else
 		emagged = 1
-		to_chat(user, "<span class='danger'>You crack the holobadge security checks.</span>")
+		to_chat(user, SPAN_DANGER("You crack the holobadge security checks."))
 		return 1
 
-/obj/item/clothing/accessory/badge/holo/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(O.GetID())
+/obj/item/clothing/accessory/badge/holo/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.GetID())
 
-		var/obj/item/card/id/id_card = O.GetID()
+		var/obj/item/card/id/id_card = attacking_item.GetID()
 
 		if(!istype(id_card))
 			return
@@ -589,9 +594,9 @@
 	var/credit_score = 5
 	var/species_tag = ""
 
-/obj/item/clothing/accessory/badge/passport/nralakk/examine(mob/user)
+/obj/item/clothing/accessory/badge/passport/nralakk/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("The passport displays the owner's social credit score as: [credit_score]."))
+	. +=  SPAN_NOTICE("The passport displays the owner's social credit score as: [credit_score].")
 
 /obj/item/clothing/accessory/badge/passport/nralakk/update_icon()
 	icon_state = "[initial(icon_state)][open ? "_o[species_tag]" : ""]"

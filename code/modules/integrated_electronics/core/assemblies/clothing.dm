@@ -23,10 +23,10 @@
 
 /obj/item/device/electronic_assembly/clothing/update_icon()
 	clothing.icon_state = "[initial(clothing.icon_state)][opened ? "-open" : ""]"
-	clothing.cut_overlays()
+	clothing.ClearOverlays()
 	var/image/detail_overlay = image('icons/obj/assemblies/wearable_electronic_setups.dmi', "[initial(clothing.icon_state)][opened ? "-open" : ""]-color")
 	detail_overlay.color = detail_color
-	clothing.add_overlay(detail_overlay)
+	clothing.AddOverlays(detail_overlay)
 	clothing.update_clothing_icon()
 
 // This is 'small' relative to the size of regular clothing assemblies.
@@ -51,21 +51,10 @@
 	var/obj/item/device/electronic_assembly/clothing/IC = null
 	var/obj/item/integrated_circuit/built_in/action_button/action_circuit = null // This gets pulsed when someone clicks the button on the hud, OR when certain interactions are performed (such as clicking on something with gloves worn)
 
-/obj/item/clothing/emp_act(severity)
-	if(IC)
-		IC.emp_act(severity)
-	..()
-
-/obj/item/clothing/examine(mob/user)
+/obj/item/clothing/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	if(IC)
 		examinate(user, IC)
 	. = ..()
-
-/obj/item/clothing/attackby(obj/item/I, mob/user)
-	if(IC && (istype(I, /obj/item/integrated_circuit) || I.iswrench() || I.iscrowbar() || istype(I, /obj/item/device/integrated_electronics/wirer) || istype(I, /obj/item/device/integrated_electronics/debugger) || I.ismultitool() || I.isscrewdriver() || istype(I, /obj/item/cell/device)))
-		IC.attackby(I, user)
-	else
-		..()
 
 /obj/item/clothing/attack_self(mob/user)
 	if(IC?.opened)
@@ -88,13 +77,6 @@
 
 	icon = 'icons/obj/assemblies/wearable_electronic_setups.dmi'
 	contained_sprite = TRUE
-
-/obj/item/clothing/Destroy()
-	if(IC)
-		IC.clothing = null
-		action_circuit = null // Will get deleted by qdel-ing the IC assembly.
-		qdel(IC)
-	return ..()
 
 // Specific subtypes.
 

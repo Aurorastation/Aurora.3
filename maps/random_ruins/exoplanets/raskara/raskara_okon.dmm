@@ -266,7 +266,8 @@
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/energy/rifle/icelance,
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -276,8 +277,7 @@
 /obj/structure/plasticflaps,
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/machinery/conveyor{
-	id = "okon_base_belt";
-	layer = 2.9
+	id = "okon_base_belt"
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -513,7 +513,6 @@
 /obj/machinery/conveyor{
 	dir = 10;
 	id = "okon_base_belt";
-	layer = 2.9;
 	reversed = 1
 	},
 /turf/simulated/floor/plating{
@@ -722,12 +721,18 @@
 /area/raskara_okon/engineer)
 "jx" = (
 /obj/structure/table/standard,
-/obj/item/paper_bin,
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/item/blueprints/outpost{
+	pixel_y = 6
+	},
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1111,8 +1116,7 @@
 	},
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "okon_base_belt";
-	layer = 2.9
+	id = "okon_base_belt"
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1574,7 +1578,8 @@
 	},
 /obj/machinery/photocopier,
 /obj/structure/sign/flag/pra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1624,8 +1629,7 @@
 /obj/structure/railing/mapped,
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "okon_base_belt";
-	layer = 2.9
+	id = "okon_base_belt"
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1792,7 +1796,6 @@
 /obj/machinery/conveyor{
 	dir = 5;
 	id = "okon_base_belt";
-	layer = 2.9;
 	reversed = 0
 	},
 /turf/simulated/floor/plating{
@@ -1984,7 +1987,8 @@
 	dir = 1
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra,
 /turf/simulated/floor/tiled/dark{
@@ -2245,7 +2249,8 @@
 	icon_state = "4-8"
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2572,11 +2577,10 @@
 /turf/template_noop,
 /area/exoplanet/barren/raskara)
 "Ic" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -2648,8 +2652,8 @@
 	},
 /area/raskara_okon/engineer)
 "JD" = (
+/obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/stargazer,
-/obj/effect/floor_decal/corner_wide/black/diagonal,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2780,7 +2784,8 @@
 /area/raskara_okon/mining)
 "Lw" = (
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2910,8 +2915,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "okon_base_belt";
-	layer = 2.9
+	id = "okon_base_belt"
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -3070,6 +3074,10 @@
 	temperature = 278.15
 	},
 /area/raskara_okon/mess_hall)
+"OK" = (
+/obj/item/blueprints/shuttle,
+/turf/simulated/wall/shuttle/raider,
+/area/raskara_okon/engineer)
 "OL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -3354,8 +3362,7 @@
 /obj/structure/railing/mapped,
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "okon_base_belt";
-	layer = 2.9
+	id = "okon_base_belt"
 	},
 /turf/simulated/floor/tiled/rust{
 	temperature = 278.15
@@ -3913,7 +3920,8 @@
 	dir = 10
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4377,7 +4385,7 @@ HX
 "}
 (14,1,1) = {"
 HX
-gs
+OK
 Dy
 cw
 gs
@@ -4458,8 +4466,8 @@ Xv
 Oc
 hj
 ga
+Jb
 JD
-Gn
 kr
 JM
 zB

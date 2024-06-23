@@ -35,10 +35,10 @@
 	. = ..()
 
 
-/obj/item/rig_assembly/examine(mob/user, distance)
+/obj/item/rig_assembly/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(construct)
-		to_chat(user, construct.get_desc())
+		. += construct.get_desc()
 
 /obj/item/rig_assembly/MouseEntered(location, control, params)
 	. = ..()
@@ -52,8 +52,8 @@
 	. = ..()
 	closeToolTip(usr)
 
-/obj/item/rig_assembly/attackby(obj/item/W as obj, mob/user as mob)
-	if(!construct || !construct.action(W, user))
+/obj/item/rig_assembly/attackby(obj/item/attacking_item, mob/user)
+	if(!construct || !construct.action(attacking_item, user))
 		..()
 	return
 
@@ -104,6 +104,7 @@
 	icon_state = "industrial1"
 	board_type = /obj/item/circuitboard/rig_assembly/civilian/industrial
 	rig_type = /obj/item/rig/industrial
+	convert_options = list(/obj/item/rig_assembly/industrial/himeo)
 
 /obj/item/rig_assembly/industrial/himeo
 	name = "himean industrial suit control module assembly"
@@ -112,6 +113,7 @@
 	icon_state = "himeo1"
 	board_type = /obj/item/circuitboard/rig_assembly/civilian/industrial
 	rig_type = /obj/item/rig/industrial/himeo
+	convert_options = list(/obj/item/rig_assembly/industrial)
 
 /obj/item/rig_assembly/hazmat
 	name = "AMI control module assembly"
@@ -199,13 +201,13 @@
 		else
 			return 0
 	else if(I.iswrench())
-		playsound(holder, I.usesound, 50, 1)
+		I.play_tool_sound(get_turf(I), 50)
 
 	else if(I.isscrewdriver())
-		playsound(holder, I.usesound, 50, 1)
+		I.play_tool_sound(get_turf(I), 50)
 
 	else if(I.iswirecutter())
-		playsound(holder, I.usesound, 50, 1)
+		I.play_tool_sound(get_turf(I), 50)
 
 	else if(I.iscoil())
 		var/obj/item/stack/cable_coil/C = used_atom

@@ -11,7 +11,7 @@
 	fire_sound = 'sound/weapons/plasma_cutter.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	accuracy = 1
-	force = 15
+	force = 22
 	sharp = TRUE
 	edge = TRUE
 	origin_tech = list(TECH_MATERIAL = 4, TECH_PHORON = 3, TECH_ENGINEERING = 3)
@@ -21,16 +21,16 @@
 	charge_cost = 666.66 // 15 shots on a high cap cell
 	needspin = FALSE
 
-/obj/item/gun/energy/plasmacutter/examine(mob/user, distance, is_adjacent)
+/obj/item/gun/energy/plasmacutter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		if(power_supply)
-			to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a <b>[capitalize_first_letters(power_supply.name)]</b> installed as its power supply.")))
+			. += FONT_SMALL(SPAN_NOTICE("It has a <b>[capitalize_first_letters(power_supply.name)]</b> installed as its power supply."))
 		else
-			to_chat(user, FONT_SMALL(SPAN_WARNING("It has no power supply installed.")))
+			. += FONT_SMALL(SPAN_WARNING("It has no power supply installed."))
 
-/obj/item/gun/energy/plasmacutter/attackby(obj/item/I, mob/user)
-	if(I.isscrewdriver())
+/obj/item/gun/energy/plasmacutter/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(power_supply)
 			to_chat(user, SPAN_NOTICE("You uninstall \the [power_supply]."))
 			power_supply.forceMove(get_turf(src))
@@ -40,13 +40,13 @@
 			power_supply = null
 		else
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a power supply!"))
-	else if(istype(I, /obj/item/cell))
+	else if(istype(attacking_item, /obj/item/cell))
 		if(power_supply)
 			to_chat(user, SPAN_WARNING("\The [src] already has a power supply installed!"))
 		else
-			to_chat(user, SPAN_NOTICE("You install \the [I] into \the [src]."))
-			user.drop_from_inventory(I, src)
-			power_supply = I
+			to_chat(user, SPAN_NOTICE("You install \the [attacking_item] into \the [src]."))
+			user.drop_from_inventory(attacking_item, src)
+			power_supply = attacking_item
 	else
 		..()
 

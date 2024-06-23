@@ -26,8 +26,7 @@ PROCESSING_SUBSYSTEM_DEF(tgui)
 	/// The HTML base used for all UIs.
 	var/basehtml
 
-/datum/controller/subsystem/processing/tgui/New()
-	NEW_SS_GLOBAL(SStgui)
+/datum/controller/subsystem/processing/tgui/PreInit()
 	basehtml = file2text('tgui/public/tgui.html')
 	// Inject inline polyfills
 	var/polyfill = file2text('tgui/public/tgui-polyfill.min.js')
@@ -43,6 +42,7 @@ PROCESSING_SUBSYSTEM_DEF(tgui)
 	return ..()
 
 /datum/controller/subsystem/processing/tgui/fire(resumed = FALSE)
+	CAN_BE_REDEFINED(TRUE)
 	if(!resumed)
 		src.current_run = open_uis.Copy()
 	// Cache for sanic speed (lists are references anyways)

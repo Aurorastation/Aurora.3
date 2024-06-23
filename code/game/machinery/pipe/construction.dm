@@ -5,7 +5,7 @@
 	//var/pipe_dir = 0
 	var/pipename
 	var/connect_types = CONNECT_TYPE_REGULAR
-	force = 7
+	force = 16
 	icon = 'icons/obj/pipe-item.dmi'
 	icon_state = "simple"
 	item_state = "buildpipe"
@@ -13,6 +13,17 @@
 	w_class = ITEMSIZE_NORMAL
 	level = 2
 	obj_flags = OBJ_FLAG_ROTATABLE
+
+/obj/item/pipe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	var/pipe_color_check = color || PIPE_COLOR_GREY
+	var/found_color_name = "Unknown"
+	for(var/color_name in GLOB.pipe_colors)
+		var/color_value = GLOB.pipe_colors[color_name]
+		if(pipe_color_check == color_value)
+			found_color_name = color_name
+			break
+	. += "This pipe is: <span style='color:[pipe_color_check == PIPE_COLOR_GREY ? COLOR_GRAY : pipe_color_check]'>[capitalize(found_color_name)]</span>"
 
 /obj/item/pipe/New(var/loc, var/pipe_type, var/dir, var/obj/machinery/atmospherics/make_from)
 	..()
@@ -490,15 +501,15 @@
 /obj/item/pipe/attack_self(mob/user as mob)
 	return rotate()
 
-/obj/item/pipe/attackby(var/obj/item/W as obj, var/mob/user as mob)
+/obj/item/pipe/attackby(obj/item/attacking_item, mob/user)
 	..()
 	//*
-	if (!W.iswrench() && !istype(W, /obj/item/pipewrench))
+	if (!attacking_item.iswrench() && !istype(attacking_item, /obj/item/pipewrench))
 		return ..()
-	if(istype(W, /obj/item/pipewrench))
-		var/action = alert(user, "Change pipe?", "Change pipe", "Yes", "No")
+	if(istype(attacking_item, /obj/item/pipewrench))
+		var/action = tgui_input_list(user, "Change pipe?", "Change pipe", list("Yes", "No"), "No")
 		if(action == "Yes")
-			action = alert(user, "Change pipe type?", "Change pipe", "Yes", "No")
+			action = tgui_input_list(user, "Change pipe type?", "Change pipe", list("Yes", "No"), "No")
 			if(action == "No")
 				if(pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SIMPLE_BENT, PIPE_SCRUBBERS_STRAIGHT, PIPE_SCRUBBERS_BENT, PIPE_SUPPLY_BENT, PIPE_SUPPLY_STRAIGHT, PIPE_FUEL_STRAIGHT, PIPE_FUEL_BENT, PIPE_AUX_STRAIGHT, PIPE_AUX_BENT))
 					if(pipe_type in list (PIPE_SIMPLE_STRAIGHT, PIPE_SCRUBBERS_STRAIGHT, PIPE_SUPPLY_STRAIGHT, PIPE_FUEL_STRAIGHT, PIPE_AUX_STRAIGHT))
@@ -569,11 +580,11 @@
 
 	for(var/obj/machinery/atmospherics/M in src.loc)
 		if((M.initialize_directions & pipe_dir) && M.check_connect_types_construction(M,src))	// matches at least one direction on either type of pipe & same connection type
-			to_chat(user, "<span class='warning'>There is already a pipe of the same type at this location.</span>")
+			to_chat(user, SPAN_WARNING("There is already a pipe of the same type at this location."))
 			return TRUE
 	// no conflicts found
 
-	var/pipefailtext = "<span class='warning'>There's nothing to connect this pipe section to!</span>" //(with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)"
+	var/pipefailtext = SPAN_WARNING("There's nothing to connect this pipe section to!") //(with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)"
 
 	//TODO: Move all of this stuff into the various pipe constructors.
 	switch(pipe_type)
@@ -1506,10 +1517,10 @@
 			P.atmos_init()
 			P.build_network()
 
-	playsound(src.loc, W.usesound, 50, 1)
+	attacking_item.play_tool_sound(get_turf(src), 50)
 	user.visible_message( \
 		"[user] fastens the [src].", \
-		"<span class='notice'>You have fastened the [src].</span>", \
+		SPAN_NOTICE("You have fastened the [src]."), \
 		"You hear ratchet.")
 	qdel(src)	// remove the pipe item
 
@@ -1528,14 +1539,14 @@
 	item_state = "buildpipe"
 	w_class = ITEMSIZE_LARGE
 
-/obj/item/pipe_meter/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if (W.iswrench())
+/obj/item/pipe_meter/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.iswrench())
 		if(!locate(/obj/machinery/atmospherics/pipe, src.loc))
-			to_chat(user, "<span class='warning'>You need to fasten it to a pipe</span>")
+			to_chat(user, SPAN_WARNING("You need to fasten it to a pipe"))
 			return 1
 		new/obj/machinery/meter( src.loc )
-		playsound(src.loc, W.usesound, 50, 1)
-		to_chat(user, "<span class='notice'>You have fastened the meter to the pipe</span>")
+		attacking_item.play_tool_sound(get_turf(src), 50)
+		to_chat(user, SPAN_NOTICE("You have fastened the meter to the pipe"))
 		qdel(src)
 		return TRUE
 	return ..()

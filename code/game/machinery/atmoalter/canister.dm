@@ -167,6 +167,7 @@
 	icon_state = "grey"
 	canister_color = "grey"
 	can_label = 0
+
 /obj/machinery/portable_atmospherics/canister/air/airlock
 	start_pressure = 3 * ONE_ATMOSPHERE
 
@@ -275,7 +276,7 @@ update_flag
 */
 
 	if (src.destroyed)
-		cut_overlays()
+		ClearOverlays()
 		set_light(FALSE)
 		src.icon_state = text("[]-1", src.canister_color)
 		return
@@ -286,34 +287,36 @@ update_flag
 	if(check_change()) //Returns 1 if no change needed to icons.
 		return
 
-	cut_overlays()
+	ClearOverlays()
 	set_light(FALSE)
 
 	if(signaler)
-		add_overlay("signaler")
+		AddOverlays("signaler")
 
 	if(update_flag & 1)
-		add_overlay("can-open")
+		AddOverlays("can-open")
 	if(update_flag & 2)
-		add_overlay("can-connector")
+		AddOverlays("can-connector")
 	if(update_flag & 4)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o0", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(indicator_overlay)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o0", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		AddOverlays(indicator_overlay)
 		set_light(1.4, 1, COLOR_RED_LIGHT)
 	if(update_flag & 8)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o1", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(indicator_overlay)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o1", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		AddOverlays(indicator_overlay)
 		set_light(1.4, 1, COLOR_RED_LIGHT)
 	else if(update_flag & 16)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o2", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(indicator_overlay)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o2", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		AddOverlays(indicator_overlay)
 		set_light(1.4, 1, COLOR_YELLOW)
 	else if(update_flag & 32)
-		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o3", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(indicator_overlay)
+		var/mutable_appearance/indicator_overlay = mutable_appearance(icon, "can-o3", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		AddOverlays(indicator_overlay)
 		set_light(1.4, 1, COLOR_BRIGHT_GREEN)
 
-/obj/machinery/portable_atmospherics/canister/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/machinery/portable_atmospherics/canister/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(exposed_temperature > temperature_resistance)
 		health -= 5
 		healthcheck()
@@ -418,23 +421,24 @@ update_flag
 					log_open(admin)
 			valve_open = !valve_open
 
-/obj/machinery/portable_atmospherics/canister/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if(istype(W, /obj/item/mecha_equipment/clamp))
+/obj/machinery/portable_atmospherics/canister/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/mecha_equipment/clamp))
 		return
-	if(!W.iswrench() && !is_type_in_list(W, list(/obj/item/tank, /obj/item/device/analyzer, /obj/item/modular_computer)) && !issignaler(W) && !(W.iswirecutter() && signaler))
-		if(W.item_flags & ITEM_FLAG_NO_BLUDGEON)
+	if(!attacking_item.iswrench() && !is_type_in_list(attacking_item, list(/obj/item/tank, /obj/item/device/analyzer, /obj/item/modular_computer)) && !issignaler(attacking_item) && !(attacking_item.iswirecutter() && signaler))
+		if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 			return TRUE
-		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [W]!"), SPAN_NOTICE("You hit \the [src] with \the [W]."))
-		user.do_attack_animation(src, W)
+		visible_message(SPAN_WARNING("\The [user] hits \the [src] with \the [attacking_item]!"), SPAN_NOTICE("You hit \the [src] with \the [attacking_item]."))
+		user.do_attack_animation(src, attacking_item)
 		playsound(src, 'sound/weapons/smash.ogg', 60, 1)
-		src.health -= W.force
-		if(!istype(W, /obj/item/forensics))
+		src.health -= attacking_item.force
+		if(!istype(attacking_item, /obj/item/forensics))
 			src.add_fingerprint(user)
 		healthcheck()
 		return TRUE
 
-	if(istype(user, /mob/living/silicon/robot) && istype(W, /obj/item/tank/jetpack))
-		var/datum/gas_mixture/thejetpack = W:air_contents
+	if(istype(user, /mob/living/silicon/robot) && istype(attacking_item, /obj/item/tank/jetpack))
+		var/obj/item/tank/jetpack/jetpack = attacking_item
+		var/datum/gas_mixture/thejetpack = jetpack.air_contents
 		var/env_pressure = thejetpack.return_pressure()
 		var/pressure_delta = min(10*ONE_ATMOSPHERE - env_pressure, (air_contents.return_pressure() - env_pressure)/2)
 		//Can not have a pressure delta that would cause environment pressure > tank pressure
@@ -557,13 +561,15 @@ update_flag
 /obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/Initialize()
 	. = ..()
 	air_contents.gas[GAS_N2O] = 9*4000
-	spawn(10)
-		var/turf/simulated/location = src.loc
-		if (istype(src.loc))
-			while (!location.air)
-				sleep(10)
-			location.assume_air(air_contents)
-			air_contents = new
+	addtimer(CALLBACK(src, PROC_REF(fill_room)), 1 SECONDS)
+
+/obj/machinery/portable_atmospherics/canister/sleeping_agent/roomfiller/proc/fill_room()
+	var/turf/simulated/location = src.loc
+	if (istype(src.loc))
+		while (!location.air)
+			sleep(10)
+		location.assume_air(air_contents)
+		air_contents = new
 
 /obj/machinery/portable_atmospherics/canister/nitrogen/Initialize()
 	. = ..()
@@ -586,13 +592,13 @@ update_flag
 	. = ..()
 	src.air_contents.temperature = 283
 
+/obj/machinery/portable_atmospherics/canister/air/warm/Initialize()
+	. = ..()
+	src.air_contents.temperature = 303.15
+
 /obj/machinery/portable_atmospherics/canister/chlorine/antag // Keeping the chlorine canister with the skull on it seems fun for antags.
 	name = "Canister: \[Cl2\]"
 	icon_state = "poisonous"
 	canister_color = "poisonous"
 	desc = "A canister of Chlorine, with a warning label for poisonous gasses."
 	can_label = 0
-/obj/machinery/portable_atmospherics/canister/chlorine/Initialize()
-	. = ..()
-
-	src.air_contents.adjust_gas(GAS_CHLORINE, MolesForPressure())

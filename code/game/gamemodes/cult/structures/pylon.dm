@@ -7,7 +7,8 @@
 	name = "pylon"
 	desc = "A floating crystal that hums with an unearthly energy."
 	desc_antag = "A pylon can be upgraded into a magical defensive turret that shoots anyone opposing the cult\
-	</br>Upgrading a pylon requires a sacrifice. Bring it a small organic creature, like a monkey or rat. Use the creature on the pylon, or drag and drop to present it.\
+	</br>Upgrading a pylon requires a sacrifice. Bring it a small organic creature, like a monkey or rat. Use the creature on the pylon, or drag and drop to present it,\
+	</br>Alternatively, you can attack it with disarm intent to sacrifice some of your blood for the upgrade.\
 	</br>Once the sacrifice is accepted, kill it to complete the process. This will gib its body and make a very visible mess. After this point the pylon is fixed to the floor and cant be moved\
 	</br>The pylon will fire weak beams that are harmless to the cult. In addition it can be upgraded even more by shooting it with a laser, which will give it a limited number of extra-power shots."
 
@@ -18,20 +19,31 @@
 	var/pylonmode = PYLON_IDLE
 
 	var/damagetaken = 0
-	var/empowered = FALSE //Number of empowered, higher-damage shots remaining
+
+	///Number of empowered, higher-damage shots remaining
+	var/empowered = 0
+
 	var/mob/living/sacrifice //Holds a reference to a mob that is a pending sacrifice
 	var/mob/living/sacrificer //A reference to the last mob that attempted to sacrifice something. So we can message them
 	//Sacrifier is also used in target handling. the pylon will not bite the hand that feeds it. Noncultist colleagues are fair game though
 
-	var/next_shot = 0 //Absolute world time when we're allowed to fire again
-	var/shot_delay = 5 //Minimum delay between shots, in deciseconds
+	///Absolute world time when we're allowed to fire again
+	var/next_shot = 0
+
+	///Minimum delay between shots, in deciseconds
+	var/shot_delay = 5
+
 	var/mob/living/target
 
-	var/notarget //Number of times handle_firing has been called without finding anything to shoot at
-	//This is used for switching to lower-intensity processing
+	/**
+	 * Number of times handle_firing has been called without finding anything to shoot at
+	 *
+	 * This is used for switching to lower-intensity processing
+	 */
+	var/notarget
 
+	///An instance of the cult language datum. Used to scramble speech when speaking to noncultists
 	var/datum/language/cultcommon/lang
-	//An instance of the cult language datum. Used to scramble speech when speaking to noncultists
 
 	var/turf/last_target_loc
 
@@ -45,12 +57,17 @@
 /obj/structure/cult/pylon/turret
 	pylonmode = PYLON_TURRET
 
-/obj/structure/cult/pylon/turret/New()
-	..()
+/obj/structure/cult/pylon/turret/Initialize()
+	. = ..()
 	start_process()
 
 /obj/structure/cult/pylon/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
+	last_target_loc = null
+	target = null
+	sacrifice = null
+	sacrificer = null
+
 	return ..()
 
 //Another subtype which starts with infinite empower shots. For empowered adminbus
@@ -62,18 +79,18 @@
 	lang = new /datum/language/cultcommon()
 	update_icon()
 
-/obj/structure/cult/pylon/examine(var/mob/user)
+/obj/structure/cult/pylon/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(damagetaken)
 		switch(damagetaken)
 			if(1 to 8)
-				to_chat(user, SPAN_WARNING("It has very faint hairline fractures."))
+				. += SPAN_WARNING("It has very faint hairline fractures.")
 			if(8 to 20)
-				to_chat(user, SPAN_WARNING("It has several cracks across its surface."))
+				. += SPAN_WARNING("It has several cracks across its surface.")
 			if(20 to 30)
-				to_chat(user, SPAN_WARNING("It is chipped and deeply cracked, it may shatter with much more pressure."))
+				. += SPAN_WARNING("It is chipped and deeply cracked, it may shatter with much more pressure.")
 			if(30 to INFINITY)
-				to_chat(user, SPAN_WARNING("It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight."))
+				. += SPAN_WARNING("It is almost cleaved in two, the pylon looks like it will fall to shards under its own weight.")
 
 
 /obj/structure/cult/pylon/Move()
@@ -259,7 +276,7 @@
 	//Stuffcache holds a list of things found by a dview call, so we only need to do it once per proc.
 
 	if(target && target.stat != DEAD)
-		if(target.loc == last_target_loc)
+		if(get_turf(target) == last_target_loc)
 		//To minimise expensive DVIEW calls, if the target hasnt moved since the last shot we'll assume they're still in sight
 		//This could cause problems in some edge cases (like lowering firelocks or shutters without moving)
 		//But it has a major performance gain that makes it worth it
@@ -308,9 +325,7 @@
 
 
 /obj/structure/cult/pylon/proc/fire_at(var/atom/target)
-	//Only store loc if target is on a turf. Otherwise this bugs out with people in exosuits
-	if(istype(target.loc, /turf))
-		last_target_loc = target.loc
+	last_target_loc = get_turf(target.loc)
 
 	process_interval = 1 //Instantly wake up if we found a target
 	var/obj/item/projectile/beam/cult/A
@@ -329,11 +344,32 @@
 	A = null //So projectiles can GC
 	addtimer(CALLBACK(src, PROC_REF(handle_firing)), shot_delay + 1)
 
-/obj/structure/cult/pylon/attack_hand(mob/M)
-	if (M.a_intent == "help")
-		to_chat(M, SPAN_WARNING("The pylon feels warm to the touch..."))
+/obj/structure/cult/pylon/attack_hand(mob/living/user)
+	if (user.a_intent == I_HELP)
+		to_chat(user, SPAN_WARNING("The pylon feels warm to the touch..."))
+
+	else if((user.a_intent == I_DISARM) && (pylonmode != PYLON_TURRET))
+		if(!iscultist(user))
+			return
+
+		var/mob/living/carbon/human/cultist_upgrader = user
+		if(!istype(cultist_upgrader))
+			return
+
+		if(tgui_alert(user, "Do you wish to sacrifice some of your blood to upgrade this pylon?", "Upgrade Pylon", list("Yes", "No")) != "Yes")
+			return
+
+		if(cultist_upgrader.get_blood_volume() < BLOOD_VOLUME_OKAY)
+			to_chat(cultist_upgrader, SPAN_WARNING("You do not have enough blood to do this, the Geometer values you being alive more... For now."))
+			return
+
+		cultist_upgrader.remove_blood_simple((DEFAULT_BLOOD_AMOUNT / 100) * 20) //20% of the default blood volume
+		pylonmode = PYLON_TURRET
+		update_icon()
+		start_process()
+
 	else
-		attackpylon(M, 4, M)
+		attackpylon(user, 4, user)
 
 /obj/structure/cult/pylon/attack_generic(mob/user, damage)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -346,19 +382,19 @@
 			return
 	attackpylon(user, damage, user)
 
-/obj/structure/cult/pylon/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/holder))
-		var/obj/item/holder/H = W
+/obj/structure/cult/pylon/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/holder))
+		var/obj/item/holder/H = attacking_item
 		if(H.contained)
 			present_sacrifice(user, H.contained)
 		return TRUE
 
-	attackpylon(user, W.force, W)
+	attackpylon(user, attacking_item.force, attacking_item)
 
 //Mousedrop so that constructs can drag rats out of maintenance to make turrets
-/obj/structure/cult/pylon/MouseDrop_T(var/atom/movable/C, mob/user)
-	if(istype(C, /mob/living))
-		present_sacrifice(user, C)
+/obj/structure/cult/pylon/MouseDrop_T(atom/dropping, mob/user)
+	if(istype(dropping, /mob/living))
+		present_sacrifice(user, dropping)
 		return
 	return ..()
 
@@ -472,18 +508,18 @@
 
 
 /obj/structure/cult/pylon/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(pylonmode == PYLON_TURRET)
 		anchored = TRUE
 		if(empowered)
-			add_overlay("crystal_overcharge")
+			AddOverlays("crystal_overcharge")
 			set_light(7, 3, l_color = "#a160bf")
 		else
 			set_light(6, 3, l_color = "#3e0000")
-			add_overlay("crystal_turret")
+			AddOverlays("crystal_turret")
 	else if(!isbroken)
 		set_light(5, 2, l_color = "#3e0000")
-		add_overlay("crystal_idle")
+		AddOverlays("crystal_idle")
 		if(pylonmode == PYLON_AWAITING_SACRIFICE)
 			anchored = TRUE
 		else

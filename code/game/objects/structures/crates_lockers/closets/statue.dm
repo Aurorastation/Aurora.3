@@ -66,7 +66,7 @@
 	timer -= 2
 
 	if (timer == 10)
-		visible_message("<span class='notice'>\The [src]'s surface begins cracking and dissolving!</span>")
+		visible_message(SPAN_NOTICE("\The [src]'s surface begins cracking and dissolving!"))
 
 	if (timer <= 0)
 		dump_contents()
@@ -142,11 +142,11 @@
 		health -= 60 / severity
 		check_health()
 
-/obj/structure/closet/statue/attackby(obj/item/I as obj, mob/user as mob)
+/obj/structure/closet/statue/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	health -= I.force
+	health -= attacking_item.force
 	user.do_attack_animation(src)
-	visible_message("<span class='danger'>[user] strikes [src] with [I].</span>")
+	visible_message(SPAN_DANGER("[user] strikes [src] with [attacking_item]."))
 	check_health()
 
 /obj/structure/closet/statue/MouseDrop_T()
@@ -169,7 +169,7 @@
 		user.frozen = FALSE
 		user.dust()
 	dump_contents()
-	visible_message("<span class='warning'>[src] shatters!.</span>")
+	visible_message(SPAN_WARNING("[src] shatters!."))
 	qdel(src)
 
 
@@ -183,7 +183,7 @@
 	dir = L.dir
 	var/image/I
 	I = image(icon = 'icons/obj/statue.dmi', icon_state = "icecube")
-	add_overlay(I)
+	AddOverlays(I)
 
 /obj/structure/closet/statue/ice/shatter(mob/user as mob)
 	if (user)
@@ -194,5 +194,5 @@
 			L.bodytemperature -= 150
 
 	dump_contents()
-	visible_message("<span class='warning'>\The [src] shatters!</span>")
+	visible_message(SPAN_WARNING("\The [src] shatters!"))
 	qdel(src)

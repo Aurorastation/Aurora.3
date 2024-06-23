@@ -10,6 +10,7 @@
 	age_min = 50
 	age_max = 500
 	default_genders = list(PLURAL)
+	selectable_pronouns = null
 	economic_modifier = 12
 	icobase = 'icons/mob/human_races/skrell/r_skrell.dmi'
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
@@ -76,7 +77,7 @@
 	base_color = "#006666"
 
 	reagent_tag = IS_SKRELL
-	ethanol_resistance = 0.5//gets drunk faster
+	ethanol_resistance = 0.6//gets drunk faster
 	taste_sensitivity = TASTE_SENSITIVE
 
 	stamina = 80

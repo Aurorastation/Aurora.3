@@ -211,8 +211,13 @@ var/list/VVdynamic_lock = list(
 		if(!check_rights(R_SPAWN|R_DEBUG|R_DEV)) return
 	if(variable in VVicon_edit_lock)
 		if(!check_rights(R_FUN|R_DEBUG|R_DEV)) return
-	if(VVdynamic_lock[variable])
-		if(!check_rights(VVdynamic_lock[variable])) return
+
+	if(isnum(variable))
+		if((length(VVdynamic_lock) < variable) && VVdynamic_lock.Find(variable))
+			if(!check_rights(VVdynamic_lock[variable])) return
+	else
+		if(VVdynamic_lock[variable])
+			if(!check_rights(VVdynamic_lock[variable])) return
 
 	if(isnull(variable))
 		to_chat(usr, "Unable to determine variable type.")
@@ -400,7 +405,7 @@ var/list/VVdynamic_lock = list(
 	if(!check_rights(R_VAREDIT|R_DEV))	return
 
 	if(istype(O, /client) && (param_var_name == "ckey" || param_var_name == "key"))
-		to_chat(usr, "<span class='danger'>You cannot edit ckeys on client objects.</span>")
+		to_chat(usr, SPAN_DANGER("You cannot edit ckeys on client objects."))
 		return
 
 	if(!O.can_vv_get(param_var_name))

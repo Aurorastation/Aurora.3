@@ -7,7 +7,11 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_bar.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("adhomai_bar.dmm")
+
+	unit_test_groups = list(2)
 
 /area/adhomai_bar
 	name = "Adhomian Inn"
@@ -17,6 +21,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	area_blurb = "A typical Adhomian inn. The scent of alcohol and cigarette smoke as well as the warmth welcomes you."
 
 //ghost roles
 
@@ -30,7 +35,7 @@
 	spawnpoints = list("adhomai_bar_innkeeper")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/adhomai_bar_innkeeper
+	outfit = /obj/outfit/admin/adhomai_bar_innkeeper
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -40,7 +45,7 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/adhomai_bar_innkeeper
+/obj/outfit/admin/adhomai_bar_innkeeper
 	name = "Adhomian Innkeeper"
 
 	uniform = /obj/item/clothing/under/sl_suit
@@ -64,7 +69,7 @@
 	max_count = 2
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	outfit = /datum/outfit/admin/adhomai_bar_server
+	outfit = /obj/outfit/admin/adhomai_bar_server
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -74,7 +79,7 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/adhomai_bar_server
+/obj/outfit/admin/adhomai_bar_server
 	name = "Adhomian Inn Staff"
 
 	uniform = /obj/item/clothing/under/sl_suit
@@ -96,7 +101,7 @@
 	spawnpoints = list("adhomai_bar_patron")
 	max_count = 4
 
-	outfit = /datum/outfit/admin/adhomai_bar_patron
+	outfit = /obj/outfit/admin/adhomai_bar_patron
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -106,7 +111,7 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/adhomai_bar_patron
+/obj/outfit/admin/adhomai_bar_patron
 	name = "Adhomian Patron"
 
 	uniform = list(

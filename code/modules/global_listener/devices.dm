@@ -192,8 +192,7 @@
 		var/listener/L = thing
 		var/datum/wifi/receiver/button/mass_driver/M = L.target
 		if (istype(M))
-			spawn()
-				M.activate()
+			M.activate()
 	sleep(20)
 
 	//tell all doors to close

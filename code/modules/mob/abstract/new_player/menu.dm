@@ -1,7 +1,7 @@
 //MENU SYSTEM BY BIGRAGE, some awful code, some awful design, all as you love //Code edits/additions by AshtonFox
 /mob/abstract/new_player/instantiate_hud(datum/hud/HUD, ui_style, ui_color, ui_alpha)
-	HUD.new_player_hud(ui_style, ui_color, ui_alpha)
 	HUD.mymob = src
+	HUD.new_player_hud(ui_style, ui_color, ui_alpha)
 
 /datum/hud/new_player
 	hud_shown = TRUE
@@ -9,6 +9,8 @@
 	hotkey_ui_hidden = FALSE
 
 /datum/hud/proc/new_player_hud(var/ui_style='icons/mob/screen/white.dmi', var/ui_color = "#fffffe", var/ui_alpha = 255)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	adding = list()
 	var/obj/screen/using
 
@@ -52,7 +54,7 @@
 
 /obj/screen/new_player
 	icon = 'icons/misc/hudmenu/hudmenu.dmi'
-	layer = HUD_LAYER
+	layer = HUD_BASE_LAYER
 
 /obj/screen/new_player/Initialize()
 	set_sector_things()
@@ -107,7 +109,9 @@
 	return
 
 /obj/screen/new_player/title/proc/Update()
-	if(QDELING(src))
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if(QDELETED(src))
 		return
 
 	if(!SSatlas.current_map.lobby_transitions && SSatlas.current_sector.sector_lobby_transitions)
@@ -119,17 +123,13 @@
 		lobby_index = 1
 	animate(src, alpha = 0, time = 1 SECOND)
 	animate(alpha = 255, icon_state = SSatlas.current_map.lobby_screens[lobby_index], time = 1 SECOND)
-	if(!MC_RUNNING())
-		spawn(SSatlas.current_map.lobby_transitions)
-			Update()
-	else
-		refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), SSatlas.current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
+	refresh_timer_id = addtimer(CALLBACK(src, PROC_REF(Update)), SSatlas.current_map.lobby_transitions, TIMER_UNIQUE | TIMER_CLIENT_TIME | TIMER_OVERRIDE | TIMER_STOPPABLE)
 
 /obj/screen/new_player/selection
 	var/click_sound = 'sound/effects/menu_click.ogg'
 	var/hud_arrow
 
-/obj/screen/new_player/selection/New(var/datum/hud/H)
+/obj/screen/new_player/selection/New(datum/hud/H)
 	color = null
 	hud = H
 	..()
@@ -137,6 +137,10 @@
 /obj/screen/new_player/selection/Initialize()
 	. = ..()
 	set_sector_things()
+
+/obj/screen/new_player/selection/Destroy(force)
+	hud = null
+	. = ..()
 
 /obj/screen/new_player/selection/set_sector_things()
 	. = ..()
@@ -149,7 +153,7 @@
 
 /obj/screen/new_player/selection/MouseEntered(location, control, params)
 	if(hud_arrow)
-		add_overlay(hud_arrow, force_compile = TRUE)
+		AddOverlays(hud_arrow)
 	else
 		var/matrix/M = matrix()
 		M.Scale(1.1, 1)
@@ -158,7 +162,7 @@
 
 /obj/screen/new_player/selection/MouseExited(location,control,params)
 	if(hud_arrow)
-		cut_overlays(force_compile = TRUE)
+		ClearOverlays()
 	else
 		animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
 	return ..()
@@ -292,7 +296,7 @@
 
 /mob/abstract/new_player/proc/join_game(href, href_list)
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP || SSticker.current_state >= GAME_STATE_FINISHED)
-		to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished...</span>")
+		to_chat(usr, SPAN_WARNING("The round is either not ready, or has already finished..."))
 		return
 	LateChoices() //show the latejoin job selection menu
 
@@ -313,16 +317,16 @@
 
 	var/mob/abstract/observer/observer = new /mob/abstract/observer(src)
 	spawning = 1
-	sound_to(src, sound(null, repeat = 0, wait = 0, volume = 85, channel = 1))
+	src.stop_sound_channel(CHANNEL_LOBBYMUSIC) // stop the jams for observers
 
 	observer.started_as_observer = 1
 	close_spawn_windows()
 	var/obj/O = locate("landmark*Observer-Start") in GLOB.landmarks_list
 	if(istype(O))
-		to_chat(src, "<span class='notice'>Now teleporting.</span>")
+		to_chat(src, SPAN_NOTICE("Now teleporting."))
 		observer.forceMove(O.loc)
 	else
-		to_chat(src, "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to the station map.</span>")
+		to_chat(src, SPAN_DANGER("Could not locate an observer spawn point. Use the Teleport verb to jump to the station map."))
 	observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
 
 	announce_ghost_joinleave(src)

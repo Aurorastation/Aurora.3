@@ -8,3 +8,4 @@
 	contained_sprite = TRUE
 	update_icon_on_init = TRUE
 	has_accents = TRUE
+	accent_flags = RESET_COLOR | RESET_ALPHA

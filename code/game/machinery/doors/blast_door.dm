@@ -15,9 +15,9 @@
 	icon = 'icons/obj/doors/rapid_pdoor.dmi'
 	icon_state = null
 	dir = 1
-	closed_layer = DOOR_CLOSED_LAYER + 0.1
+	closed_layer = ABOVE_WINDOW_LAYER
 	explosion_resistance = 25
-	open_layer = 2.7
+	pass_flags_self = PASSDOORS
 
 	/// Most blast doors are infrequently toggled and sometimes used with regular doors anyways.
 	/// Turning this off prevents awkward zone geometry in places like medbay lobby, for example.
@@ -115,31 +115,31 @@
 // Parameters: 2 (C - Item this object was clicked with, user - Mob which clicked this object)
 // Description: If we are clicked with crowbar or wielded fire axe, try to manually open the door.
 // This only works on broken doors or doors without power. Also allows repair with Plasteel.
-/obj/machinery/door/blast/attackby(obj/item/C as obj, mob/user as mob)
-	if(!istype(C, /obj/item/forensics))
+/obj/machinery/door/blast/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
-	if((istype(C, /obj/item/material/twohanded/fireaxe) && C:wielded == 1) || C.ishammer() || istype(C, /obj/item/crowbar/robotic/jawsoflife))
+	if((istype(attacking_item, /obj/item/material/twohanded/fireaxe) && attacking_item:wielded == 1) || attacking_item.ishammer() || istype(attacking_item, /obj/item/crowbar/robotic/jawsoflife))
 		if (((stat & NOPOWER) || 	(stat & BROKEN)) && !( src.operating ))
 			force_toggle()
 		else
-			to_chat(usr, "<span class='notice'>[src]'s motors resist your effort.</span>")
+			to_chat(usr, SPAN_NOTICE("[src]'s motors resist your effort."))
 		return TRUE
-	if(istype(C, /obj/item/stack/material) && C.get_material_name() == "plasteel")
+	if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == "plasteel")
 		var/amt = Ceiling((maxhealth - health)/150)
 		if(!amt)
-			to_chat(usr, "<span class='notice'>\The [src] is already fully repaired.</span>")
+			to_chat(usr, SPAN_NOTICE("\The [src] is already fully repaired."))
 			return TRUE
-		var/obj/item/stack/P = C
+		var/obj/item/stack/P = attacking_item
 		if(P.amount < amt)
-			to_chat(usr, "<span class='warning'>You don't have enough sheets to repair this! You need at least [amt] sheets.</span>")
+			to_chat(usr, SPAN_WARNING("You don't have enough sheets to repair this! You need at least [amt] sheets."))
 			return TRUE
-		to_chat(usr, "<span class='notice'>You begin repairing [src]...</span>")
+		to_chat(usr, SPAN_NOTICE("You begin repairing [src]..."))
 		if(do_after(usr, 3 SECONDS, src, DO_REPAIR_CONSTRUCT))
 			if(P.use(amt))
-				to_chat(usr, "<span class='notice'>You have repaired \The [src]</span>")
+				to_chat(usr, SPAN_NOTICE("You have repaired \The [src]"))
 				src.repair()
 			else
-				to_chat(usr, "<span class='warning'>You don't have enough sheets to repair this! You need at least [amt] sheets.</span>")
+				to_chat(usr, SPAN_WARNING("You don't have enough sheets to repair this! You need at least [amt] sheets."))
 		return TRUE
 
 
@@ -152,8 +152,7 @@
 		return
 	force_open()
 	if(autoclose)
-		spawn(150)
-			close()
+		addtimer(CALLBACK(src, PROC_REF(close)), 15 SECONDS)
 	return 1
 
 // Proc: close()
@@ -244,7 +243,7 @@
 	density = 0
 	opacity = 0
 
-/obj/machinery/door/blast/odin/attackby(obj/item/C as obj, mob/user as mob)
+/obj/machinery/door/blast/odin/attackby(obj/item/attacking_item, mob/user)
 	return
 
 /obj/machinery/door/blast/odin/ex_act(var/severity)

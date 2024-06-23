@@ -10,6 +10,7 @@
 	icobase = 'icons/mob/human_races/unathi/r_unathi.dmi'
 	deform = 'icons/mob/human_races/unathi/r_def_unathi.dmi'
 	preview_icon = 'icons/mob/human_races/unathi/unathi_preview.dmi'
+	skeleton_icon = 'icons/mob/human_races/unathi/unathi_skeleton.dmi'
 	bandages_icon = 'icons/mob/bandage.dmi'
 	tail = "Tail"
 	tail_animation = 'icons/mob/species/unathi/tail.dmi'
@@ -33,7 +34,7 @@
 	grab_mod = 1.25 // Huge, usually have horns
 	resist_mod = 2.5 // Arguably our strongest organic species
 
-	ethanol_resistance = 0.4
+	ethanol_resistance = 0.8
 	taste_sensitivity = TASTE_SENSITIVE
 	economic_modifier = 7
 
@@ -104,6 +105,8 @@
 		"Your scales bristle against the cold."
 		)
 
+	footsound = /singleton/sound_category/footstep_unathi_sound
+
 	has_organ = list(
 		BP_BRAIN =    /obj/item/organ/internal/brain/unathi,
 		BP_EYES =    /obj/item/organ/internal/eyes/unathi,
@@ -132,6 +135,7 @@
 	zombie_type = SPECIES_ZOMBIE_UNATHI
 
 	possible_external_organs_modifications = list("Normal","Amputated","Prosthesis", "Diona Nymph")
+	valid_prosthetics = list(PROSTHETIC_AUTAKH)
 
 /datum/species/unathi/after_equip(var/mob/living/carbon/human/H)
 	. = ..()

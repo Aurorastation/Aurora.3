@@ -16,7 +16,7 @@
 
 /mob/living/silicon/robot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
 	if(message_mode == "whisper" && !whisper)
-		whisper(message, speaking)
+		whisper(message, speaking, say_verb = TRUE)
 		return TRUE
 	if(message_mode)
 		if(!is_component_functioning("radio"))
@@ -32,7 +32,7 @@
 
 /mob/living/silicon/ai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
 	if(message_mode == "whisper" && !whisper)
-		whisper(message, speaking)
+		whisper(message, speaking, say_verb = TRUE)
 		return TRUE
 	if(message_mode == "department")
 		log_say("[key_name(src)] : [message]",ckey=key_name(src))
@@ -49,7 +49,7 @@
 /mob/living/silicon/pai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
 	if(message_mode)
 		if(message_mode == "whisper" && !whisper)
-			whisper(message, speaking)
+			whisper(message, speaking, say_verb = TRUE)
 			return TRUE
 		if(message_mode == "general")
 			message_mode = null
@@ -159,13 +159,6 @@
 		to_chat(src, SPAN_WARNING("No holopad connected."))
 		return FALSE
 	return TRUE
-
-/mob/living/silicon/ai/emote(var/act, var/type, var/message)
-	var/obj/machinery/hologram/holopad/T = src.holo
-	if(T?.active_holograms[src]) //Is the AI using a holopad?
-		src.holopad_emote(message)
-	else //Emote normally, then.
-		..()
 
 #undef IS_AI
 #undef IS_ROBOT

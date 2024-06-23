@@ -22,3 +22,68 @@
 	icon_state = "trinary_coif"
 	item_state = "trinary_coif"
 	contained_sprite = TRUE
+
+//Exclusionist Gear
+/obj/item/clothing/suit/storage/hooded/exclusionist_robe
+	name = "exclusionist robes"
+	desc = "Red and gold robes worn by those who follow the Exclusionist heresy of the Trinary Perfection."
+	icon = 'icons/clothing/suits/exclusionist_robes.dmi'
+	icon_state = "exclusionist_robe_priest"
+	item_state = "exclusionist_robe_priest"
+	hoodtype = /obj/item/clothing/head/winterhood/exclusionist
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/hooded/exclusionist_robe/warpriest
+	name = "exclusionist warpriest's robe"
+	desc = "Black and gold robes worn by those who follow the Exclusionist heresy of the Trinary Perfection."
+	icon_state = "exclusionist_robe_warpriest"
+	item_state = "exclusionist_robe_warpriest"
+	hoodtype = /obj/item/clothing/head/winterhood/exclusionist/warpriest
+
+/obj/item/clothing/head/winterhood/exclusionist
+	name = "exclusionist hood"
+	desc = "A red and gold hood worn by those who follow the Exclusionist heresy of the Trinary Perfection."
+	icon = 'icons/clothing/suits/exclusionist_robes.dmi'
+	icon_state = "exclusionist_robe_priest_hood"
+	item_state = "exclusionist_robe_priest_hood"
+
+/obj/item/clothing/head/winterhood/exclusionist/warpriest
+	name = "exclusionist warpriest's hood"
+	desc = "A black and gold hood worn by those who follow the Exclusionist heresy of the Trinary Perfection."
+	icon_state = "exclusionist_robe_warpriest_hood"
+	item_state = "exclusionist_robe_warpriest_hood"
+
+/obj/item/clothing/ears/antenna/trinary_halo/exclusionist
+	color = "#1c1c1c"
+
+/obj/item/clothing/suit/armor/exclusionist
+	name = "armored exclusionist robe"
+	desc = "Robes worn by those who follow the Exclusionist heresy of the Trinary Perfection. These ones seem to have been reinforced for battle."
+	icon = 'icons/clothing/suits/exclusionist_robes.dmi'
+	icon_state = "exclusionist_armored_robe"
+	item_state = "exclusionist_armored_robe"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_RIFLE,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)
+	contained_sprite = TRUE
+	slowdown = 1
+	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
+
+/obj/item/clothing/mask/exclusionist
+	name = "exclusionist mask"
+	desc = "A fearsome steel mask, worn by those who follow the Exclusionist heresy of the Trinary Perfection."
+	icon = 'icons/clothing/suits/exclusionist_robes.dmi'
+	icon_state = "exclusionist_mask"
+	item_state = "exclusionist_mask"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_MINOR,
+		bio = ARMOR_BIO_STRONG
+	)
+	flash_protection = FLASH_PROTECTION_MODERATE

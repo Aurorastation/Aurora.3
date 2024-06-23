@@ -6,7 +6,7 @@
 	use_power = POWER_USE_ACTIVE
 	idle_power_usage = 5
 	active_power_usage = 10
-	layer = 5
+	layer = CAMERA_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	var/list/network = list(NETWORK_STATION)
@@ -47,7 +47,14 @@
 		for(var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 			var/list/tempnetwork = C.network&src.network
 			if(C != src && C.c_tag == src.c_tag && tempnetwork.len)
+
+				#if !defined(UNIT_TEST)
 				log_mapping_error("The camera [src.c_tag] at [src.x]-[src.y]-[src.z] conflicts with the c_tag of the camera in [C.x]-[C.y]-[C.z]!")
+
+				#else
+				SSunit_tests_config.UT.fail("The camera [src.c_tag] at [src.x]-[src.y]-[src.z] conflicts with the c_tag of the camera in [C.x]-[C.y]-[C.z]!")
+
+				#endif
 
 	if(!src.network || src.network.len < 1)
 		if(loc)
@@ -58,6 +65,11 @@
 		ASSERT(src.network.len > 0)
 
 	set_pixel_offsets()
+
+	var/list/open_networks = difflist(network, restricted_camera_networks)
+	on_open_network = open_networks.len
+	if(on_open_network)
+		GLOB.cameranet.add_source(src)
 
 	return ..()
 
@@ -71,8 +83,10 @@
 
 	QDEL_NULL(wires)
 
-	GLOB.cameranet.remove_source(src)
 	GLOB.cameranet.cameras -= src
+
+	if(on_open_network)
+		GLOB.cameranet.remove_source(src)
 
 	. = ..()
 	GC_TEMPORARY_HARDDEL
@@ -90,7 +104,25 @@
 	return internal_process()
 
 /obj/machinery/camera/proc/internal_process()
-	return
+	// motion camera event loop
+	if (stat & (EMPED|NOPOWER))
+		return
+	if(!isMotion())
+		. = PROCESS_KILL
+		return
+	if (detectTime > 0)
+		var/elapsed = world.time - detectTime
+		if (elapsed > alarm_delay)
+			triggerAlarm()
+	else if (detectTime == -1)
+		for (var/mob/target in motionTargets)
+			if (target.stat == 2 || QDELING(target)) lostTarget(target)
+			// If not detecting with motion camera...
+			if (!area_motion)
+				// See if the camera is still in range
+				if(!in_range(src, target))
+					// If they aren't in range, lose the target.
+					lostTarget(target)
 
 /obj/machinery/camera/emp_act(severity)
 	. = ..()
@@ -124,7 +156,7 @@
 	if (istype(AM, /obj))
 		var/obj/O = AM
 		if (O.throwforce >= src.toughness)
-			visible_message("<span class='warning'><B>[src] was hit by [O].</B></span>")
+			visible_message(SPAN_WARNING("<B>[src] was hit by [O].</B>"))
 		take_damage(O.throwforce)
 
 /obj/machinery/camera/proc/setViewRange(var/num = 7)
@@ -139,29 +171,29 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		set_status(0)
 		user.do_attack_animation(src)
-		visible_message("<span class='warning'>\The [user] slashes at [src]!</span>")
+		visible_message(SPAN_WARNING("\The [user] slashes at [src]!"))
 		playsound(src.loc, 'sound/weapons/slash.ogg', 100, 1)
 		add_hiddenprint(user)
 		destroy()
 
-/obj/machinery/camera/attackby(obj/W as obj, mob/living/user as mob)
+/obj/machinery/camera/attackby(obj/item/attacking_item, mob/user)
 	update_coverage()
 	// DECONSTRUCTION
-	if(W.isscrewdriver())
-		//to_chat(user, "<span class='notice'>You start to [panel_open ? "close" : "open"] the camera's panel.</span>")
+	if(attacking_item.isscrewdriver())
+		//to_chat(user, SPAN_NOTICE("You start to [panel_open ? "close" : "open"] the camera's panel."))
 		//if(toggle_panel(user)) // No delay because no one likes screwdrivers trying to be hip and have a duration cooldown
 		panel_open = !panel_open
-		user.visible_message("<span class='warning'>[user] screws the camera's panel [panel_open ? "open" : "closed"]!</span>",
-		"<span class='notice'>You screw the camera's panel [panel_open ? "open" : "closed"].</span>")
-		playsound(src.loc, W.usesound, 50, 1)
+		user.visible_message(SPAN_WARNING("[user] screws the camera's panel [panel_open ? "open" : "closed"]!"),
+		SPAN_NOTICE("You screw the camera's panel [panel_open ? "open" : "closed"]."))
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		return TRUE
 
-	else if((W.iswirecutter() || W.ismultitool()) && panel_open)
+	else if((attacking_item.iswirecutter() || attacking_item.ismultitool()) && panel_open)
 		interact(user)
 		return TRUE
 
-	else if(W.iswelder() && (wires.CanDeconstruct() || (stat & BROKEN)))
-		if(weld(W, user))
+	else if(attacking_item.iswelder() && (wires.CanDeconstruct() || (stat & BROKEN)))
+		if(weld(attacking_item, user))
 			if(assembly)
 				assembly.forceMove(src.loc)
 				assembly.anchored = 1
@@ -171,24 +203,24 @@
 				assembly.dir = src.dir
 				if(stat & BROKEN)
 					assembly.state = 2
-					to_chat(user, "<span class='notice'>You repaired \the [src] frame.</span>")
+					to_chat(user, SPAN_NOTICE("You repaired \the [src] frame."))
 				else
 					assembly.state = 1
-					to_chat(user, "<span class='notice'>You cut \the [src] free from the wall.</span>")
+					to_chat(user, SPAN_NOTICE("You cut \the [src] free from the wall."))
 					new /obj/item/stack/cable_coil(loc, 2)
 				assembly = null //so qdel doesn't eat it.
 			qdel(src)
 		return TRUE
 
 	// OTHER
-	else if (can_use() && (istype(W, /obj/item/paper)) && isliving(user))
+	else if (can_use() && (istype(attacking_item, /obj/item/paper)) && isliving(user))
 		var/info = null
 		var/mob/living/U = user
 		var/obj/item/paper/X = null
 
 		var/itemname = ""
-		if(istype(W, /obj/item/paper))
-			X = W
+		if(istype(attacking_item, /obj/item/paper))
+			X = attacking_item
 			itemname = X.name
 			info = X.info
 		to_chat(U, "You hold \a [itemname] up to the camera ...")
@@ -208,27 +240,27 @@
 					O << browse(text("<HTML><HEAD><TITLE>[]</TITLE></HEAD><BODY><TT>[]</TT></BODY></HTML>", itemname, info), text("window=[]", itemname)) //Force people watching to open the page so they can't see it again)
 		return TRUE
 
-	else if (istype(W, /obj/item/camera_bug))
+	else if (istype(attacking_item, /obj/item/camera_bug))
 		if (!src.can_use())
-			to_chat(user, "<span class='warning'>Camera non-functional.</span>")
+			to_chat(user, SPAN_WARNING("Camera non-functional."))
 		else if (src.bugged)
-			to_chat(user, "<span class='notice'>Camera bug removed.</span>")
+			to_chat(user, SPAN_NOTICE("Camera bug removed."))
 			src.bugged = 0
 		else
-			to_chat(user, "<span class='notice'>Camera bugged.</span>")
+			to_chat(user, SPAN_NOTICE("Camera bugged."))
 			src.bugged = 1
 		return TRUE
 
-	else if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN) //bashing cameras
+	else if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN) //bashing cameras
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		if (W.force >= src.toughness)
+		if (attacking_item.force >= src.toughness)
 			user.do_attack_animation(src)
-			user.visible_message("<span class='danger'>[user] has [LAZYPICK(W.attack_verb,"attacked")] [src] with [W]!</span>")
-			if (istype(W, /obj/item)) //is it even possible to get into attackby() with non-items?
-				var/obj/item/I = W
+			user.visible_message(SPAN_DANGER("[user] has [LAZYPICK(attacking_item.attack_verb,"attacked")] [src] with [attacking_item]!"))
+			if (istype(attacking_item, /obj/item)) //is it even possible to get into attackby() with non-items?
+				var/obj/item/I = attacking_item
 				if (I.hitsound)
 					playsound(loc, I.hitsound, I.get_clamped_volume(), 1, -1)
-		take_damage(W.force)
+		take_damage(attacking_item.force)
 		return TRUE
 	else
 		return ..()
@@ -245,20 +277,27 @@
 		set_status(!src.status)
 		if (!(src.status))
 			if(user)
-				visible_message("<span class='notice'> [user] has deactivated [src]!</span>")
+				visible_message(SPAN_NOTICE(" [user] has deactivated [src]!"))
 			else
-				visible_message("<span class='notice'> [src] clicks and shuts down. </span>")
+				visible_message(SPAN_NOTICE(" [src] clicks and shuts down. "))
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			icon_state = "[initial(icon_state)]1"
 			add_hiddenprint(user)
 		else
 			if(user)
-				visible_message("<span class='notice'> [user] has reactivated [src]!</span>")
+				visible_message(SPAN_NOTICE(" [user] has reactivated [src]!"))
 			else
-				visible_message("<span class='notice'> [src] clicks and reactivates itself. </span>")
+				visible_message(SPAN_NOTICE(" [src] clicks and reactivates itself. "))
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 			icon_state = initial(icon_state)
 			add_hiddenprint(user)
+
+	invalidateCameraCache()
+
+	if(!can_use())
+		set_light(0)
+
+	GLOB.cameranet.update_visibility(src)
 
 /obj/machinery/camera/proc/take_damage(var/force, var/message)
 	//prob(25) gives an average of 3-4 hits
@@ -385,7 +424,7 @@
 		return 0
 
 	// Do after stuff here
-	to_chat(user, "<span class='notice'>You start to weld the [src]..</span>")
+	to_chat(user, SPAN_NOTICE("You start to weld the [src].."))
 	playsound(src.loc, 'sound/items/Welder.ogg', 50, 1)
 	user.flash_act(FLASH_PROTECTION_MAJOR)
 	busy = 1
@@ -402,7 +441,7 @@
 		return
 
 	if(stat & BROKEN)
-		to_chat(user, "<span class='warning'>\The [src] is broken.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is broken."))
 		return
 
 	user.set_machine(src)

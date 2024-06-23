@@ -3,9 +3,8 @@
 	desc = "A silver locket that seems to have space for a photo within."
 	icon_state = "locket"
 	item_state = "locket"
-	slot_flags = 0
-	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_MASK | SLOT_TIE
+	w_class = ITEMSIZE_SMALL
 	var/open
 	var/obj/item/held //Item inside locket.
 
@@ -34,17 +33,17 @@
 	else
 		icon_state = "[base_icon]"
 
-/obj/item/clothing/accessory/locket/attackby(var/obj/item/O as obj, mob/user as mob)
+/obj/item/clothing/accessory/locket/attackby(obj/item/attacking_item, mob/user)
 	if(!open)
 		to_chat(user, "You have to open it first.")
 		return
 
-	if(istype(O,/obj/item/paper) || istype(O, /obj/item/photo))
+	if(istype(attacking_item,/obj/item/paper) || istype(attacking_item, /obj/item/photo))
 		if(held)
 			to_chat(usr, "\The [src] already has something inside it.")
 		else
-			to_chat(usr, "You slip [O] into [src].")
-			user.drop_from_inventory(O,src)
-			src.held = O
+			to_chat(usr, "You slip [attacking_item] into [src].")
+			user.drop_from_inventory(attacking_item, src)
+			src.held = attacking_item
 		return
 	..()

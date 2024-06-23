@@ -1,4 +1,4 @@
-/datum/outfit/admin/ert/ap_eridani
+/obj/outfit/admin/ert/ap_eridani
 	name = "Eridani Asset Protection Specialist"
 
 	uniform = /obj/item/clothing/under/rank/security/pmc/epmc
@@ -39,10 +39,10 @@
 
 	id_iff = IFF_ERIDANI
 
-/datum/outfit/admin/ert/ap_eridani/get_id_access()
+/obj/outfit/admin/ert/ap_eridani/get_id_access()
 	return get_distress_access()
 
-/datum/outfit/admin/ert/ap_eridani/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/ert/ap_eridani/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -56,7 +56,7 @@
 		var/obj/item/clothing/shoes/jackboots/toeless/shoes = new(src)
 		H.equip_to_slot_if_possible(shoes, slot_shoes)
 
-/datum/outfit/admin/ert/ap_eridani/lead
+/obj/outfit/admin/ert/ap_eridani/lead
 	name = "Eridani Section Leader"
 
 	uniform = /obj/item/clothing/under/rank/security/pmc/epmc/alt
@@ -82,18 +82,18 @@
 		/obj/item/melee/telebaton = 1
 	)
 
-/datum/outfit/admin/ert/ap_eridani/doctor
+/obj/outfit/admin/ert/ap_eridani/doctor
 	name = "Eridani Medical Officer"
 
-	uniform = /obj/item/clothing/under/rank/medical/first_responder/pmc/epmc
+	uniform = /obj/item/clothing/under/rank/medical/paramedic/pmc/epmc
 	suit = /obj/item/clothing/suit/storage/medical_chest_rig
-	suit_store = /obj/item/clothing/head/hardhat/first_responder
+	suit_store = /obj/item/clothing/head/hardhat/paramedic
 	head =  /obj/item/clothing/head/beret/corporate/pmc/epmc
 	mask = /obj/item/clothing/mask/surgical
 	glasses = /obj/item/clothing/glasses/hud/health/aviator
 	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/latex/nitrile
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	back = /obj/item/storage/backpack/satchel/med
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/magnum = 1)
@@ -126,19 +126,19 @@
 		/obj/item/storage/pill_bottle/mortaphenyl = 1
 	)
 
-/datum/outfit/admin/ert/ap_eridani/corpsman
+/obj/outfit/admin/ert/ap_eridani/corpsman
 	name = "Eridani Corpsman"
 
-	uniform = /obj/item/clothing/under/rank/medical/first_responder/pmc/epmc
+	uniform = /obj/item/clothing/under/rank/medical/paramedic/pmc/epmc
 	suit = /obj/item/clothing/suit/storage/medical_chest_rig
-	suit_store = /obj/item/clothing/head/hardhat/first_responder
+	suit_store = /obj/item/clothing/head/hardhat/paramedic
 	head = /obj/item/clothing/head/softcap/pmc/epmc
 	mask = /obj/item/clothing/mask/surgical
 	glasses = /obj/item/clothing/glasses/hud/health/aviator
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	shoes = /obj/item/clothing/shoes/combat
 	back = /obj/item/storage/backpack/messenger/med
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	accessory = /obj/item/clothing/accessory/holster/thigh
 	accessory_contents = list(/obj/item/gun/energy/disruptorpistol/magnum = 1)
 	l_pocket = /obj/item/device/healthanalyzer

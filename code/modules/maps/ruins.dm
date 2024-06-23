@@ -41,6 +41,17 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 			handled_ruin_paths += ruin.type
 			continue
 
+		if((ruin.template_flags & TEMPLATE_FLAG_PORT_SPAWN))
+			if(SSatlas.is_port_call_day())
+				force_spawn |= ruin
+				for(var/ruin_path in ruin.force_ruins)
+					var/datum/map_template/ruin/force_ruin = new ruin_path
+					force_spawn |= force_ruin
+			// No matter if it spawns or not, we want it removed from further consideration, it either spawns here or not at all
+			potentialRuins -= ruin
+			handled_ruin_paths += ruin.type
+			continue
+
 		available[ruin] = ruin.spawn_weight
 
 		for(var/ruin_path in ruin.allow_ruins)
@@ -150,7 +161,7 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 			qdel(M)
 		if(LAZYLEN(T.decals))
 			T.decals.Cut()
-		T.cut_overlays()
+		T.ClearOverlays()
 	template.load(central_turf, TRUE)
 	var/datum/map_template/ruin = template
 	if(istype(ruin))

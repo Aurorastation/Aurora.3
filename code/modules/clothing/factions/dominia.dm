@@ -66,13 +66,13 @@
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
 		var/image/cape_backing = image(mob_icon, null, cape_backing_state, human ? human.layer - 0.01 : MOB_LAYER - 0.01)
-		I.add_overlay(cape_backing)
+		I.AddOverlays(cape_backing)
 	return I
 
 /obj/item/clothing/accessory/poncho/dominia_cape/get_accessory_mob_overlay(mob/living/carbon/human/human, force)
 	var/image/base = ..()
 	var/image/cape_backing = image(icon, null, cape_backing_state, human ? human.layer - 0.01 : MOB_LAYER - 0.01)
-	base.add_overlay(cape_backing)
+	base.AddOverlays(cape_backing)
 	return base
 
 /obj/item/clothing/accessory/poncho/dominia_cape/strelitz
@@ -127,6 +127,24 @@
 	name = "zavodskoi house kazhkz cape"
 	icon_state = "kazhkz_capez"
 	item_state = "kazhkz_capez"
+	cape_backing_state = "capez_backing"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/hansan
+	name = "clan han'san cape"
+	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of Clan Han'san."
+	icon_state = "hansan_cape"
+	item_state = "hansan_cape"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/hansan/white
+	name = "white clan han'san cape"
+	icon_state = "hansan_capew"
+	item_state = "hansan_capew"
+	cape_backing_state = "capew_backing"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/hansan/zavod
+	name = "zavodskoi clan han'san cape"
+	icon_state = "hansan_capez"
+	item_state = "hansan_capez"
 	cape_backing_state = "capez_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/caladius
@@ -276,6 +294,10 @@
 /obj/item/clothing/under/dominia/imperial_suit/kazhkz
 	name = "house kazhkz suit"
 	house = "kazhkz"
+
+/obj/item/clothing/under/dominia/imperial_suit/hansan
+	name = "house han'san suit"
+	house = "hansan"
 
 /obj/item/clothing/under/dominia/imperial_suit/caladius
 	name = "house caladius suit"
@@ -436,6 +458,10 @@
 	name = "kazhkz noble dress"
 	house = "kazhkz"
 
+/obj/item/clothing/under/dominia/dress/noble/hansan
+	name = "han'san noble dress"
+	house = "hansan"
+
 /obj/item/clothing/under/dominia/dress/noble/caladius
 	name = "caladius noble dress"
 	house = "caladius"
@@ -459,6 +485,10 @@
 /obj/item/clothing/under/dominia/dress/noble/black/kazhkz
 	name = "black kazhkz noble dress"
 	house = "kazhkz"
+
+/obj/item/clothing/under/dominia/dress/noble/black/hansan
+	name = "black han'san noble dress"
+	house = "hansan"
 
 /obj/item/clothing/under/dominia/dress/noble/black/caladius
 	name = "black caladius noble dress"
@@ -684,6 +714,9 @@
 	name = "retired tribunal investigator card"
 	desc = "A silver-gilded card given to those who have since retired from the Tribunal Investigations Constabulary, otherwise known as TIC. \
 			This card holds a sleek grey coloration strip, denoting the owner as having been a standard investigator."
+	desc_extended = "The day-to-day work of investigating religious crimes and violations falls upon the shoulders of the people who fill the \
+	ranks of the Tribunal Investigation Constabulary. These investigators often collaborate with and work alongside the nominally secular \
+	His Imperial Majesty's Constable Service (HIMCS), the Empire's main policing agency."
 	icon_state = "tic_card_ret"
 	item_state = "tic_card_ret"
 
@@ -691,6 +724,9 @@
 	name = "retired tribunal investigator card"
 	desc = "A silver-gilded card given to those who have since retired from the Tribunal Investigations Constabulary, otherwise known as TIC. \
 			This card holds a color strip of House Caladius, denoting the owner as a priest of the Tribunal."
+	desc_extended = "The day-to-day work of investigating religious crimes and violations falls upon the shoulders of the people who fill the \
+	ranks of the Tribunal Investigation Constabulary. These investigators often collaborate with and work alongside the nominally secular \
+	His Imperial Majesty's Constable Service (HIMCS), the Empire's main policing agency."
 	icon_state = "tic_card_ret_alt"
 	item_state = "tic_card_ret_alt"
 
@@ -743,6 +779,10 @@
 /obj/item/clothing/under/dominia/dress/fancy/kazhkz
 	name = "house kazhkz Morozi dress"
 	house = "kazhkz"
+
+/obj/item/clothing/under/dominia/dress/fancy/hansan
+	name = "clan han'san Morozi dress"
+	house = "hansan"
 
 /obj/item/clothing/under/dominia/fleet
 	name = "fleet voidsman uniform"

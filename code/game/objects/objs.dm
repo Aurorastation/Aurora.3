@@ -1,4 +1,5 @@
 /obj
+	layer = OBJ_LAYER
 	animate_movement = 2
 
 	var/list/matter //Used to store information about the contents of the object.
@@ -23,20 +24,46 @@
 	var/icon_species_tag = ""//If set, this holds the 3-letter shortname of a species, used for species-specific worn icons
 	var/icon_auto_adapt = 0//If 1, this item will automatically change its species tag to match the wearer's species.
 	//requires that the wearer's species is listed in icon_supported_species_tags
-	var/list/icon_supported_species_tags //Used with icon_auto_adapt, a list of species which have differing appearances for this item
-	var/icon_species_in_hand = 0//If 1, we will use the species tag even for rendering this item in the left/right hand.
+
+	/**
+	 * A list of strings used with icon_auto_adapt, a list of species which have differing appearances for this item,
+	 * based on the specie short name
+	 */
+	var/list/icon_supported_species_tags
+
+	///If `TRUE`, will use the `icon_species_tag` var for rendering this item in the left/right hand
+	var/icon_species_in_hand = FALSE
 
 	var/equip_slot = 0
+	///Played when the item is used, for example tools
 	var/usesound
+
 	var/toolspeed = 1
 
 	var/surgerysound
 
+	/* START BUCKLING VARS */
+	var/list/can_buckle
+	var/buckle_movable = 0
+	var/buckle_dir = 0
+	var/buckle_lying = -1 //bed-like behavior, forces mob.lying = buckle_lying if != -1
+	var/buckle_require_restraints = 0 //require people to be handcuffed before being able to buckle. eg: pipes
+	var/atom/movable/buckled = null
+	var/buckle_delay = 0 //How much extra time to buckle someone to this object.
+	/* END BUCKLING VARS */
+
+	/* START ACCESS VARS */
+	var/list/req_access
+	var/list/req_one_access
+	/* END ACCESS VARS */
+
 /obj/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
+	unbuckle()
+	QDEL_NULL(talking_atom)
 	return ..()
 
-/obj/Topic(href, href_list, var/datum/ui_state/state = default_state)
+/obj/Topic(href, href_list, var/datum/ui_state/state = GLOB.default_state)
 	if(..())
 		return 1
 
@@ -52,7 +79,7 @@
 /obj/CanUseTopic(var/mob/user, var/datum/ui_state/state)
 	if(user.CanUseObjTopic(src))
 		return ..()
-	to_chat(user, "<span class='danger'>[icon2html(src, user)]Access Denied!</span>")
+	to_chat(user, SPAN_DANGER("[icon2html(src, user)]Access Denied!"))
 	return STATUS_CLOSE
 
 /mob/living/silicon/CanUseObjTopic(var/obj/O)
@@ -198,15 +225,23 @@
 					step(src, pick(NORTH,SOUTH,EAST,WEST))
 					sleep(rand(2,4))
 
-
-/obj/proc/auto_adapt_species(var/mob/living/carbon/human/wearer)
+/**
+ * Sets the `icon_species_tag` on the `/obj` based on the wearer specie, which is
+ * then used by the icon generator to select the correct overlay of the object
+ *
+ * * wearer - A `/mob/living/carbon/human` to adapt the object to the specie of
+ *
+ * Returns `TRUE` on successful adaptation, `FALSE` otherwise
+ */
+/obj/proc/auto_adapt_species(mob/living/carbon/human/wearer)
+	SHOULD_NOT_SLEEP(TRUE)
 	if(icon_auto_adapt)
 		icon_species_tag = ""
-		if (wearer && icon_supported_species_tags.len)
-			if (wearer.species.short_name in icon_supported_species_tags)
+		if(wearer && length(icon_supported_species_tags))
+			if(wearer.species.short_name in icon_supported_species_tags)
 				icon_species_tag = wearer.species.short_name
-				return 1
-	return 0
+				return TRUE
+	return FALSE
 
 
 //This function should be called on an item when it is:
@@ -239,12 +274,12 @@
 		return
 	..()
 
-/obj/examine(mob/user)
+/obj/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
 	. = ..()
 	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
-		to_chat(user, SPAN_SUBTLE("Can be rotated with alt-click."))
+		. += SPAN_SUBTLE("Can be rotated with alt-click.")
 	if(contaminated)
-		to_chat(user, SPAN_ALIEN("\The [src] has been contaminated!"))
+		. += SPAN_ALIEN("\The [src] has been contaminated!")
 
 // whether mobs can unequip and drop items into us or not
 /obj/proc/can_hold_dropped_items()
@@ -260,4 +295,13 @@
 			. |= DAMAGE_FLAG_LASER
 
 /obj/proc/set_pixel_offsets()
+	return
+
+//wash an object
+/obj/proc/clean()
+	clean_blood()
+	color = initial(color)
+
+/// This fires when the object /crosses() a stair object
+/obj/proc/stair_act()
 	return

@@ -1,9 +1,11 @@
-//Ae'themir
+// --------------------------------- Ae'themir
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir
 	name = "Ae'themir"
 	desc = "A planet comprised mainly of solid common minerals and silicate."
 	color = "#bf7c39"
 	icon_state = "globe1"
+	charted = "Tajaran core world, charted 2418CE, NanoTrasen Corporation"
 	rock_colors = list(COLOR_GRAY80)
 	features_budget = 1
 	surface_color = "#B1A69B"
@@ -25,14 +27,17 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/update_icon()
 	return
 
-//Az'Mar
+/obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/generate_ground_survey_result()
+	ground_survey_result = "<br>High concentrations of silicate detected"
+
+// --------------------------------- Az'Mar
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar
 	name = "Az'Mar"
 	desc = "A small planet with a caustic shale crust. The surface is extremely hot and dense."
 	charted = "Tajaran core world, charted 2418CE, NanoTrasen Corporation"
 	color = "#8f4754"
 	icon_state = "globe2"
-	rock_colors = null
 	plant_colors = null
 	rock_colors = list("#4a3f41")
 	features_budget = 1
@@ -59,7 +64,10 @@
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/update_icon()
 	return
 
-//Sahul
+/obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/generate_ground_survey_result()
+	ground_survey_result = "<br>No notable concentration of valuable minerals detected in the mantle"
+
+// --------------------------------- Sahul
 /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul
 	name = "Sahul"
 	desc = "Az'mar's moon is a celestial body composed primarily of molten metals."
@@ -74,7 +82,10 @@
 /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul/update_icon()
 	return
 
-//Raskara
+/obj/effect/overmap/visitable/sector/exoplanet/lava/sahul/generate_ground_survey_result()
+	ground_survey_result = "<br>Molten metals detected in the crust"
+
+// --------------------------------- Raskara
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara
 	name = "Raskara"
 	desc = "A barren moon orbiting Adhomai."
@@ -107,13 +118,23 @@
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
 
-//Adhomai
+/obj/effect/overmap/visitable/sector/exoplanet/barren/raskara/generate_ground_survey_result()
+	if(prob(1))
+		ground_survey_result = "<br>Unidentified anomalous readings detected in the inner core"
+	else
+		ground_survey_result = "<br>High concretation of dense metal in the mantle"
+
+// --------------------------------- Adhomai
+// NOTE: To trigger Adhomai 'event' (eclipses). Use the set holiday verb to the eclipse name BEFORE this planet is initialized, or have holiday added to holidays.dm
+// "Shi-rr’ata" : Messa Eclipse. Lighting changes.
+// "Shi-rra Arr’Kahata" : Raskara Eclipse. This makes planet covered in darkness and increases hostile animal spawns (Adhomai Hell)
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai
 	name = "Adhomai"
 	desc = "The Tajaran homeworld. Adhomai is a cold and icy world, suffering from almost perpetual snowfall and extremely low temperatures."
 	icon_state = "globe2"
 	color = "#b5dfeb"
 	planetary_area = /area/exoplanet/adhomai
+	initial_weather_state = /singleton/state/weather/calm/snow_planet
 	scanimage = "adhomai.png"
 	massvolume = "0.86/0.98"
 	surfacegravity = "0.80"
@@ -121,7 +142,7 @@
 	geology = "Minimal tectonic heat, miniscule geothermal signature overall"
 	weather = "Global full-atmosphere hydrological weather system. Substantial meteorological activity, violent storms unpredictable"
 	surfacewater = "Majority frozen, 78% surface water. Significant tidal forces from natural satellite"
-	rock_colors = null
+	rock_colors = list("#6fb1b5")
 	plant_colors = null
 	flora_diversity = 0
 	has_trees = FALSE
@@ -172,6 +193,13 @@
 			features_budget = 1
 			possible_themes = list(/datum/exoplanet_theme/snow/tundra/adhomai)
 			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/north_pole_monolith, /datum/map_template/ruin/exoplanet/north_pole_nka_expedition, /datum/map_template/ruin/exoplanet/north_pole_worm)
+			initial_weather_state = /singleton/state/weather/calm/arctic_planet
+
+	if(Holiday == "Shi-rra Arr’Kahata")  // Messa weeps.
+		if(landing_faction != "North Pole")
+			possible_themes = list(/datum/exoplanet_theme/snow/adhomai/darkest_eclipse)
+		else
+			possible_themes = list(/datum/exoplanet_theme/snow/tundra/adhomai/darkest_eclipse)
 
 	desc += " The landing sites are located at the [landing_faction]'s territory."
 
@@ -181,6 +209,12 @@
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_map()
 	if(prob(75))
 		lightlevel = rand(3,10)/10
+	switch(Holiday)	// Handle eclipses
+		if("Shi-rr’ata") // Messa Eclipse
+			lightlevel = 9/10
+			lightcolor = COLOR_CYAN
+		if("Shi-rra Arr’Kahata") //Raskara Eclipse. Board your windows.
+			lightlevel = 0
 	..()
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_planet_image()
@@ -202,3 +236,6 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/update_icon()
 	return
+
+/obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_ground_survey_result()
+	ground_survey_result = "<br>High quality minerals detected in the crust and mantle"

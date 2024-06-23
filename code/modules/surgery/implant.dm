@@ -184,12 +184,12 @@
 	if(length(affected.implants))
 		var/list/implants = list()
 		var/shrapnel_present = FALSE
-		for(var/obj/I in affected.implants)
+		for(var/I in affected.implants)
 			implants += I
 			if(!istype(I, /obj/item/implant))
 				shrapnel_present = TRUE
 
-		for(var/obj/I in implants)
+		for(var/I in implants)
 			/// Prioritize shrapnel instead of stuff like loyalty implants.
 			if(shrapnel_present && istype(I, /obj/item/implant))
 				continue

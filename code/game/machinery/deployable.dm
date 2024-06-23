@@ -52,8 +52,8 @@ Deployable Kits
 	if(!check_dismantle())
 		visible_message(SPAN_WARNING("\The [src] is hit by \the [P]!"))
 
-/obj/structure/blocker/attackby(obj/item/W, mob/user)
-	if(W.ishammer() && user.a_intent != I_HURT)
+/obj/structure/blocker/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ishammer() && user.a_intent != I_HURT)
 		var/obj/item/I = usr.get_inactive_hand()
 		if(I && istype(I, /obj/item/stack))
 			var/obj/item/stack/D = I
@@ -72,13 +72,13 @@ Deployable Kits
 			return TRUE
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		switch(W.damtype)
+		switch(attacking_item.damtype)
 			if(DAMAGE_BURN)
-				src.health -= W.force * 1
+				src.health -= attacking_item.force * 1
 			if(DAMAGE_BRUTE)
-				src.health -= W.force * 0.75
+				src.health -= attacking_item.force * 0.75
 		shake_animation()
-		playsound(src.loc, material.hitsound, W.get_clamped_volume(), 1)
+		playsound(src.loc, material.hitsound, attacking_item.get_clamped_volume(), 1)
 		if(check_dismantle())
 			return TRUE
 		return ..()
@@ -114,7 +114,7 @@ Deployable Kits
 		return prob(35)
 	if(isliving(mover))
 		return FALSE
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return TRUE
 	return FALSE
 
@@ -150,8 +150,8 @@ Deployable Kits
 
 	src.icon_state = "[initial(icon_state)][src.locked]"
 
-/obj/machinery/deployable/barrier/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/card/id/))
+/obj/machinery/deployable/barrier/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/card/id/))
 		if (src.allowed(user))
 			if	(src.emagged < 2.0)
 				src.locked = !src.locked
@@ -165,31 +165,31 @@ Deployable Kits
 					return
 			else
 				spark(src, 2, src)
-				visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
+				visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 				return
 		return
-	else if (W.iswrench())
+	else if (attacking_item.iswrench())
 		if (src.health < src.maxhealth)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			src.health = src.maxhealth
 			src.emagged = 0
 			src.req_access = list(ACCESS_SECURITY)
-			visible_message("<span class='warning'>[user] repairs \the [src]!</span>")
+			visible_message(SPAN_WARNING("[user] repairs \the [src]!"))
 			return
 		else if (src.emagged > 0)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			src.emagged = 0
 			src.req_access = list(ACCESS_SECURITY)
-			visible_message("<span class='warning'>[user] repairs \the [src]!</span>")
+			visible_message(SPAN_WARNING("[user] repairs \the [src]!"))
 			return
 		return
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		switch(W.damtype)
+		switch(attacking_item.damtype)
 			if("fire")
-				src.health -= W.force * 0.75
+				src.health -= attacking_item.force * 0.75
 			if("brute")
-				src.health -= W.force * 0.5
+				src.health -= attacking_item.force * 0.5
 
 		if (src.health <= 0)
 			src.explode()
@@ -219,13 +219,13 @@ Deployable Kits
 /obj/machinery/deployable/barrier/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(air_group || (height==0))
 		return 1
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return 1
 	else
 		return 0
 
 /obj/machinery/deployable/barrier/proc/explode()
-	visible_message("<span class='danger'>[src] blows apart!</span>")
+	visible_message(SPAN_DANGER("[src] blows apart!"))
 
 /*	var/obj/item/stack/rods/ =*/
 	new /obj/item/stack/rods(get_turf(src))
@@ -242,18 +242,18 @@ Deployable Kits
 		src.req_one_access.Cut()
 		to_chat(user, "You break the ID authentication lock on \the [src].")
 		spark(src, 2, GLOB.alldirs)
-		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
+		visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 		return 1
 	else if (src.emagged == 1)
 		src.emagged = 2
 		to_chat(user, "You short out the anchoring mechanism on \the [src].")
 		spark(src, 2, GLOB.alldirs)
-		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
+		visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 		return 1
 
 /obj/machinery/deployable/barrier/legion
-	name = "legion barrier"
-	desc = "A deployable barrier, bearing the marks of the Tau Ceti Foreign Legion. Swipe your ID card to lock/unlock it."
+	name = "\improper TCAF barrier"
+	desc = "A deployable barrier, bearing the marks of the Tau Ceti Armed Forces. Swipe your ID card to lock/unlock it."
 	icon_state = "barrier_legion"
 	req_access = null
 	req_one_access = list(ACCESS_TCAF_SHIPS, ACCESS_LEGION)
@@ -283,8 +283,8 @@ Deployable Kits
 	A.add_fingerprint(user)
 
 /obj/item/deployable_kit/legion_barrier
-	name = "legion barrier kit"
-	desc = "A quick assembly kit for deploying id-lockable barriers in the field. This one has the mark of the Tau Ceti Foreign Legion."
+	name = "\improper TCAF barrier kit"
+	desc = "A quick assembly kit for deploying id-lockable barriers in the field. This one has the mark of the Tau Ceti Armed Forces."
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "barrier_kit"
 	item_state = "barrier_kit"

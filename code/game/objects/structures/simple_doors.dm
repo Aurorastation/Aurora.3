@@ -15,7 +15,9 @@
 	var/health = 100
 	var/maxhealth = 100
 
-/obj/structure/simple_door/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/structure/simple_door/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	TemperatureAct(exposed_temperature)
 
 /obj/structure/simple_door/proc/TemperatureAct(temperature)
@@ -58,10 +60,10 @@
 	lock = null
 	return ..()
 
-/obj/structure/simple_door/examine(mob/user)
+/obj/structure/simple_door/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(lock)
-		to_chat(user, "<span class='notice'>It appears to have a lock.</span>")
+		. += SPAN_NOTICE("It appears to have a lock.")
 
 /obj/structure/simple_door/CollidedWith(atom/user)
 	..()
@@ -115,7 +117,7 @@
 
 	if(lock && lock.isLocked())
 		if(user)
-			to_chat(user, "<span class='warning'>\The [src] is locked!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is locked!"))
 		return
 
 	isSwitchingStates = 1
@@ -147,36 +149,36 @@
 	else
 		icon_state = material.door_icon_base
 
-/obj/structure/simple_door/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/key) && lock)
-		var/obj/item/key/K = W
-		if(!lock.toggle(W))
-			to_chat(user, "<span class='warning'>\The [K] does not fit in the lock!</span>")
+/obj/structure/simple_door/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/key) && lock)
+		var/obj/item/key/K = attacking_item
+		if(!lock.toggle(attacking_item))
+			to_chat(user, SPAN_WARNING("\The [K] does not fit in the lock!"))
 		return
 
-	if(lock && lock.pick_lock(W,user))
+	if(lock && lock.pick_lock(attacking_item, user))
 		return
 
-	if(istype(W,/obj/item/material/lock_construct))
+	if(istype(attacking_item, /obj/item/material/lock_construct))
 		if(lock)
-			to_chat(user, "<span class='warning'>\The [src] already has a lock.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has a lock."))
 		else
-			var/obj/item/material/lock_construct/L = W
+			var/obj/item/material/lock_construct/L = attacking_item
 			lock = L.create_lock(src,user)
 		return
 
-	else if(istype(W,/obj/item))
-		var/obj/item/I = W
+	else if(istype(attacking_item, /obj/item))
+		var/obj/item/I = attacking_item
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(I.damtype == DAMAGE_BRUTE || I.damtype == DAMAGE_BURN)
 			if(I.force < 10)
-				user.visible_message("<span class='danger'>\The [user] hits \the [src] with \the [I] with no visible effect.</span>")
+				user.visible_message(SPAN_DANGER("\The [user] hits \the [src] with \the [I] with no visible effect."))
 			else
 				user.do_attack_animation(src)
 				shake_animation()
-				user.visible_message("<span class='danger'>\The [user] forcefully strikes \the [src] with \the [I]!</span>")
-				playsound(src.loc, material.hitsound, W.get_clamped_volume(), 1)
-				src.health -= W.force * 1
+				user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with \the [I]!"))
+				playsound(src.loc, material.hitsound, attacking_item.get_clamped_volume(), 1)
+				src.health -= attacking_item.force * 1
 				CheckHealth()
 
 	else

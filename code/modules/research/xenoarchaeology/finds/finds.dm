@@ -32,12 +32,12 @@
 	var/method = 0// 0 = fire, 1 = brush, 2 = pick
 	origin_tech = list(TECH_MATERIAL = 5)
 
-/obj/item/ore/strangerock/New(loc, var/inside_item_type = 0)
-	..(loc)
+/obj/item/ore/strangerock/Initialize(mapload, inside_item_type)
+	. = ..()
 
 	//method = rand(0,2)
 	if(inside_item_type)
-		inside = new/obj/item/archaeological_find(src, new_item_type = inside_item_type)
+		inside = new/obj/item/archaeological_find(src, inside_item_type)
 		if(!inside)
 			inside = locate() in contents
 
@@ -45,9 +45,9 @@
 	if(severity && prob(30))
 		src.visible_message("The [src] crumbles away, leaving some dust and gravel behind.")*/
 
-/obj/item/ore/strangerock/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weldingtool/))
-		var/obj/item/weldingtool/w = W
+/obj/item/ore/strangerock/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/weldingtool/))
+		var/obj/item/weldingtool/w = attacking_item
 		if(w.isOn())
 			if(w.get_fuel() >= 4 && !src.method)
 				if(inside)
@@ -65,14 +65,14 @@
 				w.use(1)
 			return
 
-	else if(istype(W,/obj/item/device/core_sampler/))
-		var/obj/item/device/core_sampler/S = W
+	else if(istype(attacking_item, /obj/item/device/core_sampler/))
+		var/obj/item/device/core_sampler/S = attacking_item
 		S.sample_item(src, user)
 		return
 
 	..()
 	if(prob(33))
-		src.visible_message("<span class='warning'>[src] crumbles away, leaving some dust and gravel behind.</span>")
+		src.visible_message(SPAN_WARNING("[src] crumbles away, leaving some dust and gravel behind."))
 		qdel(src)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -84,7 +84,9 @@
 	icon_state = "ano01"
 	var/find_type = 0
 
-/obj/item/archaeological_find/New(loc, var/new_item_type)
+/obj/item/archaeological_find/Initialize(mapload, new_item_type)
+	. = ..()
+
 	if(new_item_type)
 		find_type = new_item_type
 	else
@@ -409,7 +411,7 @@
 				apply_image_decorations = 0
 		if(29)
 			//fossil bone/skull
-			//new_item = new /obj/item/fossil/base(src.loc)
+			new_item = new /obj/item/fossil/base(src.loc)
 
 			//the replacement item propogation isn't working, and it's messy code anyway so just do it here
 			var/list/candidates = list("/obj/item/fossil/bone"=9,"/obj/item/fossil/skull"=3,
@@ -553,7 +555,7 @@
 		if(talkative)
 			new_item.talking_atom = new(new_item)
 
-		QDEL_IN(src, 1 SECOND)
+		return INITIALIZE_HINT_QDEL
 
 	else if(talkative)
 		src.talking_atom = new(src)

@@ -120,7 +120,7 @@
 		return
 	// Notify our AI if they can now control the suit.
 	if(wearing_rig?.ai_override_enabled && !stat && paralysis < amount) //We are passing out right this second.
-		wearing_rig.notify_ai("<span class='danger'>Warning: user consciousness failure. Mobility control passed to integrated intelligence system.</span>")
+		wearing_rig.notify_ai(SPAN_DANGER("Warning: user consciousness failure. Mobility control passed to integrated intelligence system."))
 	..()
 
 /mob/living/carbon/human/update_canmove()
@@ -421,10 +421,10 @@ This function restores all organs.
 		zone = BP_HEAD
 	return organs_by_name[zone]
 
-/mob/living/carbon/human/apply_damage(var/damage = 0, var/damagetype = DAMAGE_BRUTE, var/def_zone, var/obj/used_weapon, var/damage_flags, var/armor_pen, var/silent = FALSE)
+/mob/living/carbon/human/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	if (invisibility == INVISIBILITY_LEVEL_TWO && back && (istype(back, /obj/item/rig)))
 		if(damage > 0)
-			to_chat(src, "<span class='danger'>You are now visible.</span>")
+			to_chat(src, SPAN_DANGER("You are now visible."))
 			set_invisibility(0)
 
 	var/obj/item/organ/external/organ = isorgan(def_zone) ? def_zone : get_organ(def_zone, TRUE)

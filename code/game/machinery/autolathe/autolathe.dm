@@ -16,8 +16,8 @@
 
 	var/atom/print_loc
 
-	var/list/stored_material =  list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0)
-	var/list/storage_capacity = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0)
+	var/list/stored_material =  list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_ALUMINIUM = 0, MATERIAL_PLASTIC = 0, MATERIAL_LEAD = 0)
+	var/list/storage_capacity = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_ALUMINIUM = 0, MATERIAL_PLASTIC = 0, MATERIAL_LEAD = 0)
 	var/show_category = "All"
 
 	var/hacked = FALSE
@@ -42,15 +42,6 @@
 		/obj/item/stock_parts/manipulator,
 		/obj/item/stock_parts/console_screen
 	)
-
-/obj/machinery/autolathe/mounted
-	name = "\improper mounted autolathe"
-	density = FALSE
-	anchored = FALSE
-	idle_power_usage = FALSE
-	active_power_usage = FALSE
-	interact_offline = TRUE
-	does_flick = FALSE
 
 /obj/machinery/autolathe/Initialize()
 	..()
@@ -142,17 +133,17 @@
 		)
 	return data
 
-/obj/machinery/autolathe/attackby(obj/item/O, mob/user)
+/obj/machinery/autolathe/attackby(obj/item/attacking_item, mob/user)
 	if((autolathe_flags & AUTOLATHE_BUSY))
 		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for the completion of previous operation."))
 		return TRUE
 
-	if(default_deconstruction_screwdriver(user, O))
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		SStgui.update_uis(src)
 		return TRUE
-	if(default_deconstruction_crowbar(user, O))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return TRUE
-	if(default_part_replacement(user, O))
+	if(default_part_replacement(user, attacking_item))
 		return TRUE
 
 	if(stat)
@@ -160,20 +151,20 @@
 
 	if(panel_open)
 		//Don't eat multitools or wirecutters used on an open lathe.
-		if(O.ismultitool() || O.iswirecutter())
+		if(attacking_item.ismultitool() || attacking_item.iswirecutter())
 			if(panel_open)
 				wires.interact(user)
 			else
 				to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
 			return TRUE
 
-	if(O.loc != user && !istype(O, /obj/item/stack))
+	if(attacking_item.loc != user && !istype(attacking_item, /obj/item/stack))
 		return FALSE
 
-	if(is_robot_module(O))
+	if(is_robot_module(attacking_item))
 		return FALSE
 
-	load_lathe(O, user)
+	load_lathe(attacking_item, user)
 	return TRUE
 
 /obj/machinery/autolathe/attack_hand(mob/user)
@@ -188,7 +179,7 @@
 	usr.set_machine(src)
 	add_fingerprint(usr)
 
-	playsound(src, /singleton/sound_category/keyboard_sound)
+	playsound(src, /singleton/sound_category/keyboard_sound, 50)
 
 	if(action == "make")
 		var/multiplier = text2num(params["multiplier"])
@@ -251,11 +242,11 @@
 		else if((autolathe_flags & AUTOLATHE_BUSY))
 			process_queue_item()
 
-/// Used so that we don't try to add_overlay every tick the autolathe processes.
+/// Used so that we don't try to AddOverlays every tick the autolathe processes.
 /obj/machinery/autolathe/proc/start_processing_queue_item()
 	if(does_flick)
 		//Fancy autolathe animation.
-		add_overlay("process")
+		AddOverlays("process")
 	autolathe_flags |= AUTOLATHE_STARTED|AUTOLATHE_BUSY
 
 /obj/machinery/autolathe/proc/process_queue_item()
@@ -278,7 +269,7 @@
 
 	print_queue -= currently_printing
 	QDEL_NULL(currently_printing)
-	cut_overlay("process")
+	CutOverlays("process")
 	I.update_icon()
 	update_use_power(POWER_USE_IDLE)
 
@@ -299,6 +290,9 @@
 
 	storage_capacity[DEFAULT_WALL_MATERIAL] = mb_rating * 25000
 	storage_capacity[MATERIAL_GLASS] = mb_rating * 12500
+	storage_capacity[MATERIAL_ALUMINIUM] = mb_rating * 25000
+	storage_capacity[MATERIAL_PLASTIC] = mb_rating * 12500
+	storage_capacity[MATERIAL_LEAD] = mb_rating * 12500
 	build_time = 50 / man_rating
 	mat_efficiency = 1.1 - man_rating * 0.1 // Normally, price is 1.25 the amount of material, so this shouldn't go higher than 0.8. Maximum rating of parts is 3
 
@@ -370,7 +364,7 @@
 		var/obj/item/stack/material/sheet = eating
 		var/icon/load = icon(icon, "load")
 		load.Blend(sheet.material.icon_colour,ICON_MULTIPLY)
-		add_overlay(load)
+		AddOverlays(load)
 		CUT_OVERLAY_IN(load, 6)
 
 	if(istype(eating, /obj/item/stack))
@@ -380,6 +374,18 @@
 	else
 		user.remove_from_mob(O)
 		qdel(O)
+
+/obj/machinery/autolathe/mounted
+	name = "\improper mounted autolathe"
+	density = FALSE
+	anchored = FALSE
+	idle_power_usage = FALSE
+	active_power_usage = FALSE
+	interact_offline = TRUE
+	does_flick = FALSE
+
+/obj/machinery/autolathe/mounted/ui_state(mob/user)
+	return GLOB.heavy_vehicle_state
 
 /// Queue items are needed so that the queue knows exactly what it's doing.
 /datum/autolathe_queue_item

@@ -16,39 +16,39 @@
 	upgraded = TRUE
 	can_clone = TRUE
 
-/obj/item/device/integrated_circuit_printer/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O,/obj/item/stack/material))
-		var/obj/item/stack/material/stack = O
+/obj/item/device/integrated_circuit_printer/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item,/obj/item/stack/material))
+		var/obj/item/stack/material/stack = attacking_item
 		if(stack.material.name == DEFAULT_WALL_MATERIAL)
 			var/num = min((max_metal - metal) / metal_per_sheet, stack.amount)
 			if(num < 1)
-				to_chat(user, "<span class='warning'>\The [src] is too full to add more metal.</span>")
+				to_chat(user, SPAN_WARNING("\The [src] is too full to add more metal."))
 				return
 			if(stack.use(num))
-				to_chat(user, "<span class='notice'>You add [num] sheet\s to \the [src].</span>")
+				to_chat(user, SPAN_NOTICE("You add [num] sheet\s to \the [src]."))
 				metal += num * metal_per_sheet
 				return TRUE
 
-	if(istype(O,/obj/item/integrated_circuit))
-		to_chat(user, "<span class='notice'>You insert the circuit into \the [src]. </span>")
-		user.unEquip(O)
-		metal = min(metal + O.w_class, max_metal)
-		qdel(O)
+	if(istype(attacking_item,/obj/item/integrated_circuit))
+		to_chat(user, SPAN_NOTICE("You insert the circuit into \the [src]. "))
+		user.unEquip(attacking_item)
+		metal = min(metal + attacking_item.w_class, max_metal)
+		qdel(attacking_item)
 		return TRUE
 
-	if(istype(O,/obj/item/disk/integrated_circuit/upgrade/advanced))
+	if(istype(attacking_item,/obj/item/disk/integrated_circuit/upgrade/advanced))
 		if(upgraded)
-			to_chat(user, "<span class='warning'>\The [src] already has this upgrade. </span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has this upgrade. "))
 			return TRUE
-		to_chat(user, "<span class='notice'>You install \the [O] into  \the [src]. </span>")
+		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] into  \the [src]. "))
 		upgraded = TRUE
 		return TRUE
 
-	if(istype(O,/obj/item/disk/integrated_circuit/upgrade/clone))
+	if(istype(attacking_item,/obj/item/disk/integrated_circuit/upgrade/clone))
 		if(can_clone)
-			to_chat(user, "<span class='warning'>\The [src] already has this upgrade. </span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has this upgrade. "))
 			return TRUE
-		to_chat(user, "<span class='notice'>You install \the [O] into  \the [src]. </span>")
+		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] into  \the [src]. "))
 		can_clone = TRUE
 		return TRUE
 

@@ -38,12 +38,14 @@
 
 	IC.emp_act(severity)
 
-/obj/item/implant/integrated_circuit/examine(mob/user, distance, is_adjacent)
-	return IC.examine(user, distance, is_adjacent)
+/obj/item/implant/integrated_circuit/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	SHOULD_CALL_PARENT(FALSE)
 
-/obj/item/implant/integrated_circuit/attackby(var/obj/item/O, var/mob/user)
-	if(O.iscrowbar() || istype(O, /obj/item/device/integrated_electronics) || istype(O, /obj/item/integrated_circuit) || O.isscrewdriver() || istype(O, /obj/item/cell/device) )
-		IC.attackby(O, user)
+	return IC.examine(user, distance, is_adjacent, infix, suffix, show_extended)
+
+/obj/item/implant/integrated_circuit/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar() || istype(attacking_item, /obj/item/device/integrated_electronics) || istype(attacking_item, /obj/item/integrated_circuit) || attacking_item.isscrewdriver() || istype(attacking_item, /obj/item/cell/device) )
+		IC.attackby(attacking_item, user)
 	else
 		..()
 

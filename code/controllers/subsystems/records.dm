@@ -188,7 +188,7 @@ SUBSYSTEM_DEF(records)
 	update_static_data_for_all_viewers()
 
 /datum/controller/subsystem/records/ui_state(mob/user)
-	return always_state
+	return GLOB.always_state
 
 /datum/controller/subsystem/records/ui_status(mob/user, datum/ui_state/state)
 	return (isnewplayer(user) || isobserver(user) || issilicon(user)) ? UI_INTERACTIVE : UI_CLOSE
@@ -354,6 +354,19 @@ SUBSYSTEM_DEF(records)
 	var/datum/religion/religion = SSrecords.religions[target_religion]
 	if(religion)
 		return religion.get_records_name()
+
+/**
+ * Gets the name of the citizenship to show on records and ID
+ *
+ * * target_citizenship - The citizenship to get the name for, one of the CITIZENSHIP_* constants
+ *
+ * Returns the name of the citizenship (string) or null if the citizenship is not found
+ */
+/datum/controller/subsystem/records/proc/get_citizenship_record_name(var/target_citizenship)
+	SHOULD_NOT_SLEEP(TRUE)
+	var/datum/citizenship/citizenship = SSrecords.citizenships[target_citizenship]
+	if(citizenship)
+		return citizenship.get_records_name()
 
 /datum/controller/subsystem/records/proc/compute_localized_field(var/type)
 	if(!localized_fields[type])

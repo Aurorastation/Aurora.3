@@ -103,7 +103,7 @@
 	closed = TRUE
 
 /datum/tgui_list_input/ui_state(mob/user)
-	return always_state
+	return GLOB.always_state
 
 /datum/tgui_list_input/ui_static_data(mob/user)
 	var/list/data = list()

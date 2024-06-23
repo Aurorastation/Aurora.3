@@ -7,8 +7,13 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/telecomms_outpost.dmm")
-	ban_ruins = list(/datum/map_template/ruin/exoplanet/konyang_zombie_outpost)
+
+	prefix = "konyang/"
+	suffixes = list("telecomms_outpost.dmm")
+
+	ban_ruins = list(/datum/map_template/ruin/exoplanet/konyang_abandoned_outpost)
+
+	unit_test_groups = list(1)
 
 /area/konyang_telecomms_outpost
 	name = "Konyang Telecomms Outpost"
@@ -17,7 +22,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/mineral
-	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
 
 /datum/ghostspawner/human/konyang_telecomms
 	short_name = "konyang_telecomms"
@@ -31,7 +36,7 @@
 	max_count = 2
 
 	extra_languages = list(LANGUAGE_SOL_COMMON)
-	outfit = /datum/outfit/admin/konyang_army
+	outfit = /obj/outfit/admin/konyang/army
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -42,7 +47,7 @@
 	culture_restriction = list(/singleton/origin_item/culture/solarian)
 	origin_restriction = list(/singleton/origin_item/origin/konyang)
 
-/datum/outfit/admin/konyang_army
+/obj/outfit/admin/konyang/army
 	name = "Konyang Army"
 	uniform = /obj/item/clothing/under/rank/konyang
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -52,7 +57,7 @@
 	back = /obj/item/storage/backpack/rucksack/green
 	id = /obj/item/card/id/konyang_army
 
-/datum/outfit/admin/konyang_army/get_id_access()
+/obj/outfit/admin/konyang/army/get_id_access()
 	return list(ACCESS_KONYANG_POLICE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /obj/item/card/id/konyang_army

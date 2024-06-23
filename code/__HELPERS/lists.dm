@@ -21,6 +21,9 @@
 
 ///Returns a list in plain english as a string
 /proc/english_list(list/input, nothing_text = "nothing", and_text = " and ", comma_text = ", ", final_comma_text = "" )
+	SHOULD_BE_PURE(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/total = length(input)
 	switch(total)
 		if (0)
@@ -33,10 +36,8 @@
 			var/output = ""
 			var/index = 1
 			while (index < total)
-				if (index == total - 1)
-					comma_text = final_comma_text
-
-				output += "[input[index]][comma_text]"
+				//Slightly reformatted from overriding `comma_text` from the TG version as flags it as breaking purity otherwise
+				output += "[input[index]][(index == total - 1) ? final_comma_text : comma_text]"
 				index++
 
 			return "[output][and_text][input[index]]"
@@ -252,11 +253,11 @@
 	var/item
 	for (item in L)
 		if (isnull(L[item]))
-		//Change by nanako, a default weight will no longer overwrite an explicitly set weight of 0
+		//A default weight will no longer overwrite an explicitly set weight of 0
 		//It will only use a default if no weight is defined
 			L[item] = 1
 		total += L[item]
-	total = rand() * total//Fix by nanako, allows it to handle noninteger weights
+	total = rand() * total//Allows it to handle noninteger weights
 	for (item in L)
 		total -= L[item]
 		if (total <= 0)
@@ -293,6 +294,22 @@
 		if(L[i] == element)
 			return L[i+1]
 	return L[1]
+
+/// Returns the value after the current value in a key-value pair associated list. If this is the last element, or the element isn't present in the list, it'll return the first value in the list
+/proc/next_in_assoc_list(element, list/our_list)
+	// this is the index we'll use to get the key at the end of the function, which is used to get the value
+	var/index = 1
+
+	// loop through to the list to find where exactly our value element is in the list
+	for(var/i in 1 to length(our_list))
+		if(our_list[our_list[i]] == element)
+			// we've found our value, now we need to check if it's at the end of the list
+			// if not, we can select our index + 1
+			// First element in the list if we're at the end of it, next one otherwise
+			index = ((i == length(our_list)) ? 1 : i + 1)
+			break
+
+	return our_list[our_list[index]]
 
 /*
  * Sorting

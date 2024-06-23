@@ -7,6 +7,7 @@
 	idle_power_usage = 300
 	active_power_usage = 300
 	clicksound = /singleton/sound_category/keyboard_sound
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/circuit = null //The path to the circuit board type. If circuit==null, the computer can't be disassembled.
 	var/processing = 0
@@ -14,6 +15,7 @@
 	var/icon_screen = "computer_generic"
 	var/icon_scanline
 	var/icon_keyboard = "green_key"
+	var/icon_keyboard_emis = "green_key_mask"
 	var/light_range_on = 2
 	var/light_power_on = 1.3
 	var/overlay_layer
@@ -30,7 +32,7 @@
 	update_icon()
 
 /obj/machinery/computer/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = TRUE)
-	if(inoperable() || isNotStationLevel(z) || user.stat)
+	if(!operable() || isNotStationLevel(z) || user.stat)
 		user.unset_machine()
 		return
 
@@ -69,14 +71,14 @@
 /obj/machinery/computer/update_icon()
 	switch(dir)
 		if(NORTH)
-			layer = ABOVE_MOB_LAYER
+			layer = ABOVE_HUMAN_LAYER
 		if(SOUTH)
-			layer = initial(layer)
+			reset_plane_and_layer()
 		if(EAST)
-			layer = ABOVE_MOB_LAYER
+			layer = ABOVE_HUMAN_LAYER
 		if(WEST)
-			layer = ABOVE_MOB_LAYER
-	cut_overlays()
+			layer = ABOVE_HUMAN_LAYER
+	ClearOverlays()
 	if(stat & NOPOWER)
 		set_light(0)
 		return
@@ -103,23 +105,45 @@
 	if(stat & BROKEN)
 		icon_state = "[icon_state]-broken"
 		if (overlay_layer != layer)
-			add_overlay(image(icon, icon_broken, overlay_layer))
+			AddOverlays(image(icon, icon_broken, overlay_layer))
 		else
-			add_overlay(icon_broken)
+			AddOverlays(icon_broken)
 	else if (icon_screen)
 		if (is_holographic)
-			holographic_overlay(src, src.icon, icon_screen)
+			var/mutable_appearance/screen_overlay = overlay_image(src.icon, icon_screen)
+			var/mutable_appearance/screen_overlay_holographic = overlay_image(src.icon, icon_screen)
+			screen_overlay_holographic.filters += filter(type="color", color=list(
+				0, 0, 0, 0,
+				0, 0, 0, 0,
+				0, 0, 0, 0,
+				HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+			))
+			screen_overlay.filters += filter(type="color", color=list(
+				HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+				0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+				0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+				0, 0, 0, 1
+			))
+			screen_overlay.blend_mode = BLEND_ADD
+			screen_overlay_holographic.blend_mode = BLEND_MULTIPLY
+			var/mutable_appearance/screen_overlay_emis = emissive_appearance(src.icon, icon_screen)
+			AddOverlays(screen_overlay_holographic)
+			AddOverlays(screen_overlay)
+			AddOverlays(screen_overlay_emis)
 		if (icon_scanline)
-			add_overlay(icon_scanline)
+			AddOverlays(icon_scanline)
 		if (icon_keyboard)
 			if((stat & NOPOWER) && has_off_keyboards)
-				add_overlay("[icon_keyboard]_off")
+				AddOverlays("[icon_keyboard]_off")
 			else
-				add_overlay(icon_keyboard)
+				AddOverlays(icon_keyboard)
+				if(icon_keyboard_emis)
+					var/mutable_appearance/emis = emissive_appearance(icon, icon_keyboard_emis)
+					AddOverlays(emis)
 		else if (overlay_layer != layer)
-			add_overlay(image(icon, icon_screen, overlay_layer))
+			AddOverlays(image(icon, icon_screen, overlay_layer))
 		else
-			add_overlay(icon_screen)
+			AddOverlays(icon_screen)
 
 /obj/machinery/computer/power_change()
 	..()
@@ -139,10 +163,10 @@
 	text = replacetext(text, "\n", "<BR>")
 	return text
 
-/obj/machinery/computer/attackby(var/obj/item/W as obj, user as mob)
-	if(W.isscrewdriver())
+/obj/machinery/computer/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(circuit)
-			if(W.use_tool(src, user, 20, volume = 50))
+			if(attacking_item.use_tool(src, user, 20, volume = 50))
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 				var/obj/item/circuitboard/M = new circuit(A)
 				A.circuit = M
@@ -162,7 +186,7 @@
 				qdel(src)
 		else if(stat & BROKEN)
 			to_chat(user, SPAN_NOTICE("You start fixing \the [src]..."))
-			if(W.use_tool(src, user, 5 SECONDS, volume = 50))
+			if(attacking_item.use_tool(src, user, 5 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You fix the console's screen and tie up a few loose cables."))
 				stat &= ~BROKEN
 				update_icon()
@@ -180,7 +204,7 @@
 			return 1
 		else
 			return 0
-	else if(mover.checkpass(PASSTABLE) && can_pass_under)
+	else if((mover.pass_flags & PASSTABLE) && can_pass_under)
 //Animals can run under them, lots of empty space
 		return 1
 	return ..()

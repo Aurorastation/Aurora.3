@@ -17,7 +17,7 @@
 	icon_state = "mixer0"
 	use_power = POWER_USE_IDLE
 	idle_power_usage = 20
-	layer = 2.9
+	layer = BELOW_OBJ_LAYER
 	clicksound = /singleton/sound_category/button_sound
 
 	var/obj/item/reagent_containers/glass/beaker = null
@@ -64,40 +64,41 @@
 	if(!use_check_and_message(usr))
 		eject()
 
-/obj/machinery/chem_master/attackby(var/obj/item/B, mob/user)
+/obj/machinery/chem_master/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(B, /obj/item/reagent_containers/glass))
+	if(istype(attacking_item, /obj/item/reagent_containers/glass))
 
 		if(src.beaker)
 			to_chat(user, SPAN_WARNING("A beaker is already loaded into the machine."))
 			return
-		if(is_type_in_list(B, forbidden_containers))
-			to_chat(user, SPAN_WARNING("There's no way to fit [B] into \the [src]!"))
+		if(is_type_in_list(attacking_item, forbidden_containers))
+			to_chat(user, SPAN_WARNING("There's no way to fit [attacking_item] into \the [src]!"))
 			return
-		src.beaker = B
-		user.drop_from_inventory(B,src)
+		src.beaker = attacking_item
+		user.drop_from_inventory(attacking_item, src)
 		to_chat(user, "You add the beaker to the machine!")
 		src.updateUsrDialog()
 		icon_state = "mixer1"
 		CHEMMASTER_BOTTLE_SOUND
 
-	else if(istype(B, /obj/item/storage/pill_bottle))
+	else if(istype(attacking_item, /obj/item/storage/pill_bottle))
 		if(condi)
 			return
 		if(src.loaded_pill_bottle)
 			to_chat(user, "A pill bottle is already loaded into the machine.")
 			return
 
-		src.loaded_pill_bottle = B
-		user.drop_from_inventory(B,src)
+		src.loaded_pill_bottle = attacking_item
+		user.drop_from_inventory(attacking_item, src)
 		to_chat(user, "You add the pill bottle into the dispenser slot!")
 		src.updateUsrDialog()
-	else if(B.iswrench())
+	else if(attacking_item.iswrench())
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground")
-		playsound(src.loc, B.usesound, 75, 1)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 
-	ui = SStgui.try_update_ui(user, src, ui)
+	if(ui?.user)
+		ui = SStgui.try_update_ui(user, src, ui)
 
 
 /obj/machinery/chem_master/ui_interact(mob/user, datum/tgui/ui)
@@ -311,7 +312,7 @@
 	return src.attack_hand(user)
 
 /obj/machinery/chem_master/attack_hand(mob/user as mob)
-	if(inoperable())
+	if(!operable())
 		return
 	user.set_machine(src)
 	ui_interact(user)
@@ -327,7 +328,7 @@
 	name = "All-In-One Grinder"
 	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	icon_state = "juicer1"
-	layer = 2.99
+	layer = BELOW_OBJ_LAYER
 	density = 0
 	anchored = 0
 	use_power = POWER_USE_IDLE
@@ -366,13 +367,13 @@
 	icon_state = "juicer"+num2text(!isnull(beaker))
 	return
 
-/obj/machinery/reagentgrinder/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if (is_type_in_list(O, beaker_types))
+/obj/machinery/reagentgrinder/attackby(obj/item/attacking_item, mob/user)
+	if (is_type_in_list(attacking_item, beaker_types))
 		if (beaker)
 			return 1
 		else
-			src.beaker =  O
-			user.drop_from_inventory(O,src)
+			src.beaker =  attacking_item
+			user.drop_from_inventory(attacking_item,src)
 			update_icon()
 			src.updateUsrDialog()
 			return 0
@@ -381,12 +382,12 @@
 		to_chat(usr, "The machine cannot hold anymore items.")
 		return 1
 
-	if(!istype(O))
+	if(!istype(attacking_item))
 		return
 
-	if(istype(O,/obj/item/storage/bag/plants) || istype(O,/obj/item/storage/pill_bottle))
+	if(istype(attacking_item,/obj/item/storage/bag/plants) || istype(attacking_item,/obj/item/storage/pill_bottle))
 		var/failed = 1
-		var/obj/item/storage/P = O
+		var/obj/item/storage/P = attacking_item
 		for(var/obj/item/G in P.contents)
 			if(!G.reagents || !G.reagents.total_volume)
 				continue
@@ -400,21 +401,21 @@
 			to_chat(user, "Nothing in the plant bag is usable.")
 			return 1
 
-		if(!O.contents.len)
-			to_chat(user, "You empty \the [O] into \the [src].")
+		if(!attacking_item.contents.len)
+			to_chat(user, "You empty \the [attacking_item] into \the [src].")
 		else
-			to_chat(user, "You fill \the [src] from \the [O].")
+			to_chat(user, "You fill \the [src] from \the [attacking_item].")
 
 		src.updateUsrDialog()
 		return 0
 
-	if(!sheet_reagents[O.type] && (!O.reagents || !O.reagents.total_volume))
-		to_chat(user, "\The [O] is not suitable for blending.")
+	if(!sheet_reagents[attacking_item.type] && (!attacking_item.reagents || !attacking_item.reagents.total_volume))
+		to_chat(user, "\The [attacking_item] is not suitable for blending.")
 		return 0
 
-	user.remove_from_mob(O)
-	O.forceMove(src)
-	holdingitems += O
+	user.remove_from_mob(attacking_item)
+	attacking_item.forceMove(src)
+	holdingitems += attacking_item
 	src.updateUsrDialog()
 	return 0
 
@@ -427,7 +428,7 @@
 	interact(user)
 
 /obj/machinery/reagentgrinder/interact(mob/user as mob) // The microwave Menu
-	if(inoperable())
+	if(!operable())
 		return
 	user.set_machine(src)
 	var/is_chamber_empty = 0
@@ -572,24 +573,28 @@
 	updateUsrDialog()
 
 
-/obj/machinery/reagentgrinder/MouseDrop_T(mob/living/carbon/human/target as mob, mob/user as mob)
+/obj/machinery/reagentgrinder/MouseDrop_T(atom/dropping, mob/user)
+	var/mob/living/carbon/human/target = dropping
 	if (!istype(target) || target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
 		return
 	if(target == user)
 		if(target.h_style == "Floorlength Braid" || target.h_style == "Very Long Hair")
-			user.visible_message("<span class='notice'>[user] looks like they're about to feed their own hair into the [src], but think better of it.</span>", "<span class='notice'>You grasp your hair and are about to feed it into the [src], but stop and come to your sense.</span>")
+			user.visible_message(SPAN_NOTICE("[user] looks like they're about to feed their own hair into the [src], but think better of it."),
+									SPAN_NOTICE("You grasp your hair and are about to feed it into the [src], but stop and come to your sense."))
 			return
 	src.add_fingerprint(user)
 	var/target_loc = target.loc
 	if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
 		if(target.h_style != "Cut Hair" || target.h_style != "Short Hair" || target.h_style != "Skinhead" || target.h_style != "Buzzcut" || target.h_style != "Crewcut" || target.h_style != "Bald" || target.h_style != "Balding Hair")
-			user.visible_message("<span class='warning'>[user] starts feeding [target]'s hair into the [src]!</span>", "<span class='warning'>You start feeding [target]'s hair into the [src]!</span>")
+			user.visible_message(SPAN_WARNING("[user] starts feeding [target]'s hair into the [src]!"),
+									SPAN_WARNING("You start feeding [target]'s hair into the [src]!"))
 		if(!do_after(usr, 50))
 			return
 		if(target_loc != target.loc)
 			return
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
-			user.visible_message("<span class='warning'>[user] feeds the [target]'s hair into the [src] and flicks it on!</span>", "<span class='warning'>You turn the [src] on!</span>")
+			user.visible_message(SPAN_WARNING("[user] feeds the [target]'s hair into the [src] and flicks it on!"),
+									SPAN_WARNING("You turn the [src] on!"))
 			target.apply_damage(30, DAMAGE_BRUTE, BP_HEAD)
 			target.apply_damage(25, DAMAGE_PAIN)
 			target.say("*scream")
@@ -604,12 +609,14 @@
 		if(target_loc != target.loc)
 			return
 		if(target != user && !user.restrained() && !user.stat && !user.weakened && !user.stunned && !user.paralysis)
-			user.visible_message("<span class='warning'>[user] starts tugging on [target]'s head as the [src] keeps running!</span>", "<span class='warning'>You start tugging on [target]'s head!</span>")
+			user.visible_message(SPAN_WARNING("[user] starts tugging on [target]'s head as the [src] keeps running!"),
+									SPAN_WARNING("You start tugging on [target]'s head!"))
 			target.apply_damage(25, DAMAGE_BRUTE, BP_HEAD)
 			target.apply_damage(10, DAMAGE_PAIN)
 			target.say("*scream")
 			spawn(10)
-			user.visible_message("<span class='warning'>[user] stops the [src] and leaves [target] resting as they are.</span>", "<span class='warning'>You turn the [src] off and let go of [target].</span>")
+			user.visible_message(SPAN_WARNING("[user] stops the [src] and leaves [target] resting as they are."),
+									SPAN_WARNING("You turn the [src] off and let go of [target]."))
 
 /obj/machinery/reagentgrinder/verb/Eject()
 	set src in oview(1)
@@ -619,7 +626,7 @@
 	if(use_check_and_message(usr))
 		return
 	usr.visible_message(
-	"<span class='notice'>[usr] opens [src] and has removed [english_list(holdingitems)].</span>"
+	SPAN_NOTICE("[usr] opens [src] and has removed [english_list(holdingitems)].")
 		)
 
 	eject()

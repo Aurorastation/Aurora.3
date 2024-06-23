@@ -46,12 +46,12 @@
 	set category = "Recorder"
 
 	if(!check_rights(R_CCIAA,FALSE))
-		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
+		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Unauthorised user.\"."))
 		return
 	if(use_check_and_message(usr))
 		return
 	if(recording)
-		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Already recording, Aborting\".</span>")
+		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Already recording, Aborting\"."))
 		return
 
 	//If nothing has been done with the device yet
@@ -68,20 +68,20 @@
 
 			var/selection = input(usr, "Select Report","Report Name") as null|anything in reports
 			if(!selection)
-				to_chat(usr, "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>")
+				to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"No data entered, Aborting\"."))
 				return
 			selected_report = reports[selection]
-			to_chat(usr,"<span class='notice'>The device flashes \"Report [selected_report.title] selected, fingerprint of interviewee required\"</span>")
+			to_chat(usr,SPAN_NOTICE("The device flashes \"Report [selected_report.title] selected, fingerprint of interviewee required\""))
 			if(selected_report.internal_topic)
 				send_link(usr, selected_report.internal_topic)
 		else
 			var/report_name = input(usr, "Select Report Name","Report Name") as null|text
 			if(!report_name || report_name == "")
-				to_chat(usr, "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>")
+				to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"No data entered, Aborting\"."))
 				return
 			var/report_id = input(usr, "Select Report ID","Report ID") as null|text
 			if(!report_id || report_id == "")
-				to_chat(usr, "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>")
+				to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"No data entered, Aborting\"."))
 				return
 			selected_report = new(report_id, time2text(world.realtime, "YYYY_MM_DD"), report_name)
 		var/mob/living/carbon/human/H = usr
@@ -90,7 +90,7 @@
 		return
 	//If we are ready to record, but no interviewee is selected
 	else if(selected_report && !interviewee_id)
-		to_chat(usr,"<span class='notice'>The device beeps and flashes \"Fingerprint of interviewee required\"</span>")
+		to_chat(usr,SPAN_NOTICE("The device beeps and flashes \"Fingerprint of interviewee required\""))
 		return
 	//If the report has been selected and the person scanned their frinterprint
 	else if(selected_report && interviewee_id)
@@ -122,7 +122,7 @@
 
 		recording = 1
 		icon_state = "taperecorderrecording"
-		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Writing to [fileName]\".</span>")
+		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Writing to [fileName]\"."))
 
 		return
 
@@ -133,10 +133,10 @@
 	if(use_check_and_message(usr))
 		return
 	if(!check_rights(R_CCIAA,FALSE))
-		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
+		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Unauthorised user.\"."))
 		return
 	if(!recording)
-		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Not recording, Aborting\".</span>")
+		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Not recording, Aborting\"."))
 		return
 
 	recording = FALSE
@@ -172,7 +172,7 @@
 
 		//Check if we need to update the status to review required
 		if(antag_involvement && selected_report.status == "in progress")
-			to_chat(usr, "<span class='notice'>The device beeps and flashes \"Liaison Review Required. Interviewee claimed antag involvement.\".</span>")
+			to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Liaison Review Required. Interviewee claimed antag involvement.\"."))
 			var/DBQuery/update_db = GLOB.dbcon.NewQuery("UPDATE ss13_ccia_reports SET status = 'review required' WHERE id = :id:")
 			update_db.Execute(list("id" = selected_report.id))
 
@@ -182,7 +182,7 @@
 	interviewee_name = null
 	date_string = null
 	antag_involvement = null
-	to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording stopped log saved.\".</span>")
+	to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Recording stopped log saved.\"."))
 	icon_state = "taperecorderidle"
 
 	return
@@ -192,7 +192,7 @@
 	set category = "Recorder"
 
 	if(!check_rights(R_CCIAA,FALSE))
-		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user.\".</span>")
+		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Unauthorised user.\"."))
 		return
 
 	var/confirmation = alert("Do you want to reset the recorder without saving?", "Reset Recorder", "Yes", "No")
@@ -205,7 +205,7 @@
 	interviewee_name = null
 	date_string = null
 	antag_involvement = null
-	to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recorder Reset.\".</span>")
+	to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Recorder Reset.\"."))
 	icon_state = "taperecorderidle"
 
 /obj/item/device/taperecorder/cciaa/proc/get_last_transcript()
@@ -234,10 +234,10 @@
 	if(use_check_and_message(usr))
 		return
 	if(!check_rights(R_CCIAA,FALSE))
-		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user\".</span>")
+		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Unauthorised user\"."))
 		return
 	if(recording)
-		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Device recording, Aborting\".</span>")
+		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Device recording, Aborting\"."))
 		return
 
 	message_admins("[key_name_admin(usr)] accessed file: [last_file_loc]")
@@ -252,22 +252,22 @@
 	if(use_check_and_message(usr))
 		return
 	if(!check_rights(R_CCIAA,FALSE))
-		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Unauthorised user\".</span>")
+		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Unauthorised user\"."))
 		return
 	if(!recording)
-		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Not recording, Aborting\".</span>")
+		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Not recording, Aborting\"."))
 		return
 
 	if(!paused)
 		sLogFile << "--------------------------------"
 		sLogFile << "Recorder paused at: [get_time()]"
-		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording paused\".</span>")
+		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Recording paused\"."))
 		paused = TRUE
 		icon_state = "taperecorderpause"
 	else
 		sLogFile << "Recorder resumed at: [get_time()]"
 		sLogFile << "--------------------------------"
-		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording resumed\".</span>")
+		to_chat(usr, SPAN_NOTICE("The device beeps and flashes \"Recording resumed\"."))
 		paused = FALSE
 		icon_state = "taperecorderrecording"
 	return
@@ -280,17 +280,17 @@
 
 	//Otherwise check if we already registered a interviewee
 	if(interviewee_id)
-		to_chat(user,"<span class='notice'>The device beeps and flashes \"A interviewee has already been associated with this interview\".</span>")
+		to_chat(user,SPAN_NOTICE("The device beeps and flashes \"A interviewee has already been associated with this interview\"."))
 		return
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(!H.character_id)
-			to_chat(user,"<span class='notice'>The device beeps and flashes \"Fingerprint is not recognized\".</span>")
+			to_chat(user,SPAN_NOTICE("The device beeps and flashes \"Fingerprint is not recognized\"."))
 			return
 
 		if(H.character_id == interviewer_id)
-			to_chat(user,"<span class='notice'>You need to pass the recorder to the interviewee to scan their fingerprint.</span>")
+			to_chat(user,SPAN_NOTICE("You need to pass the recorder to the interviewee to scan their fingerprint."))
 			return
 
 		//Sync the intervieweee_id and interviewee_name
@@ -311,12 +311,12 @@
 		else
 			antag_involvement = FALSE
 
-		to_chat(user,"<span class='notice'>The device beeps and flashes \"Fingerprint recognized, Employee: [interviewee_name], ID: [interviewee_id]\".</span>")
+		to_chat(user,SPAN_NOTICE("The device beeps and flashes \"Fingerprint recognized, Employee: [interviewee_name], ID: [interviewee_id]\"."))
 		playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 
 
 	else
-		to_chat(user,"<span class='notice'>The device beeps and flashes \"Unrecognized entity - Aborting\".</span>")
+		to_chat(user,SPAN_NOTICE("The device beeps and flashes \"Unrecognized entity - Aborting\"."))
 		return
 
 //redundent for now
