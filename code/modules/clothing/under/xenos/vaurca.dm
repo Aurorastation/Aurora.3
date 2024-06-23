@@ -14,7 +14,7 @@
 	icon_state = "harness_brown"
 	item_state = "harness_brown"
 	body_parts_covered = 0
-	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_WARFORM)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_ATTENDANT, BODYTYPE_VAURCA_WARFORM)
 
 /obj/item/clothing/under/vaurca/gearharness/white
 	name = "white vaurca harness"

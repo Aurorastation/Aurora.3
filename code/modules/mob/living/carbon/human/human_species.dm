@@ -97,6 +97,30 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 	h_style = "Classic Antennae"
 	. = ..(mapload, SPECIES_VAURCA_WARRIOR)
 	src.gender = NEUTER
+	// Essentially makes you into a Vaurca Attendant if you have the tail
+	var/datum/species/S = GLOB.all_species[tail_style]
+	if(S == "Gaster")
+		S.name = SPECIES_VAURCA_ATTENDANT
+		S.name_plural = "Type BB"
+		S.species_height = HEIGHT_CLASS_HUGE
+		S.height_min = 150
+		S.height_max = 250
+
+		S.slowdown = -0.8
+		S.brute_mod = 1.3
+		S.oxy_mod = 1
+		S.radiation_mod = 0.5
+		S.bleed_mod = 1.5
+		S.burn_mod = 1.2
+		S.sprint_speed_factor = 0.6
+		S.sprint_cost_factor = 0.40
+		S.grab_mod = 1.1
+		S.resist_mod = 4
+		S.standing_jump_range = 3
+
+		S.mob_size = 8
+
+		S.stamina = 100
 
 /mob/living/carbon/human/type_c/Initialize(mapload)
 	. = ..(mapload, SPECIES_VAURCA_BREEDER)

@@ -17,8 +17,10 @@
 
 
 	body_parts_covered = FEET
-	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
+	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK, BODYTYPE_VAURCA_ATTENDANT)
 	contained_sprite = TRUE
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("vaa")
 
 /obj/item/clothing/shoes/vaurca/brown
 	color = "#784020"

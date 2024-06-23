@@ -49,6 +49,9 @@
 	///Vertical offset in pixel used as a baseline for the runechat images (chat text above the mob when it talks)
 	var/floating_chat_y_offset = 8
 
+	var/accessory_x_offset = 0
+	var/accessory_y_offset = 0
+
 	// special consideration should be made when adding new emote types to different species, as they'll be able to initiate it, but their target might not be able to
 	// reciprocate the emote in any way
 	/// An associated list of list, where a list of body parts are the key for a specific emote (ex: list(BP_L_ARM, BP_R_ARM) = /singleton/overhead_emote/highfive)

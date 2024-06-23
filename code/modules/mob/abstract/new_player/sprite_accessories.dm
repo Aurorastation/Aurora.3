@@ -46,6 +46,8 @@
 	/// Required prosthetic types to use this marking, if any. List is "any of". Null means no robotize type required. Empty list means there must be NO robotize type.
 	var/list/robotize_type_required
 
+	var/x_offset = 0
+	var/y_offset = 0
 
 /*
 ////////////////////////////
