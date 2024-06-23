@@ -141,6 +141,21 @@
 	zavodskoi_headwear["zavodskoi pilotka cap, alt"] = /obj/item/clothing/head/sidecap/zavod/alt
 	gear_tweaks += new /datum/gear_tweak/path(zavodskoi_headwear)
 
+/datum/gear/faction/falerio_headwear
+	display_name = "falerio headwear selection"
+	description = "A selection of falerio headwear."
+	path = /obj/item/clothing/head/falerio_hat
+	slot = slot_head
+	faction = "Zavodskoi Interstellar"
+	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet", "Security Personnel")
+
+/datum/gear/faction/falerio_headwear/New()
+	..()
+	var/list/falerio_headwear = list()
+	falerio_headwear["falerio cap"] = /obj/item/clothing/head/falerio_hat
+	falerio_headwear["falerio pith"] = /obj/item/clothing/head/falerio_hat/pith
+	gear_tweaks += new /datum/gear_tweak/path(falerio_headwear)
+
 /datum/gear/faction/zavod_sec_uniforms
 	display_name = "zavodskoi security uniform selection"
 	description = "A selection of zavodskoi security uniforms."
@@ -155,6 +170,7 @@
 	zavod_sec_uniforms["zavodskoi uniform"] = /obj/item/clothing/under/rank/security/zavod/zavodsec
 	zavod_sec_uniforms["zavodskoi uniform, alt"] = /obj/item/clothing/under/rank/security/zavod/zavodsec/alt
 	zavod_sec_uniforms["zavodskoi detective uniform"] = /obj/item/clothing/under/det/zavod/alt
+	zavod_sec_uniforms["falerio uniform"] = /obj/item/clothing/under/rank/security/zavod/falerio_uniform
 	gear_tweaks += new /datum/gear_tweak/path(zavod_sec_uniforms)
 
 /datum/gear/faction/zavodskoi_labcoat
@@ -191,6 +207,7 @@
 	var/list/zavod_sec_coat = list()
 	zavod_sec_coat["zavodskoi security coat"] = /obj/item/clothing/suit/storage/security/officer/zav
 	zavod_sec_coat["zavodskoi security coat, alt"] = /obj/item/clothing/suit/storage/security/officer/zav/alt
+	zavod_sec_coat["falerio coat"] = /obj/item/clothing/suit/storage/zavod/falerio
 	gear_tweaks += new /datum/gear_tweak/path(zavod_sec_coat)
 
 /datum/gear/faction/zavod_warden_coat
@@ -260,7 +277,7 @@
 // PMCG
 /datum/gear/faction/pmc_sunglasses
 	display_name = "PMCG security HUD selection"
-	description = "A selection of PMCG security HUDs."
+	description = " Standard-issue fatigues used by the contractors of Falerio Security Services."
 	path = /obj/item/clothing/glasses/sunglasses/sechud/pmc
 	slot = slot_glasses
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator", "Security Personnel")
