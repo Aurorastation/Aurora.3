@@ -99,7 +99,7 @@
 
 		stamina = 100
 	else
-	 . = ..()
+		. = ..()
 
 /datum/species/bug/type_c
 	name = SPECIES_VAURCA_BREEDER
