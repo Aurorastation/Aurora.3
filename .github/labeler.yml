@@ -2,9 +2,6 @@
 Database:
 - SQL/**
 
-'🗺️ Mapping - Aurora':
-- maps/aurora/**
-
 '🗺️ Mapping - Away Ship/Away Site':
 - maps/away/**
 
