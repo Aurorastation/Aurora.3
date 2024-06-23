@@ -47,7 +47,59 @@
 
 	valid_prosthetics = list(PROSTHETIC_VAURCA, PROSTHETIC_VAURCA_WARRIOR)
 
+	tail = "No Gaster"
+	tail_animation = 'icons/mob/species/vaurca/tail.dmi'
+	selectable_tails = list("No Gaster", "Gaster")
 
+/datum/species/bug/type_b/before_equip(var/mob/living/carbon/human/H)
+	. = ..()
+	if(H.tail_style == "No Gaster")
+		name = initial(name)
+		name_plural = initial(name_plural)
+		species_height = initial(species_height)
+
+		slowdown = initial(slowdown)
+		brute_mod = initial(brute_mod)
+		oxy_mod = initial(oxy_mod)
+		radiation_mod = initial(radiation_mod)
+		bleed_mod = initial(bleed_mod)
+		burn_mod = initial(burn_mod)
+		sprint_speed_factor = initial(sprint_speed_factor)
+		sprint_cost_factor = initial(sprint_cost_factor)
+		grab_mod = initial(grab_mod)
+		resist_mod = initial(resist_mod)
+		standing_jump_range = initial(standing_jump_range)
+
+		mob_size = initial(mob_size)
+		blurb = initial(blurb)
+
+		stamina = initial(stamina)
+	// Essentially makes you into a Vaurca Attendant if you have the tail
+	if(H.tail_style == "Gaster")
+		name = SPECIES_VAURCA_ATTENDANT
+		name_plural = "Type BB"
+		species_height = HEIGHT_CLASS_HUGE
+
+		slowdown = -0.8
+		brute_mod = 1.3
+		oxy_mod = 1
+		radiation_mod = 0.5
+		bleed_mod = 1.5
+		burn_mod = 1.2
+		sprint_speed_factor = 0.6
+		sprint_cost_factor = 0.40
+		grab_mod = 1.1
+		resist_mod = 4
+		standing_jump_range = 3
+
+		mob_size = 8
+		blurb = "Type BB Warriors or \"Attendants\" are digitigrade bipeds, built to be agile and quick. They are primarily made to be scouts or serve in support positions and they \
+				excel at guerilla tactics. They can possess the same roles as regular warriors, but their speed-built forms are not as hardy. They are commonly attributed to the role of combat \
+				medics, providing medical assistance on the field, or removal of the neural socket if the individual cannot be saved." //Copied from the wiki
+
+		stamina = 100
+	else
+	 . = ..()
 
 /datum/species/bug/type_c
 	name = SPECIES_VAURCA_BREEDER
@@ -95,7 +147,6 @@
 	damage_mask = 'icons/mob/human_races/masks/dam_mask_breeder.dmi'
 	blood_mask = 'icons/mob/human_races/masks/blood_breeder.dmi'
 	canvas_icon = 'icons/mob/base_48.dmi'
-
 
 	stamina = 175
 	sprint_speed_factor = 1

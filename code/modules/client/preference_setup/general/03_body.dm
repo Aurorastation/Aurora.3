@@ -527,6 +527,8 @@ var/global/list/valid_bloodtypes = list(
 		var/new_tail_style = tgui_input_list(user, "Choose your character's tail style:", "Character Preference", mob_species.selectable_tails, pref.tail_style)
 		if(new_tail_style && CanUseTopic(user))
 			pref.tail_style = new_tail_style
+			if(pref.species == SPECIES_VAURCA_WARRIOR)
+				to_chat(pref.client, SPAN_WARNING("Bioform updated! See your species blurb for more info."))
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["hair_style"] || href_list["next_hair_style"] || href_list["previous_hair_style"])
