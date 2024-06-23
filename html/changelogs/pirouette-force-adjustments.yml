@@ -2,4 +2,4 @@ author: Pirouette
 delete-after: True
 changes:
   - balance: "Buffed the force of energy melee weapons in line with prior buffs to non-energy weapons."
-  - balance: "Buffed the force of maglights to be in line with other items of similar caliber."
+  - balance: "Buffed the force of maglights."
