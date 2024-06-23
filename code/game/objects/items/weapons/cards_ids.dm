@@ -392,15 +392,27 @@ var/const/NO_EMAG_ACT = -50
 	access = get_all_station_access() | get_all_centcom_access()
 	..()
 
-/obj/item/card/id/command
-	desc = "A high-tech holocard displaying the credentials of a Command member."
-	icon_state = "command_card"
-/obj/item/card/id/command/captain
-	desc = "A high-tech holocard displaying the commanding credentials of a ship captain."
-	icon_state = "captain_card"
-/obj/item/card/id/command/bridge
-	desc = "A high-tech holocard displaying the lowly credentials of a Bridge Crewman."
+// SCC ID cards
+
+/obj/item/card/id/scc
+	desc = "A high-tech holocard displaying the credentials of a SCC employee."
 	icon_state = "bridge_card"
+
+/obj/item/card/id/scc/bridge
+	desc = "A high-tech holocard displaying the lowly credentials of a SCC bridge crewman."
+	icon_state = "bridge_card"
+
+/obj/item/card/id/scc/silver
+	desc = "A high-tech holocard displaying the credentials of a SCC command member."
+	icon_state = "command_card"
+
+/obj/item/card/id/scc/gold
+	desc = "A high-tech holocard displaying the intimidating credentials of a SCC employee."
+	icon_state = "captain_card"
+
+/obj/item/card/id/scc/gold/captain
+	desc = "A high-tech holocard displaying the commanding credentials of a SCC captain."
+	icon_state = "captain_card"
 
 /obj/item/card/id/captains_spare
 	name = "captain's spare identification card"
