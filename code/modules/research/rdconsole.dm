@@ -32,6 +32,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	icon_screen = "rdcomp"
 	icon_keyboard = "purple_key"
+	icon_keyboard_emis = "purple_key_mask"
 	light_color = LIGHT_COLOR_PURPLE
 
 	circuit = /obj/item/circuitboard/rdconsole
@@ -160,10 +161,10 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		else if (istype(attacking_item, /obj/item/disk/design_disk))
 			d_disk = attacking_item
 		else
-			to_chat(user, "<span class='notice'>Machine cannot accept disks in that format.</span>")
+			to_chat(user, SPAN_NOTICE("Machine cannot accept disks in that format."))
 			return
 		user.drop_from_inventory(attacking_item, src)
-		to_chat(user, "<span class='notice'>You add \the [attacking_item] to the machine.</span>")
+		to_chat(user, SPAN_NOTICE("You add \the [attacking_item] to the machine."))
 	else
 		//The construction/deconstruction of the console code.
 		..()
@@ -177,7 +178,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	if(!emagged)
 		playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 		emagged = 1
-		to_chat(usr, "<span class='notice'>You you disable the security protocols.</span>")
+		to_chat(usr, SPAN_NOTICE("You you disable the security protocols."))
 		return 1
 
 /obj/machinery/computer/rdconsole/Topic(href, href_list)
@@ -242,7 +243,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	else if(href_list["eject_item"]) //Eject the item inside the destructive analyzer.
 		if(linked_destroy)
 			if(linked_destroy.busy)
-				to_chat(usr, "<span class='notice'>The destructive analyzer is busy at the moment.</span>")
+				to_chat(usr, SPAN_NOTICE("The destructive analyzer is busy at the moment."))
 
 			else if(linked_destroy.loaded_item)
 				linked_destroy.loaded_item.forceMove(linked_destroy.loc)
@@ -255,7 +256,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	else if(href_list["deconstruct"]) //Deconstruct the item in the destructive analyzer and update the research holder.
 		if(linked_destroy)
 			if(linked_destroy.busy)
-				to_chat(usr, "<span class='notice'>The destructive analyzer is busy at the moment.</span>")
+				to_chat(usr, SPAN_NOTICE("The destructive analyzer is busy at the moment."))
 			else
 				if(alert("Proceeding will destroy loaded item. Continue?", "Destructive analyzer confirmation", "Yes", "No") == "No" || !linked_destroy)
 					return
@@ -267,7 +268,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 					if(linked_destroy)
 						linked_destroy.busy = 0
 						if(!linked_destroy.loaded_item)
-							to_chat(usr, "<span class='notice'>The destructive analyzer appears to be empty.</span>")
+							to_chat(usr, SPAN_NOTICE("The destructive analyzer appears to be empty."))
 							screen = 1.0
 							return
 
@@ -309,7 +310,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 	else if(href_list["sync"]) //Sync the research holder with all the R&D consoles in the game that aren't sync protected.
 		screen = 0.0
 		if(!sync)
-			to_chat(usr, "<span class='notice'>You must connect to the network first.</span>")
+			to_chat(usr, SPAN_NOTICE("You must connect to the network first."))
 		else
 			griefProtection() //Putting this here because I dont trust the sync process
 			addtimer(CALLBACK(src, PROC_REF(SyncTechs)), 30)
@@ -347,23 +348,23 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 		screen = 4.1
 		updateUsrDialog()
 
-	else if(href_list["disposeI"] && linked_imprinter)  //Causes the circuit imprinter to dispose of a single reagent (all of it)
-		linked_imprinter.reagents.del_reagent(href_list["dispose"])
+	else if(href_list["disposeI"])  //Causes the circuit imprinter to dispose of a single reagent (all of it)
+		linked_imprinter?.reagents.del_reagent(href_list["disposeI"])
 
-	else if(href_list["disposeallI"] && linked_imprinter) //Causes the circuit imprinter to dispose of all it's reagents.
-		linked_imprinter.reagents.clear_reagents()
+	else if(href_list["disposeallI"]) //Causes the circuit imprinter to dispose of all it's reagents.
+		linked_imprinter?.reagents.clear_reagents()
 
-	else if(href_list["removeI"] && linked_lathe)
-		linked_imprinter.removeFromQueue(text2num(href_list["removeI"]))
+	else if(href_list["removeI"])
+		linked_imprinter?.removeFromQueue(text2num(href_list["removeI"]))
 
-	else if(href_list["disposeP"] && linked_lathe)  //Causes the protolathe to dispose of a single reagent (all of it)
-		linked_lathe.reagents.del_reagent(href_list["dispose"])
+	else if(href_list["disposeP"])  //Causes the protolathe to dispose of a single reagent (all of it)
+		linked_lathe?.reagents.del_reagent(href_list["dispose"])
 
-	else if(href_list["disposeallP"] && linked_lathe) //Causes the protolathe to dispose of all it's reagents.
-		linked_lathe.reagents.clear_reagents()
+	else if(href_list["disposeallP"]) //Causes the protolathe to dispose of all it's reagents.
+		linked_lathe?.reagents.clear_reagents()
 
-	else if(href_list["removeP"] && linked_lathe)
-		linked_lathe.removeFromQueue(text2num(href_list["removeP"]))
+	else if(href_list["removeP"])
+		linked_lathe?.removeFromQueue(text2num(href_list["removeP"]))
 
 	else if(href_list["lathe_ejectsheet"] && linked_lathe) //Causes the protolathe to eject a sheet of material
 		var/num_sheets = min(text2num(href_list["amount"]), round(linked_lathe.materials[href_list["lathe_ejectsheet"]] / SHEET_MATERIAL_AMOUNT))

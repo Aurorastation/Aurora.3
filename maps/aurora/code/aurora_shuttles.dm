@@ -286,7 +286,6 @@ AURORA_ESCAPE_POD(4)
 		"nav_skipjack_toxins"
 		)
 
-	landmark_transition = "nav_skipjack_interim"
 	announcer = "NDV Icarus"
 	arrival_message = "Attention, we just tracked a small target bypassing our defensive perimeter. Can't fire on it without hitting the station - you've got incoming visitors, like it or not."
 	departure_message = "Attention, your guests are pulling away - moving too fast for us to draw a bead on them. Looks like they're heading out of the system at a rapid clip."
@@ -347,7 +346,6 @@ AURORA_ESCAPE_POD(4)
 		"nav_merc_caverns"
 		)
 
-	landmark_transition = "nav_merc_interim"
 	announcer = "NDV Icarus"
 	arrival_message = "Attention, you have a large signature approaching the station - looks unarmed to surface scans. We're too far out to intercept - brace for visitors."
 	departure_message = "Attention, your visitors are on their way out of the system, burning delta-v like it's nothing. Good riddance."

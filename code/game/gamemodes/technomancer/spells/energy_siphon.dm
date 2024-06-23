@@ -33,15 +33,15 @@
 	if(!siphoning)
 		return
 	if(!pay_energy(100))
-		to_chat(owner, "<span class='warning'>You can't afford to maintain the siphon link!</span>")
+		to_chat(owner, SPAN_WARNING("You can't afford to maintain the siphon link!"))
 		stop_siphoning()
 		return
 	if(get_dist(siphoning, get_turf(src)) > 4)
-		to_chat(owner, "<span class='warning'>\The [siphoning] is too far to drain from!</span>")
+		to_chat(owner, SPAN_WARNING("\The [siphoning] is too far to drain from!"))
 		stop_siphoning()
 		return
 	if(!(siphoning in view(owner)))
-		to_chat(owner, "<span class='warning'>\The [siphoning] cannot be seen!</span>")
+		to_chat(owner, SPAN_WARNING("\The [siphoning] cannot be seen!"))
 		stop_siphoning()
 		return
 	siphon(siphoning, owner)
@@ -54,7 +54,7 @@
 		var/atom/movable/AM = hit_atom
 		populate_siphon_list(AM)
 		if(!things_to_siphon.len)
-			to_chat(user, "<span class='warning'>You cannot steal energy from \a [AM].</span>")
+			to_chat(user, SPAN_WARNING("You cannot steal energy from \a [AM]."))
 			return 0
 		siphoning = AM
 		update_icon()
@@ -137,7 +137,7 @@
 	// Now we can actually fill up the core.
 	if(core.energy < core.max_energy)
 		give_energy(charge_to_give)
-		to_chat(user, "<span class='notice'>Stolen [charge_to_give * CELLRATE] kJ and converted to [charge_to_give] Core energy.</span>")
+		to_chat(user, SPAN_NOTICE("Stolen [charge_to_give * CELLRATE] kJ and converted to [charge_to_give] Core energy."))
 		if((core.max_energy - core.energy) < charge_to_give ) // We have some overflow, if this is true.
 			if(user.isSynthetic() && ishuman(user)) // Let's do something with it, if we're a robot.
 				var/mob/living/carbon/human/H = user
@@ -145,13 +145,13 @@
 				var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
 				var/obj/item/cell/potato = C.get_cell()
 				potato.give(charge_to_give)
-				to_chat(user, "<span class='notice'>Redirected energy to internal microcell.</span>")
+				to_chat(user, SPAN_NOTICE("Redirected energy to internal microcell."))
 	else
-		to_chat(user, "<span class='notice'>Stolen [charge_to_give * CELLRATE] kJ.</span>")
+		to_chat(user, SPAN_NOTICE("Stolen [charge_to_give * CELLRATE] kJ."))
 	adjust_instability(2)
 
 	if(flow_remaining == flow_rate) // We didn't drain anything.
-		to_chat(user, "<span class='warning'>\The [siphoning] cannot be drained any further.</span>")
+		to_chat(user, SPAN_WARNING("\The [siphoning] cannot be drained any further."))
 		stop_siphoning()
 
 /obj/item/spell/energy_siphon/update_icon()
@@ -163,15 +163,14 @@
 
 /obj/item/spell/energy_siphon/proc/create_lightning(mob/user, atom/source)
 	if(user && source && user != source)
-		spawn(0)
-			var/i = 7 // process() takes two seconds to tick, this ensures the appearance of a ongoing beam.
-			while(i)
-				var/obj/item/projectile/beam/lightning/energy_siphon/lightning = new(get_turf(source))
-				lightning.firer = user
-				lightning.old_style_target(user)
-				lightning.fire()
-				i--
-				sleep(3)
+		var/i = 7 // process() takes two seconds to tick, this ensures the appearance of a ongoing beam.
+		while(i)
+			var/obj/item/projectile/beam/lightning/energy_siphon/lightning = new(get_turf(source))
+			lightning.firer = user
+			lightning.old_style_target(user)
+			lightning.fire()
+			i--
+			sleep(3)
 
 /obj/item/projectile/beam/lightning/energy_siphon
 	name = "energy stream"

@@ -227,7 +227,9 @@
 
 	take_damage(damage)
 
-/obj/effect/blob/fire_act()
+/obj/effect/blob/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	take_damage(rand(5, 20) / fire_resist)
 
 #define CORE_SHIELD_HIGH "high"

@@ -252,6 +252,7 @@
 	zavodskoicape["zavodskoi dominia cape, strelitz"] = /obj/item/clothing/accessory/poncho/dominia_cape/strelitz/zavod
 	zavodskoicape["zavodskoi dominia cape, volvalaad"] = /obj/item/clothing/accessory/poncho/dominia_cape/volvalaad/zavod
 	zavodskoicape["zavodskoi dominia cape, kazhkz"] = /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz/zavod
+	zavodskoicape["zavodskoi dominia cape, han'san"] = /obj/item/clothing/accessory/poncho/dominia_cape/hansan/zavod
 	zavodskoicape["zavodskoi dominia cape, caladius"] = /obj/item/clothing/accessory/poncho/dominia_cape/caladius/zavod
 	zavodskoicape["zavodskoi dominia cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao/zavod
 	gear_tweaks += new /datum/gear_tweak/path(zavodskoicape)
@@ -283,7 +284,7 @@
 	description = "A selection of PMCG medical HUDs."
 	path = /obj/item/clothing/glasses/hud/health/aviator/pmc
 	slot = slot_glasses
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Medical Personnel")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Medical Personnel")
 	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/pmc_medglasses/New()
@@ -347,6 +348,7 @@
 	pmcg_headwear["PMCG woolen hat"] = /obj/item/clothing/head/wool/pmc
 	pmcg_headwear["EPMC woolen hat"] = /obj/item/clothing/head/wool/pmc/alt
 	pmcg_headwear["PMCG garrison cap"] = /obj/item/clothing/head/sidecap/pmcg
+	pmcg_headwear["Grupo Amapola utility cover"] = /obj/item/clothing/head/grupo_amapola/ute
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_headwear)
 
 /datum/gear/faction/pmc_modsuit
@@ -375,7 +377,9 @@
 	pmcg_sec_uniforms["wildlands squadron uniform"] = /obj/item/clothing/under/rank/security/pmc/wildlands_squadron
 	pmcg_sec_uniforms["Dagamuir Freewater uniform"] = /obj/item/clothing/under/rank/security/pmc/dagamuir_freewater
 	pmcg_sec_uniforms["Ve'katak Phalanx uniform"] = /obj/item/clothing/under/rank/security/pmc/vekatak_phalanx
+	pmcg_sec_uniforms["Grupo Amapola uniform"] = /obj/item/clothing/under/rank/security/pmc/grupo_amapola
 	gear_tweaks += new /datum/gear_tweak/path(pmcg_sec_uniforms)
+	gear_tweaks += list(gear_tweak_uniform_rolled_state)
 
 /datum/gear/faction/erisec_patch
 	display_name = "EPMC sleeve patch"
@@ -424,21 +428,21 @@
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Medical Intern", "Medical Personnel")
 
-/datum/gear/faction/epmc_uniform_fr_med
-	display_name = "PMCG/EPMC first responder uniform"
-	path = /obj/item/clothing/under/rank/medical/first_responder/pmc/epmc
+/datum/gear/faction/epmc_uniform_para_med
+	display_name = "PMCG/EPMC paramedic uniform"
+	path = /obj/item/clothing/under/rank/medical/paramedic/pmc/epmc
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
-	allowed_roles = list("First Responder", "Medical Personnel")
+	allowed_roles = list("Paramedic", "Medical Personnel")
 
-/datum/gear/faction/epmc_uniform_fr_med/New()
+/datum/gear/faction/epmc_uniform_para_med/New()
 	..()
-	var/list/epmc_uniform_fr_med = list()
-	epmc_uniform_fr_med["EPMC first responder uniform"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/epmc
-	epmc_uniform_fr_med["PMCG first responder uniform, alt"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/alt
-	epmc_uniform_fr_med["Sekhmet Intergalactic first responder uniform"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/sekh
-	epmc_uniform_fr_med["Ve'katak Phalanx first responder uniform"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/vekatak_phalanx
-	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_fr_med)
+	var/list/epmc_uniform_para_med = list()
+	epmc_uniform_para_med["EPMC paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/epmc
+	epmc_uniform_para_med["PMCG paramedic uniform, alt"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/alt
+	epmc_uniform_para_med["Sekhmet Intergalactic paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/sekh
+	epmc_uniform_para_med["Ve'katak Phalanx paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/vekatak_phalanx
+	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_para_med)
 
 /datum/gear/faction/wildlands_flagpatches
 	display_name = "wildlands flagpatch selection"
@@ -472,6 +476,14 @@
 	allowed_roles = list("Assistant", "Off-Duty Crew Member")
 	faction = "Private Military Contracting Group"
 	slot = slot_w_uniform
+
+/datum/gear/faction/grupo_amapola_officer
+	display_name = "grupo amapola officer cap"
+	path = /obj/item/clothing/head/grupo_amapola
+	flags = GEAR_HAS_DESC_SELECTION
+	allowed_roles = list("Head of Security")
+	faction = "Private Military Contracting Group"
+	slot = slot_head
 
 //Zeng-Hu
 /datum/gear/faction/zenghu_beret
@@ -508,7 +520,7 @@
 	zenghu_labcoats["zeng-hu letterman labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/letterman/alt
 	zenghu_labcoats["zeng-hu letterman labcoat, classic"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/letterman/alt2
 	zenghu_labcoats["zeng-hu labcoat, long"] = /obj/item/clothing/suit/storage/toggle/longcoat/zeng
-	zenghu_labcoats["zeng-hu first responder jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
+	zenghu_labcoats["zeng-hu paramedic jacket"] = /obj/item/clothing/suit/storage/toggle/para_jacket/zeng
 	zenghu_labcoats["zeng-hu corporate jacket"] = /obj/item/clothing/suit/storage/toggle/corp/zeng
 	zenghu_labcoats["zeng-hu corporate jacket, alt"] = /obj/item/clothing/suit/storage/toggle/corp/zeng/alt
 	zenghu_labcoats["zeng-hu winter coat"] = /obj/item/clothing/suit/storage/hooded/wintercoat/zeng
@@ -538,7 +550,7 @@
 	description = "A selection of Zeng-Hu medical HUDs."
 	path = /obj/item/clothing/glasses/hud/health/aviator/zeng
 	slot = slot_glasses
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Medical Personnel")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Medical Personnel")
 	faction = "Zeng-Hu Pharmaceuticals"
 
 /datum/gear/faction/zeng_medglasses/New()
@@ -634,7 +646,7 @@
 	description = "A selection of NanoTrasen medical HUDs."
 	path = /obj/item/clothing/glasses/hud/health/aviator/nt
 	slot = slot_glasses
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Medical Personnel")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Medical Personnel")
 	faction = "NanoTrasen"
 
 /datum/gear/faction/nt_medglasses/New()

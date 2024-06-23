@@ -573,6 +573,19 @@
 /obj/structure/sign/flag/ouerea/old/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+/obj/item/flag/fishingleague
+	name = "\improper Fishing League flag"
+	desc = "The standard of the Fishing League guild."
+	flag_path = "fishingleague"
+	flag_structure = /obj/structure/sign/flag/fishingleague
+
+/obj/structure/sign/flag/fishingleague
+	name = "\improper Fishing League flag"
+	desc = "The standard of the Fishing League guild."
+	icon_state = "fishingleague"
+	flag_path = "fishingleague"
+	flag_item = /obj/item/flag/fishingleague
+
 // Nralakk
 
 /obj/item/flag/nralakk
@@ -2717,7 +2730,7 @@
 
 /obj/item/flag/messa
 	name = "\improper Messa Banner"
-	desc = "A banner with the symbol of Messa, the Adhomian god of life, fertility, sunlight, youthful energy, and everything associated with the time of summer and daylight."
+	desc = "A banner with the symbol of Messa, the Adhomian goddess of inevitability, old age, and winter, but also of guidance, wisdom, protection, and patience."
 	flag_path = "messa"
 	flag_structure = /obj/structure/sign/flag/messa
 	stand_icon = "wood_stand"
@@ -3274,6 +3287,136 @@
 
 /obj/structure/sign/flag/hiskyn/unmovable
 	unmovable = TRUE
+
+//The Consortium
+
+/obj/item/flag/consortium
+	name = "\improper Consortium flag"
+	desc = "The flag of The Consortium of Hieroaetheria."
+	desc_extended = "Founded decades prior to any outside interference, though by the name of the Affiliation - at least according to the direct translation from Rootsong - it was a loose confederation of dozens of conglomerates present across the region of Mede."
+	flag_path = "consortium"
+	flag_structure = /obj/structure/sign/flag/consortium
+
+/obj/structure/sign/flag/consortium
+	name = "\improper Consortium flag"
+	desc = "The flag of The Consortium of Hieroaetheria."
+	desc_extended = "Founded decades prior to any outside interference, though by the name of the Affiliation - at least according to the direct translation from Rootsong - it was a loose confederation of dozens of conglomerates present across the region of Mede."
+	flag_path = "consortium"
+	icon_state = "consortium"
+	flag_item = /obj/item/flag/consortium
+
+/obj/structure/sign/flag/consortium/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/consortium/l
+	name = "large Consortium flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/consortium/large
+
+/obj/structure/sign/flag/consortium/large
+	icon_state = "consortium_l"
+	flag_path = "consortium"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/consortium/l
+
+/obj/structure/sign/flag/consortium/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/consortium/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/consortium/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/consortium/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+	//The Eternal Republic of the Ekane
+/obj/item/flag/ekane
+	name = "\improper Ekane flag"
+	desc = "The flag of the Eternal Republic of the Ekane."
+	desc_extended = "A theocratic autocracy, the Eternal Republic of the Ekane was founded after first contact with the Skrell in 2390 CE - in which by then the Eternal spread rife throughout the community.\
+	Roughly a decade following its introduction to Hieroaetheria, the Eternal had managed to conglomerate primarily within the cities dotting the Ekane region of the planet - which eventually saw unification beneath the banner of the Eternal Republic of the Ekane."
+	flag_path = "ekane"
+	flag_structure = /obj/structure/sign/flag/ekane
+
+/obj/structure/sign/flag/ekane
+	name = "\improper Ekane flag"
+	desc = "The flag of the Eternal Republic of the Ekane"
+	desc_extended = "A theocratic autocracy, the Eternal Republic of the Ekane was founded after first contact with the Skrell in 2390 CE - in which by then the Eternal spread rife throughout the community.\
+	Roughly a decade following its introduction to Hieroaetheria, the Eternal had managed to conglomerate primarily within the cities dotting the Ekane region of the planet - which eventually saw unification beneath the banner of the Eternal Republic of the Ekane."
+	flag_path = "ekane"
+	icon_state = "ekane"
+	flag_item = /obj/item/flag/ekane
+
+/obj/structure/sign/flag/ekane/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/ekane/l
+	name = "large Ekane flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/ekane/large
+
+/obj/structure/sign/flag/ekane/large
+	icon_state = "ekane_l"
+	flag_path = "ekane"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/ekane/l
+
+/obj/structure/sign/flag/ekane/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/ekane/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/ekane/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/ekane/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+//The Union of Gla'orr
+/obj/item/flag/glaorr
+	name = "\improper Gla'orr flag"
+	desc = "The flag of the Union of Gla'orr."
+	desc_extended = "Autocratic, and staunchly opposed to further integration of non-Dionae, the Union of Gla'orr is largely considered an affront to all the ideals held by the Consortium, an anti-thesis to the growing democratic tendencies of Hieroaetheria."
+	flag_path = "glaorr"
+	flag_structure = /obj/structure/sign/flag/glaorr
+
+/obj/structure/sign/flag/glaorr
+	name = "\improper Gla'orr flag"
+	desc = "The flag of the Union of Gla'orr"
+	desc_extended = "Autocratic, and staunchly opposed to further integration of non-Dionae, the Union of Gla'orr is largely considered an affront to all the ideals held by the Consortium, an anti-thesis to the growing democratic tendencies of Hieroaetheria."
+	flag_path = "glaorr"
+	icon_state = "glaorr"
+	flag_item = /obj/item/flag/glaorr
+
+/obj/structure/sign/flag/glaorr/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/glaorr/l
+	name = "large Gla'orr flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/glaorr/large
+
+/obj/structure/sign/flag/glaorr/large
+	icon_state = "glaorr_l"
+	flag_path = "glaorr"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/glaorr/l
+
+/obj/structure/sign/flag/glaorr/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/glaorr/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/glaorr/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/glaorr/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
 
 //Unathi Ruin Flags/Tapestries
 /obj/item/flag/unathi_tapestry

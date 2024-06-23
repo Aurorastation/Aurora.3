@@ -45,6 +45,8 @@
 		/datum/unarmed_attack/bite/warrior
 	)
 
+	valid_prosthetics = list(PROSTHETIC_VAURCA, PROSTHETIC_VAURCA_WARRIOR)
+
 
 
 /datum/species/bug/type_c
@@ -118,7 +120,7 @@
 		/mob/living/carbon/human/proc/hivenet_camera,
 		/mob/living/carbon/human/proc/hivemute,
 		/mob/living/carbon/human/proc/hiveban,
-		/mob/living/carbon/human/proc/hivevoid,
+		/mob/living/carbon/human/proc/hiveuntether,
 		/mob/living/carbon/human/proc/hivenet_transmit,
 		/mob/living/carbon/human/proc/hivenet_manifest
 	)

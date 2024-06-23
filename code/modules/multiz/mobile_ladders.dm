@@ -16,10 +16,10 @@
 		var/turf/T = get_turf(A)
 		var/turf/below_loc = GET_TURF_BELOW(T)
 		if (!below_loc || (istype(/turf/space, below_loc)))
-			to_chat(user, "<span class='notice'>Why would you do that?! There is only infinite space there...</span>")
+			to_chat(user, SPAN_NOTICE("Why would you do that?! There is only infinite space there..."))
 			return
-		user.visible_message("<span class='warning'>[user] begins to lower \the [src] into \the [A].</span>",
-			"<span class='warning'>You begin to lower \the [src] into \the [A].</span>")
+		user.visible_message(SPAN_WARNING("[user] begins to lower \the [src] into \the [A]."),
+			SPAN_WARNING("You begin to lower \the [src] into \the [A]."))
 		if (!handle_action(A, user))
 			return
 		// Create the lower ladder first. ladder/Initialize() will make the upper
@@ -36,10 +36,10 @@
 		var/turf/T = get_turf(A)
 		var/turf/upper_loc = GET_TURF_ABOVE(T)
 		if (!upper_loc || !isopenturf(upper_loc))
-			to_chat(user, "<span class='notice'>There is something above. You can't deploy!</span>")
+			to_chat(user, SPAN_NOTICE("There is something above. You can't deploy!"))
 			return
-		user.visible_message("<span class='warning'>[user] begins deploying \the [src] on \the [A].</span>",
-			"<span class='warning'>You begin to deploy \the [src] on \the [A].</span>")
+		user.visible_message(SPAN_WARNING("[user] begins deploying \the [src] on \the [A]."),
+			SPAN_WARNING("You begin to deploy \the [src] on \the [A]."))
 		if (!handle_action(A, user))
 			return
 		// Ditto here. Create the lower ladder first.

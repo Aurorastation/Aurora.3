@@ -31,6 +31,7 @@ var/list/mineral_can_smooth_with = list(
 
 	// canSmoothWith is set in Initialize().
 	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	turf_flags = TURF_FLAG_BACKGROUND
 
 	initial_gas = null
 	opacity = TRUE
@@ -417,7 +418,7 @@ var/list/mineral_can_smooth_with = list(
 	new_turf.resources = old_resources
 	new_turf.resource_indicator = old_resource_indicator
 	if(new_turf.resource_indicator)
-		new_turf.add_overlay(new_turf.resource_indicator)
+		new_turf.AddOverlays(new_turf.resource_indicator)
 
 	return new_turf
 
@@ -677,7 +678,12 @@ var/list/mineral_can_smooth_with = list(
 	mined_turf = /turf/simulated/floor/exoplanet/basalt
 
 /turf/simulated/mineral/lava
+	color = "#444444"
 	mined_turf = /turf/simulated/floor/exoplanet/basalt
+
+/turf/simulated/mineral/lava/tret
+	color = "#444455"
+	mined_turf = /turf/simulated/floor/exoplanet/basalt/tret
 
 /**********************Asteroid**************************/
 
@@ -899,7 +905,7 @@ var/list/asteroid_floor_smooth = list(
 	return
 
 /turf/unsimulated/floor/asteroid/proc/gets_dug(mob/user)
-	add_overlay("asteroid_dug", TRUE)
+	AddOverlays("asteroid_dug", TRUE)
 
 	if(prob(75))
 		new /obj/item/ore/glass(src)
@@ -953,7 +959,7 @@ var/list/asteroid_floor_smooth = list(
 
 	if(dug <= 10)
 		dug += 1
-		add_overlay("asteroid_dug", TRUE)
+		AddOverlays("asteroid_dug", TRUE)
 	else
 		var/turf/below = GET_TURF_BELOW(src)
 		if(below)

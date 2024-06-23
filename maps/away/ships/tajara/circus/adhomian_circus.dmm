@@ -1677,8 +1677,7 @@
 /area/adhomian_circus/maintenance)
 "iWU" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 1;
-	layer = 2.8
+	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating{
@@ -2159,7 +2158,6 @@
 "lnx" = (
 /obj/structure/table/wood,
 /obj/structure/mirror{
-	layer = 2.98;
 	pixel_y = 34
 	},
 /obj/item/storage/box/fancy/cigarettes/cigar/prank{
@@ -3314,6 +3312,12 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3391,8 +3395,7 @@
 /area/adhomian_circus/starboard)
 "rqD" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 1;
-	layer = 2.8
+	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating{
@@ -4120,9 +4123,7 @@
 	},
 /area/adhomian_circus/hangar)
 "vLF" = (
-/obj/structure/extinguisher_cabinet/west{
-	layer = 3.3
-	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -4306,8 +4307,7 @@
 /area/adhomian_circus/maintenance)
 "wLD" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 1;
-	layer = 2.8
+	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock{
 	start_pressure = 1000.97

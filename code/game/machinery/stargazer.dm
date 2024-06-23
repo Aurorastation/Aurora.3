@@ -24,18 +24,18 @@
 	..()
 	if(stat & BROKEN)
 		icon_state = "stargazer_off"
-		cut_overlays()
+		ClearOverlays()
 		set_light(0)
 	else if(!(stat & NOPOWER))
 		icon_state = "stargazer_on"
-		add_overlay(star_system_image)
+		AddOverlays(star_system_image)
 		var/stargazer_light_color = LIGHT_COLOR_HALOGEN
 		if(SSatlas.current_sector.starlight_color)
 			stargazer_light_color = SSatlas.current_sector.starlight_color
 		set_light(6, 2, stargazer_light_color)
 	else
 		icon_state = "stargazer_off"
-		cut_overlays()
+		ClearOverlays()
 		set_light(0)
 
 /obj/machinery/stargazer/Topic(href, href_list, datum/ui_state/state)

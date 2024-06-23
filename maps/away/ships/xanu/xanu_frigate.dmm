@@ -39,6 +39,7 @@
 /obj/item/storage/box/fancy/crayons/chalkbox{
 	pixel_y = 4
 	},
+/obj/item/blueprints,
 /obj/item/stack/cable_coil,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
@@ -1656,12 +1657,10 @@
 	pixel_y = 1
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 2;
 	pixel_y = 23
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 2;
 	pixel_y = 34
 	},
@@ -2234,7 +2233,6 @@
 	opacity = 1
 	},
 /obj/machinery/ship_weapon/francisca/compact{
-	layer = 3;
 	pixel_x = -40;
 	pixel_y = -54;
 	weapon_id = "Xanu Fighter Francisca"
@@ -3523,9 +3521,7 @@
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/item/storage/bag/inflatable,
-/obj/structure/window{
-	layer = 3.19
-	},
+/obj/structure/window,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/ship/xanu_frigate/corridor/fore_atrium)
 "mp" = (
@@ -4508,7 +4504,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline,
 /obj/machinery/door/window/brigdoor/westleft{
-	layer = 3.21;
 	req_access = list(222)
 	},
 /turf/simulated/floor/tiled/gunmetal/full,
@@ -5645,11 +5640,9 @@
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_y = 9
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
@@ -11015,8 +11008,7 @@
 /obj/machinery/alarm/east,
 /obj/machinery/washing_machine{
 	pixel_y = 3;
-	pixel_x = 7;
-	layer = 2.91
+	pixel_x = 7
 	},
 /obj/machinery/washing_machine{
 	pixel_y = 3;
@@ -11344,7 +11336,7 @@
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/storage/white_vest,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "MY" = (
@@ -12025,7 +12017,6 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/door/window/brigdoor/eastright{
-	layer = 3.21;
 	req_access = list(222);
 	name = "Fuel Access"
 	},
@@ -12261,8 +12252,7 @@
 "Qh" = (
 /obj/machinery/washing_machine{
 	pixel_y = 3;
-	pixel_x = 7;
-	layer = 2.91
+	pixel_x = 7
 	},
 /obj/machinery/washing_machine{
 	pixel_y = 3;

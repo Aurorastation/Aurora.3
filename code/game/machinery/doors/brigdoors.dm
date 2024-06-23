@@ -109,15 +109,13 @@
 	for(var/obj/machinery/door/airlock/D in targets)
 		if(D.density)
 			continue
-		spawn(0)
-			D.close()
+		D.close()
 
 	// Windoors
 	for(var/obj/machinery/door/window/D2 in targets)
 		if(D2.density)
 			continue
-		spawn(0)
-			D2.close()
+		D2.close()
 
 	for(var/obj/structure/closet/secure_closet/brig/C in targets)
 		if(C.broken)
@@ -146,15 +144,13 @@
 	for(var/obj/machinery/door/airlock/D in targets)
 		if(!D.density)
 			continue
-		spawn(0)
-			D.open()
+		D.open()
 
 	// Windoors
 	for(var/obj/machinery/door/window/D2 in targets)
 		if(!D2.density)
 			continue
-		spawn(0)
-			D2.open()
+		D2.open()
 
 	for(var/obj/structure/closet/secure_closet/brig/C in targets)
 		if(C.broken)
@@ -414,8 +410,8 @@
 // Adds an icon in case the screen is broken/off, stolen from status_display.dm
 /obj/machinery/door_timer/proc/set_picture(var/state)
 	picture_state = state
-	cut_overlays()
-	add_overlay(picture_state)
+	ClearOverlays()
+	AddOverlays(picture_state)
 
 //Checks to see if there's 1 line or 2, adds text-icons-numbers/letters over display
 // Stolen from status_display
@@ -438,7 +434,7 @@
 		var/image/ID = image('icons/obj/status_display.dmi', icon_state=char)
 		ID.pixel_x = -(d-1)*5 + px
 		ID.pixel_y = py
-		I.add_overlay(ID)
+		I.AddOverlays(ID)
 	return I
 
 // Door Timers

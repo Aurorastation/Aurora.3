@@ -12,7 +12,3 @@
 	..()
 	if (above)
 		update_above()
-
-/atom/movable/update_icon()
-	..()
-	UPDATE_OO_IF_PRESENT

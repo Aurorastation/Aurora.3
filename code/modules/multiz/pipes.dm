@@ -85,7 +85,7 @@
 	else return 1
 
 /obj/machinery/atmospherics/pipe/zpipe/proc/burst()
-	src.visible_message("<span class='warning'>\The [src] bursts!</span>");
+	src.visible_message(SPAN_WARNING("\The [src] bursts!"));
 	playsound(src.loc, 'sound/effects/bang.ogg', 25, 1)
 	var/datum/effect/effect/system/smoke_spread/smoke = new
 	smoke.set_up(1,0, src.loc, 0)
@@ -112,7 +112,7 @@
 	if (!check_icon_cache())
 		return
 
-	cut_overlays()
+	ClearOverlays()
 
 	if(!node1 && !node2)
 		var/turf/T = get_turf(src)
@@ -123,7 +123,7 @@
 				qdel(meter)
 		qdel(src)
 	else
-		add_overlay(icon_manager.get_atmos_icon("pipe", , pipe_color, "[ptype][icon_connect_type]"))
+		AddOverlays(icon_manager.get_atmos_icon("pipe", , pipe_color, "[ptype][icon_connect_type]"))
 
 /obj/machinery/atmospherics/pipe/zpipe/disconnect(obj/machinery/atmospherics/reference)
 	if(reference == node1)

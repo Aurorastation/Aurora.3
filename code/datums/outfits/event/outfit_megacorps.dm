@@ -44,7 +44,7 @@
 /obj/outfit/admin/megacorp/zenghu_trooper
 	name = "Zeng Hu Pharmaceuticals Asset Protection"
 
-	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng
+	uniform = /obj/item/clothing/under/rank/medical/paramedic/zeng
 	back = /obj/item/storage/backpack/satchel/leather
 	gloves = /obj/item/clothing/gloves/combat
 	shoes = /obj/item/clothing/shoes/magboots

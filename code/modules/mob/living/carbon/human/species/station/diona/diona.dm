@@ -56,8 +56,8 @@
 	organ_high_pain_message = "<b><font size=3>The nymph making up our %PARTNAME% screams out in pain!</font></b>"
 
 	organ_low_burn_message = "<b>The nymph making up our %PARTNAME% notes a burning injury.</b>"
-	organ_med_burn_message = "<span class='danger'><font size=3>The nymph making up our %PARTNAME% burns terribly!</font></span>"
-	organ_high_burn_message = "<span class='danger'><font size=3>The nymph making up our %PARTNAME% screams in agony at the burning!</font></span>"
+	organ_med_burn_message = SPAN_DANGER("<font size=3>The nymph making up our %PARTNAME% burns terribly!</font>")
+	organ_high_burn_message = SPAN_DANGER("<font size=3>The nymph making up our %PARTNAME% screams in agony at the burning!</font>")
 
 	halloss_message = "creaks and crumbles to the floor."
 	halloss_message_self = "We can't take this much pain..."
@@ -131,6 +131,10 @@
 	alterable_internal_organs = list()
 	psi_deaf = TRUE
 
+	sleeps_upright = TRUE
+	snore_key = "chirp"
+	indefinite_sleep = TRUE
+
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other
 	if(istype(D))
@@ -190,3 +194,10 @@
 
 /datum/species/diona/bypass_food_fullness(var/mob/living/carbon/human/H)
 	return TRUE
+
+/datum/species/diona/sleep_msg(var/mob/M)
+	M.visible_message(SPAN_NOTICE("\The [M] creaks, entering an introspective state."))
+	to_chat(M, SPAN_NOTICE("You creak, entering an introspective state."))
+
+/datum/species/diona/sleep_examine_msg(var/mob/M)
+	return SPAN_NOTICE("[M.get_pronoun("He")] sways and creaks, in a dormant state.\n")

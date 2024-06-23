@@ -2,6 +2,7 @@
 	layer = OBJ_LAYER
 	glide_size = 6
 	animate_movement = SLIDE_STEPS
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND
 
 	var/last_move = null
 	var/anchored = 0
@@ -18,9 +19,7 @@
 
 	var/move_speed = 10
 	var/l_move_time = 1
-	var/throwing = 0
-	var/thrower
-	var/turf/throw_source = null
+	var/datum/thrownthing/throwing = null
 	var/throw_speed = 2
 	var/throw_range = 7
 	var/moved_recently = 0
@@ -38,6 +37,11 @@
 	var/can_hold_mob = FALSE
 	var/list/contained_mobs
 
+	///Are we moving with inertia? Mostly used as an optimization
+	var/inertia_moving = FALSE
+	///Delay in deciseconds between inertia based movement
+	var/inertia_move_delay = 5
+
 	///Holds information about any movement loops currently running/waiting to run on the movable. Lazy, will be null if nothing's going on
 	var/datum/movement_packet/move_packet
 
@@ -53,10 +57,20 @@
 	/// We do it like this to prevent people trying to mutate them and to save memory on holding the lists ourselves
 	var/spatial_grid_key
 
-/atom/movable/Destroy(force)
-	if (orbiting)
-		stop_orbit()
+	/// Either [EMISSIVE_BLOCK_NONE], [EMISSIVE_BLOCK_GENERIC], or [EMISSIVE_BLOCK_UNIQUE]
+	var/blocks_emissive = EMISSIVE_BLOCK_NONE
+	///Internal holder for emissive blocker object, DO NOT USE DIRECTLY. Use blocks_emissive
+	var/mutable_appearance/em_block
 
+/atom/movable/Initialize(mapload, ...)
+	. = ..()
+	update_emissive_blocker()
+	if (em_block)
+		AddOverlays(em_block)
+
+/atom/movable/Destroy(force)
+	if(orbiting)
+		stop_orbit()
 	GLOB.moved_event.unregister_all_movement(loc, src)
 
 	//Recalculate opacity
@@ -106,6 +120,9 @@
 	if (bound_overlay)
 		QDEL_NULL(bound_overlay)
 
+	if(em_block)
+		QDEL_NULL(em_block)
+
 /atom/movable/proc/moveToNullspace()
 	. = TRUE
 
@@ -127,43 +144,43 @@
 
 // This is called when this atom is prevented from moving by atom/A.
 /atom/movable/proc/Collide(atom/A)
+	SHOULD_NOT_SLEEP(TRUE)
 	if(airflow_speed > 0 && airflow_dest)
 		airflow_hit(A)
 	else
 		airflow_speed = 0
 		airflow_time = 0
 
-	if (throwing)
-		throwing = FALSE
+	if(!QDELETED(throwing))
 		. = TRUE
-		if (!QDELETED(A))
-			throw_impact(A)
+		if(!QDELETED(A))
+			throw_impact(A, throwing)
 			A.CollidedWith(src)
+		throwing?.finalize(hit = TRUE, target = A)
 
 	else if (!QDELETED(A))
 		A.CollidedWith(src)
 
 //called when src is thrown into hit_atom
-/atom/movable/proc/throw_impact(atom/hit_atom, var/speed)
+/atom/movable/proc/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	if(isliving(hit_atom))
 		var/mob/living/M = hit_atom
-		M.hitby(src,speed)
+		M.hitby(src, throwingdatum.speed)
 
 	else if(isobj(hit_atom))
 		var/obj/O = hit_atom
 		if(!O.anchored)
 			step(O, src.last_move)
-		O.hitby(src,speed)
+		O.hitby(src, throwingdatum.speed)
 
 	else if(isturf(hit_atom))
-		throwing = 0
+		throwing?.finalize(hit = FALSE)
 		var/turf/T = hit_atom
 		if(T.density)
-			spawn(2)
-				step(src, turn(src.last_move, 180))
+			step(src, turn(src.last_move, 180))
 			if(isliving(src))
 				var/mob/living/M = src
-				M.turf_collision(T, speed)
+				M.turf_collision(T, throwingdatum.speed)
 
 //decided whether a movable atom being thrown can pass through the turf it is in.
 /atom/movable/proc/hit_check(var/speed, var/target)
@@ -193,90 +210,91 @@
 
 	return TRUE
 
-/atom/movable/proc/throw_at(atom/target, range, speed, thrower, var/do_throw_animation = TRUE)
-	if(!target || !src)	return 0
-	//use a modified version of Bresenham's algorithm to get from the atom's current position to that of the target
+/atom/movable/proc/throw_at(atom/target, range, speed, mob/thrower, spin = TRUE, diagonals_first = FALSE, datum/callback/callback, force = MOVE_FORCE_STRONG, gentle = FALSE, quickstart = TRUE)
+	. = FALSE
 
-	src.throwing = 1
-	src.thrower = thrower
-	src.throw_source = get_turf(src)	//store the origin turf
+	if(QDELETED(src))
+		CRASH("Qdeleted thing being thrown around.")
 
-	if(usr && (usr.mutations & HULK))
-		src.throwing = 2 // really strong throw!
+	if (!target || speed <= 0)
+		return
 
-	var/dist_travelled = 0
-	var/dist_since_sleep = 0
-	var/area/a = get_area(src.loc)
+	if(SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_THROW, args) & COMPONENT_CANCEL_THROW)
+		return
+
+	// if (pulledby)
+	// 	pulledby.stop_pulling()
+
+	//They are moving! Wouldn't it be cool if we calculated their momentum and added it to the throw?
+	if (thrower && thrower.last_move && thrower.client && thrower.client.move_delay >= world.time + world.tick_lag*2)
+		var/user_momentum = world.tick_lag //Used to be thrower.cached_multiplicative_slowdown but we don't have this
+		if (!user_momentum) //no movement_delay, this means they move once per byond tick, lets calculate from that instead.
+			user_momentum = world.tick_lag
+
+		user_momentum = 1 / user_momentum // convert from ds to the tiles per ds that throw_at uses.
+
+		if (get_dir(thrower, target) & last_move)
+			user_momentum = user_momentum //basically a noop, but needed
+		else if (get_dir(target, thrower) & last_move)
+			user_momentum = -user_momentum //we are moving away from the target, lets slowdown the throw accordingly
+		else
+			user_momentum = 0
+
+
+		if (user_momentum)
+			//first lets add that momentum to range.
+			range *= (user_momentum / speed) + 1
+			//then lets add it to speed
+			speed += user_momentum
+			if (speed <= 0)
+				return//no throw speed, the user was moving too fast.
+
+	. = TRUE // No failure conditions past this point.
+
+	var/target_zone
+	if(QDELETED(thrower))
+		thrower = null //Let's not pass a qdeleting reference if any.
+	else
+		target_zone = thrower.zone_sel
+
+	var/datum/thrownthing/thrown_thing = new(src, target, get_dir(src, target), range, speed, thrower, diagonals_first, force, gentle, callback, target_zone)
 
 	var/dist_x = abs(target.x - src.x)
 	var/dist_y = abs(target.y - src.y)
+	var/dx = (target.x > src.x) ? EAST : WEST
+	var/dy = (target.y > src.y) ? NORTH : SOUTH
 
-	var/dx
-	if (target.x > src.x)
-		dx = EAST
-	else
-		dx = WEST
+	if (dist_x == dist_y)
+		thrown_thing.pure_diagonal = 1
 
-	var/dy
-	if (target.y > src.y)
-		dy = NORTH
-	else
-		dy = SOUTH
-	var/error
-	var/major_dir
-	var/major_dist
-	var/minor_dir
-	var/minor_dist
-	if(dist_x > dist_y)
-		error = dist_x/2 - dist_y
-		major_dir = dx
-		major_dist = dist_x
-		minor_dir = dy
-		minor_dist = dist_y
-	else
-		error = dist_y/2 - dist_x
-		major_dir = dy
-		major_dist = dist_y
-		minor_dir = dx
-		minor_dist = dist_x
+	else if(dist_x <= dist_y)
+		var/olddist_x = dist_x
+		var/olddx = dx
+		dist_x = dist_y
+		dist_y = olddist_x
+		dx = dy
+		dy = olddx
+	thrown_thing.dist_x = dist_x
+	thrown_thing.dist_y = dist_y
+	thrown_thing.dx = dx
+	thrown_thing.dy = dy
+	thrown_thing.diagonal_error = dist_x/2 - dist_y
+	thrown_thing.start_time = world.time
 
-	while(src && target && src.throwing && istype(src.loc, /turf) \
-			&& ((abs(target.x - src.x)+abs(target.y - src.y) > 0 && dist_travelled < range) \
-				|| (a && a.has_gravity == 0) \
-				|| istype(src.loc, /turf/space)))
-		// only stop when we've gone the whole distance (or max throw range) and are on a non-space tile, or hit something, or hit the end of the map, or someone picks it up
-		var/atom/step
-		if(error >= 0)
-			step = get_step(src, major_dir)
-			error -= minor_dist
-		else
-			step = get_step(src, minor_dir)
-			error += major_dist
-		if(!step) // going off the edge of the map makes get_step return null, don't let things go off the edge
-			break
-		src.Move(step)
-		hit_check(speed, target)
-		dist_travelled++
-		dist_since_sleep++
-		if(dist_since_sleep >= speed)
-			dist_since_sleep = 0
-			sleep(1)
-		a = get_area(src.loc)
-		// and yet it moves
-		if(do_throw_animation)
-			if(src.does_spin)
-				src.SpinAnimation(speed = 4, loops = 1)
+	// if(pulledby)
+	// 	pulledby.stop_pulling()
+	if (quickstart && (throwing || SSthrowing.state == SS_RUNNING)) //Avoid stack overflow edgecases.
+		quickstart = FALSE
+	throwing = thrown_thing
+	if(spin)
+		SpinAnimation(5, 1)
 
-	//done throwing, either because it hit something or it finished moving
-	if(isturf(loc) && isobj(src))
-		throw_impact(loc, speed)
-	src.throwing = 0
-	src.thrower = null
-	src.throw_source = null
-
-	if (isturf(loc))
-		var/turf/Tloc = loc
-		Tloc.Entered(src)
+	SEND_SIGNAL(src, COMSIG_MOVABLE_POST_THROW, thrown_thing, spin)
+	SSthrowing.processing[src] = thrown_thing
+	if (SSthrowing.state == SS_PAUSED && length(SSthrowing.currentrun))
+		SSthrowing.currentrun[src] = thrown_thing
+	if (quickstart)
+		thrown_thing.tick()
 
 /atom/movable/proc/throw_at_random(var/include_own_turf, var/maxrange, var/speed)
 	var/list/turfs = RANGE_TURFS(maxrange, src)
@@ -286,6 +304,31 @@
 	if(!include_own_turf)
 		turfs -= get_turf(src)
 	src.throw_at(pick(turfs), maxrange, speed)
+
+/atom/movable/proc/update_emissive_blocker()
+	switch (blocks_emissive)
+		if (EMISSIVE_BLOCK_GENERIC)
+			em_block = fast_emissive_blocker(src)
+		if (EMISSIVE_BLOCK_UNIQUE)
+			if (!em_block && !QDELING(src))
+				appearance_flags |= KEEP_TOGETHER
+				render_target = ref(src)
+				em_block = emissive_blocker(
+					icon = icon,
+					icon_state = icon_state,
+					appearance_flags = appearance_flags,
+					source = render_target
+				)
+	return em_block
+
+/atom/movable/update_icon()
+	..()
+	UPDATE_OO_IF_PRESENT
+	if (em_block)
+		CutOverlays(em_block)
+	update_emissive_blocker()
+	if (em_block)
+		AddOverlays(em_block)
 
 //Overlays
 /atom/movable/overlay
@@ -348,12 +391,11 @@
 			var/datum/game_mode/nuclear/G = SSticker.mode
 			G.check_nuke_disks()
 
-		spawn(0)
-			if(loc)
-				var/turf/T = loc
-				loc.Entered(src)
-				if(!T.is_hole)
-					fall_impact(text2num(pickweight(list("1" = 60, "2" = 30, "3" = 10))))
+		if(loc)
+			var/turf/T = loc
+			loc.Entered(src)
+			if(!T.is_hole)
+				fall_impact(text2num(pickweight(list("1" = 60, "2" = 30, "3" = 10))))
 
 //by default, transition randomly to another zlevel
 /atom/movable/proc/get_transit_zlevel()
@@ -692,7 +734,7 @@
 	return 0
 
 /atom/movable/proc/get_floating_chat_y_offset()
-	return 0
+	return 8
 
 /atom/movable/proc/can_attach_sticker(var/mob/user, var/obj/item/sticker/S)
 	return TRUE
@@ -705,3 +747,49 @@
 
 /atom/movable/proc/show_message(msg, type, alt, alt_type) //Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 	return
+
+/**
+ * Called whenever an object moves and by mobs when they attempt to move themselves through space
+ * And when an object or action applies a force on src, see [newtonian_move][/atom/movable/proc/newtonian_move]
+ *
+ * Return FALSE to have src start/keep drifting in a no-grav area and TRUE to stop/not start drifting
+ *
+ * Mobs should return 1 if they should be able to move of their own volition, see [/client/proc/Move]
+ *
+ * Arguments:
+ * * movement_dir - 0 when stopping or any dir when trying to move
+ * * continuous_move - If this check is coming from something in the context of already drifting
+ */
+/atom/movable/proc/Process_Spacemove(movement_dir = 0, continuous_move = FALSE)
+	if(has_gravity())
+		return TRUE
+
+	if(SEND_SIGNAL(src, COMSIG_MOVABLE_SPACEMOVE, movement_dir, continuous_move) & COMSIG_MOVABLE_STOP_SPACEMOVE)
+		return TRUE
+
+	if(pulledby && (pulledby.pulledby != src)) //Different from TG
+		return TRUE
+
+	if(throwing)
+		return TRUE
+
+	if(!isturf(loc))
+		return TRUE
+
+	if(locate(/obj/structure/lattice) in range(1, get_turf(src))) //Not realistic but makes pushing things in space easier
+		return TRUE
+
+	return FALSE
+
+/// Only moves the object if it's under no gravity
+/// Accepts the direction to move, if the push should be instant, and an optional parameter to fine tune the start delay
+/atom/movable/proc/newtonian_move(direction, instant = FALSE, start_delay = 0)
+	if(!isturf(loc) || Process_Spacemove(direction, continuous_move = TRUE))
+		return FALSE
+
+	if(SEND_SIGNAL(src, COMSIG_MOVABLE_NEWTONIAN_MOVE, direction, start_delay) & COMPONENT_MOVABLE_NEWTONIAN_BLOCK)
+		return TRUE
+
+	AddComponent(/datum/component/drift, direction, instant, start_delay)
+
+	return TRUE

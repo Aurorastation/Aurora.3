@@ -147,11 +147,11 @@
 	var/list/mirrors = get_ban_mirrors(ban_id)
 
 	if (!mirrors)
-		to_chat(user, "<span class='warning'>Something went horribly wrong.</span>")
+		to_chat(user, SPAN_WARNING("Something went horribly wrong."))
 		return
 
 	if (!mirrors.len)
-		to_chat(user, "<span class='warning'>No mirrors for this ban found.</span>")
+		to_chat(user, SPAN_WARNING("No mirrors for this ban found."))
 		return
 
 	var/output = "<b><center>Ban mirrors for ban #[ban_id]</center></b><br>"
@@ -195,18 +195,18 @@
 		return
 
 	if (!establish_db_connection(GLOB.dbcon))
-		to_chat(user, "<span class='warning'>Database connection failed!</span>")
+		to_chat(user, SPAN_WARNING("Database connection failed!"))
 		return
 
 	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT extra_info, ban_id FROM ss13_ban_mirrors WHERE id = :id:")
 	query.Execute(list("id" = mirror_id))
 
 	if (!query.NextRow())
-		to_chat(user, "<span class='notice'>Unable to locate mirror with ID #[mirror_id].</span>")
+		to_chat(user, SPAN_NOTICE("Unable to locate mirror with ID #[mirror_id]."))
 		return
 
 	if (!query.item[1] || !length(query.item[1]))
-		to_chat(user, "<span class='notice'>No attached ckeys were found.</span>")
+		to_chat(user, SPAN_NOTICE("No attached ckeys were found."))
 		return
 
 	var/output = "<a href='?_src_=holder;dbbanmirrors=[query.item[2]];'>Back</a><br><br>"
@@ -214,12 +214,12 @@
 		var/list/ckeys = json_decode(query.item[1])
 
 		if (!ckeys.len)
-			to_chat(user, "<span class='notice'>No alternate ckeys to report.</span>")
+			to_chat(user, SPAN_NOTICE("No alternate ckeys to report."))
 			return
 
 		output += ckeys.Join("<br>")
 	catch()
-		to_chat(user, "<span class='notice'>Maligned data found. Please alert the system administrator.</span>")
+		to_chat(user, SPAN_NOTICE("Maligned data found. Please alert the system administrator."))
 		return
 
 	output += "<br><br><a href='?_src_=holder;dbbanmirrors=[query.item[2]];'>Back</a>"
@@ -230,7 +230,7 @@
 		return
 
 	if (!establish_db_connection(GLOB.dbcon))
-		to_chat(user, "<span class='warning'>Database connection failed!</span>")
+		to_chat(user, SPAN_WARNING("Database connection failed!"))
 		return
 
 	var/query_text = inactive ? "UPDATE ss13_ban_mirrors SET deleted_at = NULL WHERE id = :id:" : "UPDATE ss13_ban_mirrors SET deleted_at = NOW() WHERE id = :id:"
@@ -239,9 +239,9 @@
 	query.Execute(list("id" = mirror_id))
 
 	if (query.ErrorMsg())
-		to_chat(user, "<span class='warning'>An error occured while toggling mirror status!</span>")
+		to_chat(user, SPAN_WARNING("An error occured while toggling mirror status!"))
 	else
-		to_chat(user, "<span class='notice'>Mirror set to [inactive ? "ACTIVE" : "INACTIVE"].</span>")
+		to_chat(user, SPAN_NOTICE("Mirror set to [inactive ? "ACTIVE" : "INACTIVE"]."))
 
 /proc/handle_connection_info(var/client/C, var/data)
 	if (!C)

@@ -4,6 +4,7 @@
 	desc = "Used to access the various cameras on the station."
 	icon_screen = "cameras"
 	icon_keyboard = "yellow_key"
+	icon_keyboard_emis = "yellow_key_mask"
 	light_color = LIGHT_COLOR_YELLOW
 	var/current_network = null
 	var/obj/machinery/camera/current_camera = null
@@ -26,7 +27,7 @@
 	return attack_hand(user)
 
 /obj/machinery/computer/security/check_eye(var/mob/user as mob)
-	if (user.stat || user.blinded || inoperable())
+	if (user.stat || user.blinded || !operable())
 		return -1
 	if(!current_camera)
 		return 0
@@ -36,7 +37,7 @@
 	return viewflag
 
 /obj/machinery/computer/security/grants_equipment_vision(var/mob/user as mob)
-	if(user.stat || user.blinded || inoperable())
+	if(user.stat || user.blinded || !operable())
 		return FALSE
 	if(!current_camera)
 		return FALSE
@@ -130,7 +131,7 @@
 		A.client.eye = A.eyeobj
 		return 1
 
-	if (user.stat || user.blinded || inoperable())
+	if (user.stat || user.blinded || !operable())
 		return 0
 	set_current(C)
 
@@ -270,16 +271,17 @@
 	desc = "Used to access the various cameras on the outpost."
 	icon_screen = "miningcameras"
 	icon_keyboard = "purple_key"
+	icon_keyboard_emis = "purple_key_mask"
 	light_color = LIGHT_COLOR_PURPLE
 	network = list("MINE")
 	circuit = /obj/item/circuitboard/security/mining
-	light_color = LIGHT_COLOR_PURPLE
 
 /obj/machinery/computer/security/engineering
 	name = "engineering camera monitor"
 	desc = "Used to monitor fires and breaches."
 	icon_screen = "engineeringcameras"
 	icon_keyboard = "yellow_key"
+	icon_keyboard_emis = "yellow_key_mask"
 	light_color = LIGHT_COLOR_YELLOW
 	circuit = /obj/item/circuitboard/security/engineering
 
@@ -288,6 +290,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "engines"
 	icon_keyboard = "power_key"
+	icon_keyboard_emis = "power_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
@@ -303,6 +306,7 @@
 	desc = "Used to access the built-in cameras in helmets."
 	icon_screen = "syndicam"
 	icon_keyboard = "red_key"
+	icon_keyboard_emis = "red_key_mask"
 	light_color = LIGHT_COLOR_RED
 	network = list(NETWORK_MERCENARY)
 	circuit = null

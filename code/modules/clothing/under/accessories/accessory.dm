@@ -7,7 +7,12 @@
 	overlay_state = null
 	slot_flags = SLOT_TIE
 	w_class = ITEMSIZE_SMALL
+
 	var/slot = ACCESSORY_SLOT_GENERIC
+
+	/// When attached to another piece of clothing, it'll increase the size by this amount. Accepts the ACCESSORY_WEIGHT_* define, which can be found in code/__DEFINES/accessories.dm. The final result is rounded up
+	var/accessory_w_class_adjustment = ACCESSORY_WEIGHT_NONE
+
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
 	var/overlay_in_inventory = TRUE // Whether the worn_overlay should apply when attached to an item of clothing.
@@ -43,8 +48,8 @@
 	if(color)
 		inv_overlay.color = color
 	if(build_from_parts && overlay_in_inventory)
-		inv_overlay.cut_overlays()
-		inv_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+		inv_overlay.ClearOverlays()
+		inv_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
 /obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
@@ -59,24 +64,23 @@
 		accessory_mob_overlay = null // reset the overlay
 	else
 		I = INV_ACCESSORIES_DEF_ICON
-	if(!accessory_mob_overlay || force)
-		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
-		if(icon_override)
-			if(contained_sprite)
-				auto_adapt_species(H)
-				tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
-			else if("[tmp_icon_state]_mob" in icon_states(I))
-				tmp_icon_state = "[tmp_icon_state]_mob"
-		else if(contained_sprite)
+	var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
+	if(icon_override)
+		if(contained_sprite)
 			auto_adapt_species(H)
 			tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
-		accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
-		if(build_from_parts || has_accents)
-			accessory_mob_overlay.cut_overlays()
-		if(build_from_parts)
-			accessory_mob_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
-		if(has_accents)
-			accessory_mob_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_acc", accent_color, flags=accent_flags))
+		else if("[tmp_icon_state]_mob" in icon_states(I))
+			tmp_icon_state = "[tmp_icon_state]_mob"
+	else if(contained_sprite)
+		auto_adapt_species(H)
+		tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
+	accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
+	if(build_from_parts || has_accents)
+		accessory_mob_overlay.ClearOverlays()
+	if(build_from_parts)
+		accessory_mob_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+	if(has_accents)
+		accessory_mob_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_acc", accent_color, flags=accent_flags))
 	if(color)
 		accessory_mob_overlay.color = color
 	accessory_mob_overlay.appearance_flags = RESET_ALPHA|RESET_COLOR
@@ -88,16 +92,16 @@
 		return
 	has_suit = S
 	loc = has_suit
-	has_suit.add_overlay(get_inv_overlay())
+	has_suit.AddOverlays(get_inv_overlay())
 	if(user)
-		to_chat(user, "<span class='notice'>You attach \the [src] to \the [has_suit].</span>")
+		to_chat(user, SPAN_NOTICE("You attach \the [src] to \the [has_suit]."))
 		src.add_fingerprint(user)
 	update_light()
 
 /obj/item/clothing/accessory/proc/on_removed(var/mob/user)
 	if(!has_suit)
 		return
-	has_suit.cut_overlay(get_inv_overlay(user, TRUE))
+	has_suit.CutOverlays(get_inv_overlay(user, ATOM_ICON_CACHE_PROTECTED))
 	has_suit = null
 	if(user)
 		usr.put_in_hands(src)
@@ -337,8 +341,8 @@
 			if(color)
 				radial_button.color = color
 			if(build_from_parts&&worn_overlay)
-				radial_button.cut_overlays()
-				radial_button.add_overlay(overlay_image(icon, "[alternatives[i]]_[worn_overlay]", flags=RESET_COLOR))
+				radial_button.ClearOverlays()
+				radial_button.AddOverlays(overlay_image(icon, "[alternatives[i]]_[worn_overlay]", flags=RESET_COLOR))
 			options[i] = radial_button
 		var/alt = show_radial_menu(user, user, options, radius = 42, tooltips = TRUE)
 		if(!alt)
@@ -396,7 +400,7 @@
 
 	if(allow_tail_hiding)
 		flags_inv ^= HIDETAIL
-		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail.</span>")
+		to_chat(usr, SPAN_NOTICE("[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail."))
 
 /obj/item/clothing/accessory/poncho/big
 	name = "large poncho"
@@ -761,13 +765,13 @@
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
 		var/image/robe_backing = image(mob_icon, null, "robe_backing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
-		I.add_overlay(robe_backing)
+		I.AddOverlays(robe_backing)
 	return I
 
 /obj/item/clothing/accessory/poncho/assunzione/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
 	var/image/base = ..()
 	var/image/robe_backing = image(icon, null, "robe_backing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
-	base.add_overlay(robe_backing)
+	base.AddOverlays(robe_backing)
 	return base
 
 //tau ceti legion ribbons
@@ -973,6 +977,11 @@
 	name = "AB- blood patch"
 	desc = "An embroidered patch indicating the wearer's blood type as AB NEGATIVE."
 	icon_state = "abnegtag"
+
+/obj/item/clothing/accessory/blood_patch/sbs
+	name = "SBS blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as SYNTHETIC BLOOD SUBSTITUTE."
+	icon_state = "sbstag"
 
 
 // Corporate Liaison stuff.

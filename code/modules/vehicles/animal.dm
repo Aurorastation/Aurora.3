@@ -41,7 +41,7 @@
 	..()
 	on = TRUE
 	set_light(0)
-	add_overlay(image(icon, "[icon_state]_overlay", MOB_LAYER + 1))
+	AddOverlays(image(icon, "[icon_state]_overlay", MOB_LAYER + 1))
 	if(storage_type)
 		storage_compartment = new storage_type(src)
 	if(LAZYLEN(armor_values))
@@ -90,7 +90,11 @@
 		return
 	..()
 
-/obj/vehicle/animal/relaymove(mob/user, direction)
+/obj/vehicle/animal/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if(user != load || user.incapacitated())
 		return
 	return Move(get_step(src, direction))

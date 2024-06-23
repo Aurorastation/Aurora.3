@@ -8,6 +8,7 @@
 	item_state = "legguards_sec"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_LEG_GUARDS
+	accessory_w_class_adjustment = ACCESSORY_WEIGHT_HALF_UNIT
 	w_class = ITEMSIZE_NORMAL
 	armor = list(
 		melee = ARMOR_MELEE_KEVLAR,
@@ -17,7 +18,6 @@
 		bomb = ARMOR_BOMB_PADDED
 	)
 	body_parts_covered = LEGS|FEET
-	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
@@ -149,6 +149,7 @@
 	item_state = "armguards_sec"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_ARM_GUARDS
+	accessory_w_class_adjustment = ACCESSORY_WEIGHT_HALF_UNIT
 	body_parts_covered = HANDS|ARMS
 	armor = list(
 		melee = ARMOR_MELEE_KEVLAR,
@@ -158,7 +159,6 @@
 		bomb = ARMOR_BOMB_PADDED
 	)
 	w_class = ITEMSIZE_NORMAL
-	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 

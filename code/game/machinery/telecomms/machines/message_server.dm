@@ -99,7 +99,7 @@
 
 /obj/machinery/telecomms/message_server/receive_information(datum/signal/subspace/pda/signal, obj/machinery/telecomms/machine_from)
 	// can't log non-PDA signals
-	if(!istype(signal) || !signal.data["message"] || !use_power || inoperable())
+	if(!istype(signal) || !signal.data["message"] || !use_power || !operable())
 		return
 
 	// log the signal
@@ -119,7 +119,7 @@
 		authmsg += "[stamp]<br>"
 	for (var/obj/machinery/requests_console/Console in allConsoles)
 		if (ckey(Console.department) == ckey(recipient))
-			if(Console.inoperable())
+			if(!Console.operable())
 				Console.message_log += "<B>Message lost due to console failure.</B><BR>Please contact [station_name()] system adminsitrator or AI for technical assistance.<BR>"
 				continue
 			if(Console.newmessagepriority < priority)
@@ -154,7 +154,7 @@
 	return
 
 /obj/machinery/telecomms/message_server/attackby(obj/item/attacking_item, mob/user)
-	if (use_power && !inoperable(EMPED) && (spamfilter_limit < MESSAGE_SERVER_DEFAULT_SPAM_LIMIT*2) && \
+	if (use_power && operable(EMPED) && (spamfilter_limit < MESSAGE_SERVER_DEFAULT_SPAM_LIMIT*2) && \
 		istype(attacking_item, /obj/item/circuitboard/message_monitor) && istype(user))
 		spamfilter_limit += round(MESSAGE_SERVER_DEFAULT_SPAM_LIMIT / 2)
 		user.drop_from_inventory(attacking_item, get_turf(src))
@@ -164,7 +164,7 @@
 		..()
 
 /obj/machinery/telecomms/message_server/update_icon()
-	if(inoperable(EMPED))
+	if(!operable(EMPED))
 		icon_state = "server-nopower"
 	else if (!use_power)
 		icon_state = "server-off"

@@ -198,7 +198,7 @@
 	var/orbitsize = (I.Width() + I.Height()) * pick(0.4, 0.5, 0.6, 0.7, 0.8)
 	orbitsize -= (orbitsize / world.icon_size) * (world.icon_size * 0.25)
 
-	EB.orbit(src, orbitsize, pick(FALSE, TRUE), rand(10, 25), pick(3, 4, 5, 6, 36))
+	EB.orbit(src, orbitsize, rand(10, 25))
 
 
 /obj/singularity/energy_ball/Collide(atom/A)

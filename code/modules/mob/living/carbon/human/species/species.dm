@@ -48,6 +48,15 @@
 
 	///Vertical offset in pixel used as a baseline for the runechat images (chat text above the mob when it talks)
 	var/floating_chat_y_offset = 8
+
+	// special consideration should be made when adding new emote types to different species, as they'll be able to initiate it, but their target might not be able to
+	// reciprocate the emote in any way
+	/// An associated list of list, where a list of body parts are the key for a specific emote (ex: list(BP_L_ARM, BP_R_ARM) = /singleton/overhead_emote/highfive)
+	var/list/overhead_emote_types = list(
+		list(BP_L_ARM, BP_R_ARM) = /singleton/overhead_emote/highfive,
+		list(BP_L_HAND, BP_R_HAND) = /singleton/overhead_emote/fistbump
+	)
+
 	var/eyes = "eyes_s"                                  // Icon for eyes.
 	var/eyes_icons = 'icons/mob/human_face/eyes.dmi'     // DMI file for eyes, mostly for none 32x32 species.
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
@@ -64,7 +73,7 @@
 	var/race_key = 0       	                             // Used for mob icon cache string.
 	var/icon/icon_template                               // Used for mob icon generation for non-32x32 species.
 	var/mob_size	= MOB_MEDIUM
-	var/show_ssd = "fast asleep"
+	var/show_ssd = "in a deep slumber"
 	var/short_sighted
 	var/bald = 0
 
@@ -136,9 +145,9 @@
 	var/organ_med_pain_message = "<b><font size=3>Your %PARTNAME% hurts badly!</font></b>"
 	var/organ_high_pain_message = "<b><font size=3>Your %PARTNAME% is screaming out in pain!</font></b>"
 
-	var/organ_low_burn_message = "<span class='danger'>Your %PARTNAME% burns.</span>"
-	var/organ_med_burn_message = "<span class='danger'><font size=3>Your %PARTNAME% burns horribly!</font></span>"
-	var/organ_high_burn_message = "<span class='danger'><font size=4>Your %PARTNAME% feels like it's on fire!</font></span>"
+	var/organ_low_burn_message = SPAN_DANGER("Your %PARTNAME% burns.")
+	var/organ_med_burn_message = SPAN_DANGER("<font size=3>Your %PARTNAME% burns horribly!</font>")
+	var/organ_high_burn_message = SPAN_DANGER("<font size=4>Your %PARTNAME% feels like it's on fire!</font>")
 
 	var/list/stutter_verbs = list("stammers", "stutters")
 
@@ -294,7 +303,7 @@
 	var/bodyfall_sound = /singleton/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
 	var/footsound = /singleton/sound_category/blank_footsteps //same as above but for footsteps without shoes
 
-	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
+	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_BRAIN, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
 	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
 	/// These are the prefixes of the icon states in talk.dmi.
 	var/list/possible_speech_bubble_types = list("default")
@@ -309,6 +318,20 @@
 	var/psi_deaf = FALSE
 	///Which species-unique robolimb types can this species take?
 	var/list/valid_prosthetics
+
+	//Sleeping stuff
+	/**
+	 * Does this species sleep standing up?
+	 */
+	var/sleeps_upright = FALSE
+	/**
+	 * The key of the emote to play when this species is sleeping
+	 */
+	var/snore_key = "snore"
+	/**
+	 * Whether this species can choose to sleep indefinitely
+	 */
+	var/indefinite_sleep = FALSE
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -358,10 +381,10 @@
 	switch(msg_type)
 		if("cold")
 			if(!covered)
-				to_chat(H, "<span class='danger'>[pick(cold_discomfort_strings)]</span>")
+				to_chat(H, SPAN_DANGER("[pick(cold_discomfort_strings)]"))
 		if("heat")
 			if(covered)
-				to_chat(H, "<span class='danger'>[pick(heat_discomfort_strings)]</span>")
+				to_chat(H, SPAN_DANGER("[pick(heat_discomfort_strings)]"))
 
 /datum/species/proc/sanitize_name(var/name)
 	return sanitizeName(name)
@@ -443,12 +466,12 @@
 	if(H.on_fire)
 		target.fire_stacks += 1
 		target.IgniteMob()
-		H.visible_message("<span class='danger'>[H] taps [target], setting [target.get_pronoun("his")] ablaze!</span>", \
-						"<span class='warning'>You tap [target], setting [target.get_pronoun("him")] ablaze!</span>")
+		H.visible_message(SPAN_DANGER("[H] taps [target], setting [target.get_pronoun("his")] ablaze!"), \
+						SPAN_WARNING("You tap [target], setting [target.get_pronoun("him")] ablaze!"))
 		msg_admin_attack("[key_name(H)] spread fire to [target.name] ([target.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(target))
 	else
-		H.visible_message("<span class='notice'>[H] taps [target] to get [target.get_pronoun("his")] attention!</span>", \
-						"<span class='notice'>You tap [target] to get [target.get_pronoun("his")] attention!</span>")
+		H.visible_message(SPAN_NOTICE("[H] taps [target] to get [target.get_pronoun("his")] attention!"), \
+						SPAN_NOTICE("You tap [target] to get [target.get_pronoun("his")] attention!"))
 
 /datum/species/proc/remove_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)
@@ -881,3 +904,16 @@
 
 /datum/species/proc/get_species_record_sex(var/mob/living/carbon/human/H)
 	return H.gender
+
+/**
+ * The message which displays when this species falls asleep
+ */
+/datum/species/proc/sleep_msg(var/mob/M)
+	M.visible_message(SPAN_NOTICE("\The [M] lies down, falling asleep."))
+	to_chat(M, SPAN_NOTICE("You lie down, falling asleep."))
+
+/**
+ * Shown when this species is asleep and examined
+ */
+/datum/species/proc/sleep_examine_msg(var/mob/M)
+	return SPAN_NOTICE("[M.get_pronoun("He")] appears to be fast asleep.\n")

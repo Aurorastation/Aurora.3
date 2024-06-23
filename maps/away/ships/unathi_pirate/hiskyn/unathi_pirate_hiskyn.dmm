@@ -190,7 +190,6 @@
 /area/hiskyn_ship/thrustp)
 "aas" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -289,7 +288,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -436,7 +434,6 @@
 "abj" = (
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /obj/structure/cable/green{
@@ -554,7 +551,6 @@
 /area/hiskyn_ship/trophy)
 "abs" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -625,7 +621,6 @@
 /area/hiskyn_ship/hallf)
 "abw" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1074,7 +1069,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -1178,7 +1172,6 @@
 	icon_state = "warning"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1253,7 +1246,6 @@
 /area/hiskyn_ship/thrustp)
 "aqA" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1341,7 +1333,6 @@
 	icon_state = "warning"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1351,7 +1342,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -1489,7 +1479,7 @@
 /obj/item/bodybag/cryobag,
 /obj/item/reagent_containers/hypospray,
 /obj/item/storage/pill_bottle/dylovene,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/auto_cpr{
 	pixel_x = 6;
 	pixel_y = -1
@@ -1966,7 +1956,6 @@
 /area/space)
 "aNw" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -2438,9 +2427,11 @@
 /area/shuttle/hiskyn_revanchists)
 "bQp" = (
 /obj/structure/table/reinforced/steel,
-/obj/random/tool,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/engineering)
 "bTY" = (
@@ -2926,6 +2917,7 @@
 /obj/random/dirt_75,
 /obj/structure/table/reinforced/steel,
 /obj/random/tool,
+/obj/item/clothing/gloves/yellow/specialu,
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrusts)
 "fmj" = (
@@ -3465,7 +3457,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -3611,6 +3602,9 @@
 	},
 /obj/structure/window/reinforced{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrusts)
@@ -4279,6 +4273,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hiskyn_revanchists)
+"mkA" = (
+/turf/simulated/floor/tiled/dark,
+/area/hiskyn_ship/armory)
 "mmy" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4632,7 +4629,6 @@
 /area/hiskyn_ship/thrusts)
 "odb" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -5144,12 +5140,17 @@
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/hiskyn_ship/blaster)
 "rIK" = (
-/obj/random/dirt_75,
-/obj/random/contraband,
-/obj/item/trash/kokobar,
-/obj/item/trash/kokobar,
-/obj/item/trash/kokobar,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Telecomms"
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'SERVER ROOM'.";
+	name = "TELECOMMS ROOM - COLD!";
+	pixel_y = 32
+	},
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/plating,
 /area/hiskyn_ship/armory)
 "rKq" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
@@ -5180,7 +5181,6 @@
 /area/shuttle/hiskyn_revanchists)
 "rTt" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 6
 	},
 /obj/machinery/iff_beacon/name_change,
@@ -5492,7 +5492,6 @@
 "tue" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /turf/simulated/floor/airless,
@@ -5805,6 +5804,12 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
+"vfJ" = (
+/obj/item/stack/material/lead/full{
+	pixel_y = 3
+	},
+/turf/template_noop,
+/area/space)
 "viZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
@@ -5882,9 +5887,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hiskyn_revanchists)
 "vSl" = (
-/obj/item/trash/kokobar,
-/obj/item/trash/kokobar,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/telecomms/allinone/ship,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
 /area/hiskyn_ship/armory)
 "vSA" = (
 /turf/simulated/wall/shuttle/space_ship{
@@ -6197,7 +6207,6 @@
 "yeK" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 6
 	},
 /turf/simulated/floor/airless,
@@ -9288,7 +9297,7 @@ aOr
 aOr
 aOr
 aOr
-aOr
+vfJ
 aOr
 aOr
 aOr
@@ -36194,8 +36203,8 @@ aEV
 beV
 gdc
 gdc
-vSl
-rIK
+vIY
+vIY
 acL
 nGu
 aao
@@ -36451,7 +36460,7 @@ lKU
 kbm
 gdc
 nPJ
-xsr
+vIY
 vSl
 acL
 tYI
@@ -36709,7 +36718,7 @@ abw
 gdc
 gdc
 gdc
-vIY
+rIK
 acL
 acL
 aHf
@@ -36964,9 +36973,9 @@ aVy
 eoo
 kxd
 mSr
-mSr
-tcX
 mqx
+tcX
+mkA
 uZs
 aRt
 aai

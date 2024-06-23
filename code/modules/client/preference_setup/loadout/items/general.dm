@@ -262,6 +262,9 @@
 	banners["banner, Traditinalist Coalition"] = /obj/item/flag/traditionalist
 	banners["banner, Callisto"] = /obj/item/flag/callisto
 	banners["banner, Venus"] = /obj/item/flag/venus
+	banners["banner, The Consortium of Hieroaetheria"] = /obj/item/flag/consortium
+	banners["banner, Eternal Republic of the Ekane"] = /obj/item/flag/ekane
+	banners["banner, Union of Gla'orr"] = /obj/item/flag/glaorr
 	gear_tweaks += new /datum/gear_tweak/path(banners)
 
 /datum/gear/standard
@@ -349,6 +352,9 @@
 	flags["flag, Traditionalist Coalition"] = /obj/item/flag/traditionalist/l
 	flags["flag, Callisto"] = /obj/item/flag/callisto/l
 	flags["flag, Venus"] = /obj/item/flag/venus/l
+	flags["flag, The Consortium of Hieroaetheria"] = /obj/item/flag/consortium/l
+	flags["flag, Eternal Republic of the Ekane"] = /obj/item/flag/ekane/l
+	flags["flag, Union of Gla'orr"] = /obj/item/flag/glaorr/l
 	gear_tweaks += new /datum/gear_tweak/path(flags)
 
 /datum/gear/towel
@@ -427,6 +433,21 @@
 	display_name = "aurora miniature"
 	description = "A commemorative miniature of the NSS Aurora."
 	path = /obj/item/toy/aurora
+
+/datum/gear/instruments
+	display_name = "instrument selection"
+	description = "A selection of instruments for the musically inclined."
+	path = /obj/item/device/synthesized_instrument
+	allowed_roles = list("Off-Duty Crew Member", "Passenger")
+
+/datum/gear/instruments/New()
+	..()
+	var/list/instruments = list()
+	instruments["guitar"] = /obj/item/device/synthesized_instrument/guitar
+	instruments["polyguitar"] = /obj/item/device/synthesized_instrument/guitar/multi
+	instruments["violin"] = /obj/item/device/synthesized_instrument/violin
+	instruments["Omnitrumpet"] = /obj/item/device/synthesized_instrument/trumpet
+	gear_tweaks += new /datum/gear_tweak/path(instruments)
 
 /datum/gear/lore_radio
 	display_name = "analog radio"

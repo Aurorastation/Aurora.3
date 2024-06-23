@@ -38,6 +38,7 @@
 	bowman = /obj/item/device/radio/headset/headset_service/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/service
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/service
 
 	backpack_faction = /obj/item/storage/backpack/nt
 	satchel_faction = /obj/item/storage/backpack/satchel/nt
@@ -84,6 +85,7 @@
 	bowman = /obj/item/device/radio/headset/headset_service/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/service
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/service
 
 	backpack_faction = /obj/item/storage/backpack/nt
 	satchel_faction = /obj/item/storage/backpack/satchel/nt
@@ -134,6 +136,7 @@
 	bowman = /obj/item/device/radio/headset/headset_service/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/service
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/service
 
 	backpack = /obj/item/storage/backpack/hydroponics
 	backpack_faction = /obj/item/storage/backpack/nt
@@ -185,6 +188,7 @@
 	bowman = /obj/item/device/radio/headset/headset_service/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/service
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/service
 
 	backpack_faction = /obj/item/storage/backpack/nt
 	satchel_faction = /obj/item/storage/backpack/satchel/nt
@@ -205,7 +209,7 @@
 	minimal_access = list(ACCESS_LIBRARY)
 	alt_titles = list("Curator", "Tech Support")
 	alt_outfits = list("Curator" = /obj/outfit/job/librarian/curator, "Tech Support" = /obj/outfit/job/librarian/tech_support)
-	title_accesses = list("Tech Support" = ACCESS_IT)
+	title_accesses = list("Tech Support" = list(ACCESS_IT, ACCESS_TECH_STORAGE))
 	outfit = /obj/outfit/job/librarian
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -227,6 +231,7 @@
 	bowman = /obj/item/device/radio/headset/headset_service/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/service
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/service
 
 	backpack_faction = /obj/item/storage/backpack/nt
 	satchel_faction = /obj/item/storage/backpack/satchel/nt
@@ -246,11 +251,11 @@
 	jobtype = /datum/job/librarian
 
 	uniform = /obj/item/clothing/under/suit_jacket/charcoal
-	l_pocket = /obj/item/modular_computer/handheld/preset
+	l_pocket = /obj/item/modular_computer/handheld/preset/generic
 	r_pocket = /obj/item/card/tech_support
 	r_hand = /obj/item/storage/bag/circuits/basic
-	l_hand = /obj/item/modular_computer/laptop/preset
-	gloves = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
+	l_hand = /obj/item/device/debugger
+	wrist = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
 
 /obj/outfit/job/librarian/tech_support/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)
@@ -271,7 +276,7 @@
 	selection_color = "#90524b"
 	access = list(ACCESS_CHAPEL_OFFICE, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_CHAPEL_OFFICE)
-	alt_titles = list("Presbyter", "Rabbi", "Imam", "Priest", "Shaman", "Counselor", "Keeper")
+	alt_titles = list("Presbyter", "Rabbi", "Imam", "Priest", "Priestess", "Shaman", "Counselor", "Keeper", "Shaper")
 	outfit = /obj/outfit/job/chaplain
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -286,6 +291,7 @@
 	bowman = /obj/item/device/radio/headset/headset_service/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/service
 	wrist_radio = /obj/item/device/radio/headset/wrist/service
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/service
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/chaplain
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/chaplain
@@ -374,6 +380,7 @@
 	bowman = /obj/item/device/radio/headset/operations_manager/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/operations_manager
 	wrist_radio = /obj/item/device/radio/headset/wrist/cargo/operations_manager
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/cargo/operations_manager
 
 	backpack = /obj/item/storage/backpack/om
 	satchel = /obj/item/storage/backpack/satchel/om
@@ -420,6 +427,7 @@
 	bowman = /obj/item/device/radio/headset/headset_cargo/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/cargo
 	wrist_radio = /obj/item/device/radio/headset/wrist/cargo
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/cargo
 
 /datum/job/mining
 	title = "Shaft Miner"
@@ -462,6 +470,7 @@
 	bowman = /obj/item/device/radio/headset/headset_mining/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/mining
 	wrist_radio = /obj/item/device/radio/headset/wrist/cargo/mining
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/cargo/mining
 
 	backpack_contents = list(
 		/obj/item/storage/bag/ore = 1
@@ -518,6 +527,7 @@
 	bowman = /obj/item/device/radio/headset/headset_cargo/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/cargo
 	wrist_radio = /obj/item/device/radio/headset/wrist/cargo
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/cargo
 
 	belt_contents = list(
 		/obj/item/screwdriver = 1,

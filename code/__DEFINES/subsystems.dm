@@ -98,8 +98,8 @@
 
 
 // -- SSoverlays --
-#define CUT_OVERLAY_IN(ovr, time) addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, cut_overlay), ovr), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME)
-#define ATOM_USING_SSOVERLAY(atom) (atom.our_overlays || atom.priority_overlays)
+#define CUT_OVERLAY_IN(ovr, time) addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, CutOverlays), ovr), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME)
+#define ATOM_USING_SSOVERLAY(atom) (atom.atom_overlay_cache || atom.atom_protected_overlay_cache)
 
 // -- SSticker --
 #define ROUND_IS_STARTED (SSticker.current_state >= GAME_STATE_PLAYING)
@@ -254,6 +254,8 @@
 #define FIRE_PRIORITY_ASSETS 20
 #define FIRE_PRIORITY_PATHFINDING 23
 #define FIRE_PRIORITY_PROCESS 25
+#define FIRE_PRIORITY_THROWING 25
+#define FIRE_PRIORITY_SPACEDRIFT 30
 #define FIRE_PRIORITY_DEFAULT 50
 #define FIRE_PRIORITY_STATPANEL 390
 #define FIRE_PRIORITY_CHAT 400

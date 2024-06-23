@@ -44,11 +44,11 @@
 			for (var/obj/structure/window/win in user.loc)
 				i++
 				if(i >= 4)
-					to_chat(user, "<span class='warning'>There are too many windows in this location.</span>")
+					to_chat(user, SPAN_WARNING("There are too many windows in this location."))
 					return 1
 				directions-=win.dir
 				if(!(win.dir in GLOB.cardinal))
-					to_chat(user, "<span class='warning'>Can't let you do that.</span>")
+					to_chat(user, SPAN_WARNING("Can't let you do that."))
 					return 1
 
 			//Determine the direction. It will first check in the direction the person making the window is facing, if it finds an already made window it will try looking at the next cardinal direction, etc.
@@ -67,10 +67,10 @@
 			if(!src)	return 1
 			if(src.loc != user)	return 1
 			if(src.get_amount() < 4)
-				to_chat(user, "<span class='warning'>You need more glass to do that.</span>")
+				to_chat(user, SPAN_WARNING("You need more glass to do that."))
 				return 1
 			if(locate(/obj/structure/window) in user.loc)
-				to_chat(user, "<span class='warning'>There is a window in the way.</span>")
+				to_chat(user, SPAN_WARNING("There is a window in the way."))
 				return 1
 			new created_window( user.loc, SOUTHWEST, 1 )
 			src.use(4)
@@ -81,15 +81,15 @@
 			if(!src || src.loc != user) return 1
 
 			if(isturf(user.loc) && locate(/obj/structure/windoor_assembly/, user.loc))
-				to_chat(user, "<span class='warning'>There is already a windoor assembly in that location.</span>")
+				to_chat(user, SPAN_WARNING("There is already a windoor assembly in that location."))
 				return 1
 
 			if(isturf(user.loc) && locate(/obj/machinery/door/window/, user.loc))
-				to_chat(user, "<span class='warning'>There is already a windoor in that location.</span>")
+				to_chat(user, SPAN_WARNING("There is already a windoor in that location."))
 				return 1
 
 			if(src.get_amount() < 5)
-				to_chat(user, "<span class='warning'>You need more glass to do that.</span>")
+				to_chat(user, SPAN_WARNING("You need more glass to do that."))
 				return 1
 
 			new /obj/structure/windoor_assembly(user.loc, user.dir, 1)
@@ -130,14 +130,14 @@
 		if (M.use(1))
 			var/obj/item/L = new /obj/item/stack/tile/light
 			user.drop_from_inventory(L, get_turf(src))
-			to_chat(user, "<span class='notice'>You make a light tile.</span>")
+			to_chat(user, SPAN_NOTICE("You make a light tile."))
 			use(1)
 		else
-			to_chat(user, "<span class='warning'>You need one metal sheet to finish the light tile!</span>")
+			to_chat(user, SPAN_WARNING("You need one metal sheet to finish the light tile!"))
 
 	else if(attacking_item.iswirecutter())
 		user.drop_from_inventory(attacking_item, get_turf(src))
-		to_chat(user, "<span class='notice'>You detach the wire from the [name].</span>")
+		to_chat(user, SPAN_NOTICE("You detach the wire from the [name]."))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		new /obj/item/stack/cable_coil(user.loc, 5)
 		new /obj/item/stack/material/glass(user.loc)

@@ -71,7 +71,7 @@
 	goggles["goggles, safety"] = /obj/item/clothing/glasses/safety/goggles
 	goggles["goggles, safety (prescription)"] = /obj/item/clothing/glasses/safety/goggles/prescription
 	goggles["goggles, scanning"] = /obj/item/clothing/glasses/regular/scanners
-	goggles["goggles, science"] = /obj/item/clothing/glasses/science
+	goggles["goggles, science"] = /obj/item/clothing/glasses/safety/goggles/science
 	goggles["goggles, orange"] = /obj/item/clothing/glasses/spiffygogs
 	gear_tweaks += new /datum/gear_tweak/path(goggles)
 
@@ -79,7 +79,7 @@
 	display_name = "medical HUD selection"
 	description = "A selection of medical HUDs."
 	path = /obj/item/clothing/glasses/hud/health/aviator
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Medical Personnel")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "Paramedic", "Psychiatrist", "Medical Intern", "Medical Personnel")
 
 /datum/gear/eyes/medhuds/New()
 	..()
@@ -158,7 +158,7 @@
 	display_name = "HUD goggles selection (medical)"
 	description = "A selection of medical goggles. Note that factional ones can only be taken by members of that faction."
 	path = /obj/item/clothing/glasses/safety/goggles/medical
-	allowed_roles = list("First Responder", "Medical Personnel")
+	allowed_roles = list("Paramedic", "Medical Personnel")
 
 /datum/gear/eyes/medical_goggles/New()
 	..()

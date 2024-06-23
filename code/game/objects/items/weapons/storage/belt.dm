@@ -22,10 +22,10 @@
 		M.update_inv_belt()
 
 /obj/item/storage/belt/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(content_overlays)
 		for(var/obj/item/I in contents)
-			add_overlay(I.get_belt_overlay())
+			AddOverlays(I.get_belt_overlay())
 	..()
 
 /obj/item/storage/belt/build_additional_parts(H, mob_icon, slot)
@@ -44,7 +44,7 @@
 		var/image/belt_item_image = image(c_icon, c_state)
 		belt_item_image.color = i.color
 		belt_item_image.appearance_flags = RESET_ALPHA
-		I.add_overlay(belt_item_image)
+		I.AddOverlays(belt_item_image)
 	return I
 
 /obj/item/storage/belt/verb/toggle_layer()
@@ -230,13 +230,13 @@
 		/obj/item/storage/box/fancy/med_pouch/trauma = 1,
 	)
 
-/obj/item/storage/belt/medical/first_responder
-	name = "first responder utility belt"
+/obj/item/storage/belt/medical/paramedic
+	name = "paramedic utility belt"
 	desc = "A sturdy black webbing belt with attached pouches."
 	icon_state = "emsbelt"
 	item_state = "emsbelt"
 
-/obj/item/storage/belt/medical/first_responder/full
+/obj/item/storage/belt/medical/paramedic/full
 	starts_with = list(
 		/obj/item/reagent_containers/hypospray = 1,
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
@@ -247,7 +247,7 @@
 		/obj/item/extinguisher/mini = 1,
 	)
 
-/obj/item/storage/belt/medical/first_responder/combat
+/obj/item/storage/belt/medical/paramedic/combat
 	name = "tactical medical belt"
 	desc = "A sturdy black webbing belt with attached pouches. This one is designed for medical professionals who expect to enter conflict zones on the daily. It has increased storage and utility."
 	storage_slots = 9
@@ -293,7 +293,7 @@
 		/obj/item/reagent_containers/blood
 		)
 
-/obj/item/storage/belt/medical/first_responder/combat/full
+/obj/item/storage/belt/medical/paramedic/combat/full
 	starts_with = list(
 		/obj/item/reagent_containers/hypospray/cmo = 1,
 		/obj/item/reagent_containers/glass/bottle/inaprovaline = 1,
@@ -330,6 +330,7 @@
 		/obj/item/device/hailer,
 		/obj/item/device/megaphone,
 		/obj/item/melee,
+		/obj/item/crowbar,
 		/obj/item/gun/projectile/sec,
 		/obj/item/gun/energy/disruptorpistol,
 		/obj/item/taperoll/police,
@@ -337,7 +338,11 @@
 		/obj/item/shield/energy,
 		/obj/item/shield/riot/tact,
 		/obj/item/device/holowarrant,
-		/obj/item/device/radio
+		/obj/item/device/taperecorder,
+		/obj/item/device/radio,
+		/obj/item/device/laser_pointer,
+		/obj/item/device/camera,
+		/obj/item/clipboard,
 		)
 	content_overlays = TRUE
 

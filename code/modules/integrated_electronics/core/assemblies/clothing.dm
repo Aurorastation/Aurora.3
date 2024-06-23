@@ -23,10 +23,10 @@
 
 /obj/item/device/electronic_assembly/clothing/update_icon()
 	clothing.icon_state = "[initial(clothing.icon_state)][opened ? "-open" : ""]"
-	clothing.cut_overlays()
+	clothing.ClearOverlays()
 	var/image/detail_overlay = image('icons/obj/assemblies/wearable_electronic_setups.dmi', "[initial(clothing.icon_state)][opened ? "-open" : ""]-color")
 	detail_overlay.color = detail_color
-	clothing.add_overlay(detail_overlay)
+	clothing.AddOverlays(detail_overlay)
 	clothing.update_clothing_icon()
 
 // This is 'small' relative to the size of regular clothing assemblies.
@@ -51,7 +51,7 @@
 	var/obj/item/device/electronic_assembly/clothing/IC = null
 	var/obj/item/integrated_circuit/built_in/action_button/action_circuit = null // This gets pulsed when someone clicks the button on the hud, OR when certain interactions are performed (such as clicking on something with gloves worn)
 
-/obj/item/clothing/examine(mob/user)
+/obj/item/clothing/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	if(IC)
 		examinate(user, IC)
 	. = ..()

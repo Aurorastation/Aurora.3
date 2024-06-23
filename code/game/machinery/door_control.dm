@@ -44,7 +44,7 @@
 		return
 
 	if(!allowed(user) && (wires & 1))
-		to_chat(user, "<span class='warning'>Access Denied</span>")
+		to_chat(user, SPAN_WARNING("Access Denied"))
 		flick("doorctrl-denied",src)
 		return
 
@@ -52,8 +52,7 @@
 	icon_state = "doorctrl1"
 	desiredstate = !desiredstate
 	trigger(user)
-	spawn(15)
-		update_icon()
+	update_icon()
 
 /obj/machinery/button/remote/proc/trigger()
 	return
@@ -97,13 +96,11 @@
 		if(D.id_tag == src.id)
 			if(specialfunctions & OPEN)
 				if (D.density)
-					spawn(0)
-						D.open()
-						return
+					D.open()
+					return
 				else
-					spawn(0)
-						D.close()
-						return
+					D.close()
+					return
 			if(desiredstate == 1)
 				if(specialfunctions & IDSCAN)
 					D.set_idscan(0)
@@ -159,9 +156,8 @@
 	for(var/obj/machinery/door/blast/M in SSmachinery.machinery)
 		if(M.id == src.id)
 			if(M.density)
-				spawn(0)
-					M.open()
-					return
+				M.open()
+				return
 
 /*
 	Emitter remote control
@@ -173,9 +169,8 @@
 /obj/machinery/button/remote/emitter/trigger(mob/user as mob)
 	for(var/obj/machinery/power/emitter/E in SSmachinery.machinery)
 		if(E.id == src.id)
-			spawn(0)
-				E.activate(user)
-				return
+			E.activate(user)
+			return
 
 /*
 	Mass driver remote control

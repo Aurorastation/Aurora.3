@@ -16,7 +16,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	w_class = ITEMSIZE_TINY
 	attack_verb = list("poked")
 	var/emagged = FALSE
-	var/fail_message = "<span class='warning'>INVALID USER.</span>"
+	var/fail_message = SPAN_WARNING("INVALID USER.")
 	var/selfdestruct = 0 // Explode when user check is failed.
 	var/force_replace = 0 // Can forcefully replace other pins.
 	var/pin_replaceable = 0 // Can be replaced by any pin.
@@ -56,7 +56,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 /obj/item/device/firing_pin/emag_act()
 	if(!emagged)
 		emagged = TRUE
-		to_chat(get_holding_mob(src), "<span class='notice'>You override the authentication mechanism.</span>")
+		to_chat(get_holding_mob(src), SPAN_NOTICE("You override the authentication mechanism."))
 
 /obj/item/device/firing_pin/proc/gun_insert(mob/living/user, obj/item/gun/G)
 	gun = G
@@ -76,8 +76,8 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 /obj/item/device/firing_pin/proc/auth_fail(mob/living/carbon/human/user)
 	to_chat(user, fail_message)
 	if(selfdestruct)//sound stolen from the lawgiver. todo, remove this from the lawgiver. there can only be one.
-		user.show_message("<span class='danger'>SELF-DESTRUCTING...</span><br>", 1)
-		visible_message("<span class='danger'>\The [gun] explodes!</span>")
+		user.show_message(SPAN_DANGER("SELF-DESTRUCTING...<br>"), 1)
+		visible_message(SPAN_DANGER("\The [gun] explodes!"))
 		playsound(user, 'sound/weapons/lawgiver_idfail.ogg', 40, 1)
 		var/obj/item/organ/external/E = user.organs_by_name[user.hand ? BP_L_HAND : BP_R_HAND]
 		E.droplimb(0,DROPLIMB_BLUNT)
@@ -93,7 +93,7 @@ Pins Below.
 /obj/item/device/firing_pin/test_range
 	name = "test-range firing pin"
 	desc = "This safety firing pin allows weapons to be fired within proximity to a firing range."
-	fail_message = "<span class='warning'>TEST RANGE CHECK FAILED.</span>"
+	fail_message = SPAN_WARNING("TEST RANGE CHECK FAILED.")
 	pin_replaceable = 1
 	durable = TRUE
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
@@ -109,7 +109,7 @@ Pins Below.
 /obj/item/device/firing_pin/psionic
 	name = "psionics firing pin"
 	desc = "This is a psionics-locked firing pin which only authorizes users who are capable of psionics."
-	fail_message = "<span class='warning'>PSIONICS CHECK FAILED.</span>"
+	fail_message = SPAN_WARNING("PSIONICS CHECK FAILED.")
 
 /obj/item/device/firing_pin/psionic/pin_auth(mob/living/user)
 	if(user.has_psionics())
@@ -121,7 +121,7 @@ Pins Below.
 /obj/item/device/firing_pin/implant
 	name = "implant-keyed firing pin"
 	desc = "This is a implant-locked firing pin which only authorizes users who are implanted with a certain device."
-	fail_message = "<span class='warning'>IMPLANT CHECK FAILED.</span>"
+	fail_message = SPAN_WARNING("IMPLANT CHECK FAILED.")
 	var/req_implant
 
 /obj/item/device/firing_pin/implant/pin_auth(mob/living/user)
@@ -142,7 +142,7 @@ Pins Below.
 	name = "hilarious firing pin"
 	desc = "Advanced clowntech that can convert any firearm into a far more useful object."
 	color = "#FFFF00"
-	fail_message = "<span class='warning'>HONK!</span>"
+	fail_message = SPAN_WARNING("HONK!")
 	force_replace = 1
 
 /obj/item/device/firing_pin/clown/pin_auth(mob/living/user)
@@ -155,7 +155,7 @@ Pins Below.
 	name = "DNA-keyed firing pin"
 	desc = "This is a DNA-locked firing pin which only authorizes one user. Attempt to fire once to DNA-link."
 	icon_state = "firing_pin_dna"
-	fail_message = "<span class='warning'>DNA CHECK FAILED.</span>"
+	fail_message = SPAN_WARNING("DNA CHECK FAILED.")
 	var/unique_enzymes = null
 
 /obj/item/device/firing_pin/dna/afterattack(atom/target, mob/user, proximity_flag)
@@ -164,7 +164,7 @@ Pins Below.
 		var/mob/living/carbon/M = target
 		if(M.dna && M.dna.unique_enzymes)
 			unique_enzymes = M.dna.unique_enzymes
-			to_chat(user, "<span class='notice'>DNA-LOCK SET.</span>")
+			to_chat(user, SPAN_NOTICE("DNA-LOCK SET."))
 
 /obj/item/device/firing_pin/dna/pin_auth(mob/living/carbon/user)
 	if(istype(user) && user.dna && user.dna.unique_enzymes)
@@ -177,7 +177,7 @@ Pins Below.
 	if(!unique_enzymes)
 		if(istype(user) && user.dna && user.dna.unique_enzymes)
 			unique_enzymes = user.dna.unique_enzymes
-			to_chat(user, "<span class='notice'>DNA-LOCK SET.</span>")
+			to_chat(user, SPAN_NOTICE("DNA-LOCK SET."))
 	else
 		..()
 
@@ -190,7 +190,7 @@ Pins Below.
 /obj/item/device/firing_pin/tag
 	name = "laser tag firing pin"
 	desc = "A recreational firing pin, used in laser tag units to ensure users have their vests on."
-	fail_message = "<span class='warning'>SUIT CHECK FAILED.</span>"
+	fail_message = SPAN_WARNING("SUIT CHECK FAILED.")
 	var/tag_color = ""
 
 /obj/item/device/firing_pin/tag/pin_auth(mob/living/user)
@@ -221,7 +221,7 @@ Pins Below.
 /obj/item/device/firing_pin/access
 	name = "access-keyed firing pin"
 	desc = "This access locked firing pin allows weapons to be fired only when the user has the required access."
-	fail_message = "<span class='warning'>ACCESS CHECK FAILED.</span>"
+	fail_message = SPAN_WARNING("ACCESS CHECK FAILED.")
 	req_access = list(ACCESS_WEAPONS)
 
 /obj/item/device/firing_pin/access/pin_auth(mob/living/user)
@@ -230,7 +230,7 @@ Pins Below.
 /obj/item/device/firing_pin/away_site
 	name = "away site firing pin"
 	desc = "This access locked firing pin allows weapons to be fired only when the user is not on-ship."
-	fail_message = "<span class='warning'>USER ON SHIP LEVEL.</span>"
+	fail_message = SPAN_WARNING("USER ON SHIP LEVEL.")
 
 /obj/item/device/firing_pin/away_site/pin_auth(mob/living/user)
 	var/turf/T = get_turf(src)
@@ -241,7 +241,7 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 /obj/item/device/firing_pin/wireless
 	name = "wireless-control firing pin"
 	desc = "This firing pin is wirelessly controlled. On automatic mode it allow allows weapons to be fired on stun unless the alert level is elevated. Otherwise, it can be controlled from a firearm control console."
-	fail_message = "<span class='warning'>The wireless-control firing pin clicks!</span>"
+	fail_message = SPAN_WARNING("The wireless-control firing pin clicks!")
 	var/registered_user = null
 	var/lock_status = WIRELESS_PIN_AUTOMATIC
 

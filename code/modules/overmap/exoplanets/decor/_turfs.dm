@@ -28,7 +28,7 @@
 				initial_gas = list()
 				temperature = T0C
 			//Must be done here, as light data is not fully carried over by ChangeTurf (but overlays are).
-			set_light(MINIMUM_USEFUL_LIGHT_RANGE, E.lightlevel, COLOR_WHITE)
+			set_light(MINIMUM_USEFUL_LIGHT_RANGE, E.lightlevel, E.lightcolor)
 			if(E.planetary_area && istype(loc, world.area))
 				ChangeArea(src, E.planetary_area)
 	// if not on an exoplanet, instead just keep the default or mapped in atmos
@@ -36,13 +36,13 @@
 
 /turf/simulated/floor/exoplanet/attackby(obj/item/attacking_item, mob/user)
 	if(diggable && istype(attacking_item, /obj/item/shovel))
-		visible_message("<span class='notice'>\The [user] starts digging \the [src]</span>")
+		visible_message(SPAN_NOTICE("\The [user] starts digging \the [src]"))
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
-			to_chat(user,"<span class='notice'>You dig a deep pit.</span>")
+			to_chat(user,SPAN_NOTICE("You dig a deep pit."))
 			new /obj/structure/pit(src)
 			diggable = 0
 		else
-			to_chat(user,"<span class='notice'>You stop shoveling.</span>")
+			to_chat(user,SPAN_NOTICE("You stop shoveling."))
 	else if(istype(attacking_item, /obj/item/stack/tile))
 		var/obj/item/stack/tile/T = attacking_item
 		if(T.use(1))
@@ -75,11 +75,11 @@
 		. = ..()
 
 	else if(has_edge_icon)
-		cut_overlays()
+		ClearOverlays()
 		if(resource_indicator)
-			add_overlay(resource_indicator)
+			AddOverlays(resource_indicator)
 		if(LAZYLEN(decals))
-			add_overlay(decals)
+			AddOverlays(decals)
 		for(var/direction in GLOB.cardinal)
 			var/turf/turf_to_check = get_step(src,direction)
 			if(!istype(turf_to_check, type))

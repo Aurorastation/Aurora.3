@@ -1,0 +1,1917 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ao" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(203)
+	},
+/obj/item/ammo_magazine/a10mm,
+/obj/item/ammo_magazine/a10mm,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"ax" = (
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"aM" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"bM" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"bV" = (
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"cs" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"cz" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"ed" = (
+/obj/structure/table/rack,
+/obj/item/device/multitool,
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"fs" = (
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"fP" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"hb" = (
+/obj/structure/closet,
+/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/shoes/jackboots,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"hq" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (longarms)";
+	req_access = list(203)
+	},
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"hS" = (
+/obj/structure/blocker/steel/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_sol)
+"hX" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"ir" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"iw" = (
+/obj/structure/sign/flag/sol{
+	pixel_y = 32;
+	stand_icon = "banner"
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_sol)
+"iG" = (
+/obj/structure/sign/flag/sol{
+	pixel_y = 32;
+	stand_icon = "banner"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_sol)
+"jl" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"kh" = (
+/obj/machinery/door/airlock/command{
+	name = "Commander's Office";
+	req_access = list(203)
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"lg" = (
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"ll" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"lI" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/sign/flag/sol{
+	pixel_y = 32;
+	stand_icon = "banner"
+	},
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"mt" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"nb" = (
+/turf/simulated/wall,
+/area/ouerea_sol)
+"nL" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"oz" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"oF" = (
+/obj/structure/blocker/steel/fence,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_sol)
+"pp" = (
+/obj/machinery/door/blast/shutters,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"pq" = (
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sol,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"pQ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"pY" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"qS" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"ry" = (
+/obj/structure/closet,
+/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/shoes/jackboots,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"rF" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"rL" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(203)
+	},
+/obj/item/clothing/head/helmet/sol,
+/obj/item/clothing/head/helmet/sol,
+/obj/item/clothing/suit/armor/carrier/military,
+/obj/item/clothing/suit/armor/carrier/military,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"rZ" = (
+/obj/structure/bed,
+/obj/item/bedsheet/blue,
+/obj/structure/curtain/open/bed,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"sF" = (
+/obj/structure/sign/flag/sol/large/north{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"sG" = (
+/obj/structure/table/rack,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"sS" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (longarms)";
+	req_access = list(203)
+	},
+/obj/item/gun/projectile/automatic/rifle/sol,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"sZ" = (
+/obj/structure/sign/flag/sol/large/south{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"uN" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_sol)
+"uT" = (
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/electrical,
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"wc" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (PDWs)";
+	req_access = list(203)
+	},
+/obj/item/gun/projectile/automatic/c20r/sol,
+/obj/item/gun/projectile/automatic/c20r/sol,
+/obj/structure/sign/flag/sol/large/north{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"xK" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_sol)
+"zl" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"zn" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"zv" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"BE" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"Cl" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Du" = (
+/obj/structure/bed,
+/obj/item/bedsheet/blue,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"DX" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"DY" = (
+/obj/structure/closet,
+/obj/item/clothing/under/rank/sol,
+/obj/item/clothing/shoes/jackboots,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"En" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/sign/flag/sol{
+	pixel_y = 32;
+	stand_icon = "banner"
+	},
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"Eq" = (
+/obj/structure/table/steel,
+/obj/item/flame/lighter/zippo/sol,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"EG" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"ES" = (
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_sol)
+"Fc" = (
+/turf/simulated/wall/shuttle/raider,
+/area/ouerea_sol)
+"Fy" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(203)
+	},
+/obj/item/ammo_magazine/c762/sol,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"FR" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"FY" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (longarms)";
+	req_access = list(203)
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Ga" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"Gb" = (
+/obj/structure/sign/flag/sol/large/west{
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Gh" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Gv" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Hd" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Hf" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Hj" = (
+/obj/structure/table/steel,
+/obj/item/modular_computer/laptop/preset/civilian,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Ia" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"IJ" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(203)
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"IL" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (sidearms)";
+	req_access = list(203)
+	},
+/obj/item/melee/energy/sword/knife/sol,
+/obj/item/melee/energy/sword/knife/sol,
+/obj/item/melee/energy/sword/knife/sol,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Jc" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (law enforcement)";
+	req_access = list(203)
+	},
+/obj/item/gun/energy/taser,
+/obj/item/storage/belt/security/full,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Jv" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Hangar Supplies";
+	req_access = list(203)
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"JQ" = (
+/obj/structure/table/steel,
+/obj/machinery/photocopier/faxmachine{
+	department = "Unknown - Ouerean Surface";
+	req_one_access = list(203)
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/item/paper/sol_ouerea,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Ka" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Kr" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"KA" = (
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/mechanical,
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Ln" = (
+/obj/structure/closet/crate{
+	name = "DANGER - PHORON FUEL"
+	},
+/obj/item/trash/cheesie,
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"MD" = (
+/obj/structure/sign/flag/sol/large/north{
+	pixel_y = 32
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(203)
+	},
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm/empty,
+/obj/item/ammo_magazine/mc9mm/empty,
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Ns" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_sol)
+"Og" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Oq" = (
+/obj/machinery/door/airlock/service{
+	name = "Living Quarters"
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"OI" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"Pv" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"PI" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "gun cabinet (sidearms)";
+	req_access = list(203)
+	},
+/obj/item/gun/projectile/pistol/sol,
+/obj/item/gun/projectile/pistol/sol,
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"QQ" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Rc" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Sr" = (
+/obj/structure/bed,
+/obj/item/bedsheet/blue,
+/obj/structure/curtain/open/bed,
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Tu" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Tw" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/liquid_fuel,
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"TF" = (
+/obj/structure/sign/flag/sol/large/east{
+	pixel_x = 32
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Uh" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Up" = (
+/obj/structure/closet/secure_closet/soll_officer{
+	req_access = list(203)
+	},
+/obj/item/clothing/under/rank/sol/service,
+/obj/item/melee/energy/sword/knife/sol,
+/obj/item/gun/projectile/pistol/sol,
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"Uw" = (
+/obj/machinery/door/airlock/highsecurity{
+	req_access = list(203)
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"US" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"We" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"XH" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"XV" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/ouerea_sol)
+"YG" = (
+/obj/machinery/photocopier,
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+"ZA" = (
+/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/brigdoor{
+	req_access = list(203)
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/ouerea_sol)
+
+(1,1,1) = {"
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+"}
+(2,1,1) = {"
+ES
+Fc
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+Fc
+iw
+"}
+(3,1,1) = {"
+ES
+hS
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+pp
+ES
+"}
+(4,1,1) = {"
+ES
+hS
+ES
+ES
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+ES
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+pp
+ES
+"}
+(5,1,1) = {"
+ES
+hS
+ES
+ES
+nb
+rZ
+nb
+Sr
+nb
+Du
+nb
+rZ
+nb
+Du
+nb
+Sr
+nb
+ES
+bV
+bV
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+Fc
+iw
+"}
+(6,1,1) = {"
+ES
+hS
+ES
+ES
+nb
+bV
+bV
+bV
+Pv
+bV
+bV
+bV
+bV
+Pv
+bV
+bV
+Oq
+bV
+bV
+bV
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+hS
+ES
+"}
+(7,1,1) = {"
+ES
+hS
+ES
+ES
+nb
+bV
+bV
+bV
+bV
+bV
+bV
+Pv
+bV
+Pv
+Pv
+Pv
+nb
+ES
+bV
+bV
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+hS
+ES
+"}
+(8,1,1) = {"
+ES
+hS
+ES
+ES
+nb
+Pv
+bV
+ry
+bV
+hb
+TF
+ry
+bV
+hb
+bV
+DY
+nb
+ES
+bV
+bV
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+hS
+ES
+"}
+(9,1,1) = {"
+ES
+hS
+ES
+ES
+nb
+Oq
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+ES
+bV
+bV
+ES
+ES
+ES
+nb
+nb
+nb
+nb
+nb
+nb
+ES
+hS
+ES
+"}
+(10,1,1) = {"
+ES
+hS
+ES
+ES
+uN
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+uN
+ES
+bV
+bV
+ES
+ES
+ES
+nb
+rL
+qS
+qS
+IJ
+nb
+ES
+hS
+ES
+"}
+(11,1,1) = {"
+ES
+hS
+ES
+Ns
+nb
+En
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+nL
+Ia
+nb
+iG
+bV
+bV
+ES
+ES
+ES
+nb
+MD
+bV
+Pv
+PI
+nb
+ES
+hS
+ES
+"}
+(12,1,1) = {"
+ES
+hS
+ES
+ES
+bM
+US
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+mt
+Ga
+ES
+bV
+bV
+ES
+ES
+ES
+nb
+Fy
+bV
+bV
+IL
+nb
+ES
+hS
+ES
+"}
+(13,1,1) = {"
+ES
+hS
+ES
+ES
+zl
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+XV
+ES
+bV
+bV
+ES
+ES
+ES
+nb
+Gh
+Pv
+Pv
+zv
+nb
+ES
+hS
+ES
+"}
+(14,1,1) = {"
+ES
+hS
+ES
+ES
+zl
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+XV
+ES
+bV
+bV
+bV
+bV
+bV
+Uw
+cs
+Pv
+bV
+We
+nb
+ES
+hS
+ES
+"}
+(15,1,1) = {"
+ES
+hS
+ES
+ES
+zl
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+XV
+ES
+bV
+bV
+ES
+ES
+ES
+nb
+Gh
+bV
+bV
+We
+nb
+ES
+hS
+ES
+"}
+(16,1,1) = {"
+ES
+hS
+ES
+ES
+zl
+BE
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+XV
+ES
+bV
+bV
+ES
+ES
+ES
+nb
+ao
+bV
+bV
+sS
+nb
+ES
+hS
+ES
+"}
+(17,1,1) = {"
+ES
+hS
+ES
+ES
+zl
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+XV
+ES
+bV
+bV
+ES
+ES
+ES
+nb
+wc
+Pv
+bV
+hq
+nb
+ES
+hS
+ES
+"}
+(18,1,1) = {"
+ES
+hS
+ES
+ES
+zl
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+XV
+ES
+bV
+bV
+ES
+ES
+ES
+nb
+Jc
+DX
+XH
+FY
+nb
+ES
+hS
+ES
+"}
+(19,1,1) = {"
+ES
+hS
+ES
+ES
+zl
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+XV
+ES
+bV
+bV
+ES
+ES
+ES
+nb
+nb
+nb
+nb
+nb
+nb
+ES
+hS
+ES
+"}
+(20,1,1) = {"
+ES
+hS
+ES
+ES
+zl
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+XV
+ES
+bV
+bV
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+hS
+ES
+"}
+(21,1,1) = {"
+ES
+hS
+ES
+ES
+rF
+ir
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+fs
+OI
+ll
+ES
+bV
+bV
+bV
+bV
+bV
+bV
+bV
+ES
+ES
+ES
+ES
+ES
+hS
+ES
+"}
+(22,1,1) = {"
+ES
+hS
+ES
+Ns
+nb
+lI
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+pQ
+jl
+nb
+iG
+bV
+ES
+nb
+nb
+nb
+nb
+kh
+nb
+nb
+nb
+nb
+ES
+hS
+ES
+"}
+(23,1,1) = {"
+ES
+hS
+ES
+ES
+xK
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+xK
+ES
+bV
+ES
+nb
+FR
+qS
+Rc
+Rc
+qS
+qS
+pY
+nb
+ES
+hS
+ES
+"}
+(24,1,1) = {"
+ES
+hS
+ES
+ES
+nb
+Jv
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+ES
+bV
+ES
+nb
+cs
+bV
+bV
+Pv
+bV
+bV
+zv
+nb
+ES
+hS
+ES
+"}
+(25,1,1) = {"
+ES
+hS
+ES
+ES
+nb
+Gv
+Og
+Og
+Hf
+Og
+Gb
+Og
+Og
+Og
+Og
+aM
+nb
+ES
+bV
+ES
+nb
+sF
+bV
+bV
+ax
+bV
+Pv
+sZ
+nb
+ES
+hS
+ES
+"}
+(26,1,1) = {"
+ES
+hS
+ES
+ES
+nb
+EG
+Pv
+bV
+Pv
+bV
+bV
+Pv
+bV
+bV
+Pv
+Tu
+Jv
+bV
+bV
+ES
+nb
+JQ
+bV
+lg
+pq
+Hj
+bV
+zv
+nb
+ES
+hS
+ES
+"}
+(27,1,1) = {"
+ES
+hS
+ES
+ES
+nb
+Ln
+bV
+bV
+bV
+bV
+bV
+fP
+fP
+fP
+bV
+Tu
+nb
+ES
+ES
+ES
+nb
+Ka
+bV
+Eq
+Kr
+QQ
+bV
+We
+nb
+ES
+hS
+ES
+"}
+(28,1,1) = {"
+ES
+hS
+ES
+ES
+nb
+ZA
+cz
+hX
+KA
+uT
+sG
+ed
+Tw
+Cl
+Hd
+oz
+nb
+ES
+ES
+ES
+nb
+YG
+Uh
+DX
+DX
+XH
+zn
+Up
+nb
+ES
+hS
+ES
+"}
+(29,1,1) = {"
+ES
+hS
+ES
+ES
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+ES
+ES
+ES
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+nb
+ES
+hS
+ES
+"}
+(30,1,1) = {"
+ES
+hS
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+hS
+ES
+"}
+(31,1,1) = {"
+ES
+Fc
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+oF
+Fc
+ES
+"}
+(32,1,1) = {"
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+ES
+"}

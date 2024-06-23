@@ -152,7 +152,7 @@
 
 /obj/item/clothing/suit/armor/reactive/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(prob(50))
-		user.visible_message("<span class='danger'>The reactive teleport system flings [user] clear of the attack!</span>")
+		user.visible_message(SPAN_DANGER("The reactive teleport system flings [user] clear of the attack!"))
 		var/list/turfs = new/list()
 		for(var/turf/T in orange(6, user))
 			if(istype(T,/turf/space)) continue
@@ -174,11 +174,11 @@
 /obj/item/clothing/suit/armor/reactive/attack_self(mob/user as mob)
 	src.active = !( src.active )
 	if (src.active)
-		to_chat(user, "<span class='notice'>The reactive armor is now active.</span>")
+		to_chat(user, SPAN_NOTICE("The reactive armor is now active."))
 		src.icon_state = "reactive"
 		src.item_state = "reactive"
 	else
-		to_chat(user, "<span class='notice'>The reactive armor is now inactive.</span>")
+		to_chat(user, SPAN_NOTICE("The reactive armor is now inactive."))
 		src.icon_state = "reactiveoff"
 		src.item_state = "reactiveoff"
 		src.add_fingerprint(user)
@@ -215,7 +215,7 @@
 	holster.icon_state = null
 	holster.on_attached(src)	//its inside a suit, we set  this so it can be drawn from
 	QDEL_NULL(pockets)	//Tactical armor has internal holster instead of pockets, so we null this out
-	cut_overlays()	// Remove the holster's overlay.
+	ClearOverlays()	// Remove the holster's overlay.
 
 /obj/item/clothing/suit/armor/tactical/attackby(obj/item/attacking_item, mob/user)
 	..()
@@ -238,17 +238,17 @@
 		if(!holster.holstered)
 			var/obj/item/W = usr.get_active_hand()
 			if(!istype(W, /obj/item))
-				to_chat(usr, "<span class='warning'>You need your gun equiped to holster it.</span>")
+				to_chat(usr, SPAN_WARNING("You need your gun equiped to holster it."))
 				return
 			holster.holster(W, usr)
 		else
-			to_chat(usr, "<span class='warning'>There's already a gun in the holster, you need an empty hand to draw it.</span>")
+			to_chat(usr, SPAN_WARNING("There's already a gun in the holster, you need an empty hand to draw it."))
 			return
 	else
 		if(holster.holstered)
 			holster.unholster(usr)
 		else
-			to_chat(usr, "<span class='warning'>There's no gun in the holster to draw.</span>")
+			to_chat(usr, SPAN_WARNING("There's no gun in the holster to draw."))
 
 
 //Non-hardsuit ERT armor.

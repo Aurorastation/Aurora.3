@@ -10,7 +10,10 @@
 	var/list/breathgas = list()	//list of gases animals/plants require to survive
 	var/badgas					//id of gas that is toxic to life here
 
-	var/lightlevel = 0 //This default makes turfs not generate light. Adjust to have exoplanents be lit.
+	/// This default makes turfs not generate light. Adjust to have exoplanents be lit.
+	var/lightlevel = 0
+	/// Change this to have the light be a different color. Useful for planets with special suns
+	var/lightcolor = COLOR_WHITE
 	var/night = TRUE
 
 // Fluff, specifically for celestial objects.
@@ -76,6 +79,8 @@
 
 	var/list/mobs_to_tolerate = list()
 	var/generated_name = TRUE
+	///The random name generated for the planet by generate_planet_name()
+	var/planet_name
 	var/ring_chance = 20 //the chance of this exoplanet spawning with a ring on its sprite
 
 	///A list of groups, as strings, that this exoplanet belongs to. When adding new map templates, try to keep this balanced on the CI execution time, or consider adding a new one
@@ -137,7 +142,8 @@
 	planetary_area = new planetary_area()
 
 	if(generated_name)
-		name = "[generate_planet_name()], \a [name]"
+		planet_name = generate_planet_name()
+		name = "[planet_name], \a [name]"
 
 	var/datum/space_level/exoplanet_level = SSmapping.add_new_zlevel("Exoplanet [name]", ZTRAITS_AWAY, contain_turfs = FALSE)
 	forceMove(locate(1, 1, exoplanet_level.z_value))
@@ -278,14 +284,17 @@
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
 	if(!istype(theme))
 		CRASH("Exoplanet [src] attempted to generate without valid theme!")
+
 	if(plant_colors)
 		var/list/grasscolors = plant_colors.Copy()
 		grasscolors -= "RANDOM"
 		if(length(grasscolors))
 			grass_color = pick(grasscolors)
 
+	// Generate the exoplanet surface using the exoplanet theme.
+	// Here `/turf/space` is used, as this is what new zlevels are created with.
 	theme.before_map_generation(src)
-	theme.generate_map(src, map_z[1], 1 + TRANSITIONEDGE, 1 + TRANSITIONEDGE, maxx - (1 + TRANSITIONEDGE), maxy - (1 + TRANSITIONEDGE))
+	theme.generate_map(map_z[1], 1 + TRANSITIONEDGE, 1 + TRANSITIONEDGE, maxx - (1 + TRANSITIONEDGE), maxy - (1 + TRANSITIONEDGE), /turf/space)
 
 	for (var/zlevel in map_z)
 		var/list/edges

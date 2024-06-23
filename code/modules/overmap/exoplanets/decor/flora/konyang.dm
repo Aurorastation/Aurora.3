@@ -15,7 +15,7 @@
 
 /obj/structure/flora/tree/konyang/spring/Initialize(mapload)
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	overlays += /obj/effect/overlay/konyang_tree
 	icon_state = "beet_tree[rand(1, 3)]"
 	return
@@ -26,7 +26,7 @@
 
 /obj/structure/flora/tree/konyang/blossom/Initialize(mapload)
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	overlays += /obj/effect/overlay/konyang_tree
 	icon_state = "blossom_beet_tree[rand(1, 3)]"
 	return
@@ -37,7 +37,7 @@
 
 /obj/structure/flora/tree/konyang/fall/Initialize(mapload)
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	overlays += /obj/effect/overlay/konyang_tree
 	icon_state = "fall_beet_tree[rand(1, 3)]"
 	return
@@ -113,7 +113,7 @@
 /obj/structure/flora/bush/konyang_reeds/Crossed(atom/movable/AM, atom/oldloc)
 	if(istype(AM, /mob/living))
 		var/mob/living/L = AM
-		to_chat(L, "<span class='notice'>You brush through \the [src] really quite loudly.</span>")
+		to_chat(L, SPAN_NOTICE("You brush through \the [src] really quite loudly."))
 		playsound(loc, 'sound/effects/plantshake.ogg', 60, TRUE)
 		shake_animation()
 	..()

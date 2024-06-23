@@ -57,10 +57,16 @@
 /obj/machinery/iff_beacon,
 /turf/simulated/floor/airless,
 /area/shuttle/haneunim_crash)
+"iD" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/item/pen/drafting/blue,
+/turf/simulated/floor/plating,
+/area/shuttle/haneunim_crash)
 "jc" = (
 /obj/machinery/power/terminal{
-	dir = 8;
-	layer = 5
+	dir = 8
 	},
 /obj/machinery/alarm/south,
 /turf/simulated/floor/plating,
@@ -325,6 +331,7 @@
 "BR" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/clothing/gloves/yellow,
+/obj/item/blueprints/shuttle,
 /turf/simulated/floor/plating,
 /area/shuttle/haneunim_crash)
 "Ce" = (
@@ -1095,7 +1102,7 @@ FE
 It
 QJ
 pn
-ti
+iD
 DO
 Ic
 yc

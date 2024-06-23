@@ -104,7 +104,7 @@
 		numobjects += 1
 		var/mob/living/L = AM
 		if(!istype(oldloc, /turf/simulated/floor/beach/water))
-			to_chat(L, "<span class='warning'>You get drenched in water from entering \the [src]!</span>")
+			to_chat(L, SPAN_WARNING("You get drenched in water from entering \the [src]!"))
 		wash(L)
 	..()
 
@@ -120,7 +120,7 @@
 			numobjects -= 1
 		var/mob/living/L = AM
 		if(!istype(newloc, /turf/simulated/floor/beach/water))
-			to_chat(L, "<span class='warning'>You climb out of \the [src].</span>")
+			to_chat(L, SPAN_WARNING("You climb out of \the [src]."))
 	..()
 
 /turf/simulated/floor/beach/water/process()

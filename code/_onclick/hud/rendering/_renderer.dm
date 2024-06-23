@@ -90,14 +90,14 @@ INITIALIZE_IMMEDIATE(/atom/movable/renderer)
 /mob/proc/CreateRenderers()
 	if (!renderers)
 		renderers = list()
-	for (var/atom/movable/renderer/renderer as anything in subtypesof(/atom/movable/renderer))
+	for (var/renderer as anything in subtypesof(/atom/movable/renderer))
 		if(ispath(renderer, /atom/movable/renderer/shared))
 			continue
-		renderer = new renderer (null, src)
-		renderers[renderer] = renderer.plane // (renderer = plane) format for visual debugging
-		if (renderer.relay)
-			my_client.screen += renderer.relay
-		my_client.screen += renderer
+		var/atom/movable/renderer/render = new renderer (null, src)
+		renderers["[render.plane]"] = render // (render = plane) format for visual debugging
+		if (render.relay)
+			my_client.screen += render.relay
+		my_client.screen += render
 
 	for (var/atom/movable/renderer/zrenderer as anything in GLOB.zmimic_renderers)
 		if (zrenderer.relay)
@@ -107,11 +107,12 @@ INITIALIZE_IMMEDIATE(/atom/movable/renderer)
 /// Removes the mob's renderers on /Logout()
 /mob/proc/RemoveRenderers()
 	if(my_client)
-		for(var/atom/movable/renderer/renderer as anything in renderers)
-			my_client.screen -= renderer
-			if (renderer.relay)
-				my_client.screen -= renderer.relay
-			qdel(renderer)
+		for(var/renderer as anything in renderers)
+			var/atom/movable/renderer/render = renderers[renderer]
+			my_client.screen -= render
+			if (render.relay)
+				my_client.screen -= render.relay
+			qdel(render)
 		for (var/atom/movable/renderer/renderer as anything in GLOB.zmimic_renderers)
 			my_client.screen -= renderer
 	if (renderers)
@@ -181,6 +182,11 @@ GLOBAL_LIST_EMPTY(zmimic_renderers)
 	group = RENDER_GROUP_SCENE
 	plane = OBSERVER_PLANE
 
+/atom/movable/renderer/roofs
+	name = "Roofs"
+	group = RENDER_GROUP_SCENE
+	plane = ROOF_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /// Draws darkness effects.
 /atom/movable/renderer/lighting
@@ -189,6 +195,14 @@ GLOBAL_LIST_EMPTY(zmimic_renderers)
 	plane = LIGHTING_PLANE
 	relay_blend_mode = BLEND_MULTIPLY
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/atom/movable/renderer/lighting/Initialize()
+	. = ..()
+	filters += filter(
+		type = "alpha",
+		render_source = EMISSIVE_TARGET,
+		flags = MASK_INVERSE
+	)
 
 /// Draws visuals that should not be affected by darkness.
 /atom/movable/renderer/above_lighting
@@ -262,3 +276,31 @@ GLOBAL_LIST_EMPTY(zmimic_renderers)
 /atom/movable/renderer/scene_group/Initialize()
 	. = ..()
 	filters += filter(type = "displace", render_source = "*warp", size = 5)
+
+
+/*!
+ * This system works by exploiting BYONDs color matrix filter to use layers to handle emissive blockers.
+ *
+ * Emissive overlays are pasted with an atom color that converts them to be entirely some specific color.
+ * Emissive blockers are pasted with an atom color that converts them to be entirely some different color.
+ * Emissive overlays and emissive blockers are put onto the same plane.
+ * The layers for the emissive overlays and emissive blockers cause them to mask eachother similar to normal BYOND objects.
+ * A color matrix filter is applied to the emissive plane to mask out anything that isn't whatever the emissive color is.
+ * This is then used to alpha mask the lighting plane.
+ *
+ * This works best if emissive overlays applied only to objects that emit light,
+ * since luminosity=0 turfs may not be rendered.
+ */
+/atom/movable/renderer/emissive
+	name = "Emissive"
+	group = RENDER_GROUP_NONE
+	plane = EMISSIVE_PLANE
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	render_target_name = EMISSIVE_TARGET
+
+/atom/movable/renderer/emissive/Initialize()
+	. = ..()
+	filters += filter(
+		type = "color",
+		color = GLOB.em_mask_matrix
+	)

@@ -6,12 +6,18 @@
  */
 
 /atom
+
+	/// pass_flags that we are. If any of this matches a pass_flag on a moving thing, by default, we let them through.
+	var/pass_flags_self = NONE
+
 	///First atom flags var
 	var/flags_1 = NONE
 
 	var/update_icon_on_init	= FALSE // Default to 'no'.
 
 	layer = TURF_LAYER
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS
+
 	var/level = 2
 	var/atom_flags = 0
 	var/init_flags = 0
@@ -56,6 +62,12 @@
 	/// How this atom should react to having its astar blocking checked
 	var/can_astar_pass = CANASTARPASS_DENSITY
 
+	/// This atom's cache of non-protected overlays, used for normal icon additions. Do not manipulate directly- See SSoverlays.
+	var/list/atom_overlay_cache
+
+	/// This atom's cache of overlays that can only be removed explicitly, like C4. Do not manipulate directly- See SSoverlays.
+	var/list/atom_protected_overlay_cache
+
 /atom/Destroy(force)
 	if(opacity)
 		updateVisibility(src)
@@ -80,11 +92,11 @@
 	if(icon_update_queued)
 		SSicon_update.remove_from_queue(src)
 
-	if(length(our_overlays))
-		LAZYCLEARLIST(our_overlays)
+	if(length(atom_overlay_cache))
+		LAZYCLEARLIST(atom_overlay_cache)
 
-	if(length(priority_overlays))
-		LAZYCLEARLIST(priority_overlays)
+	if(length(atom_protected_overlay_cache))
+		LAZYCLEARLIST(atom_protected_overlay_cache)
 
 	if(orbiters)
 		for(var/thing in orbiters)
@@ -94,6 +106,34 @@
 	orbiters = null
 
 	. = ..()
+
+
+///Purpose: Determines if the object (or airflow) can pass this atom.
+///Called by: Movement, airflow.
+///Inputs: The moving atom (optional), target turf, "height" and air group
+///Outputs: Boolean if can pass.
+///**Please stop using this proc, use the `pass_flags_self` flags to determine what can pass unless you literally have no other choice**
+/atom/proc/CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
+	//I have condensed TG's `CanAllowThrough()` into this proc
+	if(mover) //Because some procs send null as a mover
+		if(mover.pass_flags & pass_flags_self)
+			return TRUE
+		if(mover.throwing && (pass_flags_self & LETPASSTHROW))
+			return TRUE
+
+	return (!density || !height || air_group)
+
+/**
+ * An atom we are buckled or is contained within us has tried to move
+ */
+/atom/proc/relaymove(mob/living/user, direction)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
+	if(SEND_SIGNAL(src, COMSIG_ATOM_RELAYMOVE, user, direction) & COMSIG_BLOCK_RELAYMOVE)
+		return FALSE
+	return TRUE
+
 
 /**
  * An atom has entered this atom's contents
@@ -136,6 +176,40 @@
 	SEND_SIGNAL(src, COMSIG_ATOM_EXITED, gone, direction)
 
 /**
+ * Returns true if this atom has gravity for the passed in turf
+ *
+ * Sends signals [COMSIG_ATOM_HAS_GRAVITY] and [COMSIG_TURF_HAS_GRAVITY], both can force gravity with
+ * the forced gravity var.
+ *
+ * micro-optimized to hell because this proc is very hot, being called several times per movement every movement.
+ *
+ * This is slightly different from TG's version due to Aurora reasons.
+ */
+/atom/proc/has_gravity(turf/gravity_turf)
+	if(!isturf(gravity_turf))
+		gravity_turf = get_turf(src)
+
+		if(!gravity_turf)//no gravity in nullspace
+			return FALSE
+
+	var/list/forced_gravity = list()
+	SEND_SIGNAL(src, COMSIG_ATOM_HAS_GRAVITY, gravity_turf, forced_gravity)
+	SEND_SIGNAL(gravity_turf, COMSIG_TURF_HAS_GRAVITY, src, forced_gravity)
+	if(length(forced_gravity))
+		var/positive_grav = max(forced_gravity)
+		var/negative_grav = min(min(forced_gravity), 0) //negative grav needs to be below or equal to 0
+
+		//our gravity is sum of the most massive positive and negative numbers returned by the signal
+		//so that adding two forced_gravity elements with an effect size of 1 each doesnt add to 2 gravity
+		//but negative force gravity effects can cancel out positive ones
+
+		return (positive_grav + negative_grav)
+
+	var/area/turf_area = gravity_turf.loc
+
+	return turf_area.has_gravity()
+
+/**
  * This proc is used for telling whether something can pass by this atom in a given direction, for use by the pathfinding system.
  *
  * Trying to generate one long path across the station will call this proc on every single object on every single tile that we're seeing if we can move through, likely
@@ -151,6 +225,6 @@
  * If this is NOT you, ensure you edit your can_astar_pass variable. Check __DEFINES/path.dm
  **/
 /atom/proc/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
-	if(pass_info.pass_flags & pass_flags)
+	if(pass_info.pass_flags & pass_flags_self)
 		return TRUE
 	. = !density

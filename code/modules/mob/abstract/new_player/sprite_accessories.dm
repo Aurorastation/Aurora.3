@@ -479,6 +479,12 @@ Follow by example and make good judgement based on length which list to include 
 	length = 3
 	chatname = "hair drills"
 
+/datum/sprite_accessory/hair/eagle
+	name = "Eagle"
+	icon_state = "hair_eagle"
+	length = 1
+	chatname = "short hair"
+
 /datum/sprite_accessory/hair/emo
 	name = "Emo"
 	icon_state = "hair_emo"
@@ -564,6 +570,12 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Fade, None"
 	icon_state = "hair_fade_none"
 	chatname = "short hair"
+
+/datum/sprite_accessory/hair/falcon
+	name = "Falcon"
+	icon_state = "hair_falcon"
+	length = 3
+	chatname = "very long hair"
 
 /datum/sprite_accessory/hair/father
 	name = "Father"
@@ -702,6 +714,12 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_hitop"
 	chatname = "hitop"
 
+/datum/sprite_accessory/hair/hummingbird
+	name = "Hummingbird"
+	icon_state = "hair_hummingbird"
+	length = 2
+	chatname = "long hair"
+
 /datum/sprite_accessory/hair/jade
 	name = "Jade"
 	icon_state = "hair_jade"
@@ -758,6 +776,28 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_long_verylong"
 	length = 4
 	chatname = "very long hair"
+
+/datum/sprite_accessory/hair/macaw
+	name = "Macaw"
+	icon_state = "hair_macaw"
+	length = 2
+	chatname = "long hair"
+
+/datum/sprite_accessory/hair/magpie
+	name = "Magpie, 1"
+	icon_state = "hair_magpie"
+
+/datum/sprite_accessory/hair/magpie/two
+	name = "Magpie, 2"
+	icon_state = "hair_magpie2"
+
+/datum/sprite_accessory/hair/magpie/three
+	name = "Magpie, 3"
+	icon_state = "hair_magpie3"
+
+/datum/sprite_accessory/hair/magpie/four
+	name = "Magpie, 4"
+	icon_state = "hair_magpie4"
 
 /datum/sprite_accessory/hair/marysue
 	name = "Mary Sue"
@@ -1479,7 +1519,6 @@ Follow by example and make good judgement based on length which list to include 
 	chatname = "unshaved hair"
 	name = "Undercut 3"
 	icon_state = "hair_undercut3"
-	chatname = "unshaved hair"
 
 /datum/sprite_accessory/hair/undercut4
 	name = "Undercut 4"
@@ -1489,6 +1528,11 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/hair/undercut5
 	name = "Undercut 5"
 	icon_state = "hair_undercut5"
+	chatname = "unshaved hair"
+
+/datum/sprite_accessory/hair/curtain
+	name = "Short Curtain"
+	icon_state = "hair_curtain"
 	chatname = "unshaved hair"
 
 /datum/sprite_accessory/hair/unkept
@@ -1524,6 +1568,11 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Fingerwave"
 	icon_state = "hair_fingercurl"
 	chatname = "fluffy hair"
+
+/datum/sprite_accessory/hair/mullet
+	name = "Mullet"
+	icon_state = "hair_mullet"
+	chatname = "mullet"
 
 /datum/sprite_accessory/hair/bug_eyes
 	icon = 'icons/mob/human_face/dionae_hair.dmi'
@@ -1931,7 +1980,7 @@ Follow by example and make good judgement based on length which list to include 
 
 /datum/sprite_accessory/hair_gradients/none_48
 	name = "None (Vaurca Type C/E)"
-	icon = "icons/mob/base_48.dmi"
+	icon = 'icons/mob/base_48.dmi'
 	icon_state = "none"
 	species_allowed = list(/datum/species/bug/type_e, /datum/species/bug/type_c)
 
@@ -1962,6 +2011,18 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/hair_gradients/horizontal
 	name = "Horizontal Split"
 	icon_state = "hsplit"
+
+/datum/sprite_accessory/hair_gradients/short_highlights
+	name = "Short Highlights"
+	icon_state = "short_highlights"
+
+/datum/sprite_accessory/hair_gradients/short_highlights/upshift
+	name = "Short Highlights (+1 Upshift)"
+	icon_state = "short_highlights+1"
+
+/datum/sprite_accessory/hair_gradients/short_highlights/downshift
+	name = "Short Highlights (-1 Downshift)"
+	icon_state = "short_highlights-1"
 
 /datum/sprite_accessory/hair_gradients/taj_inner_ear_fur
 	name = "Inner Ear Fur"
@@ -4979,10 +5040,22 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "mecha_eye_r"
 	body_parts = list(BP_HEAD)
 	do_colouration = FALSE
+	species_allowed = list(/datum/species/bug)
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye/warrior
+	name = "Mecha Eye (Faceplate, Right, Warrior)"
+	icon_state = "mecha_eye_warrior_r"
+	species_allowed = list(/datum/species/bug/type_b)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eye_l
 	name = "Mecha Eye (Faceplate, Left)"
 	icon_state = "mecha_eye_l"
+	species_allowed = list(/datum/species/bug)
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eye_l/warrior
+	name = "Mecha Eye (Faceplate, Left, Warrior)"
+	icon_state = "mecha_eye_warrior_l"
+	species_allowed = list(/datum/species/bug/type_b)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay
 	name = "Mecha Eye (Overlay, Right)"
@@ -4993,15 +5066,45 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Mecha Eye (Overlay, Left)"
 	icon_state = "mecha_eyeoverlay_l"
 
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay/upper
+	name = "Upper Mecha Eye (Overlay, Right)"
+	icon_state = "mecha_uppereyeoverlay_r"
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eyeoverlay_l/upper
+	name = "Upper Mecha Eye (Overlay, Left)"
+	icon_state = "mecha_uppereyeoverlay_l"
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay/lower
+	name = "Lower Mecha Eye (Overlay, Right)"
+	icon_state = "mecha_lowereyeoverlay_r"
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye/mecha_eyeoverlay_l/lower
+	name = "Lower Mecha Eye (Overlay, Left)"
+	icon_state = "mecha_lowereyeoverlay_l"
+
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l
 	name = "Mecha Eye (Faceplate, Right, Large)"
 	icon_state = "mecha_eye_r_l"
 	body_parts = list(BP_HEAD)
 	do_colouration = FALSE
+	species_allowed = list(/datum/species/bug)
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l/warrior
+	name = "Mecha Eye (Faceplate, Right, Large, Warrior)"
+	icon_state = "mecha_eye_warrior_r_l"
+	body_parts = list(BP_HEAD)
+	do_colouration = FALSE
+	species_allowed = list(/datum/species/bug/type_b)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l/mecha_eye_r_l
 	name = "Mecha Eye (Faceplate, Left, Large)"
 	icon_state = "mecha_eye_l_l"
+	species_allowed = list(/datum/species/bug)
+
+/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_l/mecha_eye_r_l/warrior
+	name = "Mecha Eye (Faceplate, Left, Large, Warrior)"
+	icon_state = "mecha_eye_warrior_l_l"
+	species_allowed = list(/datum/species/bug/type_b)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_eyeoverlay_l
 	name = "Mecha Eye (Overlay, Right, Large)"
@@ -5012,9 +5115,11 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Mecha Eye (Overlay, Left, Large)"
 	icon_state = "mecha_eyeoverlay_l_l"
 
-/datum/sprite_accessory/marking/vaurca_augs/mecha_eye_b/mandible
+/datum/sprite_accessory/marking/vaurca_augs/mandible
 	name = "Mecha Mandibles"
 	icon_state = "mecha_mandibles"
+	body_parts = list(BP_HEAD)
+	do_colouration = FALSE
 
 /datum/sprite_accessory/marking/vaurca_augs/hand_panel_r
 	name = "Hand Panel (Right)"
@@ -6454,77 +6559,77 @@ Follow by example and make good judgement based on length which list to include 
 
 /datum/sprite_accessory/marking/taj_tigerstripes
 	name = "Tiger Stripes (Tajara)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "tiger"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN)
 	species_allowed = list(/datum/species/unathi,/datum/species/zombie/unathi,/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_paw_socks
 	name = "Socks Coloration (Tajara)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_pawsocks"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_pawsocks_alternate
 	name = "Socks Coloration (Tajara Alternate)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_pawsocks_alternate"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_gloves
 	name = "Socks Coloration (Gloves)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_pawsocks"
 	body_parts = list(BP_L_HAND,BP_R_HAND)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_paws
 	name = "Socks Coloration (Paws)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_pawsocks"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_glovesfull
 	name = "Socks Coloration (Full Gloves)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_pawsocks"
 	body_parts = list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_pawsfull
 	name = "Socks Coloration (Full Paws)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_pawsocks"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_glovesfull_alt
 	name = "Socks Coloration (Full Gloves Alt)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_pawsocks_alternate"
 	body_parts = list(BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_pawsfull_alt
 	name = "Socks Coloration (Full Paws Alt)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_pawsocks_alternate"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_glovesfull_alt2
 	name = "Socks Coloration (Full Gloves Alt 2)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_bellyhandsfeet_minor"
 	body_parts = list(BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_pawsfull_alt2
 	name = "Socks Coloration (Full Paws Alt 2)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_bellyhandsfeet_minor"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
@@ -6537,147 +6642,147 @@ Follow by example and make good judgement based on length which list to include 
 
 /datum/sprite_accessory/marking/taj_tigerhead_veryminor
 	name = "Tiger Stripes (Head, Very Minor)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "tigerheadminor"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/human, /datum/species/human/offworlder, /datum/species/diona,  /datum/species/diona/coeu, /datum/species/machine/shell, /datum/species/skrell, /datum/species/skrell/axiori, /datum/species/tajaran, /datum/species/tajaran/zhan_khazan, /datum/species/tajaran/m_sai, /datum/species/unathi)
 
 /datum/sprite_accessory/marking/taj_tigerface
 	name = "Tiger Stripes (Head, Major)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "tigerface"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_nose
 	name = "Nose Color"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_nose"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_muzzle
 	name = "Muzzle Color"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_muzzle"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_muzzle_female
 	name = "Muzzle Color (Female)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_muzzle_female"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_face_minor
 	name = "Cheeks Color (Minor)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_face_minor"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_face
 	name = "Cheeks Color"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_face"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_all
 	name = "All Tajara Head"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_all"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_belly_hands_feet_minor
 	name = "Hands,Feet,Belly Color (Minor)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_bellyhandsfeet_minor"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_belly_hands_feet_minor_female
 	name = "Hands,Feet,Belly Color (Female, Minor)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_bellyhandsfeet_minor_female"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_GROIN,BP_CHEST)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_belly_male
 	name = "Belly Color (Male)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_bellyhandsfeet_minor"
 	body_parts = list(BP_GROIN,BP_CHEST)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_belly_female
 	name = "Belly Color (Female)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_bellyhandsfeet_minor_female"
 	body_parts = list(BP_GROIN,BP_CHEST)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_chest_male
 	name = "Chest,Belly Coloration (Male)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_bellyhandsfeet"
 	body_parts = list(BP_GROIN,BP_CHEST)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_chest_female
 	name = "Chest,Belly Coloration (Female)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_bellyhandsfeet_female"
 	body_parts = list(BP_GROIN,BP_CHEST)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_patches_full
 	name = "Color Patches (Full)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_patches"
 	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_L_HAND,BP_R_HAND,BP_CHEST,BP_GROIN)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_patches_leftleg
 	name = "Color Patches (Left Leg)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_patches"
 	body_parts = list(BP_L_FOOT,BP_L_LEG)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_patches_rightleg
 	name = "Color Patches (Right Leg)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_patches"
 	body_parts = list(BP_R_FOOT,BP_R_LEG)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_patches_leftarm
 	name = "Color Patches (Left Arm)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_patches"
 	body_parts = list(BP_L_ARM,BP_L_HAND)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_patches_rightarm
 	name = "Color Patches (Right Arm)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_patches"
 	body_parts = list(BP_R_ARM,BP_R_HAND)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_patches_chest
 	name = "Color Patches (Torso)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_patches"
 	body_parts = list(BP_CHEST,BP_GROIN)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)
 
 /datum/sprite_accessory/marking/taj_patchesface
 	name = "Color Patches (Face)"
-	icon = "icons/mob/human_races/markings_tajara.dmi"
+	icon = 'icons/mob/human_races/markings_tajara.dmi'
 	icon_state = "taj_patchesface"
 	body_parts = list(BP_HEAD)
 	species_allowed = list(/datum/species/tajaran,/datum/species/tajaran/zhan_khazan,/datum/species/tajaran/m_sai,/datum/species/zombie/tajara)

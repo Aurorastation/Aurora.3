@@ -57,7 +57,7 @@
 	if(prob(chance))
 		if(A.opacity)
 			//display a message so that people on the other side aren't so confused
-			A.visible_message("<span class='warning'>\The [src] pierces through \the [A]!</span>")
+			A.visible_message(SPAN_WARNING("\The [src] pierces through \the [A]!"))
 		return 1
 
 	return 0
@@ -474,11 +474,11 @@
 
 /obj/item/projectile/bullet/gauss/highex/on_hit(var/atom/target, var/blocked = 0)
 	explosion(target, -1, 0, 2)
-	sleep(0)
-	var/obj/T = target
-	var/throwdir = get_dir(firer,target)
-	T.throw_at(get_edge_target_turf(target, throwdir),3,3)
-	return 1
+	if(ismovable(target))
+		var/atom/movable/T = target
+		var/throwdir = get_dir(firer,target)
+		INVOKE_ASYNC(T, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(target, throwdir), 3, 3)
+	return TRUE
 
 /obj/item/projectile/bullet/cannonball
 	name = "cannonball"
@@ -522,6 +522,7 @@
 
 /obj/item/projectile/bullet/shard/heavy
 	damage = 30
+	armor_penetration = 15
 
 /obj/item/projectile/bullet/recoilless_rifle
 	name = "anti-tank warhead"

@@ -23,3 +23,6 @@
 
 
 	return rep_objectives
+
+/datum/citizenship/proc/get_records_name()
+	return name

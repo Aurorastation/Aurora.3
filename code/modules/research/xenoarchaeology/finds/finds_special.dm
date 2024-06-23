@@ -62,11 +62,16 @@
 	var/eat_interval = 100
 	var/wight_check_index = 1
 	var/list/shadow_wights = list()
+	///Amount of force required by the weapon to smash the statue.
+	var/fragile = 15
+	///Sets the type of material for use by the place shard proc.
+	var/material/shatter_material = MATERIAL_STEEL
 
 /obj/item/vampiric/New()
 	..()
 	START_PROCESSING(SSprocessing, src)
 	become_hearing_sensitive()
+	shatter_material = SSmaterials.get_material_by_name(shatter_material)
 
 /obj/item/vampiric/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -113,7 +118,7 @@
 
 	if(charges >= 0.1)
 		if(prob(5))
-			src.visible_message("<span class='warning'>[icon2html(src, viewers(get_turf(src)))] [src]'s eyes glow ruby red for a moment!</span>")
+			src.visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] [src]'s eyes glow ruby red for a moment!"))
 			charges -= 0.1
 
 	//check on our shadow wights
@@ -132,7 +137,8 @@
 
 /obj/item/vampiric/hear_talk(mob/M as mob, text)
 	..()
-	if(world.time - last_bloodcall >= bloodcall_interval && (M in view(7, src)))
+	if(world.time - last_bloodcall >= bloodcall_interval && (M in get_hearers_in_LOS(7, src)))
+		audible_message(SPAN_NOTICE("\The [src] twitches as it listens."))
 		bloodcall(M)
 
 /obj/item/vampiric/proc/bloodcall(var/mob/living/carbon/human/M)
@@ -143,12 +149,60 @@
 
 		var/target = pick(M.organs_by_name)
 		M.apply_damage(rand(5, 10), DAMAGE_BRUTE, target)
-		to_chat(M, "<span class='warning'>The skin on your [parse_zone(target)] feels like it's ripping apart, and a stream of blood flies out.</span>")
+		to_chat(M, SPAN_WARNING("The skin on your [parse_zone(target)] feels like it's ripping apart, and a stream of blood flies out."))
 		var/obj/effect/decal/cleanable/blood/splatter/animated/B = new(M.loc)
 		B.target_turf = pick(seen_turfs_in_range(src, 1))
 		B.blood_DNA = list()
 		B.blood_DNA[M.dna.unique_enzymes] = M.dna.b_type
 		M.vessel.remove_reagent(/singleton/reagent/blood,rand(25,50))
+
+///Is called when the statue is destroyed. Deals sufficiently consequential damage to IPCs and non-IPCS. Dionae are the least affected.
+/obj/item/vampiric/proc/bloodcall_final(var/mob/living/carbon/human/hero)
+	var/obj/item/vampiric/statue = src
+	var/reagent_amount = 50
+	var/datum/reagents/chem = new/datum/reagents(reagent_amount)
+	chem.my_atom = statue
+	chem.add_reagent(/singleton/reagent/blood, reagent_amount)
+
+	var/datum/effect/effect/system/smoke_spread/chem/smoke = new
+	smoke.show_log = 0 // This displays a log on creation
+	smoke.show_touch_log = 1 // This displays a log when a player is chemically affected
+	smoke.set_up(chem, 10, 0, statue, 120)
+	smoke.start()
+	qdel(chem)
+
+	if(!istype(hero))
+		return
+
+	if(!istype(hero.species, /datum/species/machine))
+		to_chat(hero, SPAN_HIGHDANGER("What have you done?! You feel an incredible pull as the statue breaks. The force crushes your hands and pulls your blood into an unseen void."))
+		hero.apply_damage(40, DAMAGE_BRUTE, BP_L_HAND)
+		hero.apply_damage(40, DAMAGE_BRUTE, BP_R_HAND)
+		hero.vessel.remove_reagent(/singleton/reagent/blood,rand(120,175))
+		return
+
+	var/obj/item/organ/external/bishop = hero.get_organ(BP_GROIN)
+	to_chat(hero, SPAN_HIGHDANGER("What have you done?! An unseen force grips you and starts to pull in opposite directions!"))
+	hero.apply_damage(75, DAMAGE_BRUTE, BP_CHEST)
+	bishop.droplimb(FALSE, DROPLIMB_BLUNT) //Damage to the chest, groin, and droplimb proc should guarantee a decent simulation of the IPC being ripped in half.
+
+	return
+
+///Adds an option to attack the statue with an item in-hand. If you have sufficient force it destroys the statue and calls the bloodcall_final proc.
+/obj/item/vampiric/attackby(obj/item/attacking_item, mob/user)
+	if(!(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON) && (user.a_intent == I_HURT) && fragile && (attacking_item.force > fragile))
+		if(do_after(user, 1 SECOND, src))
+			if(!QDELETED(src))
+				visible_message(SPAN_WARNING("[user] smashes [src] with \a [attacking_item]!"))
+				user.do_attack_animation(src)
+				audible_message(SPAN_WARNING("\The [src] shatters with a resounding crash!"))
+				playsound(get_turf(src), 'sound/effects/projectile_impact/ion_any.ogg', 70, 1)
+				playsound(get_turf(src), 'sound/species/revenant/grue_screech.ogg', 200, TRUE)
+				playsound(get_turf(src), 'sound/magic/exit_blood.ogg', 70, 1)
+				shatter_material.place_shard(get_turf(src))
+				bloodcall_final(user)
+				qdel(src)
+	return ..()
 
 //animated blood 2 SPOOKY
 /obj/effect/decal/cleanable/blood/splatter/animated
@@ -223,4 +277,4 @@
 
 /obj/effect/shadow_wight/Collide(var/atom/obstacle)
 	. = ..()
-	to_chat(obstacle, "<span class='warning'>You feel a chill run down your spine!</span>")
+	to_chat(obstacle, SPAN_WARNING("You feel a chill run down your spine!"))

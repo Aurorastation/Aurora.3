@@ -32,6 +32,7 @@
 	normalspeed = TRUE
 	pixel_x = -16
 	pixel_y = -16
+	pass_flags_self = PASSDOORS
 	/// Boolean. Whether or not the AI control mechanism is disabled.
 	var/ai_control_disabled = FALSE
 	/// Boolean. If set, the door cannot by hacked or bypassed by the AI.
@@ -780,7 +781,9 @@
 	door_color = COLOR_VIOLET
 	mineral = MATERIAL_PHORON
 
-/obj/machinery/door/airlock/phoron/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/machinery/door/airlock/phoron/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(exposed_temperature > 300)
 		PhoronBurn(exposed_temperature)
 
@@ -1100,25 +1103,25 @@ About the new airlock wires panel:
 	if(p_open)
 		panel_overlay = panel_file
 
-	cut_overlays()
+	ClearOverlays()
 
-	add_overlay(frame_color_overlay)
-	add_overlay(color_overlay)
-	add_overlay(panel_overlay)
-	add_overlay(filling_overlay)
-	add_overlay(stripe_overlay)
-	add_overlay(stripe_filling_overlay)
-	add_overlay(weld_overlay)
-	add_overlay(brace_overlay)
-	add_overlay(lights_overlay)
-	add_overlay(sparks_overlay)
-	add_overlay(damage_overlay)
+	AddOverlays(frame_color_overlay)
+	AddOverlays(color_overlay)
+	AddOverlays(panel_overlay)
+	AddOverlays(filling_overlay)
+	AddOverlays(stripe_overlay)
+	AddOverlays(stripe_filling_overlay)
+	AddOverlays(weld_overlay)
+	AddOverlays(brace_overlay)
+	AddOverlays(lights_overlay)
+	AddOverlays(sparks_overlay)
+	AddOverlays(damage_overlay)
 
 	if(force_compile)
-		compile_overlays()
+		UpdateOverlays()
 
 /obj/machinery/door/airlock/do_animate(animation)
-	cut_overlays()
+	ClearOverlays()
 
 	switch(animation)
 		if("opening")
@@ -1985,7 +1988,7 @@ About the new airlock wires panel:
 	var/has_opened_hatch = FALSE
 	for(var/turf/turf in locs)
 		for(var/atom/movable/AM in turf)
-			if(hashatch && AM.checkpass(PASSDOORHATCH))
+			if(hashatch && AM.pass_flags & PASSDOORHATCH)
 				if(!has_opened_hatch)
 					open_hatch(AM)
 				has_opened_hatch = TRUE

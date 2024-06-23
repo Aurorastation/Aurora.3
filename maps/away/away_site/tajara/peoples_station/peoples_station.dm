@@ -6,12 +6,12 @@
 	suffixes = list("peoples_station.dmm")
 
 	sectors = list(SECTOR_SRANDMARR)
-	spawn_weight = 1
+	spawn_weight = 2.5
 	spawn_cost = 1
 	id = "peoples_station"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/peoples_station_fang)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/peoples_station_fang, /datum/shuttle/autodock/overmap/peoples_station_transport)
 
-	unit_test_groups = list(1)
+	unit_test_groups = list(2)
 
 /singleton/submap_archetype/peoples_station
 	map = "People's Space Station"
@@ -31,15 +31,21 @@
 	volume = "101 meters length, 115 meters beam/width, 32 meters vertical height"
 	weapons = "Dual extruding starboard-mounted medium and small caliber ballistic armament, two port obscured flight craft bays"
 	sizeclass = "Armed military surveillance and waypoint station"
+	place_near_main = list(2, 2)
 
 	initial_generic_waypoints = list(
 		"nav_peoples_station_ship_1",
 		"nav_peoples_station_ship_1",
-		"nav_peoples_station_ship_3"
+		"nav_peoples_station_ship_3",
+		"nav_peoples_station_ship_4",
+		"nav_peoples_station_fore_dock",
+		"nav_peoples_station_aft_dock",
+		"nav_peoples_station_port_dock",
+		"nav_peoples_station_starboard_dock"
 	)
 	initial_restricted_waypoints = list(
 		"Orbital Fleet Fang" = list("nav_hangar_peoples_station_fang"),
-		"Intrepid" = list("nav_peoples_station_dockintrepid")
+		"People's Station Transport Shuttle" = list("nav_hangar_peoples_station_transport")
 	)
 	comms_support = TRUE
 	comms_name = "people's station"
@@ -76,6 +82,7 @@
 	shuttle = "Orbital Fleet Fang"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
+	colors = list("#8C8A81")
 	max_speed = 1/(1 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 3000
@@ -88,14 +95,14 @@
 	else
 		designation = "[pick("Adhomai's Finest", "Party's Dagger", "Sunray", "Kazarrhaldiye", "Revolutionary Courage", "Hadiist Avenger")]"
 	..()
-/obj/machinery/computer/shuttle_control/explore/peoples_station_fang
+/obj/machinery/computer/shuttle_control/explore/terminal/peoples_station_fang
 	name = "shuttle control console"
 	shuttle_tag = "Orbital Fleet Fang"
 
 /datum/shuttle/autodock/overmap/peoples_station_fang
 	name = "Orbital Fleet Fang"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/fang/engine, /area/shuttle/fang/bridge)
+	shuttle_area = list(/area/shuttle/fang)
 	current_location = "nav_hangar_peoples_station_fang"
 	landmark_transition = "nav_transit_peoples_station_fang"
 	range = 1
@@ -104,15 +111,48 @@
 	logging_home_tag = "nav_hangar_peoples_station_fang"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/peoples_station_fang/hangar
-	name = "People's Station Fang Hangar"
-	landmark_tag = "nav_hangar_peoples_station_fang"
-	docking_controller = "peoples_station_fang_dock"
-	base_area = /area/peoples_station/fang
+//transport shuttle
+
+/obj/effect/overmap/visitable/ship/landable/peoples_station_transport
+	name = "People's Station Transport Shuttle"
+	class = "PRAMV"
+	designation = "Yve'kha"
+	desc = "A simple and reliable shuttle design used by the Orbital Fleet."
+	shuttle = "People's Station Transport Shuttle"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#8C8A81")
+	max_speed = 1/(3 SECONDS)
+	burn_delay = 2 SECONDS
+	vessel_mass = 3000 //very inefficient pod
+	fore_dir = NORTH
+	vessel_size = SHIP_SIZE_TINY
+
+/obj/machinery/computer/shuttle_control/explore/terminal/peoples_station_transport
+	name = "shuttle control console"
+	shuttle_tag = "People's Station Transport Shuttle"
+
+/datum/shuttle/autodock/overmap/peoples_station_transport
+	name = "People's Station Transport Shuttle"
+	move_time = 20
+	shuttle_area = list(/area/shuttle/peoples_station_transport)
+	current_location = "nav_peoples_station_transport"
+	landmark_transition = "nav_transit_peoples_station_transport"
+	dock_target = "peoples_station_transport"
+	range = 1
+	fuel_consumption = 2
+	logging_home_tag = "nav_peoples_station_transport"
+	defer_initialisation = TRUE
+
+/obj/effect/shuttle_landmark/peoples_station_transport/hangar
+	name = "People's Station Transport Shuttle"
+	landmark_tag = "nav_peoples_station_transport"
+	docking_controller = "peoples_station_transport_dock"
+	base_area = /area/peoples_station/transport_hangar
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/effect/shuttle_landmark/peoples_station_fang/transit
+/obj/effect/shuttle_landmark/peoples_station_transport/transit
 	name = "In transit"
-	landmark_tag = "nav_transit_peoples_station_fang"
+	landmark_tag = "nav_transit_peoples_station_transport"
 	base_turf = /turf/space/transit/north

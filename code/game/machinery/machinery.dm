@@ -86,6 +86,7 @@ Class Procs:
 	w_class = ITEMSIZE_IMMENSE
 	layer = STRUCTURE_LAYER
 	init_flags = INIT_MACHINERY_PROCESS_SELF
+	pass_flags_self = PASSMACHINE | LETPASSCLICKS
 
 	var/stat = 0
 	var/emagged = 0
@@ -226,19 +227,26 @@ Class Procs:
 				return
 	return
 
-/proc/is_operable(var/obj/machinery/M, var/mob/user)
-	return istype(M) && M.operable()
+/**
+ * Check to see if the machine is operable
+ *
+ * * `additional_flags` - Additional flags to check for, that could have been added to the `stat` variable
+ *
+ * Returns `TRUE` if the machine is operable, `FALSE` otherwise
+ */
+/obj/machinery/proc/operable(additional_flags = 0)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
 
-/obj/machinery/proc/operable(var/additional_flags = 0)
-	return !inoperable(additional_flags)
-
-/obj/machinery/proc/inoperable(var/additional_flags = 0)
-	return (stat & (NOPOWER|BROKEN|additional_flags))
+	if(stat & (NOPOWER|BROKEN|additional_flags))
+		return FALSE
+	else
+		return TRUE
 
 /obj/machinery/proc/toggle_power(power_set = -1, additional_flags = 0)
 	if(power_set >= 0)
 		update_use_power(power_set)
-	else if (use_power || inoperable(additional_flags))
+	else if (use_power || !operable(additional_flags))
 		update_use_power(POWER_USE_OFF)
 	else
 		update_use_power(initial(use_power))
@@ -277,13 +285,13 @@ Class Procs:
 		return src.attack_hand(user)
 
 /obj/machinery/attack_hand(mob/user as mob)
-	if(inoperable(MAINT))
+	if(!operable(MAINT))
 		return 1
 	if(user.lying || user.stat)
 		return 1
 	if ( ! (istype(usr, /mob/living/carbon/human) || \
 			istype(usr, /mob/living/silicon)))
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(usr, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return 1
 /*
 	//distance checks are made by atom/proc/DblClick
@@ -293,10 +301,10 @@ Class Procs:
 	if (ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.getBrainLoss() >= 60)
-			visible_message("<span class='warning'>[H] stares cluelessly at [src] and drools.</span>")
+			visible_message(SPAN_WARNING("[H] stares cluelessly at [src] and drools."))
 			return 1
 		else if(prob(H.getBrainLoss()))
-			to_chat(user, "<span class='warning'>You momentarily forget how to use [src].</span>")
+			to_chat(user, SPAN_WARNING("You momentarily forget how to use [src]."))
 			return 1
 
 	src.add_fingerprint(user)
@@ -373,7 +381,7 @@ Class Procs:
 	playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0) //TODO: Check if that one is the correct sound
 
 /obj/machinery/proc/shock(mob/user, prb)
-	if(inoperable())
+	if(!operable())
 		return 0
 	if(!prob(prb))
 		return 0
@@ -401,7 +409,7 @@ Class Procs:
 		return FALSE
 	S.play_tool_sound(get_turf(src), 50)
 	panel_open = !panel_open
-	to_chat(user, "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>")
+	to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance hatch of [src]."))
 	update_icon()
 	return TRUE
 
@@ -429,7 +437,7 @@ Class Procs:
 						component_parts -= G
 						component_parts += B
 						B.forceMove(src)
-						to_chat(user, "<span class='notice'>[G.name] replaced with [B.name].</span>")
+						to_chat(user, SPAN_NOTICE("[G.name] replaced with [B.name]."))
 						break
 		for(var/obj/item/stock_parts/A in component_parts)
 			for(var/D in CB.req_components)
@@ -445,13 +453,13 @@ Class Procs:
 						component_parts -= A
 						component_parts += B
 						B.forceMove(src)
-						to_chat(user, "<span class='notice'>[A.name] replaced with [B.name].</span>")
+						to_chat(user, SPAN_NOTICE("[A.name] replaced with [B.name]."))
 						parts_replaced = TRUE
 						break
 		RefreshParts()
 		update_icon()
 	else
-		to_chat(user, "<span class='notice'>The following parts have been detected in \the [src]:</span>")
+		to_chat(user, SPAN_NOTICE("The following parts have been detected in \the [src]:"))
 		to_chat(user, counting_english_list(component_parts))
 	if(parts_replaced) //only play sound when RPED actually replaces parts
 		playsound(src, 'sound/items/rped.ogg', 40, TRUE)

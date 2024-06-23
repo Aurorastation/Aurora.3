@@ -14,14 +14,17 @@
 		"
 	welcome_message = "\
 		You were part of an archeological expedition, hired by some independent scientist, to look for artifacts in a asteroid belt. \
-		But that is important no more, and you see the world clearly now. Others have already left the material plane, but you were told to stay. \
-		Now you wake up, visitors are coming, and they should learn the word of Nar-Sie too, or be sacrificed if they refuse it. \
-		You live and die for the Dark One, but your death must not be in vain. \
+		But that is important no more, and you see the world clearly now. Others have already left the material plane, but you were told to stay, \
+		as your mind is impure, your thoughts are clouded, and you are to prove your worth before leaving the material plane. \
+		Now you wake up, visitors are coming, and they should learn the word of Nar-Sie too, or be left unbothered if they are unwilling. \
+		Your death must not be in vain, and your actions must not lead to the Cult being discovered. \
 		"
 	welcome_message_ooc = "\
 		This is an antagonist role which places typical antagonist expectations on you. \
 		You are expected to try to generate an interesting encounter with whoever has docked to the away site. \
 		You may try to blend in with the visitors, try to trick them, but you are not 'normal', you follow Nar-Sie. \
+		You are supposed to act covert, and not bring too much attention to Nar-Sie. \
+		You do not have the cult tome, but you may still use runes you find on the floor, or use cult languages. \
 		You may click a plasteel wall to push on it, and open a hidden door. \
 		Remember to follow basic escalation rules, and have fun! \
 		"
@@ -112,7 +115,7 @@
 		/obj/item/clothing/glasses/sunglasses/aviator,
 		/obj/item/clothing/glasses/hud/health/aviator,
 		/obj/item/clothing/glasses/regular,
-		/obj/item/clothing/glasses/science,
+		/obj/item/clothing/glasses/safety/goggles/science,
 		/obj/item/clothing/glasses/safety/goggles,
 	)
 	gloves = list(
@@ -134,10 +137,19 @@
 		/obj/item/clothing/shoes/sneakers/brown,
 		/obj/item/clothing/shoes/sneakers/hitops/brown,
 	)
+	accessory = list(
+		/obj/item/clothing/accessory/storage/bayonet,
+		/obj/item/clothing/accessory/storage/brown_vest,
+		/obj/item/clothing/accessory/storage/overalls,
+		/obj/item/clothing/accessory/storage/pouches,
+		/obj/item/clothing/accessory/storage/pouches/white,
+		/obj/item/clothing/accessory/storage/webbing,
+		/obj/item/clothing/accessory/storage/webbingharness,
+	)
 	belt = list(
 		/obj/item/storage/belt/fannypack,
 		/obj/item/storage/belt/utility/full,
-		/obj/item/storage/belt/medical/first_responder/full,
+		/obj/item/storage/belt/medical/paramedic/full,
 		/obj/item/storage/belt/mining/full,
 		/obj/item/storage/belt/security/full/alt,
 		/obj/item/storage/belt/security/full/pistol45,
@@ -218,7 +230,7 @@
 
 	// make into a cultist
 	if(human.mind)
-		cult.add_antagonist(human.mind)
+		cult.add_antagonist(human.mind, do_not_equip=TRUE)
 
 	// add blood
 	if(prob(75))

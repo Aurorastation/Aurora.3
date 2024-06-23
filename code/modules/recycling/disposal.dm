@@ -206,9 +206,9 @@
 				L.forceMove(src)
 
 			if (count)
-				to_chat(user, "<span class='notice'>You empty [count] broken bulbs into the disposal.</span>")
+				to_chat(user, SPAN_NOTICE("You empty [count] broken bulbs into the disposal."))
 			else
-				to_chat(user, "<span class='notice'>There are no broken bulbs to empty out.</span>")
+				to_chat(user, SPAN_NOTICE("There are no broken bulbs to empty out."))
 			update()
 			return TRUE
 
@@ -227,7 +227,7 @@
 					GM.client.eye = src
 				GM.forceMove(src)
 				for (var/mob/C in viewers(src))
-					C.show_message("<span class='warning'>[GM.name] has been placed in the [src] by [user].</span>", 3)
+					C.show_message(SPAN_WARNING("[GM.name] has been placed in the [src] by [user]."), 3)
 				qdel(G)
 				usr.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has placed [GM.name] ([GM.ckey]) in disposals.</span>")
 				GM.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [usr.name] ([usr.ckey])</font>")
@@ -310,7 +310,11 @@
 	return 1
 
 // attempt to move while inside
-/obj/machinery/disposal/relaymove(mob/user as mob)
+/obj/machinery/disposal/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if(user.stat || src.flushing)
 		return
 	if(user.loc == src)
@@ -341,7 +345,7 @@
 		return
 
 	if(user.loc == src)
-		to_chat(usr, "<span class='warning'>You cannot reach the controls from inside.</span>")
+		to_chat(usr, SPAN_WARNING("You cannot reach the controls from inside."))
 		return
 
 	// Clumsy folks can only flush it.
@@ -397,11 +401,11 @@
 
 /obj/machinery/disposal/Topic(href, href_list)
 	if(usr.loc == src && !issilicon(usr))
-		to_chat(usr, "<span class='warning'>You cannot reach the controls from inside.</span>")
+		to_chat(usr, SPAN_WARNING("You cannot reach the controls from inside."))
 		return
 
 	if(mode==-1 && !href_list["eject"]) // only allow ejecting if mode is -1
-		to_chat(usr, "<span class='warning'>The disposal units power is disabled.</span>")
+		to_chat(usr, SPAN_WARNING("The disposal units power is disabled."))
 		return
 	if(..())
 		return
@@ -448,7 +452,7 @@
 
 // update the icon & overlays to reflect mode & status
 /obj/machinery/disposal/proc/update()
-	cut_overlays()
+	ClearOverlays()
 	if(stat & BROKEN)
 		icon_state = "[icon_state]-broken"
 		mode = 0
@@ -457,7 +461,7 @@
 
 	// flush handle
 	if(flush)
-		add_overlay("[icon_state]-handle")
+		AddOverlays("[icon_state]-handle")
 
 	// only handle is shown if no power
 	if(stat & NOPOWER || mode == -1)
@@ -465,13 +469,13 @@
 
 	// 	check for items in disposal - occupied light
 	if(contents.len > 0)
-		add_overlay("[icon_state]-full")
+		AddOverlays("[icon_state]-full")
 
 	// charging and ready light
 	if(mode == 1)
-		add_overlay("[icon_state]-charge")
+		AddOverlays("[icon_state]-charge")
 	else if(mode == 2)
-		add_overlay("[icon_state]-ready")
+		AddOverlays("[icon_state]-ready")
 
 // timed process
 // charge the gas reservoir and perform flush if ready
@@ -746,7 +750,11 @@
 
 
 	// called when player tries to move while in a pipe
-/obj/disposalholder/relaymove(mob/user as mob)
+/obj/disposalholder/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if(!istype(user,/mob/living))
 		return
 
@@ -1239,7 +1247,7 @@
 		if(O.currTag)// Tag set
 			sort_tag = O.currTag
 			playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
-			to_chat(user, "<span class='notice'>Changed tag to '[sort_tag]'.</span>")
+			to_chat(user, SPAN_NOTICE("Changed tag to '[sort_tag]'."))
 			updatename()
 			updatedesc()
 
@@ -1310,7 +1318,7 @@
 		if(O.currTag)// Tag set
 			sortType = O.currTag
 			playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
-			to_chat(user, "<span class='notice'>Changed filter to '[sortType]'.</span>")
+			to_chat(user, SPAN_NOTICE("Changed filter to '[sortType]'."))
 			updatename()
 			updatedesc()
 

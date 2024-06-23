@@ -121,7 +121,7 @@
 /obj/effect/shuttle_landmark/cyclops_shuttle/hangar
 	name = "Cyclops Shuttle Hangar"
 	landmark_tag = "nav_hangar_cyclops"
-	docking_controller = "airlock_shuttle_cyclops"
+	docking_controller = "airlock_cyclops_hangar"
 	base_area = /area/hephmining_ship/cyclops
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE

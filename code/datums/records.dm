@@ -163,7 +163,7 @@
 		fingerprint = md5(H.dna.uni_identity)
 		sex = H.species.get_species_record_sex(H)
 		species = H.get_species(FALSE, TRUE)
-		citizenship = H.citizenship
+		citizenship = SSrecords.get_citizenship_record_name(H.citizenship)
 		employer = H.employer_faction
 		religion = SSrecords.get_religion_record_name(H.religion)
 		ccia_record = H.ccia_record
