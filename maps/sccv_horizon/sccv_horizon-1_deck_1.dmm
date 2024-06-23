@@ -174,16 +174,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
-"agG" = (
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "airlock_shuttle_intrepid";
-	name = "airlock_shuttle_intrepid";
-	req_one_access = null;
-	shuttle_tag = "Intrepid"
-	},
-/turf/simulated/wall,
-/area/horizon/stairwell/central)
 "agI" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 9
@@ -5484,6 +5474,10 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
+"dMx" = (
+/obj/effect/map_effect/marker_helper/airlock/out,
+/turf/simulated/wall,
+/area/horizon/stairwell/central)
 "dMS" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -11003,6 +10997,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/hangar/canary)
+"hxI" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/hullbeacon/red,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/hangar/operations)
 "hxL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -11988,13 +11993,6 @@
 	},
 /area/shuttle/intrepid/engine_compartment)
 "inM" = (
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "airlock_shuttle_intrepid";
-	name = "airlock_shuttle_intrepid";
-	req_one_access = null;
-	shuttle_tag = "Intrepid"
-	},
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "11,25"
 	},
@@ -14005,10 +14003,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
-"jHj" = (
-/obj/effect/map_effect/marker_helper/airlock/out,
-/turf/simulated/wall,
-/area/horizon/stairwell/central)
 "jHp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
@@ -16602,17 +16596,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion)
-"lAn" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/hullbeacon/red,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/airless,
-/area/hangar/operations)
 "lAU" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -24587,6 +24570,16 @@
 "qPV" = (
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"qPY" = (
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_shuttle_intrepid";
+	name = "airlock_shuttle_intrepid";
+	req_one_access = null;
+	shuttle_tag = "Intrepid"
+	},
+/turf/simulated/wall,
+/area/horizon/stairwell/central)
 "qQa" = (
 /obj/machinery/alarm/west,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -50785,7 +50778,7 @@ gyo
 gyo
 gyo
 gyo
-lAn
+hxI
 jEx
 kiw
 kVe
@@ -53615,9 +53608,9 @@ aAe
 wKW
 mBx
 qju
-agG
+qPY
 qju
-jHj
+dMx
 qju
 nWF
 dQH
