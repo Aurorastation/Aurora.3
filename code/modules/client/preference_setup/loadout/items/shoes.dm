@@ -125,6 +125,7 @@
 	boots["dark workboots"] = /obj/item/clothing/shoes/workboots/dark
 	boots["winter boots"] = /obj/item/clothing/shoes/winter
 	boots["aerostatic boots"] = /obj/item/clothing/shoes/aerostatic
+	boots["gaiters"] = /obj/item/clothing/shoes/jackboots/gaiters
 	gear_tweaks += new /datum/gear_tweak/path(boots)
 
 /datum/gear/shoes/lyodsuit_boots
@@ -163,11 +164,6 @@
 	recolourable_shoes["high-tops (tipped)"] = /obj/item/clothing/shoes/sneakers/hitops/tip
 	recolourable_shoes["oxfords"] = /obj/item/clothing/shoes/laceup/colourable
 	gear_tweaks += new /datum/gear_tweak/path(recolourable_shoes)
-
-/datum/gear/shoes/falerio_boots
-	display_name = "boots with gaiters"
-	path = /obj/item/clothing/shoes/jackboots/falerio
-
 /*
 	Shoe Layer Adjustment
 */

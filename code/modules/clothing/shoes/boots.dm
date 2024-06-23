@@ -54,6 +54,13 @@
 	icon_state = "ridingboots_toeless"
 	item_state = "ridingboots_toeless"
 
+/obj/item/clothing/shoes/jackboots/gaiters
+	name = "boots with gaiters"
+	desc = "Leather shoes with leg coverings that go up to the knees. Ideal for walking through the underbrush."
+	icon = 'icons/obj/item/clothing/shoes/pcmg_zavod.dmi'
+	icon_state = "falerio_boots"
+	item_state = "falerio_boots"
+
 /obj/item/clothing/shoes/workboots
 	name = "workboots"
 	desc = "A pair of steel-toed work boots designed for use in industrial settings. Safety first."
@@ -205,9 +212,3 @@
 	icon_state = "kala_boots"
 	item_state = "kala_boots"
 	contained_sprite = TRUE
-/obj/item/clothing/shoes/jackboots/falerio
-	name = "boots with gaiters"
-	desc = "Leather shoes with leg coverings that go up to the knees. Ideal for walking through the underbrush."
-	icon = 'icons/obj/item/clothing/shoes/pcmg_zavod.dmi'
-	icon_state = "falerio_boots"
-	item_state = "falerio_boots"

@@ -1,4 +1,4 @@
-/datum/faction
+f/datum/faction
 	var/name
 	var/description
 	var/title_suffix
