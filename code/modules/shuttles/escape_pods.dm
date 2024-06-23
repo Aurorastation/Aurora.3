@@ -224,6 +224,37 @@ AURORA_ESCAPE_POD(4)
 		"nav_legion_merchant",
 		"nav_legion_medical"
 		)
+/obj/effect/shuttle_landmark/legion/start
+	name = "BLV The Tower"
+	landmark_tag = "nav_legion_start"
+	docking_controller = "legion_hangar"
+	base_turf = /turf/unsimulated/floor/plating
+	base_area = /area/centcom/legion/hangar5
+
+/obj/effect/shuttle_landmark/legion/interim
+	name = "In Transit"
+	landmark_tag = "nav_legion_interim"
+	base_turf = /turf/space/transit/bluespace/west
+
+/obj/effect/shuttle_landmark/legion/green
+	name = "Third Deck Port Dock 1"
+	landmark_tag = "nav_legion_green"
+	docking_controller = "legion_shuttle_dock"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/legion/merchant
+	name = "Merchant Dock"
+	landmark_tag = "nav_legion_merchant"
+	docking_controller = "merchant_shuttle_dock"
+	special_dock_targets = list("Legion Shuttle" = "legion_shuttle_aft_airlock")
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/legion/medical
+	name = "External Airlock by Medical"
+	landmark_tag = "nav_legion_medical"
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+
 
 /datum/shuttle/autodock/multi/distress
 	name = "Distress Shuttle"
@@ -239,6 +270,34 @@ AURORA_ESCAPE_POD(4)
 		"nav_distress_blue"
 		)
 
+/obj/effect/shuttle_landmark/distress/start
+	name = "Distress Preparation Wing"
+	landmark_tag = "nav_distress_away"
+	docking_controller = "distress_shuttle_origin"
+	base_turf = /turf/unsimulated/floor/plating
+	base_area = /area/centcom/distress_prep
+
+/obj/effect/shuttle_landmark/distress/interim
+	name = "In Transit"
+	landmark_tag = "nav_distress_interim"
+	base_turf = /turf/space/transit/bluespace/west
+
+/obj/effect/shuttle_landmark/distress/green
+	name = "Emergency Services Dock"
+	landmark_tag = "nav_distress_green"
+	docking_controller = "green_dock_west"
+	special_dock_targets = list("Distress Shuttle" = "distress_shuttle_fore")
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+
+/obj/effect/shuttle_landmark/distress/blue
+	name = "First Deck Port Hangar Bay 2b"
+	landmark_tag = "nav_distress_blue"
+	special_dock_targets = list("Distress Shuttle" = "distress_shuttle_fore")
+	landmark_flags = SLANDMARK_FLAG_AUTOSET
+	base_turf = /turf/simulated/floor/plating
+
+
+
 /datum/shuttle/autodock/ferry/merchant_aurora
 	name = "ICV Enterprise"
 	location = 1
@@ -249,6 +308,25 @@ AURORA_ESCAPE_POD(4)
 	waypoint_station = "nav_merchant_dock"
 	landmark_transition = "nav_merchant_interim"
 	waypoint_offsite = "nav_merchant_start"
+
+/obj/effect/shuttle_landmark/merchant/start
+	name = "Merchant Shuttle Base"
+	landmark_tag = "nav_merchant_start"
+	docking_controller = "merchant_station"
+	base_turf = /turf/space/dynamic
+	base_area = /area/template_noop
+
+/obj/effect/shuttle_landmark/merchant/interim
+	name = "In Transit"
+	landmark_tag = "nav_merchant_interim"
+	base_turf = /turf/space/transit/bluespace/west
+
+/obj/effect/shuttle_landmark/merchant/dock
+	name = "Second Deck Starboard Dock 1"
+	landmark_tag = "nav_merchant_dock"
+	docking_controller = "merchant_shuttle_dock"
+	base_turf = /turf/space
+	base_area = /area/space
 
 /datum/shuttle/autodock/ferry/autoreturn/ccia
 	name = "SCC Shuttle"
