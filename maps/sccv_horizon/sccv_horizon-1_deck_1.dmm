@@ -5967,6 +5967,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"eiF" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/hullbeacon/red,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/hangar/operations)
 "ejL" = (
 /obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Engineering Lower Deck"
@@ -7097,7 +7108,8 @@
 	shuttle_tag = "Spark";
 	cycle_to_external_air = 1
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "eVk" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -19989,7 +20001,8 @@
 	shuttle_tag = "Spark";
 	cycle_to_external_air = 1
 	},
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "nJB" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
@@ -25885,7 +25898,8 @@
 	cycle_to_external_air = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "rNe" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -35036,17 +35050,6 @@
 	},
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/crew_compartment)
-"xRK" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/hullbeacon/red,
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/airless,
-/area/hangar/operations)
 "xRN" = (
 /obj/machinery/door/blast/regular{
 	id = "iso_b_purge";
@@ -50764,7 +50767,7 @@ gyo
 gyo
 gyo
 gyo
-xRK
+eiF
 jEx
 kiw
 kVe
