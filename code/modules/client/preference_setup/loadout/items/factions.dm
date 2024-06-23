@@ -277,7 +277,7 @@
 // PMCG
 /datum/gear/faction/pmc_sunglasses
 	display_name = "PMCG security HUD selection"
-	description = "A selection of PMCG security HUDs."
+	description = " Standard-issue fatigues used by the contractors of Falerio Security Services."
 	path = /obj/item/clothing/glasses/sunglasses/sechud/pmc
 	slot = slot_glasses
 	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator", "Security Personnel")
