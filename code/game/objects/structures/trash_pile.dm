@@ -41,7 +41,11 @@
 			H.take_overall_damage(5, 0, DAMAGE_FLAG_SHARP, src)
 			to_chat(user, SPAN_WARNING("You cut yourself while climbing into \the [src]!"))
 
-/obj/structure/trash_pile/relaymove(mob/user)
+/obj/structure/trash_pile/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if(user.stat || user.resting) // don't care too much about use_check here, checking these will suffice
 		return
 	user.forceMove(get_turf(src))

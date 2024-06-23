@@ -311,7 +311,6 @@
 /area/shuttle/coc_scarab/central)
 "ew" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
@@ -484,8 +483,7 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/bed/handrail,
@@ -577,7 +575,6 @@
 /area/shuttle/coc_scarab/port)
 "iG" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/purple{
@@ -669,7 +666,6 @@
 /area/ship/coc_scarab/exterior)
 "ko" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/machinery/computer/ship/engines/terminal{
@@ -1145,7 +1141,6 @@
 /area/shuttle/coc_scarab/central)
 "tH" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 4
 	},
 /obj/machinery/computer/ship/sensors/terminal{
@@ -1807,7 +1802,6 @@
 /area/ship/coc_scarab/hangar)
 "Fj" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/machinery/computer/ship/sensors/terminal{
@@ -1849,7 +1843,6 @@
 /area/ship/coc_scarab/exterior)
 "GJ" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/structure/table/reinforced/steel,
@@ -1924,7 +1917,6 @@
 /area/ship/coc_scarab/hangar)
 "ID" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/machinery/computer/ship/helm/terminal{
@@ -2283,7 +2275,6 @@
 /area/ship/coc_scarab/hangar)
 "No" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 4
 	},
 /obj/machinery/computer/shuttle_control/explore/terminal/scarab_shuttle{

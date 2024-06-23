@@ -1,4 +1,8 @@
-var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-")
+var/global/list/valid_bloodtypes = list(
+	"A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-",
+	"SBS"	// Synthetic Blood Substitute. Intended for heavily augmented characters.
+			// Sanitized below, removed if character is not augmented enough.
+)
 
 /datum/preferences
 	var/equip_preview_mob = EQUIP_PREVIEW_ALL
@@ -216,6 +220,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	if(!pref.bgstate || !(pref.bgstate in list_values(pref.bgstate_options)))
 		pref.bgstate = "plain_black"
+
+	// Synthetic Blood Substitute checks.
+	if((pref.b_type == "SBS") && ((length(pref.organ_data) + length(pref.rlimb_data)) < 8))
+		to_chat(pref.client, SPAN_WARNING("Synthetic Blood Substitute (SBS) is intended for heavily augmented characters. To pick it, you must have at least eight augmented limbs or organs. Resetting blood type..."))
+		pref.b_type = initial(pref.b_type)
 
 /datum/category_item/player_setup_item/general/body/content(var/mob/user)
 	var/list/out = list()

@@ -9192,7 +9192,6 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "RDStorage";
@@ -30957,7 +30956,6 @@
 	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -32479,7 +32477,6 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
@@ -32589,7 +32586,6 @@
 	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -33316,7 +33312,6 @@
 	dir = 1
 	},
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
@@ -34112,7 +34107,6 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -34866,7 +34860,6 @@
 	pixel_y = 5
 	},
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -41381,7 +41374,6 @@
 /area/rnd/lab)
 "bxn" = (
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -42042,7 +42034,6 @@
 /area/rnd/lab)
 "byO" = (
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -42650,7 +42641,6 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -43844,7 +43834,6 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/reinforced,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -49097,9 +49086,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/machinery/door/window/westleft{
-	closed_layer = 2.9;
 	name = "Display Window";
-	open_layer = 2.9;
 	req_access = list(28)
 	},
 /obj/machinery/door/blast/shutters{
@@ -58879,7 +58866,6 @@
 /obj/structure/window/reinforced,
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
@@ -61009,7 +60995,6 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -63712,7 +63697,6 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -63927,7 +63911,6 @@
 /obj/structure/window/reinforced,
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
@@ -64222,7 +64205,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/door/airlock/engineering{
 	name = "Supply (Main Level) Substation";
-	open_layer = 2.8;
 	req_one_access = list(11,24);
 	dir = 1
 	},
@@ -65820,7 +65802,6 @@
 	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -65855,7 +65836,6 @@
 	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
@@ -66210,9 +66190,7 @@
 	dir = 1
 	},
 /obj/machinery/door/window/westright{
-	closed_layer = 2.9;
 	name = "Display Window";
-	open_layer = 2.9;
 	req_access = list(28)
 	},
 /obj/machinery/door/blast/shutters{
@@ -66396,7 +66374,6 @@
 	dir = 4
 	},
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	icon_state = "pdoor0";
 	id = "Biohazard";
@@ -66892,7 +66869,6 @@
 	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";
@@ -68563,7 +68539,6 @@
 	},
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
-	closed_layer = 3.5;
 	density = 0;
 	dir = 4;
 	icon_state = "pdoor0";

@@ -310,7 +310,11 @@
 	return 1
 
 // attempt to move while inside
-/obj/machinery/disposal/relaymove(mob/user as mob)
+/obj/machinery/disposal/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if(user.stat || src.flushing)
 		return
 	if(user.loc == src)
@@ -746,7 +750,11 @@
 
 
 	// called when player tries to move while in a pipe
-/obj/disposalholder/relaymove(mob/user as mob)
+/obj/disposalholder/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if(!istype(user,/mob/living))
 		return
 

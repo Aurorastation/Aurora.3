@@ -179,7 +179,7 @@ var/const/NO_EMAG_ACT = -50
 /mob/living/carbon/human/set_id_info(var/obj/item/card/id/id_card)
 	..()
 	id_card.age 				= age
-	id_card.citizenship			= citizenship
+	id_card.citizenship			= SSrecords.get_citizenship_record_name(citizenship)
 	id_card.mob_id				= WEAKREF(src)
 	id_card.employer_faction    = employer_faction
 

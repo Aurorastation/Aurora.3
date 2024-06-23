@@ -78,7 +78,11 @@
 		else
 			icon_state = initial(icon_state)
 
-/obj/machinery/bodyscanner/relaymove(mob/user as mob)
+/obj/machinery/bodyscanner/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if (user.stat)
 		return
 	go_out()

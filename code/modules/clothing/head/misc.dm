@@ -37,6 +37,7 @@
 	item_state = "magnetpin"
 	name = "magnetic 'pin'"
 	desc = "Finally, a hair pin even a robot chassis can use."
+	slot_flags = SLOT_HEAD
 	matter = list(DEFAULT_WALL_MATERIAL = 10)
 
 /obj/item/clothing/head/pin/flower
@@ -287,6 +288,16 @@
 		)
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 2.0 //why is it so conductive?!
+
+/obj/item/clothing/head/plain_hood
+	name = "plain hood"
+	desc = "A simple hood made of cloth, worn for myriad reasons - cultural, religious, protection from the elements, a fashion statement... or perhaps you simply want to look like you intend to give quests to adventurers who walk into your favorite tavern."
+	icon = 'icons/clothing/head/plain_hood.dmi'
+	icon_state = "plain_hood"
+	item_state = "plain_hood"
+	body_parts_covered = HEAD
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+	contained_sprite = TRUE
 
 /obj/item/clothing/head/hijab //It might've taken a year but here's your Hijab's, Dea.
 	name = "hijab"
