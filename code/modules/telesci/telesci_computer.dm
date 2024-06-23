@@ -151,7 +151,7 @@
 /obj/machinery/computer/telescience/attackby(obj/item/attacking_item, mob/user, params)
 
 	if(istype(attacking_item, /obj/item/bluespace_crystal))
-		if(crystals.len >= max_crystals)
+		if(length(crystals) >= max_crystals)
 			to_chat(user, SPAN_WARNING("There are not enough crystal slots."))
 			return
 
@@ -212,7 +212,7 @@
 		t += "<span class='linkOn'>Set Power</span>"
 		t += "<div class='statusDisplay'>"
 
-		for(var/i = 1; i <= power_options.len; i++)
+		for(var/i = 1; i <= length(power_options); i++)
 			if(length(crystals) + telepad.efficiency < i)
 				t += "<span class='linkOff'>[power_options[i]]</span>"
 				continue
@@ -316,9 +316,9 @@
 	teles_left -= 1
 
 	// use a lot of power
-	var/power_to_use = (power KILOWATTS)
+	var/power_to_use = (power KILO WATTS)
 	if(overmap_contacts_zlevels["[abs(zlevel_offset)]"])
-		power_to_use += (300 KILOWATTS * abs(zlevel_offset))
+		power_to_use += (300 KILO WATTS * abs(zlevel_offset))
 
 	use_power_oneoff(power_to_use)
 
@@ -464,7 +464,8 @@
 
 					//If the deep scan is toggled, we do not allow it, as the range is too large
 					//print a message to the user and break the loop
-					if((S.sensors?.deep_scan_toggled))
+					var/obj/machinery/shipsensors/ship_sensors = S.sensor_ref?.resolve()
+					if((ship_sensors?.deep_scan_toggled))
 						to_chat(usr, SPAN_WARNING("The deep scan is currently enabled and interferes with the teleporter lock ability."))
 						break
 
