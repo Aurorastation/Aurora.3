@@ -1,6 +1,6 @@
 import { paginate } from 'common/collections';
 import { useBackend, useLocalState } from '../backend';
-import { Tabs, Slider, Section, NoticeBox, Table, LabeledList } from '../components';
+import { Tabs, Slider, Section, NoticeBox, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
 export type MapData = {
@@ -30,7 +30,7 @@ export const Map = (props, context) => {
   );
 
   const pois = data.pois?.filter(
-    (poi) => poi.z == (data.z_override ? data.z_override : data.user_z)
+    (poi) => poi.z === (data.z_override ? data.z_override : data.user_z)
   );
 
   const map_size = 255;
@@ -116,6 +116,7 @@ export const Map = (props, context) => {
               />
               {pois?.map((poi) => (
                 <g
+                  key={poi.name}
                   transform={`translate(
                   ${poi.x * zoom_mod}
                   ${(map_size - poi.y) * zoom_mod}
