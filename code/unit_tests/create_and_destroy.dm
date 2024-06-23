@@ -104,6 +104,9 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		//Requires an owner or stacktrace on creation
 		/atom/movable/flick_visual,
 
+		//Weather system, requires a z level
+		/obj/abstract/weather_system
+
 	)
 
 	// Paths and all the subpaths excluded
