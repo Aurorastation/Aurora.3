@@ -164,6 +164,10 @@
 	recolourable_shoes["oxfords"] = /obj/item/clothing/shoes/laceup/colourable
 	gear_tweaks += new /datum/gear_tweak/path(recolourable_shoes)
 
+/datum/gear/shoes/falerio_boots
+	display_name = "boots with gaiters"
+	path = /obj/item/clothing/shoes/jackboots/falerio
+
 /*
 	Shoe Layer Adjustment
 */

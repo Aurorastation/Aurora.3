@@ -205,3 +205,9 @@
 	icon_state = "kala_boots"
 	item_state = "kala_boots"
 	contained_sprite = TRUE
+/obj/item/clothing/shoes/jackboots/falerio
+	name = "boots with gaiters"
+	desc = "Leather shoes with leg coverings that go up to the knees. Ideal for walking through the underbrush."
+	icon = 'icons/obj/item/clothing/shoes/pcmg_zavod.dmi'
+	icon_state = "falerio_boots"
+	item_state = "falerio_boots"

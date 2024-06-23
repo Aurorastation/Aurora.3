@@ -163,6 +163,14 @@
 	name = "black trenchcoat"
 	icon_state = "detective2"
 	item_state = "detective2"
+/obj/item/clothing/suit/storage/zavod/falerio
+	name = "Falerio Security Services overcoat"
+	desc = "An overcoat in Falerio colors that goes down to slightly above the wearers knees. A high collar proudly displays the crest of the di Falerio family on its side. It looks warm."
+	desc_extended = "Overcoats and greatcoats in this style are commonly worn by all branches of the Dominian military and throughout its civilian population, and are most common on Moroz and Novi Jadran. This particular style is based on the Model 2350, an overcoat initially designed by the Imperial Alliance (a precursor of the modern Empire) for mountain combat in Fisanduh that keeps the knees exposed for mobility."
+	icon = 'icons/clothing/suits/coats/pmcg_zavod.dmi'
+	icon_state = "falerio_overcoat"
+	item_state = "falerio_overcoat"
+	contained_sprite = TRUE
 
 //Lawyer
 

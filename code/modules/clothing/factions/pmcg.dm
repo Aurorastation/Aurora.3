@@ -110,3 +110,13 @@
 	icon_state = "amapola_ftg"
 	item_state = "amapola_ftg"
 	contained_sprite = TRUE
+
+//PMCG Zavod
+/obj/item/clothing/under/rank/security/zavod/falerio_uniform
+	name = "Falerio Security Services fatigues"
+	desc = "Standard-issue fatigues used by the contractors of Falerio Security Services."
+	desc_extended = "These uniforms broadly resemble a cross between the Imperial Armys green uniforms and a Jadranic constables grey uniform, but their flared pants call back to the earlier Model 2390(J) Imperial Army uniform — the first worn by Jadranic members of the Imperial Army — instead of the modern Model 2449."
+	icon = 'icons/clothing/under/uniforms/pmcg_zavod.dmi'
+	icon_state = "falerio_uniform"
+	item_state = "falerio_uniform"
+	contained_sprite = TRUE

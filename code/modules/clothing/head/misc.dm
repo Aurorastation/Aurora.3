@@ -736,3 +736,19 @@
 	desc = "A softcap in green camo, issued to members of the military contracting group Grupo Amapola."
 	icon_state = "amapola_ute_hat"
 	item_state = "amapola_ute_hat"
+
+/obj/item/clothing/head/falerio_hat
+	name = "Falerio Security Services field cap"
+	desc = "A cloth field cap worn by Falerio contractors with a small leather brim to shield the eyes from the sun. A small roundel badge on its front has the text “IK” stamped on it."
+	desc_extended = "The Model 2390(J) Field Cap was the first standardized piece of headgear issued to Jadranic regiments of the Imperial Army, and many carried them into Fisanduh when they proved their valour there. The “IK” badge on the front is the initials for “Emperor Keeser” in Jadranic Common."
+	icon = 'icons/clothing/head/pmcg_zavod.dmi'
+	icon_state = "falerio_cap"
+	item_state = "falerio_cap"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/falerio_hat/pith
+	name = "Falerio Security Services tropical helmet"
+	desc = "A breathable canvas helmet intended to protect the wearer from heat while keeping the sun off of their face and neck. A small roundel badge on its front has the text “IK” stamped onto it."
+	desc_extended = "The Model 2421 Tropical Environment Helmet was designed by the Imperial Army in the lead-up to Sun Reachs invasion in 2422, and has remained in service since. Some units instead use the M2450(B) Tropical Cap, a wide-brimmed cloth hat from Alterim Balteulis derisively known as a “Kazzie” by human troops due to its resemblance to unathi headwear from Moghes"
+	icon_state = "falerio_pith"
+	item_state = "falerio_pith"
