@@ -167,3 +167,95 @@ var/list/escape_pods_by_name = list()
 
 /datum/computer/file/embedded_program/docking/simple/escape_pod/prepare_for_undocking()
 	eject_time = world.time + eject_delay*10
+
+
+/* Escape pods */
+
+#define AURORA_ESCAPE_POD(NUMBER) \
+/datum/shuttle/autodock/ferry/escape_pod/pod/escape_pod##NUMBER { \
+	name = "Escape Pod " + #NUMBER; \
+	shuttle_area = /area/shuttle/escape_pod/pod##NUMBER; \
+	location = 0; \
+	dock_target = "escape_pod_" + #NUMBER; \
+	arming_controller = "escape_pod_"+ #NUMBER +"_berth"; \
+	waypoint_station = "escape_pod_"+ #NUMBER +"_start"; \
+	landmark_transition = "escape_pod_"+ #NUMBER +"_interim"; \
+	waypoint_offsite = "escape_pod_"+ #NUMBER +"_out"; \
+} \
+/obj/effect/shuttle_landmark/escape_pod/start/pod##NUMBER { \
+	landmark_tag = "escape_pod_"+ #NUMBER +"_start"; \
+	docking_controller = "escape_pod_" + #NUMBER +"_berth"; \
+} \
+/obj/effect/shuttle_landmark/escape_pod/out/pod##NUMBER { \
+	landmark_tag = "escape_pod_"+ #NUMBER +"_out"; \
+} \
+/obj/effect/shuttle_landmark/escape_pod/transit/pod##NUMBER { \
+	landmark_tag = "escape_pod_"+ #NUMBER +"_interim"; \
+}
+
+AURORA_ESCAPE_POD(1)
+AURORA_ESCAPE_POD(2)
+AURORA_ESCAPE_POD(3)
+AURORA_ESCAPE_POD(4)
+
+#undef AURORA_ESCAPE_POD
+
+/datum/shuttle/autodock/ferry/specops/ert_aurora
+	name = "Phoenix Shuttle"
+	location = 1
+	warmup_time = 10
+	shuttle_area = /area/shuttle/specops
+	dock_target = "specops_shuttle_port"
+	waypoint_station = "nav_horizon_dock_deck_3_port_5"
+	waypoint_offsite = "nav_ert_start"
+
+/datum/shuttle/autodock/multi/legion
+	name = "Legion Shuttle"
+	current_location = "nav_legion_start"
+	warmup_time = 10
+	move_time = 75
+	ceiling_type = /turf/simulated/shuttle_roof/legion
+	shuttle_area = /area/shuttle/legion
+	dock_target = "legion_shuttle"
+	landmark_transition = "nav_legion_interim"
+	destination_tags = list(
+		"nav_legion_start",
+		"nav_legion_green",
+		"nav_legion_merchant",
+		"nav_legion_medical"
+		)
+
+/datum/shuttle/autodock/multi/distress
+	name = "Distress Shuttle"
+	current_location = "nav_distress_away"
+	warmup_time = 10
+	move_time = 45
+	dock_target = "distress_shuttle_aft"
+	shuttle_area = /area/shuttle/distress
+	landmark_transition = "nav_distress_interim"
+	destination_tags = list(
+		"nav_distress_away",
+		"nav_distress_green",
+		"nav_distress_blue"
+		)
+
+/datum/shuttle/autodock/ferry/merchant_aurora
+	name = "ICV Enterprise"
+	location = 1
+	warmup_time = 10
+	shuttle_area = /area/shuttle/merchant
+	move_time = 20
+	dock_target = "merchant_shuttle"
+	waypoint_station = "nav_merchant_dock"
+	landmark_transition = "nav_merchant_interim"
+	waypoint_offsite = "nav_merchant_start"
+
+/datum/shuttle/autodock/ferry/autoreturn/ccia
+	name = "SCC Shuttle"
+	location = 1
+	warmup_time = 10
+	shuttle_area = /area/shuttle/transport1
+	dock_target = "centcom_shuttle"
+	waypoint_station = "nav_ccia_dock"
+	waypoint_offsite = "nav_ccia_start"
+	category = /datum/shuttle/autodock/ferry/autoreturn
