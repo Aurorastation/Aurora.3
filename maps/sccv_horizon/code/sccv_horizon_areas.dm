@@ -337,7 +337,7 @@
 
 // Exterior
 /area/horizon/exterior
-	name = "Horizon - Exterior (DO NOT ENCROACH ON LANDING PLACES)"
+	name = "Horizon - Exterior"
 	icon_state = "exterior"
 	base_turf = /turf/space
 	dynamic_lighting = TRUE
@@ -346,6 +346,7 @@
 	no_light_control = TRUE
 	allow_nightmode = FALSE
 	ambience = AMBIENCE_SPACE
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /********** Maintenance Start **********/
 // Maintenance

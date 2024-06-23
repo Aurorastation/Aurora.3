@@ -99,6 +99,8 @@ SUBSYSTEM_DEF(holomap)
 	for (var/thing in Z_TURFS(zlevel))
 		T = thing
 		A = T.loc
+		if (A.area_flags & AREA_FLAG_HIDE_FROM_HOLOMAP)
+			continue
 		if (A.holomap_color)
 			canvas.DrawBox(A.holomap_color + "99", T.x, T.y)
 

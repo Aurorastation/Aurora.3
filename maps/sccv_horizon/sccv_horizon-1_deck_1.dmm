@@ -5578,9 +5578,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/obj/effect/landmark/minimap_poi{
-	name = "intrepid hangar"
-	},
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "dTe" = (
@@ -7463,6 +7460,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"fes" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/landmark/minimap_poi{
+	name = "Canary"
+	},
+/turf/simulated/floor/plating,
+/area/hangar/canary)
 "feD" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -11210,6 +11216,12 @@
 	roof_type = null
 	},
 /area/horizon/custodial/disposals)
+"hGb" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Main Lift"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/aft)
 "hGu" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/corner/brown{
@@ -13029,11 +13041,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
 "jbh" = (
-/obj/effect/landmark/minimap_poi{
-	name = "canary hangar"
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
 	},
-/turf/simulated/wall/r_wall,
-/area/hangar/canary)
+/obj/effect/landmark/minimap_poi{
+	name = "Spark"
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/operations)
 "jbm" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -28291,14 +28306,11 @@
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "txK" = (
-/obj/effect/floor_decal/corner/brown{
-	dir = 10
-	},
 /obj/effect/landmark/minimap_poi{
-	name = "spark hangar"
+	name = "Intrepid"
 	},
-/turf/simulated/floor/tiled,
-/area/hangar/operations)
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "txT" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/hazmat/anomaly,
@@ -50734,7 +50746,7 @@ umt
 wkD
 cua
 rcA
-oXD
+jbh
 wSS
 ixU
 pgW
@@ -51140,7 +51152,7 @@ tPr
 dNk
 jyX
 rcA
-txK
+oXD
 rBI
 nIP
 vFD
@@ -55833,7 +55845,7 @@ pTd
 kyK
 oSi
 kaM
-iRC
+txK
 iRC
 xsx
 eSV
@@ -56798,7 +56810,7 @@ rHK
 rHK
 rHK
 rHK
-kuh
+hGb
 bec
 wLL
 ovg
@@ -60882,7 +60894,7 @@ gPv
 dYf
 nNx
 ows
-jbh
+pPV
 bAM
 sxy
 keh
@@ -61492,7 +61504,7 @@ vqx
 hot
 nNh
 pPV
-pEk
+fes
 oji
 hmD
 kOp

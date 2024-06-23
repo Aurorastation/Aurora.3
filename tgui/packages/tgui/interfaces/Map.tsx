@@ -29,7 +29,9 @@ export const Map = (props, context) => {
     false
   );
 
-  const pois = data.pois?.filter((poi) => poi.z == data.user_z);
+  const pois = data.pois?.filter(
+    (poi) => poi.z == (data.z_override ? data.z_override : data.user_z)
+  );
 
   const map_size = 255;
   const zoom_mod = minimapZoom / 100.0;
@@ -79,11 +81,6 @@ export const Map = (props, context) => {
                   </Table.Row>
                 ))}
               </Table>
-              <LabeledList>
-                {pois?.map((poi) => (
-                  <LabeledList.Item label={poi.name}>poi.desc</LabeledList.Item>
-                ))}
-              </LabeledList>
             </NoticeBox>
           ) : (
             ''
@@ -130,8 +127,8 @@ export const Map = (props, context) => {
                     stroke-width="0.5"
                   />
                   <text
-                    x={poi.x > data.user_x ? 3 : -3}
-                    y={poi.y > data.user_y ? -3 : 3}
+                    x={poi.x > data.user_x ? 5 : -5}
+                    y={poi.y > data.user_y ? -3 : 9}
                     fill="#FF0000"
                     stroke="#FFFF00"
                     stroke-width="0.1"

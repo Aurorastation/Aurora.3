@@ -16439,7 +16439,7 @@
 	dir = 8
 	},
 /obj/effect/landmark/minimap_poi{
-	name = "deck 3 starboard docks"
+	name = "Starboard Docks"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
@@ -20028,7 +20028,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/minimap_poi{
-	name = "deck 3 port docks"
+	name = "Port Docks"
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
@@ -24679,6 +24679,9 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 4
 	},
+/obj/effect/landmark/minimap_poi{
+	name = "Bridge"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "qMd" = (
@@ -24875,10 +24878,10 @@
 /area/maintenance/engineering_ladder)
 "qTo" = (
 /obj/effect/landmark/minimap_poi{
-	name = "holodecks"
+	name = "Main Lift"
 	},
-/turf/simulated/wall,
-/area/horizon/holodeck_control)
+/turf/simulated/wall/r_wall,
+/area/horizon/hallway/deck_three/primary/central)
 "qTN" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -33275,9 +33278,6 @@
 /area/bridge/meeting_room)
 "wAO" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
-/obj/effect/landmark/minimap_poi{
-	name = "bridge"
-	},
 /turf/simulated/floor/tiled,
 /area/bridge)
 "wCk" = (
@@ -33339,7 +33339,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/minimap_poi{
-	name = "cafeteria"
+	name = "Cafeteria"
 	},
 /turf/simulated/floor/wood,
 /area/horizon/cafeteria)
@@ -53766,7 +53766,7 @@ gDJ
 gDJ
 gDJ
 gDJ
-qTo
+qhP
 eYD
 tfp
 eXd
@@ -56584,7 +56584,7 @@ ffj
 ffj
 ffj
 ffj
-wdy
+qTo
 nCP
 dHs
 dHr

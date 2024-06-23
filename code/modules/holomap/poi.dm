@@ -4,7 +4,6 @@
 	desc = null
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "minimap_poi"
-	layer = ABOVE_ALL_MOB_LAYER
 
 /obj/effect/landmark/minimap_poi/Initialize()
 	..()

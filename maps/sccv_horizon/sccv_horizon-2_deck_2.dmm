@@ -6274,6 +6274,9 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_two)
 "cOp" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Research"
+	},
 /turf/simulated/floor/wood,
 /area/rnd/hallway/secondary)
 "cOs" = (
@@ -23570,6 +23573,9 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 4
 	},
+/obj/effect/landmark/minimap_poi{
+	name = "Operations"
+	},
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "kOW" = (
@@ -27467,6 +27473,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/warden)
+"mGv" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Main Lift"
+	},
+/turf/simulated/wall/r_wall,
+/area/hallway/primary/central_one)
 "mGY" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
@@ -28887,6 +28899,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/grauwolf)
+"njk" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Medbay"
+	},
+/turf/simulated/floor/tiled/white,
+/area/medical/gen_treatment)
 "nju" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
@@ -29488,6 +29506,9 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
+	},
+/obj/effect/landmark/minimap_poi{
+	name = "Service"
 	},
 /turf/simulated/floor/wood,
 /area/horizon/crew_quarters/lounge/bar)
@@ -43506,6 +43527,9 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
 	},
+/obj/effect/landmark/minimap_poi{
+	name = "Engineering"
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "uki" = (
@@ -48758,6 +48782,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/effect/landmark/minimap_poi{
+	name = "Security"
+	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/security/hallway)
 "wzN" = (
@@ -70568,7 +70595,7 @@ nbd
 abA
 weX
 iyl
-xqE
+njk
 pUI
 bCl
 iIf
@@ -73788,7 +73815,7 @@ iVp
 iVp
 iVp
 iVp
-nUN
+mGv
 vcv
 lPO
 vbk
