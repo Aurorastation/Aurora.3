@@ -247,15 +247,23 @@ SUBSYSTEM_DEF(atlas)
 
 		var/list/trait = ZTRAITS_STATION
 
+		//We're NOT loading the first level
 		if(!is_first)
-			if(i == filemaps_to_load.len) //Centcomm
+			//Last level is centcomm, noone goes in or out
+			if(i == length(filemaps_to_load))
 				trait += list(ZTRAIT_UP = FALSE, ZTRAIT_DOWN = FALSE)
-			else if(i == (filemaps_to_load.len - 1))
+			//Last level in the actual stack, can only go down
+			else if(i == (length(filemaps_to_load) - 1))
 				trait += list(ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE)
+			//Bidirectional movement
 			else
 				trait += list(ZTRAIT_UP = TRUE, ZTRAIT_DOWN = TRUE)
-		else
+
+		//We're loading the first level, usually it has something above it
+		else if(length(filemaps_to_load) >= 2)
 			trait += list(ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE)
+		else //Special case for single-level maps
+			trait += list(ZTRAIT_UP = FALSE, ZTRAIT_DOWN = FALSE)
 
 		var/datum/space_level/level = SSmapping.add_new_zlevel(name, trait, contain_turfs = FALSE)
 
