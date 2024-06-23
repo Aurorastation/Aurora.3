@@ -122,7 +122,6 @@
 		A = thing
 
 		for (var/turf/T in A)	// Areas don't just contain turfs, so typed loop it is.
-			T = thing
 			tiles_total++
 			above = GET_TURF_ABOVE(T)
 
