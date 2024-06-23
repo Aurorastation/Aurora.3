@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/gadpathur_patrol
 	name = "Gadpathurian Patrol Corvette"
 	description = "Gadpathur navy patrol ship."
-	suffixes = list("ships/coc/gadpathur_patrol/gadpathur_patrol.dmm")
+
+	prefix = "ships/coc/gadpathur_patrol/"
+	suffixes = list("gadpathur_patrol.dmm")
+
 	sectors = list(ALL_COALITION_SECTORS) //NOTE: Gadpathur patrols all of the Coalition, however, they are intentionally -not- present in Haneunim. Konyang and Gadpathur are not friendly as of the Amor Patriae arc.
 	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA)
 	spawn_weight = 1

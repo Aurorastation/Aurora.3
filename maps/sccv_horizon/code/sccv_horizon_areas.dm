@@ -173,6 +173,12 @@
 	area_blurb = "The scents of oil and mechanical lubricants fill the air in this workshop."
 	area_blurb_category = "robotics"
 
+/area/operations/lower/machinist/surgicalbay
+	name = "Machinist Surgical Bay"
+	icon_state = "machinist_workshop"
+	area_blurb = "The scent of sterilized equipment fill the air in this surgical bay."
+	area_blurb_category = "robotics"
+
 /area/operations/lobby
 	name = "Operations Lobby"
 
@@ -842,10 +848,10 @@
 	ambience = AMBIENCE_FOREBODING
 	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 
-// ZTA
-/area/horizon/zta
-	name = "Horizon - ZTA Weapon System"
-	icon_state = "zta"
+// ZAT
+/area/horizon/zat
+	name = "Horizon - ZAT Weapon System"
+	icon_state = "zat"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	ambience = AMBIENCE_SINGULARITY
 	area_blurb = "A gargantuan machine dominates the room, covered in components and moving parts. Its name is befitting of its size."

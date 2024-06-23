@@ -161,7 +161,7 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 			qdel(M)
 		if(LAZYLEN(T.decals))
 			T.decals.Cut()
-		T.cut_overlays()
+		T.ClearOverlays()
 	template.load(central_turf, TRUE)
 	var/datum/map_template/ruin = template
 	if(istype(ruin))

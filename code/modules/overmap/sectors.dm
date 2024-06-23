@@ -1,18 +1,22 @@
 //===================================================================================
 //Overmap object representing zlevel(s)
 //===================================================================================
-var/global/area/overmap/map_overmap // Global object used to locate the overmap area.
+/// Global object used to locate the overmap area.
+var/global/area/overmap/map_overmap
 
 /obj/effect/overmap/visitable
 	name = "map object"
 	scannable = TRUE
 	sensor_range_override = TRUE
-	var/designation //Actual name of the object.
-	var/class //Imagine a ship or station's class. "NTCC" Odin, "SCCV" Horizon, ...
+	/// Actual name of the object.
+	var/designation
+	/// Imagine a ship or station's class. "NTCC" Odin, "SCCV" Horizon, ...
+	var/class
 	unknown_id = "Bogey"
 	var/obfuscated_name = "unidentified object"
 	var/obfuscated_desc = "This object is not displaying its IFF signature."
-	var/obfuscated = FALSE //Whether we hide our name and class or not.
+	/// Whether we hide our name and class or not.
+	var/obfuscated = FALSE
 
 	/// Landmark tags of landmarks that should be added to the actual lists below on init.
 	/// Generic, meaning usable by any shuttle.
@@ -25,14 +29,20 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	/// Can contain nested lists, as it is flattened on init.
 	var/list/tracked_dock_tags
 
-	var/list/generic_waypoints = list()    //waypoints that any shuttle can use
-	var/list/restricted_waypoints = list() //waypoints for specific shuttles
+	/// Waypoints that any shuttle can use
+	var/list/generic_waypoints = list()
+	/// Waypoints for specific shuttles
+	var/list/restricted_waypoints = list()
 
-	var/start_x			//Coordinates for self placing
-	var/start_y			//will use random values if unset
+	/// Coordinates for self placing
+	var/start_x
+	/// Will use random values if unset
+	var/start_y
 
-	var/base = 0		//starting sector, counts as station_levels
-	var/in_space = 1	//can be accessed via lucky EVA
+	/// Starting sector, counts as station_levels
+	var/base = FALSE
+	/// Can be accessed via lucky EVA
+	var/in_space = TRUE
 
 	var/has_called_distress_beacon = FALSE
 	var/image/applied_distress_overlay
@@ -52,11 +62,14 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	var/freq_name = ""
 	/// Whether away ship comms have access to the common channel / PUB_FREQ
 	var/use_common = FALSE
-	var/list/navigation_viewers // list of weakrefs to people viewing the overmap via this ship
+	/// list of weakrefs to people viewing the overmap via this ship
+	var/list/navigation_viewers
 	var/list/consoles
 
-	var/list/datalink_requests = list()// A list of datalink requests that we received
-	var/list/datalinked        = list()// Other effects that we are datalinked with
+	/// A list of datalink requests that we received
+	var/list/datalink_requests = list()
+	/// Other effects that we are datalinked with
+	var/list/datalinked        = list()
 
 	/// null | num | list. If a num or a (num, num) list, the radius or random bounds for placing this sector near the main map's overmap icon.
 	var/list/place_near_main
@@ -78,24 +91,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	initial_generic_waypoints = flatten_list(initial_generic_waypoints)
 	tracked_dock_tags = flatten_list(tracked_dock_tags)
 
-	var/map_low = OVERMAP_EDGE
-	var/map_high = SSatlas.current_map.overmap_size - OVERMAP_EDGE
-	var/turf/home
-	if (place_near_main)
-		var/obj/effect/overmap/visitable/main = GLOB.map_sectors["1"] ? GLOB.map_sectors["1"] : GLOB.map_sectors[GLOB.map_sectors[1]]
-		if(islist(place_near_main))
-			place_near_main = Roundm(Frand(place_near_main[1], place_near_main[2]), 0.1)
-		home = CircularRandomTurfAround(main, abs(place_near_main), map_low, map_low, map_high, map_high)
-		start_x = home.x
-		start_y = home.y
-		LOG_DEBUG("place_near_main moving [src] near [main] ([main.x],[main.y]) with radius [place_near_main], got ([home.x],[home.y])")
-	else
-		start_x = start_x || rand(map_low, map_high)
-		start_y = start_y || rand(map_low, map_high)
-		home = locate(start_x, start_y, SSatlas.current_map.overmap_z)
-
-	if(!invisible_until_ghostrole_spawn)
-		forceMove(home)
+	move_to_starting_location()
 
 	update_name()
 
@@ -127,6 +123,26 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	gravity_generator = null
 	STOP_PROCESSING(SSovermap, src)
 	. = ..()
+
+/obj/effect/overmap/visitable/proc/move_to_starting_location()
+	var/map_low = OVERMAP_EDGE
+	var/map_high = SSatlas.current_map.overmap_size - OVERMAP_EDGE
+	var/turf/home
+	if (place_near_main)
+		var/obj/effect/overmap/visitable/main = GLOB.map_sectors["1"] ? GLOB.map_sectors["1"] : GLOB.map_sectors[GLOB.map_sectors[1]]
+		if(islist(place_near_main))
+			place_near_main = Roundm(Frand(place_near_main[1], place_near_main[2]), 0.1)
+		home = CircularRandomTurfAround(main, abs(place_near_main), map_low, map_low, map_high, map_high)
+		start_x = home.x
+		start_y = home.y
+		LOG_DEBUG("place_near_main moving [src] near [main] ([main.x],[main.y]) with radius [place_near_main], got ([home.x],[home.y])")
+	else
+		start_x = start_x || rand(map_low, map_high)
+		start_y = start_y || rand(map_low, map_high)
+		home = locate(start_x, start_y, SSatlas.current_map.overmap_z)
+
+	if(!invisible_until_ghostrole_spawn)
+		forceMove(home)
 
 //This is called later in the init order by SSshuttle to populate sector objects. Importantly for subtypes, shuttles will be created by then.
 /obj/effect/overmap/visitable/proc/populate_sector_objects()
@@ -191,10 +207,10 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	if(has_called_distress_beacon)
 		var/image/distress_overlay = image('icons/obj/overmap/overmap_effects.dmi', "distress")
 		applied_distress_overlay = distress_overlay
-		add_overlay(applied_distress_overlay)
+		AddOverlays(applied_distress_overlay)
 		filters = filter(type = "outline", size = 2, color = COLOR_RED)
 	else
-		cut_overlay(applied_distress_overlay)
+		CutOverlays(applied_distress_overlay)
 		filters = null
 
 /obj/effect/overmap/visitable/proc/update_name()
@@ -204,6 +220,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 		return
 	if(comms_support)
 		update_away_freq(name, get_real_name())
+	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
 	name = get_real_name()
 
 /obj/effect/overmap/visitable/proc/get_real_name()

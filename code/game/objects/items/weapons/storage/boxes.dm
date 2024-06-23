@@ -50,7 +50,7 @@
 	if(ispath(src.trash))
 		desc_info += "This can be crumpled up into a trash item when empty, or forcibly crumpled on harm intent. "
 	if(illustration)
-		add_overlay(illustration)
+		AddOverlays(illustration)
 
 /obj/item/storage/box/proc/damage(var/severity)
 	health -= severity
@@ -81,7 +81,9 @@
 
 			user.do_attack_animation(src)
 			if ((health-damage) <= 0)
-				L.visible_message("<span class='danger'>[L] tears open the [src], spilling its contents everywhere!</span>", "<span class='danger'>You tear open the [src], spilling its contents everywhere!</span>")
+				L.visible_message(SPAN_DANGER("[L] tears open the [src], spilling its contents everywhere!"),
+									SPAN_DANGER("You tear open the [src], spilling its contents everywhere!"))
+
 				spill()
 			else
 				shake_animation()
@@ -441,6 +443,12 @@
 	desc = "A box of varied assortment of firing pins. Appears to have R&D stickers on all sides of the box. Also seems to have a smiley face sticker on the top of it."
 	illustration = "firingpin"
 	starts_with = list(/obj/item/device/firing_pin = 2, /obj/item/device/firing_pin/access = 2, /obj/item/device/firing_pin/implant/loyalty = 2, /obj/item/device/firing_pin/clown = 1, /obj/item/device/firing_pin/dna = 1)
+
+/obj/item/storage/box/psireceiver
+	name = "box of psionic receivers"
+	desc = "A box of psionic receivers, which can be surgically implanted to act as a replacement for an underdeveloped or non-existent zona bovinae. This one has a large sticker on the side reading FOR RESEARCH USE ONLY."
+	illustration = "implant"
+	starts_with = list(/obj/item/organ/internal/augment/psi = 4)
 
 /obj/item/storage/box/tethers
 	name = "box of tethering devices"
@@ -958,18 +966,26 @@
 
 /obj/item/storage/box/toothpaste
 	can_hold = list(/obj/item/reagent_containers/toothpaste,
-					/obj/item/reagent_containers/toothbrush)
+					/obj/item/reagent_containers/toothbrush,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash,
+					)
 
 	starts_with = list(/obj/item/reagent_containers/toothpaste = 1,
-					/obj/item/reagent_containers/toothbrush = 1)
+					/obj/item/reagent_containers/toothbrush = 1,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 1,
+					)
 
 /obj/item/storage/box/toothpaste/green
 	starts_with = list(/obj/item/reagent_containers/toothpaste = 1,
-					/obj/item/reagent_containers/toothbrush/green = 1)
+					/obj/item/reagent_containers/toothbrush/green = 1,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 1,
+					)
 
 /obj/item/storage/box/toothpaste/red
 	starts_with = list(/obj/item/reagent_containers/toothpaste = 1,
-				/obj/item/reagent_containers/toothbrush/red = 1)
+				/obj/item/reagent_containers/toothbrush/red = 1,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 1,
+					)
 
 /obj/item/storage/box/holobadge
 	name = "holobadge box"
@@ -1244,10 +1260,6 @@
 		/obj/item/reagent_containers/glass/bottle/syrup/caramel = 1,
 	)
 
-/obj/item/storage/box/produce/fill()
-	. = ..()
-	make_exact_fit()
-
 /obj/item/storage/box/cleaner_tablets
 	name = "\improper Idris cleaner tablets box"
 	desc = "A box of advanced formula chemical tablets designed by Idris Incorporated."
@@ -1275,6 +1287,11 @@
 	name = "box of standstill landmines"
 	desc = "A box containing 5 standstill landmines."
 	starts_with = list(/obj/item/landmine/standstill = 5)
+
+/obj/item/storage/box/landmines/door_rigging
+	name = "box of door rigging landmines"
+	desc = "A box containing 5 door rigging landmines."
+	starts_with = list(/obj/item/landmine/frag/door_rigging = 5)
 
 /obj/item/storage/box/landmines/claymore
 	name = "box of claymore landmines"
@@ -1320,3 +1337,33 @@
 		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/jaekseol = 7
 	)
 
+/obj/item/storage/box/telefreedom_kit
+	name = "telefreedom kit"
+	desc = "A box containing a telefreedom full kit."
+	starts_with = list(/obj/item/implant/telefreedom = 4,
+					/obj/item/implanter = 1,
+					//Telepad construction items
+					/obj/item/circuitboard/telesci_pad = 1,
+					/obj/item/bluespace_crystal/artificial = 2,
+					/obj/item/stock_parts/capacitor = 1,
+					/obj/item/stock_parts/console_screen = 1,
+					)
+
+/obj/item/storage/box/telefreedom_kit/fill()
+	. = ..()
+	new /obj/item/stack/cable_coil(src, 6)
+	new /obj/item/stack/material/steel(src, 2)
+
+/obj/item/storage/box/sawn_doublebarrel_shotgun
+	name = "sawn-off Dduble-barrel shotgun kit"
+	desc = "A box containing a sawn-off double-barrel shotgun, an holster and some ammo."
+	starts_with = list(/obj/item/gun/projectile/shotgun/doublebarrel/sawn = 1,
+						/obj/item/ammo_casing/shotgun/pellet = 6,
+						/obj/item/clothing/accessory/holster/thigh = 1)
+
+/obj/item/storage/box/stressball
+	name = "box of stress balls"
+	desc = "A box containing a number of randomly-coloured stress balls."
+	starts_with = list(
+		/obj/item/toy/stressball = 6
+	)

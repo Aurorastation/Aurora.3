@@ -6,7 +6,7 @@
 	var/datum/progressbar/resist_bar
 	var/resist_start_time = 0
 
-/mob/living/captive_brain/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/living/captive_brain/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	if(istype(src.loc,/mob/living/simple_animal/borer))
 		if(!message)
 			return
@@ -27,9 +27,6 @@
 /mob/living/captive_brain/Destroy()
 	QDEL_NULL(resist_bar)
 	return ..()
-
-/mob/living/captive_brain/emote(var/message)
-	return
 
 /mob/living/captive_brain/Life()
 	if(resist_bar)

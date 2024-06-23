@@ -7,7 +7,11 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/pra_mining_camp.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("pra_mining_camp.dmm")
+
+	unit_test_groups = list(2)
 
 /area/pra_mining_camp
 	name = "People's Republic Mining Camp"
@@ -48,6 +52,7 @@
 	shoes = /obj/item/clothing/shoes/workboots/tajara
 	belt = /obj/item/storage/belt/mining
 	back = /obj/item/storage/backpack/industrial
+	l_pocket = /obj/item/device/radio/hailing
 
 	l_ear = null
 

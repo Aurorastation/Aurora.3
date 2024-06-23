@@ -3,7 +3,10 @@
 	description = "derelict supply hub"
 
 	id = "hivebot_hub"
-	suffixes = list("away_site/hivebot_hub/hivebot_hub.dmm")
+
+	prefix = "away_site/hivebot_hub/"
+	suffixes = list("hivebot_hub.dmm")
+
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ, ALL_COALITION_SECTORS)
 	spawn_weight = 1
 	spawn_cost = 1

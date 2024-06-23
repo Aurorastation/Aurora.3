@@ -69,7 +69,9 @@
 				for(var/_R in reagents.reagent_volumes)
 					F.reagents.add_reagent(_R, 1, safety = 1) //added safety check since reagents in the foam have already had a chance to react
 
-/obj/effect/effect/foam/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume) // foam disolves when heated, except metal foams
+/obj/effect/effect/foam/fire_act(exposed_temperature, exposed_volume) // foam disolves when heated, except metal foams
+	. = ..()
+
 	if(!metal && prob(max(0, exposed_temperature - 475)))
 		flick("[icon_state]-disolve", src)
 
@@ -236,4 +238,4 @@
 /obj/structure/foamedmetal/CanPass(atom/movable/mover, turf/target, height=1.5, air_group = 0)
 	if(air_group)
 		return 0
-	return !density
+	return ..()

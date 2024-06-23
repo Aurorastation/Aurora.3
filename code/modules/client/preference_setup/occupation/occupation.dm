@@ -501,14 +501,14 @@
 	var/datum/faction/faction = SSjobs.name_factions[selected_faction]
 
 	if (!faction)
-		to_client_chat("<span class='danger'>Invalid faction chosen. Resetting to default.</span>")
+		to_client_chat(SPAN_DANGER("Invalid faction chosen. Resetting to default."))
 		selected_faction = SSjobs.default_faction.name
 
 	ResetJobs() // How to be horribly lazy.
 
 	pref.faction = selected_faction
 
-	to_client_chat("<span class='notice'>New faction chosen. Job preferences reset.</span>")
+	to_client_chat(SPAN_NOTICE("New faction chosen. Job preferences reset."))
 
 /datum/preferences/proc/GetPlayerAltTitle(datum/job/job)
 	return player_alt_titles[job.title] || job.title

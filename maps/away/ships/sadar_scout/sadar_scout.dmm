@@ -1,8 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "al" = (
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/window/reinforced,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/grass,
@@ -521,9 +519,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/med)
 "cQ" = (
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/door/window/southleft,
 /turf/simulated/floor/grass,
 /area/ship/sadar_scout/hydro)
@@ -1733,6 +1729,9 @@
 	dir = 1
 	},
 /obj/machinery/light/colored/decayed/dimmed,
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/lead/full,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/utility)
 "nh" = (
@@ -1813,9 +1812,7 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/eva)
 "nv" = (
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /mob/living/simple_animal/hakhma,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm/east{
@@ -2319,7 +2316,6 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/surgery.dmi';
 	icon_state = "surgerytray";
-	layer = 2.9;
 	name = "velcro tabletop"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2657,7 +2653,6 @@
 /obj/machinery/door/firedoor/noid,
 /obj/structure/window_frame{
 	color = "#bdb6ae";
-	layer = 2.91;
 	name = "francisca mount frame"
 	},
 /obj/structure/window/full/reinforced{
@@ -3139,7 +3134,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/sink/kitchen{
 	pixel_y = 20;
-	layer = 2.89;
 	name = "surgery sink"
 	},
 /turf/simulated/floor/tiled/white,
@@ -4969,9 +4963,7 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/crew)
 "Ld" = (
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /obj/item/reagent_containers/glass/bucket{
 	pixel_y = 6;
 	pixel_x = 6
@@ -5764,9 +5756,7 @@
 /turf/space,
 /area/ship/sadar_scout/exterior)
 "QU" = (
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/grass,
 /area/ship/sadar_scout/hydro)
@@ -5930,7 +5920,6 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/surgery.dmi';
 	icon_state = "surgerytray";
-	layer = 2.9;
 	name = "velcro tabletop";
 	pixel_y = 6
 	},
@@ -6341,12 +6330,8 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/obj/item/storage/box/produce{
-	layer = 2.99
-	},
-/obj/item/storage/box/produce{
-	layer = 2.99
-	},
+/obj/item/storage/box/produce,
+/obj/item/storage/box/produce,
 /obj/machinery/alarm/west{
 	req_one_access = null
 	},
@@ -6616,6 +6601,11 @@
 /obj/random/powercell,
 /obj/random/powercell,
 /obj/machinery/light/colored/decayed/dimmed,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/tools)
 "WN" = (
@@ -6640,9 +6630,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/crew)
 "WT" = (
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /mob/living/simple_animal/hakhma,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/grass,

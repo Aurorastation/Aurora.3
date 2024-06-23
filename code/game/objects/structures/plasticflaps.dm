@@ -31,10 +31,10 @@
 	var/image/plasticflaps_overlay = overlay_image(icon, "plasticflaps_overlay", null, RESET_COLOR)
 	if(dir == WEST || dir == EAST)
 		plasticflaps_overlay.pixel_y = -13
-	add_overlay(plasticflaps_overlay)
+	AddOverlays(plasticflaps_overlay)
 
 /obj/structure/plasticflaps/Destroy()
-	cut_overlays()
+	ClearOverlays()
 	if(airtight)
 		clear_airtight()
 	. = ..()
@@ -57,7 +57,7 @@
 	return FALSE
 
 /obj/structure/plasticflaps/CanPass(atom/A, turf/T)
-	if(istype(A) && A.checkpass(PASSGLASS))
+	if(istype(A) && A.pass_flags & PASSGLASS)
 		return prob(60)
 
 	var/obj/structure/bed/B = A

@@ -20,7 +20,8 @@
 	SSicon_smooth.add_to_queue_neighbors(src)
 	SSicon_smooth.add_to_queue(src)
 
-/turf/simulated/floor/exoplanet/snow/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/turf/simulated/floor/exoplanet/snow/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
 	melt()
 
 /turf/simulated/floor/exoplanet/snow/melt()

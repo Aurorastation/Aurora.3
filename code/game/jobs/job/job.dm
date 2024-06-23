@@ -107,24 +107,11 @@
 		species_modifier = human_species.economic_modifier
 
 	var/money_amount = initial_funds_override ? initial_funds_override : (rand(5,50) + rand(5, 50)) * econ_status * economic_modifier * species_modifier
-	var/datum/money_account/M = SSeconomy.create_account(H.real_name, money_amount, null, public_account)
-	if(H.mind)
-		var/remembered_info = ""
-		remembered_info += "<b>Your account number is:</b> #[M.account_number]<br>"
-		remembered_info += "<b>Your account pin is:</b> [M.remote_access_pin]<br>"
-		remembered_info += "<b>Your account funds are:</b> [M.money]电<br>"
-
-		if(M.transactions.len)
-			var/datum/transaction/T = M.transactions[1]
-			remembered_info += "<b>Your account was created:</b> [T.time], [T.date] at [T.source_terminal]<br>"
-		H.mind.store_memory(remembered_info)
-
-		H.mind.initial_account = M
-
-	to_chat(H, "<span class='notice'><b>Your account number is: [M.account_number], your account pin is: [M.remote_access_pin]</b></span>")
+	var/datum/money_account/account = SSeconomy.create_and_assign_account(H, null, money_amount, public_account)
+	to_chat(H, SPAN_BOLD(SPAN_NOTICE("Your account number is: [account.account_number], your account pin is: [account.remote_access_pin]")))
 
 // overrideable separately so AIs/borgs can have cardborg hats without unneccessary new()/del()
-/datum/job/proc/equip_preview(mob/living/carbon/human/H, var/alt_title, var/faction_override)
+/datum/job/proc/equip_preview(mob/living/carbon/human/H, datum/preferences/prefs, var/alt_title, var/faction_override)
 	if(faction_override)
 		var/faction = SSjobs.name_factions[faction_override]
 		if(faction)
@@ -136,8 +123,32 @@
 					O.pre_equip(H, TRUE)
 					O.equip(H, TRUE)
 					return
+
+	var/pre_hat_ref = H.head ? REF(H.head) : null
+	var/pre_uniform_ref = H.w_uniform ? REF(H.w_uniform) : null
+	var/pre_suit_ref = H.wear_suit ? REF(H.wear_suit) : null
+
 	pre_equip(H, TRUE)
 	. = equip(H, TRUE, FALSE, alt_title=alt_title)
+
+	// slightly hacky, but effectively what we're doing here is checking whether we want this preview mob to actually have the uniform we're putting onto it
+	// if not, we drop it from the inventory into nullspace, and then deleting it
+	// i don't THINK this'll make performance that much worse, considering how much we already do to equip the mob in the first place
+	// the reasoning for the ref checks is that we don't want to delete loadout uniforms, just the job ones, so we need to confirm the before and after
+
+	var/equip_preview_mob = prefs.equip_preview_mob
+
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_HAT) && H.head && REF(H.head) != pre_hat_ref)
+		H.drop_from_inventory(H.head)
+		qdel(H.head)
+
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM) && H.w_uniform && REF(H.w_uniform) != pre_uniform_ref)
+		H.drop_from_inventory(H.w_uniform)
+		qdel(H.w_uniform)
+
+	if(!(equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM) && H.wear_suit && REF(H.wear_suit) != pre_suit_ref)
+		H.drop_from_inventory(H.wear_suit)
+		qdel(H.wear_suit)
 
 /datum/job/proc/get_access(selected_title)
 	SHOULD_NOT_SLEEP(TRUE)
@@ -212,6 +223,7 @@
 	bowman = /obj/item/device/radio/headset/alt
 	double_headset = /obj/item/device/radio/headset/alt/double
 	wrist_radio = /obj/item/device/radio/headset/wrist
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/civilian
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian

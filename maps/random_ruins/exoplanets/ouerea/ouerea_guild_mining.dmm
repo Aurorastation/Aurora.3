@@ -1,0 +1,1711 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bV" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"cG" = (
+/obj/machinery/conveyor{
+	id = "miners_guild_outpost";
+	dir = 2
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"cZ" = (
+/obj/structure/closet,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/under/unathi/himation,
+/obj/item/clothing/accessory/poncho/unathimantle/miner{
+	color = "#b07810"
+	},
+/obj/item/storage/backpack/satchel/eng,
+/obj/item/clothing/shoes/sandals/caligae/socks,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"do" = (
+/obj/machinery/mineral/stacking_unit_console{
+	pixel_y = 32;
+	id = "stacking_1"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"dD" = (
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"hv" = (
+/obj/machinery/conveyor{
+	id = "miners_guild_outpost";
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"hG" = (
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"jy" = (
+/obj/structure/table/rack,
+/obj/item/shovel,
+/obj/item/shovel,
+/obj/item/shovel,
+/obj/item/shovel,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"jF" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"jK" = (
+/obj/machinery/cell_charger,
+/obj/structure/table/steel,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"ks" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"lE" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 15
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"nq" = (
+/obj/structure/closet,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/under/unathi/himation,
+/obj/item/clothing/accessory/poncho/unathimantle/miner{
+	color = "#b07810"
+	},
+/obj/item/storage/backpack/satchel/eng,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/item/clothing/shoes/sandals/caligae/socks,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"oM" = (
+/obj/structure/table/rack,
+/obj/item/storage/belt/mining,
+/obj/item/storage/belt/mining,
+/obj/item/storage/belt/mining,
+/obj/item/storage/belt/mining,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"pb" = (
+/obj/structure/table/rack,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/adv,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"pl" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"ps" = (
+/obj/structure/table/rack,
+/obj/item/device/radio/off,
+/obj/item/device/radio/off,
+/obj/item/device/radio/off,
+/obj/item/device/radio/off,
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"pt" = (
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"pJ" = (
+/obj/structure/table/rack,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"qY" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"rG" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"rH" = (
+/obj/structure/table/rack,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"rV" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/ore_box,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"sr" = (
+/obj/effect/floor_decal/industrial/loading/yellow,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"tz" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/brace{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"tE" = (
+/obj/machinery/mineral/processing_unit_console{
+	id = "processing_1";
+	pixel_y = 28
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"uF" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/drill,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"wd" = (
+/obj/structure/table/steel,
+/obj/item/storage/box/drinkingglasses,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"wv" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/ore_box,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"xJ" = (
+/obj/structure/closet/toolcloset/empty,
+/obj/item/ore_detector,
+/obj/item/ore_detector,
+/obj/item/ore_detector,
+/obj/item/ore_detector,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"zA" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"Ar" = (
+/obj/structure/cargo_receptacle{
+	max_spawn = 2;
+	override_name = "Ouerea - Miners' Guild Camp";
+	min_spawn = 1
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"AF" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"Bs" = (
+/obj/machinery/conveyor_switch{
+	id = "moghes_heph_base"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"CK" = (
+/obj/machinery/door/airlock{
+	name = "Equipment Storage"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"Dc" = (
+/turf/simulated/wall/concrete,
+/area/ouerea_guild_mining)
+"Df" = (
+/obj/machinery/conveyor{
+	id = "miners_guild_outpost";
+	dir = 10
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"Dk" = (
+/obj/structure/bed,
+/obj/item/bedsheet/brown,
+/obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	name = "igs - ouerea_guild_miner";
+	identifier = "ouerea_guild_miner"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"Fs" = (
+/obj/structure/table/rack,
+/obj/item/gun/energy/plasmacutter,
+/obj/item/gun/energy/plasmacutter,
+/obj/item/gun/energy/plasmacutter,
+/obj/item/gun/energy/plasmacutter,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"Gi" = (
+/obj/machinery/door/airlock/multi_tile{
+	name = "Refinery"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"Gk" = (
+/obj/machinery/conveyor{
+	id = "miners_guild_outpost";
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/machinery/mineral/unloading_machine{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"Go" = (
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"Jb" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"JZ" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"La" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"LJ" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"LN" = (
+/obj/structure/table/steel,
+/obj/structure/reagent_dispensers/keg/xuizikeg,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"Mx" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"Nd" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/brace{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"Os" = (
+/obj/machinery/door/airlock{
+	name = "Living Quarters"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"OT" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 24
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"Pj" = (
+/obj/machinery/conveyor{
+	id = "miners_guild_outpost";
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/machinery/mineral/processing_unit{
+	dir = 8;
+	id = "processing_1"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"PA" = (
+/obj/machinery/door/airlock{
+	name = "Mess Hall"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"RU" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"SG" = (
+/obj/structure/table/rack,
+/obj/item/device/analyzer,
+/obj/item/device/analyzer,
+/obj/item/device/analyzer,
+/obj/item/device/analyzer,
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"SO" = (
+/obj/machinery/vending/dinnerware/plastic,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"TB" = (
+/obj/machinery/conveyor{
+	id = "miners_guild_outpost";
+	dir = 2
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/mineral/stacking_machine{
+	id = "stacking_1"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"VP" = (
+/obj/structure/table/rack,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"XK" = (
+/obj/structure/table/rack,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"Yf" = (
+/obj/machinery/conveyor{
+	id = "miners_guild_outpost";
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"Yi" = (
+/obj/structure/closet/toolcloset/empty,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/weldingtool,
+/obj/item/weldingtool,
+/obj/item/weldingtool,
+/obj/item/weldingtool,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/crowbar,
+/obj/item/crowbar,
+/obj/item/crowbar,
+/obj/item/wrench,
+/obj/item/wrench,
+/obj/item/wrench,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+"Zq" = (
+/obj/machinery/appliance/cooker/grill,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_guild_mining)
+
+(1,1,1) = {"
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(2,1,1) = {"
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(3,1,1) = {"
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(4,1,1) = {"
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(5,1,1) = {"
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(6,1,1) = {"
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Go
+Go
+Go
+Go
+"}
+(7,1,1) = {"
+Go
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Dc
+hG
+ks
+hG
+hG
+ks
+hG
+hG
+ks
+Dc
+Go
+Go
+Go
+Go
+"}
+(8,1,1) = {"
+Go
+Dc
+Dk
+Dc
+Dk
+Dc
+Dk
+Dc
+Dk
+Dc
+Dc
+zA
+Go
+Go
+Go
+Go
+Go
+Go
+Dc
+hG
+hG
+dD
+dD
+dD
+dD
+hG
+SO
+Dc
+Go
+Go
+Go
+Go
+"}
+(9,1,1) = {"
+Go
+Dc
+hG
+hG
+hG
+hG
+hG
+hG
+hG
+hG
+Os
+hG
+hG
+hG
+hG
+hG
+Go
+Jb
+Dc
+hG
+hG
+rG
+rG
+rG
+wd
+hG
+LN
+Dc
+Go
+Go
+Go
+Go
+"}
+(10,1,1) = {"
+Go
+Dc
+cZ
+nq
+cZ
+cZ
+JZ
+hG
+hG
+JZ
+Dc
+zA
+Go
+Go
+hG
+hG
+hG
+hG
+PA
+hG
+hG
+rG
+rG
+rG
+rG
+hG
+LJ
+Dc
+Go
+Go
+Go
+Go
+"}
+(11,1,1) = {"
+Go
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Go
+Go
+Go
+hG
+hG
+Go
+Jb
+Dc
+hG
+hG
+rG
+rG
+rG
+rG
+hG
+Zq
+Dc
+Go
+Go
+Go
+Go
+"}
+(12,1,1) = {"
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+hG
+hG
+Go
+Go
+Dc
+hG
+hG
+dD
+dD
+dD
+dD
+hG
+jF
+Dc
+Go
+Go
+Go
+Go
+"}
+(13,1,1) = {"
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+bV
+hG
+hG
+bV
+Go
+Dc
+hG
+JZ
+hG
+hG
+JZ
+hG
+lE
+JZ
+Dc
+Go
+Go
+Go
+Go
+"}
+(14,1,1) = {"
+Go
+Go
+Go
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Go
+Jb
+Dc
+pl
+qY
+Dc
+zA
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Go
+Go
+Go
+Go
+"}
+(15,1,1) = {"
+Go
+Go
+Go
+Dc
+Df
+TB
+cG
+sr
+RU
+Mx
+Dc
+Go
+Go
+La
+hG
+hG
+La
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(16,1,1) = {"
+Go
+Go
+Go
+Dc
+hv
+Dc
+do
+hG
+RU
+RU
+Dc
+Go
+Go
+Go
+hG
+hG
+Go
+Go
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(17,1,1) = {"
+Go
+Go
+Go
+Dc
+hv
+hG
+hG
+hG
+hG
+hG
+Dc
+Go
+Go
+Go
+hG
+hG
+Go
+Go
+Dc
+Fs
+hG
+hG
+VP
+Dc
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(18,1,1) = {"
+Go
+Go
+Go
+Dc
+hv
+hG
+hG
+hG
+hG
+hG
+Dc
+zA
+Go
+Go
+hG
+hG
+Go
+Go
+Dc
+rH
+hG
+hG
+jK
+Dc
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(19,1,1) = {"
+Go
+Go
+Go
+Dc
+hv
+hG
+hG
+hG
+hG
+hG
+Gi
+hG
+hG
+hG
+hG
+hG
+Go
+Go
+Dc
+XK
+hG
+hG
+ps
+Dc
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(20,1,1) = {"
+Go
+Go
+Go
+Dc
+Pj
+Dc
+tE
+hG
+hG
+hG
+hG
+hG
+hG
+hG
+hG
+hG
+Go
+Jb
+Dc
+OT
+hG
+hG
+Yi
+Dc
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(21,1,1) = {"
+Go
+Go
+Go
+Dc
+hv
+hG
+hG
+hG
+hG
+rV
+Dc
+zA
+Go
+Go
+hG
+hG
+hG
+hG
+CK
+hG
+hG
+hG
+hG
+Dc
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(22,1,1) = {"
+Go
+Go
+Go
+Dc
+hv
+hG
+hG
+hG
+tz
+rV
+Dc
+Go
+Go
+Go
+Go
+Go
+Go
+Jb
+Dc
+OT
+hG
+hG
+xJ
+Dc
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(23,1,1) = {"
+Go
+Go
+Go
+Dc
+hv
+hG
+hG
+hG
+uF
+rV
+Dc
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Dc
+pJ
+hG
+hG
+SG
+Dc
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(24,1,1) = {"
+Go
+Go
+Go
+Dc
+hv
+hG
+JZ
+hG
+Nd
+wv
+Dc
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Dc
+oM
+hG
+hG
+pt
+Dc
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(25,1,1) = {"
+Go
+Go
+Go
+Dc
+Gk
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Dc
+jy
+hG
+hG
+pb
+Dc
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(26,1,1) = {"
+Go
+Go
+Go
+hG
+Yf
+Bs
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Dc
+Dc
+Dc
+Dc
+Dc
+Dc
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(27,1,1) = {"
+Go
+Go
+Go
+hG
+AF
+hG
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Ar
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(28,1,1) = {"
+Go
+Go
+Go
+hG
+hG
+hG
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(29,1,1) = {"
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(30,1,1) = {"
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(31,1,1) = {"
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}
+(32,1,1) = {"
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+Go
+"}

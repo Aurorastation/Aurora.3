@@ -96,7 +96,7 @@
 
 	if(attacking_item.isscrewdriver())
 		open = !open
-		to_chat(user, "<span class='notice'>You [open ? "open" : "close"] the maintenance panel.</span>")
+		to_chat(user, SPAN_NOTICE("You [open ? "open" : "close"] the maintenance panel."))
 		return
 
 	if(open)

@@ -8,6 +8,7 @@
 	desc = "A monitor that contains and displays the logs of a selected telecommunications server to authorized personnel."
 	icon_screen = "comm_logs"
 	icon_keyboard = "green_key"
+	icon_keyboard_emis = "green_key_mask"
 	light_color = LIGHT_COLOR_GREEN
 
 	var/screen = 0				// the screen number:
@@ -113,7 +114,7 @@
 	if(href_list["delete"])
 
 		if(!src.allowed(usr) && !emagged)
-			to_chat(usr, "<span class='warning'>ACCESS DENIED.</span>")
+			to_chat(usr, SPAN_WARNING("ACCESS DENIED."))
 			return
 
 		if(SelectedServer)
@@ -150,7 +151,7 @@
 	if(attacking_item.isscrewdriver())
 		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			if (src.stat & BROKEN)
-				to_chat(user, "<span class='notice'>The broken glass falls out.</span>")
+				to_chat(user, SPAN_NOTICE("The broken glass falls out."))
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 				new /obj/item/material/shard( src.loc )
 				var/obj/item/circuitboard/comm_server/M = new /obj/item/circuitboard/comm_server( A )
@@ -162,7 +163,7 @@
 				A.anchored = 1
 				qdel(src)
 			else
-				to_chat(user, "<span class='notice'>You disconnect the monitor.</span>")
+				to_chat(user, SPAN_NOTICE("You disconnect the monitor."))
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 				var/obj/item/circuitboard/comm_server/M = new /obj/item/circuitboard/comm_server( A )
 				for (var/obj/C in src)
@@ -179,7 +180,7 @@
 	if(!emagged)
 		playsound(src.loc, 'sound/effects/sparks4.ogg', 75, 1)
 		emagged = 1
-		to_chat(user, "<span class='notice'>You you disable the security protocols</span>")
+		to_chat(user, SPAN_NOTICE("You you disable the security protocols"))
 		src.updateUsrDialog()
 		return 1
 

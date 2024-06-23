@@ -124,7 +124,7 @@
 "lX" = (
 /obj/machinery/light/small,
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/nka_base)
+/area/exoplanet/adhomai)
 "mf" = (
 /obj/structure/closet/secure_closet/cabinet{
 	req_access = list(213);
@@ -200,9 +200,10 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "pV" = (
-/obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow/cold,
-/area/nka_base)
+/turf/simulated/floor/exoplanet/barren{
+	temperature = 268.15
+	},
+/area/exoplanet/adhomai)
 "qa" = (
 /obj/structure/reagent_dispensers/keg/mead,
 /obj/machinery/light/small{
@@ -454,7 +455,7 @@
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "CO" = (
-/turf/simulated/wall/iron,
+/turf/unsimulated/wall/steel,
 /area/nka_base)
 "CW" = (
 /obj/machinery/light/small,
@@ -741,9 +742,9 @@
 /area/nka_base)
 
 (1,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 vi
 vi
 vi
@@ -775,9 +776,9 @@ vi
 vi
 "}
 (2,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 vi
 vi
 vi
@@ -809,9 +810,9 @@ vi
 vi
 "}
 (3,1,1) = {"
-DL
-DL
-pV
+vi
+vi
+hT
 vi
 vi
 vi
@@ -843,9 +844,9 @@ vi
 vi
 "}
 (4,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 CO
 EK
 EK
@@ -877,9 +878,9 @@ EK
 CO
 "}
 (5,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 CO
 CO
 CO
@@ -911,8 +912,8 @@ DL
 gU
 "}
 (6,1,1) = {"
-pV
-DL
+hT
+vi
 lX
 CO
 St
@@ -945,9 +946,9 @@ DL
 gU
 "}
 (7,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 CO
 Xb
 mj
@@ -979,9 +980,9 @@ DL
 gU
 "}
 (8,1,1) = {"
-EP
-EP
-EP
+pV
+pV
+pV
 oA
 EP
 EP
@@ -1013,9 +1014,9 @@ DL
 gU
 "}
 (9,1,1) = {"
-EP
-EP
-EP
+pV
+pV
+pV
 gU
 DL
 DL
@@ -1047,9 +1048,9 @@ DL
 gU
 "}
 (10,1,1) = {"
-EP
-EP
-EP
+pV
+pV
+pV
 oA
 EP
 EP
@@ -1081,9 +1082,9 @@ DL
 gU
 "}
 (11,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 CO
 EK
 EK
@@ -1115,9 +1116,9 @@ DL
 gU
 "}
 (12,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 gU
 DL
 DL
@@ -1149,9 +1150,9 @@ yB
 gU
 "}
 (13,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 gU
 DL
 DL
@@ -1183,9 +1184,9 @@ yB
 gU
 "}
 (14,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 gU
 DL
 DL
@@ -1217,9 +1218,9 @@ yB
 gU
 "}
 (15,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 gU
 DL
 DL
@@ -1251,9 +1252,9 @@ yB
 gU
 "}
 (16,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 gU
 DL
 DL
@@ -1285,9 +1286,9 @@ yB
 gU
 "}
 (17,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 gU
 DL
 DL
@@ -1319,9 +1320,9 @@ DL
 gU
 "}
 (18,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 gU
 DL
 DL
@@ -1353,9 +1354,9 @@ DL
 gU
 "}
 (19,1,1) = {"
-DL
-pV
-DL
+vi
+hT
+vi
 gU
 DL
 DL
@@ -1387,9 +1388,9 @@ DL
 gU
 "}
 (20,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 gU
 DL
 DL
@@ -1421,9 +1422,9 @@ DL
 gU
 "}
 (21,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 gU
 DL
 DL
@@ -1455,9 +1456,9 @@ DL
 gU
 "}
 (22,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 gU
 DL
 DL
@@ -1489,9 +1490,9 @@ DL
 gU
 "}
 (23,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 gU
 DL
 DL
@@ -1523,9 +1524,9 @@ DL
 gU
 "}
 (24,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 gU
 DL
 DL
@@ -1557,9 +1558,9 @@ DL
 gU
 "}
 (25,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 gU
 DL
 DL
@@ -1591,9 +1592,9 @@ DL
 gU
 "}
 (26,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 gU
 DL
 DL
@@ -1625,9 +1626,9 @@ DL
 gU
 "}
 (27,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 gU
 DL
 DL
@@ -1659,9 +1660,9 @@ DL
 gU
 "}
 (28,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 gU
 DL
 DL
@@ -1693,9 +1694,9 @@ DL
 gU
 "}
 (29,1,1) = {"
-DL
-pV
-DL
+vi
+hT
+vi
 CO
 EK
 EK
@@ -1727,9 +1728,9 @@ EK
 CO
 "}
 (30,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 vi
 vi
 vi
@@ -1761,9 +1762,9 @@ vi
 vi
 "}
 (31,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 vi
 vi
 vi
@@ -1795,9 +1796,9 @@ vi
 vi
 "}
 (32,1,1) = {"
-DL
-DL
-DL
+vi
+vi
+vi
 vi
 hT
 vi

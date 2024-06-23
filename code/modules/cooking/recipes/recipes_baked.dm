@@ -96,3 +96,32 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/veggie_lasagna_tray
 	reagent_mix = RECIPE_REAGENT_REPLACE //Replacing the ingredients and filling in a bit extra for simplicity's sake
+
+/singleton/recipe/pigs_in_a_blanket
+	appliance = OVEN
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sausage,
+		/obj/item/reagent_containers/food/snacks/doughslice,
+		/obj/item/reagent_containers/food/snacks/doughslice
+	)
+	result = /obj/item/reagent_containers/food/snacks/pig_in_a_blanket
+	result_quantity = 3
+
+/singleton/recipe/stuffed_peppers_meat
+	appliance = OVEN
+	fruit = list("bellpepper" = 1, "tomato" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/meat
+	)
+	result = /obj/item/reagent_containers/food/snacks/stuffed_pepper_meat
+	result_quantity = 2
+
+/singleton/recipe/stuffed_peppers_rice
+	appliance = OVEN
+	fruit = list("bellpepper" = 1, "corn" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/boiledrice
+	)
+	result = /obj/item/reagent_containers/food/snacks/stuffed_pepper_rice
+	result_quantity = 2

@@ -88,10 +88,8 @@
 	icon_state = "gentlecoat"
 	item_state = "gentlecoat"
 	allowed = list(/obj/item/tank/emergency_oxygen, /obj/item/material/knife/ritual)
-	flags_inv = HIDEJUMPSUIT
 
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-	flags_inv = 0
 
 /obj/item/clothing/suit/wizrobe/fake
 	name = "wizard robe"

@@ -41,7 +41,7 @@
 	emote_see = list("flutters its wings")
 
 	speak_chance = 1//1% (1 in 100) chance every tick; So about once per 150 seconds, assuming an average tick is 1.5s
-	universal_speak = FALSE
+	universal_speak = TRUE
 	turns_per_move = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/cracker/
 
@@ -50,7 +50,6 @@
 	response_disarm = "gently moves aside"
 	response_harm   = "swats"
 	stop_automated_movement = 1
-	universal_speak = 1
 	canbrush = TRUE
 
 	flying = TRUE
@@ -117,7 +116,7 @@
 	if(held_item)
 		held_item.forceMove(src.loc)
 		held_item = null
-	SSmove_manager.stop_looping(src)
+	GLOB.move_manager.stop_looping(src)
 	..()
 
 /mob/living/simple_animal/parrot/get_status_tab_items()
@@ -166,19 +165,19 @@
 							if(copytext(possible_phrase,1,3) in department_radio_keys)
 								possible_phrase = copytext(possible_phrase,3,length(possible_phrase))
 					else
-						to_chat(usr, "<span class='warning'>There is nothing to remove from its [remove_from].</span>")
+						to_chat(usr, SPAN_WARNING("There is nothing to remove from its [remove_from]."))
 						return
 
 		//Adding things to inventory
 		else if(href_list["add_inv"])
 			var/add_to = href_list["add_inv"]
 			if(!usr.get_active_hand())
-				to_chat(usr, "<span class='warning'>You have nothing in your hand to put on its [add_to].</span>")
+				to_chat(usr, SPAN_WARNING("You have nothing in your hand to put on its [add_to]."))
 				return
 			switch(add_to)
 				if("ears")
 					if(ears)
-						to_chat(usr, "<span class='warning'>It's already wearing something.</span>")
+						to_chat(usr, SPAN_WARNING("It's already wearing something."))
 						return
 					else
 						var/obj/item/item_to_add = usr.get_active_hand()
@@ -186,7 +185,7 @@
 							return
 
 						if( !istype(item_to_add,  /obj/item/device/radio/headset) )
-							to_chat(usr, "<span class='warning'>This object won't fit.</span>")
+							to_chat(usr, SPAN_WARNING("This object won't fit."))
 							return
 
 						var/obj/item/device/radio/headset/headset_to_add = item_to_add
@@ -357,7 +356,7 @@
 //-----WANDERING - This is basically a 'I dont know what to do yet' state
 	else if(parrot_state == PARROT_WANDER)
 		//Stop movement, we'll set it later
-		SSmove_manager.stop_looping(src)
+		GLOB.move_manager.stop_looping(src)
 		parrot_interest = null
 
 		//Wander around aimlessly. This will help keep the loops from searches down
@@ -395,7 +394,7 @@
 				return
 //-----STEALING
 	else if(parrot_state == (PARROT_SWOOP | PARROT_STEAL))
-		SSmove_manager.stop_looping(src)
+		GLOB.move_manager.stop_looping(src)
 		if(!parrot_interest || held_item)
 			parrot_state = PARROT_SWOOP | PARROT_RETURN
 			return
@@ -413,18 +412,18 @@
 				if(!parrot_perch || parrot_interest.loc != parrot_perch.loc)
 					held_item = parrot_interest
 					parrot_interest.forceMove(src)
-					visible_message("[src] grabs the [held_item]!", "<span class='notice'>You grab the [held_item]!</span>", "You hear the sounds of wings flapping furiously.")
+					visible_message("[src] grabs the [held_item]!", SPAN_NOTICE("You grab the [held_item]!"), "You hear the sounds of wings flapping furiously.")
 
 			parrot_interest = null
 			parrot_state = PARROT_SWOOP | PARROT_RETURN
 			return
 
-		SSmove_manager.move_to(src, parrot_interest, 1, parrot_speed)
+		GLOB.move_manager.move_to(src, parrot_interest, 1, parrot_speed)
 		return
 
 //-----RETURNING TO PERCH
 	else if(parrot_state == (PARROT_SWOOP | PARROT_RETURN))
-		SSmove_manager.stop_looping(src)
+		GLOB.move_manager.stop_looping(src)
 		if(!parrot_perch || !isturf(parrot_perch.loc)) //Make sure the perch exists and somehow isnt inside of something else.
 			parrot_perch = null
 			parrot_state = PARROT_WANDER
@@ -437,16 +436,16 @@
 			icon_state = "parrot_sit"
 			return
 
-		SSmove_manager.move_to(src, parrot_perch, 1, parrot_speed)
+		GLOB.move_manager.move_to(src, parrot_perch, 1, parrot_speed)
 		return
 
 //-----FLEEING
 	else if(parrot_state == (PARROT_SWOOP | PARROT_FLEE))
-		SSmove_manager.stop_looping(src)
+		GLOB.move_manager.stop_looping(src)
 		if(!parrot_interest || !isliving(parrot_interest)) //Sanity
 			parrot_state = PARROT_WANDER
 
-		SSmove_manager.move_away(src, parrot_interest, 1, (parrot_speed-parrot_been_shot))
+		GLOB.move_manager.move_away(src, parrot_interest, 1, (parrot_speed-parrot_been_shot))
 		parrot_been_shot--
 		return
 
@@ -494,11 +493,11 @@
 
 		//Otherwise, fly towards the mob!
 		else
-			SSmove_manager.move_to(src, parrot_interest, 1, parrot_speed)
+			GLOB.move_manager.move_to(src, parrot_interest, 1, parrot_speed)
 		return
 //-----STATE MISHAP
 	else //This should not happen. If it does lets reset everything and try again
-		SSmove_manager.stop_looping(src)
+		GLOB.move_manager.stop_looping(src)
 		parrot_interest = null
 		parrot_perch = null
 		drop_held_item()
@@ -573,7 +572,7 @@
 		return -1
 
 	if(held_item)
-		to_chat(src, "<span class='warning'>You are already holding the [held_item]</span>")
+		to_chat(src, SPAN_WARNING("You are already holding the [held_item]"))
 		return 1
 
 	for(var/obj/item/I in view(1,src))
@@ -586,10 +585,10 @@
 
 			held_item = I
 			I.forceMove(src)
-			visible_message("[src] grabs the [held_item]!", "<span class='notice'>You grab the [held_item]!</span>", "You hear the sounds of wings flapping furiously.")
+			visible_message("[src] grabs the [held_item]!", SPAN_NOTICE("You grab the [held_item]!"), "You hear the sounds of wings flapping furiously.")
 			return held_item
 
-	to_chat(src, "<span class='warning'>There is nothing of interest to take.</span>")
+	to_chat(src, SPAN_WARNING("There is nothing of interest to take."))
 	return 0
 
 /mob/living/simple_animal/parrot/proc/steal_from_mob()
@@ -601,7 +600,7 @@
 		return -1
 
 	if(held_item)
-		to_chat(src, "<span class='warning'>You are already holding the [held_item]</span>")
+		to_chat(src, SPAN_WARNING("You are already holding the [held_item]"))
 		return 1
 
 	var/obj/item/stolen_item = null
@@ -617,10 +616,10 @@
 			C.remove_from_mob(stolen_item)
 			held_item = stolen_item
 			stolen_item.forceMove(src)
-			visible_message("[src] grabs the [held_item] out of [C]'s hand!", "<span class='notice'>You snag the [held_item] out of [C]'s hand!</span>", "You hear the sounds of wings flapping furiously.")
+			visible_message("[src] grabs the [held_item] out of [C]'s hand!", SPAN_NOTICE("You snag the [held_item] out of [C]'s hand!"), "You hear the sounds of wings flapping furiously.")
 			return held_item
 
-	to_chat(src, "<span class='warning'>There is nothing of interest to take.</span>")
+	to_chat(src, SPAN_WARNING("There is nothing of interest to take."))
 	return 0
 
 /mob/living/simple_animal/parrot/verb/drop_held_item_player()
@@ -644,7 +643,7 @@
 		return -1
 
 	if(!held_item)
-		to_chat(usr, "<span class='warning'>You have nothing to drop!</span>")
+		to_chat(usr, SPAN_WARNING("You have nothing to drop!"))
 		return 0
 
 	if(!drop_gently)
@@ -677,10 +676,10 @@
 					src.forceMove(AM.loc)
 					icon_state = "parrot_sit"
 					return
-	to_chat(src, "<span class='warning'>There is no perch nearby to sit on.</span>")
+	to_chat(src, SPAN_WARNING("There is no perch nearby to sit on."))
 	return
 
-/mob/living/simple_animal/parrot/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/living/simple_animal/parrot/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 
 	if(stat)
 		return

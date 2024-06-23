@@ -22,7 +22,6 @@
 	var/min_explode_time = 1200
 	density = 0
 	holder_type = /obj/item/holder/mushroom
-	mob_size = 2
 	canbrush = TRUE
 	brush = /obj/item/reagent_containers/glass/rag
 
@@ -51,15 +50,15 @@
 	set src = usr
 
 	if(stat == 2)
-		to_chat(usr, "<span class='danger'>You are dead; it is too late for that.</span>")
+		to_chat(usr, SPAN_DANGER("You are dead; it is too late for that."))
 		return
 
 	if(!seed)
-		to_chat(usr, "<span class='danger'>You are sterile!</span>")
+		to_chat(usr, SPAN_DANGER("You are sterile!"))
 		return
 
 	if(world.time < harvest_time + min_explode_time)
-		to_chat(usr, "<span class='danger'>You are not mature enough for that.</span>")
+		to_chat(usr, SPAN_DANGER("You are not mature enough for that."))
 		return
 
 	spore_explode()

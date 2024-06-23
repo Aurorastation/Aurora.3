@@ -183,6 +183,7 @@
 	name = "sledgehammer"
 	desc = "A mining hammer made of reinforced metal. You feel like smashing your boss in the face with this."
 	icon_state = "sledgehammer"
+	item_state = "sledgehammer"
 	icon = 'icons/obj/weapons.dmi'
 
 /obj/item/pickaxe/silver
@@ -288,7 +289,6 @@
 
 	can_wield = 0
 	force = 25
-	digspeed = 2
 	digspeed_unwielded = 3
 	force_unwielded = 20.0
 
@@ -557,7 +557,7 @@
 	cell = new /obj/item/cell/high(src)
 	key = new /obj/item/key/minecarts(src)
 	var/image/I = new(icon = 'icons/obj/vehicles.dmi', icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
-	add_overlay(I)
+	AddOverlays(I)
 	turn_off()
 
 /obj/vehicle/train/cargo/engine/mining/attackby(obj/item/attacking_item, mob/user)
@@ -794,15 +794,15 @@
 		update_icon()
 
 /obj/item/lazarus_injector/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(loaded)
 		var/mutable_appearance/filling = mutable_appearance(icon, "lazarus_filling")
 		filling.color = mask_color
-		add_overlay(filling)
+		AddOverlays(filling)
 		if(malfunctioning || emagged)
 			var/mutable_appearance/static_fill = mutable_appearance(icon, "lazarus_static")
 			static_fill.color = mask_color
-			add_overlay(static_fill)
+			AddOverlays(static_fill)
 	icon_state = "lazarus_[loaded ? "loaded" : "spent"]"
 	item_state = icon_state
 	update_held_icon()
@@ -1118,12 +1118,12 @@ var/list/total_extraction_beacons = list()
 			return
 
 /obj/item/oremagnet/proc/toggle_on(mob/user)
-	if(!isprocessing)
+	if(!(datum_flags & DF_ISPROCESSING))
 		START_PROCESSING(SSprocessing, src)
 	else
 		STOP_PROCESSING(SSprocessing, src)
 	if(user)
-		to_chat(user, "<span class='[isprocessing ? "notice" : "warning"]'>You switch [isprocessing ? "on" : "off"] [src].</span>")
+		to_chat(user, "<span class='[(datum_flags & DF_ISPROCESSING) ? "notice" : "warning"]'>You switch [(datum_flags & DF_ISPROCESSING) ? "on" : "off"] [src].</span>")
 
 /obj/item/oremagnet/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -1236,7 +1236,7 @@ var/list/total_extraction_beacons = list()
 		if(sculpted == TRUE_QDEL)
 			qdel(src)
 
-/obj/structure/sculpting_block/proc/sculpture_options(var/choice, var/mob/user)
+/obj/structure/sculpting_block/proc/sculpture_options(choice, mob/user)
 	switch(choice)
 		if("sculpture")
 			var/mob/living/old_T
@@ -1244,7 +1244,7 @@ var/list/total_extraction_beacons = list()
 				old_T = T
 
 			var/list/choices = list()
-			for(var/mob/living/M in view(7,user))
+			for(var/mob/living/M in get_hearers_in_LOS(7, user))
 				choices += M
 			T = tgui_input_list(user, "Who do you wish to sculpt?", "Sculpt Options", choices)
 			if(!T)
@@ -1287,7 +1287,7 @@ var/list/total_extraction_beacons = list()
 				return FALSE
 			return TRUE
 
-/obj/structure/sculpting_block/proc/finish_sculpture(var/choice, var/mob/user)
+/obj/structure/sculpting_block/proc/finish_sculpture(choice, mob/user)
 	switch(choice)
 		if("sculpture")
 			appearance = T
@@ -1306,13 +1306,13 @@ var/list/total_extraction_beacons = list()
 
 			obj_flags = OBJ_FLAG_ROTATABLE
 
-			var/title = sanitize(input(usr, "If you would like to name your art, do so here.", "Christen Your Sculpture", "") as text|null)
+			var/title = tgui_input_text(usr, "If you would like to name your art, do so here.", "Christen Your Sculpture", multiline = FALSE)
 			if(title)
 				name = title
 			else
 				name = T.name
 
-			var/legend = sanitize(input(usr, "If you would like to describe your art, do so here.", "Story Your Sculpture", "") as message|null)
+			var/legend = tgui_input_text(usr, "If you would like to describe your art, do so here.", "Story Your Sculpture", multiline = TRUE)
 			if(legend)
 				desc = legend
 			else
@@ -1321,6 +1321,7 @@ var/list/total_extraction_beacons = list()
 			T = null // null T out, we don't need the ref to them anymore
 
 			return TRUE
+
 		if("ladder")
 			var/turf/above = GET_ABOVE(src)
 			if(!above)
@@ -1333,6 +1334,9 @@ var/list/total_extraction_beacons = list()
 			new /obj/structure/ladder/up/mining(get_turf(src))
 			new /obj/structure/ladder/mining(above)
 			return TRUE_QDEL
+
+/obj/structure/sculpting_block/update_icon()
+	return
 
 #undef TRUE_QDEL
 
@@ -1373,7 +1377,7 @@ var/list/total_extraction_beacons = list()
 		user.forceMove(src.loc)
 		var/image/W = image('icons/obj/mining.dmi',"fitnessweight-w")
 		W.layer = 5.1
-		add_overlay(W)
+		AddOverlays(W)
 		var/bragmessage = pick("pushing it to the limit","going into overdrive","burning with determination","rising up to the challenge", "getting strong now","getting ripped")
 		user.visible_message(SPAN_NOTICE("<B>[user] is [bragmessage]!</B>"))
 		var/reps = 0
@@ -1396,7 +1400,7 @@ var/list/total_extraction_beacons = list()
 		animate(user, pixel_y = 0, time = 3)
 		var/finishmessage = pick("You feel stronger!","You feel like you can take on the world!","You feel robust!","You feel indestructible!")
 		icon_state = "fitnessweight"
-		cut_overlay(W)
+		CutOverlays(W)
 		to_chat(user, SPAN_NOTICE("[finishmessage]"))
 		user.adjustNutritionLoss(5)
 		user.adjustHydrationLoss(5)

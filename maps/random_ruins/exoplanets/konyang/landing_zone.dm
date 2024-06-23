@@ -5,7 +5,11 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED|TEMPLATE_FLAG_SPAWN_GUARANTEED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/landing_zone.dmm")
+
+	prefix = "konyang/"
+	suffixes = list("landing_zone.dmm")
+
+	unit_test_groups = list(1)
 
 /area/konyang_landing_zone
 	name = "SCC Expedition Command Center"

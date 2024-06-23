@@ -7,7 +7,6 @@
 	name = "open space"
 	icon = 'icons/turf/space.dmi'
 	icon_state = "opendebug"
-	plane = PLANE_SPACE_BACKGROUND
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	is_hole = TRUE
@@ -230,7 +229,7 @@
 			return
 		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(1))
-			to_chat(user, "<span class='notice'>You lay down the support lattice.</span>")
+			to_chat(user, SPAN_NOTICE("You lay down the support lattice."))
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			new /obj/structure/lattice(locate(src.x, src.y, src.z))
 		return
@@ -247,7 +246,7 @@
 			ChangeTurf(/turf/simulated/floor/airless)
 			return
 		else
-			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
+			to_chat(user, SPAN_WARNING("The plating is going to need some support."))
 
 	//To lay cable.
 	if(attacking_item.iscoil())
@@ -272,7 +271,7 @@
 /turf/simulated/open/is_plating()
 	return TRUE
 
-/turf/simulated/open/add_tracks(var/list/DNA, var/comingdir, var/goingdir, var/bloodcolor="#A10808")
+/turf/simulated/open/add_tracks(var/list/DNA, var/comingdir, var/goingdir, var/bloodcolor=COLOR_HUMAN_BLOOD)
 	return
 
 //Returns the roof type of the turf below
@@ -281,6 +280,3 @@
 	if(!t)
 		return null
 	return t.roof_type
-
-/turf/simulated/open/is_open()
-	return TRUE

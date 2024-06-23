@@ -48,7 +48,7 @@
 			user.remove_from_mob(attacking_item)
 			contents += attacking_item
 			has_extinguisher = attacking_item
-			to_chat(user, "<span class='notice'>You place [attacking_item] in [src].</span>")
+			to_chat(user, SPAN_NOTICE("You place [attacking_item] in [src]."))
 			playsound(src.loc, 'sound/effects/extin.ogg', 50, 0)
 		else
 			opened = !opened
@@ -67,7 +67,7 @@
 		return 0
 	if(has_extinguisher)
 		user.put_in_hands(has_extinguisher)
-		to_chat(user, "<span class='notice'>You take [has_extinguisher] from [src].</span>")
+		to_chat(user, SPAN_NOTICE("You take [has_extinguisher] from [src]."))
 		playsound(src.loc, 'sound/effects/extout.ogg', 50, 0)
 		has_extinguisher = null
 		opened = TRUE
@@ -76,16 +76,16 @@
 	update_icon()
 
 /obj/structure/extinguisher_cabinet/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(has_extinguisher)
 		if(istype(has_extinguisher, /obj/item/extinguisher/mini))
-			add_overlay("extinguisher_mini")
+			AddOverlays("extinguisher_mini")
 		else
-			add_overlay("extinguisher_full")
+			AddOverlays("extinguisher_full")
 	if(opened)
-		add_overlay("cabinet_door_open")
+		AddOverlays("cabinet_door_open")
 	else
-		add_overlay("cabinet_door_closed")
+		AddOverlays("cabinet_door_closed")
 
 /obj/structure/extinguisher_cabinet/do_simple_ranged_interaction(var/mob/user)
 	if(has_extinguisher)

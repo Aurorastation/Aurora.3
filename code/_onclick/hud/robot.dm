@@ -118,8 +118,8 @@ var/obj/screen/robot_inventory
 
 	mymob.zone_sel = new /obj/screen/zone_sel()
 	mymob.zone_sel.icon = 'icons/mob/screen/robot.dmi'
-	mymob.zone_sel.cut_overlays()
-	mymob.zone_sel.add_overlay(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
+	mymob.zone_sel.ClearOverlays()
+	mymob.zone_sel.AddOverlays(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
 
 	// Computer device hud
 	if(r.computer)
@@ -179,11 +179,11 @@ var/obj/screen/robot_inventory
 		//r.client.screen += robot_inventory	//"store" icon
 
 		if(!r.module)
-			to_chat(usr, "<span class='danger'>No module selected</span>")
+			to_chat(usr, SPAN_DANGER("No module selected"))
 			return
 
 		if(!r.module.modules)
-			to_chat(usr, "<span class='danger'>Selected module has no modules to select</span>")
+			to_chat(usr, SPAN_DANGER("Selected module has no modules to select"))
 			return
 
 		if(!r.robot_modules_background)

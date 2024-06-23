@@ -37,6 +37,10 @@
 	icon_state = "empcasing"
 	matter = list(DEFAULT_WALL_MATERIAL = 130, MATERIAL_URANIUM = 100)
 
+/obj/item/ammo_casing/c38/spent/Initialize()
+	. = ..()
+	expend()
+
 /obj/item/ammo_casing/trod
 	desc = "hyperdense tungsten rod residue."
 	icon_state = "trod"
@@ -311,6 +315,9 @@
 	projectile_type = /obj/item/missile
 	caliber = "rocket"
 	max_stack = 1
+
+/obj/item/ammo_casing/rocket/konyang
+	icon_state = "kgm_rocket"
 
 /obj/item/ammo_casing/chameleon
 	name = "chameleon bullets"

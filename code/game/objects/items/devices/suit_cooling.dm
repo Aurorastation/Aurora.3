@@ -166,6 +166,9 @@
 			if(cell)
 				to_chat(user, SPAN_WARNING("There is \a [cell] already installed here."))
 			else
+				if(attacking_item.w_class != ITEMSIZE_NORMAL)
+					to_chat(user, SPAN_WARNING("\The [attacking_item] is too [attacking_item.w_class < ITEMSIZE_NORMAL ? "small" : "large"] to fit here."))
+					return
 				user.drop_from_inventory(attacking_item,src)
 				cell = attacking_item
 				to_chat(user, SPAN_NOTICE("You insert \the [cell]."))
@@ -175,7 +178,7 @@
 	return ..()
 
 /obj/item/device/suit_cooling_unit/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(cover_open)
 		if(cell)
 			icon_state = "suitcooler1"
@@ -202,7 +205,7 @@
 			if(-INFINITY to 17)
 				battery_level = 5
 
-		add_overlay("battery-[battery_level]")
+		AddOverlays("battery-[battery_level]")
 		item_state = "coolingpack[battery_level]"
 
 	if(ismob(loc))

@@ -55,7 +55,7 @@
 	//Guest Checking
 	if(!(GLOB.config.guests_allowed || GLOB.config.external_auth) && IsGuestKey(key))
 		log_access("Failed Login: [key] - Guests not allowed",ckey=key_name(key))
-		message_admins("<span class='notice'>Failed Login: [key] - Guests not allowed</span>")
+		message_admins(SPAN_NOTICE("Failed Login: [key] - Guests not allowed"))
 		LOG_CLIENT_CONNECTION(ACCESS_STATUS_GUESTDENIED)
 		return list("reason"="guest", "desc"="\nReason: Guests not allowed. Please sign in with a byond account.")
 	if(GLOB.config.ban_legacy_system)
@@ -63,7 +63,7 @@
 		. = CheckBan(ckey, computer_id, address)
 		if(.)
 			log_access("Failed Login: [key] [computer_id] [address] - Banned [.["reason"]]",ckey=key_name(key))
-			message_admins("<span class='notice'>Failed Login: [key] id:[computer_id] ip:[address] - Banned [.["reason"]]</span>")
+			message_admins(SPAN_NOTICE("Failed Login: [key] id:[computer_id] ip:[address] - Banned [.["reason"]]"))
 			return .
 
 		return ..()	//default pager ban stuff

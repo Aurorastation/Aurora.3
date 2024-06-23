@@ -2704,9 +2704,6 @@
 	},
 /area/cruise/aft_p)
 "bVv" = (
-/obj/effect/landmark{
-	name = "start"
-	},
 /obj/effect/decal/fake_object{
 	desc = "A multidimensional translocation portal meant to fling idiots very far across stellar distances. That can not mean you, surely.";
 	icon = 'icons/effects/224x224.dmi';
@@ -2716,9 +2713,7 @@
 	pixel_y = -96
 	},
 /turf/simulated/floor/holofloor/space,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "bWr" = (
 /turf/simulated/wall/shuttle/idris,
 /area/cruise/security)
@@ -5128,7 +5123,6 @@
 	},
 /area/cruise/beach)
 "eeg" = (
-/obj/structure/lattice,
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/template_noop)
@@ -10701,7 +10695,6 @@
 	},
 /area/cruise/arcade)
 "iuV" = (
-/obj/structure/lattice,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/template_noop,
@@ -13873,9 +13866,7 @@
 /area/cruise/centerline)
 "lbY" = (
 /turf/simulated/floor/holofloor/space,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "lcy" = (
 /obj/effect/floor_decal/industrial/warning/dust/corner{
 	dir = 1
@@ -14034,9 +14025,7 @@
 	},
 /area/cruise/fore_s)
 "liU" = (
-/obj/effect/landmark{
-	name = "virtual_reality_spawn"
-	},
+/obj/effect/landmark/virtual_reality_spawn,
 /obj/structure/sign/securearea{
 	desc = "A warning sign which declares the door to be one way! Don't get trapped.";
 	name = "\improper ONE WAY DOOR";
@@ -14089,9 +14078,7 @@
 /area/cruise/tcomms_sat)
 "lku" = (
 /turf/unsimulated/wall/darkshuttlewall,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "lky" = (
 /obj/machinery/door/airlock/external{
 	name = "Solarian Base Entry";
@@ -21022,12 +21009,12 @@
 /area/cruise/jungle)
 "qSo" = (
 /obj/structure/table/rack,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -21965,9 +21952,7 @@
 	icon_state = "black";
 	name = "the white noise"
 	},
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "rJR" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -22352,9 +22337,7 @@
 	},
 /area/cruise/pool)
 "scE" = (
-/obj/effect/landmark{
-	name = "virtual_reality_spawn"
-	},
+/obj/effect/landmark/virtual_reality_spawn,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},

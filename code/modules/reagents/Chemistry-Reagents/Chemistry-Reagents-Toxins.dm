@@ -637,7 +637,7 @@
 	M.transforming = 1
 	M.canmove = 0
 	M.icon = null
-	M.cut_overlays()
+	M.ClearOverlays()
 	M.set_invisibility(101)
 	for(var/obj/item/W in M)
 		if(istype(W, /obj/item/implant)) //TODO: Carn. give implants a dropped() or something
@@ -804,6 +804,16 @@
 		to_chat(M, SPAN_WARNING(pick("Your blood boils with rage!", "A monster stirs within you - let it out.", "You feel an overwhelming sense of rage!", "You cannot contain your anger!", "You struggle to relax - a fury stirs within you.", "You feel an electric sensation course through your body!")))
 	if(prob(5))
 		M.emote(pick("twitch_v", "grunt"))
+
+	if((M.bodytemperature < 151)) //red nightshade in extracool cryogenic conditions will restore bonebreaks, at the cost of blood depletion
+		var/mob/living/carbon/human/H = M
+		H.vessel.remove_reagent(/singleton/reagent/blood, rand(15,30))
+		for(var/obj/item/organ/external/E in H.organs)
+			if(E.status & ORGAN_BROKEN)
+				if(prob(10))
+					H.vessel.remove_reagent(/singleton/reagent/blood, rand(30, 60))
+					E.status &= ~ORGAN_BROKEN
+					M.visible_message("<b>[M]</b> spasms!", SPAN_DANGER("You feel a stabbing pain!"))
 
 /singleton/reagent/toxin/berserk/overdose(var/mob/living/carbon/M, var/datum/reagents/holder)
 	if(prob(25))
@@ -997,3 +1007,23 @@
 			var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
 			var/obj/item/organ/internal/parasite/heartworm/infest = new()
 			infest.replaced(H, affected)
+
+/singleton/reagent/toxin/malignant_tumour_cells
+	name = "Malignant Tumour Cells"
+	description = "Cells of a malignant tumour which have broken off and entered the circulatory and/or lymphatic system to spread to other regions of the body."
+	reagent_state = SOLID
+	color = "#460000"
+	metabolism = REM/2 //Slow metabolisation so medical can potentially screen it early, given it's danger.
+	ingest_mul = 0
+	touch_mul = 0
+	breathe_mul = 0
+	taste_description = "blood"
+	taste_mult = 0.1
+	strength = 0
+
+/singleton/reagent/toxin/malignant_tumour_cells/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	..()
+	var/mob/living/carbon/human/H = M
+	if(!(REAGENT_VOLUME(M.reagents, /singleton/reagent/cytophenolate)) && !H.internal_organs_by_name[BP_TUMOUR_SPREADING]) //only affects people with immunosuppressants or a pre-existing malignant tumour
+		return
+	H.infest_with_parasite(H, BP_TUMOUR_SPREADING, pick(H.organs), 10)

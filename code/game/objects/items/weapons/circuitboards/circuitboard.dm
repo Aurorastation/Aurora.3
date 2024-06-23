@@ -18,7 +18,13 @@
 	throw_speed = 3
 	throw_range = 15
 	var/build_path
-	var/board_type = "computer"
+
+	/**
+	 * The type of board
+	 *
+	 * One of the BOARD_* defines, see `code\game\objects\items\weapons\circuitboards\_defines.dm`
+	 */
+	var/board_type = BOARD_COMPUTER
 	var/list/req_components
 	var/contain_parts = 1
 

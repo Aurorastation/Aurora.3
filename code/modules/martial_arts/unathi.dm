@@ -31,7 +31,7 @@
 	var/obj/item/grab/G = A.get_active_hand()
 	if(G && prob(50))
 		G.state = GRAB_AGGRESSIVE
-		D.visible_message("<span class='danger'>[A] gets a strong grip on [D]!</span>")
+		D.visible_message(SPAN_DANGER("[A] gets a strong grip on [D]!"))
 	return 1
 
 /datum/martial_art/kis_khan/harm_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
@@ -54,7 +54,7 @@
 	if(!isunathi(A))
 		return 0
 	TornadoAnimate(A)
-	A.visible_message("<span class='warning'>[A] sweeps [D] with their tail!</span>")
+	A.visible_message(SPAN_WARNING("[A] sweeps [D] with their tail!"))
 	playsound(get_turf(A), /singleton/sound_category/swing_hit_sound, 50, 1, -1)
 	D.apply_damage(5, DAMAGE_BRUTE)
 	D.Weaken(2)
@@ -73,16 +73,16 @@
 				var/obj/item/I = D.r_hand
 				D.drop_item()
 				A.put_in_hands(I)
-		D.visible_message("<span class='danger'>[A] has disarmed [D]!</span>")
+		D.visible_message(SPAN_DANGER("[A] has disarmed [D]!"))
 		playsound(D, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 	else
-		D.visible_message("<span class='danger'>[A] attempted to disarm [D]!</span>")
+		D.visible_message(SPAN_DANGER("[A] attempted to disarm [D]!"))
 		playsound(D, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
 	return 1
 
 /datum/martial_art/kis_khan/proc/hammering_strike(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
-	A.visible_message("<span class='danger'>[A] slams [D] away!</span>")
+	A.visible_message(SPAN_DANGER("[A] slams [D] away!"))
 	playsound(D.loc, "punch", 50, 1, -1)
 	D.apply_effect(2, WEAKEN)
 	var/atom/throw_target = get_edge_target_turf(D, get_dir(D, get_step_away(D, A)))

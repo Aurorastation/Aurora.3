@@ -10,6 +10,11 @@ var/global/list/bitflags = list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define ZM_ALLOW_ATMOS     4	// If this turf permits passage of air.
 #define ZM_MIMIC_NO_AO    8	// If the turf shouldn't apply regular turf AO and only do Z-mimic AO.
 #define ZM_NO_OCCLUDE     16	// Don't occlude below atoms if we're a non-mimic z-turf.
+#define ZM_MIMIC_BASETURF 32 // We dont want to show space, we want to show the base turf of the area (for stuff like glass floors)
+
+// Movable flags.
+#define ZMM_IGNORE 1	//! Do not copy this movable.
+#define ZMM_MANGLE_PLANES  2	//! Check this movable's overlays/underlays for explicit plane use and mangle for compatibility with Z-Mimic. If you're using emissive overlays, you probably should be using this flag. Expensive, only use if necessary.
 
 // Convenience flag.
 #define ZM_MIMIC_DEFAULTS (ZM_MIMIC_BELOW)
@@ -18,10 +23,11 @@ var/global/list/bitflags = list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 var/list/mimic_defines = list(
 	"ZM_MIMIC_BELOW",
 	"ZM_MIMIC_OVERWRITE",
-	"ZM_ALLOW_LIGHTING",
+//	"ZM_ALLOW_LIGHTING", //Exists on Nebula, but not Aurora?
 	"ZM_ALLOW_ATMOS",
 	"ZM_MIMIC_NO_AO",
-	"ZM_NO_OCCLUDE"
+	"ZM_NO_OCCLUDE",
+	"ZM_MIMIC_BASETURF"
 )
 
 //EMP protection
@@ -45,6 +51,10 @@ var/list/mimic_defines = list(
 #define ATOM_FLAG_HTML_USE_INITIAL_ICON FLAG(6)
 /// If a dense atom like a platform does not allow movement through it like a window pane BUT allows pickup.
 #define ATOM_FLAG_ALWAYS_ALLOW_PICKUP FLAG(7)
+/// A reagent container that can dispense when being attacked by another container.
+#define ATOM_FLAG_DISPENSER FLAG(8)
+
+#define ATOM_AWAITING_OVERLAY_UPDATE FLAG(10)
 
 // Movable flags.
 
@@ -96,3 +106,5 @@ var/list/mimic_defines = list(
 #define ITEM_FLAG_HELD_MAP_TEXT FLAG(11)
 /// Cannot be moved from its current inventory slot. Mostly for augments, modules, and other "attached" items.
 #define ITEM_FLAG_NO_MOVE FLAG(12)
+/// Can be used for surgery, giving the "You're not sure what you can do with this." message if no surgery is available.
+#define ITEM_FLAG_SURGERY FLAG(13)

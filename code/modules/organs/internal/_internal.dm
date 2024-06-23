@@ -76,7 +76,7 @@
 /obj/item/organ/internal/proc/special_condition() // For unique conditions
 	return
 
-/obj/item/organ/internal/robotize(var/company = "Unbranded")
+/obj/item/organ/internal/robotize(var/company = PROSTHETIC_UNBRANDED)
 	..()
 	min_bruised_damage += 5
 	min_broken_damage += 10
@@ -90,6 +90,10 @@
 				icon_state = "[initial(icon_state)]-[R.internal_organ_suffix]"
 
 			robotize_type = company
+
+/obj/item/organ/internal/mechassist()
+	..()
+	icon_state = "[initial(icon_state)]-assisted"
 
 /obj/item/organ/internal/proc/getToxLoss()
 	if(BP_IS_ROBOTIC(src))

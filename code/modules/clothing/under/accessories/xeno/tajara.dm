@@ -310,15 +310,16 @@
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
-/obj/item/clothing/accessory/tajaran/srendarr
-	name = "holy sun rosette"
+/obj/item/clothing/accessory/tajaran/kin_srendarr
+	name = "\improper S'rendarr rosette"
 	desc = "A simple rosette accessory depicting the Tajaran god S'rendarr."
+	desc_extended = "A rosette accessory depicting the Tajaran God S'rendarr in his sun form. Rosettes were worn by the pious worshippers of S'rendarr and Messa as displays of faith. This fell out of fashion before the First Revolution but has returned in the modern era. Outwardly a sign of devoted faith, but to those who know this rosette marks a member of the Kin of S'rendarr."
 	icon_state = "rosette"
 	item_state = "rosette"
 	slot_flags = SLOT_MASK | SLOT_TIE
 	w_class = ITEMSIZE_TINY
 
-/obj/item/clothing/accessory/tajaran/srendarr/get_mask_examine_text(mob/user)
+/obj/item/clothing/accessory/tajaran/kin_srendarr/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
 
 /obj/item/clothing/accessory/tajaran/council_badge
@@ -521,24 +522,24 @@
 	item_state = "nka_waistcoat"
 
 /obj/item/clothing/accessory/tajaran/nka_waistcoat/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/image/buttons = image(icon, null, "nka_waistcoat_buttons")
 	buttons.appearance_flags = RESET_COLOR
-	add_overlay(buttons)
+	AddOverlays(buttons)
 
 /obj/item/clothing/accessory/tajaran/nka_waistcoat/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
 		var/image/buttons = image(mob_icon, null, "nka_waistcoat_un_buttons")
 		buttons.appearance_flags = RESET_COLOR
-		I.add_overlay(buttons)
+		I.AddOverlays(buttons)
 	return I
 
 /obj/item/clothing/accessory/tajaran/nka_waistcoat/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
 	var/image/base = ..()
 	var/image/buttons = image(icon, null, "nka_waistcoat_un_buttons")
 	buttons.appearance_flags = RESET_COLOR
-	base.add_overlay(buttons)
+	base.AddOverlays(buttons)
 	return base
 
 /obj/item/clothing/accessory/tajaran/nka_vest
@@ -548,24 +549,24 @@
 	item_state = "nka_vest"
 
 /obj/item/clothing/accessory/tajaran/nka_vest/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/image/buttons = image(icon, null, "nka_vest_buttons")
 	buttons.appearance_flags = RESET_COLOR
-	add_overlay(buttons)
+	AddOverlays(buttons)
 
 /obj/item/clothing/accessory/tajaran/nka_vest/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
 		var/image/buttons = image(mob_icon, null, "nka_vest_un_buttons")
 		buttons.appearance_flags = RESET_COLOR
-		I.add_overlay(buttons)
+		I.AddOverlays(buttons)
 	return I
 
 /obj/item/clothing/accessory/tajaran/nka_vest/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
 	var/image/base = ..()
 	var/image/buttons = image(icon, null, "nka_vest_un_buttons")
 	buttons.appearance_flags = RESET_COLOR
-	base.add_overlay(buttons)
+	base.AddOverlays(buttons)
 	return base
 
 /obj/item/clothing/accessory/dogtags/adhomai

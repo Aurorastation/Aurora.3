@@ -8,6 +8,7 @@
 	item_state = "legguards_sec"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_LEG_GUARDS
+	accessory_w_class_adjustment = ACCESSORY_WEIGHT_HALF_UNIT
 	w_class = ITEMSIZE_NORMAL
 	armor = list(
 		melee = ARMOR_MELEE_KEVLAR,
@@ -17,7 +18,6 @@
 		bomb = ARMOR_BOMB_PADDED
 	)
 	body_parts_covered = LEGS|FEET
-	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
@@ -128,6 +128,18 @@
 		bomb = ARMOR_BOMB_PADDED,
 	)
 
+/obj/item/clothing/accessory/leg_guard/konyang_navy
+	name = "\improper Konyang navy leg guards"
+	icon_state = "legguards_navy"
+	item_state = "legguards_navy"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)
+
 //Arm guards.
 /obj/item/clothing/accessory/arm_guard
 	name = "corporate arm guards"
@@ -137,6 +149,7 @@
 	item_state = "armguards_sec"
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_ARM_GUARDS
+	accessory_w_class_adjustment = ACCESSORY_WEIGHT_HALF_UNIT
 	body_parts_covered = HANDS|ARMS
 	armor = list(
 		melee = ARMOR_MELEE_KEVLAR,
@@ -146,7 +159,6 @@
 		bomb = ARMOR_BOMB_PADDED
 	)
 	w_class = ITEMSIZE_NORMAL
-	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 

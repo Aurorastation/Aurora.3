@@ -6,30 +6,40 @@
 	density = TRUE
 	build_amt = 2
 	slowdown = 5
+	pass_flags_self = PASSTRACE
 
 	var/icon_door = null
-	var/icon_door_override = FALSE //override to have open overlay use icon different to its base's
-	var/icon_door_overlay = "" //handles secure locker overlays like the locking lights
+	/// Override to have open overlay use icon different to its base's
+	var/icon_door_override = FALSE
+	/// Handles secure locker overlays like the locking lights
+	var/icon_door_overlay = ""
 
-	var/secure = FALSE //secure locker or not. typically it shouldn't need lights if it's insecure
-	var/secure_lights = FALSE // whether to display secure lights when open.
+	/// Secure locker or not. typically it shouldn't need lights if it's insecure
+	var/secure = FALSE
+	/// Whether to display secure lights when open.
+	var/secure_lights = FALSE
 	var/opened = FALSE
 	var/welded = FALSE
 	var/locked = FALSE
 	var/broken = FALSE
 
-	var/large = TRUE // if you can shove people in it
-	var/canbemoved = FALSE // if it can be moved by people using the right tools. basically means if you can change the anchored var.
-	var/screwed = TRUE // if its screwed in place
-	var/wrenched = TRUE // if its wrenched down
+	/// If you can shove people in it.
+	var/large = TRUE
+	/// If it can be moved by people using the right tools. basically means if you can change the anchored var.
+	var/canbemoved = FALSE
+	/// If its screwed in place
+	var/screwed = TRUE
+	/// If its wrenched down
+	var/wrenched = TRUE
 
-	var/wall_mounted = FALSE //never solid (You can always pass over it)
+	/// Never solid (You can always pass over it)
+	var/wall_mounted = FALSE
 	var/health = 100
-	var/breakout = 0 //if someone is currently breaking out. mutex
+	/// If someone is currently breaking out. mutex
+	var/breakout = 0
 
+	/// This is so that someone can't pack hundreds of items in a locker/crate then open it in a populated area to crash clients.
 	var/storage_capacity = 45 //Tying this to mob sizes was dumb
-	//This is so that someone can't pack hundreds of items in a locker/crate
-							//then open it in a populated area to crash clients.
 
 	var/open_sound = 'sound/effects/closet_open.ogg'
 	var/close_sound = 'sound/effects/closet_close.ogg'
@@ -51,12 +61,18 @@
 	var/obj/effect/overlay/closet_door/door_obj
 	var/obj/effect/overlay/closet_door/door_obj_alt
 	var/is_animating_door = FALSE
-	var/door_underlay = FALSE //used if you want to have an overlay below the door. used for guncabinets.
-	var/door_anim_squish = 0.12 // Multiplier on proc/get_door_transform. basically, how far you want this to swing out. value of 1 means the length of the door is unchanged (and will swing out of the tile), 0 means it will just slide back and forth.
+
+	/// Used if you want to have an overlay below the door. used for guncabinets.
+	var/door_underlay = FALSE
+	/// Multiplier on proc/get_door_transform. basically, how far you want this to swing out. value of 1 means the length of the door is unchanged (and will swing out of the tile), 0 means it will just slide back and forth.
+	var/door_anim_squish = 0.12
 	var/door_anim_angle = 147
-	var/door_hinge = -6.5 // for closets, x away from the centre of the closet. typically good to add a 0.5 so it's centered on the edge of the closet.
-	var/door_hinge_alt = 6.5 // for closets with two doors. why a seperate var? because some closets may be weirdly shaped or something.
-	var/door_anim_time = 2.5 // set to 0 to make the door not animate at all
+	/// For closets, x away from the centre of the closet. typically good to add a 0.5 so it's centered on the edge of the closet.
+	var/door_hinge = -6.5
+	/// For closets with two doors. why a seperate var? because some closets may be weirdly shaped or something.
+	var/door_hinge_alt = 6.5
+	/// Set to 0 to make the door not animate at all
+	var/door_anim_time = 2.5
 
 
 /obj/structure/closet/LateInitialize()
@@ -85,7 +101,7 @@
 		verbs += /obj/structure/closet/proc/verb_togglelock
 	return mapload ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_NORMAL
 
-// Fill lockers with this.
+/// Fill lockers with this.
 /obj/structure/closet/proc/fill()
 
 /obj/structure/closet/proc/content_info(mob/user, content_size)
@@ -124,9 +140,7 @@
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0 || wall_mounted)) return 1
-	if(istype(mover) && mover.checkpass(PASSTRACE))
-		return 1
-	return (!density)
+	return ..()
 
 /obj/structure/closet/proc/can_open()
 	if(welded || locked)
@@ -516,7 +530,11 @@
 	if(istype(user, /mob/living/silicon/robot) && Adjacent(user)) // Robots can open/close it, but not the AI.
 		attack_hand(user)
 
-/obj/structure/closet/relaymove(mob/user as mob)
+/obj/structure/closet/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if(user.stat || !isturf(loc))
 		return
 
@@ -546,21 +564,21 @@
 
 /obj/structure/closet/update_icon()
 	if(!door_underlay)
-		cut_overlays()
+		ClearOverlays()
 
 	if(!opened)
 		layer = OBJ_LAYER
 		if(welded)
-			add_overlay("[icon_door_overlay]welded")
+			AddOverlays("[icon_door_overlay]welded")
 		if(!is_animating_door)
 			if(icon_door)
-				add_overlay("[icon_door]_door")
+				AddOverlays("[icon_door]_door")
 				if(double_doors)
-					add_overlay("[icon_door]_door_alt")
+					AddOverlays("[icon_door]_door_alt")
 			if(!icon_door)
-				add_overlay("[icon_state]_door")
+				AddOverlays("[icon_state]_door")
 				if(double_doors)
-					add_overlay("[icon_state]_door_alt")
+					AddOverlays("[icon_state]_door_alt")
 			if(secure)
 				update_secure_overlays()
 		if(secure && secure_lights)
@@ -568,18 +586,18 @@
 	else if(opened)
 		layer = BELOW_OBJ_LAYER
 		if(!is_animating_door)
-			add_overlay("[icon_door_override ? icon_door : icon_state]_open")
+			AddOverlays("[icon_door_override ? icon_door : icon_state]_open")
 		if(secure && secure_lights)
 			update_secure_overlays()
 
 /obj/structure/closet/proc/update_secure_overlays()
 	if(broken)
-		add_overlay("[icon_door_overlay]emag")
+		AddOverlays("[icon_door_overlay]emag")
 	else
 		if(locked)
-			add_overlay("[icon_door_overlay]locked")
+			AddOverlays("[icon_door_overlay]locked")
 		else
-			add_overlay("[icon_door_overlay]unlocked")
+			AddOverlays("[icon_door_overlay]unlocked")
 
 /obj/structure/closet/proc/animate_door(var/closing = FALSE)
 	if(!door_anim_time)
@@ -610,7 +628,7 @@
 	is_animating_door = FALSE // comment this out and the line below to manually tweak the animation end state by fiddling with the door_anim vars to match the open door icon
 	remove_vis_contents(door_obj)
 	update_icon()
-	compile_overlays(src)
+	UpdateOverlays(src)
 
 /obj/structure/closet/proc/animate_door_alt(var/closing = FALSE)
 	if(!door_anim_time)
@@ -641,7 +659,7 @@
 	is_animating_door = FALSE // comment this out and the line below to manually tweak the animation end state by fiddling with the door_anim vars to match the open door icon
 	remove_vis_contents(door_obj_alt)
 	update_icon()
-	compile_overlays(src)
+	UpdateOverlays(src)
 
 /obj/structure/closet/proc/get_door_transform(angle, var/inverse_hinge = FALSE)
 	var/matrix/M = matrix()
@@ -765,6 +783,19 @@
 		QDEL_NULL(linked_teleporter)
 	return ..()
 
+/obj/structure/closet/stair_act()
+	if(opened || !can_open())
+		return
+
+	visible_message(SPAN_WARNING("\The [src] flies open as it bounces on the stairs!"))
+	for(var/thing in src)
+		var/atom/movable/AM = thing
+		AM.forceMove(get_turf(src))
+		AM.throw_at_random(TRUE, 1, 2)
+	open()
+
+	return ..()
+
 /*
 ==========================
 	Contents Scanner
@@ -774,9 +805,9 @@
 	name = "crate contents scanner"
 	desc = "A  handheld device used to scan and print a manifest of a container's contents. Does not work on locked crates, for privacy reasons."
 	icon_state = "cratescanner"
+	item_state = "cratescanner"
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
 	w_class = ITEMSIZE_SMALL
-	item_state = "electronic"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 

@@ -30,11 +30,11 @@
 
 
 /obj/item/implantcase/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if (imp)
 		var/overlay_icon_state = "implantstorage_[imp.implant_icon]"
 		var/mutable_appearance/overlay_implant_icon = mutable_appearance(icon, overlay_icon_state)
-		add_overlay(overlay_implant_icon)
+		AddOverlays(overlay_implant_icon)
 
 /obj/item/implantcase/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.ispen())

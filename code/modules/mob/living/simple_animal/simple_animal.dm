@@ -24,7 +24,7 @@
 	var/icon_gib = null	//We only try to show a gibbing animation if this exists.
 
 	appearance_flags = KEEP_TOGETHER
-	var/blood_type = "#A10808" //Blood colour for impact visuals.
+	var/blood_type = COLOR_HUMAN_BLOOD //Blood colour for impact visuals.
 	var/blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	var/blood_state = BLOOD_NONE
 	var/image/blood_overlay
@@ -41,7 +41,9 @@
 	var/speak_chance = 0
 	var/list/emote_hear = list()	//Hearable emotes
 	var/list/emote_see = list()		//Unlike speak_emote, the list of things in this variable only show by themselves with no spoken text. IE: Ian barks, Ian yaps
-	var/list/emote_sounds = list()
+
+	///A list of sounds that this animal will randomly play, lazy list
+	var/list/emote_sounds
 	var/sound_time = TRUE
 
 	var/turns_per_move = 1
@@ -188,7 +190,7 @@
 		death()
 
 /mob/living/simple_animal/Destroy()
-	cut_overlay(blood_overlay)
+	CutOverlays(blood_overlay)
 	movement_target = null
 	QDEL_NULL(udder)
 
@@ -220,11 +222,11 @@
 /mob/living/simple_animal/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (stat == DEAD)
-		. += "<span class='danger'>It looks dead.</span>"
+		. += SPAN_DANGER("It looks dead.")
 	if (health < maxHealth * 0.5)
-		. += "<span class='danger'>It looks badly wounded.</span>"
+		. += SPAN_DANGER("It looks badly wounded.")
 	else if (health < maxHealth)
-		. += "<span class='warning'>It looks wounded.</span>"
+		. += SPAN_WARNING("It looks wounded.")
 
 /mob/living/simple_animal/can_name(var/mob/living/M)
 	if(named)
@@ -402,7 +404,7 @@
 
 	if(force_reset || current_blood_state != blood_state)
 		if(blood_overlay)
-			cut_overlay(blood_overlay)
+			CutOverlays(blood_overlay)
 		if(blood_state == BLOOD_NONE)
 			return
 		var/blood_overlay_name = get_blood_overlay_name()
@@ -410,7 +412,7 @@
 		I.color = blood_type
 		I.blend_mode = BLEND_INSET_OVERLAY
 		blood_overlay = I
-		add_overlay(blood_overlay)
+		AddOverlays(blood_overlay)
 
 /mob/living/simple_animal/proc/get_blood_overlay_name()
 	return "blood_overlay"
@@ -475,7 +477,7 @@
 
 //This is called when an animal 'speaks'. It does nothing here, but descendants should override it to add audio
 /mob/living/simple_animal/proc/speak_audio()
-	if(emote_sounds.len)
+	if(LAZYLEN(emote_sounds))
 		make_noise(TRUE)
 	return
 
@@ -598,6 +600,12 @@
 	else
 		attacked_with_item(attacking_item, user)
 
+	if(attacking_item.damtype == DAMAGE_PAIN)
+		playsound(loc, 'sound/weapons/tap.ogg', attacking_item.get_clamped_volume(), 1, -1)
+		return TRUE
+	else
+		return ..()
+
 //TODO: refactor mob attackby(), attacked_by(), and friends.
 /mob/living/simple_animal/proc/attacked_with_item(obj/item/O, mob/user, var/proximity)
 	if(istype(O, /obj/item/trap/animal) || istype(O, /obj/item/gun))
@@ -634,8 +642,8 @@
 
 /mob/living/simple_animal/hitby(atom/movable/AM, speed)
 	. = ..()
-	if(ismob(AM.thrower))
-		handle_attack_by(AM.thrower)
+	if(ismob(AM.throwing?.thrower?.resolve()))
+		handle_attack_by(AM.throwing?.thrower?.resolve())
 
 /mob/living/simple_animal/bullet_act(obj/item/projectile/P, def_zone)
 	. = ..()
@@ -692,7 +700,7 @@
 
 	if(movement_target)
 		stop_automated_movement = 1
-		SSmove_manager.move_to(src, movement_target, 0, seek_move_delay)
+		GLOB.move_manager.move_to(src, movement_target, 0, seek_move_delay)
 
 /mob/living/simple_animal/get_status_tab_items()
 	. = ..()
@@ -707,7 +715,7 @@
 		death()
 
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
-	SSmove_manager.stop_looping(src)
+	GLOB.move_manager.stop_looping(src)
 	movement_target = null
 	density = FALSE
 	if (isopenturf(loc))
@@ -733,21 +741,22 @@
 	apply_damage(damage, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_EXPLODE)
 
 /mob/living/simple_animal/proc/SA_attackable(target_mob)
-	if (isliving(target_mob))
+	if(isliving(target_mob))
 		var/mob/living/L = target_mob
 		if(!L.stat)
-			return (0)
-	if (istype(target_mob, /obj/machinery/bot))
+			return FALSE
+	else if(istype(target_mob, /obj/machinery/bot))
 		var/obj/machinery/bot/B = target_mob
 		if(B.health > 0)
-			return (0)
-	if(istype(target_mob, /obj/machinery/porta_turret/))
+			return FALSE
+	else if(istype(target_mob, /obj/machinery/porta_turret))
 		var/obj/machinery/porta_turret/T = target_mob
 		if(T.health > 0)
-			return (0)
-	if(istype(target_mob, /obj/effect/energy_field))
-		return (0)
-	return 1
+			return FALSE
+	else if(istype(target_mob, /obj/effect/energy_field))
+		return FALSE
+
+	return TRUE
 
 /mob/living/simple_animal/proc/make_noise(var/make_sound = TRUE)
 	set name = "Make Sound"
@@ -760,7 +769,10 @@
 		to_chat(usr, SPAN_WARNING("Ability on cooldown 2 seconds."))
 		return
 
-	playsound(src, pick(emote_sounds), 75, 1)
+	var/sound_to_play = LAZYPICK(emote_sounds, FALSE)
+	if(sound_to_play)
+		playsound(src, sound_to_play, 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+
 	if(client)
 		sound_time = FALSE
 		addtimer(CALLBACK(src, PROC_REF(reset_sound_time)), 2 SECONDS)
@@ -796,11 +808,11 @@
 /mob/living/simple_animal/proc/reset_sound_time()
 	sound_time = TRUE
 
-/mob/living/simple_animal/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/living/simple_animal/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	if(speak_emote.len)
 		verb = pick(speak_emote)
 
-	if(emote_sounds.len)
+	if(LAZYLEN(emote_sounds))
 		var/sound_chance = TRUE
 		if(client) // we do not want people who assume direct control to spam
 			sound_chance = prob(50)
@@ -812,9 +824,12 @@
 /mob/living/simple_animal/get_speech_ending(verb, var/ending)
 	return verb
 
-/mob/living/simple_animal/put_in_hands(var/obj/item/W) // No hands.
-	W.forceMove(get_turf(src))
-	return 1
+/mob/living/simple_animal/put_in_hands(obj/item/item_to_equip)
+	if(QDELETED(item_to_equip) || !istype(item_to_equip))
+		return FALSE
+
+	item_to_equip.forceMove(get_turf(src))
+	return FALSE
 
 // Harvest an animal's delicious byproducts
 /mob/living/simple_animal/proc/harvest(var/mob/user)
@@ -866,7 +881,7 @@
 		set_stat(UNCONSCIOUS)
 		canmove = 0
 		wander = 0
-		SSmove_manager.stop_looping(src)
+		GLOB.move_manager.stop_looping(src)
 		movement_target = null
 		update_icon()
 

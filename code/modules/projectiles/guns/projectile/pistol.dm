@@ -35,7 +35,7 @@
 	var/mob/M = usr
 	if(!M.mind)	return 0
 	if(!M.mind.assigned_role == "Detective")
-		to_chat(M, "<span class='notice'>You don't feel cool enough to name this gun, chump.</span>")
+		to_chat(M, SPAN_NOTICE("You don't feel cool enough to name this gun, chump."))
 		return 0
 
 	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
@@ -343,9 +343,9 @@
 /obj/item/gun/projectile/pistol/update_icon()
 	..()
 	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
-		icon_state = "[icon_state]-e"
+		icon_state = "[initial(icon_state)]-e"
 	else
-		icon_state = "pistol"
+		icon_state = "[initial(icon_state)]"
 
 /obj/item/gun/projectile/pirate
 	name = "zip gun"
@@ -416,6 +416,21 @@
 		icon_state = "m8"
 	else
 		icon_state = "m8-empty"
+
+/obj/item/gun/projectile/pistol/sol/konyang
+	name = "konyang service pistol"
+	desc = "The compact M8, redesignated as the K8, is the standard service pistol of the Konyanger Armed Forces. Inherited from the Solarian military, Zavodskoi has since given these handguns \
+	a service extension package, including laser sights and replacement of worn-out parts."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "k8"
+	item_state = "k8"
+
+/obj/item/gun/projectile/pistol/sol/konyang/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "k8"
+	else
+		icon_state = "k8-empty"
 
 /obj/item/gun/projectile/pistol/adhomai
 	name = "adhomian service pistol"

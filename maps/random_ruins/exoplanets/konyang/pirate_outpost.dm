@@ -7,8 +7,12 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/pirate_outpost.dmm")
+
+	prefix = "konyang/"
+	suffixes = list("pirate_outpost.dmm")
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/konyang_pirate)
+
+	unit_test_groups = list(3)
 
 
 /area/konyang_pirate_outpost

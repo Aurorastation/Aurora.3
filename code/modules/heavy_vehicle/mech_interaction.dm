@@ -6,7 +6,7 @@
 				if(M.enter(src))
 					return
 			else
-				to_chat(usr, "<span class='warning'>You cannot pilot a mech of this size.</span>")
+				to_chat(usr, SPAN_WARNING("You cannot pilot a mech of this size."))
 				return
 	return ..()
 
@@ -15,18 +15,6 @@
 	if(istype(C))
 		body.MouseDrop_T(dropping, user)
 	else . = ..()
-
-/mob/living/heavy_vehicle/MouseDrop_T(src_object, over_object, src_location, over_location, src_control, over_control, params, var/mob/user)
-	if(!user || incapacitated() || user.incapacitated() || lockdown)
-		return FALSE
-
-	if(!(user in pilots) && user != src)
-		return FALSE
-
-	//This is handled at active module level really, it is the one who has to know if it's supposed to act
-	if(selected_system)
-		return selected_system.MouseDragInteraction(src_object, over_object, src_location, over_location, src_control, over_control, params, user)
-
 
 /mob/living/heavy_vehicle/ClickOn(var/atom/A, params, var/mob/user)
 
@@ -66,12 +54,12 @@
 		return
 
 	if(!arms)
-		to_chat(user, "<span class='warning'>\The [src] has no manipulators!</span>")
+		to_chat(user, SPAN_WARNING("\The [src] has no manipulators!"))
 		setClickCooldown(3)
 		return
 
 	if(!arms.motivator || !arms.motivator.is_functional())
-		to_chat(user, "<span class='warning'>Your motivators are damaged! You can't use your manipulators!</span>")
+		to_chat(user, SPAN_WARNING("Your motivators are damaged! You can't use your manipulators!"))
 		setClickCooldown(15)
 		return
 
@@ -89,7 +77,7 @@
 	// You may attack the target with your exosuit FIST if you're malfunctioning.
 	var/failed = FALSE
 	if(emp_damage > EMP_ATTACK_DISRUPT && prob(emp_damage*2))
-		to_chat(user, "<span class='warning'>The wiring sparks as you attempt to control the exosuit!</span>")
+		to_chat(user, SPAN_WARNING("The wiring sparks as you attempt to control the exosuit!"))
 		failed = TRUE
 
 	if(!failed)
@@ -213,30 +201,30 @@
 	if(!user.Adjacent(src))
 		return
 	if(hatch_locked)
-		to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is locked.</span>")
+		to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is locked."))
 		return
 	if(hatch_closed)
-		to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is closed.</span>")
+		to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is closed."))
 		return
 	if(LAZYLEN(pilots) >= LAZYLEN(body.pilot_positions))
-		to_chat(user, "<span class='warning'>\The [src] is occupied.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is occupied."))
 		return
 	if(!instant)
-		to_chat(user, "<span class='notice'>You start climbing into \the [src]...</span>")
+		to_chat(user, SPAN_NOTICE("You start climbing into \the [src]..."))
 		if(!do_after(user, entry_speed))
 			return
 	if(!user || user.incapacitated())
 		return
 	if(hatch_locked)
-		to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is locked.</span>")
+		to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is locked."))
 		return
 	if(hatch_closed)
-		to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is closed.</span>")
+		to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is closed."))
 		return
 	if(LAZYLEN(pilots) >= LAZYLEN(body.pilot_positions))
-		to_chat(user, "<span class='warning'>\The [src] is occupied.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is occupied."))
 		return
-	to_chat(user, "<span class='notice'>You climb into \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You climb into \the [src]."))
 	user.forceMove(src)
 	LAZYDISTINCTADD(pilots, user)
 	RegisterSignal(user, COMSIG_MOB_FACEDIR, PROC_REF(handle_user_turn))
@@ -244,7 +232,7 @@
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
-	SSmove_manager.stop_looping(src) // stop it from auto moving when the pilot gets in
+	GLOB.move_manager.stop_looping(src) // stop it from auto moving when the pilot gets in
 	return 1
 
 /mob/living/heavy_vehicle/proc/eject(var/mob/user, var/silent)
@@ -252,14 +240,14 @@
 		return
 	if(hatch_closed)
 		if(hatch_locked)
-			if(!silent) to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is locked.</span>")
+			if(!silent) to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is locked."))
 			return
 		hud_open.toggled(FALSE)
 		if(!silent)
-			to_chat(user, "<span class='notice'>You open the hatch and climb out of \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You open the hatch and climb out of \the [src]."))
 	else
 		if(!silent)
-			to_chat(user, "<span class='notice'>You climb out of \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You climb out of \the [src]."))
 
 	user.forceMove(get_turf(src))
 	LAZYREMOVE(user.additional_vision_handlers, src)
@@ -276,7 +264,11 @@
 	SIGNAL_HANDLER
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, relaymove), user, direction, TRUE)
 
-/mob/living/heavy_vehicle/relaymove(var/mob/living/user, var/direction, var/turn_only = FALSE)
+/mob/living/heavy_vehicle/relaymove(mob/living/user, direction, var/turn_only = FALSE)
+	. = ..()
+	if(!.)
+		return
+
 	if(!can_move(user))
 		return
 
@@ -318,9 +310,10 @@
 
 /mob/living/heavy_vehicle/Move()
 	if(..() && !istype(loc, /turf/space))
-		if(legs && legs.mech_step_sound)
-			playsound(src.loc,legs.mech_step_sound,40,1)
-		use_cell_power(legs.power_use * CELLRATE)
+		if(legs)
+			if(legs.mech_step_sound)
+				playsound(src.loc, legs.mech_step_sound, 40, TRUE)
+			use_cell_power(legs.power_use * CELLRATE)
 	update_icon()
 
 /mob/living/heavy_vehicle/Post_Incorpmove()
@@ -332,7 +325,7 @@
 /mob/living/heavy_vehicle/attackby(obj/item/attacking_item, mob/user)
 	if(user.a_intent != I_HURT && istype(attacking_item, /obj/item/mecha_equipment))
 		if(hardpoints_locked)
-			to_chat(user, "<span class='warning'>Hardpoint system access is disabled.</span>")
+			to_chat(user, SPAN_WARNING("Hardpoint system access is disabled."))
 			return
 
 		var/obj/item/mecha_equipment/realThing = attacking_item
@@ -346,7 +339,7 @@
 		var/to_place = tgui_input_list(user, "Where would you like to install it?", "Install Hardpoint", (realThing.restricted_hardpoints & free_hardpoints))
 		if(install_system(attacking_item, to_place, user))
 			return
-		to_chat(user, "<span class='warning'>\The [attacking_item] could not be installed in that hardpoint.</span>")
+		to_chat(user, SPAN_WARNING("\The [attacking_item] could not be installed in that hardpoint."))
 		return
 
 	else
@@ -374,9 +367,10 @@
 					remote_type = RM.type
 					become_remote()
 					qdel(attacking_item)
+				return
 			else if(attacking_item.ismultitool())
 				if(hardpoints_locked)
-					to_chat(user, "<span class='warning'>Hardpoint system access is disabled.</span>")
+					to_chat(user, SPAN_WARNING("Hardpoint system access is disabled."))
 					return
 
 				var/list/parts = list()
@@ -388,7 +382,7 @@
 
 				if(remove_system_interact(to_remove, user))
 					return
-				to_chat(user, "<span class='warning'>\The [src] has no hardpoint systems to remove.</span>")
+				to_chat(user, SPAN_WARNING("\The [src] has no hardpoint systems to remove."))
 				return
 
 			else if(attacking_item.iswrench())
@@ -416,7 +410,7 @@
 							qdel(pilot)
 							new remote_type(get_turf(src))
 					dismantle()
-					return
+				return
 			else if(attacking_item.iswelder())
 				if(!getBruteLoss())
 					return
@@ -441,37 +435,41 @@
 				return
 			else if(attacking_item.iscrowbar())
 				if(!maintenance_protocols)
-					to_chat(user, "<span class='warning'>The cell compartment remains locked while maintenance protocols are disabled.</span>")
+					to_chat(user, SPAN_WARNING("The cell compartment remains locked while maintenance protocols are disabled."))
 					return
 				if(!body || !body.cell)
-					to_chat(user, "<span class='warning'>There is no cell here for you to remove!</span>")
+					to_chat(user, SPAN_WARNING("There is no cell here for you to remove!"))
 					return
 				var/delay = 10
 				if(!do_after(user, delay) || !maintenance_protocols || !body || !body.cell)
 					return
 
 				user.put_in_hands(body.cell)
-				to_chat(user, "<span class='notice'>You remove \the [body.cell] from \the [src].</span>")
+				to_chat(user, SPAN_NOTICE("You remove \the [body.cell] from \the [src]."))
 				attacking_item.play_tool_sound(get_turf(src), 50)
-				visible_message("<span class='notice'>\The [user] pries out \the [body.cell] using the \the [attacking_item].</span>")
+				visible_message(SPAN_NOTICE("\The [user] pries out \the [body.cell] using the \the [attacking_item]."))
 				power = MECH_POWER_OFF
 				hud_power_control.update_icon()
+				UnregisterSignal(body.cell, COMSIG_CELL_CHARGE)
 				body.cell = null
 				return
 			else if(istype(attacking_item, /obj/item/cell))
+				if(!istype(attacking_item, /obj/item/cell/mecha))
+					to_chat(user, SPAN_WARNING("You can only use power cores in \the [src]!"))
+					return
 				if(!maintenance_protocols)
-					to_chat(user, "<span class='warning'>The cell compartment remains locked while maintenance protocols are disabled.</span>")
+					to_chat(user, SPAN_WARNING("The cell compartment remains locked while maintenance protocols are disabled."))
 					return
 				if(!body || body.cell)
-					to_chat(user, "<span class='warning'>There is already a cell in there!</span>")
+					to_chat(user, SPAN_WARNING("There is already a cell in there!"))
 					return
 
 				if(user.unEquip(attacking_item))
 					attacking_item.forceMove(body)
 					body.cell = attacking_item
-					to_chat(user, "<span class='notice'>You install \the [body.cell] into \the [src].</span>")
+					RegisterSignal(body.cell, COMSIG_CELL_CHARGE, PROC_REF(handle_cell_charge))
 					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-					visible_message("<span class='notice'>\The [user] installs \the [body.cell] into \the [src].</span>")
+					user.visible_message(SPAN_NOTICE("\The [user] installs \the [body.cell] into \the [src]."), SPAN_NOTICE("You install \the [body.cell] into \the [src]."))
 				return
 			else if(istype(attacking_item, /obj/item/device/robotanalyzer))
 				to_chat(user, SPAN_NOTICE("Diagnostic Report for \the [src]:"))
@@ -486,12 +484,12 @@
 	// Drag the pilot out if possible.
 	if(user.a_intent == I_GRAB)
 		if(!LAZYLEN(pilots))
-			to_chat(user, "<span class='warning'>There is nobody inside \the [src].</span>")
+			to_chat(user, SPAN_WARNING("There is nobody inside \the [src]."))
 		else if(!hatch_closed)
 			var/mob/pilot = pick(pilots)
-			user.visible_message("<span class='danger'>\The [user] is trying to pull \the [pilot] out of \the [src]!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] is trying to pull \the [pilot] out of \the [src]!"))
 			if(do_after(user, 30) && user.Adjacent(src) && (pilot in pilots) && !hatch_closed)
-				user.visible_message("<span class='danger'>\The [user] drags \the [pilot] out of \the [src]!</span>")
+				user.visible_message(SPAN_DANGER("\The [user] drags \the [pilot] out of \the [src]!"))
 				eject(pilot, silent=1)
 
 		return
@@ -502,10 +500,10 @@
 
 	// Otherwise toggle the hatch.
 	if(hatch_locked)
-		to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is locked.</span>")
+		to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is locked."))
 		return
 	hatch_closed = !hatch_closed
-	to_chat(user, "<span class='notice'>You [hatch_closed ? "close" : "open"] the [body.hatch_descriptor].</span>")
+	to_chat(user, SPAN_NOTICE("You [hatch_closed ? "close" : "open"] the [body.hatch_descriptor]."))
 	hud_open.update_icon()
 	update_icon()
 	return
@@ -543,12 +541,6 @@
 	else return STATUS_CLOSE
 	return ..()
 
-/mob/living/heavy_vehicle/get_inventory_slot(obj/item/I)
-	for(var/h in hardpoints)
-		if(hardpoints[h] == I)
-			return h
-	return 0
-
 /mob/living/heavy_vehicle/proc/rename(var/mob/user)
 	if(user != src && !(user in pilots))
 		return
@@ -556,7 +548,7 @@
 	if(!new_name || new_name == name || (user != src && !(user in pilots)))
 		return
 	name = new_name
-	to_chat(user, "<span class='notice'>You have redesignated this exosuit as \the [name].</span>")
+	to_chat(user, SPAN_NOTICE("You have redesignated this exosuit as \the [name]."))
 
 /mob/living/heavy_vehicle/proc/trample(var/mob/living/H)
 	if(!LAZYLEN(pilots))
@@ -571,13 +563,13 @@
 				D.attack_log += "\[[time_stamp()]\]<font color='orange'> Was trampled by [src]</font>"
 				attack_log += text("\[[time_stamp()]\] <span class='warning'>trampled [D.name] ([D.ckey]) with \the [src].</span>")
 				msg_admin_attack("[src] trampled [key_name(D)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)" )
-				src.visible_message("<span class='danger'>\The [src] runs over \the [D]!</span>")
+				src.visible_message(SPAN_DANGER("\The [src] runs over \the [D]!"))
 				D.apply_damage(legs.trample_damage, DAMAGE_BRUTE)
 				return TRUE
 
 		else
 			var/mob/living/L = H
-			src.visible_message("<span class='danger'>\The [src] runs over \the [L]!</span>")
+			src.visible_message(SPAN_DANGER("\The [src] runs over \the [L]!"))
 			if(isanimal(L))
 				if(issmall(L) && (L.stat == DEAD))
 					L.gib()
@@ -588,12 +580,15 @@
 /mob/living/heavy_vehicle/proc/ToggleLockdown()
 	lockdown = !lockdown
 	if(lockdown)
-		src.visible_message("<span class='warning'>\The [src] beeps loudly as its servos sieze up, and it enters lockdown mode!</span>")
+		src.visible_message(SPAN_WARNING("\The [src] beeps loudly as its servos sieze up, and it enters lockdown mode!"))
 	else
-		src.visible_message("<span class='warning'>\The [src] hums with life as it is released from its lockdown mode!</span>")
+		src.visible_message(SPAN_WARNING("\The [src] hums with life as it is released from its lockdown mode!"))
 
 /mob/living/heavy_vehicle/get_floating_chat_x_offset()
 	return -offset_x // reverse the offset
+
+/mob/living/heavy_vehicle/get_floating_chat_y_offset()
+	return 20
 
 /mob/living/heavy_vehicle/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
 	if(can_listen())
@@ -714,7 +709,7 @@
 			// stop following who you were assigned to follow
 			if(findtext(text, "stop"))
 				unassign_following()
-				SSmove_manager.stop_looping(src)
+				GLOB.move_manager.stop_looping(src)
 				say("Holding position.")
 				return
 
@@ -747,3 +742,8 @@
 							say("Following [ID.registered_name].")
 							break
 				return
+
+/mob/living/heavy_vehicle/proc/handle_cell_charge(var/obj/item/cell/cell, var/new_charge)
+	SIGNAL_HANDLER
+
+	handle_power_hud()
