@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: FluffyGhost
+author: SimpleMaroon
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,7 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - code_imp: "Made relaymoves uniform in function header and non sleepable."
-  - code_imp: "Improved IPC/borg recharger, made it time constant."
-  - code_imp: "Tweaked client/Move() to avoid a range(), moved a relaymove around to fix a bug, some minor tweaks."
-  - bugfix: "Fixed IPC/borg recharge station not taking the IPC/Borg in on bump."
+  - imageadd: "Added a 'gaster' tail type to Vaurca Warriors, to represent being the Attendant bioform. Warriors will still have no gaster by default."
+  - rscadd: "Rejoice, Vaurca Attendant fans! The Warrior gaster now turns you into an Attendant, with all the differences in speed and injury mods that entails. A Warrior with no gaster will still have regular Warrior values."
+  - bugfix: "Fixed the Vaurca Warrior left hand icon state, which was one pixel too far to the side on the north-facing sprite."

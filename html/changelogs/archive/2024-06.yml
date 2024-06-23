@@ -610,3 +610,10 @@
       other sprites at a 45 degree angle.
   hazelmouse:
   - rscadd: Remaps the Tramp Freighter offship to conform to newer mapping standards.
+2024-06-23:
+  FluffyGhost:
+  - code_imp: Made relaymoves uniform in function header and non sleepable.
+  - code_imp: Improved IPC/borg recharger, made it time constant.
+  - code_imp: Tweaked client/Move() to avoid a range(), moved a relaymove around to
+      fix a bug, some minor tweaks.
+  - bugfix: Fixed IPC/borg recharge station not taking the IPC/Borg in on bump.
