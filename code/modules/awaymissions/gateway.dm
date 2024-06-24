@@ -115,19 +115,21 @@
 
 
 //okay, here's the good teleporting stuff
-/obj/machinery/gateway/centerstation/CollidedWith(atom/movable/M as mob|obj)
+/obj/machinery/gateway/centerstation/CollidedWith(atom/movable/bumped_atom)
+	. = ..()
+
 	if(!ready || !active || !awaygate)
 		return
 
 	if(awaygate.calibrated)
-		M.forceMove(get_step(awaygate.loc, SOUTH))
-		M.set_dir(SOUTH)
+		bumped_atom.forceMove(get_step(awaygate.loc, SOUTH))
+		bumped_atom.set_dir(SOUTH)
 		return
 	else
 		var/obj/effect/landmark/dest = pick(GLOB.awaydestinations)
 		if(dest)
-			M.forceMove(dest.loc)
-			M.set_dir(SOUTH)
+			bumped_atom.forceMove(dest.loc)
+			bumped_atom.set_dir(SOUTH)
 			use_power_oneoff(5000)
 		return
 
@@ -215,17 +217,19 @@
 	toggleoff()
 
 
-/obj/machinery/gateway/centeraway/CollidedWith(atom/movable/M as mob|obj)
+/obj/machinery/gateway/centeraway/CollidedWith(atom/movable/bumped_atom)
+	. = ..()
+
 	if(!ready || !active)
 		return
 
-	if(istype(M, /mob/living/carbon))
-		for(var/obj/item/implant/exile/E in M)//Checking that there is an exile implant in the contents
-			if(E.imp_in == M)//Checking that it's actually implanted vs just in their pocket
-				to_chat(M, "\black The station gate has detected your exile implant and is blocking your entry.")
+	if(istype(bumped_atom, /mob/living/carbon))
+		for(var/obj/item/implant/exile/E in bumped_atom)//Checking that there is an exile implant in the contents
+			if(E.imp_in == bumped_atom)//Checking that it's actually implanted vs just in their pocket
+				to_chat(bumped_atom, "\black The station gate has detected your exile implant and is blocking your entry.")
 				return
-	M.forceMove(get_step(stationgate.loc, SOUTH))
-	M.set_dir(SOUTH)
+	bumped_atom.forceMove(get_step(stationgate.loc, SOUTH))
+	bumped_atom.set_dir(SOUTH)
 
 
 /obj/machinery/gateway/centeraway/attackby(obj/item/attacking_item, mob/user)
