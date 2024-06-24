@@ -10,12 +10,30 @@
 	active_power_usage = 5000
 	use_power = POWER_USE_IDLE
 
+	/**
+	 * The wires of the cage
+	 */
 	var/datum/wires/stasis_cage/wires
+	/**
+	 * The mob in the cage
+	 */
 	var/mob/living/contained
+	/**
+	 * Internal atmosphere of the cage
+	 */
 	var/datum/gas_mixture/airtank
+	/**
+	 * If the cage works
+	 */
 	var/broken = FALSE
+	/**
+	 * If the cage will prevent human mobs from being stored
+	 */
 	var/safety = TRUE
 
+	/**
+	 * The cell used to power this
+	 */
 	var/obj/item/cell/cell = null
 
 
@@ -44,17 +62,17 @@
 	QDEL_NULL(wires)
 	return ..()
 
-/obj/machinery/stasis_cage/process()
-	if (use_power)
+/obj/machinery/stasis_cage/process(seconds_per_tick)
+	if (use_power || !cell || !cell.charge)
 		return
+	cell.use(2 * seconds_per_tick)
 	if (contained)
 		if (iscarbon(contained))
 			var/mob/living/carbon/C = contained
 			C.SetStasis(20)
-		if (isanimal(contained))
+		else if (isanimal(contained))
 			var/mob/living/simple_animal/SA = contained
 			SA.in_stasis = TRUE
-
 
 /obj/machinery/stasis_cage/proc/try_release(mob/user)
 	if(!contained)
@@ -80,7 +98,7 @@
 	if (contained)
 		contained.dropInto(src)
 		contained = null
-		playsound(loc, 'sound/machines/airlock.ogg', 40)
+		playsound(get_turf(src), 'sound/machines/airlock.ogg', 40)
 		update_icon()
 		update_use_power(POWER_USE_IDLE)
 

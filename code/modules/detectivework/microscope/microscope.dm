@@ -9,11 +9,30 @@
 	anchored = 1
 	density = 1
 
+	/**
+	 * The sample being analysed
+	 */
 	var/obj/item/sample = null
+	/**
+	 * The report number of the last fiber analysis
+	 */
 	var/report_fiber_num = 0
+	/**
+	 * The report number of the last fingerprint analysis
+	 */
 	var/report_print_num = 0
+	/**
+	 * The report number of the last gunshot residue analysis
+	 */
 	var/report_gsr_num = 0
+	/**
+	 * The report number of the last cellular analysis
+	 */
 	var/report_cell_num = 0
+	/**
+	 * Which types of sample can we analyse
+	 */
+	var/allowed_analysis = MICROSCOPE_ALL
 
 /obj/machinery/microscope/attackby(obj/item/attacking_item, mob/user)
 
@@ -37,10 +56,10 @@
 
 	if(istype(sample, /obj/item/forensics/slide))
 		var/obj/item/forensics/slide/slide = sample
-		if((slide.has_swab && !can_analyse_swabs()) || (slide.has_sample && !can_analyse_fibers()) || (slide.reagents.total_volume && !can_analyse_cells()))
+		if((slide.has_swab && !(allowed_analysis & MICROSCOPE_GSR)) || (slide.has_sample && !(allowed_analysis & MICROSCOPE_FIBER)) || (slide.reagents.total_volume && !(allowed_analysis & MICROSCOPE_CELLS)))
 			to_chat(user, SPAN_NOTICE("The magnification of \the [src] is too low to analyse this."))
 			return
-	else if(istype(sample, /obj/item/sample/print) && !can_analyse_fingerprints())
+	else if(istype(sample, /obj/item/sample/print) && !(allowed_analysis & MICROSCOPE_PRINTS))
 		to_chat(user, SPAN_NOTICE("The magnification of \the [src] is too low to analyse this."))
 		return
 
@@ -165,15 +184,3 @@
 	icon_state = "microscope"
 	if(sample)
 		icon_state += "slide"
-
-/obj/machinery/microscope/proc/can_analyse_fingerprints()
-	return TRUE
-
-/obj/machinery/microscope/proc/can_analyse_swabs()
-	return TRUE
-
-/obj/machinery/microscope/proc/can_analyse_fibers()
-	return TRUE
-
-/obj/machinery/microscope/proc/can_analyse_cells()
-	return TRUE

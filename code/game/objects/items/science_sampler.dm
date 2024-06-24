@@ -14,7 +14,13 @@
 	item_state = "sampler"
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_SMALL
+	/**
+	 * Which attachment we are using
+	 */
 	var/attachment = SAMPLE_BIO
+	/**
+	 * The vial we load our sample into
+	 */
 	var/obj/item/reagent_containers/glass/beaker/vial/vial
 
 /obj/item/sampler/Initialize(mapload, ...)
@@ -83,7 +89,10 @@
 	else
 		to_chat(user, SPAN_NOTICE("\The [src]'s attachment buzzes as it fails to sample \the [target]. Maybe try another attachment?"))
 
-/obj/item/sampler/proc/try_sample(var/atom/target, var/mob/user)
+/**
+ * Tries to sample the target using our current attachment, loading a sample into our vial if successful.
+ */
+/obj/item/sampler/proc/try_sample(atom/target, mob/user)
 	switch(attachment)
 		if(SAMPLE_BIO)
 			if(istype(target, /mob/living/simple_animal))
@@ -137,15 +146,7 @@
 	desc = "A less-than-state-of-the-art means of examining tiny samples. At least it has a printer for recording its results."
 	icon = 'icons/obj/item/sampling.dmi'
 	density = FALSE
-
-/obj/machinery/microscope/science/can_analyse_fingerprints()
-	return FALSE
-
-/obj/machinery/microscope/science/can_analyse_swabs()
-	return FALSE
-
-/obj/machinery/microscope/science/can_analyse_fibers()
-	return FALSE
+	allowed_analysis = MICROSCOPE_CELLS
 
 /obj/machinery/centrifuge
 	name = "centrifuge"
@@ -155,7 +156,13 @@
 	anchored = TRUE
 	density = FALSE
 
-	var/list/samples = list()
+	/**
+	 * The sample vials loaded in this centrifuge
+	 */
+	var/list/obj/item/reagent_containers/glass/beaker/vial/samples = list()
+	/**
+	 * The report number of our last report
+	 */
 	var/report_num = 0
 
 /obj/machinery/centrifuge/Initialize(mapload, d, populate_components, is_internal)
@@ -217,7 +224,10 @@
 		report.update_icon()
 	print(report)
 
-/obj/machinery/centrifuge/proc/remove_sample(var/mob/living/remover)
+/**
+ * Removes the last sample from the centrifuge
+ */
+/obj/machinery/centrifuge/proc/remove_sample(mob/living/remover)
 	if(!istype(remover) || remover.incapacitated() || !Adjacent(remover))
 		return
 	if(!LAZYLEN(samples))
@@ -251,9 +261,22 @@
 	anchored = TRUE
 	density = TRUE
 
+	/**
+	 * The sample vial to analyse
+	 */
 	var/obj/item/reagent_containers/glass/beaker/vial/sample
+	/**
+	 * The report number of our last report
+	 */
 	var/report_num = 0
-	var/zeroed = FALSE // Needs calibrated with pure water first
+	/**
+	 * Whether this spectrophotometer has been calibrated already.
+	 * Must be done with pure water
+	 */
+	var/zeroed = FALSE
+	/**
+	 * Whether the hatch is open, allowing samples to be added/removed
+	 */
 	var/open = FALSE
 
 /obj/machinery/spectrophotometer/Initialize(mapload, d, populate_components, is_internal)
@@ -306,6 +329,9 @@
 	icon_state = "[initial(icon_state)]_working"
 	addtimer(CALLBACK(src, PROC_REF(process_sample)), 15 SECONDS)
 
+/**
+ * Prints a report of the analysis after finishing, or zeroes successfully
+ */
 /obj/machinery/spectrophotometer/proc/process_sample()
 	update_icon()
 	if(!zeroed)

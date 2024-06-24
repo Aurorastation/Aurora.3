@@ -20,6 +20,9 @@
 	icon = 'icons/obj/item/net_container.dmi'
 	icon_state = "net_tube"
 	item_state = "net_tube"
+	/**
+	 * How many nets we have "stored"
+	 */
 	var/nets = 0
 
 /obj/item/net_container/attackby(obj/item/attacking_item, mob/user, params)
@@ -56,7 +59,11 @@
 	desc = "A wall mounted dispenser capable to producing low power energy nets, suitable for trapping fauna."
 	icon = 'icons/obj/item/net_container.dmi'
 	icon_state = "net_dispenser"
-	var/nets = 30 //Should be enough, not really meant to be limitted on this end
+	/**
+	 * How many nets we can dispense.
+	 * This should be enough, as they're not really meant to be limitted on this end
+	 */
+	var/nets = 30
 
 /obj/structure/net_dispenser/attack_hand(mob/living/user)
 	if(nets)
