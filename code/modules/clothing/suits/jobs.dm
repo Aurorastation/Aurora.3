@@ -163,6 +163,7 @@
 	name = "black trenchcoat"
 	icon_state = "detective2"
 	item_state = "detective2"
+
 /obj/item/clothing/suit/storage/zavod/falerio
 	name = "Falerio Security Services overcoat"
 	desc = "An overcoat in Falerio colors that goes down to slightly above the wearers knees. A high collar proudly displays the crest of the di Falerio family on its side. It looks warm."
