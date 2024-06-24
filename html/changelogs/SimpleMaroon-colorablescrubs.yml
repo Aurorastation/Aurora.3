@@ -55,7 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added a Lii'kenka origin for the corresponding faction in Vaurca lore. It includes a unique citizenship option that will show on records and ID as Nralakk Federation citizenship for those who want to be undercover."
-  - qol: "Added the functionality of returning a different name on records than the actual name for citizenship."
-  - spellcheck: "Capitalized 'ipcs' and 'dionae' for the N/A citizenship description."
-  - spellcheck: "Included an apostrophe in the 'Klatxatl' origin."
+  - rscadd: "Added colorable scrubs to the loadout."
+  - qol: "Allowed Lab Assistants to take scrubs in the loadout."

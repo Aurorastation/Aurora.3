@@ -99,7 +99,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/surgeon/zavod
-	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
+	allowed_roles = list("Scientist", "Lab Assistant", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -112,6 +112,13 @@
 	scrubs["scrubs, idris green"] = /obj/item/clothing/under/rank/medical/surgeon/idris
 
 	gear_tweaks += new /datum/gear_tweak/path(scrubs)
+
+/datum/gear/uniform/colorable_scrubs
+	display_name = "colorable scrubs"
+	description = "It's made of a special fiber that provides minor protection against biohazards."
+	path = /obj/item/clothing/under/rank/medical/generic
+	allowed_roles = list("Scientist", "Lab Assistant", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/uniform/dress
 	display_name = "dress selection"
@@ -261,6 +268,7 @@
 	suit["strelitz dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/strelitz
 	suit["volvalaad dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/volvalaad
 	suit["kazhkz dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/kazhkz
+	suit["han'san dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/hansan
 	suit["caladius dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/caladius
 	suit["zhao dominian suit"] = /obj/item/clothing/under/dominia/imperial_suit/zhao
 	suit["lyodsuit"] = /obj/item/clothing/under/dominia/lyodsuit

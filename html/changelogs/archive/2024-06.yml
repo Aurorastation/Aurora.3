@@ -562,3 +562,58 @@
       along with four folding chairs.
   Stev-the-third:
   - imageadd: Added new inhand and wielded sprites for the Sledgehammer.
+2024-06-21:
+  Ben10083:
+  - imageadd: left and right ear sprites added for various hair pins, such as the
+      flower pins.
+  DreamySkrell:
+  - rscadd: Adds Synthetic Blood Substitute.
+  Evandorf:
+  - bugfix: Reapplys the stop_sight_update check to prevent changeling thermal vision
+      from reverting.
+  Peppermint96:
+  - rscadd: Adds a dominian cloak to the loadout
+  SimpleMaroon:
+  - rscadd: Added a Lii'kenka origin for the corresponding faction in Vaurca lore.
+      It includes a unique citizenship option that will show on records and ID as
+      Nralakk Federation citizenship for those who want to be undercover.
+  - qol: Added the functionality of returning a different name on records than the
+      actual name for citizenship.
+  - spellcheck: Capitalized 'ipcs' and 'dionae' for the N/A citizenship description.
+  - spellcheck: Included an apostrophe in the 'Klatxatl' origin.
+2024-06-22:
+  FluffyGhost:
+  - bugfix: Fixed RIG leap actuator not working.
+  - bugfix: Fixed weapons rack not being able to be cut open with a welder.
+  - bugfix: Fixed gremorian cocoon verb.
+  - code_imp: Slight cleanup with usage of get_turf() in the cocoon verb, instead
+      of the loc variable.
+  - bugfix: Operating consoles cannot have the primer ejected by ghosts or unconscious
+      people anymore.
+  - bugfix: Fixed statue (sculpture) rotation.
+  - code_imp: Some code clenaup and use of tgui input.
+  Lavillastrangiato:
+  - rscadd: Adds a full variant of the xenoarchaeology belt, and adds more items that
+      can be stored in it.
+  RustingWithYou:
+  - bugfix: Premade exosuits now spawn with power cores.
+  SimpleMaroon:
+  - rscadd: Added Han'san variants of Dominian capes and clothing.
+  - qol: Dominian Unathi can now take Unathite items associated with Moghesian nobility.
+  Sparky_hotdog:
+  - bugfix: The Aut'akh Luthien Pact origin is now correctly selectable.
+  Stev-the-third:
+  - imageadd: Adds inhand sprites for the price scanner, destination tagger and crate
+      scanner.
+  - imageadd: Adds new worn sprites for the Dagamuir suit and Sinta Tunic
+  - imageadd: Adds a new inhand sprite for the Xenofauna blaster, to be in line with
+      other sprites at a 45 degree angle.
+  hazelmouse:
+  - rscadd: Remaps the Tramp Freighter offship to conform to newer mapping standards.
+2024-06-23:
+  FluffyGhost:
+  - code_imp: Made relaymoves uniform in function header and non sleepable.
+  - code_imp: Improved IPC/borg recharger, made it time constant.
+  - code_imp: Tweaked client/Move() to avoid a range(), moved a relaymove around to
+      fix a bug, some minor tweaks.
+  - bugfix: Fixed IPC/borg recharge station not taking the IPC/Borg in on bump.

@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: Ben10083
+author: FluffyGhost
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,7 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - imageadd: "left and right ear sprites added for various hair pins, such as the flower pins."
+  - bugfix: "Fixed paramedics not having the FR HUD icon anymore on the Security HUD."
+  - refactor: "Moved all the HUD icon files in the hud folder."
+  - code_imp: "Changed the in_view() proc used for HUDs to use the more performant get_hearers_in_LOS() / get_hearers_in_range() over view() and a list traversal with range comparisons."
+  - code_imp: "HUD now respects the client view size instead of just using the world view size."
