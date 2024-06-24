@@ -617,3 +617,15 @@
   - code_imp: Tweaked client/Move() to avoid a range(), moved a relaymove around to
       fix a bug, some minor tweaks.
   - bugfix: Fixed IPC/borg recharge station not taking the IPC/Borg in on bump.
+2024-06-24:
+  FluffyGhost:
+  - bugfix: Fixed paramedics not having the FR HUD icon anymore on the Security HUD.
+  - refactor: Moved all the HUD icon files in the hud folder.
+  - code_imp: Changed the in_view() proc used for HUDs to use the more performant
+      get_hearers_in_LOS() / get_hearers_in_range() over view() and a list traversal
+      with range comparisons.
+  - code_imp: HUD now respects the client view size instead of just using the world
+      view size.
+  SimpleMaroon:
+  - rscadd: Added colorable scrubs to the loadout.
+  - qol: Allowed Lab Assistants to take scrubs in the loadout.
