@@ -131,7 +131,6 @@
 /mob/living/storyteller/singuloCanEat()
 	return FALSE
 
-// TODOMATT: move this to the eye folder
 /mob/abstract/eye/storyteller
 	name = "Storyteller Eye"
 	see_invisible = SEE_INVISIBLE_OBSERVER
@@ -141,7 +140,7 @@
 	desc = "Tell your story to the world."
 	tags = list("Odyssey")
 	loc_type = GS_LOC_POS
-	enabled = FALSE
+	enabled = TRUE
 
 	show_on_job_select = TRUE
 	landmark_name = "storyteller"
