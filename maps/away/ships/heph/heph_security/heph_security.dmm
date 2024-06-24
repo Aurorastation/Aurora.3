@@ -2769,7 +2769,6 @@
 /obj/machinery/door/blast/shutters/open{
 	id = "heph_shuttle_shutters"
 	},
-/obj/machinery/door/firedoor/noid,
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#BDB6AE";
 	frame_color = "#BDB6AE";
@@ -3404,16 +3403,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
-"xU" = (
-/obj/machinery/door/firedoor/noid,
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	color = "#BDB6AE";
-	frame_color = "#BDB6AE";
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
-/turf/simulated/floor,
-/area/shuttle/heph_security)
 "xW" = (
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/medbay)
@@ -3559,9 +3548,6 @@
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/medbay)
 "zP" = (
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#BDB6AE";
 	frame_color = "#BDB6AE";
@@ -4097,9 +4083,6 @@
 "EJ" = (
 /obj/machinery/door/blast/shutters/open{
 	id = "heph_shuttle_shutters";
-	dir = 4
-	},
-/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle{
@@ -6089,7 +6072,6 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "fore"
 	},
-/obj/machinery/door/firedoor/noid,
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#BDB6AE";
 	frame_color = "#BDB6AE";
@@ -38296,7 +38278,7 @@ Zb
 cV
 TG
 xz
-xU
+zP
 Fb
 fF
 Zb
