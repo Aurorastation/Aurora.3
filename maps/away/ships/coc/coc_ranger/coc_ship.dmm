@@ -168,12 +168,6 @@
 /area/ship/ranger_corvette/engine1)
 "aFp" = (
 /obj/machinery/computer/ship/sensors,
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	pixel_y = 21;
-	pixel_x = -4;
-	id_tag = "ranger_shuttle_dock";
-	name = "Ranger Shuttle docking port controller"
-	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "aHv" = (
@@ -302,7 +296,8 @@
 	name = "ranger_shuttle_dock2";
 	master_tag = "ranger_shuttle_dock2";
 	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/ranger_shuttle)
@@ -1170,6 +1165,17 @@
 "eGi" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/janitor)
+"eJh" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5b5b5b";
+	frame_color = "#5b5b5b";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/shuttle/ranger_shuttle)
 "eJp" = (
 /obj/item/clothing/accessory/flagpatch/vysoka,
 /obj/item/clothing/head/vysoka,
@@ -1445,7 +1451,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/north{
-	req_access = null;
+	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
@@ -1699,7 +1705,8 @@
 	name = "ranger_shuttle_dock2";
 	master_tag = "ranger_shuttle_dock2";
 	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/ranger_shuttle)
@@ -2098,7 +2105,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	req_access = null;
+	req_access = null
 	},
 /obj/machinery/autolathe,
 /turf/simulated/floor/tiled/dark,
@@ -2466,7 +2473,8 @@
 	name = "ranger_shuttle_dock2";
 	master_tag = "ranger_shuttle_dock2";
 	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
@@ -3331,16 +3339,17 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock2";
-	master_tag = "ranger_shuttle_dock2";
-	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null
-	},
 /obj/machinery/access_button{
 	pixel_x = 12;
 	pixel_y = -28;
 	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
@@ -5519,7 +5528,8 @@
 	name = "ranger_shuttle_dock2";
 	master_tag = "ranger_shuttle_dock2";
 	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
@@ -5953,7 +5963,8 @@
 	name = "ranger_shuttle_dock2";
 	master_tag = "ranger_shuttle_dock2";
 	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
@@ -6271,12 +6282,6 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock2";
-	master_tag = "ranger_shuttle_dock2";
-	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null
-	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 2;
 	pixel_y = 28;
@@ -6289,6 +6294,13 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/ranger_shuttle)
@@ -6307,6 +6319,12 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/bag/inflatable{
 	pixel_y = 4
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	pixel_x = 24;
+	id_tag = "ranger_shuttle_dock";
+	name = "Ranger Shuttle docking port controller";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
@@ -40686,7 +40704,7 @@ gJZ
 xRX
 xRX
 xRX
-xRX
+kYm
 yau
 yau
 yau
@@ -40943,7 +40961,7 @@ gJZ
 xRX
 xRX
 xRX
-kYm
+yau
 yau
 nVM
 tbY
@@ -41200,7 +41218,7 @@ gJZ
 xRX
 xRX
 xRX
-yau
+eJh
 lvN
 nZU
 tcC
@@ -41714,7 +41732,7 @@ xRX
 xRX
 xRX
 xRX
-yau
+eJh
 aFp
 xCw
 xCw
@@ -41971,7 +41989,7 @@ xRX
 xRX
 xRX
 xRX
-oBx
+yau
 yau
 xHi
 jzV
@@ -42228,7 +42246,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+oBx
 yau
 yau
 yau

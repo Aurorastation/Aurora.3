@@ -472,13 +472,14 @@
 	pixel_x = -28;
 	pixel_y = 12
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "dA" = (
@@ -2073,7 +2074,8 @@
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/structure/bed/handrail{
@@ -2343,7 +2345,8 @@
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
@@ -2834,15 +2837,16 @@
 "tH" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/manifold/hidden/red,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/landmark/entry_point/fore{
+	name = "aft"
+	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/landmark/entry_point/fore{
-	name = "aft"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
@@ -3276,7 +3280,8 @@
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
@@ -3829,13 +3834,14 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker_helper/airlock/out,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "Cg" = (
@@ -4335,13 +4341,14 @@
 /obj/machinery/access_button{
 	pixel_x = -28
 	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "Hf" = (
@@ -5180,13 +5187,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "MK" = (
@@ -6793,13 +6801,14 @@
 	pixel_x = 20;
 	pixel_y = -6
 	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "ZZ" = (
