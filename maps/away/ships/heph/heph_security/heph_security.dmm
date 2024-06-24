@@ -2770,7 +2770,12 @@
 	id = "heph_shuttle_shutters"
 	},
 /obj/machinery/door/firedoor/noid,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "sz" = (
@@ -3400,8 +3405,13 @@
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
 "xU" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor/noid,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "xW" = (
@@ -3549,9 +3559,14 @@
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/medbay)
 "zP" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
@@ -4087,7 +4102,12 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "ES" = (
@@ -6070,7 +6090,12 @@
 	name = "fore"
 	},
 /obj/machinery/door/firedoor/noid,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "Uz" = (
