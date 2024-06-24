@@ -44,6 +44,7 @@
 	move_to_delay = 6
 	speed = 3
 	mob_size = 6
+	smart_melee = FALSE
 
 	attacktext = "bitten"
 	attack_emote = "skitters toward"
@@ -110,6 +111,7 @@
 	armor_penetration = 15
 	poison_per_bite = 5
 	move_to_delay = 4
+	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/emp
 	name = "greimorian jackal"
@@ -125,6 +127,7 @@
 	poison_type = /singleton/reagent/perconol // mildly beneficial for organics
 	poison_per_bite = 2
 	move_to_delay = 5
+	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier
 	name = "greimorian bombardier"
@@ -142,6 +145,7 @@
 	poison_type = /singleton/reagent/capsaicin/condensed
 	poison_per_bite = 2
 	move_to_delay = 5
+	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier/Shoot(var/target, var/start, var/mob/user, var/bullet = 0)
 	if(target == start)
