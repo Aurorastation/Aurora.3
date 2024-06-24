@@ -69,7 +69,7 @@
 	if (contained)
 		if (iscarbon(contained))
 			var/mob/living/carbon/C = contained
-			C.SetStasis(20)
+			C.SetStasis(20 * seconds_per_tick)
 		else if (isanimal(contained))
 			var/mob/living/simple_animal/SA = contained
 			SA.in_stasis = TRUE
