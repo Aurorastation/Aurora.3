@@ -56,4 +56,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "A variety of shuttle airlocks should now correctly cycle from atmosphere to atmosphere."
-  - rsadd: "Added prettier windows to the Idris, IAC, Sadar, and Hephaestus ERT offships."
+  - rscadd: "Added prettier windows to the Idris, IAC, Sadar, and Hephaestus ERT offships."
