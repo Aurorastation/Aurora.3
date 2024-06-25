@@ -95,11 +95,13 @@ GLOBAL_LIST_EMPTY(narsie_list)
 	else if(istype(A, /obj/structure/cult))
 		qdel(A)
 
-/obj/singularity/narsie/large/CollidedWith(atom/movable/bumped_atom)
+/obj/singularity/narsie/large/CollidedWith(atom/bumped_atom)
 	. = ..()
 
 	if(!cause_hell)
 		return
+	if(isturf(bumped_atom))
+		narsiewall(bumped_atom)
 	else if(istype(bumped_atom, /obj/structure/cult))
 		qdel(bumped_atom)
 

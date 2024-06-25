@@ -34,7 +34,7 @@
 		if(istype(west, /turf/simulated/floor))
 			new /obj/machinery/conveyor(west, WEST, 1)
 
-/obj/machinery/transformer/CollidedWith(atom/movable/bumped_atom)
+/obj/machinery/transformer/CollidedWith(atom/bumped_atom)
 	. = ..()
 
 	// HasEntered didn't like people lying down.
@@ -43,8 +43,8 @@
 		var/move_dir = get_dir(loc, bumped_atom.loc)
 		var/mob/living/carbon/human/H = bumped_atom
 		if((transform_standing || H.lying) && move_dir == EAST)
-			bumped_atom.forceMove(src.loc)
-			make_robot(bumped_atom)
+			H.forceMove(src.loc)
+			make_robot(H)
 
 /obj/machinery/transformer/proc/make_robot(var/mob/living/carbon/human/H)
 	if(stat & (BROKEN|NOPOWER))

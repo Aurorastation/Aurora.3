@@ -241,7 +241,7 @@
 	if(icon_update_tick == 0)
 		build_overlays()
 
-/obj/machinery/recharge_station/CollidedWith(atom/movable/bumped_atom)
+/obj/machinery/recharge_station/CollidedWith(atom/bumped_atom)
 	. = ..()
 
 	if(isliving(bumped_atom))

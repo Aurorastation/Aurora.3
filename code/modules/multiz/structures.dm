@@ -255,19 +255,24 @@
 
 	return ..()
 
-/obj/structure/stairs/CollidedWith(atom/movable/bumped_atom)
+/obj/structure/stairs/CollidedWith(atom/bumped_atom)
 	. = ..()
 
+	if(!ismovable(bumped_atom))
+		return
+
+	var/atom/movable/AM = bumped_atom
+
 	// This is hackish but whatever.
-	var/turf/target = get_step(GetAbove(bumped_atom), dir)
+	var/turf/target = get_step(GetAbove(AM), dir)
 	if(!target)
 		return
 	if(target.z > (z + 1)) //Prevents wheelchair fuckery. Basically, you teleport twice because both the wheelchair + your mob collide with the stairs.
 		return
-	if(target.Enter(bumped_atom, src) && bumped_atom.dir == dir)
-		bumped_atom.forceMove(target)
-		if(isliving(bumped_atom))
-			var/mob/living/living_mob = bumped_atom
+	if(target.Enter(AM, src) && AM.dir == dir)
+		AM.forceMove(target)
+		if(isliving(AM))
+			var/mob/living/living_mob = AM
 			if(living_mob.pulling)
 				living_mob.pulling.forceMove(target)
 			for(var/obj/item/grab/grab in living_mob)

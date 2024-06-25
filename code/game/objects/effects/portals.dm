@@ -30,7 +30,7 @@
 
 	precision = precise
 
-/obj/effect/portal/CollidedWith(atom/movable/bumped_atom)
+/obj/effect/portal/CollidedWith(atom/bumped_atom)
 	. = ..()
 
 	if(does_teleport)

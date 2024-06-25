@@ -52,7 +52,7 @@
 	update_nearby_tiles()
 	return ..()
 
-/obj/machinery/door/window/CollidedWith(atom/movable/bumped_atom)
+/obj/machinery/door/window/CollidedWith(atom/bumped_atom)
 	//Fucking snowflake code
 	SHOULD_CALL_PARENT(FALSE)
 	SEND_SIGNAL(src, COMSIG_ATOM_BUMPED, bumped_atom)

@@ -72,7 +72,7 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/structure/grille/CollidedWith(atom/movable/bumped_atom)
+/obj/structure/grille/CollidedWith(atom/bumped_atom)
 	. = ..()
 
 	if(ismob(bumped_atom))

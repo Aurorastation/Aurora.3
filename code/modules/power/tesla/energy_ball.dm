@@ -211,7 +211,7 @@
 		var/obj/O = A
 		O.tesla_act(0, TRUE)
 
-/obj/singularity/energy_ball/CollidedWith(atom/movable/bumped_atom)
+/obj/singularity/energy_ball/CollidedWith(atom/bumped_atom)
 	//Fucking snowflake code
 	SHOULD_CALL_PARENT(FALSE)
 	SEND_SIGNAL(src, COMSIG_ATOM_BUMPED, bumped_atom)

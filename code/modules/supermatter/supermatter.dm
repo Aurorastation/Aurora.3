@@ -405,7 +405,7 @@
 
 	living_user.apply_damage(150, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
-/obj/machinery/power/supermatter/CollidedWith(atom/movable/bumped_atom)
+/obj/machinery/power/supermatter/CollidedWith(atom/bumped_atom)
 	. = ..()
 
 	if(!bumped_atom.simulated)

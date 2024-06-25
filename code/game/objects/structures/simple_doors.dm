@@ -65,10 +65,10 @@
 	if(lock)
 		. += SPAN_NOTICE("It appears to have a lock.")
 
-/obj/structure/simple_door/CollidedWith(atom/user)
+/obj/structure/simple_door/CollidedWith(atom/bumped_atom)
 	..()
 	if(!state)
-		return TryToSwitchState(user)
+		return TryToSwitchState(bumped_atom)
 	return
 
 /obj/structure/simple_door/attack_ai(mob/user as mob) //those aren't machinery, they're just big fucking slabs of a mineral

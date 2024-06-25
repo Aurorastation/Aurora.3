@@ -69,13 +69,13 @@
 	return
 
 /**
- * Called when an `atom/movable` collides with this atom
+ * Called when an `/atom` collides with this atom
  *
  * It's roughly equivalent to `Bumped()` in TG, but it's not sleepable and you have to call parent
  *
- * * bumped_atom - The `atom/movable` that collided with this atom
+ * * bumped_atom - The `/atom` that collided with this atom
  */
-/atom/proc/CollidedWith(atom/movable/bumped_atom)
+/atom/proc/CollidedWith(atom/bumped_atom)
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(TRUE)
 

@@ -282,9 +282,9 @@
 
 	release()
 
-/obj/item/trap/animal/CollidedWith(atom/AM)
-	if(deployed && is_type_in_list(AM, allowed_mobs))
-		Crossed(AM)
+/obj/item/trap/animal/CollidedWith(atom/bumped_atom)
+	if(deployed && is_type_in_list(bumped_atom, allowed_mobs))
+		Crossed(bumped_atom)
 	else
 		..()
 

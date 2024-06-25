@@ -19,7 +19,7 @@ var/list/obj/effect/bump_teleporter/BUMP_TELEPORTERS = list()
 	BUMP_TELEPORTERS -= src
 	return ..()
 
-/obj/effect/bump_teleporter/CollidedWith(atom/movable/bumped_atom)
+/obj/effect/bump_teleporter/CollidedWith(atom/bumped_atom)
 	. = ..()
 
 	if(!ismob(bumped_atom))

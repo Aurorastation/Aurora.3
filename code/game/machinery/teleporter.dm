@@ -35,7 +35,7 @@
 	if(old_engaged != engaged)
 		update_icon()
 
-/obj/machinery/teleport/pad/CollidedWith(atom/movable/bumped_atom)
+/obj/machinery/teleport/pad/CollidedWith(atom/bumped_atom)
 	. = ..()
 
 	if(engaged)

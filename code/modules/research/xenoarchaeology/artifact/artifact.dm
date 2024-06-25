@@ -111,7 +111,7 @@
 				SPAN_NOTICE("[src] has been whittled away under your careful excavation, but there was nothing of interest inside."))
 			qdel(src)
 
-/obj/structure/boulder/CollidedWith(atom/movable/bumped_atom)
+/obj/structure/boulder/CollidedWith(atom/bumped_atom)
 	. = ..()
 	if(istype(bumped_atom,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = bumped_atom
