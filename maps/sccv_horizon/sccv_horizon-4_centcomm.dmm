@@ -33916,6 +33916,11 @@
 	},
 /turf/simulated/floor/wood/maple,
 /area/horizon/holodeck/source_cafe)
+"dwf" = (
+/obj/structure/bed/stool/chair/sofa/right/purple,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "dwR" = (
 /obj/structure/flora/grass/green,
 /turf/simulated/floor/holofloor/snow,
@@ -37143,6 +37148,11 @@
 	name = "grass"
 	},
 /area/horizon/holodeck/source_konyang)
+"opD" = (
+/obj/structure/bed/stool/chair/sofa/left/purple,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "oqe" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/spline/fancy{
@@ -39485,6 +39495,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/centcom/shared_dream)
+"wrv" = (
+/obj/structure/table/wood/yew,
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/floor_decal/spline/fancy/wood/full,
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "wrH" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/beach/sand{
@@ -78416,7 +78432,7 @@ bGi
 bHp
 bHp
 bFf
-jeo
+wrv
 xlV
 qBm
 qBm
@@ -78673,7 +78689,7 @@ rYl
 bHp
 bHp
 bFf
-jeo
+dwf
 sWf
 iyn
 pda
@@ -78930,7 +78946,7 @@ rYl
 bHp
 bHp
 bFf
-jeo
+opD
 sWf
 pda
 pda
@@ -79187,7 +79203,7 @@ rYl
 bHp
 bHp
 bFf
-jeo
+wrv
 sWf
 pda
 pda
