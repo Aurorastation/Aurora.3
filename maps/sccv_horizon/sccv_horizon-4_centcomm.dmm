@@ -36990,27 +36990,6 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_meetinghall)
-"nJQ" = (
-/obj/structure/table/wood/yew,
-/obj/item/clothing/suit/maid_costume,
-/obj/item/clothing/suit/maid_costume,
-/obj/item/clothing/suit/maid_costume,
-/obj/item/clothing/head/pin/flower/pink{
-	pixel_x = 4;
-	pixel_y = 8
-	},
-/obj/item/clothing/head/pin/flower/pink{
-	pixel_x = 4;
-	pixel_y = 8
-	},
-/obj/item/clothing/head/pin/flower/pink{
-	pixel_x = 4;
-	pixel_y = 8
-	},
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/effect/floor_decal/spline/fancy/wood/full,
-/turf/simulated/floor/wood/maple,
-/area/horizon/holodeck/source_cafe)
 "nLZ" = (
 /turf/simulated/wall/shuttle/unique/ccia{
 	icon_state = "4,0"
@@ -39518,9 +39497,6 @@
 /area/centcom/shared_dream)
 "wrv" = (
 /obj/structure/table/wood/yew,
-/obj/item/clothing/suit/dog_costume,
-/obj/item/clothing/suit/dog_costume,
-/obj/item/clothing/suit/dog_costume,
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /turf/simulated/floor/wood/maple,
@@ -79227,7 +79203,7 @@ rYl
 bHp
 bHp
 bFf
-nJQ
+wrv
 sWf
 pda
 pda
