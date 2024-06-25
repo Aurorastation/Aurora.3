@@ -63,6 +63,14 @@
 	name = "SCC Transport Shuttle"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
+/area/turbolift/hegemony_bunker_A
+	name = "Bunker Lift A"
+	station_area = FALSE
+
+/area/turbolift/hegemony_bunker_B
+	name = "Bunker Lift B"
+	station_area = FALSE
+
 /datum/shuttle/autodock/ferry/scc_evac
 	name = "SCC Evac Shuttle"
 	location = 1
@@ -123,6 +131,64 @@
 	docking_controller = "cargo_shuttle_dock"
 	base_turf = /turf/simulated/floor/exoplanet/desert
 	base_area = /area/new_blades
+
+
+// Bunker Lift A
+/datum/shuttle/autodock/multi/lift/bunker_A
+	name = "Bunker Lift A"
+	current_location = "nav_bunker_A_lift_upper"
+	shuttle_area = /area/turbolift/hegemony_bunker_A
+	destination_tags = list(
+		"nav_bunker_A_lift_lower",
+		"nav_bunker_A_lift_upper",
+		)
+
+/obj/effect/shuttle_landmark/lift/bunker_A_upper
+	name = "Bunker Lift A - Upper"
+	landmark_tag = "nav_bunker_A_lift_upper"
+	base_area = /area/new_blades/interiors/ruins/hegemony_base
+	base_turf = /turf/simulated/open
+
+/obj/effect/shuttle_landmark/lift/bunker_A_lower
+	name = "Bunker Lift A - Lower"
+	landmark_tag = "nav_bunker_A_lift_lower"
+	base_area = /area/new_blades/interiors/ruins/bunker
+	base_turf = /turf/simulated/floor/plating
+
+/obj/machinery/computer/shuttle_control/multi/lift/bunker_A
+	shuttle_tag = "Bunker Lift A"
+
+/obj/machinery/computer/shuttle_control/multi/lift/wall/bunker_A
+	shuttle_tag = "Bunker Lift A"
+
+// Bunker Lift B
+/datum/shuttle/autodock/multi/lift/bunker_B
+	name = "Bunker Lift B"
+	current_location = "nav_bunker_B_lift_upper"
+	shuttle_area = /area/turbolift/hegemony_bunker_B
+	destination_tags = list(
+		"nav_bunker_B_lift_lower",
+		"nav_bunker_B_lift_upper",
+		)
+
+/obj/effect/shuttle_landmark/lift/bunker_B_upper
+	name = "Bunker Lift B - Upper"
+	landmark_tag = "nav_bunker_B_lift_upper"
+	base_area = /area/new_blades/interiors/ruins/hegemony_base
+	base_turf = /turf/simulated/open
+
+/obj/effect/shuttle_landmark/lift/bunker_B_lower
+	name = "Bunker Lift B - Lower"
+	landmark_tag = "nav_bunker_B_lift_lower"
+	base_area = /area/new_blades/interiors/ruins/bunker
+	base_turf = /turf/simulated/floor/plating
+
+/obj/machinery/computer/shuttle_control/multi/lift/bunker_B
+	shuttle_tag = "Bunker Lift B"
+
+/obj/machinery/computer/shuttle_control/multi/lift/wall/bunker_B
+	shuttle_tag = "Bunker Lift B"
+
 
 //Corpses
 
