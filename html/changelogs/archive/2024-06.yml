@@ -629,3 +629,20 @@
   SimpleMaroon:
   - rscadd: Added colorable scrubs to the loadout.
   - qol: Allowed Lab Assistants to take scrubs in the loadout.
+2024-06-25:
+  Crosarius:
+  - qol: Unrestricts the Sk'akh and Si'akh robes from only Chaplain and Off-Duty Crew
+  FlamingLily:
+  - bugfix: INDRA Fuel assemblies are no longer invisible.
+  MattAtlas:
+  - bugfix: Fixed melee weapons not applying their armour penetration at all.
+  Pirouette:
+  - balance: Buffed the force of energy melee weapons in line with prior buffs to
+      non-energy weapons.
+  - balance: Buffed the force of maglights.
+  WickedCybs:
+  - balance: Gremorian warriors and workers now have simpler melee AI. The former
+      relies on raw strength over strategy and the latter is single-minded in its
+      pursuit of spreading infestation.
+  - qol: Taj swoop bangs are shaded differently on the left facing sprite so it looks
+      a bit more obvious that the hairstyle is covering an eye.
