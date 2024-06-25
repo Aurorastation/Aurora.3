@@ -94,7 +94,7 @@
 	icon_base = "carpet"
 	build_type = /obj/item/stack/tile/carpet
 	damage_temperature = T0C+200
-	flags = TURF_HAS_CORNERS | TURF_HAS_INNER_CORNERS | TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
+	flags = TURF_HAS_EDGES | TURF_HAS_CORNERS | TURF_HAS_INNER_CORNERS | TURF_REMOVE_CROWBAR | TURF_CAN_BREAK | TURF_CAN_BURN
 	footstep_sound = /singleton/sound_category/carpet_footstep
 	floor_smooth = SMOOTH_NONE
 	wall_smooth = SMOOTH_NONE

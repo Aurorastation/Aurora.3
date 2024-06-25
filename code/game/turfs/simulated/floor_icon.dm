@@ -73,6 +73,7 @@
 	if(decals && decals.len)
 		for(var/image/I in decals)
 			AddOverlays(I)
+			I.layer = flooring.decal_layer
 
 	if(update_neighbors)
 		for(var/turf/simulated/floor/F in RANGE_TURFS(1, src))
