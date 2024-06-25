@@ -108,12 +108,25 @@
 /obj/machinery/light/broken{
 	dir = 8
 	},
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/inside/entrance_aux_west)
 "ahM" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/habitation_west)
+"ahZ" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/vials{
+	pixel_x = 1;
+	pixel_y = -4
+	},
+/obj/item/clothing/glasses/safety/goggles{
+	pixel_x = -3;
+	pixel_y = 12
+	},
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_pharmacy)
 "aiz" = (
 /obj/random/junk{
 	pixel_x = 15;
@@ -452,14 +465,13 @@
 	},
 /area/cryo_outpost/inside/hallway_central)
 "aAQ" = (
-/obj/structure/table/standard,
 /obj/effect/floor_decal/corner/pink{
 	dir = 1
 	},
-/obj/item/folder/white{
-	pixel_x = -4;
-	pixel_y = 5
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_rnd)
 "aBz" = (
@@ -953,6 +965,7 @@
 	},
 /obj/structure/closet/crate,
 /obj/random/dirt_75,
+/obj/item/stack/material/cardboard/full,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/entrance_aux_east)
 "bch" = (
@@ -1125,6 +1138,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_entrance)
+"bkW" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_pharmacy)
 "blk" = (
 /obj/structure/girder,
 /obj/random/dirt_75,
@@ -1292,7 +1313,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/medical{
+/obj/machinery/door/airlock/glass_medical{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1441,6 +1462,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_pods)
+"bDq" = (
+/obj/effect/floor_decal/corner/orange/diagonal,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_pharmacy)
 "bDx" = (
 /obj/random/dirt_75,
 /obj/effect/overlay/palmtree_l,
@@ -1470,6 +1498,14 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/botany)
 "bGf" = (
@@ -1592,6 +1628,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_east)
+"bNj" = (
+/obj/machinery/chemical_dispenser/full,
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/cryo_outpost/inside/labs_pharmacy)
 "bNq" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
@@ -1895,6 +1939,12 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/labs_cryo_s)
+"cgF" = (
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/cryo_outpost/inside/engineering)
 "chj" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/bin/urban,
@@ -2319,7 +2369,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline_straight/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/cryo_outpost/inside/labs_rnd)
 "cKM" = (
 /obj/structure/cable{
@@ -2430,7 +2480,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/cryo_outpost/inside/labs_rnd)
 "cRl" = (
 /obj/structure/bed/roller,
@@ -2887,7 +2937,6 @@
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
 	},
-/obj/structure/closet/crate/loot,
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/inside/entrance_aux_east)
 "dtj" = (
@@ -3261,6 +3310,9 @@
 "dPk" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/item/storage/box/produce{
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/canteen)
 "dPS" = (
@@ -3283,6 +3335,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/labs_cryo_pods)
+"dTc" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/gloves{
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_pharmacy)
 "dTr" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 6
@@ -3299,6 +3360,11 @@
 "dTy" = (
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engi_powergen)
+"dTK" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/labs_surgery)
 "dTY" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3489,9 +3555,9 @@
 /area/cryo_outpost/inside/security)
 "eim" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/light/broken,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_surgery)
 "eiP" = (
@@ -3630,6 +3696,18 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/hallway_west)
+"erm" = (
+/obj/structure/closet/crate/freezer,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/item/organ/internal/heart,
+/obj/structure/sign/biohazard{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/freezer{
+	name = "cold storage tiles";
+	temperature = 278
+	},
+/area/cryo_outpost/inside/labs_surgery)
 "erR" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/light{
@@ -3760,7 +3838,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/cryo_outpost/inside/labs_rnd)
+/area/cryo_outpost/inside/labs_surgery)
 "exb" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
@@ -3800,7 +3878,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline_straight/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/cryo_outpost/inside/labs_rnd)
 "exS" = (
 /obj/structure/closet,
@@ -4005,20 +4083,17 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/entrance_aux_west)
 "eLN" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 4
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
-/obj/machinery/door/airlock/research{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cryo_outpost/inside/labs_surgery)
+/turf/simulated/floor/tiled,
+/area/cryo_outpost/inside/entrance_aux_west)
 "eLO" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -4067,6 +4142,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/comms)
+"eQr" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/botany)
 "eQv" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -4175,6 +4258,7 @@
 "eTR" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
+/obj/item/stack/material/cloth/full,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/entrance_aux_east)
 "eUb" = (
@@ -4664,7 +4748,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline_straight/yellow,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/cryo_outpost/inside/labs_rnd)
 "fxo" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -4821,6 +4905,10 @@
 /obj/random/loot,
 /turf/simulated/floor/tiled/dark/full,
 /area/cryo_outpost/inside/maint_warehouse)
+"fFT" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/maint_botany)
 "fGe" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -5674,6 +5762,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_hallway)
+"gHB" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/plating/asteroid,
+/area/cryo_outpost/inside/entrance_aux_east)
 "gIc" = (
 /turf/simulated/wall,
 /area/cryo_outpost/inside/maint_entrance)
@@ -5790,13 +5883,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/eva)
 "gQn" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/storage/box/freezer/organcooler,
-/turf/simulated/floor/tiled/freezer{
-	name = "cold storage tiles";
-	temperature = 278
-	},
-/area/cryo_outpost/inside/labs_surgery)
+/turf/simulated/wall/r_wall,
+/area/cryo_outpost/inside/labs_pharmacy)
 "gRQ" = (
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/random/dirt_75,
@@ -6067,6 +6155,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_surgery)
+"hmQ" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_pharmacy)
 "hoe" = (
 /obj/structure/grille,
 /obj/structure/cable{
@@ -6386,7 +6480,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/cryo_outpost/inside/labs_rnd)
 "hDM" = (
 /obj/random/dirt_75,
@@ -6557,6 +6651,9 @@
 "hPb" = (
 /obj/random/loot,
 /obj/structure/table/rack,
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/entrance_aux_west)
 "hPg" = (
@@ -6653,6 +6750,10 @@
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/labs_surgery)
+"hTW" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/maint_habitation)
 "hUj" = (
 /obj/structure/closet/crate,
 /obj/item/stack/material/tritium/ten,
@@ -6718,6 +6819,7 @@
 /area/cryo_outpost/inside/labs_cryo_pods)
 "hYY" = (
 /obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/cryo_outpost/inside/canteen)
 "hZv" = (
@@ -7164,6 +7266,13 @@
 "iGF" = (
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/warehouse)
+"iHd" = (
+/obj/structure/bed/stool/chair/office/light,
+/obj/effect/floor_decal/spline/plain{
+	dir = 9
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/cryo_outpost/inside/labs_pharmacy)
 "iHg" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -7629,6 +7738,9 @@
 	pixel_x = 5;
 	pixel_y = 4
 	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_rnd)
 "jlq" = (
@@ -7695,6 +7807,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_offices)
+"jrZ" = (
+/obj/machinery/shower{
+	pixel_y = 12
+	},
+/obj/structure/window/reinforced,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/freezer,
+/area/cryo_outpost/inside/labs_pharmacy)
 "jsv" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -7733,6 +7854,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_medbay)
+"jsU" = (
+/obj/effect/floor_decal/corner/orange/diagonal,
+/obj/structure/table/standard,
+/obj/item/screwdriver{
+	pixel_x = -3
+	},
+/obj/item/storage/box/beakers{
+	pixel_x = 5;
+	pixel_y = 12
+	},
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_pharmacy)
 "jtp" = (
 /obj/structure/table/glass,
 /obj/effect/floor_decal/corner/pink/diagonal,
@@ -7945,7 +8078,7 @@
 	pixel_y = 1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/cryo_outpost/inside/labs_rnd)
 "jEj" = (
 /obj/effect/floor_decal/corner/mauve{
@@ -8292,6 +8425,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_east)
+"jVU" = (
+/obj/effect/floor_decal/corner/orange/diagonal,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_pharmacy)
 "jWo" = (
 /turf/simulated/wall/r_wall,
 /area/cryo_outpost/inside/labs_maint_e)
@@ -8846,6 +8987,11 @@
 /obj/effect/floor_decal/corner/pink/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_rnd)
+"kCd" = (
+/obj/effect/floor_decal/corner/orange/diagonal,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_pharmacy)
 "kCs" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -9203,6 +9349,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/labs_offices)
+"kVy" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_pharmacy)
 "kVT" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -9503,7 +9653,7 @@
 /area/cryo_outpost/inside/maint_entrance)
 "lje" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate,
+/obj/structure/closet/crate/plastic,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/warehouse)
 "ljg" = (
@@ -9621,6 +9771,11 @@
 "lpZ" = (
 /turf/simulated/wall/r_wall,
 /area/cryo_outpost/inside/security)
+"lqO" = (
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/maint_botany)
 "lrc" = (
 /obj/structure/table/rack,
 /obj/item/device/flashlight/lantern{
@@ -9697,6 +9852,7 @@
 	pixel_x = 5;
 	pixel_y = 7
 	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
 /area/cryo_outpost/inside/canteen)
 "luo" = (
@@ -9948,6 +10104,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/maint_medbay)
+"lMX" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/random/dirt_75,
+/obj/random/loot,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/botany)
 "lMZ" = (
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
@@ -10106,6 +10274,11 @@
 /area/cryo_outpost/inside/labs_maint_w)
 "lYa" = (
 /obj/structure/closet/secure_closet/freezer,
+/obj/item/storage/box/produce,
+/obj/item/storage/box/produce,
+/obj/item/storage/box/produce,
+/obj/item/storage/box/produce,
+/obj/item/storage/box/produce,
 /turf/simulated/floor/tiled/freezer{
 	name = "cold storage tiles";
 	temperature = 278
@@ -10937,6 +11110,22 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/maint_habitation)
+"nkd" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/chem_disp_cartridge/cryoxadone{
+	pixel_x = -3
+	},
+/obj/item/reagent_containers/chem_disp_cartridge/clonexadone{
+	pixel_x = 3
+	},
+/obj/item/reagent_containers/chem_disp_cartridge/cryoxadone{
+	pixel_x = -3
+	},
+/obj/item/reagent_containers/chem_disp_cartridge/clonexadone{
+	pixel_x = 3
+	},
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_pharmacy)
 "nla" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/exoplanet/barren,
@@ -11013,6 +11202,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_pods)
+"nof" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/random/dirt_75,
+/obj/item/device/vending_refill/seeds,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/botany)
 "now" = (
 /obj/structure/table/steel,
 /obj/item/trash/plate/steak{
@@ -11200,6 +11395,18 @@
 "nzf" = (
 /turf/simulated/wall,
 /area/cryo_outpost/outside/cave)
+"nzz" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/research{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/labs_pharmacy)
 "nzR" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled,
@@ -11246,6 +11453,15 @@
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/medical)
+"nCP" = (
+/obj/effect/floor_decal/corner/orange/diagonal,
+/obj/structure/table/standard,
+/obj/item/reagent_containers/dropper/electronic_pipette{
+	pixel_x = -8
+	},
+/obj/item/reagent_containers/dropper,
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_pharmacy)
 "nEr" = (
 /obj/structure/table/rack,
 /obj/random/civgun/rifle,
@@ -11831,6 +12047,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/outside/cave)
+"otf" = (
+/obj/effect/floor_decal/corner/orange/diagonal,
+/obj/structure/table/standard,
+/obj/machinery/reagentgrinder{
+	pixel_y = 11;
+	pixel_x = 3
+	},
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_pharmacy)
 "oui" = (
 /obj/random/pottedplant,
 /obj/random/dirt_75,
@@ -11920,6 +12145,19 @@
 /obj/machinery/door/airlock/glass_research,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_offices)
+"oyY" = (
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/structure/closet/crate/hydroponics,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/turf/simulated/floor/tiled/dark/full,
+/area/cryo_outpost/inside/botany)
 "oAn" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -12268,7 +12506,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/cryo_outpost/inside/labs_rnd)
 "oQH" = (
 /obj/structure/cable{
@@ -12973,6 +13211,17 @@
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/maint_warehouse)
+"pFw" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/entrance_aux_west)
 "pFC" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/beige{
@@ -13027,6 +13276,9 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/hallway_central)
+"pIv" = (
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_pharmacy)
 "pIC" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 1
@@ -13793,6 +14045,8 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/closet/crate,
+/obj/item/stack/material/cardboard/full,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_surgery)
 "qzu" = (
@@ -13834,6 +14088,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/hallway_central)
+"qCa" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/research,
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/labs_pharmacy)
 "qCL" = (
 /obj/item/ore/coal{
 	pixel_x = 6;
@@ -14032,10 +14294,15 @@
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_habitation)
 "qPD" = (
-/obj/effect/floor_decal/industrial/outline/research,
-/obj/machinery/light,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/labs_surgery)
 "qSm" = (
 /obj/random/junk{
@@ -14078,6 +14345,16 @@
 	},
 /turf/simulated/floor/airless,
 /area/cryo_outpost/inside/sensors_iff)
+"qUv" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/sign/biohazard{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/freezer{
+	name = "cold storage tiles";
+	temperature = 278
+	},
+/area/cryo_outpost/inside/labs_surgery)
 "qUK" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_door/red,
@@ -14190,6 +14467,17 @@
 	},
 /turf/simulated/floor/carpet/purple,
 /area/cryo_outpost/inside/habitation_east)
+"rbx" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/structure/closet/crate/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/obj/random/medical,
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/labs_rnd)
 "rbF" = (
 /obj/structure/closet,
 /obj/item/reagent_containers/spray/pepper,
@@ -14417,6 +14705,19 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
+/area/cryo_outpost/inside/entrance_aux_west)
+"rnj" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/hydroponics,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/inside/entrance_aux_west)
 "rnq" = (
 /obj/effect/floor_decal/corner/grey{
@@ -15059,6 +15360,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/botany)
+"sbS" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/machinery/chem_master,
+/turf/simulated/floor/carpet/rubber,
+/area/cryo_outpost/inside/labs_pharmacy)
 "scv" = (
 /obj/structure/reagent_dispensers/radioactive_waste{
 	pixel_y = 6;
@@ -15296,6 +15604,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/entrance_main)
+"sni" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_pharmacy)
 "snj" = (
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 4
@@ -15328,6 +15645,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_west)
+"soI" = (
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/obj/item/storage/box/freezer/organcooler,
+/turf/simulated/floor/tiled/freezer{
+	name = "cold storage tiles";
+	temperature = 278
+	},
+/area/cryo_outpost/inside/labs_surgery)
 "spm" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 5
@@ -15354,6 +15681,14 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_medbay)
+"sqF" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_pharmacy)
 "srD" = (
 /obj/structure/table/rack,
 /obj/random/loot,
@@ -15500,6 +15835,15 @@
 /obj/structure/closet/crate/hydroponics,
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/random/dirt_75,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
+/obj/random/seed,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/botany)
 "sxE" = (
@@ -15580,6 +15924,9 @@
 /obj/machinery/light/broken{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/entrance_aux_west)
 "sBE" = (
@@ -15607,6 +15954,11 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
+/area/cryo_outpost/inside/warehouse)
+"sDO" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/warehouse)
 "sEI" = (
 /obj/structure/cable{
@@ -18612,6 +18964,15 @@
 	},
 /turf/simulated/floor/exoplanet/desert,
 /area/cryo_outpost/outside/surface)
+"wgx" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_rnd)
 "wgR" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -18890,6 +19251,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/medical)
+"wzw" = (
+/obj/effect/floor_decal/corner/orange/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_pharmacy)
 "wzV" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -19311,10 +19676,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/maint_habitation)
 "wWT" = (
-/obj/machinery/vending/coffee,
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
+/obj/machinery/vending/coffee/free,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/canteen)
 "wXy" = (
@@ -19371,6 +19736,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_maint_e)
+"xav" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 5
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/cryo_outpost/inside/labs_pharmacy)
 "xaM" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/random/dirt_75,
@@ -19594,6 +19965,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_east)
+"xnJ" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/engineering)
 "xnS" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/organ/internal/liver,
@@ -19799,6 +20177,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/cryo_outpost/inside/habitation_east)
+"xzX" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled/dark/full,
+/area/cryo_outpost/inside/botany)
 "xAt" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -19918,10 +20300,10 @@
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_habitation)
 "xJh" = (
-/obj/machinery/vending/cigarette,
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
 	},
+/obj/machinery/vending/cigarette/hacked,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/canteen)
 "xJl" = (
@@ -20062,7 +20444,7 @@
 	pixel_x = -5;
 	pixel_y = -10
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/cryo_outpost/inside/labs_rnd)
 "xRP" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -46110,7 +46492,7 @@ pgW
 gXK
 upw
 foj
-tHy
+hTW
 xJd
 gFT
 gFT
@@ -46912,7 +47294,7 @@ lBM
 gFT
 hPb
 sAv
-lUr
+eLN
 eLD
 tCw
 adg
@@ -47428,7 +47810,7 @@ pfF
 rnh
 lUr
 lUr
-tCw
+pFw
 adg
 gdW
 chj
@@ -48208,7 +48590,7 @@ eqk
 gxn
 pEo
 eFZ
-asW
+rnj
 wFF
 twr
 viW
@@ -50504,7 +50886,7 @@ dji
 pgW
 pgW
 uZt
-rnT
+nof
 pXz
 hbX
 oXV
@@ -51025,7 +51407,7 @@ foA
 uZt
 jEV
 byo
-duO
+xzX
 vMK
 duO
 rVq
@@ -51533,7 +51915,7 @@ pgW
 pgW
 uZt
 swO
-tdj
+eQr
 fVx
 dvk
 tig
@@ -52046,7 +52428,7 @@ dji
 pgW
 pgW
 uZt
-ded
+lMX
 axz
 sHr
 ovP
@@ -52571,7 +52953,7 @@ rDv
 vMK
 duO
 duO
-jJU
+oyY
 jir
 rFh
 tqr
@@ -52818,7 +53200,7 @@ pgW
 pgW
 pgW
 xbb
-mWg
+lqO
 kkA
 hKU
 uZt
@@ -53077,7 +53459,7 @@ pgW
 xbb
 lgR
 voO
-hKU
+fFT
 uZt
 uZt
 uZt
@@ -62820,7 +63202,7 @@ uIY
 reF
 suJ
 itY
-xjv
+sDO
 xjv
 hpd
 sim
@@ -63557,7 +63939,7 @@ dvY
 paq
 oDg
 oDg
-uVU
+rbx
 uVU
 eyB
 upr
@@ -64077,7 +64459,7 @@ dOA
 nHm
 dtF
 qNj
-fgq
+wgx
 aAQ
 jlj
 snD
@@ -64330,16 +64712,16 @@ hBY
 hBY
 hBY
 hBY
-eLN
+wXQ
 ewX
 hBY
-hBY
-hBY
-vdu
-vdu
-vdu
-vdu
-jWo
+gQn
+gQn
+nzz
+gQn
+gQn
+gQn
+gQn
 pgW
 pgW
 pgW
@@ -64590,13 +64972,13 @@ bdd
 qxI
 hTE
 jgq
-hBY
-hBY
-vdu
-vdu
-vdu
-vdu
-jWo
+gQn
+jrZ
+sni
+jVU
+bkW
+gQn
+gQn
 pgW
 pgW
 pgW
@@ -64846,14 +65228,14 @@ mzx
 xMv
 noY
 jCm
-jgq
-hBY
-hBY
-pgW
-pgW
-pgW
-pgW
-pgW
+dTK
+gQn
+kVy
+wzw
+dTc
+otf
+gQn
+gQn
 pgW
 pgW
 pgW
@@ -64900,7 +65282,7 @@ xJE
 qXz
 fBw
 dsF
-qwt
+gHB
 hgH
 qXz
 ydE
@@ -65104,13 +65486,13 @@ tyD
 noY
 mSD
 bsn
-hBY
-hBY
-pgW
-pgW
-pgW
-pgW
-pgW
+gQn
+bDq
+pIv
+iHd
+sbS
+gQn
+gQn
 pgW
 pgW
 pgW
@@ -65361,13 +65743,13 @@ tyD
 noY
 jCm
 qPD
-hBY
-hBY
-pgW
-pgW
-pgW
-pgW
-pgW
+qCa
+hmQ
+wzw
+xav
+bNj
+gQn
+gQn
 pgW
 pgW
 pgW
@@ -65618,13 +66000,13 @@ tyD
 noY
 hKy
 lSq
-hBY
-hBY
-pgW
-pgW
-pgW
-pgW
-pgW
+gQn
+bDq
+kVy
+kCd
+sqF
+gQn
+gQn
 pgW
 pgW
 pgW
@@ -65875,13 +66257,13 @@ bCb
 iKZ
 jCm
 eim
-hBY
-hBY
-pgW
-pgW
-pgW
-pgW
-pgW
+gQn
+nkd
+nCP
+ahZ
+jsU
+gQn
+gQn
 pgW
 pgW
 pgW
@@ -66132,13 +66514,13 @@ pxp
 rml
 eHg
 qyI
-hBY
-hBY
-pgW
-pgW
-pgW
-pgW
-pgW
+gQn
+gQn
+gQn
+gQn
+gQn
+gQn
+gQn
 pgW
 pgW
 pgW
@@ -66389,13 +66771,13 @@ hBY
 hBY
 hBY
 hBY
-hBY
-hBY
-pgW
-pgW
-pgW
-pgW
-pgW
+gQn
+gQn
+gQn
+gQn
+gQn
+gQn
+gQn
 pgW
 pgW
 pgW
@@ -66640,14 +67022,14 @@ hBY
 hBY
 sQN
 fOT
-mvE
-gQn
+soI
 xyP
 wUt
 hBY
 hBY
 hBY
-hBY
+gQn
+gQn
 pgW
 pgW
 pgW
@@ -66898,11 +67280,11 @@ hBY
 psE
 rjR
 rjR
-nOW
 iAj
 nOW
 hBY
 hBY
+pgW
 pgW
 pgW
 pgW
@@ -67152,14 +67534,14 @@ wdz
 qxH
 fnn
 hBY
-pxg
+jZe
 uRh
 dnc
-uRh
 uRh
 caZ
 hBY
 hBY
+pgW
 pgW
 pgW
 pgW
@@ -67202,7 +67584,7 @@ kEh
 xiX
 hvA
 uZk
-txx
+xnJ
 uGb
 rJN
 tsX
@@ -67405,18 +67787,18 @@ hBY
 hBY
 dnc
 wRv
-jZe
+erm
 bUY
 pxg
 hBY
 uRh
 oIy
-uRh
-jZe
+qUv
 kls
 pxg
 hBY
 hBY
+pgW
 pgW
 pgW
 pgW
@@ -67459,7 +67841,7 @@ pTD
 oRI
 hvA
 xwx
-ifk
+bMi
 lsj
 vZT
 vZT
@@ -67673,7 +68055,7 @@ hBY
 hBY
 hBY
 hBY
-hBY
+pgW
 pgW
 pgW
 pgW
@@ -67716,7 +68098,7 @@ qGS
 fLC
 hvA
 hxI
-dWL
+cgF
 grf
 vZT
 lSD
@@ -67930,7 +68312,7 @@ hBY
 hBY
 hBY
 hBY
-hBY
+pgW
 pgW
 pgW
 pgW

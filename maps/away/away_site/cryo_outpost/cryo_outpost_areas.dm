@@ -131,6 +131,10 @@
 	name = "Labs, Maint, East"
 	icon_state = "maintenance"
 
+/area/cryo_outpost/inside/labs_pharmacy
+	name = "Labs, Pharmacy"
+	icon_state = "phar"
+
 // ------------- engineering
 
 /area/cryo_outpost/inside/warehouse
