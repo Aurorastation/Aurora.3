@@ -100,8 +100,6 @@ GLOBAL_LIST_EMPTY(narsie_list)
 
 	if(!cause_hell)
 		return
-	if(isturf(bumped_atom))
-		narsiewall(bumped_atom)
 	else if(istype(bumped_atom, /obj/structure/cult))
 		qdel(bumped_atom)
 
