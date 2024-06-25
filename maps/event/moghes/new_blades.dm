@@ -46,6 +46,10 @@
 	requires_power = TRUE
 	area_blurb = "Though a ruined shell, this building appears somewhat intact. A potential shelter, should the weather turn."
 
+/area/new_blades/interiors/ruins/hegemony_spaceport
+	name = "Abandoned Spaceport"
+	area_blurb = "The buildings here are ancient and rusting - a monument to the war that left this world sundered and bleeding."
+
 /area/new_blades/interiors/ruins/hegemony_base
 	name = "Abandoned Base"
 	area_blurb = "The buildings here are ancient and rusting - a monument to the war that left this world sundered and bleeding."
