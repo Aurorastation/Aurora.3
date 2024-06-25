@@ -33916,11 +33916,6 @@
 	},
 /turf/simulated/floor/wood/maple,
 /area/horizon/holodeck/source_cafe)
-"dwf" = (
-/obj/structure/bed/stool/chair/sofa/right/purple,
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood/maple,
-/area/horizon/holodeck/source_cafe)
 "dwR" = (
 /obj/structure/flora/grass/green,
 /turf/simulated/floor/holofloor/snow,
@@ -36990,27 +36985,6 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_meetinghall)
-"nJQ" = (
-/obj/structure/table/wood/yew,
-/obj/item/clothing/suit/maid_costume,
-/obj/item/clothing/suit/maid_costume,
-/obj/item/clothing/suit/maid_costume,
-/obj/item/clothing/head/pin/flower/pink{
-	pixel_x = 4;
-	pixel_y = 8
-	},
-/obj/item/clothing/head/pin/flower/pink{
-	pixel_x = 4;
-	pixel_y = 8
-	},
-/obj/item/clothing/head/pin/flower/pink{
-	pixel_x = 4;
-	pixel_y = 8
-	},
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/effect/floor_decal/spline/fancy/wood/full,
-/turf/simulated/floor/wood/maple,
-/area/horizon/holodeck/source_cafe)
 "nLZ" = (
 /turf/simulated/wall/shuttle/unique/ccia{
 	icon_state = "4,0"
@@ -37169,11 +37143,6 @@
 	name = "grass"
 	},
 /area/horizon/holodeck/source_konyang)
-"opD" = (
-/obj/structure/bed/stool/chair/sofa/left/purple,
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood/maple,
-/area/horizon/holodeck/source_cafe)
 "oqe" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/spline/fancy{
@@ -39516,15 +39485,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/centcom/shared_dream)
-"wrv" = (
-/obj/structure/table/wood/yew,
-/obj/item/clothing/suit/dog_costume,
-/obj/item/clothing/suit/dog_costume,
-/obj/item/clothing/suit/dog_costume,
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/effect/floor_decal/spline/fancy/wood/full,
-/turf/simulated/floor/wood/maple,
-/area/horizon/holodeck/source_cafe)
 "wrH" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/beach/sand{
@@ -78456,7 +78416,7 @@ bGi
 bHp
 bHp
 bFf
-wrv
+jeo
 xlV
 qBm
 qBm
@@ -78713,7 +78673,7 @@ rYl
 bHp
 bHp
 bFf
-dwf
+jeo
 sWf
 iyn
 pda
@@ -78970,7 +78930,7 @@ rYl
 bHp
 bHp
 bFf
-opD
+jeo
 sWf
 pda
 pda
@@ -79227,7 +79187,7 @@ rYl
 bHp
 bHp
 bFf
-nJQ
+jeo
 sWf
 pda
 pda
