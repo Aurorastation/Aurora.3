@@ -1949,7 +1949,6 @@
 	icon_state = "door_locked";
 	id_tag = "tajara_mining_jack_hatch";
 	name = "Ship External Access";
-	open_layer = 2.8;
 	dir = 4
 	},
 /turf/simulated/floor/plating{

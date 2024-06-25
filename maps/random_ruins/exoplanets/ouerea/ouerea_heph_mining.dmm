@@ -78,7 +78,6 @@
 "jJ" = (
 /obj/machinery/conveyor{
 	id = "moghes_heph_base";
-	layer = 2.9;
 	dir = 1
 	},
 /obj/structure/railing/mapped{
@@ -106,8 +105,7 @@
 "lq" = (
 /obj/machinery/mineral/unloading_machine,
 /obj/machinery/conveyor{
-	id = "moghes_heph_base";
-	layer = 2.9
+	id = "moghes_heph_base"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -127,8 +125,7 @@
 /area/ouerea_heph_mining)
 "lN" = (
 /obj/machinery/conveyor{
-	id = "moghes_heph_base";
-	layer = 2.9
+	id = "moghes_heph_base"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -214,7 +211,6 @@
 /area/ouerea_heph_mining)
 "rP" = (
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 24
 	},
@@ -290,7 +286,6 @@
 "vl" = (
 /obj/machinery/conveyor{
 	id = "moghes_heph_base";
-	layer = 2.9;
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -363,7 +358,6 @@
 "yk" = (
 /obj/machinery/conveyor{
 	id = "moghes_heph_base";
-	layer = 2.9;
 	dir = 1
 	},
 /obj/structure/railing/mapped{
@@ -408,7 +402,6 @@
 "yV" = (
 /obj/machinery/conveyor{
 	id = "moghes_heph_base";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -549,7 +542,6 @@
 "JQ" = (
 /obj/machinery/conveyor{
 	id = "moghes_heph_base";
-	layer = 2.9;
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -588,8 +580,7 @@
 /area/ouerea_heph_mining)
 "QN" = (
 /obj/machinery/conveyor{
-	id = "moghes_heph_base";
-	layer = 2.9
+	id = "moghes_heph_base"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -701,7 +692,6 @@
 "Xc" = (
 /obj/machinery/conveyor{
 	id = "moghes_heph_base";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,

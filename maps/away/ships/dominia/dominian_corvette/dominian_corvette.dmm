@@ -4913,7 +4913,6 @@
 "qRq" = (
 /obj/structure/table/wood,
 /obj/item/storage/box/fancy/cigarettes/cigar{
-	layer = 3.01;
 	pixel_x = -5;
 	pixel_y = 6
 	},
@@ -6064,7 +6063,6 @@
 "vBe" = (
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
