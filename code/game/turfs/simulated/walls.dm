@@ -80,7 +80,7 @@
 		STOP_PROCESSING(SSprocessing, src)
 
 /turf/simulated/wall/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(!opacity && istype(mover) && mover.checkpass(PASSGLASS))
+	if(!opacity && istype(mover) && mover.pass_flags & PASSGLASS)
 		return TRUE
 	return ..()
 

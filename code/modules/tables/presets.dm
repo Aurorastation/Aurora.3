@@ -1,10 +1,4 @@
-/obj/structure/table
-	icon = 'icons/obj/structure/tables/table.dmi'
-	var/table_mat
-	var/table_reinf
-	var/no_cargo
-	build_amt = 1
-	// note : material_alteration does not work here because it is constructed piece by piece and not spawned in one shot like chairs
+// note : material_alteration does not work here because it is constructed piece by piece and not spawned in one shot like chairs
 
 /obj/structure/table/standard
 	icon_state = "solid_preview"

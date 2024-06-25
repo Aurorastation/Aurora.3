@@ -79,8 +79,12 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 
 	. = ..()
 
-/obj/effect/overmap/visitable/ship/relaymove(mob/user, direction, accel_limit)
-	accelerate(direction, accel_limit)
+/obj/effect/overmap/visitable/ship/relaymove(mob/living/user, direction, accel_limit)
+	. = ..()
+	if(!.)
+		return
+
+	INVOKE_ASYNC(src, PROC_REF(accelerate), direction, accel_limit)
 
 /obj/effect/overmap/visitable/ship/proc/is_still()
 	return !MOVING(speed[1]) && !MOVING(speed[2])

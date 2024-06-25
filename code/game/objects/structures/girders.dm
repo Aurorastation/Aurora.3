@@ -10,6 +10,7 @@
 	layer = BELOW_OBJ_LAYER
 	w_class = ITEMSIZE_HUGE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	pass_flags_self = PASSTABLE
 	var/state = 0
 	var/health = 200
 	var/cover = 50 //how much cover the girder provides against projectiles.
@@ -380,7 +381,4 @@
 			return 1
 		else
 			return 0
-	else if(mover.checkpass(PASSTABLE))
-//Animals can run under them, lots of empty space
-		return 1
 	return ..()

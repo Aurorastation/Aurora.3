@@ -319,7 +319,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK";
 	pixel_x = 32
 	},
@@ -923,7 +922,6 @@
 /area/old_outpost/refinery)
 "rl" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /obj/machinery/light/small/emergency{
@@ -1605,7 +1603,6 @@
 /area/old_outpost/eva)
 "Cx" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
@@ -2519,7 +2516,6 @@
 	dir = 8
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 32;
 	pixel_y = 10
 	},
@@ -2604,7 +2600,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK"
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -2837,7 +2832,6 @@
 /area/old_outpost/dorms)
 "WF" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = -32
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{

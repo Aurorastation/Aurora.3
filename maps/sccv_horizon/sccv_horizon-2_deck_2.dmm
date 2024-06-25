@@ -470,9 +470,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
-/obj/structure/sign/emergency/evacuation/stairs{
-	layer = 2.1
-	},
+/obj/structure/sign/emergency/evacuation/stairs,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
@@ -972,7 +970,6 @@
 	pixel_y = 5
 	},
 /obj/item/reagent_containers/hypospray{
-	layer = 2.99;
 	pixel_x = 4;
 	pixel_y = 5
 	},
@@ -1948,7 +1945,6 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1380;
-	layer = 3.3;
 	master_tag = "centcom_shuttle_dock_airlock";
 	name = "interior access button";
 	pixel_x = -25;
@@ -5917,7 +5913,6 @@
 "cGJ" = (
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /obj/effect/floor_decal/corner/beige/full,
@@ -8761,9 +8756,7 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_one)
 "ebm" = (
-/obj/structure/extinguisher_cabinet/east{
-	layer = 3.3
-	},
+/obj/structure/extinguisher_cabinet/east,
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
 /obj/machinery/firealarm/north,
@@ -9747,9 +9740,7 @@
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
 "eAX" = (
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
@@ -9905,7 +9896,6 @@
 	dir = 4
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /mob/living/simple_animal/hostile/commanded/dog/columbo,
@@ -11891,9 +11881,7 @@
 /obj/machinery/camera/network/service{
 	c_tag = "Second Deck - Public Garden"
 	},
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
 "fwK" = (
@@ -14729,9 +14717,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
 "gFs" = (
@@ -16028,9 +16014,7 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/icu)
 "hkt" = (
-/obj/structure/extinguisher_cabinet/east{
-	layer = 3.3
-	},
+/obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zat)
 "hkA" = (
@@ -19304,6 +19288,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
+"iKQ" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room/rust)
 "iKU" = (
 /obj/machinery/ammunition_loader/grauwolf{
 	weapon_id = "Grauwolf Flak Battery"
@@ -20138,7 +20131,6 @@
 	},
 /obj/effect/floor_decal/corner_wide/green,
 /obj/structure/sink{
-	layer = 3;
 	pixel_x = -7;
 	pixel_y = 23
 	},
@@ -20151,7 +20143,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 2;
 	id = "EngineEmitterPortWest";
-	layer = 3.3;
 	name = "Supermatter Reactor Waste Management Blast Door"
 	},
 /turf/simulated/floor/tiled/full,
@@ -20566,7 +20557,6 @@
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
 	id = "massdriver";
-	layer = 3.2;
 	name = "Mass Driver Interior Blast Door";
 	pixel_x = 25;
 	pixel_y = 11
@@ -20574,7 +20564,6 @@
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
 	id = "chapel_driver";
-	layer = 3.2;
 	name = "Mass Driver Exterior Blast Door";
 	pixel_x = 25
 	},
@@ -20582,7 +20571,6 @@
 	_wifi_id = "chapel_driver";
 	dir = 8;
 	id = "chapel_driver";
-	layer = 3.2;
 	pixel_x = 35;
 	pixel_y = 5
 	},
@@ -23018,9 +23006,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/closet/crate{
-	layer = 2.79
-	},
+/obj/structure/closet/crate,
 /obj/item/stock_parts/manipulator,
 /obj/item/stock_parts/capacitor,
 /obj/item/stock_parts/capacitor,
@@ -23782,9 +23768,7 @@
 	pixel_y = 4
 	},
 /obj/structure/railing/mapped,
-/obj/structure/stairs_lower/stairs_upper{
-	layer = 3.1
-	},
+/obj/structure/stairs_lower/stairs_upper,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical)
 "kUf" = (
@@ -24449,9 +24433,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/structure/extinguisher_cabinet/east{
-	layer = 3.3
-	},
+/obj/structure/extinguisher_cabinet/east,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
@@ -24732,16 +24714,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
 "lui" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
-/obj/machinery/atmospherics/binary/pump{
-	dir = 1;
-	layer = 8
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "r_ust_core_blast";
 	name = "INDRA Reactor Blast Doors"
 	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/atmospherics/pipe/simple/visible,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
 "luo" = (
@@ -26833,7 +26812,6 @@
 /area/storage/primary)
 "msO" = (
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 2;
 	pixel_y = 34
 	},
@@ -26842,7 +26820,6 @@
 	dir = 5
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 2;
 	pixel_y = 23
 	},
@@ -27298,9 +27275,7 @@
 "mBk" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/machinery/light,
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
 "mBI" = (
@@ -27557,15 +27532,6 @@
 "mHM" = (
 /obj/structure/closet/secure_closet/RD,
 /obj/effect/floor_decal/industrial/outline/research,
-/obj/item/aicard,
-/obj/item/device/paicard,
-/obj/item/storage/box/gloves,
-/obj/item/device/megaphone/sci,
-/obj/item/device/taperecorder,
-/obj/item/clothing/glasses/welding/superior,
-/obj/item/rig/hazmat/equipped,
-/obj/item/clothing/mask/gas/half,
-/obj/item/storage/box/fancy/candle_box,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
@@ -31645,6 +31611,8 @@
 /obj/item/reagent_containers/blood/BPlus,
 /obj/item/reagent_containers/blood/BMinus,
 /obj/item/reagent_containers/blood/BMinus,
+/obj/item/reagent_containers/blood/sbs,
+/obj/item/reagent_containers/blood/sbs,
 /obj/item/reagent_containers/blood/APlus,
 /obj/item/reagent_containers/blood/APlus,
 /obj/item/reagent_containers/blood/AMinus,
@@ -31814,7 +31782,6 @@
 	},
 /obj/structure/platform{
 	dir = 8;
-	layer = 3;
 	pixel_y = 13
 	},
 /turf/simulated/floor/wood,
@@ -35486,6 +35453,7 @@
 /area/horizon/grauwolf)
 "quV" = (
 /obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/sbs,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/structure/closet/walllocker/medical/secure{
@@ -36183,7 +36151,6 @@
 	},
 /obj/structure/sign/fire{
 	desc = "A warning sign which reads 'DANGER: SHUTTLE THRUSTERS IN USE' and 'MIND THE DISTANCE'.";
-	layer = 2.1;
 	name = "\improper DANGER: THRUSTERS sign";
 	pixel_x = -32
 	},
@@ -36324,10 +36291,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/atmospherics/binary/pump{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
 "qPo" = (
@@ -36686,11 +36652,9 @@
 	pixel_y = 10
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -36934,7 +36898,6 @@
 "rbr" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
-	icon_state = "door_locked";
 	locked = 1;
 	name = "INDRA Reactor Core Access";
 	req_one_access = list(11,24)
@@ -37846,11 +37809,9 @@
 	pixel_y = 10
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -37974,9 +37935,7 @@
 /obj/machinery/alarm/north{
 	req_one_access = list(24,11,55)
 	},
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
 "rAw" = (
@@ -38552,7 +38511,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 2;
 	id = "EngineEmitterPortWest";
-	layer = 3.3;
 	name = "Supermatter Reactor Waste Management Blast Door"
 	},
 /turf/simulated/floor/tiled/full,
@@ -39902,7 +39860,6 @@
 /obj/item/device/assembly/timer,
 /obj/structure/closet/crate/drop/grey{
 	desc = "A large, sturdy crate, that stores grenade components.";
-	layer = 2.79;
 	name = "grenade crate";
 	pixel_y = -4;
 	tablestatus = -1
@@ -40005,9 +39962,7 @@
 /turf/simulated/wall,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
 "sBy" = (
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/item/device/radio/intercom/west,
 /turf/simulated/floor/grass,
@@ -42805,6 +42760,7 @@
 /area/rnd/xenobiology/foyer)
 "tSC" = (
 /obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/sbs,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/structure/closet/walllocker/medical/secure{
@@ -45371,8 +45327,7 @@
 /area/horizon/library)
 "uZt" = (
 /obj/machinery/power/terminal{
-	dir = 8;
-	layer = 5
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -45661,6 +45616,15 @@
 /obj/structure/extinguisher_cabinet/east,
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/chemistry)
+"vgs" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/engineering/engine_room/rust)
 "vgt" = (
 /obj/structure/disposaloutlet{
 	dir = 1;
@@ -46953,7 +46917,6 @@
 	dir = 9
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/structure/table/wood,
@@ -50403,9 +50366,7 @@
 /area/horizon/crew_quarters/lounge/bar)
 "xmt" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
 "xmw" = (
@@ -51607,7 +51568,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 2;
 	id = "EngineEmitterPortWest";
-	layer = 3.3;
 	name = "Supermatter Reactor Waste Management Blast Door"
 	},
 /turf/simulated/floor/tiled/full,
@@ -52228,7 +52188,6 @@
 "yci" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -76839,7 +76798,7 @@ rkO
 tOr
 lui
 qPf
-ssK
+vgs
 iHo
 ums
 gVl
@@ -77647,7 +77606,7 @@ fJI
 uUa
 lui
 qPf
-ssK
+iKQ
 eoh
 aCU
 gVl

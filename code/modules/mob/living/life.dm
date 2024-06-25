@@ -160,6 +160,9 @@
 		setEarDamage(-1, max(ear_deaf, 1))
 
 /mob/living/proc/update_sight()
+	if(stop_sight_update)
+		return
+
 	set_sight(0)
 	if(stat == DEAD || (eyeobj && !eyeobj.living_eye))
 		update_dead_sight()

@@ -560,7 +560,11 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 		else
 			icon_state = initial(icon_state)
 
-/obj/machinery/cryopod/relaymove(var/mob/user)
+/obj/machinery/cryopod/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	go_out()
 
 /obj/machinery/cryopod/proc/save_ipc_tag(var/mob/M)

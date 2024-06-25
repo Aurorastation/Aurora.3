@@ -1667,8 +1667,7 @@
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
 "gV" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 1;
-	layer = 2.8
+	dir = 1
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -1874,7 +1873,8 @@
 	pixel_x = 20;
 	pixel_y = 4;
 	id = "idriscruiser_docking_lockdown";
-	name = "Docking Arm Lockdown"
+	name = "Docking Arm Lockdown";
+	req_access = list(220)
 	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/port_lobby)
@@ -2549,7 +2549,8 @@
 	pixel_x = -8;
 	pixel_y = -20;
 	id = "idriscruiser_docking_lockdown";
-	name = "Docking Arm Lockdown"
+	name = "Docking Arm Lockdown";
+	req_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -2993,8 +2994,7 @@
 /area/ship/idris_cruiser/great_room)
 "mf" = (
 /obj/structure/table/rack{
-	dir = 8;
-	layer = 2.9
+	dir = 8
 	},
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
@@ -5479,11 +5479,9 @@
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_y = 9
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_y = 3
 	},
 /obj/item/material/kitchen/rollingpin{
@@ -5491,7 +5489,6 @@
 	pixel_y = 10
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /turf/simulated/floor/tiled/white,
@@ -7451,12 +7448,10 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 2;
 	pixel_y = 23
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 2;
 	pixel_y = 34
 	},
@@ -7929,12 +7924,10 @@
 	dir = 9
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = -23;
 	pixel_y = 6
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = -23;
 	pixel_y = -4
 	},
@@ -9276,7 +9269,8 @@
 	pixel_x = -20;
 	pixel_y = 4;
 	id = "idriscruiser_docking_lockdown";
-	name = "Docking Arm Lockdown"
+	name = "Docking Arm Lockdown";
+	req_access = list(220)
 	},
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/starboard_lobby)
@@ -11670,8 +11664,7 @@
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	dir = 4;
-	pixel_y = 15;
-	layer = 2.91
+	pixel_y = 15
 	},
 /obj/machinery/media/jukebox/audioconsole/wall{
 	pixel_x = -32
@@ -13562,7 +13555,8 @@
 	pixel_x = 8;
 	pixel_y = -20;
 	id = "idriscruiser_docking_lockdown";
-	name = "Docking Arm Lockdown"
+	name = "Docking Arm Lockdown";
+	req_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)

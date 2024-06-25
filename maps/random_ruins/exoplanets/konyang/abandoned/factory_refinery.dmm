@@ -23,8 +23,7 @@
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 10;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /obj/item/ore/osmium,
 /turf/simulated/floor/concrete,
@@ -61,15 +60,13 @@
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 1;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 10;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /turf/simulated/floor/concrete,
 /area/konyang/refinery)
@@ -120,8 +117,7 @@
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 1;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/concrete,
@@ -172,8 +168,7 @@
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 4;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /obj/random/junk,
 /turf/simulated/floor/sidewalk/dark,
@@ -212,8 +207,7 @@
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 4;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /obj/structure/ore_box,
 /turf/simulated/floor/sidewalk/dark,
@@ -271,8 +265,7 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/smoothtrack.dmi';
 	icon_state = "track12";
-	name = "tram track";
-	layer = 2.5
+	name = "tram track"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
@@ -426,8 +419,7 @@
 /area/konyang/refinery)
 "tb" = (
 /obj/effect/decal/exterior_stairs/center{
-	dir = 8;
-	layer = 2.6
+	dir = 8
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/exoplanet/grass/konyang)
@@ -467,15 +459,13 @@
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 1;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 10;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/concrete,
@@ -503,8 +493,7 @@
 /area/exoplanet/grass/konyang)
 "uV" = (
 /obj/effect/decal/exterior_stairs/left{
-	dir = 8;
-	layer = 2.6
+	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/flat,
@@ -514,8 +503,7 @@
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 4;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/concrete,
@@ -525,8 +513,7 @@
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 4;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /obj/structure/plasticflaps/mining{
 	dir = 4
@@ -549,8 +536,7 @@
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 4;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /obj/structure/rod_railing,
 /turf/simulated/floor/concrete,
@@ -565,9 +551,7 @@
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/refinery)
 "wT" = (
-/obj/effect/decal/exterior_stairs/half{
-	layer = 2.8
-	},
+/obj/effect/decal/exterior_stairs/half,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/exoplanet/grass/konyang)
 "wY" = (
@@ -575,8 +559,7 @@
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 4;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /turf/simulated/floor/concrete,
 /area/konyang/refinery)
@@ -631,8 +614,7 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/smoothtrack.dmi';
 	icon_state = "track12";
-	name = "tram track";
-	layer = 2.5
+	name = "tram track"
 	},
 /turf/simulated/floor/sidewalk/flat,
 /area/exoplanet/grass/konyang)
@@ -653,9 +635,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/exoplanet/grass/konyang)
 "Cm" = (
-/obj/effect/decal/curb{
-	layer = 2.02
-	},
+/obj/effect/decal/curb,
 /obj/random/powercell,
 /turf/simulated/floor/asphalt,
 /area/exoplanet/grass/konyang)
@@ -784,8 +764,7 @@
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 4;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /obj/item/pickaxe/diamonddrill,
 /turf/simulated/floor/concrete,
@@ -928,8 +907,7 @@
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 4;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /obj/effect/decal/cleanable/greenglow,
 /turf/simulated/floor/concrete,
@@ -969,15 +947,13 @@
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 1;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 10;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /obj/structure/ore_box,
 /turf/simulated/floor/concrete,
@@ -1000,8 +976,7 @@
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 4;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/dark,
@@ -1024,8 +999,7 @@
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 4;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /turf/simulated/floor/sidewalk/dark,
 /area/konyang/refinery)
@@ -1091,8 +1065,7 @@
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
 	dir = 1;
-	name = "conveyor belt";
-	layer = 2.5
+	name = "conveyor belt"
 	},
 /turf/simulated/floor/concrete,
 /area/konyang/refinery)

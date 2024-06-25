@@ -360,7 +360,6 @@
 /area/bridge/aibunker)
 "ajV" = (
 /obj/structure/sink/kitchen{
-	layer = 3.5;
 	pixel_y = 27
 	},
 /obj/effect/floor_decal/corner/grey/diagonal{
@@ -819,7 +818,6 @@
 /obj/machinery/vending/zora,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = -16;
 	pixel_y = 32
 	},
@@ -2035,7 +2033,6 @@
 	dir = 1
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /turf/simulated/floor/wood,
@@ -2837,9 +2834,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/newscaster/south{
-	layer = 3.3
-	},
+/obj/machinery/newscaster/south,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "ccQ" = (
@@ -3580,7 +3575,6 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
@@ -5055,8 +5049,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/platform_deco{
-	dir = 4;
-	layer = 2.7
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -5474,7 +5467,6 @@
 	},
 /obj/structure/table/glass,
 /obj/item/storage/box/masks{
-	layer = 2.8;
 	pixel_x = 7;
 	pixel_y = 8
 	},
@@ -6148,8 +6140,7 @@
 	dir = 8
 	},
 /obj/structure/platform_deco{
-	dir = 4;
-	layer = 2.7
+	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled,
@@ -6550,6 +6541,9 @@
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
 	icon_state = "2-8"
+	},
+/obj/structure/platform_stairs/full{
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/maintenance/substation/command)
@@ -8116,7 +8110,6 @@
 /obj/machinery/door/blast/shutters{
 	dir = 2;
 	id = "medicalisolation";
-	layer = 5;
 	name = "Isolation Ward Shutters"
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -9802,7 +9795,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -11877,8 +11869,7 @@
 /area/hallway/medical/upper)
 "iiU" = (
 /obj/structure/platform_deco{
-	dir = 4;
-	layer = 2.7
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -14229,9 +14220,7 @@
 "jOz" = (
 /obj/structure/disposalpipe/trunk,
 /obj/structure/platform,
-/obj/machinery/disposal{
-	layer = 3
-	},
+/obj/machinery/disposal,
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
 "jOB" = (
@@ -15131,7 +15120,6 @@
 "ksS" = (
 /obj/structure/table/standard,
 /obj/structure/closet/crate/plastic{
-	layer = 2.79;
 	pixel_y = -4;
 	tablestatus = -1
 	},
@@ -15162,7 +15150,6 @@
 	pixel_x = -6
 	},
 /obj/structure/noticeboard{
-	layer = 3.3;
 	pixel_x = 32
 	},
 /turf/simulated/floor/lino,
@@ -16968,9 +16955,7 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/random/plushie{
-	layer = 2.8
-	},
+/obj/random/plushie,
 /obj/machinery/ringer/north,
 /turf/simulated/floor/wood,
 /area/bridge/upperdeck)
@@ -17632,8 +17617,7 @@
 	dir = 1
 	},
 /obj/structure/platform_deco{
-	dir = 4;
-	layer = 2.7
+	dir = 4
 	},
 /obj/item/folder/blue{
 	pixel_y = 7;
@@ -21298,8 +21282,7 @@
 	icon_state = "2-4"
 	},
 /obj/structure/platform_deco{
-	dir = 4;
-	layer = 2.7
+	dir = 4
 	},
 /obj/structure/platform_deco{
 	dir = 1
@@ -22322,9 +22305,7 @@
 	c_tag = "Third Deck - Central Stairwell";
 	dir = 4
 	},
-/obj/structure/sign/emergency/evacuation/stairs{
-	layer = 2.1
-	},
+/obj/structure/sign/emergency/evacuation/stairs,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled,
@@ -25119,8 +25100,7 @@
 	dir = 1
 	},
 /obj/structure/platform_deco{
-	dir = 4;
-	layer = 2.7
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/meeting_room)
@@ -26027,6 +26007,9 @@
 /obj/machinery/power/apc/hyper/south,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/maintenance/substation/command)
@@ -27510,8 +27493,7 @@
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "sBT" = (
 /obj/machinery/power/terminal{
-	dir = 8;
-	layer = 5
+	dir = 8
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -27727,8 +27709,7 @@
 /area/horizon/hallway/deck_three/primary/port)
 "sJA" = (
 /obj/structure/platform_deco{
-	dir = 8;
-	layer = 2.7
+	dir = 8
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal{
 	dir = 8
@@ -27866,7 +27847,6 @@
 	dir = 5
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
@@ -28358,7 +28338,6 @@
 	dir = 10
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -32953,8 +32932,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/power/terminal{
-	dir = 8;
-	layer = 5
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
@@ -33273,7 +33251,6 @@
 	dir = 5
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /obj/machinery/power/apc/north{
@@ -33587,7 +33564,6 @@
 /area/crew_quarters/heads/hop/xo)
 "wNz" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /turf/simulated/wall,
@@ -33614,8 +33590,7 @@
 	dir = 4
 	},
 /obj/structure/platform_deco{
-	dir = 8;
-	layer = 2.7
+	dir = 8
 	},
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
@@ -34565,7 +34540,6 @@
 /area/horizon/hallway/deck_three/primary/central)
 "xus" = (
 /obj/machinery/computer/security/telescreen{
-	layer = 4;
 	name = "Observation Screen";
 	network = list("Interrogation");
 	pixel_y = -32

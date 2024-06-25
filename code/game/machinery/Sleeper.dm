@@ -294,7 +294,11 @@
 		LB.user_unbuckle(user)
 	go_in(target, user)
 
-/obj/machinery/sleeper/relaymove(var/mob/user)
+/obj/machinery/sleeper/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if(user == occupant)
 		go_out()
 

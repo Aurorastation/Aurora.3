@@ -16,7 +16,11 @@
 	light_range = 1
 	light_color = COLOR_BRIGHT_GREEN
 
-/obj/item/device/paicard/relaymove(var/mob/user, var/direction)
+/obj/item/device/paicard/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if(user.stat || user.stunned)
 		return
 	if(istype(loc, /mob/living/bot))

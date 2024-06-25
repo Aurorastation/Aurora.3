@@ -174,7 +174,9 @@
 
 /**
  * Checks if a mob can use an atom, message the user if not with an appropriate reason
+ *
  * Returns 0 (FALSE) if they can use it, a value representing why they can't if not
+ *
  * See `code\__DEFINES\misc.dm` for the list of flags and return codes
  *
  * * user - The `mob` to check against, if it can perform said use
@@ -228,11 +230,6 @@
 			found += A.search_contents_for(path,filter_path)
 	return found
 
-// Called by mobs when e.g. having the atom as their machine, pulledby, loc (AKA mob being inside the atom) or buckled_to var set.
-// See code/modules/mob/mob_movement.dm for more.
-/atom/proc/relaymove()
-	return
-
 // Called to set the atom's dir and used to add behaviour to dir-changes.
 /atom/proc/set_dir(new_dir)
 	. = new_dir != dir
@@ -252,8 +249,6 @@
 	return
 
 /atom/proc/hitby(atom/movable/AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
-	if(density)
-		AM.throwing = 0
 	return
 
 /atom/proc/add_hiddenprint(mob/living/M)
@@ -418,7 +413,7 @@
 			M.dna.real_name = M.real_name
 		M.check_dna()
 		if (M.species)
-			blood_color = M.species.blood_color
+			blood_color = M.get_blood_color()
 	. = 1
 	return 1
 
@@ -484,9 +479,6 @@
 		return list("x"=cur_x,"y"=cur_y)
 	else
 		return 0
-
-/atom/proc/checkpass(passflag)
-	return pass_flags&passflag
 
 /atom/proc/isinspace()
 	if(istype(get_turf(src), /turf/space))

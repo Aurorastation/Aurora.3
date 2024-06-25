@@ -125,7 +125,7 @@
 
 /mob/living/carbon/alien/diona/verb/check_light()
 	set category = "Abilities"
-	set name = "Check light level"
+	set name = "Check Light Level"
 
 	var/light = get_lightlevel_diona(DS)
 
