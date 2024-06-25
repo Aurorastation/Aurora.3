@@ -89,12 +89,14 @@
 		"adhomai" = new /datum/holodeck_program(/area/horizon/holodeck/source_adhomai),
 		"pool" = new /datum/holodeck_program(/area/horizon/holodeck/source_pool),
 		"sauna" = new /datum/holodeck_program(/area/horizon/holodeck/source_sauna),
+		"animal_cafe" = new /datum/holodeck_program(/area/horizon/holodeck/source_cafe),
 		"turnoff" = new /datum/holodeck_program(/area/horizon/holodeck/source_plating)
 	)
 
 	holodeck_supported_programs = list(
 		"Empty Court"        = "emptycourt",
 		"Basketball Court"   = "basketball",
+		"Animal Cafe"		 = "animal_cafe",
 		"Thunderdome Court"  = "thunderdomecourt",
 		"Boxing Ring"        = "boxingcourt",
 		"Silversun Coast"    = "beach",
