@@ -36,7 +36,7 @@
 	short_name = "izaku_killsquad"
 	desc = "As a warrior of the Izaku Clan, destroy the aliens who defile Moghes with their presence!"
 	tags = list("External")
-	welcome_message = "You are an Unathi peasant in the Zazalai Mountains. Survive another day against the encroaching Wasteland."
+	welcome_message = "The Horizon's crew has learned of your lord's betrayal of the Nralakk mission. Ensure no witnesses escape Izilukh."
 
 	spawnpoints = list("izaku_killsquad")
 	max_count = 12
@@ -69,10 +69,83 @@
 	l_ear = /obj/item/device/radio/headset/syndicate
 	belt = /obj/item/storage/belt/military
 	belt_contents = list(
-		/obj/item/ammo_magazine/spitterpistol = 1,
+		/obj/item/ammo_magazine/spitterpistol = 2,
 		/obj/item/ammo_magazine/tempestsmg = 2
 	)
 
 /obj/outfit/admin/izaku_killsquad/post_equip(mob/living/carbon/human/H, visualsOnly)
 	. = ..()
-	new /obj/vehicle/bike/motor/sand(H.loc)
+	new /obj/vehicle/bike/motor/sand(get_turf(H))
+
+/datum/ghostspawner/human/izaku_escort
+	name = "Izaku Escort"
+	short_name = "izaku_escort"
+	desc = "Escort the Horizon humanitarian crew. Avoid any complications."
+	tags = list("External")
+	spawnpoints = list("escort")
+	welcome_message = "The Horizon's crew has arrived. Keep them out of trouble, and ensure they don't learn anything they shouldn't."
+	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
+	outfit = /obj/outfit/admin/izaku_escort
+	possible_species = list(SPECIES_UNATHI)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	max_count = 4
+
+	assigned_role = "Izaku Escort"
+	special_role = "Izaku Escort"
+	respawn_flag = null
+
+	uses_species_whitelist = FALSE
+	enabled = FALSE
+
+/obj/outfit/admin/izaku_escort
+	uniform = /obj/item/clothing/under/unathi/zazali
+	accessory = /obj/item/clothing/accessory/holster/hip
+	accessory_contents = list(/obj/item/gun/projectile/pistol/spitter = 1)
+	suit = /obj/item/clothing/suit/armor/unathi/hegemony
+	suit_store = /obj/item/gun/projectile/automatic/tempestsmg
+	head = /obj/item/clothing/head/helmet/unathi/hegemony
+	shoes = /obj/item/clothing/shoes/sandals/caligae
+	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
+	id = null
+	l_ear = /obj/item/device/radio/headset/syndicate
+	belt = /obj/item/storage/belt/military
+	belt_contents = list(
+		/obj/item/ammo_magazine/spitterpistol = 2,
+		/obj/item/ammo_magazine/tempestsmg = 2,
+		/obj/item/melee/energy/sword/hegemony = 1,
+		/obj/item/grenade/frag = 2
+	)
+
+/datum/ghostspawner/human/izaku_escort/guard
+	name = "Izaku Guard"
+	short_name = "izaku_guard"
+	desc = "Escort the Horizon humanitarian crew. Avoid any complications."
+	tags = list("External")
+	spawnpoints = list("guard")
+	welcome_message = "Your lord has ordered you to learn the true intent of these nefarious Skrell. Guard your surviving prisoner, and ensure no complications."
+	max_count = 2
+
+/datum/ghostspawner/human/skrurvivor
+	name = "Nralakk Survivor"
+	short_name = "skrurvivor"
+	desc = "The last survivor of the Federation team."
+	tags = list("External")
+	spawnpoints = list("warble")
+	max_count = 1
+	possible_species = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	allow_appearance_change = APPEARANCE_PLASTICSURGERY
+	assigned_role = "Nralakk Humanitarian Worker"
+	special_role = "Nralakk Humanitarian Worker"
+	respawn_flag = null
+	outfit = /obj/outfit/admin/skrurvivor
+
+	uses_species_whitelist = FALSE
+	enabled = FALSE
+
+/obj/outfit/admin/skrurvivor
+	uniform = /obj/item/clothing/under/skrell/nralakk/oqi/med
+	shoes = /obj/item/clothing/shoes/jackboots/kala
+	id = /obj/item/card/id
+
+/obj/outfit/admin/skrurvivor/get_id_access()
+	return list(ACCESS_SKRELL)
