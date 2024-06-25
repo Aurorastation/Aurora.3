@@ -634,9 +634,6 @@
 
 /area/horizon/holodeck/source_trinary
 	name = "Horizon - Holodeck - Trinarist Chapel"
-
-/area/horizon/holodeck/source_cafe
-	name = "Horizon - Holodeck - Animal Cafe"
 /********** Holodeck End **********/
 
 /********** Unique Start **********/

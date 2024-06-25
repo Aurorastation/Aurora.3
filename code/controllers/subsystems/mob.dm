@@ -41,9 +41,7 @@ SUBSYSTEM_DEF(mobs)
 
 	var/list/mtl_incorporeal = list(
 		/mob/living/simple_animal/hostile/carp/holodeck,
-		/mob/living/simple_animal/penguin/holodeck,
-		/mob/living/simple_animal/corgi/puppy/holodeck,
-		/mob/living/simple_animal/cat/kitten/holodeck
+		/mob/living/simple_animal/penguin/holodeck
 	)
 
 	/**
