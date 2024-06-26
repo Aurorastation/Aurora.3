@@ -60,8 +60,8 @@
 	"delta" = list(19,38)
 )
 
+/// Locks/bolts any (lockable) door/airlock this marker is placed on.
 /obj/effect/map_effect/door_helper/lock
-//Locks/bolts any (lockable) door/airlock this marker is placed on.
 	icon_state = "locked"
 
 /obj/effect/map_effect/door_helper/lock/modify_door(obj/machinery/door/D)
