@@ -38,11 +38,11 @@
 	stamina_recovery = 3
 
 	unarmed_types = list(
+		/datum/unarmed_attack/bite/warrior,
 		/datum/unarmed_attack/stomp,
 		/datum/unarmed_attack/kick,
 		/datum/unarmed_attack/claws,
-		/datum/unarmed_attack/palm,
-		/datum/unarmed_attack/bite/warrior
+		/datum/unarmed_attack/palm
 	)
 
 	valid_prosthetics = list(PROSTHETIC_VAURCA, PROSTHETIC_VAURCA_WARRIOR)
@@ -55,16 +55,24 @@
 	eyes = "vaurca_attendant_eyes"
 
 	slowdown = -0.8
-	brute_mod = 1.3
+	brute_mod = 0.9
 	oxy_mod = 1
 	radiation_mod = 0.5
-	bleed_mod = 1.5
+	bleed_mod = 2.5
 	burn_mod = 1.2
 	sprint_speed_factor = 0.6
 	sprint_cost_factor = 0.40
 	grab_mod = 1.1
 	resist_mod = 4
 	standing_jump_range = 3
+	pain_mod = 1.5
+
+	unarmed_types = list(
+		/datum/unarmed_attack/stomp,
+		/datum/unarmed_attack/kick,
+		/datum/unarmed_attack/claws,
+		/datum/unarmed_attack/palm
+	)
 
 	mob_size = 8
 	blurb = "Type BB Warriors or \"Attendants\" are digitigrade bipeds, built to be agile and quick. They are primarily made to be scouts or serve in support positions and \
@@ -76,6 +84,11 @@
 	tail = "Gaster"
 	tail_animation = 'icons/mob/species/vaurca/tail.dmi'
 	selectable_tails = list("Gaster")
+
+/datum/species/bug/type_b/type_bb/can_hold_s_store(obj/item/I)
+	if(I.w_class <= ITEMSIZE_NORMAL)
+		return TRUE
+	return FALSE
 
 /datum/species/bug/type_c
 	name = SPECIES_VAURCA_BREEDER
