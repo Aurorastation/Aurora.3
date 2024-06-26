@@ -177,3 +177,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	wrist_radio = /obj/item/device/radio/headset/wrist/command
 	clipon_radio = /obj/item/device/radio/headset/wrist/clip/command
 	messengerbag = /obj/item/storage/backpack/messenger/com
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/bridge
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/bridge
+	tablet = /obj/item/modular_computer/handheld/preset/bridge
