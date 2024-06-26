@@ -55,6 +55,8 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added Vaurca Attendants, a subspecies of a subspecies (Warriors). Compared to Warriors, they're faster, more prone to injury, have a signature gaster tail, and no mandibles, along with a somewhat unique appearance compared to Warriors overall."
+  - rscadd: "Added Vaurca Attendants, a subspecies of a subspecies (Warriors). Compared to Warriors, they're faster, less prone to brute injury but more prone to burns, experience more pain than other Vaurcae, have a signature gaster tail, and no mandibles, along with a somewhat unique appearance compared to Warriors overall. They can also hold normal-sized items instead of small ones with their vestigial arms, and they have no bite attack."
   - imageadd: "Added unique sprite aspects for the Vaurca Attendant compared to the Warrior, including a differently-shaped head and feet."
   - bugfix: "Fixed the Vaurca Warrior left hand icon state, which was one pixel too far to the side on the north-facing sprite."
+  - qol: "Changed the name of Vaurca Warriors to Vaurca Myrmidon."
+  - qol: "Vaurca Myrmidons now default to their bite attack, and the bite attack also does more damage."
