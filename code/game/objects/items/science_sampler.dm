@@ -205,7 +205,7 @@
 
 	report_num++
 	var/pname = "Centrifuge report #[report_num]"
-	var/info = "<b><font size=\"4\">Centrifugal anaylsis report #[report_num]</font></b><HR>"
+	var/info = "<b><font size=\"4\">Centrifugal analysis report #[report_num]</font></b><HR>"
 	var/sample = 1
 	for(var/obj/item/reagent_containers/glass/beaker/vial/V in samples)
 		var/list/soil = REAGENT_DATA(V.reagents, /singleton/reagent/soil)
