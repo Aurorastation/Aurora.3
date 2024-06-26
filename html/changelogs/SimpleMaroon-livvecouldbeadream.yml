@@ -55,6 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - imageadd: "Added a 'gaster' tail type to Vaurca Warriors, to represent being the Attendant bioform. Warriors will still have no gaster by default."
-  - rscadd: "Rejoice, Vaurca Attendant fans! The Warrior gaster now turns you into an Attendant, with all the differences in speed and injury mods that entails. A Warrior with no gaster will still have regular Warrior values."
+  - rscadd: "Added Vaurca Attendants, a subspecies of a subspecies (Warriors). Compared to Warriors, they're faster, more prone to injury, have a signature gaster tail, and no mandibles, along with a somewhat unique appearance compared to Warriors overall."
+  - imageadd: "Added unique sprite aspects for the Vaurca Attendant compared to the Warrior, including a differently-shaped head and feet."
   - bugfix: "Fixed the Vaurca Warrior left hand icon state, which was one pixel too far to the side on the north-facing sprite."
