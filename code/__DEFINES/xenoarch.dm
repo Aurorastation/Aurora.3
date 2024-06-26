@@ -17,3 +17,5 @@
 #define TRIGGER_CO2 11
 #define TRIGGER_NITRO 12
 #define MAX_TRIGGER 12
+
+#define PARTICLE_TYPES list("Kaons", "Pions", "Protons", "Neutrons", "Positrons", "Electrons", "Muons", "Neutrinos")
