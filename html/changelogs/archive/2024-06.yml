@@ -610,3 +610,44 @@
       other sprites at a 45 degree angle.
   hazelmouse:
   - rscadd: Remaps the Tramp Freighter offship to conform to newer mapping standards.
+2024-06-23:
+  FluffyGhost:
+  - code_imp: Made relaymoves uniform in function header and non sleepable.
+  - code_imp: Improved IPC/borg recharger, made it time constant.
+  - code_imp: Tweaked client/Move() to avoid a range(), moved a relaymove around to
+      fix a bug, some minor tweaks.
+  - bugfix: Fixed IPC/borg recharge station not taking the IPC/Borg in on bump.
+2024-06-24:
+  FluffyGhost:
+  - bugfix: Fixed paramedics not having the FR HUD icon anymore on the Security HUD.
+  - refactor: Moved all the HUD icon files in the hud folder.
+  - code_imp: Changed the in_view() proc used for HUDs to use the more performant
+      get_hearers_in_LOS() / get_hearers_in_range() over view() and a list traversal
+      with range comparisons.
+  - code_imp: HUD now respects the client view size instead of just using the world
+      view size.
+  SimpleMaroon:
+  - rscadd: Added colorable scrubs to the loadout.
+  - qol: Allowed Lab Assistants to take scrubs in the loadout.
+2024-06-25:
+  Crosarius:
+  - qol: Unrestricts the Sk'akh and Si'akh robes from only Chaplain and Off-Duty Crew
+  FlamingLily:
+  - bugfix: INDRA Fuel assemblies are no longer invisible.
+  MattAtlas:
+  - bugfix: Fixed melee weapons not applying their armour penetration at all.
+  Pirouette:
+  - balance: Buffed the force of energy melee weapons in line with prior buffs to
+      non-energy weapons.
+  - balance: Buffed the force of maglights.
+  WickedCybs:
+  - balance: Gremorian warriors and workers now have simpler melee AI. The former
+      relies on raw strength over strategy and the latter is single-minded in its
+      pursuit of spreading infestation.
+  - qol: Taj swoop bangs are shaded differently on the left facing sprite so it looks
+      a bit more obvious that the hairstyle is covering an eye.
+2024-06-26:
+  Ben10083:
+  - rscadd: Animal Cafe added to holodeck.
+  MattAtlas:
+  - rscdel: Removes the costumes that slipped by in the animal cafe.

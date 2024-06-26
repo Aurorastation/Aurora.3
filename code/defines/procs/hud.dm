@@ -97,14 +97,20 @@ the HUD updates properly! */
 	GLOB.sec_hud_users -= src
 
 /mob/proc/in_view(var/turf/T)
-	return view(T)
+	RETURN_TYPE(/list)
+
+	return get_hearers_in_LOS(client?.view, T)
 
 /mob/abstract/eye/in_view(var/turf/T)
-	var/list/viewed = new
-	for(var/mob/living/carbon/human/H in GLOB.mob_list)
-		if(get_dist(H, T) <= 7)
-			viewed += H
-	return viewed
+	RETURN_TYPE(/list)
+
+	// This was like this before, honestly i don't see the point of doing it this way hence the change, but I left the code for reference in case shit hits the fan
+	// var/list/viewed = new
+	// for(var/mob/living/carbon/human/H in GLOB.mob_list)
+	// 	if(get_dist(H, T) <= client?.view)
+	// 		viewed += H
+	// return viewed
+	return get_hearers_in_range(client?.view, T)
 
 /proc/get_sec_hud_icon(var/mob/living/carbon/human/H)//This function is called from human/life,dm, ~line 1663
 	var/state
