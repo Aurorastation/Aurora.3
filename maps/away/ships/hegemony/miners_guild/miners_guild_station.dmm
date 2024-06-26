@@ -365,7 +365,6 @@
 /area/space)
 "dn" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 6
 	},
 /turf/simulated/floor/airless,

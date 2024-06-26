@@ -533,3 +533,121 @@
   Stev-the-third:
   - imageadd: Adds three Hieroaetheria faction flags.
   - rscadd: Adds the Hieroaetheria faction flags to the loadout.
+2024-06-20:
+  ASmallCuteCat:
+  - imageadd: Added a colorable hood to the loadout.
+  DreamySkrell:
+  - rscadd: Kills all layer vars on every dmm map.
+  - rscadd: Adds layer maplint.
+  Evandorf:
+  - qol: Added the option to be able to destroy the Vampiric Statuette, though at
+      high cost to the one who does it.
+  Flpfs:
+  - bugfix: Fixes Hivenet encryption.
+  Lavillastrangiato:
+  - rscadd: Adds a box of psionic receiver implants to the RD's locker.
+  Silvorz:
+  - rscadd: Added the old wizard's 'gentleman set' of clothes, carp slippers, and
+      the bear pelt hat to the loadout.
+  - qol: Removed the hide jumpsuit variable from the gentlemans coat, as it looked
+      strange.
+  Sparky_hotdog:
+  - rscadd: Added tents, which can be set up individually, or as a team with greater
+      efficiency, and provide shelter from the weather. There is one tent in each
+      excavation tools locker, one in the Intrepid hangar, one in the Spark, and two
+      larger tents in the Intrepid.
+  - rscadd: Added sleeping bags, which can be attached to bags for ease of carrying.
+      Four are available in the Intrepid hangar, and one in each miner's locker.
+  - rscadd: Added foldable tables. Added a foldable table to the Intrepid hangar,
+      along with four folding chairs.
+  Stev-the-third:
+  - imageadd: Added new inhand and wielded sprites for the Sledgehammer.
+2024-06-21:
+  Ben10083:
+  - imageadd: left and right ear sprites added for various hair pins, such as the
+      flower pins.
+  DreamySkrell:
+  - rscadd: Adds Synthetic Blood Substitute.
+  Evandorf:
+  - bugfix: Reapplys the stop_sight_update check to prevent changeling thermal vision
+      from reverting.
+  Peppermint96:
+  - rscadd: Adds a dominian cloak to the loadout
+  SimpleMaroon:
+  - rscadd: Added a Lii'kenka origin for the corresponding faction in Vaurca lore.
+      It includes a unique citizenship option that will show on records and ID as
+      Nralakk Federation citizenship for those who want to be undercover.
+  - qol: Added the functionality of returning a different name on records than the
+      actual name for citizenship.
+  - spellcheck: Capitalized 'ipcs' and 'dionae' for the N/A citizenship description.
+  - spellcheck: Included an apostrophe in the 'Klatxatl' origin.
+2024-06-22:
+  FluffyGhost:
+  - bugfix: Fixed RIG leap actuator not working.
+  - bugfix: Fixed weapons rack not being able to be cut open with a welder.
+  - bugfix: Fixed gremorian cocoon verb.
+  - code_imp: Slight cleanup with usage of get_turf() in the cocoon verb, instead
+      of the loc variable.
+  - bugfix: Operating consoles cannot have the primer ejected by ghosts or unconscious
+      people anymore.
+  - bugfix: Fixed statue (sculpture) rotation.
+  - code_imp: Some code clenaup and use of tgui input.
+  Lavillastrangiato:
+  - rscadd: Adds a full variant of the xenoarchaeology belt, and adds more items that
+      can be stored in it.
+  RustingWithYou:
+  - bugfix: Premade exosuits now spawn with power cores.
+  SimpleMaroon:
+  - rscadd: Added Han'san variants of Dominian capes and clothing.
+  - qol: Dominian Unathi can now take Unathite items associated with Moghesian nobility.
+  Sparky_hotdog:
+  - bugfix: The Aut'akh Luthien Pact origin is now correctly selectable.
+  Stev-the-third:
+  - imageadd: Adds inhand sprites for the price scanner, destination tagger and crate
+      scanner.
+  - imageadd: Adds new worn sprites for the Dagamuir suit and Sinta Tunic
+  - imageadd: Adds a new inhand sprite for the Xenofauna blaster, to be in line with
+      other sprites at a 45 degree angle.
+  hazelmouse:
+  - rscadd: Remaps the Tramp Freighter offship to conform to newer mapping standards.
+2024-06-23:
+  FluffyGhost:
+  - code_imp: Made relaymoves uniform in function header and non sleepable.
+  - code_imp: Improved IPC/borg recharger, made it time constant.
+  - code_imp: Tweaked client/Move() to avoid a range(), moved a relaymove around to
+      fix a bug, some minor tweaks.
+  - bugfix: Fixed IPC/borg recharge station not taking the IPC/Borg in on bump.
+2024-06-24:
+  FluffyGhost:
+  - bugfix: Fixed paramedics not having the FR HUD icon anymore on the Security HUD.
+  - refactor: Moved all the HUD icon files in the hud folder.
+  - code_imp: Changed the in_view() proc used for HUDs to use the more performant
+      get_hearers_in_LOS() / get_hearers_in_range() over view() and a list traversal
+      with range comparisons.
+  - code_imp: HUD now respects the client view size instead of just using the world
+      view size.
+  SimpleMaroon:
+  - rscadd: Added colorable scrubs to the loadout.
+  - qol: Allowed Lab Assistants to take scrubs in the loadout.
+2024-06-25:
+  Crosarius:
+  - qol: Unrestricts the Sk'akh and Si'akh robes from only Chaplain and Off-Duty Crew
+  FlamingLily:
+  - bugfix: INDRA Fuel assemblies are no longer invisible.
+  MattAtlas:
+  - bugfix: Fixed melee weapons not applying their armour penetration at all.
+  Pirouette:
+  - balance: Buffed the force of energy melee weapons in line with prior buffs to
+      non-energy weapons.
+  - balance: Buffed the force of maglights.
+  WickedCybs:
+  - balance: Gremorian warriors and workers now have simpler melee AI. The former
+      relies on raw strength over strategy and the latter is single-minded in its
+      pursuit of spreading infestation.
+  - qol: Taj swoop bangs are shaded differently on the left facing sprite so it looks
+      a bit more obvious that the hairstyle is covering an eye.
+2024-06-26:
+  Ben10083:
+  - rscadd: Animal Cafe added to holodeck.
+  MattAtlas:
+  - rscdel: Removes the costumes that slipped by in the animal cafe.

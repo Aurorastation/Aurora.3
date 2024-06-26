@@ -36,6 +36,7 @@
 	faction = "Moghes"
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 20)
 	resists_weather = TRUE
+	sample_data = list("Cellular biochemistry shows high metabolic capacity", "Tissue sample contains high muscle content", "Genetic biomarkers identified linked with aggressiveness", "Intracellular keratin synthesis present")
 	var/is_devouring = FALSE
 
 /mob/living/simple_animal/hostile/biglizard/AttackingTarget()
@@ -165,6 +166,7 @@
 	meat_amount = 10
 	faction = "Moghes"
 	resists_weather = TRUE
+	sample_data = list("Cellular structures adapted to provide strong resonance protection", "Genetic biomarkers identified linked with agressiveness")
 	var/shriek_time = 0
 
 /mob/living/simple_animal/hostile/shrieker/proc/shriek(turf/T, mob/living/M)

@@ -5139,7 +5139,6 @@
 	},
 /obj/structure/sign/double/barsign/kitchensign{
 	pixel_y = 28;
-	layer = 2.8;
 	req_access = null
 	},
 /obj/machinery/chemical_dispenser/bar_soft/full{

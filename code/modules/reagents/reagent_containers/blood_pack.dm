@@ -166,12 +166,16 @@
 		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood) && name != "empty IV bag") //Stops people mucking with bloodpacks that are filled
 			to_chat(user, SPAN_NOTICE("You can't relabel [name] until it is empty!"))
 			return
-		var/blood_name = tgui_input_list(user, "What would you like to label the IV bag?", "Label Selection",  list("A+ blood", "A- blood", "B+ blood", "B- blood", "O+ blood", "O- blood", "AB+ blood", "AB- blood", "Saline Plus", "Cryonics mixture", "Other mixture", "Clear", "Cancel"))
+
+		var/choices = list("A+ blood", "A- blood", "B+ blood", "B- blood", "O+ blood", "O- blood", "AB+ blood", "AB- blood", "SBS blood", "Saline Plus", "Cryonics mixture", "Other mixture", "Clear", "Cancel")
+		var/blood_name = tgui_input_list(user, "What would you like to label the IV bag?", "Label Selection",  choices)
 		if(blood_name == "Cancel")
 			return
+
 		var/obj/item/i = user.get_active_hand()
 		if(!i.ispen() || !in_range(user, src)) //Checks to see if pen is still held or bloodpack is in range
 			return
+
 		if(blood_name == "Clear")
 			blood_type = null
 			name = initial(name)
@@ -179,6 +183,7 @@
 			to_chat(user, SPAN_NOTICE("You clear the IV bag label."))
 			update_icon()
 			return
+
 		blood_type = blood_name
 		name = "\improper IV bag - [blood_type]"
 		desc = "Contains fluids used for transfusions."
@@ -267,6 +272,9 @@
 
 /obj/item/reagent_containers/blood/OMinus
 	blood_type = "O-"
+
+/obj/item/reagent_containers/blood/sbs
+	blood_type = "SBS"
 
 /obj/item/reagent_containers/blood/empty
 	name = "empty IV bag"

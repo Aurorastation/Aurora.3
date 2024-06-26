@@ -883,8 +883,7 @@
 	},
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "merchant_navy";
-	layer = 2.9
+	id = "merchant_navy"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -1052,7 +1051,6 @@
 	req_access = null
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -1257,8 +1255,7 @@
 "dK" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "merchant_navy";
-	layer = 2.9
+	id = "merchant_navy"
 	},
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/structure/railing/mapped{
@@ -1476,8 +1473,7 @@
 /obj/structure/railing/mapped,
 /obj/machinery/conveyor{
 	dir = 6;
-	id = "merchant_navy";
-	layer = 2.9
+	id = "merchant_navy"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -2378,8 +2374,7 @@
 "ja" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "merchant_navy";
-	layer = 2.9
+	id = "merchant_navy"
 	},
 /obj/structure/plasticflaps/mining,
 /obj/machinery/door/blast/shutters{
@@ -2440,7 +2435,6 @@
 /area/nka_merchant/bridge)
 "jl" = (
 /obj/structure/extinguisher_cabinet/east{
-	layer = 3.3;
 	pixel_y = 1
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -2708,8 +2702,7 @@
 "kr" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "merchant_navy";
-	layer = 2.9
+	id = "merchant_navy"
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
@@ -2988,7 +2981,6 @@
 /obj/machinery/conveyor{
 	dir = 5;
 	id = "merchant_navy";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning/cee,
@@ -3106,7 +3098,6 @@
 /obj/machinery/conveyor{
 	dir = 5;
 	id = "merchant_navy";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -3155,8 +3146,7 @@
 	},
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "merchant_navy";
-	layer = 2.9
+	id = "merchant_navy"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -3869,8 +3859,7 @@
 	},
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "merchant_navy";
-	layer = 2.9
+	id = "merchant_navy"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -4179,8 +4168,7 @@
 "wL" = (
 /obj/machinery/conveyor{
 	dir = 10;
-	id = "merchant_navy";
-	layer = 2.9
+	id = "merchant_navy"
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
@@ -4232,7 +4220,6 @@
 /obj/machinery/conveyor{
 	dir = 9;
 	id = "merchant_navy";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -4460,8 +4447,7 @@
 /obj/machinery/merchant_pad,
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "merchant_navy";
-	layer = 2.9
+	id = "merchant_navy"
 	},
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
@@ -4604,8 +4590,7 @@
 /obj/structure/railing/mapped,
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "merchant_navy";
-	layer = 2.9
+	id = "merchant_navy"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -4918,8 +4903,7 @@
 "Er" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "merchant_navy";
-	layer = 2.9
+	id = "merchant_navy"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
@@ -5943,8 +5927,7 @@
 "RV" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "merchant_navy";
-	layer = 2.9
+	id = "merchant_navy"
 	},
 /obj/structure/plasticflaps/mining,
 /obj/machinery/door/blast/shutters{
@@ -6300,7 +6283,6 @@
 "WS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/extinguisher_cabinet/east{
-	layer = 3.3;
 	pixel_y = 1
 	},
 /turf/simulated/floor/plating{

@@ -243,11 +243,17 @@
 
 		START_PROCESSING(SSfast_process, src)
 
+/obj/item/landmine/frag/door_rigging/deactivate(mob/user)
+	STOP_PROCESSING(SSfast_process, src)
+	door_rigged = null
+	. = ..()
+
 /obj/item/landmine/frag/door_rigging/process(seconds_per_tick)
 	if(QDELETED(door_rigged))
 		STOP_PROCESSING(SSfast_process, src)
 		qdel(src)
 
+	//If the door isn't dense, it means it is open, explode
 	if(!door_rigged.density)
 		STOP_PROCESSING(SSfast_process, src)
 		trigger(null)
@@ -259,7 +265,6 @@
 	door_rigged = null
 	STOP_PROCESSING(SSfast_process, src)
 	qdel(src)
-
 
 /**
  * # Radiation Landmine

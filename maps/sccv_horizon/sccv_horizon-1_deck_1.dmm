@@ -5305,6 +5305,9 @@
 	must_start_working = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/survey_probe{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "dJH" = (
@@ -6998,6 +7001,11 @@
 "eQJ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/survey_probe,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
+"eQP" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/survey_probe/magnet,
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "eRb" = (
@@ -15444,6 +15452,20 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/hangar/intrepid)
+"kHa" = (
+/obj/item/tent,
+/obj/item/sleeping_bag,
+/obj/item/sleeping_bag,
+/obj/item/sleeping_bag,
+/obj/item/sleeping_bag,
+/obj/structure/closet/crate,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/folding_table,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "kHg" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -19011,7 +19033,7 @@
 /area/shuttle/intrepid/atmos_compartment)
 "ncy" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/survey_probe,
+/obj/structure/survey_probe/ground,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "ncC" = (
@@ -20384,6 +20406,11 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
+"nWg" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/survey_probe/ground,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "nWA" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -22454,12 +22481,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
 "pwR" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/survey_probe{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/survey_probe/magnet,
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/refinery)
 "pxH" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -27770,6 +27795,7 @@
 	pixel_y = -2
 	},
 /obj/item/clothing/mask/breath,
+/obj/item/tent/big/scc,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/quarters)
 "tgR" = (
@@ -29179,6 +29205,7 @@
 /obj/item/material/hatchet/machete/steel,
 /obj/item/clothing/accessory/holster/utility/machete,
 /obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/tent/mining,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "ucG" = (
@@ -29208,6 +29235,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/item/tent/big/scc,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
 "udC" = (
@@ -33545,10 +33573,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "xdE" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/suspension_gen{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/stasis_cage,
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/eva)
 "xdF" = (
@@ -51303,7 +51329,7 @@ cWd
 hhO
 tgR
 uBi
-ncy
+pwR
 pXi
 dNk
 gZP
@@ -54144,7 +54170,7 @@ usP
 lCX
 wuD
 ybD
-eQJ
+vBN
 evm
 iRC
 iRC
@@ -54347,7 +54373,7 @@ eEm
 ifD
 wuD
 xCT
-pwR
+evm
 evm
 iRC
 iRC
@@ -54752,8 +54778,8 @@ oPL
 rLm
 mKo
 aHY
-vBN
-evm
+eQP
+eQP
 iRC
 iRC
 pIR
@@ -54955,8 +54981,8 @@ oPL
 rLm
 mKo
 aHY
-evm
-evm
+nWg
+nWg
 iRC
 iRC
 iSn
@@ -55159,7 +55185,7 @@ rLm
 mKo
 aHY
 dJm
-evm
+eQJ
 iRC
 iRC
 iMt
@@ -56985,7 +57011,7 @@ aEl
 kLb
 qeD
 rPN
-iRC
+kHa
 iRC
 iRC
 iRC

@@ -507,3 +507,47 @@
 /mob/living/simple_animal/penguin/holodeck/proc/derez()
 	visible_message(SPAN_NOTICE("\The [src] fades away!"))
 	qdel(src)
+
+//Holo Animal babies
+
+/mob/living/simple_animal/corgi/puppy/holodeck
+	icon_gib = null
+	meat_amount = 0
+	meat_type = null
+	light_range = 2
+	hunger_enabled = FALSE
+
+/mob/living/simple_animal/corgi/puppy/holodeck/can_name(var/mob/living/M)
+	return FALSE
+
+/mob/living/simple_animal/corgi/puppy/holodeck/gib()
+	derez() //holograms can't gib
+
+/mob/living/simple_animal/corgi/puppy/holodeck/death()
+	..()
+	derez()
+
+/mob/living/simple_animal/corgi/puppy/holodeck/proc/derez()
+	visible_message(SPAN_NOTICE("\The [src] fades away!"))
+	qdel(src)
+
+/mob/living/simple_animal/cat/kitten/holodeck
+	icon_gib = null
+	meat_amount = 0
+	meat_type = null
+	light_range = 2
+	hunger_enabled = FALSE
+
+/mob/living/simple_animal/cat/kitten/holodeck/can_name(var/mob/living/M)
+	return FALSE
+
+/mob/living/simple_animal/cat/kitten/holodeck/gib()
+	derez() //holograms can't gib
+
+/mob/living/simple_animal/cat/kitten/holodeck/death()
+	..()
+	derez()
+
+/mob/living/simple_animal/cat/kitten/holodeck/proc/derez()
+	visible_message(SPAN_NOTICE("\The [src] fades away!"))
+	qdel(src)

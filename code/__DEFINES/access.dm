@@ -804,3 +804,9 @@
 /datum/access/unathi_trawler_access
 	id = ACCESS_FISHING_LEAGUE
 	desc = "General Fishing Trawler Access"
+
+#define ACCESS_TRAMP_FREIGHTER 242
+/datum/access/tramp_freighter_access
+	id = ACCESS_TRAMP_FREIGHTER
+	desc = "Independent Freighter Access"
+

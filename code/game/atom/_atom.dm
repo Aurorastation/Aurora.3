@@ -124,6 +124,18 @@
 	return (!density || !height || air_group)
 
 /**
+ * An atom we are buckled or is contained within us has tried to move
+ */
+/atom/proc/relaymove(mob/living/user, direction)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
+	if(SEND_SIGNAL(src, COMSIG_ATOM_RELAYMOVE, user, direction) & COMSIG_BLOCK_RELAYMOVE)
+		return FALSE
+	return TRUE
+
+
+/**
  * An atom has entered this atom's contents
  *
  * Default behaviour is to send the [COMSIG_ATOM_ENTERED]
