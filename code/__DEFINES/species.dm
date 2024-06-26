@@ -16,7 +16,7 @@
 #define SPECIES_TAJARA_TESLA_BODY	"Tesla Rejuvenation Suit Tajara"
 
 #define SPECIES_VAURCA_WORKER		"Vaurca Worker"
-#define SPECIES_VAURCA_WARRIOR		"Vaurca Warrior"
+#define SPECIES_VAURCA_WARRIOR		"Vaurca Myrmidon"
 #define SPECIES_VAURCA_ATTENDANT	"Vaurca Attendant"
 #define SPECIES_VAURCA_BREEDER		"Vaurca Breeder"
 #define SPECIES_VAURCA_WARFORM		"Vaurca Warform"
