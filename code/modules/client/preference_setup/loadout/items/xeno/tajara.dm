@@ -23,8 +23,8 @@
 	sort_category = "Xenowear - Tajara"
 
 /datum/gear/suit/archaeologist_hat
-	display_name = "archaeologist hat"
-	description = "A well-worn fedora favored by Adhomian explorers and archaeologists."
+	display_name = "archeologist hat"
+	description = "A well-worn fedora favored by Adhomian explorers and archeologists."
 	path = /obj/item/clothing/head/tajaran/archeologist
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
