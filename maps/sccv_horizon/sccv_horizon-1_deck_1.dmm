@@ -33573,10 +33573,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "xdE" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/suspension_gen{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/stasis_cage,
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/eva)
 "xdF" = (

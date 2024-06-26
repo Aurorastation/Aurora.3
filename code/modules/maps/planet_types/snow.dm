@@ -17,6 +17,8 @@
 	water_color = "#b5dfeb"
 	ruin_planet_type = PLANET_SNOW
 	ruin_allowed_tags = RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
+	soil_data = list("Low density silicon dioxide layer", "Trace iron oxide layer", "Trace aluminium oxide layer", "Large rock particle layer", "Ice crystal layer", "Snow partcile layer")
+	water_data = list("Sodium ions present", "Calcium ions present", "Nitrate ions present", "Magnesium ions present", "Copper ions present")
 
 	unit_test_groups = list(2)
 

@@ -14,6 +14,8 @@
 	possible_themes = list(/datum/exoplanet_theme/grass)
 	ruin_planet_type = PLANET_GRASS
 	ruin_allowed_tags = RUIN_LOWPOP|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
+	soil_data = list("Low density organic matter layer", "Rich microbiome layer", "Moderate water layer", "Large rock particle layer", "Iron oxide layer")
+	water_data = list("Sodium ions present", "Calcium ions present", "Sulfate ions present", "Magnesium ions present", "Copper ions present", "Nitrate ions present", "Potassium ions present", "Phorsporous ions present")
 
 	unit_test_groups = list(2)
 
