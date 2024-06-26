@@ -44,9 +44,9 @@
 	/// Graffiti decal
 	var/splat_type = /obj/effect/decal/cleanable/fruit_smudge
 	var/product_type = /obj/item/reagent_containers/food/snacks/grown
-	/// If set, overrides the description of the product
+	/// If set, overrides the description of the product (What the produce looks like for example)
 	var/product_desc
-	/// If set, overrides the extended scription of the product
+	/// If set, overrides the extended scription of the product (Useful to describe the 'lore')
 	var/product_desc_extended
 
 	var/force_layer
