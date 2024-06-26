@@ -44,6 +44,7 @@
 	name = "grass"
 	seed_name = "grass"
 	display_name = "grass"
+	product_desc = "You should probably touch some of this sometime."
 	chems = list(/singleton/reagent/nutriment = list(1,20))
 	kitchen_tag = "grass"
 
