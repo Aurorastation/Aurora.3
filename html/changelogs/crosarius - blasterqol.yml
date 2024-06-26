@@ -1,0 +1,4 @@
+author: crosarius
+delete-after: True
+changes:
+  - qol: "Changes the wireless firing pin (disruptor pistols) to be able to fire on lethal mode during code blue"
