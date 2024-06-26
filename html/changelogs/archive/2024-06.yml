@@ -646,3 +646,8 @@
       pursuit of spreading infestation.
   - qol: Taj swoop bangs are shaded differently on the left facing sprite so it looks
       a bit more obvious that the hairstyle is covering an eye.
+2024-06-26:
+  Ben10083:
+  - rscadd: Animal Cafe added to holodeck.
+  MattAtlas:
+  - rscdel: Removes the costumes that slipped by in the animal cafe.
