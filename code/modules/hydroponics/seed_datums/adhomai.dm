@@ -5,7 +5,7 @@
 	name = "shand"
 	seed_name = "S'rendarr's hand"
 	display_name = "S'rendarr's hand leaves"
-	product_desc_extended = "A dark green bush that grows above ground in areas around bodies of water. S'rendarr's hand, or Alyad'al S'rendarr, are typically found in the equatorial region along the coasts where many bushes grow together but also are often planted on church properties as well as plantations. These bushes are prolific due to their medicinal fruits which are both eaten and used in salves. Another use that is prolific among Tajara is to dry them out and stuff them in pipes or roll them into cigars for smoking. S'rendarr's hand's smokables are still popular despite the growing popularity of alien tobacco. Tajara who worship the Suns become extremely offended when these plants are placed in rubbish bins or with refuse in general."
+	product_desc_extended = "A dark green bush that grows above ground in areas around bodies of water. S'rendarr's hand, or Alyad'al S'rendarr, are typically planted on church properties as well as plantations. These bushes are prolific due to their medicinal fruits which are both eaten and used in salves. Another use that is prolific among Tajara is to dry them out and stuff them in pipes or roll them into cigars for smoking. S'rendarr's hand's smokables are still popular despite the growing popularity of alien tobacco."
 	chems = list(/singleton/reagent/toxin/tobacco = list(1, 5), /singleton/reagent/bicaridine = list(3, 5), /singleton/reagent/mental/nicotine = list(1, 3))
 	kitchen_tag = "shand"
 
@@ -54,7 +54,7 @@
 	seed_name = "earthen-root"
 	display_name = "earthen-roots"
 	product_desc = "A sweet and firm blue-colored vegetable with no visible soft areas."
-	product_desc_extended = "The Earthen-Root, or Binajr-nab'at, is a herbaceous plant native to the region of the Northern Harr'masir. The herb is highly adapted to the rough and cold climate of the New Kingdom of Adhomai, being able to survive the rigorous winter that other agricultural products can not stand. Being cultivated by farmers in the region since immemorial times, it is considered a symbol of the regional culture of Northern Harr'masir. Common uses for the Earth-Root, besides being used in dishes, include distillation to brew alcoholic beverages, extraction of the blue pigment for the fabrication of dyes, and the production of sugar, even if the plant is not efficient as the sugar trees."
+	product_desc_extended = "The Earthen-Root, or Binajr-nab'at, is a herbaceous plant native to the region of the Northern Harr'masir, and is popular in the New Kingdom of Adhomai due to it's resilience in harsh environments. Common uses for the Earth-Root, besides being used in dishes, include distillation to brew alcoholic beverages, extraction of the blue pigment for the fabrication of dyes, and the production of sugar."
 	chems = list(/singleton/reagent/nutriment = list(0, 5), /singleton/reagent/sugar = list(1, 5), /singleton/reagent/drink/earthenrootjuice = list(4, 8))
 	kitchen_tag = "earthenroot"
 
@@ -78,7 +78,7 @@
 	name = "nifberries"
 	seed_name = "dirt berries"
 	display_name = "dirt berries shrub"
-	product_desc_extended = "An above-ground evergreen shrub that grows sweet, starchy legumes underground in thick pods, in a huge profusion. 'Dirt Berries', or Zhu'hagha Nifs, grow like peanuts but bear several nuts like peas in a pod, typically around 8 thumb-sized nifs in each pod. Their flavor is rich, fatty, and savory, and they are used to produce oil. Each pod when matured produces runners that grow out of the soil and extend like strawberry runners, typically around a foot or so, and are woody, hardy vines."
+	product_desc_extended = "An above-ground evergreen shrub that grows sweet, starchy legumes underground in thick pods. 'Dirt Berries', or Zhu'hagha Nifs, grow like peanuts but bear several nuts like peas in a pod, typically around 8 thumb-sized nifs in each pod. Their flavor is rich, fatty, and savory, and they are used to produce oil."
 	chems = list(/singleton/reagent/nutriment = list(0, 15), /singleton/reagent/nutriment/triglyceride/oil = list(1, 5), /singleton/reagent/drink/dirtberryjuice = list(10,10))
 	kitchen_tag = "nifberries"
 
@@ -134,7 +134,7 @@
 	name = "nmshaan"
 	seed_name = "sugar tree"
 	display_name = "sugar trees"
-	product_desc_extended = "Sugar Tree, or Nm'shaan, are hardy snow bamboo invaluable for sugar production on the planet. They are unique in that on every stem it bears a single spherical fruit at the very top, surrounded by a white woolly rind. Short stems which end in thick-leafed fronds grow along the length of the 'trunk', giving it an appearance like Terran bamboo. The stalks tend to be as thick as one's thigh with very hard, protective woody shells around its vulnerable interior. They grow in giant groves like the bamboo forests on Earth and can be applied in similar uses."
+	product_desc_extended = "Sugar Tree, or Nm'shaan, are hardy snow bamboo invaluable for sugar production on the planet. They are unique in that on every stem it bears a single spherical fruit at the very top, surrounded by a white woolly rind. Short stems which end in thick-leafed fronds grow along the length of the 'trunk', giving it an appearance like Terran bamboo. The stalks tend to be as thick as one's thigh with very hard, protective woody shells around its vulnerable interior."
 	seed_noun = SEED_NOUN_SEEDS
 	mutants = null
 	chems = list(/singleton/reagent/sugar = list(2, 10), /singleton/reagent/nutriment/gelatin = list(2, 5))
