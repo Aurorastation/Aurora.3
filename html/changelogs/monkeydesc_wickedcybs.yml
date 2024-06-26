@@ -1,0 +1,7 @@
+author: WickedCybs
+
+
+delete-after: True
+
+changes:
+  - rscadd: "Added an extended description to monkey cubes and boxes regarding their circumstances and use."
