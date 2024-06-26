@@ -9249,7 +9249,6 @@
 /obj/machinery/power/apc/low/north,
 /obj/machinery/alarm/west,
 /obj/structure/closet/secure_closet/operations_manager,
-/obj/item/device/price_scanner,
 /turf/simulated/floor/tiled,
 /area/operations/qm)
 "epN" = (
@@ -9770,20 +9769,9 @@
 /area/medical/reception)
 "eCR" = (
 /obj/structure/closet/secure_closet/hos,
-/obj/item/device/multitool,
-/obj/item/reagent_containers/spray/pepper,
-/obj/item/tank/oxygen,
 /obj/machinery/alarm/north,
-/obj/item/device/radio,
-/obj/item/device/taperecorder,
-/obj/item/device/flashlight/heavy,
-/obj/item/device/megaphone/sec,
-/obj/item/device/suit_cooling_unit,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
-	},
-/obj/item/device/binoculars{
-	pixel_y = 3
 	},
 /turf/simulated/floor/wood,
 /area/horizon/security/head_of_security)
@@ -41659,6 +41647,8 @@
 /obj/machinery/firealarm/north,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/spline/plain/full/black,
+/obj/item/device/suit_cooling_unit,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/head_of_security)
 "tux" = (

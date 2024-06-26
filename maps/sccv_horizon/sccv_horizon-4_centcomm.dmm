@@ -8752,14 +8752,6 @@
 	icon_state = "white"
 	},
 /area/centcom/holding)
-"azH" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/fancy/tray,
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/centcom/holding)
 "azI" = (
 /obj/machinery/chemical_dispenser/ert{
 	pixel_x = -3
@@ -31381,7 +31373,9 @@
 /obj/structure/window/reinforced/holowindow{
 	dir = 8
 	},
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 8
+	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_battlemonsters)
 "bGq" = (
@@ -31920,7 +31914,9 @@
 /obj/structure/window/reinforced/holowindow{
 	dir = 8
 	},
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 8
+	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_boxingcourt)
 "bHU" = (
@@ -32102,7 +32098,9 @@
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
 "bIs" = (
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 8
+	},
 /turf/simulated/floor/holofloor/lino,
 /area/horizon/holodeck/source_chapel)
 "bIu" = (
@@ -33616,6 +33614,9 @@
 	icon_state = "seashallow"
 	},
 /area/centcom/shared_dream)
+"crk" = (
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "crw" = (
 /obj/item/clothing/suit/storage/hazardvest/white{
 	desc = "A high-visibility vest coated with a water-repellent material. ";
@@ -33909,6 +33910,17 @@
 	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
+"duj" = (
+/obj/structure/holostool{
+	dir = 4
+	},
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
+"dwf" = (
+/obj/structure/bed/stool/chair/sofa/right/purple,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "dwR" = (
 /obj/structure/flora/grass/green,
 /turf/simulated/floor/holofloor/snow,
@@ -34176,6 +34188,12 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_biesel)
+"elZ" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "enp" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
@@ -34407,6 +34425,12 @@
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
+"fjY" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "fsa" = (
 /obj/effect/mist,
 /turf/simulated/floor/exoplanet/water/shallow{
@@ -34668,6 +34692,12 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"gpW" = (
+/obj/structure/holostool{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/lino,
+/area/horizon/holodeck/source_theatre)
 "grx" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/effect/floor_decal/spline/fancy/wood/cee{
@@ -34785,7 +34815,9 @@
 /obj/structure/window/reinforced/holowindow{
 	dir = 4
 	},
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 4
+	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_boxingcourt)
 "gLB" = (
@@ -35082,7 +35114,9 @@
 /obj/structure/window/reinforced/holowindow{
 	dir = 4
 	},
-/obj/structure/holostool,
+/obj/structure/holostool{
+	dir = 4
+	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_battlemonsters)
 "hMP" = (
@@ -35136,6 +35170,12 @@
 	},
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
+"hWf" = (
+/obj/structure/holostool{
+	dir = 1
+	},
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "hXi" = (
 /obj/effect/floor_decal/spline/plain/cee,
 /obj/effect/decal/fake_object/light_source/invisible{
@@ -35318,6 +35358,12 @@
 /obj/structure/window/reinforced/holowindow,
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_courtroom)
+"iyn" = (
+/obj/effect/landmark{
+	name = "Animal Baby Spawn Random"
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "iBt" = (
 /obj/structure/dueling_table/no_collide/above_layer{
 	icon_state = "top_left"
@@ -35432,6 +35478,10 @@
 	},
 /turf/simulated/floor/beach/water/alt,
 /area/centcom/shared_dream)
+"iUb" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "iVa" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
@@ -35507,6 +35557,12 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"jar" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "jaN" = (
 /obj/effect/floor_decal/corner/full{
 	dir = 1
@@ -35540,6 +35596,12 @@
 	},
 /turf/simulated/floor/carpet/purple,
 /area/centcom/shared_dream)
+"jdt" = (
+/obj/structure/holostool{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/lino,
+/area/horizon/holodeck/source_theatre)
 "jdv" = (
 /obj/effect/decal/fake_object{
 	desc = "A vine-covered shrine to the three faces of Sk'akh, a prominent faith in the Unathi people.";
@@ -35556,6 +35618,10 @@
 	icon_state = "water"
 	},
 /area/horizon/holodeck/source_moghes)
+"jeo" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "jgw" = (
 /obj/effect/floor_decal/carpet{
 	dir = 10
@@ -35690,6 +35756,12 @@
 	},
 /turf/simulated/floor/holofloor/space,
 /area/horizon/holodeck/source_basketball)
+"jBy" = (
+/obj/structure/holostool{
+	dir = 8
+	},
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "jBO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -35731,6 +35803,10 @@
 	},
 /turf/simulated/floor/bluegrid,
 /area/horizon/holodeck/source_trinary)
+"jNQ" = (
+/obj/structure/holostool,
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "jOZ" = (
 /obj/structure/flora/grass/green,
 /obj/effect/floor_decal/spline/plain{
@@ -35778,6 +35854,16 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_thunderdomecourt)
+"jVB" = (
+/obj/item/toy/stressball{
+	pixel_x = 5;
+	pixel_y = 8
+	},
+/obj/effect/landmark{
+	name = "Animal Baby Spawn Random"
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "jYW" = (
 /obj/structure/table/wood,
 /obj/item/wrench,
@@ -36482,6 +36568,12 @@
 	name = "overgrowth"
 	},
 /area/horizon/holodeck/source_moghes)
+"mfk" = (
+/obj/structure/holostool{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/beach/sand,
+/area/horizon/holodeck/source_picnicarea)
 "miw" = (
 /obj/structure/table/wood,
 /obj/item/flame/candle,
@@ -36780,6 +36872,12 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_battlemonsters)
+"nji" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "njp" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -36802,6 +36900,12 @@
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
+"npe" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "nrf" = (
 /obj/item/beach_ball,
 /obj/effect/floor_decal/spline/plain{
@@ -37000,6 +37104,15 @@
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"onU" = (
+/obj/item/toy/stressball{
+	pixel_x = -8
+	},
+/obj/effect/landmark{
+	name = "Animal Baby Spawn Random"
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "opa" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -37035,6 +37148,11 @@
 	name = "grass"
 	},
 /area/horizon/holodeck/source_konyang)
+"opD" = (
+/obj/structure/bed/stool/chair/sofa/left/purple,
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "oqe" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/spline/fancy{
@@ -37303,6 +37421,9 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_courtroom)
+"pda" = (
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "pfb" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -37572,6 +37693,16 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_trinary)
+"qjf" = (
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 10
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "qlw" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
@@ -37647,6 +37778,12 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"qBm" = (
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "qEC" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/misc/beach.dmi';
@@ -38103,6 +38240,16 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_trinary)
+"stx" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 6
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "syj" = (
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
@@ -38113,6 +38260,12 @@
 	icon_state = "dark_preview"
 	},
 /area/centcom/specops)
+"sys" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "szG" = (
 /obj/structure/bonfire/fireplace,
 /obj/item/clothing/accessory/scarf/zebra{
@@ -38190,6 +38343,10 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_thunderdomecourt)
+"sQG" = (
+/obj/effect/floor_decal/carpet,
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "sTs" = (
 /obj/effect/spider/cocoon,
 /turf/simulated/floor/exoplanet/barren/raskara,
@@ -38205,6 +38362,12 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood/yew,
 /area/centcom/shared_dream)
+"sWf" = (
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "sYp" = (
 /obj/structure/bed/stool/chair/holochair{
 	dir = 4
@@ -38521,6 +38684,12 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/centcom/shared_dream)
+"tXu" = (
+/obj/structure/holostool{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/beach/sand,
+/area/horizon/holodeck/source_picnicarea)
 "tZQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate,
@@ -38573,6 +38742,18 @@
 	icon_state = "beach"
 	},
 /area/centcom/shared_dream)
+"ulF" = (
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 5
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "ulM" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
@@ -38805,6 +38986,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
+"uTw" = (
+/obj/structure/holostool{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/grass{
+	desc = "Lush, mossy grass. A staple of Konyang.";
+	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
+	icon_state = "grass";
+	name = "mossy grass"
+	},
+/area/horizon/holodeck/source_konyang)
 "uUV" = (
 /obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -39151,6 +39343,12 @@
 	icon_state = "beachcorner"
 	},
 /area/centcom/shared_dream)
+"vWi" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "vWS" = (
 /obj/structure/window/shuttle/unique/ccia{
 	icon_state = "1,3"
@@ -39248,6 +39446,12 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_tribunal)
+"wjU" = (
+/obj/structure/holostool{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/holodeck/source_pool)
 "wkS" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/exoplanet/barren/raskara,
@@ -39291,6 +39495,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/centcom/shared_dream)
+"wrv" = (
+/obj/structure/table/wood/yew,
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/floor_decal/spline/fancy/wood/full,
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "wrH" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/beach/sand{
@@ -39307,6 +39517,13 @@
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
+"wwU" = (
+/obj/structure/table/wood/yew,
+/obj/item/flora/pottedplant_small/woodyshrubbloom{
+	pixel_y = 4
+	},
+/turf/simulated/floor/wood/maple,
+/area/horizon/holodeck/source_cafe)
 "wxl" = (
 /turf/simulated/floor/exoplanet/water/shallow{
 	dir = 9;
@@ -39486,6 +39703,18 @@
 	icon_state = "beach"
 	},
 /area/centcom/shared_dream)
+"xlV" = (
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 9
+	},
+/turf/simulated/floor/carpet/magenta,
+/area/horizon/holodeck/source_cafe)
 "xnA" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -56726,7 +56955,7 @@ avk
 awz
 awy
 ayE
-azH
+avk
 aug
 aBb
 ayK
@@ -77175,14 +77404,14 @@ bFf
 bFf
 bFf
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+bFf
+bFf
+bFf
+bFf
+bFf
+bFf
+bFf
+bFf
 aaa
 aaa
 aaa
@@ -77420,7 +77649,7 @@ bHC
 bLc
 bIM
 bHv
-bIM
+wjU
 bLc
 bHC
 bFf
@@ -77432,14 +77661,14 @@ bJU
 bJU
 bGm
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+crk
+crk
+duj
+crk
+crk
+duj
+crk
+bFf
 aaa
 aaa
 aaa
@@ -77689,14 +77918,14 @@ bJU
 bJU
 bJU
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+crk
+jNQ
+wwU
+hWf
+jNQ
+wwU
+hWf
+bFf
 aaa
 aaa
 aaa
@@ -77946,14 +78175,14 @@ lqT
 bJU
 bJU
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+iUb
+fjY
+fjY
+fjY
+fjY
+fjY
+npe
+bFf
 aaa
 aaa
 aaa
@@ -78203,14 +78432,14 @@ bGi
 bHp
 bHp
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+wrv
+xlV
+qBm
+qBm
+qBm
+qjf
+jar
+bFf
 aaa
 aaa
 aaa
@@ -78460,14 +78689,14 @@ rYl
 bHp
 bHp
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+dwf
+sWf
+iyn
+pda
+onU
+sQG
+jar
+bFf
 aaa
 aaa
 aaa
@@ -78717,14 +78946,14 @@ rYl
 bHp
 bHp
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+opD
+sWf
+pda
+pda
+pda
+sQG
+jar
+bFf
 aaa
 aaa
 aaa
@@ -78974,14 +79203,14 @@ rYl
 bHp
 bHp
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+wrv
+sWf
+pda
+pda
+pda
+sQG
+jar
+bFf
 aaa
 aaa
 aaa
@@ -79231,14 +79460,14 @@ rYl
 bHp
 bHp
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+jeo
+sWf
+jVB
+pda
+iyn
+sQG
+jar
+bFf
 aaa
 aaa
 aaa
@@ -79488,14 +79717,14 @@ xbL
 bHp
 bHp
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+jeo
+ulF
+sys
+sys
+sys
+stx
+jar
+bFf
 aaa
 aaa
 aaa
@@ -79745,14 +79974,14 @@ mEQ
 bJU
 bJU
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+nji
+vWi
+vWi
+vWi
+vWi
+vWi
+elZ
+bFf
 aaa
 aaa
 aaa
@@ -80002,14 +80231,14 @@ bJU
 bJU
 bHw
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+crk
+jNQ
+wwU
+hWf
+jNQ
+wwU
+hWf
+bFf
 aaa
 aaa
 aaa
@@ -80259,14 +80488,14 @@ bJU
 bJU
 bJU
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+crk
+crk
+jBy
+crk
+crk
+jBy
+crk
+bFf
 aaa
 aaa
 aaa
@@ -80516,14 +80745,14 @@ bFf
 bFf
 bFf
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+bFf
+bFf
+bFf
+bFf
+bFf
+bFf
+bFf
+bFf
 aaa
 aaa
 aaa
@@ -84598,8 +84827,8 @@ bKV
 bFf
 bGC
 bGC
-bIU
-bIU
+gpW
+gpW
 bGC
 bIU
 hYO
@@ -84833,7 +85062,7 @@ bJb
 bIf
 bIS
 bID
-bIS
+tXu
 bIf
 bJS
 bFf
@@ -84859,7 +85088,7 @@ bHa
 bHa
 bKk
 bGC
-bIU
+jdt
 bFf
 miw
 bHx
@@ -85090,7 +85319,7 @@ bJS
 fQK
 bIS
 bID
-bIS
+tXu
 bIV
 bJS
 bFf
@@ -85347,7 +85576,7 @@ bJS
 bIV
 bIS
 bID
-bIS
+tXu
 bGE
 bJS
 bFf
@@ -86116,8 +86345,8 @@ aaa
 bFf
 ygU
 bGJ
-bIS
-bIS
+mfk
+mfk
 bGJ
 bJh
 bJS
@@ -86653,8 +86882,8 @@ bKV
 bKV
 bFf
 hYO
-bIU
-bIU
+gpW
+gpW
 bGC
 bGC
 bGC
@@ -87666,7 +87895,7 @@ bFR
 bFf
 qza
 qza
-bIa
+uTw
 oYm
 mrZ
 bLf

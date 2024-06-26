@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - rscadd: "Split survey probes into three types: atmospheric, ground and a new magnetic variant. Replaced some of the extra mapped in probes with the new types."

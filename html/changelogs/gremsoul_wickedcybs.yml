@@ -1,6 +1,0 @@
-author: WickedCybs
-
-delete-after: True
-
-changes:
-  - balance: "Gremorian warriors and workers now have simpler melee AI. The former relies on raw strength over strategy and the latter is single-minded in its pursuit of spreading infestation."
