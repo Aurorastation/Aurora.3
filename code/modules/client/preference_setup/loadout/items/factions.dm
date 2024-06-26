@@ -442,6 +442,7 @@
 	epmc_uniform_para_med["PMCG paramedic uniform, alt"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/alt
 	epmc_uniform_para_med["Sekhmet Intergalactic paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/sekh
 	epmc_uniform_para_med["Ve'katak Phalanx paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/vekatak_phalanx
+	epmc_uniform_para_med["Dagamuir Freewater uniform"] = /obj/item/clothing/under/rank/security/pmc/dagamuir_freewater
 	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_para_med)
 
 /datum/gear/faction/wildlands_flagpatches
