@@ -56,7 +56,7 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "Carpets now show proper edges again."
-  - bugfix: "Fixed layering of several map items that were previously buried underneath turfs in the map editor (and were invisible as a result)."
+  - bugfix: "Fixed layering of several map items, like disposal pipes, that were previously buried underneath turfs in the map editor (and were invisible as a result)."
   - bugfix: "Fixed observer sprites occasionally going underneath certain objects. Their layering has been fixed."
   - bugfix: "Reinforced plastic tables now show up correctly in the map editor."
   - rscadd: "Added a special 'lock' door helper that automatically locks doors underneath it so mappers don't have to edit variables/icon states manually."
