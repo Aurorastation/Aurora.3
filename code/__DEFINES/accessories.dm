@@ -22,3 +22,11 @@
 
 // This accessory will increase the size by one
 #define ACCESSORY_WEIGHT_ONE_UNIT 1
+
+// Accessory Layering
+
+#define ACCESSORY_LOWEST_LAYER 0
+#define ACCESSORY_LAYER_LOWER 0
+#define ACCESSORY_LAYER_MIDDLE 1
+#define ACCESSORY_LAYER_UPPER 2
+#define ACCESSORY_HIGHEST_LAYER 2
