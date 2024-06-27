@@ -166,6 +166,12 @@
 	icon_state = "whitedf"
 	item_state = "whitedf"
 
+/obj/item/clothing/shoes/flats/colorable
+	desc = "A pair of low-heeled women's flats, in a variety of colors"
+	name = "dress flats"
+	icon_state = "colorabledf"
+	item_state = "colorabledf"
+
 //hi-tops
 
 /obj/item/clothing/shoes/sneakers/hitops

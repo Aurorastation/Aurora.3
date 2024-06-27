@@ -59,6 +59,11 @@
 	flats["dress flats, purple"] = /obj/item/clothing/shoes/flats/purple
 	gear_tweaks += new /datum/gear_tweak/path(flats)
 
+/datum/gear/shoes/colorable_flats
+	display_name = "flats (colorable)"
+	path = /obj/item/clothing/shoes/flats/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/shoes/heels
 	display_name = "high heels"
 	path = /obj/item/clothing/shoes/heels
