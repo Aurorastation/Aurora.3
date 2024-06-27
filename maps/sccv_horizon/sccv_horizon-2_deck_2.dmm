@@ -19168,11 +19168,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/investigations_hallway)
 "iJq" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 5
-	},
 /obj/machinery/chem_master,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/rnd/xenobiology/xenoflora)
 "iJv" = (
 /obj/structure/platform{
@@ -19621,10 +19621,6 @@
 /obj/structure/table/standard,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
-	},
-/obj/machinery/microscope/science{
-	dir = 4;
-	pixel_y = 12
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
@@ -43305,8 +43301,15 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "ueF" = (
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/structure/sink/kitchen{
+	dir = 8;
+	name = "sink";
+	pixel_x = 21
+	},
+/turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "ueH" = (
 /turf/simulated/floor/tiled/dark,
@@ -45358,16 +45361,9 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/horizon/bar)
-"uZp" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
-/obj/structure/sink/kitchen{
-	dir = 8;
-	name = "sink";
-	pixel_x = 21
-	},
-/turf/simulated/floor/tiled,
+"uZr" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "uZs" = (
 /obj/structure/table/wood,
@@ -47833,10 +47829,10 @@
 /area/hallway/primary/central_one)
 "wdn" = (
 /obj/machinery/chemical_dispenser,
-/obj/effect/floor_decal/corner/mauve{
-	dir = 5
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/rnd/xenobiology/xenoflora)
 "wdw" = (
 /obj/structure/disposalpipe/segment,
@@ -49443,7 +49439,6 @@
 	pixel_x = 3;
 	pixel_y = -1
 	},
-/obj/item/sampler,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "wPb" = (
@@ -52602,6 +52597,8 @@
 /area/operations/office)
 "yhR" = (
 /obj/structure/table/standard,
+/obj/item/sampler,
+/obj/item/sampler,
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/foyer)
 "yig" = (
@@ -83567,7 +83564,7 @@ nnk
 atQ
 atQ
 aAR
-ueF
+uZr
 sPn
 xRv
 fLi
@@ -84375,7 +84372,7 @@ bLT
 fQM
 fQM
 xZJ
-uZp
+ueF
 wKP
 nir
 iRl
