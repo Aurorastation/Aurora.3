@@ -14895,12 +14895,12 @@
 /turf/simulated/floor/wood,
 /area/horizon/bar)
 "gKG" = (
-/obj/effect/floor_decal/corner/mauve/full{
-	dir = 1
-	},
 /obj/machinery/power/apc/east,
 /obj/structure/cable/green{
 	icon_state = "0-8"
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/foyer)
@@ -17126,6 +17126,7 @@
 /obj/structure/table/rack,
 /obj/item/trap/animal,
 /obj/item/trap/animal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/foyer)
 "hLh" = (
@@ -26779,9 +26780,6 @@
 /turf/simulated/floor/tiled,
 /area/medical/paramedic)
 "mtp" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -32160,6 +32158,7 @@
 /obj/item/trap/animal/large,
 /obj/item/trap/animal/large,
 /obj/machinery/light,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/foyer)
 "oRF" = (
@@ -40318,9 +40317,6 @@
 /turf/simulated/floor/lino,
 /area/horizon/bar)
 "sOn" = (
-/obj/effect/floor_decal/corner/mauve/full{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
@@ -40343,6 +40339,9 @@
 	dir = 10;
 	pixel_x = 32;
 	desiredstate = 1
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/foyer)
@@ -41448,7 +41447,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/foyer)
 "tmO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -43141,6 +43143,7 @@
 /obj/structure/table/rack,
 /obj/item/trap/animal/medium,
 /obj/item/trap/animal/medium,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/foyer)
 "ubz" = (
