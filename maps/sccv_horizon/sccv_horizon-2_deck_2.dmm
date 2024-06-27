@@ -21785,7 +21785,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/structure/plasticflaps/airtight,
+/obj/structure/plasticflaps/airtight{
+	dir = 8
+	},
 /obj/machinery/door/window/westleft{
 	name = "Server Room"
 	},
