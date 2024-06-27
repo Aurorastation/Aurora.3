@@ -21,7 +21,7 @@
 
 	var/list/smeslist = list()
 	for(var/obj/machinery/power/smes/buildable/SMES in SSmachinery.rcon_smes_units)
-		if(SMES.RCon == TRUE)
+		if(SMES.RCon)
 			smeslist.Add(list(list(
 			"charge" = round(SMES.Percentage()),
 			"input_set" = SMES.input_attempt,
