@@ -2645,6 +2645,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/mauve/full,
+/obj/item/book/manual/excavation,
+/obj/item/book/manual/materials_chemistry_analysis,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenological)
 "blJ" = (
@@ -3659,13 +3661,6 @@
 /turf/simulated/wall/r_wall,
 /area/horizon/security/brig)
 "bDv" = (
-/obj/machinery/chemical_dispenser/coffee/full{
-	pixel_y = 14
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup{
-	pixel_x = 7
-	},
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
@@ -5223,13 +5218,6 @@
 /obj/machinery/power/apc/west,
 /obj/structure/cable/green{
 	icon_state = "0-4"
-	},
-/obj/machinery/microscope/science{
-	dir = 8;
-	pixel_y = 12
-	},
-/obj/item/storage/box/fancy/vials{
-	pixel_y = -12
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
@@ -10021,7 +10009,6 @@
 /area/rnd/xenobiology/xenoflora)
 "eHt" = (
 /obj/structure/platform,
-/obj/machinery/spectrophotometer,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/lab)
 "eHG" = (
@@ -24123,7 +24110,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "lcs" = (
-/obj/machinery/vending/coffee,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
@@ -31132,10 +31118,10 @@
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "oqm" = (
-/obj/structure/bookcase,
-/obj/item/book/manual/mass_spectrometry,
-/obj/item/book/manual/materials_chemistry_analysis,
-/obj/item/book/manual/excavation,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/machinery/spectrophotometer,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenological)
 "oqv" = (
@@ -38977,6 +38963,7 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
+/obj/machinery/centrifuge,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenological)
 "rZy" = (
@@ -39703,6 +39690,13 @@
 	dir = 8
 	},
 /obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup{
+	pixel_x = 7
+	},
+/obj/machinery/chemical_dispenser/coffee/full{
+	pixel_y = 14
+	},
 /turf/simulated/floor/wood,
 /area/rnd/hallway/secondary)
 "suc" = (
@@ -40449,7 +40443,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/centrifuge,
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
 "sRe" = (
@@ -46974,12 +46967,17 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "vNg" = (
-/obj/item/paper_bin,
-/obj/item/pen/black,
 /obj/structure/table/standard,
 /obj/machinery/firealarm/east,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
+	},
+/obj/machinery/microscope/science{
+	dir = 4;
+	pixel_y = 12
+	},
+/obj/item/storage/box/fancy/vials{
+	pixel_y = -12
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenological)
@@ -48654,6 +48652,8 @@
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
 	},
+/obj/item/paper_bin,
+/obj/item/pen/black,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/xenological)
 "wvn" = (
