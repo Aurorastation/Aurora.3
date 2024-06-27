@@ -31720,7 +31720,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "oDV" = (
 /obj/structure/cable/green{
@@ -33484,7 +33485,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "pxA" = (
@@ -43302,10 +43305,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "ueF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/turf/simulated/floor/tiled,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "ueH" = (
 /turf/simulated/floor/tiled/dark,
@@ -45357,6 +45358,17 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/horizon/bar)
+"uZp" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/structure/sink/kitchen{
+	dir = 8;
+	name = "sink";
+	pixel_x = 21
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/xenobiology/xenoflora)
 "uZs" = (
 /obj/structure/table/wood,
 /obj/machinery/recharger{
@@ -83153,7 +83165,7 @@ kDx
 ngG
 eUi
 pxt
-sGR
+tsf
 wUn
 wUn
 wUn
@@ -83354,8 +83366,8 @@ lEv
 lEv
 bjM
 oDz
-ueF
-tsf
+tbi
+xRv
 scH
 scH
 scH
@@ -83555,7 +83567,7 @@ nnk
 atQ
 atQ
 aAR
-tbi
+ueF
 sPn
 xRv
 fLi
@@ -84363,7 +84375,7 @@ bLT
 fQM
 fQM
 xZJ
-wKP
+uZp
 wKP
 nir
 iRl
