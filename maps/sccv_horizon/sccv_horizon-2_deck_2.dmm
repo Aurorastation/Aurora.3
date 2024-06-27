@@ -1026,9 +1026,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "axc" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "axl" = (
@@ -6855,7 +6852,9 @@
 /obj/item/storage/box/gloves,
 /obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/clothing/glasses/safety/goggles/science,
-/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
@@ -7831,7 +7830,10 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "dGj" = (
 /turf/simulated/wall/r_wall,
@@ -9922,7 +9924,9 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/mauve/full,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "eGx" = (
@@ -10362,8 +10366,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "eRp" = (
-/obj/effect/floor_decal/corner/mauve/full{
-	dir = 8
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
@@ -10643,8 +10647,11 @@
 /obj/machinery/chem_master{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/carpet/rubber,
 /area/rnd/chemistry)
 "eWP" = (
 /obj/structure/cable{
@@ -12702,9 +12709,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zat)
 "fSm" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 5
-	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -12715,6 +12719,9 @@
 	dir = 9
 	},
 /obj/structure/disposalpipe/segment,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "fSw" = (
@@ -13567,7 +13574,9 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "gkh" = (
@@ -15531,7 +15540,9 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology)
 "hbt" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 8
+	},
 /obj/structure/sink{
 	pixel_y = 28;
 	pixel_x = -10
@@ -15638,9 +15649,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/main_storage)
 "hep" = (
-/obj/effect/floor_decal/corner/mauve/full{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -19575,9 +19583,11 @@
 /turf/simulated/floor/plating,
 /area/horizon/security/hallway)
 "iSG" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/structure/cable/green,
 /obj/machinery/power/apc/south,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "iTm" = (
@@ -22582,13 +22592,16 @@
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
 /obj/item/grenade/chem_grenade,
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/gun/launcher/syringe,
 /obj/item/storage/box/syringegun,
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "knH" = (
 /obj/structure/dispenser/oxygen,
@@ -23671,9 +23684,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/security/brig)
 "kRz" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 5
-	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
@@ -29220,9 +29230,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "ntg" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
@@ -29747,7 +29754,8 @@
 /area/engineering/smes/rust)
 "nGt" = (
 /obj/machinery/chem_heater,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "nGI" = (
 /obj/effect/floor_decal/corner/dark_green/full{
@@ -33384,7 +33392,8 @@
 	pixel_y = 2;
 	pixel_x = -8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "puN" = (
 /obj/structure/table/rack,
@@ -35490,7 +35499,10 @@
 "qvN" = (
 /obj/structure/table/standard,
 /obj/machinery/firealarm/south,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "qvO" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -36179,8 +36191,11 @@
 /obj/machinery/chem_master{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/carpet/rubber,
 /area/rnd/chemistry)
 "qLT" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -37635,8 +37650,9 @@
 /obj/machinery/chemical_dispenser/full{
 	req_access = list(7)
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/spline/plain/cee,
+/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/carpet/rubber,
 /area/rnd/chemistry)
 "rtF" = (
 /obj/structure/cable/green{
@@ -38370,8 +38386,8 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/mauve/full{
-	dir = 1
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -38625,7 +38641,8 @@
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/vials,
 /obj/item/reagent_containers/dropper/electronic_pipette,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/mauve/full,
+/turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "rSD" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -40709,7 +40726,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "sXh" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 1
+	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -45219,7 +45238,8 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "uUJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -45654,7 +45674,10 @@
 	dir = 8
 	},
 /obj/structure/extinguisher_cabinet/east,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "vgt" = (
 /obj/structure/disposaloutlet{
@@ -46337,9 +46360,6 @@
 /turf/simulated/floor/plating,
 /area/horizon/hallway/deck_two/fore)
 "vzO" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 8;
 	icon_state = "pipe-c"
@@ -50008,8 +50028,11 @@
 /obj/machinery/chemical_dispenser/full{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/carpet/rubber,
 /area/rnd/chemistry)
 "xed" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -51874,7 +51897,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
 "xVt" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "xVu" = (
