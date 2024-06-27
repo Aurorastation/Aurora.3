@@ -12119,6 +12119,9 @@
 "fEI" = (
 /obj/machinery/power/apc/east,
 /obj/structure/cable/green,
+/obj/structure/coatrack{
+	pixel_x = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/hydroponics/garden)
 "fEO" = (
