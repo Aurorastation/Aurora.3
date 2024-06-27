@@ -26,6 +26,10 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/template_noop)
+"ak" = (
+/obj/machinery/papershredder,
+/turf/simulated/floor/tiled/light,
+/area/template_noop)
 "an" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -136,6 +140,12 @@
 /obj/structure/flora/rock/random,
 /turf/simulated/floor/exoplanet/basalt,
 /area/template_noop)
+"bn" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/light,
+/area/template_noop)
 "bp" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -147,6 +157,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"bw" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/light,
 /area/template_noop)
 "bB" = (
 /obj/structure/bed/stool/chair/folding,
@@ -161,6 +177,17 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/orange,
+/area/template_noop)
+"bK" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/pink{
+	dir = 5
+	},
+/obj/item/stock_parts/manipulator{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "bL" = (
 /turf/simulated/floor/exoplanet/basalt{
@@ -203,6 +230,12 @@
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/eastleft,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"cq" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/light,
 /area/template_noop)
 "cr" = (
 /obj/structure/table/wood,
@@ -284,6 +317,10 @@
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/structure/table/standard,
 /obj/machinery/door/window/westleft,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"dq" = (
+/obj/effect/floor_decal/corner/pink/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "du" = (
@@ -459,6 +496,13 @@
 /obj/structure/blocker,
 /turf/simulated/floor/wood/yew,
 /area/template_noop)
+"fp" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/light,
+/area/template_noop)
 "fq" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/light,
@@ -468,6 +512,12 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/green,
+/area/template_noop)
+"ft" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "fy" = (
 /turf/simulated/floor/wood/walnut,
@@ -510,6 +560,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"gf" = (
+/obj/machinery/computer/telescience{
+	starting_crystals = 4;
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/pink{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/light,
+/area/template_noop)
 "gg" = (
 /obj/structure/barricade/wooden,
 /turf/simulated/floor/exoplanet/snow,
@@ -548,6 +608,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"gv" = (
+/obj/structure/closet/secure_closet/guncabinet/sci{
+	req_access = null
+	},
+/obj/item/gun/energy/rifle/laser,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "gw" = (
 /obj/structure/table/stone/marble,
 /obj/structure/cash_register{
@@ -558,6 +625,14 @@
 /area/template_noop)
 "gB" = (
 /turf/simulated/floor/exoplanet/grass,
+/area/template_noop)
+"gE" = (
+/obj/structure/table/standard,
+/obj/item/clothing/gloves/yellow{
+	pixel_x = -3;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "gK" = (
 /obj/structure/table/stone/marble,
@@ -601,6 +676,15 @@
 /area/template_noop)
 "he" = (
 /turf/simulated/floor/exoplanet/ice,
+/area/template_noop)
+"ho" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "ht" = (
 /turf/simulated/floor/reinforced,
@@ -651,6 +735,10 @@
 	dir = 9
 	},
 /turf/simulated/floor/lino,
+/area/template_noop)
+"hY" = (
+/obj/effect/floor_decal/corner/pink/full,
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "hZ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -757,11 +845,28 @@
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/carpet/purple,
 /area/template_noop)
+"jh" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "jl" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/orange,
+/area/template_noop)
+"jn" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/glass_research,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "jp" = (
 /obj/structure/barricade/metal,
@@ -778,6 +883,11 @@
 	pixel_y = -10
 	},
 /turf/simulated/floor/wood/walnut,
+/area/template_noop)
+"js" = (
+/obj/structure/table/standard,
+/obj/item/device/integrated_electronics/wirer,
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "jt" = (
 /turf/simulated/floor/carpet/purple,
@@ -804,6 +914,10 @@
 /area/template_noop)
 "jF" = (
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/template_noop)
+"jL" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled/light,
 /area/template_noop)
 "jO" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -916,6 +1030,22 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
+/area/template_noop)
+"lv" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"lx" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/pink{
+	dir = 6
+	},
+/obj/item/clothing/glasses/safety/goggles/science{
+	pixel_y = 10
+	},
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "ly" = (
 /obj/effect/decal/road_marking/thin{
@@ -1201,6 +1331,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"oi" = (
+/obj/structure/bed/stool/chair/office/light,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "oo" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -1244,6 +1378,13 @@
 /obj/structure/flora/tree/jungle/small/random,
 /turf/simulated/floor/exoplanet/grass,
 /area/template_noop)
+"oH" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "oK" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -1280,6 +1421,18 @@
 	pixel_y = -8
 	},
 /turf/simulated/floor/reinforced,
+/area/template_noop)
+"ph" = (
+/obj/structure/table/standard,
+/obj/item/clothing/gloves/yellow{
+	pixel_x = 4;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"pi" = (
+/obj/effect/floor_decal/corner/pink,
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "pj" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
@@ -1369,13 +1522,40 @@
 "qb" = (
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
+"qc" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner_wide/orange/diagonal,
+/obj/item/clothing/glasses/safety/goggles/science{
+	pixel_y = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"qd" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/pink/full,
+/obj/item/device/laser_pointer/red{
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "qe" = (
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/wood/yew,
 /area/template_noop)
+"qf" = (
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/firecloset/full,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "qi" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"qj" = (
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/firecloset/full,
+/turf/simulated/floor/tiled/light,
 /area/template_noop)
 "qo" = (
 /obj/effect/floor_decal/corner/pink{
@@ -1399,6 +1579,18 @@
 /obj/machinery/stargazer,
 /turf/simulated/floor/tiled/slate,
 /area/template_noop)
+"qx" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass_research{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "qy" = (
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 4
@@ -1417,6 +1609,15 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
+/area/template_noop)
+"qF" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/item/stack/material/phoron{
+	amount = 15;
+	pixel_x = -2
+	},
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "qK" = (
 /obj/structure/table/rack/retail_shelf,
@@ -1466,6 +1667,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"rf" = (
+/obj/effect/floor_decal/corner/pink/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "rg" = (
 /obj/structure/curtain/black,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
@@ -1493,6 +1700,13 @@
 	pixel_y = -10
 	},
 /turf/simulated/floor/reinforced,
+/area/template_noop)
+"rq" = (
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/light,
 /area/template_noop)
 "rr" = (
 /obj/structure/bonfire/fireplace{
@@ -1537,6 +1751,10 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"rZ" = (
+/obj/machinery/r_n_d/destructive_analyzer,
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
 "sc" = (
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/carpet/darkblue,
@@ -1575,6 +1793,15 @@
 "sE" = (
 /obj/structure/flora/rock/adhomai,
 /turf/simulated/floor/exoplanet/snow,
+/area/template_noop)
+"sG" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 10
+	},
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "sL" = (
 /obj/machinery/door/urban,
@@ -1623,6 +1850,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"sY" = (
+/obj/machinery/vending/coffee,
+/turf/simulated/floor/tiled/light,
+/area/template_noop)
 "te" = (
 /obj/structure/lattice/catwalk/indoor/planks,
 /obj/structure/beach_umbrella,
@@ -1631,6 +1862,14 @@
 "tg" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"tj" = (
+/obj/structure/table/standard,
+/obj/item/clothing/glasses/safety/goggles/science{
+	pixel_y = 10
+	},
+/obj/effect/floor_decal/corner/pink,
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "tr" = (
 /obj/structure/closet/crate/rad/gear,
@@ -1667,6 +1906,13 @@
 	},
 /turf/simulated/floor/carpet/purple,
 /area/template_noop)
+"tC" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "tD" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled,
@@ -1697,6 +1943,13 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
+/area/template_noop)
+"ua" = (
+/obj/structure/closet/secure_closet/guncabinet/sci{
+	req_access = null
+	},
+/obj/item/gun/energy/laser/shotgun,
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "uc" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
@@ -1740,6 +1993,21 @@
 /obj/machinery/door/airlock/glass_command,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"uy" = (
+/obj/structure/table/steel,
+/obj/item/device/firing_pin/access{
+	pixel_x = 6
+	},
+/obj/item/device/firing_pin/access{
+	pixel_x = 9;
+	pixel_y = 5
+	},
+/obj/item/device/firing_pin/access{
+	pixel_x = 16;
+	pixel_y = 10
+	},
+/turf/simulated/floor/tiled/light,
+/area/template_noop)
 "uA" = (
 /obj/structure/flora/rock/pile/random,
 /turf/simulated/floor/exoplanet/basalt,
@@ -1768,6 +2036,11 @@
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
+/area/template_noop)
+"uJ" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/corner/mauve/full,
+/turf/simulated/floor/tiled/light,
 /area/template_noop)
 "uK" = (
 /obj/structure/target_stake,
@@ -1837,6 +2110,12 @@
 "vi" = (
 /turf/simulated/floor/lino/diamond,
 /area/template_noop)
+"vj" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "vl" = (
 /obj/structure/bed/stool/chair/office/dark,
 /turf/simulated/floor/tiled/dark,
@@ -1890,6 +2169,12 @@
 /obj/structure/closet/radiation,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
+/area/template_noop)
+"vJ" = (
+/obj/machinery/computer/rdconsole/core{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "vP" = (
 /obj/structure/bed/stool/chair/office/light{
@@ -2043,6 +2328,12 @@
 /obj/structure/rod_railing,
 /turf/simulated/floor/lino,
 /area/template_noop)
+"xe" = (
+/obj/effect/floor_decal/corner/pink/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/light,
+/area/template_noop)
 "xh" = (
 /obj/machinery/light/colored/blue,
 /turf/simulated/floor/reinforced,
@@ -2163,6 +2454,17 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
+/area/template_noop)
+"yJ" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/pink{
+	dir = 10
+	},
+/obj/item/device/paicard{
+	pixel_x = 2;
+	pixel_y = -3
+	},
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "yK" = (
 /obj/effect/decal/road_marking/thin{
@@ -2339,6 +2641,12 @@
 "Ag" = (
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/template_noop)
+"Al" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "Ay" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -2505,6 +2813,13 @@
 	},
 /turf/simulated/floor/wood/mahogany,
 /area/template_noop)
+"Cv" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 10
+	},
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "CA" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/toilet{
@@ -2623,6 +2938,13 @@
 /obj/machinery/door/window/eastright,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"Dv" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "Dy" = (
 /obj/machinery/door/urban{
 	dir = 4
@@ -2658,6 +2980,11 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"DQ" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/pink,
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "DT" = (
 /obj/structure/flora/bush/jungle/random,
@@ -2725,6 +3052,14 @@
 "EA" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"EB" = (
+/obj/structure/table/steel,
+/obj/item/tank/oxygen{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/light,
 /area/template_noop)
 "EN" = (
 /obj/effect/floor_decal/corner/brown{
@@ -2828,6 +3163,11 @@
 "FE" = (
 /obj/structure/bed/roller,
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"FK" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "FN" = (
 /obj/structure/light_pole/r,
@@ -3017,6 +3357,10 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"HZ" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "Ia" = (
 /turf/simulated/floor/wood/bamboo,
 /area/template_noop)
@@ -3057,6 +3401,11 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"ID" = (
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/firecloset/full,
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "IO" = (
 /obj/structure/closet,
@@ -3198,6 +3547,14 @@
 /obj/structure/closet,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"JX" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/tray/machinist{
+	pixel_y = 10
+	},
+/obj/effect/floor_decal/corner/beige/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "Ku" = (
 /obj/structure/flora/tree/konyang/spring,
 /turf/simulated/floor/exoplanet/konyang,
@@ -3283,6 +3640,18 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/lightblue,
 /area/template_noop)
+"Lt" = (
+/obj/effect/floor_decal/corner/pink/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"Lx" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "Ly" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -3296,11 +3665,7 @@
 /turf/simulated/floor/exoplanet/grass/marsh,
 /area/template_noop)
 "LG" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/masks{
-	pixel_x = -1;
-	pixel_y = 6
-	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "LI" = (
@@ -3417,6 +3782,10 @@
 	},
 /turf/simulated/floor/lino,
 /area/template_noop)
+"MO" = (
+/obj/structure/table/glass,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "MQ" = (
 /obj/effect/decal/road_marking/thin{
 	dir = 4
@@ -3432,6 +3801,23 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
+/area/template_noop)
+"MZ" = (
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_y = 0;
+	pixel_x = -8
+	},
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_y = 0;
+	pixel_x = 8
+	},
+/turf/simulated/floor/tiled/light,
+/area/template_noop)
+"Nd" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "Nh" = (
 /obj/item/saddle,
@@ -3465,6 +3851,10 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
+/area/template_noop)
+"NE" = (
+/obj/machinery/weapons_analyzer,
+/turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "NF" = (
 /obj/structure/flora/rock/desert/scrub,
@@ -3651,6 +4041,12 @@
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"PT" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/light,
+/area/template_noop)
 "PU" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -3718,6 +4114,21 @@
 /obj/structure/barricade/wooden,
 /turf/simulated/floor/exoplanet/barren,
 /area/template_noop)
+"QC" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/brown/full,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"QE" = (
+/obj/structure/table/standard,
+/obj/item/storage/bag/circuits/basic{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "QG" = (
 /obj/structure/barricade/metal{
 	dir = 1
@@ -3773,6 +4184,17 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"Rg" = (
+/obj/structure/table/standard,
+/obj/item/clothing/glasses/safety/goggles/science{
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"Rj" = (
+/obj/effect/floor_decal/corner/pink/full,
+/turf/simulated/floor/tiled/light,
 /area/template_noop)
 "Rk" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
@@ -3836,6 +4258,11 @@
 "RH" = (
 /turf/simulated/floor/carpet/orange,
 /area/template_noop)
+"RI" = (
+/obj/structure/table/steel,
+/obj/item/device/hand_labeler,
+/turf/simulated/floor/tiled/light,
+/area/template_noop)
 "RJ" = (
 /obj/effect/decal/road_marking,
 /turf/simulated/floor/asphalt,
@@ -3845,6 +4272,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"RN" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
 /area/template_noop)
 "RO" = (
 /obj/effect/decal/road_marking,
@@ -3935,6 +4368,12 @@
 "SI" = (
 /obj/structure/table/reinforced/glass,
 /turf/simulated/floor/wood/maple,
+/area/template_noop)
+"SK" = (
+/obj/effect/floor_decal/corner/pink/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/light,
 /area/template_noop)
 "SN" = (
 /obj/structure/bed/stool/chair/folding{
@@ -4130,17 +4569,17 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/lava,
 /area/template_noop)
+"Vg" = (
+/obj/structure/table/standard,
+/obj/item/wrench{
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "Vj" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/carpet/rubber,
-/area/template_noop)
-"Vn" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/masks{
-	pixel_x = -3;
-	pixel_y = 6
-	},
-/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "Vq" = (
 /obj/structure/flora/tree/desert,
@@ -4202,9 +4641,20 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"VS" = (
+/obj/machinery/door/window/westleft,
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "VY" = (
 /obj/structure/bed/stool/chair/office/dark,
 /obj/effect/floor_decal/corner/beige/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"Wb" = (
+/obj/effect/floor_decal/corner/beige/diagonal,
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "Wd" = (
@@ -4226,6 +4676,14 @@
 /obj/machinery/portable_atmospherics/hydroponics/soil,
 /obj/structure/flora/grass/adhomai,
 /turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"Ww" = (
+/obj/structure/table/reinforced/glass,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"Wx" = (
+/obj/machinery/telepad,
+/turf/simulated/floor/reinforced,
 /area/template_noop)
 "WB" = (
 /obj/machinery/light/colored/blue{
@@ -4287,6 +4745,17 @@
 /turf/simulated/floor/exoplanet/basalt{
 	color = "#a9d8e0"
 	},
+/area/template_noop)
+"Xq" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/pink{
+	dir = 6
+	},
+/obj/item/device/multitool{
+	pixel_x = -8;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/light,
 /area/template_noop)
 "Xt" = (
 /obj/machinery/photocopier,
@@ -4421,9 +4890,20 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/template_noop)
+"YB" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/light,
+/area/template_noop)
 "YC" = (
 /obj/structure/light_pole/konyang/left,
 /turf/simulated/floor/exoplanet/konyang,
+/area/template_noop)
+"YH" = (
+/obj/structure/table/standard,
+/obj/item/clothing/gloves/yellow{
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "YJ" = (
 /obj/structure/bonfire,
@@ -4437,6 +4917,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/gold/full,
 /turf/simulated/floor/plating,
+/area/template_noop)
+"YN" = (
+/obj/structure/closet/secure_closet/guncabinet/sci{
+	req_access = null
+	},
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "YP" = (
 /obj/structure/cable/green{
@@ -22830,7 +23316,7 @@ jC
 NP
 tw
 Tr
-CV
+ho
 tw
 cC
 NP
@@ -23233,7 +23719,7 @@ SU
 CT
 CT
 tw
-CV
+QC
 Tr
 tw
 oL
@@ -24808,7 +25294,7 @@ iF
 iF
 iF
 tw
-hJ
+YH
 Sh
 hJ
 tw
@@ -24817,7 +25303,7 @@ mu
 tw
 hJ
 Sh
-Vn
+hJ
 tw
 iF
 iF
@@ -24848,12 +25334,12 @@ tw
 tw
 tw
 tw
+jO
 tw
 tw
 tw
 tw
-PI
-PI
+tw
 PI
 PI
 PI
@@ -25033,9 +25519,9 @@ Tr
 Tr
 Tr
 Tr
-Tr
+Lx
 SU
-Tr
+jC
 Tr
 Tr
 Tr
@@ -25047,15 +25533,15 @@ tw
 PI
 PI
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+SU
+SU
+SU
+SU
+lh
+lh
+lh
+tw
 PI
 PI
 PI
@@ -25212,7 +25698,7 @@ iF
 iF
 iF
 tw
-LG
+hJ
 UC
 hx
 oo
@@ -25249,15 +25735,15 @@ tw
 PI
 PI
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+Tr
+SU
+SU
+SU
+SU
+Tr
+Tr
+tw
 PI
 PI
 PI
@@ -25423,7 +25909,7 @@ Qn
 tw
 hx
 Sn
-hJ
+gE
 tw
 iF
 iF
@@ -25451,15 +25937,15 @@ tw
 PI
 PI
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+lh
+lh
+SU
+Tr
+lh
+lh
+lh
+tw
 PI
 PI
 PI
@@ -25653,15 +26139,15 @@ tw
 PI
 PI
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+Tr
+Tr
+Tr
+Tr
+Tr
+Tr
+Tr
+tw
 PI
 PI
 PI
@@ -25855,15 +26341,15 @@ tw
 PI
 PI
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+lh
+lh
+lh
+Tr
+lh
+lh
+lh
+tw
 PI
 PI
 PI
@@ -26057,15 +26543,15 @@ tw
 PI
 PI
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
 PI
 PI
 PI
@@ -27058,31 +27544,31 @@ PI
 PI
 PI
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
 tw
 Tr
 tw
-PI
-PI
-PI
+tw
+tw
+tw
 PI
 iF
 iF
@@ -27260,31 +27746,31 @@ PI
 PI
 PI
 PI
+tw
+ht
+ht
+ht
+RG
+SU
+SU
+SU
+RG
+ht
+ht
+ht
+tw
 PI
 PI
 PI
 PI
 PI
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+Tr
+Tr
+Tr
+Tr
+tw
 PI
 iF
 iF
@@ -27462,31 +27948,31 @@ PI
 PI
 PI
 PI
+tw
+ht
+ht
+ht
+jn
+SU
+dq
+SU
+jn
+ht
+ht
+ht
+tw
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+tw
+tw
+tw
+tw
+tw
+Tr
+Tr
+Tr
+Tr
+tw
 PI
 iF
 iF
@@ -27653,6 +28139,10 @@ iF
 iF
 iF
 tw
+tw
+tw
+tw
+tw
 PI
 PI
 PI
@@ -27660,46 +28150,42 @@ PI
 PI
 PI
 PI
+tw
+ht
+ht
+ht
+RG
+SU
+dq
+SU
+RG
+ht
+ht
+ht
+tw
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+HZ
+HZ
+HZ
+tw
+Tr
+Tr
+Tr
+tw
+tw
+tw
 PI
 iF
 iF
 iF
+NG
+NG
+NG
 iF
-iF
-iF
-iF
-iF
-iF
-iF
+NG
+NG
+NG
 iF
 iF
 iF
@@ -27855,6 +28341,10 @@ iF
 iF
 iF
 Tr
+Tr
+Tr
+Tr
+tw
 PI
 PI
 PI
@@ -27862,46 +28352,42 @@ PI
 PI
 PI
 PI
+tw
+tw
+tw
+tw
+tw
+SU
+dq
+SU
+tw
+tw
+tw
+tw
+tw
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+HZ
+HZ
+HZ
+tw
+tw
+jO
+tw
+tw
 PI
 PI
 PI
 iF
 iF
 iF
+NG
+NG
+NG
 iF
-iF
-iF
-iF
-iF
-iF
-iF
+NG
+NG
+NG
 iF
 iF
 iF
@@ -28057,6 +28543,10 @@ iF
 iF
 iF
 tw
+Tr
+Tr
+Tr
+tw
 PI
 PI
 PI
@@ -28064,33 +28554,29 @@ PI
 PI
 PI
 PI
+tw
+ht
+ht
+ht
+RG
+SU
+dq
+SU
+RG
+ht
+ht
+ht
+tw
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+qf
+SK
+ow
+ow
+ow
+ow
+Rj
+tw
 PI
 PI
 PI
@@ -28258,6 +28744,11 @@ iF
 iF
 iF
 iF
+tw
+Tr
+Tr
+Tr
+tw
 PI
 PI
 PI
@@ -28265,47 +28756,42 @@ PI
 PI
 PI
 PI
+tw
+ht
+ht
+ht
+jn
+SU
+dq
+SU
+jn
+ht
+ht
+ht
+tw
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+qf
+qo
+Ic
+Ic
+Ic
+Ic
+eF
+tw
+tw
+tw
+tw
 iF
 iF
 iF
+NG
+NG
+NG
 iF
-iF
-iF
-iF
-iF
-iF
-iF
+NG
+NG
+NG
 iF
 iF
 iF
@@ -28460,54 +28946,54 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+Tr
+Tr
+Tr
+tw
 PI
 PI
 tw
 tw
 tw
 tw
+PI
+tw
+ht
+ht
+ht
+RG
+SU
+dq
+SU
+RG
+ht
+ht
+ht
+tw
+PI
 tw
 tw
-PI
-PI
-PI
-PI
-PI
-PI
+qx
+qx
+tw
+tw
+Ic
+eF
+HZ
+HZ
+HZ
+tw
 iF
 iF
 iF
+NG
+NG
+NG
 iF
-iF
-iF
-iF
-iF
-iF
-iF
+NG
+NG
+NG
 iF
 iF
 iF
@@ -28662,28 +29148,28 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+jO
+tw
+tw
+tw
+tw
+tw
+tw
+ID
+ID
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+SU
+SU
+SU
+tw
+tw
 tw
 tw
 tw
@@ -28694,12 +29180,12 @@ hx
 hx
 hx
 tw
-PI
-PI
-PI
-PI
-PI
-PI
+Ic
+eF
+HZ
+HZ
+HZ
+tw
 iF
 iF
 iF
@@ -28864,54 +29350,54 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
 tw
-Ic
-Ic
-Ic
+Tr
 tw
+hJ
+Sh
+hJ
+RG
+hx
+jc
+hx
+hx
+hx
+hx
+hx
+hx
+hx
+jn
+hx
 hx
 hx
 hx
 hx
 tw
-PI
-PI
-PI
-PI
-PI
-PI
+MZ
+ak
+jL
+tw
+hx
+oi
+MO
+vj
+tw
+Ic
+eF
+tw
+tw
+tw
+tw
 iF
 iF
 iF
+NG
+NG
+NG
 iF
-iF
-iF
-iF
-iF
-iF
-iF
+NG
+NG
+NG
 iF
 iF
 iF
@@ -29066,54 +29552,54 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
 tw
+Tr
+tw
+Mw
+Sn
+hx
+RG
+hx
+jc
+pi
+iz
+iz
+iz
+hx
+iz
+iz
+jn
+iz
+iz
+iz
+iz
+iz
+jn
 Ic
 Ic
 Ic
+jn
+hx
+oi
+MO
+vj
 tw
-hx
-hx
-hx
-hx
+Ic
+eF
+HZ
+HZ
+HZ
 tw
-PI
-PI
-PI
-PI
-PI
-PI
 iF
 iF
 iF
+NG
+NG
+NG
 iF
-iF
-iF
-iF
-iF
-iF
-iF
+NG
+NG
+NG
 iF
 iF
 iF
@@ -29268,44 +29754,44 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+Tr
+tw
+Vg
+Wb
+hx
+jn
+hx
+jc
+ft
+tw
+RG
+RG
+qx
+RG
+RG
+tw
+tw
+DQ
+DQ
+tj
+pi
+tw
+zs
+vP
+Ic
+tw
+hx
+oi
+MO
+vj
 tw
 Ic
-Ic
-Ic
+eF
+HZ
+HZ
+HZ
 tw
-hx
-hx
-hx
-hx
-tw
-PI
-PI
-PI
-PI
-PI
-PI
 iF
 iF
 iF
@@ -29470,54 +29956,54 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+Tr
+tw
+YH
+Sn
 hx
+RG
 hx
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+jc
+ft
+tw
+RI
+Cv
+LG
+jc
+js
+QE
+tw
+FK
+tC
+LG
+LG
+tw
+zs
+zs
+zs
+tw
+hx
+oi
+MO
+vj
 tw
 Ic
-Ic
-Ic
+eF
 tw
-hx
-hx
-hx
-hx
 tw
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+tw
 iF
 iF
 iF
+NG
+NG
+NG
 iF
-iF
-iF
-iF
-iF
-iF
-iF
+NG
+NG
+NG
 iF
 iF
 iF
@@ -29672,54 +30158,54 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-hx
-hx
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+Tr
 tw
 tw
 tw
 tw
 tw
+tw
+jh
+jh
+tw
+rq
+sG
+LG
+jc
+oi
+hJ
+tw
+lv
+lv
+lv
+lv
+tw
+RG
+RG
+RG
+tw
 hx
 hx
+Al
 hx
-hx
+tw
+Ic
+eF
 tw
 PI
 PI
 PI
-PI
-PI
-PI
 iF
 iF
 iF
+NG
+NG
+NG
 iF
-iF
-iF
-iF
-iF
-iF
-iF
+NG
+NG
+NG
 iF
 iF
 iF
@@ -29874,28 +30360,28 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+Tr
+tw
+hJ
+JX
+hJ
+RG
+hx
+jc
+ft
+tw
+ak
+ft
+LG
+Ys
+iz
+lx
+tw
 hx
 hx
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+hJ
+hJ
 tw
 SU
 ow
@@ -29906,8 +30392,8 @@ RG
 RG
 RG
 tw
-tw
-tw
+qx
+qx
 tw
 tw
 tw
@@ -30076,24 +30562,24 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+Tr
+tw
+Mw
+Dv
 hx
+jn
 hx
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+jc
+ft
+tw
+jL
+ft
+LG
+Ic
+Ic
+tw
+tw
 tw
 tw
 tw
@@ -30102,7 +30588,7 @@ tw
 qo
 SU
 rF
-SU
+ky
 ow
 SU
 ow
@@ -30113,7 +30599,7 @@ ow
 SU
 ow
 SU
-SU
+jn
 iF
 iF
 iF
@@ -30278,33 +30764,33 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-hx
-hx
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
 tw
-hx
-hx
-hx
+Tr
 tw
+ph
+Sn
+hx
+RG
+hx
+jc
+ft
+tw
+tw
+tw
+LG
+rf
+qL
+vJ
+rZ
+tw
+qo
+Ic
+rq
+RG
 SU
 Uo
 Rk
-Uo
+ky
 Rk
 Uo
 Rk
@@ -30315,7 +30801,7 @@ Rk
 Uo
 Rk
 Uo
-SU
+jn
 iF
 iF
 iF
@@ -30480,33 +30966,33 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-hx
-hx
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
 tw
-hx
-hx
-hx
+Tr
 tw
+hJ
+Sn
+hx
+RG
+hx
+jc
+ft
+hx
+RG
+ft
+LG
+jc
+Bz
+Bz
+Bz
+tw
+qo
+Ym
+EB
+RG
 qo
 Rk
 zl
-SU
+ky
 wu
 SU
 wu
@@ -30517,7 +31003,7 @@ wu
 SU
 wu
 SU
-SU
+jn
 iF
 iF
 iF
@@ -30682,29 +31168,29 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-hx
-hx
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
 tw
-hx
-hx
-hx
+jO
 tw
+tw
+tw
+tw
+tw
+tw
+jc
+ft
+hx
+RG
+Lt
+LG
+Ys
+NE
+MJ
+Ja
+tw
+xe
+gf
+Xq
+RG
 SU
 Uo
 SU
@@ -30884,29 +31370,29 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-hx
-hx
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
 tw
+Tr
+Tr
+Tr
+Tr
+Tr
+oz
+Ic
+jc
+ft
+hx
+jn
+LG
+LG
+LG
+LG
+LG
+LG
+jn
 hx
 hx
 hx
-tw
+RG
 qo
 Rk
 eF
@@ -30914,14 +31400,14 @@ RG
 hJ
 hx
 hx
-hJ
+Rg
 tw
 PI
 PI
 PI
 PI
 PI
-tw
+PI
 iF
 iF
 iF
@@ -31086,28 +31572,28 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-hx
-hx
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
 tw
+Tr
+Tr
+Tr
+Tr
+Tr
+tw
+sY
+jc
+ft
 hx
-hx
-hx
+RG
+qd
+oH
+rf
+hY
+LG
+uy
+tw
+RN
+VS
+RN
 tw
 SU
 Uo
@@ -31123,7 +31609,7 @@ PI
 PI
 PI
 PI
-tw
+PI
 iF
 iF
 iF
@@ -31288,28 +31774,28 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-hx
-hx
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
 tw
+Tr
+Tr
+tw
+tw
+tw
+tw
+tw
+jc
+ft
 hx
-hx
-hx
+RG
+yJ
+qF
+bK
+ft
+LG
+YB
+tw
+ht
+Wx
+ht
 tw
 qo
 Rk
@@ -31318,14 +31804,14 @@ RG
 xF
 xu
 tJ
-hx
+ID
 tw
 PI
 PI
 PI
 PI
 PI
-tw
+PI
 iF
 iF
 iF
@@ -31490,24 +31976,24 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-hx
-hx
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+Tr
+Tr
+tw
+HZ
+HZ
+HZ
+tw
+jh
+jh
+tw
+tw
+RG
+RG
+tw
+RG
+qx
+RG
 tw
 tw
 tw
@@ -31520,14 +32006,14 @@ RG
 xF
 xu
 tJ
-hx
+ID
 tw
 PI
 PI
 PI
 PI
 PI
-tw
+PI
 iF
 iF
 iF
@@ -31692,16 +32178,21 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-hx
-hx
+tw
+Tr
+Tr
+tw
+HZ
+HZ
+HZ
+tw
+jc
+Nd
+dA
+dA
+dA
+dA
+ky
 dA
 dA
 dA
@@ -31709,17 +32200,12 @@ dA
 dA
 dA
 dA
-dA
-dA
-dA
-dA
-dA
-dA
+jn
 Eu
 Ic
 eF
 RG
-dR
+qc
 mW
 tJ
 tJ
@@ -31729,7 +32215,7 @@ PI
 PI
 PI
 PI
-tw
+PI
 iF
 iF
 iF
@@ -31894,29 +32380,29 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+Tr
+Tr
+tw
+Ic
+Ic
+Ic
+jn
+jc
 hx
+dq
+dq
+dq
 hx
+ky
 hx
+dq
+dq
+dq
+dq
+dq
 hx
-hx
-hx
-hx
-hx
-hx
-hx
-hx
-hx
-hx
-hx
-hx
+jn
 Ic
 Ic
 eF
@@ -31931,7 +32417,7 @@ PI
 PI
 PI
 PI
-tw
+PI
 iF
 iF
 iF
@@ -32096,16 +32582,21 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-hx
-hx
+tw
+Tr
+Tr
+tw
+HZ
+HZ
+HZ
+tw
+jc
+pi
+iz
+iz
+iz
+iz
+ky
 iz
 iz
 iz
@@ -32113,27 +32604,22 @@ iz
 iz
 iz
 iz
-iz
-iz
-iz
-iz
-iz
-iz
+jn
 wu
 en
 eF
 tw
+RG
+qx
+RG
+RG
 tw
-tw
-tw
-tw
-tw
-tw
-tw
-tw
-tw
-tw
-tw
+PI
+PI
+PI
+PI
+PI
+PI
 iF
 iF
 iF
@@ -32298,27 +32784,27 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+Tr
+Tr
+tw
+HZ
+HZ
+HZ
+tw
+ID
+ID
 tw
 tw
 tw
+tw
+tw
+tw
+jO
+tw
+tw
+tw
+qx
 tw
 tw
 tw
@@ -32329,11 +32815,11 @@ hx
 hx
 hx
 hx
-hx
-hx
-hx
-hx
 tw
+PI
+PI
+PI
+PI
 PI
 PI
 iF
@@ -32500,30 +32986,30 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
 tw
+tw
+jO
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+Tr
+Tr
+Tr
+tw
+Tr
+Tr
+Tr
+tw
+YN
+Ic
+uJ
+tw
+qj
 Ys
 iz
 iz
@@ -32531,11 +33017,11 @@ iz
 iz
 iz
 iz
-iz
-iz
-iz
-iz
 tw
+PI
+PI
+PI
+PI
 PI
 PI
 iF
@@ -32702,42 +33188,42 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
 tw
+Tr
+Tr
+Tr
+Tr
 tw
+Tr
+Tr
+Tr
+Tr
 tw
+Tr
+Tr
+Tr
+oz
+Tr
+Tr
+Tr
 tw
+ua
+bw
+PT
 tw
+qj
+Ic
+Ic
+Ic
+Ic
+Ic
+Ic
+Ic
 tw
-tw
-tw
-tw
-tw
-tw
-tw
-tw
+PI
+PI
+PI
+PI
 PI
 PI
 iF
@@ -32904,38 +33390,38 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+Tr
+Tr
+Tr
+Tr
+oz
+Tr
+Tr
+Tr
+Tr
+oz
+Tr
+Tr
+Tr
+tw
+Tr
+Tr
+Tr
+tw
+Ww
+bn
+PT
+tw
+tw
+HZ
+HZ
+HZ
+tw
+HZ
+HZ
+HZ
+tw
 PI
 PI
 PI
@@ -33106,38 +33592,38 @@ iF
 iF
 iF
 iF
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+Tr
+Tr
+Tr
+Tr
+tw
+Tr
+Tr
+Tr
+Tr
+tw
+Tr
+Tr
+Tr
+tw
+tw
+tw
+tw
+tw
+gv
+cq
+PT
+tw
+tw
+HZ
+HZ
+HZ
+tw
+HZ
+HZ
+HZ
+tw
 PI
 PI
 PI
@@ -33308,38 +33794,38 @@ iF
 iF
 iF
 iF
+tw
+Tr
+Tr
+Tr
+Tr
+tw
+tw
+tw
+tw
+tw
+tw
+Tr
+Tr
+Tr
+Tr
+Tr
+tw
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+YN
+Ic
+fp
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
 PI
 PI
 PI
@@ -33510,29 +33996,29 @@ iF
 iF
 iF
 iF
+tw
+tw
+tw
+tw
+tw
+tw
 PI
 PI
 PI
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+tw
+tw
+tw
 tw
 Tr
 tw
 PI
-PI
-PI
-PI
-PI
-PI
+tw
+tw
+tw
+tw
+tw
 PI
 PI
 PI
