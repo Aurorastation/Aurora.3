@@ -170,6 +170,7 @@
 	minimal_access = list(ACCESS_JANITOR, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_MEDICAL)
 	outfit = /obj/outfit/job/janitor
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
+	alt_titles = list("Custodial Technician")
 
 
 /obj/outfit/job/janitor
