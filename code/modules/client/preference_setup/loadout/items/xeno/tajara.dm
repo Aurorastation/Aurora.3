@@ -215,28 +215,6 @@
 	sort_category = "Xenowear - Tajara"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-// Dress Flats
-/datum/gear/shoes/tajara/flats
-	display_name = "tajaran dress flats selection"
-	description = "Dress flats, in a selection of colours. Fitted for Tajara."
-	path = /obj/item/clothing/shoes/tajara
-	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-	sort_category = "Xenowear - Tajara"
-
-/datum/gear/shoes/tajara/flats/New()
-	..()
-	var/list/flats = list()
-	flats["dress flats, black"] = /obj/item/clothing/shoes/flats/tajara
-	flats["dress flats, dark"] = /obj/item/clothing/shoes/flats/tajara/dark
-	flats["dress flats, white"] = /obj/item/clothing/shoes/flats/tajara/white
-	flats["dress flats, red"] = /obj/item/clothing/shoes/flats/tajara/red
-	flats["dress flats, scarlet"] = /obj/item/clothing/shoes/flats/tajara/scarlet
-	flats["dress flats, mauve"] = /obj/item/clothing/shoes/flats/tajara/mauve
-	flats["dress flats, blue"] = /obj/item/clothing/shoes/flats/tajara/blue
-	flats["dress flats, green"] = /obj/item/clothing/shoes/flats/tajara/green
-	flats["dress flats, purple"] = /obj/item/clothing/shoes/flats/tajara/purple
-	gear_tweaks += new /datum/gear_tweak/path(flats)
-
 /datum/gear/accessory/tajara
 	display_name = "fur scarf"
 	description = "A selection of tajaran colored fur scarfs."

@@ -17,42 +17,7 @@
 // Flats.
 // since everything except the onmob is a carbon copy, we just add another onmob sprite with the proper suffix and the species restriction to avoid bloat
 
-/obj/item/clothing/shoes/flats/tajara
-	desc = "A pair of black women's flats. Refitted for Tajara."
-	name = "black dress flats"
-	icon_state = "blackdf"
-	item_state = "blackdf"
-	species_restricted = list(BODYTYPE_TAJARA)
-
-/obj/item/clothing/shoes/flats/tajara/red
-	desc = "A pair of red women's flats. Refitted for Tajara."
-	name = "red dress flats"
-	icon_state = "reddf"
-	item_state = "reddf"
-
-/obj/item/clothing/shoes/flats/tajara/blue
-	desc = "A pair of blue women's flats. Refitted for Tajara."
-	name = "blue dress flats"
-	icon_state = "bluedf"
-	item_state = "bluedf"
-
-/obj/item/clothing/shoes/flats/tajara/green
-	desc = "A pair of green women's flats. Refitted for Tajara."
-	name = "green dress flats"
-	icon_state = "greendf"
-	item_state = "greendf"
-
-/obj/item/clothing/shoes/flats/tajara/purple
-	desc = "A pair of purple  women's flats. Refitted for Tajara."
-	name = "purple dress flats"
-	icon_state = "purpledf"
-	item_state = "purpledf"
-
-/obj/item/clothing/shoes/flats/tajara/white
-	desc = "A pair of white women's flats. Refitted for Tajara."
-	name = "white dress flats"
-	icon_state = "whitedf"
-	item_state = "whitedf"
+// removed at request of cyb
 
 // these look completely different and should be called something else
 
