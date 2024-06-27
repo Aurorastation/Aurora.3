@@ -16,6 +16,8 @@
 	water_color = null
 	ruin_planet_type = PLANET_DESERT
 	ruin_allowed_tags = RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
+	soil_data = list("Low density silicon dioxide layer", "Trace gold dust layer", "Trace silver dust layer", "Large rock particle layer", "Trace organic particle layer")
+	water_data = list("Sodium ions present", "Calcium ions present", "Sulfate ions present", "Magnesium ions present", "Copper ions present")
 
 	unit_test_groups = list(1)
 
@@ -53,6 +55,28 @@
 		ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
 	if(prob(10))
 		ground_survey_result += "<br>Traces of fissile material"
+
+/obj/effect/overmap/visitable/sector/exoplanet/desert/generate_magnet_survey_result()
+	..()
+	magnet_strength = "[rand(10, 100)] uT/Gauss"
+	magnet_difference = "[rand(0,1500)] kilometers"
+	magnet_particles = ""
+	var/list/particle_types = PARTICLE_TYPES
+	var/particles = rand(1,5)
+	for(var/i in 1 to particles)
+		var/p = pick(particle_types)
+		if(i == particles) //Last item, no comma
+			magnet_particles += p
+		else
+			magnet_particles += "[p], "
+		particle_types -= p
+	day_length = "~[rand(1,200)/10] BCY (Biesel Cycles)"
+	if(prob(40))
+		magnet_survey_result += "<br>Highly variable magnetic flux detected"
+	if(prob(40))
+		magnet_survey_result += "<br>Strong solar winds present"
+	if(prob(10))
+		magnet_survey_result += "<br>High levels of plasma present in magnetosphere"
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/adapt_seed(var/datum/seed/S)
 	..()

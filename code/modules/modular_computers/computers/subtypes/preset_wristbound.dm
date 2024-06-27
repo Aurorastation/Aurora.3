@@ -55,6 +55,9 @@
 	_app_preset_type = /datum/modular_computer_app_presets/research
 	icon_state = "wristbound-tox"
 
+/obj/item/modular_computer/handheld/wristbound/preset/advanced/bridge
+	_app_preset_type = /datum/modular_computer_app_presets/bridge
+
 /obj/item/modular_computer/handheld/wristbound/preset/advanced/command
 	_app_preset_type = /datum/modular_computer_app_presets/command
 	icon_state = "wristbound-h"
@@ -219,6 +222,9 @@
 	icon_add = "hos"
 
 // Command / Misc
+
+/obj/item/modular_computer/handheld/wristbound/preset/pda/bridge
+	_app_preset_type = /datum/modular_computer_app_presets/bridge
 
 /obj/item/modular_computer/handheld/wristbound/preset/pda/command
 	_app_preset_type = /datum/modular_computer_app_presets/command

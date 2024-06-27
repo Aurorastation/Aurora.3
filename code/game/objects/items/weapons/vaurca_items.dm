@@ -104,7 +104,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "eknife0"
 	item_state = "eknife0"
-	active_force = 20
+	active_force = 25
 	active_throwforce = 20
 	active_w_class = ITEMSIZE_HUGE
 	force = 11
@@ -381,7 +381,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "greatblade0"
 	item_state = "greatblade0"
-	active_force = 30
+	active_force = 33
 	armor_penetration = 30
 	active_throwforce = 20
 	active_w_class = ITEMSIZE_HUGE

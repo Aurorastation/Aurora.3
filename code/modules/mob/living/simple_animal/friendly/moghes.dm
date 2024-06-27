@@ -35,6 +35,7 @@
 		bullet = ARMOR_BALLISTIC_MINOR,
 		bomb = ARMOR_BOMB_MINOR
 	)
+	sample_data = list("Cellular biochemistry shows high metabolic capacity", "Tissue sample contains high muscle content", "Genetic biomarkers identified linked with passiveness and domestication")
 
 /mob/living/simple_animal/threshbeast/saddle
 	desc = "Large herbivorous reptiles native to Moghes, the azkrazal or 'threshbeast' is commonly used as a mount, beast of burden, or convenient food source by Unathi. They are highly valued for their speed and strength, capable of running at 30-42 miles per hour at top speed. This one has been fitted with a saddle."
@@ -84,6 +85,7 @@
 		laser = ARMOR_LASER_MINOR,
 		bomb = ARMOR_BOMB_MINOR
 	)
+	sample_data = list("Cellular biochemistry shows high metabolic capacity", "Tissue sample contains high muscle content", "Genetic biomarkers identified linked with domestication", "Intracellular keratin synthesis present")
 
 /mob/living/simple_animal/hostile/retaliate/hegeranzi/saddle
 	name = "warmount"
@@ -125,6 +127,7 @@
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 4)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 	meat_amount = 16
+	sample_data = list("Cellular biochemistry geared towards the use of plant-based nutrition", "Genetic biomarkers identified linked with high reproductive rates", "Intracellular keratin synthesis present")
 
 /mob/living/simple_animal/miervesh
 	name = "miervesh"
@@ -152,6 +155,7 @@
 	butchering_products = list(/obj/item/stack/material/animalhide = 1)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 	meat_amount = 1
+	sample_data = list("Cellular biochemistry shows signs of rapid respiration", "Genetic biomarkers identified linked with passiveness and domestication", "Extracellular gas detection present")
 	var/chosen_icon
 
 /mob/living/simple_animal/miervesh/Initialize()

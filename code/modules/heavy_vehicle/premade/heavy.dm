@@ -4,7 +4,7 @@
 	icon_state = "durand"
 
 	e_head = /obj/item/mech_component/sensors/heavy
-	e_body = /obj/item/mech_component/chassis/heavy
+	e_body = /obj/item/mech_component/chassis/heavy/cell
 	e_arms = /obj/item/mech_component/manipulators/heavy
 	e_legs = /obj/item/mech_component/propulsion/heavy
 	e_color = COLOR_TITANIUM
@@ -65,3 +65,8 @@
 	. = ..()
 	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(src)
 
+/obj/item/mech_component/chassis/heavy/cell
+	cell_type = /obj/item/cell/mecha
+
+/obj/item/mech_component/chassis/heavy/nuclear
+	cell_type = /obj/item/cell/mecha/nuclear

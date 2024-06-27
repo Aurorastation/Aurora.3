@@ -65,7 +65,11 @@
 	else
 		AddOverlays("gridle")
 
-/obj/machinery/gibber/relaymove(mob/user as mob)
+/obj/machinery/gibber/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	go_out()
 	return
 
