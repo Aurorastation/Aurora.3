@@ -343,7 +343,7 @@
 	desc = "A heavy flashlight, designed for security personnel."
 	icon_state = "maglight"
 	item_state = "maglight"
-	force = 5
+	force = 9
 	brightness_on = 5
 	efficiency_modifier = 0.8
 	w_class = ITEMSIZE_NORMAL

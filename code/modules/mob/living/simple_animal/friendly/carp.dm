@@ -49,6 +49,7 @@
 	brush = /obj/item/reagent_containers/glass/rag
 
 	possession_candidate = TRUE
+	sample_data = list("Cellular structure shows adaptation for a vacuum", "Genetic biomarkers identified linked with passiveness")
 
 /mob/living/simple_animal/carp/update_icon()
 	..()

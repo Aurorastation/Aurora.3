@@ -126,8 +126,13 @@
 	..()
 	master.disrupt()
 
-/obj/effect/dummy/chameleon/relaymove(var/mob/user, direction)
-	if(istype(loc, /turf/space)) return //No magical space movement!
+/obj/effect/dummy/chameleon/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
+	if(istype(loc, /turf/space))
+		return //No magical space movement!
 
 	if(can_move)
 		can_move = 0

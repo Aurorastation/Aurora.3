@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/tramp_freighter
-	name = "Tramp Freighter"
-	description = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space."
+	name = "Independent Freighter"
+	description = "A favourite of small-scale independent businesses, the Farthing-class is one of few popular commercial designs of hauling vessel not manufactured by any particular megacorporation. Designed as a versatile tool, it popularly finds itself used to freight for remote areas of space. Tolerances are cut throughout the ship to achieve its legendary cost efficiency, making it a horribly oppressive ship to live on, and a vulnerable target for pirates - between its vulnerable bridge and limited means of self-defence, the Farthing is risky to operate in unpoliced space."
 
 	prefix = "ships/tramp_freighter/"
 	suffixes = list("tramp_freighter.dmm")
@@ -14,15 +14,15 @@
 	unit_test_groups = list(3)
 
 /singleton/submap_archetype/tramp_freighter
-	map = "Tramp Freighter"
-	descriptor = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space."
+	map = "Independent Freighter"
+	descriptor = "A favourite of small-scale independent businesses, the Farthing-class is one of few popular commercial designs of hauling vessel not manufactured by any particular megacorporation. Designed as a versatile tool, it popularly finds itself used to freight for remote areas of space. Tolerances are cut throughout the ship to achieve its legendary cost efficiency, making it a horribly oppressive ship to live on, and a vulnerable target for pirates - between its vulnerable bridge and limited means of self-defence, the Farthing is risky to operate in unpoliced space."
 
 //ship stuff
 
 /obj/effect/overmap/visitable/ship/tramp_freighter
-	name = "Tramp Freighter"
+	name = "Independent Freighter"
 	class = "ICV"
-	desc = "A freighter of mixed repute, the Catspaw-class is a rare independent design, and a favorite of small-scale freight businesses. It has a shielded cargo bay and an internal hangar, capable of accommodating a small shuttle. Its other features, however, are lacking - with cramped crew amenities and no defenses to speak of, the Catspaw is risky to operate in unpoliced space."
+	desc = "A favourite of small-scale independent businesses, the Farthing-class is one of few popular commercial designs of hauling vessel not manufactured by any particular megacorporation. Designed as a versatile tool, it popularly finds itself used to freight for remote areas of space. Tolerances are cut throughout the ship to achieve its legendary cost efficiency, making it a horribly oppressive ship to live on, and a vulnerable target for pirates - between its vulnerable bridge and limited means of self-defence, the Farthing is risky to operate in unpoliced space."
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
 	colors = list("#c3c7eb", "#a0a8ec")
@@ -33,13 +33,14 @@
 	vessel_size = SHIP_SIZE_SMALL
 	scanimage = "tramp_freighter.png"
 	designer = "Independent, Unknown"
-	volume = "49 meters length, 46 meters beam/width, 12 meters vertical height"
+	volume = "49 meters length, 26 meters beam/width, 11 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
-	weapons = "Starboard low-end ballistic weapon mount, aft obscured flight craft bay"
-	sizeclass = "Catspaw Class Freighter"
+	weapons = "Fore low-end ballistic weapon mount, aft flight craft dock"
+	sizeclass = "Farthing Class Freighter"
 	shiptype = "Long-term shipping utilities"
+
 	initial_restricted_waypoints = list(
-		"Freight Shuttle" = list("nav_hangar_tramp")
+		"Freight Shuttle" = list("nav_tramp_start")
 	)
 
 	initial_generic_waypoints = list(
@@ -47,7 +48,12 @@
 		"nav_tramp_freighter_2",
 		"nav_tramp_freighter_3",
 		"nav_tramp_freighter_4",
-		"nav_tramp_freighter_dock"
+		"nav_tramp_freighter_stbd_aft",
+		"nav_tramp_freighter_stbd_fore",
+		"nav_tramp_freighter_stbd_berth",
+		"nav_tramp_freighter_port_aft",
+		"nav_tramp_freighter_port_fore",
+		"nav_tramp_freighter_port_berth"
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -61,41 +67,6 @@
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
-
-/obj/effect/shuttle_landmark/tramp_freighter/nav1
-	name = "Tramp Freighter - Fore"
-	landmark_tag = "nav_tramp_freighter_1"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
-
-/obj/effect/shuttle_landmark/tramp_freighter/nav2
-	name = "Tramp Freighter - Aft"
-	landmark_tag = "nav_tramp_freighter_2"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
-
-/obj/effect/shuttle_landmark/tramp_freighter/nav3
-	name = "Tramp Freighter - Port"
-	landmark_tag = "nav_tramp_freighter_3"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
-
-/obj/effect/shuttle_landmark/tramp_freighter/nav4
-	name = "Tramp Freighter - Starboard"
-	landmark_tag = "nav_tramp_freighter_4"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
-
-/obj/effect/shuttle_landmark/tramp_freighter/dock
-	name = "Tramp Freighter - Port Airlock"
-	landmark_tag = "nav_tramp_freighter_dock"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
-
-/obj/effect/shuttle_landmark/tramp_freighter/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_tramp_freighter"
-	base_turf = /turf/space/transit/east
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/freighter_shuttle
@@ -113,32 +84,18 @@
 	fore_dir = EAST
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/freighter_shuttle
+/obj/machinery/computer/shuttle_control/explore/terminal/freighter_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Freight Shuttle"
-
 
 /datum/shuttle/autodock/overmap/freighter_shuttle
 	name = "Freight Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/freighter_shuttle)
-	current_location = "nav_hangar_tramp"
+	dock_target = "airlock_tramp_shuttle"
+	current_location = "nav_tramp_start"
 	landmark_transition = "nav_transit_freighter_shuttle"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_tramp"
-	dock_target = "freighter_hangar"
+	logging_home_tag = "nav_tramp_start"
 	defer_initialisation = TRUE
-
-/obj/effect/shuttle_landmark/freighter_shuttle/hangar
-	name = "Freight Shuttle Hangar"
-	landmark_tag = "nav_hangar_tramp"
-	docking_controller = "freighter_shuttle_dock"
-	base_area = /area/tramp_freighter/hangar
-	base_turf = /turf/simulated/floor/plating
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
-
-/obj/effect/shuttle_landmark/freighter_shuttle/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_freighter_shuttle"
-	base_turf = /turf/space/transit/north

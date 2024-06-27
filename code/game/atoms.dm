@@ -174,7 +174,9 @@
 
 /**
  * Checks if a mob can use an atom, message the user if not with an appropriate reason
+ *
  * Returns 0 (FALSE) if they can use it, a value representing why they can't if not
+ *
  * See `code\__DEFINES\misc.dm` for the list of flags and return codes
  *
  * * user - The `mob` to check against, if it can perform said use
@@ -227,11 +229,6 @@
 		if(A.contents.len)
 			found += A.search_contents_for(path,filter_path)
 	return found
-
-// Called by mobs when e.g. having the atom as their machine, pulledby, loc (AKA mob being inside the atom) or buckled_to var set.
-// See code/modules/mob/mob_movement.dm for more.
-/atom/proc/relaymove()
-	return
 
 // Called to set the atom's dir and used to add behaviour to dir-changes.
 /atom/proc/set_dir(new_dir)

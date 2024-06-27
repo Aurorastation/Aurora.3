@@ -46,7 +46,11 @@
 			L.forceMove(get_turf(src))
 			L.visible_message(SPAN_WARNING("\The [src] ejects [L]!"))
 
-/obj/effect/phase_shift/relaymove(mob/user)
+/obj/effect/phase_shift/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if(user.stat)
 		return
 
