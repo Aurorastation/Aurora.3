@@ -453,7 +453,7 @@ class ChatRenderer {
             );
             if (highlighted && parser.highlightWholeMessage) {
               const backgroundColor =
-                parser.backgroundHighlightColor || 'rgba(255, 221, 68, 0.1)';
+                parser.backgroundHighlightColor || 'rgba(255, 221, 68)';
               const backgroundColorAlpha = changeAlpha(backgroundColor, 0.1);
 
               node.className += ' ChatMessage--highlighted';
