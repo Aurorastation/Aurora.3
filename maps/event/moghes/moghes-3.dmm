@@ -41,7 +41,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "aaI" = (
 /obj/structure/bed/stool/wood,
 /obj/random/dirt_75,
@@ -103,7 +103,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "acr" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -187,7 +187,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "adf" = (
 /obj/machinery/appliance/cooker/oven,
 /obj/effect/decal/cleanable/flour,
@@ -246,7 +246,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "aeH" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -271,7 +271,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "aeI" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
@@ -637,7 +637,7 @@
 /turf/simulated/floor/plating{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "aoz" = (
 /obj/random/dirt_75,
 /obj/item/material/shard/shrapnel,
@@ -935,7 +935,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "atm" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1069,7 +1069,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "avS" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -1119,7 +1119,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "awb" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1187,7 +1187,7 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "axE" = (
 /turf/simulated/floor/tiled/gridded{
 	temperature = 315.15
@@ -1359,7 +1359,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "aBF" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/shaker,
@@ -1565,7 +1565,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "aGC" = (
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/planks{
@@ -1651,7 +1651,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "aIy" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1716,7 +1716,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "aKg" = (
 /obj/random/dirt_75,
 /obj/structure/track,
@@ -1817,7 +1817,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "aLB" = (
 /obj/structure/closet/crate/hydroponics,
 /obj/effect/floor_decal/concrete{
@@ -1870,7 +1870,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "aMd" = (
 /obj/random/dirt_75,
 /obj/structure/flora/pottedplant/dead,
@@ -1884,7 +1884,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "aMs" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/barricade_stacks.dmi';
@@ -1930,7 +1930,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "aNj" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/item/material/shard/wood{
@@ -2217,7 +2217,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "aVN" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin{
@@ -2296,7 +2296,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "aXM" = (
 /obj/structure/unathi_pillar{
 	desc = "A weathered down remnant of this structure's walls.";
@@ -2336,7 +2336,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "aYM" = (
 /obj/effect/floor_decal/asteroid,
 /obj/effect/decal/curb{
@@ -2464,7 +2464,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "bau" = (
 /obj/machinery/light{
 	dir = 8
@@ -2486,7 +2486,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 313.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "bbg" = (
 /obj/structure/bed/stool/chair/sofa/corner/concave/beige{
 	dir = 1
@@ -3144,17 +3144,12 @@
 	},
 /area/new_blades/interiors)
 "bsB" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 8
+/obj/structure/bed/handrail{
+	dir = 4;
+	pixel_x = 1
 	},
-/obj/effect/floor_decal/concrete{
-	dir = 6
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors)
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/scc_evac)
 "bta" = (
 /obj/random/dirt_75,
 /obj/item/ore/coal{
@@ -3197,7 +3192,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "buH" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
@@ -3483,7 +3478,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "bEQ" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
@@ -3614,7 +3609,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "bHi" = (
 /obj/item/storage/box/fancy/matches{
 	pixel_y = 6;
@@ -3675,7 +3670,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "bJa" = (
 /obj/machinery/door/airlock/command{
 	name = "Office"
@@ -3773,7 +3768,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "bLM" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -3815,7 +3810,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "bMu" = (
 /obj/structure/bonfire/fireplace,
 /obj/random/dirt_75,
@@ -3922,7 +3917,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "bOT" = (
 /obj/structure/bed/handrail,
 /turf/simulated/floor/shuttle/black,
@@ -3959,7 +3954,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "bQF" = (
 /obj/effect/floor_decal/concrete{
 	dir = 6
@@ -4011,7 +4006,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 313.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "bSd" = (
 /obj/structure/barricade/metal/wired{
 	dir = 4
@@ -4115,7 +4110,7 @@
 /obj/effect/decal/cleanable/floor_damage/tiled_burned0,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/concrete,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "bUO" = (
 /obj/structure/table/wood,
 /obj/random/dirt_75,
@@ -4323,7 +4318,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "bZk" = (
 /obj/effect/decal/cleanable/floor_damage/tiled_burned0,
 /obj/random/dirt_75,
@@ -4363,7 +4358,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "cay" = (
 /obj/structure/flora/rock/desert/scrub,
 /obj/effect/decal/curb/corner{
@@ -4440,26 +4435,6 @@
 /obj/item/clothing/head/welding,
 /obj/item/clothing/head/welding,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialt,
-/obj/item/clothing/gloves/yellow/specialt,
-/obj/item/clothing/gloves/yellow/specialt,
-/obj/item/clothing/gloves/yellow/specialt,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
 "cbn" = (
@@ -4893,7 +4868,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ckV" = (
 /obj/effect/floor_decal/concrete{
 	dir = 9
@@ -5048,7 +5023,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "cpf" = (
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/planks{
@@ -5145,7 +5120,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "csd" = (
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/structure/closet/crate{
@@ -5339,7 +5314,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "cxz" = (
 /obj/effect/decal/road_marking/center{
 	dir = 8
@@ -5429,7 +5404,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "czH" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/unathi/himation,
@@ -5567,7 +5542,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "cCY" = (
 /obj/effect/floor_decal/concrete{
 	dir = 5
@@ -5691,7 +5666,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "cFT" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -5713,7 +5688,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "cGj" = (
 /obj/structure/flora/rock/pile{
 	density = 0
@@ -5808,7 +5783,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "cIJ" = (
 /obj/structure/table/rack,
 /turf/simulated/floor/exoplanet/desert{
@@ -5911,14 +5886,14 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "cLv" = (
 /obj/structure/bed/aqua,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "cLX" = (
 /obj/effect/decal/curb/corner,
 /obj/effect/decal/curb/corner{
@@ -6039,7 +6014,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "cPf" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -6061,7 +6036,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "cPE" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -6100,7 +6075,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "cSd" = (
 /obj/item/trash/bowl_small{
 	pixel_y = 2;
@@ -6122,7 +6097,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/concrete,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "cSA" = (
 /obj/structure/railing/fence{
 	dir = 1
@@ -6226,7 +6201,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "cVy" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -6356,7 +6331,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "cZb" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/blocks{
@@ -6396,7 +6371,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "cZI" = (
 /obj/machinery/telecomms/server/presets/supply,
 /turf/unsimulated/floor,
@@ -6672,7 +6647,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "diw" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -6943,7 +6918,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "dqz" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/sidewalk/flat{
@@ -6990,7 +6965,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/concrete,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "drq" = (
 /obj/item/material/shard{
 	pixel_y = 8;
@@ -7166,7 +7141,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "dtI" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
@@ -7252,7 +7227,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "dwM" = (
 /obj/effect/floor_decal/asteroid,
 /obj/random/dirt_75,
@@ -7315,7 +7290,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "dzK" = (
 /obj/effect/floor_decal/industrial/outline_corner{
 	color = "#aa5f61";
@@ -7403,7 +7378,7 @@
 /turf/simulated/floor/plating{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "dAH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -7418,7 +7393,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "dAZ" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -7477,7 +7452,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "dDj" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/random/dirt_75,
@@ -7505,7 +7480,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "dDE" = (
 /obj/item/stack/rods,
 /obj/structure/closet/crate,
@@ -7538,7 +7513,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "dEb" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -7650,7 +7625,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "dGO" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
@@ -7764,7 +7739,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "dJx" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/random/dirt_75,
@@ -7796,7 +7771,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "dKj" = (
 /obj/machinery/chemical_dispenser/ert,
 /obj/effect/floor_decal/spline/plain/green{
@@ -7973,7 +7948,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "dOO" = (
 /obj/random/dirt_75,
 /obj/item/material/shard/shrapnel,
@@ -8009,7 +7984,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "dQM" = (
 /obj/structure/table/rack,
 /obj/item/saddle,
@@ -8056,8 +8031,7 @@
 	id = "shuttle_stall_2";
 	name = "Stall 2"
 	},
-/obj/effect/floor_decal/industrial/hatch_door/red,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/scc_evac)
 "dRm" = (
 /obj/structure/barricade/metal/wired{
@@ -8086,7 +8060,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "dRK" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -8122,7 +8096,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "dRM" = (
 /obj/effect/floor_decal/concrete{
 	dir = 10
@@ -8151,7 +8125,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "dSn" = (
 /obj/structure/table/standard,
 /obj/item/storage/toolbox/mechanical{
@@ -8334,6 +8308,7 @@
 /obj/item/clothing/accessory/armband/operations,
 /obj/item/clothing/accessory/armband/operations,
 /obj/item/clothing/accessory/armband/operations,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
 "dWm" = (
@@ -8532,7 +8507,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "eby" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline_door/grey,
@@ -8635,7 +8610,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ecU" = (
 /obj/item/reagent_containers/bowl/plate{
 	pixel_y = 4;
@@ -8709,7 +8684,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "efs" = (
 /obj/random/dirt_75,
 /obj/structure/flora/rock/konyang,
@@ -8731,7 +8706,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "efO" = (
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/planks{
@@ -8870,7 +8845,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ejY" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/scc{
 	spawn_firedoor = 1;
@@ -9238,7 +9213,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "exi" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/shuttle/black,
@@ -9356,7 +9331,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 313.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "eAs" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 8
@@ -9462,7 +9437,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "eCO" = (
 /obj/structure/track,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
@@ -9508,7 +9483,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "eEk" = (
 /obj/effect/floor_decal/concrete{
 	dir = 9
@@ -9540,7 +9515,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "eFc" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
@@ -9663,7 +9638,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/concrete,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "eIv" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/desk/northleft,
@@ -9949,7 +9924,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "eSR" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = -6;
@@ -10285,7 +10260,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "eYE" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -10379,7 +10354,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "faI" = (
 /obj/effect/floor_decal/spline/plain{
 	color = "#b6efe1";
@@ -10390,7 +10365,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "fbh" = (
 /obj/effect/floor_decal/concrete{
 	dir = 5
@@ -10485,7 +10460,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "fcB" = (
 /obj/structure/bed/stool/hover{
 	dir = 1
@@ -10496,7 +10471,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "fcD" = (
 /obj/effect/floor_decal/industrial/outline_straight{
 	color = "#b19664"
@@ -10628,7 +10603,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/concrete,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ffD" = (
 /obj/structure/road_sign/yield{
 	name = "NO TRESPASSING sign";
@@ -10978,7 +10953,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "foj" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -11001,7 +10976,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/concrete,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "fqd" = (
 /obj/machinery/light/colored/dying{
 	dir = 1
@@ -11293,7 +11268,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "fvu" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -11462,7 +11437,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "fyu" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/board,
@@ -11602,7 +11577,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "fCm" = (
 /obj/effect/floor_decal/concrete{
 	dir = 5
@@ -12066,7 +12041,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "fPH" = (
 /obj/effect/floor_decal/concrete{
 	dir = 1
@@ -12181,7 +12156,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "fSi" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/concrete{
@@ -12276,7 +12251,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "fUy" = (
 /obj/random/dirt_75,
 /obj/item/pickaxe{
@@ -12304,7 +12279,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "fUR" = (
 /obj/machinery/mining/drill,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -12438,7 +12413,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "fYC" = (
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor,
@@ -12492,7 +12467,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gaj" = (
 /obj/structure/simple_door/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -12510,7 +12485,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gaK" = (
 /obj/structure/bed/stool/chair/wood,
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -12626,7 +12601,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gdZ" = (
 /obj/effect/floor_decal/concrete{
 	dir = 10
@@ -12740,7 +12715,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gfl" = (
 /obj/random/dirt_75,
 /obj/item/ore/iron,
@@ -12773,7 +12748,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gfQ" = (
 /obj/structure/flora/grass/desert/bush,
 /obj/structure/railing/fence{
@@ -12884,7 +12859,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "giU" = (
 /obj/effect/decal/cleanable/floor_damage/tiled_burned0,
 /obj/random/dirt_75,
@@ -12901,7 +12876,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gjL" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
@@ -12934,7 +12909,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gkt" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -13117,7 +13092,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gnZ" = (
 /obj/effect/floor_decal/concrete{
 	dir = 6
@@ -13159,7 +13134,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gpx" = (
 /obj/effect/floor_decal/spline/plain{
 	color = "#b6efe1";
@@ -13175,7 +13150,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gqp" = (
 /obj/structure/simple_door/wood,
 /obj/random/dirt_75,
@@ -13244,7 +13219,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "grc" = (
 /obj/structure/table/skrell,
 /obj/machinery/light/skrell{
@@ -13276,11 +13251,14 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "grp" = (
 /obj/machinery/light/floor{
 	dir = 8;
 	pixel_y = 16
+	},
+/obj/structure/bed/handrail{
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
@@ -13327,7 +13305,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gtC" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/watercloset.dmi';
@@ -13384,6 +13362,10 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/loading/security,
+/obj/structure/bed/handrail{
+	dir = 8;
+	pixel_x = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_evac)
 "gui" = (
@@ -13427,7 +13409,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gvA" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline_door/yellow{
@@ -13682,7 +13664,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gzu" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -13843,7 +13825,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gDC" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/desert{
@@ -14199,7 +14181,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gLZ" = (
 /obj/effect/floor_decal/concrete{
 	dir = 5
@@ -14258,7 +14240,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 313.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gNq" = (
 /obj/random/dirt_75,
 /obj/structure/ore_box,
@@ -14308,7 +14290,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gNZ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/random/dirt_75,
@@ -14319,7 +14301,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gOj" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/concrete{
@@ -14387,7 +14369,7 @@
 	},
 /obj/item/clothing/ears/skrell/scrunchy,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gPe" = (
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#ffffff";
@@ -14492,7 +14474,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gRt" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -14603,7 +14585,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "gUV" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
@@ -14742,6 +14724,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/service,
+/obj/structure/bed/handrail,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_evac)
 "gZi" = (
@@ -14828,7 +14811,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hbG" = (
 /obj/structure/flora/grass/desert,
 /obj/random/dirt_75,
@@ -15045,7 +15028,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hhw" = (
 /obj/structure/table/skrell,
 /obj/effect/floor_decal/spline/plain/corner{
@@ -15059,7 +15042,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hhX" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -15226,7 +15209,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hmp" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
@@ -15311,7 +15294,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hpJ" = (
 /obj/random/dirt_75,
 /obj/structure/table,
@@ -15400,7 +15383,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hsV" = (
 /obj/machinery/door/airlock/glass_command{
 	dir = 4;
@@ -15460,7 +15443,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hte" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -15520,7 +15503,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hvv" = (
 /obj/structure/window_frame/empty{
 	color = "#4e4378"
@@ -15529,7 +15512,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hvN" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/tiled_broken4,
@@ -15608,7 +15591,7 @@
 	pixel_y = -1
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hyc" = (
 /obj/effect/floor_decal/concrete{
 	dir = 4
@@ -15702,7 +15685,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hzN" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/tiled_burned0,
@@ -15914,7 +15897,7 @@
 /area/new_blades/interiors/ruins)
 "hHs" = (
 /turf/simulated/floor/concrete,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hHy" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/barricade_stacks.dmi';
@@ -15958,7 +15941,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hIp" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -15982,14 +15965,14 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hJo" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/random/dirt_75,
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hJK" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -16150,7 +16133,7 @@
 /obj/effect/decal/cleanable/floor_damage/tiled_burned0,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/concrete,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hOv" = (
 /obj/effect/decal/cleanable/floor_damage/tiled_broken4,
 /obj/effect/floor_decal/concrete{
@@ -16209,7 +16192,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hPE" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -16220,7 +16203,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hPO" = (
 /obj/structure/closet/secure_closet/xenoarchaeologist{
 	req_access = null;
@@ -16321,7 +16304,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hSq" = (
 /obj/structure/railing/fence,
 /obj/random/dirt_75,
@@ -16478,7 +16461,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "hXg" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/concrete,
@@ -16621,7 +16604,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "iaO" = (
 /obj/structure/table/wood,
 /obj/random/dirt_75,
@@ -16673,7 +16656,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ibu" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/asteroid,
@@ -16840,7 +16823,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "iel" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -17091,7 +17074,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "iiA" = (
 /obj/effect/floor_decal/concrete{
 	dir = 8
@@ -17210,7 +17193,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ikE" = (
 /obj/effect/decal/curb/corner{
 	dir = 8
@@ -17256,7 +17239,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ilA" = (
 /obj/effect/decal/curb,
 /obj/structure/closet/crate/trashcart,
@@ -17417,7 +17400,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ipV" = (
 /obj/effect/floor_decal/industrial/outline_door/yellow,
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -17572,7 +17555,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "itU" = (
 /obj/machinery/light{
 	dir = 1
@@ -17656,7 +17639,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "iuZ" = (
 /obj/effect/decal/cleanable/floor_damage/tiled_broken3,
 /obj/effect/floor_decal/concrete{
@@ -17678,8 +17661,28 @@
 	},
 /area/new_blades/underground)
 "ivt" = (
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/structure/closet/crate{
+	name = "insulated gloves crate"
+	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/solar,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
 "ivv" = (
@@ -17846,7 +17849,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "iyy" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
@@ -17873,7 +17876,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "izB" = (
 /obj/effect/decal/cleanable/blood/drip{
 	color = "#0081CD";
@@ -18137,7 +18140,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "iEj" = (
 /obj/machinery/autolathe,
 /turf/simulated/floor/shuttle/black,
@@ -18168,7 +18171,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "iFW" = (
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/item/gun/projectile/pistol/spitter,
@@ -18450,7 +18453,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "iOj" = (
 /obj/effect/decal/curb,
 /obj/structure/flora/grass/desert,
@@ -18832,7 +18835,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jbG" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/shuttle/skrell/blue{
@@ -18847,7 +18850,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jcf" = (
 /obj/effect/floor_decal/spline/plain{
 	color = "#b6efe1";
@@ -18857,7 +18860,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jck" = (
 /obj/machinery/light/colored/dying,
 /obj/structure/closet/crate{
@@ -18881,7 +18884,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jcx" = (
 /obj/machinery/vending/hydronutrients{
 	anchored = 0
@@ -18969,7 +18972,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jfh" = (
 /obj/effect/floor_decal/industrial/outline{
 	color = "#b19664"
@@ -19065,7 +19068,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jgA" = (
 /obj/random/dirt_75,
 /obj/item/material/shard/shrapnel,
@@ -19204,7 +19207,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jjT" = (
 /obj/structure/flora/rock/pile{
 	icon_state = "basalt2";
@@ -19361,7 +19364,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jpd" = (
 /obj/random/dirt_75,
 /obj/effect/decal/fake_object/light_source/invisible{
@@ -19386,7 +19389,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jpy" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -19497,6 +19500,7 @@
 	},
 /obj/item/storage/box/fancy/tray/machinist,
 /obj/item/storage/box/fancy/tray/machinist,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
 "jsB" = (
@@ -19507,7 +19511,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jsH" = (
 /obj/structure/flora/grass/desert,
 /obj/effect/decal/curb/corner,
@@ -19705,7 +19709,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jwZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline_door/yellow{
@@ -19727,7 +19731,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jxo" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
@@ -19824,7 +19828,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jzh" = (
 /obj/random/dirt_75,
 /obj/structure/flora/rock/pile{
@@ -19896,7 +19900,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jAQ" = (
 /obj/structure/flora/grass/desert/bush,
 /obj/random/dirt_75,
@@ -20023,7 +20027,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jDy" = (
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
@@ -20266,7 +20270,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jHl" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/concrete{
@@ -20312,7 +20316,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jHy" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -20400,7 +20404,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jJf" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -20583,6 +20587,10 @@
 	pixel_x = -24;
 	specialfunctions = 4;
 	pixel_y = 3
+	},
+/obj/structure/bed/handrail{
+	dir = 8;
+	pixel_x = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_evac)
@@ -20816,6 +20824,7 @@
 /obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
 "jSD" = (
@@ -20996,7 +21005,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jWR" = (
 /obj/machinery/light/colored/dying{
 	dir = 1
@@ -21054,8 +21063,7 @@
 	name = "Stall 3";
 	id = "shuttle_stall_3"
 	},
-/obj/effect/floor_decal/industrial/hatch_door/red,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/scc_evac)
 "jZH" = (
 /obj/effect/floor_decal/spline/plain{
@@ -21069,7 +21077,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jZQ" = (
 /obj/effect/floor_decal/industrial/outline{
 	color = "#b19664"
@@ -21097,7 +21105,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 313.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "kbg" = (
 /obj/random/dirt_75,
 /obj/effect/decal/fake_object{
@@ -21255,7 +21263,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "keI" = (
 /obj/vehicle/bike/speeder/izweski{
 	dir = 1;
@@ -21383,7 +21391,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "kjO" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 1
@@ -21429,7 +21437,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "klj" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/asteroid,
@@ -21459,7 +21467,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "klM" = (
 /obj/random/dirt_75,
 /obj/structure/flora/rock/pile{
@@ -21815,7 +21823,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "kvb" = (
 /obj/structure/bookcase,
 /obj/random/dirt_75,
@@ -21901,7 +21909,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "kwr" = (
 /turf/simulated/floor/exoplanet/barren/cave{
 	temperature = 315.15
@@ -21963,7 +21971,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "kxi" = (
 /obj/effect/decal/cleanable/blood/drip{
 	color = "#0081CD";
@@ -22093,7 +22101,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "kyF" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/asteroid,
@@ -22108,7 +22116,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "kzk" = (
 /obj/machinery/portable_atmospherics/canister/empty/hydrogen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -22273,7 +22281,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "kDr" = (
 /obj/effect/floor_decal/concrete{
 	dir = 9
@@ -22350,7 +22358,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "kEZ" = (
 /obj/structure/bed/stool/chair/sofa/right/beige{
 	dir = 4
@@ -22562,7 +22570,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "kMD" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -22654,7 +22662,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "kPb" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray,
@@ -22775,6 +22783,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"kSx" = (
+/obj/effect/floor_decal/spline/plain/green,
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/shuttle/scc_evac)
 "kSy" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -22786,7 +22801,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "kSz" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/effect/landmark/force_spawnpoint{
@@ -22851,7 +22866,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "kTe" = (
 /obj/structure/table/standard,
 /obj/item/storage/belt/medical,
@@ -22939,7 +22954,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "kWm" = (
 /obj/structure/closet/secure_closet/bridge_crew,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -23175,7 +23190,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lcx" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
@@ -23189,7 +23204,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lcy" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -23225,7 +23240,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lcJ" = (
 /obj/random/dirt_75,
 /obj/effect/decal/curb/corner{
@@ -23485,7 +23500,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lfF" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -23560,7 +23575,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lhW" = (
 /turf/simulated/wall/concrete,
 /area/new_blades/interiors/ruins/hegemony_spaceport)
@@ -23706,7 +23721,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "loD" = (
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#ffffff";
@@ -23726,7 +23741,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "loQ" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -23781,7 +23796,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lqk" = (
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 10
@@ -24006,7 +24021,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lvR" = (
 /obj/effect/decal/curb,
 /obj/random/dirt_75,
@@ -24165,7 +24180,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lCt" = (
 /obj/machinery/light/skrell{
 	dir = 4;
@@ -24178,7 +24193,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lCA" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/condiment/enzyme{
@@ -24245,7 +24260,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lDM" = (
 /obj/effect/floor_decal/industrial/hatch_door{
 	color = "#b19664";
@@ -24362,7 +24377,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lGf" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/curb,
@@ -24761,7 +24776,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lPC" = (
 /obj/random/dirt_75,
 /obj/structure/flora/rock/pile{
@@ -24849,7 +24864,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lRb" = (
 /obj/structure/girder,
 /turf/simulated/floor/exoplanet/desert{
@@ -24907,7 +24922,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lSs" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/generic,
@@ -24974,7 +24989,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lTk" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -25106,7 +25121,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lVv" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
@@ -25232,7 +25247,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lWv" = (
 /obj/effect/landmark{
 	name = "Observer-Start"
@@ -25264,14 +25279,14 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lXm" = (
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "lXo" = (
 /obj/random/dirt_75,
 /obj/structure/rope_post{
@@ -25482,7 +25497,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "maY" = (
 /obj/random/dirt_75,
 /obj/structure/rope_post,
@@ -25509,7 +25524,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "mbQ" = (
 /obj/random/dirt_75,
 /obj/structure/rope_post{
@@ -25523,6 +25538,10 @@
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
+	},
+/obj/structure/bed/handrail{
+	dir = 4;
+	pixel_x = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_evac)
@@ -25633,7 +25652,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "mew" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -25752,7 +25771,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "min" = (
 /obj/effect/floor_decal/concrete{
 	dir = 9
@@ -25772,7 +25791,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "mjo" = (
 /obj/machinery/light/colored/dying{
 	dir = 4
@@ -25801,7 +25820,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "mjy" = (
 /obj/structure/girder,
 /obj/effect/decal/fake_object/light_source/invisible{
@@ -25949,7 +25968,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "mlx" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/condiment/enzyme{
@@ -26050,7 +26069,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "mmH" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/sidewalk/flat{
@@ -26076,7 +26095,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "mnt" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/generic,
@@ -26294,7 +26313,7 @@
 /turf/simulated/floor/plating{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "muE" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
@@ -26396,7 +26415,7 @@
 	pixel_x = 3
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "myD" = (
 /obj/structure/bed/stool/chair/sofa/pew/right{
 	dir = 4
@@ -26431,7 +26450,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "mzF" = (
 /obj/effect/decal/cleanable/floor_damage/tiled_burned0,
 /obj/random/dirt_75,
@@ -26524,7 +26543,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "mBu" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
@@ -26821,7 +26840,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "mJT" = (
 /obj/effect/floor_decal/concrete{
 	dir = 9
@@ -26888,7 +26907,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "mKn" = (
 /obj/random/dirt_75,
 /obj/structure/flora/rock/pile{
@@ -27085,7 +27104,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "mPv" = (
 /obj/effect/decal/cleanable/generic,
 /obj/effect/floor_decal/concrete{
@@ -27219,7 +27238,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "mTR" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -27303,6 +27322,10 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 6
 	},
+/obj/structure/bed/handrail{
+	dir = 8;
+	pixel_x = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_evac)
 "mXH" = (
@@ -27371,7 +27394,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "nai" = (
 /obj/effect/decal/cleanable/generic,
 /obj/random/dirt_75,
@@ -27419,7 +27442,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "nbA" = (
 /obj/effect/floor_decal/spline/plain{
 	color = "#b6efe1";
@@ -27436,7 +27459,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "nbS" = (
 /obj/effect/floor_decal/concrete{
 	dir = 5
@@ -27556,7 +27579,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "neu" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -28050,7 +28073,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "nqX" = (
 /obj/effect/floor_decal/industrial/outline_door/yellow{
 	dir = 1
@@ -28311,7 +28334,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "nvT" = (
 /obj/structure/closet/cabinet,
 /obj/random/dirt_75,
@@ -28333,7 +28356,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "nwT" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/concrete{
@@ -28395,7 +28418,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "nxQ" = (
 /obj/random/dirt_75,
 /obj/item/ore/coal{
@@ -28691,7 +28714,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "nEW" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -28759,7 +28782,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "nFR" = (
 /obj/effect/floor_decal/concrete{
 	dir = 10
@@ -28842,7 +28865,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "nII" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -28864,7 +28887,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "nIK" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/spline/plain/black{
@@ -28873,7 +28896,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "nJc" = (
 /obj/effect/floor_decal/concrete/large{
 	dir = 4
@@ -28964,7 +28987,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "nMQ" = (
 /obj/structure/filingcabinet/chestdrawer{
 	pixel_x = -6;
@@ -28996,7 +29019,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "nMW" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
@@ -29078,7 +29101,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "nPE" = (
 /obj/effect/floor_decal/asteroid,
 /obj/effect/decal/curb{
@@ -29143,7 +29166,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "nTi" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 1
@@ -29163,6 +29186,10 @@
 	pixel_x = -24;
 	specialfunctions = 4;
 	pixel_y = 3
+	},
+/obj/structure/bed/handrail{
+	dir = 8;
+	pixel_x = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_evac)
@@ -29442,7 +29469,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "oap" = (
 /obj/random/dirt_75,
 /obj/item/arrow/rod{
@@ -29507,7 +29534,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ocK" = (
 /obj/random/dirt_75,
 /obj/item/material/shard/shrapnel,
@@ -29559,7 +29586,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/concrete,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "oej" = (
 /obj/structure/table/skrell,
 /obj/machinery/light/skrell,
@@ -29581,7 +29608,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "oeo" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -29890,7 +29917,8 @@
 "okm" = (
 /obj/machinery/computer/shuttle_control/scc_evac{
 	locked = 1;
-	name = "SCCV Apollo control console"
+	name = "SCCV Apollo control console";
+	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/scc_evac)
@@ -29954,7 +29982,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "olc" = (
 /obj/effect/floor_decal/industrial/outline_corner{
 	color = "#aa5f61"
@@ -29997,7 +30025,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "olR" = (
 /obj/effect/decal/curb,
 /obj/effect/decal/curb/corner{
@@ -30044,7 +30072,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ong" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -30093,7 +30121,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ooi" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -30281,14 +30309,13 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "osl" = (
 /obj/machinery/door/airlock/freezer{
 	id = "shuttle_stall_1";
 	name = "Stall 1"
 	},
-/obj/effect/floor_decal/industrial/hatch_door/red,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/scc_evac)
 "otc" = (
 /obj/structure/sink/kitchen{
@@ -30302,7 +30329,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "otj" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -30407,7 +30434,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "oun" = (
 /obj/random/dirt_75,
 /obj/structure/rope_post{
@@ -30461,7 +30488,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ovk" = (
 /obj/effect/decal/cleanable/floor_damage/tiled_broken3,
 /obj/effect/floor_decal/concrete{
@@ -30489,7 +30516,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ovu" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -30561,7 +30588,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "oxl" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -30664,7 +30691,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ozf" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 2;
@@ -30845,7 +30872,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "oDS" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood/maple{
@@ -30955,7 +30982,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "oHM" = (
 /obj/effect/decal/curb,
 /obj/random/dirt_75,
@@ -31052,7 +31079,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "oMH" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/random/dirt_75,
@@ -31122,7 +31149,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "oNY" = (
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/random/dirt_75,
@@ -31395,7 +31422,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "oVk" = (
 /obj/effect/floor_decal/concrete{
 	dir = 5
@@ -31429,7 +31456,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "oWl" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -31488,12 +31515,12 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "oXm" = (
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#6e2c6e"
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "oXx" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -31575,7 +31602,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "oYS" = (
 /obj/effect/floor_decal/concrete{
 	dir = 5
@@ -31704,7 +31731,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "pck" = (
 /obj/item/material/shard/wood{
 	pixel_x = -5
@@ -31833,7 +31860,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "pev" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -31884,7 +31911,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "pfz" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -32273,7 +32300,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ppm" = (
 /obj/structure/flora/grass/desert,
 /obj/effect/decal/curb,
@@ -32291,7 +32318,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ppD" = (
 /obj/structure/simple_door/iron,
 /obj/random/dirt_75,
@@ -32353,7 +32380,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "psj" = (
 /obj/effect/floor_decal/concrete{
 	dir = 5
@@ -32605,13 +32632,13 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "pBL" = (
 /obj/machinery/chem_master/condimaster,
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "pBM" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
@@ -32691,7 +32718,7 @@
 	},
 /obj/item/clothing/ears/skrell/chain/bluejewels,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "pCN" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -32705,7 +32732,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "pCT" = (
 /obj/random/dirt_75,
 /obj/structure/track,
@@ -32756,7 +32783,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "pDQ" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
@@ -32765,7 +32792,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "pDS" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/unathi/himation,
@@ -32931,7 +32958,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "pJq" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
@@ -33009,7 +33036,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "pLt" = (
 /obj/effect/floor_decal/asteroid,
 /obj/effect/decal/curb/corner{
@@ -33180,7 +33207,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "pOU" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -33204,7 +33231,7 @@
 	pixel_x = -2
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "pQi" = (
 /obj/effect/floor_decal/industrial/outline_straight/yellow,
 /obj/random/dirt_75,
@@ -33276,7 +33303,7 @@
 /area/new_blades)
 "pSH" = (
 /turf/simulated/wall/shuttle/space_ship/tirakqi_shuttle/main,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "pTv" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -33338,7 +33365,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "pVz" = (
 /obj/structure/closet/crate/loot,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -33386,7 +33413,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "pWZ" = (
 /obj/effect/floor_decal/concrete{
 	dir = 4
@@ -33505,7 +33532,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "qaW" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/coin/iron{
@@ -33805,7 +33832,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "qid" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -33999,7 +34026,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "qmP" = (
 /obj/effect/floor_decal/industrial/outline_door/yellow{
 	dir = 4
@@ -34078,7 +34105,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "qoY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -34096,7 +34123,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "qpi" = (
 /obj/structure/trash_pile,
 /obj/random/dirt_75,
@@ -34242,7 +34269,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "qsr" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -34346,7 +34373,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "qvL" = (
 /obj/effect/decal/road_marking{
 	dir = 4
@@ -34364,7 +34391,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "qwi" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -34446,7 +34473,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "qyh" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -34721,7 +34748,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "qGg" = (
 /obj/random/dirt_75,
 /obj/item/ore/iron{
@@ -34758,7 +34785,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 313.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "qGx" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -34853,7 +34880,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "qHx" = (
 /obj/item/material/shard{
 	pixel_y = 10
@@ -34870,7 +34897,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/concrete,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "qHQ" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -35024,7 +35051,7 @@
 /turf/simulated/wall/shuttle/space_ship{
 	color = "#695391"
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "qLy" = (
 /obj/structure/closet/crate,
 /obj/random/dirt_75,
@@ -35155,7 +35182,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "qNY" = (
 /obj/effect/decal/cleanable/floor_damage/tiled_broken3,
 /obj/random/dirt_75,
@@ -35237,7 +35264,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "qQg" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/asteroid,
@@ -35488,7 +35515,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "qVN" = (
 /obj/effect/decal/cleanable/floor_damage/tiled_broken3,
 /obj/effect/floor_decal/concrete{
@@ -35500,17 +35527,15 @@
 	},
 /area/new_blades/interiors/ruins)
 "qWe" = (
-/obj/effect/floor_decal/spline/plain/black{
-	dir = 4
+/obj/effect/floor_decal/corner/black{
+	dir = 1
 	},
-/obj/effect/floor_decal/concrete{
-	dir = 9
+/obj/effect/floor_decal/corner/black,
+/obj/structure/bed/handrail{
+	dir = 1
 	},
-/obj/random/dirt_75,
-/turf/simulated/floor/concrete{
-	temperature = 315.15
-	},
-/area/new_blades/interiors)
+/turf/simulated/floor/tiled/white,
+/area/shuttle/scc_evac)
 "qWh" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 1
@@ -35743,7 +35768,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "rdZ" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
@@ -35763,7 +35788,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/concrete,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "reA" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -35834,6 +35859,10 @@
 	pixel_x = -24;
 	specialfunctions = 4;
 	pixel_y = 3
+	},
+/obj/structure/bed/handrail{
+	dir = 8;
+	pixel_x = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_evac)
@@ -35954,7 +35983,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "rlC" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -36250,7 +36279,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "rxk" = (
 /obj/effect/floor_decal/concrete{
 	dir = 6
@@ -36314,7 +36343,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "rzf" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -36359,7 +36388,7 @@
 "rzP" = (
 /obj/structure/bed/aqua,
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "rzU" = (
 /obj/structure/table/rack,
 /obj/machinery/light{
@@ -36497,7 +36526,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "rBv" = (
 /obj/item/stack/rods,
 /obj/effect/floor_decal/concrete{
@@ -36577,6 +36606,7 @@
 /obj/machinery/vending/robotics{
 	anchored = 0
 	},
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
 "rCK" = (
@@ -36698,7 +36728,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "rHv" = (
 /obj/random/dirt_75,
 /obj/structure/trash_pile,
@@ -36777,7 +36807,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "rJg" = (
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/item/tank/oxygen,
@@ -37097,7 +37127,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "rQd" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -37247,7 +37277,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "rSq" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -37323,7 +37353,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "rVe" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 1
@@ -37349,7 +37379,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "rVr" = (
 /turf/simulated/floor/sidewalk/blocks{
 	temperature = 315.15
@@ -37395,7 +37425,7 @@
 	pixel_x = 3
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "rWJ" = (
 /obj/structure/bed/padded,
 /obj/random/dirt_75,
@@ -37419,7 +37449,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "rXz" = (
 /obj/structure/flora/rock/desert/scrub,
 /turf/simulated/floor/exoplanet/desert{
@@ -37628,7 +37658,9 @@
 	},
 /area/new_blades)
 "sdf" = (
-/obj/item/modular_computer/console/preset/command,
+/obj/item/modular_computer/console/preset/command{
+	dir = 1
+	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/scc_evac)
 "sdj" = (
@@ -37700,7 +37732,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "seE" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -37715,7 +37747,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "sfe" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
@@ -37801,7 +37833,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "shx" = (
 /obj/item/device/gps/stationary{
 	gpstag = "DROPSHIP"
@@ -37853,7 +37885,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "siU" = (
 /obj/item/material/scythe{
 	pixel_x = 12;
@@ -38025,7 +38057,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "snq" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -38068,11 +38100,10 @@
 	},
 /area/new_blades/interiors/ruins)
 "snT" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/shuttle/skrell/blue{
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "soC" = (
 /obj/random/dirt_75,
 /obj/structure/trash_pile,
@@ -38315,8 +38346,8 @@
 /turf/unsimulated/floor,
 /area/new_blades/underground)
 "suZ" = (
+/obj/structure/closet/crate/solar,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/autolathe,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
 "svl" = (
@@ -38362,7 +38393,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "swC" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -38498,7 +38529,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "syw" = (
 /obj/structure/flora/grass/desert,
 /obj/random/dirt_75,
@@ -38686,7 +38717,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "sCE" = (
 /obj/machinery/telecomms/message_server,
 /turf/unsimulated/floor,
@@ -38732,7 +38763,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "sEs" = (
 /obj/machinery/light/colored/dying{
 	dir = 4
@@ -38861,7 +38892,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "sHr" = (
 /obj/effect/decal/curb/corner,
 /obj/effect/decal/curb/corner{
@@ -38910,7 +38941,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "sJk" = (
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 5
@@ -38946,7 +38977,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "sLf" = (
 /obj/effect/floor_decal/asteroid,
 /obj/random/dirt_75,
@@ -39083,7 +39114,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "sNv" = (
 /obj/structure/girder,
 /obj/random/dirt_75,
@@ -39254,7 +39285,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "sSi" = (
 /obj/effect/floor_decal/concrete{
 	dir = 10
@@ -39350,6 +39381,17 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"sTM" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/bed/handrail{
+	dir = 8;
+	pixel_x = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/shuttle/scc_evac)
 "sTV" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/spline/plain/black{
@@ -39359,7 +39401,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "sUd" = (
 /obj/effect/floor_decal/concrete{
 	dir = 6
@@ -39510,7 +39552,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "tai" = (
 /obj/structure/kitchenspike,
 /obj/structure/railing/fence{
@@ -39654,7 +39696,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "tco" = (
 /obj/effect/floor_decal/concrete{
 	dir = 6
@@ -39818,7 +39860,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "tic" = (
 /obj/effect/decal/cleanable/generic,
 /obj/random/dirt_75,
@@ -39898,7 +39940,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "tjg" = (
 /obj/structure/sign/flag/hegemony{
 	stand_icon = "banner";
@@ -39929,7 +39971,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "tjG" = (
 /obj/structure/barricade/metal/wired{
 	dir = 4
@@ -40316,7 +40358,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "tqK" = (
 /obj/random/dirt_75,
 /obj/machinery/light/broken{
@@ -40414,7 +40456,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ttK" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -40674,12 +40716,12 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "tyw" = (
 /obj/item/material/shard/shrapnel,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/concrete,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "tyH" = (
 /obj/random/dirt_75,
 /obj/structure/flora/rock/pile{
@@ -40711,7 +40753,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "tzr" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -40951,7 +40993,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "tGD" = (
 /obj/structure/flora/grass/desert,
 /obj/effect/decal/curb/corner{
@@ -41009,7 +41051,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "tIF" = (
 /obj/structure/railing/fence{
 	dir = 4
@@ -41149,7 +41191,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "tKw" = (
 /obj/effect/decal/cleanable/generic,
 /obj/effect/floor_decal/concrete{
@@ -41291,7 +41333,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "tNw" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -41532,7 +41574,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "tUE" = (
 /obj/structure/flora/grass/desert/bush,
 /obj/effect/decal/curb/corner{
@@ -41785,7 +41827,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "uba" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/effect/floor_decal/spline/plain/black{
@@ -41798,7 +41840,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ubo" = (
 /obj/effect/decal/curb,
 /obj/random/dirt_75,
@@ -42074,7 +42116,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "uid" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -42367,7 +42409,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "uot" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/random/dirt_75,
@@ -42377,7 +42419,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades)
 "uou" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/tiled_broken4,
@@ -42405,7 +42447,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "upb" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -42581,7 +42623,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "uuC" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -42793,7 +42835,7 @@
 "uAQ" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/concrete,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "uBc" = (
 /obj/effect/floor_decal/concrete{
 	dir = 9
@@ -42845,7 +42887,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "uCv" = (
 /obj/item/reagent_containers/glass/bucket/wood{
 	pixel_x = -4;
@@ -42951,7 +42993,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "uGk" = (
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/planks{
@@ -43069,7 +43111,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "uIk" = (
 /obj/effect/floor_decal/spline/plain{
 	color = "#b6efe1";
@@ -43078,7 +43120,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "uIt" = (
 /obj/structure/table/wood,
 /obj/item/spirit_board{
@@ -43164,7 +43206,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "uKk" = (
 /obj/effect/floor_decal/industrial/outline_door{
 	color = "#b19664";
@@ -43466,7 +43508,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "uPM" = (
 /obj/structure/bed/stool/chair/sofa/left/beige{
 	dir = 1
@@ -43602,7 +43644,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "uTO" = (
 /obj/effect/floor_decal/concrete{
 	dir = 10
@@ -44183,7 +44225,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/floor_damage/broken4,
 /turf/simulated/floor/concrete,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "vgR" = (
 /obj/effect/decal/curb{
 	dir = 1
@@ -44481,7 +44523,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "vnl" = (
 /obj/item/broken_bottle{
 	pixel_x = -12;
@@ -44603,7 +44645,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "voV" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/board,
@@ -44824,7 +44866,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "vuK" = (
 /obj/effect/floor_decal/concrete/large,
 /obj/effect/floor_decal/concrete{
@@ -44895,7 +44937,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "vwJ" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/generic,
@@ -44919,7 +44961,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "vwU" = (
 /obj/effect/floor_decal/asteroid,
 /obj/effect/decal/curb,
@@ -44974,7 +45016,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "vyS" = (
 /obj/machinery/constructable_frame/temp_deco,
 /obj/effect/decal/cleanable/floor_damage/tiled_burned0,
@@ -45145,7 +45187,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "vGM" = (
 /obj/effect/floor_decal/concrete{
 	dir = 5
@@ -45299,7 +45341,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/concrete,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "vKt" = (
 /obj/structure/ore_box,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -45334,7 +45376,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "vLe" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -45451,7 +45493,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "vOq" = (
 /obj/effect/decal/road_marking{
 	dir = 1
@@ -45480,7 +45522,7 @@
 	stand_icon = "banner"
 	},
 /turf/simulated/floor/concrete,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "vPi" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/asteroid,
@@ -45577,7 +45619,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "vRz" = (
 /obj/effect/decal/cleanable/floor_damage/tiled_broken4,
 /obj/random/dirt_75,
@@ -45924,7 +45966,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wbN" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/concrete{
@@ -46248,7 +46290,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wmM" = (
 /obj/effect/floor_decal/asteroid,
 /obj/random/dirt_75,
@@ -46385,7 +46427,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wrl" = (
 /obj/structure/closet/crate/hydroponics/prespawned,
 /obj/item/reagent_containers/glass/fertilizer/rh,
@@ -46490,7 +46532,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wtW" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -46503,7 +46545,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wtY" = (
 /obj/random/dirt_75,
 /obj/item/pickaxe,
@@ -46545,7 +46587,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wuQ" = (
 /obj/effect/floor_decal/concrete{
 	dir = 5
@@ -46619,7 +46661,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wwW" = (
 /obj/random/dirt_75,
 /obj/structure/rope_post{
@@ -46680,7 +46722,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wzj" = (
 /obj/structure/flora/rock/pile{
 	density = 0
@@ -46703,7 +46745,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wzw" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -46744,7 +46786,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/concrete,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wAG" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -46946,7 +46988,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wFn" = (
 /obj/structure/unathi_pillar{
 	desc = "A weathered down remnant of this structure's walls.";
@@ -47005,7 +47047,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wGC" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -47024,7 +47066,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wIc" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
@@ -47199,7 +47241,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wLS" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_x = 4;
@@ -47273,7 +47315,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wNx" = (
 /obj/structure/bed/padded,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
@@ -47301,7 +47343,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wOu" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/concrete{
@@ -47357,7 +47399,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wPb" = (
 /obj/structure/flora/rock/pile{
 	density = 0;
@@ -47595,7 +47637,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wTt" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
@@ -47782,7 +47824,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "wXS" = (
 /obj/structure/flora/rock/pile{
 	density = 0;
@@ -47890,7 +47932,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "xaU" = (
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/item/storage/toolbox/mechanical{
@@ -47929,7 +47971,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "xcf" = (
 /obj/structure/bed/stool/chair/wood,
 /obj/random/dirt_75,
@@ -48176,7 +48218,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "xjU" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
@@ -48269,7 +48311,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "xow" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
@@ -48280,7 +48322,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "xoI" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -48624,7 +48666,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "xxo" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /obj/structure/flora/grass/desert,
@@ -48664,7 +48706,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "xxU" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -48787,7 +48829,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "xAC" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced{
 	color = "#4e4378";
@@ -48800,7 +48842,7 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "xAT" = (
 /obj/effect/floor_decal/concrete{
 	dir = 6
@@ -48946,9 +48988,12 @@
 /turf/simulated/floor/shuttle/skrell{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "xDH" = (
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/shuttle/scc_evac)
 "xDI" = (
@@ -49092,7 +49137,7 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "xGV" = (
 /obj/structure/table/wood,
 /obj/item/spirit_board{
@@ -49161,7 +49206,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "xIA" = (
 /obj/effect/floor_decal/concrete{
 	dir = 6
@@ -49244,7 +49289,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "xKp" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -49432,6 +49477,10 @@
 	dir = 9
 	},
 /obj/machinery/iv_drip,
+/obj/structure/bed/handrail{
+	dir = 4;
+	pixel_x = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_evac)
 "xPz" = (
@@ -49674,7 +49723,7 @@
 	pixel_x = -3
 	},
 /turf/simulated/floor/exoplanet/water/shallow,
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "xWj" = (
 /obj/structure/railing/fence{
 	dir = 1
@@ -49713,7 +49762,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "xXs" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/flat{
@@ -49739,7 +49788,7 @@
 /turf/simulated/floor/shuttle/skrell/blue{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "xYA" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -49779,7 +49828,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "xZA" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/brace{
@@ -55606,7 +55655,7 @@ mQf
 xiP
 xiP
 xiP
-xiP
+bfD
 iAL
 shx
 czz
@@ -56123,7 +56172,7 @@ xiP
 xiP
 toc
 xiP
-xiP
+bsB
 bau
 kWm
 iAL
@@ -56873,7 +56922,7 @@ eqd
 xiP
 xiP
 eqd
-xiP
+bfD
 iAL
 xsB
 hLu
@@ -57130,7 +57179,7 @@ nHv
 xiP
 xiP
 nHv
-xiP
+bfD
 iAL
 mTG
 dCo
@@ -57139,7 +57188,7 @@ jup
 glQ
 glQ
 glQ
-aNP
+kSx
 iAL
 oWH
 fXo
@@ -58673,7 +58722,7 @@ xiP
 xiP
 xiP
 iAL
-xiP
+bOT
 xiP
 gMB
 iAL
@@ -58930,7 +58979,7 @@ kZt
 iiS
 kpM
 iAL
-xiP
+bOT
 iiS
 wlr
 iAL
@@ -59187,7 +59236,7 @@ fqC
 kZt
 kpM
 iAL
-xiP
+bOT
 kZt
 all
 iAL
@@ -59444,7 +59493,7 @@ mpx
 kZt
 kpM
 iAL
-xiP
+bOT
 kZt
 eSU
 iAL
@@ -59701,7 +59750,7 @@ vnO
 kZt
 kpM
 iAL
-xiP
+bOT
 kZt
 suZ
 iAL
@@ -59718,10 +59767,10 @@ fXo
 fXo
 fXo
 xiP
-xiP
+bfD
 iAL
 gna
-oGB
+qWe
 iAL
 iAL
 iAL
@@ -59958,7 +60007,7 @@ qLf
 kZt
 kpM
 iAL
-xiP
+bOT
 kZt
 ivt
 iAL
@@ -59975,7 +60024,7 @@ xAV
 xAV
 xAV
 xiP
-xiP
+bfD
 iAL
 gna
 oGB
@@ -60215,7 +60264,7 @@ qLf
 kZt
 kpM
 iAL
-xiP
+bOT
 kZt
 cbk
 iAL
@@ -60235,7 +60284,7 @@ xiP
 wAa
 iAL
 oGB
-oGB
+qWe
 iAL
 iAL
 iAL
@@ -60472,7 +60521,7 @@ kZt
 uxM
 kpM
 iAL
-xiP
+bOT
 uxM
 ufo
 iAL
@@ -60749,7 +60798,7 @@ xiP
 qKS
 iAL
 xBB
-oGB
+sTM
 iAL
 iAL
 iAL
@@ -82822,7 +82871,7 @@ ieH
 hgu
 hgu
 hgu
-hgu
+snT
 pSH
 xAu
 uBZ
@@ -84388,7 +84437,7 @@ cob
 xsh
 xsh
 xsh
-qWe
+xsh
 oXm
 oXm
 iin
@@ -84645,7 +84694,7 @@ fZk
 fZk
 unq
 ihg
-snT
+unq
 uot
 dDJ
 sNr
@@ -84902,7 +84951,7 @@ nsK
 lfc
 fdD
 fdD
-bsB
+lfc
 oXm
 oXm
 loc
