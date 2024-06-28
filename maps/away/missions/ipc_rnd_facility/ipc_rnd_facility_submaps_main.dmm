@@ -206,6 +206,12 @@
 /obj/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"bP" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "bU" = (
 /obj/structure/bed/stool/chair/folding,
 /turf/simulated/floor/tiled,
@@ -329,6 +335,12 @@
 /obj/machinery/door/window/westleft,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"do" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "dq" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -347,6 +359,10 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/template_noop)
+"dw" = (
+/obj/effect/floor_decal/corner/dark_blue/full,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "dA" = (
 /obj/effect/floor_decal/corner/pink{
 	dir = 9
@@ -362,6 +378,12 @@
 	dir = 6
 	},
 /turf/simulated/floor/plating,
+/area/template_noop)
+"dJ" = (
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "dP" = (
 /turf/simulated/floor/exoplanet/grass/marsh,
@@ -820,6 +842,12 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
+/area/template_noop)
+"iq" = (
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "ir" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
@@ -1323,6 +1351,10 @@
 /obj/machinery/iv_drip,
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"nF" = (
+/obj/effect/floor_decal/corner/dark_blue/full,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "nI" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
@@ -1352,6 +1384,12 @@
 /area/template_noop)
 "nW" = (
 /turf/simulated/wall/wood,
+/area/template_noop)
+"nX" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "oe" = (
 /obj/structure/table/wood,
@@ -2056,6 +2094,12 @@
 /obj/effect/decal/road_marking/thin,
 /turf/simulated/floor/asphalt,
 /area/template_noop)
+"uS" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "uU" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
@@ -2400,6 +2444,12 @@
 /obj/structure/closet/crate/rfd,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"ys" = (
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "yx" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/armor/carrier/generic{
@@ -2561,6 +2611,12 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"zS" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "zT" = (
 /obj/item/device/paint_sprayer{
 	pixel_x = 3;
@@ -2620,6 +2676,13 @@
 "Ag" = (
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/template_noop)
+"Ak" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "Ay" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -2674,6 +2737,11 @@
 	pixel_x = 14
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"Bb" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/dark_blue/full,
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "Bi" = (
 /obj/structure/bed/padded,
@@ -3031,6 +3099,12 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
+/area/template_noop)
+"ER" = (
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "EV" = (
 /obj/structure/toilet{
@@ -3559,6 +3633,13 @@
 /obj/item/target,
 /turf/simulated/floor/exoplanet/barren,
 /area/template_noop)
+"Kx" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "Kz" = (
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/template_noop)
@@ -3618,11 +3699,24 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"Lh" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "Lj" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /obj/structure/table/standard,
 /obj/machinery/door/window/westright,
 /turf/simulated/floor/tiled/white,
+/area/template_noop)
+"Lk" = (
+/obj/machinery/papershredder,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "Lo" = (
 /obj/structure/barricade/wooden{
@@ -3633,6 +3727,13 @@
 "Ls" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/lightblue,
+/area/template_noop)
+"Lv" = (
+/obj/machinery/photocopier,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "Lx" = (
 /obj/effect/floor_decal/corner/brown/full{
@@ -3732,6 +3833,13 @@
 	req_access = null
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"Mt" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Mw" = (
@@ -3929,6 +4037,12 @@
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/carpet/green,
 /area/template_noop)
+"OP" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "OQ" = (
 /obj/structure/closet,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -3982,6 +4096,12 @@
 "Pj" = (
 /obj/structure/curtain/open/medical,
 /turf/simulated/floor/tiled/light,
+/area/template_noop)
+"Pl" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "Pm" = (
 /obj/structure/railing/fence,
@@ -4284,6 +4404,10 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/template_noop)
+"RR" = (
+/obj/effect/floor_decal/corner/dark_blue,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "RV" = (
 /obj/structure/flora/bush/jungle/random,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
@@ -4455,6 +4579,12 @@
 	temperature = 315.15
 	},
 /area/template_noop)
+"TV" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/slate,
+/area/template_noop)
 "TX" = (
 /turf/simulated/floor/exoplanet/water/shallow{
 	temperature = 303.15
@@ -4563,6 +4693,12 @@
 	temperature = 315.15
 	},
 /area/template_noop)
+"Vc" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "Vd" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/lava,
@@ -4589,6 +4725,12 @@
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
+/area/template_noop)
+"Vu" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Vv" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4642,6 +4784,12 @@
 "VJ" = (
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
+/area/template_noop)
+"VO" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/slate,
 /area/template_noop)
 "VS" = (
 /obj/machinery/door/window/westleft,
@@ -4759,6 +4907,12 @@
 /obj/machinery/weapons_analyzer,
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
+"Xs" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/slate,
+/area/template_noop)
 "Xt" = (
 /obj/machinery/photocopier,
 /turf/simulated/floor/tiled,
@@ -4813,6 +4967,13 @@
 	},
 /obj/effect/decal/road_marking/no_park,
 /turf/simulated/floor/asphalt,
+/area/template_noop)
+"XO" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "Ya" = (
 /obj/structure/bed/stool/chair,
@@ -36023,7 +36184,7 @@ DO
 NG
 ut
 SU
-SU
+bP
 RG
 tD
 DO
@@ -36220,18 +36381,18 @@ iF
 iF
 iF
 tw
-NG
-NG
-NG
+do
+do
+do
 RG
-SU
-SU
+Lh
+bP
 RG
-tD
+Mt
+do
 NG
-NG
-NG
-tD
+do
+Mt
 tw
 SU
 qb
@@ -36426,8 +36587,8 @@ tw
 RG
 RG
 tw
-SU
-SU
+Lh
+bP
 tw
 RG
 RG
@@ -36628,19 +36789,19 @@ tw
 Xt
 NG
 NG
-SU
-SU
+Lh
+OP
+TV
+TV
+TV
 Qc
-Qc
-Qc
-Qc
-Qc
-Qc
+TV
+TV
 Qc
 ut
 NG
 NG
-NG
+Pl
 tw
 iF
 iF
@@ -36830,7 +36991,7 @@ tw
 Ql
 Ql
 dV
-SU
+Lh
 SU
 Qc
 nd
@@ -36838,11 +36999,11 @@ nd
 nd
 nd
 nd
-Qc
+VO
 RG
-NG
-NG
-NG
+ys
+do
+ER
 tw
 iF
 iF
@@ -37032,7 +37193,7 @@ tw
 Qc
 qu
 TH
-SU
+Lh
 SU
 Qc
 SI
@@ -37040,7 +37201,7 @@ SI
 SI
 SI
 SI
-Qc
+VO
 tw
 tw
 tw
@@ -37234,7 +37395,7 @@ tw
 ki
 ki
 Hv
-SU
+Lh
 SU
 Qc
 pj
@@ -37242,11 +37403,11 @@ pj
 pj
 pj
 pj
-Qc
+VO
 RG
-NG
-NG
-NG
+iq
+nX
+dw
 tw
 iF
 iF
@@ -37436,19 +37597,19 @@ tw
 Br
 NG
 NG
-SU
-SU
+Lh
+RR
+Xs
+Xs
+Xs
 Qc
-Qc
-Qc
-Qc
-Qc
-Qc
+Xs
+Xs
 Qc
 ut
 NG
 NG
-NG
+Pl
 tw
 iF
 iF
@@ -37638,8 +37799,8 @@ tw
 RG
 RG
 tw
-SU
-SU
+Lh
+bP
 tw
 RG
 RG
@@ -37836,18 +37997,18 @@ iF
 iF
 iF
 tw
-tD
-tD
-NG
+Kx
+Kx
+nX
 RG
-SU
-SU
+Lh
+bP
 RG
-tD
+Kx
+nX
 NG
-NG
-tD
-tD
+Kx
+Kx
 tw
 SU
 fy
@@ -38043,7 +38204,7 @@ Ae
 NG
 ut
 SU
-SU
+bP
 RG
 tD
 Mi
@@ -39660,8 +39821,8 @@ NG
 RG
 SU
 SU
-SU
-SU
+Vu
+nF
 RG
 NG
 Ae
@@ -39856,23 +40017,23 @@ iF
 iF
 iF
 tw
-tD
+Mt
 NG
-NG
+do
 RG
 SU
 SU
 SU
-SU
+bP
 RG
+do
 NG
-NG
-tD
+Mt
 tw
+uS
+uS
 SU
-SU
-SU
-SU
+uS
 tw
 iF
 iF
@@ -40065,7 +40226,7 @@ tw
 tw
 tw
 SU
-SU
+bP
 tw
 RG
 bp
@@ -40260,23 +40421,23 @@ iF
 iF
 iF
 tw
+TV
 Qc
-Qc
-Qc
-Qc
-Qc
+TV
+TV
+TV
 tw
 SU
+OP
+Vu
+Vu
 SU
-SU
-SU
-SU
-SU
-SU
+Vu
+nF
 tw
+iq
 NG
-NG
-CT
+Bb
 tw
 iF
 iF
@@ -40467,18 +40628,18 @@ Ct
 Ct
 Ct
 Qc
-SU
+Vu
 SU
 SU
 LQ
 Ql
 Ql
 dV
-SU
-SU
+OP
+Vu
+zS
 NG
-NG
-Xt
+Lv
 tw
 iF
 iF
@@ -40680,7 +40841,7 @@ SU
 SU
 NG
 NG
-Br
+Lk
 tw
 iF
 iF
@@ -40871,18 +41032,18 @@ Yn
 Yn
 Yn
 Qc
-SU
+uS
 SU
 SU
 LQ
 ki
 ki
 Hv
-SU
-SU
+RR
+uS
+Vc
 NG
-NG
-CT
+Ak
 tw
 iF
 iF
@@ -41068,23 +41229,23 @@ iF
 iF
 iF
 tw
+Xs
 Qc
-Qc
-Qc
-Qc
-Qc
+Xs
+Xs
+Xs
 tw
 SU
+RR
+uS
+uS
 SU
-SU
-SU
-SU
-SU
-SU
+uS
+dJ
 tw
+ys
 NG
-NG
-CT
+XO
 tw
 iF
 iF
@@ -41277,7 +41438,7 @@ tw
 tw
 tw
 SU
-SU
+bP
 tw
 RG
 bp
@@ -41472,23 +41633,23 @@ iF
 iF
 iF
 tw
+nX
 NG
-NG
-tD
+Kx
 RG
 SU
 SU
 SU
-SU
+bP
 tw
+Vu
 SU
-SU
-SU
-SU
+Vu
+Vu
 tw
-tD
+Kx
 NG
-NG
+nX
 tw
 iF
 iF
@@ -41680,8 +41841,8 @@ tD
 RG
 SU
 SU
-SU
-SU
+uS
+dJ
 tw
 vl
 Fx
