@@ -73,7 +73,6 @@
 	if(decals && decals.len)
 		for(var/image/I in decals)
 			AddOverlays(I)
-			I.layer = flooring.decal_layer
 
 	if(update_neighbors)
 		for(var/turf/simulated/floor/F in RANGE_TURFS(1, src))
@@ -98,7 +97,6 @@
 				I.pixel_x = -world.icon_size
 			else if (icon_dir & EAST)
 				I.pixel_x = world.icon_size
-		I.layer = flooring.decal_layer
 
 		flooring_cache[cache_key] = I
 	return flooring_cache[cache_key]
