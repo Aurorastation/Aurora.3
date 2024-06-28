@@ -60,11 +60,17 @@
  * This is essentially the distress signal or central command order that makes the Horizon investigate the situation point.
  */
 /singleton/situation/proc/notify_horizon(var/obj/effect/overmap/visitable/ship/horizon)
-	command_announcement.Announce(horizon_announcement_message, horizon_announcement_title, do_print = TRUE)
+	/// We don't want to send the announcement if there are Storytellers. We want to have them control when to end their prep and when to tell the Horizon to come.
+	if(!length(SSodyssey.storytellers))
+		command_announcement.Announce(horizon_announcement_message, horizon_announcement_title, do_print = TRUE)
+	else
+		for(var/mob/storyteller in SSodyssey.storytellers)
+			to_chat(storyteller, SPAN_NOTICE("The automated announcement to the Horizon would have been sent now, but it has been blocked by the presence of a Storyteller."))
+			to_chat(storyteller, SPAN_DANGER("Please remember to use the Send Distress Message verb as soon as your prep is done!"))
 
-/obj/effect/landmark/actor_landmark
-	name = "Actor Spawn Landmark"
+/obj/effect/landmark/actor
+	name = "actor"
 
 /obj/effect/ghostspawpoint/storyteller
-	name = "Storyteller Landmark"
+	name = "storyteller"
 	identifier = "storyteller"

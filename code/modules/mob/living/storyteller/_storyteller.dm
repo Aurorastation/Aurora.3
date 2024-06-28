@@ -18,6 +18,7 @@
 	. = ..()
 	eyeobj = new /mob/abstract/eye/storyteller(get_turf(src))
 	eyeobj.possess(src)
+	SSghostroles.add_spawn_atom("storyteller", src)
 
 /mob/living/storyteller/Destroy()
 	QDEL_NULL(eyeobj)
@@ -32,6 +33,7 @@
 				C.holder.rights &= ~R_STORYTELLER
 				C.remove_admin_verbs()
 				C.add_admin_verbs()
+		SSodyssey.remove_storyteller(src)
 	return ..()
 
 /mob/living/storyteller/LateLogin()
@@ -47,6 +49,13 @@
 				C.remove_admin_verbs()
 				C.add_admin_verbs()
 		real_name = "Storyteller ([client.ckey])"
+		SSodyssey.add_storyteller(src)
+
+/mob/living/storyteller/ghostize(can_reenter_corpse, should_set_timer)
+	. = ..()
+	if(!can_reenter_corpse)
+		SSodyssey.remove_storyteller(src)
+
 
 /mob/living/storyteller/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if (!message)
@@ -137,11 +146,12 @@
 
 /datum/ghostspawner/storyteller
 	name = "Storyteller"
+	short_name = "storyteller"
 	desc = "Tell your story to the world."
 	tags = list("Odyssey")
-	loc_type = GS_LOC_POS
+	loc_type = GS_LOC_ATOM
 	enabled = TRUE
 
 	show_on_job_select = TRUE
-	landmark_name = "storyteller"
 	spawn_mob = /mob/living/storyteller
+	atom_add_message = "A Storyteller position is available!"

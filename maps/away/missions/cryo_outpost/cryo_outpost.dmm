@@ -5739,6 +5739,13 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/cryo_outpost/outside/surface)
+"iUC" = (
+/obj/effect/floor_decal/corner/pink{
+	dir = 5
+	},
+/obj/effect/landmark/actor,
+/turf/simulated/floor/tiled,
+/area/cryo_outpost/inside/labs_cryo_n)
 "iUL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -6093,7 +6100,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
 "jwo" = (
-/obj/effect/ghostspawpoint/storyteller,
+/mob/living/storyteller,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/outside/cave)
 "jwF" = (
@@ -7690,6 +7697,7 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
+/obj/effect/landmark/actor,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/labs_cryo_n)
 "lEo" = (
@@ -9332,6 +9340,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_rnd)
+"oAV" = (
+/obj/effect/landmark/actor,
+/turf/simulated/floor/tiled,
+/area/cryo_outpost/inside/labs_cryo_n)
 "oBJ" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner_wide/green{
@@ -54657,7 +54669,7 @@ pok
 ppV
 yaO
 jNZ
-tYM
+iUC
 mQn
 isZ
 isZ
@@ -54914,7 +54926,7 @@ pok
 sXR
 esH
 jNZ
-eBe
+oAV
 bGf
 isZ
 isZ

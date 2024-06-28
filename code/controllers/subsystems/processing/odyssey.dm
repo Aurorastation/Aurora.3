@@ -64,10 +64,11 @@ SUBSYSTEM_DEF(odyssey)
  */
 /datum/controller/subsystem/odyssey/proc/gamemode_setup()
 	SHOULD_CALL_PARENT(TRUE)
-	if(istype(SSticker.mode, /datum/game_mode/odyssey))
-		/// TODOMATT: this has some issues, we need to check the amount of players BEFORE we spawn the template...
-		SSticker.mode.required_players = situation.min_player_amount
-		SSticker.mode.required_enemies = situation.min_actor_amount
+	var/datum/game_mode/odyssey/odyssey = GLOB.gamemode_cache["odyssey"]
+	/// TODOMATT: this has some issues, we need to check the amount of players BEFORE we spawn the template...
+	if(odyssey)
+		odyssey.required_players = situation.min_player_amount
+		odyssey.required_enemies = situation.min_actor_amount
 
 /**
  * This is the proc that should be used to set the situation away site.
@@ -82,13 +83,13 @@ SUBSYSTEM_DEF(odyssey)
  * Adds an actor to the subsystem actor list.
  */
 /datum/controller/subsystem/odyssey/proc/add_actor(mob/living/carbon/human/H)
-	LAZYADD(actors, H)
+	LAZYDISTINCTADD(actors, H)
 
 /**
  * Adds a storyteller to the subsystem storyteller list.
  */
 /datum/controller/subsystem/odyssey/proc/add_storyteller(mob/living/storyteller/S)
-	LAZYADD(storytellers, S)
+	LAZYDISTINCTADD(storytellers, S)
 
 /**
  * Removes an actor from the subsystem actor list.
