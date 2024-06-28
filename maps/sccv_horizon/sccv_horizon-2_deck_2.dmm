@@ -10637,7 +10637,6 @@
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/chemistry)
 "eWP" = (
@@ -36182,7 +36181,6 @@
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/chemistry)
 "qLT" = (
@@ -37639,7 +37637,6 @@
 	req_access = list(7)
 	},
 /obj/effect/floor_decal/spline/plain/cee,
-/turf/simulated/floor/tiled/white,
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/chemistry)
 "rtF" = (
@@ -40447,6 +40444,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
+"sRb" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/structure/sink/kitchen{
+	dir = 8;
+	name = "sink";
+	pixel_x = 21
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/xenobiology/xenoflora)
 "sRe" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -43301,15 +43309,8 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "ueF" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
-/obj/structure/sink/kitchen{
-	dir = 8;
-	name = "sink";
-	pixel_x = 21
-	},
-/turf/simulated/floor/tiled,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "ueH" = (
 /turf/simulated/floor/tiled/dark,
@@ -45361,10 +45362,6 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/horizon/bar)
-"uZr" = (
-/obj/structure/table/standard,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology/xenoflora)
 "uZs" = (
 /obj/structure/table/wood,
 /obj/machinery/recharger{
@@ -50041,7 +50038,6 @@
 /obj/effect/floor_decal/spline/plain/cee{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
 /turf/simulated/floor/carpet/rubber,
 /area/rnd/chemistry)
 "xed" = (
@@ -83564,7 +83560,7 @@ nnk
 atQ
 atQ
 aAR
-uZr
+ueF
 sPn
 xRv
 fLi
@@ -84372,7 +84368,7 @@ bLT
 fQM
 fQM
 xZJ
-ueF
+sRb
 wKP
 nir
 iRl
