@@ -4440,6 +4440,26 @@
 /obj/item/clothing/head/welding,
 /obj/item/clothing/head/welding,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
 "cbn" = (
@@ -12423,6 +12443,18 @@
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor,
 /area/new_blades/interiors)
+"fYE" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/vehicle/bike/motor/sand{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades)
 "fYS" = (
 /obj/random/dirt_75,
 /obj/item/material/stool/chair/wood{
@@ -17646,28 +17678,8 @@
 	},
 /area/new_blades/underground)
 "ivt" = (
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow/specialt,
-/obj/item/clothing/gloves/yellow/specialt,
-/obj/item/clothing/gloves/yellow/specialt,
-/obj/item/clothing/gloves/yellow/specialt,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/structure/closet/crate{
-	name = "insulated gloves crate"
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/solar,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
 "ivv" = (
@@ -38303,8 +38315,8 @@
 /turf/unsimulated/floor,
 /area/new_blades/underground)
 "suZ" = (
-/obj/structure/closet/crate/solar,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/autolathe,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
 "svl" = (
@@ -39117,6 +39129,18 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades)
+"sNN" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/vehicle/bike/motor/sand{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
@@ -44669,6 +44693,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"vrW" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/effect/shuttle_landmark/scc_evac/start{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt{
+	temperature = 315.15
+	},
+/area/new_blades)
 "vsb" = (
 /obj/structure/closet/crate/medical,
 /obj/item/storage/firstaid/empty,
@@ -61225,7 +61260,7 @@ tKf
 tKf
 xHT
 owu
-owu
+vrW
 tKf
 tKf
 kGN
@@ -100137,7 +100172,7 @@ khB
 kUr
 lYS
 whf
-lrx
+fYE
 hTr
 mmH
 exp
@@ -101422,7 +101457,7 @@ neY
 eqL
 lYS
 vei
-sNM
+sNN
 hTr
 hTr
 hTr
