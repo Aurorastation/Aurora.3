@@ -1966,6 +1966,10 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - escort";
+	identifier = "escort"
+	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/new_blades/interiors/ruins)
 "aNC" = (
@@ -4436,6 +4440,26 @@
 /obj/item/clothing/head/welding,
 /obj/item/clothing/head/welding,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
 "cbn" = (
@@ -12419,6 +12443,18 @@
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor,
 /area/new_blades/interiors)
+"fYE" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/vehicle/bike/motor/sand{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades)
 "fYS" = (
 /obj/random/dirt_75,
 /obj/item/material/stool/chair/wood{
@@ -14730,6 +14766,10 @@
 "hac" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
+	},
+/obj/effect/ghostspawpoint{
+	name = "igs - escort";
+	identifier = "escort"
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/new_blades/interiors/ruins)
@@ -17638,28 +17678,8 @@
 	},
 /area/new_blades/underground)
 "ivt" = (
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow/specialt,
-/obj/item/clothing/gloves/yellow/specialt,
-/obj/item/clothing/gloves/yellow/specialt,
-/obj/item/clothing/gloves/yellow/specialt,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/structure/closet/crate{
-	name = "insulated gloves crate"
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/solar,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
 "ivv" = (
@@ -18265,6 +18285,35 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"iJi" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/structure/closet/crate/weapon,
+/obj/item/melee/hammer/powered/hegemony,
+/obj/item/gun/projectile/automatic/rifle/hook_mg,
+/obj/item/ammo_magazine/hookmg,
+/obj/item/ammo_magazine/hookmg,
+/obj/item/ammo_magazine/crackrifle,
+/obj/item/ammo_magazine/crackrifle,
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
+/obj/item/gun/projectile/automatic/tempestsmg,
+/obj/item/gun/projectile/automatic/tempestsmg,
+/obj/item/gun/projectile/automatic/tempestsmg,
+/obj/item/gun/projectile/automatic/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins)
 "iJT" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/board{
@@ -29839,8 +29888,9 @@
 	},
 /area/new_blades/underground)
 "okm" = (
-/obj/machinery/computer/ship/helm{
-	dir = 1
+/obj/machinery/computer/shuttle_control/scc_evac{
+	locked = 1;
+	name = "SCCV Apollo control console"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/scc_evac)
@@ -37578,9 +37628,7 @@
 	},
 /area/new_blades)
 "sdf" = (
-/obj/machinery/computer/ship/navigation{
-	dir = 1
-	},
+/obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/scc_evac)
 "sdj" = (
@@ -38267,8 +38315,8 @@
 /turf/unsimulated/floor,
 /area/new_blades/underground)
 "suZ" = (
-/obj/structure/closet/crate/solar,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/autolathe,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
 "svl" = (
@@ -39081,6 +39129,18 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades)
+"sNN" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/vehicle/bike/motor/sand{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
@@ -42907,6 +42967,10 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - escort";
+	identifier = "escort"
+	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/new_blades/interiors/ruins)
 "uGr" = (
@@ -44629,6 +44693,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"vrW" = (
+/obj/effect/floor_decal/industrial/warning/dust{
+	dir = 4
+	},
+/obj/effect/shuttle_landmark/scc_evac/start{
+	dir = 4
+	},
+/turf/simulated/floor/asphalt{
+	temperature = 315.15
+	},
+/area/new_blades)
 "vsb" = (
 /obj/structure/closet/crate/medical,
 /obj/item/storage/firstaid/empty,
@@ -48668,6 +48743,10 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - escort";
+	identifier = "escort"
+	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/new_blades/interiors/ruins)
 "xzA" = (
@@ -61181,7 +61260,7 @@ tKf
 tKf
 xHT
 owu
-owu
+vrW
 tKf
 tKf
 kGN
@@ -100093,7 +100172,7 @@ khB
 kUr
 lYS
 whf
-lrx
+fYE
 hTr
 mmH
 exp
@@ -100102,7 +100181,7 @@ ajV
 mQe
 vjl
 mQe
-igu
+iJi
 hTr
 npx
 bWV
@@ -101378,7 +101457,7 @@ neY
 eqL
 lYS
 vei
-sNM
+sNN
 hTr
 hTr
 hTr
