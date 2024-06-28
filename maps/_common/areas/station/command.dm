@@ -70,6 +70,7 @@
 /area/bridge/selfdestruct
 	name = "Command - Station Authentication Terminal Safe"
 	icon_state = "bridge"
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/bridge/controlroom // Horizon.
 	name = "Command - Control Room"
