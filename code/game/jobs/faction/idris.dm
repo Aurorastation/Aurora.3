@@ -62,11 +62,22 @@
 		"Chaplain" = /obj/outfit/job/chaplain/idris,
 		"Corporate Liaison" = /obj/outfit/job/representative/idris,
 		"Off-Duty Crew Member" = /obj/outfit/job/visitor/idris,
-		"Security Personnel" = /obj/outfit/job/officer/idris
+		"Security Personnel" = /obj/outfit/job/officer/event/idris
 	)
 
 /obj/outfit/job/officer/idris
 	name = "Security Officer - Idris"
+
+	uniform = /obj/item/clothing/under/rank/security/idris
+	id = /obj/item/card/id/idris/sec
+
+	backpack_faction = /obj/item/storage/backpack/idris
+	satchel_faction = /obj/item/storage/backpack/satchel/idris
+	dufflebag_faction = /obj/item/storage/backpack/duffel/idris
+	messengerbag_faction = /obj/item/storage/backpack/messenger/idris
+
+/obj/outfit/job/officer/event/idris
+	name = "Security Personnel - Idris"
 
 	uniform = /obj/item/clothing/under/rank/security/idris
 	id = /obj/item/card/id/idris/sec
@@ -196,11 +207,11 @@
 	name = "Tech Support - Idris"
 	jobtype = /datum/job/librarian
 
-	l_pocket = /obj/item/modular_computer/handheld/preset/generic
+	l_pocket = /obj/item/modular_computer/handheld/preset
 	r_pocket = /obj/item/card/tech_support
 	r_hand = /obj/item/storage/bag/circuits/basic
-	l_hand = /obj/item/device/debugger
-	wrist = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
+	l_hand = /obj/item/modular_computer/laptop/preset
+	gloves = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
 
 /obj/outfit/job/chaplain/idris
 	name = "Chaplain - Idris"
