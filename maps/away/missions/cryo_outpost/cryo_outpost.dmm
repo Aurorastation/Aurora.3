@@ -6100,7 +6100,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
 "jwo" = (
-/mob/living/storyteller,
+/mob/abstract/storyteller,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/outside/cave)
 "jwF" = (

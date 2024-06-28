@@ -2,7 +2,7 @@ GLOBAL_LIST_INIT(storyteller_verbs, list(
 	/datum/admins/proc/storyteller_panel
 	))
 
-/mob/living/storyteller/proc/storyteller_panel()
+/mob/abstract/storyteller/proc/storyteller_panel()
 	set name = "Storyteller Panel"
 	set category = "Storyteller"
 
@@ -26,7 +26,7 @@ GLOBAL_LIST_INIT(storyteller_verbs, list(
 
 	usr << browse(dat, "window=storytellerpanel;size=210x280")
 
-/mob/living/storyteller/proc/storyteller_local_narrate()
+/mob/abstract/storyteller/proc/storyteller_local_narrate()
 	set name = "Eye Narrate"
 	set category = "Storyteller"
 
@@ -55,7 +55,7 @@ GLOBAL_LIST_INIT(storyteller_verbs, list(
 	message_admins("<span class='notice'>\bold LocalNarrate: [key_name_admin(usr)] : [msg]<BR></span>", 1)
 	feedback_add_details("admin_verb", "STLN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/mob/living/storyteller/proc/storyteller_global_narrate()
+/mob/abstract/storyteller/proc/storyteller_global_narrate()
 	set name = "Global Narrate"
 	set category = "Storyteller"
 
@@ -71,7 +71,7 @@ GLOBAL_LIST_INIT(storyteller_verbs, list(
 	message_admins("<span class='notice'>\bold GlobalNarrate: [key_name_admin(usr)] : [msg]<BR></span>", 1)
 	feedback_add_details("admin_verb","STGN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/mob/living/storyteller/proc/storyteller_direct_narrate(var/mob/M)
+/mob/abstract/storyteller/proc/storyteller_direct_narrate(var/mob/M)
 	set name = "Direct Narrate"
 	set category = "Storyteller"
 

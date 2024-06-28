@@ -10,7 +10,7 @@ GLOBAL_LIST_EMPTY_TYPED(storytellers, /datum/antagonist/storyteller)
 
 	bantype = "storyteller"
 
-	mob_path = /mob/living/storyteller
+	mob_path = /mob/abstract/storyteller
 	id_type = null
 	valid_species = list()
 	allow_no_mob = TRUE

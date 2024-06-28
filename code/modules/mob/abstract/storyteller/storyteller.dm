@@ -1,4 +1,4 @@
-/mob/living/storyteller
+/mob/abstract/storyteller
 	name = "Storyteller"
 	desc = "Are you a Storyteller because you tell a story, or do you tell the story because you're the Storyteller?"
 	icon = 'icons/mob/mob.dmi'
@@ -7,21 +7,18 @@
 	invisibility = INVISIBILITY_OBSERVER
 	see_invisible = SEE_INVISIBLE_OBSERVER
 	layer = OBSERVER_LAYER
+	incorporeal_move = INCORPOREAL_GHOST
+	sight |= SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF
 
 	density = FALSE
-	anchored = TRUE
-	simulated = FALSE
-
 	mob_thinks = FALSE
+	universal_speak = TRUE
 
-/mob/living/storyteller/Initialize()
+/mob/abstract/storyteller/Initialize()
 	. = ..()
-	eyeobj = new /mob/abstract/eye/storyteller(get_turf(src))
-	eyeobj.possess(src)
 	SSghostroles.add_spawn_atom("storyteller", src)
 
-/mob/living/storyteller/Destroy()
-	QDEL_NULL(eyeobj)
+/mob/abstract/storyteller/Destroy()
 	var/client/C = client
 	if(C)
 		if(C.holder.rights & R_STORYTELLER)
@@ -36,7 +33,7 @@
 		SSodyssey.remove_storyteller(src)
 	return ..()
 
-/mob/living/storyteller/LateLogin()
+/mob/abstract/storyteller/LateLogin()
 	. = ..()
 	var/client/C = client
 	if(C)
@@ -51,13 +48,13 @@
 		real_name = "Storyteller ([client.ckey])"
 		SSodyssey.add_storyteller(src)
 
-/mob/living/storyteller/ghostize(can_reenter_corpse, should_set_timer)
+/mob/abstract/storyteller/ghostize(can_reenter_corpse, should_set_timer)
 	. = ..()
 	if(!can_reenter_corpse)
 		SSodyssey.remove_storyteller(src)
 
 
-/mob/living/storyteller/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/abstract/storyteller/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if (!message)
 		return
 
@@ -107,42 +104,32 @@
 		if((target.mob in messagemobs) || display_remote)
 			to_chat(target, "<span class='storyteller'>" + create_text_tag("STORY", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message linkify'>[msg]</span></span>")
 
-/mob/living/storyteller/Move(atom/newloc, direct)
+/mob/abstract/storyteller/Move(atom/newloc, direct)
 	return
 
-/mob/living/storyteller/update_dead_sight()
+/mob/abstract/storyteller/dust()
 	return
 
-/mob/living/storyteller/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags, armor_pen, silent)
+/mob/abstract/storyteller/gib()
 	return
 
-/mob/living/storyteller/dust()
-	return
-
-/mob/living/storyteller/gib()
-	return
-
-/mob/living/storyteller/can_fall()
+/mob/abstract/storyteller/can_fall()
 	return FALSE
 
-/mob/living/storyteller/conveyor_act()
+/mob/abstract/storyteller/conveyor_act()
 	return
 
-/mob/living/storyteller/ex_act(var/severity = 2.0)
+/mob/abstract/storyteller/ex_act(var/severity = 2.0)
 	return
 
-/mob/living/storyteller/singularity_act()
+/mob/abstract/storyteller/singularity_act()
 	return
 
-/mob/living/storyteller/singularity_pull()
+/mob/abstract/storyteller/singularity_pull()
 	return
 
-/mob/living/storyteller/singuloCanEat()
+/mob/abstract/storyteller/singuloCanEat()
 	return FALSE
-
-/mob/abstract/eye/storyteller
-	name = "Storyteller Eye"
-	see_invisible = SEE_INVISIBLE_OBSERVER
 
 /datum/ghostspawner/storyteller
 	name = "Storyteller"
@@ -153,5 +140,5 @@
 	enabled = TRUE
 
 	show_on_job_select = TRUE
-	spawn_mob = /mob/living/storyteller
+	spawn_mob = /mob/abstract/storyteller
 	atom_add_message = "A Storyteller position is available!"
