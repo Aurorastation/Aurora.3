@@ -29876,8 +29876,9 @@
 	},
 /area/new_blades/underground)
 "okm" = (
-/obj/machinery/computer/ship/helm{
-	dir = 1
+/obj/machinery/computer/shuttle_control/scc_evac{
+	locked = 1;
+	name = "SCCV Apollo control console"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/scc_evac)
@@ -37615,9 +37616,7 @@
 	},
 /area/new_blades)
 "sdf" = (
-/obj/machinery/computer/ship/navigation{
-	dir = 1
-	},
+/obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/scc_evac)
 "sdj" = (
