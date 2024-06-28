@@ -3199,6 +3199,10 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/floor_damage/rust,
+/obj/effect/ghostspawpoint{
+	name = "igs - warble";
+	identifier = "warble"
+	},
 /turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
@@ -6383,6 +6387,12 @@
 /obj/structure/table/rack,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/random/dirt_75,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/gun/projectile/automatic/tempestsmg,
+/obj/item/gun/projectile/automatic/tempestsmg,
 /turf/simulated/floor/tiled/techmaint{
 	temperature = 315.15
 	},
@@ -9412,6 +9422,19 @@
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/concrete/square{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"VR" = (
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - guard";
+	identifier = "guard"
+	},
+/turf/simulated/floor/tiled/gridded{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
@@ -25439,9 +25462,9 @@ zD
 TS
 Ld
 cC
-cC
+VR
 Pg
-cC
+VR
 TS
 CF
 CF

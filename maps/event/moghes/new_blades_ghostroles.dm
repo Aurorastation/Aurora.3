@@ -95,23 +95,22 @@
 	respawn_flag = null
 
 	uses_species_whitelist = FALSE
-	enabled = FALSE
+	enabled = TRUE
 
 /obj/outfit/admin/izaku_escort
 	uniform = /obj/item/clothing/under/unathi/zazali
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(/obj/item/gun/projectile/pistol/spitter = 1)
 	suit = /obj/item/clothing/suit/armor/unathi/hegemony
-	suit_store = /obj/item/gun/projectile/automatic/tempestsmg
 	head = /obj/item/clothing/head/helmet/unathi/hegemony
 	shoes = /obj/item/clothing/shoes/sandals/caligae
 	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
 	id = null
 	l_ear = /obj/item/device/radio/headset/syndicate
 	belt = /obj/item/storage/belt/military
+	back = /obj/item/storage/backpack/satchel/leather
 	belt_contents = list(
 		/obj/item/ammo_magazine/spitterpistol = 2,
-		/obj/item/ammo_magazine/tempestsmg = 2,
 		/obj/item/melee/energy/sword/hegemony = 1,
 		/obj/item/grenade/frag = 2
 	)

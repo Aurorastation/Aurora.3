@@ -1966,6 +1966,10 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - escort";
+	identifier = "escort"
+	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/new_blades/interiors/ruins)
 "aNC" = (
@@ -14731,6 +14735,10 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - escort";
+	identifier = "escort"
+	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/new_blades/interiors/ruins)
 "had" = (
@@ -18265,6 +18273,35 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
+"iJi" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/structure/closet/crate/weapon,
+/obj/item/melee/hammer/powered/hegemony,
+/obj/item/gun/projectile/automatic/rifle/hook_mg,
+/obj/item/ammo_magazine/hookmg,
+/obj/item/ammo_magazine/hookmg,
+/obj/item/ammo_magazine/crackrifle,
+/obj/item/ammo_magazine/crackrifle,
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
+/obj/item/gun/projectile/automatic/tempestsmg,
+/obj/item/gun/projectile/automatic/tempestsmg,
+/obj/item/gun/projectile/automatic/tempestsmg,
+/obj/item/gun/projectile/automatic/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/turf/simulated/floor/wood/maple{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins)
 "iJT" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/board{
@@ -42907,6 +42944,10 @@
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - escort";
+	identifier = "escort"
+	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/new_blades/interiors/ruins)
 "uGr" = (
@@ -48668,6 +48709,10 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - escort";
+	identifier = "escort"
+	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/new_blades/interiors/ruins)
 "xzA" = (
@@ -100102,7 +100147,7 @@ ajV
 mQe
 vjl
 mQe
-igu
+iJi
 hTr
 npx
 bWV
