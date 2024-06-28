@@ -12,6 +12,7 @@
 	new /obj/item/tank/air(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/taperoll/science(src)
+	new /obj/item/sampler(src)
 
 /obj/structure/closet/secure_closet/RD
 	name = "research director's locker"
@@ -47,6 +48,7 @@
 	new /obj/item/storage/box/psireceiver(src)
 	new /obj/item/device/megaphone/sci(src)
 	new /obj/item/device/taperecorder(src)
+	new /obj/item/sampler(src)
 
 /// Used for when we want to populate the contents of this locker ourself. Good for away sites
 /obj/structure/closet/secure_closet/RD/empty

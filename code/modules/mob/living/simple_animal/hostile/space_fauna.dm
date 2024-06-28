@@ -51,6 +51,7 @@
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	smart_melee = FALSE
+	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")
 
 /mob/living/simple_animal/hostile/carp/update_icon()
 	..()
@@ -132,6 +133,7 @@
 
 	melee_damage_lower = 20
 	melee_damage_upper = 25
+	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures", "Tissue sample contains high muscle content")
 
 /mob/living/simple_animal/hostile/carp/shark/reaver
 	name = "reaver"
@@ -204,6 +206,7 @@
 
 	melee_damage_lower = 15
 	melee_damage_upper = 15
+	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures", "Intracellular synthesis of volatile compounds detected")
 
 	var/has_exploded = FALSE
 
@@ -294,3 +297,4 @@
 
 	flying = TRUE
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")

@@ -646,3 +646,66 @@
       pursuit of spreading infestation.
   - qol: Taj swoop bangs are shaded differently on the left facing sprite so it looks
       a bit more obvious that the hairstyle is covering an eye.
+2024-06-26:
+  Ben10083:
+  - rscadd: Animal Cafe added to holodeck.
+  MattAtlas:
+  - rscdel: Removes the costumes that slipped by in the animal cafe.
+2024-06-27:
+  ASmallCuteCat:
+  - rscadd: Added a few more options to the lunchbox in loadout
+  CatsinHD:
+  - rscadd: Resprited Guest Passes, Legionnaire ID, Centcom, and CCIA IDs. Created
+      3 new IDs for Command, Bridge Crew, and Captain.
+  CourierBravo:
+  - rscadd: Added almost 100 new tips to the start of round tip rotation.
+  - rscdel: Removed a couple of outdated/inaccurate tips.
+  DreamySkrell:
+  - rscadd: OX courier reflavor.
+  FluffyGhost:
+  - balance: Made door rigging landmines defusable.
+  Lavillastrangiato:
+  - refactor: Adds the mapped-in objects to headstaff lockers in the code and deletes
+      them from the map.
+  - qol: Minorly changes the CMO's office.
+  Sparky_hotdog:
+  - rscadd: 'Split survey probes into three types: atmospheric, ground and a new magnetic
+      variant. Replaced some of the extra mapped in probes with the new types.'
+  - rscadd: Updated the shuttle manifest program to include extra details such as
+      shuttle destination, heading, mission and departure & return times, as well
+      as the assignment of a mission leader and shuttle pilot.
+  - rscadd: Added the shuttle manifest program to Bridge Crew PDAs at round start.
+  - rscadd: Ported stasis cages from Baystation. They can be used to load captured
+      mobs into for safe return to the Horizon. Replaced two of the suspension field
+      generators in EVA storage with these.
+  - rscadd: Added safari nets, a weaker form of energy net which xenobiologists can
+      source from a dispenser in their labs. They are unstable, however, and require
+      storage in a special container, also found in their lab.
+  - rscadd: 'Added a science sampling device, with three modes of operation: tissue,
+      soil and water. It must be loaded with a vial. Found in scientist and xenobotanists
+      lockers and the xenobiology lab.'
+  - rscadd: Added a low power microscope for analysis of tissue samples, located in
+      R&D, xenobotany and xenobiology. The fluff desciptions this provides are presently
+      focused on common mobs such as carps and griemorians and Moghes mobs.
+  - rscadd: Added a centrifuge for analysis of soil samples, and a spectrophotometer
+      for analysis of water samples, both located in R&D.
+  - bugfix: Fixed tents not allowing assembly/disassembly by someone who was interrupted.
+  - bugfix: Fixed tents having invisible walls inside of them.
+  - bugfix: Fixed ghosts being unable to see inside tents.
+  - bugfix: Fixed tent sprites to be 3/4th compliant.
+  - bugfix: Fixed tent roofs not disappering when you disassemble one you are inside
+      of.
+  - bugfix: Fixed tent canvas not having a description.
+  - bugfix: Fixed pre-fabricated tents not being disassembleable.
+  WickedCybs:
+  - rscadd: Added an extended description to monkey cubes and boxes regarding their
+      circumstances and use.
+  budg:
+  - imageadd: six new hats found in loadout
+  - qol: moved tcfl softcap to more appropriate loadout section
+  crosarius:
+  - qol: Changes the wireless firing pin (disruptor pistols) to be able to fire on
+      lethal mode during code blue
+2024-06-28:
+  FluffyGhost:
+  - rscdel: Removed the old Aurora map.

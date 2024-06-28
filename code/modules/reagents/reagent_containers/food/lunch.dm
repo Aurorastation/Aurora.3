@@ -21,8 +21,17 @@ var/list/lunchables_lunches_ = list(
 	/obj/item/reagent_containers/food/snacks/neaerakabob,
 	/obj/item/reagent_containers/food/snacks/soup/qilvo,
 	/obj/item/reagent_containers/food/snacks/soup/zantiri,
-	/obj/item/reagent_containers/food/snacks/xuqqil
-
+	/obj/item/reagent_containers/food/snacks/xuqqil,
+	/obj/item/reagent_containers/food/snacks/burrito,
+	/obj/item/reagent_containers/food/snacks/macandcheese,
+	/obj/item/reagent_containers/food/snacks/meat_pocket,
+	/obj/item/reagent_containers/food/snacks/friedrice,
+	/obj/item/reagent_containers/food/snacks/blt,
+	/obj/item/reagent_containers/food/snacks/pbjsandwich,
+	/obj/item/reagent_containers/food/snacks/pita/falafel,
+	/obj/item/reagent_containers/food/snacks/stokkebab,
+	/obj/item/reagent_containers/food/snacks/batwings,
+	/obj/item/reagent_containers/food/snacks/salad/earthenroot
 )
 
 var/list/lunchables_snacks_ = list(
@@ -64,7 +73,13 @@ var/list/lunchables_snacks_ = list(
 	/obj/item/reagent_containers/food/drinks/jyalra/apple,
 	/obj/item/reagent_containers/food/drinks/jyalra/cherry,
 	/obj/item/reagent_containers/food/snacks/gnaqmi,
-	/obj/item/reagent_containers/food/snacks/lortl
+	/obj/item/reagent_containers/food/snacks/lortl,
+	/obj/item/reagent_containers/food/snacks/riceball,
+	/obj/item/reagent_containers/food/snacks/bananabreadslice/filled,
+	/obj/item/reagent_containers/food/snacks/croissant,
+	/obj/item/reagent_containers/food/snacks/honeybun,
+	/obj/item/reagent_containers/food/snacks/stuffed_meatball,
+	/obj/item/reagent_containers/food/snacks/grilled_peppers
 )
 
 var/list/lunchables_drinks_ = list(
@@ -118,6 +133,8 @@ var/list/lunchables_vaurca_snack_ = list(
 	/obj/item/reagent_containers/food/snacks/phoroncandy,
 	/obj/item/reagent_containers/food/snacks/koisbar,
 	/obj/item/reagent_containers/food/snacks/koisbar_clean,
+	/obj/item/storage/box/fancy/vkrexitaffy,
+	/obj/item/reagent_containers/food/snacks/koisrouladeslice
 )
 
 var/list/lunchables_utensil_ = list(

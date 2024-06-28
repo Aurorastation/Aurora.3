@@ -130,6 +130,9 @@
 
 // Command / Misc
 
+/obj/item/modular_computer/handheld/pda/bridge
+	_app_preset_type = /datum/modular_computer_app_presets/bridge
+
 /obj/item/modular_computer/handheld/pda/command
 	_app_preset_type = /datum/modular_computer_app_presets/command
 	icon_add = "h"

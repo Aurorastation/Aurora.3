@@ -50,6 +50,7 @@
 	attack_emote = "skitters toward"
 	attack_sound = 'sound/weapons/bite.ogg'
 	emote_sounds = list('sound/effects/creatures/spider_critter.ogg')
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Tissue sample contains high muscle content")
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse
@@ -68,6 +69,7 @@
 	var/atom/cocoon_target
 	poison_type = /singleton/reagent/soporific
 	var/fed = 0
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular structures indicative of high offspring production")
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant
 	name = "greimorian servant"
@@ -91,6 +93,7 @@
 	max_co2 = 0
 	max_tox = 0
 	var/playable = TRUE
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular structures indicative of high offspring production", "Tissue sample contains high neural cell content")
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant/Life()
 	..()
@@ -111,6 +114,7 @@
 	armor_penetration = 15
 	poison_per_bite = 5
 	move_to_delay = 4
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry shows high metabolic capacity")
 	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/emp
@@ -127,6 +131,7 @@
 	poison_type = /singleton/reagent/perconol // mildly beneficial for organics
 	poison_per_bite = 2
 	move_to_delay = 5
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry geared towards creating strong electrical potential differences")
 	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier
@@ -145,6 +150,7 @@
 	poison_type = /singleton/reagent/capsaicin/condensed
 	poison_per_bite = 2
 	move_to_delay = 5
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Exocrinic caspaicin synthesis detected")
 	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier/Shoot(var/target, var/start, var/mob/user, var/bullet = 0)
