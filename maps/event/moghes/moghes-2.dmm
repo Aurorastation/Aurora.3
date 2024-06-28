@@ -25,6 +25,20 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"af" = (
+/obj/item/ore/coal{
+	pixel_y = 7;
+	pixel_x = 1
+	},
+/obj/random/dirt_75,
+/obj/item/pickaxe/drill/weak{
+	pixel_x = -3;
+	pixel_y = -14
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ag" = (
 /obj/structure/table/rack,
 /obj/item/towel/random,
@@ -99,6 +113,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"au" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "aw" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -161,9 +185,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"aG" = (
-/obj/item/pickaxe/drill/weak,
-/turf/simulated/floor/exoplanet/barren/cave{
+"aH" = (
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt2";
+	pixel_y = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -216,6 +244,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/new_blades/interiors/ruins/bunker)
+"aQ" = (
+/obj/structure/ore_box,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "aS" = (
 /obj/effect/floor_decal/industrial/outline_segment/grey{
 	dir = 9
@@ -266,8 +301,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"aZ" = (
-/obj/item/ore/iron,
+"ba" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/device/flashlight/flare{
+	pixel_y = 5;
+	pixel_x = -10
+	},
 /turf/simulated/floor/exoplanet/barren/cave{
 	temperature = 315.15
 	},
@@ -323,7 +363,11 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "bn" = (
-/obj/structure/ore_box,
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -360,6 +404,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"bw" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/structure/ore_box,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "by" = (
 /obj/effect/floor_decal/industrial/hatch_door{
 	color = "#b19664";
@@ -419,12 +474,15 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "bI" = (
-/obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
-	name = "duckboard"
+/obj/item/ore/lead{
+	pixel_x = 5;
+	pixel_y = 8
 	},
-/obj/structure/table/wood,
-/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+/obj/random/dirt_75,
+/obj/item/pickaxe{
+	pixel_x = 9
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -609,6 +667,20 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"cu" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/structure/table/wood,
+/obj/random/dirt_75,
+/obj/item/storage/bag/ore{
+	pixel_x = -4
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "cv" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -678,6 +750,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"cF" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "cG" = (
 /obj/machinery/light/colored/dying{
 	dir = 1
@@ -757,14 +837,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"cV" = (
-/obj/structure/flora/rock/konyang/small,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/grass/moghes/dirt{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "da" = (
 /obj/random/dirt_75,
 /obj/structure/flora/rock/pile{
@@ -992,6 +1064,18 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"dM" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/pickaxe{
+	pixel_x = -2;
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "dQ" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Checkpoint"
@@ -1085,14 +1169,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"ef" = (
-/obj/structure/flora/rock/konyang,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren/cave{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "ej" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 6
@@ -1169,6 +1245,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"eB" = (
+/obj/effect/decal/cleanable/generic,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "eH" = (
 /obj/effect/floor_decal/corner/blue/full{
 	dir = 1
@@ -1225,13 +1309,11 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"eR" = (
-/obj/structure/flora/rock/pile{
-	density = 0
-	},
+"eU" = (
+/obj/effect/floor_decal/asteroid,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+/turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -1306,8 +1388,12 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "fr" = (
-/obj/item/storage/bag/ore,
-/turf/simulated/floor/exoplanet/barren/cave{
+/obj/item/ore/aluminium{
+	pixel_y = -7;
+	pixel_x = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -1343,9 +1429,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/new_blades/interiors/ruins/bunker)
-"fB" = (
+"fD" = (
 /obj/structure/flora/rock/konyang,
-/turf/simulated/floor/exoplanet/barren/cave{
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -1472,16 +1560,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"fX" = (
-/obj/structure/flora/rock/pile{
-	icon_state = "basalt3";
-	pixel_y = 4
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren/cave{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "fZ" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 10
@@ -1739,6 +1817,37 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"gZ" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"ha" = (
+/obj/item/ore/coal{
+	pixel_y = -8;
+	pixel_x = -3
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"hc" = (
+/obj/item/ore/coal{
+	pixel_y = -5;
+	pixel_x = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "hd" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 10
@@ -1866,6 +1975,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"hD" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "hF" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 5
@@ -1935,18 +2051,22 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"hO" = (
+/obj/item/ore/aluminium{
+	pixel_y = -5;
+	pixel_x = -7
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "hQ" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/new_blades/interiors/ruins/bunker)
-"hT" = (
-/obj/item/ore/coal,
-/turf/simulated/floor/exoplanet/barren/cave{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "hW" = (
 /obj/structure/closet/secure_closet,
 /obj/machinery/light/colored/decayed{
@@ -1995,6 +2115,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"ig" = (
+/obj/item/ore/aluminium{
+	pixel_y = 8;
+	pixel_x = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ih" = (
 /obj/effect/floor_decal/concrete/large{
 	dir = 8
@@ -2358,13 +2488,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"jC" = (
-/obj/structure/flora/rock/konyang,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren/cave{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "jF" = (
 /obj/structure/punching_bag,
 /obj/effect/floor_decal/industrial/outline_corner{
@@ -2396,6 +2519,27 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"jL" = (
+/obj/item/ore/aluminium{
+	pixel_y = 8;
+	pixel_x = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"jY" = (
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/pickaxe,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "kb" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 10
@@ -2418,7 +2562,12 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "kh" = (
-/turf/simulated/floor/exoplanet/barren/cave{
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -2673,14 +2822,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"ld" = (
-/obj/structure/flora/rock/pile{
-	density = 0
-	},
-/turf/simulated/floor/exoplanet/barren/cave{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "li" = (
 /obj/machinery/light/colored/decayed{
 	dir = 4
@@ -2747,6 +2888,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"lu" = (
+/obj/item/ore/iron{
+	pixel_y = 8;
+	pixel_x = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "lv" = (
 /obj/machinery/light/colored/decayed{
 	dir = 8
@@ -2761,6 +2912,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"lx" = (
+/obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ly" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
@@ -2836,6 +2994,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"lT" = (
+/obj/item/ore/coal{
+	pixel_x = 5;
+	pixel_y = -4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "lU" = (
 /obj/effect/floor_decal/industrial/outline_door{
 	color = "#b19664";
@@ -2883,6 +3051,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"me" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "mg" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/effect/floor_decal/spline/fancy{
@@ -2961,12 +3137,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"mH" = (
-/obj/structure/flora/rock/konyang/small,
-/turf/simulated/floor/exoplanet/grass/moghes/dirt{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "mI" = (
 /obj/structure/bed/chair,
 /obj/effect/floor_decal/industrial/outline_corner{
@@ -3005,6 +3175,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"mL" = (
+/obj/effect/floor_decal/asteroid,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "mN" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -3109,6 +3286,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"nk" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground/aquifer)
 "nl" = (
 /obj/effect/floor_decal/industrial/outline_door{
 	color = "#b19664";
@@ -3150,6 +3333,28 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"ny" = (
+/obj/item/ore/lead{
+	pixel_x = 9;
+	pixel_y = -2
+	},
+/obj/effect/floor_decal/asteroid,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"nB" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_x = 10;
+	pixel_y = 12
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "nC" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
@@ -3333,7 +3538,12 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "op" = (
-/obj/structure/ore_box,
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt2";
+	pixel_y = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren/cave{
 	temperature = 315.15
 	},
@@ -3349,6 +3559,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/new_blades/interiors/ruins/bunker)
+"os" = (
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ot" = (
 /obj/machinery/door/airlock{
 	name = "Washroom";
@@ -3363,6 +3583,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"ov" = (
+/obj/item/ore/lead{
+	pixel_x = 9;
+	pixel_y = -2
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "oy" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 5
@@ -3431,6 +3661,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"oP" = (
+/obj/item/ore/aluminium{
+	pixel_x = -5;
+	pixel_y = -11
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "oU" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -3468,6 +3708,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"pj" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/storage/toolbox{
+	pixel_x = 3;
+	pixel_y = -8
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "pv" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Reactor"
@@ -3493,12 +3744,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"pE" = (
-/obj/effect/floor_decal/asteroid,
-/turf/simulated/floor/exoplanet/barren/cave{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "pI" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -3522,6 +3767,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"pN" = (
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt3";
+	pixel_y = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "pO" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -3567,6 +3823,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"pZ" = (
+/obj/item/ore/iron{
+	pixel_y = 8;
+	pixel_x = 5
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "qd" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 5
@@ -3657,6 +3924,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"qx" = (
+/obj/item/ore/iron{
+	pixel_x = -4;
+	pixel_y = -10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "qy" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 10
@@ -3698,10 +3975,7 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "qI" = (
-/obj/structure/flora/rock/pile{
-	density = 0;
-	icon_state = "lavarocks2"
-	},
+/obj/structure/flora/rock/konyang,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
@@ -3782,6 +4056,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"rp" = (
+/obj/item/ore/iron{
+	pixel_x = -8;
+	pixel_y = -12
+	},
+/obj/effect/floor_decal/asteroid,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "rq" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 5
@@ -3813,6 +4098,28 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"ru" = (
+/obj/item/ore/aluminium{
+	pixel_y = 1;
+	pixel_x = 10
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"rx" = (
+/obj/item/ore/lead{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/obj/random/dirt_75,
+/obj/item/pickaxe,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ry" = (
 /obj/structure/trash_pile,
 /obj/effect/floor_decal/corner_wide/red{
@@ -4170,6 +4477,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"ta" = (
+/obj/item/ore/lead{
+	pixel_x = -6;
+	pixel_y = -3
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "td" = (
 /obj/structure/table/rack,
 /obj/item/device/taperecorder,
@@ -4185,16 +4502,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"tf" = (
-/obj/structure/table/stone/marble,
-/obj/random/dirt_75,
-/obj/item/material/ashtray{
-	pixel_y = 0
-	},
-/turf/simulated/floor/concrete/square{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
 "tk" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -4202,6 +4509,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"tu" = (
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt3";
+	pixel_y = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ty" = (
 /obj/effect/floor_decal/concrete/large{
 	dir = 1
@@ -4209,6 +4526,20 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/flat,
 /area/new_blades/interiors/ruins/bunker)
+"tz" = (
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/pickaxe{
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "tD" = (
 /obj/structure/bed/stool/chair{
 	dir = 1
@@ -4392,7 +4723,7 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "um" = (
-/obj/structure/flora/rock/konyang/small,
+/obj/effect/floor_decal/asteroid,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren/cave{
 	temperature = 315.15
@@ -4488,11 +4819,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
-"uD" = (
+"uC" = (
+/obj/item/ore/coal{
+	pixel_x = 5;
+	pixel_y = -4
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/effect/floor_decal/asteroid,
-/turf/simulated/floor/exoplanet/barren/cave{
+/turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -4513,6 +4847,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"uP" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/pickaxe{
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "uQ" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 10
@@ -4538,6 +4883,26 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"uW" = (
+/obj/structure/table/stone/marble,
+/obj/random/dirt_75,
+/obj/item/reagent_containers/cooking_container/board{
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/cooking_container/board/bowl{
+	pixel_y = 16;
+	pixel_x = -2
+	},
+/turf/simulated/floor/concrete/square{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"uX" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "vb" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/random/dirt_75,
@@ -4622,16 +4987,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"vt" = (
-/obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#ffffff";
-	light_power = 0.2;
-	light_range = 12
-	},
-/turf/simulated/floor/exoplanet/water/shallow/moghes{
-	temperature = 315.15
-	},
-/area/new_blades/underground/aquifer)
 "vu" = (
 /obj/effect/floor_decal/corner/red,
 /obj/random/dirt_75,
@@ -4727,33 +5082,11 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "vK" = (
-/obj/structure/table/stone/marble,
-/obj/random/dirt_75,
-/obj/item/reagent_containers/cooking_container/board{
-	pixel_y = 6
-	},
-/obj/item/reagent_containers/cooking_container/board/bowl{
-	pixel_y = 16;
-	pixel_x = -2
-	},
-/turf/simulated/floor/concrete/square{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins/bunker)
-"vL" = (
-/obj/item/device/flashlight/lantern/on,
-/turf/simulated/floor/exoplanet/barren/cave{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
-"vM" = (
-/obj/structure/flora/rock/pile{
-	icon_state = "basalt2";
-	pixel_y = 4
+/obj/item/ore/lead{
+	pixel_x = -9
 	},
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren/cave{
+/turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -4992,6 +5325,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"wH" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "wI" = (
 /obj/effect/floor_decal/industrial/outline_door{
 	color = "#aa5f61";
@@ -5071,6 +5410,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"wR" = (
+/obj/item/ore/aluminium{
+	pixel_y = -9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "wS" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -5096,6 +5444,24 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"wY" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/structure/table/wood,
+/obj/random/dirt_75,
+/obj/item/device/flashlight/lantern/on{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/device/flashlight/flare{
+	pixel_x = -4
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "xb" = (
 /obj/effect/floor_decal/corner_wide{
 	color = "#b19664";
@@ -5497,16 +5863,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"yP" = (
+"yV" = (
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/new_blades/underground/aquifer)
-"yV" = (
-/turf/simulated/floor/exoplanet/basalt/cave{
-	temperature = 315.15
-	},
-/area/new_blades/underground/aquifer)
+/area/new_blades/underground)
 "yW" = (
 /obj/effect/floor_decal/asteroid,
 /obj/random/dirt_75,
@@ -5515,7 +5882,9 @@
 	},
 /area/new_blades/underground)
 "yY" = (
-/obj/structure/ore_box,
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
@@ -5566,13 +5935,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"zl" = (
-/obj/structure/flora/rock/konyang/small,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/grass/moghes/dirt{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "zn" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 10
@@ -5618,6 +5980,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"zz" = (
+/obj/random/dirt_75,
+/obj/item/ore/aluminium{
+	pixel_y = 8;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "zA" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 6
@@ -5646,10 +6018,34 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"zH" = (
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/pickaxe{
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "zI" = (
-/obj/structure/flora/rock/konyang/small,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/structure/table/wood,
 /obj/random/dirt_75,
-/obj/random/dirt_75,
+/obj/item/storage/toolbox{
+	pixel_x = 4;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_x = -6;
+	pixel_y = 2
+	},
 /turf/simulated/floor/exoplanet/barren/cave{
 	temperature = 315.15
 	},
@@ -5728,6 +6124,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"zZ" = (
+/obj/item/ore/lead{
+	pixel_x = 9;
+	pixel_y = -2
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Ae" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
@@ -5861,9 +6268,11 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"AK" = (
-/obj/structure/flora/rock/konyang/small,
-/obj/random/dirt_75,
+"AJ" = (
+/obj/item/ore/aluminium{
+	pixel_x = 10;
+	pixel_y = 15
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren/cave{
@@ -5882,6 +6291,21 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"AN" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/structure/table/wood,
+/obj/random/dirt_75,
+/obj/item/storage/toolbox{
+	pixel_x = 3;
+	pixel_y = 0
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "AQ" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 6
@@ -5912,20 +6336,19 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"Bb" = (
-/obj/effect/decal/fake_object/light_source/invisible{
-	light_color = "#ffffff";
-	light_power = 0.3;
-	light_range = 8
-	},
-/turf/simulated/floor/exoplanet/water/shallow/moghes{
-	temperature = 315.15
-	},
-/area/new_blades/underground/aquifer)
 "Bc" = (
-/obj/effect/floor_decal/asteroid,
+/obj/structure/flora/rock/konyang/small,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Bm" = (
+/obj/random/dirt_75,
+/obj/item/device/flashlight/flare{
+	pixel_x = -4
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -6015,6 +6438,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"BF" = (
+/obj/item/ore/lead{
+	pixel_y = -7;
+	pixel_x = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "BG" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -6057,6 +6491,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"BU" = (
+/obj/structure/flora/rock/konyang,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "BV" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor{
@@ -6160,9 +6602,19 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"Cx" = (
+"CB" = (
+/obj/effect/decal/cleanable/generic,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"CC" = (
 /obj/structure/flora/rock/konyang/small,
-/turf/simulated/floor/exoplanet/barren/cave{
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/ladder_mobile,
+/turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -6245,6 +6697,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Dd" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Di" = (
 /obj/machinery/optable,
 /obj/machinery/light/colored/decayed{
@@ -6284,12 +6743,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"Dn" = (
-/obj/item/ore/lead,
-/turf/simulated/floor/exoplanet/barren/cave{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "Dp" = (
 /obj/effect/floor_decal/industrial/outline_door{
 	color = "#b19664";
@@ -6403,6 +6856,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"DH" = (
+/obj/item/ore/iron{
+	pixel_y = 11
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "DI" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/concrete/square{
@@ -6525,6 +6987,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Em" = (
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt2";
+	pixel_y = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Es" = (
 /obj/machinery/conveyor{
 	name = "running machine"
@@ -6605,9 +7078,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"EK" = (
-/obj/item/shovel,
-/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+"EF" = (
+/obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"EI" = (
+/obj/random/dirt_75,
+/obj/structure/ore_box,
+/turf/simulated/floor/exoplanet/barren/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -6716,6 +7197,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Fe" = (
+/obj/effect/floor_decal/asteroid,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Ff" = (
 /obj/effect/floor_decal/industrial/hatch_door{
 	color = "#b19664";
@@ -6731,6 +7220,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Fh" = (
+/obj/effect/decal/cleanable/generic,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Fm" = (
 /obj/effect/floor_decal/corner_wide{
 	color = "#b19664";
@@ -6751,6 +7247,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Fw" = (
+/obj/item/ore/aluminium{
+	pixel_y = 3;
+	pixel_x = 9
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Fz" = (
 /obj/machinery/door/airlock/freezer{
 	dir = 4;
@@ -6790,16 +7297,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"FN" = (
-/obj/structure/flora/rock/pile{
-	icon_state = "basalt2";
-	pixel_y = 4
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren/cave{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "FR" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/sleeper.dmi';
@@ -6840,6 +7337,58 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Gc" = (
+/obj/random/dirt_75,
+/obj/item/storage/bag/ore{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Gd" = (
+/obj/random/dirt_75,
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_x = 10;
+	pixel_y = 12
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Gf" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff";
+	light_power = 0.2;
+	light_range = 10
+	},
+/turf/simulated/floor/exoplanet/water/shallow/moghes{
+	temperature = 315.15
+	},
+/area/new_blades/underground/aquifer)
+"Gh" = (
+/obj/item/ore/lead{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Gj" = (
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Gl" = (
 /obj/effect/floor_decal/concrete/large,
 /obj/structure/lattice/catwalk,
@@ -6926,17 +7475,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"GK" = (
-/obj/structure/flora/rock/pile{
-	density = 0
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren/cave{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "GN" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 10
@@ -7074,6 +7612,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Ht" = (
+/obj/item/ore/lead{
+	pixel_x = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Hu" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -7359,12 +7906,12 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "IM" = (
-/obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
-	name = "duckboard"
+/obj/item/ore/coal{
+	pixel_y = 9
 	},
-/obj/structure/closet/crate/miningcart/ore,
-/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -7416,6 +7963,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"IW" = (
+/obj/random/dirt_75,
+/obj/item/storage/bag/ore{
+	pixel_y = 4;
+	pixel_x = 7
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "IX" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/concrete/square{
@@ -7451,6 +8008,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Jd" = (
+/obj/item/ore/lead{
+	pixel_x = 5;
+	pixel_y = -4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Jf" = (
 /obj/machinery/light/colored/decayed{
 	dir = 4
@@ -7469,8 +8037,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"Jh" = (
-/obj/item/pickaxe/hammer,
+"Ji" = (
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/pickaxe/hammer{
+	pixel_x = 7;
+	pixel_y = -5
+	},
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
@@ -7492,6 +8069,8 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "Jl" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
@@ -7528,17 +8107,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"Jo" = (
-/obj/structure/flora/rock/pile{
-	density = 0;
-	icon_state = "lavarocks2"
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/grass/moghes/dirt{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "Jp" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -7550,13 +8118,13 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "Jq" = (
-/obj/structure/flora/rock/pile{
-	icon_state = "basalt3";
-	pixel_y = 4
+/obj/item/ore/iron{
+	pixel_y = 2;
+	pixel_x = -6
 	},
+/obj/effect/floor_decal/asteroid,
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren/cave{
+/turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -7573,6 +8141,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Jw" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/random/dirt_75,
+/obj/structure/ore_box,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "JB" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 1
@@ -7764,6 +8343,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"KE" = (
+/obj/item/ore/coal{
+	pixel_y = -3;
+	pixel_x = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "KK" = (
 /obj/structure/closet/secure_closet,
 /obj/effect/floor_decal/industrial/outline_door/grey{
@@ -7929,6 +8518,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"LC" = (
+/obj/item/ore/iron{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "LD" = (
 /obj/effect/floor_decal/industrial/outline_door{
 	color = "#8ba574";
@@ -7961,7 +8560,19 @@
 	density = 0
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren/cave{
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"LQ" = (
+/obj/item/ore/aluminium{
+	pixel_y = -7;
+	pixel_x = 5
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -7978,8 +8589,14 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "LS" = (
+/obj/item/ore/iron{
+	pixel_y = -12;
+	pixel_x = 5
+	},
 /obj/random/dirt_75,
-/turf/simulated/mineral/planet,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
 /area/new_blades/underground)
 "LT" = (
 /obj/effect/floor_decal/corner_wide/red{
@@ -8014,11 +8631,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"Mb" = (
-/obj/structure/flora/rock/pile{
-	icon_state = "basalt3";
-	pixel_y = 4
+"Ma" = (
+/obj/item/ore/coal{
+	pixel_y = 8;
+	pixel_x = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren/cave{
 	temperature = 315.15
 	},
@@ -8033,6 +8651,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Mh" = (
+/obj/effect/decal/cleanable/generic,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/pickaxe/hammer{
+	pixel_y = 16
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Mn" = (
 /obj/structure/bed/stool/bar,
 /obj/random/dirt_75,
@@ -8062,16 +8691,15 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "Mr" = (
-/obj/structure/flora/rock/pile{
-	density = 0;
-	icon_state = "lavarocks2"
+/obj/structure/table/stone/marble,
+/obj/random/dirt_75,
+/obj/item/material/ashtray{
+	pixel_y = 0
 	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren/cave{
+/turf/simulated/floor/concrete/square{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "Mt" = (
 /obj/effect/floor_decal/corner_wide/red/full{
 	dir = 8
@@ -8088,6 +8716,10 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Mv" = (
+/obj/random/dirt_75,
+/turf/simulated/mineral/planet,
+/area/new_blades/underground)
 "Mx" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4
@@ -8111,15 +8743,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"MA" = (
-/obj/structure/flora/rock/pile{
-	density = 0;
-	icon_state = "lavarocks2"
-	},
-/turf/simulated/floor/exoplanet/barren/cave{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "MC" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/asteroid,
@@ -8219,6 +8842,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Nn" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Nr" = (
 /obj/machinery/light/broken,
 /obj/effect/floor_decal/corner/yellow{
@@ -8232,6 +8864,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Nw" = (
+/obj/item/ore/lead{
+	pixel_x = -5;
+	pixel_y = -5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Nz" = (
 /turf/simulated/floor/exoplanet/water/shallow/moghes{
 	temperature = 315.15
@@ -8264,6 +8906,20 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"NI" = (
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/obj/random/dirt_75,
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_x = -8;
+	pixel_y = -6
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "NL" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 6
@@ -8283,6 +8939,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"NW" = (
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt3";
+	pixel_y = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Oq" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -8376,12 +9043,35 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "OE" = (
-/obj/item/pickaxe,
-/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+/obj/structure/table/stone/marble,
+/obj/random/dirt_75,
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 3;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 8;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/turf/simulated/floor/concrete/square{
 	temperature = 315.15
 	},
-/area/new_blades/underground)
+/area/new_blades/interiors/ruins/bunker)
 "OK" = (
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -8402,8 +9092,34 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"OM" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff";
+	light_power = 0.3;
+	light_range = 6
+	},
+/turf/simulated/floor/exoplanet/water/shallow/moghes{
+	temperature = 315.15
+	},
+/area/new_blades/underground/aquifer)
 "OO" = (
-/obj/item/ladder_mobile,
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/structure/table/wood,
+/obj/random/dirt_75,
+/obj/item/device/flashlight/flare{
+	pixel_x = -11;
+	pixel_y = 2
+	},
+/obj/item/device/flashlight/flare{
+	pixel_x = 4;
+	pixel_y = 2
+	},
+/obj/item/device/flashlight/flare{
+	pixel_x = -5
+	},
 /turf/simulated/floor/exoplanet/barren/cave{
 	temperature = 315.15
 	},
@@ -8533,6 +9249,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Pz" = (
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "PB" = (
 /obj/structure/table/steel,
 /obj/structure/reagent_dispensers/peppertank{
@@ -8578,6 +9304,20 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"PH" = (
+/obj/item/ore/coal{
+	pixel_x = -7;
+	pixel_y = 12
+	},
+/obj/item/ore/iron{
+	pixel_y = -12;
+	pixel_x = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "PJ" = (
 /obj/effect/floor_decal/concrete{
 	dir = 5
@@ -8742,15 +9482,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"Qh" = (
-/obj/structure/flora/rock/pile{
-	density = 0
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/grass/moghes/dirt{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "Qm" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 6
@@ -8860,7 +9591,8 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren/cave{
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
 /area/new_blades/underground)
@@ -8933,7 +9665,8 @@
 	},
 /area/new_blades/underground)
 "Rh" = (
-/obj/item/ladder_mobile,
+/obj/structure/ore_box,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -8997,6 +9730,18 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Ry" = (
+/obj/item/ore/iron{
+	pixel_y = 8;
+	pixel_x = 6
+	},
+/obj/effect/floor_decal/asteroid,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Rz" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 5
@@ -9022,6 +9767,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"RD" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/item/ladder_mobile,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "RF" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
@@ -9080,7 +9836,11 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "RO" = (
-/obj/item/reagent_containers/glass/bucket/wood,
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren/cave{
 	temperature = 315.15
 	},
@@ -9258,6 +10018,20 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Sx" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/random/dirt_75,
+/obj/item/pickaxe/drill/weak{
+	pixel_y = -4;
+	pixel_x = 6
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Sz" = (
 /obj/effect/floor_decal/industrial/outline_door/grey,
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -9434,6 +10208,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Th" = (
+/obj/effect/decal/cleanable/generic,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Tp" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 6
@@ -9759,6 +10541,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"UQ" = (
+/obj/structure/ore_box,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "UX" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -9789,6 +10578,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Vc" = (
+/obj/random/dirt_75,
+/obj/item/ore/aluminium{
+	pixel_y = 8;
+	pixel_x = -8
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Ve" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -9838,6 +10637,24 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Vr" = (
+/obj/structure/flora/rock/konyang,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Vs" = (
+/obj/random/dirt_75,
+/obj/item/storage/bag/ore{
+	pixel_y = 0;
+	pixel_x = 4
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Vv" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 8
@@ -9958,6 +10775,25 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Wd" = (
+/obj/structure/flora/rock/pile{
+	density = 0
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"Wg" = (
+/obj/item/ore/coal{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Wh" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 10
@@ -10053,6 +10889,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"WE" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "WG" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 8
@@ -10204,6 +11048,24 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Xt" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/structure/table/wood,
+/obj/random/dirt_75,
+/obj/item/device/flashlight/lantern/on{
+	pixel_x = 6;
+	pixel_y = 12
+	},
+/obj/item/pickaxe/drill/weak{
+	pixel_y = -2
+	},
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Xu" = (
 /obj/effect/floor_decal/industrial/outline_corner{
 	color = "#aa5f61";
@@ -10221,6 +11083,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Xx" = (
+/obj/item/ore/iron{
+	pixel_x = -16;
+	pixel_y = -3
+	},
+/obj/effect/decal/cleanable/generic,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Xy" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 10
@@ -10352,15 +11225,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"Yd" = (
-/obj/structure/flora/rock/pile{
-	icon_state = "basalt2";
-	pixel_y = 4
-	},
-/turf/simulated/floor/exoplanet/barren/cave{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "Ye" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 10
@@ -10376,12 +11240,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"Yf" = (
-/obj/item/device/flashlight/flare,
-/turf/simulated/floor/exoplanet/barren/cave{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "Yk" = (
 /obj/machinery/light/broken{
 	dir = 1
@@ -10422,6 +11280,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Yo" = (
+/obj/item/ore/coal{
+	pixel_x = 5;
+	pixel_y = -4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Yp" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -10482,29 +11351,6 @@
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/new_blades/interiors/ruins/bunker)
-"YE" = (
-/obj/structure/table/stone/marble,
-/obj/random/dirt_75,
-/obj/item/reagent_containers/food/condiment/shaker/spacespice{
-	pixel_x = 3;
-	pixel_y = 2
-	},
-/obj/item/reagent_containers/food/condiment/shaker/salt{
-	pixel_x = 8;
-	pixel_y = 11
-	},
-/obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	pixel_x = -4;
-	pixel_y = 7
-	},
-/obj/item/reagent_containers/food/condiment/enzyme{
-	pixel_x = -9;
-	pixel_y = 5
-	},
-/turf/simulated/floor/concrete/square{
-	temperature = 315.15
-	},
 /area/new_blades/interiors/ruins/bunker)
 "YF" = (
 /obj/item/pen/fountain/silver{
@@ -10598,6 +11444,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"YV" = (
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt2";
+	pixel_y = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "YY" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -10645,6 +11502,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Zf" = (
+/obj/effect/floor_decal/asteroid,
+/obj/random/dirt_75,
+/obj/item/reagent_containers/glass/bucket/wood{
+	pixel_x = 10;
+	pixel_y = 12
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "Zm" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 8
@@ -10668,12 +11536,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"Zo" = (
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/exoplanet/barren/cave{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "Zs" = (
 /obj/structure/table/steel,
 /obj/random/dirt_75,
@@ -10725,12 +11587,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
-"Zz" = (
-/obj/item/ore/aluminium,
-/turf/simulated/floor/exoplanet/barren/cave{
-	temperature = 315.15
-	},
-/area/new_blades/underground)
 "ZD" = (
 /obj/structure/bed/padded,
 /obj/structure/bed/padded/bunk,
@@ -10755,10 +11611,30 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"ZG" = (
+/obj/structure/flora/rock/pile{
+	icon_state = "basalt3";
+	pixel_y = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
+"ZH" = (
+/obj/item/ore/iron{
+	pixel_x = 5;
+	pixel_y = 2
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ZI" = (
 /obj/structure/flora/rock/pile{
-	density = 0;
-	icon_state = "lavarocks2"
+	density = 0
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren/cave{
@@ -10792,6 +11668,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"ZM" = (
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ZN" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/electrical,
@@ -10829,6 +11715,20 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"ZR" = (
+/obj/item/ore/iron{
+	pixel_y = -9;
+	pixel_x = -9
+	},
+/obj/random/dirt_75,
+/obj/item/storage/bag/ore{
+	pixel_y = 4;
+	pixel_x = 7
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground)
 "ZS" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/ridged{
@@ -12093,7 +12993,7 @@ CF
 CF
 CF
 CF
-Jq
+NW
 CF
 CF
 CF
@@ -12350,8 +13250,8 @@ CF
 CF
 CF
 CF
-zI
-QM
+yY
+RO
 CF
 CF
 CF
@@ -12595,19 +13495,19 @@ CF
 CF
 CF
 CF
-Bc
-st
-Mr
-im
 um
+st
+Gj
+im
+Jl
 CF
 CF
 CF
 CF
 CF
 CF
-vM
-Mr
+Em
+yV
 CF
 CF
 CF
@@ -12841,29 +13741,29 @@ CF
 CF
 CF
 CF
+kh
+qe
+qe
+yY
+st
+CF
+CF
+CF
+CF
 ZI
-im
-im
-zI
-st
-CF
-CF
-CF
-CF
-LI
 st
 im
 st
 st
-Bc
-im
-st
+um
+qe
+Re
 CF
 CF
 CF
 CF
 CF
-st
+Re
 uB
 CF
 CF
@@ -13097,30 +13997,30 @@ CF
 CF
 CF
 CF
-zI
-im
-st
-Bc
-st
-im
-LI
-CF
-LS
-im
-uB
+yY
+qe
 st
 um
+st
+im
+ZI
+CF
+Mv
+im
+Fe
+Re
+Jl
 CF
 CF
 CF
 st
-im
-Bc
+qe
+yW
 CF
 CF
 CF
 im
-um
+Jl
 CF
 CF
 CF
@@ -13354,16 +14254,16 @@ CF
 CF
 im
 st
-st
-Bc
-CF
-CF
-CF
+im
 um
+CF
+CF
+CF
+Bc
 uB
 im
 im
-st
+Re
 CF
 CF
 CF
@@ -13371,11 +14271,11 @@ CF
 CF
 CF
 CF
-LI
-st
-um
-st
-LI
+ZI
+Re
+Jl
+Re
+ZI
 uB
 st
 CF
@@ -13423,7 +14323,7 @@ VV
 bq
 vb
 KV
-YE
+OE
 Nl
 TS
 MX
@@ -13608,10 +14508,10 @@ CF
 CF
 CF
 CF
-zI
-st
+yY
+Re
 uB
-LI
+ZI
 CF
 CF
 CF
@@ -13619,8 +14519,8 @@ CF
 CF
 st
 st
-Bc
-zI
+um
+yY
 CF
 CF
 CF
@@ -13864,10 +14764,10 @@ CF
 CF
 CF
 CF
-Jl
-Jl
-Jl
-st
+ZG
+yW
+Re
+Re
 CF
 CF
 CF
@@ -13876,9 +14776,9 @@ CF
 CF
 CF
 CF
-ZI
-st
-im
+os
+Re
+qe
 CF
 CF
 CF
@@ -13887,7 +14787,7 @@ CF
 CF
 CF
 CF
-ZI
+os
 im
 st
 CF
@@ -14121,8 +15021,8 @@ CF
 CF
 CF
 CF
-Jl
-kh
+LI
+Ma
 CF
 CF
 CF
@@ -14135,8 +15035,8 @@ CF
 CF
 CF
 st
-im
-im
+qe
+qe
 CF
 CF
 CF
@@ -14145,8 +15045,8 @@ CF
 CF
 CF
 CF
-um
-uB
+Bc
+Fe
 CF
 CF
 CF
@@ -14192,9 +15092,9 @@ TS
 TS
 BR
 ul
-tf
+Mr
 wK
-vK
+uW
 sd
 TS
 TS
@@ -14378,23 +15278,23 @@ CF
 CF
 CF
 op
-kh
-kh
-kh
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-Bc
+Gj
 st
-QM
+op
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+um
+st
+RO
 CF
 CF
 CF
@@ -14403,8 +15303,8 @@ CF
 CF
 CF
 st
-st
-Jq
+Re
+ZG
 CF
 CF
 CF
@@ -14611,46 +15511,46 @@ CF
 im
 im
 im
-zI
+WE
+yW
+Re
+kh
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+RO
+Jq
+hD
+rx
+RO
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
 Bc
-st
-ZI
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-kh
-OK
-OK
-kh
-kh
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-um
 im
 st
 st
@@ -14661,7 +15561,7 @@ CF
 CF
 CF
 st
-zI
+yY
 CF
 CF
 CF
@@ -14866,16 +15766,16 @@ CF
 st
 st
 st
-Bc
+um
 st
 st
 st
 im
-st
-st
-st
-st
-Bc
+Re
+Re
+Re
+Re
+um
 CF
 CF
 CF
@@ -14890,12 +15790,12 @@ CF
 CF
 CF
 CF
-kh
-OK
-yV
-yV
-OK
-OK
+NW
+uP
+wR
+Pz
+eU
+CB
 OO
 CF
 CF
@@ -14911,15 +15811,15 @@ st
 im
 uB
 st
-um
+Bc
 CF
 CF
 CF
 CF
 CF
-ef
-Mr
-uB
+BU
+yV
+Fe
 CF
 CF
 CF
@@ -15118,23 +16018,23 @@ CF
 CF
 CF
 CF
-Bc
-im
-zI
-st
-st
-LI
-CF
-CF
-CF
-CF
-Bc
 um
 im
+yY
+Re
+Re
+ZI
+CF
+CF
+CF
+CF
+um
+Bc
 im
 im
 im
-QM
+im
+RO
 st
 im
 CF
@@ -15148,12 +16048,12 @@ CF
 CF
 CF
 OK
-yV
-yV
-yV
-yV
-yV
-OK
+vK
+CB
+LS
+Gc
+Dd
+Jw
 CF
 CF
 CF
@@ -15165,18 +16065,18 @@ CF
 CF
 CF
 uB
-st
-st
+Re
+Re
+qe
 im
-im
-Mr
+Gj
 CF
 CF
 CF
 CF
 CF
 im
-QM
+LI
 CF
 CF
 CF
@@ -15374,10 +16274,43 @@ CF
 CF
 CF
 CF
-ZI
-st
-st
+os
+Re
+Re
+yW
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
 Bc
+st
+Re
+yW
+Jl
+st
+st
+um
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+st
+uB
+CC
+uX
+ru
+hc
+NI
 CF
 CF
 CF
@@ -15386,54 +16319,21 @@ CF
 CF
 CF
 CF
-CF
+st
+st
+qe
+Jl
 CF
 CF
 um
-st
-st
-Bc
-um
-st
-st
-Bc
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-kh
-kh
-OK
-OK
-yV
-yV
-yV
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-st
-st
 im
-um
-CF
-CF
-Bc
-im
-st
+Re
 CF
 CF
 CF
 CF
 CF
-vM
+op
 CF
 CF
 CF
@@ -15631,60 +16531,60 @@ CF
 CF
 CF
 st
+qe
+qe
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Re
+qe
+yV
 im
-im
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Bc
 st
+CF
+CF
+CF
+CF
+ZI
 im
-Mr
+Re
+CF
+CF
 im
 um
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Bc
 st
-CF
-CF
-CF
-CF
-kh
-kh
-Jl
-CF
-CF
-kh
-kh
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-um
-st
-Mr
-st
+yV
+Re
 CF
 CF
 CF
 CF
 st
-zI
+yY
 CF
 CF
 CF
@@ -15888,6 +16788,51 @@ CF
 CF
 st
 uB
+Jl
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+st
+st
+st
+Fe
+Re
+CF
+CF
+Re
+Jl
+CF
+CF
+CF
+Wd
+qe
+CF
+CF
+CF
+CF
+CF
+CF
+Re
+qe
+st
 um
 CF
 CF
@@ -15895,54 +16840,9 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
 st
-st
-st
-uB
-st
-CF
-CF
-Jl
-Jl
-CF
-CF
-CF
-Jl
-kh
-CF
-CF
-CF
-CF
-CF
-CF
-st
-im
-st
-Bc
-CF
-CF
-CF
-CF
-CF
-CF
-st
-uB
-st
+Fe
+Re
 CF
 CF
 CF
@@ -16141,7 +17041,7 @@ CF
 CF
 CF
 CF
-um
+Jl
 st
 im
 st
@@ -16169,26 +17069,26 @@ CF
 CF
 CF
 CF
-LI
+ZI
 st
-um
-st
+Bc
+Re
 yW
-Jl
+qe
 CF
 CF
 CF
 CF
 CF
-Jl
-Jl
+Re
+qe
 CF
 CF
 CF
 CF
-st
-uB
-QM
+Re
+Fe
+RO
 CF
 CF
 CF
@@ -16199,7 +17099,7 @@ CF
 CF
 st
 im
-im
+qe
 CF
 CF
 CF
@@ -16397,53 +17297,53 @@ CF
 CF
 CF
 CF
+Re
+Re
 st
-st
-st
-LI
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-st
-im
 ZI
 CF
 CF
 CF
 CF
 CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+st
 im
-um
+kh
 CF
 CF
 CF
-im
-zI
+CF
+CF
+qe
+Jl
+CF
+CF
+CF
+qe
+yY
 st
 CF
 CF
@@ -16455,9 +17355,9 @@ CF
 CF
 CF
 CF
-LI
-st
-Bc
+ZI
+Re
+yW
 CF
 CF
 CF
@@ -16654,7 +17554,7 @@ CF
 CF
 CF
 CF
-st
+Re
 uB
 CF
 CF
@@ -16685,7 +17585,7 @@ CF
 CF
 CF
 CF
-LI
+ZI
 uB
 im
 CF
@@ -16694,10 +17594,10 @@ CF
 CF
 CF
 CF
-LI
-st
-st
-Bc
+ZI
+Re
+Re
+yW
 st
 im
 st
@@ -16714,7 +17614,7 @@ CF
 CF
 CF
 st
-zI
+yY
 CF
 CF
 CF
@@ -16910,8 +17810,8 @@ CF
 CF
 CF
 CF
-ZI
-im
+kh
+qe
 st
 CF
 CF
@@ -16936,15 +17836,15 @@ CF
 CF
 st
 im
-zI
+WE
 st
-QM
+RO
 CF
 CF
 CF
 st
 st
-um
+Bc
 CF
 CF
 CF
@@ -16955,7 +17855,7 @@ CF
 st
 im
 st
-ZI
+os
 CF
 CF
 CF
@@ -17167,13 +18067,51 @@ CF
 CF
 CF
 CF
-Bc
+yW
 st
 CF
 CF
 CF
 CF
 CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Bc
+im
+Fe
+Re
+Re
+yW
+st
+WE
+im
+um
+st
+im
+Re
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+um
+st
+im
 CF
 CF
 CF
@@ -17190,44 +18128,6 @@ CF
 CF
 CF
 um
-im
-uB
-st
-st
-Bc
-st
-zI
-im
-Bc
-st
-im
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-Bc
-st
-im
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-Bc
 st
 CF
 CF
@@ -17425,7 +18325,7 @@ CF
 CF
 CF
 im
-um
+Bc
 CF
 CF
 CF
@@ -17445,20 +18345,20 @@ CF
 CF
 CF
 st
+yW
+Re
+qe
+kh
+CF
+CF
+CF
+CF
+CF
+os
+im
 Bc
 st
-im
-ZI
-CF
-CF
-CF
-CF
-CF
-ZI
-im
-um
-st
-st
+Re
 CF
 CF
 CF
@@ -17467,7 +18367,7 @@ CF
 CF
 CF
 CF
-zI
+WE
 st
 CF
 CF
@@ -17483,9 +18383,9 @@ CF
 CF
 CF
 CF
-um
+Bc
 st
-ZI
+os
 CF
 CF
 CF
@@ -17702,7 +18602,7 @@ CF
 st
 im
 im
-LI
+Wd
 CF
 CF
 CF
@@ -17714,8 +18614,8 @@ CF
 CF
 st
 im
-Bc
-st
+yW
+Re
 CF
 CF
 CF
@@ -17925,12 +18825,12 @@ CF
 CF
 CF
 CF
-hT
-Zz
-Zo
-Yf
-Jh
-bI
+CF
+CF
+CF
+CF
+CF
+CF
 CF
 CF
 CF
@@ -17939,24 +18839,6 @@ CF
 CF
 im
 st
-Bc
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-ZI
-im
 um
 CF
 CF
@@ -17970,19 +18852,37 @@ CF
 CF
 CF
 CF
+CF
+CF
+CF
+os
 im
-ZI
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
 Bc
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+qe
+kh
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+um
 st
 CF
 CF
@@ -17996,7 +18896,7 @@ CF
 CF
 CF
 CF
-Bc
+yW
 im
 CF
 CF
@@ -18182,19 +19082,19 @@ CF
 CF
 CF
 CF
-aZ
-kh
-RO
-vL
-OE
-IM
 CF
 CF
 CF
 CF
 CF
 CF
-LI
+CF
+CF
+CF
+CF
+CF
+CF
+ZI
 st
 CF
 CF
@@ -18211,50 +19111,50 @@ CF
 CF
 CF
 CF
-st
+Re
 im
-Bc
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
 um
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-im
-LI
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
 st
-st
-LI
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Jl
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+qe
+ZI
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Re
+Re
+ZI
 CF
 CF
 CF
@@ -18439,12 +19339,12 @@ CF
 CF
 CF
 CF
-Dn
-kh
-fr
-aG
-EK
-yY
+CF
+CF
+CF
+CF
+CF
+CF
 CF
 CF
 CF
@@ -18452,7 +19352,7 @@ CF
 CF
 CF
 im
-um
+Bc
 CF
 CF
 CF
@@ -18467,12 +19367,12 @@ CF
 CF
 CF
 CF
-um
+Jl
+Re
 st
-st
 im
-im
-LI
+qe
+Wd
 CF
 CF
 CF
@@ -18484,7 +19384,7 @@ CF
 CF
 CF
 im
-st
+Re
 CF
 CF
 CF
@@ -18496,7 +19396,7 @@ CF
 CF
 CF
 CF
-um
+Jl
 im
 CF
 CF
@@ -18509,7 +19409,7 @@ CF
 CF
 CF
 CF
-um
+Jl
 st
 CF
 CF
@@ -18722,38 +19622,38 @@ CF
 CF
 CF
 CF
-st
-st
-im
-Bc
-st
+Re
+Re
+qe
 um
 st
-uB
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-LI
 Bc
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
 st
+Fe
+Re
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+ZI
+um
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Re
 st
 CF
 CF
@@ -18766,7 +19666,7 @@ CF
 CF
 CF
 CF
-im
+qe
 uB
 CF
 CF
@@ -18953,20 +19853,6 @@ CF
 CF
 CF
 CF
-Yd
-ld
-pE
-Jl
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-Bc
-im
 CF
 CF
 CF
@@ -18977,53 +19863,67 @@ CF
 CF
 CF
 CF
-st
-st
-uB
-st
-LI
 CF
 CF
-CF
-CF
-im
 um
+qe
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Re
+Re
+Fe
 st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-im
-um
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-Bc
-st
-im
-Bc
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
 ZI
+CF
+CF
+CF
+CF
 im
+Jl
+Re
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+im
+Bc
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+yW
+Re
+im
+um
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+kh
+qe
 st
 CF
 CF
@@ -19210,13 +20110,43 @@ CF
 CF
 CF
 CF
-Mb
-MA
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
 st
-Jl
+qe
+kh
 CF
 CF
 CF
+CF
+CF
+CF
+CF
+um
+Re
+qe
+Bc
+im
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+im
+st
+os
 CF
 CF
 CF
@@ -19224,64 +20154,34 @@ CF
 CF
 st
 im
+st
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
 ZI
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+st
 Bc
 st
 im
-um
+st
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Re
 im
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-im
-st
-ZI
-CF
-CF
-CF
-CF
-CF
-st
-im
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-LI
-st
-um
-st
-im
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-st
-im
-um
+Bc
 CF
 CF
 CF
@@ -19467,10 +20367,6 @@ CF
 CF
 CF
 CF
-fB
-Cx
-kh
-Jl
 CF
 CF
 CF
@@ -19480,18 +20376,22 @@ CF
 CF
 CF
 CF
-um
+CF
+CF
+CF
+CF
+Bc
+Re
+CF
+CF
+CF
+CF
+CF
+os
 st
-CF
-CF
-CF
-CF
-CF
-ZI
+Bc
 st
-um
-st
-ZI
+os
 CF
 CF
 CF
@@ -19509,7 +20409,7 @@ CF
 CF
 CF
 CF
-Bc
+um
 im
 CF
 CF
@@ -19519,15 +20419,15 @@ CF
 CF
 CF
 CF
-Bc
+um
 im
 st
 st
 CF
 CF
-ZI
+os
 st
-Bc
+um
 CF
 CF
 CF
@@ -19536,7 +20436,7 @@ CF
 CF
 CF
 CF
-Bc
+um
 st
 CF
 CF
@@ -19738,12 +20638,12 @@ CF
 CF
 CF
 im
-st
+Re
 CF
 CF
 st
-um
 Bc
+um
 im
 im
 st
@@ -19759,33 +20659,16 @@ CF
 CF
 CF
 CF
-st
-um
-CF
-CF
-CF
-CF
-CF
-um
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-st
-zI
 st
 Bc
 CF
 CF
 CF
 CF
-zI
-im
-LI
+CF
+Jl
+st
+CF
 CF
 CF
 CF
@@ -19793,7 +20676,24 @@ CF
 CF
 CF
 st
-um
+WE
+Re
+yW
+CF
+CF
+CF
+CF
+WE
+im
+Wd
+CF
+CF
+CF
+CF
+CF
+CF
+st
+Bc
 im
 CF
 CF
@@ -19995,64 +20895,64 @@ CF
 CF
 CF
 st
-st
-Bc
+Re
+yW
 im
 st
+Re
+qe
+Jl
+um
+im
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Wd
+im
 st
+CF
+CF
+CF
+CF
+CF
+qe
+st
+CF
+CF
+CF
+st
+Bc
+st
+Re
+yW
+Re
+Re
+CF
+CF
+CF
+CF
+CF
+st
+im
+Re
+CF
+CF
+CF
+CF
+CF
+st
+st
+im
 im
 um
-Bc
-im
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-LI
-im
-st
-CF
-CF
-CF
-CF
-CF
-im
-st
-CF
-CF
-CF
-st
-um
-st
-st
-Bc
-st
-st
-CF
-CF
-CF
-CF
-CF
-st
-im
-st
-CF
-CF
-CF
-CF
-CF
-st
-st
-im
-im
-Bc
 CF
 CF
 CF
@@ -20251,43 +21151,16 @@ CF
 CF
 CF
 CF
-Bc
-zI
+um
+WE
 im
-st
-Bc
-CF
-CF
-st
-st
-st
-LI
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-st
-im
-CF
-CF
-CF
-CF
-CF
-CF
-ZI
-st
 st
 um
-im
-Bc
-im
-im
+CF
+CF
+Re
+Re
+Re
 ZI
 CF
 CF
@@ -20298,19 +21171,46 @@ CF
 CF
 CF
 CF
+CF
+Re
+im
+CF
+CF
+CF
+CF
+CF
+CF
+kh
+Re
 st
+Bc
+im
 um
+im
+im
+kh
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
 st
+Jl
+Re
 CF
 CF
 CF
 CF
 st
-uB
+Fe
+Re
 st
-st
-st
-LI
+Re
+ZI
 CF
 CF
 CF
@@ -20511,13 +21411,13 @@ st
 st
 im
 st
-LI
+ZI
 CF
 CF
 CF
 CF
 CF
-st
+Re
 uB
 CF
 CF
@@ -20529,8 +21429,8 @@ CF
 CF
 CF
 CF
-im
-um
+qe
+Jl
 CF
 CF
 CF
@@ -20538,35 +21438,35 @@ CF
 CF
 CF
 CF
-Bc
+yW
+Re
 st
+ZI
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+im
+yW
+CF
+CF
+CF
 st
-LI
+WE
+qe
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-im
-Bc
-CF
-CF
-CF
-st
-zI
-im
-CF
-CF
-im
+qe
 st
 CF
 CF
@@ -20760,72 +21660,72 @@ CF
 CF
 CF
 CF
-LI
-st
-Bc
-st
-zI
-st
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-zI
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-im
-Bc
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-im
-im
-ZI
-CF
-CF
-st
-im
-LI
-CF
-CF
+Wd
+Re
 um
+st
+WE
+st
+st
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+WE
+st
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+qe
+yW
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
 im
-Bc
+qe
+kh
+CF
+CF
+st
+qe
+Wd
+CF
+CF
+Jl
+qe
+um
 CF
 CF
 CF
@@ -21015,73 +21915,73 @@ CF
 CF
 CF
 CF
-st
-Bc
-st
-zI
-im
-st
-st
-Bc
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-ZI
-im
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-st
-st
-qI
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-Nz
-Nz
-Nz
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-st
+Re
+yW
+Re
+WE
 im
 st
 st
 um
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+os
+im
+st
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+st
+Re
+kh
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Nz
+Nz
+Nz
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+st
+im
+st
 st
 Bc
+st
+yW
 CF
 CF
 CF
 CF
-im
+qe
 st
 CF
 CF
@@ -21271,74 +22171,74 @@ CF
 CF
 CF
 CF
-st
-im
-im
-st
-CF
-CF
-st
-im
-ZI
-CF
-CF
-CF
-CF
-CF
-CF
-st
-im
-im
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-um
 Re
-Jl
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-CF
-CF
-CF
-CF
-CF
-CF
-LI
+qe
+im
 st
-um
+CF
+CF
+st
+qe
+kh
+CF
+CF
+CF
+CF
+CF
+CF
+st
+im
+im
+st
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Bc
+qe
+qe
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+CF
+CF
+CF
+CF
+CF
+CF
+ZI
+st
+Bc
 st
 uB
 im
-st
+Re
 CF
 CF
 CF
 CF
 CF
-st
+Re
 im
 CF
 CF
@@ -21527,30 +22427,15 @@ CF
 CF
 CF
 CF
+Re
 st
-st
-Bc
-CF
-CF
-CF
-CF
-Bc
-st
-CF
-CF
-CF
+um
 CF
 CF
 CF
 CF
 um
-im
-Bc
-CF
-CF
-CF
-CF
-CF
+Re
 CF
 CF
 CF
@@ -21559,10 +22444,25 @@ CF
 CF
 CF
 Jl
-kh
-kh
-kh
-bn
+im
+um
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Vc
+uB
+st
+RO
+YV
 CF
 CF
 CF
@@ -21585,8 +22485,8 @@ CF
 CF
 st
 uB
-st
-st
+Re
+Re
 CF
 CF
 CF
@@ -21594,9 +22494,9 @@ CF
 CF
 CF
 CF
-ZI
-st
-zI
+kh
+Re
+WE
 CF
 CF
 CF
@@ -21783,25 +22683,65 @@ CF
 CF
 CF
 CF
-Bc
+um
 im
-Mr
+Gj
 CF
 CF
 CF
+CF
+CF
+Re
+qe
+CF
+CF
+CF
+CF
+CF
+CF
+Wd
+Re
+st
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+EF
+Xx
+hD
+af
+OK
+me
+CF
+CF
+CF
+CF
+CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 CF
 CF
 st
 im
-CF
-CF
-CF
-CF
-CF
-CF
-LI
-st
-st
+Re
 CF
 CF
 CF
@@ -21811,62 +22751,22 @@ CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-kh
-kh
-OK
-OK
-OK
-OK
+Re
+um
 CF
 CF
 CF
 CF
 CF
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
 CF
 CF
-st
+CF
+CF
+au
+Re
+fK
 im
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-st
-Bc
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-XD
-st
-gM
-im
-uD
+cF
 Iy
 Ov
 ri
@@ -22048,7 +22948,7 @@ CF
 CF
 CF
 CF
-um
+Jl
 st
 CF
 CF
@@ -22056,8 +22956,8 @@ CF
 CF
 CF
 CF
-im
-Bc
+qe
+um
 CF
 CF
 CF
@@ -22072,12 +22972,12 @@ CF
 CF
 CF
 CF
-kh
-OK
-yV
-yV
-yV
-OK
+RO
+uX
+Dd
+eU
+vK
+pN
 CF
 CF
 CF
@@ -22097,7 +22997,7 @@ Nz
 CF
 CF
 Re
-zI
+WE
 CF
 CF
 CF
@@ -22115,14 +23015,14 @@ CF
 CF
 CF
 CF
-Jq
+ZG
+yW
+st
 Bc
-st
-um
 im
 st
-sw
-II
+HJ
+da
 CF
 TS
 TS
@@ -22305,54 +23205,54 @@ CF
 CF
 CF
 CF
-im
-Bc
+qe
+um
 CF
 CF
 CF
 CF
 CF
+UQ
 Jl
-mH
+st
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Vr
+bI
+CB
+ig
+nB
+RO
+CF
+CF
+CF
+CF
+Nz
+Nz
+Nz
+Nz
+CF
+CF
+CF
+CF
+CF
+Nz
+Nz
+Nz
+Nz
 Jl
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-OK
-yV
-yV
-yV
-OK
-kh
-CF
-CF
-CF
-CF
-Nz
-Nz
-Nz
-Nz
-CF
-CF
-CF
-CF
-CF
-Nz
-Nz
-Nz
-Nz
-zl
 Re
 st
 CF
@@ -22365,18 +23265,18 @@ CF
 CF
 CF
 st
-zI
+WE
 st
 CF
 CF
-st
-um
-st
+Re
+Jl
+Re
 im
 st
 im
 uB
-st
+Re
 CF
 CF
 CF
@@ -22553,6 +23453,15 @@ CF
 CF
 CF
 CF
+RO
+st
+CF
+CF
+CF
+CF
+CF
+CF
+CF
 QM
 st
 CF
@@ -22560,37 +23469,28 @@ CF
 CF
 CF
 CF
-CF
-CF
-GK
-st
+Re
+uB
 CF
 CF
 CF
 CF
 CF
-Jl
+Re
 kh
-CF
-CF
-CF
-CF
-CF
-st
-ZI
+Fe
 Bc
-um
 CF
 CF
 CF
 CF
 CF
 CF
-kh
-OK
-OK
-OK
-kh
+NW
+me
+ZM
+AN
+Ry
 CF
 CF
 CF
@@ -22610,7 +23510,7 @@ Nz
 Nz
 Nz
 Re
-eR
+LI
 CF
 CF
 CF
@@ -22621,19 +23521,19 @@ CF
 CF
 CF
 CF
-Bc
+um
 st
 im
 st
 st
 im
-st
-Bc
 st
 um
-LI
 st
-FN
+Bc
+Wd
+Re
+aH
 CF
 CF
 CF
@@ -22811,7 +23711,7 @@ CF
 CF
 CF
 im
-Bc
+um
 CF
 CF
 CF
@@ -22826,28 +23726,28 @@ CF
 CF
 CF
 CF
-kh
-kh
-CF
-CF
-CF
-Qh
+Gj
 st
-Bc
+CF
+CF
+CF
+Wd
+qe
+Fe
+im
 st
 st
-st
-Bc
-LI
+uB
+ZI
 CF
 CF
 CF
 CF
 CF
-kh
-kh
-kh
-kh
+Gj
+um
+WE
+Fh
 CF
 CF
 CF
@@ -22880,11 +23780,11 @@ CF
 CF
 st
 st
-uB
-um
-st
-Bc
-ZI
+Fe
+Jl
+Re
+yW
+os
 CF
 CF
 CF
@@ -23076,6 +23976,24 @@ CF
 CF
 CF
 CF
+um
+im
+st
+CF
+CF
+CF
+CF
+Th
+oP
+Sx
+cu
+Zf
+LQ
+Bc
+st
+CF
+CF
+st
 Bc
 im
 st
@@ -23083,28 +24001,10 @@ CF
 CF
 CF
 CF
-kh
-yV
-yV
-kh
-kh
-Jl
-zl
-st
-CF
-CF
-st
-um
-st
-st
-CF
-CF
-CF
-CF
-Jl
-Jl
-kh
-kh
+Re
+Yo
+im
+EI
 CF
 CF
 CF
@@ -23130,14 +24030,14 @@ CF
 CF
 yW
 Re
-Qh
+Wd
 Re
-zl
+Jl
 qe
 Re
 st
-st
-QM
+Re
+LI
 CF
 CF
 CF
@@ -23324,7 +24224,7 @@ CF
 CF
 CF
 CF
-uB
+Fe
 st
 CF
 CF
@@ -23335,36 +24235,36 @@ CF
 CF
 CF
 im
-um
-CF
-CF
-CF
-CF
-yV
-yV
-yV
-yV
-kh
-kh
-CF
-CF
-CF
-CF
-CF
-CF
-st
-Bc
-st
-CF
-CF
-st
-um
-Jl
 Jl
 CF
 CF
 CF
-eR
+CF
+rp
+Bm
+Dd
+CB
+Gh
+os
+CF
+CF
+CF
+CF
+CF
+CF
+st
+uB
+im
+CF
+CF
+qe
+Jl
+Re
+kh
+CF
+CF
+CF
+LI
 yW
 Nz
 Nz
@@ -23384,7 +24284,7 @@ Nz
 Nz
 CF
 CF
-qI
+kh
 Re
 Nz
 Nz
@@ -23392,7 +24292,7 @@ Nz
 Nz
 yW
 Re
-Jo
+yV
 CF
 CF
 CF
@@ -23581,8 +24481,8 @@ CF
 CF
 CF
 CF
-im
-ZI
+qe
+os
 CF
 CF
 CF
@@ -23592,36 +24492,36 @@ CF
 CF
 CF
 st
+yW
+Re
+CF
+CF
+CF
 Bc
+zZ
+mL
+PH
+dM
+op
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+os
 st
-CF
-CF
-CF
-kh
-yV
-yV
-yV
-OK
-kh
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-ZI
-st
-st
-Bc
-st
+Re
+Fe
+Re
 st
 CF
 CF
 CF
 CF
 CF
-zl
+Jl
 Nz
 Nz
 Nz
@@ -23837,8 +24737,8 @@ CF
 CF
 CF
 CF
-LS
-im
+CF
+qe
 st
 CF
 CF
@@ -23848,16 +24748,16 @@ CF
 CF
 CF
 CF
-ZI
+os
 im
-st
+Re
 CF
 CF
-kh
-kh
-kh
+um
+IM
+Fh
 OK
-OK
+pN
 bn
 CF
 CF
@@ -23869,15 +24769,15 @@ CF
 CF
 CF
 st
-um
-st
-LI
+Bc
+im
+ZI
 CF
 CF
 CF
 CF
 CF
-Jo
+yV
 Re
 Nz
 Nz
@@ -23888,24 +24788,24 @@ CF
 CF
 CF
 CF
+ZG
+LI
+CF
+CF
+CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
 Jl
-Jl
-CF
-CF
-CF
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-zl
 CF
 CF
 CF
@@ -24095,64 +24995,64 @@ CF
 CF
 CF
 CF
-st
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-st
-um
-uB
 Re
-Jl
+Re
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+st
+Bc
+Fe
+Re
+qe
+os
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+st
+st
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Nz
+Nz
+Nz
+CF
+CF
+CF
+CF
+CF
+CF
+Ji
+Jd
+Em
+CF
+CF
+CF
+CF
 kh
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-st
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-Nz
-Nz
-Nz
-CF
-CF
-CF
-CF
-CF
-CF
-Jl
-Jl
-Jl
-CF
-CF
-CF
-CF
-Jl
-Jl
+Re
 Nz
 Nz
 Nz
@@ -24353,7 +25253,7 @@ CF
 CF
 CF
 CF
-uB
+Fe
 CF
 CF
 CF
@@ -24363,11 +25263,11 @@ CF
 CF
 CF
 CF
-Bc
+um
 st
 st
-st
-Jl
+im
+Re
 CF
 CF
 CF
@@ -24383,8 +25283,8 @@ CF
 CF
 CF
 CF
-Bc
-st
+um
+im
 CF
 CF
 CF
@@ -24399,17 +25299,17 @@ CF
 CF
 CF
 CF
-kh
-kh
-Jl
-Jl
+Gj
+ha
+Re
+Fe
 CF
 CF
 CF
 CF
-OK
-OK
-Jl
+Xt
+uX
+Fe
 Jl
 Nz
 Nz
@@ -24610,27 +25510,8 @@ CF
 CF
 CF
 CF
-st
-QM
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-LI
-im
-Bc
-CF
-CF
-CF
-CF
-CF
-CF
-CF
+Re
+RO
 CF
 CF
 CF
@@ -24641,6 +25522,25 @@ CF
 CF
 CF
 ZI
+im
+um
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Gj
 st
 CF
 CF
@@ -24655,18 +25555,18 @@ Nz
 CF
 CF
 CF
+Em
+Nw
+uB
+ZR
 Jl
-kh
-kh
-kh
-Jl
 CF
 CF
 CF
 CF
-OK
-OK
-OK
+gZ
+Dd
+pj
 CF
 CF
 Nz
@@ -24865,7 +25765,7 @@ CF
 CF
 CF
 CF
-um
+Bc
 uB
 im
 st
@@ -24880,7 +25780,7 @@ CF
 CF
 CF
 st
-zI
+WE
 CF
 CF
 CF
@@ -24897,8 +25797,8 @@ CF
 CF
 CF
 CF
-st
-um
+qe
+Bc
 CF
 CF
 CF
@@ -24912,18 +25812,18 @@ Nz
 CF
 CF
 CF
-Jl
-Jl
-kh
-kh
-kh
-kh
-CF
-CF
-OK
 yV
-yV
-OK
+LI
+WE
+jL
+uB
+aQ
+CF
+CF
+bn
+uX
+mL
+CB
 CF
 CF
 Nz
@@ -24934,7 +25834,7 @@ Nz
 Nz
 Nz
 Nz
-Qh
+Wd
 CF
 CF
 CF
@@ -25125,7 +26025,7 @@ st
 im
 CF
 st
-zI
+WE
 CF
 CF
 CF
@@ -25143,45 +26043,45 @@ CF
 CF
 CF
 CF
-Mr
-QM
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-st
-st
-Bc
-CF
-CF
-CF
-CF
-CF
-CF
-Nz
-Nz
-Nz
-Nz
-CF
-CF
-CF
-CF
-Jl
-Jl
-kh
-kh
-kh
-kh
-OK
 yV
-yV
-yV
-Jl
-Jl
+LI
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+qe
+Re
+um
+CF
+CF
+CF
+CF
+CF
+CF
+Nz
+Nz
+Nz
+Nz
+CF
+CF
+CF
+CF
+fD
+ZG
+Gj
+DH
+Th
+WE
+qx
+mL
+eB
+uX
+Re
+yW
 Nz
 Nz
 Nz
@@ -25378,40 +26278,40 @@ CF
 CF
 CF
 st
-uB
-ZI
+Fe
+os
 CF
 CF
-Bc
-ZI
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-st
-st
-CF
-CF
-CF
-vM
-st
-Bc
 um
+os
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
 st
 st
 CF
 CF
 CF
+op
+Re
+yW
+WE
+Re
+Re
 CF
 CF
 CF
-Bc
-st
+CF
+CF
+CF
+yW
+im
 CF
 CF
 CF
@@ -25430,14 +26330,14 @@ CF
 CF
 CF
 yY
-Jl
-kh
-kh
-kh
-yV
-yV
-yP
-Jl
+jY
+ny
+hO
+ba
+Gd
+Dd
+Re
+Wd
 Nz
 Nz
 Nz
@@ -25634,41 +26534,41 @@ CF
 CF
 CF
 CF
-zI
-st
+yY
+Re
 CF
 CF
 CF
 st
+Re
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+qe
+os
+CF
+CF
+BU
+RO
+WE
 st
+st
+uB
+qe
+kh
 CF
 CF
 CF
 CF
-CF
-CF
-CF
-CF
-CF
+Re
+yY
 im
-ZI
-CF
-CF
-ef
-QM
-zI
-st
-st
-Bc
-st
-ZI
-CF
-CF
-CF
-CF
-st
-um
-st
 CF
 CF
 CF
@@ -25687,13 +26587,13 @@ CF
 CF
 CF
 CF
-Jl
-Jl
-Jl
+Em
+lT
+yV
 CF
 CF
-Jl
-Jl
+yV
+Re
 Nz
 Nz
 Nz
@@ -25890,40 +26790,40 @@ CF
 CF
 CF
 CF
-QM
+RO
+Re
+CF
+CF
+CF
+CF
+CF
+yW
+yY
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Jl
 st
 CF
 CF
-CF
-CF
-CF
-Bc
-zI
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-um
-st
-CF
-CF
-Jq
+NW
 im
-Mr
+Gj
 CF
 CF
 CF
+WE
+im
+CF
+CF
+CF
+Re
 um
-st
-CF
-CF
-CF
-st
-Bc
 st
 st
 CF
@@ -26147,16 +27047,27 @@ CF
 CF
 CF
 CF
+Re
+yW
+CF
+CF
+CF
+CF
+CF
+CF
+Re
+Re
+CF
+CF
+CF
+CF
+CF
+CF
+Re
+qe
 st
-Bc
 CF
 CF
-CF
-CF
-CF
-CF
-st
-st
 CF
 CF
 CF
@@ -26164,24 +27075,13 @@ CF
 CF
 CF
 st
+uB
 im
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-st
-Bc
-st
-ZI
-Bc
+os
 um
-st
-LI
+Bc
+im
+RO
 CF
 CF
 CF
@@ -26404,7 +27304,7 @@ CF
 CF
 CF
 st
-im
+qe
 CF
 CF
 CF
@@ -26413,29 +27313,29 @@ CF
 CF
 CF
 st
-uB
-LI
+Fe
+Wd
 CF
 CF
 CF
 CF
 CF
-im
-Bc
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-st
+qe
 um
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
 st
-st
-st
+Bc
+im
+im
+im
 st
 st
 CF
@@ -26660,8 +27560,8 @@ CF
 CF
 CF
 CF
-zI
-st
+WE
+Re
 CF
 CF
 CF
@@ -26672,28 +27572,28 @@ CF
 CF
 st
 im
+Re
+CF
+CF
+CF
+CF
+Wd
 st
 CF
 CF
 CF
 CF
-LI
-st
 CF
-CF
-CF
-CF
-CF
-kh
+op
 CF
 CF
 st
-st
-st
-Bc
-st
-st
-Bc
+qe
+Re
+yW
+im
+im
+um
 CF
 CF
 CF
@@ -26918,38 +27818,38 @@ CF
 CF
 CF
 im
+yW
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
 Bc
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-um
 uB
 im
 CF
 CF
 CF
 st
-um
+Bc
 CF
 CF
 CF
 CF
-op
-kh
-kh
-Jl
-Jl
-LI
+BU
+RO
+Bc
+Fw
+Fe
+Wd
 CF
 CF
 st
-um
+Bc
 st
 CF
 CF
@@ -27173,7 +28073,7 @@ CF
 CF
 CF
 CF
-ZI
+os
 st
 CF
 CF
@@ -27187,7 +28087,7 @@ CF
 CF
 CF
 st
-um
+Bc
 im
 st
 st
@@ -27196,20 +28096,20 @@ st
 CF
 CF
 CF
-kh
-OK
-OK
-kh
-kh
-Jl
+NW
+tz
+ov
+im
+Fh
+Re
 CF
 CF
 CF
 CF
-LI
-st
-Bc
-Mr
+Wd
+Re
+um
+Gj
 CF
 CF
 CF
@@ -27431,7 +28331,7 @@ CF
 CF
 CF
 st
-Bc
+um
 CF
 CF
 CF
@@ -27442,33 +28342,33 @@ CF
 CF
 CF
 CF
-LS
+Mv
 st
 st
-Bc
-im
 um
 im
-st
-CF
-CF
-CF
-yV
-yV
-yV
-yV
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-st
-zI
+Bc
 im
-QM
-vM
+st
+CF
+CF
+CF
+bn
+ZH
+mL
+Pz
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Re
+yY
+qe
+RO
+op
 CF
 CF
 CF
@@ -27687,7 +28587,7 @@ CF
 CF
 CF
 CF
-zI
+yY
 im
 CF
 CF
@@ -27699,9 +28599,9 @@ CF
 CF
 CF
 st
-Bc
-im
-ZI
+um
+qe
+kh
 CF
 CF
 CF
@@ -27710,10 +28610,10 @@ uB
 CF
 CF
 CF
-OK
-yV
-yV
-yV
+uC
+Dd
+Vs
+zz
 CF
 CF
 CF
@@ -27723,8 +28623,8 @@ CF
 CF
 CF
 CF
-Jq
-zI
+ZG
+yY
 CF
 CF
 CF
@@ -27944,7 +28844,7 @@ CF
 CF
 CF
 CF
-uB
+Fe
 st
 CF
 CF
@@ -27955,22 +28855,22 @@ CF
 CF
 CF
 st
+qe
+qe
+Re
+CF
+CF
+CF
+CF
+Bc
 im
-im
-st
-CF
-CF
-CF
-CF
-um
-im
-ZI
+os
 CF
 CF
 Rh
-OK
-kh
-kh
+mL
+Th
+Bc
 CF
 CF
 CF
@@ -28200,9 +29100,9 @@ CF
 CF
 CF
 CF
+Re
 st
-st
-LI
+ZI
 CF
 CF
 CF
@@ -28212,7 +29112,7 @@ CF
 CF
 CF
 im
-AK
+Nn
 CF
 CF
 CF
@@ -28220,15 +29120,15 @@ CF
 CF
 CF
 CF
-Jl
-Jl
+Re
+Re
 CF
 CF
 CF
-kh
-kh
-Jl
-Jl
+wY
+RD
+ha
+lx
 CF
 CF
 CF
@@ -28456,7 +29356,7 @@ CF
 CF
 CF
 CF
-st
+Re
 uB
 im
 st
@@ -28467,7 +29367,7 @@ CF
 CF
 CF
 CF
-LI
+ZI
 uB
 st
 CF
@@ -28477,16 +29377,16 @@ CF
 CF
 CF
 CF
-Jl
-kh
+yY
+um
 CF
 CF
 CF
 CF
 CF
-Jl
-kh
-kh
+lu
+Fe
+Re
 CF
 CF
 CF
@@ -28712,8 +29612,8 @@ CF
 CF
 CF
 CF
-Bc
-zI
+um
+WE
 st
 st
 uB
@@ -28724,7 +29624,7 @@ CF
 CF
 CF
 CF
-st
+Re
 im
 CF
 CF
@@ -28734,19 +29634,19 @@ CF
 CF
 CF
 CF
-kh
-kh
-kh
-yV
+Gj
+KE
+zH
+tu
 CF
 CF
 CF
-Jl
+Em
+BF
+WE
+qe
 kh
-um
-st
-ZI
-FN
+op
 CF
 CF
 CF
@@ -28973,40 +29873,40 @@ st
 st
 CF
 CF
+Jl
+st
+CF
+CF
+CF
+CF
+CF
+CF
+yW
+st
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+zI
+Fh
+IW
+me
+Pz
+CF
+CF
+CF
+CF
+CF
+CF
 um
-st
-CF
-CF
-CF
-CF
-CF
-CF
-Bc
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-kh
-kh
-yV
-yV
-yV
-CF
-CF
-CF
-CF
-CF
-CF
-Bc
-st
-st
-LI
-ZI
-um
+im
+im
+RO
+Gj
+WE
 CF
 CF
 CF
@@ -29227,44 +30127,44 @@ CF
 CF
 st
 im
-ZI
+os
 CF
 CF
-im
-uB
-ZI
+qe
+Fe
+os
+CF
+CF
+CF
+CF
+Re
+qe
+os
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+bw
+mL
+pZ
+ta
+mL
+RO
+CF
 CF
 CF
 CF
 CF
 st
-im
-ZI
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-kh
-OK
-yV
-yV
-OK
+st
+Jl
+Fe
+Re
 LI
-CF
-CF
-CF
-CF
-CF
-st
-st
-um
-Bc
-st
-LI
-fX
+NW
 CF
 CF
 CF
@@ -29483,41 +30383,41 @@ CF
 CF
 CF
 st
-Bc
-CF
-CF
-CF
-CF
-im
-im
-CF
-CF
-CF
-CF
-st
 um
 CF
 CF
 CF
 CF
+qe
+im
 CF
 CF
 CF
 CF
-OK
-yV
-yV
-yV
-kh
 Re
-Re
-um
-CF
-CF
-st
-st
 Bc
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+bn
+Ht
+Dd
+fr
+Fh
+qe
+qe
+Bc
+CF
+CF
 st
+im
+Fe
+Re
 CF
 CF
 CF
@@ -29739,20 +30639,20 @@ CF
 CF
 CF
 CF
-um
-st
-CF
-CF
-CF
-CF
-st
-zI
 Bc
+st
+CF
+CF
+CF
+CF
+Re
+yY
+um
 CF
 CF
 CF
 im
-Bc
+um
 CF
 CF
 CF
@@ -29763,17 +30663,17 @@ CF
 CF
 op
 OK
-OK
-kh
+Mh
+LC
 CF
 CF
-Bc
+yW
+qe
 st
+im
+WE
 st
-st
-um
-st
-LI
+ZI
 CF
 CF
 CF
@@ -29833,7 +30733,7 @@ Nz
 Nz
 Nz
 Re
-Jo
+yV
 CF
 CF
 CF
@@ -29997,38 +30897,38 @@ CF
 CF
 CF
 im
-LI
-CF
-CF
-CF
-CF
-CF
-im
-im
-CF
-CF
-CF
-QM
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-kh
-kh
-kh
-CF
-CF
-CF
-CF
 ZI
+CF
+CF
+CF
+CF
+CF
+qe
+im
+CF
+CF
+CF
+RO
 st
-Bc
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+BU
+AJ
+uB
+CF
+CF
+CF
+CF
+kh
+Re
+um
 st
 CF
 CF
@@ -30092,7 +30992,7 @@ Nz
 Nz
 Re
 yW
-zl
+Jl
 CF
 CF
 CF
@@ -30260,85 +31160,85 @@ CF
 CF
 CF
 CF
-Bc
+um
 st
+ZI
+CF
+CF
+um
+st
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Wg
+yV
+CF
+CF
+CF
+CF
+CF
+CF
+Re
+NW
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Nz
+Nz
+Nz
+Nz
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Nz
+Nz
+Nz
+Nz
+Nz
+CF
+CF
+CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
 LI
-CF
-CF
-Bc
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-kh
-Jl
-CF
-CF
-CF
-CF
-CF
-CF
-st
-fX
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-Nz
-Nz
-Nz
-Nz
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-Nz
-Nz
-Nz
-Nz
-Nz
-CF
-CF
-CF
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-eR
 Re
 Nz
 Nz
@@ -30509,8 +31409,8 @@ CF
 CF
 CF
 CF
-ZI
-st
+os
+Re
 CF
 CF
 CF
@@ -30520,9 +31420,9 @@ CF
 CF
 st
 im
-Bc
-CF
 um
+CF
+Jl
 im
 st
 CF
@@ -30535,7 +31435,7 @@ CF
 CF
 CF
 Re
-zl
+Jl
 CF
 CF
 CF
@@ -30767,7 +31667,7 @@ CF
 CF
 CF
 im
-st
+Re
 CF
 CF
 CF
@@ -30776,12 +31676,12 @@ CF
 CF
 CF
 CF
-um
-st
-st
-im
 Bc
 st
+st
+qe
+yW
+st
 CF
 CF
 CF
@@ -30790,8 +31690,8 @@ CF
 CF
 CF
 CF
-LI
-im
+Wd
+qe
 st
 CF
 CF
@@ -30851,7 +31751,7 @@ CF
 CF
 CF
 CF
-zl
+Jl
 Nz
 Nz
 Nz
@@ -30864,7 +31764,7 @@ Nz
 Nz
 Nz
 Nz
-eR
+LI
 CF
 CF
 CF
@@ -31023,32 +31923,32 @@ CF
 CF
 CF
 CF
-st
+Re
+Jl
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Re
+yY
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+qe
 um
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-st
-zI
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-im
-Bc
 CF
 CF
 CF
@@ -31280,7 +32180,7 @@ CF
 CF
 CF
 st
-Bc
+yW
 CF
 CF
 CF
@@ -31294,7 +32194,7 @@ CF
 CF
 CF
 CF
-ZI
+kh
 im
 CF
 CF
@@ -31304,8 +32204,8 @@ CF
 CF
 CF
 CF
+Re
 st
-st
 CF
 CF
 CF
@@ -31365,7 +32265,7 @@ CF
 CF
 CF
 CF
-Jo
+yV
 Nz
 Nz
 Nz
@@ -31536,34 +32436,34 @@ CF
 CF
 CF
 CF
-LI
-im
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
 ZI
+qe
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+st
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+kh
 im
 st
-LI
+ZI
 CF
 CF
 CF
@@ -31635,7 +32535,7 @@ Nz
 Nz
 Nz
 Nz
-zl
+Jl
 CF
 CF
 CF
@@ -31794,7 +32694,7 @@ CF
 CF
 CF
 st
-st
+Re
 CF
 CF
 CF
@@ -31809,8 +32709,8 @@ CF
 CF
 CF
 CF
-Bc
 um
+Bc
 CF
 CF
 CF
@@ -31819,10 +32719,10 @@ CF
 CF
 st
 uB
-zI
+WE
 st
-st
-ZI
+Re
+kh
 CF
 CF
 CF
@@ -31880,7 +32780,7 @@ CF
 CF
 CF
 Re
-zl
+Jl
 Nz
 Nz
 Nz
@@ -32051,35 +32951,35 @@ CF
 CF
 CF
 im
-um
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-st
-im
-CF
-CF
-CF
-CF
-CF
-st
-zI
-st
-st
-im
 Bc
-zI
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+st
+im
+CF
+CF
+CF
+CF
+CF
+st
+WE
+st
+st
+im
+um
+yY
 CF
 CF
 CF
@@ -32331,14 +33231,14 @@ CF
 CF
 CF
 uB
-st
+Re
 CF
 CF
 CF
 st
 im
-QM
-vM
+LI
+Em
 CF
 CF
 CF
@@ -32394,7 +33294,7 @@ CF
 CF
 CF
 CF
-eR
+LI
 yW
 Nz
 Nz
@@ -32405,7 +33305,7 @@ Nz
 Nz
 Nz
 Re
-Jo
+yV
 CF
 CF
 CF
@@ -32566,42 +33466,42 @@ CF
 CF
 st
 im
+os
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+st
 ZI
 CF
 CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
 st
+Bc
+qe
+Re
+CF
+CF
+CF
+CF
+NW
+WE
+CF
+CF
+CF
+CF
+Re
 LI
 CF
-CF
-st
-um
-im
-st
-CF
-CF
-CF
-CF
-Jq
-zI
-CF
-CF
-CF
-CF
-Re
-eR
-CF
 Nz
 Nz
 Nz
@@ -32652,7 +33552,7 @@ CF
 CF
 CF
 CF
-zl
+Jl
 Nz
 Nz
 Nz
@@ -32660,7 +33560,7 @@ Nz
 Nz
 Nz
 Re
-zl
+Jl
 yW
 CF
 CF
@@ -32822,29 +33722,29 @@ CF
 CF
 CF
 CF
-Bc
-st
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-Bc
-im
 um
 st
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+um
 im
+Bc
 st
-LI
+qe
+Re
+Wd
 CF
 CF
 CF
@@ -32856,7 +33756,7 @@ CF
 CF
 CF
 yW
-zl
+Jl
 Re
 Nz
 Nz
@@ -32916,7 +33816,7 @@ Nz
 Nz
 Nz
 Re
-eR
+LI
 CF
 CF
 CF
@@ -33079,7 +33979,7 @@ CF
 CF
 CF
 CF
-um
+Jl
 st
 CF
 CF
@@ -33099,7 +33999,7 @@ CF
 st
 im
 im
-Bc
+yW
 CF
 CF
 CF
@@ -33112,7 +34012,7 @@ CF
 CF
 CF
 Re
-Jo
+yV
 Re
 Nz
 Nz
@@ -33336,9 +34236,9 @@ CF
 CF
 CF
 CF
+Re
+qe
 st
-im
-st
 CF
 CF
 CF
@@ -33353,8 +34253,8 @@ CF
 CF
 CF
 CF
-vM
-ZI
+op
+os
 CF
 CF
 CF
@@ -33367,7 +34267,7 @@ CF
 CF
 CF
 CF
-eR
+LI
 yW
 Re
 yW
@@ -33594,8 +34494,8 @@ CF
 CF
 CF
 CF
-im
-Bc
+qe
+um
 CF
 CF
 CF
@@ -33851,8 +34751,8 @@ CF
 CF
 CF
 CF
-LI
-st
+Wd
+Re
 CF
 CF
 CF
@@ -33881,7 +34781,7 @@ CF
 CF
 CF
 yW
-zl
+Jl
 Nz
 Nz
 Nz
@@ -34109,7 +35009,7 @@ CF
 CF
 CF
 CF
-im
+qe
 st
 CF
 CF
@@ -34171,9 +35071,9 @@ Nz
 Nz
 Nz
 CF
-mH
+wH
 yW
-eR
+LI
 CF
 CF
 CF
@@ -34366,20 +35266,20 @@ CF
 CF
 CF
 CF
-um
-st
-CF
-CF
-CF
-CF
-CF
-CF
-st
-im
-im
-um
 Bc
-LI
+st
+CF
+CF
+CF
+CF
+CF
+CF
+st
+im
+im
+Bc
+um
+ZI
 CF
 CF
 CF
@@ -34431,7 +35331,7 @@ Nz
 Nz
 Re
 Re
-zl
+Jl
 yW
 CF
 CF
@@ -34625,19 +35525,19 @@ CF
 CF
 st
 uB
-ZI
+os
 CF
 CF
 CF
+Bc
+im
+qe
+yW
+Re
+st
+im
+im
 um
-im
-im
-Bc
-st
-st
-im
-im
-Bc
 Re
 CF
 CF
@@ -34689,7 +35589,7 @@ Nz
 Nz
 Nz
 Re
-qI
+kh
 qe
 CF
 CF
@@ -34881,14 +35781,14 @@ CF
 CF
 CF
 CF
-im
+qe
 st
 st
-Bc
+um
 st
-im
-st
-ZI
+qe
+Re
+kh
 CF
 CF
 CF
@@ -34896,7 +35796,7 @@ CF
 st
 qe
 Re
-qI
+kh
 CF
 CF
 CF
@@ -34934,7 +35834,7 @@ CF
 CF
 CF
 CF
-zl
+Jl
 yW
 Re
 Nz
@@ -34948,7 +35848,7 @@ Nz
 Nz
 Re
 Re
-zl
+Jl
 CF
 CF
 CF
@@ -35139,11 +36039,11 @@ CF
 CF
 CF
 CF
-st
-zI
+Re
+WE
 im
-im
-Bc
+qe
+yW
 CF
 CF
 CF
@@ -35152,7 +36052,7 @@ CF
 CF
 CF
 CF
-cV
+yY
 qe
 Re
 CF
@@ -35162,8 +36062,8 @@ Nz
 Nz
 Nz
 Nz
-vt
-Bb
+Gf
+OM
 Nz
 Nz
 Nz
@@ -35192,9 +36092,9 @@ CF
 CF
 CF
 CF
-Jo
+yV
 Re
-zl
+Jl
 Re
 yW
 Nz
@@ -35206,7 +36106,7 @@ Nz
 Nz
 yW
 Re
-eR
+LI
 CF
 CF
 CF
@@ -35396,10 +36296,10 @@ CF
 CF
 CF
 CF
+yW
+st
+st
 Bc
-st
-st
-um
 CF
 CF
 CF
@@ -35413,14 +36313,14 @@ CF
 Re
 yW
 qe
+nk
 Nz
 Nz
 Nz
 Nz
 Nz
-Nz
-Bb
-vt
+OM
+Gf
 Nz
 Nz
 Nz
@@ -35452,9 +36352,9 @@ CF
 CF
 CF
 Re
-eR
+LI
 Re
-zl
+Jl
 Nz
 Nz
 Nz
@@ -35654,7 +36554,7 @@ CF
 CF
 CF
 CF
-LI
+ZI
 im
 st
 CF
@@ -35668,7 +36568,7 @@ CF
 CF
 CF
 CF
-eR
+LI
 qe
 Nz
 Nz
@@ -35912,9 +36812,9 @@ CF
 CF
 CF
 CF
-st
-uB
-ZI
+Re
+Fe
+os
 CF
 CF
 CF
@@ -35926,7 +36826,7 @@ CF
 CF
 CF
 CF
-cV
+yY
 Nz
 Nz
 Nz
@@ -36170,8 +37070,8 @@ CF
 CF
 CF
 CF
-st
-im
+Re
+qe
 st
 CF
 CF
@@ -36428,9 +37328,9 @@ CF
 CF
 CF
 CF
-im
+qe
+yW
 Bc
-um
 CF
 CF
 CF
@@ -36686,47 +37586,47 @@ CF
 CF
 CF
 CF
-jC
-st
-QM
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-Nz
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
-CF
 qI
+Re
+RO
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+Nz
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+CF
+kh
 yW
 CF
 CF
@@ -36944,9 +37844,9 @@ CF
 CF
 CF
 CF
-uB
-Mr
-vM
+Fe
+Gj
+op
 CF
 CF
 CF
@@ -36981,8 +37881,8 @@ CF
 CF
 CF
 CF
-eR
-zl
+LI
+Jl
 Re
 Nz
 Nz
@@ -37201,8 +38101,8 @@ CF
 CF
 CF
 CF
-QM
-zI
+RO
+WE
 CF
 CF
 CF
@@ -37459,7 +38359,7 @@ CF
 CF
 CF
 CF
-Jq
+NW
 CF
 CF
 CF
@@ -39036,7 +39936,7 @@ CF
 CF
 CF
 CF
-Jo
+yV
 Nz
 Nz
 Nz
@@ -39294,7 +40194,7 @@ CF
 CF
 CF
 Re
-zl
+Jl
 Nz
 Nz
 Nz
@@ -39557,7 +40457,7 @@ Nz
 Nz
 Nz
 Re
-zl
+Jl
 CF
 CF
 CF
@@ -39809,11 +40709,11 @@ CF
 CF
 CF
 CF
-eR
+LI
 Re
-zl
+Jl
 yW
-Jo
+yV
 CF
 CF
 CF

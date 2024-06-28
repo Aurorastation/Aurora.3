@@ -2932,7 +2932,7 @@
 /obj/item/material/sword/axe,
 /mob/living/carbon/human/unathi,
 /turf/unsimulated/floor,
-/area/new_blades/interiors)
+/area/new_blades/underground)
 "boA" = (
 /obj/structure/filingcabinet/filingcabinet{
 	pixel_x = 7;
@@ -5052,7 +5052,7 @@
 /obj/item/ammo_magazine/tempestsmg,
 /obj/item/ammo_magazine/tempestsmg,
 /turf/unsimulated/floor,
-/area/new_blades/interiors)
+/area/new_blades/underground)
 "cpB" = (
 /obj/effect/decal/cleanable/floor_damage/tiled_broken3,
 /obj/random/dirt_75,
@@ -6551,7 +6551,7 @@
 /obj/item/material/sword/longsword,
 /mob/living/carbon/human/unathi,
 /turf/unsimulated/floor,
-/area/new_blades/interiors)
+/area/new_blades/underground)
 "dgC" = (
 /obj/effect/decal/cleanable/floor_damage/tiled_burned0,
 /obj/random/dirt_75,
@@ -7165,9 +7165,6 @@
 "duF" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/structure/rope_post{
-	dir = 8
-	},
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/rope_post{
 	dir = 4
@@ -7176,7 +7173,6 @@
 	dir = 4
 	},
 /obj/structure/rope_post,
-/obj/structure/rope_railing,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -11202,7 +11198,7 @@
 /obj/item/ammo_magazine/spitterpistol,
 /mob/living/carbon/human/unathi,
 /turf/unsimulated/floor,
-/area/new_blades/interiors)
+/area/new_blades/underground)
 "fup" = (
 /obj/structure/flora/grass/desert,
 /obj/effect/decal/curb{
@@ -12417,7 +12413,7 @@
 "fYC" = (
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor,
-/area/new_blades/interiors)
+/area/new_blades/underground)
 "fYE" = (
 /obj/effect/decal/curb{
 	dir = 8
@@ -13172,7 +13168,7 @@
 /obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
 /obj/item/ammo_magazine/crackrifle,
 /turf/unsimulated/floor,
-/area/new_blades/interiors)
+/area/new_blades/underground)
 "gqB" = (
 /obj/effect/floor_decal/concrete{
 	dir = 10
@@ -15575,9 +15571,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
-"hxx" = (
-/turf/simulated/mineral/planet,
-/area/new_blades)
 "hxE" = (
 /obj/structure/window/borosilicate/reinforced/skrell{
 	dir = 1
@@ -17622,7 +17615,7 @@
 /obj/item/gun/projectile/shotgun/wallgun,
 /obj/item/gun/projectile/shotgun/wallgun,
 /turf/unsimulated/floor,
-/area/new_blades/interiors)
+/area/new_blades/underground)
 "iuT" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -24968,9 +24961,6 @@
 /obj/structure/rope_post{
 	dir = 4
 	},
-/obj/structure/rope_railing{
-	dir = 1
-	},
 /obj/item/ore/coal{
 	pixel_y = -4;
 	pixel_x = 8
@@ -25063,7 +25053,7 @@
 /obj/item/melee/energy/sword/hegemony,
 /mob/living/carbon/human/unathi,
 /turf/unsimulated/floor,
-/area/new_blades/interiors)
+/area/new_blades/underground)
 "lUy" = (
 /obj/effect/floor_decal/asteroid,
 /obj/effect/decal/fake_object{
@@ -31014,7 +31004,7 @@
 "oKD" = (
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor,
-/area/new_blades/interiors)
+/area/new_blades/underground)
 "oKN" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -32456,9 +32446,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
-"puP" = (
-/turf/unsimulated/floor,
-/area/new_blades/interiors)
 "pvb" = (
 /obj/effect/floor_decal/concrete{
 	dir = 5
@@ -37354,18 +37341,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/skrell_base)
-"rVe" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	dir = 1
-	},
-/obj/machinery/vending/engineering{
-	anchored = 0
-	},
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/scc_evac)
 "rVk" = (
 /obj/effect/floor_decal/spline/plain{
 	color = "#b6efe1"
@@ -38300,7 +38275,7 @@
 /obj/item/ammo_magazine/hookmg,
 /obj/item/ammo_magazine/hookmg,
 /turf/unsimulated/floor,
-/area/new_blades/interiors)
+/area/new_blades/underground)
 "sut" = (
 /obj/effect/floor_decal/concrete{
 	dir = 10
@@ -42215,8 +42190,6 @@
 /obj/structure/rope_post{
 	dir = 1
 	},
-/obj/structure/rope_post,
-/obj/structure/rope_railing,
 /obj/structure/rope_railing{
 	dir = 8
 	},
@@ -44816,9 +44789,6 @@
 /area/new_blades/interiors/ruins)
 "vtC" = (
 /obj/random/dirt_75,
-/obj/structure/rope_railing{
-	dir = 1
-	},
 /obj/structure/rope_post{
 	dir = 1
 	},
@@ -48429,9 +48399,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
-"xrq" = (
-/turf/unsimulated/wall/riveted,
-/area/new_blades/interiors)
 "xrv" = (
 /obj/structure/flora/grass/desert,
 /obj/random/dirt_75,
@@ -57691,7 +57658,7 @@ iAL
 iAL
 iAL
 mLF
-rVe
+tXc
 iAL
 iAL
 iAL
@@ -111128,11 +111095,11 @@ ieH
 jvM
 "}
 (238,1,1) = {"
-apY
-hxx
-hxx
-hxx
-hxx
+jvM
+ieH
+ieH
+ieH
+ieH
 hgu
 hgu
 hgu
@@ -111385,13 +111352,13 @@ ieH
 jvM
 "}
 (239,1,1) = {"
-apY
-hxx
-hxx
-hxx
-hxx
-hxx
-hxx
+jvM
+ieH
+ieH
+ieH
+ieH
+ieH
+ieH
 hgu
 hgu
 hgu
@@ -111642,14 +111609,14 @@ ieH
 jvM
 "}
 (240,1,1) = {"
-apY
-hxx
-hxx
-hxx
-hxx
-hxx
-hxx
-hxx
+jvM
+jvM
+jvM
+ieH
+ieH
+ieH
+ieH
+ieH
 hgu
 hgu
 hgu
@@ -111899,16 +111866,16 @@ ieH
 jvM
 "}
 (241,1,1) = {"
-apY
-hxx
-hxx
-hxx
-hxx
-hxx
-hxx
-hxx
-hxx
-hxx
+jvM
+jvM
+jvM
+jvM
+jvM
+ieH
+ieH
+ieH
+ieH
+ieH
 hgu
 hgu
 hgu
@@ -112156,17 +112123,17 @@ ieH
 jvM
 "}
 (242,1,1) = {"
-apY
-hxx
-hxx
-hxx
-hxx
-hxx
-hxx
-hxx
-hxx
-hxx
-hxx
+jvM
+jvM
+jvM
+jvM
+jvM
+jvM
+jvM
+ieH
+ieH
+ieH
+ieH
 hgu
 rXz
 hgu
@@ -112413,17 +112380,17 @@ ieH
 jvM
 "}
 (243,1,1) = {"
-apY
-apY
-apY
-apY
-apY
-apY
-apY
-apY
-apY
-hxx
-hxx
+jvM
+jvM
+jvM
+jvM
+jvM
+jvM
+jvM
+jvM
+ieH
+ieH
+ieH
 hgu
 bWV
 hgu
@@ -112670,17 +112637,17 @@ ieH
 jvM
 "}
 (244,1,1) = {"
-apY
-xrq
-xrq
-xrq
-xrq
-xrq
-apY
-apY
-apY
-hxx
-hxx
+jvM
+oXR
+oXR
+oXR
+oXR
+oXR
+jvM
+jvM
+ieH
+ieH
+ieH
 hgu
 bWV
 hgu
@@ -112927,17 +112894,17 @@ ieH
 jvM
 "}
 (245,1,1) = {"
-apY
-xrq
+jvM
+oXR
 iuz
 fum
-puP
-xrq
-apY
-apY
-apY
-hxx
-hxx
+uHX
+oXR
+jvM
+jvM
+jvM
+ieH
+ieH
 hgu
 hgu
 hgu
@@ -113184,17 +113151,17 @@ ieH
 jvM
 "}
 (246,1,1) = {"
-apY
-xrq
-puP
+jvM
+oXR
+uHX
 oKD
-puP
-xrq
-apY
-apY
-apY
-hxx
-hxx
+uHX
+oXR
+jvM
+jvM
+jvM
+ieH
+ieH
 hgu
 hgu
 hgu
@@ -113441,18 +113408,18 @@ ieH
 jvM
 "}
 (247,1,1) = {"
-apY
-xrq
+jvM
+oXR
 bop
-puP
+uHX
 suq
-xrq
-apY
-apY
-apY
-hxx
-hxx
-hxx
+oXR
+jvM
+jvM
+jvM
+ieH
+ieH
+ieH
 hgu
 bWV
 hgu
@@ -113698,18 +113665,18 @@ ieH
 jvM
 "}
 (248,1,1) = {"
-apY
-xrq
+jvM
+oXR
 dgf
-puP
+uHX
 cpn
-xrq
-apY
-apY
-apY
-hxx
-hxx
-hxx
+oXR
+jvM
+jvM
+jvM
+ieH
+ieH
+ieH
 hgu
 hgu
 hgu
@@ -113955,18 +113922,18 @@ ieH
 jvM
 "}
 (249,1,1) = {"
-apY
-xrq
+jvM
+oXR
 lUv
 oKD
 cpn
-xrq
-apY
-apY
-apY
-hxx
-hxx
-hxx
+oXR
+jvM
+jvM
+jvM
+ieH
+ieH
+ieH
 hgu
 hgu
 hgu
@@ -114212,18 +114179,18 @@ ieH
 jvM
 "}
 (250,1,1) = {"
-apY
-xrq
+jvM
+oXR
 lUv
-puP
+uHX
 gqu
-xrq
-apY
-apY
-apY
-hxx
-hxx
-hxx
+oXR
+jvM
+jvM
+jvM
+ieH
+ieH
+ieH
 bWV
 hgu
 hgu
@@ -114469,18 +114436,18 @@ ieH
 jvM
 "}
 (251,1,1) = {"
-apY
-xrq
+jvM
+oXR
 lUv
-puP
+uHX
 gqu
-xrq
-apY
-apY
-apY
-hxx
-hxx
-hxx
+oXR
+jvM
+jvM
+jvM
+ieH
+ieH
+ieH
 hgu
 hgu
 bWV
@@ -114726,18 +114693,18 @@ ieH
 jvM
 "}
 (252,1,1) = {"
-apY
-xrq
-puP
+jvM
+oXR
+uHX
 oKD
-puP
-xrq
-apY
-apY
-apY
-hxx
-hxx
-hxx
+uHX
+oXR
+jvM
+jvM
+jvM
+ieH
+ieH
+ieH
 hgu
 hgu
 hgu
@@ -114983,18 +114950,18 @@ ieH
 jvM
 "}
 (253,1,1) = {"
-apY
-xrq
-puP
+jvM
+oXR
+uHX
 fYC
-puP
-xrq
-apY
-apY
-apY
-hxx
-hxx
-hxx
+uHX
+oXR
+jvM
+jvM
+jvM
+jvM
+ieH
+ieH
 hgu
 hgu
 hgu
@@ -115240,18 +115207,18 @@ ieH
 jvM
 "}
 (254,1,1) = {"
-apY
-xrq
-xrq
-xrq
-xrq
-xrq
-apY
-apY
-apY
-hxx
-hxx
-hxx
+jvM
+oXR
+oXR
+oXR
+oXR
+oXR
+jvM
+jvM
+jvM
+jvM
+ieH
+ieH
 hgu
 bWV
 hgu
@@ -115497,18 +115464,18 @@ ieH
 jvM
 "}
 (255,1,1) = {"
-apY
-apY
-apY
-apY
-apY
-apY
-apY
-apY
-apY
-apY
-apY
-apY
+jvM
+jvM
+jvM
+jvM
+jvM
+jvM
+jvM
+jvM
+jvM
+jvM
+jvM
+jvM
 apY
 apY
 apY
