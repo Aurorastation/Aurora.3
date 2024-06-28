@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/hegemony_waypoint
 	name = "hegemony waypoint"
-	description = "This is a waypoint station manufactued en masse by the Izweski Hegemony, designed to guide vessels through potentially perilous routes, and to maintain a watchful eye for pirates. These are cramped facilities that tend only to be manned for days at a time as contracted technicians see to the maintenance of their systems in a short stay before leaving to the next installation. Many waypoints in Uueoa-Esa have fallen into disrepair since their initial constructions, prone to structural damage, electrical malfunctions, and infestations of dangerous pests. The Izweski Hegemony is known to offer financial compensation for third parties willing to return them to full operational capacity. The condition of this one is challenging to ascertain from sensor scans, but it appears likely to be inactive."
+	description = "This is a waypoint station manufactued en masse by the Izweski Hegemony, designed to guide vessels through potentially perilous routes, and to maintain a watchful eye for pirates. These are cramped facilities that tend only to be manned for days at a time as contracted technicians see to the maintenance of their systems in a short stay before leaving to the next installation. Many waypoints in Uueoa-Esa have fallen into disrepair since their initial constructions, prone to structural damage, electrical malfunctions, and infestations of dangerous pests. The Izweski Hegemony is known to offer financial compensation for third parties willing to return them to full operational capacity. The exact condition of this one is challenging to ascertain from sensor scans, but it is likely to be inactive."
 	prefix = "away_site/uueoaesa/hegemony_waypoint/"
 	suffixes = list("hegemony_waypoint.dmm")
 
@@ -14,13 +14,103 @@
 	map = "hegemony_waypoint"
 	descriptor = "A hegemony waypoint."
 
-/obj/effect/overmap/visitable/sector/sensor_relay
+/obj/effect/overmap/visitable/sector/hegemony_waypoint
 	name = "hegemony waypoint"
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "depot"
 	color = COLOR_CHESTNUT
-	description = "This is a waypoint station manufactued en masse by the Izweski Hegemony, designed to guide vessels through potentially perilous routes, and to maintain a watchful eye for pirates. These are cramped facilities that tend only to be manned for days at a time as contracted technicians see to the maintenance of their systems in a short stay before leaving to the next installation. Many waypoints in Uueoa-Esa have fallen into disrepair since their initial constructions, prone to structural damage, electrical malfunctions, and infestations of dangerous pests. The Izweski Hegemony is known to offer financial compensation for third parties willing to return them to full operational capacity. The condition of this one is challenging to ascertain from sensor scans, but it appears likely to be inactive."
+	desc = "This is a waypoint station manufactued en masse by the Izweski Hegemony, designed to guide vessels through potentially perilous routes, and to maintain a watchful eye for pirates. These are cramped facilities that tend only to be manned for days at a time as contracted technicians see to the maintenance of their systems in a short stay before leaving to the next installation. Many waypoints in Uueoa-Esa have fallen into disrepair since their initial constructions, prone to structural damage, electrical malfunctions, and infestations of dangerous pests. The Izweski Hegemony is known to offer financial compensation for third parties willing to return them to full operational capacity. The exact condition of this one is challenging to ascertain from sensor scans, but it is likely to be inactive."
 	comms_support = TRUE
 	comms_name = "Hegemony Waypoint"
 	initial_generic_waypoints = list(
+		"waypoint_n_dock",
+		"waypoint_e_dock",
+		"waypoint_w_dock",
+		"waypoint_s_dock",
+		"waypoint_n_space",
+		"waypoint_e_space",
+		"waypoint_w_space",
+		"waypoint_s_space"
 	)
+
+// Areas
+/area/hegemony_waypoint
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
+	requires_power = TRUE
+	ambience = AMBIENCE_GENERIC
+	base_turf = /turf/space
+	icon_state = "green"
+
+/area/hegemony_waypoint/monitoring
+	name = "Hegemonic Waypoint Installation - Monitoring Station"
+
+/area/hegemony_waypoint/hallway
+	name = "Hegemonic Waypoint Installation - Central Hallway"
+
+/area/hegemony_waypoint/kitchen
+	name = "Hegemonic Waypoint Installation - Kitchen"
+
+/area/hegemony_waypoint/custodial
+	name = "Hegemonic Waypoint Installation - Laundry Chamber"
+
+/area/hegemony_waypoint/washroom
+	name = "Hegemonic Waypoint Installation - Washroom"
+
+/area/hegemony_waypoint/hydroponics
+	name = "Hegemonic Waypoint Installation - Hydroponics"
+
+/area/hegemony_waypoint/eva
+	name = "Hegemonic Waypoint Installation - Equipment Chamber"
+
+/area/hegemony_waypoint/engineering
+	name = "Hegemonic Waypoint Installation - Power Management Chamber"
+
+/area/hegemony_waypoint/atmos
+	name = "Hegemonic Waypoint Installation - Atmospherics Management Chamber"
+
+/area/hegemony_waypoint/shrine
+	name = "Hegemonic Waypoint Installation - Ritual Space"
+
+/area/hegemony_waypoint/bunks
+	name = "Hegemonic Waypoint Installation - Technicians Quarters"
+
+// Landmarks
+
+/obj/effect/shuttle_landmark/hegemony_waypoint
+	base_area = /area/space
+	base_turf = /turf/space
+
+/obj/effect/shuttle_landmark/hegemony_waypoint/north_docking
+	name = "Hegemonic Waypoint Installation - North External Dock"
+	landmark_tag = "waypoint_n_dock"
+
+/obj/effect/shuttle_landmark/hegemony_waypoint/east_docking
+	name = "Hegemonic Waypoint Installation - East External Dock"
+	landmark_tag = "waypoint_e_dock"
+
+/obj/effect/shuttle_landmark/hegemony_waypoint/west_docking
+	name = "Hegemonic Waypoint Installation - West External Dock"
+	landmark_tag = "waypoint_w_dock"
+
+/obj/effect/shuttle_landmark/hegemony_waypoint/south_docking
+	name = "Hegemonic Waypoint Installation - South External Dock"
+	landmark_tag = "waypoint_s_dock"
+
+/obj/effect/shuttle_landmark/hegemony_waypoint/south
+	name = "Hegemonic Waypoint Installation - Space, South"
+	landmark_tag = "waypoint_s_space"
+
+/obj/effect/shuttle_landmark/hegemony_waypoint/west
+	name = "Hegemonic Waypoint Installation - Space, West"
+	landmark_tag = "waypoint_w_space"
+
+/obj/effect/shuttle_landmark/hegemony_waypoint/east
+	name = "Hegemonic Waypoint Installation - Space, East"
+	landmark_tag = "waypoint_e_space"
+
+/obj/effect/shuttle_landmark/hegemony_waypoint/north
+	name = "Hegemonic Waypoint Installation - Space, North"
+	landmark_tag = "waypoint_n_space"
+
+
+
