@@ -54,6 +54,48 @@ const createHighlightNode = (text, color) => {
   return node;
 };
 
+const hexToRgb = (hex) => {
+  // Remove the hash symbol if present
+  hex = hex.replace('#', '');
+
+  // Expand shorthand hex code to full form if necessary
+  if (hex.length === 3) {
+    hex = hex
+      .split('')
+      .map((char) => char + char)
+      .join('');
+  }
+
+  // Parse the r, g, b values
+  let r = parseInt(hex.substring(0, 2), 16);
+  let g = parseInt(hex.substring(2, 4), 16);
+  let b = parseInt(hex.substring(4, 6), 16);
+
+  return [r, g, b];
+};
+
+const changeAlpha = (color, alpha) => {
+  // Check if color is in rgb or rgba format
+  const rgbRegex = /^rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)$/;
+  const rgbaRegex = /^rgba\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3}),\s*([\d.]+)\)$/;
+  const hexRegex = /^#([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})$/;
+
+  let match;
+  if ((match = color.match(rgbRegex))) {
+    const [_, r, g, b] = match;
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  } else if ((match = color.match(rgbaRegex))) {
+    const [_, r, g, b] = match;
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  } else if ((match = color.match(hexRegex))) {
+    const [r, g, b] = hexToRgb(match[1]);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  } else {
+    console.error('Unsupported color format');
+    return color; // Return the original color if unsupported format
+  }
+};
+
 const createMessageNode = () => {
   const node = document.createElement('div');
   node.className = 'ChatMessage';
@@ -188,6 +230,7 @@ class ChatRenderer {
       const text = setting.highlightText;
       const highlightColor = setting.highlightColor;
       const highlightWholeMessage = setting.highlightWholeMessage;
+      const backgroundHighlightColor = setting.backgroundHighlightColor;
       const matchWord = setting.matchWord;
       const matchCase = setting.matchCase;
       const allowedRegex = /^[a-z0-9_\-$/^[\s\]\\]+$/gi;
@@ -249,6 +292,7 @@ class ChatRenderer {
         highlightRegex,
         highlightColor,
         highlightWholeMessage,
+        backgroundHighlightColor,
       });
     });
   }
@@ -408,7 +452,20 @@ class ChatRenderer {
               (text) => createHighlightNode(text, parser.highlightColor)
             );
             if (highlighted && parser.highlightWholeMessage) {
+              const backgroundColor =
+                parser.backgroundHighlightColor || 'rgba(255, 221, 68, 0.1)';
+              const backgroundColorAlpha = changeAlpha(backgroundColor, 0.1);
+
               node.className += ' ChatMessage--highlighted';
+              node.style.setProperty('border-left-color', backgroundColor);
+
+              let overlayNode = document.createElement('span');
+              overlayNode.className += ' ChatMessage-highlight-overlay';
+              overlayNode.style.setProperty(
+                'background-color',
+                backgroundColorAlpha
+              );
+              node.appendChild(overlayNode);
             }
           });
         }
