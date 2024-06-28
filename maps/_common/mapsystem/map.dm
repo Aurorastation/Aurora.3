@@ -123,6 +123,17 @@
 	var/allow_borgs_to_leave = FALSE //this controls if borgs can leave the station or ship without exploding
 	var/area/warehouse_basearea //this controls where the cargospawner tries to populate warehouse items
 
+	/**
+	 * A list of the shuttles on this map, used by the Shuttle Manifest program to populate itself.
+	 * Formatted with the shuttle name as an index, followed by a list containing the color and icon to be used for the shuttle's drop down
+	 * On the manifest. i.e. "SCCV Intrepid" = list("color" = "purple", "icon" = "compass")
+	 */
+	var/list/shuttle_manifests = list()
+	/**
+	 * A list of the missions shuttles can select for their assignment in the Shuttle Manifest program.
+	 */
+	var/list/shuttle_missions = list()
+
 /datum/map/New()
 	if(!map_levels)
 		map_levels = station_levels.Copy()

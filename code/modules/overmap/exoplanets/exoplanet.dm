@@ -23,6 +23,10 @@
 	var/geology = "Dormant, unreadable tectonic activity"	//Anything unique about tectonics and its core activity
 	var/weather = "No substantial meteorological readings"	//Anything unique about terrestrial weather conditions
 	var/surfacewater = "NA/None Visible"					//Water visible on the surface
+	var/magnet_strength = "No magnetic field detected"
+	var/magnet_difference = "N/A"
+	var/day_length = "~1 BCY (Biesel Cycles)"
+	var/magnet_particles = "N/A"
 
 	var/maxx
 	var/maxy
