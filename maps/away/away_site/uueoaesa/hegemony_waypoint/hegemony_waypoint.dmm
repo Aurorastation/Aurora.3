@@ -308,10 +308,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
 /area/hegemony_waypoint/atmos)
-"nA" = (
-/obj/structure/lattice,
-/turf/space,
-/area/space)
 "og" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
@@ -35430,9 +35426,9 @@ iu
 iu
 iu
 jq
-nA
-nA
-nA
+iu
+iu
+iu
 jq
 OV
 OV
