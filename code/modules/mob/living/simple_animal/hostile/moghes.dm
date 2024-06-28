@@ -50,8 +50,9 @@
 	..()
 	anchored = TRUE
 
-/mob/living/simple_animal/hostile/biglizard/Life()
-	..()
+/mob/living/simple_animal/hostile/biglizard/Life(seconds_per_tick, times_fired)
+	if(!..())
+		return FALSE
 
 	//It's a predator, supposedly it shouldn't always alert his victims to be nearby
 	//(also saves some processing)
@@ -79,7 +80,9 @@
 			poor_soul_approaching.notify_message(message, 10 SECONDS, key = "biglizard-[REF(src)]")
 
 
-	adjustBruteLoss(-1)
+	adjustBruteLoss(-0.5 * seconds_per_tick)
+
+	return TRUE
 
 /mob/living/simple_animal/hostile/biglizard/verb/devour(mob/living/target as mob in oview())
 	set category = "Plains Tyrant"

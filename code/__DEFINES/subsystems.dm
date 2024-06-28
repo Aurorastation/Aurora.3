@@ -215,6 +215,7 @@
 #define INIT_ORDER_SOUNDS 83
 #define INIT_ORDER_DISCORD 78
 #define INIT_ORDER_JOBS 65 // Must init before atoms, to set up properly the dynamic job lists.
+#define INIT_ORDER_AI_CONTROLLERS 55 //So the controller can get the ref
 #define INIT_ORDER_TICKER 55
 #define INIT_ORDER_SEEDS 52 // More aurora snowflake, needs to load before the atoms init as it generates images for seeds that are used
 #define INIT_ORDER_MISC_FIRST 51 //Another aurora snowflake system? Who would have guessed... Anyways, need to load before mapping or global HUDs are not ready when atoms request them
@@ -252,11 +253,14 @@
 #define FIRE_PRIORITY_PING 10
 #define FIRE_PRIORITY_GARBAGE 15
 #define FIRE_PRIORITY_ASSETS 20
+#define FIRE_PRIORITY_NPC_MOVEMENT 21
+#define FIRE_PRIORITY_NPC_ACTIONS 22
 #define FIRE_PRIORITY_PATHFINDING 23
 #define FIRE_PRIORITY_PROCESS 25
 #define FIRE_PRIORITY_THROWING 25
 #define FIRE_PRIORITY_SPACEDRIFT 30
 #define FIRE_PRIORITY_DEFAULT 50
+#define FIRE_PRIORITY_MOBS 100
 #define FIRE_PRIORITY_STATPANEL 390
 #define FIRE_PRIORITY_CHAT 400
 #define FIRE_PRIORITY_RUNECHAT 410
@@ -272,6 +276,10 @@
 	* * timer_subsystem the subsystem to insert this timer into
 */
 #define addtimer(args...) _addtimer(args, file = __FILE__, line = __LINE__)
+
+// Subsystem delta times or tickrates, in seconds. I.e, how many seconds in between each process() call for objects being processed by that subsystem.
+// Only use these defines if you want to access some other objects processing seconds_per_tick, otherwise use the seconds_per_tick that is sent as a parameter to process()
+#define SSMOBS_DT (SSmobs.wait/10)
 
 /* AURORA SHIT */
 

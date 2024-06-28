@@ -28,7 +28,7 @@
 	QDEL_NULL(resist_bar)
 	return ..()
 
-/mob/living/captive_brain/Life()
+/mob/living/captive_brain/Life(seconds_per_tick, times_fired)
 	if(resist_bar)
 		resist_bar.update(world.time - resist_start_time)
 	return ..()
