@@ -706,3 +706,6 @@
   crosarius:
   - qol: Changes the wireless firing pin (disruptor pistols) to be able to fire on
       lethal mode during code blue
+2024-06-28:
+  FluffyGhost:
+  - rscdel: Removed the old Aurora map.
