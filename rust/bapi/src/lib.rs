@@ -81,12 +81,13 @@ fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
             format!("config parse fail; path: {:?}", path_mapmanip_config),
         )?;
         // do actual map manipulation
-        dmm = crate::mapmanip::mapmanip(path_dir, dmm, &config).wrap_err("mapmanip fail")?;
+        dmm = crate::mapmanip::mapmanip(path_dir, dmm, &config)
+            .wrap_err(format!("mapmanip fail; dmm file path: {}", path.display()))?;
     }
 
     // convert the map back to a string
     let dmm = crate::mapmanip::core::map_to_string(&dmm).wrap_err(format!(
-        "error in converting map back to string; dmm file path:dd {}",
+        "error in converting map back to string; dmm file path: {}",
         path.display()
     ))?;
 

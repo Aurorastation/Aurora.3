@@ -17,6 +17,42 @@ pub struct Tile {
     pub prefabs: Vec<dmm::Prefab>,
 }
 
+impl Tile {
+    ///
+    pub fn get_area(&self) -> Option<&dmm::Prefab> {
+        self.prefabs
+            .iter()
+            .find(|prefab| prefab.path.starts_with("/area/"))
+    }
+
+    ///
+    pub fn remove_area(&mut self) -> Option<dmm::Prefab> {
+        let area = self.get_area().cloned();
+        if area.is_some() {
+            self.prefabs
+                .retain(|prefab| !prefab.path.starts_with("/area/"))
+        }
+        area
+    }
+
+    ///
+    pub fn get_turf(&self) -> Option<&dmm::Prefab> {
+        self.prefabs
+            .iter()
+            .find(|prefab| prefab.path.starts_with("/turf/"))
+    }
+
+    ///
+    pub fn remove_turf(&mut self) -> Option<dmm::Prefab> {
+        let turf = self.get_turf().cloned();
+        if turf.is_some() {
+            self.prefabs
+                .retain(|prefab| !prefab.path.starts_with("/turf/"))
+        }
+        turf
+    }
+}
+
 /// This is analogous to `dmmtools::dmm::Map`, but instead of being structured like dmm maps are,
 /// where they have a dictionary of keys-to-prefabs and a separate grid of keys,
 /// this is only a direct coord-to-prefab grid.

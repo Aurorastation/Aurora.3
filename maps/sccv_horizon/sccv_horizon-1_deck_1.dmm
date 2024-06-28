@@ -744,6 +744,12 @@
 /obj/machinery/power/apc/low/east,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
+"aEj" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "aEl" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -3305,6 +3311,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"crL" = (
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "crZ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -8650,6 +8660,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"fTV" = (
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "fUb" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -12985,6 +13001,15 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
+"iZa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "iZi" = (
 /turf/simulated/wall/shuttle/unique/scc/mining{
 	icon_state = "7,3"
@@ -16017,6 +16042,13 @@
 	},
 /turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos/air)
+"ldd" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "ldI" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -21064,8 +21096,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
 "owJ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
 /obj/effect/map_effect/marker/mapmanip/submap/insert/sccv_horizon/ops_warehouse_small_storage,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/operations/storage)
 "owM" = (
 /obj/structure/shuttle_part/scc/research{
@@ -23965,6 +24001,11 @@
 	},
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/quarters)
+"qtt" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "qtO" = (
 /obj/structure/closet/crate,
 /obj/item/circuitboard/autolathe,
@@ -30374,7 +30415,11 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "uTy" = (
-/turf/simulated/floor/plating,
+/obj/machinery/camera/network/supply{
+	c_tag = "Operations - Warehouse Starboard Aft Storage Room";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/operations/storage)
 "uTz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -35447,6 +35492,10 @@
 	},
 /turf/space/dynamic,
 /area/horizon/exterior)
+"ygk" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "ygx" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -45633,10 +45682,10 @@ hdK
 bmx
 fif
 qdE
+tiV
+qtt
 uTy
-uTy
-uTy
-uTy
+giX
 owJ
 qdE
 tiV
@@ -45836,11 +45885,11 @@ lVt
 vtn
 fif
 qdE
-uTy
-uTy
-uTy
-uTy
-uTy
+fTV
+ygk
+iZa
+aEj
+crL
 qdE
 aQN
 nCV
@@ -46039,11 +46088,11 @@ fif
 uCB
 fif
 qdE
-uTy
-uTy
-uTy
-uTy
-uTy
+iQI
+ldd
+sWr
+giX
+iQI
 qdE
 iQI
 giX
