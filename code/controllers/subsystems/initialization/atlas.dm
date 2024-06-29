@@ -233,7 +233,7 @@ SUBSYSTEM_DEF(atlas)
 	var/time
 
 	var/is_first = TRUE
-	for (var/i in 1 to length(filemaps_to_load))
+	for(var/i in 1 to length(filemaps_to_load))
 		mfile = filemaps_to_load[i]
 
 		log_subsystem_atlas("Loading '[mfile]'.")

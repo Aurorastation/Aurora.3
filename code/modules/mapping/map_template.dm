@@ -59,17 +59,31 @@
 	//Since SSicon_smooth.add_to_queue() manually wakes the subsystem, we have to use enable/disable.
 	SSicon_smooth.can_fire = FALSE
 	var/is_first = TRUE
-	for (var/mappath in mappaths)
+
+	for(var/i in 1 to length(mappaths))
+		var/mappath = mappaths[i]
+
 		var/list/trait = ZTRAITS_AWAY
+
+		//Second or subsequent map file
 		if(!is_first)
-			if(mappaths.Find(mappath) == length(mappaths))
+			//Last map file in a multi level map, can only go down
+			if(i == length(mappaths))
 				trait += list(ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE)
+			//Intermediate map file, can go up and down
 			else
 				trait += list(ZTRAIT_UP = TRUE, ZTRAIT_DOWN = TRUE)
-		else
-			trait += list(ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE)
 
-		var/datum/space_level/level = SSmapping.add_new_zlevel(name, ZTRAITS_AWAY, contain_turfs = FALSE)
+		//First map file
+		else
+			//Multi-level map
+			if(length(mappaths) >= 2)
+				trait += list(ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE)
+			//Single-level map
+			else
+				trait += list(ZTRAIT_UP = FALSE, ZTRAIT_DOWN = FALSE)
+
+		var/datum/space_level/level = SSmapping.add_new_zlevel(name, trait, contain_turfs = FALSE)
 		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, level.z_value, no_changeturf = no_changeturf)
 		if (M)
 			bounds = extend_bounds_if_needed(bounds, M.bounds)
