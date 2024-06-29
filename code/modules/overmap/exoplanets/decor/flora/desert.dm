@@ -3,6 +3,7 @@
 	icon = 'icons/obj/flora/desert_cactus_trees.dmi'
 	icon_state = "desert_tree"
 	desc = "A prickly cactus with a woody trunk."
+	sample_data = list("Cells contain above average water storage, indicating adaptation for a dry environment")
 
 /obj/structure/flora/tree/desert/Initialize(mapload)
 	. = ..()
@@ -34,6 +35,7 @@
 	desc = "A sand-swept rock."
 	icon = 'icons/obj/flora/desertflora.dmi'
 	icon_state = "desert_rock"
+	sample_data = list("Sample contains sedimentary rock dust")
 
 /obj/structure/flora/rock/desert/Initialize()
 	. = ..()

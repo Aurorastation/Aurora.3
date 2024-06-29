@@ -582,7 +582,7 @@ jobs:
 
     strategy:
       matrix:
-        map: [runtime, aurora, sccv_horizon, exoplanet_testing]
+        map: [runtime, sccv_horizon, exoplanet_testing]
         pod: [maptest]
       fail-fast: false
 

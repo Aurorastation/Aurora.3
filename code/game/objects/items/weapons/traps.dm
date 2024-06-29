@@ -233,7 +233,7 @@
 		if(AM.loc != loc)
 			AM.forceMove(loc)
 		captured = WEAKREF(L)
-		buckle(L)
+		INVOKE_ASYNC(src, PROC_REF(buckle), L)
 		layer = L.layer + 0.1
 		playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
 		deployed = FALSE
@@ -282,9 +282,9 @@
 
 	release()
 
-/obj/item/trap/animal/CollidedWith(atom/AM)
-	if(deployed && is_type_in_list(AM, allowed_mobs))
-		Crossed(AM)
+/obj/item/trap/animal/CollidedWith(atom/bumped_atom)
+	if(deployed && is_type_in_list(bumped_atom, allowed_mobs))
+		Crossed(bumped_atom)
 	else
 		..()
 

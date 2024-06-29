@@ -2637,13 +2637,18 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
-/obj/structure/table/rack,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/item/storage/belt/medical,
-/obj/item/clothing/glasses/hud/health,
-/obj/item/clothing/accessory/stethoscope,
+/obj/structure/table/glass{
+	table_reinf = "glass"
+	},
+/obj/item/paper_bin{
+	pixel_y = 3
+	},
+/obj/item/pen{
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "bWh" = (
@@ -8775,9 +8780,6 @@
 /obj/item/folder/yellow{
 	pixel_x = 3
 	},
-/obj/item/device/radio/off{
-	pixel_y = 9
-	},
 /turf/simulated/floor/carpet,
 /area/crew_quarters/heads/hop/xo)
 "gjn" = (
@@ -9282,12 +9284,6 @@
 "gzJ" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full,
 /obj/structure/closet/secure_closet/CMO,
-/obj/item/device/eftpos{
-	eftpos_name = "Medbay EFTPOS scanner"
-	},
-/obj/item/device/megaphone,
-/obj/item/clothing/suit/storage/toggle/labcoat/cmoalt2,
-/obj/item/storage/box/gloves,
 /obj/item/device/radio/intercom/west,
 /obj/machinery/keycard_auth{
 	dir = 4;
@@ -12031,15 +12027,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
-/obj/item/paper_bin{
-	pixel_y = 3
-	},
-/obj/item/pen{
-	pixel_y = 4
-	},
+/obj/structure/coatrack,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/heads/cmo)
 "irh" = (
@@ -12149,12 +12137,9 @@
 /area/bridge/cciaroom/lounge)
 "iuR" = (
 /obj/structure/closet/secure_closet/captains,
-/obj/item/device/megaphone/command,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/obj/item/device/taperecorder,
-/obj/item/device/radio/off,
 /turf/simulated/floor/wood,
 /area/crew_quarters/captain)
 "ivg" = (
@@ -25300,10 +25285,6 @@
 	dir = 10
 	},
 /obj/structure/closet/secure_closet/xo,
-/obj/item/device/eftpos{
-	eftpos_name = "HoP EFTPOS scanner"
-	},
-/obj/item/book/manual/wiki/security_space_law,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
 "rmh" = (

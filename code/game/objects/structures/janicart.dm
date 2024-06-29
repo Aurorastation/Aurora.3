@@ -358,7 +358,11 @@
 		has_items = 1
 
 //Shamelessly copied from wheelchair code
-/obj/structure/janitorialcart/relaymove(mob/user, direction)
+/obj/structure/janitorialcart/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if(user.stat || user.stunned || user.weakened || user.paralysis || user.lying || user.restrained())
 		if(user==pulling)
 			pulling = null

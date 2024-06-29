@@ -45,7 +45,11 @@
 			to_chat(user, "You remove [load] from \the [src]")
 			to_chat(load, "You were removed from \the [src] by [user]")
 
-/obj/vehicle/unicycle/relaymove(mob/user, direction)
+/obj/vehicle/unicycle/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if(user != load || !on || user.incapacitated())
 		return
 	return Move(get_step(src, direction))
