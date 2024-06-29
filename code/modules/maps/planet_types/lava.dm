@@ -15,6 +15,7 @@
 	water_color = null
 	ruin_planet_type = PLANET_LAVA
 	ruin_allowed_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
+	soil_data = list("Low density silicon dioxide layer", "Iron pyroxene layer", "Magnesium olivine layer", "Large rock particle layer", "Aluminium biotite layer")
 
 	unit_test_groups = list(1)
 
@@ -49,3 +50,25 @@
 		ground_survey_result += "<br>Traces of fusile material"
 	if(prob(40))
 		ground_survey_result += "<br>High content of fissile material in the rock"
+
+/obj/effect/overmap/visitable/sector/exoplanet/lava/generate_magnet_survey_result()
+	..()
+	magnet_strength = "[rand(20, 120)] uT/Gauss"
+	magnet_difference = "[rand(0,2500)] kilometers"
+	magnet_particles = ""
+	var/list/particle_types = PARTICLE_TYPES
+	var/particles = rand(1,5)
+	for(var/i in 1 to particles)
+		var/p = pick(particle_types)
+		if(i == particles) //Last item, no comma
+			magnet_particles += p
+		else
+			magnet_particles += "[p], "
+		particle_types -= p
+	day_length = "~[rand(1,200)/10] BCY (Biesel Cycles)"
+	if(prob(40))
+		magnet_survey_result += "<br>Molten surface interfering with magnetosphere"
+	if(prob(40))
+		magnet_survey_result += "<br>Strong solar winds present"
+	if(prob(10))
+		magnet_survey_result += "<br>High levels of plasma present in magnetosphere"

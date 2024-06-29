@@ -41,6 +41,7 @@
 	speak_chance = 5
 	attack_emote = "focuses on"
 	psi_pingable = FALSE
+	sample_data = null
 
 	/**
 	 * The hivebot beacon that we are liked to (and likely generated us)

@@ -82,6 +82,12 @@
 	icon_state = "bottle-3"
 	reagents_to_add = list(/singleton/reagent/polysomnine = 30)
 
+/obj/item/reagent_containers/glass/bottle/truthserum
+	name = "truth serum bottle"
+	desc = "A small bottle of truth serum. Useful for gaining information."
+	icon_state = "bottle-3"
+	reagents_to_add = list(/singleton/reagent/mental/truthserum = 30)
+
 /obj/item/reagent_containers/glass/bottle/antitoxin
 	name = "dylovene bottle"
 	desc = "A small bottle of dylovene. Counters poisons, and repairs damage. A wonder drug."

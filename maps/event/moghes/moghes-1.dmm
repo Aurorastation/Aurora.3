@@ -1045,6 +1045,14 @@
 	icon_state = "dark_preview"
 	},
 /area/centcom/control)
+"aCp" = (
+/obj/machinery/conveyor{
+	id = "cargo_1";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/supply/dock)
 "aCR" = (
 /obj/structure/sign/flag/biesel{
 	pixel_y = 30
@@ -2701,18 +2709,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/bar)
-"bEa" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
-	id_tag = "cargo_shuttle";
-	name = "cargo shuttle docking controller";
-	pixel_x = 25;
-	pixel_y = 26;
-	req_one_access = list(13,31);
-	tag_door = "cargo_shuttle_airlock"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/supply/dock)
 "bEg" = (
 /obj/machinery/door/airlock/centcom{
 	locked = 1;
@@ -4407,6 +4403,7 @@
 /area/horizon/holodeck/source_thunderdomecourt)
 "cEd" = (
 /obj/machinery/light,
+/obj/effect/shuttle_landmark/supply/horizon/start,
 /turf/unsimulated/floor/plating,
 /area/centcom/suppy)
 "cEi" = (
@@ -10345,6 +10342,15 @@
 	},
 /obj/machinery/light/small{
 	dir = 4
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "cargo_shuttle";
+	name = "cargo shuttle docking controller";
+	pixel_y = -22;
+	req_one_access = list(13,31);
+	tag_door = "cargo_shuttle_airlock";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
@@ -16429,6 +16435,18 @@
 	icon_state = "dark_preview"
 	},
 /area/centcom/control)
+"jMt" = (
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "cargo_shuttle_airlock";
+	locked = 1;
+	name = "Cargo Shuttle";
+	req_access = list(13,31)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/supply/dock)
 "jMv" = (
 /obj/structure/shuttle_part/ert{
 	icon_state = "3,4";
@@ -18071,9 +18089,6 @@
 /area/antag/mercenary)
 "kFa" = (
 /obj/machinery/light{
-	dir = 1
-	},
-/obj/effect/shuttle_landmark/supply/horizon/start{
 	dir = 1
 	},
 /turf/unsimulated/floor/plating,
@@ -19825,11 +19840,8 @@
 	icon_state = "freezer"
 	},
 /area/centcom/distress_prep)
-"lKM" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "QMLoad"
-	},
+"lKL" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "lKR" = (
@@ -22301,6 +22313,23 @@
 	icon_state = "ramptop"
 	},
 /area/centcom/ferry)
+"npJ" = (
+/obj/machinery/conveyor{
+	id = "cargo_1";
+	layer = 2.9;
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "cargo_shuttle_airlock";
+	locked = 1;
+	name = "Cargo Shuttle";
+	req_access = list(13,31)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/supply/dock)
 "nqB" = (
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/spawning)
@@ -26471,23 +26500,6 @@
 	icon_state = "dark_preview"
 	},
 /area/centcom/holding)
-"pIt" = (
-/obj/machinery/conveyor{
-	dir = 1;
-	id = "QMLoad"
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "cargo_shuttle_airlock";
-	locked = 1;
-	name = "Cargo Shuttle";
-	req_access = list(13,31)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/supply/dock)
 "pIv" = (
 /obj/structure/table/rack,
 /obj/item/plastique{
@@ -28144,6 +28156,14 @@
 "qHP" = (
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
+"qHW" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "QMLoad"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/supply/dock)
 "qIg" = (
 /turf/unsimulated/wall/riveted,
 /area/template_noop)
@@ -35182,19 +35202,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/merchant_station)
-"vac" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "cargo_shuttle_airlock";
-	locked = 1;
-	name = "Cargo Shuttle";
-	req_access = list(13,31)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/supply/dock)
 "vaJ" = (
 /obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/beach/sand{
@@ -37557,13 +37564,6 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
-"wvN" = (
-/obj/machinery/conveyor{
-	id = "cargo_1";
-	layer = 2.9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/supply/dock)
 "wwd" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/reagent_containers/blood/OMinus{
@@ -37877,22 +37877,6 @@
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
-"wJd" = (
-/obj/machinery/conveyor{
-	id = "cargo_1"
-	},
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "cargo_shuttle_airlock";
-	locked = 1;
-	name = "Cargo Shuttle";
-	req_access = list(13,31)
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled/dark,
-/area/supply/dock)
 "wJr" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -38409,6 +38393,22 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/control)
+"xcl" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "QMLoad"
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	frequency = 1380;
+	icon_state = "door_locked";
+	id_tag = "cargo_shuttle_airlock";
+	locked = 1;
+	name = "Cargo Shuttle";
+	req_access = list(13,31)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/supply/dock)
 "xcy" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Aft Thrusters Access - Deck 1"
@@ -49714,8 +49714,8 @@ hjS
 pwX
 iHp
 dju
-wJd
-wvN
+jIg
+vLS
 srr
 hRB
 srr
@@ -49723,8 +49723,8 @@ hRB
 srr
 hRB
 iJn
-vLS
-jIg
+aCp
+npJ
 dju
 iHp
 qNJ
@@ -49971,8 +49971,8 @@ ryD
 pwX
 iHp
 kFa
-vac
-srr
+jIg
+eyp
 srr
 srr
 srr
@@ -49980,8 +49980,8 @@ srr
 srr
 srr
 iJn
-eyp
-jIg
+lKL
+jMt
 cEd
 iHp
 qNJ
@@ -50228,17 +50228,17 @@ slt
 pwX
 iHp
 dju
-pIt
-lKM
-bEa
+jIg
+jts
+srr
 hRB
 srr
 hRB
 srr
 hRB
 iJn
-jts
-jIg
+qHW
+xcl
 dju
 iHp
 qNJ

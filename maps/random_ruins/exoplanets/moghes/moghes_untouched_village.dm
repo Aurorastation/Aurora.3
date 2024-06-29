@@ -80,5 +80,8 @@
 /obj/outfit/admin/unathi_village/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return
+	if(H.w_uniform)
+		H.w_uniform.color = "#ebe3d8"
+		H.w_uniform.accent_color = "#ebe3d8"
 	if(H.shoes)
 		H.shoes.color = "#423509"

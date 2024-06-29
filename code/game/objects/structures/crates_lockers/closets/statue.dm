@@ -152,7 +152,11 @@
 /obj/structure/closet/statue/MouseDrop_T()
 	return
 
-/obj/structure/closet/statue/relaymove()
+/obj/structure/closet/statue/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	return
 
 /obj/structure/closet/statue/attack_hand()

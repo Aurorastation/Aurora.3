@@ -68,6 +68,7 @@
 /obj/outfit/admin/moghes_dorviza
 	uniform = list(/obj/item/clothing/under/unathi, /obj/item/clothing/under/unathi/himation)
 	suit = list(/obj/item/clothing/suit/unathi/robe, /obj/item/clothing/suit/unathi/robe/kilt)
+	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
 	shoes = /obj/item/clothing/shoes/sandals/caligae
 	l_ear = null
 	id = null
@@ -85,3 +86,4 @@
 	uniform = /obj/item/clothing/under/gearharness
 	suit = /obj/item/clothing/accessory/poncho/green
 	shoes = null
+	glasses = null

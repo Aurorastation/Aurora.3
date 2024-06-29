@@ -160,8 +160,10 @@
 		/obj/item/storage/box/survival = 1,
 		/obj/item/device/camera = 1,
 		/obj/item/device/camera_film = 2,
-		/obj/item/device/taperecorder = 1
+		/obj/item/device/taperecorder = 1,
+		/obj/item/device/scanner = 1
 	)
+	belt = /obj/item/storage/belt/archaeology/full
 
 /datum/job/eventops
 	title = "Operations Personnel"

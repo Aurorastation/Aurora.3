@@ -31,11 +31,28 @@
 		/obj/item/clothing/accessory/storage/modular_pouch
 	)
 
+/obj/item/clothing/suit/armor/carrier/officer/equipped
+	starting_accessories = list(
+		/obj/item/clothing/accessory/armor_plate,
+		/obj/item/clothing/accessory/storage/modular_pouch,
+		/obj/item/clothing/accessory/arm_guard,
+		/obj/item/clothing/accessory/leg_guard
+	)
+
 /obj/item/clothing/suit/armor/carrier/hos
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate,
 		/obj/item/clothing/accessory/storage/modular_pouch/large,
 		/obj/item/clothing/accessory/sec_commander_stripes
+	)
+
+/obj/item/clothing/suit/armor/carrier/hos/equipped
+	starting_accessories = list(
+		/obj/item/clothing/accessory/armor_plate,
+		/obj/item/clothing/accessory/storage/modular_pouch/large,
+		/obj/item/clothing/accessory/sec_commander_stripes,
+		/obj/item/clothing/accessory/arm_guard,
+		/obj/item/clothing/accessory/leg_guard
 	)
 
 /obj/item/clothing/suit/armor/carrier/generic

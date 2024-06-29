@@ -179,7 +179,7 @@ var/const/NO_EMAG_ACT = -50
 /mob/living/carbon/human/set_id_info(var/obj/item/card/id/id_card)
 	..()
 	id_card.age 				= age
-	id_card.citizenship			= citizenship
+	id_card.citizenship			= SSrecords.get_citizenship_record_name(citizenship)
 	id_card.mob_id				= WEAKREF(src)
 	id_card.employer_faction    = employer_faction
 
@@ -392,12 +392,32 @@ var/const/NO_EMAG_ACT = -50
 	access = get_all_station_access() | get_all_centcom_access()
 	..()
 
+// SCC ID cards
+
+/obj/item/card/id/scc
+	desc = "A high-tech holocard displaying the credentials of a SCC employee."
+	icon_state = "bridge_card"
+
+/obj/item/card/id/scc/bridge
+	desc = "A high-tech holocard displaying the lowly credentials of a SCC bridge crewman."
+	icon_state = "bridge_card"
+
+/obj/item/card/id/scc/silver
+	desc = "A high-tech holocard displaying the credentials of a SCC command member."
+	icon_state = "command_card"
+
+/obj/item/card/id/scc/gold
+	desc = "A high-tech holocard displaying the intimidating credentials of a SCC employee."
+	icon_state = "captain_card"
+
+/obj/item/card/id/scc/gold/captain
+	desc = "A high-tech holocard displaying the commanding credentials of a SCC captain."
+	icon_state = "captain_card"
+
 /obj/item/card/id/captains_spare
 	name = "captain's spare identification card"
 	desc = "A captain's spare identification card."
-	icon_state = "gold"
-	item_state = "gold_id"
-	overlay_state = "gold"
+	icon_state = "captain_card"
 	registered_name = "Captain"
 	assignment = "Captain"
 
@@ -447,7 +467,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/centcom
 	name = "\improper CentCom identification card"
-	desc = "An ID straight from CentCom."
+	desc = "A high-tech holocard displaying the commanding credentials of a Central Command official."
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	registered_name = "Central Command"
@@ -459,7 +479,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/ccia
 	name = "\improper CentCom. Internal Affairs identification card"
-	desc = "An ID straight from CentCom. Internal Affairs."
+	desc = "A high-tech holocard displaying the blood-chilling credentials of an Internal Affairs agent."
 	icon_state = "ccia"
 	overlay_state = "ccia"
 	drop_sound = /singleton/sound_category/generic_drop_sound
@@ -472,7 +492,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/ccia/bssb
 	name = "\improper Biesel Security Services Bureau identification card"
-	desc = "An ID straight from the Biesel Security Services Bureau."
+	desc = "A synthleather ID straight from the Biesel Security Services Bureau."
 	icon_state = "bssb"
 
 /obj/item/card/id/ert
@@ -500,8 +520,11 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/distress
 	name = "\improper Freelancer Mercenary identification card"
-	icon_state = "centcom"
+	icon_state = "data"
 	assignment = "Freelancer Mercenary"
+
+/obj/item/card/id/goon
+	icon_state = "data"
 
 /obj/item/card/id/distress/New()
 	access = list(ACCESS_DISTRESS, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS)
@@ -509,16 +532,17 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/distress/fsf
 	name = "\improper Free Solarian Fleets identification card"
-	icon_state = "centcom"
+	icon_state = "data"
 	assignment = "Free Solarian Fleets Marine"
 
 /obj/item/card/id/distress/kataphract
 	name = "\improper Kataphract identification card"
-	icon_state = "centcom"
+	icon_state = "data"
 	assignment = "Kataphract"
 
 /obj/item/card/id/distress/legion
 	name = "\improper Tau Ceti Foreign Legion identification card"
+	desc = "An old-fashioned, practical plastic card. Cheaply produced for Tau Ceti's finest."
 	assignment = "Tau Ceti Foreign Legion Volunteer"
 	icon_state = "legion"
 

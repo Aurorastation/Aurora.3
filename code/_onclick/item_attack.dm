@@ -51,6 +51,10 @@ avoid code duplication. This includes items that may sometimes act as a standard
 	if(!ismob(user))
 		return FALSE
 
+	if(istype(I, /obj/item/device/scanner))
+		I.afterattack(src, user)
+		return FALSE
+
 	var/selected_zone = user.zone_sel ? user.zone_sel.selecting : BP_CHEST
 	var/operating = can_operate(src)
 	if(operating == SURGERY_SUCCESS)

@@ -18,10 +18,12 @@
 	respawn_flag = null
 
 	uses_species_whitelist = FALSE
-	enabled = FALSE
+	enabled = TRUE
+	password = "thissucks"
 
 /datum/ghostspawner/human/zaza_villager/post_spawn(mob/user)
 	. = ..()
+	renegades.add_antagonist(user.mind, do_not_equip = TRUE)
 	var/mob/living/carbon/human/H = user
 	if(!istype(H))
 		return
@@ -53,6 +55,10 @@
 	uses_species_whitelist = FALSE
 	enabled = FALSE
 
+/datum/ghostspawner/human/izaku_killsquad/post_spawn(mob/user)
+	. = ..()
+	renegades.add_antagonist(user.mind, do_not_equip = TRUE)
+
 /obj/outfit/admin/izaku_killsquad
 	name = "Izaku Warrior"
 
@@ -77,6 +83,10 @@
 	. = ..()
 	new /obj/vehicle/bike/motor/sand(get_turf(H))
 
+/datum/ghostspawner/human/izaku_killsquad/second
+	name = "Killsquad Second Wave"
+	short_name = "killsquad_2"
+
 /datum/ghostspawner/human/izaku_escort
 	name = "Izaku Escort"
 	short_name = "izaku_escort"
@@ -96,6 +106,11 @@
 
 	uses_species_whitelist = FALSE
 	enabled = TRUE
+	password = "nothingtoseehere"
+
+/datum/ghostspawner/human/izaku_escort/post_spawn(mob/user)
+	. = ..()
+	renegades.add_antagonist(user.mind, do_not_equip = TRUE)
 
 /obj/outfit/admin/izaku_escort
 	uniform = /obj/item/clothing/under/unathi/zazali
@@ -105,7 +120,7 @@
 	head = /obj/item/clothing/head/helmet/unathi/hegemony
 	shoes = /obj/item/clothing/shoes/sandals/caligae
 	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
-	id = null
+	id = /obj/item/card/id/goon
 	l_ear = /obj/item/device/radio/headset/syndicate
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/storage/backpack/satchel/leather
@@ -115,6 +130,9 @@
 		/obj/item/grenade/frag = 2
 	)
 
+/obj/outfit/admin/izaku_escort/get_id_access(mob/living/carbon/human/H)
+	return list(ACCESS_SYNDICATE)
+
 /datum/ghostspawner/human/izaku_escort/guard
 	name = "Izaku Guard"
 	short_name = "izaku_guard"
@@ -123,6 +141,10 @@
 	spawnpoints = list("guard")
 	welcome_message = "Your lord has ordered you to learn the true intent of these nefarious Skrell. Guard your surviving prisoner, and ensure no complications."
 	max_count = 2
+	assigned_role = "Guard"
+	special_role = "Guard"
+	enabled = FALSE
+	password = "warcrimes"
 
 /datum/ghostspawner/human/skrurvivor
 	name = "Nralakk Survivor"
@@ -139,7 +161,26 @@
 	outfit = /obj/outfit/admin/skrurvivor
 
 	uses_species_whitelist = FALSE
-	enabled = FALSE
+	//enabled = FALSE
+	password = "warble"
+
+/datum/ghostspawner/human/skrurvivor/post_spawn(mob/user)
+	. = ..()
+	renegades.add_antagonist(user.mind, do_not_equip = TRUE)
+	add_verb(user, /mob/living/carbon/human/proc/observer)
+
+/mob/living/carbon/human/proc/observer()
+	set name = "Observe"
+	set category = "OOC"
+	set desc = "Poor man's aghost"
+
+	var/mob/body = src
+	var/mob/abstract/observer/ghost = body.ghostize(1)
+	//ghost.admin_ghosted = 1
+	if(body)
+		body.teleop = ghost
+		if(!body.key)
+			body.key = "@[key]"
 
 /obj/outfit/admin/skrurvivor
 	uniform = /obj/item/clothing/under/skrell/nralakk/oqi/med
