@@ -117,3 +117,4 @@
 	name = "airlock_tramp_shuttle"
 	master_tag = "airlock_tramp_shuttle"
 	shuttle_tag = "Freight Shuttle"
+	cycle_to_external_air = TRUE

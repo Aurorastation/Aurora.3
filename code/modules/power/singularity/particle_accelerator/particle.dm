@@ -63,12 +63,12 @@
 					PC.parent.energy += energy
 					qdel(src)
 
-/obj/effect/accelerated_particle/CollidedWith(atom/A)
+/obj/effect/accelerated_particle/CollidedWith(atom/bumped_atom)
 	. = ..()
 	if (!active)
 		return
-	if(ismob(A))
-		toxmob(A)
+	if(ismob(bumped_atom))
+		toxmob(bumped_atom)
 
 /obj/effect/accelerated_particle/ex_act(severity)
 	if (!active)

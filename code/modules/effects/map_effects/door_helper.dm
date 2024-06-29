@@ -59,3 +59,14 @@
 	"red" = list(19,38),
 	"delta" = list(19,38)
 )
+
+/// Locks/bolts any (lockable) door/airlock this marker is placed on.
+/obj/effect/map_effect/door_helper/lock
+	icon_state = "locked"
+
+/obj/effect/map_effect/door_helper/lock/modify_door(obj/machinery/door/D)
+	. = ..()
+	if(isairlock(D))
+		var/obj/machinery/door/airlock/A = D
+		A.locked = TRUE
+		A.set_airlock_overlays(AIRLOCK_CLOSED)

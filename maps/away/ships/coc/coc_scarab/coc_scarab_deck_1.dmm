@@ -133,7 +133,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "airlock_scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab/central)
@@ -189,7 +190,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "airlock_scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
@@ -1431,7 +1433,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "airlock_scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
@@ -1685,7 +1688,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "airlock_scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/coc_scarab/central)
@@ -1760,7 +1764,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "airlock_scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
@@ -1878,7 +1883,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "airlock_scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
@@ -1905,7 +1911,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "airlock_scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
@@ -2034,7 +2041,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "airlock_scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
@@ -2210,7 +2218,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "airlock_scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/coc_scarab/central)
@@ -2562,7 +2571,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "airlock_scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
@@ -2587,7 +2597,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_scarab_shuttle";
 	master_tag = "airlock_scarab_shuttle";
-	shuttle_tag = "Scarab Shuttle"
+	shuttle_tag = "Scarab Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)

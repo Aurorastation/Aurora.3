@@ -195,7 +195,7 @@
 
 	to_chat(user, SPAN_NOTICE("\The [src] begins to spin, separating the contents of the samples."))
 
-	icon_state = "[initial(icon_state)]_working"
+	icon_state = "centrifuge_working"
 	addtimer(CALLBACK(src, PROC_REF(process_samples)), 30 SECONDS)
 
 /obj/machinery/centrifuge/proc/process_samples()
@@ -326,7 +326,7 @@
 
 	to_chat(user, SPAN_NOTICE("\The [src] begins to glow, shining light through its sample."))
 
-	icon_state = "[initial(icon_state)]_working"
+	icon_state = "spectrophotometer_working"
 	addtimer(CALLBACK(src, PROC_REF(process_sample)), 15 SECONDS)
 
 /**

@@ -100,16 +100,17 @@
 	if(isunathi(attacker))
 		damage += 5
 
-	var/obj/item/clothing/hat = attacker.head
-	if(istype(hat))
-		damage += hat.force * 3
-
 	target.apply_damage(damage, DAMAGE_BRUTE, BP_HEAD)
 	attacker.apply_damage(10, DAMAGE_BRUTE, BP_HEAD)
 
-	if(armor < 25 && target.headcheck(BP_HEAD) && prob(damage))
+	var/targetarmor = 100 * target.get_blocked_ratio(BP_HEAD, DAMAGE_BRUTE, damage = damage)
+	var/attackerarmor = 100 * attacker.get_blocked_ratio(BP_HEAD, DAMAGE_BRUTE, damage = damage)
+	if((targetarmor < 25 || targetarmor < attackerarmor) && target.headcheck(BP_HEAD) && prob(damage))
 		target.apply_effect(20, PARALYZE)
 		target.visible_message(SPAN_DANGER("[target] [target.species.knockout_message]"))
+	if(attackerarmor < targetarmor && attacker.headcheck(BP_HEAD) && prob(damage))
+		attacker.apply_effect(20, PARALYZE)
+		attacker.visible_message(SPAN_DANGER("[attacker] [attacker.species.knockout_message]"))
 
 	playsound(attacker.loc, /singleton/sound_category/swing_hit_sound, 25, 1, -1)
 	attacker.attack_log += text("\[[time_stamp()]\] <span class='warning'>Headbutted [target.name] ([target.ckey])</span>")

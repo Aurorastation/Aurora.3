@@ -8,9 +8,6 @@
 	anchored = 1.0
 	var/spawnable = null
 
-/obj/effect/gateway/CollidedWith(mob/M)
-	return
-
 /obj/effect/gateway/Crossed(AM as mob|obj)
 	return
 

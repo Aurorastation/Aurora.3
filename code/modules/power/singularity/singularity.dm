@@ -79,10 +79,10 @@
 	if (A)
 		consume(A)
 
-/obj/singularity/CollidedWith(atom/movable/AM)
+/obj/singularity/CollidedWith(atom/bumped_atom)
 	. = ..()
-	if (AM)
-		consume(AM)
+	if (bumped_atom)
+		consume(bumped_atom)
 
 /obj/singularity/process()
 	eat()

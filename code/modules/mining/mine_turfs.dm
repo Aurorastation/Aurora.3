@@ -144,24 +144,24 @@ var/list/mineral_can_smooth_with = list(
 	if(emitter_blasts_taken >= 3)
 		GetDrilled()
 
-/turf/simulated/mineral/CollidedWith(AM)
+/turf/simulated/mineral/CollidedWith(atom/bumped_atom)
 	. = ..()
-	if(istype(AM,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = AM
+	if(istype(bumped_atom, /mob/living/carbon/human))
+		var/mob/living/carbon/human/H = bumped_atom
 		if((istype(H.l_hand,/obj/item/pickaxe)) && (!H.hand))
 			var/obj/item/pickaxe/P = H.l_hand
 			if(P.autodrill)
-				attackby(H.l_hand,H)
+				INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, attackby), H.l_hand, H)
 
-		else if((istype(H.r_hand,/obj/item/pickaxe)) && H.hand)
+		else if((istype(H.r_hand, /obj/item/pickaxe)) && H.hand)
 			var/obj/item/pickaxe/P = H.r_hand
 			if(P.autodrill)
-				attackby(H.r_hand,H)
+				INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, attackby), H.r_hand, H)
 
-	else if(istype(AM,/mob/living/silicon/robot))
-		var/mob/living/silicon/robot/R = AM
+	else if(istype(bumped_atom, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/R = bumped_atom
 		if(istype(R.module_active,/obj/item/pickaxe))
-			attackby(R.module_active,R)
+			INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, attackby), R.module_active, R)
 
 //For use in non-station z-levels as decoration.
 /turf/unsimulated/mineral/asteroid

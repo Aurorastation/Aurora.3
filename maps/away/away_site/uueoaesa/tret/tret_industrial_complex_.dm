@@ -110,3 +110,4 @@
 	master_tag = "airlock_tret_industrial_shuttle"
 	req_one_access = null
 	req_access = null
+	cycle_to_external_air = TRUE

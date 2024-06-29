@@ -21,7 +21,6 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/hangar)
 "aac" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "chemwindowIAC";
@@ -31,6 +30,12 @@
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "iac_windows_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/pharmacy)
@@ -70,11 +75,16 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/hangar)
 "adW" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "iac_windows_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/afthallway)
@@ -247,11 +257,16 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/starboardengine)
 "aqo" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "iac_windows_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/kitchen)
@@ -1609,7 +1624,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/centralhallway)
 "dbG" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
@@ -1617,6 +1631,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/iac_shuttle)
@@ -2215,11 +2235,16 @@
 /turf/space/transit/north,
 /area/space)
 "euz" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "chemwindowIAC";
 	name = "Window Shutter"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/pharmacy)
@@ -2557,7 +2582,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/medical)
 "fhX" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
 	},
@@ -2570,6 +2594,12 @@
 	dir = 4;
 	name = "Safety Blast Doors";
 	id = "iac_windows_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/bridge)
@@ -2810,11 +2840,16 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/hangar)
 "fFU" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "iac_windows_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/medical)
@@ -3549,7 +3584,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/coord)
 "hoH" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
@@ -3559,6 +3593,12 @@
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "iac_windows_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/afthallway)
@@ -3690,12 +3730,6 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/bed/handrail,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_iac_rescue_shuttle";
-	req_one_access = list(211);
-	master_tag = "airlock_iac_rescue_shuttle";
-	shuttle_tag = "IAC Ambulance Shuttle"
-	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_x = -6;
@@ -3704,6 +3738,13 @@
 /obj/machinery/airlock_sensor{
 	pixel_x = 6;
 	pixel_y = 24
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_iac_rescue_shuttle";
+	req_one_access = list(211);
+	master_tag = "airlock_iac_rescue_shuttle";
+	shuttle_tag = "IAC Ambulance Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/iac_shuttle)
@@ -4020,17 +4061,18 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_iac_rescue_shuttle";
-	req_one_access = list(211);
-	master_tag = "airlock_iac_rescue_shuttle";
-	shuttle_tag = "IAC Ambulance Shuttle"
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
 	pixel_x = 10;
 	pixel_y = -26;
 	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_iac_rescue_shuttle";
+	req_one_access = list(211);
+	master_tag = "airlock_iac_rescue_shuttle";
+	shuttle_tag = "IAC Ambulance Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/iac_shuttle)
@@ -4053,13 +4095,14 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_iac_rescue_shuttle";
 	req_one_access = list(211);
 	master_tag = "airlock_iac_rescue_shuttle";
-	shuttle_tag = "IAC Ambulance Shuttle"
+	shuttle_tag = "IAC Ambulance Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/iac_shuttle)
 "iuU" = (
@@ -4245,13 +4288,14 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_iac_rescue_shuttle";
 	req_one_access = list(211);
 	master_tag = "airlock_iac_rescue_shuttle";
-	shuttle_tag = "IAC Ambulance Shuttle"
+	shuttle_tag = "IAC Ambulance Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/iac_shuttle)
 "iJs" = (
@@ -4338,13 +4382,14 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_iac_rescue_shuttle";
 	req_one_access = list(211);
 	master_tag = "airlock_iac_rescue_shuttle";
-	shuttle_tag = "IAC Ambulance Shuttle"
+	shuttle_tag = "IAC Ambulance Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/iac_shuttle)
 "iTS" = (
@@ -4473,7 +4518,8 @@
 	name = "airlock_iac_rescue_shuttle";
 	req_one_access = list(211);
 	master_tag = "airlock_iac_rescue_shuttle";
-	shuttle_tag = "IAC Ambulance Shuttle"
+	shuttle_tag = "IAC Ambulance Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/iac_shuttle)
@@ -4825,11 +4871,16 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ship/iac_rescue_ship/bathroom)
 "kak" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "iac_windows_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/coord)
@@ -4997,11 +5048,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/iac_shuttle)
 "kFO" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "iac_windows_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/portengine)
@@ -5272,7 +5328,6 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/hangar)
 "llg" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "chemwindowIAC";
@@ -5285,6 +5340,12 @@
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "iac_windows_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/pharmacy)
@@ -5592,7 +5653,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/kitchen)
 "mpX" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
@@ -5600,6 +5660,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 8
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/iac_shuttle)
@@ -5673,11 +5739,16 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/starboardengine)
 "mGf" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "iac_shuttle_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/iac_shuttle)
@@ -5916,11 +5987,16 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/portengine)
 "ntN" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
 	id = "iac_windows_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/starboarddocking)
@@ -6453,7 +6529,6 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/portengine)
 "oLN" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/south{
 	name = "fore, bridge"
 	},
@@ -6461,6 +6536,12 @@
 	dir = 4;
 	name = "Safety Blast Doors";
 	id = "iac_shuttle_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/iac_shuttle)
@@ -6651,11 +6732,16 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/hangar)
 "pkG" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "iac_windows_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/dorms)
@@ -6855,7 +6941,8 @@
 	name = "airlock_iac_rescue_shuttle";
 	req_one_access = list(211);
 	master_tag = "airlock_iac_rescue_shuttle";
-	shuttle_tag = "IAC Ambulance Shuttle"
+	shuttle_tag = "IAC Ambulance Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/white,
@@ -6922,11 +7009,16 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/hangar)
 "pPY" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "iac_windows_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/bathroom)
@@ -7050,13 +7142,14 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_iac_rescue_shuttle";
 	req_one_access = list(211);
 	master_tag = "airlock_iac_rescue_shuttle";
-	shuttle_tag = "IAC Ambulance Shuttle"
+	shuttle_tag = "IAC Ambulance Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/iac_shuttle)
 "qjc" = (
@@ -7082,7 +7175,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/iac_rescue_ship/hydro)
 "qkm" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
@@ -7092,6 +7184,12 @@
 	dir = 4;
 	name = "Safety Blast Doors";
 	id = "iac_windows_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/bridge)
@@ -7309,17 +7407,18 @@
 	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_iac_rescue_shuttle";
-	req_one_access = list(211);
-	master_tag = "airlock_iac_rescue_shuttle";
-	shuttle_tag = "IAC Ambulance Shuttle"
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/airlock_sensor{
 	dir = 4;
 	pixel_x = 12;
 	pixel_y = 40
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_iac_rescue_shuttle";
+	req_one_access = list(211);
+	master_tag = "airlock_iac_rescue_shuttle";
+	shuttle_tag = "IAC Ambulance Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/iac_shuttle)
@@ -7500,7 +7599,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/mainstorage)
 "reH" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
@@ -7510,6 +7608,12 @@
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "iac_windows_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/bridge)
@@ -8462,11 +8566,16 @@
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/starboardengine)
 "tGp" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "iac_windows_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/hydro)
@@ -8532,11 +8641,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/iac_rescue_ship/bridge)
 "tQC" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
 	id = "iac_windows_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/portdocking)
@@ -8624,11 +8738,16 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/ship/iac_rescue_ship/dorms)
 "uef" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "iac_windows_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/ship/iac_rescue_ship/starboardengine)
@@ -8698,11 +8817,16 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/iac_rescue_ship/starboardengine)
 "upe" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
 	id = "iac_shuttle_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/iac_shuttle)
@@ -8751,12 +8875,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/ship/iac_rescue_ship/bathroom)
-"uyt" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor,
-/area/ship/iac_rescue_ship/hangar)
 "uBm" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -9488,7 +9606,8 @@
 	name = "airlock_iac_rescue_shuttle";
 	req_one_access = list(211);
 	master_tag = "airlock_iac_rescue_shuttle";
-	shuttle_tag = "IAC Ambulance Shuttle"
+	shuttle_tag = "IAC Ambulance Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/iac_shuttle)
@@ -41361,7 +41480,7 @@ wrJ
 wrJ
 jar
 aab
-uyt
+sDt
 aaa
 aAY
 mpX
@@ -41618,7 +41737,7 @@ iCT
 wrJ
 jar
 aab
-uyt
+sDt
 jJx
 aAY
 mLN
@@ -43160,7 +43279,7 @@ eCO
 wrJ
 hwr
 jqj
-uyt
+sDt
 jJx
 aAY
 xHP
@@ -43417,7 +43536,7 @@ wrJ
 wrJ
 jar
 fkL
-uyt
+sDt
 fpQ
 aAY
 mGf

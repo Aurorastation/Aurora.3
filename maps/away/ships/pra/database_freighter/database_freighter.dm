@@ -118,3 +118,4 @@
 	shuttle_tag = "Database Freighter Shuttle"
 	master_tag = "airlock_database_freighter_shuttle"
 	req_one_access = list(209)
+	cycle_to_external_air = TRUE

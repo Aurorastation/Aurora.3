@@ -110,3 +110,4 @@
 	name = "SCC Scout Shuttle"
 	shuttle_tag = "SCC Scout Shuttle"
 	master_tag = "airlock_scc_scout_shuttle"
+	cycle_to_external_air = TRUE

@@ -65,10 +65,10 @@
 	if(lock)
 		. += SPAN_NOTICE("It appears to have a lock.")
 
-/obj/structure/simple_door/CollidedWith(atom/user)
+/obj/structure/simple_door/CollidedWith(atom/bumped_atom)
 	..()
 	if(!state)
-		return TryToSwitchState(user)
+		return TryToSwitchState(bumped_atom)
 	return
 
 /obj/structure/simple_door/attack_ai(mob/user as mob) //those aren't machinery, they're just big fucking slabs of a mineral
@@ -123,22 +123,30 @@
 	isSwitchingStates = 1
 	playsound(loc, material.dooropen_noise, 100, 1)
 	flick("[material.door_icon_base]opening",src)
-	sleep(10)
-	density = 0
-	opacity = 0
-	state = 1
-	update_icon()
-	isSwitchingStates = 0
-	update_nearby_tiles()
+	addtimer(CALLBACK(src, PROC_REF(change_state_after_openclode), TRUE), 1 SECONDS)
+
 
 /obj/structure/simple_door/proc/Close()
 	isSwitchingStates = 1
 	playsound(loc, material.dooropen_noise, 100, 1)
 	flick("[material.door_icon_base]closing",src)
-	sleep(10)
-	density = 1
-	opacity = 1
-	state = 0
+	addtimer(CALLBACK(src, PROC_REF(change_state_after_openclode), FALSE), 1 SECONDS)
+
+/**
+ * Complete the open/close of the door
+ *
+ * * to_open - Whether the door is to be set as open, if FALSE, it is to be set as closed instead
+ */
+/obj/structure/simple_door/proc/change_state_after_openclode(to_open = FALSE)
+	if(to_open)
+		density = 0
+		opacity = 0
+		state = 1
+	else
+		density = 1
+		opacity = 1
+		state = 0
+
 	update_icon()
 	isSwitchingStates = 0
 	update_nearby_tiles()

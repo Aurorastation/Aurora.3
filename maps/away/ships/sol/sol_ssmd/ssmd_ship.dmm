@@ -417,6 +417,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle/ssmd_shuttle{
 	req_one_access = list(13,203)
 	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/ssmd_shuttle)
 "aUQ" = (
@@ -2895,6 +2896,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle/ssmd_shuttle{
 	req_one_access = list(13,203)
 	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/ssmd_shuttle)
 "hGn" = (
@@ -4316,7 +4318,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/ssmd_shuttle)
 "moE" = (

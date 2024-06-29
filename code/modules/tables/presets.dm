@@ -17,7 +17,7 @@
 	table_mat = MATERIAL_MARBLE
 
 /obj/structure/table/reinforced
-	icon_state = "reinf_preview"
+	icon_state = "reinf_solid_preview"
 	table_mat = DEFAULT_TABLE_MATERIAL
 	table_reinf = DEFAULT_TABLE_REINF_MATERIAL
 
