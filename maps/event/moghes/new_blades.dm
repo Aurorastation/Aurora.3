@@ -40,6 +40,12 @@
 	lighting = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "This building appears better preserved than most in the Wasteland - it could make for a useful shelter if needed."
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
+
+/area/new_blades/interiors/skrell_base
+	name = "Skrell Base"
+	area_blurb = "The vibrant colors and curves of skrell construction contrast sharply with the surrounding dusty wasteland, but that's not the only thing wrong with this picture."
+	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 /area/new_blades/interiors/ruins
 	name = "Wasteland Ruins"
@@ -62,6 +68,7 @@
 /area/shuttle/scc_evac
 	name = "SCC Transport Shuttle"
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 
 /area/turbolift/hegemony_bunker_A
 	name = "Bunker Lift A"
@@ -83,25 +90,25 @@
 	waypoint_offsite = "nav_scc_evac_start"
 
 /obj/effect/shuttle_landmark/scc_evac/start
-	name = "SCC Evac Landing"
+	name = "Izilukh Landing Zone"
 	landmark_tag = "nav_scc_evac_start"
 	docking_controller = "scc_evac_station"
 	base_turf = /turf/simulated/floor/exoplanet/desert
 	base_area = /area/new_blades
 
 /obj/effect/shuttle_landmark/scc_evac/interim
-	name = "In Transit"
+	name = "In transit"
 	landmark_tag = "nav_scc_evac_interim"
 	base_turf = /turf/space/transit/bluespace/west
 
 /obj/effect/shuttle_landmark/scc_evac/dock
-	name = "SCC Evac Shuttle Dock"
+	name = "SCCV Horizon Docking Port"
 	landmark_tag = "nav_scc_evac_dock"
 	docking_controller = "scc_evac_shuttle_dock"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
 
 /obj/machinery/computer/shuttle_control/scc_evac
-	name = "evacuation shuttle control console"
+	name = "SCCV Apollo control console"
 	req_access = list(ACCESS_HEADS)
 	shuttle_tag = "SCC Evac Shuttle"
 	var/locked = FALSE
