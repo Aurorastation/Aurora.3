@@ -205,13 +205,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
-"adE" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/random/dirt_75,
-/turf/simulated/floor/wood/maple{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins)
 "aeh" = (
 /obj/structure/survey_probe,
 /obj/effect/floor_decal/industrial/outline/research,
@@ -2006,7 +1999,7 @@
 	identifier = "escort"
 	},
 /turf/simulated/floor/sidewalk/blocks,
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "aNC" = (
 /obj/random/dirt_75,
 /obj/machinery/constructable_frame/temp_deco{
@@ -3379,6 +3372,13 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"bzs" = (
+/obj/random/dirt_75,
+/obj/item/ladder_mobile,
+/turf/simulated/floor/sidewalk/blocks{
+	temperature = 315.15
+	},
+/area/new_blades/interiors)
 "bAw" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -3775,7 +3775,7 @@
 /obj/structure/rope_railing{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/mineral{
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/new_blades)
@@ -3911,14 +3911,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
-"bOF" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
-	},
-/turf/simulated/floor/wood/maple{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins)
 "bOJ" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -4780,7 +4772,7 @@
 	name = "duckboard"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/mineral{
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/new_blades)
@@ -4834,13 +4826,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
-"cii" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/asteroid,
-/turf/simulated/floor/exoplanet/mineral{
-	temperature = 315.15
-	},
-/area/new_blades)
 "cin" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
@@ -5204,14 +5189,12 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/scc_evac)
 "csk" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/turf/simulated/floor/wood/maple{
+/obj/structure/bonfire/fireplace,
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/detail{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "ctb" = (
 /turf/simulated/floor/sidewalk/detail{
 	temperature = 315.15
@@ -6149,7 +6132,7 @@
 /turf/simulated/floor/sidewalk/flat{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "cRJ" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/random/dirt_75,
@@ -6814,10 +6797,13 @@
 "dka" = (
 /obj/structure/table/stone/marble,
 /obj/random/dirt_75,
+/obj/item/broken_bottle{
+	pixel_x = -4
+	},
 /turf/simulated/floor/sidewalk/flat{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "dkf" = (
 /obj/structure/table/wood,
 /obj/structure/lattice/catwalk/indoor/planks{
@@ -6985,7 +6971,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/sidewalk/blocks,
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "dpV" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
@@ -7604,17 +7590,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
-"dEf" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/turf/simulated/floor/wood/maple{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins)
 "dEG" = (
 /obj/effect/floor_decal/concrete{
 	dir = 9
@@ -8004,7 +7979,7 @@
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "dNt" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -8460,7 +8435,7 @@
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "dXG" = (
 /obj/structure/bed/padded,
 /obj/random/dirt_75,
@@ -9218,7 +9193,7 @@
 /obj/structure/bed/stool/chair/sofa/left/beige,
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/blocks,
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "euj" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -9918,7 +9893,7 @@
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "ePG" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
@@ -11643,7 +11618,7 @@
 /area/new_blades/underground)
 "fBc" = (
 /turf/simulated/floor/sidewalk/blocks,
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "fBi" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/broken{
@@ -12681,14 +12656,6 @@
 	temperature = 315.15
 	},
 /area/new_blades)
-"gdP" = (
-/obj/effect/floor_decal/spline/fancy/wood/corner{
-	dir = 4
-	},
-/turf/simulated/floor/wood/maple{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins)
 "gdT" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -14340,7 +14307,7 @@
 /turf/simulated/floor/sidewalk/flat{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "gNj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -14436,7 +14403,7 @@
 /turf/simulated/floor/sidewalk/flat{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "gOC" = (
 /obj/effect/floor_decal/asteroid,
 /obj/effect/decal/curb,
@@ -14893,7 +14860,7 @@
 	identifier = "escort"
 	},
 /turf/simulated/floor/sidewalk/blocks,
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "had" = (
 /obj/random/dirt_75,
 /obj/item/ore/lead{
@@ -15101,7 +15068,7 @@
 /area/new_blades/interiors/ruins)
 "hfN" = (
 /obj/structure/ore_box,
-/turf/simulated/floor/exoplanet/mineral{
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/new_blades)
@@ -16948,7 +16915,7 @@
 "idF" = (
 /obj/random/dirt_75,
 /obj/vehicle/train/cargo/trolley/mining,
-/turf/simulated/floor/exoplanet/mineral{
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/new_blades)
@@ -18440,7 +18407,7 @@
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "iJT" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/board{
@@ -18616,7 +18583,7 @@
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "iPF" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -19127,7 +19094,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "jfI" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -19478,7 +19445,7 @@
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "joA" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 4
@@ -19789,14 +19756,13 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/scc_evac)
 "jvt" = (
-/obj/structure/table/wood,
+/obj/structure/simple_door/wood,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/device/flashlight/lamp/off,
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "jvM" = (
 /turf/unsimulated/mineral,
 /area/new_blades/underground)
@@ -21023,7 +20989,7 @@
 /turf/simulated/floor/concrete{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "jTY" = (
 /obj/effect/decal/curb{
 	dir = 4
@@ -21546,11 +21512,6 @@
 	},
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/maple{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins)
-"kkE" = (
-/turf/simulated/floor/sidewalk/flat{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
@@ -22353,7 +22314,7 @@
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "kCH" = (
 /obj/random/dirt_75,
 /obj/item/material/stool/bar{
@@ -22601,7 +22562,7 @@
 /turf/simulated/floor/concrete{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "kIS" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/concrete{
@@ -24177,7 +24138,7 @@
 "lvS" = (
 /obj/structure/ore_box,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/mineral{
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/new_blades)
@@ -24640,7 +24601,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/sidewalk/blocks,
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "lJX" = (
 /obj/structure/curtain/open/bed,
 /obj/random/dirt_75,
@@ -24764,7 +24725,7 @@
 /area/new_blades)
 "lNj" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Elevator 2";
+	name = "Elevator A";
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch_door{
@@ -24774,6 +24735,18 @@
 /obj/machinery/computer/shuttle_control/multi/lift/wall/bunker_A{
 	dir = 4;
 	pixel_y = 27
+	},
+/obj/machinery/button/remote/blast_door{
+	name = "Elevator Shutter";
+	pixel_y = -27;
+	dir = 8;
+	pixel_x = 10;
+	id = "elevator_a_shutter"
+	},
+/obj/machinery/door/blast/shutters{
+	name = "Elevator A";
+	id = "elevator_a_shutter";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full{
 	temperature = 315.15
@@ -24817,7 +24790,7 @@
 	name = "duckboard"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/mineral{
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/new_blades)
@@ -24906,7 +24879,7 @@
 /obj/structure/rope_railing{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/mineral{
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/new_blades)
@@ -25709,7 +25682,7 @@
 	name = "duckboard"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/mineral{
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/new_blades)
@@ -25757,7 +25730,7 @@
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "mdn" = (
 /obj/random/dirt_75,
 /obj/item/ore/aluminium{
@@ -26225,7 +26198,7 @@
 /turf/simulated/floor/sidewalk/flat{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "mmN" = (
 /obj/item/material/stool/chair/wood{
 	dir = 1;
@@ -26548,7 +26521,7 @@
 /turf/simulated/floor/sidewalk/flat{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "mxW" = (
 /obj/structure/table/skrell,
 /obj/structure/window/borosilicate/reinforced/skrell{
@@ -27837,12 +27810,6 @@
 	temperature = 315.15
 	},
 /area/new_blades)
-"nhC" = (
-/obj/structure/flora/grass/desert,
-/turf/simulated/floor/exoplanet/mineral{
-	temperature = 315.15
-	},
-/area/new_blades)
 "nhN" = (
 /obj/structure/table/rack/retail_shelf{
 	name = "shelves"
@@ -28259,6 +28226,16 @@
 	dir = 9
 	},
 /turf/simulated/floor/concrete{
+	temperature = 315.15
+	},
+/area/new_blades)
+"nrB" = (
+/obj/machinery/button/remote/blast_door{
+	name = "Elevator Shutter";
+	pixel_y = -28;
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/new_blades)
@@ -29469,7 +29446,7 @@
 /area/new_blades)
 "nXx" = (
 /obj/machinery/door/airlock/hatch{
-	name = "Elevator 1"
+	name = "Elevator B"
 	},
 /obj/effect/floor_decal/industrial/hatch_door{
 	color = "#b19664";
@@ -29480,18 +29457,27 @@
 	pixel_y = 10;
 	pixel_x = -28
 	},
+/obj/machinery/button/remote/blast_door{
+	name = "Elevator Shutter";
+	pixel_x = 27;
+	pixel_y = 13;
+	id = "elevator_b_shutter"
+	},
+/obj/machinery/door/blast/shutters{
+	name = "Elevator B";
+	id = "elevator_b_shutter"
+	},
 /turf/simulated/floor/tiled/full{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
 "nXB" = (
-/obj/structure/bed/padded,
-/obj/structure/curtain/open/bed,
-/obj/item/bedsheet/black,
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/obj/random/dirt_75,
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "nXG" = (
 /obj/structure/flora/grass/desert,
 /obj/effect/decal/curb/corner{
@@ -29852,12 +29838,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/concrete,
-/area/new_blades)
-"ogi" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/mineral{
-	temperature = 315.15
-	},
 /area/new_blades)
 "ogj" = (
 /obj/machinery/chemical_dispenser/full{
@@ -30299,7 +30279,7 @@
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "oon" = (
 /obj/structure/flora/tree/desert/tiny{
 	pixel_x = -32
@@ -30685,18 +30665,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/skrell_base)
-"ovu" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/wood/maple{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins)
 "ovK" = (
 /obj/machinery/vending/wallmed2{
 	pixel_y = 29
@@ -31801,7 +31769,7 @@
 /turf/simulated/floor/sidewalk/flat{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "oZp" = (
 /obj/effect/floor_decal/corner/red,
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -32457,7 +32425,7 @@
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "poQ" = (
 /obj/structure/flora/rock/desert/scrub,
 /obj/effect/decal/curb/corner,
@@ -34451,13 +34419,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/skrell_base)
-"qsr" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/mineral{
-	temperature = 315.15
-	},
-/area/new_blades)
 "qst" = (
 /obj/item/storage/box/fancy/matches{
 	pixel_x = 5;
@@ -35249,7 +35210,7 @@
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "qMd" = (
 /obj/effect/decal/cleanable/blood/drip{
 	color = "#0081CD";
@@ -35571,7 +35532,7 @@
 "qSP" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/sidewalk/blocks,
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "qSV" = (
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#ffffff";
@@ -35758,6 +35719,10 @@
 /obj/random/dirt_75,
 /obj/effect/decal/road_marking{
 	dir = 4
+	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff";
+	light_range = 6
 	},
 /turf/simulated/floor/asphalt{
 	temperature = 315.15
@@ -36842,7 +36807,7 @@
 /turf/simulated/floor/sidewalk/flat{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "rDu" = (
 /obj/item/material/shard{
 	pixel_y = -17;
@@ -38173,7 +38138,7 @@
 	name = "duckboard"
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/mineral{
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/new_blades)
@@ -38303,7 +38268,7 @@
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "snT" = (
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
@@ -39185,7 +39150,7 @@
 "sKN" = (
 /obj/random/dirt_75,
 /obj/structure/closet/crate/miningcart/ore,
-/turf/simulated/floor/exoplanet/mineral{
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/new_blades)
@@ -41799,6 +41764,10 @@
 /obj/effect/decal/road_marking{
 	dir = 8
 	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff";
+	light_range = 6
+	},
 /turf/simulated/floor/asphalt{
 	temperature = 315.15
 	},
@@ -42841,14 +42810,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/skrell_base)
-"uuC" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/turf/simulated/floor/wood/maple{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins)
 "uuP" = (
 /obj/structure/table/rack,
 /obj/item/saddle,
@@ -42927,12 +42888,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
-"uwp" = (
-/obj/structure/flora/rock/desert,
-/turf/simulated/floor/exoplanet/mineral{
-	temperature = 315.15
-	},
-/area/new_blades)
 "uwD" = (
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/planks{
@@ -43031,6 +42986,14 @@
 	temperature = 315.15
 	},
 /area/new_blades)
+"uzO" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/obj/item/hoist_kit{
+	pixel_y = 14
+	},
+/turf/simulated/open,
+/area/new_blades/interiors)
 "uAa" = (
 /obj/random/dirt_75,
 /obj/item/stack/rods{
@@ -43241,7 +43204,7 @@
 	identifier = "escort"
 	},
 /turf/simulated/floor/sidewalk/blocks,
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "uGr" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
@@ -44572,7 +44535,7 @@
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "vjs" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -45320,7 +45283,7 @@
 /turf/simulated/floor/sidewalk/flat{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "vCC" = (
 /obj/effect/decal/curb{
 	dir = 6
@@ -45471,12 +45434,6 @@
 /obj/random/dirt_75,
 /obj/machinery/light/broken,
 /turf/simulated/floor/wood/maple{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins)
-"vIm" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/sidewalk/flat{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
@@ -45889,18 +45846,6 @@
 	temperature = 315.15
 	},
 /area/new_blades)
-"vRU" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/fancy/wood/corner{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/wood/maple{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins)
 "vSm" = (
 /obj/structure/table/wood,
 /obj/item/newspaper{
@@ -46149,20 +46094,15 @@
 	},
 /area/new_blades)
 "vYw" = (
-/obj/structure/closet/cabinet,
-/obj/item/clothing/under/unathi/himation,
-/obj/item/clothing/under/unathi/himation,
-/obj/item/clothing/under/unathi{
-	color = "#4a3407"
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
 	},
-/obj/item/clothing/under/unathi,
-/obj/item/clothing/under/unathi/huytai{
-	color = "#4a3407"
-	},
+/obj/random/dirt_75,
+/obj/machinery/light,
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "vYB" = (
 /obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/concrete{
@@ -46299,7 +46239,7 @@
 /turf/simulated/floor/wood/maple{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "wep" = (
 /obj/effect/floor_decal/concrete{
 	dir = 9
@@ -47259,14 +47199,6 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
-"wFv" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/turf/simulated/floor/wood/maple{
-	temperature = 315.15
-	},
-/area/new_blades/interiors/ruins)
 "wFH" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -47852,7 +47784,7 @@
 /turf/simulated/floor/sidewalk/flat{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "wRZ" = (
 /obj/effect/decal/curb/corner{
 	dir = 8
@@ -48469,7 +48401,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "xjB" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
@@ -49046,7 +48978,7 @@
 	identifier = "escort"
 	},
 /turf/simulated/floor/sidewalk/blocks,
-/area/new_blades/interiors/ruins)
+/area/new_blades/interiors)
 "xzA" = (
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/machinery/light/colored/dying,
@@ -50441,7 +50373,7 @@
 /turf/simulated/floor/carpet/rubber{
 	temperature = 315.15
 	},
-/area/new_blades/interiors)
+/area/new_blades/interiors/skrell_base)
 "ylC" = (
 /obj/structure/table/wood,
 /obj/item/material/hatchet/unathiknife{
@@ -54540,7 +54472,7 @@ tvy
 imM
 tvy
 gqU
-hgu
+nrB
 bWV
 hgu
 hgu
@@ -67114,7 +67046,7 @@ hgu
 bWV
 bWV
 hgu
-hgu
+cke
 hgu
 hgu
 hgu
@@ -74758,7 +74690,7 @@ hgu
 bWV
 hgu
 ruP
-dkw
+uzO
 aBl
 aBl
 xVH
@@ -75284,7 +75216,7 @@ tDg
 ruP
 kbE
 sRD
-jjq
+bzs
 ruP
 wpD
 pFn
@@ -75763,9 +75695,9 @@ ieH
 ieH
 lvS
 bKT
-ogi
-cii
-ogi
+gDC
+ece
+gDC
 awb
 ieH
 ieH
@@ -76020,11 +75952,11 @@ ieH
 ieH
 ieH
 chj
-qsr
-qsr
-ogi
-ogi
-nhC
+xwc
+xwc
+gDC
+gDC
+bWV
 ieH
 ieH
 ieH
@@ -76279,10 +76211,10 @@ ieH
 skE
 lNz
 mca
-uwp
-ogi
-ogi
-ogi
+xqp
+gDC
+gDC
+gDC
 gDC
 bWV
 hgu
@@ -99193,16 +99125,16 @@ kUr
 lYS
 hEL
 bWV
-hTr
-hTr
-hTr
-hTr
-hTr
-hTr
-hTr
-hTr
-hTr
-hTr
+ruP
+ruP
+ruP
+ruP
+ruP
+ruP
+ruP
+ruP
+ruP
+ruP
 hgu
 ece
 ruU
@@ -99450,16 +99382,16 @@ kUr
 lYS
 hEL
 hgu
-hTr
+ruP
 dpS
 lJH
-csk
+swL
 rCO
-hTr
-kJx
-nXB
+ruP
+gzQ
+rdZ
 eOs
-hTr
+ruP
 bWV
 hgu
 gDC
@@ -99707,16 +99639,16 @@ kUr
 lYS
 wCl
 hgu
-hTr
+ruP
 etC
-ciS
-wsG
-vIm
+iaO
+jgU
+asd
 dXC
-uuC
-mQe
+iLB
+qhH
 qLZ
-hTr
+ruP
 hgu
 hgu
 bWV
@@ -99964,16 +99896,16 @@ eqL
 tDK
 gqU
 gDC
-hTr
+ruP
 cRo
-uOz
-wsG
+qnh
+jgU
 mxK
-hTr
+ruP
 gMO
 gOo
-wFv
-hTr
+mAr
+ruP
 gDC
 hgu
 hgu
@@ -100221,16 +100153,16 @@ kUr
 tDK
 gqU
 qkM
-hTr
-oLH
-uOz
+ruP
+csk
+qnh
 wdm
-tbL
-hTr
-hTr
-hTr
-hTr
-hTr
+oko
+ruP
+ruP
+ruP
+ruP
+ruP
 nkR
 hgu
 bWV
@@ -100478,16 +100410,16 @@ kUr
 lYS
 whf
 fYE
-hTr
+ruP
 mmH
-exp
-gdP
-ajV
-mQe
+xhb
+oUK
+nXB
+qhH
 vjl
-mQe
+qhH
 iJi
-hTr
+ruP
 npx
 bWV
 hgu
@@ -100735,16 +100667,16 @@ vOq
 rHF
 hwx
 ahg
-hTr
+ruP
 job
 kCr
-mQe
-tHt
+qhH
+cPE
 uGo
 xzi
 uGo
-kXH
-hTr
+vYw
+ruP
 hgu
 hgu
 gDC
@@ -100992,16 +100924,16 @@ vOq
 tDK
 sSP
 pOb
-jJx
+jvt
 mdc
-adE
-awV
-csk
+dnL
+dHj
+swL
 jTK
-ciS
-ciS
-wFv
-hTr
+iaO
+iaO
+mAr
+ruP
 bWV
 hgu
 ece
@@ -101249,16 +101181,16 @@ eqL
 kkL
 sSP
 aUs
-jJx
-sMp
-ihf
-awV
-csk
-ciS
+jvt
+urK
+pRh
+dHj
+swL
+iaO
 kIJ
-ciS
-gzu
-hTr
+iaO
+pdD
+ruP
 hgu
 iHN
 gDC
@@ -101506,16 +101438,16 @@ vOq
 njN
 hwx
 lvi
-hTr
+ruP
 iPr
-kzt
-tbL
+gsz
+oko
 dNr
 hac
 aNu
 aNu
 ooi
-hTr
+ruP
 gDC
 bWV
 hgu
@@ -101763,16 +101695,16 @@ eqL
 lYS
 vei
 sNN
-hTr
-hTr
-hTr
-hTr
+ruP
+ruP
+ruP
+ruP
 snL
-ovu
-ovu
-dEf
-vRU
-hTr
+ixv
+ixv
+xfv
+iRA
+ruP
 gDC
 hgu
 hgu
@@ -102020,16 +101952,16 @@ vOq
 tDK
 arK
 hgu
-hTr
-vYw
-jvt
-hTr
-bOF
+ruP
+mFB
+tSj
+ruP
+iRk
 fBc
 qSP
 qSP
 qSP
-hTr
+ruP
 gDC
 tDg
 hgu
@@ -102277,16 +102209,16 @@ eqL
 lYS
 wCl
 hgu
-hTr
+ruP
 poF
-fkW
-bxQ
-vIm
-vIm
-vIm
-vIm
-kkE
-hTr
+wpD
+bDN
+asd
+asd
+asd
+asd
+wDm
+ruP
 bWV
 hgu
 hgu
@@ -102534,16 +102466,16 @@ kUr
 tDK
 gqU
 hgu
-hTr
-kJx
-nXB
-hTr
+ruP
+gzQ
+rdZ
+ruP
 wRU
 vBN
 oZe
-nnj
+dJx
 dka
-hTr
+ruP
 hgu
 hgu
 bWV
@@ -102791,16 +102723,16 @@ kUr
 lYS
 gqU
 bWV
-hTr
-hTr
-hTr
-hTr
-hTr
-hTr
-hTr
-hTr
-hTr
-hTr
+ruP
+ruP
+ruP
+ruP
+ruP
+ruP
+ruP
+ruP
+ruP
+ruP
 hgu
 hgu
 hgu
