@@ -37,12 +37,14 @@
 		log_misc("a [src] didn't find an input plate.")
 		return
 
-/obj/machinery/gibber/autogibber/CollidedWith(var/atom/A)
+/obj/machinery/gibber/autogibber/CollidedWith(atom/bumped_atom)
+	. = ..()
+
 	if(!input_plate)
 		return
-	if(!ismob(A))
+	if(!ismob(bumped_atom))
 		return
-	var/mob/M = A
+	var/mob/M = bumped_atom
 	if(M.loc == input_plate)
 		M.forceMove(src)
 		M.gib()

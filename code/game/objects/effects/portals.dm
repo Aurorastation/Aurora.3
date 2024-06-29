@@ -30,11 +30,11 @@
 
 	precision = precise
 
-/obj/effect/portal/CollidedWith(mob/M)
-	set waitfor = FALSE
+/obj/effect/portal/CollidedWith(atom/bumped_atom)
+	. = ..()
 
 	if(does_teleport)
-		teleport(M)
+		teleport(bumped_atom)
 
 /obj/effect/portal/Crossed(AM)
 	set waitfor = FALSE
