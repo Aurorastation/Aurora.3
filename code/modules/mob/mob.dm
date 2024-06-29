@@ -1462,7 +1462,7 @@
 		for(var/obj/item/clothing/clothing in list(w_uniform, wear_suit, head))
 			for(var/obj/item/clothing/accessory/check_accessory in clothing)
 				if(!istype(check_accessory) || !check_accessory.protects_against_weather)
-					return
+					continue
 				LAZYADD(., check_accessory)
 		LAZYADD(., check_head)
 		LAZYADD(., check_body)
