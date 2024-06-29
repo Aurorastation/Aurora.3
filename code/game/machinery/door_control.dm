@@ -159,6 +159,17 @@
 				M.open()
 				return
 
+/obj/machinery/button/remote/blast_door/nopower/trigger()
+	var/new_state
+	for(var/obj/machinery/door/blast/M in SSmachinery.machinery)
+		if(M.id == id)
+			if(isnull(new_state))
+				new_state = M.density
+			if(new_state)
+				M.force_open()
+			else
+				M.force_close()
+
 /*
 	Emitter remote control
 */

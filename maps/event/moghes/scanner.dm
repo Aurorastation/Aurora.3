@@ -14,7 +14,13 @@
 	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 	var/last_data
 	var/form_title
-	var/list/valid_types = list()
+	var/list/valid_types = list(
+		/mob/living/simple_animal,
+		/mob/living/carbon/human,
+		/obj/structure/flora/grass/desert,
+		/obj/structure/flora/tree/desert,
+		/turf/simulated/floor/exoplanet/water/shallow/moghes
+	)
 
 /obj/item/device/scanner/proc/print_report_verb()
 	set name = "Print Scan Report"
@@ -77,6 +83,7 @@
 			else
 				scan += "<br>Physical Analysis: This individual appears to show signs of mild malnutrition, as well as low levels of radioactive exposure. Scans indicate low levels of exposure to unidentified toxic material."
 		else if(H.faction == "deadguy")
+			scan += "<br>Info: An adult [H.gender] Unathi (U. Sapiens)."
 			scan += "<br>Physical Analysis: This individual is recently deceased. Analysis shows signs indicating poisoning as the likely cause of death. Specific toxin is indeterminate without further analysis."
 		else
 			to_chat(user, SPAN_WARNING("No scan data available on \the [target]!"))
@@ -94,8 +101,8 @@
 				scan += "<br>Projection: Lack of soil nutrients and radiation exposure render specimen's long-term survival unlikely without intervention."
 			if(/turf/simulated/floor/exoplanet/water/shallow/moghes)
 				scan += "<br>Info: Water sample. pH of 7.2."
-				scan += "<br>Analysis: Fresh water sample. Mineral sediment indicates likely subterranean source. Trace foreign elements detected. Recommend provdng sample for further analysis."
-				scan += "<br>Info: No signs of radioactive contamination detected. Trace foreign elements may render prolonged consumption toxic without purification."
+				scan += "<br>Analysis: Fresh water sample. Mineral sediment indicates likely subterranean source. Trace foreign elements detected. Recommend further analysis."
+				scan += "<br>No signs of radioactive contamination detected. Trace foreign elements may render prolonged consumption toxic without purification."
 	scan += "<br>Supply this data for analysis. Property of Zeng-Hu Pharmaceuticals."
 	last_data = scan
 	to_chat(user, SPAN_NOTICE("Scan complete."))
@@ -150,6 +157,16 @@
 				scan_progress += 1
 				scan_progress = min(scan_progress, 100)
 				to_chat(user, SPAN_NOTICE("Duplicate data added, scan progress increased to [scan_progress]%."))
+		else if(attacking_item.name == "Preliminary Survey Results")
+			user.remove_from_mob(attacking_item)
+			to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]'s paper scanner'."))
+			playsound(loc, 'sound/bureaucracy/scan.ogg', 75, 1)
+			qdel(attacking_item)
+			scanned += attacking_item.name
+			scan_progress += 10
+			scan_progress = min(scan_progress, 100)
+			to_chat(user, SPAN_NOTICE("New data added, scan progress increased to [scan_progress]%."))
+
 	else if(istype(attacking_item, /obj/item/reagent_containers/glass/beaker))
 		if(!istype(attacking_item, /obj/item/reagent_containers/glass/beaker/vial))
 			to_chat(user, SPAN_WARNING("\The [attacking_item] will not fit in \the [src]'s analysis port - it looks to be sized for a small vial."))
@@ -177,5 +194,64 @@
 			else
 				to_chat(user, SPAN_WARNING("Invalid reagent sample. No scan data added."))
 				return
+	else if(istype(attacking_item, /obj/item/rocksliver))
+		user.remove_from_mob(attacking_item)
+		to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]'s analysis port."))
+		playsound(loc, 'sound/machines/compbeep2.ogg', 25)
+		qdel(attacking_item)
+		if("Rock" in scanned)
+			firstscan = FALSE
+		else scanned += "Rock"
+		if(firstscan)
+			scan_progress += 10
+			scan_progress = min(scan_progress, 100)
+			to_chat(user, SPAN_NOTICE("Geological sample added to database, scan process increased to [scan_progress]%."))
+		else
+			scan_progress += 2
+			scan_progress = min(scan_progress, 100)
+			to_chat(user, SPAN_NOTICE("Additional geologial sample added to database, scan progress increased to [scan_progress]%."))
+	else if(istype(attacking_item, /obj/item/disk/mcguffin1))
+		user.remove_from_mob(attacking_item)
+		to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]'s disk tray."))
+		qdel(attacking_item)
+		if("Disk1" in scanned)
+			to_chat(user, SPAN_WARNING("The terminal displays an error - this data has already been processed. Further analysis will be of no use."))
+		else
+			scanned += "Disk1"
+			scan_progress += 30
+			scan_progress = min(scan_progress, 100)
+			playsound(loc, 'sound/machines/compbeep2.ogg', 25)
+			to_chat(user, SPAN_NOTICE("Federation data copied to database, scan progress increased to [scan_progress]%."))
+	else if(istype(attacking_item, /obj/item/disk/mcguffin2))
+		user.remove_from_mob(attacking_item)
+		to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]'s disk tray."))
+		qdel(attacking_item)
+		if("Disk2" in scanned)
+			to_chat(user, SPAN_WARNING("The terminal displays an error - this data has already been processed. Further analysis will be of no use."))
+		else
+			scanned += "Disk2"
+			scan_progress += 20
+			scan_progress = min(scan_progress, 100)
+			playsound(loc, 'sound/machines/compbeep2.ogg', 25)
+			to_chat(user, SPAN_NOTICE("Data decrypted - operations log of the Izilukh water purification sysetm. Scan progress increased to [scan_progress]%."))
+	else
+		to_chat(user, SPAN_WARNING("\The [src] cannot gain any useful data from \the [attacking_item]."))
 
-/obj/machinery/computer/terminal/scanner/proc/print_report()
+/obj/machinery/computer/terminal/scanner/proc/print_report(mob/user)
+	if(scan_progress < 100)
+		return
+	var/output = "\[center\]\[logo_zh\]\[/center\]\
+		\[center\]\[b\]\[i\]Environmental Analysis Report Summary\[/b\]\[/i\]\[hr\]\
+		Environmental analysis of the Izilukh region indicates severe ecological damage. Increased aridity has caused mass defoliation, negatively impacting local herbivore populations. Radiation remans a present risk, in addition to the food scarcity brought about by this ecological collapse.\[br\]\
+		Atmospheric fallout levels are consistent with general analysis of nuclear-affected biomes. Though habitable, long-term exposure could result in a higher than average risk of radiation-related illness.\[br\]"
+	if(("Water" in scanned) || ("Disk2" in scanned))
+		output += "\[br\]Hydrological data from the Izilukh aquifer indicates that the water largely remains clear of radioactive sediment. Minor traces of phoron leakage in the water will require purification - however, should this be accomplished then transplanting Ouerean subterranean fish species could provide a long-term food supply for the town.\[br\]"
+	if("Disk1" in scanned)
+		output += "\[br\]The Federation report provides comprehensive information on the region's ecology, and details several specific steps which could be taken to revitalise the region. Most of these would require extensive material and financial investment from the Hegemony, and the full cooperation of all local authorities across the northern Zazalais.\[br\]"
+	if("Rock" in scanned)
+		output += "\[br\]Mineral analysis indicates large uranium ore deposits are still present within the nearby mountains. Due to the general condition of the town, re-opening the mines will likely be infeasible for years.\[br\]"
+	output += "\[br\]Overall conclusion: Ecological damage to the region is catastrophic. Intervention on a wide scale throughout the region is required in order to sustain settlement in the region - however, should intervention on this scale be undertaken there remains a high probability that Izilukh will be able to sustain itself. If the Hegemony's full plans for the restoration project succeed, Izilukh will likely be instrumental in achieving its aims in the Zazalais. Full data has been transmitted to the SCCV Horizon central database."
+
+	var/obj/item/paper/P = new /obj/item/paper(get_turf(user))
+	user.put_in_hands(P)
+	P.set_content("Izilukh Region Environmental Analysis",output)

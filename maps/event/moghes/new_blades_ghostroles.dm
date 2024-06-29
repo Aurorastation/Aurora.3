@@ -77,6 +77,10 @@
 	. = ..()
 	new /obj/vehicle/bike/motor/sand(get_turf(H))
 
+/datum/ghostspawner/human/izaku_killsquad/second
+	name = "Killsquad Second Wave"
+	short_name = "killsquad_2"
+
 /datum/ghostspawner/human/izaku_escort
 	name = "Izaku Escort"
 	short_name = "izaku_escort"
@@ -105,7 +109,7 @@
 	head = /obj/item/clothing/head/helmet/unathi/hegemony
 	shoes = /obj/item/clothing/shoes/sandals/caligae
 	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
-	id = null
+	id = /obj/item/card/id/goon
 	l_ear = /obj/item/device/radio/headset/syndicate
 	belt = /obj/item/storage/belt/military
 	back = /obj/item/storage/backpack/satchel/leather
@@ -115,6 +119,9 @@
 		/obj/item/grenade/frag = 2
 	)
 
+/obj/outfit/admin/izaku_escort/get_id_access(mob/living/carbon/human/H)
+	return list(ACCESS_SYNDICATE)
+
 /datum/ghostspawner/human/izaku_escort/guard
 	name = "Izaku Guard"
 	short_name = "izaku_guard"
@@ -123,6 +130,8 @@
 	spawnpoints = list("guard")
 	welcome_message = "Your lord has ordered you to learn the true intent of these nefarious Skrell. Guard your surviving prisoner, and ensure no complications."
 	max_count = 2
+	assigned_role = "Guard"
+	special_role = "Guard"
 
 /datum/ghostspawner/human/skrurvivor
 	name = "Nralakk Survivor"

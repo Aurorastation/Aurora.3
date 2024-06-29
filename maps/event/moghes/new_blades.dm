@@ -16,6 +16,12 @@
 		for(var/turf/T in src)
 			T.set_light(4, 5, COLOR_WHITE)
 
+/area/landing_pad
+	name = "Landing Pad"
+	icon_state = "blue"
+	ambience = AMBIENCE_DESERT
+	is_outside = OUTSIDE_YES
+
 /area/new_blades/underground
 	name = "Zazalai Caverns"
 	icon_state = "bluenew"
@@ -66,6 +72,10 @@
 	name = "Abandoned Bunker"
 	area_blurb = "The quiet of the bunker is omnipresent - the drip of water and your footsteps on rusted concrete do nothing to quell it."
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
+
+/area/new_blades/interiors/ruins/bunker/brig
+	name = "Abandoned Prison"
+	area_blurb = "A stale copper smell in the air. "
 
 /area/shuttle/scc_evac
 	name = "SCC Transport Shuttle"
@@ -141,8 +151,8 @@
 	name = "Planetary Docking Site"
 	landmark_tag = "nav_cargo_shuttle_dock"
 	docking_controller = "cargo_shuttle_dock"
-	base_turf = /turf/simulated/floor/exoplanet/desert
-	base_area = /area/new_blades
+	base_turf = /turf/simulated/floor/asphalt
+	base_area = /area/landing_pad
 
 
 // Bunker Lift A
@@ -276,3 +286,61 @@
 /obj/item/paper/fluff/new_blades_1
 	name = "To SCCV Horizon"
 	info = "SCCV Horizon crew. We have established a base camp to the east of this shuttle port and begun to administer aid to the locals. Sandstorms have been inhibiting radio communication, so we have chosen to leave this note for you to ensure smooth operations. We look forward to seeing you soon. -NFV Qrrixu"
+
+/obj/item/paper/fluff/skrell_report
+	name = "Preliminary Survey Results"
+	info = "Analysis of the region indicates severe degradation, yet I do not believe it is without hope. The aquifer is a vital resource for Izilukh, and if the Hegemony's plans for this area come to fruition it will be of immense importance in resettling the surrounding area. In addition, the eastern region was already an arid environment prior to the nuclear exchange, and there are several promising flora specimens which could be transplanted or crossbred with local species to restore the biosphere. My full analysis data has been copied to a disk, which I will send to headquarters at earliest convenience."
+	language = LANGUAGE_SKRELLIAN
+
+/obj/item/disk/mcguffin1
+	name = "\improper Nralakk survey data disk"
+	icon = 'icons/obj/cloning.dmi'
+	icon_state = "datadisk2"
+	item_state = "card-id"
+	w_class = ITEMSIZE_SMALL
+	desc = "An encrypted data disk, labeled in Nral'malic."
+	desc_info = "This data disk can be used at the Zeng-Hu Environmental Analysis Terminal for a large one-time boost to survey progress."
+
+/obj/item/disk/mcguffin1/get_examine_text(mob/user)
+	. = ..()
+	if(GLOB.all_languages[LANGUAGE_SKRELLIAN] in user.languages)
+		. += SPAN_NOTICE("The label reads 'Izilukh Region Research Data'.")
+
+/obj/item/disk/mcguffin2
+	name = "purifier operations data disk"
+	icon = 'icons/obj/cloning.dmi'
+	icon_state = "datadisk2"
+	item_state = "card-id"
+	w_class = ITEMSIZE_SMALL
+	desc = "An encrypted data disk."
+	desc_info = "This data disk can be used at the Zeng-Hu Environmental Analysis Terminal for a large one-time boost to survey progress."
+
+/obj/item/paper/fluff/decryption
+	name = "decryption notes"
+	info = "I thought that I'd cracked the encryption, but everything in here is just more of what we've been told. Analysis, medical aid, food supplies - exactly what the prisoner told us. I'll bring the disk back to Mudki with me when we're through here, see if someone else can't have a go at it."
+	language = LANGUAGE_UNATHI
+
+/obj/item/paper/fluff/syslog
+	name = "operations log"
+	info = "Izilukh Silo 3 System Commands Log:<br>\
+	11/01/2451: All remaining payloads disarmed and removed.<br>\
+	24/02/2451: Base closure ordered. Personnel relieved of duty.<br>\
+	19/04/2451: Base power levels below operational. System shutdown engaged.<br>\
+	25/06/2466: Base power reactivated. User command received: Unknown Command.<br>\
+	30/06/2466: Base power deactivated. System shutdown engaged.<br>\
+	30/06/2466: Base power reactivated. User command received: Print Logs."
+	language = LANGUAGE_UNATHI
+
+/obj/machinery/computer/terminal/silo
+	name = "system log terminal"
+	icon_screen = "command"
+	icon_keyboard = "id_key"
+
+/obj/machinery/computer/terminal/silo/attack_hand(mob/user)
+	. = ..()
+	var/choice = tgui_alert(user, "System logs available. Display driver corrupted. Print system logs?", "System Logs", list("Print", "Cancel"))
+	if(choice == "Print")
+		var/obj/item/paper/P = new /obj/item/paper/fluff/syslog(get_turf(user))
+		user.put_in_hands(P)
+
+

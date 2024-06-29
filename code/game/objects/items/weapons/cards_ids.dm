@@ -523,6 +523,9 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "data"
 	assignment = "Freelancer Mercenary"
 
+/obj/item/card/id/goon
+	icon_state = "data"
+
 /obj/item/card/id/distress/New()
 	access = list(ACCESS_DISTRESS, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS)
 	..()

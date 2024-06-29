@@ -196,7 +196,7 @@
 	descriptor = "The wind rises, stirring up gusts of sand."
 	cosmetic_span_class = "warning"
 	cosmetic_messages = list("Scattered gusts of sand fall from the sky.")
-	transitions = list(/singleton/state/weather/sandstorm)
+	transitions = list(/singleton/state_transition/weather/sandstorm)
 
 /singleton/state/weather/sandstorm
 	name = "Sandstorm"

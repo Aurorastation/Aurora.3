@@ -9,7 +9,7 @@
 
 	sectors = ALL_POSSIBLE_SECTORS
 	id = "sensor_relay"
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	//template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	sectors_blacklist = list(SECTOR_LEMURIAN_SEA) //because finding a sensor relay in hell would be weird
 
 	unit_test_groups = list(1)
