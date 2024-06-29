@@ -194,7 +194,7 @@
 	var/breathing_sound = 'sound/voice/monkey.ogg'
 
 	/// Non-IS_SYNTHETIC species will try to stabilize at this temperature. (also affects temperature processing)
-	var/body_temperature = 310.15
+	var/body_temperature = 310.15 //37°C
 	/// When body temperature reaches or passes this threshold, species is considered too hot
 	var/heat_discomfort_level = 315 //41°C
 	/// When body temperature reaches or passes this threshold, species is considered too cold
