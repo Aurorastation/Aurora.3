@@ -40,8 +40,30 @@
 	suit_store = /obj/item/device/flashlight/pen
 	shoes = /obj/item/clothing/shoes/sneakers/brown
 	id = /obj/item/card/id/navy
-	l_hand = /obj/item/storage/firstaid/adv
-
+	belt = /obj/item/storage/belt/medical
+	belt_contents = list(
+		/obj/item/reagent_containers/hypospray = 1
+	)
+	backpack_contents = list(
+		/obj/item/storage/firstaid/adv = 1,
+		/obj/item/device/advanced_healthanalyzer = 1,
+		/obj/item/device/flash = 1,
+		/obj/item/device/megaphone/med = 1
+	)
+	gloves = /obj/item/clothing/gloves/latex/nitrile
+	r_ear = /obj/item/device/flashlight/pen
+	species_gloves = list(
+		SPECIES_UNATHI = /obj/item/clothing/gloves/latex/nitrile/unathi,
+		SPECIES_TAJARA = /obj/item/clothing/gloves/latex/nitrile/tajara,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/latex/nitrile/tajara,
+		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/latex/nitrile/tajara,
+		SPECIES_VAURCA_WARRIOR = /obj/item/clothing/gloves/latex/nitrile/vaurca,
+		SPECIES_VAURCA_WORKER = /obj/item/clothing/gloves/latex/nitrile/vaurca
+	)
+	accessory = /obj/item/clothing/accessory/holster/waist
+	accessory_contents = list(
+		/obj/item/gun/energy/disruptorpistol/magnum = 1
+	)
 	headset = /obj/item/device/radio/headset/heads/cmo
 	bowman = /obj/item/device/radio/headset/heads/cmo/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/cmo

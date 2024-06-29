@@ -18,7 +18,8 @@
 	respawn_flag = null
 
 	uses_species_whitelist = FALSE
-	enabled = FALSE
+	enabled = TRUE
+	password = "thissucks"
 
 /datum/ghostspawner/human/zaza_villager/post_spawn(mob/user)
 	. = ..()
@@ -100,6 +101,7 @@
 
 	uses_species_whitelist = FALSE
 	enabled = TRUE
+	password = "nothingtoseehere"
 
 /obj/outfit/admin/izaku_escort
 	uniform = /obj/item/clothing/under/unathi/zazali
@@ -132,6 +134,8 @@
 	max_count = 2
 	assigned_role = "Guard"
 	special_role = "Guard"
+	enabled = FALSE
+	password = "warcrimes"
 
 /datum/ghostspawner/human/skrurvivor
 	name = "Nralakk Survivor"
@@ -149,6 +153,7 @@
 
 	uses_species_whitelist = FALSE
 	enabled = FALSE
+	password = "warble"
 
 /obj/outfit/admin/skrurvivor
 	uniform = /obj/item/clothing/under/skrell/nralakk/oqi/med

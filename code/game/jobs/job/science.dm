@@ -54,6 +54,19 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
 	tablet = /obj/item/modular_computer/handheld/preset/research/rd
 
+	accessory = /obj/item/clothing/accessory/holster/waist
+	accessory_contents = list(
+		/obj/item/gun/energy/disruptorpistol/magnum = 1
+	)
+	backpack_contents = list(
+		/obj/item/storage/box/survival = 1,
+		/obj/item/device/camera = 1,
+		/obj/item/device/camera_film = 2,
+		/obj/item/device/taperecorder = 1,
+		/obj/item/device/megaphone/sci = 1,
+		/obj/item/device/scanner = 1
+	)
+
 	backpack = /obj/item/storage/backpack/rd
 	satchel = /obj/item/storage/backpack/satchel/rd
 	dufflebag = /obj/item/storage/backpack/duffel/rd

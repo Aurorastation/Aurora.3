@@ -257,12 +257,24 @@
 	. = ..()
 	if(M.w_uniform)
 		M.w_uniform.color = "#c3b6b6"
+		M.w_uniform.accent_color = "#c3b6b6"
 	var/obj/item/organ/internal/stomach/stomach = M.internal_organs_by_name[BP_STOMACH]
 	if(stomach)
 		stomach.ingested.add_reagent(/singleton/reagent/toxin/phoron, rand(1,5))
 		stomach.ingested.add_reagent(/singleton/reagent/water, rand(15,30))
 	M.apply_damage(rand(10,30), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 	M.faction = "deadguy"
+	var/cadaver_color = pick("Brown", "Black", "Grey")
+	switch(cadaver_color)
+		if("Brown")
+			M.change_skin_color(92,66,32)
+		if("Black")
+			M.change_skin_color(61,47,47)
+		if("Grey")
+			M.change_skin_color(98,84,65)
+	M.change_hair_color(133, 115, 88)
+	M.change_hair("Unathi Horns")
+	M.change_facial_hair("Shaved")
 
 /obj/effect/landmark/corpse/vaurca
 	name = "C'thur Worker"
