@@ -532,7 +532,7 @@
 
 /singleton/sound_category/screwdriver_sound
 	sounds = list(
-		'sound/items/Screwdriver.ogg'
+		'sound/items/Screwdriver.ogg',
 		'sound/items/Screwdriver2.ogg'
 	)
 
