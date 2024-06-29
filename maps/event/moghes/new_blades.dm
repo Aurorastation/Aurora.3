@@ -7,7 +7,7 @@
 	base_turf = /turf/simulated/floor/exoplanet/desert
 	ambience = AMBIENCE_DESERT
 	area_blurb = "Heat, sand, and dust surround you. The air smells of burning rubber as the wind stirs spirals of dust about your feet. The heat is overpowering."
-	is_outside = TRUE
+	is_outside = OUTSIDE_YES
 	var/lighting = TRUE
 
 /area/new_blades/Initialize()
@@ -30,7 +30,7 @@
 	ambience = AMBIENCE_RUINS
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
 	area_blurb = "The caverns are dark and quiet, a merciful reprise from the Wasteland outside."
-	is_outside = FALSE
+	is_outside = OUTSIDE_NO
 
 /area/new_blades/underground/aquifer
 	name = "Aquifer"
@@ -49,7 +49,7 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "This building appears better preserved than most in the Wasteland - it could make for a useful shelter if needed."
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
-	is_outside = FALSE
+	is_outside = OUTSIDE_NO
 
 /area/new_blades/interiors/skrell_base
 	name = "Skrell Base"
@@ -81,7 +81,7 @@
 	name = "SCC Transport Shuttle"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
-	is_outside = FALSE
+	is_outside = OUTSIDE_NO
 
 /area/turbolift/hegemony_bunker_A
 	name = "Bunker Lift A"

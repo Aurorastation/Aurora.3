@@ -38448,6 +38448,16 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
+"ssS" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/effect/decal/curb,
+/obj/abstract/weather_marker/moghes,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/new_blades)
 "ste" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -85295,7 +85305,7 @@ iNX
 bSx
 aVQ
 sGX
-pVL
+ssS
 lYS
 mpc
 khB
