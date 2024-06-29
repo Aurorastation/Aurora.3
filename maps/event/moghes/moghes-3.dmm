@@ -12007,10 +12007,11 @@
 	},
 /area/new_blades/underground)
 "fLQ" = (
-/obj/random/dirt_75,
 /obj/structure/rope_post{
 	dir = 4
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -29198,6 +29199,7 @@
 /obj/structure/rope_post{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -32909,6 +32911,7 @@
 	pixel_x = -10;
 	pixel_y = -10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -40248,7 +40251,6 @@
 	},
 /area/new_blades/interiors/ruins/hegemony_base)
 "tkV" = (
-/obj/random/dirt_75,
 /obj/structure/rope_post{
 	dir = 1
 	},
@@ -40256,6 +40258,8 @@
 	pixel_y = -6;
 	pixel_x = 7
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -42987,13 +42991,13 @@
 	},
 /area/new_blades)
 "uzO" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped,
-/obj/item/hoist_kit{
-	pixel_y = 14
+/obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave{
+	temperature = 315.15
 	},
-/turf/simulated/open,
-/area/new_blades/interiors)
+/area/new_blades/underground)
 "uAa" = (
 /obj/random/dirt_75,
 /obj/item/stack/rods{
@@ -54933,7 +54937,7 @@ iBq
 rLr
 ieH
 ieH
-sXe
+uzO
 nIe
 wwW
 qiT
@@ -61601,7 +61605,7 @@ ieH
 ieH
 ieH
 ieH
-sXe
+uzO
 duF
 atv
 atv
@@ -67500,7 +67504,7 @@ ieH
 ieH
 ieH
 fKN
-avB
+lwt
 pMp
 efs
 eLk
@@ -74690,7 +74694,7 @@ hgu
 bWV
 hgu
 ruP
-uzO
+dkw
 aBl
 aBl
 xVH
