@@ -57,4 +57,3 @@ delete-after: True
 changes:
   - qol: "Upgraded AI core hardware to permit easier workflow, and avoid issues with too many necessary apps."
   - qol: "Added AI core software which is not downloadable via the NT downloader, to avoid the AI having to jump around between consoles to perform various tasks."
-  - qol: "Permitted non-malfunctioning AIs to eelctrify doors, in case of law changes, or alternate lawsets, which require them to do so."
