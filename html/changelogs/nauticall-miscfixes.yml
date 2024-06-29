@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: CatsinHD
+author: nauticall
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,9 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Resprited Guest Passes, Legionnaire ID, Centcom, and CCIA IDs. Created 3 new IDs for Command, Bridge Crew, and Captain."
+  - bugfix: "Carpets now show proper edges again."
+  - bugfix: "Fixed layering of several map items, like disposal pipes, that were previously buried underneath turfs in the map editor (and were invisible as a result)."
+  - bugfix: "Fixed other miscellaneous layering issues."
+  - bugfix: "Fixed observer sprites occasionally going underneath certain objects. Their layering has been fixed."
+  - bugfix: "Reinforced plastic tables now show up correctly in the map editor."
+  - rscadd: "Added a special 'lock' door helper that automatically locks doors underneath it so mappers don't have to edit variables/icon states manually."

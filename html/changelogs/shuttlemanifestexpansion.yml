@@ -1,7 +1,0 @@
-author: Sparky_hotdog
-
-delete-after: True
-
-changes:
-  - rscadd: "Updated the shuttle manifest program to include extra details such as shuttle destination, heading, mission and departure & return times, as well as the assignment of a mission leader and shuttle pilot."
-  - rscadd: "Added the shuttle manifest program to Bridge Crew PDAs at round start."

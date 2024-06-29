@@ -432,7 +432,7 @@
 		capturing_mob.forceMove(loc)
 
 	captured = WEAKREF(capturing_mob)
-	buckle(capturing_mob)
+	INVOKE_ASYNC(src, PROC_REF(buckle), capturing_mob)
 	layer = capturing_mob.layer + 0.1
 
 	playsound(src, 'sound/weapons/beartrap_shut.ogg', 100, 1)
@@ -482,9 +482,9 @@
 
 	release()
 
-/obj/item/trap/animal/CollidedWith(atom/AM)
+/obj/item/trap/animal/CollidedWith(atom/bumped_atom)
 	if(deployed)
-		Crossed(AM)
+		Crossed(bumped_atom)
 		return
 	return ..()
 
