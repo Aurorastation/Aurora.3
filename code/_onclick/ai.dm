@@ -144,11 +144,16 @@
 	return AltClick(user)
 
 /obj/machinery/door/airlock/AIAltClick(var/mob/living/silicon/user) // Electrifies doors.
-	if(!electrified_until)
-		// permanent shock
-		electrify(-1, 1)
+	var/antag = player_is_antag(user.mind)
+	if(!antag && (electrified_until == 0))
+		to_chat(user, SPAN_WARNING("Your programming prevents you from electrifying the door."))
+		return FALSE
 	else
-		electrify(0)
+		if(!electrified_until)
+			// permanent shock
+			electrify(-1, 1)
+		else
+			electrify(0)
 	return TRUE
 
 /obj/machinery/turretid/AIAltClick(var/mob/living/silicon/user) //toggles lethal on turrets
