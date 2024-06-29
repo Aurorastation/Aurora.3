@@ -103,6 +103,7 @@
 	waypoint_station = "nav_scc_evac_dock"
 	landmark_transition = "nav_scc_evac_interim"
 	waypoint_offsite = "nav_scc_evac_start"
+	knockdown = FALSE
 
 /obj/effect/shuttle_landmark/scc_evac/start
 	name = "Izilukh Landing Zone"
@@ -355,4 +356,18 @@
 		var/obj/item/paper/P = new /obj/item/paper/fluff/syslog(get_turf(user))
 		user.put_in_hands(P)
 
+/obj/machinery/computer/terminal/purifier
+	name = "water purifier terminal"
+	icon_screen = "turbinecomp"
+	icon_keyboard = "id_key"
+	var/has_disk = TRUE
 
+/obj/machinery/computer/terminal/purifier/attack_hand(mob/user)
+	. = ..()
+	if(has_disk)
+		var/choice = tgui_alert(user, "Latest data backup saved to external storage device. Select user action:", "Water Purifier Monitoring", list("Eject Disk", "Cancel"))
+		if(choice == "Eject Disk")
+			to_chat(user, SPAN_NOTICE("\The [src] ejects a disk."))
+			has_disk = FALSE
+			var/obj/item/disk/D = new /obj/item/disk/mcguffin2(get_turf(user))
+			user.put_in_hands(D)

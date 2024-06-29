@@ -1643,6 +1643,12 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors)
+"aHV" = (
+/obj/machinery/atm{
+	pixel_y = -8
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/scc_evac)
 "aIj" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/asteroid,
@@ -4491,6 +4497,13 @@
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
 "cbn" = (
@@ -5182,10 +5195,12 @@
 /obj/structure/closet/crate{
 	name = "sterile gloves"
 	},
-/obj/item/storage/box/gloves,
-/obj/item/storage/box/gloves,
-/obj/item/storage/box/gloves,
-/obj/item/storage/box/gloves,
+/obj/item/tent,
+/obj/item/tent,
+/obj/item/tent,
+/obj/item/sleeping_bag/mining,
+/obj/item/sleeping_bag/mining,
+/obj/item/sleeping_bag/mining,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/scc_evac)
 "csk" = (
@@ -8595,6 +8610,8 @@
 /obj/item/device/gps/science,
 /obj/item/device/gps/science,
 /obj/item/device/gps/science,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/scc_evac)
 "ece" = (
@@ -14650,6 +14667,13 @@
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/scc_evac)
+"gSu" = (
+/obj/machinery/atm{
+	dir = 1;
+	pixel_y = 28
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/scc_evac)
 "gSA" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -16317,12 +16341,11 @@
 	},
 /area/new_blades/interiors/skrell_base)
 "hPO" = (
-/obj/structure/closet/secure_closet/xenoarchaeologist{
-	req_access = null;
-	req_one_access = list(7,47)
-	},
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/machinery/light,
+/obj/machinery/computer/terminal/scanner{
+	dir = 1
+	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
 "hPY" = (
@@ -56649,7 +56672,7 @@ xAV
 xAV
 xAV
 xiP
-xiP
+aHV
 iAL
 qtJ
 xiP
@@ -57936,7 +57959,7 @@ kZt
 xiP
 bfD
 iAL
-xiP
+gSu
 xiP
 xiP
 eHt
@@ -60238,7 +60261,7 @@ aeh
 aRy
 kZt
 kZt
-mYq
+dFr
 iAL
 ogN
 xAV

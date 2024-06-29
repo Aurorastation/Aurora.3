@@ -952,6 +952,9 @@
 /area/new_blades/interiors/ruins/bunker)
 "di" = (
 /obj/random/dirt_75,
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
@@ -4279,6 +4282,13 @@
 /area/new_blades/interiors/ruins/bunker)
 "rm" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/machinery/modular_terminal.dmi';
+	icon_state = "computer-broken";
+	dir = 8;
+	name = "Broken Terminal";
+	density = 1
+	},
 /turf/simulated/floor/tiled/ridged{
 	temperature = 315.15
 	},
@@ -6891,6 +6901,16 @@
 "BV" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"BZ" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/random/dirt_75,
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
@@ -12373,6 +12393,16 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gridded{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"ZP" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/random/dirt_75,
+/obj/machinery/computer/terminal/purifier{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/ridged{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
@@ -24988,7 +25018,7 @@ TS
 di
 ut
 Qg
-oa
+BZ
 TS
 CF
 CF
@@ -25242,7 +25272,7 @@ CF
 CF
 CF
 TS
-gO
+ZP
 AA
 eN
 rm
