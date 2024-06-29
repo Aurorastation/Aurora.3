@@ -100,21 +100,21 @@
 	return TRUE
 
 
-/turf/unsimulated/wall/supermatter/CollidedWith(atom/AM)
-	if (!AM.simulated)
+/turf/unsimulated/wall/supermatter/CollidedWith(atom/bumped_atom)
+	if (!bumped_atom.simulated)
 		return ..()
 
-	if(istype(AM, /mob/living))
-		AM.visible_message("<span class=\"warning\">\The [AM] slams into \the [src] inducing a resonance... [AM.get_pronoun("his")] body starts to glow and catch flame before flashing into ash.</span>",\
+	if(istype(bumped_atom, /mob/living))
+		bumped_atom.visible_message("<span class=\"warning\">\The [bumped_atom] slams into \the [src] inducing a resonance... [bumped_atom.get_pronoun("his")] body starts to glow and catch flame before flashing into ash.</span>",\
 		"<span class=\"danger\">You slam into \the [src] as your ears are filled with unearthly ringing. Your last thought is \"Oh, fuck.\"</span>",\
 		"<span class=\"warning\">You hear an unearthly noise as a wave of heat washes over you.</span>")
 	else
-		AM.visible_message("<span class=\"warning\">\The [AM] smacks into \the [src] and rapidly flashes to ash.</span>",\
+		bumped_atom.visible_message("<span class=\"warning\">\The [bumped_atom] smacks into \the [src] and rapidly flashes to ash.</span>",\
 		"<span class=\"warning\">You hear a loud crack as you are washed with a wave of heat.</span>")
 
 	playsound(src, 'sound/effects/supermatter.ogg', 50, 1)
 
-	Consume(AM)
+	Consume(bumped_atom)
 
 
 /turf/unsimulated/wall/supermatter/proc/Consume(var/mob/living/user)
