@@ -2818,7 +2818,6 @@
 /area/new_blades/interiors/ruins)
 "bjX" = (
 /obj/random/dirt_75,
-/obj/random/dirt_75,
 /obj/structure/flora/rock/konyang,
 /obj/structure/rope_post{
 	dir = 1
@@ -3499,6 +3498,7 @@
 	icon_state = "lavarocks2";
 	pixel_y = -6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -7755,6 +7755,7 @@
 	pixel_y = -8;
 	pixel_x = -3
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -8255,6 +8256,7 @@
 /obj/structure/rope_post,
 /obj/structure/rope_railing,
 /obj/effect/floor_decal/asteroid,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -10144,7 +10146,6 @@
 	},
 /area/new_blades/interiors/ruins)
 "eWj" = (
-/obj/random/dirt_75,
 /obj/structure/rope_railing{
 	dir = 1
 	},
@@ -10159,6 +10160,8 @@
 	icon_state = "lavarocks2";
 	pixel_y = -6
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -15265,6 +15268,7 @@
 /obj/structure/rope_railing{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -18620,6 +18624,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/asteroid,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -19265,6 +19270,7 @@
 /obj/structure/rope_railing{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -24428,6 +24434,7 @@
 /obj/structure/rope_railing{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -33453,7 +33460,6 @@
 /area/new_blades)
 "pYN" = (
 /obj/random/dirt_75,
-/obj/random/dirt_75,
 /obj/item/ore/iron{
 	pixel_x = 7
 	},
@@ -40819,6 +40825,7 @@
 /obj/structure/rope_railing{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -42730,6 +42737,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/asteroid,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -44788,7 +44796,6 @@
 	},
 /area/new_blades/interiors/ruins)
 "vtC" = (
-/obj/random/dirt_75,
 /obj/structure/rope_post{
 	dir = 1
 	},
@@ -44797,6 +44804,8 @@
 	pixel_y = -6;
 	pixel_x = 7
 	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
@@ -46608,6 +46617,7 @@
 /obj/structure/rope_railing{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/cave{
 	temperature = 315.15
 	},
