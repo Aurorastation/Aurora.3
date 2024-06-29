@@ -8,11 +8,16 @@
 	see_invisible = SEE_INVISIBLE_OBSERVER
 	layer = OBSERVER_LAYER
 	incorporeal_move = INCORPOREAL_GHOST
-	sight |= SEE_TURFS | SEE_MOBS | SEE_OBJS | SEE_SELF
 
 	density = FALSE
 	mob_thinks = FALSE
 	universal_speak = TRUE
+
+	/// Toggle darkness. Basically the same verb as the one observers have.
+	var/see_darkness = FALSE
+	/// Is the ghost able to see things humans can't?
+	var/ghostvision = FALSE
+
 
 /mob/abstract/storyteller/Initialize()
 	. = ..()
@@ -52,7 +57,6 @@
 	. = ..()
 	if(!can_reenter_corpse)
 		SSodyssey.remove_storyteller(src)
-
 
 /mob/abstract/storyteller/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if (!message)
@@ -130,6 +134,32 @@
 
 /mob/abstract/storyteller/singuloCanEat()
 	return FALSE
+
+
+/mob/abstract/storyteller/verb/toggle_darkness()
+	set name = "Toggle Darkness"
+	set category = "Storyteller"
+
+	see_darkness = !see_darkness
+	update_sight()
+
+/mob/abstract/storyteller/proc/update_sight()
+	set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+	set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
+
+	if (!see_darkness)
+		set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
+	else
+		set_see_invisible(ghostvision ? SEE_INVISIBLE_OBSERVER : SEE_INVISIBLE_LIVING)
+
+/mob/abstract/storyteller/verb/toggle_ghostsee()
+	set name = "Toggle Ghost Vision"
+	set desc = "Toggles your ability to see things only ghosts can see, like other ghosts."
+	set category = "Ghost"
+
+	ghostvision = !ghostvision
+	update_sight()
+	to_chat(usr, SPAN_NOTICE("You [(ghostvision ? "now" : "no longer")] have ghost vision."))
 
 /datum/ghostspawner/storyteller
 	name = "Storyteller"
