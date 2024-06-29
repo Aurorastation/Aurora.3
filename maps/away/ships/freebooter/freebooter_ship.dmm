@@ -74,15 +74,16 @@
 /area/ship/freebooter_ship/thruster2)
 "afL" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_freebooter_shuttle";
-	name = "airlock_freebooter_shuttle";
-	shuttle_tag = "Freebooter Shuttle"
-	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_freebooter_shuttle";
+	name = "airlock_freebooter_shuttle";
+	shuttle_tag = "Freebooter Shuttle";
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "ahD" = (
@@ -2072,13 +2073,14 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_freebooter_shuttle";
 	name = "airlock_freebooter_shuttle";
-	shuttle_tag = "Freebooter Shuttle"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4
+	shuttle_tag = "Freebooter Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
@@ -4216,15 +4218,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/gunnery)
-"kmP" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
-/turf/simulated/floor,
-/area/ship/freebooter_ship/pod4)
 "knE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4472,7 +4465,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_freebooter_shuttle";
 	name = "airlock_freebooter_shuttle";
-	shuttle_tag = "Freebooter Shuttle"
+	shuttle_tag = "Freebooter Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -4931,11 +4925,6 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_freebooter_shuttle";
-	name = "airlock_freebooter_shuttle";
-	shuttle_tag = "Freebooter Shuttle"
-	},
 /obj/structure/sign/vacuum{
 	pixel_y = 30
 	},
@@ -4945,6 +4934,12 @@
 /obj/machinery/airlock_sensor{
 	pixel_x = -27;
 	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_freebooter_shuttle";
+	name = "airlock_freebooter_shuttle";
+	shuttle_tag = "Freebooter Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
@@ -5222,13 +5217,14 @@
 "mkb" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_freebooter_shuttle";
 	name = "airlock_freebooter_shuttle";
-	shuttle_tag = "Freebooter Shuttle"
+	shuttle_tag = "Freebooter Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "moJ" = (
@@ -6681,15 +6677,6 @@
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster2)
-"ppp" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/ship/freebooter_ship/exterior)
 "prU" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/effect/floor_decal/spline/plain/corner{
@@ -7779,11 +7766,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_freebooter_shuttle";
-	name = "airlock_freebooter_shuttle";
-	shuttle_tag = "Freebooter Shuttle"
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
 	pixel_x = 27;
@@ -7795,6 +7777,12 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_freebooter_shuttle";
+	name = "airlock_freebooter_shuttle";
+	shuttle_tag = "Freebooter Shuttle";
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "rEb" = (
@@ -7938,16 +7926,17 @@
 	name = "aft, engines"
 	},
 /obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_freebooter_shuttle";
-	name = "airlock_freebooter_shuttle";
-	shuttle_tag = "Freebooter Shuttle"
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_freebooter_shuttle";
+	name = "airlock_freebooter_shuttle";
+	shuttle_tag = "Freebooter Shuttle";
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/airless,
 /area/shuttle/freebooter_shuttle)
 "rYv" = (
@@ -8184,13 +8173,14 @@
 /area/ship/freebooter_ship/pod5)
 "syX" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_freebooter_shuttle";
 	name = "airlock_freebooter_shuttle";
-	shuttle_tag = "Freebooter Shuttle"
+	shuttle_tag = "Freebooter Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "szY" = (
@@ -8381,11 +8371,6 @@
 	pixel_x = -27;
 	pixel_y = -2
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_freebooter_shuttle";
-	name = "airlock_freebooter_shuttle";
-	shuttle_tag = "Freebooter Shuttle"
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
@@ -8395,6 +8380,12 @@
 	pixel_y = -3
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_freebooter_shuttle";
+	name = "airlock_freebooter_shuttle";
+	shuttle_tag = "Freebooter Shuttle";
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/airless,
 /area/shuttle/freebooter_shuttle)
 "sWG" = (
@@ -8438,11 +8429,6 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_freebooter_shuttle";
-	name = "airlock_freebooter_shuttle";
-	shuttle_tag = "Freebooter Shuttle"
-	},
 /obj/machinery/light{
 	dir = 4;
 	inserted_light = /obj/item/light/tube/colored/blue;
@@ -8450,6 +8436,12 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_freebooter_shuttle";
+	name = "airlock_freebooter_shuttle";
+	shuttle_tag = "Freebooter Shuttle";
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "tcY" = (
@@ -10177,11 +10169,6 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_freebooter_shuttle";
-	name = "airlock_freebooter_shuttle";
-	shuttle_tag = "Freebooter Shuttle"
-	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_x = 23;
 	dir = 8
@@ -10190,6 +10177,12 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_freebooter_shuttle";
+	name = "airlock_freebooter_shuttle";
+	shuttle_tag = "Freebooter Shuttle";
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "xal" = (
@@ -39263,7 +39256,7 @@ wUi
 vZW
 gwg
 pUP
-kmP
+qAl
 qDn
 kev
 jcX
@@ -44395,10 +44388,10 @@ jhL
 vZW
 okU
 sUX
-ppp
-ppp
-ppp
-ppp
+wtm
+wtm
+wtm
+wtm
 jrC
 kQs
 jrC
