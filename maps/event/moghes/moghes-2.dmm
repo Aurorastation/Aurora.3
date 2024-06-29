@@ -890,6 +890,18 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"cZ" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	color = "#0081CD";
+	basecolor = "#0081CD";
+	dries = 0
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground/deadskrellstorage)
 "da" = (
 /obj/random/dirt_75,
 /obj/structure/flora/rock/pile{
@@ -952,9 +964,6 @@
 /area/new_blades/interiors/ruins/bunker)
 "di" = (
 /obj/random/dirt_75,
-/obj/structure/bed/stool/chair/office/bridge/generic{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
@@ -1132,6 +1141,18 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
+"dO" = (
+/obj/structure/flora/rock/pile{
+	density = 0;
+	icon_state = "lavarocks2"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground/deadskrellstorage)
 "dQ" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Checkpoint"
@@ -1231,6 +1252,7 @@
 	icon_state = "basalt3";
 	pixel_y = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
@@ -2149,6 +2171,20 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"hM" = (
+/obj/effect/floor_decal/corner_wide{
+	color = "#b19664";
+	dir = 5
+	},
+/obj/structure/table/steel,
+/obj/random/dirt_75,
+/obj/item/trash/tray{
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "hO" = (
 /obj/item/ore/aluminium{
 	pixel_y = -5;
@@ -2303,6 +2339,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"iv" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground/deadskrellstorage)
 "ix" = (
 /obj/effect/floor_decal/industrial/outline_straight{
 	color = "#b19664";
@@ -3228,20 +3271,32 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground/deadskrellstorage)
 "mr" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/machinery/fusion.dmi';
-	icon_state = "injector0";
-	density = 1;
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/decal/cleanable/floor_damage/rust,
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/machinery/modular_terminal.dmi';
+	icon_state = "computer-broken";
+	dir = 1;
+	name = "Broken Terminal";
+	density = 1
+	},
 /turf/simulated/floor/tiled/gridded{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"mt" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/grey{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
@@ -4085,6 +4140,7 @@
 /obj/structure/table/steel,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/tray,
 /turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
@@ -4282,13 +4338,6 @@
 /area/new_blades/interiors/ruins/bunker)
 "rm" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/machinery/modular_terminal.dmi';
-	icon_state = "computer-broken";
-	dir = 8;
-	name = "Broken Terminal";
-	density = 1
-	},
 /turf/simulated/floor/tiled/ridged{
 	temperature = 315.15
 	},
@@ -4840,6 +4889,17 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"tI" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	color = "#0081CD";
+	basecolor = "#0081CD";
+	dries = 0
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground/deadskrellstorage)
 "tJ" = (
 /obj/effect/floor_decal/industrial/outline_straight{
 	color = "#b19664";
@@ -5123,6 +5183,7 @@
 	icon_state = "basalt2";
 	pixel_y = 4
 	},
+/obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
@@ -5706,6 +5767,20 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"wL" = (
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 5
+	},
+/obj/structure/table/steel,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/random/dirt_75,
+/obj/item/trash/tray{
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "wN" = (
 /obj/structure/bed/stool/chair,
 /obj/effect/floor_decal/corner_wide/red{
@@ -5764,6 +5839,13 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"wT" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground/deadskrellstorage)
 "wU" = (
 /obj/effect/floor_decal/corner_wide/red/full{
 	dir = 4
@@ -6040,6 +6122,20 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground/deadskrellstorage)
+"xY" = (
+/obj/effect/floor_decal/corner_wide{
+	color = "#b19664";
+	dir = 5
+	},
+/obj/structure/table/steel,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/item/tray{
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "xZ" = (
 /obj/effect/floor_decal/corner_wide{
 	color = "#b19664";
@@ -6306,6 +6402,19 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker/brig)
+"zr" = (
+/obj/effect/floor_decal/corner_wide{
+	color = "#b19664";
+	dir = 10
+	},
+/obj/structure/table/steel,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/random/dirt_75,
+/obj/item/trash/tray,
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "zs" = (
 /obj/machinery/photocopier,
 /obj/random/dirt_75,
@@ -6674,7 +6783,9 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/table/reinforced/steel,
-/obj/item/device/radio/phone,
+/obj/item/device/radio/phone{
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/ridged{
 	temperature = 315.15
 	},
@@ -6905,15 +7016,12 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "BZ" = (
-/obj/effect/decal/cleanable/floor_damage/rust,
 /obj/random/dirt_75,
-/obj/structure/bed/stool/chair/office/bridge/generic{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark{
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
-/area/new_blades/interiors/ruins/bunker)
+/area/new_blades/underground/deadskrellstorage)
 "Cc" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -6974,6 +7082,7 @@
 	icon_state = "basalt3";
 	pixel_y = 4
 	},
+/obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren/cave{
@@ -7759,6 +7868,30 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker/brig)
+"FP" = (
+/obj/effect/floor_decal/corner_wide{
+	color = "#b19664";
+	dir = 10
+	},
+/obj/structure/table/steel,
+/obj/random/dirt_75,
+/obj/item/trash/tray{
+	pixel_y = -4;
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"FQ" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	temperature = 315.15
+	},
+/area/new_blades/underground/deadskrellstorage)
 "FR" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/sleeper.dmi';
@@ -8238,6 +8371,21 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Ir" = (
+/obj/effect/floor_decal/corner_wide{
+	color = "#b19664";
+	dir = 10
+	},
+/obj/structure/table/steel,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/random/dirt_75,
+/obj/item/trash/tray{
+	pixel_y = -10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "It" = (
 /obj/machinery/optable,
 /obj/effect/floor_decal/industrial/hatch{
@@ -8360,9 +8508,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/new_blades/interiors/ruins/bunker)
 "IL" = (
-/obj/machinery/light/colored/decayed{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/outline_segment/grey{
 	dir = 6
 	},
@@ -8376,6 +8521,9 @@
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/effect/floor_decal/concrete{
 	dir = 5
+	},
+/obj/machinery/light/broken{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/gridded{
 	temperature = 315.15
@@ -8614,6 +8762,17 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gridded{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
+"Jv" = (
+/obj/structure/table/steel,
+/obj/random/dirt_75,
+/obj/item/tray{
+	pixel_y = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
@@ -9160,6 +9319,21 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Md" = (
+/obj/effect/floor_decal/corner_wide{
+	color = "#b19664";
+	dir = 10
+	},
+/obj/structure/table/steel,
+/obj/random/dirt_75,
+/obj/item/tray{
+	pixel_y = 2;
+	pixel_x = -4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "Mh" = (
 /obj/effect/decal/cleanable/generic,
 /obj/random/dirt_75,
@@ -9365,6 +9539,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
+"Nf" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/asteroid,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground/deadskrellstorage)
 "Nl" = (
 /obj/structure/closet/secure_closet/freezer,
 /obj/machinery/light/broken{
@@ -9418,6 +9600,14 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground/aquifer)
+"NB" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/grey,
+/turf/simulated/floor/tiled/dark{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "ND" = (
 /obj/effect/floor_decal/corner_wide{
 	color = "#b19664";
@@ -10579,14 +10769,9 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "Su" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/machinery/fusion.dmi';
-	icon_state = "injector0";
-	density = 1;
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
+/obj/machinery/computer/terminal/purifier,
 /turf/simulated/floor/tiled/gridded{
 	temperature = 315.15
 	},
@@ -10605,6 +10790,22 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
+"Sy" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	color = "#0081CD";
+	basecolor = "#0081CD";
+	dries = 0
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	color = "#0081CD";
+	basecolor = "#0081CD";
+	dries = 0
+	},
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground/deadskrellstorage)
 "Sz" = (
 /obj/effect/floor_decal/industrial/outline_door/grey,
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -11032,14 +11233,12 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/item/shovel,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren/cave{
 	temperature = 315.15
 	},
 /area/new_blades/underground/deadskrellstorage)
 "TW" = (
-/obj/machinery/light/broken{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/outline_segment/grey,
 /obj/effect/floor_decal/industrial/outline_door{
 	color = "#b19664";
@@ -11053,6 +11252,9 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/gridded{
 	temperature = 315.15
 	},
@@ -11319,6 +11521,7 @@
 /obj/structure/flora/rock/konyang,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren/cave{
 	temperature = 315.15
 	},
@@ -11502,6 +11705,21 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker/brig)
+"Wo" = (
+/obj/effect/floor_decal/corner_wide{
+	color = "#b19664";
+	dir = 5
+	},
+/obj/structure/table/steel,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/item/tray{
+	pixel_y = 10;
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 315.15
+	},
+/area/new_blades/interiors/ruins/bunker)
 "Wr" = (
 /obj/structure/railing/mapped,
 /obj/random/dirt_75,
@@ -12092,6 +12310,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	temperature = 315.15
 	},
@@ -12196,6 +12415,20 @@
 	temperature = 315.15
 	},
 /area/new_blades/underground)
+"Zl" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/splatter{
+	blood_color = "#0081CD";
+	color = "#0081CD";
+	basecolor = "#0081CD";
+	dries = 0
+	},
+/obj/effect/landmark/corpse/nralakk,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave{
+	temperature = 315.15
+	},
+/area/new_blades/underground/deadskrellstorage)
 "Zm" = (
 /obj/effect/floor_decal/industrial/outline_door/grey{
 	dir = 8
@@ -12397,12 +12630,13 @@
 	},
 /area/new_blades/interiors/ruins/bunker)
 "ZP" = (
-/obj/effect/decal/cleanable/floor_damage/rust,
-/obj/random/dirt_75,
-/obj/machinery/computer/terminal/purifier{
-	dir = 8
+/obj/effect/floor_decal/corner_wide/red{
+	dir = 10
 	},
-/turf/simulated/floor/tiled/ridged{
+/obj/structure/table/steel,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/item/trash/tray,
+/turf/simulated/floor/tiled{
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins/bunker)
@@ -13951,7 +14185,7 @@ CF
 CF
 CF
 CF
-zC
+FQ
 TU
 CF
 CF
@@ -14208,7 +14442,7 @@ CF
 CF
 CF
 uE
-HF
+dO
 Lp
 ZJ
 ZJ
@@ -14453,8 +14687,8 @@ CF
 CF
 ld
 Lp
-lH
-Lp
+Ku
+Sy
 Ad
 un
 sZ
@@ -14468,8 +14702,8 @@ fk
 rW
 vG
 Ad
-Lp
-Lp
+lH
+wT
 ek
 CF
 CF
@@ -14706,7 +14940,7 @@ st
 im
 ZI
 CF
-Mv
+CF
 MD
 KA
 No
@@ -14724,10 +14958,10 @@ lH
 zC
 yR
 Lp
-Lp
-vG
-No
-No
+Nf
+Zl
+sZ
+sZ
 CF
 CF
 CF
@@ -14979,8 +15213,8 @@ fk
 ld
 Dw
 lH
-vG
-Lp
+Zl
+iv
 yR
 No
 ek
@@ -15233,11 +15467,11 @@ CF
 Lp
 Ku
 rW
-lH
+Ku
 yR
 vG
 Lp
-Lp
+lH
 Ad
 No
 CF
@@ -15491,9 +15725,9 @@ CF
 WV
 lH
 Lp
+iv
 Lp
-Lp
-Lp
+Nf
 Lp
 vG
 ek
@@ -15748,11 +15982,11 @@ CF
 CF
 hR
 KA
-yR
-yR
+cZ
+cZ
 Lp
 Lp
-No
+BZ
 ef
 CF
 CF
@@ -16004,7 +16238,7 @@ CF
 CF
 CF
 Lp
-No
+tI
 NS
 vG
 Oi
@@ -16561,14 +16795,14 @@ TS
 CF
 TS
 Lh
-mw
+zr
 BC
 Mn
 WB
 bG
 Mn
 IH
-Fm
+Wo
 RS
 TS
 mv
@@ -16819,12 +17053,12 @@ CF
 TS
 Mn
 ce
-Fm
+xY
 Mn
 xb
 xZ
 Mn
-Xm
+FP
 BC
 Mn
 TS
@@ -17333,13 +17567,13 @@ CF
 TS
 Mn
 ce
-bv
+hM
 Mn
 kr
 Al
 Mn
 Xm
-CU
+wL
 Mn
 TS
 bT
@@ -17846,13 +18080,13 @@ TS
 CF
 TS
 Mn
-IH
+ZP
 bv
 Mn
 MU
 eZ
 Mn
-Xm
+Md
 CU
 Mn
 TS
@@ -18361,12 +18595,12 @@ CF
 TS
 Lh
 kb
-bv
+hM
 Mn
 kr
 Al
 Mn
-mw
+Ir
 BC
 RS
 TS
@@ -18881,7 +19115,7 @@ xb
 eZ
 Mn
 IQ
-XK
+Jv
 tV
 TS
 PL
@@ -25018,7 +25252,7 @@ TS
 di
 ut
 Qg
-BZ
+oa
 TS
 CF
 CF
@@ -25272,7 +25506,7 @@ CF
 CF
 CF
 TS
-ZP
+gO
 AA
 eN
 rm
@@ -26043,10 +26277,10 @@ CF
 TS
 TS
 Su
-oa
+mt
 Vv
 JB
-oa
+NB
 mr
 TS
 TS
