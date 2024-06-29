@@ -577,6 +577,9 @@
 	if(istype(attacking_item, /obj/item/reagent_containers/glass/rag)) //You can't milk an udder with a rag.
 		attacked_with_item(attacking_item, user)
 		return
+	if(istype(attacking_item, /obj/item/device/scanner))
+		attacking_item.afterattack(src, user)
+		return
 	if(has_udder)
 		var/obj/item/reagent_containers/glass/G = attacking_item
 		if(stat == CONSCIOUS && istype(G) && G.is_open_container())

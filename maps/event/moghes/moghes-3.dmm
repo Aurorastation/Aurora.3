@@ -2254,6 +2254,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/status_display/supply_display{
+	pixel_y = 32
+	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
 "aWP" = (
@@ -17491,6 +17494,15 @@
 	temperature = 315.15
 	},
 /area/new_blades/interiors/ruins)
+"irp" = (
+/obj/item/modular_computer/console/preset/supply{
+	dir = 1
+	},
+/obj/machinery/status_display/supply_display{
+	pixel_y = -32
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/scc_evac)
 "isa" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -17576,6 +17588,9 @@
 "itU" = (
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/status_display/supply_display{
+	pixel_y = 32
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/scc_evac)
@@ -36730,7 +36745,7 @@
 	},
 /area/new_blades/interiors/ruins)
 "rHD" = (
-/obj/item/modular_computer/console/preset/security/hos{
+/obj/item/modular_computer/console/preset/supply{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -58697,7 +58712,7 @@ dWf
 rCG
 xiP
 xiP
-xiP
+irp
 iAL
 bOT
 xiP

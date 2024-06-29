@@ -162,6 +162,7 @@
 		/obj/item/device/camera_film = 2,
 		/obj/item/device/taperecorder = 1
 	)
+	belt = /obj/item/storage/belt/archaeology/full
 
 /datum/job/eventops
 	title = "Operations Personnel"

@@ -7,6 +7,7 @@
 	base_turf = /turf/simulated/floor/exoplanet/desert
 	ambience = AMBIENCE_DESERT
 	area_blurb = "Heat, sand, and dust surround you. The air smells of burning rubber as the wind stirs spirals of dust about your feet. The heat is overpowering."
+	is_outside = TRUE
 	var/lighting = TRUE
 
 /area/new_blades/Initialize()
@@ -23,6 +24,7 @@
 	ambience = AMBIENCE_RUINS
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
 	area_blurb = "The caverns are dark and quiet, a merciful reprise from the Wasteland outside."
+	is_outside = FALSE
 
 /area/new_blades/underground/aquifer
 	name = "Aquifer"
@@ -41,6 +43,7 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "This building appears better preserved than most in the Wasteland - it could make for a useful shelter if needed."
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
+	is_outside = FALSE
 
 /area/new_blades/interiors/skrell_base
 	name = "Skrell Base"
@@ -54,7 +57,6 @@
 
 /area/new_blades/interiors/ruins/hegemony_spaceport
 	name = "Abandoned Spaceport"
-	area_blurb = "The buildings here are ancient and rusting - a monument to the war that left this world sundered and bleeding."
 
 /area/new_blades/interiors/ruins/hegemony_base
 	name = "Abandoned Base"
@@ -69,17 +71,20 @@
 	name = "SCC Transport Shuttle"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
+	is_outside = FALSE
 
 /area/turbolift/hegemony_bunker_A
 	name = "Bunker Lift A"
+	requires_power = TRUE
 	station_area = FALSE
 
 /area/turbolift/hegemony_bunker_B
 	name = "Bunker Lift B"
+	requires_power = TRUE
 	station_area = FALSE
 
 /datum/shuttle/autodock/ferry/scc_evac
-	name = "SCC Evac Shuttle"
+	name = "SCCV Apollo"
 	location = 1
 	warmup_time = 10
 	shuttle_area = /area/shuttle/scc_evac
@@ -110,7 +115,7 @@
 /obj/machinery/computer/shuttle_control/scc_evac
 	name = "SCCV Apollo control console"
 	req_access = list(ACCESS_HEADS)
-	shuttle_tag = "SCC Evac Shuttle"
+	shuttle_tag = "SCCV Apollo"
 	var/locked = FALSE
 
 /obj/machinery/computer/shuttle_control/scc_evac/attack_hand(mob/user)
@@ -244,9 +249,10 @@
 		M.w_uniform.color = "#c3b6b6"
 	var/obj/item/organ/internal/stomach/stomach = M.internal_organs_by_name[BP_STOMACH]
 	if(stomach)
-		stomach.ingested.add_reagent(/singleton/reagent/toxin/phoron, rand(1,10))
+		stomach.ingested.add_reagent(/singleton/reagent/toxin/phoron, rand(1,5))
 		stomach.ingested.add_reagent(/singleton/reagent/water, rand(15,30))
 	M.apply_damage(rand(10,30), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
+	M.faction = "deadguy"
 
 /obj/effect/landmark/corpse/vaurca
 	name = "C'thur Worker"
@@ -254,6 +260,7 @@
 	corpseuniform = /obj/item/clothing/under/skrell/nralakk/oqi/service
 	corpsesuit = /obj/item/clothing/accessory/poncho/shouldercape/cloak/oqi
 	corpseshoes = /obj/item/clothing/shoes/vaurca
+	corpsemask = /obj/item/clothing/mask/gas/vaurca/filter
 	corpseid = FALSE
 	species = SPECIES_VAURCA_WORKER
 

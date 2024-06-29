@@ -132,8 +132,8 @@
 	name = "Medical Personnel - Zeng-Hu"
 
 	head = /obj/item/clothing/head/softcap/zeng
-	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng
-	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
+	uniform = /obj/item/clothing/under/rank/medical/paramedic/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/para_jacket/zeng
 	id = /obj/item/card/id/zeng_hu
 
 	backpack_faction = /obj/item/storage/backpack/zeng

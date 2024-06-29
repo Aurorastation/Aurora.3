@@ -121,26 +121,26 @@
 		icon_state = "[initial(icon_state)]_deployed"
 
 /obj/structure/survey_probe/proc/get_report(var/turf/T, var/is_exoplanet, var/is_asteroid)
-	. = "<b>Atmospheric survey results:</b>"
-	var/datum/gas_mixture/air = T.return_air()
-	if(air && air.total_moles>0)
-		. += "<br><small>[english_list(atmosanalyzer_scan(T, air))]</small>"
-		if((is_exoplanet || is_asteroid) && SSatlas.current_map.use_overmap)
-			var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = GLOB.map_sectors["[z]"]
-			if(istype(exoplanet))
-				. += "<br><b>Apparent Weather Data: </b>[exoplanet.weather]"
-			else
-				. += "<br>No local weather patterns detected"
-		else
-			. += "<br>No atmospheric data available"
-	else
-		. += "<br>No atmosphere detected"
+	. = "<b>Survey Results:</b>"
+	. += "<b>Estimated Mass and Volume: </b>0.97/1.03BSS(Biesels)"
+	. += "<br><b>Surface Gravity: </b>0.93Gs"
+	. += "<br><b>Geological Variables: </b>High tectonic heat. Significant geothermal activity detected."
+	. += "<br><b>Surface Water Coverage: </b>34% surface water. Weak tidal forces from natural satellite."
+	. += "<br><b>Apparent Weather Data: </b>Global full-atmosphere hydrological weather system. Substantial meteorological activity, violent storms unpredictable. Heavy radioactive contamination detected in planetary atmosphere."
+	. += "<br>"
+	if(istype(T, /turf/simulated/floor/exoplanet/desert))
+		. += "<br>Severe water depletion detected in local soil samples. May cause long-term decline in local grasses and herbivore populations."
+		. += "<br>Radioactive contamination levels in local soil samples are at low, yet statistically significant levels."
+		. += "<br>The largest danger to local flora is dehydration caused from lowered water levels in the region, as well as persistent damage from exposure to radiation."
+	if(istype(T, /turf/simulated/floor/exoplanet/grass/moghes/dirt))
+		. += "<br>Rich subsurface mineral deposits detected."
+		. += "<br>Radioactive contamination in soil minimal."
+		. += "<br>Water depletion detected in soil samples."
+	. += "<br>Atmospheric fallout levels moderate, unsafae for prolonged habitation without intervention. Rate of dispersal uncertain."
+
 
 /obj/structure/survey_probe/proc/get_location()
-	var/obj/effect/overmap/visitable/sector/sector = GLOB.map_sectors["[z]"]
-	if(istype(sector))
-		return sector.name
-	return "Unknown location"
+	return "Zazalai Mountains, Moghes"
 
 // Language-specific probe versions for mapping.
 /obj/structure/survey_probe/sol
