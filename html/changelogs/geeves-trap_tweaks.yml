@@ -3,6 +3,7 @@ author: Geeves
 delete-after: True
 
 changes:
+  - rscadd: "Animal traps now work based off mob size, instead of having a specific mapped in list for animals it can or cannot capture."
   - rscadd: "Added new examine text to traps that help explain how to use them."
   - rscadd: "Added a verb to deploy / undeploy traps."
   - rscadd: "Tweaked a couple interactions with traps, mechanically and grammatically."
