@@ -65,7 +65,7 @@
 
 /obj/outfit/job/med_tech/event
 	name = "Medical Personnel"
-	belt = /obj/item/storage/belt/medical/first_responder
+	belt = /obj/item/storage/belt/medical/paramedic
 	belt_contents = list(
 		/obj/item/reagent_containers/hypospray = 1,
 		/obj/item/device/healthanalyzer = 1

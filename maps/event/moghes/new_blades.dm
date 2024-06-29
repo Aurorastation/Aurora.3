@@ -40,6 +40,12 @@
 	lighting = FALSE
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	area_blurb = "This building appears better preserved than most in the Wasteland - it could make for a useful shelter if needed."
+	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
+
+/area/new_blades/interiors/skrell_base
+	name = "Skrell Base"
+	area_blurb = "The vibrant colors and curves of skrell construction contrast sharply with the surrounding dusty wasteland, but that's not the only thing wrong with this picture."
+	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
 /area/new_blades/interiors/ruins
 	name = "Wasteland Ruins"
@@ -62,6 +68,7 @@
 /area/shuttle/scc_evac
 	name = "SCC Transport Shuttle"
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 
 /area/turbolift/hegemony_bunker_A
 	name = "Bunker Lift A"
