@@ -10,6 +10,7 @@
 	contained_sprite = TRUE
 	action_button_name = "Adjust Hood"
 	var/up = TRUE
+	protects_against_weather = TRUE
 
 /obj/item/clothing/accessory/sinta_hood/get_ear_examine_text(var/mob/user, var/ear_text = "left")
 	return "on [user.get_pronoun("his")] head"
@@ -64,6 +65,7 @@
 	item_state = "maxtlatl"
 	icon_override = null
 	contained_sprite = TRUE
+	protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/poncho/unathimantle
 	name = "desert hide mantle"
@@ -205,3 +207,4 @@
 	build_from_parts = TRUE
 	worn_overlay =  "chain"
 	has_accents = TRUE
+	protects_against_weather = FALSE

@@ -99,6 +99,7 @@
 		/obj/item/clothing/shoes/footwraps
 	)
 	back = /obj/item/storage/backpack/satchel/leather
+	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
 	r_pocket = /obj/item/reagent_containers/food/drinks/waterbottle
 	l_pocket = /obj/item/storage/wallet/random
 	suit = list(
