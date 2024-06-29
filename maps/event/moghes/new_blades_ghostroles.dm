@@ -23,6 +23,7 @@
 
 /datum/ghostspawner/human/zaza_villager/post_spawn(mob/user)
 	. = ..()
+	renegades.add_antagonist(user.mind, do_not_equip = TRUE)
 	var/mob/living/carbon/human/H = user
 	if(!istype(H))
 		return
@@ -53,6 +54,10 @@
 
 	uses_species_whitelist = FALSE
 	enabled = FALSE
+
+/datum/ghostspawner/human/izaku_killsquad/post_spawn(mob/user)
+	. = ..()
+	renegades.add_antagonist(user.mind, do_not_equip = TRUE)
 
 /obj/outfit/admin/izaku_killsquad
 	name = "Izaku Warrior"
@@ -103,6 +108,10 @@
 	enabled = TRUE
 	password = "nothingtoseehere"
 
+/datum/ghostspawner/human/izaku_escort/post_spawn(mob/user)
+	. = ..()
+	renegades.add_antagonist(user.mind, do_not_equip = TRUE)
+
 /obj/outfit/admin/izaku_escort
 	uniform = /obj/item/clothing/under/unathi/zazali
 	accessory = /obj/item/clothing/accessory/holster/hip
@@ -152,8 +161,26 @@
 	outfit = /obj/outfit/admin/skrurvivor
 
 	uses_species_whitelist = FALSE
-	enabled = FALSE
+	//enabled = FALSE
 	password = "warble"
+
+/datum/ghostspawner/human/skrurvivor/post_spawn(mob/user)
+	. = ..()
+	renegades.add_antagonist(user.mind, do_not_equip = TRUE)
+	add_verb(user, /mob/living/carbon/human/proc/observer)
+
+/mob/living/carbon/human/proc/observer()
+	set name = "Observe"
+	set category = "OOC"
+	set desc = "Poor man's aghost"
+
+	var/mob/body = src
+	var/mob/abstract/observer/ghost = body.ghostize(1)
+	//ghost.admin_ghosted = 1
+	if(body)
+		body.teleop = ghost
+		if(!body.key)
+			body.key = "@[key]"
 
 /obj/outfit/admin/skrurvivor
 	uniform = /obj/item/clothing/under/skrell/nralakk/oqi/med
