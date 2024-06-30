@@ -1,7 +1,0 @@
-author: Crosarius
-
-delete-after: True
-
-changes:
-  - qol: "Helmets now protect against being knocked unconscious by a headbutt, unless the person headbutting has a better helmet."
-  - qol: "Headbutting someone who is wearing a helmet can knock yourself out, instead of them."
