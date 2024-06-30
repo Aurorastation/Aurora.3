@@ -20,10 +20,18 @@
 /obj/structure/closet/crate{
 	name = "sterile gloves"
 	},
-/obj/item/storage/box/gloves,
-/obj/item/storage/box/gloves,
-/obj/item/storage/box/gloves,
-/obj/item/storage/box/gloves,
+/obj/item/tent,
+/obj/item/tent,
+/obj/item/tent,
+/obj/item/sleeping_bag/mining,
+/obj/item/sleeping_bag/mining,
+/obj/item/sleeping_bag/mining,
+/obj/item/material/folding_table,
+/obj/item/material/folding_table,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/space)
 "bu" = (
@@ -99,6 +107,20 @@
 /obj/item/reagent_containers/food/condiment/enzyme,
 /obj/item/reagent_containers/food/condiment/enzyme,
 /turf/simulated/floor/shuttle/black,
+/area/space)
+"bK" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/sink{
+	pixel_y = 26
+	},
+/obj/structure/mirror{
+	pixel_y = 36
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/tiled/white,
 /area/space)
 "bV" = (
 /obj/machinery/vending/hydronutrients{
@@ -254,7 +276,6 @@
 /area/space)
 "ed" = (
 /obj/machinery/door/airlock/freezer{
-	id = "shuttle_stall_2";
 	name = "Stall 2"
 	},
 /turf/simulated/floor/tiled/full,
@@ -291,12 +312,6 @@
 /obj/machinery/reagentgrinder{
 	pixel_y = 7
 	},
-/obj/item/stack/material/phoron{
-	amount = 6
-	},
-/obj/item/stack/material/phoron{
-	amount = 6
-	},
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 9
 	},
@@ -329,10 +344,6 @@
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "ft" = (
-/obj/structure/closet/secure_closet/xenoarchaeologist{
-	req_access = null;
-	req_one_access = list(7,47)
-	},
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/machinery/light,
 /turf/simulated/floor/shuttle/black,
@@ -342,6 +353,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
+/area/space)
+"fG" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 1;
+	name = "Engineering Prep"
+	},
+/turf/simulated/floor/tiled/full,
 /area/space)
 "fM" = (
 /obj/structure/table/standard,
@@ -593,10 +611,45 @@
 /obj/item/clothing/head/welding,
 /obj/item/clothing/head/welding,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "ji" = (
 /obj/structure/bed/handrail,
+/obj/structure/sign/directions/civ{
+	pixel_y = 32;
+	dir = 1
+	},
+/obj/structure/sign/directions/engineering{
+	pixel_y = 26;
+	dir = 1
+	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/space)
 "jo" = (
@@ -655,7 +708,7 @@
 /turf/simulated/floor,
 /area/space)
 "kl" = (
-/obj/machinery/computer/ship/navigation{
+/obj/item/modular_computer/console/preset/command{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -680,6 +733,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "kW" = (
@@ -738,6 +792,22 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"lw" = (
+/obj/structure/bed/handrail,
+/obj/structure/sign/directions/medical{
+	dir = 1;
+	pixel_y = 35
+	},
+/obj/structure/sign/directions/science{
+	pixel_y = 29;
+	dir = 1
+	},
+/obj/structure/sign/directions/security{
+	pixel_y = 23;
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/space)
 "lz" = (
 /obj/machinery/door/airlock/multi_tile,
 /obj/structure/plasticflaps/airtight,
@@ -750,16 +820,24 @@
 /obj/machinery/door/airlock{
 	name = "Restroom"
 	},
-/turf/simulated/floor,
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "mj" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/button/remote/blast_door{
 	dir = 6;
 	pixel_y = 5;
-	pixel_x = 4;
-	name = "blast door-control";
+	pixel_x = 6;
+	name = "External Blast Doors";
 	id = "shuttle_blast_doors"
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 6;
+	pixel_y = 5;
+	pixel_x = -6;
+	name = "Bridge Blast Shield";
+	id = "shuttle_bridge_blast_doors"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/space)
@@ -875,6 +953,20 @@
 	},
 /obj/item/storage/box/fancy/tray/machinist,
 /obj/item/storage/box/fancy/tray/machinist,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"os" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"oA" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "oW" = (
@@ -931,7 +1023,10 @@
 	name = "Bridge Officer Preparation";
 	req_access = list(19)
 	},
-/turf/simulated/floor/tiled/full,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "pZ" = (
 /obj/effect/floor_decal/spline/plain/orange{
@@ -975,6 +1070,10 @@
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "556 ammo cabinet"
 	},
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
 /obj/item/ammo_magazine/a556/carbine/polymer,
 /obj/item/ammo_magazine/a556/carbine/polymer,
 /obj/item/ammo_magazine/a556/carbine/polymer,
@@ -1045,6 +1144,16 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"qQ" = (
+/obj/machinery/light/floor{
+	pixel_x = 16
+	},
+/obj/structure/sign/directions/medical{
+	dir = 8;
+	pixel_x = -32
+	},
+/turf/simulated/floor/shuttle/black,
 /area/space)
 "qU" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
@@ -1128,10 +1237,14 @@
 /obj/machinery/door/blast/regular{
 	id = "shuttle_blast_doors"
 	},
+/obj/structure/plasticflaps/airtight{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/space)
 "ud" = (
 /obj/structure/reagent_dispensers/fueltank,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "uf" = (
@@ -1145,6 +1258,7 @@
 /obj/machinery/vending/robotics{
 	anchored = 0
 	},
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "uS" = (
@@ -1237,6 +1351,21 @@
 /obj/item/device/gps/engineering,
 /turf/simulated/floor/shuttle/black,
 /area/space)
+"vo" = (
+/obj/structure/bed/handrail{
+	dir = 4;
+	pixel_x = 1
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"vs" = (
+/obj/structure/sign/directions/engineering{
+	dir = 4;
+	pixel_y = 0;
+	pixel_x = 32
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "vB" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/beaker/large,
@@ -1284,6 +1413,10 @@
 	specialfunctions = 4;
 	pixel_y = 3
 	},
+/obj/structure/bed/handrail{
+	dir = 8;
+	pixel_x = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "xQ" = (
@@ -1292,6 +1425,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"xR" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 1;
+	name = "Operations and Service Storage"
+	},
+/turf/simulated/floor/tiled/full,
 /area/space)
 "xU" = (
 /obj/machinery/light/floor{
@@ -1323,6 +1463,14 @@
 "yv" = (
 /turf/simulated/floor/shuttle/black,
 /area/space)
+"yx" = (
+/obj/structure/sign/directions/civ{
+	pixel_y = 0;
+	dir = 4;
+	pixel_x = 32
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "yB" = (
 /obj/machinery/light{
 	dir = 1
@@ -1331,7 +1479,6 @@
 /area/space)
 "yI" = (
 /obj/machinery/door/airlock/freezer{
-	id = "shuttle_stall_1";
 	name = "Stall 1"
 	},
 /turf/simulated/floor/tiled/full,
@@ -1570,7 +1717,8 @@
 	name = "Bridge";
 	req_one_access = list(19)
 	},
-/turf/simulated/floor/tiled/full,
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "AE" = (
 /obj/effect/landmark/scorcher,
@@ -1581,6 +1729,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
+/area/space)
+"Bc" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled/white,
 /area/space)
 "Bd" = (
 /obj/effect/floor_decal/spline/plain/green,
@@ -1605,6 +1761,13 @@
 "Bm" = (
 /obj/machinery/vending/engivend,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"Bt" = (
+/obj/machinery/atm{
+	dir = 1;
+	pixel_y = 28
+	},
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "Ch" = (
@@ -1641,6 +1804,13 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"CT" = (
+/obj/structure/sign/directions/cryo{
+	pixel_x = -32;
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "Db" = (
 /obj/machinery/cryopod{
 	dir = 2
@@ -1649,10 +1819,8 @@
 /area/space)
 "Dp" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	dir = 1
-	},
-/obj/machinery/vending/engineering{
-	anchored = 0
+	dir = 1;
+	name = "Security Prep"
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
@@ -1668,16 +1836,18 @@
 /turf/simulated/floor/tiled/full,
 /area/space)
 "Ek" = (
-/obj/item/modular_computer/console/preset/security/hos{
+/obj/item/modular_computer/console/preset/supply{
 	dir = 1
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/space)
 "En" = (
-/obj/machinery/chemical_dispenser/ert,
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
+/obj/structure/table/standard,
+/obj/item/storage/box/bodybags,
+/obj/item/storage/box/bodybags,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Ey" = (
@@ -1698,6 +1868,7 @@
 /obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "EJ" = (
@@ -1755,8 +1926,16 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/space)
+"FJ" = (
+/obj/item/modular_computer/console/preset/supply{
+	dir = 1
+	},
+/obj/machinery/status_display/supply_display{
+	pixel_y = -32
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "FT" = (
-/obj/machinery/chemical_dispenser/ert,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1764,11 +1943,20 @@
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 8
 	},
+/obj/structure/table/standard,
+/obj/item/stack/material/phoron{
+	amount = 6;
+	pixel_y = 7
+	},
+/obj/item/stack/material/phoron{
+	amount = 6;
+	pixel_y = 7
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/space)
 "Gf" = (
-/obj/structure/closet/crate/solar,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/autolathe,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "Gh" = (
@@ -1830,6 +2018,10 @@
 	specialfunctions = 4;
 	pixel_y = 3
 	},
+/obj/structure/bed/handrail{
+	dir = 8;
+	pixel_x = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "IV" = (
@@ -1864,9 +2056,6 @@
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "Jg" = (
-/obj/structure/closet/crate{
-	name = "tools and gear crate"
-	},
 /obj/item/storage/belt/utility/full,
 /obj/item/storage/belt/utility/full,
 /obj/item/storage/belt/utility/full,
@@ -1890,6 +2079,10 @@
 /obj/item/clothing/accessory/armband/operations,
 /obj/item/clothing/accessory/armband/operations,
 /obj/item/clothing/accessory/armband/operations,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/structure/closet/crate{
+	name = "machinist tools and gear crate"
+	},
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "Ju" = (
@@ -1900,6 +2093,9 @@
 /obj/item/gun/projectile/automatic/rifle/jingya,
 /obj/item/gun/projectile/automatic/rifle/jingya,
 /obj/item/gun/projectile/automatic/rifle/jingya,
+/obj/item/gun/projectile/automatic/rifle/jingya,
+/obj/item/gun/projectile/automatic/rifle/jingya,
+/obj/item/gun/energy/rifle,
 /obj/item/gun/energy/rifle,
 /obj/item/gun/energy/rifle,
 /obj/item/gun/energy/rifle,
@@ -1910,29 +2106,15 @@
 /obj/item/gun/energy/gun,
 /turf/simulated/floor/shuttle/dark_red,
 /area/space)
-"Jz" = (
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow/specialt,
-/obj/item/clothing/gloves/yellow/specialt,
-/obj/item/clothing/gloves/yellow/specialt,
-/obj/item/clothing/gloves/yellow/specialt,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/item/clothing/gloves/yellow/specialu,
-/obj/structure/closet/crate{
-	name = "insulated gloves crate"
+"Jy" = (
+/obj/machinery/status_display/supply_display{
+	pixel_x = 32
 	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"Jz" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/solar,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "JI" = (
@@ -1973,12 +2155,6 @@
 /obj/item/auto_cpr,
 /obj/item/auto_cpr,
 /obj/item/auto_cpr,
-/obj/item/storage/box/gloves{
-	pixel_y = -16
-	},
-/obj/item/storage/box/gloves{
-	pixel_y = -16
-	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "JV" = (
@@ -2031,6 +2207,10 @@
 	},
 /turf/simulated/floor,
 /area/space)
+"La" = (
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "Lb" = (
 /obj/item/modular_computer/console/preset/engineering/ce{
 	dir = 1
@@ -2042,10 +2222,15 @@
 /obj/effect/floor_decal/industrial/outline/research,
 /turf/simulated/floor/shuttle/black,
 /area/space)
+"Lo" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
 "Lw" = (
 /obj/machinery/door/airlock/freezer{
-	name = "Stall 3";
-	id = "shuttle_stall_3"
+	name = "Stall 3"
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
@@ -2105,10 +2290,14 @@
 /turf/simulated/floor,
 /area/space)
 "MU" = (
-/obj/machinery/computer/ship/helm{
+/obj/effect/floor_decal/corner/black{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/obj/effect/floor_decal/corner/black,
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
 /area/space)
 "Ny" = (
 /obj/structure/bed/stool/chair/office/bridge{
@@ -2134,6 +2323,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"NK" = (
+/obj/structure/sign/directions/security{
+	dir = 8;
+	pixel_x = -32
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"NO" = (
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/space)
 "NP" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/effect/landmark/force_spawnpoint{
@@ -2155,6 +2355,25 @@
 	},
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"OJ" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/space)
+"OU" = (
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/structure/closet/secure_closet/freezer/meat,
+/turf/simulated/floor/shuttle/black,
 /area/space)
 "OX" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -2346,6 +2565,10 @@
 	spawn_firedoor = 1;
 	spawn_grille = 1
 	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "shuttle_bridge_blast_doors"
+	},
 /turf/simulated/floor,
 /area/space)
 "SQ" = (
@@ -2396,6 +2619,13 @@
 	},
 /turf/simulated/floor,
 /area/space)
+"TC" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 1;
+	name = "Medical"
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
 "Ue" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/computer/cryopod{
@@ -2405,7 +2635,8 @@
 /area/space)
 "Uu" = (
 /obj/machinery/door/airlock/glass_engineering,
-/turf/simulated/floor/tiled/full,
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "Uv" = (
 /obj/effect/floor_decal/industrial/outline/service,
@@ -2447,7 +2678,8 @@
 	name = "Bridge Officer Preparation";
 	req_access = list(19)
 	},
-/turf/simulated/floor/tiled/full,
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "Vb" = (
 /obj/structure/table/standard,
@@ -2469,12 +2701,19 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/storage/box/gloves{
+	pixel_y = -16
+	},
+/obj/item/storage/box/gloves{
+	pixel_y = -16
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Vd" = (
 /obj/item/modular_computer/console/preset/research{
 	dir = 1
 	},
+/obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/space)
 "Vn" = (
@@ -2566,6 +2805,22 @@
 /obj/item/device/gps/science,
 /obj/item/device/gps/science,
 /obj/item/device/gps/science,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/space)
+"XH" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/space)
 "XS" = (
@@ -2578,6 +2833,13 @@
 /obj/item/device/megaphone/command,
 /obj/machinery/light{
 	dir = 1
+	},
+/turf/simulated/floor/shuttle/black,
+/area/space)
+"Yj" = (
+/obj/structure/sign/directions/science{
+	dir = 4;
+	pixel_x = 32
 	},
 /turf/simulated/floor/shuttle/black,
 /area/space)
@@ -2601,6 +2863,10 @@
 	specialfunctions = 4;
 	pixel_y = 3
 	},
+/obj/structure/bed/handrail{
+	dir = 8;
+	pixel_x = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "YF" = (
@@ -2614,7 +2880,8 @@
 /area/space)
 "Zb" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	dir = 1
+	dir = 1;
+	name = "Scientific Storage"
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
@@ -2862,7 +3129,7 @@ yv
 yv
 yv
 yv
-yv
+La
 Kz
 MF
 MF
@@ -2898,7 +3165,7 @@ Bd
 MF
 OX
 Vn
-Vn
+OJ
 Vn
 Vn
 Vn
@@ -2906,7 +3173,7 @@ yv
 yv
 UI
 yv
-yv
+vo
 yh
 rR
 MF
@@ -3058,7 +3325,7 @@ jJ
 MF
 OX
 Vn
-Vn
+OJ
 Vn
 Vn
 Vn
@@ -3108,7 +3375,7 @@ Ax
 yv
 yv
 jP
-MU
+NO
 SM
 "}
 (12,1,1) = {"
@@ -3131,12 +3398,12 @@ MF
 MF
 MF
 sV
-Zb
+TC
 MF
 MF
 MF
 MF
-ji
+lw
 HC
 HC
 HC
@@ -3145,7 +3412,7 @@ HC
 yv
 ha
 MF
-yv
+Bt
 yv
 yv
 Zq
@@ -3159,12 +3426,12 @@ yv
 yv
 yv
 Pt
+CT
 yv
 yv
 yv
 yv
-yv
-yv
+NK
 Pt
 yv
 yv
@@ -3172,7 +3439,7 @@ yv
 yv
 yv
 yv
-Pt
+qQ
 yv
 yv
 HG
@@ -3201,20 +3468,20 @@ yv
 yv
 yv
 yv
+yx
 yv
 yv
 yv
 yv
 yv
 yv
+vs
 yv
 yv
 yv
 yv
 yv
-yv
-yv
-yv
+Yj
 yv
 yv
 yv
@@ -3243,11 +3510,11 @@ MF
 MF
 MF
 sV
-Zb
+xR
 MF
 MF
 sV
-Zb
+fG
 MF
 MF
 MF
@@ -3284,7 +3551,7 @@ Jg
 uq
 yv
 yv
-yv
+FJ
 MF
 yv
 yv
@@ -3317,12 +3584,12 @@ sj
 MF
 QF
 xU
+NO
 HC
 HC
 HC
 HC
-HC
-HC
+NO
 xU
 eB
 MF
@@ -3338,7 +3605,7 @@ gH
 MF
 VH
 dN
-dN
+XH
 dN
 dN
 dN
@@ -3346,7 +3613,7 @@ yv
 ha
 MF
 yB
-yv
+Jy
 mr
 Ek
 MF
@@ -3465,8 +3732,8 @@ Vn
 yv
 yv
 MF
-FC
-Zi
+bK
+MU
 MF
 MF
 MF
@@ -3479,7 +3746,7 @@ du
 HC
 fq
 yv
-YN
+OU
 yv
 kW
 tN
@@ -3494,11 +3761,11 @@ Li
 mQ
 HC
 HC
-gH
+yn
 MF
 VH
 dN
-dN
+XH
 dN
 dN
 dN
@@ -3542,11 +3809,11 @@ yv
 yv
 yv
 yv
-yv
+La
 Kz
 MF
 Zi
-Zi
+MU
 MF
 MF
 MF
@@ -3557,12 +3824,12 @@ MF
 MF
 MF
 Py
+NO
 HC
 HC
 HC
 HC
-HC
-HC
+NO
 Py
 eB
 MF
@@ -3585,7 +3852,7 @@ yv
 yv
 yv
 lO
-Zi
+os
 Zi
 Lw
 IS
@@ -3598,7 +3865,7 @@ gO
 MF
 MF
 ud
-ud
+oA
 yv
 yv
 yv
@@ -3611,9 +3878,9 @@ yv
 Mp
 MF
 cl
-yv
-yv
-yv
+Lo
+Lo
+Lo
 ft
 MF
 bw
@@ -3626,7 +3893,7 @@ yv
 qy
 MF
 kN
-Zi
+Bc
 MF
 MF
 MF
