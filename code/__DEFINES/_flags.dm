@@ -53,9 +53,9 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 
 //TURF FLAGS
 /// If a turf is an usused reservation turf awaiting assignment
-#define UNUSED_RESERVATION_TURF (1<<1)
+#define UNUSED_RESERVATION_TURF BITFLAG(1)
 /// If a turf is a reserved turf
-#define RESERVATION_TURF (1<<2)
+#define RESERVATION_TURF BITFLAG(2)
 
 // Turf-only flags.
 ///Blocks the jaunting spell from accessing the turf
