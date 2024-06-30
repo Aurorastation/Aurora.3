@@ -47,6 +47,8 @@
 
 	simple_default_language = LANGUAGE_CULT
 
+	sample_data = null
+
 
 /mob/living/simple_animal/construct/cultify()
 	return

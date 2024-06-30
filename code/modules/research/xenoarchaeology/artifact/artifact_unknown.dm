@@ -244,33 +244,39 @@
 		if(secondary_effect?.trigger == TRIGGER_FORCE)
 			secondary_effect.ToggleActivate()
 
-/obj/machinery/artifact/CollidedWith(M as mob|obj)
+/obj/machinery/artifact/CollidedWith(atom/bumped_atom)
 	..()
-	if(istype(M,/obj))
-		if(M:throwforce >= 10)
+	if(istype(bumped_atom, /obj))
+		var/obj/O = bumped_atom
+		if(O.throwforce >= 10)
 			if(my_effect.trigger == TRIGGER_FORCE)
 				my_effect.ToggleActivate()
 			if(secondary_effect?.trigger == TRIGGER_FORCE)
 				secondary_effect.ToggleActivate()
-	else if(ishuman(M) && !istype(M:gloves,/obj/item/clothing/gloves))
-		var/warn = 0
 
-		if (my_effect.trigger == TRIGGER_TOUCH && prob(50))
-			my_effect.ToggleActivate()
-			warn = 1
-		if(secondary_effect?.trigger == TRIGGER_TOUCH && prob(50))
-			secondary_effect.ToggleActivate()
-			warn = 1
+	else if(ishuman(bumped_atom))
 
-		if (my_effect.effect == EFFECT_TOUCH && prob(50))
-			my_effect.DoEffectTouch(M)
-			warn = 1
-		if(secondary_effect?.effect == EFFECT_TOUCH && prob(50))
-			secondary_effect.DoEffectTouch(M)
-			warn = 1
+		var/mob/living/carbon/human/H = bumped_atom
 
-		if(warn)
-			to_chat(M, "<b>You accidentally touch [src].</b>")
+		if(!istype(H.gloves, /obj/item/clothing/gloves))
+			var/warn = 0
+
+			if (my_effect.trigger == TRIGGER_TOUCH && prob(50))
+				my_effect.ToggleActivate()
+				warn = 1
+			if(secondary_effect?.trigger == TRIGGER_TOUCH && prob(50))
+				secondary_effect.ToggleActivate()
+				warn = 1
+
+			if (my_effect.effect == EFFECT_TOUCH && prob(50))
+				my_effect.DoEffectTouch(H)
+				warn = 1
+			if(secondary_effect?.effect == EFFECT_TOUCH && prob(50))
+				secondary_effect.DoEffectTouch(H)
+				warn = 1
+
+			if(warn)
+				to_chat(H, "<b>You accidentally touch [src].</b>")
 	..()
 
 /obj/machinery/artifact/bullet_act(var/obj/item/projectile/P)

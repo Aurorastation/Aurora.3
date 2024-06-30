@@ -19,8 +19,10 @@ var/list/obj/effect/bump_teleporter/BUMP_TELEPORTERS = list()
 	BUMP_TELEPORTERS -= src
 	return ..()
 
-/obj/effect/bump_teleporter/CollidedWith(atom/user)
-	if(!ismob(user))
+/obj/effect/bump_teleporter/CollidedWith(atom/bumped_atom)
+	. = ..()
+
+	if(!ismob(bumped_atom))
 		//user.forceMove(src.loc)	//Stop at teleporter location
 		return
 

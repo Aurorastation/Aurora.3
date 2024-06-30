@@ -78,6 +78,7 @@
 	stages[stage_to_do] = STAGE_PROGRESS
 	if(!do_after(user, time_per_structure * LAZYLEN(target_turfs)))
 		stages[stage_to_do] = STAGE_DISASSEMBLED
+		interacting -= user
 		return
 	user.visible_message(SPAN_NOTICE("\The [user] finishes assembling the [stage_to_do]."))
 	stages[stage_to_do] = STAGE_ASSEMBLED
@@ -127,6 +128,7 @@
 	stages[stage_to_do] = STAGE_PROGRESS
 	if(!do_after(user, time_per_structure * LAZYLEN(grouped_structures)))
 		stages[stage_to_do] = STAGE_ASSEMBLED
+		interacting -= user
 		return FALSE
 	user.visible_message(SPAN_NOTICE("\The [user] finishes disassembling the [stage_to_do]."))
 	stages[stage_to_do] = STAGE_DISASSEMBLED
@@ -147,7 +149,7 @@
 	return TRUE
 
 /datum/large_structure/proc/structure_entered(var/turf/entry_point, var/atom/movable/entering)
-	if(!isliving(entering))
+	if(!(isliving(entering) || isobserver(entering)))
 		return FALSE
 	RegisterSignal(entering, COMSIG_MOVABLE_MOVED, PROC_REF(mob_moved), override = TRUE)
 	return TRUE

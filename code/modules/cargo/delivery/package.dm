@@ -1,7 +1,18 @@
 /obj/item/cargo_package
 	name = "cargo package"
-	desc = "An Orion Express cargo package, these packages generally find their way to researchers bunkered up on exoplanets. Always pays an extra 2% tip to the courier."
-	desc_info = "You can deliver this package to a delivery site on an exoplanet to get additional funds for the cargo department's account. An additional 2% is added to your account on delivery. Can be loaded into a cargo pack."
+	desc = "\
+		An Orion Express cargo package. \
+		Always pays an extra 2% tip to the courier.\
+	"
+	desc_extended = "\
+		This package makes use of the small-scale shipping network of Orion Express. \
+		It is a common sight all over the Spur, where Orion Express services depend on ordinary people and ships picking up and delivering packages for each other, \
+		with Orion Express only delivering to automated stations and other distribution points.\
+	"
+	desc_info = "\
+		You can deliver this package to a cargo delivery point. \
+		An additional 2% is added to your account on delivery, or paid to you directly. Can be loaded into a cargo pack.\
+	"
 	icon = 'icons/obj/orion_delivery.dmi'
 	icon_state = "express_package"
 	item_state = "express_package"

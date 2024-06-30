@@ -211,16 +211,20 @@
 		var/obj/O = A
 		O.tesla_act(0, TRUE)
 
-/obj/singularity/energy_ball/CollidedWith(atom/A)
-	if(check_for_immune(A))
+/obj/singularity/energy_ball/CollidedWith(atom/bumped_atom)
+	//Fucking snowflake code
+	SHOULD_CALL_PARENT(FALSE)
+	SEND_SIGNAL(src, COMSIG_ATOM_BUMPED, bumped_atom)
+
+	if(check_for_immune(bumped_atom))
 		return
-	if(isliving(A))
-		dust_mobs(A)
-	else if(isobj(A))
-		if(istype(A, /obj/effect/accelerated_particle))
-			consume(A)
+	if(isliving(bumped_atom))
+		dust_mobs(bumped_atom)
+	else if(isobj(bumped_atom))
+		if(istype(bumped_atom, /obj/effect/accelerated_particle))
+			consume(bumped_atom)
 			return
-		var/obj/O = A
+		var/obj/O = bumped_atom
 		O.tesla_act(0, TRUE)
 
 /obj/singularity/energy_ball/proc/check_for_immune(var/O)

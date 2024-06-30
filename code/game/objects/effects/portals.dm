@@ -57,9 +57,11 @@
 		HT.remove_portal(src)
 	. = ..()
 
-/obj/effect/portal/CollidedWith(mob/M)
+/obj/effect/portal/CollidedWith(atom/bumped_atom)
+	. = ..()
+
 	if(does_teleport)
-		teleport(M)
+		teleport(bumped_atom)
 
 /obj/effect/portal/Crossed(AM)
 	if(does_teleport)
