@@ -1,6 +1,6 @@
 /obj/item/gun/projectile/revolver
 	name = "revolver"
-	desc = "The revised Mark II Zavodskoi Interstellar revolver, utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon, with a beautiful cedar grip and a transparent plastic cover(so as to not splinter your hands while firing)."
+	desc = "The revised Mark II Zavodskoi Interstellar revolver, utilizing a robust firing mechanism to deliver deadly rounds downrange. This is a monster of a hand cannon, with a beautiful cedar grip and a transparent plastic cover (so as to not splinter your hands while firing)."
 	icon = 'icons/obj/guns/revolver.dmi'
 	icon_state = "revolver"
 	item_state = "revolver"
@@ -16,6 +16,10 @@
 	empty_sound = /singleton/sound_category/out_of_ammo_revolver
 	fire_delay = ROF_RIFLE
 	var/chamber_offset = 0 //how many empty chambers in the cylinder until you hit a round
+
+/obj/item/gun/projectile/revolver/Initialize()
+	. = ..()
+	desc_info += "<br>To fire from a storage slot, drag and drop the icon on the target."
 
 /obj/item/gun/projectile/revolver/verb/spin_cylinder()
 	set name = "Spin cylinder"
@@ -42,6 +46,21 @@
 /obj/item/gun/projectile/revolver/load_ammo(var/obj/item/A, mob/user)
 	chamber_offset = 0
 	return ..()
+
+/obj/item/gun/projectile/revolver/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+	. = ..()
+	var/mob/living/carbon/human/H = usr
+	if(!istype(H))
+		return
+
+	if(H.restrained() || use_check_and_message(H, USE_ALLOW_NON_ADJACENT))
+		return
+
+	Fire(over, usr, accuracy_decrease = 2, is_offhand = TRUE)
+
+/obj/item/gun/projectile/revolver/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += "\The [src] can be fired from a backpack, belt, pocket or similar."
 
 /obj/item/gun/projectile/revolver/mateba
 	name = "automatic revolver"
