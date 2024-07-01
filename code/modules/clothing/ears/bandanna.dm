@@ -8,6 +8,7 @@
 	icon = 'icons/obj/clothing/ears.dmi'
 	icon_state = "band_r"
 	item_state = "band_r"
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_MASK | SLOT_EARS | SLOT_TIE
 

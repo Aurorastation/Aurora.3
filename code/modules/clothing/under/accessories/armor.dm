@@ -7,7 +7,8 @@
 	icon_state = "legguards_sec"
 	item_state = "legguards_sec"
 	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_LEG_GUARDS
+	accessory_slots = ACCESSORY_SLOT_ARMOR
+	accessory_type = ACCESSORY_LEG_GUARDS
 	accessory_w_class_adjustment = ACCESSORY_WEIGHT_HALF_UNIT
 	w_class = ITEMSIZE_NORMAL
 	armor = list(
@@ -148,7 +149,8 @@
 	icon_state = "armguards_sec"
 	item_state = "armguards_sec"
 	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_ARM_GUARDS
+	accessory_slots = ACCESSORY_SLOT_ARMOR
+	accessory_type = ACCESSORY_ARM_GUARDS
 	accessory_w_class_adjustment = ACCESSORY_WEIGHT_HALF_UNIT
 	body_parts_covered = HANDS|ARMS
 	armor = list(

@@ -137,6 +137,7 @@
 	icon_state = "gadpathurleaderbadge"
 	item_state = "gadpathurleaderbadge"
 	overlay_state = "gadpathurleaderbadge"
+	accessory_slots = ACCESSORY_SLOT_UNIFORM | ACCESSORY_SLOT_SUIT | ACCESSORY_SLOT_ARMOR
 
 	flippable = TRUE
 

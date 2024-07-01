@@ -25,6 +25,7 @@
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
 	protects_against_weather = TRUE
+	valid_accessory_slot = ACCESSORY_SLOT_HELMET
 
 	var/has_storage = TRUE
 	var/obj/item/storage/internal/helmet/hold
@@ -40,14 +41,11 @@
 		hold.max_storage_space = slots * ITEMSIZE_SMALL
 		hold.max_w_class = ITEMSIZE_SMALL
 
-/obj/item/clothing/head/helmet/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
-	var/image/I = ..()
-	if(has_storage && slot == slot_head_str && length(hold.contents))
+/obj/item/clothing/head/helmet/handle_helmet_storage_overlay(var/image/I, var/slot)
+	if(has_storage && slot == slot_head_str && LAZYLEN(hold.contents))
+		I.AddOverlays(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
 		for(var/obj/item/thing in hold.contents)
-			var/icon_type = hold.helmet_storage_types[thing.type]
-			var/thing_state = icon_type == HELMET_GARB_PASS_ICON ? initial(thing.icon_state) : icon_type
-			I.AddOverlays(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
-			I.AddOverlays(image('icons/clothing/kit/helmet_garb.dmi', null, thing_state))
+			I.AddOverlays(image('icons/clothing/kit/helmet_garb.dmi', null, initial(thing.icon_state)))
 	return I
 
 /obj/item/clothing/head/helmet/attack_hand(mob/user)

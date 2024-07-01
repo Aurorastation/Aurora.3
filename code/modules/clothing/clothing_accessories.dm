@@ -1,11 +1,11 @@
 /obj/item/clothing/proc/can_attach_accessory(obj/item/clothing/accessory/A)
-	if(valid_accessory_slots && istype(A) && (A.slot in valid_accessory_slots))
+	if(valid_accessory_slot && istype(A) && (A.accessory_slots & valid_accessory_slot) && (A.accessory_type & valid_accessory_types))
 		.=1
 	else
 		return 0
-	if(LAZYLEN(accessories) && restricted_accessory_slots && (A.slot in restricted_accessory_slots))
+	if(LAZYLEN(accessories) && restricted_accessory_types && (A.accessory_type in restricted_accessory_types))
 		for(var/obj/item/clothing/accessory/AC in accessories)
-			if (AC.slot == A.slot)
+			if (AC.accessory_type & A.accessory_type)
 				return 0
 
 /obj/item/clothing/attackby(obj/item/attacking_item, mob/user)
@@ -17,7 +17,7 @@
 
 	else if(istype(attacking_item, /obj/item/clothing/accessory))
 
-		if(!valid_accessory_slots || !valid_accessory_slots.len)
+		if(!valid_accessory_slot)
 			to_chat(usr, SPAN_WARNING("You cannot attach accessories of any kind to \the [src]."))
 			return
 

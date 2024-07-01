@@ -70,7 +70,7 @@
 	build_from_parts = TRUE
 	worn_overlay = "over"
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
-	slot = ACCESSORY_SLOT_HEAD
+	accessory_slots = ACCESSORY_SLOT_HEAD
 
 /obj/item/clothing/accessory/ear_warmers/attack_hand(mob/user)
 	if(ishuman(user))

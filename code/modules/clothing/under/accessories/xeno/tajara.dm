@@ -56,6 +56,7 @@
 	desc = "A simple piece of adhomian summerwear made with linen."
 	icon_state = "summer-shirt"
 	item_state = "summer-shirt"
+	accessory_slots = ACCESSORY_SLOT_UNIFORM
 
 /obj/item/clothing/accessory/poncho/tajarancloak
 	name = "common cloak"
@@ -178,6 +179,7 @@
 	name = "almariist pin"
 	desc = "A pin worn by supporters of the Democratic People's Republic of Adhomai and the ideals of almariism."
 	icon_state = "dpra-badge"
+	item_state = "dpra-badge"
 	overlay_state = "dpra-badge"
 	desc_extended = "The government of the DPRA seeks to dismantle the ethnic caste system present in Tajaran society. Instead of creating policies and using the force of the state \
 	to do so, they believe that this goal can be reached by giving the necessary opportunities and freedom from external influences to the Tajara species. Local autonomy and regional \
@@ -194,6 +196,7 @@
 	name = "royalist badge"
 	desc = "A badge worn by the supporters of the New Kingdom of Adhomai and its royalist ideals."
 	icon_state = "nka-badge"
+	item_state = "nka-badge"
 	overlay_state = "nka-badge"
 	desc_extended = "The New Kingdom of Adhomai culture is characterized as traditional; instead of trying to change the Tajaran caste system, those divisions are seen as a natural \
 	part of the Adhomian way of life. While the government makes no effort in enforcing this separation, there is a great societal expectation that each Tajara will attempt to stay in \
@@ -253,6 +256,7 @@
 	name = "people's republic of adhomai passport"
 	desc = "A passport issued to the citizens of the People's Republic of Adhomai."
 	icon_state = "pra-passport"
+	item_state = "pra-passport"
 	overlay_state = "pra-passport"
 	slot_flags = null
 	w_class = ITEMSIZE_TINY
@@ -268,6 +272,7 @@
 	name = "democratic people's republic of adhomai passport"
 	desc = "A passport issued to the citizens of the Democratic People's Republic of Adhomai."
 	icon_state = "dpra-passport"
+	item_state = "dpra-passport"
 	overlay_state = "dpra-passport"
 	slot_flags = null
 	w_class = ITEMSIZE_TINY
@@ -283,6 +288,7 @@
 	name = "new kingdom of adhomai passport"
 	desc = "A passport issued to the citizens of the New Kingdom of Adhomai."
 	icon_state = "nka-passport"
+	item_state = "nka-passport"
 	overlay_state = "nka-passport"
 	slot_flags = null
 	w_class = ITEMSIZE_TINY

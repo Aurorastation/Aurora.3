@@ -11,6 +11,7 @@
 	icon_state = "sweater"
 	item_state = "sweater"
 	contained_sprite = TRUE
+	accessory_slots = ACCESSORY_SLOT_UNIFORM
 
 // Tubeneck Sweater
 /obj/item/clothing/accessory/sweater/tubeneck
@@ -113,6 +114,7 @@
 	desc = "A casual dress shirt."
 	icon_state = "dressshirt"
 	item_state = "dressshirt"
+	accessory_slots = ACCESSORY_SLOT_UNIFORM
 	var/rolled = FALSE
 
 /obj/item/clothing/accessory/dressshirt/update_clothing_icon()
@@ -201,19 +203,19 @@
 	icon_state = "dressshirt_crop"
 	item_state = "dressshirt_crop"
 
-/obj/item/clothing/accessory/blouse
+/obj/item/clothing/accessory/dressshirt/blouse
 	name = "blouse"
 	desc = "A loose fitting garment."
 	icon_state = "blouse"
 	item_state = "blouse"
 
-/obj/item/clothing/accessory/longblouse
+/obj/item/clothing/accessory/dressshirt/longblouse
 	name = "long-sleeved blouse"
 	desc = "A long-sleeved, loose fitting garment."
 	icon_state = "longblouse"
 	item_state = "longblouse"
 
-/obj/item/clothing/accessory/puffyblouse
+/obj/item/clothing/accessory/dressshirt/puffyblouse
 	name = "puffy blouse"
 	desc = "A loose fitting garment with plenty of material around the arms."
 	icon_state = "puffyblouse"
@@ -231,45 +233,44 @@
 	desc = "For some classy, murderous fun."
 	icon_state = "wcoat"
 	item_state = "wcoat"
+	accessory_slots = ACCESSORY_SLOT_UNIFORM
 
 //New one that will actually be in the loadout
-/obj/item/clothing/accessory/wcoat_rec
-	name = "waistcoat"
-	desc = "For some classy, murderous fun."
+/obj/item/clothing/accessory/wcoat/rec
 	icon_state = "wcoat_rec"
 	item_state = "wcoat_rec"
 
-/obj/item/clothing/accessory/longsleeve
+/obj/item/clothing/accessory/dressshirt/longsleeve
 	name = "long-sleeved shirt"
 	desc = "A long-sleeved shirt made of light fabric."
 	icon_state = "longshirt"
 	item_state = "longshirt"
 
-/obj/item/clothing/accessory/longsleeve_s
+/obj/item/clothing/accessory/dressshirt/longsleeve_s
 	name = "black striped long-sleeved shirt"
 	desc = "A long-sleeved shirt made of light fabric. This one is striped in black."
 	icon_state = "longshirt_s"
 	item_state = "longshirt_s"
 
-/obj/item/clothing/accessory/longsleeve_sb
+/obj/item/clothing/accessory/dressshirt/longsleeve_sb
 	name = "blue striped long-sleeved shirt"
 	desc = "A long-sleeved shirt made of light fabric. This one is striped in blue."
 	icon_state = "longshirt_sb"
 	item_state = "longshirt_sb"
 
-/obj/item/clothing/accessory/tshirt
+/obj/item/clothing/accessory/dressshirt/tshirt
 	name = "t-shirt"
 	desc = "A simple, cheap t-shirt."
 	icon_state = "tshirt"
 	item_state = "tshirt"
 
-/obj/item/clothing/accessory/tshirt_crop
+/obj/item/clothing/accessory/dressshirt/tshirt_crop
 	name = "cropped t-shirt"
 	desc = "A simple, cheap cropped t-shirt."
 	icon_state = "tshirt_crop"
 	item_state = "tshirt_crop"
 
-/obj/item/clothing/accessory/haltertop
+/obj/item/clothing/accessory/dressshirt/haltertop
 	name = "halter top"
 	desc = "A sleeveless tank with straps tied behind the neck, commonly seen worn in Biesel."
 	icon = 'icons/obj/item/clothing/accessory/halter_top.dmi'
@@ -277,7 +278,7 @@
 	item_state = "haltertop"
 	contained_sprite = TRUE
 
-/obj/item/clothing/accessory/tanktop
+/obj/item/clothing/accessory/dressshirt/tanktop
 	name = "tank top"
 	desc = "A simple, cheap tank top."
 	icon = 'icons/obj/item/clothing/accessory/tank_top.dmi'
@@ -285,7 +286,7 @@
 	item_state = "tanktop"
 	contained_sprite = TRUE
 
-/obj/item/clothing/accessory/tanktop/feminine
+/obj/item/clothing/accessory/dressshirt/tanktop/feminine
 	icon_state = "tanktop_fem"
 	item_state = "tanktop_fem"
 
@@ -342,28 +343,28 @@
 	item_state = "det_vest"
 	contained_sprite = FALSE
 
-/obj/item/clothing/accessory/university
+/obj/item/clothing/accessory/dressshirt/university
 	name = "university sweatshirt"
 	desc = "A comfy university sweatshirt. This one is grey."
 	icon_state = "usweatshirt_grey"
 	item_state = "usweatshirt_grey"
 
-/obj/item/clothing/accessory/university/red
+/obj/item/clothing/accessory/dressshirt/university/red
 	desc = "A comfy university sweatshirt. This one is crimson."
 	icon_state = "usweatshirt_red"
 	item_state = "usweatshirt_red"
 
-/obj/item/clothing/accessory/university/yellow
+/obj/item/clothing/accessory/dressshirt/university/yellow
 	desc = "A comfy university sweatshirt. This one is mustard."
 	icon_state = "usweatshirt_yellow"
 	item_state = "usweatshirt_yellow"
 
-/obj/item/clothing/accessory/university/blue
+/obj/item/clothing/accessory/dressshirt/university/blue
 	desc = "A comfy university sweatshirt. This one is navy."
 	icon_state = "usweatshirt_blue"
 	item_state = "usweatshirt_blue"
 
-/obj/item/clothing/accessory/university/black
+/obj/item/clothing/accessory/dressshirt/university/black
 	desc = "A comfy university sweatshirt. This one is black."
 	icon_state = "usweatshirt_black"
 	item_state = "usweatshirt_black"
@@ -376,6 +377,7 @@
 	icon_state = "polo"
 	item_state = "polo"
 	contained_sprite = TRUE
+	accessory_slots = ACCESSORY_SLOT_UNIFORM
 
 /obj/item/clothing/accessory/polo/polo_fem
 	desc = "A stylish polo shirt with a waist fit."

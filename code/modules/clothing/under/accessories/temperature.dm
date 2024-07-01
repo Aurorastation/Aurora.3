@@ -4,6 +4,7 @@
 	icon = 'icons/obj/item/clothing/accessory/temperature.dmi'
 	icon_state = "pack"
 	contained_sprite = TRUE
+	accessory_slots = ACCESSORY_SLOT_UNIFORM | ACCESSORY_SLOT_SUIT | ACCESSORY_SLOT_ARMOR
 
 /obj/item/clothing/accessory/temperature/warm
 	name = "heat pack"

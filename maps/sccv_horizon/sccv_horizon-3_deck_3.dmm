@@ -2358,6 +2358,13 @@
 	},
 /turf/simulated/floor/lino,
 /area/horizon/cafeteria)
+"bMJ" = (
+/obj/structure/closet/secure_closet/captains,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/crew_quarters/captain)
 "bNm" = (
 /obj/structure/grille,
 /obj/machinery/door/blast/regular{
@@ -2633,24 +2640,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/autopsy_laboratory)
-"bWc" = (
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 9
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/obj/structure/table/glass{
-	table_reinf = "glass"
-	},
-/obj/item/paper_bin{
-	pixel_y = 3
-	},
-/obj/item/pen{
-	pixel_y = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/heads/cmo)
 "bWh" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -8771,17 +8760,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
-"gji" = (
-/obj/structure/table/reinforced/wood,
-/obj/item/folder/blue{
-	pixel_x = -3
-	},
-/obj/item/folder/red,
-/obj/item/folder/yellow{
-	pixel_x = 3
-	},
-/turf/simulated/floor/carpet,
-/area/crew_quarters/heads/hop/xo)
 "gjn" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -9281,17 +9259,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
-"gzJ" = (
-/obj/effect/floor_decal/corner_wide/paleblue/full,
-/obj/structure/closet/secure_closet/CMO,
-/obj/item/device/radio/intercom/west,
-/obj/machinery/keycard_auth{
-	dir = 4;
-	pixel_x = -27;
-	pixel_y = 7
-	},
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/heads/cmo)
 "gAn" = (
 /obj/machinery/door/firedoor,
 /obj/structure/grille,
@@ -12023,13 +11990,6 @@
 	temperature = 278
 	},
 /area/turret_protected/ai)
-"iqO" = (
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 9
-	},
-/obj/structure/coatrack,
-/turf/simulated/floor/tiled/white,
-/area/crew_quarters/heads/cmo)
 "irh" = (
 /obj/machinery/papershredder,
 /obj/machinery/newscaster/west,
@@ -12135,13 +12095,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/cciaroom/lounge)
-"iuR" = (
-/obj/structure/closet/secure_closet/captains,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 4
-	},
-/turf/simulated/floor/wood,
-/area/crew_quarters/captain)
 "ivg" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/maintenance/bridge)
@@ -14208,30 +14161,6 @@
 /obj/machinery/disposal,
 /turf/simulated/floor/tiled,
 /area/bridge/meeting_room)
-"jOB" = (
-/obj/structure/table/rack,
-/obj/item/clothing/accessory/leg_guard/scc,
-/obj/item/clothing/accessory/leg_guard/scc,
-/obj/item/clothing/accessory/leg_guard/scc,
-/obj/item/clothing/accessory/arm_guard/scc,
-/obj/item/clothing/accessory/arm_guard/scc,
-/obj/item/clothing/accessory/arm_guard/scc,
-/obj/item/clothing/suit/armor/carrier/scc,
-/obj/item/clothing/suit/armor/carrier/scc,
-/obj/item/clothing/suit/armor/carrier/scc,
-/obj/item/clothing/head/helmet/security/scc,
-/obj/item/clothing/head/helmet/security/scc,
-/obj/item/clothing/head/helmet/security/scc,
-/obj/item/clothing/accessory/armband/scc,
-/obj/item/clothing/accessory/armband/scc,
-/obj/item/clothing/accessory/armband/scc,
-/obj/item/clothing/head/leader_headband,
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/turf/simulated/floor/tiled/dark,
-/area/horizon/crew_armoury)
 "jOC" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
@@ -14738,6 +14667,30 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/minibar)
+"kik" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/item/clothing/accessory/leg_guard/scc,
+/obj/item/clothing/accessory/leg_guard/scc,
+/obj/item/clothing/accessory/leg_guard/scc,
+/obj/item/clothing/accessory/arm_guard/scc,
+/obj/item/clothing/accessory/arm_guard/scc,
+/obj/item/clothing/accessory/arm_guard/scc,
+/obj/item/clothing/suit/armor/carrier/scc,
+/obj/item/clothing/suit/armor/carrier/scc,
+/obj/item/clothing/suit/armor/carrier/scc,
+/obj/item/clothing/head/helmet/security/scc,
+/obj/item/clothing/head/helmet/security/scc,
+/obj/item/clothing/head/helmet/security/scc,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/accessory/headband,
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew_armoury)
 "kiq" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/stasis,
@@ -14948,6 +14901,24 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor,
 /area/maintenance/bridge)
+"kpL" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/structure/table/glass{
+	table_reinf = "glass"
+	},
+/obj/item/paper_bin{
+	pixel_y = 3
+	},
+/obj/item/pen{
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/heads/cmo)
 "kpN" = (
 /obj/machinery/telecomms/server/presets/engineering,
 /turf/simulated/floor/bluegrid,
@@ -15329,6 +15300,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/changing)
+"kyS" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
+	},
+/obj/structure/coatrack,
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/heads/cmo)
 "kzM" = (
 /turf/simulated/floor/grass,
 /area/horizon/cafeteria)
@@ -17384,30 +17362,6 @@
 	},
 /turf/simulated/floor/carpet/art,
 /area/crew_quarters/lounge)
-"lSZ" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/corner/red/full{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/item/clothing/accessory/leg_guard/scc,
-/obj/item/clothing/accessory/leg_guard/scc,
-/obj/item/clothing/accessory/leg_guard/scc,
-/obj/item/clothing/accessory/arm_guard/scc,
-/obj/item/clothing/accessory/arm_guard/scc,
-/obj/item/clothing/accessory/arm_guard/scc,
-/obj/item/clothing/suit/armor/carrier/scc,
-/obj/item/clothing/suit/armor/carrier/scc,
-/obj/item/clothing/suit/armor/carrier/scc,
-/obj/item/clothing/head/helmet/security/scc,
-/obj/item/clothing/head/helmet/security/scc,
-/obj/item/clothing/head/helmet/security/scc,
-/obj/item/clothing/accessory/armband/scc,
-/obj/item/clothing/accessory/armband/scc,
-/obj/item/clothing/accessory/armband/scc,
-/obj/item/clothing/head/leader_headband,
-/turf/simulated/floor/tiled/dark,
-/area/horizon/crew_armoury)
 "lTQ" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/medical/smoking)
@@ -20698,6 +20652,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
+"nXe" = (
+/obj/effect/floor_decal/corner_wide/paleblue/full,
+/obj/structure/closet/secure_closet/CMO,
+/obj/item/device/radio/intercom/west,
+/obj/machinery/keycard_auth{
+	dir = 4;
+	pixel_x = -27;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/white,
+/area/crew_quarters/heads/cmo)
 "nXf" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -21240,6 +21205,30 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
+"olY" = (
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/leg_guard/scc,
+/obj/item/clothing/accessory/leg_guard/scc,
+/obj/item/clothing/accessory/leg_guard/scc,
+/obj/item/clothing/accessory/arm_guard/scc,
+/obj/item/clothing/accessory/arm_guard/scc,
+/obj/item/clothing/accessory/arm_guard/scc,
+/obj/item/clothing/suit/armor/carrier/scc,
+/obj/item/clothing/suit/armor/carrier/scc,
+/obj/item/clothing/suit/armor/carrier/scc,
+/obj/item/clothing/head/helmet/security/scc,
+/obj/item/clothing/head/helmet/security/scc,
+/obj/item/clothing/head/helmet/security/scc,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/accessory/armband/scc,
+/obj/item/clothing/accessory/headband,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/horizon/crew_armoury)
 "omA" = (
 /obj/structure/sign/flag/scc,
 /turf/simulated/floor/tiled,
@@ -21624,6 +21613,26 @@
 /obj/structure/platform_stairs/full/south_north_cap,
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
+"oyH" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	is_critical = 1
+	},
+/obj/structure/coatrack{
+	pixel_x = -10;
+	pixel_y = 24
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/closet/secure_closet/xo,
+/turf/simulated/floor/wood,
+/area/crew_quarters/heads/hop/xo)
 "oyK" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -24489,6 +24498,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port)
+"qIa" = (
+/obj/structure/table/reinforced/wood,
+/obj/item/folder/blue{
+	pixel_x = -3
+	},
+/obj/item/folder/red,
+/obj/item/folder/yellow{
+	pixel_x = 3
+	},
+/turf/simulated/floor/carpet,
+/area/crew_quarters/heads/hop/xo)
 "qIf" = (
 /obj/structure/platform{
 	dir = 1
@@ -25267,26 +25287,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
-"rlN" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc/north{
-	is_critical = 1
-	},
-/obj/structure/coatrack{
-	pixel_x = -10;
-	pixel_y = 24
-	},
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
-/obj/structure/closet/secure_closet/xo,
-/turf/simulated/floor/wood,
-/area/crew_quarters/heads/hop/xo)
 "rmh" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
@@ -48270,11 +48270,11 @@ foT
 vob
 khp
 vMH
-iqO
+kyS
 fHD
-bWc
+kpL
 hzU
-gzJ
+nXe
 oWf
 aPR
 svx
@@ -53552,7 +53552,7 @@ jGo
 aPq
 nLN
 vIv
-rlN
+oyH
 aci
 rNS
 fpt
@@ -54160,7 +54160,7 @@ gaB
 vIv
 eho
 moX
-gji
+qIa
 fIa
 hcg
 hcg
@@ -57347,7 +57347,7 @@ hvK
 tqy
 ejB
 jmN
-jOB
+olY
 mbF
 pmy
 dOw
@@ -58556,7 +58556,7 @@ fpr
 wpA
 ufm
 ejB
-lSZ
+kik
 tra
 iLB
 bdE
@@ -58601,7 +58601,7 @@ miK
 oeg
 soE
 wPX
-iuR
+bMJ
 nRe
 ivK
 sIz

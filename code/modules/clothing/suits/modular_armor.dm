@@ -7,8 +7,9 @@
 	item_state = "plate_carrier"
 	blood_overlay_type = "armor"
 	w_class = ITEMSIZE_NORMAL
-	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS)
-	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_UTILITY_MINOR)
+	valid_accessory_slot = ACCESSORY_SLOT_ARMOR
+	valid_accessory_types = ACCESSORY_GENERIC | ACCESSORY_UTILITY | ACCESSORY_ARMOR_PLATE | ACCESSORY_LEG_GUARDS | ACCESSORY_ARM_GUARDS
+	restricted_accessory_types = ACCESSORY_UTILITY | ACCESSORY_ARMOR_PLATE | ACCESSORY_ARM_GUARDS | ACCESSORY_LEG_GUARDS
 	pockets = null
 
 /obj/item/clothing/suit/armor/carrier/dominia
@@ -130,7 +131,8 @@
 	icon_state = "plate_sec"
 	item_state = "plate_sec"
 	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_ARMOR_PLATE
+	accessory_slots = ACCESSORY_SLOT_ARMOR
+	accessory_type = ACCESSORY_ARMOR_PLATE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	w_class = ITEMSIZE_NORMAL
 	armor = list(
@@ -292,7 +294,7 @@
 	icon_state = "tcaf_chestpouches"
 	item_state = "tcaf_chestpouches"
 	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_ARMOR_POCKETS
+	accessory_slots = ACCESSORY_SLOT_ARMOR
 	slots = 4
 
 /obj/item/clothing/accessory/storage/chest_gear
@@ -302,7 +304,7 @@
 	icon_state = "tcaf_chest_gear"
 	item_state = "tcaf_chest_gear"
 	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_ARMOR_POCKETS
+	accessory_slots = ACCESSORY_SLOT_ARMOR
 	slots = 2
 
 /obj/item/clothing/accessory/storage/modular_pouch
@@ -312,7 +314,7 @@
 	icon_state = "modular_pouch"
 	item_state = "modular_pouch"
 	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_ARMOR_POCKETS
+	accessory_slots = ACCESSORY_SLOT_ARMOR
 	slots = 2
 
 /obj/item/clothing/accessory/storage/modular_pouch/large
@@ -366,7 +368,6 @@
 	desc = "A helmet built for use by a Skrell. This one appears to be fairly standard and reliable."
 	icon_state = "helm_skrell"
 	item_state = "helm_skrell"
-	valid_accessory_slots = null
 
 /obj/item/clothing/head/helmet/security/heavy
 	name = "corporate heavy helmet"
@@ -455,7 +456,7 @@
 	icon_state = "sec_commander_stripes"
 	item_state = "sec_commander_stripes"
 	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_GENERIC
+	accessory_slots = ACCESSORY_SLOT_ARMOR
 	flippable = FALSE
 
 /obj/item/clothing/accessory/flagpatch
@@ -467,7 +468,7 @@
 	item_state = "flagpatch"
 	var/shading_state = "flagpatch"
 	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_GENERIC
+	accessory_slots = ACCESSORY_SLOT_UNIFORM | ACCESSORY_SLOT_SUIT | ACCESSORY_SLOT_ARMOR
 	flippable = TRUE
 
 /obj/item/clothing/accessory/flagpatch/flip_message(mob/user)
@@ -867,7 +868,7 @@
 	icon_state = "tcaf_prefect_pauldron"
 	item_state = "tcaf_prefect_pauldron"
 	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_GENERIC
+	accessory_slots = ACCESSORY_SLOT_ARMOR
 	flippable = FALSE
 
 /obj/item/clothing/accessory/tcaf_senior_legion_pauldron
@@ -877,5 +878,49 @@
 	icon_state = "tcaf_senior_legion_pauldron"
 	item_state = "tcaf_senior_legion_pauldron"
 	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_GENERIC
+	accessory_slots = ACCESSORY_SLOT_ARMOR
 	flippable = FALSE
+
+// Helmet Accessories
+/obj/item/clothing/accessory/helmet_mask
+	name = "protective mask"
+	desc = "A generic camera-assisted mask, designed to be fitted to a helmet and hide the wearer's face, providing uniformity and anonymity."
+	icon = 'icons/obj/item/clothing/accessory/security_mask.dmi'
+	icon_state = "sec_mask" //The same as the base SCC one. A new generic sprite can be added in future
+	item_state = "sec_mask"
+	contained_sprite = TRUE
+	accessory_slots = ACCESSORY_SLOT_HELMET
+	/**
+	 * What the mask resembles, displayed after the examine text
+	 */
+	var/design = "This one vaguely resembles a Human face."
+
+/obj/item/clothing/accessory/helmet_mask/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += design
+
+/obj/item/clothing/accessory/helmet_mask/on_attached(obj/item/clothing/S, mob/user)
+	. = ..()
+	S.body_parts_covered |= FACE|EYES
+	S.flags_inv |= HIDEMASK|HIDEEYES|HIDEFACE
+
+/obj/item/clothing/accessory/helmet_mask/on_removed(mob/user)
+	if(has_suit)
+		has_suit.body_parts_covered -= FACE|EYES
+		has_suit.flags_inv -= HIDEMASK|HIDEEYES|HIDEFACE
+	return ..()
+
+/obj/item/clothing/accessory/helmet_mask/scc
+	name = "corporate protective mask"
+	desc = "A generic camera-assisted mask issued to members of SCC security teams. Mainly used to protect the user \
+	from dust and other irritants, but lacks the capability for much else."
+
+/obj/item/clothing/accessory/helmet_mask/unathi
+	icon_state = "sec_mask_unathi"
+	item_state = "sec_mask_unathi"
+	design = "This one vaguely resembles an Unathi face."
+
+/obj/item/clothing/accessory/helmet_mask/hoplan
+	icon_state = "sec_mask_hoplan"
+	item_state = "sec_mask_hoplan"
+	design = "This one vaguely resembles a Golden Deep Hoplan."

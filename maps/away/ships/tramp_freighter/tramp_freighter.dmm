@@ -5299,7 +5299,7 @@
 /obj/item/clothing/accessory/scarf{
 	color = "#4D6857"
 	},
-/obj/item/clothing/accessory/wcoat_rec{
+/obj/item/clothing/accessory/wcoat/rec{
 	color = "#494949"
 	},
 /obj/item/clothing/gloves/black,

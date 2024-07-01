@@ -4,6 +4,7 @@
 	icon_state = "bronze"
 	overlay_state = "bronze"
 	flippable = TRUE
+	accessory_slots = ACCESSORY_SLOT_UNIFORM | ACCESSORY_SLOT_SUIT | ACCESSORY_SLOT_ARMOR
 
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'

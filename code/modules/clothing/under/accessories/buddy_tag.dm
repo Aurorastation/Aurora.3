@@ -7,7 +7,6 @@ var/list/active_buddy_tags = list()
 	icon_state = "buddytag0"
 	item_state = "buddytag"
 	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_UTILITY_MINOR
 	var/next_search = 0
 	var/on = FALSE
 	var/id = 1

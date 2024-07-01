@@ -77,5 +77,3 @@
 			if(tool.iswirecutter() && (!requires_surgery_compatibility || tool.issurgerycompatible()))
 				return return_value
 	return null
-
-#define HELMET_GARB_PASS_ICON "pass_icon"
