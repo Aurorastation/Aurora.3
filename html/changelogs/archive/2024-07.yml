@@ -1,0 +1,8 @@
+2024-07-01:
+  hazelmouse:
+  - bugfix: Spark hangar is now vacuum, allowing the shuttle to use its sensors while
+      docked.
+  - rscadd: Spark airlock optimised to cycle more efficiently, and to handle air-to-air
+      cycling without flooding the shuttle with foreign gas. Merge valve now starts
+      disabled. Fuel connector now pumps into the fuel tank, rather than directly
+      into the thrusters.
