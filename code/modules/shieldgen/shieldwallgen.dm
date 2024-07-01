@@ -294,7 +294,7 @@
 /obj/shieldwall/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0))
 		return TRUE
-	if(istype(mover) && mover.checkpass(PASSGLASS))
+	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return prob(20)
 	else
 		if(istype(mover, /obj/item/projectile))

@@ -167,7 +167,7 @@
 	visible_message(SPAN_DANGER("[src] leaps at [T]!"),
 					SPAN_DANGER("You leap at [T]!"))
 
-	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src, do_throw_animation = FALSE)
+	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src, spin = FALSE)
 
 	sleep(5)
 

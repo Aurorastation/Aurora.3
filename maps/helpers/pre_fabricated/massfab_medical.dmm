@@ -3106,7 +3106,6 @@
 "WH" = (
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/white,
@@ -3283,7 +3282,6 @@
 	},
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/white,

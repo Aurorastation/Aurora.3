@@ -131,47 +131,54 @@
 	return
 
 //This proc should never be overridden elsewhere at /atom/movable to keep directions sane.
-/atom/movable/Move(atom/newloc, direction)
+/atom/movable/Move(atom/newloc, direction, glide_size_override = 0, update_dir = TRUE) //Last 2 parameters are not used but they're caught
+	. = FALSE
+	if(!newloc || newloc == loc)
+		return
+
 	if(SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_MOVE, newloc) & COMPONENT_MOVABLE_BLOCK_PRE_MOVE)
 		return
 
 	var/old_loc = loc
 
-	if (direction & (direction - 1))
-		if (direction & 1)
-			if (direction & 4)
-				if (step(src, NORTH))
-					step(src, EAST)
+	//Cardinal move
+	if(direction & (direction - 1))
+		if(direction & 1)
+			if(direction & 4)
+				if(step(src, NORTH))
+					. = step(src, EAST)
 				else
-					if (step(src, EAST))
-						step(src, NORTH)
+					if(step(src, EAST))
+						. = step(src, NORTH)
 			else
-				if (direction & 8)
-					if (step(src, NORTH))
-						step(src, WEST)
+				if(direction & 8)
+					if(step(src, NORTH))
+						. = step(src, WEST)
 					else
-						if (step(src, WEST))
-							step(src, NORTH)
+						if(step(src, WEST))
+							. = step(src, NORTH)
 		else
-			if (direction & 2)
-				if (direction & 4)
-					if (step(src, SOUTH))
-						step(src, EAST)
+			if(direction & 2)
+				if(direction & 4)
+					if(step(src, SOUTH))
+						. = step(src, EAST)
 					else
-						if (step(src, EAST))
-							step(src, SOUTH)
+						if(step(src, EAST))
+							. = step(src, SOUTH)
 				else
-					if (direction & 8)
-						if (step(src, SOUTH))
-							step(src, WEST)
+					if(direction & 8)
+						if(step(src, SOUTH))
+							. = step(src, WEST)
 						else
-							if (step(src, WEST))
-								step(src, SOUTH)
+							if(step(src, WEST))
+								. = step(src, SOUTH)
+
+	//Diagonal move
 	else
 		var/atom/A = src.loc
 
 		var/olddir = dir //we can't override this without sacrificing the rest of movable/New()
-		. = ..()
+		. = ..(newloc, direction)
 
 		if(.)
 			// Events.
@@ -235,8 +242,10 @@
 
 	var/old_move_delay = move_delay
 
-	if(!mob)
-		return // Moved here to avoid nullrefs below
+	if(!direct || !new_loc)
+		return FALSE
+	if(!mob?.loc)
+		return FALSE
 
 	if(mob.control_object)
 		Move_object(direct)
@@ -300,6 +309,10 @@
 	if(!mob.lastarea)
 		mob.lastarea = get_area(mob.loc)
 
+	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we are moving out
+		var/atom/O = mob.loc
+		return O.relaymove(mob, direct)
+
 	if(isturf(mob.loc))
 		if(!mob.check_solid_ground())
 			var/allowmove = mob.Allow_Spacemove(0)
@@ -312,15 +325,15 @@
 
 
 		if(mob.restrained())		//Why being pulled while cuffed prevents you from moving
-			for(var/mob/M in range(mob, 1))
-				if(M.pulling == mob)
-					if(!M.restrained() && M.stat == 0 && M.canmove && mob.Adjacent(M))
-						to_chat(src, SPAN_NOTICE("You're restrained! You can't move!"))
-						return FALSE
-					else
-						M.stop_pulling()
+			var/mob/puller = mob.pulledby
+			if(puller)
+				if(!puller.restrained() && puller.stat == 0 && puller.canmove && mob.Adjacent(puller))
+					to_chat(src, SPAN_NOTICE("You're restrained! You can't move!"))
+					return FALSE
+				else
+					puller.stop_pulling()
 
-		if(mob.pinned.len)
+		if(length(mob.pinned))
 			to_chat(src, SPAN_WARNING("You're pinned to a wall by [mob.pinned[1]]!"))
 			move_delay = world.time + 1 SECOND // prevent spam
 			return FALSE
@@ -416,7 +429,7 @@
 		else
 			. = mob.SelfMove(new_loc, direct)
 
-		for (var/obj/item/grab/G in list(mob:l_hand, mob:r_hand))
+		for (var/obj/item/grab/G in list(mob.l_hand, mob.r_hand))
 			if (G.state == GRAB_NECK)
 				mob.set_dir(GLOB.reverse_dir[direct])
 			G.adjust_position()
@@ -429,10 +442,6 @@
 		if(sprint_tally && mob.loc != old_loc)
 			var/mob/living/carbon/human/H = mob
 			H.species.handle_sprint_cost(H, sprint_tally, FALSE)
-
-	if(isobj(mob.loc) || ismob(mob.loc))	//Inside an object, tell it we moved
-		var/atom/O = mob.loc
-		return O.relaymove(mob, direct)
 
 /mob/living/carbon/human/proc/get_crawl_tally()
 	var/obj/item/organ/external/rhand = organs_by_name[BP_R_HAND]

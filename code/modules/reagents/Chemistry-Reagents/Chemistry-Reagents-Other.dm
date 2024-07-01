@@ -874,3 +874,19 @@
 	color = "#464650"
 	taste_description = "salt"
 	fallback_specific_heat = 1
+
+/singleton/reagent/biological_tissue
+	name = "Biological Tissue"
+	description = "A suspension of the basic unit of life."
+	reagent_state = LIQUID
+	color = "#97b9a7"
+	taste_description = "water"
+	specific_heat = 1
+
+/singleton/reagent/soil
+	name = "Soil"
+	description = "A mixture of minerals, living organisms, organic matter, gas and water."
+	reagent_state = SOLID
+	color = "#5c4324"
+	taste_description = "earth"
+	specific_heat = 1

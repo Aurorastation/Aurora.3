@@ -185,6 +185,7 @@
 	name = "SSMD Shuttle"
 	shuttle_tag = "SSMD Shuttle"
 	master_tag = "airlock_ssmd_shuttle"
+	cycle_to_external_air = TRUE
 
 /obj/effect/shuttle_landmark/ssmd_shuttle/hangar
 	name = "SSMD Shuttle Hangar"

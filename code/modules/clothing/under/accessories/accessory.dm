@@ -361,6 +361,14 @@
 	build_from_parts = TRUE
 	worn_overlay = "stripes"
 
+/obj/item/clothing/accessory/shawl
+	name = "cozy shawl"
+	desc = "A favored accessory amongst grandmothers and cottagecore enthusiasts."
+	icon = 'icons/obj/clothing/shawl.dmi'
+	icon_state = "shawl"
+	item_state = "shawl"
+	contained_sprite = TRUE
+
 /obj/item/clothing/accessory/chaps
 	name = "brown chaps"
 	desc = "A pair of loose, brown leather chaps."
@@ -977,6 +985,11 @@
 	name = "AB- blood patch"
 	desc = "An embroidered patch indicating the wearer's blood type as AB NEGATIVE."
 	icon_state = "abnegtag"
+
+/obj/item/clothing/accessory/blood_patch/sbs
+	name = "SBS blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as SYNTHETIC BLOOD SUBSTITUTE."
+	icon_state = "sbstag"
 
 
 // Corporate Liaison stuff.
