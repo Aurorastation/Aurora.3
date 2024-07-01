@@ -689,7 +689,7 @@
 	slot_flags = SLOT_BELT
 	force = 18
 	throwforce = 7
-	w_class = ITEMSIZE_SMALL
+	w_class = ITEMSIZE_NORMAL
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 	usesound = /singleton/sound_category/crowbar_sound
