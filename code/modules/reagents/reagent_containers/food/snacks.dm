@@ -70,6 +70,8 @@
 
 		if (amount_eaten)
 			bitecount++
+			shake_animation()
+			playsound(loc, pick('sound/effects/creatures/nibble1.ogg','sound/effects/creatures/nibble2.ogg'), 30, 1)
 			if (amount_eaten >= m_bitesize)
 				user.visible_message(SPAN_NOTICE("\The [user] feeds \the [target] \the [src]."))
 				if (!istype(target.loc, /turf))//held mobs don't see visible messages
