@@ -3832,6 +3832,7 @@
 #include "maps\away\away_site\tajara\taj_safehouse\tajara_safehouse.dm"
 #include "maps\away\away_site\tajara\taj_safehouse\tajara_safehouse_ghostroles.dm"
 #include "maps\away\away_site\uueoaesa\hegemony_waypoint\hegemony_waypoint.dm"
+#include "maps\away\away_site\uueoaesa\hegemony_waypoint\hegemony_waypoint_landmarks.dm"
 #include "maps\away\away_site\uueoaesa\omgolo\omgolo_smuggler.dm"
 #include "maps\away\away_site\uueoaesa\omgolo\omgolo_tourist.dm"
 #include "maps\away\away_site\uueoaesa\reclamation\ihss_reclamation.dm"

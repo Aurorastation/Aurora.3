@@ -23,10 +23,10 @@
 	comms_support = TRUE
 	comms_name = "Hegemony Waypoint"
 	initial_generic_waypoints = list(
-		"waypoint_n_dock",
-		"waypoint_e_dock",
-		"waypoint_w_dock",
-		"waypoint_s_dock",
+		"waypoint_dock_n",
+		"waypoint_dock_e",
+		"waypoint_dock_w",
+		"waypoint_dock_s",
 		"waypoint_n_space",
 		"waypoint_e_space",
 		"waypoint_w_space",
@@ -73,44 +73,3 @@
 
 /area/hegemony_waypoint/bunks
 	name = "Hegemonic Waypoint Installation - Technicians Quarters"
-
-// Landmarks
-
-/obj/effect/shuttle_landmark/hegemony_waypoint
-	base_area = /area/space
-	base_turf = /turf/space
-
-/obj/effect/shuttle_landmark/hegemony_waypoint/north_docking
-	name = "Hegemonic Waypoint Installation - North External Dock"
-	landmark_tag = "waypoint_n_dock"
-
-/obj/effect/shuttle_landmark/hegemony_waypoint/east_docking
-	name = "Hegemonic Waypoint Installation - East External Dock"
-	landmark_tag = "waypoint_e_dock"
-
-/obj/effect/shuttle_landmark/hegemony_waypoint/west_docking
-	name = "Hegemonic Waypoint Installation - West External Dock"
-	landmark_tag = "waypoint_w_dock"
-
-/obj/effect/shuttle_landmark/hegemony_waypoint/south_docking
-	name = "Hegemonic Waypoint Installation - South External Dock"
-	landmark_tag = "waypoint_s_dock"
-
-/obj/effect/shuttle_landmark/hegemony_waypoint/south
-	name = "Hegemonic Waypoint Installation - Space, South"
-	landmark_tag = "waypoint_s_space"
-
-/obj/effect/shuttle_landmark/hegemony_waypoint/west
-	name = "Hegemonic Waypoint Installation - Space, West"
-	landmark_tag = "waypoint_w_space"
-
-/obj/effect/shuttle_landmark/hegemony_waypoint/east
-	name = "Hegemonic Waypoint Installation - Space, East"
-	landmark_tag = "waypoint_e_space"
-
-/obj/effect/shuttle_landmark/hegemony_waypoint/north
-	name = "Hegemonic Waypoint Installation - Space, North"
-	landmark_tag = "waypoint_n_space"
-
-
-
