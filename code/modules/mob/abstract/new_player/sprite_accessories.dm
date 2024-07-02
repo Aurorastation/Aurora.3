@@ -3800,7 +3800,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon = 'icons/mob/human_face/vaurca_hair.dmi'
 	name = "Classic Antennae"
 	icon_state = "vaurca_classic"
-	species_allowed = list(/datum/species/bug,/datum/species/bug/type_b)
+	species_allowed = list(/datum/species/bug, /datum/species/bug/type_b, /datum/species/bug/type_b/type_bb)
 	gender = NEUTER
 	chatname = "antennae"
 
@@ -5016,7 +5016,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "mecha_chest"
 	do_colouration = FALSE
 	body_parts = list(BP_CHEST)
-	species_allowed = list(/datum/species/bug, /datum/species/bug/type_b)
+	species_allowed = list(/datum/species/bug, /datum/species/bug/type_b, /datum/species/bug/type_b/type_bb)
 
 /datum/sprite_accessory/marking/vaurca_augs/mecha_abdomen
 	name = "Mecha Abdomen"
@@ -6104,13 +6104,13 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Spelunker"
 	icon_state = "spelunker"
 	body_parts = list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN,BP_HEAD)
-	species_allowed = list(/datum/species/bug,/datum/species/bug/type_b)
+	species_allowed = list(/datum/species/bug,/datum/species/bug/type_b, /datum/species/bug/type_b/type_bb)
 
 /datum/sprite_accessory/marking/delver
 	name = "Delver"
 	icon_state = "delver"
 	body_parts = list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_GROIN,BP_HEAD)
-	species_allowed = list(/datum/species/bug,/datum/species/bug/type_b)
+	species_allowed = list(/datum/species/bug, /datum/species/bug/type_b, /datum/species/bug/type_b/type_bb)
 
 /datum/sprite_accessory/marking/skr_tears
 	name = "Skrell Tear Stains (Xiialt)"
