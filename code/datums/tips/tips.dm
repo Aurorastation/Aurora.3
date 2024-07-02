@@ -27,7 +27,7 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"You can spray a fire extinguisher or fire a gun while floating through space to change your direction. Simply fire opposite to where you want to go.",
 		"You can change the control scheme by pressing tab. One is WASD, the other is the arrow keys. Keep in mind that hotkeys are also changed with this.",
 		"All vending machines can be hacked to obtain some contraband items from them, and some can be fed with coins to gain access to premium items.",
-		"Glass shards can be welded to make glass, and metal rods can be welded to make metal.",
+		"Any materials fragments like glass shards and shrapnal, for example, can be welded into full sheets of material.",
 		"If you need to drag multiple people either to safety or to space, bring a locker over and stuff them all in before hauling them off.",
 		"You can grab someone by clicking on them with the grab intent, then upgrade the grab by clicking on the grab button in your active hand. An aggressive grab will allow you to place someone on a table by clicking on it, or throw them by toggling on throwing.",
 		"Holding alt and left clicking a tile will allow you to see its contents in the top right window pane, which is much faster than right clicking.",
@@ -74,10 +74,9 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"Just like real life the entropy of the game can only increase with time. If things aren't on fire yet, just wait.",
 		"Cleanbot.",
 		"It's fun to try and predict the round type from the tip of the round message.",
-		"The Quartermaster has finally become a Head of Staff. He only needed to be renamed to Operations Manager. It can be that easy, kids.",
 		"Your sprite represents your hitbox, so that floor length braid makes you easier to kill. The sacrifices we make for snowflake points.",
 		"Spacemen can't move diagonally but most animals can. Blame the slow decline of the numpad.",
-		"The remake might come out.",
+		"The remake is slowly coming out.",
 		"DEATH IS IMMINENT!",
 		"Just the tip?",
 		"Phoron check.",
@@ -87,8 +86,6 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"If you see this message something has gone seriously wrong.",
 		"If you're having trouble as an antagonist, consider a Dionaea whitelist.",
 		"If you're having trouble as an antagonist, consider playing a G2.",
-		"The second antag contest is still running, you know.",
-		"Killing rats on sight is not and never will be gank, no matter how much people complain.",
 		"NanoTrasen Actors can't do anything. Thank Bay.",
 		"This game is older than many of the people playing it.",
 		"Do not go gentle into that good night.",
@@ -107,7 +104,7 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"Ian is the best department pet.",
 		"Crusher is the best department pet.",
 		"Columbo is the best department pet.",
-		"Don't lie to yourself, when was the last time a Research director took Ives out?",
+		"Ives is a pet.",
 		"Chauncey is the best pet.",
 		"Remember, live wires want to hold hands with you.",
 		"A tip or something... Whatever...",
@@ -118,7 +115,7 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"Rubber ducks are just reskinned bike horns. There's two of them on the ship by default.",
 		"As a chef, you can oven when you of in the cold food of out hot eat the food!",
 		"As a Sturgeon, you are a fresh water fish.",
-		"As an Engineer, you can pick up your Sentry Gun, Dispenser, and Teleporters with right click.",
+		"As the Engineer, you can pick up your Sentry Gun, Dispenser, and Teleporters with right click.",
 		"As a Vaurca Consular, you're a big bug.",
 		"Would you like to sign my petition?",
 		"I bought WinRAR, did you?",
@@ -127,7 +124,7 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"You are not Literally Him, you're just dehydrated.",
 		"You should listen to ghost chat, who always have your best interests at heart.",
 		"As an Assunzionii, breaking spaghetti in half is both a moral sin and against the law.",
-		"As an Eridian, you have the second best lingo in lore. Its blue sky writing, or some milk.",
+		"As an Eridian, you have the second best slang in the setting. Its blue sky writing, or some milk.",
 		"As a Colonial Marine, you're probably on the wrong server. Oorah?"
 	)
 
@@ -153,7 +150,7 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"As the Corporate Represenative, you represent the interests of your company above your own.",
 		"As the Corporate Represenative, being nice goes a long way.",
 		"As the Corporate Represenative, try ordering pizza, and throwing a pizza party to boost morale.",
-		"As the Consular, you have a lot of power over characters on the ship. Have a very light touch.",
+		"As the Consular, you have a lot of power over some characters on the ship. Have a very light touch.",
 		"As the Consular, you represent the interests of your nation and or your home planet aboard the ship, above your own.",
 		"As the Consular, try to remember and celebrate the holidays of your home and culture. Throw a party or two!"
 	)
@@ -172,7 +169,6 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"As a Surgeon, you'll be doing what is often a thankless job. So thank you, surgeon mains. You mean the world to us, even if we don't say it.",
 		"As a Surgeon, you can implant or extract things from people's chests. This can range from putting in a bomb to pulling out an alien larva.",
 		"As a Pharmacist, there are dozens of chemicals that can heal, and even more that can cause harm. Experiment!",
-		"As a Pharmacist, your job is to tinker more generally with the secrets of chemical concoctions.",
 		"As a Paramedic, you can take special drop pouches. These let you have more room for medical equipment. You can find them in the accessories tab.",
 		"As a Paramedic, its a good idea to stop the bleeding before transportation.",
 		"As a Paramedic, you're naturally cool.",
@@ -208,8 +204,8 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"As an Engineer, the supermatter crystal is an extremely dangerous piece of equipment: touching it will disintegrate you.",
 		"As an Engineer, you can electrify grilles by placing wire \"nodes\" beneath them: the big seemingly unconnected bulges from a half completed wiring job.",
 		"As an Engineer, you can lock emitters using your ID card to prevent others from disabling them.",
-		"As an Engineer, you can get almost anywhere with just the snip of a wire.",
-		"As an Engineer, you can fix rogue vending machines with the debugger tool, or manually fix the wiring.",
+		"As an Engineer, you can get almost anywhere with just the snip of a door's ID wire.",
+		"As an Engineer, you can fix rogue vending machines with the debugger tool, or you can manually fix the wiring with wire cutters and a multitool.",
 		"As an Engineer, you can make gold, silver, and platinum with the INDRA.",
 		"As an Atmospheric Technician, you can't unwrench a pipe if the pressure within is too high, unless you use a pipewrench.",
 		"As an Atmospheric Technician, you can remotely control the atmospheric conditions around the ship.",
@@ -236,7 +232,7 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"As a Security Officer, your sechuds or HUDsunglasses can not only see crewmates' job assignments and criminal status, but also if they have a mindshield implant. Use this to your advantage in a revolution to definitively tell who is on your side!",
 		"As a Security Officer, examining someone while wearing sechuds or HUDsunglasses will let you set their arrest level.",
 		"As a Security Officer, you're not here to kill your coworkers. Try non lethal ammo and weapons first.",
-		"Using your Officer issue stun baton, you can either stun by attacking someone with it on help intent. Or, both stun and brute damage by attacking on harm intent.",
+		"Using your Officer issue stun baton, you can either stun by attacking someone with it on help intent. Or, both stun and do brute damage by attacking on harm intent.",
 		"As a Security Officer, try to go talk to people! Don't just sit in the lobby, go build a rapport.",
 		"As the Investigator, you can dust almost any surface for prints. People leave fingerprints on everywhere they touch unless they are wearing gloves. However, as gloves leave fibres specific to their type, such as black or nitrile, it is possible to guess what general department they come from.",
 		"As the Investigator, you're not just solving violent crimes. Try solving other crimes, too!"
@@ -255,7 +251,7 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"As a Machinist, you can upgrade all kinds of machines around the ship. Just use the rapid parts exchanger, with upgraded parts inside of it!",
 		"As a Machinist, you can manufacture all kinds of tools for the crew.",
 		"As a Machinist, you can surgically implant or remove things from people. Stuff stuff in the chest cavity, its good for them.",
-		"As a Shaft Miner, always have a GPS on you, so a fellow miner or cyborg can come to save you if you die.",
+		"As a Shaft Miner, always have a GPS on you, so a fellow miner or cyborg can come to save you if you get hurt.",
 		"As a Shaft Miner, you really should tell people where you're going before you leave.",
 		"As a Shaft Miner, you can buy teleporter beacons and packs to attach to your ore bag. You can then attach the beacon to an ore box, and link them by attacking the box with the bag. Now, your ore teleports back to the box, no matter where you are in the sector.",
 		"As a Hangar Technician, you can earn more cargo points by shipping back crates from maintenance, liquid containers, phoron sheets, rare seeds from hydroponics, and more!",
@@ -281,9 +277,9 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"As a Cook, any food you make will be much healthier than the junk food found in vendors. The crew will thank you for eating healthier, eventually.",
 		"As a Cook, you should be mindful that Humans can't digest Fatshouter milk very well and will get sick from it, and xeno-meat dishes contain a very dangerous acid.",
 		"As a Cook, You can use chicken meat instead of regular meat in every food dish that requires it, but you can't use regular meat instead of chicken meat.",
-		"As the Bartender, the drinks you start with only give you the basics. If you want more advanced mixtures, look into working with chemistry, hydroponics, or even mining for things to grind up and throw in!",
+		"As the Bartender, the drinks you start with only give you the basics. If you want more advanced mixtures, look into working with the pharmacy, the chemistry lab, hydroponics, or even mining for things to grind up and throw in!",
 		"As the Bartender, you can use a circular saw on your shotgun to make it easier to store.",
-		"As a Janitor, if someone steals your janicart, you can instead use your space cleaner spray, grenades, water sprayer or order another from Cargo.",
+		"As a Janitor, if someone steals your janicart, you can instead use your space cleaner spray, grenades, water sprayer or use your janitor GPS to track it down.",
 		"As a Janitor, mousetraps can be used to create bombs or booby-trap containers.",
 		"As a Janitor, you have an excuse to be almost anywhere.",
 		"As the Librarian, be sure to keep the shelves stocked and the library clean for the crew."
@@ -299,7 +295,7 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"As a Traitor, the cryptographic sequencer (emag) can not only open doors, but also lockers, crates, APCs and more. It can hack cyborgs, and even cause bots to go berserk. Use it on the right machines, and you can even order more traitor gear or contact the Syndicate. Experiment!",
 		"As a Traitor, subverting the AI to serve you can make it an extremely powerful ally. However, be careful of the wording in the laws you give it, as it may use your poorly written laws against you!",
 		"As a Traitor, the Captain and the Head of Security are two of the most difficult to kill targets on the ship. Plan carefully if either are present.",
-		"As a Traitor, you can manufacture and recycle revolver bullets at a hacked autolathe, making the revolver an extremely powerful tool.",
+		"As a Traitor, you can manufacture and recycle bullets at a hacked autolathe, making an autolathe an extremely powerful tool.",
 		"As a Traitor, you may sometimes hunt other traitors, and in turn be hunted by them.",
 		"As a Traitor, the syndicate encryption key is very useful for coordinating plans with your fellow traitors -- or, of course, betraying them.",
 		"As a Mercenary, communication is key! Use your radio to speak to your fellow operatives and coordinate an attack plan.",
@@ -377,7 +373,7 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"Dionae die in darkness. Find the light at the end of the tunnel, and quick.",
 		"All Vaurca can remotely speak to any other Vaurca on board. Not that there are any.",
 		"Vaurca can wade freely through phoron gas. Avoid phoron fires though. Somehow a species that breathes phoron gas is really weak to fire.",
-		"Despite the name, Auto-Hiss can be used for Unathi, Tajara, and Vaurca.",
+		"Despite the name, Auto-Hiss can be used for Unathi, Tajara, Diona, and Vaurca.",
 		"As a Diona, you can store items in your stomach, including guns."
 	)
 
@@ -389,8 +385,8 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 /datum/tip/ghostspawn
 	category = CATEGORY_GHOSTSPAWN
 	messages = list(
-		"As an ERT trooper, your most powerful weapons are your team mates. Your second most powerful weapon is your bigass gun.",
-		"ERT troopers are still expected to roleplay and progress the round. Try not to wordlessly gun down everyone you see.",
+		"As an Emergency Response character, your most powerful weapons are your team mates. Your second most powerful weapon is your bigass gun.",
+		"Emergency Response Teams are still expected to roleplay and progress the round. Try not to wordlessly gun down everyone you see.",
 		"As a merchant, you offer goods and services in exchange for credits."
 	)
 
@@ -407,11 +403,11 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"If you can't run, walk. If you can't walk, crawl. If you can't crawl, stand. Any movement in real life is good for you, get some.",
 		"In real life, you should tell your friends you love them sometimes.",
 		"In real life, you can watch ants do things. Isn't it cool?",
-		"In real life, you can try eating vegetables. They taste good, I really don't care that they're good for you. If they taste bad, try cooking or eating them different.",
-		"Call your parents, guardians, or loved ones at some point. Its good for both of you.",
+		"In real life, you can try eating vegetables. They taste good, regardless of how good for you they are. If they taste bad, try cooking or eating them different.",
+		"Call your parent(s), guardian(s), or loved ones at some point. Its good for both of you.",
 		"Check twice, worry once. Don't create undue stress for yourself, its just not good.",
 		"In real life, doing stretches and even yoga for just a few minutes a day makes you feel a little better. It doesn't solve your problems, but you can at least feel good while doing them.",
-		"Check your loved one's birthdays, in real life. It means a lot when you remember. Especially for men.",
+		"Check for when your loved one's birthdays are, in real life. It means a lot when you remember. Especially for men.",
 		"In real life, you should complement people more. Tell them you like their shirt, their hair, or other things about them.",
 		"In real life, you can do whatever you want when you're an adult. Don't feel trapped, do whatever. Just be kind.",
 		"In real life, you can mix granola, yogurt, and some frozen berries for a really nice and cheap per serving snack.",
