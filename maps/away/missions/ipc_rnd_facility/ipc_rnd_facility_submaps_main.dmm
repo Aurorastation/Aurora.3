@@ -684,7 +684,27 @@
 /obj/structure/closet/crate,
 /obj/random/loot,
 /obj/random/loot,
+/obj/item/camera_assembly,
+/obj/item/camera_assembly,
+/obj/item/camera_assembly,
 /turf/simulated/floor/plating,
+/area/template_noop)
+"ed" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/power/emitter{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"el" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/vending/robotics{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "en" = (
 /obj/effect/floor_decal/corner/pink{
@@ -795,6 +815,19 @@
 /area/template_noop)
 "eW" = (
 /turf/unsimulated/marker/blue,
+/area/template_noop)
+"eZ" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/table/steel,
+/obj/random/tech_supply{
+	pixel_y = -8
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "fa" = (
 /obj/machinery/mecha_part_fabricator{
@@ -941,6 +974,22 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"gc" = (
+/obj/structure/closet/crate,
+/obj/item/smes_coil/super_io,
+/obj/item/smes_coil/super_io,
+/obj/item/smes_coil/super_io,
+/obj/item/smes_coil/super_capacity,
+/obj/item/smes_coil/super_capacity,
+/obj/item/smes_coil/super_capacity,
+/obj/item/smes_coil,
+/obj/item/smes_coil,
+/obj/item/smes_coil,
+/obj/item/circuitboard/smes,
+/obj/item/circuitboard/smes,
+/obj/item/circuitboard/smes,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "gf" = (
 /obj/machinery/computer/telescience{
@@ -1140,6 +1189,16 @@
 "ht" = (
 /turf/simulated/floor/reinforced,
 /area/template_noop)
+"hu" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/table/steel,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "hx" = (
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
@@ -1305,9 +1364,18 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
+"iP" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/reagent_dispensers/extinguisher,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "iU" = (
 /obj/structure/table/rack,
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"iX" = (
+/obj/machinery/vending/assist,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "iY" = (
 /obj/structure/table/rack,
@@ -1368,6 +1436,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"jk" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/structure/fireaxecabinet/north,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "jl" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 8
@@ -1384,8 +1460,8 @@
 /area/template_noop)
 "jo" = (
 /obj/structure/table/rack,
-/obj/item/storage/box/handcuffs,
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/item/storage/box/teargas,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "jp" = (
@@ -1609,6 +1685,11 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
+"ln" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/machinery/deployable/barrier,
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "lp" = (
 /obj/effect/decal/road_marking/crosswalk{
 	dir = 1
@@ -1799,6 +1880,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"mC" = (
+/obj/structure/table/steel,
+/obj/item/module/power_control{
+	pixel_x = -3;
+	pixel_y = 5
+	},
+/obj/item/airlock_electronics,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "mG" = (
 /obj/structure/table/rack/cafe_table,
 /turf/simulated/floor/carpet/orange,
@@ -1972,6 +2062,11 @@
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"nT" = (
+/obj/machinery/flasher/portable,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "nU" = (
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2114,6 +2209,31 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"oO" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/table/steel,
+/obj/item/storage/belt/utility/full{
+	pixel_y = 3;
+	pixel_x = 3
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
+"oT" = (
+/obj/structure/table/rack{
+	dir = 8
+	},
+/obj/item/circuitboard/rdconsole,
+/obj/item/circuitboard/rdserver{
+	pixel_x = 3;
+	pixel_y = -3
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "oZ" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -2217,6 +2337,10 @@
 	dir = 10
 	},
 /obj/structure/table/steel,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"pH" = (
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "pI" = (
@@ -2489,6 +2613,14 @@
 "rk" = (
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/konyang,
+/area/template_noop)
+"rl" = (
+/obj/structure/table/steel,
+/obj/item/aicard{
+	pixel_x = 2;
+	pixel_y = 5
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "rm" = (
 /obj/structure/weapons_rack,
@@ -3045,6 +3177,14 @@
 /obj/structure/bed/stool/chair,
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"vn" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/table/steel,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "vp" = (
 /obj/structure/barricade/wooden{
 	dir = 1
@@ -3316,6 +3456,10 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/template_noop)
+"xi" = (
+/obj/machinery/deployable/barrier,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "xm" = (
 /obj/structure/table/steel,
 /obj/random/pizzabox{
@@ -3348,6 +3492,20 @@
 "xu" = (
 /obj/machinery/chem_master,
 /turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"xv" = (
+/obj/structure/table/rack{
+	dir = 8
+	},
+/obj/item/circuitboard/borgupload{
+	pixel_x = -1;
+	pixel_y = 1
+	},
+/obj/item/circuitboard/aiupload{
+	pixel_x = 2;
+	pixel_y = -2
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "xw" = (
 /obj/structure/table/glass,
@@ -3557,6 +3715,16 @@
 /obj/item/clothing/gloves/brown/tajara,
 /turf/simulated/floor/wood,
 /area/template_noop)
+"ze" = (
+/obj/structure/table/rack{
+	dir = 8
+	},
+/obj/item/circuitboard/autolathe{
+	pixel_x = 3;
+	pixel_y = -3
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "zf" = (
 /obj/structure/barricade/wooden{
 	dir = 8
@@ -3612,6 +3780,7 @@
 /obj/structure/closet/toolcloset,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/item/clothing/gloves/yellow,
+/obj/item/storage/belt/utility/alt,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "zs" = (
@@ -3814,6 +3983,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"AT" = (
+/obj/structure/table/rack{
+	dir = 8
+	},
+/obj/item/circuitboard/robotics{
+	pixel_x = -2;
+	pixel_y = 2
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "AU" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 6
@@ -3883,6 +4062,23 @@
 /obj/structure/barricade/wooden,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/template_noop)
+"BL" = (
+/obj/structure/closet/crate,
+/obj/item/stock_parts/scanning_module,
+/obj/item/stock_parts/scanning_module,
+/obj/item/stock_parts/scanning_module,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor,
+/obj/item/stock_parts/capacitor/adv,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/matter_bin,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "BM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/stack/material/plastic/full,
@@ -3918,6 +4114,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/asphalt,
+/area/template_noop)
+"Cb" = (
+/obj/structure/table/steel,
+/obj/machinery/cell_charger{
+	pixel_y = 10
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "Cg" = (
 /obj/structure/table/wood,
@@ -4452,6 +4655,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"Fq" = (
+/obj/machinery/deployable/barrier,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Fu" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 2
@@ -4626,6 +4834,18 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"Gy" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/table/steel,
+/obj/random/toolbox{
+	pixel_x = 13;
+	pixel_y = 6
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Gz" = (
 /obj/structure/closet,
 /turf/simulated/floor/carpet/lightblue,
@@ -4729,6 +4949,13 @@
 	pixel_y = 10
 	},
 /turf/simulated/floor/tiled/white,
+/area/template_noop)
+"Hr" = (
+/obj/machinery/vending/robotics{
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Hu" = (
 /obj/item/stack/material/plasteel/full,
@@ -5098,6 +5325,16 @@
 /obj/structure/closet,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"JV" = (
+/obj/structure/table/rack{
+	dir = 8
+	},
+/obj/item/circuitboard/protolathe,
+/obj/item/circuitboard/destructive_analyzer{
+	pixel_y = 8
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "JX" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray/machinist{
@@ -5105,6 +5342,16 @@
 	},
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled/white,
+/area/template_noop)
+"Kg" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 5
+	},
+/obj/machinery/vending/robotics{
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "Km" = (
 /obj/structure/closet/crate/loot,
@@ -5343,6 +5590,7 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/item/clothing/gloves/yellow,
 /obj/random/tech_supply,
+/obj/item/storage/belt/utility/full,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "LZ" = (
@@ -5707,6 +5955,16 @@
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/carpet/green,
 /area/template_noop)
+"ON" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/vending/engineering{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "OO" = (
 /obj/machinery/autolathe,
 /obj/effect/floor_decal/spline/plain{
@@ -6053,6 +6311,8 @@
 /obj/item/device/flash,
 /obj/item/device/flashlight/maglight,
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/item/storage/box/handcuffs,
+/obj/item/clothing/mask/gas/alt,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "QX" = (
@@ -6370,6 +6630,25 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"SR" = (
+/obj/machinery/deployable/barrier,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"ST" = (
+/obj/structure/table/rack{
+	dir = 8
+	},
+/obj/item/circuitboard/rdtechprocessor{
+	pixel_x = -2;
+	pixel_y = 2
+	},
+/obj/item/circuitboard/unary_atmos/cooler{
+	pixel_x = 3;
+	pixel_y = -3
+	},
+/turf/simulated/floor/plating,
+/area/template_noop)
 "SU" = (
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
@@ -6563,6 +6842,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"Ut" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 1
+	},
+/obj/machinery/vending/engineering{
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "Uw" = (
 /obj/structure/table/steel,
 /obj/item/device/electronic_assembly/clam{
@@ -6629,6 +6918,18 @@
 /area/template_noop)
 "UM" = (
 /turf/simulated/floor/exoplanet/snow,
+/area/template_noop)
+"UO" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/table/steel,
+/obj/machinery/cell_charger{
+	pixel_x = 3;
+	pixel_y = 2
+	},
+/turf/simulated/floor/plating,
 /area/template_noop)
 "UP" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -6873,6 +7174,7 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/item/clothing/gloves/yellow,
 /obj/random/tech_supply,
+/obj/item/storage/belt/utility/full,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "WL" = (
@@ -7161,6 +7463,8 @@
 /obj/item/device/flash,
 /obj/item/device/flashlight/maglight,
 /obj/effect/floor_decal/industrial/outline/security,
+/obj/item/storage/box/handcuffs,
+/obj/item/clothing/mask/gas/alt,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "YB" = (
@@ -18145,10 +18449,10 @@ tw
 ZA
 RG
 tw
-SU
-SU
-SU
-SU
+SR
+SR
+pH
+nT
 qi
 SU
 tw
@@ -18577,8 +18881,8 @@ iF
 iF
 du
 AP
-AP
-AP
+ln
+ln
 AP
 iF
 iF
@@ -19761,10 +20065,10 @@ tw
 ZA
 RG
 tw
-SU
-SU
-SU
-SU
+SR
+SR
+SR
+nT
 SU
 qi
 Qe
@@ -19976,11 +20280,11 @@ SU
 SU
 SU
 SU
+SU
+SU
+SU
+xi
 tw
-PI
-PI
-PI
-PI
 PI
 PI
 PI
@@ -20178,11 +20482,11 @@ SU
 SU
 SU
 SU
+xi
+SU
+xi
+SU
 tw
-PI
-PI
-PI
-PI
 PI
 PI
 PI
@@ -20381,10 +20685,10 @@ HU
 HU
 HU
 tw
-PI
-PI
-PI
-PI
+Fq
+Fq
+Fq
+tw
 PI
 PI
 PI
@@ -20583,10 +20887,10 @@ tw
 tw
 tw
 tw
-PI
-PI
-PI
-PI
+Fq
+Fq
+Fq
+tw
 PI
 PI
 PI
@@ -20784,11 +21088,11 @@ PI
 PI
 PI
 PI
-PI
-PI
-PI
-PI
-PI
+tw
+tw
+tw
+tw
+tw
 PI
 PI
 PI
@@ -22999,7 +23303,7 @@ Rz
 PI
 PI
 tw
-VB
+el
 NG
 sj
 EN
@@ -23201,7 +23505,7 @@ Rz
 PI
 PI
 tw
-LK
+jk
 NG
 sW
 NG
@@ -23403,7 +23707,7 @@ Rz
 PI
 PI
 tw
-et
+ON
 NG
 sW
 EH
@@ -24582,7 +24886,7 @@ tw
 NG
 Qn
 tw
-SU
+Hr
 qL
 Ja
 lj
@@ -24810,8 +25114,8 @@ Rz
 uc
 SU
 pQ
-NT
-Zy
+hu
+UO
 Jv
 oL
 oL
@@ -25012,8 +25316,8 @@ tw
 vE
 SU
 pQ
-NT
-Zy
+oO
+Gy
 fX
 tw
 tw
@@ -25214,8 +25518,8 @@ Rz
 uc
 SU
 pQ
-NT
-Zy
+eZ
+vn
 fX
 tw
 PI
@@ -27028,7 +27332,7 @@ PI
 tw
 tw
 lh
-lh
+iP
 tw
 NP
 Lx
@@ -27228,7 +27532,7 @@ tw
 PI
 PI
 tw
-lh
+iP
 SU
 SU
 hO
@@ -27430,7 +27734,7 @@ tw
 PI
 PI
 tw
-lh
+Ii
 SU
 Jv
 tw
@@ -27655,11 +27959,11 @@ tw
 tw
 tw
 tw
-PI
-PI
-PI
-PI
-PI
+tw
+tw
+tw
+tw
+tw
 PI
 PI
 PI
@@ -27853,15 +28157,15 @@ SU
 SU
 SU
 SU
-lh
 tH
+ed
 My
 tw
-PI
-PI
-PI
-PI
-PI
+iX
+Tr
+ST
+JV
+tw
 PI
 PI
 PI
@@ -28051,19 +28355,19 @@ PI
 PI
 PI
 tw
-Tr
+gc
 SU
 SU
 SU
 SU
 Tr
+Tr
+oz
+Tr
+Tr
+BL
 Tr
 tw
-PI
-PI
-PI
-PI
-PI
 PI
 PI
 PI
@@ -28261,11 +28565,11 @@ lh
 lh
 lh
 tw
-PI
-PI
-PI
-PI
-PI
+Tr
+Tr
+oT
+ze
+tw
 PI
 PI
 PI
@@ -28463,11 +28767,11 @@ Tr
 Tr
 Tr
 tw
-PI
-PI
-PI
-PI
-PI
+Cb
+Tr
+Tr
+Tr
+tw
 PI
 PI
 PI
@@ -28665,11 +28969,11 @@ lh
 lh
 lh
 tw
-PI
-PI
-PI
-PI
-PI
+mC
+rl
+AT
+xv
+tw
 PI
 PI
 PI
@@ -28867,11 +29171,11 @@ tw
 tw
 tw
 tw
-PI
-PI
-PI
-PI
-PI
+tw
+tw
+tw
+tw
+tw
 PI
 PI
 PI
@@ -30235,7 +30539,7 @@ iF
 iF
 iF
 tw
-sW
+Kg
 NG
 Qn
 RG
@@ -30437,7 +30741,7 @@ iF
 iF
 iF
 tw
-ZI
+Ut
 NG
 RM
 tw
