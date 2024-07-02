@@ -530,6 +530,12 @@
 		'sound/effects/bulletflyby3.ogg'
 	)
 
+/singleton/sound_category/screwdriver_sound
+	sounds = list(
+		'sound/items/Screwdriver.ogg',
+		'sound/items/Screwdriver2.ogg'
+	)
+
 /singleton/sound_category/crowbar_sound
 	sounds = list(
 		'sound/items/crowbar1.ogg',
