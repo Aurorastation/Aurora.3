@@ -25,7 +25,7 @@
 	var/obj/machinery/power/smes/buildable/S = holder
 	. += ..()
 	. += "The green light is [(S.input_cut || S.input_pulsed || S.output_cut || S.output_pulsed) ? "off" : "on"]."
-	. += "The red light is [(S.safeties_enabled || S.grounding) ? "off" : "blinking"]."
+	. += "The red light is [(S.safeties_enabled && S.grounding) ? "off" : "blinking"]."
 	. += "The blue light is [S.RCon ? "on" : "off"]."
 
 /datum/wires/smes/on_cut(wire, mend, source)
