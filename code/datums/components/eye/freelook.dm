@@ -1,6 +1,6 @@
 //For mobs connecting to the station's cameranet without needing AI procs
-/datum/component/eye/cameranet
-	eye_type = /mob/abstract/eye/cameranet
+/datum/component/eye/freelook
+	eye_type = /mob/abstract/eye/freelook
 
 //For mobs connecting to other visualnets. Pass visualnet as eye_args in look()
 /datum/component/eye/freelook

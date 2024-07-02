@@ -63,6 +63,8 @@
 #define MODE_REVENANT "revenant"
 #define MODE_GOLEM "golem"
 #define MODE_JOCKEY "jockey"
+#define MODE_STORYTELLER "storyteller"
+#define MODE_ACTOR "actor"
 
 #define DEFAULT_TELECRYSTAL_AMOUNT 20
 #define DEFAULT_BLUECRYSTAL_AMOUNT 15

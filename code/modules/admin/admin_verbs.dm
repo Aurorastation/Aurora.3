@@ -109,11 +109,6 @@ var/list/admin_verbs_ban = list(
 	/client/proc/warning_panel,
 	/client/proc/stickybanpanel
 	)
-var/list/admin_verbs_sounds = list(
-	/client/proc/play_local_sound,
-	/client/proc/play_sound,
-	/client/proc/play_server_sound
-	)
 var/list/admin_verbs_fun = list(
 	/client/proc/object_talk,
 	/client/proc/cmd_admin_dress,
@@ -136,7 +131,11 @@ var/list/admin_verbs_fun = list(
 	/client/proc/show_tip,
 	/client/proc/fab_tip,
 	/client/proc/apply_sunstate,
-	/datum/admins/proc/ccannoucment
+	/datum/admins/proc/ccannoucment,
+	/datum/admins/proc/set_situation,
+	/client/proc/play_local_sound,
+	/client/proc/play_sound,
+	/client/proc/play_server_sound
 	)
 
 var/list/admin_verbs_spawn = list(
@@ -393,6 +392,7 @@ var/list/admin_verbs_hideable = list(
 	/client/proc/cmd_display_del_log,
 	/client/proc/cmd_display_harddel_log,
 	/datum/admins/proc/ccannoucment,
+	/datum/admins/proc/set_situation,
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_generate_lag,
 	/client/proc/getruntimelog,
@@ -514,9 +514,9 @@ var/list/admin_verbs_cciaa = list(
 				remove_verb(src, admin_verbs_paranoid_debug)			//Right now it's just callproc but we can easily add others later on.
 		if(holder.rights & R_POSSESS)		add_verb(src, admin_verbs_possess)
 		if(holder.rights & R_PERMISSIONS)	add_verb(src, admin_verbs_permissions)
+		if(holder.rights & R_STORYTELLER)	add_verb(src, GLOB.storyteller_verbs)
 		if(holder.rights & R_STEALTH)		add_verb(src, /client/proc/stealth)
 		if(holder.rights & R_REJUVINATE)	add_verb(src, admin_verbs_rejuv)
-		if(holder.rights & R_SOUNDS)		add_verb(src, admin_verbs_sounds)
 		if(holder.rights & R_SPAWN)			add_verb(src, admin_verbs_spawn)
 		if(holder.rights & R_MOD)			add_verb(src, admin_verbs_mod)
 		if(holder.rights & R_DEV)			add_verb(src, admin_verbs_dev)
@@ -534,9 +534,9 @@ var/list/admin_verbs_cciaa = list(
 	remove_verb(src, admin_verbs_permissions)
 	remove_verb(src, /client/proc/stealth)
 	remove_verb(src, admin_verbs_rejuv)
-	remove_verb(src, admin_verbs_sounds)
 	remove_verb(src, admin_verbs_spawn)
 	remove_verb(src, debug_verbs)
+	remove_verb(src, GLOB.storyteller_verbs)
 	add_aooc_if_necessary()
 
 /client/proc/hide_most_verbs()//Allows you to keep some functionality while hiding some verbs

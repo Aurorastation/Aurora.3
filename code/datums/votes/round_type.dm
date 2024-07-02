@@ -80,6 +80,7 @@
 
 				if(M.name == winning_option)
 					GLOB.master_mode = M.config_tag
+					M.post_finalize_vote()
 					break
 
 /datum/vote/gamemode/reset()

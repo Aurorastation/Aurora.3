@@ -147,7 +147,7 @@
 
 /obj/item/clothing/mask/ai/Initialize()
 	. = ..()
-	AddComponent(/datum/component/eye/cameranet)
+	AddComponent(/datum/component/eye/freelook)
 
 /obj/item/clothing/mask/ai/attack_self(mob/user)
 	if(user.incapacitated())
@@ -155,7 +155,7 @@
 	if(user.get_equipped_item(slot_wear_mask) != src)
 		to_chat(user, SPAN_WARNING("You must be wearing \the [src] to activate it!"))
 		return
-	var/datum/component/eye/cameranet/CN = GetComponent(/datum/component/eye)
+	var/datum/component/eye/freelook/CN = GetComponent(/datum/component/eye)
 	if(!CN)
 		to_chat(user, SPAN_WARNING("\The [src] doesn't respond!"))
 		return

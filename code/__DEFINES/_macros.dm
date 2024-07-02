@@ -36,6 +36,7 @@
 #define EXAMINE_BLOCK_BLUE(str) ("<div class='examine_block--blue'>" + str + "</div>")
 #define EXAMINE_BLOCK_RED(str) ("<div class='examine_block--red'>" + str + "</div>")
 #define EXAMINE_BLOCK_DEEP_CYAN(str) ("<div class='examine_block--deep-cyan'>" + str + "</div>")
+#define EXAMINE_BLOCK_ODYSSEY(str) ("<div class='examine_block--odyssey'>" + str + "</div>")
 
 #define FONT_SIZE_SMALL "10px"
 #define FONT_SIZE_NORMAL "13px"

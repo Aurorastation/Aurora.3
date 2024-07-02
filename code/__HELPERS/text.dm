@@ -473,6 +473,7 @@
 		"OOC" = "ooc",
 		"LOOC" = "looc",
 		"ALOOC" = "adminlooc",
+		"STORY" = "storyteller",
 		"DEV" = "dev",
 		"CCIA" = "ccia",
 		"ADMIN" = "admin",

@@ -22,7 +22,7 @@ var/datum/antagonist/revolutionary/revs
 	// Inround revs.
 	faction_role_text = "Revolutionary"
 	faction_descriptor = "Revolutionaries"
-	faction_verb = /mob/living/proc/convert_to_rev
+	faction_verbs = list(/mob/living/proc/convert_to_rev)
 	faction_indicator = "contender"
 	faction_invisible = FALSE
 
