@@ -1027,3 +1027,39 @@
 	if(!(REAGENT_VOLUME(M.reagents, /singleton/reagent/cytophenolate)) && !H.internal_organs_by_name[BP_TUMOUR_SPREADING]) //only affects people with immunosuppressants or a pre-existing malignant tumour
 		return
 	H.infest_with_parasite(H, BP_TUMOUR_SPREADING, pick(H.organs), 10)
+
+// a group of chemicals related to allergies, it increases pulse, it drops blood pressure, and makes it more difficult to breathe
+/singleton/reagent/toxin/anaphylactic_cocktail
+	name = "Anaphylactic Cocktail"
+	description = "A mix of chemicals associated with Anaphylactic shock. It increases pulse, drops blood pressure, and makes it difficult to breathe."
+	color = "#FFFFFF"
+	metabolism = REM
+	overdose = 0
+	taste_description = "unknown slurry"
+
+/singleton/reagent/toxin/anaphylactic_cocktail/affect_blood(var/mob/living/carbon/victim, var/alien, var/removed, var/datum/reagents/holder)
+	var/mob/living/carbon/human/human = victim
+	if(!istype(human) || (human.species.flags & NO_BLOOD))
+		return
+
+	// high heartrate
+	human.add_chemical_effect(CE_PULSE, 2)
+
+	// overall damage
+	human.add_chemical_effect(CE_TOXIN, removed * 3)
+
+	// difficulty breathing
+	if(human.losebreath < 15)
+		human.losebreath++
+
+	// go cold
+	human.bodytemperature = max(human.bodytemperature - 2 * TEMPERATURE_DAMAGE_COEFFICIENT, 0)
+
+	if(prob(5))
+		var/list/bad_messages = list(
+			"Something is VERY wrong.",
+			"Something bad is inside your body.",
+			"The hair on the back of your neck stands up, your skin breaks out in goosebumps.",
+			"You feel AWFUL."
+		)
+		to_chat(human, SPAN_DANGER(pick(bad_messages)))

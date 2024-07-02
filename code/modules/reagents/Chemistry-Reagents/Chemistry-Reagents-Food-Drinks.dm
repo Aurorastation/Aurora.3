@@ -227,7 +227,7 @@
 				"Your stomach hurts a bit...",
 				"You feel a bit sick..."
 			)
-			to_chat(M, SPAN_WARNING(uncomfortable_messages))
+			to_chat(M, SPAN_WARNING(pick(uncomfortable_messages)))
 	..()
 
 /singleton/reagent/nutriment/protein/tofu //Good for Skrell!
@@ -1096,6 +1096,8 @@
 	glass_icon_state = "berryjuice"
 	glass_name = "glass of blueberry juice"
 	glass_desc = "Blueberry juice. Or maybe it's jam. Who cares?"
+
+	allergy_type = ALLERGY_TYPE_BLUEBERRY
 
 /singleton/reagent/drink/raspberryjuice
 	name = "Raspberry Juice"
@@ -2631,6 +2633,8 @@
 	glass_name = "glass of blueberry milkshake"
 	glass_desc = "This is an alarming level of neon blue for something that's supposed to be ingested. Probably still delicious though!"
 	glass_center_of_mass = list("x"=16, "y"=7)
+
+	allergy_type = ALLERGY_TYPE_BLUEBERRY
 
 /singleton/reagent/drink/shake_chocolate
 	name = "Chocolate Milkshake"
@@ -6144,6 +6148,8 @@
 	condiment_icon_state = "syrup_blueberry"
 	taste_mult = 5
 	condiment_center_of_mass = list("x"=16, "y"=8)
+
+	allergy_type = ALLERGY_TYPE_BLUEBERRY
 
 //rasp
 /singleton/reagent/condiment/syrup_raspberry
