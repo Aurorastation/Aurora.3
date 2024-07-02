@@ -36,3 +36,18 @@
 	item_state = "mador_gauntlets"
 	sharp = 1
 	edge = TRUE
+
+/obj/item/clothing/gloves/unathi/scrap_breacher
+	name = "scrap breacher gauntlets"
+	desc = "Previously used on a Breacher suit, these gauntlets have been scrapped apart and put back together again. Best you could use it now as just regular gauntlets."
+	icon = 'icons/obj/scrap_breacher.dmi'
+	icon_state = "scrap_beacher_gl"
+	item_state = "scrap_beacher_gloves"
+	armor = list( //far weaker than normal breacher armour
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR)
