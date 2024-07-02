@@ -5,6 +5,6 @@
  */
 MOB_AI_SUBSYSTEM_DEF(mob_fast_ai)
 	name = "Mobs - Fast AI"
-	flags = SS_KEEP_TIMING | SS_BACKGROUND
+	flags = SS_KEEP_TIMING | SS_BACKGROUND | SS_NO_INIT
 	priority = FIRE_PRIORITY_NPC_ACTIONS
 	wait = 5
