@@ -287,7 +287,7 @@
 
 /obj/machinery/shield_gen/proc/getzabove(var/turf/location)
 	var/connected = list()
-	var/turf/above = GetAbove(location)
+	var/turf/above = GET_TURF_ABOVE(location)
 
 	if(above)
 		connected += above
@@ -299,7 +299,7 @@
 
 /obj/machinery/shield_gen/proc/getzbelow(var/turf/location)
 	var/connected = list()
-	var/turf/below = GetBelow(location)
+	var/turf/below = GET_TURF_BELOW(location)
 
 	if(below)
 		connected += below

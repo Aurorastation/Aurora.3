@@ -655,7 +655,7 @@
 		var/obj/structure/lattice/L = locate() in T
 		if(L)
 			return L.name
-		var/turf/leapBelow = GetBelow(T)
+		var/turf/leapBelow = GET_TURF_BELOW(T)
 		if(leapBelow.density)
 			return leapBelow.name
 		else if(T.contains_dense_objects())
@@ -718,7 +718,8 @@
 		H.throw_at(T, leapDistance, 1, spin = FALSE)
 		return TRUE
 	else
-		var/turf/simulated/open/TA = GetAbove(src)
+		var/turf/current_turf = get_turf(src)
+		var/turf/simulated/open/TA = GET_TURF_ABOVE(current_turf)
 		if (!istype(TA))
 			to_chat(user, SPAN_WARNING("There is a ceiling above you that stop you from leaping upwards!"))
 			return FALSE

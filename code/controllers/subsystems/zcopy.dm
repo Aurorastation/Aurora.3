@@ -115,7 +115,7 @@ SUBSYSTEM_DEF(zcopy)
 	zlev_maximums = new(world.maxz)
 	var/start_zlev = 1
 	for (var/z in 1 to world.maxz)
-		if (!HasAbove(z))
+		if (!SSmapping.multiz_levels[z][Z_LEVEL_UP])
 			for (var/member_zlev in start_zlev to z)
 				zlev_maximums[member_zlev] = z
 			if (z - start_zlev > OPENTURF_MAX_DEPTH)

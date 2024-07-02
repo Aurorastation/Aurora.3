@@ -39,10 +39,9 @@
 /obj/effect/overmap/visitable/ship/landable/find_z_levels()
 	if(!use_mapped_z_levels)
 		for(var/i = 0 to multiz)
-			world.maxz++
-			map_z += world.maxz
-			SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
-		var/turf/center_loc = locate(round(world.maxx/2), round(world.maxy/2), world.maxz)
+			var/datum/space_level/S = SSmapping.add_new_zlevel("Landable Landmark [i] for [shuttle]", list(ZTRAIT_RESERVED = TRUE), contain_turfs = FALSE)
+			map_z += S.z_value
+		var/turf/center_loc = locate(round(world.maxx/2), round(world.maxy/2), map_z[length(map_z)])
 		landmark = new (center_loc, shuttle)
 		add_landmark(landmark, shuttle)
 		var/visitor_dir = fore_dir
@@ -53,7 +52,7 @@
 			visitor_dir = turn(visitor_dir, 90)
 
 		if(multiz)
-			new /obj/effect/landmark/map_data(locate(1, 1, world.maxz), (multiz + 1))
+			new /obj/effect/landmark/map_data(locate(1, 1, map_z[length(map_z)]), (multiz + 1))
 	else
 		..()
 

@@ -149,9 +149,8 @@
 		planet_name = generate_planet_name()
 		name = "[planet_name], \a [name]"
 
-	world.maxz++
-	forceMove(locate(1,1,world.maxz))
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
+	var/datum/space_level/exoplanet_level = SSmapping.add_new_zlevel("Exoplanet [name]", ZTRAITS_AWAY, contain_turfs = FALSE)
+	forceMove(locate(1, 1, exoplanet_level.z_value))
 
 	pre_ruin_preparation()
 	if(LAZYLEN(possible_themes))

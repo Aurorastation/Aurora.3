@@ -39,7 +39,7 @@
 		return
 
 	// This makes sure that turfs are not changed to space when there's a multi-z turf below
-	if(ispath(N, /turf/space) && HasBelow(z) && !ignore_override)
+	if(ispath(N, /turf/space) && GET_TURF_BELOW(src) && !ignore_override)
 		N = openspace_override_type || /turf/simulated/open/airless
 
 	var/obj/fire/old_fire = fire

@@ -74,7 +74,8 @@
 
 	if(ishuman(user) && user.a_intent == I_GRAB)
 		var/mob/living/carbon/human/H = user
-		var/turf/destination = GetAbove(H)
+		var/turf/current_turf = get_turf(H)
+		var/turf/destination = GET_TURF_ABOVE(current_turf)
 
 		if(destination)
 			var/turf/start = get_turf(H)

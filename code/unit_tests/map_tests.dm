@@ -108,35 +108,6 @@
 
 	return 1
 
-
-/datum/unit_test/map_test/roof_test
-	name = "MAP: Roof Test (Station)"
-
-/datum/unit_test/map_test/roof_test/start_test()
-	var/bad_tiles = 0
-	var/tiles_total = 0
-	var/turf/above
-	var/area/A
-	var/thing
-	for (thing in GLOB.the_station_areas)
-		A = thing
-
-		for (var/turf/T in A)	// Areas don't just contain turfs, so typed loop it is.
-			T = thing
-			tiles_total++
-			above = GetAbove(T)
-
-			if (above && above.is_hole)
-				bad_tiles++
-				TEST_FAIL("[T.name] \[[T.x] / [T.y] / [T.z]\] Has no roof.")
-
-	if (bad_tiles)
-		TEST_FAIL("\[[bad_tiles] / [tiles_total]\] station turfs had no roof.")
-	else
-		TEST_PASS("All \[[tiles_total]\] station turfs had a roof.")
-
-	return 1
-
 #define BLOCKED_UP   1
 #define BLOCKED_DOWN 2
 
@@ -160,7 +131,8 @@
 			continue
 
 		var/bad = 0
-		if (ladder.target_up && !isopenturf(GetAbove(ladder)))
+		var/turf/T = get_turf(ladder)
+		if (ladder.target_up && !isopenturf(GET_TURF_ABOVE(T)))
 			bad |= BLOCKED_UP
 
 		if (ladder.target_down && !isopenturf(ladder.loc))

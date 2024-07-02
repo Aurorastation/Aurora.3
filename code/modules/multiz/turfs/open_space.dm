@@ -181,7 +181,8 @@
  * Updates the turf with open turf's variables and basically resets it properly.
  */
 /turf/simulated/open/proc/update(mapload = FALSE)
-	below = GetBelow(src)
+	var/turf/T = get_turf(src)
+	below = GET_TURF_BELOW(T)
 
 	// Edge case for when an open turf is above space on the lowest level.
 	if (below)
@@ -211,7 +212,8 @@
 	. = ..()
 	if(distance <= 2)
 		var/depth = 1
-		for(var/T = GetBelow(src); isopenspace(T); T = GetBelow(T))
+		var/turf/current_turf = get_turf(src)
+		for(var/turf/T = GET_TURF_BELOW(current_turf); isopenspace(T); T = GET_TURF_BELOW(T))
 			depth += 1
 		. += "It is about [depth] level\s deep."
 
@@ -259,7 +261,8 @@
 
 	if(ishuman(user) && user.a_intent == I_GRAB)
 		var/mob/living/carbon/human/H = user
-		var/turf/climbing_wall = GetBelow(H)
+		var/turf/T = get_turf(H)
+		var/turf/climbing_wall = GET_TURF_BELOW(T)
 		var/climb_bonus = 0
 		if(istype(climbing_wall, /turf/simulated/mineral))
 			climb_bonus = 20
@@ -276,7 +279,7 @@
 
 //Returns the roof type of the turf below
 /turf/simulated/open/get_roof_type()
-	var/turf/t = GetBelow(src)
+	var/turf/t = GET_TURF_BELOW(src)
 	if(!t)
 		return null
 	return t.roof_type

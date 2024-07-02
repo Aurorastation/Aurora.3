@@ -58,8 +58,10 @@
 		..()
 	else
 		var/datum/gas_mixture/pipe_air = return_air()
+		var/turf/T = get_turf(loc)
+		var/turf/turf_above = GET_TURF_ABOVE(T)
 
-		if(istype(loc, /turf/space) || (isopenturf(loc) && (istype(GetBelow(loc), /turf/space) || istype(GetAbove(loc), /turf/space))))
+		if(istype(loc, /turf/space) || (isopenturf(loc) && (istype(GET_TURF_BELOW(T), /turf/space) || istype(turf_above, /turf/space))))
 			parent.radiate_heat_to_space(surface, 1)
 
 		else if(istype(loc, /turf/simulated/lava))
