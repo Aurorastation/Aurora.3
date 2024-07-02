@@ -609,6 +609,34 @@
 	item_state = "clip_sci"
 	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
 
+/obj/item/device/radio/headset/headset_anom
+	name = "anomalist radio headset"
+	desc = "A sciency headset for Anomalists."
+	icon_state = "sci_headset"
+	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+
+/obj/item/device/radio/headset/headset_anom/alt
+	name = "anomalist bowman headset"
+	icon_state = "sci_headset_alt"
+
+/obj/item/device/radio/headset/alt/double/anom
+	name = "soundproof anomalist headset"
+	icon_state = "earset_sci"
+	item_state = "earset_sci"
+	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+
+/obj/item/device/radio/headset/wrist/anom
+	name = "wristbound anomalist radio"
+	icon_state = "wristset_sci"
+	item_state = "wristset_sci"
+	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+
+/obj/item/device/radio/headset/wrist/clip/anom
+	name = "clip-on anomalist radio"
+	icon_state = "clip_sci"
+	item_state = "clip_sci"
+	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+
 /obj/item/device/radio/headset/headset_rob
 	name = "robotics radio headset"
 	desc = "Made specifically for the roboticists who cannot decide between departments."
