@@ -1,0 +1,5 @@
+help: "Do not pixel-shift vendors, change their layers, or density."
+/obj/machinery/vending:
+  banned_variables:
+  - layer
+  - density
