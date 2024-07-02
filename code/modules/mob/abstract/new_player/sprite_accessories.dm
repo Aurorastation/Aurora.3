@@ -6555,6 +6555,31 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "xion_lights"
 	body_parts = list(BP_L_LEG,BP_R_LEG,BP_L_ARM,BP_R_ARM,BP_CHEST,BP_HEAD)
 
+//Vaurca prosthetics
+
+/datum/sprite_accessory/marking/vaurca_panels
+	name = "Vaurca Prosthetics - Full Panel Colors"
+	icon = 'icons/mob/human_races/markings_vaurca.dmi'
+	icon_state = "vaurca_prosthetic"
+	icon_blend_mode = ICON_MULTIPLY
+	is_painted = TRUE
+	body_parts = list(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG, BP_L_HAND, BP_R_HAND, BP_L_ARM, BP_R_ARM)
+	robotize_type_required = list(PROSTHETIC_VAURCA)
+
+/datum/sprite_accessory/marking/vaurca_panels/vaurca_legs
+	name = "Vaurca Prosthetics - Leg Panel Colors"
+	body_parts = list(BP_L_FOOT, BP_R_FOOT, BP_L_LEG, BP_R_LEG)
+
+/datum/sprite_accessory/marking/vaurca_panels/vaurca_arms
+	name = "Vaurca Prosthetics - Arm Panel Colors"
+	body_parts = list(BP_L_HAND, BP_R_HAND, BP_L_ARM, BP_R_ARM)
+
+/datum/sprite_accessory/marking/vaurca_panels/vaurca_arms/warrior
+	name = "Vaurca Prosthetics - Warrior Hand Colors"
+	icon_state = "vaurca_warrior_prosthetic"
+	body_parts = list(BP_L_HAND, BP_R_HAND)
+	robotize_type_required = list(PROSTHETIC_VAURCA_WARRIOR)
+
 //Tajara
 
 /datum/sprite_accessory/marking/taj_tigerstripes
