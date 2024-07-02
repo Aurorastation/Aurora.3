@@ -306,21 +306,6 @@
 		else
 			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
-/obj/structure/bed/stair_act()
-	if(!buckled)
-		return
-
-	var/atom/movable/unbuckled_atom = unbuckle()
-	if(!unbuckled_atom)
-		return
-
-	unbuckled_atom.visible_message("<b>\The [unbuckled_atom]</b> goes flying out of \the [src] as it bounces on the stairs!", SPAN_WARNING("You go flying out of \the [src] as it bounces on the stairs!"))
-	unbuckled_atom.throw_at_random(FALSE, 1, 2)
-
-	if(ismob(unbuckled_atom))
-		var/mob/unbuckled_mob = unbuckled_atom
-		unbuckled_mob.Paralyse(5)
-
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
 	desc = "For prime comfort during psychiatric evaluations."
@@ -577,9 +562,6 @@
 /obj/structure/bed/roller/hover/Initialize()
 	.=..()
 	set_light(2,1,LIGHT_COLOR_CYAN)
-
-/obj/structure/bed/roller/hover/stair_act()
-	return
 
 /obj/item/roller
 	name = "roller bed"
