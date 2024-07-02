@@ -2,7 +2,7 @@
 	name = "Storyteller"
 	desc = "Are you a Storyteller because you tell a story, or do you tell the story because you're the Storyteller?"
 	icon = 'icons/mob/mob.dmi'
-	icon_state = "god"
+	icon_state = "ghost"
 	status_flags = GODMODE
 	invisibility = INVISIBILITY_OBSERVER
 	see_invisible = SEE_INVISIBLE_OBSERVER
