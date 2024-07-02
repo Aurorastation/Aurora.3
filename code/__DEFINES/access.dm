@@ -733,6 +733,11 @@
 	id = ACCESS_AUTAKH
 	access_type = ACCESS_TYPE_CENTCOM
 
+#define ACCESS_HAMMERTAILS 229
+/datum/access/hammertails
+	id = ACCESS_HAMMERTAILS
+	access_type = ACCESS_TYPE_CENTCOM
+
 //guest rooms - for any ship/event that requires hotel-esque rooms
 
 #define ACCESS_GUEST_ROOMS 230 //use with req_one_access
