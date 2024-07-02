@@ -14,9 +14,9 @@
 	/obj/item/tank/jetpack = /obj/item/rig_module/maneuvering_jets,
 	/obj/item/mining_scanner = /obj/item/rig_module/device/orescanner,
 	/obj/item/pickaxe/drill = /obj/item/rig_module/device/basicdrill,
-	/obj/item/gun/energy/plasmacutter = /obj/item/rig_module/mounted/plasmacutter,
+	/obj/item/gun/energy/plasmacutter = /obj/item/rig_module/mounted/energy/plasmacutter,
 	/obj/item/pickaxe/diamond = /obj/item/rig_module/device/drill,
-	/obj/item/gun/energy/vaurca/thermaldrill = /obj/item/rig_module/mounted/thermalldrill
+	/obj/item/gun/energy/vaurca/thermaldrill = /obj/item/rig_module/mounted/energy/thermalldrill
 	)
 
 /obj/machinery/mineral/rigpress/Initialize()
