@@ -126,6 +126,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_storage)
 "adX" = (
@@ -7211,15 +7214,15 @@
 /area/rnd/isolation_a)
 "eXb" = (
 /obj/random/junk,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -11604,6 +11607,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "hXq" = (
@@ -12517,14 +12523,13 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/supply)
 "iJV" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
+/obj/structure/window/reinforced{
+	dir = 8
 	},
-/obj/machinery/alarm/north{
-	pixel_y = 51
-	},
+/obj/structure/table/reinforced/steel,
+/obj/structure/fossil_stand,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_storage)
+/area/rnd/xenoarch_atrium)
 "iKo" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -13439,10 +13444,9 @@
 /area/shuttle/mining)
 "jqc" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "jqz" = (
@@ -14675,15 +14679,13 @@
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "kjH" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+/obj/machinery/alarm/north{
+	pixel_y = 51
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_storage)
 "kka" = (
@@ -14728,6 +14730,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_storage)
@@ -15474,9 +15479,6 @@
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "kHg" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
@@ -19538,11 +19540,8 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "nsS" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/fossil_stand/skeleton,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_storage)
 "ntf" = (
@@ -20553,6 +20552,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/item/telescope,
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "obc" = (
@@ -25179,16 +25179,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "rlW" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 1;
-	name = "Xenoarchaeology Maintenance Access";
-	req_access = list(65)
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/machinery/door/firedoor{
 	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance{
+	dir = 1;
+	name = "Xenoarchaeology Maintenance Access";
+	req_access = list(65)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_storage)
@@ -25682,9 +25682,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
 "rCE" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
@@ -33276,8 +33273,8 @@
 /area/engineering/atmos)
 "wQv" = (
 /obj/machinery/light/small/emergency,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -61499,11 +61496,11 @@ fKt
 xAr
 bek
 hWY
-idq
-aWZ
-dcs
-iJV
-dcs
+iGO
+rlW
+wGp
+wGp
+wGp
 adE
 kkY
 bkV
@@ -61703,10 +61700,10 @@ tdL
 ccZ
 eXb
 jqc
-rlW
-wGp
-kjH
+aWZ
 nsS
+kjH
+bkV
 rCE
 kHg
 wGp
@@ -62727,7 +62724,7 @@ qYo
 wAk
 kEk
 uPk
-uPk
+iJV
 nwQ
 kLo
 uCw

@@ -216,3 +216,7 @@
 
 /turf/space/is_open()
 	return TRUE
+
+/turf/space/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	. = ..()
+	. += "<a href='?src=\ref[user];stargaze=\ref[src]'>Look out at the stars...</a>"
