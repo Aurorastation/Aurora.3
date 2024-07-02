@@ -185,6 +185,14 @@
 	suit = /obj/item/clothing/suit/space/void/dpra
 	helmet = /obj/item/clothing/head/helmet/space/void/dpra
 
+/obj/machinery/suit_cycler/offship/einstein
+	model_text = "Einstein Engines"
+	req_access = list(ACCESS_EE_SPY_SHIP)
+	departments = list("Einstein Engines")
+	species = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_SKRELL)
+	suit = /obj/item/clothing/suit/space/void/einstein
+	helmet = /obj/item/clothing/head/helmet/space/void/einstein
+
 /obj/machinery/suit_cycler/offship/elyra
 	model_text = "Elyran Naval Infantry"
 	req_access = list(ACCESS_ELYRAN_NAVAL_INFANTRY_SHIP)
