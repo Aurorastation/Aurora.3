@@ -57,7 +57,7 @@
 
 	kitchen_tag = "rodent"
 
-/mob/living/simple_animal/rat/Life()
+/mob/living/simple_animal/rat/Life(seconds_per_tick, times_fired)
 	if(..())
 
 		if(client)

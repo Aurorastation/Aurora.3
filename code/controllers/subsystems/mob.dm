@@ -1,10 +1,9 @@
 SUBSYSTEM_DEF(mobs)
 	name = "Mobs - Life"
-	init_order = INIT_ORDER_MISC	// doesn't really matter when we init
-	priority = SS_PRIORITY_MOB
-	runlevels = RUNLEVELS_PLAYING
-
-	var/list/slept = list()
+	priority = FIRE_PRIORITY_MOBS
+	flags = SS_KEEP_TIMING
+	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
+	wait = 2 SECONDS
 
 	var/list/currentrun = list()
 	var/list/processing = list()
@@ -70,7 +69,7 @@ SUBSYSTEM_DEF(mobs)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/mobs/stat_entry(msg)
-	msg = "P:[GLOB.mob_list.len]"
+	msg = "P:[length(GLOB.mob_list)]"
 	return ..()
 
 /datum/controller/subsystem/mobs/fire(resumed = 0)
@@ -82,10 +81,12 @@ SUBSYSTEM_DEF(mobs)
 	//the mobs that we didn't in the previous run, hence we have to pay the price of a list subtraction
 	//with &= we say to remove any item in the first list that is not in the second one
 	//of course, if we haven't resumed, this comparison would be useless, hence we skip it
-	var/list/currentrun = resumed ? (src.currentrun &= GLOB.mob_list) : src.currentrun
+	var/list/currentrun = resumed ? (src.currentrun &= (GLOB.mob_list + processing)) : src.currentrun
 
-	while (currentrun.len)
-		var/datum/thing = currentrun[currentrun.len]
+	var/seconds_per_tick = wait / (1 SECONDS)
+
+	while(length(currentrun))
+		var/datum/thing = currentrun[length(currentrun)]
 		currentrun.len--
 		if(!ismob(thing))
 			if(!QDELETED(thing))
@@ -93,13 +94,13 @@ SUBSYSTEM_DEF(mobs)
 					stop_processing(thing)
 			else
 				processing -= thing
-			if (MC_TICK_CHECK)
+			if(MC_TICK_CHECK)
 				return
 			continue
 
 		var/mob/M = thing
 
-		if (QDELETED(M))
+		if(QDELETED(M))
 			LOG_DEBUG("SSmobs: QDELETED mob [DEBUG_REF(M)] left in processing list!")
 			// We can just go ahead and remove them from all the mob lists.
 			GLOB.mob_list -= M
@@ -110,15 +111,8 @@ SUBSYSTEM_DEF(mobs)
 				return
 			continue
 
-		var/time = world.time
-
 		if (!M.frozen)
-			M.Life()
-
-		if (time != world.time && !slept[M.type])
-			slept[M.type] = TRUE
-			var/diff = world.time - time
-			LOG_DEBUG("SSmobs: Type '[M.type]' slept for [diff] ds in Life()! Suppressing further warnings.")
+			M.Life(seconds_per_tick, times_fired)
 
 		if (MC_TICK_CHECK)
 			return

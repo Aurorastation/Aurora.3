@@ -279,10 +279,24 @@
 		if(P.buckled || locate(/mob) in P.contents)
 			. += P.slowdown
 
-/mob/proc/Life()
+/**
+ * Handles the biological and general over-time processes of the mob.
+ *
+ *
+ * Arguments:
+ * - seconds_per_tick: The amount of time that has elapsed since this last fired
+ * - times_fired: The number of times SSmobs has fired
+ */
+/mob/proc/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
 	if(LAZYLEN(spell_masters))
 		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
 			spell_master.update_spells(0, src)
+
+	if(stat != DEAD)
+		return TRUE
 
 /mob/proc/buckled_to()
 	// Preliminary work for a future buckle rewrite,

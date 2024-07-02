@@ -1,14 +1,14 @@
-/mob/living/Life()
+/mob/living/Life(seconds_per_tick, times_fired)
 	if (QDELETED(src))	// If they're being deleted, why bother?
-		return
+		return FALSE
 
 	..()
 
-	if (transforming)
-		return
+	if(transforming)
+		return FALSE
 
 	if(!loc)
-		return
+		return FALSE
 
 	var/datum/gas_mixture/gas_environment = loc.return_air()
 	//Handle temperature/pressure differences between body and environment
@@ -32,7 +32,7 @@
 	update_pulling()
 
 	for(var/obj/item/grab/G in src)
-		G.process()
+		INVOKE_ASYNC(G, TYPE_PROC_REF(/datum, process))
 
 	handle_actions()
 

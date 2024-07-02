@@ -151,7 +151,7 @@
 	.=..()
 	set_stat(DEAD)
 
-/mob/living/simple_animal/cat/Life()
+/mob/living/simple_animal/cat/Life(seconds_per_tick, times_fired)
 	. = ..()
 	handle_radiation_light()
 

@@ -1,5 +1,5 @@
 // Alien larva are quite simple.
-/mob/living/carbon/alien/Life()
+/mob/living/carbon/alien/Life(seconds_per_tick, times_fired)
 	if (transforming)	return
 	if(!loc)			return
 

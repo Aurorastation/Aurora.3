@@ -78,7 +78,7 @@
 /mob/living/simple_animal/borer/can_name(var/mob/living/M)
 	return FALSE
 
-/mob/living/simple_animal/borer/Life()
+/mob/living/simple_animal/borer/Life(seconds_per_tick, times_fired)
 	if(host)
 		if(!stat && host.stat != DEAD)
 			if(chemicals < 250)

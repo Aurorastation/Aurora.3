@@ -131,7 +131,7 @@
 	AddOverlays(glow)
 	set_light(2, -2, l_color = COLOR_WHITE)
 
-/mob/living/simple_animal/construct/Life()
+/mob/living/simple_animal/construct/Life(seconds_per_tick, times_fired)
 	. = ..()
 	if(.)
 		var/newstate

@@ -1,17 +1,18 @@
 SUBSYSTEM_DEF(mob_ai)
 	name = "Mobs - AI"
-	flags = SS_NO_INIT
-	priority = SS_PRIORITY_MOB
-	runlevels = RUNLEVELS_PLAYING
+	flags = SS_POST_FIRE_TIMING | SS_BACKGROUND | SS_NO_INIT
+	priority = FIRE_PRIORITY_NPC_MOVEMENT
+	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
+	init_order = INIT_ORDER_AI_CONTROLLERS
 
 	var/list/processing = list()
 	var/list/currentrun = list()
 
 	///A list of mutex locks, to avoid reentry and starting new processings on mobs that were already processing from the previous run
-	var/list/datum/weakref/mutexes = list() //Yes i know they're opinionably not mutexes as there's only one process shut up
+	VAR_PRIVATE/list/datum/weakref/mutexes = list() //Yes i know they're opinionably not mutexes as there's only one process shut up
 
 /datum/controller/subsystem/mob_ai/stat_entry(msg)
-	msg = "P:[processing.len]"
+	msg = "P:[length(processing)]"
 	return ..()
 
 /datum/controller/subsystem/mob_ai/fire(resumed = FALSE)
@@ -21,7 +22,7 @@ SUBSYSTEM_DEF(mob_ai)
 	var/list/currentrun = src.currentrun
 
 	//Remove the mobs that have a mutex from being reprocessed again, this run
-	for(var/datum/weakref/locked_mob in mutexes)
+	for(var/datum/weakref/locked_mob as anything in mutexes)
 		var/mob/possible_locked_mob = locked_mob.resolve()
 
 		//The mob got QDEL'd, or otherwise somehow disappeared
@@ -31,24 +32,24 @@ SUBSYSTEM_DEF(mob_ai)
 
 		currentrun -= possible_locked_mob
 
-	while (currentrun.len)
-		var/mob/M = currentrun[currentrun.len]
+	while(length(currentrun))
+		var/mob/M = currentrun[length(currentrun)]
 		currentrun.len--
 
-		if (QDELETED(M))
+		if(QDELETED(M))
 			processing -= M
 			continue
 
-		if (M.ckey)
+		if(M.ckey)
 			// cliented mobs are not allowed to think
 			LOG_DEBUG("SSmob_ai: Type '[M.type]' was still thinking despite having a client!")
 			MOB_STOP_THINKING(M)
 			continue
 
-		if (!M.frozen && !M.stat)
+		if(!M.frozen && !M.stat)
 			INVOKE_ASYNC(src, PROC_REF(async_think), M)
 
-		if (MC_TICK_CHECK)
+		if(MC_TICK_CHECK)
 			return
 
 /**

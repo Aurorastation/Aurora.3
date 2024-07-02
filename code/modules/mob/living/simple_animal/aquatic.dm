@@ -28,7 +28,7 @@
 		icon_state = "[icon_state]"
 		return ..()//Proceed as normal.
 
-/mob/living/simple_animal/aquatic/Life()
+/mob/living/simple_animal/aquatic/Life(seconds_per_tick, times_fired)
 	var/turf/T = get_turf(src)
 	if (!(is_type_in_list(T,suitable_turf_types)))
 		alpha = 255//Becomes a solid color because it is revealed

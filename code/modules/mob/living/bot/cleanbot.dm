@@ -144,8 +144,10 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 /mob/living/bot/cleanbot/proc/remove_from_ignore(datum/weakref/thing_to_unignore)
 	ignorelist -= thing_to_unignore
 
-/mob/living/bot/cleanbot/Life()
-	..()
+/mob/living/bot/cleanbot/Life(seconds_per_tick, times_fired)
+	if(!..())
+		return FALSE
+
 	if(!on)
 		ignorelist = list()
 		return
@@ -172,6 +174,8 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 		var/obj/effect/decal/cleanable/blood/gibs/gib = new /obj/effect/decal/cleanable/blood/gibs(get_turf(src))
 		ignorelist += gib
 		addtimer(CALLBACK(src, PROC_REF(remove_from_ignore), gib), 600)
+
+	return TRUE
 
 /mob/living/bot/cleanbot/think()
 	if(pAI) // no AI if we have a pAI installed

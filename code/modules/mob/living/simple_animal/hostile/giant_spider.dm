@@ -95,7 +95,7 @@
 	var/playable = TRUE
 	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular structures indicative of high offspring production", "Tissue sample contains high neural cell content")
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/servant/Life()
+/mob/living/simple_animal/hostile/giant_spider/nurse/servant/Life(seconds_per_tick, times_fired)
 	..()
 	adjustBruteLoss(-2)
 

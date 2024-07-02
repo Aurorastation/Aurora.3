@@ -10,7 +10,7 @@
 	if(species && species.indefinite_sleep)
 		add_verb(src, /verb/toggle_indefinite_sleep)
 
-/mob/living/carbon/Life()
+/mob/living/carbon/Life(seconds_per_tick, times_fired)
 	if(!..())
 		return
 

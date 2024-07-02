@@ -59,7 +59,8 @@
 	src.voice_name = initial(voice_name)
 	src.accent = initial(accent)
 
-/mob/living/announcer/Life()
+/mob/living/announcer/Life(seconds_per_tick, times_fired)
+	SHOULD_CALL_PARENT(FALSE)
 	return
 
 /mob/living/announcer/Move()

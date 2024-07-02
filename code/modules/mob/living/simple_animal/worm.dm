@@ -47,7 +47,7 @@
 	var/atom/currentlyEating //what the worm is currently eating
 	var/eatingDuration = 0 //how long he's been eating it for
 
-/mob/living/simple_animal/space_worm/Life()
+/mob/living/simple_animal/space_worm/Life(seconds_per_tick, times_fired)
 	..()
 
 	if(next && !(next in view(src,1)))
@@ -64,7 +64,7 @@
 
 	update_icon()
 
-	return
+	return TRUE
 
 /mob/living/simple_animal/space_worm/Destroy() //if a chunk a destroyed, make a new worm out of the split halves
 	if(previous)

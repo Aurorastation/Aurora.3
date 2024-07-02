@@ -4,7 +4,7 @@
 /mob/living/heavy_vehicle/handle_status_effects()
 	return
 
-/mob/living/heavy_vehicle/Life()
+/mob/living/heavy_vehicle/Life(seconds_per_tick, times_fired)
 
 	// Size offsets for large mechs.
 	if(offset_x && pixel_x != offset_x)

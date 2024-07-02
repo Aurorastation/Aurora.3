@@ -35,7 +35,7 @@
 	diona_handle_radiation(DS)
 
 
-/mob/living/carbon/alien/diona/Life()
+/mob/living/carbon/alien/diona/Life(seconds_per_tick, times_fired)
 	if(!detached && gestalt && (gestalt.life_tick % 5 == 0)) // Minimal processing while in stasis
 		updatehealth()
 		check_status_as_organ()

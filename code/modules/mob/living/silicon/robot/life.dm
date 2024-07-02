@@ -1,4 +1,6 @@
-/mob/living/silicon/robot/Life()
+/mob/living/silicon/robot/Life(seconds_per_tick, times_fired)
+	SHOULD_CALL_PARENT(FALSE)
+
 	if(transforming)
 		return
 
@@ -26,6 +28,8 @@
 		process_queued_alarms()
 		process_level_restrictions()
 	update_canmove()
+
+	return TRUE
 
 /mob/living/silicon/robot/proc/clamp_values()
 	SetParalysis(min(paralysis, 30))
@@ -318,7 +322,7 @@
 	if(istype(get_area(src), /area/centcom) || istype(get_area(src), /area/shuttle/escape) || istype(get_area(src), /area/shuttle/arrival))
 		return FALSE
 	if(!self_destructing)
-		start_self_destruct(TRUE)
+		INVOKE_ASYNC(src, PROC_REF(start_self_destruct), TRUE)
 	return TRUE
 
 /mob/living/silicon/robot/update_fire()

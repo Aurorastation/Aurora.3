@@ -136,7 +136,7 @@
 		O.forceMove(src.loc)
 	qdel(src)
 
-/mob/living/simple_animal/hostile/retaliate/minedrone/Life()
+/mob/living/simple_animal/hostile/retaliate/minedrone/Life(seconds_per_tick, times_fired)
 	..()
 	if(ore_count<20)
 		FindOre()

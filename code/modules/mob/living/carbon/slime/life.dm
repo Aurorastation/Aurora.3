@@ -1,4 +1,4 @@
-/mob/living/carbon/slime/Life()
+/mob/living/carbon/slime/Life(seconds_per_tick, times_fired)
 	if(src.transforming)
 		return
 	..()
