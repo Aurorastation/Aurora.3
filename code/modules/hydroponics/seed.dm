@@ -1,27 +1,54 @@
 /datum/plantgene
-	var/genetype    // Label used when applying trait.
-	var/list/values // Values to copy into the target seed datum.
+	/// Label used when applying trait.
+	var/genetype
+	/// Values to copy into the target seed datum.
+	var/list/values
 
 /datum/seed
 	//Tracking.
-	var/uid                        // Unique identifier.
-	var/name                       // Index for global list.
-	var/seed_name                  // Plant name for seed packet.
-	var/seed_noun = SEED_NOUN_SEEDS        // Descriptor for packet.
-	var/display_name               // Prettier name.
-	var/roundstart                 // If set, seed will not display variety number.
-	var/mysterious                 // Only used for the random seed packets.
-	var/can_self_harvest = 0       // Mostly used for living mobs.
-	var/growth_stages = 0          // Number of stages the plant passes through before it is mature.
-	var/list/traits = list()       // Initialized in New()
-	var/list/mutants               // Possible predefined mutant varieties, if any.
-	var/list/chems                 // Chemicals that plant produces in products/injects into victim.
-	var/list/consume_gasses        // The plant will absorb these gasses during its life.
-	var/list/exude_gasses          // The plant will exude these gasses during its life.
-	var/kitchen_tag                // Used by the reagent grinder.
-	var/trash_type                 // Garbage item produced when eaten.
-	var/splat_type = /obj/effect/decal/cleanable/fruit_smudge // Graffiti decal.
+	/// Unique identifier
+	var/uid
+	/// Index for global list
+	var/name
+	/// Plant name for seed packet
+	var/seed_name
+	/// Descriptor for packet
+	var/seed_noun = SEED_NOUN_SEEDS
+	/// Prettier name
+	var/display_name
+
+	/// If set, seed will not display variety number
+	var/roundstart
+	/// Only used for the random seed packets.
+	var/mysterious
+	/// Mostly used for living mobs
+	var/can_self_harvest = 0
+	/// Number of stages the plant passes through before it is mature
+	var/growth_stages = 0
+
+	/// Initialized in New()
+	var/list/traits = list()
+	/// Possible predefined mutant varieties, if any
+	var/list/mutants
+	/// Chemicals that plant produces in products/injects into victim
+	var/list/chems
+	/// The plant will absorb these gasses during its life
+	var/list/consume_gasses
+	/// The plant will exude these gasses during its life
+	var/list/exude_gasses
+
+	/// Used by the reagent grinder
+	var/kitchen_tag
+	/// Garbage item produced when eaten
+	var/trash_type
+	/// Graffiti decal
+	var/splat_type = /obj/effect/decal/cleanable/fruit_smudge
 	var/product_type = /obj/item/reagent_containers/food/snacks/grown
+	/// If set, overrides the description of the product (What the produce looks like for example)
+	var/product_desc
+	/// If set, overrides the extended scription of the product (Useful to describe the 'lore')
+	var/product_desc_extended
+
 	var/force_layer
 	var/hydrotray_only
 
@@ -744,6 +771,12 @@
 
 /datum/seed/proc/spawn_seed(var/turf/spawning_loc)
 	var/obj/item/product = new product_type(spawning_loc, name)
+	// Set descriptions
+	if(product_desc)
+		product.desc = product_desc
+	if(product_desc_extended)
+		product.desc_extended = product_desc_extended
+
 	if(get_trait(TRAIT_PRODUCT_COLOUR))
 		if(istype(product, /obj/item/reagent_containers/food))
 			var/obj/item/reagent_containers/food/food = product
