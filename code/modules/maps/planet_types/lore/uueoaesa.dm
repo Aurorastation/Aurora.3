@@ -141,6 +141,7 @@
 	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/moghes_village) //defaults to village bc for some reason nothing spawns if this is empty
 	place_near_main = list(2,2)
 	actors = list("reptilian humanoid", "three-faced reptilian humanoid", "a statue", "a sword", "an unidentifiable object", "an Unathi skull", "a staff", "a fishing spear", "reptilian humanoids", "unusual devices", "a pyramid")
+	banned_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/ouerea)
 	var/landing_region
 
 /obj/effect/overmap/visitable/sector/exoplanet/moghes/pre_ruin_preparation()
@@ -293,6 +294,7 @@
 		/datum/map_template/ruin/exoplanet/ouerea_threshbeast_herd
 	)
 	place_near_main = list(2,2)
+	banned_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/moghes)
 
 /obj/effect/overmap/visitable/sector/exoplanet/ouerea/generate_habitability()
 	return HABITABILITY_IDEAL
