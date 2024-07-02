@@ -73,6 +73,12 @@
 	icon_state = "pmc_dpf"
 	item_state = "pmc_dpf"
 
+/obj/item/clothing/under/rank/security/pmc/dagamuir_freewater/medical
+	permeability_coefficient = 0.50
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
+
 /obj/item/clothing/under/rank/security/pmc/vekatak_phalanx
 	name = "\improper Ve'katak Phalanx security uniform"
 	desc = "A uniform used by the forces of the Ve'katak Phalanx, a Vaurca-run private military company. This one has the standard red shoulder stripes, as well as pale blue ornamentation, identifying it as belonging to a Phalanx member in the employ of the Private Military Contracting Group."
