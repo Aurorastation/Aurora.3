@@ -391,3 +391,4 @@
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_COLOR_SELECTION
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_UNATHI)
+	culture_restriction = list(/singleton/origin_item/culture/klax)
