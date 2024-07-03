@@ -794,7 +794,7 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/random/toolbox,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "eF" = (
 /obj/effect/floor_decal/corner/pink{
@@ -1128,7 +1128,7 @@
 /obj/item/rfd_ammo,
 /obj/item/rfd_ammo,
 /obj/item/gun/launcher/crossbow/RFD,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "gB" = (
 /turf/simulated/floor/exoplanet/grass,
@@ -1507,7 +1507,7 @@
 /obj/random/tech_supply,
 /obj/random/tool,
 /obj/random/tool,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "jg" = (
 /obj/structure/closet/cabinet,
@@ -3324,6 +3324,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"uT" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/random/pottedplant,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "uU" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
@@ -3676,6 +3683,13 @@
 "xi" = (
 /obj/machinery/deployable/barrier,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"xl" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 10
+	},
+/obj/random/pottedplant,
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "xm" = (
 /obj/structure/table/steel,
@@ -4445,13 +4459,9 @@
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
 "CC" = (
-/obj/effect/floor_decal/spline/fancy/wood/cee{
-	dir = 1
-	},
-/obj/structure/bed/stool/chair{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "CE" = (
 /obj/structure/closet/crate/elec,
@@ -5000,6 +5010,12 @@
 /area/template_noop)
 "FK" = (
 /obj/structure/table/reinforced/glass,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "FM" = (
@@ -5347,6 +5363,11 @@
 /obj/effect/floor_decal/corner/pink/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"HT" = (
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "HU" = (
 /obj/structure/table/rack,
 /obj/item/shield/riot,
@@ -5545,11 +5566,9 @@
 	},
 /area/template_noop)
 "Je" = (
-/obj/effect/floor_decal/spline/fancy/wood/cee,
-/obj/structure/bed/stool/chair{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
+/obj/machinery/shieldwallgen,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "Jg" = (
 /obj/structure/closet/secure_closet/brig,
@@ -5813,6 +5832,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"KV" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 5
+	},
+/obj/random/pottedplant,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "KY" = (
 /obj/structure/flora/grass/junglegrass/dense/random,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
@@ -5965,6 +5991,11 @@
 "LQ" = (
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"LU" = (
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "LW" = (
 /obj/structure/closet/toolcloset,
@@ -6710,6 +6741,11 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/template_noop)
+"QL" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/random/pottedplant,
+/turf/simulated/floor/tiled/light,
+/area/template_noop)
 "QM" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -7319,6 +7355,28 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"Ub" = (
+/obj/random/pizzabox{
+	pixel_y = 5
+	},
+/obj/random/pizzabox{
+	pixel_y = 5
+	},
+/obj/random/pizzabox{
+	pixel_y = 5
+	},
+/obj/random/pizzabox{
+	pixel_y = 5
+	},
+/obj/random/pizzabox{
+	pixel_y = 5
+	},
+/obj/random/pizzabox{
+	pixel_y = 5
+	},
+/obj/structure/closet/crate/freezer,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Ud" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -7875,6 +7933,11 @@
 "XK" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/closet/emcloset,
+/turf/simulated/floor/plating,
+/area/template_noop)
+"XL" = (
+/obj/machinery/shieldgen,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/template_noop)
 "XO" = (
@@ -14538,7 +14601,7 @@ Tr
 Tr
 iF
 iF
-Tr
+Qi
 Tr
 Tr
 Tr
@@ -14741,7 +14804,7 @@ Tr
 iF
 iF
 Tr
-Qi
+Tr
 Qi
 Tr
 Tr
@@ -14943,8 +15006,8 @@ Tr
 iF
 iF
 Tr
-Qi
 Tr
+Ub
 Tr
 Tr
 iF
@@ -15145,7 +15208,7 @@ Tr
 iF
 iF
 Tr
-Tr
+Ub
 Qh
 Qh
 Tr
@@ -16560,7 +16623,7 @@ iF
 iF
 Tr
 wQ
-Tr
+Qi
 Tr
 Tr
 iF
@@ -23864,7 +23927,7 @@ PI
 PI
 tw
 el
-NG
+SU
 sj
 EN
 oL
@@ -24066,7 +24129,7 @@ PI
 PI
 tw
 jk
-NG
+SU
 sW
 NG
 SU
@@ -24268,7 +24331,7 @@ PI
 PI
 tw
 ON
-NG
+SU
 sW
 EH
 LW
@@ -24470,7 +24533,7 @@ tw
 tw
 tw
 tw
-NG
+SU
 sW
 xm
 tw
@@ -24672,7 +24735,7 @@ Kv
 tw
 tw
 et
-NG
+SU
 sW
 NG
 sz
@@ -24874,7 +24937,7 @@ bw
 XW
 tw
 LK
-NG
+SU
 sW
 NG
 sz
@@ -25076,7 +25139,7 @@ AS
 of
 tw
 VB
-NG
+SU
 sW
 NG
 sz
@@ -25241,7 +25304,7 @@ iF
 iF
 iF
 tw
-NG
+CC
 Qn
 tw
 RG
@@ -25443,7 +25506,7 @@ iF
 iF
 iF
 tw
-NG
+qf
 Qn
 tw
 Hr
@@ -28696,8 +28759,8 @@ SU
 Tr
 Tr
 Tr
-Tr
-Tr
+NP
+NP
 Lx
 SU
 jC
@@ -28713,10 +28776,10 @@ PI
 PI
 PI
 tw
+Jv
+oL
 SU
-SU
-SU
-SU
+GJ
 tH
 ed
 My
@@ -28922,7 +28985,7 @@ SU
 SU
 Tr
 Tr
-oz
+hO
 Tr
 Tr
 BL
@@ -29101,7 +29164,7 @@ tw
 tw
 tw
 tw
-tw
+Ab
 tw
 tw
 tw
@@ -29298,15 +29361,15 @@ iF
 iF
 iF
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+tw
+Jv
+oL
+oL
+SU
+oL
+GJ
+tw
 tw
 tw
 tw
@@ -29500,16 +29563,16 @@ iF
 iF
 iF
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+XL
+XL
+Tr
+Je
+Je
+Tr
+HT
+HT
+tw
 PI
 PI
 PI
@@ -29702,16 +29765,16 @@ iF
 iF
 iF
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+XL
+XL
+Tr
+Je
+Je
+Tr
+LU
+LU
+tw
 PI
 PI
 PI
@@ -29904,16 +29967,16 @@ iF
 iF
 iF
 PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
-PI
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
+tw
 PI
 PI
 PI
@@ -31306,7 +31369,7 @@ NG
 Js
 tw
 CC
-Je
+qf
 tw
 aW
 NG
@@ -35208,8 +35271,8 @@ tw
 tw
 tw
 tw
-PI
-PI
+tw
+tw
 tw
 tw
 tw
@@ -35410,8 +35473,8 @@ PI
 PI
 PI
 tw
-tw
-tw
+CC
+qf
 tw
 PI
 PI
@@ -35808,7 +35871,7 @@ tw
 tw
 tw
 SU
-KQ
+uT
 tw
 PI
 PI
@@ -36825,7 +36888,7 @@ tw
 tw
 tw
 NG
-oZ
+xl
 tw
 tw
 tw
@@ -38051,7 +38114,7 @@ NG
 NG
 NG
 NG
-NG
+ys
 tw
 tw
 tw
@@ -39259,7 +39322,7 @@ tw
 tw
 tw
 tw
-NG
+ys
 oZ
 tw
 tw
@@ -39645,7 +39708,7 @@ tw
 tw
 tw
 tw
-Cv
+KV
 SU
 tw
 PI
@@ -43095,7 +43158,7 @@ eW
 eW
 eW
 NG
-oZ
+xl
 tw
 tw
 gk
@@ -44112,7 +44175,7 @@ NG
 NG
 NG
 NG
-NG
+ys
 tw
 PI
 PI
@@ -45282,7 +45345,7 @@ iF
 iF
 iF
 tw
-SU
+Dr
 bU
 CT
 xp
@@ -45291,7 +45354,7 @@ fq
 bU
 CT
 xp
-SU
+Dr
 tw
 iF
 iF
@@ -46090,7 +46153,7 @@ iF
 iF
 iF
 tw
-SU
+Dr
 bU
 CT
 xp
@@ -46099,7 +46162,7 @@ fq
 bU
 CT
 xp
-SU
+Dr
 tw
 iF
 iF
@@ -46326,7 +46389,7 @@ tw
 rb
 tw
 tw
-NG
+ys
 oZ
 tw
 tw
@@ -46922,8 +46985,8 @@ SU
 tw
 tw
 tw
-tw
-tw
+CC
+qf
 tw
 tw
 tw
@@ -47123,10 +47186,10 @@ SU
 SU
 tw
 PI
-PI
-PI
-PI
-PI
+tw
+tw
+tw
+tw
 PI
 PI
 PI
@@ -47344,7 +47407,7 @@ eP
 eP
 bB
 TR
-TR
+QL
 tw
 PI
 PI
