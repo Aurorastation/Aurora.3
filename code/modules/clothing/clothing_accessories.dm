@@ -115,7 +115,6 @@
 	update_clothing_icon()
 	update_accessory_slowdown()
 	recalculate_body_temperature_change()
-	recalculate_item_size()
 
 /obj/item/clothing/proc/remove_accessory(mob/user, obj/item/clothing/accessory/A)
 	if(!(A in accessories))
@@ -126,15 +125,6 @@
 	update_clothing_icon()
 	update_accessory_slowdown()
 	recalculate_body_temperature_change()
-	recalculate_item_size()
-
-/obj/item/clothing/proc/recalculate_item_size()
-	w_class = initial(w_class)
-
-	for(var/obj/item/clothing/accessory/accessory as anything in accessories)
-		w_class += accessory.accessory_w_class_adjustment
-
-	w_class = Clamp(Ceil(w_class), ITEMSIZE_TINY, ITEMSIZE_IMMENSE)
 
 /obj/item/clothing/proc/removetie_verb()
 	set name = "Remove Accessory"
