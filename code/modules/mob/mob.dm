@@ -504,19 +504,19 @@
 				failure = "You are not allowed to respawn."
 			if(alert(failure + " Override?", "Respawn not allowed", "Yes", "Cancel") != "Yes")
 				return
-			log_admin("[key_name(usr)] bypassed respawn restrictions (they failed with message \"[failure]\").", admin_key=key_name(usr))
+			log_admin("[key_name(usr)] bypassed respawn restrictions (they failed with message \"[failure]\").")
 		else
 			if(failure != "")
 				to_chat(usr, SPAN_DANGER(failure))
 			return
 
 	to_chat(usr, "You can respawn now, enjoy your new life!")
-	log_game("[usr.name]/[usr.key] used abandon mob.", ckey=key_name(usr))
+	log_game("[usr.name]/[usr.key] used abandon mob.")
 	to_chat(usr, SPAN_NOTICE("<B>Make sure to play a different character, and please roleplay correctly!</B>"))
 
 	client?.screen.Cut()
 	if(!client)
-		log_game("[usr.key] AM failed due to disconnect.", ckey=key_name(usr))
+		log_game("[usr.key] AM failed due to disconnect.")
 		return
 
 	announce_ghost_joinleave(client, 0)
@@ -524,7 +524,7 @@
 	var/mob/abstract/new_player/M = new /mob/abstract/new_player()
 
 	if(!client)
-		log_game("[usr.key] AM failed due to disconnect.", ckey=key_name(usr))
+		log_game("[usr.key] AM failed due to disconnect.")
 		qdel(M)
 		return
 
@@ -1333,7 +1333,7 @@
 
 	SetWeakened(200)
 	visible_message("<span class='info'><b>OOC Information:</b></span> <span class='warning'>[src] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", SPAN_WARNING("<b>You have been winded by a member of staff! Please stand by until they contact you!</b>"))
-	log_admin("[key_name(admin)] winded [key_name(src)]!",admin_key=key_name(admin),ckey=key_name(src))
+	log_admin("[key_name(admin)] winded [key_name(src)]!")
 	message_admins("[key_name_admin(admin)] winded [key_name_admin(src)]!", 1)
 
 	feedback_add_details("admin_verb", "WIND")
@@ -1349,7 +1349,7 @@
 
 	SetWeakened(0)
 	visible_message("<span class='info'><b>OOC Information:</b></span> <span class='good'>[src] has been unwinded by a member of staff!</span>", SPAN_WARNING("<b>You have been unwinded by a member of staff!</b>"))
-	log_admin("[key_name(admin)] unwinded [key_name(src)]!",admin_key=key_name(admin),ckey=key_name(src))
+	log_admin("[key_name(admin)] unwinded [key_name(src)]!")
 	message_admins("[key_name_admin(admin)] unwinded [key_name_admin(src)]!", 1)
 
 	feedback_add_details("admin_verb", "UNWIND")
