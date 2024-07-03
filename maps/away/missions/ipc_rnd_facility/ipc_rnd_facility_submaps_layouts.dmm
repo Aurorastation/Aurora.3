@@ -20,6 +20,13 @@
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"am" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/empty/air,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "aq" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/bed/stool/chair/office/dark,
@@ -70,6 +77,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"cs" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "cy" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -81,6 +97,12 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"cA" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "cP" = (
 /obj/effect/floor_decal/industrial/outline_corner/grey{
@@ -261,6 +283,12 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"gn" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "gq" = (
 /obj/effect/floor_decal/industrial/outline_corner/grey{
 	dir = 4
@@ -397,6 +425,9 @@
 /area/template_noop)
 "jS" = (
 /obj/structure/bed/stool/chair/folding,
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "ka" = (
@@ -499,6 +530,13 @@
 "mt" = (
 /turf/unsimulated/marker/red,
 /area/template_noop)
+"my" = (
+/obj/effect/floor_decal/industrial/outline_corner/grey{
+	dir = 4
+	},
+/obj/machinery/bookbinder,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "mz" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 5
@@ -596,6 +634,27 @@
 	dir = 9
 	},
 /obj/structure/reagent_dispensers/water_cooler,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"qE" = (
+/obj/structure/table/steel,
+/obj/item/storage/box/fancy/crayons/chalkbox{
+	pixel_x = 5
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"qR" = (
+/obj/structure/table/steel,
+/obj/random/toolbox{
+	pixel_x = 6;
+	pixel_y = 5
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "qZ" = (
@@ -775,6 +834,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"xq" = (
+/obj/random/pottedplant,
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "xt" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled,
@@ -839,6 +905,13 @@
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/eastright,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"yR" = (
+/obj/effect/floor_decal/industrial/outline_corner/yellow{
+	dir = 8
+	},
+/obj/machinery/power/radial_floodlight,
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "yU" = (
 /obj/effect/floor_decal/industrial/outline_straight/grey{
@@ -911,6 +984,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"Bi" = (
+/obj/structure/table/steel,
+/obj/machinery/cell_charger{
+	pixel_y = 11
+	},
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "Bn" = (
 /obj/effect/floor_decal/industrial/outline_straight/grey{
 	dir = 4
@@ -937,6 +1020,9 @@
 "BI" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
@@ -1040,6 +1126,12 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_straight/grey,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"DJ" = (
+/obj/effect/floor_decal/corner/brown/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "DK" = (
@@ -1364,6 +1456,13 @@
 "Mb" = (
 /turf/unsimulated/marker/purple,
 /area/template_noop)
+"Mc" = (
+/obj/structure/bed/stool/chair/folding,
+/obj/effect/floor_decal/corner/black{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "Md" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/toilet{
@@ -1583,6 +1682,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"Sh" = (
+/obj/random/pottedplant,
+/obj/effect/floor_decal/corner/black{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "Sq" = (
 /obj/item/mop,
 /obj/structure/mopbucket,
@@ -1639,6 +1745,12 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"TS" = (
+/obj/structure/closet/toolcloset,
+/obj/random/toolbox,
+/obj/effect/floor_decal/corner/brown/full,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "TY" = (
@@ -1710,6 +1822,13 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
+"Vr" = (
+/obj/effect/floor_decal/industrial/outline_corner/grey{
+	dir = 8
+	},
+/obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled,
 /area/template_noop)
 "Vw" = (
@@ -1843,6 +1962,14 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"Zk" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "ZH" = (
@@ -11355,12 +11482,12 @@ oZ
 oZ
 oZ
 oZ
-mt
-mt
-mt
-mt
-mt
-mt
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
 mt
 mt
 mt
@@ -11612,12 +11739,12 @@ un
 un
 un
 oZ
-mt
-mt
-mt
-mt
-mt
-mt
+GR
+oZ
+wa
+oZ
+tn
+oZ
 mt
 mt
 mt
@@ -11869,13 +11996,13 @@ un
 un
 un
 oZ
-mt
-mt
-mt
-mt
-mt
-mt
-mt
+bA
+Lq
+Gx
+yR
+gq
+oZ
+oZ
 mt
 mt
 mt
@@ -12126,13 +12253,13 @@ OZ
 un
 un
 oZ
-mt
-mt
-mt
-mt
-mt
-mt
-mt
+li
+lG
+li
+NF
+li
+Bi
+oZ
 mt
 mt
 mt
@@ -12382,14 +12509,14 @@ oZ
 eT
 un
 un
+Zk
+gi
+Ea
+gi
+Ea
+gi
+qR
 oZ
-mt
-mt
-mt
-mt
-mt
-mt
-mt
 mt
 mt
 mt
@@ -12640,13 +12767,13 @@ eT
 un
 un
 oZ
-mt
-mt
-mt
-mt
-mt
-mt
-mt
+li
+jo
+li
+Lq
+li
+qE
+oZ
 mt
 mt
 mt
@@ -12897,13 +13024,13 @@ eT
 un
 un
 oZ
-mt
-mt
-mt
-mt
-mt
-mt
-mt
+GR
+kB
+FU
+pg
+Vr
+oZ
+oZ
 mt
 mt
 mt
@@ -13154,12 +13281,12 @@ eT
 un
 un
 oZ
-mt
-mt
-mt
-mt
-mt
-mt
+bA
+oZ
+Wb
+oZ
+my
+oZ
 mt
 mt
 mt
@@ -13411,12 +13538,12 @@ eT
 un
 un
 oZ
-mt
-mt
-mt
-mt
-mt
-mt
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
 mt
 mt
 mt
@@ -13668,12 +13795,12 @@ eT
 un
 un
 oZ
-mt
-mt
-mt
-mt
-mt
-mt
+un
+DJ
+Ea
+TS
+jF
+oZ
 mt
 mt
 mt
@@ -13924,13 +14051,13 @@ oZ
 eT
 un
 un
+Zk
+un
+mz
+un
+UY
+jF
 oZ
-mt
-mt
-mt
-mt
-mt
-mt
 mt
 mt
 mt
@@ -14182,12 +14309,12 @@ eT
 un
 un
 oZ
-mt
-mt
-mt
-mt
-mt
-mt
+CC
+zY
+gi
+am
+uQ
+oZ
 mt
 mt
 mt
@@ -14439,12 +14566,12 @@ eT
 un
 un
 oZ
-mt
-mt
-mt
-mt
-mt
-mt
+jn
+li
+tO
+li
+mW
+oZ
 mt
 mt
 mt
@@ -14696,12 +14823,12 @@ un
 un
 un
 oZ
-mt
-mt
-mt
-mt
-mt
-mt
+ZU
+li
+Hp
+pq
+OG
+oZ
 mt
 mt
 mt
@@ -14953,11 +15080,11 @@ jB
 jB
 jB
 oZ
-mt
-mt
-mt
-mt
-mt
+aR
+DK
+cP
+Px
+Hy
 oZ
 oZ
 oZ
@@ -18249,8 +18376,8 @@ Ow
 Ow
 Ow
 EM
-gl
-li
+Sh
+gn
 un
 un
 uL
@@ -18506,7 +18633,7 @@ Ow
 Ow
 Ow
 EM
-BI
+cs
 BI
 un
 Uv
@@ -18763,7 +18890,7 @@ Ow
 Ow
 Ow
 IC
-BI
+cs
 BI
 un
 Uv
@@ -19020,7 +19147,7 @@ Ow
 Ow
 Ow
 IC
-BI
+cs
 BI
 un
 Uv
@@ -19277,7 +19404,7 @@ Ow
 Ow
 Ow
 IC
-BI
+cs
 BI
 un
 Uv
@@ -19534,7 +19661,7 @@ Ow
 Ow
 Ow
 EM
-BI
+cs
 BI
 un
 Uv
@@ -19791,8 +19918,8 @@ Ow
 Ow
 Ow
 EM
-gl
-li
+Sh
+gn
 un
 Uv
 oZ
@@ -32127,8 +32254,8 @@ Ow
 Ow
 Ow
 EM
-gl
-li
+Sh
+gn
 un
 un
 un
@@ -32384,7 +32511,7 @@ Ow
 Ow
 Ow
 EM
-BI
+cs
 BI
 un
 un
@@ -32641,7 +32768,7 @@ Ow
 Ow
 Ow
 IC
-BI
+cs
 BI
 un
 un
@@ -32898,7 +33025,7 @@ Ow
 Ow
 Ow
 IC
-BI
+cs
 BI
 un
 un
@@ -33155,7 +33282,7 @@ Ow
 Ow
 Ow
 IC
-BI
+cs
 BI
 un
 un
@@ -33412,7 +33539,7 @@ Ow
 Ow
 Ow
 EM
-BI
+cs
 BI
 un
 un
@@ -33669,8 +33796,8 @@ Ow
 Ow
 Ow
 EM
-gl
-li
+Sh
+gn
 un
 un
 un
@@ -36498,8 +36625,8 @@ oZ
 un
 un
 un
-li
-gl
+cA
+xq
 EM
 Ow
 Ow
@@ -36755,7 +36882,7 @@ oZ
 eT
 un
 un
-jS
+Mc
 jS
 EM
 Ow
@@ -37012,7 +37139,7 @@ oZ
 eT
 un
 un
-jS
+Mc
 jS
 IC
 Ow
@@ -37269,7 +37396,7 @@ Oh
 un
 un
 un
-jS
+Mc
 jS
 IC
 Ow
@@ -37526,7 +37653,7 @@ oZ
 eT
 un
 un
-jS
+Mc
 jS
 IC
 Ow
@@ -37783,7 +37910,7 @@ oZ
 eT
 un
 un
-jS
+Mc
 jS
 EM
 Ow
@@ -38040,8 +38167,8 @@ oZ
 un
 un
 un
-li
-gl
+cA
+xq
 EM
 Ow
 Ow
@@ -50376,8 +50503,8 @@ oZ
 eT
 un
 un
-li
-gl
+cA
+xq
 EM
 Ow
 Ow
@@ -50633,7 +50760,7 @@ oZ
 eT
 un
 un
-jS
+Mc
 jS
 EM
 Ow
@@ -50890,7 +51017,7 @@ oZ
 eT
 un
 un
-jS
+Mc
 jS
 IC
 Ow
@@ -51147,7 +51274,7 @@ oZ
 eT
 un
 un
-jS
+Mc
 jS
 IC
 Ow
@@ -51404,7 +51531,7 @@ oZ
 eT
 un
 un
-jS
+Mc
 jS
 IC
 Ow
@@ -51661,7 +51788,7 @@ oZ
 eT
 un
 un
-jS
+Mc
 jS
 EM
 Ow
@@ -51918,8 +52045,8 @@ Oj
 un
 un
 un
-li
-gl
+cA
+xq
 EM
 Ow
 Ow
