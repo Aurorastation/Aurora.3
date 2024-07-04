@@ -79,7 +79,7 @@ fn extract() {
     let dict_map_xtr_expected = dmmtools::dmm::Map::from_file(&path_xtr).unwrap();
 
     let grid_map_src = crate::mapmanip::core::to_grid_map(&dict_map_src);
-    let grid_map_xtr = crate::mapmanip::tools::extract_sub_map(
+    let grid_map_xtr = crate::mapmanip::tools::extract_submap(
         &grid_map_src,
         Coord2::new(4, 7),
         Coord2::new(10, 5),
@@ -111,7 +111,7 @@ fn insert() {
         crate::mapmanip::core::GridMap::from_file(&path_dst_expected).unwrap();
     let grid_map_xtr = crate::mapmanip::core::GridMap::from_file(&path_xtr).unwrap();
     let mut grid_map_dst = crate::mapmanip::core::GridMap::from_file(&path_dst).unwrap();
-    crate::mapmanip::tools::insert_sub_map(&grid_map_xtr, Coord2::new(6, 4), &mut grid_map_dst);
+    crate::mapmanip::tools::insert_submap(&grid_map_xtr, Coord2::new(6, 4), &mut grid_map_dst);
 
     assert_eq!(
         grid_map_dst_expected.grid.keys().collect::<Vec<_>>(),
