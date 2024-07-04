@@ -45,6 +45,10 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/exoplanet/konyang,
 /area/template_noop)
+"aN" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/main/offices,
+/turf/simulated/wall,
+/area/template_noop)
 "aR" = (
 /obj/effect/floor_decal/industrial/outline_corner/grey{
 	dir = 4
@@ -131,6 +135,10 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"dr" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/main/crew_quarters,
+/turf/simulated/wall,
 /area/template_noop)
 "dD" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -429,6 +437,10 @@
 /obj/machinery/shieldgen,
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"jz" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/main/dome,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "jB" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -460,6 +472,10 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"kf" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/main/canteen,
+/turf/simulated/wall,
 /area/template_noop)
 "ki" = (
 /obj/effect/floor_decal/spline/fancy{
@@ -572,6 +588,10 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"mU" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/main/workshop,
+/turf/simulated/wall,
+/area/template_noop)
 "mW" = (
 /obj/effect/floor_decal/industrial/outline_corner/grey{
 	dir = 4
@@ -679,6 +699,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"qA" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/maintenance_hatch,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/main/dome,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "qC" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -713,6 +742,10 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"re" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/main/dome,
+/turf/simulated/wall/r_wall,
 /area/template_noop)
 "rl" = (
 /obj/structure/table/standard,
@@ -1078,6 +1111,10 @@
 	},
 /obj/effect/floor_decal/industrial/outline_straight/grey,
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"Bo" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/main/department,
+/turf/simulated/wall,
 /area/template_noop)
 "Bp" = (
 /obj/structure/bed/stool/chair/folding,
@@ -1570,6 +1607,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"Ls" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/warehouse_room,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Mb" = (
 /turf/unsimulated/marker/purple,
 /area/template_noop)
@@ -1606,6 +1647,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"Mx" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/main/dome,
+/turf/unsimulated/marker/yellow,
 /area/template_noop)
 "My" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -1785,6 +1830,10 @@
 	},
 /obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"Rn" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/base_layout,
+/turf/unsimulated/marker/red,
 /area/template_noop)
 "RP" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -4070,7 +4119,7 @@ mt
 mt
 mt
 mt
-mt
+Rn
 SW
 fj
 fj
@@ -4197,7 +4246,7 @@ mt
 mt
 mt
 mt
-mt
+Rn
 SW
 fj
 fj
@@ -4764,7 +4813,7 @@ mt
 mt
 mt
 mt
-EM
+re
 mt
 mt
 mt
@@ -5558,7 +5607,7 @@ oZ
 oZ
 oZ
 oZ
-oZ
+aN
 oZ
 oZ
 mt
@@ -5682,7 +5731,7 @@ oZ
 oZ
 oZ
 oZ
-oZ
+Bo
 mt
 mt
 mt
@@ -8036,7 +8085,7 @@ oZ
 oZ
 oZ
 oZ
-oZ
+Bo
 mt
 mt
 mt
@@ -10203,7 +10252,7 @@ mt
 mt
 mt
 mt
-EM
+re
 mt
 mt
 mt
@@ -14420,7 +14469,7 @@ wY
 wY
 wY
 wY
-Oh
+qA
 wY
 un
 Uv
@@ -15040,7 +15089,7 @@ oZ
 oZ
 oZ
 oZ
-oZ
+Bo
 oZ
 oZ
 oZ
@@ -15616,19 +15665,19 @@ wY
 wY
 wY
 wY
-wY
+Ls
 oZ
 wY
 wY
 wY
 wY
-wY
+Ls
 oZ
 wY
 wY
 wY
 wY
-wY
+Ls
 oZ
 oZ
 oZ
@@ -16658,10 +16707,10 @@ wY
 wY
 wY
 oZ
-wY
-wY
-wY
-wY
+li
+li
+li
+li
 mo
 lK
 SW
@@ -16915,10 +16964,10 @@ IA
 IA
 oZ
 oZ
-wY
-wY
-wY
-wY
+li
+li
+li
+li
 mo
 fB
 SW
@@ -17172,10 +17221,10 @@ wY
 wY
 wY
 oZ
-wY
-wY
-wY
-wY
+li
+li
+li
+li
 mo
 fB
 SW
@@ -17407,32 +17456,32 @@ mt
 oZ
 oZ
 oZ
-wY
-wY
-wY
+li
+li
+li
 oZ
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
 Hr
-wY
-wY
-wY
-wY
+li
+li
+li
+li
 mo
 fB
 SW
@@ -17665,31 +17714,31 @@ oZ
 lt
 lt
 li
-wY
-wY
+li
+li
 Oh
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
 Hr
-wY
-wY
-wY
-wY
+li
+li
+li
+li
 mo
 lK
 SW
@@ -17922,31 +17971,31 @@ oZ
 QR
 li
 li
-wY
-wY
+li
+li
 oZ
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
+li
 Hr
-wY
-wY
-wY
-wY
+li
+li
+li
+li
 oZ
 uR
 SW
@@ -18700,19 +18749,19 @@ wY
 wY
 wY
 wY
-wY
+Ls
 oZ
 wY
 wY
 wY
 wY
-wY
+Ls
 oZ
 wY
 wY
 wY
 wY
-wY
+Ls
 oZ
 oZ
 oZ
@@ -20248,7 +20297,7 @@ oZ
 oZ
 oZ
 oZ
-oZ
+dr
 mt
 mt
 mt
@@ -23471,7 +23520,7 @@ oZ
 oZ
 oZ
 oZ
-oZ
+dr
 mt
 SW
 fj
@@ -23547,7 +23596,7 @@ oZ
 oZ
 oZ
 oZ
-oZ
+Bo
 oZ
 oZ
 oZ
@@ -23674,7 +23723,7 @@ oZ
 oZ
 oZ
 oZ
-oZ
+mU
 un
 un
 Uv
@@ -24975,7 +25024,7 @@ oZ
 oZ
 oZ
 oZ
-oZ
+kf
 mt
 mt
 mt
@@ -28218,7 +28267,7 @@ mt
 mt
 mt
 mt
-EM
+re
 mt
 mt
 mt
@@ -28298,7 +28347,7 @@ RQ
 RQ
 RQ
 RQ
-RQ
+Mx
 RQ
 oZ
 un
@@ -32542,7 +32591,7 @@ wY
 wY
 wY
 wY
-wY
+jz
 wY
 wY
 Oh
@@ -32710,7 +32759,7 @@ mt
 mt
 mt
 mt
-mt
+re
 oZ
 wY
 oZ
@@ -38831,7 +38880,7 @@ oZ
 oZ
 oZ
 oZ
-oZ
+Bo
 mt
 mt
 oZ
@@ -39508,7 +39557,7 @@ oZ
 oZ
 oZ
 oZ
-oZ
+kf
 oZ
 oZ
 un
@@ -41933,7 +41982,7 @@ oZ
 oZ
 oZ
 oZ
-oZ
+mU
 EM
 EM
 EM
@@ -41974,7 +42023,7 @@ wY
 wY
 wY
 wY
-wY
+Ls
 oZ
 mt
 SW
@@ -43088,7 +43137,7 @@ oZ
 oZ
 oZ
 oZ
-oZ
+Bo
 wY
 wY
 oZ
@@ -43246,7 +43295,7 @@ oZ
 lt
 li
 li
-wY
+li
 wY
 oZ
 oZ
@@ -43503,18 +43552,18 @@ oZ
 lt
 li
 li
-wY
-wY
-wY
-oZ
-wY
-wY
-wY
+li
 wY
 wY
 oZ
 wY
 wY
+wY
+wY
+Ls
+oZ
+wY
+li
 wY
 oZ
 mt
@@ -43760,7 +43809,7 @@ oZ
 QR
 li
 li
-wY
+li
 wY
 wY
 oZ
@@ -43771,7 +43820,7 @@ Dl
 wY
 Hr
 wY
-wY
+li
 wY
 oZ
 mt
@@ -44017,7 +44066,7 @@ oZ
 lt
 li
 li
-wY
+li
 wY
 wY
 oZ
@@ -44027,8 +44076,8 @@ wF
 Dl
 wY
 Hr
-wY
-wY
+li
+li
 wY
 oZ
 mt
@@ -44274,7 +44323,7 @@ oZ
 lt
 lt
 lt
-wY
+li
 wY
 wY
 oZ
@@ -44285,7 +44334,7 @@ Dl
 wY
 Hr
 wY
-wY
+li
 wY
 oZ
 mt
@@ -44531,18 +44580,18 @@ oZ
 oZ
 oZ
 wY
-wY
-wY
-wY
-oZ
-wY
-wY
-wY
+li
 wY
 wY
 oZ
 wY
 wY
+wY
+wY
+wY
+oZ
+wY
+li
 wY
 oZ
 mt
@@ -44788,9 +44837,9 @@ wY
 wY
 oZ
 wY
+li
 wY
 wY
-wY
 oZ
 oZ
 oZ
@@ -44799,7 +44848,7 @@ oZ
 oZ
 oZ
 wY
-wY
+li
 wY
 oZ
 oZ
@@ -45045,7 +45094,7 @@ wY
 wY
 oZ
 wY
-wY
+li
 wY
 wY
 oZ
@@ -45055,9 +45104,9 @@ wY
 wY
 wY
 wY
-wY
-wY
-wY
+li
+li
+li
 wY
 oZ
 mt
@@ -45301,20 +45350,20 @@ wY
 wY
 wY
 Oh
-wY
-wY
-wY
-wY
+li
+li
+li
+li
 Oh
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
-wY
+li
+li
+li
+li
+li
+li
+li
+li
+li
 wY
 oZ
 mt
@@ -45569,9 +45618,9 @@ wY
 wY
 wY
 wY
-wY
-wY
-wY
+li
+li
+li
 wY
 oZ
 uR
@@ -45827,7 +45876,7 @@ oZ
 oZ
 oZ
 wY
-wY
+li
 wY
 oZ
 oZ
@@ -46081,10 +46130,10 @@ wY
 wY
 wY
 wY
-wY
+Ls
 oZ
 wY
-wY
+li
 wY
 oZ
 uR
@@ -46341,7 +46390,7 @@ Dl
 wY
 Hr
 wY
-wY
+li
 wY
 oZ
 oZ
@@ -46588,7 +46637,7 @@ mt
 mt
 mt
 oZ
-wY
+jz
 wY
 oZ
 wY
@@ -46597,8 +46646,8 @@ wF
 Dl
 wY
 Hr
-wY
-wY
+li
+li
 wY
 wY
 oZ
@@ -46710,7 +46759,7 @@ oZ
 oZ
 oZ
 oZ
-oZ
+mU
 un
 un
 Uv
@@ -46725,7 +46774,7 @@ oZ
 oZ
 oZ
 oZ
-oZ
+mU
 oZ
 lK
 fB
@@ -46855,9 +46904,9 @@ Dl
 wY
 Hr
 wY
-wY
-wY
-wY
+li
+li
+li
 mo
 lK
 SW
@@ -47112,9 +47161,9 @@ wY
 wY
 oZ
 wY
-wY
-wY
-wY
+li
+li
+li
 mo
 fB
 SW
@@ -47369,9 +47418,9 @@ oZ
 oZ
 oZ
 wY
-wY
-wY
-wY
+li
+li
+li
 mo
 fB
 SW
@@ -47623,12 +47672,12 @@ wY
 wY
 wY
 wY
-wY
+Ls
 oZ
 wY
-wY
-wY
-wY
+li
+li
+li
 mo
 fB
 SW
@@ -47883,9 +47932,9 @@ Dl
 wY
 Hr
 wY
-wY
-wY
-wY
+li
+li
+li
 mo
 lK
 SW
@@ -48139,8 +48188,8 @@ wF
 Dl
 wY
 Hr
-wY
-wY
+li
+li
 wY
 wY
 oZ
@@ -48337,7 +48386,7 @@ oZ
 oZ
 oZ
 oZ
-oZ
+Bo
 mt
 oZ
 oZ
@@ -48397,7 +48446,7 @@ Dl
 wY
 Hr
 wY
-wY
+li
 wY
 oZ
 oZ
@@ -48654,7 +48703,7 @@ wY
 wY
 oZ
 wY
-wY
+li
 wY
 oZ
 uR
@@ -49170,7 +49219,7 @@ wY
 wY
 wY
 wY
-wY
+Ls
 oZ
 mt
 SW
@@ -52347,7 +52396,7 @@ oZ
 oZ
 oZ
 oZ
-oZ
+Bo
 mt
 oZ
 un
@@ -56835,7 +56884,7 @@ oZ
 oZ
 oZ
 oZ
-oZ
+aN
 wY
 wY
 wY

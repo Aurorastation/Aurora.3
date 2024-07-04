@@ -41,6 +41,10 @@
 "N" = (
 /turf/unsimulated/mineral,
 /area/space)
+"Y" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/base_layout,
+/turf/template_noop,
+/area/space)
 
 (1,1,1) = {"
 N
@@ -1970,7 +1974,7 @@ u
 u
 u
 u
-u
+Y
 a
 a
 a
