@@ -322,6 +322,16 @@
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
+"Ar" = (
+/obj/structure/cargo_receptacle{
+	min_spawn = 0;
+	max_spawn = 2;
+	override_name = "Moghes - Merchant Outpost"
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
 "AQ" = (
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/exoplanet/moghes)
@@ -1188,7 +1198,7 @@ xc
 gf
 SU
 dV
-zL
+Ar
 YK
 gT
 fd

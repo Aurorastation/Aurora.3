@@ -49,6 +49,7 @@
 	icon_override = null
 	contained_sprite = TRUE
 	var/cape_backing_state = "cape_backing"
+	protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/poncho/dominia_cape/white
 	name = "white dominian cape"
@@ -127,6 +128,24 @@
 	name = "zavodskoi house kazhkz cape"
 	icon_state = "kazhkz_capez"
 	item_state = "kazhkz_capez"
+	cape_backing_state = "capez_backing"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/hansan
+	name = "clan han'san cape"
+	desc = "This is a cape in the style of Dominian nobility. This one is in the colours of Clan Han'san."
+	icon_state = "hansan_cape"
+	item_state = "hansan_cape"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/hansan/white
+	name = "white clan han'san cape"
+	icon_state = "hansan_capew"
+	item_state = "hansan_capew"
+	cape_backing_state = "capew_backing"
+
+/obj/item/clothing/accessory/poncho/dominia_cape/hansan/zavod
+	name = "zavodskoi clan han'san cape"
+	icon_state = "hansan_capez"
+	item_state = "hansan_capez"
 	cape_backing_state = "capez_backing"
 
 /obj/item/clothing/accessory/poncho/dominia_cape/caladius
@@ -276,6 +295,10 @@
 /obj/item/clothing/under/dominia/imperial_suit/kazhkz
 	name = "house kazhkz suit"
 	house = "kazhkz"
+
+/obj/item/clothing/under/dominia/imperial_suit/hansan
+	name = "house han'san suit"
+	house = "hansan"
 
 /obj/item/clothing/under/dominia/imperial_suit/caladius
 	name = "house caladius suit"
@@ -436,6 +459,10 @@
 	name = "kazhkz noble dress"
 	house = "kazhkz"
 
+/obj/item/clothing/under/dominia/dress/noble/hansan
+	name = "han'san noble dress"
+	house = "hansan"
+
 /obj/item/clothing/under/dominia/dress/noble/caladius
 	name = "caladius noble dress"
 	house = "caladius"
@@ -460,6 +487,10 @@
 	name = "black kazhkz noble dress"
 	house = "kazhkz"
 
+/obj/item/clothing/under/dominia/dress/noble/black/hansan
+	name = "black han'san noble dress"
+	house = "hansan"
+
 /obj/item/clothing/under/dominia/dress/noble/black/caladius
 	name = "black caladius noble dress"
 	house = "caladius"
@@ -467,6 +498,9 @@
 /obj/item/clothing/under/dominia/dress/noble/black/zhao
 	name = "black zhao noble dress"
 	house = "zhao"
+
+/obj/item/clothing/accessory/poncho/dominia
+	protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/poncho/dominia/red/surcoat
 	name = "tribunalist surcoat"
@@ -749,6 +783,10 @@
 /obj/item/clothing/under/dominia/dress/fancy/kazhkz
 	name = "house kazhkz Morozi dress"
 	house = "kazhkz"
+
+/obj/item/clothing/under/dominia/dress/fancy/hansan
+	name = "clan han'san Morozi dress"
+	house = "hansan"
 
 /obj/item/clothing/under/dominia/fleet
 	name = "fleet voidsman uniform"

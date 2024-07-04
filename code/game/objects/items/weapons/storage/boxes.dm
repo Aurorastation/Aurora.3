@@ -444,6 +444,12 @@
 	illustration = "firingpin"
 	starts_with = list(/obj/item/device/firing_pin = 2, /obj/item/device/firing_pin/access = 2, /obj/item/device/firing_pin/implant/loyalty = 2, /obj/item/device/firing_pin/clown = 1, /obj/item/device/firing_pin/dna = 1)
 
+/obj/item/storage/box/psireceiver
+	name = "box of psionic receivers"
+	desc = "A box of psionic receivers, which can be surgically implanted to act as a replacement for an underdeveloped or non-existent zona bovinae. This one has a large sticker on the side reading FOR RESEARCH USE ONLY."
+	illustration = "implant"
+	starts_with = list(/obj/item/organ/internal/augment/psi = 4)
+
 /obj/item/storage/box/tethers
 	name = "box of tethering devices"
 	desc = "A box containing eight electro-tethers, used primarily to keep track of partners during expeditions."
@@ -617,6 +623,8 @@
 /obj/item/storage/box/monkeycubes
 	name = "monkey cube box"
 	desc = "Drymate brand monkey cubes. Just add water!"
+	desc_extended = "The manufacture of a cubed animal produces subjects that are similar but have marked differences compared to their ordinary cousins. Higher brain functions are all but destroyed \
+	and the life expectancy of the cubed animal is greatly reduced, with most expiring only a few days after introduction with water."
 	icon_state = "monkeycubebox"
 	can_hold = list(/obj/item/reagent_containers/food/snacks/monkeycube)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped = 5)

@@ -239,8 +239,7 @@
 "cB" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -355,8 +354,7 @@
 /area/tcaf_corvette)
 "cW" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
@@ -1015,7 +1013,6 @@
 /area/tcaf_corvette/medical)
 "hu" = (
 /obj/machinery/ship_weapon/francisca/compact{
-	layer = 3;
 	pixel_x = -40;
 	pixel_y = -64;
 	weapon_id = "TCAF Shuttle Francisca Rotary Gun"
@@ -1495,7 +1492,6 @@
 "kZ" = (
 /obj/structure/toilet{
 	dir = 4;
-	layer = 2.6;
 	pixel_y = 1
 	},
 /obj/structure/extinguisher_cabinet/west,
@@ -2684,7 +2680,6 @@
 "vh" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8;
 	name = "CO2 to Thrusters"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3553,7 +3548,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -5972,7 +5966,6 @@
 "XH" = (
 /obj/structure/table/wood/mahogany,
 /obj/item/storage/box/fancy/cigarettes/cigar{
-	layer = 3.01;
 	pixel_x = -5;
 	pixel_y = 6
 	},

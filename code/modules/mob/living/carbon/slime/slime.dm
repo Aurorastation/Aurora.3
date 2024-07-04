@@ -202,7 +202,7 @@
 			if(istype(AM, /obj/structure/window) || istype(AM, /obj/structure/grille))
 				if(nutrition <= get_hunger_nutrition() && !Atkcool)
 					if(is_adult || prob(5))
-						UnarmedAttack(AM)
+						INVOKE_ASYNC(src, PROC_REF(UnarmedAttack), AM)
 						Atkcool = TRUE
 						addtimer(CALLBACK(src, PROC_REF(reset_atkcooldown)), 45)
 

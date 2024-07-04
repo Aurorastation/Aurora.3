@@ -44,17 +44,17 @@
 	if(max_hydration > 0)
 		hydration = rand(CREW_MINIMUM_HYDRATION*100, CREW_MAXIMUM_HYDRATION*100) * max_hydration * 0.01
 
-	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/mob/hud_med.dmi', src, "100")
-	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealthy")
+	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/hud/hud_med.dmi', src, "100")
+	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudhealthy")
 	hud_list[ID_HUD]          = new /image/hud_overlay('icons/hud/hud_security.dmi', src, "hudunknown")
 	hud_list[WANTED_HUD]      = new /image/hud_overlay('icons/hud/hud_security.dmi', src, "hudblank")
-	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[STATUS_HUD_OOC]  = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealthy")
-	hud_list[LIFE_HUD]	      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealthy")
-	hud_list[TRIAGE_HUD]      = new /image/hud_overlay('icons/mob/hud_med.dmi', src, triage_tag)
+	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[STATUS_HUD_OOC]  = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudhealthy")
+	hud_list[LIFE_HUD]	      = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudhealthy")
+	hud_list[TRIAGE_HUD]      = new /image/hud_overlay('icons/hud/hud_med.dmi', src, triage_tag)
 
 	//Scaling down the ID hud
 	var/image/holder = hud_list[ID_HUD]
@@ -596,15 +596,13 @@
 						if(setcriminal != "Cancel")
 							R.security.criminal = setcriminal
 							modified = 1
-
-							spawn()
-								BITSET(hud_updateflag, WANTED_HUD)
-								if(istype(usr,/mob/living/carbon/human))
-									var/mob/living/carbon/human/U = usr
-									U.handle_regular_hud_updates()
-								if(istype(usr,/mob/living/silicon/robot))
-									var/mob/living/silicon/robot/U = usr
-									U.handle_regular_hud_updates()
+							BITSET(hud_updateflag, WANTED_HUD)
+							if(istype(usr,/mob/living/carbon/human))
+								var/mob/living/carbon/human/U = usr
+								U.handle_regular_hud_updates()
+							if(istype(usr,/mob/living/silicon/robot))
+								var/mob/living/silicon/robot/U = usr
+								U.handle_regular_hud_updates()
 
 			if(!modified)
 				to_chat(usr, EXAMINE_BLOCK_RED(SPAN_WARNING("Unable to locate a data core entry for this person.")))
@@ -699,14 +697,12 @@
 						R.physical_status = setmedical
 						modified = 1
 						SSrecords.reset_manifest()
-
-						spawn()
-							if(istype(usr,/mob/living/carbon/human))
-								var/mob/living/carbon/human/U = usr
-								U.handle_regular_hud_updates()
-							if(istype(usr,/mob/living/silicon/robot))
-								var/mob/living/silicon/robot/U = usr
-								U.handle_regular_hud_updates()
+						if(istype(usr,/mob/living/carbon/human))
+							var/mob/living/carbon/human/U = usr
+							U.handle_regular_hud_updates()
+						if(istype(usr,/mob/living/silicon/robot))
+							var/mob/living/silicon/robot/U = usr
+							U.handle_regular_hud_updates()
 
 			if(!modified)
 				to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(SPAN_WARNING("Unable to locate a data core entry for this person.")))
@@ -1344,7 +1340,7 @@
 		var/mob/living/carbon/human/H = C
 		if(!blood_DNA[H.dna.unique_enzymes])
 			blood_DNA[H.dna.unique_enzymes] = H.dna.b_type
-		hand_blood_color = H.species?.blood_color
+		hand_blood_color = H.get_blood_color()
 	src.update_inv_gloves()	//handles bloody hands overlays and updating
 	add_verb(src, /mob/living/carbon/human/proc/bloody_doodle)
 	return TRUE //we applied blood to the item

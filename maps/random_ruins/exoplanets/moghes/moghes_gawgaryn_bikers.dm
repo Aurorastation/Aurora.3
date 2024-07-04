@@ -96,6 +96,7 @@
 	suit = /obj/item/clothing/suit/armor/unathi
 	backpack_contents = list(/obj/item/ammo_magazine/spitterpistol = 1, /obj/item/melee/hammer/powered = 1)
 	head = /obj/item/clothing/head/helmet/unathi
+	suit_accessory = /obj/item/clothing/accessory/poncho
 	belt = /obj/item/material/knife/tacknife
 
 /obj/outfit/admin/moghes_gawgaryn/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

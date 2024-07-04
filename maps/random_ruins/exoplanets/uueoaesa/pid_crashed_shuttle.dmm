@@ -196,7 +196,6 @@
 /area/template_noop)
 "EH" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,

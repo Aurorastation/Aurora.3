@@ -1,0 +1,55 @@
+2024-07-01:
+  hazelmouse:
+  - bugfix: Spark hangar is now vacuum, allowing the shuttle to use its sensors while
+      docked.
+  - rscadd: Spark airlock optimised to cycle more efficiently, and to handle air-to-air
+      cycling without flooding the shuttle with foreign gas. Merge valve now starts
+      disabled. Fuel connector now pumps into the fuel tank, rather than directly
+      into the thrusters.
+2024-07-02:
+  ASmallCuteCat:
+  - imageadd: Adds a colorable shawl to the loadout.
+  Lavillastrangiato:
+  - qol: Tweaks some tile decorations in the science department.
+  - qol: Moves some of the science equipment around to be more accessible or provide
+      more table space.
+  - qol: Adds a coat rack to the public garden.
+  LynxSolstice:
+  - balance: Nerfs the Crowbar size so it doesn't fit in pockets anymore
+  Magisterium2022:
+  - qol: Upgraded AI core hardware to permit easier workflow, and avoid issues with
+      too many necessary apps.
+  - qol: Added AI core software which is not downloadable via the NT downloader, to
+      avoid the AI having to jump around between consoles to perform various tasks.
+  RustingWithYou:
+  - qol: Ponchos, hoods, and straw hats now protect against weather.
+  - qol: Makes sandstorms less dangerous to IPCs and Vaurcae.
+  - rscadd: Sandstorms can now disrupt vision if eyes aren't covered.
+  - qol: Gives Wasteland ghostroles gear to protect against sandstorms.
+  Silvorz:
+  - rscadd: Added the old wizard's 'gentleman set' of clothes, carp slippers, and
+      the bear pelt hat to the loadout.
+  - qol: Removed the hide jumpsuit variable from the gentlemans coat, as it looked
+      strange.
+  - rscadd: Added tajara archeology items to the loadout menu.
+  - qol: Changed the spelling of one tajara archeology item to better fit in with
+      other spellings
+  SimpleMaroon:
+  - bugfix: Fixed the Diona Sinta tunic in the loadout lacking colorable accents.
+  - bugfix: Fixed the Diona zo'zo top in the loadout lacking renameability and colorability
+      flags.
+  - bugfix: Fixed both the Unathi and Diona zo'zo top in the loadout having secondary
+      colorability, despite not having accents.
+2024-07-04:
+  CourierBravo:
+  - bugfix: Fixed some grammar in the recently added tips, making some a bit more
+      clear to understand. Also, changed a few of the older tips to be more relevant/make
+      more sense.
+  - rscdel: Removed more irrelevant tips that I missed the first time.
+  FlamingLily:
+  - bugfix: The RCON wire in a SMES now actually disconnects a SMES from RCON (before
+      it only prevented AI control).
+  - bugfix: When the input wire of a SMES is cut, it will now correctly report that
+      the SMES is not charging on the UI.
+  - bugfix: The Failsafe and Grounding wires of a SMES now correctly trigger the red
+      light when only one is cut, instead of both needing to be triggered.

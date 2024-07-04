@@ -3407,8 +3407,7 @@
 /area/tarwa_ship/gun)
 "Sa" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)

@@ -11,7 +11,7 @@
 	id = "peoples_station"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/peoples_station_fang, /datum/shuttle/autodock/overmap/peoples_station_transport)
 
-	unit_test_groups = list(1)
+	unit_test_groups = list(2)
 
 /singleton/submap_archetype/peoples_station
 	map = "People's Space Station"
@@ -39,7 +39,9 @@
 		"nav_peoples_station_ship_3",
 		"nav_peoples_station_ship_4",
 		"nav_peoples_station_fore_dock",
-		"nav_peoples_station_port_dock"
+		"nav_peoples_station_aft_dock",
+		"nav_peoples_station_port_dock",
+		"nav_peoples_station_starboard_dock"
 	)
 	initial_restricted_waypoints = list(
 		"Orbital Fleet Fang" = list("nav_hangar_peoples_station_fang"),

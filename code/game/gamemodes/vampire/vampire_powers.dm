@@ -465,7 +465,11 @@
 			var/mob/M = A
 			M.reset_view(null)
 
-/obj/effect/dummy/veil_walk/relaymove(var/mob/user, direction)
+/obj/effect/dummy/veil_walk/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if(user != owner_mob)
 		return
 	if(ghost_last_move + ghost_move_delay > world.time)

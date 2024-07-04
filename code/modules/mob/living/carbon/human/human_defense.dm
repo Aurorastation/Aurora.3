@@ -346,21 +346,21 @@ emp_act
 		var/throw_damage = O.throwforce*(speed/THROWFORCE_SPEED_DIVISOR)
 
 		var/zone
-		if (istype(O.thrower, /mob/living))
-			var/mob/living/L = O.thrower
+		if (istype(O.throwing?.thrower?.resolve(), /mob/living))
+			var/mob/living/L = O.throwing?.thrower?.resolve()
 			zone = check_zone(L.zone_sel.selecting)
 		else
 			zone = ran_zone(BP_CHEST,75)	//Hits a random part of the body, geared towards the chest
 
 		//check if we hit
 		var/miss_chance = 15
-		if (O.throw_source)
-			var/distance = get_dist(O.throw_source, loc)
+		if (O.throwing?.thrower?.resolve())
+			var/distance = get_dist(O.throwing?.thrower?.resolve(), loc)
 			miss_chance = 15 * (distance - 2)
 		zone = get_zone_with_miss_chance(zone, src, miss_chance, 1)
 
-		if(zone && O.thrower != src)
-			var/shield_check = check_shields(throw_damage, O, thrower, zone, "[O]")
+		if(zone && O.throwing?.thrower?.resolve() != src)
+			var/shield_check = check_shields(throw_damage, O, throwing?.thrower?.resolve(), zone, "[O]")
 			if(shield_check == PROJECTILE_FORCE_MISS)
 				zone = null
 			else if(shield_check)
@@ -371,8 +371,6 @@ emp_act
 			playsound(src, 'sound/effects/throw_miss.ogg', rand(10, 50), 1)
 			return
 
-		O.throwing = 0		//it hit, so stop moving
-
 		var/obj/item/organ/external/affecting = get_organ(zone)
 		var/hit_area = affecting.name
 
@@ -380,8 +378,8 @@ emp_act
 							SPAN_WARNING("<font size=2>You're hit in the [hit_area] by [O]!</font>"))
 		apply_damage(throw_damage, dtype, zone, used_weapon = O, damage_flags = O.damage_flags(), armor_pen = O.armor_penetration)
 
-		if(ismob(O.thrower))
-			var/mob/M = O.thrower
+		if(ismob(O.throwing?.thrower?.resolve()))
+			var/mob/M = O.throwing?.thrower?.resolve()
 			var/client/assailant = M.client
 			if(assailant)
 				src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been hit with a [O], thrown by [M.name] ([assailant.ckey])</font>")
@@ -413,8 +411,8 @@ emp_act
 			mass = I.w_class/THROWNOBJ_KNOCKBACK_DIVISOR
 		var/momentum = speed*mass
 
-		if(O.throw_source && momentum >= THROWNOBJ_KNOCKBACK_SPEED)
-			var/dir = get_dir(O.throw_source, src)
+		if(O.throwing?.thrower?.resolve() && momentum >= THROWNOBJ_KNOCKBACK_SPEED)
+			var/dir = get_dir(O.throwing?.thrower?.resolve(), src)
 
 			visible_message(SPAN_WARNING("[src] staggers under the impact!"),
 							SPAN_WARNING("You stagger under the impact!"))

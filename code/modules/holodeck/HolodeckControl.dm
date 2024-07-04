@@ -203,6 +203,14 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 			if (get_area(P.loc) != linkedholodeck)
 				holographic_mobs -= P
 				P.derez()
+		for(var/mob/living/simple_animal/corgi/puppy/holodeck/S in holographic_mobs)
+			if (get_area(S.loc) != linkedholodeck)
+				holographic_mobs -= S
+				S.derez()
+		for(var/mob/living/simple_animal/cat/kitten/holodeck/K in holographic_mobs)
+			if (get_area(K.loc) != linkedholodeck)
+				holographic_mobs -= K
+				K.derez()
 
 	if(!operable())
 		return
@@ -293,6 +301,14 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 		holographic_mobs -= P
 		P.derez()
 
+	for(var/mob/living/simple_animal/corgi/puppy/holodeck/S in holographic_mobs)
+		holographic_mobs -= S
+		S.derez()
+
+	for(var/mob/living/simple_animal/cat/kitten/holodeck/K in holographic_mobs)
+		holographic_mobs -= K
+		K.derez()
+
 	for(var/obj/effect/decal/cleanable/blood/B in linkedholodeck)
 		qdel(B)
 
@@ -331,6 +347,12 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 
 			if(L.name=="Penguin Spawn Emperor")
 				holographic_mobs += new /mob/living/simple_animal/penguin/holodeck/emperor(L.loc)
+
+			if(L.name=="Animal Baby Spawn Random")
+				if (prob(50))
+					holographic_mobs += new /mob/living/simple_animal/corgi/puppy/holodeck(L.loc)
+				else
+					holographic_mobs += new /mob/living/simple_animal/cat/kitten/holodeck(L.loc)
 
 			if(L.name=="Holocarp Spawn Random")
 				if (prob(4)) //With 4 spawn points, carp should only appear 15% of the time.

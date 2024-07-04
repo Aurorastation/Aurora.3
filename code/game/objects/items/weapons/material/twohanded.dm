@@ -309,7 +309,7 @@
 		update_icon()
 		src.shatter()
 
-/obj/item/material/twohanded/spear/throw_impact(atom/target)
+/obj/item/material/twohanded/spear/throw_impact(atom/hit_atom)
 	. = ..()
 	if(!.) //not caught
 		if(explosive)

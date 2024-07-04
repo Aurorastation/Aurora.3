@@ -10,11 +10,12 @@
 #define TURF_CAN_BREAK          BITFLAG(6)
 #define TURF_CAN_BURN           BITFLAG(7)
 #define TURF_HAS_EDGES          BITFLAG(8)
-#define TURF_HAS_CORNERS        BITFLAG(9)
-#define TURF_HAS_INNER_CORNERS	BITFLAG(10)
-#define TURF_IS_FRAGILE			BITFLAG(11)
-#define TURF_ACID_IMMUNE		BITFLAG(12)
-#define TURF_NORUINS            BITFLAG(13)
+#define TURF_OFFSET_EDGES 		BITFLAG(9)
+#define TURF_HAS_CORNERS        BITFLAG(10)
+#define TURF_HAS_INNER_CORNERS	BITFLAG(11)
+#define TURF_IS_FRAGILE			BITFLAG(12)
+#define TURF_ACID_IMMUNE		BITFLAG(13)
+#define TURF_NORUINS            BITFLAG(14)
 
 //Used for floor/wall smoothing
 #define SMOOTH_NONE 0	//Smooth only with itself

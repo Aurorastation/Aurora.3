@@ -17,6 +17,8 @@
 	bitesize = 12
 	filling_color = "#ADAC7F"
 	center_of_mass = list("x"=16, "y"=14)
+	desc_extended = "The manufacture of a cubed animal produces subjects that are similar but have marked differences compared to their ordinary cousins. Higher brain functions are all but destroyed \
+	and the life expectancy of the cubed animal is greatly reduced, with most expiring only a few days after introduction with water."
 
 	var/wrapped = 0
 	var/monkey_type = SPECIES_MONKEY
@@ -62,6 +64,8 @@
 	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
 	icon_state = "monkeycubewrap"
 	wrapped = 1
+	desc_extended = "The manufacture of a cubed animal produces subjects that are similar but have marked differences compared to their ordinary cousins. Higher brain functions are all but destroyed \
+	and the life expectancy of the cubed animal is greatly reduced, with most expiring only a few days after introduction with water."
 
 /obj/item/reagent_containers/food/snacks/monkeycube/farwacube
 	name = "farwa cube"

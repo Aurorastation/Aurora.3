@@ -9,7 +9,7 @@
 			return 1
 	if(istype(mover, /obj/structure/closet/crate))
 		return TRUE
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return 1
 	if(locate(/obj/structure/table) in get_turf(mover))
 		return 1
@@ -49,7 +49,7 @@
 	return 1
 
 /obj/structure/table/CheckExit(atom/movable/O as mob|obj, target as turf)
-	if(istype(O) && O.checkpass(PASSTABLE))
+	if(istype(O) && O.pass_flags & PASSTABLE)
 		return 1
 	if (flipped==1)
 		if (get_dir(loc, target) == dir)
