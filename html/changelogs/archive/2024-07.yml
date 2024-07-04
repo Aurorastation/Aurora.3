@@ -40,3 +40,16 @@
       flags.
   - bugfix: Fixed both the Unathi and Diona zo'zo top in the loadout having secondary
       colorability, despite not having accents.
+2024-07-04:
+  CourierBravo:
+  - bugfix: Fixed some grammar in the recently added tips, making some a bit more
+      clear to understand. Also, changed a few of the older tips to be more relevant/make
+      more sense.
+  - rscdel: Removed more irrelevant tips that I missed the first time.
+  FlamingLily:
+  - bugfix: The RCON wire in a SMES now actually disconnects a SMES from RCON (before
+      it only prevented AI control).
+  - bugfix: When the input wire of a SMES is cut, it will now correctly report that
+      the SMES is not charging on the UI.
+  - bugfix: The Failsafe and Grounding wires of a SMES now correctly trigger the red
+      light when only one is cut, instead of both needing to be triggered.
