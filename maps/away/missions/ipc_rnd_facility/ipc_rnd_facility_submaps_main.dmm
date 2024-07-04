@@ -118,11 +118,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"aB" = (
-/obj/item/stack/material/plastic/full,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/engineering_storage,
-/turf/simulated/floor/plating,
-/area/template_noop)
 "aJ" = (
 /obj/structure/flora/grass/junglegrass/random,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
@@ -152,6 +147,11 @@
 /obj/machinery/floodlight,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"aP" = (
+/obj/item/stack/material/plastic/full,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/engineering_storage,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "aQ" = (
 /obj/machinery/door/urban{
 	dir = 4
@@ -173,6 +173,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"aY" = (
+/obj/structure/closet,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_small,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "aZ" = (
 /obj/structure/table/standard,
 /obj/item/stack/nanopaste{
@@ -183,10 +188,6 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
-"ba" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/crew_quarters,
-/turf/unsimulated/marker/red,
 /area/template_noop)
 "bd" = (
 /obj/structure/table/wood,
@@ -339,10 +340,6 @@
 /obj/structure/bed/stool/chair/folding,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"bW" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/science_storage,
-/turf/simulated/floor/tiled,
-/area/template_noop)
 "bZ" = (
 /obj/structure/table/standard,
 /obj/item/storage/bag/circuits/basic{
@@ -404,11 +401,6 @@
 /obj/structure/light_pole/konyang/left,
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/template_noop)
-"cm" = (
-/obj/structure/closet/cabinet,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_big,
-/turf/simulated/floor/carpet/brown,
-/area/template_noop)
 "cn" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -427,23 +419,6 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"cp" = (
-/obj/structure/closet/crate,
-/obj/item/smes_coil/super_io,
-/obj/item/smes_coil/super_io,
-/obj/item/smes_coil/super_io,
-/obj/item/smes_coil/super_capacity,
-/obj/item/smes_coil/super_capacity,
-/obj/item/smes_coil/super_capacity,
-/obj/item/smes_coil,
-/obj/item/smes_coil,
-/obj/item/smes_coil,
-/obj/item/circuitboard/smes,
-/obj/item/circuitboard/smes,
-/obj/item/circuitboard/smes,
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/plating,
 /area/template_noop)
 "cr" = (
 /obj/structure/table/wood,
@@ -621,10 +596,6 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/light,
-/area/template_noop)
-"dj" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/armory,
-/turf/simulated/floor/reinforced,
 /area/template_noop)
 "dm" = (
 /obj/effect/floor_decal/corner_wide/lime/diagonal,
@@ -1138,10 +1109,6 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"gq" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/engineering_storage,
-/turf/simulated/floor/plating,
-/area/template_noop)
 "gs" = (
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 1
@@ -1267,6 +1234,11 @@
 "he" = (
 /turf/simulated/floor/exoplanet/ice,
 /area/template_noop)
+"hh" = (
+/obj/machinery/deployable/barrier,
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "hm" = (
 /obj/effect/decal/road_marking/thin{
 	dir = 1
@@ -1277,12 +1249,6 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/template_noop)
-"hn" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/dorms,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_small,
-/turf/simulated/floor/wood/bamboo,
-/area/template_noop)
 "ho" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1291,13 +1257,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"hr" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/storage/box/smokebombs,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/armory,
-/turf/simulated/floor/reinforced,
 /area/template_noop)
 "hs" = (
 /obj/structure/closet/crate,
@@ -1335,9 +1294,18 @@
 /obj/machinery/door/window/westright,
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"hz" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/department,
+/turf/unsimulated/marker/red,
+/area/template_noop)
 "hJ" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
+/area/template_noop)
+"hK" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/engineering_storage,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "hN" = (
 /obj/structure/table/stone/marble,
@@ -1527,11 +1495,6 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/reagent_dispensers/extinguisher,
 /turf/simulated/floor/plating,
-/area/template_noop)
-"iR" = (
-/obj/structure/closet/cabinet,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_small,
-/turf/simulated/floor/lino,
 /area/template_noop)
 "iU" = (
 /obj/structure/table/rack,
@@ -1814,12 +1777,6 @@
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/walnut,
 /area/template_noop)
-"kY" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/dorms,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_big,
-/turf/simulated/floor/lino/diamond,
-/area/template_noop)
 "lb" = (
 /obj/structure/bed/stool/wood{
 	dir = 1
@@ -1968,6 +1925,11 @@
 /obj/structure/flora/bush/jungle/random,
 /turf/simulated/floor/exoplanet/grass/stalk,
 /area/template_noop)
+"lX" = (
+/obj/structure/closet/cabinet,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_small,
+/turf/simulated/floor/lino,
+/area/template_noop)
 "lY" = (
 /obj/effect/floor_decal/corner/pink{
 	dir = 5
@@ -2066,10 +2028,6 @@
 /obj/structure/table/rack/cafe_table,
 /turf/simulated/floor/carpet/orange,
 /area/template_noop)
-"mH" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/offices,
-/turf/simulated/wall,
-/area/template_noop)
 "mL" = (
 /obj/effect/decal/road_marking/thin{
 	dir = 1
@@ -2166,16 +2124,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood/maple,
-/area/template_noop)
-"nk" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate,
-/obj/random/loot,
-/obj/random/loot,
-/obj/random/loot,
-/obj/random/loot,
-/obj/random/loot,
-/turf/simulated/floor/plating,
 /area/template_noop)
 "nm" = (
 /obj/structure/table/steel,
@@ -2348,6 +2296,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/template_noop)
+"os" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/science_storage,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "ow" = (
 /obj/effect/floor_decal/corner/pink{
 	dir = 9
@@ -2452,6 +2404,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
+"oX" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_big,
+/turf/simulated/floor/lino/diamond,
+/area/template_noop)
 "oZ" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -2543,6 +2501,10 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"pu" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/engineering_storage,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "pD" = (
 /obj/structure/table/wood,
@@ -2764,10 +2726,6 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/light,
 /area/template_noop)
-"qP" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/crew_room_small,
-/turf/unsimulated/marker/red,
-/area/template_noop)
 "qQ" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/beakers{
@@ -2899,6 +2857,12 @@
 "rw" = (
 /turf/simulated/floor/carpet/darkblue,
 /area/template_noop)
+"ry" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_small,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "rz" = (
 /obj/structure/table/wood/walnut,
 /obj/item/paper_bin{
@@ -2925,11 +2889,6 @@
 /obj/structure/curtain/open/medical,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
-"rM" = (
-/obj/structure/closet/cabinet,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_big,
-/turf/simulated/floor/carpet/purple,
 /area/template_noop)
 "rP" = (
 /obj/item/device/electronic_assembly/tiny/box{
@@ -3009,17 +2968,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/template_noop)
-"sp" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/engineering_storage,
-/turf/simulated/floor/plating,
-/area/template_noop)
 "sq" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/light,
+/area/template_noop)
+"st" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/storage/box/emps,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/armory,
+/turf/simulated/floor/reinforced,
 /area/template_noop)
 "su" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -3321,6 +3282,10 @@
 /obj/effect/floor_decal/corner/green/full,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"uo" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/crew_room_small,
+/turf/unsimulated/marker/red,
+/area/template_noop)
 "ur" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/hardbread,
@@ -3434,6 +3399,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"uV" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/dome,
+/turf/simulated/wall/r_wall,
+/area/template_noop)
 "uW" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/surgery{
@@ -3507,6 +3476,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/konyang,
+/area/template_noop)
+"vw" = (
+/obj/structure/closet/cabinet,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_big,
+/turf/simulated/floor/carpet/brown,
 /area/template_noop)
 "vx" = (
 /obj/effect/floor_decal/corner/pink{
@@ -3698,6 +3672,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
+/area/template_noop)
+"wL" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/engineering_storage,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "wM" = (
 /obj/effect/floor_decal/corner/brown/full{
@@ -3959,12 +3938,6 @@
 /obj/item/stack/material/diamond/full,
 /turf/simulated/floor/plating,
 /area/template_noop)
-"yB" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/dorms,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_small,
-/turf/simulated/floor/tiled,
-/area/template_noop)
 "yC" = (
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -4010,11 +3983,6 @@
 "yL" = (
 /obj/structure/flora/bush/adhomai,
 /turf/simulated/floor/exoplanet/snow,
-/area/template_noop)
-"yN" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/engineering_storage,
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/plating,
 /area/template_noop)
 "yO" = (
 /obj/structure/table/steel,
@@ -4160,18 +4128,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"zC" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/storage/box/emps,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/armory,
-/turf/simulated/floor/reinforced,
-/area/template_noop)
-"zE" = (
-/obj/effect/floor_decal/industrial/outline/research,
-/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/science_storage,
-/turf/simulated/floor/tiled,
 /area/template_noop)
 "zF" = (
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -4379,6 +4335,10 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"AW" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/department,
+/turf/simulated/wall,
+/area/template_noop)
 "AX" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/glass/beaker{
@@ -4444,9 +4404,14 @@
 /turf/simulated/floor/carpet/rubber,
 /area/template_noop)
 "BF" = (
-/obj/structure/closet,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_small,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "BI" = (
 /obj/structure/barricade/wooden,
@@ -4511,6 +4476,12 @@
 	pixel_y = 10
 	},
 /turf/simulated/floor/plating,
+/area/template_noop)
+"Ce" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_big,
+/turf/simulated/floor/wood/yew,
 /area/template_noop)
 "Cg" = (
 /obj/structure/table/wood,
@@ -4804,6 +4775,23 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
+"DP" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/armor/carrier/heavy/sec{
+	pixel_x = -5
+	},
+/obj/item/clothing/head/helmet/security/heavy{
+	pixel_x = 3
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/armory,
+/turf/simulated/floor/reinforced,
+/area/template_noop)
+"DQ" = (
+/obj/structure/table/steel,
+/obj/random/toolbox,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "DT" = (
 /obj/structure/flora/bush/jungle/random,
 /turf/simulated/floor/exoplanet/grass,
@@ -4830,6 +4818,11 @@
 "Ec" = (
 /obj/structure/closet/crate/weld,
 /turf/simulated/floor/plating,
+/area/template_noop)
+"Ee" = (
+/obj/structure/closet/cabinet,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_big,
+/turf/simulated/floor/carpet/purple,
 /area/template_noop)
 "Ef" = (
 /obj/random/pottedplant,
@@ -4930,6 +4923,13 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled,
+/area/template_noop)
+"EI" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/storage/box/smokebombs,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/armory,
+/turf/simulated/floor/reinforced,
 /area/template_noop)
 "EJ" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -5341,10 +5341,6 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/freezer,
 /area/template_noop)
-"GT" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/crew_room_big,
-/turf/unsimulated/marker/red,
-/area/template_noop)
 "GU" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
@@ -5444,6 +5440,12 @@
 /obj/effect/floor_decal/corner/pink,
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"HH" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/dorms,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_small,
+/turf/simulated/floor/wood/bamboo,
+/area/template_noop)
 "HI" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/armor/carrier/heavy/sec{
@@ -5535,6 +5537,23 @@
 /area/template_noop)
 "Ia" = (
 /turf/simulated/floor/wood/bamboo,
+/area/template_noop)
+"Ib" = (
+/obj/structure/closet/crate,
+/obj/item/smes_coil/super_io,
+/obj/item/smes_coil/super_io,
+/obj/item/smes_coil/super_io,
+/obj/item/smes_coil/super_capacity,
+/obj/item/smes_coil/super_capacity,
+/obj/item/smes_coil/super_capacity,
+/obj/item/smes_coil,
+/obj/item/smes_coil,
+/obj/item/smes_coil,
+/obj/item/circuitboard/smes,
+/obj/item/circuitboard/smes,
+/obj/item/circuitboard/smes,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "Ic" = (
 /turf/simulated/floor/tiled/light,
@@ -5640,11 +5659,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"II" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/dorms,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_big,
-/turf/simulated/floor/wood/yew,
+"IK" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/armory,
+/turf/simulated/floor/reinforced,
 /area/template_noop)
 "IO" = (
 /obj/item/ammo_magazine/a556/carbine/polymer{
@@ -6024,6 +6041,11 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/lightblue,
 /area/template_noop)
+"Lt" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/engineering_storage,
+/turf/simulated/floor/plating,
+/area/template_noop)
 "Lv" = (
 /obj/machinery/photocopier,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -6316,6 +6338,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
+"Na" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/crew_quarters,
+/turf/unsimulated/marker/red,
+/area/template_noop)
 "Nb" = (
 /obj/structure/table/standard,
 /obj/item/device/memorywiper,
@@ -6362,10 +6388,6 @@
 /obj/structure/flora/grass/junglegrass/dense/random,
 /turf/simulated/floor/exoplanet/grass/marsh,
 /area/template_noop)
-"Ns" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/dome,
-/turf/simulated/wall/r_wall,
-/area/template_noop)
 "Nv" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/floodlight,
@@ -6383,18 +6405,6 @@
 	pixel_x = -5
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/template_noop)
-"Ny" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/armor/carrier/heavy/sec{
-	pixel_x = -5
-	},
-/obj/item/clothing/head/helmet/security/heavy{
-	pixel_x = 3
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/armory,
-/turf/simulated/floor/reinforced,
 /area/template_noop)
 "Nz" = (
 /obj/structure/flora/tree/konyang/fall,
@@ -6439,6 +6449,11 @@
 /obj/item/bedsheet/dorms,
 /turf/simulated/floor/carpet/magenta,
 /area/template_noop)
+"NL" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/science_storage,
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "NM" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -6476,10 +6491,6 @@
 /area/template_noop)
 "NW" = (
 /turf/simulated/floor/exoplanet/grass/stalk,
-/area/template_noop)
-"NX" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/department,
-/turf/simulated/wall,
 /area/template_noop)
 "NY" = (
 /turf/simulated/floor/exoplanet/mineral/adhomai,
@@ -6869,6 +6880,11 @@
 /obj/structure/barricade/wooden,
 /turf/simulated/floor/exoplanet/barren,
 /area/template_noop)
+"Qx" = (
+/obj/structure/closet,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_small,
+/turf/simulated/floor/lino,
+/area/template_noop)
 "QB" = (
 /obj/structure/closet/crate/secure/weapon,
 /obj/item/gun/energy/captain,
@@ -7053,10 +7069,6 @@
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"Rw" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/department,
-/turf/unsimulated/marker/red,
 /area/template_noop)
 "Rx" = (
 /obj/structure/table/wood,
@@ -7257,6 +7269,10 @@
 "Sw" = (
 /turf/simulated/floor/tiled/freezer,
 /area/template_noop)
+"SB" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/crew_room_big,
+/turf/unsimulated/marker/red,
+/area/template_noop)
 "SD" = (
 /obj/structure/flora/tree/crystal,
 /obj/effect/floor_decal/crystal/random,
@@ -7416,9 +7432,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
-"TE" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/warehouse_room,
-/turf/simulated/floor/plating,
+"TG" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/offices,
+/turf/simulated/wall,
 /area/template_noop)
 "TH" = (
 /obj/structure/railing/mapped,
@@ -7455,11 +7471,6 @@
 	},
 /obj/effect/floor_decal/corner/mauve,
 /turf/simulated/floor/tiled/white,
-/area/template_noop)
-"TN" = (
-/obj/structure/closet/cabinet,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_big,
-/turf/simulated/floor/carpet/darkblue,
 /area/template_noop)
 "TQ" = (
 /obj/machinery/atmospherics/unary/cryo_cell,
@@ -7569,11 +7580,6 @@
 	},
 /obj/item/reagent_containers/chem_disp_cartridge/copper,
 /turf/simulated/floor/tiled,
-/area/template_noop)
-"Ul" = (
-/obj/structure/closet,
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_small,
-/turf/simulated/floor/lino,
 /area/template_noop)
 "Uo" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
@@ -7851,10 +7857,19 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/template_noop)
+"VW" = (
+/obj/structure/closet/cabinet,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_room_big,
+/turf/simulated/floor/carpet/darkblue,
+/area/template_noop)
 "VY" = (
 /obj/structure/bed/stool/chair/office/dark,
 /obj/effect/floor_decal/corner/beige/diagonal,
 /turf/simulated/floor/tiled/white,
+/area/template_noop)
+"Wa" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/canteen,
+/turf/simulated/wall,
 /area/template_noop)
 "Wb" = (
 /obj/effect/floor_decal/corner/beige/diagonal,
@@ -8123,11 +8138,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"XQ" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/engineering_storage,
-/turf/simulated/floor/plating,
-/area/template_noop)
 "XV" = (
 /obj/structure/table/standard,
 /obj/machinery/reagentgrinder{
@@ -8312,9 +8322,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/template_noop)
-"YS" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/canteen,
-/turf/simulated/wall,
+"YT" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/warehouse_room,
+/turf/simulated/floor/plating,
 /area/template_noop)
 "YU" = (
 /obj/structure/table/steel,
@@ -8426,11 +8436,6 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
-/area/template_noop)
-"Zz" = (
-/obj/structure/table/steel,
-/obj/random/toolbox,
-/turf/simulated/floor/tiled,
 /area/template_noop)
 "ZA" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -9132,14 +9137,14 @@ Tr
 Tr
 Tr
 Tr
-TE
+YT
 iF
 iF
 Tr
 Tr
 cP
 Tr
-TE
+YT
 iF
 iF
 iF
@@ -9185,7 +9190,7 @@ tw
 tw
 PI
 PI
-Rw
+hz
 iF
 iF
 iF
@@ -9237,7 +9242,7 @@ iF
 iF
 iF
 iF
-Ns
+uV
 iF
 iF
 iF
@@ -9279,7 +9284,7 @@ iF
 iF
 iF
 iF
-Ns
+uV
 iF
 iF
 iF
@@ -9321,7 +9326,7 @@ iF
 iF
 iF
 iF
-Ns
+uV
 iF
 iF
 iF
@@ -10546,14 +10551,14 @@ Tr
 Tr
 Tr
 DH
-TE
+YT
 iF
 iF
 Tr
 Tr
 Tr
 Tr
-TE
+YT
 iF
 iF
 iF
@@ -11960,14 +11965,14 @@ Tr
 Tr
 Tr
 Tr
-TE
+YT
 iF
 iF
 Tr
 Tr
 Tr
 Tr
-TE
+YT
 iF
 iF
 iF
@@ -13374,14 +13379,14 @@ Tr
 Tr
 Tr
 Tr
-TE
+YT
 iF
 iF
 Tr
 Tr
 Wl
 Tr
-TE
+YT
 iF
 iF
 iF
@@ -14788,14 +14793,14 @@ Tr
 Tr
 Tr
 Tr
-TE
+YT
 iF
 iF
 Qi
 Tr
 Tr
 Tr
-TE
+YT
 iF
 iF
 iF
@@ -16202,14 +16207,14 @@ Tr
 Tr
 Tr
 Tr
-TE
+YT
 iF
 iF
 Tr
 Tr
 Tr
 Tr
-TE
+YT
 iF
 iF
 iF
@@ -16457,7 +16462,7 @@ tw
 tw
 tw
 tw
-NX
+AW
 iF
 iF
 iF
@@ -17616,14 +17621,14 @@ Tr
 Tr
 Tr
 Tr
-TE
+YT
 iF
 iF
 Tr
 Tr
 Tr
 Tr
-TE
+YT
 iF
 iF
 iF
@@ -17650,7 +17655,7 @@ ht
 ht
 ht
 ht
-dj
+IK
 Rz
 HO
 EA
@@ -17721,7 +17726,7 @@ iF
 iF
 iF
 iF
-Ns
+uV
 iF
 iF
 iF
@@ -17763,7 +17768,7 @@ iF
 iF
 iF
 iF
-Ns
+uV
 iF
 iF
 iF
@@ -17805,7 +17810,7 @@ iF
 iF
 iF
 iF
-Ns
+uV
 iF
 iF
 iF
@@ -18080,7 +18085,7 @@ Vx
 ht
 HI
 Yy
-Ny
+DP
 iF
 iF
 iF
@@ -19292,7 +19297,7 @@ Yy
 AP
 XE
 Yy
-zC
+st
 iF
 iF
 iF
@@ -20504,7 +20509,7 @@ OQ
 Od
 du
 Yy
-hr
+EI
 iF
 iF
 iF
@@ -21086,17 +21091,17 @@ SU
 SU
 SU
 qi
-NG
-NG
+EA
+EA
 gn
-SU
-SU
-SU
-SU
-SU
-SU
-SU
-xi
+qi
+qi
+qi
+qi
+qi
+qi
+qi
+hh
 tw
 PI
 PI
@@ -23686,7 +23691,7 @@ tw
 tw
 tw
 tw
-YS
+Wa
 iF
 iF
 iF
@@ -23729,7 +23734,7 @@ tw
 PI
 PI
 PI
-Rw
+hz
 iF
 iF
 iF
@@ -25149,11 +25154,11 @@ iF
 iF
 pc
 Tr
-gq
+pu
 iF
 zK
 Tr
-gq
+pu
 iF
 iF
 iF
@@ -25340,7 +25345,7 @@ Tr
 Tr
 lh
 lh
-yN
+wL
 tw
 PI
 PI
@@ -25957,11 +25962,11 @@ iF
 iF
 Tr
 ew
-aB
+aP
 iF
 Hu
 Tr
-gq
+pu
 iF
 iF
 iF
@@ -26147,12 +26152,12 @@ Af
 tw
 Op
 Sr
-sp
+Lt
 tw
 tw
 Op
 Sr
-sp
+Lt
 tw
 iF
 iF
@@ -26205,7 +26210,7 @@ iF
 iF
 iF
 iF
-Ns
+uV
 iF
 iF
 iF
@@ -26247,7 +26252,7 @@ iF
 iF
 iF
 iF
-Ns
+uV
 iF
 iF
 iF
@@ -26289,7 +26294,7 @@ iF
 iF
 iF
 iF
-Ns
+uV
 iF
 iF
 iF
@@ -26765,11 +26770,11 @@ iF
 iF
 CE
 Tr
-gq
+pu
 iF
 Tr
 Tr
-gq
+pu
 iF
 iF
 iF
@@ -27358,12 +27363,12 @@ Tr
 tw
 Op
 Sr
-sp
+Lt
 tw
 tw
 Op
 Sr
-sp
+Lt
 tw
 tw
 iF
@@ -27573,11 +27578,11 @@ iF
 iF
 Tr
 Tr
-gq
+pu
 iF
 Tr
 Tr
-gq
+pu
 iF
 iF
 iF
@@ -27748,7 +27753,7 @@ pQ
 SU
 Op
 Sr
-sp
+Lt
 tw
 PI
 tw
@@ -28157,7 +28162,7 @@ tw
 PI
 tw
 XI
-Zz
+DQ
 CT
 jw
 tw
@@ -28381,11 +28386,11 @@ iF
 iF
 Tr
 Tr
-gq
+pu
 iF
 ox
 zK
-gq
+pu
 iF
 iF
 iF
@@ -28534,7 +28539,7 @@ tw
 tw
 tw
 tw
-YS
+Wa
 iF
 iF
 iF
@@ -28962,9 +28967,9 @@ tw
 Tr
 SU
 tw
-nk
+BF
 lh
-cp
+Ib
 tw
 Jv
 oL
@@ -29368,7 +29373,7 @@ SU
 tw
 lh
 Tr
-yN
+wL
 tw
 AV
 tH
@@ -29376,7 +29381,7 @@ SU
 Tr
 lh
 lh
-XQ
+hK
 tw
 Tr
 Tr
@@ -31001,7 +31006,7 @@ tw
 tw
 tw
 tw
-Rw
+hz
 iF
 iF
 iF
@@ -31599,7 +31604,7 @@ PI
 tw
 HZ
 HZ
-zE
+NL
 tw
 Tr
 Tr
@@ -31617,7 +31622,7 @@ UJ
 iF
 ce
 NG
-bW
+os
 iF
 iF
 iF
@@ -32219,11 +32224,11 @@ iF
 iF
 NG
 NG
-bW
+os
 iF
 NG
 ce
-bW
+os
 iF
 iF
 iF
@@ -32414,7 +32419,7 @@ Uo
 eF
 HZ
 HZ
-zE
+NL
 tw
 iF
 iF
@@ -32825,11 +32830,11 @@ iF
 iF
 NG
 NG
-bW
+os
 iF
 Km
 NG
-bW
+os
 iF
 iF
 iF
@@ -33020,7 +33025,7 @@ Uo
 eF
 HZ
 HZ
-zE
+NL
 tw
 iF
 iF
@@ -33435,7 +33440,7 @@ RT
 iF
 QB
 NG
-bW
+os
 iF
 iF
 iF
@@ -34037,11 +34042,11 @@ iF
 iF
 NG
 NG
-bW
+os
 iF
 bG
 NG
-bW
+os
 iF
 iF
 iF
@@ -35279,7 +35284,7 @@ PI
 PI
 PI
 PI
-ba
+Na
 iF
 iF
 iF
@@ -35414,7 +35419,7 @@ Tr
 tw
 HZ
 HZ
-zE
+NL
 tw
 jh
 jh
@@ -35452,7 +35457,7 @@ iF
 tw
 PI
 PI
-qP
+uo
 tw
 SU
 SU
@@ -35661,14 +35666,14 @@ KQ
 tw
 PI
 PI
-qP
+uo
 tw
 CC
 qf
 tw
 PI
 PI
-qP
+uo
 tw
 Tr
 Tr
@@ -35679,7 +35684,7 @@ NG
 tw
 PI
 PI
-qP
+uo
 tw
 PI
 PI
@@ -36020,7 +36025,7 @@ Tr
 tw
 HZ
 HZ
-zE
+NL
 tw
 Ys
 iz
@@ -36076,7 +36081,7 @@ PI
 tw
 PI
 PI
-GT
+SB
 tw
 qN
 NG
@@ -36260,7 +36265,7 @@ iF
 tw
 PI
 PI
-GT
+SB
 tw
 SU
 KQ
@@ -36469,14 +36474,14 @@ KQ
 tw
 PI
 PI
-qP
+uo
 tw
 NG
 oZ
 tw
 PI
 PI
-qP
+uo
 tw
 PI
 PI
@@ -36487,7 +36492,7 @@ NG
 tw
 PI
 PI
-qP
+uo
 tw
 PI
 PI
@@ -36848,11 +36853,11 @@ tw
 tw
 HZ
 HZ
-zE
+NL
 tw
 HZ
 HZ
-zE
+NL
 tw
 PI
 PI
@@ -37086,7 +37091,7 @@ tw
 tw
 PI
 PI
-GT
+SB
 tw
 qN
 NG
@@ -37270,21 +37275,21 @@ iF
 tw
 PI
 PI
-qP
+uo
 tw
 SU
 KQ
 tw
 PI
 PI
-qP
+uo
 tw
 NG
 oZ
 tw
 PI
 PI
-qP
+uo
 tw
 PI
 PI
@@ -37295,7 +37300,7 @@ NG
 tw
 PI
 PI
-qP
+uo
 tw
 PI
 PI
@@ -38254,7 +38259,7 @@ tw
 tw
 tw
 tw
-mH
+TG
 iF
 iF
 iF
@@ -38886,14 +38891,14 @@ iF
 tw
 PI
 PI
-qP
+uo
 tw
 Cv
 SU
 tw
 PI
 PI
-qP
+uo
 tw
 qN
 NG
@@ -38904,14 +38909,14 @@ eW
 tw
 PI
 PI
-qP
+uo
 tw
 NG
 oZ
 tw
 PI
 PI
-qP
+uo
 tw
 PI
 PI
@@ -39687,7 +39692,7 @@ tw
 tw
 tw
 tw
-YS
+Wa
 iF
 iF
 iF
@@ -39701,7 +39706,7 @@ SU
 tw
 PI
 PI
-qP
+uo
 tw
 qN
 NG
@@ -39712,14 +39717,14 @@ tw
 tw
 PI
 PI
-qP
+uo
 tw
 NG
 oZ
 tw
 PI
 PI
-qP
+uo
 tw
 PI
 PI
@@ -39910,7 +39915,7 @@ NG
 tw
 PI
 PI
-GT
+SB
 tw
 PI
 PI
@@ -40502,14 +40507,14 @@ iF
 tw
 PI
 PI
-qP
+uo
 tw
 Cv
 SU
 tw
 PI
 PI
-qP
+uo
 tw
 qN
 NG
@@ -40520,14 +40525,14 @@ PI
 tw
 PI
 PI
-qP
+uo
 tw
 NG
 oZ
 tw
 PI
 PI
-qP
+uo
 tw
 PI
 PI
@@ -41345,19 +41350,19 @@ iF
 iF
 MG
 NG
-BF
+aY
 iF
 iF
 iF
 nR
 NG
-BF
+aY
 iF
 iF
 iF
 MG
 NG
-yB
+ry
 iF
 iF
 iF
@@ -41890,7 +41895,7 @@ tw
 tw
 tw
 tw
-mH
+TG
 iF
 iF
 iF
@@ -41945,7 +41950,7 @@ tw
 tw
 tw
 tw
-ba
+Na
 iF
 iF
 iF
@@ -42118,22 +42123,22 @@ iF
 tw
 PI
 PI
-qP
+uo
 tw
 SU
 SU
 tw
 PI
 PI
-qP
+uo
 tw
 PI
 PI
-qP
+uo
 tw
 PI
 PI
-qP
+uo
 tw
 Tr
 Tr
@@ -42141,11 +42146,11 @@ Tr
 tw
 PI
 PI
-qP
+uo
 tw
 PI
 PI
-qP
+uo
 tw
 PI
 iF
@@ -42557,13 +42562,13 @@ iF
 iF
 MG
 wP
-BF
+aY
 iF
 iF
 iF
 er
 vi
-Ul
+Qx
 iF
 iF
 iF
@@ -43539,11 +43544,11 @@ KQ
 tw
 PI
 PI
-GT
+SB
 tw
 PI
 PI
-GT
+SB
 tw
 eW
 eW
@@ -43554,11 +43559,11 @@ oZ
 tw
 PI
 PI
-qP
+uo
 tw
 PI
 PI
-qP
+uo
 tw
 PI
 PI
@@ -43734,7 +43739,7 @@ iF
 tw
 PI
 PI
-GT
+SB
 tw
 SU
 KQ
@@ -43769,19 +43774,19 @@ iF
 iF
 TK
 vi
-iR
+lX
 iF
 iF
 iF
 Bi
 Ia
-hn
+HH
 iF
 iF
 iF
 MG
 fy
-BF
+aY
 iF
 iF
 iF
@@ -44131,7 +44136,7 @@ tw
 tw
 tw
 tw
-YS
+Wa
 iF
 iF
 iF
@@ -44549,7 +44554,7 @@ rb
 tw
 PI
 PI
-qP
+uo
 tw
 wJ
 wJ
@@ -44557,7 +44562,7 @@ wJ
 tw
 PI
 PI
-qP
+uo
 tw
 NG
 kP
@@ -44968,11 +44973,11 @@ NG
 tw
 PI
 PI
-GT
+SB
 tw
 PI
 PI
-GT
+SB
 tw
 PI
 PI
@@ -45365,7 +45370,7 @@ tw
 tw
 PI
 PI
-qP
+uo
 tw
 NG
 NG
@@ -45552,7 +45557,7 @@ iF
 tw
 PI
 PI
-qP
+uo
 tw
 Cv
 SU
@@ -45789,7 +45794,7 @@ iF
 iF
 jg
 jt
-rM
+Ee
 iF
 iF
 iF
@@ -45801,7 +45806,7 @@ iF
 iF
 Az
 qY
-II
+Ce
 iF
 iF
 iF
@@ -45963,11 +45968,11 @@ SU
 tw
 PI
 PI
-qP
+uo
 tw
 PI
 PI
-qP
+uo
 tw
 tw
 tw
@@ -45978,7 +45983,7 @@ oZ
 tw
 PI
 PI
-qP
+uo
 tw
 PI
 PI
@@ -46360,7 +46365,7 @@ iF
 tw
 PI
 PI
-qP
+uo
 tw
 Cv
 SU
@@ -47168,7 +47173,7 @@ iF
 tw
 PI
 PI
-qP
+uo
 tw
 Cv
 SU
@@ -47203,19 +47208,19 @@ iF
 iF
 GD
 rw
-TN
+VW
 iF
 iF
 iF
 FB
 Te
-cm
+vw
 iF
 iF
 iF
 ZL
 wP
-kY
+oX
 iF
 iF
 iF
