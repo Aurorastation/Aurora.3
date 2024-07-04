@@ -992,6 +992,13 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/template_noop)
+"fB" = (
+/obj/structure/closet/hazmat/custodial,
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "fC" = (
 /turf/simulated/floor/carpet/magenta,
 /area/template_noop)
@@ -2805,6 +2812,11 @@
 	},
 /turf/simulated/floor/tiled/light,
 /area/template_noop)
+"rj" = (
+/obj/structure/table/wood,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_lounge,
+/turf/simulated/floor/carpet/green,
+/area/template_noop)
 "rk" = (
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/konyang,
@@ -3122,6 +3134,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"tp" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_lounge,
+/turf/simulated/floor/carpet/purple,
 /area/template_noop)
 "tr" = (
 /obj/structure/closet/crate/rad/gear,
@@ -4398,6 +4414,7 @@
 /area/template_noop)
 "Bw" = (
 /obj/structure/closet/cabinet,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_lounge,
 /turf/simulated/floor/carpet/orange,
 /area/template_noop)
 "Bz" = (
@@ -5221,6 +5238,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"Gh" = (
+/obj/structure/janitorialcart/full/water{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "Gk" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/item/reagent_containers/food/snacks/ricetub{
@@ -5341,6 +5367,12 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/freezer,
 /area/template_noop)
+"GT" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "GU" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/plating,
@@ -5439,6 +5471,13 @@
 	},
 /obj/effect/floor_decal/corner/pink,
 /turf/simulated/floor/tiled/white,
+/area/template_noop)
+"HF" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/template_noop)
 "HH" = (
 /obj/structure/bed/padded,
@@ -6286,6 +6325,14 @@
 /obj/random/prebuilt_ka,
 /turf/simulated/floor/plating,
 /area/template_noop)
+"MI" = (
+/obj/item/mop,
+/obj/structure/mopbucket,
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/template_noop)
 "MJ" = (
 /obj/machinery/r_n_d/protolathe,
 /turf/simulated/floor/carpet/rubber,
@@ -6866,6 +6913,10 @@
 "Qp" = (
 /obj/item/stack/material/gold/full,
 /turf/simulated/floor/plating,
+/area/template_noop)
+"Qr" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/crew_lounge,
+/turf/unsimulated/marker/blue,
 /area/template_noop)
 "Qt" = (
 /obj/machinery/light/colored/blue{
@@ -38703,7 +38754,7 @@ NG
 eW
 eW
 eW
-eW
+Qr
 tw
 tw
 tw
@@ -42985,7 +43036,7 @@ iF
 OI
 YW
 Zo
-bd
+rj
 iF
 iF
 iF
@@ -43351,7 +43402,7 @@ tw
 eW
 eW
 eW
-eW
+Qr
 NG
 xl
 tw
@@ -44601,7 +44652,7 @@ iF
 JO
 HJ
 jt
-jt
+tp
 iF
 iF
 iF
@@ -46176,9 +46227,9 @@ PI
 PI
 PI
 tw
-PI
-PI
-PI
+Gh
+NG
+HF
 tw
 NG
 NG
@@ -46378,9 +46429,9 @@ PI
 PI
 PI
 tw
-PI
-PI
-PI
+MI
+NG
+fB
 tw
 NG
 oZ
@@ -46392,7 +46443,7 @@ tw
 eW
 eW
 eW
-eW
+Qr
 tw
 PI
 iF
@@ -46784,8 +46835,8 @@ NG
 dZ
 NG
 NG
-NG
-NG
+GT
+GT
 NG
 QN
 xM

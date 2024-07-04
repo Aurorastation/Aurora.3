@@ -97,6 +97,14 @@
 
 // ---
 
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/crew_lounge
+	name = "cargo/crew_lounge"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/ipc_rnd_facility/misc/crew_lounge
+	name = "cargo/crew_lounge"
+
+// ---
+
 /obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/misc/warehouse_room
 	name = "cargo/warehouse_room"
 
