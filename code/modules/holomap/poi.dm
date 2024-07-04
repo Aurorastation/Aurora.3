@@ -15,4 +15,4 @@
 
 /obj/effect/landmark/minimap_poi/Destroy()
 	. = ..()
-	SSholomap.pois -= src.name
+	SSholomap.pois -= src
