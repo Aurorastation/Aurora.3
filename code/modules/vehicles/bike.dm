@@ -189,7 +189,11 @@
 			to_chat(user, SPAN_NOTICE("\The [src] already has a key in it."))
 	..()
 
-/obj/vehicle/bike/relaymove(mob/user, direction)
+/obj/vehicle/bike/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if(user != load || !on || user.incapacitated())
 		return
 	return Move(get_step(src, direction))

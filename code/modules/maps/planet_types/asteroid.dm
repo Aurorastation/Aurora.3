@@ -15,6 +15,8 @@
 
 	unit_test_groups = list(2)
 
+	soil_data = list("Rich aluminium oxide layer", "Rich iron oxide layer", "Rich silver dust layer", "Rich gold dust layer", "Low density silicon dioxide layer", "Large rock particle layer")
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/update_icon()
 	icon_state = "asteroid[rand(1,3)]"
 
