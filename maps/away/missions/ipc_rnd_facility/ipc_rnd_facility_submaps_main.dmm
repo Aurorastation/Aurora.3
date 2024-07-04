@@ -6566,6 +6566,10 @@
 "Oe" = (
 /turf/simulated/mineral/lava,
 /area/template_noop)
+"Oi" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/ipc_rnd_facility/main/workshop,
+/turf/simulated/wall,
+/area/template_noop)
 "Oo" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -23764,7 +23768,7 @@ tw
 tw
 tw
 tw
-Wa
+Oi
 iF
 iF
 iF
@@ -28612,7 +28616,7 @@ tw
 tw
 tw
 tw
-Wa
+Oi
 iF
 iF
 iF
