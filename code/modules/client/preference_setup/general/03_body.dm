@@ -345,7 +345,7 @@ var/global/list/valid_bloodtypes = list(
 
 	out += "<br><a href='?src=\ref[src];marking_style=1'>Body Markings +</a><br>"
 	for(var/M in pref.body_markings)
-		out += "[M] [pref.body_markings.len > 1 ? "<a href='?src=\ref[src];marking_up=[M]'>&#708;</a> <a href='?src=\ref[src];marking_down=[M]'>&#709;</a> " : ""]<a href='?src=\ref[src];marking_remove=[M]'>-</a> <a href='?src=\ref[src];marking_color=[M]'>Color</a>"
+		out += "[M] [pref.body_markings.len > 1 ? "<a href='?src=\ref[src];marking_up=[M]'>&#708;</a> <a href='?src=\ref[src];marking_down=[M]'>&#709;</a> " : ""]<a href='?src=\ref[src];marking_remove=[M]'>-</a> <a href='?src=\ref[src];marking_color=[M]'>Color</a>[length(mob_species.character_color_presets) ? "<a href='?src=\ref[src];marking_preset=[M]'>Preset</a>" : ""]"
 		out += HTML_RECT(pref.body_markings[M])
 		out += "<br>"
 
@@ -732,6 +732,14 @@ var/global/list/valid_bloodtypes = list(
 		var/mark_color = input(user, "Choose the [M] color: ", "Character Preference", pref.body_markings[M]) as color|null
 		if(mark_color && CanUseTopic(user))
 			pref.body_markings[M] = "[mark_color]"
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["marking_preset"])
+		var/M = href_list["marking_preset"]
+		var/mark_preset = tgui_input_list(user, "Choose the [M] preset: ", "Character Preference", mob_species.character_color_presets, rgb(pref.r_skin, pref.g_skin, pref.b_skin))
+		mark_preset = mob_species.character_color_presets[mark_preset]
+		if(mark_preset && CanUseTopic(user))
+			pref.body_markings[M] = "[mark_preset]"
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["limbs"])
