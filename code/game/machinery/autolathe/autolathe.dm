@@ -118,7 +118,7 @@
 		recipe_data["name"] = R.name
 		recipe_data["recipe"] = R.type
 		recipe_data["security_level"] = R.security_level ? capitalize(num2seclevel(R.security_level)) : "None"
-		recipe_data["hidden"] = R.hack_only
+		recipe_data["hack_only"] = R.hack_only
 		recipe_data["enabled"] = can_print_item(R)
 
 		var/list/resources = list()
@@ -203,10 +203,10 @@
 		var/multiplier = text2num(params["multiplier"])
 		var/singleton/autolathe_recipe/R = GET_SINGLETON(text2path(params["recipe"]))
 		if(!istype(R))
-			CRASH("Unknown recipe given! [R], param is [params["recipe"]].")
+			CRASH("([usr.ckey]) tried to print an unknown recipe! [R], param is [params["recipe"]].")
 
 		if(!can_print_item(R))
-			CRASH("Someone tried to print an un-enabled recipe! [R], param is [params["recipe"]].")
+			CRASH("([usr.ckey]) tried to print an un-enabled recipe! [R], param is [params["recipe"]].")
 
 		intent_message(MACHINE_SOUND)
 

@@ -31,7 +31,7 @@ type Recipe = {
   can_make: BooleanLike;
   recipe: string;
   security_level: string;
-  hidden: BooleanLike;
+  hack_only: BooleanLike;
   enabled: BooleanLike;
 };
 
@@ -153,7 +153,7 @@ export const CategoryData = (props, context) => {
                 <Table.Cell py={0.25}>
                   <Button
                     content={
-                      <Box bold color={recipe.hidden ? 'red' : ''}>
+                      <Box bold color={recipe.hack_only ? 'red' : ''}>
                         {capitalizeAll(recipe.name)}
                       </Box>
                     }
@@ -180,7 +180,7 @@ export const CategoryData = (props, context) => {
                       {' '}
                       <Button
                         content={
-                          <Box bold color={recipe.hidden ? 'red' : ''}>
+                          <Box bold color={recipe.hack_only ? 'red' : ''}>
                             [x5]
                           </Box>
                         }
@@ -204,7 +204,7 @@ export const CategoryData = (props, context) => {
                       />
                       <Button
                         content={
-                          <Box bold color={recipe.hidden ? 'red' : ''}>
+                          <Box bold color={recipe.hack_only ? 'red' : ''}>
                             [x10]
                           </Box>
                         }
@@ -228,7 +228,7 @@ export const CategoryData = (props, context) => {
                       />
                       <Button
                         content={
-                          <Box bold color={recipe.hidden ? 'red' : ''}>
+                          <Box bold color={recipe.hack_only ? 'red' : ''}>
                             [x{recipe.max_sheets}]
                           </Box>
                         }
