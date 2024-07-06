@@ -157,7 +157,11 @@ var/global/ntnrc_uid = 0
 	if(newPassword)
 		password = newPassword
 	else
-		password = FALSE
+		password = null
+
+	var/datum/ntnet_message/new_password/msg = new()
+	msg.nuser = operator
+	process_message(msg)
 
 /datum/ntnet_conversation/proc/cl_kick(var/datum/computer_file/program/chat_client/Cl, var/datum/ntnet_user/target)
 	if(!istype(Cl) || !istype(Cl.my_user) || !can_manage(Cl) || !(target in users) || direct)
