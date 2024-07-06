@@ -40,12 +40,10 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/diona/Initialize(mapload, new_species = null)
 	. = ..(mapload, new_species || SPECIES_DIONA)
 	src.gender = NEUTER
-	change_skin_color(86, 74, 36)
 
 /mob/living/carbon/human/diona/coeus/Initialize(mapload)
 	. = ..(mapload, SPECIES_DIONA_COEUS)
 	src.gender = NEUTER
-	change_skin_color(86, 74, 36)
 
 /mob/living/carbon/human/machine/Initialize(mapload)
 	h_style = "blue IPC screen"
