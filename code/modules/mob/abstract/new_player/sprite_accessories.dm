@@ -6191,12 +6191,6 @@ Follow by example and make good judgement based on length which list to include 
 	body_parts = list(BP_R_HAND, BP_L_HAND)
 	do_colouration = FALSE
 
-/datum/sprite_accessory/marking/diona_leaves/tail
-	name = "Tail"
-	icon_state = "dionatail"
-	body_parts = list(BP_GROIN)
-	do_colouration = FALSE
-
 // Baseline markings.
 /datum/sprite_accessory/marking/baseline_head
 	name = "Baseline - Raxus Primary Colors"

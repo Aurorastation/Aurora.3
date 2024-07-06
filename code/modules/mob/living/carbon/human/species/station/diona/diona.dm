@@ -135,6 +135,10 @@
 	snore_key = "chirp"
 	indefinite_sleep = TRUE
 
+	tail = "No Tail"
+	tail_animation = 'icons/mob/species/diona/tail.dmi'
+	selectable_tails = list("No Tail", "Unathi Tail")
+
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other
 	if(istype(D))
