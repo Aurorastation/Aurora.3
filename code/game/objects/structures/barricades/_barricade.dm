@@ -46,7 +46,8 @@
 			. += SPAN_WARNING("It's crumbling apart, just a few more blows will tear it apart!")
 
 /obj/structure/barricade/update_icon()
-	overlays.Cut()
+	CutOverlays()
+
 	if(!closed)
 		if(can_change_dmg_state)
 			icon_state = "[barricade_type]_[damage_state]"
@@ -70,9 +71,9 @@
 
 	if(is_wired)
 		if(!closed)
-			overlays += image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_wire")
+			AddOverlays(image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_wire"))
 		else
-			overlays += image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_closed_wire")
+			AddOverlays(image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_closed_wire"))
 
 	..()
 
@@ -110,6 +111,12 @@
 		return !density
 	else
 		return TRUE
+
+/obj/structure/barricade/can_climb(var/mob/living/user, post_climb_check=0)
+	if(is_wired)
+		to_chat(user, SPAN_WARNING("\The [src] has barbed wire over it, restricting you from climbing over!"))
+		return FALSE
+	return ..()
 
 /obj/structure/barricade/attack_robot(mob/user)
 	return attack_hand(user)
