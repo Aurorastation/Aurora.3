@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscdel: "Limited the number of bullet holes in a wall to 3, to prevent the decals from lagging the game."
