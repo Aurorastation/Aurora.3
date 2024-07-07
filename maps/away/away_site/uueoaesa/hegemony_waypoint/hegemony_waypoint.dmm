@@ -222,11 +222,12 @@
 /area/hegemony_waypoint/bunks)
 "dE" = (
 /obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external{
-	dir = 4
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/hegemony_waypoint/west,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/hegemony_waypoint/north,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_waypoint/hallway)
 "dO" = (
@@ -918,16 +919,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
-"pZ" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external,
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 8
-	},
-/obj/effect/map_effect/marker/airlock/hegemony_waypoint/north,
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/tiled/dark/full,
-/area/hegemony_waypoint/hallway)
 "qg" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1197,6 +1188,15 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"wd" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/hegemony_waypoint/west,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/tiled/dark/full,
+/area/hegemony_waypoint/hallway)
 "wj" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/machinery/door/airlock/service{
@@ -1704,13 +1704,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/kitchen)
-"EB" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock/hegemony_waypoint/north,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/tiled/dark/full,
-/area/hegemony_waypoint/hallway)
 "ED" = (
 /obj/structure/table/steel,
 /obj/machinery/light/small{
@@ -1782,7 +1775,7 @@
 "Gu" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/airlock/external,
-/obj/effect/map_effect/marker/airlock/hegemony_waypoint/south,
+/obj/effect/map_effect/marker/airlock/hegemony_waypoint/north,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_waypoint/hallway)
@@ -2318,6 +2311,13 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/bunks)
+"My" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/hegemony_waypoint/south,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/tiled/dark/full,
+/area/hegemony_waypoint/hallway)
 "Nf" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled,
@@ -3030,6 +3030,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
+"ZH" = (
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "Elyran Francisca Rotary Gun"
+	},
+/turf/template_noop,
+/area/space)
 "ZS" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -33727,7 +33733,7 @@ gB
 gB
 gB
 oV
-dE
+wd
 gB
 jq
 jq
@@ -34487,9 +34493,9 @@ OV
 PH
 jq
 jq
-EB
+Gu
 dm
-pZ
+dE
 bu
 UX
 st
@@ -35568,7 +35574,7 @@ vI
 mI
 It
 bE
-Gu
+My
 jq
 jq
 jq
@@ -50699,7 +50705,7 @@ OV
 OV
 OV
 OV
-OV
+ZH
 OV
 OV
 OV
