@@ -43,8 +43,6 @@
 
 /obj/structure/trash_pile/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user.stat || user.resting) // don't care too much about use_check here, checking these will suffice
 		return

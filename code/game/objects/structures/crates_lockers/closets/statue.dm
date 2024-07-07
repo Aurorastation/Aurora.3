@@ -154,8 +154,6 @@
 
 /obj/structure/closet/statue/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	return
 

@@ -78,8 +78,6 @@
 
 /mob/living/carbon/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if((user in contents) && istype(user))
 		if(user.last_special <= world.time)

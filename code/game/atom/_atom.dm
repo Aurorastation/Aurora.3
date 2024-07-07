@@ -36,6 +36,9 @@
 	var/simulated = 1 // Filter for actions. Used by lighting overlays.
 	var/fluorescent // Shows up under a UV light.
 
+	///Cooldown tick timer for buckle messages
+	var/buckle_message_cooldown = 0
+
 	/// Chemistry.
 	var/datum/reagents/reagents = null
 	var/list/reagents_to_add
@@ -131,8 +134,8 @@
 	SHOULD_CALL_PARENT(TRUE)
 
 	if(SEND_SIGNAL(src, COMSIG_ATOM_RELAYMOVE, user, direction) & COMSIG_BLOCK_RELAYMOVE)
-		return FALSE
-	return TRUE
+		return
+	return
 
 
 /**
