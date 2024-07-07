@@ -238,7 +238,7 @@
 
 /obj/item/reagent_containers/food/snacks/burger/nakarka_hamburger
 	name = "nakarka hamburger" //wrote "hamburger" in full to set it apart from "nakarkaburger" which is a kois dish
-	desc = "A delicious hamburger with green Nakarka cheese. Grilling the cheese makes it palettable for Humans and Tajara as well. This meal is not to be confused with the K'ois version of the same meal. No. Seriously. DO NOT CONFUSE IT."
+	desc = "A delicious hamburger with green Nakarka cheese. Grilling the cheese makes it palatable for Humans and Tajara as well. This meal is not to be confused with the K'ois version of the same meal. No. Seriously. DO NOT CONFUSE IT."
 	icon_state = "nakarkaburger"
 	center_of_mass = list("x"=16, "y"=11)
 	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 3)
