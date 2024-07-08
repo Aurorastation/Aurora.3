@@ -542,7 +542,7 @@
 			damtype = DAMAGE_BURN
 			w_class = WEIGHT_CLASS_BULKY
 			welding = TRUE
-			hitsound = SOUNDS_LASER_MEAT
+			hitsound = pick(SOUNDS_LASER_MEAT)
 			attack_verb = list("scorched", "burned", "blasted", "blazed")
 			update_icon()
 			set_processing(TRUE)

@@ -45,7 +45,7 @@
 	if(!message)
 		return
 
-	log_say("[changeling_mob] Hivemind/[src.key] : [message]", ckey=key_name(src))
+	log_say("[changeling_mob] Hivemind/[src.key] : [message]")
 
 	if(src.client?.prefs.muted & (MUTE_DEADCHAT|MUTE_IC))
 		to_chat(src, SPAN_WARNING("You cannot talk. (Admin Muted)"))

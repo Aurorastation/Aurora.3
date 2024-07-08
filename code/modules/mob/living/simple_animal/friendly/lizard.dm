@@ -30,7 +30,7 @@
 	. = ..()
 	nutrition = rand(max_nutrition*0.25, max_nutrition*0.75)
 
-/mob/living/simple_animal/lizard/Life()
+/mob/living/simple_animal/lizard/Life(seconds_per_tick, times_fired)
 	if (!..())
 		if ((world.time - timeofdeath) > decompose_time)
 			dust()

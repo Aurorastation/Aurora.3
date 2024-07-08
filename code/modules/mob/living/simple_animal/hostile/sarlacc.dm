@@ -137,7 +137,7 @@
 		sarlacc = null
 	return ..()
 
-/mob/living/simple_animal/hostile/greatworm/Life()
+/mob/living/simple_animal/hostile/greatworm/Life(seconds_per_tick, times_fired)
 	..()
 	if(!sarlacc)
 		var/obj/item/trap/sarlacc/L = new /obj/item/trap/sarlacc(src.loc)
