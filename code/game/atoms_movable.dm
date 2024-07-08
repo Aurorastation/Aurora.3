@@ -161,29 +161,7 @@
 	else if (!QDELETED(A))
 		A.CollidedWith(src)
 
-//called when src is thrown into hit_atom
-// /atom/movable/proc/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-// 	if(isliving(hit_atom))
-// 		var/mob/living/M = hit_atom
-// 		M.hitby(src, throwingdatum=throwingdatum)
-
-// 	else if(isobj(hit_atom))
-// 		var/obj/O = hit_atom
-// 		if(!O.anchored)
-// 			step(O, src.last_move)
-// 		O.hitby(src, throwingdatum=throwingdatum)
-
-// 	else if(isturf(hit_atom))
-// 		throwing?.finalize(hit = FALSE)
-// 		var/turf/T = hit_atom
-// 		if(T.density)
-// 			step(src, turn(src.last_move, 180))
-// 			if(isliving(src))
-// 				var/mob/living/M = src
-// 				M.turf_collision(T, throwingdatum.speed)
-
 /atom/movable/proc/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	set waitfor = FALSE
 	var/hitpush = TRUE
 	var/impact_signal = SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_IMPACT, hit_atom, throwingdatum)
 	if(impact_signal & COMPONENT_MOVABLE_IMPACT_FLIP_HITPUSH)
