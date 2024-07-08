@@ -6757,7 +6757,7 @@
 /obj/item/reagent_containers/food/snacks/koisbar_clean,
 /obj/item/clothing/suit/vaurca/silver,
 /obj/item/clothing/under/unathi/zazali{
-	color = #373C0E
+	color = "#373C0E"
 	},
 /obj/item/clothing/mask/gas/vaurca/filter,
 /obj/item/melee/energy/vaurca,

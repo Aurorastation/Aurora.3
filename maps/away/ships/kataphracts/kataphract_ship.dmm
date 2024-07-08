@@ -2673,7 +2673,7 @@
 /obj/item/flag/hegemony/l,
 /obj/item/toy/mech/marauder,
 /obj/item/clothing/accessory/poncho/unathimantle/forest{
-	color = #6D2B1A
+	color = "#6D2B1A"
 	},
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/storage/belt/military,
@@ -3071,7 +3071,7 @@
 /obj/item/clothing/head/helmet/unathi/klax,
 /obj/item/clothing/shoes/magboots/vaurca,
 /obj/item/clothing/glasses/sunglasses/blinders{
-	color = #423509
+	color = "#423509"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -3790,7 +3790,7 @@
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/under/vaurca/gearharness,
 /obj/item/clothing/under/unathi/zazali{
-	color = #373C0E
+	color = "#373C0E"
 	},
 /obj/item/clothing/suit/unathi/robe/beige,
 /obj/item/clothing/head/unathi/dark,
