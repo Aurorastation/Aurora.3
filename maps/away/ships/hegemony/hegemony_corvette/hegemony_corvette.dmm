@@ -315,12 +315,8 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/warpriests_quarters)
 "bZ" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/computer/ship/navigation,
-/turf/simulated/floor/plating,
+/obj/structure/ship_weapon_dummy,
+/turf/template_noop,
 /area/hegemony_ship/gun_deck_bruiser)
 "cc" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -706,12 +702,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/aux_cic)
 "er" = (
-/obj/structure/railing/mapped,
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
 "eu" = (
@@ -1692,6 +1688,7 @@
 	},
 /obj/machinery/power/apc/east,
 /obj/structure/cable/green,
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
 "kF" = (
@@ -2062,10 +2059,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
 "mB" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/grille,
+/turf/template_noop,
 /area/hegemony_ship/gun_deck_bruiser)
 "mG" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
@@ -2694,12 +2689,6 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/white,
 /area/hegemony_ship/medbay)
-"pP" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/hegemony_ship/gun_deck_bruiser)
 "pU" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -3038,9 +3027,7 @@
 /area/hegemony_ship/tcomms)
 "sg" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
-	dir = 4
-	},
+/obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/plating,
 /area/hegemony_ship/gun_deck_bruiser)
 "sl" = (
@@ -3302,18 +3289,6 @@
 "tn" = (
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/bridge)
-"tw" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/hegemony_ship/gun_deck_bruiser)
 "tx" = (
 /obj/machinery/computer/ship/sensors,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3793,6 +3768,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
 "wi" = (
@@ -3954,8 +3930,9 @@
 	dir = 1;
 	icon_state = "rwindow"
 	},
-/obj/machinery/door/window/brigdoor/southright{
-	req_access = list(113)
+/obj/machinery/door/window/brigdoor/northleft{
+	req_access = list(113);
+	dir = 2
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
@@ -3974,12 +3951,13 @@
 /turf/simulated/floor/plating,
 /area/hegemony_ship)
 "xt" = (
-/obj/structure/window/reinforced,
-/obj/structure/ship_weapon_dummy,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
 /obj/effect/floor_decal/spline/plain,
+/obj/machinery/ship_weapon/bruiser{
+	weapon_id = "Hegemony Corvette Bruiser";
+	pixel_x = -32;
+	pixel_y = -128
+	},
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_ship/gun_deck_bruiser)
 "xu" = (
@@ -5500,7 +5478,7 @@
 /area/hegemony_ship)
 "FU" = (
 /turf/simulated/floor/foamedmetal,
-/area/space)
+/area/hegemony_ship/bridge)
 "FW" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
@@ -5648,11 +5626,16 @@
 /turf/simulated/floor/plating,
 /area/shuttle/hegemony)
 "GL" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 4
 	},
-/obj/effect/floor_decal/spline/plain,
-/turf/simulated/floor/tiled,
+/obj/structure/table/rack,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/clothing/glasses/safety/goggles,
+/obj/item/clothing/suit/storage/hazardvest,
+/obj/item/clothing/head/hardhat,
+/turf/simulated/floor/plating,
 /area/hegemony_ship/gun_deck_bruiser)
 "GM" = (
 /obj/machinery/door/airlock/external{
@@ -5871,9 +5854,12 @@
 /turf/simulated/floor/plating,
 /area/hegemony_ship/bridge)
 "HI" = (
-/obj/structure/viewport/unathi,
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/machinery/computer/ship/targeting,
+/turf/simulated/floor/plating,
 /area/hegemony_ship/gun_deck_bruiser)
 "HJ" = (
 /obj/structure/grille,
@@ -6073,13 +6059,11 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/hegemony)
 "Je" = (
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9;
+	icon_state = "warning"
 	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/hegemony_ship/gun_deck_bruiser)
 "Jj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6127,22 +6111,11 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/bridge)
 "Jp" = (
-/obj/structure/railing/mapped,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/tiled,
-/area/hegemony_ship/gun_deck_bruiser)
-"Jq" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/structure/sign/flag/hegemony/large/west,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
 "Jt" = (
@@ -6681,9 +6654,8 @@
 /turf/simulated/floor/tiled/white,
 /area/hegemony_ship/medbay)
 "Mr" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
+/obj/structure/bed/stool/chair/office/bridge,
+/obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
 "Mt" = (
@@ -7571,10 +7543,10 @@
 /area/hegemony_ship/gun_deck_bruiser)
 "RK" = (
 /obj/structure/ship_weapon_dummy,
-/obj/machinery/ship_weapon/bruiser{
-	weapon_id = "Hegemony Corvette Bruiser";
-	pixel_x = -32;
-	pixel_y = -128
+/obj/structure/viewport/unathi,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6;
+	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_ship/gun_deck_bruiser)
@@ -8124,11 +8096,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/port_propulsion)
-"Up" = (
-/obj/item/hullbeacon/red,
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space)
 "Ut" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
@@ -8271,23 +8238,12 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "Vd" = (
-/obj/structure/window/reinforced,
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/structure/ship_weapon_dummy,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10;
+	icon_state = "warning"
 	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/effect/floor_decal/spline/plain,
-/obj/structure/sign/deathsposal{
-	name = "\improper SPENT MUNITIONS EJECTION CHUTE sign";
-	pixel_x = -32
-	},
-/obj/machinery/disposal,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark/full,
 /area/hegemony_ship/gun_deck_bruiser)
 "Ve" = (
 /obj/item/modular_computer/console/preset/civilian,
@@ -8354,8 +8310,6 @@
 	},
 /obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
 /obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
-/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
-/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 /obj/item/storage/pill_bottle/mortaphenyl,
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
@@ -8365,6 +8319,8 @@
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/item/storage/belt/medical/paramedic/combat/full,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
 /turf/simulated/floor/tiled/white,
 /area/hegemony_ship/medbay)
 "VG" = (
@@ -18281,8 +18237,8 @@ aJ
 aJ
 aJ
 aJ
-aJ
-aJ
+xh
+xh
 aJ
 aJ
 aJ
@@ -18442,11 +18398,11 @@ Ev
 GD
 Ev
 Ev
-pP
+Ev
+Ev
 xh
-aJ
-aJ
-aJ
+xh
+pC
 aJ
 aJ
 aJ
@@ -18602,12 +18558,12 @@ zq
 rs
 we
 Je
-Jq
-tw
+fQ
+CN
 Vd
-xh
-xh
-pC
+Ev
+aJ
+aJ
 aJ
 aJ
 aJ
@@ -18763,13 +18719,13 @@ hV
 Ev
 iG
 Jp
-mB
-fQ
-CN
+LZ
+QM
+AH
 xt
-aJ
-aJ
-aJ
+bZ
+UV
+WG
 aJ
 aJ
 aJ
@@ -18924,14 +18880,14 @@ hX
 Ev
 Ev
 RI
-BO
-LZ
-QM
-AH
+er
+hg
+ye
+Jz
 RK
-UV
-UV
-WG
+mB
+aJ
+aJ
 aJ
 aJ
 aJ
@@ -19086,15 +19042,15 @@ Ev
 Ev
 Ev
 xo
-er
-hg
-ye
-Jz
+BO
+qX
 HI
-aJ
-aJ
-aJ
-aJ
+Ev
+Ev
+fS
+xh
+xh
+pC
 aJ
 aJ
 aJ
@@ -19250,12 +19206,12 @@ Ev
 yO
 BO
 Mr
-qX
-bZ
-fS
+sg
+Ev
+Ev
+Ev
 xh
-xh
-Up
+aJ
 aJ
 aJ
 aJ
@@ -19413,10 +19369,10 @@ sT
 vW
 kB
 GL
-sg
+Ev
 Ev
 xh
-aJ
+xh
 aJ
 aJ
 aJ
@@ -19576,8 +19532,8 @@ Ev
 Ev
 Ev
 Ev
-Ev
-xh
+aJ
+aJ
 aJ
 aJ
 aJ
@@ -22519,7 +22475,7 @@ Ep
 Ep
 Ep
 Ep
-uz
+Ep
 HJ
 HJ
 HJ
@@ -22680,8 +22636,8 @@ tn
 vj
 Ep
 FU
-uz
-uz
+Ep
+Ep
 HJ
 HJ
 HJ
@@ -22842,8 +22798,8 @@ OG
 mA
 Ep
 FU
-uz
-uz
+Ep
+Ep
 HJ
 HJ
 aJ
@@ -23004,8 +22960,8 @@ HM
 yN
 Ep
 FU
-uz
-uz
+Ep
+Ep
 HJ
 aJ
 aJ
@@ -23165,8 +23121,8 @@ Ku
 Ku
 Ku
 Ep
-uz
-uz
+Ep
+Ep
 HJ
 HJ
 HJ
@@ -23327,7 +23283,7 @@ hA
 Ep
 Ep
 Ep
-uz
+Ep
 HJ
 HJ
 aJ
