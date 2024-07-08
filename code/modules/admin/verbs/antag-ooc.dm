@@ -26,7 +26,7 @@
 		else if (M.mind && M.mind.special_role && M.client && player_is_antag(M.mind))
 			to_chat(M, "<span class='aooc'>" + create_text_tag("A-OOC", M.client) + " <EM>[display_name]:</EM> <span class='message linkify'>[msg]</span></span>")
 
-	log_ooc("(ANTAG) [key] : [msg]",ckey=key_name(mob))
+	log_ooc("(ANTAG) [key] : [msg]")
 
 // Checks if a newly joined player is an antag, and adds the AOOC verb if they are.
 // Because they're tied to client objects, this gets removed every time you disconnect.

@@ -10,7 +10,7 @@
 	if(istype(src.loc,/mob/living/simple_animal/borer))
 		if(!message)
 			return
-		log_say("[key_name(src)] : [message]", ckey=key_name(src))
+		log_say("[key_name(src)] : [message]")
 		if(stat == DEAD)
 			return say_dead(message)
 

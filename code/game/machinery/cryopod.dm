@@ -491,7 +491,7 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 
 	// Book keeping!
 	var/turf/location = get_turf(src)
-	log_admin("[key_name_admin(M)] has entered a [initial(src.name)].",ckey=key_name(M))
+	log_admin("[key_name_admin(M)] has entered a [initial(src.name)].")
 	message_admins(SPAN_NOTICE("[key_name_admin(M)] has entered a [initial(src.name)].(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)"))
 
 	//Despawning occurs when process() is called with an occupant without a client.
