@@ -344,7 +344,6 @@
 		/obj/item/reagent_containers/food/snacks/meatsnack = 2,
 		/obj/item/reagent_containers/food/snacks/maps = 2,
 		/obj/item/reagent_containers/food/snacks/nathisnack = 2,
-		/obj/item/reagent_containers/food/snacks/koisbar_clean = 4,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 5,
 		/obj/item/reagent_containers/food/snacks/tuna = 2,
 		/obj/item/reagent_containers/food/snacks/adhomian_can = 2,
@@ -358,7 +357,6 @@
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/snacks/syndicake = 6,
-		/obj/item/reagent_containers/food/snacks/koisbar = 4
 	)
 	premium = list(
 		/obj/item/reagent_containers/food/snacks/cookie = 6,
@@ -385,7 +383,6 @@
 		/obj/item/reagent_containers/food/snacks/meatsnack = 22,
 		/obj/item/reagent_containers/food/snacks/maps = 23,
 		/obj/item/reagent_containers/food/snacks/nathisnack = 24,
-		/obj/item/reagent_containers/food/snacks/koisbar_clean = 60,
 		/obj/item/reagent_containers/food/snacks/candy/koko = 40,
 		/obj/item/reagent_containers/food/snacks/tuna = 23,
 		/obj/item/reagent_containers/food/snacks/adhomian_can = 26,
@@ -1380,13 +1377,15 @@
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi = 5,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn = 5,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz = 5,
-		/obj/item/reagent_containers/food/drinks/waterbottle/sedantis_water = 5
+		/obj/item/reagent_containers/food/drinks/waterbottle/sedantis_water = 5,
+		/obj/item/reagent_containers/food/snacks/koisbar_clean = 4
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm = 5
 	)
 	premium = list(
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/jelly = 3
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/jelly = 3,
+		/obj/item/reagent_containers/food/snacks/koisbar = 4
 	)
 	prices = list(
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry = 29,
@@ -1401,7 +1400,8 @@
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi = 29,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn = 29,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz = 29,
-		/obj/item/reagent_containers/food/drinks/waterbottle/sedantis_water = 40
+		/obj/item/reagent_containers/food/drinks/waterbottle/sedantis_water = 40,
+		/obj/item/reagent_containers/food/snacks/koisbar_clean = 60
 	)
 	idle_power_usage = 211
 	temperature_setting = -1
