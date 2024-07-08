@@ -3,7 +3,7 @@
 	desc = "An Ingi Usang Entertainment Co. livestreaming press camera drone. Weapon of choice for war correspondents and reality show cameramen. It does not appear to have any internal memory storage."
 	icon_state = "camcorder"
 	item_state = "camcorder"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BELT
 	var/channel = "General News Feed"
 	var/obj/machinery/camera/network/news/camera
@@ -93,7 +93,7 @@ Using robohead because of restricting to roboticist */
 	icon_state = "head"
 	item_state = "head"
 	var/buildstep = 0
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/tv_assembly/attackby(obj/item/attacking_item, mob/user)
 	switch(buildstep)

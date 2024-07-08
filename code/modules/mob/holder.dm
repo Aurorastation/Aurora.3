@@ -294,7 +294,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state_dead = "nymph_dead"
 	origin_tech = list(TECH_MAGNET = 3, TECH_BIO = 5)
 	slot_flags = SLOT_HEAD | SLOT_EARS | SLOT_HOLSTER
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	no_name = TRUE
 
 /obj/item/holder/drone
@@ -304,7 +304,7 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "drone"
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 5)
 	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	no_name = TRUE
 
 /obj/item/holder/drone/heavy
@@ -312,7 +312,7 @@ var/list/holder_mob_icon_cache = list()
 	desc = "It's a really big maintenance robot."
 	icon_state = "constructiondrone"
 	item_state = "constructiondrone"
-	w_class = ITEMSIZE_IMMENSE //You're not fitting this thing in a backpack
+	w_class = WEIGHT_CLASS_GIGANTIC //You're not fitting this thing in a backpack
 
 /obj/item/holder/drone/mining
 	name = "mining drone"
@@ -331,7 +331,7 @@ var/list/holder_mob_icon_cache = list()
 //Setting item state to cat saves on some duplication for the in-hand versions, but we cant use it for head.
 //Instead, the head versions are done by duplicating the cat
 	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/holder/cat/black
 	icon_state = "cat"
@@ -373,7 +373,7 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "babycarp"
 	slot_flags = SLOT_HEAD
 	flags_inv = HIDEEARS
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/holder/carp/baby/verb/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
@@ -388,7 +388,7 @@ var/list/holder_mob_icon_cache = list()
 	desc = "It's a slimy brain slug. Gross."
 	icon_state = "brainslug"
 	origin_tech = list(TECH_BIO = 6)
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	no_name = TRUE
 
 /obj/item/holder/monkey
@@ -397,7 +397,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "monkey"
 	item_state = "monkey"
 	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/holder/monkey/set_contained(var/mob/living/carbon/human/M)
 	..()
@@ -413,7 +413,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "farwa"
 	item_state = "farwa"
 	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/holder/monkey/stok
 	name = "stok"
@@ -421,7 +421,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "stok"
 	item_state = "stok"
 	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/holder/monkey/neaera
 	name = "neaera"
@@ -429,7 +429,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "neaera"
 	item_state = "neaera"
 	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 //Holders for rats
 /obj/item/holder/rat
@@ -442,7 +442,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state_dead = "rat_brown_dead"
 	slot_flags = SLOT_EARS
 	origin_tech = list(TECH_BIO = 2)
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/holder/rat/white
 	icon_state = "rat_white_sleep"
@@ -479,7 +479,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "lizard"
 
 	slot_flags = 0
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 //Chicks and chickens
 /obj/item/holder/chick
@@ -490,7 +490,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state_dead = "chick_dead"
 	slot_flags = 0
 	icon_state = "chick"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 
 /obj/item/holder/chicken
@@ -501,7 +501,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "chicken_brown"
 	icon_state_dead = "chicken_brown_dead"
 	slot_flags = 0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/holder/chicken/brown
 	icon_state = "chicken_brown"
@@ -526,7 +526,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "mushroom"
 	icon_state_dead = "mushroom_dead"
 	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 
 
@@ -590,47 +590,47 @@ var/list/holder_mob_icon_cache = list()
 	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "corgi"
 	item_state = "corgi"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/holder/ian
 	name = "corgi"
 	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "ian"
 	item_state = "ian"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/holder/lisa
 	name = "lisa"
 	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "lisa"
 	item_state = "lisa"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/holder/fox
 	name = "fox"
 	icon = 'icons/mob/npc/fox.dmi'
 	icon_state = "fox"
 	item_state = "fox"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/holder/schlorrgo
 	name = "schlorrgo"
 	icon = 'icons/mob/npc/schlorrgo.dmi'
 	icon_state = "schlorrgo"
 	item_state = "schlorrgo"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/holder/schlorrgo/baby
 	name = "schlorrgo hatchling"
 	icon_state = "schlorrgo_baby"
 	item_state = "schlorrgo_baby"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/holder/schlorrgo/fat
 	name = "fat schlorrgo"
 	icon_state = "schlorrgo_fat"
 	item_state = "schlorrgo_fat"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/holder/fish
 	name = "fish"

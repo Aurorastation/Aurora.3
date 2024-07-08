@@ -36,7 +36,7 @@
 	icon_state = "jetpack"
 	item_state = "jetpack"
 	gauge_icon = null
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
 	var/ion_trail_type = /obj/effect/effect/ion_trails
 	var/on = 0.0

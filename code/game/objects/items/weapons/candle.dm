@@ -6,7 +6,7 @@
 	item_state = "candle1"
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	light_color = "#E09D37"
 	var/wax = 2000
 	var/start_lit = FALSE

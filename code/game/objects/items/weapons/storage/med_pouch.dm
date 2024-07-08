@@ -16,8 +16,8 @@ Single Use Emergency Pouches
 	8) Stay in place once they respond."
 	icon = 'icons/obj/storage/firstaid.dmi'
 	storage_slots = 7
-	w_class = ITEMSIZE_SMALL
-	max_w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
+	max_w_class = WEIGHT_CLASS_SMALL
 	icon_state = "pack"
 	build_from_parts = TRUE
 	worn_overlay = "cross"

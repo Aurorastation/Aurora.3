@@ -17,7 +17,7 @@
 	anchored = 0
 	density = 0
 	dir = NORTH
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 
 	var/obj/item/airlock_electronics/electronics = null

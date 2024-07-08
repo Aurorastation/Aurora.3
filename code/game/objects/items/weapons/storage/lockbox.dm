@@ -7,8 +7,8 @@
 	icon_state = "lockbox+l"
 	item_state = "lockbox+l"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
-	max_w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_BULKY
+	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 14 //The sum of the w_classes of all the items in this storage item.
 	req_access = list(ACCESS_ARMORY)
 	var/locked = 1
@@ -108,8 +108,8 @@
 	desc = "A locked box used to store medals."
 	icon_state = "medalbox+l"
 	item_state = "briefcase"
-	w_class = ITEMSIZE_NORMAL
-	max_w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_NORMAL
+	max_w_class = WEIGHT_CLASS_SMALL
 	req_access = list(ACCESS_CAPTAIN)
 	icon_locked = "medalbox+l"
 	icon_closed = "medalbox"

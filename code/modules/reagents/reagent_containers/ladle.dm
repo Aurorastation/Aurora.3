@@ -5,7 +5,7 @@
 	icon_state = "ladle"
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(10, 15, 30)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	volume = 30
 	force = 14
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER

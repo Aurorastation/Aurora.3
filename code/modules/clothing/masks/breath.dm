@@ -5,7 +5,7 @@
 	item_state = "breath"
 	item_flags = ITEM_FLAG_AIRTIGHT|ITEM_FLAG_FLEXIBLE_MATERIAL
 	body_parts_covered = FACE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	gas_transfer_coefficient = 0.10
 	permeability_coefficient = 0.50
 	down_gas_transfer_coefficient = 1

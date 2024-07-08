@@ -1,7 +1,7 @@
 /obj/item/device/flashlight/flare/glowstick
 	name = "green glowstick"
 	desc = "A green military-grade glowstick."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	brightness_on = 1.2
 	flashlight_power = 2
 	light_color = "#49F37C"

@@ -256,9 +256,6 @@
 /atom/proc/melt()
 	return
 
-/atom/proc/hitby(atom/movable/AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
-	return
-
 /atom/proc/add_hiddenprint(mob/living/M)
 	if(isnull(M)) return
 	if(!istype(M, /mob)) return

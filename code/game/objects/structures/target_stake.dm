@@ -5,7 +5,7 @@
 	icon = 'icons/obj/target_stake.dmi'
 	icon_state = "target_stake"
 	density = TRUE
-	w_class = ITEMSIZE_IMMENSE
+	w_class = WEIGHT_CLASS_GIGANTIC
 	build_amt = 10
 	var/obj/item/target/pinned_target
 

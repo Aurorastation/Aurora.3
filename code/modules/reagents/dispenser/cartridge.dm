@@ -5,7 +5,7 @@
 	icon_state = "cartridge"
 	contained_sprite = TRUE
 	filling_states = "20;40;60;80;100"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 	volume = CARTRIDGE_VOLUME_LARGE
 	amount_per_transfer_from_this = 50

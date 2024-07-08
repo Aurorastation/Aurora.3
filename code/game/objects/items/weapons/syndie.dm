@@ -11,7 +11,7 @@
 	item_state = "c-4small"
 	name = "normal-sized package"
 	desc = "A small wrapped package."
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 	///Size of the explosion
 	var/power = 1
@@ -67,7 +67,7 @@
 	item_state = "c-4detonator"
 	name = "\improper Zippo lighter"  /*Sneaky, thanks Dreyfus.*/
 	desc = "The zippo."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 	var/obj/item/syndie/c4explosive/bomb
 	var/pr_open = 0  /*Is the "What do you want to do?" prompt open?*/
@@ -109,7 +109,7 @@
 	item_flags = ITEM_FLAG_HELD_MAP_TEXT
 	slot_flags = SLOT_BELT | SLOT_EARS
 	throwforce = 0
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 7
 	throw_range = 15
 	drop_sound = 'sound/items/drop/accessory.ogg'

@@ -9,7 +9,7 @@
 	item_state = "implantcase"
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	///The implant within the case
 	var/obj/item/implant/imp = null
 

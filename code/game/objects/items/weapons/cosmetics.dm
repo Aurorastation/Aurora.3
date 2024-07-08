@@ -7,7 +7,7 @@
 	item_state = "lipstick"
 	build_from_parts = TRUE
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	update_icon_on_init = TRUE
 	var/lipstick_color = "#DC253A"
@@ -143,7 +143,7 @@
 /obj/item/haircomb //sparklysheep's comb
 	name = "plastic comb"
 	desc = "A pristine comb made from flexible plastic."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "comb"
@@ -161,7 +161,7 @@
 	desc = "The latest and greatest power razor born from the science of shaving."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "razor"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/razor/proc/shave(mob/living/carbon/human/H, location)
 	if(location == BP_HEAD)

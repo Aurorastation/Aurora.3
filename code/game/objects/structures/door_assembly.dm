@@ -10,7 +10,7 @@
 	icon_state = "construction"
 	anchored = FALSE
 	density = TRUE
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	build_amt = 4
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
 	pixel_x = -16

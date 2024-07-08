@@ -20,7 +20,7 @@ LINEN BINS
 	throwforce = 1
 	throw_speed = 1
 	throw_range = 2
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	randpixel = 0
@@ -124,12 +124,12 @@ LINEN BINS
 		if(!fold)
 			fold = TRUE
 			slot_flags = null
-			w_class = ITEMSIZE_SMALL
+			w_class = WEIGHT_CLASS_SMALL
 			layer = reset_plane_and_layer()
 		else
 			fold = FALSE
 			slot_flags = SLOT_BACK
-			w_class = ITEMSIZE_LARGE
+			w_class = WEIGHT_CLASS_BULKY
 		update_icon()
 		inuse = FALSE
 		return TRUE
@@ -158,14 +158,14 @@ LINEN BINS
 		if(!roll)
 			roll = TRUE
 			slot_flags = null
-			w_class = ITEMSIZE_NORMAL
+			w_class = WEIGHT_CLASS_NORMAL
 			layer = reset_plane_and_layer()
 			if(user.resting && get_turf(src) == get_turf(user)) // Make them rest
 				user.lay_down()
 		else
 			roll = FALSE
 			slot_flags = SLOT_BACK
-			w_class = ITEMSIZE_LARGE
+			w_class = WEIGHT_CLASS_BULKY
 			if(layer == initial(layer))
 				layer = ABOVE_HUMAN_LAYER
 			if(!user.resting && get_turf(src) == get_turf(user)) // Make them get up

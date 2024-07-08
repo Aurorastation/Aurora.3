@@ -21,7 +21,7 @@
 	desc = "A rough, handmade shell that should fit in a bruiser cannon. This one is filled with shot that causes wide damage, but must get through the hull first."
 	icon = 'icons/obj/guns/ship/ship_ammo_midshell.dmi'
 	icon_state = "shell_canister"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	impact_type = SHIP_AMMO_IMPACT_FMJ
 	ammunition_flags = SHIP_AMMO_FLAG_VERY_HEAVY
 	mob_carry_size = 10 //unathi, dionae and all vaurca can lift these bad boys up.

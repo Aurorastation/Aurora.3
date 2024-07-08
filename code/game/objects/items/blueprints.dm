@@ -4,7 +4,7 @@
 	icon = 'icons/obj/item/tools/blueprints.dmi'
 	icon_state = "blueprints"
 	attack_verb = list("attacked", "bapped", "hit")
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/list/valid_z_levels = list()
 	var/area_prefix
 	///Will these blueprints display the wire schema?

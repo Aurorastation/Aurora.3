@@ -237,7 +237,7 @@
 	desc = "This small camera allows a remote viewer to see what it sees."
 	extended_desc = "The camera is linked to the Research camera network."
 	icon_state = "video_camera"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	complexity = 10
 	inputs = list(
 		"camera name" = IC_PINTYPE_STRING,
@@ -370,7 +370,7 @@
 	activators = list("print page" = IC_PINTYPE_PULSE_IN)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	power_draw_per_use = 20
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	size = 5
 	var/stuff_to_print = null
 

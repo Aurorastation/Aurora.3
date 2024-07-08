@@ -49,15 +49,15 @@
 				health -= 25
 	healthcheck()
 
-/obj/structure/gore/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
+/obj/structure/gore/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
-	visible_message(SPAN_WARNING("\The [src] was hit by \the [AM]."))
+	visible_message(SPAN_WARNING("\The [src] was hit by \the [hitting_atom]."))
 	playsound(loc, 'sound/effects/attackblob.ogg', 100, TRUE)
 	var/throw_force = 0
-	if(isobj(AM))
-		var/obj/O = AM
+	if(isobj(hitting_atom))
+		var/obj/O = hitting_atom
 		throw_force = O.throwforce
-	else if(ismob(AM))
+	else if(ismob(hitting_atom))
 		throw_force = 10
 	health -= throw_force
 	healthcheck()

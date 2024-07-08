@@ -10,7 +10,7 @@
 	icon_state = "simple"
 	item_state = "buildpipe"
 	randpixel = 5
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	level = 2
 	obj_flags = OBJ_FLAG_ROTATABLE
 
@@ -1537,7 +1537,7 @@
 	icon = 'icons/obj/pipe-item.dmi'
 	icon_state = "meter"
 	item_state = "buildpipe"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/pipe_meter/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.iswrench())

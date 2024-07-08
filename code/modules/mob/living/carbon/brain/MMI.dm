@@ -9,7 +9,7 @@
 	desc = "The delicate nature of organic brains required a more novel and permanent solution to the problem of just rotting in the old MMI cradles. Zeng-Hu's unique (and very proprietary) formaldehyde-analogue preservation solution was the key ingredient in what became the new Zeng-Hu/Hephaestus joint venture brain-cases."
 	icon = 'icons/obj/assemblies.dmi'
 	icon_state = "mmi-empty"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_BIO = 3)
 
 	req_access = list(ACCESS_ROBOTICS)

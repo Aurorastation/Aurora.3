@@ -6,7 +6,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 	throwforce = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 3
 	throw_range = 10
 

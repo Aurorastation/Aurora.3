@@ -8,7 +8,7 @@
 	anchored = 1
 	density = 1
 	layer = BELOW_OBJ_LAYER
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	pass_flags_self = PASSTABLE
 	var/state = 0

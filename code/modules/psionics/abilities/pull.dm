@@ -26,7 +26,7 @@
 		return
 	var/atom/movable/AM = hit_atom
 	var/mob/living/carbon/human/H = user
-	if(isobj(hit_atom) && w_class < ITEMSIZE_IMMENSE)
+	if(isobj(hit_atom) && w_class < WEIGHT_CLASS_GIGANTIC)
 		if(length(get_line(hit_atom, user)))
 			if(H.put_in_any_hand_if_possible(hit_atom))
 				return

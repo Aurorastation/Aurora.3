@@ -151,10 +151,10 @@
 
 	..() //and give it the regular chance of being deleted outright
 
-/obj/machinery/camera/hitby(AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
+/obj/machinery/camera/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
-	if (istype(AM, /obj))
-		var/obj/O = AM
+	if (istype(hitting_atom, /obj))
+		var/obj/O = hitting_atom
 		if (O.throwforce >= src.toughness)
 			visible_message(SPAN_WARNING("<B>[src] was hit by [O].</B>"))
 		take_damage(O.throwforce)

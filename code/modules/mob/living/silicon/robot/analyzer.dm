@@ -9,7 +9,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 5
 	throw_range = 10
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 1, TECH_ENGINEERING = 2)
@@ -112,7 +112,7 @@
 	icon_state = "robotanalyzer"
 	item_state = "analyzer"
 	slot_flags = null
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 
 /obj/item/device/robotanalyzer/augment/throw_at(atom/target, range, speed, mob/user)
 	user.drop_from_inventory(src)

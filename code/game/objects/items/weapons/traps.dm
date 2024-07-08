@@ -10,7 +10,7 @@
 	randpixel = 0
 	center_of_mass = null
 	throwforce = 0
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 18750)
 	var/deployed = FALSE
@@ -167,7 +167,7 @@
 	icon_state = "small0"
 	throwforce = 2
 	force = 1
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 1750)
 	deployed = FALSE
@@ -546,7 +546,7 @@
 	icon_state = "medium0"
 	throwforce = 4
 	force = 11
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_ENGINEERING = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 5750)
 	deployed = FALSE
@@ -655,7 +655,7 @@
 	icon_state = "large_foundation"
 	throwforce = 4
 	force = 11
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 
 /obj/item/large_trap_foundation/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/stack/rods))

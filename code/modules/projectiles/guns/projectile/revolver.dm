@@ -131,7 +131,7 @@
 	icon_state = "derringer"
 	item_state = "derringer"
 	accuracy = -1
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 3)
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING
@@ -331,7 +331,7 @@
 	icon = 'icons/obj/guns/konyang_weapons.dmi'
 	icon_state = "police_gun"
 	item_state = "police_gun"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	caliber = ".45"
 	ammo_type = /obj/item/ammo_casing/c45/revolver
 	magazine_type = /obj/item/ammo_magazine/c45/revolver

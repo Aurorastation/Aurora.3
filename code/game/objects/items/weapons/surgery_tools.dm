@@ -13,7 +13,7 @@
 	desc = DESC_PARENT
 	icon = 'icons/obj/surgery.dmi'
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	recyclable = TRUE
@@ -76,7 +76,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 10000)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 22
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("drilled")
 	drop_sound = 'sound/items/drop/accessory.ogg'
@@ -95,7 +95,7 @@
 	force = 15
 	sharp = 1
 	edge = TRUE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	throwforce = 5
 	throw_speed = 3
@@ -139,7 +139,7 @@
 	hitsound = 'sound/weapons/saw/circsawhit.ogg'
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 22
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	throwforce = 9
 	throw_speed = 3
 	throw_range = 5
@@ -197,7 +197,7 @@
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 	force = 2
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	storage_slots = 10
 	attack_verb = list("slammed")
 	icon_type = "surgery tool"

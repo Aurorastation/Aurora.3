@@ -32,7 +32,7 @@
 /obj/item/integrated_circuit/passive/power/relay
 	name = "tesla power relay"
 	desc = "A seemingly enigmatic device which connects to nearby APCs wirelessly and draws power from them."
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	extended_desc = "The siphon generates 250W of energy, so long as an APC is in the same room, with a cell that has energy.  It will always drain \
 	from the 'equipment' power channel."
 	icon_state = "power_relay"
@@ -45,7 +45,7 @@
 /obj/item/integrated_circuit/passive/power/relay/large
 	name = "large tesla power relay"
 	desc = "A seemingly enigmatic device which connects to nearby APCs wirelessly and draws power from them, now in industiral size!"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	extended_desc = "The siphon generates 2 kW of energy, so long as an APC is in the same room, with a cell that has energy.  It will always drain \
 	from the 'equipment' power channel."
 	icon_state = "power_relay"

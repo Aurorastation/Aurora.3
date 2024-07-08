@@ -37,7 +37,7 @@
 	playsound(loc, 'sound/effects/plantshake.ogg', 50, 1)
 	if(do_after(user, 20, src))
 		if(!stored_item)
-			if(attacking_item.w_class <= ITEMSIZE_NORMAL)
+			if(attacking_item.w_class <= WEIGHT_CLASS_NORMAL)
 				user.drop_from_inventory(attacking_item, src)
 				stored_item = attacking_item
 				to_chat(user,SPAN_NOTICE("You hide \the [attacking_item] in [src]."))

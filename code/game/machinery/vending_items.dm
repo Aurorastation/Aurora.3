@@ -10,7 +10,7 @@
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 7
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	var/charges = 0
 
 /obj/item/device/vending_refill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)

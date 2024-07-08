@@ -6,7 +6,7 @@
 	contained_sprite = TRUE
 	icon_state = "technomancer_core"
 	item_state = "technomancer_core"
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = SLOT_BACK
 	unacidable = TRUE
 	origin_tech = list(TECH_MATERIAL = 8, TECH_ENGINEERING = 8, TECH_POWER = 8, TECH_BLUESPACE = 10,TECH_COMBAT = 7, TECH_MAGNET = 9, TECH_DATA = 5)
@@ -383,7 +383,7 @@
 	icon_state = "bracelet_core"
 	item_state = "bracelet_core"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_WRISTS
 	energy = 5000
 	max_energy = 5000

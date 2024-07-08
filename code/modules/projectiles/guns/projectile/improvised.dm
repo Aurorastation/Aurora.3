@@ -7,7 +7,7 @@
 	icon_state = "ishotgun"
 	item_state = "ishotgun"
 	max_shells = 2
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 11
 	recoil = 2
 	accuracy = -1
@@ -48,7 +48,7 @@
 		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			icon_state = "ishotgunsawn"
 			item_state = "ishotgunsawn"
-			w_class = ITEMSIZE_NORMAL
+			w_class = WEIGHT_CLASS_NORMAL
 			force = 11
 			slot_flags &= ~SLOT_BACK
 			slot_flags |= (SLOT_BELT|SLOT_HOLSTER)
@@ -77,7 +77,7 @@
 	icon_state = "ishotgunsawn"
 	item_state = "ishotgunsawn"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 11
 
 // shotgun construction

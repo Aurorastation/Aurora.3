@@ -11,7 +11,7 @@
 	icon_state = "pane"
 	alpha = 196
 	density = TRUE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	layer = SIDE_WINDOW_LAYER
 	anchored = TRUE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
@@ -183,27 +183,27 @@
 		return 0
 	return 1
 
-/obj/structure/window/hitby(AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
+/obj/structure/window/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
 	var/tforce = 0
-	if(ismob(AM))
-		if(isliving(AM))
-			var/mob/living/M = AM
-			M.turf_collision(src, speed, /singleton/sound_category/glasscrack_sound)
+	if(ismob(hitting_atom))
+		if(isliving(hitting_atom))
+			var/mob/living/M = hitting_atom
+			M.turf_collision(src, throwingdatum.speed, /singleton/sound_category/glasscrack_sound)
 			return
 		else
-			visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
+			visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."))
 		tforce = 40
-	else if(isobj(AM))
-		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
-		var/obj/item/I = AM
+	else if(isobj(hitting_atom))
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."))
+		var/obj/item/I = hitting_atom
 		tforce = I.throwforce
 	if(reinf)
 		tforce *= 0.25
 	if(health - tforce <= 7 && !reinf)
 		anchored = 0
 		update_nearby_icons()
-		step(src, get_dir(AM, src))
+		step(src, get_dir(hitting_atom, src))
 	take_damage(tforce)
 
 /obj/structure/window/attack_hand(var/mob/living/user)
@@ -480,7 +480,7 @@
 /obj/structure/window/reinforced/crescent/ex_act(var/severity = 2)
 	return
 
-/obj/structure/window/reinforced/crescent/hitby()
+/obj/structure/window/reinforced/crescent/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	return
 
 /obj/structure/window/reinforced/crescent/take_damage()
@@ -812,7 +812,7 @@
 /obj/structure/window/full/reinforced/indestructible/ex_act(var/severity = 2)
 	return
 
-/obj/structure/window/full/reinforced/indestructible/hitby()
+/obj/structure/window/full/reinforced/indestructible/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	return
 
 /obj/structure/window/full/reinforced/indestructible/take_damage()
@@ -845,7 +845,7 @@
 /obj/structure/window/full/reinforced/polarized/indestructible/ex_act(var/severity = 2)
 	return
 
-/obj/structure/window/full/reinforced/polarized/indestructible/hitby()
+/obj/structure/window/full/reinforced/polarized/indestructible/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	return
 
 /obj/structure/window/full/reinforced/polarized/indestructible/take_damage()

@@ -119,7 +119,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "corvo_cigarette"
 	item_state = "corvo_cigarette"
 	body_parts_covered = 0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_EARS | SLOT_MASK
 	contained_sprite = TRUE
 	var/active = FALSE
@@ -218,7 +218,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	flags_inv = HIDEEARS|HIDEFACE
 	body_parts_covered = FACE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 
 /obj/item/flame/lighter/zippo/fluff/nikit_zippo //Vasili Mine Zippo - Nikit Vasili - sampletex
@@ -271,7 +271,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	desc = "A pair of jaws from what must have been a large and impressive shark."
 	icon_state = "tokash_sign"
 	sign_state = "tokash_sign"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 
 /obj/item/clothing/head/fluff/aavs_mask //Reflective Mask - Aavs Guwan - dronzthewolf
@@ -294,7 +294,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "qrqil_cane"
 	item_state = "qrqil_cane"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/active = FALSE
 
 /obj/item/cane/fluff/qrqil_cane/attack_self(mob/user)
@@ -303,7 +303,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 		item_state = icon_state
-		w_class = ITEMSIZE_LARGE
+		w_class = WEIGHT_CLASS_BULKY
 	else
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("\The [src] is now de-energised.."))
@@ -393,7 +393,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/tokash_spear.dmi'
 	icon_override = 'icons/obj/custom_items/tokash_spear.dmi'
 	icon_state = "stand-spear"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	var/has_spear = TRUE
 
 /obj/item/fluff/tokash_spear/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
@@ -448,7 +448,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/tokash_spear.dmi'
 	icon_override = 'icons/obj/custom_items/tokash_spear.dmi'
 	icon_state = "spearhead"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/fluff/naomi_coat //Reishi Queen Winter Coat - Naomi Marlowe - smifboy78
 	name = "reishi queen winter coat"
@@ -489,7 +489,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/akinyi_symphette.dmi'
 	icon_state = "akinyi_symphette"
 	item_state = "akinyi_symphette"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = SLOT_BACK
 	contained_sprite = TRUE
 	var/deployed = FALSE
@@ -546,7 +546,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/fraseq_journal.dmi'
 	icon_override = 'icons/obj/custom_items/fraseq_journal.dmi'
 	icon_state = "fraseq_journal"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 
 /obj/item/clothing/accessory/poncho/fluff/ioraks_cape //Iorakian Cape - Kuhserze Ioraks - geeves
@@ -747,7 +747,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "suul_staff"
 	slot_flags = SLOT_BACK
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/cane/fluff/suul_staff/afterattack(atom/A, mob/user as mob, proximity)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -775,7 +775,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon = 'icons/obj/custom_items/cress_items.dmi'
 	icon_override = 'icons/obj/custom_items/cress_items.dmi'
 	icon_state = "cress_book"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/list/lyrics = list("Falling Down: A song about holding on to the last glimmer of hope. It's generally pretty motivational. The most recent song of the three.",
 							"Say Something New: A morose song about companionship, and being unable to continue without an undescribed dear friend. Morose, but overall motivational.",
 							"One By One: A song telling an undescribed person to 'give it another try'. It seems to mostly about reconciliation and accepting failure. More somber than the others, and the most dated.")
@@ -804,7 +804,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/akinyi_symphette.dmi'
 	icon_state = "akinyi_mic"
 	item_state = "akinyi_mic"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	contained_sprite = TRUE
 	activation_sound = null
 	needs_user_location = FALSE
@@ -816,7 +816,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/akinyi_symphette.dmi'
 	icon_state = "akinyi_stand-collapsed"
 	item_state = "akinyi_stand-collapsed"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	contained_sprite = TRUE
 	var/obj/item/device/megaphone/fluff/akinyi_mic/mic
 	var/collapsed = TRUE
@@ -853,10 +853,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 		return
 
 	if(collapsed)
-		w_class = ITEMSIZE_LARGE
+		w_class = WEIGHT_CLASS_BULKY
 		collapsed = FALSE
 	else
-		w_class = ITEMSIZE_SMALL
+		w_class = WEIGHT_CLASS_SMALL
 		collapsed = TRUE
 
 	update_icon()
@@ -882,10 +882,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/akinyi_symphette.dmi'
 	icon_state = "akinyi_case"
 	item_state = "akinyi_case"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	contained_sprite = TRUE
 	storage_slots = 3
-	max_w_class = ITEMSIZE_NORMAL
+	max_w_class = WEIGHT_CLASS_NORMAL
 	can_hold = list(
 		/obj/item/device/megaphone/fluff/akinyi_mic,
 		/obj/item/fluff/akinyi_stand,
@@ -1694,7 +1694,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_override = 'icons/obj/custom_items/ielia_tarot.dmi'
 	icon_state = "ielia_tarot"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/list/possible_cards = list("Island","Hatching Egg","Star Chanter","Jiu'x'klua","Stormcloud","Gnarled Tree","Poet","Bloated Toad","Void","Qu'Poxii","Fisher","Mountain","Sraso","Nioh")
 	var/activated = FALSE
 	var/first_card

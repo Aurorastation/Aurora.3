@@ -1352,7 +1352,7 @@
 	item_state = "book4"
 	title = "Hadiist Manifesto"
 	author = "Al'Mari Hadii"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	dat = {"<html>
 				<head>
 					<style>
@@ -1381,7 +1381,7 @@
 	item_state = "book2"
 	title = "In Defense of Al'mari's Legacy"
 	author = "Supreme Commander Nated"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	dat = {"<html>
 				<head>
 					<style>
@@ -1410,7 +1410,7 @@
 	item_state = "book14"
 	title = "The New Kingdom"
 	author = "Vahzirthaamro Azunja"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	dat = {"<html>
 				<head>
 					<style>
@@ -1439,7 +1439,7 @@
 	item_state = "book1"
 	title = "dominian honor codex"
 	author = "Zalze Han'San"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	dat = {"<html>
 				<head>
 				<style>
@@ -1528,7 +1528,7 @@
 	author = "Tau Ceti Armed Forces recruitment center"
 	pickup_sound = 'sound/items/drop/paper.ogg'
 	drop_sound = 'sound/items/drop/paper.ogg'
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	dat = {"<html>
 				<head>
 					<style>

@@ -80,7 +80,7 @@
 	desc = "A tiny, delicious piece of milk chocolate with some sort of filling inside of it."
 	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
 	icon_state = "praline1"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	filling_color = "#4d280f"
 	reagents_to_add = list(/singleton/reagent/nutriment = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("milk chocolate and caramel" = 1))

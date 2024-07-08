@@ -3,7 +3,7 @@
 	desc = "A crude but useful lock and bolt."
 	icon = 'icons/obj/crate.dmi'
 	icon_state = "largebinemag"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	var/lock_data
 
 /obj/item/material/lock_construct/Initialize(newloc, material_key)

@@ -17,7 +17,7 @@
 	slot_flags = SLOT_BELT
 	force = 15
 	throwforce = 7
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_COMBAT = 4)
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	hitsound = 'sound/weapons/chainhit.ogg'
@@ -31,7 +31,7 @@
 	slot_flags = SLOT_BELT
 	force = 22
 	throwforce = 7
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	sharp = 1
 	edge = TRUE
 	origin_tech = list(TECH_COMBAT = 5)
@@ -77,7 +77,7 @@
 	throw_speed = 5
 	throw_range = 7
 	attack_verb = list("smashed", "beaten", "slammed", "smacked", "struck", "battered", "bonked")
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
 
 /obj/item/melee/hammer/iscrowbar()
@@ -158,7 +158,7 @@
 	item_state = "chain"
 	slot_flags = SLOT_BELT
 	force = 15
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	reach = 2
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	hitsound = 'sound/weapons/whip.ogg'
@@ -187,7 +187,7 @@
 	slot_flags = SLOT_BELT
 	force = 22
 	throwforce = 5
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	sharp = 1
 	edge = TRUE
 	can_embed = 0

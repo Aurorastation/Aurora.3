@@ -212,7 +212,7 @@
 	if(morphed && user != src)
 		restore()
 
-/mob/living/simple_animal/hostile/morph/hitby(atom/movable/AM, speed)
+/mob/living/simple_animal/hostile/morph/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
 	if(morphed)
 		restore()

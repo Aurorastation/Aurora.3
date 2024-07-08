@@ -2,7 +2,7 @@
 	name = "airlock electronics"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "door_electronics"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 

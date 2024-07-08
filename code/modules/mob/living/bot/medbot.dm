@@ -351,7 +351,7 @@
 	desc = "A first aid kit with a robot arm permanently grafted to it."
 	icon = 'icons/mob/npc/aibots.dmi'
 	icon_state = "firstaid_arm"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	var/build_step = 0
 	var/created_name = "Medibot" //To preserve the name if it's a unique medbot I guess
 	var/obj/item/storage/firstaid/firstaid_item // store the firstaid type if it blows up

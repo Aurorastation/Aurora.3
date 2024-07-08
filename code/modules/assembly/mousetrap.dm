@@ -105,10 +105,10 @@
 		return TRUE
 	return FALSE
 
-/obj/item/device/assembly/mousetrap/hitby(A as mob|obj)
+/obj/item/device/assembly/mousetrap/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(!armed)
 		return ..()
-	visible_message(SPAN_WARNING("\The [src] is triggered by \the [A]."))
+	visible_message(SPAN_WARNING("\The [src] is triggered by \the [hitting_atom]."))
 	triggered(null)
 
 /obj/item/device/assembly/mousetrap/armed

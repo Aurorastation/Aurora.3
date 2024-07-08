@@ -1,7 +1,7 @@
 /obj/item/battle_monsters/deck
 	name = "battle monsters deck"
 	icon_state = "stack"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/list/stored_card_names = list()
 	var/deck_size = 52
 

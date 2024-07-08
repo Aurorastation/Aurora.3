@@ -36,7 +36,7 @@
 	icon_name = "torso"
 	max_damage = 200
 	min_broken_damage = 50
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	body_part = UPPER_TORSO
 	vital = TRUE
 	parent_organ = null
@@ -51,7 +51,7 @@
 	icon_name = "groin"
 	max_damage = 100
 	min_broken_damage = 50
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	body_part = LOWER_TORSO
 	parent_organ = BP_CHEST
 	limb_flags = ORGAN_CAN_MAIM | ORGAN_CAN_AMPUTATE
@@ -65,7 +65,7 @@
 	icon_name = "l_arm"
 	max_damage = 35
 	min_broken_damage = 20
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	body_part = ARM_LEFT
 	parent_organ = BP_CHEST
 	limb_flags = ORGAN_CAN_MAIM | ORGAN_CAN_AMPUTATE | ORGAN_CAN_GRASP
@@ -89,7 +89,7 @@
 	icon_name = "l_leg"
 	max_damage = 35
 	min_broken_damage = 20
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	body_part = LEG_LEFT
 	icon_position = LEFT
 	parent_organ = BP_GROIN
@@ -115,7 +115,7 @@
 	icon_name = "l_foot"
 	max_damage = 20
 	min_broken_damage = 10
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_part = FOOT_LEFT
 	icon_position = LEFT
 	parent_organ = BP_L_LEG
@@ -142,7 +142,7 @@
 	icon_name = "l_hand"
 	max_damage = 30
 	min_broken_damage = 15
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_part = HAND_LEFT
 	parent_organ = BP_L_ARM
 	limb_flags = ORGAN_CAN_MAIM | ORGAN_CAN_AMPUTATE | ORGAN_CAN_GRASP
@@ -167,7 +167,7 @@
 	name = BP_HEAD
 	max_damage = 50
 	min_broken_damage = 25
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	body_part = HEAD
 	parent_organ = BP_CHEST
 	limb_flags = ORGAN_CAN_MAIM | ORGAN_CAN_AMPUTATE

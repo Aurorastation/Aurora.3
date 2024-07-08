@@ -288,7 +288,7 @@ Deployable Kits
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "barrier_kit"
 	item_state = "barrier_kit"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	kit_product = /obj/machinery/deployable/barrier/legion
 
 /obj/item/deployable_kit/surgery_table
@@ -297,7 +297,7 @@ Deployable Kits
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table_deployable"
 	item_state = "table_parts"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	kit_product = /obj/machinery/optable
 	assembly_time = 20 SECONDS
 
@@ -322,7 +322,7 @@ Deployable Kits
 	item_state = "table_parts"
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	kit_product = /obj/machinery/porta_turret/legion
 	assembly_time = 15 SECONDS
 
@@ -332,7 +332,7 @@ Deployable Kits
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "inf_box"
 	item_state = "inf_box"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	kit_product = /obj/machinery/iv_drip
 	assembly_time = 4 SECONDS
 
@@ -342,7 +342,7 @@ Deployable Kits
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "barrier_kit"
 	item_state = "barrier_kit"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	kit_product = /obj/structure/bed/stool/chair/remote/mech/portable
 	assembly_time = 20 SECONDS
 

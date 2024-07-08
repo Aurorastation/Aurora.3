@@ -23,8 +23,8 @@
 	var/l_hacking = 0
 	var/emagged = 0
 	var/open = 0
-	w_class = ITEMSIZE_LARGE
-	max_w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_BULKY
+	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 16
 	use_sound = 'sound/items/storage/briefcase.ogg'
 
@@ -155,7 +155,7 @@
 	force = 18
 	throw_speed = 1
 	throw_range = 4
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/storage/secure/briefcase/attack_hand(mob/user as mob)
 	if((src.loc == user) && (src.locked == 1))
@@ -182,8 +182,8 @@
 	icon_locking = "safeb"
 	icon_sparking = "safespark"
 	force = 18
-	w_class = ITEMSIZE_IMMENSE
-	max_w_class = ITEMSIZE_IMMENSE
+	w_class = WEIGHT_CLASS_GIGANTIC
+	max_w_class = WEIGHT_CLASS_GIGANTIC
 	anchored = 1.0
 	density = 0
 	cant_hold = list(/obj/item/storage/secure/briefcase)

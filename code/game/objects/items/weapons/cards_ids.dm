@@ -19,7 +19,7 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_card.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_card.dmi',
 		)
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	var/associated_account_number = 0
 	var/list/files = list(  )
 	var/last_flash = 0 //Spam limiter.

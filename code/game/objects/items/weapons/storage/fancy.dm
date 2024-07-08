@@ -161,7 +161,7 @@
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 	closable = FALSE
 	storage_slots = 6
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/food/snacks/cracker)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/cracker = 6)
 
@@ -177,7 +177,7 @@
 	item_state = "candlepack"
 	icon_type = "candle"
 	storage_type = "pack"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 5
@@ -200,7 +200,7 @@
 	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "crayonbox"
 	icon_type = "crayon"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	storage_slots = 6
 	can_hold = list(/obj/item/pen/crayon)
@@ -249,7 +249,7 @@
 	icon_state = "matchbox"
 	item_state = "box"
 	icon_type = "match"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	drop_sound = 'sound/items/drop/matchbox.ogg'
 	pickup_sound =  'sound/items/pickup/matchbox.ogg'
 	slot_flags = SLOT_BELT
@@ -298,7 +298,7 @@
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	use_sound = 'sound/items/storage/wrapper.ogg'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 6
@@ -453,7 +453,7 @@
 	use_sound = 'sound/items/drop/glass.ogg'
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
-	max_w_class = ITEMSIZE_SMALL
+	max_w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
 	max_storage_space = 12 //The sum of the w_classes of all the items in this storage item.
 	storage_slots = 6
@@ -707,7 +707,7 @@
 	closable = FALSE
 	icon_overlays = FALSE
 	storage_slots = 6
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	can_hold = list(/obj/item/reagent_containers/food/snacks/chips)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/chips = 6)
 

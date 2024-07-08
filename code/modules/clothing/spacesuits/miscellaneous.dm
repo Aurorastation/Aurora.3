@@ -88,7 +88,7 @@
 	icon = 'icons/obj/clothing/suits.dmi'
 	icon_state = "pirate"
 	item_state = "pirate"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/emergency_oxygen)
 	slowdown = 0
 	armor = list(

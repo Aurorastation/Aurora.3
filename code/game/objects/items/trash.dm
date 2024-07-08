@@ -4,7 +4,7 @@
 //Added by Jack Rost
 /obj/item/trash
 	icon = 'icons/obj/trash.dmi'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	contained_sprite = TRUE
 	item_state = "candy"
 	desc = "General waste material, refuse or litter. Dispose responsibly."

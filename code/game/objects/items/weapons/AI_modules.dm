@@ -14,7 +14,7 @@ AI MODULES
 	desc = "An AI Module for transmitting encrypted instructions to the AI."
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	force = 11
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 5.0
 	throw_speed = 3
 	throw_range = 15

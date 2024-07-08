@@ -8,7 +8,7 @@
 	center_of_mass = list("x" = 13,"y" = 11)
 	brightness_on = 4
 	flashlight_power = 1.0
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	uv_intensity = 100
 	power_use = FALSE

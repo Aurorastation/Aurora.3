@@ -8,7 +8,7 @@
 	activators = list("eject contents" = IC_PINTYPE_PULSE_IN)
 	outputs = list("has item" = IC_PINTYPE_BOOLEAN)
 	power_draw_per_use = 1
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	size = 5
 	complexity = 1
 

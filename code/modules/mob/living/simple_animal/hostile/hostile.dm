@@ -132,12 +132,11 @@
 		target_mob = user
 		change_stance(HOSTILE_STANCE_ATTACK)
 
-/mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+/mob/living/simple_animal/hostile/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
-	if(istype(AM,/obj/))
-		var/obj/O = AM
-		if((target_mob != O.throwing?.thrower?.resolve()) && ismob(O.throwing?.thrower?.resolve()))
-			target_mob = O.throwing?.thrower?.resolve()
+	if(isobj(hitting_atom))
+		if((target_mob != throwingdatum?.thrower?.resolve()) && ismob(throwingdatum?.thrower?.resolve()))
+			target_mob =throwingdatum.thrower.resolve()
 			change_stance(HOSTILE_STANCE_ATTACK)
 
 /mob/living/simple_animal/hostile/attack_generic(var/mob/user, var/damage, var/attack_message)

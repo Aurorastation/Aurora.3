@@ -5,7 +5,7 @@
 	icon_state = "keys"
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	var/key_data = ""
 
 /obj/item/key/New(var/newloc,var/data)

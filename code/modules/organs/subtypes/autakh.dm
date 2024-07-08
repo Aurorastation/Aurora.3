@@ -300,7 +300,7 @@
 	desc = "An integrated combitool module."
 	icon_state = "digitool"
 	item_state = "digitool"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	tools = list(
 		"crowbar",
 		"screwdriver",

@@ -9,10 +9,10 @@
 	if(!(effecttype in list(DAMAGE_PAIN, STUTTER, EYE_BLUR, DROWSY, STUN, WEAKEN)))
 		. = ..()
 
-/mob/living/heavy_vehicle/hitby(atom/movable/AM, speed)
+/mob/living/heavy_vehicle/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(LAZYLEN(pilots) && (!hatch_closed || !prob(body.pilot_coverage)))
 		var/mob/living/pilot = pick(pilots)
-		return pilot.hitby(AM, speed)
+		return pilot.hitby(arglist(args))
 	. = ..()
 
 /mob/living/heavy_vehicle/get_armors_by_zone(def_zone, damage_type, damage_flags)

@@ -1,7 +1,7 @@
 /obj/item
 	name = "item"
 	icon = 'icons/obj/items.dmi'
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
 	///This saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
@@ -341,15 +341,15 @@
 /obj/item/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
 	var/size
 	switch(src.w_class)
-		if (ITEMSIZE_HUGE to INFINITY)
+		if (WEIGHT_CLASS_HUGE to INFINITY)
 			size = "huge"
-		if (ITEMSIZE_LARGE to ITEMSIZE_HUGE)
+		if (WEIGHT_CLASS_BULKY to WEIGHT_CLASS_HUGE)
 			size = "bulky"
-		if (ITEMSIZE_NORMAL to ITEMSIZE_LARGE)
+		if (WEIGHT_CLASS_NORMAL to WEIGHT_CLASS_BULKY)
 			size = "normal-sized"
-		if (ITEMSIZE_SMALL to ITEMSIZE_NORMAL)
+		if (WEIGHT_CLASS_SMALL to WEIGHT_CLASS_NORMAL)
 			size = "small"
-		if (0 to ITEMSIZE_SMALL)
+		if (0 to WEIGHT_CLASS_SMALL)
 			size = "tiny"
 	//Changed this switch to ranges instead of tiered values, to cope with granularity and also
 	//things outside its range ~Nanako
@@ -450,6 +450,13 @@
 				return 0
 
 /obj/item/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+	if(QDELETED(hit_atom))
+		return
+	if(SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_IMPACT, hit_atom, throwingdatum) & COMPONENT_MOVABLE_IMPACT_NEVERMIND)
+		return
+	if(SEND_SIGNAL(hit_atom, COMSIG_ATOM_PREHITBY, src, throwingdatum) & COMSIG_HIT_PREVENTED)
+		return
+
 	if(isliving(hit_atom)) //Living mobs handle hit sounds differently.
 		var/mob/living/L = hit_atom
 		if(L.in_throw_mode)
@@ -467,7 +474,12 @@
 				playsound(hit_atom, 'sound/weapons/throwtap.ogg', 1, volume, -1)
 	else
 		playsound(src, drop_sound, YEET_SOUND_VOLUME)
-	return ..()
+
+	var/itempush = TRUE
+	if(w_class < WEIGHT_CLASS_NORMAL)
+		itempush = FALSE //too light to push anything
+
+	return hit_atom.hitby(src, 0, itempush, throwingdatum=throwingdatum)
 
 /**
  * Called when an item is removed from a `/mob` inventory (including hands and whatnot),

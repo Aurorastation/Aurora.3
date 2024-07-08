@@ -330,11 +330,11 @@ emp_act
 	return 1
 
 //this proc handles being hit by a thrown atom
-/mob/living/carbon/human/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)
-	if(istype(AM,/obj/))
-		var/obj/O = AM
+/mob/living/carbon/human/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
+	if(isobj(hitting_atom))
+		var/obj/O = hitting_atom
 
-		if(in_throw_mode && !get_active_hand() && speed <= THROWFORCE_SPEED_DIVISOR)	//empty active hand and we're in throw mode
+		if(in_throw_mode && !get_active_hand() && throwingdatum.speed <= THROWFORCE_SPEED_DIVISOR)	//empty active hand and we're in throw mode
 			if(canmove && !restrained())
 				if(isturf(O.loc))
 					put_in_active_hand(O)
@@ -343,7 +343,7 @@ emp_act
 					return
 
 		var/dtype = O.damtype
-		var/throw_damage = O.throwforce*(speed/THROWFORCE_SPEED_DIVISOR)
+		var/throw_damage = O.throwforce*(throwingdatum.speed/THROWFORCE_SPEED_DIVISOR)
 
 		var/zone
 		if (istype(O.throwing?.thrower?.resolve(), /mob/living))
@@ -409,7 +409,7 @@ emp_act
 		if(isitem(O))
 			var/obj/item/I = O
 			mass = I.w_class/THROWNOBJ_KNOCKBACK_DIVISOR
-		var/momentum = speed*mass
+		var/momentum = throwingdatum.speed*mass
 
 		if(O.throwing?.thrower?.resolve() && momentum >= THROWNOBJ_KNOCKBACK_SPEED)
 			var/dir = get_dir(O.throwing?.thrower?.resolve(), src)
@@ -420,7 +420,7 @@ emp_act
 
 			if(!O || !src) return
 
-			if(O != ITEMSIZE_TINY)
+			if(O != WEIGHT_CLASS_TINY)
 				if(O.loc == src && O.sharp) //Projectile is embedded and suitable for pinning.
 					var/turf/T = near_wall(dir,2)
 
@@ -432,8 +432,8 @@ emp_act
 						)
 						src.anchored = TRUE
 						src.pinned += O
-	else if(ishuman(AM))
-		var/mob/living/carbon/human/H = AM
+	else if(ishuman(hitting_atom))
+		var/mob/living/carbon/human/H = hitting_atom
 		H.Weaken(3)
 		Weaken(3)
 		visible_message(SPAN_WARNING("[src] get knocked over by [H]!"), SPAN_WARNING("You get knocked over by [H]!"))

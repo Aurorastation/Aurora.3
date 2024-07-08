@@ -145,7 +145,7 @@
 	name = "Belt of Holding"
 	desc = "Can hold more than you'd expect."
 	icon_state = "emsbelt"
-	max_w_class = ITEMSIZE_NORMAL // Can hold normal sized items.
+	max_w_class = WEIGHT_CLASS_NORMAL // Can hold normal sized items.
 	storage_slots = 14	// Twice the capacity of a typical belt.
 	max_storage_space = 16
 

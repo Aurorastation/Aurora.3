@@ -5,4 +5,4 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "ammo_display"
 	origin_tech = list(TECH_BLUESPACE = 3, TECH_MATERIAL = 4, TECH_DATA = 4)
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY

@@ -97,7 +97,7 @@
 	. = ..()
 	pockets = new /obj/item/storage/internal(src)
 	pockets.storage_slots = 4
-	pockets.max_w_class = ITEMSIZE_SMALL
+	pockets.max_w_class = WEIGHT_CLASS_SMALL
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/armor/swat
@@ -540,7 +540,7 @@
 	. = ..()
 	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 4
-	pockets.max_w_class = ITEMSIZE_SMALL
+	pockets.max_w_class = WEIGHT_CLASS_SMALL
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/storage/vest/sol
@@ -588,7 +588,7 @@
 	desc = "A suit that protects against some damage."
 	icon_state = "centcom"
 	item_state = "centcom"
-	w_class = ITEMSIZE_LARGE//bulky item
+	w_class = WEIGHT_CLASS_BULKY//bulky item
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	allowed = list(/obj/item/gun/energy,/obj/item/melee/baton,/obj/item/handcuffs,/obj/item/tank/emergency_oxygen)
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
@@ -601,7 +601,7 @@
 	desc = "A heavily armored suit that protects against moderate damage."
 	icon_state = "heavy"
 	item_state = "swat_suit"
-	w_class = ITEMSIZE_LARGE//bulky item
+	w_class = WEIGHT_CLASS_BULKY//bulky item
 	gas_transfer_coefficient = 0.90
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	slowdown = 3

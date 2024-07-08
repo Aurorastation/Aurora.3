@@ -162,25 +162,39 @@
 		A.CollidedWith(src)
 
 //called when src is thrown into hit_atom
+// /atom/movable/proc/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
+// 	if(isliving(hit_atom))
+// 		var/mob/living/M = hit_atom
+// 		M.hitby(src, throwingdatum=throwingdatum)
+
+// 	else if(isobj(hit_atom))
+// 		var/obj/O = hit_atom
+// 		if(!O.anchored)
+// 			step(O, src.last_move)
+// 		O.hitby(src, throwingdatum=throwingdatum)
+
+// 	else if(isturf(hit_atom))
+// 		throwing?.finalize(hit = FALSE)
+// 		var/turf/T = hit_atom
+// 		if(T.density)
+// 			step(src, turn(src.last_move, 180))
+// 			if(isliving(src))
+// 				var/mob/living/M = src
+// 				M.turf_collision(T, throwingdatum.speed)
+
 /atom/movable/proc/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	if(isliving(hit_atom))
-		var/mob/living/M = hit_atom
-		M.hitby(src, throwingdatum.speed)
+	set waitfor = FALSE
+	var/hitpush = TRUE
+	var/impact_signal = SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_IMPACT, hit_atom, throwingdatum)
+	if(impact_signal & COMPONENT_MOVABLE_IMPACT_FLIP_HITPUSH)
+		hitpush = FALSE // hacky, tie this to something else or a proper workaround later
 
-	else if(isobj(hit_atom))
-		var/obj/O = hit_atom
-		if(!O.anchored)
-			step(O, src.last_move)
-		O.hitby(src, throwingdatum.speed)
-
-	else if(isturf(hit_atom))
-		throwing?.finalize(hit = FALSE)
-		var/turf/T = hit_atom
-		if(T.density)
-			step(src, turn(src.last_move, 180))
-			if(isliving(src))
-				var/mob/living/M = src
-				M.turf_collision(T, throwingdatum.speed)
+	if(impact_signal && (impact_signal & COMPONENT_MOVABLE_IMPACT_NEVERMIND))
+		return // in case a signal interceptor broke or deleted the thing before we could process our hit
+	if(SEND_SIGNAL(hit_atom, COMSIG_ATOM_PREHITBY, src, throwingdatum) & COMSIG_HIT_PREVENTED)
+		return
+	SEND_SIGNAL(src, COMSIG_MOVABLE_IMPACT, hit_atom, throwingdatum)
+	return hit_atom.hitby(src, throwingdatum=throwingdatum, hitpush=hitpush)
 
 //decided whether a movable atom being thrown can pass through the turf it is in.
 /atom/movable/proc/hit_check(var/speed, var/target)

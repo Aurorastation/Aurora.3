@@ -6,7 +6,7 @@
 	icon_state = "package_pack"
 	item_state = "package_pack"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = SLOT_BACK
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'

@@ -13,7 +13,7 @@
 	dir = NORTH
 
 	//Big thing
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 
 	//Can't pass through it
 	density = TRUE

@@ -5,7 +5,7 @@
 	icon_state = "recharger_backpack"
 	item_state = "recharger_backpack"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
 	///Power cell used to recharge the gun. Empty by default.
 	var/obj/item/cell/powersupply

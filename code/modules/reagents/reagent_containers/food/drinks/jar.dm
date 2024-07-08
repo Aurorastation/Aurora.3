@@ -7,7 +7,7 @@
 	filling_states = "-10;10;25;50;75;80;100"
 	matter = list(MATERIAL_GLASS = 5000)
 	center_of_mass = list("x"=15, "y"=8)
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	amount_per_transfer_from_this = 20
 	possible_transfer_amounts = list(10,20,30,60,120)
 	volume = 120

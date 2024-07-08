@@ -8,7 +8,7 @@
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/suit.dmi'
 	)
 	force = 1
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("whipped")
 	hitsound = 'sound/weapons/towelwhip.ogg'
 	drop_sound = 'sound/items/drop/cloth.ogg'

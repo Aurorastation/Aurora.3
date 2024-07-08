@@ -9,7 +9,7 @@
 /obj/item/antag_spawner
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	var/uses = 1
 	var/mob_type
 	var/ghost_role_id

@@ -4,7 +4,7 @@
 	icon = 'icons/obj/forensics.dmi'
 	icon_state = "markerbox"
 	icon_type = "marker"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	storage_slots = 7
 	can_hold = list(/obj/item/csi_marker)
 	starts_with = list(
@@ -24,7 +24,7 @@
 	icon_state = "card1"
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	randpixel = 1
 	layer = ABOVE_HUMAN_LAYER //so you can mark bodies

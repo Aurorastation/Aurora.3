@@ -2,7 +2,7 @@
 	name = "caltrops"
 	desc = "A sharp antipersonnel weapon. Useful to delay advances."
 	icon_state = "caltrop1"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	force_divisor = 0.1
 	thrown_force_divisor = 0.3
 	sharp = TRUE

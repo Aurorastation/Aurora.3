@@ -10,7 +10,7 @@
 	icon_state = "depth_scanner"
 	item_state = "depth_scanner"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	var/list/positive_locations = list()
 	var/datum/depth_scan/current

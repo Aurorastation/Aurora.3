@@ -168,11 +168,11 @@
 		has_grille_installed = TRUE
 		return
 
-/obj/structure/window_frame/hitby(atom/movable/AM, speed)
+/obj/structure/window_frame/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
 	var/obj/structure/window/W = locate() in get_turf(src)
 	if(istype(W))
-		W.hitby(AM)
+		W.hitby(arglist(args))
 
 /obj/structure/window_frame/wood
 	color = "#8f5847"

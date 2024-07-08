@@ -79,4 +79,4 @@
 	name = "tracker electronics"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "door_electronics"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL

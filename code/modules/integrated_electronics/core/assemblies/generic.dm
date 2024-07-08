@@ -36,7 +36,7 @@
 	name = "electronic device"
 	icon_state = "setup_device"
 	desc = "It's a case, for building tiny-sized electronics with."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	max_components = IC_COMPONENTS_BASE / 2
 	max_complexity = IC_COMPLEXITY_BASE / 2
 
@@ -69,7 +69,7 @@
 	name = "electronic mechanism"
 	icon_state = "setup_medium"
 	desc = "It's a case, for building medium-sized electronics with."
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	max_components = IC_COMPONENTS_BASE * 2
 	max_complexity = IC_COMPLEXITY_BASE * 2
 
@@ -109,7 +109,7 @@
 	name = "electronic machine"
 	icon_state = "setup_large"
 	desc = "It's a case, for building large electronics with."
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	max_components = IC_COMPONENTS_BASE * 4
 	max_complexity = IC_COMPLEXITY_BASE * 4
 	can_anchor = TRUE
@@ -148,7 +148,7 @@
 	name = "electronic drone"
 	icon_state = "setup_drone"
 	desc = "It's a case, for building mobile electronics with."
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	max_components = IC_COMPONENTS_BASE * 1.5
 	max_complexity = IC_COMPLEXITY_BASE * 1.5
 	can_anchor = FALSE
@@ -186,7 +186,7 @@
 	icon_state = "setup_wallmount_medium"
 	desc = "It's a case, for building medium-sized electronics with. It has a magnetized \
 	backing to allow it to stick to walls."
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	max_components = IC_COMPONENTS_BASE * 2
 	max_complexity = IC_COMPLEXITY_BASE * 2
 	can_anchor = TRUE
@@ -226,7 +226,7 @@
 	icon_state = "setup_wallmount_large"
 	desc = "It's a case, for building large electronics with. It has a magnetized backing \
 	to allow it to stick to walls."
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	max_components = IC_COMPONENTS_BASE * 4
 	max_complexity = IC_COMPLEXITY_BASE * 4
 
@@ -235,7 +235,7 @@
 	icon_state = "setup_wallmount_small"
 	desc = "It's a case, for building small electronics with. It has a magnetized backing \
 	to allow it to stick to walls."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	max_components = IC_COMPONENTS_BASE
 	max_complexity = IC_COMPLEXITY_BASE
 
@@ -244,7 +244,7 @@
 	icon_state = "setup_wallmount_tiny"
 	desc = "It's a case, for building tiny electronics with. It has a magnetized backing \
 	to allow it to stick to walls."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	max_components = IC_COMPONENTS_BASE / 2
 	max_complexity = IC_COMPLEXITY_BASE / 2
 

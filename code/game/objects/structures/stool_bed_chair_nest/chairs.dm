@@ -286,7 +286,7 @@
 	icon_state = "chair_item"
 	item_state = "chair"
 	base_icon = "chair"
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	force_divisor = 0.5
 	origin_type = /obj/structure/bed/stool/chair
 

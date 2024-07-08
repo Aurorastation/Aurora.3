@@ -179,7 +179,7 @@
 									to_chat(H, SPAN_WARNING("Ow! That hurt..."))
 							else
 								for(var/obj/item/O in get_turf(src))
-									if(!O.anchored && O.w_class < ITEMSIZE_HUGE)
+									if(!O.anchored && O.w_class < WEIGHT_CLASS_HUGE)
 										animate(O, pixel_y = 3, time = 2, loop = 1, easing = BOUNCE_EASING)
 										addtimer(CALLBACK(O, TYPE_PROC_REF(/obj/item, reset_table_position), 2))
 

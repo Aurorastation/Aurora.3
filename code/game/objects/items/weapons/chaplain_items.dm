@@ -15,7 +15,7 @@
 	throw_speed = 1
 	throw_range = 4
 	throwforce = 10
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/can_change_form = TRUE // For holodeck check.
 	var/cooldown = 0 // Floor tap cooldown.
 	var/list/null_choices = list( //Generic nullrods only here, religion-specific ones should be on the religion datum
@@ -51,7 +51,7 @@
 	icon_state = "nullstaff"
 	item_state = "nullstaff"
 	slot_flags = SLOT_BELT | SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/nullrod/orb
 	name = "null sphere"
@@ -78,7 +78,7 @@
 	throw_range = 7
 	throwforce = 2
 	slot_flags = SLOT_MASK | SLOT_WRISTS | SLOT_EARS | SLOT_TIE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/nullrod/charm/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
@@ -91,7 +91,7 @@
 	item_state = "matake_spear"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT | SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/nullrod/rredouane
 	name = "\improper Rredouane sword"
@@ -156,7 +156,7 @@
 	icon_state = "shaman_staff"
 	item_state = "shaman_staff"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = null
 
 /obj/item/nullrod/skakh_warrior
@@ -167,7 +167,7 @@
 	item_state = "skakh_sword"
 	slot_flags = SLOT_BACK|SLOT_BELT
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/nullrod/skakh_healer
 	name = "\improper Sk'akh staff"
@@ -176,7 +176,7 @@
 	icon_state = "skakh_staff"
 	item_state = "skakh_staff"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = null
 
 /obj/item/nullrod/skakh_fisher
@@ -213,7 +213,7 @@
 	contained_sprite = TRUE
 
 	force = 25
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
 	light_range = 4
 	light_power = 2
@@ -372,7 +372,7 @@
 	icon = 'icons/obj/urn.dmi'
 	icon_state = "urn"
 	applies_material_colour = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 
 /obj/item/material/urn/afterattack(var/obj/A, var/mob/user, var/proximity)
@@ -412,7 +412,7 @@
 	light_range = 1.4
 	light_power = 1.4
 	light_color = LIGHT_COLOR_BLUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 

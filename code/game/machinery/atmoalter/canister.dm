@@ -11,7 +11,7 @@
 	density = 1
 	var/health = 100.0
 	obj_flags = OBJ_FLAG_SIGNALER | OBJ_FLAG_CONDUCTABLE
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 
 	var/valve_open = 0
 	var/release_pressure = ONE_ATMOSPHERE

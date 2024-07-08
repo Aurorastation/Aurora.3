@@ -4,7 +4,7 @@
 	icon_state = "muzzle"
 	item_state = "muzzle"
 	body_parts_covered = FACE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	gas_transfer_coefficient = 0.90
 	voicechange = 1
 
@@ -14,7 +14,7 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "tape_cross"
 	item_state = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/mask/muzzle/Initialize()
 	. = ..()
@@ -32,7 +32,7 @@
 	desc = "A surgical mask designed to help prevent the spread of diseases."
 	icon_state = "surgical"
 	item_state = "surgical"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_parts_covered = FACE
 	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	gas_transfer_coefficient = 0.90
@@ -54,7 +54,7 @@
 	desc = "A colorable cloth mask designed to protect the wearer against allergens, illnesses, and social interaction."
 	icon_state = "cloth"
 	item_state = "cloth"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_parts_covered = FACE
 	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	gas_transfer_coefficient = 0.90
@@ -71,7 +71,7 @@
 	desc = "A dust mask designed to protect the wearer against construction and/or custodial particulate."
 	icon_state = "dust"
 	item_state = "dust"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_parts_covered = FACE
 	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	gas_transfer_coefficient = 0.90
@@ -103,7 +103,7 @@
 	desc = "A simple lace mask worn by IPCs and organics alike while within the churches of the Trinary Perfection."
 	icon_state = "trinary_mask"
 	item_state = "trinary_mask"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_parts_covered = FACE
 	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	down_body_parts_covered = null
@@ -115,7 +115,7 @@
 	icon_state = "pig"
 	item_state = "pig"
 	flags_inv = HIDEFACE|BLOCKHAIR
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	siemens_coefficient = 0.9
 	body_parts_covered = HEAD|FACE|EYES
 
@@ -126,7 +126,7 @@
 	item_state = "horsehead"
 	flags_inv = HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/mask/horsehead/Initialize()
@@ -175,7 +175,7 @@
 	icon_state = "pioneer_scarf"
 	item_state = "pioneer_scarf"
 	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_parts_covered = FACE
 
 /obj/item/clothing/mask/offworlder/veil
@@ -193,7 +193,7 @@
 	icon_state = "snood"
 	item_state = "snood"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_parts_covered = FACE
 	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	gas_transfer_coefficient = 0.90

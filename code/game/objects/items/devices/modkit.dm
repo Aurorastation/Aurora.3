@@ -111,7 +111,7 @@
 	desc_info = "In order to convert a voidsuit simply click on voidsuit or helmet with this item\
 	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
 	or else it will be deleted."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/list/suit_options = list(
 		/obj/item/clothing/suit/space/void/mining = /obj/item/clothing/suit/space/void/mining/himeo,
 		/obj/item/clothing/head/helmet/space/void/mining = /obj/item/clothing/head/helmet/space/void/mining/himeo,
@@ -207,7 +207,7 @@
 	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
 	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
 	or else it will be deleted."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	suit_options = list(
 		/obj/item/clothing/head/helmet/space/void/dominia = /obj/item/clothing/head/helmet/space/void/dominia/voidsman,
 		/obj/item/clothing/suit/space/void/dominia = /obj/item/clothing/suit/space/void/dominia/voidsman
@@ -241,7 +241,7 @@
 	desc_info = "In order to convert a voidsuit simply click on voidsuit or helmet with this item\
 	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit\
 	or else it will be deleted."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/list/suit_options = list()
 	var/list/helmet_options = list()
 	var/list/rig_options = list()
@@ -324,7 +324,7 @@
 	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on voidsuit or helmet with this item \
 	The same process can be used to convert the voidsuit back into a regular voidsuit. Make sure not to have a helmet or tank in the suit \
 	or else it will be deleted."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	suit_options = list(
 		"Izharshan's Raiders" = /obj/item/clothing/suit/space/void/unathi_pirate,
 		"Hiskyn's Revanchists" = /obj/item/clothing/suit/space/void/unathi_pirate/hiskyn,
@@ -359,7 +359,7 @@
 	desc_info = "This is an OOC item, don't let anyone see it! In order to convert a voidsuit simply click on a hardsuit with this item \
 	The same process can be used to convert the hardsuit back into a regular hardsuit. Make sure not to have any modules in the suit \
 	or else it will be deleted."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	rig_options = list(
 		"NanoTrasen Hardsuit" = /obj/item/rig/nanotrasen,
 		"Corporate Auxiliary Hardsuit" = /obj/item/rig/nanotrasen/corporate_auxiliary,

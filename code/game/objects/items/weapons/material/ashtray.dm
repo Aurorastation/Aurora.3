@@ -7,7 +7,7 @@
 	thrown_force_divisor = 0.1
 	var/image/base_image
 	var/max_butts = 10
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/material/ashtray/Initialize(newloc, material_key)
 	. = ..()

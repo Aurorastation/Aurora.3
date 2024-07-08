@@ -4,8 +4,8 @@
 	storage_slots = 5
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "holder"
-	w_class = ITEMSIZE_TINY
-	max_w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
+	max_w_class = WEIGHT_CLASS_TINY
 	can_hold = list(/obj/item/paper/business_card)
 
 /obj/item/storage/business_card_holder/update_icon()

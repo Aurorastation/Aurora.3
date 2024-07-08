@@ -12,7 +12,7 @@
 	sharp = 0
 	edge = FALSE
 	throwforce = 7
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/drop/metalweapon.ogg'
 	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
 	origin_tech = list(TECH_COMBAT = 2)
@@ -70,8 +70,8 @@
 
 /obj/item/melee/baton/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/cell))
-		if(attacking_item.w_class != ITEMSIZE_NORMAL)
-			to_chat(user, SPAN_WARNING("\The [attacking_item] is too [attacking_item.w_class < ITEMSIZE_NORMAL ? "small" : "large"] to fit here."))
+		if(attacking_item.w_class != WEIGHT_CLASS_NORMAL)
+			to_chat(user, SPAN_WARNING("\The [attacking_item] is too [attacking_item.w_class < WEIGHT_CLASS_NORMAL ? "small" : "large"] to fit here."))
 			return
 		if(!bcell)
 			user.drop_from_inventory(attacking_item, src)

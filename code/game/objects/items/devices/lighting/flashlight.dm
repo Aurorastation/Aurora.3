@@ -9,7 +9,7 @@
 		)
 	icon_state = "flashlight"
 	item_state = "flashlight"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	light_color = LIGHT_COLOR_HALOGEN
@@ -311,7 +311,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_EARS
 	brightness_on = 2
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	light_wedge = LIGHT_OMNI
 
 /obj/item/device/flashlight/drone
@@ -322,7 +322,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	brightness_on = 2
 	efficiency_modifier = 2
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/device/flashlight/heavy
 	name = "heavy duty flashlight"
@@ -330,7 +330,7 @@
 	icon_state = "heavyflashlight"
 	item_state = "heavyflashlight"
 	brightness_on = 4
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	uv_intensity = 60
 	matter = list(MATERIAL_PLASTIC = 100, MATERIAL_GLASS = 70)
 	light_wedge = LIGHT_SEMI
@@ -346,7 +346,7 @@
 	force = 9
 	brightness_on = 5
 	efficiency_modifier = 0.8
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	uv_intensity = 70
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	matter = list(MATERIAL_ALUMINIUM = 200, MATERIAL_GLASS = 100)
@@ -371,7 +371,7 @@
 	icon = 'icons/obj/lighting.dmi'
 	icon_state = "floor1" //not a slime extract sprite but... something close enough!
 	item_state = "slime"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	brightness_on = 6
 	uv_intensity = 200
 	on = TRUE //Bio-luminesence has one setting, on.
@@ -388,7 +388,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	brightness_on = 2
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	light_wedge = LIGHT_WIDE
 	body_parts_covered = 0
 

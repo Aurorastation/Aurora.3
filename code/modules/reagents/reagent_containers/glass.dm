@@ -12,7 +12,7 @@
 	possible_transfer_amounts = list(5,10,15,25,30,60)
 	volume = 60
 	accuracy = 0.1
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	fragile = 2
 	unacidable = 1 //glass doesn't dissolve in acid
@@ -248,7 +248,7 @@
 	center_of_mass = list("x" = 16,"y" = 10)
 	accuracy = 1
 	matter = list(MATERIAL_PLASTIC = 200)
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	amount_per_transfer_from_this = 120
 	possible_transfer_amounts = list(5,10,15,25,30,50,60,100,120,250,300)
 	volume = 300

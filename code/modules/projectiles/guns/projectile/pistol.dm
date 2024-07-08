@@ -71,7 +71,7 @@
 	icon = 'icons/obj/guns/coltauto.dmi'
 	icon_state = "coltauto"
 	item_state = "coltauto"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	accuracy = 1
 	offhand_accuracy = 1
 	load_method = MAGAZINE
@@ -144,7 +144,7 @@
 	icon = 'icons/obj/guns/x9.dmi'
 	icon_state = "secgunauto"
 	item_state = "secgunauto"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	accuracy = 1
 	offhand_accuracy = 1
 	load_method = MAGAZINE
@@ -207,7 +207,7 @@
 	icon_state = "silenced_pistol"
 	item_state = "silenced_pistol"
 	fire_sound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	accuracy = 1
 	offhand_accuracy = 1
 	caliber = ".45"
@@ -292,7 +292,7 @@
 	icon = 'icons/obj/guns/pistol.dmi'
 	icon_state = "pistol"
 	item_state = "pistol"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	accuracy = 1
 	offhand_accuracy = 2
 	caliber = "9mm"
@@ -384,7 +384,7 @@
 	icon_state = "leyon"
 	item_state = "leyon"
 	caliber = "10mm"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	ammo_type = /obj/item/ammo_casing/c10mm
 	magazine_type = /obj/item/ammo_magazine/mc10mm/leyon
 	max_shells = 5
@@ -461,7 +461,7 @@
 	item_state = "k2557-loaded"
 	contained_sprite = TRUE
 	can_suppress = FALSE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	slot_flags = SLOT_BELT|SLOT_HOLSTER

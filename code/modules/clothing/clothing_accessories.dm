@@ -134,7 +134,7 @@
 	for(var/obj/item/clothing/accessory/accessory as anything in accessories)
 		w_class += accessory.accessory_w_class_adjustment
 
-	w_class = Clamp(Ceil(w_class), ITEMSIZE_TINY, ITEMSIZE_IMMENSE)
+	w_class = Clamp(Ceil(w_class), WEIGHT_CLASS_TINY, WEIGHT_CLASS_GIGANTIC)
 
 /obj/item/clothing/proc/removetie_verb()
 	set name = "Remove Accessory"

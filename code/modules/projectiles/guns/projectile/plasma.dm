@@ -4,7 +4,7 @@
 	icon = 'icons/obj/guns/slammer.dmi'
 	icon_state = "slammer"
 	item_state = "slammer"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
 	ammo_type = /obj/item/ammo_casing/plasma_slug
 	magazine_type = /obj/item/ammo_magazine/plasma
@@ -28,7 +28,7 @@
 	icon = 'icons/obj/guns/bolter.dmi'
 	icon_state = "bolter"
 	item_state = "bolter"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	ammo_type = /obj/item/ammo_casing/plasma_bolt
 	magazine_type = /obj/item/ammo_magazine/plasma/light
 	allowed_magazines = list(/obj/item/ammo_magazine/plasma/light)

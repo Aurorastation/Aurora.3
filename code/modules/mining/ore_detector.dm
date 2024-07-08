@@ -12,7 +12,7 @@
 	icon = 'icons/obj/item/tools/ore_scanner.dmi'
 	icon_state = "ore_scanner"
 	item_state = "ore_scanner"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	force = 1
 	var/active = FALSE

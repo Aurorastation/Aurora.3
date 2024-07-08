@@ -33,7 +33,7 @@
 	layer = HUD_ABOVE_ITEM_LAYER
 	abstract = 1
 	item_state = "nothing"
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	throw_range = 5
 
 	drop_sound = null

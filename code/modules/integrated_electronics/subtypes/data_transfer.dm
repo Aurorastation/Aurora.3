@@ -47,13 +47,13 @@
 /obj/item/integrated_circuit/transfer/multiplexer/large
 	name = "eight multiplexer"
 	number_of_inputs = 8
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	icon_state = "mux8"
 
 /obj/item/integrated_circuit/transfer/multiplexer/huge
 	name = "sixteen multiplexer"
 	icon_state = "mux16"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	number_of_inputs = 16
 
 /obj/item/integrated_circuit/transfer/demultiplexer
@@ -103,13 +103,13 @@
 /obj/item/integrated_circuit/transfer/demultiplexer/large
 	name = "eight demultiplexer"
 	icon_state = "dmux8"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	number_of_outputs = 8
 
 /obj/item/integrated_circuit/transfer/demultiplexer/huge
 	name = "sixteen demultiplexer"
 	icon_state = "dmux16"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	number_of_outputs = 16
 
 /obj/item/integrated_circuit/transfer/wireless
@@ -120,7 +120,7 @@
 	spawn_flags = IC_SPAWN_RESEARCH
 	icon_state = "bluespace"
 	power_draw_per_use = 100	// fancy subspace comms aren't cheap power-wise
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	inputs = list(
 		"data" = IC_PINTYPE_ANY,
 		"channel" = IC_PINTYPE_STRING
