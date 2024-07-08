@@ -326,7 +326,7 @@
 
 	return
 
-/mob/living/simple_animal/hostile/hivebotbeacon/Life()
+/mob/living/simple_animal/hostile/hivebotbeacon/Life(seconds_per_tick, times_fired)
 	..()
 	if(wander)
 		wander = 0
