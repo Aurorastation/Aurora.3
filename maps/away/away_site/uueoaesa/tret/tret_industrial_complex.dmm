@@ -252,6 +252,9 @@
 /obj/machinery/cryopod{
 	dir = 4
 	},
+/obj/machinery/computer/cryopod{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
 "abn" = (
