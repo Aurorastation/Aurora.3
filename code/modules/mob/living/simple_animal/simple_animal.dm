@@ -243,7 +243,7 @@
 		return FALSE
 	return TRUE
 
-/mob/living/simple_animal/Life()
+/mob/living/simple_animal/Life(seconds_per_tick, times_fired)
 	..()
 	life_tick++
 	if (stat == DEAD)

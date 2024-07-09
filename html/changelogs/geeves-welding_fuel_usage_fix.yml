@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed welding tools using fuel in prosthetic repairs during the check to see if it CAN do the surgery. Instead, the fuel when be consumed once the surgery completes."
