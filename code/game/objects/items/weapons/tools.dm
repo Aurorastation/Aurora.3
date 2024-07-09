@@ -542,7 +542,7 @@
 			damtype = DAMAGE_BURN
 			w_class = ITEMSIZE_LARGE
 			welding = TRUE
-			hitsound = SOUNDS_LASER_MEAT
+			hitsound = pick(SOUNDS_LASER_MEAT)
 			attack_verb = list("scorched", "burned", "blasted", "blazed")
 			update_icon()
 			set_processing(TRUE)
@@ -689,7 +689,7 @@
 	slot_flags = SLOT_BELT
 	force = 18
 	throwforce = 7
-	w_class = ITEMSIZE_SMALL
+	w_class = ITEMSIZE_NORMAL
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 	usesound = /singleton/sound_category/crowbar_sound

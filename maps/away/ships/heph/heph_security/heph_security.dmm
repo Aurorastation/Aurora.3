@@ -472,13 +472,14 @@
 	pixel_x = -28;
 	pixel_y = 12
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "dA" = (
@@ -2073,7 +2074,8 @@
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/structure/bed/handrail{
@@ -2343,7 +2345,8 @@
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
@@ -2766,8 +2769,12 @@
 /obj/machinery/door/blast/shutters/open{
 	id = "heph_shuttle_shutters"
 	},
-/obj/machinery/door/firedoor/noid,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "sz" = (
@@ -2834,15 +2841,16 @@
 "tH" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/manifold/hidden/red,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/landmark/entry_point/fore{
+	name = "aft"
+	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/landmark/entry_point/fore{
-	name = "aft"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
@@ -3276,7 +3284,8 @@
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
@@ -3394,11 +3403,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/heph_security_ship)
-"xU" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor,
-/area/shuttle/heph_security)
 "xW" = (
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/medbay)
@@ -3544,9 +3548,11 @@
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/medbay)
 "zP" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/obj/machinery/door/firedoor/noid{
-	dir = 4
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
@@ -3829,13 +3835,14 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker_helper/airlock/out,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "Cg" = (
@@ -4078,10 +4085,12 @@
 	id = "heph_shuttle_shutters";
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "ES" = (
@@ -4335,13 +4344,14 @@
 /obj/machinery/access_button{
 	pixel_x = -28
 	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "Hf" = (
@@ -5180,13 +5190,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "MK" = (
@@ -6061,8 +6072,12 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "fore"
 	},
-/obj/machinery/door/firedoor/noid,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "Uz" = (
@@ -6793,13 +6808,14 @@
 	pixel_x = 20;
 	pixel_y = -6
 	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_heph_shuttle";
 	name = "airlock_heph_shuttle";
 	req_one_access = list(216);
-	shuttle_tag = "Hephaestus Security Shuttle"
+	shuttle_tag = "Hephaestus Security Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor,
 /area/shuttle/heph_security)
 "ZZ" = (
@@ -38262,7 +38278,7 @@ Zb
 cV
 TG
 xz
-xU
+zP
 Fb
 fF
 Zb

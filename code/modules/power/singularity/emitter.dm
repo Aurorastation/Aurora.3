@@ -88,7 +88,7 @@
 					to_chat(user, SPAN_NOTICE("You deactivate \the [src]."))
 					if(special_emitter)
 						message_admins("Emitter turned off by [key_name_admin(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
-						log_game("Emitter turned off by [user.ckey]([user]) in ([x],[y],[z])",ckey=key_name(user))
+						log_game("Emitter turned off by [user.ckey]([user]) in ([x],[y],[z])")
 						investigate_log("turned <span class='warning'>off</span> by [user.key]","singulo")
 			else
 				active = TRUE
@@ -99,7 +99,7 @@
 					to_chat(user, SPAN_NOTICE("You activate \the [src]."))
 					if(special_emitter)
 						message_admins("Emitter turned on by [key_name_admin(user, user.client)](<A HREF='?_src_=holder;adminmoreinfo=\ref[user]'>?</A>) in ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
-						log_game("Emitter turned on by [user.ckey]([user]) in ([x],[y],[z])",ckey=key_name(user))
+						log_game("Emitter turned on by [user.ckey]([user]) in ([x],[y],[z])")
 						investigate_log("turned <font color='green'>on</font> by [user.key]","singulo")
 			update_icon()
 		else

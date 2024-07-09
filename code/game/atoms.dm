@@ -68,10 +68,18 @@
 /atom/proc/on_reagent_change()
 	return
 
-// This is called when AM collides with us.
-/atom/proc/CollidedWith(atom/movable/AM)
-	set waitfor = FALSE
-	return
+/**
+ * Called when an `/atom` collides with this atom
+ *
+ * It's roughly equivalent to `Bumped()` in TG, but it's not sleepable and you have to call parent
+ *
+ * * bumped_atom - The `/atom` that collided with this atom
+ */
+/atom/proc/CollidedWith(atom/bumped_atom)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
+	SEND_SIGNAL(src, COMSIG_ATOM_BUMPED, bumped_atom)
 
 // Convenience proc to see if a container is open for chemistry handling.
 // Returns true if open, false if closed.
@@ -229,11 +237,6 @@
 		if(A.contents.len)
 			found += A.search_contents_for(path,filter_path)
 	return found
-
-// Called by mobs when e.g. having the atom as their machine, pulledby, loc (AKA mob being inside the atom) or buckled_to var set.
-// See code/modules/mob/mob_movement.dm for more.
-/atom/proc/relaymove()
-	return
 
 // Called to set the atom's dir and used to add behaviour to dir-changes.
 /atom/proc/set_dir(new_dir)

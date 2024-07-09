@@ -7,7 +7,7 @@
 	msg = sanitize(msg)
 	if(!msg)	return
 
-	log_admin("ADMIN: [key_name(src)] : [msg]",admin_key=key_name(src))
+	log_admin("ADMIN: [key_name(src)] : [msg]")
 
 	if(check_rights(R_ADMIN,0))
 		for(var/s in GLOB.staff)
@@ -25,7 +25,7 @@
 	if(!check_rights(R_ADMIN|R_MOD))	return
 
 	msg = sanitize(msg)
-	log_admin("MOD: [key_name(src)] : [msg]",admin_key=key_name(src))
+	log_admin("MOD: [key_name(src)] : [msg]")
 
 	if (!msg)
 		return
@@ -50,7 +50,7 @@
 	msg = copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)
 	if(!msg)	return
 
-	log_admin("DEV: [key_name(src)] : [msg]",admin_key=key_name(src))
+	log_admin("DEV: [key_name(src)] : [msg]")
 
 	if(check_rights(R_DEV,0))
 		msg = "<span class='devsay'>[create_text_tag("DEV")] <EM>[key_name(usr, 0, 1, 0)]</EM>: <span class='message linkify'>[msg]</span></span>"
@@ -69,7 +69,7 @@
 	msg = copytext(sanitize(msg), 1, MAX_MESSAGE_LEN)
 	if(!msg)	return
 
-	log_admin("CCIASAY: [key_name(src)] : [msg]",admin_key=key_name(src))
+	log_admin("CCIASAY: [key_name(src)] : [msg]")
 
 	if(check_rights((R_CCIAA|R_ADMIN),0))
 		msg = "<span class='cciaasay'>[create_text_tag("CCIA")] <EM>[key_name(usr, 0, 1, 0)]</EM>: <span class='message linkify'>[msg]</span></span>"

@@ -5,6 +5,7 @@
 	icon_state = "ronin_hat"
 	item_state = "ronin_hat"
 	contained_sprite = TRUE
+	protects_against_weather = TRUE
 
 /obj/item/clothing/head/unathi/deco
 	name = "decorated straw hat"

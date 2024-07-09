@@ -465,7 +465,7 @@ var/list/localhost_addresses = list(
 	// New player, and we don't want any.
 	if (!holder)
 		if (GLOB.config.access_deny_new_players && player_age == -1)
-			log_access("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.", ckey = ckey)
+			log_access("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.")
 			message_admins("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.")
 			to_chat_immediate(src, SPAN_DANGER("Apologies, but the server is currently not accepting connections from never before seen players."))
 			del(src)
@@ -473,7 +473,7 @@ var/list/localhost_addresses = list(
 
 		// Check if the account is too young.
 		if (GLOB.config.access_deny_new_accounts != -1 && account_age != -1 && account_age <= GLOB.config.access_deny_new_accounts)
-			log_access("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.", ckey = ckey)
+			log_access("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.")
 			message_admins("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.")
 			to_chat_immediate(src, SPAN_DANGER("Apologies, but the server is currently not accepting connections from BYOND accounts this young."))
 			del(src)

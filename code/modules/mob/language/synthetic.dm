@@ -25,7 +25,7 @@
 
 	message = formalize_text(message)
 
-	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
+	log_say("[key_name(speaker)] : ([name]) [message]")
 
 	var/message_start = "<span style='font-size: [speaker.get_binary_font_size()];'><i><span class='game say'>[name], <span class='name'>[get_speaker_name(speaker)]</span>"
 	var/message_body = span(message, "[speaker.say_quote(message)], \"[message]\"</span></span></i>")
