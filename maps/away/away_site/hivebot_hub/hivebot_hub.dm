@@ -7,7 +7,7 @@
 	prefix = "away_site/hivebot_hub/"
 	suffixes = list("hivebot_hub.dmm")
 
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ, ALL_COALITION_SECTORS)
+	sectors = ALL_POSSIBLE_SECTORS
 	spawn_weight = 1
 	spawn_cost = 1
 
@@ -133,7 +133,8 @@
 		It cost the skipper a lot, I know. Sold off whatever was left of our shuttle for it. <br>\
 		No easy way off this tincan til it's sold. But if we can sell this at a decent price, maybe it'll be over? <br>\
 		No more living on the edge of space. No more darkness, and silence, and worrying for the next buyer that'll find us. <br>\
-		I could go home. See grass again. Trees. You never realise how much you miss them. <br>\
+		I could go home. See grass again. Trees. You never do realise how much you miss them. <br>\
 		This needs to work. <br>\
 		~ HB <br>\
 		"
+
