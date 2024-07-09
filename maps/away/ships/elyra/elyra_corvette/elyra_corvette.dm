@@ -5,7 +5,7 @@
 	prefix = "ships/elyra/elyra_corvette/"
 	suffixes = list("elyra_corvette.dmm")
 
-	sectors = list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ)
+	sectors = list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_TABITI, SECTOR_AEMAQ)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "elyran_corvette"
