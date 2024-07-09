@@ -7,7 +7,7 @@
 	prefix = "away_site/crashed_elyran_tanker/"
 	suffixes = list("crashed_elyran_tanker.dmm")
 
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ)
+	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_TABITI, SECTOR_BADLANDS, SECTOR_AEMAQ)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "crashed_elyran_tanker"
