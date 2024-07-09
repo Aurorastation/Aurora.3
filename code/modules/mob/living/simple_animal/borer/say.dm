@@ -30,7 +30,7 @@
 			to_chat(src, SPAN_NOTICE("There are no viable hosts to speak with."))
 		else
 			var/mob/living/carbon/human/chosen_sayer = pick(viable_sayers)
-			log_say("[key_name(src)] : (forcing [key_name(chosen_sayer)]) [message]", ckey=key_name(src))
+			log_say("[key_name(src)] : (forcing [key_name(chosen_sayer)]) [message]")
 			chosen_sayer.say(message)
 		return
 

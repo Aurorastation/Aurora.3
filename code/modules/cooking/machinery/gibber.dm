@@ -69,8 +69,6 @@
 
 /obj/machinery/gibber/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	go_out()
 	return

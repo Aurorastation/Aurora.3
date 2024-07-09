@@ -8,7 +8,7 @@
 	SSnanoui.user_logout(src) // this is used to clean up (remove) this user's Nano UIs
 	GLOB.player_list -= src
 	disconnect_time = world.realtime
-	log_access("Logout: [key_name(src)]",ckey=key_name(src))
+	log_access("Logout: [key_name(src)]")
 	SSstatistics.update_status()
 	RemoveRenderers()
 	if(client)

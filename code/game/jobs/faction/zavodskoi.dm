@@ -56,6 +56,7 @@
 		"Xenobotanist" = /obj/outfit/job/scientist/xenobotanist/zavodskoi,
 		"Lab Assistant" = /obj/outfit/job/intern_sci/zavodskoi,
 		"Xenoarchaeologist"= /obj/outfit/job/scientist/xenoarchaeologist/zavodskoi,
+		"Anomalist"= /obj/outfit/job/scientist/anomalist/zavodskoi,
 		"Engineer" = /obj/outfit/job/engineer/zavodskoi,
 		"Atmospheric Technician" = /obj/outfit/job/atmos/zavodskoi,
 		"Engineering Apprentice" = /obj/outfit/job/intern_eng/zavodskoi,
@@ -165,6 +166,19 @@
 	name = "Xenoarchaeologist - Zavodskoi Interstellar"
 
 	uniform = /obj/item/clothing/under/rank/scientist/xenoarchaeologist/zavod
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
+	id = /obj/item/card/id/zavodskoi
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/zavod
+
+	backpack_faction = /obj/item/storage/backpack/zavod
+	satchel_faction = /obj/item/storage/backpack/satchel/zavod
+	dufflebag_faction = /obj/item/storage/backpack/duffel/zavod
+	messengerbag_faction = /obj/item/storage/backpack/messenger/zavod
+
+/obj/outfit/job/scientist/anomalist/zavodskoi
+	name = "Anomalist - Zavodskoi Interstellar"
+
+	uniform = /obj/item/clothing/under/rank/scientist/anomalist/zavod
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi
 	id = /obj/item/card/id/zavodskoi
 	shoes = /obj/item/clothing/shoes/sneakers/medsci/zavod
