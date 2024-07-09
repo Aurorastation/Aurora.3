@@ -212,7 +212,7 @@
 	if(P.firer && REAGENT_VOLUME(reagents, /singleton/reagent/fuel) >= LETHAL_FUEL_CAPACITY)
 		visible_message(SPAN_DANGER("\The [name] is hit by the [P]!"))
 		log_and_message_admins("shot an improvised [name] explosive", P.firer)
-		log_game("[key_name(P.firer)] shot improvised grenade at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).",ckey=key_name(P.firer))
+		log_game("[key_name(P.firer)] shot improvised grenade at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).")
 	detonate(TRUE)
 	. = ..()
 

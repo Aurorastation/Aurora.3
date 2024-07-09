@@ -34,15 +34,17 @@
 		if(istype(west, /turf/simulated/floor))
 			new /obj/machinery/conveyor(west, WEST, 1)
 
-/obj/machinery/transformer/CollidedWith(var/atom/movable/AM)
+/obj/machinery/transformer/CollidedWith(atom/bumped_atom)
+	. = ..()
+
 	// HasEntered didn't like people lying down.
-	if(ishuman(AM))
+	if(ishuman(bumped_atom))
 		// Only humans can enter from the west side, while lying down.
-		var/move_dir = get_dir(loc, AM.loc)
-		var/mob/living/carbon/human/H = AM
+		var/move_dir = get_dir(loc, bumped_atom.loc)
+		var/mob/living/carbon/human/H = bumped_atom
 		if((transform_standing || H.lying) && move_dir == EAST)
-			AM.forceMove(src.loc)
-			make_robot(AM)
+			H.forceMove(src.loc)
+			make_robot(H)
 
 /obj/machinery/transformer/proc/make_robot(var/mob/living/carbon/human/H)
 	if(stat & (BROKEN|NOPOWER))

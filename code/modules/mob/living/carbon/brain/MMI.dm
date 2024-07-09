@@ -201,7 +201,11 @@
 		if("Vaurca")
 			braintype = "vaurca"
 
-/obj/item/device/mmi/relaymove(var/mob/user, var/direction)
+/obj/item/device/mmi/relaymove(mob/living/user, direction)
+	. = ..()
+	if(!.)
+		return
+
 	if(user.stat || user.stunned)
 		return
 	var/obj/item/rig/rig = get_rig()

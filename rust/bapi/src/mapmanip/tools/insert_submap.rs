@@ -46,42 +46,27 @@ pub fn insert_submap(
             let tile_dst_area = tile_dst.remove_area().wrap_err("map tile has no area")?;
             let tile_dst_turf = tile_dst.remove_turf().wrap_err("map tile has no turf")?;
 
-            match (tile_src_area_is_noop, tile_src_turf_is_noop) {
-                (true, true) => {
-                    // both area and turf are noop
-                    // append all atoms from src into dst
-                    // use dst turf, and dst area
-                    tile_dst.prefabs.append(&mut tile_src.prefabs);
-                    tile_dst.prefabs.push(tile_dst_turf);
-                    tile_dst.prefabs.push(tile_dst_area);
-                }
-                (true, false) => {
-                    // src tile has noop area
-                    // replace all dst atoms with src atoms
-                    // use src turf, and dst area
-                    tile_dst.prefabs = tile_src.prefabs;
-                    tile_dst.prefabs.push(tile_src_turf);
-                    tile_dst.prefabs.push(tile_dst_area);
-                }
-                (false, true) => {
-                    // src tile has noop turf
-                    // append all atoms from src into dst
-                    // use dst turf, and src area
-                    tile_dst.prefabs.append(&mut tile_src.prefabs);
-                    tile_dst.prefabs.push(tile_dst_turf);
-                    tile_dst.prefabs.push(tile_src_area);
-                }
-                (false, false) => {
-                    // src tile has neither noop area nor turf
-                    // the simplest case, just replace the whole dst tile with the src tile
-                    // use src turf, and src area
-                    tile_dst.prefabs = tile_src.prefabs;
-                    tile_dst.prefabs.push(tile_src_turf);
-                    tile_dst.prefabs.push(tile_src_area);
-                    // do note that in dmm file format
-                    // turf and area have to be the two last elements in a prefab
-                }
-            }
+            // get new area
+            let new_area = if tile_src_area_is_noop {
+                tile_dst_area
+            } else {
+                tile_src_area
+            };
+
+            // get new turf, AND, append/replace other atoms into dst tile
+            let new_turf = if tile_src_turf_is_noop {
+                tile_dst.prefabs.append(&mut tile_src.prefabs);
+                tile_dst_turf
+            } else {
+                tile_dst.prefabs = tile_src.prefabs;
+                tile_src_turf
+            };
+
+            // push selected new turf and area to dst tile
+            // do note that in dmm file format
+            // turf and area have to be the two last elements in a prefab
+            tile_dst.prefabs.push(new_turf);
+            tile_dst.prefabs.push(new_area);
         }
     }
 

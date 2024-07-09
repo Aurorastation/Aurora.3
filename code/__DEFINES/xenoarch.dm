@@ -17,3 +17,11 @@
 #define TRIGGER_CO2 11
 #define TRIGGER_NITRO 12
 #define MAX_TRIGGER 12
+
+
+#define SAMPLE_BIO "tissue"
+#define SAMPLE_SOIL "soil"
+#define SAMPLE_WATER "water"
+#define ALL_SAMPLE_ATTACHMENTS list(SAMPLE_BIO, SAMPLE_SOIL, SAMPLE_WATER)
+
+#define PARTICLE_TYPES list("Kaons", "Pions", "Protons", "Neutrons", "Positrons", "Electrons", "Muons", "Neutrinos")

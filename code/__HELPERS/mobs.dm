@@ -186,7 +186,7 @@ Proc for attack log creation, because really why not
 	if(target && ismob(target))
 		target.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been [what_done] by [user ? "[user.name][(ismob(user) && user.ckey) ? "([user.ckey])" : ""]" : "NON-EXISTANT SUBJECT"][object ? " with [object]" : " "][addition]</font>")
 	if(admin)
-		log_attack(SPAN_WARNING("[user ? "[user.name][(ismob(user) && user.ckey) ? "([user.ckey])" : ""]" : "NON-EXISTANT SUBJECT"] [what_done] [target ? "[target.name][(ismob(target) && target.ckey)? "([target.ckey])" : ""]" : "NON-EXISTANT SUBJECT"][object ? " with [object]" : " "][addition]"),ckey=key_name(user),ckey_target=key_name(target))
+		log_attack(SPAN_WARNING("[user ? "[user.name][(ismob(user) && user.ckey) ? "([user.ckey])" : ""]" : "NON-EXISTANT SUBJECT"] [what_done] [target ? "[target.name][(ismob(target) && target.ckey)? "([target.ckey])" : ""]" : "NON-EXISTANT SUBJECT"][object ? " with [object]" : " "][addition]"))
 
 //checks whether this item is a module of the robot or exosuit it is located in. This is mainly to ensure that things do not get embedded or fed into autolathes if attached to a bot or exosuit
 /proc/is_robot_module(var/obj/item/thing)

@@ -49,3 +49,20 @@
 
 	map_shuttles = list(/datum/shuttle/autodock/overmap/runtime)
 	warehouse_basearea = /area/storage/primary
+
+
+/area/turbolift/main_station
+	name = "Civilian Lift - Main"
+	lift_announce_str = "Arriving at the Main Level. Facilities on this floor include: Engineering, Medical, Security, Science, Command departments, Cargo Office, Chapel, Bar, Kitchen."
+
+	lift_floor_label = "Main Lvl."
+	lift_floor_name = "Main Lvl."
+
+	base_turf = /turf/simulated/floor/plating
+
+/area/turbolift/main_mid
+	name = "Civilian Lift - Mid Level"
+	lift_announce_str = "Arriving at (Unknown). Facilities on this floor include: (Unknown)."
+
+	lift_floor_label = "Under construction"
+	lift_floor_name = "Under construction"

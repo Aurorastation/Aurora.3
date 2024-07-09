@@ -1,5 +1,5 @@
 /// Logging for generic/unsorted game messages
-/proc/_log_game(text)
+/proc/log_game(text)
 	if (GLOB.config.logsettings["log_game"])
 		WRITE_LOG(GLOB.config.logfiles["world_game_log"], "GAME: [text]")
 
@@ -13,7 +13,7 @@
 #endif
 
 /// Logging for emotes
-/proc/_log_emote(text)
+/proc/log_emote(text)
 #if defined(UNIT_TEST)
 	LOG_GITHUB_DEBUG("EMOTE: [text]")
 #else
@@ -27,7 +27,7 @@
 		WRITE_LOG(GLOB.config.logfiles["world_game_log"], "RADIOEMOTE: [text]")
 
 /// Logging for messages sent in OOC
-/proc/_log_ooc(text)
+/proc/log_ooc(text)
 	if (GLOB.config.logsettings["log_ooc"])
 		WRITE_LOG(GLOB.config.logfiles["world_game_log"], "OOC: [text]")
 
@@ -37,12 +37,12 @@
 		WRITE_LOG(GLOB.config.logfiles["world_game_log"], "PRAY: [text]")
 
 /// Logging for logging in & out of the game, with error messages.
-/proc/_log_access(text)
+/proc/log_access(text)
 	if (GLOB.config.logsettings["log_access"])
 		WRITE_LOG(GLOB.config.logfiles["world_game_log"], "ACCESS: [text]")
 
 /// Logging for OOC votes
-/proc/_log_vote(text)
+/proc/log_vote(text)
 	if (GLOB.config.logsettings["log_vote"])
 		WRITE_LOG(GLOB.config.logfiles["world_game_log"], "VOTE: [text]")
 
