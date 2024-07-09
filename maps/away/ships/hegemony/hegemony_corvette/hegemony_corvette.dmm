@@ -1697,8 +1697,8 @@
 	name = "Ship Lockdown";
 	pixel_y = 8;
 	pixel_x = -5;
-	id = "hegemony1","hegemony2","hegemony3","hegemony4","hegemony5";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	desc = "It controls blast doors, remotely. This button looks to be non-functional."
 	},
 /obj/machinery/button/remote/blast_door{
 	name = "Bridge Blastdoors";
@@ -1711,7 +1711,8 @@
 	pixel_x = -5;
 	pixel_y = -1;
 	name = "Ship Window Shields";
-	req_one_access = list(113)
+	req_one_access = list(113);
+	id = "hegemony_window"
 	},
 /obj/machinery/button/remote/blast_door{
 	name = "Auxiliary CIC Blastdoors";
