@@ -111,8 +111,6 @@
 
 /obj/machinery/computer/ship/helm/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(viewing_overmap(user) && connected)
 		connected.relaymove(user, direction, accellimit)
