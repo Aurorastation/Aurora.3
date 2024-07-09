@@ -38,8 +38,8 @@
 	starlight_range = 4
 
 /datum/space_sector/new_ankara
-	name = SECTOR_NEW_ANKARA
-	description = "New Ankara is the home system of the Republic of Elyra. Its capital is Persepolis. The planet was originally an arid planet with a modest atmosphere and stubborn \
+	name = SECTOR_TABITI
+	description = "Tabiti is the home system of the Republic of Elyra. Its capital is Persepolis. The planet was originally an arid planet with a modest atmosphere and stubborn \
 	native ecosystems already present. Original Alliance-funded terraforming efforts transformed the planet into an Earthlike planet within a decade, allowing the population to flourish \
 	before and after independence. Commercial and service sector jobs remain the highest employer, second to refineries processing phoron or other minerals transported to the planet's \
 	orbit. This is among the primary locations in Elyra where phoron can be found in abundance."

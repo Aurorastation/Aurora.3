@@ -10,14 +10,14 @@
 #define SECTOR_VALLEY_HALE			"Valley Hale"	//Generic sector but is also used for the entire Elyran territory
 #define SECTOR_BADLANDS				"Badlands"		//Generic sector
 //Elyran sectors
-#define SECTOR_NEW_ANKARA			"New Ankara"	//New Ankara and its gravity well, Persepolis and New Suez are found here
+#define SECTOR_TABITI			"Tabiti"	//Tabiti and its gravity well, Persepolis and New Suez are found here
 #define SECTOR_AEMAQ				"Al-Wakwak"		//al-Wakwak and its gravity well, Aemaqq is found here
 //Tajaran and Unathi sectors
 #define SECTOR_SRANDMARR			"S'rand'marr"	//S'r'and'marr and its gravity well, Adhomai and Raskara are found here
 #define SECTOR_NRRAHRAHUL			"Nrrahrahul"	//Nrrahrahul and its gravity well, Hro'zamal is found here
 #define SECTOR_GAKAL				"Gakal"			//Gakal and its gravity well, Gakal'zaal is found here.
 #define SECTOR_UUEOAESA				"Uueoa-Esa"		//Uueoa-Esa and its gravity well, Moghes and Ouerea are found here.
-#define ALL_BADLAND_SECTORS		list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
+#define ALL_BADLAND_SECTORS		list(SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_TABITI, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
 
 //Coalition-aligned sectors
 #define SECTOR_COALITION			"Coalition of Colonies"	//For if we want to specify coalition assets, but not focused on a particular planet
@@ -45,6 +45,6 @@
 #define ALL_DANGEROUS_SECTORS	list(SECTOR_BADLANDS, ALL_VOID_SECTORS)
 
 /// all non-generic, named and specific sectors, where generic planets or the like should not spawn
-#define ALL_SPECIFIC_SECTORS	list(SECTOR_TAU_CETI, SECTOR_SRANDMARR, SECTOR_HANEUNIM, SECTOR_BURZSIA, SECTOR_UUEOAESA, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
+#define ALL_SPECIFIC_SECTORS	list(SECTOR_TAU_CETI, SECTOR_SRANDMARR, SECTOR_HANEUNIM, SECTOR_BURZSIA, SECTOR_UUEOAESA, SECTOR_TABITI, SECTOR_AEMAQ, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
 
 #define ALL_POSSIBLE_SECTORS	list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS, ALL_COALITION_SECTORS, ALL_VOID_SECTORS, ALL_GENERIC_SECTORS, ALL_CORPORATE_SECTORS)
