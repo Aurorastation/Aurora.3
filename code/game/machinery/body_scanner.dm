@@ -80,8 +80,6 @@
 
 /obj/machinery/bodyscanner/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if (user.stat)
 		return
