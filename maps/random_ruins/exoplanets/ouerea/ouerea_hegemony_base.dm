@@ -10,7 +10,7 @@
 	suffixes = list("ouerea_hegemony_base.dmm")
 	unit_test_groups = list(1)
 
-/area/ouerea_hegemony_base
+/area/ouerea/ouerea_hegemony_base
 	name = "Hegemony Base"
 	icon_state = "bluenew"
 	requires_power = FALSE
@@ -21,7 +21,7 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 
 
-/area/ouerea/hegemony_wasteland/outdoors
+/area/ouerea/ouerea_hegemony_base/outdoors
 	name = "Hegemony Wasteland Outpost"
 	icon_state = "bluenew"
 	is_outside = OUTSIDE_YES
