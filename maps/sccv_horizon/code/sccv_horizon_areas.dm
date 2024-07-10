@@ -34,6 +34,9 @@
 /area/engineering/atmos/air
 	name = "Engineering - Air Mixing"
 
+/area/engineering/atmos/oxygen
+	name = "Engineering - Oxygen Recycling"
+
 /area/maintenance/substation/engineering/lower
 	name = "Engineering Substation - Lower Deck"
 
