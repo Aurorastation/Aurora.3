@@ -114,18 +114,27 @@
 /area/tcaf_corvette/engineering)
 "bF" = (
 /obj/structure/table/steel,
-/obj/item/bodybag/cryobag,
-/obj/item/reagent_containers/hypospray,
-/obj/item/roller{
-	pixel_y = 3
-	},
-/obj/item/bodybag/cryobag,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/item/clothing/suit/storage/toggle/labcoat,
 /obj/machinery/power/apc/super/east{
 	req_access = list(204)
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = 5;
+	pixel_y = 2
+	},
+/obj/item/storage/firstaid/combat{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_x = -5;
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
@@ -260,21 +269,15 @@
 	},
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
-/obj/item/bodybag/cryobag,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
-/obj/item/stack/medical/bruise_pack,
-/obj/item/stack/medical/bruise_pack,
-/obj/item/tank/oxygen,
-/obj/item/tank/oxygen,
-/obj/item/tank/oxygen,
-/obj/item/tank/oxygen,
-/obj/item/clothing/mask/breath/medical,
-/obj/item/clothing/mask/breath/medical,
-/obj/item/clothing/mask/breath/medical,
-/obj/item/clothing/mask/breath/medical,
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/effect/floor_decal/industrial/outline/medical,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/reagent_containers/hypospray/autoinjector/survival,
+/obj/item/reagent_containers/hypospray/autoinjector/survival,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
 "cJ" = (
@@ -1089,6 +1092,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/reagent_containers/blood/OMinus,
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
 "hY" = (
@@ -1100,6 +1104,15 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcaf)
+"hZ" = (
+/obj/machinery/alarm/west{
+	req_one_access = list(204)
+	},
+/obj/machinery/iv_drip,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/medical)
 "ib" = (
 /obj/effect/floor_decal/spline/plain/black,
 /obj/structure/table/stone/marble,
@@ -2022,6 +2035,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
+"pR" = (
+/obj/machinery/iv_drip,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/turf/simulated/floor/tiled/white,
+/area/tcaf_corvette/medical)
 "pS" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 1
@@ -2133,17 +2152,6 @@
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/francisca)
-"qN" = (
-/obj/machinery/door/firedoor{
-	dir = 4;
-	req_one_access = list(204,111)
-	},
-/obj/item/pipe{
-	dir = 4
-	},
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
-/turf/simulated/floor/plating,
-/area/tcaf_corvette/engineering)
 "rb" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/legion,
@@ -3294,18 +3302,20 @@
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
 "AN" = (
-/obj/structure/table/steel,
 /obj/item/storage/belt/medical/paramedic/combat,
 /obj/item/storage/belt/medical/paramedic/combat,
-/obj/item/reagent_containers/hypospray/autoinjector/survival,
-/obj/item/reagent_containers/hypospray/autoinjector/survival,
-/obj/item/reagent_containers/hypospray/autoinjector/survival,
-/obj/item/clothing/glasses/hud/health,
 /obj/item/clothing/glasses/hud/health,
 /obj/item/clothing/glasses/hud/health,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/table/rack,
+/obj/item/clothing/suit/storage/toggle/labcoat,
+/obj/item/reagent_containers/hypospray,
+/obj/item/clothing/suit/storage/toggle/labcoat,
+/obj/item/reagent_containers/hypospray,
+/obj/item/roller,
+/obj/item/roller,
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
 "AS" = (
@@ -5032,6 +5042,8 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
 "Px" = (
@@ -5044,6 +5056,8 @@
 "PB" = (
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
 "PJ" = (
@@ -6070,27 +6084,19 @@
 /area/shuttle/tcaf)
 "XX" = (
 /obj/structure/table/steel,
-/obj/item/storage/firstaid/o2{
-	pixel_x = 6;
-	pixel_y = -4
-	},
-/obj/item/storage/firstaid/fire{
-	pixel_x = 3;
-	pixel_y = 4
-	},
-/obj/item/storage/firstaid/adv{
-	pixel_x = -3;
-	pixel_y = 4
-	},
-/obj/item/storage/firstaid/regular{
-	pixel_x = -4
-	},
-/obj/item/storage/firstaid/toxin{
-	pixel_x = -2;
-	pixel_y = 8
-	},
 /obj/machinery/alarm/east{
 	req_one_access = list(204)
+	},
+/obj/item/storage/firstaid/light{
+	pixel_y = 9;
+	pixel_x = -6
+	},
+/obj/item/storage/firstaid/light{
+	pixel_y = 9;
+	pixel_x = 6
+	},
+/obj/item/storage/firstaid/large/adv{
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/white,
 /area/tcaf_corvette/medical)
@@ -31668,7 +31674,7 @@ wq
 Xh
 Gm
 RA
-wx
+aB
 Yg
 wx
 RA
@@ -39640,7 +39646,7 @@ Dz
 NC
 HF
 Vy
-nd
+hZ
 Gf
 Oh
 ZZ
@@ -40668,7 +40674,7 @@ nA
 NC
 dK
 AL
-TX
+pR
 sy
 AN
 XX
