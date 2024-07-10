@@ -105,3 +105,42 @@
 /obj/item/journal/proc/remove_index(var/obj/item/folder/embedded/E)
 	LAZYREMOVE(indices, E.name)
 	update_icon()
+
+/obj/item/journal/notepad
+	name = "notepad"
+	desc = "A notepad for jotting down notes in meetings or interrogations."
+	desc_info = "Alt-click this while it's on your person or next to you to open this notepad.\nWhile the notepad is open, use it in hand or use a pen on it to access the contents."
+	icon = 'icons/obj/library.dmi'
+	icon_state = "notepad"
+	item_state = "notepad"
+	color = COLOR_DARK_BROWN
+	update_icon_on_init = TRUE
+	throw_speed = 1
+	throw_range = 5
+	w_class = ITEMSIZE_SMALL
+	attack_verb = list("bashed", "whacked", "educated")
+	drop_sound = 'sound/items/drop/book.ogg'
+	pickup_sound = 'sound/items/pickup/book.ogg'
+
+/obj/item/journal/notepad/update_icon()
+	ClearOverlays()
+	if(!open)
+		icon_state = "[initial(icon_state)]_closed"
+		AddOverlays(overlay_image(icon, "notepad_paper_closed", flags=RESET_COLOR))
+	else if(LAZYLEN(indices))
+		icon_state = initial(icon_state)
+		AddOverlays(overlay_image(icon, "notepad_writing", flags=RESET_COLOR))
+	else
+		icon_state = initial(icon_state)
+		AddOverlays(overlay_image(icon, "notepad_blank", flags=RESET_COLOR))
+
+	if(closed_desc)
+		desc = open ? initial(desc) + closed_desc : initial(desc)
+
+/obj/item/journal/notepad/scc
+	name = "scc notepad"
+	desc = "A notepad for jotting down notes in corporate meetings. This one is navy blue with a gold SCC logo on the front."
+	desc_info = "Alt-click this while it's on your person or next to you to open this notepad.\nWhile the notepad is open, use it in hand or use a pen on it to access the contents."
+	icon_state = "notepad_scc"
+	item_state = "notepad_scc"
+	color = COLOR_WHITE

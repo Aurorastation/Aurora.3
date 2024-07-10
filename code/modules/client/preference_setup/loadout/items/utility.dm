@@ -48,6 +48,12 @@
 	path = /obj/item/journal
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/utility/notepad
+	display_name = "notepad"
+	description = "A notepad for jotting down notes in meetings or interrogations."
+	path = /obj/item/journal/notepad
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/utility/fountainpen
 	display_name = "fountain pen selection"
 	description = "A selection of fountain pens."
