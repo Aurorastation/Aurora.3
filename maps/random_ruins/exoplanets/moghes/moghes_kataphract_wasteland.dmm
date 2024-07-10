@@ -10,6 +10,14 @@
 	temperature = 315.15
 	},
 /area/moghes/kataphract_wasteland)
+"c" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
 "d" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/storage/box/fancy/mre/menu10,
@@ -109,6 +117,20 @@
 /obj/item/clothing/shoes/sandals/caligae,
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes/kataphract_wasteland/tent)
+"t" = (
+/obj/structure/railing/fence,
+/mob/living/simple_animal/hostile/retaliate/hegeranzi,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
+"u" = (
+/obj/structure/railing/fence,
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
 "v" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/exoplanet/carpet/lightblue,
@@ -118,28 +140,94 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes/kataphract_wasteland/tent)
+"x" = (
+/mob/living/simple_animal/hostile/retaliate/hegeranzi,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
 "y" = (
 /obj/effect/floor_decal/spline/plain/blue{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/moghes/kataphract_wasteland/tent)
+"z" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
+"A" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
 "D" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes/kataphract_wasteland/tent)
+"E" = (
+/obj/machinery/door/urban{
+	dir = 4;
+	pixel_x = -3
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
 "F" = (
 /obj/effect/floor_decal/spline/plain/blue{
 	dir = 10
 	},
 /turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/moghes/kataphract_wasteland/tent)
+"G" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
 "H" = (
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes/kataphract_wasteland/tent)
+"I" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
 "J" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
+"K" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
+"L" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/moghes/kataphract_wasteland)
@@ -161,6 +249,17 @@
 /obj/item/device/flashlight/lantern,
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes/kataphract_wasteland/tent)
+"Q" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes/kataphract_wasteland)
 "R" = (
 /turf/simulated/wall/cloth,
 /area/moghes/kataphract_wasteland/tent)
@@ -390,11 +489,11 @@ h
 h
 a
 a
-a
-a
-a
-a
-a
+I
+z
+z
+z
+A
 a
 a
 a
@@ -422,11 +521,11 @@ h
 k
 a
 a
+c
+x
 a
 a
-a
-a
-a
+L
 a
 a
 a
@@ -454,11 +553,11 @@ a
 a
 a
 a
+c
 a
 a
-a
-a
-a
+x
+L
 a
 a
 a
@@ -486,11 +585,11 @@ a
 a
 a
 a
-J
+c
 a
 a
 a
-a
+u
 J
 a
 a
@@ -518,11 +617,11 @@ a
 a
 a
 a
+c
 a
+x
 a
-a
-a
-a
+t
 a
 a
 a
@@ -550,11 +649,11 @@ J
 J
 a
 a
-a
-a
-a
-a
-a
+Q
+K
+E
+K
+G
 a
 a
 a

@@ -29,6 +29,7 @@
 	dir = 4
 	},
 /obj/structure/sink/puddle,
+/mob/living/simple_animal/threshbeast,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
@@ -52,6 +53,13 @@
 /obj/structure/railing/fence{
 	dir = 1
 	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_mikuetz)
+"k" = (
+/obj/structure/flora/grass/desert,
+/mob/living/simple_animal/threshbeast,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
@@ -93,6 +101,15 @@
 /obj/item/storage/toolbox/electrical,
 /turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
+	},
+/area/moghes_mikuetz)
+"u" = (
+/obj/machinery/door/urban{
+	dir = 4;
+	pixel_x = -29
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
 	},
 /area/moghes_mikuetz)
 "w" = (
@@ -259,15 +276,6 @@
 	temperature = 303.15
 	},
 /area/moghes_mikuetz)
-"R" = (
-/obj/machinery/door/urban{
-	dir = 4;
-	pixel_x = -29
-	},
-/turf/simulated/floor/exoplanet/desert{
-	temperature = 315.15
-	},
-/area/moghes_mikuetz)
 "S" = (
 /obj/structure/railing/fence,
 /obj/structure/railing/fence{
@@ -281,6 +289,12 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_mikuetz)
+"X" = (
+/mob/living/simple_animal/threshbeast,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
@@ -731,7 +745,7 @@ a
 a
 q
 W
-R
+u
 W
 L
 a
@@ -757,7 +771,7 @@ a
 a
 a
 j
-M
+k
 a
 a
 F
@@ -786,7 +800,7 @@ a
 j
 a
 M
-M
+k
 F
 a
 a
@@ -840,7 +854,7 @@ a
 j
 a
 a
-a
+X
 w
 a
 a
