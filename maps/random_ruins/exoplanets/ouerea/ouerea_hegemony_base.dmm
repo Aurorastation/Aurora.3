@@ -38,6 +38,10 @@
 "aX" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
+/obj/machinery/iv_drip,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -91,6 +95,7 @@
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/combat,
 /obj/item/storage/firstaid/combat,
+/obj/item/storage/firstaid/large/adv,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -170,9 +175,8 @@
 	},
 /area/ouerea_hegemony_base)
 "fR" = (
-/obj/machinery/light,
+/obj/machinery/light/colored/decayed,
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/iv_drip,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -228,8 +232,7 @@
 /area/ouerea_hegemony_base)
 "gN" = (
 /obj/machinery/light{
-	dir = 4;
-	status = 2
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/grass{
 	temperature = 298.15
@@ -247,9 +250,21 @@
 /area/ouerea_hegemony_base)
 "hf" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/bodyscanner{
-	dir = 8
+/obj/structure/sink/kitchen{
+	dir = 4;
+	name = "sink";
+	pixel_x = -20
 	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/ouerea_hegemony_base)
+"hB" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/iv_drip,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/tank/oxygen,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -383,8 +398,7 @@
 "ot" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/light{
-	dir = 4;
-	status = 2
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
@@ -460,8 +474,7 @@
 "ta" = (
 /obj/structure/closet/secure_closet/cabinet,
 /obj/machinery/light{
-	dir = 4;
-	status = 2
+	dir = 4
 	},
 /obj/item/clothing/under/unathi/mogazali,
 /obj/item/clothing/under/unathi/mogazali/blue,
@@ -477,14 +490,12 @@
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/ouerea_hegemony_base)
 "th" = (
-/obj/machinery/light,
+/obj/machinery/light/colored/decayed,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/steel,
-/obj/item/device/healthanalyzer,
-/obj/item/device/healthanalyzer,
-/obj/item/reagent_containers/hypospray{
-	pixel_y = 4;
-	pixel_x = -5
+/obj/structure/roller_rack,
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -9
 	},
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
@@ -654,9 +665,18 @@
 /area/ouerea_hegemony_base)
 "za" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/body_scanconsole{
-	dir = 8
+/obj/structure/closet/walllocker/medical/secure{
+	pixel_y = -32;
+	name = "Healer's Equipment";
+	req_access = list(113)
 	},
+/obj/item/reagent_containers/hypospray{
+	pixel_y = 4;
+	pixel_x = -5
+	},
+/obj/item/device/healthanalyzer,
+/obj/item/storage/belt/medical,
+/obj/item/bodybag/cryobag,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -874,8 +894,7 @@
 	dir = 8
 	},
 /obj/machinery/light{
-	dir = 4;
-	status = 2
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
@@ -958,23 +977,20 @@
 /area/ouerea_hegemony_base)
 "Ke" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/iv_drip,
-/obj/item/tank/oxygen,
+/obj/machinery/body_scanconsole{
+	dir = 1;
+	pixel_y = 6
+	},
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_hegemony_base)
 "Kj" = (
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/table/steel,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/gloves/latex/nitrile/unathi,
-/obj/item/clothing/mask/surgical,
-/obj/item/clothing/mask/surgical,
-/obj/item/clothing/mask/surgical,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 303.15
+/obj/structure/blocker/steel/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
 	},
 /area/ouerea_hegemony_base)
 "Km" = (
@@ -985,8 +1001,7 @@
 /area/ouerea_hegemony_base)
 "KO" = (
 /obj/machinery/light{
-	dir = 4;
-	status = 2
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
@@ -1162,6 +1177,13 @@
 	temperature = 303.15
 	},
 /area/ouerea_hegemony_base)
+"RE" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/bodyscanner,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/ouerea_hegemony_base)
 "Se" = (
 /obj/effect/floor_decal/concrete/large/cee{
 	dir = 4
@@ -1219,8 +1241,9 @@
 /obj/machinery/button/remote/blast_door{
 	id = "hegemony_base_entry";
 	name = "Entry";
-	req_access = list(209);
-	pixel_y = 32
+	req_access = list(113);
+	pixel_y = 32;
+	dir = 6
 	},
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
@@ -1277,11 +1300,15 @@
 	},
 /area/ouerea_hegemony_base)
 "Vu" = (
-/obj/machinery/light{
+/obj/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
+/obj/machinery/iv_drip,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -1323,8 +1350,9 @@
 /obj/machinery/button/remote/blast_door{
 	id = "hegemony_base_entry";
 	name = "Entry";
-	req_access = list(209);
-	pixel_y = 32
+	req_access = list(113);
+	pixel_y = 32;
+	dir = 6
 	},
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
@@ -1413,20 +1441,23 @@
 	dir = 9
 	},
 /obj/machinery/light{
-	dir = 4;
-	status = 2
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/ouerea_hegemony_base)
 "ZI" = (
-/obj/machinery/light{
+/obj/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/steel,
 /obj/item/storage/box/fancy/tray,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/mask/surgical,
+/obj/item/clothing/mask/surgical,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
@@ -1516,34 +1547,34 @@ qg
 qg
 qg
 BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
 BC
 qg
 qg
@@ -1554,7 +1585,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -1583,7 +1614,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -1593,7 +1624,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 BC
 BC
@@ -1622,7 +1653,7 @@ BC
 BC
 BC
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -1632,7 +1663,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 BC
 qQ
@@ -1644,9 +1675,9 @@ qg
 qg
 BC
 BT
-HI
-HI
-Kj
+hf
+xX
+rQ
 BC
 qg
 qg
@@ -1661,7 +1692,7 @@ bG
 SO
 BC
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -1671,7 +1702,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 BC
 WI
@@ -1683,8 +1714,8 @@ oM
 qg
 BC
 ZI
-HI
-HI
+hB
+xX
 fR
 BC
 qg
@@ -1700,7 +1731,7 @@ xA
 gG
 BC
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -1710,7 +1741,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 BC
 Hy
@@ -1724,7 +1755,7 @@ BC
 xX
 xX
 xX
-xX
+HI
 BC
 qg
 tL
@@ -1739,7 +1770,7 @@ fE
 Lc
 BC
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -1749,7 +1780,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 BC
 PQ
@@ -1760,10 +1791,10 @@ BC
 cY
 qg
 BC
-rQ
+RE
+Ke
 HI
 HI
-hf
 BC
 qg
 ru
@@ -1778,7 +1809,7 @@ kW
 Lc
 BC
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -1788,7 +1819,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 BC
 mJ
@@ -1799,7 +1830,7 @@ BC
 Ou
 qg
 BC
-Ke
+HI
 HI
 HI
 za
@@ -1817,7 +1848,7 @@ fE
 Lc
 BC
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -1827,7 +1858,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 BC
 BC
@@ -1856,7 +1887,7 @@ Be
 Cv
 BC
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -1866,7 +1897,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -1878,7 +1909,7 @@ Ou
 qg
 BC
 aX
-Ke
+HI
 HI
 dc
 BC
@@ -1895,7 +1926,7 @@ bG
 Pv
 BC
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -1934,7 +1965,7 @@ BC
 BC
 BC
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -1973,7 +2004,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -2012,7 +2043,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -2051,7 +2082,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -2090,7 +2121,7 @@ ZB
 FO
 FO
 BD
-BC
+Kj
 qg
 qg
 qg
@@ -2129,7 +2160,7 @@ BC
 CX
 CX
 Lc
-BC
+Kj
 qg
 qg
 qg
@@ -2168,7 +2199,7 @@ PT
 Vh
 Vh
 ez
-BC
+Kj
 qg
 qg
 qg
@@ -2207,7 +2238,7 @@ Ou
 qg
 qg
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -2246,7 +2277,7 @@ Se
 gN
 qg
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -2285,7 +2316,7 @@ jz
 BC
 BC
 BC
-BC
+Kj
 qg
 qg
 qg
@@ -2324,7 +2355,7 @@ AE
 AE
 AE
 BC
-BC
+Kj
 qg
 qg
 qg
@@ -2334,7 +2365,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -2363,7 +2394,7 @@ GN
 AE
 Km
 BC
-BC
+Kj
 qg
 qg
 qg
@@ -2373,7 +2404,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 Kc
 Fw
@@ -2402,7 +2433,7 @@ wJ
 fD
 AE
 BC
-BC
+Kj
 qg
 qg
 qg
@@ -2412,7 +2443,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 gH
 dp
@@ -2441,7 +2472,7 @@ wT
 AE
 AE
 BC
-BC
+Kj
 qg
 qg
 qg
@@ -2451,7 +2482,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 oM
 gH
 Qj
@@ -2480,7 +2511,7 @@ BC
 BC
 jz
 BC
-BC
+Kj
 qg
 qg
 qg
@@ -2490,7 +2521,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 gH
 dp
@@ -2519,7 +2550,7 @@ XC
 XC
 XC
 BC
-BC
+Kj
 qg
 qg
 qg
@@ -2529,7 +2560,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 gH
 cP
@@ -2558,7 +2589,7 @@ ta
 XC
 XC
 BC
-BC
+Kj
 qg
 qg
 qg
@@ -2568,7 +2599,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 bh
 IR
@@ -2597,7 +2628,7 @@ BC
 BC
 BC
 BC
-BC
+Kj
 qg
 qg
 qg
@@ -2607,7 +2638,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -2636,7 +2667,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -2646,7 +2677,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 qg
 gN
@@ -2675,7 +2706,7 @@ qg
 qg
 qg
 qg
-BC
+Kj
 qg
 qg
 qg
@@ -2686,34 +2717,34 @@ qg
 qg
 qg
 BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
-BC
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
+Kj
 BC
 qg
 qg
