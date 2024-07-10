@@ -1841,6 +1841,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/table/steel,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/device/binoculars,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/grauwolf)
 "oK" = (
@@ -2215,8 +2218,10 @@
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/grauwolf)
 "sb" = (
-/obj/machinery/vending/tool,
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/vending/engineering{
+	req_access = list(204)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
 "sd" = (
@@ -2564,7 +2569,10 @@
 	pixel_x = 6;
 	pixel_y = 5
 	},
-/obj/item/pen/black,
+/obj/item/pen/black{
+	pixel_x = 6;
+	pixel_y = 6
+	},
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 24
 	},
@@ -2602,6 +2610,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/storage)
+"uG" = (
+/obj/structure/table/steel,
+/obj/item/clothing/ears/earmuffs,
+/obj/item/device/binoculars,
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/francisca)
 "uH" = (
 /turf/simulated/wall/shuttle/legion,
 /area/tcaf_corvette/storage)
@@ -3470,13 +3484,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/security)
 "CJ" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
-	},
 /obj/machinery/alarm/east{
 	req_one_access = list(204)
 	},
 /obj/machinery/light,
+/obj/structure/table/steel,
+/obj/item/clothing/head/helmet/pilot/legion{
+	name = "tau ceti flight helmet";
+	pixel_y = -1
+	},
+/obj/item/clothing/head/helmet/pilot/legion{
+	name = "tau ceti flight helmet";
+	pixel_y = 4
+	},
+/obj/item/gun/energy/blaster/pilot_special,
+/obj/item/gun/energy/blaster/pilot_special,
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcaf)
 "CL" = (
@@ -4073,7 +4095,6 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
@@ -4548,9 +4569,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/security)
 "LV" = (
-/obj/structure/table/steel,
-/obj/item/device/binoculars,
-/obj/item/clothing/ears/earmuffs,
+/obj/machinery/computer/ship/targeting,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/francisca)
 "LW" = (
@@ -4808,6 +4827,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcaf)
 "NH" = (
@@ -5235,10 +5255,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/vending/engineering{
-	req_access = list(204)
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/vending/tool,
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/engineering)
 "Ry" = (
@@ -5282,6 +5300,9 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/machinery/computer/ship/targeting{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/grauwolf)
@@ -5380,6 +5401,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcaf)
 "SC" = (
@@ -39836,7 +39858,7 @@ EW
 BL
 Ux
 OL
-vG
+LV
 dk
 UI
 UI
@@ -40093,7 +40115,7 @@ RV
 sG
 Hp
 ps
-LV
+vG
 ek
 UI
 UI
@@ -40348,7 +40370,7 @@ dL
 qu
 ll
 Mh
-Mh
+uG
 yW
 yW
 yW
