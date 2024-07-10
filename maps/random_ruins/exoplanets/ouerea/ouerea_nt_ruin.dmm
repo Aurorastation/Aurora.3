@@ -346,11 +346,6 @@
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"mC" = (
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/exoplanet/ouerea)
 "mH" = (
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 8
@@ -1058,7 +1053,9 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
-/turf/space,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
 /area/ouerea_nt_ruin)
 "Jg" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1200,8 +1197,10 @@
 	},
 /area/ouerea_nt_ruin)
 "NG" = (
-/obj/structure/bed/stool,
 /obj/random/dirt_75,
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 298.15
 	},
@@ -2348,8 +2347,8 @@ Jl
 fU
 II
 zV
-mC
-mC
+Mt
+Mt
 "}
 (27,1,1) = {"
 Mt
