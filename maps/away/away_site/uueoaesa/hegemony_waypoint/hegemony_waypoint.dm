@@ -11,7 +11,7 @@
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/hegemony_waypoint
-	map = "hegemony_waypoint"
+	map = "Hegemony Waypoint"
 	descriptor = "A hegemony waypoint."
 
 /obj/effect/overmap/visitable/sector/hegemony_waypoint
