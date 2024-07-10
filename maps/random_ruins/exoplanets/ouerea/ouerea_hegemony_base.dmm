@@ -421,6 +421,15 @@
 	temperature = 298.15
 	},
 /area/ouerea_hegemony_base)
+"qG" = (
+/obj/machinery/door/urban{
+	dir = 4;
+	pixel_x = -29
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_hegemony_base)
 "qQ" = (
 /obj/structure/bed,
 /obj/item/bedsheet/black,
@@ -2377,7 +2386,7 @@ BC
 qg
 Kc
 Fw
-qg
+qG
 jO
 qg
 BC

@@ -63,6 +63,14 @@
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
+"cF" = (
+/obj/machinery/door/urban{
+	pixel_y = -5
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/ouerea_freewater)
 "cS" = (
 /obj/structure/sink/puddle,
 /turf/simulated/floor/exoplanet/grass{
@@ -1831,7 +1839,7 @@ Uc
 Uc
 Uc
 Uc
-sv
+cF
 EE
 EE
 EE

@@ -259,6 +259,15 @@
 	temperature = 303.15
 	},
 /area/moghes_mikuetz)
+"R" = (
+/obj/machinery/door/urban{
+	dir = 4;
+	pixel_x = -29
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_mikuetz)
 "S" = (
 /obj/structure/railing/fence,
 /obj/structure/railing/fence{
@@ -722,7 +731,7 @@ a
 a
 q
 W
-a
+R
 W
 L
 a
