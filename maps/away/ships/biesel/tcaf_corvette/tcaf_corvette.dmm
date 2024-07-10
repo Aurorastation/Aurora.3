@@ -21,6 +21,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/captain)
+"aB" = (
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
+	},
+/obj/item/pipe{
+	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/turf/simulated/floor/plating,
+/area/tcaf_corvette/engineering)
 "aD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
