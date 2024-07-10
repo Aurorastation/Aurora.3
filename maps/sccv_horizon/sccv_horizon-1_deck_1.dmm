@@ -259,8 +259,8 @@
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "ajM" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "akw" = (
@@ -795,7 +795,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "aFN" = (
@@ -1198,6 +1197,9 @@
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/aux{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -1710,10 +1712,10 @@
 /turf/space/dynamic,
 /area/horizon/exterior)
 "boN" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "boY" = (
@@ -1926,6 +1928,9 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/aux{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
@@ -3938,6 +3943,17 @@
 /obj/structure/anomaly_container,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
+"cLK" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/cyan,
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/oxygen)
 "cLQ" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 4
@@ -5848,6 +5864,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/visible/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "ebK" = (
@@ -6353,6 +6372,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
+"evb" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/aux{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "evd" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -9417,6 +9446,9 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/visible/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "gqW" = (
@@ -10405,6 +10437,11 @@
 /obj/machinery/alarm/east,
 /turf/simulated/floor/plating,
 /area/maintenance/substation/research_sublevel)
+"hay" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark/full,
+/area/maintenance/research_port)
 "haI" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -10619,6 +10656,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/universal{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/oxygen)
@@ -10943,6 +10983,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/visible/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "hsK" = (
@@ -12274,6 +12317,9 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable/green{
 	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/aux{
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -13713,6 +13759,7 @@
 /obj/structure/tank_wall/oxygen{
 	icon_state = "o2-14"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "jvM" = (
@@ -13904,6 +13951,12 @@
 	id = "stacking_atmos";
 	pixel_y = -22;
 	pixel_x = -1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/oxygen)
@@ -14351,6 +14404,12 @@
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/oxygen)
@@ -16024,6 +16083,7 @@
 	dir = 8;
 	name = "Oxygen to Mix"
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/aux,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "kXv" = (
@@ -16479,11 +16539,14 @@
 	},
 /area/medical/morgue/lower)
 "lrg" = (
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/random/junk,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/aux{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "lrC" = (
@@ -19354,6 +19417,9 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/visible/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "niw" = (
@@ -22829,6 +22895,22 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
+"pEE" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/visible/aux{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/engineering/atmos/air)
 "pEF" = (
 /obj/machinery/space_heater,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -23487,6 +23569,16 @@
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape_pod/pod3)
+"qap" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/visible/aux{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/research_port)
 "qaz" = (
 /obj/machinery/camera/network/research{
 	c_tag = "Research - EVA Preparation Entrance"
@@ -23500,8 +23592,8 @@
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
 "qaK" = (
-/obj/machinery/atmospherics/pipe/simple/visible/cyan{
-	dir = 9
+/obj/machinery/atmospherics/pipe/manifold/visible/cyan{
+	dir = 4
 	},
 /obj/structure/tank_wall/oxygen{
 	density = 0;
@@ -25073,7 +25165,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/aux{
 	dir = 4
 	},
-/turf/space,
+/turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "rco" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -26200,6 +26292,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan,
 /obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/visible/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "rRb" = (
@@ -26385,6 +26480,9 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/pipe/simple/visible/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "rXB" = (
@@ -26724,6 +26822,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/oxygen)
 "snA" = (
@@ -27061,6 +27162,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/oxygen)
 "sxx" = (
@@ -28060,11 +28162,11 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/atmos_compartment)
 "thF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -28622,6 +28724,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
+"tCS" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/tiled/dark/full,
+/area/maintenance/research_port)
 "tDa" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide/scc_shuttle{
 	dir = 8
@@ -28687,6 +28793,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/visible/aux,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "tFL" = (
@@ -29929,6 +30036,8 @@
 	name = "Oxygen Recycling"
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/oxygen)
 "usP" = (
@@ -31185,6 +31294,9 @@
 "vjA" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan,
 /obj/structure/lattice/catwalk/indoor,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/oxygen)
 "vjI" = (
@@ -32813,6 +32925,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "wqs" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/maintenance/research_port)
 "wrD" = (
@@ -58273,7 +58391,7 @@ lcz
 qaK
 jvF
 kXr
-nig
+pEE
 wsS
 tIz
 eIE
@@ -61115,7 +61233,7 @@ pom
 qeO
 oXG
 uDi
-xsN
+qap
 hhs
 pom
 eZY
@@ -61519,7 +61637,7 @@ vLb
 sdW
 jAM
 wJK
-xsN
+evb
 xgm
 npz
 eGG
@@ -62333,7 +62451,7 @@ gsG
 eNY
 xvh
 cTj
-vjA
+cLK
 jBX
 gsG
 baq
@@ -62539,7 +62657,7 @@ rJn
 sng
 jSw
 usG
-wqs
+hay
 wqs
 nCI
 pom
@@ -63149,7 +63267,7 @@ nEl
 rsL
 pom
 mkW
-wqs
+tCS
 fYt
 pom
 ben
