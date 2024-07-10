@@ -81,3 +81,18 @@
       the description.
   - imageadd: Added a Tretian Guild mantle for Vaurcae and Unathi to wear; it can
       be found under the Vaurca Xenowear tab.
+2024-07-10:
+  FluffyGhost:
+  - bugfix: Fixed relaymove blocking you in place.
+  Geeves:
+  - rscadd: Animal traps now work based off mob size, instead of having a specific
+      mapped in list for animals it can or cannot capture.
+  - rscadd: Added new examine text to traps that help explain how to use them.
+  - rscadd: Added a verb to deploy / undeploy traps.
+  - rscadd: Tweaked a couple interactions with traps, mechanically and grammatically.
+  - bugfix: Fixed a lot of bugs and issues with traps.
+  - bugfix: Fixed welding tools using fuel in prosthetic repairs during the check
+      to see if it CAN do the surgery. Instead, the fuel when be consumed once the
+      surgery completes.
+  hazelmouse:
+  - rscadd: Adds the Hivebot Hub offsite to all sectors.
