@@ -53,3 +53,46 @@
       the SMES is not charging on the UI.
   - bugfix: The Failsafe and Grounding wires of a SMES now correctly trigger the red
       light when only one is cut, instead of both needing to be triggered.
+2024-07-09:
+  ASmallCuteCat:
+  - rscadd: Adds the Plush Carp to the list of plushies you can select in the loadout.
+  Crosarius:
+  - qol: Adds the Anomalist alt-title for Xenoarchaeologist.
+  FluffyGhost:
+  - rscdel: Removed the R&D mapped machine blueprint, that was not working anyways.
+  - server: Removed the gelf logging infrastructure.
+  - refactor: Refactored the various logging procs to be a direct call in light of
+      the above.
+  - rscdel: Removed ancilliary UDP related things.
+  - refactor: Refactored Life() to receive seconds per tick and times fired as parameters.
+  - refactor: Life() now cannot be slept in, turned various sleepings into async calls
+      procs.
+  - code_imp: Optimized mob AI subsystems, gave them new priorities levels and flags.
+  - code_imp: Grab upgrades are now elaborated asynchronously, tweaked them to avoid
+      stacking multiple upgrades.
+  - bugfix: Fixed plains tyrants keeping sending messages about stomping even if dead.
+  - rscadd: Added a miners app preset for the PDA, with the away manifest program.
+  SimpleMaroon:
+  - bugfix: Made it so that the parts of tunnel cloaks that should overlay behind
+      the mob and clothing do so properly.
+  - bugfix: Reintroduced a fix to the tunnel cloak backing disappearing when the hood
+      was raised that was reverted in a previous PR.
+  - rscadd: Added a list of valid species per loadout item that will appear below
+      the description.
+  - imageadd: Added a Tretian Guild mantle for Vaurcae and Unathi to wear; it can
+      be found under the Vaurca Xenowear tab.
+2024-07-10:
+  FluffyGhost:
+  - bugfix: Fixed relaymove blocking you in place.
+  Geeves:
+  - rscadd: Animal traps now work based off mob size, instead of having a specific
+      mapped in list for animals it can or cannot capture.
+  - rscadd: Added new examine text to traps that help explain how to use them.
+  - rscadd: Added a verb to deploy / undeploy traps.
+  - rscadd: Tweaked a couple interactions with traps, mechanically and grammatically.
+  - bugfix: Fixed a lot of bugs and issues with traps.
+  - bugfix: Fixed welding tools using fuel in prosthetic repairs during the check
+      to see if it CAN do the surgery. Instead, the fuel when be consumed once the
+      surgery completes.
+  hazelmouse:
+  - rscadd: Adds the Hivebot Hub offsite to all sectors.

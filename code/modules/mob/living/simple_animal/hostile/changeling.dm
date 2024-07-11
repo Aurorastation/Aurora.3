@@ -64,11 +64,14 @@
 	mind.assigned_role = "Changeling"
 
 
-/mob/living/simple_animal/hostile/true_changeling/Life()
+/mob/living/simple_animal/hostile/true_changeling/Life(seconds_per_tick, times_fired)
+	if(!..())
+		return FALSE
+
 	if(prob(10))
 		custom_emote(VISIBLE_MESSAGE, pick( list("shrieks!","roars!", "screeches!", "snarls!", "bellows!", "screams!") ) )
 		var/sound = pick(loud_sounds)
-		playsound(src, sound, 90, 1, 15, pressure_affected = 0)
+		playsound(src, sound, 90, TRUE, 15, pressure_affected = FALSE)
 
 
 /mob/living/simple_animal/hostile/true_changeling/death(gibbed)

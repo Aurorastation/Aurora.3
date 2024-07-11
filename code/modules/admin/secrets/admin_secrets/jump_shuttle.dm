@@ -29,8 +29,8 @@
 
 		S.long_jump(origin_area, destination_area, transition_area, move_duration)
 		message_admins(SPAN_NOTICE("[key_name_admin(user)] has initiated a jump from [origin_area] to [destination_area] lasting [move_duration] seconds for the [shuttle_tag] shuttle"), 1)
-		log_admin("[key_name(user)] has initiated a jump from [origin_area] to [destination_area] lasting [move_duration] seconds for the [shuttle_tag] shuttle",admin_key=key_name(user))
+		log_admin("[key_name(user)] has initiated a jump from [origin_area] to [destination_area] lasting [move_duration] seconds for the [shuttle_tag] shuttle")
 	else
 		S.short_jump(origin_area, destination_area)
 		message_admins(SPAN_NOTICE("[key_name_admin(user)] has initiated a jump from [origin_area] to [destination_area] for the [shuttle_tag] shuttle"), 1)
-		log_admin("[key_name(user)] has initiated a jump from [origin_area] to [destination_area] for the [shuttle_tag] shuttle",admin_key=key_name(user))
+		log_admin("[key_name(user)] has initiated a jump from [origin_area] to [destination_area] for the [shuttle_tag] shuttle")

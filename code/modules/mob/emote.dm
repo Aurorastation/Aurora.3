@@ -24,7 +24,7 @@
 		input = message
 
 	if(input)
-		log_emote("Ghost/[src.key] : [input]",ckey=key_name(src))
+		log_emote("Ghost/[src.key] : [input]")
 		say_dead_direct(input, src)
 
 

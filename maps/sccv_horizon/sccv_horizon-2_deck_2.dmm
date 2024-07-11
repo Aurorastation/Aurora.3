@@ -5325,9 +5325,6 @@
 /turf/simulated/floor/wood,
 /area/maintenance/wing/starboard)
 "cpi" = (
-/obj/machinery/constructable_frame{
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 1
 	},
