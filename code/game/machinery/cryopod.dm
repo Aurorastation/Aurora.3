@@ -562,8 +562,6 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 
 /obj/machinery/cryopod/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	go_out()
 

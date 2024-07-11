@@ -56,8 +56,6 @@
 
 /obj/machinery/dna_scannernew/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user.stat)
 		return
