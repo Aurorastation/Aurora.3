@@ -22,17 +22,17 @@
 
 // ------------------ submap stuff
 
-/obj/effect/map_effect/marker/mapmanip/submap/extract/freebooter_ship/module_starboard
-	name = "Freebooter Ship, Module, Starboard"
+/obj/effect/map_effect/marker/mapmanip/submap/extract/freebooter_ship/pod_starboard
+	name = "Freebooter Ship, Pod, Starboard"
 
-/obj/effect/map_effect/marker/mapmanip/submap/insert/freebooter_ship/module_starboard
-	name = "Freebooter Ship, Module, Starboard"
+/obj/effect/map_effect/marker/mapmanip/submap/insert/freebooter_ship/pod_starboard
+	name = "Freebooter Ship, Pod, Starboard"
 
-/obj/effect/map_effect/marker/mapmanip/submap/extract/freebooter_ship/module_port
-	name = "Freebooter Ship, Module, Port"
+/obj/effect/map_effect/marker/mapmanip/submap/extract/freebooter_ship/pod_port
+	name = "Freebooter Ship, Pod, Port"
 
-/obj/effect/map_effect/marker/mapmanip/submap/insert/freebooter_ship/module_port
-	name = "Freebooter Ship, Module, Port"
+/obj/effect/map_effect/marker/mapmanip/submap/insert/freebooter_ship/pod_port
+	name = "Freebooter Ship, Pod, Port"
 
 // ------------------ ship stuff
 

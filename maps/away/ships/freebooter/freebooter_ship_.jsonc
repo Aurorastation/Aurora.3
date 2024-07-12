@@ -1,22 +1,22 @@
 [
 	{
-		// module_starboard
+		// pod_starboard
 		"type": "SubmapExtractInsert",
 		"submap_size_x": 16,
 		"submap_size_y": 7,
 		"submaps_dmm": "freebooter_ship_submaps.dmm",
-		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/freebooter_ship/module_starboard",
-		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/freebooter_ship/module_starboard",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/freebooter_ship/pod_starboard",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/freebooter_ship/pod_starboard",
 		"submaps_can_repeat": false
 	},
 	{
-		// module_port
+		// pod_port
 		"type": "SubmapExtractInsert",
 		"submap_size_x": 13,
 		"submap_size_y": 7,
 		"submaps_dmm": "freebooter_ship_submaps.dmm",
-		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/freebooter_ship/module_port",
-		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/freebooter_ship/module_port",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/freebooter_ship/pod_port",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/freebooter_ship/pod_port",
 		"submaps_can_repeat": false
 	}
 ]

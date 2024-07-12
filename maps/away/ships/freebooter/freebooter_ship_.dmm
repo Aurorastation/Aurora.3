@@ -5586,7 +5586,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_ship/cryo)
 "uCl" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/freebooter_ship/module_starboard,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/freebooter_ship/pod_starboard,
 /turf/template_noop,
 /area/space)
 "uDc" = (
@@ -5911,7 +5911,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/freebooter_shuttle)
 "vMG" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/freebooter_ship/module_port,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/freebooter_ship/pod_port,
 /obj/structure/lattice/catwalk,
 /turf/space/dynamic,
 /area/ship/freebooter_ship/exterior)

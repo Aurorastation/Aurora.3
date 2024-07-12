@@ -1884,7 +1884,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod2)
 "kTf" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/freebooter_ship/module_starboard,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/freebooter_ship/pod_starboard,
 /turf/template_noop,
 /area/template_noop)
 "kUE" = (
@@ -3311,7 +3311,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/mapmanip/submap/extract/freebooter_ship/module_starboard,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/freebooter_ship/pod_starboard,
 /turf/simulated/floor/reinforced/airless,
 /area/ship/freebooter_ship/exterior)
 "sUZ" = (
@@ -3753,7 +3753,7 @@
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod2)
 "vhv" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/freebooter_ship/module_port,
+/obj/effect/map_effect/marker/mapmanip/submap/extract/freebooter_ship/pod_port,
 /turf/template_noop,
 /area/template_noop)
 "viT" = (
