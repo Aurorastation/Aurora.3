@@ -72,6 +72,10 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/kitchen)
+"bC" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/hydro,
+/turf/simulated/wall/shuttle/raider,
+/area/hegemony_waypoint/hydroponics)
 "bX" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -989,9 +993,7 @@
 	icon_state = "4-8"
 	},
 /obj/random/dirt_75,
-/obj/structure/curtain/open{
-	color = "#222222"
-	},
+/obj/structure/curtain/black,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hegemony_waypoint/kitchen)
 "ts" = (
@@ -1987,15 +1989,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/hydroponics)
-"Fn" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	id = "hegemony_waypoint_hydroponics"
-	},
-/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/hydro,
-/turf/simulated/floor/plating,
-/area/hegemony_waypoint/hydroponics)
 "Fq" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
@@ -2076,6 +2069,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel,
 /area/hegemony_waypoint/shrine)
+"GD" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "hegemony_waypoint_hydroponics"
+	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/hydro,
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/hydroponics)
 "GS" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -2967,10 +2969,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/kitchen)
-"Wf" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/hydro,
-/turf/simulated/wall/shuttle/raider,
-/area/hegemony_waypoint/hydroponics)
 "WA" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/random/dirt_75,
@@ -5064,7 +5062,7 @@ ap
 ap
 ap
 Hj
-Wf
+bC
 pr
 pr
 Hj
@@ -5073,7 +5071,7 @@ ap
 ap
 ap
 ap
-Fn
+GD
 pr
 pr
 Hj
@@ -5082,7 +5080,7 @@ ws
 sg
 ws
 Hj
-Wf
+bC
 pr
 pr
 pr
