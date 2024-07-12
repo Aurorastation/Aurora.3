@@ -149,6 +149,13 @@
 	create_reagents(2)
 	soundloop = new(src, FALSE)
 
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+		COMSIG_ATOM_EXITED = PROC_REF(on_exit),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/machinery/shower/Destroy()
 	QDEL_NULL(soundloop)
 	return ..()
@@ -214,17 +221,19 @@
 		QDEL_NULL(mymist)
 		ismist = FALSE
 
-/obj/machinery/shower/Crossed(atom/movable/O)
-	..()
-	wash(O)
-	if(ismob(O))
-		mobpresent += 1
-		process_heat(O)
+/obj/machinery/shower/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
 
-/obj/machinery/shower/Uncrossed(atom/movable/O)
-	if(ismob(O))
+	INVOKE_ASYNC(src, PROC_REF(wash), arrived)
+	if(ismob(arrived))
+		mobpresent += 1
+		process_heat(arrived)
+
+/obj/machinery/shower/proc/on_exit(atom/movable/gone, direction)
+	SIGNAL_HANDLER
+
+	if(ismob(gone))
 		mobpresent -= 1
-	..()
 
 //Yes, showers are super powerful as far as washing goes.
 /obj/machinery/shower/proc/wash(atom/movable/O)

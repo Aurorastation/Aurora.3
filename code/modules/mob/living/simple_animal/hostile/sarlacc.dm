@@ -21,25 +21,35 @@
 	var/mob/living/simple_animal/hostile/greatworm/originator
 	var/mob/living/captive
 
+/obj/item/trap/sarlacc/Initialize()
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/item/trap/sarlacc/Destroy()
 	if(originator)
 		originator = null
 	return ..()
 
-/obj/item/trap/sarlacc/Crossed(AM as mob|obj)
+/obj/item/trap/sarlacc/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
 	if(originator)
-		if(deployed && isliving(AM) && !originator.eating)
-			var/mob/living/L = AM
+		if(deployed && isliving(arrived) && !originator.eating)
+			var/mob/living/L = arrived
 			L.visible_message(
 				SPAN_DANGER("[L] steps into \the [src]."),
 				SPAN_DANGER("You step into \the [src]!"),
 				"<b>You hear a loud organic snap!</b>"
 				)
-			attack_mob(L)
+			INVOKE_ASYNC(src, PROC_REF(attack_mob), L)
 			originator.eating = 1
 			to_chat(L, SPAN_DANGER("\The [src] begins digesting your upper body!"))
 			addtimer(CALLBACK(src, PROC_REF(devour), L), 50 SECONDS)
-	..()
 
 /obj/item/trap/sarlacc/proc/devour(var/mob/living/C)
 	if(!C)

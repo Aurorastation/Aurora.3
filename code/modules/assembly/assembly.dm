@@ -123,6 +123,8 @@
 	interact(user)
 	return TRUE
 
+/obj/item/device/assembly/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
 
 /obj/item/device/assembly/interact(mob/user)
 	return

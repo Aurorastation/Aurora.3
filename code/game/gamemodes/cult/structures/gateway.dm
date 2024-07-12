@@ -8,9 +8,6 @@
 	anchored = 1.0
 	var/spawnable = null
 
-/obj/effect/gateway/Crossed(AM as mob|obj)
-	return
-
 /obj/effect/gateway/active
 	light_range=5
 	light_color="#ff0000"

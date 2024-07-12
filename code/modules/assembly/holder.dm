@@ -19,6 +19,12 @@
 	. = ..()
 	become_hearing_sensitive()
 
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/item/device/assembly_holder/Destroy()
 	lose_hearing_sensitivity()
 
@@ -92,13 +98,13 @@
 	if(special_assembly)
 		special_assembly.HasProximity(AM)
 
-/obj/item/device/assembly_holder/Crossed(atom/movable/AM as mob|obj)
+/obj/item/device/assembly_holder/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
 	if(a_left)
-		a_left.Crossed(AM)
+		a_left.on_entered(source, arrived, old_loc, old_locs)
 	if(a_right)
-		a_right.Crossed(AM)
-	if(special_assembly)
-		special_assembly.Crossed(AM)
+		a_right.on_entered(source, arrived, old_loc, old_locs)
 
 /obj/item/device/assembly_holder/on_found(mob/finder)
 	if(a_left)

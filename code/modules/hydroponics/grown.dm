@@ -61,6 +61,12 @@
 	if(reagents.total_volume > 0)
 		bitesize = 1+round(reagents.total_volume / 2, 1)
 
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/item/reagent_containers/food/snacks/grown/proc/update_desc()
 
 	if(!seed)
@@ -146,9 +152,12 @@
 		SSplants.plant_icon_cache[icon_key] = plant_icon
 	AddOverlays(plant_icon)
 
-/obj/item/reagent_containers/food/snacks/grown/Crossed(var/mob/living/M)
+/obj/item/reagent_containers/food/snacks/grown/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
 	if(seed && seed.get_trait(TRAIT_JUICY) == 2)
-		if(istype(M))
+		if(isliving(arrived))
+			var/mob/living/M = arrived
 
 			if(M.buckled_to)
 				return
@@ -164,7 +173,6 @@
 			M.Stun(8)
 			M.Weaken(5)
 			seed.thrown_at(src,M)
-			sleep(-1)
 			if(src) qdel(src)
 			return
 

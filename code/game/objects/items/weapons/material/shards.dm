@@ -20,6 +20,15 @@
 	drop_sound = 'sound/effects/glass_step.ogg'
 	surgerysound = 'sound/items/surgery/scalpel.ogg'
 
+/obj/item/material/shard/Initialize(newloc, material_key)
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/item/material/shard/Destroy()
 	. = ..()
 	GC_TEMPORARY_HARDDEL
@@ -63,10 +72,9 @@
 			return
 	return ..()
 
-/obj/item/material/shard/Crossed(AM as mob|obj)
-	..()
-	if(isliving(AM))
-		var/mob/M = AM
+/obj/item/material/shard/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	if(isliving(arrived))
+		var/mob/M = arrived
 
 		if(M.buckled_to) //wheelchairs, office chairs, rollerbeds
 			return

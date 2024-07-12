@@ -71,11 +71,22 @@
 	throw_speed = 4
 	throw_range = 20
 
-/obj/item/bananapeel/Crossed(AM as mob|obj)
-	if(isliving(AM))
-		if(ishuman(AM))
-			var/mob/living/carbon/human/H = AM
+/obj/item/bananapeel/Initialize()
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/item/bananapeel/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(isliving(arrived))
+		if(ishuman(arrived))
+			var/mob/living/carbon/human/H = arrived
 			if(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 				return
-		var/mob/living/M = AM
+		var/mob/living/M = arrived
 		M.slip("the [src.name]",4)

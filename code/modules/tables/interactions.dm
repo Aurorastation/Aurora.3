@@ -58,16 +58,17 @@
 			return 1
 	return 1
 
-/obj/structure/table/Crossed(var/atom/movable/am as mob|obj)
-	..()
-	if(ishuman(am))
-		var/mob/living/carbon/human/H = am
+/obj/structure/table/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(ishuman(arrived))
+		var/mob/living/carbon/human/H = arrived
 		if(H.a_intent != I_HELP || H.m_intent == M_RUN)
-			throw_things(H)
+			INVOKE_ASYNC(src, PROC_REF(throw_things), H)
 		else if(H.is_diona() || H.species.get_bodytype() == BODYTYPE_IPC_INDUSTRIAL)
-			throw_things(H)
-	else if((isliving(am) && !issmall(am)) || isslime(am))
-		throw_things(am)
+			INVOKE_ASYNC(src, PROC_REF(throw_things), H)
+	else if((isliving(arrived) && !issmall(arrived)) || isslime(arrived))
+		INVOKE_ASYNC(src, PROC_REF(throw_things), arrived)
 
 /obj/structure/table/proc/throw_things(var/mob/living/user)
 	var/list/targets = list(get_step(src,dir),get_step(src,turn(dir, 45)),get_step(src,turn(dir, -45)))

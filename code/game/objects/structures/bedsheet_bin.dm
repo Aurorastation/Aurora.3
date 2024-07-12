@@ -30,6 +30,14 @@ LINEN BINS
 	var/inuse = FALSE
 	var/inside_storage_item = FALSE
 
+/obj/item/bedsheet/Initialize()
+	. = ..()
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/item/bedsheet/afterattack(atom/A, mob/user)
 	if(istype(A, /obj/structure/bed))
 		user.drop_item()
@@ -89,9 +97,11 @@ LINEN BINS
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/bedsheet/Crossed(H as mob) //Basically, stepping on it resets it to below people.
-	if(isliving(H))
-		var/mob/living/M = H
+/obj/item/bedsheet/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(isliving(arrived))
+		var/mob/living/M = arrived
 		if(M.loc == src.loc)
 			return
 	else

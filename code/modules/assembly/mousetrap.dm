@@ -82,20 +82,19 @@
 		return TRUE
 	return FALSE
 
-/obj/item/device/assembly/mousetrap/Crossed(AM as mob|obj)
+/obj/item/device/assembly/mousetrap/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	if(armed)
-		if(israt(AM))
-			triggered(AM)
-		else if(ishuman(AM))
-			var/mob/living/carbon/human/H = AM
+		if(israt(arrived))
+			triggered(arrived)
+		else if(ishuman(arrived))
+			var/mob/living/carbon/human/H = arrived
 			if(!(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP))
 				triggered(H)
 				H.visible_message(SPAN_WARNING("\The [H] accidentally steps on \the [src]."), SPAN_WARNING("You accidentally step on \the [src]."))
-		else if(isliving(AM))
-			var/mob/living/L = AM
+		else if(isliving(arrived))
+			var/mob/living/L = arrived
 			triggered(L)
 			L.visible_message(SPAN_WARNING("\The [L] accidentally steps on \the [src]."), SPAN_WARNING("You accidentally step on \the [src]."))
-	..()
 
 
 /obj/item/device/assembly/mousetrap/on_found(mob/finder)

@@ -51,6 +51,15 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	var/portal_distance_x = 0 // How far the portal is from the left edge, in tiles.
 	var/portal_distance_y = 0 // How far the portal is from the top edge.
 
+/obj/effect/map_effect/portal/Initialize()
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/effect/map_effect/portal/Destroy()
 	vis_contents = null
 	if(counterpart)
@@ -59,14 +68,15 @@ when portals are shortly lived, or when portals are made to be obvious with spec
 	return ..()
 
 // Called when something touches the portal, and usually teleports them to the other side.
-/obj/effect/map_effect/portal/Crossed(atom/movable/AM)
-	..()
-	if(!AM)
+/obj/effect/map_effect/portal/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(!arrived)
 		return
 	if(!counterpart)
 		return
 
-	go_through_portal(AM)
+	go_through_portal(arrived)
 
 
 /obj/effect/map_effect/portal/proc/go_through_portal(atom/movable/AM)

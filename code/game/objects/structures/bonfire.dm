@@ -28,6 +28,12 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 	fuel = rand(1000, 2000)
 	create_reagents(120)
 
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/structure/bonfire/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
 	GLOB.total_active_bonfires -= src
@@ -293,10 +299,11 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 		var/heat_eff = fuel / max_fuel	//Less fuel, less heat provided
 		H.bodytemperature = min(H.bodytemperature + (abs((temp_adj * heat_eff)) / heating_div), 311)
 
-/obj/structure/bonfire/Crossed(AM as mob|obj)
+/obj/structure/bonfire/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
 	if(on_fire)
-		burn(AM, TRUE)
-	..()
+		burn(arrived, TRUE)
 
 /obj/structure/bonfire/proc/burn(var/mob/living/M, var/entered = FALSE)
 	if(safe)

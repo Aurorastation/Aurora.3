@@ -8,16 +8,25 @@
 	invisibility = 101 // nope cant see this shit
 	anchored = 1
 
+
+/obj/effect/step_trigger/Initialize(mapload, ...)
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/effect/step_trigger/proc/Trigger(var/atom/movable/A)
 	return 0
 
-/obj/effect/step_trigger/Crossed(H as mob|obj)
-	..()
-	if(!H)
+/obj/effect/step_trigger/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(istype(arrived, /mob/abstract/observer) && !affect_ghosts)
 		return
-	if(istype(H, /mob/abstract/observer) && !affect_ghosts)
-		return
-	Trigger(H)
+	INVOKE_ASYNC(src, PROC_REF(Trigger), arrived)
 
 
 

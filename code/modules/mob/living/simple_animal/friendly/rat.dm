@@ -218,10 +218,12 @@
 	squeak(1)
 
 
-/mob/living/simple_animal/rat/Crossed(AM as mob|obj)
-	if( ishuman(AM) )
+/mob/living/simple_animal/rat/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	..()
+
+	if( ishuman(arrived) )
 		if(!stat)
-			var/mob/M = AM
+			var/mob/M = arrived
 			to_chat(M, SPAN_NOTICE("[icon2html(src, M)] Squeek!"))
 			poke(1) //Wake up if stepped on
 			if (prob(95))
@@ -232,15 +234,14 @@
 	if(!health)
 		return
 
-	if(istype(AM,/mob/living/simple_animal/rat/king))
-		var/mob/living/simple_animal/rat/king/K = AM
+	if(istype(arrived,/mob/living/simple_animal/rat/king))
+		var/mob/living/simple_animal/rat/king/K = arrived
 		if(!K.health)
 			return
 
 		src.visible_message(SPAN_WARNING("[src] joins the [K.swarm_name] of \the [K]"), \
 							SPAN_NOTICE("We join our brethren in \the [K.swarm_name]. Long live \the [K]."))
 		K.absorb(src)
-	..()
 
 /mob/living/simple_animal/rat/death()
 	layer = MOB_LAYER

@@ -60,6 +60,15 @@
 		/obj/item/stock_parts/manipulator,
 		/obj/item/stock_parts/scanning_module)
 
+/obj/machinery/iv_drip/Initialize(mapload)
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/machinery/iv_drip/Destroy()
 	if(attached)
 		attached = null
@@ -76,9 +85,11 @@
 		return FALSE
 	return ..()
 
-/obj/machinery/iv_drip/Crossed(var/mob/H)
-	if(ishuman(H))
-		var/mob/living/carbon/human/M = H
+/obj/machinery/iv_drip/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(ishuman(arrived))
+		var/mob/living/carbon/human/M = arrived
 		if(M.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 			return
 		if(M.incapacitated())
@@ -88,7 +99,6 @@
 		if(M.m_intent == M_RUN && M.a_intent == I_HURT)
 			src.visible_message(SPAN_WARNING("[M] bumps into \the [src], knocking it over!"), SPAN_WARNING("You bump into \the [src], knocking it over!"))
 			do_crash()
-	return ..()
 
 /obj/machinery/iv_drip/update_icon()
 	ClearOverlays()

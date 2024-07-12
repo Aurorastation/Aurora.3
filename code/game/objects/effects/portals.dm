@@ -30,17 +30,23 @@
 
 	precision = precise
 
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/effect/portal/CollidedWith(atom/bumped_atom)
 	. = ..()
 
 	if(does_teleport)
 		teleport(bumped_atom)
 
-/obj/effect/portal/Crossed(AM)
-	set waitfor = FALSE
+/obj/effect/portal/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
 
 	if(does_teleport)
-		teleport(AM)
+		teleport(arrived)
 
 /obj/effect/portal/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/bluespace_neutralizer))

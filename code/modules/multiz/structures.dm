@@ -236,6 +236,13 @@
 
 /obj/structure/stairs/Initialize()
 	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 	for(var/turf/turf in locs)
 		var/turf/simulated/open/above = GetAbove(turf)
 		if(!above)
@@ -245,6 +252,10 @@
 			above.ChangeToOpenturf()
 
 /obj/structure/stairs/CheckExit(atom/movable/mover, turf/target)
+	//This means the mob is moving, don't bump
+	if(mover.z != target.z)
+		return TRUE
+
 	if(get_dir(loc, target) == dir && upperStep(mover.loc))
 		return FALSE
 
@@ -269,7 +280,7 @@
 		return
 	if(target.z > (z + 1)) //Prevents wheelchair fuckery. Basically, you teleport twice because both the wheelchair + your mob collide with the stairs.
 		return
-	if(target.Enter(AM, src) && AM.dir == dir)
+	if(target.Enter(AM) && AM.dir == dir)
 		AM.forceMove(target)
 		if(isliving(AM))
 			var/mob/living/living_mob = AM
@@ -282,10 +293,10 @@
 				playsound(src, 'sound/effects/stairs_step.ogg', 50)
 				playsound(target, 'sound/effects/stairs_step.ogg', 50)
 
-/obj/structure/stairs/Crossed(obj/O)
-	if(istype(O))
+/obj/structure/stairs/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	if(istype(arrived, /obj))
+		var/obj/O = arrived
 		O.stair_act()
-	return ..()
 
 /obj/structure/stairs/proc/upperStep(var/turf/T)
 	return (T == loc)
@@ -384,10 +395,21 @@
 	icon = 'icons/obj/structure/stairs.dmi'
 	icon_state = "np_stair"
 
-/obj/structure/platform_stairs/Crossed(obj/O)
-	if(istype(O))
+/obj/structure/platform_stairs/Initialize(mapload)
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/structure/platform_stairs/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(istype(arrived, /obj))
+		var/obj/O = arrived
 		O.stair_act()
-	return ..()
 
 /obj/structure/platform_stairs/south_north_solo
 	icon_state = "p_stair_sn_solo_cap"
