@@ -2,19 +2,19 @@
 	{
 		// module_starboard
 		"type": "SubmapExtractInsert",
-		"submap_size_x": 3,
-		"submap_size_y": 5,
-		"submaps_dmm": "submaps/ops_warehouse_small_storage.dmm", // separate folder for horizon submaps for easier organization
+		"submap_size_x": 16,
+		"submap_size_y": 7,
+		"submaps_dmm": "freebooter_ship_submaps.dmm",
 		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/freebooter_ship/module_starboard",
 		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/freebooter_ship/module_starboard",
 		"submaps_can_repeat": false
 	},
 	{
-		// operations warehouse, small storage room, intended for randomized cargo
+		// module_port
 		"type": "SubmapExtractInsert",
-		"submap_size_x": 3,
-		"submap_size_y": 5,
-		"submaps_dmm": "submaps/ops_warehouse_small_storage.dmm", // separate folder for horizon submaps for easier organization
+		"submap_size_x": 13,
+		"submap_size_y": 7,
+		"submaps_dmm": "freebooter_ship_submaps.dmm",
 		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/freebooter_ship/module_port",
 		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/freebooter_ship/module_port",
 		"submaps_can_repeat": false
