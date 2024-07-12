@@ -96,3 +96,7 @@
       surgery completes.
   hazelmouse:
   - rscadd: Adds the Hivebot Hub offsite to all sectors.
+2024-07-12:
+  DreamySkrell:
+  - rscadd: BAPI - mapmanip submap noop handling.
+  - rscadd: BAPI - mapmanip submap repeat setting.
