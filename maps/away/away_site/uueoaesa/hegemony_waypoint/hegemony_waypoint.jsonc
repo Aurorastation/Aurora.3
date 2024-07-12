@@ -1,0 +1,10 @@
+[
+	{
+		"type": "InsertExtract",
+		"submap_size_x": 11,
+		"submap_size_y": 5,
+		"submaps_dmm": "hegemony_waypoint_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/kitchen",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/hegemony_waypoint/kitchen"
+	}
+]
