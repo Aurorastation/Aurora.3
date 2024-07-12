@@ -218,14 +218,12 @@
 			qdel(src)
 			return
 		if(2.0)
-			if (prob(50))
+			if(prob(50))
 				qdel(src)
 				return
 		if(3.0)
-			if (prob(25))
-				spawn(0)
-					src.malfunction()
-					return
+			if(prob(25))
+				src.malfunction()
 				return
 	return
 
@@ -304,7 +302,7 @@
 		user.drop_from_inventory(attacking_item,src)
 		coin = attacking_item
 		categories |= CAT_COIN
-		to_chat(user, "<span class='notice'>You insert \the [attacking_item] into \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
 		SStgui.update_uis(src)
 		return TRUE
 	else if(attacking_item.iswrench())
@@ -315,7 +313,7 @@
 		user.visible_message("<b>[user]</b> begins [anchored? "un" : ""]securing \the [src] [anchored? "from" : "to"] the floor.", SPAN_NOTICE("You start [anchored? "un" : ""]securing \the [src] [anchored? "from" : "to"] the floor."))
 		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			if(!src) return
-			to_chat(user, "<span class='notice'>You [anchored? "un" : ""]secured \the [src]!</span>")
+			to_chat(user, SPAN_NOTICE("You [anchored? "un" : ""]secured \the [src]!"))
 			anchored = !anchored
 			power_change()
 		return TRUE
@@ -326,24 +324,24 @@
 			if(VR.charges)
 				if(VR.vend_id == vend_id)
 					VR.restock_inventory(src)
-					to_chat(user, "<span class='notice'>You restock \the [src] with \the [VR]!</span>")
+					to_chat(user, SPAN_NOTICE("You restock \the [src] with \the [VR]!"))
 					if(!VR.charges)
-						to_chat(user, "<span class='warning'>\The [VR] is depleted!</span>")
+						to_chat(user, SPAN_WARNING("\The [VR] is depleted!"))
 				else
-					to_chat(user, "<span class='warning'>\The [VR] is not stocked for this type of vendor!</span>")
+					to_chat(user, SPAN_WARNING("\The [VR] is not stocked for this type of vendor!"))
 			else
-				to_chat(user, "<span class='warning'>\The [VR] is depleted!</span>")
+				to_chat(user, SPAN_WARNING("\The [VR] is depleted!"))
 		else
-			to_chat(user, "<span class='warning'>You must open \the [src]'s maintenance panel first!</span>")
+			to_chat(user, SPAN_WARNING("You must open \the [src]'s maintenance panel first!"))
 		return TRUE
 
 	else if(!is_borg_item(attacking_item))
 		if(!restock_items)
-			to_chat(user, "<span class='warning'>\the [src] can not be restocked manually!</span>")
+			to_chat(user, SPAN_WARNING("\the [src] can not be restocked manually!"))
 			return TRUE
 		for(var/path in restock_blocked_items)
 			if(istype(attacking_item, path))
-				to_chat(user, "<span class='warning'>\the [src] does not accept this item!</span>")
+				to_chat(user, SPAN_WARNING("\the [src] does not accept this item!"))
 				return TRUE
 
 		for(var/datum/data/vending_product/R in product_records)
@@ -665,7 +663,7 @@
 		return
 
 	if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
-		to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course)
+		to_chat(usr, SPAN_WARNING("Access denied."))	//Unless emagged of course)
 		flick(src.icon_deny, src)
 		set_light(initial(light_range), initial(light_power), COLOR_RED_LIGHT)
 		return
@@ -701,9 +699,8 @@
 		SStgui.update_uis(src)
 
 	if(((src.last_reply + (src.vend_delay + 200)) <= world.time) && src.vend_reply)
-		spawn(0)
-			src.speak(src.vend_reply)
-			src.last_reply = world.time
+		src.speak(src.vend_reply)
+		src.last_reply = world.time
 
 	use_power_oneoff(vend_power_usage)	//actuators and stuff
 	if (src.icon_vend) //Show the vending animation if needed
@@ -741,7 +738,7 @@
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
 
-	to_chat(user, "<span class='notice'>You insert \the [R.product_name] in the product receptor.</span>")
+	to_chat(user, SPAN_NOTICE("You insert \the [R.product_name] in the product receptor."))
 	R.amount++
 
 	SStgui.update_uis(src)
@@ -836,7 +833,7 @@
 	intent_message(MACHINE_SOUND)
 	throw_item.vendor_action(src)
 	INVOKE_ASYNC(throw_item, TYPE_PROC_REF(/atom/movable, throw_at), target, rand(3, 10), rand(1, 3), src)
-	src.visible_message("<span class='warning'>[src] launches [throw_item.name] at [target.name]!</span>")
+	src.visible_message(SPAN_WARNING("[src] launches [throw_item.name] at [target.name]!"))
 	return 1
 
 // screens go over the lighting layer, so googly eyes go under them

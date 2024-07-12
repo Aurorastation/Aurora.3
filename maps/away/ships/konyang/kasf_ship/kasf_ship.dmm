@@ -118,7 +118,6 @@
 /area/shuttle/kasf_shuttle)
 "aM" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 6
 	},
 /obj/structure/ship_weapon_dummy,
@@ -714,7 +713,7 @@
 /obj/item/clothing/accessory/badge/passcard/konyang,
 /obj/item/clothing/accessory/storage/white_vest,
 /obj/item/clothing/accessory/storage/pouches/white,
-/obj/item/storage/belt/medical/first_responder/combat/full,
+/obj/item/storage/belt/medical/paramedic/combat/full,
 /obj/item/clothing/accessory/armband/medgreen,
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 6
@@ -729,8 +728,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/hangar)
@@ -5947,12 +5945,8 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
-/obj/item/storage/box/produce{
-	layer = 2.99
-	},
-/obj/item/storage/box/produce{
-	layer = 2.99
-	},
+/obj/item/storage/box/produce,
+/obj/item/storage/box/produce,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/effect/decal/cleanable/dirt,
@@ -6305,9 +6299,7 @@
 /obj/machinery/alarm/south{
 	req_one_access = list(218)
 	},
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/brig)
 "Js" = (
@@ -8558,15 +8550,6 @@
 	dir = 1
 	},
 /obj/structure/table/steel,
-/obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for a Sai-class corvette.";
-	icon = 'icons/obj/items.dmi';
-	icon_state = "blueprints";
-	item_icons = null;
-	item_state = null;
-	name = "ship blueprints";
-	pixel_y = -1
-	},
 /obj/item/pen/drafting/blue{
 	pixel_x = -6;
 	pixel_y = 8
@@ -8581,6 +8564,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/item/blueprints,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/engie)
 "Xu" = (

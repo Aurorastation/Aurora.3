@@ -10,7 +10,10 @@
 	var/list/breathgas = list()	//list of gases animals/plants require to survive
 	var/badgas					//id of gas that is toxic to life here
 
-	var/lightlevel = 0 //This default makes turfs not generate light. Adjust to have exoplanents be lit.
+	/// This default makes turfs not generate light. Adjust to have exoplanents be lit.
+	var/lightlevel = 0
+	/// Change this to have the light be a different color. Useful for planets with special suns
+	var/lightcolor = COLOR_WHITE
 	var/night = TRUE
 
 // Fluff, specifically for celestial objects.
@@ -20,6 +23,10 @@
 	var/geology = "Dormant, unreadable tectonic activity"	//Anything unique about tectonics and its core activity
 	var/weather = "No substantial meteorological readings"	//Anything unique about terrestrial weather conditions
 	var/surfacewater = "NA/None Visible"					//Water visible on the surface
+	var/magnet_strength = "No magnetic field detected"
+	var/magnet_difference = "N/A"
+	var/day_length = "~1 BCY (Biesel Cycles)"
+	var/magnet_particles = "N/A"
 
 	var/maxx
 	var/maxy
@@ -282,14 +289,17 @@
 /obj/effect/overmap/visitable/sector/exoplanet/proc/generate_map()
 	if(!istype(theme))
 		CRASH("Exoplanet [src] attempted to generate without valid theme!")
+
 	if(plant_colors)
 		var/list/grasscolors = plant_colors.Copy()
 		grasscolors -= "RANDOM"
 		if(length(grasscolors))
 			grass_color = pick(grasscolors)
 
+	// Generate the exoplanet surface using the exoplanet theme.
+	// Here `/turf/space` is used, as this is what new zlevels are created with.
 	theme.before_map_generation(src)
-	theme.generate_map(src, map_z[1], 1 + TRANSITIONEDGE, 1 + TRANSITIONEDGE, maxx - (1 + TRANSITIONEDGE), maxy - (1 + TRANSITIONEDGE))
+	theme.generate_map(map_z[1], 1 + TRANSITIONEDGE, 1 + TRANSITIONEDGE, maxx - (1 + TRANSITIONEDGE), maxy - (1 + TRANSITIONEDGE), /turf/space)
 
 	for (var/zlevel in map_z)
 		var/list/edges

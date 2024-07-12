@@ -19,7 +19,7 @@
 	death()
 	return ..()
 
-/obj/item/flora/pottedplant_small/fire_act()
+/obj/item/flora/pottedplant_small/fire_act(exposed_temperature, exposed_volume)
 	death()
 	return ..()
 

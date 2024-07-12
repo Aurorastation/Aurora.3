@@ -1894,8 +1894,7 @@
 	},
 /obj/structure/platform,
 /obj/machinery/shower{
-	pixel_y = 14;
-	layer = 2.999
+	pixel_y = 14
 	},
 /obj/item/bikehorn/rubberducky{
 	pixel_y = -5;
@@ -5104,6 +5103,10 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/engineering)
 "SQ" = (
@@ -5233,7 +5236,6 @@
 	pixel_x = 6
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /turf/simulated/floor/marble,

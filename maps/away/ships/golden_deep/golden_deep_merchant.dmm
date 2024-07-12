@@ -1203,7 +1203,6 @@
 /area/golden_deep/engineering)
 "lu" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	layer = 2.8;
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -1506,7 +1505,6 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(217)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1962,8 +1960,7 @@
 "sA" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
@@ -2198,7 +2195,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(217)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -2999,8 +2995,7 @@
 "Da" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/machinery/merchant_pad,
 /obj/effect/floor_decal/industrial/warning{
@@ -3151,8 +3146,7 @@
 "Ez" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
@@ -3263,7 +3257,10 @@
 	dir = 1
 	},
 /obj/structure/table/steel,
-/obj/item/book/manual/evaguide,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/golden_deep/atmos)
 "Fy" = (
@@ -3320,7 +3317,6 @@
 /obj/machinery/conveyor{
 	dir = 9;
 	id = "golden_deep";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -3355,7 +3351,6 @@
 /area/golden_deep/secure)
 "GA" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -3705,7 +3700,6 @@
 "Ki" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -4005,8 +3999,7 @@
 "Nn" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
@@ -4204,8 +4197,7 @@
 "Qe" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -4524,7 +4516,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(217)
 	},
 /turf/simulated/floor/gold,
@@ -5107,7 +5098,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(217)
 	},
 /turf/simulated/floor/gold,

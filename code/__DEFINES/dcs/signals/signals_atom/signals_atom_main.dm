@@ -7,6 +7,8 @@
 #define COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZE "atom_init_success"
 //from SSatoms InitAtom - Only if the  atom was not deleted or failed initialization and has a loc
 #define COMSIG_ATOM_AFTER_SUCCESSFUL_INITIALIZED_ON "atom_init_success_on"
+///from base of atom/examine(): (/mob, list/examine_text)
+#define COMSIG_ATOM_EXAMINE "atom_examine"
 ///from base of atom/Entered(): (atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 #define COMSIG_ATOM_ENTERED "atom_entered"
 /// Sent from the atom that just Entered src. From base of atom/Entered(): (/atom/destination, atom/old_loc, list/atom/old_locs)
@@ -16,5 +18,7 @@
 	#define COMPONENT_ATOM_BLOCK_EXIT (1<<0)
 ///from base of atom/Exited(): (atom/movable/gone, direction)
 #define COMSIG_ATOM_EXITED "atom_exited"
+///from base of atom/Bumped(): (/atom) **DIFFERS FROM TG THAT IS /atom/movable**
+#define COMSIG_ATOM_BUMPED "atom_bumped"
 ///from base of atom/has_gravity(): (turf/location, list/forced_gravities)
 #define COMSIG_ATOM_HAS_GRAVITY "atom_has_gravity"

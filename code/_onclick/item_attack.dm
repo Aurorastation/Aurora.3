@@ -25,7 +25,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 /obj/item/proc/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	pre_attack(A, user)
 	add_fingerprint(user)
-	_log_attack("[A] at [A?.loc]/[A.x]-[A.y]-[A.z] got ITEM attacked by [usr]/[usr?.ckey] on INTENT [usr?.a_intent] with [src]")
+	log_attack("[A] at [A?.loc]/[A.x]-[A.y]-[A.z] got ITEM attacked by [usr]/[usr?.ckey] on INTENT [usr?.a_intent] with [src]")
 	return A.attackby(src, user, click_parameters)
 
 // attackby should return TRUE if all desired actions are resolved from that attack, within attackby. This prevents afterattack being called.
@@ -100,7 +100,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		return
 
 	if(force && user.is_pacified())
-		to_chat(user, "<span class='warning'>You don't want to harm other living beings!</span>")
+		to_chat(user, SPAN_WARNING("You don't want to harm other living beings!"))
 		return 0
 
 	if(!force)

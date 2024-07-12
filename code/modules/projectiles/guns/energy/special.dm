@@ -37,7 +37,7 @@
 /obj/item/gun/energy/floragun/afterattack(obj/target, mob/user, adjacent_flag)
 	//allow shooting into adjacent hydrotrays regardless of intent
 	if(adjacent_flag && istype(target,/obj/machinery/portable_atmospherics/hydroponics))
-		user.visible_message("<span class='danger'>\The [user] fires \the [src] into \the [target]!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] fires \the [src] into \the [target]!"))
 		Fire(target,user)
 		return
 	..()
@@ -245,16 +245,16 @@
 
 /obj/item/gun/energy/vaurca/gatlinglaser/special_check(var/mob/user)
 	if(is_charging)
-		to_chat(user, "<span class='danger'>\The [src] is already spinning!</span>")
+		to_chat(user, SPAN_DANGER("\The [src] is already spinning!"))
 		return 0
 	if(!wielded)
-		to_chat(user, "<span class='danger'>You cannot fire this weapon with just one hand!</span>")
+		to_chat(user, SPAN_DANGER("You cannot fire this weapon with just one hand!"))
 		return 0
 	playsound(src, 'sound/weapons/saw/chainsawstart.ogg', 90, 1)
 	user.visible_message(
-					"<span class='danger'>\The [user] begins spinning [src]'s barrels!</span>",
-					"<span class='danger'>You begin spinning [src]'s barrels!</span>",
-					"<span class='danger'>You hear the spin of a rotary gun!</span>"
+					SPAN_DANGER("\The [user] begins spinning [src]'s barrels!"),
+					SPAN_DANGER("You begin spinning [src]'s barrels!"),
+					SPAN_DANGER("You hear the spin of a rotary gun!")
 					)
 	is_charging = 1
 	if(!do_after(user, 30))
@@ -339,15 +339,15 @@
 
 /obj/item/gun/energy/vaurca/typec/special_check(var/mob/user)
 	if(is_charging)
-		to_chat(user, "<span class='danger'>\The [src] is already charging!</span>")
+		to_chat(user, SPAN_DANGER("\The [src] is already charging!"))
 		return 0
 	if(!wielded)
-		to_chat(user, "<span class='danger'>You could never fire this weapon with merely one hand!</span>")
+		to_chat(user, SPAN_DANGER("You could never fire this weapon with merely one hand!"))
 		return 0
 	user.visible_message(
-					"<span class='danger'>\The [user] begins charging the [src]!</span>",
-					"<span class='danger'>You begin charging the [src]!</span>",
-					"<span class='danger'>You hear a low pulsing roar!</span>"
+					SPAN_DANGER("\The [user] begins charging the [src]!"),
+					SPAN_DANGER("You begin charging the [src]!"),
+					SPAN_DANGER("You hear a low pulsing roar!")
 					)
 	is_charging = 1
 	if(!do_after(user, 20))
@@ -366,11 +366,11 @@
 		if(H.mob_size >= 30)
 			playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 			anchored = 1
-			to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
+			to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 			icon_state = "megaglaive1"
 			..()
 			return
-		to_chat(user, "<span class='warning'>\The [src] is far too large for you to pick up.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is far too large for you to pick up."))
 		return
 
 /obj/item/gun/energy/vaurca/typec/dropped(mob/user)

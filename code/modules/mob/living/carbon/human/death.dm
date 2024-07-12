@@ -14,7 +14,7 @@
 		I.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)), rand(1,3), round(30/I.w_class))
 
 	..(species.gibbed_anim)
-	gibs(loc, viruses, dna, null, species.flesh_color, species.blood_color)
+	gibs(loc, viruses, dna, null, species.flesh_color, get_blood_color())
 
 /mob/living/carbon/human/dust()
 	vr_disconnect()
@@ -67,7 +67,7 @@
 		SSticker.mode.check_win()
 
 	if(wearing_rig?.ai_override_enabled)
-		wearing_rig.notify_ai("<span class='danger'>Warning: user death event. Mobility control passed to integrated intelligence system.</span>")
+		wearing_rig.notify_ai(SPAN_DANGER("Warning: user death event. Mobility control passed to integrated intelligence system."))
 
 	. = ..(gibbed, species.death_message, species.death_message_range)
 

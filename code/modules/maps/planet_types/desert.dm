@@ -16,6 +16,8 @@
 	water_color = null
 	ruin_planet_type = PLANET_DESERT
 	ruin_allowed_tags = RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
+	soil_data = list("Low density silicon dioxide layer", "Trace gold dust layer", "Trace silver dust layer", "Large rock particle layer", "Trace organic particle layer")
+	water_data = list("Sodium ions present", "Calcium ions present", "Sulfate ions present", "Magnesium ions present", "Copper ions present")
 
 	unit_test_groups = list(1)
 
@@ -54,6 +56,28 @@
 	if(prob(10))
 		ground_survey_result += "<br>Traces of fissile material"
 
+/obj/effect/overmap/visitable/sector/exoplanet/desert/generate_magnet_survey_result()
+	..()
+	magnet_strength = "[rand(10, 100)] uT/Gauss"
+	magnet_difference = "[rand(0,1500)] kilometers"
+	magnet_particles = ""
+	var/list/particle_types = PARTICLE_TYPES
+	var/particles = rand(1,5)
+	for(var/i in 1 to particles)
+		var/p = pick(particle_types)
+		if(i == particles) //Last item, no comma
+			magnet_particles += p
+		else
+			magnet_particles += "[p], "
+		particle_types -= p
+	day_length = "~[rand(1,200)/10] BCY (Biesel Cycles)"
+	if(prob(40))
+		magnet_survey_result += "<br>Highly variable magnetic flux detected"
+	if(prob(40))
+		magnet_survey_result += "<br>Strong solar winds present"
+	if(prob(10))
+		magnet_survey_result += "<br>High levels of plasma present in magnetosphere"
+
 /obj/effect/overmap/visitable/sector/exoplanet/desert/adapt_seed(var/datum/seed/S)
 	..()
 	if(prob(90))
@@ -91,30 +115,30 @@
 		if(user == buckled)
 			delay *=2
 			user.visible_message(
-				"<span class='notice'>\The [user] tries to climb out of \the [src].</span>",
-				"<span class='notice'>You begin to pull yourself out of \the [src].</span>",
-				"<span class='notice'>You hear water sloushing.</span>"
+				SPAN_NOTICE("\The [user] tries to climb out of \the [src]."),
+				SPAN_NOTICE("You begin to pull yourself out of \the [src]."),
+				SPAN_NOTICE("You hear water sloushing.")
 				)
 		else
 			user.visible_message(
-				"<span class='notice'>\The [user] begins pulling \the [buckled] out of \the [src].</span>",
-				"<span class='notice'>You begin to pull \the [buckled] out of \the [src].</span>",
-				"<span class='notice'>You hear water sloushing.</span>"
+				SPAN_NOTICE("\The [user] begins pulling \the [buckled] out of \the [src]."),
+				SPAN_NOTICE("You begin to pull \the [buckled] out of \the [src]."),
+				SPAN_NOTICE("You hear water sloushing.")
 				)
 		busy = 1
 		if(do_after(user, delay, src))
 			busy = 0
 			if(user == buckled)
 				if(prob(80))
-					to_chat(user, "<span class='warning'>You slip and fail to get out!</span>")
+					to_chat(user, SPAN_WARNING("You slip and fail to get out!"))
 					return
-				user.visible_message("<span class='notice'>\The [buckled] pulls himself out of \the [src].</span>")
+				user.visible_message(SPAN_NOTICE("\The [buckled] pulls himself out of \the [src]."))
 			else
-				user.visible_message("<span class='notice'>\The [buckled] has been freed from \the [src] by \the [user].</span>")
+				user.visible_message(SPAN_NOTICE("\The [buckled] has been freed from \the [src] by \the [user]."))
 			unbuckle()
 		else
 			busy = 0
-			to_chat(user, "<span class='warning'>You slip and fail to get out!</span>")
+			to_chat(user, SPAN_WARNING("You slip and fail to get out!"))
 			return
 
 /obj/structure/quicksand/unbuckle()
@@ -139,7 +163,7 @@
 /obj/structure/quicksand/proc/expose()
 	if(exposed)
 		return
-	visible_message("<span class='warning'>The upper crust breaks, exposing treacherous quicksands underneath!</span>")
+	visible_message(SPAN_WARNING("The upper crust breaks, exposing treacherous quicksands underneath!"))
 	name = "quicksand"
 	desc = "There is no candy at the bottom."
 	exposed = 1

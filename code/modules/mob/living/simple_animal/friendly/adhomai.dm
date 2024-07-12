@@ -40,7 +40,7 @@
 	else
 		..()
 
-/mob/living/simple_animal/ice_tunneler/Life()
+/mob/living/simple_animal/ice_tunneler/Life(seconds_per_tick, times_fired)
 	. =..()
 	if(!.)
 		return
@@ -279,9 +279,7 @@
 
 	canbrush = TRUE
 
-	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
 	meat_amount = 4
-	faction = "Adhomai"
 	vehicle_version = /obj/vehicle/animal/climber
 	natural_armor = list(
 		melee = ARMOR_MELEE_MEDIUM,

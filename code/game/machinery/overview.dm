@@ -7,7 +7,7 @@
 	usr.set_machine(src)
 	if(!mapping)	return
 
-	log_game("[usr]([usr.key]) used station map L[z] in [src.loc.loc]",ckey=key_name(usr))
+	log_game("[usr]([usr.key]) used station map L[z] in [src.loc.loc]")
 
 	src.drawmap(usr)
 
@@ -310,20 +310,16 @@
 
 
 /obj/machinery/computer/security/proc/close(mob/user)
-	spawn(20)
-		var/using = null
-		if(user.mapobjs)
-			for(var/obj/machinery/computer/security/seccomp in oview(1,user))
-				if(seccomp == src)
-					using = 1
-					break
-			if(using)
-				close(user)
-			else
-				user.clearmap()
-
-
-		return
+	var/using = null
+	if(user.mapobjs)
+		for(var/obj/machinery/computer/security/seccomp in oview(1,user))
+			if(seccomp == src)
+				using = 1
+				break
+		if(using)
+			close(user)
+		else
+			user.clearmap()
 
 /proc/getr(col)
 	return hex2num( copytext(col, 2,4))

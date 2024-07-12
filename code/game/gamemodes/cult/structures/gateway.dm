@@ -8,9 +8,6 @@
 	anchored = 1.0
 	var/spawnable = null
 
-/obj/effect/gateway/CollidedWith(mob/M)
-	return
-
 /obj/effect/gateway/Crossed(AM as mob|obj)
 	return
 
@@ -47,6 +44,6 @@
 /obj/effect/gateway/attackby(obj/item/attacking_item, mob/user)
 	..()
 	if(istype(attacking_item, /obj/item/nullrod))
-		to_chat(user, "<span class='notice'>You touch \the [src] with \the [attacking_item], closing the path to the otherworld.</span>")
+		to_chat(user, SPAN_NOTICE("You touch \the [src] with \the [attacking_item], closing the path to the otherworld."))
 		qdel(src)
 		return TRUE

@@ -65,7 +65,7 @@
 	for(var/spell in morph_spells)
 		add_spell(new spell, "const_spell_ready")
 
-/mob/living/simple_animal/hostile/morph/Life()
+/mob/living/simple_animal/hostile/morph/Life(seconds_per_tick, times_fired)
 	. = ..()
 	if(stat == DEAD && healths)
 		healths.icon_state = "health6"
@@ -100,7 +100,7 @@
 	else
 		see_invisible = SEE_INVISIBLE_NOLIGHTING
 
-/mob/living/simple_animal/hostile/morph/examine(mob/user, distance, is_adjacent)
+/mob/living/simple_animal/hostile/morph/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	if(morphed)
 		return form.examine(user)
 	else

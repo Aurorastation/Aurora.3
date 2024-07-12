@@ -54,29 +54,29 @@
 
 	//Guest Checking
 	if(!(GLOB.config.guests_allowed || GLOB.config.external_auth) && IsGuestKey(key))
-		log_access("Failed Login: [key] - Guests not allowed",ckey=key_name(key))
-		message_admins("<span class='notice'>Failed Login: [key] - Guests not allowed</span>")
+		log_access("Failed Login: [key] - Guests not allowed")
+		message_admins(SPAN_NOTICE("Failed Login: [key] - Guests not allowed"))
 		LOG_CLIENT_CONNECTION(ACCESS_STATUS_GUESTDENIED)
 		return list("reason"="guest", "desc"="\nReason: Guests not allowed. Please sign in with a byond account.")
 	if(GLOB.config.ban_legacy_system)
 		//Ban Checking
 		. = CheckBan(ckey, computer_id, address)
 		if(.)
-			log_access("Failed Login: [key] [computer_id] [address] - Banned [.["reason"]]",ckey=key_name(key))
-			message_admins("<span class='notice'>Failed Login: [key] id:[computer_id] ip:[address] - Banned [.["reason"]]</span>")
+			log_access("Failed Login: [key] [computer_id] [address] - Banned [.["reason"]]")
+			message_admins(SPAN_NOTICE("Failed Login: [key] id:[computer_id] ip:[address] - Banned [.["reason"]]"))
 			return .
 
 		return ..()	//default pager ban stuff
 
 	else
 		if (!address)
-			log_access("Failed Login: [key] null-[computer_id] - Denied access: No IP address broadcast.",ckey=key_name(key))
+			log_access("Failed Login: [key] null-[computer_id] - Denied access: No IP address broadcast.")
 			message_admins("[key] tried to connect without an IP address.")
 			LOG_CLIENT_CONNECTION(ACCESS_STATUS_NOIP)
 			return list("reason" = "Temporary ban", "desc" = "Your connection did not broadcast an IP address to check.")
 
 		if (!computer_id)
-			log_access("Failed Login: [key] [address]-null - Denied access: No computer ID broadcast.",ckey=key_name(key))
+			log_access("Failed Login: [key] [address]-null - Denied access: No computer ID broadcast.")
 			message_admins("[key] tried to connect without a computer ID.")
 			LOG_CLIENT_CONNECTION(ACCESS_STATUS_NOCID)
 			return list("reason" = "Temporary ban", "desc" = "Your connection did not broadcast an computer ID to check.")

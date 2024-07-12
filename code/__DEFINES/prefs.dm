@@ -1,6 +1,22 @@
-#define EQUIP_PREVIEW_LOADOUT 1
-#define EQUIP_PREVIEW_JOB 2
-#define EQUIP_PREVIEW_ALL (EQUIP_PREVIEW_LOADOUT|EQUIP_PREVIEW_JOB)
+// Character Preview Bitflags
+
+/// Will show loadout items
+#define EQUIP_PREVIEW_LOADOUT BITFLAG(0)
+
+/// Will show job items, specific item bitflags will determine if those ones are shown or not
+#define EQUIP_PREVIEW_JOB BITFLAG(1)
+
+/// Will show job hat if true, will hide if this is false or EQUIP_PREVIEW_JOB is false
+#define EQUIP_PREVIEW_JOB_HAT BITFLAG(2)
+
+/// Will show job uniform if true, will hide if this is false or EQUIP_PREVIEW_JOB is false
+#define EQUIP_PREVIEW_JOB_UNIFORM BITFLAG(3)
+
+/// Will show job suit if true, will hide if this is false or EQUIP_PREVIEW_JOB is false
+#define EQUIP_PREVIEW_JOB_SUIT BITFLAG(4)
+
+/// The default EQUIP_PREVIEW bitflag, with this, all character creation items are shown
+#define EQUIP_PREVIEW_ALL (EQUIP_PREVIEW_LOADOUT|EQUIP_PREVIEW_JOB|EQUIP_PREVIEW_JOB_HAT|EQUIP_PREVIEW_JOB_UNIFORM|EQUIP_PREVIEW_JOB_SUIT)
 
 /// External organ. Is a prosthesis with a robo-limb manufacturer.
 #define ORGAN_PREF_CYBORG "cyborg"

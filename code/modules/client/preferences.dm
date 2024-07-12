@@ -163,7 +163,7 @@ var/list/preferences_datums = list()
 	var/metadata = ""
 
 	// SPAAAACE
-	var/toggles_secondary = PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
+	var/toggles_secondary = SEE_ITEM_OUTLINES | PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
 	var/clientfps = 100
 	var/floating_chat_color
 	var/speech_bubble_type = "default"
@@ -180,21 +180,29 @@ var/list/preferences_datums = list()
 	var/savefile/loaded_character
 	var/datum/category_collection/player_setup_collection/player_setup
 
-	var/bgstate = "000000"
+	var/bgstate = "plain_black"
 	var/list/bgstate_options = list(
-		"FFFFFF",
-		"000000",
-		"tiled_preview",
-		"monotile_preview",
-		"dark_preview",
-		"wood",
-		"grass",
-		"reinforced",
-		"white_preview",
-		"freezer",
-		"carpet",
-		"reinforced"
-		)
+		"Plain Black" = "plain_black",
+		"Plain White" = "plain_white",
+		"Monotile" = "monotile",
+		"Tiles" = "tile",
+		"Dark Tiles" = "dark_tile",
+		"Freezer Tiles" = "freezer_tile",
+		"Reinforced Tiles" = "reinforced",
+		"Wood Floor" = "wood",
+		"Grass" = "grass",
+		"Red Carpet" = "carpet_red",
+		"Cyan Carpet" = "carpet_cyan",
+		"Green Carpet" = "carpet_green",
+		"Purple Carpet" = "carpet_purple",
+		"Magenta Carpet" = "carpet_magenta",
+		"Rubber Carpet" = "carpet_rubber",
+		"Blue Circuits" = "circuit_blue",
+		"Green Circuits" = "circuit_green",
+		"Asteroid Turf" = "asteroid",
+		"Desert Turf" = "desert",
+		"Space" = "space"
+	)
 
 	var/fov_cone_alpha = 255
 
@@ -283,7 +291,7 @@ var/list/preferences_datums = list()
 		BG = new
 		BG.appearance_flags = TILE_BOUND|PIXEL_SCALE|NO_CLIENT_COLOR
 		BG.layer = TURF_LAYER
-		BG.icon = 'icons/turf/flooring/tiles.dmi'
+		BG.icon = 'icons/turf/flooring/character_preview.dmi'
 		LAZYSET(char_render_holders, "BG", BG)
 		client.screen |= BG
 	BG.icon_state = bgstate
@@ -337,7 +345,7 @@ var/list/preferences_datums = list()
 		if(GLOB.config.forumurl)
 			send_link(user, GLOB.config.forumurl)
 		else
-			to_chat(user, "<span class='danger'>The forum URL is not set in the server configuration.</span>")
+			to_chat(user, SPAN_DANGER("The forum URL is not set in the server configuration."))
 			return
 	return 1
 
@@ -363,7 +371,7 @@ var/list/preferences_datums = list()
 		close_load_dialog(usr)
 	else if(href_list["new_character_sql"])
 		new_setup(1)
-		to_chat(usr, "<span class='notice'>Your setup has been refreshed.</span>")
+		to_chat(usr, SPAN_NOTICE("Your setup has been refreshed."))
 		usr.client.prefs.update_preview_icon()
 		close_load_dialog(usr)
 	else if(href_list["close_load_dialog"])
@@ -495,7 +503,7 @@ var/list/preferences_datums = list()
 
 	character.pda_choice = pda_choice
 
-	if(headset_choice > OUTFIT_THIN_WRISTRAD || headset_choice < OUTFIT_NOTHING)
+	if(headset_choice > OUTFIT_CLIPON || headset_choice < OUTFIT_NOTHING)
 		headset_choice = OUTFIT_HEADSET
 
 	character.headset_choice = headset_choice
@@ -687,11 +695,11 @@ var/list/preferences_datums = list()
 		return
 
 	if (!current_character)
-		to_chat(C, "<span class='notice'>You do not have a character loaded.</span>")
+		to_chat(C, SPAN_NOTICE("You do not have a character loaded."))
 		return
 
 	if (!establish_db_connection(GLOB.dbcon))
-		to_chat(C, "<span class='notice'>Unable to establish database connection.</span>")
+		to_chat(C, SPAN_NOTICE("Unable to establish database connection."))
 		return
 
 	var/DBQuery/query = GLOB.dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW(), deleted_by = \"player\" WHERE id = :char_id:")
@@ -700,7 +708,7 @@ var/list/preferences_datums = list()
 	// Create a new character.
 	new_setup(1)
 
-	to_chat(C, "<span class='warning'>Character successfully deleted! Please make a new one or load an existing setup.</span>")
+	to_chat(C, SPAN_WARNING("Character successfully deleted! Please make a new one or load an existing setup."))
 
 /datum/preferences/proc/get_species_datum()
 	if (species)

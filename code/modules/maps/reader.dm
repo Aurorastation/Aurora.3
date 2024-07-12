@@ -50,7 +50,16 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 /dmm_suite/proc/load_map_impl(dmm_file, x_offset, y_offset, z_offset, cropMap, measureOnly, no_changeturf, x_lower = -INFINITY, x_upper = INFINITY, y_lower = -INFINITY, y_upper = INFINITY)
 	var/tfile = dmm_file//the map file we're creating
 	if(isfile(tfile))
-		tfile = file2text(tfile)
+		// name/path of dmm file, new var so as to not rename the `tfile` var
+		// to maybe maintain compatibility with other codebases
+		var/tfilepath = "[tfile]"
+		// use bapi to read, parse, process, mapmanip etc
+		// this will "crash"/stacktrace on fail
+		tfile = bapi_read_dmm_file(tfilepath)
+		// if bapi for whatever reason fails and returns null
+		// try to load it the old dm way instead
+		if(!tfile)
+			tfile = file2text(tfilepath)
 
 	if(!x_offset)
 		x_offset = 1
@@ -507,7 +516,7 @@ GLOBAL_LIST_INIT(_preloader_path, null)
 
 /area/template_noop
 	name = "Area Passthrough"
-	icon_state = "space"
+	icon_state = "noop"
 
 /turf/template_noop
 	name = "Turf Passthrough"

@@ -37,7 +37,7 @@
 			continue
 		else if (isNotStationLevel(src.z) && src.z != D.z) //If the console is not on the station, only list drones on the current level
 			continue
-		dat += "<BR>[D.real_name] ([D.stat == 2 ? "<span class='warning'>INACTIVE</span>" : "<font color='green'>ACTIVE</FONT>"])"
+		dat += "<BR>[D.real_name] ([D.stat == 2 ? SPAN_WARNING("INACTIVE") : "<font color='green'>ACTIVE</FONT>"])"
 		dat += "<font dize = 9><BR>Cell charge: [D.cell.charge]/[D.cell.maxcharge]."
 		dat += "<BR>Currently located in: [get_area(D)]."
 		dat += "<BR><A href='?src=\ref[src];resync=\ref[D]'>Resync</A> | <A href='?src=\ref[src];shutdown=\ref[D]'>Shutdown</A></font>"
@@ -94,7 +94,7 @@
 		if(D.stat != DEAD)
 			to_chat(usr, SPAN_NOTICE("You issue a kill command for the unfortunate drone."))
 			message_admins("[key_name_admin(usr)] issued kill order for drone [key_name_admin(D)] from control console.")
-			log_game("[key_name(usr)] issued kill order for [key_name(src)] from control console.",ckey=key_name(usr),ckey_target=key_name(src))
+			log_game("[key_name(usr)] issued kill order for [key_name(src)] from control console.")
 			D.shut_down()
 		else
 			to_chat(usr, SPAN_WARNING("The drone has been shut down already."))

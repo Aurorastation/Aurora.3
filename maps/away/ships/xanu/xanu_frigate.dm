@@ -7,8 +7,8 @@
 	prefix = "ships/xanu/"
 	suffixes = list("xanu_frigate.dmm")
 
-	sectors = list(ALL_COALITION_SECTORS, SECTOR_BADLANDS)
-	spawn_weight_sector_dependent = list(SECTOR_LIBERTYS_CRADLE = 3, ALL_BADLAND_SECTORS = 0.5)
+	sectors = list(ALL_COALITION_SECTORS)
+	spawn_weight_sector_dependent = list(SECTOR_LIBERTYS_CRADLE = 3)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "xanu_frigate"

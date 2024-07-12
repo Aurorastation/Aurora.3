@@ -98,6 +98,8 @@
 	plushies["plushie, Xana"] = /obj/item/toy/plushie/xana
 	plushies["plushie, Aphy"] = /obj/item/toy/plushie/ipc
 	plushies["plushie, jeweler cockatoo"] = /obj/item/toy/plushie/cockatoo
+	plushies["plushie, Norinori"] = /obj/item/toy/plushie/norinori
+	plushies["plushie, space carp"] = /obj/item/toy/plushie/carp
 	gear_tweaks += new /datum/gear_tweak/path(plushies)
 
 /datum/gear/toy/mecha
@@ -111,3 +113,9 @@
 	for(var/obj/item/toy/mech/mecha as anything in subtypesof(/obj/item/toy/mech))
 		mechas[initial(mecha.name)] = mecha
 	gear_tweaks += new /datum/gear_tweak/path(mechas)
+
+/datum/gear/toy/stressball
+	display_name = "stress ball"
+	description = "A small, squishy stress ball. This one has a squeaker inside."
+	path = /obj/item/toy/stressball
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION

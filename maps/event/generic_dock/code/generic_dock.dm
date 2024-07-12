@@ -24,7 +24,3 @@
 	company_short = "NT"
 
 	use_overmap = FALSE
-
-	map_shuttles = list(
-		/datum/shuttle/autodock/ferry/arrival/aurora
-	)

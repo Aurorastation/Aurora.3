@@ -38,7 +38,7 @@
 
 	if(attacking_item.iswrench())
 		attacking_item.play_tool_sound(get_turf(src), 50)
-		to_chat(user, "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>")
+		to_chat(user, SPAN_NOTICE("You [anchored ? "unfasten" : "fasten"] [src] to the flooring."))
 		anchored = !anchored
 		update_icon()
 		if(!anchored)
@@ -92,7 +92,7 @@
 
 	if(attacking_item.iswrench())
 		attacking_item.play_tool_sound(get_turf(src), 50)
-		to_chat(user, "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>")
+		to_chat(user, SPAN_NOTICE("You [anchored ? "unfasten" : "fasten"] [src] to the flooring."))
 		anchored = !anchored
 		update_icon()
 		return
@@ -106,7 +106,7 @@
 	build_path = /obj/machinery/power/tesla_coil
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	req_components = list("/obj/item/stock_parts/capacitor" = 1)
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 
 /obj/item/circuitboard/grounding_rod
 	name = "grounding rod circuitry"
@@ -114,4 +114,4 @@
 	build_path = /obj/machinery/power/grounding_rod
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	req_components = list("/obj/item/stock_parts/capacitor" = 1)
-	board_type = "machine"
+	board_type = BOARD_MACHINE

@@ -107,3 +107,7 @@ ATTRIBUTIONS SECTOR START
 sound/machines/clanking.ogg - https://freesound.org/people/simone_ds/sounds/366084/
 sound/machines/howitzer/fire.ogg - https://freesound.org/people/qubodup/sounds/161341/
 ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/items/metal_shutter.ogg - https://freesound.org/people/bruno.auzet/sounds/524695/
+ATTRIBUTIONS SECTION END

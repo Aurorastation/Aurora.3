@@ -109,7 +109,9 @@
 		PH.set_hud_maptext("| Ship Status | [connected.x]-[connected.y] |<br>Speed: [round(connected.get_speed()*1000, 0.01)] | Acceleration: [get_acceleration()]<br>ETA to Next Grid: [get_eta()]")
 		PH.check_ship_overlay(PH.loc, connected)
 
-/obj/machinery/computer/ship/helm/relaymove(var/mob/user, direction)
+/obj/machinery/computer/ship/helm/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(viewing_overmap(user) && connected)
 		connected.relaymove(user, direction, accellimit)
 		return 1
@@ -202,7 +204,7 @@
 			sec_name = "Sector #[known_sectors.len]"
 		R.fields["name"] = sec_name
 		if(sec_name in known_sectors)
-			to_chat(usr, "<span class='warning'>Sector with that name already exists, please input a different name.</span>")
+			to_chat(usr, SPAN_WARNING("Sector with that name already exists, please input a different name."))
 			return TRUE
 		switch(params["add"])
 			if("current")

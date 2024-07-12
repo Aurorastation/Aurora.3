@@ -1975,7 +1975,6 @@
 "jg" = (
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -8402,7 +8401,6 @@
 	pixel_y = 13
 	},
 /obj/item/storage/box/zipties{
-	layer = 2.99;
 	pixel_x = 11;
 	pixel_y = -2
 	},
@@ -8920,7 +8918,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -9491,7 +9488,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window";
 	pixel_y = -6
 	},
@@ -10422,7 +10418,6 @@
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window";
 	pixel_y = -6
 	},

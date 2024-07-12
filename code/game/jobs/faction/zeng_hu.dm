@@ -45,10 +45,11 @@
 		"Pharmacist" = /obj/outfit/job/pharmacist/zeng_hu,
 		"Psychiatrist" = /obj/outfit/job/psychiatrist/zeng_hu,
 		"Psychologist" = /obj/outfit/job/psychiatrist/zeng_hu,
-		"First Responder" = /obj/outfit/job/med_tech/zeng_hu,
+		"Paramedic" = /obj/outfit/job/med_tech/zeng_hu,
 		"Medical Intern" = /obj/outfit/job/intern_med/zeng_hu,
 		"Scientist" = /obj/outfit/job/scientist/zeng_hu,
 		"Xenobiologist" = /obj/outfit/job/scientist/xenobiologist/zeng_hu,
+		"Anomalist" = /obj/outfit/job/scientist/anomalist/zeng_hu,
 		"Xenobotanist" = /obj/outfit/job/scientist/xenobotanist/zeng_hu,
 		"Lab Assistant" = /obj/outfit/job/intern_sci/zeng_hu,
 		"Xenoarchaeologist"= /obj/outfit/job/scientist/xenoarchaeologist/zeng_hu,
@@ -116,11 +117,11 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
 
 /obj/outfit/job/med_tech/zeng_hu
-	name = "First Responder - Zeng-Hu"
+	name = "Paramedic - Zeng-Hu"
 
 	head = /obj/item/clothing/head/softcap/zeng
-	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng
-	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
+	uniform = /obj/item/clothing/under/rank/medical/paramedic/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/para_jacket/zeng
 	id = /obj/item/card/id/zeng_hu
 
 	backpack_faction = /obj/item/storage/backpack/zeng
@@ -183,6 +184,19 @@
 	name = "Xenoarchaeologist - Zeng-Hu"
 
 	uniform = /obj/item/clothing/under/rank/scientist/xenoarchaeologist/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
+	id = /obj/item/card/id/zeng_hu
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/zeng
+
+	backpack_faction = /obj/item/storage/backpack/zeng
+	satchel_faction = /obj/item/storage/backpack/satchel/zeng
+	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
+	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
+
+/obj/outfit/job/scientist/anomalist/zeng_hu
+	name = "Xenoarchaeologist - Zeng-Hu"
+
+	uniform = /obj/item/clothing/under/rank/scientist/anomalist/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
 	id = /obj/item/card/id/zeng_hu
 	shoes = /obj/item/clothing/shoes/sneakers/medsci/zeng

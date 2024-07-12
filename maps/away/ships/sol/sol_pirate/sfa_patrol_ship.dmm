@@ -476,6 +476,9 @@
 /obj/item/storage/belt/utility,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/gloves/yellow,
+/obj/item/tape_roll,
+/obj/item/stack/material/plasteel/full,
+/obj/item/stack/material/steel/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "bbb" = (
@@ -1244,9 +1247,7 @@
 	dir = 9;
 	pixel_y = 0
 	},
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -2385,8 +2386,7 @@
 "hdb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engine1)
@@ -2548,7 +2548,6 @@
 	dir = 4
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(113)
 	},
 /obj/structure/trash_pile,
@@ -2756,9 +2755,10 @@
 "ivQ" = (
 /obj/structure/table/standard,
 /obj/item/blueprints,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/plasteel/full,
-/obj/item/tape_roll,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "izK" = (
@@ -3788,8 +3788,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -5669,8 +5668,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 8;
-	layer = 2.71
+	dir = 8
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	pixel_y = 24

@@ -150,7 +150,7 @@ var/list/channel_to_radio_key = new
 			I.talk_into(src, message, verb, speaking)
 
 	if(message_mode == "whisper" && !whisper)
-		whisper(message, speaking)
+		whisper(message, speaking, say_verb = TRUE)
 		return TRUE
 
 	return FALSE
@@ -185,7 +185,7 @@ var/list/channel_to_radio_key = new
 	return "statement"
 
 
-/mob/living/say(var/message, var/datum/language/speaking = null, var/verb, var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/living/say(var/message, var/datum/language/speaking = null, var/verb, var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	if(stat)
 		if(stat == DEAD)
 			return say_dead(message)
@@ -247,12 +247,12 @@ var/list/channel_to_radio_key = new
 		verb = say_quote(message, speaking, is_singing, whisper)
 
 	if(is_muzzled())
-		to_chat(src, "<span class='danger'>You're muzzled and cannot speak!</span>")
+		to_chat(src, SPAN_DANGER("You're muzzled and cannot speak!"))
 		return
 
 	message = trim_left(message)
 	var/message_range = world.view
-	if(!(speaking && (speaking.flags & NO_STUTTER)))
+	if(!skip_edit && !(speaking && (speaking.flags & NO_STUTTER)))
 		message = handle_autohiss(message, speaking)
 		var/list/hsp_params = handle_speech_problems(message, verb, message_mode, message_range)
 		if(hsp_params)
@@ -364,11 +364,11 @@ var/list/channel_to_radio_key = new
 		mind.last_words = message
 
 	if(whisper)
-		log_whisper("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
+		log_whisper("[key_name(src)] : ([get_lang_name(speaking)]) [message]")
 	else
-		log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
+		log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]")
 
-	return 1
+	return TRUE
 
 /proc/animate_speechbubble(image/I, list/show_to, duration)
 	var/matrix/M = matrix()
@@ -385,7 +385,7 @@ var/list/channel_to_radio_key = new
 		C.images -= I
 
 /mob/living/proc/say_signlang(var/message, var/verb="gestures", var/datum/language/language, var/list/sign_adv_length)
-	log_say("[key_name(src)] : ([get_lang_name(language)]) [message]",ckey=key_name(src))
+	log_say("[key_name(src)] : ([get_lang_name(language)]) [message]")
 
 	for (var/mob/O in viewers(src, null))
 		O.hear_signlang(message, verb, language, src, sign_adv_length)

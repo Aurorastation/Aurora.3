@@ -123,7 +123,7 @@
 					break
 
 		if(prob(10) && (owner.can_feel_pain()))
-			to_chat(owner, "<span class='warning'>You feel a burning sensation on your skin!</span>")
+			to_chat(owner, SPAN_WARNING("You feel a burning sensation on your skin!"))
 			owner.make_jittery(10)
 
 /obj/item/organ/internal/parasite/zombie/process_stage()

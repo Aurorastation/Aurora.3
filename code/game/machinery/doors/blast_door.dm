@@ -17,6 +17,7 @@
 	dir = 1
 	closed_layer = ABOVE_WINDOW_LAYER
 	explosion_resistance = 25
+	pass_flags_self = PASSDOORS
 
 	/// Most blast doors are infrequently toggled and sometimes used with regular doors anyways.
 	/// Turning this off prevents awkward zone geometry in places like medbay lobby, for example.
@@ -54,7 +55,7 @@
 // Proc: Bumped()
 // Parameters: 1 (AM - Atom that tried to walk through this object)
 // Description: If we are open returns zero, otherwise returns result of parent function.
-/obj/machinery/door/blast/CollidedWith(atom/AM)
+/obj/machinery/door/blast/CollidedWith(atom/bumped_atom)
 	if(!density)
 		return ..()
 	else
@@ -121,24 +122,24 @@
 		if (((stat & NOPOWER) || 	(stat & BROKEN)) && !( src.operating ))
 			force_toggle()
 		else
-			to_chat(usr, "<span class='notice'>[src]'s motors resist your effort.</span>")
+			to_chat(usr, SPAN_NOTICE("[src]'s motors resist your effort."))
 		return TRUE
 	if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == "plasteel")
 		var/amt = Ceiling((maxhealth - health)/150)
 		if(!amt)
-			to_chat(usr, "<span class='notice'>\The [src] is already fully repaired.</span>")
+			to_chat(usr, SPAN_NOTICE("\The [src] is already fully repaired."))
 			return TRUE
 		var/obj/item/stack/P = attacking_item
 		if(P.amount < amt)
-			to_chat(usr, "<span class='warning'>You don't have enough sheets to repair this! You need at least [amt] sheets.</span>")
+			to_chat(usr, SPAN_WARNING("You don't have enough sheets to repair this! You need at least [amt] sheets."))
 			return TRUE
-		to_chat(usr, "<span class='notice'>You begin repairing [src]...</span>")
+		to_chat(usr, SPAN_NOTICE("You begin repairing [src]..."))
 		if(do_after(usr, 3 SECONDS, src, DO_REPAIR_CONSTRUCT))
 			if(P.use(amt))
-				to_chat(usr, "<span class='notice'>You have repaired \The [src]</span>")
+				to_chat(usr, SPAN_NOTICE("You have repaired \The [src]"))
 				src.repair()
 			else
-				to_chat(usr, "<span class='warning'>You don't have enough sheets to repair this! You need at least [amt] sheets.</span>")
+				to_chat(usr, SPAN_WARNING("You don't have enough sheets to repair this! You need at least [amt] sheets."))
 		return TRUE
 
 
@@ -151,8 +152,7 @@
 		return
 	force_open()
 	if(autoclose)
-		spawn(150)
-			close()
+		addtimer(CALLBACK(src, PROC_REF(close)), 15 SECONDS)
 	return 1
 
 // Proc: close()

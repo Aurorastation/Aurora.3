@@ -68,10 +68,18 @@
 /atom/proc/on_reagent_change()
 	return
 
-// This is called when AM collides with us.
-/atom/proc/CollidedWith(atom/movable/AM)
-	set waitfor = FALSE
-	return
+/**
+ * Called when an `/atom` collides with this atom
+ *
+ * It's roughly equivalent to `Bumped()` in TG, but it's not sleepable and you have to call parent
+ *
+ * * bumped_atom - The `/atom` that collided with this atom
+ */
+/atom/proc/CollidedWith(atom/bumped_atom)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
+	SEND_SIGNAL(src, COMSIG_ATOM_BUMPED, bumped_atom)
 
 // Convenience proc to see if a container is open for chemistry handling.
 // Returns true if open, false if closed.
@@ -174,7 +182,9 @@
 
 /**
  * Checks if a mob can use an atom, message the user if not with an appropriate reason
+ *
  * Returns 0 (FALSE) if they can use it, a value representing why they can't if not
+ *
  * See `code\__DEFINES\misc.dm` for the list of flags and return codes
  *
  * * user - The `mob` to check against, if it can perform said use
@@ -228,118 +238,6 @@
 			found += A.search_contents_for(path,filter_path)
 	return found
 
-// Examination code for all atoms.
-// Returns TRUE, the caller always expects TRUE
-// This is used rather than SHOULD_CALL_PARENT as it enforces that subtypes of a type that explicitly returns still call parent.
-// You should usually be overriding get_examine_text(), unless you need special examine behaviour.
-/atom/proc/examine(mob/user, distance, is_adjacent, infix = "", suffix = "")
-	var/list/examine_strings = get_examine_text(user, distance, is_adjacent, infix, suffix)
-	if(!length(examine_strings))
-		crash_with("Examine called with no examine strings on [src].")
-	to_chat(user, EXAMINE_BLOCK(examine_strings.Join("\n")))
-	return TRUE
-
-// This proc is what you should usually override to get things to show up inside the examine box.
-/atom/proc/get_examine_text(mob/user, distance, is_adjacent, infix = "", suffix = "")
-	. = list()
-	var/f_name = "\a [src]. [infix]"
-	if(src.blood_DNA && !istype(src, /obj/effect/decal))
-		if(gender == PLURAL)
-			f_name = "some "
-		else
-			f_name = "a "
-		if(blood_color != COLOR_IPC_BLOOD && blood_color != COLOR_OIL)
-			f_name += "<span class='danger'>blood-stained</span> [name][infix]!"
-		else
-			f_name += "oil-stained [name][infix]."
-
-	. += "[icon2html(src, user)] That's [f_name] [suffix]" // Object name. I.e. "This is an Object. It is a normal-sized item."
-
-	if(src.desc)
-		. += src.desc	// Object description.
-
-	// Extra object descriptions examination code.
-	if(desc_extended || desc_info || (desc_antag && player_is_antag(user.mind))) // Checks if the object has a extended description, a mechanics description, and/or an antagonist description (and if the user is an antagonist).
-		. += FONT_SMALL(SPAN_NOTICE("\[?\] This object has additional examine information available. <a href=?src=\ref[src];examine_fluff=1>\[Show In Chat\]</a>")) // If any of the above are true, show that the object has more information available.
-		if(desc_extended) // If the item has a extended description, show that it is available.
-			. +=  FONT_SMALL("- This object has an extended description.")
-		if(desc_info) // If the item has a description regarding game mechanics, show that it is available.
-			. += FONT_SMALL(SPAN_NOTICE("- This object has additional information about mechanics."))
-		if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show that it is available.
-			. += FONT_SMALL(SPAN_ALERT("- This object has additional information for antagonists."))
-
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.glasses)
-			H.glasses.glasses_examine_atom(src, H)
-
-// Same as examine(), but without the "this object has more info" thing and with the extra information instead.
-/atom/proc/examine_fluff(mob/user, distance, is_adjacent, infix = "", suffix = "")
-	var/f_name = "\a [src][infix]."
-	if(src.blood_DNA && !istype(src, /obj/effect/decal))
-		if(gender == PLURAL)
-			f_name = "some "
-		else
-			f_name = "a "
-		if(blood_color != "#030303")
-			f_name += "<span class='danger'>blood-stained</span> [name][infix]!"
-		else
-			f_name += "oil-stained [name][infix]."
-
-	to_chat(user, "[icon2html(src, user)] That's [f_name] [suffix]") // Object name. I.e. "This is an Object."
-	to_chat(user, desc) // Object description.
-	if(desc_extended) // If the item has a extended description, show it.
-		to_chat(user, desc_extended)
-	if(desc_info) // If the item has a description regarding game mechanics, show it.
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("- [desc_info]")))
-	if(desc_antag && player_is_antag(user.mind)) // If the item has an antagonist description and the user is an antagonist, show it.
-		to_chat(user, FONT_SMALL(SPAN_ALERT("- [desc_antag]")))
-
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(H.glasses)
-			H.glasses.glasses_examine_atom(src, H)
-
-	return TRUE
-
-// Used to check if "examine_fluff" from the HTML link in examine() is true, i.e. if it was clicked.
-/atom/Topic(href, href_list)
-	. = ..()
-	if (.)
-		return
-
-	if(href_list["examine_fluff"])
-		examinate(usr, src, show_extended = TRUE)
-
-	var/client/usr_client = usr.client
-	var/list/paramslist = list()
-	if(href_list["statpanel_item_click"])
-		switch(href_list["statpanel_item_click"])
-			if("left")
-				paramslist[LEFT_CLICK] = "1"
-			if("right")
-				paramslist[RIGHT_CLICK] = "1"
-			if("middle")
-				paramslist[MIDDLE_CLICK] = "1"
-			else
-				return
-
-		if(href_list["statpanel_item_shiftclick"])
-			paramslist[SHIFT_CLICK] = "1"
-		if(href_list["statpanel_item_ctrlclick"])
-			paramslist[CTRL_CLICK] = "1"
-		if(href_list["statpanel_item_altclick"])
-			paramslist[ALT_CLICK] = "1"
-
-		var/mouseparams = list2params(paramslist)
-		usr_client.Click(src, loc, null, mouseparams)
-		return TRUE
-
-// Called by mobs when e.g. having the atom as their machine, pulledby, loc (AKA mob being inside the atom) or buckled_to var set.
-// See code/modules/mob/mob_movement.dm for more.
-/atom/proc/relaymove()
-	return
-
 // Called to set the atom's dir and used to add behaviour to dir-changes.
 /atom/proc/set_dir(new_dir)
 	. = new_dir != dir
@@ -355,22 +253,10 @@
 				L.source_atom.update_light()
 		GLOB.dir_set_event.raise_event(src, old_dir, dir)
 
-/atom/proc/ex_act()
-	set waitfor = FALSE
-	return
-
-/atom/proc/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
-	return NO_EMAG_ACT
-
-/atom/proc/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
-	return
-
 /atom/proc/melt()
 	return
 
 /atom/proc/hitby(atom/movable/AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
-	if(density)
-		AM.throwing = 0
 	return
 
 /atom/proc/add_hiddenprint(mob/living/M)
@@ -535,7 +421,7 @@
 			M.dna.real_name = M.real_name
 		M.check_dna()
 		if (M.species)
-			blood_color = M.species.blood_color
+			blood_color = M.get_blood_color()
 	. = 1
 	return 1
 
@@ -601,9 +487,6 @@
 		return list("x"=cur_x,"y"=cur_y)
 	else
 		return 0
-
-/atom/proc/checkpass(passflag)
-	return pass_flags&passflag
 
 /atom/proc/isinspace()
 	if(istype(get_turf(src), /turf/space))

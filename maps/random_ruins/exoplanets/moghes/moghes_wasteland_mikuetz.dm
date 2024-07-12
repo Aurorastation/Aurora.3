@@ -25,6 +25,7 @@
 	short_name = "moghes_mikuetz"
 	desc = "Wander the Wasteland as a Queenless Vaurca."
 	tags = list("External")
+	spawnpoints = list("moghes_mikuetz")
 	welcome_message = "You are a Vaurca of the group known as the Mi'kuetz, merry traders and wanderers in the Wasteland of Moghes."
 	mob_name_pick_message = "Pick a Vaurca name."
 
@@ -44,6 +45,7 @@
 	uniform = list(/obj/item/clothing/under/unathi, /obj/item/clothing/under/vaurca)
 	suit = /obj/item/clothing/suit/vaurca/brown
 	shoes = /obj/item/clothing/shoes/vaurca
+	head = /obj/item/clothing/head/shroud/brown
 	back = null
 	l_ear = null
 	id = null

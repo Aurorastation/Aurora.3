@@ -1,4 +1,6 @@
-/mob/living/silicon/robot/Life()
+/mob/living/silicon/robot/Life(seconds_per_tick, times_fired)
+	SHOULD_CALL_PARENT(FALSE)
+
 	if(transforming)
 		return
 
@@ -26,6 +28,8 @@
 		process_queued_alarms()
 		process_level_restrictions()
 	update_canmove()
+
+	return TRUE
 
 /mob/living/silicon/robot/proc/clamp_values()
 	SetParalysis(min(paralysis, 30))
@@ -318,7 +322,7 @@
 	if(istype(get_area(src), /area/centcom) || istype(get_area(src), /area/shuttle/escape) || istype(get_area(src), /area/shuttle/arrival))
 		return FALSE
 	if(!self_destructing)
-		start_self_destruct(TRUE)
+		INVOKE_ASYNC(src, PROC_REF(start_self_destruct), TRUE)
 	return TRUE
 
 /mob/living/silicon/robot/update_fire()
@@ -329,6 +333,8 @@
 		AddOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
 		AddOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
 
-/mob/living/silicon/robot/fire_act()
+/mob/living/silicon/robot/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(!on_fire) // Silicons don't gain stacks from hotspots, but hotspots can ignite them.
 		IgniteMob()

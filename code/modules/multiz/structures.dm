@@ -81,7 +81,7 @@
 		G = M.r_hand
 
 	if(!M.Move(get_turf(src)))
-		to_chat(M, "<span class='notice'>You fail to reach \the [src].</span>")
+		to_chat(M, SPAN_NOTICE("You fail to reach \the [src]."))
 		return
 
 	if (istype(G))
@@ -89,11 +89,11 @@
 
 	var/direction = target_ladder == target_up ? "up" : "down"
 
-	M.visible_message("<span class='notice'>\The [M] begins climbing [direction] \the [src]!</span>",
+	M.visible_message(SPAN_NOTICE("\The [M] begins climbing [direction] \the [src]!"),
 	"You begin climbing [direction] \the [src]!",
 	"You hear the grunting and clanging of a metal ladder being used.")
 
-	target_ladder.audible_message("<span class='notice'>You hear something coming [direction] \the [src]</span>")
+	target_ladder.audible_message(SPAN_NOTICE("You hear something coming [direction] \the [src]"))
 
 	if(do_after(M, istype(G) ? (climb_time*2) : climb_time))
 		climbLadder(M, target_ladder)
@@ -105,7 +105,7 @@
 
 /obj/structure/ladder/proc/getTargetLadder(var/mob/M)
 	if((!target_up && !target_down) || (target_up && !istype(target_up.loc, /turf) || (target_down && !istype(target_down.loc,/turf))))
-		to_chat(M, "<span class='notice'>\The [src] is incomplete and can't be climbed.</span>")
+		to_chat(M, SPAN_NOTICE("\The [src] is incomplete and can't be climbed."))
 		return
 	if(target_down && target_up)
 		var/direction = alert(M,"Do you want to go up or down?", "Ladder", "Up", "Down", "Cancel")
@@ -126,23 +126,23 @@
 
 /mob/proc/may_climb_ladders(var/ladder)
 	if(!Adjacent(ladder))
-		to_chat(src, "<span class='warning'>You need to be next to \the [ladder] to start climbing.</span>")
+		to_chat(src, SPAN_WARNING("You need to be next to \the [ladder] to start climbing."))
 		return FALSE
 	if(incapacitated())
-		to_chat(src, "<span class='warning'>You are physically unable to climb \the [ladder].</span>")
+		to_chat(src, SPAN_WARNING("You are physically unable to climb \the [ladder]."))
 		return FALSE
 	return TRUE
 
 /mob/living/silicon/may_climb_ladders(ladder)
-	to_chat(src, "<span class='warning'>You're too heavy to climb [ladder]!</span>")
+	to_chat(src, SPAN_WARNING("You're too heavy to climb [ladder]!"))
 	return FALSE
 
 /mob/living/silicon/robot/drone/may_climb_ladders(ladder)
 	if(!Adjacent(ladder))
-		to_chat(src, "<span class='warning'>You need to be next to \the [ladder] to start climbing.</span>")
+		to_chat(src, SPAN_WARNING("You need to be next to \the [ladder] to start climbing."))
 		return FALSE
 	if(incapacitated())
-		to_chat(src, "<span class='warning'>You are physically unable to climb \the [ladder].</span>")
+		to_chat(src, SPAN_WARNING("You are physically unable to climb \the [ladder]."))
 		return FALSE
 	return TRUE
 
@@ -158,15 +158,15 @@
 	if(istype(target_ladder, target_down))
 		direction = DOWN
 	if(!LAD.CanZPass(M, direction))
-		to_chat(M, "<span class='notice'>\The [LAD.GetZPassBlocker()] is blocking \the [src].</span>")
+		to_chat(M, SPAN_NOTICE("\The [LAD.GetZPassBlocker()] is blocking \the [src]."))
 		return FALSE
 	if(!T.CanZPass(M, direction))
-		to_chat(M, "<span class='notice'>\The [T.GetZPassBlocker()] is blocking \the [src].</span>")
+		to_chat(M, SPAN_NOTICE("\The [T.GetZPassBlocker()] is blocking \the [src]."))
 		return FALSE
 	for(var/atom/A in T)
 		if(!isliving(A))
 			if(!A.CanPass(M, M.loc, 1.5, 0))
-				to_chat(M, "<span class='notice'>\The [A] is blocking \the [src].</span>")
+				to_chat(M, SPAN_NOTICE("\The [A] is blocking \the [src]."))
 				return FALSE
 	playsound(src, pick(climbsounds), climb_sound_vol, climb_sound_vary)
 	playsound(target_ladder, pick(climbsounds), climb_sound_vol, climb_sound_vary)
@@ -255,17 +255,24 @@
 
 	return ..()
 
-/obj/structure/stairs/CollidedWith(atom/movable/moving_atom)
+/obj/structure/stairs/CollidedWith(atom/bumped_atom)
+	. = ..()
+
+	if(!ismovable(bumped_atom))
+		return
+
+	var/atom/movable/AM = bumped_atom
+
 	// This is hackish but whatever.
-	var/turf/target = get_step(GetAbove(moving_atom), dir)
+	var/turf/target = get_step(GetAbove(AM), dir)
 	if(!target)
 		return
 	if(target.z > (z + 1)) //Prevents wheelchair fuckery. Basically, you teleport twice because both the wheelchair + your mob collide with the stairs.
 		return
-	if(target.Enter(moving_atom, src) && moving_atom.dir == dir)
-		moving_atom.forceMove(target)
-		if(isliving(moving_atom))
-			var/mob/living/living_mob = moving_atom
+	if(target.Enter(AM, src) && AM.dir == dir)
+		AM.forceMove(target)
+		if(isliving(AM))
+			var/mob/living/living_mob = AM
 			if(living_mob.pulling)
 				living_mob.pulling.forceMove(target)
 			for(var/obj/item/grab/grab in living_mob)
@@ -340,7 +347,7 @@
 /obj/structure/stairs_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover,/obj/item/projectile))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE
@@ -418,7 +425,7 @@
 /obj/structure/platform/CanPass(atom/movable/mover, turf/target, height, air_group)
 	if(istype(mover, /obj/item/projectile))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE

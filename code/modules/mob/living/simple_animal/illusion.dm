@@ -11,6 +11,7 @@
 	var/realistic = FALSE // If true, things like bullets and weapons will hit it, to be a bit more convincing from a distance.
 
 	psi_pingable = FALSE
+	sample_data = null
 
 /mob/living/simple_animal/illusion/update_icon() // We don't want the appearance changing AT ALL unless by copy_appearance().
 	return
@@ -29,9 +30,11 @@
 
 // Because we can't perfectly duplicate some examine() output, we directly examine the AM it is copying.  It's messy but
 // this is to prevent easy checks from the opposing force.
-/mob/living/simple_animal/illusion/examine(mob/user, distance, is_adjacent)
+/mob/living/simple_animal/illusion/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	SHOULD_CALL_PARENT(FALSE)
+
 	if(copying)
-		return copying.examine(user, distance, is_adjacent)
+		return copying.examine(user, distance, is_adjacent, infix, suffix, show_extended)
 	else
 		return list("???")
 

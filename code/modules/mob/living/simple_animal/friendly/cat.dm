@@ -64,7 +64,7 @@
 
 		if(!buckled_to)
 			if (turns_since_move > 5 || (flee_target || rattarget))
-				SSmove_manager.stop_looping(src)
+				GLOB.move_manager.stop_looping(src)
 				turns_since_move = 0
 
 				if (flee_target) //fleeing takes precendence
@@ -73,7 +73,7 @@
 					handle_movement_target()
 
 		if (!movement_target)
-			SSmove_manager.stop_looping(src)
+			GLOB.move_manager.stop_looping(src)
 
 		if(prob(2)) //spooky
 			var/mob/abstract/observer/spook = locate() in range(src,5)
@@ -151,7 +151,7 @@
 	.=..()
 	set_stat(DEAD)
 
-/mob/living/simple_animal/cat/Life()
+/mob/living/simple_animal/cat/Life(seconds_per_tick, times_fired)
 	. = ..()
 	handle_radiation_light()
 
@@ -164,7 +164,7 @@
 	if (flee_target)
 		if(prob(25)) say("HSSSSS")
 		stop_automated_movement = 1
-		SSmove_manager.move_away(src, flee_target, 7, 2)
+		GLOB.move_manager.move_away(src, flee_target, 7, 2)
 
 /mob/living/simple_animal/cat/proc/set_flee_target(atom/A)
 	if(A)
@@ -191,10 +191,10 @@
 
 /mob/living/simple_animal/cat/hitby(atom/movable/AM)
 	. = ..()
-	set_flee_target(AM.thrower? AM.thrower : src.loc)
+	set_flee_target(AM.throwing?.thrower?.resolve() ? AM.throwing?.thrower?.resolve() : src.loc)
 
 /mob/living/simple_animal/cat/fall_impact()
-	src.visible_message("<span class='notice'>\The [src] lands softly on \the [loc]!</span>")
+	src.visible_message(SPAN_NOTICE("\The [src] lands softly on \the [loc]!"))
 	return FALSE
 
 //Basic friend AI
@@ -215,17 +215,17 @@
 		if (movement_target != friend)
 			if (current_dist > follow_dist && !istype(movement_target, /mob/living/simple_animal/rat) && (friend in oview(src)))
 				//stop existing movement
-				SSmove_manager.stop_looping(src)
+				GLOB.move_manager.stop_looping(src)
 				turns_since_scan = 0
 
 				//walk to friend
 				stop_automated_movement = 1
 				movement_target = friend
-				SSmove_manager.move_to(src, movement_target, near_dist, seek_move_delay)
+				GLOB.move_manager.move_to(src, movement_target, near_dist, seek_move_delay)
 
 		//already following and close enough, stop
 		else if (current_dist <= near_dist)
-			SSmove_manager.stop_looping(src)
+			GLOB.move_manager.stop_looping(src)
 			movement_target = null
 			stop_automated_movement = 0
 			if (prob(10))
@@ -270,7 +270,7 @@
 		return
 
 	if (!(ishuman(usr) && befriend_job && usr.job == befriend_job))
-		to_chat(usr, "<span class='notice'>[src] ignores you.</span>")
+		to_chat(usr, SPAN_NOTICE("[src] ignores you."))
 		return
 
 	friend = usr
@@ -348,7 +348,6 @@
 	desc = "A cream coloured, young, and cuddly cat, with a small tag on her collar that says \"Dr. Crusher\". She never lets an opportunity pass to receive some pets or prey on some unsuspecting mice."
 	named = TRUE
 	gender = FEMALE
-	icon_state = "crusher"
 	icon_state = "crusher"
 	icon_living = "crusher"
 	icon_dead = "crusher_dead"

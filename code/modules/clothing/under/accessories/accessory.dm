@@ -7,7 +7,12 @@
 	overlay_state = null
 	slot_flags = SLOT_TIE
 	w_class = ITEMSIZE_SMALL
+
 	var/slot = ACCESSORY_SLOT_GENERIC
+
+	/// When attached to another piece of clothing, it'll increase the size by this amount. Accepts the ACCESSORY_WEIGHT_* define, which can be found in code/__DEFINES/accessories.dm. The final result is rounded up
+	var/accessory_w_class_adjustment = ACCESSORY_WEIGHT_NONE
+
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
 	var/overlay_in_inventory = TRUE // Whether the worn_overlay should apply when attached to an item of clothing.
@@ -17,6 +22,7 @@
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/accessories.dmi'
 	)
+	var/protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/Destroy()
 	on_removed()
@@ -59,24 +65,23 @@
 		accessory_mob_overlay = null // reset the overlay
 	else
 		I = INV_ACCESSORIES_DEF_ICON
-	if(!accessory_mob_overlay || force)
-		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
-		if(icon_override)
-			if(contained_sprite)
-				auto_adapt_species(H)
-				tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
-			else if("[tmp_icon_state]_mob" in icon_states(I))
-				tmp_icon_state = "[tmp_icon_state]_mob"
-		else if(contained_sprite)
+	var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
+	if(icon_override)
+		if(contained_sprite)
 			auto_adapt_species(H)
 			tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
-		accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
-		if(build_from_parts || has_accents)
-			accessory_mob_overlay.ClearOverlays()
-		if(build_from_parts)
-			accessory_mob_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
-		if(has_accents)
-			accessory_mob_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_acc", accent_color, flags=accent_flags))
+		else if("[tmp_icon_state]_mob" in icon_states(I))
+			tmp_icon_state = "[tmp_icon_state]_mob"
+	else if(contained_sprite)
+		auto_adapt_species(H)
+		tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
+	accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
+	if(build_from_parts || has_accents)
+		accessory_mob_overlay.ClearOverlays()
+	if(build_from_parts)
+		accessory_mob_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+	if(has_accents)
+		accessory_mob_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_acc", accent_color, flags=accent_flags))
 	if(color)
 		accessory_mob_overlay.color = color
 	accessory_mob_overlay.appearance_flags = RESET_ALPHA|RESET_COLOR
@@ -90,7 +95,7 @@
 	loc = has_suit
 	has_suit.AddOverlays(get_inv_overlay())
 	if(user)
-		to_chat(user, "<span class='notice'>You attach \the [src] to \the [has_suit].</span>")
+		to_chat(user, SPAN_NOTICE("You attach \the [src] to \the [has_suit]."))
 		src.add_fingerprint(user)
 	update_light()
 
@@ -357,6 +362,14 @@
 	build_from_parts = TRUE
 	worn_overlay = "stripes"
 
+/obj/item/clothing/accessory/shawl
+	name = "cozy shawl"
+	desc = "A favored accessory amongst grandmothers and cottagecore enthusiasts."
+	icon = 'icons/obj/clothing/shawl.dmi'
+	icon_state = "shawl"
+	item_state = "shawl"
+	contained_sprite = TRUE
+
 /obj/item/clothing/accessory/chaps
 	name = "brown chaps"
 	desc = "A pair of loose, brown leather chaps."
@@ -388,6 +401,7 @@
 	slot = ACCESSORY_SLOT_CAPE
 	contained_sprite = TRUE
 	var/allow_tail_hiding = TRUE //in case if you want to allow someone to switch the HIDETAIL var or not
+	protects_against_weather = TRUE
 
 /obj/item/clothing/accessory/poncho/verb/toggle_hide_tail()
 	set name = "Toggle Tail Coverage"
@@ -396,7 +410,7 @@
 
 	if(allow_tail_hiding)
 		flags_inv ^= HIDETAIL
-		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail.</span>")
+		to_chat(usr, SPAN_NOTICE("[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail."))
 
 /obj/item/clothing/accessory/poncho/big
 	name = "large poncho"
@@ -654,6 +668,7 @@
 	item_state = "starcape"
 	flippable = TRUE
 	contained_sprite = FALSE
+	protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/poncho/shouldercape/star
 	name = "star cape"
@@ -732,6 +747,7 @@
 	item_state = "trinary_cape"
 	overlay_state = "trinary_cape"
 	contained_sprite = FALSE
+	protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/poncho/trinary/pellegrina
 	name = "trinary perfection pellegrina"
@@ -973,6 +989,11 @@
 	name = "AB- blood patch"
 	desc = "An embroidered patch indicating the wearer's blood type as AB NEGATIVE."
 	icon_state = "abnegtag"
+
+/obj/item/clothing/accessory/blood_patch/sbs
+	name = "SBS blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as SYNTHETIC BLOOD SUBSTITUTE."
+	icon_state = "sbstag"
 
 
 // Corporate Liaison stuff.

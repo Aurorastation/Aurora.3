@@ -8,6 +8,7 @@
 	icon_state = "iv_stand"
 	anchored = 0
 	density = FALSE
+	pass_flags_self = PASSTABLE
 	var/tipped = FALSE
 	var/last_full // Spam check
 	var/last_warning
@@ -73,8 +74,6 @@
 /obj/machinery/iv_drip/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover, /obj/machinery/iv_drip))
 		return FALSE
-	if(height && istype(mover) && mover.checkpass(PASSTABLE)) //allow bullets, beams, thrown objects, rats, drones, and the like through.
-		return TRUE
 	return ..()
 
 /obj/machinery/iv_drip/Crossed(var/mob/H)

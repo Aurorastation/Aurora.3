@@ -4,7 +4,7 @@
 	set desc = "Antagonist OOC"
 
 	if (istype(src.mob, /mob/abstract/observer) && !check_rights(R_ADMIN|R_MOD|R_CCIAA, 0))
-		to_chat(src, "<span class='warning'>You cannot use AOOC while ghosting/observing!</span>")
+		to_chat(src, SPAN_WARNING("You cannot use AOOC while ghosting/observing!"))
 		return
 
 	if (handle_spam_prevention(msg, MUTE_AOOC))
@@ -26,7 +26,7 @@
 		else if (M.mind && M.mind.special_role && M.client && player_is_antag(M.mind))
 			to_chat(M, "<span class='aooc'>" + create_text_tag("A-OOC", M.client) + " <EM>[display_name]:</EM> <span class='message linkify'>[msg]</span></span>")
 
-	log_ooc("(ANTAG) [key] : [msg]",ckey=key_name(mob))
+	log_ooc("(ANTAG) [key] : [msg]")
 
 // Checks if a newly joined player is an antag, and adds the AOOC verb if they are.
 // Because they're tied to client objects, this gets removed every time you disconnect.

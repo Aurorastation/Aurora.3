@@ -748,9 +748,9 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 
 	if(!lastpuke)
 		lastpuke = 1
-		to_chat(src, "<span class='warning'>You feel nauseous...</span>")
+		to_chat(src, SPAN_WARNING("You feel nauseous..."))
 		spawn(150)	//15 seconds until second warning
-			to_chat(src, "<span class='warning'>You feel like you are about to throw up!</span>")
+			to_chat(src, SPAN_WARNING("You feel like you are about to throw up!"))
 			spawn(100)	//and you have 10 more for mad dash to the bucket
 				if(!QDELETED(src))
 					empty_stomach()

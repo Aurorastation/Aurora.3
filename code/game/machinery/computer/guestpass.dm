@@ -3,7 +3,7 @@
 /////////////////////////////////////////////
 /obj/item/card/id/guest
 	name = "guest pass"
-	desc = "Allows temporary access to station areas."
+	desc = "Allows temporary access to workplace areas."
 	icon_state = "guest"
 	overlay_state = "guest"
 
@@ -45,9 +45,8 @@
 	name = "guest pass terminal"
 	desc = "A guest pass terminal. It allows issuing temporary access passes to one or more areas."
 	icon = 'icons/obj/computer.dmi'
-	icon_state = "guestw"
-	light_color = LIGHT_COLOR_BLUE
 	icon_state = "altcomputerw"
+	light_color = LIGHT_COLOR_BLUE
 	icon_screen = "guest"
 	icon_scanline = "altcomputerw-scanline"
 	density = FALSE

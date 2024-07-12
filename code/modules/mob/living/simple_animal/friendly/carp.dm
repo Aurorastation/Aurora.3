@@ -49,6 +49,7 @@
 	brush = /obj/item/reagent_containers/glass/rag
 
 	possession_candidate = TRUE
+	sample_data = list("Cellular structure shows adaptation for a vacuum", "Genetic biomarkers identified linked with passiveness")
 
 /mob/living/simple_animal/carp/update_icon()
 	..()
@@ -70,11 +71,11 @@
 /mob/living/simple_animal/carp/fluff/think()
 	..()
 	if(!stat && !buckled_to && (turns_since_move > 5))
-		SSmove_manager.stop_looping(src)
+		GLOB.move_manager.stop_looping(src)
 		turns_since_move = 0
 		handle_movement_target()
 	if(!movement_target && (turns_since_move > 5))
-		SSmove_manager.stop_looping(src)
+		GLOB.move_manager.stop_looping(src)
 
 /mob/living/simple_animal/carp/fluff/proc/handle_movement_target()
 	if(!QDELETED(friend))
@@ -89,17 +90,17 @@
 		if(movement_target != friend)
 			if(current_dist > follow_dist && (friend in oview(src)))
 				//stop existing movement
-				SSmove_manager.stop_looping(src)
+				GLOB.move_manager.stop_looping(src)
 				turns_since_scan = 0
 
 				//walk to friend
 				stop_automated_movement = 1
 				movement_target = friend
-				SSmove_manager.move_to(src, movement_target, near_dist, seek_move_delay)
+				GLOB.move_manager.move_to(src, movement_target, near_dist, seek_move_delay)
 
 		//already following and close enough, stop
 		else if(current_dist <= near_dist)
-			SSmove_manager.stop_looping(src)
+			GLOB.move_manager.stop_looping(src)
 			movement_target = null
 			stop_automated_movement = 0
 			if(prob(10))
@@ -116,7 +117,7 @@
 		return
 
 	if(!(ishuman(usr) && befriend_job && usr.job == befriend_job))
-		to_chat(user, "<span class='notice'>[src] ignores you.</span>")
+		to_chat(user, SPAN_NOTICE("[src] ignores you."))
 		return
 
 	friend = user

@@ -5,25 +5,44 @@
 
 	alpha = 200
 
-	var/image/ghostimage = null
 	var/mob/living/carbon/human/body = null
 
 
-/mob/living/brain_ghost/Initialize()
+/mob/living/brain_ghost/Initialize(mapload, mob/living/carbon/human/dreamer)
 	. = ..()
-	var/mob/living/carbon/human/form = loc
-	if(!istype(form))
-		qdel(src)
-		return
-	overlays += image(form.icon,form,form.icon_state)
-	overlays += form.overlays
-	name = form.real_name
-	loc = pick(dream_entries)
-	body = form
+
+	body = dreamer
+	if(!istype(body))
+		//This is to handle the unit tests
+		if(!isnull(body))
+			stack_trace("No /mob/living/carbon/human found for brain ghost as loc!")
+		return INITIALIZE_HINT_QDEL
+
+	name = body.real_name
 	old_mob = body
 
+	var/mutable_appearance/MA = new(body)
+	MA.appearance_flags |= KEEP_APART | RESET_TRANSFORM
+	MA.transform = matrix() //Mutable appearances copy various vars, including transform, so we have to reset it here
+
+	AddOverlays(MA)
+
+
+	var/turf/T = pick(GLOB.dream_entries)
+	if(!T)
+		stack_trace("No dream entries found for Srom!")
+		awaken_impl(TRUE)
+		return
+
+	src.forceMove(T)
+
 	if(client)
-		client.screen |= body.healths
+		LateLogin()
+
+/mob/living/brain_ghost/Destroy()
+	body = null
+
+	. = ..()
 
 /mob/living/brain_ghost/LateLogin()
 	..()
@@ -41,19 +60,19 @@
 		body.willfully_sleeping = FALSE
 		if(force_awaken)
 			body.sleeping = 0
-			to_chat(src, "<span class='notice'>You suddenly feel like your connection to the dream is breaking up by the outside force.</span>")
+			to_chat(src, SPAN_NOTICE("You suddenly feel like your connection to the dream is breaking up by the outside force."))
 		else
 			body.sleeping = max(body.sleeping - 5, 0)
-			to_chat(src, "<span class='notice'>You release your concentration on sleep, allowing yourself to wake up.</span>")
+			to_chat(src, SPAN_NOTICE("You release your concentration on sleep, allowing yourself to wake up."))
 	else
-		to_chat(src, "<span class='warning'>You've already released concentration. Wait to wake up naturally.</span>")
+		to_chat(src, SPAN_WARNING("You've already released concentration. Wait to wake up naturally."))
 
-/mob/living/brain_ghost/Life()
+/mob/living/brain_ghost/Life(seconds_per_tick, times_fired)
 	..()
 	// Out body was probs gibbed or somefin
 	if(!istype(body))
-		show_message("<span class='danger'>[src] suddenly pops from the Srom.</span>")
-		to_chat(src, "<span class='danger'>Your body was destroyed!</span>")
+		show_message(SPAN_DANGER("[src] suddenly pops from the Srom."))
+		to_chat(src, SPAN_DANGER("Your body was destroyed!"))
 		qdel(src)
 		return
 
@@ -61,7 +80,7 @@
 		awaken_impl(TRUE)
 		body.handle_shared_dreaming(TRUE)
 
-/mob/living/brain_ghost/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/living/brain_ghost/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	if(!istype(body) || body.stat!=UNCONSCIOUS)
 		return
 	if(prob(20)) // 1/5 chance to mumble out anything you say in the dream.
@@ -79,3 +98,7 @@
 		body.set_stat(UNCONSCIOUS) // Toggled before anything else can happen. Ideally.
 
 	..(message, speaking, verb="says", alt_name="")
+
+
+/mob/living/brain_ghost/get_floating_chat_y_offset()
+	return 8

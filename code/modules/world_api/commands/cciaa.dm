@@ -163,11 +163,11 @@
 	if(reportannounce == 1)
 		command_announcement.Announce(reportbody, reporttitle, new_sound = 'sound/AI/commandreport.ogg', do_newscast = 1, msg_sanitized = 1);
 	if(reportannounce == 0)
-		to_world("<span class='alert'>New NanoTrasen Update available at all communication consoles.</span>")
+		to_world(SPAN_ALERT("New NanoTrasen Update available at all communication consoles."))
 		sound_to(world, ('sound/AI/commandreport.ogg'))
 
 
-	log_admin("[senderkey] has created a command report via the api: [reportbody]",admin_key=senderkey)
+	log_admin("[senderkey] has created a command report via the api: [reportbody]")
 	message_admins("[senderkey] has created a command report via the api", 1)
 
 	statuscode = 200
@@ -227,7 +227,7 @@
 		else
 			command_announcement.Announce("A fax message from Central Command has been sent to the following fax machines: <br>"+jointext(sendsuccess, ", "), "Fax Received", new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 
-	log_admin("[senderkey] sent a fax via the API: : [faxbody]",admin_key=senderkey)
+	log_admin("[senderkey] sent a fax via the API: : [faxbody]")
 	message_admins("[senderkey] sent a fax via the API", 1)
 
 	statuscode = 200

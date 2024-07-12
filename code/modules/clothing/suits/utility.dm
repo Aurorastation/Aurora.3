@@ -77,10 +77,9 @@
 		bomb = ARMOR_BOMB_SHIELDED
 	)
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
-	siemens_coefficient = 0.1
+	siemens_coefficient = 0
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES
 	body_parts_covered = HEAD|FACE|EYES
-	siemens_coefficient = 0
 	tint = TINT_HEAVY
 
 
@@ -105,7 +104,7 @@
 		energy = ARMOR_ENERGY_RESISTANT,
 		bomb = ARMOR_BOMB_SHIELDED
 	)
-	siemens_coefficient = 0.1
+	siemens_coefficient = 0
 	item_flags = ITEM_FLAG_THICK_MATERIAL
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	heat_protection = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
@@ -113,14 +112,15 @@
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS
 	max_heat_protection_temperature = SPACE_SUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	max_pressure_protection = FIRESUIT_MAX_PRESSURE
-	siemens_coefficient = 0
 	var/mob/living/carbon/human/wearer = null
 	var/suit_temp = T20C
 
 /obj/item/clothing/suit/bomb_suit/equipped(var/mob/user, var/slot)
 	if (slot == slot_wear_suit)
 		var/mob/living/carbon/human/H = user
-		H.visible_message("<span class='notice'>[H] starts putting on \the [src]...</span>", "<span class='notice'>You start putting on \the [src]...</span>")
+		H.visible_message(SPAN_NOTICE("[H] starts putting on \the [src]..."),
+							SPAN_NOTICE("You start putting on \the [src]..."))
+
 		if(!do_after(H,50))
 			if(H && H.wear_suit == src)
 				H.wear_suit = null
@@ -130,7 +130,7 @@
 			return
 
 		wearer = user
-		to_chat(wearer, "<span class='Notice'>You struggle into the [src]. It feels hot, heavy and uncomfortable</span>")
+		to_chat(wearer, SPAN_NOTICE("You struggle into the [src]. It feels hot, heavy and uncomfortable"))
 		START_PROCESSING(SSprocessing, src)
 	else
 		wearer = null

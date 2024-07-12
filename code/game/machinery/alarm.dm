@@ -274,6 +274,21 @@ pixel_x = 10;
 /obj/machinery/alarm/cold/south
 	PRESET_SOUTH
 
+/obj/machinery/alarm/warm
+	target_temperature = T20C + 10
+
+/obj/machinery/alarm/warm/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/warm/east
+	PRESET_EAST
+
+/obj/machinery/alarm/warm/west
+	PRESET_WEST
+
+/obj/machinery/alarm/warm/south
+	PRESET_SOUTH
+
 /obj/machinery/alarm/server/Initialize()
 	. = ..()
 	TLV[GAS_OXYGEN] =			list(-1.0, -1.0,-1.0,-1.0) // Partial pressure, kpa
@@ -778,7 +793,7 @@ pixel_x = 10;
 		return STATUS_CLOSE
 
 	if(aidisabled && isAI(user))
-		to_chat(user, "<span class='warning'>AI control for \the [src] interface has been disabled.</span>")
+		to_chat(user, SPAN_WARNING("AI control for \the [src] interface has been disabled."))
 		return STATUS_CLOSE
 
 	. = shorted ? STATUS_DISABLED : STATUS_INTERACTIVE
@@ -944,12 +959,12 @@ pixel_x = 10;
 		if(2)
 			if(attacking_item.isscrewdriver())  // Opening that Air Alarm up.
 				wiresexposed = !wiresexposed
-				to_chat(user, "<span class='notice'>You [wiresexposed ? "open" : "close"] the maintenance panel.</span>")
+				to_chat(user, SPAN_NOTICE("You [wiresexposed ? "open" : "close"] the maintenance panel."))
 				update_icon()
 				return TRUE
 
 			if (wiresexposed && attacking_item.iswirecutter())
-				user.visible_message("<span class='warning'>[user] has cut the wires inside \the [src]!</span>", "You cut the wires inside \the [src].")
+				user.visible_message(SPAN_WARNING("[user] has cut the wires inside \the [src]!"), "You cut the wires inside \the [src].")
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
 				buildstage = 1
@@ -958,27 +973,27 @@ pixel_x = 10;
 
 			if (attacking_item.GetID())// trying to unlock the interface with an ID card
 				if(stat & (NOPOWER|BROKEN))
-					to_chat(user, "<span class='notice'>Nothing happens.</span>")
+					to_chat(user, SPAN_NOTICE("Nothing happens."))
 					return TRUE
 				else
 					if(allowed(usr) && !wires.is_cut(WIRE_IDSCAN))
 						locked = !locked
-						to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the Air Alarm interface.</span>")
+						to_chat(user, SPAN_NOTICE("You [ locked ? "lock" : "unlock"] the Air Alarm interface."))
 					else
-						to_chat(user, "<span class='warning'>Access denied.</span>")
+						to_chat(user, SPAN_WARNING("Access denied."))
 				return TRUE
 
 		if(1)
 			if(attacking_item.iscoil())
 				var/obj/item/stack/cable_coil/C = attacking_item
 				if (C.use(5))
-					to_chat(user, "<span class='notice'>You wire \the [src].</span>")
+					to_chat(user, SPAN_NOTICE("You wire \the [src]."))
 					buildstage = 2
 					update_icon()
 					first_run()
 					set_frequency(frequency)
 				else
-					to_chat(user, "<span class='warning'>You need 5 pieces of cable to do wire \the [src].</span>")
+					to_chat(user, SPAN_WARNING("You need 5 pieces of cable to do wire \the [src]."))
 				return TRUE
 
 			else if(attacking_item.iscrowbar())

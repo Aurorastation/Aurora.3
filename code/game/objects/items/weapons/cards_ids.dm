@@ -78,7 +78,7 @@ var/const/NO_EMAG_ACT = -50
 		log_and_message_admins("emagged \an [A].")
 
 	if(uses<1)
-		user.visible_message("<span class='warning'>\The [src] fizzles and sparks - it seems it's been used once too often, and is now spent.</span>")
+		user.visible_message(SPAN_WARNING("\The [src] fizzles and sparks - it seems it's been used once too often, and is now spent."))
 		var/obj/item/card/emag_broken/junk = new(user.loc)
 		junk.add_fingerprint(user)
 		user.drop_from_inventory(src,get_turf(junk))
@@ -129,7 +129,7 @@ var/const/NO_EMAG_ACT = -50
 	. = ..()
 	GC_TEMPORARY_HARDDEL
 
-/obj/item/card/id/examine(mob/user, distance)
+/obj/item/card/id/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	if (distance <= 1)
 		show(user)
@@ -179,7 +179,7 @@ var/const/NO_EMAG_ACT = -50
 /mob/living/carbon/human/set_id_info(var/obj/item/card/id/id_card)
 	..()
 	id_card.age 				= age
-	id_card.citizenship			= citizenship
+	id_card.citizenship			= SSrecords.get_citizenship_record_name(citizenship)
 	id_card.mob_id				= WEAKREF(src)
 	id_card.employer_faction    = employer_faction
 
@@ -206,7 +206,7 @@ var/const/NO_EMAG_ACT = -50
 		if (response == "Yes")
 			var/mob/living/carbon/human/H = user
 			if(H.gloves)
-				to_chat(user, "<span class='warning'>You cannot imprint [src] while wearing \the [H.gloves].</span>")
+				to_chat(user, SPAN_WARNING("You cannot imprint [src] while wearing \the [H.gloves]."))
 				return
 			else
 				mob_id = WEAKREF(H)
@@ -215,7 +215,7 @@ var/const/NO_EMAG_ACT = -50
 				fingerprint_hash = md5(H.dna.uni_identity)
 				citizenship = H.citizenship
 				age = H.age
-				to_chat(user, "<span class='notice'>Biometric imprinting successful!</span>")
+				to_chat(user, SPAN_NOTICE("Biometric imprinting successful!"))
 				return
 	if(last_flash <= world.time - 20)
 		last_flash = world.time
@@ -246,17 +246,17 @@ var/const/NO_EMAG_ACT = -50
 			if (response == "Yes")
 
 				if (!user.Adjacent(M) || user.restrained() || user.lying || user.stat)
-					to_chat(user, "<span class='warning'>You must remain adjacent to [M] to scan their biometric data.</span>")
+					to_chat(user, SPAN_WARNING("You must remain adjacent to [M] to scan their biometric data."))
 					return
 
 				var/mob/living/carbon/human/H = M
 
 				if(H.gloves)
-					to_chat(user, "<span class='warning'>\The [H] is wearing gloves.</span>")
+					to_chat(user, SPAN_WARNING("\The [H] is wearing gloves."))
 					return 1
 
 				if(user != H && H.a_intent != "help" && !H.lying)
-					user.visible_message("<span class='danger'>\The [user] tries to take prints from \the [H], but they move away.</span>")
+					user.visible_message(SPAN_DANGER("\The [user] tries to take prints from \the [H], but they move away."))
 					return 1
 
 				var/has_hand
@@ -268,7 +268,7 @@ var/const/NO_EMAG_ACT = -50
 					if(istype(O) && !O.is_stump())
 						has_hand = 1
 				if(!has_hand)
-					to_chat(user, "<span class='warning'>They don't have any hands.</span>")
+					to_chat(user, SPAN_WARNING("They don't have any hands."))
 					return 1
 				user.visible_message("[user] imprints [src] with \the [H]'s biometrics.")
 				mob_id = WEAKREF(H)
@@ -327,7 +327,7 @@ var/const/NO_EMAG_ACT = -50
 	if(use_check_and_message(usr, use_flags = USE_DISALLOW_SILICONS))
 		return
 	if(wear_over_suit == -1)
-		to_chat(usr, "<span class='notice'>\The [src] cannot be worn above your suit!</span>")
+		to_chat(usr, SPAN_NOTICE("\The [src] cannot be worn above your suit!"))
 		return
 	wear_over_suit = !wear_over_suit
 	mob_icon_update()
@@ -392,12 +392,32 @@ var/const/NO_EMAG_ACT = -50
 	access = get_all_station_access() | get_all_centcom_access()
 	..()
 
+// SCC ID cards
+
+/obj/item/card/id/scc
+	desc = "A high-tech holocard displaying the credentials of a SCC employee."
+	icon_state = "bridge_card"
+
+/obj/item/card/id/scc/bridge
+	desc = "A high-tech holocard displaying the lowly credentials of a SCC bridge crewman."
+	icon_state = "bridge_card"
+
+/obj/item/card/id/scc/silver
+	desc = "A high-tech holocard displaying the credentials of a SCC command member."
+	icon_state = "command_card"
+
+/obj/item/card/id/scc/gold
+	desc = "A high-tech holocard displaying the intimidating credentials of a SCC employee."
+	icon_state = "captain_card"
+
+/obj/item/card/id/scc/gold/captain
+	desc = "A high-tech holocard displaying the commanding credentials of a SCC captain."
+	icon_state = "captain_card"
+
 /obj/item/card/id/captains_spare
 	name = "captain's spare identification card"
 	desc = "A captain's spare identification card."
-	icon_state = "gold"
-	item_state = "gold_id"
-	overlay_state = "gold"
+	icon_state = "captain_card"
 	registered_name = "Captain"
 	assignment = "Captain"
 
@@ -447,7 +467,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/centcom
 	name = "\improper CentCom identification card"
-	desc = "An ID straight from CentCom."
+	desc = "A high-tech holocard displaying the commanding credentials of a Central Command official."
 	icon_state = "centcom"
 	overlay_state = "centcom"
 	registered_name = "Central Command"
@@ -459,7 +479,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/ccia
 	name = "\improper CentCom. Internal Affairs identification card"
-	desc = "An ID straight from CentCom. Internal Affairs."
+	desc = "A high-tech holocard displaying the blood-chilling credentials of an Internal Affairs agent."
 	icon_state = "ccia"
 	overlay_state = "ccia"
 	drop_sound = /singleton/sound_category/generic_drop_sound
@@ -472,7 +492,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/ccia/bssb
 	name = "\improper Biesel Security Services Bureau identification card"
-	desc = "An ID straight from the Biesel Security Services Bureau."
+	desc = "A synthleather ID straight from the Biesel Security Services Bureau."
 	icon_state = "bssb"
 
 /obj/item/card/id/ert
@@ -500,7 +520,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/distress
 	name = "\improper Freelancer Mercenary identification card"
-	icon_state = "centcom"
+	icon_state = "data"
 	assignment = "Freelancer Mercenary"
 
 /obj/item/card/id/distress/New()
@@ -509,16 +529,17 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/distress/fsf
 	name = "\improper Free Solarian Fleets identification card"
-	icon_state = "centcom"
+	icon_state = "data"
 	assignment = "Free Solarian Fleets Marine"
 
 /obj/item/card/id/distress/kataphract
 	name = "\improper Kataphract identification card"
-	icon_state = "centcom"
+	icon_state = "data"
 	assignment = "Kataphract"
 
 /obj/item/card/id/distress/legion
 	name = "\improper Tau Ceti Foreign Legion identification card"
+	desc = "An old-fashioned, practical plastic card. Cheaply produced for Tau Ceti's finest."
 	assignment = "Tau Ceti Foreign Legion Volunteer"
 	icon_state = "legion"
 

@@ -4,16 +4,16 @@
 /mob/proc/emote_dead(var/message)
 
 	if(client.prefs.muted & MUTE_DEADCHAT)
-		to_chat(src, "<span class='danger'>You cannot send deadchat emotes (muted).</span>")
+		to_chat(src, SPAN_DANGER("You cannot send deadchat emotes (muted)."))
 		return
 
 	if(!(client.prefs.toggles & CHAT_DEAD))
-		to_chat(src, "<span class='danger'>You have deadchat muted.</span>")
+		to_chat(src, SPAN_DANGER("You have deadchat muted."))
 		return
 
 	if(!src.client.holder)
 		if(!GLOB.config.dsay_allowed)
-			to_chat(src, "<span class='danger'>Deadchat is globally muted.</span>")
+			to_chat(src, SPAN_DANGER("Deadchat is globally muted."))
 			return
 
 
@@ -24,7 +24,7 @@
 		input = message
 
 	if(input)
-		log_emote("Ghost/[src.key] : [input]",ckey=key_name(src))
+		log_emote("Ghost/[src.key] : [input]")
 		say_dead_direct(input, src)
 
 

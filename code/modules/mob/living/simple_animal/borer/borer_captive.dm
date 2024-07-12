@@ -6,11 +6,11 @@
 	var/datum/progressbar/resist_bar
 	var/resist_start_time = 0
 
-/mob/living/captive_brain/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/living/captive_brain/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	if(istype(src.loc,/mob/living/simple_animal/borer))
 		if(!message)
 			return
-		log_say("[key_name(src)] : [message]", ckey=key_name(src))
+		log_say("[key_name(src)] : [message]")
 		if(stat == DEAD)
 			return say_dead(message)
 
@@ -28,7 +28,7 @@
 	QDEL_NULL(resist_bar)
 	return ..()
 
-/mob/living/captive_brain/Life()
+/mob/living/captive_brain/Life(seconds_per_tick, times_fired)
 	if(resist_bar)
 		resist_bar.update(world.time - resist_start_time)
 	return ..()

@@ -851,9 +851,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/orion_automated_station/west)
 "oE" = (
-/obj/effect/floor_decal/big/ox_full{
-	layer = 2.2
-	},
+/obj/effect/floor_decal/big/ox_full,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
@@ -1563,6 +1561,11 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints,
 /turf/simulated/floor/tiled/dark,
 /area/orion_automated_station/engineering)
 "Di" = (

@@ -9,6 +9,7 @@
 	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/nka_merchant_shuttle)
+	spawn_weight_sector_dependent = list(SECTOR_SRANDMARR = 2)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_VALLEY_HALE, SECTOR_CORP_ZONE, SECTOR_TAU_CETI)
 
 	unit_test_groups = list(3)
@@ -26,7 +27,7 @@
 	colors = list("#3e9af0", "#2b5cff")
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	scanimage = "nka_freighter.png"
 	designer = "NanoTrasen, New Kingdom of Adhomai"
@@ -90,7 +91,7 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/terminal/nka_merchant_shuttle

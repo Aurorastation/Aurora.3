@@ -114,8 +114,11 @@
 
 // Blood colors
 #define COLOR_HUMAN_BLOOD      "#A10808"
-#define COLOR_DIONA_BLOOD      "#97DD7C"
+/// for robots with black oil "blood"
 #define COLOR_IPC_BLOOD        "#1F181F"
+/// for organics with synthetic blood substitute
+#define COLOR_SYNTH_BLOOD      "#D9F9FF"
+#define COLOR_DIONA_BLOOD      "#97DD7C"
 #define COLOR_SKRELL_BLOOD     "#0081CD"
 #define COLOR_VAURCA_BLOOD     "#E6E600"
 
@@ -155,6 +158,15 @@
 #define COLOR_ASSEMBLY_PURPLE   "#6F6192"
 #define COLOR_ASSEMBLY_HOT_PINK "#FF69B4"
 
+/// Colors for status/incident displays
+#define COLOR_DISPLAY_RED "#BE3455"
+#define COLOR_DISPLAY_ORANGE "#FF9900"
+#define COLOR_DISPLAY_YELLOW "#FFF743"
+#define COLOR_DISPLAY_GREEN "#3CF046"
+#define COLOR_DISPLAY_CYAN "#22FFCC"
+#define COLOR_DISPLAY_BLUE "#22CCFF"
+#define COLOR_DISPLAY_PURPLE "#5D5DFC"
+
 #define COLOR_DARKMODE_BACKGROUND "#202020"
 #define COLOR_DARKMODE_DARKBACKGROUND "#171717"
 #define COLOR_DARKMODE_TEXT "#a4bad6"
@@ -166,3 +178,11 @@
 #define BLOB_COLOR_PULS         "#b5ff5b"
 
 #define RANDOM_RGB rgb(rand(0,255), rand(0,255), rand(0,255))
+
+///Main colors for UI themes
+#define COLOR_THEME_MIDNIGHT "#6086A0"
+#define COLOR_THEME_PLASMAFIRE "#FFB200"
+#define COLOR_THEME_RETRO "#24CA00"
+#define COLOR_THEME_SLIMECORE "#4FB259"
+#define COLOR_THEME_OPERATIVE "#B8221F"
+#define COLOR_THEME_CLOCKWORK "#CFBA47"

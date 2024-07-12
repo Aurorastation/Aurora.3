@@ -12,7 +12,7 @@
 
 /obj/structure/undies_wardrobe/attack_hand(var/mob/user)
 	if(!human_who_can_use_underwear(user))
-		to_chat(user, "<span class='warning'>Sadly there's nothing in here for you to wear.</span>")
+		to_chat(user, SPAN_WARNING("Sadly there's nothing in here for you to wear."))
 		return
 	interact(user)
 

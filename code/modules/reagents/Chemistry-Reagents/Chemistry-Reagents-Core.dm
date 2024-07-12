@@ -28,6 +28,7 @@
 
 /singleton/reagent/blood/mix_data(var/list/newdata, var/newamount, var/datum/reagents/holder)
 	var/list/data = ..()
+
 	if(LAZYACCESS(newdata, "trace_chem"))
 		var/list/other_chems = LAZYACCESS(newdata, "trace_chem")
 		if(!data)
@@ -38,16 +39,26 @@
 			var/list/my_chems = data["trace_chem"]
 			for(var/chem in other_chems)
 				my_chems[chem] = my_chems[chem] + other_chems[chem]
+
 	var/datum/weakref/W = LAZYACCESS(data, "donor")
 	var/mob/living/carbon/self = W?.resolve()
-	if(!(MODE_VAMPIRE in self?.mind?.antag_datums) && blood_incompatible(LAZYACCESS(newdata, "blood_type"), LAZYACCESS(data, "blood_type"), LAZYACCESS(newdata, "species"), LAZYACCESS(data, "species")))
-		remove_self(newamount * 0.5, holder) // So the blood isn't *entirely* useless
+
+	var/is_vampire = (MODE_VAMPIRE in self?.mind?.antag_datums)
+	var/incompatible = blood_incompatible(LAZYACCESS(newdata, "blood_type"), LAZYACCESS(data, "blood_type"), LAZYACCESS(newdata, "species"), LAZYACCESS(data, "species"))
+
+	if(incompatible && !is_vampire)
+		// remove only half of the blood, so the blood isn't entirely useless
+		remove_self(newamount * 0.5, holder)
+
+		// add coagulated blood, a toxin, that may cause kidney failure
+		// this is also more or less how it works in real life
 		var/mob/living/carbon/human/recipient = holder.my_atom
 		if(istype(recipient) && holder == recipient.vessel)
 			recipient.reagents.add_reagent(/singleton/reagent/toxin/coagulated_blood, newamount * 0.5)
 			// it has no effect if added to the vessel
 		else
 			holder.add_reagent(/singleton/reagent/toxin/coagulated_blood, newamount * 0.5)
+
 	. = data
 
 /singleton/reagent/blood/touch_turf(var/turf/simulated/T, var/amount, var/datum/reagents/holder)
@@ -75,7 +86,7 @@
 				return
 			var/datum/vampire/vampire = M.mind.antag_datums[MODE_VAMPIRE]
 			vampire.blood_usable += removed
-			to_chat(M, "<span class='notice'>You have accumulated [vampire.blood_usable] unit\s of usable blood. It tastes quite stale.</span>")
+			to_chat(M, SPAN_NOTICE("You have accumulated [vampire.blood_usable] unit\s of usable blood. It tastes quite stale."))
 			return
 	var/dose = M.chem_doses[type]
 	if(dose > 15)
@@ -136,7 +147,7 @@
 		var/removed_heat = between(0, amount * WATER_LATENT_HEAT, -environment.get_thermal_energy_change(min_temperature))
 		environment.add_thermal_energy(-removed_heat)
 		if (prob(5))
-			T.visible_message("<span class='warning'>The water sizzles as it lands on \the [T]!</span>")
+			T.visible_message(SPAN_WARNING("The water sizzles as it lands on \the [T]!"))
 
 	else if(amount >= 10)
 		T.wet_floor(WET_TYPE_WATER,amount)

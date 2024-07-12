@@ -21,7 +21,7 @@
 /obj/item/syringe_cartridge/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/reagent_containers/syringe))
 		syringe = attacking_item
-		to_chat(user, "<span class='notice'>You carefully insert [syringe] into [src].</span>")
+		to_chat(user, SPAN_NOTICE("You carefully insert [syringe] into [src]."))
 		user.remove_from_mob(syringe)
 		syringe.forceMove(src)
 		sharp = 1
@@ -30,7 +30,7 @@
 
 /obj/item/syringe_cartridge/attack_self(mob/user)
 	if(syringe)
-		to_chat(user, "<span class='notice'>You remove [syringe] from [src].</span>")
+		to_chat(user, SPAN_NOTICE("You remove [syringe] from [src]."))
 		user.put_in_hands(syringe)
 		syringe = null
 		sharp = initial(sharp)
@@ -42,18 +42,18 @@
 	icon_state = icon_flight
 	underlays.Cut()
 
-/obj/item/syringe_cartridge/throw_impact(atom/hit_atom, var/speed)
+/obj/item/syringe_cartridge/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	..() //handles embedding for us. Should have a decent chance if thrown fast enough
 	if(syringe)
 		//check speed to see if we hit hard enough to trigger the rapid injection
 		//incidentally, this means syringe_cartridges can be used with the pneumatic launcher
-		if(speed >= 10 && isliving(hit_atom))
+		if(throwingdatum.speed >= 10 && isliving(hit_atom))
 			var/mob/living/L = hit_atom
 			//unfortuately we don't know where the dart will actually hit, since that's done by the parent.
 			if(L.can_inject() && syringe.reagents)
 				var/singleton/reagent/reagent_log = syringe.reagents.get_reagents()
 				syringe.reagents.trans_to_mob(L, 15, CHEM_BLOOD)
-				admin_inject_log(thrower, L, src, reagent_log, syringe.reagents.get_temperature(), 15, violent=1)
+				admin_inject_log(throwing?.thrower?.resolve(), L, src, reagent_log, syringe.reagents.get_temperature(), 15, violent=1)
 
 		syringe.break_syringe(iscarbon(hit_atom)? hit_atom : null)
 		syringe.update_icon()
@@ -97,27 +97,27 @@
 
 /obj/item/gun/launcher/syringe/unique_action(mob/living/user)
 	if(next)
-		user.visible_message("[user] unlatches and carefully relaxes the bolt on [src].", "<span class='warning'>You unlatch and carefully relax the bolt on [src], unloading the spring.</span>")
+		user.visible_message("[user] unlatches and carefully relaxes the bolt on [src].", SPAN_WARNING("You unlatch and carefully relax the bolt on [src], unloading the spring."))
 		playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
 		next = null
 	else if(darts.len)
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-		user.visible_message("[user] draws back the bolt on [src], clicking it into place.", "<span class='warning'>You draw back the bolt on the [src], loading the spring!</span>")
+		user.visible_message("[user] draws back the bolt on [src], clicking it into place.", SPAN_WARNING("You draw back the bolt on the [src], loading the spring!"))
 		next = darts[1]
 	add_fingerprint(user)
 
 /obj/item/gun/launcher/syringe/attack_hand(mob/living/user as mob)
 	if(user.get_inactive_hand() == src)
 		if(!darts.len)
-			to_chat(user, "<span class='warning'>[src] is empty.</span>")
+			to_chat(user, SPAN_WARNING("[src] is empty."))
 			return
 		if(next)
-			to_chat(user, "<span class='warning'>[src]'s cover is locked shut.</span>")
+			to_chat(user, SPAN_WARNING("[src]'s cover is locked shut."))
 			return
 		var/obj/item/syringe_cartridge/C = darts[1]
 		darts -= C
 		user.put_in_hands(C)
-		user.visible_message("[user] removes \a [C] from [src].", "<span class='notice'>You remove \a [C] from [src].</span>")
+		user.visible_message("[user] removes \a [C] from [src].", SPAN_NOTICE("You remove \a [C] from [src]."))
 	else
 		..()
 
@@ -125,12 +125,12 @@
 	if(istype(attacking_item, /obj/item/syringe_cartridge))
 		var/obj/item/syringe_cartridge/C = attacking_item
 		if(darts.len >= max_darts)
-			to_chat(user, "<span class='warning'>[src] is full!</span>")
+			to_chat(user, SPAN_WARNING("[src] is full!"))
 			return
 		user.remove_from_mob(C)
 		C.forceMove(src)
 		darts += C //add to the end
-		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
+		user.visible_message("[user] inserts \a [C] into [src].", SPAN_NOTICE("You insert \a [C] into [src]."))
 	else
 		..()
 

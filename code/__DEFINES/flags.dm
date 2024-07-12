@@ -51,6 +51,8 @@ var/list/mimic_defines = list(
 #define ATOM_FLAG_HTML_USE_INITIAL_ICON FLAG(6)
 /// If a dense atom like a platform does not allow movement through it like a window pane BUT allows pickup.
 #define ATOM_FLAG_ALWAYS_ALLOW_PICKUP FLAG(7)
+/// A reagent container that can dispense when being attacked by another container.
+#define ATOM_FLAG_DISPENSER FLAG(8)
 
 #define ATOM_AWAITING_OVERLAY_UPDATE FLAG(10)
 
@@ -104,3 +106,5 @@ var/list/mimic_defines = list(
 #define ITEM_FLAG_HELD_MAP_TEXT FLAG(11)
 /// Cannot be moved from its current inventory slot. Mostly for augments, modules, and other "attached" items.
 #define ITEM_FLAG_NO_MOVE FLAG(12)
+/// Can be used for surgery, giving the "You're not sure what you can do with this." message if no surgery is available.
+#define ITEM_FLAG_SURGERY FLAG(13)

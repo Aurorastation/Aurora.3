@@ -4,6 +4,7 @@
 	desc_info = "Click your target with Grab intent, then click on the table with an empty hand, to place them on it."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table2-idle"
+	pass_flags_self = PASSTABLE
 	density = TRUE
 	anchored = TRUE
 	use_power = POWER_USE_IDLE
@@ -161,12 +162,6 @@
 		suppressing = !suppressing
 		user.visible_message(SPAN_NOTICE("\The [user] switches [suppressing ? "on" : "off"] \the [src]'s neural suppressor."), intent_message = BUTTON_FLICK)
 		playsound(loc, /singleton/sound_category/switch_sound, 50, 1)
-
-/obj/machinery/optable/CanPass(atom/movable/mover, turf/target, height = 0, air_group = 0)
-	if(air_group || (height == 0))
-		return FALSE
-
-	return istype(mover) && mover.checkpass(PASSTABLE)
 
 /**
  * Refreshes the icon state based on the table status

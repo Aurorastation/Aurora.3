@@ -114,7 +114,7 @@ Deployable Kits
 		return prob(35)
 	if(isliving(mover))
 		return FALSE
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return TRUE
 	return FALSE
 
@@ -165,7 +165,7 @@ Deployable Kits
 					return
 			else
 				spark(src, 2, src)
-				visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
+				visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 				return
 		return
 	else if (attacking_item.iswrench())
@@ -174,13 +174,13 @@ Deployable Kits
 			src.health = src.maxhealth
 			src.emagged = 0
 			src.req_access = list(ACCESS_SECURITY)
-			visible_message("<span class='warning'>[user] repairs \the [src]!</span>")
+			visible_message(SPAN_WARNING("[user] repairs \the [src]!"))
 			return
 		else if (src.emagged > 0)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			src.emagged = 0
 			src.req_access = list(ACCESS_SECURITY)
-			visible_message("<span class='warning'>[user] repairs \the [src]!</span>")
+			visible_message(SPAN_WARNING("[user] repairs \the [src]!"))
 			return
 		return
 	else
@@ -219,13 +219,13 @@ Deployable Kits
 /obj/machinery/deployable/barrier/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(air_group || (height==0))
 		return 1
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return 1
 	else
 		return 0
 
 /obj/machinery/deployable/barrier/proc/explode()
-	visible_message("<span class='danger'>[src] blows apart!</span>")
+	visible_message(SPAN_DANGER("[src] blows apart!"))
 
 /*	var/obj/item/stack/rods/ =*/
 	new /obj/item/stack/rods(get_turf(src))
@@ -242,13 +242,13 @@ Deployable Kits
 		src.req_one_access.Cut()
 		to_chat(user, "You break the ID authentication lock on \the [src].")
 		spark(src, 2, GLOB.alldirs)
-		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
+		visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 		return 1
 	else if (src.emagged == 1)
 		src.emagged = 2
 		to_chat(user, "You short out the anchoring mechanism on \the [src].")
 		spark(src, 2, GLOB.alldirs)
-		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
+		visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 		return 1
 
 /obj/machinery/deployable/barrier/legion

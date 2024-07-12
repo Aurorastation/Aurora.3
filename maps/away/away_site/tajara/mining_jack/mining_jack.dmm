@@ -751,7 +751,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(202)
 	},
 /turf/simulated/floor/tiled/rust{
@@ -1016,6 +1015,15 @@
 	},
 /obj/machinery/power/apc/east{
 	req_access = list(202)
+	},
+/obj/item/blueprints,
+/obj/structure/table/steel,
+/obj/item/blueprints/outpost{
+	pixel_y = 6
+	},
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1941,7 +1949,6 @@
 	icon_state = "door_locked";
 	id_tag = "tajara_mining_jack_hatch";
 	name = "Ship External Access";
-	open_layer = 2.8;
 	dir = 4
 	},
 /turf/simulated/floor/plating{
@@ -2760,7 +2767,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_x = 0;
 	req_access = list(202)
 	},
 /turf/simulated/floor/plating{

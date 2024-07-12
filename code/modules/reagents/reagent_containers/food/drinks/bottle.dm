@@ -33,15 +33,15 @@
 	return ..()
 
 //when thrown on impact, bottles smash and spill their contents
-/obj/item/reagent_containers/food/drinks/bottle/throw_impact(atom/hit_atom, var/speed)
+/obj/item/reagent_containers/food/drinks/bottle/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	..()
 
-	var/mob/M = thrower
+	var/mob/M = throwing?.thrower?.resolve()
 	if((drink_flags & IS_GLASS) && istype(M) && M.a_intent == I_HURT)
-		var/throw_dist = get_dist(throw_source, loc)
-		if(speed >= throw_speed && smash_check(throw_dist)) //not as reliable as smashing directly
+		var/throw_dist = get_dist(throwing?.thrower?.resolve(), loc)
+		if(throwingdatum.speed >= throw_speed && smash_check(throw_dist)) //not as reliable as smashing directly
 			if(reagents)
-				hit_atom.visible_message("<span class='notice'>The contents of \the [src] splash all over [hit_atom]!</span>")
+				hit_atom.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [hit_atom]!"))
 				reagents.splash(hit_atom, reagents.total_volume)
 			src.smash(loc, hit_atom)
 
@@ -105,7 +105,7 @@
 	if(!(drink_flags & IS_GLASS) || rag)
 		return
 	if(user.unEquip(R))
-		to_chat(user, "<span class='notice'>You stuff [R] into [src].</span>")
+		to_chat(user, SPAN_NOTICE("You stuff [R] into [src]."))
 		rag = R
 		rag.forceMove(src)
 		atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
@@ -170,15 +170,15 @@
 	var/mob/living/carbon/human/H = target
 	if(istype(H) && H.headcheck(hit_zone))
 		var/obj/item/organ/affecting = H.get_organ(hit_zone) //headcheck should ensure that affecting is not null
-		user.visible_message("<span class='danger'>[user] smashes [src] into [H]'s [affecting.name]!</span>")
+		user.visible_message(SPAN_DANGER("[user] smashes [src] into [H]'s [affecting.name]!"))
 		if(weaken_duration)
 			target.apply_effect(min(weaken_duration, 5), WEAKEN, blocked) // Never weaken more than a flash!
 	else
-		user.visible_message("<span class='danger'>\The [user] smashes [src] into [target]!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] smashes [src] into [target]!"))
 
 	//The reagents in the bottle splash all over the target, thanks for the idea Nodrak
 	if(reagents)
-		user.visible_message("<span class='notice'>The contents of \the [src] splash all over [target]!</span>")
+		user.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [target]!"))
 		reagents.splash(target, reagents.total_volume)
 
 	//Finally, smash the bottle. This kills (qdel) the bottle.
@@ -353,7 +353,8 @@
 		return ..()
 	balloon_alert(user, "fiddling with cork...")
 	if(do_after(user, 1 SECONDS, src))
-		return open(user, sabrage = FALSE, froth_severity = pick(0, 1))
+		if(!is_open_container())
+			return open(user, sabrage = FALSE, froth_severity = pick(0, 1))
 
 /obj/item/reagent_containers/food/drinks/bottle/champagne/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
@@ -371,6 +372,12 @@
 	playsound(user, 'sound/weapons/holster/sheathout.ogg', 25, TRUE)
 	balloon_alert(user, "preparing to swing...")
 	if(!do_after(user, 2 SECONDS, src)) //takes longer because you are supposed to take the foil off the bottle first
+		return
+
+	if(is_open_container())
+		balloon_alert(user, "the bottle was already open, you spill some on the floor...")
+		if(reagents.total_volume)
+			src.reagents.remove_any(reagents.total_volume / 5)
 		return
 
 	///The bonus to success chance that the user gets for being a command role
@@ -782,8 +789,8 @@
 	name = "Boryeong '45 soju"
 	desc = "A rice-based liquor commonly consumed by the non-synthetic residents of Konyang. This particular brand originates from the city of Boreyeong, on Konyang."
 	desc_extended = "While most commonly associated with Konyang, soju can be found throughout the Sol Alliance thanks to the inexpensive cost of producing it and a successful \
-	marketing campaign carried out during the robotics boom on Konyang. It is traditionally consumed neat, or without mixing any other liquids into it. The '45 in this brand's \
-	name refers to its alcohol by volume content, and not a calendar year."
+	marketing campaign carried out during the robotics boom on Konyang. It is traditionally consumed neat, or without mixing any other liquids into it. The '45 in this brand's name \
+	refers to its alcohol by volume content, and not a calendar year."
 	icon_state = "sojubottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/singleton/reagent/alcohol/soju = 100)
@@ -1061,3 +1068,18 @@
 	center_of_mass = list("x"=16, "y"=11)
 	reagents_to_add = list(/singleton/reagent/drink/milk/nemiik = 80)
 	empty_icon_state = "vrozka_empty"
+
+// Vaurca alcoholic drinks
+//=====================================
+
+/obj/item/reagent_containers/food/drinks/bottle/skyemok
+	name = "bottle of Skye'mok"
+	desc = "Traditional Sedantian drink. Looks like it's inside a pulsating stomach."
+	desc_extended = "A traditional Sedantian brew crafted from a special fungus fed to V'krexi, this unique beverage ferments in the swollen stomachs of these creatures. It is served traditionally on the head of the V'krexi it was prepared in."
+	icon_state = "skyemok"
+	empty_icon_state = "skyemok_empty"
+	drop_sound = 'sound/items/drop/flesh.ogg'
+	pickup_sound = 'sound/items/pickup/flesh.ogg'
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/drink/toothpaste/skyemok= 80)
+

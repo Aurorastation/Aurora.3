@@ -15,7 +15,9 @@
 	var/health = 100
 	var/maxhealth = 100
 
-/obj/structure/simple_door/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/structure/simple_door/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	TemperatureAct(exposed_temperature)
 
 /obj/structure/simple_door/proc/TemperatureAct(temperature)
@@ -63,10 +65,10 @@
 	if(lock)
 		. += SPAN_NOTICE("It appears to have a lock.")
 
-/obj/structure/simple_door/CollidedWith(atom/user)
+/obj/structure/simple_door/CollidedWith(atom/bumped_atom)
 	..()
 	if(!state)
-		return TryToSwitchState(user)
+		return TryToSwitchState(bumped_atom)
 	return
 
 /obj/structure/simple_door/attack_ai(mob/user as mob) //those aren't machinery, they're just big fucking slabs of a mineral
@@ -115,28 +117,36 @@
 
 	if(lock && lock.isLocked())
 		if(user)
-			to_chat(user, "<span class='warning'>\The [src] is locked!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is locked!"))
 		return
 
 	isSwitchingStates = 1
 	playsound(loc, material.dooropen_noise, 100, 1)
 	flick("[material.door_icon_base]opening",src)
-	sleep(10)
-	density = 0
-	opacity = 0
-	state = 1
-	update_icon()
-	isSwitchingStates = 0
-	update_nearby_tiles()
+	addtimer(CALLBACK(src, PROC_REF(change_state_after_openclode), TRUE), 1 SECONDS)
+
 
 /obj/structure/simple_door/proc/Close()
 	isSwitchingStates = 1
 	playsound(loc, material.dooropen_noise, 100, 1)
 	flick("[material.door_icon_base]closing",src)
-	sleep(10)
-	density = 1
-	opacity = 1
-	state = 0
+	addtimer(CALLBACK(src, PROC_REF(change_state_after_openclode), FALSE), 1 SECONDS)
+
+/**
+ * Complete the open/close of the door
+ *
+ * * to_open - Whether the door is to be set as open, if FALSE, it is to be set as closed instead
+ */
+/obj/structure/simple_door/proc/change_state_after_openclode(to_open = FALSE)
+	if(to_open)
+		density = 0
+		opacity = 0
+		state = 1
+	else
+		density = 1
+		opacity = 1
+		state = 0
+
 	update_icon()
 	isSwitchingStates = 0
 	update_nearby_tiles()
@@ -151,7 +161,7 @@
 	if(istype(attacking_item, /obj/item/key) && lock)
 		var/obj/item/key/K = attacking_item
 		if(!lock.toggle(attacking_item))
-			to_chat(user, "<span class='warning'>\The [K] does not fit in the lock!</span>")
+			to_chat(user, SPAN_WARNING("\The [K] does not fit in the lock!"))
 		return
 
 	if(lock && lock.pick_lock(attacking_item, user))
@@ -159,7 +169,7 @@
 
 	if(istype(attacking_item, /obj/item/material/lock_construct))
 		if(lock)
-			to_chat(user, "<span class='warning'>\The [src] already has a lock.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has a lock."))
 		else
 			var/obj/item/material/lock_construct/L = attacking_item
 			lock = L.create_lock(src,user)
@@ -170,11 +180,11 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(I.damtype == DAMAGE_BRUTE || I.damtype == DAMAGE_BURN)
 			if(I.force < 10)
-				user.visible_message("<span class='danger'>\The [user] hits \the [src] with \the [I] with no visible effect.</span>")
+				user.visible_message(SPAN_DANGER("\The [user] hits \the [src] with \the [I] with no visible effect."))
 			else
 				user.do_attack_animation(src)
 				shake_animation()
-				user.visible_message("<span class='danger'>\The [user] forcefully strikes \the [src] with \the [I]!</span>")
+				user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with \the [I]!"))
 				playsound(src.loc, material.hitsound, attacking_item.get_clamped_volume(), 1)
 				src.health -= attacking_item.force * 1
 				CheckHealth()

@@ -68,12 +68,13 @@
 	new /obj/item/clothing/under/rank/scientist(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
 	new /obj/item/clothing/shoes/sneakers/medsci(src)
-	new /obj/item/clothing/glasses/science(src)
+	new /obj/item/clothing/glasses/safety/goggles/science(src)
 	new /obj/item/device/radio/headset/headset_sci(src)
 	new /obj/item/storage/belt/archaeology(src)
 	new /obj/item/storage/box/excavation(src)
 	new /obj/item/taperoll/science(src)
 	new /obj/item/clothing/head/hardhat(src)
+	new /obj/item/sampler(src)
 
 /obj/structure/closet/excavation
 	name = "excavation tools"
@@ -99,6 +100,7 @@
 	new /obj/item/device/hand_labeler(src)
 	new /obj/item/ore_detector(src)
 	new /obj/item/device/spaceflare(src)
+	new /obj/item/tent(src)
 
 	// 2 Drills
 	new /obj/item/pickaxe/drill(src)

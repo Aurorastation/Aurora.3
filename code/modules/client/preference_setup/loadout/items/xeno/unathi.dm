@@ -21,7 +21,7 @@
 	path = /obj/item/clothing/accessory/poncho/unathimantle/forest
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/dominian_unathi)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_COLOR_SELECTION
 
@@ -67,7 +67,7 @@
 
 /datum/gear/suit/unathi_robe/kilt
 	display_name = "wasteland kilt"
-	origin_restriction = list(/singleton/origin_item/origin/wastelander)
+	origin_restriction = list(/singleton/origin_item/origin/wastelander, /singleton/origin_item/origin/mikuetz)
 	path = /obj/item/clothing/suit/unathi/robe/kilt
 
 /datum/gear/suit/robe_coat
@@ -167,7 +167,7 @@
 /datum/gear/head/sinta_ronin
 	display_name = "straw hat"
 	path = /obj/item/clothing/head/unathi
-	whitelisted = list(SPECIES_UNATHI)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/head/sinta_ronin/New()
@@ -188,8 +188,8 @@
 /datum/gear/eyes/wasteland_goggles
 	display_name = "wasteland goggles"
 	path = /obj/item/clothing/glasses/safety/goggles/wasteland
-	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/wastelander)
+	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
+	origin_restriction = list(/singleton/origin_item/origin/wastelander, /singleton/origin_item/origin/mikuetz)
 	sort_category = "Xenowear - Unathi"
 
 /datum/gear/accessory/sinta_hood
@@ -230,7 +230,7 @@
 	culture_restriction = list(/singleton/origin_item/culture/autakh)
 	sort_category = "Xenowear - Unathi"
 	cost = 2
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "First Responder", "Medical Intern", "Psychiatrist", "Pharmacist", "Medical Personnel")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Paramedic", "Medical Intern", "Psychiatrist", "Pharmacist", "Medical Personnel")
 	flags = GEAR_NO_SELECTION
 
 /datum/gear/augment/autakh_security
@@ -300,6 +300,7 @@
 	path = /obj/item/clothing/under/unathi/zozo
 	whitelisted = list(SPECIES_UNATHI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_HUMAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
 	sort_category = "Xenowear - Unathi"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/suit/unathi/wrapping_head
 	display_name = "Thakhist head wrappings"
@@ -406,7 +407,7 @@
 	path = /obj/item/clothing/accessory/poncho/rockstone
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/dominian_unathi)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
@@ -414,7 +415,7 @@
 	display_name = "jeweled bracers"
 	path = /obj/item/clothing/wrists/unathi/jeweled
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/dominian_unathi)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -431,7 +432,7 @@
 	path = /obj/item/clothing/suit/unathi/jokfar
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
-	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles)
+	origin_restriction = list(/singleton/origin_item/origin/heartland_upper, /singleton/origin_item/origin/trad_nobles, /singleton/origin_item/origin/tza_upper, /singleton/origin_item/origin/southlands_upper, /singleton/origin_item/origin/zazalai_upper, /singleton/origin_item/origin/broken_nobles, /singleton/origin_item/origin/dominian_unathi)
 	sort_category = "Xenowear - Unathi"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
@@ -464,7 +465,6 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
-	allowed_roles = list("Chaplain", "Off-Duty Crew Member")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/unathi/skakh/New()
@@ -482,5 +482,4 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
-	allowed_roles = list("Chaplain", "Off-Duty Crew Member")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

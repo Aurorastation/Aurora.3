@@ -415,10 +415,10 @@
 	desc = "Medical Equipment"
 	region = ACCESS_REGION_MEDBAY
 
-#define ACCESS_FIRST_RESPONDER 67
-/datum/access/first_responder
-	id = ACCESS_FIRST_RESPONDER
-	desc = "First Responder Equipment"
+#define ACCESS_PARAMEDIC 67
+/datum/access/paramedic
+	id = ACCESS_PARAMEDIC
+	desc = "Paramedic Equipment"
 	region = ACCESS_REGION_MEDBAY
 
 // free_access_id = 68
@@ -801,5 +801,12 @@
 	desc = "Guest Room 10"
 
 #define ACCESS_FISHING_LEAGUE 241
+/datum/access/unathi_trawler_access
 	id = ACCESS_FISHING_LEAGUE
 	desc = "General Fishing Trawler Access"
+
+#define ACCESS_TRAMP_FREIGHTER 242
+/datum/access/tramp_freighter_access
+	id = ACCESS_TRAMP_FREIGHTER
+	desc = "Independent Freighter Access"
+

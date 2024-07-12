@@ -1060,12 +1060,6 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_dominian_shuttle";
-	master_tag = "airlock_dominian_shuttle";
-	shuttle_tag = "Dominian Shuttle";
-	req_one_access = list(212)
-	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -1075,6 +1069,13 @@
 	pixel_x = 32;
 	pixel_y = 9;
 	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_dominian_shuttle";
+	master_tag = "airlock_dominian_shuttle";
+	shuttle_tag = "Dominian Shuttle";
+	req_one_access = list(212);
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
@@ -1176,12 +1177,6 @@
 "dHA" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_dominian_shuttle";
-	master_tag = "airlock_dominian_shuttle";
-	shuttle_tag = "Dominian Shuttle";
-	req_one_access = list(212)
-	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -1189,6 +1184,13 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_dominian_shuttle";
+	master_tag = "airlock_dominian_shuttle";
+	shuttle_tag = "Dominian Shuttle";
+	req_one_access = list(212);
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
 "dIe" = (
@@ -2227,6 +2229,7 @@
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/item/stack/material/tritium/full,
 /turf/simulated/floor/plating,
 /area/ship/dominian_corvette/engineering/reactor)
 "hru" = (
@@ -2754,7 +2757,8 @@
 	name = "airlock_dominian_shuttle";
 	master_tag = "airlock_dominian_shuttle";
 	shuttle_tag = "Dominian Shuttle";
-	req_one_access = list(212)
+	req_one_access = list(212);
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
@@ -3192,7 +3196,8 @@
 	name = "airlock_dominian_shuttle";
 	master_tag = "airlock_dominian_shuttle";
 	shuttle_tag = "Dominian Shuttle";
-	req_one_access = list(212)
+	req_one_access = list(212);
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
@@ -3218,7 +3223,8 @@
 	name = "airlock_dominian_shuttle";
 	master_tag = "airlock_dominian_shuttle";
 	shuttle_tag = "Dominian Shuttle";
-	req_one_access = list(212)
+	req_one_access = list(212);
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/airless,
@@ -3280,7 +3286,7 @@
 	pixel_x = -32
 	},
 /obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/hypospray,
 /obj/item/auto_cpr,
@@ -4535,6 +4541,8 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/item/pen/drafting,
+/obj/item/blueprints,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
 "pJj" = (
@@ -4677,7 +4685,8 @@
 	name = "airlock_dominian_shuttle";
 	master_tag = "airlock_dominian_shuttle";
 	shuttle_tag = "Dominian Shuttle";
-	req_one_access = list(212)
+	req_one_access = list(212);
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
@@ -4910,7 +4919,6 @@
 "qRq" = (
 /obj/structure/table/wood,
 /obj/item/storage/box/fancy/cigarettes/cigar{
-	layer = 3.01;
 	pixel_x = -5;
 	pixel_y = 6
 	},
@@ -5427,14 +5435,15 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_dominian_shuttle";
 	master_tag = "airlock_dominian_shuttle";
 	shuttle_tag = "Dominian Shuttle";
-	req_one_access = list(212)
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
+	req_one_access = list(212);
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)
@@ -5809,9 +5818,6 @@
 "uCl" = (
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_y = 0;
-	dir = 4;
-	pixel_x = 15;
 	req_access = list(212)
 	},
 /obj/structure/cable{
@@ -5976,12 +5982,6 @@
 "uYP" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_dominian_shuttle";
-	master_tag = "airlock_dominian_shuttle";
-	shuttle_tag = "Dominian Shuttle";
-	req_one_access = list(212)
-	},
 /obj/machinery/access_button{
 	pixel_x = -28;
 	dir = 2
@@ -5992,6 +5992,13 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, airlock"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_dominian_shuttle";
+	master_tag = "airlock_dominian_shuttle";
+	shuttle_tag = "Dominian Shuttle";
+	req_one_access = list(212);
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_shuttle)
@@ -6064,7 +6071,6 @@
 "vBe" = (
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6371,16 +6377,17 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "airlock_dominian_shuttle";
-	master_tag = "airlock_dominian_shuttle";
-	shuttle_tag = "Dominian Shuttle";
-	req_one_access = list(212)
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/airlock_sensor{
 	pixel_x = 24;
 	pixel_y = 6
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "airlock_dominian_shuttle";
+	master_tag = "airlock_dominian_shuttle";
+	shuttle_tag = "Dominian Shuttle";
+	req_one_access = list(212);
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/dominian_shuttle)
@@ -6552,14 +6559,15 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "airlock_dominian_shuttle";
 	master_tag = "airlock_dominian_shuttle";
 	shuttle_tag = "Dominian Shuttle";
-	req_one_access = list(212)
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
+	req_one_access = list(212);
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/dominian_shuttle)

@@ -109,6 +109,17 @@
 	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
+"dH" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/tiled/steel,
+/area/zavod_shuttle_destroyed)
+"dR" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/zavod_shuttle_destroyed)
 "dV" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/effect/decal/cleanable/dirt,
@@ -131,6 +142,21 @@
 /obj/structure/firedoor_assembly,
 /turf/template_noop,
 /area/zavod_shuttle_destroyed)
+"es" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/machinery/recharger/wallcharger{
+	pixel_y = -29
+	},
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/steel,
+/area/zavod_shuttle_destroyed)
+"ex" = (
+/obj/effect/shuttle_landmark/automatic{
+	landmark_tag = "navpoint_zavod_6";
+	name = "Navpoint 6"
+	},
+/turf/template_noop,
+/area/space)
 "eM" = (
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/steel/airless,
@@ -165,6 +191,11 @@
 /obj/structure/closet/crate/drop/grey,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled/white/airless,
+/area/zavod_shuttle_destroyed)
+"fN" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
 "gl" = (
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
@@ -268,6 +299,11 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
+"iE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white/airless,
+/area/zavod_shuttle_destroyed)
 "iH" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/remains/robot,
@@ -345,8 +381,6 @@
 "jZ" = (
 /obj/structure/closet/secure_closet/guncabinet,
 /obj/item/gun/projectile/automatic/wt550/lethal,
-/obj/item/gun/projectile/automatic/wt550/lethal,
-/obj/item/gun/projectile/automatic/wt550/lethal,
 /obj/item/ammo_magazine/mc9mmt,
 /obj/item/ammo_magazine/mc9mmt,
 /obj/item/ammo_magazine/mc9mmt,
@@ -387,6 +421,7 @@
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled/white/airless,
 /area/zavod_shuttle_destroyed)
 "mn" = (
@@ -458,6 +493,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/slate,
 /area/zavod_shuttle_destroyed)
+"nv" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/machinery/porta_turret/ballistic,
+/turf/simulated/floor/tiled/steel,
+/area/zavod_shuttle_destroyed)
 "nw" = (
 /obj/item/melee/baton/loaded,
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -505,6 +545,11 @@
 "qC" = (
 /turf/simulated/floor/tiled/slate,
 /area/zavod_shuttle_destroyed)
+"qG" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/steel,
+/area/zavod_shuttle_destroyed)
 "rf" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/cable{
@@ -532,6 +577,7 @@
 "rB" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/gun/projectile/automatic/rifle/shotgun,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
 "rG" = (
@@ -614,6 +660,13 @@
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/red,
 /area/zavod_shuttle_destroyed)
+"us" = (
+/obj/effect/shuttle_landmark/automatic{
+	landmark_tag = "navpoint_zavod_5";
+	name = "Navpoint 5"
+	},
+/turf/template_noop,
+/area/space)
 "uA" = (
 /obj/structure/bed/chair,
 /obj/structure/curtain/black,
@@ -662,6 +715,7 @@
 "vF" = (
 /obj/structure/table/stone/marble,
 /obj/effect/decal/cleanable/floor_damage/rust,
+/obj/item/stack/medical/bruise_pack/full,
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
 "vO" = (
@@ -715,6 +769,11 @@
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
+"xV" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/zavod_shuttle_destroyed)
 "yp" = (
 /obj/machinery/appliance/cooker/oven,
 /obj/effect/decal/cleanable/dirt,
@@ -739,6 +798,13 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
+"yX" = (
+/obj/effect/shuttle_landmark/automatic{
+	landmark_tag = "navpoint_zavod_1";
+	name = "Navpoint 1"
+	},
+/turf/template_noop,
+/area/space)
 "zb" = (
 /obj/machinery/porta_turret/ballistic,
 /obj/effect/decal/cleanable/dirt,
@@ -830,10 +896,15 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
+"CM" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white/airless,
+/area/zavod_shuttle_destroyed)
 "CY" = (
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/white/airless,
 /area/zavod_shuttle_destroyed)
 "Di" = (
@@ -873,6 +944,10 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
+"Er" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/steel,
+/area/zavod_shuttle_destroyed)
 "EL" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -898,7 +973,6 @@
 /area/zavod_shuttle_destroyed)
 "FD" = (
 /obj/structure/closet/crate/drop/grey,
-/obj/item/rig_module/storage,
 /obj/item/rig_module/storage,
 /obj/item/rig_module/storage,
 /turf/simulated/floor/tiled/white/airless,
@@ -928,10 +1002,16 @@
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/red,
 /area/zavod_shuttle_destroyed)
+"Hk" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/white,
+/area/zavod_shuttle_destroyed)
 "Hx" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/ammo_magazine/assault_shotgun/shells,
 /obj/item/ammo_magazine/assault_shotgun/shells,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
 "HF" = (
@@ -1007,7 +1087,6 @@
 /obj/structure/closet/crate/drop/grey,
 /obj/item/rig_module/device/healthscanner,
 /obj/item/rig_module/device/healthscanner,
-/obj/item/rig_module/device/healthscanner,
 /turf/simulated/floor/tiled/white/airless,
 /area/zavod_shuttle_destroyed)
 "IP" = (
@@ -1021,10 +1100,17 @@
 /turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
 "Jo" = (
-/obj/structure/closet/crate/drop/grey,
-/obj/item/rig/hazmat,
-/turf/simulated/floor/tiled/white/airless,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
+"Js" = (
+/obj/effect/shuttle_landmark/automatic{
+	landmark_tag = "navpoint_zavod_2";
+	name = "Navpoint 2"
+	},
+/turf/template_noop,
+/area/space)
 "JS" = (
 /obj/structure/flora/pottedplant/dead,
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -1106,6 +1192,7 @@
 /area/zavod_shuttle_destroyed)
 "LE" = (
 /obj/structure/table/reinforced/steel,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
 "LG" = (
@@ -1155,6 +1242,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
+"MM" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/tiled/steel,
+/area/zavod_shuttle_destroyed)
 "MO" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/red,
@@ -1176,6 +1268,11 @@
 /obj/structure/closet/crate/rad/gear,
 /turf/simulated/floor/tiled/steel/airless,
 /area/zavod_shuttle_destroyed)
+"Ng" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/structure/flora/pottedplant/dead2,
+/turf/simulated/floor/tiled/steel,
+/area/zavod_shuttle_destroyed)
 "NE" = (
 /obj/structure/table/standard,
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -1189,6 +1286,13 @@
 	},
 /turf/space,
 /area/zavod_shuttle_destroyed)
+"NW" = (
+/obj/effect/shuttle_landmark/automatic{
+	landmark_tag = "navpoint_zavod_4";
+	name = "Navpoint 4"
+	},
+/turf/template_noop,
+/area/space)
 "Oh" = (
 /obj/structure/inflatable/door,
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -1212,6 +1316,10 @@
 "OQ" = (
 /obj/structure/inflatable/door,
 /turf/simulated/floor/tiled/steel/airless,
+/area/zavod_shuttle_destroyed)
+"OZ" = (
+/obj/item/stack/medical/bruise_pack,
+/turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
 "Pi" = (
 /obj/structure/closet/secure_closet/guncabinet,
@@ -1244,6 +1352,10 @@
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/airless,
 /area/zavod_shuttle_destroyed)
+"PZ" = (
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/tiled/steel,
+/area/zavod_shuttle_destroyed)
 "Qd" = (
 /mob/living/simple_animal/carp,
 /obj/effect/decal/cleanable/floor_damage/rust,
@@ -1265,6 +1377,19 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark/airless,
+/area/zavod_shuttle_destroyed)
+"Rv" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/cabinet,
+/obj/item/clothing/head/beret/corporate/zavod,
+/obj/item/clothing/under/rank/scientist/zavod,
+/obj/item/clothing/under/rank/scientist/zavod,
+/obj/item/clothing/under/rank/security/zavod/zavodsec/alt,
+/obj/item/flag/zavodskoi,
+/obj/item/storage/backpack/messenger/zavod,
+/obj/item/clothing/accessory/tie/corporate/zavod,
+/turf/simulated/floor/tiled/steel,
 /area/zavod_shuttle_destroyed)
 "RH" = (
 /obj/structure/table/rack,
@@ -1315,6 +1440,17 @@
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/steel,
+/area/zavod_shuttle_destroyed)
+"TF" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white/airless,
+/area/zavod_shuttle_destroyed)
+"TJ" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/structure/table/standard,
+/obj/item/rig_module/cooling_unit,
+/turf/simulated/floor/tiled/white/airless,
 /area/zavod_shuttle_destroyed)
 "TK" = (
 /obj/structure/inflatable/wall,
@@ -1444,6 +1580,7 @@
 /obj/item/rig_module/mounted/smg,
 /obj/item/rig_module/mounted/egun,
 /obj/item/rig_module/mounted/egun,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/zavod_shuttle_destroyed)
 "XM" = (
@@ -1458,7 +1595,10 @@
 /turf/simulated/floor/tiled/slate,
 /area/zavod_shuttle_destroyed)
 "XY" = (
-/obj/effect/shuttle_landmark/automatic,
+/obj/effect/shuttle_landmark/automatic{
+	landmark_tag = "navpoint_zavod_3";
+	name = "Navpoint 3"
+	},
 /turf/template_noop,
 /area/space)
 "Yq" = (
@@ -11929,7 +12069,7 @@ bz
 bz
 bz
 bz
-XY
+yX
 bz
 bz
 bz
@@ -18690,7 +18830,7 @@ bz
 bz
 bz
 bz
-XY
+ex
 bz
 bz
 bz
@@ -25029,7 +25169,7 @@ YW
 DL
 DL
 YW
-Vn
+YW
 bz
 bz
 bz
@@ -25542,7 +25682,7 @@ YW
 nY
 Cj
 Cj
-nY
+Ng
 YW
 YW
 bz
@@ -25800,7 +25940,7 @@ nY
 Cj
 Cj
 nY
-nY
+qG
 YW
 bz
 bz
@@ -26057,7 +26197,7 @@ Cj
 Cj
 nY
 Cj
-nY
+es
 YW
 YW
 bz
@@ -26309,12 +26449,12 @@ YW
 YW
 YW
 YW
-nY
+nv
 Ca
 Cj
 Wv
 CK
-Cj
+Er
 YW
 YW
 YW
@@ -27076,7 +27216,7 @@ bz
 bz
 bz
 YW
-ab
+xV
 ab
 ab
 tt
@@ -27086,7 +27226,7 @@ nY
 gT
 IE
 cS
-ab
+fN
 rQ
 ab
 KL
@@ -27333,7 +27473,7 @@ bz
 bz
 bz
 YW
-cS
+cd
 ab
 ab
 tt
@@ -29132,7 +29272,7 @@ bz
 bz
 bz
 YW
-Lg
+Jo
 vO
 cS
 lc
@@ -29652,14 +29792,14 @@ cd
 PC
 NE
 YW
-Cj
+PZ
 cE
 YW
-IP
-nJ
-nJ
+CM
+TJ
+TF
 ma
-vj
+iE
 YW
 bz
 bz
@@ -30429,7 +30569,7 @@ YW
 vj
 dp
 IP
-Jo
+dp
 IP
 YW
 bz
@@ -32481,7 +32621,7 @@ nY
 Cj
 Pt
 vq
-nY
+MM
 Cj
 nY
 IE
@@ -33761,7 +33901,7 @@ YW
 tt
 tt
 Pt
-Cj
+OZ
 Cj
 IE
 Cj
@@ -35302,8 +35442,8 @@ bz
 YW
 YW
 LE
-cS
-cS
+ab
+tt
 YW
 YW
 Kt
@@ -35559,8 +35699,8 @@ bz
 YW
 YW
 XJ
-cS
-cS
+ab
+Hk
 YW
 YW
 DJ
@@ -35816,11 +35956,11 @@ bz
 YW
 YW
 GP
-cS
-cS
+dR
+ab
 YW
 YW
-DJ
+dH
 cE
 YW
 nY
@@ -36072,9 +36212,9 @@ bz
 bz
 YW
 YW
-cS
+tt
 jb
-cS
+ab
 kx
 Ip
 Cj
@@ -36084,7 +36224,7 @@ HF
 nY
 Cj
 Cj
-DJ
+Rv
 YW
 bz
 bz
@@ -39765,7 +39905,7 @@ bz
 bz
 bz
 bz
-XY
+us
 bz
 bz
 bz
@@ -56942,7 +57082,7 @@ bz
 bz
 bz
 bz
-XY
+NW
 bz
 bz
 bz
@@ -59163,7 +59303,7 @@ bz
 bz
 bz
 bz
-XY
+Js
 bz
 bz
 bz

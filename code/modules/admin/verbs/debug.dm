@@ -6,11 +6,11 @@
 	if(GLOB.Debug2)
 		GLOB.Debug2 = 0
 		message_admins("[key_name(src)] toggled debugging off.")
-		log_admin("[key_name(src)] toggled debugging off.",admin_key=key_name(usr))
+		log_admin("[key_name(src)] toggled debugging off.")
 	else
 		GLOB.Debug2 = 1
 		message_admins("[key_name(src)] toggled debugging on.")
-		log_admin("[key_name(src)] toggled debugging on.",admin_key=key_name(usr))
+		log_admin("[key_name(src)] toggled debugging on.")
 
 	switch(alert("Do you want to print all logs to world? This should ONLY EVER HAPPEN IN CRISIS OR DURING DEBUGGING / DEVELOPMENT.", "All logs to world?", "No", "Yes"))
 		if("Yes")
@@ -55,11 +55,11 @@
 
 	var/datum/gas_mixture/env = T.return_air()
 
-	var/t = "<span class='notice'>Coordinates: [T.x],[T.y],[T.z]\n</span>"
-	t += "<span class='warning'>Temperature: [env.temperature]\n</span>"
-	t += "<span class='warning'>Pressure: [env.return_pressure()]kPa\n</span>"
+	var/t = SPAN_NOTICE("Coordinates: [T.x],[T.y],[T.z]\n")
+	t += SPAN_WARNING("Temperature: [env.temperature]\n")
+	t += SPAN_WARNING("Pressure: [env.return_pressure()]kPa\n")
 	for(var/g in env.gas)
-		t += "<span class='notice'>[g]: [env.gas[g]] / [env.gas[g] * R_IDEAL_GAS_EQUATION * env.temperature / env.volume]kPa\n</span>"
+		t += SPAN_NOTICE("[g]: [env.gas[g]] / [env.gas[g] * R_IDEAL_GAS_EQUATION * env.temperature / env.volume]kPa\n")
 
 	usr.show_message(t, 1)
 	feedback_add_details("admin_verb","ASL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -72,7 +72,7 @@
 		alert("Wait until the game starts")
 		return
 	if(istype(M, /mob/living/carbon/human))
-		log_admin("[key_name(src)] has robotized [M.key].",admin_key=key_name(usr),ckey=key_name(M))
+		log_admin("[key_name(src)] has robotized [M.key].")
 		spawn(10)
 			M:Robotize()
 
@@ -95,7 +95,7 @@
 		alert("The mob must not be a new_player.")
 		return
 
-	log_admin("[key_name(src)] has animalized [M.key].",admin_key=key_name(usr),ckey=key_name(M))
+	log_admin("[key_name(src)] has animalized [M.key].")
 	spawn(10)
 		M.Animalize()
 
@@ -135,7 +135,7 @@
 	set category = "Debug"
 	set name = "Make Powernets"
 	SSmachinery.makepowernets()
-	log_admin("[key_name(src)] has remade the powernet. makepowernets() called.",admin_key=key_name(usr))
+	log_admin("[key_name(src)] has remade the powernet. makepowernets() called.")
 	message_admins("[key_name_admin(src)] has remade the powernets. makepowernets() called.", 0)
 	feedback_add_details("admin_verb","MPWN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -164,8 +164,8 @@
 	else
 		alert("Invalid mob")
 	feedback_add_details("admin_verb","GFA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	log_admin("[key_name(src)] has granted [M.key] full access.",admin_key=key_name(usr),ckey=key_name(M))
-	message_admins("<span class='notice'>[key_name_admin(usr)] has granted [M.key] full access.</span>", 1)
+	log_admin("[key_name(src)] has granted [M.key] full access.")
+	message_admins(SPAN_NOTICE("[key_name_admin(usr)] has granted [M.key] full access."), 1)
 
 /client/proc/cmd_assume_direct_control(var/mob/M in GLOB.mob_list)
 	set category = "Admin"
@@ -179,8 +179,8 @@
 		else
 			var/mob/abstract/observer/ghost = new/mob/abstract/observer(M,1)
 			ghost.ckey = M.ckey
-	message_admins("<span class='notice'>[key_name_admin(usr)] assumed direct control of [M].</span>", 1)
-	log_admin("[key_name(usr)] assumed direct control of [M].",admin_key=key_name(usr))
+	message_admins(SPAN_NOTICE("[key_name_admin(usr)] assumed direct control of [M]."), 1)
+	log_admin("[key_name(usr)] assumed direct control of [M].")
 	var/mob/adminmob = src.mob
 	M.ckey = src.ckey
 	if( isobserver(adminmob) )
@@ -377,8 +377,8 @@
 
 	M.regenerate_icons()
 
-	log_admin("[key_name(usr)] changed the equipment of [key_name(M)] to [chosen_outfit].",admin_key=key_name(usr),ckey=key_name(M))
-	message_admins("<span class='notice'>[key_name_admin(usr)] changed the equipment of [key_name_admin(M)] to [chosen_outfit].</span>", 1)
+	log_admin("[key_name(usr)] changed the equipment of [key_name(M)] to [chosen_outfit].")
+	message_admins(SPAN_NOTICE("[key_name_admin(usr)] changed the equipment of [key_name_admin(M)] to [chosen_outfit]."), 1)
 	return
 
 /client/proc/cmd_debug_mob_lists()
@@ -414,7 +414,7 @@
 		var/state="[M.dna.GetSEState(block)?"on":"off"]"
 		var/blockname=assigned_blocks[block]
 		message_admins("[key_name_admin(src)] has toggled [M.key]'s [blockname] block [state]!")
-		log_admin("[key_name(src)] has toggled [M.key]'s [blockname] block [state]!",admin_key=key_name(src),ckey=key_name(M))
+		log_admin("[key_name(src)] has toggled [M.key]'s [blockname] block [state]!")
 	else
 		alert("Invalid mob")
 

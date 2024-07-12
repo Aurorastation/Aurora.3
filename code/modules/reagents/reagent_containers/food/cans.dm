@@ -212,7 +212,7 @@
 	if(P.firer && REAGENT_VOLUME(reagents, /singleton/reagent/fuel) >= LETHAL_FUEL_CAPACITY)
 		visible_message(SPAN_DANGER("\The [name] is hit by the [P]!"))
 		log_and_message_admins("shot an improvised [name] explosive", P.firer)
-		log_game("[key_name(P.firer)] shot improvised grenade at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).",ckey=key_name(P.firer))
+		log_game("[key_name(P.firer)] shot improvised grenade at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).")
 	detonate(TRUE)
 	. = ..()
 
@@ -220,10 +220,10 @@
 	detonate(TRUE)
 	. = ..()
 
-/obj/item/reagent_containers/food/drinks/cans/fire_act()
+/obj/item/reagent_containers/food/drinks/cans/fire_act(exposed_temperature, exposed_volume)
 	if(can_light())
 		fuselit = TRUE
-		detonate(FALSE)
+		INVOKE_ASYNC(src, PROC_REF(detonate), FALSE)
 		visible_message(SPAN_WARNING("<b>\The [name]'s fuse catches on fire!</b>"))
 	. = ..()
 
@@ -258,7 +258,6 @@
 /obj/item/reagent_containers/food/drinks/cans/thirteenloko
 	name = "getmore energy can"
 	desc = "An extremely ill-advised combination of excessive caffeine and alcohol. Getmore's most controversial product to date!"
-	icon_state = "thirteen_loko"
 	icon_state = "thirteen_loko"
 	center_of_mass = list("x"=16, "y"=10)
 

@@ -24,6 +24,15 @@
 	temperature = 303.15
 	},
 /area/heph_mining_station/mining)
+"aB" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/machinery/mineral/equipment_vendor,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
 "aE" = (
 /obj/machinery/light{
 	dir = 1
@@ -67,6 +76,9 @@
 	},
 /obj/machinery/door/airlock/service{
 	name = "Crew Quarters";
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -152,6 +164,22 @@
 	temperature = 303.15
 	},
 /area/heph_mining_station/mining)
+"cV" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
 "dl" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -161,14 +189,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/engineering{
-	name = "Engineering"
+	name = "Engineering";
+	req_access = list(216)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
 /area/heph_mining_station)
 "du" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/reinforced{
 	temperature = 303.15
 	},
@@ -340,8 +372,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/medical{
-	name = "Infirmary"
+	name = "Infirmary";
+	req_access = list(216)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -514,6 +548,16 @@
 	temperature = 303.15
 	},
 /area/heph_mining_station/eva)
+"iy" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/table/steel,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
 "iT" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -598,22 +642,19 @@
 	},
 /obj/machinery/conveyor{
 	id = "heph_mining_station";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor{
 	temperature = 303.15
 	},
 /area/heph_mining_station/mining)
 "kb" = (
-/obj/machinery/conveyor{
-	id = "heph_mining_station";
-	layer = 2.9;
-	dir = 8
-	},
 /obj/machinery/mineral/unloading_machine{
 	dir = 8
 	},
@@ -663,9 +704,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/high{
-	dir = 1;
 	name = "north bump";
-	pixel_y = 24;
 	req_access = null
 	},
 /obj/structure/table/rack,
@@ -677,10 +716,10 @@
 /obj/item/device/gps/mining,
 /obj/item/device/gps/mining,
 /obj/item/device/gps/mining,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
+/obj/item/device/radio/hailing,
+/obj/item/device/radio/hailing,
+/obj/item/device/radio/hailing,
+/obj/item/device/radio/hailing,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -693,6 +732,10 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Reactor";
+	dir = 4;
+	req_access = list(216)
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/reinforced{
@@ -715,19 +758,12 @@
 	},
 /area/heph_mining_station/mining)
 "lb" = (
-/obj/machinery/conveyor{
-	id = "heph_mining_station";
-	layer = 2.9;
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/mineral/processing_unit{
 	dir = 8;
 	id = "processing_1"
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 303.15
-	},
+/turf/simulated/floor/plating,
 /area/heph_mining_station/mining)
 "lj" = (
 /obj/structure/plasticflaps/mining{
@@ -735,10 +771,12 @@
 	},
 /obj/machinery/conveyor{
 	id = "heph_mining_station";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -864,6 +902,10 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	name = "Warehouse";
+	dir = 4;
+	req_access = list(216)
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -980,6 +1022,7 @@
 	req_one_access = null;
 	req_access = list(216)
 	},
+/obj/item/cell/high,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -1014,7 +1057,6 @@
 	},
 /obj/machinery/conveyor{
 	id = "heph_mining_station";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1038,7 +1080,11 @@
 	},
 /obj/machinery/door/airlock/security{
 	name = "Equipment Storage";
-	dir = 8
+	dir = 8;
+	req_access = list(216)
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -1108,11 +1154,6 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/conveyor{
-	id = "heph_mining_station";
-	layer = 2.9;
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -1121,7 +1162,7 @@
 	},
 /obj/machinery/mineral/stacking_machine{
 	dir = 8;
-	id = "stacking-2"
+	id = "stacking_2"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -1138,6 +1179,7 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Entry"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -1295,6 +1337,12 @@
 	temperature = 303.15
 	},
 /area/heph_mining_station/medbay)
+"sI" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
 "sO" = (
 /obj/structure/reagent_dispensers/keg/xuizikeg,
 /turf/simulated/floor/tiled/dark{
@@ -1404,7 +1452,6 @@
 	},
 /obj/machinery/conveyor{
 	id = "heph_mining_station";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -1507,13 +1554,18 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
 /area/heph_mining_station/storage)
 "xc" = (
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 24
 	},
@@ -1557,7 +1609,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 8
 	},
-/obj/structure/closet/crate,
+/obj/machinery/mineral/rigpress,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -1607,7 +1659,6 @@
 	},
 /obj/machinery/conveyor{
 	id = "heph_mining_station";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1799,7 +1850,6 @@
 	},
 /obj/machinery/conveyor{
 	id = "heph_mining_station";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1875,7 +1925,6 @@
 "Ec" = (
 /obj/machinery/conveyor{
 	id = "heph_mining_station";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -2181,11 +2230,6 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/obj/machinery/conveyor{
-	id = "heph_mining_station";
-	layer = 2.9;
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
@@ -2193,9 +2237,7 @@
 	dir = 8;
 	id = "processing_2"
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 303.15
-	},
+/turf/simulated/floor/plating,
 /area/heph_mining_station/mining)
 "IJ" = (
 /obj/structure/cable/green{
@@ -2269,7 +2311,6 @@
 "IY" = (
 /obj/machinery/conveyor{
 	id = "heph_mining_station";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -2509,6 +2550,7 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Mess Hall"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -2608,11 +2650,6 @@
 	},
 /area/heph_mining_station/equipmentstorage)
 "PT" = (
-/obj/machinery/conveyor{
-	id = "heph_mining_station";
-	layer = 2.9;
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
@@ -2662,7 +2699,6 @@
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 24
 	},
@@ -2778,8 +2814,13 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
-/obj/item/storage/toolbox/electrical,
-/obj/item/storage/toolbox/mechanical,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints/outpost{
+	pixel_y = 6
+	},
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -2849,7 +2890,6 @@
 /obj/item/ore_detector,
 /obj/item/ore_detector,
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 24
 	},
@@ -2967,11 +3007,6 @@
 	},
 /area/heph_mining_station/medbay)
 "WC" = (
-/obj/machinery/conveyor{
-	id = "heph_mining_station";
-	layer = 2.9;
-	dir = 8
-	},
 /obj/machinery/mineral/unloading_machine{
 	dir = 8
 	},
@@ -2990,8 +3025,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/mining{
-	name = "Processing"
+	name = "Processing";
+	req_access = list(216)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -3081,6 +3118,10 @@
 	},
 /obj/machinery/door/airlock/glass_mining{
 	name = "EVA Storage";
+	dir = 4;
+	req_access = list(216)
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -3334,7 +3375,7 @@ ta
 XC
 RE
 jQ
-RE
+aB
 dQ
 dB
 WT
@@ -3650,7 +3691,7 @@ PZ
 Hy
 Hy
 nI
-Hy
+cV
 Hy
 Gn
 Oo
@@ -3684,12 +3725,12 @@ Xg
 lx
 lx
 Jg
-lx
+iy
 lx
 VJ
-fh
+sI
 jw
-fh
+sI
 Zq
 IJ
 Zq

@@ -2,7 +2,7 @@
 	name = "Vihnmes Wasteland Inn"
 
 	id = "moghes_wasteland_ozeuoi"
-	description = "An outpost of the Clan Ozeuoi"
+	description = "An outpost of the Clan Ozeuoi."
 
 	spawn_weight = 1
 	spawn_cost = 2
@@ -18,6 +18,7 @@
 	requires_power = FALSE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
+	is_outside = OUTSIDE_NO
 	base_turf = /turf/simulated/floor/exoplanet/desert
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "The sound of music and the warmth of a fire fill this place - an oasis of rest in the danger of the Wasteland."
@@ -98,6 +99,7 @@
 		/obj/item/clothing/shoes/footwraps
 	)
 	back = /obj/item/storage/backpack/satchel/leather
+	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
 	r_pocket = /obj/item/reagent_containers/food/drinks/waterbottle
 	l_pocket = /obj/item/storage/wallet/random
 	suit = list(

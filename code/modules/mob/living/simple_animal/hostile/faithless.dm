@@ -11,7 +11,7 @@
 	response_help = "passes through"
 	response_disarm = "shoves"
 	response_harm = "hits"
-	speed = -1
+	speed = 4
 	maxHealth = 80
 	health = 80
 	environment_smash = 2
@@ -32,13 +32,13 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
-	speed = 4
 
 	faction = "faithless"
 
 	flying = TRUE
 
 	psi_pingable = FALSE
+	sample_data = null
 
 /mob/living/simple_animal/hostile/faithless/Allow_Spacemove(var/check_drift = 0)
 	return 1
@@ -64,7 +64,7 @@
 /mob/living/simple_animal/hostile/faithless/cult/cultify()
 	return
 
-/mob/living/simple_animal/hostile/faithless/cult/Life()
+/mob/living/simple_animal/hostile/faithless/cult/Life(seconds_per_tick, times_fired)
 	..()
 	check_horde()
 

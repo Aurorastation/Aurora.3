@@ -115,7 +115,7 @@
 		/obj/item/clothing/glasses/sunglasses/aviator,
 		/obj/item/clothing/glasses/hud/health/aviator,
 		/obj/item/clothing/glasses/regular,
-		/obj/item/clothing/glasses/science,
+		/obj/item/clothing/glasses/safety/goggles/science,
 		/obj/item/clothing/glasses/safety/goggles,
 	)
 	gloves = list(
@@ -149,7 +149,7 @@
 	belt = list(
 		/obj/item/storage/belt/fannypack,
 		/obj/item/storage/belt/utility/full,
-		/obj/item/storage/belt/medical/first_responder/full,
+		/obj/item/storage/belt/medical/paramedic/full,
 		/obj/item/storage/belt/mining/full,
 		/obj/item/storage/belt/security/full/alt,
 		/obj/item/storage/belt/security/full/pistol45,

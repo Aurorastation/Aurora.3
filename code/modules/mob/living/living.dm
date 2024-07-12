@@ -54,123 +54,121 @@ default behaviour is:
 	var/tmp/last_push_notif
 
 /mob/living/Collide(atom/movable/AM)
-	spawn
-		if (now_pushing || !loc)
+	if (now_pushing || !loc)
+		return
+
+	now_pushing = TRUE
+	if (istype(AM, /mob/living))
+		var/mob/living/tmob = AM
+
+		for(var/mob/living/M in range(tmob, 1))
+			if(tmob.pinned.len || ((M.pulling == tmob && ( tmob.restrained() && !( M.restrained() ) && M.stat == 0)) || locate(/obj/item/grab, tmob.grabbed_by.len)) )
+				if (last_push_notif + 0.5 SECONDS <= world.time)
+					to_chat(src, SPAN_WARNING("[tmob] is restrained, you cannot push past"))
+					last_push_notif = world.time
+
+				now_pushing = FALSE
+				return
+			if( tmob.pulling == M && ( M.restrained() && !( tmob.restrained() ) && tmob.stat == 0) )
+				if (last_push_notif + 0.5 SECONDS <= world.time)
+					to_chat(src, SPAN_WARNING("[tmob] is restraining [M], you cannot push past"))
+					last_push_notif = world.time
+
+				now_pushing = FALSE
+				return
+
+		//Leaping mobs just land on the tile, no pushing, no anything.
+		if(status_flags & LEAPING)
+			forceMove(tmob.loc)
+			status_flags &= ~LEAPING
+			now_pushing = FALSE
 			return
 
-		now_pushing = TRUE
-		if (istype(AM, /mob/living))
-			var/mob/living/tmob = AM
-
-			for(var/mob/living/M in range(tmob, 1))
-				if(tmob.pinned.len || ((M.pulling == tmob && ( tmob.restrained() && !( M.restrained() ) && M.stat == 0)) || locate(/obj/item/grab, tmob.grabbed_by.len)) )
-					if (last_push_notif + 0.5 SECONDS <= world.time)
-						to_chat(src, "<span class='warning'>[tmob] is restrained, you cannot push past</span>")
-						last_push_notif = world.time
-
-					now_pushing = FALSE
-					return
-				if( tmob.pulling == M && ( M.restrained() && !( tmob.restrained() ) && tmob.stat == 0) )
-					if (last_push_notif + 0.5 SECONDS <= world.time)
-						to_chat(src, "<span class='warning'>[tmob] is restraining [M], you cannot push past</span>")
-						last_push_notif = world.time
-
-					now_pushing = FALSE
-					return
-
-			//Leaping mobs just land on the tile, no pushing, no anything.
-			if(status_flags & LEAPING)
-				forceMove(tmob.loc)
-				status_flags &= ~LEAPING
-				now_pushing = FALSE
-				return
-
-			if(can_swap_with(tmob)) // mutual brohugs all around!
-				var/turf/tmob_oldloc = get_turf(tmob)
-				var/turf/src_oldloc = get_turf(src)
-				if(pulling?.density)
-					tmob.forceMove(pulling.loc)
-					forceMove(tmob_oldloc)
+		if(can_swap_with(tmob)) // mutual brohugs all around!
+			var/turf/tmob_oldloc = get_turf(tmob)
+			var/turf/src_oldloc = get_turf(src)
+			if(pulling?.density)
+				tmob.forceMove(pulling.loc)
+				forceMove(tmob_oldloc)
+				pulling.forceMove(src_oldloc)
+			else if(tmob.pulling?.density)
+				forceMove(tmob.pulling.loc)
+				tmob.forceMove(src_oldloc)
+				tmob.pulling.forceMove(tmob_oldloc)
+			else
+				forceMove(tmob_oldloc)
+				if(pulling)
 					pulling.forceMove(src_oldloc)
-				else if(tmob.pulling?.density)
-					forceMove(tmob.pulling.loc)
-					tmob.forceMove(src_oldloc)
+				tmob.forceMove(src_oldloc)
+				if(tmob.pulling)
 					tmob.pulling.forceMove(tmob_oldloc)
-				else
-					forceMove(tmob_oldloc)
-					if(pulling)
-						pulling.forceMove(src_oldloc)
-					tmob.forceMove(src_oldloc)
-					if(tmob.pulling)
-						tmob.pulling.forceMove(tmob_oldloc)
-				for(var/obj/item/grab/G in list(l_hand, r_hand))
-					G.affecting.forceMove(loc)
-				for(var/obj/item/grab/G in list(tmob.l_hand, tmob.r_hand))
-					G.affecting.forceMove(tmob.loc)
+			for(var/obj/item/grab/G in list(l_hand, r_hand))
+				G.affecting.forceMove(loc)
+			for(var/obj/item/grab/G in list(tmob.l_hand, tmob.r_hand))
+				G.affecting.forceMove(tmob.loc)
+			now_pushing = FALSE
+			for(var/mob/living/carbon/slime/slime in view(2, tmob))
+				if(slime.victim == tmob)
+					slime.UpdateFeed()
+			return
+
+		if(!can_move_mob(tmob, 0, 0))
+			now_pushing = FALSE
+			return
+
+		if(a_intent == I_HELP || src.restrained())
+			now_pushing = FALSE
+			return
+
+		if(istype(tmob, /mob/living/carbon/human) && (tmob.mutations & FAT))
+			if(prob(40) && !(mutations & FAT))
+				to_chat(src, SPAN_DANGER("You fail to push [tmob]'s fat ass out of the way."))
 				now_pushing = FALSE
-				for(var/mob/living/carbon/slime/slime in view(2, tmob))
-					if(slime.victim == tmob)
-						slime.UpdateFeed()
 				return
 
-			if(!can_move_mob(tmob, 0, 0))
+		if(istype(tmob.r_hand, /obj/item/shield/riot))
+			if(prob(99))
 				now_pushing = FALSE
 				return
 
-			if(a_intent == I_HELP || src.restrained())
+		if(istype(tmob.l_hand, /obj/item/shield/riot))
+			if(prob(99))
 				now_pushing = FALSE
 				return
 
-			if(istype(tmob, /mob/living/carbon/human) && (tmob.mutations & FAT))
-				if(prob(40) && !(mutations & FAT))
-					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
+		if(!(tmob.status_flags & CANPUSH))
+			now_pushing = FALSE
+			return
+
+		tmob.LAssailant = WEAKREF(src)
+
+	now_pushing = FALSE
+	. = ..()
+	if (!istype(AM, /atom/movable))
+		return
+	if (!now_pushing)
+		now_pushing = TRUE
+
+		if (!AM.anchored)
+			if(isobj(AM))
+				var/obj/O = AM
+				if ((can_pull_size == 0) || (can_pull_size < O.w_class))
 					now_pushing = FALSE
 					return
 
-			if(istype(tmob.r_hand, /obj/item/shield/riot))
-				if(prob(99))
+			var/t = get_dir(src, AM)
+			if (istype(AM, /obj/structure/window))
+				for(var/obj/structure/window/win in get_step(AM,t))
 					now_pushing = FALSE
 					return
 
-			if(istype(tmob.l_hand, /obj/item/shield/riot))
-				if(prob(99))
-					now_pushing = FALSE
-					return
-
-			if(!(tmob.status_flags & CANPUSH))
-				now_pushing = FALSE
-				return
-
-			tmob.LAssailant = WEAKREF(src)
+			step(AM, t)
+			if(ishuman(AM) && AM:grabbed_by)
+				for(var/obj/item/grab/G in AM:grabbed_by)
+					step(G:assailant, get_dir(G:assailant, AM))
+					G.adjust_position()
 
 		now_pushing = FALSE
-		spawn(0)
-			. = ..()
-			if (!istype(AM, /atom/movable))
-				return
-			if (!now_pushing)
-				now_pushing = TRUE
-
-				if (!AM.anchored)
-					if(isobj(AM))
-						var/obj/O = AM
-						if ((can_pull_size == 0) || (can_pull_size < O.w_class))
-							now_pushing = FALSE
-							return
-
-					var/t = get_dir(src, AM)
-					if (istype(AM, /obj/structure/window))
-						for(var/obj/structure/window/win in get_step(AM,t))
-							now_pushing = FALSE
-							return
-
-					step(AM, t)
-					if(ishuman(AM) && AM:grabbed_by)
-						for(var/obj/item/grab/G in AM:grabbed_by)
-							step(G:assailant, get_dir(G:assailant, AM))
-							G.adjust_position()
-
-				now_pushing = FALSE
 
 /**
  * Checks if two mobs can swap with each other based on the density
@@ -224,9 +222,9 @@ default behaviour is:
 	set hidden = 1
 	if (health < maxHealth / 3)
 		adjustBrainLoss(health + maxHealth * 2) // Deal 2x health in BrainLoss damage, as before but variable.
-		to_chat(src, "<span class='notice'>You have given up life and succumbed to death.</span>")
+		to_chat(src, SPAN_NOTICE("You have given up life and succumbed to death."))
 	else
-		to_chat(src, "<span class='warning'>You are not injured enough to succumb to death!</span>")
+		to_chat(src, SPAN_WARNING("You are not injured enough to succumb to death!"))
 
 
 /mob/living/proc/updatehealth()
@@ -609,7 +607,7 @@ default behaviour is:
 							var/obj/item/grab/G = pick(M.grabbed_by)
 							if (istype(G, /obj/item/grab))
 								for(var/mob/O in viewers(M, null))
-									O.show_message(text("<span class='warning'>[] has been pulled from []'s grip by []</span>", G.affecting, G.assailant, src), 1)
+									O.show_message(SPAN_WARNING("[G.affecting] has been pulled from [G.assailant]'s grip by [src]"), 1)
 								//G = null
 								qdel(G)
 						else
@@ -631,11 +629,11 @@ default behaviour is:
 								//pull damage with injured people
 									if(prob(25))
 										M.adjustBruteLoss(1)
-										visible_message("<span class='danger'>\The [M]'s [M.isSynthetic() ? "state worsens": "wounds open more"] from being dragged!</span>")
+										visible_message(SPAN_DANGER("\The [M]'s [M.isSynthetic() ? "state worsens": "wounds open more"] from being dragged!"))
 								if(M.pull_damage())
 									if(prob(25))
 										M.adjustBruteLoss(2)
-										visible_message("<span class='danger'>\The [M]'s [M.isSynthetic() ? "state" : "wounds"] worsen terribly from being dragged!</span>")
+										visible_message(SPAN_DANGER("\The [M]'s [M.isSynthetic() ? "state" : "wounds"] worsen terribly from being dragged!"))
 										var/turf/location = M.loc
 										if (istype(location, /turf/simulated))
 											location.add_blood(M)
@@ -704,8 +702,8 @@ default behaviour is:
 
 	if(istype(M))
 		M.drop_from_inventory(H)
-		to_chat(M, "<span class='warning'>\The [H] wriggles out of your grip!</span>")
-		to_chat(src, "<span class='warning'>You wriggle out of \the [M]'s grip!</span>")
+		to_chat(M, SPAN_WARNING("\The [H] wriggles out of your grip!"))
+		to_chat(src, SPAN_WARNING("You wriggle out of \the [M]'s grip!"))
 
 		// Update whether or not this mob needs to pass emotes to contents.
 		for(var/atom/A in M.contents)
@@ -717,10 +715,10 @@ default behaviour is:
 		var/obj/item/clothing/accessory/holster/holster = H.loc
 		if(holster.holstered == H)
 			holster.clear_holster()
-		to_chat(src, "<span class='warning'>You extricate yourself from \the [holster].</span>")
+		to_chat(src, SPAN_WARNING("You extricate yourself from \the [holster]."))
 		H.forceMove(get_turf(H))
 	else if(istype(H.loc,/obj/item))
-		to_chat(src, "<span class='warning'>You struggle free of \the [H.loc].</span>")
+		to_chat(src, SPAN_WARNING("You struggle free of \the [H.loc]."))
 		H.forceMove(get_turf(H))
 
 /mob/living/proc/escape_buckle()
@@ -734,7 +732,7 @@ default behaviour is:
 		return
 	last_resist = world.time
 	if(stunned > 10)
-		to_chat(src, "<span class='notice'>You can't move...</span>")
+		to_chat(src, SPAN_NOTICE("You can't move..."))
 		return
 	var/resisting = 0
 	for(var/obj/O in requests)
@@ -788,7 +786,7 @@ default behaviour is:
 		return
 	last_special = world.time
 	resting = !resting
-	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"].</span>")
+	to_chat(src, SPAN_NOTICE("You are now [resting ? "resting" : "getting up"]."))
 	update_canmove()
 	update_icon()
 
@@ -835,7 +833,7 @@ default behaviour is:
 					inertia_dir = 1
 				else if(y >= world.maxy -TRANSITIONEDGE)
 					inertia_dir = 2
-				to_chat(src, "<span class='warning'>Something you are carrying is preventing you from leaving.</span>")
+				to_chat(src, SPAN_WARNING("Something you are carrying is preventing you from leaving."))
 				return
 
 	..()
@@ -872,10 +870,10 @@ default behaviour is:
 	if(!..())
 		return 0
 	if(!possession_candidate)
-		to_chat(possessor, "<span class='warning'>That animal cannot be possessed.</span>")
+		to_chat(possessor, SPAN_WARNING("That animal cannot be possessed."))
 		return 0
 	if(jobban_isbanned(possessor, "Animal"))
-		to_chat(possessor, "<span class='warning'>You are banned from animal roles.</span>")
+		to_chat(possessor, SPAN_WARNING("You are banned from animal roles."))
 		return 0
 	if(!possessor.MayRespawn(1,ANIMAL))
 		return 0
@@ -887,25 +885,25 @@ default behaviour is:
 		return 0
 
 	if(src.ckey || src.client)
-		to_chat(possessor, "<span class='warning'>\The [src] already has a player.</span>")
+		to_chat(possessor, SPAN_WARNING("\The [src] already has a player."))
 		return 0
 
 	message_admins("<span class='adminnotice'>[key_name_admin(possessor)] has taken control of \the [src].</span>")
-	log_admin("[key_name(possessor)] took control of \the [src].",admin_key=key_name(possessor))
+	log_admin("[key_name(possessor)] took control of \the [src].")
 	src.ckey = possessor.ckey
 	qdel(possessor)
 
 	if(round_is_spooky(6)) // Six or more active cultists.
-		to_chat(src, "<span class='notice'>You reach out with tendrils of ectoplasm and invade the mind of \the [src]...</span>")
+		to_chat(src, SPAN_NOTICE("You reach out with tendrils of ectoplasm and invade the mind of \the [src]..."))
 		to_chat(src, "<b>You have assumed direct control of \the [src].</b>")
-		to_chat(src, "<span class='notice'>Due to the spookiness of the round, you have taken control of the poor animal as an invading, possessing spirit - roleplay accordingly.</span>")
+		to_chat(src, SPAN_NOTICE("Due to the spookiness of the round, you have taken control of the poor animal as an invading, possessing spirit - roleplay accordingly."))
 		src.universal_speak = 1
 		src.universal_understand = 1
 		//src.cultify() // Maybe another time.
 		return
 
 	to_chat(src, "<b>You are now \the [src]!</b>")
-	to_chat(src, "<span class='notice'>Remember to stay in character for a mob of this type!</span>")
+	to_chat(src, SPAN_NOTICE("Remember to stay in character for a mob of this type!"))
 	return 1
 
 /mob/living/Initialize()

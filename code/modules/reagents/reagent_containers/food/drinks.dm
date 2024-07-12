@@ -22,6 +22,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	volume = 50
 	var/shaken = 0
 	var/drink_flags
+	possible_transfer_amounts = list(1, 2, 3, 4, 5, 10, 15, 25, 30)
 
 /obj/item/reagent_containers/food/drinks/Initialize()
 	. = ..()
@@ -66,7 +67,10 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/reagent_containers/food/drinks/proc/boom(mob/user as mob)
-	user.visible_message("<span class='danger'>\The [src] explodes all over [user] as they open it!</span>","<span class='danger'>\The [src] explodes all over you as you open it!</span>","You can hear a soda can explode.")
+	user.visible_message(SPAN_DANGER("\The [src] explodes all over [user] as they open it!"),
+							SPAN_DANGER("\The [src] explodes all over you as you open it!"),
+							"You can hear a soda can explode.")
+
 	playsound(loc,'sound/items/Soda_Burst.ogg', rand(20,50), 1)
 	reagents.clear_reagents()
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
@@ -79,36 +83,36 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 
 /obj/item/reagent_containers/food/drinks/standard_feed_mob(var/mob/user, var/mob/target)
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You need to open \the [src]!"))
 		return 1
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target)
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You need to open \the [src]!"))
 		return 1
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/standard_pour_into(var/mob/user, var/atom/target)
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You need to open \the [src]!"))
 		return 1
 	return ..()
 
-/obj/item/reagent_containers/food/drinks/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+/obj/item/reagent_containers/food/drinks/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended = FALSE)
 	. = ..()
 	if (distance > 1)
 		return
 	if(!reagents || reagents.total_volume == 0)
-		. += "<span class='notice'>\The [src] is empty!</span>"
+		. += SPAN_NOTICE("\The [src] is empty!")
 	else if (reagents.total_volume <= volume * 0.25)
-		. += "<span class='notice'>\The [src] is almost empty!</span>"
+		. += SPAN_NOTICE("\The [src] is almost empty!")
 	else if (reagents.total_volume <= volume * 0.66)
-		. += "<span class='notice'>\The [src] is half full!</span>"
+		. += SPAN_NOTICE("\The [src] is half full!")
 	else if (reagents.total_volume <= volume * 0.90)
-		. += "<span class='notice'>\The [src] is almost full!</span>"
+		. += SPAN_NOTICE("\The [src] is almost full!")
 	else
-		. += "<span class='notice'>\The [src] is full!</span>"
+		. += SPAN_NOTICE("\The [src] is full!")
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -271,6 +275,13 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	volume = 100
 	reagents_to_add = list(/singleton/reagent/water = 100)
 
+/obj/item/reagent_containers/food/drinks/waterbottle/sedantis_water
+	name = "bottle of Sedantis Water"
+	desc = "Wow! It's water! From Sedantis! The Court of Queens' private reserve, it's 100% safe to drink."
+	desc_extended = "Sedantis Water is a brand of purified bottled water. According to marketing materials, Sedantis Water comes from the artesian aquifer Klox Vitu found in the Veii'kt Plate in Sedantis. \
+	It was hailed by the Hiveships and preserved for over 2000 years. A tiny disclaimer informs that each bottle is actually purified municipal water with 'droplets' of the Klox Vitu reserve."
+	icon_state = "sedantis_water"
+
 /obj/item/reagent_containers/food/drinks/sillycup
 	name = "paper cup"
 	desc = "A paper water cup."
@@ -295,6 +306,26 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	pickup_sound = 'sound/items/pickup/papercup.ogg'
 	possible_transfer_amounts = null
 	volume = 30
+	/**
+	 * Details written on the cup, a la IRL coffee places
+	 */
+	var/list/details = list("Customer" = null, "Order" = null)
+
+/obj/item/reagent_containers/food/drinks/takeaway_cup_idris/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ispen() && !use_check_and_message(user))
+		var/choice = tgui_input_list(user, "Which detail do you want to edit?", "Detail Editor", list("Customer", "Order"))
+		switch(choice)
+			if("Customer")
+				details["Customer"] = sanitize(tgui_input_text(user, "What is the customer's name?", "Enter Customer Name"))
+			if("Order")
+				details["Order"] = sanitize(tgui_input_text(user, "What is the ordered drink?", "Enter Ordered Drink"))
+		return
+	return ..()
+
+/obj/item/reagent_containers/food/drinks/takeaway_cup_idris/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
+	. = ..()
+	. += "Order: [details["Order"]]"
+	. += "For: [details["Customer"]]"
 
 //////////////////////////drinkingglass and shaker//
 //Note by Darem: This code handles the mixing of drinks. New drinks go in three places: In Chemistry-Reagents.dm (for the drink

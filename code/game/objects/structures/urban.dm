@@ -168,7 +168,7 @@
 		playsound(src.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 		to_chat(user, "You forcibly relocate the manhole, hopefully in the right way.")
 	if(!open)
-		visible_message("<span class='warning'>A horrid smell erupts from the abyss of the manhole, not one any soul should inhale. Some mistakes were made.</span>")
+		visible_message(SPAN_WARNING("A horrid smell erupts from the abyss of the manhole, not one any soul should inhale. Some mistakes were made."))
 		icon_state = "manhole_open"
 		desc = "This looks pretty dangerous, stinks horribly, and doesn't have a ladder inside. Watch out!"
 		open = 1
@@ -176,7 +176,7 @@
 		turf.is_hole = TRUE
 		return
 	if(open)
-		visible_message("<span class='warning'>The manhole clunks and seals back into place, safely burying our problems underground for someone else later.</span>")
+		visible_message(SPAN_WARNING("The manhole clunks and seals back into place, safely burying our problems underground for someone else later."))
 		icon_state = "manhole_closed"
 		desc = "It looks recently opened and sloppily closed."
 		open = 0
@@ -265,7 +265,7 @@
 /obj/structure/rod_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover,/obj/item/projectile))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE
@@ -317,7 +317,7 @@
 /obj/structure/road_barrier/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover,/obj/item/projectile))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE
@@ -356,7 +356,7 @@
 		return prob(35)
 	if(isliving(mover))
 		return FALSE
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return TRUE
 	return FALSE
 
@@ -382,7 +382,7 @@
 /obj/structure/rope_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover,/obj/item/projectile))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE

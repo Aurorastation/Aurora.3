@@ -42,9 +42,8 @@
 		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.1
-	vision_restriction = 0
-	slowdown = 4
 	vision_restriction = TINT_NONE
+	slowdown = 4
 	glove_type = /obj/item/clothing/gloves/powerfist
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
@@ -188,11 +187,10 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_RESISTANT
 	)
-	siemens_coefficient = 0.1
+	siemens_coefficient = 0
 	vision_restriction = 0
 	slowdown = 2
 	offline_slowdown = 3
-	siemens_coefficient = 0
 
 	species_restricted = list(BODYTYPE_TAJARA)
 

@@ -147,7 +147,8 @@
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot = 10,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup = 10,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 4,
-		/obj/item/reagent_containers/glass/beaker/pitcher = 4
+		/obj/item/reagent_containers/glass/beaker/pitcher = 4,
+		/obj/item/storage/box/fancy/vkrexi_swollen_organ = 2
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/tea = 10
@@ -539,6 +540,7 @@
 		/obj/item/storage/chewables/tobacco/fine = 5,
 		/obj/item/storage/chewables/tobacco/federation = 2,
 		/obj/item/storage/chewables/tobacco/dyn = 2,
+		/obj/item/storage/chewables/tobacco/koko = 2,
 		/obj/item/storage/chewables/oracle = 4,
 		/obj/item/storage/box/fancy/chewables/tobacco/nico = 3,
 		/obj/item/storage/cigfilters = 6,
@@ -588,6 +590,7 @@
 		/obj/item/storage/chewables/tobacco/dyn = 85,
 		/obj/item/storage/box/fancy/chewables/tobacco/nico = 91,
 		/obj/item/storage/chewables/oracle = 76,
+		/obj/item/storage/chewables/tobacco/koko = 86,
 		/obj/item/storage/box/fancy/matches = 12,
 		/obj/item/flame/lighter/random = 12,
 		/obj/item/storage/cigfilters = 28,
@@ -1376,7 +1379,8 @@
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/lemonlime = 5,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi = 5,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz = 5
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz = 5,
+		/obj/item/reagent_containers/food/drinks/waterbottle/sedantis_water = 5
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm = 5
@@ -1396,7 +1400,8 @@
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/lemonlime = 29,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi = 29,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn = 29,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz = 29
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz = 29,
+		/obj/item/reagent_containers/food/drinks/waterbottle/sedantis_water = 40
 	)
 	idle_power_usage = 211
 	temperature_setting = -1

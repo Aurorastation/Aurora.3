@@ -51,6 +51,7 @@
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	smart_melee = FALSE
+	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")
 
 /mob/living/simple_animal/hostile/carp/update_icon()
 	..()
@@ -67,7 +68,7 @@
 	stop_automated_movement = 1
 	if(istype(target_mob, /obj/effect/energy_field) && !QDELETED(target_mob) && (target_mob in targets))
 		change_stance(HOSTILE_STANCE_ATTACKING)
-		SSmove_manager.move_to(src, target_mob, 1, move_to_delay)
+		GLOB.move_manager.move_to(src, target_mob, 1, move_to_delay)
 		return 1
 	..()
 
@@ -86,7 +87,7 @@
 	if(istype(target_mob, /obj/effect/energy_field))
 		var/obj/effect/energy_field/e = target_mob
 		e.Stress(rand(1,2))
-		visible_message("<span class='danger'>\the [src] bites \the [e]!</span>")
+		visible_message(SPAN_DANGER("\the [src] bites \the [e]!"))
 		src.do_attack_animation(e)
 		return e
 
@@ -132,6 +133,7 @@
 
 	melee_damage_lower = 20
 	melee_damage_upper = 25
+	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures", "Tissue sample contains high muscle content")
 
 /mob/living/simple_animal/hostile/carp/shark/reaver
 	name = "reaver"
@@ -204,6 +206,7 @@
 
 	melee_damage_lower = 15
 	melee_damage_upper = 15
+	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures", "Intracellular synthesis of volatile compounds detected")
 
 	var/has_exploded = FALSE
 
@@ -294,3 +297,4 @@
 
 	flying = TRUE
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	sample_data = list("Cellular structure shows adaptation for survival in vacuum", "Genetic biomarkers identified linked with agressiveness", "Tissue sample contains micro-gas release structures")

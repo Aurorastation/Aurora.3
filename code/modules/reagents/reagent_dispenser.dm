@@ -25,7 +25,7 @@
 	. = ..()
 	if(distance > 2)
 		return
-	. += "<span class='notice'>It contains [reagents.total_volume] units of reagents.</span>"
+	. += SPAN_NOTICE("It contains [reagents.total_volume] units of reagents.")
 
 /obj/structure/reagent_dispensers/verb/set_APTFT() //set amount_per_transfer_from_this
 	set name = "Set transfer amount"
@@ -61,7 +61,7 @@
 				if(is_open_container())
 					RG.standard_pour_into(user,src)
 				else
-					to_chat(user,"<span class='notice'>The inlet cap on \the [src] is wrenched on tight!</span>")
+					to_chat(user,SPAN_NOTICE("The inlet cap on \the [src] is wrenched on tight!"))
 		return
 
 	if (attacking_item.iswrench())
@@ -69,12 +69,12 @@
 			to_chat(user, SPAN_WARNING("A strange force prevents you from doing this.")) //there is no way to justify this icly
 			return
 		if(can_tamper && user.a_intent == I_HURT)
-			user.visible_message("<span class='warning'>\The [user] wrenches \the [src]'s faucet [is_leaking ? "closed" : "open"].</span>",
-									"<span class='warning'>You wrench \the [src]'s faucet [is_leaking ? "closed" : "open"]</span>")
+			user.visible_message(SPAN_WARNING("\The [user] wrenches \the [src]'s faucet [is_leaking ? "closed" : "open"]."),
+									SPAN_WARNING("You wrench \the [src]'s faucet [is_leaking ? "closed" : "open"]"))
 			is_leaking = !is_leaking
 			if (is_leaking)
 				message_admins("[key_name_admin(user)] wrench opened \the [src] at [loc.loc.name] ([loc.x],[loc.y],[loc.z]), leaking reagents. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
-				log_game("[key_name(user)] opened \the [src] at [loc.loc.name] ([loc.x],[loc.y],[loc.z]), leaking reagents.",ckey=key_name(user))
+				log_game("[key_name(user)] opened \the [src] at [loc.loc.name] ([loc.x],[loc.y],[loc.z]), leaking reagents.")
 				START_PROCESSING(SSprocessing,src)
 
 		else if(accept_any_reagent)
@@ -136,15 +136,17 @@
 	if(distance > 2)
 		return
 	if (is_leaking)
-		. += "<span class='warning'>Fuel faucet is wrenched open, leaking the fuel!</span>"
+		. += SPAN_WARNING("Fuel faucet is wrenched open, leaking the fuel!")
 	if(rig)
-		. += "<span class='notice'>There is some kind of device rigged to the tank.</span>"
+		. += SPAN_NOTICE("There is some kind of device rigged to the tank.")
 
 /obj/structure/reagent_dispensers/fueltank/attack_hand(mob/user)
 	if (rig)
 		user.visible_message("[user] begins to detach [rig] from \the [src].", "You begin to detach [rig] from \the [src]")
 		if(do_after(user, 20))
-			user.visible_message("<span class='notice'>[user] detaches [rig] from \the [src].</span>", "<span class='notice'>You detach [rig] from \the [src]</span>")
+			user.visible_message(SPAN_NOTICE("[user] detaches [rig] from \the [src]."),
+									SPAN_NOTICE("You detach [rig] from \the [src]"))
+
 			rig.forceMove(get_turf(user))
 			rig = null
 			overlays = new/list()
@@ -161,16 +163,17 @@
 		overlays = new/list()
 	if (istype(attacking_item,/obj/item/device/assembly_holder))
 		if (rig)
-			to_chat(user, "<span class='warning'>There is another device in the way.</span>")
+			to_chat(user, SPAN_WARNING("There is another device in the way."))
 			return ..()
 		user.visible_message("[user] begins rigging [attacking_item] to \the [src].", "You begin rigging [attacking_item] to \the [src]")
 		if(do_after(user, 20))
-			user.visible_message("<span class='notice'>[user] rigs [attacking_item] to \the [src].</span>", "<span class='notice'>You rig [attacking_item] to \the [src]</span>")
+			user.visible_message(SPAN_NOTICE("[user] rigs [attacking_item] to \the [src]."),
+									SPAN_NOTICE("You rig [attacking_item] to \the [src]"))
 
 			var/obj/item/device/assembly_holder/H = attacking_item
 			if (istype(H.a_left,/obj/item/device/assembly/igniter) || istype(H.a_right,/obj/item/device/assembly/igniter))
 				message_admins("[key_name_admin(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
-				log_game("[key_name(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion.",ckey=key_name(user))
+				log_game("[key_name(user)] rigged fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]) for explosion.")
 
 			rig = attacking_item
 			user.drop_from_inventory(attacking_item,src)
@@ -198,7 +201,7 @@
 	if(Proj.get_structure_damage())
 		if(istype(Proj.firer))
 			log_and_message_admins("shot a welding tank", Proj.firer)
-			log_game("[key_name(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).",ckey=key_name(Proj.firer))
+			log_game("[key_name(Proj.firer)] shot fueltank at [loc.loc.name] ([loc.x],[loc.y],[loc.z]).")
 
 		if(!istype(Proj ,/obj/item/projectile/beam/laser_tag) && !istype(Proj ,/obj/item/projectile/beam/practice) && !istype(Proj ,/obj/item/projectile/kinetic))
 			ex_act(2.0)
@@ -217,7 +220,7 @@
 
 	..()
 
-/obj/structure/reagent_dispensers/fueltank/fire_act(datum/gas_mixture/air, temperature, volume)
+/obj/structure/reagent_dispensers/fueltank/fire_act(temperature, volume)
 	if (is_leaking)
 		ex_act(2.0)
 	else if (temperature > T0C+500)

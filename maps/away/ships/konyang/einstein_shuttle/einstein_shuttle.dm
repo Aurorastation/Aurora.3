@@ -174,5 +174,4 @@
 	accessory = /obj/item/clothing/accessory/tie/black
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack/satchel/leather
-	accessory = null
 	belt = null

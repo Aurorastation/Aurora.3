@@ -102,14 +102,25 @@
 
 /obj/item/organ/external/head/get_additional_images(var/mob/living/carbon/human/H)
 	..()
+
 	if(!H.mind)
 		return mob_overlays
+
+	var/list/bonus_overlays = list()
+
+	var/obj/item/organ/internal/eyes/eyes = H.get_eyes()
+	if(eyes && BP_IS_ROBOTIC(eyes))
+		var/datum/robolimb/robolimb_data = GLOB.all_robolimbs[eyes.model]
+		if(robolimb_data.emissive)
+			var/mutable_appearance/return_image = emissive_appearance(H.species.eyes_icons, H.species.eyes, MOB_EMISSIVE_LAYER)
+			bonus_overlays += return_image
+
 	var/datum/vampire/vampire = H.mind.antag_datums[MODE_VAMPIRE]
 	if(vampire && (vampire.status & VAMP_FRENZIED))
-		var/mutable_appearance/return_image = emissive_appearance(H.species.eyes_icons, H, "[H.species.eyes]_frenzy")
-		mob_overlays += return_image
+		var/mutable_appearance/return_image = emissive_appearance(H.species.eyes_icons, "[H.species.eyes]_frenzy")
+		bonus_overlays += return_image
 
-	return mob_overlays
+	return mob_overlays + bonus_overlays
 
 /obj/item/organ/external/proc/apply_markings(restrict_to_robotic = FALSE)
 	if (!cached_markings)
@@ -172,7 +183,7 @@
 				mob_icon.Blend(rgb(s_tone, s_tone, s_tone), ICON_ADD)
 			else
 				mob_icon.Blend(rgb(-s_tone, -s_tone, -s_tone), ICON_SUBTRACT)
-		apply_markings(restrict_to_robotic = TRUE)
+		apply_markings(restrict_to_robotic = (robotize_type != PROSTHETIC_SYNTHSKIN))
 		get_internal_organs_overlay()
 	else
 		if(!dna)

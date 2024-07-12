@@ -608,6 +608,12 @@
 	pixel_y = -8
 	},
 /obj/machinery/power/apc/empty/north,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "bW" = (
@@ -770,9 +776,8 @@
 /obj/effect/landmark/entry_point/east{
 	name = "port, solars central"
 	},
-/turf/simulated/floor/airless{
-	icon_state = "dmg2"
-	},
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/airless,
 /area/shuttle/yacht/engine)
 "cq" = (
 /obj/structure/cable{
@@ -790,9 +795,8 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/turf/simulated/floor/airless{
-	icon_state = "dmg2"
-	},
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/airless,
 /area/shuttle/yacht/engine)
 "cr" = (
 /obj/structure/cable{
@@ -813,9 +817,8 @@
 /obj/item/storage/toolbox/syndicate{
 	name = "black toolbox"
 	},
-/turf/simulated/floor/airless{
-	icon_state = "dmg2"
-	},
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/airless,
 /area/shuttle/yacht/engine)
 "cs" = (
 /obj/structure/cable{

@@ -205,7 +205,7 @@
 
 /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
 	if(movement_disabled && usr.ckey != movement_disabled_exception)
-		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
+		to_chat(usr, SPAN_WARNING("Movement is admin-disabled.")) //This is to identify lag problems)
 		return
 
 	..()
@@ -251,7 +251,7 @@ var/const/enterloopsanity = 100
 
 /turf/Entered(atom/movable/arrived, atom/old_loc)
 	if(movement_disabled)
-		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
+		to_chat(usr, SPAN_WARNING("Movement is admin-disabled.")) //This is to identify lag problems)
 		return
 
 	ASSERT(istype(arrived))
@@ -561,9 +561,12 @@ var/const/enterloopsanity = 100
 /turf/proc/is_outside()
 
 	// Can't rain inside or through solid walls.
-	// TODO: dense structures like full windows should probably also block weather.
 	if(density)
 		return OUTSIDE_NO
+
+	for(var/obj/structure/S in src) // Dense structures like full windows should probably also block weather.
+		if(S.density || istype(S, /obj/structure/component/tent_canvas))
+			return OUTSIDE_NO
 
 	if(last_outside_check != OUTSIDE_UNCERTAIN)
 		return last_outside_check

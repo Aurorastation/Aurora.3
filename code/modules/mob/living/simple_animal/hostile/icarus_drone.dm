@@ -59,6 +59,7 @@
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	psi_pingable = FALSE
+	sample_data = null
 
 /mob/living/simple_animal/hostile/icarus_drone/Initialize()
 	. = ..()
@@ -152,7 +153,7 @@
 	return TRUE
 
 //self repair systems have a chance to bring the drone back to life
-/mob/living/simple_animal/hostile/icarus_drone/Life()
+/mob/living/simple_animal/hostile/icarus_drone/Life(seconds_per_tick, times_fired)
 	//emps and lots of damage can temporarily shut us down
 	if(disabled > 0)
 		set_stat(UNCONSCIOUS)
@@ -207,7 +208,7 @@
 			else
 				visible_message(SPAN_NOTICE("\The [src] suddenly lies still and quiet."))
 			disabled = rand(150, 600)
-			SSmove_manager.stop_looping(src)
+			GLOB.move_manager.stop_looping(src)
 
 	if(exploding && prob(20))
 		if(prob(50))
@@ -220,7 +221,7 @@
 		exploding = TRUE
 		set_stat(UNCONSCIOUS)
 		wander = 1
-		SSmove_manager.stop_looping(src)
+		GLOB.move_manager.stop_looping(src)
 		spawn(rand(50, 150))
 			if(!disabled && exploding)
 				explosion(get_turf(src), 0, 1, 4, 7)
@@ -233,7 +234,7 @@
 	health -= rand(3, 15) * (severity + 1)
 	disabled = rand(150, 600)
 	hostile_drone = FALSE
-	SSmove_manager.stop_looping(src)
+	GLOB.move_manager.stop_looping(src)
 
 /mob/living/simple_animal/hostile/icarus_drone/death()
 	..(null, "suddenly breaks apart.")

@@ -148,7 +148,7 @@
 	if(confirmed)
 		confirmed = 0
 		trigger_event(event, recorded_message, user)
-		log_game("[key_name(event_triggered_by)] triggered and [key_name(event_confirmed_by)] confirmed event [event]",ckey=key_name(event_triggered_by),ckey_target=key_name(event_confirmed_by))
+		log_game("[key_name(event_triggered_by)] triggered and [key_name(event_confirmed_by)] confirmed event [event]")
 		message_admins("[key_name_admin(event_triggered_by)] triggered and [key_name_admin(event_confirmed_by)] confirmed event [event]", 1)
 	reset()
 
@@ -174,7 +174,7 @@
 			feedback_inc("alert_keycard_auth_red",1)
 		if("Distress Beacon")
 			if(is_ert_blocked())
-				to_chat(usr, "<span class='warning'>The distress beacon is disabled!</span>")
+				to_chat(usr, SPAN_WARNING("The distress beacon is disabled!"))
 				return
 			if(linked)
 				if(linked.has_called_distress_beacon)

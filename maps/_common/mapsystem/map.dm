@@ -123,6 +123,17 @@
 	var/allow_borgs_to_leave = FALSE //this controls if borgs can leave the station or ship without exploding
 	var/area/warehouse_basearea //this controls where the cargospawner tries to populate warehouse items
 
+	/**
+	 * A list of the shuttles on this map, used by the Shuttle Manifest program to populate itself.
+	 * Formatted with the shuttle name as an index, followed by a list containing the color and icon to be used for the shuttle's drop down
+	 * On the manifest. i.e. "SCCV Intrepid" = list("color" = "purple", "icon" = "compass")
+	 */
+	var/list/shuttle_manifests = list()
+	/**
+	 * A list of the missions shuttles can select for their assignment in the Shuttle Manifest program.
+	 */
+	var/list/shuttle_missions = list()
+
 /datum/map/New()
 	if(!map_levels)
 		map_levels = station_levels.Copy()
@@ -306,6 +317,14 @@
 
 	for (var/datum/map_template/template in selected)
 		if (template.load_new_z())
+			// do away site exoplanet generation, if needed
+			var/datum/map_template/ruin/away_site/away_site = template
+			if(istype(away_site) && away_site.exoplanet_themes)
+				for(var/marker_turf_type in away_site.exoplanet_themes)
+					var/datum/exoplanet_theme/exoplanet_theme_type = away_site.exoplanet_themes[marker_turf_type]
+					var/datum/exoplanet_theme/exoplanet_theme = new exoplanet_theme_type()
+					exoplanet_theme.generate_map(world.maxz-1, 1, 1, 254, 254, marker_turf_type)
+			// fin
 			log_admin("Loaded away site [template]!")
 		else
 			log_admin("Failed loading away site [template]!")
