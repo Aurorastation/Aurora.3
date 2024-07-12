@@ -53,7 +53,7 @@ fn to_grid_and_back() {
 
         let dict_map_original = dmmtools::dmm::Map::from_file(&path).unwrap();
         let grid_map = crate::mapmanip::core::to_grid_map(&dict_map_original);
-        let dict_map_again = crate::mapmanip::core::to_dict_map(&grid_map);
+        let dict_map_again = crate::mapmanip::core::to_dict_map(&grid_map).unwrap();
         let map_str_original = crate::mapmanip::core::map_to_string(&dict_map_original).unwrap();
         let map_str_from_grid = crate::mapmanip::core::map_to_string(&dict_map_again).unwrap();
 
@@ -83,10 +83,11 @@ fn extract() {
         &grid_map_src,
         Coord2::new(4, 7),
         Coord2::new(10, 5),
-    );
+    )
+    .unwrap();
     let grid_map_xtr_expected = crate::mapmanip::core::to_grid_map(&dict_map_xtr_expected);
 
-    let dict_map_xtr = crate::mapmanip::core::to_dict_map(&grid_map_xtr);
+    let dict_map_xtr = crate::mapmanip::core::to_dict_map(&grid_map_xtr).unwrap();
     dict_map_xtr.to_file(path_xtr_out).unwrap();
 
     assert_eq!(
@@ -138,7 +139,7 @@ fn keys_deduplicated() {
     for tile in grid_map_out.grid.values_mut() {
         tile.key_suggestion = dmm::Key::default();
     }
-    let dict_map_out = crate::mapmanip::core::to_dict_map(&grid_map_out);
+    let dict_map_out = crate::mapmanip::core::to_dict_map(&grid_map_out).unwrap();
     let grid_map_out = crate::mapmanip::core::to_grid_map(&dict_map_out);
 
     for key in grid_map_src.grid.keys() {
@@ -152,12 +153,13 @@ fn keys_deduplicated() {
 
 #[test]
 fn mapmanip_configs_parse() {
-    let foo = vec![crate::mapmanip::MapManipulation::InsertExtract {
+    let foo = vec![crate::mapmanip::MapManipulation::SubmapExtractInsert {
         submap_size_x: 1,
         submap_size_y: 2,
         submaps_dmm: "a".to_owned(),
         marker_extract: "b".to_owned(),
         marker_insert: "c".to_owned(),
+        submaps_can_repeat: true,
     }];
     dbg!(serde_json::to_string(&foo));
 
