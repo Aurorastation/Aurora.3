@@ -112,7 +112,8 @@ fn insert() {
         crate::mapmanip::core::GridMap::from_file(&path_dst_expected).unwrap();
     let grid_map_xtr = crate::mapmanip::core::GridMap::from_file(&path_xtr).unwrap();
     let mut grid_map_dst = crate::mapmanip::core::GridMap::from_file(&path_dst).unwrap();
-    crate::mapmanip::tools::insert_submap(&grid_map_xtr, Coord2::new(6, 4), &mut grid_map_dst);
+    crate::mapmanip::tools::insert_submap(&grid_map_xtr, Coord2::new(6, 4), &mut grid_map_dst)
+        .unwrap();
 
     assert_eq!(
         grid_map_dst_expected.grid.keys().collect::<Vec<_>>(),
@@ -161,7 +162,7 @@ fn mapmanip_configs_parse() {
         marker_insert: "c".to_owned(),
         submaps_can_repeat: true,
     }];
-    dbg!(serde_json::to_string(&foo));
+    dbg!(serde_json::to_string(&foo).unwrap());
 
     let mapmanip_configs = walkdir::WalkDir::new("../../maps")
         .into_iter()
