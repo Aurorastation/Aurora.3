@@ -20,7 +20,7 @@
 	pixel_x = 30
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "am" = (
 /obj/structure/sign/flag/coalition,
 /turf/simulated/wall,
@@ -67,7 +67,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/ridged,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "aN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -141,7 +141,7 @@
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "bm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -182,7 +182,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "bD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 1
@@ -254,7 +254,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "bV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -273,7 +273,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "cn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm/west,
@@ -417,7 +417,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle/coc_survey_ship/shuttle_dock,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "dJ" = (
 /obj/machinery/conveyor_switch/oneway{
 	id = "Coallit_Mining_1"
@@ -430,14 +430,14 @@
 "dL" = (
 /obj/effect/floor_decal/industrial/outline/research,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "dM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /obj/machinery/meter,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "dP" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/ore_box,
@@ -461,7 +461,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "dT" = (
 /obj/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
@@ -473,7 +473,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "dW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -645,7 +645,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "ew" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -676,7 +676,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "eO" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -904,7 +904,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "gQ" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -996,7 +996,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "hM" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1124,7 +1124,10 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
+"iq" = (
+/turf/simulated/wall/shuttle/dark/cardinal/coalition,
+/area/shuttle/coc_survey_shuttle_airlockcans)
 "iu" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -1138,7 +1141,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "iB" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/table/steel,
@@ -1223,7 +1226,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "jn" = (
 /obj/structure/reagent_dispensers/coolanttank{
 	pixel_x = 5
@@ -1379,7 +1382,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "jZ" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
@@ -1407,7 +1410,7 @@
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "kn" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/cable{
@@ -1434,7 +1437,7 @@
 	},
 /obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_airlockcans)
 "kx" = (
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
 /area/coc_survey_ship/miningeva)
@@ -1447,7 +1450,7 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle/coc_survey_ship/shuttle_dock,
 /turf/simulated/floor/airless,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "kA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1529,6 +1532,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/medical)
+"kX" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle_engineering)
 "lb" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
@@ -1563,7 +1570,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "lh" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -1604,7 +1611,7 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle/coc_survey_ship/shuttle_dock,
 /turf/simulated/floor/airless,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "lv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
@@ -1644,7 +1651,7 @@
 	},
 /obj/structure/closet/toolcloset,
 /turf/simulated/floor/tiled/ridged,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "lH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -1778,7 +1785,7 @@
 /obj/item/tank/oxygen,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "mB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -1801,7 +1808,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "mG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -1820,7 +1827,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "mL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow,
@@ -1846,7 +1853,7 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "mX" = (
 /obj/machinery/door/window{
 	dir = 4
@@ -1876,7 +1883,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "nr" = (
 /obj/effect/floor_decal/corner_wide/orange/full{
 	dir = 4
@@ -2017,7 +2024,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "op" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
@@ -2075,7 +2082,7 @@
 	layer = 2.71
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "oJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2107,7 +2114,7 @@
 	dir = 2
 	},
 /turf/simulated/floor/tiled/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "oL" = (
 /obj/machinery/light{
 	dir = 4
@@ -2122,7 +2129,7 @@
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "oS" = (
 /obj/item/clothing/shoes/workboots/dark,
 /obj/item/clothing/shoes/workboots/dark,
@@ -2186,7 +2193,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "pp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2207,7 +2214,7 @@
 "ps" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "pt" = (
 /obj/effect/map_effect/marker/airlock/docking/coc_survey_ship/dock/port,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -2235,7 +2242,7 @@
 	},
 /obj/machinery/meter,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "pA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2263,7 +2270,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "pV" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -2319,11 +2326,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "qx" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "qy" = (
 /obj/structure/ship_weapon_dummy,
 /obj/machinery/ship_weapon/grauwolf{
@@ -2429,7 +2436,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "ra" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
@@ -2561,7 +2568,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "rG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -2585,7 +2592,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_airlockcans)
 "rS" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -2628,7 +2635,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "sh" = (
 /obj/machinery/light{
 	dir = 4
@@ -2669,7 +2676,6 @@
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/item/storage/box/gloves,
-/obj/item/clothing/glasses/science,
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/research)
 "sx" = (
@@ -2761,7 +2767,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "th" = (
 /obj/item/bedsheet/black,
 /obj/item/bedsheet/black{
@@ -2835,13 +2841,13 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "tI" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 1
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "tK" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -2894,7 +2900,7 @@
 	},
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/tiled/ridged,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "uk" = (
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
 /area/coc_survey_ship/mess_hall)
@@ -2903,7 +2909,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "uq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -2956,6 +2962,9 @@
 /obj/item/clothing/accessory/storage/pouches/black,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/quarters)
+"uI" = (
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle_engineering)
 "uK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2977,7 +2986,7 @@
 	pixel_x = -5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "uR" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -3251,7 +3260,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "wU" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
@@ -3389,7 +3398,7 @@
 /area/coc_survey_ship/anomaly)
 "xQ" = (
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "xS" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/reinforced,
@@ -3494,7 +3503,7 @@
 	},
 /obj/structure/cable/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_airlockcans)
 "yV" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/loading/yellow,
@@ -3511,7 +3520,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle/coc_survey_ship/shuttle_dock,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "yX" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/power/apc/east,
@@ -3561,7 +3570,7 @@
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "zf" = (
 /obj/structure/bed/roller,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
@@ -3732,7 +3741,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Ak" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -3758,7 +3767,7 @@
 	},
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "An" = (
 /turf/simulated/wall,
 /area/coc_survey_ship/cryo)
@@ -3890,6 +3899,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
+"BB" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle_main)
 "BC" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -3930,11 +3943,11 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "BM" = (
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "BR" = (
 /obj/effect/floor_decal/corner_wide/yellow,
 /obj/effect/floor_decal/corner_wide/white{
@@ -4015,14 +4028,14 @@
 /obj/effect/map_effect/marker/airlock/shuttle/coc_survey_ship/shuttle_dock,
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Ch" = (
 /turf/simulated/wall,
 /area/coc_survey_ship/quarters)
 "Cm" = (
 /obj/machinery/computer/ship/helm/terminal,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Cn" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4047,7 +4060,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "CA" = (
 /obj/structure/ship_weapon_dummy,
 /obj/structure/ship_weapon_dummy/barrel,
@@ -4079,7 +4092,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "CL" = (
 /obj/effect/map_effect/marker/airlock/docking/coc_survey_ship/dock/port,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -4260,7 +4273,7 @@
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "DR" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 5
@@ -4285,7 +4298,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Ea" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -4310,7 +4323,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Ef" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/reinforced,
@@ -4397,14 +4410,14 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "ER" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
 	},
 /obj/machinery/power/smes/buildable/third_party_shuttle,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "EU" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 9
@@ -4501,7 +4514,6 @@
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/item/storage/box/gloves,
-/obj/item/clothing/glasses/science,
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/research)
 "FC" = (
@@ -4544,7 +4556,7 @@
 	dir = 6
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "FU" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -4563,7 +4575,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "Ga" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -4588,7 +4600,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "Gn" = (
 /obj/machinery/alarm/north{
 	req_one_access = null
@@ -4618,7 +4630,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "GL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/ship_ammunition/grauwolf_bundle,
@@ -4649,7 +4661,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "GS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
@@ -4688,7 +4700,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Hp" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -4798,7 +4810,7 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "HT" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 8
@@ -4810,7 +4822,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Ig" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -4836,7 +4848,7 @@
 /obj/structure/bed/handrail,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Iy" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
@@ -4922,7 +4934,7 @@
 	pixel_x = -4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "IN" = (
 /obj/structure/sign/flag/konyang,
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
@@ -4943,14 +4955,14 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "IR" = (
 /obj/machinery/sleeper{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "IS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -4970,7 +4982,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "IX" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/airless,
@@ -4986,7 +4998,7 @@
 	dir = 10
 	},
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "Jl" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -5049,7 +5061,7 @@
 	dir = 6
 	},
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "JM" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor,
@@ -5163,7 +5175,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "KC" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "port wing"
@@ -5221,7 +5233,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_airlockcans)
 "KL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5247,7 +5259,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "KQ" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -5375,7 +5387,7 @@
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "LE" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor,
@@ -5449,7 +5461,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "Mt" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/fore,
@@ -5527,7 +5539,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "MR" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -5669,7 +5681,7 @@
 	dir = 9
 	},
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "NT" = (
 /obj/effect/floor_decal/corner_wide/orange/full{
 	dir = 8
@@ -5820,7 +5832,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_airlockcans)
 "Pa" = (
 /obj/machinery/power/smes/buildable/horizon_shuttle{
 	name = "SMES"
@@ -5873,7 +5885,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Pk" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/tiled,
@@ -5940,14 +5952,14 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_airlockcans)
 "PX" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "PZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -5956,7 +5968,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "Qa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -5985,7 +5997,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "Qh" = (
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/fire{
@@ -6038,7 +6050,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Qx" = (
 /obj/effect/map_effect/marker/airlock/docking/coc_survey_ship/dock/port,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -6066,7 +6078,7 @@
 /area/coc_survey_ship/miningeva)
 "QJ" = (
 /turf/simulated/floor/tiled/ridged,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "QK" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -6145,7 +6157,7 @@
 	dir = 6
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Rm" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -6210,7 +6222,7 @@
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "RS" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
@@ -6289,14 +6301,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Sl" = (
 /obj/machinery/atmospherics/binary/passive_gate/supply{
 	target_pressure = 250;
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "Sn" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -6318,11 +6330,11 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Sy" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "Sz" = (
 /obj/machinery/shipsensors/strong,
 /obj/structure/railing/mapped,
@@ -6372,7 +6384,7 @@
 	layer = 2.71
 	},
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "SK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6445,7 +6457,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Tc" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -6530,7 +6542,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "TF" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Engineering";
@@ -6589,7 +6601,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Uf" = (
 /obj/structure/table/steel,
 /obj/item/clothing/under/rank/medical/surgeon,
@@ -6640,7 +6652,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Uw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -6784,6 +6796,9 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/coc_survey_ship/fore_hallway)
+"Vg" = (
+/turf/simulated/wall/shuttle/dark/cardinal/coalition,
+/area/shuttle/coc_survey_shuttle_engineering)
 "Vh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -6799,7 +6814,7 @@
 "Vr" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Vy" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -6835,7 +6850,7 @@
 /area/coc_survey_ship/cargo)
 "VP" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "VX" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	frequency = 451;
@@ -6852,7 +6867,7 @@
 "Wd" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "We" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -6881,7 +6896,7 @@
 	dir = 2
 	},
 /turf/simulated/floor/tiled/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Wo" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/cable{
@@ -6928,7 +6943,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_engineering)
 "Ww" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -6953,7 +6968,7 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/mining/drill,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "WM" = (
 /obj/effect/map_effect/marker/airlock/docking/coc_survey_ship/dock/starboard,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -6965,7 +6980,7 @@
 "WO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "WP" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 1
@@ -7150,7 +7165,7 @@
 "XL" = (
 /obj/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "XO" = (
 /obj/machinery/iff_beacon/name_change,
 /obj/structure/railing/mapped,
@@ -7195,14 +7210,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Yf" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle/coc_survey_ship/shuttle_dock,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Yg" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard flak"
@@ -7217,14 +7232,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Yn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/brace{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Yq" = (
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/coc_survey_ship/dock/starboard,
@@ -7262,7 +7277,7 @@
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/coc_survey_shuttle,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "YA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -7270,7 +7285,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "YB" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/power/apc/west,
@@ -7321,7 +7336,7 @@
 	dir = 2
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "YW" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -7393,7 +7408,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Zk" = (
 /obj/machinery/door/window{
 	dir = 4
@@ -7442,7 +7457,7 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_main)
 "Zy" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
@@ -7458,7 +7473,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/coc_survey_shuttle)
+/area/shuttle/coc_survey_shuttle_airlockcans)
 "ZB" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7505,6 +7520,10 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/atmos)
+"ZV" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle_main)
 "ZZ" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -17306,16 +17325,16 @@ PG
 PG
 PG
 PG
-VP
-VP
-VP
-VP
-VP
-VP
-VP
-VP
-VP
-VP
+Vg
+Vg
+Vg
+Vg
+Vg
+Vg
+Vg
+Vg
+Vg
+Vg
 VP
 VP
 PG
@@ -17456,9 +17475,9 @@ PG
 PG
 PG
 PG
-VP
-VP
-VP
+Vg
+Vg
+Vg
 mV
 ER
 pK
@@ -17608,14 +17627,14 @@ PG
 PG
 PG
 PG
-VP
+Vg
 dL
 Gi
 dL
 PX
 GI
 PZ
-xQ
+uI
 QJ
 le
 dM
@@ -17760,11 +17779,11 @@ PG
 PG
 KO
 VP
-VP
+Vg
 Sy
 dL
 Sy
-xQ
+uI
 IP
 iu
 bB
@@ -17912,8 +17931,8 @@ PG
 PG
 ty
 VP
-ps
-ps
+kX
+kX
 Qe
 Qe
 Ms
@@ -18831,11 +18850,11 @@ Vr
 xQ
 IS
 WJ
-dL
-Sy
-VP
-VP
-VP
+BB
+ZV
+iq
+iq
+iq
 VP
 ky
 PG
@@ -18983,9 +19002,9 @@ Vr
 xQ
 im
 CG
-Sy
+ZV
 Ai
-VP
+iq
 Zz
 rR
 VP
@@ -19137,7 +19156,7 @@ jV
 BK
 ps
 Cx
-VP
+iq
 OY
 PV
 Rh
@@ -19441,9 +19460,9 @@ VP
 VP
 VP
 VP
-VP
-VP
-VP
+iq
+iq
+iq
 VP
 VP
 PG

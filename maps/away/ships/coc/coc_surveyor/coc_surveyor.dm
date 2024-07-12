@@ -8,13 +8,14 @@
 	sectors = list(SECTOR_BADLANDS, ALL_COALITION_SECTORS, ALL_VOID_SECTORS)
 	spawn_weight_sector_dependent = list(ALL_BADLAND_SECTORS = 0.3)
 	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA)
-	spawn_weight = 1
+	spawn_weight = 1000
 	ship_cost = 1
 	id = "coc_surveyor"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/coc_survey_shuttle)
 
-	unit_test_groups = list(1)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+	unit_test_groups = list(1)
+
 
 /singleton/submap_archetype/coc_surveyor
 	map = "COC Survey Ship"
