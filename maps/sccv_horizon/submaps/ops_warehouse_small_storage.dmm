@@ -150,6 +150,7 @@
 /area/template_noop)
 "kA" = (
 /obj/structure/table/rack/no_cargo,
+/obj/random/coin,
 /turf/template_noop,
 /area/template_noop)
 "lG" = (
@@ -368,6 +369,12 @@
 /obj/item/circuitboard/rdconsole,
 /turf/template_noop,
 /area/template_noop)
+"zw" = (
+/obj/structure/table/rack/no_cargo,
+/obj/item/watertank/janitor,
+/obj/item/clothing/gloves/janitor,
+/turf/template_noop,
+/area/template_noop)
 "zP" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/random/pottedplant,
@@ -515,6 +522,10 @@
 /obj/machinery/vending/zora,
 /turf/template_noop,
 /area/template_noop)
+"NJ" = (
+/obj/structure/janitorialcart/full,
+/turf/template_noop,
+/area/template_noop)
 "NU" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/template_noop,
@@ -650,7 +661,8 @@
 /area/template_noop)
 "Vi" = (
 /obj/structure/table/rack/no_cargo,
-/obj/random/finances,
+/obj/random/coin,
+/obj/random/coin,
 /turf/template_noop,
 /area/template_noop)
 "Vl" = (
@@ -658,6 +670,11 @@
 /obj/structure/closet/crate/security,
 /obj/item/storage/box/handcuffs,
 /obj/item/storage/box/zipties,
+/turf/template_noop,
+/area/template_noop)
+"VO" = (
+/obj/structure/table/rack/no_cargo,
+/obj/item/toy/figure/janitor,
 /turf/template_noop,
 /area/template_noop)
 "WG" = (
@@ -1397,10 +1414,10 @@ Gz
 Gz
 sW
 Gz
-Nm
+VO
 Gz
-Se
-TL
+Gz
+tG
 Gz
 Gz
 Gz
@@ -1438,11 +1455,11 @@ mS
 nn
 Gz
 sW
-rO
+zw
 Gz
 Gz
 Gz
-mS
+NJ
 nn
 Gz
 Gz
