@@ -194,7 +194,7 @@
 "ch" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 1;
-	name = "pump to waste"
+	name = "canister to waste"
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
@@ -549,10 +549,8 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "hd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/turf/simulated/wall/diona,
 /area/tarwa_ship/engineering2)
 "he" = (
 /obj/structure/cable/green{
@@ -589,8 +587,10 @@
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "hx" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
-/turf/simulated/floor/diona,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/wall/diona,
 /area/tarwa_ship/engineering1)
 "hJ" = (
 /turf/simulated/floor/airless,
@@ -735,9 +735,9 @@
 /area/tarwa_ship/cic)
 "jz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 1
+	dir = 5
 	},
-/turf/simulated/floor/diona,
+/turf/simulated/wall/diona,
 /area/tarwa_ship/engineering1)
 "jB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -972,8 +972,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
-/turf/simulated/floor/diona,
-/area/tarwa_ship/engineering1)
+/turf/simulated/wall/diona,
+/area/tarwa_ship/engineering2)
 "mE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 6
@@ -1632,6 +1632,12 @@
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
+"xx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/wall/diona,
+/area/tarwa_ship/engineering2)
 "xA" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -1852,10 +1858,13 @@
 /turf/simulated/floor/diona,
 /area/tarwa_ship/engineering1)
 "AS" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/borosilicate/reinforced,
-/turf/simulated/floor/diona/airless,
-/area/tarwa_ship/engineering2)
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'SERVER ROOM'.";
+	name = "TELECOMMS ROOM - COLD!";
+	pixel_y = -32
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/tarwa_ship/engineering1)
 "AT" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -1908,13 +1917,14 @@
 /turf/simulated/floor/diona,
 /area/tarwa_ship/armory)
 "BC" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/borosilicate/reinforced,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, starboard engines"
+/obj/machinery/door/airlock/hatch{
+	name = "Telecommunications";
+	req_one_access = list(210);
+	dir = 2
 	},
-/turf/simulated/floor/diona/airless,
-/area/tarwa_ship/engineering2)
+/obj/structure/plasticflaps/airtight,
+/turf/simulated/floor/plating,
+/area/tarwa_ship/engineering1)
 "BD" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/diona,
@@ -2123,19 +2133,9 @@
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/bridge)
 "Ee" = (
-/obj/structure/plasticflaps/airtight,
-/obj/structure/sign/securearea{
-	desc = "A warning sign which reads 'SERVER ROOM'.";
-	name = "TELECOMMS ROOM - COLD!";
-	pixel_y = -32
-	},
-/obj/machinery/door/airlock/hatch{
-	dir = 4;
-	name = "Telecomms";
-	req_one_access = list(210)
-	},
-/turf/simulated/floor/plating,
-/area/tarwa_ship/engineering1)
+/obj/structure/grille,
+/turf/template_noop,
+/area/space)
 "Ef" = (
 /obj/machinery/shipsensors,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -2148,6 +2148,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
+"Ek" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/diona/airless,
+/area/tarwa_ship/engineering1)
 "Eq" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -2299,9 +2303,6 @@
 /obj/machinery/atmospherics/unary/engine{
 	dir = 4
 	},
-/obj/structure/window/borosilicate/reinforced{
-	dir = 4
-	},
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "FC" = (
@@ -2377,6 +2378,7 @@
 /area/tarwa_ship/engineering2)
 "GV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
+/obj/structure/diona/bulb,
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "Hc" = (
@@ -2644,10 +2646,8 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "KB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 9
-	},
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/diona/airless,
 /area/tarwa_ship/engineering2)
 "KE" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -2696,10 +2696,10 @@
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/oldhangar)
 "KI" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/borosilicate/reinforced,
-/turf/simulated/floor/diona/airless,
-/area/tarwa_ship/engineering1)
+/obj/structure/grille,
+/obj/structure/grille,
+/turf/template_noop,
+/area/space)
 "KS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5;
@@ -2766,10 +2766,10 @@
 /turf/simulated/floor/lino,
 /area/tarwa_ship/canteen)
 "LH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/red{
-	dir = 4
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "pump to waste"
 	},
-/obj/machinery/meter,
 /turf/simulated/floor/diona,
 /area/tarwa_ship/engineering1)
 "LJ" = (
@@ -2788,6 +2788,7 @@
 /area/tarwa_ship/hangar)
 "LP" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/red,
+/obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "LS" = (
@@ -3033,8 +3034,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 9
 	},
-/obj/structure/diona/bulb,
-/turf/simulated/floor/diona,
+/turf/simulated/wall/diona,
 /area/shuttle/tarwa)
 "Oa" = (
 /obj/item/device/flashlight/lamp/green,
@@ -3062,7 +3062,7 @@
 /area/space)
 "OA" = (
 /obj/machinery/atmospherics/pipe/manifold4w/visible/yellow,
-/turf/simulated/floor/diona,
+/turf/simulated/wall/diona,
 /area/shuttle/tarwa)
 "OB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3527,11 +3527,12 @@
 "Up" = (
 /turf/simulated/floor/plating,
 /area/tarwa_ship/oldhangar)
+"Ur" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/turf/simulated/wall/diona,
+/area/tarwa_ship/engineering1)
 "Uv" = (
 /obj/machinery/atmospherics/unary/engine{
-	dir = 4
-	},
-/obj/structure/window/borosilicate/reinforced{
 	dir = 4
 	},
 /obj/effect/landmark/entry_point/starboard{
@@ -3635,6 +3636,13 @@
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/canteen)
+"Wp" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port engines"
+	},
+/turf/simulated/floor/diona/airless,
+/area/tarwa_ship/engineering1)
 "Wq" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -3737,17 +3745,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/hangar)
+"XA" = (
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 10
+	},
+/turf/simulated/wall/diona,
+/area/shuttle/tarwa)
 "XL" = (
 /turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "XO" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/structure/window/borosilicate/reinforced,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, port engines"
-	},
-/turf/simulated/floor/diona/airless,
-/area/tarwa_ship/engineering1)
+/turf/simulated/floor/diona,
+/area/space)
 "XP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3789,8 +3798,11 @@
 /turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
 "Yv" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
-/turf/simulated/floor/plating,
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard engines"
+	},
+/turf/simulated/floor/diona/airless,
 /area/tarwa_ship/engineering2)
 "YH" = (
 /obj/structure/cable/green{
@@ -12735,7 +12747,7 @@ ef
 ef
 ef
 ef
-ef
+cy
 cy
 cy
 cy
@@ -12896,7 +12908,7 @@ uB
 uB
 uB
 uB
-uB
+cy
 cy
 PJ
 NT
@@ -13056,7 +13068,7 @@ ef
 ef
 uB
 uB
-uB
+cy
 cy
 cy
 Nt
@@ -13856,7 +13868,7 @@ dP
 MR
 Dk
 sc
-MR
+UV
 UV
 UV
 UV
@@ -13996,12 +14008,12 @@ ef
 ef
 ef
 ef
+ef
 sP
 ef
 ef
 ef
 ef
-sC
 sC
 sC
 sC
@@ -14153,6 +14165,7 @@ ef
 ef
 ef
 ef
+XO
 ef
 aY
 sP
@@ -14164,7 +14177,6 @@ sP
 ef
 sC
 sC
-Gd
 Gd
 TV
 MM
@@ -14197,7 +14209,7 @@ pd
 Up
 Up
 Up
-Up
+ND
 ND
 uB
 ef
@@ -14316,6 +14328,7 @@ ef
 ef
 ef
 ef
+XO
 ef
 ef
 ef
@@ -14327,7 +14340,6 @@ sP
 Rz
 HG
 Ss
-HG
 HG
 Gd
 Rz
@@ -14478,17 +14490,17 @@ ef
 ef
 ef
 ef
+XO
 ef
 ef
 ef
 ef
 ef
-ef
-ef
+XO
+XO
 ef
 sC
-Gd
-Gd
+Rz
 Gd
 Gd
 HG
@@ -14641,17 +14653,17 @@ ef
 ef
 ef
 ef
+XO
 ef
 ef
 ef
+XO
 ef
 ef
 ef
-ef
-AS
-hd
-Gd
-Gd
+KB
+mC
+Rz
 HG
 Gd
 Gd
@@ -14801,19 +14813,19 @@ ef
 ef
 ef
 ef
+XO
+XO
+ef
+XO
+XO
 ef
 ef
+XO
 ef
 ef
-ef
-ef
-ef
-ef
-ef
-BC
 Yv
 hd
-Gd
+mC
 HG
 Gd
 Gd
@@ -14963,19 +14975,19 @@ ef
 ef
 ef
 ef
+XO
 ef
 ef
 ef
 ef
+XO
+XO
 ef
 ef
 ef
-ef
-ef
-AS
 KB
+xx
 zy
-Gd
 HG
 Gd
 Gd
@@ -15131,13 +15143,13 @@ ef
 ef
 ef
 ef
+XO
 ef
 ef
 ef
 sC
-Gd
+Rz
 zu
-kA
 Jc
 kA
 kA
@@ -15293,13 +15305,13 @@ ef
 ef
 ef
 ef
+ef
 sP
 sP
 sP
 Rz
 HG
 Ss
-HG
 Gd
 Gd
 Gd
@@ -15449,6 +15461,7 @@ ef
 ef
 ef
 ef
+ef
 sP
 sP
 sP
@@ -15460,7 +15473,6 @@ ef
 ef
 sC
 sC
-Gd
 Gd
 IN
 kV
@@ -15503,8 +15515,8 @@ ce
 ce
 Ef
 ef
-ef
-ef
+Ee
+Ee
 ef
 ef
 ef
@@ -15610,6 +15622,7 @@ ef
 ef
 ef
 ef
+ef
 aY
 ef
 ef
@@ -15617,11 +15630,10 @@ ef
 ef
 ef
 ef
+sP
 ef
 ef
 ef
-ef
-sC
 sC
 sC
 sC
@@ -15664,8 +15676,8 @@ ia
 aA
 ce
 ce
-ef
-ef
+KI
+KI
 ef
 ef
 ef
@@ -15781,12 +15793,12 @@ ef
 ef
 ef
 ef
+sP
 ef
 ef
 ef
 ef
-ef
-ef
+sP
 ef
 ef
 aY
@@ -15826,10 +15838,10 @@ YX
 aA
 aA
 jE
-ef
-ef
-ef
-ef
+KI
+Ee
+Ee
+Ee
 ef
 ef
 ef
@@ -15943,11 +15955,11 @@ ef
 ef
 ef
 ef
+sP
+sP
+sP
 ef
-ef
-ef
-ef
-ef
+sP
 ef
 ef
 ef
@@ -15988,9 +16000,9 @@ aA
 aA
 aA
 jE
-ef
-ef
-ef
+KI
+Ee
+Ee
 ef
 ef
 ef
@@ -16105,10 +16117,10 @@ ef
 ef
 ef
 ef
+sP
 ef
 ef
-ef
-ef
+aY
 ef
 ef
 ef
@@ -16150,10 +16162,10 @@ eq
 sv
 aA
 jE
+KI
+Ee
 ef
-ef
-ef
-ef
+Ee
 ef
 ef
 ef
@@ -16265,12 +16277,12 @@ ef
 ef
 ef
 ef
+sP
+sP
 ef
 ef
 ef
-ef
-ef
-ef
+sP
 ef
 ef
 ef
@@ -16312,9 +16324,9 @@ kx
 kR
 aA
 EZ
-ef
-ef
-ef
+Ee
+Ee
+Ee
 ef
 ef
 ef
@@ -16427,12 +16439,12 @@ ef
 ef
 ef
 ef
+sP
 ef
 ef
 ef
 ef
-ef
-ef
+sP
 ef
 ef
 ef
@@ -16474,10 +16486,10 @@ Mp
 QT
 aA
 jE
-ef
-ef
-ef
-ef
+Ee
+Ee
+Ee
+Ee
 ef
 ef
 ef
@@ -16581,6 +16593,7 @@ ef
 ef
 ef
 ef
+sP
 ef
 ef
 ef
@@ -16588,14 +16601,13 @@ ef
 ef
 ef
 ef
+sP
 ef
 ef
 ef
 ef
 ef
-ef
-ef
-ef
+aY
 ef
 sP
 ef
@@ -16636,9 +16648,9 @@ XL
 XL
 XL
 fP
-ef
-ef
-ef
+fP
+Ee
+Ee
 ef
 ef
 ef
@@ -16744,16 +16756,7 @@ ef
 ef
 ef
 ef
-ef
-ef
-ef
-ef
-ef
-ef
-ef
-ef
-ef
-ef
+sP
 ef
 ef
 ef
@@ -16763,9 +16766,18 @@ sP
 ef
 ef
 ef
+ef
+ef
+sP
+ef
+ef
+sP
+ef
+ef
+ef
 Nw
-Nw
-Nw
+Qa
+BC
 gw
 gw
 wP
@@ -16799,9 +16811,9 @@ XL
 XL
 dg
 fP
-ef
-ef
-ef
+fP
+Ee
+Ee
 ef
 ef
 ef
@@ -16906,6 +16918,8 @@ ef
 ef
 aY
 sP
+ef
+sP
 sP
 aY
 sP
@@ -16915,10 +16929,8 @@ ef
 ef
 ef
 ef
-ef
-ef
-Nw
-Nw
+sP
+Zj
 Nw
 Nw
 Zj
@@ -16926,8 +16938,8 @@ Nw
 Nw
 Nw
 Nw
+AS
 Nw
-gw
 gw
 gw
 wP
@@ -16961,7 +16973,7 @@ XL
 SW
 jS
 fP
-ef
+fP
 ef
 ef
 ef
@@ -17067,9 +17079,11 @@ ef
 ef
 ef
 ef
+sP
 ef
 ef
 ef
+XO
 ef
 ef
 sP
@@ -17078,17 +17092,15 @@ sP
 sP
 sP
 Zj
-Nw
+Zj
 Nw
 gw
 cL
-gw
-mN
 Au
 yu
 gw
 od
-cL
+gw
 gw
 gw
 gw
@@ -17121,7 +17133,7 @@ XL
 XL
 XL
 Kc
-XL
+fP
 fP
 ef
 ef
@@ -17230,8 +17242,10 @@ ef
 ef
 ef
 ef
+sP
 ef
-ef
+XO
+XO
 ef
 ef
 ef
@@ -17244,13 +17258,11 @@ Nw
 gw
 gw
 mN
-mN
-gw
 EG
 LP
 ch
 Zn
-gw
+cL
 gw
 gw
 gw
@@ -17265,7 +17277,7 @@ Wz
 MG
 wj
 wj
-UN
+XA
 OA
 NV
 wj
@@ -17393,6 +17405,7 @@ ef
 ef
 ef
 ef
+XO
 ef
 ef
 ef
@@ -17403,11 +17416,10 @@ ef
 ef
 ef
 Zj
-mN
+Zj
+Zj
 pZ
 mN
-mN
-pZ
 mN
 LH
 gw
@@ -17445,7 +17457,7 @@ ef
 fP
 fP
 XL
-XL
+fP
 fP
 ef
 ef
@@ -17555,6 +17567,8 @@ ef
 ef
 ef
 ef
+XO
+ef
 ef
 ef
 ef
@@ -17563,13 +17577,11 @@ sP
 sP
 aY
 sP
-sP
 ef
 Zj
+Zj
+Zj
 mN
-mN
-gw
-gw
 gw
 Xf
 gw
@@ -17716,6 +17728,8 @@ ef
 ef
 ef
 ef
+ef
+ef
 sP
 aY
 sP
@@ -17727,11 +17741,9 @@ ef
 ef
 ef
 ef
-XO
-mC
+Wp
+jz
 wm
-jz
-jz
 wJ
 gE
 Di
@@ -17879,22 +17891,22 @@ ef
 ef
 ef
 ef
+XO
 ef
 ef
 ef
 ef
 ef
+XO
+XO
 ef
 ef
 ef
 ef
-ef
-KI
-hx
+Ek
+Ur
 AN
-gw
-gw
-gw
+mN
 Xf
 gw
 gw
@@ -18042,23 +18054,23 @@ ef
 ef
 ef
 ef
+XO
 ef
 ef
 ef
 ef
 ef
 ef
+XO
 ef
 ef
 ef
-KI
-AN
+Ek
+hx
+Zj
 mN
-mN
-NM
-gw
 TC
-gw
+NM
 gw
 OF
 PI
@@ -18203,6 +18215,8 @@ ef
 ef
 ef
 ef
+XO
+ef
 ef
 ef
 ef
@@ -18216,8 +18230,6 @@ sP
 Zj
 Zj
 Zj
-Ee
-Nw
 mE
 Gu
 xk
@@ -18363,6 +18375,8 @@ ef
 ef
 ef
 ef
+ef
+ef
 aY
 sP
 sP
@@ -18378,8 +18392,6 @@ ef
 ef
 Zj
 Zj
-Qa
-Nw
 nR
 rh
 Xn
@@ -18397,7 +18409,7 @@ ef
 ef
 Wz
 FW
-vW
+wj
 wj
 wj
 my
@@ -18539,9 +18551,9 @@ ef
 ef
 ef
 ef
+ef
+ef
 Zj
-Nw
-Nw
 Nw
 Nw
 rS
