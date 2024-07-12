@@ -59,3 +59,4 @@ changes:
   - refactor: "Refactored item weight defines to a more clear naming scheme, also in line with TG's version."
   - refactor: "Refactored how the movement bumps are handled, ported signals to handle them, in preparation for the movement update."
   - bugfix: "Fixed disposal hit bouncing the hitting atom on the wall."
+  - qol: "Items do not push other items anymore if they are tiny."
