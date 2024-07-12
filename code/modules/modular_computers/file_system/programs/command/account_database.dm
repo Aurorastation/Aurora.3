@@ -9,7 +9,7 @@
 	requires_ntnet = TRUE
 	available_on_ntnet = FALSE
 	size = 4 // primarily cloud computing
-	usage_flags = PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_SILICON_AI
 	color = LIGHT_COLOR_BLUE
 	tgui_id = "AccountDatabase"
 
