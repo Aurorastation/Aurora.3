@@ -1040,18 +1040,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_ship/dorms)
-"dBJ" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/status_display.dmi';
-	icon_state = "frame";
-	name = "Module #10 Display";
-	desc = "A display for module #5. This one describes the connected module as: Hephaestus Hydroponics Module Type 5";
-	pixel_x = -32
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/generic,
-/turf/simulated/floor/tiled/dark,
-/area/ship/freebooter_ship/foyer)
 "dBR" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/south{
@@ -2688,17 +2676,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/forehallway)
-"kPJ" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/status_display.dmi';
-	icon_state = "frame";
-	name = "Module #2 Display";
-	desc = "A display for module #2. This one describes the connected module as: Idris Commercial Luxury Habitation Module Rev. 4";
-	pixel_x = 32
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/ship/freebooter_ship/foyer)
 "kPW" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3064,13 +3041,6 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
 	},
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/status_display.dmi';
-	icon_state = "frame";
-	name = "Module #5 Display";
-	desc = "A display for module #5. This one describes the connected module as: Landing Pad Conversion";
-	pixel_x = 32
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
@@ -3197,19 +3167,6 @@
 	dir = 6
 	},
 /obj/item/ammo_casing/rifle/used,
-/turf/simulated/floor/tiled/dark,
-/area/ship/freebooter_ship/foyer)
-"mqm" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/status_display.dmi';
-	icon_state = "frame";
-	name = "Module #6 Display";
-	desc = "A display for module #6. This one describes the connected module as: Idris Commercial Luxury Cabin Module";
-	pixel_x = -32
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "msI" = (
@@ -3423,19 +3380,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
-"nrR" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/status_display.dmi';
-	icon_state = "frame";
-	name = "Module #9 Display";
-	desc = "A display for module #9. This one describes the connected module as: Hepha-E-R%R UKN0WN";
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/freebooter_ship/foyer)
 "ntt" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4168,20 +4112,6 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/thruster1)
-"pOI" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 6
-	},
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/status_display.dmi';
-	icon_state = "frame";
-	name = "Module #8 Display";
-	desc = "A display for module #8. This one describes the connected module as: Hephaestus Refinery Module Type 5";
-	pixel_x = -32
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/ship/freebooter_ship/foyer)
 "pQc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4276,13 +4206,6 @@
 "qkA" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
-	},
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/status_display.dmi';
-	icon_state = "frame";
-	name = "Module #1 Display";
-	desc = "A display for module #1. This one describes the connected module as: Idris Commercial Cabin Module";
-	pixel_x = 32
 	},
 /obj/item/ammo_casing/rifle/used,
 /turf/simulated/floor/tiled/dark,
@@ -4660,23 +4583,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
-"ruW" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 9
-	},
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/status_display.dmi';
-	icon_state = "frame";
-	name = "Module #4 Display";
-	desc = "A display for module #4. This one describes the connected module as: Landing Pad Conversion";
-	pixel_x = 32
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/table/rack,
-/obj/random/voidsuit/freebooter,
-/obj/item/tank/jetpack/carbondioxide,
-/turf/simulated/floor/tiled/dark,
-/area/ship/freebooter_ship/foyer)
 "rvC" = (
 /obj/structure/sign/securearea{
 	pixel_y = 32
@@ -5649,16 +5555,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/thruster2)
-"uPj" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/status_display.dmi';
-	icon_state = "frame";
-	name = "Module #7 Display";
-	desc = "A display for module #7. This one describes the connected module as: Hephaestus Cargo Module Type 5";
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/freebooter_ship/foyer)
 "uQV" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/item/stack/rods,
@@ -5926,13 +5822,6 @@
 "vOo" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
-	},
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/status_display.dmi';
-	icon_state = "frame";
-	name = "Module #3 Display";
-	desc = "A display for module #3. This one describes the connected module as: Hephaestus Cargo Module 5.1";
-	pixel_x = 32
 	},
 /obj/machinery/suit_cycler/syndicate{
 	req_access = null
@@ -38666,7 +38555,7 @@ moJ
 cYK
 wUJ
 unp
-dBJ
+qCu
 dOw
 sHr
 msI
@@ -38674,7 +38563,7 @@ wZX
 axn
 tsO
 aHW
-nrR
+wUJ
 grk
 axn
 rGv
@@ -38682,7 +38571,7 @@ wUJ
 aMa
 qSO
 unp
-pOI
+rGv
 hik
 aMa
 rEr
@@ -38690,7 +38579,7 @@ ijJ
 wUJ
 wUJ
 omr
-uPj
+axn
 hgx
 mui
 ssK
@@ -38698,7 +38587,7 @@ rGv
 qSO
 axn
 fie
-mqm
+wUJ
 bSi
 rEr
 etF
@@ -39188,7 +39077,7 @@ bdI
 lHL
 rnp
 mvP
-ruW
+pfg
 lwO
 lfB
 gIY
@@ -39204,7 +39093,7 @@ kXq
 cYK
 gVT
 oKx
-kPJ
+iZN
 dbV
 oWj
 cYK
