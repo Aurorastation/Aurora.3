@@ -93,9 +93,52 @@
 	info = "Entry 02-22, 2466<BR><BR>GENERAL ASSESSMENT: Sk'akh help me, this is a shithole. Leak in water supply means humidity was too high, means mass corrosion, means faulty wiring, means lights are shuttering on and off. Water supply is also full of copper for the same reasons. This compounds on existing structural problems, this place was fucked from the start. Recommending a large team be sent as soon as possible, or else we may as well let this fall to derelict.<BR><BR>ASSESSMENT OF FUNCTIONALITY: I mean, it works. Sensor array itself is undamaged, though looks like someone patched it up somehow terrible - maybe they sent warriors rather than fishers again, and the technician did not know that a welding tool should be handled differently from a bludgeon. Do not expect it to stay functional for too long, wiring on external structure is looking weak. Probably needs replacement soon.<BR><BR>ASSESSMENT OF LIVABILITY: Food supply in freezer is good, but do not recommend trying to subsist here for more than two, maybe three days. Sk'akhs scales, you'll need a lot of Xuizi. The creaking gets to my ears.<BR><BR><BR><BR>- Technician Hassari<BR><BR><BR><BR>P.S. Heard the brass are paying aliens to handle this work. If you have a translator to read this, hello, alien. May want to get photographic proof of your fixes, yes?"
 	language = LANGUAGE_UNATHI
 
+/obj/item/paper/fluff/hegemony_waypoint_4
+	name = "scrawled note"
+	desc = "A paper."
+	info = "Care for Unzi the Oztek for he is very stupid and idiotic but my senior techncician will not let me take him away from this dismal place. Leave food and water."
+
 // Mapmanip stuff
+
+// Kitchen
 /obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/kitchen
 	name = "Hegemony Waypoint - Kitchen"
 
 /obj/effect/map_effect/marker/mapmanip/submap/insert/hegemony_waypoint/kitchen
 	name = "Hegemony Waypoint - Kitchen"
+
+// Chapel
+/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/chapel
+	name = "Hegemony Waypoint - Chapel"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/hegemony_waypoint/chapel
+	name = "Hegemony Waypoint - Chapel"
+
+// Dorms
+/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/dorms
+	name = "Hegemony Waypoint - Technicians Quarters"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/hegemony_waypoint/dorms
+	name = "Hegemony Waypoint - Technicians Quarters"
+
+// Equipment Storage
+/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/eva
+	name = "Hegemony Waypoint - Equipment Storage"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/hegemony_waypoint/eva
+	name = "Hegemony Waypoint - Equipment Storage"
+
+// Atmospherics
+/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/atmos
+	name = "Hegemony Waypoint - Atmospherics"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/hegemony_waypoint/atmos
+	name = "Hegemony Waypoint - Atmospherics"
+
+// Hydroponics
+/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/hydro
+	name = "Hegemony Waypoint - Hydroponics"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/hegemony_waypoint/hydro
+	name = "Hegemony Waypoint - Hydroponics"
+
