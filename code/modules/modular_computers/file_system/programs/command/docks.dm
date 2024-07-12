@@ -10,7 +10,7 @@
 	available_on_ntnet = TRUE
 	required_access_run = ACCESS_HEADS
 	required_access_download = ACCESS_HEADS
-	usage_flags = PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_SILICON_AI
 	tgui_id = "Docks"
 
 /datum/computer_file/program/docks/ui_data(mob/user)
