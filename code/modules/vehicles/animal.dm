@@ -92,8 +92,6 @@
 
 /obj/vehicle/animal/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user != load || user.incapacitated())
 		return

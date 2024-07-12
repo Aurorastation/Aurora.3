@@ -312,8 +312,6 @@
 // attempt to move while inside
 /obj/machinery/disposal/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user.stat || src.flushing)
 		return
@@ -774,8 +772,6 @@
 	// called when player tries to move while in a pipe
 /obj/disposalholder/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(!istype(user,/mob/living))
 		return

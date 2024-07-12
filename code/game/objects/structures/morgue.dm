@@ -108,8 +108,6 @@
 
 /obj/structure/morgue/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user.stat || locked)
 		return

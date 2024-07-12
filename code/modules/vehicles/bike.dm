@@ -191,8 +191,6 @@
 
 /obj/vehicle/bike/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user != load || !on || user.incapacitated())
 		return

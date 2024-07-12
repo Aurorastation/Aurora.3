@@ -532,8 +532,6 @@
 
 /obj/structure/closet/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user.stat || !isturf(loc))
 		return

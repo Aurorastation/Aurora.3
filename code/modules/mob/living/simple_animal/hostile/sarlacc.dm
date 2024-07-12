@@ -30,6 +30,9 @@
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
+/obj/item/trap/sarlacc/get_trap_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	return list()
+
 /obj/item/trap/sarlacc/Destroy()
 	if(originator)
 		originator = null
