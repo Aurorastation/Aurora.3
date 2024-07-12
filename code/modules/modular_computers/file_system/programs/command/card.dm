@@ -6,7 +6,7 @@
 	extended_desc = "Program for programming employee ID cards to access parts of the station."
 	required_access_run = ACCESS_CHANGE_IDS
 	required_access_download = ACCESS_CHANGE_IDS
-	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_SILICON_AI
 	requires_ntnet = FALSE
 	size = 8
 	color = LIGHT_COLOR_BLUE
