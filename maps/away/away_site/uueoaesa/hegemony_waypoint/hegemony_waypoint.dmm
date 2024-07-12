@@ -331,6 +331,7 @@
 /area/hegemony_waypoint/monitoring)
 "gg" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/overmap/visitable/sector/hegemony_waypoint,
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/engineering)
 "gk" = (
@@ -430,10 +431,6 @@
 /obj/structure/lattice,
 /turf/space/dynamic,
 /area/space)
-"jm" = (
-/obj/effect/overmap/visitable/sector/hegemony_waypoint,
-/turf/simulated/wall/shuttle/raider,
-/area/hegemony_waypoint/hallway)
 "jo" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
@@ -697,9 +694,6 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/template_noop,
 /area/space)
-"mW" = (
-/turf/template_noop,
-/area/hegemony_waypoint/atmos)
 "ni" = (
 /obj/effect/floor_decal/corner_wide/black{
 	dir = 6
@@ -719,6 +713,9 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
+"nC" = (
+/turf/template_noop,
+/area/hegemony_waypoint/hydroponics)
 "nF" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
@@ -875,6 +872,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
+"qX" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/obj/effect/overmap/visitable/sector/hegemony_waypoint,
+/turf/template_noop,
+/area/space)
 "rc" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -2369,6 +2371,9 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
+"SG" = (
+/turf/template_noop,
+/area/hegemony_waypoint/atmos)
 "SL" = (
 /obj/machinery/shower{
 	pixel_y = 19
@@ -2692,9 +2697,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/hegemony_waypoint/engineering)
-"Zn" = (
-/turf/template_noop,
-/area/hegemony_waypoint/hydroponics)
 "Zw" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
@@ -32150,7 +32152,7 @@ OV
 OV
 OV
 OV
-mT
+qX
 jq
 jq
 jq
@@ -33443,7 +33445,7 @@ ts
 ts
 ts
 AA
-jm
+gB
 jq
 iu
 iu
@@ -33973,12 +33975,12 @@ it
 it
 it
 jq
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
+nC
+nC
+nC
+nC
+nC
+nC
 KV
 jq
 OV
@@ -34230,13 +34232,13 @@ it
 it
 it
 Qq
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
+nC
+nC
+nC
+nC
+nC
+nC
+nC
 jq
 OV
 OV
@@ -34487,13 +34489,13 @@ it
 it
 it
 Zw
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
+nC
+nC
+nC
+nC
+nC
+nC
+nC
 jq
 OV
 OV
@@ -34744,13 +34746,13 @@ it
 it
 it
 KL
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
+nC
+nC
+nC
+nC
+nC
+nC
+nC
 jq
 jq
 jq
@@ -35001,13 +35003,13 @@ it
 it
 it
 Fd
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
-Zn
+nC
+nC
+nC
+nC
+nC
+nC
+nC
 gB
 gB
 yV
@@ -35767,11 +35769,11 @@ DW
 tL
 IG
 tL
-mW
-mW
-mW
-mW
-mW
+SG
+SG
+SG
+SG
+SG
 Jq
 OT
 gB
@@ -36024,12 +36026,12 @@ Qw
 kJ
 XZ
 kg
-mW
-mW
-mW
-mW
-mW
-mW
+SG
+SG
+SG
+SG
+SG
+SG
 DG
 gB
 lt
@@ -36281,12 +36283,12 @@ Qw
 SL
 hb
 Te
-mW
-mW
-mW
-mW
-mW
-mW
+SG
+SG
+SG
+SG
+SG
+SG
 gB
 gB
 gB
@@ -36538,12 +36540,12 @@ Qw
 tL
 tL
 tL
-mW
-mW
-mW
-mW
-mW
-mW
+SG
+SG
+SG
+SG
+SG
+SG
 jq
 jq
 jq
@@ -36795,12 +36797,12 @@ Qw
 oH
 oH
 yw
-mW
-mW
-mW
-mW
-mW
-mW
+SG
+SG
+SG
+SG
+SG
+SG
 iu
 iu
 jq
