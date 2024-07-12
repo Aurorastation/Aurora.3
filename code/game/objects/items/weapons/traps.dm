@@ -32,6 +32,12 @@
 	. = ..()
 	update_icon()
 
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/item/trap/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	. += get_trap_examine_text(user, distance, is_adjacent, infix, suffix)
@@ -129,16 +135,18 @@
 		anchored = FALSE
 		deployed = FALSE
 
-/obj/item/trap/Crossed(atom/movable/AM)
-	if(ishuman(AM))
-		var/mob/living/carbon/human/H = AM
+/obj/item/trap/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(ishuman(arrived))
+		var/mob/living/carbon/human/H = arrived
 		if(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 			return
-	if(deployed && isliving(AM))
-		var/mob/living/L = AM
+	if(deployed && isliving(arrived))
+		var/mob/living/L = arrived
 		if(L.pass_flags & PASSTABLE)
 			return
-		attack_mob(L)
+		INVOKE_ASYNC(src, PROC_REF(attack_mob), L)
 		update_icon()
 		shake_animation()
 
@@ -228,9 +236,9 @@
 	icon_state = "punji"
 	var/message = null
 
-/obj/item/trap/punji/Crossed(atom/movable/AM)
-	if(deployed && isliving(AM))
-		var/mob/living/L = AM
+/obj/item/trap/punji/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	if(deployed && isliving(arrived))
+		var/mob/living/L = arrived
 		attack_mob(L)
 		update_icon()
 
@@ -408,14 +416,14 @@
 
 	capture(capturing_mob)
 
-/obj/item/trap/animal/Crossed(atom/movable/AM)
+/obj/item/trap/animal/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	if(!deployed || !anchored)
 		return
 
 	if(captured) // just in case but this shouldn't happen
 		return
 
-	capture(AM)
+	capture(arrived)
 
 /obj/item/trap/animal/proc/capture(var/atom/movable/movable_atom, var/msg = 1)
 	if(!isliving(movable_atom))
@@ -848,10 +856,6 @@
 	throwforce = 4
 	force = 11
 	w_class = WEIGHT_CLASS_HUGE
-
-/obj/item/large_trap_foundation/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	. += SPAN_NOTICE("\The [src] can be turned into a large trap by attaching twelve metal rods to it.")
 
 /obj/item/large_trap_foundation/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()

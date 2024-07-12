@@ -21,15 +21,6 @@
 	var/mob/living/simple_animal/hostile/greatworm/originator
 	var/mob/living/captive
 
-/obj/item/trap/sarlacc/Initialize()
-	. = ..()
-
-	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
-	)
-
-	AddElement(/datum/element/connect_loc, loc_connections)
-
 /obj/item/trap/sarlacc/get_trap_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	return list()
 
@@ -38,8 +29,7 @@
 		originator = null
 	return ..()
 
-/obj/item/trap/sarlacc/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
-	SIGNAL_HANDLER
+/obj/item/trap/sarlacc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 
 	if(originator)
 		if(deployed && isliving(arrived) && !originator.eating)

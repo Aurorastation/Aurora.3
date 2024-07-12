@@ -266,6 +266,13 @@
 				mover.Collide(obstacle)
 				return FALSE
 
+	//Objects to block exit that are on the border
+	for(var/obj/obstacle in mover.loc)
+		if((obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != obstacle))
+			if(!obstacle.CheckExit(mover, src))
+				mover.Collide(obstacle)
+				return FALSE
+
 	/* END AURORA SNOWFLAKE CHECK EXIT BS*/
 
 	if(can_pass_self)
