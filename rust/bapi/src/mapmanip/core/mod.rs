@@ -7,9 +7,10 @@ pub mod map_to_string;
 pub use map_to_string::map_to_string;
 
 use dmmtools::dmm;
+use dmmtools::dmm::Coord2;
 
 ///
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Default)]
 pub struct Tile {
     ///
     pub key_suggestion: dmm::Key,
@@ -23,6 +24,7 @@ impl Tile {
         self.prefabs
             .iter()
             .find(|prefab| prefab.path.starts_with("/area/"))
+        // self.prefabs.get(self.prefabs.len() - 1)
     }
 
     ///
@@ -40,6 +42,7 @@ impl Tile {
         self.prefabs
             .iter()
             .find(|prefab| prefab.path.starts_with("/turf/"))
+        // self.prefabs.get(self.prefabs.len() - 2)
     }
 
     ///
@@ -53,6 +56,54 @@ impl Tile {
     }
 }
 
+///
+#[derive(Clone, Debug)]
+pub struct TileGrid {
+    pub grid: grid::Grid<crate::mapmanip::core::Tile>,
+}
+
+impl TileGrid {
+    pub fn new(size_x: i32, size_y: i32) -> TileGrid {
+        Self {
+            grid: grid::Grid::new(size_x as usize, size_y as usize),
+        }
+    }
+
+    pub fn len(&self) -> usize {
+        self.grid.size().0 * self.grid.size().1
+    }
+
+    pub fn iter(&self) -> impl Iterator<Item = (Coord2, &Tile)> {
+        self.grid
+            .indexed_iter()
+            .map(|((x, y), t)| (Coord2::new((x + 1) as i32, (y + 1) as i32), t))
+    }
+
+    pub fn get_mut(&mut self, coord: &Coord2) -> Option<&mut Tile> {
+        self.grid
+            .get_mut((coord.x - 1) as usize, (coord.y - 1) as usize)
+    }
+
+    pub fn get(&self, coord: &Coord2) -> Option<&Tile> {
+        self.grid
+            .get((coord.x - 1) as usize, (coord.y - 1) as usize)
+    }
+
+    pub fn insert(&mut self, coord: &Coord2, tile: Tile) {
+        *self.get_mut(coord).unwrap() = tile;
+    }
+
+    pub fn keys(&self) -> impl Iterator<Item = Coord2> + '_ {
+        self.grid
+            .indexed_iter()
+            .map(|((x, y), _t)| Coord2::new((x + 1) as i32, (y + 1) as i32))
+    }
+
+    pub fn values(&self) -> impl Iterator<Item = &Tile> {
+        self.grid.iter()
+    }
+}
+
 /// This is analogous to `dmmtools::dmm::Map`, but instead of being structured like dmm maps are,
 /// where they have a dictionary of keys-to-prefabs and a separate grid of keys,
 /// this is only a direct coord-to-prefab grid.
@@ -62,7 +113,8 @@ pub struct GridMap {
     ///
     pub size: dmm::Coord3,
     ///
-    pub grid: std::collections::BTreeMap<dmm::Coord2, crate::mapmanip::core::Tile>,
+    // pub grid: std::collections::BTreeMap<dmm::Coord2, crate::mapmanip::core::Tile>,
+    pub grid: crate::mapmanip::core::TileGrid,
 }
 
 impl GridMap {

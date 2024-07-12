@@ -23,10 +23,9 @@ pub fn insert_submap(
                 .grid
                 .get(&coord_src)
                 .wrap_err(format!(
-                    "src submap coord out of bounds: {coord_src}; {}; {}; {:?}",
+                    "src submap coord out of bounds: {coord_src}; {}; {};",
                     src_map.size,
                     src_map.grid.len(),
-                    src_map.grid.keys(),
                 ))?
                 .clone();
 
