@@ -16,16 +16,16 @@
 	var/list/status_traits
 
 	/**
-	  * Components attached to this datum
-	  *
-	  * Lazy associated list in the structure of `type -> component/list of components`
-	  */
+	 * Components attached to this datum
+	 *
+	 * Lazy associated list in the structure of `type -> component/list of components`
+	 */
 	var/list/_datum_components
 	/**
-	  * Any datum registered to receive signals from this datum is in this list
-	  *
-	  * Lazy associated list in the structure of `signal -> registree/list of registrees`
-	  */
+	 * Any datum registered to receive signals from this datum is in this list
+	 *
+	 * Lazy associated list in the structure of `signal -> registree/list of registrees`
+	 */
 	var/list/_listen_lookup
 	/// Lazy associated list in the structure of `target -> list(signal -> proctype)` that are run when the datum receives that signal
 	var/list/list/_signal_procs
