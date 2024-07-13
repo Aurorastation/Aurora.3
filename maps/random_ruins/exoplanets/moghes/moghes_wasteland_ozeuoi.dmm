@@ -204,7 +204,7 @@
 /obj/machinery/turretid{
 	pixel_y = 30;
 	req_access = list(227);
-	control_area = "Clan Ozeui Outpost";
+	control_area = "Clan Ozeuoi Outpost";
 	check_arrest = 0;
 	check_records = 0
 	},
