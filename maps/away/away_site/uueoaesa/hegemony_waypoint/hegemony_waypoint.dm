@@ -17,7 +17,7 @@
 /obj/effect/overmap/visitable/sector/hegemony_waypoint
 	name = "hegemony waypoint"
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
-	icon_state = "depot"
+	icon_state = "waypoint"
 	color = COLOR_CHESTNUT
 	desc = "This is a waypoint station manufactued en masse by the Izweski Hegemony, designed to guide vessels through potentially perilous routes, and to maintain a watchful eye for pirates. These are cramped facilities that tend only to be manned for days at a time as contracted technicians see to the maintenance of their systems in a short stay before leaving to the next installation. Many waypoints in Uueoa-Esa have fallen into disrepair since their initial constructions, prone to structural damage, electrical malfunctions, and infestations of dangerous pests. The Izweski Hegemony is known to offer financial compensation for third parties willing to return them to full operational capacity. The exact condition of this one is challenging to ascertain from sensor scans, but it is likely to be inactive."
 	comms_support = TRUE
@@ -96,7 +96,7 @@
 /obj/item/paper/fluff/hegemony_waypoint_4
 	name = "scrawled note"
 	desc = "A paper."
-	info = "Care for Unzi the Oztek for he is very stupid and idiotic but my senior techncician will not let me take him away from this dismal place. Leave food and water."
+	info = "Care for Unzi the Oztek for he is very stupid and idiotic but my senior techncician will not let me take him away from this dismal place. Leave food and water or take to a better place."
 
 // Mapmanip stuff
 

@@ -35,11 +35,16 @@
 /obj/structure/closet/crate{
 	opened = 1
 	},
+/obj/random/loot{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/hegemony_waypoint/eva)
 "bd" = (
 /obj/random/dirt_75,
-/obj/machinery/seed_extractor,
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/hydroponics)
 "bs" = (
@@ -72,10 +77,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/kitchen)
-"bC" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/hydro,
-/turf/simulated/wall/shuttle/raider,
-/area/hegemony_waypoint/hydroponics)
 "bX" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -205,6 +206,10 @@
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/spider/spiderling,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = 8;
+	pixel_y = 9
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/kitchen)
 "eA" = (
@@ -268,6 +273,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/item/material/shard{
+	pixel_y = -12;
+	pixel_x = -5
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/hydroponics)
 "gl" = (
@@ -334,13 +343,12 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/hegemony_waypoint/kitchen)
 "iG" = (
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/carpet/rubber,
+/obj/machinery/seed_extractor,
+/turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/hydroponics)
 "jp" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
@@ -377,14 +385,14 @@
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/hydroponics)
 "jN" = (
-/obj/structure/table/steel,
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/item/trash/tray{
-	pixel_x = -1;
-	pixel_y = 4
+/obj/structure/table,
+/obj/item/stack/material/steel{
+	pixel_y = 7;
+	pixel_x = -3
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/kitchen)
@@ -584,6 +592,13 @@
 /obj/item/ore/glass{
 	pixel_y = -6;
 	pixel_x = -2
+	},
+/obj/item/material/shard{
+	pixel_y = 4;
+	pixel_x = 2
+	},
+/obj/item/stack/rods{
+	pixel_x = 6
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/hydroponics)
@@ -993,7 +1008,9 @@
 	icon_state = "4-8"
 	},
 /obj/random/dirt_75,
-/obj/structure/curtain/black,
+/obj/structure/curtain/open{
+	color = "#222222"
+	},
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hegemony_waypoint/kitchen)
 "ts" = (
@@ -1013,13 +1030,13 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/hegemony_waypoint/kitchen)
 "tv" = (
-/obj/machinery/portable_atmospherics/canister/oxygen{
-	destroyed = 1
-	},
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/machinery/light/colored/decayed{
 	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/empty/oxygen{
+	destroyed = 1
 	},
 /turf/simulated/floor/tiled/steel/airless,
 /area/hegemony_waypoint/eva)
@@ -1537,18 +1554,18 @@
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/atmos)
 "Aa" = (
-/obj/structure/table/steel,
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_x = -12;
-	pixel_y = 7
+/obj/structure/table,
+/obj/item/stack/material/steel{
+	pixel_y = 9;
+	pixel_x = 6
 	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_x = 8;
-	pixel_y = 9
+/obj/item/stack/rods{
+	pixel_x = -14;
+	pixel_y = -3
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/kitchen)
@@ -2069,15 +2086,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/steel,
 /area/hegemony_waypoint/shrine)
-"GD" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/machinery/door/blast/shutters/open{
-	dir = 2;
-	id = "hegemony_waypoint_hydroponics"
-	},
-/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/hydro,
-/turf/simulated/floor/plating,
-/area/hegemony_waypoint/hydroponics)
 "GS" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -2143,6 +2151,10 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/item/material/shard{
+	pixel_y = 2;
+	pixel_x = -5
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/hydroponics)
 "Hr" = (
@@ -2153,6 +2165,32 @@
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/bunks)
+"Hs" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/table/steel,
+/obj/item/pipewrench{
+	pixel_x = 12
+	},
+/obj/item/wrench{
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/empty/north{
+	req_access = null
+	},
+/obj/item/paper/fluff/hegemony_waypoint_4{
+	pixel_x = -3
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/atmos)
 "Hy" = (
 /obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2572,6 +2610,19 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/kitchen)
+"Pc" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "hegemony_waypoint_hydroponics"
+	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/hydro,
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/hydroponics)
+"Pt" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/hydro,
+/turf/simulated/wall/shuttle/raider,
+/area/hegemony_waypoint/hydroponics)
 "Pv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10;
@@ -2654,9 +2705,7 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/drip,
-/obj/structure/curtain/open{
-	color = "#222222"
-	},
+/obj/structure/curtain/black,
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_waypoint/kitchen)
 "Rj" = (
@@ -3075,6 +3124,10 @@
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/drip,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = -12;
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/kitchen)
 "Xr" = (
@@ -4829,7 +4882,7 @@ Rt
 pr
 pr
 Rt
-kp
+Hs
 IR
 tQ
 WN
@@ -5062,7 +5115,7 @@ ap
 ap
 ap
 Hj
-bC
+Pt
 pr
 pr
 Hj
@@ -5071,7 +5124,7 @@ ap
 ap
 ap
 ap
-GD
+Pc
 pr
 pr
 Hj
@@ -5080,7 +5133,7 @@ ws
 sg
 ws
 Hj
-bC
+Pt
 pr
 pr
 pr

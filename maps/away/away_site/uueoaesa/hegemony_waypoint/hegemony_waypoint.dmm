@@ -331,7 +331,6 @@
 /area/hegemony_waypoint/monitoring)
 "gg" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/effect/overmap/visitable/sector/hegemony_waypoint,
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/engineering)
 "gk" = (
@@ -713,9 +712,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
-"nC" = (
-/turf/template_noop,
-/area/hegemony_waypoint/hydroponics)
 "nF" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
@@ -872,11 +868,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
-"qX" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3,
-/obj/effect/overmap/visitable/sector/hegemony_waypoint,
-/turf/template_noop,
-/area/space)
 "rc" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -946,6 +937,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
+"sB" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/obj/effect/overmap/visitable/sector/hegemony_waypoint,
+/turf/template_noop,
+/area/space)
 "sJ" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
@@ -1038,6 +1034,9 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_waypoint/hallway)
+"vq" = (
+/turf/template_noop,
+/area/hegemony_waypoint/hydroponics)
 "vu" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/airlock/external,
@@ -2371,9 +2370,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
-"SG" = (
-/turf/template_noop,
-/area/hegemony_waypoint/atmos)
 "SL" = (
 /obj/machinery/shower{
 	pixel_y = 19
@@ -2438,6 +2434,9 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
+"TX" = (
+/turf/template_noop,
+/area/hegemony_waypoint/atmos)
 "Um" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 6
@@ -32152,7 +32151,7 @@ OV
 OV
 OV
 OV
-qX
+sB
 jq
 jq
 jq
@@ -33975,12 +33974,12 @@ it
 it
 it
 jq
-nC
-nC
-nC
-nC
-nC
-nC
+vq
+vq
+vq
+vq
+vq
+vq
 KV
 jq
 OV
@@ -34232,13 +34231,13 @@ it
 it
 it
 Qq
-nC
-nC
-nC
-nC
-nC
-nC
-nC
+vq
+vq
+vq
+vq
+vq
+vq
+vq
 jq
 OV
 OV
@@ -34489,13 +34488,13 @@ it
 it
 it
 Zw
-nC
-nC
-nC
-nC
-nC
-nC
-nC
+vq
+vq
+vq
+vq
+vq
+vq
+vq
 jq
 OV
 OV
@@ -34746,13 +34745,13 @@ it
 it
 it
 KL
-nC
-nC
-nC
-nC
-nC
-nC
-nC
+vq
+vq
+vq
+vq
+vq
+vq
+vq
 jq
 jq
 jq
@@ -35003,13 +35002,13 @@ it
 it
 it
 Fd
-nC
-nC
-nC
-nC
-nC
-nC
-nC
+vq
+vq
+vq
+vq
+vq
+vq
+vq
 gB
 gB
 yV
@@ -35769,11 +35768,11 @@ DW
 tL
 IG
 tL
-SG
-SG
-SG
-SG
-SG
+TX
+TX
+TX
+TX
+TX
 Jq
 OT
 gB
@@ -36026,12 +36025,12 @@ Qw
 kJ
 XZ
 kg
-SG
-SG
-SG
-SG
-SG
-SG
+TX
+TX
+TX
+TX
+TX
+TX
 DG
 gB
 lt
@@ -36283,12 +36282,12 @@ Qw
 SL
 hb
 Te
-SG
-SG
-SG
-SG
-SG
-SG
+TX
+TX
+TX
+TX
+TX
+TX
 gB
 gB
 gB
@@ -36540,12 +36539,12 @@ Qw
 tL
 tL
 tL
-SG
-SG
-SG
-SG
-SG
-SG
+TX
+TX
+TX
+TX
+TX
+TX
 jq
 jq
 jq
@@ -36797,12 +36796,12 @@ Qw
 oH
 oH
 yw
-SG
-SG
-SG
-SG
-SG
-SG
+TX
+TX
+TX
+TX
+TX
+TX
 iu
 iu
 jq
