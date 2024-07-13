@@ -55,4 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - qol: "Added a brute med pouch and a burn med pouch to the Kis Khan Master site, for when those siros are just too much for your martial arts to handle."
+  - qol: "Added a brute med pouch, burn med pouch, and makeshift splints to the Kis Khan Master site, for when those siros are just too much for your martial arts to handle."
