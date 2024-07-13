@@ -230,7 +230,10 @@
 /turf/simulated/floor/greengrid,
 /area/ship/freebooter_ship/thruster2)
 "aEB" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
 "aGy" = (
@@ -568,8 +571,8 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/machinery/door/airlock/external{
-	dir = 8
+/obj/machinery/door/airlock/glass{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
@@ -1040,7 +1043,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/freebooter_ship/dorms)
 "dBR" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /obj/effect/landmark/entry_point/south{
 	name = "fore, bridge"
 	},
@@ -2522,7 +2528,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/freebooter_ship/thruster2)
 "kuG" = (
@@ -2576,7 +2585,10 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/freebooter_ship/medical)
 "kBd" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/gunnery)
 "kCv" = (
@@ -3348,7 +3360,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/engineering)
 "nrq" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor,
 /area/shuttle/freebooter_shuttle)
@@ -3631,7 +3646,10 @@
 /obj/machinery/door/blast/regular{
 	id = "pirate_core_shunt"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/freebooter_ship/thruster2)
 "ovG" = (
@@ -3743,7 +3761,10 @@
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/thruster1)
 "oHP" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/reinforced,
 /area/ship/freebooter_ship/thruster2)
 "oIl" = (
@@ -4010,7 +4031,10 @@
 /turf/simulated/floor/plating,
 /area/ship/freebooter_ship/engineering)
 "pvm" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/forehallway)
 "pvL" = (
@@ -4683,6 +4707,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/gunnery)
+"rMx" = (
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "junker_bridge";
+	name = "blast door"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor,
+/area/ship/freebooter_ship/bridge)
 "rQJ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -4889,7 +4925,10 @@
 	},
 /area/shuttle/freebooter_shuttle)
 "sCs" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "junker_bridge";
@@ -5733,7 +5772,10 @@
 /turf/simulated/floor,
 /area/ship/freebooter_ship/thruster2)
 "vGw" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/foyer)
 "vHQ" = (
@@ -5856,7 +5898,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/gunneryentrance)
 "vYJ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "junker_bridge";
@@ -6493,7 +6538,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/ammo)
 "yar" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/forehallwayport)
 "ydf" = (
@@ -38278,7 +38326,7 @@ sqv
 ylw
 kui
 meV
-sCs
+rMx
 xRX
 xRX
 xRX

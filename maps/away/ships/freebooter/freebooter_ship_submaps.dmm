@@ -1903,9 +1903,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod5)
 "ldw" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, pod five"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#88A866"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod5)
@@ -2789,12 +2793,15 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod5)
 "pRO" = (
-/obj/machinery/door/firedoor/noid,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "blast door";
 	id = "hab_module"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#BDB6AE"
 	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod7)
@@ -3431,7 +3438,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod5)
 "tKj" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#BCA77E"
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod3)
 "tRo" = (
@@ -3904,7 +3915,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod8)
 "wUi" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#88A866"
+	},
 /turf/simulated/floor,
 /area/ship/freebooter_ship/pod5)
 "wXi" = (
