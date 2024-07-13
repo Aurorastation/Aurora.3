@@ -20,7 +20,7 @@
 	map = "Freebooter Ship"
 	descriptor = "One of the most common sights in the Orion Spur, even outside of human space, is the Hephaestus-produced Ox-class freighter. Designed to haul significant amounts of cargo on well-charted routes between civilized systems, the Ox-class is the backbone of many interstellar markets outside of the United Syndicates of Himeo. Repurposed Ox-class freighters are often used by pirates throughout the Spur thanks to their large size and ease of maintenance – and modification."
 
-// ------------------ submap stuff
+// ------------------ mapmanip stuff
 
 /obj/effect/map_effect/marker/mapmanip/submap/extract/freebooter_ship/pod_starboard
 	name = "Freebooter Ship, Pod, Starboard"
