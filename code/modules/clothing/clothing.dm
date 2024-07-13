@@ -367,7 +367,7 @@
 
 		var/datum/component/armor/armor_component = GetComponent(/datum/component/armor)
 		if(istype(armor_component))
-			armor_component.RemoveComponent()
+			qdel(armor_component)
 		var/list/armor_list = list(
 			melee = melee_armor,
 			bullet = bullet_armor,

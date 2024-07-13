@@ -423,7 +423,7 @@
 
 	var/datum/component/armor/armor_component = H.GetComponent(/datum/component/armor)
 	if(armor_component)
-		armor_component.RemoveComponent()
+		qdel(armor_component)
 
 	H.organs = list()
 	H.internal_organs = list()
