@@ -9,6 +9,20 @@
 	locked = TRUE
 	health = 200
 
+/obj/structure/closet/secure_closet/AltClick(mob/user)
+	. = ..()
+	var/obj/item/holding = user.get_active_hand()
+	if(!holding)
+		return
+	if(istype(holding, /obj/item/card/id))
+		var/obj/item/card/id/ID = holding
+		if(check_access(ID))
+			if(name == initial(name))
+				name += " ([ID.registered_name])"
+				to_chat(user, SPAN_NOTICE("You assign your name to \the [src] using \the [ID]."))
+		else
+			to_chat(user, SPAN_WARNING("Access denied."))
+
 /obj/structure/closet/emp_act(severity)
 	. = ..()
 
@@ -89,3 +103,25 @@
 		togglelock(usr)
 	else
 		to_chat(usr, SPAN_WARNING("This mob type can't use this verb."))
+
+/obj/structure/closet/secure_closet/verb/reset()
+	set src in oview(1) // One square distance
+	set category = "Object"
+	set name = "Reset Name"
+	if(!usr.canmove || usr.stat || usr.restrained()) // Don't use it if you're not able to! Checks for stuns, ghost and restrain
+		return
+	if(ishuman(usr))
+		add_fingerprint(usr)
+		if (locked || name == initial(name))
+			to_chat(usr, SPAN_WARNING("You need to unlock it first."))
+		else if(broken)
+			to_chat(usr, SPAN_WARNING("It appears to be broken."))
+		else
+			if(opened)
+				if(!close())
+					return
+			locked = 1
+			update_icon()
+			name = initial(name)
+			desc = initial(desc)
+	return
