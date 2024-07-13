@@ -1130,6 +1130,10 @@
 	pixel_y = 7;
 	pixel_x = 7
 	},
+/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine{
+	pixel_x = -6;
+	pixel_y = 11
+	},
 /turf/simulated/floor/wood,
 /area/hegemony_waypoint/shrine)
 "uC" = (
@@ -1597,7 +1601,6 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/mob/living/simple_animal/rat/king,
 /turf/simulated/floor/tiled,
 /area/hegemony_waypoint/bunks)
 "AB" = (
@@ -2690,6 +2693,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/bunks)
+"QY" = (
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/random/dirt_75,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
 "Rf" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4285,7 +4305,7 @@ pr
 pr
 th
 XQ
-Gb
+QY
 Ug
 th
 pr

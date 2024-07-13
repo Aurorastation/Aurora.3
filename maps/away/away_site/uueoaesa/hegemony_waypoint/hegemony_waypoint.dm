@@ -74,6 +74,12 @@
 /area/hegemony_waypoint/bunks
 	name = "Hegemonic Waypoint Installation - Technicians Quarters"
 
+/area/hegemony_waypoint/exterior
+	name = "Hegemonic Waypoint Installation - Exterior"
+	has_gravity = FALSE
+	requires_power = FALSE
+	icon_state = "exterior"
+
 // Unique objects
 /obj/item/paper/fluff/hegemony_waypoint_1
 	name = "Technician's Entry 2465-07-23"

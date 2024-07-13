@@ -311,7 +311,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "fP" = (
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 4
@@ -344,7 +344,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "gp" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
@@ -359,7 +359,7 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "hb" = (
 /obj/structure/table/rack,
 /obj/random/soap{
@@ -411,7 +411,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "hP" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
@@ -429,7 +429,7 @@
 "iu" = (
 /obj/structure/lattice,
 /turf/space/dynamic,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "jo" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
@@ -666,7 +666,7 @@
 "mF" = (
 /obj/item/hullbeacon/green,
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "mH" = (
 /obj/effect/floor_decal/industrial/hatch{
 	color = "#D19D4D"
@@ -748,7 +748,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "oJ" = (
 /obj/effect/map_effect/marker/mapmanip/submap/insert/hegemony_waypoint/chapel,
 /turf/template_noop,
@@ -768,6 +768,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_waypoint/hallway)
+"oZ" = (
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/exterior)
 "pa" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 4
@@ -963,7 +967,7 @@
 /obj/structure/cable/yellow,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "tL" = (
 /turf/simulated/wall/shuttle/raider,
 /area/hegemony_waypoint/washroom)
@@ -1105,7 +1109,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "wd" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/airlock/external{
@@ -1141,7 +1145,7 @@
 /area/hegemony_waypoint/engineering)
 "wG" = (
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "xa" = (
 /obj/effect/floor_decal/corner_wide/black{
 	dir = 9
@@ -1185,7 +1189,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "xN" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/machinery/telecomms/allinone,
@@ -1227,7 +1231,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "yw" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -1238,7 +1242,7 @@
 	volume_rate = 700
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "yD" = (
 /obj/structure/closet/toolcloset,
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -1249,7 +1253,7 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/item/hullbeacon/green,
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "zk" = (
 /obj/effect/floor_decal/corner_wide/brown{
 	dir = 9
@@ -1354,7 +1358,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "Aq" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/airlock/external{
@@ -1557,7 +1561,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "Et" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/structure/cable/green{
@@ -1582,7 +1586,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "Fd" = (
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
@@ -1694,7 +1698,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "HW" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/airlock/external{
@@ -1857,7 +1861,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "JA" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector/aux{
@@ -2093,7 +2097,7 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "NF" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -2211,13 +2215,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "Qo" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/hegemony_waypoint/exterior)
 "Qq" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/airlock/external{
@@ -32152,29 +32156,29 @@ OV
 OV
 OV
 sB
-jq
-jq
-jq
-jq
-jq
-jq
-jq
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
 OV
-jq
-jq
-jq
-jq
-jq
-jq
-jq
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
 OV
-jq
-jq
-jq
-jq
-jq
-jq
-jq
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
 OV
 OV
 OV
@@ -32409,29 +32413,29 @@ OV
 OV
 OV
 OV
-jq
+oZ
 ts
 ts
 ts
 ts
 oJ
-jq
-jq
-jq
+oZ
+oZ
+oZ
 iu
 iu
-jq
+oZ
 iu
 iu
-jq
-jq
-jq
+oZ
+oZ
+oZ
 it
 it
 it
 it
 RS
-jq
+oZ
 OV
 OV
 OV
@@ -32666,7 +32670,7 @@ OV
 Tl
 OV
 OV
-jq
+oZ
 ts
 ts
 ts
@@ -32674,13 +32678,13 @@ ts
 ts
 iu
 iu
-jq
+oZ
 iu
 og
 NF
 uI
 iu
-jq
+oZ
 iu
 iu
 it
@@ -32688,7 +32692,7 @@ it
 it
 it
 it
-jq
+oZ
 OV
 OV
 OV
@@ -32923,29 +32927,29 @@ OV
 OV
 OV
 OV
-jq
+oZ
 ts
 ts
 ts
 ts
 ts
-jq
-jq
-jq
-jq
+oZ
+oZ
+oZ
+oZ
 KX
 mp
 xw
-jq
-jq
-jq
-jq
+oZ
+oZ
+oZ
+oZ
 it
 it
 it
 it
 it
-jq
+oZ
 OV
 OV
 OV
@@ -33162,39 +33166,39 @@ OV
 OV
 OV
 OV
-jq
-jq
-jq
-jq
-jq
+oZ
+oZ
+oZ
+oZ
+oZ
 yV
-jq
-jq
+oZ
+oZ
 yV
-jq
+oZ
 OV
 OV
 OV
 OV
-jq
-jq
-jq
-jq
-jq
+oZ
+oZ
+oZ
+oZ
+oZ
 ts
 ts
 ts
 ts
 ts
-jq
+oZ
 iu
-jq
+oZ
 iu
 Su
 If
 mD
 iu
-jq
+oZ
 iu
 iu
 it
@@ -33202,7 +33206,7 @@ it
 it
 it
 it
-jq
+oZ
 OV
 OV
 OV
@@ -33419,7 +33423,7 @@ OV
 OV
 OV
 OV
-jq
+oZ
 gB
 gB
 gB
@@ -33428,12 +33432,12 @@ gB
 oV
 wd
 gB
-jq
-jq
-jq
-jq
-jq
-jq
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
 gB
 gB
 gB
@@ -33445,21 +33449,21 @@ ts
 ts
 AA
 gB
-jq
+oZ
 iu
 iu
 pM
 iu
 iu
-jq
-jq
-jq
+oZ
+oZ
+oZ
 it
 it
 it
 it
 it
-jq
+oZ
 OV
 OV
 OV
@@ -33671,12 +33675,12 @@ OV
 OV
 mT
 OV
-jq
-jq
-jq
-jq
-jq
-jq
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
 gB
 lt
 aq
@@ -33685,12 +33689,12 @@ gB
 IC
 zl
 gB
-jq
+oZ
 iu
 iu
 iu
 iu
-jq
+oZ
 gB
 lt
 aq
@@ -33702,13 +33706,13 @@ ts
 ts
 DV
 gp
-jq
-jq
-jq
+oZ
+oZ
+oZ
 pM
-jq
-jq
-jq
+oZ
+oZ
+oZ
 iu
 iu
 it
@@ -33716,15 +33720,15 @@ it
 it
 it
 it
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
 OV
 OV
 OV
@@ -33973,7 +33977,7 @@ it
 it
 it
 it
-jq
+oZ
 vq
 vq
 vq
@@ -33981,7 +33985,7 @@ vq
 vq
 vq
 KV
-jq
+oZ
 OV
 OV
 OV
@@ -34185,7 +34189,7 @@ OV
 OV
 PH
 hw
-jq
+oZ
 Gu
 dm
 dE
@@ -34238,7 +34242,7 @@ vq
 vq
 vq
 vq
-jq
+oZ
 OV
 OV
 OV
@@ -34442,7 +34446,7 @@ OV
 OV
 EL
 EL
-jq
+oZ
 uX
 vR
 RF
@@ -34495,7 +34499,7 @@ vq
 vq
 vq
 vq
-jq
+oZ
 OV
 OV
 OV
@@ -34752,9 +34756,9 @@ vq
 vq
 vq
 vq
-jq
-jq
-jq
+oZ
+oZ
+oZ
 OV
 mT
 OV
@@ -34956,24 +34960,24 @@ OV
 OV
 mT
 OV
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
 gB
 Ly
 Pj
 gB
-jq
+oZ
 iu
 iu
-jq
+oZ
 gB
 rc
 YB
@@ -35222,15 +35226,15 @@ OV
 OV
 OV
 OV
-jq
+oZ
 gB
 cd
 XY
 gB
-jq
+oZ
 iu
 iu
-jq
+oZ
 gB
 gB
 gB
@@ -35268,7 +35272,7 @@ mI
 It
 bE
 My
-jq
+oZ
 hw
 hw
 OV
@@ -35479,21 +35483,21 @@ OV
 OV
 OV
 OV
-jq
+oZ
 yV
-jq
-jq
+oZ
+oZ
 yV
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
 GX
 GX
 GX
@@ -35525,7 +35529,7 @@ rm
 xR
 qk
 vu
-jq
+oZ
 EL
 HK
 OV
@@ -35750,7 +35754,7 @@ OV
 OV
 OV
 OV
-jq
+oZ
 GX
 GX
 GX
@@ -36007,7 +36011,7 @@ OV
 Tl
 OV
 OV
-jq
+oZ
 GX
 GX
 GX
@@ -36037,9 +36041,9 @@ lt
 cn
 jw
 gB
-jq
-jq
-jq
+oZ
+oZ
+oZ
 OV
 mT
 OV
@@ -36264,7 +36268,7 @@ OV
 OV
 OV
 OV
-jq
+oZ
 GX
 GX
 GX
@@ -36521,11 +36525,11 @@ OV
 OV
 OV
 mT
-jq
-jq
-jq
-jq
-jq
+oZ
+oZ
+oZ
+oZ
+oZ
 FB
 Bi
 at
@@ -36545,13 +36549,13 @@ TX
 TX
 TX
 TX
-jq
-jq
-jq
-jq
-jq
-jq
-jq
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
 OV
 OV
 OV
@@ -36782,7 +36786,7 @@ OV
 OV
 OV
 OV
-jq
+oZ
 FB
 FB
 OR
@@ -36804,11 +36808,11 @@ TX
 TX
 iu
 iu
-jq
+oZ
 iu
 iu
 iu
-jq
+oZ
 OV
 OV
 OV
@@ -37039,33 +37043,33 @@ OV
 OV
 OV
 OV
-jq
+oZ
 FB
 Bs
 Zm
 DF
 gg
-jq
+oZ
 iu
 iu
 iu
-jq
+oZ
 iu
 iu
 iu
-jq
+oZ
 iu
 iu
 iu
-jq
+oZ
 iu
 iu
 iu
-jq
+oZ
 iu
 iu
 iu
-jq
+oZ
 OV
 OV
 OV
@@ -37296,33 +37300,33 @@ OV
 OV
 OV
 OV
-jq
+oZ
 FB
 FB
 HW
 FB
 FB
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
-jq
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
+oZ
 OV
 OV
 OV
@@ -37554,11 +37558,11 @@ OV
 OV
 OV
 mF
-jq
+oZ
 Dj
 Tp
 lq
-jq
+oZ
 mF
 iu
 iu
