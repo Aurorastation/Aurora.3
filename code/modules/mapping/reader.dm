@@ -516,7 +516,7 @@ GLOBAL_LIST_INIT(_preloader_path, null)
 
 /area/template_noop
 	name = "Area Passthrough"
-	icon_state = "space"
+	icon_state = "noop"
 
 /turf/template_noop
 	name = "Turf Passthrough"

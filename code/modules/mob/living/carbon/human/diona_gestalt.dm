@@ -350,7 +350,7 @@
 			mind.transfer_to(bestNymph)
 			bestNymph.stunned = 0//Switching mind seems to temporarily stun mobs
 			message_admins("\The [src] has split into nymphs; player now controls [key_name_admin(bestNymph)]")
-			log_admin("\The [src] has split into nymphs; player now controls [key_name(bestNymph)]", ckey=key_name(bestNymph))
+			log_admin("\The [src] has split into nymphs; player now controls [key_name(bestNymph)]")
 
 	//If bestNymph is still null at this point, it could only mean every nymph in the gestalt was a player
 	//In this unfathomably rare case, the gestalt player simply dies as its mob is qdel'd.

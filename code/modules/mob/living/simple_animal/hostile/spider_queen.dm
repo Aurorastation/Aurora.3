@@ -125,6 +125,6 @@
 				M.apply_effect(6, STUN)
 	return TRUE
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/Life()
+/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/Life(seconds_per_tick, times_fired)
 	..()
 	adjustBruteLoss(-3)

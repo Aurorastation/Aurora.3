@@ -206,6 +206,8 @@ var/list/lunchables_alcohol_reagents_ = list(
 /proc/lunchables_drink_reagents()
 	if(!(lunchables_drink_reagents_[lunchables_drink_reagents_[1]]))
 		lunchables_drink_reagents_ = init_lunchable_reagent_list(lunchables_drink_reagents_, /singleton/reagent/drink)
+		lunchables_drink_reagents_["Water"] = /singleton/reagent/water //We do it here because it is not considered a 'drink'
+		lunchables_drink_reagents_ = sortList(lunchables_drink_reagents_)
 	return lunchables_drink_reagents_
 
 /proc/lunchables_alcohol_reagents()

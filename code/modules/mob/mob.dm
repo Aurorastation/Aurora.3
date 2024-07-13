@@ -279,10 +279,24 @@
 		if(P.buckled || locate(/mob) in P.contents)
 			. += P.slowdown
 
-/mob/proc/Life()
+/**
+ * Handles the biological and general over-time processes of the mob.
+ *
+ *
+ * Arguments:
+ * - seconds_per_tick: The amount of time that has elapsed since this last fired
+ * - times_fired: The number of times SSmobs has fired
+ */
+/mob/proc/Life(seconds_per_tick = SSMOBS_DT, times_fired)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(TRUE)
+
 	if(LAZYLEN(spell_masters))
 		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
 			spell_master.update_spells(0, src)
+
+	if(stat != DEAD)
+		return TRUE
 
 /mob/proc/buckled_to()
 	// Preliminary work for a future buckle rewrite,
@@ -504,19 +518,19 @@
 				failure = "You are not allowed to respawn."
 			if(alert(failure + " Override?", "Respawn not allowed", "Yes", "Cancel") != "Yes")
 				return
-			log_admin("[key_name(usr)] bypassed respawn restrictions (they failed with message \"[failure]\").", admin_key=key_name(usr))
+			log_admin("[key_name(usr)] bypassed respawn restrictions (they failed with message \"[failure]\").")
 		else
 			if(failure != "")
 				to_chat(usr, SPAN_DANGER(failure))
 			return
 
 	to_chat(usr, "You can respawn now, enjoy your new life!")
-	log_game("[usr.name]/[usr.key] used abandon mob.", ckey=key_name(usr))
+	log_game("[usr.name]/[usr.key] used abandon mob.")
 	to_chat(usr, SPAN_NOTICE("<B>Make sure to play a different character, and please roleplay correctly!</B>"))
 
 	client?.screen.Cut()
 	if(!client)
-		log_game("[usr.key] AM failed due to disconnect.", ckey=key_name(usr))
+		log_game("[usr.key] AM failed due to disconnect.")
 		return
 
 	announce_ghost_joinleave(client, 0)
@@ -524,7 +538,7 @@
 	var/mob/abstract/new_player/M = new /mob/abstract/new_player()
 
 	if(!client)
-		log_game("[usr.key] AM failed due to disconnect.", ckey=key_name(usr))
+		log_game("[usr.key] AM failed due to disconnect.")
 		qdel(M)
 		return
 
@@ -1333,7 +1347,7 @@
 
 	SetWeakened(200)
 	visible_message("<span class='info'><b>OOC Information:</b></span> <span class='warning'>[src] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", SPAN_WARNING("<b>You have been winded by a member of staff! Please stand by until they contact you!</b>"))
-	log_admin("[key_name(admin)] winded [key_name(src)]!",admin_key=key_name(admin),ckey=key_name(src))
+	log_admin("[key_name(admin)] winded [key_name(src)]!")
 	message_admins("[key_name_admin(admin)] winded [key_name_admin(src)]!", 1)
 
 	feedback_add_details("admin_verb", "WIND")
@@ -1349,7 +1363,7 @@
 
 	SetWeakened(0)
 	visible_message("<span class='info'><b>OOC Information:</b></span> <span class='good'>[src] has been unwinded by a member of staff!</span>", SPAN_WARNING("<b>You have been unwinded by a member of staff!</b>"))
-	log_admin("[key_name(admin)] unwinded [key_name(src)]!",admin_key=key_name(admin),ckey=key_name(src))
+	log_admin("[key_name(admin)] unwinded [key_name(src)]!")
 	message_admins("[key_name_admin(admin)] unwinded [key_name_admin(src)]!", 1)
 
 	feedback_add_details("admin_verb", "UNWIND")
@@ -1459,6 +1473,11 @@
 		var/obj/item/clothing/suit/check_body = get_equipped_item(slot_wear_suit_str)
 		if(!istype(check_body) || !check_body.protects_against_weather)
 			return
+		for(var/obj/item/clothing/clothing in list(w_uniform, wear_suit, head))
+			for(var/obj/item/clothing/accessory/check_accessory in clothing)
+				if(!istype(check_accessory) || !check_accessory.protects_against_weather)
+					continue
+				LAZYADD(., check_accessory)
 		LAZYADD(., check_head)
 		LAZYADD(., check_body)
 

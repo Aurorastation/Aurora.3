@@ -360,8 +360,6 @@
 //Shamelessly copied from wheelchair code
 /obj/structure/janitorialcart/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user.stat || user.stunned || user.weakened || user.paralysis || user.lying || user.restrained())
 		if(user==pulling)

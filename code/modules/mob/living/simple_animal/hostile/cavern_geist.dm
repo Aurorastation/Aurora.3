@@ -43,7 +43,7 @@
 	..()
 	anchored = TRUE
 
-/mob/living/simple_animal/hostile/cavern_geist/Life()
+/mob/living/simple_animal/hostile/cavern_geist/Life(seconds_per_tick, times_fired)
 	..()
 	adjustBruteLoss(-5)
 

@@ -709,3 +709,36 @@
 2024-06-28:
   FluffyGhost:
   - rscdel: Removed the old Aurora map.
+2024-06-30:
+  Ben10083:
+  - rscadd: Water has been added to the list of drinks available for flasks and similar
+      loadout items.
+  Crosarius:
+  - qol: Helmets now protect against being knocked unconscious by a headbutt, unless
+      the person headbutting has a better helmet.
+  - qol: Headbutting someone who is wearing a helmet can knock yourself out, instead
+      of them.
+  FluffyGhost:
+  - refactor: Refactored CollidedWith().
+  MattAtlas:
+  - rscadd: Idris IPCs can now use more accents.
+  Pirouette, Noble Row, whitewolftamer:
+  - rscadd: Added Golden Deep Merchant and Thesian accents. Sprites by whitewolftamer
+      and descriptions by Noble Row.
+  Sparky_hotdog:
+  - bugfix: Fixed compound microscope, centrifuge and spectrophotometer sprites disappearing
+      during use.
+  hazelmouse:
+  - bugfix: A variety of shuttle airlocks should now correctly cycle from atmosphere
+      to atmosphere.
+  - rscadd: Added prettier windows to the Idris, IAC, Sadar, and Hephaestus ERT offships.
+  nauticall:
+  - bugfix: Carpets now show proper edges again.
+  - bugfix: Fixed layering of several map items, like disposal pipes, that were previously
+      buried underneath turfs in the map editor (and were invisible as a result).
+  - bugfix: Fixed other miscellaneous layering issues.
+  - bugfix: Fixed observer sprites occasionally going underneath certain objects.
+      Their layering has been fixed.
+  - bugfix: Reinforced plastic tables now show up correctly in the map editor.
+  - rscadd: Added a special 'lock' door helper that automatically locks doors underneath
+      it so mappers don't have to edit variables/icon states manually.

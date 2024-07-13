@@ -181,7 +181,7 @@
 
 /singleton/state/weather/rain/hail/handle_exposure_effects(var/mob/living/M, var/obj/abstract/weather_system/weather)
 	to_chat(M, SPAN_DANGER("You are pelted by a shower of hail!"))
-	M.adjustBruteLoss(rand(1,3))
+	M.apply_damage(rand(1,3), DAMAGE_BRUTE)
 
 /singleton/state/weather/ash
 	name =  "Ash"
@@ -189,6 +189,14 @@
 	descriptor = "A rain of ash falls from the sky."
 	cosmetic_span_class = "warning"
 	cosmetic_messages = list("Drifts of ash fall from the sky.")
+
+/singleton/state/weather/sandfall
+	name =  "Sand"
+	icon_state = "sand_light"
+	descriptor = "The wind rises, stirring up gusts of sand."
+	cosmetic_span_class = "warning"
+	cosmetic_messages = list("Scattered gusts of sand fall from the sky.")
+	transitions = list(/singleton/state_transition/weather/sandstorm)
 
 /singleton/state/weather/sandstorm
 	name = "Sandstorm"
@@ -199,12 +207,37 @@
 		"The wind howls around you.",
 		"Swirling sand obscures your vision."
 	)
-	protected_messages = list("Stinging sand blows against $ITEM$.")
+	protected_messages = list("$ITEM$ shields you from the howling sandstorm.")
 	ambient_sounds = list('sound/effects/weather/sandstorm.ogg')
 
 /singleton/state/weather/sandstorm/handle_exposure_effects(mob/living/M, obj/abstract/weather_system/weather)
-	to_chat(M, SPAN_DANGER("You are blasted by a gust of stinging sand!"))
-	M.adjustBruteLoss(rand(1,5))
+	if(M.resists_weather) //Not realistic that they're just immune, but we don't have AI for simplemobs seeking shelter from storms.
+		return
+	else if(isvaurca(M)) //Bugs have sealed carapaces
+		to_chat(M, SPAN_WARNING("Your carapace protects you from the stinging sand!"))
+	else if(isipc(M) || issilicon(M)) //Metal is more durable than meat
+		to_chat(M, SPAN_DANGER("Your chassis is scratched by a gust of stinging sand!"))
+		M.apply_damage(1, DAMAGE_BRUTE)
+	else
+		to_chat(M, SPAN_DANGER("You are blasted by a gust of stinging sand!"))
+		M.apply_damage(rand(1,3), DAMAGE_BRUTE)
+
+	if(ishuman(M) && prob(50)) //only a 50% chance of getting in the eyes to avoid being too punishing
+		var/mob/living/carbon/human/H = M
+		var/obj/item/organ/internal/eyes/E = H.get_eyes()
+		if(!E) //No eyes, no problem
+			return
+		if (istype(E) && (E.status & (ORGAN_ROBOT|ORGAN_ADV_ROBOT)))
+			to_chat(H, SPAN_WARNING("Your mechanical eyes are immune to the sandstorm!"))
+			return
+		for(var/obj/item/clothing/C in list(H.wear_mask, H.head, H.glasses))
+			if(C.body_parts_covered & EYES)
+				to_chat(H, SPAN_WARNING("\The [C] shields your eyes from the sand."))
+				return
+		to_chat(H, SPAN_DANGER("The stinging sand gets in your eyes!"))
+		H.eye_blurry = max(H.eye_blurry, 15)
+		H.eye_blind = max(H.eye_blind, 5)
+		H.apply_effect(rand(5,10), DAMAGE_PAIN)
 
 //planet weathers
 
@@ -258,10 +291,19 @@
 /singleton/state/weather/rain/hail/arctic_planet
 	transitions = list(/singleton/state_transition/weather/calm/arctic_planet)
 
-//desert planet - only calm or sandstorm
+//desert planet - only calm, sandfall, or sandstorm
 
 /singleton/state/weather/calm/desert_planet
-	transitions = list(/singleton/state_transition/weather/sandstorm/desert_planet)
+	transitions = list(/singleton/state_transition/weather/sandfall/desert_planet)
+
+/singleton/state/weather/sandfall/desert_planet
+	transitions = list(
+		/singleton/state_transition/weather/calm/desert_planet,
+		/singleton/state_transition/weather/sandstorm/desert_planet
+	)
 
 /singleton/state/weather/sandstorm/desert_planet
-	transitions = list(/singleton/state_transition/weather/calm/desert_planet)
+	transitions = list(
+		/singleton/state_transition/weather/calm/desert_planet,
+		/singleton/state_transition/weather/sandfall/desert_planet
+	)
