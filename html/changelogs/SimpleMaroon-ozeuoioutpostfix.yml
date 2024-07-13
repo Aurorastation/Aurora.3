@@ -55,5 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Fixed the turret control panel for the Clan Ozeuoi Outpost having the wrong area set, causing the turrets to fire on people regardless of proper access."
+  - bugfix: "Fixed the turret control panel for the Clan Ozeuoi Outpost having the wrong area set, causing it to not be assigned to any of the turrets properly."
+  - bugfix: "Fixed the turrets at the Clan Ozeuoi Outpost to use Ozeuoi access, so they don't fire indiscriminately when enabled."
   - bugfix: "Fixed the Vihnmes Inn having the same ID and description as the Ozeuoi Outpost."

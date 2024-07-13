@@ -80,7 +80,8 @@
 	cover_set = 1;
 	health = 120;
 	icon_state = "cover_1";
-	maxhealth = 120
+	maxhealth = 120;
+	req_one_access = list(227)
 	},
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
@@ -344,7 +345,8 @@
 	cover_set = 1;
 	health = 120;
 	icon_state = "cover_1";
-	maxhealth = 120
+	maxhealth = 120;
+	req_one_access = list(227)
 	},
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
@@ -444,7 +446,8 @@
 	cover_set = 1;
 	health = 120;
 	icon_state = "cover_1";
-	maxhealth = 120
+	maxhealth = 120;
+	req_one_access = list(227)
 	},
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
@@ -458,7 +461,8 @@
 	cover_set = 1;
 	health = 120;
 	icon_state = "cover_1";
-	maxhealth = 120
+	maxhealth = 120;
+	req_one_access = list(227)
 	},
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
@@ -501,7 +505,8 @@
 	cover_set = 1;
 	health = 120;
 	icon_state = "cover_1";
-	maxhealth = 120
+	maxhealth = 120;
+	req_one_access = list(227)
 	},
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
@@ -552,7 +557,8 @@
 	cover_set = 1;
 	health = 120;
 	icon_state = "cover_1";
-	maxhealth = 120
+	maxhealth = 120;
+	req_one_access = list(227)
 	},
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
@@ -1746,7 +1752,7 @@ xo
 xo
 xo
 xo
-jW
+FN
 xo
 xo
 xo
