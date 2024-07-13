@@ -65,7 +65,8 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/tarwa_ship/eva)
 "av" = (
 /obj/structure/ship_weapon_dummy,
@@ -172,7 +173,8 @@
 	dir = 6;
 	pixel_y = 0
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/tarwa_ship/eva)
 "bv" = (
 /obj/structure/cable/green{
@@ -198,10 +200,11 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/unathi_pirate/tarwa,
-/obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "bM" = (
@@ -609,6 +612,7 @@
 	name = "EVA Storage";
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "fP" = (
@@ -1523,11 +1527,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/unathi_pirate/tarwa,
-/obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath,
+/obj/machinery/suit_cycler/offship/tarwa{
+	name = "Crewman's Suit"
+	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "qK" = (
@@ -1785,10 +1787,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/oldhangar)
-"uw" = (
-/obj/structure/dispenser/oxygen,
-/turf/simulated/floor/tiled,
-/area/tarwa_ship/eva)
 "uz" = (
 /turf/simulated/floor/diona,
 /area/tarwa_ship)
@@ -2514,11 +2512,11 @@
 /area/tarwa_ship/cic)
 "De" = (
 /obj/structure/table/rack,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/tank/jetpack/carbondioxide{
-	pixel_x = 2;
-	pixel_y = 4
-	},
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "Di" = (
@@ -2632,6 +2630,7 @@
 /obj/machinery/alarm/north{
 	req_one_access = list(210)
 	},
+/obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "Eq" = (
@@ -2963,7 +2962,9 @@
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
 "Hz" = (
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/suit_cycler/offship/tarwa{
+	name = "Crewman's Suit"
+	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "HC" = (
@@ -3244,10 +3245,6 @@
 	req_one_access = list(210)
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/suit/space/void/unathi_pirate/tarwa/captain,
-/obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa/captain,
 /turf/simulated/floor/carpet/orange,
 /area/tarwa_ship/captain)
 "JW" = (
@@ -3636,7 +3633,8 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
 /area/tarwa_ship/eva)
 "MR" = (
 /turf/simulated/floor/diona,
@@ -3950,17 +3948,16 @@
 	},
 /area/tarwa_ship/engineering1)
 "Ql" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/unathi_pirate/tarwa,
-/obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/mask/breath,
+/obj/machinery/suit_cycler/offship/tarwa/captain{
+	name = "Captain's Suit"
+	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "Qm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/table/rack,
-/obj/item/storage/bag/inflatable,
+/obj/machinery/portable_atmospherics/canister/oxygen{
+	start_pressure = 15000
+	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "Qn" = (
@@ -16071,7 +16068,7 @@ vn
 HL
 Uw
 dd
-uw
+Hz
 Uw
 ce
 uB
@@ -16557,7 +16554,7 @@ Gs
 Xi
 IS
 as
-Ql
+Hz
 Uw
 AI
 ac
