@@ -21,14 +21,6 @@
 /obj/machinery/portable_atmospherics/hydroponics,
 /turf/template_noop,
 /area/template_noop)
-"cF" = (
-/obj/structure/table/wood,
-/obj/item/vaurca/box{
-	pixel_y = 2;
-	pixel_x = 6
-	},
-/turf/template_noop,
-/area/template_noop)
 "cJ" = (
 /obj/structure/closet/crate/medical,
 /obj/random/firstaid,
@@ -38,10 +30,6 @@
 /obj/random/medical,
 /obj/random/medical,
 /obj/random/medical,
-/turf/template_noop,
-/area/template_noop)
-"cM" = (
-/obj/structure/closet/crate/freezer/kois/rations,
 /turf/template_noop,
 /area/template_noop)
 "cQ" = (
@@ -56,18 +44,6 @@
 /obj/item/wirecutters/clippers,
 /obj/item/reagent_containers/glass/bucket,
 /obj/item/storage/backpack/hydroponics,
-/turf/template_noop,
-/area/template_noop)
-"dh" = (
-/obj/structure/sign/flag/pra/large/west,
-/turf/template_noop,
-/area/template_noop)
-"di" = (
-/mob/living/simple_animal/hostile/giant_spider/bombardier,
-/turf/template_noop,
-/area/template_noop)
-"dI" = (
-/obj/item/toy/plushie/greimorian,
 /turf/template_noop,
 /area/template_noop)
 "dJ" = (
@@ -107,36 +83,6 @@
 /area/template_noop)
 "gr" = (
 /obj/structure/trash_pile,
-/turf/template_noop,
-/area/template_noop)
-"gA" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/structure/closet/crate/loot,
-/obj/effect/spider/stickyweb,
-/turf/template_noop,
-/area/template_noop)
-"hi" = (
-/obj/structure/table/rack/no_cargo,
-/obj/item/reagent_containers/food/snacks/hardbread{
-	pixel_y = -4;
-	pixel_x = 2
-	},
-/obj/item/reagent_containers/food/snacks/hardbread{
-	pixel_y = -4;
-	pixel_x = 2
-	},
-/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda{
-	pixel_y = 12;
-	pixel_x = -6
-	},
-/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda{
-	pixel_y = 12;
-	pixel_x = 4
-	},
-/turf/template_noop,
-/area/template_noop)
-"hp" = (
-/obj/structure/closet/crate/loot,
 /turf/template_noop,
 /area/template_noop)
 "is" = (
@@ -221,15 +167,6 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/template_noop,
 /area/template_noop)
-"oH" = (
-/obj/structure/table/rack/no_cargo,
-/obj/item/clothing/gloves/janitor/vaurca,
-/obj/item/clothing/gloves/latex/nitrile/vaurca,
-/obj/item/clothing/gloves/botanic_leather/vaurca,
-/obj/item/reagent_containers/food/snacks/koisbar,
-/obj/item/reagent_containers/food/snacks/koisbar,
-/turf/template_noop,
-/area/template_noop)
 "qo" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /obj/structure/closet/crate/miningcart/ore,
@@ -237,11 +174,6 @@
 /area/template_noop)
 "qI" = (
 /obj/machinery/media/jukebox,
-/turf/template_noop,
-/area/template_noop)
-"qK" = (
-/obj/random/firstaid,
-/obj/effect/spider/stickyweb,
 /turf/template_noop,
 /area/template_noop)
 "qM" = (
@@ -308,17 +240,6 @@
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
 /turf/template_noop,
 /area/template_noop)
-"tQ" = (
-/obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/sedantis{
-	pixel_y = 5;
-	pixel_x = 7
-	},
-/obj/item/seeds/koisspore{
-	pixel_y = -9
-	},
-/turf/template_noop,
-/area/template_noop)
 "tR" = (
 /obj/structure/table/rack/no_cargo,
 /obj/random/kitchen_staples,
@@ -344,13 +265,6 @@
 /area/template_noop)
 "xI" = (
 /obj/structure/closet/crate/autakh,
-/turf/template_noop,
-/area/template_noop)
-"xO" = (
-/obj/structure/table/wood,
-/obj/machinery/media/jukebox/phonograph{
-	pixel_y = 11
-	},
 /turf/template_noop,
 /area/template_noop)
 "yk" = (
@@ -394,24 +308,8 @@
 /obj/random/loot,
 /turf/template_noop,
 /area/template_noop)
-"Bf" = (
-/obj/structure/table/wood,
-/obj/item/book/manual/pra_manifesto{
-	pixel_x = 6;
-	pixel_y = 6
-	},
-/obj/item/deck/tarot/adhomai{
-	pixel_x = 9;
-	pixel_y = -7
-	},
-/turf/template_noop,
-/area/template_noop)
 "BM" = (
 /obj/structure/closet/crate/miningcart/ore,
-/turf/template_noop,
-/area/template_noop)
-"CO" = (
-/obj/structure/sign/flag/sedantis/large/west,
 /turf/template_noop,
 /area/template_noop)
 "CQ" = (
@@ -427,21 +325,6 @@
 /area/template_noop)
 "Dl" = (
 /obj/machinery/portable_atmospherics/canister/boron,
-/turf/template_noop,
-/area/template_noop)
-"DE" = (
-/obj/effect/spider/stickyweb,
-/turf/template_noop,
-/area/template_noop)
-"Eg" = (
-/obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
-	pixel_x = 10;
-	pixel_y = 11
-	},
-/obj/item/reagent_containers/food/snacks/sarmikhir_sandwich{
-	pixel_y = 6
-	},
 /turf/template_noop,
 /area/template_noop)
 "Er" = (
@@ -557,33 +440,10 @@
 /obj/random/syrup,
 /turf/template_noop,
 /area/template_noop)
-"Px" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/item/storage/box/fancy/cigarettes/pra{
-	pixel_y = 8;
-	pixel_x = -8
-	},
-/obj/item/storage/box/fancy/cigarettes/pra{
-	pixel_y = 1;
-	pixel_x = -1
-	},
-/obj/item/flame/lighter/adhomai{
-	pixel_x = 11;
-	pixel_y = 2
-	},
-/obj/structure/table/wood,
-/turf/template_noop,
-/area/template_noop)
 "PM" = (
 /obj/structure/table/rack/no_cargo,
 /obj/item/rfd/service,
 /obj/item/rfd_ammo,
-/turf/template_noop,
-/area/template_noop)
-"PY" = (
-/obj/structure/bed/stool/padded/red{
-	dir = 4
-	},
 /turf/template_noop,
 /area/template_noop)
 "QV" = (
@@ -592,7 +452,7 @@
 /area/template_noop)
 "Rl" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage,
-/obj/structure/closet/crate/loot,
+/obj/structure/closet/crate,
 /turf/template_noop,
 /area/template_noop)
 "Se" = (
@@ -706,14 +566,6 @@
 /obj/item/ammo_display,
 /turf/template_noop,
 /area/template_noop)
-"YC" = (
-/obj/structure/closet/crate,
-/obj/random/gift,
-/obj/random/gift,
-/obj/random/desktoy,
-/obj/random/desktoy,
-/turf/template_noop,
-/area/template_noop)
 "Zb" = (
 /obj/structure/closet/crate,
 /turf/template_noop,
@@ -821,7 +673,7 @@ gr
 Gz
 Gz
 gr
-hp
+Zb
 nn
 Gz
 sW
@@ -909,7 +761,7 @@ Oc
 Gz
 Gz
 sW
-hp
+Zb
 Zb
 Gz
 Zb
@@ -1783,11 +1635,11 @@ Gz
 Gz
 Gz
 sW
-DE
+NU
+cU
 Gz
-DE
-Gz
-gA
+WG
+MQ
 Gz
 Gz
 sW
@@ -1806,8 +1658,8 @@ Gz
 Gz
 Gz
 Gz
-dI
-DE
+Gz
+Gz
 Gz
 Gz
 Gz
@@ -1825,11 +1677,11 @@ Gz
 Gz
 Gz
 sW
-hp
-DE
+cm
+cm
 Gz
-hp
-Gz
+cm
+cm
 nn
 Gz
 sW
@@ -1909,11 +1761,11 @@ Gz
 Gz
 Gz
 sW
-qK
+Er
 Gz
-DE
 Gz
-gA
+Dk
+qM
 Gz
 Gz
 sW
@@ -1932,8 +1784,8 @@ Gz
 Gz
 Gz
 Gz
-di
-DE
+Gz
+Gz
 Gz
 Gz
 Gz
@@ -1951,11 +1803,11 @@ Gz
 Gz
 Gz
 sW
-hp
-DE
+is
 Gz
-hp
 Gz
+lM
+JF
 nn
 Gz
 sW
@@ -2088,7 +1940,7 @@ sW
 HU
 Gz
 Gz
-YC
+Zb
 Gz
 nn
 Gz
@@ -2287,11 +2139,11 @@ Gz
 Gz
 Gz
 sW
-NU
-cU
+qI
 Gz
-WG
-MQ
+Gz
+eB
+Un
 Gz
 Gz
 sW
@@ -2311,8 +2163,8 @@ Gz
 Gz
 Gz
 Gz
-Gz
-Gz
+Sm
+go
 Gz
 Gz
 Gz
@@ -2329,11 +2181,11 @@ Gz
 Gz
 Gz
 sW
-cm
-cm
+LU
 Gz
-cm
-cm
+Gz
+Gz
+Gz
 nn
 Gz
 sW
@@ -2368,258 +2220,6 @@ Gz
 Gz
 "}
 (79,1,1) = {"
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-"}
-(80,1,1) = {"
-Gz
-Gz
-Gz
-LZ
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-LZ
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-"}
-(81,1,1) = {"
-Gz
-Gz
-sW
-qI
-Gz
-Gz
-eB
-Un
-Gz
-Gz
-sW
-Er
-Gz
-Gz
-Dk
-qM
-Gz
-Gz
-Gz
-"}
-(82,1,1) = {"
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Sm
-go
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-"}
-(83,1,1) = {"
-Gz
-Gz
-sW
-LU
-Gz
-Gz
-Gz
-Gz
-nn
-Gz
-sW
-is
-Gz
-Gz
-lM
-JF
-nn
-Gz
-Gz
-"}
-(84,1,1) = {"
-Gz
-Gz
-Gz
-sQ
-Gz
-Gz
-Gz
-sQ
-Gz
-Gz
-Gz
-sQ
-Gz
-Gz
-Gz
-sQ
-Gz
-Gz
-Gz
-"}
-(85,1,1) = {"
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-"}
-(86,1,1) = {"
-Gz
-Gz
-Gz
-LZ
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-LZ
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-"}
-(87,1,1) = {"
-Gz
-Gz
-sW
-cM
-oH
-Gz
-CO
-tG
-Gz
-Gz
-sW
-hi
-Gz
-Gz
-dh
-Px
-Gz
-Gz
-Gz
-"}
-(88,1,1) = {"
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-PY
-PY
-Gz
-Gz
-Gz
-PY
-PY
-Gz
-Gz
-Gz
-Gz
-Gz
-Gz
-"}
-(89,1,1) = {"
-Gz
-Gz
-sW
-Nm
-Gz
-Gz
-tQ
-cF
-nn
-Gz
-sW
-Bf
-Eg
-Gz
-Gz
-xO
-nn
-Gz
-Gz
-"}
-(90,1,1) = {"
-Gz
-Gz
-Gz
-sQ
-Gz
-Gz
-Gz
-sQ
-Gz
-Gz
-Gz
-sQ
-Gz
-Gz
-Gz
-sQ
-Gz
-Gz
-Gz
-"}
-(91,1,1) = {"
 Gz
 Gz
 Gz
