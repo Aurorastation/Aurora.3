@@ -56,7 +56,10 @@ impl Tile {
     }
 }
 
-///
+/// Thin abstraction over `grid::Grid`, to provide a hashmap-like interface,
+/// and to translate between dmm coords (start at 1) and grid coords (start at 0).
+/// The translation is so that it looks better in logs/errors/etc,
+/// where shown coords would correspond to coords seen in game or in strongdmm.
 #[derive(Clone, Debug)]
 pub struct TileGrid {
     pub grid: grid::Grid<crate::mapmanip::core::Tile>,
@@ -101,6 +104,10 @@ impl TileGrid {
 
     pub fn values(&self) -> impl Iterator<Item = &Tile> {
         self.grid.iter()
+    }
+
+    pub fn values_mut(&mut self) -> impl Iterator<Item = &mut Tile> {
+        self.grid.iter_mut()
     }
 }
 

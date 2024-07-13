@@ -2,7 +2,6 @@ use crate::mapmanip::core::GridMap;
 use dmmtools::dmm;
 use dmmtools::dmm::Coord2;
 use eyre::ContextCompat;
-use std::collections::BTreeMap;
 
 /// Returns part of map of `xtr_size` and at `xtr_coord` from `src_map`.
 pub fn extract_submap(
