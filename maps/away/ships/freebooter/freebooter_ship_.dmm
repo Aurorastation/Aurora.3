@@ -569,8 +569,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/external{
-	name = "Module #7";
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
@@ -1170,6 +1169,7 @@
 	name = "sidearm locker"
 	},
 /obj/machinery/power/apc/south,
+/obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/closet)
 "edN" = (
@@ -1191,23 +1191,6 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/bridge)
-"ehY" = (
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/external{
-	name = "Module #2";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/freebooter_ship/foyer)
 "eiL" = (
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 8
@@ -2872,21 +2855,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/thruster2)
 "lqN" = (
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/external{
-	name = "Module #1";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/foyer)
 "lvN" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3905,21 +3877,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "oWB" = (
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/external{
-	name = "Module #10";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/freebooter_ship/foyer)
 "oXj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
@@ -4154,18 +4115,11 @@
 /area/ship/freebooter_ship/forehallway)
 "qej" = (
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/machinery/door/airlock/external{
-	name = "Module #8";
-	dir = 4
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
@@ -4863,23 +4817,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/freebooter_ship/foyer)
-"sty" = (
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/external{
-	name = "Module #9";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/foyer)
 "stV" = (
 /obj/machinery/door/blast/regular{
@@ -5888,17 +5825,10 @@
 /area/ship/freebooter_ship/dorms)
 "vUh" = (
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/machinery/door/airlock/external{
-	name = "Module #6";
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -6348,11 +6278,11 @@
 /area/ship/freebooter_ship/foyer)
 "xvt" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/obj/structure/closet/crate/freezer/rations,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/machinery/firealarm/west,
+/obj/structure/closet/crate/freezer/kois/rations,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/closet)
 "xvT" = (
@@ -37525,41 +37455,41 @@ jhL
 vZW
 xHQ
 raF
-raF
-raF
-raF
-raF
-kSw
-vZW
-xHQ
-raF
-raF
-raF
-raF
+lqN
+vUh
+lqN
 raF
 kSw
 vZW
 xHQ
 raF
-raF
-raF
-raF
-raF
-kSw
-vZW
-xHQ
-raF
-raF
-raF
-raF
+lqN
+vUh
+lqN
 raF
 kSw
 vZW
 xHQ
 raF
+lqN
+vUh
+lqN
 raF
+kSw
+vZW
+xHQ
 raF
+lqN
+vUh
+lqN
 raF
+kSw
+vZW
+xHQ
+raF
+lqN
+vUh
+lqN
 raF
 kSw
 vZW
@@ -38297,7 +38227,7 @@ wyp
 vGw
 vGw
 wyp
-oWB
+buV
 wyp
 wyp
 kXG
@@ -38305,7 +38235,7 @@ kXG
 vGw
 wyp
 wyp
-sty
+buV
 wyp
 wyp
 vGw
@@ -38321,7 +38251,7 @@ vGw
 vGw
 wyp
 wyp
-qej
+buV
 wyp
 wyp
 kXG
@@ -38329,7 +38259,7 @@ kXG
 vGw
 wyp
 wyp
-vUh
+buV
 wyp
 wyp
 wyp
@@ -39341,7 +39271,7 @@ vGw
 vGw
 wyp
 wyp
-ehY
+buV
 wyp
 wyp
 vGw
@@ -39349,7 +39279,7 @@ kXG
 vGw
 wyp
 wyp
-ehY
+buV
 wyp
 wyp
 vGw
@@ -39357,7 +39287,7 @@ vGw
 vGw
 wyp
 wyp
-lqN
+buV
 wyp
 wyp
 wyp
@@ -40111,25 +40041,25 @@ vZW
 vZW
 kev
 eiL
-eiL
-eiL
-eiL
+oWB
+qej
+oWB
 vZW
 vMG
 vZW
 kev
 eiL
-eiL
-eiL
-eiL
+oWB
+qej
+oWB
 vZW
 vMG
 vZW
 kev
 eiL
-eiL
-eiL
-eiL
+oWB
+qej
+oWB
 vZW
 vMG
 vZW

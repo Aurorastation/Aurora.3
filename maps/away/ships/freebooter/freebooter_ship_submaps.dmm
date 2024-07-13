@@ -3854,10 +3854,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/pod3)
-"wzO" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor,
-/area/ship/freebooter_ship/pod4)
 "wHo" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, pod four"
@@ -4963,9 +4959,9 @@ poF
 xRX
 poF
 gwg
-wzO
+gwg
 dXK
-wzO
+gwg
 gwg
 poF
 wuO
