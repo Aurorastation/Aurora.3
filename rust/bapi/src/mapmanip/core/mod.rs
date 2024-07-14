@@ -120,7 +120,6 @@ pub struct GridMap {
     ///
     pub size: dmm::Coord3,
     ///
-    // pub grid: std::collections::BTreeMap<dmm::Coord2, crate::mapmanip::core::Tile>,
     pub grid: crate::mapmanip::core::TileGrid,
 }
 
