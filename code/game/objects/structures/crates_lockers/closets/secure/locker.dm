@@ -19,6 +19,7 @@
 		if(check_access(ID))
 			if(name == initial(name))
 				name += " ([ID.registered_name])"
+				desc = "\A [initial(name)], belonging to [ID.registered_name]."
 				to_chat(user, SPAN_NOTICE("You assign your name to \the [src] using \the [ID]."))
 		else
 			to_chat(user, SPAN_WARNING("Access denied."))
