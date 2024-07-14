@@ -3841,8 +3841,6 @@
 #include "maps\away\away_site\uueoaesa\tret\tret_industrial_complex_theme.dm"
 #include "maps\away\away_site\wrecked_nt_ship\wrecked_nt_ship.dm"
 #include "maps\away\away_site\zavod_shuttle_destroyed\zavod_shuttle_destroyed.dm"
-#include "maps\away\missions\ipc_rnd_facility\ipc_rnd_facility.dm"
-#include "maps\away\missions\ipc_rnd_facility\ipc_rnd_facility_submaps_markers.dm"
 #include "maps\away\ships\biesel\tcaf_corvette\tcaf_corvette.dm"
 #include "maps\away\ships\biesel\tcaf_corvette\tcaf_corvette_areas.dm"
 #include "maps\away\ships\biesel\tcaf_corvette\tcaf_corvette_ghostroles.dm"
