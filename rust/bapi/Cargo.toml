@@ -22,7 +22,7 @@ eyre = "0.6.12"
 diff = "0.1"
 # general utility lib for iterator operations
 itertools = "0.10.5"
-# simple grid, basically Vec<Vec<T>>
+# simple flat grid, basically just wrapper over Vec<Vec<T>>
 grid = "0.14.0"
 # fast hashmap
 fxhash = "0.2.1"

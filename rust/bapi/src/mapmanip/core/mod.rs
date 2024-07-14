@@ -24,7 +24,6 @@ impl Tile {
         self.prefabs
             .iter()
             .find(|prefab| prefab.path.starts_with("/area/"))
-        // self.prefabs.get(self.prefabs.len() - 1)
     }
 
     ///
@@ -42,7 +41,6 @@ impl Tile {
         self.prefabs
             .iter()
             .find(|prefab| prefab.path.starts_with("/turf/"))
-        // self.prefabs.get(self.prefabs.len() - 2)
     }
 
     ///

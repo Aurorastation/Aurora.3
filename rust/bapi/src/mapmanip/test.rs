@@ -154,36 +154,7 @@ fn mapmanip_configs_parse() {
 
 #[test]
 fn mapmanip_configs_execute() {
-    let mapmanip_configs = walkdir::WalkDir::new("../../maps")
-        .into_iter()
-        .map(|d| d.unwrap().path().to_owned())
-        .filter(|p| p.extension().is_some())
-        .filter(|p| p.extension().unwrap() == "jsonc")
-        .collect_vec();
-    assert_ne!(mapmanip_configs.len(), 0);
-
-    for config_path in mapmanip_configs {
-        let dmm_path = {
-            let mut p = config_path.clone();
-            p.set_extension("dmm");
-            p
-        };
-
-        let path_dir: &std::path::Path = dmm_path.parent().unwrap();
-
-        let mut dmm = dmmtools::dmm::Map::from_file(&dmm_path).unwrap();
-
-        let config = crate::mapmanip::mapmanip_config_parse(&config_path).unwrap();
-
-        dmm = crate::mapmanip::mapmanip(path_dir, dmm, &config).unwrap();
-
-        let dmm = crate::mapmanip::core::map_to_string(&dmm).unwrap();
-
-        let dmm_out_path = {
-            let mut p = dmm_path.clone();
-            p.set_extension("mapmanipout.dmm");
-            p
-        };
-        std::fs::write(dmm_out_path, dmm).unwrap();
-    }
+    // this is only "unsafe" cause that function is `extern "C"`
+    // it does not do anything actually unsafe
+    unsafe { crate::all_mapmanip_configs_execute_ffi() }
 }

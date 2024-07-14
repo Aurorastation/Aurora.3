@@ -96,7 +96,8 @@ fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
     Ok(ByondValue::new_str(dmm)?)
 }
 
-/// To be used by `tools/bapi/mapmanip.ps1`.
+/// To be used by the `tools/bapi/mapmanip.ps1` script.
+/// Not to be called from the game server, so bad error-handling is fine.
 /// This should run map manipulations on every `.dmm` map that has a `.jsonc` config file,
 /// and write it to a `.mapmanipout.dmm` file in the same location.
 #[no_mangle]
