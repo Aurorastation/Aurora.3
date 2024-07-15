@@ -257,7 +257,7 @@ var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 	return 5
 
 /datum/gear_tweak/social_credit/get_metadata(var/user, var/metadata)
-	var/credit_score = tgui_input_number(user, "Set the credit score your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Nralakk calculations.)", "Social Credit Score", round_value = FALSE)
+	var/credit_score = tgui_input_number(user, "Set the credit score your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Nralakk calculations.)", "Social Credit Score", round_value = FALSE, max_value = 10)
 	if(credit_score)
 		return round(credit_score, 0.01)
 	return metadata
