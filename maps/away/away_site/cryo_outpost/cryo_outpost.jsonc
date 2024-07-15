@@ -5,7 +5,8 @@
 		"submap_size_y": 3,
 		"submaps_dmm": "cryo_outpost_submaps.dmm",
 		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room",
-		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/crew_quarters_room"
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/crew_quarters_room",
+		"submaps_can_repeat": true
 	},
 	{
 		"type": "InsertExtract",
@@ -13,7 +14,8 @@
 		"submap_size_y": 4,
 		"submaps_dmm": "cryo_outpost_submaps.dmm",
 		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse",
-		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/warehouse"
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/warehouse",
+		"submaps_can_repeat": false
 	},
 	{
 		"type": "InsertExtract",
@@ -21,7 +23,8 @@
 		"submap_size_y": 12,
 		"submaps_dmm": "cryo_outpost_submaps.dmm",
 		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/river",
-		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/river"
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/river",
+		"submaps_can_repeat": false
 	},
 	{
 		"type": "InsertExtract",
@@ -29,6 +32,7 @@
 		"submap_size_y": 17,
 		"submaps_dmm": "cryo_outpost_submaps.dmm",
 		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/landing_pads",
-		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/landing_pads"
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/landing_pads",
+		"submaps_can_repeat": false
 	}
 ]

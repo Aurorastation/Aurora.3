@@ -1,17 +1,13 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ab" = (
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "ai" = (
 /obj/structure/table/standard,
 /obj/machinery/light/colored/decayed{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
-"av" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "aC" = (
 /obj/structure/bed/padded,
@@ -20,13 +16,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood/mahogany,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "aU" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "aX" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -34,12 +30,12 @@
 	pixel_x = 20
 	},
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "bb" = (
 /obj/structure/closet,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "bx" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
@@ -47,22 +43,17 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "bJ" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "bM" = (
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "bN" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
-"ch" = (
-/obj/effect/floor_decal/industrial/outline/research,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "cB" = (
 /obj/structure/table/steel,
@@ -72,7 +63,7 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "cU" = (
 /obj/random/tech_supply{
 	pixel_x = -12;
@@ -80,11 +71,11 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "df" = (
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/wood/bamboo,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "dl" = (
 /obj/structure/table/steel,
 /obj/random/pottedplant_small{
@@ -92,29 +83,17 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
-"dq" = (
-/obj/structure/bed/roller,
-/obj/machinery/light/colored/decayed,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
-"dI" = (
-/obj/effect/floor_decal/industrial/outline/research,
-/obj/item/roller,
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "dJ" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/mahogany,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "dK" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "dN" = (
 /obj/structure/table/steel,
 /obj/random/pottedplant_small{
@@ -123,32 +102,32 @@
 	},
 /obj/machinery/light/colored/decayed,
 /turf/simulated/floor/lino/diamond,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "dS" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "er" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "ff" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/plastic/full,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "fm" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/steel/full,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "fH" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin{
@@ -159,13 +138,13 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "fU" = (
 /obj/random/dirt_75,
 /obj/structure/table/standard,
 /obj/random/tech_supply,
 /turf/simulated/floor/wood/bamboo,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "fV" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -173,19 +152,19 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "gb" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "hY" = (
 /obj/random/dirt_75,
 /obj/random/junk{
 	pixel_x = 10
 	},
 /turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "ib" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
@@ -194,15 +173,15 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "if" = (
 /turf/simulated/floor/exoplanet/barren,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "iD" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /turf/simulated/floor/wood/bamboo,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "iQ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/largecrate,
@@ -211,7 +190,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "iY" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin{
@@ -221,48 +200,48 @@
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/techfloor,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "jb" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "jc" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "jg" = (
 /obj/random/pottedplant,
 /turf/simulated/floor/wood/bamboo,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "jh" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
 /obj/structure/closet,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/bamboo,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "jq" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/gold/full,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "js" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "jy" = (
 /obj/structure/closet,
 /obj/item/book/manual/tcaf_pamphlet,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "jJ" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "jL" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 4
@@ -270,28 +249,28 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "ky" = (
 /obj/machinery/door/urban,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "kE" = (
 /obj/structure/table/steel,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "kJ" = (
 /obj/structure/closet,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "kR" = (
 /turf/simulated/wall/wood,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "lw" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 8
@@ -299,11 +278,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
-/area/cryo_outpost/outside/surface)
-"ly" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/cryo_outpost/outside/buildings)
 "lS" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -311,22 +286,22 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "ms" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/river,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "mt" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "mQ" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "na" = (
 /obj/structure/table/rack/cafe_table,
 /obj/item/reagent_containers/food/drinks/bottle/vodka/mushroom{
@@ -342,17 +317,17 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/wood/mahogany,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "nc" = (
 /obj/random/dirt_75,
 /obj/machinery/light/colored/decayed,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "ne" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "nf" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -361,7 +336,7 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "no" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -370,62 +345,54 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "nq" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "nE" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/cryo_outpost/outside/surface)
-"nH" = (
-/obj/structure/closet/crate/freezer,
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "ox" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/freezer/rations,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "oA" = (
 /obj/random/dirt_75,
 /obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "oK" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "oS" = (
 /obj/random/dirt_75,
 /obj/structure/table/wood,
 /obj/random/pottedplant_small,
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "pa" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "ph" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
-"pq" = (
-/obj/structure/bed/roller,
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/cryo_outpost/outside/buildings)
 "pE" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -435,59 +402,52 @@
 	pixel_y = -17
 	},
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "pL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "pO" = (
 /obj/random/dirt_75,
 /obj/structure/table/standard,
 /turf/simulated/floor/wood/bamboo,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "pP" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "pY" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
 /obj/structure/closet,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "pZ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/structure/closet/crate/solar,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
-"qf" = (
-/obj/machinery/light,
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "qh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/freezer,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "qi" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/closet,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
-"qD" = (
-/turf/simulated/wall/r_wall,
 /area/template_noop)
 "qK" = (
 /obj/structure/closet/cabinet,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/mahogany,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "rH" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -497,19 +457,19 @@
 	pixel_y = 9
 	},
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "rW" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "sn" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/steel/full,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "sq" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -518,23 +478,20 @@
 	pixel_x = 7
 	},
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
-"sL" = (
-/obj/structure/closet/crate/freezer,
-/obj/effect/floor_decal/industrial/outline/research,
-/obj/item/storage/box/freezer/organcooler,
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"sL" = (
+/turf/simulated/wall/wood,
+/area/cryo_outpost/outside/buildings)
 "sM" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/iron/full,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "sP" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/lino/diamond,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "th" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -543,7 +500,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "tk" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -553,18 +510,18 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "tm" = (
 /obj/structure/light_pole,
 /turf/simulated/floor/exoplanet/barren,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "tn" = (
 /obj/structure/table/standard,
 /obj/item/trash/coffee{
 	pixel_x = 4
 	},
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "tp" = (
 /obj/structure/table/steel,
 /obj/item/modular_computer/laptop/preset/civilian{
@@ -572,24 +529,24 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "tq" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "tH" = (
 /obj/structure/closet,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "tO" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "tZ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/steel/full,
@@ -598,29 +555,29 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "ua" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "uc" = (
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "ue" = (
 /obj/item/stack/barricade/wood/full{
 	pixel_x = 13;
 	pixel_y = 3
 	},
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "up" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/bamboo,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "uA" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/drop,
@@ -630,64 +587,59 @@
 /obj/item/clothing/head/helmet/security/generic,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "uJ" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/landing_pads,
 /turf/unsimulated/marker/khaki,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "uL" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse,
 /obj/random/dirt_75,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "uN" = (
 /obj/structure/table/standard,
 /obj/random/loot,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "uS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "ve" = (
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "vn" = (
 /obj/structure/table/steel,
 /obj/random/mre{
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "vq" = (
 /obj/random/pottedplant,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "vO" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "vZ" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 4
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "we" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/river,
 /turf/unsimulated/marker/green,
-/area/cryo_outpost/outside/surface)
-"wv" = (
-/obj/structure/closet/crate/freezer,
-/obj/effect/floor_decal/industrial/outline/research,
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "wC" = (
 /obj/structure/closet,
@@ -696,39 +648,30 @@
 /obj/random/junk,
 /obj/machinery/light/colored/decayed,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "xe" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
-"xg" = (
-/obj/effect/floor_decal/industrial/outline/research,
-/obj/structure/closet/crate/trashcart,
-/obj/random/junk,
-/obj/random/junk,
-/obj/random/junk,
-/obj/item/reagent_containers/syringe,
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "xj" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "xC" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "xE" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "xI" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
@@ -736,14 +679,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "xO" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "xT" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
@@ -752,19 +695,19 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "xX" = (
 /obj/structure/closet/cabinet,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "xZ" = (
 /obj/item/material/shard{
 	pixel_x = -13;
 	pixel_y = -4
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "ya" = (
 /obj/structure/table/standard,
 /obj/random/pottedplant_small{
@@ -773,14 +716,14 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "yi" = (
 /turf/simulated/floor/tiled/techfloor,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "yz" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/bamboo,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "yE" = (
 /turf/template_noop,
 /area/template_noop)
@@ -791,25 +734,25 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "zp" = (
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "zG" = (
 /turf/simulated/floor/lino/diamond,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "zY" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "Ac" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
 /obj/random/dirt_75,
 /obj/random/pottedplant,
 /turf/simulated/floor/wood/mahogany,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "Ay" = (
 /obj/structure/table/steel,
 /obj/random/pottedplant_small{
@@ -820,7 +763,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood/bamboo,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "AC" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
@@ -828,25 +771,25 @@
 /obj/random/loot,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "AE" = (
 /obj/item/material/shard{
 	pixel_x = 6;
 	pixel_y = -4
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "AK" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/mahogany,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "AO" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/mahogany,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "AR" = (
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -855,61 +798,52 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
-"AW" = (
-/obj/structure/bed/roller,
-/obj/effect/floor_decal/industrial/outline/research,
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "BC" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/largecrate,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "Cl" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "CA" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse,
 /obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
-"CO" = (
-/obj/machinery/light/colored/decayed,
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "CU" = (
 /obj/structure/structural_support,
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "CZ" = (
 /obj/structure/table/steel,
 /obj/random/medical{
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "Dj" = (
 /obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "Ds" = (
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/lino/diamond,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "Dx" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/random/loot,
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "Ec" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
@@ -917,29 +851,22 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood/mahogany,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "Eg" = (
 /turf/unsimulated/marker/khaki,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "Ek" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
-"Ep" = (
-/obj/structure/closet/crate/freezer,
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/cryo_outpost/outside/buildings)
 "Es" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "Eu" = (
 /obj/item/material/shard{
 	pixel_x = 6;
@@ -948,28 +875,27 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "EH" = (
 /turf/simulated/floor/exoplanet/desert,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "EL" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/landing_pads,
 /turf/simulated/wall,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "Fp" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "FA" = (
 /obj/structure/table/steel,
 /obj/random/tool,
 /turf/simulated/floor/tiled/techfloor,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "FC" = (
-/obj/effect/floor_decal/industrial/outline/research,
-/obj/item/storage/box/freezer/organcooler,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/map_effect/window_spawner/full/wood,
+/turf/simulated/floor/plating/asteroid,
 /area/template_noop)
 "FG" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -979,7 +905,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "Gc" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp/box{
@@ -988,20 +914,20 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "Ge" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/plastic/full,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "Gs" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "Gu" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
@@ -1012,35 +938,35 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "Gz" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
 /obj/random/dirt_75,
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "Hq" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "HX" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "Im" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "IB" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/bamboo,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "IN" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1049,30 +975,30 @@
 /obj/random/loot,
 /obj/random/loot,
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "IZ" = (
 /obj/item/stack/material/wood/branch{
 	pixel_x = 12;
 	pixel_y = 5
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "Jt" = (
 /obj/structure/closet,
 /obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "Jx" = (
 /obj/random/dirt_75,
 /obj/structure/table/wood,
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "Jz" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "JE" = (
 /obj/structure/table/steel,
 /obj/random/desktoy{
@@ -1080,7 +1006,7 @@
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "JJ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse,
@@ -1089,7 +1015,7 @@
 /obj/random/loot,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "JN" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
@@ -1098,7 +1024,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/wood/bamboo,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "JS" = (
 /obj/structure/table/standard,
 /obj/random/pottedplant_small{
@@ -1106,33 +1032,33 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/wood/mahogany,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "JU" = (
 /obj/random/dirt_75,
 /obj/item/material/shard{
 	pixel_y = -12
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "JX" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/structure/table/steel,
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "Ko" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "KC" = (
 /obj/machinery/light/colored/decayed{
 	dir = 1
 	},
 /obj/machinery/space_heater,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "KF" = (
 /obj/structure/table/steel,
 /obj/random/medical{
@@ -1142,7 +1068,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "Lk" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1153,33 +1079,33 @@
 	},
 /obj/structure/table/steel,
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "Ls" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "Lx" = (
-/obj/machinery/light/colored/dying,
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/turf/simulated/wall,
+/area/cryo_outpost/outside/buildings)
 "Mi" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/item/roller,
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/obj/machinery/door/urban,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/cryo_outpost/outside/buildings)
 "Mx" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "ME" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "MF" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/drop,
@@ -1187,17 +1113,12 @@
 /obj/random/civgun,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "MR" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
-"MW" = (
-/obj/effect/floor_decal/industrial/outline/research,
-/obj/structure/reagent_dispensers/coolanttank,
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Nc" = (
 /obj/structure/table/steel,
@@ -1206,7 +1127,7 @@
 	pixel_y = 7
 	},
 /turf/simulated/floor/tiled/techfloor,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "Nd" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/freezer/rations,
@@ -1215,104 +1136,91 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "NE" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
-"NK" = (
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "Oe" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/bamboo,
-/area/cryo_outpost/outside/surface)
-"Oh" = (
-/obj/effect/floor_decal/industrial/outline/research,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/cryo_outpost/outside/buildings)
 "Oq" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/item/stack/material/wood/branch,
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "OQ" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/desert,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "OT" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp/off{
 	pixel_y = 4
 	},
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "OV" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/glass/full,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "Pm" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/freezer/kois/rations,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
-"Px" = (
-/obj/structure/closet/crate/freezer,
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
+"Px" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/plating/asteroid,
+/area/cryo_outpost/outside/buildings)
 "Py" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "Pz" = (
 /obj/structure/window_frame/wood,
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "PB" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "PF" = (
 /turf/unsimulated/marker/green,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "PK" = (
 /obj/structure/bed/stool/chair/folding,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "Qt" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "QG" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "QH" = (
 /turf/simulated/wall,
-/area/cryo_outpost/outside/surface)
-"QJ" = (
-/obj/effect/floor_decal/industrial/outline/research,
-/turf/simulated/floor/tiled/dark,
 /area/template_noop)
 "QM" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -1321,12 +1229,12 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "Rg" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "Ri" = (
 /obj/random/dirt_75,
 /obj/random/junk{
@@ -1334,18 +1242,18 @@
 	pixel_y = 5
 	},
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "Rn" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "Rt" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "RG" = (
 /obj/structure/table/steel,
 /obj/random/pottedplant_small{
@@ -1353,40 +1261,40 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "RW" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "RY" = (
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room,
 /obj/structure/closet,
 /obj/random/junk,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "Si" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/structure/mech_wreckage/powerloader,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "Sq" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/bamboo,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "SN" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "Tg" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "Tm" = (
 /obj/structure/table/steel,
 /obj/item/modular_computer/laptop/preset/civilian{
@@ -1395,27 +1303,27 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/techfloor,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "To" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "Tp" = (
 /turf/simulated/floor/wood/bamboo,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "Tw" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "TN" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "TQ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -1424,7 +1332,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "TY" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -1434,21 +1342,17 @@
 /obj/random/loot,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "Uh" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
-/area/cryo_outpost/outside/surface)
-"UM" = (
-/obj/machinery/light/broken,
-/turf/simulated/floor/tiled/dark,
-/area/template_noop)
+/area/cryo_outpost/outside/buildings)
 "Vj" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/desert,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "Vm" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
@@ -1457,7 +1361,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "Vx" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1465,24 +1369,24 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/techfloor,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "VB" = (
 /obj/structure/bed/stool/chair/plastic,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "WC" = (
 /obj/structure/table/steel,
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "WD" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "WH" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -1490,13 +1394,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "WM" = (
 /obj/random/junk{
 	pixel_x = 10
 	},
 /turf/simulated/floor/exoplanet/barren,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "WP" = (
 /obj/random/dirt_75,
 /obj/structure/table/wood,
@@ -1505,7 +1409,7 @@
 	pixel_y = -6
 	},
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "Xe" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
@@ -1513,7 +1417,7 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "Xi" = (
 /obj/random/dirt_75,
 /obj/random/toolbox{
@@ -1521,7 +1425,7 @@
 	pixel_x = -4
 	},
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "Xj" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/drop,
@@ -1531,7 +1435,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "XP" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1542,18 +1446,15 @@
 	pixel_x = -6
 	},
 /turf/simulated/floor/wood,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "XQ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/stack/material/graphite/full,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "Yg" = (
 /turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
-"Yk" = (
-/turf/space,
 /area/template_noop)
 "YG" = (
 /obj/random/dirt_75,
@@ -1561,7 +1462,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "YO" = (
 /obj/structure/table/steel,
 /obj/item/device/flashlight/lamp{
@@ -1569,19 +1470,19 @@
 	pixel_y = 3
 	},
 /turf/simulated/floor/wood/bamboo,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "YP" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "Za" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "Ze" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin{
@@ -1593,24 +1494,24 @@
 	pixel_x = -5
 	},
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "Zp" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "ZI" = (
 /obj/item/stack/material/wood/full{
 	pixel_x = -17;
 	pixel_y = 7
 	},
 /turf/simulated/floor/plating/asteroid,
-/area/cryo_outpost/outside/surface)
+/area/template_noop)
 "ZN" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/outside/surface)
+/area/cryo_outpost/outside/buildings)
 "ZV" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
@@ -1620,20 +1521,20 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 "ZW" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
-/area/cryo_outpost/inside/warehouse)
+/area/template_noop)
 "ZX" = (
 /obj/structure/closet,
 /obj/machinery/light/colored/red{
 	dir = 1
 	},
 /turf/simulated/floor/lino/diamond,
-/area/cryo_outpost/inside/habitation_west)
+/area/template_noop)
 
 (1,1,1) = {"
 yE
@@ -1882,16 +1783,16 @@ yE
 yE
 yE
 yE
-ph
-ph
-ph
-ph
+jJ
+jJ
+jJ
+jJ
 yE
 yE
-ph
-ph
-ph
-ph
+jJ
+jJ
+jJ
+jJ
 yE
 yE
 dK
@@ -1939,16 +1840,16 @@ yE
 yE
 yE
 yE
-ph
+jJ
 Ri
-ph
-ph
+jJ
+jJ
 yE
 yE
-ph
-ph
-ph
-ph
+jJ
+jJ
+jJ
+jJ
 yE
 yE
 dK
@@ -2338,22 +2239,22 @@ yE
 yE
 yE
 yE
-ph
+jJ
 dK
 dK
 dK
 yE
 yE
-ph
-ph
+jJ
+jJ
 bM
 bM
 yE
 yE
 dK
-ph
-ph
-ph
+jJ
+jJ
+jJ
 yE
 yE
 yE
@@ -2395,22 +2296,22 @@ yE
 yE
 yE
 yE
-ph
+jJ
 dK
 dK
 dK
 yE
 yE
-ph
+jJ
 dK
-ph
+jJ
 bM
 yE
 yE
-ph
+jJ
 dK
 dK
-ph
+jJ
 yE
 yE
 yE
@@ -2762,12 +2663,12 @@ yE
 yE
 yE
 yE
-Yk
-Yk
-Yk
-Yk
-Yk
-Yk
+yE
+yE
+yE
+yE
+yE
+yE
 yE
 yE
 yE
@@ -2794,22 +2695,22 @@ yE
 yE
 yE
 yE
-ph
-ph
-ph
-ph
+jJ
+jJ
+jJ
+jJ
 yE
 yE
 xC
 xC
 dK
-ph
+jJ
 yE
 yE
 dK
 dK
 dK
-ph
+jJ
 yE
 yE
 yE
@@ -2817,16 +2718,16 @@ yE
 yE
 yE
 yE
-wv
-QJ
-Yk
-Yk
-Yk
-Yk
-Yk
-Yk
-MW
-QJ
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
 yE
 yE
 yE
@@ -2851,39 +2752,39 @@ yE
 yE
 yE
 yE
-ph
-ph
-ph
-ph
+jJ
+jJ
+jJ
+jJ
 yE
 yE
 xC
 SN
 xC
-ph
+jJ
 yE
 yE
-ph
-ph
-ph
-ph
-yE
-yE
-yE
+jJ
+jJ
+jJ
+jJ
 yE
 yE
 yE
 yE
-QJ
-dI
-Yk
-Yk
-Yk
-Yk
-Yk
-Yk
-QJ
-FC
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
 yE
 yE
 yE
@@ -2931,16 +2832,16 @@ yE
 yE
 yE
 yE
-NK
-UM
-Yk
-Yk
-Yk
-Yk
-Yk
-Yk
-Px
-qf
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
 yE
 yE
 yE
@@ -2988,16 +2889,16 @@ yE
 yE
 yE
 yE
-av
-av
-Yk
-Yk
-Yk
-Yk
-Yk
-Yk
-av
-av
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
 yE
 yE
 yE
@@ -3045,16 +2946,16 @@ yE
 yE
 yE
 yE
-av
-av
-Yk
-Yk
-Yk
-Yk
-Yk
-Yk
-av
-Ep
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
 yE
 yE
 yE
@@ -3102,16 +3003,16 @@ yE
 yE
 yE
 yE
-NK
-qf
-Yk
-Yk
-Yk
-Yk
-Yk
-Yk
-ly
-dq
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
 yE
 yE
 yE
@@ -3159,16 +3060,16 @@ yE
 yE
 yE
 yE
-AW
-QJ
-Yk
-Yk
-Yk
-Yk
-Yk
-Yk
-ch
-Oh
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
 yE
 yE
 yE
@@ -3179,15 +3080,15 @@ yE
 yE
 Yg
 Tg
-kR
-kR
+sL
+sL
 Dj
 Dj
-kR
+sL
 Dj
 Dj
-kR
-kR
+sL
+sL
 PF
 yE
 yE
@@ -3216,16 +3117,16 @@ yE
 yE
 yE
 yE
-QJ
-FC
-Yk
-Yk
-Yk
-Yk
-Yk
-Yk
-Oh
-ch
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
 yE
 yE
 yE
@@ -3236,7 +3137,7 @@ yE
 yE
 Yg
 vO
-kR
+sL
 WP
 oS
 Jx
@@ -3244,28 +3145,28 @@ ZN
 yz
 fU
 pO
-kR
+sL
 PF
 yE
 yE
 yE
 yE
 dK
-ph
-ph
-ph
+jJ
+jJ
+jJ
 yE
 yE
 dK
-ph
-ph
-ph
+jJ
+jJ
+jJ
 yE
 yE
 dK
 dK
 dK
-ph
+jJ
 yE
 yE
 yE
@@ -3273,16 +3174,16 @@ yE
 yE
 yE
 yE
-qD
-qD
-Yk
-Yk
-Yk
-Yk
-Yk
-Yk
-qD
-qD
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
 yE
 yE
 yE
@@ -3293,7 +3194,7 @@ yE
 yE
 Yg
 jc
-ky
+Mi
 Tw
 Tw
 oA
@@ -3301,45 +3202,45 @@ pP
 Oe
 Sq
 pO
-kR
+sL
 PF
 yE
 yE
 yE
 yE
-ph
+jJ
 dK
 dK
-ph
+jJ
 yE
 yE
-ph
-ph
-ph
-ph
+jJ
+jJ
+jJ
+jJ
 yE
 yE
-ph
-ph
-ph
-ph
-yE
-yE
-yE
+jJ
+jJ
+jJ
+jJ
 yE
 yE
 yE
 yE
-QJ
-MW
-Yk
-Yk
-Yk
-Yk
-Yk
-Yk
-QJ
-QJ
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
 yE
 yE
 yE
@@ -3349,8 +3250,8 @@ yE
 yE
 yE
 Yg
-kR
-kR
+sL
+sL
 Tw
 Tw
 Xi
@@ -3358,7 +3259,7 @@ zp
 Oe
 Oe
 yz
-kR
+sL
 Yg
 yE
 yE
@@ -3387,16 +3288,16 @@ yE
 yE
 yE
 yE
-QJ
-wv
-Yk
-Yk
-Yk
-Yk
-Yk
-Yk
-QJ
-AW
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
 yE
 yE
 yE
@@ -3406,16 +3307,16 @@ yE
 yE
 yE
 Yg
-kR
+sL
 Nc
 Ls
 Rg
 Ls
-kR
+sL
 jb
 Ek
 Dx
-kR
+sL
 Yg
 yE
 yE
@@ -3444,16 +3345,16 @@ yE
 yE
 yE
 yE
-NK
-qf
-Yk
-Yk
-Yk
-Yk
-Yk
-Yk
-NK
-qf
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
 yE
 yE
 yE
@@ -3468,11 +3369,11 @@ tp
 Vx
 Ls
 Ls
-kR
+sL
 IN
 zY
 Ek
-kR
+sL
 Yg
 yE
 yE
@@ -3501,16 +3402,16 @@ yE
 yE
 yE
 yE
-av
-av
-Yk
-Yk
-Yk
-Yk
-Yk
-Yk
-Mi
-av
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
 yE
 yE
 yE
@@ -3520,16 +3421,16 @@ yE
 yE
 yE
 PF
-kR
+sL
 FA
 iY
 Ls
 yi
-kR
+sL
 tO
 rH
 Mx
-kR
+sL
 PF
 yE
 yE
@@ -3558,16 +3459,16 @@ yE
 yE
 yE
 yE
-av
-av
-Yk
-Yk
-Yk
-Yk
-Yk
-Yk
-nH
-av
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
 yE
 yE
 yE
@@ -3577,16 +3478,16 @@ yE
 yE
 yE
 PF
-kR
-kR
+sL
+sL
 Dj
 Dj
-kR
-kR
-kR
-kR
-kR
-kR
+sL
+sL
+sL
+sL
+sL
+sL
 PF
 yE
 yE
@@ -3615,16 +3516,16 @@ yE
 yE
 yE
 yE
-pq
-CO
-Yk
-Yk
-Yk
-Yk
-Yk
-Yk
-NK
-Lx
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
 yE
 yE
 yE
@@ -3672,16 +3573,16 @@ yE
 yE
 yE
 yE
-sL
-QJ
-Yk
-Yk
-Yk
-Yk
-Yk
-Yk
-QJ
-xg
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
 yE
 yE
 yE
@@ -3729,16 +3630,16 @@ yE
 yE
 yE
 yE
-QJ
-QJ
-Yk
-Yk
-Yk
-Yk
-Yk
-Yk
-QJ
-QJ
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
+yE
 yE
 yE
 yE
@@ -3807,13 +3708,13 @@ yE
 RW
 PF
 PF
-QH
-QH
+Lx
+Lx
 Rt
 Rt
 Rt
-QH
-QH
+Lx
+Lx
 jc
 ms
 yE
@@ -3864,13 +3765,13 @@ yE
 PF
 PF
 PF
-QH
+Lx
 Tm
 cB
 Ls
 uN
 Gc
-QH
+Lx
 jc
 PF
 yE
@@ -3921,13 +3822,13 @@ yE
 PF
 PF
 PF
-QH
+Lx
 kE
 lw
 Rg
 Ls
 fH
-QH
+Lx
 PF
 PF
 yE
@@ -3980,8 +3881,8 @@ PF
 PF
 Dj
 vq
-xj
-xj
+ph
+ph
 PK
 ya
 Dj
@@ -4149,13 +4050,13 @@ yE
 Yg
 Tg
 vO
-kR
+sL
 gb
 bJ
 bJ
 bJ
 js
-kR
+sL
 Tg
 Yg
 yE
@@ -4206,13 +4107,13 @@ yE
 PF
 Yg
 RW
-kR
-kR
-bN
-bN
-bN
-kR
-kR
+sL
+sL
+Px
+Px
+Px
+sL
+sL
 Yg
 PF
 yE
@@ -4527,8 +4428,8 @@ Eg
 Vj
 kR
 kR
-Dj
-Dj
+FC
+FC
 kR
 kR
 Vj
