@@ -303,6 +303,18 @@ var/list/gear_datums = list()
 					break
 				else
 					temp_html += ", "
+
+		if(G.whitelisted)
+			temp_html += "</font><font size = 1>(Valid species: "
+			var/species_count = 0
+			for(var/valid_species in G.whitelisted)
+				temp_html += "[valid_species]"
+				species_count++
+				if(species_count == G.whitelisted.len)
+					temp_html += ") "
+					break
+				else
+					temp_html += ", "
 		temp_html += "</font></td></tr>"
 
 		if(ticked)

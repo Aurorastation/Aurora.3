@@ -310,7 +310,9 @@
 	return 1
 
 // attempt to move while inside
-/obj/machinery/disposal/relaymove(mob/user as mob)
+/obj/machinery/disposal/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user.stat || src.flushing)
 		return
 	if(user.loc == src)
@@ -746,7 +748,9 @@
 
 
 	// called when player tries to move while in a pipe
-/obj/disposalholder/relaymove(mob/user as mob)
+/obj/disposalholder/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(!istype(user,/mob/living))
 		return
 
@@ -786,7 +790,7 @@
 	var/dpdir = 0		// bitmask of pipe directions
 	dir = 0				// dir will contain dominant direction for junction pipes
 	var/health = 10 	// health points 0-10
-	layer = DISPOSALS_PIPE_LAYER
+	layer = EXPOSED_DISPOSALS_PIPE_LAYER
 	var/sortType = ""
 	var/subtype = 0
 	// new pipe, set the icon_state as on map

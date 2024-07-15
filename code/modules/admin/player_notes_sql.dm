@@ -29,7 +29,7 @@
 	insert_query.Execute(query_details)
 
 	message_admins(SPAN_NOTICE("[key_name_admin(user)] has edited [player_ckey]'s notes."))
-	log_admin("[key_name(user)] has edited [player_ckey]'s notes.",admin_key=key_name(user),ckey=player_ckey)
+	log_admin("[key_name(user)] has edited [player_ckey]'s notes.")
 
 /proc/notes_edit_sql(var/note_id, var/note_edit)
 	if (!note_id || !note_edit)
@@ -67,7 +67,7 @@
 				deletequery.Execute(list("note_id" = note_id))
 
 				message_admins(SPAN_NOTICE("[key_name_admin(usr)] deleted one of [ckey]'s notes."))
-				log_admin("[key_name(usr)] deleted one of [ckey]'s notes.",admin_key=key_name(usr),ckey=ckey)
+				log_admin("[key_name(usr)] deleted one of [ckey]'s notes.")
 			else
 				to_chat(usr, "Cancelled")
 				return

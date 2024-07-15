@@ -264,7 +264,9 @@
 	SIGNAL_HANDLER
 	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom, relaymove), user, direction, TRUE)
 
-/mob/living/heavy_vehicle/relaymove(var/mob/living/user, var/direction, var/turn_only = FALSE)
+/mob/living/heavy_vehicle/relaymove(mob/living/user, direction, var/turn_only = FALSE)
+	. = ..()
+
 	if(!can_move(user))
 		return
 

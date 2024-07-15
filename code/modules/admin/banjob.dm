@@ -739,7 +739,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 				var/msg
 				for (var/R in notbannedlist)
 					ban_unban_log_save("[key_name(usr)] temp-jobbanned [ckey] from [R] for [mins] minutes. reason: [reason]")
-					log_admin("[key_name(usr)] temp-jobbanned [ckey] from [R] for [mins] minutes",admin_key=key_name(usr))
+					log_admin("[key_name(usr)] temp-jobbanned [ckey] from [R] for [mins] minutes")
 					feedback_inc("ban_job_tmp", 1)
 					feedback_add_details("ban_job_tmp","- [R]")
 					jobban_fullban(ckey, R, reason, mins)
@@ -768,7 +768,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 					var/msg
 					for (var/R in notbannedlist)
 						ban_unban_log_save("[key_name(usr)] perma-jobbanned [ckey] from [R]. reason: [reason]")
-						log_admin("[key_name(usr)] perma-banned [ckey] from [R]",admin_key=key_name(usr))
+						log_admin("[key_name(usr)] perma-banned [ckey] from [R]")
 						feedback_inc("ban_job", 1)
 						feedback_add_details("ban_job", "- [R]")
 						jobban_fullban(ckey, R, reason, -1)
@@ -810,7 +810,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 			switch (alert("Job: '[R]' Reason: '[reason]' Un-jobban?","Please Confirm","Yes","No"))
 				if ("Yes")
 					ban_unban_log_save("[key_name(usr)] unjobbanned [ckey] from [R]")
-					log_admin("[key_name(usr)] unbanned [ckey] from [R]",admin_key=key_name(usr),ckey=ckey)
+					log_admin("[key_name(usr)] unbanned [ckey] from [R]")
 					jobban_unban(ckey, R) // Refer to the jobban API.
 					feedback_inc("ban_job_unban",1)
 					feedback_add_details("ban_job_unban","- [R]")

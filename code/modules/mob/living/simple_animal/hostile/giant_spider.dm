@@ -44,11 +44,13 @@
 	move_to_delay = 6
 	speed = 3
 	mob_size = 6
+	smart_melee = FALSE
 
 	attacktext = "bitten"
 	attack_emote = "skitters toward"
 	attack_sound = 'sound/weapons/bite.ogg'
 	emote_sounds = list('sound/effects/creatures/spider_critter.ogg')
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Tissue sample contains high muscle content")
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse
@@ -67,6 +69,7 @@
 	var/atom/cocoon_target
 	poison_type = /singleton/reagent/soporific
 	var/fed = 0
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular structures indicative of high offspring production")
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant
 	name = "greimorian servant"
@@ -90,8 +93,9 @@
 	max_co2 = 0
 	max_tox = 0
 	var/playable = TRUE
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular structures indicative of high offspring production", "Tissue sample contains high neural cell content")
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/servant/Life()
+/mob/living/simple_animal/hostile/giant_spider/nurse/servant/Life(seconds_per_tick, times_fired)
 	..()
 	adjustBruteLoss(-2)
 
@@ -110,6 +114,8 @@
 	armor_penetration = 15
 	poison_per_bite = 5
 	move_to_delay = 4
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry shows high metabolic capacity")
+	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/emp
 	name = "greimorian jackal"
@@ -125,6 +131,8 @@
 	poison_type = /singleton/reagent/perconol // mildly beneficial for organics
 	poison_per_bite = 2
 	move_to_delay = 5
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry geared towards creating strong electrical potential differences")
+	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier
 	name = "greimorian bombardier"
@@ -142,6 +150,8 @@
 	poison_type = /singleton/reagent/capsaicin/condensed
 	poison_per_bite = 2
 	move_to_delay = 5
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Exocrinic caspaicin synthesis detected")
+	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier/Shoot(var/target, var/start, var/mob/user, var/bullet = 0)
 	if(target == start)
@@ -375,12 +385,13 @@
 		src.visible_message("\The [src] begins to secrete a sticky substance around \the [P].")
 		if(!do_after(src, 80))
 			return
-		if(P && isturf(P) && get_dist(src,P) <= 1)
-			var/obj/effect/spider/cocoon/C = new(P.loc)
+
+		if(P && isturf(P.loc) && get_dist(src, P) <= 1)
+			var/obj/effect/spider/cocoon/C = new(get_turf(P))
 			var/large_cocoon = FALSE
 			C.pixel_x = P.pixel_x
 			C.pixel_y = P.pixel_y
-			for(P in C.loc)
+			for(P in get_turf(C))
 				if(istype(P, /mob/living/simple_animal/hostile/giant_spider))
 					continue
 				large_cocoon = TRUE

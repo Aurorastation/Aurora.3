@@ -3,7 +3,7 @@
 	desc = "A mining mecha of custom design, a closed cockpit with powerloader appendages."
 
 	e_head = /obj/item/mech_component/sensors/ripley
-	e_body = /obj/item/mech_component/chassis/combat
+	e_body = /obj/item/mech_component/chassis/combat/cell
 	e_arms = /obj/item/mech_component/manipulators/ripley
 	e_legs = /obj/item/mech_component/propulsion/ripley
 	e_color = COLOR_RIPLEY
@@ -27,7 +27,7 @@
 	name = "salvage exosuit"
 	desc = "An exosuit of unknown design, with a closed cockpit and quadruped motivators."
 	e_head = /obj/item/mech_component/sensors/ripley
-	e_body = /obj/item/mech_component/chassis/combat
+	e_body = /obj/item/mech_component/chassis/combat/nuclear
 	e_arms = /obj/item/mech_component/manipulators/ripley
 	e_legs = /obj/item/mech_component/propulsion/spider
 	e_color = "#b07f0c"

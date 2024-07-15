@@ -106,7 +106,9 @@
 	add_fingerprint(user)
 	return
 
-/obj/structure/morgue/relaymove(mob/user)
+/obj/structure/morgue/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user.stat || locked)
 		return
 	var/turf/S = get_step(src, src.dir)

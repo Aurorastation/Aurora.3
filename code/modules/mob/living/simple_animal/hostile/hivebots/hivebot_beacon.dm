@@ -36,6 +36,7 @@
 	destroy_surroundings = 0
 	attack_emote = "focuses on"
 	psi_pingable = FALSE
+	sample_data = null
 
 	/**
 	 * Number of total bots that are spawned before the beacon disappears completely
@@ -325,7 +326,7 @@
 
 	return
 
-/mob/living/simple_animal/hostile/hivebotbeacon/Life()
+/mob/living/simple_animal/hostile/hivebotbeacon/Life(seconds_per_tick, times_fired)
 	..()
 	if(wander)
 		wander = 0

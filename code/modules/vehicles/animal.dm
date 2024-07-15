@@ -90,7 +90,9 @@
 		return
 	..()
 
-/obj/vehicle/animal/relaymove(mob/user, direction)
+/obj/vehicle/animal/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user != load || user.incapacitated())
 		return
 	return Move(get_step(src, direction))

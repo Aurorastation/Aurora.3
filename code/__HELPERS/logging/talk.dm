@@ -17,7 +17,7 @@
 	WRITE_LOG(GLOB.config.logfiles["world_game_log"], "[prefix][custom_say_emote ? "*[custom_say_emote]*, " : ""]\"[message]\"[suffix] - [message_type]")
 
 /// Logging for generic spoken messages
-/proc/_log_say(text)
+/proc/log_say(text)
 #if defined(UNIT_TEST)
 	LOG_GITHUB_DEBUG("SAY: [text]")
 #else
@@ -26,7 +26,7 @@
 #endif
 
 /// Logging for whispered messages
-/proc/_log_whisper(text)
+/proc/log_whisper(text)
 	if (GLOB.config.logsettings["log_whisper"])
 		WRITE_LOG(GLOB.config.logfiles["world_game_log"], "WHISPER: [text]")
 

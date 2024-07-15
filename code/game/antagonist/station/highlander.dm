@@ -59,4 +59,4 @@ var/datum/antagonist/highlander/highlanders
 		highlanders.add_antagonist(H.mind)
 
 	message_admins(SPAN_NOTICE("[key_name_admin(usr)] used THERE CAN BE ONLY ONE!"), 1)
-	log_admin("[key_name(usr)] used there can be only one.", admin_key=key_name(usr))
+	log_admin("[key_name(usr)] used there can be only one.")

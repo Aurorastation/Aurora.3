@@ -30,7 +30,7 @@
 			user.drop_from_inventory(attacking_item,src)
 			to_chat(user, SPAN_NOTICE("You attach the tank to the transfer valve."))
 			message_admins("[key_name_admin(user)] attached both tanks to a transfer valve. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
-			log_game("[key_name_admin(user)] attached both tanks to a transfer valve.",ckey=key_name(user))
+			log_game("[key_name_admin(user)] attached both tanks to a transfer valve.")
 
 		update_icon()
 		update_static_data_for_all_viewers()
@@ -52,7 +52,7 @@
 
 		GLOB.bombers += "[key_name(user)] attached a [attacking_item] to a transfer valve."
 		message_admins("[key_name_admin(user)] attached a [attacking_item] to a transfer valve. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)")
-		log_game("[key_name_admin(user)] attached a [attacking_item] to a transfer valve.",ckey=key_name(user))
+		log_game("[key_name_admin(user)] attached a [attacking_item] to a transfer valve.")
 		attacher = user
 		update_static_data_for_all_viewers()
 	return
