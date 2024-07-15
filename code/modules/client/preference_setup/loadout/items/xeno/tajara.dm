@@ -8,6 +8,14 @@
 	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	sort_category = "Xenowear - Tajara"
 
+/datum/gear/shoes/tajara/recolourable_boots
+	display_name = "tajaran boots selection (colourable)"
+	description = "A selection of boots fitted for Tajara. In a variety of colors!"
+	path = /obj/item/clothing/shoes/tajara
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	whitelisted = list(SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear - Tajara"
+
 /datum/gear/uniform/archeologist_uniform
 	display_name = "archeologist uniform"
 	description = "A rugged uniform used by Adhomian archeologists."
@@ -41,6 +49,17 @@
 	boots["dark workboots"] = /obj/item/clothing/shoes/workboots/tajara/dark
 	boots["adhomian boots"] = /obj/item/clothing/shoes/workboots/tajara/adhomian_boots
 	gear_tweaks += new /datum/gear_tweak/path(boots)
+
+/datum/gear/shoes/tajara/recolourable_boots/New()
+	..()
+	var/list/recolourable_boots = list()
+	recolourable_boots["thigh-high boots"] = /obj/item/clothing/shoes/thighboots
+	recolourable_boots["full length boots"] = /obj/item/clothing/shoes/fullboots
+	recolourable_boots["mudboots"] = /obj/item/clothing/shoes/mudboots
+	recolourable_boots["thigh-high mudboots"] = /obj/item/clothing/shoes/mudboots/thigh
+	recolourable_boots["jackboots"] = /obj/item/clothing/shoes/jackboots/color
+	recolourable_boots["workboots"] = /obj/item/clothing/shoes/workboots/color
+	gear_tweaks += new /datum/gear_tweak/path(recolourable_boots)
 
 /datum/gear/gloves/tajara
 	display_name = "tajara gloves selection"
