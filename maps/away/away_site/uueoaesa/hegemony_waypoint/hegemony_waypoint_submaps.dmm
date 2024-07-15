@@ -261,6 +261,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/shrine)
+"fP" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/ash,
+/obj/machinery/power/portgen/basic,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
 "gf" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /obj/machinery/door/blast/shutters/open{
@@ -479,6 +486,10 @@
 /area/hegemony_waypoint/atmos)
 "lO" = (
 /obj/structure/table/reinforced/steel,
+/obj/item/storage/box/donkpockets{
+	pixel_y = 9;
+	pixel_x = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/kitchen)
 "lR" = (
@@ -504,6 +515,22 @@
 	pixel_y = 2
 	},
 /turf/simulated/floor/tiled,
+/area/hegemony_waypoint/bunks)
+"me" = (
+/obj/random/dirt_75,
+/obj/structure/table/steel,
+/obj/item/screwdriver{
+	pixel_y = -12;
+	pixel_x = 3
+	},
+/obj/item/device/personal_shield{
+	pixel_y = 4;
+	pixel_x = 8
+	},
+/obj/item/gun/energy/pistol/hegemony{
+	pixel_y = 11
+	},
+/turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/bunks)
 "mi" = (
 /obj/structure/closet/secure_closet/freezer/meat,
@@ -701,6 +728,9 @@
 	icon_state = "4-8"
 	},
 /obj/random/dirt_75,
+/obj/item/clothing/head/unathi/dark{
+	pixel_x = 8
+	},
 /turf/simulated/floor/tiled,
 /area/hegemony_waypoint/bunks)
 "pd" = (
@@ -773,6 +803,7 @@
 /obj/random/loot,
 /obj/random/loot,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/graphite/full,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/eva)
 "qt" = (
@@ -1183,6 +1214,24 @@
 /obj/effect/floor_decal/corner_wide/brown/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/steel,
+/obj/item/melee/energy/sword/hegemony{
+	pixel_y = 15;
+	pixel_x = 16
+	},
+/obj/item/cell/high/empty{
+	pixel_y = -1;
+	pixel_x = 1
+	},
+/obj/item/cell/high/empty{
+	pixel_y = -2;
+	pixel_x = 9
+	},
+/obj/item/clothing/head/bandana{
+	pixel_x = -9
+	},
+/obj/item/gun/energy/rifle/hegemony{
+	pixel_y = 11
+	},
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/eva)
 "vq" = (
@@ -1268,6 +1317,7 @@
 	pixel_y = 8
 	},
 /obj/random/dirt_75,
+/obj/item/storage/bag/circuits/basic,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/bunks)
 "xb" = (
@@ -1477,7 +1527,7 @@
 /turf/simulated/floor/airless,
 /area/hegemony_waypoint/eva)
 "yH" = (
-/obj/machinery/computer/ship/navigation/terminal{
+/obj/machinery/computer/ship/sensors/terminal{
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -1601,6 +1651,10 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/random/spacecash{
+	pixel_x = 7;
+	pixel_y = -5
+	},
 /turf/simulated/floor/tiled,
 /area/hegemony_waypoint/bunks)
 "AB" = (
@@ -2238,10 +2292,13 @@
 /turf/simulated/floor/tiled/steel,
 /area/hegemony_waypoint/shrine)
 "HW" = (
-/obj/structure/closet/cabinet,
+/obj/structure/closet/cabinet{
+	opened = 1
+	},
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/random/dirt_75,
 /obj/item/clothing/under/unathi,
+/obj/item/clothing/head/unathi/deco,
 /turf/simulated/floor/tiled,
 /area/hegemony_waypoint/bunks)
 "HZ" = (
@@ -2604,11 +2661,7 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /obj/item/storage/box/fancy/mre/menu10{
-	pixel_y = -2;
-	pixel_x = 11
-	},
-/obj/item/storage/box/fancy/mre/menu10{
-	pixel_y = 2;
+	pixel_y = 7;
 	pixel_x = -1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -2735,6 +2788,10 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/ash,
+/obj/item/device/oxycandle{
+	pixel_y = 7;
+	pixel_x = -5
+	},
 /turf/simulated/floor/airless,
 /area/hegemony_waypoint/eva)
 "Rt" = (
@@ -2864,6 +2921,7 @@
 /obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/item/reagent_containers/food/snacks/meat/chicken,
 /obj/item/storage/box/produce,
+/obj/item/storage/box/fancy/vkrexi_swollen_organ,
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/kitchen)
 "Tn" = (
@@ -2897,6 +2955,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/random/toolbox,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hegemony_waypoint/kitchen)
 "Ue" = (
@@ -3260,6 +3319,10 @@
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/under/unathi,
 /obj/item/clothing/accessory/poncho,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
 /turf/simulated/floor/tiled,
 /area/hegemony_waypoint/bunks)
 "YV" = (
@@ -4676,7 +4739,7 @@ pr
 pr
 Qh
 wU
-yH
+me
 RZ
 Lo
 pr
@@ -5552,7 +5615,7 @@ pr
 ZN
 Xg
 al
-kX
+fP
 qg
 ZN
 pr

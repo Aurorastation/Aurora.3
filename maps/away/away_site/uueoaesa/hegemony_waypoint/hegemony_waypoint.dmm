@@ -186,6 +186,12 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/item/device/oxycandle,
+/obj/item/device/oxycandle,
+/obj/item/device/oxycandle,
+/obj/item/device/oxycandle,
+/obj/item/device/oxycandle,
+/obj/item/device/oxycandle,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "dm" = (
@@ -913,15 +919,19 @@
 "sq" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/structure/table/steel,
-/obj/item/toy/desk/fan{
-	pixel_x = 5
-	},
 /obj/machinery/button/remote/blast_door{
 	dir = 10;
 	pixel_y = -1;
 	pixel_x = -7;
 	id = "hegemony_waypoint_monitoring";
 	name = "Monitoring Shutters"
+	},
+/obj/item/toy/desk/fan{
+	pixel_x = 5
+	},
+/obj/item/shield/energy/hegemony{
+	pixel_y = 9;
+	pixel_x = -9
 	},
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/monitoring)
@@ -2077,12 +2087,10 @@
 /area/hegemony_waypoint/hallway)
 "Nf" = (
 /obj/structure/table/steel,
-/obj/item/screwdriver{
-	pixel_y = 10
-	},
-/obj/item/device/camera{
-	pixel_x = 10;
-	pixel_y = -1
+/obj/machinery/photocopier/faxmachine{
+	pixel_y = 5;
+	department = "Sensor Relay";
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_waypoint/monitoring)
@@ -2267,6 +2275,13 @@
 	pixel_y = 4
 	},
 /obj/structure/table/steel,
+/obj/item/clothing/head/welding{
+	pixel_y = 9;
+	pixel_x = 8
+	},
+/obj/item/storage/bag/inflatable{
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/engineering)
 "Rs" = (
@@ -2300,6 +2315,10 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/closet/walllocker/medical{
+	pixel_x = -32
+	},
+/obj/item/storage/firstaid,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "RC" = (
@@ -2490,6 +2509,7 @@
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /obj/random/dirt_75,
+/obj/structure/flora/pottedplant/empty,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "UX" = (
