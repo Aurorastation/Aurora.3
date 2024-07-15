@@ -261,13 +261,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/shrine)
-"fP" = (
-/obj/effect/floor_decal/corner_wide/brown/diagonal,
-/obj/random/dirt_75,
-/obj/effect/decal/cleanable/ash,
-/obj/machinery/power/portgen/basic,
-/turf/simulated/floor/tiled/techfloor,
-/area/hegemony_waypoint/eva)
 "gf" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /obj/machinery/door/blast/shutters/open{
@@ -516,22 +509,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_waypoint/bunks)
-"me" = (
-/obj/random/dirt_75,
-/obj/structure/table/steel,
-/obj/item/screwdriver{
-	pixel_y = -12;
-	pixel_x = 3
-	},
-/obj/item/device/personal_shield{
-	pixel_y = 4;
-	pixel_x = 8
-	},
-/obj/item/gun/energy/pistol/hegemony{
-	pixel_y = 11
-	},
-/turf/simulated/floor/tiled/techfloor,
-/area/hegemony_waypoint/bunks)
 "mi" = (
 /obj/structure/closet/secure_closet/freezer/meat,
 /obj/effect/floor_decal/industrial/outline/service,
@@ -629,6 +606,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/hydroponics)
+"nk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/machinery/autolathe,
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/atmos)
 "nm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/random/dirt_75,
@@ -1946,6 +1931,10 @@
 /obj/machinery/power/apc/empty/north{
 	req_access = null
 	},
+/obj/item/tape_roll{
+	pixel_x = 3;
+	pixel_y = 9
+	},
 /turf/simulated/floor/tiled/gridded,
 /area/hegemony_waypoint/atmos)
 "DW" = (
@@ -2702,6 +2691,22 @@
 	},
 /turf/simulated/floor,
 /area/hegemony_waypoint/atmos)
+"PD" = (
+/obj/random/dirt_75,
+/obj/structure/table/steel,
+/obj/item/screwdriver{
+	pixel_y = -12;
+	pixel_x = 3
+	},
+/obj/item/device/personal_shield{
+	pixel_y = 4;
+	pixel_x = 8
+	},
+/obj/item/gun/energy/pistol/hegemony{
+	pixel_y = 11
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/bunks)
 "PM" = (
 /obj/machinery/atmospherics/binary/passive_gate/on{
 	dir = 8
@@ -2847,6 +2852,13 @@
 	},
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/bunks)
+"Sa" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/ash,
+/obj/machinery/power/portgen/basic,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
 "Sl" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -4739,7 +4751,7 @@ pr
 pr
 Qh
 wU
-me
+PD
 RZ
 Lo
 pr
@@ -4959,7 +4971,7 @@ pr
 Rt
 DR
 ff
-kG
+nk
 WN
 Rt
 pr
@@ -5615,7 +5627,7 @@ pr
 ZN
 Xg
 al
-fP
+Sa
 qg
 ZN
 pr
