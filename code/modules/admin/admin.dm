@@ -19,7 +19,7 @@ var/global/enabled_spooking = 0
 			to_chat(C, msg)
 
 /proc/msg_admin_attack(var/text,var/ckey="",var/ckey_target="") //Toggleable Attack Messages
-	log_attack(text,ckey=ckey,ckey_target=ckey_target)
+	log_attack(text)
 	var/rendered = "<span class=\"log_message\"><span class=\"prefix\">ATTACK:</span> <span class=\"message\">[text]</span></span>"
 	for(var/s in GLOB.staff)
 		var/client/C = s

@@ -43,6 +43,7 @@
 	corpseuniform = /obj/item/clothing/under/unathi
 	corpseshoes = /obj/item/clothing/shoes/sandals/caligae
 	corpsesuit = /obj/item/clothing/accessory/poncho/unathimantle
+	corpseglasses = /obj/item/clothing/glasses/safety/goggles/wasteland
 
 /obj/effect/landmark/corpse/moghes_dead_raider/do_extra_customization(mob/living/carbon/human/M)
 	M.ChangeToHusk()

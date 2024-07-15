@@ -159,15 +159,15 @@
 	O.name = "distant terrain"
 	O.desc = "You need to come over there to take a better look."
 
-/turf/unsimulated/planet_edge/CollidedWith(atom/movable/A)
+/turf/unsimulated/planet_edge/CollidedWith(atom/bumped_atom)
 	. = ..()
 	var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 	if(!istype(E))
 		return
 	if(E.planetary_area && istype(loc, world.area))
 		ChangeArea(src, E.planetary_area)
-	var/new_x = A.x
-	var/new_y = A.y
+	var/new_x = bumped_atom.x
+	var/new_y = bumped_atom.y
 	if(x <= TRANSITIONEDGE)
 		new_x = E.maxx - TRANSITIONEDGE - 1
 	else if (x >= (E.maxx - TRANSITIONEDGE))
@@ -177,11 +177,13 @@
 	else if (y >= (E.maxy - TRANSITIONEDGE))
 		new_y = TRANSITIONEDGE + 1
 
-	var/turf/T = locate(new_x, new_y, A.z)
+	var/turf/T = locate(new_x, new_y, bumped_atom.z)
 	if(T && !T.density)
-		A.forceMove(T)
-		if(isliving(A))
-			var/mob/living/L = A
-			if(L.pulling)
-				var/atom/movable/AM = L.pulling
-				AM.forceMove(T)
+		if(ismovable(bumped_atom))
+			var/atom/movable/AM = bumped_atom
+			AM.forceMove(T)
+			if(isliving(AM))
+				var/mob/living/L = bumped_atom
+				if(L.pulling)
+					var/atom/movable/pulling = L.pulling
+					pulling.forceMove(T)

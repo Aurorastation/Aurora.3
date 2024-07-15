@@ -156,7 +156,7 @@ SUBSYSTEM_DEF(distress)
 		return
 
 	message_admins("[key_name_admin(usr)] is dispatching a Response Team: [choice].", 1)
-	log_admin("[key_name(usr)] used Dispatch Response Team: [choice].",admin_key=key_name(usr))
+	log_admin("[key_name(usr)] used Dispatch Response Team: [choice].")
 	SSdistress.trigger_armed_response_team(choice)
 
 

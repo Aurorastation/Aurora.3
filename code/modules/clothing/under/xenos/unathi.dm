@@ -79,6 +79,8 @@
 	desc = "A modern blend of Ouerean and Moghean style for anyone on the go. Great for sunbathing!"
 	icon_state = "zozo"
 	item_state = "zozo"
+	build_from_parts = FALSE
+	has_accents = FALSE
 
 /obj/item/clothing/under/unathi/himation
 	name = "himation cloak"

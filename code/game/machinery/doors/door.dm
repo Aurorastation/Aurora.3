@@ -144,49 +144,49 @@
 		return 0
 	return 1
 
-/obj/machinery/door/CollidedWith(atom/AM)
+/obj/machinery/door/CollidedWith(atom/bumped_atom)
 	. = ..()
 	if(p_open || operating) return
-	if (!AM.simulated) return
-	if(ismob(AM))
-		var/mob/M = AM
+	if (!bumped_atom.simulated) return
+	if(ismob(bumped_atom))
+		var/mob/M = bumped_atom
 		if(world.time - M.last_bumped <= 10) return	//Can bump-open one airlock per second. This is to prevent shock spam.
 		M.last_bumped = world.time
 		if(!M.restrained() && (!issmall(M) || ishuman(M) || istype(M, /mob/living/silicon/robot/drone/mining)))
 			bumpopen(M)
 		return
 
-	if(istype(AM, /obj/machinery/bot))
-		var/obj/machinery/bot/bot = AM
+	if(istype(bumped_atom, /obj/machinery/bot))
+		var/obj/machinery/bot/bot = bumped_atom
 		if(src.check_access(bot.botcard))
 			if(density)
 				open()
 		return
 
-	if(istype(AM, /mob/living/bot))
-		var/mob/living/bot/bot = AM
+	if(istype(bumped_atom, /mob/living/bot))
+		var/mob/living/bot/bot = bumped_atom
 		if(src.check_access(bot.botcard))
 			if(density)
 				open()
 		return
 
-	if(istype(AM, /mob/living/simple_animal/spiderbot))
-		var/mob/living/simple_animal/spiderbot/bot = AM
+	if(istype(bumped_atom, /mob/living/simple_animal/spiderbot))
+		var/mob/living/simple_animal/spiderbot/bot = bumped_atom
 		if(src.check_access(bot.internal_id))
 			if(density)
 				open()
 		return
 
-	if(istype(AM, /obj/structure/bed/stool/chair/office/wheelchair))
-		var/obj/structure/bed/stool/chair/office/wheelchair/wheel = AM
+	if(istype(bumped_atom, /obj/structure/bed/stool/chair/office/wheelchair))
+		var/obj/structure/bed/stool/chair/office/wheelchair/wheel = bumped_atom
 		if(density)
 			if(wheel.pulling && (src.allowed(wheel.pulling)))
 				open()
 			else
 				do_animate("deny")
 		return
-	if(istype(AM, /obj/structure/janitorialcart))
-		var/obj/structure/janitorialcart/cart = AM
+	if(istype(bumped_atom, /obj/structure/janitorialcart))
+		var/obj/structure/janitorialcart/cart = bumped_atom
 		if(density)
 			if(cart.pulling && (src.allowed(cart.pulling)))
 				open()
@@ -194,8 +194,8 @@
 				do_animate("deny")
 		return
 
-	if(istype(AM, /obj/vehicle))
-		var/obj/vehicle/V = AM
+	if(istype(bumped_atom, /obj/vehicle))
+		var/obj/vehicle/V = bumped_atom
 		if(density)
 			if(V.buckled && (src.allowed(V.buckled)))
 				open()

@@ -133,6 +133,18 @@
 /area/moghes_ozeuoi)
 "oJ" = (
 /obj/structure/closet/crate,
+/obj/item/clothing/accessory/poncho/unathimantle{
+	color = "#42330f"
+	},
+/obj/item/clothing/accessory/poncho/unathimantle{
+	color = "#42330f"
+	},
+/obj/item/clothing/suit/unathi/robe/kilt{
+	color = "#DBC684"
+	},
+/obj/item/clothing/suit/unathi/robe/kilt{
+	color = "#DBC684"
+	},
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
@@ -164,6 +176,14 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/moghes_ozeuoi)
+"ui" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/accessory/poncho,
+/obj/item/clothing/accessory/poncho/green,
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
@@ -1542,7 +1562,7 @@ xo
 xo
 ly
 xo
-oJ
+ui
 zx
 oJ
 xo
