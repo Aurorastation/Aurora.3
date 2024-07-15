@@ -2425,7 +2425,6 @@
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /obj/effect/decal/cleanable/generic,
 /obj/random/dirt_75,
-/obj/structure/sign/flag/hegemony,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "Te" = (

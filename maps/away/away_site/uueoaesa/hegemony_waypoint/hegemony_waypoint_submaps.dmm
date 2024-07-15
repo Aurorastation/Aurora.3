@@ -142,27 +142,6 @@
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/eva)
-"de" = (
-/obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/airlock/service{
-	dir = 4;
-	name = "Hydroponics";
-	welded = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/hegemony_waypoint/hydroponics)
 "dy" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/machinery/light/colored/decayed,
@@ -1314,6 +1293,7 @@
 /obj/structure/bed/stool,
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/random/dirt_75,
+/obj/effect/spider/spiderling,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/kitchen)
 "wU" = (
@@ -3240,6 +3220,7 @@
 	pixel_x = -12;
 	pixel_y = 7
 	},
+/obj/effect/spider/spiderling,
 /turf/simulated/floor/tiled/techfloor,
 /area/hegemony_waypoint/kitchen)
 "Xr" = (
@@ -3345,6 +3326,27 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_waypoint/eva)
+"YD" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/door/airlock/service{
+	dir = 4;
+	name = "Hydroponics";
+	welded = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/hegemony_waypoint/hydroponics)
 "YM" = (
 /obj/structure/closet/cabinet,
 /obj/effect/floor_decal/corner/yellow/diagonal,
@@ -5413,7 +5415,7 @@ pr
 pr
 Hj
 Hj
-de
+YD
 Hj
 Hj
 Hj
