@@ -1012,7 +1012,7 @@
 	desc = "A traditional Eridani palm wine drink, stored in a mason jar."
 	desc_extended = "Ogogoro is a traditional West African drink which the colonists of Eridani originally took with them. The nature of it as a high-alcohol moonshine, however, meant that it would eventually be sidelined by the suits of Eridani as \
 	a vestige of the poor man's culture. As such, whilst it remains extremely common amongst dregs, a suit drinking ogogoro would often be looked down upon by their peers. It remains popular in opaque flasks, however. Appropriately, this jar was not brewed \
-	on Eridani itself, but instead by the dreg diaspora found in Burzsia, distributed by Getmore Corporation."
+	on Eridani itself, but instead by the dreg diaspora found in Burzsia."
 	icon_state = "ogogoro"
 	empty_icon_state = "ogogoro_empty"
 	reagents_to_add = list(/singleton/reagent/alcohol/ogogoro = 100)
