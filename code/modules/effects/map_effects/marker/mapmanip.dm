@@ -12,3 +12,8 @@
 	icon_state = "mapmanip_insert"
 	pixel_x = -32
 	pixel_y = -32
+
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge
+	name = "mapmanip helper marker, edge of submap"
+	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "mapmanip_submap_edge"

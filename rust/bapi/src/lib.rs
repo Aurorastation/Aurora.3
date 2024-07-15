@@ -7,6 +7,8 @@ use eyre::{Context, ContextCompat};
 /// Call stack trace dm method with message.
 pub(crate) fn dm_call_stack_trace(msg: String) {
     let msg = byondapi::value::ByondValue::try_from(msg).unwrap();
+    // this is really ugly, cause we want to get id/ref to a proc name string
+    // that is already allocated, and don't want to allocate a new string entirely
     byondapi::global_call::call_global_id(
         {
             static STRING_ID: std::sync::OnceLock<u32> = std::sync::OnceLock::new();
@@ -38,7 +40,7 @@ pub unsafe extern "C" fn read_dmm_file_ffi(
     match read_dmm_file(args.get(0).map(ByondValue::clone).unwrap_or_default()) {
         Ok(val) => val,
         Err(info) => {
-            crate::dm_call_stack_trace(format!("RUST BAPI ERROR \n {:#?}", info));
+            crate::dm_call_stack_trace(format!("RUST BAPI ERROR read_dmm_file_ffi() \n {info:#?}"));
             ByondValue::null()
         }
     }
@@ -63,8 +65,7 @@ fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
 
     // read file and parse with spacemandmm
     let mut dmm = dmmtools::dmm::Map::from_file(&path).wrap_err(format!(
-        "spacemandmm parsing error; dmm file path: {}; see error from spacemandmm below for more information",
-        path.display()
+        "spacemandmm parsing error; dmm file path: {path:?}; see error from spacemandmm below for more information"
     ))?;
 
     // do mapmanip if defined for this dmm
@@ -81,13 +82,13 @@ fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
             format!("config parse fail; path: {:?}", path_mapmanip_config),
         )?;
         // do actual map manipulation
-        dmm = crate::mapmanip::mapmanip(path_dir, dmm, &config).wrap_err("mapmanip fail")?;
+        dmm = crate::mapmanip::mapmanip(path_dir, dmm, &config)
+            .wrap_err(format!("mapmanip fail; dmm file path: {path:?}"))?;
     }
 
     // convert the map back to a string
     let dmm = crate::mapmanip::core::map_to_string(&dmm).wrap_err(format!(
-        "error in converting map back to string; dmm file path:dd {}",
-        path.display()
+        "error in converting map back to string; dmm file path: {path:?}"
     ))?;
 
     // and return it
