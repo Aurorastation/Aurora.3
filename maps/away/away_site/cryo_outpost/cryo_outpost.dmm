@@ -1484,7 +1484,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/cryo_outpost/inside/maint_engineering)
+/area/cryo_outpost/inside/engineering)
 "bEY" = (
 /obj/structure/closet/walllocker/firecloset{
 	pixel_y = 32
@@ -4356,7 +4356,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/cryo_outpost/inside/maint_botany)
+/area/cryo_outpost/inside/hallway_central)
 "fcw" = (
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -7469,7 +7469,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/cryo_outpost/inside/maint_warehouse)
+/area/cryo_outpost/inside/hallway_central)
 "iVq" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -14382,7 +14382,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/cryo_outpost/inside/maint_botany)
+/area/cryo_outpost/inside/hallway_west)
 "qVh" = (
 /obj/random/dirt_75,
 /turf/unsimulated/marker/khaki,
@@ -15151,6 +15151,9 @@
 	pixel_y = 24;
 	dir = 1;
 	pixel_x = 6
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/entrance_main)
@@ -19748,6 +19751,9 @@
 /obj/machinery/alarm/north{
 	req_one_access = null
 	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/entrance_main)
 "xaZ" = (
@@ -19873,6 +19879,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_offices)
+"xgd" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/cryo_outpost/inside/entrance_main)
 "xhv" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/random/dirt_75,
@@ -48061,7 +48076,7 @@ wGN
 wGN
 gFT
 gFT
-fcr
+eBN
 adg
 jAq
 vct
@@ -53966,7 +53981,7 @@ dji
 kqT
 qcj
 wtR
-xbb
+dji
 xbb
 xbb
 xbb
@@ -54219,11 +54234,11 @@ sSz
 sSz
 sSz
 sSz
-sSz
+dji
 fpb
 qYI
 odF
-xbb
+dji
 mWg
 mWg
 ssM
@@ -54476,7 +54491,7 @@ oak
 lMI
 jSo
 wTC
-reB
+qUY
 dmo
 tah
 era
@@ -54733,11 +54748,11 @@ pYC
 wYg
 wYg
 gAb
-sSz
+dji
 iXM
 lbH
 rnq
-xbb
+dji
 xbb
 xbb
 xbb
@@ -56519,11 +56534,11 @@ wIB
 wIB
 qvw
 qvw
-sSz
-sSz
-tTS
-sSz
-sSz
+qvw
+qvw
+fcr
+qvw
+qvw
 qvw
 qvw
 qvw
@@ -57058,7 +57073,7 @@ gmY
 sgt
 lsf
 lcf
-alv
+xgd
 alv
 owK
 aKS
@@ -57542,14 +57557,14 @@ sei
 qvw
 qvw
 iVi
-qKZ
-qKZ
 qvw
 qvw
 qvw
-qKZ
-qKZ
-qdM
+qvw
+qvw
+qvw
+qvw
+fcr
 ebd
 ebd
 ebd
@@ -60901,11 +60916,11 @@ waW
 qKZ
 qKZ
 qKZ
-qKZ
+gFT
 vLw
 umD
 aGq
-gIc
+gFT
 gIc
 gIc
 gIc
@@ -61158,11 +61173,11 @@ waW
 bWg
 bWg
 waW
-qKZ
+gFT
 rHp
 iTs
 iyV
-gIc
+gFT
 wpc
 oFF
 dvs
@@ -61415,11 +61430,11 @@ hla
 cQj
 aES
 dgV
-qbu
+mfj
 wIG
 moS
 jKz
-woz
+mfj
 mmp
 bkP
 hcq
@@ -61672,11 +61687,11 @@ qKZ
 qKZ
 qKZ
 qKZ
-qKZ
+gFT
 rHp
 umD
 iyV
-gIc
+gFT
 brA
 oIB
 hVb
@@ -61933,7 +61948,7 @@ gFT
 vTG
 iTs
 aGq
-gIc
+gFT
 gIc
 gIc
 wKE
@@ -69380,7 +69395,7 @@ ktK
 tka
 fin
 toa
-ktK
+hvA
 hvA
 hvA
 kfF
@@ -69637,7 +69652,7 @@ ktK
 ktK
 fin
 rxI
-ktK
+hvA
 ehm
 mnN
 ifk
@@ -69894,7 +69909,7 @@ pgW
 ktK
 hpg
 fDw
-ktK
+hvA
 tws
 qFy
 dWL
@@ -70151,7 +70166,7 @@ pgW
 ktK
 kay
 aBT
-ktK
+hvA
 lAG
 bOy
 ifk
@@ -70665,7 +70680,7 @@ pgW
 ktK
 usv
 usv
-ktK
+hvA
 bMi
 feD
 ifk
