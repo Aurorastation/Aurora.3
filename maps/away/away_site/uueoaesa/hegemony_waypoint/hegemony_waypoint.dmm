@@ -2260,6 +2260,9 @@
 	},
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /obj/random/dirt_75,
+/obj/structure/bed/stool/chair{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "Rf" = (
@@ -2323,6 +2326,9 @@
 	pixel_x = -32
 	},
 /obj/item/storage/firstaid,
+/obj/effect/floor_decal/industrial/outline_straight{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "RC" = (
@@ -2388,6 +2394,9 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/structure/bed/stool/chair{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
 "SL" = (
@@ -2488,6 +2497,11 @@
 	id = "hegemony_waypoint_docking";
 	name = "Hallway Shutters";
 	pixel_x = 24
+	},
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/cans/threetowns{
+	pixel_y = 11;
+	pixel_x = -4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/hallway)
@@ -2597,7 +2611,7 @@
 	dir = 5
 	},
 /obj/random/dirt_75,
-/obj/structure/bed/stool/chair/office/dark{
+/obj/structure/bed/stool/chair{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,

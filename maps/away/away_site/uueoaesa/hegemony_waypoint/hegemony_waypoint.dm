@@ -23,14 +23,14 @@
 	comms_support = TRUE
 	comms_name = "Hegemony Waypoint"
 	initial_generic_waypoints = list(
-		"waypoint_dock_n",
-		"waypoint_dock_e",
-		"waypoint_dock_w",
-		"waypoint_dock_s",
-		"waypoint_n_space",
-		"waypoint_e_space",
-		"waypoint_w_space",
-		"waypoint_s_space"
+		"hegemony_waypoint_dock_n",
+		"hegemony_waypoint_dock_e",
+		"hegemony_waypoint_dock_w",
+		"hegemony_waypoint_dock_s",
+		"hegemony_waypoint_n_space",
+		"hegemony_waypoint_e_space",
+		"hegemony_waypoint_w_space",
+		"hegemony_waypoint_s_space"
 	)
 
 // Areas
