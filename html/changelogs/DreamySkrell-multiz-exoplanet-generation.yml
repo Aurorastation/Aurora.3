@@ -4,4 +4,4 @@ author: DreamySkrell
 delete-after: True
 
 changes:
-  - rscadd: "Multi-z exoplanet generation."
+  - rscadd: "Multi-z away site exoplanet generation."
