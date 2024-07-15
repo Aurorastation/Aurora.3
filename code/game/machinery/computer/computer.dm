@@ -25,9 +25,13 @@
 	var/has_off_keyboards = FALSE
 	var/can_pass_under = TRUE
 
+	// The zlevel that this computer is spawned on.
+	var/starting_z_level = null
+
 /obj/machinery/computer/Initialize()
 	. = ..()
 	overlay_layer = layer
+	starting_z_level = src.z
 	power_change()
 	update_icon()
 
