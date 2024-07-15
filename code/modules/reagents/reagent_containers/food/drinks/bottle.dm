@@ -1006,6 +1006,26 @@
 	center_of_mass = list("x"=16, "y"=8)
 	reagents_to_add = list(/singleton/reagent/alcohol/hooch = 100)
 
+
+/obj/item/reagent_containers/food/drinks/bottle/ogogoro
+	name = "ogogoro jar"
+	desc = "A traditional Eridani palm wine drink, stored in a mason jar."
+	desc_extended = "Ogogoro is a traditional West African drink which the colonists of Eridani originally took with them. The nature of it as a high-alcohol moonshine, however, meant that it would eventually be sidelined by the suits of Eridani as \
+	a vestige of the poor man's culture. As such, whilst it remains extremely common amongst dregs, a suit drinking ogogoro would often be looked down upon by their peers. It remains popular in opaque flasks, however. Appropriately, this jar was not brewed \
+	on Eridani itself, but instead by the dreg diaspora found in Burzsia, distributed by Getmore Corporation."
+	icon_state = "ogogoro"
+	empty_icon_state = "ogogoro_empty"
+	reagents_to_add = list(/singleton/reagent/alcohol/ogogoro = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/burukutu
+	name = "burukutu bottle"
+	desc = "A traditional Eridani millet beer, distributed by Idris."
+	desc_extended = "Burukutu is a millet beer common throughout West Africa and colonies with West African influence. As such, it can be found commonly on the colony of Eridani. This bottle in particular is a Silverport product, extremely popular \
+	with the suits of the Eridani federation. In spite of their preference for stronger drinks, dregs can often be found with burukutu 'retrieved' from the aboveground cities of Eridani I. According to the label on the back, this was bottled in Tokura, \
+	Eridani I."
+	icon_state = "burukutu"
+	reagents_to_add = list(/singleton/reagent/alcohol/burukutu = 100)
+
 // Butanol-based alcoholic drinks
 //=====================================
 //These are mainly for unathi, and have very little (but still some) effect on other species

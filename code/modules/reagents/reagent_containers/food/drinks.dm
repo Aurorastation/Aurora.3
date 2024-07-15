@@ -212,6 +212,15 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	center_of_mass = list("x"=15, "y"=13)
 	reagents_to_add = list(/singleton/reagent/drink/hot_coco = 30)
 
+/obj/item/reagent_containers/food/drinks/zobo
+	name = "zobo bottle"
+	desc = "A common, mass-produced Eridani drink. Now available on most* Getmore-affiliated installations."
+	icon_state = "zobo"
+	empty_icon_state = "zobo_empty"
+	drop_sound = 'sound/items/drop/disk.ogg'
+	pickup_sound = 'sound/items/pickup/disk.ogg'
+	reagents_to_add = list(/singleton/reagent/drink/zobo = 30)
+
 /obj/item/reagent_containers/food/drinks/dry_ramen
 	name = "cup ramen"
 	desc = "Just add 10ml water, self heats! A taste that reminds you of your school years."
