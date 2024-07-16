@@ -386,7 +386,7 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center/living)
 "fg" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/plastic,
 /turf/simulated/floor/sidewalk/flat,
 /area/konyang_landing_zone/command_center)
@@ -461,10 +461,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/konyang_landing_zone/command_center/greenhouse)
-"gk" = (
-/obj/structure/chainlink_fence,
-/turf/simulated/floor/concrete,
-/area/konyang_landing_zone)
 "gm" = (
 /obj/structure/ledge/quarter/corner{
 	dir = 4
@@ -4033,7 +4029,7 @@
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_landing_zone)
 "YY" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/sidewalk/flat,
 /area/konyang_landing_zone/command_center)
@@ -4812,7 +4808,7 @@ dK
 dK
 kd
 dK
-gk
+Wa
 BF
 YV
 rz
@@ -5477,7 +5473,7 @@ Da
 gu
 Sk
 dK
-gk
+Wa
 jU
 zh
 uc
@@ -5534,7 +5530,7 @@ YH
 gu
 NB
 Zi
-gk
+Wa
 Po
 zh
 uc
@@ -5591,7 +5587,7 @@ gu
 gu
 HR
 Zi
-gk
+Wa
 Po
 zh
 uc
@@ -5648,7 +5644,7 @@ gu
 yi
 dH
 Zi
-gk
+Wa
 Po
 zh
 uc
@@ -5705,7 +5701,7 @@ gu
 kO
 jR
 Zi
-gk
+Wa
 jU
 zh
 uc
@@ -6047,7 +6043,7 @@ ib
 oq
 YY
 Zi
-gk
+Wa
 jU
 zh
 uc
@@ -6104,7 +6100,7 @@ oq
 oq
 fg
 Zi
-gk
+Wa
 Po
 zh
 uc
@@ -6161,7 +6157,7 @@ pD
 oq
 Ny
 Zi
-gk
+Wa
 Po
 zh
 uc
@@ -6218,7 +6214,7 @@ TO
 VV
 Ny
 Zi
-gk
+Wa
 Po
 zh
 uc
@@ -6275,7 +6271,7 @@ TO
 oq
 oq
 ld
-gk
+Wa
 Po
 zh
 uc
@@ -6332,7 +6328,7 @@ jS
 SL
 Ca
 Zi
-gk
+Wa
 Po
 zh
 uc
@@ -6389,7 +6385,7 @@ Hk
 zR
 Ca
 Zi
-gk
+Wa
 jU
 zh
 Br
@@ -6617,7 +6613,7 @@ TD
 TD
 TD
 Zi
-gk
+Wa
 AD
 Ly
 Ly
