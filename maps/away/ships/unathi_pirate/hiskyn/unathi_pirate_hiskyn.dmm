@@ -33,6 +33,7 @@
 /area/shuttle/hiskyn_revanchists)
 "aac" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
 "aad" = (
@@ -142,6 +143,8 @@
 /obj/machinery/alarm/south{
 	req_one_access = list(210)
 	},
+/obj/effect/floor_decal/spline/plain/brown,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
 "aan" = (
@@ -547,6 +550,7 @@
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
+/obj/effect/floor_decal/spline/plain/brown,
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
 "abs" = (
@@ -666,6 +670,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/curtain/black,
 /turf/simulated/floor/tiled/dark/full,
 /area/hiskyn_ship/cargobay)
 "acb" = (
@@ -1202,7 +1207,11 @@
 /turf/template_noop,
 /area/space)
 "ant" = (
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
 "anY" = (
 /obj/structure/lattice/catwalk,
@@ -2590,16 +2599,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/hiskyn_revanchists)
-"cuo" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/tank/jetpack/oxygen,
-/obj/item/tank/jetpack/oxygen,
-/turf/simulated/floor/carpet/rubber,
-/area/hiskyn_ship/cargobay)
 "cAF" = (
 /obj/structure/table/steel,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3570,7 +3569,11 @@
 	},
 /obj/structure/window/reinforced,
 /obj/item/gun/projectile/pistol/dominia,
-/turf/simulated/floor/tiled/dark/full,
+/obj/item/clothing/head/dominia/fleet/armsman,
+/obj/effect/floor_decal/spline/plain/brown{
+	pixel_y = 29
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
 "inQ" = (
 /obj/random/dirt_75,
@@ -3597,11 +3600,11 @@
 "itS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
-/obj/item/device/gps,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/cargobay)
 "iuY" = (
@@ -3633,7 +3636,11 @@
 "iyd" = (
 /obj/structure/table/steel,
 /obj/structure/window/reinforced,
+/obj/item/book/manual/dominia_honor,
 /obj/item/clothing/head/helmet/space/void/dominia,
+/obj/effect/floor_decal/spline/plain/brown{
+	pixel_y = 29
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
 "izj" = (
@@ -3853,6 +3860,10 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/cargobay)
+"kgx" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/rubber,
+/area/hiskyn_ship/trophy)
 "kkY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -3928,7 +3939,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/engineering)
 "kGC" = (
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/spline/plain/brown,
+/turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
 "kHO" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
@@ -4054,8 +4066,12 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
+/obj/item/material/sword/sabre,
 /obj/item/clothing/head/dominia/fleet/officer,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/spline/plain/brown{
+	pixel_y = 29
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
 "llm" = (
 /obj/structure/cable/green{
@@ -4110,7 +4126,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/spline/plain/brown,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
 "lBp" = (
 /obj/effect/floor_decal/spline/plain/black,
@@ -4248,6 +4266,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallf)
+"may" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/carpet/rubber,
+/area/hiskyn_ship/cargobay)
 "mds" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -4468,6 +4491,9 @@
 	},
 /obj/structure/window/reinforced,
 /obj/item/device/versebook/tribunal,
+/obj/effect/floor_decal/spline/plain/brown{
+	pixel_y = 29
+	},
 /obj/item/nullrod/dominia,
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
@@ -4565,9 +4591,12 @@
 /turf/simulated/floor/lino,
 /area/hiskyn_ship/crew)
 "nLj" = (
-/obj/structure/sign/flag/hansan,
+/obj/structure/sign/flag/zhao,
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 5
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
@@ -4861,7 +4890,10 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 9
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
 "pOV" = (
 /obj/machinery/bodyscanner,
@@ -5097,6 +5129,9 @@
 /obj/machinery/power/apc/high/east{
 	req_access = list(210)
 	},
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 6
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
 "ruT" = (
@@ -5233,11 +5268,6 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrustp)
-"smN" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/dispenser/oxygen,
-/turf/simulated/floor/carpet/rubber,
-/area/hiskyn_ship/cargobay)
 "snz" = (
 /obj/effect/map_effect/marker/airlock{
 	frequency = 1969;
@@ -5687,6 +5717,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/crew)
+"usz" = (
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/rubber,
+/area/hiskyn_ship/trophy)
 "uvj" = (
 /obj/machinery/cryopod{
 	dir = 4
@@ -5790,6 +5827,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/bridge)
+"uPv" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/turf/simulated/floor/carpet/rubber,
+/area/hiskyn_ship/cargobay)
 "uUA" = (
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/shuttle/dark/cardinal/khaki,
@@ -5827,7 +5874,7 @@
 /area/space)
 "viZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
 "vrf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -6178,6 +6225,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/bridge)
+"xMH" = (
+/obj/effect/floor_decal/spline/plain/brown{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/hiskyn_ship/trophy)
 "xOm" = (
 /obj/machinery/computer/ship/targeting{
 	dir = 8
@@ -36465,7 +36518,7 @@ aZT
 aZT
 taf
 pGy
-kGC
+xMH
 ant
 aEV
 dkL
@@ -36722,7 +36775,7 @@ aOI
 aOI
 taf
 lkO
-ant
+kgx
 kGC
 aEV
 amO
@@ -36982,9 +37035,9 @@ ilG
 viZ
 lyb
 aEV
-smN
+may
 aVy
-cuo
+itS
 kxd
 kxd
 mSr
@@ -37241,7 +37294,7 @@ aam
 aEV
 eoo
 aVy
-itS
+uPv
 kxd
 kxd
 mSr
@@ -37750,7 +37803,7 @@ aat
 amA
 taf
 nLj
-aoV
+usz
 rhD
 aEV
 aGg
