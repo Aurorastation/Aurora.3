@@ -236,6 +236,10 @@
 	icon_state = "full_rwindow_shuttle"
 	window_path = /obj/structure/window/full/reinforced
 
+/obj/effect/map_effect/window_spawner/full/shuttle/spaceship
+	icon_state = "full_rwindow_shuttle_spaceship"
+	frame_color = "#81868B"
+
 /obj/effect/map_effect/window_spawner/full/shuttle/scc
 	icon_state = "full_rwindow_shuttle_scc"
 	frame_color = "#AAAFC7"

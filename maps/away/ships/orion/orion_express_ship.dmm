@@ -820,6 +820,10 @@
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	dir = 4;
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
 /turf/simulated/floor,
 /area/ship/orion/docking)
 "cHm" = (
@@ -1286,8 +1290,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/firealarm/north,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor,
 /area/ship/orion/docking)
 "eoY" = (
 /obj/structure/cable/green{
@@ -2940,7 +2951,6 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/firealarm/south,
 /turf/simulated/floor,
 /area/ship/orion/docking)
 "kYl" = (
@@ -3815,10 +3825,6 @@
 /obj/machinery/door/airlock/silver{
 	dir = 4;
 	name = "Toilet"
-	},
-/obj/machinery/door/airlock/silver{
-	dir = 4;
-	name = "Kitchen"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
@@ -5184,13 +5190,7 @@
 /turf/simulated/floor,
 /area/ship/orion/bridge)
 "sAp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/obj/machinery/light{
-	pixel_y = -2
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/map_effect/window_spawner/full/shuttle/spaceship,
 /area/ship/orion/docking)
 "sBH" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -6046,6 +6046,7 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor,
 /area/ship/orion/docking)
 "vjR" = (
@@ -6374,6 +6375,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
+"wdM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/obj/machinery/light{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion/docking)
 "wgM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/green{
@@ -33933,7 +33943,7 @@ xRX
 ppM
 qnR
 cds
-nXS
+wdM
 ppM
 xRX
 xRX
@@ -34187,11 +34197,11 @@ xRX
 xRX
 xRX
 xRX
-ppM
+sAp
 qnR
 qnR
 kYO
-ppM
+sAp
 xRX
 xRX
 xRX
@@ -34444,11 +34454,11 @@ xRX
 bPp
 xRX
 xRX
-ppM
-qnR
-qnR
 sAp
-ppM
+qnR
+qnR
+kYO
+sAp
 xRX
 xRX
 xRX
@@ -34701,11 +34711,11 @@ xRX
 xRX
 xRX
 xRX
-ppM
+sAp
 qnR
 viE
 kUD
-ppM
+sAp
 xRX
 xRX
 xRX
@@ -34958,11 +34968,11 @@ xRX
 xRX
 xRX
 xRX
-ppM
+sAp
 qnR
 qnR
 wXU
-ppM
+sAp
 xRX
 xRX
 xRX
@@ -38794,18 +38804,18 @@ auV
 ppM
 ppM
 ppM
+sAp
+sAp
+sAp
+sAp
 ppM
 ppM
 ppM
 ppM
-ppM
-ppM
-ppM
-ppM
-ppM
-ppM
-ppM
-ppM
+sAp
+sAp
+sAp
+sAp
 ppM
 ppM
 ppM
@@ -39074,7 +39084,7 @@ qnR
 qnR
 qnR
 gMn
-ppM
+sAp
 xRX
 xRX
 xRX
@@ -39331,7 +39341,7 @@ qnR
 qnR
 qnR
 gMn
-ppM
+sAp
 xRX
 xRX
 xRX
@@ -39571,9 +39581,9 @@ sBH
 qqS
 qqS
 wWe
-qqS
-qqS
 qEK
+qqS
+qqS
 qqS
 qqS
 qqS
@@ -39586,9 +39596,9 @@ fGW
 qqS
 qqS
 qqS
-qEK
+qqS
 cAn
-ppM
+sAp
 xRX
 xRX
 xRX
@@ -39830,6 +39840,10 @@ nmt
 ppM
 ppM
 ppM
+sAp
+sAp
+sAp
+sAp
 ppM
 ppM
 ppM
@@ -39837,13 +39851,9 @@ ppM
 ppM
 ppM
 ppM
-ppM
-ppM
-ppM
-ppM
-ppM
-ppM
-ppM
+sAp
+sAp
+sAp
 ppM
 ppM
 xRX
@@ -43165,7 +43175,7 @@ xRX
 xRX
 xRX
 ppM
-upw
+enf
 qnR
 qnR
 ppM
@@ -43682,7 +43692,7 @@ ppM
 hdc
 soA
 qnR
-ppM
+sAp
 xRX
 xRX
 xRX
@@ -43935,11 +43945,11 @@ xRX
 xRX
 xRX
 xRX
-ppM
+sAp
 nAU
 qnR
 qnR
-ppM
+sAp
 xRX
 xRX
 xRX
@@ -44192,11 +44202,11 @@ xRX
 xRX
 xRX
 xRX
-ppM
+sAp
 qVI
 rZb
 qnR
-ppM
+sAp
 xRX
 xRX
 bPp
@@ -44449,11 +44459,11 @@ xRX
 xRX
 xRX
 xRX
-ppM
+sAp
 kYO
 qnR
 qnR
-ppM
+sAp
 xRX
 xRX
 xRX
@@ -44706,11 +44716,11 @@ xRX
 xRX
 xRX
 xRX
-ppM
-enf
+sAp
+kYO
 qnR
 qnR
-ppM
+sAp
 xRX
 xRX
 xRX
@@ -44967,7 +44977,7 @@ ppM
 rpV
 qnR
 qnR
-ppM
+sAp
 xRX
 xRX
 bPp
