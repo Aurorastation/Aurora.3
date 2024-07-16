@@ -884,7 +884,7 @@
 /turf/simulated/floor,
 /area/space)
 "uT" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/shuttle/black,
 /area/space)
@@ -996,7 +996,7 @@
 /obj/item/stock_parts/matter_bin,
 /obj/item/stock_parts/matter_bin,
 /obj/item/stock_parts/matter_bin,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "wt" = (
@@ -1889,7 +1889,7 @@
 /area/space)
 "Jd" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "Jf" = (
@@ -1955,7 +1955,7 @@
 	},
 /obj/item/storage/box/fancy/tray/machinist,
 /obj/item/storage/box/fancy/tray/machinist,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "JQ" = (
@@ -2179,7 +2179,7 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/storage/box/gloves,
 /obj/item/storage/box/gloves,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "NR" = (
@@ -2419,7 +2419,7 @@
 /area/space)
 "Td" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "Tp" = (
@@ -2449,7 +2449,7 @@
 /obj/item/clothing/accessory/armband/operations,
 /obj/item/clothing/accessory/armband/operations,
 /obj/item/clothing/accessory/armband/operations,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "Tt" = (
@@ -2735,7 +2735,7 @@
 /area/space)
 "Yl" = (
 /obj/machinery/vending/robotics,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "Ym" = (

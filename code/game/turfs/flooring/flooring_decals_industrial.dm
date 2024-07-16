@@ -305,7 +305,7 @@
 	name = "medical dark green outline"
 	color = COLOR_DARK_GREEN_GRAY
 
-/obj/effect/floor_decal/industrial/outline/engineering
+/obj/effect/floor_decal/industrial/outline/operations
 	name = "engineering yellow outline"
 	color = COLOR_YELLOW_ENGI
 

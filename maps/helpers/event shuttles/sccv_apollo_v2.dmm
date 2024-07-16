@@ -724,7 +724,7 @@
 /obj/item/clothing/gloves/yellow/specialt,
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "jd" = (
@@ -1249,7 +1249,7 @@
 /obj/item/stock_parts/matter_bin,
 /obj/item/stock_parts/matter_bin,
 /obj/item/stock_parts/matter_bin,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "st" = (
@@ -1536,7 +1536,7 @@
 /area/space)
 "xh" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "xn" = (
@@ -1715,7 +1715,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/space)
 "Ah" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/shuttle/black,
 /area/space)
@@ -2099,7 +2099,7 @@
 	},
 /obj/item/storage/box/fancy/tray/machinist,
 /obj/item/storage/box/fancy/tray/machinist,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "HW" = (
@@ -2736,7 +2736,7 @@
 /obj/item/clothing/accessory/armband/operations,
 /obj/item/clothing/accessory/armband/operations,
 /obj/item/clothing/accessory/armband/operations,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate{
 	name = "machinist tools and gear crate"
 	},
@@ -2892,7 +2892,7 @@
 /obj/machinery/vending/robotics{
 	anchored = 0
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/shuttle/black,
 /area/space)
 "Xb" = (

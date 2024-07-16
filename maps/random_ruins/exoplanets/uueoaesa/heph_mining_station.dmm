@@ -837,7 +837,7 @@
 /obj/machinery/vending/engineering{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -961,7 +961,7 @@
 /obj/machinery/vending/engivend{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
@@ -1810,7 +1810,7 @@
 /area/heph_mining_station/engineer)
 "AD" = (
 /obj/machinery/autolathe,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor{
 	temperature = 303.15
 	},
