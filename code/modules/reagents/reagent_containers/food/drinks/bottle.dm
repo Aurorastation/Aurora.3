@@ -1017,14 +1017,14 @@
 	empty_icon_state = "ogogoro_empty"
 	reagents_to_add = list(/singleton/reagent/alcohol/ogogoro = 100)
 
-/obj/item/reagent_containers/food/drinks/bottle/burukutu
+/obj/item/reagent_containers/food/drinks/bottle/small/burukutu
 	name = "burukutu bottle"
 	desc = "A traditional Eridani millet beer, distributed by Idris."
 	desc_extended = "Burukutu is a millet beer common throughout West Africa and colonies with West African influence. As such, it can be found commonly on the colony of Eridani. This bottle in particular is a Silverport product, extremely popular \
 	with the suits of the Eridani federation. In spite of their preference for stronger drinks, dregs can often be found with burukutu 'retrieved' from the aboveground cities of Eridani I. According to the label on the back, this was bottled in Tokura, \
 	Eridani I."
 	icon_state = "burukutu"
-	reagents_to_add = list(/singleton/reagent/alcohol/burukutu = 100)
+	reagents_to_add = list(/singleton/reagent/alcohol/burukutu = 30)
 
 // Butanol-based alcoholic drinks
 //=====================================
