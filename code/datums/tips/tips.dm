@@ -171,7 +171,6 @@ GLOBAL_LIST_EMPTY(tips_by_category)
 		"As a Pharmacist, there are dozens of chemicals that can heal, and even more that can cause harm. Experiment!",
 		"As a Paramedic, you can take special drop pouches. These let you have more room for medical equipment. You can find them in the accessories tab.",
 		"As a Paramedic, its a good idea to stop the bleeding before transportation.",
-		"As a Paramedic, you're naturally cool.",
 		"As the Psychiatrist, advertise yourself. Go talk to people. Otherwise, you'll be bored out of your mind."
 	)
 
