@@ -5,35 +5,35 @@
 
 /obj/effect/shuttle_landmark/hegemony_waypoint/north_docking
 	name = "Hegemonic Waypoint Installation - North External Dock"
-	landmark_tag = "waypoint_dock_n"
+	landmark_tag = "hegemony_waypoint_dock_n"
 
 /obj/effect/shuttle_landmark/hegemony_waypoint/east_docking
 	name = "Hegemonic Waypoint Installation - East External Dock"
-	landmark_tag = "waypoint_dock_e"
+	landmark_tag = "hegemony_waypoint_dock_e"
 
 /obj/effect/shuttle_landmark/hegemony_waypoint/west_docking
 	name = "Hegemonic Waypoint Installation - West External Dock"
-	landmark_tag = "waypoint_dock_w"
+	landmark_tag = "hegemony_waypoint_dock_w"
 
 /obj/effect/shuttle_landmark/hegemony_waypoint/south_docking
 	name = "Hegemonic Waypoint Installation - South External Dock"
-	landmark_tag = "waypoint_dock_s"
+	landmark_tag = "hegemony_waypoint_dock_s"
 
 /obj/effect/shuttle_landmark/hegemony_waypoint/south
 	name = "Hegemonic Waypoint Installation - Space, South"
-	landmark_tag = "waypoint_s_space"
+	landmark_tag = "hegemony_waypoint_s_space"
 
 /obj/effect/shuttle_landmark/hegemony_waypoint/west
 	name = "Hegemonic Waypoint Installation - Space, West"
-	landmark_tag = "waypoint_w_space"
+	landmark_tag = "hegemony_waypoint_w_space"
 
 /obj/effect/shuttle_landmark/hegemony_waypoint/east
 	name = "Hegemonic Waypoint Installation - Space, East"
-	landmark_tag = "waypoint_e_space"
+	landmark_tag = "hegemony_waypoint_e_space"
 
 /obj/effect/shuttle_landmark/hegemony_waypoint/north
 	name = "Hegemonic Waypoint Installation - Space, North"
-	landmark_tag = "waypoint_n_space"
+	landmark_tag = "hegemony_waypoint_n_space"
 
 // Airlocks
 /obj/effect/map_effect/marker/airlock/hegemony_waypoint/south
