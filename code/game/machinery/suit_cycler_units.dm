@@ -301,3 +301,11 @@
 	species = list(BODYTYPE_UNATHI)
 	suit = /obj/item/clothing/suit/space/void/unathi_pirate_hiskyn
 	helmet = /obj/item/clothing/head/helmet/space/void/unathi_pirate/hiskyn
+
+	/obj/machinery/suit_cycler/offship/hiskyn/captain
+	model_text = "Hiskyn's Revanchists"
+	req_access = list(ACCESS_UNATHI_PIRATE)
+	departments = list("Hiskyn's Revanchists")
+	species = list(BODYTYPE_UNATHI)
+	suit = /obj/item/clothing/suit/space/void/unathi_pirate_hiskyn/captain
+	helmet = /obj/item/clothing/head/helmet/space/void/unathi_pirate/hiskyn/captain
