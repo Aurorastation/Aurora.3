@@ -44,7 +44,7 @@
 /obj/structure/closet/crate{
 	name = "gas masks"
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled,
 /area/space)
 "aL" = (
 /obj/structure/closet/crate/freezer,
@@ -85,7 +85,7 @@
 /area/space)
 "aS" = (
 /obj/structure/bed/handrail,
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled,
 /area/space)
 "aX" = (
 /obj/machinery/door/airlock/freezer{
@@ -98,7 +98,7 @@
 	pixel_x = -32;
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "ce" = (
 /obj/machinery/vending/wallmed2{
@@ -108,8 +108,7 @@
 	dir = 1
 	},
 /obj/machinery/light{
-	dir = 1;
-	name = "adjusted light fixture"
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -118,7 +117,7 @@
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Research Director"
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "cr" = (
 /obj/effect/floor_decal/corner/black{
@@ -138,7 +137,7 @@
 /obj/structure/closet/excavation,
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/machinery/light,
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "cG" = (
 /obj/structure/table/rack/retail_shelf{
@@ -388,7 +387,7 @@
 /obj/item/device/encryptionkey/service_spare,
 /obj/item/device/encryptionkey/service_spare,
 /obj/item/device/encryptionkey/service_spare,
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "dB" = (
 /obj/machinery/sleeper{
@@ -405,12 +404,12 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/research,
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "eg" = (
 /obj/structure/closet/secure_closet/bridge_crew,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "es" = (
 /obj/structure/reagent_dispensers/fueltank,
@@ -455,7 +454,7 @@
 /obj/effect/landmark{
 	name = "JoinLateCryo"
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled,
 /area/space)
 "fk" = (
 /obj/structure/closet/secure_closet/freezer/chicken_and_fish,
@@ -483,7 +482,7 @@
 /obj/effect/landmark{
 	name = "JoinLateCryo"
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled,
 /area/space)
 "fS" = (
 /obj/machinery/iv_drip,
@@ -496,7 +495,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled,
 /area/space)
 "fZ" = (
 /obj/machinery/door/blast/regular/open,
@@ -513,7 +512,7 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "gr" = (
 /obj/machinery/light/floor{
@@ -523,7 +522,7 @@
 	dir = 8;
 	pixel_x = -32
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "gt" = (
 /obj/effect/floor_decal/industrial/outline/research,
@@ -541,14 +540,14 @@
 /obj/item/storage/box/samplebags,
 /obj/item/storage/box/samplebags,
 /obj/item/storage/box/beakers,
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "gx" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Chief Engineer"
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "gD" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -678,14 +677,14 @@
 /obj/item/modular_computer/console/preset/engineering/ce{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "hF" = (
 /obj/structure/sign/directions/science{
 	dir = 4;
 	pixel_x = 32
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "hL" = (
 /obj/structure/plasticflaps/airtight,
@@ -700,7 +699,7 @@
 	req_access = null;
 	req_one_access = list(7,47)
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "hY" = (
 /obj/machinery/portable_atmospherics/hydroponics,
@@ -771,17 +770,13 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 1;
-	name = "adjusted light fixture";
-	pixel_x = 1
+	dir = 1
 	},
 /obj/effect/landmark/force_spawnpoint,
 /obj/effect/landmark{
 	name = "JoinLateCryo"
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled,
 /area/space)
 "ko" = (
 /turf/simulated/floor/tiled/white,
@@ -798,6 +793,9 @@
 "kF" = (
 /obj/effect/floor_decal/spline/plain/orange,
 /turf/simulated/floor/carpet/rubber,
+/area/space)
+"kN" = (
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "kU" = (
 /obj/effect/floor_decal/corner/black{
@@ -826,7 +824,7 @@
 /obj/item/crowbar/red{
 	pixel_x = 6
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled,
 /area/space)
 "mh" = (
 /obj/item/reagent_containers/blood/OMinus,
@@ -864,7 +862,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "nR" = (
 /obj/effect/floor_decal/spline/plain/green{
@@ -881,7 +879,7 @@
 /area/space)
 "om" = (
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "os" = (
 /obj/structure/table/rack/retail_shelf{
@@ -932,7 +930,7 @@
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/suit/hazmat/anomaly,
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "oM" = (
 /obj/effect/floor_decal/spline/plain/green,
@@ -1022,14 +1020,14 @@
 /obj/effect/landmark{
 	name = "JoinLateCryo"
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled,
 /area/space)
 "pr" = (
 /obj/structure/sign/directions/security{
 	dir = 8;
 	pixel_x = -32
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "pH" = (
 /obj/machinery/computer/operating{
@@ -1090,7 +1088,7 @@
 	name = "JoinLateCryo"
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled,
 /area/space)
 "qg" = (
 /obj/structure/table/standard,
@@ -1118,18 +1116,18 @@
 	pixel_y = -3;
 	pixel_x = -9
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled,
 /area/space)
 "qn" = (
 /obj/structure/closet/excavation,
 /obj/effect/floor_decal/industrial/outline/research,
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "qx" = (
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled,
 /area/space)
 "qB" = (
 /obj/machinery/recharger/wallcharger{
@@ -1258,7 +1256,12 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"sN" = (
+/obj/effect/floor_decal/industrial/hatch_door/yellow,
+/turf/simulated/floor/tiled/full,
 /area/space)
 "tf" = (
 /obj/structure/table/rack/retail_shelf{
@@ -1285,7 +1288,7 @@
 /obj/machinery/light/floor{
 	pixel_x = 16
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "tM" = (
 /obj/effect/floor_decal/spline/plain/green{
@@ -1297,14 +1300,14 @@
 /obj/item/modular_computer/console/preset/command{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "tR" = (
 /obj/machinery/light/floor{
 	dir = 4;
 	pixel_y = 16
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "tS" = (
 /obj/machinery/bodyscanner{
@@ -1412,7 +1415,7 @@
 /obj/structure/closet/crate{
 	name = "anomaly suits"
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "uk" = (
 /obj/structure/sign/directions/engineering{
@@ -1425,7 +1428,7 @@
 	dir = 4;
 	pixel_x = 32
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "uI" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -1439,7 +1442,7 @@
 	name = "JoinLateCryo"
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled,
 /area/space)
 "uV" = (
 /obj/effect/floor_decal/industrial/outline/service,
@@ -1472,7 +1475,7 @@
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Head of Security"
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "vG" = (
 /obj/effect/floor_decal/industrial/outline/service,
@@ -1518,6 +1521,12 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/space)
+"wP" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "wY" = (
 /obj/machinery/door/airlock/glass{
 	dir = 4;
@@ -1536,10 +1545,7 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 4;
-	name = "adjusted light fixture"
+	dir = 4
 	},
 /obj/item/auto_cpr,
 /obj/item/auto_cpr,
@@ -1560,7 +1566,10 @@
 	dir = 1
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"xK" = (
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "xP" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -1590,14 +1599,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "yM" = (
 /obj/structure/bed/handrail{
 	dir = 4;
 	pixel_x = 1
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled,
 /area/space)
 "yN" = (
 /obj/structure/table/standard,
@@ -1645,7 +1654,7 @@
 "yP" = (
 /obj/machinery/floodlight,
 /obj/effect/floor_decal/industrial/outline/research,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled,
 /area/space)
 "yU" = (
 /obj/effect/floor_decal/spline/plain/green{
@@ -1703,7 +1712,7 @@
 	pixel_y = 6;
 	department = "SCCV Apollo"
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "Ah" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -1727,7 +1736,7 @@
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Operations Manager"
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "AO" = (
 /obj/structure/table/reinforced/steel,
@@ -1745,7 +1754,7 @@
 	name = "Bridge Blast Shield";
 	id = "shuttle_bridge_blast_doors"
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "AR" = (
 /obj/structure/bed/stool/chair/office/light{
@@ -1756,7 +1765,7 @@
 "Bu" = (
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/machinery/light,
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "BK" = (
 /obj/structure/foamedmetal,
@@ -1771,19 +1780,36 @@
 	},
 /turf/simulated/floor,
 /area/space)
+"Cn" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/obj/effect/floor_decal/spline/plain/green,
+/turf/simulated/floor/tiled,
+/area/space)
 "Co" = (
 /obj/machinery/light/floor{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/space)
+"Cy" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "Cz" = (
 /obj/effect/floor_decal/spline/plain/green,
 /obj/effect/floor_decal/industrial/outline/security,
-/obj/machinery/light{
-	name = "adjusted light fixture";
-	pixel_x = 16
-	},
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "CM" = (
@@ -1835,17 +1861,13 @@
 	dir = 8
 	},
 /obj/machinery/light{
-	brightness_power = 0.5;
-	brightness_range = 3;
-	dir = 1;
-	name = "adjusted light fixture";
-	pixel_x = 1
+	dir = 1
 	},
 /obj/effect/landmark/force_spawnpoint,
 /obj/effect/landmark{
 	name = "JoinLateCryo"
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled,
 /area/space)
 "DC" = (
 /obj/machinery/door/airlock/freezer{
@@ -1867,7 +1889,10 @@
 	pixel_y = 23;
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "DU" = (
 /obj/machinery/vending/engivend{
@@ -1875,6 +1900,13 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/shuttle/black,
+/area/space)
+"DV" = (
+/obj/effect/floor_decal/spline/plain/green,
+/obj/effect/floor_decal/industrial/arrow{
+	color = "#8daf6a"
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "Ea" = (
 /obj/item/modular_computer/console/preset/supply{
@@ -1925,6 +1957,18 @@
 /obj/item/device/hand_labeler{
 	pixel_y = 14
 	},
+/obj/item/storage/box/led_collars{
+	pixel_y = -6
+	},
+/obj/item/storage/box/led_collars{
+	pixel_y = -6
+	},
+/obj/item/storage/box/led_collars{
+	pixel_y = -6
+	},
+/obj/item/storage/box/led_collars{
+	pixel_y = -6
+	},
 /turf/simulated/floor/shuttle/dark_red,
 /area/space)
 "Fj" = (
@@ -1932,7 +1976,7 @@
 	dir = 8;
 	density = 0
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "FB" = (
 /obj/structure/table/rack/retail_shelf{
@@ -1980,12 +2024,6 @@
 /obj/machinery/reagentgrinder{
 	pixel_y = 7
 	},
-/obj/item/stack/material/phoron{
-	amount = 6
-	},
-/obj/item/stack/material/phoron{
-	amount = 6
-	},
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 9
 	},
@@ -2019,11 +2057,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
-"Gh" = (
-/obj/machinery/light{
-	name = "adjusted light fixture"
+"FU" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
 	},
-/turf/simulated/floor/shuttle/black,
+/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/obj/effect/floor_decal/spline/plain/green,
+/turf/simulated/floor/tiled,
+/area/space)
+"Gh" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "Gj" = (
 /obj/machinery/light/floor{
@@ -2036,7 +2083,7 @@
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Executive Officer"
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "Gy" = (
 /obj/effect/floor_decal/industrial/loading/security{
@@ -2128,10 +2175,13 @@
 /obj/item/reagent_containers/food/condiment/enzyme,
 /turf/simulated/floor/shuttle/black,
 /area/space)
+"Jm" = (
+/turf/simulated/floor/tiled,
+/area/space)
 "Ju" = (
 /obj/structure/survey_probe,
 /obj/effect/floor_decal/industrial/outline/research,
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "Jz" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2202,7 +2252,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "Lb" = (
 /obj/effect/floor_decal/spline/plain/green{
@@ -2226,7 +2276,7 @@
 /obj/effect/landmark{
 	name = "Observer-Start"
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "LO" = (
 /obj/machinery/door/airlock/freezer{
@@ -2239,7 +2289,7 @@
 	dir = 8;
 	pixel_y = 16
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "Me" = (
 /obj/structure/bed/stool/chair/office/bridge{
@@ -2248,14 +2298,14 @@
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Captain"
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "Mk" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Chief Medical Officer"
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "Mn" = (
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
@@ -2420,7 +2470,7 @@
 /obj/item/device/gps/science,
 /obj/item/device/geiger,
 /obj/item/device/geiger,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled,
 /area/space)
 "Pp" = (
 /obj/structure/table/standard,
@@ -2509,6 +2559,20 @@
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"QG" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/obj/effect/floor_decal/spline/plain/green,
+/turf/simulated/floor/tiled,
+/area/space)
+"RC" = (
+/turf/simulated/floor/tiled/ridged,
+/area/space)
 "RD" = (
 /turf/simulated/floor/shuttle/dark_red,
 /area/space)
@@ -2524,7 +2588,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "Sk" = (
 /obj/machinery/door/airlock/glass_command{
@@ -2556,7 +2620,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "SI" = (
 /obj/machinery/vending/security,
@@ -2572,7 +2636,10 @@
 	pixel_y = 26;
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "SS" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -2592,13 +2659,13 @@
 /obj/effect/landmark{
 	name = "JoinLateCryo"
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled,
 /area/space)
 "Tg" = (
 /obj/item/modular_computer/console/preset/medical/cmo{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "Th" = (
 /obj/structure/table/standard,
@@ -2698,13 +2765,25 @@
 /obj/item/material/stool/chair/folding/camping,
 /obj/item/material/stool/chair/folding/camping,
 /obj/item/material/stool/chair/folding/camping,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/tiled,
+/area/space)
+"Vu" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "Vw" = (
 /obj/item/modular_computer/console/preset/supply{
 	dir = 1
 	},
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"VA" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "VD" = (
 /obj/structure/table/rack/retail_shelf{
@@ -2726,7 +2805,7 @@
 /area/space)
 "VH" = (
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/shuttle/dark_blue,
+/turf/simulated/floor/carpet/rubber,
 /area/space)
 "VK" = (
 /obj/structure/closet/crate{
@@ -2784,14 +2863,28 @@
 	},
 /turf/simulated/floor,
 /area/space)
+"VU" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "Wt" = (
-/obj/machinery/chemical_dispenser/ert,
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/plain/orange{
 	dir = 8
+	},
+/obj/structure/table/standard,
+/obj/item/stack/material/phoron{
+	amount = 6;
+	pixel_y = 7
+	},
+/obj/item/stack/material/phoron{
+	amount = 6;
+	pixel_y = 7
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/space)
@@ -2823,6 +2916,20 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"Xh" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/landmark/force_spawnpoint,
+/obj/effect/landmark{
+	name = "JoinLateCryo"
+	},
+/obj/effect/floor_decal/spline/plain/green,
+/turf/simulated/floor/tiled,
 /area/space)
 "Xp" = (
 /obj/structure/closet/secure_closet/freezer/kois/spores,
@@ -2868,7 +2975,7 @@
 /obj/machinery/status_display/supply_display{
 	pixel_x = 32
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "Ys" = (
 /obj/machinery/door/airlock/glass_command{
@@ -2887,7 +2994,7 @@
 	dir = 1;
 	pixel_y = 28
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "YH" = (
 /obj/machinery/door/airlock/multi_tile/glass{
@@ -2926,7 +3033,7 @@
 	dir = 1;
 	pixel_x = 16
 	},
-/turf/simulated/floor/shuttle/black,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "Zp" = (
 /obj/effect/floor_decal/corner/black{
@@ -3060,8 +3167,8 @@ eL
 eL
 eL
 eL
-eL
-rN
+FU
+kN
 LQ
 lz
 BK
@@ -3096,13 +3203,13 @@ ko
 ys
 lz
 aS
-rN
-rN
-rN
-rN
-rN
-rN
-rN
+Jm
+Jm
+Jm
+Jm
+DV
+kN
+kN
 lz
 Um
 BK
@@ -3136,11 +3243,11 @@ Az
 Cz
 lz
 aS
-rN
-rN
-rN
-rN
-rN
+Jm
+Jm
+Jm
+Jm
+DV
 om
 Gh
 lz
@@ -3180,11 +3287,11 @@ Ta
 pY
 Ta
 Ta
-Ta
-rN
-rN
+Cn
+kN
+kN
 PE
-rN
+Jm
 yM
 fY
 eg
@@ -3220,13 +3327,13 @@ po
 po
 po
 po
-po
-rN
-rN
+Xh
+kN
+kN
 lz
 lP
-rN
-rN
+Jm
+Jm
 eg
 lz
 "}
@@ -3256,16 +3363,16 @@ ko
 dB
 lz
 aS
-rN
-rN
-rN
-rN
-rN
-rN
+Jm
+Jm
+Jm
+Jm
+DV
+kN
 ga
 lz
 qg
-rN
+Jm
 qx
 eg
 lz
@@ -3296,12 +3403,12 @@ ko
 dB
 lz
 aS
-rN
-rN
-rN
-rN
-rN
-rN
+Jm
+Jm
+Jm
+Jm
+DV
+kN
 ga
 lz
 lz
@@ -3340,12 +3447,12 @@ Ta
 pY
 Ta
 Ta
-Ta
-rN
+Cn
+kN
 ga
 lz
 yA
-rN
+kN
 Gu
 tN
 lz
@@ -3380,12 +3487,12 @@ po
 po
 po
 po
-po
-rN
-rN
+Xh
+kN
+kN
 Sk
-rN
-rN
+kN
+kN
 AK
 VH
 zp
@@ -3416,17 +3523,17 @@ lz
 lz
 lz
 DR
-KU
-KU
-KU
-KU
-KU
-rN
+Cy
+Cy
+Cy
+Cy
+Vu
+kN
 ga
 lz
 YE
-rN
-rN
+kN
+xK
 zR
 zp
 "}
@@ -3434,78 +3541,78 @@ zp
 CM
 Ka
 Zl
-rN
-rN
-rN
+kN
+kN
+kN
 tv
 bV
-rN
-rN
-rN
-rN
+kN
+kN
+kN
+kN
 pr
 tv
-rN
-rN
-rN
-rN
-rN
-rN
+kN
+kN
+kN
+kN
+kN
+kN
 gr
-rN
-rN
+kN
+kN
 st
 Lq
-rN
-rN
-rN
-rN
-rN
+kN
+kN
+kN
+kN
+RC
 tv
 ga
 lz
 Me
-rN
-rN
+kN
+xK
 AO
 zp
 "}
 (14,1,1) = {"
 CM
 hL
-rN
-rN
-rN
-rN
-rN
-rN
-rN
-rN
-rN
-rN
+kN
+kN
+kN
+kN
+kN
+kN
+kN
+kN
+kN
+kN
 uk
-rN
-rN
-rN
-rN
-rN
-rN
-rN
-rN
-rN
+kN
+kN
+kN
+kN
+kN
+kN
+kN
+kN
+kN
 hF
-rN
-rN
-rN
-rN
-rN
-rN
-rN
-rN
+sN
+kN
+kN
+kN
+kN
+kN
+RC
+kN
 ga
 lz
 Fj
-rN
+kN
 Mk
 Tg
 zp
@@ -3536,16 +3643,16 @@ YH
 lz
 lz
 SQ
-KU
-KU
-KU
-KU
-KU
-rN
+VA
+VA
+VA
+VA
+VU
+kN
 ga
 lz
 du
-rN
+kN
 gx
 hq
 zp
@@ -3571,8 +3678,8 @@ Ea
 lz
 nQ
 dV
-rN
-rN
+kN
+kN
 cE
 lz
 Ta
@@ -3580,12 +3687,12 @@ Ta
 Ta
 Ta
 Ta
-Ta
-rN
-rN
+Cn
+kN
+kN
 Sk
-rN
-rN
+kN
+kN
 cj
 xD
 zp
@@ -3611,8 +3718,8 @@ hY
 lz
 oD
 aI
-KU
-KU
+Jm
+Jm
 qn
 lz
 Df
@@ -3620,8 +3727,8 @@ po
 uI
 po
 po
-po
-rN
+Xh
+kN
 ga
 lz
 KX
@@ -3644,24 +3751,24 @@ nq
 rN
 Xb
 rN
-eK
+si
 tf
 KU
 hY
 lz
 uj
 Uu
-KU
-KU
+Jm
+Jm
 qn
 lz
 aS
-rN
-rN
-rN
-rN
-rN
-rN
+Jm
+Jm
+Jm
+Jm
+DV
+kN
 ga
 lz
 lz
@@ -3684,24 +3791,24 @@ Jz
 rN
 DU
 rN
-si
+eK
 VD
 KU
 hY
 lz
 gt
 Pm
-KU
-KU
+Jm
+Jm
 qn
 lz
 aS
-rN
-rN
-rN
-rN
-rN
-rN
+Jm
+Jm
+Jm
+Jm
+DV
+kN
 ga
 lz
 Zp
@@ -3731,8 +3838,8 @@ hY
 lz
 Sy
 yP
-KU
-KU
+Jm
+Jm
 cE
 lz
 Ta
@@ -3740,9 +3847,9 @@ Ta
 Ta
 Ta
 Ta
-Ta
-rN
-rN
+Cn
+kN
+kN
 lz
 Ps
 al
@@ -3771,8 +3878,8 @@ hY
 lz
 Ju
 yP
-KU
-KU
+Jm
+Jm
 hV
 lz
 Df
@@ -3780,9 +3887,9 @@ po
 uI
 po
 po
-po
-rN
-rN
+Xh
+kN
+kN
 lz
 XY
 kU
@@ -3810,17 +3917,17 @@ KU
 vG
 lz
 Ju
-KU
-KU
-KU
+Jm
+Jm
+Jm
 hV
 lz
 aS
-rN
-rN
-rN
-rN
-rN
+Jm
+Jm
+Jm
+Jm
+DV
 om
 Gh
 lz
@@ -3850,19 +3957,19 @@ Co
 vG
 lz
 Ju
-KU
-KU
-KU
+Jm
+Jm
+Jm
 hV
 lz
 aS
-rN
-rN
-rN
-rN
-rN
-rN
-rN
+Jm
+Jm
+Jm
+Jm
+DV
+kN
+kN
 je
 cr
 kU
@@ -3880,19 +3987,19 @@ xh
 Ah
 rN
 rN
-rN
-rN
-rN
-rN
-rN
+xP
+xP
+xP
+xP
+xP
 rN
 rN
 rN
 lz
 Sa
-xP
-xP
-xP
+wP
+wP
+wP
 Bu
 lz
 fJ
@@ -3900,8 +4007,8 @@ fJ
 fJ
 fJ
 fJ
-fJ
-rN
+QG
+kN
 tR
 lz
 rX
