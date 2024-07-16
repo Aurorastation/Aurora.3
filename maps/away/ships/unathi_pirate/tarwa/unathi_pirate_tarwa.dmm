@@ -1715,7 +1715,7 @@
 /area/tarwa_ship/gun)
 "zg" = (
 /obj/machinery/light,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/reagent_containers/hypospray,
 /obj/structure/table/rack,
 /obj/item/storage/firstaid/fire{
@@ -3407,8 +3407,7 @@
 /area/tarwa_ship/gun)
 "Sa" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)

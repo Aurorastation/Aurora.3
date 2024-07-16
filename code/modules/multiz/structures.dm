@@ -255,17 +255,24 @@
 
 	return ..()
 
-/obj/structure/stairs/CollidedWith(atom/movable/moving_atom)
+/obj/structure/stairs/CollidedWith(atom/bumped_atom)
+	. = ..()
+
+	if(!ismovable(bumped_atom))
+		return
+
+	var/atom/movable/AM = bumped_atom
+
 	// This is hackish but whatever.
-	var/turf/target = get_step(GetAbove(moving_atom), dir)
+	var/turf/target = get_step(GetAbove(AM), dir)
 	if(!target)
 		return
 	if(target.z > (z + 1)) //Prevents wheelchair fuckery. Basically, you teleport twice because both the wheelchair + your mob collide with the stairs.
 		return
-	if(target.Enter(moving_atom, src) && moving_atom.dir == dir)
-		moving_atom.forceMove(target)
-		if(isliving(moving_atom))
-			var/mob/living/living_mob = moving_atom
+	if(target.Enter(AM, src) && AM.dir == dir)
+		AM.forceMove(target)
+		if(isliving(AM))
+			var/mob/living/living_mob = AM
 			if(living_mob.pulling)
 				living_mob.pulling.forceMove(target)
 			for(var/obj/item/grab/grab in living_mob)
@@ -340,7 +347,7 @@
 /obj/structure/stairs_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover,/obj/item/projectile))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE
@@ -418,7 +425,7 @@
 /obj/structure/platform/CanPass(atom/movable/mover, turf/target, height, air_group)
 	if(istype(mover, /obj/item/projectile))
 		return TRUE
-	if(!istype(mover) || mover.checkpass(PASSRAILING))
+	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
 	if(mover.throwing)
 		return TRUE

@@ -3,8 +3,8 @@
 	problist = list(
 		/obj/item/storage/belt/utility = 1,
 		/obj/item/storage/belt/medical = 0.4,
-		/obj/item/storage/belt/medical/first_responder = 0.4,
-		/obj/item/storage/belt/medical/first_responder/combat = 0.1,
+		/obj/item/storage/belt/medical/paramedic = 0.4,
+		/obj/item/storage/belt/medical/paramedic/combat = 0.1,
 		/obj/item/storage/belt/security/tactical = 0.1,
 		/obj/item/storage/belt/military = 0.1,
 		/obj/item/storage/belt/custodial = 0.4
@@ -257,7 +257,7 @@
 		/obj/item/clothing/head/hardhat/dblue = 1,
 		/obj/item/clothing/head/hardhat/white = 0.5,
 		/obj/item/clothing/head/hardhat/atmos = 0.1,
-		/obj/item/clothing/head/hardhat/first_responder = 0.1,
+		/obj/item/clothing/head/hardhat/paramedic = 0.1,
 		/obj/item/clothing/head/hardhat/firefighter = 0.1
 	)
 

@@ -21,6 +21,12 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
 	area_blurb = "An alien chirping can be heard here. Between the tents, tendrils of biomass wind and grow."
 
+/area/moghes_dorviza/tent
+	name = "Clan Dorviza Camp"
+	icon_state = "red"
+	is_outside = OUTSIDE_NO
+	area_blurb = "The carpets laid on the ground are choked with sand. Outside, the wind can be heard whipping through the wastes, ruffling the tent's cloth."
+
 /datum/ghostspawner/human/moghes_dorviza
 	name = "Dorviza Clan Traveler"
 	short_name = "moghes_dorviza"
@@ -62,6 +68,7 @@
 /obj/outfit/admin/moghes_dorviza
 	uniform = list(/obj/item/clothing/under/unathi, /obj/item/clothing/under/unathi/himation)
 	suit = list(/obj/item/clothing/suit/unathi/robe, /obj/item/clothing/suit/unathi/robe/kilt)
+	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
 	shoes = /obj/item/clothing/shoes/sandals/caligae
 	l_ear = null
 	id = null
@@ -79,3 +86,4 @@
 	uniform = /obj/item/clothing/under/gearharness
 	suit = /obj/item/clothing/accessory/poncho/green
 	shoes = null
+	glasses = null

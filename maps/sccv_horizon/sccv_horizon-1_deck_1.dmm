@@ -744,6 +744,12 @@
 /obj/machinery/power/apc/low/east,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
+"aEj" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "aEl" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -1117,6 +1123,7 @@
 /area/engineering/atmos/propulsion)
 "aQN" = (
 /obj/machinery/firealarm/north,
+/obj/structure/cargo_receptacle/horizon,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "aRG" = (
@@ -2801,10 +2808,6 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/access_button{
 	pixel_x = -25;
 	pixel_y = 20
@@ -2813,13 +2816,18 @@
 	pixel_x = -25;
 	pixel_y = 27
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4;
+	icon_state = "map"
+	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_shuttle_spark";
 	name = "airlock_shuttle_spark";
 	req_one_access = list(31,48,67);
-	shuttle_tag = "Spark"
+	shuttle_tag = "Spark";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "bZR" = (
@@ -2871,15 +2879,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/rnd/test_range)
-"ccU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
-	},
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "ccZ" = (
 /obj/item/material/shard{
 	icon_state = "small"
@@ -3313,6 +3312,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"crL" = (
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "crZ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -4497,6 +4500,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
 /turf/simulated/wall/shuttle/unique/scc/mining{
 	icon_state = "4,9"
 	},
@@ -4561,7 +4567,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/hangar/operations)
 "dip" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -5313,6 +5319,9 @@
 	must_start_working = 1
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/survey_probe{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
 "dJH" = (
@@ -5971,6 +5980,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"eiF" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/hullbeacon/red,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/hangar/operations)
 "ejL" = (
 /obj/machinery/power/smes/buildable/substation{
 	RCon_tag = "Substation - Engineering Lower Deck"
@@ -7008,6 +7028,11 @@
 /obj/structure/survey_probe,
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
+"eQP" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/survey_probe/magnet,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "eRb" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/visible/purple,
@@ -7088,19 +7113,21 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, airlock"
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_shuttle_spark";
-	name = "airlock_shuttle_spark";
-	req_one_access = list(31,48,67);
-	shuttle_tag = "Spark"
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
 	dir = 1;
 	pixel_x = 28;
 	pixel_y = 12
 	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	req_one_access = list(31,48,67);
+	shuttle_tag = "Spark";
+	cycle_to_external_air = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "eVk" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -7397,9 +7424,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 5
-	},
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "11,17"
 	},
@@ -7423,13 +7447,14 @@
 	},
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/item/reagent_containers/inhaler/pneumalin,
-/obj/machinery/atmospherics/portables_connector/fuel{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/item/device/radio/intercom/expedition/hailing/north{
 	pixel_x = -8;
 	pixel_y = 18
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -8180,21 +8205,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "fFb" = (
-/obj/structure/shuttle_part/scc/mining{
-	icon_state = "thrustermount";
-	opacity = 1;
-	outside_part = 0
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
-	},
-/area/shuttle/mining)
+/turf/simulated/floor/airless,
+/area/hangar/operations)
 "fFf" = (
 /obj/machinery/atmospherics/binary/pump/fuel{
 	name = "Fuel Tank to Thrusters"
@@ -8650,6 +8662,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"fTV" = (
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "fUb" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -9641,7 +9659,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/hangar/operations)
 "gyx" = (
 /obj/effect/floor_decal/corner/brown{
@@ -11420,7 +11438,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/hangar/operations)
 "hPC" = (
 /obj/structure/tank_wall{
@@ -12198,7 +12216,7 @@
 	c_tag = "Operations - Mining Shuttle Dock Starboard";
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/hangar/operations)
 "iyV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -12495,10 +12513,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
-"iJJ" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "iJM" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 8;
@@ -12989,6 +13003,15 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
+"iZa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "iZi" = (
 /turf/simulated/wall/shuttle/unique/scc/mining{
 	icon_state = "7,3"
@@ -13431,7 +13454,12 @@
 /area/outpost/mining_main/refinery)
 "jpU" = (
 /obj/machinery/bluespace_beacon,
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "jqc" = (
@@ -15222,12 +15250,6 @@
 /obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled,
 /area/hangar/canary)
-"kAn" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "kAG" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/door/window/northleft{
@@ -15462,6 +15484,20 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/hangar/intrepid)
+"kHa" = (
+/obj/item/tent,
+/obj/item/sleeping_bag,
+/obj/item/sleeping_bag,
+/obj/item/sleeping_bag,
+/obj/item/sleeping_bag,
+/obj/structure/closet/crate,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/stool/chair/folding/camping,
+/obj/item/material/folding_table,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "kHg" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -15689,7 +15725,6 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/door/window/northleft,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced,
 /area/shuttle/mining)
@@ -15856,11 +15891,13 @@
 	master_tag = "airlock_shuttle_spark";
 	name = "airlock_shuttle_spark";
 	req_one_access = list(31,48,67);
-	shuttle_tag = "Spark"
+	shuttle_tag = "Spark";
+	cycle_to_external_air = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 8
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
 "kVv" = (
@@ -16013,6 +16050,13 @@
 	},
 /turf/simulated/floor/reinforced/oxygen,
 /area/engineering/atmos/air)
+"ldd" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "ldI" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -16123,9 +16167,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
-	dir = 4
+/obj/machinery/atmospherics/binary/pump/fuel{
+	dir = 1;
+	name = "Fuel Tank to Thrusters"
 	},
+/obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "liB" = (
@@ -16722,6 +16768,7 @@
 /area/medical/morgue/lower)
 "lFa" = (
 /obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/mining_shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "lFD" = (
@@ -19029,7 +19076,7 @@
 /area/shuttle/intrepid/atmos_compartment)
 "ncy" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/survey_probe,
+/obj/structure/survey_probe/ground,
 /turf/simulated/floor/tiled,
 /area/outpost/mining_main/refinery)
 "ncC" = (
@@ -19203,7 +19250,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/hangar/operations)
 "nhw" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -19773,10 +19820,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"nzG" = (
-/obj/machinery/firealarm/south,
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "nAn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -19849,6 +19892,21 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/small{
 	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	req_one_access = list(31,48,67);
+	shuttle_tag = "Spark";
+	cycle_to_external_air = 1
+	},
+/obj/machinery/airlock_sensor{
+	dir = 4;
+	pixel_x = -25
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/mining)
@@ -19975,14 +20033,16 @@
 	dir = 1;
 	icon_state = "door_locked"
 	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_shuttle_spark";
 	name = "airlock_shuttle_spark";
 	req_one_access = list(31,48,67);
-	shuttle_tag = "Spark"
+	shuttle_tag = "Spark";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "nJB" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
@@ -20406,6 +20466,11 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
+"nWg" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/survey_probe/ground,
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "nWA" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
@@ -21059,7 +21124,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/auxiliary)
 "owJ" = (
-/obj/structure/cargo_receptacle/horizon,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/mapmanip/submap/insert/sccv_horizon/ops_warehouse_small_storage,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "owM" = (
@@ -21150,15 +21219,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
 "ozA" = (
-/obj/machinery/atmospherics/valve/digital/open{
-	dir = 4;
-	name = "airlock shutoff valve"
-	},
-/obj/machinery/atmospherics/binary/pump/fuel{
-	dir = 1;
-	name = "Fuel Tank to Thrusters"
-	},
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/atmospherics/valve/digital{
+	dir = 4;
+	name = "Airlock to Distribution Merge"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
 "ozE" = (
@@ -21835,13 +21903,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenoarch_atrium)
-"pcv" = (
-/obj/machinery/camera/network/supply{
-	c_tag = "Operations - Warehouse Starboard Aft Storage Room";
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/operations/storage)
 "pcw" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -22036,7 +22097,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/hangar/operations)
 "phg" = (
 /obj/structure/shuttle_part/scc/research{
@@ -22483,12 +22544,10 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
 "pwR" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/survey_probe{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/hangar/intrepid)
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/survey_probe/magnet,
+/turf/simulated/floor/tiled,
+/area/outpost/mining_main/refinery)
 "pxH" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -23881,12 +23940,12 @@
 /turf/simulated/floor/tiled,
 /area/operations/loading)
 "qqS" = (
-/obj/machinery/atmospherics/portables_connector/aux{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/closet/walllocker/firecloset{
 	pixel_x = -25
+	},
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -23969,6 +24028,11 @@
 	},
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/quarters)
+"qtt" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "qtO" = (
 /obj/structure/closet/crate,
 /obj/item/circuitboard/autolathe,
@@ -24935,12 +24999,12 @@
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
 /obj/machinery/light/spot,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
 "rcA" = (
@@ -24973,6 +25037,10 @@
 "rcY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9;
+	icon_state = "intact"
 	},
 /turf/simulated/wall/shuttle/unique/scc/mining{
 	icon_state = "4,8"
@@ -25563,10 +25631,13 @@
 /turf/space/dynamic,
 /area/horizon/exterior)
 "rAa" = (
-/obj/effect/overmap/visitable/ship/landable/mining_shuttle,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+/obj/machinery/atmospherics/binary/pump/fuel{
+	name = "Canister to Fuel Tank";
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
@@ -25830,7 +25901,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/hullbeacon/red,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/airless,
 /area/hangar/operations)
 "rLd" = (
 /obj/structure/shuttle_part/scc/research{
@@ -25866,21 +25937,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "airlock_shuttle_spark";
-	name = "airlock_shuttle_spark";
-	req_one_access = list(31,48,67);
-	shuttle_tag = "Spark"
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 10
-	},
 /obj/machinery/door/airlock/external{
 	dir = 1;
 	icon_state = "door_locked"
 	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_shuttle_spark";
+	name = "airlock_shuttle_spark";
+	req_one_access = list(31,48,67);
+	shuttle_tag = "Spark";
+	cycle_to_external_air = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/mining)
 "rNe" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
@@ -26272,8 +26343,17 @@
 	master_tag = "airlock_shuttle_spark";
 	name = "airlock_shuttle_spark";
 	req_one_access = list(31,48,67);
-	shuttle_tag = "Spark"
+	shuttle_tag = "Spark";
+	cycle_to_external_air = 1
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
 "rZu" = (
@@ -27021,7 +27101,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/shuttle/mining)
 "sEw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -27592,15 +27672,22 @@
 	pixel_x = 25;
 	pixel_y = -7
 	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "airlock_shuttle_spark";
 	name = "airlock_shuttle_spark";
 	req_one_access = list(31,48,67);
-	shuttle_tag = "Spark"
+	shuttle_tag = "Spark";
+	cycle_to_external_air = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 8
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4;
+	icon_state = "map"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
 "sYf" = (
@@ -27799,6 +27886,7 @@
 	pixel_y = -2
 	},
 /obj/item/clothing/mask/breath,
+/obj/item/tent/big/scc,
 /turf/simulated/floor/lino,
 /area/shuttle/intrepid/quarters)
 "tgR" = (
@@ -29208,6 +29296,7 @@
 /obj/item/material/hatchet/machete/steel,
 /obj/item/clothing/accessory/holster/utility/machete,
 /obj/item/clothing/accessory/holster/utility/machete,
+/obj/item/tent/mining,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "ucG" = (
@@ -29237,6 +29326,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/item/tent/big/scc,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
 "udC" = (
@@ -30225,10 +30315,6 @@
 	},
 /obj/structure/bed/handrail,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/binary/pump/fuel{
-	dir = 4;
-	name = "Canister to Thrusters"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "uNH" = (
@@ -30375,8 +30461,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/cockpit)
 "uTy" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/alarm/west,
+/obj/machinery/camera/network/supply{
+	c_tag = "Operations - Warehouse Starboard Aft Storage Room";
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "uTz" = (
@@ -30400,22 +30488,11 @@
 	},
 /area/shuttle/intrepid/atmos_compartment)
 "uUP" = (
-/obj/structure/shuttle_part/scc/mining{
-	icon_state = "thrustermount";
-	opacity = 1;
-	outside_part = 0
-	},
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
 	},
-/turf/simulated/floor/reinforced{
-	blocks_air = 1;
-	density = 1;
-	name = "thruster mount";
-	opacity = 1
+/turf/simulated/wall/shuttle/unique/scc/mining{
+	icon_state = "6,2"
 	},
 /area/shuttle/mining)
 "uUZ" = (
@@ -31570,9 +31647,13 @@
 	master_tag = "airlock_shuttle_spark";
 	name = "airlock_shuttle_spark";
 	req_one_access = list(31,48,67);
-	shuttle_tag = "Spark"
+	shuttle_tag = "Spark";
+	cycle_to_external_air = 1
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/plating,
 /area/shuttle/mining)
 "vFL" = (
@@ -32065,7 +32146,6 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/machinery/door/window/northright,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced,
 /area/shuttle/mining)
@@ -33576,10 +33656,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/storage/tech)
 "xdE" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/suspension_gen{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/stasis_cage,
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/eva)
 "xdF" = (
@@ -34388,7 +34466,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/shuttle/mining)
 "xwA" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -35452,6 +35530,10 @@
 	},
 /turf/space/dynamic,
 /area/horizon/exterior)
+"ygk" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled,
+/area/operations/storage)
 "ygx" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -45639,10 +45721,10 @@ bmx
 fif
 qdE
 tiV
+qtt
 uTy
-pcv
 giX
-tiV
+owJ
 qdE
 tiV
 qQa
@@ -45841,11 +45923,11 @@ lVt
 vtn
 fif
 qdE
-owJ
-iJJ
-ccU
-kAn
-nzG
+fTV
+ygk
+iZa
+aEj
+crL
 qdE
 aQN
 nCV
@@ -46045,7 +46127,7 @@ uCB
 fif
 qdE
 iQI
-giX
+ldd
 sWr
 giX
 iQI
@@ -50743,7 +50825,7 @@ gyo
 gyo
 gyo
 gyo
-suw
+eiF
 jEx
 kiw
 kVe
@@ -50946,7 +51028,7 @@ oDr
 vHW
 fja
 kZP
-mwO
+fFb
 tNp
 eSV
 eSV
@@ -51149,7 +51231,7 @@ vkB
 tuL
 tVI
 xwo
-mwO
+fFb
 tNp
 eSV
 eSV
@@ -51334,7 +51416,7 @@ cWd
 hhO
 tgR
 uBi
-ncy
+pwR
 pXi
 dNk
 gZP
@@ -51352,7 +51434,7 @@ sOc
 tqs
 sxP
 sDN
-mwO
+fFb
 tNp
 eSV
 eSV
@@ -51555,7 +51637,7 @@ osc
 tuy
 vhg
 pfs
-mwO
+fFb
 qSF
 eSV
 eSV
@@ -51749,7 +51831,7 @@ rcA
 kKc
 kNN
 nBA
-fFb
+rZh
 ucE
 lhE
 ozA
@@ -51757,8 +51839,8 @@ byb
 sVu
 cWa
 tCA
-mwO
-mwO
+fFb
+fFb
 tNp
 eSV
 eSV
@@ -51960,8 +52042,8 @@ ePy
 xpX
 rZh
 qhG
-mwO
-mwO
+fFb
+fFb
 tNp
 eSV
 eSV
@@ -52163,8 +52245,8 @@ bZR
 iZi
 oSA
 hMj
-mwO
-mwO
+fFb
+fFb
 tNp
 eSV
 eSV
@@ -54175,7 +54257,7 @@ usP
 lCX
 wuD
 ybD
-eQJ
+vBN
 evm
 iRC
 iRC
@@ -54378,7 +54460,7 @@ eEm
 ifD
 wuD
 xCT
-pwR
+evm
 evm
 iRC
 iRC
@@ -54783,8 +54865,8 @@ oPL
 rLm
 mKo
 aHY
-vBN
-evm
+eQP
+eQP
 iRC
 iRC
 pIR
@@ -54986,8 +55068,8 @@ oPL
 rLm
 mKo
 aHY
-evm
-evm
+nWg
+nWg
 iRC
 iRC
 iSn
@@ -55190,7 +55272,7 @@ rLm
 mKo
 aHY
 dJm
-evm
+eQJ
 iRC
 iRC
 iMt
@@ -57016,7 +57098,7 @@ aEl
 kLb
 qeD
 rPN
-iRC
+kHa
 iRC
 iRC
 iRC

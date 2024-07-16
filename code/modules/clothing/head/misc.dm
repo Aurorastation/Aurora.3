@@ -37,6 +37,7 @@
 	item_state = "magnetpin"
 	name = "magnetic 'pin'"
 	desc = "Finally, a hair pin even a robot chassis can use."
+	slot_flags = SLOT_HEAD
 	matter = list(DEFAULT_WALL_MATERIAL = 10)
 
 /obj/item/clothing/head/pin/flower
@@ -288,6 +289,16 @@
 	flags_inv = BLOCKHAIR
 	siemens_coefficient = 2.0 //why is it so conductive?!
 
+/obj/item/clothing/head/plain_hood
+	name = "plain hood"
+	desc = "A simple hood made of cloth, worn for myriad reasons - cultural, religious, protection from the elements, a fashion statement... or perhaps you simply want to look like you intend to give quests to adventurers who walk into your favorite tavern."
+	icon = 'icons/clothing/head/plain_hood.dmi'
+	icon_state = "plain_hood"
+	item_state = "plain_hood"
+	body_parts_covered = HEAD
+	flags_inv = HIDEEARS|BLOCKHEADHAIR
+	contained_sprite = TRUE
+
 /obj/item/clothing/head/hijab //It might've taken a year but here's your Hijab's, Dea.
 	name = "hijab"
 	desc = "Encompassing cloth headwear worn by some human cultures and religions."
@@ -483,6 +494,33 @@
 	item_state = "leader_headband"
 	contained_sprite = TRUE
 
+//all by budg
+/obj/item/clothing/head/slouch
+	name = "slouch hat"
+	desc = "A wide brimmed hat folded to form a slouch."
+	icon_state = "slouch"
+
+/obj/item/clothing/head/tight_beanie
+	name = "tight beanie"
+	desc = "A rather tight beanie, blocks hair."
+	icon_state = "tight_beanie"
+	flags_inv = BLOCKHEADHAIR
+	cold_protection = HEAD
+
+/obj/item/clothing/head/sun_visor
+	name = "sun visor"
+	desc = "A stylish visor intended for blocking out harsh sunlight."
+	icon_state = "sun_visor"
+
+/obj/item/clothing/head/newsboy
+	name = "newsboy cap"
+	desc = "A fashionable peaked cap!"
+	icon_state = "newsboy"
+
+/obj/item/clothing/head/legionnaire
+	name = "legionnaire cap"
+	desc = "A hate made to protect your neck from sunlight, not affiliated with the TCAF."
+	icon_state = "legionnaire"
 //sol stuff
 
 /obj/item/clothing/head/sol
@@ -711,3 +749,17 @@
 	desc = "A garrison cap belonging to a high-ranking officer of the All-Xanu Spacefleet."
 	icon_state = "xanu_garrison_cap"
 	item_state = "xanu_garrison_cap"
+
+/obj/item/clothing/head/grupo_amapola
+	name = "Grupo Amapola officer cap"
+	desc = "A peaked officer's cap bearing the poppy of the military contracting group Grupo Amapola."
+	icon = 'icons/clothing/head/pmcg.dmi'
+	icon_state = "amapola_officer_hat"
+	item_state = "amapola_officer_hat"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/grupo_amapola/ute
+	name = "Grupo Amapola utility cover"
+	desc = "A softcap in green camo, issued to members of the military contracting group Grupo Amapola."
+	icon_state = "amapola_ute_hat"
+	item_state = "amapola_ute_hat"

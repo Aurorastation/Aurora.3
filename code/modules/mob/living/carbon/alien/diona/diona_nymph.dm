@@ -97,7 +97,7 @@
 			mind.transfer_to(master_nymph)
 			master_nymph.stunned = 0//Switching mind seems to temporarily stun mobs
 			message_admins("\The [src] has died with nymphs remaining; player now controls [key_name_admin(master_nymph)]")
-			log_admin("\The [src] has died with nymphs remaining; player now controls [key_name(master_nymph)]", ckey=key_name(master_nymph))
+			log_admin("\The [src] has died with nymphs remaining; player now controls [key_name(master_nymph)]")
 		master_nymph = null
 		birds_of_feather.Cut()
 
@@ -125,7 +125,7 @@
 
 /mob/living/carbon/alien/diona/verb/check_light()
 	set category = "Abilities"
-	set name = "Check light level"
+	set name = "Check Light Level"
 
 	var/light = get_lightlevel_diona(DS)
 

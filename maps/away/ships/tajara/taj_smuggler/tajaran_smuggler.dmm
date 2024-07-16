@@ -376,7 +376,6 @@
 	icon_state = "door_locked";
 	id_tag = "smuggler_cargo_hatch";
 	name = "Cargo Hold";
-	open_layer = 2.8;
 	dir = 4
 	},
 /obj/effect/shuttle_landmark/tajaran_smuggler_cargo/nav1,

@@ -6,6 +6,7 @@
 	density = TRUE
 	build_amt = 2
 	slowdown = 5
+	pass_flags_self = PASSTRACE
 
 	var/icon_door = null
 	/// Override to have open overlay use icon different to its base's
@@ -139,9 +140,7 @@
 
 /obj/structure/closet/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0 || wall_mounted)) return 1
-	if(istype(mover) && mover.checkpass(PASSTRACE))
-		return 1
-	return (!density)
+	return ..()
 
 /obj/structure/closet/proc/can_open()
 	if(welded || locked)
@@ -531,7 +530,9 @@
 	if(istype(user, /mob/living/silicon/robot) && Adjacent(user)) // Robots can open/close it, but not the AI.
 		attack_hand(user)
 
-/obj/structure/closet/relaymove(mob/user as mob)
+/obj/structure/closet/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user.stat || !isturf(loc))
 		return
 
@@ -802,9 +803,9 @@
 	name = "crate contents scanner"
 	desc = "A  handheld device used to scan and print a manifest of a container's contents. Does not work on locked crates, for privacy reasons."
 	icon_state = "cratescanner"
+	item_state = "cratescanner"
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
 	w_class = ITEMSIZE_SMALL
-	item_state = "electronic"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 

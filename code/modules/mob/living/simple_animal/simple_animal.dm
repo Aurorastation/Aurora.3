@@ -18,6 +18,7 @@
 	var/damage_type = DAMAGE_BRUTE
 
 	var/show_stat_health = 1	//does the percentage health show in the stat panel for the mob
+	var/in_stasis = FALSE
 
 	var/icon_living = ""
 	var/icon_dead = ""
@@ -156,6 +157,11 @@
 	var/dead_on_map = FALSE //if true, kills the mob when it spawns (it is for mapping)
 	var/vehicle_version = null
 
+	/**
+	 * List of fluff characteristics to be found on cellular analysis
+	 */
+	var/list/sample_data = list("Cellular biochemistry indicitive of typical metabolc activity", "Tissue sample contains average muscle content", "No distinctive genetic markers identified")
+
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor
 	bite_factor = mob_size * 0.3
@@ -237,7 +243,7 @@
 		return FALSE
 	return TRUE
 
-/mob/living/simple_animal/Life()
+/mob/living/simple_animal/Life(seconds_per_tick, times_fired)
 	..()
 	life_tick++
 	if (stat == DEAD)
@@ -642,8 +648,8 @@
 
 /mob/living/simple_animal/hitby(atom/movable/AM, speed)
 	. = ..()
-	if(ismob(AM.thrower))
-		handle_attack_by(AM.thrower)
+	if(ismob(AM.throwing?.thrower?.resolve()))
+		handle_attack_by(AM.throwing?.thrower?.resolve())
 
 /mob/living/simple_animal/bullet_act(obj/item/projectile/P, def_zone)
 	. = ..()
@@ -700,7 +706,7 @@
 
 	if(movement_target)
 		stop_automated_movement = 1
-		SSmove_manager.move_to(src, movement_target, 0, seek_move_delay)
+		GLOB.move_manager.move_to(src, movement_target, 0, seek_move_delay)
 
 /mob/living/simple_animal/get_status_tab_items()
 	. = ..()
@@ -715,7 +721,7 @@
 		death()
 
 /mob/living/simple_animal/death(gibbed, deathmessage = "dies!")
-	SSmove_manager.stop_looping(src)
+	GLOB.move_manager.stop_looping(src)
 	movement_target = null
 	density = FALSE
 	if (isopenturf(loc))
@@ -808,7 +814,7 @@
 /mob/living/simple_animal/proc/reset_sound_time()
 	sound_time = TRUE
 
-/mob/living/simple_animal/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/living/simple_animal/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	if(speak_emote.len)
 		verb = pick(speak_emote)
 
@@ -881,7 +887,7 @@
 		set_stat(UNCONSCIOUS)
 		canmove = 0
 		wander = 0
-		SSmove_manager.stop_looping(src)
+		GLOB.move_manager.stop_looping(src)
 		movement_target = null
 		update_icon()
 
@@ -1006,6 +1012,8 @@
 /mob/living/simple_animal/get_speech_bubble_state_modifier()
 	return isSynthetic() ? "machine" : "rough"
 
+/mob/living/simple_animal/InStasis()
+	return in_stasis
 
 #undef BLOOD_NONE
 #undef BLOOD_LIGHT

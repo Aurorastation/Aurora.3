@@ -232,7 +232,6 @@ var/list/admin_verbs_debug = list(
 	/turf/proc/view_chunk,
 	/turf/proc/update_chunk,
 	/client/proc/profiler_start,
-	/client/proc/rustg_send_udp,
 	/datum/admins/proc/force_initialize_weather,
 	/datum/admins/proc/force_weather_state,
 	/datum/admins/proc/force_kill_weather
@@ -412,7 +411,6 @@ var/list/admin_verbs_hideable = list(
 	/proc/release,
 	/client/proc/force_away_mission,
 	/client/proc/profiler_start,
-	/client/proc/rustg_send_udp
 	)
 var/list/admin_verbs_mod = list(
 	/client/proc/cmd_admin_pm_context,	// right-click adminPM interface,
@@ -484,7 +482,6 @@ var/list/admin_verbs_dev = list( //will need to be altered - Ryan784
 	/client/proc/cmd_generate_lag,
 	/client/proc/create_poll, //Allows to create polls
 	/client/proc/profiler_start,
-	/client/proc/rustg_send_udp
 )
 var/list/admin_verbs_cciaa = list(
 	/client/proc/cmd_admin_pm_panel,	/*admin-pm list*/
@@ -580,7 +577,7 @@ var/list/admin_verbs_cciaa = list(
 		var/mob/abstract/observer/ghost = mob
 		if(ghost.can_reenter_corpse)
 			ghost.reenter_corpse()
-			log_admin("[src] reentered their corpose using aghost.",admin_key=key_name(src))
+			log_admin("[src] reentered their corpose using aghost.")
 		else
 			to_chat(ghost, SPAN_WARNING("Error: Aghost: Can't reenter corpse."))
 			return
@@ -599,7 +596,7 @@ var/list/admin_verbs_cciaa = list(
 			if(!body.key)
 				body.key = "@[key]"	//Haaaaaaaack. But the people have spoken. If it breaks; blame adminbus
 		feedback_add_details("admin_verb","O") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-		log_admin("[src] aghosted.",admin_key=key_name(src))
+		log_admin("[src] aghosted.")
 
 /client/proc/invisimin()
 	set name = "Invisimin"
@@ -698,7 +695,7 @@ var/list/admin_verbs_cciaa = list(
 			if(length(new_key) >= 26)
 				new_key = copytext(new_key, 1, 26)
 			holder.fakekey = new_key
-		log_admin("[key_name(usr)] has turned stealth mode [holder.fakekey ? "ON" : "OFF"]", admin_key=key_name(usr),ckey=holder.fakekey)
+		log_admin("[key_name(usr)] has turned stealth mode [holder.fakekey ? "ON" : "OFF"]")
 		message_admins("[key_name_admin(usr)] has turned stealth mode [holder.fakekey ? "ON" : "OFF"]", 1)
 	feedback_add_details("admin_verb","SM") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -738,7 +735,7 @@ var/list/admin_verbs_cciaa = list(
 			return
 		for (var/mob/V in hearers(O))
 			V.show_message(message, 2)
-		log_admin("[key_name(usr)] made [O] at [O.x], [O.y], [O.z]. make a sound",admin_key=key_name(usr))
+		log_admin("[key_name(usr)] made [O] at [O.x], [O.y], [O.z]. make a sound")
 		message_admins(SPAN_NOTICE("[key_name_admin(usr)] made [O] at [O.x], [O.y], [O.z]. make a sound"), 1)
 		feedback_add_details("admin_verb","MS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -780,7 +777,7 @@ var/list/admin_verbs_cciaa = list(
 		SSair.can_fire = FALSE
 		to_chat(usr, "<b>Disabled air processing.</b>")
 	feedback_add_details("admin_verb","KA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	log_admin("[key_name(usr)] used 'kill air'.",admin_key=key_name(usr))
+	log_admin("[key_name(usr)] used 'kill air'.")
 	message_admins(SPAN_NOTICE("[key_name_admin(usr)] used 'kill air'."), 1)
 
 /client/proc/readmin_self()
@@ -789,7 +786,7 @@ var/list/admin_verbs_cciaa = list(
 
 	if(deadmin_holder)
 		deadmin_holder.reassociate()
-		log_admin("[src] re-admined themself.",admin_key=key_name(src))
+		log_admin("[src] re-admined themself.")
 		message_admins("[src] re-admined themself.", 1)
 		to_chat(src, "<span class='interface'>You now have the keys to control the galaxy, or at least a small space ship</span>")
 		remove_verb(src, /client/proc/readmin_self)
@@ -801,7 +798,7 @@ var/list/admin_verbs_cciaa = list(
 
 	if(holder)
 		if(alert("Confirm self-deadmin for the round? You can re-admin yourself at any time.",,"Yes","No") == "Yes")
-			log_admin("[src] deadmined themself.",admin_key=key_name(src))
+			log_admin("[src] deadmined themself.")
 			message_admins("[src] deadmined themself.", 1)
 			deadmin()
 			to_chat(src, "<span class='interface'>You are now a normal player.</span>")
@@ -908,7 +905,7 @@ var/list/admin_verbs_cciaa = list(
 	var/msg = tgui_alert(usr, "Switch from code [get_security_level()] to code [sec_level]?", "Security Level", list("Yes","No"))
 	if(msg == "Yes")
 		set_security_level(sec_level)
-		log_admin("[key_name(usr)] changed the security level to code [sec_level].",admin_key=key_name(usr))
+		log_admin("[key_name(usr)] changed the security level to code [sec_level].")
 
 //---- bs12 verbs ----
 
@@ -1078,7 +1075,7 @@ var/list/admin_verbs_cciaa = list(
 	to_chat(T, SPAN_NOTICE("<b><font size=3>Man up and deal with it.</font></b>"))
 	to_chat(T, SPAN_NOTICE("Move on."))
 
-	log_admin("[key_name(usr)] told [key_name(T)] to man up and deal with it.", admin_key=key_name(usr), ckey=key_name(T))
+	log_admin("[key_name(usr)] told [key_name(T)] to man up and deal with it.")
 	message_admins(SPAN_NOTICE("[key_name_admin(usr)] told [key_name(T)] to man up and deal with it."), 1)
 
 /client/proc/global_man_up()
@@ -1090,7 +1087,7 @@ var/list/admin_verbs_cciaa = list(
 		to_chat(T, "<br><center><span class='notice'><b><font size=4>Man up.<br> Deal with it.</font></b><br>Move on.</span></center><br>")
 		sound_to(T, 'sound/voice/ManUp1.ogg')
 
-	log_admin("[key_name(usr)] told everyone to man up and deal with it.",admin_key=key_name(usr))
+	log_admin("[key_name(usr)] told everyone to man up and deal with it.")
 	message_admins(SPAN_NOTICE("[key_name_admin(usr)] told everyone to man up and deal with it."), 1)
 
 /client/proc/give_spell(mob/T as mob in GLOB.mob_list) // -- Urist
@@ -1101,7 +1098,7 @@ var/list/admin_verbs_cciaa = list(
 	if(!S) return
 	T.add_spell(new S)
 	feedback_add_details("admin_verb","GS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-	log_admin("[key_name(usr)] gave [key_name(T)] the spell [S].",admin_key=key_name(usr),ckey=key_name(T))
+	log_admin("[key_name(usr)] gave [key_name(T)] the spell [S].")
 	message_admins(SPAN_NOTICE("[key_name_admin(usr)] gave [key_name(T)] the spell [S]."), 1)
 
 /client/proc/toggle_recursive_explosions()
@@ -1305,7 +1302,7 @@ var/list/admin_verbs_cciaa = list(
 	if(!msg)
 		return
 
-	log_ooc("(ADMIN LOCAL) [mob.name]/[key] : [msg]",ckey=key_name(mob))
+	log_ooc("(ADMIN LOCAL) [mob.name]/[key] : [msg]")
 
 	var/mob/source = src.mob
 	var/list/messageturfs = list() //List of turfs we broadcast to.

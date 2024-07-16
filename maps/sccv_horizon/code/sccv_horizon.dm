@@ -141,6 +141,12 @@
 
 	warehouse_basearea = /area/operations/storage
 
+	shuttle_manifests = list(
+		"SCCV Canary" = list("color" = "blue", "icon" = "binoculars"),
+		"SCCV Intrepid" = list("color" = "purple", "icon" = "compass"),
+		"SCCV Spark" = list("color" = "brown", "icon" = "gem"))
+	shuttle_missions = list("Exploration", "Research", "Prospecting", "Transport", "Combat", "Rescue", "Training")
+
 /datum/map/sccv_horizon/send_welcome()
 	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
 
@@ -193,3 +199,9 @@
 		for(var/obj/machinery/computer/holodeck_control/holo in GLOB.holodeck_controls)
 			if(!holo.active)
 				holo.load_random_program()
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage
+	name = "Ops Warehouse, Small Storage"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/sccv_horizon/ops_warehouse_small_storage
+	name = "Ops Warehouse, Small Storage"

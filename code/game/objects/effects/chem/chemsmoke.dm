@@ -27,10 +27,10 @@
 	//float over to our destination, if we have one
 	destination = dest_turf
 	if(destination)
-		SSmove_manager.move_to(src, destination, priority = MOVEMENT_SPACE_PRIORITY)
+		GLOB.move_manager.move_to(src, destination, priority = MOVEMENT_SPACE_PRIORITY)
 
 /obj/effect/effect/smoke/chem/Destroy()
-	SSmove_manager.stop_looping(src)
+	GLOB.move_manager.stop_looping(src)
 	return ..()
 
 /obj/effect/effect/smoke/chem/Move()
@@ -145,7 +145,7 @@
 			if(M)
 				more = "(<A HREF='?_src_=holder;adminmoreinfo=\ref[M]'>?</a>)"
 			message_admins("A chemical smoke reaction has taken place in ([whereLink])[contained]. Last associated key is [carry.my_atom.fingerprintslast][more].", 0, 1)
-			log_game("A chemical smoke reaction has taken place in ([where])[contained]. Last associated key is [carry.my_atom.fingerprintslast].",ckey=key_name(M))
+			log_game("A chemical smoke reaction has taken place in ([where])[contained]. Last associated key is [carry.my_atom.fingerprintslast].")
 		else
 			message_admins("A chemical smoke reaction has taken place in ([whereLink]). No associated key.", 0, 1)
 			log_game("A chemical smoke reaction has taken place in ([where])[contained]. No associated key.")

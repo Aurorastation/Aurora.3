@@ -136,7 +136,7 @@
 		O.forceMove(src.loc)
 	qdel(src)
 
-/mob/living/simple_animal/hostile/retaliate/minedrone/Life()
+/mob/living/simple_animal/hostile/retaliate/minedrone/Life(seconds_per_tick, times_fired)
 	..()
 	if(ore_count<20)
 		FindOre()
@@ -175,7 +175,7 @@
 			break
 
 	if(target_ore)
-		SSmove_manager.move_to(src, target_ore, 1, move_to_delay)
+		GLOB.move_manager.move_to(src, target_ore, 1, move_to_delay)
 	else if(found_turfs.len)
 		for(var/turf/simulated/mineral/M in found_turfs)
 			if(!QDELETED(M) || !M.mineral)

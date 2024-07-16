@@ -222,8 +222,7 @@
 /area/ship/orion/mainhall)
 "aVM" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -393,11 +392,6 @@
 	dir = 2;
 	id_tag = "orion_shuttle_in"
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "orion_shuttle";
-	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201)
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
 	command = "cycle_interior";
@@ -417,6 +411,12 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "orion_shuttle";
+	shuttle_tag = "Orion Express Shuttle";
+	req_one_access = list(201);
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle/storage)
 "bvf" = (
@@ -428,13 +428,14 @@
 	dir = 2;
 	id_tag = "orion_shuttle_ex"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/green,
+/obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "orion_shuttle";
 	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201)
+	req_one_access = list(201);
+	cycle_to_external_air = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/green,
-/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle/storage)
 "bAQ" = (
@@ -697,16 +698,17 @@
 /turf/simulated/floor/plating,
 /area/ship/orion/mainhall)
 "cvK" = (
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "orion_shuttle";
-	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201)
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "orion_shuttle";
+	shuttle_tag = "Orion Express Shuttle";
+	req_one_access = list(201);
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/orion_shuttle/storage)
@@ -1068,7 +1070,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "orion_shuttle";
 	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201)
+	req_one_access = list(201);
+	cycle_to_external_air = 1
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
@@ -1182,7 +1185,6 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -1370,7 +1372,6 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1458,7 +1459,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -1619,14 +1619,15 @@
 	name = "exterior access button";
 	pixel_x = -27
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "orion_shuttle";
-	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201)
-	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 5
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "orion_shuttle";
+	shuttle_tag = "Orion Express Shuttle";
+	req_one_access = list(201);
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle/storage)
@@ -1651,11 +1652,6 @@
 	pixel_x = -20;
 	frequency = 1380
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "orion_shuttle";
-	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201)
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1380
 	},
@@ -1664,6 +1660,12 @@
 	pixel_x = -22;
 	dir = 4;
 	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "orion_shuttle";
+	shuttle_tag = "Orion Express Shuttle";
+	req_one_access = list(201);
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/orion_shuttle/storage)
@@ -1796,8 +1798,7 @@
 	dir = 2
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -1857,7 +1858,6 @@
 	icon_state = "warning"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -1879,6 +1879,13 @@
 /area/shuttle/orion_shuttle/storage)
 "hwT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass{
+	dir = 4;
+	name = "Commissary"
+	},
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2008,16 +2015,17 @@
 	dir = 2;
 	id_tag = "orion_shuttle_in"
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "orion_shuttle";
-	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201)
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "orion_shuttle";
+	shuttle_tag = "Orion Express Shuttle";
+	req_one_access = list(201);
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle/storage)
 "ilT" = (
@@ -2152,7 +2160,6 @@
 /area/ship/orion/thruster2)
 "iPr" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/machinery/alarm/north{
@@ -2283,8 +2290,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/glass{
 	dir = 1;
-	name = "Primary Hall";
-	open_layer = 2.71
+	name = "Primary Hall"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2381,7 +2387,6 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_green{
@@ -2734,7 +2739,6 @@
 /area/ship/orion/thruster1)
 "lTO" = (
 /obj/effect/floor_decal/industrial/warning/corner{
-	layer = 2.71;
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_green{
@@ -2768,7 +2772,6 @@
 	pixel_y = 12
 	},
 /obj/item/reagent_containers/food/drinks/cans/peach_soda{
-	layer = 3.1;
 	pixel_x = 17;
 	pixel_y = 24
 	},
@@ -2849,7 +2852,6 @@
 	icon_state = "warning"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -2862,7 +2864,6 @@
 "mcN" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/cable/green{
@@ -2920,7 +2921,6 @@
 /obj/item/bedsheet/brown,
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /turf/simulated/floor/wood,
@@ -3065,7 +3065,6 @@
 	icon_state = "warning"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -3223,8 +3222,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/blast/shutters{
 	dir = 8;
-	id = "orion_warehouse";
-	open_layer = 2.71
+	id = "orion_warehouse"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -3278,7 +3276,6 @@
 /area/ship/orion/shop)
 "nGq" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/machinery/atmospherics/binary/pump{
@@ -3444,16 +3441,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "oAK" = (
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "orion_shuttle";
-	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201)
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
 /obj/structure/sign/vacuum{
 	pixel_x = -30
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "orion_shuttle";
+	shuttle_tag = "Orion Express Shuttle";
+	req_one_access = list(201);
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/orion_shuttle/storage)
@@ -3489,7 +3487,6 @@
 	icon_state = "warning"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -3706,8 +3703,7 @@
 /area/ship/orion/cargo)
 "pHQ" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor,
@@ -3875,7 +3871,6 @@
 	icon_state = "warning"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3985,7 +3980,6 @@
 	icon_state = "0-8"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -4174,8 +4168,7 @@
 	name = "waste canister"
 	},
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
@@ -4376,12 +4369,13 @@
 	pixel_y = -1;
 	dir = 4
 	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	master_tag = "orion_shuttle";
 	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201)
+	req_one_access = list(201);
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/airless,
 /area/shuttle/orion_shuttle/storage)
 "spv" = (
@@ -4569,7 +4563,6 @@
 	icon_state = "warning"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -4712,9 +4705,7 @@
 "tmL" = (
 /obj/machinery/door/airlock/glass{
 	dir = 1;
-	layer = 2.71;
-	name = "Primary Hall";
-	open_layer = 2.71
+	name = "Primary Hall"
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4890,8 +4881,7 @@
 /area/ship/orion/cargo)
 "tRi" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/structure/fuel_port/phoron{
 	pixel_x = -32
@@ -5583,9 +5573,7 @@
 /turf/simulated/floor/grass,
 /area/ship/orion/forehall)
 "wpP" = (
-/obj/effect/floor_decal/big/ox_full{
-	layer = 2.2
-	},
+/obj/effect/floor_decal/big/ox_full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
 "wrd" = (
@@ -5956,10 +5944,8 @@
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
 "xzg" = (
+/obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
-	},
 /turf/simulated/floor,
 /area/ship/orion/comms)
 "xzl" = (
@@ -6049,7 +6035,6 @@
 /area/ship/orion/cargo)
 "yaz" = (
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 8
 	},
 /obj/structure/cable/green{
@@ -6084,10 +6069,8 @@
 /turf/simulated/floor,
 /area/ship/orion/cargo)
 "yet" = (
+/obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
-	},
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -6124,15 +6107,16 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "orion_shuttle";
-	shuttle_tag = "Orion Express Shuttle";
-	req_one_access = list(201)
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1380
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "orion_shuttle";
+	shuttle_tag = "Orion Express Shuttle";
+	req_one_access = list(201);
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/orion_shuttle/storage)
 "yko" = (

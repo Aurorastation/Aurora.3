@@ -160,7 +160,7 @@ var/list/VVdynamic_lock = list(
 		if("No")
 			L += var_value
 	world.log <<  "### ListVarEdit by [src]: [O.type] [objectvar]: ADDED=[var_value]"
-	log_admin("[key_name(src)] modified [original_name]'s [objectvar]: ADDED=[var_value]",admin_key=key_name(src))
+	log_admin("[key_name(src)] modified [original_name]'s [objectvar]: ADDED=[var_value]")
 	message_admins("[key_name_admin(src)] modified [original_name]'s [objectvar]: ADDED=[var_value]")
 
 /client/proc/mod_list(var/list/L, atom/O, original_name, objectvar)
@@ -318,7 +318,7 @@ var/list/VVdynamic_lock = list(
 
 		if("DELETE FROM LIST")
 			world.log <<  "### ListVarEdit by [src]: [O.type] [objectvar]: REMOVED=[html_encode("[variable]")]"
-			log_admin("[key_name(src)] modified [original_name]'s [objectvar]: REMOVED=[variable]",admin_key=key_name(src))
+			log_admin("[key_name(src)] modified [original_name]'s [objectvar]: REMOVED=[variable]")
 			message_admins("[key_name_admin(src)] modified [original_name]'s [objectvar]: REMOVED=[variable]")
 			L -= variable
 			return
@@ -398,7 +398,7 @@ var/list/VVdynamic_lock = list(
 				L[L.Find(variable)] = new_var
 
 	world.log <<  "### ListVarEdit by [src]: [O.type] [objectvar]: [original_var]=[new_var]"
-	log_admin("[key_name(src)] modified [original_name]'s [objectvar]: [original_var]=[new_var]",admin_key=key_name(src))
+	log_admin("[key_name(src)] modified [original_name]'s [objectvar]: [original_var]=[new_var]")
 	message_admins("[key_name_admin(src)] modified [original_name]'s varlist [objectvar]: [original_var]=[new_var]")
 
 /client/proc/modify_variables(var/atom/O, var/param_var_name = null, var/autodetect_class = 0)
@@ -708,5 +708,5 @@ var/list/VVdynamic_lock = list(
 			O.vars[variable] = holder.marked_datum
 
 	world.log <<  "### VarEdit by [src]: [O.type] [variable]=[html_encode("[O.vars[variable]]")]"
-	log_admin("[key_name(src)] modified [original_name]'s [variable] to [O.vars[variable]]",admin_key=key_name(src))
+	log_admin("[key_name(src)] modified [original_name]'s [variable] to [O.vars[variable]]")
 	message_admins("[key_name_admin(src)] modified [original_name]'s [variable] to [O.vars[variable]]")

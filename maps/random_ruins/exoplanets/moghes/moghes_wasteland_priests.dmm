@@ -92,12 +92,20 @@
 	},
 /area/moghes_wasteland_priests)
 "v" = (
-/obj/item/bedsheet/black,
-/obj/effect/ghostspawpoint{
-	name = "igs - moghes_wasteland_guard";
-	identifier = "moghes_wasteland_guard"
+/obj/structure/closet/crate/weapon/alt,
+/obj/item/material/sword/longsword,
+/obj/item/material/sword/axe,
+/obj/item/projectile/beam/pistol/hegemony,
+/obj/item/projectile/beam/pistol/hegemony,
+/obj/item/gun/energy/rifle/hegemony,
+/obj/item/clothing/suit/armor/unathi/hegemony,
+/obj/item/clothing/accessory/poncho/unathimantle/med{
+	color = "#42330f"
 	},
-/turf/simulated/floor/exoplanet/carpet/rubber{
+/obj/item/clothing/accessory/poncho/unathimantle/med{
+	color = "#42330f"
+	},
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
@@ -116,15 +124,13 @@
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
-"D" = (
-/obj/structure/closet/crate/weapon/alt,
-/obj/item/material/sword/longsword,
-/obj/item/material/sword/axe,
-/obj/item/projectile/beam/pistol/hegemony,
-/obj/item/projectile/beam/pistol/hegemony,
-/obj/item/gun/energy/rifle/hegemony,
-/obj/item/clothing/suit/armor/unathi/hegemony,
-/turf/simulated/floor/exoplanet/foundation{
+"C" = (
+/obj/item/bedsheet/black,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_wasteland_guard";
+	identifier = "moghes_wasteland_guard"
+	},
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
@@ -466,7 +472,7 @@ a
 a
 F
 F
-D
+v
 s
 Y
 H
@@ -524,7 +530,7 @@ Y
 Y
 s
 H
-v
+C
 p
 a
 a
@@ -551,7 +557,7 @@ Y
 Y
 Y
 H
-v
+C
 p
 a
 a

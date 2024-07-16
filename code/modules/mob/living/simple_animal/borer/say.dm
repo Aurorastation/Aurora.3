@@ -1,4 +1,4 @@
-/mob/living/simple_animal/borer/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/living/simple_animal/borer/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	message = capitalize(message)
 
 	if(!message)
@@ -30,7 +30,7 @@
 			to_chat(src, SPAN_NOTICE("There are no viable hosts to speak with."))
 		else
 			var/mob/living/carbon/human/chosen_sayer = pick(viable_sayers)
-			log_say("[key_name(src)] : (forcing [key_name(chosen_sayer)]) [message]", ckey=key_name(src))
+			log_say("[key_name(src)] : (forcing [key_name(chosen_sayer)]) [message]")
 			chosen_sayer.say(message)
 		return
 
