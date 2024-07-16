@@ -304,7 +304,7 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/test_range)
 "als" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/suit_cycler/engineering/prepared,
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/eva)
@@ -10723,7 +10723,7 @@
 /area/operations/loading)
 "hmn" = (
 /obj/machinery/suit_cycler/engineering/prepared,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/eva)
 "hmD" = (
@@ -11174,7 +11174,7 @@
 	dir = 8;
 	name = "External Ports to Fuel Tank"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -13099,7 +13099,7 @@
 	dir = 4
 	},
 /obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/alarm/north{
 	req_one_access = list(24,11,47,65)
 	},
@@ -16171,7 +16171,7 @@
 	dir = 1;
 	name = "Fuel Tank to Thrusters"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "liB" = (
@@ -16786,7 +16786,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/propulsion/starboard)
 "lGb" = (
@@ -21219,7 +21219,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/custodial/disposals)
 "ozA" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/atmospherics/valve/digital{
 	dir = 4;
 	name = "Airlock to Distribution Merge"
@@ -22990,7 +22990,7 @@
 /area/maintenance/wing/port/deck1)
 "pLV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/atmospherics/binary/pump{
 	name = "Air Reserve to Airlock Cycling"
 	},
@@ -29325,7 +29325,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/tent/big/scc,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/intrepid/crew_compartment)
@@ -29684,7 +29684,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/propulsion)
 "uoI" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled,
 /area/operations/storage)
 "uoV" = (
@@ -30429,7 +30429,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/cell_charger,
 /obj/structure/table/reinforced,
 /obj/random/powercell,
@@ -33840,7 +33840,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "xiq" = (
@@ -34142,7 +34142,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/propulsion)
 "xof" = (

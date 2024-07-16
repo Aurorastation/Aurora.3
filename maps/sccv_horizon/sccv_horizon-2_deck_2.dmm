@@ -263,7 +263,7 @@
 /turf/simulated/floor/lino,
 /area/horizon/bar)
 "aem" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/secure_closet/atmos_personal,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
@@ -854,7 +854,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "atj" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -1018,7 +1018,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/scc_ship/robotics_lift)
 "axa" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/wardrobe/atmospherics_yellow,
 /obj/machinery/light{
 	dir = 4
@@ -1196,7 +1196,7 @@
 /turf/simulated/floor/carpet,
 /area/horizon/bar/backroom)
 "ayY" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/pipedispenser/disposal,
 /obj/machinery/power/apc/north,
 /obj/structure/cable/green{
@@ -2521,7 +2521,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "bib" = (
@@ -4706,7 +4706,7 @@
 /turf/simulated/floor/wood,
 /area/chapel/main)
 "bZu" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/suit_cycler/engineering/prepared/atmos,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
@@ -4880,7 +4880,7 @@
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
 "cdq" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/fireaxecabinet/east,
 /obj/structure/closet/secure_closet/atmos_personal,
 /turf/simulated/floor/tiled/dark/full,
@@ -6023,7 +6023,7 @@
 /obj/item/stack/cable_coil,
 /obj/item/circuitboard/unary_atmos/cooler,
 /obj/item/circuitboard/unary_atmos/heater,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
 "cLt" = (
@@ -14357,7 +14357,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -17697,7 +17697,7 @@
 /turf/simulated/floor/lino,
 /area/chapel/main)
 "idU" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/dispenser,
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark/full,
@@ -20323,7 +20323,7 @@
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "jlP" = (
@@ -20972,7 +20972,7 @@
 	},
 /obj/structure/closet/wardrobe/engineering_yellow,
 /obj/effect/floor_decal/corner/yellow/full,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "jBw" = (
@@ -30787,7 +30787,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "oiJ" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/power/breakerbox/activated{
 	RCon_tag = "Leviathan Substation"
 	},
@@ -32225,7 +32225,7 @@
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "oTK" = (
@@ -40013,7 +40013,7 @@
 	c_tag = "Engineering - Atmos Locker Room";
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/suit_cycler/engineering/prepared/atmos,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos/storage)
@@ -41867,7 +41867,7 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room/rust)
 "tzf" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/pipedispenser,
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -44629,7 +44629,7 @@
 /area/rnd/conference)
 "uHh" = (
 /obj/machinery/alarm/south,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/table/standard,
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
@@ -48495,7 +48495,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled,
 /area/engineering/locker_room)
 "wrB" = (
@@ -51031,7 +51031,7 @@
 /turf/simulated/open,
 /area/operations/office)
 "xBU" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/secure_closet/atmos_personal,
 /obj/machinery/light{
 	dir = 4

@@ -977,12 +977,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/kaf)
-"de" = (
-/obj/effect/decal/curb{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/dirt_konyang/sand,
-/area/point_verdant/outdoors)
 "df" = (
 /obj/effect/floor_decal/corner_wide/black{
 	dir = 5
@@ -6046,7 +6040,7 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/offices/basement)
 "su" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
@@ -13971,10 +13965,6 @@
 	},
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/police)
-"PR" = (
-/obj/effect/decal/curb,
-/turf/simulated/floor/asphalt,
-/area/point_verdant/outdoors)
 "PS" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/grenade/empgrenade{
@@ -54965,7 +54955,7 @@ dN
 QV
 As
 oJ
-PR
+IK
 Nl
 Rv
 tO
@@ -55222,7 +55212,7 @@ dN
 QV
 As
 oJ
-PR
+IK
 oG
 Rv
 hQ
@@ -55479,7 +55469,7 @@ dN
 QV
 As
 oJ
-PR
+IK
 DS
 Rv
 Ii
@@ -55736,7 +55726,7 @@ dN
 QV
 As
 oJ
-PR
+IK
 bm
 bm
 eE
@@ -66063,7 +66053,7 @@ Tt
 lD
 vs
 Wq
-de
+Hu
 yv
 cB
 MP
@@ -66320,7 +66310,7 @@ sf
 XI
 vs
 Wq
-de
+Hu
 yv
 CK
 MP
@@ -66577,7 +66567,7 @@ vs
 vs
 Wq
 Wq
-de
+Hu
 yv
 yv
 yv

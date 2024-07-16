@@ -578,7 +578,7 @@
 	},
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/machinery/mech_recharger,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/sign/flag/dpra{
 	pixel_y = 32
 	},

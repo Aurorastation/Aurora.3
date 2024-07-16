@@ -80,6 +80,10 @@
 	name = "firefighting red hatched marking"
 	color = COLOR_RED_LIGHT
 
+/obj/effect/floor_decal/industrial/hatch/operations
+	name = "brown hatched marking"
+	color = COLOR_BROWN
+
 // ------------------------ hatching stripes small
 
 /obj/effect/floor_decal/industrial/hatch_small
@@ -138,7 +142,9 @@
 	name = "firefighting red hatched marking small"
 	color = COLOR_RED_LIGHT
 
-
+/obj/effect/floor_decal/industrial/hatch_small/operations
+	name = "brown hatched marking small"
+	color = COLOR_BROWN
 
 // ------------------------ hatching stripes tiny
 
@@ -198,6 +204,11 @@
 	name = "firefighting red hatched marking tiny"
 	color = COLOR_RED_LIGHT
 
+/obj/effect/floor_decal/industrial/hatch_tiny/operations
+	name = "brown hatched marking tiny"
+	color = COLOR_BROWN
+
+
 // ------------------------ hatching stripes door
 
 /obj/effect/floor_decal/industrial/hatch_door
@@ -256,7 +267,9 @@
 	name = "firefighting red hatched marking door"
 	color = COLOR_RED_LIGHT
 
-
+/obj/effect/floor_decal/industrial/hatch_door/operations
+	name = "brown hatched marking door"
+	color = COLOR_BROWN
 
 // ------------------------ outline main
 
@@ -316,6 +329,10 @@
 	name = "red firefighting closet outline"
 	color = COLOR_RED_LIGHT
 
+/obj/effect/floor_decal/industrial/outline/operations
+	name = "brown outline"
+	color = COLOR_BROWN
+
 // ------------------------ outline corner
 
 /obj/effect/floor_decal/industrial/outline_corner
@@ -373,6 +390,10 @@
 /obj/effect/floor_decal/industrial/outline_corner/firefighting_closet
 	name = "firefighting red outline corner"
 	color = COLOR_RED_LIGHT
+
+/obj/effect/floor_decal/industrial/outline_corner/operations
+	name = "brown outline corner"
+	color = COLOR_BROWN
 
 // ------------------------ outline straight
 
@@ -432,6 +453,10 @@
 	name = "firefighting red outline"
 	color = COLOR_RED_LIGHT
 
+/obj/effect/floor_decal/industrial/outline_straight/operations
+	name = "brown outline"
+	color = COLOR_BROWN
+
 // ------------------------ outline segment
 
 /obj/effect/floor_decal/industrial/outline_segment
@@ -490,6 +515,9 @@
 	name = "firefighting red outline"
 	color = COLOR_RED_LIGHT
 
+/obj/effect/floor_decal/industrial/outline_segment/operations
+	name = "brown outline"
+	color = COLOR_BROWN
 
 // ------------------------ outline door
 
@@ -549,6 +577,10 @@
 	name = "firefighting red door outline"
 	color = COLOR_RED_LIGHT
 
+/obj/effect/floor_decal/industrial/outline_door/operations
+	name = "brown outline"
+	color = COLOR_BROWN
+
 // ------------------------ loading
 
 /obj/effect/floor_decal/industrial/loading
@@ -606,6 +638,10 @@
 /obj/effect/floor_decal/industrial/loading/firefighting_closet
 	name = "firefighting red loading area"
 	color = COLOR_RED_LIGHT
+
+/obj/effect/floor_decal/industrial/loading/operations
+	name = "brown loading area"
+	color = COLOR_BROWN
 
 // ------------------------ arrow
 
@@ -665,5 +701,8 @@
 	name = "firefighting red arrow"
 	color = COLOR_RED_LIGHT
 
+/obj/effect/floor_decal/industrial/arrow/operations
+	name = "brown arrow"
+	color = COLOR_BROWN
 
 // ------------------------

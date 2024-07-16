@@ -991,7 +991,7 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/galley)
 "iB" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/table/rack,
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
@@ -5444,7 +5444,7 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/thrusters/port)
 "QR" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/suit_cycler/offship/gadpathur,
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/eva)

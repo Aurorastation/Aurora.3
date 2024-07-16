@@ -6024,7 +6024,7 @@
 /obj/machinery/vending/engineering{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 32
 	},
@@ -6271,7 +6271,7 @@
 /obj/machinery/vending/robotics{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/engie)
 "Jq" = (
@@ -7571,7 +7571,7 @@
 /area/ship/kasf_corvette/medbay)
 "QP" = (
 /obj/machinery/vending/tool,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
@@ -8627,7 +8627,7 @@
 /obj/machinery/vending/engivend{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/light{
 	dir = 1
 	},

@@ -1121,7 +1121,7 @@
 "aMZ" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/machinery/shieldwallgen,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
@@ -15189,7 +15189,7 @@
 /obj/item/weldingtool,
 /obj/item/clothing/head/welding,
 /obj/effect/floor_decal/corner/yellow/diagonal,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/camera/motion{
 	c_tag = "Deck 3 - Crew Armoury Port";
 	dir = 8;
@@ -34623,7 +34623,7 @@
 "xxi" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/machinery/shieldwallgen,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/light{
 	dir = 4
 	},

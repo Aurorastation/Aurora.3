@@ -1494,7 +1494,7 @@
 /area/shuttle/dominian_science_shuttle)
 "eBK" = (
 /obj/structure/ore_box,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_science_shuttle)
 "eCV" = (
@@ -2752,7 +2752,7 @@
 /turf/space/transit/north,
 /area/space)
 "iJz" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate,
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox/mechanical,
@@ -3271,7 +3271,7 @@
 /area/shuttle/dominian_science_shuttle)
 "kyi" = (
 /obj/structure/closet/crate,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/device/flashlight,
 /obj/item/device/radio,
 /obj/item/device/flashlight/heavy,
@@ -4382,7 +4382,7 @@
 /obj/item/storage/bag/fossils,
 /obj/item/stack/flag/green,
 /obj/structure/closet/crate/miningcart,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/dominian_science_shuttle)
 "oBX" = (
@@ -4518,7 +4518,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/hangar)
 "oXc" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/structure/sign/flag/volvalaad{
 	pixel_y = 32;
@@ -5009,7 +5009,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/quarters)
 "qMS" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/machinery/light{
 	dir = 1

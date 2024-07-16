@@ -5804,12 +5804,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/space)
-"vfJ" = (
-/obj/item/stack/material/lead/full{
-	pixel_y = 3
-	},
-/turf/template_noop,
-/area/space)
 "viZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
@@ -9297,7 +9291,7 @@ aOr
 aOr
 aOr
 aOr
-vfJ
+aOr
 aOr
 aOr
 aOr

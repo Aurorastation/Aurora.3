@@ -1,9 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"ab" = (
-/obj/structure/extinguisher_cabinet/west{
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
 "ac" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 1
@@ -383,7 +378,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "kd" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "kg" = (
@@ -467,7 +462,7 @@
 /area/tajara_safehouse/hangar)
 "ot" = (
 /obj/structure/ore_box,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "ox" = (
@@ -548,7 +543,7 @@
 /area/tajara_safehouse)
 "qo" = (
 /obj/structure/ore_box,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -663,8 +658,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse/hangar)
 "th" = (
-/obj/machinery/atmospherics/portables_connector{
-	},
+/obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tajara_safehouse_shuttle)
@@ -1060,11 +1054,6 @@
 /obj/machinery/vending/hydronutrients,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
-"JI" = (
-/obj/structure/extinguisher_cabinet/east{
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
 "JZ" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/reagent_containers/food/snacks/hardbread,
@@ -1158,7 +1147,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "OF" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
@@ -24415,7 +24404,7 @@ sI
 lH
 sI
 lH
-ab
+RB
 rE
 rE
 rE
@@ -25174,7 +25163,7 @@ lH
 Vl
 nk
 jM
-ab
+RB
 lH
 lH
 nk
@@ -30063,7 +30052,7 @@ lH
 lH
 lH
 lH
-JI
+iK
 lH
 lH
 lH

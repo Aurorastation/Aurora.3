@@ -312,7 +312,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/computer/ship/navigation/terminal,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -840,7 +840,7 @@
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/handrail{
 	dir = 4
@@ -869,7 +869,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/pipedispenser/disposal,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/atmospherics)
 "eM" = (
@@ -1988,7 +1988,7 @@
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/tool,
 /obj/structure/sign/emergency/evacuation{
 	dir = 8;
@@ -2059,7 +2059,7 @@
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/power/apc/east{
 	req_access = list()
 	},
@@ -2094,7 +2094,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/engistorage)
 "kG" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -2677,7 +2677,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2833,7 +2833,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -4165,7 +4165,7 @@
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/alarm/west{
 	req_one_access = list()
 	},
@@ -4977,7 +4977,7 @@
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm/east{
 	req_one_access = list()
@@ -5444,7 +5444,7 @@
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/bed/handrail{
 	dir = 8
 	},
@@ -5513,7 +5513,7 @@
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/sign/emergency/evacuation{
 	dir = 4;
 	pixel_x = 32
@@ -5642,7 +5642,7 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/porthallway)
 "CI" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "CQ" = (
@@ -5777,7 +5777,7 @@
 /obj/machinery/light/colored/decayed/dimmed{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm/north{
 	req_one_access = list()
@@ -5944,7 +5944,7 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
 "Es" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -6195,7 +6195,7 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/high/north{
-	req_access = null;
+	req_access = null
 	},
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 8
@@ -6452,7 +6452,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/atmospherics)
@@ -6628,7 +6628,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/computer/ship/engines/terminal,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -7448,7 +7448,7 @@
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/power/apc/west{
 	req_access = list()
 	},
@@ -7745,7 +7745,7 @@
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/medical,
 /obj/structure/bed/handrail{
 	dir = 4
@@ -7802,7 +7802,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -8011,7 +8011,7 @@
 /obj/machinery/vending/medical{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/medical)
 "Ps" = (
@@ -8823,7 +8823,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/pipedispenser,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/atmospherics)
 "To" = (
@@ -9183,7 +9183,7 @@
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/bed/handrail{
 	dir = 4
 	},
@@ -10159,7 +10159,7 @@
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/bed/handrail{
 	dir = 8
 	},

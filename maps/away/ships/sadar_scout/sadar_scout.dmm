@@ -2430,7 +2430,7 @@
 /area/ship/sadar_scout/eva)
 "rN" = (
 /obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/material/knife/bayonet{
 	pixel_y = 4;
 	pixel_x = -4
@@ -4933,7 +4933,7 @@
 /area/space)
 "KZ" = (
 /obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/storage/box/shotgunshells,
 /obj/item/storage/box/shotgunshells,
