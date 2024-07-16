@@ -104,11 +104,10 @@
 /turf/simulated/floor,
 /area/ship/orion/docking)
 "auV" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4
+/obj/effect/landmark/entry_point/fore{
+	name = "aft, port docking arm"
 	},
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/port,
-/turf/simulated/floor,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/orion/docking)
 "awG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -344,6 +343,18 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/orion_shuttle/storage)
+"bjg" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1337;
+	id_tag = "merchant_shuttle_dock_pump"
+	},
+/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/port,
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/orion/docking)
 "bkP" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -381,13 +392,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
 "bnX" = (
-/obj/machinery/door/firedoor{
-	req_one_access = list(201)
+/obj/structure/sign/directions/dock{
+	pixel_y = -32
 	},
-/obj/structure/grille,
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/turf/simulated/floor,
-/area/ship/orion/docking)
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion/mainhall)
 "bol" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -567,13 +576,16 @@
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
 "bMH" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/door/window/westright{
-	req_access = list(201)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion/docking)
 "bPp" = (
@@ -750,17 +762,10 @@
 /turf/simulated/floor/plating,
 /area/ship/orion/mainhall)
 "cuX" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/purple,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/ship/orion/docking)
 "cvK" = (
 /obj/structure/cable/green{
@@ -981,6 +986,19 @@
 	},
 /turf/simulated/floor/carpet,
 /area/ship/orion/crew)
+"dqX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/orion/docking)
 "drF" = (
 /obj/machinery/vending/cola,
 /obj/machinery/light{
@@ -1055,6 +1073,22 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
+"dvf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/orion/docking)
 "dvk" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -1309,17 +1343,16 @@
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster2)
 "eKt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/purple{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/purple,
+/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/aft,
 /turf/simulated/floor,
+/area/ship/orion/docking)
+"eMT" = (
+/obj/machinery/light{
+	dir = 8;
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/tiled/dark,
 /area/ship/orion/docking)
 "eXm" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -1433,6 +1466,17 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/thruster1)
+"fsY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/orion/docking)
 "fuh" = (
 /obj/item/clothing/head/beret/janitor,
 /obj/structure/table/steel,
@@ -1468,19 +1512,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion/docking)
-"fAK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
-	pixel_y = -2
-	},
-/turf/simulated/floor,
-/area/ship/orion/docking)
 "fBW" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1511,6 +1542,20 @@
 /obj/structure/bed/handrail{
 	dir = 1
 	},
+/turf/simulated/floor,
+/area/ship/orion/docking)
+"fGW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion/docking)
 "fJg" = (
@@ -1577,6 +1622,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
+"gfT" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/port,
+/turf/simulated/floor,
+/area/ship/orion/docking)
 "ggx" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/alarm/north{
@@ -1868,8 +1920,8 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/orion/mainhall)
 "hdc" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2055,6 +2107,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle/storage)
+"hwT" = (
+/obj/machinery/firealarm/west,
+/obj/effect/floor_decal/big/ox_full,
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion/docking)
 "hAw" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
@@ -2158,18 +2215,14 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/orion/cargo)
 "idL" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 11;
+	dir = 1
 	},
-/obj/machinery/access_button/airlock_exterior{
-	pixel_x = -8;
-	pixel_y = 30;
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/port,
+/obj/machinery/atmospherics/pipe/simple/hidden/purple,
+/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/aft,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
 /area/ship/orion/docking)
@@ -2219,16 +2272,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle/storage)
 "ilO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/door/window/westright{
+	req_access = list(201)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion/docking)
 "ilT" = (
@@ -2241,11 +2291,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
 "inG" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	pixel_y = 25
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/port,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion/docking)
 "ioB" = (
@@ -2280,22 +2336,6 @@
 /obj/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor,
 /area/ship/orion/atmos)
-"iuW" = (
-/obj/structure/sign/flag/orion_express{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/orion/docking)
-"ivO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/sign/vacuum{
-	pixel_y = -32
-	},
-/turf/simulated/floor,
-/area/ship/orion/docking)
 "ixH" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -2819,8 +2859,20 @@
 /turf/simulated/floor,
 /area/ship/orion/atmos)
 "kQs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/purple,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/starboard,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button/airlock_exterior{
+	pixel_x = 8;
+	pixel_y = 30;
+	dir = 4
+	},
+/turf/simulated/floor,
 /area/ship/orion/docking)
 "kRQ" = (
 /obj/machinery/door/airlock/hatch{
@@ -2847,6 +2899,21 @@
 /obj/effect/shuttle_landmark/orion_express_ship/starboard{
 	dir = 4
 	},
+/turf/simulated/floor,
+/area/ship/orion/docking)
+"kUD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion/docking)
 "kYl" = (
@@ -2906,6 +2973,16 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster2)
+"lnA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/orion/docking)
 "lpC" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
 /obj/machinery/meter,
@@ -2951,8 +3028,14 @@
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster1)
 "lwI" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/port,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion/docking)
 "lxT" = (
@@ -2989,12 +3072,13 @@
 /turf/simulated/floor,
 /area/ship/orion/docking)
 "lJF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion/docking)
@@ -3283,19 +3367,6 @@
 /obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle,
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
-"mDx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light{
-	pixel_y = -2
-	},
-/turf/simulated/floor,
-/area/ship/orion/docking)
 "mGO" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
@@ -3560,11 +3631,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
-"nuf" = (
-/obj/machinery/firealarm/west,
-/obj/effect/floor_decal/big/ox_full,
-/turf/simulated/floor/tiled/dark,
-/area/ship/orion/docking)
 "nvC" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -3596,17 +3662,13 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle/portthrust)
-"nAU" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "port, docking arm"
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/ship/orion/docking)
 "nCd" = (
-/obj/effect/landmark/entry_point/fore{
-	name = "aft, port docking arm"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 25
 	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/port,
+/turf/simulated/floor,
 /area/ship/orion/docking)
 "nDV" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3778,16 +3840,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
-"nXS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 5
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/sign/vacuum{
-	pixel_y = -32
-	},
-/turf/simulated/floor,
-/area/ship/orion/docking)
 "nYD" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor,
@@ -3839,21 +3891,37 @@
 /turf/simulated/floor,
 /area/ship/orion/atmos)
 "omQ" = (
-/obj/structure/sign/flag/orion_express{
-	pixel_x = -32
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor,
 /area/ship/orion/docking)
 "onL" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/orion/mainhall)
-"ovT" = (
-/obj/structure/sign/directions/dock{
-	pixel_y = -32
+"osS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/orion/mainhall)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/orion/docking)
+"ovT" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/purple,
+/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/aft,
+/turf/simulated/floor,
+/area/ship/orion/docking)
 "oxU" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc/high/south{
@@ -3960,30 +4028,12 @@
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
-"oTh" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/ship/orion/docking)
 "oTv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/purple{
-	dir = 9
+/obj/machinery/door/firedoor{
+	req_one_access = list(201)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 9
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/grille,
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor,
 /area/ship/orion/docking)
 "oVV" = (
@@ -4149,6 +4199,19 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor,
 /area/ship/orion/cargo)
+"pLc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor,
+/area/ship/orion/docking)
 "pMZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
@@ -4188,18 +4251,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
 "pQf" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/machinery/light{
+	dir = 8;
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4;
-	icon_state = "map-scrubbers"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/ship/orion/docking)
 "pRf" = (
 /obj/effect/step_trigger/teleporter,
@@ -4214,14 +4273,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
-"pUe" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1337;
-	id_tag = "merchant_shuttle_dock_pump"
-	},
+"pTn" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/effect/map_effect/marker/airlock/docking/orion_express_ship/port,
-/obj/machinery/light/small,
 /turf/simulated/floor,
 /area/ship/orion/docking)
 "pVf" = (
@@ -4263,20 +4317,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "qcZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/purple{
-	dir = 6
+/obj/structure/sign/flag/orion_express/large/north{
+	pixel_y = 32
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/ship/orion/docking)
 "qeK" = (
 /obj/effect/floor_decal/corner_wide/beige{
@@ -4361,14 +4405,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "qqS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/purple,
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 6
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion/docking)
@@ -4531,6 +4576,16 @@
 "qUy" = (
 /turf/simulated/wall/shuttle/scc,
 /area/shuttle/orion_shuttle/storage)
+"qVI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/sign/vacuum{
+	pixel_y = -32
+	},
+/turf/simulated/floor,
+/area/ship/orion/docking)
 "qXP" = (
 /obj/item/storage/box/lights/mixed,
 /obj/item/storage/box/lights/mixed,
@@ -4569,16 +4624,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "riA" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1337;
-	id_tag = "merchant_shuttle_dock_pump"
+/obj/structure/sign/flag/orion_express{
+	pixel_x = -32
 	},
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/port,
-/obj/structure/bed/handrail{
-	dir = 1
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/ship/orion/docking)
 "rlw" = (
 /obj/structure/cable/green{
@@ -4648,16 +4697,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
-"ryl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/ship/orion/docking)
 "rzM" = (
 /obj/machinery/computer/ship/engines{
 	dir = 8
@@ -4787,16 +4826,16 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+/obj/machinery/access_button/airlock_exterior{
+	pixel_x = -8;
+	pixel_y = 30;
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/starboard,
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/access_button/airlock_exterior{
-	pixel_x = 8;
-	pixel_y = 30;
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/port,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
 /area/ship/orion/docking)
 "rZA" = (
@@ -4898,7 +4937,8 @@
 /area/ship/orion/bridge)
 "snU" = (
 /obj/machinery/light{
-	dir = 1
+	dir = 1;
+	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/docking)
@@ -4935,15 +4975,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
 "soA" = (
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
-	pixel_x = -28;
-	pixel_y = 11;
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/purple,
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/aft,
-/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
 /turf/simulated/floor,
 /area/ship/orion/docking)
 "soM" = (
@@ -4995,12 +5039,6 @@
 /obj/structure/bed/stool/bar/padded/beige,
 /turf/simulated/floor/carpet,
 /area/ship/orion/crew)
-"suH" = (
-/obj/effect/landmark/entry_point/fore{
-	name = "aft, starboard docking arm"
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/ship/orion/docking)
 "sys" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -5079,30 +5117,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
-"sGV" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/purple,
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/aft,
-/turf/simulated/floor,
-/area/ship/orion/docking)
-"sHl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/door/airlock/glass{
-	dir = 4;
-	name = "Docking Bay"
-	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
-/turf/simulated/floor,
-/area/ship/orion/docking)
 "sIh" = (
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
@@ -5178,6 +5192,25 @@
 /obj/item/bodybag/cryobag,
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
+"sNL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/door/airlock/glass{
+	dir = 4;
+	name = "Docking Bay"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/orion/docking)
 "sOb" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
@@ -5368,17 +5401,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/crew)
-"trH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/ship/orion/docking)
 "trX" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5630,9 +5652,13 @@
 /area/ship/orion/cargo)
 "ukP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
+	dir = 9
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/sign/vacuum{
+	pixel_y = -32
+	},
+/turf/simulated/floor,
 /area/ship/orion/docking)
 "ulP" = (
 /obj/structure/cable/green{
@@ -5836,6 +5862,18 @@
 /obj/effect/shuttle_landmark/orion_express_ship/nav1,
 /turf/template_noop,
 /area/space)
+"vex" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/ship/orion/docking)
 "vhp" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5865,15 +5903,10 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
 "vjw" = (
-/obj/machinery/atmospherics/portables_connector/aux{
-	dir = 8
+/obj/effect/landmark/entry_point/fore{
+	name = "aft, starboard docking arm"
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/door/window{
-	dir = 8;
-	req_access = list(201)
-	},
-/turf/simulated/floor,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/orion/docking)
 "vjR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5896,13 +5929,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "vsn" = (
-/obj/machinery/light{
-	dir = 8;
-	inserted_light = /obj/item/light/tube/colored/blue
-	},
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
+/obj/machinery/atmospherics/pipe/simple/hidden/purple,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/docking)
 "vtB" = (
@@ -6042,11 +6069,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/orion/crew)
-"vJj" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/purple,
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/aft,
-/turf/simulated/floor,
-/area/ship/orion/docking)
 "vJO" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -6408,18 +6430,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "wIy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
+/obj/effect/landmark/entry_point/starboard{
+	name = "port, docking arm"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/orion/docking)
 "wJw" = (
 /obj/structure/cable/green{
@@ -6509,14 +6523,13 @@
 /turf/simulated/floor,
 /area/ship/orion/docking)
 "xgR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1337;
+	id_tag = "merchant_shuttle_dock_pump"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/port,
+/obj/machinery/light/small,
 /turf/simulated/floor,
 /area/ship/orion/docking)
 "xiV" = (
@@ -6672,6 +6685,17 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
+"xxs" = (
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/door/window{
+	dir = 8;
+	req_access = list(201)
+	},
+/turf/simulated/floor,
+/area/ship/orion/docking)
 "xzg" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -6712,6 +6736,22 @@
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/orion/engie)
+"xJw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light{
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor,
+/area/ship/orion/docking)
 "xPl" = (
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
@@ -6853,8 +6893,11 @@
 /turf/simulated/floor/plating,
 /area/ship/orion/atmos)
 "yks" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /obj/machinery/light{
-	dir = 1;
+	dir = 8;
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /turf/simulated/floor/tiled/dark,
@@ -35507,7 +35550,7 @@ xRX
 xRX
 ppM
 ppM
-rZb
+kQs
 liR
 ppM
 xRX
@@ -35763,9 +35806,9 @@ xRX
 xRX
 xRX
 ppM
-qnR
+snU
 cds
-nXS
+qVI
 ppM
 xRX
 xRX
@@ -36022,7 +36065,7 @@ xRX
 ppM
 cmR
 iGY
-fAK
+pLc
 ppM
 xRX
 xRX
@@ -36279,8 +36322,8 @@ xRX
 ppM
 eaP
 qnR
-ryl
-suH
+osS
+vjw
 xRX
 xRX
 xRX
@@ -36533,11 +36576,11 @@ xRX
 xRX
 xRX
 xRX
-bnX
+oTv
 qnR
 viE
-ilO
-bnX
+dqX
+oTv
 xRX
 xRX
 xRX
@@ -36790,11 +36833,11 @@ xRX
 xRX
 xRX
 xRX
-bnX
+oTv
 qnR
 qnR
 upw
-bnX
+oTv
 xRX
 xRX
 xRX
@@ -37047,11 +37090,11 @@ xRX
 xRX
 xRX
 xRX
-bnX
+oTv
 qnR
 qnR
 upw
-bnX
+oTv
 xRX
 xRX
 xRX
@@ -37304,11 +37347,11 @@ xRX
 xRX
 xRX
 xRX
-bnX
+oTv
 qnR
 qnR
 upw
-bnX
+oTv
 xRX
 xRX
 xRX
@@ -37562,9 +37605,9 @@ xRX
 xRX
 xRX
 ppM
-iuW
+qcZ
 qnR
-upw
+soA
 ppM
 xRX
 xRX
@@ -37819,9 +37862,9 @@ xRX
 xRX
 xRX
 ppM
-yks
+qnR
 iGY
-hdc
+lJF
 ppM
 xRX
 xRX
@@ -38076,9 +38119,9 @@ xRX
 xRX
 xRX
 ppM
-qnR
+snU
 viE
-wIy
+fGW
 ppM
 xRX
 xRX
@@ -38587,12 +38630,12 @@ ppM
 ppM
 ppM
 ppM
-nAU
+wIy
 ppM
 ppM
 sAp
 xeO
-sHl
+sNL
 ppM
 ppM
 ppM
@@ -38838,19 +38881,19 @@ wpP
 ode
 aev
 aev
-ovT
+bnX
 haV
-omQ
-cLw
+riA
+yks
 dhz
 isS
 qnR
-nuf
-qnR
+hwT
+eMT
 qnR
 cLw
 upw
-vsn
+pQf
 ppM
 vcn
 lHs
@@ -39106,11 +39149,11 @@ qnR
 qnR
 qnR
 mlH
-qcZ
-kQs
-soA
-sGV
-vJj
+dvf
+vsn
+idL
+eKt
+ovT
 fCv
 xRX
 xRX
@@ -39355,15 +39398,15 @@ gYr
 gYr
 pMZ
 kiR
-pQf
+inG
 mUl
-trH
-qqS
-eKt
+fsY
+vex
+bMH
 qEK
 sBH
-cuX
-oTv
+qqS
+kUD
 wWe
 atz
 pgY
@@ -39614,8 +39657,8 @@ haV
 ppM
 ppM
 ppM
-bMH
-vjw
+ilO
+xxs
 jLO
 ppM
 sAp
@@ -40134,7 +40177,7 @@ xRX
 ppM
 snU
 viE
-xgR
+lwI
 ppM
 xRX
 xRX
@@ -40389,9 +40432,9 @@ xRX
 xRX
 xRX
 ppM
-qnR
+qcZ
 iGY
-oTh
+hdc
 ppM
 xRX
 xRX
@@ -40646,9 +40689,9 @@ xRX
 xRX
 xRX
 ppM
-iuW
 qnR
-vjR
+qnR
+xJw
 ppM
 xRX
 xRX
@@ -40902,11 +40945,11 @@ xRX
 xRX
 xRX
 xRX
-bnX
+oTv
 qnR
 qnR
 vjR
-bnX
+oTv
 xRX
 xRX
 xRX
@@ -41159,11 +41202,11 @@ xRX
 xRX
 xRX
 xRX
-bnX
+oTv
 qnR
 qnR
 vjR
-bnX
+oTv
 xRX
 xRX
 xRX
@@ -41416,11 +41459,11 @@ xRX
 xRX
 xRX
 xRX
-bnX
+oTv
 qnR
 qnR
 vjR
-bnX
+oTv
 xRX
 xRX
 xRX
@@ -41673,11 +41716,11 @@ xRX
 xRX
 xRX
 xRX
-bnX
+oTv
 qnR
 viE
 fwT
-bnX
+oTv
 xRX
 xRX
 xRX
@@ -41933,8 +41976,8 @@ xRX
 ppM
 eaP
 qnR
-lJF
-nCd
+lnA
+auV
 xRX
 xRX
 xRX
@@ -42190,7 +42233,7 @@ xRX
 ppM
 cmR
 iGY
-mDx
+omQ
 ppM
 xRX
 xRX
@@ -42445,9 +42488,9 @@ xRX
 xRX
 xRX
 ppM
-qnR
+snU
+cuX
 ukP
-ivO
 ppM
 xRX
 xRX
@@ -42703,7 +42746,7 @@ xRX
 xRX
 ppM
 ppM
-idL
+rZb
 nMR
 ppM
 xRX
@@ -42960,8 +43003,8 @@ xRX
 xRX
 ppM
 enf
-lwI
-riA
+pTn
+bjg
 ppM
 xRX
 xRX
@@ -43216,9 +43259,9 @@ xRX
 xRX
 xRX
 ppM
-inG
-auV
-pUe
+nCd
+gfT
+xgR
 ppM
 xRX
 xRX

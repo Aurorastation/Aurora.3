@@ -144,7 +144,6 @@
 		"nav_orion_express_ship_2",
 		"nav_orion_express_ship_3",
 		"nav_orion_express_ship_4",
-		"nav_orion_express_ship_dock_fore",
 		"nav_orion_express_ship_dock_aft",
 		"nav_orion_express_ship_dock_port",
 		"nav_orion_express_ship_dock_starboard"
@@ -197,18 +196,6 @@
 	name = "Orion Express Mobile Station - Shuttle Dock"
 	landmark_tag = "nav_orion_express_ship_dock_shuttle"
 	master_tag = "orion_traveler_shuttle"
-
-/obj/effect/shuttle_landmark/orion_express_ship/fore
-	name = "Orion Express Mobile Station - Fore Dock"
-	landmark_tag = "nav_orion_express_ship_dock_fore"
-	docking_controller = "orion_traveler_port_fore"
-	base_area = /area/space
-	base_turf = /turf/space/dynamic
-
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/fore
-	name = "Orion Express Mobile Station - Fore Dock"
-	landmark_tag = "nav_orion_express_ship_dock_fore"
-	master_tag = "orion_traveler_port_fore"
 
 /obj/effect/shuttle_landmark/orion_express_ship/aft
 	name = "Orion Express Mobile Station - Aft Dock"
