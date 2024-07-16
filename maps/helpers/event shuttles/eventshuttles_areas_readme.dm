@@ -1,13 +1,13 @@
 // This series of event shuttles should be used to replace the one we've been using for the last several events.
 // Each one of the three is geared to have different levels of involvement of the crew. Mainly engineering and operations.
-// All three ships will be given their own fluff written out, use as you wish. Or, discard entirely i don't really care.
+// All three ships will be given their own fluff written out, use as you wish.
 // As for a technical explanation of each ship:
 //
 // Artemis is a combat focused spawn shuttle, made to address the issues we (the crew) had with the Konyang Warehouse Raid event.
 // Its geared out for heavy security and crew militia use.
 // There's also things like the machinists having all of their things packed up, ready to be moved out to somewhere off shuttle to handle IPC's
 // -------------------------------------------------------------------------------------------------------------------------
-// // Apollo v1 is a humanitarian focused shuttle. It focuses on carrying service related supplies, operations supplies, and most importantly: scientific supplies.
+// Apollo v1 is a humanitarian focused shuttle. It focuses on carrying service related supplies, operations supplies, and most importantly: scientific supplies.
 // Additionally, engineering is issued RFD's to be able to build out as the mission requires.
 // Only service, operations, and science would have to unload their gear.
 // -------------------------------------------------------------------------------------------------------------------------
@@ -21,13 +21,20 @@
 // I think this ship would be best served by existing in a city environment. Its shorter size narratively supports that, and its lack of internal walls for the cargo hold
 // means that you cant really set up anyone's base of operations inside. At most, one department's worth of jobs.
 // I strongly recommend using this ship in an urban environment where the crew has buildings around the ship they can move into.
+// -------------------------------------------------------------------------------------------------------------------------
+// Opossum is a true people mover, and unique among the rest of the shuttles as its the only one that fits within shuttle mapping standards.
+// While lacking in features compared to the rest, it does its job and looks good while doing it. Best used in maps where there's an
+// existing base camp of some kind. Or, for something like a more laid back casual vibe of an event where we're just visiting a place
+// just because.
+// Bonus: This is also fully functional. I've included a second .dm file in the opossum folder with everything needed to make it work
+// at time of implementation.
 //
 // Fluff:
 //
 // SCCV Corrugated Chariot
-// description: The Corrugated Chariot is the flagship of the Orion Express Modular Delivery System (OEM-DS) line of destroyer sized freighters. Design of the pattern started at the begining of the Konyang Hivebot Crisis of 2466, heavily influcenced by data recieved from both local aid workers, the IAC, and the SCC's own mission to the planet. The need for modular shuttle tender and freighter was identified, and the Chariot delivers. The class features a two deck design, with shuttles docked in mounting clamps on the first deck. And a large warehouse and pressure tank on the second. Crewed by positronics, the ship's ammenities are non existant.
+// description: The Corrugated Chariot is the flagship of the Orion Express Modular Delivery System (OEM-DS) line of cruiser sized freighters. Design of the pattern started at the begining of the Konyang Hivebot Crisis of 2466, heavily influcenced by data recieved from both local aid workers, the IAC, and the SCC's own mission to the planet. The need for modular shuttle tender and freighter was identified, and the Chariot delivers. The class features a two deck design, with shuttles docked in mounting clamps on the first deck. And a large warehouse and pressure tank on the second. Crewed by positronics, the ship's ammenities are non existant.
 // sizeclass: OEM-DS Freighter
-// shiptype: civilian freighter - destroyer
+// shiptype: civilian freighter - Cruiser
 
 /area/scc_event_shuttle
 	name = "SCC Transport Shuttle"

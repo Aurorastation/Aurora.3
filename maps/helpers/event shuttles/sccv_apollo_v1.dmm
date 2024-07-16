@@ -138,7 +138,7 @@
 	pixel_x = 10;
 	pixel_y = 28
 	},
-/turf/simulated/floor/tiled/red,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "cl" = (
 /obj/effect/floor_decal/industrial/outline/research,
@@ -230,6 +230,18 @@
 "du" = (
 /obj/structure/closet/secure_closet/freezer/kois/spores,
 /obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"dw" = (
+/obj/effect/floor_decal/industrial/outline_door/security{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/engineering{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_segment/engineering{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "dx" = (
@@ -358,7 +370,7 @@
 /obj/machinery/light/floor{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/red,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "fM" = (
 /obj/structure/table/standard,
@@ -548,6 +560,12 @@
 	pixel_x = 6
 	},
 /turf/simulated/floor/tiled,
+/area/space)
+"hx" = (
+/obj/effect/floor_decal/industrial/outline_door/service{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "hA" = (
 /obj/structure/cable{
@@ -1067,6 +1085,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"pr" = (
+/obj/effect/floor_decal/industrial/outline_door/engineering{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "pX" = (
 /obj/machinery/door/airlock/glass_command{
 	dir = 4;
@@ -1250,6 +1274,9 @@
 	pixel_x = -32;
 	dir = 8
 	},
+/obj/machinery/light/floor{
+	pixel_x = 16
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "sV" = (
@@ -1322,7 +1349,8 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "um" = (
-/turf/simulated/floor/tiled/red,
+/obj/effect/floor_decal/industrial/outline_door/service,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "uq" = (
 /obj/machinery/vending/robotics{
@@ -1537,7 +1565,7 @@
 /obj/machinery/light/floor{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/red,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "za" = (
 /obj/machinery/door/blast/regular/open,
@@ -1907,7 +1935,13 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Da" = (
-/obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/effect/floor_decal/industrial/outline_door/security,
+/obj/effect/floor_decal/industrial/outline_segment/engineering{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_segment/engineering{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "Db" = (
@@ -2048,6 +2082,18 @@
 /obj/effect/floor_decal/spline/plain/green,
 /turf/simulated/floor/tiled,
 /area/space)
+"FO" = (
+/obj/effect/floor_decal/industrial/outline_door/security{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/engineering{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_segment/engineering{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "FT" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -2118,9 +2164,7 @@
 /area/space)
 "HX" = (
 /obj/effect/floor_decal/spline/plain/green,
-/obj/effect/floor_decal/industrial/arrow{
-	color = "#8daf6a"
-	},
+/obj/effect/floor_decal/industrial/arrow/service,
 /turf/simulated/floor/tiled,
 /area/space)
 "IS" = (
@@ -2318,6 +2362,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"Kg" = (
+/obj/effect/floor_decal/industrial/outline_door/medical{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "Kz" = (
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
@@ -2492,6 +2542,12 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"Od" = (
+/obj/effect/floor_decal/industrial/outline_door/research{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "OJ" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -2556,12 +2612,18 @@
 	pixel_x = 22;
 	pixel_y = 28
 	},
-/turf/simulated/floor/tiled/red,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "PN" = (
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/machinery/vending/dinnerware{
 	anchored = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"PV" = (
+/obj/effect/floor_decal/industrial/outline_door/engineering{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -2928,6 +2990,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"WI" = (
+/obj/effect/floor_decal/industrial/outline_door/security{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "WQ" = (
 /obj/machinery/door/airlock/centcom{
 	dir = 4;
@@ -2989,8 +3057,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "XU" = (
-/obj/effect/floor_decal/industrial/outline_straight{
-	color = "#8daf6a"
+/obj/effect/floor_decal/industrial/outline_straight/service,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Ye" = (
+/obj/effect/floor_decal/industrial/outline_door/service{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -3326,7 +3398,7 @@ QV
 zL
 Da
 UI
-yv
+FO
 vo
 yh
 rR
@@ -3423,10 +3495,10 @@ MS
 MF
 PK
 fz
-um
-um
+zL
+zL
 fz
-um
+zL
 MF
 fl
 FT
@@ -3463,10 +3535,10 @@ MS
 MF
 cf
 yK
-um
-um
+zL
+zL
 yK
-um
+zL
 MF
 vB
 AI
@@ -3526,7 +3598,7 @@ Ae
 zL
 Da
 Ax
-zL
+dw
 zL
 jP
 NO
@@ -3575,24 +3647,24 @@ SM
 (13,1,1) = {"
 gO
 lz
+zL
 au
 zL
 zL
-zL
-Pt
+Ye
 sN
 zL
 zL
-zL
-zL
+WI
+WI
 iC
 Pt
 zL
 zL
 zL
 zL
-zL
-zL
+Kg
+Kg
 sM
 zL
 zL
@@ -3623,18 +3695,18 @@ zL
 zL
 zL
 gd
+hx
+hx
 zL
 zL
-zL
-zL
-zL
-zL
+pr
+pr
 nC
 zL
 zL
 zL
-zL
-zL
+Od
+Od
 Vw
 NC
 zL
@@ -3726,7 +3798,7 @@ QV
 zL
 Da
 Ax
-zL
+dw
 zL
 qU
 Vd
@@ -4025,9 +4097,9 @@ Lo
 Lo
 Lo
 zL
-zL
+um
 Uu
-zL
+PV
 zL
 Mp
 MF
