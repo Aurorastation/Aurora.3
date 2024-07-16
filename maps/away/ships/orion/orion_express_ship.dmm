@@ -621,10 +621,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor,
 /area/shuttle/orion_shuttle/starboardthrust)
-"ceU" = (
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/aft,
-/turf/simulated/floor,
-/area/ship/orion/mainhall)
 "chv" = (
 /obj/structure/bed/handrail{
 	dir = 4
@@ -950,7 +946,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/obj/machinery/light/small,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -1057,13 +1052,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster1)
-"dYD" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/aft,
-/turf/simulated/floor,
-/area/ship/orion/mainhall)
 "efO" = (
 /obj/structure/lattice/catwalk,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -1493,33 +1481,14 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
 "gsa" = (
-/obj/machinery/door/airlock/glass{
-	name = "Commissary";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
-"gtw" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	frequency = 1380
-	},
-/obj/machinery/airlock_sensor{
-	dir = 4;
-	pixel_x = -24
-	},
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/aft,
-/turf/simulated/floor,
-/area/ship/orion/mainhall)
 "gyL" = (
 /obj/effect/floor_decal/corner_wide/beige/full{
 	dir = 8
@@ -1558,12 +1527,13 @@
 /area/ship/orion/shop)
 "gHP" = (
 /obj/effect/floor_decal/corner/red/diagonal,
-/obj/machinery/door/airlock/glass{
-	dir = 4;
-	name = "Food Court"
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 1;
+	req_one_access = null
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 2;
+	name = "Food Court"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
@@ -1832,18 +1802,6 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster2)
-"hrj" = (
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/aft,
-/turf/simulated/floor,
-/area/ship/orion/mainhall)
 "htX" = (
 /obj/effect/floor_decal/industrial/hatch,
 /turf/simulated/floor/airless,
@@ -1881,12 +1839,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/machinery/door/airlock/glass{
-	dir = 4;
-	name = "Commissary"
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 1;
+	req_one_access = null
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 2;
+	name = "Commissary"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
@@ -1915,6 +1874,7 @@
 	name = "airlock_orion_ship_starboard";
 	frequency = 1004
 	},
+/obj/machinery/light/small,
 /turf/simulated/floor,
 /area/ship/orion/bridge)
 "hIG" = (
@@ -2037,21 +1997,6 @@
 /obj/item/modular_computer/laptop,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
-"inj" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
-/obj/machinery/door/airlock/glass{
-	dir = 4;
-	layer = 2.71;
-	name = "Commissary";
-	open_layer = 2.71
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/orion/shop)
 "ioB" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
@@ -2186,7 +2131,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
-/obj/machinery/light/small,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -2224,7 +2168,7 @@
 /area/ship/orion/captain)
 "jmN" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 32
 	},
 /obj/effect/map_effect/marker/airlock{
@@ -2473,22 +2417,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
 "krz" = (
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked"
+/obj/machinery/door/firedoor/multi_tile{
+	req_one_access = null
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	name = "interior access button";
-	pixel_x = -32;
-	pixel_y = 10;
-	dir = 1
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Docking Bay"
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/aft,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
 "kxo" = (
 /obj/structure/cable/green{
@@ -2653,14 +2588,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
 "lsl" = (
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_orion_ship_starboard";
 	name = "airlock_orion_ship_starboard";
 	frequency = 1004
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 32
 	},
 /turf/simulated/floor,
 /area/ship/orion/bridge)
@@ -2863,8 +2798,7 @@
 /area/shuttle/orion_shuttle/storage)
 "mcN" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/machinery/atmospherics/portables_connector{
-	},
+/obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -3539,9 +3473,6 @@
 /area/ship/orion/forehall)
 "oTa" = (
 /obj/machinery/vending/coffee,
-/obj/structure/sign/vacuum{
-	pixel_y = -32
-	},
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
@@ -3601,20 +3532,16 @@
 /turf/simulated/floor,
 /area/ship/orion/atmos)
 "ppM" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4;
-	frequency = 1380
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 1;
+	req_one_access = null
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 4;
-	pixel_y = 6;
-	pixel_x = -20;
-	id_tag = "orion_traveler_port";
-	frequency = 1380
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 2;
+	name = "Commissary"
 	},
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/aft,
-/turf/simulated/floor,
-/area/ship/orion/mainhall)
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion/shop)
 "ppO" = (
 /obj/structure/sign/staff_only{
 	pixel_x = 32
@@ -3708,13 +3635,6 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor,
 /area/ship/orion/cargo)
-"pMZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/aft,
-/turf/simulated/floor,
-/area/ship/orion/mainhall)
 "pOf" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/window/reinforced{
@@ -3748,11 +3668,12 @@
 /turf/template_noop,
 /area/space)
 "pRV" = (
-/obj/machinery/door/airlock/glass{
-	dir = 1;
+/obj/machinery/door/firedoor/multi_tile{
+	req_one_access = null
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
 	name = "Primary Hall"
 	},
-/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
 "pVf" = (
@@ -4703,10 +4624,6 @@
 /turf/simulated/floor,
 /area/ship/orion/cargo)
 "tmL" = (
-/obj/machinery/door/airlock/glass{
-	dir = 1;
-	name = "Primary Hall"
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -4714,7 +4631,6 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/mainhall)
 "tnO" = (
@@ -5166,23 +5082,8 @@
 /turf/template_noop,
 /area/space)
 "vfR" = (
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked"
-	},
-/obj/effect/landmark/entry_point/fore{
-	name = "aft, airlock"
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
-	},
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/aft,
-/turf/simulated/floor,
-/area/ship/orion/mainhall)
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/space)
 "vhp" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -5360,9 +5261,11 @@
 /turf/simulated/floor/plating,
 /area/ship/orion/mainhall)
 "vKh" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3,
-/turf/simulated/wall/shuttle/scc_space_ship,
-/area/ship/orion/engie)
+/obj/structure/sign/vacuum{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion/mainhall)
 "vKn" = (
 /obj/machinery/atm{
 	pixel_x = 32
@@ -5801,6 +5704,7 @@
 	name = "airlock_orion_ship_port";
 	frequency = 1004
 	},
+/obj/machinery/light/small,
 /turf/simulated/floor,
 /area/ship/orion/cargo)
 "xkx" = (
@@ -6124,21 +6028,6 @@
 /turf/simulated/floor/plating,
 /area/ship/orion/atmos)
 "yks" = (
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked"
-	},
-/obj/effect/shuttle_landmark/orion_express_ship/aft{
-	dir = 1
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/access_button{
-	pixel_x = 28;
-	dir = 2
-	},
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/aft,
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
 
@@ -35813,13 +35702,13 @@ xRX
 xRX
 xRX
 xRX
-tGb
 xRX
 xRX
-tGb
 xRX
 xRX
-tGb
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -36325,7 +36214,7 @@ wrd
 wrd
 wrd
 xRX
-bPp
+xRX
 xRX
 xRX
 xRX
@@ -37096,7 +36985,7 @@ fUj
 bld
 qXP
 wrd
-bPp
+xRX
 xRX
 xRX
 xRX
@@ -37629,10 +37518,10 @@ xRX
 xRX
 xRX
 xRX
+vfR
 xRX
 xRX
-xRX
-xRX
+vfR
 xRX
 xRX
 xRX
@@ -37867,29 +37756,29 @@ oTa
 haV
 auV
 auV
-onL
+haV
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+vfR
 xRX
 xRX
 xRX
@@ -38118,13 +38007,13 @@ ode
 aev
 wpP
 ode
-aev
+vKh
 aev
 aev
 haV
-ppM
-gtw
-haV
+aev
+aev
+aev
 xRX
 xRX
 xRX
@@ -38146,7 +38035,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+vfR
 xRX
 xRX
 xRX
@@ -38379,8 +38268,17 @@ aev
 aev
 aev
 krz
-dYD
-pMZ
+aev
+aev
+aev
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
 vfR
 xRX
 xRX
@@ -38394,16 +38292,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+vfR
 xRX
 xRX
 xRX
@@ -38635,9 +38524,9 @@ ulP
 lXJ
 dNE
 gYr
-hrj
-pMZ
-ceU
+yks
+yks
+yks
 yks
 xRX
 xRX
@@ -38660,7 +38549,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+vfR
 xRX
 xRX
 xRX
@@ -38896,28 +38785,28 @@ haV
 auV
 auV
 haV
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
+vfR
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+vfR
 xRX
 xRX
 xRX
@@ -39141,18 +39030,18 @@ qsf
 pOK
 gHc
 gsa
-oMV
+ppM
 gHc
 gHc
 gHc
-inj
+rxB
 hwT
 ssp
 ssp
 ssp
 tUl
 aiv
-vKh
+riA
 xRX
 xRX
 xRX
@@ -39171,10 +39060,10 @@ xRX
 xRX
 xRX
 xRX
+vfR
 xRX
 xRX
-xRX
-xRX
+vfR
 xRX
 xRX
 xRX
@@ -39923,7 +39812,7 @@ fwA
 lYc
 riA
 riA
-bPp
+xRX
 xRX
 xRX
 xRX
@@ -40694,7 +40583,7 @@ wzW
 riA
 xRX
 xRX
-bPp
+xRX
 xRX
 xRX
 xRX
@@ -41210,13 +41099,13 @@ xRX
 xRX
 xRX
 xRX
-tGb
 xRX
 xRX
-tGb
 xRX
 xRX
-tGb
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
