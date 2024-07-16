@@ -56,4 +56,4 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - bugfix: "Makes the Skrell Bandana white, so it can be recoloured properly."
-  - bugfix: "Fixes spelling errors on the Weishii robe and Worker's hat."
+  - bugfix: "Fixes spelling errors on the Weishii robe, Qeblak mantle and Worker's hat."
