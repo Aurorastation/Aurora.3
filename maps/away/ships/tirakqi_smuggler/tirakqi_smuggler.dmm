@@ -396,6 +396,7 @@
 	pixel_x = 5;
 	pixel_y = 9
 	},
+/obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "cU" = (
@@ -638,6 +639,7 @@
 	pixel_x = 5;
 	pixel_y = 9
 	},
+/obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "eI" = (
@@ -959,15 +961,11 @@
 /area/ship/tirakqi_smuggler/engi)
 "gF" = (
 /obj/structure/table/rack,
-/obj/item/tank/jetpack/carbondioxide,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/mask/breath/skrell,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/skrell/black,
-/obj/item/clothing/head/helmet/space/void/skrell/black,
-/obj/machinery/suit_cycler{
-	name = "PLACEHOLDER"
+/obj/machinery/suit_cycler/offship/skrell/black{
+	name = "Voidsuit"
 	},
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/cargo)
 "gH" = (
@@ -1300,6 +1298,14 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/closet/walllocker{
+	pixel_y = 32;
+	name = "Tool Storage"
+	},
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 5
+	},
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/plating,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "jc" = (
@@ -1689,6 +1695,7 @@
 	pixel_y = -7;
 	pixel_x = 3
 	},
+/obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "lX" = (
@@ -1709,14 +1716,10 @@
 /area/shuttle/tirakqi_smuggler_shuttle)
 "lY" = (
 /obj/structure/table/rack,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/mask/breath/skrell,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/skrell/black,
-/obj/item/clothing/head/helmet/space/void/skrell/black,
-/obj/machinery/suit_cycler{
-	name = "PLACEHOLDER"
+/obj/machinery/suit_cycler/offship/skrell/white{
+	name = "Voidsuit"
 	},
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/cargo)
 "ma" = (
@@ -2832,6 +2835,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "sq" = (
@@ -2866,14 +2870,10 @@
 /area/ship/tirakqi_smuggler/cargo)
 "sx" = (
 /obj/structure/table/rack,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/mask/breath/skrell,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/skrell/white,
-/obj/item/clothing/head/helmet/space/void/skrell/white,
-/obj/machinery/suit_cycler{
-	name = "PLACEHOLDER"
+/obj/machinery/suit_cycler/offship/skrell/black{
+	name = "Voidsuit"
 	},
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/cargo)
 "sz" = (
@@ -3482,6 +3482,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/loot,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/cargo)
 "vX" = (
@@ -5333,8 +5334,8 @@
 /area/ship/tirakqi_smuggler/capt)
 "Gn" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/suit_cycler{
-	name = "PLACEHOLDER"
+/obj/machinery/suit_cycler/offship/skrell/white{
+	name = "Captain's Voidsuit"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/capt)
@@ -5346,11 +5347,13 @@
 	dir = 8
 	},
 /obj/structure/closet/walllocker{
-	pixel_y = 32
+	pixel_y = 32;
+	name = "Captain's Locker"
 	},
 /obj/item/gun/energy/gun/qukala,
 /obj/item/clothing/head/helmet/security/skrell,
 /obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/melee/telebaton/nlom,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/capt)
 "Gs" = (
@@ -5426,7 +5429,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/structure/closet/crate/loot,
+/obj/random/animal_crate,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/cargo)
 "GT" = (
@@ -5818,6 +5821,7 @@
 	pixel_y = -7;
 	pixel_x = -1
 	},
+/obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "JB" = (
@@ -6041,7 +6045,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/tirakqi_smuggler/starboard_hall)
 "KG" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
@@ -7828,7 +7831,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/skrell,
 /obj/effect/decal/cleanable/dirt,
-/obj/random/animal_crate,
+/obj/structure/table/rack,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/cargo)
 "Wr" = (
@@ -42881,7 +42889,7 @@ fe
 fe
 NQ
 gI
-sx
+lY
 sJ
 mx
 wN
