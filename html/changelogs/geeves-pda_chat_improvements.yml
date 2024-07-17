@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - qol: "Made a bunch of improvements to the PDA chat program. Clicking on someone or a channel's name will now immediately open the chat. Text inputs will now not input unless you press enter."
+  - qol: "PDA chat messages will now have spaces between them, unless it's the same person sending multiple messages in a row."
+  - qol: "Updating a PDA chat channel's password will now output that it changed into the chat."
