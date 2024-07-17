@@ -50,7 +50,8 @@
 		"Chaplain" = /obj/outfit/job/chaplain/orion,
 		"Corporate Liaison" = /obj/outfit/job/representative/orion,
 		"Off-Duty Crew Member" = /obj/outfit/job/visitor/orion,
-		"Operations Personnel" = /obj/outfit/job/hangar_tech/orion
+		"Operations Personnel" = /obj/outfit/job/hangar_tech/event/orion,
+		"Service Personnel" = /obj/outfit/job/bartender/orion
 	)
 
 /obj/outfit/job/hangar_tech/orion
