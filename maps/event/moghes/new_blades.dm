@@ -56,7 +56,7 @@
 
 /area/new_blades/mudki/interiors/spaceport
 	name = "Mudki Spaceport"
-	area_blurb "Spaceport Interiors Placeholder"
+	area_blurb = "Spaceport Interiors Placeholder"
 
 /area/new_blades/mudki/interiors/north_housing
 	name = "Northern Mudki Housing"

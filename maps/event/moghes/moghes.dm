@@ -38,4 +38,4 @@
 		/datum/shuttle/autodock/multi/lift/mudki_hospital,
 		/datum/shuttle/autodock/multi/lift/guildhouse
 	)
-	force_spawnpoint = TRU
+	force_spawnpoint = TRUE

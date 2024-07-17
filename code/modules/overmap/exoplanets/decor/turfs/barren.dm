@@ -26,3 +26,6 @@
 
 /turf/simulated/floor/exoplanet/barren/raskara/update_icon()
 	overlays.Cut()
+
+/turf/simulated/floor/exoplanet/barren/warm
+	temperature = 315.15
