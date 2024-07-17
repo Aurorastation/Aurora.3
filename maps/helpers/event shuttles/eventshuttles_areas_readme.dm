@@ -32,7 +32,7 @@
 // Fluff:
 //
 // SCCV Corrugated Chariot
-// description: The Corrugated Chariot is the flagship of the Orion Express Modular Delivery System (OEM-DS) line of cruiser sized freighters. Design of the pattern started at the begining of the Konyang Hivebot Crisis of 2466, heavily influcenced by data recieved from both local aid workers, the IAC, and the SCC's own mission to the planet. The need for modular shuttle tender and freighter was identified, and the Chariot delivers. The class features a two deck design, with shuttles docked in mounting clamps on the first deck. And a large warehouse and pressure tank on the second. Crewed by positronics, the ship's ammenities are non existant.
+// description: The Corrugated Chariot is the flagship of the Orion Express Modular Delivery System (OEM-DS) line of cruiser sized freighters. Design of the pattern started at the begining of the Konyang Hivebot Crisis of 2466, heavily influcenced by data recieved from local aid workers, the IAC, and the SCC's own mission to the planet. The need for modular shuttle tender and freighter was identified, and the Chariot delivers. The class features a two deck design, with shuttles docked in mounting clamps on the first deck. And a large warehouse and pressure tank on the second. Crewed by positronics, the ship's ammenities are non existant.
 // sizeclass: OEM-DS Freighter
 // shiptype: civilian freighter - Cruiser
 

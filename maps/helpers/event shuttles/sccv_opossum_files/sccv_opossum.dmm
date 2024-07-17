@@ -1,19 +1,24 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ai" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
 /obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle/scc_passanger_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "aE" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "aF" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "aH" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/scc{
 	spawn_firedoor = 1;
@@ -23,7 +28,7 @@
 	id = "shuttle_blast_doors"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "aM" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 1
@@ -36,7 +41,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/shuttle/sccv_opossum)
 "cb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -45,7 +50,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "cz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -54,7 +59,7 @@
 	dir = 6
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "cE" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -68,14 +73,14 @@
 	},
 /obj/effect/floor_decal/spline/plain/green,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "cV" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "dn" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/device/megaphone/command,
@@ -88,13 +93,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "do" = (
 /obj/effect/floor_decal/industrial/outline_door/service,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "dw" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 1
@@ -116,18 +121,18 @@
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/shuttle/sccv_opossum)
 "dP" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "dU" = (
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "dZ" = (
 /obj/machinery/door/airlock{
 	name = "Restroom"
@@ -135,14 +140,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "fj" = (
 /obj/machinery/atmospherics/pipe/tank/air/scc_shuttle{
 	dir = 4;
 	name = "Pressure Tank (Air - Main Airlock)"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "fJ" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -158,11 +163,11 @@
 	},
 /obj/effect/floor_decal/spline/plain/green,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "hb" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "hm" = (
 /obj/effect/floor_decal/industrial/outline_door/security,
 /obj/effect/floor_decal/industrial/outline_segment/engineering{
@@ -174,21 +179,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "hF" = (
 /obj/effect/floor_decal/industrial/loading/service{
 	pixel_y = 0;
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "id" = (
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "iC" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 1
@@ -200,8 +205,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/shuttle/sccv_opossum)
 "iT" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -210,13 +218,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "jm" = (
 /obj/item/modular_computer/console/preset/engineering/ce{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/shuttle/sccv_opossum)
 "jY" = (
 /obj/effect/floor_decal/industrial/outline_door/security{
 	dir = 1
@@ -228,7 +236,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "kU" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
@@ -236,14 +244,21 @@
 	pixel_y = 12;
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/scc_passanger_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "lc" = (
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/photocopier/faxmachine{
+	pixel_y = 6;
+	department = "SCCV Opossum"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "lj" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
@@ -252,7 +267,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "lF" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 1
@@ -261,14 +276,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/structure/bed/handrail{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/shuttle/sccv_opossum)
 "lO" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "md" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -277,23 +295,32 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "ms" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "mV" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 1
+	},
 /obj/effect/landmark/force_spawnpoint{
-	job_tag = "Operations Manager"
+	job_tag = "Executive Officer"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/shuttle/sccv_opossum)
 "mW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
+/area/shuttle/sccv_opossum)
+"ne" = (
+/obj/effect/shuttle_landmark/scc_passanger_shuttle/transit{
+	dir = 1
+	},
+/turf/space,
 /area/space)
 "nt" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/scc{
@@ -305,7 +332,7 @@
 	id = "shuttle_bridge_blast_doors"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "nx" = (
 /obj/effect/floor_decal/industrial/outline_door/security{
 	dir = 1
@@ -319,7 +346,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "nM" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 1
@@ -336,7 +363,15 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/shuttle/sccv_opossum)
+"nP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/scc_passanger_shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/sccv_opossum)
 "nU" = (
 /obj/machinery/light/floor{
 	dir = 8
@@ -348,20 +383,20 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "os" = (
 /obj/item/modular_computer/console/preset/research{
 	dir = 1
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/shuttle/sccv_opossum)
 "oA" = (
 /obj/machinery/atmospherics/pipe/tank/carbon_dioxide/scc_shuttle{
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "oB" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -377,68 +412,86 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
+"pa" = (
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/sccv_opossum)
 "ph" = (
 /obj/effect/floor_decal/industrial/arrow/service,
 /obj/effect/floor_decal/spline/plain/green,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "pj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/scc,
-/area/space)
+/area/shuttle/sccv_opossum)
 "pn" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "px" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 9
 	},
 /obj/machinery/light,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "pV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/bed/handrail{
+	dir = 4;
+	pixel_x = 1
+	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "qm" = (
 /obj/machinery/alarm/south,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "qq" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Head of Security"
 	},
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/shuttle/sccv_opossum)
 "qw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
 	},
+/obj/machinery/computer/ship/engines/terminal{
+	dir = 8
+	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "qN" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3{
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/turf/template_noop,
-/area/space)
+/obj/effect/map_effect/marker/airlock/shuttle/scc_passanger_shuttle,
+/turf/simulated/floor,
+/area/shuttle/sccv_opossum)
 "ri" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "rn" = (
 /obj/machinery/status_display/supply_display{
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "rq" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -451,7 +504,7 @@
 	name = "JoinLateCryo"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "rL" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
@@ -459,7 +512,7 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/light,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "ss" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
@@ -468,12 +521,26 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "sI" = (
 /obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
+"sL" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -22;
+	pixel_y = -28;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/scc_passanger_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor,
+/area/shuttle/sccv_opossum)
 "sP" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
@@ -482,7 +549,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "th" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -496,7 +563,7 @@
 	},
 /obj/effect/floor_decal/spline/plain/green,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "tz" = (
 /obj/structure/closet/crate/secure{
 	name = "encryption keys crate";
@@ -554,7 +621,7 @@
 /obj/item/device/encryptionkey/service_spare,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "tE" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -572,7 +639,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "tG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -581,11 +648,11 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "tH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "tQ" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -598,7 +665,7 @@
 	name = "JoinLateCryo"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "tT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -607,11 +674,11 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "up" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "uu" = (
 /obj/machinery/shipsensors/weak/scc_shuttle{
 	pixel_y = -15
@@ -620,7 +687,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/shuttle/sccv_opossum)
 "vb" = (
 /obj/effect/floor_decal/industrial/arrow/service{
 	dir = 1
@@ -630,28 +697,18 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "vD" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	dir = 4;
-	pixel_y = 6;
-	pixel_x = -20
-	},
-/obj/machinery/airlock_sensor{
-	pixel_x = -20;
-	dir = 4;
-	pixel_y = -6
-	},
-/turf/simulated/floor,
+/obj/effect/step_trigger/teleporter,
+/turf/space,
 /area/space)
 "vH" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
-/obj/effect/landmark/force_spawnpoint{
-	job_tag = "Executive Officer"
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/shuttle/sccv_opossum)
 "vJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -663,7 +720,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "vN" = (
 /obj/machinery/atmospherics/binary/pump/fuel{
 	dir = 8
@@ -672,7 +729,7 @@
 	dir = 10
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "vZ" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -681,7 +738,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/spline/plain/green,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "wp" = (
 /obj/effect/floor_decal/industrial/arrow/service{
 	dir = 1
@@ -690,11 +747,14 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "wy" = (
 /obj/effect/decal/fake_object/light_source/invisible,
+/obj/machinery/computer/ship/helm/terminal{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/shuttle/sccv_opossum)
 "wF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -703,13 +763,13 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "wJ" = (
 /obj/machinery/atmospherics/binary/pump/fuel{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "wU" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 1
@@ -723,7 +783,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/shuttle/sccv_opossum)
 "wV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -732,7 +792,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "wX" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -748,7 +808,7 @@
 	},
 /obj/effect/floor_decal/spline/plain/green,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "xe" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -756,20 +816,23 @@
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "xm" = (
 /obj/effect/floor_decal/industrial/arrow/service,
 /obj/effect/floor_decal/spline/plain/green,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "xt" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Chief Medical Officer"
 	},
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/shuttle/sccv_opossum)
 "xH" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
@@ -779,28 +842,26 @@
 	},
 /obj/machinery/alarm/east,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "xM" = (
 /obj/structure/bed/handrail{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "xR" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/photocopier/faxmachine{
-	pixel_y = 6;
-	department = "SCCV Apollo"
+/obj/machinery/computer/shuttle_control/explore/terminal/scc_passanger_shuttle{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/shuttle/sccv_opossum)
 "yk" = (
 /obj/machinery/door/airlock/freezer{
 	id = "shuttle_stall_2";
 	name = "Stall 2"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/shuttle/sccv_opossum)
 "yA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -809,7 +870,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "yB" = (
 /obj/effect/floor_decal/industrial/outline_door/security,
 /obj/effect/floor_decal/industrial/outline_segment/engineering{
@@ -819,19 +880,19 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "yF" = (
-/obj/item/modular_computer/console/preset/command{
+/obj/machinery/computer/ship/sensors/terminal{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/shuttle/sccv_opossum)
 "yL" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "zr" = (
 /obj/machinery/iff_beacon/horizon/shuttle{
 	pixel_y = -15
@@ -840,7 +901,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/shuttle/sccv_opossum)
 "zs" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
@@ -850,7 +911,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "zF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -858,14 +919,14 @@
 	name = "Observer-Start"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Aa" = (
 /obj/effect/floor_decal/industrial/loading/service{
 	pixel_y = 0;
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Av" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -873,7 +934,7 @@
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Bg" = (
 /obj/machinery/atm{
 	dir = 1;
@@ -881,7 +942,7 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Bn" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -890,7 +951,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/spline/plain/green,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Bx" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -903,14 +964,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "BC" = (
 /turf/simulated/wall/shuttle/scc,
-/area/space)
+/area/shuttle/sccv_opossum)
 "BF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "BK" = (
 /obj/effect/floor_decal/industrial/arrow{
 	color = "#8daf6a";
@@ -923,7 +984,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "BU" = (
 /obj/effect/floor_decal/industrial/outline_door/security{
 	dir = 1
@@ -937,16 +998,23 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Cj" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/scc,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Cm" = (
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/obj/effect/landmark/force_spawnpoint{
+	job_tag = "Operations Manager"
+	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/shuttle/sccv_opossum)
 "CH" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -957,20 +1025,20 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "CQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "CZ" = (
 /obj/machinery/atmospherics/binary/pump/supply/on{
 	dir = 8
 	},
 /obj/machinery/light,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Dj" = (
 /obj/machinery/light/floor{
 	dir = 4;
@@ -978,7 +1046,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Dy" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -987,21 +1055,21 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/spline/plain/green,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "DC" = (
 /obj/machinery/door/airlock/freezer{
 	id = "shuttle_stall_1";
 	name = "Stall 1"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/shuttle/sccv_opossum)
 "DJ" = (
 /obj/machinery/atmospherics/portables_connector/scrubber{
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "DK" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 1
@@ -1014,7 +1082,7 @@
 	pixel_y = 36
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Ew" = (
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
@@ -1024,35 +1092,35 @@
 	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/sccv_opossum)
 "EU" = (
 /obj/structure/closet/secure_closet/bridge_crew,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "EY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Fc" = (
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Fo" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1;
 	level = 2
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "FD" = (
 /obj/structure/bed/handrail{
 	dir = 8;
 	pixel_x = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "FP" = (
 /obj/effect/floor_decal/industrial/arrow/service{
 	dir = 1
@@ -1062,7 +1130,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "FT" = (
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
@@ -1074,7 +1142,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/sccv_opossum)
+"GQ" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/turf/simulated/floor/tiled,
+/area/shuttle/sccv_opossum)
 "GY" = (
 /obj/structure/plasticflaps/airtight{
 	dir = 4
@@ -1087,30 +1162,30 @@
 	name = "external airlock"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Hp" = (
 /obj/structure/bed/handrail,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Hs" = (
 /obj/machinery/light/floor{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "HI" = (
 /obj/machinery/light/floor{
 	dir = 8;
 	pixel_y = 16
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "HW" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Ic" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -1119,19 +1194,19 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Ir" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Iz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "IK" = (
 /obj/effect/floor_decal/industrial/loading/service{
 	pixel_y = 0;
@@ -1144,7 +1219,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "IN" = (
 /obj/structure/plasticflaps/airtight{
 	dir = 4
@@ -1153,14 +1228,14 @@
 	id = "shuttle_blast_doors"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/shuttle/sccv_opossum)
 "IW" = (
 /obj/machinery/light/floor{
 	dir = 4;
 	pixel_y = 16
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Jg" = (
 /obj/structure/table/standard,
 /obj/item/device/radio/off{
@@ -1189,7 +1264,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Ji" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1199,7 +1274,7 @@
 	},
 /obj/machinery/light,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "JC" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
@@ -1208,14 +1283,17 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Kc" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Chief Engineer"
 	},
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Km" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1224,7 +1302,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/spline/plain/green,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "KD" = (
 /obj/machinery/light/floor{
 	dir = 4
@@ -1236,25 +1314,30 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "KH" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3,
-/turf/template_noop,
-/area/space)
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle/scc_passanger_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor,
+/area/shuttle/sccv_opossum)
 "KJ" = (
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Lr" = (
 /obj/effect/floor_decal/spline/plain/green,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Ls" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/effect/landmark/force_spawnpoint{
 	job_tag = "Research Director"
 	},
+/obj/effect/floor_decal/spline/plain/paleblue{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/shuttle/sccv_opossum)
 "LC" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -1268,7 +1351,7 @@
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "LH" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 1
@@ -1290,26 +1373,26 @@
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Ma" = (
 /obj/structure/bed/handrail{
 	dir = 4;
 	pixel_x = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Mh" = (
 /obj/machinery/light/floor{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Mw" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "MG" = (
 /obj/machinery/door/airlock/glass_command{
 	dir = 4;
@@ -1318,7 +1401,7 @@
 	req_access = list(19)
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/shuttle/sccv_opossum)
 "MM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -1327,7 +1410,7 @@
 	dir = 10
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Od" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -1343,12 +1426,12 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Oh" = (
 /obj/effect/floor_decal/industrial/arrow/service,
 /obj/effect/floor_decal/spline/plain/green,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "OK" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/button/remote/blast_door{
@@ -1366,7 +1449,7 @@
 	id = "shuttle_bridge_blast_doors"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/shuttle/sccv_opossum)
 "OX" = (
 /obj/structure/bed/stool/chair/office/bridge{
 	name = "Captain Chair"
@@ -1375,7 +1458,7 @@
 	job_tag = "Captain"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Pd" = (
 /obj/effect/floor_decal/industrial/loading/service{
 	pixel_y = 0;
@@ -1388,25 +1471,25 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Pu" = (
 /obj/item/modular_computer/console/preset/medical/cmo{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/shuttle/sccv_opossum)
 "PF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "PK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/scc,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Qw" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -1420,13 +1503,13 @@
 	},
 /obj/effect/floor_decal/spline/plain/green,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "QB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Ro" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
@@ -1435,25 +1518,21 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "RH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "RW" = (
 /obj/item/modular_computer/console/preset/supply{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Si" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/turf/simulated/floor,
+/turf/space,
 /area/space)
 "Sq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1463,7 +1542,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Sx" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -1471,7 +1550,7 @@
 /obj/machinery/vending/cola,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "SQ" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1482,20 +1561,20 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "SX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "TA" = (
 /obj/item/modular_computer/console/preset/command/captain{
-	dir = 8;
-	density = 0
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "TO" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -1503,7 +1582,7 @@
 /obj/machinery/vending/coffee/free,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Uv" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -1519,23 +1598,26 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "UB" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 8
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 4;
+	pixel_y = 6;
+	pixel_x = -20
 	},
-/obj/machinery/door/airlock/external,
-/obj/machinery/access_button{
-	pixel_x = -22;
-	pixel_y = -28;
-	dir = 4
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4;
+	pixel_y = -6
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/scc_passanger_shuttle,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "UC" = (
 /obj/machinery/atmospherics/unary/engine/scc_shuttle,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "UN" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -1551,11 +1633,11 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Vi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Vn" = (
 /obj/machinery/light/floor{
 	dir = 8;
@@ -1563,14 +1645,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "VZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 9
+/obj/effect/shuttle_landmark/scc_passanger_shuttle/hangar{
+	dir = 1
 	},
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor,
-/area/space)
+/turf/template_noop,
+/area/template_noop)
 "We" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -1586,7 +1667,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Wl" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 1
@@ -1596,7 +1677,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/shuttle/sccv_opossum)
 "WT" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
@@ -1605,7 +1686,7 @@
 	dir = 2
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "WY" = (
 /obj/structure/table/standard,
 /obj/item/crowbar/red,
@@ -1623,24 +1704,27 @@
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Xn" = (
 /obj/structure/bed/handrail,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Xr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
+/obj/machinery/computer/ship/engines/terminal{
+	dir = 4
+	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "XS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/sccv_opossum)
 "XT" = (
 /obj/effect/floor_decal/industrial/arrow{
 	color = "#8daf6a";
@@ -1653,7 +1737,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "XW" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -1674,7 +1758,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Yl" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 1
@@ -1686,19 +1770,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/shuttle/sccv_opossum)
 "YB" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 "YM" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/scc,
-/area/space)
+/area/shuttle/sccv_opossum)
 "Zr" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -1712,7 +1796,7 @@
 	},
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/sccv_opossum)
 "ZT" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -1721,43 +1805,64 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/shuttle/sccv_opossum)
 
 (1,1,1) = {"
 pn
 pn
-qN
 pn
 pn
-qN
 pn
 pn
-qN
 pn
 pn
-qN
 pn
 pn
-qN
 pn
 pn
-qN
 pn
 pn
-qN
 pn
 pn
-qN
 pn
 pn
-qN
 pn
 pn
-qN
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 pn
 pn
 "}
 (2,1,1) = {"
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 pn
 pn
 pn
@@ -1790,9 +1895,23 @@ BC
 zr
 pn
 pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (3,1,1) = {"
-KH
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 pn
 BC
 BC
@@ -1816,16 +1935,30 @@ rq
 cE
 Ma
 lj
-WT
+GQ
 BC
 Jg
 WY
 BC
 BC
 BC
-KH
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (4,1,1) = {"
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 pn
 BC
 BC
@@ -1858,8 +1991,22 @@ KJ
 EU
 BC
 pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (5,1,1) = {"
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 pn
 UC
 pj
@@ -1892,9 +2039,23 @@ KJ
 EU
 BC
 pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (6,1,1) = {"
-KH
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 UC
 Cj
 up
@@ -1925,9 +2086,23 @@ YB
 id
 EU
 BC
-KH
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (7,1,1) = {"
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 pn
 BC
 BC
@@ -1960,8 +2135,22 @@ BC
 BC
 BC
 pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (8,1,1) = {"
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 pn
 UC
 YM
@@ -1994,9 +2183,23 @@ vH
 yF
 BC
 pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (9,1,1) = {"
-KH
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 UC
 PK
 DJ
@@ -2027,9 +2230,23 @@ Sq
 mV
 wy
 nt
-KH
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (10,1,1) = {"
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 pn
 BC
 BC
@@ -2062,12 +2279,26 @@ Cm
 xR
 nt
 pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (11,1,1) = {"
 pn
-ai
-vD
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+KH
 UB
+sL
 zs
 pV
 vJ
@@ -2091,19 +2322,33 @@ ms
 xM
 BC
 OX
-SX
-Cm
+nP
+pa
 OK
 nt
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 pn
 "}
 (12,1,1) = {"
 pn
-kU
-Si
+pn
+pn
+pn
+pn
+pn
+pn
 VZ
+kU
+qN
+ai
 xH
-KJ
+FD
 RH
 KJ
 KJ
@@ -2130,8 +2375,22 @@ xt
 Pu
 nt
 pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (13,1,1) = {"
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 pn
 BC
 BC
@@ -2164,9 +2423,23 @@ Kc
 jm
 nt
 pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (14,1,1) = {"
-KH
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 UC
 pj
 fj
@@ -2197,9 +2470,23 @@ Fc
 Ls
 os
 nt
-KH
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (15,1,1) = {"
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 pn
 UC
 Cj
@@ -2232,8 +2519,22 @@ qq
 RW
 BC
 pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (16,1,1) = {"
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 pn
 BC
 BC
@@ -2266,9 +2567,23 @@ BC
 BC
 BC
 pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (17,1,1) = {"
-KH
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 UC
 YM
 aE
@@ -2299,9 +2614,23 @@ aM
 DC
 dw
 BC
-KH
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (18,1,1) = {"
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 pn
 UC
 PK
@@ -2334,8 +2663,22 @@ BC
 BC
 BC
 pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (19,1,1) = {"
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 pn
 BC
 BC
@@ -2368,9 +2711,23 @@ yk
 LH
 BC
 pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (20,1,1) = {"
-KH
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 pn
 BC
 BC
@@ -2401,9 +2758,23 @@ lF
 BC
 BC
 BC
-KH
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (21,1,1) = {"
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 pn
 pn
 pn
@@ -2436,38 +2807,1835 @@ BC
 uu
 pn
 pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
 "}
 (22,1,1) = {"
 pn
 pn
-qN
 pn
 pn
-qN
 pn
 pn
-qN
 pn
 pn
-qN
 pn
 pn
-qN
 pn
 pn
-qN
 pn
 pn
-qN
 pn
 pn
-qN
 pn
 pn
-qN
 pn
 pn
-qN
 pn
 pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+pn
+"}
+(23,1,1) = {"
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+"}
+(24,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(25,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(26,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(27,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(28,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(29,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(30,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(31,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(32,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(33,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(34,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(35,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(36,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(37,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(38,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(39,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(40,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(41,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(42,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+ne
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(43,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(44,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(45,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(46,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(47,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(48,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(49,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(50,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(51,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(52,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(53,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(54,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(55,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(56,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(57,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(58,1,1) = {"
+vD
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+Si
+vD
+"}
+(59,1,1) = {"
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
+vD
 "}
