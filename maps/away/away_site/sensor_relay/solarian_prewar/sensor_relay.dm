@@ -4,13 +4,16 @@
 	Department of Colonization as a method of making interstellar travel safer. Thousands of these 'beacon stations' were built by the Alliance and many were abandoned during the \
 	Interstellar War and its aftermath. While they have been mostly replaced in more developed sectors, such as Liberty's Cradle and the Jewel Worlds, beacon stations are still \
 	a common sight in less developed sectors of the Orion Spur such as the Badlands and Weeping Stars."
-	prefix = "away_site/sensor_relay/"
+	prefix = "away_site/sensor_relay/solarian_prewar/"
 	suffixes = list("sensor_relay.dmm")
 
 	sectors = ALL_POSSIBLE_SECTORS
 	id = "sensor_relay"
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
-	sectors_blacklist = list(SECTOR_LEMURIAN_SEA) //because finding a sensor relay in hell would be weird
+	sectors_blacklist = list(
+		SECTOR_LEMURIAN_SEA, // Because finding a sensor relay in hell would be weird
+		SECTOR_UUEOAESA // Because there is a specific relay variant in Uueoa-Esa
+		)
 
 	unit_test_groups = list(1)
 
@@ -47,7 +50,7 @@
 
 //Areas
 /area/sensor_relay
-	icon = 'maps/away/away_site/sensor_relay/sensor_relay_sprites.dmi'
+	icon = 'maps/away/away_site/sensor_relay/solarian_prewar/sensor_relay_sprites.dmi'
 	name = "Sensor Relay"
 	icon_state = "sensor_base"
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
