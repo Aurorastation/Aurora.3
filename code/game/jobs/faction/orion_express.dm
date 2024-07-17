@@ -210,3 +210,14 @@
 	satchel_faction = /obj/item/storage/backpack/satchel/orion
 	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
 	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
+
+/obj/outfit/job/hangar_tech/event/orion
+	name = "Hangar Technician - Orion Express"
+
+	uniform = /obj/item/clothing/under/rank/hangar_technician/orion
+	id = /obj/item/card/id/orion
+
+	backpack_faction = /obj/item/storage/backpack/orion
+	satchel_faction = /obj/item/storage/backpack/satchel/orion
+	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
+	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
