@@ -58,7 +58,7 @@
 	slot = slot_w_uniform
 	cost = 1
 	faction = "Idris Incorporated"
-	allowed_roles = list("Janitor")
+	allowed_roles = list("Janitor", "Service Personnel")
 
 /datum/gear/faction/idris_sunglasses
 	display_name = "idris security HUD selection"
@@ -625,7 +625,7 @@
 	slot = slot_w_uniform
 	cost = 1
 	faction = "NanoTrasen"
-	allowed_roles = list("Janitor")
+	allowed_roles = list("Janitor", "Service Personnel")
 
 /datum/gear/faction/nt_headwear
 	display_name = "nanotrasen headwear selection"
