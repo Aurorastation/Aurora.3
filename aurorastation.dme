@@ -4002,6 +4002,7 @@
 #include "maps\event\idris_cruise\code\idris_cruise_areas.dm"
 #include "maps\event\moghes\moghes.dm"
 #include "maps\event\moghes\new_blades.dm"
+#include "maps\event\moghes\scanner.dm"
 #include "maps\event\rooftop\code\rooftop.dm"
 #include "maps\event\rooftop\code\rooftop_areas.dm"
 #include "maps\event\rooftop\code\rooftop_shuttles.dm"
