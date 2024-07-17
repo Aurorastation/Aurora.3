@@ -4004,7 +4004,6 @@
 #include "maps\event\rooftop\code\rooftop_areas.dm"
 #include "maps\event\rooftop\code\rooftop_shuttles.dm"
 #include "maps\exoplanet_testing\exoplanet_testing.dm"
-#include "maps\helpers\event shuttles\sccv_opossum_files\sccv_opossum _code.dm"
 #include "maps\random_ruins\exoplanets\exoplanet_ruins.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_abadoned_village.dm"
 #include "maps\random_ruins\exoplanets\adhomai\adhomai_abandoned_labor_camp.dm"
