@@ -1,12 +1,12 @@
 /area/new_blades
-	name = "The Wasteland"
+	name = "Zazalai Exteriors"
 	icon_state = "green"
 	requires_power = FALSE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/desert
 	ambience = AMBIENCE_DESERT
-	area_blurb = "Heat, sand, and dust surround you. The air smells of burning rubber as the wind stirs spirals of dust about your feet. The heat is overpowering."
+	area_blurb = "The heat of the desert is not as brutal here, but it is still a constant presence, even this high in the mountains."
 	is_outside = OUTSIDE_YES
 	var/lighting = TRUE
 
@@ -29,7 +29,7 @@
 	base_turf = /turf/simulated/floor/exoplanet/barren/warm
 	ambience = AMBIENCE_RUINS
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
-	area_blurb = "The caverns are dark and quiet, a merciful reprise from the Wasteland outside."
+	area_blurb = "The caverns are dark and quiet, the mountains closing around you."
 	is_outside = OUTSIDE_NO
 
 // EVENT FIVE AREAS (Mudki)
