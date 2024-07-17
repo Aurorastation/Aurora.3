@@ -51,7 +51,9 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	is_outside = FALSE
 
-
+/area/sccv_opossum/hanger
+	name = "Opossum Hanger"
+	icon_state = "quartloading"
 // --------------------- shuttle landmark base
 
 /obj/effect/shuttle_landmark/scc_passanger_shuttle
