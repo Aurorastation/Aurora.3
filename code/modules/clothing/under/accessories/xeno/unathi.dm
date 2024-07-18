@@ -100,6 +100,12 @@
 	they can live up to half a millenia- should enough foolish adventurers try to slay it, that is."
 	worn_overlay = "mountain"
 
+/obj/item/clothing/accessory/poncho/unathimantle/jungle
+	name = "jungle hide mantle"
+	desc = "The cured hide and skin of a large beast, tapered off with a colorful collar. "
+	desc_extended = "placeholder"
+	worn_overlay = "jungle"
+
 /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
 	name = "hephaestus guild mantle"
 	desc = "The cured hide and skin of a large beast, dyed in the deep green of Hephaestus Industries. These mantles are reserved for guildsmen of Haphaestus Industries, \
