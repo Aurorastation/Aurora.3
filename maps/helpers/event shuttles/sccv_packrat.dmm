@@ -728,10 +728,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"ql" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
-/area/space)
 "qs" = (
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
@@ -1021,11 +1017,11 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "uu" = (
-/obj/effect/floor_decal/industrial/arrow/service{
-	pixel_y = -16
+/obj/effect/floor_decal/corner/green{
+	dir = 10
 	},
 /obj/effect/floor_decal/corner/green{
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -1038,13 +1034,15 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "vc" = (
-/obj/machinery/door/blast/regular/open,
-/obj/machinery/door/airlock/multi_tile{
-	dir = 2;
-	name = "external airlock"
+/obj/machinery/door/blast/regular/open{
+	id = "shuttle_bridge_blast_doors"
 	},
 /obj/structure/plasticflaps/airtight{
 	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile{
+	dir = 2;
+	name = "external airlock"
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
@@ -1084,7 +1082,9 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "wA" = (
-/obj/machinery/door/blast/regular/open,
+/obj/machinery/door/blast/regular/open{
+	id = "shuttle_bridge_blast_doors"
+	},
 /obj/structure/plasticflaps/airtight{
 	dir = 4
 	},
@@ -1147,6 +1147,9 @@
 "yl" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -1857,15 +1860,6 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled,
 /area/space)
-"MV" = (
-/obj/effect/floor_decal/industrial/arrow/service{
-	pixel_y = -16
-	},
-/obj/effect/floor_decal/corner/green{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/space)
 "Nu" = (
 /obj/machinery/light{
 	dir = 4
@@ -2301,9 +2295,7 @@
 /turf/simulated/floor,
 /area/space)
 "Yg" = (
-/obj/structure/bed/handrail{
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/outline_straight/service,
 /obj/machinery/light/floor{
 	dir = 4;
 	pixel_y = 16
@@ -2350,10 +2342,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
-"YH" = (
-/obj/effect/floor_decal/industrial/outline_door/security,
-/turf/simulated/floor/tiled/dark,
 /area/space)
 "YL" = (
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -2644,7 +2632,7 @@ Ux
 YL
 YL
 YL
-uu
+YL
 yl
 mG
 lr
@@ -2675,7 +2663,7 @@ Ux
 YL
 YL
 YL
-uu
+YL
 yl
 gt
 oD
@@ -2740,7 +2728,7 @@ uf
 uf
 LR
 mG
-ql
+oD
 Fl
 kh
 Ho
@@ -2768,8 +2756,8 @@ hU
 Wy
 Wy
 Wy
-MV
-yl
+Wy
+uu
 mG
 oD
 Fl
@@ -2799,8 +2787,8 @@ hU
 Wy
 Wy
 Wy
-MV
-yl
+Wy
+uu
 mG
 oD
 Fl
@@ -3078,7 +3066,7 @@ Ux
 YL
 YL
 YL
-uu
+YL
 yl
 mG
 oD
@@ -3109,7 +3097,7 @@ Ux
 YL
 YL
 YL
-uu
+YL
 yl
 mG
 oD
@@ -3174,7 +3162,7 @@ uf
 uf
 LR
 mG
-YH
+oD
 TL
 pY
 Id
@@ -3202,8 +3190,8 @@ hU
 Wy
 Wy
 Wy
-MV
-yl
+Wy
+uu
 gt
 oD
 Fl
@@ -3233,8 +3221,8 @@ hU
 Wy
 Wy
 Wy
-MV
-yl
+Wy
+uu
 mG
 Yg
 Fl

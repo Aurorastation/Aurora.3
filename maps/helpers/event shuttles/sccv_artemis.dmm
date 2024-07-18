@@ -18,34 +18,10 @@
 /area/space)
 "aH" = (
 /obj/structure/table/standard,
-/obj/item/device/radio{
-	pixel_x = -6;
-	pixel_y = 6
+/obj/item/storage/box/inhalers{
+	pixel_y = 16
 	},
-/obj/item/device/radio{
-	pixel_x = -6;
-	pixel_y = 6
-	},
-/obj/item/device/radio{
-	pixel_x = 5;
-	pixel_y = 6
-	},
-/obj/item/device/radio{
-	pixel_x = 5;
-	pixel_y = 6
-	},
-/obj/item/device/gps/medical{
-	pixel_x = -7
-	},
-/obj/item/device/gps/medical{
-	pixel_x = 5
-	},
-/obj/item/device/gps/medical{
-	pixel_x = -7
-	},
-/obj/item/device/gps/medical{
-	pixel_x = 5
-	},
+/obj/item/storage/box/inhalers_auto,
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
@@ -55,54 +31,6 @@
 /obj/structure/table/rack/retail_shelf{
 	name = "shelves"
 	},
-/obj/item/device/flashlight/on{
-	pixel_y = -8;
-	pixel_x = 4
-	},
-/obj/item/device/flashlight/on{
-	pixel_y = -8;
-	pixel_x = 4
-	},
-/obj/item/device/flashlight/on{
-	pixel_y = -8;
-	pixel_x = 4
-	},
-/obj/item/device/flashlight/on{
-	pixel_y = -8;
-	pixel_x = 4
-	},
-/obj/item/device/flashlight/on{
-	pixel_y = -8;
-	pixel_x = 4
-	},
-/obj/item/device/flashlight/on{
-	pixel_y = -8;
-	pixel_x = 4
-	},
-/obj/item/device/flashlight/on{
-	pixel_y = -8;
-	pixel_x = 4
-	},
-/obj/item/device/flashlight/on{
-	pixel_y = -8;
-	pixel_x = 4
-	},
-/obj/item/device/flashlight/on{
-	pixel_y = -8;
-	pixel_x = 4
-	},
-/obj/item/device/flashlight/on{
-	pixel_y = -8;
-	pixel_x = 4
-	},
-/obj/item/device/flashlight/on{
-	pixel_y = -8;
-	pixel_x = 4
-	},
-/obj/item/device/flashlight/on{
-	pixel_y = -8;
-	pixel_x = 4
-	},
 /obj/item/crowbar,
 /obj/item/crowbar,
 /obj/item/crowbar,
@@ -113,6 +41,54 @@
 /obj/item/crowbar,
 /obj/item/crowbar,
 /obj/item/crowbar,
+/obj/item/device/flashlight{
+	pixel_y = -8;
+	pixel_x = 4
+	},
+/obj/item/device/flashlight{
+	pixel_y = -8;
+	pixel_x = 4
+	},
+/obj/item/device/flashlight{
+	pixel_y = -8;
+	pixel_x = 4
+	},
+/obj/item/device/flashlight{
+	pixel_y = -8;
+	pixel_x = 4
+	},
+/obj/item/device/flashlight{
+	pixel_y = -8;
+	pixel_x = 4
+	},
+/obj/item/device/flashlight{
+	pixel_y = -8;
+	pixel_x = 4
+	},
+/obj/item/device/flashlight{
+	pixel_y = -8;
+	pixel_x = 4
+	},
+/obj/item/device/flashlight{
+	pixel_y = -8;
+	pixel_x = 4
+	},
+/obj/item/device/flashlight{
+	pixel_y = -8;
+	pixel_x = 4
+	},
+/obj/item/device/flashlight{
+	pixel_y = -8;
+	pixel_x = 4
+	},
+/obj/item/device/flashlight{
+	pixel_y = -8;
+	pixel_x = 4
+	},
+/obj/item/device/flashlight{
+	pixel_y = -8;
+	pixel_x = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "bH" = (
@@ -217,6 +193,9 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
+/obj/effect/floor_decal/corner/green{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "cV" = (
@@ -319,15 +298,6 @@
 /obj/item/device/gps/engineering,
 /obj/item/device/gps/engineering,
 /turf/simulated/floor/tiled/steel,
-/area/space)
-"eQ" = (
-/obj/effect/floor_decal/industrial/arrow/service{
-	pixel_y = -16
-	},
-/obj/effect/floor_decal/corner/green{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
 /area/space)
 "eX" = (
 /obj/machinery/door/airlock/freezer{
@@ -518,9 +488,6 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "hS" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "volunteer gun cabinet"
-	},
 /obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
 /obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
 /obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
@@ -532,6 +499,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "volunteer gun cabinet"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -582,9 +552,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "jJ" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "security gun cabinet"
-	},
 /obj/item/gun/projectile/peac,
 /obj/item/ammo_casing/peac,
 /obj/item/ammo_casing/peac,
@@ -599,6 +566,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "PEAC (Emergency Use Only)"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -713,14 +683,40 @@
 /obj/structure/table/standard,
 /obj/item/storage/toolbox/mechanical{
 	pixel_x = 2;
-	pixel_y = 12
-	},
-/obj/item/storage/box/freezer/organcooler{
-	pixel_x = -1;
-	pixel_y = 3
+	pixel_y = -3
 	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
+	},
+/obj/item/roller{
+	pixel_y = 19
+	},
+/obj/item/roller{
+	pixel_y = 19
+	},
+/obj/item/roller{
+	pixel_y = 19
+	},
+/obj/item/roller{
+	pixel_y = 19
+	},
+/obj/item/roller{
+	pixel_y = 19
+	},
+/obj/item/roller{
+	pixel_y = 5
+	},
+/obj/item/roller{
+	pixel_y = 5
+	},
+/obj/item/roller{
+	pixel_y = 5
+	},
+/obj/item/roller{
+	pixel_y = 5
+	},
+/obj/item/roller{
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -1193,6 +1189,21 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/bodybag/cryobag{
+	pixel_y = 20
+	},
+/obj/item/bodybag/cryobag{
+	pixel_y = 17
+	},
+/obj/item/bodybag/cryobag{
+	pixel_y = 14
+	},
+/obj/item/bodybag/cryobag{
+	pixel_y = 11
+	},
+/obj/item/bodybag/cryobag{
+	pixel_y = 11
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "ux" = (
@@ -1237,9 +1248,6 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "vh" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "volunteer gun cabinet"
-	},
 /obj/item/gun/projectile/leyon,
 /obj/item/gun/projectile/leyon,
 /obj/item/gun/projectile/leyon,
@@ -1257,6 +1265,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "sidearm cabinet"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -1468,44 +1479,20 @@
 /area/space)
 "zc" = (
 /obj/structure/table/standard,
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -1557,9 +1544,6 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "zs" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "volunteer gun cabinet"
-	},
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
 /obj/item/gun/energy/gun,
@@ -1571,6 +1555,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "volunteer gun cabinet"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -1624,9 +1611,6 @@
 /turf/simulated/floor/tiled/full,
 /area/space)
 "AI" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "volunteer gun cabinet"
-	},
 /obj/item/clothing/head/helmet/security,
 /obj/item/clothing/head/helmet/security,
 /obj/item/clothing/head/helmet/security,
@@ -1652,6 +1636,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "armor cabinet"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -1715,9 +1702,6 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "Cp" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "security gun cabinet"
-	},
 /obj/item/gun/projectile/sec/lethal,
 /obj/item/gun/projectile/sec/lethal,
 /obj/item/gun/projectile/sec/lethal,
@@ -1735,6 +1719,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "sidearm cabinet"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -1902,16 +1889,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
-"DH" = (
-/obj/effect/floor_decal/spline/plain/red,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/space)
 "DK" = (
-/obj/effect/floor_decal/industrial/arrow/service{
-	pixel_y = -16
+/obj/effect/floor_decal/corner/green{
+	dir = 10
 	},
 /obj/effect/floor_decal/corner/green{
 	dir = 1
@@ -2035,36 +2015,37 @@
 /area/space)
 "FN" = (
 /obj/structure/table/standard,
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 10
+/obj/item/device/radio{
+	pixel_x = -6;
+	pixel_y = 16
 	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 8
+/obj/item/device/radio{
+	pixel_x = -6;
+	pixel_y = 16
 	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 5
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 2
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 2
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 2
-	},
-/obj/item/storage/box/inhalers{
+/obj/item/device/radio{
 	pixel_x = 5;
-	pixel_y = 11
+	pixel_y = 16
 	},
-/obj/item/storage/box/inhalers_auto{
-	pixel_x = 5
+/obj/item/device/radio{
+	pixel_x = 5;
+	pixel_y = 16
+	},
+/obj/item/device/gps/medical{
+	pixel_x = -7;
+	pixel_y = 0
+	},
+/obj/item/device/gps/medical{
+	pixel_x = 5;
+	pixel_y = 0
+	},
+/obj/item/device/gps/medical{
+	pixel_x = -7;
+	pixel_y = 0
+	},
+/obj/item/device/gps/medical{
+	pixel_x = 5;
+	pixel_y = 0
 	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
@@ -2084,12 +2065,6 @@
 /area/space)
 "Gi" = (
 /obj/structure/table/standard,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
 /obj/item/clothing/under/rank/medical/surgeon,
 /obj/item/clothing/under/rank/medical/surgeon,
 /obj/item/clothing/under/rank/medical/surgeon,
@@ -2099,16 +2074,24 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
-/obj/item/storage/belt/medical/paramedic,
-/obj/item/storage/belt/medical/paramedic,
-/obj/item/storage/belt/medical/paramedic,
-/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic{
+	pixel_y = 7
+	},
+/obj/item/storage/belt/medical/paramedic{
+	pixel_y = 7
+	},
+/obj/item/storage/belt/medical/paramedic{
+	pixel_y = 7
+	},
+/obj/item/storage/belt/medical/paramedic{
+	pixel_y = 7
+	},
+/obj/item/storage/belt/medical/paramedic{
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Gk" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "security gun cabinet"
-	},
 /obj/item/clothing/suit/armor/carrier/heavy/sec,
 /obj/item/clothing/suit/armor/carrier/heavy/sec,
 /obj/item/clothing/suit/armor/carrier/heavy/sec,
@@ -2138,13 +2121,13 @@
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "armor cabinet"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "Gl" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "volunteer gun cabinet"
-	},
 /obj/item/ammo_magazine/a556/carbine/polymer,
 /obj/item/ammo_magazine/a556/carbine/polymer,
 /obj/item/ammo_magazine/a556/carbine/polymer,
@@ -2162,6 +2145,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "556 ammo cabinet"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -2499,9 +2485,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "security gun cabinet"
-	},
 /obj/item/ammo_magazine/a556/carbine,
 /obj/item/ammo_magazine/a556/carbine,
 /obj/item/ammo_magazine/a556/carbine,
@@ -2516,6 +2499,9 @@
 /obj/item/ammo_magazine/a556/carbine,
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "556 ammo cabinet"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -2642,6 +2628,28 @@
 /obj/item/auto_cpr,
 /obj/item/auto_cpr,
 /obj/item/auto_cpr,
+/obj/item/storage/belt/medical{
+	pixel_y = -13
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -13
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -13
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -13
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -13
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -13
+	},
+/obj/item/storage/box/freezer/organcooler{
+	pixel_x = -1;
+	pixel_y = 17
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Ne" = (
@@ -3206,7 +3214,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "UE" = (
-/obj/machinery/door/blast/regular/open,
+/obj/machinery/door/blast/regular/open{
+	id = "shuttle_bridge_blast_doors"
+	},
 /obj/structure/plasticflaps/airtight{
 	dir = 4
 	},
@@ -3300,13 +3310,15 @@
 /turf/simulated/floor/tiled/full,
 /area/space)
 "WU" = (
-/obj/machinery/door/blast/regular/open,
-/obj/machinery/door/airlock/multi_tile{
-	dir = 2;
-	name = "external airlock"
+/obj/machinery/door/blast/regular/open{
+	id = "shuttle_bridge_blast_doors"
 	},
 /obj/structure/plasticflaps/airtight{
 	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile{
+	dir = 2;
+	name = "external airlock"
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
@@ -3357,9 +3369,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "security gun cabinet"
-	},
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
 /obj/item/ammo_magazine/c45m,
@@ -3374,6 +3383,9 @@
 /obj/item/ammo_magazine/c45m,
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "sidearm ammo cabinet"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -3476,9 +3488,6 @@
 /turf/simulated/floor,
 /area/space)
 "Zx" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "volunteer gun cabinet"
-	},
 /obj/item/ammo_magazine/mc10mm/leyon,
 /obj/item/ammo_magazine/mc10mm/leyon,
 /obj/item/ammo_magazine/mc10mm/leyon,
@@ -3504,6 +3513,9 @@
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "sidearm ammo cabinet"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -3701,8 +3713,8 @@ Od
 WB
 WB
 WB
+WB
 DK
-cL
 Bh
 cF
 NI
@@ -3741,8 +3753,8 @@ Od
 WB
 WB
 WB
+WB
 DK
-cL
 RZ
 gb
 NI
@@ -3861,7 +3873,7 @@ Qg
 LL
 LL
 LL
-eQ
+LL
 cL
 Bh
 gb
@@ -3901,7 +3913,7 @@ Qg
 LL
 LL
 LL
-eQ
+LL
 cL
 Bh
 gb
@@ -4261,8 +4273,8 @@ Od
 WB
 WB
 WB
+WB
 DK
-cL
 Bh
 gb
 NI
@@ -4301,8 +4313,8 @@ Od
 WB
 WB
 WB
+WB
 DK
-cL
 Bh
 gb
 NI
@@ -4421,7 +4433,7 @@ Qg
 LL
 LL
 LL
-eQ
+LL
 cL
 RZ
 gb
@@ -4461,7 +4473,7 @@ Qg
 LL
 LL
 LL
-eQ
+LL
 cL
 Bh
 Gu
@@ -4493,7 +4505,7 @@ xF
 No
 No
 No
-DH
+El
 nt
 WR
 NI
@@ -4533,7 +4545,7 @@ NI
 Zw
 Zw
 Zw
-Zw
+NI
 NI
 NI
 NI

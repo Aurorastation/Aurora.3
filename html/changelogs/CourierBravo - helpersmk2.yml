@@ -55,8 +55,9 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added several pre made shuttles to the helpers. The SCCV Artemis, SCCV Apollo & its two variants, the SCCV Packrat, and the SCCV Opossum. These are intended to be used for events."
+  - rscadd: "Added several pre made shuttles to the helpers. The SCCV Artemis, SCCV Apollo & its two variants, and the SCCV Packrat. These are intended to be used for events."
   - rscadd: "Added a long list of color variants of various floor decals "
   - rscadd: "Added a new atmos helper, atmos_pipes."
+  - refactor: "Split the outline/engineering decal, which is brown, into two new decals. outline/engineering and outline/operations. outline/engineering is now engineering yellow, outline/operations is brown. All maps with outline/engineering have been changed to reflect this."
   - bugfix: "Fixed the wonky lighting for various pre-fab helpers added previously."
 

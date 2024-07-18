@@ -307,7 +307,8 @@
 /area/space)
 "ed" = (
 /obj/machinery/door/airlock/freezer{
-	name = "Stall 2"
+	name = "Stall 2";
+	id_tag = "shuttle_stall_2"
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
@@ -394,44 +395,20 @@
 /area/space)
 "fM" = (
 /obj/structure/table/standard,
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -546,12 +523,6 @@
 /area/space)
 "hp" = (
 /obj/structure/table/standard,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
 /obj/item/clothing/under/rank/medical/surgeon,
 /obj/item/clothing/under/rank/medical/surgeon,
 /obj/item/clothing/under/rank/medical/surgeon,
@@ -561,10 +532,21 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
-/obj/item/storage/belt/medical/paramedic,
-/obj/item/storage/belt/medical/paramedic,
-/obj/item/storage/belt/medical/paramedic,
-/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic{
+	pixel_y = 7
+	},
+/obj/item/storage/belt/medical/paramedic{
+	pixel_y = 7
+	},
+/obj/item/storage/belt/medical/paramedic{
+	pixel_y = 7
+	},
+/obj/item/storage/belt/medical/paramedic{
+	pixel_y = 7
+	},
+/obj/item/storage/belt/medical/paramedic{
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "hq" = (
@@ -724,36 +706,37 @@
 /area/space)
 "jo" = (
 /obj/structure/table/standard,
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 10
+/obj/item/device/radio{
+	pixel_x = -6;
+	pixel_y = 16
 	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 8
+/obj/item/device/radio{
+	pixel_x = -6;
+	pixel_y = 16
 	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 5
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 2
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 2
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 2
-	},
-/obj/item/storage/box/inhalers{
+/obj/item/device/radio{
 	pixel_x = 5;
-	pixel_y = 11
+	pixel_y = 16
 	},
-/obj/item/storage/box/inhalers_auto{
-	pixel_x = 5
+/obj/item/device/radio{
+	pixel_x = 5;
+	pixel_y = 16
+	},
+/obj/item/device/gps/medical{
+	pixel_x = -7;
+	pixel_y = 0
+	},
+/obj/item/device/gps/medical{
+	pixel_x = 5;
+	pixel_y = 0
+	},
+/obj/item/device/gps/medical{
+	pixel_x = -7;
+	pixel_y = 0
+	},
+/obj/item/device/gps/medical{
+	pixel_x = 5;
+	pixel_y = 0
 	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
@@ -807,6 +790,15 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"kI" = (
+/obj/machinery/light/floor{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#efbf2f"
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "kN" = (
 /obj/effect/floor_decal/corner/black{
@@ -1030,13 +1022,13 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "nz" = (
-/obj/effect/floor_decal/industrial/arrow/service{
-	pixel_y = -16
+/obj/machinery/light/floor{
+	dir = 4
 	},
-/obj/effect/floor_decal/corner/green{
-	dir = 1
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#efbf2f"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "nA" = (
 /obj/item/deployable_kit/surgery_table,
@@ -1228,9 +1220,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "qq" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "556 ammo cabinet"
-	},
 /obj/item/ammo_magazine/a556/carbine/polymer,
 /obj/item/ammo_magazine/a556/carbine/polymer,
 /obj/item/ammo_magazine/a556/carbine/polymer,
@@ -1244,6 +1233,9 @@
 /obj/item/ammo_magazine/a556/carbine/polymer,
 /obj/item/ammo_magazine/a556/carbine/polymer,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "556 ammo cabinet"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "qv" = (
@@ -1276,34 +1268,10 @@
 /area/space)
 "qJ" = (
 /obj/structure/table/standard,
-/obj/item/device/radio{
-	pixel_x = -6;
-	pixel_y = 6
+/obj/item/storage/box/inhalers{
+	pixel_y = 16
 	},
-/obj/item/device/radio{
-	pixel_x = -6;
-	pixel_y = 6
-	},
-/obj/item/device/radio{
-	pixel_x = 5;
-	pixel_y = 6
-	},
-/obj/item/device/radio{
-	pixel_x = 5;
-	pixel_y = 6
-	},
-/obj/item/device/gps/medical{
-	pixel_x = -7
-	},
-/obj/item/device/gps/medical{
-	pixel_x = 5
-	},
-/obj/item/device/gps/medical{
-	pixel_x = -7
-	},
-/obj/item/device/gps/medical{
-	pixel_x = 5
-	},
+/obj/item/storage/box/inhalers_auto,
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
@@ -1657,15 +1625,36 @@
 "yv" = (
 /turf/simulated/floor/tiled,
 /area/space)
+"yy" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "yB" = (
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(19);
+	name = "Command Staff defense locker"
+	},
+/obj/item/gun/energy/repeater/pistol,
+/obj/item/gun/energy/repeater/pistol,
+/obj/item/gun/energy/repeater/pistol,
+/obj/item/gun/energy/repeater/pistol,
+/obj/item/gun/energy/repeater/pistol,
+/obj/item/gun/energy/repeater/pistol,
+/obj/item/gun/energy/repeater/pistol,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "yI" = (
 /obj/machinery/door/airlock/freezer{
-	name = "Stall 1"
+	name = "Stall 1";
+	id_tag = "shuttle_stall_1"
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
@@ -1677,7 +1666,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "za" = (
-/obj/machinery/door/blast/regular/open,
+/obj/machinery/door/blast/regular/open{
+	id = "shuttle_bridge_blast_doors"
+	},
 /obj/structure/plasticflaps/airtight{
 	dir = 4
 	},
@@ -1981,14 +1972,40 @@
 /obj/structure/table/standard,
 /obj/item/storage/toolbox/mechanical{
 	pixel_x = 2;
-	pixel_y = 12
-	},
-/obj/item/storage/box/freezer/organcooler{
-	pixel_x = -1;
-	pixel_y = 3
+	pixel_y = -3
 	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
+	},
+/obj/item/roller{
+	pixel_y = 19
+	},
+/obj/item/roller{
+	pixel_y = 19
+	},
+/obj/item/roller{
+	pixel_y = 19
+	},
+/obj/item/roller{
+	pixel_y = 19
+	},
+/obj/item/roller{
+	pixel_y = 19
+	},
+/obj/item/roller{
+	pixel_y = 5
+	},
+/obj/item/roller{
+	pixel_y = 5
+	},
+/obj/item/roller{
+	pixel_y = 5
+	},
+/obj/item/roller{
+	pixel_y = 5
+	},
+/obj/item/roller{
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -2053,6 +2070,8 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/reagent_containers/blood/sbs,
+/obj/item/reagent_containers/blood/sbs,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Da" = (
@@ -2082,13 +2101,15 @@
 /turf/simulated/floor/tiled/full,
 /area/space)
 "DZ" = (
-/obj/machinery/door/blast/regular/open,
-/obj/machinery/door/airlock/multi_tile{
-	dir = 2;
-	name = "external airlock"
+/obj/machinery/door/blast/regular/open{
+	id = "shuttle_bridge_blast_doors"
 	},
 /obj/structure/plasticflaps/airtight{
 	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile{
+	dir = 2;
+	name = "external airlock"
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
@@ -2301,6 +2322,9 @@
 /obj/effect/floor_decal/corner/green{
 	dir = 10
 	},
+/obj/effect/floor_decal/corner/green{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "IS" = (
@@ -2465,6 +2489,28 @@
 /obj/item/auto_cpr,
 /obj/item/auto_cpr,
 /obj/item/auto_cpr,
+/obj/item/storage/belt/medical{
+	pixel_y = -13
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -13
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -13
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -13
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -13
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -13
+	},
+/obj/item/storage/box/freezer/organcooler{
+	pixel_x = -1;
+	pixel_y = 17
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "JV" = (
@@ -2563,7 +2609,8 @@
 /area/space)
 "Lw" = (
 /obj/machinery/door/airlock/freezer{
-	name = "Stall 3"
+	name = "Stall 3";
+	id_tag = "shuttle_stall_3"
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
@@ -2816,6 +2863,9 @@
 /obj/effect/floor_decal/industrial/outline_door/engineering{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner{
+	color = "#efbf2f"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "PX" = (
@@ -2991,6 +3041,21 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/bodybag/cryobag{
+	pixel_y = 20
+	},
+/obj/item/bodybag/cryobag{
+	pixel_y = 17
+	},
+/obj/item/bodybag/cryobag{
+	pixel_y = 14
+	},
+/obj/item/bodybag/cryobag{
+	pixel_y = 11
+	},
+/obj/item/bodybag/cryobag{
+	pixel_y = 11
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Tf" = (
@@ -3162,13 +3227,10 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "Wb" = (
-/obj/effect/floor_decal/industrial/arrow/service{
-	pixel_y = -16
+/obj/effect/floor_decal/corner/diagonal{
+	color = "#efbf2f"
 	},
-/obj/effect/floor_decal/corner/green{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "Wd" = (
 /obj/effect/floor_decal/spline/plain/green{
@@ -3332,9 +3394,6 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
 /obj/structure/closet/walllocker/medical{
 	name = "Blood Locker";
 	pixel_x = -32
@@ -3343,6 +3402,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/reagent_containers/blood/sbs,
+/obj/item/reagent_containers/blood/sbs,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Zi" = (
@@ -3537,8 +3598,8 @@ YF
 TD
 TD
 TD
-nz
-HX
+TD
+yy
 zL
 wb
 MF
@@ -3577,8 +3638,8 @@ YF
 TD
 TD
 TD
-nz
-HX
+TD
+yy
 La
 Kz
 MF
@@ -3697,7 +3758,7 @@ om
 Ln
 Ln
 Ln
-Wb
+Ln
 HX
 zL
 Kz
@@ -3737,7 +3798,7 @@ om
 Ln
 Ln
 Ln
-Wb
+Ln
 HX
 zL
 Kz
@@ -4003,8 +4064,8 @@ zL
 zL
 FJ
 MF
-zL
-zL
+Wb
+Wb
 Wo
 MF
 Hl
@@ -4043,8 +4104,8 @@ qe
 xU
 eB
 MF
-zL
-xU
+Wb
+kI
 Bm
 MF
 Sc
@@ -4083,8 +4144,8 @@ JI
 yv
 eB
 MF
-zL
-yv
+Wb
+Wb
 es
 MF
 LQ
@@ -4097,8 +4158,8 @@ YF
 TD
 TD
 TD
-nz
-HX
+TD
+yy
 zL
 Kz
 MF
@@ -4123,8 +4184,8 @@ PX
 yv
 eB
 MF
-zL
-yv
+Wb
+Wb
 vk
 MF
 ZO
@@ -4137,8 +4198,8 @@ YF
 TD
 TD
 TD
-nz
-HX
+TD
+yy
 zL
 Kz
 MF
@@ -4163,8 +4224,8 @@ tb
 yv
 eB
 MF
-zL
-yv
+Wb
+Wb
 Gf
 MF
 Fe
@@ -4203,8 +4264,8 @@ tN
 yv
 eB
 MF
-zL
-yv
+Wb
+Wb
 Jz
 MF
 Li
@@ -4243,8 +4304,8 @@ tN
 yv
 eB
 MF
-zL
-yv
+Wb
+Wb
 je
 MF
 Li
@@ -4257,7 +4318,7 @@ om
 Ln
 Ln
 Ln
-Wb
+Ln
 HX
 La
 Kz
@@ -4283,8 +4344,8 @@ qe
 Py
 eB
 MF
-zL
-Py
+Wb
+nz
 IV
 MF
 Li
@@ -4297,7 +4358,7 @@ om
 Ln
 Ln
 Ln
-Wb
+Ln
 HX
 zL
 XU
@@ -4324,7 +4385,7 @@ zL
 um
 Uu
 PV
-zL
+Wb
 Mp
 MF
 cl

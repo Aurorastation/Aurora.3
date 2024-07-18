@@ -90,7 +90,8 @@
 /area/space)
 "aX" = (
 /obj/machinery/door/airlock/freezer{
-	name = "Stall 2"
+	name = "Stall 2";
+	id_tag = "shuttle_stall_2"
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
@@ -444,9 +445,6 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
 /obj/structure/closet/walllocker/medical{
 	name = "Blood Locker";
 	pixel_x = -32
@@ -455,6 +453,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/reagent_containers/blood/sbs,
+/obj/item/reagent_containers/blood/sbs,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "eE" = (
@@ -515,15 +515,6 @@
 /obj/effect/floor_decal/industrial/outline/medical/dark_green,
 /turf/simulated/floor/tiled/white,
 /area/space)
-"fX" = (
-/obj/effect/floor_decal/industrial/arrow/service{
-	pixel_y = -16
-	},
-/obj/effect/floor_decal/corner/green{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/space)
 "fY" = (
 /obj/machinery/light{
 	dir = 8
@@ -531,13 +522,15 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "fZ" = (
-/obj/machinery/door/blast/regular/open,
-/obj/machinery/door/airlock/multi_tile{
-	dir = 2;
-	name = "external airlock"
+/obj/machinery/door/blast/regular/open{
+	id = "shuttle_bridge_blast_doors"
 	},
 /obj/structure/plasticflaps/airtight{
 	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile{
+	dir = 2;
+	name = "external airlock"
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
@@ -896,6 +889,8 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/reagent_containers/blood/sbs,
+/obj/item/reagent_containers/blood/sbs,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "mN" = (
@@ -1125,34 +1120,10 @@
 /area/space)
 "pS" = (
 /obj/structure/table/standard,
-/obj/item/device/radio{
-	pixel_x = -6;
-	pixel_y = 6
+/obj/item/storage/box/inhalers{
+	pixel_y = 16
 	},
-/obj/item/device/radio{
-	pixel_x = -6;
-	pixel_y = 6
-	},
-/obj/item/device/radio{
-	pixel_x = 5;
-	pixel_y = 6
-	},
-/obj/item/device/radio{
-	pixel_x = 5;
-	pixel_y = 6
-	},
-/obj/item/device/gps/medical{
-	pixel_x = -7
-	},
-/obj/item/device/gps/medical{
-	pixel_x = 5
-	},
-/obj/item/device/gps/medical{
-	pixel_x = -7
-	},
-/obj/item/device/gps/medical{
-	pixel_x = 5
-	},
+/obj/item/storage/box/inhalers_auto,
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
 	},
@@ -1277,7 +1248,9 @@
 /turf/simulated/floor,
 /area/space)
 "rB" = (
-/obj/machinery/door/blast/regular/open,
+/obj/machinery/door/blast/regular/open{
+	id = "shuttle_bridge_blast_doors"
+	},
 /obj/structure/plasticflaps/airtight{
 	dir = 4
 	},
@@ -1681,11 +1654,27 @@
 /obj/item/auto_cpr,
 /obj/item/auto_cpr,
 /obj/item/auto_cpr,
-/obj/item/storage/box/gloves{
-	pixel_y = -16
+/obj/item/storage/belt/medical{
+	pixel_y = -13
 	},
-/obj/item/storage/box/gloves{
-	pixel_y = -16
+/obj/item/storage/belt/medical{
+	pixel_y = -13
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -13
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -13
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -13
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -13
+	},
+/obj/item/storage/box/freezer/organcooler{
+	pixel_x = -1;
+	pixel_y = 17
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -1741,44 +1730,20 @@
 /area/space)
 "yN" = (
 /obj/structure/table/standard,
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -1906,11 +1871,11 @@
 /turf/simulated/floor/carpet/rubber,
 /area/space)
 "Bl" = (
-/obj/effect/floor_decal/industrial/arrow/service{
-	pixel_y = -16
+/obj/effect/floor_decal/corner/green{
+	dir = 10
 	},
 /obj/effect/floor_decal/corner/green{
-	dir = 1
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -2043,7 +2008,8 @@
 /area/space)
 "DC" = (
 /obj/machinery/door/airlock/freezer{
-	name = "Stall 1"
+	name = "Stall 1";
+	id_tag = "shuttle_stall_1"
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
@@ -2076,6 +2042,9 @@
 "DV" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 10
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -2232,6 +2201,21 @@
 /obj/item/clothing/accessory/armband/med,
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/item/bodybag/cryobag{
+	pixel_y = 20
+	},
+/obj/item/bodybag/cryobag{
+	pixel_y = 17
+	},
+/obj/item/bodybag/cryobag{
+	pixel_y = 14
+	},
+/obj/item/bodybag/cryobag{
+	pixel_y = 11
+	},
+/obj/item/bodybag/cryobag{
+	pixel_y = 11
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -2471,6 +2455,17 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(19);
+	name = "Command Staff defense locker"
+	},
+/obj/item/gun/energy/repeater/pistol,
+/obj/item/gun/energy/repeater/pistol,
+/obj/item/gun/energy/repeater/pistol,
+/obj/item/gun/energy/repeater/pistol,
+/obj/item/gun/energy/repeater/pistol,
+/obj/item/gun/energy/repeater/pistol,
+/obj/item/gun/energy/repeater/pistol,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "Lb" = (
@@ -2502,7 +2497,8 @@
 /area/space)
 "LO" = (
 /obj/machinery/door/airlock/freezer{
-	name = "Stall 3"
+	name = "Stall 3";
+	id_tag = "shuttle_stall_3"
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
@@ -2557,12 +2553,6 @@
 /area/space)
 "MI" = (
 /obj/structure/table/standard,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
 /obj/item/clothing/under/rank/medical/surgeon,
 /obj/item/clothing/under/rank/medical/surgeon,
 /obj/item/clothing/under/rank/medical/surgeon,
@@ -2572,10 +2562,21 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
 	},
-/obj/item/storage/belt/medical/paramedic,
-/obj/item/storage/belt/medical/paramedic,
-/obj/item/storage/belt/medical/paramedic,
-/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic{
+	pixel_y = 7
+	},
+/obj/item/storage/belt/medical/paramedic{
+	pixel_y = 7
+	},
+/obj/item/storage/belt/medical/paramedic{
+	pixel_y = 7
+	},
+/obj/item/storage/belt/medical/paramedic{
+	pixel_y = 7
+	},
+/obj/item/storage/belt/medical/paramedic{
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "MK" = (
@@ -2926,36 +2927,37 @@
 /area/space)
 "Th" = (
 /obj/structure/table/standard,
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 10
+/obj/item/device/radio{
+	pixel_x = -6;
+	pixel_y = 16
 	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 8
+/obj/item/device/radio{
+	pixel_x = -6;
+	pixel_y = 16
 	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 5
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 2
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 2
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 2
-	},
-/obj/item/storage/box/inhalers{
+/obj/item/device/radio{
 	pixel_x = 5;
-	pixel_y = 11
+	pixel_y = 16
 	},
-/obj/item/storage/box/inhalers_auto{
-	pixel_x = 5
+/obj/item/device/radio{
+	pixel_x = 5;
+	pixel_y = 16
+	},
+/obj/item/device/gps/medical{
+	pixel_x = -7;
+	pixel_y = 0
+	},
+/obj/item/device/gps/medical{
+	pixel_x = 5;
+	pixel_y = 0
+	},
+/obj/item/device/gps/medical{
+	pixel_x = -7;
+	pixel_y = 0
+	},
+/obj/item/device/gps/medical{
+	pixel_x = 5;
+	pixel_y = 0
 	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 8
@@ -3170,14 +3172,40 @@
 /obj/structure/table/standard,
 /obj/item/storage/toolbox/mechanical{
 	pixel_x = 2;
-	pixel_y = 12
-	},
-/obj/item/storage/box/freezer/organcooler{
-	pixel_x = -1;
-	pixel_y = 3
+	pixel_y = -3
 	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 4
+	},
+/obj/item/roller{
+	pixel_y = 19
+	},
+/obj/item/roller{
+	pixel_y = 19
+	},
+/obj/item/roller{
+	pixel_y = 19
+	},
+/obj/item/roller{
+	pixel_y = 19
+	},
+/obj/item/roller{
+	pixel_y = 19
+	},
+/obj/item/roller{
+	pixel_y = 5
+	},
+/obj/item/roller{
+	pixel_y = 5
+	},
+/obj/item/roller{
+	pixel_y = 5
+	},
+/obj/item/roller{
+	pixel_y = 5
+	},
+/obj/item/roller{
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -3502,7 +3530,7 @@ aS
 RC
 RC
 RC
-Bl
+RC
 DV
 kN
 HG
@@ -3542,7 +3570,7 @@ aS
 RC
 RC
 RC
-Bl
+RC
 DV
 om
 Gh
@@ -3662,8 +3690,8 @@ Jk
 rN
 rN
 rN
-fX
-DV
+rN
+Bl
 kN
 Gh
 lz
@@ -3702,8 +3730,8 @@ Jk
 rN
 rN
 rN
-fX
-DV
+rN
+Bl
 kN
 Gh
 lz
@@ -4062,7 +4090,7 @@ aS
 RC
 RC
 RC
-Bl
+RC
 DV
 kN
 Gh
@@ -4102,7 +4130,7 @@ aS
 RC
 RC
 RC
-Bl
+RC
 DV
 kN
 Gh
@@ -4222,8 +4250,8 @@ Jk
 rN
 rN
 rN
-fX
-DV
+rN
+Bl
 om
 Gh
 lz
@@ -4262,8 +4290,8 @@ Jk
 rN
 rN
 rN
-fX
-DV
+rN
+Bl
 kN
 mN
 je
