@@ -1,0 +1,5940 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"al" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"ap" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "hegemony_waypoint_hydroponics"
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/hydroponics)
+"av" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/empty/north{
+	req_access = null
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/spider/spiderling,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/kitchen)
+"aV" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/structure/closet/crate{
+	opened = 1
+	},
+/obj/random/loot{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/steel/airless,
+/area/hegemony_waypoint/eva)
+"bd" = (
+/obj/random/dirt_75,
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"bs" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/door/airlock/service{
+	dir = 4;
+	name = "Shrine"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/hegemony_waypoint/shrine)
+"bv" = (
+/obj/machinery/appliance/cooker/stove,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/kitchen)
+"bX" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/spider/spiderling,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/kitchen)
+"bY" = (
+/obj/machinery/atmospherics/binary/pump/scrubber/on{
+	dir = 4
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor,
+/area/hegemony_waypoint/atmos)
+"cg" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/dorms,
+/turf/simulated/wall/shuttle/raider,
+/area/hegemony_waypoint/bunks)
+"cC" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/atmos,
+/turf/simulated/wall/shuttle/raider,
+/area/hegemony_waypoint/atmos)
+"cO" = (
+/obj/structure/bed/stool{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/spider/spiderling,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/kitchen)
+"cQ" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/item/bedsheet/red,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/hegemony_waypoint/bunks)
+"dd" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"dy" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/light/colored/decayed,
+/obj/random/junk{
+	pixel_y = 15;
+	pixel_x = 8
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/kitchen)
+"dA" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters{
+	id = "hegemony_waypoint_shrine";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/shrine)
+"dP" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/cable/green,
+/obj/machinery/power/apc/empty/east{
+	req_access = null
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"eb" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/random/dirt_75,
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"ek" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/atmos)
+"eq" = (
+/obj/structure/bed/stool{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/spider/spiderling,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = 8;
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/kitchen)
+"eA" = (
+/obj/structure/table/steel,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/item/device/binoculars{
+	pixel_y = 11;
+	pixel_x = -4
+	},
+/obj/item/lore_radio,
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "hegemony_waypoint_living quarters";
+	name = "Quarters Shutters";
+	pixel_x = 24;
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/bunks)
+"ff" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/random/junk{
+	pixel_y = 13;
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/atmos)
+"fr" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "hegemony_waypoint_shrine"
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/shrine)
+"gf" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "hegemony_waypoint_living quarters"
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/bunks)
+"gh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/item/material/shard{
+	pixel_y = -12;
+	pixel_x = -5
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"gl" = (
+/obj/structure/bed/stool{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/hegemony_waypoint/kitchen)
+"gY" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor,
+/area/hegemony_waypoint/atmos)
+"hq" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"hu" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/cable/green,
+/obj/machinery/power/apc/empty/east{
+	req_access = null
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"hP" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 10;
+	pixel_y = 28;
+	id = "hegemony_waypoint_shrine";
+	name = "Shrine Shutters"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"in" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/chapel,
+/turf/simulated/wall/shuttle/raider,
+/area/hegemony_waypoint/shrine)
+"iv" = (
+/obj/structure/bed/stool,
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/random/dirt_75,
+/obj/item/trash/tray{
+	pixel_x = 13;
+	pixel_y = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel/airless,
+/area/hegemony_waypoint/kitchen)
+"iG" = (
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/machinery/seed_extractor,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"jp" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/kitchen)
+"js" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "hegemony_waypoint_kitchen"
+	},
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/kitchen)
+"ju" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/bunks)
+"jJ" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/empty/north{
+	req_access = null
+	},
+/obj/random/dirt_75,
+/obj/machinery/vending/hydronutrients,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"jN" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/table,
+/obj/item/stack/material/steel{
+	pixel_y = 7;
+	pixel_x = -3
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/kitchen)
+"kp" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/table/steel,
+/obj/item/pipewrench{
+	pixel_x = 12
+	},
+/obj/item/wrench{
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/empty/north{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/atmos)
+"kt" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/decayed,
+/obj/random/dirt_75,
+/obj/structure/closet/crate,
+/obj/random/loot,
+/obj/random/loot,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"ku" = (
+/obj/structure/bed/stool{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/kitchen)
+"kG" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/random/dirt_75,
+/obj/structure/table/steel,
+/obj/item/tape_roll{
+	pixel_x = 3;
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/atmos)
+"kS" = (
+/obj/machinery/atmospherics/binary/passive_gate/on{
+	dir = 8
+	},
+/obj/machinery/light/colored/decayed,
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/hegemony_waypoint/atmos)
+"kX" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"lA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/item/pipewrench{
+	pixel_y = -14
+	},
+/turf/simulated/floor,
+/area/hegemony_waypoint/atmos)
+"lO" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/box/donkpockets{
+	pixel_y = 9;
+	pixel_x = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/kitchen)
+"lR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/hegemony_waypoint/atmos)
+"ma" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = -11;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_waypoint/bunks)
+"mi" = (
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/storage/box/produce,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/hegemony_waypoint/kitchen)
+"mo" = (
+/obj/machinery/vending/dinnerware,
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/hegemony_waypoint/kitchen)
+"mp" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "hegemony_waypoint_kitchen"
+	},
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/kitchen)
+"mr" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = -13;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/light,
+/area/hegemony_waypoint/kitchen)
+"mu" = (
+/obj/structure/bed/stool{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/kitchen)
+"mB" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/empty/north{
+	req_access = null
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/kitchen)
+"nb" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/item/ore/glass{
+	pixel_y = 11;
+	pixel_x = 6
+	},
+/obj/item/ore/gold{
+	pixel_y = -10;
+	pixel_x = 14
+	},
+/obj/item/ore/gold{
+	pixel_y = 12;
+	pixel_x = -8
+	},
+/obj/item/ore/glass{
+	pixel_y = -6;
+	pixel_x = -2
+	},
+/obj/item/material/shard{
+	pixel_y = 4;
+	pixel_x = 2
+	},
+/obj/item/stack/rods{
+	pixel_x = 6
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/hydroponics)
+"nk" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/machinery/autolathe,
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/atmos)
+"nm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/random/dirt_75,
+/obj/item/ore/glass{
+	pixel_y = -6;
+	pixel_x = 6
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"no" = (
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/random/dirt_75,
+/obj/item/material/shard{
+	pixel_y = 4;
+	pixel_x = 2
+	},
+/obj/structure/grille/broken,
+/obj/item/ore/glass{
+	pixel_x = 6
+	},
+/obj/item/stack/rods{
+	pixel_x = -8
+	},
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/eva)
+"nt" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters{
+	id = "hegemony_waypoint_shrine"
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/shrine)
+"nz" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/obj/item/device/versebook/thakh{
+	pixel_y = 6;
+	pixel_x = 3
+	},
+/obj/effect/decal/cleanable/floor_damage/wood_broken7,
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"nW" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/item/reagent_containers/food/drinks/cans/threetowns{
+	pixel_y = 7;
+	pixel_x = 3
+	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white/airless,
+/area/hegemony_waypoint/kitchen)
+"nX" = (
+/obj/machinery/seed_storage/garden,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"oL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"oO" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/item/clothing/head/unathi/dark{
+	pixel_x = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_waypoint/bunks)
+"pd" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white/airless,
+/area/hegemony_waypoint/kitchen)
+"pe" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters{
+	id = "hegemony_waypoint_living quarters";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/bunks)
+"pr" = (
+/turf/template_noop,
+/area/space)
+"pC" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor,
+/area/hegemony_waypoint/atmos)
+"pH" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/random/dirt_75,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = 8;
+	pixel_y = 9
+	},
+/obj/random/dirt_75,
+/obj/machinery/power/apc/empty/north{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/steel/airless,
+/area/hegemony_waypoint/kitchen)
+"pI" = (
+/obj/random/dirt_75,
+/obj/structure/closet/crate/hydroponics,
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/item/seeds/gukheseed,
+/obj/item/seeds/gukheseed,
+/obj/item/material/hatchet,
+/obj/item/material/minihoe,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/wirecutters/clippers,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"qg" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/structure/closet/crate,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/graphite/full,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"qt" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"qH" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "hegemony_waypoint_atmospherics"
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/atmos)
+"qL" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/simulated/floor/tiled/steel/airless,
+/area/hegemony_waypoint/eva)
+"rq" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_y = -13
+	},
+/turf/simulated/floor,
+/area/hegemony_waypoint/atmos)
+"rz" = (
+/obj/structure/bed/stool,
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = 11
+	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel/airless,
+/area/hegemony_waypoint/kitchen)
+"rC" = (
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "hegemony_waypoint_eva";
+	name = "Storage Shutters";
+	pixel_x = 24
+	},
+/obj/structure/dispenser/oxygen,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel/airless,
+/area/hegemony_waypoint/eva)
+"rZ" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/random/dirt_75,
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/steel/airless,
+/area/hegemony_waypoint/eva)
+"se" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/door/airlock/service{
+	dir = 4;
+	name = "Kitchen";
+	welded = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/hegemony_waypoint/kitchen)
+"sf" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_waypoint/bunks)
+"sg" = (
+/obj/structure/grille/broken,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/item/material/shard{
+	pixel_y = 4;
+	pixel_x = 2
+	},
+/obj/item/stack/rods{
+	pixel_x = 8
+	},
+/obj/machinery/door/blast/shutters{
+	id = "hegemony_waypoint_hydroponics";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/hydroponics)
+"sl" = (
+/obj/machinery/portable_atmospherics/hydroponics{
+	closed_system = 1
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/hydroponics)
+"sC" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/obj/machinery/portable_atmospherics/hydroponics{
+	closed_system = 1
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/hydroponics)
+"sG" = (
+/obj/structure/bed/stool{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = 3;
+	pixel_y = -2
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel/airless,
+/area/hegemony_waypoint/kitchen)
+"sK" = (
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"sV" = (
+/obj/structure/bed/stool/chair/office/dark,
+/obj/random/dirt_75,
+/obj/item/pen{
+	pixel_x = 8;
+	pixel_y = 11
+	},
+/mob/living/simple_animal/rat/gray,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/bunks)
+"tg" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/random/dirt_75,
+/obj/random/loot{
+	pixel_x = 5;
+	pixel_y = -6
+	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/steel/airless,
+/area/hegemony_waypoint/eva)
+"th" = (
+/turf/simulated/wall/shuttle/raider,
+/area/hegemony_waypoint/shrine)
+"to" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice{
+	pixel_y = 11;
+	pixel_x = 14
+	},
+/obj/item/reagent_containers/food/snacks/meat/chicken{
+	pixel_y = 10;
+	pixel_x = -5
+	},
+/obj/item/reagent_containers/food/snacks/meat/chicken{
+	pixel_y = -8;
+	pixel_x = 9
+	},
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/kitchen)
+"tq" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/structure/curtain/open{
+	color = "#222222"
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/hegemony_waypoint/kitchen)
+"ts" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
+/obj/item/ore/glass{
+	pixel_y = 3;
+	pixel_x = 6
+	},
+/obj/item/broken_bottle{
+	pixel_x = -7;
+	pixel_y = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel/airless,
+/area/hegemony_waypoint/kitchen)
+"tv" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/empty/oxygen{
+	destroyed = 1
+	},
+/turf/simulated/floor/tiled/steel/airless,
+/area/hegemony_waypoint/eva)
+"tx" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/item/bedsheet/red,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_waypoint/bunks)
+"tz" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"tD" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/random/junk{
+	pixel_x = -13;
+	pixel_y = 4
+	},
+/obj/structure/table,
+/obj/random/dirt_75,
+/obj/item/stack/material/steel{
+	pixel_y = 9;
+	pixel_x = 6
+	},
+/turf/simulated/floor/tiled/steel/airless,
+/area/hegemony_waypoint/kitchen)
+"tG" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters{
+	id = "hegemony_waypoint_atmospherics";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/atmos)
+"tI" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters/open{
+	id = "hegemony_waypoint_shrine"
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/shrine)
+"tQ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/random/dirt_75,
+/obj/structure/table/steel,
+/obj/item/trash/dipbowl{
+	pixel_y = 12;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/bowl/plate{
+	pixel_x = 7
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/atmos)
+"tU" = (
+/obj/structure/bed/stool{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/kitchen)
+"um" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"un" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/item/flame/candle{
+	pixel_x = -3;
+	pixel_y = 18
+	},
+/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice{
+	pixel_y = 7;
+	pixel_x = 7
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine{
+	pixel_x = -6;
+	pixel_y = 11
+	},
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"uC" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"uI" = (
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"uJ" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/obj/item/storage/box/fancy/mre/menu10{
+	pixel_y = 9;
+	pixel_x = 11
+	},
+/obj/item/storage/box/fancy/mre/menu10{
+	pixel_y = 2;
+	pixel_x = -1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/kitchen)
+"vd" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/mob/living/simple_animal/rat/brown,
+/turf/simulated/floor,
+/area/hegemony_waypoint/bunks)
+"vm" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/steel,
+/obj/item/melee/energy/sword/hegemony{
+	pixel_y = 15;
+	pixel_x = 16
+	},
+/obj/item/cell/high/empty{
+	pixel_y = -1;
+	pixel_x = 1
+	},
+/obj/item/cell/high/empty{
+	pixel_y = -2;
+	pixel_x = 9
+	},
+/obj/item/clothing/head/bandana{
+	pixel_x = -9
+	},
+/obj/item/gun/energy/rifle/hegemony{
+	pixel_y = 11
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"vq" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/door/airlock/service{
+	dir = 4;
+	name = "Atmospherics";
+	locked = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/hegemony_waypoint/atmos)
+"vt" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/light/colored/decayed,
+/obj/random/junk{
+	pixel_y = 15;
+	pixel_x = 8
+	},
+/obj/effect/spider/cocoon,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/gibs,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/kitchen)
+"vQ" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/item/clothing/shoes/magboots,
+/turf/simulated/floor/tiled/steel/airless,
+/area/hegemony_waypoint/eva)
+"vR" = (
+/obj/machinery/button/remote/blast_door{
+	dir = 10;
+	pixel_y = 28;
+	id = "hegemony_waypoint_hydroponics";
+	name = "Hydroponics Shutters"
+	},
+/obj/machinery/seed_storage/garden,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"ws" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters{
+	id = "hegemony_waypoint_hydroponics";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/hydroponics)
+"wB" = (
+/obj/machinery/appliance/cooker/oven,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/hegemony_waypoint/kitchen)
+"wO" = (
+/obj/structure/bed/stool,
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/random/dirt_75,
+/obj/effect/spider/spiderling,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/kitchen)
+"wU" = (
+/obj/structure/table/steel,
+/obj/item/stack/cable_coil/green{
+	pixel_x = 2;
+	pixel_y = 8
+	},
+/obj/random/dirt_75,
+/obj/item/storage/bag/circuits/basic,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/bunks)
+"xb" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "hegemony_waypoint_kitchen"
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/kitchen)
+"xg" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice{
+	pixel_x = -4;
+	pixel_y = 12
+	},
+/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice{
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/obj/item/flame/candle{
+	pixel_x = -3;
+	pixel_y = -2
+	},
+/obj/item/flame/candle{
+	pixel_x = -11;
+	pixel_y = 6
+	},
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"xn" = (
+/obj/machinery/light/colored/decayed,
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"xy" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/door/airlock/service{
+	dir = 4;
+	name = "Equipment Storage"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/hegemony_waypoint/eva)
+"xC" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/obj/item/storage/box/fancy/mre/menu10{
+	pixel_y = 9;
+	pixel_x = 11
+	},
+/obj/item/storage/box/fancy/mre/menu10{
+	pixel_y = 2;
+	pixel_x = -1
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/hegemony_waypoint/kitchen)
+"xJ" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = -13;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/drinks/cans/threetowns{
+	pixel_y = 12;
+	pixel_x = 14
+	},
+/obj/item/broken_bottle{
+	pixel_x = 2;
+	pixel_y = -4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white/airless,
+/area/hegemony_waypoint/kitchen)
+"xR" = (
+/obj/machinery/reagentgrinder{
+	pixel_x = 4;
+	pixel_y = 9
+	},
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/kitchen)
+"xT" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/portable_atmospherics/canister/empty/air,
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/hegemony_waypoint/atmos)
+"xW" = (
+/mob/living/simple_animal/hostile/hivebotbeacon,
+/obj/effect/decal/cleanable/floor_damage/tiled_broken3,
+/turf/simulated/floor,
+/area/hegemony_waypoint/shrine)
+"ya" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = -13;
+	pixel_y = 4
+	},
+/obj/effect/decal/cleanable/blood/gibs,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/item/melee/hammer/powered/hegemony{
+	pixel_y = 3;
+	pixel_x = 3
+	},
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/kitchen)
+"yd" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/item/bedsheet/red,
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_waypoint/bunks)
+"yg" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/hydroponics{
+	closed_system = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/hydroponics)
+"yi" = (
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "hegemony_waypoint_hydroponics"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/hydroponics)
+"yr" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/kitchen,
+/turf/simulated/wall/shuttle/raider,
+/area/hegemony_waypoint/kitchen)
+"yE" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/item/ore/glass{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/ore/gold{
+	pixel_y = -9;
+	pixel_x = 9
+	},
+/obj/item/stack/rods{
+	pixel_x = -4;
+	pixel_y = -10
+	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/eva)
+"yH" = (
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/bunks)
+"yK" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/item/wirecutters/clippers,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/material/minihoe,
+/obj/item/material/hatchet,
+/obj/item/seeds/gukheseed,
+/obj/item/seeds/gukheseed,
+/obj/machinery/button/remote/blast_door{
+	dir = 10;
+	pixel_y = 28;
+	id = "hegemony_waypoint_hydroponics";
+	name = "Hydroponics Shutters"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"ze" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/machinery/light/colored/decayed,
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"zg" = (
+/obj/machinery/appliance/cooker/fryer,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/hegemony_waypoint/kitchen)
+"zn" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/decayed,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"zt" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/cable/green,
+/obj/machinery/power/apc/empty/south{
+	req_access = null
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/hegemony_waypoint/bunks)
+"zC" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"zO" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/structure/table/steel,
+/obj/item/tape_roll{
+	pixel_x = -4
+	},
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/atmos)
+"Aa" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/table,
+/obj/item/stack/material/steel{
+	pixel_y = 9;
+	pixel_x = 6
+	},
+/obj/item/stack/rods{
+	pixel_x = -14;
+	pixel_y = -3
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/kitchen)
+"Af" = (
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"Ah" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/spacecash{
+	pixel_x = 7;
+	pixel_y = -5
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_waypoint/bunks)
+"AB" = (
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/effect/decal/cleanable/generic,
+/obj/structure/table/steel,
+/obj/item/lore_radio{
+	pixel_x = 13
+	},
+/obj/item/paper_bin{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/bunks)
+"AP" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/hegemony_waypoint/atmos)
+"AR" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/item/ore/glass{
+	pixel_y = 11;
+	pixel_x = 6
+	},
+/obj/item/ore/gold{
+	pixel_y = -10
+	},
+/obj/item/stack/rods{
+	pixel_x = 8;
+	pixel_y = -9
+	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/hegemony_waypoint/kitchen)
+"AV" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/hegemony_waypoint/atmos)
+"Bs" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/door/airlock/service{
+	dir = 4;
+	name = "Hydroponics"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/hegemony_waypoint/hydroponics)
+"BD" = (
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"BL" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/item/nullrod/shaman,
+/obj/item/flame/candle{
+	pixel_x = -5;
+	pixel_y = 16
+	},
+/obj/item/flame/candle{
+	pixel_x = -10;
+	pixel_y = 2
+	},
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"BZ" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters{
+	id = "hegemony_waypoint_eva";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/eva)
+"Cb" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/reagent_dispensers/watertank,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/hydroponics)
+"Ci" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/structure/curtain/black,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/hegemony_waypoint/kitchen)
+"Cm" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/machinery/light/colored/decayed,
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"Cx" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/spider/spiderling,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/kitchen)
+"CF" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/hegemony_waypoint/shrine)
+"CG" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/structure/cable/green,
+/obj/machinery/power/apc/empty/west{
+	req_access = null
+	},
+/obj/random/junk{
+	pixel_y = 19
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"CL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/wall/shuttle/raider,
+/area/hegemony_waypoint/atmos)
+"CN" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/machinery/meter,
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "hegemony_waypoint_atmospherics";
+	name = "Atmospherics Shutters";
+	pixel_x = 24
+	},
+/turf/simulated/floor,
+/area/hegemony_waypoint/atmos)
+"CR" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/structure/barricade/wooden{
+	dir = 8
+	},
+/obj/item/broken_bottle{
+	pixel_x = 7;
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/kitchen)
+"CS" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/door/airlock/service{
+	dir = 4;
+	name = "Atmospherics"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/hegemony_waypoint/atmos)
+"Db" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/item/nullrod/skakh_healer{
+	pixel_x = 1;
+	pixel_y = -1
+	},
+/obj/item/flame/candle{
+	pixel_x = -5;
+	pixel_y = 14
+	},
+/obj/item/flame/candle{
+	pixel_x = -10;
+	pixel_y = 7
+	},
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"Dj" = (
+/obj/structure/table/steel,
+/obj/item/stack/cable_coil/green{
+	pixel_x = -1
+	},
+/obj/item/stack/cable_coil/yellow{
+	pixel_y = 6;
+	pixel_x = -3
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_y = 6;
+	pixel_x = 10
+	},
+/obj/item/folder/purple{
+	pixel_y = 1;
+	pixel_x = -16
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/bunks)
+"DQ" = (
+/obj/machinery/appliance/cooker/stove,
+/obj/machinery/light/broken{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/hegemony_waypoint/kitchen)
+"DR" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/table/steel,
+/obj/item/wrench{
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/empty/north{
+	req_access = null
+	},
+/obj/item/tape_roll{
+	pixel_x = 3;
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/atmos)
+"DW" = (
+/obj/machinery/appliance/cooker/fryer,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/kitchen)
+"Ed" = (
+/obj/machinery/reagentgrinder{
+	pixel_x = 4;
+	pixel_y = 9
+	},
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/hegemony_waypoint/kitchen)
+"Ei" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/item/device/versebook/thakh{
+	pixel_y = 6;
+	pixel_x = 3
+	},
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"Em" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"Eq" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/item/device/versebook/skakh{
+	pixel_x = 5;
+	pixel_y = 9
+	},
+/obj/item/flame/candle{
+	pixel_x = -7;
+	pixel_y = -6
+	},
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"Eu" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/obj/machinery/reagentgrinder{
+	pixel_x = 6;
+	pixel_y = 9
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/kitchen)
+"EC" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/item/clothing/shoes/magboots{
+	pixel_y = 8;
+	pixel_x = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/eva)
+"EJ" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/kitchen)
+"EK" = (
+/obj/machinery/vending/dinnerware,
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/kitchen)
+"ET" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/decayed,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel/airless,
+/area/hegemony_waypoint/eva)
+"Fa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"Fq" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1;
+	level = 2
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"Fy" = (
+/obj/machinery/portable_atmospherics/hydroponics{
+	closed_system = 1
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/hydroponics)
+"FB" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/table/steel,
+/obj/item/pipewrench,
+/obj/item/wrench{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/empty/north{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/atmos)
+"FE" = (
+/obj/structure/bed/stool{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/kitchen)
+"FT" = (
+/obj/machinery/seed_extractor,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"FU" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/hegemony_waypoint/shrine)
+"FV" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/obj/machinery/button/remote/blast_door{
+	dir = 10;
+	pixel_y = 28;
+	id = "hegemony_waypoint_kitchen";
+	name = "Kitchen Shutters"
+	},
+/mob/living/simple_animal/hostile/giant_spider/nurse,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/kitchen)
+"Gb" = (
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"GS" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/wood_broken5,
+/obj/item/nullrod/shaman{
+	pixel_y = 18;
+	pixel_x = 10
+	},
+/obj/item/flame/candle{
+	pixel_x = -3;
+	pixel_y = -2
+	},
+/obj/item/flame/candle{
+	pixel_x = -11;
+	pixel_y = 11
+	},
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"GW" = (
+/obj/random/dirt_75,
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
+/obj/machinery/portable_atmospherics/hydroponics{
+	closed_system = 1
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/hydroponics)
+"GY" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/item/trash/tray{
+	pixel_x = 13;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/kitchen)
+"Hj" = (
+/turf/simulated/wall/shuttle/raider,
+/area/hegemony_waypoint/hydroponics)
+"Hn" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/obj/machinery/button/remote/blast_door{
+	dir = 10;
+	pixel_y = 28;
+	id = "hegemony_waypoint_kitchen";
+	name = "Kitchen Shutters"
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/kitchen)
+"Hq" = (
+/obj/machinery/portable_atmospherics/hydroponics{
+	closed_system = 1
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/item/material/shard{
+	pixel_y = 2;
+	pixel_x = -5
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/hydroponics)
+"Hr" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "hegemony_waypoint_living quarters"
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/bunks)
+"Hs" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/table/steel,
+/obj/item/pipewrench{
+	pixel_x = 12
+	},
+/obj/item/wrench{
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/empty/north{
+	req_access = null
+	},
+/obj/item/paper/fluff/hegemony_waypoint_4{
+	pixel_x = -3
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/atmos)
+"Hy" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/item/flame/candle{
+	pixel_x = -10;
+	pixel_y = 16
+	},
+/obj/item/device/versebook/skakh{
+	pixel_x = 4;
+	pixel_y = 7
+	},
+/obj/item/flame/candle{
+	pixel_x = -7;
+	pixel_y = -6
+	},
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"HA" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel/airless,
+/area/hegemony_waypoint/kitchen)
+"HD" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 10;
+	pixel_y = 28;
+	id = "hegemony_waypoint_shrine";
+	name = "Shrine Shutters"
+	},
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"HW" = (
+/obj/structure/closet/cabinet{
+	opened = 1
+	},
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/random/dirt_75,
+/obj/item/clothing/under/unathi,
+/obj/item/clothing/head/unathi/deco,
+/turf/simulated/floor/tiled,
+/area/hegemony_waypoint/bunks)
+"HZ" = (
+/obj/item/material/shard{
+	pixel_y = 4;
+	pixel_x = 2
+	},
+/obj/item/stack/rods{
+	pixel_x = 8
+	},
+/obj/item/material/shard{
+	pixel_y = 11;
+	pixel_x = 24
+	},
+/obj/item/ore/glass{
+	pixel_y = -9;
+	pixel_x = 4
+	},
+/obj/structure/grille/broken,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/kitchen)
+"Ix" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "hegemony_waypoint_eva"
+	},
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/eva)
+"IC" = (
+/turf/simulated/wall/shuttle/raider,
+/area/hegemony_waypoint/kitchen)
+"IQ" = (
+/obj/machinery/vending/hydronutrients,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"IR" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/random/junk{
+	pixel_y = 13;
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = -7;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = 9;
+	pixel_x = -9
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/atmos)
+"IT" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/eva,
+/turf/simulated/wall/shuttle/raider,
+/area/hegemony_waypoint/eva)
+"IY" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"Jb" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters{
+	id = "hegemony_waypoint_kitchen";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/kitchen)
+"Je" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/cable/green,
+/obj/machinery/power/apc/empty/east{
+	req_access = null
+	},
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"Jq" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"Jw" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "hegemony_waypoint_kitchen"
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/kitchen)
+"JS" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"Kr" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/hegemony_waypoint/shrine)
+"Ku" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/wood_broken3,
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"KA" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/wood_broken5,
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"KE" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/item/flame/candle{
+	pixel_x = -5;
+	pixel_y = 16
+	},
+/obj/item/flame/candle{
+	pixel_x = -10;
+	pixel_y = 2
+	},
+/obj/structure/table,
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"KM" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/item/storage/box/produce{
+	pixel_y = -7
+	},
+/obj/item/reagent_containers/food/snacks/fish/fishfillet{
+	pixel_y = 17
+	},
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/kitchen)
+"Lg" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/door/airlock/service{
+	dir = 4;
+	name = "Kitchen"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/hegemony_waypoint/kitchen)
+"Lh" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/random/junk{
+	pixel_y = 15;
+	pixel_x = 8
+	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/structure/bed/stool{
+	dir = 4
+	},
+/obj/machinery/light/broken,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel/airless,
+/area/hegemony_waypoint/kitchen)
+"Lo" = (
+/turf/simulated/wall/shuttle/raider,
+/area/hegemony_waypoint/bunks)
+"LD" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"LQ" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor,
+/area/hegemony_waypoint/atmos)
+"MD" = (
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_y = 19
+	},
+/mob/living/simple_animal/rat/irish,
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/eva)
+"MM" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/obj/effect/decal/cleanable/generic,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/bunks)
+"MR" = (
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"No" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters/open{
+	dir = 4;
+	id = "hegemony_waypoint_eva"
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/eva)
+"Nz" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/phoron,
+/turf/simulated/floor,
+/area/hegemony_waypoint/atmos)
+"NF" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "hegemony_waypoint_hydroponics"
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/hydroponics)
+"NS" = (
+/obj/structure/table/steel,
+/obj/item/paper_bin{
+	pixel_x = 11;
+	pixel_y = 5
+	},
+/obj/item/pen{
+	pixel_x = 9;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice{
+	pixel_y = 17;
+	pixel_x = -8
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/pint{
+	pixel_y = 2;
+	pixel_x = -3
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/bunks)
+"NT" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/door/airlock/service{
+	dir = 4;
+	name = "Technicans Quarters"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/hegemony_waypoint/bunks)
+"Od" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"Of" = (
+/obj/structure/closet/secure_closet/freezer/meat{
+	opened = 1
+	},
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/kitchen)
+"OK" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/random/dirt_75,
+/obj/structure/bed/stool/padded/black,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"OP" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood,
+/obj/item/storage/box/fancy/mre/menu10{
+	pixel_y = 7;
+	pixel_x = -1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/kitchen)
+"Pc" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters/open{
+	dir = 2;
+	id = "hegemony_waypoint_hydroponics"
+	},
+/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/hydro,
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/hydroponics)
+"Pt" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/hydro,
+/turf/simulated/wall/shuttle/raider,
+/area/hegemony_waypoint/hydroponics)
+"Pv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/hegemony_waypoint/atmos)
+"PB" = (
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/random/dirt_75,
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = 11;
+	pixel_x = -9
+	},
+/obj/item/reagent_containers/bowl{
+	pixel_y = -5
+	},
+/turf/simulated/floor,
+/area/hegemony_waypoint/atmos)
+"PD" = (
+/obj/random/dirt_75,
+/obj/structure/table/steel,
+/obj/item/screwdriver{
+	pixel_y = -12;
+	pixel_x = 3
+	},
+/obj/item/device/personal_shield{
+	pixel_y = 4;
+	pixel_x = 8
+	},
+/obj/item/gun/energy/pistol/hegemony{
+	pixel_y = 11
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/bunks)
+"PM" = (
+/obj/machinery/atmospherics/binary/passive_gate/on{
+	dir = 8
+	},
+/obj/machinery/light/colored/decayed,
+/obj/random/dirt_75,
+/obj/item/reagent_containers/cooking_container/board/bowl{
+	pixel_y = 17;
+	pixel_x = 4
+	},
+/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice{
+	pixel_x = -5
+	},
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi{
+	pixel_x = 10;
+	pixel_y = 7
+	},
+/turf/simulated/floor,
+/area/hegemony_waypoint/atmos)
+"Qa" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/white/airless,
+/area/hegemony_waypoint/kitchen)
+"Qh" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters{
+	id = "hegemony_waypoint_living quarters";
+	dir = 2
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/bunks)
+"QY" = (
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/random/dirt_75,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"Rf" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/structure/curtain/black,
+/turf/simulated/floor/tiled/dark/full,
+/area/hegemony_waypoint/kitchen)
+"Rj" = (
+/obj/structure/cable/green,
+/obj/machinery/power/apc/empty/west{
+	req_access = null
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/ash,
+/obj/item/device/oxycandle{
+	pixel_y = 7;
+	pixel_x = -5
+	},
+/turf/simulated/floor/airless,
+/area/hegemony_waypoint/eva)
+"Rt" = (
+/turf/simulated/wall/shuttle/raider,
+/area/hegemony_waypoint/atmos)
+"RQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/mob/living/simple_animal/otzek,
+/turf/simulated/floor,
+/area/hegemony_waypoint/atmos)
+"RW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/random/dirt_75,
+/mob/living/simple_animal/hostile/carp/shark/reaver,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"RZ" = (
+/obj/structure/table/steel,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/item/device/binoculars{
+	pixel_y = 11;
+	pixel_x = -4
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "hegemony_waypoint_living quarters";
+	name = "Quarters Shutters";
+	pixel_x = 24;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_y = 13;
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/bunks)
+"Sa" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/ash,
+/obj/machinery/power/portgen/basic,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"Sl" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"St" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = 3;
+	pixel_y = -2
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = 8;
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/kitchen)
+"Sv" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/empty/north{
+	req_access = null
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"SH" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/item/flame/candle{
+	pixel_x = -5;
+	pixel_y = -5
+	},
+/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine{
+	pixel_x = 5;
+	pixel_y = 11
+	},
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"SX" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel/airless,
+/area/hegemony_waypoint/kitchen)
+"Ti" = (
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/effect/floor_decal/industrial/outline/service,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/storage/box/produce,
+/obj/item/storage/box/fancy/vkrexi_swollen_organ,
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/kitchen)
+"Tn" = (
+/obj/machinery/atmospherics/binary/pump/scrubber/on{
+	dir = 4
+	},
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/obj/item/trash/snack_bowl,
+/turf/simulated/floor,
+/area/hegemony_waypoint/atmos)
+"Tx" = (
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"TY" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/random/toolbox,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/hegemony_waypoint/kitchen)
+"Ue" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/machinery/door/blast/shutters{
+	id = "hegemony_waypoint_kitchen"
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_waypoint/kitchen)
+"Ug" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/cable/green,
+/obj/machinery/power/apc/empty/east{
+	req_access = null
+	},
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/random/dirt_75,
+/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice{
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice{
+	pixel_x = -6;
+	pixel_y = 1
+	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"Uk" = (
+/obj/structure/table/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/item/flame/candle{
+	pixel_x = -3;
+	pixel_y = 18
+	},
+/obj/item/nullrod/skakh_fisher{
+	pixel_x = 5;
+	pixel_y = 7
+	},
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"VM" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/door/airlock/service{
+	dir = 4;
+	name = "Kitchen";
+	locked = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/hegemony_waypoint/kitchen)
+"VQ" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"VS" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/hydroponics)
+"VT" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/cable/green,
+/obj/machinery/power/apc/empty/south{
+	req_access = null
+	},
+/obj/random/dirt_75,
+/obj/item/stack/cable_coil/yellow{
+	pixel_y = 6;
+	pixel_x = -8
+	},
+/obj/random/junk{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/turf/simulated/floor,
+/area/hegemony_waypoint/bunks)
+"VU" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/item/reagent_containers/food/drinks/cans/threetowns{
+	pixel_y = 12;
+	pixel_x = 14
+	},
+/obj/item/reagent_containers/food/drinks/cans/threetowns{
+	pixel_y = 7;
+	pixel_x = 3
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/kitchen)
+"WA" = (
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/obj/machinery/button/remote/blast_door{
+	dir = 10;
+	pixel_y = 28;
+	id = "hegemony_waypoint_kitchen";
+	name = "Kitchen Shutters"
+	},
+/obj/random/junk{
+	pixel_y = -7;
+	pixel_x = -1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel/airless,
+/area/hegemony_waypoint/kitchen)
+"WE" = (
+/obj/machinery/appliance/cooker/oven,
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/rubber,
+/area/hegemony_waypoint/kitchen)
+"WN" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/alarm/south{
+	req_one_access = null
+	},
+/obj/machinery/pipedispenser,
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/atmos)
+"WO" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/light,
+/area/hegemony_waypoint/kitchen)
+"WP" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/obj/random/dirt_75,
+/obj/machinery/pipedispenser,
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/atmos)
+"WV" = (
+/obj/structure/bed/stool,
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gridded,
+/area/hegemony_waypoint/kitchen)
+"Xc" = (
+/obj/effect/floor_decal/corner/black/diagonal,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/light,
+/area/hegemony_waypoint/kitchen)
+"Xg" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/shoes/magboots{
+	pixel_y = 8
+	},
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	id = "hegemony_waypoint_eva";
+	name = "Storage Shutters";
+	pixel_x = 24
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"Xh" = (
+/obj/structure/bed/stool,
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = -12;
+	pixel_y = 7
+	},
+/obj/effect/spider/spiderling,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/kitchen)
+"Xr" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"Xx" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"XC" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/table,
+/obj/effect/decal/cleanable/floor_damage/wood_broken6,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/wood,
+/area/hegemony_waypoint/shrine)
+"XH" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"XQ" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 10;
+	pixel_y = 28;
+	id = "hegemony_waypoint_shrine";
+	name = "Shrine Shutters"
+	},
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"Yd" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"Yu" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/door/airlock/service{
+	dir = 4;
+	name = "Equipment Storage";
+	locked = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark/full,
+/area/hegemony_waypoint/eva)
+"YD" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/door/airlock/service{
+	dir = 4;
+	name = "Hydroponics";
+	welded = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/hegemony_waypoint/hydroponics)
+"YM" = (
+/obj/structure/closet/cabinet,
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/obj/random/dirt_75,
+/obj/item/clothing/shoes/sandals/caligae,
+/obj/item/clothing/under/unathi,
+/obj/item/clothing/accessory/poncho,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/turf/simulated/floor/tiled,
+/area/hegemony_waypoint/bunks)
+"YV" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"Zh" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/bunks)
+"ZN" = (
+/turf/simulated/wall/shuttle/raider,
+/area/hegemony_waypoint/eva)
+"ZO" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/steel,
+/area/hegemony_waypoint/shrine)
+"ZP" = (
+/obj/effect/floor_decal/corner_wide/brown/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/machinery/suit_cycler/offship/hegemony{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/techfloor,
+/area/hegemony_waypoint/eva)
+"ZT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = -3;
+	pixel_y = -1
+	},
+/obj/effect/floor_decal/corner/yellow/diagonal,
+/turf/simulated/floor/tiled,
+/area/hegemony_waypoint/bunks)
+
+(1,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(2,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(3,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(4,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(5,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(6,1,1) = {"
+pr
+pr
+IC
+xb
+xb
+xb
+yr
+pr
+pr
+IC
+Jb
+Jb
+Jb
+yr
+pr
+pr
+IC
+js
+HZ
+js
+yr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(7,1,1) = {"
+pr
+pr
+IC
+Hn
+FE
+dy
+IC
+pr
+pr
+IC
+FV
+mu
+vt
+IC
+pr
+pr
+IC
+WA
+AR
+Lh
+IC
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(8,1,1) = {"
+pr
+pr
+Jw
+WV
+GY
+tU
+Jw
+pr
+pr
+Ue
+wO
+jN
+cO
+Ue
+pr
+pr
+mp
+iv
+tD
+gl
+mp
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(9,1,1) = {"
+pr
+pr
+Jw
+WV
+St
+ku
+Jw
+pr
+pr
+Ue
+Xh
+Aa
+eq
+Ue
+pr
+pr
+mp
+rz
+HA
+sG
+mp
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(10,1,1) = {"
+pr
+pr
+IC
+mB
+EJ
+jp
+IC
+pr
+pr
+IC
+av
+bX
+Cx
+IC
+pr
+pr
+IC
+pH
+SX
+ts
+IC
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(11,1,1) = {"
+pr
+pr
+IC
+IC
+Ci
+IC
+IC
+pr
+pr
+IC
+IC
+Rf
+IC
+IC
+pr
+pr
+IC
+IC
+tq
+IC
+IC
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(12,1,1) = {"
+pr
+pr
+IC
+DW
+Xc
+uJ
+IC
+pr
+pr
+IC
+DW
+CR
+Eu
+IC
+pr
+pr
+IC
+zg
+nW
+xC
+IC
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(13,1,1) = {"
+pr
+pr
+IC
+WE
+mr
+VU
+IC
+pr
+pr
+IC
+WE
+ya
+OP
+IC
+pr
+pr
+IC
+wB
+xJ
+TY
+IC
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(14,1,1) = {"
+pr
+pr
+IC
+bv
+WO
+xR
+IC
+pr
+pr
+IC
+bv
+to
+lO
+IC
+pr
+pr
+IC
+DQ
+Qa
+Ed
+IC
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(15,1,1) = {"
+pr
+pr
+IC
+Ti
+WO
+EK
+IC
+pr
+pr
+IC
+Of
+KM
+EK
+IC
+pr
+pr
+IC
+mi
+pd
+mo
+IC
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(16,1,1) = {"
+pr
+pr
+IC
+IC
+Lg
+IC
+IC
+pr
+pr
+IC
+IC
+se
+IC
+IC
+pr
+pr
+IC
+IC
+VM
+IC
+IC
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(17,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(18,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(19,1,1) = {"
+pr
+pr
+th
+fr
+fr
+fr
+in
+pr
+pr
+th
+fr
+fr
+fr
+in
+pr
+pr
+th
+dA
+dA
+dA
+in
+pr
+pr
+th
+dA
+dA
+dA
+in
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(20,1,1) = {"
+pr
+pr
+th
+SH
+Hy
+Uk
+th
+pr
+pr
+th
+BL
+Ei
+xg
+th
+pr
+pr
+th
+KE
+XC
+LD
+th
+pr
+pr
+th
+Db
+Eq
+un
+th
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(21,1,1) = {"
+pr
+pr
+tI
+Ku
+Xx
+Sl
+tI
+pr
+pr
+tI
+uC
+Xx
+KA
+tI
+pr
+pr
+nt
+nz
+Em
+GS
+nt
+pr
+pr
+nt
+Ku
+Xx
+Sl
+nt
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(22,1,1) = {"
+pr
+pr
+tI
+eb
+JS
+eb
+tI
+pr
+pr
+tI
+ZO
+sK
+Jq
+tI
+pr
+pr
+nt
+Gb
+MR
+FU
+nt
+pr
+pr
+nt
+eb
+JS
+eb
+nt
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(23,1,1) = {"
+pr
+pr
+th
+YV
+CF
+Cm
+th
+pr
+pr
+th
+Tx
+Kr
+xn
+th
+pr
+pr
+th
+Gb
+xW
+BD
+th
+pr
+pr
+th
+YV
+CF
+ze
+th
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(24,1,1) = {"
+pr
+pr
+th
+hP
+IY
+hu
+th
+pr
+pr
+th
+HD
+VQ
+Je
+th
+pr
+pr
+th
+XQ
+QY
+Ug
+th
+pr
+pr
+th
+hP
+Xr
+dP
+th
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(25,1,1) = {"
+pr
+pr
+th
+th
+bs
+th
+th
+pr
+pr
+th
+th
+bs
+th
+th
+pr
+pr
+th
+th
+bs
+th
+th
+pr
+pr
+th
+th
+bs
+th
+th
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(26,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(27,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(28,1,1) = {"
+pr
+pr
+Lo
+Lo
+NT
+Lo
+cg
+pr
+pr
+Lo
+Lo
+NT
+Lo
+cg
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(29,1,1) = {"
+pr
+pr
+Lo
+cQ
+oO
+cQ
+Lo
+pr
+pr
+Lo
+yd
+ZT
+cQ
+Lo
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(30,1,1) = {"
+pr
+pr
+Lo
+tx
+ma
+cQ
+Lo
+pr
+pr
+Lo
+tx
+vd
+cQ
+Lo
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(31,1,1) = {"
+pr
+pr
+Lo
+YM
+sf
+zt
+Lo
+pr
+pr
+Lo
+HW
+Ah
+VT
+Lo
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(32,1,1) = {"
+pr
+pr
+Hr
+NS
+ju
+Zh
+Lo
+pr
+pr
+Qh
+MM
+sV
+AB
+Lo
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(33,1,1) = {"
+pr
+pr
+Hr
+Dj
+yH
+eA
+Lo
+pr
+pr
+Qh
+wU
+PD
+RZ
+Lo
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(34,1,1) = {"
+pr
+pr
+gf
+gf
+gf
+Lo
+Lo
+pr
+pr
+pe
+pe
+pe
+Lo
+Lo
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(35,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(36,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(37,1,1) = {"
+pr
+pr
+Rt
+Rt
+CS
+Rt
+Rt
+cC
+pr
+pr
+Rt
+Rt
+CS
+Rt
+Rt
+cC
+pr
+pr
+Rt
+Rt
+CS
+Rt
+Rt
+cC
+pr
+pr
+Rt
+Rt
+vq
+Rt
+Rt
+cC
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(38,1,1) = {"
+pr
+pr
+Rt
+FB
+ek
+WP
+zO
+Rt
+pr
+pr
+Rt
+kp
+ff
+kG
+WN
+Rt
+pr
+pr
+Rt
+DR
+ff
+nk
+WN
+Rt
+pr
+pr
+Rt
+Hs
+IR
+tQ
+WN
+Rt
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(39,1,1) = {"
+pr
+pr
+Rt
+bY
+Pv
+rq
+kS
+Rt
+pr
+pr
+Rt
+bY
+Pv
+AV
+kS
+Rt
+pr
+pr
+Rt
+bY
+lA
+AV
+kS
+Rt
+pr
+pr
+Rt
+Tn
+RQ
+AV
+PM
+Rt
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(40,1,1) = {"
+pr
+pr
+Rt
+CN
+xT
+AP
+pC
+Rt
+pr
+pr
+Rt
+CN
+Nz
+AP
+pC
+Rt
+pr
+pr
+Rt
+CN
+LQ
+LQ
+pC
+Rt
+pr
+pr
+Rt
+CN
+PB
+gY
+pC
+Rt
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(41,1,1) = {"
+pr
+pr
+CL
+lR
+qH
+qH
+Rt
+Rt
+pr
+pr
+CL
+lR
+qH
+qH
+Rt
+Rt
+pr
+pr
+CL
+lR
+tG
+tG
+Rt
+Rt
+pr
+pr
+CL
+lR
+tG
+tG
+Rt
+Rt
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(42,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(43,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(44,1,1) = {"
+pr
+pr
+Hj
+Hj
+ap
+ap
+ap
+Hj
+Pt
+pr
+pr
+Hj
+Hj
+ap
+ap
+ap
+ap
+Pc
+pr
+pr
+Hj
+Hj
+ws
+sg
+ws
+Hj
+Pt
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(45,1,1) = {"
+pr
+pr
+Hj
+Cb
+Fy
+Fy
+Fy
+sl
+Hj
+pr
+pr
+Hj
+iG
+bd
+yg
+Fy
+sl
+NF
+pr
+pr
+Hj
+Cb
+Fy
+nb
+Hq
+sl
+Hj
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(46,1,1) = {"
+pr
+pr
+Hj
+Sv
+oL
+Fa
+um
+Af
+Hj
+pr
+pr
+Hj
+jJ
+oL
+Fa
+Fq
+sC
+yi
+pr
+pr
+Hj
+Sv
+RW
+gh
+nm
+Af
+Hj
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(47,1,1) = {"
+pr
+pr
+Hj
+yK
+VS
+FT
+nX
+IQ
+Hj
+pr
+pr
+Hj
+vR
+VS
+pI
+tz
+GW
+Hj
+pr
+pr
+Hj
+yK
+VS
+FT
+nX
+IQ
+Hj
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(48,1,1) = {"
+pr
+pr
+Hj
+Hj
+Bs
+Hj
+Hj
+Hj
+Hj
+pr
+pr
+Hj
+Hj
+Bs
+Hj
+Hj
+Hj
+Hj
+pr
+pr
+Hj
+Hj
+YD
+Hj
+Hj
+Hj
+Hj
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(49,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(50,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(51,1,1) = {"
+pr
+pr
+ZN
+ZN
+xy
+ZN
+ZN
+IT
+pr
+pr
+ZN
+ZN
+Yu
+ZN
+ZN
+IT
+pr
+pr
+ZN
+ZN
+xy
+ZN
+ZN
+IT
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(52,1,1) = {"
+pr
+pr
+ZN
+uI
+XH
+CG
+zC
+ZN
+pr
+pr
+ZN
+rZ
+EC
+Rj
+aV
+ZN
+pr
+pr
+ZN
+hq
+XH
+CG
+ZP
+ZN
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(53,1,1) = {"
+pr
+pr
+ZN
+qt
+Od
+Yd
+zn
+ZN
+pr
+pr
+ZN
+tv
+vQ
+MD
+ET
+ZN
+pr
+pr
+ZN
+dd
+Od
+kX
+kt
+ZN
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(54,1,1) = {"
+pr
+pr
+ZN
+Xg
+al
+Sa
+qg
+ZN
+pr
+pr
+ZN
+rC
+yE
+tg
+qL
+ZN
+pr
+pr
+ZN
+Xg
+al
+OK
+vm
+ZN
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(55,1,1) = {"
+pr
+pr
+ZN
+ZN
+No
+No
+ZN
+ZN
+pr
+pr
+ZN
+ZN
+no
+Ix
+ZN
+ZN
+pr
+pr
+ZN
+ZN
+BZ
+BZ
+ZN
+ZN
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(56,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(57,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(58,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(59,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}
+(60,1,1) = {"
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+pr
+"}

@@ -96,3 +96,75 @@
       surgery completes.
   hazelmouse:
   - rscadd: Adds the Hivebot Hub offsite to all sectors.
+2024-07-12:
+  DreamySkrell:
+  - rscadd: BAPI - mapmanip submap noop handling.
+  - rscadd: BAPI - mapmanip submap repeat setting.
+2024-07-18:
+  Acetrea:
+  - bugfix: Fixes Siro dead state.
+  CatsinHD:
+  - bugfix: Fixes the FTC flagpatch sprite to be on the right arm like all other flagpatches.
+  - rscadd: Gives OM, CMO, HoS, CE, and RD the new command IDs.
+  CourierBravo:
+  - rscadd: Added 18 new warehouse submap variants.
+  - bugfix: Added medical supplies to the first aid locker next to the Canary.
+  CourierBravo and BoomerThor:
+  - balance: Removed market elasticity from materials harvested from mining
+  - balance: Added all of the materials dug up from mining, old and new, to the exports
+      material list. Ensured you can't dupe credits by ordering glass and steel and
+      just sending it back.
+  FluffyGhost:
+  - refactor: Refactored portals, improved handling.
+  - rscadd: Telescience console can now target overmap zlevels, provided deep scan
+      is not enabled and the contact is completely scanned.
+  - bugfix: Telescience portals now properly delete when the timer expires.
+  - rscadd: Greatly increased power usage for the telescience portals, especially
+      if aiming outside targets.
+  - refactor: Refactored telescience console backend.
+  - refactor: Added various DMDocs.
+  Geeves:
+  - rscdel: Limited the number of bullet holes in a wall to 3, to prevent the decals
+      from lagging the game.
+  - rscdel: Killed hivebots now only drop a single robot gib onto the turf beneath
+      it, and only if there isn't one on that turf already.
+  - rscadd: Most hivebots now create sparks when they teleport in, instead of smoke.
+      The smokescreen created by beacons remain.
+  - bugfix: Smoke now renders over mobs again.
+  - rscadd: Barricades will now send a chat message if you can't climb them due to
+      there being barbed wire.
+  - bugfix: Fixed barbed wire overlays not appearing on barricades.
+  - qol: Made a bunch of improvements to the PDA chat program. Clicking on someone
+      or a channel's name will now immediately open the chat. Text inputs will now
+      not input unless you press enter.
+  - qol: PDA chat messages will now have spaces between them, unless it's the same
+      person sending multiple messages in a row.
+  - qol: Updating a PDA chat channel's password will now output that it changed into
+      the chat.
+  SimpleMaroon:
+  - qol: Added a brute med pouch, burn med pouch, and makeshift splints to the Kis
+      Khan Master site, for when those siros are just too much for your martial arts
+      to handle.
+  - bugfix: Fixed the turret control panel for the Clan Ozeuoi Outpost having the
+      wrong area set, causing it to not be assigned to any of the turrets properly.
+  - bugfix: Fixed the turrets at the Clan Ozeuoi Outpost to use Ozeuoi access, so
+      they don't fire indiscriminately when enabled.
+  - bugfix: Fixed the Vihnmes Inn having the same ID and description as the Ozeuoi
+      Outpost.
+  - bugfix: Fixed mob holders being unremoveable when placed in glass jars.
+  - qol: Cuts the message frequency of Nralakk projectors, as well as Virtual Reality
+      looking glasses, by half, as to cut down on message spam.
+  hazelmouse:
+  - rscadd: Adds the Hegemony Waypoint, a regional variant of the Sensor Relay unique
+      to Uueoa-Esa.
+  - rscdel: Removes the Sensor Relay offsite from Uueoa-Esa.
+  not-a-gonk:
+  - balance: Revised the armoury and infirmary for the Hegemony Corvette and Kataphract
+      Chapter ship, along with adding some extra equipment and gear.
+  - qol: Hegemony Corvette Gunnery room remap; minor additions and modifications of
+      fluff items on the Hegemony Corvette and Kataphract Chapter Ship.
+  - bugfix: Fixes the piping issues in the TCAF Corvette.
+  - qol: Adds janitorial equipment, more consoles, reorganises medical equipment,
+      and expands the fuel tank for the TCAF Corvette.
+  - qol: Gives the existing animal pens on Moghes and Ouerea gates, and adds some
+      new pens to Moghes ghostspawns that were missing them.

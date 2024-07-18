@@ -21287,6 +21287,12 @@
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline/medical,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/bruise_pack,
+/obj/item/stack/medical/ointment,
+/obj/item/stack/medical/ointment,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
 "oCT" = (

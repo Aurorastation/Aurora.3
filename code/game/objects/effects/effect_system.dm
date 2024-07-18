@@ -97,6 +97,7 @@ steam.start() -- spawns the effect
 	name = "smoke"
 	icon_state = "smoke"
 	opacity = 1
+	layer = ABOVE_PROJECTILE_LAYER
 	anchored = 0.0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/amount = 6.0
