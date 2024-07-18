@@ -43,7 +43,7 @@
 
 // ---------------------  area
 /area/shuttle/sccv_opossum
-	name = "SCCV Opossum"
+	name = "SCC Passanger Shuttle"
 	icon_state = "shuttle"
 	requires_power = FALSE
 	dynamic_lighting = TRUE
@@ -54,6 +54,7 @@
 /area/sccv_opossum/hanger
 	name = "Opossum Hanger"
 	icon_state = "quartloading"
+
 // --------------------- shuttle landmark base
 
 /obj/effect/shuttle_landmark/scc_passanger_shuttle
