@@ -203,8 +203,6 @@
 
 /obj/item/device/mmi/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user.stat || user.stunned)
 		return

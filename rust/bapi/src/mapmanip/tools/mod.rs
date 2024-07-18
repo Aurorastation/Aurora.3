@@ -1,5 +1,5 @@
-mod extract_sub_map;
-pub use extract_sub_map::extract_sub_map;
+mod extract_submap;
+pub use extract_submap::extract_submap;
 
-mod insert_sub_map;
-pub use insert_sub_map::insert_sub_map;
+mod insert_submap;
+pub use insert_submap::insert_submap;

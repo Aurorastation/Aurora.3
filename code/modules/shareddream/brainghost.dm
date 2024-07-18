@@ -67,7 +67,7 @@
 	else
 		to_chat(src, SPAN_WARNING("You've already released concentration. Wait to wake up naturally."))
 
-/mob/living/brain_ghost/Life()
+/mob/living/brain_ghost/Life(seconds_per_tick, times_fired)
 	..()
 	// Out body was probs gibbed or somefin
 	if(!istype(body))

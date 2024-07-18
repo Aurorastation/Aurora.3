@@ -64,7 +64,7 @@
 /mob/living/simple_animal/hostile/faithless/cult/cultify()
 	return
 
-/mob/living/simple_animal/hostile/faithless/cult/Life()
+/mob/living/simple_animal/hostile/faithless/cult/Life(seconds_per_tick, times_fired)
 	..()
 	check_horde()
 

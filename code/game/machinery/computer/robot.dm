@@ -75,7 +75,7 @@
 
 		else
 			message_admins("[key_name_admin(usr)] detonated [target.name]!")
-			log_game("[key_name(usr)] detonated [target.name]!",ckey=key_name(usr))
+			log_game("[key_name(usr)] detonated [target.name]!")
 			to_chat(target, SPAN_DANGER("Self-destruct command received."))
 			addtimer(CALLBACK(target, TYPE_PROC_REF(/mob/living/silicon/robot, self_destruct)), 1 SECONDS)
 
@@ -107,7 +107,7 @@
 
 		target.SetLockdown(!target.lock_charge) // Toggle.
 		message_admins("[key_name_admin(usr)] [target.lock_charge ? "locked down" : "released"] [target.name]!")
-		log_game("[key_name(usr)] [target.lock_charge ? "locked down" : "released"] [target.name]!",ckey=key_name(usr))
+		log_game("[key_name(usr)] [target.lock_charge ? "locked down" : "released"] [target.name]!")
 		to_chat(target, (target.lock_charge ? "You have been locked down!" : "Your lockdown has been lifted!"))
 
 	// Changes borg's access
@@ -136,7 +136,7 @@
 
 		var/log_message = "[key_name_admin(usr)] changed [target.name] access to [target.module.all_access ? "all access" : "role specific"]."
 		message_admins(log_message)
-		log_game(log_message, ckey = key_name(usr))
+		log_game(log_message)
 		to_chat(target, ("Your access was changed to: [target.module.all_access ? "all access" : "role specific"]."))
 
 	// Remotely hacks the cyborg. Only antag AIs can do this and only to linked cyborgs.
@@ -162,7 +162,7 @@
 			return
 
 		message_admins("[key_name_admin(usr)] emagged [target.name] using robotic console!")
-		log_game("[key_name(usr)] emagged [target.name] using robotic console!",ckey=key_name(usr))
+		log_game("[key_name(usr)] emagged [target.name] using robotic console!")
 		target.emagged = 1
 		to_chat(target, SPAN_NOTICE("Failsafe protocols overriden. New tools available."))
 
@@ -185,7 +185,7 @@
 			return
 
 		message_admins("[key_name_admin(usr)] detonated all cyborgs!")
-		log_game("[key_name(usr)] detonated all cyborgs!",ckey=key_name(usr))
+		log_game("[key_name(usr)] detonated all cyborgs!")
 
 		for(var/mob/living/silicon/robot/R in GLOB.mob_list)
 			if(istype(R, /mob/living/silicon/robot/drone))

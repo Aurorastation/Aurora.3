@@ -35,6 +35,7 @@
 		bullet = ARMOR_BALLISTIC_MINOR,
 		bomb = ARMOR_BOMB_MINOR
 	)
+	resists_weather = TRUE
 	sample_data = list("Cellular biochemistry shows high metabolic capacity", "Tissue sample contains high muscle content", "Genetic biomarkers identified linked with passiveness and domestication")
 
 /mob/living/simple_animal/threshbeast/saddle
@@ -85,6 +86,7 @@
 		laser = ARMOR_LASER_MINOR,
 		bomb = ARMOR_BOMB_MINOR
 	)
+	resists_weather = TRUE
 	sample_data = list("Cellular biochemistry shows high metabolic capacity", "Tissue sample contains high muscle content", "Genetic biomarkers identified linked with domestication", "Intracellular keratin synthesis present")
 
 /mob/living/simple_animal/hostile/retaliate/hegeranzi/saddle
@@ -98,6 +100,7 @@
 	name = "orszi fish"
 	desc = "A small fish native to the rivers and seas of the planet Moghes, the orzsi or 'swarm fish' is a common food source for noble and common Unathi alike."
 	faction = "Moghes"
+	resists_weather = TRUE
 
 /mob/living/simple_animal/otzek
 	name = "otzek"
@@ -127,6 +130,7 @@
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 4)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 	meat_amount = 16
+	resists_weather = TRUE
 	sample_data = list("Cellular biochemistry geared towards the use of plant-based nutrition", "Genetic biomarkers identified linked with high reproductive rates", "Intracellular keratin synthesis present")
 
 /mob/living/simple_animal/miervesh
@@ -155,6 +159,7 @@
 	butchering_products = list(/obj/item/stack/material/animalhide = 1)
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 	meat_amount = 1
+	resists_weather = TRUE
 	sample_data = list("Cellular biochemistry shows signs of rapid respiration", "Genetic biomarkers identified linked with passiveness and domestication", "Extracellular gas detection present")
 	var/chosen_icon
 

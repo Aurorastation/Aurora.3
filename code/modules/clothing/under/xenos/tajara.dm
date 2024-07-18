@@ -376,8 +376,8 @@
 	sprite_sheets = list(BODYTYPE_TESLA_BODY = 'icons/mob/species/tajaran/tesla_body/uniform.dmi')
 
 /obj/item/clothing/under/tajaran/archeologist
-	name = "archaeologist uniform"
-	desc = "A rugged uniform used by Adhomian archaeologists. It is already covered in dirt and ancient dust."
+	name = "archeologist uniform"
+	desc = "A rugged uniform used by Adhomian archeologists. It is already covered in dirt and ancient dust."
 	icon_state = "explorer_uniform"
 	item_state = "explorer_uniform"
 

@@ -144,8 +144,6 @@
 
 /obj/machinery/suit_cycler/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	eject_occupant(user)
 
