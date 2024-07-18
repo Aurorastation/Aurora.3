@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Most hivebots now create sparks when they teleport in, instead of smoke. The smokescreen created by beacons remain."
-  - bugfix: "Smoke now renders over mobs again."

@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscdel: "Killed hivebots now only drop a single robot gib onto the turf beneath it, and only if there isn't one on that turf already."

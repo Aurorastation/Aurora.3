@@ -1,7 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - rscadd: "Barricades will now send a chat message if you can't climb them due to there being barbed wire."
-  - bugfix: "Fixed barbed wire overlays not appearing on barricades."
