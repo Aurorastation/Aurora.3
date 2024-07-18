@@ -252,7 +252,10 @@
 	filling_color = "#3b1b06"
 
 /obj/item/reagent_containers/food/snacks/caramelized_steak_bites/update_icon()
-	var/percent_steakbites = round((reagents.total_volume / 11) * 100)
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_steakbites = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
 	switch(percent_steakbites)
 		if(0 to 80)
 			icon_state = "steakbites_half"
@@ -281,7 +284,10 @@
 	reagent_data = list(/singleton/reagent/nutriment = list ("dough" = 5), /singleton/reagent/nutriment/protein = list("egg" = 5))
 
 /obj/item/reagent_containers/food/snacks/egg_pie/update_icon()
-	var/percent_eggpie = round((reagents.total_volume / 9) * 100)
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_eggpie = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
 	switch(percent_eggpie)
 		if(0 to 90)
 			icon_state = "egg_pie_bitten"

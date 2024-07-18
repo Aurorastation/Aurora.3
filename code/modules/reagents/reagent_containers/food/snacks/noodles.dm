@@ -190,7 +190,10 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 5, "garlic" = 3), /singleton/reagent/nutriment/protein/cheese = list("creamy parmesan" = 5))
 
 /obj/item/reagent_containers/food/snacks/fettuccine_alfredo/update_icon()
-	var/percent_fettuccine_alfredo = round((reagents.total_volume / 8) * 100)
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_fettuccine_alfredo = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
 	switch(percent_fettuccine_alfredo)
 		if(0 to 49)
 			icon_state = "alfredo_half"

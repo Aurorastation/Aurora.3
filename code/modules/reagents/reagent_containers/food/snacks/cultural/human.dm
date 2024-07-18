@@ -828,7 +828,10 @@
 	reagent_data = list(/singleton/reagent/nutriment/protein = list("spicy meat" = 5, "chili" = 4, "onion" = 3, "unusual flavoring" = 3))
 
 /obj/item/reagent_containers/food/snacks/fire_loaf/update_icon()
-	var/percent_fire_loaf = round((reagents.total_volume / 13) * 100)
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_fire_loaf = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
 	switch(percent_fire_loaf)
 		if(0 to 49)
 			icon_state = "fireloaf_half"
