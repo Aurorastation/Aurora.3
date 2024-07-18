@@ -131,7 +131,7 @@
 		var/blood_max = 0
 		var/open_wound
 		var/list/do_spray = list()
-		for(var/obj/item/organ/external/temp in owner.bad_external_organs)
+		for(var/obj/item/organ/external/temp in owner.organs)
 			if((temp.status & ORGAN_BLEEDING) && !BP_IS_ROBOTIC(temp))
 				for(var/datum/wound/W in temp.wounds)
 					if(W.bleeding())
@@ -146,7 +146,7 @@
 							blood_max += ((W.damage / 40) * species.bleed_mod)
 
 			if(temp.status & ORGAN_ARTERY_CUT)
-				var/bleed_amount = FLOOR((owner.vessel.total_volume / (temp.applied_pressure || !open_wound ? 450 : 250)) * temp.arterial_bleed_severity, 1)
+				var/bleed_amount = FLOOR((owner.vessel.total_volume / (temp.applied_pressure || !open_wound ? 450 : 250)) * temp.arterial_bleed_severity, 0.1)
 				if(bleed_amount)
 					if((CE_BLOODCLOT in owner.chem_effects) && !(owner.chem_effects[CE_BLOODTHIN]))
 						bleed_amount *= 0.8 // won't do much, but it'll help
