@@ -350,18 +350,19 @@
 	coat["long fisanduhian bomber jacket"] = /obj/item/clothing/suit/storage/toggle/dominia/bomber/long
 	gear_tweaks += new /datum/gear_tweak/path(coat)
 
-/datum/gear/suit/tcfl
-	display_name = "Tau Ceti Foreign Legion jacket selection"
-	description = "A selection of fine, surplus jackets of the Foreign Legion."
+/datum/gear/suit/tcaf
+	display_name = "Tau Ceti Armed Forces jacket selection"
+	description = "A selection of fine, surplus jackets of the Armed Forces."
 	path = /obj/item/clothing/suit/storage/legion
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/suit/tcfl/New()
+/datum/gear/suit/tcaf/New()
 	..()
-	var/list/tcfljac = list()
-	tcfljac ["tcfl jacket"] = /obj/item/clothing/suit/storage/legion
-	tcfljac ["tcfl jacket, flight"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
-	gear_tweaks += new /datum/gear_tweak/path(tcfljac)
+	var/list/tcafjacket = list()
+	tcafjacket ["tcaf jacket"] = /obj/item/clothing/suit/storage/legion/tcaf
+	tcafjacket ["tcfl jacket"] = /obj/item/clothing/suit/storage/legion
+	tcafjacket ["tcfl jacket, flight"] = /obj/item/clothing/suit/storage/toggle/leather_jacket/flight/legion
+	gear_tweaks += new /datum/gear_tweak/path(tcafjacket)
 
 /datum/gear/suit/dep_jacket
 	display_name = "department jackets selection"
