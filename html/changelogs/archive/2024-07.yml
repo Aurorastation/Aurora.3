@@ -168,3 +168,8 @@
       and expands the fuel tank for the TCAF Corvette.
   - qol: Gives the existing animal pens on Moghes and Ouerea gates, and adds some
       new pens to Moghes ghostspawns that were missing them.
+2024-07-19:
+  FluffyGhost:
+  - admin: Fixed an href exploit in the traitor uplink.
+  Lavillastrangiato:
+  - qol: Added extra equipment and decorations to some Ouerea away sites.
