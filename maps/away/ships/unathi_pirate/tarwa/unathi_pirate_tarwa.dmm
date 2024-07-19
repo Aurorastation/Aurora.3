@@ -23,7 +23,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/curtain/black,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "aj" = (
 /obj/structure/table/standard,
@@ -46,18 +46,8 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 8;
-	maxhealth = 140
-	},
-/obj/machinery/door/window{
-	dir = 4
-	},
-/turf/space,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "as" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -99,10 +89,12 @@
 /area/tarwa_ship/bridge)
 "aE" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "aH" = (
 /obj/machinery/body_scanconsole,
+/obj/effect/floor_decal/corner_wide/paleblue,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
@@ -117,6 +109,12 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
@@ -169,7 +167,7 @@
 	name = "igs - tarwa_diona";
 	identifier = "tarwa_diona"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
 "bp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -212,17 +210,24 @@
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
 /obj/item/tank/jetpack/oxygen,
-/obj/effect/floor_decal/corner/dark_green{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner/dark_green,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 2
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "bM" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/iv_drip,
 /obj/item/tank/oxygen,
 /obj/item/clothing/mask/breath/medical,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
 "bN" = (
@@ -245,12 +250,12 @@
 /obj/item/gun/projectile/pistol/super_heavy,
 /obj/item/storage/box/shotgunshells,
 /obj/item/ammo_magazine/super_heavy,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/armory)
 "cc" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/structure/closet,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
 "ce" = (
 /turf/simulated/wall/shuttle/raider,
@@ -329,10 +334,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
 "cw" = (
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
 "cy" = (
 /turf/simulated/wall/diona,
@@ -362,6 +367,7 @@
 /area/tarwa_ship/bridge)
 "cH" = (
 /obj/machinery/portable_atmospherics/canister/sleeping_agent,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "cI" = (
@@ -384,6 +390,7 @@
 	req_access = list(210);
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/reinforced,
 /area/tarwa_ship/engineering1)
 "cL" = (
@@ -412,20 +419,19 @@
 	pixel_y = 25;
 	stand_icon = "banner"
 	},
-/obj/effect/floor_decal/corner/dark_green{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner/dark_green{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "dg" = (
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 1
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "dh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -454,7 +460,7 @@
 /obj/item/gun/projectile/automatic/tempestsmg,
 /obj/item/ammo_magazine/tempestsmg,
 /obj/item/ammo_magazine/tempestsmg,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/armory)
 "dG" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -465,13 +471,15 @@
 /area/tarwa_ship/oldhangar)
 "dP" = (
 /obj/structure/diona/bulb,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
 "dQ" = (
-/obj/effect/floor_decal/industrial/hatch_tiny/yellow,
 /obj/machinery/atmospherics/binary/passive_gate/on{
 	dir = 4;
 	name = "Tank to Distro"
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
@@ -482,7 +490,7 @@
 /obj/machinery/alarm/west{
 	req_one_access = list(210)
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
 "dY" = (
 /obj/structure/table/diona,
@@ -498,7 +506,7 @@
 	pixel_x = 11;
 	pixel_y = 6
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "ed" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -551,8 +559,34 @@
 /area/tarwa_ship/bridge)
 "ey" = (
 /obj/machinery/shipsensors/weak,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
+"eN" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/tarwa_ship/oldhangar)
+"eS" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
+/area/space)
+"eT" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/tarwa_ship/oldhangar)
 "fb" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -562,6 +596,7 @@
 /area/tarwa_ship/bridge)
 "fd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "fe" = (
@@ -625,7 +660,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "fI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -663,7 +698,7 @@
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/engineering1)
 "gs" = (
 /obj/structure/cable/green{
@@ -679,6 +714,15 @@
 "gw" = (
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
+"gx" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/tarwa_ship/oldhangar)
 "gC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -699,7 +743,7 @@
 /area/tarwa_ship)
 "gD" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "gE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -711,7 +755,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/engineering1)
 "gQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -752,6 +796,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/armory)
 "hi" = (
@@ -788,7 +836,8 @@
 	shuttle_tag = "Tarwa Conglomerate Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/space,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "hx" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -797,6 +846,12 @@
 /area/tarwa_ship/oldhangar)
 "hE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/oldhangar)
@@ -833,13 +888,20 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/turf/space,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tarwa_stbd";
+	name = "airlock_tarwa_stbd"
+	},
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "ia" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
 	name = "canister to tank";
 	target_pressure = 15000
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
@@ -876,7 +938,7 @@
 	pixel_x = -6;
 	pixel_y = 6
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/cic)
 "iv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -920,6 +982,10 @@
 /obj/structure/curtain/black,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/oldhangar)
+"iH" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/plating,
+/area/tarwa_ship/engineering1)
 "iI" = (
 /obj/machinery/door/airlock/diona/external,
 /obj/machinery/access_button{
@@ -933,7 +999,8 @@
 	shuttle_tag = "Tarwa Conglomerate Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/space,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "jc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -982,7 +1049,7 @@
 	req_one_access = list(210);
 	shuttle_tag = "Tarwa Conglomerate Shuttle"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "jp" = (
 /obj/structure/cable/green{
@@ -1001,7 +1068,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "jt" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1011,18 +1078,19 @@
 /obj/structure/closet/walllocker/firecloset{
 	pixel_x = 32
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/cic)
 "ju" = (
 /obj/machinery/suit_cycler/offship/tarwa/captain{
 	name = "Captain's Suit"
 	},
-/obj/effect/floor_decal/corner/dark_green{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/dark_green{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "jz" = (
@@ -1043,7 +1111,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship)
 "jD" = (
 /obj/structure/table/steel,
@@ -1059,6 +1127,14 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/bridge)
+"jM" = (
+/obj/effect/floor_decal/corner/red,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/tarwa_ship/oldhangar)
 "jR" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1074,7 +1150,7 @@
 /obj/machinery/computer/ship/targeting/terminal{
 	dir = 1
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "kj" = (
 /obj/machinery/light{
@@ -1088,6 +1164,7 @@
 "km" = (
 /obj/machinery/power/smes/buildable/horizon_shuttle,
 /obj/structure/cable/green,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "kw" = (
@@ -1147,17 +1224,26 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "kI" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/window/reinforced{
-	dir = 8;
-	maxhealth = 140
-	},
-/obj/machinery/atmospherics/portables_connector,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
+"kJ" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(210)
+	},
+/turf/simulated/floor/tiled,
+/area/tarwa_ship)
 "kR" = (
 /obj/structure/railing/mapped,
 /obj/machinery/computer/ship/helm/terminal{
@@ -1168,12 +1254,13 @@
 /area/tarwa_ship/bridge)
 "kU" = (
 /obj/machinery/hologram/holopad/long_range,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "kV" = (
 /obj/machinery/vending/engivend{
 	req_access = list(210)
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "kW" = (
@@ -1210,13 +1297,13 @@
 /area/tarwa_ship/engineering1)
 "lb" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/engineering2)
 "lg" = (
 /obj/machinery/atmospherics/pipe/simple/visible/scrubbers{
 	dir = 9
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "lo" = (
 /obj/machinery/computer/ship/engines/terminal,
@@ -1224,7 +1311,7 @@
 	pixel_y = 25;
 	stand_icon = "banner"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/cic)
 "ly" = (
 /obj/structure/cable/green{
@@ -1236,7 +1323,10 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/hangar)
 "lz" = (
-/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/oldhangar)
 "lA" = (
@@ -1251,13 +1341,13 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "lH" = (
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 4
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
 "lN" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -1299,25 +1389,27 @@
 	dir = 8;
 	level = 2
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "my" = (
 /obj/machinery/computer/shuttle_control/explore/terminal/freighter_shuttle{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "mC" = (
 /obj/machinery/vending/engineering{
 	req_access = list(113)
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "mE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/engineering1)
 "mF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1332,10 +1424,11 @@
 "mJ" = (
 /obj/machinery/light,
 /obj/machinery/power/portgen/basic,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "mN" = (
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/engineering1)
 "mU" = (
 /obj/structure/filingcabinet/filingcabinet{
@@ -1351,7 +1444,7 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "ns" = (
 /obj/structure/sign/flag/tarwa{
@@ -1359,7 +1452,7 @@
 	stand_icon = "banner"
 	},
 /obj/machinery/seed_storage/random,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
 "nt" = (
 /obj/effect/landmark/entry_point/port{
@@ -1422,20 +1515,24 @@
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "nX" = (
-/obj/machinery/alarm/south{
-	req_one_access = list(210)
-	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/obj/machinery/computer/cryopod{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/crew)
 "od" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/walllocker/medical{
 	name = "Blood Locker";
 	pixel_y = 32
@@ -1443,6 +1540,10 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
 "oj" = (
@@ -1452,7 +1553,7 @@
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 1
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/cic)
 "ol" = (
 /turf/simulated/floor/tiled/ramp/bottom{
@@ -1473,13 +1574,17 @@
 	pixel_y = 25;
 	stand_icon = "banner"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "oF" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/sleeper{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
 "oN" = (
@@ -1502,10 +1607,10 @@
 "oS" = (
 /obj/structure/diona/bulb,
 /obj/structure/closet/crate/hydroponics/prespawned,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
 "pd" = (
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "pk" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
@@ -1520,7 +1625,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "pw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1542,6 +1647,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "pE" = (
@@ -1589,7 +1695,7 @@
 /area/tarwa_ship/canteen)
 "pZ" = (
 /obj/structure/diona/bulb,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/engineering1)
 "qd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1620,7 +1726,11 @@
 /area/tarwa_ship)
 "qt" = (
 /obj/structure/diona/bulb,
-/turf/space,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tarwa_stbd";
+	name = "airlock_tarwa_stbd"
+	},
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "qy" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -1629,9 +1739,10 @@
 /obj/machinery/suit_cycler/offship/tarwa{
 	name = "Crewman's Suit"
 	},
-/obj/effect/floor_decal/corner/dark_green{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "qK" = (
@@ -1657,7 +1768,7 @@
 	name = "canister to thrusters";
 	target_pressure = 15000
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/engineering2)
 "qW" = (
 /obj/effect/shuttle_landmark/tarwa_ship/nav2,
@@ -1685,6 +1796,7 @@
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "rt" = (
@@ -1715,6 +1827,7 @@
 /area/tarwa_ship)
 "rN" = (
 /obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "rS" = (
@@ -1751,8 +1864,15 @@
 	req_access = list(210)
 	},
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
+"sj" = (
+/obj/structure/curtain/black,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/tarwa_ship/oldhangar)
 "sp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
@@ -1799,7 +1919,7 @@
 /obj/machinery/computer/ship/helm/terminal{
 	dir = 1
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/cic)
 "sA" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -1814,6 +1934,7 @@
 	pixel_y = -4;
 	pixel_x = -6
 	},
+/obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "sP" = (
@@ -1821,14 +1942,14 @@
 /area/space)
 "sT" = (
 /obj/machinery/atmospherics/binary/pump,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "sW" = (
 /obj/machinery/ammunition_loader/bruiser{
 	dir = 1;
 	weapon_id = "Tarwa Freighter Bruiser"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
 "sY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1837,7 +1958,7 @@
 	pixel_y = -1;
 	pixel_x = 2
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "tv" = (
 /obj/effect/floor_decal/carpet{
@@ -1879,7 +2000,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "ud" = (
 /turf/simulated/floor/carpet/red,
@@ -1894,7 +2015,8 @@
 	pixel_y = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/space,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
 /area/tarwa_ship/oldhangar)
 "ut" = (
 /obj/structure/table/rack,
@@ -1910,6 +2032,7 @@
 	pixel_y = 3
 	},
 /obj/item/stack/material/aluminium/full,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "uu" = (
@@ -1933,16 +2056,17 @@
 /obj/machinery/suit_cycler/offship/tarwa{
 	name = "Crewman's Suit"
 	},
-/obj/effect/floor_decal/corner/dark_green{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/obj/effect/floor_decal/corner/dark_green{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "uz" = (
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship)
 "uB" = (
 /obj/structure/lattice,
@@ -1961,11 +2085,12 @@
 	name = "airlock_tarwa_aft"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
 /area/tarwa_ship)
 "uM" = (
 /obj/machinery/portable_atmospherics/hydroponics,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
 "uS" = (
 /turf/simulated/wall/shuttle/raider,
@@ -1974,6 +2099,13 @@
 /obj/machinery/bodyscanner{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/security,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
@@ -1988,7 +2120,7 @@
 /obj/structure/bed/stool/wood{
 	dir = 1
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "vj" = (
 /obj/effect/floor_decal/carpet{
@@ -2016,7 +2148,7 @@
 	},
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca/frag,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/armory)
 "vo" = (
 /obj/effect/floor_decal/carpet,
@@ -2033,30 +2165,42 @@
 /obj/machinery/door/blast/regular,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/hangar)
+"vA" = (
+/obj/effect/floor_decal/corner/dark_green{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(210)
+	},
+/turf/simulated/floor/tiled,
+/area/tarwa_ship)
 "vG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/engineering1)
 "vO" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/corner/dark_green{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "vS" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 4
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/engineering2)
 "vW" = (
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "wd" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -2088,6 +2232,9 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
@@ -2095,7 +2242,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "wI" = (
 /obj/machinery/door/airlock/external,
@@ -2109,14 +2256,15 @@
 	name = "airlock_tarwa_aft"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
 /area/tarwa_ship)
 "wJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/engineering1)
 "wK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2149,7 +2297,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "xd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2191,12 +2339,22 @@
 	req_access = list(210)
 	},
 /obj/structure/bed/stool/chair/shuttle,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "xn" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/diona/airless,
 /area/tarwa_ship/engineering1)
+"xr" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 2
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/tarwa_ship/oldhangar)
 "xt" = (
 /obj/machinery/light{
 	dir = 4
@@ -2211,6 +2369,7 @@
 /obj/structure/closet/secure_closet/engineering_electrical{
 	req_access = null
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "xA" = (
@@ -2224,12 +2383,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/hangar)
+"xI" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/diona,
+/area/tarwa_ship/oldhangar)
 "xN" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "xT" = (
@@ -2281,7 +2444,7 @@
 	pixel_x = -1;
 	id = "tarwa_lockdown"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "yk" = (
 /obj/structure/table/stone/marble,
@@ -2304,6 +2467,9 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/crew)
 "yt" = (
@@ -2319,6 +2485,9 @@
 /turf/simulated/floor/reinforced/airmix,
 /area/tarwa_ship/engineering1)
 "yx" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
@@ -2365,8 +2534,12 @@
 /area/tarwa_ship/engineering1)
 "zg" = (
 /obj/machinery/light,
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/roller,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
 "zl" = (
@@ -2395,7 +2568,7 @@
 	dir = 5;
 	pixel_y = 0
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "zo" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -2408,11 +2581,14 @@
 	name = "Tank Shield";
 	id = "tarwa_tank_co2_shield"
 	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "zq" = (
 /obj/structure/diona/bulb,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
 "zs" = (
 /obj/effect/floor_decal/carpet{
@@ -2432,9 +2608,19 @@
 /turf/simulated/wall/diona,
 /area/tarwa_ship/engineering2)
 "zw" = (
-/obj/machinery/computer/ship/targeting/terminal{
-	dir = 1
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/remote/blast_door{
+	pixel_y = 8;
+	name = "Gunnery Shields";
+	id = "tarwa_rotary";
+	req_one_access = list(210)
 	},
+/obj/machinery/button/remote/blast_door{
+	name = "Exosuit Containment";
+	master_tag = "tarwa_exosuit_door"
+	},
+/obj/item/clothing/ears/earmuffs,
+/obj/item/device/binoculars/spyglass,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/oldhangar)
 "zy" = (
@@ -2450,6 +2636,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship)
+"zL" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/tarwa_ship/oldhangar)
 "zX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -2457,6 +2649,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(210)
+	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship)
 "Ai" = (
@@ -2509,15 +2707,27 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "AA" = (
 /obj/structure/closet/toolcloset/empty,
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/engineering2)
+"AH" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/paleblue,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4;
+	icon_state = "warning"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/tarwa_ship/medical)
 "AI" = (
 /obj/machinery/light{
 	dir = 1
@@ -2553,10 +2763,17 @@
 /obj/machinery/alarm/south{
 	req_one_access = list(210)
 	},
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/vending/medical{
 	req_access = null
 	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
 "Bf" = (
@@ -2576,7 +2793,8 @@
 	name = "Diona Quarters";
 	dir = 4
 	},
-/turf/space,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled,
 /area/tarwa_ship/diona)
 "Bi" = (
 /obj/structure/bed/stool/chair/sofa/right/black{
@@ -2607,7 +2825,7 @@
 /obj/item/ship_ammunition/bruiser/flechette,
 /obj/item/ship_ammunition/bruiser/flechette,
 /obj/item/ship_ammunition/bruiser/flechette,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/armory)
 "BC" = (
 /obj/structure/diona/bulb,
@@ -2615,7 +2833,7 @@
 	dir = 4;
 	pixel_x = 12
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
 "BD" = (
 /obj/machinery/door/blast/regular/open{
@@ -2638,7 +2856,7 @@
 	master_tag = "airlock_tarwa_stbd";
 	name = "airlock_tarwa_stbd"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "BJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
@@ -2665,6 +2883,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/crew)
 "BL" = (
@@ -2713,7 +2932,7 @@
 	pixel_y = 0;
 	pixel_x = -9
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "Cm" = (
 /obj/structure/cable/green{
@@ -2737,7 +2956,6 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "Cv" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/adv{
 	pixel_x = -5;
@@ -2755,6 +2973,13 @@
 	pixel_y = 2;
 	pixel_x = 5
 	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
 "CA" = (
@@ -2765,6 +2990,7 @@
 /area/tarwa_ship/engineering1)
 "CB" = (
 /obj/machinery/atmospherics/pipe/tank/air,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "CL" = (
@@ -2772,12 +2998,14 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/reinforced,
 /area/tarwa_ship/engineering1)
 "CM" = (
 /obj/machinery/optable,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark/full,
 /area/tarwa_ship/medical)
 "CR" = (
 /obj/structure/ship_weapon_dummy,
@@ -2797,7 +3025,7 @@
 	pixel_y = 6;
 	pixel_x = -4
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "Dd" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -2806,7 +3034,7 @@
 	},
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/structure/closet/walllocker/emerglocker/west,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/cic)
 "De" = (
 /obj/structure/table/rack,
@@ -2815,9 +3043,10 @@
 /obj/item/device/gps,
 /obj/item/device/gps,
 /obj/item/device/gps,
-/obj/effect/floor_decal/corner/dark_green{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "Di" = (
@@ -2835,7 +3064,7 @@
 	req_one_access = list(210)
 	},
 /obj/structure/diona/bulb,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
 "Dn" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -2856,7 +3085,8 @@
 	dir = 1;
 	name = "Fuel to Thrusters"
 	},
-/turf/space,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "Dy" = (
 /obj/machinery/vending/dinnerware,
@@ -2871,7 +3101,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/cic)
 "DD" = (
 /obj/machinery/door/blast/regular/open{
@@ -2894,6 +3124,7 @@
 "DJ" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/oldhangar)
 "DV" = (
@@ -2923,9 +3154,8 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/bridge)
 "Ee" = (
-/turf/simulated/floor/diona{
-	initial_gas = null
-	},
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
 /area/space)
 "Ef" = (
 /obj/machinery/shipsensors,
@@ -2938,12 +3168,13 @@
 	req_one_access = list(210)
 	},
 /obj/structure/dispenser/oxygen,
-/obj/effect/floor_decal/corner/dark_green{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/obj/effect/floor_decal/corner/dark_green{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "Eq" = (
@@ -2954,7 +3185,7 @@
 /obj/machinery/power/apc/north{
 	req_access = list(210)
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "EF" = (
 /obj/structure/cable/green{
@@ -2965,6 +3196,7 @@
 	is_critical = 1;
 	req_access = list(210)
 	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "EG" = (
@@ -2985,6 +3217,11 @@
 /obj/item/shield/energy/hegemony,
 /obj/item/shield/energy/dominia,
 /obj/item/melee/hammer/powered,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/armory)
 "ET" = (
@@ -3016,6 +3253,9 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/item/clothing/accessory/holster/waist/brown,
+/obj/item/clothing/accessory/holster/waist/brown,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/crew)
 "EZ" = (
@@ -3035,7 +3275,8 @@
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/space,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "Fc" = (
 /obj/effect/map_effect/marker/large_tank{
@@ -3093,12 +3334,20 @@
 	dir = 4;
 	id = "tarwa_cic"
 	},
-/turf/space,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled,
 /area/tarwa_ship/cic)
+"Fo" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/tarwa_ship/oldhangar)
 "Fq" = (
 /obj/machinery/computer/ship/helm/terminal{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "Ft" = (
@@ -3112,23 +3361,26 @@
 /obj/machinery/power/apc/north{
 	req_access = list(210)
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
 "Fx" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 4
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "Fy" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/engineering2)
 "FC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
@@ -3171,16 +3423,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/hangar)
+"FZ" = (
+/obj/structure/diona/bulb,
+/obj/structure/table/rack,
+/turf/simulated/floor/diona,
+/area/tarwa_ship/oldhangar)
 "Gd" = (
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "Gg" = (
 /obj/structure/diona/bulb,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship)
 "Gi" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
@@ -3191,7 +3451,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship)
 "Gs" = (
 /turf/simulated/wall/shuttle/raider,
@@ -3201,19 +3461,21 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "GM" = (
-/turf/simulated/floor/foamedmetal,
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/mob/living/heavy_vehicle/premade/ripley/loader,
+/turf/simulated/floor/plating,
 /area/tarwa_ship/eva)
 "GO" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "GV" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow,
-/turf/space,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "Hc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -3244,15 +3506,9 @@
 /turf/simulated/floor/reinforced/airmix,
 /area/tarwa_ship/engineering1)
 "Ht" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/remote/blast_door{
-	pixel_y = 4;
-	name = "Gunnery Shields";
-	id = "tarwa_rotary";
-	req_one_access = list(210)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
 	},
-/obj/item/clothing/ears/earmuffs,
-/obj/item/device/binoculars/spyglass,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/oldhangar)
 "Hy" = (
@@ -3261,7 +3517,6 @@
 	is_critical = 1;
 	req_access = list(210)
 	},
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/table/rack,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/item/auto_cpr{
@@ -3271,6 +3526,10 @@
 /obj/item/reagent_containers/hypospray,
 /obj/item/storage/belt/medical/paramedic,
 /obj/item/reagent_containers/inhaler/pneumalin,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
 "Hz" = (
@@ -3285,7 +3544,6 @@
 "HD" = (
 /obj/structure/table/rack,
 /obj/item/storage/firstaid/surgery,
-/obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/item/clothing/mask/surgical,
 /obj/item/reagent_containers/spray/cleaner{
@@ -3293,16 +3551,26 @@
 	icon_state = "sterilesprayblue";
 	name = "surgery cleaner"
 	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
 "HG" = (
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/engineering2)
 "HK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/engineering2)
 "HL" = (
 /obj/structure/diona/bulb,
@@ -3311,7 +3579,7 @@
 	pixel_y = 8
 	},
 /obj/item/ship_ammunition/francisca/ap,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/armory)
 "HM" = (
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
@@ -3325,6 +3593,7 @@
 	master_tag = "tarwa_tank_co2";
 	name = "tarwa_tank_co2r"
 	},
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "HP" = (
@@ -3400,7 +3669,7 @@
 	d2 = 8;
 	icon_state = "1-8"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "Ik" = (
 /obj/structure/cable/green,
@@ -3414,6 +3683,8 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 4
 	},
+/obj/structure/undies_wardrobe,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/crew)
 "Il" = (
@@ -3427,8 +3698,7 @@
 /obj/machinery/door/firedoor{
 	req_one_access = list(210)
 	},
-/obj/structure/curtain/black,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "Iw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -3462,7 +3732,7 @@
 /area/tarwa_ship/eva)
 "Jc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/engineering2)
 "Jg" = (
 /turf/simulated/wall/shuttle/raider,
@@ -3531,6 +3801,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/oldhangar)
 "JG" = (
@@ -3582,11 +3855,15 @@
 /obj/machinery/alarm/east{
 	req_one_access = list(210)
 	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "JY" = (
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -3601,7 +3878,7 @@
 /area/tarwa_ship/engineering1)
 "Kc" = (
 /obj/structure/diona/bulb,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "Kh" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -3630,7 +3907,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship)
 "Kw" = (
 /obj/structure/lattice,
@@ -3670,29 +3947,19 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "KH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/structure/curtain/black,
-/turf/simulated/floor/tiled,
+/obj/structure/diona/bulb,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "KI" = (
 /obj/machinery/seed_extractor,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
 "KP" = (
 /obj/machinery/autolathe,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "KS" = (
@@ -3705,7 +3972,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
 "KY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3719,7 +3986,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "Lc" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
@@ -3751,7 +4018,7 @@
 	id_tag = "tarwa_shuttle_out"
 	},
 /obj/effect/overmap/visitable/ship/landable/tarwa_shuttle,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "Lj" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -3783,6 +4050,7 @@
 	name = "Air Supply Terminal";
 	input_tag = "tarwa_tank_air_in"
 	},
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "LJ" = (
@@ -3813,6 +4081,7 @@
 /obj/structure/closet/secure_closet/engineering_welding{
 	req_access = null
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "LY" = (
@@ -3835,6 +4104,7 @@
 /area/tarwa_ship)
 "Mh" = (
 /obj/structure/closet/radiation,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "Mj" = (
@@ -3874,7 +4144,9 @@
 	name = "Gun Deck";
 	dir = 4
 	},
-/turf/space,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled,
 /area/tarwa_ship/gun)
 "Mp" = (
 /obj/structure/railing/mapped{
@@ -3882,13 +4154,13 @@
 	},
 /obj/structure/table/diona,
 /obj/item/device/binoculars/spyglass,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "Mq" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/armory)
 "Ms" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3916,7 +4188,8 @@
 	pixel_y = -28
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/space,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
 /area/tarwa_ship/oldhangar)
 "My" = (
 /obj/structure/bed,
@@ -3925,6 +4198,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/crew)
 "MF" = (
@@ -3935,6 +4209,7 @@
 /area/tarwa_ship/hangar)
 "MM" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "MN" = (
@@ -3973,13 +4248,19 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/eva)
 "MR" = (
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
+"MT" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/tarwa_ship/oldhangar)
 "Nb" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "Ni" = (
 /obj/structure/bed,
@@ -3992,6 +4273,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/crew)
 "Nl" = (
@@ -4027,7 +4309,7 @@
 	},
 /obj/item/clothing/ears/earmuffs,
 /obj/item/device/binoculars/spyglass,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
 "Nw" = (
 /turf/simulated/wall/shuttle/raider,
@@ -4035,7 +4317,7 @@
 "Nx" = (
 /obj/structure/diona/bulb,
 /obj/structure/table/rack,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
 "NB" = (
 /obj/structure/ship_weapon_dummy/barrel,
@@ -4080,13 +4362,14 @@
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "NT" = (
 /obj/machinery/computer/ship/targeting/terminal{
 	dir = 1
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
 "NU" = (
 /turf/simulated/wall/shuttle/raider,
@@ -4109,6 +4392,10 @@
 /area/tarwa_ship/captain)
 "Oh" = (
 /obj/machinery/atmospherics/binary/passive_gate/supply,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 4;
+	pixel_x = -3
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "Oi" = (
@@ -4189,8 +4476,12 @@
 	dir = 5
 	},
 /obj/structure/diona/bulb,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/cic)
+"Pu" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/turf/simulated/floor/plating,
+/area/tarwa_ship/oldhangar)
 "Pv" = (
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, airlock"
@@ -4201,10 +4492,12 @@
 	name = "airlock_tarwa_aft"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
 /area/tarwa_ship)
 "Px" = (
 /obj/machinery/computer/ship/engines/terminal,
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "Py" = (
@@ -4213,6 +4506,9 @@
 	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
+	},
+/obj/machinery/alarm/south{
+	req_one_access = list(210)
 	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/crew)
@@ -4243,6 +4539,7 @@
 /obj/machinery/power/terminal{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "PJ" = (
@@ -4252,17 +4549,20 @@
 	stand_icon = "banner"
 	},
 /obj/structure/bed/stool/chair/office/bridge/pilot,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
 "PK" = (
 /obj/effect/floor_decal/corner/dark_green,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/oldhangar)
 "PL" = (
 /obj/machinery/alarm/north{
 	req_one_access = list(210)
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "PM" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
@@ -4276,6 +4576,13 @@
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
 /area/space)
+"PP" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tarwa_stbd";
+	name = "airlock_tarwa_stbd"
+	},
+/turf/simulated/floor/diona,
+/area/tarwa_ship/oldhangar)
 "PT" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, hangar"
@@ -4287,18 +4594,28 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
 	temperature = 278
 	},
 /area/tarwa_ship/engineering1)
+"Qj" = (
+/obj/machinery/door/blast/regular/open{
+	name = "blast door";
+	master_tag = "tarwa_exosuit_door"
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/plating,
+/area/tarwa_ship/eva)
 "Ql" = (
 /obj/machinery/suit_cycler/offship/tarwa{
 	name = "Crewman's Suit"
 	},
-/obj/effect/floor_decal/corner/dark_green{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "Qm" = (
@@ -4306,10 +4623,10 @@
 /obj/machinery/portable_atmospherics/canister/oxygen{
 	start_pressure = 15000
 	},
-/obj/effect/floor_decal/corner/dark_green{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "Qn" = (
@@ -4335,7 +4652,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "QF" = (
 /turf/simulated/floor/reinforced,
@@ -4367,7 +4684,7 @@
 /obj/item/ship_ammunition/bruiser/flechette,
 /obj/item/ship_ammunition/bruiser/flechette,
 /obj/item/ship_ammunition/bruiser/flechette,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/armory)
 "QQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4402,7 +4719,8 @@
 	name = "airlock_tarwa_aft"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
 /area/tarwa_ship)
 "QV" = (
 /obj/item/reagent_containers/food/condiment/flour,
@@ -4438,12 +4756,16 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "Rc" = (
 /obj/machinery/iff_beacon/name_change,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
+"Rd" = (
+/obj/effect/floor_decal/corner/yellow,
+/turf/simulated/floor/tiled,
+/area/tarwa_ship/oldhangar)
 "Ri" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -4452,13 +4774,13 @@
 /obj/machinery/power/terminal{
 	dir = 1
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "Rk" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/crew)
 "Rl" = (
 /obj/structure/cable/green{
@@ -4474,10 +4796,11 @@
 	shuttle_tag = "Tarwa Conglomerate Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/space,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "Ru" = (
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/crew)
 "Rv" = (
 /obj/structure/cable/green{
@@ -4497,13 +4820,14 @@
 /obj/item/reagent_containers/syringe/drugs,
 /obj/item/reagent_containers/syringe/drugs,
 /obj/item/reagent_containers/syringe/drugs,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "Rz" = (
 /turf/simulated/wall/diona,
 /area/tarwa_ship/engineering2)
 "RA" = (
-/obj/machinery/computer/ship/sensors/terminal{
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/computer/ship/targeting/terminal{
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -4542,12 +4866,15 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
 "Sa" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
 	target_pressure = 15000
+	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
@@ -4570,7 +4897,7 @@
 /area/tarwa_ship/oldhangar)
 "Ss" = (
 /obj/structure/diona/bulb,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/engineering2)
 "Sw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4617,13 +4944,14 @@
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "SJ" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "SK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4645,7 +4973,7 @@
 /area/tarwa_ship/engineering1)
 "SW" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "SZ" = (
 /turf/simulated/floor/tiled,
@@ -4656,37 +4984,42 @@
 /area/tarwa_ship/bridge)
 "Tg" = (
 /obj/structure/curtain/black,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
 "Ti" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "TA" = (
 /obj/structure/bed/stool/wood{
 	dir = 2
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "TC" = (
 /obj/machinery/atmospherics/binary/passive_gate/scrubbers{
 	dir = 4;
 	target_pressure = 15000
 	},
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 8;
+	pixel_y = 3
+	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "TG" = (
 /obj/structure/bed/handrail,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "TK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "TL" = (
 /turf/simulated/wall/shuttle/raider,
@@ -4702,6 +5035,7 @@
 /obj/item/tank/hydrogen/shuttle,
 /obj/item/tank/hydrogen/shuttle,
 /obj/item/tank/hydrogen/shuttle,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "TX" = (
@@ -4715,7 +5049,8 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/space,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
 /area/tarwa_ship/oldhangar)
 "Ui" = (
 /turf/simulated/floor/tiled,
@@ -4740,7 +5075,7 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "aft"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "Uw" = (
 /turf/simulated/wall/shuttle/raider,
@@ -4785,7 +5120,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 10
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "UO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4799,7 +5134,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
 "UV" = (
 /turf/simulated/wall/diona,
@@ -4816,6 +5151,7 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/oldhangar)
@@ -4847,6 +5183,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
@@ -4866,6 +5205,7 @@
 	pixel_y = 3;
 	pixel_x = -1
 	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "Wq" = (
@@ -4914,7 +5254,8 @@
 	shuttle_tag = "Tarwa Conglomerate Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/space,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "Wz" = (
 /turf/simulated/wall/shuttle/raider,
@@ -4943,6 +5284,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "Xi" = (
@@ -4953,10 +5295,9 @@
 /obj/machinery/power/apc/north{
 	req_access = list(210)
 	},
-/obj/effect/floor_decal/corner/dark_green{
+/obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/eva)
 "Xn" = (
@@ -4967,7 +5308,7 @@
 /area/tarwa_ship/canteen)
 "Xo" = (
 /obj/structure/diona/bulb,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/crew)
 "Xr" = (
 /obj/structure/cable/green,
@@ -4977,7 +5318,7 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/hangar)
 "XL" = (
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/bridge)
 "XM" = (
 /obj/structure/grille,
@@ -5007,10 +5348,11 @@
 /obj/machinery/computer/ship/targeting/terminal{
 	dir = 1
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/cic)
 "XU" = (
 /obj/machinery/vending/tool,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "XX" = (
@@ -5060,7 +5402,7 @@
 	dir = 1
 	},
 /obj/structure/table/rack,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
 "Yv" = (
 /obj/machinery/atmospherics/unary/engine,
@@ -5086,14 +5428,15 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "YI" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/oldhangar)
 "YL" = (
 /obj/structure/bed/stool/chair/shuttle,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "YO" = (
@@ -5124,7 +5467,7 @@
 /area/tarwa_ship/bridge)
 "Zg" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
 "Zj" = (
 /turf/simulated/wall/diona,
@@ -5139,11 +5482,14 @@
 /area/tarwa_ship/engineering2)
 "ZA" = (
 /obj/structure/diona/bulb,
-/turf/space,
+/turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "ZI" = (
 /obj/structure/bed/stool/wood{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
@@ -5156,7 +5502,6 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/table/rack,
 /obj/item/clothing/suit/armor/unathi,
 /obj/item/clothing/head/helmet/unathi,
 /obj/item/storage/secure/safe/unathi_pirate_izharshan{
@@ -5171,7 +5516,8 @@
 /obj/item/ammo_magazine/spitterpistol,
 /obj/item/ammo_magazine/spitterpistol,
 /obj/item/ammo_magazine/spitterpistol,
-/turf/space,
+/obj/structure/table/rack,
+/turf/simulated/floor/diona,
 /area/tarwa_ship/armory)
 "ZY" = (
 /obj/machinery/door/airlock/diona/external{
@@ -5181,7 +5527,8 @@
 	dir = 10
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/space,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/tiled,
 /area/tarwa_ship/oldhangar)
 
 (1,1,1) = {"
@@ -34356,7 +34703,7 @@ uB
 uB
 uB
 ND
-pd
+PP
 qt
 ND
 ND
@@ -34877,7 +35224,7 @@ KF
 bi
 iv
 Ii
-qt
+KH
 Gs
 lY
 Lc
@@ -35095,13 +35442,13 @@ ef
 ef
 ef
 ef
-Ee
+ef
 ef
 aY
 sP
 sP
 sP
-sP
+ef
 sP
 sP
 ef
@@ -35136,7 +35483,7 @@ pd
 pd
 pd
 Io
-Up
+zL
 lz
 RA
 ND
@@ -35353,7 +35700,7 @@ ef
 ef
 ef
 ef
-Ee
+sP
 ef
 ef
 ef
@@ -35366,7 +35713,7 @@ Rz
 Rz
 Ss
 HG
-Gd
+kI
 Rz
 jf
 Id
@@ -35387,8 +35734,8 @@ aa
 hk
 SZ
 sA
+ag
 KH
-qt
 TA
 CW
 uZ
@@ -35610,14 +35957,14 @@ ef
 ef
 ef
 ef
-Ee
+sP
 ef
 ef
 ef
 ef
 ef
-Ee
-Ee
+ef
+sP
 ef
 sC
 Rz
@@ -35644,15 +35991,15 @@ aa
 hx
 yt
 Ih
-KH
+ag
 pd
-SZ
+Rd
 ZI
 pd
 Io
-pd
-qt
-Up
+xI
+FZ
+Pu
 Ht
 ND
 Kw
@@ -35868,12 +36215,12 @@ ef
 ef
 ef
 ef
-Ee
+sP
 ef
 ef
 ef
-Ee
 ef
+sP
 ef
 ef
 KB
@@ -35903,14 +36250,14 @@ yt
 yL
 bc
 iB
-iB
+sj
 hi
 hi
 LS
 LS
 hi
 Uw
-Uw
+Qj
 Uw
 uB
 Kw
@@ -36123,14 +36470,14 @@ ef
 ef
 ef
 ef
-Ee
-Ee
+sP
+sP
 ef
-Ee
-Ee
+sP
+sP
 ef
 ef
-Ee
+sP
 ef
 ef
 Yv
@@ -36145,7 +36492,7 @@ Gd
 Gd
 Gd
 Ss
-Gd
+kI
 uS
 Ni
 Ms
@@ -36160,7 +36507,7 @@ yt
 jg
 lA
 yL
-yt
+jM
 hi
 EL
 bV
@@ -36379,14 +36726,14 @@ ef
 ef
 ef
 ef
-ef
-Ee
-ef
+sP
 ef
 ef
 ef
-Ee
-Ee
+ef
+ef
+sP
+sP
 ef
 ef
 ef
@@ -36402,7 +36749,7 @@ Gd
 Gd
 Gd
 HG
-Gd
+kI
 uS
 uS
 dh
@@ -36412,12 +36759,12 @@ aa
 aa
 aa
 aa
-SZ
+Fo
 SZ
 SZ
 jp
 jR
-jR
+eN
 bv
 he
 hO
@@ -36643,7 +36990,7 @@ ef
 ef
 ef
 ef
-Ee
+sP
 ef
 ef
 ef
@@ -36926,7 +37273,7 @@ Oa
 ud
 Ds
 HC
-yt
+eT
 Gs
 Eq
 uu
@@ -37183,12 +37530,12 @@ tv
 wK
 hL
 HC
-yt
+eT
 Gs
 PL
 SF
 Kh
-SZ
+MT
 pd
 pd
 ND
@@ -37418,7 +37765,7 @@ ef
 sP
 ef
 ef
-ef
+Ee
 sC
 sC
 sC
@@ -37429,7 +37776,7 @@ sC
 sC
 sC
 sC
-kI
+GO
 st
 uS
 ET
@@ -37440,13 +37787,13 @@ zs
 pw
 UM
 HC
-yt
+eT
 hx
 Gs
 SF
 hx
 Gs
-qt
+KH
 RJ
 ND
 Gs
@@ -37676,13 +38023,13 @@ ef
 sP
 ef
 ef
-ef
-ef
+Ee
+Ee
 sP
-ef
-ef
+Ee
+Ee
 aY
-ef
+Ee
 sC
 YX
 sC
@@ -37697,12 +38044,12 @@ JO
 kW
 tK
 HC
-yt
+xr
 JE
 PK
 Yf
 VC
-SZ
+gx
 pd
 ND
 ND
@@ -37930,16 +38277,16 @@ ef
 ef
 ef
 ef
-sP
-sP
-sP
 ef
 sP
-ef
-ef
+sP
 ef
 sP
 ef
+ef
+ef
+sP
+Ee
 sC
 sC
 sC
@@ -38196,7 +38543,7 @@ ef
 ef
 sP
 ef
-ef
+Ee
 wI
 fw
 PM
@@ -38212,7 +38559,7 @@ gQ
 If
 If
 hn
-hn
+vA
 hn
 gC
 hn
@@ -38442,7 +38789,7 @@ ef
 ef
 ef
 ef
-sP
+ef
 sP
 ef
 ef
@@ -38453,7 +38800,7 @@ ef
 ef
 aY
 ef
-ef
+Ee
 Pv
 Il
 FT
@@ -38710,7 +39057,7 @@ ef
 ef
 sP
 ef
-ef
+Ee
 TL
 TL
 TL
@@ -38726,7 +39073,7 @@ xt
 Hz
 Hz
 zJ
-zJ
+kJ
 zJ
 rw
 xt
@@ -38948,7 +39295,7 @@ ef
 ef
 ef
 ef
-sP
+ef
 ef
 ef
 ef
@@ -38967,7 +39314,7 @@ ef
 sP
 ef
 ef
-ef
+Ee
 Zj
 Zj
 Zj
@@ -39219,12 +39566,12 @@ ef
 ef
 ef
 sP
-ef
-ef
+Ee
+Ee
 sP
-ef
-ef
-ef
+eS
+Ee
+Ee
 Zj
 Qa
 QH
@@ -39719,11 +40066,11 @@ ef
 ef
 ef
 ef
+ef
+ef
+ef
+ef
 sP
-ef
-ef
-ef
-Ee
 ef
 ef
 sP
@@ -39741,7 +40088,7 @@ Hh
 yu
 Nw
 KP
-gw
+iH
 gw
 gw
 wP
@@ -39979,8 +40326,8 @@ ef
 ef
 sP
 ef
-Ee
-Ee
+sP
+ef
 ef
 ef
 ef
@@ -39998,7 +40345,7 @@ EG
 LP
 Nw
 ut
-gw
+iH
 gw
 ha
 yF
@@ -40235,7 +40582,7 @@ ef
 ef
 ef
 ef
-Ee
+sP
 ef
 ef
 ef
@@ -40492,7 +40839,7 @@ ef
 ef
 ef
 ef
-Ee
+sP
 ef
 ef
 ef
@@ -41006,14 +41353,14 @@ ef
 ef
 ef
 ef
-Ee
+sP
 ef
 ef
 ef
 ef
 ef
-Ee
-Ee
+sP
+sP
 ef
 ef
 ef
@@ -41271,7 +41618,7 @@ ef
 ef
 ef
 ef
-Ee
+sP
 ef
 ef
 ef
@@ -41307,7 +41654,7 @@ sp
 wj
 MG
 NU
-yx
+AH
 HD
 mj
 ef
@@ -41794,7 +42141,7 @@ Zj
 Zj
 nR
 rh
-gw
+iH
 EF
 JW
 Nw
