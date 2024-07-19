@@ -6644,10 +6644,10 @@
 
 /singleton/reagent/drink/zobo
 	name = "Zobo"
-	description = "A roselle juice popular across Eridani, often drank cold."
+	description = "A roselle juice popular across Eridani, often drunk cold."
 	color = "#71192F"
 	taste_description = "hibiscus tea"
 
 	glass_icon_state = "zobo_glass"
 	glass_name = "glass of zobo"
-	glass_desc = "A roselle juice popular across Eridani, often drank cold."
+	glass_desc = "A roselle juice popular across Eridani, often drunk cold."
