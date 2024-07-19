@@ -55,5 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "The handle_blood proc will now check all organs, not just damaged ones, and apply bloodloss accurately; including arterials where the external wounds are healed."
+  - bugfix: "Added an arterial check to the proc which determines which external organs are damaged so that the handle_blood proc will correctly remove blood for external organs with arterial bleeds with no damage."
   - bugfix: "Arterial severity which applies less than 1u of bloodloss is now accounted for properly and is no longer rounded down to 0."
