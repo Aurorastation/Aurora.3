@@ -1,0 +1,61 @@
+[
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 7,
+		"submap_size_y": 5,
+		"submaps_dmm": "hegemony_waypoint_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/chapel",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/hegemony_waypoint/chapel",
+		"submaps_can_repeat": false
+	},
+
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 11,
+		"submap_size_y": 5,
+		"submaps_dmm": "hegemony_waypoint_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/kitchen",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/hegemony_waypoint/kitchen",
+		"submaps_can_repeat": false
+	},
+
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 7,
+		"submap_size_y": 5,
+		"submaps_dmm": "hegemony_waypoint_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/dorms",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/hegemony_waypoint/dorms",
+		"submaps_can_repeat": false
+	},
+
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 5,
+		"submap_size_y": 6,
+		"submaps_dmm": "hegemony_waypoint_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/eva",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/hegemony_waypoint/eva",
+		"submaps_can_repeat": false
+	},
+
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 5,
+		"submap_size_y": 6,
+		"submaps_dmm": "hegemony_waypoint_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/atmos",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/hegemony_waypoint/atmos",
+		"submaps_can_repeat": false
+	},
+
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 5,
+		"submap_size_y": 7,
+		"submaps_dmm": "hegemony_waypoint_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/hegemony_waypoint/hydro",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/hegemony_waypoint/hydro",
+		"submaps_can_repeat": false
+	}
+]
