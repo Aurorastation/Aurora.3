@@ -131,7 +131,7 @@
 		var/blood_max = 0
 		var/open_wound
 		var/list/do_spray = list()
-		for(var/obj/item/organ/external/temp in owner.organs)
+		for(var/obj/item/organ/external/temp in owner.bad_external_organs)
 			if((temp.status & ORGAN_BLEEDING) && !BP_IS_ROBOTIC(temp))
 				for(var/datum/wound/W in temp.wounds)
 					if(W.bleeding())
