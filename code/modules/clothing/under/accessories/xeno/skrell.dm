@@ -104,3 +104,9 @@
 	relations between the Izweski Hegemony and Nralakk Federation, and the relative isolation of Ouerean Skrell, Federation-sympathetic Skrell would likely not have a strong opinion on this cape."
 	item_state = "ouecape"
 	icon_state = "ouecape"
+
+/obj/item/clothing/accessory/poncho/shouldercape/nationcapes/hieroaetheria
+	name = "\improper Hieroaetheria cape"
+	desc = "A cape that has the Consortium of Hieroaetheria flag on the back."
+	item_state = "concape"
+	icon_state = "concape"
