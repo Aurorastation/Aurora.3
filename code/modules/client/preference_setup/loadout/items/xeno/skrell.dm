@@ -452,3 +452,21 @@ var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 	nationcapes["Ouerea Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/ouerea
 	gear_tweaks += new /datum/gear_tweak/path(nationcapes)
 
+/datum/gear/uniform/skrell/hieroaetherian_tunic
+	display_name = "skrellian traditional hieroaetherian tunic"
+	description = "A traditional tunic worn on Hieroaetheria, made up of several colorful fabrics and adorned with a seemingly still-living, bioluminescent Starvine."
+	path = /obj/item/clothing/under/diona/hieroaetherian_tunic
+	cost = 1
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	origin_restriction = list(/singleton/origin_item/origin/skrell_consortium)
+
+/datum/gear/suit/skrell/hieroaetherian_poncho
+	display_name = "skrellian hieroaetherian poncho"
+	description = "A Hieroaetherian poncho made of some sort of mesh weave material, adorned by a piece of colored fabric wrapped around it that denotes their home nation."
+	path = /obj/item/clothing/accessory/poncho/hieroaetherian_poncho
+	cost = 1
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/skrell_consortium)
