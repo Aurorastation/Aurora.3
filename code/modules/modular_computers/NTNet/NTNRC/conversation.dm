@@ -107,6 +107,26 @@ var/global/ntnrc_uid = 0
 	var/datum/ntnet_message/message/msg = new(Cl)
 	msg.message = message
 	msg.user = user
+
+	//[signal.data["name"]] ([signal.data["job"]])", signal.data["message"], signal.data["photo"]
+	var/list/signal_data = list()
+	signal_data["name"] = user.GetVoice()
+	signal_data["job"] = user.job
+	signal_data["message"] = message
+	signal_data["photo"] = null
+
+	// If the channel has a title, use the title, otherwise add the users
+	if(title != initial(title))
+		signal_data["targets"] = list("[title] (Channel)")
+	else
+		signal_data["targets"] = list()
+		for(var/datum/ntnet_user/U in users)
+			if(U != Cl.my_user)
+				signal_data["targets"] += U.username
+
+	var/datum/signal/subspace/pda/signal = new(Cl.computer, signal_data)
+	signal.send_to_receivers()
+
 	process_message(msg)
 
 /datum/ntnet_conversation/proc/cl_join(var/datum/computer_file/program/chat_client/Cl)
