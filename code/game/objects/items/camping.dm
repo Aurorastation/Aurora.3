@@ -407,7 +407,7 @@
 
 /obj/item/material/folding_table/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
 	if(use_check(user) || !user.Adjacent(target))
-		to_chat(usr, SPAN_WARNING("You can't set up \the [src] so far away."))
+		to_chat(usr, SPAN_WARNING("You fail to set up \the [src] in that location."))
 		return
 	if(isturf(target))
 		deploy(target, user.dir, user)
