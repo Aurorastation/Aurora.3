@@ -47,19 +47,18 @@
 		return 1
 	if(istype(D, /mob/living/simple_animal))
 		simple_animal_basic_disarm(A,D)
-		return 1
 	else
 		basic_hit(A,D)
-		return 1
+	return 1
 
 /datum/martial_art/kis_khan/simple_animal_basic_disarm(var/mob/living/carbon/human/A, var/mob/living/simple_animal/D)
 	if(!D.paralysis)
-		A.visible_message("<b>[A]</b> delivers a blow to \the <b>[D]</b>'s head, making [D.get_pronoun("him")] fall unconscious!")
+		A.visible_message("[SPAN_BOLD("[A]")] delivers a blow to \the [SPAN_BOLD("[D]")]'s head, making [D.get_pronoun("him")] fall unconscious!")
 		A.do_attack_animation(D)
-		playsound(D.loc, /singleton/sound_category/punch_sound, 25, 1, -1)
+		playsound(D.loc, /singleton/sound_category/punch_sound, 25, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE+4)
 		D.AdjustParalysis(5)
 	else
-		to_chat(A, SPAN_WARNING("\The <b>[D]</b> is already unconscious!"))
+		to_chat(A, SPAN_WARNING("\The [SPAN_BOLD("[D]")] is already unconscious!"))
 		return
 
 /datum/martial_art/kis_khan/proc/tail_sweep(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
