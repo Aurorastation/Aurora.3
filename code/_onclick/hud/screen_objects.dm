@@ -458,22 +458,22 @@
 
 //This updates the run/walk button on the hud
 /obj/screen/movement_intent/proc/update_move_icon(var/mob/living/user)
-	if (!user.client)
+	if(!user.client)
 		return
 
-	if (user.max_stamina == -1 || user.stamina == user.max_stamina)
-		if (user.stamina_bar)
+	if(user.max_stamina == -1 || user.stamina == user.max_stamina)
+		if(user.stamina_bar)
 			user.stamina_bar.endProgress()
 			user.stamina_bar = null
 	else
-		if (!user.stamina_bar)
+		if(!user.stamina_bar)
 			user.stamina_bar = new(user, user.max_stamina, src)
 		user.stamina_bar.goal = user.max_stamina
 		user.stamina_bar.update(user.stamina)
 
-	if (user.m_intent == M_RUN)
+	if(user.m_intent == M_RUN)
 		icon_state = "running"
-	else if (user.m_intent == M_LAY)
+	else if(user.m_intent == M_LAY)
 		icon_state = "lying"
 	else
 		icon_state = "walking"

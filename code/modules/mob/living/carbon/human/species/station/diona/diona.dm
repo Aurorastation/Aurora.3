@@ -178,6 +178,23 @@
 		if((!D.client && !D.mind) || D.stat == DEAD)
 			qdel(D)
 
+//This handles nymphs, which are the only diona specie that can run, since they don't breathe they just take pain damage instead
+/datum/species/diona/handle_sprint_cost(mob/living/carbon/human/H, cost, pre_move)
+	if(!pre_move)
+		H.adjustHalLoss(cost*0.3)
+		H.updatehealth()
+
+	if(H.getHalLoss() > (H.maxHealth*0.6))
+		var/shock = H.get_shock()
+		if(prob(shock * 2))
+			to_chat(H, SPAN_DANGER("You feel a sharp pain in your nervous system! You can't run anymore, or you might die!"))
+			H.m_intent = M_WALK
+
+	if(!pre_move)
+		H.hud_used.move_intent.update_move_icon(H)
+	return 1
+
+
 /datum/species/diona/after_equip(mob/living/carbon/human/H, visualsOnly, datum/job/J)
 	. = ..()
 	var/obj/item/storage/box/survival/SB = locate() in H

@@ -26,6 +26,7 @@
 	meat_amount = 2
 	maxHealth = 50
 	health = 50
+	max_stamina = -1
 	pass_flags = PASSTABLE
 
 	// Decorative head flower.
@@ -377,3 +378,9 @@
 	if (status_flags & GODMODE)
 		return
 	health = min(health - amount, maxHealth)
+
+/mob/living/carbon/alien/diona/getHalLoss()
+	if(status_flags & GODMODE)
+		return
+
+	return max((maxHealth - health), 0)
