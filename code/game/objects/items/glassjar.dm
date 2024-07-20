@@ -86,7 +86,8 @@
 				release(contained[1], user)
 		if(JAR_HOLDER)
 			for(var/obj/item/holder/H in src)
-				H.release_to_floor() // Snowflake code because holders are ass. Q.E.D.
+				var/turf/T = get_turf(src)
+				H.release_to_floor(T) // Snowflake code because holders are ass. Q.E.D.
 				release(H, user)
 
 /obj/item/glass_jar/proc/release(var/atom/movable/A, var/mob/user)

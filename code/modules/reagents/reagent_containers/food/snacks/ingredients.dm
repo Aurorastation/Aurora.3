@@ -46,7 +46,7 @@
 
 /obj/item/reagent_containers/food/snacks/nakarka_wedge
 	name = "nakarka cheese wedge"
-	desc = "Zzztop calling it Nakarka cheeeze. Nakarka meanzzz cheeeze. You are literally calling it cheezzze cheezzze."
+	desc = "Zzztop calling it Nakarka cheezzze. You sound ridicoulouzzz. Nakarka meanzzz cheezzze. You are literally calling it cheezzze cheezzze."
 	icon = 'icons/obj/item/reagent_containers/food/ingredients.dmi'
 	icon_state = "nakarka_wedge"
 	ingredient_name = "nakarka"

@@ -40,7 +40,7 @@
 
 	uniform = /obj/item/clothing/under/rank/head_of_security
 	head = /obj/item/clothing/head/hos
-	id = /obj/item/card/id/navy
+	id = /obj/item/card/id/scc/silver
 	shoes = null
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/head
 

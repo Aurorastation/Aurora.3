@@ -26,3 +26,5 @@
 
 	var/datum/ntnet_message/direct/msg = new(Cl)
 	Conv.process_message(msg)
+
+	return Conv

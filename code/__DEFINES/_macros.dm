@@ -21,6 +21,7 @@
 #define SPAN_HEAR(X) ("<span class='hear'>" + X + "</span>")
 #define SPAN_STYLE(style, X) "<span style=\"[style]\">[X]</span>"
 #define SPAN_COLOR(color, text) SPAN_STYLE("color: [color]", "[text]")
+#define SPAN_CAUTION(X) ("<span class='caution'>" + X + "</span>")
 
 #define SPAN_RED(x) "<span style='color:[COLOR_RED]'>[x]</span>"
 #define SPAN_YELLOW(x) "<span style='color:[COLOR_YELLOW]'>[x]</span>"

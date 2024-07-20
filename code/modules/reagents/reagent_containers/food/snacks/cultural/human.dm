@@ -803,3 +803,37 @@
 			icon_state = "paneer_half"
 		if(70 to INFINITY)
 			icon_state = "paneer"
+
+//Galatea
+
+/obj/item/reagent_containers/food/snacks/baked_golden_apple
+	name = "baked golden apple"
+	desc = "Shiny and glamorous, this genetically modified golden apple is stuffed with raisins, nuts, brown sugar, cinnamon, and topped with whipped cream. It is a shining star of Galatean cuisine and of hoity toity rich people around the spur. Contains real gold! Don't eat the cinnamon sticks they're there as a garnish."
+	icon = 'icons/obj/item/reagent_containers/food/baked.dmi'
+	icon_state = "baked_gold_apple"
+	trash = /obj/item/trash/plate
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/gold = 5, /singleton/reagent/nutriment/glucose = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("fancyness" = 5, "apple" = 5, "raisins" = 3, "nuts" = 3))
+	filling_color = "#ffba25"
+
+/obj/item/reagent_containers/food/snacks/fire_loaf
+	name = "fire loaf"
+	desc = "A very spicy Galatean dish, traditionally made with synthmeat marinated in a special kelotane-infused mixture to give the dish it's strong color and help balance out the spicyness of the dish, as well as the chili peppers it is served with. Most cultures would just use dairy products to balance out a dish's spicyness. But most cultures aren't Galatea." //Does Kelotane even affect spicyness? Probably not. But it's good marketing.
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "fireloaf"
+	trash = /obj/item/trash/plate
+	bitesize = 2
+	filling_color = "#8f2106"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 5, /singleton/reagent/kelotane = 3, /singleton/reagent/capsaicin = 5)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("spicy meat" = 5, "chili" = 4, "onion" = 3, "unusual flavoring" = 3))
+
+/obj/item/reagent_containers/food/snacks/fire_loaf/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_fire_loaf = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_fire_loaf)
+		if(0 to 49)
+			icon_state = "fireloaf_half"
+		if(50 to INFINITY)
+			icon_state = "fireloaf"
