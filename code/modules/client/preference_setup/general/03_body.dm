@@ -616,8 +616,6 @@ var/global/list/valid_bloodtypes = list(
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["skin_color"])
-		if(!has_flag(mob_species, HAS_SKIN_COLOR))
-			return TOPIC_NOACTION
 		if(has_flag(mob_species, HAS_SKIN_COLOR))
 			var/new_skin = input(user, "Choose your character's skin colour.", "Character Preference", rgb(pref.r_skin, pref.g_skin, pref.b_skin)) as color|null
 			if(new_skin && has_flag(mob_species, HAS_SKIN_COLOR) && CanUseTopic(user))
@@ -627,8 +625,6 @@ var/global/list/valid_bloodtypes = list(
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["skin_preset"])
-		if(!has_flag(mob_species, HAS_SKIN_PRESET))
-			return TOPIC_NOACTION
 		if(has_flag(mob_species, HAS_SKIN_PRESET))
 			var/new_preset = tgui_input_list(user, "Choose your character's body color preset.", "Character Preference", mob_species.character_color_presets, rgb(pref.r_skin, pref.g_skin, pref.b_skin))
 			new_preset = mob_species.character_color_presets[new_preset]
