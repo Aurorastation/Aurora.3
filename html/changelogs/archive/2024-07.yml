@@ -173,3 +173,14 @@
   - admin: Fixed an href exploit in the traitor uplink.
   Lavillastrangiato:
   - qol: Added extra equipment and decorations to some Ouerea away sites.
+2024-07-21:
+  FluffyGhost:
+  - code_imp: Updated the Datum Component System and dcs signals handling.
+  Tomixcomics:
+  - rscadd: Added 12 new dishes (4 Unathi dishes, 2 Galatean dishes, 1 Tretian dish,
+      5 misc.).
+  - bugfix: Fixed the codex visual of Konaqu showing up wrong.
+  - bugfix: Corrected a few muffin names that were showing up as the wrong kind of
+      muffin.
+  - spellcheck: Edited description of Nakarka cheese because the vaurcan accent was
+      spelled incorrectly.
