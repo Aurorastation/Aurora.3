@@ -108,5 +108,6 @@
 /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/hieroaetheria
 	name = "\improper Hieroaetheria cape"
 	desc = "A cape that has the Consortium of Hieroaetheria flag on the back."
+	desc_extended = "A relatively new addition to Skrell fashion, these cloaks are meant to identify the origin of the wearer. Since first contact, it has been a popular way for Skrell to distinguish themselves from Skrell from other regions of the Orion Spur, and has become a popular way to denote political ties or support. This cape signifies that the wearer comes from the Consortium of Hieroaetheria. The Consortium and the Federation's strong ties mean that Fed-aligned Skrell generally approve of this cape."
 	item_state = "concape"
 	icon_state = "concape"
