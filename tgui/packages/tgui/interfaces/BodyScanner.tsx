@@ -374,7 +374,8 @@ export const OrganWindow = (props, context) => {
           <Table.Cell color={organ.wounds !== 'None' ? 'orange' : 'white'}>
             {organ.wounds}
           </Table.Cell>
-          <Table.Cell color={organ.infection !== 'None' ? 'yellow' : 'white'}>
+          <Table.Cell
+            color={organ.infection !== 'Healthy' ? 'yellow' : 'white'}>
             {organ.infection}
           </Table.Cell>
         </Table.Row>
