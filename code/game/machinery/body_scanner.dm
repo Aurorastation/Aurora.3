@@ -538,7 +538,7 @@
 		if(O.status & ORGAN_BROKEN)
 			wounds += "[O.broken_description]"
 		if(O.open)
-			wounds += "open"
+			wounds += "OPEN"
 
 		var/list/infection = list()
 		if(O.germ_level)
