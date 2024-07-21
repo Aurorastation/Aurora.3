@@ -258,7 +258,7 @@ SUBSYSTEM_DEF(explosives)
 			power -= O.explosion_resistance
 
 	if (power >= GLOB.config.iterative_explosives_z_threshold)
-		if ((z_transfer & UP) && SSmapping.multiz_levels[epicenter.z][Z_LEVEL_UP])
+		if ((z_transfer & UP) && GET_TURF_ABOVE(epicenter))
 			var/datum/explosiondata/data = new
 			data.epicenter = GET_TURF_ABOVE(epicenter)
 			data.rec_pow = (power * GLOB.config.iterative_explosives_z_multiplier) - GLOB.config.iterative_explosives_z_subtraction

@@ -587,7 +587,7 @@ var/const/enterloopsanity = 100
 	if(SSmapping.multiz_levels[z][Z_LEVEL_UP])
 		. =  OUTSIDE_YES // assume for the moment we're unroofed until we learn otherwise.
 		var/turf/top_of_stack = src
-		while(SSmapping.multiz_levels[top_of_stack.z][Z_LEVEL_UP])
+		while(GET_TURF_ABOVE(top_of_stack))
 			var/turf/next_turf = GET_TURF_ABOVE(top_of_stack)
 			if(!next_turf.is_open())
 				return OUTSIDE_NO
