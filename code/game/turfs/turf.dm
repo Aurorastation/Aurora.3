@@ -91,7 +91,7 @@
 	flags_1 |= INITIALIZED_1
 
 	for(var/atom/movable/content as anything in src)
-		Entered(content, null)
+		Entered(content, src)
 
 	if (isStationLevel(z))
 		GLOB.station_turfs += src
