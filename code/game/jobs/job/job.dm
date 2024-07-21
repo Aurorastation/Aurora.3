@@ -25,6 +25,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 	var/list/alt_ages = null              // assoc list of alt titles to minimum character ages assoc lists (see above -- yes this is slightly awful)
+	var/list/alt_factions = null		  // List of factions that each alt title can belong to. assoc is alt title to faction list. stays as null if no faction restriction
 
 	var/latejoin_at_spawnpoints = FALSE   //If this job should use roundstart spawnpoints for latejoin (offstation jobs etc)
 
