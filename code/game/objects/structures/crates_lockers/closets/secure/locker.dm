@@ -12,17 +12,16 @@
 /obj/structure/closet/secure_closet/AltClick(mob/user)
 	. = ..()
 	var/obj/item/holding = user.get_active_hand()
-	if(!holding)
+	if(!istype(holding, /obj/item/card/id))
 		return
-	if(istype(holding, /obj/item/card/id))
-		var/obj/item/card/id/ID = holding
-		if(check_access(ID))
-			if(name == initial(name))
-				name += " ([ID.registered_name])"
-				desc = "\A [initial(name)], belonging to [ID.registered_name]."
-				to_chat(user, SPAN_NOTICE("You assign your name to \the [src] using \the [ID]."))
-		else
-			to_chat(user, SPAN_WARNING("Access denied."))
+	var/obj/item/card/id/ID = holding
+	if(check_access(ID))
+		if(name == initial(name))
+			name += " ([ID.registered_name])"
+			desc = "\A [initial(name)], belonging to [ID.registered_name]."
+			to_chat(user, SPAN_NOTICE("You assign your name to \the [src] using \the [ID]."))
+	else
+		to_chat(user, SPAN_WARNING("Access denied."))
 
 /obj/structure/closet/emp_act(severity)
 	. = ..()
