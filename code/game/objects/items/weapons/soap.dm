@@ -27,6 +27,9 @@
 	create_reagents(capacity)
 	wet()
 
+/obj/item/soap/Initialize()
+	. = ..()
+
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
 	)

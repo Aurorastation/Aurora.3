@@ -211,8 +211,5 @@
 					A.loc.Entered(A)
 	return
 
-/turf/space/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
-	return ..()
-
 /turf/space/is_open()
 	return TRUE

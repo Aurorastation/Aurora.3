@@ -59,8 +59,8 @@
 	use_space_appearance = FALSE
 	use_starlight = FALSE
 
-/turf/space/transit/bluespace/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
-	return ..(N, tell_universe, 1, ignore_override, mapload)
+/turf/space/transit/bluespace/ChangeTurf(path, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
+	return ..(path, tell_universe, 1, ignore_override, mapload)
 
 /turf/space/transit/bluespace/east
 	icon_state = "bluespace-e"

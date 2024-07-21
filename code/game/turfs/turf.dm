@@ -90,8 +90,8 @@
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
 
-	for(var/atom/movable/AM as mob|obj in src)
-		Entered(AM, src)
+	for(var/atom/movable/content as anything in src)
+		Entered(content, null)
 
 	if (isStationLevel(z))
 		GLOB.station_turfs += src
