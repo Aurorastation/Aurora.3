@@ -46,7 +46,7 @@
 	)
 
 	data["pois"] = list()
-	for(var/obj/effect/landmark/minimap_poi/poi in SSholomap.pois)
+	for(var/obj/effect/landmark/minimap_poi/poi as anything in SSholomap.pois)
 		data["pois"] += list(list(
 			"name" = poi.name,
 			"desc" = poi.desc,

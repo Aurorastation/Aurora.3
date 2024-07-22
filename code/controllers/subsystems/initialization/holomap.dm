@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(holomap)
 	var/list/minimaps_scan_base64 = list()
 
 	/// List of all `/obj/effect/landmark/minimap_poi`.
-	var/list/pois = list()
+	var/list/obj/effect/landmark/minimap_poi/pois = list()
 
 /datum/controller/subsystem/holomap/Initialize()
 	generate_all_minimaps()
