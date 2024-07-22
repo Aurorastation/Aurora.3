@@ -98,7 +98,7 @@
 				AM.crush_act()
 	else
 		for(var/turf/simulated/wall/W in origin)
-			var/turf/T = GET_ABOVE(W)
+			var/turf/T = GET_TURF_ABOVE(W)
 			for(var/atom/movable/AM in T)
 				if(next_floor == floors[floors.len])
 					AM.crush_act()
@@ -108,7 +108,9 @@
 	origin.move_contents_to(destination)
 	for(var/thing in move_candidates)
 		var/atom/movable/AM = thing
-		AM.forceMove(GET_ABOVE(AM))
+		var/turf/T = get_turf(AM)
+		if(istype(T))
+			AM.forceMove(GET_TURF_ABOVE(T))
 
 	current_floor = next_floor
 	control_panel_interior.visible_message("The elevator [moving_upwards ? "rises" : "descends"] smoothly.")

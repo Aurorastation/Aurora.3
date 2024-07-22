@@ -1262,7 +1262,8 @@ var/list/total_extraction_beacons = list()
 
 			return TRUE
 		if("ladder")
-			var/turf/above = GET_ABOVE(src)
+			var/turf/T = get_turf(src)
+			var/turf/above = GET_TURF_ABOVE(T)
 			if(!above)
 				to_chat(user, SPAN_WARNING("There is nothing above you to make a ladder towards."))
 				return FALSE
@@ -1278,7 +1279,8 @@ var/list/total_extraction_beacons = list()
 				return TRUE
 			return FALSE
 		if("ladder")
-			var/turf/above = GET_ABOVE(src)
+			var/turf/T = get_turf(src)
+			var/turf/above = GET_TURF_ABOVE(T)
 			if(!above)
 				to_chat(user, SPAN_WARNING("There is nothing above you to make a ladder towards."))
 				return FALSE
@@ -1323,7 +1325,8 @@ var/list/total_extraction_beacons = list()
 			return TRUE
 
 		if("ladder")
-			var/turf/above = GET_ABOVE(src)
+			var/turf/T = get_turf(src)
+			var/turf/above = GET_TURF_ABOVE(T)
 			if(!above)
 				to_chat(user, SPAN_WARNING("There is nothing above you to make a ladder towards."))
 				return FALSE
