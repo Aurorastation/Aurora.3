@@ -9,7 +9,7 @@
 	sectors = list(SECTOR_BURZSIA)
 
 	prefix = "burzsia/"
-	suffixes = list("burzsia_mining.dmm")
+	suffix = "burzsia_mining.dmm"
 
 	unit_test_groups = list(1)
 

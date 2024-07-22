@@ -7,7 +7,7 @@
 	sectors_blacklist = list(SECTOR_HANEUNIM)
 
 	prefix = "asteroid/abandoned_prison/"
-	suffixes = list("abandoned_prison.dmm")
+	suffix = "abandoned_prison.dmm"
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP

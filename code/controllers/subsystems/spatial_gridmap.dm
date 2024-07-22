@@ -718,7 +718,7 @@ SUBSYSTEM_DEF(spatial_grid)
 	if(insert_clients)
 		var/list/turfs
 		var/level = z
-		if(isStationLevel(level))
+		if(is_station_level(level))
 			turfs = GLOB.station_turfs
 
 		else

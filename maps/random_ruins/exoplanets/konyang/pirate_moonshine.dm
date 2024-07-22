@@ -9,7 +9,7 @@
 	sectors = list(SECTOR_HANEUNIM)
 
 	prefix = "konyang/"
-	suffixes = list("pirate_moonshine.dmm")
+	suffix = "pirate_moonshine.dmm"
 
 	unit_test_groups = list(2)
 

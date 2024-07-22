@@ -3,7 +3,6 @@
 	full_name = "Away Sites Testing Map"
 	path = "away_sites_testing"
 
-	station_levels = list(1)
 	contact_levels = list(1)
 	player_levels = list(1)
 	accessible_z_levels = list(1)

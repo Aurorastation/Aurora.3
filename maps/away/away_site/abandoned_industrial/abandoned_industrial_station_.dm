@@ -7,7 +7,7 @@
 	spawn_cost = 1
 	spawn_weight = 1
 	prefix = "away_site/abandoned_industrial/"
-	suffixes = list("abandoned_industrial_station.dmm")
+	suffix = "abandoned_industrial_station.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
 

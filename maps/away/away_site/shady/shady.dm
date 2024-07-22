@@ -3,7 +3,7 @@
 	description = "An asteroid with a hangar carved out inside it. Scans detect an unregistered structure within, with multiple lifeforms present."
 
 	prefix = "away_site/shady/"
-	suffixes = list("shady.dmm")
+	suffix = "shady.dmm"
 
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
 	sectors_blacklist = list(SECTOR_BURZSIA, SECTOR_HANEUNIM)

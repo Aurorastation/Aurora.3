@@ -44,7 +44,7 @@
 	var/turf/targloc = get_turf(target)
 	if(!emagged)
 		for(var/turf/t in block(locate(targloc.x+3,targloc.y+3,targloc.z), locate(targloc.x-3,targloc.y-3,targloc.z)))
-			if (isStationLevel(targloc.z))
+			if (is_station_level(targloc.z))
 				to_chat(user, SPAN_WARNING("You can't request this orbital drop on the ship!"))
 				return
 			if (!isfloor(targloc))

@@ -95,7 +95,7 @@
 	for(var/atom/movable/AM as mob|obj in src)
 		Entered(AM, src)
 
-	if (isStationLevel(z))
+	if (is_station_level(z))
 		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
@@ -135,7 +135,7 @@
 
 	changing_turf = FALSE
 
-	if (isStationLevel(z))
+	if (is_station_level(z))
 		GLOB.station_turfs -= src
 
 	remove_cleanables()

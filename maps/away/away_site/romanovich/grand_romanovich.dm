@@ -3,7 +3,7 @@
 	description = "An adhomian style casino in Tau Ceti's space."
 
 	prefix = "away_site/romanovich/"
-	suffixes = list("grand_romanovich.dmm")
+	suffix = "grand_romanovich.dmm"
 
 	sectors = list(SECTOR_ROMANOVICH)
 	spawn_weight = 1

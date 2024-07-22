@@ -109,7 +109,7 @@
 	. = ..()
 
 	//Calculate the actual values based on player population, but only if it's on the main map (most likely the Horizon)
-	if(isStationLevel(src.z))
+	if(is_station_level(src.z))
 		total_hivebots_to_spawn = total_hivebots_to_spawn + (length(GLOB.player_list) * total_hivebots_to_spawn_to_playing_players_scaling_factor)
 		maximum_linked_and_alive_hivebots = maximum_linked_and_alive_hivebots + (length(GLOB.player_list) * maximum_linked_and_alive_hivebots_to_playing_players_scaling_factor)
 
@@ -146,7 +146,7 @@
 		if(turf_clear(T))
 			destinations += T
 	var/area/A = get_area(src)
-	if(!isNotStationLevel(A.z))
+	if(!!is_station_level(A.z))
 		var/list/area_turfs = get_area_turfs(A)
 		var/list/floor_turfs = list()
 		for(var/turf/simulated/floor/T in (area_turfs))
@@ -321,7 +321,7 @@
 	spawn_delay = 80 * (1.085 ** (linked_bots.len + 1))
 
 	//Adapt the value based on player population, but only if it's on the main map (most likely the Horizon)
-	if(isStationLevel(src.z))
+	if(is_station_level(src.z))
 		spawn_delay = min(80, spawn_delay - (length(GLOB.player_list) * spawn_delay_to_playing_players_scaling_factor))
 
 	return

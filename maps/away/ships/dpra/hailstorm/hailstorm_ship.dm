@@ -4,7 +4,7 @@
 	description = "A People's Volunteer Spacer Militia ship."
 
 	prefix = "ships/dpra/hailstorm/"
-	suffixes = list("hailstorm_ship.dmm")
+	suffix = "hailstorm_ship.dmm"
 
 	ship_cost = 1
 	spawn_weight = 1

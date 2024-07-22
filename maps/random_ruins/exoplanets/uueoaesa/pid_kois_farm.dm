@@ -4,7 +4,7 @@
 	description = "A farm on the moon Pid, operated by K'laxan Vaurca."
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "uueoaesa/"
-	suffixes = list("pid_kois_farm.dmm")
+	suffix = "pid_kois_farm.dmm"
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
 	unit_test_groups = list(3)

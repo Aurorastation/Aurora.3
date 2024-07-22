@@ -3,7 +3,7 @@
 	description = "An outpost used by the crew of mining jacks."
 
 	prefix = "away_site/tajara/mining_jack/"
-	suffixes = list("mining_jack.dmm")
+	suffix = "mining_jack.dmm"
 
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
 	spawn_weight = 1

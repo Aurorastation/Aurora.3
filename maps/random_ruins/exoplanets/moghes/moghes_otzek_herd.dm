@@ -6,6 +6,6 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
-	suffixes = list("moghes_otzek_herd.dmm")
+	suffix = "moghes_otzek_herd.dmm"
 
 	unit_test_groups = list(1)

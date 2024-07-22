@@ -5,8 +5,15 @@
 	spawn_weight = 1
 	description = "An arctic planet and an alien underground surface."
 
+	traits = list(
+		//Z1
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
+		//Z2
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
+	)
+
 	prefix = "away_site/blueriver/"
-	suffixes = list("blueriver-1.dmm","blueriver-2.dmm")
+	suffix = "blueriver.dmm"
 
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
 	sectors_blacklist = list(ALL_SPECIFIC_SECTORS) //it's a whole ass planet, shouldn't have it in predefined sectors

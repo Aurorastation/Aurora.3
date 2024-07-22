@@ -7,7 +7,7 @@
 	sectors = list(SECTOR_HANEUNIM)
 
 	prefix = "haneunim/"
-	suffixes = list("haneunim_mystery.dmm")
+	suffix = "haneunim_mystery.dmm"
 
 	unit_test_groups = list(1)
 

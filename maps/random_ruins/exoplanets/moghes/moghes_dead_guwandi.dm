@@ -6,7 +6,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
-	suffixes = list("moghes_dead_guwandi.dmm")
+	suffix = "moghes_dead_guwandi.dmm"
 	unit_test_groups = list(2)
 
 /obj/effect/landmark/corpse/moghes_dead_guwandi

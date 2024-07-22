@@ -4,7 +4,7 @@
 	description = "An abandoned Solarian listening post in the Uueoa-Esa system."
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "uueoaesa/"
-	suffixes = list("sol_listening_post.dmm")
+	suffix = "sol_listening_post.dmm"
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
 	unit_test_groups = list(1)

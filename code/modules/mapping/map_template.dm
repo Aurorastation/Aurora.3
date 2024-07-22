@@ -3,7 +3,20 @@
 	var/id = null // All maps that should be loadable during runtime need an id
 	var/width = 0
 	var/height = 0
-	var/list/mappaths = null
+	var/mappath = null
+
+	/**
+	 * A list of traits for the zlevels of the map
+	 *
+	 * Each element is one zlevel, starting from the bottom one up
+	 *
+	 * Works the same as the variable in `/datum/map`
+	 */
+	var/list/traits = list(
+		//Z1 (The define is a list), this is set as default because most templates only have a single zlevel
+		ZTRAITS_AWAY
+		)
+
 	var/loaded = 0 // Times loaded this round
 	var/static/dmm_suite/maploader = new
 	var/list/shuttles_to_initialise = list()
@@ -16,28 +29,25 @@
 	///ONLY IF IT'S THE LONGEST RUNNING CI POD AND THEY ARE ALREADY BALANCED
 	var/list/unit_test_groups = list()
 
-/datum/map_template/New(var/list/paths = null, rename = null)
-	if(paths && !islist(paths))
-		crash_with("Non-list paths passed into map template constructor.")
-	if(paths)
-		mappaths = paths
-	if(mappaths)
-		preload_size(mappaths)
+/datum/map_template/New(path = null, rename = null, cache = FALSE)
+	SHOULD_CALL_PARENT(TRUE)
+	. = ..()
+	if(path)
+		mappath = path
+	if(mappath)
+		preload_size(mappath, cache)
 	if(rename)
 		name = rename
 
-	..()
-
-/datum/map_template/proc/preload_size(paths)
+/datum/map_template/proc/preload_size(path)
 	var/list/bounds = list(1.#INF, 1.#INF, 1.#INF, -1.#INF, -1.#INF, -1.#INF)
-	var/z_offset = 1 // needed to calculate z-bounds correctly
-	for(var/mappath in mappaths)
-		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), 1, 1, z_offset, cropMap=FALSE, measureOnly=TRUE)
-		if(M)
-			bounds = extend_bounds_if_needed(bounds, M.bounds)
-			z_offset++
-		else
-			return FALSE
+
+	var/datum/map_load_metadata/M = maploader.load_map(file(mappath), 1, 1, cropMap=FALSE, measureOnly=TRUE)
+	if(M)
+		bounds = extend_bounds_if_needed(bounds, M.bounds)
+	else
+		return FALSE
+
 	width = bounds[MAP_MAXX] - bounds[MAP_MINX] + 1
 	height = bounds[MAP_MAXY] - bounds[MAP_MINX] + 1
 	return bounds
@@ -58,41 +68,20 @@
 
 	//Since SSicon_smooth.add_to_queue() manually wakes the subsystem, we have to use enable/disable.
 	SSicon_smooth.can_fire = FALSE
-	var/is_first = TRUE
 
-	for(var/i in 1 to length(mappaths))
-		var/mappath = mappaths[i]
+	var/datum/space_level/base_level = null
+	for(var/traits_for_level in traits)
+		var/level = SSmapping.add_new_zlevel(name, traits_for_level, contain_turfs = FALSE)
+		if(!base_level)
+			base_level = level
 
-		var/list/trait = ZTRAITS_AWAY
-
-		//Second or subsequent map file
-		if(!is_first)
-			//Last map file in a multi level map, can only go down
-			if(i == length(mappaths))
-				trait += list(ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE)
-			//Intermediate map file, can go up and down
-			else
-				trait += list(ZTRAIT_UP = TRUE, ZTRAIT_DOWN = TRUE)
-
-		//First map file
-		else
-			//Multi-level map
-			if(length(mappaths) >= 2)
-				trait += list(ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE)
-			//Single-level map
-			else
-				trait += list(ZTRAIT_UP = FALSE, ZTRAIT_DOWN = FALSE)
-
-		var/datum/space_level/level = SSmapping.add_new_zlevel(name, trait, contain_turfs = FALSE)
-		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, level.z_value, no_changeturf = no_changeturf)
-		if (M)
-			bounds = extend_bounds_if_needed(bounds, M.bounds)
-			atoms_to_initialise += M.atoms_to_initialise
-		else
-			SSicon_smooth.can_fire = TRUE
-			return FALSE
-
-		is_first = FALSE
+	var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, base_level.z_value, no_changeturf = no_changeturf)
+	if(M)
+		bounds = extend_bounds_if_needed(bounds, M.bounds)
+		atoms_to_initialise += M.atoms_to_initialise
+	else
+		SSicon_smooth.can_fire = TRUE
+		return FALSE
 
 	for (var/z_index = bounds[MAP_MINZ]; z_index <= bounds[MAP_MAXZ]; z_index++)
 		if (accessibility_weight)
@@ -204,13 +193,13 @@
 
 	//Since SSicon_smooth.add_to_queue() manually wakes the subsystem, we have to use enable/disable.
 	SSicon_smooth.can_fire = FALSE
-	for (var/mappath in mappaths)
-		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE)
-		if (M)
-			atoms_to_initialise += M.atoms_to_initialise
-		else
-			SSicon_smooth.can_fire = TRUE
-			return FALSE
+
+	var/datum/map_load_metadata/M = maploader.load_map(file(mappath), T.x, T.y, T.z, cropMap=TRUE)
+	if(M)
+		atoms_to_initialise += M.atoms_to_initialise
+	else
+		SSicon_smooth.can_fire = TRUE
+		return FALSE
 
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)

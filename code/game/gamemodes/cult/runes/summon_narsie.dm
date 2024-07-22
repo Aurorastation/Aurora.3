@@ -8,7 +8,7 @@
 		return fizzle(user, A)
 
 	var/turf/T = get_turf(A)
-	if(isNotStationLevel(T.z))
+	if(!is_station_level(T.z))
 		to_chat(user, SPAN_WARNING("You are too far from the station, Nar'sie can not be summoned here."))
 		return fizzle(user, A)
 

@@ -3,7 +3,7 @@
 	description = "A patrol vessel of Biesel's Republican Fleet."
 
 	prefix = "ships/biesel/tcaf_corvette/"
-	suffixes = list("tcaf_corvette.dmm")
+	suffix = "tcaf_corvette.dmm"
 
 	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_BADLANDS, SECTOR_VALLEY_HALE)
 	spawn_weight = 1

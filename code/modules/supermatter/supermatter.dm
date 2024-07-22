@@ -197,7 +197,7 @@
 	//don't send it back to the station -- most of the time
 	if(prob(99))
 		var/list/candidates = SSatlas.current_map.accessible_z_levels.Copy()
-		for(var/zlevel in SSatlas.current_map.station_levels)
+		for(var/zlevel in SSmapping.levels_by_trait(ZTRAIT_STATION))
 			candidates.Remove("[zlevel]")
 		candidates.Remove("[src.z]")
 

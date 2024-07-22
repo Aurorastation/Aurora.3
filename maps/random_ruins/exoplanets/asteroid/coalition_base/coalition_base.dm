@@ -6,7 +6,7 @@
 	sectors = list(ALL_COALITION_SECTORS)
 
 	prefix = "asteroid/coalition_base/"
-	suffixes = list("coalition_base.dmm")
+	suffix = "coalition_base.dmm"
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP

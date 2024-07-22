@@ -36,7 +36,7 @@
 	var/list/exempt_from_fire = typecacheof(SSatlas.current_map.ut_fire_exempt_areas)
 
 	for(var/area/A in typecache_filter_list_reverse(GLOB.all_areas, exempt_areas))
-		if(isStationLevel(A.z))
+		if(is_station_level(A.z))
 			area_test_count++
 			var/bad_msg = "[ascii_red]--------------- [A.name] ([A.type])"
 
@@ -87,7 +87,7 @@
 
 	for(C in world)
 		T = get_turf(C)
-		if(T && isStationLevel(T.z))
+		if(T && is_station_level(T.z))
 			cable_turfs |= get_turf(C)
 
 	for(T in cable_turfs)
@@ -208,7 +208,7 @@
 
 	//all plumbing - yes, some things might get stated twice, doesn't matter.
 	for (var/obj/machinery/atmospherics/plumbing in world)
-		if(isNotStationLevel(plumbing.z))
+		if(!is_station_level(plumbing.z))
 			continue
 		checks++
 		if (plumbing.nodealert)
@@ -217,7 +217,7 @@
 
 	//Manifolds
 	for (var/obj/machinery/atmospherics/pipe/manifold/pipe in world)
-		if(isNotStationLevel(pipe.z))
+		if(!is_station_level(pipe.z))
 			continue
 		checks++
 		if (!pipe.node1 || !pipe.node2 || !pipe.node3)
@@ -226,7 +226,7 @@
 
 	//Pipes
 	for (var/obj/machinery/atmospherics/pipe/simple/pipe in world)
-		if(isNotStationLevel(pipe.z))
+		if(!is_station_level(pipe.z))
 			continue
 		checks++
 		if (!pipe.node1 || !pipe.node2)

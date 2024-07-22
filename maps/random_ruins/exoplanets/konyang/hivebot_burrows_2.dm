@@ -7,7 +7,7 @@
 	sectors = list(SECTOR_HANEUNIM)
 
 	prefix = "konyang/"
-	suffixes = list("hivebot_burrows_2.dmm")
+	suffix = "hivebot_burrows_2.dmm"
 
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/hivebot_burrows_1)
 

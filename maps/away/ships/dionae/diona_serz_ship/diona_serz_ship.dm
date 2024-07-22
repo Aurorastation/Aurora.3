@@ -3,7 +3,7 @@
 	description = "A ship belonging to the Serz voidtamer clan, a group of dionae who specialize in selling space fauna."
 
 	prefix = "ships/dionae/diona_serz_ship/"
-	suffixes = list("diona_serz_ship.dmm")
+	suffix = "diona_serz_ship.dmm"
 
 	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_UUEOAESA)
 	spawn_weight = 0 // outdated and not following current standards, could be enabled after it's fixed

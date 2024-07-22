@@ -4,7 +4,7 @@
 	description = "Made from adapted designs of the first freighter Tajara ever worked upon, Database freighters are PRA vessels made specially for gathering information on star systems and what passes through them."
 
 	prefix = "ships/pra/database_freighter/"
-	suffixes = list("database_freighter.dmm")
+	suffix = "database_freighter.dmm"
 
 	ship_cost = 1
 	spawn_weight = 1

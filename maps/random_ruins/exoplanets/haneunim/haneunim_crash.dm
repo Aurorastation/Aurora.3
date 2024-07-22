@@ -7,7 +7,7 @@
 	sectors = list(SECTOR_HANEUNIM)
 
 	prefix = "haneunim/"
-	suffixes = list("haneunim_crash.dmm")
+	suffix = "haneunim_crash.dmm"
 
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/haneunim_crash)
 

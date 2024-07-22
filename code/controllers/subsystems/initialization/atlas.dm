@@ -229,53 +229,71 @@ SUBSYSTEM_DEF(atlas)
 			filemaps_to_load += list(file)
 
 	var/mfile
-	var/first_dmm = TRUE
-	var/time
+	var/time = world.time
 
-	var/is_first = TRUE
-	for(var/i in 1 to length(filemaps_to_load))
-		mfile = filemaps_to_load[i]
+	if(length(filemaps_to_load) >= 2)
+		stack_trace("Only one file is now supported per map!")
+		return
 
-		log_subsystem_atlas("Loading '[mfile]'.")
-		time = world.time
+	var/datum/space_level/first_level
+	for(var/traits in current_map.traits)
+		var/level = SSmapping.add_new_zlevel(name, traits, contain_turfs = FALSE)
+		if(!first_level)
+			first_level = level
 
-		mfile = "[directory][mfile]"
+	mfile = "[directory][filemaps_to_load[1]]"
 
-		if (overwrite_default_z && first_dmm)
-			first_dmm = FALSE
-			log_subsystem_atlas("Overwriting first Z.")
+	if(!maploader.load_map(file(mfile), 0, 0, first_level.z_value, no_changeturf = TRUE))
+		log_subsystem_atlas("Failed to load '[mfile]'!")
+		return FALSE
+	else
+		log_subsystem_atlas("Loaded level in [(world.time - time)/10] seconds.")
+		return TRUE
 
-		var/list/trait = ZTRAITS_STATION
 
-		//We're NOT loading the first level
-		if(!is_first)
-			//Last level is centcomm, noone goes in or out
-			if(i == length(filemaps_to_load))
-				trait += list(ZTRAIT_UP = FALSE, ZTRAIT_DOWN = FALSE)
-			//Last level in the actual stack, can only go down
-			else if(i == (length(filemaps_to_load) - 1))
-				trait += list(ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE)
-			//Bidirectional movement
-			else
-				trait += list(ZTRAIT_UP = TRUE, ZTRAIT_DOWN = TRUE)
+	// for(var/i in 1 to length(filemaps_to_load))
+	// 	mfile = filemaps_to_load[i]
 
-		//We're loading the first level, usually it has something above it
-		else if(length(filemaps_to_load) >= 2)
-			trait += list(ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE)
-		else //Special case for single-level maps
-			trait += list(ZTRAIT_UP = FALSE, ZTRAIT_DOWN = FALSE)
+	// 	log_subsystem_atlas("Loading '[mfile]'.")
+	// 	time = world.time
 
-		var/datum/space_level/level = SSmapping.add_new_zlevel(name, trait, contain_turfs = FALSE)
+	// 	mfile = "[directory][mfile]"
 
-		if (!maploader.load_map(file(mfile), 0, 0, level.z_value, no_changeturf = TRUE))
-			log_subsystem_atlas("Failed to load '[mfile]'!")
-		else
-			log_subsystem_atlas("Loaded level in [(world.time - time)/10] seconds.")
+	// 	if (overwrite_default_z && first_dmm)
+	// 		first_dmm = FALSE
+	// 		log_subsystem_atlas("Overwriting first Z.")
 
-		is_first = FALSE
+	// 	var/list/trait = ZTRAITS_STATION
 
-		.++
-		CHECK_TICK
+	// 	//We're NOT loading the first level
+	// 	if(!is_first)
+	// 		//Last level is centcomm, noone goes in or out
+	// 		if(i == length(filemaps_to_load))
+	// 			trait += list(ZTRAIT_UP = FALSE, ZTRAIT_DOWN = FALSE)
+	// 		//Last level in the actual stack, can only go down
+	// 		else if(i == (length(filemaps_to_load) - 1))
+	// 			trait += list(ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE)
+	// 		//Bidirectional movement
+	// 		else
+	// 			trait += list(ZTRAIT_UP = TRUE, ZTRAIT_DOWN = TRUE)
+
+	// 	//We're loading the first level, usually it has something above it
+	// 	else if(length(filemaps_to_load) >= 2)
+	// 		trait += list(ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE)
+	// 	else //Special case for single-level maps
+	// 		trait += list(ZTRAIT_UP = FALSE, ZTRAIT_DOWN = FALSE)
+
+	// 	var/datum/space_level/level = SSmapping.add_new_zlevel(name, trait, contain_turfs = FALSE)
+
+	// 	if (!maploader.load_map(file(mfile), 0, 0, level.z_value, no_changeturf = TRUE))
+	// 		log_subsystem_atlas("Failed to load '[mfile]'!")
+	// 	else
+	// 		log_subsystem_atlas("Loaded level in [(world.time - time)/10] seconds.")
+
+	// 	is_first = FALSE
+
+	// 	.++
+	// 	CHECK_TICK
 
 /datum/controller/subsystem/atlas/proc/get_selected_map()
 	if (GLOB.config.override_map)

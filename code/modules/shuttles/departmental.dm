@@ -24,7 +24,7 @@
 
 /datum/shuttle/autodock/multi/research_aurora/shuttle_moved()
 	. = ..()
-	if(!triggered_away_sites && !isStationLevel(next_location.loc.z))
+	if(!triggered_away_sites && !is_station_level(next_location.loc.z))
 		for(var/s in SSghostroles.spawners)
 			var/datum/ghostspawner/G = SSghostroles.spawners[s]
 			if(G.away_site)

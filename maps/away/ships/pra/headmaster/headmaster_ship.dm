@@ -4,7 +4,7 @@
 	description = "A People's Republic Orbital Fleet ship."
 
 	prefix = "ships/pra/headmaster/"
-	suffixes = list("headmaster_ship.dmm")
+	suffix = "headmaster_ship.dmm"
 
 	ship_cost = 1
 	spawn_weight = 1

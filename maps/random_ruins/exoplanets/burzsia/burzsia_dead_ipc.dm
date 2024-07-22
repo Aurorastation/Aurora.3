@@ -9,6 +9,6 @@
 	sectors = list(SECTOR_BURZSIA)
 
 	prefix = "burzsia/"
-	suffixes = list("burzsia_dead_ipc.dmm")
+	suffix = "burzsia_dead_ipc.dmm"
 
 	unit_test_groups = list(3)

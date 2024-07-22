@@ -299,7 +299,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 
 		src.scan_user(human_or_robot_user) //Newscaster scans you
 
-		if(isNotStationLevel(z))
+		if(!is_station_level(z))
 			screen = 24 // No network connectivity
 
 		switch(screen)
@@ -1151,7 +1151,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 	return
 
 /obj/machinery/newscaster/proc/newsAlert(var/news_call)
-	if (isNotStationLevel(z))
+	if (!is_station_level(z))
 		clearAlert()
 		return
 	var/turf/T = get_turf(src)

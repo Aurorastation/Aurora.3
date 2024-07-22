@@ -7,7 +7,7 @@
 	sectors = list(SECTOR_HANEUNIM)
 
 	prefix = "konyang/"
-	suffixes = list("landing_zone.dmm")
+	suffix = "landing_zone.dmm"
 
 	unit_test_groups = list(1)
 

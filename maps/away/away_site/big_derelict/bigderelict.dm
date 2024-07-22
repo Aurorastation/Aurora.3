@@ -3,7 +3,7 @@
 	description = "A very large derelict station. According to the starmap, it shouldn't exist."
 
 	prefix = "away_site/big_derelict/"
-	suffixes = list("bigderelict.dmm")
+	suffix = "bigderelict.dmm"
 
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ, ALL_COALITION_SECTORS)
 	sectors_blacklist = list(SECTOR_HANEUNIM)

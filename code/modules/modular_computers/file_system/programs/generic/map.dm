@@ -22,14 +22,16 @@
 		data["_PC"] = headerdata
 		. = data
 
+	var/list/zlevels_affected = SSmapping.levels_by_trait(ZTRAIT_STATION)
+
 	var/z_level = z_override ? z_override : user.z
-	if(z_level in SSatlas.current_map.station_levels)
+	if(z_level in zlevels_affected)
 		data["map_image"] = SSholomap.minimaps_area_colored_base64[z_level]
 
 	data["user_x"] = user.x
 	data["user_y"] = user.y
 	data["user_z"] = user.z
-	data["station_levels"] = SSatlas.current_map.station_levels
+	data["station_levels"] = zlevels_affected
 	data["z_override"] = z_override
 
 	data["dept_colors_map"] = list(

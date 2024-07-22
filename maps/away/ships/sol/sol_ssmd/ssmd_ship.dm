@@ -4,7 +4,7 @@
 	In spite of its small size, the Uhlan has relatively generous crew facilities and it is well-armed relative to its size and role, all made possible by extensive automation."
 
 	prefix = "ships/sol/sol_ssmd/"
-	suffixes = list("ssmd_ship.dmm")
+	suffix = "ssmd_ship.dmm"
 
 	sectors = list(SECTOR_BADLANDS)
 	spawn_weight = 1

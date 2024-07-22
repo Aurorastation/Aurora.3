@@ -4,7 +4,7 @@
 	description = "A small and simple little research hut."
 
 	prefix = "grove/hut/"
-	suffixes = list("hut.dmm")
+	suffix = "hut.dmm"
 
 	spawn_weight = 1
 	spawn_cost = 0.5
@@ -25,7 +25,7 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
 
 	prefix = "grove/crashsurvivors/"
-	suffixes = list("crashsurvivors.dmm")
+	suffix = "crashsurvivors.dmm"
 
 	planet_types = PLANET_GROVE
 	ruin_tags = RUIN_LOWPOP|RUIN_WRECK|RUIN_HOSTILE

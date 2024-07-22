@@ -9,7 +9,6 @@
 	lobby_icons = list('icons/misc/titlescreens/aurora/nss_aurora.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi')
 	lobby_transitions = 10 SECONDS
 
-	station_levels = list(1)
 	contact_levels = list(1)
 	player_levels = list(1)
 	base_turf_by_z = list(

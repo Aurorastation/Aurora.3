@@ -7,7 +7,7 @@
 	sectors = list(SECTOR_HANEUNIM)
 
 	prefix = "konyang/"
-	suffixes = list("stranded_police.dmm")
+	suffix = "stranded_police.dmm"
 
 	unit_test_groups = list(1)
 

@@ -100,10 +100,16 @@
 	// Format currently matches that of newscaster feeds: Registered Name (Assigned Rank)
 	return I.assignment ? "[I.registered_name], [I.assignment]" : I.registered_name
 
-/proc/level_seven_announcement(var/list/affecting_z = SSatlas.current_map.station_levels)
+/proc/level_seven_announcement(var/list/affecting_z = list())
+	if(!length(affecting_z))
+		affecting_z += SSmapping.levels_by_trait(ZTRAIT_STATION)
+
 	command_announcement.Announce("Confirmed outbreak of level 7 biohazard aboard [station_name()]. All personnel must contain the outbreak.", "Biohazard Alert", new_sound = 'sound/AI/level_7_biohazard.ogg', zlevels = affecting_z)
 
-/proc/ion_storm_announcement(var/list/affecting_z = SSatlas.current_map.station_levels)
+/proc/ion_storm_announcement(var/list/affecting_z = list())
+	if(!length(affecting_z))
+		affecting_z += SSmapping.levels_by_trait(ZTRAIT_STATION)
+
 	command_announcement.Announce("It has come to our attention that the ship has passed through an ion storm.  Please monitor all electronic equipment for malfunctions.", "Anomaly Alert", zlevels = affecting_z)
 
 /proc/AnnounceArrival(var/mob/living/carbon/human/character, var/rank, var/join_message)

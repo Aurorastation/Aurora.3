@@ -3,7 +3,7 @@
 	description = "A derelict space outpost."
 
 	prefix = "away_site/tajara/taj_safehouse/"
-	suffixes = list("tajara_safehouse.dmm")
+	suffix = "tajara_safehouse.dmm"
 
 	sectors = list(SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 0 // outdated and not following current standards, could be enabled after it's fixed

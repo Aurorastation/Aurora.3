@@ -3,7 +3,7 @@
 	description = "An asteroid with a occupied hangar carved into it."
 
 	prefix = "away_site/pirate_base/"
-	suffixes = list("pirate_base.dmm")
+	suffix = "pirate_base.dmm"
 
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
 	spawn_weight = 1

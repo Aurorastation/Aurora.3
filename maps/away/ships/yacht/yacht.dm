@@ -4,7 +4,7 @@
 	description = "Tiny movable ship with spiders."
 
 	prefix = "ships/yacht/"
-	suffixes = list("yacht.dmm")
+	suffix = "yacht.dmm"
 
 	spawn_cost = 0.5
 	spawn_weight = 0.5

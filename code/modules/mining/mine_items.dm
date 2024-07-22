@@ -710,7 +710,7 @@
 
 	for(var/obj/item/device/radio/beacon/B in GLOB.teleportbeacons)
 		var/turf/T = get_turf(B)
-		if(isStationLevel(T.z))
+		if(is_station_level(T.z))
 			destinations += B
 
 	return destinations

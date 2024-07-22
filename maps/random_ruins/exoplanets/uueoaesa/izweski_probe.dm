@@ -4,7 +4,7 @@
 	description = "An ancient Izweski Hegemony space probe."
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "uueoaesa/"
-	suffixes = list("izweski_probe.dmm")
+	suffix = "izweski_probe.dmm"
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
 	unit_test_groups = list(2)

@@ -4,7 +4,7 @@
 	id = "abandoned_propellant_depot"
 
 	prefix = "away_site/abandoned_propellant_depot/"
-	suffixes = list("abandoned_propellant_depot.dmm")
+	suffix = "abandoned_propellant_depot.dmm"
 
 	spawn_cost = 1
 	spawn_weight = 1

@@ -3,7 +3,7 @@
 	description = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus."
 
 	prefix = "ships/wildlands_militia/"
-	suffixes = list("militia_ship.dmm")
+	suffix = "militia_ship.dmm"
 
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 0 // outdated and not following current standards, could be enabled after it's fixed

@@ -5,7 +5,7 @@
 	id = "hivebot_hub"
 
 	prefix = "away_site/hivebot_hub/"
-	suffixes = list("hivebot_hub.dmm")
+	suffix = "hivebot_hub.dmm"
 
 	sectors = ALL_POSSIBLE_SECTORS
 	spawn_weight = 1

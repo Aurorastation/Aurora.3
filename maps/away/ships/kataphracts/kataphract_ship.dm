@@ -4,7 +4,7 @@
 	description = "Ship with lizard knights."
 
 	prefix = "ships/kataphracts/"
-	suffixes = list("kataphract_ship.dmm")
+	suffix = "kataphract_ship.dmm"
 
 	ship_cost = 1
 	spawn_weight = 9

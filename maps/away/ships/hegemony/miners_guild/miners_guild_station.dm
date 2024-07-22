@@ -3,7 +3,7 @@
 	description = "A station constructed by the Unathi Miners' Guild"
 
 	prefix = "ships/hegemony/miners_guild/"
-	suffixes = list("miners_guild_station.dmm")
+	suffix = "miners_guild_station.dmm"
 
 	spawn_weight = 1
 	ship_cost = 1

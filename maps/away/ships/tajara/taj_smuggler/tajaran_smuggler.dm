@@ -3,7 +3,7 @@
 	description = "Built with reliability in mind, the Zhsram Freighter is one of the most common Adhomian designs. This vessel is cheap and has a sizeable cargo storage. It is frequently used by Tajaran traders and smugglers."
 
 	prefix = "ships/tajara/taj_smuggler/"
-	suffixes = list("tajaran_smuggler.dmm")
+	suffix = "tajaran_smuggler.dmm"
 
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, ALL_BADLAND_SECTORS, SECTOR_WEEPING_STARS)
 	spawn_weight = 1
