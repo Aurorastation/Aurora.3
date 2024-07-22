@@ -14,5 +14,5 @@
 	SSholomap.pois += src
 
 /obj/effect/landmark/minimap_poi/Destroy()
-	. = ..()
 	SSholomap.pois -= src
+	. = ..()
