@@ -3,6 +3,7 @@ mod mapmanip;
 
 use byondapi::prelude::*;
 use eyre::{Context, ContextCompat};
+use itertools::Itertools;
 
 /// Call stack trace dm method with message.
 pub(crate) fn dm_call_stack_trace(msg: String) {
@@ -93,4 +94,44 @@ fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
 
     // and return it
     Ok(ByondValue::new_str(dmm)?)
+}
+
+/// To be used by the `tools/bapi/mapmanip.ps1` script.
+/// Not to be called from the game server, so bad error-handling is fine.
+/// This should run map manipulations on every `.dmm` map that has a `.jsonc` config file,
+/// and write it to a `.mapmanipout.dmm` file in the same location.
+#[no_mangle]
+pub unsafe extern "C" fn all_mapmanip_configs_execute_ffi() {
+    let mapmanip_configs = walkdir::WalkDir::new("../../maps")
+        .into_iter()
+        .map(|d| d.unwrap().path().to_owned())
+        .filter(|p| p.extension().is_some())
+        .filter(|p| p.extension().unwrap() == "jsonc")
+        .collect_vec();
+    assert_ne!(mapmanip_configs.len(), 0);
+
+    for config_path in mapmanip_configs {
+        let dmm_path = {
+            let mut p = config_path.clone();
+            p.set_extension("dmm");
+            p
+        };
+
+        let path_dir: &std::path::Path = dmm_path.parent().unwrap();
+
+        let mut dmm = dmmtools::dmm::Map::from_file(&dmm_path).unwrap();
+
+        let config = crate::mapmanip::mapmanip_config_parse(&config_path).unwrap();
+
+        dmm = crate::mapmanip::mapmanip(path_dir, dmm, &config).unwrap();
+
+        let dmm = crate::mapmanip::core::map_to_string(&dmm).unwrap();
+
+        let dmm_out_path = {
+            let mut p = dmm_path.clone();
+            p.set_extension("mapmanipout.dmm");
+            p
+        };
+        std::fs::write(dmm_out_path, dmm).unwrap();
+    }
 }

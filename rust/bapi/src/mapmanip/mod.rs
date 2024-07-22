@@ -111,7 +111,7 @@ fn mapmanip_submap_extract_insert(
     let mut marker_extract_coords = vec![];
     for (coord, tile) in submaps_map.grid.iter() {
         if tile.prefabs.iter().any(|p| p.path == *marker_extract) {
-            marker_extract_coords.push(*coord);
+            marker_extract_coords.push(coord);
         }
     }
 
@@ -119,7 +119,7 @@ fn mapmanip_submap_extract_insert(
     let mut marker_insert_coords = vec![];
     for (coord, tile) in map.grid.iter() {
         if tile.prefabs.iter().any(|p| p.path == *marker_insert) {
-            marker_insert_coords.push(*coord);
+            marker_insert_coords.push(coord);
         }
     }
 
@@ -132,17 +132,13 @@ fn mapmanip_submap_extract_insert(
             .enumerate()
             .choose(&mut rand::thread_rng())
             .wrap_err(format!(
-                "can't pick a submap to extract; no extract markers in the submaps dmm; marker type: {marker_extract}"
+                "can't pick a submap to extract; no more extract markers in the submaps dmm; marker type: {marker_extract}"
             ))?;
 
         // if submaps should not be repeating, remove this one from the list
         if !submaps_can_repeat {
             marker_extract_coords.remove(extract_coord_index);
         }
-        eyre::ensure!(
-            !marker_extract_coords.is_empty(),
-            format!("no more submaps left to extract; marker type: {marker_extract}")
-        );
 
         // extract that submap from the submap dmm
         let extracted = tools::extract_submap(&submaps_map, extract_coord, submap_size)
