@@ -137,7 +137,7 @@ SUBSYSTEM_DEF(atlas)
 	)
 
 /datum/controller/subsystem/atlas/stat_entry(msg)
-	msg = "W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[GLOB.z_levels]"
+	msg = "W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[length(SSmapping.z_list)]"
 	return ..()
 
 /datum/controller/subsystem/atlas/Initialize(timeofday)
@@ -223,29 +223,56 @@ SUBSYSTEM_DEF(atlas)
 	var/static/regex/mapregex = new(".+\\.dmm$")
 	var/list/files = flist(directory)
 	sortTim(files, GLOBAL_PROC_REF(cmp_text_asc))
+	var/list/filemaps_to_load
+	for(var/file in files)
+		if(mapregex.Find(file))
+			filemaps_to_load += list(file)
+
 	var/mfile
 	var/first_dmm = TRUE
 	var/time
-	for (var/i in 1 to files.len)
-		mfile = files[i]
-		if (!mapregex.Find(mfile))
-			continue
+
+	var/is_first = TRUE
+	for(var/i in 1 to length(filemaps_to_load))
+		mfile = filemaps_to_load[i]
 
 		log_subsystem_atlas("Loading '[mfile]'.")
 		time = world.time
 
 		mfile = "[directory][mfile]"
 
-		var/target_z = 0
 		if (overwrite_default_z && first_dmm)
-			target_z = 1
 			first_dmm = FALSE
 			log_subsystem_atlas("Overwriting first Z.")
 
-		if (!maploader.load_map(file(mfile), 0, 0, target_z, no_changeturf = TRUE))
+		var/list/trait = ZTRAITS_STATION
+
+		//We're NOT loading the first level
+		if(!is_first)
+			//Last level is centcomm, noone goes in or out
+			if(i == length(filemaps_to_load))
+				trait += list(ZTRAIT_UP = FALSE, ZTRAIT_DOWN = FALSE)
+			//Last level in the actual stack, can only go down
+			else if(i == (length(filemaps_to_load) - 1))
+				trait += list(ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE)
+			//Bidirectional movement
+			else
+				trait += list(ZTRAIT_UP = TRUE, ZTRAIT_DOWN = TRUE)
+
+		//We're loading the first level, usually it has something above it
+		else if(length(filemaps_to_load) >= 2)
+			trait += list(ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE)
+		else //Special case for single-level maps
+			trait += list(ZTRAIT_UP = FALSE, ZTRAIT_DOWN = FALSE)
+
+		var/datum/space_level/level = SSmapping.add_new_zlevel(name, trait, contain_turfs = FALSE)
+
+		if (!maploader.load_map(file(mfile), 0, 0, level.z_value, no_changeturf = TRUE))
 			log_subsystem_atlas("Failed to load '[mfile]'!")
 		else
 			log_subsystem_atlas("Loaded level in [(world.time - time)/10] seconds.")
+
+		is_first = FALSE
 
 		.++
 		CHECK_TICK

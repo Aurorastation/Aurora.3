@@ -10,7 +10,10 @@ fn tuple_to_size(xyz: (usize, usize, usize)) -> Coord3 {
 pub fn to_grid_map(dict_map: &dmm::Map) -> GridMap {
     let mut grid_map = GridMap {
         size: tuple_to_size(dict_map.dim_xyz()),
-        grid: Default::default(),
+        grid: crate::mapmanip::core::TileGrid::new(
+            dict_map.dim_xyz().0 as i32,
+            dict_map.dim_xyz().1 as i32,
+        ),
     };
 
     for x in 1..grid_map.size.x + 1 {
@@ -23,7 +26,7 @@ pub fn to_grid_map(dict_map: &dmm::Map) -> GridMap {
                 prefabs,
             };
             let coord = dmm::Coord2::new(coord.x, coord.y);
-            grid_map.grid.insert(coord, tile);
+            grid_map.grid.insert(&coord, tile);
         }
     }
 

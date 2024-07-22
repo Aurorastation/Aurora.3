@@ -106,10 +106,12 @@
 	var/turf/T
 	switch(move_dir)
 		if(UP)
-			T = GetAbove(src)
+			var/turf/current_turf = get_turf(src)
+			T = GET_TURF_ABOVE(current_turf)
 			z_move = 1
 		if(DOWN)
-			T = GetBelow(src)
+			var/turf/current_turf = get_turf(src)
+			T = GET_TURF_BELOW(current_turf)
 			z_move = -1
 		else
 			T = get_step(src, move_dir)

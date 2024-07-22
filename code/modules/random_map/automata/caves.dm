@@ -129,7 +129,7 @@
 			if(EMPTY_CHAR)
 				new_path = mineral_rich
 			if(FLOOR_CHAR)
-				var/turf/below = GET_BELOW(T)
+				var/turf/below = GET_TURF_BELOW(T)
 				if(below)
 					var/area/below_area = below.loc		// Let's just assume that the turf is not in nullspace.
 					if(below_area.station_area)

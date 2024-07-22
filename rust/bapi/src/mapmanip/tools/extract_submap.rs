@@ -2,7 +2,6 @@ use crate::mapmanip::core::GridMap;
 use dmmtools::dmm;
 use dmmtools::dmm::Coord2;
 use eyre::ContextCompat;
-use std::collections::BTreeMap;
 
 /// Returns part of map of `xtr_size` and at `xtr_coord` from `src_map`.
 pub fn extract_submap(
@@ -12,7 +11,7 @@ pub fn extract_submap(
 ) -> eyre::Result<GridMap> {
     let mut dst_map = GridMap {
         size: xtr_size.z(1),
-        grid: BTreeMap::new(),
+        grid: crate::mapmanip::core::TileGrid::new(xtr_size.x, xtr_size.y),
     };
 
     for x in 1..(xtr_size.x + 1) {
@@ -27,7 +26,7 @@ pub fn extract_submap(
                     "cannot extract submap; coords out of bounds; x: {src_x}; y: {src_y};"
                 ))?;
 
-            dst_map.grid.insert(Coord2::new(x, y), tile.clone());
+            dst_map.grid.insert(&Coord2::new(x, y), tile.clone());
         }
     }
 

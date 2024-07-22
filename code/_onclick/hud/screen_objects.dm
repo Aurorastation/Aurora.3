@@ -347,7 +347,7 @@
 				for(var/turf/T in view(usr.client.view + 3, usr)) // slightly extra to account for moving while looking for openness
 					if(T.density)
 						continue
-					var/turf/above_turf = GetAbove(T)
+					var/turf/above_turf = GET_TURF_ABOVE(T)
 					if(!isopenspace(above_turf))
 						continue
 					var/image/up_image = image(icon = 'icons/mob/screen/generic.dmi', icon_state = "arrow_up", loc = T)
@@ -356,7 +356,8 @@
 					usr << up_image
 					QDEL_IN(up_image, 12)
 				return
-			var/turf/T = GetAbove(usr)
+			var/turf/T1 = get_turf(usr)
+			var/turf/T = GET_TURF_ABOVE(T1)
 			if (!T)
 				to_chat(usr, SPAN_NOTICE("There is nothing above you!"))
 			else if (T.is_hole)

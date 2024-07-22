@@ -28,7 +28,7 @@ INITIALIZE_IMMEDIATE(/obj/abstract/weather_system)
 	// Track all z-levels.
 	for(var/highest_z in affecting_zs)
 		var/turfcount = 0
-		if(HasAbove(highest_z))
+		if(SSmapping.multiz_levels[highest_z][Z_LEVEL_UP])
 			continue
 		// Update turf weather.
 		for(var/turf/T as anything in block(locate(1, 1, highest_z), locate(world.maxx, world.maxy, highest_z)))
