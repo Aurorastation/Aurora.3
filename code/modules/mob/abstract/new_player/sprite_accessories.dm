@@ -2101,6 +2101,30 @@ Follow by example and make good judgement based on length which list to include 
 	name = "7 O'clock Shadow and Moustache"
 	icon_state = "facial_7oclockmoustache"
 
+/datum/sprite_accessory/facial_hair/threeOclockstubble
+	name = "3 O'clock Stubble"
+	icon_state = "facial_3oclock_stubble"
+
+/datum/sprite_accessory/facial_hair/threeOclockstachestubble
+	name = "3 O'clock Stubble and Moustache"
+	icon_state = "facial_3oclockmoustache_stubble"
+
+/datum/sprite_accessory/facial_hair/fiveOclockstubble
+	name = "5 O'clock Stubble"
+	icon_state = "facial_5oclock_stubble"
+
+/datum/sprite_accessory/facial_hair/fiveOclockstachestubble
+	name = "5 O'clock Stubble and Moustache"
+	icon_state = "facial_5oclockmoustache_stubble"
+
+/datum/sprite_accessory/facial_hair/sevenOclockstubble
+	name = "7 O'clock Stubble"
+	icon_state = "facial_7oclock_stubble"
+
+/datum/sprite_accessory/facial_hair/sevenOclockstachestubble
+	name = "7 O'clock Stubble and Moustache"
+	icon_state = "facial_7oclockmoustache_stubble"
+
 /datum/sprite_accessory/facial_hair/abe
 	name = "Abraham Lincoln Beard"
 	icon_state = "facial_abe"
