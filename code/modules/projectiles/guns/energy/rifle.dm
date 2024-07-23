@@ -254,7 +254,7 @@
 	can_turret = TRUE
 	turret_is_lethal = TRUE
 	projectile_type = /obj/item/projectile/beam/midlaser/hegemony
-	can_switch_modes = 0
+	can_switch_modes = FALSE
 	secondary_projectile_type = null
 	firemodes = list()
 	modifystate = null
