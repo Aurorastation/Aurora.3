@@ -2,7 +2,7 @@
 	name = "casual skirt"
 	desc = "A short, colorful skirt."
 	desc_extended = "Not to be mistaken with the similarly named cut of steak."
-	icon = 'icons/obj/clothing/skirts.dmi'
+	icon = 'icons/obj/clothing/accessory/skirts.dmi'
 	icon_state = "skirt_casual"
 	item_state = "skirt_casual"
 	contained_sprite = TRUE
@@ -13,7 +13,6 @@
 	desc_extended = "The opposite of a pencil skirt."
 	icon_state = "skirt_puffy"
 	item_state = "skirt_puffy"
-	worn_state = "skirt_puffy"
 
 /obj/item/clothing/accessory/skirt/long
 	name = "long skirt"

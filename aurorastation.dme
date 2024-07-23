@@ -1992,6 +1992,7 @@
 #include "code\modules\clothing\under\accessories\necklace.dm"
 #include "code\modules\clothing\under\accessories\religious.dm"
 #include "code\modules\clothing\under\accessories\shirts.dm"
+#include "code\modules\clothing\under\accessories\skirts.dm"
 #include "code\modules\clothing\under\accessories\storage.dm"
 #include "code\modules\clothing\under\accessories\temperature.dm"
 #include "code\modules\clothing\under\accessories\xeno\diona.dm"
