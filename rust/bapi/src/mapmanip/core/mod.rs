@@ -54,59 +54,67 @@ impl Tile {
     }
 }
 
-/// Thin abstraction over `grid::Grid`, to provide a hashmap-like interface,
-/// and to translate between dmm coords (start at 1) and grid coords (start at 0).
+/// Thin abstraction over a flat vec, to provide a simple hashmap-like interface,
+/// and to translate between 3D dmm coords (start at 1), and 1D flat vec coords (start at 0).
 /// The translation is so that it looks better in logs/errors/etc,
 /// where shown coords would correspond to coords seen in game or in strongdmm.
 #[derive(Clone, Debug)]
 pub struct TileGrid {
-    pub grid: grid::Grid<crate::mapmanip::core::Tile>,
+    pub size: Coord3,
+    pub grid: Vec<crate::mapmanip::core::Tile>,
 }
 
 impl TileGrid {
     pub fn new(size_x: i32, size_y: i32, size_z: i32) -> TileGrid {
         Self {
-            grid: grid::Grid::new(size_x as usize, size_y as usize),
+            size: Coord3::new(size_x, size_y, size_z),
+            grid: vec![Tile::default(); (size_x * size_y * size_y) as usize],
         }
     }
 
     pub fn len(&self) -> usize {
-        self.grid.size().0 * self.grid.size().1
+        self.grid.len()
     }
 
-    pub fn iter(&self) -> impl Iterator<Item = (Coord3, &Tile)> {
-        self.grid.indexed_iter().map(|((x, y), t)| {
-            (
-                Coord3::new((x + 1) as i32, (y + 1) as i32, (0 + 1) as i32),
-                t,
-            )
-        })
+    fn coord_to_index(&self, coord: &Coord3) -> usize {
+        let coord = Coord3::new(coord.x - 1, coord.y - 1, coord.z - 1);
+        ((coord.x) + (coord.y * self.size.x) + (coord.z * self.size.x * self.size.y)) as usize
+    }
+
+    fn index_to_coord(&self, index: usize) -> Coord3 {
+        let index = index as i32;
+        Coord3::new(
+            (index % self.size.x) + 1,
+            ((index / self.size.x) % self.size.y) + 1,
+            (index / (self.size.x * self.size.y)) + 1,
+        )
     }
 
     pub fn get_mut(&mut self, coord: &Coord3) -> Option<&mut Tile> {
-        self.grid.get_mut(
-            (coord.x - 1) as usize,
-            (coord.y - 1) as usize,
-            // (coord.z - 1) as usize,
-        )
+        let index = self.coord_to_index(coord);
+        self.grid.get_mut(index)
     }
 
     pub fn get(&self, coord: &Coord3) -> Option<&Tile> {
-        self.grid.get(
-            (coord.x - 1) as usize,
-            (coord.y - 1) as usize,
-            // (coord.z - 1) as usize,
-        )
+        self.grid.get(self.coord_to_index(coord))
     }
 
     pub fn insert(&mut self, coord: &Coord3, tile: Tile) {
         *self.get_mut(coord).unwrap() = tile;
     }
 
+    pub fn iter(&self) -> impl Iterator<Item = (Coord3, &Tile)> {
+        self.grid
+            .iter()
+            .enumerate()
+            .map(|(i, t)| (self.index_to_coord(i), t))
+    }
+
     pub fn keys(&self) -> impl Iterator<Item = Coord3> + '_ {
         self.grid
-            .indexed_iter()
-            .map(|((x, y), _t)| Coord3::new((x + 1) as i32, (y + 1) as i32, (0 + 1) as i32))
+            .iter()
+            .enumerate()
+            .map(|(i, _t)| self.index_to_coord(i))
     }
 
     pub fn values(&self) -> impl Iterator<Item = &Tile> {
