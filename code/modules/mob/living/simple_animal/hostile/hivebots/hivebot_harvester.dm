@@ -14,7 +14,7 @@
 	ranged = 1
 	attacktext = "skewered"
 	projectilesound = 'sound/weapons/lasercannonfire.ogg'
-	projectiletype = /obj/item/projectile/beam/hivebot/incendiary/heavy
+	projectiletype = /obj/projectile/beam/hivebot/incendiary/heavy
 	organ_names = list("head", "core", "side thruster", "harvesting array")
 	faction = "hivebot"
 	min_oxy = 0
@@ -72,9 +72,8 @@
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/AirflowCanMove(n)
 	return 0
 
-/mob/living/simple_animal/hostile/retaliate/hivebotharvester/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
-		Proj.no_attack_log = 1
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/bullet_act(var/obj/projectile/Proj)
+	if(istype(Proj, /obj/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/projectile/beam/hivebot))
 		return PROJECTILE_CONTINUE
 	else
 		return ..(Proj)

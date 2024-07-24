@@ -10,7 +10,7 @@ If the spell_projectile is seeking, it will update its target every process and 
 
 	range = 7
 
-	var/proj_type = /obj/item/projectile/spell_projectile //use these. They are very nice
+	var/proj_type = /obj/projectile/spell_projectile //use these. They are very nice
 
 	var/proj_step_delay = 1 //lower = faster
 	var/cast_prox_range = 1
@@ -21,7 +21,7 @@ If the spell_projectile is seeking, it will update its target every process and 
 		proj_type = text2path(proj_type) // sanity filters
 
 	for(var/atom/target in targets)
-		var/obj/item/projectile/projectile = new proj_type(user.loc, user.dir)
+		var/obj/projectile/projectile = new proj_type(user.loc, user.dir)
 
 		if(!projectile)
 			return
@@ -30,8 +30,8 @@ If the spell_projectile is seeking, it will update its target every process and 
 		projectile.shot_from = user //fired from the user
 		projectile.hitscan = !proj_step_delay
 		projectile.speed = proj_step_delay
-		if(istype(projectile, /obj/item/projectile/spell_projectile))
-			var/obj/item/projectile/spell_projectile/SP = projectile
+		if(istype(projectile, /obj/projectile/spell_projectile))
+			var/obj/projectile/spell_projectile/SP = projectile
 			SP.carried = src //casting is magical
 		projectile.launch_projectile(target, target_zone=BP_CHEST)
 	return

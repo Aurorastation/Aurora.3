@@ -743,7 +743,7 @@
 	if(!.)
 		return move_trail
 
-/datum/species/proc/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+/datum/species/proc/bullet_act(var/obj/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
 	return 0
 
 /datum/species/proc/handle_speech_problems(mob/living/carbon/human/H, message, say_verb, message_mode, message_range)

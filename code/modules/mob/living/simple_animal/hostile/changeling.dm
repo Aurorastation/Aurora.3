@@ -28,7 +28,7 @@
 	melee_damage_upper = 45
 	armor_penetration = 30
 	ranged = 1
-	projectiletype = /obj/item/projectile/bonedart/ling
+	projectiletype = /obj/projectile/bonedart/ling
 	projectilesound = 'sound/weapons/bloodyslice.ogg'
 	resist_mod = 15
 	mob_size = 25

@@ -305,12 +305,12 @@
 		new /obj/item/stack/material/steel(get_turf(src))
 		qdel(src)
 
-/obj/structure/closet/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/closet/bullet_act(var/obj/projectile/Proj)
 	var/proj_damage = Proj.get_structure_damage()
 	if(!proj_damage)
 		return
 
-	if(Proj.penetrating || istype(Proj, /obj/item/projectile/bullet))
+	if(Proj.penetrating || istype(Proj, /obj/projectile/bullet))
 		var/distance = get_dist(Proj.starting, get_turf(loc))
 		for(var/mob/living/L in contents)
 			Proj.attack_mob(L, distance)

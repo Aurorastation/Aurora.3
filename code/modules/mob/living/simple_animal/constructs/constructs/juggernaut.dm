@@ -22,8 +22,8 @@
 	resistance = 10
 	construct_spells = list(/spell/aoe_turf/conjure/forcewall/lesser)
 
-/mob/living/simple_animal/construct/armored/bullet_act(var/obj/item/projectile/P)
-	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
+/mob/living/simple_animal/construct/armored/bullet_act(var/obj/projectile/P)
+	if(istype(P, /obj/projectile/energy) || istype(P, /obj/projectile/beam))
 		var/reflectchance = 80 - round(P.damage / 3)
 		if(prob(reflectchance))
 			adjustBruteLoss(P.damage * 0.3)

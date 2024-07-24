@@ -15,21 +15,21 @@
 	desc = "Hope your Core's full."
 	cast_methods = CAST_RANGED
 	aspect = ASPECT_UNSTABLE
-	spell_projectile = /obj/item/projectile/overload
+	spell_projectile = /obj/projectile/overload
 	energy_cost_per_shot = 0 // Handled later
 	instability_per_shot = 12
 	cooldown = 10
 	pre_shot_delay = 4
 	fire_sound = 'sound/effects/supermatter.ogg'
 
-/obj/item/projectile/overload
+/obj/projectile/overload
 	name = "overloaded bolt"
 	icon_state = "bluespace"
 	damage_type = DAMAGE_BURN
 	armor_penetration = 100
 
-/obj/item/spell/projectile/overload/make_projectile(obj/item/projectile/projectile_type, mob/living/user)
-	var/obj/item/projectile/overload/P = new projectile_type(get_turf(user))
+/obj/item/spell/projectile/overload/make_projectile(obj/projectile/projectile_type, mob/living/user)
+	var/obj/projectile/overload/P = new projectile_type(get_turf(user))
 	var/energy_before_firing = core.energy
 	if(check_for_scepter())
 		P.damage = round(energy_before_firing * 0.004) // .4% of their current energy pool.

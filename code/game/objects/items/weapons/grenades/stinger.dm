@@ -1,5 +1,5 @@
 ///Stinger grenade projectile
-/obj/item/projectile/bullet/rubberball/stinger_ball
+/obj/projectile/bullet/rubberball/stinger_ball
 	damage = 2
 	agony = 50
 	armor_penetration = 10
@@ -10,7 +10,6 @@
 	spread_step = 20
 
 	suppressed = TRUE //embedding messages are still produced so it's kind of weird when enabled.
-	no_attack_log = 1
 	muzzle_type = null
 
 /obj/item/grenade/stinger
@@ -34,7 +33,7 @@
 	var/fragments_per_projectile = round(fragger/target_turfs.len)
 
 	for(var/turf/T in target_turfs)
-		var/obj/item/projectile/bullet/rubberball/stinger_ball/P = new (O)
+		var/obj/projectile/bullet/rubberball/stinger_ball/P = new (O)
 
 		P.damage = p_dam
 		P.balls = fragments_per_projectile

@@ -246,7 +246,7 @@
 	..(-abs(amount)) // Heals them
 	return
 
-/mob/living/carbon/slime/bullet_act(var/obj/item/projectile/Proj)
+/mob/living/carbon/slime/bullet_act(var/obj/projectile/Proj)
 	attacked += 10
 	..(Proj)
 	return FALSE

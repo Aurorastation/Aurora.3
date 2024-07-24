@@ -190,7 +190,7 @@
 		attack_living(victim)
 		attack_time = world.time
 
-/obj/effect/blob/bullet_act(var/obj/item/projectile/Proj)
+/obj/effect/blob/bullet_act(var/obj/projectile/Proj)
 	if(!Proj)
 		return
 

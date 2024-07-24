@@ -651,7 +651,7 @@
 	if(ismob(AM.throwing?.thrower?.resolve()))
 		handle_attack_by(AM.throwing?.thrower?.resolve())
 
-/mob/living/simple_animal/bullet_act(obj/item/projectile/P, def_zone)
+/mob/living/simple_animal/bullet_act(obj/projectile/P, def_zone)
 	. = ..()
 	if(ismob(P.firer))
 		handle_attack_by(P.firer)
@@ -962,7 +962,7 @@
 /mob/living/simple_animal/get_digestion_product()
 	return /singleton/reagent/nutriment
 
-/mob/living/simple_animal/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage)
+/mob/living/simple_animal/bullet_impact_visuals(var/obj/projectile/P, var/def_zone, var/damage)
 	..()
 	switch(get_bullet_impact_effect_type(def_zone))
 		if(BULLET_IMPACT_MEAT)

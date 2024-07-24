@@ -84,10 +84,10 @@
 		return TRUE
 	return ..()
 
-/turf/simulated/wall/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj,/obj/item/projectile/beam))
+/turf/simulated/wall/bullet_act(var/obj/projectile/Proj)
+	if(istype(Proj,/obj/projectile/beam))
 		burn(2500)
-	else if(istype(Proj,/obj/item/projectile/ion))
+	else if(istype(Proj,/obj/projectile/ion))
 		burn(500)
 
 	bullet_ping(Proj)

@@ -567,7 +567,7 @@
 /mob/living/silicon/robot/restrained()
 	return FALSE
 
-/mob/living/silicon/robot/bullet_act(var/obj/item/projectile/Proj)
+/mob/living/silicon/robot/bullet_act(var/obj/projectile/Proj)
 	..(Proj)
 	if(prob(75) && Proj.damage > 0)
 		spark_system.queue()

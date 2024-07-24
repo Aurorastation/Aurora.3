@@ -26,7 +26,7 @@
 	attacktext = "chomped"
 	attack_sound = 'sound/weapons/bite.ogg'
 	speed = 4
-	projectiletype = /obj/item/projectile/beam/cavern
+	projectiletype = /obj/projectile/beam/cavern
 	projectilesound = 'sound/magic/lightningbolt.ogg'
 	break_stuff_probability = 2
 
@@ -50,7 +50,7 @@
 /mob/living/simple_animal/hostile/retaliate/cavern_dweller/Allow_Spacemove(var/check_drift = 0)
 	return 1
 
-/obj/item/projectile/beam/cavern
+/obj/projectile/beam/cavern
 	name = "electrical discharge"
 	icon_state = "stun"
 	damage_type = DAMAGE_BURN
@@ -67,7 +67,7 @@
 	else
 		..()
 
-/obj/item/projectile/beam/cavern/on_hit(var/atom/target, var/blocked = 0)
+/obj/projectile/beam/cavern/on_hit(var/atom/target, var/blocked = 0)
 	if(ishuman(target))
 		var/mob/living/carbon/human/M = target
 		var/shock_damage = rand(10,20)
@@ -95,7 +95,7 @@
 	a_intent = I_HURT
 	speak_emote = list("chirps","buzzes","whirrs")
 	emote_hear = list("chirps cheerfully","buzzes","whirrs","hums placidly","chirps","hums")
-	projectiletype = /obj/item/projectile/beam/plasmacutter
+	projectiletype = /obj/projectile/beam/plasmacutter
 	projectilesound = 'sound/weapons/plasma_cutter.ogg'
 	destroy_surroundings = FALSE
 	min_oxy = 0

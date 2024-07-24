@@ -31,7 +31,7 @@
 		visible_message(SPAN_WARNING(final_message))
 		qdel(src)
 
-/obj/structure/gore/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/gore/bullet_act(var/obj/projectile/Proj)
 	health -= Proj.damage
 	healthcheck()
 	return ..()

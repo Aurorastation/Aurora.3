@@ -328,15 +328,15 @@
 	last_target_loc = get_turf(target.loc)
 
 	process_interval = 1 //Instantly wake up if we found a target
-	var/obj/item/projectile/beam/cult/A
+	var/obj/projectile/beam/cult/A
 	if(empowered > 0)
-		A = new /obj/item/projectile/beam/cult/heavy(loc)
+		A = new /obj/projectile/beam/cult/heavy(loc)
 		empowered = max(0, empowered-1)
 		playsound(loc, 'sound/weapons/laserdeep.ogg', 100, 1)
 		if(empowered <= 0)
 			update_icon()
 	else
-		A = new /obj/item/projectile/beam/cult(loc)
+		A = new /obj/projectile/beam/cult(loc)
 		playsound(loc, 'sound/weapons/laserdeep.ogg', 65, 1)
 	A.ignore = sacrificer
 	A.launch_projectile(target)
@@ -398,7 +398,7 @@
 		return
 	return ..()
 
-/obj/structure/cult/pylon/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/cult/pylon/bullet_act(var/obj/projectile/Proj)
 	attackpylon(Proj.firer, Proj.damage, Proj)
 
 //Explosions will usually cause instant shattering, or heavy damage
@@ -420,10 +420,10 @@
 			to_chat(user, SPAN_WARNING("You swing at the pylon to no effect."))
 			return
 
-	if(istype(source, /obj/item/projectile))
-		if(istype(source, /obj/item/projectile/beam/cult))
+	if(istype(source, /obj/projectile))
+		if(istype(source, /obj/projectile/beam/cult))
 			return //No feedback loops
-		var/obj/item/projectile/proj = source
+		var/obj/projectile/proj = source
 		if(proj.damage_type == DAMAGE_BURN)
 			if(empowered <= 0)
 				visible_message(SPAN_CULT("The beam refracts inside the pylon, splitting into an indistinct violet glow. The crystal takes on a new, more ominous aura!"))

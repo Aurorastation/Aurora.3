@@ -5,8 +5,8 @@
 /proc/check_shield_arc(mob/user, bad_arc, atom/damage_source = null, mob/attacker = null)
 	//check attack direction
 	var/attack_dir = 0 //direction from the user to the source of the attack
-	if(istype(damage_source, /obj/item/projectile))
-		var/obj/item/projectile/P = damage_source
+	if(istype(damage_source, /obj/projectile))
+		var/obj/projectile/P = damage_source
 		attack_dir = get_dir(get_turf(user), P.starting)
 	else if(attacker)
 		attack_dir = get_dir(get_turf(user), get_turf(attacker))
@@ -19,7 +19,7 @@
 
 /proc/default_parry_check(mob/user, mob/attacker, atom/damage_source)
 	//parry only melee attacks
-	if(istype(damage_source, /obj/item/projectile) || (attacker && get_dist(user, attacker) > 1) || user.incapacitated())
+	if(istype(damage_source, /obj/projectile) || (attacker && get_dist(user, attacker) > 1) || user.incapacitated())
 		return 0
 
 	//block as long as they are not directly behind us
@@ -77,10 +77,10 @@
 	if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
 
 /obj/item/shield/riot/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
-	if(istype(damage_source, /obj/item/projectile))
-		var/obj/item/projectile/P = damage_source
+	if(istype(damage_source, /obj/projectile))
+		var/obj/projectile/P = damage_source
 		//plastic shields do not stop bullets or lasers, even in space. Will block beanbags, rubber bullets, and stunshots just fine though.
-		if((is_sharp(P) && damage > 10) || istype(P, /obj/item/projectile/beam))
+		if((is_sharp(P) && damage > 10) || istype(P, /obj/projectile/beam))
 			return 0
 	return base_block_chance
 
@@ -116,9 +116,9 @@
 	if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
 
 /obj/item/shield/buckler/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
-	if(istype(damage_source, /obj/item/projectile))
-		var/obj/item/projectile/P = damage_source
-		if((is_sharp(P) && damage > 10) || istype(P, /obj/item/projectile/beam))
+	if(istype(damage_source, /obj/projectile))
+		var/obj/projectile/P = damage_source
+		if((is_sharp(P) && damage > 10) || istype(P, /obj/projectile/beam))
 			return 0
 	return base_block_chance
 
@@ -192,7 +192,7 @@
 			HandleShutOff()
 
 		if(isenergy(damage_source) || isbeam(damage_source))
-			var/obj/item/projectile/P = damage_source
+			var/obj/projectile/P = damage_source
 
 			var/reflectchance = 80 - (damage/3)
 			if(P.starting && prob(reflectchance))

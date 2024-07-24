@@ -107,7 +107,7 @@
 	else
 		..()
 
-/obj/item/device/magnetic_lock/bullet_act(var/obj/item/projectile/Proj)
+/obj/item/device/magnetic_lock/bullet_act(var/obj/projectile/Proj)
 	takedamage(Proj.damage)
 	..()
 

@@ -13,7 +13,7 @@
 	icon_state = "force_missile"
 	cast_methods = CAST_RANGED|CAST_USE
 	aspect = ASPECT_PSIONIC
-	spell_projectile = /obj/item/projectile/air_bullet
+	spell_projectile = /obj/projectile/air_bullet
 	fire_sound = 'sound/weapons/wave.ogg'
 	cooldown = 5
 	psi_cost = 0
@@ -48,7 +48,7 @@
 		bullets--
 		maptext = SMALL_FONTS(7, bullets)
 
-/obj/item/projectile/air_bullet
+/obj/projectile/air_bullet
 	name = "air bullet"
 	icon_state = "plasma_bolt"
 	damage = 30

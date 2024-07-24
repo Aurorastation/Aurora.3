@@ -120,7 +120,7 @@
 	change_stance(HOSTILE_STANCE_ATTACKING)
 	visible_message(SPAN_WARNING("\The [src] gets taunted by \the [H] and begins to retaliate!"))
 
-/mob/living/simple_animal/hostile/bullet_act(var/obj/item/projectile/P, var/def_zone)
+/mob/living/simple_animal/hostile/bullet_act(var/obj/projectile/P, var/def_zone)
 	..()
 	if (ismob(P.firer) && target_mob != P.firer)
 		target_mob = P.firer
@@ -353,7 +353,7 @@
 		return FALSE
 
 	var/target_hit = FALSE
-	var/flags = ispath(projectiletype, /obj/item/projectile/beam) ? PASSTABLE|PASSGLASS|PASSGRILLE : PASSTABLE
+	var/flags = ispath(projectiletype, /obj/projectile/beam) ? PASSTABLE|PASSGLASS|PASSGRILLE : PASSTABLE
 	for(var/V in check_trajectory(target_mob, src, pass_flags=flags))
 		if(V == target_mob)
 			target_hit = TRUE
@@ -376,7 +376,7 @@
 	if(target == start)
 		return
 
-	var/obj/item/projectile/A = new projectiletype(user.loc)
+	var/obj/projectile/A = new projectiletype(user.loc)
 	playsound(user, projectilesound, 100, 1)
 	if(!A)	return
 	var/def_zone = get_exposed_defense_zone(target)

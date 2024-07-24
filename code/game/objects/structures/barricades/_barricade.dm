@@ -85,14 +85,14 @@
 /obj/structure/barricade/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0))
 		return TRUE
-	if(istype(mover, /obj/item/projectile))
+	if(istype(mover, /obj/projectile))
 		return (check_cover(mover,target))
 	if (get_dir(loc, target) == dir)
 		return !density
 	else
 		return TRUE
 
-/obj/structure/barricade/proc/check_cover(obj/item/projectile/P, turf/from)
+/obj/structure/barricade/proc/check_cover(obj/projectile/P, turf/from)
 	var/turf/cover = get_turf(src)
 	if(!cover)
 		return TRUE
@@ -197,7 +197,7 @@
 			playsound(src, barricade_hitsound, 25, 1)
 		hit_barricade(attacking_item, user)
 
-/obj/structure/barricade/bullet_act(obj/item/projectile/P)
+/obj/structure/barricade/bullet_act(obj/projectile/P)
 	bullet_ping(P)
 	var/damage_to_take = P.damage * P.anti_materiel_potential
 	take_damage(damage_to_take)

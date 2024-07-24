@@ -310,7 +310,7 @@
 		change_stance(HOSTILE_STANCE_IDLE)
 		audible_emote("[pick(sad_emote)].",0)
 
-/mob/living/simple_animal/hostile/commanded/bullet_act(var/obj/item/projectile/P, var/def_zone)
+/mob/living/simple_animal/hostile/commanded/bullet_act(var/obj/projectile/P, var/def_zone)
 	..()
 
 	// We forgive our master

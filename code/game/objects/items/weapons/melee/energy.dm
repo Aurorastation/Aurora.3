@@ -89,8 +89,8 @@
 					shield_power = 0
 					return FALSE
 
-				if(istype(damage_source, /obj/item/projectile/energy) || istype(damage_source, /obj/item/projectile/beam))
-					var/obj/item/projectile/P = damage_source
+				if(istype(damage_source, /obj/projectile/energy) || istype(damage_source, /obj/projectile/beam))
+					var/obj/projectile/P = damage_source
 
 					var/reflectchance = base_reflectchance - round(damage/3)
 					if(!(def_zone in list(BP_CHEST, BP_GROIN,BP_HEAD)))
@@ -111,7 +111,7 @@
 						user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
 						return PROJECTILE_STOPPED
 
-				else if(istype(damage_source, /obj/item/projectile/bullet) && can_block_bullets)
+				else if(istype(damage_source, /obj/projectile/bullet) && can_block_bullets)
 					var/reflectchance = (base_reflectchance) - round(damage/3)
 					if(!(def_zone in list(BP_CHEST, BP_GROIN,BP_HEAD)))
 						reflectchance /= 2

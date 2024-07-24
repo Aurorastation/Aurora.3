@@ -94,7 +94,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		/obj/screen/new_player/selection/polls,
 
 		//Temporary exclusion while matt fixes it
-		/obj/item/projectile/beam/psi_lightning/wide,
+		/obj/projectile/beam/psi_lightning/wide,
 		/obj/effect/fusion_particle_catcher,
 		/obj/item/fuel_assembly,
 

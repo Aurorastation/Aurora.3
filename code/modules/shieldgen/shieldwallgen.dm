@@ -195,7 +195,7 @@
 	alldir_cleanup()
 	return ..()
 
-/obj/machinery/shieldwallgen/bullet_act(var/obj/item/projectile/Proj)
+/obj/machinery/shieldwallgen/bullet_act(var/obj/projectile/Proj)
 	storedpower -= 400 * Proj.get_structure_damage()
 	if(power_state >= POWER_STARTING)
 		visible_message(SPAN_WARNING("\The [src]'s shielding sparks as \the [Proj] hits it!"))
@@ -255,7 +255,7 @@
 		gen_primary.storedpower -= power_usage / 2
 		gen_secondary.storedpower -= power_usage / 2
 
-/obj/shieldwall/bullet_act(var/obj/item/projectile/Proj)
+/obj/shieldwall/bullet_act(var/obj/projectile/Proj)
 	if(needs_power)
 		var/obj/machinery/shieldwallgen/G
 		if(prob(50))
@@ -297,7 +297,7 @@
 	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return prob(20)
 	else
-		if(istype(mover, /obj/item/projectile))
+		if(istype(mover, /obj/projectile))
 			return prob(10)
 		else
 			return !density

@@ -15,7 +15,7 @@
 	attacktext = "slashed"
 	attack_sound = /singleton/sound_category/hivebot_melee
 	projectilesound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol/hivebotspike
+	projectiletype = /obj/projectile/bullet/pistol/hivebotspike
 	organ_names = list("head", "core", "side thruster", "bottom thruster")
 	faction = "hivebot"
 	min_oxy = 0
@@ -81,9 +81,8 @@
 	else
 		return "blood_overlay_armed"
 
-/mob/living/simple_animal/hostile/hivebot/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
-		Proj.no_attack_log = 1
+/mob/living/simple_animal/hostile/hivebot/bullet_act(var/obj/projectile/Proj)
+	if(istype(Proj, /obj/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/projectile/beam/hivebot))
 		return PROJECTILE_CONTINUE
 	else
 		return ..(Proj)
@@ -195,9 +194,8 @@
 		has_exploded = TRUE
 		addtimer(CALLBACK(src, PROC_REF(burst)), 20)
 
-/mob/living/simple_animal/hostile/hivebot/bomber/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
-		Proj.no_attack_log = 1
+/mob/living/simple_animal/hostile/hivebot/bomber/bullet_act(var/obj/projectile/Proj)
+	if(istype(Proj, /obj/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/projectile/beam/hivebot))
 		return PROJECTILE_CONTINUE
 	else if(!has_exploded)
 		has_exploded = TRUE
@@ -217,5 +215,5 @@
 	ranged = 1
 
 /mob/living/simple_animal/hostile/hivebot/range/rapid
-	projectiletype = /obj/item/projectile/bullet/pistol/hivebotspike/needle
+	projectiletype = /obj/projectile/bullet/pistol/hivebotspike/needle
 	rapid = 1

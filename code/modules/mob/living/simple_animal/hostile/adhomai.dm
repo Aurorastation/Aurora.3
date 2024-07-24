@@ -136,7 +136,7 @@
 	smart_ranged = TRUE
 
 	ranged = TRUE
-	projectiletype = /obj/item/projectile/beam/tesla/plasmageist
+	projectiletype = /obj/projectile/beam/tesla/plasmageist
 	projectilesound = 'sound/magic/LightningShock.ogg'
 
 	pass_flags = PASSTABLE|PASSRAILING
@@ -168,7 +168,7 @@
 /mob/living/simple_animal/hostile/plasmageist/ex_act(severity)
 	return
 
-/obj/item/projectile/beam/tesla/plasmageist/on_impact(atom/target)
+/obj/projectile/beam/tesla/plasmageist/on_impact(atom/target)
 	. = ..()
 	if(isliving(target))
 		explosion(target, -1, 0, 2)

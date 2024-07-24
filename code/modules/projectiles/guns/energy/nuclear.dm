@@ -13,18 +13,18 @@
 	accuracy = 1
 	max_shots = 10
 	can_turret = 1
-	secondary_projectile_type = /obj/item/projectile/beam
+	secondary_projectile_type = /obj/projectile/beam
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
 	can_switch_modes = 1
 	turret_is_lethal = 0
 
-	projectile_type = /obj/item/projectile/beam/stun
+	projectile_type = /obj/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	modifystate = "energystun"
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="energystun", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="energykill", fire_sound='sound/weapons/laser1.ogg')
+		list(mode_name="stun", projectile_type=/obj/projectile/beam/stun, modifystate="energystun", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/projectile/beam, modifystate="energykill", fire_sound='sound/weapons/laser1.ogg')
 		)
 
 	has_item_ratio = FALSE
@@ -56,8 +56,8 @@
 	charge_failure_message = "'s charging socket was removed to make room for a minaturized reactor."
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/laser1.ogg')
+		list(mode_name="stun", projectile_type=/obj/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/projectile/beam, fire_sound='sound/weapons/laser1.ogg')
 		)
 
 	var/lightfail = 0
@@ -136,19 +136,19 @@
 	max_shots = 7
 	fire_delay = 4
 	can_turret = 1
-	secondary_projectile_type = /obj/item/projectile/beam/pistol
+	secondary_projectile_type = /obj/projectile/beam/pistol
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
 	can_switch_modes = 1
 	turret_sprite_set = "carbine"
 	turret_is_lethal = 0
 
-	projectile_type = /obj/item/projectile/beam/stun
+	projectile_type = /obj/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	modifystate = "epistolstun"
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="epistolstun", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="epistolkill", fire_sound='sound/weapons/laser1.ogg')
+		list(mode_name="stun", projectile_type=/obj/projectile/beam/stun, modifystate="epistolstun", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/projectile/beam/pistol, modifystate="epistolkill", fire_sound='sound/weapons/laser1.ogg')
 		)
 
 /obj/item/gun/energy/pistol/hegemony
@@ -164,17 +164,17 @@
 	max_shots = 10
 	fire_delay = 3
 	can_turret = FALSE
-	secondary_projectile_type = /obj/item/projectile/beam/pistol/hegemony
+	secondary_projectile_type = /obj/projectile/beam/pistol/hegemony
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
 	can_switch_modes = TRUE
 
-	projectile_type = /obj/item/projectile/beam/stun
+	projectile_type = /obj/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
 	modifystate = "hegemony_pistol"
 
 	firemodes = list(
-		list(mode_name="incapacitate", projectile_type=/obj/item/projectile/beam/stun, modifystate="hegemony_pistol", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="smite", projectile_type=/obj/item/projectile/beam/pistol/hegemony, modifystate="hegemony_pistol", fire_sound='sound/weapons/laser1.ogg')
+		list(mode_name="incapacitate", projectile_type=/obj/projectile/beam/stun, modifystate="hegemony_pistol", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="smite", projectile_type=/obj/projectile/beam/pistol/hegemony, modifystate="hegemony_pistol", fire_sound='sound/weapons/laser1.ogg')
 		)
 
 /obj/item/gun/energy/pistol/goldendeep
@@ -190,17 +190,17 @@
 	max_shots = 10
 	fire_delay = 3
 	can_turret = FALSE
-	secondary_projectile_type = /obj/item/projectile/beam/pistol
+	secondary_projectile_type = /obj/projectile/beam/pistol
 	secondary_fire_sound = 'sound/weapons/laser3.ogg'
 	can_switch_modes = TRUE
 
-	projectile_type = /obj/item/projectile/beam/disorient
+	projectile_type = /obj/projectile/beam/disorient
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
 	modifystate = "ornatepistolstun"
 
 	firemodes = list(
-		list(mode_name="disorient", projectile_type=/obj/item/projectile/beam/disorient, modifystate="ornatepistolstun", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="ornatepistollethal", fire_sound='sound/weapons/laser1.ogg')
+		list(mode_name="disorient", projectile_type=/obj/projectile/beam/disorient, modifystate="ornatepistolstun", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/projectile/beam/pistol, modifystate="ornatepistollethal", fire_sound='sound/weapons/laser1.ogg')
 		)
 
 /obj/item/gun/energy/repeater
@@ -219,7 +219,7 @@
 
 	offhand_accuracy = 6 // same as firing it in your main hand
 
-	projectile_type = /obj/item/projectile/beam/pistol/scc
+	projectile_type = /obj/projectile/beam/pistol/scc
 	origin_tech = list(TECH_COMBAT = 5, TECH_MAGNET = 4)
 
 	firemodes = list(
@@ -240,17 +240,17 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shots = 8
 	fire_delay = 5
-	secondary_projectile_type = /obj/item/projectile/beam/pistol/scc/weak
+	secondary_projectile_type = /obj/projectile/beam/pistol/scc/weak
 	secondary_fire_sound = 'sound/weapons/energy_repeater.ogg'
 	can_switch_modes = 1
 
-	projectile_type = /obj/item/projectile/beam/stun
+	projectile_type = /obj/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
 	modifystate = "sccpistolstun"
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="sccpistolstun", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol/scc/weak, modifystate="sccpistolkill", fire_sound='sound/weapons/energy_repeater.ogg')
+		list(mode_name="stun", projectile_type=/obj/projectile/beam/stun, modifystate="sccpistolstun", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/projectile/beam/pistol/scc/weak, modifystate="sccpistolkill", fire_sound='sound/weapons/energy_repeater.ogg')
 		)
 
 /obj/item/gun/energy/gun/skrell
@@ -273,12 +273,12 @@
 	item_state = "particlepistol"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	force = 11
-	projectile_type = /obj/item/projectile/beam/stun/skrell
-	secondary_projectile_type = /obj/item/projectile/beam/pulse/skrell
+	projectile_type = /obj/projectile/beam/stun/skrell
+	secondary_projectile_type = /obj/projectile/beam/pulse/skrell
 
 	firemodes = list(
-		list(mode_name="disable", projectile_type=/obj/item/projectile/beam/stun/skrell, fire_sound='sound/weapons/Laser2.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pulse/skrell, fire_sound='sound/weapons/laser3.ogg')
+		list(mode_name="disable", projectile_type=/obj/projectile/beam/stun/skrell, fire_sound='sound/weapons/Laser2.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/projectile/beam/pulse/skrell, fire_sound='sound/weapons/laser3.ogg')
 		)
 
 /obj/item/gun/energy/gun/skrell/smg
@@ -290,12 +290,12 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_BACK
 	max_shots = 14
 	force = 16
-	projectile_type = /obj/item/projectile/beam/stun/skrell
-	secondary_projectile_type = /obj/item/projectile/beam/pulse/skrell
+	projectile_type = /obj/projectile/beam/stun/skrell
+	secondary_projectile_type = /obj/projectile/beam/pulse/skrell
 
 	firemodes = list(
-		list(mode_name="disable", projectile_type=/obj/item/projectile/beam/stun/skrell, fire_sound='sound/weapons/Laser2.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pulse/skrell, fire_sound='sound/weapons/laser3.ogg', burst = 2, burst_delay = 2)
+		list(mode_name="disable", projectile_type=/obj/projectile/beam/stun/skrell, fire_sound='sound/weapons/Laser2.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/projectile/beam/pulse/skrell, fire_sound='sound/weapons/laser3.ogg', burst = 2, burst_delay = 2)
 		)
 
 /obj/item/gun/energy/gun/qukala
@@ -309,17 +309,17 @@
 	slot_flags = SLOT_BELT
 	accuracy = 2
 	max_shots = 25
-	secondary_projectile_type = /obj/item/projectile/beam
+	secondary_projectile_type = /obj/projectile/beam
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
 	can_switch_modes = 1
 
-	projectile_type = /obj/item/projectile/beam/stun
+	projectile_type = /obj/projectile/beam/stun
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	modifystate = "qukalagun"
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/midlaser/skrell, fire_sound='sound/weapons/laser1.ogg')
+		list(mode_name="stun", projectile_type=/obj/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/projectile/beam/midlaser/skrell, fire_sound='sound/weapons/laser1.ogg')
 		)
 
 	has_item_ratio = FALSE
@@ -343,16 +343,16 @@
 	max_shots = 8
 	fire_delay = 4
 	can_turret = FALSE
-	secondary_projectile_type = /obj/item/projectile/energy/blaster/skrell
+	secondary_projectile_type = /obj/projectile/energy/blaster/skrell
 	secondary_fire_sound = 'sound/weapons/laser3.ogg'
 	can_switch_modes = TRUE
-	projectile_type = /obj/item/projectile/energy/disruptorstun/skrell
+	projectile_type = /obj/projectile/energy/disruptorstun/skrell
 	modifystate = "psipistolstun"
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/energy/disruptorstun/skrell, modifystate="psipistolstun", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster/skrell, modifystate="psipistollethal", fire_sound='sound/weapons/laser3.ogg'),
-		list(mode_name="ion", projectile_type=/obj/item/projectile/ion/small, modifystate="psipistolion", fire_sound='sound/weapons/laser1.ogg')
+		list(mode_name="stun", projectile_type=/obj/projectile/energy/disruptorstun/skrell, modifystate="psipistolstun", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/projectile/energy/blaster/skrell, modifystate="psipistollethal", fire_sound='sound/weapons/laser3.ogg'),
+		list(mode_name="ion", projectile_type=/obj/projectile/ion/small, modifystate="psipistolion", fire_sound='sound/weapons/laser1.ogg')
 		)
 
 /obj/item/gun/energy/fedpistol/nopsi

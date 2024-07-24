@@ -45,7 +45,7 @@
 	charge_cost = 100
 	use_external_power = TRUE
 	self_recharge = TRUE
-	projectile_type = /obj/item/projectile/plasma
+	projectile_type = /obj/projectile/plasma
 
 /obj/item/gun/projectile/plasma/bolter/pistol
 	name = "plasma pistol"

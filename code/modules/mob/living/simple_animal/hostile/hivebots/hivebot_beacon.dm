@@ -15,7 +15,7 @@
 	maxHealth = 300
 	blood_type = COLOR_OIL
 	projectilesound = 'sound/weapons/taser2.ogg'
-	projectiletype = /obj/item/projectile/beam/hivebot
+	projectiletype = /obj/projectile/beam/hivebot
 	wander = 0
 	stop_automated_movement = 1
 	status_flags = 0
@@ -208,9 +208,8 @@
 /mob/living/simple_animal/hostile/hivebotbeacon/AirflowCanMove(n)
 	return 0
 
-/mob/living/simple_animal/hostile/hivebotbeacon/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
-		Proj.no_attack_log = 1
+/mob/living/simple_animal/hostile/hivebotbeacon/bullet_act(var/obj/projectile/Proj)
+	if(istype(Proj, /obj/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/projectile/beam/hivebot))
 		return PROJECTILE_CONTINUE
 	else
 		..(Proj)
@@ -341,7 +340,7 @@
 ################*/
 
 /mob/living/simple_animal/hostile/hivebotbeacon/incendiary
-	projectiletype = /obj/item/projectile/beam/hivebot/incendiary
+	projectiletype = /obj/projectile/beam/hivebot/incendiary
 	projectilesound = 'sound/weapons/plasma_cutter.ogg'
 	rapid = 0
 

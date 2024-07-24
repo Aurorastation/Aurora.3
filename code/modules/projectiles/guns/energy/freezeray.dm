@@ -12,9 +12,9 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 4, TECH_POWER = 4)
 	slot_flags = SLOT_BELT
 
-	projectile_type = /obj/item/projectile/beam/freezer
+	projectile_type = /obj/projectile/beam/freezer
 
 	firemodes = list(
-		list(mode_name="freeze", projectile_type= /obj/item/projectile/beam/freezer, fire_sound='sound/weapons/pulse3.ogg'),
-		list(mode_name="ice bolt", projectile_type= /obj/item/projectile/ice, fire_sound='sound/weapons/crossbow.ogg')
+		list(mode_name="freeze", projectile_type= /obj/projectile/beam/freezer, fire_sound='sound/weapons/pulse3.ogg'),
+		list(mode_name="ice bolt", projectile_type= /obj/projectile/ice, fire_sound='sound/weapons/crossbow.ogg')
 		)

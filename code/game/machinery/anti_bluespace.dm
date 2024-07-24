@@ -74,7 +74,7 @@ var/global/list/bluespace_inhibitors
 
 	do_break()
 
-/obj/machinery/anti_bluespace/bullet_act(var/obj/item/projectile/Proj)
+/obj/machinery/anti_bluespace/bullet_act(var/obj/projectile/Proj)
 	if(!(Proj.damage_type == DAMAGE_BRUTE || Proj.damage_type == DAMAGE_BURN))
 		return
 	if(!Proj.damage)

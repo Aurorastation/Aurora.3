@@ -7,7 +7,7 @@
 	fire_sound = 'sound/weapons/Taser.ogg'
 	max_shots = 5
 	accuracy = 1 // More of a buff to secborgs and mounted taser users.
-	projectile_type = /obj/item/projectile/energy/electrode
+	projectile_type = /obj/projectile/energy/electrode
 	can_turret = 1
 	turret_sprite_set = "carbine"
 	turret_is_lethal = 0
@@ -28,7 +28,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_POWER = 2)
-	projectile_type = /obj/item/projectile/energy/electrode
+	projectile_type = /obj/projectile/energy/electrode
 	max_shots = 8
 
 
@@ -50,7 +50,7 @@
 	suppressed = TRUE
 	can_unsuppress = FALSE
 	fire_sound = 'sound/weapons/Genhit.ogg'
-	projectile_type = /obj/item/projectile/energy/bolt
+	projectile_type = /obj/projectile/energy/bolt
 	max_shots = 5
 	self_recharge = 1
 	charge_meter = 0
@@ -63,7 +63,7 @@
 
 /obj/item/gun/energy/crossbow/ninja
 	name = "energy dart thrower"
-	projectile_type = /obj/item/projectile/energy/dart
+	projectile_type = /obj/projectile/energy/dart
 
 /obj/item/gun/energy/crossbow/largecrossbow
 	name = "energy crossbow"
@@ -73,4 +73,4 @@
 	icon_state = "crossbowlarge"
 	item_state = "crossbow"
 	matter = list(DEFAULT_WALL_MATERIAL = 200000)
-	projectile_type = /obj/item/projectile/energy/bolt/large
+	projectile_type = /obj/projectile/energy/bolt/large

@@ -3,7 +3,7 @@
 	desc = "One of the most common naval guns produced by the Zhurong Imperial Naval Arsenal, the ZA-98/5 is the fifth revision of a gun which has proudly served the Imperial Fleet since 2398. Produced in cooperation with Zavodskoi Interstellar, the ZA-98/5 features and updates reloading mechanism and further improvements to the ballistic profile of its shots. This naval gun is commonly seen on Imperial Fleet corvettes and frigates as their main armament, and is often seen on larger Fleet vessels as a secondary armament to support larger weaponry. It is easily capable of destroying a smaller vessel if the Goddess ensures its shot flies true."
 	icon = 'icons/obj/machinery/ship_guns/lammergeier.dmi'
 	icon_state = "weapon_base"
-	projectile_type = /obj/item/projectile/ship_ammo/lammergeier
+	projectile_type = /obj/projectile/ship_ammo/lammergeier
 
 	heavy_firing_sound = 'sound/weapons/railgun.ogg'
 	firing_effects = FIRING_EFFECT_FLAG_EXTREMELY_LOUD
@@ -20,14 +20,14 @@
 	overmap_icon_state = "cannon"
 	impact_type = SHIP_AMMO_IMPACT_HE
 
-/obj/item/projectile/ship_ammo/lammergeier
+/obj/projectile/ship_ammo/lammergeier
 	name = "typhoon shell"
 	icon_state = "heavy"
 	damage = 10000
 	armor_penetration = 1000
 	penetrating = 1
 
-/obj/item/projectile/ship_ammo/lammergeier/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
+/obj/projectile/ship_ammo/lammergeier/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
 	if(ismob(target))
 		var/mob/M = target

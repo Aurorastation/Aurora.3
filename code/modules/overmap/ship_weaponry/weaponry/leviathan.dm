@@ -6,7 +6,7 @@
 	special_firing_mechanism = TRUE
 	max_damage = 10000
 
-	projectile_type = /obj/item/projectile/ship_ammo/leviathan
+	projectile_type = /obj/projectile/ship_ammo/leviathan
 	use_ammunition = FALSE
 	heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/leviathan_fire.ogg'
 	caliber = SHIP_CALIBER_ZAT
@@ -136,7 +136,7 @@
 /obj/item/ship_ammunition/leviathan/get_speed()
 	return 2
 
-/obj/item/projectile/ship_ammo/leviathan
+/obj/projectile/ship_ammo/leviathan
 	name = "zero-point artillery beam"
 	desc = "A concentrated stream of pure energy."
 	icon_state = "pulse"
@@ -150,7 +150,7 @@
 	tracer_type = /obj/effect/projectile/tracer/pulse
 	impact_type = /obj/effect/projectile/impact/pulse
 
-/obj/item/projectile/ship_ammo/leviathan/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
+/obj/projectile/ship_ammo/leviathan/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	if(!is_landmark_hit)
 		if(ismob(target))
 			var/mob/M = target
@@ -162,7 +162,7 @@
 		target.visible_message(SPAN_DANGER("<font size=6>A giant, purple laser descends from the sky!</font>"))
 		explosion(target, 30, 30, 30)
 
-/obj/item/projectile/ship_ammo/leviathan/check_penetrate(atom/A)
+/obj/projectile/ship_ammo/leviathan/check_penetrate(atom/A)
 	on_hit(A)
 	return TRUE
 

@@ -71,7 +71,7 @@
 	recoil = 1
 
 	force = 15
-	projectile_type = /obj/item/projectile/energy/sonic
+	projectile_type = /obj/projectile/energy/sonic
 	cell_type = /obj/item/cell/super
 	fire_delay = 40
 	fire_sound = 'sound/effects/basscannon.ogg'
@@ -93,7 +93,7 @@
 	return
 
 //Projectile.
-/obj/item/projectile/energy/sonic
+/obj/projectile/energy/sonic
 	name = "distortion"
 	icon = 'icons/obj/machinery/particle_accelerator2.dmi'
 	icon_state = "particle"

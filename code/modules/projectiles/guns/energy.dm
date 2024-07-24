@@ -20,7 +20,7 @@
 	var/charge_cost = 200 //How much energy is needed to fire.
 	var/max_shots = 10 //Determines the capacity of the weapon's power cell. Specifying a cell_type overrides this value.
 	var/cell_type = null
-	var/projectile_type = /obj/item/projectile/beam/practice //also passed to turrets
+	var/projectile_type = /obj/projectile/beam/practice //also passed to turrets
 	var/modifystate
 	var/charge_meter = 1	//if set, the icon state will be chosen based on the current charge
 	var/list/required_firemode_auth //This list matches with firemode index, used to determine which firemodes get unlocked with what level of authorization.
@@ -287,12 +287,12 @@
 	if(initial(self_recharge))
 		. += "Recharge Time: [initial(recharge_time)]<br>"
 	. += "<br><b>Primary Projectile</b><br>"
-	var/obj/item/projectile/P = new projectile_type
+	var/obj/projectile/P = new projectile_type
 	. += P.get_print_info()
 
 	if(secondary_projectile_type)
 		. += "<br><b>Secondary Projectile</b><br>"
-		var/obj/item/projectile/P_second = new secondary_projectile_type
+		var/obj/projectile/P_second = new secondary_projectile_type
 		. += P_second.get_print_info()
 	. += "<br>"
 

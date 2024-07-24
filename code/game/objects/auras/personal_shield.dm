@@ -8,7 +8,7 @@
 	playsound(user, 'sound/weapons/flash.ogg', 35, 1)
 	to_chat(user, SPAN_NOTICE("You feel your body prickle as \the [src] comes online."))
 
-/obj/aura/personal_shield/bullet_act(obj/item/projectile/P, var/def_zone)
+/obj/aura/personal_shield/bullet_act(obj/projectile/P, var/def_zone)
 	user.visible_message(SPAN_WARNING("\The [user]'s [src.name] flashes before \the [P] can hit them!"))
 
 	flick("shield_impact", src)

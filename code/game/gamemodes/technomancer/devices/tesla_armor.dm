@@ -24,13 +24,13 @@
 /obj/item/clothing/suit/armor/tesla/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	//First, some retaliation.
 	if(active)
-		if(istype(damage_source, /obj/item/projectile))
-			var/obj/item/projectile/P = damage_source
+		if(istype(damage_source, /obj/projectile))
+			var/obj/projectile/P = damage_source
 			if(P.firer && get_dist(user, P.firer) <= 3)
 				if(ready)
 					shoot_lightning(P.firer, 2000)
 				else
-					shoot_lightning(P.firer, 1000, /obj/item/projectile/beam/lightning/small)
+					shoot_lightning(P.firer, 1000, /obj/projectile/beam/lightning/small)
 
 		else
 			if(attacker && attacker != user)
@@ -38,7 +38,7 @@
 					if(ready)
 						shoot_lightning(attacker, 2000)
 					else
-						shoot_lightning(attacker, 1000, /obj/item/projectile/beam/lightning/small)
+						shoot_lightning(attacker, 1000, /obj/projectile/beam/lightning/small)
 
 		//Deal with protecting our wearer now.
 		if(ready)
@@ -77,8 +77,8 @@
 		H.update_action_buttons()
 	..()
 
-/obj/item/clothing/suit/armor/tesla/proc/shoot_lightning(mob/target, power, lightning_type = /obj/item/projectile/beam/lightning)
-	var/obj/item/projectile/beam/lightning/lightning = new lightning_type(get_turf(src))
+/obj/item/clothing/suit/armor/tesla/proc/shoot_lightning(mob/target, power, lightning_type = /obj/projectile/beam/lightning)
+	var/obj/projectile/beam/lightning/lightning = new lightning_type(get_turf(src))
 	lightning.power = power
 	lightning.old_style_target(target)
 	lightning.fire()

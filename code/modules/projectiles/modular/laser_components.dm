@@ -307,21 +307,21 @@
 	name = "TASER modulator"
 	desc = "A modification that modulates the beam into a nonlethal electrical arc."
 	damage = 0
-	projectile = /obj/item/projectile/beam/stun
+	projectile = /obj/projectile/beam/stun
 	icon_state = "taser"
 	firing_sound = 'sound/weapons/Taser.ogg'
 
 /obj/item/laser_components/modulator/tesla
 	name = "tesla modulator"
 	desc = "A modification that modulates the beam into a lethal electrical arc."
-	projectile = /obj/item/projectile/beam/tesla
+	projectile = /obj/projectile/beam/tesla
 	icon_state = "tesla"
 	firing_sound = 'sound/magic/LightningShock.ogg'
 
 /obj/item/laser_components/modulator/pulse
 	name = "pulse modulator"
 	desc = "Amplifies the laser beam into a highly lethal pulse beam."
-	projectile = /obj/item/projectile/beam/pulse
+	projectile = /obj/projectile/beam/pulse
 	damage = 1.5
 	icon_state = "pulse"
 	firing_sound = 'sound/weapons/pulse.ogg'
@@ -329,35 +329,35 @@
 /obj/item/laser_components/modulator/xray
 	name = "xray modulator"
 	desc = "Modulates the beam into a concentrated x-ray blast."
-	projectile = /obj/item/projectile/beam/xray
+	projectile = /obj/projectile/beam/xray
 	icon_state = "xray"
 	firing_sound = 'sound/weapons/laser3.ogg'
 
 /obj/item/laser_components/modulator/ion
 	name = "ion cannon"
 	desc = "Modulates the prototype to fire disparate ion projectiles."
-	projectile = /obj/item/projectile/ion
+	projectile = /obj/projectile/ion
 	icon_state = "ion"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 3)
 
 /obj/item/laser_components/modulator/floramut
 	name = "floral somatomodulator"
 	desc = "Modulates the beam into firing controlled radiation which induces mutation in plant cells."
-	projectile = /obj/item/projectile/energy/floramut
+	projectile = /obj/projectile/energy/floramut
 	icon_state = "somatoray"
 	firing_sound = 'sound/effects/stealthoff.ogg'
 
 /obj/item/laser_components/modulator/floramut2
 	name = "betaray modulator"
 	desc = "Modulates the beam into firing controlled radiation which induces enhanced reproduction in plant cells."
-	projectile = /obj/item/projectile/energy/florayield
+	projectile = /obj/projectile/energy/florayield
 	icon_state = "betaray"
 	firing_sound = 'sound/effects/stealthoff.ogg'
 
 /obj/item/laser_components/modulator/arodentia
 	name = "arodentia modulator"
 	desc = "Modulates the beam into firing precise electrical arcs designed for pest control."
-	projectile = /obj/item/projectile/beam/mousegun
+	projectile = /obj/projectile/beam/mousegun
 	damage = 0
 	icon_state = "pesker"
 	firing_sound = 'sound/weapons/taser2.ogg'
@@ -365,42 +365,42 @@
 /obj/item/laser_components/modulator/red
 	name = "red team modulator"
 	desc = "Modulates the beam into firing red team tagger beams."
-	projectile = /obj/item/projectile/beam/laser_tag
+	projectile = /obj/projectile/beam/laser_tag
 	damage = 0
 	icon_state = "red"
 
 /obj/item/laser_components/modulator/blue
 	name = "blue team modulator"
 	desc = "Modulates the beam into firing blue team tagger beams."
-	projectile = /obj/item/projectile/beam/laser_tag/blue
+	projectile = /obj/projectile/beam/laser_tag/blue
 	damage = 0
 	icon_state = "blue"
 
 /obj/item/laser_components/modulator/omni
 	name = "omni team modulator"
 	desc = "Modulates the beam into firing omni team tagger beams."
-	projectile = /obj/item/projectile/beam/laser_tag/omni
+	projectile = /obj/projectile/beam/laser_tag/omni
 	damage = 0
 	icon_state = "omni"
 
 /obj/item/laser_components/modulator/practice
 	name = "practice beam modulator"
 	desc = "Modulates the beam into firing nonlethal practice beams."
-	projectile = /obj/item/projectile/beam/practice
+	projectile = /obj/projectile/beam/practice
 	damage = 0
 	icon_state = "practice"
 
 /obj/item/laser_components/modulator/mindflayer
 	name = "mind flayer modulator"
 	desc = "Modulates the beam into firing \"mind flayer\" beams."
-	projectile = /obj/item/projectile/beam/mindflayer
+	projectile = /obj/projectile/beam/mindflayer
 	damage = 0.5
 	icon_state = "flayer"
 
 /obj/item/laser_components/modulator/decloner
 	name = "decloner modulator"
 	desc = "Modulates the beam into firing highly radioactive particulates."
-	projectile = /obj/item/projectile/energy/declone
+	projectile = /obj/projectile/energy/declone
 	damage = 0.5
 	icon_state = "decloner"
 	firing_sound = 'sound/weapons/pulse3.ogg'
@@ -409,7 +409,7 @@
 /obj/item/laser_components/modulator/ebow
 	name = "dart modulator"
 	desc = "Modulates the beam into firing minute energy darts."
-	projectile = /obj/item/projectile/energy/dart
+	projectile = /obj/projectile/energy/dart
 	damage = 0.25
 	icon_state = "dart"
 	firing_sound = 'sound/weapons/Genhit.ogg'
@@ -418,14 +418,14 @@
 /obj/item/laser_components/modulator/blaster
 	name = "blaster-bolt modulator"
 	desc = "Modulates the beam into firing disparate energy bolts."
-	projectile = /obj/item/projectile/energy/blaster/incendiary
+	projectile = /obj/projectile/energy/blaster/incendiary
 	icon_state = "lensatic"
 	origin_tech = list(TECH_COMBAT = 2, TECH_PHORON = 4)
 
 /obj/item/laser_components/modulator/bfg
 	name = "bioforce modulator"
 	desc = "Modulates the beam into firing big green balls of death."
-	projectile = /obj/item/projectile/energy/bfg
+	projectile = /obj/projectile/energy/bfg
 	damage = 2
 	icon_state = "bfg"
 	firing_sound = 'sound/magic/LightningShock.ogg'
@@ -433,7 +433,7 @@
 /obj/item/laser_components/modulator/tox
 	name = "phoron bolt modulator"
 	desc = "Modulates the beam into firing toxic phoron bolts."
-	projectile = /obj/item/projectile/energy/phoron
+	projectile = /obj/projectile/energy/phoron
 	icon_state = "tox"
 	firing_sound = 'sound/effects/stealthoff.ogg'
 	origin_tech = list(TECH_COMBAT = 4, TECH_PHORON = 4)
@@ -441,7 +441,7 @@
 /obj/item/laser_components/modulator/net
 	name = "energy net modulator"
 	desc = "Modulates the beam into firing an energy net."
-	projectile = /obj/item/projectile/beam/energy_net
+	projectile = /obj/projectile/beam/energy_net
 	icon_state = "xray"
 	firing_sound = 'sound/weapons/plasma_cutter.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_PHORON = 4, TECH_ILLEGAL = 4)
@@ -449,7 +449,7 @@
 /obj/item/laser_components/modulator/freeze
 	name = "freeze ray modulator"
 	desc = "Modulates the beam into freezing rays."
-	projectile = /obj/item/projectile/beam/freezer
+	projectile = /obj/projectile/beam/freezer
 	icon_state = "blue"
 	firing_sound = 'sound/weapons/pulse3.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 5, TECH_MATERIAL = 4)

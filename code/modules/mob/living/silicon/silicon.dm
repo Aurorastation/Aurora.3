@@ -138,7 +138,7 @@
 /mob/living/silicon/IsAdvancedToolUser()
 	return TRUE
 
-/mob/living/silicon/bullet_act(obj/item/projectile/Proj)
+/mob/living/silicon/bullet_act(obj/projectile/Proj)
 	if(!Proj.nodamage)
 		switch(Proj.damage_type)
 			if(DAMAGE_BRUTE)

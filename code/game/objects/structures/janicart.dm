@@ -429,7 +429,7 @@
 	if(istype(mover, /mob/living) && mover == pulling)
 		return 1
 	else
-		if(istype(mover, /obj/item/projectile))
+		if(istype(mover, /obj/projectile))
 			return prob(30)
 		else
 			return !density

@@ -504,7 +504,7 @@ Class Procs:
 		paper.forceMove(loc)
 	printing = FALSE
 
-/obj/machinery/bullet_act(obj/item/projectile/P, def_zone)
+/obj/machinery/bullet_act(obj/projectile/P, def_zone)
 	. = ..()
 	if(P.get_structure_damage() > 5)
 		bullet_ping(P)

@@ -513,7 +513,7 @@
 					var/obj/item/W = used_weapon
 					dam_flags = W.damage_flags()
 					if(isprojectile(W))
-						var/obj/item/projectile/P = W
+						var/obj/projectile/P = W
 						if(dam_flags & DAMAGE_FLAG_BULLET)
 							blunt_eligible = TRUE
 						maim_bonus_to_add += P.maim_rate

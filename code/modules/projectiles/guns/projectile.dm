@@ -318,7 +318,7 @@
 		. += "Max Shots: [max_shells]<br>"
 		if(length(loaded))
 			var/obj/item/ammo_casing/casing = loaded[1]
-			var/obj/item/projectile/P = new casing.projectile_type
+			var/obj/projectile/P = new casing.projectile_type
 			. += "<br><b>Projectile</b><br>"
 			. += P.get_print_info()
 		else
@@ -327,7 +327,7 @@
 		. += "Load Type: Magazine<br>"
 		if(ammo_magazine)
 			var/obj/item/ammo_casing/casing = new ammo_magazine.ammo_type
-			var/obj/item/projectile/P = new casing.projectile_type
+			var/obj/projectile/P = new casing.projectile_type
 			. += "<br><b>Projectile</b><br>"
 			. += P.get_print_info()
 		else

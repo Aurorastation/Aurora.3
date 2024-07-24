@@ -193,7 +193,7 @@
 		attack_hand(user)
 	return
 
-/obj/structure/simple_door/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/simple_door/bullet_act(var/obj/projectile/Proj)
 	health -= Proj.damage
 	bullet_ping(Proj)
 	CheckHealth()

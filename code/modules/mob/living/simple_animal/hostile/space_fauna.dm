@@ -222,7 +222,7 @@
 		has_exploded = TRUE
 		addtimer(CALLBACK(src, PROC_REF(explode)), 5)
 
-/mob/living/simple_animal/hostile/carp/bloater/bullet_act(var/obj/item/projectile/Proj)
+/mob/living/simple_animal/hostile/carp/bloater/bullet_act(var/obj/projectile/Proj)
 	if(!has_exploded)
 		has_exploded = TRUE
 		explode()

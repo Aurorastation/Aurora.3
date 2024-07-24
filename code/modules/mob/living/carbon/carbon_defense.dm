@@ -28,7 +28,7 @@
 		sleeping = 0
 		willfully_sleeping = FALSE
 
-/mob/living/carbon/bullet_act(var/obj/item/projectile/P, var/def_zone)
+/mob/living/carbon/bullet_act(var/obj/projectile/P, var/def_zone)
 	..(P, def_zone)
 	var/show_ssd
 	var/mob/living/carbon/human/H

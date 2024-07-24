@@ -26,7 +26,7 @@
 	var/list/particle_catchers = list()
 
 	var/list/ignore_types = list(
-		/obj/item/projectile,
+		/obj/projectile,
 		/obj/effect,
 		/obj/structure/cable,
 		/obj/machinery/atmospherics,
@@ -582,7 +582,7 @@
 	STOP_PROCESSING(SSprocessing, src)
 	. = ..()
 
-/obj/effect/fusion_em_field/bullet_act(obj/item/projectile/Proj)
+/obj/effect/fusion_em_field/bullet_act(obj/projectile/Proj)
 	AddEnergy(Proj.damage)
 	update_icon()
 	return 0

@@ -140,7 +140,7 @@
 	if(prob(10))
 		cookoff(FALSE)
 
-/obj/item/warhead/longbow/bullet_act(obj/item/projectile/P, def_zone)
+/obj/item/warhead/longbow/bullet_act(obj/projectile/P, def_zone)
 	. = ..()
 	if(P.damage > 5)
 		cookoff(TRUE)

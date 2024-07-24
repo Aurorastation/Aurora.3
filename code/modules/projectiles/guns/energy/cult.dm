@@ -25,7 +25,7 @@
 	fire_delay_wielded = 1
 	accuracy_wielded = 2
 
-	projectile_type = /obj/item/projectile/bullet/shard
+	projectile_type = /obj/projectile/bullet/shard
 	secondary_projectile_type = null
 	secondary_fire_sound = null
 	firemodes = list()
@@ -75,4 +75,4 @@
 	self_recharge = TRUE
 	has_safety = FALSE
 	does_process = FALSE
-	projectile_type = /obj/item/projectile/bullet/shard/heavy
+	projectile_type = /obj/projectile/bullet/shard/heavy

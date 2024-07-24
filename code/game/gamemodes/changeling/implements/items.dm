@@ -109,9 +109,9 @@
 		QDEL_IN(src, 1)
 
 /obj/item/shield/riot/changeling/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
-	if(istype(damage_source, /obj/item/projectile))
-		var/obj/item/projectile/P = damage_source
-		if((is_sharp(P) && damage > 10) || istype(P, /obj/item/projectile/beam))
+	if(istype(damage_source, /obj/projectile))
+		var/obj/projectile/P = damage_source
+		if((is_sharp(P) && damage > 10) || istype(P, /obj/projectile/beam))
 			return base_block_chance / 2 //lings still have a 35% chance of blocking these kinds of attacks
 	return base_block_chance
 

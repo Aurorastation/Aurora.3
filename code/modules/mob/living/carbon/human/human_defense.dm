@@ -8,7 +8,7 @@ emp_act
 
 */
 
-/mob/living/carbon/human/bullet_act(var/obj/item/projectile/P, var/def_zone)
+/mob/living/carbon/human/bullet_act(var/obj/projectile/P, var/def_zone)
 	var/species_check = src.species.bullet_act(P, def_zone, src)
 
 	if(species_check)

@@ -96,19 +96,19 @@
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
-	projectile_type = /obj/item/projectile/beam/heavylaser/mech
+	projectile_type = /obj/projectile/beam/heavylaser/mech
 
 /obj/item/gun/energy/pulse/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
-	projectile_type = /obj/item/projectile/beam/pulse/mech
+	projectile_type = /obj/projectile/beam/pulse/mech
 
 /obj/item/gun/energy/xray/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
-	projectile_type = /obj/item/projectile/beam/xray/mech
+	projectile_type = /obj/projectile/beam/xray/mech
 
 /*Launchers*/
 
@@ -409,7 +409,7 @@
 	else
 		icon_state = "shield_null"
 
-/obj/aura/mechshield/bullet_act(obj/item/projectile/P, var/def_zone)
+/obj/aura/mechshield/bullet_act(obj/projectile/P, var/def_zone)
 	if(!active)
 		return
 	if(shields?.charge)

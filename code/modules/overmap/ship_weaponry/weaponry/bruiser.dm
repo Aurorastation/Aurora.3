@@ -6,7 +6,7 @@
 	heavy_firing_sound = 'sound/weapons/gunshot/cannon.ogg'
 	icon_state = "weapon_base"
 	max_ammo = 1
-	projectile_type = /obj/item/projectile/ship_ammo/bruiser
+	projectile_type = /obj/projectile/ship_ammo/bruiser
 	caliber = SHIP_CALIBER_178MM
 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 	load_time = 4 SECONDS
@@ -42,7 +42,7 @@
 	desc = "A rough, handmade shell that should fit in a bruiser cannon. This one is filled with projectiles that easily get through the hull, but do little damage."
 	icon_state = "shell_flechette"
 	burst = 9
-	projectile_type_override = /obj/item/projectile/ship_ammo/bruiser/flechette
+	projectile_type_override = /obj/projectile/ship_ammo/bruiser/flechette
 
 /obj/item/ship_ammunition/bruiser/he
 	name = "makeshift bruiser explosive shell"
@@ -54,7 +54,7 @@
 	burst = 0
 	cookoff_heavy = 1
 	overmap_icon_state = "cannon_heavy"
-	projectile_type_override = /obj/item/projectile/ship_ammo/bruiser/he
+	projectile_type_override = /obj/projectile/ship_ammo/bruiser/he
 
 /obj/item/ship_ammunition/bruiser/real/he
 	name = "bruiser explosive shell"
@@ -66,7 +66,7 @@
 	burst = 0
 	cookoff_heavy = 2
 	overmap_icon_state = "cannon_heavy"
-	projectile_type_override = /obj/item/projectile/ship_ammo/bruiser/real/he
+	projectile_type_override = /obj/projectile/ship_ammo/bruiser/real/he
 
 /obj/item/ship_ammunition/bruiser/real/ap
 	name = "bruiser armor-piercing shell"
@@ -78,7 +78,7 @@
 	burst = 0
 	cookoff_heavy = 2
 	overmap_icon_state = "cannon_heavy"
-	projectile_type_override = /obj/item/projectile/ship_ammo/bruiser/real/ap
+	projectile_type_override = /obj/projectile/ship_ammo/bruiser/real/ap
 
 /obj/item/ship_ammunition/bruiser/real/canister
 	name = "bruiser canister shell"
@@ -86,7 +86,7 @@
 	desc = "An expensive shell designed for the Hegemony Bruiser cannon by Hephaestus Industries. This one bursts into many small pellets."
 	icon_state = "shell_canister_real"
 	burst = 23
-	projectile_type_override = /obj/item/projectile/ship_ammo/bruiser/real/canister
+	projectile_type_override = /obj/projectile/ship_ammo/bruiser/real/canister
 
 /obj/item/ship_ammunition/bruiser/real/beehive
 	name = "bruiser beehive shell"
@@ -94,16 +94,16 @@
 	desc = "An expensive shell designed for the Hegemony Bruiser cannon by Hephaestus Industries. Very popular among Unathi, this shell bursts into many slugger projectiles that punch through the hull with less mass, but more force."
 	icon_state = "shell_flechette_real"
 	burst = 9
-	projectile_type_override = /obj/item/projectile/ship_ammo/bruiser/real/beehive
+	projectile_type_override = /obj/projectile/ship_ammo/bruiser/real/beehive
 
-/obj/item/projectile/ship_ammo/bruiser
+/obj/projectile/ship_ammo/bruiser
 	name = "canister shot pellet"
 	icon_state = "small"
 	damage = 35
 	armor_penetration = 35
 	penetrating = 1
 
-/obj/item/projectile/ship_ammo/bruiser/flechette
+/obj/projectile/ship_ammo/bruiser/flechette
 	name = "beehive flechette"
 	icon_state = "small_burst"
 	damage = 20
@@ -113,38 +113,38 @@
 	embed_chance = 40
 	shrapnel_type = /obj/item/material/shard/shrapnel/flechette
 
-/obj/item/projectile/ship_ammo/bruiser/he
+/obj/projectile/ship_ammo/bruiser/he
 	name = "178mm shell"
 	icon_state = "heavy"
 	damage = 150
 	armor_penetration = 75
 	penetrating = 0
 
-/obj/item/projectile/ship_ammo/bruiser/he/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
+/obj/projectile/ship_ammo/bruiser/he/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
 	explosion(target, 1, 3, 6)
 
-/obj/item/projectile/ship_ammo/bruiser/real/he
+/obj/projectile/ship_ammo/bruiser/real/he
 	name = "178mm shell"
 	icon_state = "heavy"
 	damage = 350
 	armor_penetration = 125
 	penetrating = 0
 
-/obj/item/projectile/ship_ammo/bruiser/real/ap
+/obj/projectile/ship_ammo/bruiser/real/ap
 	name = "178mm shell"
 	icon_state = "heavy"
 	damage = 250
 	armor_penetration = 250
 	penetrating = 2
 
-/obj/item/projectile/ship_ammo/bruiser/real/canister
+/obj/projectile/ship_ammo/bruiser/real/canister
 	damage = 40
 	armor_penetration = 40
 	penetrating = 2
 	stun = 2
 
-/obj/item/projectile/ship_ammo/bruiser/real/beehive //comparable to slugger projectiles but slightly stronger
+/obj/projectile/ship_ammo/bruiser/real/beehive //comparable to slugger projectiles but slightly stronger
 	name = "massive slug"
 	icon_state = "heavy"
 	damage = 65
@@ -157,14 +157,14 @@
 	maim_type = DROPLIMB_BLUNT
 	anti_materiel_potential = 2
 
-/obj/item/projectile/ship_ammo/bruiser/real/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
+/obj/projectile/ship_ammo/bruiser/real/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
 	if(ammo.impact_type == SHIP_AMMO_IMPACT_HE)
 		explosion(target, 3, 6, 8)
 	if(ammo.impact_type == SHIP_AMMO_IMPACT_AP)
 		explosion(target, 0, 2, 4)
 
-/obj/item/projectile/ship_ammo/bruiser/real/beehive/on_hit(atom/movable/target, blocked, def_zone, is_landmark_hit)
+/obj/projectile/ship_ammo/bruiser/real/beehive/on_hit(atom/movable/target, blocked, def_zone, is_landmark_hit)
 	if(istype(target))
 		var/throwdir = dir
 		target.throw_at(get_edge_target_turf(target, throwdir),9,8)

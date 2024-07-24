@@ -140,7 +140,7 @@
 	if(H)
 		H.electrocute_act(power, src)
 
-/obj/item/poppet/bullet_act(var/obj/item/projectile/Proj)
+/obj/item/poppet/bullet_act(var/obj/projectile/Proj)
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H)
 		H.apply_damage(Proj.damage, DAMAGE_PAIN)

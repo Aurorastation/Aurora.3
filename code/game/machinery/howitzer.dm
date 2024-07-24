@@ -297,7 +297,7 @@
 	var/datum/projectile_data/shot_data = projectile_trajectory(T.x, T.y, horizontal_angle, vertical_angle, fire_power)
 
 	//Use the projectile and the pellets
-	var/obj/item/projectile/shot_projectile = loaded_shot.expend()
+	var/obj/projectile/shot_projectile = loaded_shot.expend()
 	QDEL_LIST(loaded_howitzer_pellets)
 
 	//Casing already expended, nothing to shoot
@@ -367,7 +367,7 @@
 	drop_sound = 'sound/items/drop/shell_drop.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 
-	projectile_type = /obj/item/projectile/howitzer
+	projectile_type = /obj/projectile/howitzer
 
 /obj/item/ammo_casing/howitzer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -381,8 +381,8 @@
  *
  * Howitzer ammo is a type of ammo that can be used in howitzers.
  */
-/obj/item/projectile/howitzer
-	abstract_type = /obj/item/projectile/howitzer
+/obj/projectile/howitzer
+	abstract_type = /obj/projectile/howitzer
 
 	name = "howitzer ammo"
 	icon = 'icons/obj/machinery/howitzer/howitzer_ammo.dmi'
@@ -391,19 +391,19 @@
 	range = 999 //Follow what the path says, not range
 	forcedodge = TRUE //Don't directly hit people
 
-/obj/item/projectile/howitzer/can_hit_target(atom/target, list/passthrough)
+/obj/projectile/howitzer/can_hit_target(atom/target, list/passthrough)
 	if(target == original)
 		return TRUE
 	else
 		return FALSE
 
 //We have to handle collisions like the snowflake projectile we are. Or rewrite the projectile logic, you can do that if you want, I do not
-/obj/item/projectile/howitzer/Collide(atom/A)
+/obj/projectile/howitzer/Collide(atom/A)
 	if(A == original)
 		on_impact(A)
 		qdel(src)
 
-/obj/item/projectile/howitzer/on_impact(atom/A, affected_limb)
+/obj/projectile/howitzer/on_impact(atom/A, affected_limb)
 	. = ..()
 
 	if(A == original)
@@ -414,7 +414,7 @@
  *
  * * impacted_turf - The `/turf` that the projectile landed on
  */
-/obj/item/projectile/howitzer/proc/terminal_effect(turf/impacted_turf)
+/obj/projectile/howitzer/proc/terminal_effect(turf/impacted_turf)
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(TRUE)
 
@@ -430,15 +430,15 @@
 	name = "high explosive howitzer ammo"
 	abstract_type = /obj/item/ammo_casing/howitzer/high_explosive
 
-	projectile_type = /obj/item/projectile/howitzer/high_explosive
+	projectile_type = /obj/projectile/howitzer/high_explosive
 
 /**
  * # High Explosive howitzer ammo
  *
  * Big boom, many fragments
  */
-/obj/item/projectile/howitzer/high_explosive
-	abstract_type = /obj/item/projectile/howitzer/high_explosive
+/obj/projectile/howitzer/high_explosive
+	abstract_type = /obj/projectile/howitzer/high_explosive
 
 	name = "high explosive howitzer ammo"
 
@@ -459,7 +459,7 @@
 	///Boolean, if people can cover from the explosion
 	var/can_cover = TRUE
 
-/obj/item/projectile/howitzer/high_explosive/terminal_effect(turf/impacted_turf)
+/obj/projectile/howitzer/high_explosive/terminal_effect(turf/impacted_turf)
 	. = ..()
 	if(!.)
 		return
@@ -524,9 +524,9 @@
 /obj/item/ammo_casing/howitzer/high_explosive/gadpathur_105mm
 	name = "gadpathur 105mm light field howitzer HE ammo"
 	desc = "A 105mm light field howitzer ammo, designed with the idea of obliterating any Solarian that might put foot on the surface of the planet."
-	projectile_type = /obj/item/projectile/howitzer/high_explosive/gadpathur_105mm
+	projectile_type = /obj/projectile/howitzer/high_explosive/gadpathur_105mm
 
-/obj/item/projectile/howitzer/high_explosive/gadpathur_105mm
+/obj/projectile/howitzer/high_explosive/gadpathur_105mm
 	name = "gadpathur 105mm light field howitzer HE projectile"
 	fragment_minimum = 30
 	fragment_maximum = 50

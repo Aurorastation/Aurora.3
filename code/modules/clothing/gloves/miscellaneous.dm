@@ -404,7 +404,7 @@
 		else
 			var/turf/T = get_turf(user)
 			user.visible_message(SPAN_DANGER("\The [user] crackles with energy!"))
-			var/obj/item/projectile/beam/tesla/LE = new (T)
+			var/obj/projectile/beam/tesla/LE = new (T)
 			LE.launch_projectile(A, user.zone_sel? user.zone_sel.selecting : null, user)
 			spark(src, 3, GLOB.alldirs)
 			playsound(user.loc, 'sound/magic/LightningShock.ogg', 75, 1)

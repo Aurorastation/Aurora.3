@@ -13,7 +13,7 @@
 	w_class = ITEMSIZE_NORMAL
 	max_shots = 10
 	charge_cost = 100
-	projectile_type = /obj/item/projectile/magic
+	projectile_type = /obj/projectile/magic
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 5, TECH_BLUESPACE = 6)
 	charge_meter = 0
 	has_safety = FALSE

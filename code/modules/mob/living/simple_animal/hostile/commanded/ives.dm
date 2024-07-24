@@ -33,7 +33,7 @@
 
 	ranged = TRUE
 	projectilesound = 'sound/weapons/taser2.ogg'
-	projectiletype = /obj/item/projectile/beam/hivebot/harmless
+	projectiletype = /obj/projectile/beam/hivebot/harmless
 
 	attacktext = "harmlessly clawed"
 	harm_intent_damage = 5 // the damage we take

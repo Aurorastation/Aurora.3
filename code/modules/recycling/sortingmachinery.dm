@@ -315,7 +315,7 @@
 /obj/machinery/disposal/deliveryChute/CollidedWith(atom/bumped_atom) //Go straight into the chute
 	. = ..()
 
-	if(istype(bumped_atom, /obj/item/projectile) || istype(bumped_atom, /obj/effect))
+	if(istype(bumped_atom, /obj/projectile) || istype(bumped_atom, /obj/effect))
 		return
 
 	switch(dir)

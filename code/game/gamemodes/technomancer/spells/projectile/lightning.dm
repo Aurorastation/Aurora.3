@@ -14,14 +14,14 @@
 	desc = "Now you can feel like Zeus."
 	cast_methods = CAST_RANGED
 	aspect = ASPECT_SHOCK
-	spell_projectile = /obj/item/projectile/beam/lightning
+	spell_projectile = /obj/projectile/beam/lightning
 	energy_cost_per_shot = 2500
 	instability_per_shot = 10
 	cooldown = 20
 	pre_shot_delay = 10
 	fire_sound = 'sound/effects/psi/thunderstrike.ogg'
 
-/obj/item/projectile/beam/lightning
+/obj/projectile/beam/lightning
 	name = "lightning"
 	icon_state = "lightning"
 	damage = 25
@@ -34,7 +34,7 @@
 
 	var/power = 6000
 
-/obj/item/projectile/beam/lightning/small
+/obj/projectile/beam/lightning/small
 	name = "shock"
 	damage = 15
 	armor_penetration = 15
@@ -42,7 +42,7 @@
 	power = 1000
 
 
-/obj/item/projectile/beam/lightning/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
+/obj/projectile/beam/lightning/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier=0)
 	..()
 	tesla_zap(target_mob, 3, power)
 	return 1
