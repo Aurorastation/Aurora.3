@@ -258,3 +258,4 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 4)
 	is_wieldable = TRUE
 	modifystate = "hegemonyrifle"
+	firemodes = list()

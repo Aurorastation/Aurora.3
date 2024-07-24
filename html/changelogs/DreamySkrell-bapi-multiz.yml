@@ -1,0 +1,7 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "BAPI - mapmanip multiz support."
