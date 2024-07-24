@@ -180,6 +180,16 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/bowl/alfajores
 
+/singleton/recipe/biriyani
+	appliance = SKILLET | SAUCEPAN
+	reagents = list(/singleton/reagent/spacespice = 3, /singleton/reagent/nutriment/rice = 10, /singleton/reagent/water = 5)
+	fruit = list("chili" = 1, "onion" = 1, "peas" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/rawcutlet
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/biriyani
+
 // Konyang
 
 /singleton/recipe/mossbowl
