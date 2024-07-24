@@ -192,3 +192,9 @@
   - rscadd: Added the z-level manager system from TG, mostly.
   SimpleMaroon:
   - qol: Added Journalist access back to some of the doors on deck 2 Operations.
+2024-07-24:
+  ChangeMe:
+  - bugfix: Corrected missing sprite on Nakarka Ravioli.
+  FluffyGhost:
+  - rscadd: Borgs can now access the APCs channel configuration again, like the AI
+      already can.
