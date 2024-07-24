@@ -708,3 +708,25 @@
 	display_name = "visegradi patterned sweater"
 	path = /obj/item/clothing/accessory/sweater/visegradi
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/skirt
+	display_name = "skirt selection"
+	path = /obj/item/clothing/accessory/skirt
+	description = "A selection of skirts."
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/skirt/New()
+	..()
+	var/list/skirts = list()
+	skirts["casual skirt"] = /obj/item/clothing/accessory/skirt
+	skirts["puffy skirt"] = /obj/item/clothing/accessory/skirt/puffy
+	skirts["long skirt"] = /obj/item/clothing/accessory/skirt/long
+	skirts["pencil skirt"] = /obj/item/clothing/accessory/skirt/pencil
+	skirts["swept skirt"] = /obj/item/clothing/accessory/skirt/swept
+	skirts["plaid skirt"] = /obj/item/clothing/accessory/skirt/plaid
+	skirts["pleated skirt"] = /obj/item/clothing/accessory/skirt/pleated
+	skirts["high skirt"] = /obj/item/clothing/accessory/skirt/high
+	skirts["skater skirt"] = /obj/item/clothing/accessory/skirt/skater
+	skirts["tube skirt"] = /obj/item/clothing/accessory/skirt/tube
+	skirts["long straight skirt"] = /obj/item/clothing/accessory/skirt/straightlong
+	gear_tweaks += new /datum/gear_tweak/path(skirts)
