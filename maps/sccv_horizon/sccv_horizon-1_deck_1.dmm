@@ -7493,6 +7493,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"fes" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/landmark/minimap_poi{
+	name = "Canary"
+	},
+/turf/simulated/floor/plating,
+/area/hangar/canary)
 "feD" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -11233,6 +11242,12 @@
 	roof_type = null
 	},
 /area/horizon/custodial/disposals)
+"hGb" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Main Lift"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/hallway/primary/aft)
 "hGu" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/corner/brown{
@@ -13060,6 +13075,15 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos/propulsion/starboard)
+"jbh" = (
+/obj/effect/floor_decal/corner/brown{
+	dir = 10
+	},
+/obj/effect/landmark/minimap_poi{
+	name = "Spark"
+	},
+/turf/simulated/floor/tiled,
+/area/hangar/operations)
 "jbm" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -28389,6 +28413,12 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
+"txK" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Intrepid"
+	},
+/turf/simulated/floor/plating,
+/area/hangar/intrepid)
 "txT" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/hazmat/anomaly,
@@ -50818,7 +50848,7 @@ umt
 wkD
 cua
 rcA
-oXD
+jbh
 wSS
 ixU
 pgW
@@ -55917,7 +55947,7 @@ pTd
 kyK
 oSi
 kaM
-iRC
+txK
 iRC
 xsx
 eSV
@@ -56882,7 +56912,7 @@ rHK
 rHK
 rHK
 rHK
-kuh
+hGb
 bec
 wLL
 ovg
@@ -61576,7 +61606,7 @@ vqx
 hot
 nNh
 pPV
-pEk
+fes
 oji
 hmD
 kOp
