@@ -20357,7 +20357,7 @@
 /turf/simulated/floor,
 /area/bridge/upperdeck)
 "nMa" = (
-/obj/machinery/telecomms/message_server,
+/obj/machinery/telecomms/message_server/preset,
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "nMz" = (
