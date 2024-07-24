@@ -244,6 +244,16 @@
 	bitesize = 2
 	filling_color = "#bb8432"
 
+/obj/item/reagent_containers/food/snacks/biryani
+	name ="biryani"
+	desc ="Fragrant long-grain rice, seasoned heavily with spices and chili, garnished with fried onions, green peas, and chunks of marinated grilled meat."
+	icon ='icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "biryani"
+	trash = /obj/item/trash/snack_bowl
+	bitesize = 2
+	reagents_to_add = list (/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 3, /singleton/reagent/capsaicin = 1)
+	reagent_data = list(/singleton/reagent/nutriment = list("spices" = 5, "savory grilled meat" = 3, "rice" = 2))
+
 // Konyang
 
 /obj/item/reagent_containers/food/snacks/mossbowl
