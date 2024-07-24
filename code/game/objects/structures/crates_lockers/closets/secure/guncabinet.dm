@@ -9,7 +9,7 @@
 	door_underlay = TRUE
 	door_anim_squish = 0.12
 	door_anim_angle = 119
-	door_hinge = -9.5
+	door_hinge_x = -9.5
 
 /obj/structure/closet/secure_closet/guncabinet/Initialize()
 	..()

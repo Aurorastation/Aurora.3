@@ -11,31 +11,31 @@
 	desc = "A sturdy crate with Hephaestus Industries branding."
 	name = "hephaestus drop crate"
 	icon_state = "heph_crate"
-	door_hinge = 0.5
+	door_hinge_x = 0.5
 
 /obj/structure/closet/crate/gear_loadout/zenghu
 	desc = "A sturdy crate with Zeng-Hu Pharmaceuticals branding."
 	name = "zeng-hu drop crate"
 	icon_state = "zenghu_crate"
-	door_hinge = 0.5
+	door_hinge_x = 0.5
 
 /obj/structure/closet/crate/gear_loadout/nanotrasen
 	desc = "A sturdy crate with NanoTrasen Corporation branding."
 	name = "nanotrasen drop crate"
 	icon_state = "nanotrasen_crate"
-	door_hinge = 0.5
+	door_hinge_x = 0.5
 
 /obj/structure/closet/crate/gear_loadout/einstein
 	desc = "A sturdy crate with Einstein Engines branding."
 	name = "einstein drop crate"
 	icon_state = "einstein_crate"
-	door_hinge = 0.5
+	door_hinge_x = 0.5
 
 /obj/structure/closet/crate/gear_loadout/zavodskoi
 	desc = "A sturdy crate with Zavodskoi Interstellar branding."
 	name = "zavodskoi interstellar drop crate"
 	icon_state = "necro_crate"
-	door_hinge = 0.5
+	door_hinge_x = 0.5
 
 /obj/structure/closet/crate/secure/gear_loadout/coalition/fill()
 	new /obj/item/rig/gunslinger/equipped(src)
