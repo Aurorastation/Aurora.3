@@ -327,7 +327,7 @@
 	else if (istype(attacking_item, /obj/item/device/suit_cooling_unit))
 		if(cooler)
 			to_chat(user, "\The [src] already has a suit cooler installed.")
-		else if (tank)
+		else if(tank)
 			to_chat(user, "\The [src] already has an airtank installed, there is no room for a suit cooler.")
 		else
 			playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)
