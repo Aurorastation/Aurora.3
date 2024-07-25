@@ -199,6 +199,14 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/thruster2)
+"aGD" = (
+/obj/machinery/light{
+	dir = 1;
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion/docking2)
 "aHk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -876,6 +884,7 @@
 	dir = 8;
 	req_one_access = list(201)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/docking2)
 "cos" = (
@@ -1325,6 +1334,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/ship/orion/docking2)
 "dGM" = (
@@ -2313,6 +2323,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/orion_shuttle/storage)
+"hmF" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion/docking2)
 "hmX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
@@ -3347,6 +3361,7 @@
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/ship/orion/docking2)
 "lpC" = (
@@ -5086,6 +5101,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
+"qJJ" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/ship/orion/docking2)
 "qLl" = (
 /obj/structure/closet/crate/bin{
 	name = "trashbin"
@@ -5527,6 +5559,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/ship/orion/docking2)
 "skU" = (
@@ -6509,6 +6542,7 @@
 /obj/machinery/alarm/south{
 	req_one_access = list(201)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/ship/orion/docking2)
 "uEM" = (
@@ -7397,6 +7431,7 @@
 	dir = 8;
 	req_one_access = list(201)
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/ship/orion/docking2)
 "xeO" = (
@@ -7763,6 +7798,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
 /turf/simulated/floor,
 /area/ship/orion/docking2)
 "yfU" = (
@@ -40785,9 +40821,9 @@ xRX
 mSt
 pGY
 axO
+hmF
 maj
-maj
-vqF
+qJJ
 axO
 mSt
 mSt
@@ -41042,7 +41078,7 @@ xRX
 xRX
 mSt
 axO
-kku
+aGD
 maj
 skI
 axO
@@ -41301,7 +41337,7 @@ mSt
 fzK
 maj
 maj
-vqF
+qJJ
 axO
 mSt
 xRX
@@ -41556,7 +41592,7 @@ bPp
 xRX
 mSt
 fzK
-maj
+hmF
 maj
 vqF
 axO
@@ -41813,7 +41849,7 @@ xRX
 xRX
 mSt
 fzK
-maj
+hmF
 eRQ
 bpW
 axO
@@ -43356,7 +43392,7 @@ ctz
 ogk
 axO
 maj
-maj
+hmF
 yfE
 axO
 mSt
@@ -43613,7 +43649,7 @@ tDM
 hIB
 ofI
 maj
-maj
+hmF
 dGE
 axO
 mSt
