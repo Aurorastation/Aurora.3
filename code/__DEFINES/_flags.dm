@@ -50,3 +50,16 @@ GLOBAL_LIST_INIT(bitflags, list(1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 204
 #define PASSDOORHATCH	(1<<15)
 #define PASSTRACE	(1<<16) //Used by turrets in the check_trajectory proc to target mobs hiding behind certain things (such as closets)
 #define PASSRAILING	(1<<17)
+
+//TURF FLAGS
+/// If a turf is an usused reservation turf awaiting assignment
+#define UNUSED_RESERVATION_TURF BITFLAG(1)
+/// If a turf is a reserved turf
+#define RESERVATION_TURF BITFLAG(2)
+
+// Turf-only flags.
+///Blocks the jaunting spell from accessing the turf
+#define TURF_FLAG_NOJAUNT BITFLAG(3)
+
+///Used by shuttle movement to determine if it should be ignored by turf translation
+#define TURF_FLAG_BACKGROUND BITFLAG(4)

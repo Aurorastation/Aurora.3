@@ -4,6 +4,14 @@
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
+"b" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "c" = (
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -21,6 +29,25 @@
 "f" = (
 /obj/structure/pit/closed/grave{
 	species = "Unathi"
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"g" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"i" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence{
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
@@ -75,12 +102,30 @@
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
+"r" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "s" = (
 /obj/random/medical,
 /turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
+"t" = (
+/obj/machinery/door/urban{
+	dir = 4;
+	pixel_x = -3
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "u" = (
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/surgery,
@@ -109,6 +154,15 @@
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
+"w" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "x" = (
 /obj/machinery/recharger,
 /obj/structure/table/steel,
@@ -118,12 +172,29 @@
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
+"y" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "z" = (
 /obj/structure/bed/roller,
 /turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
+"A" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "C" = (
 /obj/item/bedsheet/black,
 /obj/effect/ghostspawpoint{
@@ -134,9 +205,30 @@
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
+"D" = (
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"E" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "F" = (
 /turf/simulated/wall/rusty,
 /area/moghes_wasteland_priests)
+"G" = (
+/obj/structure/railing/fence,
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "H" = (
 /turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 315.15
@@ -196,6 +288,12 @@
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
+"Q" = (
+/mob/living/simple_animal/hostile/retaliate/hegeranzi,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "R" = (
 /obj/item/shovel,
 /turf/simulated/floor/exoplanet/foundation{
@@ -452,11 +550,11 @@ c
 L
 p
 a
-a
-a
-a
-a
-a
+A
+g
+g
+g
+w
 "}
 (7,1,1) = {"
 a
@@ -479,11 +577,11 @@ H
 H
 p
 a
+E
+D
 a
 a
-a
-a
-a
+y
 "}
 (8,1,1) = {"
 a
@@ -506,11 +604,11 @@ H
 H
 p
 a
+E
 a
 a
-a
-a
-a
+Q
+y
 "}
 (9,1,1) = {"
 a
@@ -533,11 +631,11 @@ H
 C
 p
 a
+E
+D
 a
 a
-a
-a
-a
+G
 "}
 (10,1,1) = {"
 a
@@ -560,11 +658,11 @@ H
 C
 p
 a
+E
 a
+D
 a
-a
-a
-a
+y
 "}
 (11,1,1) = {"
 a
@@ -587,11 +685,11 @@ j
 j
 p
 a
-a
-a
-a
-a
-a
+i
+b
+t
+b
+r
 "}
 (12,1,1) = {"
 a

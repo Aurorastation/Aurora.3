@@ -52,15 +52,13 @@
 	.=..()
 	set_light(3,2,LIGHT_COLOR_RED)
 	if(!mapload)
-		new /obj/effect/effect/smoke(src.loc,30)
-		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
+		spark(get_turf(src), 3, GLOB.alldirs)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/death()
 	..(null,"teleports away!")
 	if(linked_parent)
 		linked_parent.harvester_amt --
-	new /obj/effect/effect/smoke(src.loc,30)
-	playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
+	spark(get_turf(src), 3, GLOB.alldirs)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Destroy()
