@@ -4,7 +4,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "zora_projector"
 	worlds_selection = list("Vaur's Tranquil Ocean", "Vaur's Hive War Exhibition", "Vaur's Celestial Landing Ground", "Vaur's City of New Sedantis", "Vaur's Titan Prime Recreation", "Athvur's City of Paradise", "Athvur's Garden of Splendour", "Athvur's Museum of Fine Art")
-	message_frequency = 10
+	message_frequency = 5
 	var/hologram_message
 	var/possible_messages
 	var/first_message

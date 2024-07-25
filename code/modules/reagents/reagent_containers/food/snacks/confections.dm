@@ -236,3 +236,27 @@
 	bitesize = 2
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/reagent_containers/food/snacks/nakarka_mousse
+	name = "nakarka mousse"
+	desc = "A fluffy green mousse made out of Ne'miik. It is a recent, still uncommon dessert that has started sprouting up in cafes and restaurants wherever Vaurca and Humans coexist."
+	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
+	icon_state = "nakarkamousse"
+	trash = /obj/item/trash/bluemoon
+	filling_color = "#5dd159"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/glucose = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("sweet tanginess" = 5, "berries" = 3))
+	bitesize = 2
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/reagent_containers/food/snacks/nakarka_mousse/cherry
+	reagent_data = list(/singleton/reagent/nutriment = list("sweet tanginess" = 5, "cherries" = 3))
+
+/obj/item/reagent_containers/food/snacks/nakarka_mousse/update_icon()
+	var/percent_nakarkamousse = round((reagents.total_volume / 6) * 100)
+	switch(percent_nakarkamousse)
+		if(0 to 50)
+			icon_state = "nakarkamousse_half"
+		if(51 to INFINITY)
+			icon_state = "nakarkamousse"

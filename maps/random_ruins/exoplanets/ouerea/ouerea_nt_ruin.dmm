@@ -1,118 +1,39 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"av" = (
-/obj/effect/decal/cleanable/cobweb2,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/carpet/lightblue{
+"al" = (
+/obj/effect/floor_decal/corner/mauve/full,
+/obj/structure/filingcabinet{
+	pixel_x = -10
+	},
+/obj/structure/filingcabinet{
+	pixel_x = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"ca" = (
-/obj/machinery/mining/drill,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"cO" = (
+"ao" = (
 /obj/structure/anomaly_container,
-/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"df" = (
-/obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/bottle/whiskey,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/carpet/lightblue{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"do" = (
-/obj/structure/ore_box,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"dq" = (
-/obj/machinery/light,
+"aw" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/random/junk,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"dA" = (
-/turf/simulated/floor/exoplanet/water/shallow{
-	temperature = 298.15
-	},
-/area/exoplanet/ouerea)
-"ev" = (
-/obj/structure/sign/flag/nanotrasen/large/south{
-	pixel_y = -32
-	},
-/turf/simulated/floor/exoplanet/grass{
-	temperature = 298.15
-	},
-/area/exoplanet/ouerea)
-"eU" = (
-/obj/structure/sign/flag/nanotrasen/large/west{
-	pixel_x = -32
-	},
-/turf/simulated/floor/exoplanet/grass{
-	temperature = 298.15
-	},
-/area/exoplanet/ouerea)
-"eX" = (
-/obj/machinery/door/airlock/research{
-	name = "Equipment Storage"
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"fs" = (
-/turf/simulated/floor/exoplanet/grass{
-	temperature = 298.15
-	},
-/area/exoplanet/ouerea)
-"fW" = (
-/obj/machinery/door/airlock/service{
-	name = "Employee Habitation"
-	},
+"ay" = (
+/obj/structure/bed/stool,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"gb" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"gT" = (
-/obj/machinery/suspension_gen,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"hn" = (
-/obj/machinery/mech_recharger,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/mob/living/heavy_vehicle/premade/miner,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"hF" = (
+"aD" = (
 /obj/machinery/door/airlock/medical{
 	name = "Surgical Suite"
 	},
@@ -121,527 +42,485 @@
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"io" = (
+"bB" = (
+/obj/structure/closet/excavation,
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"bD" = (
+/obj/effect/floor_decal/corner/mauve/full,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"bE" = (
+/obj/structure/anomaly_container,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"cg" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"cu" = (
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"cB" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/tray,
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"cE" = (
+/obj/machinery/door/airlock/service{
+	name = "Employee Habitation"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"cF" = (
+/obj/machinery/door/window,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"cI" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 4
+	},
+/obj/item/melee/baton/stunrod,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"dx" = (
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"ef" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/lightblue{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"eh" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"fy" = (
+/obj/structure/bed,
+/obj/item/bedsheet/nanotrasen,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"fU" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"fX" = (
+/obj/structure/curtain/medical,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"gl" = (
+/obj/machinery/bodyscanner{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/ouerea_nt_ruin)
+"gs" = (
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"gx" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"hh" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/ouerea_nt_ruin)
+"hm" = (
+/obj/structure/bed/stool,
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"hO" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/gibs,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"hS" = (
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"iE" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/table/standard,
+/obj/machinery/recharger,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"iL" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"iM" = (
+/obj/structure/sign/flag/nanotrasen/large/north{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"jd" = (
+/obj/machinery/door/airlock/service{
+	name = "Employee Habitation";
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"jf" = (
+/obj/structure/curtain/medical,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"jp" = (
+/obj/machinery/chemical_dispenser,
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/ouerea_nt_ruin)
+"jI" = (
+/obj/structure/table/wood,
+/obj/item/modular_computer/laptop/preset/research/rd,
+/obj/random/dirt_75,
+/obj/item/paper/nt_ouerea,
+/turf/simulated/floor/exoplanet/carpet/lightblue{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"jM" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"kj" = (
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"kx" = (
+/obj/effect/floor_decal/corner/green/full{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"kG" = (
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
+/obj/item/stack/material/cloth,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"kJ" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/structure/closet/walllocker/medical{
+	pixel_y = -32
+	},
+/obj/item/storage/firstaid/empty,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/random/firstaid,
+/obj/item/reagent_containers/blood/BPlus,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"kZ" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"mA" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"mH" = (
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet/miner,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"mK" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"mT" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/carpet/lightblue{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"nb" = (
+/obj/machinery/light/colored/decayed/dimmed,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/blood,
+/obj/item/reagent_containers/blood/ripped,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"nq" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"nI" = (
+/obj/machinery/computer/rdconsole,
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"nX" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"of" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -11
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/item/reagent_containers/dropper{
+	pixel_y = -11
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"oo" = (
+/obj/machinery/body_scanconsole{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/ouerea_nt_ruin)
+"ow" = (
 /obj/structure/table/rack,
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/suit/hazmat/anomaly,
 /obj/item/clothing/head/hazmat/anomaly,
 /obj/item/clothing/head/hazmat/anomaly,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"iW" = (
-/obj/structure/closet/excavation,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"ji" = (
-/obj/machinery/door/airlock/research{
-	name = "Research Division"
-	},
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"jN" = (
-/obj/machinery/light,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"jV" = (
-/obj/machinery/body_scanconsole{
+/obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
 	},
-/obj/random/dirt_75,
+/obj/item/clothing/glasses/safety/goggles/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"ka" = (
-/turf/simulated/floor/exoplanet/carpet/lightblue{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"ky" = (
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"mu" = (
-/obj/machinery/floodlight/randomcharge,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"mH" = (
-/obj/structure/window/reinforced,
-/obj/effect/decal/cleanable/blood/gibs,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"os" = (
-/obj/structure/window/reinforced,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"ov" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/carpet/lightblue{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"pW" = (
-/obj/effect/decal/cleanable/blood,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"qm" = (
-/obj/machinery/chemical_dispenser,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"sk" = (
-/obj/machinery/mining/brace{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"sK" = (
-/obj/structure/bed,
-/obj/item/bedsheet/nanotrasen,
-/obj/structure/curtain/open/bed,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"sL" = (
-/obj/structure/window/reinforced{
+"oL" = (
+/obj/machinery/suspension_gen,
+/obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
 	},
-/obj/machinery/artifact_harvester,
-/obj/random/dirt_75,
+/obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"tb" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
+"pa" = (
+/obj/machinery/light/colored/decayed/dimmed,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
 	},
-/area/ouerea_nt_ruin)
-"ui" = (
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"uw" = (
-/obj/structure/bed/stool,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"uB" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"uZ" = (
-/obj/machinery/door/airlock/mining{
-	name = "Equipment Storage"
-	},
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"vL" = (
-/obj/machinery/optable,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"xy" = (
-/obj/machinery/artifact_scanpad,
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"xR" = (
-/obj/machinery/computer/rdconsole,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"yH" = (
-/obj/structure/table/wood,
-/obj/item/stamp/rd,
-/obj/item/paper/nt_ouerea{
-	pixel_x = 8;
-	pixel_y = 6
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/carpet/lightblue{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"yP" = (
-/obj/machinery/light{
-	dir = 4;
-	status = 2
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"zd" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"zz" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/polarized,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"zI" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"Aq" = (
-/obj/machinery/light,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"Be" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"BF" = (
-/obj/structure/bed/stool,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"Cc" = (
-/obj/structure/table/wood,
-/obj/item/modular_computer/laptop/preset/research/rd,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/carpet/lightblue{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"Ce" = (
-/obj/structure/bed/stool,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"Cf" = (
-/obj/machinery/bodyscanner,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"Ck" = (
-/turf/simulated/wall,
-/area/ouerea_nt_ruin)
-"Cl" = (
-/obj/machinery/light{
-	dir = 4;
-	status = 2
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"DG" = (
-/obj/structure/closet/crate/freezer/rations,
-/obj/random/mre,
-/obj/random/mre,
-/obj/random/mre,
-/obj/random/mre,
-/obj/random/mre,
-/obj/random/mre,
-/obj/item/reagent_containers/food/drinks/waterbottle,
-/obj/item/reagent_containers/food/drinks/waterbottle,
-/obj/item/reagent_containers/food/drinks/waterbottle,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"DZ" = (
-/obj/machinery/floodlight/randomcharge,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"Ey" = (
-/obj/effect/map_effect/window_spawner/full/reinforced,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"GW" = (
-/obj/effect/decal/fake_object{
-	icon = 'icons/obj/machinery/research.dmi';
-	icon_state = "server";
-	name = "broken down R&D server";
-	desc = "A server which used to house a back-up of all ship research. It can be used to restore lost data, or to act as another point of retrieval. Looks like it's too far gone for that though.";
-	density = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"Hl" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"HQ" = (
-/obj/machinery/chem_master,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"HZ" = (
-/obj/machinery/mech_recharger,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/mech_wreckage/powerloader,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"Ix" = (
-/obj/structure/table/standard,
-/obj/item/reagent_containers/glass/beaker,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"IB" = (
-/obj/structure/table/standard,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"IL" = (
-/obj/structure/curtain/medical,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"IO" = (
-/obj/machinery/mining/brace{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"IP" = (
-/obj/machinery/light,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"IZ" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/blood/gibs,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"Kp" = (
+"pf" = (
 /obj/structure/closet/crate/miningcart,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"Ks" = (
+"pj" = (
+/obj/machinery/light/colored/decayed/dimmed,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"pm" = (
 /obj/machinery/mining/brace{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/light,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"KD" = (
-/obj/effect/decal/cleanable/cobweb2,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"Mk" = (
-/obj/machinery/door/airlock/research{
-	name = "Xenoarchaeology"
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"Ni" = (
-/obj/machinery/door/window,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"Nr" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/gloves,
-/obj/item/storage/box/masks,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"NO" = (
-/obj/structure/ore_box,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/decal/cleanable/cobweb2,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"Od" = (
-/mob/living/simple_animal/aquatic/fish/moghes,
-/turf/simulated/floor/exoplanet/water/shallow{
-	temperature = 298.15
-	},
-/area/exoplanet/ouerea)
-"On" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/fancy/tray,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"Qy" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"QS" = (
-/obj/structure/sign/flag/nanotrasen/large/north{
-	pixel_y = 32
-	},
-/turf/simulated/floor/exoplanet/grass{
-	temperature = 298.15
-	},
-/area/exoplanet/ouerea)
-"RA" = (
+"pP" = (
+/obj/structure/window/reinforced,
+/obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/exoplanet/carpet/lightblue{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"RP" = (
 /turf/simulated/floor/exoplanet/concrete{
 	temperature = 298.15
 	},
-/area/exoplanet/ouerea)
-"RT" = (
-/obj/random/dirt_75,
+/area/ouerea_nt_ruin)
+"qf" = (
+/obj/structure/anomaly_container,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"Si" = (
-/obj/effect/decal/cleanable/cobweb,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
+"qo" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"Sl" = (
-/obj/structure/table/standard,
-/obj/machinery/artifact_analyser,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"SQ" = (
+"qK" = (
 /obj/structure/closet/secure_closet/RD/empty,
 /obj/item/clothing/suit/storage/toggle/labcoat/nt,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
@@ -661,1166 +540,2017 @@
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"SV" = (
-/obj/machinery/door/airlock/medical{
-	name = "Biological Research"
+"qT" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 4
 	},
-/obj/random/dirt_75,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/trash/broken_electronics,
 /turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"TU" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/cobweb2,
+"rb" = (
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/random/junk,
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"Uv" = (
-/obj/structure/window/reinforced,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
+"rz" = (
+/obj/machinery/mining/drill,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"UI" = (
-/obj/machinery/door/airlock/research{
-	name = "Site Director"
-	},
-/turf/simulated/floor/exoplanet/tiled/white{
-	temperature = 298.15
-	},
-/area/ouerea_nt_ruin)
-"Ve" = (
-/obj/structure/sign/flag/nanotrasen/large/north{
-	pixel_y = 32
+"rP" = (
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/mob/living/heavy_vehicle/premade/miner,
+/obj/effect/decal/cleanable/cobweb2{
+	icon_state = "cobweb1"
 	},
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"XE" = (
-/obj/structure/window/reinforced{
+"rX" = (
+/obj/machinery/mining/brace{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/tiled/white{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"XG" = (
-/obj/structure/bed/stool/chair/office/dark,
-/obj/effect/decal/cleanable/dirt,
+"tU" = (
+/obj/structure/sign/flag/nanotrasen/large/west{
+	pixel_x = -32
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"uc" = (
+/obj/structure/table/wood,
+/obj/machinery/chemical_dispenser/coffee,
+/obj/item/reagent_containers/food/drinks/drinkingglass{
+	pixel_x = 5;
+	pixel_y = 10
+	},
 /turf/simulated/floor/exoplanet/carpet/lightblue{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"XJ" = (
-/obj/machinery/vending/snack,
-/obj/effect/decal/cleanable/cobweb,
+"ue" = (
+/obj/structure/closet/secure_closet/miner,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"vf" = (
+/obj/effect/floor_decal/corner/mauve/full,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"vj" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"vy" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"vE" = (
+/obj/machinery/optable,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"vU" = (
+/obj/machinery/floodlight/randomcharge,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
-"XZ" = (
-/obj/machinery/light{
+"wc" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/item/reagent_containers/syringe/antiparasitic,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"wd" = (
+/obj/structure/table/standard,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/belt/utility,
+/obj/item/storage/belt/utility,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"wj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"wu" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"wD" = (
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"wX" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/item/material/shard,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"wZ" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/machinery/research.dmi';
+	icon_state = "server";
+	name = "broken down R&D server";
+	desc = "A server which used to house a back-up of all ship research. It can be used to restore lost data, or to act as another point of retrieval. Looks like it's too far gone for that though.";
+	density = 1
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"xp" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/item/clothing/glasses/safety/goggles/science,
+/obj/item/clothing/glasses/safety/goggles/science,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"xN" = (
+/obj/machinery/chem_master,
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/ouerea_nt_ruin)
+"xW" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"yl" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"zy" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"zJ" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"zV" = (
+/turf/simulated/wall,
+/area/ouerea_nt_ruin)
+"Aw" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"AW" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/masks,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Ba" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Bb" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/item/material/shard,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Bi" = (
+/obj/machinery/artifact_analyser,
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"BJ" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/table/standard,
+/obj/item/paper_bin,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Cu" = (
+/obj/machinery/mech_recharger,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/mech_wreckage/powerloader,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"CJ" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 1
+	},
+/obj/item/reagent_containers/syringe,
+/obj/item/stack/rods,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"CN" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/exoplanet/carpet/lightblue{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"CV" = (
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Da" = (
+/mob/living/simple_animal/aquatic/fish/moghes,
+/turf/simulated/floor/exoplanet/water/shallow{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"Dh" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Di" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"DX" = (
+/obj/structure/window/reinforced,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Ek" = (
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Eo" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/structure/sink/kitchen{
+	name = "surgical sink";
+	pixel_y = 21;
+	pixel_x = -2
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Ex" = (
+/obj/structure/curtain/medical,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"FD" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 4
+	},
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/item/clothing/mask/breath/medical,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"FR" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"FS" = (
+/obj/machinery/door/airlock/mining{
+	name = "Equipment Storage"
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"FZ" = (
+/obj/machinery/floodlight/randomcharge,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Gh" = (
+/obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/tiled{
 	temperature = 298.15
 	},
 /area/ouerea_nt_ruin)
+"Gq" = (
+/obj/machinery/artifact_scanpad,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/ouerea_nt_ruin)
+"Ha" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Hu" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/item/clothing/gloves/latex/nitrile,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"HB" = (
+/obj/structure/ore_box,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/cobweb2,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"HF" = (
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 8
+	},
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/beaker/vial/heartworm_eggs{
+	pixel_x = -5
+	},
+/obj/item/reagent_containers/glass/beaker/vial/nerveworm_eggs,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"HG" = (
+/obj/structure/flora/grass/junglegrass/random,
+/turf/simulated/floor/exoplanet/water/shallow{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"HJ" = (
+/obj/structure/sign/flag/nanotrasen/large/south{
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"Ix" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/item/pen/black,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"IE" = (
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"II" = (
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"IZ" = (
+/obj/machinery/light/colored/decayed/dimmed,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Ja" = (
+/obj/machinery/suspension_gen,
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Jg" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Jl" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Jp" = (
+/obj/machinery/suspension_gen,
+/obj/effect/floor_decal/corner/mauve/full,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Ju" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/artifact_harvester,
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/ouerea_nt_ruin)
+"Kc" = (
+/obj/structure/bed,
+/obj/item/bedsheet/nanotrasen,
+/obj/structure/curtain/open/bed,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Kx" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/green/full,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"KU" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Li" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Lt" = (
+/obj/structure/closet/crate/freezer/rations,
+/obj/random/mre,
+/obj/random/mre,
+/obj/random/mre,
+/obj/random/mre,
+/obj/random/mre,
+/obj/random/mre,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"LE" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"LW" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Ma" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Mc" = (
+/obj/structure/closet/excavation,
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Me" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Mt" = (
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"Mz" = (
+/turf/simulated/floor/exoplanet/carpet/lightblue{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"MA" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"NG" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"NK" = (
+/obj/machinery/vending/snack,
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/floor_decal/corner/green/full{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"OJ" = (
+/obj/structure/table/standard,
+/obj/item/deck/cards,
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"OU" = (
+/obj/random/pottedplant,
+/turf/simulated/floor/exoplanet/carpet/lightblue{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Pb" = (
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Pc" = (
+/obj/structure/bed,
+/obj/item/bedsheet/nanotrasen,
+/obj/structure/curtain/open/bed,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Qu" = (
+/obj/machinery/door/airlock/research{
+	name = "Site Director"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Qw" = (
+/obj/machinery/door/window,
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/ouerea_nt_ruin)
+"QY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Rf" = (
+/obj/structure/bed/stool/chair/office/dark,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/carpet/lightblue{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Rj" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/bottle/whiskey,
+/obj/item/storage/slide_projector{
+	pixel_y = 12
+	},
+/turf/simulated/floor/exoplanet/carpet/lightblue{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Rq" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Sk" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"ST" = (
+/obj/structure/ore_box,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"SZ" = (
+/obj/machinery/door/airlock/medical{
+	name = "Biological Research";
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Tb" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"TE" = (
+/obj/machinery/mining/brace{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/colored/decayed/dimmed,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"TI" = (
+/obj/effect/decal/cleanable/blood/drip,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/carpet/lightblue{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"UC" = (
+/obj/structure/table/wood,
+/obj/machinery/photocopier/faxmachine,
+/turf/simulated/floor/exoplanet/carpet/lightblue{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Vg" = (
+/obj/machinery/door/airlock/research{
+	name = "Equipment Storage"
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Vs" = (
+/obj/structure/table/standard,
+/obj/item/stack/rods/full{
+	pixel_y = 4
+	},
+/obj/item/stack/rods/full{
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"VY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/exoplanet/carpet/lightblue{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Ws" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Xo" = (
+/obj/machinery/door/airlock/research{
+	name = "Xenoarchaeology";
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Xw" = (
+/obj/machinery/door/airlock/research{
+	name = "Research Division"
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"XP" = (
+/obj/structure/sign/flag/nanotrasen/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"YQ" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Zh" = (
+/obj/structure/table/wood,
+/obj/item/stamp/rd,
+/obj/item/paper_bin,
+/obj/item/pen/fountain/head,
+/turf/simulated/floor/exoplanet/carpet/lightblue{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Zk" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/table/standard,
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Zm" = (
+/obj/structure/flora/grass/junglegrass/random,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"Zr" = (
+/obj/machinery/light/colored/decayed/dimmed,
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
+"Zs" = (
+/turf/simulated/floor/exoplanet/water/shallow{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"Zt" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/lightblue{
+	temperature = 298.15
+	},
+/area/ouerea_nt_ruin)
 
 (1,1,1) = {"
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
 "}
 (2,1,1) = {"
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-dA
-fs
-fs
-fs
-fs
-fs
-dA
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-fs
+Mt
+Zm
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Zs
+Mt
+Mt
+Mt
+Mt
+Mt
+Zs
+zV
+zV
+zV
+zV
+zV
+zV
+zV
+zV
+zV
+zV
+Mt
 "}
 (3,1,1) = {"
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-dA
-dA
-dA
-dA
-dA
-fs
-Ck
-sK
-Be
-Ck
-XJ
-ui
-zI
-ui
-zI
-Ck
-fs
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Zs
+HG
+Zs
+Zs
+Zs
+Mt
+zV
+Kc
+kj
+zV
+NK
+kZ
+zy
+Bb
+Kx
+zV
+Mt
 "}
 (4,1,1) = {"
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-dA
-dA
-dA
-dA
-dA
-dA
-dA
-fs
-Ck
-Ck
-ui
-Ck
-DG
-zd
-uw
-uw
-Aq
-Ck
-fs
+Mt
+Mt
+Mt
+Mt
+Zm
+Mt
+Mt
+Mt
+Mt
+Zm
+Mt
+Mt
+Mt
+Zs
+Zs
+Zs
+Zs
+Zs
+Zs
+Zs
+Mt
+zV
+zV
+fU
+zV
+Lt
+xW
+hm
+xW
+Zr
+zV
+Mt
 "}
 (5,1,1) = {"
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-dA
-dA
-dA
-dA
-dA
-dA
-fs
-Ck
-sK
-zI
-Ck
-Hl
-BF
-IB
-IB
-uw
-Ck
-fs
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Zm
+Zs
+Zs
+Zs
+Zs
+HG
+Zs
+Mt
+zV
+Pc
+Jl
+zV
+wu
+hm
+Ha
+hm
+wj
+zV
+Mt
 "}
 (6,1,1) = {"
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-dA
-dA
-Od
-dA
-dA
-fs
-fs
-Ck
-Ck
-zI
-fW
-zd
-Ce
-IB
-IB
-Ce
-Ck
-fs
+Mt
+Zm
+Mt
+Mt
+Zm
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Zs
+Zs
+Da
+Zs
+Zs
+Mt
+Mt
+zV
+zV
+II
+cE
+qo
+hm
+LE
+hm
+MA
+zV
+Mt
 "}
 (7,1,1) = {"
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-Ck
-Ck
-Ck
-Ck
-fs
-dA
-dA
-dA
-dA
-dA
-fs
-fs
-Ck
-sK
-zI
-Ck
-Ve
-uw
-IB
-IB
-uw
-Ck
-fs
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+zV
+zV
+zV
+zV
+zV
+Mt
+Zs
+Zs
+Zs
+Zs
+Zs
+Mt
+Mt
+zV
+Pc
+fU
+zV
+iM
+ay
+OJ
+hm
+NG
+zV
+Mt
 "}
 (8,1,1) = {"
-fs
-fs
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-Cf
-jV
-Ck
-fs
-fs
-dA
-dA
-dA
-dA
-dA
-fs
-Ck
-Ck
-ui
-Ck
-XZ
-zI
-uw
-uw
-Aq
-Ck
-fs
+Mt
+Mt
+zV
+zV
+zV
+zV
+zV
+zV
+zV
+jp
+zJ
+gl
+zV
+Mt
+Mt
+Zs
+Zs
+Zs
+Zs
+Zs
+Mt
+zV
+zV
+fU
+zV
+rb
+QY
+hm
+QY
+Zr
+zV
+Mt
 "}
 (9,1,1) = {"
-fs
-fs
-Ck
-Si
-RT
-mH
-Qy
-RT
-zz
-qm
-RT
-ky
-Ck
-fs
-fs
-dA
-dA
-dA
-dA
-dA
-fs
-Ck
-sK
-yP
-Ck
-TU
-zI
-zI
-ui
-zI
-Ck
-fs
+Mt
+Mt
+zV
+Jg
+IE
+pP
+HF
+al
+Sk
+xN
+wc
+oo
+zV
+Mt
+Zm
+Zs
+Zs
+Zs
+Zs
+Zs
+Mt
+zV
+fy
+kG
+zV
+Gh
+Ma
+Rq
+Rq
+kx
+zV
+Mt
 "}
 (10,1,1) = {"
-fs
-fs
-Ck
-gb
-pW
-Ni
-RT
-ky
-zz
-HQ
-RT
-IP
-Ck
-fs
-fs
-dA
-dA
-dA
-fs
-fs
-fs
-Ck
-Ck
-Ck
-Ck
-fW
-Ck
-Ck
-Ck
-Ck
-Ck
-fs
+Mt
+Mt
+zV
+hS
+Ws
+cF
+FR
+LW
+Sk
+of
+vy
+pj
+zV
+Mt
+Mt
+HG
+Zs
+Zs
+Mt
+Mt
+Mt
+zV
+zV
+zV
+zV
+jd
+zV
+zV
+zV
+zV
+zV
+Mt
 "}
 (11,1,1) = {"
-fs
-fs
-Ck
-IZ
-XE
-Uv
-ky
-RT
-Ck
-Ix
-ky
-RT
-Ck
-fs
-fs
-fs
-dA
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-eU
-RP
-eU
-fs
-fs
-fs
-fs
-fs
+Mt
+Mt
+zV
+hO
+iL
+nX
+FR
+mK
+zV
+Eo
+wX
+kJ
+zV
+Mt
+Mt
+Zm
+Zs
+Mt
+Zm
+Mt
+Mt
+Mt
+Mt
+Mt
+tU
+gs
+tU
+Mt
+Mt
+Mt
+Mt
+Mt
 "}
 (12,1,1) = {"
-fs
-fs
-Ck
-RT
-RT
-os
-RT
-RT
-hF
-RT
-RT
-RT
-Ck
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-RP
-fs
-fs
-fs
-fs
-fs
-fs
+Mt
+Mt
+zV
+Jg
+Jg
+DX
+jM
+LW
+aD
+jM
+KU
+Hu
+zV
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+gs
+Mt
+Mt
+Zm
+Mt
+Mt
+Zm
 "}
 (13,1,1) = {"
-fs
-fs
-Ck
-gb
-ky
-Ni
-RT
-ky
-Ck
-IL
-IL
-IL
-Ck
-fs
-fs
-fs
-RP
-RP
-RP
-RP
-RP
-RP
-RP
-RP
-RP
-RP
-fs
-fs
-fs
-fs
-fs
-fs
+Mt
+Mt
+zV
+hS
+cg
+cF
+jM
+LW
+zV
+Ex
+jf
+fX
+zV
+Mt
+Mt
+Mt
+gs
+gs
+gs
+gs
+gs
+gs
+gs
+gs
+gs
+gs
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
 "}
 (14,1,1) = {"
-fs
-fs
-Ck
-KD
-RT
-os
-RT
-ky
-zz
-ky
-RT
-IP
-Ck
-fs
-fs
-fs
-RP
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
+Mt
+Mt
+zV
+IE
+IE
+yl
+CJ
+nq
+Sk
+AW
+KU
+nb
+zV
+Mt
+Mt
+Mt
+gs
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Zm
+Mt
+Zm
+Mt
+Mt
+Mt
+Mt
 "}
 (15,1,1) = {"
-fs
-fs
-Ck
-Ck
-Ck
-Ck
-Ck
-RT
-zz
-On
-vL
-Nr
-Ck
-QS
-fs
-fs
-RP
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
+Mt
+zV
+zV
+zV
+zV
+zV
+zV
+vy
+Sk
+cB
+vE
+FD
+zV
+XP
+Mt
+Mt
+gs
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Zm
 "}
 (16,1,1) = {"
-fs
-fs
-Ck
-SQ
-ka
-ov
-Ck
-SV
-Ck
-Ck
-Ck
-Ck
-Ck
-fs
-fs
-fs
-RP
-fs
-fs
-fs
-fs
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-fs
-fs
+Mt
+zV
+qK
+Zt
+mT
+OU
+zV
+SZ
+zV
+zV
+zV
+zV
+zV
+Mt
+Mt
+Mt
+gs
+Mt
+Mt
+Zm
+Mt
+zV
+zV
+zV
+zV
+zV
+zV
+zV
+zV
+zV
+Mt
+Mt
 "}
 (17,1,1) = {"
-fs
-fs
-Ck
-RA
-yH
-ov
-Ey
-RT
-ky
-Qy
-RT
-ky
-tb
-fs
-fs
-fs
-RP
-fs
-fs
-fs
-fs
-Ck
-hn
-zI
-ui
-Be
-sk
-sk
-sk
-Ck
-fs
-fs
+Mt
+zV
+UC
+Zh
+mT
+Mz
+Dh
+Di
+Ba
+Li
+Ba
+vf
+Aw
+Mt
+Mt
+Mt
+gs
+Mt
+Mt
+Mt
+Mt
+zV
+rP
+II
+ue
+mH
+II
+rX
+rX
+zV
+Mt
+Mt
 "}
 (18,1,1) = {"
-fs
-fs
-Ck
-XG
-Cc
-ka
-UI
-RT
-RT
-RT
-RT
-RT
-ji
-RP
-RP
-RP
-RP
-RP
-fs
-fs
-fs
-Ck
-HZ
-zI
-zI
-zI
-ca
-ca
-ca
-Ck
-fs
-fs
+Mt
+zV
+Rf
+jI
+ef
+VY
+Qu
+jM
+KU
+aw
+KU
+LW
+Xw
+gs
+gs
+gs
+gs
+gs
+Mt
+Mt
+Mt
+zV
+Cu
+fU
+II
+fU
+II
+rz
+rz
+zV
+Mt
+Mt
 "}
 (19,1,1) = {"
-fs
-fs
-Ck
-ka
-df
-ov
-Ey
-RT
-RT
-RT
-ky
-RT
-tb
-fs
-fs
-fs
-fs
-RP
-fs
-fs
-fs
-Ck
-HZ
-zI
-zI
-zI
-IO
-IO
-IO
-Ck
-fs
-fs
+Mt
+zV
+mT
+Rj
+CN
+Mz
+Dh
+YQ
+gx
+gx
+gx
+eh
+Aw
+Zm
+Mt
+Mt
+Mt
+gs
+Mt
+Mt
+Zm
+zV
+Cu
+Me
+fU
+II
+II
+pm
+pm
+zV
+Mt
+Mt
 "}
 (20,1,1) = {"
-fs
-fs
-Ck
-av
-ov
-ka
-Ck
-Mk
-Ck
-Ck
-Ck
-Ck
-Ck
-QS
-fs
-fs
-fs
-RP
-fs
-fs
-fs
-Ck
-mu
-zI
-ui
-zI
-sk
-sk
-sk
-Ck
-fs
-fs
+Mt
+zV
+mT
+TI
+CN
+uc
+zV
+Xo
+zV
+zV
+zV
+zV
+zV
+XP
+Mt
+Mt
+Mt
+gs
+Mt
+Mt
+Mt
+zV
+FZ
+II
+II
+fU
+fU
+rX
+rX
+zV
+Mt
+Mt
 "}
 (21,1,1) = {"
-fs
-fs
-Ck
-Ck
-Ck
-Ck
-Ck
-RT
-Ck
-gT
-gT
-gT
-Ck
-fs
-fs
-fs
-fs
-RP
-fs
-fs
-ev
-Ck
-mu
-zI
-zI
-zI
-ca
-ca
-ca
-Ck
-fs
-fs
+Mt
+zV
+zV
+zV
+zV
+zV
+zV
+vy
+zV
+oL
+Ja
+Jp
+zV
+Mt
+Mt
+Mt
+Mt
+gs
+Mt
+Mt
+HJ
+zV
+FZ
+II
+fU
+II
+fU
+rz
+rz
+zV
+Mt
+Mt
 "}
 (22,1,1) = {"
-fs
-fs
-Ck
-xR
-ky
-RT
-ky
-RT
-Ck
-cO
-cO
-cO
-Ck
-fs
-fs
-fs
-fs
-RP
-fs
-fs
-fs
-Ck
-DZ
-zI
-ui
-zI
-IO
-IO
-Ks
-Ck
-fs
-fs
+Mt
+Mt
+zV
+nI
+Tb
+Ix
+Ba
+bD
+zV
+qf
+ao
+bE
+zV
+Mt
+Mt
+Mt
+Mt
+gs
+Mt
+Mt
+Mt
+zV
+vU
+fU
+II
+II
+II
+pm
+TE
+zV
+Mt
+Mt
 "}
 (23,1,1) = {"
-fs
-fs
-Ck
-GW
-RT
-RT
-RT
-ky
-Ck
-ky
-RT
-dq
-Ck
-fs
-fs
-fs
-fs
-RP
-RP
-RP
-RP
-uZ
-zd
-ui
-zI
-zI
-zI
-ui
-zI
-Ck
-fs
-fs
+Mt
+Mt
+zV
+wZ
+vy
+Zk
+iE
+mK
+zV
+FR
+vy
+pj
+zV
+Mt
+Zm
+Mt
+Mt
+gs
+gs
+gs
+gs
+FS
+fU
+fU
+vj
+cu
+II
+Me
+II
+zV
+Mt
+Mt
 "}
 (24,1,1) = {"
-fs
-fs
-Ck
-Sl
-RT
-ky
-RT
-RT
-eX
-RT
-ky
-RT
-Ck
-fs
-fs
-fs
-fs
-RP
-RP
-RP
-RP
-uZ
-zd
-zI
-zI
-zI
-zI
-zI
-zI
-Ck
-fs
-fs
+Mt
+Mt
+zV
+Bi
+gx
+qT
+BJ
+LW
+Vg
+jM
+KU
+LW
+zV
+Mt
+Mt
+Mt
+Mt
+gs
+gs
+gs
+gs
+FS
+II
+fU
+wd
+Vs
+fU
+fU
+II
+zV
+Mt
+Mt
 "}
 (25,1,1) = {"
-fs
-fs
-Ck
-sL
-uB
-RT
-ky
-RT
-Ck
-io
-RT
-RT
-Ck
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-ev
-Ck
-Hl
-zI
-zI
-zI
-zI
-zI
-jN
-Ck
-fs
-fs
+Mt
+Mt
+zV
+Ju
+hh
+FR
+KU
+LW
+zV
+xp
+vy
+LW
+zV
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+HJ
+zV
+Pb
+II
+II
+fU
+II
+II
+IZ
+zV
+Mt
+Mt
 "}
 (26,1,1) = {"
-fs
-fs
-Ck
-xy
-Ni
-ky
-Cl
-ky
-Ck
-io
-ky
-dq
-Ck
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-Ck
-zI
-zI
-zI
-ui
-zI
-zI
-zI
-Ck
-fs
-fs
+Mt
+Mt
+zV
+Gq
+Qw
+YQ
+dx
+cI
+zV
+ow
+mA
+pa
+zV
+Mt
+Mt
+Zm
+Mt
+Mt
+Mt
+Mt
+Mt
+zV
+II
+II
+II
+II
+Jl
+fU
+II
+zV
+Mt
+Mt
 "}
 (27,1,1) = {"
-fs
-fs
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-iW
-iW
-Ck
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-Ck
-do
-do
-do
-zI
-Kp
-Kp
-Kp
-Ck
-fs
-fs
+Mt
+Mt
+zV
+zV
+zV
+zV
+zV
+zV
+zV
+zV
+bB
+Mc
+zV
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+zV
+HB
+HB
+II
+II
+Ek
+wD
+pf
+zV
+Mt
+Mt
 "}
 (28,1,1) = {"
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-Ck
-Ck
-Ck
-Ck
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-Ck
-do
-do
-do
-zI
-Kp
-Kp
-Kp
-Ck
-fs
-fs
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+zV
+zV
+zV
+zV
+Mt
+Mt
+Mt
+Mt
+Zm
+Mt
+Mt
+Mt
+zV
+HB
+HB
+II
+fU
+II
+wD
+pf
+zV
+Mt
+Mt
 "}
 (29,1,1) = {"
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-Ck
-NO
-do
-do
-yP
-Kp
-Kp
-Kp
-Ck
-fs
-fs
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+zV
+ST
+HB
+II
+CV
+II
+pf
+pf
+zV
+Mt
+Mt
 "}
 (30,1,1) = {"
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-Ck
-fs
-fs
+Mt
+Mt
+Mt
+Mt
+Zm
+Mt
+Zm
+Mt
+Mt
+Mt
+Zm
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+zV
+zV
+zV
+zV
+zV
+zV
+zV
+zV
+zV
+Mt
+Mt
 "}
 (31,1,1) = {"
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Zm
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
 "}
 (32,1,1) = {"
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
-fs
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
+Mt
 "}

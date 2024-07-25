@@ -150,7 +150,7 @@
 			footsound = T.footstep_sound
 
 	if (client)
-		var/turf/B = GetAbove(T)
+		var/turf/B = GET_TURF_ABOVE(T)
 		if(up_hint)
 			up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
 
