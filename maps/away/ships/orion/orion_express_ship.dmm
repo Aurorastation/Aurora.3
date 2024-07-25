@@ -7299,7 +7299,6 @@
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion/docking2)
 "wRc" = (
