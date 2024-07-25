@@ -86,8 +86,13 @@
 	ambience = AMBIENCE_MAINTENANCE
 	icon_state = "engine"
 
-/area/ship/orion/docking
-	name = "Docking Arm"
+/area/ship/orion/docking1
+	name = "Primary Docking Arm"
+	ambience = AMBIENCE_GENERIC
+	icon_state = "exit"
+
+/area/ship/orion/docking2
+	name = "Secondary Docking Arm"
 	ambience = AMBIENCE_GENERIC
 	icon_state = "exit"
 
@@ -145,6 +150,7 @@
 		"nav_orion_express_ship_3",
 		"nav_orion_express_ship_4",
 		"nav_orion_express_ship_dock_aft",
+		"nav_orion_express_ship_dock_fore",
 		"nav_orion_express_ship_dock_port",
 		"nav_orion_express_ship_dock_starboard"
 	)
@@ -208,6 +214,18 @@
 	name = "Orion Express Mobile Station - Aft Dock"
 	landmark_tag = "nav_orion_express_ship_dock_aft"
 	master_tag = "orion_traveler_port_aft"
+
+/obj/effect/shuttle_landmark/orion_express_ship/fore
+	name = "Orion Express Mobile Station - Fore Dock"
+	landmark_tag = "nav_orion_express_ship_dock_fore"
+	docking_controller = "orion_traveler_port_fore"
+	base_area = /area/space
+	base_turf = /turf/space/dynamic
+
+/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/fore
+	name = "Orion Express Mobile Station - Fore Dock"
+	landmark_tag = "nav_orion_express_ship_dock_fore"
+	master_tag = "orion_traveler_port_fore"
 
 /obj/effect/shuttle_landmark/orion_express_ship/starboard
 	name = "Orion Express Mobile Station - Starboard Dock"
