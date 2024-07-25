@@ -5285,6 +5285,9 @@
 /turf/simulated/wall/shuttle/scc,
 /area/shuttle/orion_shuttle/storage)
 "rsO" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/orion/thruster2)
 "ruB" = (
@@ -6977,9 +6980,6 @@
 /area/ship/orion/cargo)
 "vUr" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
