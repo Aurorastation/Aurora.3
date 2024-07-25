@@ -86,13 +86,13 @@
 
 	reagent_tag = IS_TAJARA
 
-	heat_discomfort_level = 292
+	heat_discomfort_level = 292 //18°C
 	heat_discomfort_strings = list(
 		"Your fur prickles in the heat.",
 		"You feel uncomfortably warm.",
 		"Your overheated skin itches."
 	)
-	cold_discomfort_level = 275
+	cold_discomfort_level = 275 //1°C
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/paw
 
