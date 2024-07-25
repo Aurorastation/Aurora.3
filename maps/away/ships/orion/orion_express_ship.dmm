@@ -867,7 +867,7 @@
 /turf/simulated/floor/grass,
 /area/ship/orion/forehall)
 "coh" = (
-/obj/machinery/door/airlock/silver{
+/obj/machinery/door/airlock/mining{
 	dir = 4;
 	name = "Shuttle Dock";
 	req_access = list(201)
@@ -7388,7 +7388,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/airlock/silver{
+/obj/machinery/door/airlock/mining{
 	dir = 4;
 	name = "Shuttle Dock";
 	req_access = list(201)
