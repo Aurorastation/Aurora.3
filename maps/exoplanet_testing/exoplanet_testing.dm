@@ -5,6 +5,11 @@
 	full_name = "Exoplanet Testing Map"
 	path = "exoplanet_testing"
 
+	traits = list(
+		//Z1
+		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = FALSE),
+	)
+
 	contact_levels = list(1)
 	player_levels = list(1)
 	accessible_z_levels = list(1)
