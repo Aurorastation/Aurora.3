@@ -699,6 +699,10 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/template_noop,
 /area/space)
+"bPK" = (
+/obj/effect/floor_decal/big/ox_full,
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion/docking2)
 "bUj" = (
 /obj/structure/sign/flag/orion_express,
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
@@ -39758,7 +39762,7 @@ kVS
 kVS
 hzA
 maj
-maj
+bPK
 iWc
 maj
 maj
