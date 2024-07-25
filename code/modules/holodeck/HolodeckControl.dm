@@ -128,10 +128,10 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 		update_projections()
 		if(safety_disabled)
 			message_admins("[key_name_admin(usr)] overrode the holodeck's safeties")
-			log_game("[key_name(usr)] overrided the holodeck's safeties",ckey=key_name(usr))
+			log_game("[key_name(usr)] overrided the holodeck's safeties")
 		else
 			message_admins("[key_name_admin(usr)] restored the holodeck's safeties")
-			log_game("[key_name(usr)] restored the holodeck's safeties",ckey=key_name(usr))
+			log_game("[key_name(usr)] restored the holodeck's safeties")
 
 	else if(href_list["gravity"])
 		toggleGravity(linkedholodeck)
@@ -153,7 +153,7 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 		update_projections()
 		to_chat(user, SPAN_NOTICE("You vastly increase projector power and override the safety and security protocols."))
 		to_chat(user, "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [SSatlas.current_map.company_name] maintenance and do not use the simulator.")
-		log_game("[key_name(usr)] emagged the Holodeck Control Computer",ckey=key_name(usr))
+		log_game("[key_name(usr)] emagged the Holodeck Control Computer")
 		src.updateUsrDialog()
 		return 1
 	else

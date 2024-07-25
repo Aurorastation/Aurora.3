@@ -230,6 +230,7 @@
 	bitesize = 3
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
+	filling_color = "#773204"
 
 /obj/item/storage/chewables/tobacco/koko
 	name = "Ha'zana chewing koko"
@@ -238,3 +239,75 @@
 	icon_state = "chew_koko"
 	item_state = "chew_koko"
 	starts_with = list(/obj/item/clothing/mask/chewable/chewingkoko = 6)
+
+/obj/item/reagent_containers/food/snacks/caramelized_steak_bites
+	name = "caramelized steak bites"
+	desc = "A rich, sticky-sweet dessert for any Unathi. For non-Unathi thixxs may sometimes be considered a main dish, albeit a very sweet one, as far as meat dishes are concerned."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
+	icon_state = "steakbites"
+	trash = /obj/item/trash/bowl_brown
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/drink/caramel = 5)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("meat" = 5))
+	bitesize = 2
+	filling_color = "#3b1b06"
+
+/obj/item/reagent_containers/food/snacks/caramelized_steak_bites/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_steakbites = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_steakbites)
+		if(0 to 80)
+			icon_state = "steakbites_half"
+		if(81 to INFINITY)
+			icon_state = "steakbites"
+
+/obj/item/reagent_containers/food/snacks/guwan_gruel
+	name = "guwan gruel"
+	desc = "Large, unflavored chunks of fish in a watered down meat slurry. Truly, a dish fit for someone scraping by after being expelled from their clan. Guwan then, try it."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
+	icon_state = "guwan_gruel"
+	trash = /obj/item/trash/snack_bowl
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 4, /singleton/reagent/nutriment/protein = 3, /singleton/reagent/water = 4)
+	bitesize = 3
+	filling_color = "#bd9499"
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("bland fish" = 5), /singleton/reagent/nutriment/protein = list("meat slurry" = 5))
+
+/obj/item/reagent_containers/food/snacks/egg_pie
+	name = "egg pie"
+	desc = "A personal pie filled with raw egg. In Unathi cultures, this is considered a dessert. Other races may consider it a high-protein main course. It is sometimes nicknamed 'wasteland pie' due to the way the top of the dough cracks as it is baked."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
+	icon_state = "egg_pie"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment = 3)
+	bitesize = 3
+	filling_color = "#e6a823"
+	reagent_data = list(/singleton/reagent/nutriment = list ("dough" = 5), /singleton/reagent/nutriment/protein = list("egg" = 5))
+
+/obj/item/reagent_containers/food/snacks/egg_pie/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_eggpie = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_eggpie)
+		if(0 to 90)
+			icon_state = "egg_pie_bitten"
+		if(91 to INFINITY)
+			icon_state = "egg_pie"
+
+/obj/item/reagent_containers/food/snacks/orszi
+	name = "grilled orszi"
+	desc = "A simple Ouerean recipe for serving grilled fish in an egg glaze with Ouerean spices. Beloved by all classes. You could theoretically prepare most fish like this but you have to use Orszi and Ouerean spices for that full authentic taste."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
+	icon_state = "orszi"
+	trash = /obj/item/trash/plate
+	filling_color = "#e2a191"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 2)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("grilled fish" = 5, "spices" = 3))
+
+/obj/item/reagent_containers/food/snacks/orszi/update_icon()
+	var/percent_orszi = round((reagents.total_volume / 10) * 100)
+	switch(percent_orszi)
+		if(0 to 49)
+			icon_state = "orszi_half"
+		if(50 to INFINITY)
+			icon_state = "orszi"

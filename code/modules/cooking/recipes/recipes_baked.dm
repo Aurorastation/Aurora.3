@@ -125,3 +125,13 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/stuffed_pepper_rice
 	result_quantity = 2
+
+/singleton/recipe/baked_apple
+	appliance = OVEN
+	fruit = list("apple" = 1)
+	reagents = list(/singleton/reagent/sugar = 5, /singleton/reagent/spacespice = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/no_raisin
+	)
+	result = /obj/item/reagent_containers/food/snacks/baked_apple
+	reagent_mix = RECIPE_REAGENT_REPLACE

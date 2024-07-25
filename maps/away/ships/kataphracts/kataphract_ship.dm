@@ -134,6 +134,7 @@
 	name = "Kataphract Transport"
 	shuttle_tag = "Kataphract Transport"
 	master_tag = "airlock_kataphract_transport"
+	cycle_to_external_air = TRUE
 
 /obj/effect/shuttle_landmark/kataphract_transport/hangar
 	name = "Kataphract Transport Shuttle Hangar"

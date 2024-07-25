@@ -395,7 +395,8 @@
 				else
 					visible_message(SPAN_DANGER("[H] pushes [src] forward!"), SPAN_DANGER("[H] pushes you forward!"))
 					apply_effect(5, WEAKEN)
-					forceMove(GetAbove(z_eye)) //We use GetAbove so people can't cheese it by turning their sprite.
+					var/turf/current_turf = get_turf(z_eye)
+					forceMove(GET_TURF_ABOVE(current_turf)) //We use GET_TURF_ABOVE so people can't cheese it by turning their sprite.
 					return
 
 			if(randn <= 25)

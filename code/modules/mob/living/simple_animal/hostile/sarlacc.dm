@@ -21,6 +21,9 @@
 	var/mob/living/simple_animal/hostile/greatworm/originator
 	var/mob/living/captive
 
+/obj/item/trap/sarlacc/get_trap_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	return list()
+
 /obj/item/trap/sarlacc/Destroy()
 	if(originator)
 		originator = null
@@ -137,7 +140,7 @@
 		sarlacc = null
 	return ..()
 
-/mob/living/simple_animal/hostile/greatworm/Life()
+/mob/living/simple_animal/hostile/greatworm/Life(seconds_per_tick, times_fired)
 	..()
 	if(!sarlacc)
 		var/obj/item/trap/sarlacc/L = new /obj/item/trap/sarlacc(src.loc)

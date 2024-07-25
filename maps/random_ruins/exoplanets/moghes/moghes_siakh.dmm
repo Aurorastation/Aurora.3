@@ -6,7 +6,7 @@
 /area/exoplanet/moghes)
 "b" = (
 /mob/living/simple_animal/threshbeast,
-/turf/simulated/floor/exoplanet/foundation{
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
@@ -20,13 +20,81 @@
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
+"i" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"l" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"q" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"s" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"t" = (
+/mob/living/simple_animal/hostile/retaliate/hegeranzi,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "v" = (
 /turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
+"x" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"y" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "z" = (
 /turf/simulated/wall/rusty,
+/area/exoplanet/moghes)
+"B" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
 /area/exoplanet/moghes)
 "H" = (
 /obj/structure/closet/crate,
@@ -50,6 +118,21 @@
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"J" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"L" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
@@ -82,6 +165,15 @@
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
+"Q" = (
+/obj/machinery/door/urban{
+	dir = 4;
+	pixel_x = -29
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "R" = (
 /obj/structure/closet/crate,
 /obj/item/material/sword/axe,
@@ -96,6 +188,17 @@
 /obj/item/device/flashlight/flare/torch,
 /obj/item/device/flashlight/flare/torch,
 /turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"V" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
@@ -256,9 +359,9 @@ z
 z
 v
 v
-b
 v
-b
+v
+v
 z
 z
 a
@@ -394,11 +497,11 @@ H
 v
 a
 a
-a
-a
-a
-a
-a
+V
+i
+Q
+l
+L
 a
 a
 "}
@@ -416,11 +519,11 @@ z
 z
 a
 a
+B
 a
 a
 a
-a
-a
+J
 a
 a
 "}
@@ -438,11 +541,11 @@ a
 a
 a
 a
+B
+b
 a
-a
-a
-a
-a
+t
+J
 a
 a
 "}
@@ -460,11 +563,11 @@ a
 a
 a
 a
+B
 a
 a
 a
-a
-a
+J
 a
 a
 "}
@@ -482,11 +585,11 @@ a
 a
 a
 a
+B
 a
+b
 a
-a
-a
-a
+J
 a
 a
 "}
@@ -504,11 +607,11 @@ a
 a
 a
 a
-a
-a
-a
-a
-a
+x
+y
+s
+s
+q
 a
 a
 "}

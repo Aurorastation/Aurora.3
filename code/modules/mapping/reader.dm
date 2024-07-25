@@ -110,7 +110,7 @@ GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
 			var/zcrd = text2num(dmmRegex.group[5]) + z_offset - 1
 
 			var/zexpansion = zcrd > world.maxz
-			if(zexpansion)
+			if(zexpansion  && !measureOnly) // don't actually expand the world if we're only measuring bounds
 				if(cropMap)
 					continue
 				else
@@ -516,7 +516,7 @@ GLOBAL_LIST_INIT(_preloader_path, null)
 
 /area/template_noop
 	name = "Area Passthrough"
-	icon_state = "space"
+	icon_state = "noop"
 
 /turf/template_noop
 	name = "Turf Passthrough"

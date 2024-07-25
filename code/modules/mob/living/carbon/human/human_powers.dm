@@ -318,7 +318,7 @@
 		to_chat(src,SPAN_WARNING("[target] is too far for your mind to grasp!"))
 		return
 
-	log_say("[key_name(src)] communed to [key_name(target)]: [text]",ckey=key_name(src))
+	log_say("[key_name(src)] communed to [key_name(target)]: [text]")
 
 	for (var/mob/M in GLOB.player_list)
 		if (istype(M, /mob/abstract/new_player))
@@ -351,7 +351,7 @@
 
 	var/msg = sanitize(input("Message:", "Psychic Whisper") as text|null)
 	if(msg)
-		log_say("PsychicWhisper: [key_name(src)]->[M.key] : [msg]",ckey=key_name(src))
+		log_say("PsychicWhisper: [key_name(src)]->[M.key] : [msg]")
 		to_chat(M, "<span class ='alium'>You hear a strange, alien voice in your head... \italic [msg]</span>")
 		to_chat(src, "<span class ='alium'>You said: \"[msg]\" to [M]</span>")
 	return
@@ -575,7 +575,7 @@
 		to_chat(src, SPAN_DANGER("[M]'s hivenet implant is inactive!"))
 		return
 
-	log_say("[key_name(src)] issued a hivenet order to [key_name(M)]: [text]",ckey=key_name(src))
+	log_say("[key_name(src)] issued a hivenet order to [key_name(M)]: [text]")
 
 	if(istype(M, /mob/living/carbon/human) && isvaurca(M))
 		to_chat(M, SPAN_DANGER("You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:"))

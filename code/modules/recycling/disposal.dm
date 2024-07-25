@@ -312,8 +312,6 @@
 // attempt to move while inside
 /obj/machinery/disposal/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user.stat || src.flushing)
 		return
@@ -752,8 +750,6 @@
 	// called when player tries to move while in a pipe
 /obj/disposalholder/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(!istype(user,/mob/living))
 		return
@@ -1088,7 +1084,8 @@
 	var/obj/structure/disposalpipe/P
 
 	if(nextdir == 12)
-		T = GetAbove(src)
+		var/turf/current_turf = get_turf(src)
+		T = GET_TURF_ABOVE(current_turf)
 		if(!T)
 			H.forceMove(loc)
 			return
@@ -1137,7 +1134,8 @@
 	var/obj/structure/disposalpipe/P
 
 	if(nextdir == 11)
-		T = GetBelow(src)
+		var/turf/current_turf = get_turf(src)
+		T = GET_TURF_BELOW(current_turf)
 		if(!T)
 			H.forceMove(src.loc)
 			return

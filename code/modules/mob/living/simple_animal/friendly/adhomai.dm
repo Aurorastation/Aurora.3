@@ -40,7 +40,7 @@
 	else
 		..()
 
-/mob/living/simple_animal/ice_tunneler/Life()
+/mob/living/simple_animal/ice_tunneler/Life(seconds_per_tick, times_fired)
 	. =..()
 	if(!.)
 		return

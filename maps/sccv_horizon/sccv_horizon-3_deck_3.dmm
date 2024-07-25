@@ -16423,6 +16423,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/effect/landmark/minimap_poi{
+	name = "Starboard Docks"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "lkC" = (
@@ -20009,6 +20012,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/landmark/minimap_poi{
+	name = "Port Docks"
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/port/docks)
 "nCs" = (
@@ -20357,7 +20363,7 @@
 /turf/simulated/floor,
 /area/bridge/upperdeck)
 "nMa" = (
-/obj/machinery/telecomms/message_server,
+/obj/machinery/telecomms/message_server/preset,
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
 "nMz" = (
@@ -24658,6 +24664,9 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 4
 	},
+/obj/effect/landmark/minimap_poi{
+	name = "Bridge"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/controlroom)
 "qMd" = (
@@ -24852,6 +24861,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering_ladder)
+"qTo" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Main Lift"
+	},
+/turf/simulated/wall/r_wall,
+/area/horizon/hallway/deck_three/primary/central)
 "qTN" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
@@ -33300,6 +33315,15 @@
 	},
 /turf/simulated/floor,
 /area/horizon/maintenance/deck_three/aft/starboard)
+"wFC" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/effect/landmark/minimap_poi{
+	name = "Cafeteria"
+	},
+/turf/simulated/floor/wood,
+/area/horizon/cafeteria)
 "wFE" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -56541,7 +56565,7 @@ ffj
 ffj
 ffj
 ffj
-wdy
+qTo
 nCP
 dHs
 dHr
@@ -58978,7 +59002,7 @@ lbi
 tqm
 mpY
 dvl
-dvl
+wFC
 dui
 lbi
 qzF

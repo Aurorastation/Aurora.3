@@ -110,7 +110,9 @@ the HUD updates properly! */
 	// 	if(get_dist(H, T) <= client?.view)
 	// 		viewed += H
 	// return viewed
-	return get_hearers_in_range(client?.view, T)
+
+	//Some virtual eyes eg. the AI eye doesn't have a client but an owner, select it as preferred if so, otherwise use the mob's client itself
+	return get_hearers_in_range((src.owner ? src.owner.client?.view : src.client?.view), T)
 
 /proc/get_sec_hud_icon(var/mob/living/carbon/human/H)//This function is called from human/life,dm, ~line 1663
 	var/state

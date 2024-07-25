@@ -198,6 +198,8 @@
 #define ACCENT_LABOURSONG "Laboursong"
 
 #define ACCENT_TTS "Text-to-Speech"
+#define ACCENT_MERCHANT "Golden Deep Merchant"
+#define ACCENT_THESIAN "Golden Deep Thesian"
 
 #define ACCENT_BLUESPACE "Bluespace"
 

@@ -8,27 +8,54 @@
 	mouse_opacity = MOUSE_OPACITY_ICON
 	anchored = TRUE
 
-	var/does_teleport = TRUE // Some portals might just be visual
+	///Boolean, if the portal can actually teleport, or not (aka it's just visual)
+	var/does_teleport = TRUE
+
 	var/has_lifespan = TRUE // Whether we want to directly control the lifespan or not
+
+	///Chance that the portal will fail
 	var/failchance = 5
+
+	///Boolean, if the portal has failed (aka it will teleport you somewhere else)
 	var/has_failed = FALSE
-	var/obj/target
+
+	/**
+	 * The target the teleport aims to, an `/obj` or `/turf`
+	 *
+	 * *Not* to be set directly, use `set_target()` instead
+	 */
+	var/atom/target
+
+	///Who created the portal
 	var/creator
+
+	///How precise (turf range) is the teleportation
 	var/precision = 1
 
 /obj/effect/portal/Initialize(mapload, turf/set_target, set_creator, lifespan = 300, precise = 1)
 	. = ..()
 
 	if(set_target)
-		target = set_target
+		set_target(set_target)
+
 	if(set_creator)
 		creator = set_creator
+		if(istype(creator, /atom))
+			RegisterSignal(creator, COMSIG_QDELETING, PROC_REF(handle_creator_qdel))
+
 	if(has_lifespan && lifespan > 0)
 		QDEL_IN(src, lifespan)
+
 	if(prob(failchance))
 		has_failed = TRUE
 
 	precision = precise
+
+/obj/effect/portal/Destroy()
+	if(istype(creator, /obj/item/hand_tele))
+		var/obj/item/hand_tele/HT = creator
+		HT.remove_portal(src)
+	. = ..()
 
 /obj/effect/portal/CollidedWith(atom/bumped_atom)
 	. = ..()
@@ -37,8 +64,6 @@
 		teleport(bumped_atom)
 
 /obj/effect/portal/Crossed(AM)
-	set waitfor = FALSE
-
 	if(does_teleport)
 		teleport(AM)
 
@@ -50,8 +75,6 @@
 	return ..()
 
 /obj/effect/portal/attack_hand(mob/user)
-	set waitfor = FALSE
-
 	if(does_teleport)
 		teleport(user)
 
@@ -86,11 +109,41 @@
 		visible_message(SPAN_WARNING("\The [src] oscillates violently as \the [movable] comes into contact with it, and collapses! Seems like the rift was unstable..."))
 		qdel(src)
 
-/obj/effect/portal/Destroy()
-	if(istype(creator, /obj/item/hand_tele))
-		var/obj/item/hand_tele/HT = creator
-		HT.remove_portal(src)
-	return ..()
+/**
+ * Sets the target of the teleporter
+ */
+/obj/effect/portal/proc/set_target(atom/new_target)
+	if(!is_type_in_list(new_target, list(/obj, /turf, /mob)))
+		stack_trace("Portal was tried to be targeted at something that it is not supposed to!")
+		return
+
+	if(target)
+		UnregisterSignal(target, COMSIG_QDELETING)
+
+	target = new_target
+	RegisterSignal(target, COMSIG_QDELETING, PROC_REF(handle_target_qdel))
+
+/**
+ * Handles the teleporting target being deleted
+ */
+/obj/effect/portal/proc/handle_target_qdel()
+	SIGNAL_HANDLER
+
+	if(!QDELETED(src))
+		qdel(src)
+
+/**
+ * Handles the creator being deleted
+ */
+/obj/effect/portal/proc/handle_creator_qdel()
+	SIGNAL_HANDLER
+
+	creator = null
+
+
+/*##############
+	SUBTYPES
+##############*/
 
 /obj/effect/portal/spawner
 	name = "portal"

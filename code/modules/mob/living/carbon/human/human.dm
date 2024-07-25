@@ -1185,7 +1185,7 @@
 	else
 		target.show_message(SPAN_NOTICE("You hear a voice that seems to echo around the room: [say]"))
 	usr.show_message(SPAN_NOTICE("You project your mind into [target.real_name]: [say]"))
-	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]",ckey=key_name(usr))
+	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]")
 	for(var/mob/abstract/observer/G in GLOB.dead_mob_list)
 		G.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
 
@@ -2264,7 +2264,8 @@
 			reset_view(null)
 			QDEL_NULL(z_eye)
 			return
-		var/turf/above = GetAbove(src)
+		var/turf/T = get_turf(src)
+		var/turf/above = GET_TURF_ABOVE(T)
 		if(TURF_IS_MIMICING(above))
 			z_eye = new /atom/movable/z_observer/z_up(src, src)
 			visible_message(SPAN_NOTICE("[src] looks up."), SPAN_NOTICE("You look up."))
@@ -2285,14 +2286,14 @@
 			QDEL_NULL(z_eye)
 			return
 		var/turf/T = get_turf(src)
-		if(TURF_IS_MIMICING(T) && HasBelow(T.z))
+		if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
 			z_eye = new /atom/movable/z_observer/z_down(src, src)
 			visible_message(SPAN_NOTICE("[src] looks below."), SPAN_NOTICE("You look below."))
 			reset_view(z_eye)
 			return
 		else
 			T = get_step(T, dir)
-			if(TURF_IS_MIMICING(T) && HasBelow(T.z))
+			if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
 				z_eye = new /atom/movable/z_observer/z_down(src, src, TRUE)
 				visible_message(SPAN_NOTICE("[src] leans over to look below."), SPAN_NOTICE("You lean over to look below."))
 				reset_view(z_eye)

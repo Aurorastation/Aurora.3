@@ -158,15 +158,16 @@ var/list/ai_verbs_default = list(
 	add_language(LANGUAGE_ROBOT, TRUE)
 	add_language(LANGUAGE_TCB, TRUE)
 	add_language(LANGUAGE_SOL_COMMON, TRUE)
+	add_language(LANGUAGE_TRADEBAND, TRUE)
+	add_language(LANGUAGE_EAL, TRUE)
+	add_language(LANGUAGE_DRONE, TRUE)
 	add_language(LANGUAGE_ELYRAN_STANDARD, FALSE)
 	add_language(LANGUAGE_UNATHI, FALSE)
 	add_language(LANGUAGE_SIIK_MAAS, FALSE)
 	add_language(LANGUAGE_SKRELLIAN, FALSE)
-	add_language(LANGUAGE_TRADEBAND, TRUE)
 	add_language(LANGUAGE_GUTTER, FALSE)
 	add_language(LANGUAGE_VAURCA, FALSE)
 	add_language(LANGUAGE_ROOTSONG, FALSE)
-	add_language(LANGUAGE_EAL, TRUE)
 	add_language(LANGUAGE_YA_SSA, FALSE)
 	add_language(LANGUAGE_DELVAHII, FALSE)
 
@@ -484,7 +485,7 @@ var/list/ai_verbs_default = list(
 		return
 	Centcomm_announce(input, usr)
 	to_chat(usr, SPAN_NOTICE("Message transmitted."))
-	log_say("[key_name(usr)] has made an AI [SSatlas.current_map.boss_short] announcement: [input]",ckey=key_name(usr))
+	log_say("[key_name(usr)] has made an AI [SSatlas.current_map.boss_short] announcement: [input]")
 	emergency_message_cooldown = 1
 	spawn(300)
 		emergency_message_cooldown = 0
