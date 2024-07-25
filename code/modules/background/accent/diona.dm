@@ -36,6 +36,12 @@
 	tag_icon = "dionae_meadow"
 	text_tag = "MWS"
 
+/datum/accent/undersong
+	name = ACCENT_UNDERSONG
+	description = "Utilized by the Underhive Collective of the Eridani Corporate Federation, Undersong often fails to resonate as strongly as other accents due to the sparse lighting conditions in Dreg settlements where the Underhive resides, leading to poor development."
+	tag_icon = "dionae_under"
+	text_tag = "UNS"
+
 //Vaurca Influenced Accents
 
 /datum/accent/hivesong

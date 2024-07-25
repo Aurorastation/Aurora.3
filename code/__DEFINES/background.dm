@@ -196,6 +196,7 @@
 #define ACCENT_HIVESONG "Hivesong"
 #define ACCENT_MEADOWSONG "Meadowsong"
 #define ACCENT_LABOURSONG "Laboursong"
+#define ACCENT_UNDERSONG "Undersong"
 
 #define ACCENT_TTS "Text-to-Speech"
 #define ACCENT_MERCHANT "Golden Deep Merchant"
