@@ -100,6 +100,10 @@
 	//Look into every ruin, and see if all the file paths are valid (the file exists)
 	//or otherwise do not respect the convention
 	for(var/ruin in subtypesof(/datum/map_template/ruin))
+		if(is_abstract(ruin))
+			LOG_GITHUB_DEBUG("Skipping abstract ruin [ruin]")
+			continue
+
 		LOG_GITHUB_NOTICE("Testing files for ruin [ruin]")
 
 		var/datum/map_template/ruin/tested_ruin = new ruin()
