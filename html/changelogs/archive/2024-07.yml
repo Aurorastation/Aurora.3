@@ -184,3 +184,31 @@
       muffin.
   - spellcheck: Edited description of Nakarka cheese because the vaurcan accent was
       spelled incorrectly.
+2024-07-23:
+  DreamySkrell:
+  - rscadd: BAPI - mapmanip submap performance improvements.
+  - rscadd: BAPI - mapmanip script.
+  FluffyGhost:
+  - rscadd: Added the z-level manager system from TG, mostly.
+  SimpleMaroon:
+  - qol: Added Journalist access back to some of the doors on deck 2 Operations.
+2024-07-24:
+  ChangeMe:
+  - bugfix: Corrected missing sprite on Nakarka Ravioli.
+  FluffyGhost:
+  - rscadd: Borgs can now access the APCs channel configuration again, like the AI
+      already can.
+2024-07-25:
+  DreamySkrell:
+  - rscadd: BAPI - mapmanip multiz support.
+  - rscadd: Adds map PDA program POIs.
+  FluffyGhost:
+  - bugfix: Fixed the message server PDA messages logging.
+  - bugfix: Fixed the message monitoring console for the aforementioned use.
+  - bugfix: Fixed a runtime for AI distance check on trying to read papers.
+  - bugfix: Created a preset for the message server so it's autolinked on the horizon.
+  Nalarac:
+  - bugfix: Fixes the hegemony energy rifle being able to change firemodes and thus
+      turn invisible
+  hazelmouse:
+  - bugfix: Folding tables can no longer be telekinetically manipulated by crew.

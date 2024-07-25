@@ -1,7 +1,8 @@
 /obj/structure/reagent_dispensers
 	name = "strange dispenser"
 	desc = "What the fuck is this?"
-	desc_info = "You can right-click this and change the amount transferred per use."
+	desc_info = "Use HELP intent to fill a container in your hand from this, and use any other intent to empty the container into this. \
+	You can right-click this and change the amount transferred per use."
 	icon = 'icons/obj/reagent_dispensers.dmi'
 	icon_state = "watertank"
 	density = 1
@@ -42,27 +43,23 @@
 /obj/structure/reagent_dispensers/attackby(obj/item/attacking_item, mob/user)
 
 	var/obj/item/reagent_containers/RG = attacking_item
-	if (istype(RG) && RG.is_open_container())
-
-		var/atype
-		if(accept_any_reagent)
-			atype = alert(user, "Do you want to fill or empty \the [RG] at \the [src]?", "Fill or Empty", "Fill", "Empty", "Cancel")
-		else
-			atype = alert(user, "Do you want to fill \the [RG] at \the [src]?", "Fill", "Fill", "Cancel")
-
+	if (istype(RG))
 		if(!user.Adjacent(src)) return
 		if(RG.loc != user && !isrobot(user)) return
-
-		switch(atype)
-			if ("Fill")
-				RG.standard_dispenser_refill(user,src)
-				playsound(src.loc, 'sound/machines/reagent_dispense.ogg', 25, 1)
-			if ("Empty")
-				if(is_open_container())
-					RG.standard_pour_into(user,src)
-				else
-					to_chat(user,SPAN_NOTICE("The inlet cap on \the [src] is wrenched on tight!"))
-		return
+		if(!(RG.is_open_container()))
+			to_chat(usr, SPAN_WARNING("The [RG.name]'s lid is on!"))
+			return
+		if (usr.a_intent == I_HELP)
+			RG.standard_dispenser_refill(user,src)
+			playsound(src.loc, 'sound/machines/reagent_dispense.ogg', 25, 1)
+		else
+			if(!accept_any_reagent)
+				to_chat(user,SPAN_WARNING("You can't refill \the [src]."))
+				return
+			if(is_open_container())
+				RG.standard_pour_into(user,src)
+			else
+				to_chat(user,SPAN_NOTICE("The inlet cap on \the [src] is wrenched on tight!"))
 
 	if (attacking_item.iswrench())
 		if(use_check(user, USE_DISALLOW_SPECIALS))
