@@ -107,7 +107,7 @@
 	uniform = /obj/item/clothing/under/skrell/wetsuit/tirakqi/star
 
 	accessory = /obj/item/clothing/accessory/holster/hip
-	accessory_contents = list(obj/item/gun/energy/pistol = 1)
+	accessory_contents = list(/obj/item/gun/energy/pistol = 1)
 	head = /obj/item/clothing/head/skrell/skrell_bandana/tirakqi/captain
 	suit = /obj/item/clothing/suit/storage/toggle/skrell/starcoat
 

@@ -66,7 +66,8 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	frame_color = "#6e2c6e"
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -311,7 +312,8 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	frame_color = "#6e2c6e"
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
@@ -1146,7 +1148,8 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	frame_color = "#8a7387"
+	frame_color = "#8a7387";
+	color = "#8a7387"
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
@@ -1409,7 +1412,8 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	frame_color = "#8a7387"
+	frame_color = "#8a7387";
+	color = "#8a7387"
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -1421,13 +1425,14 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	frame_color = "#8a7387"
+	frame_color = "#8a7387";
+	color = "#8a7387"
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tirakqi_aft_blast"
 	},
 /turf/simulated/floor/tiled/full,
-/area/ship/tirakqi_smuggler/port_arm)
+/area/ship/tirakqi_smuggler/starboard_arm)
 "jB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1487,7 +1492,8 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	frame_color = "#6e2c6e"
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -2423,7 +2429,8 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	frame_color = "#6e2c6e"
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tirakqi_aft_blast";
@@ -2435,7 +2442,8 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	frame_color = "#6e2c6e"
+	frame_color = "#8a7387";
+	color = "#8a7387"
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tirakqi_aft_blast"
@@ -3468,6 +3476,18 @@
 /obj/random/contraband,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_smuggler/med)
+"vK" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "tirakqi_aft_blast"
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/tirakqi_smuggler/port_arm)
 "vQ" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, hallway"
@@ -3856,7 +3876,8 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	frame_color = "#8a7387"
+	frame_color = "#8a7387";
+	color = "#8a7387"
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
@@ -4726,7 +4747,8 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	frame_color = "#6e2c6e"
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
@@ -5722,7 +5744,8 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	frame_color = "#6e2c6e"
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tirakqi_aft_blast"
@@ -5784,7 +5807,8 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	frame_color = "#6e2c6e"
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -7488,7 +7512,8 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	frame_color = "#6e2c6e"
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
@@ -7598,7 +7623,8 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	frame_color = "#6e2c6e"
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tirakqi_shuttle_blast";
@@ -8008,7 +8034,8 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	frame_color = "#6e2c6e"
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, cockpit"
@@ -8031,7 +8058,8 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
 	spawn_grille = 1;
-	frame_color = "#6e2c6e"
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "tirakqi_shuttle_blast"
@@ -38769,9 +38797,9 @@ oL
 oL
 oL
 Tm
-IP
-IP
-IP
+jy
+jy
+jy
 oL
 oL
 sY
@@ -39539,9 +39567,9 @@ oL
 mu
 sT
 oL
-IP
-IP
-IP
+jy
+jy
+jy
 VH
 wH
 Tg
@@ -42630,7 +42658,7 @@ MU
 MU
 MU
 fe
-qt
+vK
 gI
 gF
 yW
@@ -42884,7 +42912,7 @@ Cx
 MU
 MU
 fe
-qt
+vK
 fe
 fe
 NQ
@@ -43909,9 +43937,9 @@ br
 br
 br
 TZ
-jy
-jy
-jy
+qt
+qt
+qt
 br
 br
 sY
