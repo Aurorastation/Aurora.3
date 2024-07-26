@@ -1,6 +1,0 @@
-author: Crosarius
-
-delete-after: True
-
-changes:
-  - bugfix: "Fixes the Hegemony Energy Rifle so you can't break the sprite by trying to change firemodes anymore."
