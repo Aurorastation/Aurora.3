@@ -619,7 +619,6 @@
 			to_chat(M, SPAN_WARNING("You hit the edge of the chute."))
 			return
 		M.forceMove(src)
-	flush()
 
 /obj/machinery/disposal/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(isitem(hitting_atom))
