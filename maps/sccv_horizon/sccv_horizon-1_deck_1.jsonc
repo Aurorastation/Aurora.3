@@ -4,6 +4,7 @@
 		"type": "SubmapExtractInsert",
 		"submap_size_x": 3,
 		"submap_size_y": 5,
+		"submap_size_z": 1,
 		"submaps_dmm": "submaps/ops_warehouse_small_storage.dmm", // separate folder for horizon submaps for easier organization
 		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage",
 		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/sccv_horizon/ops_warehouse_small_storage",

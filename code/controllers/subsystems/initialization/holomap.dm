@@ -21,6 +21,9 @@ SUBSYSTEM_DEF(holomap)
 	/// Same as `minimaps_base64`, but does not discriminate between walls and paths.
 	var/list/minimaps_scan_base64 = list()
 
+	/// List of all `/obj/effect/landmark/minimap_poi`.
+	var/list/obj/effect/landmark/minimap_poi/pois = list()
+
 /datum/controller/subsystem/holomap/Initialize()
 	generate_all_minimaps()
 	LOG_DEBUG("SSholomap: [minimaps.len] maps.")
@@ -96,6 +99,8 @@ SUBSYSTEM_DEF(holomap)
 	for (var/thing in Z_TURFS(zlevel))
 		T = thing
 		A = T.loc
+		if (A.area_flags & AREA_FLAG_HIDE_FROM_HOLOMAP)
+			continue
 		if (A.holomap_color)
 			canvas.DrawBox(A.holomap_color + "99", T.x, T.y)
 

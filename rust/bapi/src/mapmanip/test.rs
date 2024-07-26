@@ -1,4 +1,4 @@
-use dmmtools::dmm::{self, Coord2};
+use dmmtools::dmm::{self, Coord3};
 use itertools::Itertools;
 
 fn print_diff(left: &str, right: &str) {
@@ -57,8 +57,8 @@ fn extract() {
     let grid_map_src = crate::mapmanip::core::to_grid_map(&dict_map_src);
     let grid_map_xtr = crate::mapmanip::tools::extract_submap(
         &grid_map_src,
-        Coord2::new(4, 7),
-        Coord2::new(10, 5),
+        Coord3::new(4, 7, 1),
+        Coord3::new(10, 5, 1),
     )
     .unwrap();
     let grid_map_xtr_expected = crate::mapmanip::core::to_grid_map(&dict_map_xtr_expected);
@@ -88,7 +88,7 @@ fn insert() {
         crate::mapmanip::core::GridMap::from_file(&path_dst_expected).unwrap();
     let grid_map_xtr = crate::mapmanip::core::GridMap::from_file(&path_xtr).unwrap();
     let mut grid_map_dst = crate::mapmanip::core::GridMap::from_file(&path_dst).unwrap();
-    crate::mapmanip::tools::insert_submap(&grid_map_xtr, Coord2::new(6, 4), &mut grid_map_dst)
+    crate::mapmanip::tools::insert_submap(&grid_map_xtr, Coord3::new(6, 4, 1), &mut grid_map_dst)
         .unwrap();
 
     assert_eq!(
@@ -133,6 +133,7 @@ fn mapmanip_configs_parse() {
     let foo = vec![crate::mapmanip::MapManipulation::SubmapExtractInsert {
         submap_size_x: 1,
         submap_size_y: 2,
+        submap_size_z: 3,
         submaps_dmm: "a".to_owned(),
         marker_extract: "b".to_owned(),
         marker_insert: "c".to_owned(),

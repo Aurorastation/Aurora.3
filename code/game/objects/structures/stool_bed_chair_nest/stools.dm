@@ -226,7 +226,7 @@
 		if(istype(A, /obj/structure/bed))
 			to_chat(user, SPAN_DANGER("There is already a [A.name] here."))
 			return
-		if(A.density)
+		if(A.density && !istype(A, /obj/structure/railing))
 			to_chat(user, SPAN_DANGER("There is already something here."))
 			return
 

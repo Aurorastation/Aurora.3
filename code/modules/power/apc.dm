@@ -882,7 +882,7 @@
 	data["power_cell_charge"] = cell?.percent()
 	data["fail_time"] = failure_timer * 2
 	data["silicon_user"] = isAdmin || issilicon(user)
-	data["is_AI"] = isAI(user)
+	data["is_AI_or_robot"] = isAI(user) || isrobot(user)
 	data["total_load"] = round(lastused_total)
 	data["total_charging"] = round(lastused_charging)
 	data["is_operating"] = operating

@@ -184,3 +184,86 @@
       muffin.
   - spellcheck: Edited description of Nakarka cheese because the vaurcan accent was
       spelled incorrectly.
+2024-07-23:
+  DreamySkrell:
+  - rscadd: BAPI - mapmanip submap performance improvements.
+  - rscadd: BAPI - mapmanip script.
+  FluffyGhost:
+  - rscadd: Added the z-level manager system from TG, mostly.
+  SimpleMaroon:
+  - qol: Added Journalist access back to some of the doors on deck 2 Operations.
+2024-07-24:
+  ChangeMe:
+  - bugfix: Corrected missing sprite on Nakarka Ravioli.
+  FluffyGhost:
+  - rscadd: Borgs can now access the APCs channel configuration again, like the AI
+      already can.
+2024-07-25:
+  DreamySkrell:
+  - rscadd: BAPI - mapmanip multiz support.
+  - rscadd: Adds map PDA program POIs.
+  FluffyGhost:
+  - bugfix: Fixed the message server PDA messages logging.
+  - bugfix: Fixed the message monitoring console for the aforementioned use.
+  - bugfix: Fixed a runtime for AI distance check on trying to read papers.
+  - bugfix: Created a preset for the message server so it's autolinked on the horizon.
+  Nalarac:
+  - bugfix: Fixes the hegemony energy rifle being able to change firemodes and thus
+      turn invisible
+  hazelmouse:
+  - bugfix: Folding tables can no longer be telekinetically manipulated by crew.
+2024-07-26:
+  ASmallCuteCat:
+  - qol: 'Tweaked medical scanner output to improve ease of readability: presence
+      of an open incision is now indicated in all caps, complications are now listed
+      in orange if anything is abnormal, stage of sepsis is now shown in yellow, and
+      the amount of genetic damage and radiation present in the patient is now displayed
+      in orange and yellow, respectively.'
+  AlaunusLux:
+  - bugfix: Disallows installing both an airtank and a suit cooler into the same voidsuit.
+  Ben10083:
+  - balance: Temperature packs significantly buffed to cause a bigger change in body
+      temperature (Tajara can avoid overheating with just cold pack for example).
+  Crosarius:
+  - bugfix: Fixes the Hegemony Energy Rifle so you can't break the sprite by trying
+      to change firemodes anymore.
+  Evandorf:
+  - bugfix: Added an arterial check to the proc which determines which external organs
+      are damaged so that the handle_blood proc will correctly remove blood for external
+      organs with arterial bleeds with no damage.
+  - bugfix: Arterial severity which applies less than 1u of bloodloss is now accounted
+      for properly and is no longer rounded down to 0.
+  FluffyGhost:
+  - bugfix: Fixed a runtime where a nullcheck was not present, possibly slightly sped
+      up the proc too.
+  - bugfix: Fix AI holograms rotating when follow is not enabled.
+  - bugfix: Fixed traps runtiming and not working.
+  - refactor: Moved the span macros (and font size macros) in their own file.
+  - bugfix: The AI can now correctly choose between multiple shells to control.
+  RustingWithYou:
+  - rscadd: Adds a Nralakk Federation zippo lighter.
+  - rscadd: Adds the event service job.
+  - qol: Event jobs now have their own outfits.
+  SimpleMaroon:
+  - bugfix: Fixed the Skrell Federation passport, and the Diona Federation passport
+      by extension, allowing values above 10 for the Social Credit Score.
+  - bugfix: Fixed the Diona Federation passport not letting you select your Social
+      Credit Score.
+  - bugfix: Fixed the Diona Gla'orr accent having too light of a yellow coloration,
+      making it difficult to tell apart from the white from afar.
+  - bugfix: Fixed the k'ois roulade that can spawn in Vaurca lunchboxes from the loadout
+      containing no reagents.
+  Wowzewow (Wezzy):
+  - rscadd: Chairs can now be placed on tiles with railings.
+  hazelmouse:
+  - rscadd: Expands the pirate base offsite to every sector.
+  nauticall:
+  - qol: Sinks and reagent dispensers now have intent-based filling/emptying of containers
+      like beakers/buckets. Use help intent to fill a container in your hand from
+      a sink/tank/dispenser, any other intent to empty.
+  not-a-gonk:
+  - bugfix: Adds a missing cryogenics console to the Tret Indutrial Complex.
+  stev-the-third:
+  - bugfix: Makes the Skrell Bandana white, so it can be recoloured properly.
+  - bugfix: Fixes spelling errors on the Weishii robe, Qeblak mantle and Worker's
+      hat.
