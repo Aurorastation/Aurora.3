@@ -1334,6 +1334,20 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/docking1)
+"dUn" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
+/turf/simulated/floor,
+/area/ship/orion/docking2)
 "dXQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/sign/staff_only{
@@ -42198,8 +42212,8 @@ xRX
 mSt
 fzK
 maj
-maj
-bIY
+hmF
+dUn
 axO
 mSt
 xRX
