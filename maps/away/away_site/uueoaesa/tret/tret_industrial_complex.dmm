@@ -246,11 +246,11 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/atmos)
 "abm" = (
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
 /obj/machinery/cryopod{
 	dir = 4
+	},
+/obj/machinery/computer/cryopod{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
@@ -6801,6 +6801,9 @@
 	pixel_y = 1
 	},
 /obj/structure/table/steel,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
 "aVP" = (
