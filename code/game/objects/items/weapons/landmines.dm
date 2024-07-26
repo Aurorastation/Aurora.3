@@ -409,7 +409,7 @@
 		for(var/mob/living/person_in_range in get_hearers_in_LOS(world.view, src))
 			to_chat(person_in_range, SPAN_HIGHDANGER("[victim] does a sudden move, releasing the feet from the trigger..."))
 
-		explosion(loc, 2, 5, 7, world.view)
+		explosion(loc, 2, 3, 5, world.view)
 		qdel(src)
 
 /obj/item/landmine/standstill/deactivate(mob/user)
