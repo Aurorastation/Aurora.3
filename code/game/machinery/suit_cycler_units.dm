@@ -311,17 +311,17 @@
 
 /obj/machinery/suit_cycler/offship/skrell/kala
 	model_text = "Qukala"
-	suit = /obj/item/clothing/suit/space/void/skrell/kala
-	helmet = /obj/item/clothing/head/helmet/space/void/skrell/kala
+	suit = /obj/item/clothing/suit/space/void/kala
+	helmet = /obj/item/clothing/head/helmet/space/void/kala
 
 /obj/machinery/suit_cycler/offship/skrell/kala/engineering
-	suit = /obj/item/clothing/suit/space/void/skrell/kala/engineering
-	helmet = /obj/item/clothing/head/helmet/space/void/skrell/kala/engineering
+	suit = /obj/item/clothing/suit/space/void/kala/engineering
+	helmet = /obj/item/clothing/head/helmet/space/void/kala/engineering
 
 /obj/machinery/suit_cycler/offship/skrell/kala/med
-	suit = /obj/item/clothing/suit/space/void/skrell/kala/med
-	helmet = /obj/item/clothing/head/helmet/space/void/skrell/kala/med
+	suit = /obj/item/clothing/suit/space/void/kala/med
+	helmet = /obj/item/clothing/head/helmet/space/void/kala/med
 
 /obj/machinery/suit_cycler/offship/skrell/kala/leader
-	suit = /obj/item/clothing/suit/space/void/skrell/kala/leader
-	helmet = /obj/item/clothing/head/helmet/space/void/skrell/kala/leader
+	suit = /obj/item/clothing/suit/space/void/kala/leader
+	helmet = /obj/item/clothing/head/helmet/space/void/kala/leader
