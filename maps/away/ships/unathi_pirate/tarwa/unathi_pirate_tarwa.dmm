@@ -575,11 +575,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/oldhangar)
-"eS" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space)
 "eT" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -39569,7 +39564,7 @@ sP
 Ee
 Ee
 sP
-eS
+Ee
 Ee
 Ee
 Zj
