@@ -141,27 +141,6 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
 /area/ship/orion/docking1)
-"avE" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked"
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/access_button{
-	pixel_x = 28;
-	pixel_y = 12;
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
-	},
-/turf/simulated/floor,
-/area/space)
 "awG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -589,21 +568,6 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/orion/forehall)
-"bCI" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
-	},
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
-	},
-/turf/simulated/floor,
-/area/space)
 "bEt" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
@@ -1002,15 +966,6 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
-"cBc" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
-	},
-/turf/simulated/floor,
-/area/space)
 "cHm" = (
 /obj/structure/window/reinforced,
 /obj/item/holomenu{
@@ -1379,18 +1334,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/docking1)
-"dUn" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
-	},
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
-	},
-/turf/simulated/floor,
-/area/space)
 "dXQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/sign/staff_only{
@@ -3199,30 +3142,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
-"kKj" = (
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "orion_traveler_n_in"
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1380;
-	master_tag = "orion_traveler_n_port";
-	name = "interior access button";
-	pixel_x = -32
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
-	},
-/turf/simulated/floor,
-/area/space)
 "kLL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/power/apc/west{
@@ -3721,9 +3640,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/shop)
-"mBM" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/space)
 "mGO" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
@@ -4409,30 +4325,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/docking1)
-"onL" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, airlock"
-	},
-/obj/effect/shuttle_landmark/orion_express_shuttle/hangar{
-	base_area = /area/space
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	icon_state = "door_locked";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/access_button{
-	pixel_x = -28;
-	pixel_y = 12;
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
-	},
-/turf/simulated/floor,
-/area/space)
 "osS" = (
 /obj/structure/sign/flag/orion_express{
 	pixel_x = -32
@@ -5184,20 +5076,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
-"qTi" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4
-	},
-/obj/machinery/airlock_sensor{
-	pixel_x = -20;
-	dir = 4;
-	frequency = 2137
-	},
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
-	},
-/turf/simulated/floor,
-/area/space)
 "qUy" = (
 /turf/simulated/wall/shuttle/scc,
 /area/shuttle/orion_shuttle/storage)
@@ -6423,26 +6301,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
-"usn" = (
-/obj/machinery/door/airlock/external{
-	dir = 1;
-	frequency = 1380;
-	icon_state = "door_locked";
-	id_tag = "orion_traveler_n_in"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
-	},
-/turf/simulated/floor,
-/area/space)
 "utt" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -6478,23 +6336,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster1)
-"uyh" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4
-	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 4;
-	pixel_y = 6;
-	pixel_x = -20;
-	tag_interior_sensor = "orion_shuttle_interior";
-	id_tag = "orion_traveler_n_out";
-	frequency = 1380
-	},
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
-	},
-/turf/simulated/floor,
-/area/space)
 "uyk" = (
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
@@ -6580,13 +6421,6 @@
 	},
 /turf/simulated/floor,
 /area/ship/orion/cargo)
-"uLm" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden,
-/obj/effect/map_effect/marker/airlock/docking/orion_express_ship/shuttle{
-	req_one_access = list(201)
-	},
-/turf/simulated/floor,
-/area/space)
 "uLI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -54411,10 +54245,10 @@ xRX
 xRX
 xRX
 xRX
-mBM
-qTi
-uyh
-mBM
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -54668,10 +54502,10 @@ xRX
 xRX
 xRX
 xRX
-onL
-cBc
-uLm
-kKj
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -54925,10 +54759,10 @@ xRX
 xRX
 xRX
 xRX
-avE
-bCI
-dUn
-usn
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
@@ -55182,10 +55016,10 @@ xRX
 xRX
 xRX
 xRX
-mBM
-mBM
-mBM
-mBM
+xRX
+xRX
+xRX
+xRX
 xRX
 xRX
 xRX
