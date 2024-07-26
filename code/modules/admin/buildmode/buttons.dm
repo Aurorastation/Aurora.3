@@ -3,6 +3,7 @@
 	density = 1
 	anchored = 1
 	layer = HUD_BASE_LAYER
+	plane = HUD_PLANE
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	icon = 'icons/misc/buildmode.dmi'
 	var/datum/click_handler/build_mode/host

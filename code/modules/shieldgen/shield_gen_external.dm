@@ -33,8 +33,8 @@
 
 	if(multiz)
 		var/connected_levels = list()
-		var/turf/above = getzabove(src)
-		var/turf/below = getzbelow(src)
+		var/list/turf/above = getzabove(get_turf(src))
+		var/list/turf/below = getzbelow(get_turf(src))
 		if(above)
 			for(var/turf/z as anything in above)
 				connected_levels += z
