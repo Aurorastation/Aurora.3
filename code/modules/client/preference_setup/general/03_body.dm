@@ -333,15 +333,13 @@ var/global/list/valid_bloodtypes = list(
 		out += "<br><b>Eyes</b><br>"
 		out += "<a href='?src=\ref[src];eye_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_eyes, pref.g_eyes, pref.b_eyes))] <br>"
 
-	if(has_flag(mob_species, HAS_SKIN_COLOR) || has_flag(mob_species, HAS_SKIN_PRESET))
-		if(has_flag(mob_species, HAS_SKIN_PRESET))
-			out += "<br><b>Body Color Presets</b><br>"
-			out += "<a href='?src=\ref[src];skin_color=1'>Choose Preset</a><br>"
-		else
-			out += "<br><b>Body Color</b><br>"
-			out += "<a href='?src=\ref[src];skin_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_skin, pref.g_skin, pref.b_skin))] <br>"
+	if(has_flag(mob_species, HAS_SKIN_COLOR))
+		out += "<br><b>Body Color</b><br>"
+		out += "<a href='?src=\ref[src];skin_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_skin, pref.g_skin, pref.b_skin))] <br>"
 
-
+	if(has_flag(mob_species, HAS_SKIN_PRESET))
+		out += "<br><b>Body Color Presets</b><br>"
+		out += "<a href='?src=\ref[src];skin_preset=1'>Choose Preset</a><br>"
 
 	out += "<br><a href='?src=\ref[src];marking_style=1'>Body Markings +</a><br>"
 	for(var/M in pref.body_markings)
@@ -618,9 +616,7 @@ var/global/list/valid_bloodtypes = list(
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["skin_color"])
-		if(!has_flag(mob_species, HAS_SKIN_COLOR) && !has_flag(mob_species, HAS_SKIN_PRESET))
-			return TOPIC_NOACTION
-		if(has_flag(mob_species, HAS_SKIN_COLOR) && !has_flag(mob_species, HAS_SKIN_PRESET))
+		if(has_flag(mob_species, HAS_SKIN_COLOR))
 			var/new_skin = input(user, "Choose your character's skin colour.", "Character Preference", rgb(pref.r_skin, pref.g_skin, pref.b_skin)) as color|null
 			if(new_skin && has_flag(mob_species, HAS_SKIN_COLOR) && CanUseTopic(user))
 				pref.r_skin = GetRedPart(new_skin)
@@ -628,7 +624,8 @@ var/global/list/valid_bloodtypes = list(
 				pref.b_skin = GetBluePart(new_skin)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
-		else if(has_flag(mob_species, HAS_SKIN_PRESET))
+	else if(href_list["skin_preset"])
+		if(has_flag(mob_species, HAS_SKIN_PRESET))
 			var/new_preset = tgui_input_list(user, "Choose your character's body color preset.", "Character Preference", mob_species.character_color_presets, rgb(pref.r_skin, pref.g_skin, pref.b_skin))
 			new_preset = mob_species.character_color_presets[new_preset]
 			pref.r_skin = GetRedPart(new_preset)
