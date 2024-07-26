@@ -35,6 +35,8 @@
 
 	faction = "Moghes"
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 20)
+	resists_weather = TRUE
+	sample_data = list("Cellular biochemistry shows high metabolic capacity", "Tissue sample contains high muscle content", "Genetic biomarkers identified linked with aggressiveness", "Intracellular keratin synthesis present")
 	var/is_devouring = FALSE
 
 /mob/living/simple_animal/hostile/biglizard/AttackingTarget()
@@ -49,8 +51,9 @@
 	..()
 	anchored = TRUE
 
-/mob/living/simple_animal/hostile/biglizard/Life()
-	..()
+/mob/living/simple_animal/hostile/biglizard/Life(seconds_per_tick, times_fired)
+	if(!..())
+		return FALSE
 
 	//It's a predator, supposedly it shouldn't always alert his victims to be nearby
 	//(also saves some processing)
@@ -78,7 +81,9 @@
 			poor_soul_approaching.notify_message(message, 10 SECONDS, key = "biglizard-[REF(src)]")
 
 
-	adjustBruteLoss(-1)
+	adjustBruteLoss(-0.5 * seconds_per_tick)
+
+	return TRUE
 
 /mob/living/simple_animal/hostile/biglizard/verb/devour(mob/living/target as mob in oview())
 	set category = "Plains Tyrant"
@@ -137,7 +142,7 @@
 	icon = 'icons/mob/npc/moghes_48.dmi'
 	icon_state = "siro"
 	icon_living = "siro"
-	icon_dead = "siro_dead"
+	icon_dead = "siro-dead"
 	turns_per_move = 3
 
 	organ_names = list("head", "chest", "right upper wing", "right lower wing", "left upper wing", "left lower wing", "right leg", "left leg")
@@ -163,6 +168,8 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 	meat_amount = 10
 	faction = "Moghes"
+	resists_weather = TRUE
+	sample_data = list("Cellular structures adapted to provide strong resonance protection", "Genetic biomarkers identified linked with agressiveness")
 	var/shriek_time = 0
 
 /mob/living/simple_animal/hostile/shrieker/proc/shriek(turf/T, mob/living/M)

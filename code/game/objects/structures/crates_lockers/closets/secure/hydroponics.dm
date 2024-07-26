@@ -48,3 +48,4 @@
 	new /obj/item/watertank(src)
 	new /obj/item/storage/belt/hydro(src)
 	new /obj/item/clothing/gloves/botanic_leather(src)
+	new /obj/item/sampler(src)

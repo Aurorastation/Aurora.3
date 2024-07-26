@@ -10,14 +10,14 @@
 	anchored = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE | OBJ_FLAG_MOVES_UNSUPPORTED
 	explosion_resistance = 1
-	layer = BELOW_OBJ_LAYER
+	layer = BELOW_WINDOW_LAYER
 	var/health = 10
 	var/destroyed = 0
 
 /obj/structure/grille/over
 	name = "over-frame grille"
 	icon = 'icons/obj/smooth/window/grille_over.dmi'
-	layer = BELOW_OBJ_LAYER
+	layer = BELOW_WINDOW_LAYER
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/turf/simulated/wall,
@@ -72,9 +72,11 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/structure/grille/CollidedWith(atom/user)
-	if(ismob(user))
-		shock(user, 70)
+/obj/structure/grille/CollidedWith(atom/bumped_atom)
+	. = ..()
+
+	if(ismob(bumped_atom))
+		shock(bumped_atom, 70)
 
 /obj/structure/grille/attack_hand(mob/user as mob)
 
@@ -102,7 +104,7 @@
 
 /obj/structure/grille/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return 1
-	if(istype(mover) && mover.checkpass(PASSGRILLE))
+	if(istype(mover) && mover.pass_flags & PASSGRILLE)
 		return 1
 	else
 		if(istype(mover, /obj/item/projectile))

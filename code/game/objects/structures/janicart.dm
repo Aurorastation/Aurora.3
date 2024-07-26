@@ -358,7 +358,9 @@
 		has_items = 1
 
 //Shamelessly copied from wheelchair code
-/obj/structure/janitorialcart/relaymove(mob/user, direction)
+/obj/structure/janitorialcart/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user.stat || user.stunned || user.weakened || user.paralysis || user.lying || user.restrained())
 		if(user==pulling)
 			pulling = null
@@ -422,7 +424,7 @@
 
 /obj/structure/janitorialcart/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return 1
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return 1
 	if(istype(mover, /mob/living) && mover == pulling)
 		return 1

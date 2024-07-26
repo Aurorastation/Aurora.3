@@ -158,15 +158,16 @@ var/list/ai_verbs_default = list(
 	add_language(LANGUAGE_ROBOT, TRUE)
 	add_language(LANGUAGE_TCB, TRUE)
 	add_language(LANGUAGE_SOL_COMMON, TRUE)
+	add_language(LANGUAGE_TRADEBAND, TRUE)
+	add_language(LANGUAGE_EAL, TRUE)
+	add_language(LANGUAGE_DRONE, TRUE)
 	add_language(LANGUAGE_ELYRAN_STANDARD, FALSE)
 	add_language(LANGUAGE_UNATHI, FALSE)
 	add_language(LANGUAGE_SIIK_MAAS, FALSE)
 	add_language(LANGUAGE_SKRELLIAN, FALSE)
-	add_language(LANGUAGE_TRADEBAND, TRUE)
 	add_language(LANGUAGE_GUTTER, FALSE)
 	add_language(LANGUAGE_VAURCA, FALSE)
 	add_language(LANGUAGE_ROOTSONG, FALSE)
-	add_language(LANGUAGE_EAL, TRUE)
 	add_language(LANGUAGE_YA_SSA, FALSE)
 	add_language(LANGUAGE_DELVAHII, FALSE)
 
@@ -186,15 +187,15 @@ var/list/ai_verbs_default = list(
 
 	addtimer(CALLBACK(src, PROC_REF(create_powersupply)), 5)
 
-	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/mob/hud_med.dmi', src, "100")
-	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[LIFE_HUD] 		  = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[ID_HUD]          = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[WANTED_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
+	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/hud/hud_med.dmi', src, "100")
+	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[LIFE_HUD] 		  = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[ID_HUD]          = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[WANTED_HUD]      = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
 
 	ai_list += src
 
@@ -484,7 +485,7 @@ var/list/ai_verbs_default = list(
 		return
 	Centcomm_announce(input, usr)
 	to_chat(usr, SPAN_NOTICE("Message transmitted."))
-	log_say("[key_name(usr)] has made an AI [SSatlas.current_map.boss_short] announcement: [input]",ckey=key_name(usr))
+	log_say("[key_name(usr)] has made an AI [SSatlas.current_map.boss_short] announcement: [input]")
 	emergency_message_cooldown = 1
 	spawn(300)
 		emergency_message_cooldown = 0

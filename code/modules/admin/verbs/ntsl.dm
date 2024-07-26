@@ -4,7 +4,7 @@
 	if(!check_rights(R_DEBUG))	return
 
 	if(SSntsl2.connected)
-		log_admin("[key_name(src)] disabled NTSL",admin_key=key_name(src))
+		log_admin("[key_name(src)] disabled NTSL")
 		message_admins("[key_name_admin(src)] disabled NTSL", 1)
 
 		SSntsl2.disconnect()
@@ -19,7 +19,7 @@
 	if(!check_rights(R_DEBUG))	return
 
 	if(!SSntsl2.connected)
-		log_admin("[key_name(src)] enabled NTSL",admin_key=key_name(src))
+		log_admin("[key_name(src)] enabled NTSL")
 		message_admins("[key_name_admin(src)] enabled NTSL", 1)
 
 		SSntsl2.attempt_connect()

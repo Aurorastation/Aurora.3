@@ -107,7 +107,11 @@
 		return ..()
 
 /obj/structure/proc/can_climb(var/mob/living/user, post_climb_check=0)
-	if (!climbable || !can_touch(user) || (!post_climb_check && (user in climbers)))
+	if (!climbable)
+		to_chat(user, SPAN_WARNING("\The [src] cannot be climbed!"))
+		return FALSE
+
+	if (!can_touch(user) || (!post_climb_check && (user in climbers)))
 		return FALSE
 
 	if (!user.Adjacent(src))

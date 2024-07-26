@@ -168,12 +168,6 @@
 /area/ship/ranger_corvette/engine1)
 "aFp" = (
 /obj/machinery/computer/ship/sensors,
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	pixel_y = 21;
-	pixel_x = -4;
-	id_tag = "ranger_shuttle_dock";
-	name = "Ranger Shuttle docking port controller"
-	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "aHv" = (
@@ -302,7 +296,8 @@
 	name = "ranger_shuttle_dock2";
 	master_tag = "ranger_shuttle_dock2";
 	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/ranger_shuttle)
@@ -509,6 +504,15 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine1)
+"bLh" = (
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#5b5b5b";
+	frame_color = "#5b5b5b";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/ranger_shuttle)
 "bMK" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
@@ -571,9 +575,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/canteen)
 "cfi" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -660,8 +662,7 @@
 /area/ship/ranger_corvette/engine1)
 "cpO" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/machinery/button/remote/blast_door{
 	id = "coc_fore";
@@ -853,9 +854,7 @@
 /obj/effect/landmark/entry_point/south{
 	name = "fore, bridge"
 	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
+/turf/simulated/floor/plating,
 /area/shuttle/ranger_shuttle)
 "dwE" = (
 /turf/simulated/floor/plating,
@@ -1002,7 +1001,6 @@
 "epG" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1449,7 +1447,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/north{
-	req_access = null;
+	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
@@ -1703,7 +1701,8 @@
 	name = "ranger_shuttle_dock2";
 	master_tag = "ranger_shuttle_dock2";
 	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/ranger_shuttle)
@@ -1983,9 +1982,7 @@
 /area/ship/ranger_corvette/crew)
 "ian" = (
 /obj/structure/table/wood,
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
-	},
+/obj/effect/decal/cleanable/generic,
 /obj/item/trash/dipbowl,
 /turf/simulated/floor/carpet,
 /area/ship/ranger_corvette/foyer)
@@ -2104,7 +2101,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/north{
-	req_access = null;
+	req_access = null
 	},
 /obj/machinery/autolathe,
 /turf/simulated/floor/tiled/dark,
@@ -2472,7 +2469,8 @@
 	name = "ranger_shuttle_dock2";
 	master_tag = "ranger_shuttle_dock2";
 	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
@@ -3275,8 +3273,7 @@
 /area/ship/ranger_corvette/bridge)
 "nCd" = (
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1;
-	layer = 2.71
+	dir = 1
 	},
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
@@ -3338,16 +3335,17 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock2";
-	master_tag = "ranger_shuttle_dock2";
-	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null
-	},
 /obj/machinery/access_button{
 	pixel_x = 12;
 	pixel_y = -28;
 	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
@@ -3549,7 +3547,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -4192,12 +4189,10 @@
 "qSw" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/item/reagent_containers/food/drinks/bottle/whiskey{
-	layer = 3.1;
 	pixel_x = 2;
 	pixel_y = 17
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot{
-	layer = 3.2;
 	pixel_x = -5;
 	pixel_y = 11
 	},
@@ -4617,7 +4612,6 @@
 "sEf" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4711,11 +4705,8 @@
 /area/space)
 "sSQ" = (
 /obj/structure/coatrack,
-/obj/item/clothing/suit/storage/toggle/himeo{
-	layer = 4.2
-	},
+/obj/item/clothing/suit/storage/toggle/himeo,
 /obj/item/clothing/head/softcap/himeo{
-	layer = 4.21;
 	pixel_y = 12
 	},
 /obj/item/clothing/accessory/flagpatch/himeo,
@@ -5195,9 +5186,7 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/engine1)
 "tXd" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71
-	},
+/obj/effect/floor_decal/industrial/warning,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/button/remote/blast_door{
 	id = "coc_fore";
@@ -5311,7 +5300,6 @@
 	},
 /obj/item/bedsheet/black,
 /obj/item/clothing/head/bearpelt{
-	layer = 4;
 	name = "bear pelt blanket"
 	},
 /obj/machinery/light{
@@ -5536,7 +5524,8 @@
 	name = "ranger_shuttle_dock2";
 	master_tag = "ranger_shuttle_dock2";
 	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
@@ -5647,7 +5636,6 @@
 "vyy" = (
 /obj/structure/table/steel,
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/machinery/door/window/northleft{
@@ -5971,7 +5959,8 @@
 	name = "ranger_shuttle_dock2";
 	master_tag = "ranger_shuttle_dock2";
 	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
@@ -6100,7 +6089,6 @@
 "wSM" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/decal/cleanable/ash{
-	layer = 3;
 	pixel_y = 10
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -6242,7 +6230,6 @@
 /area/ship/ranger_corvette/munitions)
 "xuX" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -6291,12 +6278,6 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock2";
-	master_tag = "ranger_shuttle_dock2";
-	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null
-	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	dir = 2;
 	pixel_y = 28;
@@ -6309,6 +6290,13 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/ranger_shuttle)
@@ -6327,6 +6315,12 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/bag/inflatable{
 	pixel_y = 4
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	pixel_x = 24;
+	id_tag = "ranger_shuttle_dock";
+	name = "Ranger Shuttle docking port controller";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
@@ -40706,7 +40700,7 @@ gJZ
 xRX
 xRX
 xRX
-xRX
+kYm
 yau
 yau
 yau
@@ -40963,7 +40957,7 @@ gJZ
 xRX
 xRX
 xRX
-kYm
+yau
 yau
 nVM
 tbY
@@ -41220,7 +41214,7 @@ gJZ
 xRX
 xRX
 xRX
-yau
+bLh
 lvN
 nZU
 tcC
@@ -41734,7 +41728,7 @@ xRX
 xRX
 xRX
 xRX
-yau
+bLh
 aFp
 xCw
 xCw
@@ -41991,7 +41985,7 @@ xRX
 xRX
 xRX
 xRX
-oBx
+yau
 yau
 xHi
 jzV
@@ -42248,7 +42242,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+oBx
 yau
 yau
 yau

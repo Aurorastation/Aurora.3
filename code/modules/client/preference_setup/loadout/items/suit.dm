@@ -287,10 +287,13 @@
 	dominiacape["white dominian cape, volvalaad"] = /obj/item/clothing/accessory/poncho/dominia_cape/volvalaad/white
 	dominiacape["dominian cape, kazhkz"] = /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz
 	dominiacape["white dominian cape, kazhkz"] = /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz/white
+	dominiacape["dominian cape, han'san"] = /obj/item/clothing/accessory/poncho/dominia_cape/hansan
+	dominiacape["white dominian cape, han'san"] = /obj/item/clothing/accessory/poncho/dominia_cape/hansan/white
 	dominiacape["dominian cape, caladius"] = /obj/item/clothing/accessory/poncho/dominia_cape/caladius
 	dominiacape["white dominian cape, caladius"] = /obj/item/clothing/accessory/poncho/dominia_cape/caladius/white
 	dominiacape["dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao
 	dominiacape["white dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao/white
+	dominiacape["dominian cape, military"]	= /obj/item/clothing/accessory/poncho/dominia_cape/mantle
 	gear_tweaks += new /datum/gear_tweak/path(dominiacape)
 
 /datum/gear/suit/dominia_medical_cape
@@ -573,3 +576,9 @@
 	patterned_ponczo["brown patterned ponczo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo/brown
 	patterned_ponczo["blue patterned ponczo"] = /obj/item/clothing/suit/storage/hooded/wintercoat/patterned_ponczo/blue
 	gear_tweaks += new /datum/gear_tweak/path(patterned_ponczo)
+
+/datum/gear/suit/gentlecoat
+	display_name = "gentlemans coat"
+	description = "A heavy threaded tweed gray jacket. For a different sort of Gentleman."
+	path = /obj/item/clothing/suit/storage/toggle/wizrobe/gentlecoat
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

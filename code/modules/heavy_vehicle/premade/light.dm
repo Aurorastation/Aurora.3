@@ -4,7 +4,7 @@
 	icon_state = "odysseus"
 
 	e_head = /obj/item/mech_component/sensors/light
-	e_body = /obj/item/mech_component/chassis/light
+	e_body = /obj/item/mech_component/chassis/light/cell
 	e_arms = /obj/item/mech_component/manipulators/light
 	e_legs = /obj/item/mech_component/propulsion/light
 	e_color = COLOR_OFF_WHITE
@@ -78,6 +78,9 @@
 
 /obj/item/mech_component/chassis/light/nuclear
 	cell_type = /obj/item/cell/mecha/nuclear
+
+/obj/item/mech_component/chassis/light/cell
+	cell_type = /obj/item/cell/mecha
 
 /mob/living/heavy_vehicle/premade/light/legion
 	name = "legion support exosuit"

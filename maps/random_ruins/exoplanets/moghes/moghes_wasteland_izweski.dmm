@@ -151,6 +151,9 @@
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/head/unathi/deco/dark/blue,
 /obj/item/device/versebook/thakh,
+/obj/item/clothing/accessory/poncho/red,
+/obj/item/clothing/accessory/poncho/red,
+/obj/item/clothing/accessory/poncho,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -1064,6 +1067,7 @@
 /obj/item/device/versebook/skakh,
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/under/unathi/mogazali/green,
+/obj/item/clothing/accessory/poncho,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
@@ -1175,7 +1179,6 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /turf/simulated/floor/exoplanet/tiled/white{

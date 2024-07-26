@@ -8,6 +8,7 @@
 	desc = "A traditional Unathi garment."
 	icon_state = "roughspun_robe"
 	item_state = "roughspun_robe"
+	protects_against_weather = TRUE
 
 /obj/item/clothing/suit/unathi/robe/beige
 	color = "#DBC684"
@@ -57,6 +58,7 @@
 	flags_inv = HIDEJUMPSUIT|HIDETAIL
 	species_restricted = list(BODYTYPE_UNATHI)
 	contained_sprite = TRUE
+	protects_against_weather = TRUE
 
 /obj/item/clothing/suit/armor/unathi/ancient
 	name = "ancient bronze armor"

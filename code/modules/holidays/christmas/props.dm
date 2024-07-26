@@ -76,7 +76,9 @@
 	qdel(src)
 	return
 
-/obj/effect/spresent/relaymove(mob/user as mob)
+/obj/effect/spresent/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if (user.stat)
 		return
 	to_chat(user, SPAN_WARNING("You can't move."))

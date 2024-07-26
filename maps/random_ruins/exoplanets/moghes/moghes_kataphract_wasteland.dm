@@ -68,7 +68,9 @@
 	extra_languages = list(LANGUAGE_UNATHI, LANGUAGE_AZAZIBA)
 
 /obj/outfit/admin/kataphract/wasteland
+	glasses = /obj/item/clothing/glasses/safety/goggles/tactical/generic
 	l_ear = null
 
 /obj/outfit/admin/kataphract/knight/wasteland
+	glasses = /obj/item/clothing/glasses/safety/goggles/tactical/generic
 	l_ear = null

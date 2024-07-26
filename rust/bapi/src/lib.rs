@@ -3,10 +3,13 @@ mod mapmanip;
 
 use byondapi::prelude::*;
 use eyre::{Context, ContextCompat};
+use itertools::Itertools;
 
 /// Call stack trace dm method with message.
 pub(crate) fn dm_call_stack_trace(msg: String) {
     let msg = byondapi::value::ByondValue::try_from(msg).unwrap();
+    // this is really ugly, cause we want to get id/ref to a proc name string
+    // that is already allocated, and don't want to allocate a new string entirely
     byondapi::global_call::call_global_id(
         {
             static STRING_ID: std::sync::OnceLock<u32> = std::sync::OnceLock::new();
@@ -38,7 +41,7 @@ pub unsafe extern "C" fn read_dmm_file_ffi(
     match read_dmm_file(args.get(0).map(ByondValue::clone).unwrap_or_default()) {
         Ok(val) => val,
         Err(info) => {
-            crate::dm_call_stack_trace(format!("RUST BAPI ERROR \n {:#?}", info));
+            crate::dm_call_stack_trace(format!("RUST BAPI ERROR read_dmm_file_ffi() \n {info:#?}"));
             ByondValue::null()
         }
     }
@@ -63,8 +66,7 @@ fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
 
     // read file and parse with spacemandmm
     let mut dmm = dmmtools::dmm::Map::from_file(&path).wrap_err(format!(
-        "spacemandmm parsing error; dmm file path: {}; see error from spacemandmm below for more information",
-        path.display()
+        "spacemandmm parsing error; dmm file path: {path:?}; see error from spacemandmm below for more information"
     ))?;
 
     // do mapmanip if defined for this dmm
@@ -81,15 +83,55 @@ fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
             format!("config parse fail; path: {:?}", path_mapmanip_config),
         )?;
         // do actual map manipulation
-        dmm = crate::mapmanip::mapmanip(path_dir, dmm, &config).wrap_err("mapmanip fail")?;
+        dmm = crate::mapmanip::mapmanip(path_dir, dmm, &config)
+            .wrap_err(format!("mapmanip fail; dmm file path: {path:?}"))?;
     }
 
     // convert the map back to a string
     let dmm = crate::mapmanip::core::map_to_string(&dmm).wrap_err(format!(
-        "error in converting map back to string; dmm file path:dd {}",
-        path.display()
+        "error in converting map back to string; dmm file path: {path:?}"
     ))?;
 
     // and return it
     Ok(ByondValue::new_str(dmm)?)
+}
+
+/// To be used by the `tools/bapi/mapmanip.ps1` script.
+/// Not to be called from the game server, so bad error-handling is fine.
+/// This should run map manipulations on every `.dmm` map that has a `.jsonc` config file,
+/// and write it to a `.mapmanipout.dmm` file in the same location.
+#[no_mangle]
+pub unsafe extern "C" fn all_mapmanip_configs_execute_ffi() {
+    let mapmanip_configs = walkdir::WalkDir::new("../../maps")
+        .into_iter()
+        .map(|d| d.unwrap().path().to_owned())
+        .filter(|p| p.extension().is_some())
+        .filter(|p| p.extension().unwrap() == "jsonc")
+        .collect_vec();
+    assert_ne!(mapmanip_configs.len(), 0);
+
+    for config_path in mapmanip_configs {
+        let dmm_path = {
+            let mut p = config_path.clone();
+            p.set_extension("dmm");
+            p
+        };
+
+        let path_dir: &std::path::Path = dmm_path.parent().unwrap();
+
+        let mut dmm = dmmtools::dmm::Map::from_file(&dmm_path).unwrap();
+
+        let config = crate::mapmanip::mapmanip_config_parse(&config_path).unwrap();
+
+        dmm = crate::mapmanip::mapmanip(path_dir, dmm, &config).unwrap();
+
+        let dmm = crate::mapmanip::core::map_to_string(&dmm).unwrap();
+
+        let dmm_out_path = {
+            let mut p = dmm_path.clone();
+            p.set_extension("mapmanipout.dmm");
+            p
+        };
+        std::fs::write(dmm_out_path, dmm).unwrap();
+    }
 }

@@ -79,10 +79,10 @@
 	if (A)
 		consume(A)
 
-/obj/singularity/CollidedWith(atom/movable/AM)
+/obj/singularity/CollidedWith(atom/bumped_atom)
 	. = ..()
-	if (AM)
-		consume(AM)
+	if (bumped_atom)
+		consume(bumped_atom)
 
 /obj/singularity/process()
 	eat()
@@ -507,7 +507,8 @@
 	return FALSE
 
 /obj/singularity/proc/zMove(direction)
-	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
+	var/turf/T = get_turf(src)
+	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	if(destination)
 		forceMove(destination)
 

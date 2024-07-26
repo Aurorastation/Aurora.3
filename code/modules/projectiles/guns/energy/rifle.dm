@@ -251,10 +251,14 @@
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	max_shots = 15
-	can_switch_modes = FALSE
 	can_turret = TRUE
 	turret_is_lethal = TRUE
 	projectile_type = /obj/item/projectile/beam/midlaser/hegemony
+	can_switch_modes = FALSE
+	secondary_projectile_type = null
+	firemodes = list()
+	modifystate = null
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 4)
 	is_wieldable = TRUE
 	modifystate = "hegemonyrifle"
+	firemodes = list()

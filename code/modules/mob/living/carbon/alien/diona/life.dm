@@ -35,7 +35,7 @@
 	diona_handle_radiation(DS)
 
 
-/mob/living/carbon/alien/diona/Life()
+/mob/living/carbon/alien/diona/Life(seconds_per_tick, times_fired)
 	if(!detached && gestalt && (gestalt.life_tick % 5 == 0)) // Minimal processing while in stasis
 		updatehealth()
 		check_status_as_organ()
@@ -48,6 +48,6 @@
 	if(!gestalt)
 		if(stat != DEAD)
 			if(master_nymph && !client && master_nymph != src)
-				SSmove_manager.move_to(src, master_nymph, 1, movement_delay())
+				GLOB.move_manager.move_to(src, master_nymph, 1, movement_delay())
 			else
-				SSmove_manager.stop_looping(src)
+				GLOB.move_manager.stop_looping(src)

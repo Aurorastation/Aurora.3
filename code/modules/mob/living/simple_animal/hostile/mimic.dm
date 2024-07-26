@@ -38,6 +38,7 @@
 	move_to_delay = 8
 
 	tameable = FALSE
+	sample_data = null
 
 /mob/living/simple_animal/hostile/mimic/FindTarget()
 	. = ..()

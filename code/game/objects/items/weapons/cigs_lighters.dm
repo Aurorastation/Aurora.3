@@ -886,6 +886,21 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "sancolettezippo"
 	item_state = "sancolettezippo"
 
+/obj/item/flame/lighter/zippo/nralakk
+	name = "\improper Nralakk Federation Zippo lighter"
+	desc = "An advanced zippo lighter depicting the flag of the Nralakk Federation."
+	desc_extended = "A stylish lighter using Skrell hover technology. Burns with a purple flame. With the growth of the Federation's tobacco industry, these lighters are a commonplace convenience for many Skrell both within Nralakk space and abroad.These lighters are also often carried by wulumunusha smokers, and are a particularly common sight among adherents of the Weishii faith."
+	icon_state = "nralakkzippo"
+	item_state = "nralakkzippo"
+	flame_light_color = LIGHT_COLOR_PURPLE
+
+/obj/item/flame/lighter/zippo/nralakk/update_icon()
+	if(lit)
+		flick("[base_state]_turnon", src)
+	else
+		flick("[base_state]_turnoff", src)
+	return ..()
+
 /obj/item/flame/lighter/random/Initialize()
 	. = ..()
 	icon_state = "lighter-[pick("r","c","y","g")]"
@@ -984,8 +999,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	else
 		..()
 
-/obj/item/flame/lighter/throw_impact(mob/living/carbon/M as mob)
+/obj/item/flame/lighter/throw_impact(atom/hit_atom)
 	. = ..()
+	var/mob/living/carbon/M = hit_atom
 	if(istype(M) && lit && M.IgniteMob())
 		M.visible_message(SPAN_DANGER("\The [M] is ignited by \the [src]!"))
 

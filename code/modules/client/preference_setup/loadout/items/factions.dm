@@ -58,7 +58,7 @@
 	slot = slot_w_uniform
 	cost = 1
 	faction = "Idris Incorporated"
-	allowed_roles = list("Janitor")
+	allowed_roles = list("Janitor", "Service Personnel")
 
 /datum/gear/faction/idris_sunglasses
 	display_name = "idris security HUD selection"
@@ -252,6 +252,7 @@
 	zavodskoicape["zavodskoi dominia cape, strelitz"] = /obj/item/clothing/accessory/poncho/dominia_cape/strelitz/zavod
 	zavodskoicape["zavodskoi dominia cape, volvalaad"] = /obj/item/clothing/accessory/poncho/dominia_cape/volvalaad/zavod
 	zavodskoicape["zavodskoi dominia cape, kazhkz"] = /obj/item/clothing/accessory/poncho/dominia_cape/kazhkz/zavod
+	zavodskoicape["zavodskoi dominia cape, han'san"] = /obj/item/clothing/accessory/poncho/dominia_cape/hansan/zavod
 	zavodskoicape["zavodskoi dominia cape, caladius"] = /obj/item/clothing/accessory/poncho/dominia_cape/caladius/zavod
 	zavodskoicape["zavodskoi dominia cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao/zavod
 	gear_tweaks += new /datum/gear_tweak/path(zavodskoicape)
@@ -624,7 +625,7 @@
 	slot = slot_w_uniform
 	cost = 1
 	faction = "NanoTrasen"
-	allowed_roles = list("Janitor")
+	allowed_roles = list("Janitor", "Service Personnel")
 
 /datum/gear/faction/nt_headwear
 	display_name = "nanotrasen headwear selection"
