@@ -171,7 +171,7 @@
 		return null
 	if (self_recharge)
 		addtimer(CALLBACK(src, PROC_REF(try_recharge)), recharge_time * 2 SECONDS, TIMER_UNIQUE)
-	var/obj/item/projectile/beam/A = new projectile_type(src)
+	var/obj/projectile/beam/A = new projectile_type(src)
 	A.damage = capacitor.damage
 	var/damage_coeff = 1
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)

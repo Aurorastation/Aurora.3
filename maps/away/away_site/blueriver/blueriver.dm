@@ -8,7 +8,6 @@
 	prefix = "away_site/blueriver/"
 	suffixes = list("blueriver-1.dmm","blueriver-2.dmm")
 
-	generate_mining_by_z = 2
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
 	sectors_blacklist = list(ALL_SPECIFIC_SECTORS) //it's a whole ass planet, shouldn't have it in predefined sectors
 

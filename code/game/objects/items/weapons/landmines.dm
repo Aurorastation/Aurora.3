@@ -391,7 +391,7 @@
 		for(var/mob/living/person_in_range in get_hearers_in_LOS(world.view, src))
 			to_chat(person_in_range, SPAN_HIGHDANGER("[victim] does a sudden move, releasing the feet from the trigger..."))
 
-		explosion(loc, 2, 5, 7, world.view)
+		explosion(loc, 2, 3, 5, world.view)
 		qdel(src)
 
 /obj/item/landmine/standstill/deactivate(mob/user)
@@ -471,7 +471,7 @@
 	for(var/i = 0; i < SHOTS_TO_LAUNCH; i++)
 		var/turf/to_hit = pick(candidate_turfs)
 
-		var/obj/item/projectile/bullet/pellet/shotgun/pellet = new(get_turf(src))
+		var/obj/projectile/bullet/pellet/shotgun/pellet = new(get_turf(src))
 		pellet.fire(Get_Angle(get_turf(src), to_hit))
 
 	qdel(src)

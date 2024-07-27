@@ -1,8 +1,0 @@
-
-author: DreamySkrell
-
-delete-after: True
-
-changes:
-  - rscadd: "BAPI - mapmanip submap noop handling."
-  - rscadd: "BAPI - mapmanip submap repeat setting."

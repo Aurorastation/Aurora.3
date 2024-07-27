@@ -1,8 +1,8 @@
 /datum/map_template/ruin/exoplanet/moghes_wasteland_vihnmes
 	name = "Vihnmes Wasteland Inn"
 
-	id = "moghes_wasteland_ozeuoi"
-	description = "An outpost of the Clan Ozeuoi."
+	id = "moghes_wasteland_vihnmes"
+	description = "An inn of the Clan Vihnmes"
 
 	spawn_weight = 1
 	spawn_cost = 2

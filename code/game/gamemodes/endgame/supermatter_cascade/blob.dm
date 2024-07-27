@@ -35,8 +35,8 @@
 	var/pdir = pick(avail_dirs)
 	avail_dirs -= pdir
 	var/turf/T = get_step(src, pdir)
-	var/turf/A = GetAbove(T)
-	var/turf/B = GetBelow(T)
+	var/turf/A = GET_TURF_ABOVE(T)
+	var/turf/B = GET_TURF_BELOW(T)
 
 	// EXPAND
 	if(!istype(T,type))

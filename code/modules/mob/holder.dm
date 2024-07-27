@@ -99,8 +99,8 @@ var/list/holder_mob_icon_cache = list()
 
 //Similar to above function, but will not deposit things in any container, only directly on a turf.
 //Can be called safely anywhere. Notably on holders held or worn on a mob
-/obj/item/holder/proc/release_to_floor()
-	var/turf/T = get_turf(src)
+/obj/item/holder/proc/release_to_floor(var/turf/T)
+	T = get_turf(src)
 
 	for(var/mob/M in contents)
 		M.forceMove(T) //if the holder was placed into a disposal, this should place the animal in the disposal

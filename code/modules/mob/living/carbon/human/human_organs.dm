@@ -10,10 +10,13 @@
 
 /mob/living/carbon/human/proc/recheck_bad_external_organs()
 	var/damage_this_tick = getToxLoss()
+	var/arterial_check = 0
 	for(var/obj/item/organ/external/O in organs)
 		damage_this_tick += O.burn_dam + O.brute_dam
+		if(O.status & ORGAN_ARTERY_CUT)
+			arterial_check = 1
 
-	if(damage_this_tick > last_dam)
+	if(damage_this_tick > last_dam || arterial_check != 0)
 		. = TRUE
 	last_dam = damage_this_tick
 

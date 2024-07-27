@@ -148,6 +148,20 @@
 				dat += "<br><hr><dd><span class='warning'>Reg, #514 forbids sending messages to a Head of Staff containing Erotic Rendering Properties.</span>"
 
 		//Message Logs
+		if(1)
+			if(src.linkedServer?.stat & (NOPOWER|BROKEN))
+				dat += "<br><hr><dd><span class='notice'>Server is currently not accepting connections, or is down.</span>"
+			else
+				var/index = 3000
+				dat += "<br><hr><dd>" + SPAN_ALERT("Only the last [index] messages are stored!") + "</span>"
+
+				dat += "<center><A href='?src=\ref[src];back=1'>Back</a> - <A href='?src=\ref[src];refresh=1'>Refresh</center><hr></a>"
+
+				for(var/datum/data_pda_msg/message in src.linkedServer.pda_msgs)
+					if(index-- <= 0)
+						break
+					dat += "<br><hr><dd><span class='notice'>[message.sender] --> [message.recipient]:</span> [message.message]"
+
 		//Hacking screen.
 		if(2)
 			if(istype(user, /mob/living/silicon/ai) || istype(user, /mob/living/silicon/robot))

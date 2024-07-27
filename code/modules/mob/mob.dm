@@ -1492,12 +1492,12 @@
 	if(!T.is_outside())
 
 		// For non-multiz we'll give everyone some nice ambience.
-		if(!HasAbove(T.z))
+		if(!GET_TURF_ABOVE(T))
 			return WEATHER_ROOFED
 
 		// For multi-z, check the actual weather on the turf above.
 		// TODO: maybe make this a property of the z-level marker.
-		var/turf/above = GetAbove(T)
+		var/turf/above = GET_TURF_ABOVE(T)
 		if(above.weather)
 			return WEATHER_ROOFED
 

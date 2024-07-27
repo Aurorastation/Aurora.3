@@ -18,6 +18,10 @@
 	access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
 	alt_titles = list("Freelance Journalist")
+	alt_factions = list(
+		"Corporate Reporter" = list("NanoTrasen", "Idris Incorporated", "Hephaestus Industries", "Orion Express", "Zavodskoi Interstellar", "Zeng-Hu Pharmaceuticals", "Private Military Contracting Group", "Stellar Corporate Conglomerate"),
+		"Freelance Journalist" = list("Independent")
+	)
 	alt_outfits = list("Freelance Journalist" = /obj/outfit/job/journalistf)
 	title_accesses = list("Corporate Reporter" = list(ACCESS_MEDICAL, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_ENGINE))
 	outfit = /obj/outfit/job/journalist

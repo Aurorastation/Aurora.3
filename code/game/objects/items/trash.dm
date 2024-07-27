@@ -302,7 +302,7 @@
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/trash/bluemoon
-	name = "empty blue moon"
+	name = "empty dessert glass"
 	icon_state = "bluemoon"
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
@@ -404,5 +404,12 @@
 	name = "small bowl"
 	desc = "A side dish used to live here, but then it moved out."
 	icon_state = "small_bowl"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/trash/bowl_brown
+	name = "terracotta bowl"
+	desc = "A brown bowl made of clay. Good for, uh, bowl... ing."
+	icon_state = "bowl_brown"
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'

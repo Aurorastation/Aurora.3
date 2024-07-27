@@ -298,7 +298,7 @@
 /mob/living/simple_animal/hostile/cybernetic_schlorrgo/Initialize()
 	. = ..()
 	if(prob(25))
-		projectiletype = /obj/item/projectile/beam/pistol
+		projectiletype = /obj/projectile/beam/pistol
 		projectilesound = 'sound/weapons/laser1.ogg'
 		rapid = FALSE
 		ranged = TRUE

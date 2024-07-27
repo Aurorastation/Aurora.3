@@ -14,17 +14,21 @@
 
 	/// Status traits attached to this datum. associative list of the form: list(trait name (string) = list(source1, source2, source3,...))
 	var/list/status_traits
-	/// Components attached to this datum
-	/// Lazy associated list in the structure of `type:component/list of components`
-	var/list/datum_components
-	/// Any datum registered to receive signals from this datum is in this list
-	/// Lazy associated list in the structure of `signal:registree/list of registrees`
-	var/list/comp_lookup
-	/// Lazy associated list in the structure of `signals:proctype` that are run when the datum receives that signal
-	var/list/list/datum/callback/signal_procs
-	/// Is this datum capable of sending signals?
-	/// Set to true when a signal has been registered
-	var/signal_enabled = FALSE
+
+	/**
+	 * Components attached to this datum
+	 *
+	 * Lazy associated list in the structure of `type -> component/list of components`
+	 */
+	var/list/_datum_components
+	/**
+	 * Any datum registered to receive signals from this datum is in this list
+	 *
+	 * Lazy associated list in the structure of `signal -> registree/list of registrees`
+	 */
+	var/list/_listen_lookup
+	/// Lazy associated list in the structure of `target -> list(signal -> proctype)` that are run when the datum receives that signal
+	var/list/list/_signal_procs
 
 	/// Datum level flags
 	var/datum_flags = NONE
@@ -98,41 +102,41 @@
 	if(LAZYISIN(SSnanoui.open_uis, ui_key))
 		SSnanoui.close_uis(src)
 
-
-	// Handle components & signals
-	signal_enabled = FALSE
-
 	//BEGIN: ECS SHIT
-	var/list/dc = datum_components
+	var/list/dc = _datum_components
 	if(dc)
-		var/all_components = dc[/datum/component]
-		if(length(all_components))
-			for(var/I in all_components)
-				var/datum/component/C = I
-				qdel(C, FALSE, TRUE)
-		else
-			var/datum/component/C = all_components
-			qdel(C, FALSE, TRUE)
+		for(var/component_key in dc)
+			var/component_or_list = dc[component_key]
+			if(islist(component_or_list))
+				for(var/datum/component/component as anything in component_or_list)
+					qdel(component, FALSE)
+			else
+				var/datum/component/C = component_or_list
+				qdel(C, FALSE)
 		dc.Cut()
 
-	var/list/lookup = comp_lookup
+	_clear_signal_refs()
+	//END: ECS SHIT
+
+	return QDEL_HINT_QUEUE
+
+///Only override this if you know what you're doing. You do not know what you're doing
+///This is a threat
+/datum/proc/_clear_signal_refs()
+	var/list/lookup = _listen_lookup
 	if(lookup)
 		for(var/sig in lookup)
 			var/list/comps = lookup[sig]
 			if(length(comps))
-				for(var/i in comps)
-					var/datum/component/comp = i
+				for(var/datum/component/comp as anything in comps)
 					comp.UnregisterSignal(src, sig)
 			else
 				var/datum/component/comp = comps
 				comp.UnregisterSignal(src, sig)
-		comp_lookup = lookup = null
+		_listen_lookup = lookup = null
 
-	for(var/target in signal_procs)
-		UnregisterSignal(target, signal_procs[target])
-	//END: ECS SHIT
-
-	return QDEL_HINT_QUEUE
+	for(var/target in _signal_procs)
+		UnregisterSignal(target, _signal_procs[target])
 
 /datum/proc/can_vv_get(var_name)
 	return TRUE

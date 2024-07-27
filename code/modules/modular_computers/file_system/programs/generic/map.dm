@@ -45,6 +45,16 @@
 		list("d"="Hangar", "c"=HOLOMAP_AREACOLOR_HANGAR),
 	)
 
+	data["pois"] = list()
+	for(var/obj/effect/landmark/minimap_poi/poi as anything in SSholomap.pois)
+		data["pois"] += list(list(
+			"name" = poi.name,
+			"desc" = poi.desc,
+			"x" = poi.x,
+			"y" = poi.y,
+			"z" = poi.z,
+		))
+
 	return data
 
 /datum/computer_file/program/map/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
