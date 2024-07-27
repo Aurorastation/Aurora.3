@@ -422,7 +422,7 @@
 
 /obj/item/gun/energy/vaurca/thermaldrill/special_check(var/mob/user)
 	var/turf/current_turf = get_turf(user)
-	if(isStationLevel(current_turf.z))
+	if(is_station_level(current_turf.z))
 		to_chat(user, SPAN_DANGER("\The [src] cannot be used on the ship!"))
 		return FALSE
 	if(is_charging)

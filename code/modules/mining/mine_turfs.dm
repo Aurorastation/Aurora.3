@@ -71,7 +71,7 @@ var/list/mineral_can_smooth_with = list(
 	if(icon != actual_icon)
 		icon = actual_icon
 
-	if(isStationLevel(z))
+	if(is_station_level(z))
 		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
@@ -187,7 +187,7 @@ var/list/mineral_can_smooth_with = list(
 	if(icon != actual_icon)
 		icon = actual_icon
 
-	if(isStationLevel(z))
+	if(is_station_level(z))
 		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
@@ -729,7 +729,7 @@ var/list/asteroid_floor_smooth = list(
 	base_desc = desc
 	base_name = name
 
-	if(isStationLevel(z))
+	if(is_station_level(z))
 		GLOB.station_turfs += src
 
 	if(dynamic_lighting)

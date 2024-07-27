@@ -9,7 +9,7 @@
 	sectors = list(SECTOR_HANEUNIM)
 
 	prefix = "konyang/"
-	suffixes = list("pirate_outpost.dmm")
+	suffix = "pirate_outpost.dmm"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/konyang_pirate)
 
 	unit_test_groups = list(3)

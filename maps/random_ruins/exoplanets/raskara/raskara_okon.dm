@@ -7,7 +7,7 @@
 	sectors = list(SECTOR_SRANDMARR)
 
 	prefix = "raskara/"
-	suffixes = list("raskara_okon.dmm")
+	suffix = "raskara_okon.dmm"
 
 	unit_test_groups = list(1)
 
