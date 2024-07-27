@@ -462,6 +462,17 @@
 
 	gear_tweaks += new /datum/gear_tweak/path(dress_colorable)
 
+/datum/gear/uniform/miscellaneous/abaya_colorable
+	display_name = "abayas (colorable)"
+	path = /obj/item/clothing/under/abaya/colorable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/uniform/miscellaneous/abaya_colorable/New()
+	..()
+	var/list/dress_colorable = list()
+	dress_colorable["simple abaya"] = /obj/item/clothing/under/abaya/colorable
+	dress_colorable["abaya with shawl"] = /obj/item/clothing/under/abaya/colorable/shawl
+	dress_colorable["long-sleeved abaya"] = /obj/item/clothing/under/abaya/colorable/longsleeve
 /*
 	Uniform Rolled State Adjustment
 */
