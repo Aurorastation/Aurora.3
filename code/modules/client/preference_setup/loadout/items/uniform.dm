@@ -470,9 +470,9 @@
 /datum/gear/uniform/miscellaneous/abaya_colorable/New()
 	..()
 	var/list/abaya_colorable = list()
-	dress_colorable["simple abaya"] = /obj/item/clothing/under/abayas/colorable
-	dress_colorable["abaya with shawl"] = /obj/item/clothing/under/abayas/colorable/shawl
-	dress_colorable["long-sleeved abaya"] = /obj/item/clothing/under/abayas/colorable/longsleeve
+	abaya_colorable["simple abaya"] = /obj/item/clothing/under/abayas/colorable
+	abaya_colorable["abaya with shawl"] = /obj/item/clothing/under/abayas/colorable/shawl
+	abaya_colorable["long-sleeved abaya"] = /obj/item/clothing/under/abayas/colorable/longsleeve
 /*
 	Uniform Rolled State Adjustment
 */
