@@ -27,7 +27,7 @@
 /datum/uplink_item/item/hardsuit_modules/egun
 	name = "Mounted Energy Gun"
 	telecrystal_cost = 6
-	path = /obj/item/rig_module/mounted/egun
+	path = /obj/item/rig_module/mounted/energy/egun
 
 /datum/uplink_item/item/hardsuit_modules/power_sink
 	name = "Power Sink"

@@ -419,6 +419,13 @@
 	name = "practice"
 	damage = 5
 
+//4mm. Tiny, very low damage, does not embed, but has very high penetration. Only to be used for the experimental SMG.
+/obj/item/projectile/bullet/proto_smg
+	damage = 15
+	penetrating = 1
+	armor_penetration = 35
+	embed = FALSE
+
 /obj/item/projectile/bullet/pistol/cap
 	name = "cap"
 	damage_type = DAMAGE_PAIN
