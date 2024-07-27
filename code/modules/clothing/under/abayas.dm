@@ -11,8 +11,8 @@
 	name = "abaya with shawl"
 	icon_state = "abaya_shawl"
 	item_state = "abaya_shawl"
-    build_from_parts = TRUE
-    worn_overlay = "over"
+	build_from_parts = TRUE
+	worn_overlay = "over"
 
 /obj/item/clothing/under/abayas/colorable/longsleeve
 	name = "long-sleeved abaya"
