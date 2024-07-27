@@ -444,16 +444,9 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/hiskyn_ship/cic)
 "abj" = (
-/obj/machinery/body_scanconsole{
-	dir = 1;
-	pixel_y = 6
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/machinery/bodyscanner,
+/turf/simulated/floor/tiled/dark/full,
 /area/hiskyn_ship/medbay)
 "abk" = (
 /turf/simulated/floor/tiled/dark,
@@ -501,22 +494,27 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/bridge)
 "abo" = (
-/obj/machinery/door/airlock/medical{
-	name = "Medical Bay";
-	dir = 4;
-	req_access = list(210)
+/obj/structure/closet/walllocker/medical/secure{
+	name = "Stabilization Kit";
+	req_access = null;
+	pixel_y = 32
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/item/auto_cpr{
+	pixel_y = 0
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/item/reagent_containers/hypospray/autoinjector/survival,
+/obj/item/reagent_containers/hypospray/autoinjector/survival,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/storage/firstaid/combat,
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 5
 	},
-/obj/effect/floor_decal/industrial/hatch/grey,
-/obj/effect/floor_decal/industrial/hatch/grey,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
 "abp" = (
 /obj/machinery/light{
@@ -707,42 +705,21 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallc)
 "acc" = (
-/obj/item/storage/box/gloves,
-/obj/item/storage/box/gloves,
-/obj/item/storage/box/masks{
-	pixel_x = 4;
-	pixel_y = 4
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	color = "#c24f4f";
+	frame_color = "#c24f4f"
 	},
-/obj/item/storage/box/masks{
-	pixel_x = 4;
-	pixel_y = 4
+/obj/effect/landmark/entry_point/port{
+	name = "port, captain's quarters"
 	},
-/obj/item/reagent_containers/spray/cleaner{
-	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
-	icon_state = "sterilesprayblue";
-	name = "surgery cleaner";
-	pixel_y = -7;
-	pixel_x = 10
+/obj/machinery/door/blast/regular/open{
+	id = "hiskyn_crew";
+	dir = 2;
+	name = "blast door";
+	master_tag = "hiskyn_window_shields"
 	},
-/obj/item/reagent_containers/blood/OMinus{
-	pixel_x = -7
-	},
-/obj/item/reagent_containers/blood/OMinus{
-	pixel_x = -7
-	},
-/obj/structure/closet/walllocker/medical/secure{
-	name = "Theatre Locker";
-	pixel_x = 32;
-	req_access = null
-	},
-/obj/structure/sink{
-	pixel_y = 28
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/hiskyn_ship/medbay)
+/turf/simulated/floor/plating,
+/area/hiskyn_ship/captain)
 "acd" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc/high/south{
@@ -752,10 +729,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/armory)
 "ace" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/structure/closet/walllocker/medical/secure{
+	name = "O- Blood Locker";
+	req_access = null;
+	pixel_y = 32
+	},
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
@@ -817,15 +804,12 @@
 /turf/template_noop,
 /area/space)
 "ack" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/machinery/sleeper,
+/obj/machinery/light{
+	dir = 1
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark/full,
 /area/hiskyn_ship/medbay)
 "acl" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
@@ -938,12 +922,14 @@
 /turf/space/transit/north,
 /area/space)
 "aeg" = (
-/obj/structure/sign/flag/hiskyn{
-	stand_icon = "banner";
-	pixel_y = 32
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 4
 	},
-/obj/structure/flora/pottedplant/tall,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/carpet{
+	dir = 6
+	},
+/turf/simulated/floor/carpet/red,
 /area/hiskyn_ship/captain)
 "aej" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -1005,9 +991,6 @@
 "afP" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
-	},
-/obj/machinery/power/apc/high/west{
-	req_access = list(210)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/crew)
@@ -1077,10 +1060,14 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/engineering)
 "ahg" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#90C1DB"
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
 	},
-/area/hiskyn_ship/medbay)
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/hiskyn_ship/captain)
 "ahn" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
 	color = "#c24f4f"
@@ -1360,7 +1347,15 @@
 /turf/simulated/floor/airless,
 /area/hiskyn_ship/hallc)
 "arW" = (
-/obj/structure/bed/roller,
+/obj/machinery/iv_drip,
+/obj/machinery/light,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/tank/oxygen,
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
 "asp" = (
@@ -1388,7 +1383,8 @@
 /area/hiskyn_ship/hallc)
 "atc" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	color = "#c24f4f"
+	color = "#c24f4f";
+	frame_color = "#c24f4f"
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -1519,21 +1515,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallf)
 "aAg" = (
-/obj/structure/table/glass,
-/obj/item/roller{
-	pixel_y = 3
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 10
 	},
-/obj/item/storage/firstaid/toxin,
-/obj/item/bodybag/cryobag,
-/obj/item/reagent_containers/hypospray,
-/obj/item/storage/pill_bottle/dylovene,
-/obj/item/storage/belt/medical/paramedic,
-/obj/item/auto_cpr{
-	pixel_x = 6;
-	pixel_y = -1
-	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/light,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
 "aAw" = (
@@ -1587,6 +1572,19 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/medbay)
 "aBG" = (
@@ -1609,7 +1607,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/bridge)
 "aCd" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	color = "#c24f4f";
+	frame_color = "#c24f4f"
+	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, crew quarters"
 	},
@@ -1628,28 +1629,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallc)
 "aCt" = (
-/obj/structure/closet/walllocker/medical/secure{
-	name = "O- Blood Locker";
-	req_access = null;
-	pixel_y = 32
-	},
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/turf/simulated/floor/tiled/white,
-/area/hiskyn_ship/medbay)
+/turf/simulated/wall/shuttle/dark/cardinal/red,
+/area/hiskyn_ship/crew)
 "aCE" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/alarm/west{
+	req_one_access = list(210)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/captain)
@@ -1778,19 +1762,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/crew)
 "aFj" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	color = "#c24f4f"
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
 	},
-/obj/effect/landmark/entry_point/port{
-	name = "port, captain's quarters"
-	},
-/obj/machinery/door/blast/regular/open{
-	id = "hiskyn_crew";
-	dir = 2;
-	name = "blast door";
-	master_tag = "hiskyn_window_shields"
-	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/wood,
 /area/hiskyn_ship/captain)
 "aFD" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -2030,10 +2005,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/cargobay)
 "aNF" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#4c4324"
+/obj/effect/floor_decal/carpet,
+/obj/structure/table/reinforced/wood,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine{
+	pixel_y = 5
 	},
-/area/hiskyn_ship/bathroom)
+/turf/simulated/floor/carpet/red,
+/area/hiskyn_ship/captain)
 "aNI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2218,7 +2196,40 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/engineering)
 "aSl" = (
-/obj/machinery/optable,
+/obj/structure/table/standard,
+/obj/structure/closet/walllocker/medical/secure{
+	name = "Theatre Locker";
+	pixel_x = 32;
+	req_access = null
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/obj/item/storage/box/masks{
+	pixel_y = 2;
+	pixel_x = 3
+	},
+/obj/item/storage/firstaid/surgery{
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
+	icon_state = "sterilesprayblue";
+	name = "surgery cleaner";
+	pixel_y = -1;
+	pixel_x = 7
+	},
+/obj/structure/sink{
+	pixel_y = 26;
+	dir = 2
+	},
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
 "aSr" = (
@@ -2401,40 +2412,26 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallc)
 "aXh" = (
-/obj/structure/table/standard,
-/obj/item/storage/firstaid/surgery,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/optable,
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
 "aYq" = (
 /obj/structure/table/glass,
-/obj/item/storage/firstaid/adv{
-	pixel_x = -3;
-	pixel_y = 4
+/obj/item/roller{
+	pixel_y = 3
 	},
-/obj/item/storage/firstaid/fire{
-	pixel_x = 3;
-	pixel_y = 4
+/obj/item/reagent_containers/hypospray,
+/obj/item/storage/belt/medical/paramedic,
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 10
 	},
-/obj/item/storage/firstaid/regular{
-	pixel_x = -4
-	},
-/obj/item/storage/firstaid/o2{
-	pixel_x = 6;
-	pixel_y = -4
-	},
-/obj/item/reagent_containers/hypospray/autoinjector/survival{
-	pixel_y = 5;
-	pixel_x = 18
-	},
-/obj/item/reagent_containers/hypospray/autoinjector/survival{
-	pixel_y = 5;
-	pixel_x = 18
-	},
-/obj/item/reagent_containers/hypospray/autoinjector/survival{
-	pixel_y = 5;
-	pixel_x = 18
-	},
-/obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
 "aYO" = (
@@ -2454,12 +2451,8 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallc)
 "aYP" = (
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc/high/north{
-	req_access = list(210)
+/obj/item/fossil/skull/horned{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/captain)
@@ -2472,6 +2465,22 @@
 "beV" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/hiskyn_ship/cargobay)
+"bml" = (
+/obj/machinery/body_scanconsole{
+	dir = 1;
+	pixel_y = 6
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/hiskyn_ship/medbay)
 "bqp" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/effect/landmark/entry_point/aft{
@@ -2619,14 +2628,10 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallf)
 "ckZ" = (
-/obj/structure/bed/padded,
-/obj/item/bedsheet/black,
-/obj/structure/curtain/open/bed,
-/obj/effect/ghostspawpoint{
-	name = "igs - hiskyn_captain";
-	identifier = "hiskyn_captain"
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
 	},
-/turf/simulated/floor/carpet/brown,
+/turf/simulated/floor/wood,
 /area/hiskyn_ship/captain)
 "clv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -2649,7 +2654,8 @@
 /area/shuttle/hiskyn_revanchists)
 "cta" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	color = "#c24f4f"
+	color = "#c24f4f";
+	frame_color = "#c24f4f"
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, francisca"
@@ -2791,6 +2797,9 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallc)
 "dek" = (
@@ -2818,7 +2827,8 @@
 /area/shuttle/hiskyn_revanchists)
 "dkw" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	color = "#c24f4f"
+	color = "#c24f4f";
+	frame_color = "#c24f4f"
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "hiskyn_francisca";
@@ -2840,6 +2850,13 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrustp)
+"dyy" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/structure/undies_wardrobe,
+/turf/simulated/floor/wood,
+/area/hiskyn_ship/captain)
 "dyD" = (
 /obj/structure/table/steel,
 /obj/item/deck/cards{
@@ -3043,9 +3060,10 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrusts)
 "fmj" = (
-/obj/structure/table/wood,
-/obj/item/device/flashlight/lamp/green,
-/turf/simulated/floor/carpet/brown,
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
 /area/hiskyn_ship/captain)
 "fmN" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -3089,7 +3107,8 @@
 /area/hiskyn_ship/hallc)
 "fsf" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	color = "#c24f4f"
+	color = "#c24f4f";
+	frame_color = "#c24f4f"
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "hiskyn_francisca";
@@ -3167,8 +3186,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/engineering)
 "fBY" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
@@ -3177,15 +3201,18 @@
 /turf/simulated/floor/lino,
 /area/hiskyn_ship/crew)
 "fHO" = (
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
+/obj/effect/floor_decal/carpet{
+	dir = 8
 	},
-/obj/machinery/power/apc/high/north{
-	req_access = list(210)
+/obj/effect/floor_decal/carpet,
+/obj/effect/floor_decal/carpet{
+	dir = 10
 	},
-/turf/simulated/floor/tiled/white,
-/area/hiskyn_ship/medbay)
+/obj/structure/bed/stool/chair{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/red,
+/area/hiskyn_ship/captain)
 "fHR" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -3391,12 +3418,18 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/crew)
 "gQX" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, medical bay"
+/obj/machinery/iv_drip,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/tank/oxygen,
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 10
 	},
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#90C1DB"
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
 "gRC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -3424,11 +3457,8 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/structure/table/wood,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine{
-	pixel_y = 5
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/table/reinforced/wood,
+/turf/simulated/floor/carpet/red,
 /area/hiskyn_ship/captain)
 "gXv" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -3580,10 +3610,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/structure/table/wood,
+/obj/structure/table/reinforced/wood,
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/red,
 /area/hiskyn_ship/captain)
 "hvG" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -3896,7 +3929,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/armory)
 "jfm" = (
-/turf/simulated/floor/carpet/brown,
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/captain)
 "jkb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3941,6 +3983,15 @@
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/template_noop,
 /area/space)
+"jwZ" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/hiskyn_ship/medbay)
 "jFM" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3957,7 +4008,15 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallc)
 "jIO" = (
-/obj/machinery/light,
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
 "jNu" = (
@@ -4045,14 +4104,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/structure/bed/stool/chair/office/bridge/generic{
-	dir = 8
+/obj/effect/floor_decal/carpet{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 5
+	},
+/turf/simulated/floor/carpet/red,
 /area/hiskyn_ship/captain)
 "kme" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	color = "#ac8b78"
+	color = "#ac8b78";
+	frame_color = "#ac8b78"
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "hiskyn_shuttle";
@@ -4126,7 +4192,8 @@
 /area/hiskyn_ship/trophy)
 "kHO" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	color = "#c24f4f"
+	color = "#c24f4f";
+	frame_color = "#c24f4f"
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, francisca"
@@ -4189,7 +4256,10 @@
 /obj/structure/bed/stool/chair{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/red,
 /area/hiskyn_ship/captain)
 "lbu" = (
 /obj/machinery/light{
@@ -4264,11 +4334,19 @@
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/trophy)
 "llm" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
+/obj/machinery/power/apc/high/north{
+	req_access = list(210)
 	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
 "lmA" = (
@@ -4396,7 +4474,8 @@
 /area/shuttle/hiskyn_revanchists)
 "lPx" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	color = "#c24f4f"
+	color = "#c24f4f";
+	frame_color = "#c24f4f"
 	},
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallc)
@@ -4477,30 +4556,35 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallf)
 "mds" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/structure/bed/padded,
+/obj/effect/ghostspawpoint{
+	name = "igs - hiskyn_captain";
+	identifier = "hiskyn_captain"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/item/bedsheet/rd{
+	desc = "A surprisingly soft linen bedsheet.";
+	name = "fancy bedsheet"
 	},
-/obj/machinery/door/airlock/command{
-	dir = 4;
-	name = "Captain's Office";
-	req_access = list(210)
+/obj/structure/curtain/open/bed,
+/obj/structure/sign/flag/traditionalist{
+	pixel_y = 32
 	},
-/obj/effect/floor_decal/industrial/hatch/grey,
-/turf/simulated/floor/tiled/dark,
-/area/hiskyn_ship/hallc)
+/turf/simulated/floor/wood,
+/area/hiskyn_ship/captain)
 "mfF" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/red,
 /area/hiskyn_ship/captain)
 "mgV" = (
 /obj/structure/cable,
@@ -5157,6 +5241,26 @@
 	},
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrusts)
+"pBw" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/airlock/command{
+	dir = 4;
+	name = "Captain's Office";
+	req_access = list(210)
+	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/tiled/dark,
+/area/hiskyn_ship/captain)
 "pEv" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -5196,10 +5300,16 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/hiskyn_ship/cic)
 "pOV" = (
-/obj/machinery/bodyscanner,
-/obj/effect/floor_decal/industrial/outline/medical,
-/turf/simulated/floor/tiled/white,
-/area/hiskyn_ship/medbay)
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green{
+	pixel_y = 3;
+	pixel_x = 6
+	},
+/turf/simulated/floor/wood,
+/area/hiskyn_ship/captain)
 "pSV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -5332,7 +5442,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/hallc)
 "qvH" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	color = "#c24f4f";
+	frame_color = "#c24f4f"
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "hiskyn_crew";
 	dir = 2;
@@ -5407,16 +5520,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/crew)
 "qEU" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	color = "#c24f4f"
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
 	},
-/obj/machinery/door/blast/regular/open{
-	id = "hiskyn_crew";
-	dir = 2;
-	name = "blast door";
-	master_tag = "hiskyn_window_shields"
-	},
-/turf/simulated/floor/plating,
+/obj/structure/table/rack,
+/obj/item/device/binoculars/spyglass,
+/turf/simulated/floor/wood,
 /area/hiskyn_ship/captain)
 "qJt" = (
 /obj/structure/table/reinforced/steel,
@@ -5473,6 +5582,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/wall/shuttle/dark/cardinal/red,
 /area/hiskyn_ship/thrustp)
+"rfz" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/hiskyn_ship/captain)
 "rhD" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -5573,10 +5689,8 @@
 /turf/template_noop,
 /area/space)
 "rPT" = (
-/obj/machinery/sleeper,
-/obj/effect/floor_decal/industrial/outline/medical,
-/turf/simulated/floor/tiled/white,
-/area/hiskyn_ship/medbay)
+/turf/simulated/wall/shuttle/dark/cardinal/red,
+/area/space)
 "rRW" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -5810,19 +5924,27 @@
 	},
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallf)
+"sUz" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped,
+/turf/template_noop,
+/area/space)
 "taf" = (
 /turf/simulated/wall/shuttle/scc,
 /area/hiskyn_ship/trophy)
 "tbb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/alarm/north{
+	req_one_access = list(210)
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/vending/medical{
+	pixel_x = -1;
+	req_access = list(210)
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark/full,
 /area/hiskyn_ship/medbay)
 "tcU" = (
 /obj/structure/bed/padded,
@@ -5945,9 +6067,11 @@
 /obj/item/clothing/suit/unathi/robe/robe_coat/red,
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine,
-/obj/item/flag/traditionalist,
 /obj/item/clothing/under/unathi/hiskyn,
-/turf/simulated/floor/carpet/brown,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
 /area/hiskyn_ship/captain)
 "tHh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5961,7 +6085,8 @@
 /area/hiskyn_ship/hallc)
 "tKa" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	color = "#ac8b78"
+	color = "#ac8b78";
+	frame_color = "#ac8b78"
 	},
 /obj/effect/landmark/entry_point/fore,
 /obj/machinery/door/blast/regular/open{
@@ -6019,6 +6144,17 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallc)
+"tYu" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/hiskyn_ship/medbay)
 "tYI" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -6054,15 +6190,27 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/hallc)
 "ueA" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/carpet/brown,
+/turf/simulated/floor/wood,
 /area/hiskyn_ship/captain)
 "unQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
 "upB" = (
@@ -6144,7 +6292,8 @@
 /area/hiskyn_ship/hallc)
 "uxF" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	color = "#c24f4f"
+	color = "#c24f4f";
+	frame_color = "#c24f4f"
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
@@ -6208,10 +6357,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/blaster)
 "uHB" = (
-/obj/structure/table/wood,
-/obj/item/device/binoculars/spyglass,
-/turf/simulated/floor/carpet/brown,
-/area/hiskyn_ship/captain)
+/obj/structure/table/glass,
+/obj/machinery/light,
+/obj/item/storage/firstaid/large/stab{
+	pixel_y = 4
+	},
+/obj/item/storage/firstaid/large/adv,
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/hiskyn_ship/medbay)
 "uMI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
@@ -6224,7 +6380,8 @@
 /area/hiskyn_ship/cargobay)
 "uOK" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	color = "#c24f4f"
+	color = "#c24f4f";
+	frame_color = "#c24f4f"
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "hiskyn_bridge";
@@ -6373,10 +6530,10 @@
 	},
 /area/hiskyn_ship/armory)
 "vSA" = (
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#4c4324"
-	},
-/area/hiskyn_ship/hallf)
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/structure/table/wood,
+/turf/simulated/floor/wood,
+/area/hiskyn_ship/captain)
 "vVm" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/light{
@@ -6416,20 +6573,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/cargobay)
 "wkn" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/effect/landmark/entry_point/port{
+	name = "port, medical bay"
 	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/hiskyn_ship/hallc)
+/turf/simulated/wall/shuttle/dark/cardinal/red,
+/area/hiskyn_ship/medbay)
 "wvG" = (
 /obj/structure/bed/stool/padded/red,
 /obj/effect/ghostspawpoint{
@@ -6479,11 +6627,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hiskyn_revanchists)
 "wIu" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
@@ -6493,7 +6636,16 @@
 /obj/structure/bed/stool/chair{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 9
+	},
+/turf/simulated/floor/carpet/red,
 /area/hiskyn_ship/captain)
 "wNe" = (
 /obj/machinery/appliance/cooker/oven,
@@ -6545,8 +6697,12 @@
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrusts)
 "wSM" = (
-/obj/machinery/iv_drip,
-/obj/effect/floor_decal/industrial/outline/red,
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
 "wTY" = (
@@ -6576,6 +6732,19 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/plating,
 /area/hiskyn_ship/thrustp)
+"xdo" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	color = "#c24f4f";
+	frame_color = "#c24f4f"
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "hiskyn_crew";
+	dir = 2;
+	name = "blast door";
+	master_tag = "hiskyn_window_shields"
+	},
+/turf/simulated/floor/plating,
+/area/hiskyn_ship/captain)
 "xmL" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -6608,10 +6777,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/hiskyn_ship/blaster)
 "xpn" = (
-/obj/machinery/alarm/north{
-	req_one_access = list(210)
+/obj/structure/sign/flag/hiskyn{
+	stand_icon = "banner";
+	pixel_y = 32
 	},
-/obj/machinery/computer/ship/navigation/terminal,
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/captain)
 "xsm" = (
@@ -6720,14 +6889,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hiskyn_ship/engineering)
 "yir" = (
-/obj/machinery/alarm/north{
-	req_one_access = list(210)
+/obj/machinery/power/apc/high/west{
+	req_access = list(210)
 	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/hiskyn_ship/medbay)
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled/dark,
+/area/hiskyn_ship/captain)
 "yke" = (
 /obj/structure/bed/padded,
 /obj/structure/bed/padded/bunk,
@@ -39004,8 +39171,8 @@ acg
 aal
 acg
 acg
-abb
 acg
+abb
 acg
 acg
 jkb
@@ -39261,12 +39428,12 @@ mkA
 sLt
 mkA
 mkA
+mkA
 tVN
-nSn
 sLt
 mkA
 tUH
-wkn
+mkA
 cVa
 aay
 nSn
@@ -39516,26 +39683,26 @@ dXJ
 dXJ
 dXJ
 dXJ
-dXJ
-dXJ
-mds
-dXJ
-dXJ
-ahg
-ahg
-abo
+vdA
+vdA
+vdA
+pBw
+vdA
+vdA
+mwn
+mwn
 aBz
-ahg
-ahg
-sgc
-sgc
-sgc
-sgc
+mwn
+mwn
+aCt
+aCt
+aCt
+aCt
 sfn
-sgc
-sgc
-sgc
-sgc
+aCt
+aCt
+aCt
+aCt
 uZs
 aRt
 aai
@@ -39776,14 +39943,14 @@ aSF
 vdA
 xpn
 aCE
-xRh
-uVW
-ahg
+jfm
 yir
+uVW
+mwn
 tbb
 unQ
 jIO
-ahg
+mwn
 ogS
 lBp
 wQN
@@ -39792,8 +39959,8 @@ krl
 uvj
 nvQ
 gPC
-sgc
-vSA
+aCt
+uZs
 aRt
 aai
 lYa
@@ -40034,13 +40201,13 @@ vdA
 aYP
 wIu
 lay
+fHO
 xRh
-ahg
-rPT
+mwn
 ack
 fBY
 arW
-ahg
+mwn
 fGe
 nKz
 tQs
@@ -40050,7 +40217,7 @@ qUn
 tQs
 tQs
 yke
-vSA
+uZs
 aRt
 aai
 cGJ
@@ -40288,16 +40455,16 @@ aOI
 aOI
 aOI
 vdA
-aeg
+xRh
 hob
 gVU
+aNF
 xRh
-ahg
-pOV
+mwn
 abj
-akM
+bml
 wSM
-ahg
+mwn
 tMx
 nKz
 tQs
@@ -40307,7 +40474,7 @@ tQs
 tQs
 qdu
 sgc
-vSA
+uZs
 hvG
 aav
 uDm
@@ -40545,16 +40712,16 @@ aOQ
 nnB
 aOI
 vdA
-xRh
+xpn
 kkY
 mfF
+aeg
 uVW
-ahg
-aCt
+mwn
 ace
-akM
-arW
-ahg
+tYu
+uHB
+mwn
 wNe
 nKz
 hiv
@@ -40564,7 +40731,7 @@ luk
 upB
 aUF
 tcU
-vSA
+uZs
 aRt
 aai
 aqZ
@@ -40803,15 +40970,15 @@ aOQ
 aOI
 vdA
 qqD
+qqD
+qqD
 gTA
 qqD
-qqD
-ahg
-fHO
+mwn
 llm
-akM
+jwZ
 aYq
-ahg
+mwn
 nkp
 nKz
 wvG
@@ -40820,8 +40987,8 @@ lsz
 wvG
 tQs
 eUD
-sgc
-vSA
+aCt
+uZs
 uZs
 aai
 sHt
@@ -41060,25 +41227,25 @@ kme
 are
 vdA
 tFU
-jfm
-jfm
+ckZ
+ckZ
 ckZ
 ahg
-acc
-akM
+mwn
+abo
 akM
 aAg
-ahg
+mwn
 mpA
 nKz
 hiv
 gis
 gis
 ssi
-aNF
+got
 aVi
-aNF
-aNF
+got
+got
 uZs
 aai
 lYr
@@ -41316,23 +41483,23 @@ ylh
 tKa
 ans
 vdA
-vdA
+mds
 ueA
-uHB
+ueA
 fmj
-ahg
-ahg
+vSA
+mwn
 aSl
 aXh
-ahg
-ahg
-sgc
+gQX
+mwn
+aCt
 qvH
 aCd
 qvH
 qvH
-aNF
-aNF
+got
+got
 lFq
 jrt
 jrt
@@ -41572,23 +41739,23 @@ aaT
 diM
 kme
 ans
-ans
 vdA
+dyy
 aFj
 qEU
-qEU
+rfz
+pOV
 mwn
-ahg
-gQX
-ahg
-ahg
-aSF
+mwn
+wkn
+mwn
+rPT
 aNl
 aNl
 aNl
 aNl
 aNl
-aNF
+got
 eEK
 ljz
 dNb
@@ -41829,13 +41996,13 @@ jUT
 aOQ
 aOQ
 ans
-aOr
-aOr
-aOr
-aOr
-aOr
-aTY
-aNl
+vdA
+vdA
+acc
+xdo
+xdo
+vdA
+rPT
 aNl
 aNl
 aNl
@@ -41845,7 +42012,7 @@ aOr
 aOr
 aOr
 aOr
-aNF
+got
 qPc
 aag
 gHn
@@ -42091,6 +42258,8 @@ aOr
 aOr
 aOr
 aOr
+aTY
+sUz
 aOr
 aOr
 aOr
@@ -42100,11 +42269,9 @@ aOr
 aOr
 aOr
 aOr
-aOr
-aOr
-aNF
+got
 rxF
-aNF
+got
 cnJ
 cnJ
 fLb
@@ -42359,11 +42526,11 @@ aOr
 aOr
 aOr
 aOr
-aNF
-aNF
-aNF
-aNF
-aNF
+got
+got
+got
+got
+got
 fLb
 cEg
 acr
