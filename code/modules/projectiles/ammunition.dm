@@ -10,6 +10,7 @@
 	w_class = ITEMSIZE_TINY
 
 	var/leaves_residue = 1
+	var/is_caseless = FALSE
 	var/caliber = ""					//Which kind of guns it can be loaded into
 	var/max_stack = 5					// how many of us can fit in a pile
 	var/projectile_type					//The bullet type to create when New() is called

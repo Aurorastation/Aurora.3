@@ -1,3 +1,5 @@
+
+
 #define BULLET_IMPACT_NONE  "none"
 #define BULLET_IMPACT_METAL "metal"
 #define BULLET_IMPACT_MEAT  "meat"
@@ -19,3 +21,57 @@
 #define RFD_WINDOW_AND_FRAME 2
 #define RFD_AIRLOCK 3
 #define RFD_DECONSTRUCT 4
+
+/*
+ * Caliber Defines
+ */
+
+//Pistol Calibers
+///Generic Solarian Pistol
+#define CALIBER_PISTOL_SOL "9mm"
+///Generic Coalition Pistol
+#define CALIBER_PISTOL_COC "10mm"
+///Service Solarian Pistol
+#define CALIBER_SERVICE_PISTOL_SOL "5.7mm"
+///Service Coalition Pistol
+#define CALIBER_SERVICE_PISTOL_COC "4.6mm"
+///Service Coalition Pistol (Caseless)
+#define CALIBER_SERVICE_PISTOL_CASELESS_COC "4.6mm Caseless"
+
+//Rifle Calibers
+///Solarian Assault Rifles
+#define CALIBER_ASSAULT_RIFLE_SOL "5.6mm"
+///Coalition Assault Rifles
+#define CALIBER_ASSAULT_RIFLE_COC "6.5mm"
+///Solarian Battle Rifles
+#define CALIBER_BATTLE_RIFLE_SOL "7.7mm"
+///Coalition Battle Rifles
+#define CALIBER_BATTLE_RIFLE_COC "10mm"
+
+//Shotgun Calibers
+///12 Gauge equivalent
+#define CALIBER_SHOTGUN_MILITARY "18mm Shell"
+///20 Gauge equivalent
+#define CALIBER_SHOTGUN_CIVILIAN "14mm Shell"
+
+//Vintage Calibers
+///Musket
+#define CALIBER_MUSKET "ball"
+///Frontier Rifle
+#define CALIBER_FRONTIER_RIFLE ".40-70 Govt."
+///Antique Rifle
+#define CALIBER_ANTIQUE_RIFLE ".30-40 Springfield"
+///Frontier Revolver 1
+#define CALIBER_FRONTIER_REVOLVER ".357 Magnum"
+///Deagle
+#define CALIBER_FRONTIER_DEAGLE ".50AE"
+
+//Bizarre Calibers
+///Hegemonic Pistol
+#define CALIBER_HEGEMONY_PISTOL "11.6mm"
+///Hegemonic Rifle
+#define CALIBER_HEGEMONY_RIFLE "5.8mm"
+
+//Special Calibers
+///Prototype SMG
+#define CALIBER_PISTOL_FLECHETTE "4mm"
