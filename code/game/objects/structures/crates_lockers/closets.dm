@@ -58,6 +58,7 @@
 
 	var/double_doors = FALSE
 
+	/// The overlay for the closet's door
 	var/obj/effect/overlay/closet_door/door_obj
 	var/obj/effect/overlay/closet_door/door_obj_alt
 	var/is_animating_door = FALSE
@@ -66,14 +67,25 @@
 	var/door_underlay = FALSE
 	/// Multiplier on proc/get_door_transform. basically, how far you want this to swing out. value of 1 means the length of the door is unchanged (and will swing out of the tile), 0 means it will just slide back and forth.
 	var/door_anim_squish = 0.12
-	var/door_anim_angle = 147
-	/// For closets, x away from the centre of the closet. typically good to add a 0.5 so it's centered on the edge of the closet.
-	var/door_hinge = -6.5
+	/// The maximum angle the door will be drawn at
+	var/door_anim_angle = 140
+	/// X position of the closet door hinge, relative to the center of the sprite
+	var/door_hinge_x = -6.5
 	/// For closets with two doors. why a seperate var? because some closets may be weirdly shaped or something.
 	var/door_hinge_alt = 6.5
 	/// Set to 0 to make the door not animate at all
 	var/door_anim_time = 2.5
 
+
+/obj/structure/closet/Initialize(mapload, var/no_fill)
+	. = ..()
+
+	update_icon()
+	if(!no_fill)
+		fill()
+	if(secure)
+		verbs += /obj/structure/closet/proc/verb_togglelock
+	return mapload ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_NORMAL
 
 /obj/structure/closet/LateInitialize()
 	if(opened)	// if closed, any item at the crate's loc is put in the contents
@@ -92,17 +104,16 @@
 	if(content_size > storage_capacity-5)
 		storage_capacity = content_size + 5
 
-/obj/structure/closet/Initialize(mapload, var/no_fill)
+/obj/structure/closet/Destroy()
+	QDEL_NULL(linked_teleporter)
+	QDEL_NULL(door_obj)
+	QDEL_NULL(door_obj_alt)
+
 	. = ..()
-	update_icon()
-	if(!no_fill)
-		fill()
-	if(secure)
-		verbs += /obj/structure/closet/proc/verb_togglelock
-	return mapload ? INITIALIZE_HINT_LATELOAD : INITIALIZE_HINT_NORMAL
 
 /// Fill lockers with this.
 /obj/structure/closet/proc/fill()
+	return
 
 /obj/structure/closet/proc/content_info(mob/user, content_size)
 	if(!content_size)
@@ -305,12 +316,12 @@
 		new /obj/item/stack/material/steel(get_turf(src))
 		qdel(src)
 
-/obj/structure/closet/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/closet/bullet_act(var/obj/projectile/Proj)
 	var/proj_damage = Proj.get_structure_damage()
 	if(!proj_damage)
 		return
 
-	if(Proj.penetrating || istype(Proj, /obj/item/projectile/bullet))
+	if(Proj.penetrating || istype(Proj, /obj/projectile/bullet))
 		var/distance = get_dist(Proj.starting, get_turf(loc))
 		for(var/mob/living/L in contents)
 			Proj.attack_mob(L, distance)
@@ -491,9 +502,15 @@
 
 // helper procs for callbacks
 /obj/structure/closet/proc/is_closed()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
 	. = !opened
 
 /obj/structure/closet/proc/is_open()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
 	. = opened
 
 /obj/structure/closet/MouseDrop_T(atom/dropping, mob/user)
@@ -600,33 +617,43 @@
 /obj/structure/closet/proc/animate_door(var/closing = FALSE)
 	if(!door_anim_time)
 		return
-	if(!door_obj) door_obj = new
-	vis_contents |= door_obj
+	if(!door_obj)
+		door_obj = new
+	var/default_door_icon = "[icon_door || icon_state]_door"
+	vis_contents += door_obj
 	door_obj.icon = icon
-	door_obj.icon_state = "[icon_door || icon_state]_door"
+	door_obj.icon_state = default_door_icon
 	is_animating_door = TRUE
 	var/num_steps = door_anim_time / world.tick_lag
-	for(var/I in 0 to num_steps)
-		var/angle = door_anim_angle * (closing ? 1 - (I/num_steps) : (I/num_steps))
-		var/matrix/M = get_door_transform(angle)
-		var/door_state = angle >= 90 ? "[icon_door_override ? icon_door : icon_state]_back" : "[icon_door || icon_state]_door"
-		var/door_layer = angle >= 90 ? FLOAT_LAYER : ABOVE_HUMAN_LAYER
 
-		if(I == 0)
-			door_obj.transform = M
+	for(var/step in 0 to num_steps)
+		var/angle = door_anim_angle * (closing ? 1 - (step/num_steps) : (step/num_steps))
+
+		var/matrix/door_transform = get_door_transform(angle)
+		var/door_state
+		var/door_layer
+
+		if (angle >= 90)
+			door_state = "[icon_state]_back"
+			door_layer = FLOAT_LAYER
+		else
+			door_state = default_door_icon
+			door_layer = ABOVE_HUMAN_LAYER
+
+		if(step == 0)
+			door_obj.transform = door_transform
 			door_obj.icon_state = door_state
 			door_obj.layer = door_layer
-		else if(I == 1)
-			animate(door_obj, transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag, flags = ANIMATION_END_NOW)
+		else if(step == 1)
+			animate(door_obj, transform = door_transform, icon_state = door_state, layer = door_layer, time = world.tick_lag, flags = ANIMATION_END_NOW)
 		else
-			animate(transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag)
-	addtimer(CALLBACK(src, PROC_REF(end_door_animation)),door_anim_time,TIMER_UNIQUE|TIMER_OVERRIDE)
+			animate(transform = door_transform, icon_state = door_state, layer = door_layer, time = world.tick_lag)
+	addtimer(CALLBACK(src, PROC_REF(end_door_animation)), door_anim_time, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_CLIENT_TIME)
 
 /obj/structure/closet/proc/end_door_animation()
-	is_animating_door = FALSE // comment this out and the line below to manually tweak the animation end state by fiddling with the door_anim vars to match the open door icon
-	remove_vis_contents(door_obj)
+	is_animating_door = FALSE
+	vis_contents -= door_obj
 	update_icon()
-	UpdateOverlays(src)
 
 /obj/structure/closet/proc/animate_door_alt(var/closing = FALSE)
 	if(!door_anim_time)
@@ -659,13 +686,12 @@
 	update_icon()
 	UpdateOverlays(src)
 
-/obj/structure/closet/proc/get_door_transform(angle, var/inverse_hinge = FALSE)
-	var/matrix/M = matrix()
-	var/matrix_door_hinge = inverse_hinge ? door_hinge_alt : door_hinge
-	M.Translate(-matrix_door_hinge, 0)
-	M.Multiply(matrix(cos(angle), 0, 0, ((matrix_door_hinge >= 0) ? sin(angle) : -sin(angle)) * door_anim_squish, 1, 0)) // this matrix door hinge >= 0 check is for door hinges on the right, so they swing out instead of upwards
-	M.Translate(matrix_door_hinge, 0)
-	return M
+/obj/structure/closet/proc/get_door_transform(angle)
+	var/matrix/door_matrix = matrix()
+	door_matrix.Translate(-door_hinge_x, 0)
+	door_matrix.Multiply(matrix(cos(angle), 0, 0, -sin(angle) * door_anim_squish, 1, 0))
+	door_matrix.Translate(door_hinge_x, 0)
+	return door_matrix
 
 /obj/structure/closet/hear_talk(mob/M as mob, text, verb, datum/language/speaking)
 	for (var/atom/A in src)
@@ -775,24 +801,6 @@
 	dump_contents()
 	new /obj/item/stack/material/steel(get_turf(src))
 	qdel(src)
-
-/obj/structure/closet/Destroy()
-	if(linked_teleporter)
-		QDEL_NULL(linked_teleporter)
-	return ..()
-
-/obj/structure/closet/stair_act()
-	if(opened || !can_open())
-		return
-
-	visible_message(SPAN_WARNING("\The [src] flies open as it bounces on the stairs!"))
-	for(var/thing in src)
-		var/atom/movable/AM = thing
-		AM.forceMove(get_turf(src))
-		AM.throw_at_random(TRUE, 1, 2)
-	open()
-
-	return ..()
 
 /*
 ==========================

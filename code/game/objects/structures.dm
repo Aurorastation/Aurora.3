@@ -78,7 +78,7 @@
 		dismantle_material.place_sheet(loc)
 	qdel(src)
 
-/obj/structure/bullet_act(obj/item/projectile/P, def_zone)
+/obj/structure/bullet_act(obj/projectile/P, def_zone)
 	. = ..()
 	bullet_ping(P)
 

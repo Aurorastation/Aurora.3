@@ -267,3 +267,27 @@
   - bugfix: Makes the Skrell Bandana white, so it can be recoloured properly.
   - bugfix: Fixes spelling errors on the Weishii robe, Qeblak mantle and Worker's
       hat.
+2024-07-27:
+  CourierBravo:
+  - bugfix: Fixed some spelling/grammar in the tips.
+  Evandorf:
+  - bugfix: Made the IV tank indicator sprite uniform across all levels and removed
+      certain frames that put it in the wrong location.
+  - rscadd: Creating tumors will now set the correct 'parent_organ' variable to allow
+      for surgical removal.
+  FluffyGhost:
+  - rscdel: Reverts the accessory weight handling, ontop of being exploitable as easily
+      as attaching the accessories after the clothe is in the bag, it doesn't make
+      sense that you can store the pieces singularly but not once put together (for
+      the modular armor, that is), and is ultimately just an hassle to have to disassemble
+      and reassemble it over and over every time you have to pull the armor in the
+      backpack and back out.
+  SimpleMaroon:
+  - rscadd: Added a list of skin color presets to every playable Vaurca subspecies,
+      based on the bound and unbound colors of each brood.
+  - qol: Made it so you can select a skin color and skin color presets at the same
+      time on character setup.
+  Wowzewow (Wezzy):
+  - rscadd: Adds new stubble shadow facial hair.
+  hazelmouse:
+  - balance: The explosion radius of standstill landmines has been reduced.

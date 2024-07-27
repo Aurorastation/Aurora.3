@@ -92,7 +92,7 @@
 	qdel(src)
 	return 50000
 
-/obj/item/projectile/beam/emitter/singularity_pull()
+/obj/projectile/beam/emitter/singularity_pull()
 	return
 
 /obj/item/storage/backpack/holding/singularity_act(S, current_size)

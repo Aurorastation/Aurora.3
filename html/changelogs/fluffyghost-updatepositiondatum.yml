@@ -55,4 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscdel: "Reverts the accessory weight handling, ontop of being exploitable as easily as attaching the accessories after the clothe is in the bag, it doesn't make sense that you can store the pieces singularly but not once put together (for the modular armor, that is), and is ultimately just an hassle to have to disassemble and reassemble it over and over every time you have to pull the armor in the backpack and back out."
+  - code_imp: "Update the position datum to the latest iteration."

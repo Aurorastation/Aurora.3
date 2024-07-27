@@ -19,7 +19,7 @@
 	door_anim_squish = 0.30
 	door_anim_time = 3
 	door_anim_angle = 140
-	door_hinge = 3.5
+	door_hinge_x = 3.5
 	pass_flags_self = PASSSTRUCTURE | LETPASSTHROW
 
 	var/tablestatus = 0
@@ -42,18 +42,25 @@
 	if(!door_obj) door_obj = new
 	if(animation_math == null) //checks if there is already a list for animation_math if not creates one to avoid runtimes
 		animation_math = new/list()
-	if(!door_anim_time == 0 && !animation_math["[door_anim_time]-[door_anim_angle]-[azimuth_angle_2]-[radius_2]-[door_hinge]"])
+	if(!door_anim_time == 0 && !animation_math["[door_anim_time]-[door_anim_angle]-[azimuth_angle_2]-[radius_2]-[door_hinge_x]"])
 		animation_list()
 	vis_contents |= door_obj
 	door_obj.icon = icon
 	door_obj.icon_state = "[icon_door || icon_state]_door"
 	is_animating_door = TRUE
-	var/num_steps = door_anim_time / world.tick_lag
-	var/list/animation_math_list = animation_math["[door_anim_time]-[door_anim_angle]-[azimuth_angle_2]-[radius_2]-[door_hinge]"]
+	var/num_steps = round(door_anim_time / world.tick_lag)
+	var/list/animation_math_list = animation_math["[door_anim_time]-[door_anim_angle]-[azimuth_angle_2]-[radius_2]-[door_hinge_x]"]
 	for(var/I in 0 to num_steps)
 		var/door_state = I == (closing ? num_steps : 0) ? "[icon_door || icon_state]_door" : animation_math_list[closing ? 2 * num_steps - I : num_steps + I] <= 0 ? "[icon_door_override ? icon_door : icon_state]_back" : "[icon_door || icon_state]_door"
 		var/door_layer = I == (closing ? num_steps : 0) ? ABOVE_HUMAN_LAYER : animation_math_list[closing ? 2 * num_steps - I : num_steps + I] <= 0 ? FLOAT_LAYER : ABOVE_HUMAN_LAYER
-		var/matrix/M = get_door_transform(I == (closing ? num_steps : 0) ? 0 : animation_math_list[closing ? num_steps - I : I], I == (closing ? num_steps : 0) ? 1 : animation_math_list[closing ?  2 * num_steps - I : num_steps + I])
+		var/crateanim_1 = 0
+		var/crateanim_2 = 1
+
+		if(!(I == (closing ? num_steps : 0)))
+			crateanim_1 = animation_math_list[closing ? num_steps - I : I]
+			crateanim_2 = animation_math_list[closing ?  2 * num_steps - I : num_steps + I]
+
+		var/matrix/M = get_door_transform(crateanim_1, crateanim_2)
 		if(I == 0)
 			door_obj.transform = M
 			door_obj.icon_state = door_state
@@ -62,13 +69,14 @@
 			animate(door_obj, transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag, flags = ANIMATION_END_NOW)
 		else
 			animate(transform = M, icon_state = door_state, layer = door_layer, time = world.tick_lag)
-	addtimer(CALLBACK(src, PROC_REF(end_door_animation)),door_anim_time,TIMER_UNIQUE|TIMER_OVERRIDE)
+
+	addtimer(CALLBACK(src, PROC_REF(end_door_animation)), door_anim_time, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_CLIENT_TIME)
 
 /obj/structure/closet/crate/get_door_transform(crateanim_1, crateanim_2)
 	var/matrix/M = matrix()
-	M.Translate(0, -door_hinge)
+	M.Translate(0, -door_hinge_x)
 	M.Multiply(matrix(1, crateanim_1, 0, 0, crateanim_2, 0))
-	M.Translate(0, door_hinge)
+	M.Translate(0, door_hinge_x)
 	return M
 
 /obj/structure/closet/crate/proc/animation_list() //pre calculates a list of values for the crate animation cause byond not like math
@@ -81,7 +89,7 @@
 		var/radius_cr = angle_1 >= 90 ? radius_2 : 1
 		new_animation_math_sublist[I] = -sin(polar_angle) * sin(azimuth_angle) * radius_cr
 		new_animation_math_sublist[num_steps_1 + I] = cos(azimuth_angle) * sin(polar_angle) * radius_cr
-	animation_math["[door_anim_time]-[door_anim_angle]-[azimuth_angle_2]-[radius_2]-[door_hinge]"] = new_animation_math_sublist
+	animation_math["[door_anim_time]-[door_anim_angle]-[azimuth_angle_2]-[radius_2]-[door_hinge_x]"] = new_animation_math_sublist
 
 /*
 ==========================
@@ -95,7 +103,7 @@
 			return TRUE
 		else
 			return FALSE
-	if (istype(mover,/obj/item/projectile))
+	if (istype(mover,/obj/projectile))
 		// Crates on a table always block shots, otherwise they only occasionally do so.
 		return tablestatus == ABOVE_TABLE ? FALSE : (prob(15) ? FALSE : TRUE)
 	else if((istype(mover) && (mover.pass_flags & PASSTABLE)) && tablestatus == ABOVE_TABLE)
@@ -220,7 +228,7 @@
 	door_anim_angle = 140
 	azimuth_angle_2 = 180
 	door_anim_time = 5
-	door_hinge = 5
+	door_hinge_x = 5
 
 /obj/structure/closet/crate/internals
 	name = "internals crate"
@@ -231,13 +239,13 @@
 	name = "trash cart"
 	desc = "A heavy, metal trashcart with wheels."
 	icon_state = "trashcart"
-	door_hinge = 2.5
+	door_hinge_x = 2.5
 
 /obj/structure/closet/crate/miningcart
 	desc = "A mining cart. This one doesn't work on rails, but has to be dragged."
 	name = "mining cart"
 	icon_state = "miningcart"
-	door_hinge = 2.5
+	door_hinge_x = 2.5
 
 /obj/structure/closet/crate/miningcart/ore/fill()
 	var/i_max = rand(3, 6)
@@ -332,7 +340,7 @@
 	name = "freezer"
 	desc = "A freezer."
 	icon_state = "freezer"
-	door_hinge = 4.5
+	door_hinge_x = 4.5
 	var/target_temp = T0C - 40
 	var/cooling_power = 40
 
@@ -385,13 +393,13 @@
 	name = "drop crate"
 	desc = "A large, sturdy crate meant for airdrops."
 	icon_state = "drop_crate"
-	door_hinge = 0.5
+	door_hinge_x = 0.5
 
 /obj/structure/closet/crate/drop/grey
 	name = "drop crate"
 	desc = "A large, sturdy crate meant for airdrops."
 	icon_state = "drop_crate-grey"
-	door_hinge = 0.5
+	door_hinge_x = 0.5
 
 /obj/structure/closet/crate/tool
 	name = "tool crate"

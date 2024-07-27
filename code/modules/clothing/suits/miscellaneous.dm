@@ -491,11 +491,18 @@
 	name = "brown varsity jacket"
 	icon_state = "varsity_brown"
 	item_state = "varsity_brown"
+
 /obj/item/clothing/suit/storage/legion
 	name = "tcfl jacket"
 	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Foreign Legion."
 	icon_state = "tcfljacket"
 	item_state = "tcfljacket"
+
+/obj/item/clothing/suit/storage/legion/tcaf
+	name = "tcaf jacket"
+	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Armed Forces."
+	icon_state = "tcaf_jacket"
+	item_state = "tcaf_jacket"
 
 /obj/item/clothing/suit/jacket/puffer
 	name = "puffer jacket"

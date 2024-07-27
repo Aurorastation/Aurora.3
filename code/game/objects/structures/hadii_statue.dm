@@ -63,7 +63,7 @@
 	if(health <= 0)
 		topple()
 
-/obj/structure/hadii_statue/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/hadii_statue/bullet_act(var/obj/projectile/Proj)
 	if(toppled)
 		return
 	if(!Proj)

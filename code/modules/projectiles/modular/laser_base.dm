@@ -128,7 +128,7 @@
 	desc = "A modification that modulates the beam into a standard laser beam."
 	icon_state = "laser"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 2)
-	var/obj/item/projectile/beam/projectile = /obj/item/projectile/beam
+	var/obj/projectile/beam/projectile = /obj/projectile/beam
 	var/firing_sound = 'sound/weapons/laser1.ogg'
 
 /obj/item/laser_components/modulator/degrade()

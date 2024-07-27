@@ -50,8 +50,8 @@
 
 	damage = damage - damage_blocked
 
-	if(istype(damage_source, /obj/item/projectile))
-		var/obj/item/projectile/P = damage_source
+	if(istype(damage_source, /obj/projectile))
+		var/obj/projectile/P = damage_source
 		P.sharp = 0
 		P.edge = 0
 		P.embed_chance = 0
