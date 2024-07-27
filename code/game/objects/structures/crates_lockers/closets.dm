@@ -802,11 +802,6 @@
 	new /obj/item/stack/material/steel(get_turf(src))
 	qdel(src)
 
-/obj/structure/closet/Destroy()
-	if(linked_teleporter)
-		QDEL_NULL(linked_teleporter)
-	return ..()
-
 /*
 ==========================
 	Contents Scanner
