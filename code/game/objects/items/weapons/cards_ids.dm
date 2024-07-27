@@ -650,6 +650,12 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "coalition_card"
 	overlay_state = "nothing"
 
+/obj/item/card/id/generic
+	name = "identification card"
+	desc = "A card with a soft metallic sheen, used to identify people and determine access."
+	icon_state = "data"
+	overlay_state = "data"
+
 /obj/item/card/id/bluespace
 	name = "bluespace identification card"
 	desc = "A bizarre imitation of an ID card; shifting and moving."

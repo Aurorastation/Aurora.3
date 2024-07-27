@@ -50,6 +50,7 @@
 /obj/outfit/admin/generic/cryo_outpost_crew
 	name = "Desert Oasis Planet Outpost Crew Uniform"
 	l_ear = /obj/item/device/radio/headset/ship
+	id = /obj/item/card/id/generic
 
 /obj/outfit/admin/generic/cryo_outpost_crew/get_id_access()
 	return list(

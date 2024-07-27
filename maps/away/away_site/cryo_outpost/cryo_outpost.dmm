@@ -2825,6 +2825,7 @@
 /obj/item/gun/projectile/automatic/tommygun/assassin,
 /obj/item/melee/telebaton,
 /obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/random/civgun/rifle,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/comms)
 "dhM" = (
@@ -3135,6 +3136,10 @@
 "dxJ" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/pink,
+/obj/item/device/radio/headset/ship{
+	pixel_x = 12;
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_surgery)
 "dyn" = (
@@ -3836,6 +3841,9 @@
 "erz" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
 /obj/structure/closet,
+/obj/random/civgun,
+/obj/outfit/admin/generic/science,
+/obj/item/device/radio/headset/ship,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_offices)
 "erR" = (
@@ -15014,6 +15022,7 @@
 /obj/item/melee/baton/stunrod,
 /obj/outfit/admin/generic/security,
 /obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/device/radio/headset/ship,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
 "rbS" = (
@@ -18864,6 +18873,7 @@
 	req_one_access = null
 	},
 /obj/random/civgun,
+/obj/random/civgun/rifle,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
 "viK" = (
@@ -20324,6 +20334,7 @@
 /obj/item/melee/classic_baton,
 /obj/item/clothing/mask/gas/tactical,
 /obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/device/radio/headset/ship,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
 "wWH" = (
