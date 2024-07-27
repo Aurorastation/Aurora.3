@@ -471,7 +471,7 @@
 	for(var/i = 0; i < SHOTS_TO_LAUNCH; i++)
 		var/turf/to_hit = pick(candidate_turfs)
 
-		var/obj/item/projectile/bullet/pellet/shotgun/pellet = new(get_turf(src))
+		var/obj/projectile/bullet/pellet/shotgun/pellet = new(get_turf(src))
 		pellet.fire(Get_Angle(get_turf(src), to_hit))
 
 	qdel(src)

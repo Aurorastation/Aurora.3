@@ -340,7 +340,7 @@
 	minbodytemp = 0
 	ranged = 1
 	projectilesound = 'sound/magic/WandODeath.ogg'
-	projectiletype = /obj/item/projectile/energy/thoughtbubble
+	projectiletype = /obj/projectile/energy/thoughtbubble
 	speak_emote = list("gargles")
 	emote_hear = list("gargles")
 	emote_see = list("ooozes","pulses","drips","pumps")
@@ -358,7 +358,7 @@
 /mob/living/simple_animal/hostile/greatwormking/Move()
 	return
 
-/obj/item/projectile/energy/thoughtbubble
+/obj/projectile/energy/thoughtbubble
 	name = "psionic blast"
 	icon_state = "ion"
 	nodamage = TRUE
@@ -391,7 +391,7 @@
 		"You've got a bad feeling about this."
 	)
 
-/obj/item/projectile/energy/thoughtbubble/on_impact(var/atom/A)
+/obj/projectile/energy/thoughtbubble/on_impact(var/atom/A)
 	..()
 	if(istype(A, /mob/living))
 		var/mob/living/L = A
