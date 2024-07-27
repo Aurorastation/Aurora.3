@@ -1236,6 +1236,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/cryo_outpost/outside/cave)
+"bnq" = (
+/obj/random/dirt_75,
+/obj/item/stack/flag/red/planted,
+/turf/simulated/floor/exoplanet/grass,
+/area/cryo_outpost/outside/surface)
 "bnC" = (
 /obj/structure/bed/stool/chair/plastic{
 	dir = 1
@@ -2350,6 +2355,7 @@
 /area/cryo_outpost/outside/surface)
 "cEe" = (
 /obj/structure/closet,
+/obj/outfit/admin/generic/science,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_rnd)
 "cEh" = (
@@ -2995,6 +3001,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engineering)
+"dpe" = (
+/obj/item/stack/flag/red/planted,
+/turf/simulated/floor/exoplanet/barren,
+/area/cryo_outpost/outside/surface)
 "dqr" = (
 /turf/simulated/wall,
 /area/cryo_outpost/inside/medical)
@@ -3136,10 +3146,6 @@
 "dxJ" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/pink,
-/obj/item/device/radio/headset/ship{
-	pixel_x = 12;
-	pixel_y = 1
-	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_surgery)
 "dyn" = (
@@ -3839,13 +3845,9 @@
 	},
 /area/cryo_outpost/inside/labs_surgery)
 "erz" = (
-/obj/effect/floor_decal/corner/pink/diagonal,
-/obj/structure/closet,
-/obj/random/civgun,
-/obj/outfit/admin/generic/science,
-/obj/item/device/radio/headset/ship,
-/turf/simulated/floor/tiled/white,
-/area/cryo_outpost/inside/labs_offices)
+/obj/item/stack/flag/red/planted,
+/turf/simulated/floor/exoplanet/desert,
+/area/cryo_outpost/outside/surface)
 "erR" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/machinery/light{
@@ -7678,6 +7680,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_surgery)
+"iSi" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/stack/flag/red/planted,
+/turf/simulated/floor/exoplanet/barren,
+/area/cryo_outpost/outside/surface)
 "iSp" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
@@ -10209,6 +10217,10 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood/maple,
 /area/cryo_outpost/inside/habitation_west)
+"lvX" = (
+/obj/item/stack/flag/red/planted,
+/turf/simulated/floor/exoplanet/grass,
+/area/cryo_outpost/outside/surface)
 "lwN" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -14789,6 +14801,7 @@
 	dir = 4
 	},
 /obj/structure/closet,
+/obj/outfit/admin/generic/science,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_rnd)
 "qNz" = (
@@ -15025,7 +15038,6 @@
 /obj/item/melee/baton/stunrod,
 /obj/outfit/admin/generic/security,
 /obj/item/clothing/accessory/storage/pouches/black,
-/obj/item/device/radio/headset/ship,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
 "rbS" = (
@@ -20337,7 +20349,6 @@
 /obj/item/melee/classic_baton,
 /obj/item/clothing/mask/gas/tactical,
 /obj/item/clothing/accessory/storage/pouches/brown,
-/obj/item/device/radio/headset/ship,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
 "wWH" = (
@@ -21296,7 +21307,6 @@
 /obj/item/ammo_magazine/c38,
 /obj/item/gun/projectile/revolver/detective,
 /obj/item/flame/lighter/zippo/asoral,
-/obj/item/device/radio/headset/ship,
 /obj/item/clothing/under/suit_jacket/tan,
 /turf/simulated/floor/wood/maple,
 /area/cryo_outpost/inside/habitation_west)
@@ -54915,7 +54925,7 @@ xyG
 xyG
 pUk
 xyG
-erz
+lxj
 aNa
 iZe
 jJE
@@ -56565,7 +56575,7 @@ xdy
 orv
 xdy
 xdy
-xdy
+lvX
 xih
 xih
 xih
@@ -56827,7 +56837,7 @@ orv
 orv
 xdy
 xdy
-xdy
+lvX
 xih
 xih
 xih
@@ -57330,7 +57340,7 @@ xih
 xih
 xih
 xih
-xdy
+lvX
 orv
 prL
 rfp
@@ -57810,7 +57820,7 @@ gbY
 jjp
 dkR
 lrp
-viQ
+iSi
 tqr
 tqr
 rvR
@@ -58116,7 +58126,7 @@ lDY
 oat
 xdy
 uxk
-dkR
+dpe
 dkR
 lrp
 viQ
@@ -58126,7 +58136,7 @@ dkR
 viQ
 viQ
 dkR
-xdy
+lvX
 xih
 xih
 xih
@@ -58343,7 +58353,7 @@ xih
 xih
 xih
 xdy
-xdy
+lvX
 xih
 xdy
 xdy
@@ -58662,7 +58672,7 @@ rvR
 rvR
 rvR
 rvR
-tqr
+erz
 tqr
 tqr
 loA
@@ -58892,7 +58902,7 @@ prL
 orv
 xdy
 xdy
-xdy
+lvX
 xih
 xih
 xih
@@ -58913,7 +58923,7 @@ lrp
 tqr
 tqr
 tqr
-tqr
+erz
 tqr
 tqr
 tqr
@@ -59102,7 +59112,7 @@ loA
 lwN
 tqr
 tqr
-dkR
+dpe
 dkR
 dkR
 rvR
@@ -59128,7 +59138,7 @@ rdz
 orv
 orv
 orv
-orv
+bnq
 orv
 orv
 xdy
@@ -59159,7 +59169,7 @@ dkR
 dkR
 lrp
 orv
-orv
+bnq
 orv
 orv
 xdy
@@ -59680,7 +59690,7 @@ xih
 xih
 rvR
 rvR
-tqr
+erz
 tqr
 tqr
 tqr
