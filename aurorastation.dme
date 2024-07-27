@@ -3795,7 +3795,7 @@
 #include "maps\away\away_site\crashed_elyran_tanker\crashed_elyran_tanker.dm"
 #include "maps\away\away_site\cryo_outpost\cryo_outpost_.dm"
 #include "maps\away\away_site\cryo_outpost\cryo_outpost_areas.dm"
-#include "maps\away\away_site\cryo_outpost\cryo_outpost_bodies.dm"
+#include "maps\away\away_site\cryo_outpost\cryo_outpost_ghostroles.dm"
 #include "maps\away\away_site\cryo_outpost\cryo_outpost_landmarks.dm"
 #include "maps\away\away_site\cryo_outpost\cryo_outpost_theme.dm"
 #include "maps\away\away_site\crystal_planet_outpost\crystal_planet_outpost_.dm"

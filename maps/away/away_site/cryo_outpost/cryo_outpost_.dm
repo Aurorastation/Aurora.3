@@ -22,8 +22,8 @@
 	map = "Desert Oasis Planet"
 	descriptor = "Desert Oasis Planet."
 
-/obj/abstract/weather_marker/cryo_outpost
-	weather_type = /singleton/state/weather/calm/desert_planet
+// /obj/abstract/weather_marker/cryo_outpost
+// 	weather_type = /singleton/state/weather/calm/desert_planet
 
 // --------------------------------------------------- mapmanip
 
@@ -67,7 +67,7 @@
 		Landing site is in a small valley with a small river running through it.\
 		"
 	icon_state = "globe1"
-	color = "#dbae4b"
+	color = "#f1c86f"
 	initial_generic_waypoints = list(
 		"nav_cryo_outpost_dock_outpost_1",
 		"nav_cryo_outpost_dock_outpost_2",
@@ -108,7 +108,7 @@
 
 // --------------------------------------------------- misc
 
-#define NETWORK_CRYO_OUTPOST "AZ-578 Outpost"
+#define NETWORK_CRYO_OUTPOST "Desert Oasis Planet Outpost"
 
 /obj/machinery/camera/network/cryo_outpost
 	network = list(NETWORK_CRYO_OUTPOST)
