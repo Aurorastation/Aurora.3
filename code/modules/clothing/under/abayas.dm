@@ -10,7 +10,7 @@
 /obj/item/clothing/under/abayas/colorable/shawl
 	name = "abaya with shawl"
 	icon_state = "abaya_shawl"
-	item_state = "abaya_shawl"
+	item_state = "abaya"
 	has_accents = TRUE
 	build_from_parts = TRUE
 	worn_overlay = "over"
@@ -18,4 +18,4 @@
 /obj/item/clothing/under/abayas/colorable/longsleeve
 	name = "long sleeved abaya"
 	icon_state = "abaya_longsleeve"
-	item_state = "abaya_longsleeve"
+	item_state = "abaya"
