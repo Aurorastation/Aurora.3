@@ -476,7 +476,7 @@
 "dQ" = (
 /obj/machinery/atmospherics/binary/passive_gate/on{
 	dir = 4;
-	name = "Tank to Distro"
+	name = "air supply to distro"
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow{
 	dir = 8
@@ -595,7 +595,7 @@
 	pixel_x = -3
 	},
 /obj/machinery/atmospherics/binary/passive_gate/supply{
-	name = "Air to Distro"
+	name = "canister to distro"
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
@@ -610,13 +610,13 @@
 /turf/simulated/wall/diona,
 /area/tarwa_ship/engineering1)
 "fm" = (
-/obj/structure/sign/flag/tarwa{
-	pixel_y = 25;
-	stand_icon = "banner"
-	},
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
+/obj/structure/closet/walllocker/firecloset{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/bridge)
@@ -695,8 +695,8 @@
 /turf/simulated/floor/diona/airless,
 /area/tarwa_ship/oldhangar)
 "gi" = (
-/obj/machinery/portable_atmospherics/canister/empty{
-	name = "waste canister"
+/obj/machinery/portable_atmospherics/canister/air{
+	start_pressure = 15000
 	},
 /turf/simulated/floor/diona,
 /area/tarwa_ship/engineering1)
@@ -742,7 +742,7 @@
 /turf/simulated/floor/tiled,
 /area/tarwa_ship)
 "gD" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/machinery/atmospherics/pipe/simple/visible/scrubbers,
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "gE" = (
@@ -897,7 +897,7 @@
 "ia" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	name = "canister to tank";
+	name = "canister to air supply";
 	target_pressure = 15000
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow{
@@ -1566,7 +1566,6 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
 	},
@@ -1574,6 +1573,7 @@
 	pixel_y = 25;
 	stand_icon = "banner"
 	},
+/obj/machinery/atmospherics/portables_connector/scrubber,
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "oF" = (
@@ -1941,9 +1941,10 @@
 /turf/simulated/floor/diona/airless,
 /area/space)
 "sT" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
+/obj/machinery/atmospherics/binary/pump/scrubber/on{
+	name = "scrubbers to canister";
 	dir = 1;
-	name = "Scrubbers to Canister"
+	target_pressure = 15000
 	},
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
@@ -2395,10 +2396,10 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/air{
 	start_pressure = 15000
 	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "xT" = (
@@ -2720,6 +2721,10 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/accessory/storage/pouches/brown,
 /turf/simulated/floor/diona,
 /area/tarwa_ship/engineering2)
 "AH" = (
@@ -3092,7 +3097,7 @@
 "Dw" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	name = "Fuel to Thrusters"
+	name = "canister to thrusters"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
@@ -3206,6 +3211,9 @@
 	req_access = list(210)
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
+	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "EG" = (
@@ -3539,6 +3547,7 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/accessory/storage/pouches/white,
 /turf/simulated/floor/tiled/white,
 /area/tarwa_ship/medical)
 "Hz" = (
@@ -3865,6 +3874,9 @@
 	req_one_access = list(210)
 	},
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
+	},
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "JY" = (
@@ -4053,7 +4065,7 @@
 	dir = 4;
 	output_tag = "tarwa_tank_air_out";
 	sensors = list("tarwa_tank_air_sensor"="Tank");
-	name = "Air Supply Terminal";
+	name = "air supply monitor";
 	input_tag = "tarwa_tank_air_in"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
@@ -4325,6 +4337,13 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/diona,
 /area/tarwa_ship/gun)
+"Nz" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
+	},
+/turf/simulated/floor/plating,
+/area/tarwa_ship/engineering1)
 "NB" = (
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/diona/airless,
@@ -4921,6 +4940,7 @@
 "Sy" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/closet/walllocker/emerglocker/north,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/bridge)
 "SF" = (
@@ -4941,6 +4961,10 @@
 "SG" = (
 /obj/effect/floor_decal/industrial/hatch/grey,
 /obj/machinery/vending/cigarette,
+/obj/structure/sign/flag/tarwa{
+	pixel_y = 25;
+	stand_icon = "banner"
+	},
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/bridge)
 "SI" = (
@@ -5005,7 +5029,8 @@
 "TC" = (
 /obj/machinery/atmospherics/binary/passive_gate/scrubbers{
 	dir = 4;
-	target_pressure = 15000
+	target_pressure = 15000;
+	name = "Scrubbers to Canister"
 	},
 /obj/effect/floor_decal/industrial/hatch_tiny/yellow{
 	dir = 8;
@@ -42144,7 +42169,7 @@ Zj
 Zj
 nR
 rh
-iH
+Nz
 EF
 JW
 Nw
