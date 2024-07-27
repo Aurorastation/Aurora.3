@@ -547,7 +547,7 @@
 	name = "fore"
 	},
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/shuttle/tarwa)
 "eq" = (
 /obj/structure/railing/mapped{
@@ -590,8 +590,13 @@
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/bridge)
 "fd" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal,
-/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
+	dir = 4;
+	pixel_x = -3
+	},
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	name = "Air to Distro"
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "fe" = (
@@ -1213,9 +1218,6 @@
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering2)
 "kG" = (
-/obj/machinery/atmospherics/pipe/simple/visible/supply{
-	dir = 9
-	},
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
@@ -1248,7 +1250,10 @@
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/bridge)
 "kU" = (
-/obj/machinery/hologram/holopad/long_range,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4;
+	id_tag = "tarwa_shuttle_out"
+	},
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "kV" = (
@@ -1936,7 +1941,10 @@
 /turf/simulated/floor/diona/airless,
 /area/space)
 "sT" = (
-/obj/machinery/atmospherics/binary/pump,
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1;
+	name = "Scrubbers to Canister"
+	},
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "sW" = (
@@ -2026,8 +2034,9 @@
 /obj/item/stack/material/lead/full{
 	pixel_y = 3
 	},
-/obj/item/stack/material/aluminium/full,
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/item/stack/rods/full,
+/obj/item/stack/material/aluminium/full,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
 "uu" = (
@@ -2386,7 +2395,9 @@
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/portable_atmospherics/canister/air{
+	start_pressure = 15000
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)
@@ -2612,7 +2623,7 @@
 	},
 /obj/machinery/button/remote/blast_door{
 	name = "Exosuit Containment";
-	master_tag = "tarwa_exosuit_door"
+	id = "tarwa_exosuit_containment"
 	},
 /obj/item/clothing/ears/earmuffs,
 /obj/item/device/binoculars/spyglass,
@@ -2984,8 +2995,11 @@
 /turf/simulated/floor/reinforced,
 /area/tarwa_ship/engineering1)
 "CB" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/portable_atmospherics/canister/air{
+	start_pressure = 15000
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/portables_connector/supply,
 /turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
 "CL" = (
@@ -4008,11 +4022,8 @@
 /turf/simulated/floor/tiled,
 /area/tarwa_ship/canteen)
 "Le" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4;
-	id_tag = "tarwa_shuttle_out"
-	},
 /obj/effect/overmap/visitable/ship/landable/tarwa_shuttle,
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/diona,
 /area/shuttle/tarwa)
 "Lj" = (
@@ -4386,10 +4397,8 @@
 /turf/simulated/floor/carpet/red,
 /area/tarwa_ship/captain)
 "Oh" = (
-/obj/machinery/atmospherics/binary/passive_gate/supply,
-/obj/effect/floor_decal/industrial/hatch_tiny/yellow{
-	dir = 4;
-	pixel_x = -3
+/obj/machinery/atmospherics/pipe/simple/visible/supply{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/tarwa)
@@ -4596,9 +4605,8 @@
 	},
 /area/tarwa_ship/engineering1)
 "Qj" = (
-/obj/machinery/door/blast/regular/open{
-	name = "blast door";
-	master_tag = "tarwa_exosuit_door"
+/obj/machinery/door/blast/regular{
+	id = "tarwa_exosuit_containment"
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/plating,
@@ -5491,7 +5499,7 @@
 /area/tarwa_ship/oldhangar)
 "ZW" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/turf/space,
+/turf/simulated/floor/plating,
 /area/shuttle/tarwa)
 "ZX" = (
 /obj/machinery/light{
