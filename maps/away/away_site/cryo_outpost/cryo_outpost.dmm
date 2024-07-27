@@ -1236,11 +1236,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cryo_outpost/outside/cave)
-"bnq" = (
-/obj/random/dirt_75,
-/obj/item/stack/flag/red/planted,
-/turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
 "bnC" = (
 /obj/structure/bed/stool/chair/plastic{
 	dir = 1
@@ -3001,10 +2996,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engineering)
-"dpe" = (
-/obj/item/stack/flag/red/planted,
-/turf/simulated/floor/exoplanet/barren,
-/area/cryo_outpost/outside/surface)
 "dqr" = (
 /turf/simulated/wall,
 /area/cryo_outpost/inside/medical)
@@ -3333,6 +3324,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_surgery)
+"dJf" = (
+/obj/random/dirt_75,
+/obj/item/stack/flag/red/planted,
+/turf/simulated/floor/exoplanet/grass,
+/area/cryo_outpost/outside/surface)
 "dLe" = (
 /obj/random/dirt_75,
 /obj/machinery/light{
@@ -3846,7 +3842,7 @@
 /area/cryo_outpost/inside/labs_surgery)
 "erz" = (
 /obj/item/stack/flag/red/planted,
-/turf/simulated/floor/exoplanet/desert,
+/turf/simulated/floor/exoplanet/barren,
 /area/cryo_outpost/outside/surface)
 "erR" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -7680,12 +7676,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_surgery)
-"iSi" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/item/stack/flag/red/planted,
-/turf/simulated/floor/exoplanet/barren,
-/area/cryo_outpost/outside/surface)
 "iSp" = (
 /obj/effect/floor_decal/industrial/warning/dust,
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
@@ -10217,10 +10207,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood/maple,
 /area/cryo_outpost/inside/habitation_west)
-"lvX" = (
-/obj/item/stack/flag/red/planted,
-/turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
 "lwN" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -16020,6 +16006,12 @@
 /obj/structure/cable,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/labs_maint_e)
+"sfQ" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/stack/flag/red/planted,
+/turf/simulated/floor/exoplanet/barren,
+/area/cryo_outpost/outside/surface)
 "sgh" = (
 /obj/random/dirt_75,
 /obj/machinery/light/small/emergency,
@@ -19446,6 +19438,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engi_powergen)
+"vQQ" = (
+/obj/machinery/telecomms/allinone/ship,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/comms)
 "vRf" = (
 /obj/effect/floor_decal/corner/mauve,
 /turf/simulated/floor/tiled,
@@ -19652,6 +19648,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_rnd)
+"wgH" = (
+/obj/item/stack/flag/red/planted,
+/turf/simulated/floor/exoplanet/grass,
+/area/cryo_outpost/outside/surface)
 "wgR" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -21450,6 +21450,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_west)
+"yjz" = (
+/obj/item/stack/flag/red/planted,
+/turf/simulated/floor/exoplanet/desert,
+/area/cryo_outpost/outside/surface)
 "yka" = (
 /obj/machinery/photocopier,
 /turf/simulated/floor/tiled/dark/full,
@@ -56575,7 +56579,7 @@ xdy
 orv
 xdy
 xdy
-lvX
+wgH
 xih
 xih
 xih
@@ -56837,7 +56841,7 @@ orv
 orv
 xdy
 xdy
-lvX
+wgH
 xih
 xih
 xih
@@ -57340,7 +57344,7 @@ xih
 xih
 xih
 xih
-lvX
+wgH
 orv
 prL
 rfp
@@ -57820,7 +57824,7 @@ gbY
 jjp
 dkR
 lrp
-iSi
+sfQ
 tqr
 tqr
 rvR
@@ -58126,7 +58130,7 @@ lDY
 oat
 xdy
 uxk
-dpe
+erz
 dkR
 lrp
 viQ
@@ -58136,7 +58140,7 @@ dkR
 viQ
 viQ
 dkR
-lvX
+wgH
 xih
 xih
 xih
@@ -58353,7 +58357,7 @@ xih
 xih
 xih
 xdy
-lvX
+wgH
 xih
 xdy
 xdy
@@ -58672,7 +58676,7 @@ rvR
 rvR
 rvR
 rvR
-erz
+yjz
 tqr
 tqr
 loA
@@ -58769,7 +58773,7 @@ pgW
 pgW
 aGb
 aGb
-aGb
+vQQ
 knX
 obz
 vds
@@ -58902,7 +58906,7 @@ prL
 orv
 xdy
 xdy
-lvX
+wgH
 xih
 xih
 xih
@@ -58923,7 +58927,7 @@ lrp
 tqr
 tqr
 tqr
-erz
+yjz
 tqr
 tqr
 tqr
@@ -59112,7 +59116,7 @@ loA
 lwN
 tqr
 tqr
-dpe
+erz
 dkR
 dkR
 rvR
@@ -59138,7 +59142,7 @@ rdz
 orv
 orv
 orv
-bnq
+dJf
 orv
 orv
 xdy
@@ -59169,7 +59173,7 @@ dkR
 dkR
 lrp
 orv
-bnq
+dJf
 orv
 orv
 xdy
@@ -59690,7 +59694,7 @@ xih
 xih
 rvR
 rvR
-erz
+yjz
 tqr
 tqr
 tqr
