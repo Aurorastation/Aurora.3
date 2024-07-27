@@ -180,11 +180,8 @@
 /datum/gear/shoes/recolourable_boots/New()
 	..()
 	var/list/recolourable_boots = list()
-	recolourable_boots["heeled boots"] = /obj/item/clothing/shoes/heeledboots
 	recolourable_boots["thigh-high boots"] = /obj/item/clothing/shoes/thighboots
-	recolourable_boots["thigh-high heeled boots"] = /obj/item/clothing/shoes/thighboots/heels
 	recolourable_boots["full-length boots"] = /obj/item/clothing/shoes/fullboots
-	recolourable_boots["full-length heeled boots"] = /obj/item/clothing/shoes/fullboots/heels
 	recolourable_boots["mudboots"] = /obj/item/clothing/shoes/mudboots
 	recolourable_boots["thigh-high mudboots"] = /obj/item/clothing/shoes/mudboots/thigh
 	recolourable_boots["combat boots"] = /obj/item/clothing/shoes/colorcombat

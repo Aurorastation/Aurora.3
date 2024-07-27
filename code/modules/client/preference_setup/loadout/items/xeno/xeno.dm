@@ -55,11 +55,8 @@
 /datum/gear/shoes/recolourable_toeless/New()
 	..()
 	var/list/recolourable_toeless = list()
-	recolourable_toeless["toeless heeled boots"] = /obj/item/clothing/shoes/heeledboots/toeless
 	recolourable_toeless["toeless thigh-high boots"] = /obj/item/clothing/shoes/thighboots/toeless
-	recolourable_toeless["toeless thigh-high heeled boots"] = /obj/item/clothing/shoes/thighboots/heels/toeless
 	recolourable_toeless["toeless full-length boots"] = /obj/item/clothing/shoes/fullboots/toeless
-	recolourable_toeless["toeless full-length heeled boots"] = /obj/item/clothing/shoes/fullboots/heels/toeless
 	recolourable_toeless["toeless jackboots"] = /obj/item/clothing/shoes/jackboots/toeless/color
 	recolourable_toeless["toeless workboots"] = /obj/item/clothing/shoes/workboots/toeless/color
 	gear_tweaks += new /datum/gear_tweak/path(recolourable_toeless)
