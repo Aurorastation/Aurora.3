@@ -132,6 +132,12 @@
 		/obj/effect/meteor/supermatter=1\
 		)
 
+	/**
+	 * List of /datum/constellation types visible in this sector by lore.
+	 * If left null, will randomly generate from all subtypes.
+	 */
+	var/list/lore_constellations
+
 /// When SSAtlas chooses us as the current sector, this function is called, which will set us up to start processing
 /datum/space_sector/proc/setup_current_sector()
 	SHOULD_CALL_PARENT(TRUE)
