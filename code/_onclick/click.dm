@@ -341,7 +341,7 @@
 	setClickCooldown(4)
 	var/turf/T = get_turf(src)
 	src.visible_message(SPAN_DANGER("\The [src]'s eyes flare with ruby light!"))
-	var/obj/item/projectile/beam/LE = new (T)
+	var/obj/projectile/beam/LE = new (T)
 	LE.muzzle_type = /obj/effect/projectile/muzzle/eyelaser
 	LE.tracer_type = /obj/effect/projectile/tracer/eyelaser
 	LE.impact_type = /obj/effect/projectile/impact/eyelaser

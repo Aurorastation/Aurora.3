@@ -14,7 +14,7 @@
 	burst_delay = 3
 	accuracy = -1
 	can_turret = 1
-	secondary_projectile_type = /obj/item/projectile/beam
+	secondary_projectile_type = /obj/projectile/beam
 	secondary_fire_sound = 'sound/weapons/laser1.ogg'
 	can_switch_modes = 1
 	turret_sprite_set = "carbine"
@@ -25,7 +25,7 @@
 	accuracy_wielded = 2
 	sel_mode = 1
 
-	projectile_type = /obj/item/projectile/beam/stun
+	projectile_type = /obj/projectile/beam/stun
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_MAGNET = 3)
 	modifystate = "eriflestun"
@@ -33,8 +33,8 @@
 	is_wieldable = TRUE
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, modifystate="eriflestun", fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, modifystate="eriflekill", fire_sound='sound/weapons/laser1.ogg')
+		list(mode_name="stun", projectile_type=/obj/projectile/beam/stun, modifystate="eriflestun", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/projectile/beam, modifystate="eriflekill", fire_sound='sound/weapons/laser1.ogg')
 		)
 
 /obj/item/gun/energy/rifle/laser
@@ -49,7 +49,7 @@
 	max_shots = 15
 	fire_delay = 6
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
-	projectile_type = /obj/item/projectile/beam/midlaser
+	projectile_type = /obj/projectile/beam/midlaser
 	secondary_projectile_type = null
 	secondary_fire_sound = null
 	can_switch_modes = 0
@@ -62,7 +62,7 @@
 /obj/item/gun/energy/rifle/laser/practice
 	name = "practice laser rifle"
 	desc = "A modified version of the NT LR-6. It fires less concentrated laser beams that are visible, but ultimately harmless, designed for target practice."
-	projectile_type = /obj/item/projectile/beam/practice
+	projectile_type = /obj/projectile/beam/practice
 
 /obj/item/gun/energy/rifle/laser/noctiluca
 	name = "combat laser rifle"
@@ -79,13 +79,13 @@
 	fire_delay = 5
 	burst_delay = 5
 	origin_tech = list(TECH_COMBAT = 8, TECH_MAGNET = 4)
-	projectile_type = /obj/item/projectile/beam/noctiluca
-	secondary_projectile_type = /obj/item/projectile/beam/noctiluca/armor_piercing
+	projectile_type = /obj/projectile/beam/noctiluca
+	secondary_projectile_type = /obj/projectile/beam/noctiluca/armor_piercing
 	secondary_fire_sound = 'sound/weapons/laserstrong.ogg'
 	can_switch_modes = TRUE
 	firemodes = list(
-		list(mode_name = "fire normal diffusion lasers", projectile_type = /obj/item/projectile/beam/noctiluca, fire_sound = 'sound/weapons/laser1.ogg'),
-		list(mode_name = "fire specialized armor piercing lasers", projectile_type = /obj/item/projectile/beam/noctiluca/armor_piercing, fire_sound = 'sound/weapons/laserstrong.ogg')
+		list(mode_name = "fire normal diffusion lasers", projectile_type = /obj/projectile/beam/noctiluca, fire_sound = 'sound/weapons/laser1.ogg'),
+		list(mode_name = "fire specialized armor piercing lasers", projectile_type = /obj/projectile/beam/noctiluca/armor_piercing, fire_sound = 'sound/weapons/laserstrong.ogg')
 	)
 
 /obj/item/gun/energy/rifle/laser/heavy
@@ -97,7 +97,7 @@
 	item_state = "lasercannon100"
 	has_item_ratio = TRUE
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
-	projectile_type = /obj/item/projectile/beam/heavylaser
+	projectile_type = /obj/projectile/beam/heavylaser
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	charge_cost = 400
 	max_shots = 5
@@ -122,7 +122,7 @@
 	icon_state = "xrifle"
 	item_state = "xrifle"
 	fire_sound = 'sound/weapons/laser3.ogg'
-	projectile_type = /obj/item/projectile/beam/xray
+	projectile_type = /obj/projectile/beam/xray
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	max_shots = 40
 	fire_delay = 6
@@ -140,10 +140,10 @@
 	icon_state = "pulse"
 	item_state = "pulse"
 	fire_sound = 'sound/weapons/laser1.ogg'
-	projectile_type = /obj/item/projectile/beam
+	projectile_type = /obj/projectile/beam
 	sel_mode = 2
 	origin_tech = list(TECH_COMBAT = 7, TECH_MATERIAL = 6, TECH_MAGNET = 4)
-	secondary_projectile_type = /obj/item/projectile/beam/pulse
+	secondary_projectile_type = /obj/projectile/beam/pulse
 	secondary_fire_sound = 'sound/weapons/pulse.ogg'
 	can_switch_modes = 0
 	turret_sprite_set = "pulse"
@@ -152,16 +152,16 @@
 	modifystate = null
 
 	firemodes = list(
-		list(mode_name="stun", projectile_type=/obj/item/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
-		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam, fire_sound='sound/weapons/laser1.ogg'),
-		list(mode_name="DESTROY", projectile_type=/obj/item/projectile/beam/pulse, fire_sound='sound/weapons/pulse.ogg')
+		list(mode_name="stun", projectile_type=/obj/projectile/beam/stun, fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/projectile/beam, fire_sound='sound/weapons/laser1.ogg'),
+		list(mode_name="DESTROY", projectile_type=/obj/projectile/beam/pulse, fire_sound='sound/weapons/pulse.ogg')
 		)
 
 /obj/item/gun/energy/rifle/pulse/destroyer
 	name = "pulse destroyer"
 	desc = "A heavy-duty, pulse-based energy weapon. Because of its complexity and cost, it is rarely seen in use except by specialists."
 	fire_sound = 'sound/weapons/pulse.ogg'
-	projectile_type = /obj/item/projectile/beam/pulse
+	projectile_type = /obj/projectile/beam/pulse
 	burst_delay = 5
 	burst = 3
 	max_shots = 30
@@ -179,7 +179,7 @@
 	item_state = "tachyonrifle"
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser3.ogg'
-	projectile_type = /obj/item/projectile/beam/tachyon
+	projectile_type = /obj/projectile/beam/tachyon
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
 	secondary_projectile_type = null
 	secondary_fire_sound = null
@@ -206,7 +206,7 @@
 	item_state = "ionrifle"
 	has_item_ratio = FALSE
 	modifystate = null
-	projectile_type = /obj/item/projectile/ion/stun
+	projectile_type = /obj/projectile/ion/stun
 	fire_sound = 'sound/weapons/laser1.ogg'
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
 	w_class = ITEMSIZE_LARGE
@@ -238,7 +238,7 @@
 	item_state = "qukala_heavy"
 	max_shots = 10
 	self_recharge = TRUE
-	projectile_type = /obj/item/projectile/beam/midlaser/skrell/heavy
+	projectile_type = /obj/projectile/beam/midlaser/skrell/heavy
 
 /obj/item/gun/energy/rifle/hegemony
 	name = "hegemony energy rifle"
@@ -251,10 +251,14 @@
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	max_shots = 15
-	can_switch_modes = FALSE
 	can_turret = TRUE
 	turret_is_lethal = TRUE
-	projectile_type = /obj/item/projectile/beam/midlaser/hegemony
+	projectile_type = /obj/projectile/beam/midlaser/hegemony
+	can_switch_modes = FALSE
+	secondary_projectile_type = null
+	firemodes = list()
+	modifystate = null
 	origin_tech = list(TECH_COMBAT = 6, TECH_MAGNET = 4)
 	is_wieldable = TRUE
 	modifystate = "hegemonyrifle"
+	firemodes = list()

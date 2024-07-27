@@ -243,17 +243,17 @@ SUBSYSTEM_DEF(virtualreality)
 			continue
 		if(R.stat == DEAD)
 			continue
-		bound[R.name] = R
+		bound += R
 
 	if(!length(bound))
 		to_chat(user, SPAN_WARNING("No active remote units are available."))
 		return
 
 	var/choice = tgui_input_list(usr, "Please select a remote control unit to take over.", "Remote Unit Selection", bound)
-	if(!choice)
+	if(!(choice in bound))
 		return
 
-	mind_transfer(user, bound[choice])
+	mind_transfer(user, choice)
 
 /datum/controller/subsystem/virtualreality/proc/create_virtual_reality_avatar(var/mob/living/carbon/human/user)
 	if(GLOB.virtual_reality_spawn.len)

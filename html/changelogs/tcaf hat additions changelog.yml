@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: Tomixcomics
+author: not-a-gonk
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,7 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added 12 new dishes (4 Unathi dishes, 2 Galatean dishes, 1 Tretian dish, 5 misc.)."
-  - bugfix: "Fixed the codex visual of Konaqu showing up wrong."
-  - bugfix: "Corrected a few muffin names that were showing up as the wrong kind of muffin."
-  - spellcheck: "Edited description of Nakarka cheese because the vaurcan accent was spelled incorrectly."
+ - rscadd: "Adds the TCAF berets and a jacket to the loadout, included in a new selection alongside their older TCFL variants."

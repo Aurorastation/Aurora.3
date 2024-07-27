@@ -56,10 +56,10 @@
 			anchored = TRUE
 
 /obj/item/trap/proc/deploy(mob/user)
-	user.visible_message("[SPAN_BOLD(user)] starts deploying \the [src]...", SPAN_NOTICE("You begin deploying \the [src]!"), SPAN_WARNING("You hear the slow creaking of a spring."))
+	user.visible_message("[SPAN_BOLD("[user]")] starts deploying \the [src]...", SPAN_NOTICE("You begin deploying \the [src]!"), SPAN_WARNING("You hear the slow creaking of a spring."))
 
 	if(do_after(user, 5 SECONDS))
-		user.visible_message("[SPAN_BOLD(user)] deploys \the [src].", SPAN_WARNING("You deploy \the [src]!"), SPAN_WARNING("You hear a latch click loudly."))
+		user.visible_message("[SPAN_BOLD("[user]")] deploys \the [src].", SPAN_WARNING("You deploy \the [src]!"), SPAN_WARNING("You hear a latch click loudly."))
 		deployed = TRUE
 		update_icon()
 		return TRUE
@@ -70,10 +70,10 @@
 	if(!buckled || !can_use(user))
 		return
 
-	user.visible_message("[SPAN_BOLD(user)] begins freeing \the [buckled] from \the [src]...", SPAN_NOTICE("You carefully begin to free \the [buckled] from \the [src]..."), SPAN_NOTICE("You hear metal creaking."))
+	user.visible_message("[SPAN_BOLD("[user]")] begins freeing \the [buckled] from \the [src]...", SPAN_NOTICE("You carefully begin to free \the [buckled] from \the [src]..."), SPAN_NOTICE("You hear metal creaking."))
 
 	if(do_after(user, time_to_escape))
-		user.visible_message("[SPAN_BOLD(user)] frees \the [buckled] from \the [src].", SPAN_NOTICE("You free \the [buckled] from \the [src]."))
+		user.visible_message("[SPAN_BOLD("[user]")] frees \the [buckled] from \the [src].", SPAN_NOTICE("You free \the [buckled] from \the [src]."))
 		unbuckle()
 		anchored = FALSE
 
@@ -88,9 +88,9 @@
 	..()
 
 /obj/item/trap/proc/disarm_trap(var/mob/user)
-	user.visible_message("[SPAN_BOLD(user)] starts disarming \the [src]...", SPAN_NOTICE("You begin disarming \the [src]..."), SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring."))
+	user.visible_message("[SPAN_BOLD("[user]")] starts disarming \the [src]...", SPAN_NOTICE("You begin disarming \the [src]..."), SPAN_WARNING("You hear a latch click followed by the slow creaking of a spring."))
 	if(do_after(user, 6 SECONDS))
-		user.visible_message("[SPAN_BOLD(user)] disarms \the [src]!", SPAN_NOTICE("You disarm \the [src]!"))
+		user.visible_message("[SPAN_BOLD("[user]")] disarms \the [src]!", SPAN_NOTICE("You disarm \the [src]!"))
 		deployed = FALSE
 		if(unsecure_on_disarm)
 			anchored = FALSE
@@ -574,7 +574,7 @@
 		new /obj/item/stack/material/steel(get_turf(src))
 		qdel(src)
 
-/obj/item/trap/animal/bullet_act(var/obj/item/projectile/Proj)
+/obj/item/trap/animal/bullet_act(var/obj/projectile/Proj)
 	var/mob/living/captured_mob = captured ? captured.resolve() : null
 	if(captured_mob)
 		captured_mob.bullet_act(Proj)
@@ -611,7 +611,7 @@
 			to_chat(user, SPAN_NOTICE("You need a better grip on \the [capturing_mob]!"))
 			return
 
-		user.visible_message("[SPAN_BOLD(user)] starts putting \the [capturing_mob] into \the [src].", SPAN_NOTICE("You start putting \the [capturing_mob] into \the [src]."))
+		user.visible_message("[SPAN_BOLD("[user]")] starts putting \the [capturing_mob] into \the [src].", SPAN_NOTICE("You start putting \the [capturing_mob] into \the [src]."))
 
 		if(capturing_mob.mob_size > max_mob_size)
 			to_chat(user, SPAN_WARNING("\The [capturing_mob] won't fit in there!"))
@@ -644,14 +644,14 @@
 			to_chat(user, SPAN_WARNING("There is nothing to secure \the [src] to!"))
 			return
 
-		user.visible_message("[SPAN_BOLD(user)] starts [anchored ? "un" : "" ]securing \the [src]...", SPAN_NOTICE("You start [anchored ? "un" : "" ]securing \the [src]..."))
+		user.visible_message("[SPAN_BOLD("[user]")] starts [anchored ? "un" : "" ]securing \the [src]...", SPAN_NOTICE("You start [anchored ? "un" : "" ]securing \the [src]..."))
 
 		if(attacking_item.use_tool(src, user, 3 SECONDS, volume = 50))
 			density = !density
 			anchored = !anchored
 			if(!anchored)
 				deployed = FALSE
-			user.visible_message("[SPAN_BOLD(user)] [anchored ? "" : "un" ]secures \the [src]!", SPAN_NOTICE("You [anchored ? "" : "un" ]secure \the [src]!"))
+			user.visible_message("[SPAN_BOLD("[user]")] [anchored ? "" : "un" ]secures \the [src]!", SPAN_NOTICE("You [anchored ? "" : "un" ]secure \the [src]!"))
 			update_icon()
 
 	else
@@ -682,7 +682,7 @@
 		..()
 
 /obj/item/trap/animal/proc/pass_without_trace(var/mob/user, var/chance_to_trigger = 0)
-	user.visible_message("[SPAN_BOLD(user)] tries moving around \the [src] without triggering it.", SPAN_NOTICE("You try to carefully move around \the [src] without triggering it."))
+	user.visible_message("[SPAN_BOLD("[user]")] tries moving around \the [src] without triggering it.", SPAN_NOTICE("You try to carefully move around \the [src] without triggering it."))
 	if(do_after(user, 2 SECONDS, src))
 		if(chance_to_trigger && prob(chance_to_trigger))
 			user.forceMove(loc)
@@ -690,7 +690,7 @@
 			capture(user)
 		else
 			user.forceMove(loc)
-			user.visible_message("[SPAN_BOLD(user)] successfully moves around \the [src] without triggering it.", SPAN_NOTICE("You successfully move around \the [src] without triggering it."))
+			user.visible_message("[SPAN_BOLD("[user]")] successfully moves around \the [src] without triggering it.", SPAN_NOTICE("You successfully move around \the [src] without triggering it."))
 
 /obj/item/trap/animal/MouseDrop(over_object, src_location, over_location)
 	if(!isliving(usr) || !src.Adjacent(usr))
@@ -857,14 +857,14 @@
 	if(istype(attacking_item, /obj/item/stack/rods))
 		var/obj/item/stack/rods/O = attacking_item
 		if(O.get_amount() >= 12)
-			user.visible_message("[SPAN_BOLD(user)] starts adding metal bars to \the [src]...", SPAN_NOTICE("You start adding metal bars to \the [src]..."))
+			user.visible_message("[SPAN_BOLD("[user]")] starts adding metal bars to \the [src]...", SPAN_NOTICE("You start adding metal bars to \the [src]..."))
 
 			if (!do_after(user, 2 SECONDS, src))
 				return
 			O.use(12)
 
 			var/obj/item/trap/animal/large/new_trap = new /obj/item/trap/animal/large(src.loc)
-			user.visible_message("[SPAN_BOLD(user)] finishes constructing \the [new_trap].", SPAN_NOTICE("You finish constructing \the [new_trap]."))
+			user.visible_message("[SPAN_BOLD("[user]")] finishes constructing \the [new_trap].", SPAN_NOTICE("You finish constructing \the [new_trap]."))
 
 			qdel(src)
 			return

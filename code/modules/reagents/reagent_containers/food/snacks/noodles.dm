@@ -173,7 +173,7 @@
 
 /obj/item/reagent_containers/food/snacks/ravioli/nakarka
 	name = "nakarka ravioli"
-	icon_state = "raviolinakarka"
+	icon_state = "ravioli_nakarka"
 	desc = "Ravioli with Nakarka cheese filling in a sour cream and chives based sauce."
 	reagents_to_add = list(/singleton/reagent/nutriment = 10)
 	reagent_data = list(/singleton/reagent/nutriment = list("sharp tanginess" = 5, "pasta" = 4, "sour cream" = 4, "chives" = 3))

@@ -3,34 +3,6 @@
 #define JOINTEXT(X) jointext(X, null)
 #define list_find(L, needle, LIMITS...) L.Find(needle, LIMITS)
 
-#define span(class, text) ("<span class='[class]'>" + text + "</span>")
-#define SPAN_NOTICE(X) ("<span class='notice'>" + X + "</span>")
-#define SPAN_WARNING(X) ("<span class='warning'>" + X + "</span>")
-#define SPAN_DANGER(X) ("<span class='danger'>" + X + "</span>")
-#define SPAN_CULT(X) ("<span class='cult'>" + X + "</span>")
-#define SPAN_GOOD(X) ("<span class='good'>" + X + "</span>")
-#define SPAN_BAD(X) ("<span class='bad'>" + X + "</span>")
-#define SPAN_ALIEN(X) ("<span class='alium'>" + X + "</span>")
-#define SPAN_ALERT(X) ("<span class='alert'>" + X + "</span>")
-#define SPAN_INFO(X) ("<span class='info'>" + X + "</span>")
-#define SPAN_ITALIC(X) ("<span class='italic'>" + X + "</span>")
-#define SPAN_BOLD(X) ("<span class='bold'>" + X + "</span>")
-#define SPAN_SUBTLE(X) ("<span class='subtle'>" + X + "</span>")
-#define SPAN_SOGHUN(X) ("<span class='soghun'>" + X + "</span>")
-#define SPAN_VOTE(X) ("<span class='vote'>" + X + "</span>")
-#define SPAN_HEAR(X) ("<span class='hear'>" + X + "</span>")
-#define SPAN_STYLE(style, X) "<span style=\"[style]\">[X]</span>"
-#define SPAN_COLOR(color, text) SPAN_STYLE("color: [color]", "[text]")
-#define SPAN_CAUTION(X) ("<span class='caution'>" + X + "</span>")
-
-#define SPAN_RED(x) "<span style='color:[COLOR_RED]'>[x]</span>"
-#define SPAN_YELLOW(x) "<span style='color:[COLOR_YELLOW]'>[x]</span>"
-#define SPAN_GREEN(x) "<span style='color:[COLOR_GREEN]'>[x]</span>"
-
-#define SPAN_SIZE(size, text) ("<span style=\"font-size: [size]\">" + text + "</span>")
-
-#define SPAN_HIGHDANGER(X) (FONT_LARGE(SPAN_DANGER(X)))
-
 /// Adds a generic or coloured box around a chat message.
 #define EXAMINE_BLOCK(str) ("<div class='examine_block'>" + str + "</div>")
 #define EXAMINE_BLOCK_GREY(str) ("<div class='examine_block--grey'>" + str + "</div>")
@@ -38,20 +10,8 @@
 #define EXAMINE_BLOCK_RED(str) ("<div class='examine_block--red'>" + str + "</div>")
 #define EXAMINE_BLOCK_DEEP_CYAN(str) ("<div class='examine_block--deep-cyan'>" + str + "</div>")
 
-#define FONT_SIZE_SMALL "10px"
-#define FONT_SIZE_NORMAL "13px"
-#define FONT_SIZE_LARGE "16px"
-#define FONT_SIZE_HUGE "18px"
-#define FONT_SIZE_GIANT "24px"
-
-#define FONT_SMALL(X) SPAN_SIZE(FONT_SIZE_SMALL, X)
-#define FONT_NORMAL(X) SPAN_SIZE(FONT_SIZE_NORMAL, X)
-#define FONT_LARGE(X) SPAN_SIZE(FONT_SIZE_LARGE, X)
-#define FONT_HUGE(X) SPAN_SIZE(FONT_SIZE_HUGE, X)
-#define FONT_GIANT(X) SPAN_SIZE(FONT_SIZE_GIANT, X)
-
-#define MATRIX_DANGER(X) (FONT_LARGE(SPAN_DANGER(X)))
-#define MATRIX_NOTICE(X) (FONT_LARGE(SPAN_NOTICE(X)))
+#define MATRIX_DANGER(str) (FONT_LARGE(SPAN_DANGER(str)))
+#define MATRIX_NOTICE(str) (FONT_LARGE(SPAN_NOTICE(str)))
 
 #define UNDERSCORE_OR_NULL(target) "[target ? "[target]_" : ""]"
 
@@ -123,9 +83,9 @@
 #define isaccessory(A) istype(A, /obj/item/clothing/accessory)
 
 /// Projectile helpers
-#define isprojectile(A) istype(A, /obj/item/projectile)
-#define isbeam(A) istype(A, /obj/item/projectile/beam)
-#define isenergy(A) istype(A, /obj/item/projectile/energy)
+#define isprojectile(A) istype(A, /obj/projectile)
+#define isbeam(A) istype(A, /obj/projectile/beam)
+#define isenergy(A) istype(A, /obj/projectile/energy)
 
 /// General I/O helpers
 #define to_target(target, payload)                          target << (payload)

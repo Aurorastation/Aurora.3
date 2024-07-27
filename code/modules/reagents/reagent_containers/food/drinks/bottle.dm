@@ -434,24 +434,23 @@
 	update_icon()
 	make_froth(offset_x = 0, offset_y = sabraged ? 13 : 15, intensity = froth_severity) //the y offset for sabraged is lower because the bottle's lip is smashed
 	///Type of cork to fire away
-	var/obj/item/projectile/bullet/cork_to_fire = sabraged ? /obj/item/projectile/bullet/champagne_cork/sabrage : /obj/item/projectile/bullet/champagne_cork
+	var/obj/projectile/bullet/cork_to_fire = sabraged ? /obj/projectile/bullet/champagne_cork/sabrage : /obj/projectile/bullet/champagne_cork
 	///Our resulting cork projectile
-	var/obj/item/projectile/bullet/champagne_cork/popped_cork = new cork_to_fire(get_turf(src))
+	var/obj/projectile/bullet/champagne_cork/popped_cork = new cork_to_fire(get_turf(src))
 	popped_cork.firer =  user
 	popped_cork.fire(dir2angle(user.dir) + rand(-30, 30))
 
-/obj/item/projectile/bullet/champagne_cork
+/obj/projectile/bullet/champagne_cork
 	name = "champagne cork"
 	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
 	icon_state = "champagne_cork"
-	hitsound = 'sound/weapons/genhit.ogg'
 	damage = 5
 	embed = FALSE
 	sharp = FALSE
 	agony = 10 // ow!
 	var/drop_type = /obj/item/trash/champagne_cork
 
-/obj/item/projectile/bullet/champagne_cork/on_impact(var/atom/A)
+/obj/projectile/bullet/champagne_cork/on_impact(var/atom/A)
 	..()
 	new drop_type(src.loc) //always use src.loc so that ash doesn't end up inside windows
 
@@ -460,7 +459,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
 	icon_state = "champagne_cork"
 
-/obj/item/projectile/bullet/champagne_cork/sabrage
+/obj/projectile/bullet/champagne_cork/sabrage
 	icon_state = "champagne_cork_sabrage"
 	drop_type = /obj/item/trash/champagne_cork/sabrage
 
@@ -1005,6 +1004,26 @@
 	icon_state = "hoochbottle"
 	center_of_mass = list("x"=16, "y"=8)
 	reagents_to_add = list(/singleton/reagent/alcohol/hooch = 100)
+
+
+/obj/item/reagent_containers/food/drinks/bottle/ogogoro
+	name = "ogogoro jar"
+	desc = "A traditional Eridani palm wine drink, stored in a mason jar."
+	desc_extended = "Ogogoro is a traditional West African drink which the colonists of Eridani originally took with them. The nature of it as a high-alcohol moonshine, however, meant that it would eventually be sidelined by the suits of Eridani as \
+	a vestige of the poor man's culture. As such, whilst it remains extremely common amongst dregs, a suit drinking ogogoro would often be looked down upon by their peers. It remains popular in opaque flasks, however. Appropriately, this jar was not brewed \
+	on Eridani itself, but instead by the dreg diaspora found in Burzsia."
+	icon_state = "ogogoro"
+	empty_icon_state = "ogogoro_empty"
+	reagents_to_add = list(/singleton/reagent/alcohol/ogogoro = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/small/burukutu
+	name = "burukutu bottle"
+	desc = "A traditional Eridani millet beer, distributed by Idris."
+	desc_extended = "Burukutu is a millet beer common throughout West Africa and colonies with West African influence. As such, it can be found commonly on the colony of Eridani. This bottle in particular is a Silverport product, extremely popular \
+	with the suits of the Eridani federation. In spite of their preference for stronger drinks, dregs can often be found with burukutu 'retrieved' from the aboveground cities of Eridani I. According to the label on the back, this was bottled in Tokura, \
+	Eridani I."
+	icon_state = "burukutu"
+	reagents_to_add = list(/singleton/reagent/alcohol/burukutu = 30)
 
 // Butanol-based alcoholic drinks
 //=====================================

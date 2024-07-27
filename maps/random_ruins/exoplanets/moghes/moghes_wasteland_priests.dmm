@@ -140,8 +140,8 @@
 /obj/structure/closet/crate/weapon/alt,
 /obj/item/material/sword/longsword,
 /obj/item/material/sword/axe,
-/obj/item/projectile/beam/pistol/hegemony,
-/obj/item/projectile/beam/pistol/hegemony,
+/obj/projectile/beam/pistol/hegemony,
+/obj/projectile/beam/pistol/hegemony,
 /obj/item/gun/energy/rifle/hegemony,
 /obj/item/clothing/suit/armor/unathi/hegemony,
 /obj/item/clothing/accessory/poncho/unathimantle/med{

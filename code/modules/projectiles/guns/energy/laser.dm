@@ -12,7 +12,7 @@
 	force = 15
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	projectile_type = /obj/item/projectile/beam/midlaser
+	projectile_type = /obj/projectile/beam/midlaser
 	can_turret = 1
 	turret_is_lethal = 1
 	turret_sprite_set = "laser"
@@ -33,7 +33,7 @@
 /obj/item/gun/energy/laser/practice
 	name = "practice laser carbine"
 	desc = "A modified version of the HI G40E, this one fires less concentrated energy bolts designed for target practice."
-	projectile_type = /obj/item/projectile/beam/practice
+	projectile_type = /obj/projectile/beam/practice
 
 /obj/item/gun/energy/retro
 	name = "retro laser"
@@ -48,7 +48,7 @@
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
 	offhand_accuracy = 1
-	projectile_type = /obj/item/projectile/beam
+	projectile_type = /obj/projectile/beam
 	fire_delay = 5
 	can_turret = 1
 	turret_is_lethal = 1
@@ -70,7 +70,7 @@
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
 	offhand_accuracy = 2
-	projectile_type = /obj/item/projectile/beam
+	projectile_type = /obj/projectile/beam
 	origin_tech = null
 	max_shots = 5 //to compensate a bit for self-recharging
 	self_recharge = 1
@@ -88,7 +88,7 @@
 	fire_sound = 'sound/weapons/lasercannonfire.ogg'
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 3, TECH_POWER = 3)
 	slot_flags = SLOT_BELT|SLOT_BACK
-	projectile_type = /obj/item/projectile/beam/heavylaser
+	projectile_type = /obj/projectile/beam/heavylaser
 	charge_cost = 400
 	max_shots = 5
 	fire_delay = 20
@@ -119,7 +119,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser3.ogg'
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 2)
-	projectile_type = /obj/item/projectile/beam/xray
+	projectile_type = /obj/projectile/beam/xray
 	charge_cost = 100
 	max_shots = 20
 	fire_delay = 4
@@ -148,7 +148,7 @@
 	has_item_ratio = FALSE // same as the laserrifle
 	fire_sound = 'sound/weapons/marauder.ogg'
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 5, TECH_POWER = 4)
-	projectile_type = /obj/item/projectile/beam/sniper
+	projectile_type = /obj/projectile/beam/sniper
 	slot_flags = SLOT_BACK
 	charge_cost = 400
 	max_shots = 4
@@ -192,7 +192,7 @@
 	force = 15
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 2)
-	projectile_type = /obj/item/projectile/beam/shotgun
+	projectile_type = /obj/projectile/beam/shotgun
 	max_shots = 20
 	sel_mode = 1
 	is_wieldable = TRUE
@@ -222,7 +222,7 @@
 	recharge_time = 2
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	fire_sound = 'sound/weapons/laser1.ogg'
-	projectile_type = /obj/item/projectile/beam/laser_tag
+	projectile_type = /obj/projectile/beam/laser_tag
 	pin = /obj/item/device/firing_pin/tag/red
 	can_turret = TRUE
 	turret_is_lethal = FALSE
@@ -239,7 +239,7 @@
 	return ..()
 
 /obj/item/gun/energy/lasertag/proc/get_tag_color(var/set_color)
-	projectile_type = text2path("/obj/item/projectile/beam/laser_tag/[set_color]")
+	projectile_type = text2path("/obj/projectile/beam/laser_tag/[set_color]")
 	if(pin)
 		QDEL_NULL(pin)
 		var/pin_path = text2path("/obj/item/device/firing_pin/tag/[set_color]")
@@ -258,7 +258,7 @@
 	icon = 'icons/obj/guns/bluetag.dmi'
 	icon_state = "bluetag"
 	item_state = "bluetag"
-	projectile_type = /obj/item/projectile/beam/laser_tag/blue
+	projectile_type = /obj/projectile/beam/laser_tag/blue
 	pin = /obj/item/device/firing_pin/tag/blue
 	turret_sprite_set = "blue"
 

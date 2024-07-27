@@ -296,7 +296,8 @@
 	icon = 'icons/obj/watercloset.dmi'
 	icon_state = "sink"
 	desc = "A sink used for washing one's hands and face."
-	desc_info = "You can right-click this and change the amount transferred per use."
+	desc_info = "Use HELP intent to fill a container in your hand from this, and use any other intent to empty the container into this. \
+	You can right-click this and change the amount transferred per use."
 	anchored = 1
 	var/busy = 0 	//Something's being washed at the moment
 	var/amount_per_transfer_from_this = 300
@@ -355,34 +356,32 @@
 	// Filling/emptying open reagent containers
 	var/obj/item/reagent_containers/RG = attacking_item
 
-	if (istype(RG) && RG.is_open_container())
-		var/atype = alert(usr, "Do you want to fill or empty \the [RG] at \the [src]?", "Fill or Empty", "Fill", "Empty", "Cancel")
-
+	if (istype(RG))
 		if(!usr.Adjacent(src)) return
 		if(RG.loc != usr && !isrobot(user)) return
 		if(busy)
 			to_chat(usr, SPAN_WARNING("Someone's already using \the [src]."))
 			return
+		if(!(RG.is_open_container()))
+			to_chat(usr, SPAN_WARNING("The [RG.name]'s lid is on!"))
+			return
+		if (usr.a_intent == I_HELP)
+			if(RG.reagents.total_volume >= RG.volume)
+				to_chat(usr, SPAN_WARNING("\The [RG] is already full."))
+				return
 
-		switch(atype)
-			if ("Fill")
-				if(RG.reagents.total_volume >= RG.volume)
-					to_chat(usr, SPAN_WARNING("\The [RG] is already full."))
-					return
+			RG.reagents.add_reagent(/singleton/reagent/water, min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
+			user.visible_message("<b>[user]</b> fills \a [RG] using \the [src].", SPAN_NOTICE("You fill \a [RG] using \the [src]."))
+			playsound(loc, 'sound/effects/sink.ogg', 75, 1)
+		else
+			if(!RG.reagents.total_volume)
+				to_chat(usr, SPAN_WARNING("\The [RG] is already empty."))
+				return
 
-				RG.reagents.add_reagent(/singleton/reagent/water, min(RG.volume - RG.reagents.total_volume, amount_per_transfer_from_this))
-				user.visible_message("<b>[user]</b> fills \a [RG] using \the [src].",
-										SPAN_NOTICE("You fill \a [RG] using \the [src]."))
-				playsound(loc, 'sound/effects/sink.ogg', 75, 1)
-			if ("Empty")
-				if(!RG.reagents.total_volume)
-					to_chat(usr, SPAN_WARNING("\The [RG] is already empty."))
-					return
-
-				var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
-				var/max_reagents = RG.reagents.maximum_volume
-				user.visible_message("<b>[user]</b> empties [empty_amount == max_reagents ? "all of \the [RG]" : "some of \the [RG]"] into \a [src].")
-				playsound(src.loc, /singleton/sound_category/generic_pour_sound, 10, 1)
+			var/empty_amount = RG.reagents.trans_to(src, RG.amount_per_transfer_from_this)
+			var/max_reagents = RG.reagents.maximum_volume
+			user.visible_message("<b>[user]</b> empties [empty_amount == max_reagents ? "all of \the [RG]" : "some of \the [RG]"] into \a [src].")
+			playsound(src.loc, /singleton/sound_category/generic_pour_sound, 10, 1)
 		return
 
 	// Filling/empying Syringes
@@ -396,8 +395,7 @@
 
 				var/trans = min(S.volume - S.reagents.total_volume, S.amount_per_transfer_from_this)
 				S.reagents.add_reagent(/singleton/reagent/water, trans)
-				user.visible_message(SPAN_NOTICE("[usr] uses \the [S] to draw water from \the [src]."),
-										SPAN_NOTICE("You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
+				user.visible_message(SPAN_NOTICE("[usr] uses \the [S] to draw water from \the [src]."), SPAN_NOTICE("You draw [trans] units of water from \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 			if(1) // inject
 				if(!S.reagents.total_volume)
 					to_chat(usr, SPAN_WARNING("\The [S] is already empty."))
@@ -405,8 +403,7 @@
 
 				var/trans = min(S.amount_per_transfer_from_this, S.reagents.total_volume)
 				S.reagents.remove_any(trans)
-				user.visible_message(SPAN_NOTICE("[usr] empties \the [S] into \the [src]."),
-										SPAN_NOTICE("You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
+				user.visible_message(SPAN_NOTICE("[usr] empties \the [S] into \the [src]."), SPAN_NOTICE("You empty [trans] units of water into \the [src]. \The [S] now contains [S.reagents.total_volume] units."))
 		return
 
 	else if (istype(attacking_item, /obj/item/melee/baton))

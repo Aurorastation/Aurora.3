@@ -314,6 +314,8 @@
 	else if(istype(attacking_item,/obj/item/tank))
 		if(tank)
 			to_chat(user, "\The [src] already has an airtank installed.")
+		else if(cooler)
+			to_chat(user, "\The [src] already has a suit cooler installed, there is no room for an airtank.")
 		else if(istype(attacking_item,/obj/item/tank/phoron))
 			to_chat(user, "\The [attacking_item] cannot be inserted into \the [src]'s storage compartment.")
 		else
@@ -325,6 +327,8 @@
 	else if (istype(attacking_item, /obj/item/device/suit_cooling_unit))
 		if(cooler)
 			to_chat(user, "\The [src] already has a suit cooler installed.")
+		else if(tank)
+			to_chat(user, "\The [src] already has an airtank installed, there is no room for a suit cooler.")
 		else
 			playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)
 			to_chat(user, "You insert \the [attacking_item] into \the [src]'s storage compartment.")

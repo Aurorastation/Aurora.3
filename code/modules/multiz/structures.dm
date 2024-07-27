@@ -34,7 +34,8 @@
 	. = ..()
 	// the upper will connect to the lower
 	if(allowed_directions & DOWN) //we only want to do the top one, as it will initialize the ones before it.
-		for(var/obj/structure/ladder/L in GetBelow(src))
+		var/turf/T = get_turf(src)
+		for(var/obj/structure/ladder/L in GET_TURF_BELOW(T))
 			if(L.allowed_directions & UP)
 				target_down = L
 				L.target_up = src
@@ -237,7 +238,7 @@
 /obj/structure/stairs/Initialize()
 	. = ..()
 	for(var/turf/turf in locs)
-		var/turf/simulated/open/above = GetAbove(turf)
+		var/turf/simulated/open/above = GET_TURF_ABOVE(turf)
 		if(!above)
 			log_asset("Stair created without z-level above: ([loc.x], [loc.y], [loc.z])")
 			return INITIALIZE_HINT_QDEL
@@ -264,7 +265,8 @@
 	var/atom/movable/AM = bumped_atom
 
 	// This is hackish but whatever.
-	var/turf/target = get_step(GetAbove(AM), dir)
+	var/turf/T = get_turf(AM)
+	var/turf/target = get_step(GET_TURF_ABOVE(T), dir)
 	if(!target)
 		return
 	if(target.z > (z + 1)) //Prevents wheelchair fuckery. Basically, you teleport twice because both the wheelchair + your mob collide with the stairs.
@@ -281,11 +283,6 @@
 			if(ishuman(living_mob))
 				playsound(src, 'sound/effects/stairs_step.ogg', 50)
 				playsound(target, 'sound/effects/stairs_step.ogg', 50)
-
-/obj/structure/stairs/Crossed(obj/O)
-	if(istype(O))
-		O.stair_act()
-	return ..()
 
 /obj/structure/stairs/proc/upperStep(var/turf/T)
 	return (T == loc)
@@ -345,7 +342,7 @@
 	density = TRUE
 
 /obj/structure/stairs_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover,/obj/item/projectile))
+	if(istype(mover,/obj/projectile))
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
@@ -384,11 +381,6 @@
 	icon = 'icons/obj/structure/stairs.dmi'
 	icon_state = "np_stair"
 
-/obj/structure/platform_stairs/Crossed(obj/O)
-	if(istype(O))
-		O.stair_act()
-	return ..()
-
 /obj/structure/platform_stairs/south_north_solo
 	icon_state = "p_stair_sn_solo_cap"
 
@@ -423,7 +415,7 @@
 	color = COLOR_DARK_GUNMETAL
 
 /obj/structure/platform/CanPass(atom/movable/mover, turf/target, height, air_group)
-	if(istype(mover, /obj/item/projectile))
+	if(istype(mover, /obj/projectile))
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE

@@ -364,7 +364,7 @@
 		return
 
 	if(SSatlas.current_map.use_overmap)
-		overmap_spacetravel(get_turf(src), src)
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(overmap_spacetravel), get_turf(src), src)
 		return
 
 	var/move_to_z = src.get_transit_zlevel()

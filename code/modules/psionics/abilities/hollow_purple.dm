@@ -15,7 +15,7 @@
 	icon_state = "destablize"
 	cast_methods = CAST_RANGED
 	aspect = ASPECT_PSIONIC
-	spell_projectile = /obj/item/projectile/hollow_purple
+	spell_projectile = /obj/projectile/hollow_purple
 	fire_sound = 'sound/magic/WandODeath.ogg'
 	cooldown = 10
 	psi_cost = 50
@@ -53,7 +53,7 @@
 		for(var/mob/living/L in get_hearers_in_view(7, src))
 			shake_camera(L, 5, 5)
 
-/obj/item/projectile/hollow_purple
+/obj/projectile/hollow_purple
 	name = "hollow purple"
 	icon_state = "hollow_purple"
 	color = COLOR_PURPLE
@@ -65,14 +65,14 @@
 	anti_materiel_potential = 100
 	damage_type = DAMAGE_BRUTE
 
-/obj/item/projectile/hollow_purple/Initialize()
+/obj/projectile/hollow_purple/Initialize()
 	. = ..()
 	set_light(10, 10, COLOR_PURPLE)
 
-/obj/item/projectile/hollow_purple/Destroy()
+/obj/projectile/hollow_purple/Destroy()
 	return ..()
 
-/obj/item/projectile/hollow_purple/on_impact(var/atom/A)
+/obj/projectile/hollow_purple/on_impact(var/atom/A)
 	if(ismob(A))
 		if(A != firer)
 			var/mob/M = A
@@ -80,7 +80,7 @@
 	explosion(A, 5, 5, 5)
 	..()
 
-/obj/item/projectile/hollow_purple/on_hit(atom/target, blocked, def_zone)
+/obj/projectile/hollow_purple/on_hit(atom/target, blocked, def_zone)
 	if(ismob(target))
 		if(target != firer)
 			var/mob/M = target
@@ -88,11 +88,11 @@
 	explosion(target, 5, 5, 5)
 	..()
 
-/obj/item/projectile/hollow_purple/check_penetrate(atom/A)
+/obj/projectile/hollow_purple/check_penetrate(atom/A)
 	on_hit(A)
 	return TRUE
 
-/obj/item/projectile/hollow_purple/after_move()
+/obj/projectile/hollow_purple/after_move()
 	for(var/a in range(3, src))
 		if(isliving(a) && a != firer)
 			var/mob/living/M = a
