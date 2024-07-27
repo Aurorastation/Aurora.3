@@ -50,6 +50,7 @@
 
 /obj/item/paper/Initialize(mapload, text, title)
 	. = ..()
+	generate_text_contents()
 	base_state = initial(icon_state)
 	if (text || title)
 		if(set_unsafe_on_init)
@@ -87,6 +88,12 @@
 	update_icon()
 	update_space(info)
 	updateinfolinks()
+
+/// Generate text content.
+/// Use this if paper text content is supposed to be generated or randomized.
+/// Called on init.
+/obj/item/paper/proc/generate_text_contents()
+	info = info
 
 /obj/item/paper/update_icon()
 	if(!can_change_icon_state)
