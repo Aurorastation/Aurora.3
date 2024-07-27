@@ -22,7 +22,7 @@
 	maxHealth = 300
 	blood_type = COLOR_OIL
 	speed = 8
-	projectiletype = /obj/item/projectile/beam/drone
+	projectiletype = /obj/projectile/beam/drone
 	projectilesound = 'sound/weapons/laser3.ogg'
 	destroy_surroundings = 0
 	var/datum/effect_system/ion_trail/ion_trail
@@ -67,7 +67,7 @@
 	set_light(1.2, 3, LIGHT_COLOR_BLUE)
 
 	if(prob(5))
-		projectiletype = /obj/item/projectile/beam/pulse/drone
+		projectiletype = /obj/projectile/beam/pulse/drone
 		projectilesound = 'sound/weapons/pulse2.ogg'
 	ion_trail = new(src)
 	ion_trail.start()
@@ -352,10 +352,10 @@
 
 	return ..()
 
-/obj/item/projectile/beam/drone
+/obj/projectile/beam/drone
 	damage = 15
 
-/obj/item/projectile/beam/pulse/drone
+/obj/projectile/beam/pulse/drone
 	damage = 10
 
 /mob/living/simple_animal/hostile/icarus_drone/malf

@@ -574,7 +574,7 @@
 		new /obj/item/stack/material/steel(get_turf(src))
 		qdel(src)
 
-/obj/item/trap/animal/bullet_act(var/obj/item/projectile/Proj)
+/obj/item/trap/animal/bullet_act(var/obj/projectile/Proj)
 	var/mob/living/captured_mob = captured ? captured.resolve() : null
 	if(captured_mob)
 		captured_mob.bullet_act(Proj)

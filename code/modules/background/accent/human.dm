@@ -360,7 +360,7 @@
 
 /datum/accent/persepolis
 	name = ACCENT_PERSEPOLIS
-	description = "Well-known across Elyra for its rapid-fire, energetic cadence, the Persepolitian accent is characterised by a vibrant and fast-paced nature that represents the New Ankaran Jewel's cosmopolitan nature. \
+	description = "Well-known across Elyra for its rapid-fire, energetic cadence, the Persepolitian accent is characterised by a vibrant and fast-paced nature that represents the Tabitian Jewel's cosmopolitan nature. \
 	Speakers of this variant of Elyran Standard tend to be affluent and well-cultured, in keeping with the Elyran capital's general prosperity."
 	tag_icon = "persepolis"
 	text_tag = "PER"

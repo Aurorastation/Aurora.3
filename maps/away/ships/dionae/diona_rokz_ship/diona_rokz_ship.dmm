@@ -916,7 +916,7 @@
 /area/ship/diona_rokz_ship/kitchen)
 "LB" = (
 /obj/structure/table/diona,
-/obj/item/projectile/beam/pistol/hegemony,
+/obj/projectile/beam/pistol/hegemony,
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/bridge)
