@@ -55,8 +55,7 @@
 		linked_parent = hivebotbeacon
 
 	if(!mapload)
-		new /obj/effect/effect/smoke(src.loc,30)
-		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
+		spark(get_turf(src), 2, GLOB.alldirs)
 
 /mob/living/simple_animal/hostile/hivebot/Destroy()
 	if(linked_parent)
@@ -91,9 +90,23 @@
 
 /mob/living/simple_animal/hostile/hivebot/death()
 	..(null,"blows apart!")
-	var/T = get_turf(src)
-	new /obj/effect/gibspawner/robot(T)
-	spark(T, 1, GLOB.alldirs)
+
+	var/turf/current_turf = get_turf(src)
+	if(!current_turf)
+		qdel(src)
+		return
+
+	var/robot_gib_type = /obj/effect/decal/cleanable/blood/gibs/robot
+	var/atom/turf_gibs = locate(robot_gib_type) in current_turf
+	if(turf_gibs) // we only want to spawn gibs here if there aren't any already
+		return
+
+	var/list/gib_types = typesof(robot_gib_type)
+	var/selected_gib_type = pick(gib_types)
+	new selected_gib_type(current_turf)
+
+	spark(current_turf, 1, GLOB.alldirs)
+
 	qdel(src)
 
 /mob/living/simple_animal/hostile/hivebot/think()

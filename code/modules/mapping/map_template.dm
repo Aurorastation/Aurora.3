@@ -58,14 +58,41 @@
 
 	//Since SSicon_smooth.add_to_queue() manually wakes the subsystem, we have to use enable/disable.
 	SSicon_smooth.can_fire = FALSE
-	for (var/mappath in mappaths)
-		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, no_changeturf = no_changeturf)
+	var/is_first = TRUE
+
+	for(var/i in 1 to length(mappaths))
+		var/mappath = mappaths[i]
+
+		var/list/trait = ZTRAITS_AWAY
+
+		//Second or subsequent map file
+		if(!is_first)
+			//Last map file in a multi level map, can only go down
+			if(i == length(mappaths))
+				trait += list(ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE)
+			//Intermediate map file, can go up and down
+			else
+				trait += list(ZTRAIT_UP = TRUE, ZTRAIT_DOWN = TRUE)
+
+		//First map file
+		else
+			//Multi-level map
+			if(length(mappaths) >= 2)
+				trait += list(ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE)
+			//Single-level map
+			else
+				trait += list(ZTRAIT_UP = FALSE, ZTRAIT_DOWN = FALSE)
+
+		var/datum/space_level/level = SSmapping.add_new_zlevel(name, trait, contain_turfs = FALSE)
+		var/datum/map_load_metadata/M = maploader.load_map(file(mappath), x, y, level.z_value, no_changeturf = no_changeturf)
 		if (M)
 			bounds = extend_bounds_if_needed(bounds, M.bounds)
 			atoms_to_initialise += M.atoms_to_initialise
 		else
 			SSicon_smooth.can_fire = TRUE
 			return FALSE
+
+		is_first = FALSE
 
 	for (var/z_index = bounds[MAP_MINZ]; z_index <= bounds[MAP_MAXZ]; z_index++)
 		if (accessibility_weight)

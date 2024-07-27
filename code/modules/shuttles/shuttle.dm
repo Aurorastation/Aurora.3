@@ -206,9 +206,10 @@
 	var/list/powernets = list()
 	for(var/area/A in shuttle_area)
 		// if there was a zlevel above our origin, erase our ceiling now we're leaving
-		if(HasAbove(current_location.z))
+		var/turf/T = get_turf(current_location)
+		if(GET_TURF_ABOVE(T))
 			for(var/turf/TO in A.contents)
-				var/turf/TA = GetAbove(TO)
+				var/turf/TA = GET_TURF_ABOVE(TO)
 				if(istype(TA, ceiling_type))
 					TA.ChangeTurf(get_base_turf_by_area(TA), 1, 1)
 		if(knockdown)
@@ -236,12 +237,13 @@
 	current_location = destination
 
 	// if there's a zlevel above our destination, paint in a ceiling on it so we retain our air
-	if(HasAbove(current_location.z))
+	var/turf/T = get_turf(current_location)
+	if(GET_TURF_ABOVE(T))
 		for(var/area/A in shuttle_area)
 			for(var/turf/TD in A.contents)
 				TD.update_above()
 				TD.update_icon()
-				var/turf/TA = GetAbove(TD)
+				var/turf/TA = GET_TURF_ABOVE(TD)
 				if(istype(TA, get_base_turf_by_area(TA)) || (istype(TA) && TA.is_open()))
 					if(get_area(TA) in shuttle_area)
 						continue

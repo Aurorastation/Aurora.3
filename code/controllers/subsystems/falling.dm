@@ -39,7 +39,8 @@ SUBSYSTEM_DEF(falling)
 			REMOVE_AND_CONTINUE
 
 		// Get the below turf.
-		var/turf/below = GetBelow(victim)
+		var/turf/T = get_turf(victim)
+		var/turf/below = GET_TURF_BELOW(T)
 		if (!below)
 			REMOVE_AND_CONTINUE
 

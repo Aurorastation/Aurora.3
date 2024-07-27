@@ -47,7 +47,24 @@
 
 	valid_prosthetics = list(PROSTHETIC_VAURCA, PROSTHETIC_VAURCA_WARRIOR)
 
+	character_color_presets = list(
+		"Zo'ra: Unbound Vaur" = "#3D0000",
+		"Zo'ra: Unbound Zoleth" = "#650015",
+		"Zo'ra: Unbound Athvur" = "#83290B",
+		"Zo'ra: Unbound Scay" = "#47001F",
+		"Zo'ra: Unbound Xakt" = "#5B1F00",
 
+		"K'lax: Unbound Zkaii" = "#0B2B1B",
+		"K'lax: Unbound Tupii" = "#299617",
+		"K'lax: Unbound Vedhra" = "#829614",
+		"K'lax: Unbound Leto" = "#00503C",
+		"K'lax: Unbound Vetju" = "#0B541F",
+
+		"C'thur: Unbound C'thur" = "#002373",
+		"C'thur: Unbound Vytel" = "#141437",
+		"C'thur: Unbound Mouv" = "#96B4FF",
+		"C'thur: Unbound Xetl" = "#370078"
+	)
 
 /datum/species/bug/type_c
 	name = SPECIES_VAURCA_BREEDER
@@ -143,6 +160,23 @@
 	)
 	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species
 	valid_prosthetics = null
+
+	character_color_presets = list(
+		"Zo'ra: Vaur" = "#3D000F",
+		"Zo'ra: Zoleth" = "#730015",
+		"Zo'ra: Athvur" = "#7A1F00",
+		"Zo'ra: Scay" = "#470029",
+		"Zo'ra: Xakt" = "#51230A",
+
+		"K'lax: Zkaii" = "#2B483A",
+		"K'lax: Tupii" = "#067C12",
+		"K'lax: Vedhra" = "#627308",
+		"K'lax: Leto" = "#1C6654",
+
+		"C'thur" = "#0F2962",
+		"C'thur: Vytel" = "#191937",
+		"C'thur: Mouv" = "#7D75FF"
+	)
 
 /datum/species/bug/type_c/New()
 	..()
@@ -304,6 +338,25 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 	stamina = 50
 	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species, yet
 	valid_prosthetics = null
+
+	character_color_presets = list(
+		"Zo'ra: Unbound Vaur" = "#3D000F", "Zo'ra: Bound Vaur" = "#37000F",
+		"Zo'ra: Unbound Zoleth" = "#730015", "Zo'ra: Bound Zoleth" = "#610015",
+		"Zo'ra: Unbound Athvur" = "#7A1F00", "Zo'ra: Bound Athvur" = "#691B00",
+		"Zo'ra: Unbound Scay" = "#470029", "Zo'ra: Bound Scay" = "#470519",
+		"Zo'ra: Unbound Xakt" = "#51230A", "Zo'ra: Bound Xakt" = "#491D05",
+
+		"K'lax: Unbound Zkaii" = "#2B483A", "K'lax: Bound Zkaii" = "#263B10",
+		"K'lax: Unbound Tupii" = "#067C12", "K'lax: Bound Tupii" = "#7D881D",
+		"K'lax: Unbound Vedhra" = "#627308", "K'lax: Bound Vedhra" = "#006400",
+		"K'lax: Unbound Leto" = "#1C6654", "K'lax: Bound Leto" = "#1A280F",
+		"K'lax: Unbound Vetju" = "#0D421B", "K'lax: Bound Vetju" = "#314831",
+
+		"C'thur: Unbound C'thur" = "#0F2962", "C'thur: Bound C'thur" = "#0A213F",
+		"C'thur: Unbound Vytel" = "#191937", "C'thur: Bound Vytel" = "#0E0E2B",
+		"C'thur: Unbound Mouv" = "#7D75FF", "C'thur: Bound Mouv" = "#4A8AFC",
+		"C'thur: Unbound Xetl" = "#3F0876", "C'thur: Bound Xetl" = "#330563"
+	)
 
 /datum/species/bug/type_e/New()
 	..()
