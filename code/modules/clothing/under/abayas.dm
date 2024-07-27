@@ -11,6 +11,7 @@
 	name = "abaya with shawl"
 	icon_state = "abaya_shawl"
 	item_state = "abaya_shawl"
+	has_accents = TRUE
 	build_from_parts = TRUE
 	worn_overlay = "over"
 
