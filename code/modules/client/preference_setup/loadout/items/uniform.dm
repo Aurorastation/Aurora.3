@@ -462,12 +462,12 @@
 
 	gear_tweaks += new /datum/gear_tweak/path(dress_colorable)
 
-/datum/gear/uniform/miscellaneous/abaya_colorable
+/datum/gear/uniform/abaya_colorable
 	display_name = "abayas (colorable)"
 	path = /obj/item/clothing/under/abayas/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/uniform/miscellaneous/abaya_colorable/New()
+/datum/gear/uniform/abaya_colorable/New()
 	..()
 	var/list/abaya_colorable = list()
 	abaya_colorable["simple abaya"] = /obj/item/clothing/under/abayas/colorable
