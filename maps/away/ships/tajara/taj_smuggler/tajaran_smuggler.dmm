@@ -552,7 +552,7 @@
 	dir = 4
 	},
 /turf/template_noop,
-/area/shuttle/tajaran_smuggler_cargo)
+/area/space)
 "cds" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
@@ -823,9 +823,6 @@
 	},
 /area/tajaran_smuggler)
 "eaN" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 8
-	},
 /obj/machinery/light/small/emergency,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
@@ -834,6 +831,9 @@
 /obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
 	master_tag = "airlock_tajaran_smuggler_dock_port_north";
 	landmark_tag = "nav_tajaran_smuggler_dock_port_north"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/tajaran_smuggler)
@@ -1234,7 +1234,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tajaran_smuggler)
 "fVv" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/machinery/airlock_sensor{
 	dir = 2;
 	pixel_y = 28;
@@ -1250,6 +1249,7 @@
 	landmark_tag = "nav_tajaran_smuggler_dock_port_south";
 	master_tag = "airlock_tajaran_smuggler_dock_port_south"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
 /area/tajaran_smuggler)
 "fXG" = (
@@ -1464,7 +1464,6 @@
 	},
 /area/shuttle/tajaran_smuggler_cargo)
 "gXD" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
@@ -1473,6 +1472,7 @@
 	landmark_tag = "nav_tajaran_smuggler_dock_port_south";
 	master_tag = "airlock_tajaran_smuggler_dock_port_south"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tajaran_smuggler)
 "hgE" = (
@@ -1486,9 +1486,6 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -1498,6 +1495,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajaran_smuggler)
@@ -1655,9 +1658,6 @@
 /turf/simulated/floor/airless,
 /area/tajaran_smuggler/engine)
 "hOZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 8
-	},
 /obj/machinery/light/small/emergency,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
@@ -1666,6 +1666,9 @@
 /obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
 	landmark_tag = "nav_tajaran_smuggler_dock_port_south";
 	master_tag = "airlock_tajaran_smuggler_dock_port_south"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/tajaran_smuggler)
@@ -2035,10 +2038,10 @@
 	},
 /area/tajaran_smuggler)
 "jIP" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector/aux{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -2459,6 +2462,10 @@
 	temperature = 278.15
 	},
 /area/tajaran_smuggler/atmos)
+"lFa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black,
+/turf/simulated/wall/shuttle/raider,
+/area/tajaran_smuggler/engine)
 "lFg" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3159,7 +3166,6 @@
 	},
 /area/tajaran_smuggler)
 "pGP" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/machinery/airlock_sensor{
 	dir = 2;
 	pixel_y = 28;
@@ -3175,6 +3181,7 @@
 	master_tag = "airlock_tajaran_smuggler_dock_port_north";
 	landmark_tag = "nav_tajaran_smuggler_dock_port_north"
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
 /area/tajaran_smuggler)
 "pPq" = (
@@ -4105,10 +4112,10 @@
 	},
 /area/tajaran_smuggler)
 "vLx" = (
-/obj/machinery/atmospherics/portables_connector{
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector/aux{
 	dir = 1
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -4124,7 +4131,6 @@
 	},
 /area/shuttle/tajaran_smuggler_cargo)
 "vMF" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
@@ -4133,6 +4139,7 @@
 	master_tag = "airlock_tajaran_smuggler_dock_port_north";
 	landmark_tag = "nav_tajaran_smuggler_dock_port_north"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tajaran_smuggler)
 "vMT" = (
@@ -4196,9 +4203,6 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
 /obj/machinery/access_button{
 	pixel_x = -12;
 	pixel_y = -28;
@@ -4210,6 +4214,9 @@
 /obj/effect/map_effect/marker/airlock/docking/tajaran_smuggler/dock/port{
 	master_tag = "airlock_tajaran_smuggler_dock_port_north";
 	landmark_tag = "nav_tajaran_smuggler_dock_port_north"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajaran_smuggler)
@@ -4347,8 +4354,8 @@
 	},
 /area/tajaran_smuggler/dorms)
 "xpN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -4471,7 +4478,7 @@
 	},
 /area/tajaran_smuggler/captain_quarters)
 "xTp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /turf/simulated/floor{
@@ -33115,7 +33122,7 @@ xRX
 xRX
 xRX
 bxR
-kJl
+lFa
 eEC
 uqg
 fQq
@@ -33372,7 +33379,7 @@ xRX
 xRX
 xRX
 hOL
-kJl
+lFa
 iav
 uqg
 bIa
@@ -33629,7 +33636,7 @@ xRX
 xRX
 xRX
 bxR
-kJl
+lFa
 atB
 kJl
 wqH
@@ -38512,7 +38519,7 @@ xRX
 xRX
 xRX
 bxR
-kJl
+lFa
 atB
 dCR
 kJl
@@ -38769,7 +38776,7 @@ xRX
 xRX
 xRX
 qrf
-kJl
+lFa
 atB
 mIz
 wrb
@@ -39026,7 +39033,7 @@ xRX
 xRX
 xRX
 bxR
-kJl
+lFa
 qil
 fOQ
 wrb

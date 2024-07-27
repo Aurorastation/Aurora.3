@@ -129,7 +129,7 @@
 	else
 		for (var/thing in src) // Loop through every movable atom on our tile
 			var/atom/movable/A = thing
-			if (A.opacity)
+			if (A.opacity && !QDELETED(A))
 				has_opaque_atom = TRUE
 				break 	// No need to continue if we find something opaque.
 

@@ -284,11 +284,6 @@
 				playsound(src, 'sound/effects/stairs_step.ogg', 50)
 				playsound(target, 'sound/effects/stairs_step.ogg', 50)
 
-/obj/structure/stairs/Crossed(obj/O)
-	if(istype(O))
-		O.stair_act()
-	return ..()
-
 /obj/structure/stairs/proc/upperStep(var/turf/T)
 	return (T == loc)
 
@@ -347,7 +342,7 @@
 	density = TRUE
 
 /obj/structure/stairs_railing/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover,/obj/item/projectile))
+	if(istype(mover,/obj/projectile))
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE
@@ -386,11 +381,6 @@
 	icon = 'icons/obj/structure/stairs.dmi'
 	icon_state = "np_stair"
 
-/obj/structure/platform_stairs/Crossed(obj/O)
-	if(istype(O))
-		O.stair_act()
-	return ..()
-
 /obj/structure/platform_stairs/south_north_solo
 	icon_state = "p_stair_sn_solo_cap"
 
@@ -425,7 +415,7 @@
 	color = COLOR_DARK_GUNMETAL
 
 /obj/structure/platform/CanPass(atom/movable/mover, turf/target, height, air_group)
-	if(istype(mover, /obj/item/projectile))
+	if(istype(mover, /obj/projectile))
 		return TRUE
 	if(!istype(mover) || mover.pass_flags & PASSRAILING)
 		return TRUE

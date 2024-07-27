@@ -668,7 +668,7 @@
 	if(H.is_drowsy())
 		cost *= 1.25
 	if (H.stamina == -1)
-		LOG_DEBUG("Error: Species with special sprint mechanics has not overridden cost function.")
+		stack_trace("Error: Species with special sprint mechanics has not overridden cost function.")
 		return 0
 
 	var/obj/item/organ/internal/augment/calf_override/C = H.internal_organs_by_name[BP_AUG_CALF_OVERRIDE]
@@ -770,7 +770,7 @@
 	if(!.)
 		return move_trail
 
-/datum/species/proc/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+/datum/species/proc/bullet_act(var/obj/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
 	return 0
 
 /datum/species/proc/handle_speech_problems(mob/living/carbon/human/H, message, say_verb, message_mode, message_range)

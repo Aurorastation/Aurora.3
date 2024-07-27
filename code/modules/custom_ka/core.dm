@@ -28,7 +28,7 @@
 	dispersion = list(0)
 	reliability = 100
 
-	var/obj/item/projectile/projectile_type = /obj/item/projectile/kinetic
+	var/obj/projectile/projectile_type = /obj/projectile/kinetic
 
 	needspin = FALSE
 
@@ -242,8 +242,8 @@
 	if(T)
 		var/datum/gas_mixture/environment = T.return_air()
 		var/pressure = (environment)? environment.return_pressure() : 0
-		if(ispath(installed_barrel.projectile_type, /obj/item/projectile/kinetic))
-			var/obj/item/projectile/kinetic/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
+		if(ispath(installed_barrel.projectile_type, /obj/projectile/kinetic))
+			var/obj/projectile/kinetic/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
 			shot_projectile.damage = damage_increase
 			shot_projectile.range = range_increase
 			shot_projectile.aoe = max(1, aoe_increase)
@@ -255,8 +255,8 @@
 				shot_projectile.base_damage = damage_increase
 				return shot_projectile
 
-		if(ispath(installed_barrel.projectile_type, /obj/item/projectile/beam))
-			var/obj/item/projectile/beam/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
+		if(ispath(installed_barrel.projectile_type, /obj/projectile/beam))
+			var/obj/projectile/beam/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
 			shot_projectile.damage = damage_increase
 			shot_projectile.range = range_increase
 			return shot_projectile
@@ -549,7 +549,7 @@
 	capacity_increase = 0
 	mod_limit_increase = 0
 	var/fire_sound = 'sound/weapons/kinetic_accel.ogg'
-	var/projectile_type = /obj/item/projectile/kinetic
+	var/projectile_type = /obj/projectile/kinetic
 	origin_tech = list(TECH_MATERIAL = 2,TECH_ENGINEERING = 2,TECH_MAGNET = 2)
 
 /obj/item/custom_ka_upgrade/upgrade_chips

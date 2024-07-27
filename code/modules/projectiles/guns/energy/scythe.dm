@@ -19,12 +19,12 @@
 	max_shots = 20
 	self_recharge = TRUE
 	reliability = 100
-	projectile_type = /obj/item/projectile/bullet/flechette
+	projectile_type = /obj/projectile/bullet/flechette
 
 	firemodes = list(
-		list(mode_name="semiauto", burst=1, projectile_type=/obj/item/projectile/bullet/flechette),
-		list(mode_name="3-round bursts", burst=3, burst_delay=ROF_SUPERHEAVY, burst_accuracy=list(2,1,1), dispersion=list(0, 10, 15), projectile_type=/obj/item/projectile/bullet/flechette),
-		list(mode_name="explosive", burst=1, projectile_type=/obj/item/projectile/bullet/flechette/explosive)
+		list(mode_name="semiauto", burst=1, projectile_type=/obj/projectile/bullet/flechette),
+		list(mode_name="3-round bursts", burst=3, burst_delay=ROF_SUPERHEAVY, burst_accuracy=list(2,1,1), dispersion=list(0, 10, 15), projectile_type=/obj/projectile/bullet/flechette),
+		list(mode_name="explosive", burst=1, projectile_type=/obj/projectile/bullet/flechette/explosive)
 	)
 
 

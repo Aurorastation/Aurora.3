@@ -2104,7 +2104,7 @@
 		return BULLET_IMPACT_METAL
 	return BULLET_IMPACT_MEAT
 
-/mob/living/carbon/human/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage, var/blocked_ratio)
+/mob/living/carbon/human/bullet_impact_visuals(var/obj/projectile/P, var/def_zone, var/damage, var/blocked_ratio)
 	..()
 	if(blocked_ratio > 0.7)
 		return

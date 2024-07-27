@@ -12,7 +12,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	offhand_accuracy = 1
-	projectile_type = /obj/item/projectile/energy/blaster
+	projectile_type = /obj/projectile/energy/blaster
 	max_shots = 6
 
 	burst_delay = 2
@@ -27,7 +27,7 @@
 	name = "rapidfire blaster"
 	desc = "An aged but reliable rapidfire blaster tuned to expel projectiles at high fire rates."
 	fire_sound = 'sound/weapons/laserstrong.ogg'
-	projectile_type = /obj/item/projectile/energy/blaster/heavy
+	projectile_type = /obj/projectile/energy/blaster/heavy
 	burst = 5
 	burst_delay = 3
 	max_shots = 30
@@ -52,7 +52,7 @@
 	icon_state = "blaster_revolver"
 	item_state = "blaster_revolver"
 	fire_sound = 'sound/weapons/laserstrong.ogg'
-	projectile_type = /obj/item/projectile/energy/blaster
+	projectile_type = /obj/projectile/energy/blaster
 	max_shots = 8
 	w_class = ITEMSIZE_SMALL
 
@@ -69,7 +69,7 @@
 	max_shots = 12
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	offhand_accuracy = 0
-	projectile_type = /obj/item/projectile/energy/blaster
+	projectile_type = /obj/projectile/energy/blaster
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
 
@@ -82,7 +82,7 @@
 	max_shots = 20
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
 	offhand_accuracy = 0
-	projectile_type = /obj/item/projectile/energy/blaster/heavy
+	projectile_type = /obj/projectile/energy/blaster/heavy
 
 	force = 15
 	slot_flags = SLOT_BACK
@@ -117,7 +117,7 @@
 	icon_state = "blaster_ar"
 	item_state = "blaster_ar"
 	max_shots = 20
-	projectile_type = /obj/item/projectile/energy/blaster/heavy
+	projectile_type = /obj/projectile/energy/blaster/heavy
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_LARGE
@@ -145,7 +145,7 @@
 	icon = 'icons/obj/guns/himeo_blaster.dmi'
 	icon_state = "himeoblaster"
 	item_state = "himeoblaster"
-	projectile_type = /obj/item/projectile/energy/blaster
+	projectile_type = /obj/projectile/energy/blaster
 	usesound = 'sound/weapons/plasma_cutter.ogg'
 	fire_sound = 'sound/weapons/gunshot/slammer.ogg'
 	cell_type = /obj/item/cell/hydrogen
@@ -223,7 +223,7 @@
 	icon = 'icons/obj/guns/himeo_pistol.dmi'
 	icon_state = "himeopistol"
 	item_state = "himeopistol"
-	projectile_type = /obj/item/projectile/energy/blaster/heavy
+	projectile_type = /obj/projectile/energy/blaster/heavy
 	usesound = 'sound/weapons/plasma_cutter.ogg'
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	charge_cost = 1250 // leaky but lethal
