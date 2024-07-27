@@ -574,12 +574,131 @@
 	held_item = /obj/item/roller/hover
 	has_iv_light = FALSE
 
+	/**
+	 * The color of light the hoverbed emits
+	 */
+	var/hover_color = LIGHT_COLOR_CYAN
+	/**
+	 * The cell powering the hoverbed
+	 */
+	var/obj/item/cell/cell
+	/**
+	 * The power drained from the bed every second
+	 */
+	var/power_draw = 10
+	/**
+	 * If the hovermode is active
+	 */
+	var/hover = TRUE
+	/**
+	 * If the power cell is accessible or not
+	 */
+	var/cell_open = FALSE
+	/**
+	 * Our cell's last amount of charge
+	 */
+	var/last_cell_charge
+
 /obj/structure/bed/roller/hover/Initialize()
 	.=..()
-	set_light(2,1,LIGHT_COLOR_CYAN)
+	set_light(2,1,hover_color)
+	if(!cell || !cell.charge)
+		hover = FALSE
+	if(cell)
+		last_cell_charge = cell.charge
+	START_PROCESSING(SSprocessing, src)
+
+/obj/structure/bed/roller/hover/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	QDEL_NULL(cell)
+	return ..()
+
+// Same as parent, but doesn't kill processing (We need that for power drain)
+/obj/structure/bed/roller/hover/detach_iv(mob/living/carbon/human/target, mob/user)
+	user.visible_message(SPAN_NOTICE("<b>[user]</b> takes [target] off the IV on \the [src]."), SPAN_NOTICE("You take the IV off \the [target]."))
+	iv_attached = FALSE
+	update_icon()
+
+/obj/structure/bed/roller/hover/process(seconds_per_tick)
+	. = ..()
+	if(!last_cell_charge)
+		return . //If we've didn't have charge last time, no need for more checks. Prevents spamming out of power messages.
+	if(!hover && cell && cell.charge)
+		hover = TRUE
+		visible_message(SPAN_WARNING("\The [src] rises from the floor as its hover thrusters kick in."))
+		update_icon()
+	if(hover && cell)
+		cell.use(power_draw * seconds_per_tick)
+
+	if((!cell || !cell.charge))
+		hover = FALSE
+		visible_message(SPAN_WARNING("\The [src] falls the the floor as its hover thrusters cut out."))
+		update_icon()
+		last_cell_charge = 0
+		return . // Even if we are dead, we shouldn't stop the roller IV from working
+
+	else if(cell.charge <= cell.maxcharge/10 && last_cell_charge > cell.maxcharge/10) // Only do this is we're at 10% or less AND we used to be above 10%
+		playsound(src, 'sound/machines/twobeep.ogg', 50)
+		visible_message(SPAN_WARNING("\The [src] beeps a warning: 10% charge remaining!"))
+	last_cell_charge = cell.charge
+	return TRUE // Even if the normal roller functions want to kill, we are still processing
+
+/obj/structure/bed/roller/hover/emp_act(severity)
+	if(cell)
+		cell.charge = 0 //Drain cell
+	return ..()
+
+/obj/structure/bed/roller/hover/collapse() // Same as parent, but we need to update the collapsed one's power cell
+	usr.visible_message(SPAN_NOTICE("<b>[usr]</b> collapses \the [src]."), SPAN_NOTICE("You collapse \the [src]"))
+	var/obj/item/roller/hover/H = new held_item(get_turf(src))
+	H.cell_open = cell_open
+	H.cell = cell
+	cell.forceMove(H)
+	cell = null
+	qdel(src)
+
+/obj/structure/bed/roller/hover/attackby(obj/item/attacking_item, mob/user)
+	. = ..()
+	if(attacking_item.isscrewdriver())
+		cell_open = !cell_open
+		to_chat(user, SPAN_NOTICE("You [cell_open ? "open" : "close"] the powercell panel on \the [src]."))
+	if(cell_open && !cell && istype(attacking_item, /obj/item/cell))
+		cell = attacking_item
+		user.drop_from_inventory(cell, src)
+		to_chat(user, SPAN_NOTICE("You insert \the [cell] into \the [src]."))
+		last_cell_charge = cell.charge
+		START_PROCESSING(SSprocessing, src)
+
+/obj/structure/bed/roller/hover/attack_hand(mob/user)
+	. = ..()
+	if(cell_open && cell)
+		user.put_in_hands(cell)
+		to_chat(user, SPAN_NOTICE("You remove \the [cell] from \the [src]."))
+		cell = null
+
+/obj/structure/bed/roller/hover/update_icon()
+	if(!hover)
+		icon_state = "[base_icon]_off"
+		if(buckled)
+			buckled.pixel_y = 0
+	if(hover)
+		. = ..()
+		if(buckled && !buckled.pixel_y)
+			buckled.pixel_y = patient_shift
 
 /obj/structure/bed/roller/hover/stair_act()
+	if(!hover)
+		return ..()
 	return
+
+/obj/structure/bed/roller/hover/zeng
+	name = "zeng-hu hoverbed"
+	desc = "A medical hoverbed, designed by Zeng-Hu Pharmaceuticals in conjunction with the Nralakk Federation."
+	icon_state = "zeng_down"
+	base_icon = "zeng"
+	held_item = /obj/item/roller/hover/zeng
+	hover_color = LIGHT_COLOR_VIOLET
+	power_draw = 20 //Twice as power thirsty as the skrell ones
 
 /obj/item/roller
 	name = "roller bed"
@@ -594,14 +713,6 @@
 	center_of_mass = list("x" = 17,"y" = 7)
 	var/origin_type = /obj/structure/bed/roller
 	w_class = ITEMSIZE_NORMAL
-
-/obj/item/roller/hover
-	name = "medical hoverbed"
-	desc = "A collapsed hoverbed that can be carried around."
-	icon_state = "hover_folded"
-	base_icon = "hover"
-	item_state = "rbed_hover"
-	origin_type = /obj/structure/bed/roller/hover
 
 /obj/item/roller/attack_self(mob/user)
 	..()
@@ -630,6 +741,71 @@
 	var/obj/structure/bed/roller/R = new origin_type(location)
 	R.add_fingerprint(user)
 	qdel(src)
+
+/obj/item/roller/hover
+	name = "medical hoverbed"
+	desc = "A collapsed hoverbed that can be carried around."
+	icon_state = "hover_folded"
+	base_icon = "hover"
+	item_state = "rbed_hover"
+	origin_type = /obj/structure/bed/roller/hover
+	/**
+	 * The cell powering the hoverbed
+	 */
+	var/obj/item/cell/cell
+	/**
+	 * The type of cell to start with
+	 */
+	var/cell_type = /obj/item/cell/hyper // 50 minutes of charge. These are for mapping, so should be functional initially
+	/**
+	 * If the power cell is accessible or not
+	 */
+	var/cell_open = FALSE
+
+/obj/item/roller/hover/Initialize(mapload, ...)
+	. = ..()
+	if(cell_type)
+		cell = new cell_type(src)
+
+/obj/item/roller/hover/Destroy()
+	QDEL_NULL(cell)
+	return ..()
+
+/obj/item/roller/hover/attackby(obj/item/attacking_item, mob/user)
+	. = ..()
+	if(attacking_item.isscrewdriver())
+		cell_open = !cell_open
+		to_chat(user, SPAN_NOTICE("You [cell_open ? "open" : "close"] the powercell panel on \the [src]."))
+	if(cell_open && !cell && istype(attacking_item, /obj/item/cell))
+		cell = attacking_item
+		user.drop_from_inventory(cell, src)
+		to_chat(user, SPAN_NOTICE("You insert \the [cell] into \the [src]."))
+
+/obj/item/roller/hover/attack_hand(mob/user)
+	if(cell_open && cell)
+		user.put_in_hands(cell)
+		to_chat(user, SPAN_NOTICE("You remove \the [cell] from \the [src]."))
+		cell = null
+		return
+	. = ..()
+
+/obj/item/roller/hover/deploy_roller(mob/user, atom/location) // Same as parent, but we need to update the deployed one's power cell
+	var/obj/structure/bed/roller/hover/R = new origin_type(location)
+	R.add_fingerprint(user)
+	R.cell_open = cell_open
+	R.cell = cell
+	cell.forceMove(R)
+	cell = null
+	qdel(src)
+
+/obj/item/roller/hover/zeng
+	name = "zeng-hu hoverbed"
+	desc = "A collapsed zeng-hu hoverbed that can be carried around. Designed by Zeng-Hu Pharmaceuticals in conjunction with the Nralakk Federation."
+	icon_state = "zeng_folded"
+	base_icon = "zeng"
+	item_state = "rbed_zeng"
+	origin_type = /obj/structure/bed/roller/hover/zeng
+	cell_type = null // As these are the ones research can print, they shouldn't start with a cell
 
 /obj/item/roller_holder
 	name = "roller bed rack"
@@ -675,10 +851,15 @@
 	 */
 	var/initial_beds = 4
 
+	/**
+	 * The type path of the beds to spawn initially
+	 */
+	var/initial_bed_type = /obj/item/roller
+
 /obj/structure/roller_rack/Initialize()
 	. = ..()
 	for(var/_ in 1 to initial_beds)
-		var/obj/item/roller/RB = new /obj/item/roller(src)
+		var/obj/item/roller/RB = new initial_bed_type(src)
 		held += RB
 	update_icon()
 
