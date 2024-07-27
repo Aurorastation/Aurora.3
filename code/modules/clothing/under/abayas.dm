@@ -16,6 +16,6 @@
 	worn_overlay = "over"
 
 /obj/item/clothing/under/abayas/colorable/longsleeve
-	name = "long-sleeved abaya"
-	icon_state = "abaya_long"
-	item_state = "abaya_long"
+	name = "long sleeved abaya"
+	icon_state = "abaya_longsleeve"
+	item_state = "abaya_longsleeve"
