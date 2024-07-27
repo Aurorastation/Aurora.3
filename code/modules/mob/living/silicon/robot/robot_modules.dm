@@ -704,7 +704,7 @@ var/global/list/robot_modules = list(
 
 /obj/item/robot_module/miner
 	name = "miner robot module"
-	channels = list(CHANNEL_SUPPLY = TRUE)
+	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_HAILING = TRUE)
 	networks = list(NETWORK_MINE)
 	sprites = list(
 		"Basic" =          list(ROBOT_CHASSIS = "robot_mine", ROBOT_PANEL = "robot", ROBOT_EYES = "robot"),
