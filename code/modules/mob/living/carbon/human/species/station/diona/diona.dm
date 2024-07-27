@@ -97,7 +97,7 @@
 
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_SKIN_PRESET
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_PRESET
 	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_SLIP | NO_CHUBBY | NO_ARTERIES
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
@@ -134,6 +134,10 @@
 	sleeps_upright = TRUE
 	snore_key = "chirp"
 	indefinite_sleep = TRUE
+
+	tail = "No Tail"
+	tail_animation = 'icons/mob/species/diona/tail.dmi'
+	selectable_tails = list("No Tail", "Unathi Tail")
 
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other
