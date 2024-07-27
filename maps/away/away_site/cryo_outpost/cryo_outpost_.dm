@@ -2,8 +2,8 @@
 // --------------------------------------------------- template
 
 /datum/map_template/ruin/away_site/cryo_outpost
-	name = "Cryo Outpost"
-	description = "TODO."
+	name = "Desert Oasis Planet"
+	description = "Desert Oasis Planet."
 	prefix = "away_site/cryo_outpost/"
 	suffixes = list("cryo_outpost.dmm")
 	sectors = list(ALL_POSSIBLE_SECTORS)
@@ -19,8 +19,8 @@
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED // TODO REMOVE THIS
 
 /singleton/submap_archetype/cryo_outpost
-	map = "Cryo Outpost"
-	descriptor = "TODO."
+	map = "Desert Oasis Planet"
+	descriptor = "Desert Oasis Planet."
 
 /obj/abstract/weather_marker/cryo_outpost
 	weather_type = /singleton/state/weather/calm/desert_planet
@@ -60,10 +60,14 @@
 // --------------------------------------------------- sector
 
 /obj/effect/overmap/visitable/sector/cryo_outpost
-	name = "Cryo Outpost"
-	desc = "TODO."
-	icon_state = "globe3"
-	color = "#d69200"
+	name = "Desert Oasis Planet"
+	desc = "\
+		Temperate planet, mostly dry and covered in sand dunes, but with river and lake oases scattered around the equator. \
+		Scans show a somewhat rich biosphere with flora and fauna, and the planet holds a standard breathable atmosphere. \
+		Landing site is in a small valley with a small river running through it.\
+		"
+	icon_state = "globe1"
+	color = "#dbae4b"
 	initial_generic_waypoints = list(
 		"nav_cryo_outpost_dock_outpost_1",
 		"nav_cryo_outpost_dock_outpost_2",
@@ -83,7 +87,24 @@
 
 /obj/effect/overmap/visitable/sector/cryo_outpost/generate_ground_survey_result()
 	..()
-	// TODO
+	if(prob(60))
+		ground_survey_result += "<br>Analysis indicates sands rich in silica and oxygen"
+	if(prob(40))
+		ground_survey_result += "<br>High nitrogen and phosphorus contents of the soil"
+	if(prob(40))
+		ground_survey_result += "<br>Chemical extraction indicates soil is rich in major and secondary nutrients for agriculture"
+	if(prob(40))
+		ground_survey_result += "<br>Analysis indicates low contaminants of the soil"
+	if(prob(40))
+		ground_survey_result += "<br>Soft clays detected, composed of quartz and calcites"
+	if(prob(40))
+		ground_survey_result += "<br>Muddy dirt rich in organic material"
+	if(prob(40))
+		ground_survey_result += "<br>Stratigraphy indicates low risk of tectonic activity in this region"
+	if(prob(60))
+		ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
+	if(prob(10))
+		ground_survey_result += "<br>Traces of fissile material"
 
 // --------------------------------------------------- misc
 
@@ -96,7 +117,8 @@
 	network = list(NETWORK_CRYO_OUTPOST)
 
 /obj/item/research_slip/cryo_outpost
-	desc = "A small slip of plastic with an embedded chip. It is commonly used to store small amounts of research data."
+	desc = "A small slip of plastic with an embedded chip. It is commonly used to store small amounts of research data. This one is covered in Zeng-Hu Pharmaceuticals logos."
+	icon_state = "slip_zeng"
 	origin_tech = list(TECH_BIO = 8, TECH_MATERIAL = 7, TECH_MAGNET = 7, TECH_DATA = 7)
 
 // ---------------------------------------------------
