@@ -113,6 +113,8 @@
 		/obj/item/reagent_containers/food/drinks/bottle/saintjacques = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/hooch = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/nemiik = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/ogogoro = 3,
+		/obj/item/reagent_containers/food/drinks/bottle/small/burukutu = 15,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 6,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 2,
 		/obj/item/reagent_containers/food/drinks/cans/sodawater = 15,
@@ -207,6 +209,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/rum = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/wine = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/victorygin = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/ogogoro = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/small/beer = 2,
 		/obj/item/reagent_containers/food/drinks/bottle = 6,
 		/obj/random/junk = 7,
@@ -453,7 +456,8 @@
 		/obj/item/reagent_containers/food/drinks/carton/small/milk = 10,
 		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 10,
 		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 10,
-		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 10
+		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 10,
+		/obj/item/reagent_containers/food/drinks/zobo = 10
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5,
@@ -483,7 +487,8 @@
 		/obj/item/reagent_containers/food/drinks/carton/small/milk = 18,
 		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 18,
 		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 18,
-		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 16
+		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 16,
+		/obj/item/reagent_containers/food/drinks/zobo = 16
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'
