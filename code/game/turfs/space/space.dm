@@ -39,8 +39,8 @@
 	for(var/atom/movable/AM as mob|obj in src)
 		src.Entered(AM, AM.loc)
 
-	if (isStationLevel(z))
-		GLOB.station_turfs += src
+	// if (is_station_level(z))
+	// 	GLOB.station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0

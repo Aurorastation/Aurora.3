@@ -118,7 +118,7 @@
 	spawn(0)
 		while(selected_camera && Adjacent(user))
 			var/turf/T = get_turf(selected_camera)
-			if(!T || !is_on_same_plane_or_station(T.z, user.z) || !selected_camera.can_use())
+			if(!T || !(T.z == user.z || !is_station_level(T.z) || !is_station_level(user.z)) || !selected_camera.can_use())
 				user.unset_machine()
 				user.reset_view(null)
 				to_chat(user, SPAN_NOTICE("[selected_camera] unavailable."))

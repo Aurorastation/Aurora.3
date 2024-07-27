@@ -4,7 +4,13 @@
 	var/description // Basic info about the map. Shows up in the new player options.
 	var/path
 
-	var/list/station_levels = list() // Z-levels the station exists on
+	/**
+	 * A list of traits for the zlevels of the map
+	 *
+	 * Each element is one zlevel, starting from the bottom one up
+	 */
+	var/list/traits = list()
+
 	var/list/admin_levels = list()   // Z-levels for admin functionality (Centcom, shuttle transit, etc)
 	var/list/contact_levels = list() // Z-levels that can be contacted from the station, for eg announcements
 	var/list/player_levels = list()  // Z-levels a character can typically reach
@@ -136,7 +142,8 @@
 
 /datum/map/New()
 	if(!map_levels)
-		map_levels = station_levels.Copy()
+		map_levels = SSmapping.levels_by_trait(ZTRAIT_STATION)
+
 	if(!allowed_jobs)
 		allowed_jobs = subtypesof(/datum/job)
 		for(var/thing in EVENT_ROLES) //ideally this should prevent event roles from being open on the horizon

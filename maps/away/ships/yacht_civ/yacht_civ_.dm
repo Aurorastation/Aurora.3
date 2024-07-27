@@ -3,7 +3,7 @@
 	description = "Civilian Yacht"
 
 	prefix = "ships/yacht_civ/"
-	suffixes = list("yacht_civ.dmm")
+	suffix = "yacht_civ.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	sectors_blacklist = list(ALL_DANGEROUS_SECTORS)

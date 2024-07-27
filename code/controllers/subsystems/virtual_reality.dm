@@ -180,7 +180,7 @@ SUBSYSTEM_DEF(virtualreality)
 		var/turf/T = get_turf(R)
 		if(!T)
 			continue
-		if(isNotStationLevel(T.z))
+		if(!is_station_level(T.z))
 			continue
 		if(!R.remote)
 			continue
@@ -212,7 +212,7 @@ SUBSYSTEM_DEF(virtualreality)
 		var/turf/T = get_turf(R)
 		if(!T)
 			continue
-		if(isNotStationLevel(T.z))
+		if(!is_station_level(T.z))
 			continue
 		if(R.client || R.ckey)
 			continue
@@ -237,7 +237,7 @@ SUBSYSTEM_DEF(virtualreality)
 		var/turf/T = get_turf(R)
 		if(!T)
 			continue
-		if(isNotStationLevel(T.z))
+		if(!is_station_level(T.z))
 			continue
 		if(R.client || R.ckey)
 			continue
