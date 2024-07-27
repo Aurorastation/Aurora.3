@@ -142,9 +142,6 @@
 /obj/structure/closet/body_bag/animate_door()
 	flick("[initial(icon_state)]_anim_[opened ? "open" : "close"]", src)
 
-/obj/structure/closet/body_bag/stair_act() //Stops body bags flying open when pulled down stairs
-	return
-
 /obj/item/bodybag/cryobag
 	name = "stasis bag"
 	desc = "A folded, reusable bag designed to prevent additional damage to an occupant, especially useful if short on time or in \
