@@ -238,12 +238,6 @@
 /obj/structure/stairs/Initialize()
 	. = ..()
 
-	var/static/list/loc_connections = list(
-		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
-	)
-
-	AddElement(/datum/element/connect_loc, loc_connections)
-
 	for(var/turf/turf in locs)
 		var/turf/simulated/open/above = GET_TURF_ABOVE(turf)
 		if(!above)

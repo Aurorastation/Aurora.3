@@ -430,7 +430,7 @@
 
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/item/projectile/damage_flags()
+/obj/projectile/damage_flags()
 	return damage_flags
 
 /obj/projectile/proc/pixel_move(moves, trajectory_multiplier = 1, hitscanning = FALSE)

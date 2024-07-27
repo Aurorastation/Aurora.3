@@ -67,6 +67,6 @@
 #define isaccessory(A) istype(A, /obj/item/clothing/accessory)
 
 /// Projectile helpers
-#define isprojectile(A) istype(A, /obj/item/projectile)
-#define isbeam(A) istype(A, /obj/item/projectile/beam)
-#define isenergy(A) istype(A, /obj/item/projectile/energy)
+#define isprojectile(A) istype(A, /obj/projectile)
+#define isbeam(A) istype(A, /obj/projectile/beam)
+#define isenergy(A) istype(A, /obj/projectile/energy)
