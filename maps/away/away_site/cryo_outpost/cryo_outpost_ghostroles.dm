@@ -5,21 +5,23 @@
 	short_name = "cryo_outpost_crew"
 	name = "Desert Oasis Planet Outpost Crew"
 	desc = "\
-		???. \
+		You live on a unregistered outpost on some unimportant planet, that is illegally growing vatgrown organs and protohumans. \
+		You may be a scientist trying to make some cash outside of megacorp eyes, \
+		or a mercenary hired to protect this outpost, or whatever else you can think of.\
 		"
 	desc_ooc = "\
-		???. \
+		This is a event volunteer ghostrole. Do not pick this if you have not volunteered. \
 		"
 	welcome_message = "\
-		???. \
-		"
-	welcome_message_ooc = "\
-		???. \
+		You live on a unregistered outpost on some unimportant planet, that is illegally growing vatgrown organs and protohumans. \
+		You may be a scientist trying to make some cash outside of megacorp eyes, \
+		or a mercenary hired to protect this outpost, or whatever else you can think of.\
 		"
 	tags = list("External")
 
 	spawnpoints = list("cryo_outpost_crew")
-	max_count = 1
+	max_count = 999
+	password = "odyssey4life"
 
 	outfit = /obj/outfit/admin/generic/cryo_outpost_crew
 	possible_species = list(\
@@ -50,7 +52,8 @@
 /obj/outfit/admin/generic/cryo_outpost_crew
 	name = "Desert Oasis Planet Outpost Crew Uniform"
 	l_ear = /obj/item/device/radio/headset/ship
-	id = /obj/item/card/id/generic
+	id = /obj/item/device/radio/headset/syndicate
+	l_pocket = /obj/item/device/radio/hailing
 
 /obj/outfit/admin/generic/cryo_outpost_crew/get_id_access()
 	return list(

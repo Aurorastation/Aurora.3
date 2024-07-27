@@ -5,7 +5,7 @@
 	name = "Desert Oasis Planet"
 	description = "Desert Oasis Planet."
 	prefix = "away_site/cryo_outpost/"
-	suffixes = list("cryo_outpost.dmm")
+	suffix = "cryo_outpost.dmm"
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	spawn_weight = 1
 	spawn_cost = 1
@@ -60,7 +60,7 @@
 // --------------------------------------------------- sector
 
 /obj/effect/overmap/visitable/sector/cryo_outpost
-	name = "Desert Oasis Planet"
+	name = "Juliett-Enderly, Desert Oasis Planet"
 	desc = "\
 		Temperate planet, mostly dry and covered in sand dunes, but with river and lake oases scattered around the equator. \
 		Scans show a somewhat rich biosphere with flora and fauna, and the planet holds a standard breathable atmosphere. \

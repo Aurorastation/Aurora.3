@@ -6533,7 +6533,7 @@
 /area/cryo_outpost/inside/labs_maint_w)
 "hxa" = (
 /obj/effect/overmap/visitable/sector/cryo_outpost,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/wall/r_wall,
 /area/cryo_outpost/inside/comms)
 "hxf" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -58257,11 +58257,11 @@ pgW
 pgW
 pgW
 pgW
-aGb
+hxa
 aGb
 nad
 aNf
-hxa
+ybu
 tGJ
 qwQ
 lmD
