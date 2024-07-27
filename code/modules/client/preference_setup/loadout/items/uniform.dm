@@ -472,7 +472,7 @@
 	var/list/abaya_colorable = list()
 	abaya_colorable["simple abaya"] = /obj/item/clothing/under/abayas/colorable
 	abaya_colorable["abaya with shawl"] = /obj/item/clothing/under/abayas/colorable/shawl
-	abaya_colorable["long-sleeved abaya"] = /obj/item/clothing/under/abayas/colorable/longsleeve
+	abaya_colorable["long sleeved abaya"] = /obj/item/clothing/under/abayas/colorable/longsleeve
 
 	gear_tweaks += new /datum/gear_tweak/path(abaya_colorable)
 /*
