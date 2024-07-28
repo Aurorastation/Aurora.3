@@ -398,10 +398,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	// Master Controller settings.
 	var/fastboot = FALSE	// If true, take some shortcuts during boot to speed it up for testing. Probably should not be used on production servers.
 
-	//UDP GELF Logging
-	var/log_gelf_enabled = 0
-	var/log_gelf_addr = ""
-
 	//IP Intel vars
 	var/ipintel_email
 	var/ipintel_rating_bad = 1

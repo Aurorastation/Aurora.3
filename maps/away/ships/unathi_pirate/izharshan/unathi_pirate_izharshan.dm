@@ -4,7 +4,7 @@
 	description = "A shuttle belonging to the Unahi pirates of Izharshan's Raiders."
 
 	prefix = "ships/unathi_pirate/izharshan/"
-	suffixes = list("unathi_pirate_izharshan.dmm")
+	suffix = "unathi_pirate_izharshan.dmm"
 
 	spawn_weight = 1
 	ship_cost = 1

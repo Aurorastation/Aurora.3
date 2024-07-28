@@ -59,7 +59,7 @@
 	desc = "The Wastelanders carved out a life for themselves amidst nuclear devastation. Si'akh managed to abuse the despair and pain of these Unathi to form a cult of personality for himself, as well as a new religion. Banditry remains common as new tribes and clans form in the desert wastes, but there is still hope. The Oasis Clans and some other settlements have made new towns and villages where life is starting to recuperate and find normalcy again. Still, every day is a struggle, and whenever there is an opportunity to flee offworld, it is taken eagerly."
 	possible_accents = list(ACCENT_WASTELAND)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
-	possible_religions = list(RELIGION_THAKH, RELIGION_SIAKH, RELIGION_OTHER, RELIGION_NONE)
+	possible_religions = list(RELIGION_THAKH, RELIGION_SIAKH, RELIGION_SKAKH, RELIGION_OTHER, RELIGION_NONE)
 	origin_traits_descriptions = list("have a small resistance to radiation")
 
 /singleton/origin_item/origin/wastelander/on_apply(var/mob/living/carbon/human/H)
@@ -69,4 +69,4 @@
 /singleton/origin_item/origin/wastelander/on_remove(mob/living/carbon/human/H)
 	. = ..()
 	var/datum/component/armor/armor_component = H.GetComponent(/datum/component/armor)
-	armor_component.RemoveComponent()
+	qdel(armor_component)

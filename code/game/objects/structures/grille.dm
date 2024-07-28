@@ -10,14 +10,14 @@
 	anchored = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE | OBJ_FLAG_MOVES_UNSUPPORTED
 	explosion_resistance = 1
-	layer = BELOW_OBJ_LAYER
+	layer = BELOW_WINDOW_LAYER
 	var/health = 10
 	var/destroyed = 0
 
 /obj/structure/grille/over
 	name = "over-frame grille"
 	icon = 'icons/obj/smooth/window/grille_over.dmi'
-	layer = BELOW_OBJ_LAYER
+	layer = BELOW_WINDOW_LAYER
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/turf/simulated/wall,
@@ -72,9 +72,11 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/structure/grille/CollidedWith(atom/user)
-	if(ismob(user))
-		shock(user, 70)
+/obj/structure/grille/CollidedWith(atom/bumped_atom)
+	. = ..()
+
+	if(ismob(bumped_atom))
+		shock(bumped_atom, 70)
 
 /obj/structure/grille/attack_hand(mob/user as mob)
 
@@ -105,12 +107,12 @@
 	if(istype(mover) && mover.pass_flags & PASSGRILLE)
 		return 1
 	else
-		if(istype(mover, /obj/item/projectile))
+		if(istype(mover, /obj/projectile))
 			return prob(30)
 		else
 			return !density
 
-/obj/structure/grille/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/grille/bullet_act(var/obj/projectile/Proj)
 	if(!Proj)	return
 
 	//Flimsy grilles aren't so great at stopping projectiles. However they can absorb some of the impact

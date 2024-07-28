@@ -25,7 +25,7 @@ var/list/nuke_disks = list()
 /datum/game_mode/nuclear/proc/check_nuke_disks()
 	for(var/obj/item/disk/nuclear/N in nuke_disks)
 		var/turf/T = get_turf(N)
-		if(isNotStationLevel(T.z)) qdel(N)
+		if(!is_station_level(T.z)) qdel(N)
 
 //checks if L has a nuke disk on their person
 /datum/game_mode/nuclear/proc/check_mob(mob/living/L)

@@ -8,7 +8,7 @@
 	charge_meter = FALSE
 	max_shots = 10
 	charge_cost = 300
-	projectile_type = /obj/item/projectile/bullet/gyro
+	projectile_type = /obj/projectile/bullet/gyro
 	self_recharge = TRUE
 	use_external_power = TRUE
 	recharge_time = 5

@@ -21,6 +21,9 @@
 	var/mob/living/simple_animal/hostile/greatworm/originator
 	var/mob/living/captive
 
+/obj/item/trap/sarlacc/get_trap_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	return list()
+
 /obj/item/trap/sarlacc/Destroy()
 	if(originator)
 		originator = null
@@ -137,7 +140,7 @@
 		sarlacc = null
 	return ..()
 
-/mob/living/simple_animal/hostile/greatworm/Life()
+/mob/living/simple_animal/hostile/greatworm/Life(seconds_per_tick, times_fired)
 	..()
 	if(!sarlacc)
 		var/obj/item/trap/sarlacc/L = new /obj/item/trap/sarlacc(src.loc)
@@ -337,7 +340,7 @@
 	minbodytemp = 0
 	ranged = 1
 	projectilesound = 'sound/magic/WandODeath.ogg'
-	projectiletype = /obj/item/projectile/energy/thoughtbubble
+	projectiletype = /obj/projectile/energy/thoughtbubble
 	speak_emote = list("gargles")
 	emote_hear = list("gargles")
 	emote_see = list("ooozes","pulses","drips","pumps")
@@ -355,7 +358,7 @@
 /mob/living/simple_animal/hostile/greatwormking/Move()
 	return
 
-/obj/item/projectile/energy/thoughtbubble
+/obj/projectile/energy/thoughtbubble
 	name = "psionic blast"
 	icon_state = "ion"
 	nodamage = TRUE
@@ -388,7 +391,7 @@
 		"You've got a bad feeling about this."
 	)
 
-/obj/item/projectile/energy/thoughtbubble/on_impact(var/atom/A)
+/obj/projectile/energy/thoughtbubble/on_impact(var/atom/A)
 	..()
 	if(istype(A, /mob/living))
 		var/mob/living/L = A

@@ -243,11 +243,17 @@
 
 		START_PROCESSING(SSfast_process, src)
 
+/obj/item/landmine/frag/door_rigging/deactivate(mob/user)
+	STOP_PROCESSING(SSfast_process, src)
+	door_rigged = null
+	. = ..()
+
 /obj/item/landmine/frag/door_rigging/process(seconds_per_tick)
 	if(QDELETED(door_rigged))
 		STOP_PROCESSING(SSfast_process, src)
 		qdel(src)
 
+	//If the door isn't dense, it means it is open, explode
 	if(!door_rigged.density)
 		STOP_PROCESSING(SSfast_process, src)
 		trigger(null)
@@ -259,7 +265,6 @@
 	door_rigged = null
 	STOP_PROCESSING(SSfast_process, src)
 	qdel(src)
-
 
 /**
  * # Radiation Landmine
@@ -386,7 +391,7 @@
 		for(var/mob/living/person_in_range in get_hearers_in_LOS(world.view, src))
 			to_chat(person_in_range, SPAN_HIGHDANGER("[victim] does a sudden move, releasing the feet from the trigger..."))
 
-		explosion(loc, 2, 5, 7, world.view)
+		explosion(loc, 2, 3, 5, world.view)
 		qdel(src)
 
 /obj/item/landmine/standstill/deactivate(mob/user)
@@ -466,7 +471,7 @@
 	for(var/i = 0; i < SHOTS_TO_LAUNCH; i++)
 		var/turf/to_hit = pick(candidate_turfs)
 
-		var/obj/item/projectile/bullet/pellet/shotgun/pellet = new(get_turf(src))
+		var/obj/projectile/bullet/pellet/shotgun/pellet = new(get_turf(src))
 		pellet.fire(Get_Angle(get_turf(src), to_hit))
 
 	qdel(src)

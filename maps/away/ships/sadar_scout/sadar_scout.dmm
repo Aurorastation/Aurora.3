@@ -650,7 +650,6 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/sadar_scout/eva)
 "eD" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "sadar_bridge_blast";
 	dir = 4
@@ -658,6 +657,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/bridge)
 "eE" = (
@@ -707,7 +707,6 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/cic)
 "eM" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, primary armament"
 	},
@@ -715,13 +714,14 @@
 	id = "sadar_weapon_blast";
 	dir = 4
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/reinforced,
 /area/ship/sadar_scout/wep)
 "eT" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "sadar_bridge_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/bridge)
 "eV" = (
@@ -1174,10 +1174,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/mainhall)
 "iA" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "sadar_tool_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/tools)
 "iC" = (
@@ -1224,11 +1224,11 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/wep)
 "jb" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "sadar_weapon_blast";
 	dir = 4
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/reinforced,
 /area/ship/sadar_scout/wep)
 "jd" = (
@@ -1252,13 +1252,18 @@
 /turf/simulated/floor/airless,
 /area/ship/sadar_scout/exterior)
 "jj" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "sadar_shuttle_shutters";
 	dir = 4
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, cockpit"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/sadar_shuttle)
@@ -1288,10 +1293,15 @@
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/forehall)
 "jp" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "sadar_shuttle_shutters";
 	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/sadar_shuttle)
@@ -2008,11 +2018,11 @@
 /turf/space/transit/north,
 /area/space)
 "oK" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "sadar_bridge_blast";
 	dir = 4
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/bridge)
 "oL" = (
@@ -4622,13 +4632,13 @@
 /turf/space,
 /area/ship/sadar_scout/exterior)
 "Jn" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "sadar_bridge_blast"
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, bridge"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/bridge)
 "Jr" = (
@@ -4761,10 +4771,10 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/sadar_shuttle)
 "Kb" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "sadar_mess_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/mess)
 "Ke" = (
@@ -4984,10 +4994,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/eva)
 "Lu" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "sadar_weapon_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/reinforced,
 /area/ship/sadar_scout/wep)
 "Lw" = (
@@ -5318,10 +5328,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sadar_scout/forehall)
 "NX" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "sadar_hydro_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/hydro)
 "On" = (
@@ -5377,13 +5387,13 @@
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/sadar_shuttle)
 "Oz" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, hydroponics"
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "sadar_hydro_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/hydro)
 "OF" = (
@@ -5654,9 +5664,14 @@
 /turf/simulated/floor/lino,
 /area/ship/sadar_scout/mess)
 "Qn" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "sadar_shuttle_shutters"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/sadar_shuttle)
@@ -5709,13 +5724,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/sadar_scout/cic)
 "QE" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, tool storage"
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "sadar_tool_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/tools)
 "QI" = (
@@ -6438,10 +6453,10 @@
 /turf/simulated/floor/airless,
 /area/ship/sadar_scout/exterior)
 "VO" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "sadar_utility_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/utility)
 "VX" = (
@@ -6681,13 +6696,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sadar_scout/eva)
 "Xl" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/port{
 	name = "port, utility storage"
 	},
 /obj/machinery/door/blast/regular/open{
 	id = "sadar_utility_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
 /area/ship/sadar_scout/utility)
 "Xm" = (

@@ -127,8 +127,10 @@
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
 	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/xrim)
+
 /datum/gear/accessory/diona
 	abstract_type = /datum/gear/accessory/diona
+
 /datum/gear/accessory/diona/skrell_passport
 	display_name = "dionae nralakk federation passport"
 	path = /obj/item/clothing/accessory/badge/passport/nralakk
@@ -137,6 +139,10 @@
 	cost = 1
 	flags = GEAR_NO_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dionae_nralakk, /singleton/origin_item/culture/xrim)
+
+/datum/gear/accessory/diona/skrell_passport/New()
+	. = ..()
+	gear_tweaks += list(social_credit_tweak)
 
 /datum/gear/accessory/diona/skrell_passport/check_species_whitelist(mob/living/carbon/human/H)
 	var/static/list/species_list = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
@@ -311,7 +317,7 @@
 	path = /obj/item/clothing/under/unathi
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes, /singleton/origin_item/culture/diona_voidtamer)
 
 /datum/gear/head/sinta_ronin/diona
@@ -341,4 +347,5 @@
 	path = /obj/item/clothing/under/unathi/zozo
 	whitelisted = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Diona"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	culture_restriction = list(/singleton/origin_item/culture/dionae_moghes, /singleton/origin_item/culture/diona_voidtamer)

@@ -312,8 +312,6 @@
 // attempt to move while inside
 /obj/machinery/disposal/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user.stat || src.flushing)
 		return
@@ -598,7 +596,7 @@
 		qdel(H)
 
 /obj/machinery/disposal/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover, /obj/item/projectile))
+	if(istype(mover, /obj/projectile))
 		return 1
 	if(istype(mover,/obj/item) && mover.throwing)
 		var/obj/item/I = mover
@@ -752,8 +750,6 @@
 	// called when player tries to move while in a pipe
 /obj/disposalholder/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(!istype(user,/mob/living))
 		return
@@ -794,7 +790,7 @@
 	var/dpdir = 0		// bitmask of pipe directions
 	dir = 0				// dir will contain dominant direction for junction pipes
 	var/health = 10 	// health points 0-10
-	layer = DISPOSALS_PIPE_LAYER
+	layer = EXPOSED_DISPOSALS_PIPE_LAYER
 	var/sortType = ""
 	var/subtype = 0
 	// new pipe, set the icon_state as on map
@@ -1088,7 +1084,8 @@
 	var/obj/structure/disposalpipe/P
 
 	if(nextdir == 12)
-		T = GetAbove(src)
+		var/turf/current_turf = get_turf(src)
+		T = GET_TURF_ABOVE(current_turf)
 		if(!T)
 			H.forceMove(loc)
 			return
@@ -1137,7 +1134,8 @@
 	var/obj/structure/disposalpipe/P
 
 	if(nextdir == 11)
-		T = GetBelow(src)
+		var/turf/current_turf = get_turf(src)
+		T = GET_TURF_BELOW(current_turf)
 		if(!T)
 			H.forceMove(src.loc)
 			return

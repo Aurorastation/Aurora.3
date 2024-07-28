@@ -623,6 +623,8 @@
 /obj/item/storage/box/monkeycubes
 	name = "monkey cube box"
 	desc = "Drymate brand monkey cubes. Just add water!"
+	desc_extended = "The manufacture of a cubed animal produces subjects that are similar but have marked differences compared to their ordinary cousins. Higher brain functions are all but destroyed \
+	and the life expectancy of the cubed animal is greatly reduced, with most expiring only a few days after introduction with water."
 	icon_state = "monkeycubebox"
 	can_hold = list(/obj/item/reagent_containers/food/snacks/monkeycube)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped = 5)

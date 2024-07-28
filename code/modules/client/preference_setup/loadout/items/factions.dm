@@ -58,7 +58,7 @@
 	slot = slot_w_uniform
 	cost = 1
 	faction = "Idris Incorporated"
-	allowed_roles = list("Janitor")
+	allowed_roles = list("Janitor", "Service Personnel")
 
 /datum/gear/faction/idris_sunglasses
 	display_name = "idris security HUD selection"
@@ -625,7 +625,7 @@
 	slot = slot_w_uniform
 	cost = 1
 	faction = "NanoTrasen"
-	allowed_roles = list("Janitor")
+	allowed_roles = list("Janitor", "Service Personnel")
 
 /datum/gear/faction/nt_headwear
 	display_name = "nanotrasen headwear selection"
@@ -743,3 +743,12 @@
 	scc_headwear["SCC woolen hat"] = /obj/item/clothing/head/wool/scc
 	scc_headwear["SCC woolen hat, alt"] = /obj/item/clothing/head/wool/scc/alt
 	gear_tweaks += new /datum/gear_tweak/path(scc_headwear)
+
+/datum/gear/faction/scc_notepad
+	display_name = "SCC notepad"
+	description = "A notepad for jotting down notes in corporate meetings. This one is navy blue with a gold SCC logo on the front."
+	path = /obj/item/journal/notepad/scc
+	sort_category = "Factions"
+	cost = 1
+	faction = null
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

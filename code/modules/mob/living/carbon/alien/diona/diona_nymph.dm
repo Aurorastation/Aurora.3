@@ -26,6 +26,7 @@
 	meat_amount = 2
 	maxHealth = 50
 	health = 50
+	max_stamina = -1
 	pass_flags = PASSTABLE
 
 	// Decorative head flower.
@@ -97,7 +98,7 @@
 			mind.transfer_to(master_nymph)
 			master_nymph.stunned = 0//Switching mind seems to temporarily stun mobs
 			message_admins("\The [src] has died with nymphs remaining; player now controls [key_name_admin(master_nymph)]")
-			log_admin("\The [src] has died with nymphs remaining; player now controls [key_name(master_nymph)]", ckey=key_name(master_nymph))
+			log_admin("\The [src] has died with nymphs remaining; player now controls [key_name(master_nymph)]")
 		master_nymph = null
 		birds_of_feather.Cut()
 
@@ -377,3 +378,9 @@
 	if (status_flags & GODMODE)
 		return
 	health = min(health - amount, maxHealth)
+
+/mob/living/carbon/alien/diona/getHalLoss()
+	if(status_flags & GODMODE)
+		return
+
+	return max((maxHealth - health), 0)

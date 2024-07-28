@@ -131,7 +131,7 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 	to_chat(src, SPAN_NOTICE("PM to-<b>Staff </b>: [original_msg]"))
 
 	var/admin_number_active = admin_number_present - admin_number_afk
-	log_admin("HELP: [key_name(src)]: [original_msg] - heard by [admin_number_present] non-AFK admins.",admin_key=key_name(src))
+	log_admin("HELP: [key_name(src)]: [original_msg] - heard by [admin_number_present] non-AFK admins.")
 	if(admin_number_active <= 0)
 		SSdiscord.post_webhook_event(WEBHOOK_ADMIN_PM_IMPORTANT, list("title"="Help is requested", "message"="Request for Help from **[key_name(src)]**: ```[html_decode(original_msg)]```\n[admin_number_afk ? "All admins AFK ([admin_number_afk])" : "No admins online"]!!"))
 		SSdiscord.send_to_admins("@here Request for Help from [key_name(src)]: [html_decode(original_msg)] - !![admin_number_afk ? "All admins AFK ([admin_number_afk])" : "No admins online"]!!")

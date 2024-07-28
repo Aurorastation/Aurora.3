@@ -128,8 +128,6 @@
 
 /obj/effect/dummy/chameleon/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(istype(loc, /turf/space))
 		return //No magical space movement!

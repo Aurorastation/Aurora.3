@@ -368,7 +368,7 @@
 
 	uniform = /obj/item/clothing/under/rank/operations_manager
 	shoes = /obj/item/clothing/shoes/sneakers/brown
-	id = /obj/item/card/id/navy
+	id = /obj/item/card/id/scc/silver
 	l_hand = /obj/item/clipboard
 	glasses = /obj/item/clothing/glasses/sunglasses
 

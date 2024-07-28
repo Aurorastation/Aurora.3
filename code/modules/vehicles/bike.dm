@@ -191,8 +191,6 @@
 
 /obj/vehicle/bike/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user != load || !on || user.incapacitated())
 		return
@@ -253,7 +251,7 @@
 
 	..()
 
-/obj/vehicle/bike/bullet_act(var/obj/item/projectile/Proj)
+/obj/vehicle/bike/bullet_act(var/obj/projectile/Proj)
 	if(buckled && prob(protection_percent))
 		buckled.bullet_act(Proj)
 		return

@@ -486,7 +486,7 @@
 	if(emagged)
 		new /obj/item/orion_ship(src.loc)
 		message_admins("[key_name_admin(usr)] made it to Orion on an emagged machine and got an explosive toy ship.")
-		log_game("[key_name(usr)] made it to Orion on an emagged machine and got an explosive toy ship.",ckey=key_name(usr))
+		log_game("[key_name(usr)] made it to Orion on an emagged machine and got an explosive toy ship.")
 	else
 		prizevend()
 	event = null
@@ -510,7 +510,7 @@
 	if(active)
 		return
 	message_admins("[key_name_admin(usr)] primed an explosive Orion ship for detonation.")
-	log_game("[key_name(usr)] primed an explosive Orion ship for detonation.",ckey=key_name(usr))
+	log_game("[key_name(usr)] primed an explosive Orion ship for detonation.")
 	to_chat(user, SPAN_WARNING("You flip the switch on the underside of [src]."))
 	active = 1
 	src.visible_message(SPAN_NOTICE("[src] softly beeps and whirs to life!"))

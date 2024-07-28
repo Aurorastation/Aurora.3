@@ -786,7 +786,7 @@ Turf and target are seperate in case you want to teleport some distance from a t
 				USE_FEEDBACK_FAILURE("You must remain targeting the same zone to perform that action!")
 
 	if(!QDELETED(progbar))
-		progbar.endProgress()
+		progbar.end_progress()
 	if ((do_flags & DO_USER_UNIQUE_ACT) && user.do_unique_user_handle == initial_handle)
 		user.do_unique_user_handle = 0
 	if ((do_flags & DO_TARGET_UNIQUE_ACT) && target)

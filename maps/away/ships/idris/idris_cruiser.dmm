@@ -16,13 +16,16 @@
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/lobby)
 "ab" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_shuttle_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/idris_cruiser_shuttle/bridge)
@@ -185,13 +188,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
 "aB" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/hydroponics)
@@ -903,9 +909,6 @@
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/engineering/disposals)
 "dT" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
@@ -913,6 +916,12 @@
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, starboard docking arm"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
@@ -1224,13 +1233,16 @@
 /turf/simulated/wall/shuttle/idris,
 /area/ship/idris_cruiser/brig)
 "fn" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/bridge)
@@ -1910,13 +1922,16 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/idris_cruiser/bridge)
 "hV" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/bridge)
@@ -1932,13 +1947,16 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/idris_cruiser/bridge)
 "ia" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/kitchen)
@@ -2114,9 +2132,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
 "iU" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
@@ -2124,6 +2139,12 @@
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, port docking arm"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -2229,13 +2250,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/suite/suite_4)
 "jh" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/port_lobby)
@@ -2457,9 +2481,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/idris_cruiser_shuttle/bridge)
 "jR" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
@@ -2467,6 +2488,12 @@
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/bridge)
@@ -2518,13 +2545,16 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "ku" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/great_room)
@@ -2555,13 +2585,16 @@
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
 "ky" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
@@ -3030,13 +3063,16 @@
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/lobby)
 "ml" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/cargo_bay)
@@ -3568,9 +3604,6 @@
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/civ_fore)
 "nI" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
@@ -3579,12 +3612,15 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/pool)
 "nO" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
@@ -3592,6 +3628,12 @@
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, great room"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/great_room)
@@ -3933,13 +3975,16 @@
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/engineering)
 "pa" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/suites_a)
@@ -4025,11 +4070,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	shuttle_tag = "Idris Runabout";
-	master_tag = "airlock_idris_cruiser_shuttle";
-	name = "airlock_idris_cruiser_shuttle"
-	},
 /obj/structure/bed/handrail{
 	dir = 4
 	},
@@ -4043,6 +4083,12 @@
 	pixel_x = -22;
 	pixel_y = 10;
 	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "Idris Runabout";
+	master_tag = "airlock_idris_cruiser_shuttle";
+	name = "airlock_idris_cruiser_shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/idris_cruiser_shuttle/main)
@@ -4157,9 +4203,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/hydroponics)
 "pO" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
@@ -4168,6 +4211,12 @@
 /obj/effect/landmark/entry_point/starboard{
 	dir = 1;
 	name = "starboard, main compartment"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/idris_cruiser_shuttle/main)
@@ -4265,13 +4314,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/bridge)
 "qq" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/starboard_lobby)
@@ -4577,13 +4629,16 @@
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/crew_quarters)
 "rc" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_shuttle_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/idris_cruiser_shuttle/main)
@@ -4634,9 +4689,6 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang/no_smooth,
 /area/ship/idris_cruiser/pool)
 "rm" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
@@ -4644,6 +4696,12 @@
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, great room"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/great_room)
@@ -4661,13 +4719,16 @@
 /turf/simulated/floor/plating,
 /area/shuttle/idris_cruiser_shuttle/engineering)
 "rp" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/engineering)
@@ -4734,9 +4795,6 @@
 /turf/simulated/floor/reinforced/airless,
 /area/space)
 "rI" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
@@ -4745,6 +4803,12 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, cockpit";
 	dir = 8
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/idris_cruiser_shuttle/bridge)
@@ -5538,13 +5602,16 @@
 /area/ship/idris_cruiser/corridor/dockingarm/port)
 "un" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_shuttle_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/idris_cruiser_shuttle/main)
@@ -7029,13 +7096,16 @@
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
 "zT" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_shuttle_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/idris_cruiser_shuttle/bridge)
@@ -7148,13 +7218,16 @@
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/corridor/maintenance_foyer)
 "Ar" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/spa)
@@ -7700,16 +7773,17 @@
 /obj/machinery/access_button{
 	pixel_x = 28
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	shuttle_tag = "Idris Runabout";
-	master_tag = "airlock_idris_cruiser_shuttle";
-	name = "airlock_idris_cruiser_shuttle"
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
 	},
 /obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "Idris Runabout";
+	master_tag = "airlock_idris_cruiser_shuttle";
+	name = "airlock_idris_cruiser_shuttle";
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/idris_cruiser_shuttle/main)
 "CB" = (
@@ -7908,13 +7982,16 @@
 /turf/simulated/floor/carpet/purple,
 /area/ship/idris_cruiser/lounge)
 "Do" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/lounge)
@@ -7953,13 +8030,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/breakroom)
 "Dt" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/breakroom)
@@ -8105,14 +8185,15 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	shuttle_tag = "Idris Runabout";
-	master_tag = "airlock_idris_cruiser_shuttle";
-	name = "airlock_idris_cruiser_shuttle"
-	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "Idris Runabout";
+	master_tag = "airlock_idris_cruiser_shuttle";
+	name = "airlock_idris_cruiser_shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/idris_cruiser_shuttle/main)
@@ -8322,9 +8403,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/bridge)
 "EL" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/effect/landmark/entry_point/port{
 	dir = 2;
 	name = "port, main compartment"
@@ -8333,6 +8411,12 @@
 	dir = 4;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_shuttle_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/idris_cruiser_shuttle/main)
@@ -8343,18 +8427,16 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	shuttle_tag = "Idris Runabout";
 	master_tag = "airlock_idris_cruiser_shuttle";
-	name = "airlock_idris_cruiser_shuttle"
+	name = "airlock_idris_cruiser_shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/idris_cruiser_shuttle/main)
 "ES" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
@@ -8362,6 +8444,12 @@
 	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, kitchen"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/kitchen)
@@ -8593,9 +8681,6 @@
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/great_room)
 "FM" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
@@ -8603,6 +8688,12 @@
 	},
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard docking arm"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/starboard_lobby)
@@ -9807,7 +9898,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	shuttle_tag = "Idris Runabout";
 	master_tag = "airlock_idris_cruiser_shuttle";
-	name = "airlock_idris_cruiser_shuttle"
+	name = "airlock_idris_cruiser_shuttle";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/bed/handrail{
@@ -11238,13 +11330,16 @@
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/crew_quarters)
 "OW" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/security)
@@ -11291,14 +11386,15 @@
 	pixel_x = -28;
 	pixel_y = 12
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	shuttle_tag = "Idris Runabout";
-	master_tag = "airlock_idris_cruiser_shuttle";
-	name = "airlock_idris_cruiser_shuttle"
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "Idris Runabout";
+	master_tag = "airlock_idris_cruiser_shuttle";
+	name = "airlock_idris_cruiser_shuttle";
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/idris_cruiser_shuttle/main)
 "Pf" = (
@@ -11880,13 +11976,16 @@
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
 "Rg" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -12245,13 +12344,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/crew_quarters)
 "SN" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/medbay)
@@ -12380,7 +12482,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	shuttle_tag = "Idris Runabout";
 	master_tag = "airlock_idris_cruiser_shuttle";
-	name = "airlock_idris_cruiser_shuttle"
+	name = "airlock_idris_cruiser_shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/idris_cruiser_shuttle/main)
@@ -12507,13 +12610,16 @@
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/crew_aft)
 "Uc" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/laundromat)
@@ -12665,13 +12771,16 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/idris_cruiser/engineering)
 "UP" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/pool)
@@ -12992,7 +13101,12 @@
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
 "Wb" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/idris_cruiser/cargo_bay)
 "We" = (
@@ -13453,9 +13567,6 @@
 /turf/simulated/floor/lino,
 /area/ship/idris_cruiser/bar)
 "Xy" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	name = "Safety Blast Doors";
@@ -13463,6 +13574,12 @@
 	},
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port docking arm"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -13528,9 +13645,6 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/idris_cruiser/engineering)
 "XM" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
@@ -13538,6 +13652,12 @@
 	},
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/great_room)
@@ -13730,9 +13850,6 @@
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/port_lobby)
 "YB" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
@@ -13740,6 +13857,12 @@
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, custodial closet"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/custodial)
@@ -13854,9 +13977,6 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/idris_cruiser/restroom/suite_3)
 "Zb" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
@@ -13864,6 +13984,12 @@
 	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, lounge"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/lounge)
@@ -14058,13 +14184,16 @@
 /turf/simulated/floor/carpet/darkblue,
 /area/ship/idris_cruiser/spa/spa1)
 "ZU" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
-	req_one_access = list(220)
-	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	name = "Safety Blast Doors";
 	id = "idriscruiser_bridge_blast"
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	color = "#4B7A73";
+	frame_color = "#4B7A73";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/suites_b)

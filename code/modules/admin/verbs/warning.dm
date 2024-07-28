@@ -500,7 +500,7 @@
 				deleteQuery.Execute(query_details)
 
 				message_admins(SPAN_NOTICE("[key_name_admin(usr)] deleted one of [ckey]'s warnings."))
-				log_admin("[key_name(usr)] deleted one of [ckey]'s warnings.", admin_key=key_name(usr), ckey=ckey)
+				log_admin("[key_name(usr)] deleted one of [ckey]'s warnings.")
 			else
 				to_chat(usr, "Cancelled")
 				return
@@ -516,7 +516,7 @@
 			reason_query.Execute(query_details)
 
 			message_admins(SPAN_NOTICE("[key_name_admin(usr)] edited one of [ckey]'s warning reasons."))
-			log_admin("[key_name(usr)] edited one of [ckey]'s warning reasons.", admin_key=key_name(usr), ckey=ckey)
+			log_admin("[key_name(usr)] edited one of [ckey]'s warning reasons.")
 
 		if("editNotes")
 			query_details["new_notes"] = input("Edit this warning's notes.", "New Notes", notes, null) as null|text
@@ -529,4 +529,4 @@
 			notes_query.Execute(query_details)
 
 			message_admins(SPAN_NOTICE("[key_name_admin(usr)] edited one of [ckey]'s warning notes."))
-			log_admin("[key_name(usr)] edited one of [ckey]'s warning notes.", admin_key=key_name(usr), ckey=ckey)
+			log_admin("[key_name(usr)] edited one of [ckey]'s warning notes.")

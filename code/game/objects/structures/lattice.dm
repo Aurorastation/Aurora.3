@@ -8,7 +8,7 @@
 	density = FALSE
 	anchored = TRUE
 	w_class = ITEMSIZE_NORMAL
-	layer = LATTICE_LAYER
+	layer = ABOVE_TILE_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(

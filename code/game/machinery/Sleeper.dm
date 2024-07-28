@@ -296,8 +296,6 @@
 
 /obj/machinery/sleeper/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user == occupant)
 		go_out()

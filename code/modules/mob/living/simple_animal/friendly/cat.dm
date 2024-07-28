@@ -151,7 +151,7 @@
 	.=..()
 	set_stat(DEAD)
 
-/mob/living/simple_animal/cat/Life()
+/mob/living/simple_animal/cat/Life(seconds_per_tick, times_fired)
 	. = ..()
 	handle_radiation_light()
 
@@ -185,7 +185,7 @@
 	. = ..()
 	set_flee_target(src.loc)
 
-/mob/living/simple_animal/cat/bullet_act(var/obj/item/projectile/proj)
+/mob/living/simple_animal/cat/bullet_act(var/obj/projectile/proj)
 	. = ..()
 	set_flee_target(proj.firer? proj.firer : src.loc)
 

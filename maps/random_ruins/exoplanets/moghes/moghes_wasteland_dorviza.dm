@@ -8,7 +8,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
-	suffixes = list("moghes_wasteland_dorviza.dmm")
+	suffix = "moghes_wasteland_dorviza.dmm"
 	unit_test_groups = list(2)
 
 /area/moghes_dorviza
@@ -68,6 +68,7 @@
 /obj/outfit/admin/moghes_dorviza
 	uniform = list(/obj/item/clothing/under/unathi, /obj/item/clothing/under/unathi/himation)
 	suit = list(/obj/item/clothing/suit/unathi/robe, /obj/item/clothing/suit/unathi/robe/kilt)
+	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
 	shoes = /obj/item/clothing/shoes/sandals/caligae
 	l_ear = null
 	id = null
@@ -85,3 +86,4 @@
 	uniform = /obj/item/clothing/under/gearharness
 	suit = /obj/item/clothing/accessory/poncho/green
 	shoes = null
+	glasses = null

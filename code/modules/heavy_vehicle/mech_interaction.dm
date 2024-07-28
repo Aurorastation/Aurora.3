@@ -266,8 +266,6 @@
 
 /mob/living/heavy_vehicle/relaymove(mob/living/user, direction, var/turn_only = FALSE)
 	. = ..()
-	if(!.)
-		return
 
 	if(!can_move(user))
 		return

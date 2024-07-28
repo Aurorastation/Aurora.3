@@ -106,6 +106,20 @@
 	)
 	return flatten_list(_prg_list)
 
+/datum/modular_computer_app_presets/bridge
+	name = "bridge"
+	display_name = "Bridge"
+	description = "Contains the most common bridge programs"
+	available = TRUE
+
+/datum/modular_computer_app_presets/bridge/return_install_programs(obj/item/modular_computer/comp)
+	var/list/_prg_list = list(
+		COMPUTER_APP_PRESET_SYSTEM,
+		COMPUTER_APP_PRESET_HORIZON_CIVILIAN,
+		new /datum/computer_file/program/away_manifest(comp),
+	)
+	return flatten_list(_prg_list)
+
 /datum/modular_computer_app_presets/command
 	name = "command"
 	display_name = "Command"
@@ -259,6 +273,22 @@
 		COMPUTER_APP_PRESET_HORIZON_CIVILIAN,
 		new /datum/computer_file/program/civilian/janitor(comp),
 		new /datum/computer_file/program/game/arcade(comp),
+	)
+	return flatten_list(_prg_list)
+
+/datum/modular_computer_app_presets/civilian/miner
+	name = "miner"
+	display_name = "Miner"
+	description = "Contains programs for miners."
+	available = TRUE
+
+/datum/modular_computer_app_presets/civilian/miner/return_install_programs(obj/item/modular_computer/comp)
+	var/list/_prg_list = list(
+		COMPUTER_APP_PRESET_SYSTEM,
+		COMPUTER_APP_PRESET_HORIZON_CIVILIAN,
+		new /datum/computer_file/program/game/arcade(comp),
+		new /datum/computer_file/program/cooking_codex(comp),
+		new /datum/computer_file/program/away_manifest(comp),
 	)
 	return flatten_list(_prg_list)
 

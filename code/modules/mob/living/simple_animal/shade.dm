@@ -32,6 +32,7 @@
 	var/obj/item/residue = /obj/item/ectoplasm
 
 	psi_pingable = FALSE
+	sample_data = null
 
 /mob/living/simple_animal/shade/cultify()
 	return
@@ -148,7 +149,7 @@
 				to_chat(src, SPAN_DANGER("You feel yourself begin to fade away!"))
 	..()
 
-/mob/living/simple_animal/shade/bluespace/Life()
+/mob/living/simple_animal/shade/bluespace/Life(seconds_per_tick, times_fired)
 	if(possessive && possessed_body)
 		update_possession()
 	..()

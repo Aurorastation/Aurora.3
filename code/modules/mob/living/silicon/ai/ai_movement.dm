@@ -7,6 +7,6 @@
 
 /mob/living/silicon/ai/facedir(var/ndir)
 	. = ..()
-	if(holo?.active_holograms[src])
+	if(holo?.active_holograms[src] && hologram_follow)
 		var/obj/effect/overlay/hologram/H = holo.active_holograms[src]
-		H.dir = ndir
+		H.set_dir(ndir)

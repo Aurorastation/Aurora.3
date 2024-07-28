@@ -134,7 +134,7 @@
 
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been injected with [name] by [user.name] ([user.ckey])</font>")
 	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [name] to inject [M.name] ([M.ckey])</span>")
-	log_attack("[user.name] ([user.ckey]) used the [name] to inject [M.name] ([M.ckey])",ckey=key_name(user),ckey_target=key_name(M))
+	log_attack("[user.name] ([user.ckey]) used the [name] to inject [M.name] ([M.ckey])")
 	message_admins("[key_name_admin(user)] injected [key_name_admin(M)] with \the [src][injected_with_monkey]")
 
 	// Apply the DNA shit.

@@ -130,3 +130,23 @@
 	reagents = list(/singleton/reagent/nutriment/protein = 6 , /singleton/reagent/nutriment/barbecue = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/sloppyjoe
+
+/singleton/recipe/nakarka_hamburger
+	appliance = SKILLET
+	items = list(
+		/obj/item/reagent_containers/food/snacks/bun,
+		/obj/item/reagent_containers/food/snacks/cutlet,
+		/obj/item/reagent_containers/food/snacks/nakarka_wedge
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/burger/nakarka_hamburger
+
+/singleton/recipe/nakarka_hamburger_alt
+	appliance = SKILLET
+	items = list(
+		/obj/item/reagent_containers/food/snacks/burger,
+		/obj/item/reagent_containers/food/snacks/nakarka_wedge
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/burger/nakarka_hamburger
+

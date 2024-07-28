@@ -7,12 +7,7 @@
 	overlay_state = null
 	slot_flags = SLOT_TIE
 	w_class = ITEMSIZE_SMALL
-
 	var/slot = ACCESSORY_SLOT_GENERIC
-
-	/// When attached to another piece of clothing, it'll increase the size by this amount. Accepts the ACCESSORY_WEIGHT_* define, which can be found in code/__DEFINES/accessories.dm. The final result is rounded up
-	var/accessory_w_class_adjustment = ACCESSORY_WEIGHT_NONE
-
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
 	var/overlay_in_inventory = TRUE // Whether the worn_overlay should apply when attached to an item of clothing.
@@ -22,6 +17,7 @@
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/accessories.dmi'
 	)
+	var/protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/Destroy()
 	on_removed()
@@ -361,6 +357,14 @@
 	build_from_parts = TRUE
 	worn_overlay = "stripes"
 
+/obj/item/clothing/accessory/shawl
+	name = "cozy shawl"
+	desc = "A favored accessory amongst grandmothers and cottagecore enthusiasts."
+	icon = 'icons/obj/clothing/shawl.dmi'
+	icon_state = "shawl"
+	item_state = "shawl"
+	contained_sprite = TRUE
+
 /obj/item/clothing/accessory/chaps
 	name = "brown chaps"
 	desc = "A pair of loose, brown leather chaps."
@@ -392,6 +396,7 @@
 	slot = ACCESSORY_SLOT_CAPE
 	contained_sprite = TRUE
 	var/allow_tail_hiding = TRUE //in case if you want to allow someone to switch the HIDETAIL var or not
+	protects_against_weather = TRUE
 
 /obj/item/clothing/accessory/poncho/verb/toggle_hide_tail()
 	set name = "Toggle Tail Coverage"
@@ -658,6 +663,7 @@
 	item_state = "starcape"
 	flippable = TRUE
 	contained_sprite = FALSE
+	protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/poncho/shouldercape/star
 	name = "star cape"
@@ -696,7 +702,7 @@
 
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak
 	name = "qeblak mantle"
-	desc = "A mantle denoting the wearer as a member fo the Qeblak faith."
+	desc = "A mantle denoting the wearer as a member of the Qeblak faith."
 	desc_extended = "This mantle denotes the wearer as a member of the Qeblak faith. \
 	It is given to followers after they have completed their coming of age ceremony. \
 	The symbol on the back is of a protostar as it transitions into a main sequence star, \
@@ -707,7 +713,7 @@
 
 /obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
 	name = "weishii robe"
-	desc = "A robe denoting the wearer as a member fo the Weishii faith."
+	desc = "A robe denoting the wearer as a member of the Weishii faith."
 	desc_extended = "This mantle denotes the wearer as a member of the Weishii faith. \
 	It is given to followers after they have spent time on a Weishiin Sanctuary."
 	icon_state = "weishii_robe"
@@ -736,6 +742,7 @@
 	item_state = "trinary_cape"
 	overlay_state = "trinary_cape"
 	contained_sprite = FALSE
+	protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/poncho/trinary/pellegrina
 	name = "trinary perfection pellegrina"

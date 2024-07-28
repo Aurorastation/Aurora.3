@@ -135,7 +135,7 @@
 	wires = null
 	return ..()
 
-/obj/machinery/power/smes/buildable/bullet_act(obj/item/projectile/P, def_zone)
+/obj/machinery/power/smes/buildable/bullet_act(obj/projectile/P, def_zone)
 	. = ..()
 	visible_message(SPAN_WARNING("\The [src] is hit by \the [P]!"))
 	health_check(P.damage)
@@ -259,7 +259,7 @@
 		var/obj/item/clothing/gloves/G = h_user.gloves
 		if(G.siemens_coefficient == 0)
 			user_protected = 1
-	log_game("SMES FAILURE: <b>[src.x]X [src.y]Y [src.z]Z</b> User: [usr.ckey], Intensity: [intensity]/100",ckey=key_name(usr))
+	log_game("SMES FAILURE: <b>[src.x]X [src.y]Y [src.z]Z</b> User: [usr.ckey], Intensity: [intensity]/100")
 	message_admins("SMES FAILURE: <b>[src.x]X [src.y]Y [src.z]Z</b> User: [usr.ckey], Intensity: [intensity]/100 - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[src.x];Y=[src.y];Z=[src.z]'>JMP</a>")
 
 

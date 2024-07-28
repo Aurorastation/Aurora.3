@@ -29,6 +29,7 @@
 	new /obj/item/device/flashlight/marshallingwand(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
+	new /obj/item/device/price_scanner(src)
 
 // Hangar Technician
 /obj/structure/closet/secure_closet/hangar_tech

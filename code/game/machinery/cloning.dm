@@ -335,8 +335,6 @@
 
 /obj/machinery/clonepod/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user.stat)
 		return

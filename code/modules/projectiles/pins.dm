@@ -234,7 +234,7 @@ Pins Below.
 
 /obj/item/device/firing_pin/away_site/pin_auth(mob/living/user)
 	var/turf/T = get_turf(src)
-	return !isStationLevel(T.z)
+	return !is_station_level(T.z)
 
 var/list/wireless_firing_pins = list() //A list of all initialized wireless firing pins. Used in the firearm tracking program in guntracker.dm
 
@@ -305,13 +305,13 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 			var/obj/item/gun/energy/EG = gun
 			if(EG.required_firemode_auth[EG.sel_mode] == WIRELESS_PIN_STUN)
 				return TRUE
-			else if (GLOB.security_level == SEC_LEVEL_YELLOW || GLOB.security_level == SEC_LEVEL_RED)
+			else if (GLOB.security_level >= SEC_LEVEL_YELLOW)
 				return TRUE
 			else
 				fail_message = SPAN_WARNING("Unable to fire: insufficient security level.")
 				return FALSE
 		else
-			if (GLOB.security_level == SEC_LEVEL_YELLOW || GLOB.security_level == SEC_LEVEL_RED)
+			if (GLOB.security_level >= SEC_LEVEL_YELLOW)
 				return TRUE
 			else
 				fail_message = SPAN_WARNING("Unable to fire: insufficient security level.")

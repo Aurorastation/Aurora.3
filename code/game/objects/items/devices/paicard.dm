@@ -18,8 +18,6 @@
 
 /obj/item/device/paicard/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user.stat || user.stunned)
 		return
