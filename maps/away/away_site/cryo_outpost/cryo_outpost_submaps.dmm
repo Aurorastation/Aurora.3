@@ -1,4 +1,12 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = 6;
+	pixel_y = -8
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
 "ab" = (
 /turf/simulated/floor/tiled,
 /area/template_noop)
@@ -434,6 +442,15 @@
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
 /turf/simulated/floor/exoplanet/barren,
+/area/template_noop)
+"ok" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/junk{
+	pixel_x = 1;
+	pixel_y = -10
+	},
+/turf/simulated/floor/exoplanet/grass,
 /area/template_noop)
 "ox" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -1270,10 +1287,6 @@
 /obj/item/bedsheet/dorms,
 /turf/simulated/floor/tiled,
 /area/template_noop)
-"Kt" = (
-/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/river,
-/turf/simulated/floor/exoplanet/water/shallow,
-/area/template_noop)
 "KC" = (
 /obj/machinery/light/colored/decayed{
 	dir = 1
@@ -1409,6 +1422,10 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/desert,
+/area/template_noop)
+"OR" = (
+/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/river,
+/turf/simulated/floor/exoplanet/water/shallow,
 /area/template_noop)
 "OT" = (
 /obj/structure/table/steel,
@@ -1808,6 +1825,14 @@
 /obj/structure/closet/crate,
 /obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse,
 /turf/simulated/floor/plating,
+/area/template_noop)
+"Zd" = (
+/obj/machinery/camera/network/cryo_outpost{
+	dir = 8;
+	c_tag = "Outside, River Bridge"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/grass,
 /area/template_noop)
 "Ze" = (
 /obj/structure/table/steel,
@@ -3356,7 +3381,7 @@ yE
 yE
 Tg
 Yg
-Yg
+qw
 Yg
 Yg
 PF
@@ -4133,7 +4158,7 @@ Tg
 Tg
 Tg
 Tg
-Yg
+qw
 PF
 PF
 PF
@@ -7724,7 +7749,7 @@ yE
 yE
 yE
 PF
-Yg
+qw
 Yg
 Yg
 Yg
@@ -7989,7 +8014,7 @@ Tg
 Tg
 Tg
 Yg
-Tg
+Rj
 Tg
 Tg
 yE
@@ -14407,7 +14432,7 @@ yE
 yE
 PF
 PF
-Yg
+qw
 tq
 oK
 er
@@ -14671,7 +14696,7 @@ Tg
 Tg
 RW
 Yg
-Yg
+qw
 PF
 PF
 yE
@@ -18773,7 +18798,7 @@ zV
 zV
 zV
 zV
-Kt
+OR
 zV
 yE
 yE
@@ -18823,7 +18848,7 @@ zV
 zV
 zV
 zV
-Kt
+OR
 zV
 yE
 yE
@@ -22090,15 +22115,15 @@ PF
 PF
 PF
 PF
-zV
-zV
-zV
+PF
 zV
 PF
 PF
 PF
 PF
-zV
+PF
+PF
+PF
 zV
 zV
 zV
@@ -22343,19 +22368,19 @@ PF
 PF
 PF
 PF
+PF
+PF
+PF
 zV
 zV
 zV
 zV
 zV
-zV
-zV
-zV
-zV
-zV
-zV
-zV
-zV
+PF
+PF
+PF
+PF
+PF
 zV
 zV
 zV
@@ -22598,6 +22623,9 @@ PF
 PF
 PF
 PF
+PF
+PF
+Yg
 zV
 zV
 zV
@@ -22606,12 +22634,9 @@ zV
 zV
 zV
 zV
-zV
-zV
-zV
-zV
-zV
-zV
+PF
+PF
+PF
 zV
 zV
 zV
@@ -22854,11 +22879,11 @@ PF
 PF
 PF
 PF
-zV
-zV
-zV
-zV
-zV
+PF
+PF
+Yg
+Yg
+Yg
 zV
 zV
 zV
@@ -23110,12 +23135,12 @@ PF
 PF
 PF
 PF
-zV
-zV
-zV
-zV
-zV
-zV
+PF
+PF
+Yg
+Yg
+Yg
+Yg
 zV
 zV
 zV
@@ -23366,12 +23391,12 @@ PF
 PF
 PF
 PF
-zV
-zV
-zV
-zV
-zV
-zV
+PF
+PF
+Yg
+Yg
+Yg
+Yg
 zV
 zV
 zV
@@ -23623,12 +23648,12 @@ PF
 PF
 PF
 PF
-zV
-zV
-zV
-zV
-zV
-zV
+Yg
+Yg
+Zu
+Yg
+Yg
+Yg
 zV
 zV
 zV
@@ -23878,13 +23903,13 @@ PF
 PF
 PF
 PF
-PF
-zV
-zV
-zV
-zV
-zV
-zV
+Yg
+Yg
+Yg
+Yg
+Yg
+Yg
+Yg
 zV
 zV
 zV
@@ -24133,9 +24158,9 @@ PF
 PF
 PF
 PF
-PF
-PF
-zV
+Yg
+Yg
+Yg
 zV
 zV
 zV
@@ -28281,7 +28306,7 @@ PF
 Zu
 Yg
 if
-if
+EN
 Yg
 HO
 yE
@@ -29010,10 +29035,10 @@ yE
 cK
 PF
 PF
-Yg
+qw
 PF
 Tg
-RW
+ok
 Tg
 PF
 PF
@@ -29047,7 +29072,7 @@ Yg
 Yg
 Yg
 vO
-vO
+aa
 vO
 jc
 jc
@@ -29531,7 +29556,7 @@ Tg
 RW
 RW
 RW
-Yg
+qw
 RC
 PF
 PF
@@ -29548,7 +29573,7 @@ Yg
 Yg
 Tg
 Yg
-Yg
+qw
 Yg
 Yg
 VF
@@ -29562,7 +29587,7 @@ jc
 jc
 vO
 if
-if
+EN
 if
 PF
 PF
@@ -30040,7 +30065,7 @@ RW
 RW
 RW
 Tg
-Yg
+qw
 PF
 PF
 PF
@@ -30062,7 +30087,7 @@ Yg
 PF
 PF
 PF
-Yg
+Zd
 Yg
 Yg
 nB
@@ -30071,7 +30096,7 @@ uu
 uu
 nB
 Yg
-Yg
+qw
 Yg
 PF
 PF
@@ -30319,8 +30344,8 @@ PF
 PF
 PF
 PF
-PF
-PF
+YJ
+Yg
 PF
 nT
 fX
