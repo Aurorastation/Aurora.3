@@ -575,7 +575,7 @@
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 	center_of_mass = list("x" = 17,"y" = 7)
 	var/origin_type = /obj/structure/bed/roller
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/roller/hover
 	name = "medical hoverbed"

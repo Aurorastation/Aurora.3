@@ -6,7 +6,8 @@
 	item_state = ""	//no inhands
 	overlay_state = null
 	slot_flags = SLOT_TIE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
+
 	var/slot = ACCESSORY_SLOT_GENERIC
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
@@ -392,7 +393,7 @@
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	siemens_coefficient = 0.9
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	slot = ACCESSORY_SLOT_CAPE
 	contained_sprite = TRUE
 	var/allow_tail_hiding = TRUE //in case if you want to allow someone to switch the HIDETAIL var or not
@@ -884,7 +885,7 @@
 	overlay_state = null
 	badge_string = null
 	slot_flags = SLOT_TIE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/accessory/ribbon
 	name = "ribbon"
@@ -892,7 +893,7 @@
 	icon_state = "ribbon"
 	item_state = "ribbon"
 	slot_flags = SLOT_TIE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/accessory/sleevepatch
 	name = "sleeve patch"

@@ -5,7 +5,7 @@
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/horns.dmi'
 	)
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	species_restricted = list(BODYTYPE_VAURCA_BULWARK)
 

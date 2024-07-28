@@ -377,7 +377,7 @@
 	icon = 'icons/mob/npc/blob.dmi'
 	icon_state = "tendril"
 	item_state = "blob_tendril"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	reach = 2 // long range tentacle whips - geeves
 	attack_verb = list("smacked", "smashed", "whipped")
 	var/types_of_tendril = list(TENDRIL_SOLID, TENDRIL_FIRE)
@@ -412,7 +412,7 @@
 	desc = "A sample taken from an asteroclast's nucleus. It pulses with energy."
 	icon_state = "core_sample"
 	item_state = "blob_core"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MATERIAL = 4, TECH_BLUESPACE = 5, TECH_BIO = 7)
 
 /obj/item/blob_core/aux

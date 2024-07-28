@@ -332,14 +332,6 @@
 #define CARGO_CONTAINER_BOX "box"
 #define CARGO_CONTAINER_BODYBAG "bodybag"
 
-// We should start using these.
-#define ITEMSIZE_TINY   1
-#define ITEMSIZE_SMALL  2
-#define ITEMSIZE_NORMAL 3
-#define ITEMSIZE_LARGE  4
-#define ITEMSIZE_HUGE   5
-#define ITEMSIZE_IMMENSE 6
-
 // getFlatIcon function altering defines
 #define GFI_ROTATION_DEFAULT 0 //Don't do anything special
 #define GFI_ROTATION_DEFDIR 1 //Layers will have default direction of there object

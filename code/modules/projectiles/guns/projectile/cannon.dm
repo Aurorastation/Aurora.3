@@ -5,7 +5,7 @@
 	icon_state = "cannon"
 	item_state = "cannon"
 	caliber = "cannon"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
 	load_method = SINGLE_CASING
 	handle_casings = DELETE_CASINGS
@@ -35,7 +35,7 @@
 	icon_state = "blockbuster"
 	item_state = "blockbuster"
 	caliber = "nuke"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 4)
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS
@@ -73,7 +73,7 @@
 	icon_state = "recoilless_rifle"
 	item_state = "recoilless_rifle"
 	caliber = "recoilless_rifle"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3)
 	slot_flags = null
 	fire_sound = 'sound/weapons/recoilless_rifle.ogg'
@@ -116,7 +116,7 @@
 	icon_state = "peac"
 	item_state = "peac"
 	caliber = "peac"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 5)
 	load_method = SINGLE_CASING
 	fire_sound = 'sound/weapons/gunshot/cannon.ogg'

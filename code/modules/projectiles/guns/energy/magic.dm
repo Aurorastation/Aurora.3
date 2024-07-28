@@ -10,7 +10,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/magic/wand.ogg'
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	max_shots = 10
 	charge_cost = 100
 	projectile_type = /obj/projectile/magic

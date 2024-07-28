@@ -403,10 +403,11 @@
 
 // called when something steps onto a human
 // this handles vehicles
-/mob/living/carbon/human/Crossed(var/atom/movable/AM)
+/mob/living/carbon/human/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	..()
-	if(istype(AM, /obj/vehicle))
-		var/obj/vehicle/V = AM
+
+	if(istype(arrived, /obj/vehicle))
+		var/obj/vehicle/V = arrived
 		V.RunOver(src)
 
 // Get rank from ID, ID inside PDA, PDA, ID in wallet, etc.

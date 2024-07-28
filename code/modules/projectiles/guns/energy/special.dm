@@ -68,7 +68,7 @@
 	item_state = "meteor_gun"
 	has_item_ratio = FALSE
 	slot_flags = SLOT_BELT|SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	max_shots = 10
 	projectile_type = /obj/projectile/meteor
 	self_recharge = 1
@@ -84,7 +84,7 @@
 	contained_sprite = FALSE
 	icon_state = "pen"
 	item_state = "pen"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_BELT
 	can_turret = 0
 
@@ -109,7 +109,7 @@
 	item_state = "toxgun"
 	has_item_ratio = FALSE
 	fire_sound = 'sound/effects/stealthoff.ogg'
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_COMBAT = 5, TECH_PHORON = 4)
 	projectile_type = /obj/projectile/energy/phoron
 	can_turret = 1
@@ -124,7 +124,7 @@
 	icon_state = "pestishock"
 	item_state = "pestishock"
 	has_item_ratio = FALSE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	fire_sound = 'sound/weapons/taser2.ogg'
 	force = 11
 	projectile_type = /obj/projectile/beam/mousegun
@@ -168,7 +168,7 @@
 	projectile_type = /obj/projectile/beam/energy_net
 	fire_sound = 'sound/weapons/plasma_cutter.ogg'
 	slot_flags = SLOT_HOLSTER | SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	max_shots = 4
 	fire_delay = 25
 	can_turret = 1
@@ -198,7 +198,7 @@
 	item_state = "bfg"
 	has_item_ratio = FALSE
 	charge_meter = 0
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	fire_sound = 'sound/magic/LightningShock.ogg'
 	force = 33
 	projectile_type = /obj/projectile/energy/bfg
@@ -223,7 +223,7 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 5, TECH_MATERIAL = 6)
 	charge_meter = 0
 	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 15
 	projectile_type = /obj/projectile/beam/gatlinglaser
 	max_shots = 350
@@ -280,7 +280,7 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 4, TECH_POWER = 4)
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BACK | SLOT_HOLSTER | SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	accuracy = 1
 	recoil = 1
 	force = 15
@@ -307,7 +307,7 @@
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	attack_verb = list("sundered", "annihilated", "sliced", "cleaved", "slashed", "pulverized")
 	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	accuracy = 3 // It's a massive beam, okay.
 	force = 60
 	projectile_type = /obj/projectile/beam/megaglaive
@@ -394,7 +394,7 @@
 	origin_tech = list(TECH_COMBAT = 6, TECH_PHORON = 8)
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 22
 	projectile_type = /obj/projectile/beam/thermaldrill
 	max_shots = 90
@@ -473,7 +473,7 @@
 	item_state = "tesla"
 	has_item_ratio = FALSE
 	charge_meter = 0
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	fire_sound = 'sound/magic/LightningShock.ogg'
 	force = 33
 	projectile_type = /obj/projectile/beam/tesla
@@ -499,7 +499,7 @@
 	item_state = "gravity_gun"
 	has_item_ratio = FALSE
 	charge_meter = 0
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	fire_sound = 'sound/magic/Repulse.ogg'
 	force = 33
 	projectile_type = /obj/projectile/energy/gravitydisabler
@@ -517,7 +517,7 @@
 	icon_state = "laserpack_holstered"
 	item_state = "laserpack_holstered"
 	contained_sprite = 1
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 6, TECH_MAGNET = 4, TECH_ILLEGAL = 7)
 	action_button_name = "Deploy the Laser Rifle"

@@ -8,6 +8,15 @@
 	anchored = TRUE
 	var/open = 1
 
+/obj/structure/pit/Initialize()
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/structure/pit/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/shovel))
 		visible_message(SPAN_NOTICE("\The [user] starts [open ? "filling" : "digging open"] \the [src]"))
@@ -93,10 +102,11 @@
 	playsound(src.loc, 'sound/effects/squelch1.ogg', 100, 1)
 	open()
 
-/obj/structure/pit/Crossed(AM as mob|obj)
-	for(var/obj/item/landmine/I in contents)
-		I.Crossed(AM, TRUE)
-	..()
+/obj/structure/pit/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	// for(var/obj/item/landmine/I in contents)
+	// 	I.on_enter(arrived, TRUE)
 
 /obj/structure/pit/closed
 	name = "mound"

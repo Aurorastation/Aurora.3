@@ -7,7 +7,7 @@
 	item_state = "eriflestun"
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 15
 	max_shots = 20
 	fire_delay = 6
@@ -209,7 +209,7 @@
 	projectile_type = /obj/projectile/ion/stun
 	fire_sound = 'sound/weapons/laser1.ogg'
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	accuracy = 1
 	force = 15
 	obj_flags = OBJ_FLAG_CONDUCTABLE

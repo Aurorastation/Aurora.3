@@ -189,9 +189,9 @@
 	. = ..()
 	set_flee_target(proj.firer? proj.firer : src.loc)
 
-/mob/living/simple_animal/cat/hitby(atom/movable/AM)
+/mob/living/simple_animal/cat/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
-	set_flee_target(AM.throwing?.thrower?.resolve() ? AM.throwing?.thrower?.resolve() : src.loc)
+	set_flee_target(throwingdatum?.thrower?.resolve() ? throwingdatum.thrower.resolve() : src.loc)
 
 /mob/living/simple_animal/cat/fall_impact()
 	src.visible_message(SPAN_NOTICE("\The [src] lands softly on \the [loc]!"))

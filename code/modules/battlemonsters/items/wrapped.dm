@@ -2,7 +2,7 @@
 	name = "battle monsters starterpack"
 	desc = "A battle monsters 52 card deck starterpack. Contains 52 basic cards and a lifetime of sadness."
 	icon_state = "pack1"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/contained_cards = 52
 	var/rarity_max = BATTLE_MONSTERS_RARITY_COMMON
 	var/rarity_min = BATTLE_MONSTERS_RARITY_UNCOMMON

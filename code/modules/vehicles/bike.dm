@@ -395,7 +395,7 @@
 
 /obj/item/storage/toolbox/bike_storage
 	name = "bike storage"
-	max_w_class = ITEMSIZE_LARGE
+	max_w_class = WEIGHT_CLASS_BULKY
 	max_storage_space = 50
 	care_about_storage_depth = FALSE
 

@@ -259,13 +259,17 @@
 		take_damage(min(damage, 100))
 
 
-/obj/machinery/door/hitby(AM as mob|obj, var/speed=5)
+/obj/machinery/door/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
 	var/tforce = 0
-	if(ismob(AM))
-		tforce = 15 * (speed/5)
-	else
-		tforce = AM:throwforce * (speed/5)
+	if(!throwingdatum)
+		return
+
+	if(ismob(hitting_atom))
+		tforce = 15 * (throwingdatum.speed/5)
+	else if(isobj(hitting_atom))
+		var/obj/O = hitting_atom
+		tforce = O.throwforce * (throwingdatum.speed/5)
 
 	if (tforce > 0)
 		var/volume = 100
@@ -273,7 +277,6 @@
 			volume *= (tforce / 20)
 		playsound(src.loc, hitsound, volume, TRUE)
 		take_damage(tforce)
-		return
 
 /obj/machinery/door/attack_ai(mob/user)
 	if(!ai_can_interact(user))

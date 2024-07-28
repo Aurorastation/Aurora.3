@@ -193,7 +193,7 @@
 	return TRUE
 
 /datum/species/bug/can_hold_s_store(obj/item/I)
-	if(I.w_class <= ITEMSIZE_SMALL)
+	if(I.w_class <= WEIGHT_CLASS_SMALL)
 		return TRUE
 	return FALSE
 

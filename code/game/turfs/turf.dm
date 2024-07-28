@@ -92,8 +92,8 @@
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
 
-	for(var/atom/movable/AM as mob|obj in src)
-		Entered(AM, src)
+	for(var/atom/movable/content as anything in src)
+		Entered(content, src)
 
 	if (is_station_level(z))
 		GLOB.station_turfs += src
@@ -205,49 +205,109 @@
 	if (THE)
 		return THE.OnHandInterception(user)
 
-/turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
-	if(movement_disabled && usr.ckey != movement_disabled_exception)
-		to_chat(usr, SPAN_WARNING("Movement is admin-disabled.")) //This is to identify lag problems)
-		return
+// /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
+// 	if(movement_disabled && usr.ckey != movement_disabled_exception)
+// 		to_chat(usr, SPAN_WARNING("Movement is admin-disabled.")) //This is to identify lag problems)
+// 		return
 
-	..()
+// 	..()
 
-	if (!mover || !isturf(mover.loc) || isobserver(mover))
-		return 1
+// 	if (!mover || !isturf(mover.loc) || isobserver(mover))
+// 		return 1
 
-	//First, check objects to block exit that are not on the border
+// 	//First, check objects to block exit that are not on the border
+// 	for(var/obj/obstacle in mover.loc)
+// 		if(!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != obstacle) && (forget != obstacle))
+// 			if(!obstacle.CheckExit(mover, src))
+// 				mover.Collide(obstacle)
+// 				return 0
+
+// 	//Now, check objects to block exit that are on the border
+// 	for(var/obj/border_obstacle in mover.loc)
+// 		if((border_obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != border_obstacle) && (forget != border_obstacle))
+// 			if(!border_obstacle.CheckExit(mover, src))
+// 				mover.Collide(border_obstacle)
+// 				return 0
+
+// 	//Next, check objects to block entry that are on the border
+// 	for(var/obj/border_obstacle in src)
+// 		if(border_obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER)
+// 			if(!border_obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != border_obstacle))
+// 				mover.Collide(border_obstacle)
+// 				return 0
+
+// 	//Then, check the turf itself
+// 	if (!src.CanPass(mover, src))
+// 		mover.Collide(src)
+// 		return 0
+
+// 	//Finally, check objects/mobs to block entry that are not on the border
+// 	for(var/atom/movable/obstacle in src)
+// 		if(!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER))
+// 			if(!obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != obstacle))
+// 				mover.Collide(obstacle)
+// 				return 0
+// 	return 1 //Nothing found to block so return success!
+
+//There's a lot of QDELETED() calls here if someone can figure out how to optimize this but not runtime when something gets deleted by a Bump/CanPass/Cross call, lemme know or go ahead and fix this mess - kevinz000
+/turf/Enter(atom/movable/mover)
+	// Do not call ..()
+	// Byond's default turf/Enter() doesn't have the behaviour we want with Bump()
+	// By default byond will call Bump() on the first dense object in contents
+	// Here's hoping it doesn't stay like this for years before we finish conversion to step_
+	var/atom/first_bump
+	// var/can_pass_self = CanPass(mover, get_dir(src, mover))
+	var/can_pass_self = CanPass(mover, get_step(src, get_dir(src, mover)), 1, 0)
+
+	/* START AURORA SNOWFLAKE CHECK EXIT BS*/
+
+	//Objects to block exit that are not on the border
 	for(var/obj/obstacle in mover.loc)
-		if(!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != obstacle) && (forget != obstacle))
+		if(!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != obstacle))
 			if(!obstacle.CheckExit(mover, src))
 				mover.Collide(obstacle)
-				return 0
+				return FALSE
 
-	//Now, check objects to block exit that are on the border
-	for(var/obj/border_obstacle in mover.loc)
-		if((border_obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != border_obstacle) && (forget != border_obstacle))
-			if(!border_obstacle.CheckExit(mover, src))
-				mover.Collide(border_obstacle)
-				return 0
-
-	//Next, check objects to block entry that are on the border
-	for(var/obj/border_obstacle in src)
-		if(border_obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER)
-			if(!border_obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != border_obstacle))
-				mover.Collide(border_obstacle)
-				return 0
-
-	//Then, check the turf itself
-	if (!src.CanPass(mover, src))
-		mover.Collide(src)
-		return 0
-
-	//Finally, check objects/mobs to block entry that are not on the border
-	for(var/atom/movable/obstacle in src)
-		if(!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER))
-			if(!obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != obstacle))
+	//Objects to block exit that are on the border
+	for(var/obj/obstacle in mover.loc)
+		if((obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != obstacle))
+			if(!obstacle.CheckExit(mover, src))
 				mover.Collide(obstacle)
-				return 0
-	return 1 //Nothing found to block so return success!
+				return FALSE
+
+	/* END AURORA SNOWFLAKE CHECK EXIT BS*/
+
+	if(can_pass_self)
+		var/atom/mover_loc = mover.loc
+		// var/mover_is_phasing = mover.movement_type & PHASING
+		var/mover_is_phasing = FALSE
+		for(var/atom/movable/thing as anything in contents)
+			if(thing == mover || thing == mover_loc) // Multi tile objects and moving out of other objects
+				continue
+			if(!thing.Cross(mover))
+				if(QDELETED(mover)) //deleted from Cross() (CanPass is pure so it cant delete, Cross shouldnt be doing this either though, but it can happen)
+					return FALSE
+				//if(mover_is_phasing)
+				if(mover_is_phasing)
+					mover.Bump(thing)
+					mover.Collide(thing) //Aurora snowflake
+					if(QDELETED(mover)) //deleted from Bump()
+						return FALSE
+					continue
+				else
+					// if(!first_bump || ((thing.layer > first_bump.layer || thing.flags_1 & ON_BORDER_1) && !(first_bump.flags_1 & ON_BORDER_1)))
+					if(!first_bump || ((thing.layer > first_bump.layer || thing.atom_flags & ATOM_FLAG_CHECKS_BORDER) && !(first_bump.atom_flags & ATOM_FLAG_CHECKS_BORDER)))
+						first_bump = thing
+	if(QDELETED(mover)) //Mover deleted from Cross/CanPass/Bump, do not proceed.
+		return FALSE
+	if(!can_pass_self) //Even if mover is unstoppable they need to bump us.
+		first_bump = src
+	if(first_bump)
+		mover.Bump(first_bump)
+		mover.Collide(first_bump) //Aurora snowflake
+		// return (mover.movement_type & PHASING)
+		return FALSE
+	return TRUE
 
 var/const/enterloopsanity = 100
 
@@ -342,6 +402,13 @@ var/const/enterloopsanity = 100
 			if(gas_data.flags[g] & XGM_GAS_CONTAMINANT && env.gas[g] > gas_data.overlay_limit[g] + 1)
 				I.contaminate()
 				break
+
+/turf/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
+	. = ..()
+	if(src.density)
+		if(isliving(hitting_atom))
+			var/mob/living/M = hitting_atom
+			M.turf_collision(src, throwingdatum.speed)
 
 /turf/proc/add_tracks(var/typepath, var/footprint_DNA, var/comingdir, var/goingdir, var/footprint_color=COLOR_HUMAN_BLOOD)
 	var/obj/effect/decal/cleanable/blood/tracks/tracks = locate(typepath) in src

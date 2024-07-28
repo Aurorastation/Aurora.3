@@ -4,7 +4,7 @@
 	desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate."
 	icon = 'icons/obj/airbubble.dmi'
 	icon_state = "airbubble_fact_folded"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	var/used = FALSE
 	var/ripped = FALSE
 	var/zipped = FALSE
@@ -215,7 +215,7 @@
 		if(!isnull(internal_tank))
 			internal_tank.forceMove(bag)
 			internal_tank = null
-		bag.w_class = ITEMSIZE_LARGE
+		bag.w_class = WEIGHT_CLASS_BULKY
 
 		bag.desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate."
 		if(syndie)

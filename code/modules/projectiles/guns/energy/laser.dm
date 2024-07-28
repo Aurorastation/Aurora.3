@@ -8,7 +8,7 @@
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
 	accuracy = 1
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 15
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
@@ -46,7 +46,7 @@
 	power cell technology have now turned them into viable backup weapons for outlaws or anyone unable to acquire newer laser weapons."
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	offhand_accuracy = 1
 	projectile_type = /obj/projectile/beam
 	fire_delay = 5
@@ -68,7 +68,7 @@
 	force = 11
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	offhand_accuracy = 2
 	projectile_type = /obj/projectile/beam
 	origin_tech = null
@@ -154,7 +154,7 @@
 	max_shots = 4
 	fire_delay = 45
 	force = 15
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	accuracy = -3 //shooting at the hip
 	scoped_accuracy = 4
 	can_turret = 1
@@ -187,7 +187,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	accuracy = 0
 	force = 15
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)

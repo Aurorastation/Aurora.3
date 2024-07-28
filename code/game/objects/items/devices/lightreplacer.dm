@@ -62,7 +62,7 @@
 	desc = "A specialised light replacer which stores more lights, refills faster from boxes, and sucks up broken bulbs. Empty into a disposal or trashbag when full!"
 	icon_state = "adv_lightreplacer"
 	item_state = "adv_lightreplacer"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	store_broken = 1
 	load_interval = 10
 	max_uses = 30

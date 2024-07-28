@@ -9,7 +9,7 @@
 	The 'fire' activator will cause the mechanism to attempt to fire the weapon at the coordinates, if possible.  Note that the \
 	normal limitations to firearms, such as ammunition requirements and firing delays, still hold true if fired by the mechanism."
 	complexity = 20
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	size = 3
 	inputs = list(
 		"target X rel" = IC_PINTYPE_NUMBER,
@@ -88,7 +88,7 @@
 	extended_desc = "The circuit accepts a 'dir' number as a direction to move towards.<br>\
 	Pulsing the 'step towards dir' activator pin will cause the machine to move a meter in that direction, assuming it is not \
 	being held, or anchored in some way.  It should be noted that the ability to move is dependant on the type of assembly that this circuit inhabits."
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	complexity = 20
 //	size = 5
 	inputs = list("direction" = IC_PINTYPE_DIR)
@@ -192,7 +192,7 @@
 	desc = "A circuit with its own inventory for small/medium items, used to grab and store things."
 	icon_state = "grabber"
 	extended_desc = "The circuit accepts a reference to thing to be grabbed. It can store up to 10 things. Modes: 1 for grab. 0 for eject the first thing. -1 for eject all."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	size = 3
 
 	complexity = 10
@@ -211,7 +211,7 @@
 			if(contents.len < 10)
 				if(istype(AM,/obj/item))
 					var/obj/item/A = AM
-					if(A.w_class < ITEMSIZE_NORMAL)
+					if(A.w_class < WEIGHT_CLASS_NORMAL)
 						AM.forceMove(src)
 	if(mode == 0)
 		if(contents.len)
@@ -237,7 +237,7 @@
 	The 'fire' activator will cause the mechanism to attempt to throw thing at the coordinates, if possible.  Note that the \
 	projectile need to be inside the machine, or to be on an adjacent tile, and to be up to medium size."
 	complexity = 15
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	size = 2
 	inputs = list(
 		"target X rel" = IC_PINTYPE_NUMBER,
@@ -262,7 +262,7 @@
 	var/obj/item/A = projectile.data.resolve()
 	if(A.anchored)
 		return
-	if(A.w_class>ITEMSIZE_NORMAL)
+	if(A.w_class>WEIGHT_CLASS_NORMAL)
 		return
 	var/turf/T = get_turf(src.assembly)
 	var/turf/TP = get_turf(A)
@@ -314,7 +314,7 @@
 	icon_state = "shocker"
 	extended_desc = "The circuit accepts a reference to creature to shock. It can shock a target on adjacent tiles. \
 	Severity determines the power draw and usage of each shock. It accepts values between 0 and 20."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	complexity = 24
 	inputs = list("target" = IC_PINTYPE_REF,"severity" = IC_PINTYPE_NUMBER)
 	outputs = list()

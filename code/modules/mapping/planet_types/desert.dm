@@ -106,6 +106,12 @@
 	icon_state = "intact[rand(0,2)]"
 	..()
 
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/structure/quicksand/user_unbuckle(mob/user)
 	if(buckled && !user.stat && !user.restrained())
 		if(busy)
@@ -175,12 +181,14 @@
 	else
 		..()
 
-/obj/structure/quicksand/Crossed(var/atom/movable/AM)
-	if(isliving(AM))
-		var/mob/living/L = AM
+/obj/structure/quicksand/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(isliving(arrived))
+		var/mob/living/L = arrived
 		if(L.throwing)
 			return
-		buckle(L)
+		INVOKE_ASYNC(src, PROC_REF(buckle), L)
 		if(!exposed)
 			expose()
 		to_chat(L, SPAN_DANGER("You fall into \the [src]!"))

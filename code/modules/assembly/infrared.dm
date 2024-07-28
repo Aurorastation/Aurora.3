@@ -222,10 +222,10 @@
 	..()
 	hit()
 
-/obj/effect/beam/i_beam/Crossed(atom/movable/AM as mob|obj)
-	if(istype(AM, /obj/effect/beam))
+/obj/effect/beam/i_beam/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	if(istype(arrived, /obj/effect/beam))
 		return
-	if(AM.invisibility == INVISIBILITY_OBSERVER || AM.invisibility == 101)
+	if(arrived.invisibility == INVISIBILITY_OBSERVER || arrived.invisibility == 101)
 		return
 	spawn(0)
 		hit()

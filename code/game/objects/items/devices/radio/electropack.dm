@@ -5,7 +5,7 @@
 	item_state = "electropack"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 2500)
 
