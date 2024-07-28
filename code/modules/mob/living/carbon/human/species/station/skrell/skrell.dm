@@ -83,6 +83,7 @@
 	stamina = 80
 	sprint_cost_factor = 0.4
 	sprint_speed_factor = 0.8
+	standing_jump_range = 3
 	bp_base_systolic = 100 // Default 120
 	bp_base_disatolic = 60 // Default 80
 	low_pulse = 30 // Default 40
