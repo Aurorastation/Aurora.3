@@ -3177,6 +3177,7 @@
 	req_one_access = list(243);
 	id_tag = "cryo_outpost_armory_door_bolts"
 	},
+/obj/effect/map_effect/door_helper/lock,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
 "dDj" = (
@@ -19527,6 +19528,7 @@
 	},
 /area/cryo_outpost/inside/labs_surgery)
 "weh" = (
+/obj/structure/reagent_dispensers/coolanttank,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engi_powergen)
 "wel" = (
