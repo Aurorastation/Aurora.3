@@ -25,38 +25,6 @@
 // /obj/abstract/weather_marker/cryo_outpost
 // 	weather_type = /singleton/state/weather/calm/desert_planet
 
-// --------------------------------------------------- mapmanip
-
-/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/crew_quarters_room
-	name = "Crew Quarters Room"
-
-/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room
-	name = "Crew Quarters Room"
-
-// ----
-
-/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/warehouse
-	name = "Warehouse"
-
-/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse
-	name = "Warehouse"
-
-// ----
-
-/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/river
-	name = "River"
-
-/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/river
-	name = "River"
-
-// ----
-
-/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/landing_pads
-	name = "Landing Pads"
-
-/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/landing_pads
-	name = "Landing Pads"
-
 // --------------------------------------------------- sector
 
 /obj/effect/overmap/visitable/sector/cryo_outpost
@@ -111,6 +79,46 @@
 		ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
 	if(prob(10))
 		ground_survey_result += "<br>Traces of fissile material"
+
+// --------------------------------------------------- mapmanip
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/crew_quarters_room
+	name = "Crew Quarters Room"
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/crew_quarters_room
+	name = "Crew Quarters Room"
+
+// ----
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/warehouse
+	name = "Warehouse"
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/warehouse
+	name = "Warehouse"
+
+// ----
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/river
+	name = "River"
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/river
+	name = "River"
+
+// ----
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/outside_building_river
+	name = "Outside Building, River"
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/outside_building_river
+	name = "Outside Building, River"
+
+// ----
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/outside_building_landing_pads
+	name = "Outside Building, Landing Pads"
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/cryo_outpost/outside_building_landing_pads
+	name = "Outside Building, Landing Pads"
 
 // --------------------------------------------------- misc
 

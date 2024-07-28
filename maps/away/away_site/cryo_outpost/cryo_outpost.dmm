@@ -248,13 +248,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/security)
-"apO" = (
-/obj/random/junk{
-	pixel_x = 6;
-	pixel_y = 0
-	},
-/turf/simulated/floor/exoplanet/desert,
-/area/cryo_outpost/outside/surface)
 "aqd" = (
 /obj/effect/floor_decal/industrial/outline_straight/grey{
 	dir = 5
@@ -439,6 +432,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_hallway)
+"azF" = (
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 8
+	},
+/turf/unsimulated/marker/gray,
+/area/cryo_outpost/outside/surface)
 "azI" = (
 /obj/item/material/stool/chair/folding{
 	pixel_y = 3;
@@ -793,15 +792,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_east)
-"aQQ" = (
-/obj/item/reagent_containers/glass/bucket/wood{
-	pixel_x = -9;
-	pixel_y = -11
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
 "aRz" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -1486,13 +1476,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engineering)
-"bBP" = (
-/obj/machinery/camera/network/cryo_outpost{
-	dir = 8;
-	c_tag = "Outside, River Bridge"
-	},
-/turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
 "bCb" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
@@ -1516,11 +1499,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_pharmacy)
-"bDx" = (
-/obj/random/dirt_75,
-/obj/effect/overlay/palmtree_l,
-/turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
 "bDS" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -2073,6 +2051,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_habitation)
+"cjx" = (
+/obj/random/dirt_75,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/maint_botany)
 "cks" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 1
@@ -2302,6 +2287,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/canteen)
+"czl" = (
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 1
+	},
+/turf/unsimulated/marker/gray,
+/area/cryo_outpost/outside/surface)
 "czu" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -2466,10 +2457,6 @@
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/exoplanet/barren,
-/area/cryo_outpost/outside/surface)
-"cLm" = (
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
-/turf/simulated/floor/exoplanet/grass,
 /area/cryo_outpost/outside/surface)
 "cLp" = (
 /obj/structure/cable{
@@ -2669,12 +2656,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/desert,
-/area/cryo_outpost/outside/surface)
-"cXd" = (
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
-	dir = 4
-	},
-/turf/unsimulated/marker/green,
 /area/cryo_outpost/outside/surface)
 "cYz" = (
 /obj/structure/structural_support,
@@ -3137,16 +3118,12 @@
 "dxJ" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/pink,
+/obj/random/firstaid{
+	pixel_x = -4;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_surgery)
-"dyn" = (
-/obj/random/dirt_75,
-/obj/random/junk{
-	pixel_x = 6;
-	pixel_y = -8
-	},
-/turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
 "dzb" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
@@ -3344,6 +3321,11 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engi_atmos)
+"dLP" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/maint_botany)
 "dMA" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -3501,6 +3483,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/labs_hallway)
+"dVk" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/maint_botany)
 "dVF" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -3537,6 +3527,15 @@
 /obj/structure/girder,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/labs_maint_w)
+"dZd" = (
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 4
+	},
+/turf/unsimulated/marker/gray,
+/area/cryo_outpost/outside/surface)
 "dZs" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
@@ -5016,6 +5015,9 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
 	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/entrance_main)
 "fAE" = (
@@ -5383,10 +5385,6 @@
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/hallway_central)
-"fYz" = (
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
-/turf/unsimulated/marker/green,
-/area/cryo_outpost/outside/surface)
 "fYF" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -5611,15 +5609,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/hallway_west)
-"gmV" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/fence{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/water/shallow,
-/area/cryo_outpost/outside/surface)
 "gmY" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/bitile{
@@ -5699,6 +5688,11 @@
 /obj/machinery/light,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engineering)
+"gro" = (
+/obj/random/dirt_75,
+/obj/structure/trash_pile,
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/maint_botany)
 "grF" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -5712,15 +5706,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engi_atmos)
-"grG" = (
-/obj/structure/bed/stool/chair/plastic{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
 "grK" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -5924,15 +5909,6 @@
 /obj/effect/floor_decal/industrial/warning/dust/corner,
 /turf/simulated/floor/exoplanet/barren,
 /area/cryo_outpost/outside/cave)
-"gGB" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/structure/railing/fence{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
 "gGC" = (
 /obj/structure/grille,
 /obj/machinery/atmospherics/pipe/simple/visible,
@@ -6049,6 +6025,18 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_warehouse)
+"gNr" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/entrance_main)
 "gND" = (
 /obj/effect/decal/cleanable/generic{
 	pixel_x = 2;
@@ -6319,12 +6307,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/botany)
-"hix" = (
-/obj/structure/railing/fence{
-	dir = 8
-	},
-/turf/unsimulated/marker/green,
-/area/cryo_outpost/outside/surface)
 "hjP" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -6379,18 +6361,6 @@
 /obj/structure/chainlink_fence,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_entrance)
-"hon" = (
-/obj/item/reagent_containers/glass/bucket/wood{
-	pixel_x = -20;
-	pixel_y = 2
-	},
-/obj/item/material/stool/chair/plastic{
-	dir = 2
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
 "hoy" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -6532,9 +6502,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_maint_w)
 "hxa" = (
-/obj/effect/overmap/visitable/sector/cryo_outpost,
-/turf/simulated/wall/r_wall,
-/area/cryo_outpost/inside/comms)
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 4
+	},
+/turf/unsimulated/marker/gray,
+/area/cryo_outpost/outside/surface)
 "hxf" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -6890,6 +6862,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_habitation)
+"hPu" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/maint_botany)
 "hPw" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -7931,6 +7915,13 @@
 /obj/structure/bed/stool/chair/padded/yellow,
 /turf/simulated/floor/wood/maple,
 /area/cryo_outpost/inside/habitation_west)
+"jfb" = (
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 4
+	},
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
+/turf/unsimulated/marker/gray,
+/area/cryo_outpost/outside/surface)
 "jfc" = (
 /obj/structure/trash_pile,
 /obj/random/dirt_75,
@@ -8100,13 +8091,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_habitation)
-"jsQ" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
 "jsR" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -8915,7 +8899,7 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/cryo_outpost/outside/surface)
 "kfq" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/landing_pads,
+/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/outside_building_landing_pads,
 /turf/unsimulated/marker/khaki,
 /area/cryo_outpost/outside/surface)
 "kfD" = (
@@ -9320,6 +9304,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engi_atmos)
+"kDa" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/maint_botany)
 "kDu" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -9566,12 +9558,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/medical)
-"kQm" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/water/shallow,
-/area/cryo_outpost/outside/surface)
 "kQw" = (
 /obj/effect/floor_decal/corner/dark_green/full,
 /obj/structure/closet/crate/trashcart,
@@ -10338,12 +10324,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_east)
-"lDY" = (
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
-	dir = 8
-	},
-/turf/unsimulated/marker/green,
-/area/cryo_outpost/outside/surface)
 "lEe" = (
 /obj/effect/floor_decal/corner/pink{
 	dir = 5
@@ -10431,10 +10411,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/labs_maint_e)
-"lKS" = (
-/obj/structure/lattice/catwalk/indoor/planks/deep,
-/turf/simulated/floor/exoplanet/water/shallow,
-/area/cryo_outpost/outside/surface)
 "lLg" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -11313,11 +11289,6 @@
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_habitation)
-"mUO" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
 "mWg" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -11549,6 +11520,12 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/entrance_main)
 "nmW" = (
@@ -11747,11 +11724,8 @@
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_offices)
 "nwX" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 9
-	},
 /obj/random/dirt_75,
-/obj/machinery/light{
+/obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
@@ -12124,6 +12098,9 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/maint_botany)
 "nZN" = (
@@ -12147,12 +12124,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/botany)
-"oat" = (
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
 "oaK" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 9
@@ -12501,10 +12472,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/medical)
-"ouZ" = (
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
 "ove" = (
 /obj/random/dirt_75,
 /obj/structure/table/rack,
@@ -12559,11 +12526,8 @@
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/warehouse)
 "oym" = (
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
-	dir = 4
-	},
 /obj/effect/map_effect/marker_helper/mapmanip/submap/edge,
-/turf/unsimulated/marker/green,
+/turf/unsimulated/marker/gray,
 /area/cryo_outpost/outside/surface)
 "oyX" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -13149,6 +13113,15 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_habitation)
+"oYJ" = (
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 8
+	},
+/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
+	dir = 1
+	},
+/turf/unsimulated/marker/gray,
+/area/cryo_outpost/outside/surface)
 "paa" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_straight/red{
@@ -13413,12 +13386,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_offices)
-"ppm" = (
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
-	dir = 1
-	},
-/turf/unsimulated/marker/green,
-/area/cryo_outpost/outside/surface)
 "ppV" = (
 /obj/machinery/atmospherics/unary/cryo_cell,
 /turf/simulated/floor/tiled/dark,
@@ -14298,13 +14265,6 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_botany)
-"qpL" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/exoplanet/barren,
-/area/cryo_outpost/outside/surface)
 "qrf" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -14332,12 +14292,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/warehouse)
-"qrx" = (
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
-	dir = 1
-	},
-/turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
 "qrW" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_door/red,
@@ -14381,12 +14335,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/canteen)
-"qtv" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/unsimulated/marker/green,
-/area/cryo_outpost/outside/surface)
 "qum" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -15032,10 +14980,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_maint_e)
-"rdz" = (
-/obj/structure/lattice/catwalk/indoor/planks/deep,
-/turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
 "rdQ" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark/full,
@@ -16569,6 +16513,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/canteen)
+"sGb" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/maint_botany)
 "sGY" = (
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/structure/table/standard,
@@ -16782,12 +16733,6 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/exoplanet/desert,
-/area/cryo_outpost/outside/surface)
-"sYY" = (
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
-	dir = 4
-	},
-/turf/simulated/floor/exoplanet/grass,
 /area/cryo_outpost/outside/surface)
 "sZZ" = (
 /obj/structure/table/wood/gamblingtable,
@@ -17039,15 +16984,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/maint_engineering)
-"toP" = (
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
-	dir = 4
-	},
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
-	dir = 1
-	},
-/turf/unsimulated/marker/green,
-/area/cryo_outpost/outside/surface)
 "toT" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
@@ -17549,13 +17485,6 @@
 /obj/effect/floor_decal/corner/white,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_rnd)
-"tOx" = (
-/obj/random/junk{
-	pixel_x = 15;
-	pixel_y = -10
-	},
-/turf/simulated/floor/exoplanet/desert,
-/area/cryo_outpost/outside/surface)
 "tOR" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -18177,10 +18106,6 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/hallway_central)
-"uxk" = (
-/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/river,
-/turf/unsimulated/marker/green,
-/area/cryo_outpost/outside/surface)
 "uxC" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -18415,15 +18340,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engi_atmos)
-"uKF" = (
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
-	dir = 8
-	},
-/obj/effect/map_effect/marker_helper/mapmanip/submap/edge{
-	dir = 1
-	},
-/turf/unsimulated/marker/green,
-/area/cryo_outpost/outside/surface)
 "uLs" = (
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/effect/floor_decal/industrial/outline_straight/red{
@@ -18462,12 +18378,6 @@
 	},
 /obj/effect/shuttle_landmark/cryo_outpost/surface/far_3c,
 /turf/simulated/floor/exoplanet/desert,
-/area/cryo_outpost/outside/surface)
-"uNs" = (
-/obj/structure/railing/fence{
-	dir = 8
-	},
-/turf/simulated/floor/exoplanet/water/shallow,
 /area/cryo_outpost/outside/surface)
 "uNS" = (
 /obj/random/dirt_75,
@@ -18522,6 +18432,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_east)
+"uPq" = (
+/obj/random/dirt_75,
+/obj/item/crowbar/rescue_axe{
+	pixel_y = -11;
+	pixel_x = 9
+	},
+/turf/simulated/floor/plating,
+/area/cryo_outpost/inside/maint_botany)
 "uQv" = (
 /obj/structure/table/standard,
 /obj/item/roller,
@@ -19048,6 +18966,10 @@
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/medical)
+"vqX" = (
+/obj/effect/map_effect/marker/mapmanip/submap/insert/cryo_outpost/river,
+/turf/unsimulated/marker/gray,
+/area/cryo_outpost/outside/surface)
 "vrE" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -19529,6 +19451,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/full,
 /area/cryo_outpost/inside/entrance_aux_west)
+"vXK" = (
+/obj/effect/overmap/visitable/sector/cryo_outpost,
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/comms)
 "vXS" = (
 /obj/structure/bed/stool/chair/office/light,
 /obj/effect/floor_decal/corner/mauve,
@@ -19648,10 +19574,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/cryo_outpost/inside/labs_rnd)
-"wgH" = (
-/obj/item/stack/flag/red/planted,
-/turf/simulated/floor/exoplanet/grass,
-/area/cryo_outpost/outside/surface)
 "wgR" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -19986,6 +19908,9 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/hallway_central)
+"wCi" = (
+/turf/unsimulated/marker/gray,
+/area/cryo_outpost/outside/surface)
 "wEb" = (
 /obj/structure/table/steel,
 /obj/structure/cable{
@@ -21345,12 +21270,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_cryo_n)
 "ybu" = (
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/comms)
-"ycg" = (
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor/exoplanet/water/shallow,
-/area/cryo_outpost/outside/surface)
 "ydE" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -48844,52 +48766,52 @@ rvR
 rvR
 rvR
 rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-gZr
-gZr
-gZr
-gZr
-gZr
+oYJ
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+azF
+wCi
+vqX
 gZr
 gZr
 gZr
@@ -49101,7 +49023,7 @@ rvR
 rvR
 rvR
 rvR
-rvR
+czl
 rvR
 rvR
 rvR
@@ -49146,7 +49068,7 @@ gZr
 gZr
 gZr
 gZr
-gZr
+wCi
 gZr
 gZr
 xih
@@ -49358,7 +49280,7 @@ rvR
 rvR
 rvR
 rvR
-rvR
+czl
 rvR
 rvR
 rvR
@@ -49403,7 +49325,7 @@ gZr
 gZr
 gZr
 gZr
-gZr
+oym
 gZr
 gZr
 xih
@@ -49615,7 +49537,7 @@ rvR
 rvR
 rvR
 rvR
-rvR
+czl
 rvR
 rvR
 rvR
@@ -49660,7 +49582,7 @@ gZr
 gZr
 gZr
 gZr
-gZr
+oym
 gZr
 gZr
 xih
@@ -49872,7 +49794,7 @@ rvR
 rvR
 rvR
 rvR
-rvR
+czl
 rvR
 rvR
 rvR
@@ -49917,7 +49839,7 @@ gZr
 gZr
 gZr
 gZr
-gZr
+oym
 gZr
 gZr
 xih
@@ -50129,7 +50051,7 @@ rvR
 rvR
 rvR
 rvR
-rvR
+czl
 rvR
 rvR
 rvR
@@ -50174,7 +50096,7 @@ gZr
 gZr
 gZr
 gZr
-gZr
+oym
 xih
 xih
 xih
@@ -50386,7 +50308,7 @@ rvR
 rvR
 rvR
 rvR
-rvR
+czl
 rvR
 rvR
 rvR
@@ -50431,7 +50353,7 @@ gZr
 gZr
 gZr
 gZr
-gZr
+oym
 xih
 xih
 xih
@@ -50643,9 +50565,9 @@ rvR
 rvR
 rvR
 rvR
+czl
 rvR
 rvR
-rvR
 fzf
 fzf
 fzf
@@ -50688,7 +50610,7 @@ gZr
 gZr
 gZr
 gZr
-gZr
+oym
 xih
 xih
 xih
@@ -50900,7 +50822,7 @@ rvR
 rvR
 rvR
 rvR
-rvR
+czl
 rvR
 rvR
 fzf
@@ -50945,7 +50867,7 @@ gZr
 gZr
 gZr
 gZr
-xih
+oym
 xih
 xih
 xih
@@ -51157,7 +51079,7 @@ rvR
 rvR
 rvR
 rvR
-rvR
+czl
 rvR
 xih
 xih
@@ -51202,7 +51124,7 @@ gZr
 gZr
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -51414,7 +51336,7 @@ rvR
 rvR
 rvR
 rvR
-rvR
+czl
 xih
 xih
 xih
@@ -51459,7 +51381,7 @@ gZr
 gZr
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -51671,8 +51593,8 @@ rvR
 rvR
 rvR
 rvR
-rvR
-apO
+czl
+tqr
 xih
 xih
 xih
@@ -51716,7 +51638,7 @@ gZr
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -51928,8 +51850,8 @@ rvR
 rvR
 rvR
 rvR
+czl
 tqr
-tqr
 xih
 xih
 xih
@@ -51973,7 +51895,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -52185,7 +52107,7 @@ tqr
 tqr
 tqr
 tqr
-tqr
+czl
 xih
 xih
 xih
@@ -52205,10 +52127,10 @@ xih
 xih
 xdy
 xdy
-rVN
 xdy
 xdy
 xdy
+xdy
 gZr
 gZr
 gZr
@@ -52230,7 +52152,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -52442,7 +52364,7 @@ tqr
 tqr
 tqr
 tqr
-xih
+czl
 xih
 xih
 xih
@@ -52487,7 +52409,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -52699,7 +52621,7 @@ rvR
 tqr
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -52744,7 +52666,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -52956,6 +52878,7 @@ rvR
 rvR
 xih
 xih
+czl
 xih
 xih
 xih
@@ -52967,7 +52890,6 @@ xih
 xih
 xih
 xih
-xih
 gZr
 gZr
 gZr
@@ -53001,7 +52923,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -53213,7 +53135,7 @@ rvR
 xih
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -53258,7 +53180,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -53470,7 +53392,7 @@ rvR
 xih
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -53515,7 +53437,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -53727,7 +53649,7 @@ rvR
 xih
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -53772,7 +53694,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -53984,7 +53906,7 @@ rvR
 xih
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -54012,7 +53934,7 @@ gZr
 gZr
 gZr
 xdy
-orv
+xdy
 xih
 xih
 xih
@@ -54029,7 +53951,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -54241,6 +54163,7 @@ rvR
 xih
 xih
 xih
+czl
 xih
 xih
 xih
@@ -54250,7 +54173,6 @@ xih
 xih
 xih
 xih
-xih
 gZr
 gZr
 gZr
@@ -54267,8 +54189,8 @@ gZr
 gZr
 gZr
 gZr
-orv
-grG
+xdy
+xdy
 xdy
 xih
 xih
@@ -54286,7 +54208,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -54498,6 +54420,7 @@ rvR
 rvR
 xih
 xih
+czl
 xih
 xih
 xih
@@ -54507,7 +54430,6 @@ xih
 xih
 xih
 xih
-xih
 gZr
 gZr
 gZr
@@ -54524,8 +54446,8 @@ gZr
 gZr
 gZr
 gZr
-hon
-aQQ
+xdy
+xdy
 xdy
 xdy
 xih
@@ -54543,7 +54465,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -54755,6 +54677,7 @@ rvR
 rvR
 rvR
 xih
+czl
 xih
 xih
 xih
@@ -54764,7 +54687,6 @@ xih
 xih
 xih
 xih
-xih
 gZr
 gZr
 gZr
@@ -54779,12 +54701,12 @@ gZr
 gZr
 gZr
 gZr
-piL
 xdy
 xdy
 xdy
 xdy
 xdy
+xdy
 xih
 xih
 xih
@@ -54800,7 +54722,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -55012,7 +54934,7 @@ rvR
 rvR
 rvR
 xih
-xih
+czl
 xih
 xih
 xih
@@ -55057,7 +54979,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -55269,7 +55191,7 @@ rvR
 rvR
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -55314,7 +55236,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -55492,7 +55414,7 @@ dji
 xbb
 xbb
 xbb
-xbb
+hPu
 xbb
 xbb
 xbb
@@ -55526,7 +55448,7 @@ rvR
 rvR
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -55549,7 +55471,7 @@ xih
 xih
 xih
 xdy
-orv
+xdy
 xih
 xih
 xih
@@ -55563,15 +55485,15 @@ xih
 xih
 xih
 xih
-rVN
 xdy
 xdy
 xdy
 xdy
 xdy
+xdy
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -55748,10 +55670,10 @@ ykR
 dji
 pgW
 pgW
-pgW
-pgW
-pgW
-pgW
+xbb
+sGb
+mWg
+xbb
 pgW
 pgW
 pgW
@@ -55783,7 +55705,7 @@ rvR
 rvR
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -55806,7 +55728,7 @@ xih
 xih
 xih
 xdy
-orv
+xdy
 xih
 xih
 xih
@@ -55825,10 +55747,10 @@ xdy
 xdy
 xdy
 xdy
-piL
+xdy
 xdy
 xih
-xih
+oym
 xih
 xih
 xih
@@ -56005,10 +55927,10 @@ ghg
 dji
 pgW
 pgW
-pgW
-pgW
-pgW
-pgW
+xbb
+uPq
+mWg
+xbb
 pgW
 pgW
 pgW
@@ -56040,7 +55962,7 @@ rvR
 xih
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -56062,30 +55984,30 @@ xih
 xih
 xih
 xdy
-orv
-xdy
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
 xdy
 xdy
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
 xdy
 xdy
 xdy
 xdy
-xih
+xdy
+xdy
+oym
 xih
 xih
 xih
@@ -56262,11 +56184,11 @@ tAk
 qvw
 pgW
 pgW
-pgW
-pgW
-pgW
-pgW
-pgW
+xbb
+cjx
+gro
+xbb
+xbb
 pgW
 pgW
 pgW
@@ -56297,7 +56219,7 @@ rvR
 xih
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -56319,9 +56241,9 @@ xih
 xih
 xih
 xdy
-orv
 xdy
 xdy
+xdy
 xih
 xih
 xih
@@ -56342,7 +56264,7 @@ xih
 xih
 xih
 xdy
-xih
+oym
 xih
 xih
 xih
@@ -56519,11 +56441,11 @@ gNJ
 qvw
 pgW
 pgW
-pgW
-pgW
-pgW
-pgW
-pgW
+xbb
+kDa
+dLP
+gOS
+xbb
 pgW
 pgW
 pgW
@@ -56554,7 +56476,7 @@ xih
 xih
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -56576,10 +56498,10 @@ xih
 xih
 xdy
 xdy
-orv
 xdy
 xdy
-wgH
+xdy
+xdy
 xih
 xih
 xih
@@ -56599,7 +56521,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -56776,11 +56698,11 @@ orh
 qvw
 pgW
 pgW
-pgW
-pgW
-pgW
-pgW
-pgW
+xbb
+mWg
+mWg
+mWg
+xbb
 pgW
 pgW
 pgW
@@ -56811,7 +56733,7 @@ xih
 xih
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -56833,15 +56755,15 @@ xih
 xih
 xdy
 xdy
-dyn
-orv
-prL
-orv
-orv
-orv
 xdy
 xdy
-wgH
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
 xih
 xih
 xih
@@ -56856,7 +56778,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -57033,10 +56955,10 @@ pIl
 qvw
 pgW
 pgW
-pgW
-pgW
-pgW
-pgW
+xbb
+dVk
+mWg
+ove
 jjp
 jjp
 jjp
@@ -57068,7 +56990,7 @@ xih
 xih
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -57088,16 +57010,16 @@ xih
 xih
 xih
 xih
-rVN
-orv
-prL
-jsQ
-prL
-prL
-prL
-rfp
-rfp
-orv
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
 xdy
 xdy
 dkR
@@ -57113,7 +57035,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -57291,7 +57213,7 @@ qvw
 jjp
 jjp
 jjp
-jjp
+gNr
 jjp
 jjp
 jjp
@@ -57325,7 +57247,7 @@ xih
 xih
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -57343,24 +57265,24 @@ gZr
 xih
 xih
 xih
-xih
-wgH
-orv
-prL
-rfp
-orv
-xdy
 xih
 xdy
 xdy
 xdy
-prL
-prL
-orv
-prL
-lrp
+xdy
+xdy
+xdy
+xih
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
 dkR
 dkR
+dkR
 xih
 xih
 xih
@@ -57370,7 +57292,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -57582,7 +57504,7 @@ xih
 xih
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -57602,8 +57524,8 @@ xih
 xih
 xih
 xdy
-prL
-rfp
+xdy
+xdy
 xdy
 xdy
 xih
@@ -57613,12 +57535,12 @@ xih
 xdy
 xdy
 xdy
-prL
-rfp
-lrp
-viQ
-viQ
-lrp
+xdy
+xdy
+dkR
+dkR
+dkR
+dkR
 dkR
 xih
 xih
@@ -57627,7 +57549,7 @@ dkR
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -57839,7 +57761,7 @@ tqr
 xih
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -57858,9 +57780,9 @@ xih
 xih
 xih
 xdy
-prL
-rfp
-orv
+xdy
+xdy
+xdy
 xdy
 xih
 xih
@@ -57873,18 +57795,18 @@ xih
 xdy
 xdy
 dkR
-lrp
-lrp
-viQ
-lrp
-lrp
-lrp
+dkR
+dkR
+dkR
+dkR
+dkR
+dkR
 dkR
 dkR
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -58004,7 +57926,7 @@ aGb
 aGb
 ggO
 xEw
-ybu
+vXK
 jMh
 qwQ
 tNR
@@ -58096,52 +58018,52 @@ loA
 tqr
 xih
 xih
+czl
 xih
 xih
 xih
 xih
 xih
-xih
-xih
-piL
-xih
-xih
-qtv
-kQm
-kQm
-kQm
-qtv
 xih
 xdy
-orv
-orv
-rfp
+xih
+xih
+xih
+gZr
+gZr
+gZr
+xih
+xih
 xdy
 xdy
-uKF
-lDY
-lDY
-lDY
-lDY
-lDY
-lDY
-lDY
-lDY
-oat
 xdy
-uxk
-erz
+xdy
+xdy
+xdy
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xdy
+xdy
+xih
 dkR
-lrp
-viQ
-viQ
-lXv
 dkR
-viQ
-viQ
 dkR
-wgH
-xih
+dkR
+dkR
+dkR
+dkR
+dkR
+dkR
+dkR
+xdy
+oym
 xih
 xih
 xih
@@ -58257,7 +58179,7 @@ pgW
 pgW
 pgW
 pgW
-hxa
+aGb
 aGb
 nad
 aNf
@@ -58353,29 +58275,29 @@ tqr
 loA
 xih
 xih
+czl
 xih
 xih
-xih
-xdy
-wgH
-xih
-xdy
-xdy
-xdy
-xdy
-ouZ
-ycg
-ycg
-ycg
-ouZ
-xdy
-orv
-orv
-rfp
 xdy
 xdy
 xih
-ppm
+xdy
+xdy
+xdy
+xdy
+xdy
+gZr
+gZr
+gZr
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xih
+xih
 xih
 xih
 xih
@@ -58391,14 +58313,14 @@ xih
 xih
 xih
 dkR
-lrp
-lXv
-lXv
-viQ
-lXv
-qpL
-jsQ
+dkR
+dkR
+dkR
+dkR
+dkR
+dkR
 xdy
+oym
 xdy
 xdy
 xdy
@@ -58610,52 +58532,52 @@ viQ
 viQ
 dkR
 lrp
-lrp
-orv
-orv
-orv
-prL
-prL
-orv
-orv
-orv
-orv
-mUO
-ycg
-ycg
-ycg
-mUO
-orv
-orv
-orv
-orv
-xdy
-xdy
-xih
-ppm
-xih
-xih
-xih
-xih
-xih
-xih
-xih
+czl
 xdy
 xdy
 xdy
-fYz
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+gZr
+gZr
+gZr
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
 xih
 xdy
-prL
-prL
-prL
-orv
 xdy
-viQ
-viQ
-lrp
-lrp
-lXv
+xdy
+xih
+xih
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+dkR
+dkR
+dkR
+dkR
+oym
 lXv
 rfp
 prL
@@ -58867,29 +58789,28 @@ lrp
 lrp
 orv
 orv
-orv
-orv
-orv
-orv
-orv
-xdy
-orv
-prL
-prL
-orv
-gGB
-gmV
-gmV
-gmV
-gGB
-orv
-orv
+czl
 xdy
 xdy
-prL
-orv
-orv
-ppm
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+gZr
+gZr
+gZr
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
 xih
 xih
 xih
@@ -58897,22 +58818,23 @@ xih
 xih
 xih
 xih
+xih
 xdy
 xdy
 xdy
-cLm
-prL
-prL
-orv
 xdy
 xdy
-wgH
+xdy
+xdy
+xdy
+xdy
+xdy
 xih
 xih
 xih
 xih
 dkR
-lrp
+oym
 lrp
 xdy
 xdy
@@ -59124,42 +59046,42 @@ rvR
 rvR
 xih
 xih
+czl
+xih
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+gZr
+gZr
+gZr
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xih
+xih
+xih
+xih
+xih
+xih
 xih
 xih
 xdy
 xdy
-orv
-prL
-orv
-orv
-orv
-orv
-rdz
-lKS
-lKS
-lKS
-rdz
-orv
-orv
-orv
-dJf
-orv
-orv
-xdy
-qrx
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
 xdy
 xdy
-cLm
 xdy
-rVN
 xih
 xih
 xih
@@ -59169,7 +59091,7 @@ xih
 xih
 xih
 xih
-dkR
+oym
 dkR
 lrp
 orv
@@ -59381,43 +59303,30 @@ rvR
 rvR
 xih
 xih
-xih
-xih
-xih
-orv
-prL
-xdy
-bBP
-xdy
-xdy
-xdy
-rdz
-lKS
-lKS
-lKS
-rdz
-orv
-xdy
-xih
-xih
+czl
 xih
 xih
 xdy
-qrx
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+xdy
+gZr
+gZr
+gZr
+xdy
+xdy
 xdy
 xih
 xih
 xih
 xih
-xih
-xih
-xih
-xih
-xih
-fYz
-xih
-xih
-xih
+xdy
+xdy
+xdy
 xih
 xih
 xih
@@ -59427,6 +59336,19 @@ xih
 xih
 xih
 xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+oym
 xih
 xih
 xih
@@ -59638,43 +59560,20 @@ rvR
 xih
 xih
 xih
+czl
 xih
-xih
-orv
-orv
+xdy
+xdy
 xdy
 xih
-pHF
 xdy
-xih
-xih
-hix
-uNs
-uNs
-uNs
-hix
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-ppm
 xdy
 xih
 xih
 xih
-xih
-xih
-xih
-xih
-xih
-xih
-fYz
-xih
-xih
-xih
+gZr
+gZr
+gZr
 xih
 xih
 xih
@@ -59684,6 +59583,29 @@ xih
 xih
 xih
 xih
+xdy
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+oym
 xih
 xih
 xih
@@ -59895,9 +59817,9 @@ rvR
 xih
 xih
 xih
-xih
-orv
-orv
+czl
+xdy
+xdy
 xdy
 xih
 xih
@@ -59917,18 +59839,6 @@ xih
 xih
 xih
 xih
-ppm
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-fYz
 xih
 xih
 xih
@@ -59941,6 +59851,18 @@ xih
 xih
 xih
 xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+oym
 xih
 xih
 xih
@@ -60152,7 +60074,7 @@ rvR
 xih
 xih
 xih
-orv
+czl
 xdy
 xdy
 xih
@@ -60174,18 +60096,6 @@ xih
 xih
 xih
 xih
-ppm
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-fYz
 xih
 xih
 xih
@@ -60198,6 +60108,18 @@ xih
 xih
 xih
 xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+oym
 xih
 xih
 xih
@@ -60409,8 +60331,8 @@ xih
 xih
 hHi
 orv
+czl
 xdy
-xdy
 xih
 xih
 xih
@@ -60431,18 +60353,6 @@ xih
 xih
 xih
 xih
-ppm
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-fYz
 xih
 xih
 xih
@@ -60455,6 +60365,18 @@ xih
 xih
 xih
 xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+oym
 xih
 xih
 xih
@@ -60666,7 +60588,7 @@ xih
 xdy
 orv
 xdy
-xdy
+czl
 xih
 xih
 xih
@@ -60688,18 +60610,6 @@ gZr
 gZr
 gZr
 xih
-ppm
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-fYz
 xih
 xih
 xih
@@ -60712,6 +60622,18 @@ xih
 xih
 xih
 xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+oym
 xih
 xih
 xih
@@ -60923,7 +60845,7 @@ xdy
 orv
 xdy
 xih
-xih
+czl
 xih
 xih
 xih
@@ -60945,18 +60867,6 @@ gZr
 gZr
 gZr
 xih
-ppm
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-fYz
 xih
 xih
 xih
@@ -60968,7 +60878,19 @@ xih
 xih
 xih
 xih
-fzf
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+oym
 fzf
 rvR
 rvR
@@ -61180,7 +61102,7 @@ lrp
 xdy
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -61202,7 +61124,6 @@ gZr
 gZr
 gZr
 gZr
-ppm
 xih
 xih
 xih
@@ -61213,7 +61134,8 @@ xih
 xih
 xih
 xih
-fYz
+xih
+xih
 xih
 xih
 xih
@@ -61225,7 +61147,7 @@ xih
 xih
 fzf
 fzf
-fzf
+oym
 rvR
 rvR
 rvR
@@ -61437,7 +61359,7 @@ dkR
 xih
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -61459,7 +61381,6 @@ gZr
 gZr
 gZr
 gZr
-ppm
 xih
 xih
 xih
@@ -61470,7 +61391,8 @@ xih
 xih
 xih
 xih
-fYz
+xih
+xih
 xih
 xih
 xih
@@ -61482,7 +61404,7 @@ fzf
 fzf
 fzf
 fzf
-rvR
+oym
 rvR
 rvR
 rvR
@@ -61694,7 +61616,7 @@ xih
 xih
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -61716,7 +61638,7 @@ gZr
 gZr
 gZr
 xih
-ppm
+xih
 xih
 xih
 xdy
@@ -61727,7 +61649,7 @@ xih
 xih
 xih
 xih
-fYz
+xih
 xih
 xih
 xih
@@ -61739,7 +61661,7 @@ xih
 fzf
 fzf
 rvR
-rvR
+oym
 rvR
 rvR
 rvR
@@ -61951,6 +61873,34 @@ rvR
 xih
 xih
 xih
+czl
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+xih
+gZr
+gZr
+gZr
+gZr
+gZr
+gZr
+gZr
+gZr
+gZr
+gZr
+gZr
+gZr
+xih
+xih
+xdy
+xdy
+xdy
+xdy
 xih
 xih
 xih
@@ -61961,42 +61911,14 @@ xih
 xih
 xih
 xih
-gZr
-gZr
-gZr
-gZr
-gZr
-gZr
-gZr
-gZr
-gZr
-gZr
-gZr
-gZr
-toP
-cXd
-sYY
-sYY
-sYY
-sYY
-cXd
-cXd
-cXd
-cXd
-cXd
+xih
+xih
+xih
+fzf
+fzf
+rvR
+rvR
 oym
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-fzf
-fzf
-rvR
-rvR
-rvR
 rvR
 rvR
 rvR
@@ -62208,7 +62130,7 @@ rvR
 xih
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -62232,10 +62154,10 @@ gZr
 gZr
 xih
 xih
-orv
-orv
-orv
-orv
+xdy
+xdy
+xdy
+xdy
 xdy
 xih
 xih
@@ -62253,7 +62175,7 @@ xih
 fzf
 rvR
 rvR
-rvR
+oym
 rvR
 rvR
 rvR
@@ -62465,7 +62387,7 @@ rvR
 rvR
 xih
 xih
-xih
+czl
 xih
 xih
 xih
@@ -62491,8 +62413,8 @@ gZr
 xih
 xih
 xih
-orv
-orv
+xdy
+xdy
 xih
 xih
 xih
@@ -62510,7 +62432,7 @@ xih
 xih
 rvR
 rvR
-rvR
+oym
 rvR
 rvR
 rvR
@@ -62722,7 +62644,7 @@ rvR
 rvR
 rvR
 xih
-xih
+czl
 xih
 xih
 xih
@@ -62748,7 +62670,7 @@ gZr
 gZr
 xdy
 xdy
-prL
+xdy
 xih
 xih
 xih
@@ -62767,7 +62689,7 @@ xih
 xih
 rvR
 rvR
-rvR
+oym
 rvR
 rvR
 rvR
@@ -62979,7 +62901,7 @@ rvR
 rvR
 rvR
 rvR
-xih
+czl
 xih
 xih
 xih
@@ -63004,7 +62926,7 @@ gZr
 gZr
 gZr
 gZr
-bDx
+xdy
 xdy
 xdy
 xdy
@@ -63024,7 +62946,7 @@ xih
 xih
 rvR
 rvR
-rvR
+oym
 rvR
 rvR
 rvR
@@ -63236,8 +63158,8 @@ rvR
 rvR
 rvR
 rvR
+czl
 rvR
-rvR
 xih
 xih
 xih
@@ -63281,7 +63203,7 @@ xih
 xih
 xih
 xih
-rvR
+oym
 rvR
 rvR
 rvR
@@ -63493,9 +63415,9 @@ rvR
 rvR
 rvR
 rvR
+czl
 rvR
 rvR
-rvR
 xih
 xih
 xih
@@ -63538,7 +63460,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 rvR
 rvR
 rvR
@@ -63750,7 +63672,7 @@ rvR
 rvR
 rvR
 rvR
-rvR
+czl
 rvR
 rvR
 rvR
@@ -63795,7 +63717,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 rvR
 rvR
@@ -64007,7 +63929,7 @@ tqr
 rvR
 rvR
 rvR
-rvR
+czl
 rvR
 rvR
 fzf
@@ -64052,7 +63974,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 rvR
@@ -64264,7 +64186,7 @@ tqr
 rvR
 rvR
 rvR
-rvR
+czl
 rvR
 rvR
 fzf
@@ -64309,7 +64231,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 rvR
@@ -64521,9 +64443,9 @@ tqr
 rvR
 rvR
 rvR
+czl
 rvR
 rvR
-rvR
 fzf
 fzf
 fzf
@@ -64566,7 +64488,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -64778,10 +64700,10 @@ tqr
 rvR
 rvR
 rvR
+czl
 rvR
 rvR
 rvR
-rvR
 fzf
 fzf
 fzf
@@ -64823,7 +64745,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -65035,11 +64957,11 @@ tqr
 rvR
 rvR
 rvR
+czl
 rvR
 rvR
 rvR
 rvR
-rvR
 fzf
 fzf
 fzf
@@ -65080,7 +65002,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -65292,7 +65214,7 @@ tqr
 tqr
 tqr
 rvR
-rvR
+czl
 rvR
 rvR
 rvR
@@ -65337,7 +65259,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -65549,7 +65471,7 @@ dkR
 tqr
 tqr
 tqr
-tOx
+czl
 tqr
 rvR
 rvR
@@ -65571,10 +65493,10 @@ xih
 xih
 xih
 xdy
-piL
 xdy
 xdy
 xdy
+xdy
 gZr
 gZr
 gZr
@@ -65594,7 +65516,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -65806,9 +65728,9 @@ dkR
 dkR
 tqr
 tqr
+czl
 tqr
 tqr
-tqr
 rvR
 rvR
 rvR
@@ -65851,7 +65773,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -66063,7 +65985,7 @@ dkR
 tqr
 tqr
 tqr
-tqr
+czl
 rvR
 rvR
 rvR
@@ -66108,7 +66030,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -66320,7 +66242,7 @@ tqr
 tqr
 tqr
 tqr
-rvR
+czl
 rvR
 rvR
 rvR
@@ -66365,7 +66287,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -66577,7 +66499,7 @@ tqr
 tqr
 tqr
 rvR
-rvR
+czl
 rvR
 rvR
 rvR
@@ -66622,7 +66544,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -66834,7 +66756,7 @@ tqr
 tqr
 rvR
 rvR
-rvR
+czl
 rvR
 rvR
 rvR
@@ -66861,7 +66783,7 @@ xih
 xih
 xih
 xdy
-rVN
+xdy
 xdy
 gZr
 gZr
@@ -66879,7 +66801,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -67091,7 +67013,7 @@ tqr
 tqr
 rvR
 rvR
-rvR
+czl
 rvR
 rvR
 rvR
@@ -67136,7 +67058,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 xih
@@ -67348,7 +67270,7 @@ tqr
 rvR
 rvR
 rvR
-rvR
+czl
 rvR
 rvR
 rvR
@@ -67393,7 +67315,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 xih
 rvR
@@ -67605,7 +67527,7 @@ rvR
 rvR
 rvR
 rvR
-rvR
+czl
 rvR
 rvR
 rvR
@@ -67650,7 +67572,7 @@ xih
 xih
 xih
 xih
-xih
+oym
 xih
 rvR
 rvR
@@ -67862,52 +67784,52 @@ rvR
 rvR
 rvR
 rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-rvR
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xih
-xdy
-gZr
-gZr
-gZr
-gZr
-gZr
-gZr
-gZr
-gZr
-gZr
-gZr
-xih
-xih
-xih
-xih
-xih
-xih
-xih
+dZd
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+hxa
+jfb
 rvR
 rvR
 rvR
