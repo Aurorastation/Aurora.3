@@ -722,7 +722,7 @@
 	var/list/pick_turfs = list()
 	for(var/turf/TIW in world)
 		var/turf/simulated/floor/exit = TIW
-		if(istype(exit) && isStationLevel(exit.z))
+		if(istype(exit) && is_station_level(exit.z))
 			pick_turfs += exit
 	P.target = pick(pick_turfs)
 	QDEL_IN(P, rand(150,300))

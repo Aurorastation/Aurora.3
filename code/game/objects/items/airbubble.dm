@@ -291,7 +291,7 @@
 	t_air.merge(inside_air)
 
 // When we shoot bubble, make it rip.
-/obj/structure/closet/airbubble/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/closet/airbubble/bullet_act(var/obj/projectile/Proj)
 	..()
 	ripped = TRUE
 	update_icon()

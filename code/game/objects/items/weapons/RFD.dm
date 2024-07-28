@@ -772,7 +772,7 @@
 		to_chat(user, SPAN_WARNING("You can't materialize a pipe here!"))
 		return FALSE
 	var/turf/T = get_turf(A)
-	if(isNotStationLevel(T.z))
+	if(!is_station_level(T.z))
 		to_chat(user, SPAN_WARNING("You can't materialize a pipe on this level!"))
 		return FALSE
 	return do_pipe(T, user)

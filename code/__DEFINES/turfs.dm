@@ -106,32 +106,6 @@
 			AURORA SHIT
 ################################*/
 
-// Turf-only flags.
-///Blocks the jaunting spell from accessing the turf
-#define TURF_FLAG_NOJAUNT BITFLAG(1)
-
-///Used by shuttle movement to determine if it should be ignored by turf translation
-#define TURF_FLAG_BACKGROUND BITFLAG(2)
-
-
-/**
- * Get the turf above the current atom, if any
- *
- * Returns a `/turf` if there's a turf on the Z-level above, `null` otherwise
- *
- * * atom - The `/atom` you want to know the above turf of
- */
-#define GET_ABOVE(atom) (HasAbove(atom.z) ? get_step(atom, UP) : null)
-
-/**
- * Get the turf below the current atom, if any
- *
- * Returns a `/turf` if there's a turf on the Z-level below, `null` otherwise
- *
- * * atom - The `/atom` you want to know the below turf of
- */
-#define GET_BELOW(atom) (HasBelow(atom.z) ? get_step(atom, DOWN) : null)
-
 #define NORTH_OF_TURF(T)	locate(T.x, T.y + 1, T.z)
 #define EAST_OF_TURF(T)		locate(T.x + 1, T.y, T.z)
 #define SOUTH_OF_TURF(T)	locate(T.x, T.y - 1, T.z)

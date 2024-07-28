@@ -393,7 +393,7 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 			else
 				W.forceMove(T)
 
-	if(isStationLevel(z))
+	if(is_station_level(z))
 		GLOB.global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message] [on_store_location].", "[on_store_name]")
 	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] to [on_store_location]."))
 	playsound(loc, on_store_sound, 25)

@@ -180,7 +180,7 @@ By design, d1 is the smallest direction and d2 is the highest
 			playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 
 		if(d1 == 11 || d2 == 11)
-			var/turf/turf = GetBelow(src)
+			var/turf/turf = GET_TURF_BELOW(T)
 			if(turf)
 				for(var/obj/structure/cable/c in turf)
 					if(c.d1 == 12 || c.d2 == 12)
@@ -382,12 +382,14 @@ By design, d1 is the smallest direction and d2 is the highest
 
 	// Handle up/down cables
 	if(d1 == 11 || d2 == 11)
-		T = GetBelow(src)
+		var/turf/current_turf = get_turf(src)
+		T = GET_TURF_BELOW(current_turf)
 		if(T)
 			. += power_list(T, src, 12, powernetless_only)
 
 	if(d1 == 12 || d2 == 12)
-		T = GetAbove(src)
+		var/turf/current_turf = get_turf(src)
+		T = GET_TURF_ABOVE(current_turf)
 		if(T)
 			. += power_list(T, src, 11, powernetless_only)
 
@@ -792,7 +794,7 @@ By design, d1 is the smallest direction and d2 is the highest
 					return
 
 			var/obj/structure/cable/C = new(F)
-			var/obj/structure/cable/D = new(GetBelow(F))
+			var/obj/structure/cable/D = new(GET_TURF_BELOW(F))
 
 			C.cableColor(color)
 

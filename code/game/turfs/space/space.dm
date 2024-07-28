@@ -39,8 +39,8 @@
 	for(var/atom/movable/AM as mob|obj in src)
 		src.Entered(AM, AM.loc)
 
-	if (isStationLevel(z))
-		GLOB.station_turfs += src
+	// if (is_station_level(z))
+	// 	GLOB.station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -53,7 +53,7 @@
 	// Cleanup cached z_eventually_space values above us.
 	if (above)
 		var/turf/T = src
-		while ((T = GetAbove(T)))
+		while ((T = GET_TURF_ABOVE(T)))
 			T.z_eventually_space = FALSE
 	return ..()
 

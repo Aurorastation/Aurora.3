@@ -87,7 +87,7 @@
 	var/list/worlds_selection = list("Nralakk", "Qerrbalak", "Qerr'Malic", "Aliose", "Aweiji", "Xrim", "the Traverse", "Europa", "New Gibson", "Mictlan", "the Starlight Zone", "Diulszi")
 	var/selected_world
 	var/working = FALSE
-	var/message_frequency = 10
+	var/message_frequency = 5
 
 /obj/item/skrell_projector/Destroy()
 	STOP_PROCESSING(SSprocessing, src)

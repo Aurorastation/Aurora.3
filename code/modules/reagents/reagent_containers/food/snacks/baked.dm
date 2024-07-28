@@ -241,3 +241,13 @@
 	icon = 'icons/obj/item/reagent_containers/food/baked.dmi'
 	icon_state = "[variant]"
 	update_icon()
+
+/obj/item/reagent_containers/food/snacks/baked_apple
+	name = "baked apple"
+	desc = "A soft, vegan baked apple stufed with raisins, nuts, cinnamon and brown sugar. All of the nature without any of the healthy!" //Grammar bad on purpose because funny.
+	icon = 'icons/obj/item/reagent_containers/food/baked.dmi'
+	icon_state = "baked_apple"
+	trash = /obj/item/trash/plate
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/glucose = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("apple" = 5, "raisins" = 5, "nuts" = 3, "cinnamon" = 3))
+	filling_color = "#a04e1e"

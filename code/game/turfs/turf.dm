@@ -4,7 +4,6 @@
 
 	layer = TURF_LAYER
 
-	var/turf_flags
 	var/holy = 0
 
 	// Initial air contents (in moles)
@@ -60,6 +59,9 @@
 	///used for guaranteeing there is only one oranges_ear per turf when assigned, speeds up view() iteration
 	var/mob/oranges_ear/assigned_oranges_ear
 
+	/// Turf bitflags, see code/__DEFINES/flags.dm
+	var/turf_flags = NONE
+
 	/// How pathing algorithm will check if this turf is passable by itself (not including content checks). By default it's just density check.
 	/// WARNING: Currently to use a density shortcircuiting this does not support dense turfs with special allow through function
 	var/pathing_pass_method = TURF_PATHING_PASS_DENSITY
@@ -93,7 +95,7 @@
 	for(var/atom/movable/AM as mob|obj in src)
 		Entered(AM, src)
 
-	if (isStationLevel(z))
+	if (is_station_level(z))
 		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
@@ -133,7 +135,7 @@
 
 	changing_turf = FALSE
 
-	if (isStationLevel(z))
+	if (is_station_level(z))
 		GLOB.station_turfs -= src
 
 	remove_cleanables()
@@ -479,7 +481,7 @@ var/const/enterloopsanity = 100
  * @return TRUE if a roof has been spawned, FALSE if not.
  */
 /turf/proc/spawn_roof(flags = 0)
-	var/turf/above = GetAbove(src)
+	var/turf/above = GET_TURF_ABOVE(src)
 	if (!above)
 		return FALSE
 
@@ -501,11 +503,11 @@ var/const/enterloopsanity = 100
  * flag is present on the source turf.
  */
 /turf/proc/cleanup_roof()
-	if (!HasAbove(z))
+	if (!SSmapping.multiz_levels[z][Z_LEVEL_UP])
 		return
 
 	if (roof_flags & ROOF_CLEANUP)
-		var/turf/above = GetAbove(src)
+		var/turf/above = GET_TURF_ABOVE(src)
 		if (!above || isopenturf(above))
 			return
 
@@ -582,11 +584,11 @@ var/const/enterloopsanity = 100
 
 	// If we are in a multiz volume and not already inside, we return
 	// the outside value of the highest unenclosed turf in the stack.
-	if(HasAbove(z))
+	if(SSmapping.multiz_levels[z][Z_LEVEL_UP])
 		. =  OUTSIDE_YES // assume for the moment we're unroofed until we learn otherwise.
 		var/turf/top_of_stack = src
-		while(HasAbove(top_of_stack.z))
-			var/turf/next_turf = GetAbove(top_of_stack)
+		while(GET_TURF_ABOVE(top_of_stack))
+			var/turf/next_turf = GET_TURF_ABOVE(top_of_stack)
 			if(!next_turf.is_open())
 				return OUTSIDE_NO
 			top_of_stack = next_turf
@@ -604,13 +606,13 @@ var/const/enterloopsanity = 100
 
 	last_outside_check = OUTSIDE_UNCERTAIN
 
-	if(!HasBelow(z))
+	if(!GET_TURF_BELOW(src))
 		return TRUE
 
 	// Invalidate the outside check cache for turfs below us.
 	var/turf/checking = src
-	while(HasBelow(checking.z))
-		checking = GetBelow(checking)
+	while(GET_TURF_BELOW(checking))
+		checking = GET_TURF_BELOW(checking)
 		if(!isturf(checking))
 			break
 		checking.last_outside_check = OUTSIDE_UNCERTAIN
@@ -640,7 +642,7 @@ var/const/enterloopsanity = 100
 
 	// Propagate our weather downwards if we permit it.
 	if(force_update_below || (is_open() && .))
-		var/turf/below = GetBelow(src)
+		var/turf/below = GET_TURF_BELOW(src)
 		if(below)
 			below.update_weather(new_weather)
 

@@ -234,7 +234,7 @@ Pins Below.
 
 /obj/item/device/firing_pin/away_site/pin_auth(mob/living/user)
 	var/turf/T = get_turf(src)
-	return !isStationLevel(T.z)
+	return !is_station_level(T.z)
 
 var/list/wireless_firing_pins = list() //A list of all initialized wireless firing pins. Used in the firearm tracking program in guntracker.dm
 

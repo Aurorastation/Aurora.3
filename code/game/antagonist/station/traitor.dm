@@ -21,7 +21,11 @@ var/datum/antagonist/traitor/traitors
 /datum/antagonist/traitor/Topic(href, href_list)
 	if (..())
 		return
-	if(href_list["spawn_uplink"]) spawn_uplink(locate(href_list["spawn_uplink"]))
+	if(!check_rights(R_ADMIN))
+		return
+
+	if(href_list["spawn_uplink"])
+		spawn_uplink(locate(href_list["spawn_uplink"]))
 
 /datum/antagonist/traitor/can_become_antag(var/datum/mind/player)
 	if(!..())

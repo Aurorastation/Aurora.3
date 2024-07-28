@@ -410,7 +410,7 @@ var/list/mob/living/forced_ambiance_list = new
 		if(!Y)
 			continue
 		var/area/A = Y
-		if (isNotStationLevel(A.z))
+		if (!is_station_level(A.z))
 			continue
 		if (istype(A, /area/shuttle) || findtext(A.name, "Docked") || findtext(A.name, "Shuttle"))
 			continue

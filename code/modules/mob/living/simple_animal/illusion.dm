@@ -38,7 +38,7 @@
 	else
 		return list("???")
 
-/mob/living/simple_animal/illusion/bullet_act(obj/item/projectile/P)
+/mob/living/simple_animal/illusion/bullet_act(obj/projectile/P)
 	if(!P)
 		return
 

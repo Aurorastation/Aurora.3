@@ -10,6 +10,25 @@ SUBSYSTEM_DEF(mapping)
 	var/list/submaps = list()
 	var/list/submap_archetypes = list()
 
+	var/list/used_turfs = list() //list of turf = datum/turf_reservation -- Currently unused
+
+	/// List of z level (as number) -> list of all z levels vertically connected to ours
+	/// Useful for fast grouping lookups and such
+	var/list/z_level_to_stack = list()
+
+	///list of all z level datums in the order of their z (z level 1 is at index 1, etc.)
+	var/list/datum/space_level/z_list = list()
+
+	///list of all z level indices that form multiz connections and whether theyre linked up or down.
+	///list of lists, inner lists are of the form: list("up or down link direction" = TRUE)
+	var/list/multiz_levels = list()
+
+	/// list of traits and their associated z leves
+	var/list/z_trait_levels = list()
+
+	/// True when in the process of adding a new Z-level, global locking
+	var/adding_new_zlevel = FALSE
+
 /datum/controller/subsystem/mapping/Initialize(timeofday)
 	// Load templates and build away sites.
 	preloadTemplates()
@@ -31,7 +50,7 @@ SUBSYSTEM_DEF(mapping)
 /datum/controller/subsystem/mapping/proc/preloadTemplates(path = "maps/templates/") //see master controller setup
 	var/list/filelist = flist(path)
 	for(var/map in filelist)
-		var/datum/map_template/T = new(paths = list("[path][map]"), rename = "[map]")
+		var/datum/map_template/T = new(path = "[path][map]", rename = "[map]")
 		map_templates[T.id] = T
 	preloadBlacklistableTemplates()
 
@@ -55,10 +74,9 @@ SUBSYSTEM_DEF(mapping)
 
 		if (banned_maps)
 			var/is_banned = FALSE
-			for (var/mappath in MT.mappaths)
-				if(banned_maps.Find(mappath))
-					is_banned = TRUE
-					break
+			if(banned_maps.Find(MT.mappath))
+				is_banned = TRUE
+				break
 			if (is_banned)
 				continue
 
@@ -71,6 +89,40 @@ SUBSYSTEM_DEF(mapping)
 			space_ruins_templates[MT.id] = MT
 		else if(istype(MT, /datum/map_template/ruin/away_site))
 			away_sites_templates[MT.id] = MT
+
+/datum/controller/subsystem/mapping/proc/generate_linkages_for_z_level(z_level)
+	if(!isnum(z_level) || z_level <= 0)
+		return FALSE
+
+	if(multiz_levels.len < z_level)
+		multiz_levels.len = z_level
+
+	var/z_above = level_trait(z_level, ZTRAIT_UP)
+	var/z_below = level_trait(z_level, ZTRAIT_DOWN)
+	if(!(z_above == TRUE || z_above == FALSE || z_above == null) || !(z_below == TRUE || z_below == FALSE || z_below == null))
+		stack_trace("Warning, numeric mapping offsets are deprecated. Instead, mark z level connections by setting UP/DOWN to true if the connection is allowed")
+	multiz_levels[z_level] = new /list(LARGEST_Z_LEVEL_INDEX)
+	multiz_levels[z_level][Z_LEVEL_UP] = !!z_above
+	multiz_levels[z_level][Z_LEVEL_DOWN] = !!z_below
+
+/// Takes a z level datum, and tells the mapping subsystem to manage it
+/// Also handles things like plane offset generation, and other things that happen on a z level to z level basis
+/datum/controller/subsystem/mapping/proc/manage_z_level(datum/space_level/new_z, filled_with_space, contain_turfs = TRUE)
+	// First, add the z
+	z_list += new_z
+
+	// Then we build our lookup lists
+	var/z_value = new_z.z_value
+
+	z_level_to_stack.len += 1
+	// Bare minimum we have ourselves
+	z_level_to_stack[z_value] = list(z_value)
+
+//Placeholder for now
+/datum/controller/subsystem/mapping/proc/get_reservation_from_turf(turf/T)
+	RETURN_TYPE(/datum/turf_reservation)
+	return used_turfs[T]
+
 
 /proc/generateMapList(filename)
 	var/list/potentialMaps = list()

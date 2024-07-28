@@ -142,7 +142,7 @@
 	icon = 'icons/mob/npc/moghes_48.dmi'
 	icon_state = "siro"
 	icon_living = "siro"
-	icon_dead = "siro_dead"
+	icon_dead = "siro-dead"
 	turns_per_move = 3
 
 	organ_names = list("head", "chest", "right upper wing", "right lower wing", "left upper wing", "left lower wing", "right leg", "left leg")

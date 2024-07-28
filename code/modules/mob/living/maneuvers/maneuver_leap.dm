@@ -27,11 +27,11 @@
 			var/turf/T = get_turf(target)
 			var/damage_mod = 1
 			var/from_above = FALSE
-			if(H.can_fall(GET_BELOW(T)))
+			if(H.can_fall(GET_TURF_BELOW(T)))
 				from_above = TRUE
 				if(isopenspace(T))
 					while(isopenspace(T))
-						T = GET_BELOW(T)
+						T = GET_TURF_BELOW(T)
 						damage_mod += 1
 			if(isturf(T))
 				T.visible_message(SPAN_DANGER("[H] lands on \the [T] with a quake!"))

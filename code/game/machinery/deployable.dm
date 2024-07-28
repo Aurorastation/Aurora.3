@@ -41,7 +41,7 @@ Deployable Kits
 	maxhealth = material.integrity
 	health = maxhealth
 
-/obj/structure/blocker/bullet_act(obj/item/projectile/P, def_zone)
+/obj/structure/blocker/bullet_act(obj/projectile/P, def_zone)
 	var/damage_modifier = 0.4
 	switch(P.damage_type)
 		if(DAMAGE_BURN)
@@ -105,8 +105,8 @@ Deployable Kits
 /obj/structure/blocker/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(air_group || (height==0))
 		return TRUE
-	if(istype(mover, /obj/item/projectile))
-		var/obj/item/projectile/P = mover
+	if(istype(mover, /obj/projectile))
+		var/obj/projectile/P = mover
 		if(P.original == src)
 			return FALSE
 		if(P.firer && Adjacent(P.firer))

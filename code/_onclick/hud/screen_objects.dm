@@ -347,7 +347,7 @@
 				for(var/turf/T in view(usr.client.view + 3, usr)) // slightly extra to account for moving while looking for openness
 					if(T.density)
 						continue
-					var/turf/above_turf = GetAbove(T)
+					var/turf/above_turf = GET_TURF_ABOVE(T)
 					if(!isopenspace(above_turf))
 						continue
 					var/image/up_image = image(icon = 'icons/mob/screen/generic.dmi', icon_state = "arrow_up", loc = T)
@@ -356,7 +356,8 @@
 					usr << up_image
 					QDEL_IN(up_image, 12)
 				return
-			var/turf/T = GetAbove(usr)
+			var/turf/T1 = get_turf(usr)
+			var/turf/T = GET_TURF_ABOVE(T1)
 			if (!T)
 				to_chat(usr, SPAN_NOTICE("There is nothing above you!"))
 			else if (T.is_hole)
@@ -458,22 +459,22 @@
 
 //This updates the run/walk button on the hud
 /obj/screen/movement_intent/proc/update_move_icon(var/mob/living/user)
-	if (!user.client)
+	if(!user.client)
 		return
 
-	if (user.max_stamina == -1 || user.stamina == user.max_stamina)
-		if (user.stamina_bar)
-			user.stamina_bar.endProgress()
-			user.stamina_bar = null
+	if(user.max_stamina == -1 || user.stamina == user.max_stamina)
+		if(user.stamina_bar)
+			user.stamina_bar.end_progress()
+			QDEL_NULL(user.stamina_bar) //Because otherwise they stack weirdly when calculating the progress bar offsets
 	else
-		if (!user.stamina_bar)
+		if(!user.stamina_bar)
 			user.stamina_bar = new(user, user.max_stamina, src)
 		user.stamina_bar.goal = user.max_stamina
 		user.stamina_bar.update(user.stamina)
 
-	if (user.m_intent == M_RUN)
+	if(user.m_intent == M_RUN)
 		icon_state = "running"
-	else if (user.m_intent == M_LAY)
+	else if(user.m_intent == M_LAY)
 		icon_state = "lying"
 	else
 		icon_state = "walking"

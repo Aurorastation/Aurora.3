@@ -134,7 +134,7 @@ var/list/lunchables_vaurca_snack_ = list(
 	/obj/item/reagent_containers/food/snacks/koisbar,
 	/obj/item/reagent_containers/food/snacks/koisbar_clean,
 	/obj/item/storage/box/fancy/vkrexitaffy,
-	/obj/item/reagent_containers/food/snacks/koisrouladeslice
+	/obj/item/reagent_containers/food/snacks/koisrouladeslice/filled
 )
 
 var/list/lunchables_utensil_ = list(

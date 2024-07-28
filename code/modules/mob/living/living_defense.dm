@@ -23,7 +23,7 @@
 		if(armor)
 			. += armor
 
-/mob/living/bullet_act(var/obj/item/projectile/P, var/def_zone, var/used_weapon = null)
+/mob/living/bullet_act(var/obj/projectile/P, var/def_zone, var/used_weapon = null)
 
 	//Being hit while using a cloaking device
 	var/obj/item/cloaking_device/C = locate(/obj/item/cloaking_device) in src
@@ -86,7 +86,7 @@
 			break
 
 //For visuals, blood splatters and so on.
-/mob/living/proc/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage, var/blocked_ratio)
+/mob/living/proc/bullet_impact_visuals(var/obj/projectile/P, var/def_zone, var/damage, var/blocked_ratio)
 	var/list/impact_sounds = LAZYACCESS(P.impact_sounds, get_bullet_impact_effect_type(def_zone))
 	if(length(impact_sounds))
 		playsound(src, pick(impact_sounds), 75)

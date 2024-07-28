@@ -3,7 +3,7 @@
 	description = "The Sanctuary-class rescue ship is a fast response medical vessel, based in large part off of the Asclepius-class medical transport, a much older and more widespread clinic ship, designed to operate mainly between planets rather than in open space. Most Sanctuary-class hulls are heavily refitted to accomodate for the new conditions in the Wildlands, sporting additional thrusters and a hangar bay, created from what was originally a waiting room. However, it is still limited by its origins, having only the bare minimum of crew and atmospherics facilities, as well as being rather obviously unarmed, often needing to return to port for repairs or supplies."
 
 	prefix = "ships/iac/"
-	suffixes = list("iac_rescue_ship.dmm")
+	suffix = "iac_rescue_ship.dmm"
 
 	sectors = list(SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, ALL_COALITION_SECTORS, SECTOR_UUEOAESA)
 	spawn_weight = 1
