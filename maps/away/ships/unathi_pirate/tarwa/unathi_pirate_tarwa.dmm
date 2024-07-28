@@ -2515,7 +2515,9 @@
 /area/tarwa_ship/engineering1)
 "yH" = (
 /obj/structure/grille,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	initial_gas = null
+	},
 /area/tarwa_ship/gun)
 "yL" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -4906,7 +4908,9 @@
 	name = "blast door";
 	id = "tarwa_bruiser"
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/plating{
+	initial_gas = null
+	},
 /area/tarwa_ship/gun)
 "Sk" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
