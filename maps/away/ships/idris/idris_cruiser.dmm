@@ -25,7 +25,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/idris_cruiser_shuttle/bridge)
@@ -144,7 +145,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/machinery/door/airlock/service{
 	name = "Staff Entrance";
 	req_access = list(220)
@@ -197,7 +200,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/hydroponics)
@@ -590,7 +594,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/idris_cruiser/restroom/suite_3)
@@ -762,6 +767,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/carpet/purple,
 /area/ship/idris_cruiser/suite/suite_2)
 "dn" = (
@@ -921,7 +927,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
@@ -941,6 +948,13 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/turf/simulated/floor/carpet/green,
+/area/ship/idris_cruiser/corridor/starboard_lobby)
+"dZ" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/starboard_lobby)
 "ec" = (
@@ -1122,7 +1136,8 @@
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/glass/rag/advanced/idris,
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1242,7 +1257,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/bridge)
@@ -1306,7 +1322,8 @@
 	req_access = list(220)
 	},
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/hydroponics)
@@ -1384,6 +1401,7 @@
 	pixel_y = -32;
 	frequency = 1515
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/engineering)
 "fS" = (
@@ -1445,7 +1463,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/idris_cruiser_shuttle/bridge)
 "gb" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/coffeemaster/full{
 	pixel_y = 7
@@ -1690,6 +1710,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/carpet/purple,
 /area/ship/idris_cruiser/suite/suite_4)
 "gX" = (
@@ -1813,7 +1834,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/idris_cruiser/restroom/suite_1)
@@ -1856,6 +1878,7 @@
 /area/ship/idris_cruiser/breakroom)
 "hM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/pool)
 "hO" = (
@@ -1931,7 +1954,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/bridge)
@@ -1956,7 +1980,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/kitchen)
@@ -2144,7 +2169,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -2187,7 +2213,9 @@
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
 "jb" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/machinery/smartfridge/foodheater,
 /obj/machinery/door/blast/shutters{
 	id = "idris_cruiser_kitchen";
@@ -2231,7 +2259,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/idris_cruiser/restroom/suite_1)
 "jg" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2259,7 +2289,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/port_lobby)
@@ -2285,7 +2316,9 @@
 /area/ship/idris_cruiser/brig)
 "jk" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/machinery/door/blast/shutters{
 	id = "idris_cruiser_kitchen";
 	name = "Kitchen Shutters"
@@ -2315,7 +2348,8 @@
 /area/ship/idris_cruiser/engineering)
 "jn" = (
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -2343,6 +2377,7 @@
 /obj/machinery/alarm/south{
 	req_one_access = list(220)
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/port_lobby)
 "jt" = (
@@ -2386,7 +2421,9 @@
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/spa)
 "jA" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -2427,6 +2464,7 @@
 	},
 /obj/item/clothing/suit/storage/hooded/wintercoat/idris,
 /obj/item/clothing/suit/storage/toggle/labcoat/idris/alt,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/full,
 /area/ship/idris_cruiser/crew_quarters)
 "jK" = (
@@ -2493,7 +2531,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/bridge)
@@ -2554,7 +2593,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/great_room)
@@ -2582,6 +2622,7 @@
 	name = "Docking Arm Lockdown";
 	req_access = list(220)
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
 "ky" = (
@@ -2594,7 +2635,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
@@ -2638,7 +2680,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/corridor/port_lobby)
 "kN" = (
@@ -2722,7 +2766,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/idris_cruiser/restroom/suite_2)
@@ -2889,7 +2934,9 @@
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
 "lI" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/glass_service{
 	name = "Hydroponics";
@@ -2996,6 +3043,7 @@
 	pixel_y = 1
 	},
 /obj/structure/extinguisher_cabinet/west,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/white,
 /area/ship/idris_cruiser/kitchen)
 "md" = (
@@ -3059,7 +3107,9 @@
 	dir = 7
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/lobby)
 "ml" = (
@@ -3072,7 +3122,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/cargo_bay)
@@ -3112,7 +3163,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -3284,6 +3336,7 @@
 /obj/item/device/toner,
 /obj/item/device/toner,
 /obj/item/device/toner,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/full,
 /area/ship/idris_cruiser/cargo_bay)
 "mI" = (
@@ -3477,7 +3530,8 @@
 /area/ship/idris_cruiser/pool)
 "nr" = (
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -3616,7 +3670,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/pool)
@@ -3633,7 +3688,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/great_room)
@@ -3657,7 +3713,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/brig)
@@ -3749,7 +3807,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/corridor/dockingarm/starboard)
 "oh" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/machinery/door/airlock{
 	name = "Spa 1"
 	},
@@ -3806,7 +3866,8 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/machinery/door/airlock/glass_security{
 	dir = 4;
@@ -3900,7 +3961,9 @@
 /obj/machinery/door/airlock{
 	name = "Bathroom"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/ship/idris_cruiser/laundromat)
@@ -3984,7 +4047,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/suites_a)
@@ -4216,7 +4280,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/idris_cruiser_shuttle/main)
@@ -4250,6 +4315,7 @@
 /obj/structure/platform{
 	dir = 1
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/marble,
 /area/ship/idris_cruiser/great_room)
 "qc" = (
@@ -4260,7 +4326,8 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4323,7 +4390,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/starboard_lobby)
@@ -4416,7 +4484,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/item/flag/idris/l{
 	pixel_y = 11
 	},
@@ -4529,7 +4599,9 @@
 /area/ship/idris_cruiser/corridor/crew_aft)
 "qP" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor/multi_tile,
+/obj/machinery/door/firedoor/multi_tile{
+	req_one_access = list(220)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -4638,7 +4710,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/idris_cruiser_shuttle/main)
@@ -4701,7 +4774,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/great_room)
@@ -4728,7 +4802,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/engineering)
@@ -4808,13 +4883,16 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/idris_cruiser_shuttle/bridge)
 "rM" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor/multi_tile,
+/obj/machinery/door/firedoor/multi_tile{
+	req_one_access = list(220)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -4928,7 +5006,8 @@
 /area/ship/idris_cruiser/corridor/lobby)
 "rV" = (
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5072,7 +5151,8 @@
 /area/ship/idris_cruiser/restroom/suite_3)
 "sz" = (
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
@@ -5153,7 +5233,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/idris_cruiser/restroom/suite_4)
@@ -5347,7 +5428,9 @@
 /area/ship/idris_cruiser/corridor/civ_aft)
 "tq" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/item/material/ashtray/bronze{
 	pixel_x = -5;
 	pixel_y = 2
@@ -5456,7 +5539,8 @@
 	name = "Reception"
 	},
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -5611,7 +5695,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/idris_cruiser_shuttle/main)
@@ -5934,6 +6019,7 @@
 "vz" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /obj/machinery/light,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/carpet/purple,
 /area/ship/idris_cruiser/suite/suite_3)
 "vA" = (
@@ -6329,7 +6415,9 @@
 /turf/template_noop,
 /area/space)
 "xg" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -6492,7 +6580,8 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
@@ -6616,6 +6705,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/lobby)
 "ye" = (
@@ -6635,6 +6725,7 @@
 /obj/machinery/biogenerator{
 	icon_state = "biogen-stand"
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/hydroponics)
 "yh" = (
@@ -6871,7 +6962,8 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/machinery/door/blast/shutters{
 	id = "idris_cruiser_bar";
@@ -6939,7 +7031,9 @@
 	pixel_x = 3;
 	pixel_y = 5
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/machinery/door/blast/shutters{
 	id = "idris_cruiser_bar";
 	name = "Bar Shutters"
@@ -7105,7 +7199,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/idris_cruiser_shuttle/bridge)
@@ -7227,7 +7322,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/spa)
@@ -7267,7 +7363,9 @@
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/corridor/maintenance_foyer)
 "AC" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/airlock/engineering{
 	req_access = list(220);
@@ -7340,6 +7438,7 @@
 /obj/machinery/power/apc/super/critical/west{
 	req_access = list(220)
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/engineering/reactor)
 "AP" = (
@@ -7608,7 +7707,9 @@
 /area/ship/idris_cruiser/corridor/dockingarm/port)
 "BS" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/machinery/door/airlock/engineering{
 	req_access = list(220);
 	name = "Engineering Bay"
@@ -7650,7 +7751,9 @@
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
 "Cc" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/machinery/door/airlock{
 	name = "Bathroom"
 	},
@@ -7797,6 +7900,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/breakroom)
 "CC" = (
@@ -7836,7 +7940,8 @@
 /area/ship/idris_cruiser/engineering)
 "CN" = (
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/machinery/door/airlock/glass_service{
 	dir = 4;
@@ -7914,7 +8019,9 @@
 	name = "Reactor Access";
 	req_access = list(220)
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -7936,7 +8043,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/bridge)
 "Dg" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -7991,7 +8100,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/lounge)
@@ -8039,7 +8149,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/breakroom)
@@ -8356,7 +8467,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/corridor/port_lobby)
 "EE" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -8385,7 +8498,8 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/machinery/door/airlock/glass{
 	dir = 4;
@@ -8416,7 +8530,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/idris_cruiser_shuttle/main)
@@ -8449,7 +8564,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/kitchen)
@@ -8693,7 +8809,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/starboard_lobby)
@@ -8971,6 +9088,7 @@
 /obj/effect/floor_decal/corner/lime/full{
 	dir = 1
 	},
+/obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/white,
 /area/ship/idris_cruiser/medbay)
 "GY" = (
@@ -9432,6 +9550,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/suites_a)
 "IO" = (
@@ -9534,7 +9653,9 @@
 /obj/machinery/door/window/southright{
 	req_access = list(220)
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/lobby)
 "Jo" = (
@@ -9727,7 +9848,9 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/door/firedoor/multi_tile,
+/obj/machinery/door/firedoor/multi_tile{
+	req_one_access = list(220)
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/ship/idris_cruiser/corridor/crew_fore)
@@ -9873,7 +9996,8 @@
 /area/ship/idris_cruiser/engineering)
 "Kf" = (
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -10142,6 +10266,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/corridor/suites_a)
+"Lk" = (
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/plating,
+/area/ship/idris_cruiser/engineering)
 "Lm" = (
 /obj/machinery/disposal/small/north,
 /obj/structure/disposalpipe/trunk{
@@ -10178,7 +10306,8 @@
 /area/shuttle/idris_cruiser_shuttle/engineering)
 "Lp" = (
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/machinery/smartfridge/drinks{
 	opacity = 1
@@ -10650,7 +10779,9 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/machinery/door/airlock{
 	name = "Changing Room A"
 	},
@@ -10941,7 +11072,9 @@
 /area/ship/idris_cruiser/lounge)
 "NQ" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/item/glass_jar{
 	desc = "A small empty jar that is mostly used for giving a tip.";
 	name = "tip jar";
@@ -11030,6 +11163,11 @@
 	},
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/lobby)
+"Ob" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/firealarm/north,
+/turf/simulated/floor/tiled,
+/area/ship/idris_cruiser/corridor/dockingarm/starboard)
 "Od" = (
 /turf/simulated/wall/shuttle/idris,
 /area/ship/idris_cruiser/armory)
@@ -11308,7 +11446,8 @@
 /area/ship/idris_cruiser/security)
 "OV" = (
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -11339,7 +11478,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/security)
@@ -11561,7 +11701,9 @@
 	dir = 1;
 	name = "Cryogenics Bay"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -11641,7 +11783,8 @@
 /area/ship/idris_cruiser/restroom/suite_3)
 "PT" = (
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/machinery/door/airlock/glass_mining{
 	dir = 4;
@@ -11825,7 +11968,9 @@
 /obj/machinery/door/window/southleft{
 	req_access = list(220)
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/item/paper_bin{
 	pixel_x = -4;
 	pixel_y = 2
@@ -11910,7 +12055,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/engineering{
@@ -11961,7 +12108,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/idris_cruiser/brig)
@@ -11985,7 +12134,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -12003,7 +12153,9 @@
 /obj/machinery/door/airlock{
 	name = "Bathroom"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
@@ -12099,7 +12251,8 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/machinery/door/airlock/service{
 	dir = 4;
@@ -12281,6 +12434,7 @@
 "SD" = (
 /obj/structure/closet/secure_closet/personal/cabinet,
 /obj/machinery/light,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/carpet/purple,
 /area/ship/idris_cruiser/suite/suite_1)
 "SH" = (
@@ -12310,6 +12464,7 @@
 /obj/item/clothing/accessory/armband/idris,
 /obj/item/clothing/accessory/storage/overalls/engineer,
 /obj/item/clothing/accessory/storage/overalls/engineer,
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/engineering)
 "SJ" = (
@@ -12353,7 +12508,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/medbay)
@@ -12409,7 +12565,9 @@
 /turf/simulated/floor/carpet/green,
 /area/ship/idris_cruiser/corridor/suites_a)
 "Tf" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/machinery/door/airlock{
 	name = "Spa 2"
 	},
@@ -12558,7 +12716,8 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -12619,7 +12778,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/laundromat)
@@ -12693,7 +12853,9 @@
 	dir = 7
 	},
 /obj/structure/window/reinforced,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/idris{
 	pixel_y = 4;
 	pixel_x = 7
@@ -12780,7 +12942,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/pool)
@@ -12917,6 +13080,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white,
 /area/ship/idris_cruiser/laundromat)
 "Vr" = (
@@ -13059,7 +13223,9 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/structure/disposalpipe/segment,
 /obj/machinery/door/airlock/engineering{
 	req_access = list(220);
@@ -13105,7 +13271,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/idris_cruiser/cargo_bay)
@@ -13230,7 +13397,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark/full,
@@ -13261,6 +13430,7 @@
 	pixel_x = 3
 	},
 /obj/item/pen/fountain/black,
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/idris_cruiser/bridge)
 "WC" = (
@@ -13305,7 +13475,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/machinery/door/airlock{
 	name = "Changing Room B"
 	},
@@ -13380,7 +13552,9 @@
 	pixel_x = 2;
 	pixel_y = 10
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/machinery/door/blast/shutters{
 	id = "idris_cruiser_bar";
 	name = "Bar Shutters"
@@ -13528,7 +13702,8 @@
 /area/ship/idris_cruiser/great_room)
 "Xr" = (
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/machinery/door/airlock/highsecurity{
 	dir = 4;
@@ -13579,7 +13754,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/dockingarm/port)
@@ -13657,7 +13833,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/great_room)
@@ -13761,7 +13938,9 @@
 /turf/simulated/floor/wood,
 /area/ship/idris_cruiser/corridor/starboard_lobby)
 "Yj" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(220)
+	},
 /obj/machinery/door/airlock/service{
 	name = "Staff Entrance";
 	req_access = list(220)
@@ -13823,7 +14002,9 @@
 /area/ship/idris_cruiser/suite/suite_2)
 "Yp" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/door/firedoor/multi_tile,
+/obj/machinery/door/firedoor/multi_tile{
+	req_one_access = list(220)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
@@ -13862,7 +14043,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/custodial)
@@ -13989,7 +14171,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/lounge)
@@ -14069,7 +14252,8 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor{
-	dir = 4
+	dir = 4;
+	req_one_access = list(220)
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/plating,
@@ -14193,7 +14377,8 @@
 	color = "#4B7A73";
 	frame_color = "#4B7A73";
 	spawn_firedoor = 1;
-	spawn_grille = 1
+	spawn_grille = 1;
+	req_one_access = list(220)
 	},
 /turf/simulated/floor/tiled,
 /area/ship/idris_cruiser/corridor/suites_b)
@@ -30263,7 +30448,7 @@ Lu
 Ft
 Ft
 Ft
-Qp
+Ob
 gT
 Fe
 ky
@@ -32687,7 +32872,7 @@ NZ
 NZ
 NZ
 Qi
-Ik
+dZ
 Pc
 Ou
 qq
@@ -36488,7 +36673,7 @@ Bx
 Xh
 Xc
 Uq
-Yk
+Lk
 Bx
 Mp
 Bx
