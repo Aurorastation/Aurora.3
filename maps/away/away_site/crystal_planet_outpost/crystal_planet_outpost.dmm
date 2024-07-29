@@ -84,6 +84,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crystal_planet_outpost/living)
+"aU" = (
+/turf/unsimulated/marker/teal,
+/area/crystal_planet_outpost/caves)
 "bb" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin{
@@ -2864,6 +2867,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/crystal_planet_outpost/living)
+"Es" = (
+/turf/unsimulated/marker/blue,
+/area/crystal_planet_outpost/caves)
 "EN" = (
 /obj/effect/floor_decal/corner_wide/grey{
 	dir = 10
@@ -27929,10 +27935,10 @@ pa
 pa
 pa
 pa
-pa
-pa
-pa
-pa
+aU
+aU
+aU
+aU
 pa
 pa
 pa
@@ -28186,10 +28192,10 @@ pa
 pa
 pa
 pa
-pa
-pa
-pa
-pa
+aU
+aU
+aU
+aU
 pa
 pa
 pa
@@ -28443,10 +28449,10 @@ pa
 pa
 pa
 pa
-pa
-pa
-pa
-pa
+aU
+aU
+aU
+aU
 pa
 pa
 pa
@@ -28700,11 +28706,11 @@ pa
 pa
 pa
 pa
-pa
-pa
-pa
-pa
-pa
+aU
+Es
+Es
+Es
+Es
 pa
 pa
 pa
@@ -28957,11 +28963,11 @@ pa
 pa
 pa
 pa
-pa
-pa
-pa
-pa
-pa
+aU
+Es
+Es
+Es
+Es
 pa
 pa
 pa
@@ -29215,10 +29221,10 @@ pa
 pa
 pa
 pa
-pa
-pa
-pa
-pa
+Es
+Es
+Es
+Es
 pa
 pa
 pa
@@ -29472,10 +29478,10 @@ pa
 pa
 pa
 pa
-pa
-pa
-pa
-pa
+Es
+Es
+Es
+Es
 pa
 pa
 pa

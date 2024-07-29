@@ -1,13 +1,21 @@
+
+// --------------------------------------------------- template
+
 /datum/map_template/ruin/away_site/crystal_planet_outpost
 	name = "Crystal Planet Outpost"
 	description = "Crystal Planet Outpost."
 	id = "crystal_planet_outpost"
-	spawn_cost = 1
-	spawn_weight = 1
 
 	prefix = "away_site/crystal_planet_outpost/"
 	suffix = "crystal_planet_outpost.dmm"
 
+	exoplanet_themes = list(
+		/turf/unsimulated/marker/green = /datum/exoplanet_theme/crystal/crystal_planet_outpost,
+		/turf/unsimulated/marker/teal  = /datum/exoplanet_theme/crystal/crystal_planet_outpost/mountain
+	)
+
+	spawn_cost = 1
+	spawn_weight = 1
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	sectors_blacklist = list(ALL_SPECIFIC_SECTORS) //it's a whole planet, shouldn't have it in predefined sectors
 	unit_test_groups = list(1)
@@ -15,6 +23,8 @@
 /singleton/submap_archetype/crystal_planet_outpost
 	map = "crystal_planet_outpost"
 	descriptor = "Crystal Planet Outpost."
+
+// --------------------------------------------------- sector
 
 /obj/effect/overmap/visitable/sector/crystal_planet_outpost
 	name = "Crystal Planet Outpost"
