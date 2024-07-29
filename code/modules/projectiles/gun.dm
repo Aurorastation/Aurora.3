@@ -184,6 +184,15 @@
 
 	queue_icon_update()
 
+/obj/item/gun/Destroy()
+	if (istype(pin))
+		QDEL_NULL(pin)
+	if(bayonet)
+		QDEL_NULL(bayonet)
+	if(istype(suppressor))
+		QDEL_NULL(suppressor)
+	return ..()
+
 /obj/item/gun/should_equip()
 	return TRUE
 
@@ -890,16 +899,6 @@
 	if(slot in equippable_slots)
 		return TRUE
 	return FALSE
-
-/obj/item/gun/Destroy()
-	if (istype(pin))
-		QDEL_NULL(pin)
-	if(bayonet)
-		QDEL_NULL(bayonet)
-	if(istype(suppressor))
-		QDEL_NULL(suppressor)
-	return ..()
-
 
 /obj/item/gun/proc/handle_reliability_fail(var/mob/user)
 	var/severity = 1

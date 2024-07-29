@@ -62,3 +62,25 @@
 	req_tech = list(TECH_COMBAT = 5, TECH_BLUESPACE = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 5000, MATERIAL_SILVER = 3000, MATERIAL_GOLD = 3000, MATERIAL_PHORON = 500)
 	build_path = /obj/item/gun/energy/gravity_gun
+
+/datum/design/item/weapon/firing_pin
+	abstract_type = /obj/item/device/firing_pin
+
+	req_tech = list(TECH_COMBAT = 5)
+	desc = "A firing pin that can be attached to a gun to authenticate firing."
+
+/datum/design/item/weapon/firing_pin/dna
+	name = "DNA-keyed firing pin"
+	desc = "This is a DNA-locked firing pin which only authorizes one person. Attempt to fire once to DNA-link."
+	req_tech = list(TECH_COMBAT = 5, TECH_BIO = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 1500, MATERIAL_GOLD = 500)
+	build_path = /obj/item/device/firing_pin/dna
+
+/datum/design/item/weapon/firing_pin/wireless
+	name = "Wireless controlled firing pin"
+	desc = "This is a wireless-controlled firing pin which on automatic mode it allow allows weapons to be fired on stun unless the alert level is elevated. \
+			Otherwise, it can be controlled from a firearm control console."
+
+	req_tech = list(TECH_COMBAT = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 500)
+	build_path = /obj/item/device/firing_pin/wireless
