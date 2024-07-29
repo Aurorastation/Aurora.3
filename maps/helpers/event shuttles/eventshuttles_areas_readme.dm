@@ -18,23 +18,11 @@
 // -------------------------------------------------------------------------------------------------------------------------
 // Packrat is half a meme, half genuine attempt to encourage a gameplay idea for an event. Every job's gear is packed up in the smallest space possible.
 // Its up to the crew as a whole to get all of this gear off the shuttle and deployed into an area
-// I think this ship would be best served by existing in a city environment. Its shorter size narratively supports that, and its lack of internal walls for the cargo hold
+// I think this ship would be best served by existing in a city environment. Its shorter size narrative supports that, and its lack of internal walls for the cargo hold
 // means that you cant really set up anyone's base of operations inside. At most, one department's worth of jobs.
 // I strongly recommend using this ship in an urban environment where the crew has buildings around the ship they can move into.
 // -------------------------------------------------------------------------------------------------------------------------
-// Opossum is a true people mover, and unique among the rest of the shuttles as its the only one that fits within shuttle mapping standards.
-// While lacking in features compared to the rest, it does its job and looks good while doing it. Best used in maps where there's an
-// existing base camp of some kind. Or, for something like a more laid back casual vibe of an event where we're just visiting a place
-// just because.
-// Bonus: This is also fully functional. I've included a second .dm file in the opossum folder with everything needed to make it work
-// at time of implementation.
-//
-// Fluff:
-//
-// SCCV Corrugated Chariot
-// description: The Corrugated Chariot is the flagship of the Orion Express Modular Delivery System (OEM-DS) line of cruiser sized freighters. Design of the pattern started at the begining of the Konyang Hivebot Crisis of 2466, heavily influcenced by data recieved from local aid workers, the IAC, and the SCC's own mission to the planet. The need for modular shuttle tender and freighter was identified, and the Chariot delivers. The class features a two deck design, with shuttles docked in mounting clamps on the first deck. And a large warehouse and pressure tank on the second. Crewed by positronics, the ship's ammenities are non existant.
-// sizeclass: OEM-DS Freighter
-// shiptype: civilian freighter - Cruiser
+
 
 /area/scc_event_shuttle
 	name = "SCC Transport Shuttle"
