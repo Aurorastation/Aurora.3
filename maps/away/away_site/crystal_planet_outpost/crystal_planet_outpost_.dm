@@ -10,8 +10,8 @@
 	suffix = "crystal_planet_outpost.dmm"
 
 	exoplanet_themes = list(
-		/turf/unsimulated/marker/green = /datum/exoplanet_theme/crystal/crystal_planet_outpost,
-		/turf/unsimulated/marker/teal  = /datum/exoplanet_theme/crystal/crystal_planet_outpost/mountain
+		/turf/unsimulated/marker/green = /datum/exoplanet_theme/crystal,
+		/turf/unsimulated/marker/teal  = /datum/exoplanet_theme/crystal/mountain
 	)
 
 	spawn_cost = 1
@@ -19,6 +19,7 @@
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	sectors_blacklist = list(ALL_SPECIFIC_SECTORS) //it's a whole planet, shouldn't have it in predefined sectors
 	unit_test_groups = list(1)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED // TODO: REMOVE THIS!!!
 
 /singleton/submap_archetype/crystal_planet_outpost
 	map = "crystal_planet_outpost"
