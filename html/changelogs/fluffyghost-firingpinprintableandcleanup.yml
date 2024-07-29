@@ -57,3 +57,4 @@ delete-after: True
 changes:
   - code_imp: "DMDoc'd the firing pin code, some cleanups."
   - rscadd: "Added the ability for Science to print DNA and wireless-controlled firing pins."
+  - rscdel: "Removed the clown firing pin."
