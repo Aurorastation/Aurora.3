@@ -81,7 +81,7 @@
 				var/turf/T = spook.loc
 				var/list/visible = list()
 				for(var/obj/O in T.contents)
-					if(!O.invisibility && O.name)
+					if(!O.invisibility && O.name && !istype(O, /obj/effect))
 						visible += O
 				if(visible.len)
 					var/atom/A = pick(visible)
