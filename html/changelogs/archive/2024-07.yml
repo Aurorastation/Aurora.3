@@ -349,3 +349,18 @@
   not-a-gonk:
   - rscadd: Adds the TCAF berets and a jacket to the loadout, included in a new selection
       alongside their older TCFL variants.
+2024-07-29:
+  DreamySkrell:
+  - rscadd: Centers Horizon dmm.
+  - rscadd: Makes the open space turf transparent.
+  FluffyGhost:
+  - refactor: Refactored hitby to be in line with TG's version.
+  - refactor: Refactored item weight defines to a more clear naming scheme, also in
+      line with TG's version.
+  - refactor: Refactored how the movement bumps are handled, ported signals to handle
+      them, in preparation for the movement update.
+  - bugfix: Fixed disposal hit bouncing the hitting atom on the wall.
+  - qol: Items do not push other items anymore if they are tiny.
+  SimpleMaroon:
+  - rscadd: Added a culture and origins for the Underhive Collective, an Eridani-based
+      Diona faction.
