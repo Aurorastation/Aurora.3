@@ -120,7 +120,7 @@
 	change_stance(HOSTILE_STANCE_ATTACKING)
 	visible_message(SPAN_WARNING("\The [src] gets taunted by \the [H] and begins to retaliate!"))
 
-/mob/living/simple_animal/hostile/bullet_act(var/obj/item/projectile/P, var/def_zone)
+/mob/living/simple_animal/hostile/bullet_act(var/obj/projectile/P, var/def_zone)
 	..()
 	if (ismob(P.firer) && target_mob != P.firer)
 		target_mob = P.firer
@@ -132,12 +132,11 @@
 		target_mob = user
 		change_stance(HOSTILE_STANCE_ATTACK)
 
-/mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+/mob/living/simple_animal/hostile/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
-	if(istype(AM,/obj/))
-		var/obj/O = AM
-		if((target_mob != O.thrower) && ismob(O.thrower))
-			target_mob = O.thrower
+	if(isobj(hitting_atom))
+		if((target_mob != throwingdatum?.thrower?.resolve()) && ismob(throwingdatum?.thrower?.resolve()))
+			target_mob =throwingdatum.thrower.resolve()
 			change_stance(HOSTILE_STANCE_ATTACK)
 
 /mob/living/simple_animal/hostile/attack_generic(var/mob/user, var/damage, var/attack_message)
@@ -168,13 +167,13 @@
 	if(target_mob in targets)
 		if(ranged)
 			if(get_dist(src, target_mob) <= ranged_attack_range)
-				SSmove_manager.stop_looping(src)
+				GLOB.move_manager.stop_looping(src)
 				OpenFire(target_mob)
 			else
-				SSmove_manager.move_to(src, target_mob, 6, move_to_delay)
+				GLOB.move_manager.move_to(src, target_mob, 6, move_to_delay)
 		else
 			change_stance(HOSTILE_STANCE_ATTACKING)
-			SSmove_manager.move_to(src, target_mob, 1, move_to_delay)
+			GLOB.move_manager.move_to(src, target_mob, 1, move_to_delay)
 
 /mob/living/simple_animal/hostile/proc/AttackTarget()
 	stop_automated_movement = 1
@@ -265,7 +264,7 @@
 /mob/living/simple_animal/hostile/proc/LoseTarget()
 	change_stance(HOSTILE_STANCE_IDLE)
 	target_mob = null
-	SSmove_manager.stop_looping(src)
+	GLOB.move_manager.stop_looping(src)
 	LostTarget()
 
 /mob/living/simple_animal/hostile/proc/LostTarget()
@@ -276,7 +275,7 @@
 
 /mob/living/simple_animal/hostile/death()
 	..()
-	SSmove_manager.stop_looping(src)
+	GLOB.move_manager.stop_looping(src)
 
 /mob/living/simple_animal/hostile/think()
 	..()
@@ -353,7 +352,7 @@
 		return FALSE
 
 	var/target_hit = FALSE
-	var/flags = ispath(projectiletype, /obj/item/projectile/beam) ? PASSTABLE|PASSGLASS|PASSGRILLE : PASSTABLE
+	var/flags = ispath(projectiletype, /obj/projectile/beam) ? PASSTABLE|PASSGLASS|PASSGRILLE : PASSTABLE
 	for(var/V in check_trajectory(target_mob, src, pass_flags=flags))
 		if(V == target_mob)
 			target_hit = TRUE
@@ -376,7 +375,7 @@
 	if(target == start)
 		return
 
-	var/obj/item/projectile/A = new projectiletype(user.loc)
+	var/obj/projectile/A = new projectiletype(user.loc)
 	playsound(user, projectilesound, 100, 1)
 	if(!A)	return
 	var/def_zone = get_exposed_defense_zone(target)
@@ -459,9 +458,8 @@
 				shuttletarget = pick(GLOB.escape_list) //Pick a shuttle target
 			enroute = 1
 			stop_automated_movement = 1
-			spawn()
-				if(!src.stat)
-					horde()
+			if(!src.stat)
+				horde()
 
 		if(get_dist(src, shuttletarget) <= 2)		//The monster reached the escape hallway
 			enroute = 0
@@ -484,9 +482,8 @@
 	Move(T)
 	target_mob = FindTarget()
 	if(!target_mob || enroute)
-		spawn(10)
-			if(!src.stat)
-				horde()
+		if(!src.stat)
+			horde()
 
 //////////////////////////////
 ///////VALIDATOR PROCS////////

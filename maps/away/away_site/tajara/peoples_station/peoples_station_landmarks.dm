@@ -69,6 +69,30 @@
 
 // ----
 
+/obj/effect/shuttle_landmark/nav_peoples_station/starboard_dock
+	name = "People's Space Station Starboard Dock"
+	landmark_tag = "nav_peoples_station_starboard_dock"
+	docking_controller = "peoples_station_port_dock"
+
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/starboard
+	name = "People's Space Station Starboard Dock"
+	landmark_tag = "nav_peoples_station_starboard_dock"
+	master_tag = "peoples_station_starboard_port"
+
+// ----
+
+/obj/effect/shuttle_landmark/nav_peoples_station/aft_dock
+	name = "People's Space Station Aft Dock"
+	landmark_tag = "nav_peoples_station_aft_dock"
+	docking_controller = "peoples_station_aft_dock"
+
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/aft
+	name = "People's Space Station Starboard Dock"
+	landmark_tag = "nav_peoples_station_aft_dock"
+	master_tag = "peoples_station_aft_port"
+
+// ----
+
 /obj/effect/shuttle_landmark/nav_peoples_station/nav1
 	name = "People's Space Station Navpoint #1"
 	landmark_tag = "nav_peoples_station_ship_1"

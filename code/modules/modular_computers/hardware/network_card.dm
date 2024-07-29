@@ -86,7 +86,7 @@ var/global/ntnet_card_uid = 1
 
 	if(parent_computer)
 		var/turf/T = get_turf(parent_computer)
-		if((T && istype(T)) && isStationLevel(T.z))
+		if((T && istype(T)) && is_station_level(T.z))
 			// Computer is on station. Low/High signal depending on what type of network card you have
 			if(ethernet)
 				return 3

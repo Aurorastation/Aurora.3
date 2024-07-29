@@ -1,7 +1,7 @@
 /obj/item/ammo_pile
 	name = "ammo pile"
 	desc = "A handful of some kind of ammunition."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 	var/list/ammo = list()
 	var/list/ammo_overlays = list()

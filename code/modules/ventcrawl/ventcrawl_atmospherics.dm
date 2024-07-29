@@ -24,6 +24,8 @@
 	. = ..()
 
 /obj/machinery/atmospherics/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user.loc != src || !(direction & initialize_directions)) //can't go in a way we aren't connecting to
 		return
 	ventcrawl_to(user,findConnecting(direction, user.ventcrawl_layer),direction)

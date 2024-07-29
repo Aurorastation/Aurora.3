@@ -352,7 +352,7 @@
 								to_chat(usr, query.ErrorMsg())
 							else
 								log_and_message_admins("has uploaded the book titled [scanner.cache.name], [length(scanner.cache.dat)] signs")
-								log_game("[usr.name]/[usr.key] has uploaded the book titled [scanner.cache.name], [length(scanner.cache.dat)] signs",ckey=key_name(usr))
+								log_game("[usr.name]/[usr.key] has uploaded the book titled [scanner.cache.name], [length(scanner.cache.dat)] signs")
 								alert("Upload Complete.")
 
 	if(href_list["targetid"])

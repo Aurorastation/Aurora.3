@@ -144,49 +144,49 @@
 		return 0
 	return 1
 
-/obj/machinery/door/CollidedWith(atom/AM)
+/obj/machinery/door/CollidedWith(atom/bumped_atom)
 	. = ..()
 	if(p_open || operating) return
-	if (!AM.simulated) return
-	if(ismob(AM))
-		var/mob/M = AM
+	if (!bumped_atom.simulated) return
+	if(ismob(bumped_atom))
+		var/mob/M = bumped_atom
 		if(world.time - M.last_bumped <= 10) return	//Can bump-open one airlock per second. This is to prevent shock spam.
 		M.last_bumped = world.time
 		if(!M.restrained() && (!issmall(M) || ishuman(M) || istype(M, /mob/living/silicon/robot/drone/mining)))
 			bumpopen(M)
 		return
 
-	if(istype(AM, /obj/machinery/bot))
-		var/obj/machinery/bot/bot = AM
+	if(istype(bumped_atom, /obj/machinery/bot))
+		var/obj/machinery/bot/bot = bumped_atom
 		if(src.check_access(bot.botcard))
 			if(density)
 				open()
 		return
 
-	if(istype(AM, /mob/living/bot))
-		var/mob/living/bot/bot = AM
+	if(istype(bumped_atom, /mob/living/bot))
+		var/mob/living/bot/bot = bumped_atom
 		if(src.check_access(bot.botcard))
 			if(density)
 				open()
 		return
 
-	if(istype(AM, /mob/living/simple_animal/spiderbot))
-		var/mob/living/simple_animal/spiderbot/bot = AM
+	if(istype(bumped_atom, /mob/living/simple_animal/spiderbot))
+		var/mob/living/simple_animal/spiderbot/bot = bumped_atom
 		if(src.check_access(bot.internal_id))
 			if(density)
 				open()
 		return
 
-	if(istype(AM, /obj/structure/bed/stool/chair/office/wheelchair))
-		var/obj/structure/bed/stool/chair/office/wheelchair/wheel = AM
+	if(istype(bumped_atom, /obj/structure/bed/stool/chair/office/wheelchair))
+		var/obj/structure/bed/stool/chair/office/wheelchair/wheel = bumped_atom
 		if(density)
 			if(wheel.pulling && (src.allowed(wheel.pulling)))
 				open()
 			else
 				do_animate("deny")
 		return
-	if(istype(AM, /obj/structure/janitorialcart))
-		var/obj/structure/janitorialcart/cart = AM
+	if(istype(bumped_atom, /obj/structure/janitorialcart))
+		var/obj/structure/janitorialcart/cart = bumped_atom
 		if(density)
 			if(cart.pulling && (src.allowed(cart.pulling)))
 				open()
@@ -194,8 +194,8 @@
 				do_animate("deny")
 		return
 
-	if(istype(AM, /obj/vehicle))
-		var/obj/vehicle/V = AM
+	if(istype(bumped_atom, /obj/vehicle))
+		var/obj/vehicle/V = bumped_atom
 		if(density)
 			if(V.buckled && (src.allowed(V.buckled)))
 				open()
@@ -209,9 +209,9 @@
 /obj/machinery/door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group) return !block_air_zones
 	if (istype(mover))
-		if(mover.checkpass(PASSGLASS))
+		if(mover.pass_flags & PASSGLASS)
 			return !opacity
-		if(density && hashatch && mover.checkpass(PASSDOORHATCH))
+		if(density && hashatch && mover.pass_flags & PASSDOORHATCH)
 			if (istype(mover, /mob/living/silicon/pai))
 				var/mob/living/silicon/pai/P = mover
 				if (allowed(P))
@@ -236,7 +236,7 @@
 		else				do_animate("deny")
 	return
 
-/obj/machinery/door/bullet_act(var/obj/item/projectile/Proj)
+/obj/machinery/door/bullet_act(var/obj/projectile/Proj)
 	..()
 
 	var/damage = Proj.get_structure_damage()
@@ -259,13 +259,17 @@
 		take_damage(min(damage, 100))
 
 
-/obj/machinery/door/hitby(AM as mob|obj, var/speed=5)
+/obj/machinery/door/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
 	var/tforce = 0
-	if(ismob(AM))
-		tforce = 15 * (speed/5)
-	else
-		tforce = AM:throwforce * (speed/5)
+	if(!throwingdatum)
+		return
+
+	if(ismob(hitting_atom))
+		tforce = 15 * (throwingdatum.speed/5)
+	else if(isobj(hitting_atom))
+		var/obj/O = hitting_atom
+		tforce = O.throwforce * (throwingdatum.speed/5)
 
 	if (tforce > 0)
 		var/volume = 100
@@ -273,7 +277,6 @@
 			volume *= (tforce / 20)
 		playsound(src.loc, hitsound, volume, TRUE)
 		take_damage(tforce)
-		return
 
 /obj/machinery/door/attack_ai(mob/user)
 	if(!ai_can_interact(user))

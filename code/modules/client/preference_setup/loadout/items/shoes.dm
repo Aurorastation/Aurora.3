@@ -143,6 +143,7 @@
 /datum/gear/shoes/slippers/New()
 	..()
 	var/list/slippers = list()
+	slippers["carp slippers"] = /obj/item/clothing/shoes/slippers/carp
 	slippers["bunny slippers"] = /obj/item/clothing/shoes/slippers
 	slippers["worn bunny slippers"] = /obj/item/clothing/shoes/slippers/worn
 	gear_tweaks += new /datum/gear_tweak/path(slippers)

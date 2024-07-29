@@ -30,6 +30,10 @@
 	target = /singleton/state/weather/rain/hail
 	likelihood_weighting = 20
 
+/singleton/state_transition/weather/sandstorm
+	target = /singleton/state/weather/sandstorm
+	likelihood_weighting = 20
+
 //weather for planets
 
 //snow planets
@@ -68,7 +72,7 @@
 //arctic planets
 
 /singleton/state_transition/weather/calm/arctic_planet
-	target = /singleton/state/weather/calm/lava_planet
+	target = /singleton/state/weather/calm/arctic_planet
 
 /singleton/state_transition/weather/hail/arctic_planet
 	target = /singleton/state/weather/rain/hail/arctic_planet
@@ -78,6 +82,8 @@
 /singleton/state_transition/weather/calm/desert_planet
 	target = /singleton/state/weather/calm/desert_planet
 
+/singleton/state_transition/weather/sandfall/desert_planet
+	target = /singleton/state/weather/sandfall/desert_planet
+
 /singleton/state_transition/weather/sandstorm/desert_planet
 	target = /singleton/state/weather/sandstorm/desert_planet
-	likelihood_weighting = 20

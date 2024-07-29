@@ -2846,6 +2846,17 @@
 	glass_desc = "A hard-kicking cocktail, said to be invented in the better parts of Flagsdale."
 	glass_center_of_mass = list("x"=7, "y"=8)
 
+/singleton/reagent/drink/toothpaste/skyemok
+	name = "Skye'mok mead"
+	description = "A traditional mead produced by V'krexi fermentation of the Skye'mok fungus."
+	strength = 25
+	taste_description = "fresh, tangy, and lingering taste"
+	color = "#8ae5bf"
+	glass_icon_state = "skyemok_glass"
+	glass_name = "glass of Skye'mok"
+	glass_desc = "A plastic recipient meant to look like a V'krexi head full of a gooey fungus."
+	glass_center_of_mass = list("x"=14, "y"=8)
+
 /* Alcohol */
 
 // Basic
@@ -6350,6 +6361,28 @@
 	glass_name = "glass of forbidden apple"
 	glass_desc = "A champagne cocktail spiked with applejack and orange liqueur."
 
+/singleton/reagent/alcohol/ogogoro
+	name = "Ogogoro"
+	description = "A common Eridani dreg palm wine, it seems like it'll have a kick to it."
+	color = "#FFFFFF"
+	strength = 60
+	taste_description = "strong moonshine"
+
+	glass_icon_state = "ogogoro_glass"
+	glass_name = "glass of Ogogoro"
+	glass_desc = "A common Eridani dreg palm wine, it seems like it'll have a kick to it."
+
+/singleton/reagent/alcohol/burukutu
+	name = "Burukutu"
+	description = "A refined millet beer for the esteemed colleagues of the Spur."
+	color = "#6B391C"
+	strength = 6
+	taste_description = "millet beer"
+
+	glass_icon_state = "burukutu_glass"
+	glass_name = "gourd of Burukutu"
+	glass_desc = "Burukutu is traditionally served in a gourd; this is a mass-produced plastic alternative."
+
 /singleton/reagent/drink/gibbfloats
 	name = "Root-Cola Floats"
 	description = "A floating soda of icecream and Getmore Root-Cola."
@@ -6608,3 +6641,13 @@
 	glass_name = "lovebug boba"
 	glass_desc = "Ancient boba-tea marketing teams believed this cherry-strawberry flavored drink holds magical powers of love! What does that mean? Nobody knows!"
 	glass_center_of_mass = list("x"=15, "y"=10)
+
+/singleton/reagent/drink/zobo
+	name = "Zobo"
+	description = "A roselle juice popular across Eridani, often drunk cold."
+	color = "#71192F"
+	taste_description = "hibiscus tea"
+
+	glass_icon_state = "zobo_glass"
+	glass_name = "glass of zobo"
+	glass_desc = "A roselle juice popular across Eridani, often drunk cold."

@@ -31,8 +31,8 @@
 
 /obj/outfit/admin/ert/zeng/medic
 	name = "Zeng-Hu Medic"
-	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	uniform = /obj/item/clothing/under/rank/medical/paramedic/zeng
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	glasses = /obj/item/clothing/glasses/hud/health
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	backpack_contents = list(

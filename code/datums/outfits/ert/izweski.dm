@@ -31,7 +31,7 @@
 
 /obj/outfit/admin/ert/izweski/medic
 	name = "Izweski Navy Medic"
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	back = /obj/item/storage/backpack/satchel/hegemony
 	head = /obj/item/clothing/head/helmet/space/void/hegemony/specialist
 	suit = /obj/item/clothing/suit/space/void/hegemony/specialist

@@ -47,8 +47,10 @@
 	else
 		signal.broadcast()
 
-	spawn(10)
-		recent_broadcasts -= signal_message
+	addtimer(CALLBACK(src, PROC_REF(remove_signal_message_from_recent_broadcasts), signal_message), 1 SECONDS)
+
+/obj/machinery/telecomms/allinone/proc/remove_signal_message_from_recent_broadcasts(signal_message)
+	recent_broadcasts -= signal_message
 
 /obj/machinery/telecomms/allinone/ship
 	away_aio = TRUE

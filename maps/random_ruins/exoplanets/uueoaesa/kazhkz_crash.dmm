@@ -515,8 +515,7 @@
 /area/shuttle/kazhkz_crash)
 "Di" = (
 /obj/machinery/power/terminal{
-	dir = 8;
-	layer = 5
+	dir = 8
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"

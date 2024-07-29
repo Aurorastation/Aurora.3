@@ -4,7 +4,7 @@
 	icon_state = "durand"
 
 	e_head = /obj/item/mech_component/sensors/pra_egg
-	e_body = /obj/item/mech_component/chassis/pra_egg
+	e_body = /obj/item/mech_component/chassis/pra_egg/nuclear
 	e_arms = /obj/item/mech_component/manipulators/pra_egg
 	e_legs = /obj/item/mech_component/propulsion/pra_egg
 	e_color = COLOR_STEEL
@@ -59,6 +59,9 @@
 	max_damage = 150
 	power_use = 250
 
+/obj/item/mech_component/chassis/pra_egg/nuclear
+	cell_type = /obj/item/cell/mecha/nuclear
+
 /obj/item/mech_component/chassis/pra_egg/prebuild()
 	. = ..()
 	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech(src)
@@ -68,7 +71,7 @@
 	icon_state = "durand"
 
 	e_head = /obj/item/mech_component/sensors/pra_egg/armored
-	e_body = /obj/item/mech_component/chassis/pra_egg/armored
+	e_body = /obj/item/mech_component/chassis/pra_egg/armored/nuclear
 	e_arms = /obj/item/mech_component/manipulators/pra_egg/armored
 
 /obj/item/mech_component/manipulators/pra_egg/armored
@@ -86,7 +89,7 @@
 	icon_state = "strong_egg_head"
 	max_damage = 120
 
-/obj/item/mech_component/chassis/pra_egg/armored
+/obj/item/mech_component/chassis/pra_egg/armored/nuclear
 	name = "armored P'kus-3 chassis"
 	exosuit_desc_string = "an armored chassis"
 	desc = "A armored composite frame keeps the armor of this chassis respectable, but the interior spacious."

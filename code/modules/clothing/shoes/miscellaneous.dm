@@ -21,7 +21,7 @@
 	icon_state = "clothwrap"
 	item_state = "clothwrap"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	species_restricted = null
 	icon_auto_adapt = TRUE
 	silent = 1

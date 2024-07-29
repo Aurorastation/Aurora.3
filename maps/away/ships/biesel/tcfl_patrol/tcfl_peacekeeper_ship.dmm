@@ -1168,7 +1168,7 @@
 "hsG" = (
 /obj/structure/table/steel,
 /obj/item/clothing/glasses/hud/health,
-/obj/item/storage/belt/medical/first_responder/combat,
+/obj/item/storage/belt/medical/paramedic/combat,
 /turf/simulated/floor/shuttle/white,
 /area/ship/tcfl_peacekeeper_ship)
 "hud" = (

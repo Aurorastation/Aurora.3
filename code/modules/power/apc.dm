@@ -520,8 +520,8 @@
 		if (stat & MAINT)
 			to_chat(user, SPAN_WARNING("There is no connector for your power cell."))
 			return
-		if(attacking_item.w_class != ITEMSIZE_NORMAL)
-			to_chat(user, "\The [attacking_item] is too [attacking_item.w_class < ITEMSIZE_NORMAL? "small" : "large"] to fit here.")
+		if(attacking_item.w_class != WEIGHT_CLASS_NORMAL)
+			to_chat(user, "\The [attacking_item] is too [attacking_item.w_class < WEIGHT_CLASS_NORMAL? "small" : "large"] to fit here.")
 			return
 
 		user.drop_from_inventory(attacking_item,src)
@@ -735,7 +735,7 @@
 		else if (((stat & BROKEN) || hacker) \
 				&& opened == COVER_CLOSED \
 				&& attacking_item.force >= 5 \
-				&& attacking_item.w_class >= ITEMSIZE_NORMAL \
+				&& attacking_item.w_class >= WEIGHT_CLASS_NORMAL \
 				&& prob(20) )
 			opened = COVER_REMOVED
 			user.visible_message(SPAN_DANGER("The APC cover was knocked down with the [attacking_item.name] by [user.name]!"), \
@@ -882,7 +882,7 @@
 	data["power_cell_charge"] = cell?.percent()
 	data["fail_time"] = failure_timer * 2
 	data["silicon_user"] = isAdmin || issilicon(user)
-	data["is_AI"] = isAI(user)
+	data["is_AI_or_robot"] = isAI(user) || isrobot(user)
 	data["total_load"] = round(lastused_total)
 	data["total_charging"] = round(lastused_charging)
 	data["is_operating"] = operating

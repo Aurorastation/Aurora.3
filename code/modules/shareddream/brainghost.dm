@@ -67,7 +67,7 @@
 	else
 		to_chat(src, SPAN_WARNING("You've already released concentration. Wait to wake up naturally."))
 
-/mob/living/brain_ghost/Life()
+/mob/living/brain_ghost/Life(seconds_per_tick, times_fired)
 	..()
 	// Out body was probs gibbed or somefin
 	if(!istype(body))
@@ -80,7 +80,7 @@
 		awaken_impl(TRUE)
 		body.handle_shared_dreaming(TRUE)
 
-/mob/living/brain_ghost/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/living/brain_ghost/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	if(!istype(body) || body.stat!=UNCONSCIOUS)
 		return
 	if(prob(20)) // 1/5 chance to mumble out anything you say in the dream.

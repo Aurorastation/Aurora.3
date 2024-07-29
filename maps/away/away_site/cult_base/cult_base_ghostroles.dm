@@ -149,7 +149,7 @@
 	belt = list(
 		/obj/item/storage/belt/fannypack,
 		/obj/item/storage/belt/utility/full,
-		/obj/item/storage/belt/medical/first_responder/full,
+		/obj/item/storage/belt/medical/paramedic/full,
 		/obj/item/storage/belt/mining/full,
 		/obj/item/storage/belt/security/full/alt,
 		/obj/item/storage/belt/security/full/pistol45,

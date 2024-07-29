@@ -2,8 +2,19 @@ var/global/list/all_cargo_receptacles = list()
 
 /obj/structure/cargo_receptacle
 	name = "cargo delivery point"
-	desc = "An Orion Express automated cargo acceptance device. It's linked to a vast underground network of conveyors and de-sterilizers, transporting it to its final destination. These are generally used by researchers who find themselves bunkered alone on an exoplanet."
-	desc_info = "This is a delivery point for Orion Express cargo packages. To finish the delivery, have a cargo package in your hand and click on the delivery point."
+	desc = "\
+		An Orion Express automated cargo acceptance device. \
+		It is linked to a vast underground network of conveyors and shelves, storing packages for further transport or retrieval.\
+	"
+	desc_extended = "\
+		These are set up by Orion to expand its small-scale shipping network, especially in more remote areas, like outer edges of the Frontier or Coalition. \
+		It is a common sight all over the Spur, however, where Orion Express services depend on ordinary people and ships picking up and delivering packages for each other, \
+		with Orion Express only delivering to automated stations and other distribution points.\
+	"
+	desc_info = "\
+		This is a delivery point for Orion Express cargo packages. \
+		To finish the delivery, have a cargo package in your hand and click on the delivery point.\
+	"
 	icon = 'icons/obj/orion_delivery.dmi'
 	icon_state = "delivery_point"
 

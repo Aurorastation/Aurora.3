@@ -109,8 +109,8 @@
 		return 1
 
 /obj/machinery/computer/security/attack_hand(var/mob/user as mob)
-	if (src.z > 6)
-		to_chat(user, "<span class='danger'>Unable to establish a connection:</span> You're too far away from the station!")
+	if (!(src.z in GetConnectedZlevels(starting_z_level)))
+		to_chat(user, "Unable to establish a connection.")
 		return
 	if(stat & (NOPOWER|BROKEN))	return
 
@@ -135,7 +135,7 @@
 		return 0
 	set_current(C)
 
-	if(!is_contact_area(get_area(C)))
+	if (!(C.z in GetConnectedZlevels(starting_z_level)))
 		to_chat(user, SPAN_NOTICE("This camera is too far away to connect to!"))
 		return FALSE
 

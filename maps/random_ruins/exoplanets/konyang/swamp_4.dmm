@@ -557,8 +557,7 @@
 	pixel_y = 26;
 	color = "#903A64";
 	desc = "A soft fleece picnic blanket.";
-	name = "picnic blanket";
-	layer = 2.99
+	name = "picnic blanket"
 	},
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/weapons.dmi';
@@ -567,8 +566,7 @@
 	pixel_y = 12;
 	color = "#903A64";
 	desc = "A soft fleece picnic blanket.";
-	name = "picnic blanket";
-	layer = 2.99
+	name = "picnic blanket"
 	},
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/weapons.dmi';
@@ -577,8 +575,7 @@
 	pixel_y = -2;
 	color = "#903A64";
 	desc = "A soft fleece picnic blanket.";
-	name = "picnic blanket";
-	layer = 2.99
+	name = "picnic blanket"
 	},
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/weapons.dmi';

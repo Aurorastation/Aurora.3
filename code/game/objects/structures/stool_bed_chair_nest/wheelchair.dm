@@ -20,7 +20,9 @@
 	if(buckled)
 		buckled.set_dir(dir)
 
-/obj/structure/bed/stool/chair/office/wheelchair/relaymove(mob/user, direction)
+/obj/structure/bed/stool/chair/office/wheelchair/relaymove(mob/living/user, direction)
+	. = ..()
+
 	// Redundant check?
 	if(user.stat || user.stunned || user.weakened || user.paralysis || user.lying || user.restrained())
 		if(user==pulling)
@@ -133,7 +135,7 @@
 	icon_state = "wheelchair_item_preview"
 	item_state = "wheelchair"
 	base_icon = "wheelchair"
-	w_class = ITEMSIZE_HUGE // Can't be put in backpacks. Oh well.
+	w_class = WEIGHT_CLASS_HUGE // Can't be put in backpacks. Oh well.
 	origin_type = /obj/structure/bed/stool/chair/office/wheelchair
 	deploy_verb = "deploy"
 

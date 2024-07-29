@@ -183,7 +183,7 @@
 				mob_icon.Blend(rgb(s_tone, s_tone, s_tone), ICON_ADD)
 			else
 				mob_icon.Blend(rgb(-s_tone, -s_tone, -s_tone), ICON_SUBTRACT)
-		apply_markings(restrict_to_robotic = TRUE)
+		apply_markings(restrict_to_robotic = (robotize_type != PROSTHETIC_SYNTHSKIN))
 		get_internal_organs_overlay()
 	else
 		if(!dna)

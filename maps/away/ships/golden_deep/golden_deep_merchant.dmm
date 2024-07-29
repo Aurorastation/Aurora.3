@@ -1203,7 +1203,6 @@
 /area/golden_deep/engineering)
 "lu" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	layer = 2.8;
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -1961,8 +1960,7 @@
 "sA" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
@@ -2997,8 +2995,7 @@
 "Da" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/machinery/merchant_pad,
 /obj/effect/floor_decal/industrial/warning{
@@ -3149,8 +3146,7 @@
 "Ez" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
@@ -3321,7 +3317,6 @@
 /obj/machinery/conveyor{
 	dir = 9;
 	id = "golden_deep";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -3356,7 +3351,6 @@
 /area/golden_deep/secure)
 "GA" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -3706,7 +3700,6 @@
 "Ki" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -4006,8 +3999,7 @@
 "Nn" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
@@ -4205,8 +4197,7 @@
 "Qe" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;

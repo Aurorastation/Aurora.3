@@ -393,7 +393,7 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 			else
 				W.forceMove(T)
 
-	if(isStationLevel(z))
+	if(is_station_level(z))
 		GLOB.global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message] [on_store_location].", "[on_store_name]")
 	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] to [on_store_location]."))
 	playsound(loc, on_store_sound, 25)
@@ -491,7 +491,7 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 
 	// Book keeping!
 	var/turf/location = get_turf(src)
-	log_admin("[key_name_admin(M)] has entered a [initial(src.name)].",ckey=key_name(M))
+	log_admin("[key_name_admin(M)] has entered a [initial(src.name)].")
 	message_admins(SPAN_NOTICE("[key_name_admin(M)] has entered a [initial(src.name)].(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)"))
 
 	//Despawning occurs when process() is called with an occupant without a client.
@@ -560,7 +560,9 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 		else
 			icon_state = initial(icon_state)
 
-/obj/machinery/cryopod/relaymove(var/mob/user)
+/obj/machinery/cryopod/relaymove(mob/living/user, direction)
+	. = ..()
+
 	go_out()
 
 /obj/machinery/cryopod/proc/save_ipc_tag(var/mob/M)

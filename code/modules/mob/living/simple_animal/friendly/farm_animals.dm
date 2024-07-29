@@ -32,7 +32,7 @@
 
 	butchering_products = list(/obj/item/stack/material/animalhide = 3)
 
-/mob/living/simple_animal/hostile/retaliate/goat/Life()
+/mob/living/simple_animal/hostile/retaliate/goat/Life(seconds_per_tick, times_fired)
 	. = ..()
 	if(.)
 		if(locate(/obj/effect/plant) in loc)
@@ -182,7 +182,7 @@
 	pixel_x = rand(-6, 6)
 	pixel_y = rand(0, 10)
 
-/mob/living/simple_animal/chick/Life()
+/mob/living/simple_animal/chick/Life(seconds_per_tick, times_fired)
 	. =..()
 	if(!.)
 		return
@@ -271,7 +271,7 @@
 	else
 		..()
 
-/mob/living/simple_animal/chicken/Life()
+/mob/living/simple_animal/chicken/Life(seconds_per_tick, times_fired)
 	. =..()
 	if(!.)
 		return

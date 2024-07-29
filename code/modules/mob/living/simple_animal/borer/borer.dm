@@ -28,7 +28,7 @@
 	hunger_enabled = FALSE
 
 	var/used_dominate
-	var/datum/progressbar/autocomplete/ability_bar
+	var/datum/progressbar/ability_bar
 	var/ability_start_time = 0
 	var/obj/screen/borer/chemicals/chem_hud
 	var/chemicals = 10                      // Chemicals used for reproduction and spitting neurotoxin.
@@ -78,7 +78,7 @@
 /mob/living/simple_animal/borer/can_name(var/mob/living/M)
 	return FALSE
 
-/mob/living/simple_animal/borer/Life()
+/mob/living/simple_animal/borer/Life(seconds_per_tick, times_fired)
 	if(host)
 		if(!stat && host.stat != DEAD)
 			if(chemicals < 250)
@@ -92,7 +92,7 @@
 /mob/living/simple_animal/borer/proc/start_ability(var/atom/target, var/time)
 	if(!QDELETED(ability_bar))
 		return FALSE
-	ability_bar = new /datum/progressbar/autocomplete(src, time, target)
+	ability_bar = new /datum/progressbar(src, time, target)
 	ability_start_time = world.time
 	ability_bar.update(0)
 	return TRUE

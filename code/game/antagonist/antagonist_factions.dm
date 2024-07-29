@@ -41,7 +41,7 @@
 		return
 
 	to_chat(antag, SPAN_DANGER("You are attempting to convert \the [player.current]..."))
-	log_admin("[antag.mob]([antag.ckey]) attempted to convert [player.current].",ckey=antag.ckey,ckey_target=key_name(player.current))
+	log_admin("[antag.mob]([antag.ckey]) attempted to convert [player.current].")
 	message_admins(SPAN_DANGER("[antag.mob]([antag.ckey]) attempted to convert [player.current]."))
 
 	player.rev_cooldown = world.time+100

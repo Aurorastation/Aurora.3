@@ -722,7 +722,7 @@
 	var/list/pick_turfs = list()
 	for(var/turf/TIW in world)
 		var/turf/simulated/floor/exit = TIW
-		if(istype(exit) && isStationLevel(exit.z))
+		if(istype(exit) && is_station_level(exit.z))
 			pick_turfs += exit
 	P.target = pick(pick_turfs)
 	QDEL_IN(P, rand(150,300))
@@ -812,7 +812,7 @@
 	name = "shapesand"
 	desc = "A strangely animate clump of sand which can shift its color and consistency."
 	icon = 'icons/obj/mining.dmi'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	icon_state = "ore_glass"
 
 /obj/item/shapesand/attack() //can't be used to actually bludgeon things
@@ -874,3 +874,19 @@
 	color = "#464650"
 	taste_description = "salt"
 	fallback_specific_heat = 1
+
+/singleton/reagent/biological_tissue
+	name = "Biological Tissue"
+	description = "A suspension of the basic unit of life."
+	reagent_state = LIQUID
+	color = "#97b9a7"
+	taste_description = "water"
+	specific_heat = 1
+
+/singleton/reagent/soil
+	name = "Soil"
+	description = "A mixture of minerals, living organisms, organic matter, gas and water."
+	reagent_state = SOLID
+	color = "#5c4324"
+	taste_description = "earth"
+	specific_heat = 1

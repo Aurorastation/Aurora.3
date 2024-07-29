@@ -246,11 +246,11 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/atmos)
 "abm" = (
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
 /obj/machinery/cryopod{
 	dir = 4
+	},
+/obj/machinery/computer/cryopod{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
@@ -1725,7 +1725,9 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_east)
 "ahk" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/green,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
@@ -1902,7 +1904,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/crew)
 "ahy" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_medical)
 "ahD" = (
@@ -2435,7 +2439,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/maint_center)
 "aky" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /obj/machinery/atmospherics/pipe/simple/visible/red,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/atmos)
@@ -2611,7 +2617,9 @@
 /area/tret_industrial/inside/smelting_east)
 "alY" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
 "amt" = (
@@ -2865,7 +2873,8 @@
 	},
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/airlock/maintenance_hatch{
-	req_one_access = list(216)
+	req_one_access = list(216);
+	name = "Engineering"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
@@ -2957,7 +2966,9 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/medical{
-	dir = 4
+	dir = 4;
+	name = "Medical";
+	req_one_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/medical)
@@ -3163,7 +3174,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4
+	dir = 4;
+	name = "West Smeltery";
+	req_one_access = list(216)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3504,6 +3517,7 @@
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 1
 	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
 "auV" = (
@@ -3552,7 +3566,8 @@
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
-	req_one_access = list(216)
+	req_one_access = list(216);
+	name = "Communications"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/comms)
@@ -3908,7 +3923,8 @@
 	id = "tret_shutters_smelting_west";
 	pixel_x = -28;
 	pixel_y = -20;
-	dir = 2
+	dir = 2;
+	req_one_access = list(216)
 	},
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/ridged,
@@ -4055,7 +4071,9 @@
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/propulsion)
 "azK" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/comms)
 "azN" = (
@@ -4989,7 +5007,10 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "East Smeltery";
+	req_one_access = list(216)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
@@ -5176,7 +5197,8 @@
 /obj/machinery/access_button{
 	pixel_x = 20;
 	pixel_y = -28;
-	dir = 8
+	dir = 8;
+	req_one_access = list(216)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -5323,7 +5345,11 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/engineering)
 "aJa" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_one_access = /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor;
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "aJi" = (
@@ -5597,7 +5623,10 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Seed/Food Storage";
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/canteen)
 "aLN" = (
@@ -5608,7 +5637,8 @@
 	id = "tret_shutters_smelting_west";
 	pixel_x = 20;
 	pixel_y = 28;
-	dir = 4
+	dir = 4;
+	req_one_access = list(216)
 	},
 /turf/simulated/floor/tiled/ridged,
 /area/tret_industrial/inside/smelting_west)
@@ -5844,7 +5874,8 @@
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_one_access = list(216)
+	req_one_access = list(216);
+	name = "Hydroponics"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5893,7 +5924,9 @@
 /area/tret_industrial/inside/hallway_comms)
 "aON" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/green,
-/obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
+/obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle{
+	req_one_access = list(216)
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
@@ -6590,7 +6623,9 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Kitchen"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/canteen)
 "aUx" = (
@@ -6766,6 +6801,9 @@
 	pixel_y = 1
 	},
 /obj/structure/table/steel,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
 "aVP" = (
@@ -7283,7 +7321,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_comms)
 "brN" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/eva)
 "bsI" = (
@@ -7446,7 +7486,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
 "bMI" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_one_access = /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor;
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, aft";
 	dir = 4
@@ -7549,7 +7593,9 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/atmos)
 "ckw" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
@@ -7780,7 +7826,8 @@
 	id = "tret_shutters_smelting_west";
 	pixel_x = 28;
 	pixel_y = 32;
-	dir = 1
+	dir = 1;
+	req_one_access = list(216)
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -7928,7 +7975,11 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_west)
 "dVI" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_one_access = /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor;
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, cockpit";
 	dir = 2
@@ -7990,7 +8041,9 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "efU" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "egZ" = (
@@ -8056,7 +8109,11 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/tret_industrial/main)
 "ewQ" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_one_access = /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor;
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, aft";
 	dir = 8
@@ -8302,7 +8359,9 @@
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/hallway_docks)
 "fzf" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/medical)
 "fzL" = (
@@ -8317,7 +8376,8 @@
 	id = "tret_shutters_smelting_east";
 	pixel_x = -20;
 	pixel_y = 28;
-	dir = 8
+	dir = 8;
+	req_one_access = list(216)
 	},
 /turf/simulated/floor/tiled/ridged,
 /area/tret_industrial/inside/smelting_east)
@@ -8342,7 +8402,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
 "fMk" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
 "fME" = (
@@ -8410,7 +8472,8 @@
 	id = "tret_shutters_smelting_west";
 	pixel_x = -20;
 	pixel_y = -28;
-	dir = 8
+	dir = 8;
+	req_one_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
@@ -8627,7 +8690,8 @@
 	id = "tret_shutters_smelting_storage";
 	pixel_x = 28;
 	pixel_y = -20;
-	dir = 2
+	dir = 2;
+	req_one_access = list(216)
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -8717,7 +8781,9 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/comms)
 "gMI" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "gPQ" = (
@@ -8807,7 +8873,10 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Smeltery Storage";
+	req_one_access = list(216)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
@@ -9120,7 +9189,8 @@
 	id = "tret_shutters_smelting_east";
 	pixel_x = -28;
 	pixel_y = -20;
-	dir = 2
+	dir = 2;
+	req_one_access = list(216)
 	},
 /turf/simulated/floor/tiled/ridged,
 /area/tret_industrial/inside/smelting_east)
@@ -9213,6 +9283,17 @@
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
+/obj/item/cargo_package/offship{
+	pixel_y = 10;
+	pixel_x = -3
+	},
+/obj/item/cargo_package/offship{
+	pixel_y = -2;
+	pixel_x = 3
+	},
+/obj/item/cargo_package/offship{
+	pixel_y = 7
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
 "iTh" = (
@@ -10115,7 +10196,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_docks)
 "lIs" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_west)
 "lSw" = (
@@ -10146,7 +10229,10 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Engineering Storage";
+	req_one_access = list(216)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
@@ -10268,7 +10354,9 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "mxy" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engi_storage)
 "mzJ" = (
@@ -10425,7 +10513,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4
+	dir = 4;
+	req_one_access = list(216)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -10642,7 +10731,9 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_one_access = list(216)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
@@ -10675,7 +10766,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
 "nTO" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/canteen)
 "nWj" = (
@@ -10721,6 +10814,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/maint_center)
+"ojy" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/exoplanet/basalt/tret,
+/area/tret_industrial/outside/surface)
 "ojN" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/pickaxe{
@@ -10873,7 +10972,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
 "oNr" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
 "oQF" = (
@@ -11204,7 +11305,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4
+	dir = 4;
+	name = "Bathroom"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -11217,12 +11319,17 @@
 	id = "tret_shutters_smelting_east";
 	pixel_x = 20;
 	pixel_y = -28;
-	dir = 4
+	dir = 4;
+	req_one_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
 "qmq" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_one_access = /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor;
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, fore";
 	dir = 4
@@ -11287,7 +11394,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_one_access = /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor;
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "qyg" = (
@@ -11295,7 +11406,9 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/multi_tile/glass,
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Habitation"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/crew)
 "qyX" = (
@@ -11411,7 +11524,9 @@
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "qRq" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/botany)
 "qRF" = (
@@ -11422,7 +11537,8 @@
 	id = "tret_shutters_smelting_east";
 	pixel_x = 28;
 	pixel_y = 32;
-	dir = 1
+	dir = 1;
+	req_one_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
@@ -11447,7 +11563,9 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_east)
 "qVO" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_engineering)
 "qWO" = (
@@ -11513,7 +11631,9 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4
+	dir = 4;
+	name = "Atmospherics";
+	req_one_access = list(216)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11657,7 +11777,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
 "rzF" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/crew)
 "rAt" = (
@@ -11674,7 +11796,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4
+	dir = 4;
+	name = "Atmospherics"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11701,7 +11824,8 @@
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4;
-	req_one_access = list(216)
+	req_one_access = list(216);
+	name = "EVA Storage"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -12246,7 +12370,9 @@
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_botany)
 "tfr" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor{
+	req_one_access = list(216)
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_east)
 "tfJ" = (
@@ -12297,6 +12423,26 @@
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
+"tmo" = (
+/obj/effect/floor_decal/industrial/hatch_door/red{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_one_access = list(216);
+	name = "EVA Storage"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/eva)
 "tnC" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/oil,
@@ -12332,7 +12478,11 @@
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "tvg" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	req_one_access = /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor;
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, cockpit";
 	dir = 8
@@ -12373,7 +12523,7 @@
 /area/tret_industrial/inside/smelting_west)
 "tGW" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/ore_box,
+/obj/structure/cargo_receptacle,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
@@ -12546,7 +12696,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4
+	dir = 4;
+	req_one_access = list(216)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -12911,7 +13062,8 @@
 	id = "tret_shutters_smelting_storage";
 	pixel_x = -28;
 	pixel_y = 32;
-	dir = 1
+	dir = 1;
+	req_one_access = list(216)
 	},
 /turf/simulated/floor/tiled/ridged,
 /area/tret_industrial/inside/storage_smelting)
@@ -13106,7 +13258,8 @@
 /obj/machinery/access_button{
 	pixel_x = -20;
 	pixel_y = -28;
-	dir = 4
+	dir = 4;
+	req_one_access = list(216)
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -17036,7 +17189,7 @@ aIs
 glQ
 kRT
 lfy
-lfy
+ojy
 lfy
 lSw
 kRT
@@ -47516,7 +47669,7 @@ awl
 afw
 ajd
 adt
-tLY
+tmo
 abr
 aAY
 rGu

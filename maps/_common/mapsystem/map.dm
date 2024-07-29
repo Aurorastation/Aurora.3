@@ -4,7 +4,13 @@
 	var/description // Basic info about the map. Shows up in the new player options.
 	var/path
 
-	var/list/station_levels = list() // Z-levels the station exists on
+	/**
+	 * A list of traits for the zlevels of the map
+	 *
+	 * Each element is one zlevel, starting from the bottom one up
+	 */
+	var/list/traits = list()
+
 	var/list/admin_levels = list()   // Z-levels for admin functionality (Centcom, shuttle transit, etc)
 	var/list/contact_levels = list() // Z-levels that can be contacted from the station, for eg announcements
 	var/list/player_levels = list()  // Z-levels a character can typically reach
@@ -123,9 +129,21 @@
 	var/allow_borgs_to_leave = FALSE //this controls if borgs can leave the station or ship without exploding
 	var/area/warehouse_basearea //this controls where the cargospawner tries to populate warehouse items
 
+	/**
+	 * A list of the shuttles on this map, used by the Shuttle Manifest program to populate itself.
+	 * Formatted with the shuttle name as an index, followed by a list containing the color and icon to be used for the shuttle's drop down
+	 * On the manifest. i.e. "SCCV Intrepid" = list("color" = "purple", "icon" = "compass")
+	 */
+	var/list/shuttle_manifests = list()
+	/**
+	 * A list of the missions shuttles can select for their assignment in the Shuttle Manifest program.
+	 */
+	var/list/shuttle_missions = list()
+
 /datum/map/New()
 	if(!map_levels)
-		map_levels = station_levels.Copy()
+		map_levels = SSmapping.levels_by_trait(ZTRAIT_STATION)
+
 	if(!allowed_jobs)
 		allowed_jobs = subtypesof(/datum/job)
 		for(var/thing in EVENT_ROLES) //ideally this should prevent event roles from being open on the horizon
@@ -153,9 +171,8 @@
 
 /datum/map/proc/get_empty_zlevel()
 	if(empty_levels == null)
-		world.maxz++
-		empty_levels = list(world.maxz)
-		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
+		var/datum/space_level/empty_level = SSmapping.add_new_zlevel("Empty Level", ZTRAITS_AWAY, contain_turfs = FALSE)
+		empty_levels = list(empty_level.z_value)
 	return pick(empty_levels)
 
 /datum/map/proc/setup_shuttles()

@@ -383,7 +383,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 				var/turf/playerTurf = get_turf(M)
 				var/area/playerArea = get_area(playerTurf)
 				surviving_total++
-				if(isStationLevel(playerTurf.z) && is_station_area(playerArea))
+				if(is_station_level(playerTurf.z) && is_station_area(playerArea))
 					escaped_total++
 			if(isobserver(M))
 				ghosts++

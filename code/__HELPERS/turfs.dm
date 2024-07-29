@@ -110,7 +110,7 @@
 	return !turf_contains_dense_objects(T)
 
 /proc/is_station_turf(var/turf/T)
-	return T && isStationLevel(T.z)
+	return T && is_station_level(T.z)
 
 /proc/is_below_sound_pressure(var/turf/T)
 	var/datum/gas_mixture/environment = T ? T.return_air() : null

@@ -110,14 +110,26 @@
 	if(requires_contact)
 		set_invisibility(INVISIBILITY_OVERMAP)// Effects that require identification have their images cast to the client via sensors.
 
-/obj/effect/overmap/Crossed(var/obj/effect/overmap/visitable/other)
-	if(istype(other))
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+		COMSIG_ATOM_EXITED = PROC_REF(on_exit),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/effect/overmap/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(istype(arrived, /obj/effect/overmap/visitable))
 		for(var/obj/effect/overmap/visitable/O in loc)
 			SSskybox.rebuild_skyboxes(O.map_z)
 
-/obj/effect/overmap/Uncrossed(var/obj/effect/overmap/visitable/other)
-	if(istype(other))
-		SSskybox.rebuild_skyboxes(other.map_z)
+/obj/effect/overmap/proc/on_exit(atom/movable/gone, direction)
+	SIGNAL_HANDLER
+
+	if(istype(gone, /obj/effect/overmap/visitable))
+		var/obj/effect/overmap/visitable/V = gone
+		SSskybox.rebuild_skyboxes(V.map_z)
 		for(var/obj/effect/overmap/visitable/O in loc)
 			SSskybox.rebuild_skyboxes(O.map_z)
 

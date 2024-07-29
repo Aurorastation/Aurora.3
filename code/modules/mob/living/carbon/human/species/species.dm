@@ -152,35 +152,60 @@
 	var/list/stutter_verbs = list("stammers", "stutters")
 
 	// Environment tolerance/life processes vars.
-	var/reagent_tag                                   //Used for metabolizing reagents.
-	var/breath_pressure = 16                          // Minimum partial pressure safe for breathing, kPa
-	var/breath_type = GAS_OXYGEN                        // Non-oxygen gas breathed, if any.
-	var/poison_type = GAS_PHORON                        // Poisonous air.
-	var/exhale_type = GAS_CO2                // Exhaled gas type.
-	var/breath_vol_mul = 1 							  // The fraction of air used, relative to the default carbon breath volume (1/2 L)
-	var/breath_eff_mul = 1 								  // The efficiency of breathing, relative to the default carbon breath efficiency (1/6)
-	var/cold_level_1 = 260                            // Cold damage level 1 below this point.
-	var/cold_level_2 = 200                            // Cold damage level 2 below this point.
-	var/cold_level_3 = 120                            // Cold damage level 3 below this point.
-	var/heat_level_1 = 360                            // Heat damage level 1 above this point.
-	var/heat_level_2 = 400                            // Heat damage level 2 above this point.
-	var/heat_level_3 = 1000                           // Heat damage level 3 above this point.
-	var/passive_temp_gain = 0		                  // Species will gain this much temperature every second
-	var/hazard_high_pressure = HAZARD_HIGH_PRESSURE   // Dangerously high pressure.
-	var/warning_high_pressure = WARNING_HIGH_PRESSURE // High pressure warning.
-	var/warning_low_pressure = WARNING_LOW_PRESSURE   // Low pressure warning.
-	var/hazard_low_pressure = HAZARD_LOW_PRESSURE     // Dangerously low pressure.
-	var/light_dam                                     // If set, mob will be damaged in light over this value and heal in light below its negative.
-	var/breathing_sound = 'sound/voice/monkey.ogg'    // If set, this mob will have a breathing sound.
-	var/body_temperature = 310.15	                  // Non-IS_SYNTHETIC species will try to stabilize at this temperature. (also affects temperature processing)
+	/// Used for metabolizing reagents.
+	var/reagent_tag
+	/// Minimum partial pressure safe for breathing, kPa
+	var/breath_pressure = 16
+	/// Non-oxygen gas breathed, if any
+	var/breath_type = GAS_OXYGEN
+	/// Poisonous air
+	var/poison_type = GAS_PHORON
+	/// Exhaled gas type.
+	var/exhale_type = GAS_CO2
+	/// The fraction of air used, relative to the default carbon breath volume (1/2 L)
+	var/breath_vol_mul = 1
+	/// The efficiency of breathing, relative to the default carbon breath efficiency (1/6)
+	var/breath_eff_mul = 1
+	/// Cold damage level 1 below this point
+	var/cold_level_1 = 260
+	/// Cold damage level 2 below this point
+	var/cold_level_2 = 200
+	/// Cold damage level 3 below this point
+	var/cold_level_3 = 120
+	/// Heat damage level 1 above this point
+	var/heat_level_1 = 360
+	/// Heat damage level 2 above this point
+	var/heat_level_2 = 400
+	/// Heat damage level 3 above this point
+	var/heat_level_3 = 1000
+	/// Species will gain this much temperature every second
+	var/passive_temp_gain = 0
+	/// Dangerously high pressure
+	var/hazard_high_pressure = HAZARD_HIGH_PRESSURE
+	/// High pressure warning
+	var/warning_high_pressure = WARNING_HIGH_PRESSURE
+	/// Low pressure warning
+	var/warning_low_pressure = WARNING_LOW_PRESSURE
+	/// Dangerously low pressure
+	var/hazard_low_pressure = HAZARD_LOW_PRESSURE
+	/// If set, mob will be damaged in light over this value and heal in light below its negative
+	var/light_dam
+	/// If set, this mob will have a breathing sound
+	var/breathing_sound = 'sound/voice/monkey.ogg'
 
-	var/heat_discomfort_level = 315                   // Aesthetic messages about feeling warm.
-	var/cold_discomfort_level = 285                   // Aesthetic messages about feeling chilly.
+	/// Non-IS_SYNTHETIC species will try to stabilize at this temperature. (also affects temperature processing)
+	var/body_temperature = 310.15 //37°C
+	/// When body temperature reaches or passes this threshold, species is considered too hot
+	var/heat_discomfort_level = 315 //41°C
+	/// When body temperature reaches or passes this threshold, species is considered too cold
+	var/cold_discomfort_level = 285 //11°C
+	/// Aesthetic messages about feeling warm.
 	var/list/heat_discomfort_strings = list(
 		"You feel sweat drip down your neck.",
 		"You feel uncomfortably warm.",
 		"Your skin prickles in the heat."
 		)
+	/// Aesthetic messages about feeling chilly.
 	var/list/cold_discomfort_strings = list(
 		"You feel chilly.",
 		"You shiver suddenly.",
@@ -198,8 +223,10 @@
 	var/datum/hud_data/hud
 	var/hud_type
 	var/health_hud_intensity = 1
-	var/healths_x // set this to specify where exactly the healths HUD element appears
-	var/healths_overlay_x = 0 // set this to tweak where the overlays on top of the healths HUD element goes
+	/// Set this to specify where exactly the healths HUD element appears
+	var/healths_x
+	/// Set this to tweak where the overlays on top of the healths HUD element goes
+	var/healths_overlay_x = 0
 
 	var/list/equip_overlays
 	var/list/equip_adjust
@@ -423,7 +450,7 @@
 
 	var/datum/component/armor/armor_component = H.GetComponent(/datum/component/armor)
 	if(armor_component)
-		armor_component.RemoveComponent()
+		qdel(armor_component)
 
 	H.organs = list()
 	H.internal_organs = list()
@@ -641,7 +668,7 @@
 	if(H.is_drowsy())
 		cost *= 1.25
 	if (H.stamina == -1)
-		LOG_DEBUG("Error: Species with special sprint mechanics has not overridden cost function.")
+		stack_trace("Error: Species with special sprint mechanics has not overridden cost function.")
 		return 0
 
 	var/obj/item/organ/internal/augment/calf_override/C = H.internal_organs_by_name[BP_AUG_CALF_OVERRIDE]
@@ -743,7 +770,7 @@
 	if(!.)
 		return move_trail
 
-/datum/species/proc/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+/datum/species/proc/bullet_act(var/obj/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
 	return 0
 
 /datum/species/proc/handle_speech_problems(mob/living/carbon/human/H, message, say_verb, message_mode, message_range)

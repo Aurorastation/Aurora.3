@@ -170,3 +170,32 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 8)
 	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 5, "pumpkin squash" = 5, "creamy sauce" = 5))
 	filling_color = "#80d1e9"
+
+/obj/item/reagent_containers/food/snacks/ravioli/nakarka
+	name = "nakarka ravioli"
+	icon_state = "ravioli_nakarka"
+	desc = "Ravioli with Nakarka cheese filling in a sour cream and chives based sauce."
+	reagents_to_add = list(/singleton/reagent/nutriment = 10)
+	reagent_data = list(/singleton/reagent/nutriment = list("sharp tanginess" = 5, "pasta" = 4, "sour cream" = 4, "chives" = 3))
+
+/obj/item/reagent_containers/food/snacks/fettuccine_alfredo
+	name = "fettuccine alfredo"
+	desc = "Pasta lathered in a white, buttery parmesan cheese and cream sauce. Classic Italian!"
+	icon = 'icons/obj/item/reagent_containers/food/noodles.dmi'
+	icon_state = "alfredo"
+	trash = /obj/item/trash/plate
+	filling_color = "#f8e8b1"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein/cheese = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("pasta" = 5, "garlic" = 3), /singleton/reagent/nutriment/protein/cheese = list("creamy parmesan" = 5))
+
+/obj/item/reagent_containers/food/snacks/fettuccine_alfredo/update_icon()
+	var/expected_initial_reagent_volume
+	for(var/k in src.reagents_to_add)
+		expected_initial_reagent_volume += reagents_to_add[k]
+	var/percent_fettuccine_alfredo = round((reagents.total_volume / expected_initial_reagent_volume) * 100)
+	switch(percent_fettuccine_alfredo)
+		if(0 to 49)
+			icon_state = "alfredo_half"
+		if(50 to INFINITY)
+			icon_state = "alfredo"

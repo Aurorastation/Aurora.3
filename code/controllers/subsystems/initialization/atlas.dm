@@ -137,7 +137,7 @@ SUBSYSTEM_DEF(atlas)
 	)
 
 /datum/controller/subsystem/atlas/stat_entry(msg)
-	msg = "W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[GLOB.z_levels]"
+	msg = "W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[length(SSmapping.z_list)]"
 	return ..()
 
 /datum/controller/subsystem/atlas/Initialize(timeofday)
@@ -223,32 +223,32 @@ SUBSYSTEM_DEF(atlas)
 	var/static/regex/mapregex = new(".+\\.dmm$")
 	var/list/files = flist(directory)
 	sortTim(files, GLOBAL_PROC_REF(cmp_text_asc))
+	var/list/filemaps_to_load
+	for(var/file in files)
+		if(mapregex.Find(file))
+			filemaps_to_load += list(file)
+
 	var/mfile
-	var/first_dmm = TRUE
-	var/time
-	for (var/i in 1 to files.len)
-		mfile = files[i]
-		if (!mapregex.Find(mfile))
-			continue
+	var/time = world.time
 
-		log_subsystem_atlas("Loading '[mfile]'.")
-		time = world.time
+	if(length(filemaps_to_load) >= 2)
+		stack_trace("Only one file is now supported per map!")
+		return
 
-		mfile = "[directory][mfile]"
+	var/datum/space_level/first_level
+	for(var/traits in current_map.traits)
+		var/level = SSmapping.add_new_zlevel(name, traits, contain_turfs = FALSE)
+		if(!first_level)
+			first_level = level
 
-		var/target_z = 0
-		if (overwrite_default_z && first_dmm)
-			target_z = 1
-			first_dmm = FALSE
-			log_subsystem_atlas("Overwriting first Z.")
+	mfile = "[directory][filemaps_to_load[1]]"
 
-		if (!maploader.load_map(file(mfile), 0, 0, target_z, no_changeturf = TRUE))
-			log_subsystem_atlas("Failed to load '[mfile]'!")
-		else
-			log_subsystem_atlas("Loaded level in [(world.time - time)/10] seconds.")
-
-		.++
-		CHECK_TICK
+	if(!maploader.load_map(file(mfile), 0, 0, first_level.z_value, no_changeturf = TRUE))
+		log_subsystem_atlas("Failed to load '[mfile]'!")
+		return FALSE
+	else
+		log_subsystem_atlas("Loaded level in [(world.time - time)/10] seconds.")
+		return TRUE
 
 /datum/controller/subsystem/atlas/proc/get_selected_map()
 	if (GLOB.config.override_map)

@@ -5,7 +5,7 @@
 	desc = "A folded bag designed for the storage and transportation of cadavers."
 	icon = 'icons/obj/bodybag.dmi'
 	icon_state = "bodybag_folded"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	var/deploy_type = /obj/structure/closet/body_bag
@@ -141,9 +141,6 @@
 
 /obj/structure/closet/body_bag/animate_door()
 	flick("[initial(icon_state)]_anim_[opened ? "open" : "close"]", src)
-
-/obj/structure/closet/body_bag/stair_act() //Stops body bags flying open when pulled down stairs
-	return
 
 /obj/item/bodybag/cryobag
 	name = "stasis bag"

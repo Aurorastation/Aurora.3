@@ -30,7 +30,7 @@
 	desc = "A keyring with a small steel key, and a yellow fob reading \"Choo Choo!\"."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "train_keys"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/vehicle/train/cargo/trolley
 	name = "cargo train trolley"
@@ -149,7 +149,7 @@
 
 // Cargo trains are open topped, so you can shoot at the driver.
 // Or you can shoot at the tug itself, if you're good.
-/obj/vehicle/train/cargo/bullet_act(var/obj/item/projectile/Proj)
+/obj/vehicle/train/cargo/bullet_act(var/obj/projectile/Proj)
 	if (buckled && Proj.original == buckled)
 		buckled.bullet_act(Proj)
 	else

@@ -13,7 +13,7 @@
 	icon_state = "med_harness"
 	item_state = "med_harness"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MAGNET = 5, TECH_BIO = 3)
 	slot_flags = SLOT_OCLOTHING
 	var/panel_open = FALSE

@@ -10,6 +10,7 @@
 	can_be_buckled = FALSE
 	accent = ACCENT_TTS
 	appearance_flags = KEEP_TOGETHER
+	pass_flags_self = PASSVEHICLE
 	var/decal
 
 	var/emp_damage = 0

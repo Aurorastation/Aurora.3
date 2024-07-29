@@ -17,7 +17,7 @@
 
 	slot_flags = SLOT_BACK
 	is_wieldable = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 
@@ -64,7 +64,7 @@
 	desc = "An ivory container for gunpowder."
 	icon = 'icons/obj/guns/musket.dmi'
 	icon_state = "powderhorn"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = SLOT_BELT
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(5)
