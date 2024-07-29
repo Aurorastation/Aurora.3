@@ -7,8 +7,10 @@
 	id = "crystal_planet_outpost"
 
 	prefix = "away_site/crystal_planet_outpost/"
-	suffix = "crystal_planet_outpost.dmm"
+	suffix = "crystal_planet_outpost_.dmm"
 
+	exoplanet_base_area = /area/crystal_planet_outpost/surface
+	exoplanet_theme_base = /datum/exoplanet_theme/crystal
 	exoplanet_themes = list(
 		/turf/unsimulated/marker/green = /datum/exoplanet_theme/crystal,
 		/turf/unsimulated/marker/teal  = /datum/exoplanet_theme/crystal/mountain
@@ -40,12 +42,20 @@
 	initial_generic_waypoints = list(
 		"nav_crystal_planet_outpost_landing_pad_1a",
 		"nav_crystal_planet_outpost_landing_pad_1b",
+		"nav_crystal_planet_outpost_landing_pad_1c",
+		"nav_crystal_planet_outpost_landing_pad_1d",
 		"nav_crystal_planet_outpost_landing_pad_2a",
 		"nav_crystal_planet_outpost_landing_pad_2b",
+		"nav_crystal_planet_outpost_landing_pad_2c",
+		"nav_crystal_planet_outpost_landing_pad_2d",
 		"nav_crystal_planet_outpost_landing_pad_3a",
 		"nav_crystal_planet_outpost_landing_pad_3b",
+		"nav_crystal_planet_outpost_landing_pad_3c",
+		"nav_crystal_planet_outpost_landing_pad_3d",
 		"nav_crystal_planet_outpost_landing_pad_4a",
 		"nav_crystal_planet_outpost_landing_pad_4b",
+		"nav_crystal_planet_outpost_landing_pad_4c",
+		"nav_crystal_planet_outpost_landing_pad_4d",
 	)
 
 /obj/effect/overmap/visitable/sector/crystal_planet_outpost/New(nloc, max_x, max_y)

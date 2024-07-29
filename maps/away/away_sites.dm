@@ -5,6 +5,15 @@
 	prefix = "maps/away/"
 
 	/// If null, ignored, and exoplanet generation is not used.
+	/// If set, this var is not used for exoplanet generation, but may be used still,
+	/// like to get the correct turf color after destroying a rock wall.
+	/// Instantiated on init.
+	var/datum/exoplanet_theme/exoplanet_theme_base = null
+
+	// Analogous to the base exoplanet theme above.
+	var/area/exoplanet_base_area = null
+
+	/// If null, ignored, and exoplanet generation is not used.
 	/// If set, away site spawning includes partial exoplanet generation.
 	/// Should be assoc map of `/turf/unsimulated/marker/...` path to `/datum/exoplanet_theme/...` path,
 	/// where exoplanet generation with the map value is applied only on marker turfs of the applicable map key.
@@ -14,5 +23,10 @@
 
 	//Apply the subfolder that all ruins are in, as the prefix will get overwritten
 	prefix = "maps/away/[prefix]"
+
+	// Instantiate the theme and area if set
+	if(exoplanet_theme_base && exoplanet_base_area)
+		exoplanet_theme_base = new()
+		exoplanet_base_area = new()
 
 	..()
