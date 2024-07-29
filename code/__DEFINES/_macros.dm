@@ -95,6 +95,8 @@
 
 #define isobserver(A) istype(A, /mob/abstract/observer)
 
+#define isabstract(A) istype(A, /mob/abstract)
+
 #define isorgan(A) istype(A, /obj/item/organ/external)
 
 #define ispAI(A) istype(A, /mob/living/silicon/pai)

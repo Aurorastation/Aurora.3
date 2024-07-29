@@ -38,8 +38,6 @@ var/list/forum_groupids_to_ranks = list()
 				. |= R_REJUVINATE
 			if ("r_varedit")
 				. |= R_VAREDIT
-			if ("r_storyteller")
-				. |= R_STORYTELLER
 			if ("r_spawn","r_create")
 				. |= R_SPAWN
 			if ("r_moderator")

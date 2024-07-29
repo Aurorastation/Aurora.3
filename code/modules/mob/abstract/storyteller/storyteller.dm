@@ -8,6 +8,7 @@
 	see_invisible = SEE_INVISIBLE_OBSERVER
 	layer = OBSERVER_LAYER
 	incorporeal_move = INCORPOREAL_GHOST
+	simulated = FALSE
 
 	density = FALSE
 	mob_thinks = FALSE
@@ -18,38 +19,18 @@
 	/// Is the ghost able to see things humans can't?
 	var/ghostvision = FALSE
 
-
 /mob/abstract/storyteller/Initialize()
 	. = ..()
 	SSghostroles.add_spawn_atom("storyteller", src)
 
 /mob/abstract/storyteller/Destroy()
-	var/client/C = client
-	if(C)
-		if(C.holder.rights & R_STORYTELLER)
-			// If the rights are ONLY R_STORYTELLER, then we need to remove the whole datum. Means they're a normal player.
-			if(C.holder.rights == R_STORYTELLER)
-				C.holder.disassociate()
-				qdel(C.holder)
-			else
-				C.holder.rights &= ~R_STORYTELLER
-				C.remove_admin_verbs()
-				C.add_admin_verbs()
-		SSodyssey.remove_storyteller(src)
+	SSodyssey.remove_storyteller(src)
 	return ..()
 
 /mob/abstract/storyteller/LateLogin()
 	. = ..()
 	var/client/C = client
 	if(C)
-		if(!(C.holder.rights & R_STORYTELLER) || !C.holder)
-			if(!C.holder)
-				var/datum/admins/D = new /datum/admins("Storyteller", R_STORYTELLER, C.ckey)
-				D.associate(GLOB.directory[C.ckey])
-			else
-				C.holder.rights |= R_STORYTELLER
-				C.remove_admin_verbs()
-				C.add_admin_verbs()
 		real_name = "Storyteller ([client.ckey])"
 		SSodyssey.add_storyteller(src)
 
@@ -108,9 +89,6 @@
 		if((target.mob in messagemobs) || display_remote)
 			to_chat(target, "<span class='storyteller'>" + create_text_tag("STORY", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message linkify'>[msg]</span></span>")
 
-/mob/abstract/storyteller/Move(atom/newloc, direct)
-	return
-
 /mob/abstract/storyteller/dust()
 	return
 
@@ -154,8 +132,8 @@
 
 /mob/abstract/storyteller/verb/toggle_ghostsee()
 	set name = "Toggle Ghost Vision"
-	set desc = "Toggles your ability to see things only ghosts can see, like other ghosts."
-	set category = "Ghost"
+	set category = "Storyteller"
+	set desc = "Toggles your ability to see things only ghosts can see, like ghosts."
 
 	ghostvision = !ghostvision
 	update_sight()
