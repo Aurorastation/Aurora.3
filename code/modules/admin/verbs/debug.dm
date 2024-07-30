@@ -397,8 +397,6 @@
 			to_chat(usr, jointext(GLOB.living_mob_list,", "))
 		if("Dead Mobs")
 			to_chat(usr, jointext(GLOB.dead_mob_list,", "))
-		if("Frozen Mobs")
-			to_chat(usr, jointext(GLOB.frozen_crew,", "))
 		if("Clients")
 			to_chat(usr, jointext(GLOB.clients,", "))
 

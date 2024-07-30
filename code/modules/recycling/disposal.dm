@@ -604,22 +604,6 @@
 	else
 		return ..(mover, target, height, air_group)
 
-/obj/machinery/disposal/CollidedWith(atom/bumped_atom)
-	. = ..()
-	var/atom/movable/AM = bumped_atom
-	if(!istype(AM))
-		return
-
-	if(isobj(AM))
-		var/obj/O = AM
-		O.forceMove(src)
-	else if(ismob(AM))
-		var/mob/M = AM
-		if(prob(2)) // to prevent mobs being stuck in infinite loops
-			to_chat(M, SPAN_WARNING("You hit the edge of the chute."))
-			return
-		M.forceMove(src)
-
 /obj/machinery/disposal/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(isitem(hitting_atom))
 		if(prob(75))
