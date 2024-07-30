@@ -26,7 +26,7 @@
 
 	// Instantiate the theme and area if set
 	if(exoplanet_theme_base && exoplanet_base_area)
-		exoplanet_theme_base = new()
-		exoplanet_base_area = new()
+		exoplanet_theme_base = new exoplanet_theme_base()
+		exoplanet_base_area = new exoplanet_base_area()
 
 	..()
