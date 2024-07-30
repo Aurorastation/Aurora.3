@@ -1,0 +1,42 @@
+[
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 34,
+		"submap_size_y": 11,
+		"submap_size_z": 1,
+		"submaps_dmm": "crystal_planet_outpost_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/anomaly_cave_01",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/crystal_planet_outpost/anomaly_cave_01",
+		"submaps_can_repeat": false
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 23,
+		"submap_size_y": 12,
+		"submap_size_z": 1,
+		"submaps_dmm": "crystal_planet_outpost_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/anomaly_cave_02",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/crystal_planet_outpost/anomaly_cave_02",
+		"submaps_can_repeat": false
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 33,
+		"submap_size_y": 11,
+		"submap_size_z": 1,
+		"submaps_dmm": "crystal_planet_outpost_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/anomaly_cave_03",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/crystal_planet_outpost/anomaly_cave_03",
+		"submaps_can_repeat": false
+	},
+	{
+		"type": "SubmapExtractInsert",
+		"submap_size_x": 23,
+		"submap_size_y": 22,
+		"submap_size_z": 1,
+		"submaps_dmm": "crystal_planet_outpost_submaps.dmm",
+		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/anomaly_cave_04",
+		"marker_insert": "/obj/effect/map_effect/marker/mapmanip/submap/insert/crystal_planet_outpost/anomaly_cave_04",
+		"submaps_can_repeat": false
+	}
+]
