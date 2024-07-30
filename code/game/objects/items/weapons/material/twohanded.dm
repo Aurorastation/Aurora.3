@@ -17,7 +17,7 @@
  * Twohanded
  */
 /obj/item/material/twohanded
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	var/wielded = 0
 	var/force_wielded = 0
 	var/force_unwielded
@@ -168,7 +168,7 @@
 
 ///////////OFFHAND///////////////
 /obj/item/material/twohanded/offhand
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	icon_state = "offhand"
 	name = "offhand"
 	default_material = "placeholder"
@@ -206,7 +206,7 @@
 	force_divisor = 0.7 // 10/42 with hardness 60 (steel) and 0.25 unwielded divisor
 	sharp = 1
 	edge = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
 	force_wielded = 30
 	attack_verb = list("attacked", "chopped", "cleaved", "torn", "cut")
@@ -245,7 +245,7 @@
 	name = "spear"
 	desc = "A haphazardly-constructed yet still deadly weapon of ancient design."
 	force = 15
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
 	force_divisor = 0.35 // 21 damage for steel (hardness 60)
 	unwielded_force_divisor = 0.2 // 12 damage for steel (hardness 60)
@@ -356,7 +356,7 @@
 	force_unwielded = 10
 	force_wielded = 20
 	throwforce = 5
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	sharp = TRUE
 	edge = TRUE
 	origin_tech = list(TECH_COMBAT = 5)
@@ -542,7 +542,7 @@
 	unwielded_force_divisor = 0.2
 	force_divisor = 0.3
 	edge = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
 	attack_verb = list("attacked", "poked", "jabbed", "gored", "stabbed")
 	default_material = "steel"
@@ -640,7 +640,7 @@
 	name = "zweihander"
 	desc = "A german upgrade to the einhander models of ancient times."
 	force = 25
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
 	force_wielded = 30
 	unwielded_force_divisor = 1

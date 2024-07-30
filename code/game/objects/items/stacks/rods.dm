@@ -23,7 +23,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	singular_name = "metal rod"
 	icon_state = "rods"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 20
 	throwforce = 15.0
 	throw_speed = 5
@@ -102,7 +102,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	icon_state = "barbed_wire"
 	singular_name = "length"
 	max_amount = 50
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
 	attack_verb = list("hit", "whacked", "sliced")
 
@@ -119,7 +119,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	max_amount = 50
 	icon = 'icons/obj/barricades.dmi'
 	icon_state = "liquidbags"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 650, MATERIAL_PHORON = 100, MATERIAL_PLASTEEL = 150)
 
 /obj/item/stack/liquidbags/half_full

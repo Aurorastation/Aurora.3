@@ -280,7 +280,7 @@
 
 /obj/effect/shuttle_landmark/automatic/ghostrole_activation/shuttle_arrived(datum/shuttle/shuttle)
 	. = ..()
-	if(!triggered_away_sites && !isStationLevel(loc.z))
+	if(!triggered_away_sites && !is_station_level(loc.z))
 		for(var/s in SSghostroles.spawners)
 			var/datum/ghostspawner/G = SSghostroles.spawners[s]
 			for(var/obj/effect/ghostspawpoint/L in SSghostroles.spawnpoints[s])

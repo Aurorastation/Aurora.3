@@ -10,7 +10,7 @@
 	var/datum/battle_monsters/spell/spell_datum
 	var/datum/battle_monsters/trap/trap_datum
 
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	drop_sound = null
 
 	//Card information here

@@ -165,7 +165,7 @@ var/global/area/overmap/map_overmap
 	if(!in_space)
 		SSatlas.current_map.sealed_levels |= map_z
 	if(base)
-		SSatlas.current_map.station_levels |= map_z
+		// SSatlas.current_map.station_levels |= map_z
 		SSatlas.current_map.contact_levels |= map_z
 		SSatlas.current_map.map_levels |= map_z
 

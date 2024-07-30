@@ -298,7 +298,7 @@
 /obj/item/reagent_containers/food/condiment/small/packet
 	icon_state = "packet_small"
 	fixed_state = TRUE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	possible_transfer_amounts = list(1,5,10)
 	amount_per_transfer_from_this = 1
 	volume = 10

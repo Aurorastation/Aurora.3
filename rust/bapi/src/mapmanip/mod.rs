@@ -17,6 +17,7 @@ pub enum MapManipulation {
     SubmapExtractInsert {
         submap_size_x: i64,
         submap_size_y: i64,
+        submap_size_z: i64,
         submaps_dmm: String,
         marker_extract: String,
         marker_insert: String,
@@ -60,6 +61,7 @@ pub fn mapmanip(
             MapManipulation::SubmapExtractInsert {
                 submap_size_x,
                 submap_size_y,
+                submap_size_z,
                 submaps_dmm,
                 marker_extract,
                 marker_insert,
@@ -69,6 +71,7 @@ pub fn mapmanip(
                 &mut map,
                 *submap_size_x,
                 *submap_size_y,
+                *submap_size_z,
                 submaps_dmm,
                 marker_extract,
                 marker_insert,
@@ -91,14 +94,16 @@ fn mapmanip_submap_extract_insert(
     map: &mut GridMap,
     submap_size_x: i64,
     submap_size_y: i64,
+    submap_size_z: i64,
     submaps_dmm: &String,
     marker_extract: &String,
     marker_insert: &String,
     submaps_can_repeat: bool,
 ) -> eyre::Result<()> {
-    let submap_size = dmmtools::dmm::Coord2::new(
+    let submap_size = dmmtools::dmm::Coord3::new(
         submap_size_x.try_into().wrap_err("invalid submap_size_x")?,
         submap_size_y.try_into().wrap_err("invalid submap_size_y")?,
+        submap_size_z.try_into().wrap_err("invalid submap_size_z")?,
     );
 
     // get the submaps map

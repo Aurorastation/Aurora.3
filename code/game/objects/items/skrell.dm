@@ -3,7 +3,7 @@
 	desc = "An antique and delicate looking instrument used to study the stars."
 	icon = 'icons/obj/item/skrell/stellascope.dmi'
 	icon_state = "starscope"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
@@ -80,7 +80,7 @@
 	icon = 'icons/obj/item/skrell/nralakk_projector.dmi'
 	icon_state = "projector"
 	light_color = LIGHT_COLOR_HALOGEN
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	matter = list(MATERIAL_GLASS = 200)
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
@@ -231,7 +231,7 @@
 /obj/item/nralakktag
 	name = "\improper Nralakk Federation loyalty ear-tag"
 	desc = "An ear-tag that shows the wearer is loyal to the Nralakk Federation. A small cable travels into the ear canal..."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_EARS
 	icon = 'icons/obj/item/skrell/jargtag.dmi'
 	icon_state = "jargtag"

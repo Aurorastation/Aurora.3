@@ -1,4 +1,4 @@
-/obj/item/projectile/bullet/chemdart
+/obj/projectile/bullet/chemdart
 	name = "dart"
 	icon_state = "dart"
 	damage = 5
@@ -9,11 +9,11 @@
 
 	muzzle_type = null
 
-/obj/item/projectile/bullet/chemdart/New()
+/obj/projectile/bullet/chemdart/New()
 	reagents = new/datum/reagents(reagent_amount)
 	reagents.my_atom = src
 
-/obj/item/projectile/bullet/chemdart/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
+/obj/projectile/bullet/chemdart/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
 	if(blocked < 100 && ishuman(target))
 		var/mob/living/carbon/human/H = target
 		if(H.can_inject(target_zone=def_zone))
@@ -24,7 +24,7 @@
 	desc = "A small hardened, hollow dart."
 	icon_state = "dart"
 	caliber = "dart"
-	projectile_type = /obj/item/projectile/bullet/chemdart
+	projectile_type = /obj/projectile/bullet/chemdart
 
 /obj/item/ammo_casing/chemdart/expend()
 	qdel(src)
@@ -92,7 +92,7 @@
 
 /obj/item/gun/projectile/dartgun/consume_next_projectile()
 	. = ..()
-	var/obj/item/projectile/bullet/chemdart/dart = .
+	var/obj/projectile/bullet/chemdart/dart = .
 	if(istype(dart))
 		fill_dart(dart)
 
@@ -122,7 +122,7 @@
 	..()
 
 //fills the given dart with reagents
-/obj/item/gun/projectile/dartgun/proc/fill_dart(var/obj/item/projectile/bullet/chemdart/dart)
+/obj/item/gun/projectile/dartgun/proc/fill_dart(var/obj/projectile/bullet/chemdart/dart)
 	if(mixing.len)
 		var/mix_amount = dart.reagent_amount/mixing.len
 		for(var/obj/item/reagent_containers/glass/beaker/B in mixing)

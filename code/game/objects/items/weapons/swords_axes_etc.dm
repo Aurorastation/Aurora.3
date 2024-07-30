@@ -42,7 +42,7 @@
 	var/state_extended = "telebaton_1"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	force = 3
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
@@ -57,14 +57,14 @@
 		user.visible_message(SPAN_WARNING("With a flick of their wrist, [user] extends their telescopic baton."), SPAN_WARNING("You extend the baton."), SPAN_WARNING("You hear an ominous click."))
 		icon_state = state_extended
 		item_state = state_extended
-		w_class = ITEMSIZE_NORMAL
+		w_class = WEIGHT_CLASS_NORMAL
 		force = 22 //quite robust
 		attack_verb = list("smacked", "struck", "slapped")
 	else
 		user.visible_message(SPAN_NOTICE("\The [user] collapses their telescopic baton."), SPAN_NOTICE("You collapse the baton."), SPAN_NOTICE("You hear a click."))
 		icon_state = initial(icon_state)
 		item_state = initial(item_state)
-		w_class = ITEMSIZE_SMALL
+		w_class = WEIGHT_CLASS_SMALL
 		force = 3 //not so robust now
 		attack_verb = list("hit", "punched")
 

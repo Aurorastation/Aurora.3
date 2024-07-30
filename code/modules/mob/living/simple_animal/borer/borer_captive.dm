@@ -48,7 +48,7 @@
 
 		var/resist_time = rand(40 SECONDS, 1 MINUTE)
 		addtimer(CALLBACK(src, PROC_REF(eject_borer), B, H), resist_time)
-		resist_bar = new /datum/progressbar/autocomplete(src, resist_time, B.host)
+		resist_bar = new /datum/progressbar(src, resist_time, B.host)
 		resist_start_time = world.time
 		resist_bar.update(0)
 		return

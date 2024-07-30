@@ -121,7 +121,7 @@
 	item_state = "powder"
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = 5
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	volume = 50
 
 /obj/item/reagent_containers/powder/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)

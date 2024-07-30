@@ -156,7 +156,7 @@
 	They follow Hadiism as their main ideology, with the objective of securing the tajaran freedom and place in the galactic community. Membership of the Hadiist Party is not open. \
 	For anyone to become a member, they must be approved by a committee that will consider their qualifications and past. Goverment officials can grant honorary memberships, this is \
 	seen as nothing but a honor and does not grant any status or position that a regular Party member would have."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = TRUE
 	v_flippable = FALSE
 
@@ -184,7 +184,7 @@
 	cultures are protected by the authorities. Traditional Zhan communities, rock nomads and Amohdan lodges are allowed to thrive in the territories of the Democratic People's Republic. \
 	This ideology is known as Al'mariism, as it seeks to preserve the initial ideals of the first revolution."
 	slot_flags = SLOT_TIE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = TRUE
 
 	drop_sound = 'sound/items/drop/ring.ogg'
@@ -199,7 +199,7 @@
 	part of the Adhomian way of life. While the government makes no effort in enforcing this separation, there is a great societal expectation that each Tajara will attempt to stay in \
 	their customary roles related to their ethnicity."
 	slot_flags = SLOT_TIE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = TRUE
 
 	drop_sound = 'sound/items/drop/ring.ogg'
@@ -255,7 +255,7 @@
 	icon_state = "pra-passport"
 	overlay_state = "pra-passport"
 	slot_flags = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = FALSE
 	v_flippable = FALSE
 
@@ -270,7 +270,7 @@
 	icon_state = "dpra-passport"
 	overlay_state = "dpra-passport"
 	slot_flags = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = FALSE
 	v_flippable = FALSE
 
@@ -285,7 +285,7 @@
 	icon_state = "nka-passport"
 	overlay_state = "nka-passport"
 	slot_flags = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = FALSE
 	v_flippable = FALSE
 
@@ -301,7 +301,7 @@
 	icon_state = "ftc-passport"
 	overlay_state = "ftc-passport"
 	slot_flags = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = FALSE
 	v_flippable = FALSE
 
@@ -317,7 +317,7 @@
 	icon_state = "rosette"
 	item_state = "rosette"
 	slot_flags = SLOT_MASK | SLOT_TIE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/accessory/tajaran/kin_srendarr/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
@@ -342,7 +342,7 @@
 	item_state = "wooden_talisman"
 	desc_extended = "Talismans and charms are common among religious and superstitious tajara, with many believing them to be able to bring good fortune or ward off Raskara and other evils. \
 	Hand-carved tajani charms are held in special regards, often being thought of as being particularly fortunate."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_MASK | SLOT_WRISTS | SLOT_EARS | SLOT_TIE
 
@@ -582,7 +582,7 @@
 	desc = "Dogtags issued to the Tajaran soldiers of all Adhomian factions. Veterans usually bring them back home."
 	icon = 'icons/clothing/accessories/dogtags.dmi'
 	icon_state = "adhomai_tag"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/accessory/tajaran/hadii_badge
 	name = "president Hadii badge"

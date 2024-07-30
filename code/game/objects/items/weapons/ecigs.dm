@@ -12,7 +12,7 @@
 	var/cell_type = /obj/item/cell/device
 	var/obj/item/reagent_containers/ecig_cartridge/ec_cartridge
 	var/cartridge_type = /obj/item/reagent_containers/ecig_cartridge/med_nicotine
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("attacked", "poked", "battered")
 	body_parts_covered = 0
@@ -241,7 +241,7 @@
 /obj/item/reagent_containers/ecig_cartridge
 	name = "tobacco flavour cartridge"
 	desc = "A small metal cartridge, used with electronic cigarettes, which contains an atomizing coil and a solution to be atomized."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/ecig.dmi'
 	icon_state = "ecartridge"
 	matter = list(MATERIAL_STEEL = 50, MATERIAL_GLASS = 10)

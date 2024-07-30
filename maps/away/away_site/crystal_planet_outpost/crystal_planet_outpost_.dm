@@ -6,7 +6,7 @@
 	spawn_weight = 1
 
 	prefix = "away_site/crystal_planet_outpost/"
-	suffixes = list("crystal_planet_outpost.dmm")
+	suffix = "crystal_planet_outpost.dmm"
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	sectors_blacklist = list(ALL_SPECIFIC_SECTORS) //it's a whole planet, shouldn't have it in predefined sectors

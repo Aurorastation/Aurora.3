@@ -29,7 +29,7 @@
 	slot_flags = SLOT_BELT
 	force = 18
 	throwforce = 7
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
@@ -60,7 +60,7 @@
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 5
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	matter = list(DEFAULT_WALL_MATERIAL = 75)
 	attack_verb = list("stabbed")
 	usesound = 'sound/items/Screwdriver.ogg'
@@ -133,7 +133,7 @@
 	force = 14
 	throw_speed = 2
 	throw_range = 9
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 80)
 	attack_verb = list("pinched", "nipped")
@@ -232,7 +232,7 @@
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 	//Cost to make in the autolathe
 	matter = list(DEFAULT_WALL_MATERIAL = 70, MATERIAL_GLASS = 30)
@@ -540,7 +540,7 @@
 			playsound(loc, 'sound/items/welder_activate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 			force = 22
 			damtype = DAMAGE_BURN
-			w_class = ITEMSIZE_LARGE
+			w_class = WEIGHT_CLASS_BULKY
 			welding = TRUE
 			hitsound = pick(SOUNDS_LASER_MEAT)
 			attack_verb = list("scorched", "burned", "blasted", "blazed")
@@ -689,7 +689,7 @@
 	slot_flags = SLOT_BELT
 	force = 18
 	throwforce = 7
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 	usesound = /singleton/sound_category/crowbar_sound
@@ -711,7 +711,7 @@
 	desc = "A short lightweight emergency tool meant to chop, pry and pierce. Most of the handle is insulated excepting the wedge at the very bottom. The axe head atop the tool has a short pick opposite of the blade."
 	icon_state = "rescue_axe"
 	item_state = "rescue_axe"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 18
 	throwforce = 12
 	obj_flags = null //Handle is insulated, so this means it won't conduct electricity and hurt you.
@@ -756,7 +756,7 @@
 	slot_flags = SLOT_BELT
 	force = 18
 	throwforce = 7
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ENGINEERING = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 150)
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
@@ -776,7 +776,7 @@
 		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi',
 		)
 	force = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/items/drop/multitool.ogg'
 	pickup_sound = 'sound/items/pickup/multitool.ogg'
 
@@ -854,7 +854,7 @@
 	item_flags = ITEM_FLAG_HELD_MAP_TEXT
 	force = 18
 	attack_verb = list("gored", "drilled", "screwed", "punctured")
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	toolspeed = 3
 	usesound = 'sound/items/drill_use.ogg'
 	var/current_tool = 1
@@ -925,7 +925,7 @@
 	icon = 'icons/obj/tools.dmi'
 	icon_state = "steel_wool"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/lit
 	matter = list(MATERIAL_STEEL = 40)
 
@@ -996,7 +996,7 @@
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 75)
 	attack_verb = list("smashed", "hammered")
 	drop_sound = 'sound/items/drop/crowbar.ogg'
