@@ -2,8 +2,8 @@
 	// cave
 	{
 		"type": "SubmapExtractInsert",
-		"submap_size_x": 23,
-		"submap_size_y": 22,
+		"submap_size_x": 15,
+		"submap_size_y": 13,
 		"submap_size_z": 1,
 		"submaps_dmm": "crystal_planet_outpost_submaps.dmm",
 		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/cave_01",
@@ -12,8 +12,8 @@
 	},
 	{
 		"type": "SubmapExtractInsert",
-		"submap_size_x": 23,
-		"submap_size_y": 22,
+		"submap_size_x": 13,
+		"submap_size_y": 10,
 		"submap_size_z": 1,
 		"submaps_dmm": "crystal_planet_outpost_submaps.dmm",
 		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/cave_02",
@@ -22,8 +22,8 @@
 	},
 	{
 		"type": "SubmapExtractInsert",
-		"submap_size_x": 23,
-		"submap_size_y": 22,
+		"submap_size_x": 33,
+		"submap_size_y": 17,
 		"submap_size_z": 1,
 		"submaps_dmm": "crystal_planet_outpost_submaps.dmm",
 		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/cave_03",
@@ -76,8 +76,8 @@
 	// crew_room
 	{
 		"type": "SubmapExtractInsert",
-		"submap_size_x": 23,
-		"submap_size_y": 22,
+		"submap_size_x": 3,
+		"submap_size_y": 3,
 		"submap_size_z": 1,
 		"submaps_dmm": "crystal_planet_outpost_submaps.dmm",
 		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/crew_room_n",
@@ -86,8 +86,8 @@
 	},
 	{
 		"type": "SubmapExtractInsert",
-		"submap_size_x": 23,
-		"submap_size_y": 22,
+		"submap_size_x": 3,
+		"submap_size_y": 3,
 		"submap_size_z": 1,
 		"submaps_dmm": "crystal_planet_outpost_submaps.dmm",
 		"marker_extract": "/obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/crew_room_s",
