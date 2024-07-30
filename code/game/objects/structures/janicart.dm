@@ -360,8 +360,6 @@
 //Shamelessly copied from wheelchair code
 /obj/structure/janitorialcart/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user.stat || user.stunned || user.weakened || user.paralysis || user.lying || user.restrained())
 		if(user==pulling)
@@ -431,7 +429,7 @@
 	if(istype(mover, /mob/living) && mover == pulling)
 		return 1
 	else
-		if(istype(mover, /obj/item/projectile))
+		if(istype(mover, /obj/projectile))
 			return prob(30)
 		else
 			return !density

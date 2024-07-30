@@ -8,7 +8,7 @@
 	item_state = "passcard_sol_dionae"
 	contained_sprite = TRUE
 	slot_flags = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = FALSE
 	v_flippable = FALSE
 	badge_string = null

@@ -5,7 +5,7 @@
 	icon_state = "dispenser"
 	density = TRUE
 	anchored = TRUE
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	var/max_tanks = 20
 	var/oxygen_tanks = 10
 	var/phoron_tanks = 10

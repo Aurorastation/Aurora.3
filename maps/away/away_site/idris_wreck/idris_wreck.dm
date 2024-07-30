@@ -3,7 +3,7 @@
 	description = "An Idris vessel, set upon by pirates and left in ruins."
 
 	prefix = "away_site/idris_wreck/"
-	suffixes = list("idris_wreck.dmm")
+	suffix = "idris_wreck.dmm"
 
 	sectors = list(SECTOR_BADLANDS, SECTOR_WEEPING_STARS, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE) //sectors that an idris ship might be passing through, but frontier enough that it could get raided
 	spawn_weight = 1

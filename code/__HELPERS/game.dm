@@ -1,15 +1,8 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-/proc/is_on_same_plane_or_station(var/z1, var/z2)
-	if(z1 == z2)
-		return 1
-	if(isStationLevel(z1) && isStationLevel(z2))
-		return 1
-	return 0
-
 /proc/max_default_z_level()
 	var/max_z = 0
-	for(var/z in SSatlas.current_map.station_levels)
+	for(var/z in SSmapping.levels_by_trait(ZTRAIT_STATION))
 		max_z = max(z, max_z)
 	for(var/z in SSatlas.current_map.admin_levels)
 		max_z = max(z, max_z)

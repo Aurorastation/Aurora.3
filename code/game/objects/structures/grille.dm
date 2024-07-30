@@ -107,12 +107,12 @@
 	if(istype(mover) && mover.pass_flags & PASSGRILLE)
 		return 1
 	else
-		if(istype(mover, /obj/item/projectile))
+		if(istype(mover, /obj/projectile))
 			return prob(30)
 		else
 			return !density
 
-/obj/structure/grille/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/grille/bullet_act(var/obj/projectile/Proj)
 	if(!Proj)	return
 
 	//Flimsy grilles aren't so great at stopping projectiles. However they can absorb some of the impact
@@ -327,7 +327,7 @@
 /obj/structure/grille/crescent/ex_act(var/severity = 2.0)
 	return
 
-/obj/structure/grille/crescent/hitby()
+/obj/structure/grille/crescent/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	return
 
 /obj/structure/grille/crescent/bullet_act()

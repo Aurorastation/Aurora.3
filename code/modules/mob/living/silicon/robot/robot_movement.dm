@@ -66,7 +66,8 @@
 							to_chat(cleaned_human, SPAN_WARNING("\The [src] runs its bottom mounted bristles all over you!"))
 
 	if(client)
-		var/turf/B = GetAbove(get_turf(src))
+		var/turf/T = get_turf(src)
+		var/turf/B = GET_TURF_ABOVE(T)
 		if(up_hint)
 			up_hint.icon_state = "uphint[(B ? !!B.is_hole : 0)]"
 

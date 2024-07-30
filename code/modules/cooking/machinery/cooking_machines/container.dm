@@ -20,7 +20,7 @@
 	drop_sound = 'sound/items/drop/metal_pot.ogg'
 	pickup_sound = 'sound/items/pickup/metal_pot.ogg'
 	var/appliancetype // Bitfield, uses the same as appliances
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/reagent_containers/cooking_container/on_reagent_change()
 	. = ..()
@@ -248,7 +248,7 @@
 	hitsound = 'sound/weapons/smash.ogg'
 	atom_flags = ATOM_FLAG_OPEN_CONTAINER // Will still react
 	appliancetype = POT
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/reagent_containers/cooking_container/pot/Initialize(mapload, mat_key)
 	. = ..(mapload)

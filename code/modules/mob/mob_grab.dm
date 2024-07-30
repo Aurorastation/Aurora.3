@@ -33,7 +33,7 @@
 	layer = HUD_ABOVE_ITEM_LAYER
 	abstract = 1
 	item_state = "nothing"
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	throw_range = 5
 
 	drop_sound = null
@@ -157,9 +157,12 @@
 				A.losebreath = max(A.losebreath + 3, 5)
 				A.adjustOxyLoss(3)
 				if(affecting.stat == CONSCIOUS)
+					state = GRAB_UPGRADING
 					if(do_mob(assailant, affecting, 150))
 						A.visible_message(SPAN_WARNING("[A] falls unconscious..."), FONT_LARGE(SPAN_DANGER("The world goes dark as you fall unconscious...")))
 						A.Paralyse(20)
+					if(state == GRAB_UPGRADING)
+						state = GRAB_KILL
 		else if(istype(affecting, /mob/living/simple_animal))
 			if(affecting.stat != DEAD)
 				affecting.health -= 1

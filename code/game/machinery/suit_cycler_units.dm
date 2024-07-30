@@ -325,3 +325,15 @@
 /obj/machinery/suit_cycler/offship/skrell/kala/leader
 	suit = /obj/item/clothing/suit/space/void/kala/leader
 	helmet = /obj/item/clothing/head/helmet/space/void/kala/leader
+
+/obj/machinery/suit_cycler/offship/tarwa
+	model_text = "Tarwa Conglomerate"
+	req_access = list(ACCESS_UNATHI_PIRATE)
+	departments = list("Tarwa Conglomerate")
+	species = list(BODYTYPE_UNATHI)
+	suit = /obj/item/clothing/suit/space/void/unathi_pirate/tarwa
+	helmet = /obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa
+
+/obj/machinery/suit_cycler/offship/tarwa/captain
+	suit = /obj/item/clothing/suit/space/void/unathi_pirate/tarwa/captain
+	helmet = /obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa/captain

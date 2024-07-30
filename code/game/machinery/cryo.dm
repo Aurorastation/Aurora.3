@@ -112,8 +112,6 @@
 
 /obj/machinery/atmospherics/unary/cryo_cell/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(src.occupant == user && !user.stat)
 		go_out()

@@ -8,7 +8,7 @@
 	icon_state = "walllocker" //...man, how OLD is this $#!?
 	door_anim_angle = 132
 	door_anim_squish = 0.38
-	door_hinge = -7
+	door_hinge_x = -7
 	door_anim_time = 2.7
 	store_mobs = FALSE
 	density = FALSE

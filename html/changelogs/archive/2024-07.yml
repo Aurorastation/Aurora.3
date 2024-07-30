@@ -53,3 +53,328 @@
       the SMES is not charging on the UI.
   - bugfix: The Failsafe and Grounding wires of a SMES now correctly trigger the red
       light when only one is cut, instead of both needing to be triggered.
+2024-07-09:
+  ASmallCuteCat:
+  - rscadd: Adds the Plush Carp to the list of plushies you can select in the loadout.
+  Crosarius:
+  - qol: Adds the Anomalist alt-title for Xenoarchaeologist.
+  FluffyGhost:
+  - rscdel: Removed the R&D mapped machine blueprint, that was not working anyways.
+  - server: Removed the gelf logging infrastructure.
+  - refactor: Refactored the various logging procs to be a direct call in light of
+      the above.
+  - rscdel: Removed ancilliary UDP related things.
+  - refactor: Refactored Life() to receive seconds per tick and times fired as parameters.
+  - refactor: Life() now cannot be slept in, turned various sleepings into async calls
+      procs.
+  - code_imp: Optimized mob AI subsystems, gave them new priorities levels and flags.
+  - code_imp: Grab upgrades are now elaborated asynchronously, tweaked them to avoid
+      stacking multiple upgrades.
+  - bugfix: Fixed plains tyrants keeping sending messages about stomping even if dead.
+  - rscadd: Added a miners app preset for the PDA, with the away manifest program.
+  SimpleMaroon:
+  - bugfix: Made it so that the parts of tunnel cloaks that should overlay behind
+      the mob and clothing do so properly.
+  - bugfix: Reintroduced a fix to the tunnel cloak backing disappearing when the hood
+      was raised that was reverted in a previous PR.
+  - rscadd: Added a list of valid species per loadout item that will appear below
+      the description.
+  - imageadd: Added a Tretian Guild mantle for Vaurcae and Unathi to wear; it can
+      be found under the Vaurca Xenowear tab.
+2024-07-10:
+  FluffyGhost:
+  - bugfix: Fixed relaymove blocking you in place.
+  Geeves:
+  - rscadd: Animal traps now work based off mob size, instead of having a specific
+      mapped in list for animals it can or cannot capture.
+  - rscadd: Added new examine text to traps that help explain how to use them.
+  - rscadd: Added a verb to deploy / undeploy traps.
+  - rscadd: Tweaked a couple interactions with traps, mechanically and grammatically.
+  - bugfix: Fixed a lot of bugs and issues with traps.
+  - bugfix: Fixed welding tools using fuel in prosthetic repairs during the check
+      to see if it CAN do the surgery. Instead, the fuel when be consumed once the
+      surgery completes.
+  hazelmouse:
+  - rscadd: Adds the Hivebot Hub offsite to all sectors.
+2024-07-12:
+  DreamySkrell:
+  - rscadd: BAPI - mapmanip submap noop handling.
+  - rscadd: BAPI - mapmanip submap repeat setting.
+2024-07-18:
+  Acetrea:
+  - bugfix: Fixes Siro dead state.
+  CatsinHD:
+  - bugfix: Fixes the FTC flagpatch sprite to be on the right arm like all other flagpatches.
+  - rscadd: Gives OM, CMO, HoS, CE, and RD the new command IDs.
+  CourierBravo:
+  - rscadd: Added 18 new warehouse submap variants.
+  - bugfix: Added medical supplies to the first aid locker next to the Canary.
+  CourierBravo and BoomerThor:
+  - balance: Removed market elasticity from materials harvested from mining
+  - balance: Added all of the materials dug up from mining, old and new, to the exports
+      material list. Ensured you can't dupe credits by ordering glass and steel and
+      just sending it back.
+  FluffyGhost:
+  - refactor: Refactored portals, improved handling.
+  - rscadd: Telescience console can now target overmap zlevels, provided deep scan
+      is not enabled and the contact is completely scanned.
+  - bugfix: Telescience portals now properly delete when the timer expires.
+  - rscadd: Greatly increased power usage for the telescience portals, especially
+      if aiming outside targets.
+  - refactor: Refactored telescience console backend.
+  - refactor: Added various DMDocs.
+  Geeves:
+  - rscdel: Limited the number of bullet holes in a wall to 3, to prevent the decals
+      from lagging the game.
+  - rscdel: Killed hivebots now only drop a single robot gib onto the turf beneath
+      it, and only if there isn't one on that turf already.
+  - rscadd: Most hivebots now create sparks when they teleport in, instead of smoke.
+      The smokescreen created by beacons remain.
+  - bugfix: Smoke now renders over mobs again.
+  - rscadd: Barricades will now send a chat message if you can't climb them due to
+      there being barbed wire.
+  - bugfix: Fixed barbed wire overlays not appearing on barricades.
+  - qol: Made a bunch of improvements to the PDA chat program. Clicking on someone
+      or a channel's name will now immediately open the chat. Text inputs will now
+      not input unless you press enter.
+  - qol: PDA chat messages will now have spaces between them, unless it's the same
+      person sending multiple messages in a row.
+  - qol: Updating a PDA chat channel's password will now output that it changed into
+      the chat.
+  SimpleMaroon:
+  - qol: Added a brute med pouch, burn med pouch, and makeshift splints to the Kis
+      Khan Master site, for when those siros are just too much for your martial arts
+      to handle.
+  - bugfix: Fixed the turret control panel for the Clan Ozeuoi Outpost having the
+      wrong area set, causing it to not be assigned to any of the turrets properly.
+  - bugfix: Fixed the turrets at the Clan Ozeuoi Outpost to use Ozeuoi access, so
+      they don't fire indiscriminately when enabled.
+  - bugfix: Fixed the Vihnmes Inn having the same ID and description as the Ozeuoi
+      Outpost.
+  - bugfix: Fixed mob holders being unremoveable when placed in glass jars.
+  - qol: Cuts the message frequency of Nralakk projectors, as well as Virtual Reality
+      looking glasses, by half, as to cut down on message spam.
+  hazelmouse:
+  - rscadd: Adds the Hegemony Waypoint, a regional variant of the Sensor Relay unique
+      to Uueoa-Esa.
+  - rscdel: Removes the Sensor Relay offsite from Uueoa-Esa.
+  not-a-gonk:
+  - balance: Revised the armoury and infirmary for the Hegemony Corvette and Kataphract
+      Chapter ship, along with adding some extra equipment and gear.
+  - qol: Hegemony Corvette Gunnery room remap; minor additions and modifications of
+      fluff items on the Hegemony Corvette and Kataphract Chapter Ship.
+  - bugfix: Fixes the piping issues in the TCAF Corvette.
+  - qol: Adds janitorial equipment, more consoles, reorganises medical equipment,
+      and expands the fuel tank for the TCAF Corvette.
+  - qol: Gives the existing animal pens on Moghes and Ouerea gates, and adds some
+      new pens to Moghes ghostspawns that were missing them.
+2024-07-19:
+  FluffyGhost:
+  - admin: Fixed an href exploit in the traitor uplink.
+  Lavillastrangiato:
+  - qol: Added extra equipment and decorations to some Ouerea away sites.
+2024-07-21:
+  FluffyGhost:
+  - code_imp: Updated the Datum Component System and dcs signals handling.
+  Tomixcomics:
+  - rscadd: Added 12 new dishes (4 Unathi dishes, 2 Galatean dishes, 1 Tretian dish,
+      5 misc.).
+  - bugfix: Fixed the codex visual of Konaqu showing up wrong.
+  - bugfix: Corrected a few muffin names that were showing up as the wrong kind of
+      muffin.
+  - spellcheck: Edited description of Nakarka cheese because the vaurcan accent was
+      spelled incorrectly.
+2024-07-23:
+  DreamySkrell:
+  - rscadd: BAPI - mapmanip submap performance improvements.
+  - rscadd: BAPI - mapmanip script.
+  FluffyGhost:
+  - rscadd: Added the z-level manager system from TG, mostly.
+  SimpleMaroon:
+  - qol: Added Journalist access back to some of the doors on deck 2 Operations.
+2024-07-24:
+  ChangeMe:
+  - bugfix: Corrected missing sprite on Nakarka Ravioli.
+  FluffyGhost:
+  - rscadd: Borgs can now access the APCs channel configuration again, like the AI
+      already can.
+2024-07-25:
+  DreamySkrell:
+  - rscadd: BAPI - mapmanip multiz support.
+  - rscadd: Adds map PDA program POIs.
+  FluffyGhost:
+  - bugfix: Fixed the message server PDA messages logging.
+  - bugfix: Fixed the message monitoring console for the aforementioned use.
+  - bugfix: Fixed a runtime for AI distance check on trying to read papers.
+  - bugfix: Created a preset for the message server so it's autolinked on the horizon.
+  Nalarac:
+  - bugfix: Fixes the hegemony energy rifle being able to change firemodes and thus
+      turn invisible
+  hazelmouse:
+  - bugfix: Folding tables can no longer be telekinetically manipulated by crew.
+2024-07-26:
+  ASmallCuteCat:
+  - qol: 'Tweaked medical scanner output to improve ease of readability: presence
+      of an open incision is now indicated in all caps, complications are now listed
+      in orange if anything is abnormal, stage of sepsis is now shown in yellow, and
+      the amount of genetic damage and radiation present in the patient is now displayed
+      in orange and yellow, respectively.'
+  AlaunusLux:
+  - bugfix: Disallows installing both an airtank and a suit cooler into the same voidsuit.
+  Ben10083:
+  - balance: Temperature packs significantly buffed to cause a bigger change in body
+      temperature (Tajara can avoid overheating with just cold pack for example).
+  Crosarius:
+  - bugfix: Fixes the Hegemony Energy Rifle so you can't break the sprite by trying
+      to change firemodes anymore.
+  Evandorf:
+  - bugfix: Added an arterial check to the proc which determines which external organs
+      are damaged so that the handle_blood proc will correctly remove blood for external
+      organs with arterial bleeds with no damage.
+  - bugfix: Arterial severity which applies less than 1u of bloodloss is now accounted
+      for properly and is no longer rounded down to 0.
+  FluffyGhost:
+  - bugfix: Fixed a runtime where a nullcheck was not present, possibly slightly sped
+      up the proc too.
+  - bugfix: Fix AI holograms rotating when follow is not enabled.
+  - bugfix: Fixed traps runtiming and not working.
+  - refactor: Moved the span macros (and font size macros) in their own file.
+  - bugfix: The AI can now correctly choose between multiple shells to control.
+  RustingWithYou:
+  - rscadd: Adds a Nralakk Federation zippo lighter.
+  - rscadd: Adds the event service job.
+  - qol: Event jobs now have their own outfits.
+  SimpleMaroon:
+  - bugfix: Fixed the Skrell Federation passport, and the Diona Federation passport
+      by extension, allowing values above 10 for the Social Credit Score.
+  - bugfix: Fixed the Diona Federation passport not letting you select your Social
+      Credit Score.
+  - bugfix: Fixed the Diona Gla'orr accent having too light of a yellow coloration,
+      making it difficult to tell apart from the white from afar.
+  - bugfix: Fixed the k'ois roulade that can spawn in Vaurca lunchboxes from the loadout
+      containing no reagents.
+  Wowzewow (Wezzy):
+  - rscadd: Chairs can now be placed on tiles with railings.
+  hazelmouse:
+  - rscadd: Expands the pirate base offsite to every sector.
+  nauticall:
+  - qol: Sinks and reagent dispensers now have intent-based filling/emptying of containers
+      like beakers/buckets. Use help intent to fill a container in your hand from
+      a sink/tank/dispenser, any other intent to empty.
+  not-a-gonk:
+  - bugfix: Adds a missing cryogenics console to the Tret Indutrial Complex.
+  stev-the-third:
+  - bugfix: Makes the Skrell Bandana white, so it can be recoloured properly.
+  - bugfix: Fixes spelling errors on the Weishii robe, Qeblak mantle and Worker's
+      hat.
+2024-07-27:
+  CourierBravo:
+  - bugfix: Fixed some spelling/grammar in the tips.
+  Evandorf:
+  - bugfix: Made the IV tank indicator sprite uniform across all levels and removed
+      certain frames that put it in the wrong location.
+  - rscadd: Creating tumors will now set the correct 'parent_organ' variable to allow
+      for surgical removal.
+  FluffyGhost:
+  - rscdel: Reverts the accessory weight handling, ontop of being exploitable as easily
+      as attaching the accessories after the clothe is in the bag, it doesn't make
+      sense that you can store the pieces singularly but not once put together (for
+      the modular armor, that is), and is ultimately just an hassle to have to disassemble
+      and reassemble it over and over every time you have to pull the armor in the
+      backpack and back out.
+  SimpleMaroon:
+  - rscadd: Added a list of skin color presets to every playable Vaurca subspecies,
+      based on the bound and unbound colors of each brood.
+  - qol: Made it so you can select a skin color and skin color presets at the same
+      time on character setup.
+  Wowzewow (Wezzy):
+  - rscadd: Adds new stubble shadow facial hair.
+  hazelmouse:
+  - balance: The explosion radius of standstill landmines has been reduced.
+2024-07-28:
+  CatsinHD:
+  - rscadd: Added a notepad with an SCC variant. Both are available in the loadout.
+  ChangeMe:
+  - code_imp: Produce from gardening can now be given descriptions and extended descriptions,
+      for when we want lore to write about potatos.
+  - code_imp: DMdocing seeds.
+  Crosarius:
+  - qol: Nerfs ethanol toxicity to Unathi and Vaurca.
+  DreamySkrell:
+  - rscadd: Multi-z away site exoplanet generation.
+  - rscadd: Offship cameras.
+  FlamingLily:
+  - code_imp: Added a system for restricting certain alt titles to certain factions.
+  - rscadd: Restricted Freelance Journalist to the independent faction, and Corp reporter
+      to the corporate factions.
+  FluffyGhost:
+  - refactor: Updated progress bar datum to the latest iteration.
+  - code_imp: Update the position datum to the latest iteration.
+  - refactor: Collapsed all the multi-z dmm maps into single-file dmms.
+  - refactor: Moved some of the map geometry into traits.
+  - bugfix: Diona nymphs can now run correctly, without a weird empty stamina bar,
+      and stopping as appropriate when their stamina (health) is low, with a message.
+  - bugfix: Fixed a runtime with crates animation when closing.
+  - refactor: Updated closets door animation code, renamed one var to be more clear,
+      some minor DMDoc, moved some procs around.
+  - refactor: Repathed /obj/item/projectile to /obj/projectile, same as TG and Bay,
+      that's pretty much it.
+  Lavillastrangiato:
+  - spellcheck: Changes all mentions of New Ankara to Tabiti, in line with new lore.
+  MattAtlas:
+  - bugfix: Closed shutters now overlay above objects.
+  - bugfix: Shield generators now properly cover all Z levels.
+  - bugfix: Vines and the trash compactor no longer leave random mega dark spots.
+  - bugfix: Build mode buttons no longer go under darkness.
+  - rscdel: Reverted the stair mobility changes.
+  Pirouette, Tomixcomics:
+  - rscadd: Added three Eridani drinks. The alcoholic burukutu and ogogoro, and non-alcoholic
+      zobo.
+  SimpleMaroon:
+  - rscadd: Added a Hieroatherian variant of the Skrellian nation cape.
+  - qol: Allowed Dionae to wear the Skrellian nation capes, as they can originate
+      from the same nations.
+  - qol: Allowed Skrell to wear the Hieroaetherian tunic and poncho.
+  - rscadd: Added a 'preset' button to body markings that lets you choose the same
+      color presets that your species has; it only shows up if your species actually
+      has color presets.
+  - rscdel: Removed skin tone selectability from Dionae.
+  - qol: Changed the tail body marking for Dionae into an actual tail option.
+  - rscdel: Dionae no longer have hair styles or facial hair styles, as all of them
+      are selectable under body markings anyway.
+  - qol: Allowed the Unathi Wastelander origin to take the Sk'akh religion.
+  Tzui5020:
+  - bugfix: Added piping to tha Tajaran Smuggler ship so the engines work and made
+      a few other piping changes.
+  not-a-gonk:
+  - rscadd: Adds the TCAF berets and a jacket to the loadout, included in a new selection
+      alongside their older TCFL variants.
+2024-07-29:
+  DreamySkrell:
+  - rscadd: Centers Horizon dmm.
+  - rscadd: Makes the open space turf transparent.
+  FluffyGhost:
+  - refactor: Refactored hitby to be in line with TG's version.
+  - refactor: Refactored item weight defines to a more clear naming scheme, also in
+      line with TG's version.
+  - refactor: Refactored how the movement bumps are handled, ported signals to handle
+      them, in preparation for the movement update.
+  - bugfix: Fixed disposal hit bouncing the hitting atom on the wall.
+  - qol: Items do not push other items anymore if they are tiny.
+  SimpleMaroon:
+  - rscadd: Added a culture and origins for the Underhive Collective, an Eridani-based
+      Diona faction.
+2024-07-30:
+  Acetrea:
+  - bugfix: Fixes Solarian Colonial Mandate of Tau Ceti Banner Icons and Sprites.
+  FlamingLily:
+  - qol: Stopped disposal units sucking people in.
+  FluffyGhost:
+  - bugfix: Fixed cryopods causing an harddel on mobs.
+  - admin: Extended list viewer now has an edit button, and the ability to edit the
+      extended list it's seeing; it's also (opinionately) better formatted.
+  not-a-gonk:
+  - qol: Gives the Tarwa Conglomerate ship a minor remap, updating some outdated parts
+      and adding some new amenities.
+  - rscadd: Adds a new Tarwa Conglomerate suit cycler, for the normal and captain
+      variants.

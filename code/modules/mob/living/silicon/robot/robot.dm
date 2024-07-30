@@ -567,7 +567,7 @@
 /mob/living/silicon/robot/restrained()
 	return FALSE
 
-/mob/living/silicon/robot/bullet_act(var/obj/item/projectile/Proj)
+/mob/living/silicon/robot/bullet_act(var/obj/projectile/Proj)
 	..(Proj)
 	if(prob(75) && Proj.damage > 0)
 		spark_system.queue()
@@ -1179,7 +1179,7 @@
 			disconnect_from_ai()
 			to_chat(user, SPAN_WARNING("You successfully hack and override \the [src]."))
 			message_admins("[key_name_admin(user)] emagged cyborg [key_name_admin(src)].  Laws overridden.")
-			log_game("[key_name(user)] emagged cyborg [key_name(src)].  Laws overridden.",ckey=key_name(user),ckey_target=key_name(src))
+			log_game("[key_name(user)] emagged cyborg [key_name(src)].  Laws overridden.")
 			clear_supplied_laws()
 			clear_inherent_laws()
 			laws = new /datum/ai_laws/syndicate_override

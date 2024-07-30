@@ -36,7 +36,10 @@
 	. = "<b>([sanitize(Conv.get_title(Cl))]) <i>[nuser.username]</i>:</b> [sanitize(message)] (<a href='byond://?src=\ref[Cl]&Reply=\ref[Conv]'>Reply</a>)"
 
 /datum/ntnet_message/message/format_chat_log(var/datum/ntnet_conversation/Conv)
-	. = "[worldtime2text()] [nuser.username]: [message]"
+	var/conversation_message_length = length(Conv.messages)
+	var/last_message = conversation_message_length ? Conv.messages[conversation_message_length] : null
+	var/should_add_spacer = last_message ? !findtext(last_message, nuser.username + ":") : FALSE
+	. = "[should_add_spacer ? "\n" : ""][worldtime2text()] [nuser.username]: [message]"
 
 /datum/ntnet_message/message/format_admin_log(var/datum/ntnet_conversation/Conv)
 	. = message
@@ -50,7 +53,7 @@
 	. = FONT_SMALL("<b>([sanitize(Conv.get_title(Cl))]) <i>[nuser.username]</i> has entered the chat.</b>")
 
 /datum/ntnet_message/join/format_chat_log(var/datum/ntnet_conversation/Conv)
-	. = "[worldtime2text()] -!- [nuser.username] has entered the chat."
+	. = "\n[worldtime2text()] -!- [nuser.username] has entered the chat."
 
 
 
@@ -58,20 +61,22 @@
 	. = FONT_SMALL("<b>([sanitize(Conv.get_title(Cl))]) <i>[nuser.username]</i> has left the chat.</b>")
 
 /datum/ntnet_message/leave/format_chat_log(var/datum/ntnet_conversation/Conv)
-	. = "[worldtime2text()] -!- [nuser.username] has left the chat."
+	. = "\n[worldtime2text()] -!- [nuser.username] has left the chat."
 
 
 
 /datum/ntnet_message/new_op/format_chat_log(var/datum/ntnet_conversation/Conv)
-	. = "[worldtime2text()] -!- [nuser.username] has become operator."
+	. = "\n[worldtime2text()] -!- [nuser.username] has become operator."
 
+/datum/ntnet_message/new_password/format_chat_log(var/datum/ntnet_conversation/Conv)
+	. = "\n[worldtime2text()] -!- [nuser.username] has [Conv.password ? "updated" : "removed"] the channel's password."
 
 
 /datum/ntnet_message/new_title
 	var/title = ""
 
 /datum/ntnet_message/new_title/format_chat_log(var/datum/ntnet_conversation/Conv)
-	. = "[worldtime2text()] -!- [nuser.username] has changed channel title from [Conv.get_title()] to [title]"
+	. = "\n[worldtime2text()] -!- [nuser.username] has changed channel title from [Conv.get_title()] to [title]"
 
 /datum/ntnet_message/new_title/format_chat_notification(var/datum/ntnet_conversation/Conv, var/datum/computer_file/program/chat_client/Cl)
 	. = FONT_SMALL("<b>([sanitize(Conv.get_title(Cl))]) <i>[nuser.username]</i> has changed the channel title to <i>[sanitize(title)].</i></b>")
@@ -82,7 +87,7 @@
 	var/datum/ntnet_user/target
 
 /datum/ntnet_message/kick/format_chat_log(var/datum/ntnet_conversation/Conv)
-	. = "[worldtime2text()] -!- [nuser.username] has kicked [target.username] from conversation."
+	. = "\n[worldtime2text()] -!- [nuser.username] has kicked [target.username] from conversation."
 
 /datum/ntnet_message/kick/format_chat_notification(var/datum/ntnet_conversation/Conv, var/datum/computer_file/program/chat_client/Cl)
 	. = FONT_SMALL("<b>([sanitize(Conv.get_title(Cl))]) <i>[nuser.username]</i> has kicked <i>[target.username]</i> from conversation.</b>")
@@ -90,7 +95,7 @@
 
 
 /datum/ntnet_message/direct/format_chat_log(var/datum/ntnet_conversation/Conv)
-	. = "[worldtime2text()] -!- [nuser.username] has opened direct conversation."
+	. = "\n[worldtime2text()] -!- [nuser.username] has opened direct conversation."
 
 /datum/ntnet_message/direct/format_chat_notification(var/datum/ntnet_conversation/Conv, var/datum/computer_file/program/chat_client/Cl)
 	. = FONT_SMALL("<b>([sanitize(Conv.get_title(Cl))]) <i>[nuser.username]</i> has opened direct conversation with you.</b>")

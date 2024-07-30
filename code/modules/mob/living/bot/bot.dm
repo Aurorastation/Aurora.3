@@ -55,14 +55,17 @@
 	if(pAI)
 		. += FONT_SMALL(SPAN_NOTICE("It has a pAI piloting it."))
 
-/mob/living/bot/Life()
+/mob/living/bot/Life(seconds_per_tick, times_fired)
 	..()
 	if(health <= 0)
 		death()
-		return
+		return FALSE
+
 	weakened = 0
 	stunned = 0
 	paralysis = 0
+
+	return TRUE
 
 /mob/living/bot/movement_delay()
 	return 3

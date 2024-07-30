@@ -12,7 +12,7 @@
 	icon_state = "aspect_bolt"
 	cast_methods = CAST_RANGED
 	aspect = ASPECT_PSIONIC
-	spell_projectile = /obj/item/projectile/psionic_throw
+	spell_projectile = /obj/projectile/psionic_throw
 	fire_sound = 'sound/weapons/wave.ogg'
 	cooldown = 20
 	psi_cost = 20
@@ -48,8 +48,8 @@
 	item_to_throw = null
 	ClearOverlays()
 
-/obj/item/spell/projectile/throw_item/make_projectile(obj/item/projectile/projectile_type, mob/living/user)
-	var/obj/item/projectile/psionic_throw/P = ..()
+/obj/item/spell/projectile/throw_item/make_projectile(obj/projectile/projectile_type, mob/living/user)
+	var/obj/projectile/psionic_throw/P = ..()
 	if(P && item_to_throw)
 		var/base_damage = item_to_throw.force > 5 ? item_to_throw.force : 10
 		/// Why is it called a fucking divisor? It's a multiplier...
@@ -80,13 +80,13 @@
 		P.source_item = item_to_throw
 	return P
 
-/obj/item/projectile/psionic_throw
+/obj/projectile/psionic_throw
 	name = "thrown projectile"
 	damage_type = DAMAGE_BRUTE
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_BULLET_MEAT, BULLET_IMPACT_METAL = SOUNDS_BULLET_METAL)
 	var/obj/source_item
 
-/obj/item/projectile/psionic_throw/Destroy()
+/obj/projectile/psionic_throw/Destroy()
 	if(source_item)
 		source_item.forceMove(loc)
 		source_item = null

@@ -15,7 +15,7 @@
 	attacktext = "slashed"
 	attack_sound = /singleton/sound_category/hivebot_melee
 	projectilesound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
-	projectiletype = /obj/item/projectile/bullet/pistol/hivebotspike
+	projectiletype = /obj/projectile/bullet/pistol/hivebotspike
 	organ_names = list("head", "core", "side thruster", "bottom thruster")
 	faction = "hivebot"
 	min_oxy = 0
@@ -55,8 +55,7 @@
 		linked_parent = hivebotbeacon
 
 	if(!mapload)
-		new /obj/effect/effect/smoke(src.loc,30)
-		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
+		spark(get_turf(src), 2, GLOB.alldirs)
 
 /mob/living/simple_animal/hostile/hivebot/Destroy()
 	if(linked_parent)
@@ -82,18 +81,31 @@
 	else
 		return "blood_overlay_armed"
 
-/mob/living/simple_animal/hostile/hivebot/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
-		Proj.no_attack_log = 1
+/mob/living/simple_animal/hostile/hivebot/bullet_act(var/obj/projectile/Proj)
+	if(istype(Proj, /obj/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/projectile/beam/hivebot))
 		return PROJECTILE_CONTINUE
 	else
 		return ..(Proj)
 
 /mob/living/simple_animal/hostile/hivebot/death()
 	..(null,"blows apart!")
-	var/T = get_turf(src)
-	new /obj/effect/gibspawner/robot(T)
-	spark(T, 1, GLOB.alldirs)
+
+	var/turf/current_turf = get_turf(src)
+	if(!current_turf)
+		qdel(src)
+		return
+
+	var/robot_gib_type = /obj/effect/decal/cleanable/blood/gibs/robot
+	var/atom/turf_gibs = locate(robot_gib_type) in current_turf
+	if(turf_gibs) // we only want to spawn gibs here if there aren't any already
+		return
+
+	var/list/gib_types = typesof(robot_gib_type)
+	var/selected_gib_type = pick(gib_types)
+	new selected_gib_type(current_turf)
+
+	spark(current_turf, 1, GLOB.alldirs)
+
 	qdel(src)
 
 /mob/living/simple_animal/hostile/hivebot/think()
@@ -182,9 +194,8 @@
 		has_exploded = TRUE
 		addtimer(CALLBACK(src, PROC_REF(burst)), 20)
 
-/mob/living/simple_animal/hostile/hivebot/bomber/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
-		Proj.no_attack_log = 1
+/mob/living/simple_animal/hostile/hivebot/bomber/bullet_act(var/obj/projectile/Proj)
+	if(istype(Proj, /obj/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/projectile/beam/hivebot))
 		return PROJECTILE_CONTINUE
 	else if(!has_exploded)
 		has_exploded = TRUE
@@ -204,5 +215,5 @@
 	ranged = 1
 
 /mob/living/simple_animal/hostile/hivebot/range/rapid
-	projectiletype = /obj/item/projectile/bullet/pistol/hivebotspike/needle
+	projectiletype = /obj/projectile/bullet/pistol/hivebotspike/needle
 	rapid = 1

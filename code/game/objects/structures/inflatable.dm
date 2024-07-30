@@ -4,7 +4,7 @@
 /obj/item/inflatable
 	name = "inflatable"
 	desc_info = "Inflate by using it in your hand. The inflatable barrier will inflate on the turf you are standing on. To deflate it, use the 'deflate' verb."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/item/inflatables.dmi'
 	var/deploy_path = null
 
@@ -66,7 +66,7 @@
 		return TRUE
 	return FALSE
 
-/obj/structure/inflatable/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/inflatable/bullet_act(var/obj/projectile/Proj)
 	var/proj_damage = Proj.get_structure_damage()
 	if(!proj_damage)
 		return
@@ -286,7 +286,7 @@
 	icon_state = "inf_box"
 	item_state = "inf_box"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	display_contents_with_number = TRUE
 	max_storage_space = 28
 	force_column_number = 3 // we want 4 slots to appear, so 3 columns + 1 free (to insert stuff)

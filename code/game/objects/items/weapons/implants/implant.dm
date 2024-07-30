@@ -6,7 +6,7 @@
 	abstract_type = /obj/item/implant
 	name = "implant"
 	icon = 'icons/obj/item/implants.dmi'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	/**
 	 * This gives the user an action button that allows them to activate the implant.
 	 * If the implant needs no action button, then null this out.

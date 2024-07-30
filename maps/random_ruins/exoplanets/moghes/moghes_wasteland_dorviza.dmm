@@ -20,6 +20,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza/tent)
+"fQ" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/sink/puddle,
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
 "gE" = (
 /obj/structure/sink/puddle,
 /turf/simulated/floor/exoplanet/desert{
@@ -67,6 +77,14 @@
 /obj/effect/floor_decal/spline/plain/brown,
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza/tent)
+"mM" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
 "mN" = (
 /obj/structure/curtain/open,
 /obj/random/dirt_75,
@@ -83,6 +101,20 @@
 /area/moghes_dorviza)
 "ob" = (
 /obj/item/device/flashlight/lantern/on,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"oF" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"pB" = (
+/obj/structure/railing/fence,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
@@ -107,6 +139,15 @@
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
+"tD" = (
+/obj/machinery/door/urban{
+	dir = 4;
+	pixel_x = -29
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
 "uG" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/spline/plain/blue{
@@ -123,6 +164,17 @@
 /obj/item/roller,
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza/tent)
+"wK" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
 "ym" = (
 /obj/structure/closet/crate,
 /obj/item/clothing/suit/unathi/robe/beige,
@@ -184,6 +236,13 @@
 	},
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza/tent)
+"Ch" = (
+/obj/structure/railing/fence,
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
 "DH" = (
 /obj/structure/bed,
 /turf/simulated/floor/exoplanet/carpet/orange,
@@ -281,6 +340,14 @@
 	temperature = 315.15
 	},
 /area/moghes_dorviza)
+"La" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
 "LW" = (
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
@@ -288,6 +355,16 @@
 /area/moghes_dorviza/tent)
 "Ma" = (
 /obj/structure/closet/crate,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"Me" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/flora/grass/desert,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
@@ -364,6 +441,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/moghes_dorviza/tent)
+"Qv" = (
+/obj/structure/flora/grass/desert,
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
 "QF" = (
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/moghes_dorviza/tent)
@@ -393,6 +477,23 @@
 /obj/item/tank/anesthetic,
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza/tent)
+"Ty" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
+"TX" = (
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
 "UD" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/red,
@@ -417,6 +518,15 @@
 /obj/item/reagent_containers/glass/bucket/wood,
 /turf/simulated/floor/exoplanet/carpet/red,
 /area/moghes_dorviza/tent)
+"Wq" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
 "WZ" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/carpet/darkblue,
@@ -441,6 +551,15 @@
 	},
 /turf/simulated/floor/exoplanet/carpet/orange,
 /area/moghes_dorviza/tent)
+"YU" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_dorviza)
 "ZJ" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
@@ -1369,11 +1488,11 @@ RC
 RC
 Nk
 Nk
-Nk
-Nk
-Nk
-Nk
-Nk
+Ty
+La
+tD
+La
+Me
 Nk
 Nk
 Nk
@@ -1406,11 +1525,11 @@ Oj
 RC
 RC
 Nk
+oF
+Qv
 Nk
 Nk
-Nk
-Nk
-Nk
+pB
 Nk
 Nk
 Nk
@@ -1443,11 +1562,11 @@ LW
 MJ
 RC
 Nk
+oF
 Nk
-Nk
-Nk
-Nk
-Nk
+ko
+Qv
+pB
 Nk
 Nk
 Nk
@@ -1480,11 +1599,11 @@ Td
 LW
 RC
 Nk
+oF
+ko
 Nk
 Nk
-Nk
-Nk
-Nk
+pB
 Nk
 Nk
 Nk
@@ -1517,11 +1636,11 @@ LW
 Oj
 RC
 Nk
+oF
 Nk
 Nk
-Nk
-Nk
-Nk
+TX
+Ch
 Nk
 Nk
 Nk
@@ -1554,11 +1673,11 @@ LW
 RC
 RC
 Nk
-Nk
-Nk
-Nk
-Nk
-Nk
+wK
+fQ
+mM
+YU
+Wq
 Nk
 Nk
 Nk

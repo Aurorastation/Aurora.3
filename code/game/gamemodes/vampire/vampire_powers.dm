@@ -467,8 +467,6 @@
 
 /obj/effect/dummy/veil_walk/relaymove(mob/living/user, direction)
 	. = ..()
-	if(!.)
-		return
 
 	if(user != owner_mob)
 		return

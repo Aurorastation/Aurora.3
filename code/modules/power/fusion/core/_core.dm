@@ -55,7 +55,7 @@
 		owned_field.AddParticles(name, quantity)
 		. = 1
 
-/obj/machinery/power/fusion_core/bullet_act(obj/item/projectile/Proj)
+/obj/machinery/power/fusion_core/bullet_act(obj/projectile/Proj)
 	if(owned_field)
 		. = owned_field.bullet_act(Proj)
 

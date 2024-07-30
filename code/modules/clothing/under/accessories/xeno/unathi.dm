@@ -193,6 +193,20 @@
 	megacorporation's aquacultural expansions on Ouerea - bringing an end to the famine, though some say at the price of the guild's soul."
 	worn_overlay = "fishingleague"
 
+/obj/item/clothing/accessory/poncho/unathimantle/tretian
+	name = "tretian guild mantle"
+	desc = "The cured hide and skin of a large beast, dyed in the acidic yellow of the Tretian Guild. These mantles are reserved for full-fledged guildsmen, as a sign of \
+	their position in the guild."
+	desc_extended = "The Tretian Guild is the only Unathi guild with a K'lax majority. \
+	Established in Tret, the guild specializes in operating and maintaining the large-scale manufacturing operations of the factory-planet. \
+	In a controversial move, the Tretian Guild expanded its operations beyond Tret in mid-2466, acting as strikebreakers and supplemental workers \
+	for operations where workers of other guilds may be unwilling or unable to fulfill their duties."
+	worn_overlay = "tretianguild"
+	sprite_sheets = list(
+		BODYTYPE_VAURCA = 'icons/mob/species/vaurca/suit.dmi',
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/suit.dmi'
+	)
+
 /obj/item/clothing/accessory/poncho/rockstone
 	name = "rockstone cape"
 	desc = "A cape seen exclusively on nobility. The chain is adorned with precious, multi-color stones, hence its name."

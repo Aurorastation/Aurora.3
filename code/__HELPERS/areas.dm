@@ -88,9 +88,6 @@
 /proc/is_contact_area(var/area/A)
 	. = isContactLevel(A.z)
 
-/proc/is_player_area(var/area/A)
-	. = isPlayerLevel(A.z)
-
 /proc/is_not_space_area(var/area/A)
 	. = !istype(A,/area/space)
 

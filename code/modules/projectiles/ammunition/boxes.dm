@@ -316,7 +316,7 @@
 /obj/item/ammo_magazine/submachinedrum
 	name = "drum magazine (.45)"
 	icon_state = "tommy-drum"
-	w_class = ITEMSIZE_NORMAL // Bulky ammo doesn't fit in your pockets!
+	w_class = WEIGHT_CLASS_NORMAL // Bulky ammo doesn't fit in your pockets!
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/c45
 	matter = list(DEFAULT_WALL_MATERIAL = 3750)
@@ -688,7 +688,7 @@
 /obj/item/ammo_magazine/nuke
 	name = "nuclear launcher cartridge"
 	icon_state = "nukemag"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = MAGAZINE
 	caliber = "nuke"
 	insert_sound = 'sound/weapons/reloads/rifle_slide3.ogg'

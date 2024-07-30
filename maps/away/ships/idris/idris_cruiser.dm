@@ -3,7 +3,7 @@
 	description = "A small luxury cruiser run by Idris Incorporated's subsidiary, Celestial Cruises. The Argentum-class is more of a yacht than a proper cruise ship, and is easily dwarfed by the fleet's larger vessels. However, it makes up for its diminuitive size by its speed, flexibility, and low maintenance cost. It adopts a unique wandering business model, where it roams the Spur and caters to tired traveling vessel crews seeking a getaway among the stars. It comes with a bar and restaurant, a pool, a spa, and a viewing lounge, as well as four suites for overnight stayers."
 
 	prefix = "ships/idris/"
-	suffixes = list("idris_cruiser.dmm")
+	suffix = "idris_cruiser.dmm"
 
 	sectors = list(ALL_CORPORATE_SECTORS)
 	sectors_blacklist = list(ALL_DANGEROUS_SECTORS)
