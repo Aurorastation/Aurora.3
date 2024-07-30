@@ -56,8 +56,8 @@
 		"Corporate Reporter" = /obj/outfit/job/journalist/zeng_hu,
 		"Corporate Liaison" = /obj/outfit/job/representative/zeng_hu,
 		"Off-Duty Crew Member" = /obj/outfit/job/visitor/zeng_hu,
-		"Science Personnel" = /obj/outfit/job/scientist/zeng_hu,
-		"Medical Personnel" = /obj/outfit/job/med_tech/zeng_hu
+		"Science Personnel" = /obj/outfit/job/scientist/event/zeng_hu,
+		"Medical Personnel" = /obj/outfit/job/med_tech/event/zeng_hu
 	)
 
 /obj/outfit/job/doctor/zeng_hu
@@ -253,6 +253,32 @@
 	name = "Off-Duty Crew Member - Zeng-Hu"
 
 	id = /obj/item/card/id/zeng_hu
+
+	backpack_faction = /obj/item/storage/backpack/zeng
+	satchel_faction = /obj/item/storage/backpack/satchel/zeng
+	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
+	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
+
+/obj/outfit/job/med_tech/event/zeng_hu
+	name = "Medical Personnel - Zeng-Hu"
+
+	head = /obj/item/clothing/head/softcap/zeng
+	uniform = /obj/item/clothing/under/rank/medical/paramedic/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/para_jacket/zeng
+	id = /obj/item/card/id/zeng_hu
+
+	backpack_faction = /obj/item/storage/backpack/zeng
+	satchel_faction = /obj/item/storage/backpack/satchel/zeng
+	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
+	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
+
+/obj/outfit/job/scientist/event/zeng_hu
+	name = "Research Personnel - Zeng-Hu"
+
+	uniform = /obj/item/clothing/under/rank/scientist/zeng
+	suit = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/alt
+	id = /obj/item/card/id/zeng_hu
+	shoes = /obj/item/clothing/shoes/sneakers/medsci/zeng
 
 	backpack_faction = /obj/item/storage/backpack/zeng
 	satchel_faction = /obj/item/storage/backpack/satchel/zeng

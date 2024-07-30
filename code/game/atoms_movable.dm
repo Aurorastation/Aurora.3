@@ -142,45 +142,92 @@
 
 	Moved(oldloc, TRUE)
 
-// This is called when this atom is prevented from moving by atom/A.
-/atom/movable/proc/Collide(atom/A)
+// Make sure you know what you're doing if you call this
+// You probably want CanPass()
+/atom/movable/Cross(atom/movable/crossed_atom)
+	. = TRUE
+	SEND_SIGNAL(src, COMSIG_MOVABLE_CROSS, crossed_atom)
+	SEND_SIGNAL(crossed_atom, COMSIG_MOVABLE_CROSS_OVER, src)
+	// return CanPass(crossed_atom, get_dir(src, crossed_atom))
+	return CanPass(crossed_atom, get_step(src, get_dir(src, crossed_atom)), 1, 0)
+
+///default byond proc that is deprecated for us in lieu of signals. do not call
+/atom/movable/Crossed(atom/movable/crossed_atom, oldloc)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	// CRASH("atom/movable/Crossed() was called!") //pending rework of /atom/movable/Move() this is suppressed
+
+/**
+ * `Uncross()` is a default BYOND proc that is called when something is *going*
+ * to exit this atom's turf. It is prefered over `Uncrossed` when you want to
+ * deny that movement, such as in the case of border objects, objects that allow
+ * you to walk through them in any direction except the one they block
+ * (think side windows).
+ *
+ * While being seemingly harmless, most everything doesn't actually want to
+ * use this, meaning that we are wasting proc calls for every single atom
+ * on a turf, every single time something exits it, when basically nothing
+ * cares.
+ *
+ * This overhead caused real problems on Sybil round #159709, where lag
+ * attributed to Uncross was so bad that the entire master controller
+ * collapsed and people made Among Us lobbies in OOC.
+ *
+ * If you want to replicate the old `Uncross()` behavior, the most apt
+ * replacement is [`/datum/element/connect_loc`] while hooking onto
+ * [`COMSIG_ATOM_EXIT`].
+ */
+/atom/movable/Uncross()
+	. = TRUE
+	SHOULD_NOT_OVERRIDE(TRUE)
+	// CRASH("Uncross() should not be being called, please read the doc-comment for it for why.") //pending rework of /atom/movable/Move() this is suppressed
+
+/**
+ * default byond proc that is normally called on everything inside the previous turf
+ * a movable was in after moving to its current turf
+ * this is wasteful since the vast majority of objects do not use Uncrossed
+ * use connect_loc to register to COMSIG_ATOM_EXITED instead
+ */
+/atom/movable/Uncrossed(atom/movable/uncrossed_atom)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	// CRASH("/atom/movable/Uncrossed() was called") //pending rework of /atom/movable/Move() this is suppressed
+
+/**
+ * Pretend this is `Bump()`
+ */
+/atom/movable/proc/Collide(atom/bumped_atom)
 	SHOULD_NOT_SLEEP(TRUE)
+
+	if(!bumped_atom)
+		CRASH("Bump was called with no argument.")
+	SEND_SIGNAL(src, COMSIG_MOVABLE_BUMP, bumped_atom)
+	// . = ..() when we turn it into Bump()
+	if(!QDELETED(throwing))
+		throwing.finalize(hit = TRUE, target = bumped_atom)
+		. = TRUE
+		if(QDELETED(bumped_atom))
+			return
+	bumped_atom.CollidedWith(src)
+
+	//Aurora snowflake atom airflow hit
 	if(airflow_speed > 0 && airflow_dest)
-		airflow_hit(A)
+		airflow_hit(bumped_atom)
 	else
 		airflow_speed = 0
 		airflow_time = 0
 
-	if(!QDELETED(throwing))
-		. = TRUE
-		if(!QDELETED(A))
-			throw_impact(A, throwing)
-			A.CollidedWith(src)
-		throwing?.finalize(hit = TRUE, target = A)
 
-	else if (!QDELETED(A))
-		A.CollidedWith(src)
-
-//called when src is thrown into hit_atom
 /atom/movable/proc/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	if(isliving(hit_atom))
-		var/mob/living/M = hit_atom
-		M.hitby(src, throwingdatum.speed)
+	var/hitpush = TRUE
+	var/impact_signal = SEND_SIGNAL(src, COMSIG_MOVABLE_PRE_IMPACT, hit_atom, throwingdatum)
+	if(impact_signal & COMPONENT_MOVABLE_IMPACT_FLIP_HITPUSH)
+		hitpush = FALSE // hacky, tie this to something else or a proper workaround later
 
-	else if(isobj(hit_atom))
-		var/obj/O = hit_atom
-		if(!O.anchored)
-			step(O, src.last_move)
-		O.hitby(src, throwingdatum.speed)
-
-	else if(isturf(hit_atom))
-		throwing?.finalize(hit = FALSE)
-		var/turf/T = hit_atom
-		if(T.density)
-			step(src, turn(src.last_move, 180))
-			if(isliving(src))
-				var/mob/living/M = src
-				M.turf_collision(T, throwingdatum.speed)
+	if(impact_signal && (impact_signal & COMPONENT_MOVABLE_IMPACT_NEVERMIND))
+		return // in case a signal interceptor broke or deleted the thing before we could process our hit
+	if(SEND_SIGNAL(hit_atom, COMSIG_ATOM_PREHITBY, src, throwingdatum) & COMSIG_HIT_PREVENTED)
+		return
+	SEND_SIGNAL(src, COMSIG_MOVABLE_IMPACT, hit_atom, throwingdatum)
+	return hit_atom.hitby(src, throwingdatum=throwingdatum, hitpush=hitpush)
 
 //decided whether a movable atom being thrown can pass through the turf it is in.
 /atom/movable/proc/hit_check(var/speed, var/target)

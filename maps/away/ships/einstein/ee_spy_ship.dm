@@ -3,7 +3,7 @@
 	description = "A research ship belonging to Einstein Engines, the Stellar Corporate Conglomerate's main competitor."
 
 	prefix = "ships/einstein/"
-	suffixes = list("ee_spy_ship.dmm")
+	suffix = "ee_spy_ship.dmm"
 
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE)
 	spawn_weight = 0 // outdated and not following current standards, could be enabled after it's fixed

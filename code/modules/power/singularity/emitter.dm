@@ -156,7 +156,7 @@
 		if(prob(35))
 			spark_system.queue()
 
-		var/obj/item/projectile/beam/emitter/A = get_emitter_beam()
+		var/obj/projectile/beam/emitter/A = get_emitter_beam()
 		A.damage = round(power_per_shot / EMITTER_DAMAGE_POWER_TRANSFER)
 		A.launch_projectile(get_step(src, dir))
 		shot_counter++
@@ -270,7 +270,7 @@
 	return 0.2 SECONDS // This value doesn't really affect normal emitters, but *does* affect subtypes like the gyrotron that can have very long delays
 
 /obj/machinery/power/emitter/proc/get_emitter_beam()
-	return new /obj/item/projectile/beam/emitter(get_turf(src))
+	return new /obj/projectile/beam/emitter(get_turf(src))
 
 #undef EMITTER_LOOSE
 #undef EMITTER_BOLTED

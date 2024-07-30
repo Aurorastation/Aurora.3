@@ -500,7 +500,7 @@ By design, d1 is the smallest direction and d2 is the highest
 	max_amount = MAXCOIL
 	color = COLOR_RED
 	throwforce = 10
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 2
 	throw_range = 5
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 20)
@@ -680,10 +680,10 @@ By design, d1 is the smallest direction and d2 is the highest
 
 /obj/item/stack/cable_coil/proc/update_wclass()
 	if(amount == 1)
-		w_class = ITEMSIZE_TINY
+		w_class = WEIGHT_CLASS_TINY
 		slot_flags = SLOT_BELT | SLOT_EARS //one cable piece can fit in your ear.
 	else
-		w_class = ITEMSIZE_SMALL
+		w_class = WEIGHT_CLASS_SMALL
 		slot_flags = SLOT_BELT
 
 /obj/item/stack/cable_coil/verb/make_restraint()

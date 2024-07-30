@@ -10,7 +10,7 @@
 	build_from_parts = TRUE
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(1,2,3,4,5)
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	volume = 5
 	drop_sound = 'sound/items/drop/glass_small.ogg'

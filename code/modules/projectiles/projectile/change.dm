@@ -1,4 +1,4 @@
-/obj/item/projectile/change
+/obj/projectile/change
 	name = "bolt of change"
 	icon_state = "ice_1"
 	damage = 0
@@ -6,10 +6,10 @@
 	nodamage = 1
 	check_armor = "energy"
 
-/obj/item/projectile/change/on_hit(var/atom/change)
+/obj/projectile/change/on_hit(var/atom/change)
 	wabbajack(change)
 
-/obj/item/projectile/change/proc/wabbajack(var/mob/M)
+/obj/projectile/change/proc/wabbajack(var/mob/M)
 	if(istype(M, /mob/living) && M.stat != DEAD)
 		if(M.transforming)
 			return

@@ -3,7 +3,7 @@
 	icon_state = "generic"
 	desc = "This is a generic template that shoots projectiles.  If you can read this, the game broke!"
 	cast_methods = CAST_RANGED
-	var/obj/item/projectile/spell_projectile = null
+	var/obj/projectile/spell_projectile = null
 	var/energy_cost_per_shot = 0
 	var/instability_per_shot = 0
 	var/pre_shot_delay = 0
@@ -16,7 +16,7 @@
 /obj/item/spell/projectile/on_ranged_cast(atom/hit_atom, mob/living/user, atom/pb_target)
 	. = ..(hit_atom, user, TRUE)
 	if(set_up(hit_atom, user))
-		var/obj/item/projectile/new_projectile = make_projectile(spell_projectile, user)
+		var/obj/projectile/new_projectile = make_projectile(spell_projectile, user)
 		new_projectile.old_style_target(hit_atom)
 		new_projectile.fire(direct_target = pb_target)
 		log_and_message_admins("has casted [src] at \the [hit_atom].")
@@ -27,8 +27,8 @@
 		return TRUE
 	return FALSE
 
-/obj/item/spell/projectile/proc/make_projectile(obj/item/projectile/projectile_type, mob/living/user)
-	var/obj/item/projectile/P = new projectile_type(get_turf(user))
+/obj/item/spell/projectile/proc/make_projectile(obj/projectile/projectile_type, mob/living/user)
+	var/obj/projectile/P = new projectile_type(get_turf(user))
 	P.firer = user
 	if(aspect != ASPECT_PSIONIC)
 		P.damage = calculate_spell_power(P.damage)

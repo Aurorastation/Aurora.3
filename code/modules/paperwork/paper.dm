@@ -13,7 +13,7 @@
 	item_state = "paper"
 	contained_sprite = 1
 	throwforce = 0
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	throw_range = 1
 	throw_speed = 1
 	layer = ABOVE_OBJ_LAYER

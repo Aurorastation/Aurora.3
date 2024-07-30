@@ -5,7 +5,7 @@
 	icon_state = "implanter-0"
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 320, MATERIAL_GLASS = 800)
 	var/obj/item/implant/imp = null
 

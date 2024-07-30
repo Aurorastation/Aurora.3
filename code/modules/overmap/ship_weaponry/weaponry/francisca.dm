@@ -5,7 +5,7 @@
 	heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/rotary_fire.ogg'
 	icon_state = "weapon_base"
 	max_ammo = 3
-	projectile_type = /obj/item/projectile/ship_ammo/francisca
+	projectile_type = /obj/projectile/ship_ammo/francisca
 	caliber = SHIP_CALIBER_40MM
 	screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 
@@ -35,7 +35,7 @@
 	desc = "A box of AP shells for use in a Francisca rotary gun."
 	icon_state = "box_ap"
 	impact_type = SHIP_AMMO_IMPACT_AP
-	projectile_type_override = /obj/item/projectile/ship_ammo/francisca/ap
+	projectile_type_override = /obj/projectile/ship_ammo/francisca/ap
 
 /obj/item/ship_ammunition/francisca/frag
 	name = "40mm fragmentation ammunition box"
@@ -43,27 +43,27 @@
 	desc = "A box of fragmentation shells for use in a Francisca rotary gun."
 	icon_state = "box_inc"
 	impact_type = SHIP_AMMO_IMPACT_HE
-	projectile_type_override = /obj/item/projectile/ship_ammo/francisca/frag
+	projectile_type_override = /obj/projectile/ship_ammo/francisca/frag
 
-/obj/item/projectile/ship_ammo/francisca
+/obj/projectile/ship_ammo/francisca
 	name = "40mm FMJ shell"
 	icon_state = "small"
 	damage = 50
 	armor_penetration = 50
 	penetrating = 2
 
-/obj/item/projectile/ship_ammo/francisca/ap
+/obj/projectile/ship_ammo/francisca/ap
 	name = "40mm AP shell"
 	damage = 30
 	armor_penetration = 100
 	penetrating = 4
 
-/obj/item/projectile/ship_ammo/francisca/frag
+/obj/projectile/ship_ammo/francisca/frag
 	name = "40mm FRAG shell"
 	damage = 30
 	armor_penetration = 50
 	penetrating = 1
 
-/obj/item/projectile/ship_ammo/francisca/frag/on_impact(var/atom/A)
+/obj/projectile/ship_ammo/francisca/frag/on_impact(var/atom/A)
 	fragem(src, 70, 70, 1, 2, 10, 4, TRUE)
 	..()

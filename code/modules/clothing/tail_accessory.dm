@@ -1,7 +1,7 @@
 /obj/item/clothing/tail_accessory
 	name = "tail accessory"
 	desc = DESC_PARENT
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 	var/list/compatible_species_type = list()
 	var/list/compatible_tail_type = list()

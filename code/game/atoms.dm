@@ -118,7 +118,7 @@
 /atom/proc/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
 	return
 
-/atom/proc/bullet_act(obj/item/projectile/P, def_zone)
+/atom/proc/bullet_act(obj/projectile/P, def_zone)
 	P.on_hit(src, 0, def_zone)
 	. = 0
 
@@ -254,9 +254,6 @@
 		GLOB.dir_set_event.raise_event(src, old_dir, dir)
 
 /atom/proc/melt()
-	return
-
-/atom/proc/hitby(atom/movable/AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
 	return
 
 /atom/proc/add_hiddenprint(mob/living/M)
@@ -626,7 +623,7 @@
 /atom/proc/handle_pointed_at(var/mob/pointer)
 	return
 
-/atom/proc/create_bullethole(obj/item/projectile/Proj)
+/atom/proc/create_bullethole(obj/projectile/Proj)
 	var/p_x = Proj.p_x + rand(-6, 6)
 	var/p_y = Proj.p_y + rand(-6, 6)
 

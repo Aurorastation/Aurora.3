@@ -6,13 +6,9 @@
 	item_state = ""	//no inhands
 	overlay_state = null
 	slot_flags = SLOT_TIE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 	var/slot = ACCESSORY_SLOT_GENERIC
-
-	/// When attached to another piece of clothing, it'll increase the size by this amount. Accepts the ACCESSORY_WEIGHT_* define, which can be found in code/__DEFINES/accessories.dm. The final result is rounded up
-	var/accessory_w_class_adjustment = ACCESSORY_WEIGHT_NONE
-
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
 	var/overlay_in_inventory = TRUE // Whether the worn_overlay should apply when attached to an item of clothing.
@@ -397,7 +393,7 @@
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	siemens_coefficient = 0.9
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	slot = ACCESSORY_SLOT_CAPE
 	contained_sprite = TRUE
 	var/allow_tail_hiding = TRUE //in case if you want to allow someone to switch the HIDETAIL var or not
@@ -707,7 +703,7 @@
 
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak
 	name = "qeblak mantle"
-	desc = "A mantle denoting the wearer as a member fo the Qeblak faith."
+	desc = "A mantle denoting the wearer as a member of the Qeblak faith."
 	desc_extended = "This mantle denotes the wearer as a member of the Qeblak faith. \
 	It is given to followers after they have completed their coming of age ceremony. \
 	The symbol on the back is of a protostar as it transitions into a main sequence star, \
@@ -718,7 +714,7 @@
 
 /obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
 	name = "weishii robe"
-	desc = "A robe denoting the wearer as a member fo the Weishii faith."
+	desc = "A robe denoting the wearer as a member of the Weishii faith."
 	desc_extended = "This mantle denotes the wearer as a member of the Weishii faith. \
 	It is given to followers after they have spent time on a Weishiin Sanctuary."
 	icon_state = "weishii_robe"
@@ -889,7 +885,7 @@
 	overlay_state = null
 	badge_string = null
 	slot_flags = SLOT_TIE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/accessory/ribbon
 	name = "ribbon"
@@ -897,7 +893,7 @@
 	icon_state = "ribbon"
 	item_state = "ribbon"
 	slot_flags = SLOT_TIE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/accessory/sleevepatch
 	name = "sleeve patch"
