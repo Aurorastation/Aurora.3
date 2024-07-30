@@ -64,6 +64,15 @@
 
 // --------------------------------------------------- mapmanip
 
+/obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/cave_01
+/obj/effect/map_effect/marker/mapmanip/submap/insert/crystal_planet_outpost/cave_01
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/cave_02
+/obj/effect/map_effect/marker/mapmanip/submap/insert/crystal_planet_outpost/cave_02
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/cave_03
+/obj/effect/map_effect/marker/mapmanip/submap/insert/crystal_planet_outpost/cave_03
+
 /obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/anomaly_cave_01
 /obj/effect/map_effect/marker/mapmanip/submap/insert/crystal_planet_outpost/anomaly_cave_01
 
@@ -75,5 +84,11 @@
 
 /obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/anomaly_cave_04
 /obj/effect/map_effect/marker/mapmanip/submap/insert/crystal_planet_outpost/anomaly_cave_04
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/crew_room_n
+/obj/effect/map_effect/marker/mapmanip/submap/insert/crystal_planet_outpost/crew_room_n
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/crystal_planet_outpost/crew_room_s
+/obj/effect/map_effect/marker/mapmanip/submap/insert/crystal_planet_outpost/crew_room_s
 
 // --------------------------------------------------- fin
