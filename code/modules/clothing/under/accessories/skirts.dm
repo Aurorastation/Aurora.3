@@ -6,6 +6,7 @@
 	icon_state = "skirt_casual"
 	item_state = "skirt_casual"
 	contained_sprite = TRUE
+	slot_flags = SLOT_ICLOTHING | SLOT_TIE
 
 /obj/item/clothing/accessory/skirt/puffy
 	name = "puffy skirt"
@@ -76,3 +77,26 @@
 	desc_extended = "Enough fabric for two skirts, and then some."
 	icon_state = "skirt_straightlong"
 	item_state = "skirt_straightlong"
+
+/obj/item/clothing/accessory/skirt/offworlder
+	name = "\improper CR skirt"
+	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear. This variant seems to have a poofy skirt and longer sleeves than normal."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
+	icon_state = "crskirt"
+	item_state = "crskirt"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
+
+/obj/item/clothing/accessory/skirt/jumper
+	name = "jumper skirt"
+	desc = "A short skirt with two large shoulder straps."
+	desc_extended = "Too tall or too short? Too bad. These shoulder straps can't be adjusted."
+	icon_state = "skirt_jumper"
+	item_state = "skirt_jumper"
+
+/obj/item/clothing/accessory/skirt/jumper_highcut
+	name = "jumper dress"
+	desc = "A garment with open sides that seems to be a cross between a dress and an apron."
+	desc_extended = "You could achieve the same effect with two aprons, we're pretty sure."
+	icon_state = "skirt_jumper_highcut"
+	item_state = "skirt_jumper_highcut"

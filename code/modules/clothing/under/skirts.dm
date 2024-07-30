@@ -10,6 +10,7 @@
 	worn_state = "skirt_casual"
 	body_parts_covered = LOWER_TORSO
 	contained_sprite = TRUE
+	slot_flags = SLOT_ICLOTHING | SLOT_TIE
 
 /obj/item/clothing/under/skirt/puffy
 	name = "puffy skirt"

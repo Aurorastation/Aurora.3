@@ -712,7 +712,7 @@
 /datum/gear/accessory/skirt
 	display_name = "wearover skirt selection"
 	path = /obj/item/clothing/accessory/skirt
-	description = "A selection of skirts."
+	description = "A selection of skirts. Can be worn as an accessory or as a uniform."
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/skirt/New()
