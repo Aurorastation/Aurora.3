@@ -180,3 +180,8 @@
 	name = "bottle of 10u Ryetalyn pills"
 	desc = "Contains pills used to treat genetic and immune diseases."
 	starts_with = list(/obj/item/reagent_containers/pill/ryetalyn = 4)
+
+/obj/item/storage/pill_bottle/caffeine
+	name = "bottle of 10u caffeine pills"
+	desc = "Contains pills used to help with alertness and fatigue. The label warns against taking more than 2 in a 6-hour period. Possible side effects include jitteriness, heart palpitations, difficulty with concentrating, and even death."
+	starts_with = list(/obj/item/reagent_containers/pill/caffeine = 7)
