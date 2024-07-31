@@ -182,6 +182,11 @@
 	starts_with = list(/obj/item/reagent_containers/pill/ryetalyn = 4)
 
 /obj/item/storage/pill_bottle/caffeine
-	name = "bottle of 10u caffeine pills"
+	name = "bottle of 10u Caffeine pills"
 	desc = "Contains pills used to help with alertness and fatigue. The label warns against taking more than 2 in a 6-hour period. Possible side effects include jitteriness, heart palpitations, difficulty with concentrating, and even death."
 	starts_with = list(/obj/item/reagent_containers/pill/caffeine = 7)
+
+/obj/item/storage/pill_bottle/nicotine
+	name = "bottle of 10u Nicotine pills"
+	desc = "Contains pills used to treat nicotine addiction."
+	starts_with = list(/obj/item/reagent_containers/pill/nicotine = 7)
