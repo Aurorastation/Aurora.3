@@ -375,3 +375,9 @@
 	desc = "A medicine used to treat genetic conditions, including benign and malignant tumours."
 	icon_state = "pill11"
 	reagents_to_add = list(/singleton/reagent/ryetalyn = 10)
+
+/obj/item/reagent_containers/pill/caffeine
+	name = "5u Caffeine Pill"
+	desc = "A stimulant used to help with alertness and fatigue.."
+	icon_state = "pill18"
+	reagents_to_add = list(/singleton/reagent/caffeine = 5)
