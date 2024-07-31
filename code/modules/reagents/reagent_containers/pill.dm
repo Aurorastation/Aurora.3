@@ -307,7 +307,7 @@
 /obj/item/reagent_containers/pill/bio_vitamin/cheap //Vending machine version
 	name = "Vitamin Pill"
 	desc = "Has all the vitamins a person needs."
-	reagents_to_add = list(/singleton/reagent/nutriment = 4)
+	reagents_to_add = list(/singleton/reagent/nutriment = 2)
 
 /obj/item/reagent_containers/pill/rmt
 	name = "15u Regenerative-Muscular Tissue Supplement Pill"
