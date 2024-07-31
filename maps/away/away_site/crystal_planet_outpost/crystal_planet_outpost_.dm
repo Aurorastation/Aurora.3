@@ -9,12 +9,13 @@
 	prefix = "away_site/crystal_planet_outpost/"
 	suffix = "crystal_planet_outpost_.dmm"
 
-	exoplanet_base_area = /area/crystal_planet_outpost/surface
+	// exoplanet_base_area = /area/crystal_planet_outpost/surface
 	exoplanet_theme_base = /datum/exoplanet_theme/crystal
 	exoplanet_themes = list(
 		/turf/unsimulated/marker/green = /datum/exoplanet_theme/crystal,
 		/turf/unsimulated/marker/teal  = /datum/exoplanet_theme/crystal/mountain
 	)
+	exoplanet_atmosphere = null
 
 	spawn_cost = 1
 	spawn_weight = 1

@@ -30,8 +30,8 @@
 			exoplanet.theme.on_turf_generation(src, exoplanet.planetary_area)
 		// away site
 		var/datum/map_template/ruin/away_site/away_site = GLOB.map_templates["[z]"]
-		if (istype(away_site) && istype(away_site.exoplanet_theme_base) && istype(away_site.exoplanet_base_area))
-			away_site.exoplanet_theme_base.on_turf_generation(src, away_site.exoplanet_base_area)
+		if (istype(away_site) && istype(away_site.exoplanet_theme_base))
+			away_site.exoplanet_theme_base.on_turf_generation(src, null)
 
 // Helper to change this turf into an appropriate openturf type, generally you should use this instead of ChangeTurf(/turf/simulated/open).
 /turf/proc/ChangeToOpenturf()
