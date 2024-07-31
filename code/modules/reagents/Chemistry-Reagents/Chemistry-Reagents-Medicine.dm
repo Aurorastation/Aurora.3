@@ -1931,11 +1931,6 @@
 	metabolism_min = REM * 0.025
 	breathe_met = REM * 0.15 * 0.5
 
-/singleton/reagent/caffeine/get_overdose(mob/living/carbon/M, location, datum/reagents/holder)
-	if(REAGENT_VOLUME(M.reagents, /singleton/reagent/adrenaline) > 5)
-		return 10 /
-	. = ..()
-
 /singleton/reagent/caffeine/get_od_min_dose(mob/living/carbon/M, location, datum/reagents/holder)
 	if(REAGENT_VOLUME(M.reagents, /singleton/reagent/adrenaline) > 5)
 		return 0 // Takes effect instantly.
