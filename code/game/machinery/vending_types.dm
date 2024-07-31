@@ -772,6 +772,29 @@
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	manufacturer = "zenghu"
 
+/obj/machinery/vending/wallpharm
+	name = "\improper NanoPharm Mini"
+	desc = "A wall-mounted pharmaceuticals vending machine packed with over-the-counter bottles. For the sick salaried worker in you."
+	icon_state = "wallpharm"
+	density = 0
+	products = list(
+		/obj/item/storage/pill_bottle/antidexafen = 4.
+		/obj/item/storage/pill_bottle/corophenidate = 4, //ADHD medication, unsure if perscription
+		/obj/item/storage/pill_bottle/rmt = 2
+	)
+	prices = list(
+		/obj/item/storage/pill_bottle/antidexafen = 70,
+		/obj/item/storage/pill_bottle/corophenidate = 4, 120,
+		/obj/item/storage/pill_bottle/rmt = 200
+	)
+	contraband = list(
+		/obj/item/reagent_containers/pill/tox = 3
+	)
+	random_itemcount = 0
+	temperature_setting = -1
+	light_color = LIGHT_COLOR_GREEN
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	manufacturer = "zenghu"
 /obj/machinery/vending/security
 	name = "SecTech"
 	desc = "A security equipment vendor."
