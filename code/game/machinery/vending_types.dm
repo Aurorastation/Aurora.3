@@ -799,6 +799,7 @@
 	)
 	contraband = list(
 		/obj/item/reagent_containers/pill/tox = 3
+		/obj/item/storage/pill_bottle/perconol = 3
 	)
 	random_itemcount = FALSE
 	temperature_setting = -1
