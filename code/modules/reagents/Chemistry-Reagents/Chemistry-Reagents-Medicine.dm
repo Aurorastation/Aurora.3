@@ -1950,7 +1950,7 @@
 /singleton/reagent/caffeine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
 	M.adjustNutritionLoss(5*removed)
 	M.add_chemical_effect(CE_PULSE, 2)
-	M.add_chemical_effect(CE_SPEEDBOOST, 0.45) // between thirteen loko and zora soda
+	M.add_chemical_effect(CE_SPEEDBOOST, 0.45) // between thirteen loko and zora soda, may still be way too much
 	if(prob(5))
 		to_chat(M, SPAN_DANGER(pick("You have a headache!", "Energy, energy, energy - so much energy!", "You can't sit still!", "It's difficult to focus right now... but that's not important!", "Your heart is beating rapidly!", "Your chest hurts!", "You've totally over-exerted yourself!")))
 	if(prob(M.chem_doses[type] / 3))
