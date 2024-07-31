@@ -293,7 +293,7 @@
 	icon_state = "pill19"
 	reagents_to_add = list(/singleton/reagent/thetamycin = 15)
 
-/obj/item/reagent_containers/pill/bio_vitamin
+/obj/item/reagent_containers/pill/bio_vitamin //Biogenerator version
 	name = "Vitamin Pill"
 	desc = "Contains a meal's worth of nutrients."
 	icon_state = "pill11"
@@ -303,6 +303,11 @@
 	. = ..()
 	var/juice = pick(/singleton/reagent/drink/banana, /singleton/reagent/drink/berryjuice, /singleton/reagent/drink/grapejuice, /singleton/reagent/drink/lemonjuice, /singleton/reagent/drink/limejuice, /singleton/reagent/drink/orangejuice, /singleton/reagent/drink/watermelonjuice)
 	reagents.add_reagent(juice, 1)
+
+/obj/item/reagent_containers/pill/bio_vitamin/cheap //Vending machine version
+	name = "Vitamin Pill"
+	desc = "Has all the vitamins a person needs."
+	reagents_to_add = list(/singleton/reagent/nutriment = 4)
 
 /obj/item/reagent_containers/pill/rmt
 	name = "15u Regenerative-Muscular Tissue Supplement Pill"
