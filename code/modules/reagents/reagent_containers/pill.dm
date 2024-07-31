@@ -378,6 +378,12 @@
 
 /obj/item/reagent_containers/pill/caffeine
 	name = "5u Caffeine Pill"
-	desc = "A stimulant used to help with alertness and fatigue.."
+	desc = "A stimulant used to help with alertness and fatigue."
 	icon_state = "pill18"
 	reagents_to_add = list(/singleton/reagent/caffeine = 5)
+
+/obj/item/reagent_containers/pill/nicotine
+	name = "5u nicotine Pill"
+	desc = "A pull used to treat nicotine addiction."
+	icon_state = "pill18"
+	reagents_to_add = list(/singleton/reagent/mental/nicotine = 5)
