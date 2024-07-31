@@ -496,12 +496,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion/docking2)
-"bqb" = (
-/obj/machinery/door/airlock/multi_tile/glass{
-	name = "Docking Bay"
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/ship/orion/forehall)
 "buO" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -36620,7 +36614,7 @@ qpX
 qpX
 qpX
 udj
-bqb
+qpX
 mSt
 mSt
 xRX
@@ -36877,7 +36871,7 @@ qpX
 lhJ
 ilT
 jMZ
-bqb
+qpX
 qpX
 mSt
 mSt
