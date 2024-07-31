@@ -6,6 +6,7 @@
 // Artemis is a combat focused spawn shuttle, made to address the issues we (the crew) had with the Konyang Warehouse Raid event.
 // Its geared out for heavy security and crew militia use.
 // There's also things like the machinists having all of their things packed up, ready to be moved out to somewhere off shuttle to handle IPC's
+// While we're moving away from a militaristic setting at time of writing, this shuttle can still be very useful for events or noncannon events especially.
 // -------------------------------------------------------------------------------------------------------------------------
 // Apollo v1 is a humanitarian focused shuttle. It focuses on carrying service related supplies, operations supplies, and most importantly: scientific supplies.
 // Additionally, engineering is issued RFD's to be able to build out as the mission requires.
@@ -16,7 +17,7 @@
 // Apollo v3 goes even further, packing up medical almost entirely. I very much like the idea of medical having to work with a handful of engineers to build a clinic, so this gives
 // the option for an organizer to run with that.
 // -------------------------------------------------------------------------------------------------------------------------
-// Packrat is half a meme, half genuine attempt to encourage a gameplay idea for an event. Every job's gear is packed up in the smallest space possible.
+// Packrat is an ultra utilitarian approach, encouraging a non shuttle central event. Every job's gear is packed up in the smallest space possible.
 // Its up to the crew as a whole to get all of this gear off the shuttle and deployed into an area
 // I think this ship would be best served by existing in a city environment. Its shorter size narrative supports that, and its lack of internal walls for the cargo hold
 // means that you cant really set up anyone's base of operations inside. At most, one department's worth of jobs.

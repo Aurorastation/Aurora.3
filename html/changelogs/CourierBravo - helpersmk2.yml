@@ -59,4 +59,5 @@ changes:
   - rscadd: "Added a long list of color variants of various floor decals "
   - rscadd: "Added a new atmos helper, atmos_pipes."
   - refactor: "Split the outline/engineering decal, which is brown, into two new decals. outline/engineering and outline/operations. outline/engineering is now engineering yellow, outline/operations is brown. All maps with outline/engineering have been changed to reflect this."
+  - bugfix: "Changed the icon state of the SCC repeater pistol to fix a display issue."
 
