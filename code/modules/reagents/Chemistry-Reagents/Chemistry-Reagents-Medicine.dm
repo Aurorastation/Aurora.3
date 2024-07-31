@@ -1925,7 +1925,7 @@
 	reagent_state = SOLID
 	color = "#f9edea"
 	metabolism = REM * 0.15
-	overdose = 7
+	overdose = 11
 	var/datum/modifier = null
 	taste_description = "bitter"
 	metabolism_min = REM * 0.025
