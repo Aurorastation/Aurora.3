@@ -746,7 +746,7 @@
 	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
 	icon_state = "wallmed"
 	req_access = list(ACCESS_MEDICAL)
-	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
+	density = FALSE //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
 	products = list(
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 5,
@@ -766,7 +766,7 @@
 	premium = list(
 		/obj/item/reagent_containers/pill/mortaphenyl = 4
 	)
-	random_itemcount = 0
+	random_itemcount = FALSE
 	temperature_setting = -1
 	light_color = LIGHT_COLOR_GREEN
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
@@ -779,6 +779,8 @@
 	density = FALSE
 	products = list(
 		/obj/item/storage/pill_bottle/antidexafen = 4,
+		/obj/item/storage/pill_bottle/dexalin = 4,
+		/obj/item/storage/pill_bottle/dylovene = 4,
 		/obj/item/storage/pill_bottle/vitamin = 5,
 		/obj/item/storage/pill_bottle/cetahydramine  = 4, 
 		/obj/item/storage/pill_bottle/caffeine = 3, 
@@ -787,6 +789,8 @@
 	)
 	prices = list(
 		/obj/item/storage/pill_bottle/antidexafen = 70,
+		/obj/item/storage/pill_bottle/dexalin = 60,
+		/obj/item/storage/pill_bottle/dylovene = 75,
 		/obj/item/storage/pill_bottle/vitamin = 55,
 		/obj/item/storage/pill_bottle/cetahydramine  = 60, 
 		/obj/item/storage/pill_bottle/caffeine = 90, 
@@ -798,7 +802,7 @@
 	)
 	random_itemcount = FALSE
 	temperature_setting = -1
-	light_color = LIGHT_COLOR_GREEN
+	light_color = COLOR_GOLD
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	manufacturer = "zenghu"
 
