@@ -311,6 +311,7 @@
 "aXC" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/carpet,
 /area/ship/orion/crew)
 "aYo" = (
@@ -495,6 +496,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion/docking2)
+"bqb" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Docking Bay"
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/ship/orion/forehall)
 "buO" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -638,7 +645,6 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
@@ -894,7 +900,7 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/orion/mainhall)
@@ -948,7 +954,7 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/cargo)
@@ -1080,7 +1086,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/ship/orion/mainhall)
@@ -1438,8 +1446,8 @@
 /turf/simulated/floor/airless,
 /area/ship/orion/thruster2)
 "eml" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
 	},
 /turf/simulated/floor/wood,
 /area/ship/orion/crew)
@@ -1953,6 +1961,7 @@
 	},
 /obj/structure/table/steel,
 /obj/machinery/recharger,
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "gGv" = (
@@ -2147,10 +2156,9 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
@@ -2184,9 +2192,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "hhq" = (
@@ -2232,14 +2238,14 @@
 /area/shuttle/orion_shuttle/storage)
 "hlg" = (
 /obj/structure/cable/green,
-/obj/machinery/power/apc/north{
-	req_access = list(201)
-	},
 /obj/structure/table/standard,
 /obj/item/blueprints,
 /obj/item/pen/drafting/blue{
 	pixel_x = -6;
 	pixel_y = 8
+	},
+/obj/machinery/power/apc/south{
+	req_access = list(201)
 	},
 /turf/simulated/floor,
 /area/ship/orion/engie)
@@ -2576,9 +2582,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/captain)
 "ioB" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/light{
+	dir = 8;
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4;
+	icon_state = "map_scrubber_on"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/orion/bridge)
+/area/ship/orion/docking1)
 "ipM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
@@ -2935,9 +2948,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/orion_shuttle/cockpit)
 "jLO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/purple{
-	dir = 9
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
@@ -3050,7 +3060,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4;
@@ -3058,6 +3068,13 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
+/area/ship/orion/docking1)
+"kkl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/purple,
+/turf/simulated/floor/tiled/dark,
 /area/ship/orion/docking1)
 "kku" = (
 /obj/machinery/light{
@@ -3719,7 +3736,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -4477,12 +4494,11 @@
 /area/ship/orion/docking1)
 "oTv" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/purple,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -4627,6 +4643,12 @@
 "pAa" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/ship/orion/atmos)
+"pAi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion/bridge)
 "pBw" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm/south{
@@ -4859,7 +4881,7 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/orion/mainhall)
@@ -4878,10 +4900,10 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/ship/orion/docking1)
 "qrd" = (
@@ -4974,15 +4996,14 @@
 /turf/template_noop,
 /area/space)
 "qEK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/light{
 	dir = 4;
 	inserted_light = /obj/item/light/tube/colored/blue
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/purple,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -5181,9 +5202,6 @@
 /turf/simulated/floor,
 /area/ship/orion/cargo)
 "rpV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/purple{
-	dir = 6
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
@@ -5193,6 +5211,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/purple,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion/docking1)
@@ -5289,6 +5308,7 @@
 	pixel_x = -8;
 	pixel_y = 6
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "rDd" = (
@@ -5591,6 +5611,7 @@
 /area/ship/orion/cargo)
 "stX" = (
 /obj/structure/bed/stool/bar/padded/beige,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/carpet,
 /area/ship/orion/crew)
 "suH" = (
@@ -5636,12 +5657,15 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
 /area/ship/orion/bridge)
+"sAZ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/template_noop,
+/area/space)
 "sBH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/purple,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -5741,6 +5765,7 @@
 	d2 = 4;
 	icon_state = "2-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
 "sMD" = (
@@ -6063,7 +6088,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/orion/mainhall)
@@ -6090,7 +6115,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+	dir = 4
 	},
 /obj/machinery/firealarm/west{
 	dir = 4;
@@ -6253,7 +6278,7 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -6327,9 +6352,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/docking2)
 "uty" = (
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/pipe/simple/hidden/purple{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/orion/bridge)
+/area/ship/orion/docking1)
 "uuK" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -6742,9 +6769,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -7311,15 +7336,12 @@
 /turf/simulated/floor,
 /area/ship/orion/cargo)
 "xkx" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/purple,
 /turf/simulated/floor/tiled/dark,
-/area/ship/orion/bridge)
+/area/ship/orion/docking1)
 "xnk" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -7601,6 +7623,9 @@
 	dir = 4;
 	name = "Platform Command Center";
 	req_access = list(201)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/orion/bridge)
@@ -34790,7 +34815,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+sAZ
 xRX
 xRX
 xRX
@@ -36590,7 +36615,7 @@ qpX
 qpX
 qpX
 udj
-qpX
+bqb
 mSt
 mSt
 xRX
@@ -36847,7 +36872,7 @@ qpX
 lhJ
 ilT
 jMZ
-qpX
+bqb
 qpX
 mSt
 mSt
@@ -38374,8 +38399,8 @@ wYR
 eXm
 rZA
 qqs
-uty
-xkx
+pxl
+pBC
 fmY
 rZA
 wPe
@@ -38888,8 +38913,8 @@ eml
 mun
 rZA
 phP
-ioB
-dvk
+pxl
+pBC
 vzU
 rZA
 bVs
@@ -39145,8 +39170,8 @@ rvp
 mun
 rZA
 rBK
-pxl
-pBC
+pAi
+dvk
 qLl
 rZA
 gqU
@@ -39684,7 +39709,7 @@ dhz
 isS
 qnR
 kUD
-eMT
+ioB
 qnR
 cLw
 upw
@@ -39938,12 +39963,12 @@ krz
 qnR
 mlH
 qju
-qnR
-qnR
-qnR
-qnR
-qnR
-mlH
+uty
+wdM
+wdM
+kkl
+wdM
+xkx
 rpV
 wdM
 gMn
