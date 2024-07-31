@@ -7268,6 +7268,11 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/orion/docking1)
+"wYl" = (
+/obj/machinery/firealarm/north,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/ship/orion/docking2)
 "wYR" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
@@ -42750,7 +42755,7 @@ nMr
 mSt
 mSt
 axO
-wRc
+wYl
 rIP
 uDj
 axO
