@@ -389,6 +389,6 @@
 
 /obj/item/reagent_containers/pill/nicotine
 	name = "5u Nicotine Pill"
-	desc = "A pull used to treat nicotine addiction."
+	desc = "A pill used to treat nicotine addiction."
 	icon_state = "pill18"
 	reagents_to_add = list(/singleton/reagent/mental/nicotine = 5)
