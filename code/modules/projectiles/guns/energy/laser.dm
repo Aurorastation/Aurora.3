@@ -1,6 +1,6 @@
 /obj/item/gun/energy/laser
 	name = "laser carbine"
-	desc = "An NanoTrasen G40E carbine, designed to kill with concentrated energy blasts."
+	desc = "A NanoTrasen G40E carbine, designed to kill with concentrated energy blasts."
 	icon = 'icons/obj/guns/laserrifle.dmi'
 	icon_state = "laserrifle100"
 	item_state = "laserrifle100"
@@ -80,7 +80,7 @@
 
 /obj/item/gun/energy/lasercannon
 	name = "laser cannon"
-	desc = "A nanotrasen designed laser cannon capable of acting as a powerful support weapon."
+	desc = "A NanoTrasen designed laser cannon capable of acting as a powerful support weapon."
 	desc_extended = "The NT LC-4 is a laser cannon developed and produced by NanoTrasen. Produced and sold to organizations both in need of a highly powerful support weapon and can afford its high unit cost. In spite of the low capacity, it is a highly capable tool, cutting down fortifications and armored targets with ease."
 	icon = 'icons/obj/guns/lasercannon.dmi'
 	icon_state = "lasercannon100"
