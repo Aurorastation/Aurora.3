@@ -1,6 +1,6 @@
 /obj/item/gun/energy/laser
 	name = "laser carbine"
-	desc = "An Hephaestus Industries G40E carbine, designed to kill with concentrated energy blasts."
+	desc = "An NanoTrasen G40E carbine, designed to kill with concentrated energy blasts."
 	icon = 'icons/obj/guns/laserrifle.dmi'
 	icon_state = "laserrifle100"
 	item_state = "laserrifle100"
@@ -32,7 +32,7 @@
 
 /obj/item/gun/energy/laser/practice
 	name = "practice laser carbine"
-	desc = "A modified version of the HI G40E, this one fires less concentrated energy bolts designed for target practice."
+	desc = "A modified version of the NT G40E, this one fires less concentrated energy bolts designed for target practice."
 	projectile_type = /obj/projectile/beam/practice
 
 /obj/item/gun/energy/retro
@@ -138,7 +138,7 @@
 
 /obj/item/gun/energy/sniperrifle
 	name = "marksman energy rifle"
-	desc = "The HI L.W.A.P. is an older design of Hephaestus Industries. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
+	desc = "The HI L.W.A.P. is an older NanoTrasen design. A designated marksman rifle capable of shooting powerful ionized beams, this is a weapon to kill from a distance."
 	desc_info = "This is an energy weapon.  To fire the weapon, ensure your intent is *not* set to 'help', have your gun mode set to 'fire', \
 	then click where you want to fire.  Most energy weapons can fire through windows harmlessly.  To recharge this weapon, use a weapon recharger. \
 	To use the scope, use the appropriate verb in the object tab."
