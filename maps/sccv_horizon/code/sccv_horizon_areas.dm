@@ -634,6 +634,9 @@
 
 /area/horizon/holodeck/source_trinary
 	name = "Horizon - Holodeck - Trinarist Chapel"
+
+/area/horizon/holodeck/source_lasertag
+	name = "Horizon - Holodeck - Laser Tag Arena "
 /********** Holodeck End **********/
 
 /********** Unique Start **********/

@@ -6004,6 +6004,12 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_three/aft/starboard)
+"ezc" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/structure/closet/lasertag/blue,
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled/dark,
+/area/horizon/holodeck_control)
 "ezg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -13953,11 +13959,12 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "jEO" = (
-/obj/structure/bed/stool/padded/red,
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/machinery/light/spot{
 	dir = 1
 	},
+/obj/structure/closet/lasertag,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control)
 "jES" = (
@@ -53769,7 +53776,7 @@ gDJ
 gDJ
 gDJ
 qhP
-eYD
+ezc
 tfp
 eXd
 oVU

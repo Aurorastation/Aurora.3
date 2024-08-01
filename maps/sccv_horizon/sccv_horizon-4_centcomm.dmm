@@ -6142,6 +6142,12 @@
 /obj/effect/large_stock_marker,
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
+"asB" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "asC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -30364,6 +30370,10 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/ninja)
+"bAU" = (
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "bAW" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -33880,6 +33890,12 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_trinary)
+"bZg" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "cbe" = (
 /obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/shuttle/black,
@@ -34297,6 +34313,9 @@
 /obj/structure/flora/tree/dead,
 /turf/simulated/floor/holofloor/snow,
 /area/horizon/holodeck/source_snowfield)
+"dGv" = (
+/turf/unsimulated/wall/riveted,
+/area/horizon/holodeck/source_lasertag)
 "dGw" = (
 /obj/effect/decal/fake_object{
 	density = 1;
@@ -34563,6 +34582,10 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/shuttle/merchant)
+"eAQ" = (
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "eBq" = (
 /turf/simulated/floor/holofloor/beach/sand{
 	icon_state = "desert0"
@@ -34730,6 +34753,12 @@
 /obj/effect/spider/stickyweb,
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
+"fnq" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "fsa" = (
 /obj/effect/mist,
 /turf/simulated/floor/exoplanet/water/shallow{
@@ -35442,6 +35471,15 @@
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/carpet/rubber,
 /area/antag/jockey)
+"hOe" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "hRC" = (
 /obj/machinery/door/airlock/silver{
 	dir = 4;
@@ -35469,6 +35507,12 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor/plating,
 /area/shuttle/mercenary)
+"hVg" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "hWe" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
@@ -35663,6 +35707,12 @@
 /obj/structure/window/reinforced/holowindow,
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_courtroom)
+"izF" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "iBt" = (
 /obj/structure/dueling_table/no_collide/above_layer{
 	icon_state = "top_left"
@@ -36050,6 +36100,15 @@
 /obj/item/device/flashlight/lamp/stage,
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_theatre)
+"jBQ" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "jGo" = (
 /obj/effect/floor_decal/spline/plain/corner,
 /obj/structure/flora/ausbushes/sunnybush,
@@ -36147,6 +36206,12 @@
 	},
 /turf/simulated/floor/shuttle/dark_red,
 /area/shuttle/hapt)
+"kci" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "kcw" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/marble/dark,
@@ -36217,6 +36282,13 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
+"koH" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/red,
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "kpu" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -36779,6 +36851,12 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_battlemonsters)
+"lTK" = (
+/obj/effect/floor_decal/corner/blue/full{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "lUi" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -36900,6 +36978,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/hapt)
+"mrh" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "mrZ" = (
 /turf/simulated/floor/exoplanet/water/shallow{
 	dir = 8;
@@ -37137,6 +37221,12 @@
 	name = "dirt"
 	},
 /area/horizon/holodeck/source_adhomai)
+"mYT" = (
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "mZu" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
@@ -37289,6 +37379,10 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
+"nWi" = (
+/obj/effect/floor_decal/corner/blue/full,
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "nXn" = (
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/shuttle/dark_red,
@@ -37572,6 +37666,18 @@
 /obj/item/flame/candle,
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_sauna)
+"oSC" = (
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
+"oSJ" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "oTZ" = (
 /obj/item/shovel,
 /turf/simulated/floor/exoplanet/barren,
@@ -37684,6 +37790,12 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_courtroom)
+"pbp" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "pfb" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -37910,6 +38022,12 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/jockey)
+"pRd" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "pRF" = (
 /obj/effect/floor_decal/snowdrift{
 	dir = 1
@@ -39007,6 +39125,10 @@
 	icon_state = "beach"
 	},
 /area/centcom/shared_dream)
+"uvn" = (
+/obj/effect/floor_decal/corner/blue,
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "uxa" = (
 /obj/structure/table/wood,
 /obj/effect/decal/fake_object{
@@ -39371,6 +39493,13 @@
 	icon_state = "desert"
 	},
 /area/centcom/shared_dream)
+"vvN" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/blue,
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "vwJ" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -39600,6 +39729,12 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"wbL" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 4
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "wbQ" = (
 /obj/structure/railing/mapped{
 	layer = 5.1
@@ -39788,6 +39923,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/hapt)
+"wTU" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 1
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "wUz" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/grass{
@@ -39831,6 +39972,12 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_courtroom)
+"wYk" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/simulated/floor/holofloor/tiled,
+/area/horizon/holodeck/source_lasertag)
 "wZP" = (
 /obj/effect/mist,
 /turf/simulated/floor/exoplanet/water/shallow{
@@ -77588,14 +77735,14 @@ bFf
 bFf
 bFf
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+bFf
+bFf
+bFf
+bFf
+bFf
+bFf
+bFf
+bFf
 aaa
 aaa
 aaa
@@ -77845,14 +77992,14 @@ bJU
 bJU
 bGm
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+lTK
+hVg
+hVg
+eAQ
+hVg
+hVg
+nWi
+bFf
 aaa
 aaa
 aaa
@@ -78102,14 +78249,14 @@ bJU
 bJU
 bJU
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+kci
+oSC
+oSC
+oSC
+oSC
+oSC
+pRd
+bFf
 aaa
 aaa
 aaa
@@ -78359,14 +78506,14 @@ lqT
 bJU
 bJU
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+kci
+dGv
+oSC
+oSC
+oSC
+dGv
+pRd
+bFf
 aaa
 aaa
 aaa
@@ -78616,14 +78763,14 @@ bGi
 bHp
 bHp
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+kci
+oSC
+oSC
+oSC
+oSC
+oSC
+pRd
+bFf
 aaa
 aaa
 aaa
@@ -78873,14 +79020,14 @@ rYl
 bHp
 bHp
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+kci
+uvn
+wYk
+wYk
+wYk
+wbL
+pRd
+bFf
 aaa
 aaa
 aaa
@@ -79130,14 +79277,14 @@ rYl
 bHp
 bHp
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+vvN
+oSJ
+dGv
+dGv
+dGv
+vvN
+oSJ
+bFf
 aaa
 aaa
 aaa
@@ -79387,14 +79534,14 @@ rYl
 bHp
 bHp
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+jBQ
+hOe
+dGv
+dGv
+dGv
+jBQ
+koH
+bFf
 aaa
 aaa
 aaa
@@ -79644,14 +79791,14 @@ rYl
 bHp
 bHp
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+izF
+pbp
+mrh
+mrh
+mrh
+wTU
+fnq
+bFf
 aaa
 aaa
 aaa
@@ -79901,14 +80048,14 @@ xbL
 bHp
 bHp
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+izF
+oSC
+oSC
+oSC
+oSC
+oSC
+fnq
+bFf
 aaa
 aaa
 aaa
@@ -80158,14 +80305,14 @@ mEQ
 bJU
 bJU
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+izF
+dGv
+oSC
+oSC
+oSC
+dGv
+fnq
+bFf
 aaa
 aaa
 aaa
@@ -80415,14 +80562,14 @@ bJU
 bJU
 bHw
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+izF
+oSC
+oSC
+oSC
+oSC
+oSC
+fnq
+bFf
 aaa
 aaa
 aaa
@@ -80672,14 +80819,14 @@ bJU
 bJU
 bJU
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+bZg
+asB
+asB
+bAU
+asB
+asB
+mYT
+bFf
 aaa
 aaa
 aaa
@@ -80929,14 +81076,14 @@ bFf
 bFf
 bFf
 bFf
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+bFf
+bFf
+bFf
+bFf
+bFf
+bFf
+bFf
+bFf
 aaa
 aaa
 aaa
