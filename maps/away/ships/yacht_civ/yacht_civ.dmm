@@ -4933,7 +4933,7 @@
 /obj/item/clothing/accessory/skirt/skater{
 	color = "#2C3A7F"
 	},
-/obj/item/clothing/under/skirt/pencil{
+/obj/item/clothing/accessory/skirt/pencil{
 	color = "#333333"
 	},
 /obj/item/clothing/under/pants/striped,
