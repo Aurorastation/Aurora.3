@@ -364,3 +364,17 @@
   SimpleMaroon:
   - rscadd: Added a culture and origins for the Underhive Collective, an Eridani-based
       Diona faction.
+2024-07-30:
+  Acetrea:
+  - bugfix: Fixes Solarian Colonial Mandate of Tau Ceti Banner Icons and Sprites.
+  FlamingLily:
+  - qol: Stopped disposal units sucking people in.
+  FluffyGhost:
+  - bugfix: Fixed cryopods causing an harddel on mobs.
+  - admin: Extended list viewer now has an edit button, and the ability to edit the
+      extended list it's seeing; it's also (opinionately) better formatted.
+  not-a-gonk:
+  - qol: Gives the Tarwa Conglomerate ship a minor remap, updating some outdated parts
+      and adding some new amenities.
+  - rscadd: Adds a new Tarwa Conglomerate suit cycler, for the normal and captain
+      variants.

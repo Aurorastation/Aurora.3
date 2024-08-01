@@ -67,7 +67,7 @@
 			to_chat(usr, "This can only be used on instances of type /list")
 			return
 
-		view_extended_list(L, href_list["varnameview"])
+		view_extended_list(L, locate(href_list["original_datum"]))
 
 	else if(href_list["mob_player_panel"])
 		if(!check_rights(0))	return
