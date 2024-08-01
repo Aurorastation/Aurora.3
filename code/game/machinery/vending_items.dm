@@ -112,4 +112,4 @@
 /obj/item/device/vending_refill/encryption
 	name = "encryption key resupply canister"
 	vend_id = "encryption"
-	charges = 20
+	charges = 60
