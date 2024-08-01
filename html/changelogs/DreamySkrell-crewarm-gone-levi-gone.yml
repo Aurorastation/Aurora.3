@@ -6,3 +6,4 @@ delete-after: True
 changes:
   - rscadd: "Removes the Crew Armory."
   - rscadd: "Removes the Leviathan."
+  - rscadd: "Updates mapmerge2 tool with most current tg version."
