@@ -5,7 +5,7 @@
 	name = "Cryo Outpost"
 	description = "TODO."
 	prefix = "missions/cryo_outpost/"
-	suffixes = list("cryo_outpost.dmm")
+	suffix = "cryo_outpost.dmm"
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	spawn_weight = 1
 	spawn_cost = 1

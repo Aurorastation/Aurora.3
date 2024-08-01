@@ -1,3 +1,6 @@
+// Okay, these verbs are a lot of ugly copypaste. The issue is that we don't really have any other choice.
+// The alternative (and the first thing I tried) was to make the Storyteller into basically admin perms, but that introduces way too many issues.
+
 /mob/abstract/storyteller/verb/storyteller_panel()
 	set name = "Storyteller Panel"
 	set category = "Storyteller"
@@ -16,6 +19,50 @@
 		"}
 
 	usr << browse(dat, "window=storytellerpanel;size=210x280")
+
+/mob/abstract/storyteller/Topic(href, href_list)
+	. = ..()
+	if(href_list["create_object"])
+		if(usr != src)
+			return
+		return create_object(usr)
+
+	else if(href_list["create_turf"])
+		if(usr != src)
+			return
+		return create_turf(usr)
+
+	else if(href_list["create_mob"])
+		if(usr != src)
+			return
+		return create_mob(usr)
+
+/mob/abstract/storyteller/proc/create_object(var/mob/user)
+	if (!create_object_html)
+		var/objectjs = null
+		objectjs = jointext(typesof(/obj), ";")
+		create_object_html = file2text('html/create_object.html')
+		create_object_html = replacetext(create_object_html, "null /* object types */", "\"[objectjs]\"")
+
+	user << browse(replacetext(create_object_html, "/* ref src */", "\ref[src]"), "window=create_object;size=600x600")
+
+/mob/abstract/storyteller/proc/create_turf(var/mob/user)
+	if (!create_turf_html)
+		var/turfjs = null
+		turfjs = jointext(typesof(/turf), ";")
+		create_turf_html = file2text('html/create_object.html')
+		create_turf_html = replacetext(create_turf_html, "null /* object types */", "\"[turfjs]\"")
+
+	user << browse(replacetext(create_turf_html, "/* ref src */", "\ref[src]"), "window=create_turf;size=425x475")
+
+/mob/abstract/storyteller/proc/create_mob(var/mob/user)
+	if (!create_mob_html)
+		var/mobjs = null
+		mobjs = jointext(typesof(/mob), ";")
+		create_mob_html = file2text('html/create_object.html')
+		create_mob_html = replacetext(create_mob_html, "null /* object types */", "\"[mobjs]\"")
+
+	user << browse(replacetext(create_mob_html, "/* ref src */", "\ref[src]"), "window=create_mob;size=425x475")
 
 /mob/abstract/storyteller/verb/storyteller_local_narrate()
 	set name = "Eye Narrate"
@@ -126,7 +173,7 @@
 	else
 		usr.PushClickHandler(/datum/click_handler/build_mode)
 
-/mob/abstract/storyteller/proc/cmd_admin_create_centcom_report()
+/mob/abstract/storyteller/verb/cmd_admin_create_centcom_report()
 	set name = "Create Command Report"
 	set category = "Storyteller"
 
@@ -189,5 +236,30 @@
 
 	log_admin("[key_name(src)] has created a command report: [reportbody]",admin_key=key_name(usr))
 	message_admins("[key_name_admin(src)] has created a command report", 1)
+	//New message handling
+	post_comm_message(reporttitle, reportbody)
+
+/mob/abstract/storyteller/verb/send_distress_message()
+	set name = "Create Command Report"
+	set category = "Storyteller"
+
+	var/reporttitle = sanitizeSafe(tgui_input_text(usr, "Pick a title for the report.", "Title"))
+	if(!reporttitle)
+		reporttitle = "NanoTrasen Update"
+	var/reportbody = sanitize(tgui_input_text(usr, "Please enter anything you want. Anything. Serious.", "Body", multiline = TRUE), extra = FALSE)
+	if(!reportbody)
+		return
+
+	var/announce = tgui_alert(usr, "Should this be announced to the general population?", "Announcement", list("Yes","No"))
+	switch(announce)
+		if("Yes")
+			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
+		if("No")
+			to_world(SPAN_WARNING("New [SSatlas.current_map.company_name] Update available at all communication consoles."))
+			sound_to(world, ('sound/AI/commandreport.ogg'))
+
+	log_admin("Storyteller [key_name(src)] has created a command report: [reportbody]")
+	message_admins("Storyteller [key_name_admin(src)] has created a command report", 1)
+
 	//New message handling
 	post_comm_message(reporttitle, reportbody)

@@ -39,6 +39,8 @@
 
 #define isobserver(A) istype(A, /mob/abstract/observer)
 
+#define isstoryteller(A) istype(A, /mob/abstract/storyteller)
+
 #define isabstract(A) istype(A, /mob/abstract)
 
 #define isorgan(A) istype(A, /obj/item/organ/external)
