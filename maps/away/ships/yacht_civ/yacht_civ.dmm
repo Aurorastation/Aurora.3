@@ -4897,10 +4897,10 @@
 "RA" = (
 /obj/effect/floor_decal/corner/blue/full,
 /obj/structure/closet/cabinet,
-/obj/item/clothing/under/skirt/long{
+/obj/item/clothing/accessory/skirt/long{
 	color = "#c1a61d"
 	},
-/obj/item/clothing/under/skirt/jumper{
+/obj/item/clothing/accessory/skirt/jumper{
 	color = "#BB3333"
 	},
 /obj/item/clothing/under/pants/designer{
@@ -4911,26 +4911,26 @@
 	pixel_y = 4
 	},
 /obj/item/clothing/under/pants/white,
-/obj/item/clothing/under/skirt/high{
+/obj/item/clothing/accessory/skirt/high{
 	color = "#4B381D"
 	},
-/obj/item/clothing/under/skirt{
+/obj/item/clothing/accessory/skirt{
 	color = "#3131B1"
 	},
-/obj/item/clothing/under/skirt/tube{
+/obj/item/clothing/accessory/skirt/tube{
 	color = "#333333"
 	},
-/obj/item/clothing/under/skirt/plaid{
+/obj/item/clothing/accessory/skirt/plaid{
 	color = "#44AA44"
 	},
 /obj/item/clothing/under/pants/ripped{
 	pixel_x = -2;
 	pixel_y = 4
 	},
-/obj/item/clothing/under/skirt/straightlong{
+/obj/item/clothing/accessory/skirt/straightlong{
 	color = "#DDDDDD"
 	},
-/obj/item/clothing/under/skirt/skater{
+/obj/item/clothing/accessory/skirt/skater{
 	color = "#2C3A7F"
 	},
 /obj/item/clothing/under/skirt/pencil{
