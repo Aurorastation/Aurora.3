@@ -40,7 +40,7 @@
 		/obj/item/device/vending_refill/cutlery = 1,
 		/obj/item/device/vending_refill/robo = 1,
 		/obj/item/device/vending_refill/battlemonsters = 1,
-		/obj/item/device/vending_refill/encryption
+		/obj/item/device/vending_refill/encryption = 1
 	)
 	random_itemcount = 0
 	light_color = COLOR_GOLD
