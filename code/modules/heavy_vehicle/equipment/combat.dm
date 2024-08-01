@@ -96,19 +96,19 @@
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
-	projectile_type = /obj/item/projectile/beam/heavylaser/mech
+	projectile_type = /obj/projectile/beam/heavylaser/mech
 
 /obj/item/gun/energy/pulse/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
-	projectile_type = /obj/item/projectile/beam/pulse/mech
+	projectile_type = /obj/projectile/beam/pulse/mech
 
 /obj/item/gun/energy/xray/mounted/mech
 	use_external_power = TRUE
 	self_recharge = TRUE
 	has_safety = FALSE
-	projectile_type = /obj/item/projectile/beam/xray/mech
+	projectile_type = /obj/projectile/beam/xray/mech
 
 /*Launchers*/
 
@@ -409,7 +409,7 @@
 	else
 		icon_state = "shield_null"
 
-/obj/aura/mechshield/bullet_act(obj/item/projectile/P, var/def_zone)
+/obj/aura/mechshield/bullet_act(obj/projectile/P, var/def_zone)
 	if(!active)
 		return
 	if(shields?.charge)
@@ -425,12 +425,12 @@
 		spark(get_turf(src), 5, GLOB.alldirs)
 		playsound(get_turf(src), /singleton/sound_category/spark_sound, 25, TRUE)
 
-/obj/aura/mechshield/hitby(atom/movable/M, var/speed)
+/obj/aura/mechshield/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
 	if(!active)
 		return
-	if(shields.charge && speed <= 5)
-		user.visible_message(SPAN_WARNING("\The [shields.owner]'s shields flash briefly as they deflect \the [M]."))
+	if(shields.charge && throwingdatum.speed <= 5)
+		user.visible_message(SPAN_WARNING("\The [shields.owner]'s shields flash briefly as they deflect \the [hitting_atom]."))
 		flick("shield_impact", src)
 		playsound(user, 'sound/effects/basscannon.ogg', 10, TRUE)
 		return AURA_FALSE|AURA_CANCEL

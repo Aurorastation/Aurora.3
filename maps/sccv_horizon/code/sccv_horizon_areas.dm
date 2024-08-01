@@ -337,7 +337,7 @@
 
 // Exterior
 /area/horizon/exterior
-	name = "Horizon - Exterior (DO NOT ENCROACH ON LANDING PLACES)"
+	name = "Horizon - Exterior"
 	icon_state = "exterior"
 	base_turf = /turf/space
 	dynamic_lighting = TRUE
@@ -346,6 +346,7 @@
 	no_light_control = TRUE
 	allow_nightmode = FALSE
 	ambience = AMBIENCE_SPACE
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /********** Maintenance Start **********/
 // Maintenance
@@ -635,8 +636,13 @@
 /area/horizon/holodeck/source_trinary
 	name = "Horizon - Holodeck - Trinarist Chapel"
 
+<<<<<<< HEAD
 /area/horizon/holodeck/source_lasertag
 	name = "Horizon - Holodeck - Laser Tag Arena "
+=======
+/area/horizon/holodeck/source_cafe
+	name = "Horizon - Holodeck - Animal Cafe"
+>>>>>>> remotes/origin/master
 /********** Holodeck End **********/
 
 /********** Unique Start **********/

@@ -119,5 +119,5 @@
 			to_chat(scribe, SPAN_CULT("You can only draw [runes_allowed] more of this rune."))
 	R.blood_DNA = list()
 	R.blood_DNA[scribe.dna.unique_enzymes] = scribe.dna.b_type
-	R.color = scribe.species.blood_color
-	R.filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = scribe.species.blood_color)
+	R.color = scribe.get_blood_color()
+	R.filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = scribe.get_blood_color())

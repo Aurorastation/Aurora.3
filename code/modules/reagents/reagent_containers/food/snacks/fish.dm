@@ -67,7 +67,7 @@
 
 /obj/item/mollusc
 	name = "mollusc"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	desc = "A small slimy mollusc. Fresh!"
 	desc_info = "You will need a sharp or edged implement to pry it open. You can also try opening it in your hand if you're strong enough."
 	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'

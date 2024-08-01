@@ -73,7 +73,6 @@
 "gD" = (
 /obj/machinery/conveyor{
 	id = "moghes_heph_base";
-	layer = 2.9;
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -97,7 +96,6 @@
 /area/moghes_heph_mining)
 "ib" = (
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 24
 	},
@@ -161,7 +159,6 @@
 "oM" = (
 /obj/machinery/conveyor{
 	id = "moghes_heph_base";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -255,8 +252,7 @@
 /area/moghes_heph_mining)
 "ur" = (
 /obj/machinery/conveyor{
-	id = "moghes_heph_base";
-	layer = 2.9
+	id = "moghes_heph_base"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -300,7 +296,6 @@
 "wv" = (
 /obj/machinery/conveyor{
 	id = "moghes_heph_base";
-	layer = 2.9;
 	dir = 1
 	},
 /obj/structure/railing/mapped{
@@ -329,6 +324,14 @@
 	},
 /area/moghes_heph_mining)
 "wZ" = (
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_heph_mining)
+"xV" = (
+/obj/structure/cargo_receptacle{
+	min_spawn = 0;
+	max_spawn = 2;
+	override_name = "Moghes - Hephaestus Mining Camp"
+	},
 /turf/simulated/floor/exoplanet/grass/moghes,
 /area/moghes_heph_mining)
 "zF" = (
@@ -368,7 +371,6 @@
 "Cd" = (
 /obj/machinery/conveyor{
 	id = "moghes_heph_base";
-	layer = 2.9;
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/warning,
@@ -416,8 +418,7 @@
 "Gw" = (
 /obj/machinery/mineral/unloading_machine,
 /obj/machinery/conveyor{
-	id = "moghes_heph_base";
-	layer = 2.9
+	id = "moghes_heph_base"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -499,7 +500,6 @@
 "IE" = (
 /obj/machinery/conveyor{
 	id = "moghes_heph_base";
-	layer = 2.9;
 	dir = 1
 	},
 /obj/structure/railing/mapped{
@@ -536,8 +536,7 @@
 /area/moghes_heph_mining)
 "KW" = (
 /obj/machinery/conveyor{
-	id = "moghes_heph_base";
-	layer = 2.9
+	id = "moghes_heph_base"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -696,7 +695,6 @@
 "VZ" = (
 /obj/machinery/conveyor{
 	id = "moghes_heph_base";
-	layer = 2.9;
 	dir = 6
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -1261,7 +1259,7 @@ wZ
 wZ
 wZ
 wZ
-wZ
+xV
 wZ
 wZ
 wZ

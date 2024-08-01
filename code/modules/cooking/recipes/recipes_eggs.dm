@@ -82,3 +82,13 @@
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/eggs_benedict
+
+/singleton/recipe/nakarka_omelette
+	appliance = SKILLET
+	items = list(
+		/obj/item/reagent_containers/food/snacks/nakarka_wedge,
+		/obj/item/reagent_containers/food/snacks/nakarka_wedge
+	)
+	reagents = list(/singleton/reagent/nutriment/protein/egg = 6)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/nakarka_omelette

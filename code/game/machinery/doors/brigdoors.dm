@@ -109,15 +109,13 @@
 	for(var/obj/machinery/door/airlock/D in targets)
 		if(D.density)
 			continue
-		spawn(0)
-			D.close()
+		D.close()
 
 	// Windoors
 	for(var/obj/machinery/door/window/D2 in targets)
 		if(D2.density)
 			continue
-		spawn(0)
-			D2.close()
+		D2.close()
 
 	for(var/obj/structure/closet/secure_closet/brig/C in targets)
 		if(C.broken)
@@ -146,15 +144,13 @@
 	for(var/obj/machinery/door/airlock/D in targets)
 		if(!D.density)
 			continue
-		spawn(0)
-			D.open()
+		D.open()
 
 	// Windoors
 	for(var/obj/machinery/door/window/D2 in targets)
 		if(!D2.density)
 			continue
-		spawn(0)
-			D2.open()
+		D2.open()
 
 	for(var/obj/structure/closet/secure_closet/brig/C in targets)
 		if(C.broken)

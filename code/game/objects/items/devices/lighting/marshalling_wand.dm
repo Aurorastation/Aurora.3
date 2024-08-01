@@ -3,7 +3,7 @@
 	desc = "A marshalling wand, used to direct air or space faring vessels during takeoff and landing."
 	icon_state = "marshallingwand"
 	item_state = "marshallingwand"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	light_color = LIGHT_COLOR_RED
 	light_wedge = LIGHT_OMNI
 	brightness_on = 2

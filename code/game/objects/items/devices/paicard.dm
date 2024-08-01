@@ -3,7 +3,7 @@
 	icon = 'icons/obj/pai.dmi'
 	icon_state = "pai"
 	item_state = "electronic"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_DATA = 2)
 	var/list/installed_encryptionkeys = list()
@@ -16,7 +16,9 @@
 	light_range = 1
 	light_color = COLOR_BRIGHT_GREEN
 
-/obj/item/device/paicard/relaymove(var/mob/user, var/direction)
+/obj/item/device/paicard/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user.stat || user.stunned)
 		return
 	if(istype(loc, /mob/living/bot))

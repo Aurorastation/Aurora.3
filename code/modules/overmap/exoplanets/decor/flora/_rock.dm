@@ -3,6 +3,8 @@
 	desc = "A rock."
 	icon = 'icons/obj/flora/rocks_grey.dmi'
 	icon_state = "basalt"
+	is_rock = TRUE
+	sample_data = list("Sample contains igneous rock dust")
 
 /obj/structure/flora/rock/random/Initialize(mapload)
 	. = ..()
@@ -22,6 +24,7 @@
 	desc = "A large formation made of ice."
 	icon = 'icons/obj/flora/ice_rocks.dmi'
 	icon_state = "rock_1"
+	sample_data = list("Sample contains ice crystals")
 
 /obj/structure/flora/rock/ice/Initialize(mapload)
 	. = ..()

@@ -1,14 +1,14 @@
-/mob/living/Life()
+/mob/living/Life(seconds_per_tick, times_fired)
 	if (QDELETED(src))	// If they're being deleted, why bother?
-		return
+		return FALSE
 
 	..()
 
-	if (transforming)
-		return
+	if(transforming)
+		return FALSE
 
 	if(!loc)
-		return
+		return FALSE
 
 	var/datum/gas_mixture/gas_environment = loc.return_air()
 	//Handle temperature/pressure differences between body and environment
@@ -32,7 +32,7 @@
 	update_pulling()
 
 	for(var/obj/item/grab/G in src)
-		G.process()
+		INVOKE_ASYNC(G, TYPE_PROC_REF(/datum, process))
 
 	handle_actions()
 
@@ -160,6 +160,9 @@
 		setEarDamage(-1, max(ear_deaf, 1))
 
 /mob/living/proc/update_sight()
+	if(stop_sight_update)
+		return
+
 	set_sight(0)
 	if(stat == DEAD || (eyeobj && !eyeobj.living_eye))
 		update_dead_sight()

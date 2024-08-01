@@ -105,7 +105,7 @@
 /obj/item/circuitboard/crystal_agitator
 	name = T_BOARD("Crystal Agitator")
 	build_path = /obj/machinery/power/crystal_agitator
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 	origin_tech = list(
 		TECH_ENGINEERING = 3,
 		TECH_DATA = 2,

@@ -42,7 +42,7 @@
 	uniform = /obj/item/clothing/under/dominia/fleet
 	glasses = /obj/item/clothing/glasses/hud/health
 	gloves = /obj/item/clothing/gloves/latex
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	back = /obj/item/storage/backpack/dominia
 	suit_store = /obj/item/gun/projectile/automatic/tommygun/dom
 	backpack_contents = list(

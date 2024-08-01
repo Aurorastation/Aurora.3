@@ -23,7 +23,7 @@
 
 /datum/bounty/item/phoron_sheet
 	name = "Phoron Sheets"
-	description = "Shipment of Phoron is considered to be a key part of the SCCV Horizon's operations within the CRZ. This bounty should always be prioritized."
+	description = "Shipment of Phoron is considered to be a key part of the SCCV Horizon's operations. This bounty should always be prioritized."
 	reward_low = 2600
 	reward_high = 3750
 	required_count = 40

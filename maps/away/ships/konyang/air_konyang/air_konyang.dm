@@ -3,7 +3,7 @@
 	description = "Air Konyang civilian transport."
 
 	prefix = "ships/konyang/air_konyang/"
-	suffixes = list("air_konyang.dmm")
+	suffix = "air_konyang.dmm"
 
 	sectors = list(SECTOR_HANEUNIM)
 	spawn_weight = 1

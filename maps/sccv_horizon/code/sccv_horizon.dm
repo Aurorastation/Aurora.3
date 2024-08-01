@@ -3,10 +3,20 @@
 	full_name = "SCCV Horizon"
 	path = "sccv_horizon"
 
+	traits = list(
+		//Z1
+		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
+		//Z2
+		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = TRUE),
+		//Z3
+		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
+		//Centcomm
+		ZTRAITS_CENTCOM
+	)
+
 	lobby_icons = list('icons/misc/titlescreens/sccv_horizon/sccv_horizon.dmi', 'icons/misc/titlescreens/aurora/synthetics.dmi', 'icons/misc/titlescreens/aurora/tajara.dmi', 'icons/misc/titlescreens/aurora/vaurca.dmi')
 	lobby_transitions = 10 SECONDS
 
-	station_levels = list(1, 2, 3)
 	admin_levels = list(4)
 	contact_levels = list(1, 2, 3)
 	player_levels = list(1, 2, 3, 5)
@@ -141,6 +151,12 @@
 
 	warehouse_basearea = /area/operations/storage
 
+	shuttle_manifests = list(
+		"SCCV Canary" = list("color" = "blue", "icon" = "binoculars"),
+		"SCCV Intrepid" = list("color" = "purple", "icon" = "compass"),
+		"SCCV Spark" = list("color" = "brown", "icon" = "gem"))
+	shuttle_missions = list("Exploration", "Research", "Prospecting", "Transport", "Combat", "Rescue", "Training")
+
 /datum/map/sccv_horizon/send_welcome()
 	var/obj/effect/overmap/visitable/ship/horizon = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/sccv_horizon)
 
@@ -193,3 +209,9 @@
 		for(var/obj/machinery/computer/holodeck_control/holo in GLOB.holodeck_controls)
 			if(!holo.active)
 				holo.load_random_program()
+
+/obj/effect/map_effect/marker/mapmanip/submap/extract/sccv_horizon/ops_warehouse_small_storage
+	name = "Ops Warehouse, Small Storage"
+
+/obj/effect/map_effect/marker/mapmanip/submap/insert/sccv_horizon/ops_warehouse_small_storage
+	name = "Ops Warehouse, Small Storage"

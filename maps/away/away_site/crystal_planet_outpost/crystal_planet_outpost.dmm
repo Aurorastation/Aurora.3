@@ -3810,7 +3810,6 @@
 	pixel_y = 2
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = 8;
 	pixel_y = 6
 	},

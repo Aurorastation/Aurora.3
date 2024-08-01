@@ -138,7 +138,7 @@
 /mob/living/silicon/IsAdvancedToolUser()
 	return TRUE
 
-/mob/living/silicon/bullet_act(obj/item/projectile/Proj)
+/mob/living/silicon/bullet_act(obj/projectile/Proj)
 	if(!Proj.nodamage)
 		switch(Proj.damage_type)
 			if(DAMAGE_BRUTE)
@@ -375,8 +375,7 @@
 					underdoor = TRUE
 					break
 			if(!underdoor)
-				spawn(3)//A slight delay to let us finish walking out from under the door
-					layer = initial(layer)
+				layer = initial(layer)
 
 /mob/living/silicon/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL

@@ -10,7 +10,7 @@
 	var/max_damage = 1000
 	var/heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/120mm_mortar.ogg' //The sound in the immediate firing area. Very loud.
 	var/light_firing_sound = 'sound/effects/explosionfar.ogg' //The sound played when you're a few walls away. Kind of loud.
-	var/projectile_type = /obj/item/projectile/ship_ammo
+	var/projectile_type = /obj/projectile/ship_ammo
 	var/special_firing_mechanism = FALSE //If set to TRUE, the gun won't show up on normal controls.
 	var/charging_sound					 //The sound played when the gun is charging up.
 	var/caliber = SHIP_CALIBER_NONE
@@ -221,7 +221,7 @@
 	if(!barrel)
 		crash_with("No barrel found for [src] at [x] [y] [z]! Cannot fire!")
 	var/turf/firing_turf = get_step(barrel, barrel.dir)
-	var/obj/item/projectile/ship_ammo/projectile
+	var/obj/projectile/ship_ammo/projectile
 	if(SA.projectile_type_override)
 		projectile = new SA.projectile_type_override(firing_turf)
 	else
@@ -291,16 +291,16 @@
 	if(connected)
 		connected.attackby(attacking_item, user)
 
-/obj/structure/ship_weapon_dummy/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
+/obj/structure/ship_weapon_dummy/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(connected)
-		connected.hitby(AM)
-	if(ismob(AM))
-		if(isliving(AM))
-			var/mob/living/M = AM
-			M.turf_collision(src, speed)
+		connected.hitby(arglist(args))
+	if(ismob(hitting_atom))
+		if(isliving(hitting_atom))
+			var/mob/living/M = hitting_atom
+			M.turf_collision(src, throwingdatum.speed)
 			return
 
-/obj/structure/ship_weapon_dummy/bullet_act(obj/item/projectile/P, def_zone)
+/obj/structure/ship_weapon_dummy/bullet_act(obj/projectile/P, def_zone)
 	connected.bullet_act(P)
 
 /obj/structure/ship_weapon_dummy/ex_act(severity)

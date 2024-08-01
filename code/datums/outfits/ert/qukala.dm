@@ -66,7 +66,7 @@
 	name = "Qukala Medic"
 	suit = /obj/item/clothing/suit/space/void/kala/med
 	head = /obj/item/clothing/head/helmet/space/void/kala/med
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	glasses = /obj/item/clothing/glasses/hud/health
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	species_gloves = list(

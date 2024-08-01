@@ -2828,7 +2828,6 @@
 	icon_state = "door_locked";
 	id_tag = "tajara_scrapper_hatch";
 	name = "Ship External Access";
-	open_layer = 2.8;
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3586,7 +3585,6 @@
 	icon_state = "door_locked";
 	id_tag = "tajara_scrapper_hatch";
 	name = "Ship External Access";
-	open_layer = 2.8;
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,

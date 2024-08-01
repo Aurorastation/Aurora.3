@@ -7,7 +7,7 @@
 	icon = 'icons/obj/machinery/light.dmi'
 	force = 2
 	throwforce = 5
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	matter = list(DEFAULT_WALL_MATERIAL = 60)
 	drop_sound = 'sound/items/drop/drinkglass.ogg'
 	pickup_sound = 'sound/items/pickup/drinkglass.ogg'
@@ -68,7 +68,7 @@
 
 		if(S.reagents.has_reagent(/singleton/reagent/toxin/phoron, 5))
 
-			log_admin("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.",ckey=key_name(user))
+			log_admin("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")
 			message_admins("LOG: [user.name] ([user.ckey]) injected a light with phoron, rigging it to explode.")
 
 			rigged = TRUE
@@ -138,7 +138,7 @@
 	brightness_color = LIGHT_COLOR_CYAN
 
 /obj/item/light/tube/large
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	name = "large light tube"
 	desc = "A replacement large light tube."
 	icon_state = "lstube_preset"

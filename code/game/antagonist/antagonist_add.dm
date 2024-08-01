@@ -37,6 +37,7 @@
 
 	if(player.current.client)
 		add_verb(player.current.client, /client/proc/aooc)
+		add_verb(player.current.client, /mob/living/proc/write_ambition)
 
 	to_chat(player.current, SPAN_NOTICE("Once you decide on a goal to pursue, you can optionally display it to everyone at the end of the shift with the <b>Set Ambition</b> verb, located in the IC tab.  You can change this at any time, and it otherwise has no bearing on your round."))
 	add_verb(player.current.client, /mob/living/proc/write_ambition)
@@ -75,9 +76,10 @@
 		if(player.current.client)
 			if(!is_special_character(player) && !check_rights(R_ADMIN|R_MOD|R_CCIAA, 0, player.current))
 				remove_verb(player.current.client, /client/proc/aooc)
+			if(!is_special_character(player))
+				remove_verb(player.current.client, /mob/living/proc/write_ambition)
 
 		if(!is_special_character(player))
-			remove_verb(player.current.client, /mob/living/proc/write_ambition)
 			player.ambitions = ""
 		return 1
 

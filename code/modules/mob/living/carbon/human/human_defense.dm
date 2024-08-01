@@ -8,7 +8,7 @@ emp_act
 
 */
 
-/mob/living/carbon/human/bullet_act(var/obj/item/projectile/P, var/def_zone)
+/mob/living/carbon/human/bullet_act(var/obj/projectile/P, var/def_zone)
 	var/species_check = src.species.bullet_act(P, def_zone, src)
 
 	if(species_check)
@@ -330,11 +330,11 @@ emp_act
 	return 1
 
 //this proc handles being hit by a thrown atom
-/mob/living/carbon/human/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)
-	if(istype(AM,/obj/))
-		var/obj/O = AM
+/mob/living/carbon/human/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
+	if(isobj(hitting_atom))
+		var/obj/O = hitting_atom
 
-		if(in_throw_mode && !get_active_hand() && speed <= THROWFORCE_SPEED_DIVISOR)	//empty active hand and we're in throw mode
+		if(in_throw_mode && !get_active_hand() && throwingdatum.speed <= THROWFORCE_SPEED_DIVISOR)	//empty active hand and we're in throw mode
 			if(canmove && !restrained())
 				if(isturf(O.loc))
 					put_in_active_hand(O)
@@ -343,24 +343,24 @@ emp_act
 					return
 
 		var/dtype = O.damtype
-		var/throw_damage = O.throwforce*(speed/THROWFORCE_SPEED_DIVISOR)
+		var/throw_damage = O.throwforce*(throwingdatum.speed/THROWFORCE_SPEED_DIVISOR)
 
 		var/zone
-		if (istype(O.thrower, /mob/living))
-			var/mob/living/L = O.thrower
+		if (istype(O.throwing?.thrower?.resolve(), /mob/living))
+			var/mob/living/L = O.throwing?.thrower?.resolve()
 			zone = check_zone(L.zone_sel.selecting)
 		else
 			zone = ran_zone(BP_CHEST,75)	//Hits a random part of the body, geared towards the chest
 
 		//check if we hit
 		var/miss_chance = 15
-		if (O.throw_source)
-			var/distance = get_dist(O.throw_source, loc)
+		if (O.throwing?.thrower?.resolve())
+			var/distance = get_dist(O.throwing?.thrower?.resolve(), loc)
 			miss_chance = 15 * (distance - 2)
 		zone = get_zone_with_miss_chance(zone, src, miss_chance, 1)
 
-		if(zone && O.thrower != src)
-			var/shield_check = check_shields(throw_damage, O, thrower, zone, "[O]")
+		if(zone && O.throwing?.thrower?.resolve() != src)
+			var/shield_check = check_shields(throw_damage, O, throwing?.thrower?.resolve(), zone, "[O]")
 			if(shield_check == PROJECTILE_FORCE_MISS)
 				zone = null
 			else if(shield_check)
@@ -371,8 +371,6 @@ emp_act
 			playsound(src, 'sound/effects/throw_miss.ogg', rand(10, 50), 1)
 			return
 
-		O.throwing = 0		//it hit, so stop moving
-
 		var/obj/item/organ/external/affecting = get_organ(zone)
 		var/hit_area = affecting.name
 
@@ -380,8 +378,8 @@ emp_act
 							SPAN_WARNING("<font size=2>You're hit in the [hit_area] by [O]!</font>"))
 		apply_damage(throw_damage, dtype, zone, used_weapon = O, damage_flags = O.damage_flags(), armor_pen = O.armor_penetration)
 
-		if(ismob(O.thrower))
-			var/mob/M = O.thrower
+		if(ismob(O.throwing?.thrower?.resolve()))
+			var/mob/M = O.throwing?.thrower?.resolve()
 			var/client/assailant = M.client
 			if(assailant)
 				src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been hit with a [O], thrown by [M.name] ([assailant.ckey])</font>")
@@ -411,10 +409,10 @@ emp_act
 		if(isitem(O))
 			var/obj/item/I = O
 			mass = I.w_class/THROWNOBJ_KNOCKBACK_DIVISOR
-		var/momentum = speed*mass
+		var/momentum = throwingdatum.speed*mass
 
-		if(O.throw_source && momentum >= THROWNOBJ_KNOCKBACK_SPEED)
-			var/dir = get_dir(O.throw_source, src)
+		if(O.throwing?.thrower?.resolve() && momentum >= THROWNOBJ_KNOCKBACK_SPEED)
+			var/dir = get_dir(O.throwing?.thrower?.resolve(), src)
 
 			visible_message(SPAN_WARNING("[src] staggers under the impact!"),
 							SPAN_WARNING("You stagger under the impact!"))
@@ -422,7 +420,7 @@ emp_act
 
 			if(!O || !src) return
 
-			if(O != ITEMSIZE_TINY)
+			if(O != WEIGHT_CLASS_TINY)
 				if(O.loc == src && O.sharp) //Projectile is embedded and suitable for pinning.
 					var/turf/T = near_wall(dir,2)
 
@@ -434,8 +432,8 @@ emp_act
 						)
 						src.anchored = TRUE
 						src.pinned += O
-	else if(ishuman(AM))
-		var/mob/living/carbon/human/H = AM
+	else if(ishuman(hitting_atom))
+		var/mob/living/carbon/human/H = hitting_atom
 		H.Weaken(3)
 		Weaken(3)
 		visible_message(SPAN_WARNING("[src] get knocked over by [H]!"), SPAN_WARNING("You get knocked over by [H]!"))

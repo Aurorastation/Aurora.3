@@ -113,6 +113,8 @@
 		/obj/item/reagent_containers/food/drinks/bottle/saintjacques = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/hooch = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/nemiik = 2,
+		/obj/item/reagent_containers/food/drinks/bottle/ogogoro = 3,
+		/obj/item/reagent_containers/food/drinks/bottle/small/burukutu = 15,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 6,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 2,
 		/obj/item/reagent_containers/food/drinks/cans/sodawater = 15,
@@ -147,7 +149,8 @@
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/shot = 10,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup = 10,
 		/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/carafe = 4,
-		/obj/item/reagent_containers/glass/beaker/pitcher = 4
+		/obj/item/reagent_containers/glass/beaker/pitcher = 4,
+		/obj/item/storage/box/fancy/vkrexi_swollen_organ = 2
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/tea = 10
@@ -206,6 +209,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/rum = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/wine = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/victorygin = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/ogogoro = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/small/beer = 2,
 		/obj/item/reagent_containers/food/drinks/bottle = 6,
 		/obj/random/junk = 7,
@@ -452,7 +456,8 @@
 		/obj/item/reagent_containers/food/drinks/carton/small/milk = 10,
 		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 10,
 		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 10,
-		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 10
+		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 10,
+		/obj/item/reagent_containers/food/drinks/zobo = 10
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/cans/thirteenloko = 5,
@@ -482,7 +487,8 @@
 		/obj/item/reagent_containers/food/drinks/carton/small/milk = 18,
 		/obj/item/reagent_containers/food/drinks/carton/small/milk/choco = 18,
 		/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry = 18,
-		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 16
+		/obj/item/reagent_containers/food/drinks/cans/melon_soda = 16,
+		/obj/item/reagent_containers/food/drinks/zobo = 16
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'
@@ -1378,7 +1384,8 @@
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/lemonlime = 5,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi = 5,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz = 5
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz = 5,
+		/obj/item/reagent_containers/food/drinks/waterbottle/sedantis_water = 5
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm = 5
@@ -1398,7 +1405,8 @@
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/lemonlime = 29,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi = 29,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn = 29,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz = 29
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz = 29,
+		/obj/item/reagent_containers/food/drinks/waterbottle/sedantis_water = 40
 	)
 	idle_power_usage = 211
 	temperature_setting = -1

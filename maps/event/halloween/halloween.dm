@@ -7,7 +7,6 @@
 	allowed_jobs = list(/datum/job/visitor)
 	force_spawnpoint = TRUE
 
-	station_levels = list(1)
 	admin_levels = list()
 	contact_levels = list(1)
 	player_levels = list(1)

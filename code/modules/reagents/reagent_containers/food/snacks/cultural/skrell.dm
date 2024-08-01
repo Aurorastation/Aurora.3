@@ -174,7 +174,7 @@
 	name = "konaqu"
 	desc = "Literally translating to 'whirpool orb', konaqu are popular pastry-like confections beloved among Nralakk youth. They tend to be soft and gooey underwater, or soft and brittle when dry. When served on dry land, they are often served with a small bowl or glass of water or milk to give people the option of dunking them."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/skrell.dmi'
-	icon_state = "qilvo"
+	icon_state = "konaqu1"
 	filling_color = "#64e3faff"
 	reagents_to_add = list(/singleton/reagent/nutriment = 4)
 	reagent_data = list(/singleton/reagent/nutriment = list("fruity dough" = 5, "sweetness" = 5))

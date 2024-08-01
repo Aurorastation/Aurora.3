@@ -293,3 +293,15 @@
 	species = list(BODYTYPE_HUMAN)
 	suit = /obj/item/clothing/suit/space/void/coalition/xanu
 	helmet = /obj/item/clothing/head/helmet/space/void/coalition/xanu
+
+/obj/machinery/suit_cycler/offship/tarwa
+	model_text = "Tarwa Conglomerate"
+	req_access = list(ACCESS_UNATHI_PIRATE)
+	departments = list("Tarwa Conglomerate")
+	species = list(BODYTYPE_UNATHI)
+	suit = /obj/item/clothing/suit/space/void/unathi_pirate/tarwa
+	helmet = /obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa
+
+/obj/machinery/suit_cycler/offship/tarwa/captain
+	suit = /obj/item/clothing/suit/space/void/unathi_pirate/tarwa/captain
+	helmet = /obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa/captain

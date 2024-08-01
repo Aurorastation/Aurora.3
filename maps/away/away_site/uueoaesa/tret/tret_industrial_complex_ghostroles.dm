@@ -109,6 +109,7 @@
 // ---------------------- outfits
 
 /obj/outfit/admin/tret_industrial/vaurca
+	name = "Tret Industrial Worker"
 	uniform = list(
 		/obj/item/clothing/under/vaurca,
 		/obj/item/clothing/under/vaurca/gearharness,
@@ -141,16 +142,23 @@
 	)
 	l_pocket = list(/obj/item/reagent_containers/food/snacks/koisbar)
 	id = /obj/item/card/id/hephaestus
+	backpack_contents = list(
+		/obj/item/device/gps/mining = 1,
+		/obj/item/device/flashlight/lantern = 1,
+		/obj/item/device/radio/hailing = 1,
+	)
 
 /obj/outfit/admin/tret_industrial/get_id_access()
 	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_HEPHAESTUS)
 
 /obj/outfit/admin/tret_industrial/vaurca/bulwark
+	name = "Tret Industrial Bulwark"
 	mask = list(/obj/item/clothing/mask/gas/vaurca/filter)
 	uniform = list(/obj/item/clothing/under/gearharness)
 	accessory = null
 
 /obj/outfit/admin/tret_industrial/vaurca/warrior
+	name = "Tret Industrial Warrior"
 	mask = list(
 		/obj/item/clothing/mask/gas/vaurca/filter,
 		/obj/item/clothing/mask/gas/vaurca,

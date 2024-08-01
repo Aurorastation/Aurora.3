@@ -3,7 +3,7 @@
 	description = "A People's Republic of Adhomai satellite used to survey the system."
 
 	prefix = "away_site/tajara/pra_satellite/"
-	suffixes = list("pra_satellite.dmm")
+	suffix = "pra_satellite.dmm"
 
 	sectors = list(SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
 	spawn_weight = 1

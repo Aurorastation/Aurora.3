@@ -447,7 +447,6 @@
 	},
 /obj/structure/curtain/open/shower,
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/machinery/door/window/southleft{

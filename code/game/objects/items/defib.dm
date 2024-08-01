@@ -11,7 +11,7 @@
 	contained_sprite = TRUE
 	force = 11
 	throwforce = 6
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_BIO = 4, TECH_POWER = 2)
 	matter = list(MATERIAL_STEEL = 5000, MATERIAL_PLASTIC = 2000, MATERIAL_GLASS = 1500, MATERIAL_ALUMINIUM = 1000)
 	action_button_name = "Toggle Paddles"
@@ -184,7 +184,7 @@
 	desc = "A belt-equipped defibrillator that can be rapidly deployed."
 	icon_state = "defibcompact"
 	item_state = "defibcompact"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BIO = 5, TECH_POWER = 3)
 
@@ -216,7 +216,7 @@
 	gender = PLURAL
 	force = 2
 	throwforce = 6
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 	var/safety = TRUE //if you can zap people with the paddles on harm mode
 	var/combat = FALSE //If it can be used to revive people wearing thick clothing (e.g. spacesuits)
@@ -593,7 +593,7 @@
 	Shockpaddles that are linked to a base unit
 */
 /obj/item/shockpaddles/linked
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	var/obj/item/defibrillator/base_unit
 
 /obj/item/shockpaddles/linked/Initialize(mapload, obj/item/defibrillator/defib)

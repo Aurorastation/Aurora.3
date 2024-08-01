@@ -33,9 +33,9 @@
 	dat += "<B>Maintenance Units</B><BR>"
 
 	for(var/mob/living/silicon/robot/drone/D in GLOB.silicon_mob_list)
-		if(isStationLevel(src.z) && isNotStationLevel(D.z)) //If the console is on a station level, then list all drones on the station levels
+		if(is_station_level(src.z) && !is_station_level(D.z)) //If the console is on a station level, then list all drones on the station levels
 			continue
-		else if (isNotStationLevel(src.z) && src.z != D.z) //If the console is not on the station, only list drones on the current level
+		else if (!is_station_level(src.z) && src.z != D.z) //If the console is not on the station, only list drones on the current level
 			continue
 		dat += "<BR>[D.real_name] ([D.stat == 2 ? SPAN_WARNING("INACTIVE") : "<font color='green'>ACTIVE</FONT>"])"
 		dat += "<font dize = 9><BR>Cell charge: [D.cell.charge]/[D.cell.maxcharge]."
@@ -94,7 +94,7 @@
 		if(D.stat != DEAD)
 			to_chat(usr, SPAN_NOTICE("You issue a kill command for the unfortunate drone."))
 			message_admins("[key_name_admin(usr)] issued kill order for drone [key_name_admin(D)] from control console.")
-			log_game("[key_name(usr)] issued kill order for [key_name(src)] from control console.",ckey=key_name(usr),ckey_target=key_name(src))
+			log_game("[key_name(usr)] issued kill order for [key_name(src)] from control console.")
 			D.shut_down()
 		else
 			to_chat(usr, SPAN_WARNING("The drone has been shut down already."))

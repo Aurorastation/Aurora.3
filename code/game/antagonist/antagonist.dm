@@ -93,11 +93,10 @@
 	if(antaghud_indicator)
 		if(!GLOB.hud_icon_reference)
 			GLOB.hud_icon_reference = list()
-		if(role_text) GLOB.hud_icon_reference[role_text] = antaghud_indicator
-		if(faction_role_text) GLOB.hud_icon_reference[faction_role_text] = antaghud_indicator
-
-/datum/antagonist/proc/tick()
-	return 1
+		if(role_text)
+			GLOB.hud_icon_reference[role_text] = antaghud_indicator
+		if(faction_role_text)
+			GLOB.hud_icon_reference[faction_role_text] = antaghud_indicator
 
 // Get the raw list of potential players.
 /datum/antagonist/proc/build_candidate_list(var/ghosts_only, var/allow_animals = 0)

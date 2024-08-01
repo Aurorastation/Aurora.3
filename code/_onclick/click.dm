@@ -221,15 +221,17 @@
 
 	return 1
 
-/*
-	Ranged unarmed attack:
+/**
+ * Ranged unarmed attack:
+ *
+ * This currently is just a default for all mobs, involving
+ * laser eyes and telekinesis.  You could easily add exceptions
+ * for things like ranged glove touches, spitting alien acid/neurotoxin,
+ * animals lunging, etc.
+ */
+/mob/proc/RangedAttack(atom/A, params)
+	SHOULD_NOT_SLEEP(TRUE)
 
-	This currently is just a default for all mobs, involving
-	laser eyes and telekinesis.  You could easily add exceptions
-	for things like ranged glove touches, spitting alien acid/neurotoxin,
-	animals lunging, etc.
-*/
-/mob/proc/RangedAttack(var/atom/A, var/params)
 	if((mutations & LASER_EYES) && a_intent == I_HURT)
 		LaserEyes(A, params) // moved into a proc below
 		return
@@ -339,7 +341,7 @@
 	setClickCooldown(4)
 	var/turf/T = get_turf(src)
 	src.visible_message(SPAN_DANGER("\The [src]'s eyes flare with ruby light!"))
-	var/obj/item/projectile/beam/LE = new (T)
+	var/obj/projectile/beam/LE = new (T)
 	LE.muzzle_type = /obj/effect/projectile/muzzle/eyelaser
 	LE.tracer_type = /obj/effect/projectile/tracer/eyelaser
 	LE.impact_type = /obj/effect/projectile/impact/eyelaser

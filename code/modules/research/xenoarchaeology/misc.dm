@@ -74,6 +74,7 @@
 	new /obj/item/storage/box/excavation(src)
 	new /obj/item/taperoll/science(src)
 	new /obj/item/clothing/head/hardhat(src)
+	new /obj/item/sampler(src)
 
 /obj/structure/closet/excavation
 	name = "excavation tools"
@@ -99,6 +100,7 @@
 	new /obj/item/device/hand_labeler(src)
 	new /obj/item/ore_detector(src)
 	new /obj/item/device/spaceflare(src)
+	new /obj/item/tent(src)
 
 	// 2 Drills
 	new /obj/item/pickaxe/drill(src)

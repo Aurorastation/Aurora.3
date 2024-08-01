@@ -97,6 +97,7 @@ steam.start() -- spawns the effect
 	name = "smoke"
 	icon_state = "smoke"
 	opacity = 1
+	layer = ABOVE_PROJECTILE_LAYER
 	anchored = 0.0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/amount = 6.0
@@ -113,16 +114,23 @@ steam.start() -- spawns the effect
 		time_to_live = duration
 	addtimer(CALLBACK(src, PROC_REF(kill)), time_to_live)
 
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/effect/effect/smoke/proc/kill()
 	animate(src, alpha = 0, time = 2 SECONDS, easing = QUAD_EASING)
 	set_opacity(FALSE)
 
 	QDEL_IN(src, 2.5 SECONDS)
 
-/obj/effect/effect/smoke/Crossed(mob/living/carbon/M as mob )
-	..()
-	if(istype(M))
-		affect(M)
+/obj/effect/effect/smoke/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(istype(arrived, /mob/living/carbon))
+		affect(arrived)
 
 /obj/effect/effect/smoke/proc/affect(var/mob/living/carbon/M)
 	if (istype(M))
@@ -177,8 +185,8 @@ steam.start() -- spawns the effect
 
 /obj/effect/effect/smoke/bad/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0)) return 1
-	if(istype(mover, /obj/item/projectile/beam))
-		var/obj/item/projectile/beam/B = mover
+	if(istype(mover, /obj/projectile/beam))
+		var/obj/projectile/beam/B = mover
 		B.damage = (B.damage/2)
 	return 1
 /////////////////////////////////////////////

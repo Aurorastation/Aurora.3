@@ -128,7 +128,7 @@
 	desc = "A modification that modulates the beam into a standard laser beam."
 	icon_state = "laser"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 2)
-	var/obj/item/projectile/beam/projectile = /obj/item/projectile/beam
+	var/obj/projectile/beam/projectile = /obj/projectile/beam
 	var/firing_sound = 'sound/weapons/laser1.ogg'
 
 /obj/item/laser_components/modulator/degrade()
@@ -137,7 +137,7 @@
 /obj/item/device/laser_assembly
 	name = "laser assembly (small)"
 	desc = "A case for shoving things into. Hopefully they work."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/guns/modular_laser.dmi'
 	var/base_icon_state = "small"
 	contained_sprite = TRUE

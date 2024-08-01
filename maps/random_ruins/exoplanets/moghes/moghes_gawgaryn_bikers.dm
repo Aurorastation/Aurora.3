@@ -8,7 +8,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
-	suffixes = list("moghes_gawgaryn_bikers.dmm")
+	suffix = "moghes_gawgaryn_bikers.dmm"
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/moghes_gawgaryn_riders)
 	unit_test_groups = list(1)
 
@@ -96,6 +96,7 @@
 	suit = /obj/item/clothing/suit/armor/unathi
 	backpack_contents = list(/obj/item/ammo_magazine/spitterpistol = 1, /obj/item/melee/hammer/powered = 1)
 	head = /obj/item/clothing/head/helmet/unathi
+	suit_accessory = /obj/item/clothing/accessory/poncho
 	belt = /obj/item/material/knife/tacknife
 
 /obj/outfit/admin/moghes_gawgaryn/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

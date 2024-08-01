@@ -124,7 +124,7 @@
 		for(var/mob/M in src)
 			shatter(M)
 
-/obj/structure/closet/statue/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/closet/statue/bullet_act(var/obj/projectile/Proj)
 	health -= Proj.get_structure_damage()
 	check_health()
 
@@ -152,7 +152,9 @@
 /obj/structure/closet/statue/MouseDrop_T()
 	return
 
-/obj/structure/closet/statue/relaymove()
+/obj/structure/closet/statue/relaymove(mob/living/user, direction)
+	. = ..()
+
 	return
 
 /obj/structure/closet/statue/attack_hand()

@@ -60,15 +60,15 @@
 	bracers["arm chains, ruby"] = /obj/item/clothing/wrists/goldbracer/ruby
 	gear_tweaks += new /datum/gear_tweak/path(bracers)
 
-/datum/gear/ears/antennae
-	display_name = "antennae"
+/datum/gear/ears/antennas
+	display_name = "antennas"
 	path = /obj/item/clothing/ears/antenna
 	cost = 1
 	whitelisted = list(SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL)
 	sort_category = "Xenowear - IPC"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/ears/antennae/New()
+/datum/gear/ears/antennas/New()
 	..()
 	var/list/antenna = list()
 	antenna["antenna, curved"] = /obj/item/clothing/ears/antenna/curved

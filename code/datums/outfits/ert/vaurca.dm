@@ -52,7 +52,7 @@
 
 /obj/outfit/admin/ert/zora/medic
 	name = "Zo'ra Field Biotechnician"
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	gloves = /obj/item/clothing/gloves/latex/nitrile/vaurca
 
 	backpack_contents = list(
@@ -196,7 +196,7 @@
 
 /obj/outfit/admin/ert/klax/medic
 	name = "K'lax Field Biotechnician"
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	gloves = /obj/item/clothing/gloves/latex/nitrile/vaurca
 	r_hand = null
 

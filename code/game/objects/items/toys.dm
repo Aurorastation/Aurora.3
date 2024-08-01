@@ -18,6 +18,7 @@
  *		Toy cult sword
  *		Ring bell
  *		Chess Pieces
+ *		Stress ball
  */
 
 
@@ -110,7 +111,7 @@
 	desc_extended = "Thanks to the joint effort of the Research and Atmospherics teams, station enviroments have been set to allow balloons to float without helium. Look, it was the end of the month and we went under budget."
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	var/datum/gas_mixture/air_contents = null
 	var/status = 0 // 0 = normal, 1 = blow, 2 = burst
 
@@ -292,7 +293,7 @@
 /obj/item/toy/comic
 	name = "comic book"
 	desc = "A magazine presenting a fictional story through a sequence of images. Perfect for those long, boring shifts."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	icon_state = "comic"
 	item_state = "comic"
 	drop_sound = 'sound/items/drop/paper.ogg'
@@ -408,7 +409,7 @@
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	attack_verb = list("attacked", "struck", "hit")
 	var/dart_count = 5
 
@@ -500,7 +501,7 @@
 	desc = "A foam dart."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "foamdart"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
@@ -531,7 +532,7 @@
 	var/active = 0.0
 	var/colorvar = "blue"
 	var/last_active = 0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	attack_verb = list("attacked", "struck", "hit")
 
 /obj/item/toy/sword/attack_self(mob/user as mob)
@@ -543,13 +544,13 @@
 			playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 			src.icon_state = "sword[colorvar]"
 			src.item_state = "sword[colorvar]"
-			src.w_class = ITEMSIZE_LARGE
+			src.w_class = WEIGHT_CLASS_BULKY
 		else
 			to_chat(user, SPAN_NOTICE("You push the plastic blade back down into the handle."))
 			playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
 			src.icon_state = "sword0"
 			src.item_state = "sword0"
-			src.w_class = ITEMSIZE_SMALL
+			src.w_class = WEIGHT_CLASS_SMALL
 
 		if(istype(user,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = user
@@ -578,7 +579,7 @@
 	slot_flags = SLOT_BELT | SLOT_BACK
 	force = 11
 	throwforce = 5
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced")
 
 /*
@@ -589,9 +590,17 @@
 	desc = "Wow!"
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "snappop"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
+
+/obj/item/toy/snappop/Initialize()
+	. = ..()
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/item/toy/snappop/attack_self(mob/user)
 	user.drop_from_inventory(src)
@@ -602,9 +611,9 @@
 	..()
 	do_pop()
 
-/obj/item/toy/snappop/Crossed(H as mob|obj)
-	if((ishuman(H))) //i guess carp and shit shouldn't set them off
-		var/mob/living/carbon/human/M = H
+/obj/item/toy/snappop/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	if((ishuman(arrived))) //i guess carp and shit shouldn't set them off
+		var/mob/living/carbon/human/M = arrived
 		if(M.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 			return
 		if(M.m_intent == M_RUN)
@@ -645,7 +654,7 @@
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 	var/cooldown = 0
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 
 /obj/item/toy/bosunwhistle/attack_self(mob/user as mob)
@@ -660,7 +669,7 @@
 /obj/item/toy/mech
 	icon_state = "ripleytoy"
 	var/cooldown = 0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/mecha/mechstep.ogg'
 
 /obj/item/toy/mech/attack_self(mob/user)
@@ -730,7 +739,7 @@
 	name = "completely glitched action figure"
 	desc = "A \"Space Life\" brand... wait, what the hell is this thing? It seems to be requesting the sweet release of death."
 	icon_state = "glitched"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	drop_sound = 'sound/items/drop/accessory.ogg'
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 
@@ -939,7 +948,7 @@
 	item_state = "therapyred"
 	var/active = 0.0
 	var/colorvar = "red"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/toy/plushie/therapy/Initialize()
 	. = ..()
@@ -1296,7 +1305,7 @@
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "cultblade"
 	item_state = "cultblade"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	attack_verb = list("attacked", "slashed", "stabbed", "poked")
 	contained_sprite = TRUE
 
@@ -1392,7 +1401,7 @@
 	name = "party popper"
 	desc = "Instructions : Aim away from face. Wait for appropriate timing. Pull cord, enjoy confetti."
 	icon_state = "partypopper"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 
@@ -1414,7 +1423,7 @@
 	desc = "A %NAME% chess piece, this one is worth %POINT% points."
 	icon = 'icons/obj/item/chess.dmi'
 	icon_state = "white_pawn"
-	w_class = ITEMSIZE_HUGE // hugh mungus
+	w_class = WEIGHT_CLASS_HUGE // hugh mungus
 	var/piece_worth = 1
 
 /obj/item/chess_piece/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
@@ -1475,3 +1484,40 @@
 /obj/item/chess_piece/queen/black
 	name = "black queen"
 	icon_state = "black_queen"
+
+// Stress ball
+/obj/item/toy/stressball
+	name = "stress ball"
+	desc = "A small, squishy stress ball. This one has a squeaker inside."
+	w_class = WEIGHT_CLASS_SMALL
+	icon_state = "stressball"
+	drop_sound = 'sound/items/drop/plushie.ogg'
+	pickup_sound = 'sound/items/pickup/plushie.ogg'
+	var/squeeze_sound = 'sound/items/drop/plushie.ogg'
+	var/cooldown = 0
+
+/obj/item/toy/stressball/Initialize()
+	. = ..()
+	if(!color)
+		color = RANDOM_RGB
+	update_icon()
+
+/obj/item/toy/stressball/attack_self(mob/user as mob)
+	if(cooldown > world.time)
+		return
+	cooldown = world.time + 2 SECONDS
+	var/volume = 0
+	switch(user.a_intent)
+		if(I_HELP)
+			user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] plays with \the [src]!"), SPAN_NOTICE("You play with \the [src]!"))
+		if(I_DISARM)
+			user.visible_message(SPAN_NOTICE("[SPAN_BOLD("\The [user]")] squeezes \the [src]!"), SPAN_NOTICE("You squeeze \the [src]!"))
+			volume = 30
+		if(I_GRAB)
+			user.visible_message(SPAN_NOTICE(SPAN_BOLD("\The [user] pinches \the [src]!")), SPAN_NOTICE(SPAN_BOLD("You pinch \the [src]!")))
+			volume = 40
+		if(I_HURT)
+			user.visible_message(SPAN_WARNING(SPAN_BOLD("\The [user] crushes \the [src]!")), SPAN_WARNING(SPAN_BOLD("You crush \the [src]!")))
+			volume = 50
+	if(volume)
+		playsound(src.loc, squeeze_sound, volume, TRUE)

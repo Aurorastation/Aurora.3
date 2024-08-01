@@ -3,7 +3,7 @@
 #endif
 
 /obj/item/circuitboard/unary_atmos
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 	var/machine_dir = SOUTH
 	var/init_dirs = SOUTH
 

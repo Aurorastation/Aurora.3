@@ -24,7 +24,7 @@
 			fire_delay = 3,
 			recoil = 1,
 			accuracy = 1,
-			projectile_type = /obj/item/projectile/bullet/pistol,
+			projectile_type = /obj/projectile/bullet/pistol,
 			fire_sound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 		),
 		list(
@@ -36,7 +36,7 @@
 			move_delay = 4,
 			accuracy = list(1, 0, 0,-1,-1),
 			dispersion = list(0, 10, 10),
-			projectile_type = /obj/item/projectile/bullet/pistol,
+			projectile_type = /obj/projectile/bullet/pistol,
 			fire_sound = 'sound/weapons/gunshot/gunshot_smg.ogg'
 		),
 		list(
@@ -45,7 +45,7 @@
 			fire_delay = 6,
 			recoil = 3,
 			accuracy = 0,
-			projectile_type = /obj/item/projectile/bullet/gyro/law,
+			projectile_type = /obj/projectile/bullet/gyro/law,
 			fire_sound = 'sound/effects/Explosion1.ogg'
 		),
 		list(
@@ -54,7 +54,7 @@
 			fire_delay = 4,
 			recoil = 0,
 			accuracy = 1,
-			projectile_type = /obj/item/projectile/energy/electrode,
+			projectile_type = /obj/projectile/energy/electrode,
 			fire_sound = 'sound/weapons/Taser.ogg'
 		),
 		list(
@@ -63,7 +63,7 @@
 			fire_delay = 4,
 			recoil = 3,
 			accuracy = 1,
-			projectile_type = /obj/item/projectile/bullet/shotgun/incendiary,
+			projectile_type = /obj/projectile/bullet/shotgun/incendiary,
 			fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
 		),
 		list(
@@ -72,7 +72,7 @@
 			fire_delay = 6,
 			recoil = 3,
 			accuracy = 1,
-			projectile_type = /obj/item/projectile/bullet/rifle/a556,
+			projectile_type = /obj/projectile/bullet/rifle/a556,
 			fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
 		),
 		list(
@@ -81,7 +81,7 @@
 			fire_delay = 6,
 			recoil = 3,
 			accuracy = 0,
-			projectile_type = /obj/item/projectile/bullet/pellet/shotgun,
+			projectile_type = /obj/projectile/bullet/pellet/shotgun,
 			fire_sound = 'sound/weapons/gunshot/gunshot1.ogg'
 		)
 	)

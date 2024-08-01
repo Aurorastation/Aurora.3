@@ -1,4 +1,8 @@
-var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-")
+var/global/list/valid_bloodtypes = list(
+	"A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-",
+	"SBS"	// Synthetic Blood Substitute. Intended for heavily augmented characters.
+			// Sanitized below, removed if character is not augmented enough.
+)
 
 /datum/preferences
 	var/equip_preview_mob = EQUIP_PREVIEW_ALL
@@ -214,8 +218,13 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 	if (!pref.disabilities || !islist(pref.disabilities))
 		pref.disabilities = list()
 
-	if(!pref.bgstate || !(pref.bgstate in pref.bgstate_options))
-		pref.bgstate = "000000"
+	if(!pref.bgstate || !(pref.bgstate in list_values(pref.bgstate_options)))
+		pref.bgstate = "plain_black"
+
+	// Synthetic Blood Substitute checks.
+	if((pref.b_type == "SBS") && ((length(pref.organ_data) + length(pref.rlimb_data)) < 8))
+		to_chat(pref.client, SPAN_WARNING("Synthetic Blood Substitute (SBS) is intended for heavily augmented characters. To pick it, you must have at least eight augmented limbs or organs. Resetting blood type..."))
+		pref.b_type = initial(pref.b_type)
 
 /datum/category_item/player_setup_item/general/body/content(var/mob/user)
 	var/list/out = list()
@@ -283,10 +292,14 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		out += "<br><br>"
 
 	out += "</td><td><b>Preview</b>"
-	out += "<br><a href='?src=\ref[src];cycle_bg=1'>Cycle background</a>"
+	out += "<br><a href='?src=\ref[src];cycle_bg=1'>Cycle Background</a>"
+	out += "<br><a href='?src=\ref[src];select_bg=1'>Select Background</a>"
 	out += "<br><a href='?src=\ref[src];set_preview_scale=1'>Set Preview Scale - [pref.scale_x] - [pref.scale_y]</a>"
 	out += "<br><a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_LOADOUT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_LOADOUT ? "Hide loadout" : "Show loadout"]</a>"
 	out += "<br><a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_JOB]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB ? "Hide job gear" : "Show job gear"]</a>"
+	out += "<br><a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_JOB_HAT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_HAT ? "Hide job hat" : "Show job hat"]</a>"
+	out += "<br><a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_JOB_UNIFORM]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_UNIFORM ? "Hide job uniform" : "Show job uniform"]</a>"
+	out += "<br><a href='?src=\ref[src];toggle_preview_value=[EQUIP_PREVIEW_JOB_SUIT]'>[pref.equip_preview_mob & EQUIP_PREVIEW_JOB_SUIT ? "Hide job suit" : "Show job suit"]</a>"
 	out += "</td></tr></table>"
 
 	var/tail_spacing = FALSE
@@ -320,19 +333,17 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		out += "<br><b>Eyes</b><br>"
 		out += "<a href='?src=\ref[src];eye_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_eyes, pref.g_eyes, pref.b_eyes))] <br>"
 
-	if(has_flag(mob_species, HAS_SKIN_COLOR) || has_flag(mob_species, HAS_SKIN_PRESET))
-		if(has_flag(mob_species, HAS_SKIN_PRESET))
-			out += "<br><b>Body Color Presets</b><br>"
-			out += "<a href='?src=\ref[src];skin_color=1'>Choose Preset</a><br>"
-		else
-			out += "<br><b>Body Color</b><br>"
-			out += "<a href='?src=\ref[src];skin_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_skin, pref.g_skin, pref.b_skin))] <br>"
+	if(has_flag(mob_species, HAS_SKIN_COLOR))
+		out += "<br><b>Body Color</b><br>"
+		out += "<a href='?src=\ref[src];skin_color=1'>Change Color</a> [HTML_RECT(rgb(pref.r_skin, pref.g_skin, pref.b_skin))] <br>"
 
-
+	if(has_flag(mob_species, HAS_SKIN_PRESET))
+		out += "<br><b>Body Color Presets</b><br>"
+		out += "<a href='?src=\ref[src];skin_preset=1'>Choose Preset</a><br>"
 
 	out += "<br><a href='?src=\ref[src];marking_style=1'>Body Markings +</a><br>"
 	for(var/M in pref.body_markings)
-		out += "[M] [pref.body_markings.len > 1 ? "<a href='?src=\ref[src];marking_up=[M]'>&#708;</a> <a href='?src=\ref[src];marking_down=[M]'>&#709;</a> " : ""]<a href='?src=\ref[src];marking_remove=[M]'>-</a> <a href='?src=\ref[src];marking_color=[M]'>Color</a>"
+		out += "[M] [pref.body_markings.len > 1 ? "<a href='?src=\ref[src];marking_up=[M]'>&#708;</a> <a href='?src=\ref[src];marking_down=[M]'>&#709;</a> " : ""]<a href='?src=\ref[src];marking_remove=[M]'>-</a> <a href='?src=\ref[src];marking_color=[M]'>Color</a>[length(mob_species.character_color_presets) ? "<a href='?src=\ref[src];marking_preset=[M]'>Preset</a>" : ""]"
 		out += HTML_RECT(pref.body_markings[M])
 		out += "<br>"
 
@@ -605,9 +616,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["skin_color"])
-		if(!has_flag(mob_species, HAS_SKIN_COLOR) && !has_flag(mob_species, HAS_SKIN_PRESET))
-			return TOPIC_NOACTION
-		if(has_flag(mob_species, HAS_SKIN_COLOR) && !has_flag(mob_species, HAS_SKIN_PRESET))
+		if(has_flag(mob_species, HAS_SKIN_COLOR))
 			var/new_skin = input(user, "Choose your character's skin colour.", "Character Preference", rgb(pref.r_skin, pref.g_skin, pref.b_skin)) as color|null
 			if(new_skin && has_flag(mob_species, HAS_SKIN_COLOR) && CanUseTopic(user))
 				pref.r_skin = GetRedPart(new_skin)
@@ -615,7 +624,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				pref.b_skin = GetBluePart(new_skin)
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
-		else if(has_flag(mob_species, HAS_SKIN_PRESET))
+	else if(href_list["skin_preset"])
+		if(has_flag(mob_species, HAS_SKIN_PRESET))
 			var/new_preset = tgui_input_list(user, "Choose your character's body color preset.", "Character Preference", mob_species.character_color_presets, rgb(pref.r_skin, pref.g_skin, pref.b_skin))
 			new_preset = mob_species.character_color_presets[new_preset]
 			pref.r_skin = GetRedPart(new_preset)
@@ -719,6 +729,14 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/mark_color = input(user, "Choose the [M] color: ", "Character Preference", pref.body_markings[M]) as color|null
 		if(mark_color && CanUseTopic(user))
 			pref.body_markings[M] = "[mark_color]"
+			return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["marking_preset"])
+		var/M = href_list["marking_preset"]
+		var/mark_preset = tgui_input_list(user, "Choose the [M] preset: ", "Character Preference", mob_species.character_color_presets, rgb(pref.r_skin, pref.g_skin, pref.b_skin))
+		mark_preset = mob_species.character_color_presets[mark_preset]
+		if(mark_preset && CanUseTopic(user))
+			pref.body_markings[M] = "[mark_preset]"
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["limbs"])
@@ -894,7 +912,13 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["cycle_bg"])
-		pref.bgstate = next_in_list(pref.bgstate, pref.bgstate_options)
+		pref.bgstate = next_in_assoc_list(pref.bgstate, pref.bgstate_options)
+		return TOPIC_REFRESH_UPDATE_PREVIEW
+
+	else if(href_list["select_bg"])
+		var/choice = tgui_input_list(user, "Which background would you like for your preview?", "Select Preview Background", pref.bgstate_options)
+		if(choice)
+			pref.bgstate = pref.bgstate_options[choice]
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["set_preview_scale"])

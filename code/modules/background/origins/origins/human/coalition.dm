@@ -71,7 +71,7 @@
 /singleton/origin_item/origin/gadpathur/on_remove(mob/living/carbon/human/H)
 	. = ..()
 	var/datum/component/armor/armor_component = H.GetComponent(/datum/component/armor)
-	armor_component?.RemoveComponent()
+	qdel(armor_component)
 
 /singleton/origin_item/origin/gadpathur_exile
 	name = "Gadpathurian Exile"
@@ -89,7 +89,7 @@
 /singleton/origin_item/origin/gadpathur_exile/on_remove(mob/living/carbon/human/H)
 	. = ..()
 	var/datum/component/armor/armor_component = H.GetComponent(/datum/component/armor)
-	armor_component?.RemoveComponent()
+	qdel(armor_component)
 
 /singleton/origin_item/origin/assunzione
 	name = "Republic of Assunzione"

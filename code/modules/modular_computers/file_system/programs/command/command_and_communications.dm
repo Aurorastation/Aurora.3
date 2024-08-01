@@ -144,7 +144,7 @@
 						return FALSE
 					Syndicate_announce(input, usr)
 					to_chat(usr, SPAN_NOTICE("Message successfully transmitted."))
-					log_say("[key_name(usr)] has sent a message to the syndicate: [input]", ckey = key_name(usr))
+					log_say("[key_name(usr)] has sent a message to the syndicate: [input]")
 					centcomm_message_cooldown = TRUE
 					addtimer(CALLBACK(src, PROC_REF(set_centcomm_message_cooldown), FALSE), 300) // thirty second cooldown
 			else if(params["target"] == "regular")
@@ -160,7 +160,7 @@
 						return
 					Centcomm_announce(input, usr)
 					to_chat(usr, SPAN_NOTICE("Message successfully transmitted."))
-					log_say("[key_name(usr)] has sent a message to [SSatlas.current_map.boss_short]: [input]", ckey = key_name(usr))
+					log_say("[key_name(usr)] has sent a message to [SSatlas.current_map.boss_short]: [input]")
 					centcomm_message_cooldown = TRUE
 					addtimer(CALLBACK(src, PROC_REF(set_centcomm_message_cooldown), FALSE), 300) // thirty second cooldown
 		if("evac")
@@ -199,7 +199,7 @@
 						current_level = SEC_LEVEL_BLUE
 					set_security_level(current_level)
 					if(GLOB.security_level != old_level)
-						log_game("[key_name(usr)] has changed the security level to [get_security_level()].", ckey = key_name(usr))
+						log_game("[key_name(usr)] has changed the security level to [get_security_level()].")
 						message_admins("[key_name_admin(usr)] has changed the security level to [get_security_level()].")
 						switch(GLOB.security_level)
 							if(SEC_LEVEL_GREEN)

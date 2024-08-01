@@ -20,6 +20,8 @@
 	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/melee/telebaton(src)
+	new /obj/item/device/radio/off(src)
+	new /obj/item/device/taperecorder(src)
 	// uniform briefcases
 	new /obj/item/storage/briefcase/nt/captain(src)
 	new /obj/item/storage/briefcase/nt/captain_white(src)
@@ -72,6 +74,9 @@
 	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/gun/projectile/sec/flash(src)
 	new /obj/item/device/flash(src)
+	new /obj/item/device/eftpos(src)
+	new /obj/item/book/manual/wiki/security_space_law(src)
+	new /obj/item/device/radio/off(src)
 
 /obj/structure/closet/secure_closet/xo2
 	name = "executive officer's attire"
@@ -125,12 +130,17 @@
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/head(src)
 	new /obj/item/shield/riot/tact(src)
+	new /obj/item/device/flashlight/maglight(src)
 	new /obj/item/melee/telebaton(src)
 	new /obj/item/gun/energy/repeater/pistol(src)
 	new /obj/item/taperoll/police(src)
 	new /obj/item/device/breath_analyzer(src)
 	new /obj/item/crowbar/red(src)
 	new /obj/item/ipc_tag_scanner(src)
+	new /obj/item/device/taperecorder(src)
+	new /obj/item/device/binoculars(src)
+	new /obj/item/device/radio/sec(src)
+	new /obj/item/device/multitool(src)
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/storage/belt/security/full(src)
