@@ -6165,6 +6165,10 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Helmethead"
 	icon_state = "helmethead"
 
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/blinkinghelmethead
+	name = "Blinking Helmethead"
+	icon_state = "blinkinghelmethead"
+
 /datum/sprite_accessory/marking/diona_leaves/bug_eyes/eyestalk
 	name = "Eyestalk"
 	icon_state = "eyestalk"
@@ -6192,6 +6196,30 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/marking/diona_leaves/bug_eyes/snout
 	name = "Snout"
 	icon_state = "snout"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/headtails
+	name = "Head tails"
+	icon_state = "headtails"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/headtails2
+	name = "Head tails 2"
+	icon_state = "headtails2"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/spanish_moss
+	name = "Spanish Moss"
+	icon_state = "spanishmoss"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/fun_guy
+	name = "Fun Guy"
+	icon_state = "funguy"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/red_cap
+	name = "Red Cap"
+	icon_state = "redcap"
+
+/datum/sprite_accessory/marking/diona_leaves/bug_eyes/mellow_cap
+	name = "Mellow Cap"
+	icon_state = "mellowcap"
 
 /datum/sprite_accessory/marking/diona_leaves/pbody
 	name = "P-Body"
