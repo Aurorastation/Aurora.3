@@ -83,6 +83,7 @@
 #define LIGHT_COLOR_VIOLET     "#B43CB8" //Deep purple. rgb(180, 60, 184)
 #define LIGHT_COLOR_SCARLET    "#E85656" //Light red. rgb(232, 86, 86)
 #define LIGHT_COLOR_WHITE  	   "#FFFFFF" //White. rgb(255, 255, 255)
+#define LIGHT_COLOR_FAINT_CYAN "#CAF0FF"
 
 //These ones aren't a direct colour like the ones above, because nothing would fit
 #define LIGHT_COLOR_FIRE              "#FAA019" //Warm orange color, leaning strongly towards yellow. rgb(250, 160, 25)
@@ -123,9 +124,9 @@
 #define L_WALLMOUNT_HI_POWER 1	// For red/delta alert on fire alarms.
 #define L_WALLMOUNT_HI_RANGE 4
 // This controls by how much console sprites are dimmed before being overlayed.
-#define HOLOSCREEN_ADDITION_FACTOR 0.5
 #define HOLOSCREEN_MULTIPLICATION_FACTOR 0.5
-#define HOLOSCREEN_ADDITION_OPACITY 0.5
+#define HOLOSCREEN_ADDITION_OPACITY 0.75
+#define HOLOSCREEN_ADDITION_SCREENSAVER_OPACITY 0.5
 #define HOLOSCREEN_MULTIPLICATION_OPACITY 1
 
 // Just so we can avoid unneeded proc calls when profiling is disabled.

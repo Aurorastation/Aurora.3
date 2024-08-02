@@ -113,39 +113,6 @@
 
 	return TRUE
 
-/datum/topic_command/get_staff_by_rank
-	name = "get_staff_by_rank"
-	description = "Gets the list of staff, selected by their rank."
-	params = list(
-		"rank" = list("name"="flags","desc"="The rank name to query based on.","req"=1,"type"="str"),
-		"show_fakekeys" = list("name"="strict","desc"="Set to 1 if you want to show fake key holders as well.","req"=0,"type"="int")
-	)
-
-/datum/topic_command/get_staff_by_flag/run_command(queryparams)
-	var/rank = queryparams["rank"]
-
-	var/show_fakes = !!(queryparams["show_fakekeys"] && (text2num(queryparams["show_fakekeys"]) == 1))
-
-	var/list/ckeys_found = list()
-
-	for (var/client/client in GLOB.clients)
-		if (!client.holder)
-			continue
-
-		if (!show_fakes && client.holder.fakekey)
-			continue
-
-		if (client.holder.rank == rank)
-			ckeys_found += client.ckey
-
-	statuscode = 200
-	response = "Staff count and list fetched."
-	data = list(
-		"ckeys" = ckeys_found
-	)
-
-	return TRUE
-
 //Player Count
 /datum/topic_command/get_count_player
 	name = "get_count_player"

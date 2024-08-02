@@ -9,7 +9,7 @@
 	alpha = 0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	anchored = 1
-	layer = 4.1		//just above mobs
+	layer = ABOVE_HUMAN_LAYER
 	density = 0
 	var/strength = 0
 	var/ticks_recovering = 10
@@ -54,7 +54,7 @@
 /obj/effect/energy_field/ex_act(var/severity)
 	Stress(0.5 + severity)
 
-/obj/effect/energy_field/bullet_act(var/obj/item/projectile/Proj)
+/obj/effect/energy_field/bullet_act(var/obj/projectile/Proj)
 	Stress(Proj.get_structure_damage() / 10)
 
 /obj/effect/energy_field/proc/Stress(var/severity)

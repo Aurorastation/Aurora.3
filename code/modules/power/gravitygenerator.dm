@@ -85,7 +85,7 @@
 /obj/machinery/gravity_generator/main/station/Initialize()
 	. = ..()
 	setup_parts()
-	middle.add_overlay("activated")
+	middle.AddOverlays("activated")
 	update_list(TRUE)
 	addtimer(CALLBACK(src, PROC_REF(round_startset)), 100)
 
@@ -180,7 +180,7 @@
 	for(var/obj/machinery/gravity_generator/M in parts)
 		if(!(M.stat & BROKEN))
 			M.set_broken()
-	middle.cut_overlays()
+	middle.ClearOverlays()
 	charge_count = 0
 	breaker = 0
 	set_power()
@@ -204,14 +204,14 @@
 	switch(broken_state)
 		if(GRAV_NEEDS_SCREWDRIVER)
 			if(attacking_item.isscrewdriver())
-				to_chat(user, "<span class='notice'>You secure the screws of the framework.</span>")
+				to_chat(user, SPAN_NOTICE("You secure the screws of the framework."))
 				attacking_item.play_tool_sound(get_turf(src), 50)
 				broken_state++
 		if(GRAV_NEEDS_WELDING)
 			if(attacking_item.iswelder())
 				var/obj/item/weldingtool/WT = attacking_item
 				if(WT.use(1, user))
-					to_chat(user, "<span class='notice'>You mend the damaged framework.</span>")
+					to_chat(user, SPAN_NOTICE("You mend the damaged framework."))
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 					broken_state++
 		if(GRAV_NEEDS_PLASTEEL)
@@ -219,14 +219,14 @@
 				var/obj/item/stack/material/plasteel/PS = attacking_item
 				if(PS.amount >= 10)
 					PS.use(10)
-					to_chat(user, "<span class='notice'>You add the plating to the framework.</span>")
+					to_chat(user, SPAN_NOTICE("You add the plating to the framework."))
 					playsound(src.loc, 'sound/machines/click.ogg', 75, 1)
 					broken_state++
 				else
-					to_chat(user, "<span class='notice'>You need 10 sheets of plasteel.</span>")
+					to_chat(user, SPAN_NOTICE("You need 10 sheets of plasteel."))
 		if(GRAV_NEEDS_WRENCH)
 			if(attacking_item.iswrench())
-				to_chat(user, "<span class='notice'>You secure the plating to the framework.</span>")
+				to_chat(user, SPAN_NOTICE("You secure the plating to the framework."))
 				attacking_item.play_tool_sound(get_turf(src), 75)
 				set_fix()
 		else
@@ -234,11 +234,11 @@
 	if(attacking_item.iscrowbar())
 		if(backpanelopen)
 			attacking_item.play_tool_sound(get_turf(src), 50)
-			to_chat(user, "<span class='notice'>You replace the back panel.</span>")
+			to_chat(user, SPAN_NOTICE("You replace the back panel."))
 			backpanelopen = 0
 		else
 			attacking_item.play_tool_sound(get_turf(src), 50)
-			to_chat(user, "<span class='notice'>You open the back panel.</span>")
+			to_chat(user, SPAN_NOTICE("You open the back panel."))
 			backpanelopen = 1
 
 	if(old_broken_state != broken_state)
@@ -284,7 +284,7 @@
 
 	if(href_list["gentoggle"])
 		breaker = !breaker
-		investigate_log("was toggled [breaker ? "<font color='green'>ON</font>" : "<span class='warning'>OFF</span>"] by [usr.key].", "gravity")
+		investigate_log("was toggled [breaker ? "<font color='green'>ON</font>" : SPAN_WARNING("OFF")] by [usr.key].", "gravity")
 		set_power()
 		src.updateUsrDialog()
 	else if(href_list["eshutoff"])
@@ -305,7 +305,7 @@
 		pulse_radiation(100)
 		set_state(0)
 		if(middle)
-			middle.cut_overlays()
+			middle.ClearOverlays()
 		if(prob(1)) //It will spawn a small one and eat the generator. Won't cause any other issues considering it's a 1x1 and will go away on it's own.
 			new /obj/singularity(src.loc)
 		if(prob(33)) //Releasing all that power at once is dangerous.
@@ -411,9 +411,9 @@
 
 			if(overlay_state != current_overlay)
 				if(middle)
-					middle.cut_overlays()
+					middle.ClearOverlays()
 					if(overlay_state)
-						middle.add_overlay(overlay_state)
+						middle.AddOverlays(overlay_state)
 					current_overlay = overlay_state
 
 /obj/machinery/gravity_generator/main/proc/pulse_radiation(var/amount = 20)

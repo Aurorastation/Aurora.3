@@ -5,6 +5,7 @@
 	name = "helm control console"
 	icon_screen = "helm"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 	var/autopilot = 0
 	var/list/known_sectors = list()
@@ -29,6 +30,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "helm"
 	icon_keyboard = "security_key"
+	icon_keyboard_emis = "security_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
@@ -107,7 +109,9 @@
 		PH.set_hud_maptext("| Ship Status | [connected.x]-[connected.y] |<br>Speed: [round(connected.get_speed()*1000, 0.01)] | Acceleration: [get_acceleration()]<br>ETA to Next Grid: [get_eta()]")
 		PH.check_ship_overlay(PH.loc, connected)
 
-/obj/machinery/computer/ship/helm/relaymove(var/mob/user, direction)
+/obj/machinery/computer/ship/helm/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(viewing_overmap(user) && connected)
 		connected.relaymove(user, direction, accellimit)
 		return 1
@@ -200,7 +204,7 @@
 			sec_name = "Sector #[known_sectors.len]"
 		R.fields["name"] = sec_name
 		if(sec_name in known_sectors)
-			to_chat(usr, "<span class='warning'>Sector with that name already exists, please input a different name.</span>")
+			to_chat(usr, SPAN_WARNING("Sector with that name already exists, please input a different name."))
 			return TRUE
 		switch(params["add"])
 			if("current")
@@ -311,6 +315,7 @@
 	name = "navigation console"
 	icon_screen = "nav"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 	circuit = /obj/item/circuitboard/ship/navigation
 
@@ -327,6 +332,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "nav"
 	icon_keyboard = "generic_key"
+	icon_keyboard_emis = "generic_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE

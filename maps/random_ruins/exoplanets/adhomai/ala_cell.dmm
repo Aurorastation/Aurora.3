@@ -8,9 +8,7 @@
 /turf/simulated/floor/exoplanet/mineral/adhomai,
 /area/exoplanet/adhomai)
 "c" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "h" = (
 /obj/item/material/caltrops,
@@ -50,9 +48,7 @@
 /area/exoplanet/adhomai)
 "s" = (
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "u" = (
 /obj/structure/closet/crate/weapon/alt,
@@ -69,9 +65,7 @@
 /area/exoplanet/adhomai)
 "x" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "A" = (
 /obj/item/landmine{
@@ -89,7 +83,9 @@
 /area/exoplanet/adhomai)
 "C" = (
 /obj/structure/reagent_dispensers/keg/mead,
-/obj/structure/sign/flag/dpra/large/north,
+/obj/structure/sign/flag/dpra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/exoplanet/mineral/adhomai,
 /area/exoplanet/adhomai)
 "F" = (
@@ -110,12 +106,15 @@
 /obj/item/pickaxe,
 /obj/item/pickaxe,
 /obj/item/pickaxe,
-/obj/structure/sign/flag/dpra/large/north,
+/obj/structure/sign/flag/dpra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/exoplanet/mineral/adhomai,
 /area/exoplanet/adhomai)
 "J" = (
 /obj/structure/sign/flag/dpra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/exoplanet/mineral/adhomai,
 /area/exoplanet/adhomai)
@@ -171,9 +170,7 @@
 /area/exoplanet/adhomai)
 "X" = (
 /obj/structure/flora/tree/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 
 (1,1,1) = {"

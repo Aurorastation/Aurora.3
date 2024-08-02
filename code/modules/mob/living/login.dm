@@ -16,4 +16,18 @@
 		weather.mob_shown_weather -= mob_ref
 		weather.mob_shown_wind    -= mob_ref
 	GLOB.current_mob_ambience   -= mob_ref
+
+	//Psionic
+	if(psi)
+		psi.update(TRUE)
+
+	//login during ventcrawl
+	if(is_ventcrawling && istype(loc, /obj/machinery/atmospherics)) //attach us back into the pipes
+		remove_ventcrawl()
+		add_ventcrawl(loc)
+
+	if(ability_master)
+		ability_master.toggle_open(2)
+		client.screen -= ability_master
+
 	return .

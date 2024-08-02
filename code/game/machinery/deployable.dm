@@ -41,7 +41,7 @@ Deployable Kits
 	maxhealth = material.integrity
 	health = maxhealth
 
-/obj/structure/blocker/bullet_act(obj/item/projectile/P, def_zone)
+/obj/structure/blocker/bullet_act(obj/projectile/P, def_zone)
 	var/damage_modifier = 0.4
 	switch(P.damage_type)
 		if(DAMAGE_BURN)
@@ -105,8 +105,8 @@ Deployable Kits
 /obj/structure/blocker/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(air_group || (height==0))
 		return TRUE
-	if(istype(mover, /obj/item/projectile))
-		var/obj/item/projectile/P = mover
+	if(istype(mover, /obj/projectile))
+		var/obj/projectile/P = mover
 		if(P.original == src)
 			return FALSE
 		if(P.firer && Adjacent(P.firer))
@@ -114,7 +114,7 @@ Deployable Kits
 		return prob(35)
 	if(isliving(mover))
 		return FALSE
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return TRUE
 	return FALSE
 
@@ -165,7 +165,7 @@ Deployable Kits
 					return
 			else
 				spark(src, 2, src)
-				visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
+				visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 				return
 		return
 	else if (attacking_item.iswrench())
@@ -174,13 +174,13 @@ Deployable Kits
 			src.health = src.maxhealth
 			src.emagged = 0
 			src.req_access = list(ACCESS_SECURITY)
-			visible_message("<span class='warning'>[user] repairs \the [src]!</span>")
+			visible_message(SPAN_WARNING("[user] repairs \the [src]!"))
 			return
 		else if (src.emagged > 0)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			src.emagged = 0
 			src.req_access = list(ACCESS_SECURITY)
-			visible_message("<span class='warning'>[user] repairs \the [src]!</span>")
+			visible_message(SPAN_WARNING("[user] repairs \the [src]!"))
 			return
 		return
 	else
@@ -219,13 +219,13 @@ Deployable Kits
 /obj/machinery/deployable/barrier/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(air_group || (height==0))
 		return 1
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return 1
 	else
 		return 0
 
 /obj/machinery/deployable/barrier/proc/explode()
-	visible_message("<span class='danger'>[src] blows apart!</span>")
+	visible_message(SPAN_DANGER("[src] blows apart!"))
 
 /*	var/obj/item/stack/rods/ =*/
 	new /obj/item/stack/rods(get_turf(src))
@@ -242,18 +242,18 @@ Deployable Kits
 		src.req_one_access.Cut()
 		to_chat(user, "You break the ID authentication lock on \the [src].")
 		spark(src, 2, GLOB.alldirs)
-		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
+		visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 		return 1
 	else if (src.emagged == 1)
 		src.emagged = 2
 		to_chat(user, "You short out the anchoring mechanism on \the [src].")
 		spark(src, 2, GLOB.alldirs)
-		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
+		visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 		return 1
 
 /obj/machinery/deployable/barrier/legion
-	name = "legion barrier"
-	desc = "A deployable barrier, bearing the marks of the Tau Ceti Foreign Legion. Swipe your ID card to lock/unlock it."
+	name = "\improper TCAF barrier"
+	desc = "A deployable barrier, bearing the marks of the Tau Ceti Armed Forces. Swipe your ID card to lock/unlock it."
 	icon_state = "barrier_legion"
 	req_access = null
 	req_one_access = list(ACCESS_TCAF_SHIPS, ACCESS_LEGION)
@@ -283,12 +283,12 @@ Deployable Kits
 	A.add_fingerprint(user)
 
 /obj/item/deployable_kit/legion_barrier
-	name = "legion barrier kit"
-	desc = "A quick assembly kit for deploying id-lockable barriers in the field. This one has the mark of the Tau Ceti Foreign Legion."
+	name = "\improper TCAF barrier kit"
+	desc = "A quick assembly kit for deploying id-lockable barriers in the field. This one has the mark of the Tau Ceti Armed Forces."
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "barrier_kit"
 	item_state = "barrier_kit"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	kit_product = /obj/machinery/deployable/barrier/legion
 
 /obj/item/deployable_kit/surgery_table
@@ -297,7 +297,7 @@ Deployable Kits
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table_deployable"
 	item_state = "table_parts"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	kit_product = /obj/machinery/optable
 	assembly_time = 20 SECONDS
 
@@ -322,7 +322,7 @@ Deployable Kits
 	item_state = "table_parts"
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	kit_product = /obj/machinery/porta_turret/legion
 	assembly_time = 15 SECONDS
 
@@ -332,7 +332,7 @@ Deployable Kits
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "inf_box"
 	item_state = "inf_box"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	kit_product = /obj/machinery/iv_drip
 	assembly_time = 4 SECONDS
 
@@ -342,7 +342,7 @@ Deployable Kits
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "barrier_kit"
 	item_state = "barrier_kit"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	kit_product = /obj/structure/bed/stool/chair/remote/mech/portable
 	assembly_time = 20 SECONDS
 

@@ -38,11 +38,11 @@ GLOBAL_LIST_EMPTY(empty_playable_ai_cores)
 	set desc = "Wipe your core. This is functionally equivalent to cryo or robotic storage, freeing up your job slot."
 
 	if(SSticker.mode && SSticker.mode.name == "AI malfunction")
-		to_chat(usr, "<span class='danger'>You cannot use this verb in malfunction. If you need to leave, please adminhelp.</span>")
+		to_chat(usr, SPAN_DANGER("You cannot use this verb in malfunction. If you need to leave, please adminhelp."))
 		return
 
 	if(carded)
-		to_chat(usr, "<span class='danger'>No connection to station intelligence storage. You must be in an AI Core to store yourself (adminhelp if you need to leave).</span>")
+		to_chat(usr, SPAN_DANGER("No connection to station intelligence storage. You must be in an AI Core to store yourself (adminhelp if you need to leave)."))
 		return
 
 	// Guard against misclicks, this isn't the sort of thing we want happening accidentally

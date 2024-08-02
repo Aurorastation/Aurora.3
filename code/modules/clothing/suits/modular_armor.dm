@@ -6,7 +6,7 @@
 	icon_state = "plate_carrier"
 	item_state = "plate_carrier"
 	blood_overlay_type = "armor"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	restricted_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS)
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_UTILITY_MINOR)
 	pockets = null
@@ -17,7 +17,6 @@
 	desc_extended = "While not offering the protection of an entire armor set, the Empire's flak vests protect the wearer from shrapnel, some ballistics, \
 	and weak lasers. It is significantly more comfortable to wear than a full steel plate, and many soldiers on Sun Reach only wear their flak vests — \
 	much to the dismay of officers."
-	icon_state = "dom_carrier"
 	icon_state = "dom_carrier"
 	armor = list(
 		melee = ARMOR_MELEE_KNIVES,
@@ -133,7 +132,7 @@
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_ARMOR_PLATE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
 		melee = ARMOR_MELEE_KEVLAR,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
@@ -268,6 +267,24 @@
 	item_state = "tcaf_plate_light"
 	slowdown = 0
 
+/obj/item/clothing/accessory/armor_plate/military/navy
+	name = "konyang navy armor plate"
+	desc = "A military-grade armor plate frequently seen in use by naval landing parties and sailors of the Konyang Navy."
+	icon_state = "plate_navy"
+	item_state = "plate_navy"
+
+/obj/item/clothing/accessory/armor_plate/press
+	name = "press armor plate"
+	desc = "A light-weight kevlar armor plate in blue colors and a \"PRESS\" sticker included. Used by wartime correspondents."
+	icon_state = "plate_press"
+	item_state = "plate_press"
+
+/obj/item/clothing/accessory/armor_plate/military/navy
+	name = "konyang navy armor plate"
+	desc = "A military-grade armor plate frequently seen in use by naval landing parties and sailors of the Konyang Navy."
+	icon_state = "plate_navy"
+	item_state = "plate_navy"
+
 /obj/item/clothing/accessory/storage/chestpouch
 	name = "chestpouch rig"
 	desc = "A harness made to be worn over a set of armor. Comes with three pouches on the front, and a hidden pouch on the back for your snacks!"
@@ -337,6 +354,12 @@
 	desc = "A shiny helmet in grey! Goes well with the respective plate carrier."
 	icon_state = "helm_generic"
 	item_state = "helm_generic"
+
+/obj/item/clothing/head/helmet/security/press
+	name = "press helmet"
+	desc = "A helmet in blue colors with a prominent \"PRESS\" emblazoned in front. A common sight on journalists in the Wildlands."
+	icon_state = "helm_press"
+	item_state = "helm_press"
 
 /obj/item/clothing/head/helmet/security/skrell
 	name = "skrellmet"
@@ -457,7 +480,7 @@
 	if(shading_state)
 		shading_icon = new(icon, shading_state)
 		flagpatch_icon.Blend(shading_icon, ICON_MULTIPLY)
-		add_overlay(flagpatch_icon)
+		AddOverlays(flagpatch_icon)
 
 /obj/item/clothing/accessory/flagpatch/rectangular
 	shading_state = null
@@ -695,6 +718,35 @@
 	Antillian Provincial Naval Fleets, these patches are a mark of resilience through hard times on the planet."
 	icon_state = "flagpatch_portantillia"
 	item_state = "flagpatch_portantillia"
+
+/obj/item/clothing/accessory/flagpatch/zora
+	name = "zo'ra hive flagpatch"
+	desc = "A flagpatch representing the Zo'ra Hive. This flag depicts the Zo'rane capital world of Caprice, \
+	bearing a torch representing their position within the Republic of Biesel."
+	icon_state = "flagpatch_zora"
+	item_state = "flagpatch_zora"
+
+/obj/item/clothing/accessory/flagpatch/klax
+	name = "k'lax hive flagpatch"
+	desc = "A flagpatch representing the K'lax Hive. This flag depicts the K'laxian capital world of Tret, \
+	bearing the quartered colours of the Izweski Hegemony to represent the Hive's vassalage."
+	icon_state = "flagpatch_klax"
+	item_state = "flagpatch_klax"
+
+/obj/item/clothing/accessory/flagpatch/cthur
+	name = "c'thur hive flagpatch"
+	desc = "A flagpatch representing the C'thur Hive. This flag depicts the star borne by the Nralakk Federation's \
+	own flag, representing the Hive's independence and gracious allegiance toward the Federation."
+	icon_state = "flagpatch_cthur"
+	item_state = "flagpatch_cthur"
+
+/obj/item/clothing/accessory/flagpatch/sedantis
+	name = "sedantis flagpatch"
+	desc = "A flagpatch representing the gas giant Sedantis and it's orbiting bodies. Sedantis I, also known as \
+	Vaur'avek'uyit, was the homeworld of the Vaurca. Symbolism involving it is often employed to represent greater \
+	pan-Vaurcaesian interests over the interests of the individual Hives."
+	icon_state = "flagpatch_sedantis"
+	item_state = "flagpatch_sedantis"
 
 // Wildlands
 

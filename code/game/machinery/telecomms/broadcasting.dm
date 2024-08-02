@@ -48,7 +48,7 @@
 	if(!source.loc)
 		// It's an announcer message, just send it to the horizon's receiver
 		for(var/obj/machinery/telecomms/receiver/R in SSmachinery.all_receivers)
-			if(R.z in SSatlas.current_map.station_levels)
+			if(is_station_level(R.z))
 				R.receive_signal(src)
 				return TRUE
 
@@ -111,7 +111,7 @@
 		if(SSatlas.current_map.use_overmap)
 			sector = GLOB.map_sectors["[T.z]"]
 	else // if the source is in nullspace, it's probably an autosay
-		levels = SSatlas.current_map.station_levels
+		levels = SSmapping.levels_by_trait(ZTRAIT_STATION)
 		origin_level = levels[1]
 		sector = GLOB.map_sectors["[levels[1]]"]
 

@@ -1,0 +1,801 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/item/gun/energy/rifle/hegemony,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"c" = (
+/obj/item/melee/hammer/powered/hegemony,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"f" = (
+/obj/structure/flora/rock/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"g" = (
+/obj/effect/landmark/corpse/hegemony_soldier,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"i" = (
+/obj/effect/landmark/corpse/trad_soldier,
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"k" = (
+/obj/structure/sign/flag/hegemony,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"p" = (
+/obj/structure/flora/grass/desert,
+/obj/effect/landmark/scorcher,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"q" = (
+/obj/effect/landmark/corpse/trad_soldier,
+/obj/item/gun/projectile/pistol/spitter,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"s" = (
+/obj/structure/sign/flag/traditionalist,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"u" = (
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"x" = (
+/obj/effect/landmark/corpse/hegemony_soldier,
+/obj/item/gun/projectile/pistol/spitter,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"F" = (
+/obj/effect/landmark/corpse/trad_soldier,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"H" = (
+/obj/effect/landmark/corpse/trad_soldier,
+/obj/item/gun/projectile/automatic/rifle/hook_mg,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"I" = (
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"K" = (
+/obj/structure/pit/closed,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"L" = (
+/obj/effect/landmark/scorcher,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"N" = (
+/obj/item/gun/projectile/automatic/tempestsmg,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"O" = (
+/obj/structure/flora/tree/desert/tiny,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"S" = (
+/obj/item/material/twohanded/pike/flag/hegemony,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"X" = (
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+
+(1,1,1) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+f
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(2,1,1) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(3,1,1) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+I
+L
+I
+I
+I
+L
+L
+I
+I
+I
+I
+I
+I
+a
+I
+I
+I
+"}
+(4,1,1) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+I
+L
+L
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+u
+I
+I
+"}
+(5,1,1) = {"
+I
+I
+u
+I
+I
+I
+I
+I
+I
+I
+I
+I
+f
+I
+I
+I
+I
+I
+g
+I
+I
+I
+I
+I
+I
+"}
+(6,1,1) = {"
+I
+I
+I
+I
+I
+q
+I
+I
+I
+I
+I
+L
+g
+I
+I
+I
+I
+c
+F
+I
+I
+f
+I
+I
+I
+"}
+(7,1,1) = {"
+I
+I
+I
+K
+I
+I
+I
+I
+I
+I
+N
+I
+I
+I
+I
+L
+I
+u
+I
+I
+I
+I
+I
+I
+I
+"}
+(8,1,1) = {"
+I
+f
+I
+I
+I
+I
+I
+p
+I
+K
+I
+u
+I
+F
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(9,1,1) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(10,1,1) = {"
+I
+I
+u
+I
+I
+I
+g
+I
+I
+I
+I
+x
+I
+I
+I
+I
+u
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(11,1,1) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+k
+I
+I
+I
+g
+I
+I
+I
+I
+I
+I
+L
+I
+I
+I
+"}
+(12,1,1) = {"
+I
+I
+L
+I
+I
+I
+u
+I
+O
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+L
+L
+I
+I
+I
+I
+"}
+(13,1,1) = {"
+I
+I
+I
+I
+L
+I
+I
+I
+I
+g
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+L
+I
+I
+I
+I
+"}
+(14,1,1) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+I
+S
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(15,1,1) = {"
+I
+I
+L
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+g
+I
+I
+I
+K
+I
+I
+I
+I
+I
+"}
+(16,1,1) = {"
+I
+u
+I
+L
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(17,1,1) = {"
+I
+I
+I
+I
+I
+H
+I
+I
+I
+I
+u
+I
+I
+i
+I
+I
+I
+I
+I
+I
+x
+u
+f
+I
+I
+"}
+(18,1,1) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+I
+g
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(19,1,1) = {"
+I
+I
+I
+K
+I
+I
+I
+q
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+F
+I
+I
+I
+I
+I
+I
+"}
+(20,1,1) = {"
+I
+I
+I
+I
+I
+u
+I
+I
+I
+I
+I
+I
+I
+I
+I
+f
+u
+I
+X
+I
+L
+I
+I
+I
+I
+"}
+(21,1,1) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+I
+s
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(22,1,1) = {"
+I
+I
+I
+I
+I
+u
+I
+I
+I
+L
+I
+I
+I
+F
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(23,1,1) = {"
+I
+I
+I
+I
+I
+f
+I
+L
+I
+L
+L
+I
+I
+I
+I
+I
+L
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(24,1,1) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+"}
+(25,1,1) = {"
+I
+I
+I
+I
+I
+I
+I
+I
+I
+L
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+"}

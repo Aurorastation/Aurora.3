@@ -164,3 +164,21 @@
 	prefs.toggles_secondary ^= FLOATING_MESSAGES
 	prefs.save_preferences()
 	to_chat(src, SPAN_NOTICE("Floating messages are now [prefs.toggles_secondary & FLOATING_MESSAGES ? "enabled" : "disabled"]."))
+
+/client/verb/toggle_item_outlines()
+	set name = "Toggle Item Outlines"
+	set desc = "Toggles outlines appearing on items in your inventory."
+	set category = "Preferences"
+
+	prefs.toggles_secondary ^= SEE_ITEM_OUTLINES
+	prefs.save_preferences()
+	to_chat(src, SPAN_NOTICE("Item outlines are now [prefs.toggles_secondary & SEE_ITEM_OUTLINES ? "enabled" : "disabled"]."))
+
+/client/verb/toggle_item_tooltips()
+	set name = "Toggle Item Tooltips"
+	set desc = "Toggles tooltips appearing on items in your inventory."
+	set category = "Preferences"
+
+	prefs.toggles_secondary ^= HIDE_ITEM_TOOLTIPS
+	prefs.save_preferences()
+	to_chat(src, SPAN_NOTICE("Item outlines are now [prefs.toggles_secondary & HIDE_ITEM_TOOLTIPS ? "disabled" : "enabled"]."))

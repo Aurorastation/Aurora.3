@@ -23,7 +23,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	singular_name = "metal rod"
 	icon_state = "rods"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 20
 	throwforce = 15.0
 	throw_speed = 5
@@ -66,14 +66,16 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 		var/obj/item/weldingtool/WT = attacking_item
 
 		if(get_amount() < 2)
-			to_chat(user, "<span class='warning'>You need at least two rods to do this.</span>")
+			to_chat(user, SPAN_WARNING("You need at least two rods to do this."))
 			return
 
 		if(WT.use(0,user))
 			var/obj/item/stack/material/steel/new_item = new(usr.loc)
 			new_item.add_to_stacks(usr)
 			for (var/mob/M in viewers(src))
-				M.show_message("<span class='notice'>[src] is shaped into metal by [user.name] with the weldingtool.</span>", 3, "<span class='notice'>You hear welding.</span>", 2)
+				M.show_message(SPAN_NOTICE("[src] is shaped into metal by [user.name] with the weldingtool."), 3,
+								SPAN_NOTICE("You hear welding."), 2)
+
 			var/obj/item/stack/rods/R = src
 			src = null
 			var/replace = (user.get_inactive_hand()==R)
@@ -86,8 +88,8 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 		var/obj/item/stack/medical/splint/makeshift/new_splint = new(user.loc)
 		new_splint.add_fingerprint(user)
 
-		user.visible_message("<span class='notice'>\The [user] constructs \a [new_splint] out of a [singular_name].</span>", \
-				"<span class='notice'>You use make \a [new_splint] out of a [singular_name].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] constructs \a [new_splint] out of a [singular_name]."), \
+				SPAN_NOTICE("You use make \a [new_splint] out of a [singular_name]."))
 		use(1)
 		return
 
@@ -100,7 +102,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	icon_state = "barbed_wire"
 	singular_name = "length"
 	max_amount = 50
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
 	attack_verb = list("hit", "whacked", "sliced")
 
@@ -117,7 +119,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	max_amount = 50
 	icon = 'icons/obj/barricades.dmi'
 	icon_state = "liquidbags"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 650, MATERIAL_PHORON = 100, MATERIAL_PLASTEEL = 150)
 
 /obj/item/stack/liquidbags/half_full

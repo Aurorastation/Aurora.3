@@ -28,4 +28,4 @@
 	uniform = list(/obj/item/clothing/under/pj/red, /obj/item/clothing/under/pj/blue)
 	wrist = list(/obj/item/clothing/wrists/watch/silver, /obj/item/clothing/wrists/watch/gold)
 	l_ear = /obj/item/device/radio/headset/ship
-	id = /obj/item/storage/wallet/sol_rich
+	l_pocket = /obj/item/storage/wallet/sol_rich

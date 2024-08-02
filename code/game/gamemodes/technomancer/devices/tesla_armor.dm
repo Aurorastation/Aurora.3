@@ -24,13 +24,13 @@
 /obj/item/clothing/suit/armor/tesla/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	//First, some retaliation.
 	if(active)
-		if(istype(damage_source, /obj/item/projectile))
-			var/obj/item/projectile/P = damage_source
+		if(istype(damage_source, /obj/projectile))
+			var/obj/projectile/P = damage_source
 			if(P.firer && get_dist(user, P.firer) <= 3)
 				if(ready)
 					shoot_lightning(P.firer, 2000)
 				else
-					shoot_lightning(P.firer, 1000, /obj/item/projectile/beam/lightning/small)
+					shoot_lightning(P.firer, 1000, /obj/projectile/beam/lightning/small)
 
 		else
 			if(attacker && attacker != user)
@@ -38,13 +38,13 @@
 					if(ready)
 						shoot_lightning(attacker, 2000)
 					else
-						shoot_lightning(attacker, 1000, /obj/item/projectile/beam/lightning/small)
+						shoot_lightning(attacker, 1000, /obj/projectile/beam/lightning/small)
 
 		//Deal with protecting our wearer now.
 		if(ready)
 			ready = FALSE
 			addtimer(CALLBACK(src, PROC_REF(recharge), user), cooldown_to_charge)
-			visible_message("<span class='danger'>\The [user]'s [src.name] blocks [attack_text]!</span>")
+			visible_message(SPAN_DANGER("\The [user]'s [src.name] blocks [attack_text]!"))
 			update_icon()
 			return PROJECTILE_STOPPED
 	return FALSE
@@ -52,11 +52,11 @@
 /obj/item/clothing/suit/armor/tesla/proc/recharge(var/mob/user)
 	ready = TRUE
 	update_icon()
-	to_chat(user, "<span class='notice'>\The [src] is ready to protect you once more.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] is ready to protect you once more."))
 
 /obj/item/clothing/suit/armor/tesla/attack_self(mob/user)
 	active = !active
-	to_chat(user, "<span class='notice'>You [active ? "" : "de"]activate \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You [active ? "" : "de"]activate \the [src]."))
 	update_icon()
 	user.update_inv_wear_suit()
 	user.update_action_buttons()
@@ -77,10 +77,10 @@
 		H.update_action_buttons()
 	..()
 
-/obj/item/clothing/suit/armor/tesla/proc/shoot_lightning(mob/target, power, lightning_type = /obj/item/projectile/beam/lightning)
-	var/obj/item/projectile/beam/lightning/lightning = new lightning_type(get_turf(src))
+/obj/item/clothing/suit/armor/tesla/proc/shoot_lightning(mob/target, power, lightning_type = /obj/projectile/beam/lightning)
+	var/obj/projectile/beam/lightning/lightning = new lightning_type(get_turf(src))
 	lightning.power = power
 	lightning.old_style_target(target)
 	lightning.fire()
-	visible_message("<span class='danger'>\The [src] strikes \the [target] with lightning!</span>")
+	visible_message(SPAN_DANGER("\The [src] strikes \the [target] with lightning!"))
 	playsound(src, 'sound/weapons/gaussrifle1.ogg', 75, 1)

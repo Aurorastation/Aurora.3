@@ -242,11 +242,11 @@
 		else if((autolathe_flags & AUTOLATHE_BUSY))
 			process_queue_item()
 
-/// Used so that we don't try to add_overlay every tick the autolathe processes.
+/// Used so that we don't try to AddOverlays every tick the autolathe processes.
 /obj/machinery/autolathe/proc/start_processing_queue_item()
 	if(does_flick)
 		//Fancy autolathe animation.
-		add_overlay("process")
+		AddOverlays("process")
 	autolathe_flags |= AUTOLATHE_STARTED|AUTOLATHE_BUSY
 
 /obj/machinery/autolathe/proc/process_queue_item()
@@ -269,7 +269,7 @@
 
 	print_queue -= currently_printing
 	QDEL_NULL(currently_printing)
-	cut_overlay("process")
+	CutOverlays("process")
 	I.update_icon()
 	update_use_power(POWER_USE_IDLE)
 
@@ -364,7 +364,7 @@
 		var/obj/item/stack/material/sheet = eating
 		var/icon/load = icon(icon, "load")
 		load.Blend(sheet.material.icon_colour,ICON_MULTIPLY)
-		add_overlay(load)
+		AddOverlays(load)
 		CUT_OVERLAY_IN(load, 6)
 
 	if(istype(eating, /obj/item/stack))

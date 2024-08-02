@@ -60,13 +60,14 @@
 
 /obj/vehicle/bike/Destroy()
 	QDEL_NULL(key)
+	QDEL_NULL(ion)
 	return ..()
 
 /obj/vehicle/bike/setup_vehicle()
 	..()
 	ion = new ion_type(src)
 	turn_off()
-	add_overlay(image(icon, "[icon_state]_off_overlay", MOB_LAYER + 1))
+	AddOverlays(image(icon, "[icon_state]_off_overlay", MOB_LAYER + 1))
 	icon_state = "[bike_icon]_off"
 	if(storage_type)
 		storage_compartment = new storage_type(src)
@@ -188,7 +189,9 @@
 			to_chat(user, SPAN_NOTICE("\The [src] already has a key in it."))
 	..()
 
-/obj/vehicle/bike/relaymove(mob/user, direction)
+/obj/vehicle/bike/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user != load || !on || user.incapacitated())
 		return
 	return Move(get_step(src, direction))
@@ -248,29 +251,23 @@
 
 	..()
 
-/obj/vehicle/bike/bullet_act(var/obj/item/projectile/Proj)
+/obj/vehicle/bike/bullet_act(var/obj/projectile/Proj)
 	if(buckled && prob(protection_percent))
 		buckled.bullet_act(Proj)
 		return
 	..()
 
 /obj/vehicle/bike/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(on)
-		add_overlay(image(icon, "[bike_icon]_on_overlay", MOB_LAYER + 1))
+		AddOverlays(image(icon, "[bike_icon]_on_overlay", MOB_LAYER + 1))
 		icon_state = "[bike_icon]_on"
 	else
-		add_overlay(image(icon, "[bike_icon]_off_overlay", MOB_LAYER + 1))
+		AddOverlays(image(icon, "[bike_icon]_off_overlay", MOB_LAYER + 1))
 		icon_state = "[bike_icon]_off"
 
 	..()
-
-
-/obj/vehicle/bike/Destroy()
-	QDEL_NULL(ion)
-
-	return ..()
 
 /obj/vehicle/bike/Collide(var/atom/movable/AM)
 	. = ..()
@@ -339,6 +336,16 @@
 	storage_type = /obj/item/storage/toolbox/bike_storage/speeder
 	bike_icon = "speeder"
 
+/obj/vehicle/bike/speeder/izweski
+	name = "hegemony speeder"
+	desc = "A Hephaestus-manufactured military speeder, used by the forces of the Izweski Hegemony."
+	icon_state = "heg_speeder_on"
+	bike_icon = "heg_speeder"
+	land_speed = 2
+	space_speed = 1
+	health = 250
+	maxhealth = 250
+
 /obj/vehicle/bike/monowheel
 	name = "adhomian monowheel"
 	desc = "A one-wheeled vehicle, fairly popular with Little Adhomai's greasers."
@@ -388,7 +395,7 @@
 
 /obj/item/storage/toolbox/bike_storage
 	name = "bike storage"
-	max_w_class = ITEMSIZE_LARGE
+	max_w_class = WEIGHT_CLASS_BULKY
 	max_storage_space = 50
 	care_about_storage_depth = FALSE
 
@@ -404,7 +411,6 @@
 	icon_state = "snow_on"
 
 	bike_icon = "snow"
-	land_speed = 2
 	land_speed = 4
 	protection_percent = 10
 	can_hover = FALSE
@@ -522,3 +528,9 @@
 /obj/vehicle/bike/motor/moped/blue
 	icon_state = "bluemoped_on"
 	bike_icon = "bluemoped"
+
+/obj/vehicle/bike/motor/sand
+	name = "sandbike"
+	desc = "A specialised bike, designed for travelling on sand. Often used by Unathi of the Wasteland."
+	icon_state = "sport_on" //replace when we have a unique sprite
+	bike_icon = "sport"

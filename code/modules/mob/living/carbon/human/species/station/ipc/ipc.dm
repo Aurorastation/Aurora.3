@@ -144,6 +144,10 @@
 	use_alt_hair_layer = TRUE
 	psi_deaf = TRUE
 
+	sleeps_upright = TRUE
+	snore_key = "beep"
+	indefinite_sleep = TRUE
+
 /datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
@@ -391,3 +395,10 @@
 	var/obj/item/organ/internal/cell/C = human.internal_organs_by_name[BP_CELL]
 	if(C)
 		C.use(stamina_cost * 8)
+
+/datum/species/machine/sleep_msg(var/mob/M)
+	M.visible_message(SPAN_NOTICE("\The [M] locks [M.get_pronoun("his")] chassis into place, entering standby."))
+	to_chat(M, SPAN_NOTICE("You lock your chassis into place, entering standby."))
+
+/datum/species/machine/sleep_examine_msg(var/mob/M)
+	return SPAN_NOTICE("[M.get_pronoun("He")] appears to be in standby.\n")

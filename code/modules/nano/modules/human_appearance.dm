@@ -12,12 +12,16 @@
 	var/list/valid_genders = list()
 	var/list/valid_pronouns = list()
 	var/list/valid_hairstyles = list()
+	var/list/valid_gradient_styles = list()
 	var/list/valid_facial_hairstyles = list()
 	var/list/valid_cultures = list()
 	var/list/valid_origins = list()
 	var/list/valid_citizenships = list()
 	var/list/valid_accents = list()
 	var/list/valid_languages = list()
+	var/list/valid_prosthetics = list()
+	var/list/valid_limbs = list()
+	var/list/valid_organs = list()
 
 	var/check_whitelist
 	var/list/whitelist
@@ -112,6 +116,21 @@
 					if(owner.change_hair_color(r_hair, g_hair, b_hair))
 						update_dna()
 						. = TRUE
+		if("gradient")
+			if(can_change(APPEARANCE_HAIR) && (params["gradient"] in valid_gradient_styles))
+				if(owner.change_gradient(params["gradient"]))
+					update_dna()
+					. = TRUE
+		if("gradient_color")
+			if(can_change(APPEARANCE_HAIR_COLOR))
+				var/new_gradient = input("Please select gradient color.", "Gradient Color", rgb(owner.r_grad, owner.g_grad, owner.b_grad)) as color|null
+				if(new_gradient)
+					var/r_grad = hex2num(copytext(new_gradient, 2, 4))
+					var/g_grad = hex2num(copytext(new_gradient, 4, 6))
+					var/b_grad = hex2num(copytext(new_gradient, 6, 8))
+					if(owner.change_gradient_color(r_grad, g_grad, b_grad))
+						update_dna()
+						. = TRUE
 		if("facial_hair")
 			if(can_change(APPEARANCE_FACIAL_HAIR) && (params["facial_hair"] in valid_facial_hairstyles))
 				if(owner.change_facial_hair(params["facial_hair"]))
@@ -184,6 +203,22 @@
 				. = TRUE
 		if("set_height")
 			owner.height = clamp(params["height"], owner.species.height_min, owner.species.height_max)
+		if("prosthetics")
+			if(can_change(APPEARANCE_PROSTHETICS))
+				var/limb = tgui_input_list(owner, "Select a Limb", "Limb Modifications", valid_limbs)
+				limb = reverse_parse_zone(limb) //turn it back into a proper organ tag
+				if(limb)
+					var/company = tgui_input_list(owner, "Select a Limb Type", "Limb Modifications", owner.species.possible_external_organs_modifications) //For amputated or nymph we just pass it straight into change_limb
+					if(company == "Prosthesis")
+						company = tgui_input_list(owner, "Select a Manufacturer", "Limb Modifications", valid_prosthetics)
+					owner.change_limb(limb, company)
+					. = TRUE
+		if("organs")
+			if(can_change(APPEARANCE_PROSTHETICS))
+				var/organ = tgui_input_list(owner, "Select an Organ", "Organ Modification", valid_organs)
+				var/obj/item/organ/internal/O = owner.internal_organs_by_name[organ]
+				var/modification = tgui_input_list(owner, "Select a Modification", "Organ Modification", O.possible_modifications)
+				owner.change_organ(organ, modification)
 
 /datum/tgui_module/appearance_changer/ui_interact(var/mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -208,6 +243,7 @@
 	data["height_max"] = owner.species.height_max
 	data["height_min"] = owner.species.height_min
 	data["owner_height"] = owner.height
+	data["change_prosthetics"] = can_change(APPEARANCE_PROSTHETICS)
 
 	data["owner_gender"] = owner.gender
 	data["owner_pronouns"] = owner.pronouns
@@ -241,11 +277,16 @@
 	data["owner_hair_style"] = owner.h_style
 	data["valid_hair_styles"] = valid_hairstyles
 
+	data["change_gradient"] = can_change(APPEARANCE_HAIR)
+	data["owner_gradient_style"] = owner.g_style
+	data["valid_gradient_styles"] = valid_gradient_styles
+
 	data["change_facial_hair"] = can_change(APPEARANCE_FACIAL_HAIR)
 	data["owner_facial_hair_style"] = owner.f_style
 	data["valid_facial_hair_styles"] = valid_facial_hairstyles
 
 	data["change_hair_color"] = can_change(APPEARANCE_HAIR_COLOR)
+	data["change_gradient_color"] = can_change(APPEARANCE_HAIR_COLOR)
 	data["change_facial_hair_color"] = can_change(APPEARANCE_FACIAL_HAIR_COLOR)
 
 	return data
@@ -295,12 +336,16 @@
 	valid_genders = list()
 	valid_pronouns = list()
 	valid_hairstyles = list()
+	valid_gradient_styles = list()
 	valid_facial_hairstyles = list()
 	valid_cultures = list()
 	valid_origins = list()
 	valid_citizenships = list()
 	valid_accents = list()
 	valid_languages = list()
+	valid_prosthetics = list()
+	valid_limbs = list()
+	valid_organs = list()
 	generate_data()
 
 /datum/tgui_module/appearance_changer/proc/generate_data()
@@ -315,6 +360,8 @@
 		valid_pronouns = owner.species.selectable_pronouns.Copy()
 	if(!length(valid_hairstyles) || !length(valid_facial_hairstyles))
 		valid_hairstyles = owner.generate_valid_hairstyles(check_gender = 1)
+	if(!length(valid_gradient_styles))
+		valid_gradient_styles = owner.generate_valid_gradients()
 	if(!length(valid_facial_hairstyles))
 		valid_facial_hairstyles = owner.generate_valid_facial_hairstyles()
 	if(!length(valid_cultures))
@@ -344,3 +391,9 @@
 		valid_accents = owner.origin.possible_accents
 	if(!length(valid_languages))
 		valid_languages = owner.generate_valid_languages()
+	if(!length(valid_prosthetics))
+		valid_prosthetics = owner.generate_valid_prosthetics()
+	if(!length(valid_limbs))
+		valid_limbs = owner.generate_valid_limbs()
+	if(!length(valid_organs))
+		valid_organs = owner.species.alterable_internal_organs

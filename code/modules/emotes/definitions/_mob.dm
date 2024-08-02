@@ -11,10 +11,6 @@
 	if(!skip_sort)
 		usable_emotes = sortAssoc(usable_emotes)
 
-/mob/Initialize()
-	. = ..()
-	update_emotes()
-
 // Specific defines follow.
 /mob/living/carbon/alien
 	default_emotes = list(

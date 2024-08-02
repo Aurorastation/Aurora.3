@@ -10,9 +10,7 @@
 	},
 /obj/structure/closet/outhouse,
 /obj/item/organ/internal/liver/tajara,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "bE" = (
 /obj/structure/closet/crate/bin,
@@ -45,9 +43,7 @@
 /obj/structure/railing/fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "cW" = (
 /obj/effect/decal/fake_object{
@@ -59,27 +55,27 @@
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
+"da" = (
+/obj/machinery/door/urban{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_raskariim_hideout)
 "de" = (
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "dg" = (
 /obj/item/stack/material/wood/log,
 /obj/item/stack/material/wood/log,
 /obj/item/stack/material/wood/log,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "ds" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "ez" = (
 /obj/structure/table/wood,
@@ -95,12 +91,8 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "fs" = (
-/obj/structure/curtain/black,
 /obj/structure/barricade/wooden{
-	dir = 4
-	},
-/obj/structure/window/basic{
-	dir = 4
+	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
@@ -204,7 +196,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "ri" = (
-/obj/structure/simple_door/wood,
+/obj/machinery/door/urban,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "rw" = (
@@ -220,12 +212,8 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "rG" = (
-/obj/structure/window/basic{
-	dir = 8
-	},
-/obj/structure/curtain/black,
-/obj/structure/barricade/wooden{
-	dir = 8
+/obj/machinery/door/urban{
+	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
@@ -260,9 +248,7 @@
 	dir = 8
 	},
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "uQ" = (
 /obj/machinery/light/small,
@@ -273,9 +259,7 @@
 /obj/structure/railing/fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "vA" = (
 /obj/item/surgery/scalpel,
@@ -403,6 +387,10 @@
 /obj/item/material/kitchen/utensil/knife,
 /turf/simulated/floor/exoplanet/concrete,
 /area/adhomai_raskariim_hideout)
+"yF" = (
+/obj/structure/sign/flag/raskara,
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_raskariim_hideout)
 "zd" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp{
@@ -425,17 +413,13 @@
 	dir = 1
 	},
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "CS" = (
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Dg" = (
 /obj/structure/reagent_dispensers/keg/mead,
@@ -446,9 +430,7 @@
 	dir = 1
 	},
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Dl" = (
 /obj/item/tape_roll{
@@ -535,14 +517,15 @@
 /obj/item/clothing/head/tajaran/raskara,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
+"Ja" = (
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_raskariim_hideout)
 "Jk" = (
 /obj/structure/curtain/black,
-/obj/structure/barricade/wooden{
-	dir = 1
-	},
-/obj/structure/window/basic{
-	dir = 1
-	},
+/obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "Jq" = (
@@ -581,9 +564,7 @@
 /area/adhomai_raskariim_hideout)
 "Mo" = (
 /obj/structure/flora/tree/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "MY" = (
 /obj/structure/railing/fence{
@@ -592,15 +573,11 @@
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "MZ" = (
 /obj/structure/railing/fence,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Nl" = (
 /obj/item/reagent_containers/inhaler/raskara_dust{
@@ -655,24 +632,22 @@
 /area/adhomai_raskariim_hideout)
 "PT" = (
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Ru" = (
 /obj/structure/railing/fence,
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "SE" = (
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "Te" = (
-/obj/item/trash/can/adhomian_can,
+/obj/structure/barricade/wooden{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "UC" = (
@@ -695,9 +670,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_raskariim_hideout)
 "WM" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "WO" = (
 /turf/simulated/wall/wood,
@@ -720,6 +693,9 @@
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/reagent_containers/food/snacks/meat/adhomai,
 /obj/item/organ/internal/liver/tajara,
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
 /turf/simulated/floor/exoplanet/concrete,
 /area/adhomai_raskariim_hideout)
 
@@ -728,7 +704,7 @@ WO
 WO
 WO
 WO
-rG
+Jk
 WO
 WO
 de
@@ -752,7 +728,7 @@ WO
 Vm
 Nt
 Dg
-SE
+fs
 Pz
 WO
 WM
@@ -781,14 +757,14 @@ NT
 WO
 WO
 WO
-rG
+Jk
 WO
 WO
 WO
 WO
 WO
-rG
-rG
+Jk
+Jk
 WO
 WO
 WM
@@ -805,14 +781,14 @@ SE
 SE
 HE
 WO
-SE
+fs
 tv
 LC
 rK
 WO
 rg
-SE
-SE
+fs
+fs
 HG
 WO
 WM
@@ -849,7 +825,7 @@ WM
 WO
 WO
 WO
-ri
+rG
 WO
 WO
 WO
@@ -871,8 +847,8 @@ MZ
 CS
 WM
 WO
+yF
 DU
-SE
 SE
 SE
 Ml
@@ -1017,7 +993,7 @@ WM
 WO
 WO
 WO
-ri
+rG
 WO
 WO
 WO
@@ -1048,10 +1024,10 @@ WO
 WO
 WO
 WO
-ri
+da
 WO
 WO
-ri
+da
 WO
 WO
 WO
@@ -1140,13 +1116,13 @@ wq
 kt
 kt
 lI
-SE
+Ja
 sX
 WO
 WO
 WO
 WO
-fs
+Jk
 WO
 WO
 WO
@@ -1164,7 +1140,7 @@ WO
 WO
 WO
 WO
-fs
+Jk
 WO
 WO
 WM

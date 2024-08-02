@@ -360,14 +360,14 @@
 
 /datum/accent/persepolis
 	name = ACCENT_PERSEPOLIS
-	description = "Well-known across Elyra for its rapid-fire, energetic cadence, the Persepolitian accent is characterised by a vibrant and fast-paced nature that represents the New Ankaran Jewel's cosmopolitan nature. \
+	description = "Well-known across Elyra for its rapid-fire, energetic cadence, the Persepolitian accent is characterised by a vibrant and fast-paced nature that represents the Tabitian Jewel's cosmopolitan nature. \
 	Speakers of this variant of Elyran Standard tend to be affluent and well-cultured, in keeping with the Elyran capital's general prosperity."
 	tag_icon = "persepolis"
 	text_tag = "PER"
 
 /datum/accent/medina
 	name = ACCENT_MEDINA
-	description = "Medinan Elyran is characterised by its breathy and almost stutter-step characteristics, both of which are thought to result from the elevated altitudes citizens experience living day-to-day in their \
+	description = "Madani Elyran is characterised by its breathy and almost stutter-step characteristics, both of which are thought to result from the elevated altitudes citizens experience living day-to-day in their \
 	sand-skimming cities. The variation has seen little spread outside Medina itself, owing to the planet's relatively minimal footprint on Elyran cinema and television."
 	tag_icon = "medina"
 	text_tag = "MED"

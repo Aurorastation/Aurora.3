@@ -6,7 +6,7 @@
 	icon_state = "plastic-explosive0"
 	item_state = "plasticx"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_ILLEGAL = 2)
 	var/datum/wires/explosive/c4/wires = null
 	var/detonate_time = 0
@@ -27,7 +27,7 @@
 /obj/item/plastique/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())
 		open_panel = !open_panel
-		to_chat(user, "<span class='notice'>You [open_panel ? "open" : "close"] the wire panel.</span>")
+		to_chat(user, SPAN_NOTICE("You [open_panel ? "open" : "close"] the wire panel."))
 		return TRUE
 	else if(attacking_item.iswirecutter() || attacking_item.ismultitool() || istype(attacking_item, /obj/item/device/assembly/signaler ))
 		wires.interact(user)

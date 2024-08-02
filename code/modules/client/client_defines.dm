@@ -8,7 +8,6 @@
 // Admin
 	var/datum/admins/holder = null
 	var/datum/admins/deadmin_holder = null
-	var/buildmode = 0
 
 // Spam Protection
 	var/last_message = "" // Contains the last message sent by this client - used to protect against copy-paste spamming.

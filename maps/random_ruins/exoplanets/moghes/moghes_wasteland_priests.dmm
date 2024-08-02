@@ -1,0 +1,1071 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"b" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"c" = (
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/structure/closet/crate/freezer,
+/obj/item/storage/box/freezer/organcooler,
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"f" = (
+/obj/structure/pit/closed/grave{
+	species = "Unathi"
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"g" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"i" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"j" = (
+/obj/item/bedsheet/black,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_wasteland_priest";
+	identifier = "moghes_wasteland_priest"
+	},
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"l" = (
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"m" = (
+/obj/machinery/light/colored/decayed{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"n" = (
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/moghes_wasteland_priests)
+"o" = (
+/obj/structure/chemkit,
+/obj/machinery/light/colored/decayed{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"p" = (
+/turf/simulated/wall/sandstone,
+/area/moghes_wasteland_priests)
+"q" = (
+/obj/structure/closet/secure_closet/medical2{
+	req_access = null
+	},
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"r" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"s" = (
+/obj/random/medical,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"t" = (
+/obj/machinery/door/urban{
+	dir = 4;
+	pixel_x = -3
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"u" = (
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/surgery,
+/obj/item/clothing/gloves/latex/unathi,
+/obj/item/clothing/mask/surgical/w,
+/obj/item/reagent_containers/spray/cleaner,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"v" = (
+/obj/structure/closet/crate/weapon/alt,
+/obj/item/material/sword/longsword,
+/obj/item/material/sword/axe,
+/obj/projectile/beam/pistol/hegemony,
+/obj/projectile/beam/pistol/hegemony,
+/obj/item/gun/energy/rifle/hegemony,
+/obj/item/clothing/suit/armor/unathi/hegemony,
+/obj/item/clothing/accessory/poncho/unathimantle/med{
+	color = "#42330f"
+	},
+/obj/item/clothing/accessory/poncho/unathimantle/med{
+	color = "#42330f"
+	},
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"w" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"x" = (
+/obj/machinery/recharger,
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/reagent_containers/spray/cleaner,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"y" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"z" = (
+/obj/structure/bed/roller,
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"A" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"C" = (
+/obj/item/bedsheet/black,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_wasteland_guard";
+	identifier = "moghes_wasteland_guard"
+	},
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"D" = (
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"E" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"F" = (
+/turf/simulated/wall/rusty,
+/area/moghes_wasteland_priests)
+"G" = (
+/obj/structure/railing/fence,
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"H" = (
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"I" = (
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/surgery,
+/obj/item/clothing/gloves/latex/unathi,
+/obj/item/clothing/mask/surgical/w,
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"J" = (
+/obj/machinery/iv_drip,
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"L" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"M" = (
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"O" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"P" = (
+/obj/structure/table/steel,
+/obj/item/material/knife,
+/obj/item/key{
+	name = "key - storeroom";
+	key_data = "skakhstoreroom"
+	},
+/obj/item/reagent_containers/glass/beaker/large,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"Q" = (
+/mob/living/simple_animal/hostile/retaliate/hegeranzi,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"R" = (
+/obj/item/shovel,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"S" = (
+/obj/structure/curtain/medical,
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"T" = (
+/obj/structure/closet/crate/medical,
+/obj/item/clothing/gloves/latex/unathi,
+/obj/item/clothing/gloves/latex/unathi,
+/obj/item/clothing/mask/surgical/w,
+/obj/item/clothing/mask/surgical/w,
+/obj/item/device/versebook/skakh,
+/obj/item/nullrod/shaman,
+/obj/item/cane/crutch,
+/obj/item/cane/crutch,
+/obj/item/cane/crutch,
+/obj/item/cane/crutch,
+/obj/item/stack/medical/splint/full,
+/obj/item/stack/medical/splint/full,
+/obj/item/material/stool/chair/wheelchair,
+/obj/item/material/stool/chair/wheelchair,
+/obj/item/storage/box/bodybags,
+/obj/item/bodybag/cryobag,
+/obj/item/clothing/accessory/stethoscope,
+/obj/item/clothing/accessory/stethoscope,
+/obj/item/clothing/accessory/stethoscope,
+/obj/item/clothing/accessory/stethoscope,
+/obj/item/clothing/accessory/stethoscope,
+/obj/item/device/flashlight/pen,
+/obj/item/device/flashlight/pen,
+/obj/item/device/breath_analyzer,
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"U" = (
+/obj/structure/curtain/medical,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"V" = (
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/large/radiation,
+/obj/item/storage/firstaid/large/radiation,
+/obj/item/storage/firstaid/large/radiation,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/item/reagent_containers/hypospray,
+/obj/item/storage/box/syringes,
+/obj/item/storage/box/masks,
+/obj/random/firstaid,
+/obj/random/firstaid,
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/ointment/full,
+/obj/item/device/breath_analyzer,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"W" = (
+/obj/structure/bed/roller,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"X" = (
+/obj/machinery/light/colored/decayed{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"Y" = (
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+"Z" = (
+/obj/structure/simple_door/wood{
+	name = "storeroom";
+	initial_lock_value = "skakhstoreroom"
+	},
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_priests)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+a
+a
+a
+f
+f
+f
+f
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(4,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+a
+a
+a
+f
+f
+f
+f
+a
+a
+a
+a
+F
+F
+F
+p
+p
+p
+a
+a
+a
+a
+a
+a
+"}
+(6,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+F
+F
+T
+V
+c
+L
+p
+a
+A
+g
+g
+g
+w
+"}
+(7,1,1) = {"
+a
+a
+a
+a
+a
+f
+f
+f
+f
+a
+a
+F
+F
+v
+s
+Y
+H
+H
+p
+a
+E
+D
+a
+a
+y
+"}
+(8,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+F
+F
+x
+R
+Y
+Y
+H
+H
+p
+a
+E
+a
+a
+Q
+y
+"}
+(9,1,1) = {"
+a
+a
+a
+a
+a
+f
+f
+f
+f
+a
+F
+o
+Y
+Y
+Y
+s
+H
+C
+p
+a
+E
+D
+a
+a
+G
+"}
+(10,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+F
+P
+Y
+Y
+Y
+Y
+H
+C
+p
+a
+E
+a
+D
+a
+y
+"}
+(11,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+F
+O
+Y
+Y
+Y
+Y
+j
+j
+p
+a
+i
+b
+t
+b
+r
+"}
+(12,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+F
+F
+F
+F
+p
+F
+Z
+F
+p
+p
+p
+p
+a
+a
+a
+a
+a
+a
+"}
+(13,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+F
+W
+Y
+U
+X
+Y
+Y
+Y
+X
+n
+p
+a
+a
+a
+a
+a
+a
+a
+"}
+(14,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+F
+l
+Y
+U
+Y
+Y
+Y
+Y
+Y
+n
+p
+a
+a
+a
+a
+a
+a
+a
+"}
+(15,1,1) = {"
+a
+a
+a
+a
+a
+a
+F
+F
+q
+u
+U
+Y
+W
+z
+z
+Y
+H
+p
+a
+a
+a
+a
+a
+a
+a
+"}
+(16,1,1) = {"
+a
+a
+a
+a
+a
+a
+F
+p
+p
+p
+p
+Y
+J
+J
+J
+H
+H
+H
+a
+a
+a
+a
+a
+a
+a
+"}
+(17,1,1) = {"
+a
+a
+a
+a
+a
+a
+F
+W
+Y
+U
+H
+H
+z
+z
+z
+H
+H
+p
+a
+a
+a
+a
+a
+a
+a
+"}
+(18,1,1) = {"
+a
+a
+a
+a
+a
+a
+F
+l
+Y
+U
+H
+Y
+Y
+Y
+H
+H
+H
+p
+a
+a
+a
+a
+a
+a
+a
+"}
+(19,1,1) = {"
+a
+a
+a
+a
+a
+a
+p
+q
+I
+S
+H
+m
+H
+H
+H
+m
+H
+F
+a
+a
+a
+a
+a
+a
+a
+"}
+(20,1,1) = {"
+a
+a
+a
+a
+a
+M
+p
+p
+p
+p
+F
+F
+F
+F
+p
+p
+F
+p
+a
+a
+a
+a
+a
+a
+a
+"}
+(21,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+M
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(22,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(23,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(24,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(25,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}

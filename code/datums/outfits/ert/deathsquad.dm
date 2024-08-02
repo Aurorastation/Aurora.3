@@ -68,3 +68,46 @@
 		H.put_in_hands(mercrig)
 		H.equip_to_slot_or_del(mercrig, slot_back)
 		addtimer(CALLBACK(mercrig, TYPE_PROC_REF(/obj/item/rig, toggle_seals), H, TRUE), 2 SECONDS)
+	belt_contents = list(
+		/obj/item/ammo_magazine/a454 = 2,
+		/obj/item/melee/baton/loaded = 1,
+		/obj/item/shield/energy = 1,
+		/obj/item/grenade/flashbang = 2,
+		/obj/item/handcuffs = 2,
+		/obj/item/grenade/frag = 1
+	)
+
+	id_iff = IFF_DEATHSQUAD
+
+/obj/outfit/admin/deathsquad/nt
+	name = "NanoTrasen Asset Protection Trooper"
+
+	back = /obj/item/rig/ert/ntassetprotection
+/obj/outfit/admin/deathsquad/nt/leader
+	name = "NanoTrasen Asset Protection Lead"
+
+	back = /obj/item/rig/ert/ntassetprotection/lead
+
+/obj/outfit/admin/deathsquad/nt/get_id_access()
+	return get_all_accesses()
+
+/obj/outfit/admin/deathsquad/nt/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	. = ..()
+	if(visualsOnly)
+		return
+
+	var/obj/item/clothing/accessory/holster/armpit/hold = new(H)
+	var/obj/item/gun/projectile/weapon
+
+
+	if(syndie)
+		weapon = new /obj/item/gun/projectile/silenced(H)
+	else
+		weapon = new /obj/item/gun/projectile/revolver/mateba(H)
+
+	if(weapon)
+		hold.contents += weapon
+		hold.holstered = weapon
+
+	var/obj/item/clothing/under/U = H.get_equipped_item(slot_w_uniform)
+	U.attackby(hold, H)

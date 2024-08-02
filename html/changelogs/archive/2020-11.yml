@@ -1,0 +1,625 @@
+2020-11-01:
+  Alberyk:
+  - tweak: Cyanide pills are no longer named cyanide pills.
+  Amunak:
+  - admin: Varedit now remembers what was in the 'search' field when you click the
+      'refresh' link.
+  - admin: 'Tweaked varedit styles ever so slightly: it will now likely use a more
+      preferred monospace font. Keys are bold and also monospace.'
+  - admin: '''NOFALL'' is now a status flag instead of being a var specific to BSTechs.
+      It allows the mob to move between Z-levels and through empty space; even to
+      ''fly up'' against gravity. However the tech can no longer use this to ''phase
+      into'' matter if there is something above them.'
+  - admin: 'For that you want to use Ruin-Everything instead: incorporeal movement
+      now has an additional type that''s just like a ninja''s, but it also allows
+      you to move between Z-levels.'
+  - admin: Adds the anti-gravity verb to the Bluespace Robot preset and starts them
+      with 'NOFALL' on.
+  - admin: When using 'GODMODE' you will no longer take damage when you fall; instead
+      a cool message will be shown and a quiet thump will be played.
+  - admin: '''GODMODE'' now protects you from the awful effects of running - you can
+      run indefinitely and won''t take damage from it.'
+  - admin: BSTechs now have additional vision mode - 'darkvision' for seeing normally
+      but without lighting.
+  - admin: Some of the more arcane BSTech verbs have been renamed and descriptions
+      improved (with some added flavour). Rejuv -> Restore Health. Toggle-Gravity
+      -> Toggle-Falling (we now have actual gravity on the station, so let's not confuse
+      people). And finally Ruin-Everything -> Toggle Incorporeal Movement - as lovely
+      as the name is, it doesn't make much sense. This isn't Kill-Everyone or whatever.
+  - refactor: Thanks to the above changes the BST is now self-contained in a single
+      file (well except for the robot preset).
+  - refactor: To facilitate the above changes several godmode and incorporeal checks
+      have been added (mostly to movement procs). It cuts on some extra proc overrides
+      and type checks. Also results in a more 'natural' experience when using NOFALL,
+      GODMODE or incorporeal movement.
+  - refactor: Changed incorporeal values to defines.
+  - admin: Admins can now override a Respawn verb failure for themselves without calling
+      Allow-Player-To-Respawn first.
+  Ferner:
+  - bugfix: The bridge research shuttle control console will now work again.
+  Geeves:
+  - rscadd: Added a GPS to the janitorial closets.
+  - rscadd: Janitor belts now hold 8 items instead of 6.
+  - rscadd: Mapped in some basic materials for janitors. These materials are for simple
+      window and table repairs, as per the janitor wiki page.
+  - rscadd: Emagging the pest gun now increases its shot capacity to 10.
+  - tweak: An emagged pest gun now does 15 burn damage per shot, as well as 30 halloss
+      damage. Changed from only doing 60 halloss.
+  - rscadd: The wall fungi event now gives GPS coordinates to the place it's growing.
+  - rscadd: Wall fungi can now be scraped off by any sharp object, and then grinded
+      to access some useful reagents within.
+  JohnWildkins:
+  - rscadd: Added modular computer versions of PDAs. Programs that were only available
+      on PDA were ported where possible/necessary.
+  - rscadd: Added ability to select type of PDA (tablet, wristbound, PDA, or none)
+      in character select.
+  - rscadd: Added charging cables for recharging handheld modular computers. Simply
+      use a handheld computer on an APC to begin charging. Also added hotswappable
+      batteries, which may be removed and slotted-in without tools.
+  - rscadd: Card slots on modular computers can now store items, just as PDAs once
+      did.
+  - tweak: Power capacity of modular computer batteries increased across the board.
+      Standard PDAs should last approximately two-hours (server time).
+  - tweak: NTIRC (messenger) now requires a registered ID to be used. NTIRC is set
+      to autorun and will attempt to start itself at roundstart, as well as automatically
+      register you.
+  - tweak: pAI Atmosphere Sensor and pAI Signaller are now open-use programs. Handheld
+      PDAs are now universally private devices.
+  - tweak: Using an ID on a computer with an occupied card slot will now swap the
+      cards, where possible.
+  - rscdel: Removed PDAs, cartridges, and all functionality relating to them.
+  - bugfix: An event failing to spawn should no longer hell-spawn fifteen copies of
+      another event.
+  Wowzewow (Wezzy):
+  - rscadd: Added five new sets of PDA-style sprites, complete with transparency /
+      modular program support.
+2020-11-02:
+  Flpfs:
+  - tweak: Tajara and Unathi can now be doctors and pharmacists at the Odin.
+  - tweak: IPCs can now be civil protection, doctors, pharmacists, bartenders, cooks
+      and janitors at the Odin.
+  - tweak: Added maglites to the SecTech vendors.
+  Geeves, Dronz:
+  - rscadd: Added new clothes for unathi, wasteland kilts, straw hats, wasteland goggles,
+      standalone hoods.
+  - tweak: Roughspun robes are now recolourable. Mogazali attire is no longer recolourable.
+  - rscadd: Added footwraps and caligae to the xeno clothes closet.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes Coalition and Sol voidsuits not accepting oxygen tanks.
+  - bugfix: Fixes invisible bandanas.
+  - bugfix: Adds spam limiters to coinflips, toy swords and ID cards.
+2020-11-03:
+  Chada:
+  - rscadd: Added a mobility tool to the Rescue module, it acts as a speedboost on
+      par with a VTEC.
+  - tweak: Altered the Rescue and Medical modules hyposprays to reflect the current
+      medical better.
+  - bugfix: Fixed an oversight that made the Mining drones drill not available on
+      round start.
+  - bugfix: Fixed all of the Cyborg/Drone jetpacks being broken.
+  Greenjoe12345:
+  - rscadd: Adds a white cane. Adds this white cane and the already exsisting crutch
+      item to the loadout.
+  JohnWildkins:
+  - bugfix: Fixes players entering cryo or PDAs that were destroyed not being removed
+      from available messengers.
+  - bugfix: Some subspecies (Zeng-hu IPC, Tajara subspecies) should now move at their
+      intended speeds.
+  NiennaB, Stryker:
+  - tweak: Changed the Unbranded IPC and prosthetics sprites with one by NiennaB.
+  mikomyazaki:
+  - bugfix: Charging cables, such as those on PDAs, will now connect properly to the
+      APC icon rather than the turf infront of it.
+  - bugfix: Beams, such as charging cables, will no longer exist for one tick then
+      delete themselves when being engaged from beyond max range.
+  - bugfix: You can no longer climb over a railing if the way is blocked on the other
+      side (e.g. by a window).
+2020-11-04:
+  Chevy:
+  - bugfix: Swapped the buttoned and unbuttoned obj sprites for the designer red leather
+      jacket so that it would use the buttoned sprite while buttoned and the unbuttoned
+      sprite while unbuttoned.
+  - bugfix: Replaced the Dominian Noble Coat 5 buttoned sprite with an actual buttoned
+      sprite instead of it just using the unbuttoned sprite for both.  This is probably
+      useless because I don't think it's used for anything, but I saw it while I was
+      fixing the other thing and fixed this too.
+  Geeves:
+  - rscadd: Holocalls now send holograms of people in the vicinity to whichever pad
+      it's connected to, instead of just sending the caller's hologram. You no longer
+      have to stand on the holopad to talk. Give it a try.
+  Hocka, Happy_Fox:
+  - rscadd: Added steel wool which can be ignited with a cell/other flame source to
+      briefly light up an area, as well as light other things. Can be obtained via
+      autolathe.
+  - rscadd: Empty cans can now be turned into jury-rigged shrapnel grenades which
+      are made by filling cans with welding fuel, adding a fuse with steel wool and
+      lighting it using a flame source. Shorter fuses have a chance to instantly detonate
+      and longer fuses can fizzle out prematurely. Large grenade casings can be used
+      to increase the amount of shrapnel.
+  Wowzewow (Wezzy):
+  - bugfix: Adds the missing janitor softcaps and bandanas to the loadout.
+  - rscadd: Modifies and adds appropriate departmental berets.
+  - tweak: Corporate berets have been tweaked to match their respective uniforms more
+      closely.
+  - bugfix: Inhand items using contained sprites should follow colorations properly
+      now.
+  - rscdel: Larger golems can no longer wear uniforms.
+2020-11-05:
+  Amunak:
+  - bugfix: Fixes runtimes on HUD creation related to players joining before SSAtoms
+      starts working.
+  - bugfix: Fixes runtime for Runtime (the map) which has no shuttles mapped.
+  Flpfs:
+  - rscadd: Ports collapsible wheelchairs from Polaris.
+  - rscadd: Wheelchairs are now available in a color-customizable form via the loadout,
+      under utility.
+  Geeves:
+  - bugfix: Holopads should work now again.
+  mikomyazaki:
+  - admin: The 'Debug Mob Lists' verb can now list mobs that have gone to cryo this
+      round.
+2020-11-07:
+  Amunak:
+  - refactor: Refactors worst offenders from the unsorted.dm helpers file to where
+      they fit better (atoms.dm, mobs.dm, ...).
+  - bugfix: Fixes messages for water tank wrenching/unwrenching - they were flipped
+      and gramatically dubious.
+  - bugfix: Changed how cargo spawning defines (STOCK_ITEM_*) work in order to fix
+      an issue with deep recursion and prevent a runtime from it.
+  Flpfs:
+  - bugfix: Rescue borgs now have a medical gripper instead of a magnetic one.
+  Geeves:
+  - tweak: Changing between mobs no longer changes your hotkey toggle status.
+  - bugfix: Sending psionic messages now properly puts a full stop at end.
+  Hocka:
+  - tweak: Noticeboards now try to put paper directly into your hands instead of immediately
+      on the floor.
+  mikomyazaki:
+  - tweak: Security Belts can now contain disruptor pistols of all kinds.
+2020-11-09:
+  Amunak:
+  - tweak: Buckets and sinks now transfer maximum amount per use. Water tanks transfer
+      100 by default, extinguisher, lube and fuel tank 30.
+  - tweak: Sinks and water/extinguisher/etc tanks now also have new info description
+      reminding people that they can change the amount transferred.
+  Ferner:
+  - bugfix: Fixed the tcfl field beret being invisible.
+  mikomyazaki:
+  - bugfix: Research Module Borgs' Access Code Transmission Device will now properly
+      lock/unlock robots.
+  - bugfix: Fixed an issue where multi-modes (e.g. Uprising (Rev+Traitor)) would consider
+      players multiple times to see if we had enough enemies, although the player
+      could not play multiple roles simultaneously. Therefore multi-rounds could be
+      considered valid modes when they were not, and rounds would start with too few
+      players in one or more roles.
+2020-11-10:
+  Amunak:
+  - admin: Slightly improves varedit by adding the variable type to the display.
+  Chevy:
+  - rscadd: Added a new cocktail and associated sprite, the Rum and Cola.  Uses the
+      existing Cuba Libre recipe of 2 parts rum and 1 part space cola.
+  - rscadd: Added a new recipe for the Cuba Libre.  Mix 5 parts Rum and Cola with
+      1 part lime juice.
+  - tweak: Cuba Libre is now worth .01 more when you ship it via cargo to reflect
+      the fact that you have to make it out of another cocktail now.
+  Geeves:
+  - tweak: Mortaphenyl and oxycomorphine now metabolize three times faster.
+  - rscadd: Alkysine can now be used to counteract confused moving chem side effects,
+      while oculine can be used to counteract eyeblur chem side effects.
+  - tweak: Synaptizine no longer wildly damages all organs, instead having a chance
+      each time it metabolizes to damage the liver, which is fine, unless the liver
+      has been damaged already, or is taking damage from multiple sources.
+  - bugfix: Fixed the maintenance drone ghost spawner.
+  - rscadd: Added more info as to why certain ghost spawners are disabled to the ghost
+      spawner menu.
+  Geeves, Happy Fox:
+  - tweak: Vampires with victim awareness enabled will no longer drop their victims
+      to the floor.
+  - tweak: Stunned people can no longer interact with radios. This means that you
+      cannot use a radio while being bloodsucked.
+  - rscadd: Clicking the drain blood ability whilst draining blood will now cause
+      you to stop sucking blood at the end of the next drain cycle.
+  - rscadd: Gaining a vampire power is now displayed a bit nicer in the chat log.
+  - rscadd: Vampires now have a UI element on the HUD for how much usable blood they
+      have, what their frenzy counter is at, and to suck people.
+  - bugfix: Removing vampire status from a player now removes their vampire abilities
+      and such.
+  - tweak: Vampires now can only suck up until 950 units of usable blood.
+  - tweak: Vampire glare now stuns IPCs and cyborgs as well.
+  - bugfix: Hulks no longer have funky punctuation.
+  - tweak: Veil walking now uses your mob sprite instead of a generic ghost sprite.
+  - rscadd: Triggering veil walking now breaks all grabs on you.
+  - rscadd: The vampire help menu has been revamped to be more up to date and stylish.
+  JohnWildkins:
+  - rscadd: Handheld modular computers now use flashlights as a light source. They
+      may be turned on/off via a button in the PC header, and have their brightness
+      adjusted in Hardware Configuration.
+  - tweak: Chat messages are now logged to the NTNet Monitoring program.
+  - tweak: PDA mesasge notifications should now appear much larger.
+  - bugfix: IDs are now unregistered from computers when the computer is destroyed.
+  - bugfix: Fix Eject Battery having a global view range.
+  - bugfix: Chat Clients are no longer set to 'silent' by default.
+  - backend: Added a new slider component for VueUIs.
+  Wowzewow (Wezzy):
+  - imageadd: CCIA and FIB agents have cool new ID badges.
+  mikomyazaki:
+  - bugfix: Fixes issue where antag types with ANTAG_OVERRIDE_JOB was selecting zero
+      players despite players signing up for the role.
+2020-11-11:
+  Alberyk:
+  - tweak: Fountain pens start with the cursive option off by default now.
+  Amunak:
+  - bugfix: Maintenance drones can be disposaled again properly.
+  Ferner, Valwyn:
+  - rscadd: Added a black, unstriped fedora to the loadout. Spritework by Valwyn.
+  Geeves:
+  - rscadd: People who latejoin can now be turned into antags as well, provided they
+      have the role preference selected, it's a station antag, and amount of antags
+      is lower than or equal to the living player count divided by the antag count
+      coeff.
+  - tweak: Breaking cuffs is now per species, instead of per species per sex. This
+      means that female unathi can break cuffs now.
+  - tweak: The visitor ghostrole no longer appears as a unique role on the join menu.
+  - rscadd: Added a new room to maintenance.
+  mikomyazaki:
+  - tweak: Robots no longer have hud items in their inventory.
+  - tweak: Robots that have an active sensor augmentation (security or medical) will
+      now be able to change details of examine targets, as if they had a physical
+      hud item in their hand.
+  - rscdel: Vision cones have been removed. Thank you to everyone that provided feedback
+      while we tried out this feature!
+  - rscadd: The drop hotkey (default Q) will now drop things held by robot grippers.
+  - bugfix: The Access Transmission device now works on maintenance drones, too.
+2020-11-12:
+  Amunak:
+  - rscadd: Latejoin menu is now VueUI and more similar to crew manifest - it is divided
+      to sections and uses crew manifest colors. It shows a preview of your character.
+      It no longer distinguishes active but AFK players.
+  - rscadd: Crew Manifest now uses VueUI (the exact same one as the modular computers
+      program). This means that crew manifest will no longer indicate AFK players
+      as inactive for ghosts and lobby sitters.
+  - rscadd: Crew Manifest program can now print the manifest with a button in the
+      UI.
+  - rscdel: The ID modification program no longer shows the crew manifest or is able
+      to print it.
+  - tweak: Crew Manifest, Latejoin menu and occupation selection in character creation
+      have been made prettier and more readable with a common color palette for departments.
+  - bugfix: All departmental jobs now have a department assigned (intern jobs and
+      forensic technician). This slightly changed the antagonist report generated,
+      but now it's especially needed for the latejoin menu sorting to work.
+  - bugfix: Leaving the round now actually decreases the job count for a given job,
+      freeing up the slot for others. This also fixes wrong people counters in latejoin
+      menu. As a result AIs now use different logic to check if they can spawn/latejoin
+      and their numbers are also correct.
+  - backend: Added SCSS style utilities inspired by Bootstrap for easier UI styling
+      with the use of just classes.
+  - refactor: Department names are now defines, crew manifest logic has been simplified
+      to accommodate this. The 'Heads' section is now called 'Command'.
+  - refactor: Jobs now store departments as a list so Command is no longer magic.
+      Flags can be assigned to each department (like 'this is a supervisor/head of
+      this department).'
+  - refactor: Moved Vue departmental colors into a separate Sass file, making it available
+      to all either as a universal map or as predefined classes for text color (.text-dept-medical)
+      and background (.bg-dept-medical).
+  Geeves:
+  - bugfix: Fixed various holopad bugs, like icon states being wrong.
+  - rscadd: Added an examine to holopads to see which pad it's connected with.
+  - rscadd: Added a visible message to interacting with a holopad, so people around
+      you can see that you're doing so.
+  - rscadd: Added a new sprite for holopads that are pending a call pick-up.
+  - bugfix: Fixed holopads (and other things) not being able to pick up emotes.
+  JohnWildkins:
+  - bugfix: Drop hotkey (Q) should now properly work to drop things held by robotic
+      grippers.
+  Wowzewow (Wezzy):
+  - rscadd: Show held item now shows an icon beside the item.
+  mikomyazaki:
+  - bugfix: Borg Hyposprays now act like normal hyposprays, can inject people in spacesuits
+      and are non-instantaneous.
+2020-11-13:
+  Amunak:
+  - tweak: Added a new 'announcer' mob and used it instead of AI for 'autosay' as
+      an optimization.
+2020-11-14:
+  Amunak:
+  - bugfix: Aligned Crew Manifest columns. The window had to be embiggened a bit to
+      make this look decent.
+  - bugfix: Fixed VueUI not refreshing (or closing or working properly) when re-opened
+      after being closed.
+  Geeves:
+  - rscadd: Added six pack yokes for energy drinks, a storage item for moving a fast
+      amount of energy drinks quickly. Currently adminspawn only.
+  - rscadd: Radiojammers now also block wireless access to various objects stationbounds
+      (AIs, Cyborgs) can access, such as doors, firedoors, and so forth. Being adjacent
+      to the object will negate this.
+  - rscadd: Non-improvised radiojammers can now be configured to only block stationbound
+      signals. When set to all, it stops everything it did before, as well as stationbounds.
+  - bugfix: Simple animals such as rats that don't have universal speak or a language
+      can no longer be translated by holopads.
+  - bugfix: Fixed a verb that caused visible messages (and more) to break.
+  - rscadd: Added a small outpost to the engine radiator area.
+  - tweak: Gave mining and xenoarch access to the engine radiator airlocks, because
+      they keep getting stuck there. Which is hilarious.
+  - rscadd: Wizard golems are now given an antag role, which grants them access to
+      AOOC.
+  JohnWildkins:
+  - bugfix: Fixed the Custodial Supplies Locator app not functioning.
+  - bugfix: PDAs should no longer display multiple messages when disconnecting their
+      charging cables. They also have a gentler message for purposeful disconnecting
+      and play a sound when connecting a cable.
+  - bugfix: Excessive runtimes should no longer occur from badly-formed beams.
+  MattAtlas:
+  - backend: Fixes a bunch of runtime errors.
+2020-11-15:
+  Alberyk:
+  - tweak: Disabled Sol Alliance consular officers due to Lore reasons.
+  - bugfix: Fixed species transformation causing species to get accents that they
+      should not be able to select.
+  Amunak:
+  - bugfix: Fixes APC UI initial height so that scrolling is not necessary.
+  - admin: Admins can now operate APCs (when ghosted).
+  - admin: Admins can now operate airlocks with special privileges ONLY when ghosted
+      (to prevent accidental admin abuse).
+  - refactor: Airlock VueUI should now properly update constantly (including admin
+      options).
+  Hocka:
+  - bugfix: Emitter shot counter display text and signaller display text is now adjusted
+      to the user's font size.
+  mikomyazaki:
+  - rscdel: Maintenance drones no longer have chat clients installed by default.
+2020-11-16:
+  Amunak:
+  - bugfix: Changing someone's rank will no longer cause a runtime that causes Crew
+      Manifest to stop working / show nothing.
+  Geeves:
+  - rscadd: The species select in the character creation menu will now display the
+      main species first, and then the sub-species after select the main one, instead
+      of putting them all in one screen.
+  Hocka:
+  - bugfix: The engine radiator airlocks no only require one of the listed accesses
+      instead of all of them. The radiator shutter button has also received the same
+      treatment.
+  Wowzewow (Wezzy):
+  - rscadd: All small mobs fit in the glass jar now.
+2020-11-17:
+  Alberyk, Coalf, Sleepywolf:
+  - rscadd: Added Tajara themed title screens.
+  Ferner:
+  - tweak: Lowered the max number of players for the burglar gamemode from 20 to 15.
+  Geeves:
+  - rscdel: .click, .dblclick, and .mouse macros have been disabled.
+  - rscdel: Pick-up macros have been disabled.
+  - rscadd: Added a replacement verb for clicking your mov_intent. Simply make a macro
+      with 'mov_intent' as the command.
+  - rscadd: Added replacement verbs for clicking on your uniform, belt, and backpack.
+      These macros are 'click_uniform', 'click_belt' and 'click_back' respectively.
+  - rscadd: The bodyscanner console now reports in which external they are, such as
+      'Chest' or 'Groin'.
+  - rscadd: The bodyscanner now reports parasites growing within the body.
+  - rscadd: The bodyscanner now periodically updates its UI.
+  - tweak: The zombie parasite now grows inside the head, instead of the chest.
+  - tweak: Zombies can no longer pick up items. If they somehow pick up a gun, they
+      can no longer fire it.
+  - tweak: Zombies can no longer operate radios.
+  - rscadd: Zombies have gained their own martial art. Three attacks in a row will
+      provide an armor piercing bite, whilst their grabs automatically put someone
+      into an aggressive grab.
+  - tweak: Zombies now take half brute and burn damage. Additionally, they move and
+      sprint slower now.
+  - tweak: Zombies can now slip. Oh boy.
+  - tweak: Zombie bites can now only take trioxin levels up to 30u, where it plateaus.
+  - rscadd: Zombies now regenerate broken bones, severed tendons and arteries. If
+      they regenerate broken bones, their brute wounds will heal to prevent rebreaks.
+      Each heal will cause the next heal to take two seconds longer, starting from
+      5 seconds. Only the head is exempt from this healing.
+  - tweak: You no longer automatically scream, if you cannot feel pain.
+  - tweak: Collapsing no longer gives you a blindness overlay.
+  - tweak: Collapsing from stance damage such as broken or missing leg and feet now
+      only happens once every 8 to 16 seconds.
+  - rscadd: Using a remote control mech now transfers your ID card access to it.
+  - rscadd: It is now possible to know more than one martial art at the same time,
+      while reaping the benefits of all of them.
+  - tweak: Only the unarmed attacks of your primary martial art will be executed,
+      if you have more than one art, the option to choose will appear in the abilities
+      tab.
+  - rscadd: Created a new Martial Arts uplink category, added Sleeping Carp, 12 TC,
+      and Swordsmanship, 5 TC, to it.
+  - tweak: Martial Art projectile deflection has been reflavoured to make it dodging,
+      for the sake of believability. Ha ha ha.
+  - bugfix: Sleeping carp now properly only instantly kills someone who's in crit.
+  - tweak: The Recall Teachings ability is now put into the abilities tab instead
+      of a unique tab for the martial arts.
+  - rscadd: Full power vamps can now pull people they're grabbing into their veil
+      walk.
+  - rscadd: Re-added the right click pick up verb.
+  Hocka, Furrycactus:
+  - rscadd: Added Hydrogen gas, canisters, tanks and a new atmos tank to contain Hydrogen.
+      Hydrogen can be used as a slightly less effective alternative gas for Phoron
+      in the Supermatter. Or for making fires.
+  - maptweak: Removed the four nitrogen canisters in Engineering Hard Storage with
+      four hydrogen canisters. Removes two phoron canisters in toxins with Hydrogen
+      canisters.
+  JohnWildkins:
+  - bugfix: Dionae are selectable in character select once more.
+  - bugfix: Chat-input emotes should now function again.
+  Wowzewow (Wezzy):
+  - tweak: Water tanks now transfer its max volume by default. This is mainly for
+      backpack water tanks.
+2020-11-18:
+  Ferner:
+  - tweak: Odin medical specialists and pharmacists now spawn with medhuds instead
+      of sunglasses.
+  JohnWildkins:
+  - bugfix: Fixed full-auto weapons not suffering the one-hand penalty appropriately.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes the shading of the jumper skirt.
+  - tweak: Face direction verb now behaves like the pre-vision cone version.
+  mikomyazaki:
+  - bugfix: Can now whisper while restrained.
+2020-11-19:
+  Aboshehab:
+  - rscadd: Added missing regulations from the wiki to processing console.
+  - tweak: Update and adjust descriptions, names, credit fines and time to match the
+      wiki for the processing console.
+  Doxxmedearly:
+  - tweak: Adjusted bounties and warehouse spawns regarding phoron to reflect lore
+      developments.
+  Geeves:
+  - rscadd: Clicking on a folded up pAI with an encryption key now slots the key into
+      the pAI card, granting it access to those radio channels.
+  - rscadd: You can remove pAI encryption keys by using a screwdriver on them.
+  - rscadd: Added some holopads to useful locations.
+  Hocka:
+  - maptweak: The engine cooling radiator's motion sensor has been replaced with a
+      normal security camera.
+  - tweak: ChemMasters now dispense pill bottles and beakers to the hand directly.
+  - maptweak: There are now two Hydrogen canisters in the atmos sub-level.
+  - maptweak: A light has been added to the window viewport for the hydrogen reserve
+      tank.
+  - bugfix: Hydrogen canister names are now spaced correctly.
+  MoondancerPony:
+  - tweak: Smartfridges now place items in your hand if possible.
+  Stryker, Kyres, NiennaB:
+  - rscadd: Adds a Martian hoodie to the loadout under suits and accessories.
+  - rscadd: Adds a Tau Ceti armband to the armband selection.
+  - rscadd: Adds a Golden Deep dress, wrap, and vest done by Kyres as well as suit
+      and skirtsuit by NiennaB to Xenowear - IPC. (FTs by IPC team.)
+  - tweak: Changes Golden Deep arm and headchain accessories to match the color palette
+      of the clothes.
+  mikomyazaki:
+  - bugfix: Gamemodes will no longer fail to start with enough antagonists due to
+      a mismatch between expected enemies and actual required enemies due to the antagonist
+      role types.
+  - tweak: Siege (Rev+Merc) now requires 25 minimum players (10 antagonists) instead
+      of 20.
+  - tweak: Uprising (Rev+Traitor) now requires 20 minimum players (7 antagonists)
+      instead of 15.
+  - bugfix: Pressure Regulators in INPUT regulation mode will now be able to transfer
+      gas when the output is a vacuum.
+  - bugfix: Chameleon caps will have an icon again.
+  - bugfix: Being crushed by an airlock while inside something (e.g. a locker) will
+      no longer teleport you outside of the thing.
+2020-11-20:
+  mikomyazaki:
+  - bugfix: Using a welder on a broken airlock twice rapidly will no longer allow
+      you to cut the cover for the bolts and the bolts simultaneously.
+  - bugfix: Charging cable beams will now appear properly when you initially connect
+      them.
+2020-11-21:
+  Ferner:
+  - bugfix: The security maintenance exterior airlock now has an outward facing access
+      button.
+  - bugfix: Fixed premade combat mechs spawning without weapons.
+  Geeves:
+  - bugfix: Fake death lings should now be slightly harder to detect by medical.
+  - rscadd: Engineering apprentice, lab assistant, and medical intern slots have been
+      increased by one, for a total of 3.
+  MattAtlas:
+  - rscdel: Removes the toxin hivebot beacon as it is too powerful.
+  greenjoe12345:
+  - rscadd: Adds a new eyepatch to the loadout and fixes the current eyepatch sprite
+      covering both eyes
+  mikomyazaki:
+  - bugfix: Fixed some xenoarcheology artifacts that would spawn mobs within objects,
+      rather than on turfs as required.
+  - bugfix: Burglar gamemode only requires one antagonist to start.
+2020-11-22:
+  Alberyk, mikomyazaki:
+  - rscadd: Added a Tajaran surgeon garb to the xeno loadout.
+  Amunak:
+  - rscadd: All clients will now be warned just before server restarts.
+  Geeves:
+  - rscadd: You can now attach signalers to canisters. When activated, the signaler
+      will toggle the valve open or shut.
+  - tweak: Attacking a canister now has a sound and an animation.
+  - rscadd: Updated the look of some gasses hanging in the air.
+  - tweak: Turbo lifts now move much faster.
+  - bugfix: Loadout items that go on the ear slot now render correctly in the character
+      creation menu.
+  - bugfix: Skrell loadout items that go in the ear slot included.
+  - bugfix: pAI radios no longer let people two tiles away hear them, now you need
+      to be on top of them to hear, or vice versa. The range can be configured in
+      the radio configuration app.
+  - bugfix: Actually gave pAI access to common and entertainment, the standard for
+      user radios.
+  Wowzewow (Wezzy):
+  - rscdel: Scrubs all references to Vox and Vox Armalis from the code.
+  - rscadd: You can now choose whether you have a regular headset or bowman headset
+      equipped in the loadout.
+  mikomyazaki:
+  - tweak: Improved multi-mode antagonist selection logic.
+2020-11-23:
+  DanseMacabre:
+  - balance: Made changeling morph a free ability that does not require a limb sacrifice.
+      Also makes adrenaline sacs cheaper.
+  FieryTech:
+  - rscadd: Added a secure storage room for the science department, next to the conference
+      room.
+  - rscadd: Added a science gun locker sprite, and script, for the new secure storage
+      room.
+  Geeves:
+  - rscadd: The NanoMed Plus vendors now dispense four pill bottles each.
+  - bugfix: Viscerators no longer have funky blood overlays.
+  - bugfix: Healing animals now properly update their blood overlays.
+  - bugfix: AI holograms are now visible again.
+  - tweak: AI can now set their holograms to be any humanoid within camera view.
+  - tweak: Lattices, catwalks, and grates are now considered floors, which allows
+      you to build certain structures such as railings, on top of them.
+  - rscadd: Doing CPR no longer displays any messages in the chat, instead it's visually
+      telegraphed via images and animations.
+  - bugfix: Headsets no longer get put into the personal possessions box when spawning.
+  Hocka:
+  - maptweak: All roundstart phoron canisters were removed from the station. There
+      are now three empty phoron canisters in engineering hard storage with one half-capacity
+      canister. Toxins and the Anomaly lab have received a similar treatment.
+  - maptweak: The reserve phoron tank in atmos has had it's starting amount significantly
+      reduced.
+  - maptweak: The four Nitrogen canisters in the engine room have been narrowed down
+      to just 2 canisters and are now more clearly marked as emergency use.
+  - bugfix: Default empty canisters now start with their lights correctly displaying
+      they are empty.
+  mikomyazaki:
+  - rscadd: Medical and Security autopsy rooms now have surgical drills for use on
+      Vaurca.
+  - tweak: Bodybags containing no living mobs can now be dragged significantly faster.
+2020-11-25:
+  Alberyk:
+  - bugfix: Fixed corporate liaisons and consular officers spawning with the wrong
+      radio.
+  Amunak:
+  - admin: The Setup-Supermatter debug verb should now work as expected - added markers
+      that make it work. Also adds all coolant options in there.
+  Geeves:
+  - tweak: Learner roles such as medical intern, security cadet, lab assistant, and
+      engineering apprentice, now gets PDAs of their department's variant, instead
+      of standard civilian.
+  Hocka:
+  - bugfix: Removes the chasm mask from the hydrogen tank viewport which was causing
+      asteroid rocks to spawn in the window.
+  Kermit:
+  - tweak: Thetamycin's metabolisation is now 3x as fast. It will take 5 minutes to
+      begin to treat infections as opposed to 15 minutes.
+  - tweak: Severe infections are once again treated when thetamycin ODs (20u) as opposed
+      to at 30u (the former OD).
+2020-11-26:
+  Ferner:
+  - maptweak: Added a light switch to the chapel.
+  Geeves:
+  - rscadd: Standard hyposprays can now choose to inject 5, 10, or 15 units per inject.
+  - rscadd: CMO hyposprays can now choose to inject 5, 10, 15, or 30 units per inject.
+  - rscadd: Standard syringes can now choose to inject 1, 2, 5, or 15 units per inject.
+  - rscadd: Revamped airlock construction messages, you will no longer keep hitting
+      it like an orangutan if you do it out of sequence.
+  - rscadd: An airlock assembly's given finished name will now appear in brackets
+      next to the assembly's name.
+  - tweak: Airlock construction now uses three lengths of coil, instead of one.
+  Hocka:
+  - rscadd: Added medical gumballs - gumballs that spawn with tricordrazine.
+  - rscadd: Added a medical and normal variant of gumball jars. The medical gumball
+      jar spawns on a table in the medical lobby every round and normal gumball jars
+      can spawn in cargo.
+  - tweak: Steel wool is now made from a steel sheet under the miscellaneous construction
+      category. They are no longer made in autolathes.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes extinguisher refill inhands.
+  - bugfix: Striped shirts should now be named appropriately in the loadout.

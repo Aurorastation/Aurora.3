@@ -12,7 +12,7 @@
 	icon_state = null
 	item_state = "pill"
 	possible_transfer_amounts = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	volume = 60
 	drop_sound = 'sound/items/drop/food.ogg'
@@ -370,3 +370,8 @@
 	icon_state = "cleanertablet"
 	reagents_to_add = list(/singleton/reagent/spacecleaner = 15)
 
+/obj/item/reagent_containers/pill/ryetalyn
+	name = "10u Ryetalyn Pill"
+	desc = "A medicine used to treat genetic conditions, including benign and malignant tumours."
+	icon_state = "pill11"
+	reagents_to_add = list(/singleton/reagent/ryetalyn = 10)

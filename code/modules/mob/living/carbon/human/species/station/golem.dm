@@ -392,12 +392,12 @@ var/global/list/golem_types = list(
 
 	golem_designation = "Glass"
 
-/datum/species/golem/glass/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
-	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
+/datum/species/golem/glass/bullet_act(var/obj/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+	if(istype(P, /obj/projectile/energy) || istype(P, /obj/projectile/beam))
 		var/reflectchance = 50 - round(P.damage/3)
 		if(prob(reflectchance))
-			H.visible_message("<span class='danger'>The [P.name] gets reflected by [H]!</span>", \
-							"<span class='danger'>The [P.name] gets reflected by [H]!</span>")
+			H.visible_message(SPAN_DANGER("The [P.name] gets reflected by [H]!"), \
+							SPAN_DANGER("The [P.name] gets reflected by [H]!"))
 
 			// Find a turf near or on the original location to bounce to
 			if(P.starting)
@@ -598,12 +598,12 @@ var/global/list/golem_types = list(
 	H.update_dna()
 	..()
 
-/datum/species/golem/diamond/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
-	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
+/datum/species/golem/diamond/bullet_act(var/obj/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+	if(istype(P, /obj/projectile/energy) || istype(P, /obj/projectile/beam))
 		var/reflectchance = 80 - round(P.damage/3)
 		if(prob(reflectchance))
-			H.visible_message("<span class='danger'>The [P.name] gets reflected by [H]!</span>", \
-							"<span class='danger'>The [P.name] gets reflected by [H]!</span>")
+			H.visible_message(SPAN_DANGER("The [P.name] gets reflected by [H]!"), \
+							SPAN_DANGER("The [P.name] gets reflected by [H]!"))
 
 			// Find a turf near or on the original location to bounce to
 			if(P.starting)
@@ -696,7 +696,7 @@ var/global/list/golem_types = list(
 		return
 
 /datum/species/golem/sand/proc/glassify(var/mob/living/carbon/human/H)
-	H.visible_message("<span class='warning'>\The [H] vitrifies into a glass construct!</span>")
+	H.visible_message(SPAN_WARNING("\The [H] vitrifies into a glass construct!"))
 	H.set_species(SPECIES_GOLEM_GLASS)
 
 /datum/species/golem/plastic
@@ -805,7 +805,7 @@ var/global/list/golem_types = list(
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 
-	blood_color = "#5C4831"
+	blood_color = COLOR_LEATHER
 	flesh_color = "#FFC896"
 
 	death_message = "collapses into a pile of flesh!"

@@ -4,7 +4,7 @@
 	icon_state = "muzzle"
 	item_state = "muzzle"
 	body_parts_covered = FACE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	gas_transfer_coefficient = 0.90
 	voicechange = 1
 
@@ -14,7 +14,7 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "tape_cross"
 	item_state = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/mask/muzzle/Initialize()
 	. = ..()
@@ -32,7 +32,7 @@
 	desc = "A surgical mask designed to help prevent the spread of diseases."
 	icon_state = "surgical"
 	item_state = "surgical"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_parts_covered = FACE
 	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	gas_transfer_coefficient = 0.90
@@ -54,7 +54,7 @@
 	desc = "A colorable cloth mask designed to protect the wearer against allergens, illnesses, and social interaction."
 	icon_state = "cloth"
 	item_state = "cloth"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_parts_covered = FACE
 	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	gas_transfer_coefficient = 0.90
@@ -71,7 +71,7 @@
 	desc = "A dust mask designed to protect the wearer against construction and/or custodial particulate."
 	icon_state = "dust"
 	item_state = "dust"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_parts_covered = FACE
 	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	gas_transfer_coefficient = 0.90
@@ -103,7 +103,7 @@
 	desc = "A simple lace mask worn by IPCs and organics alike while within the churches of the Trinary Perfection."
 	icon_state = "trinary_mask"
 	item_state = "trinary_mask"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_parts_covered = FACE
 	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	down_body_parts_covered = null
@@ -115,7 +115,7 @@
 	icon_state = "pig"
 	item_state = "pig"
 	flags_inv = HIDEFACE|BLOCKHAIR
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	siemens_coefficient = 0.9
 	body_parts_covered = HEAD|FACE|EYES
 
@@ -126,7 +126,7 @@
 	item_state = "horsehead"
 	flags_inv = HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	siemens_coefficient = 0.9
 
 /obj/item/clothing/mask/horsehead/Initialize()
@@ -144,55 +144,27 @@
 	body_parts_covered = FACE|EYES
 	action_button_name = "Toggle MIU"
 	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 5)
-	var/active = FALSE
-	var/mob/abstract/eye/cameranet/eye
 
 /obj/item/clothing/mask/ai/Initialize()
-	eye = new(src)
-	eye.name_suffix = "camera MIU"
 	. = ..()
-
-/obj/item/clothing/mask/ai/Destroy()
-	if(eye)
-		if(active)
-			disengage_mask(eye.owner)
-		qdel(eye)
-		eye = null
-
-	. = ..()
+	AddComponent(/datum/component/eye/cameranet)
 
 /obj/item/clothing/mask/ai/attack_self(mob/user)
 	if(user.incapacitated())
 		return
-	active = !active
-	to_chat(user, SPAN_NOTICE("You [active ? "" : "dis"]engage \the [src]."))
-	if(active)
-		engage_mask(user)
-	else
-		disengage_mask(user)
-
-/obj/item/clothing/mask/ai/equipped(mob/user, slot)
-	..(user, slot)
-	engage_mask(user)
-
-/obj/item/clothing/mask/ai/dropped(mob/user)
-	..()
-	disengage_mask(user)
-
-/obj/item/clothing/mask/ai/proc/engage_mask(mob/user)
-	if(!active)
-		return
 	if(user.get_equipped_item(slot_wear_mask) != src)
+		to_chat(user, SPAN_WARNING("You must be wearing \the [src] to activate it!"))
 		return
-
-	eye.possess(user)
-	to_chat(eye.owner, SPAN_NOTICE("You feel disoriented for a moment as your mind connects to the camera network."))
-
-/obj/item/clothing/mask/ai/proc/disengage_mask(mob/user)
-	if(user == eye.owner)
-		to_chat(eye.owner, SPAN_NOTICE("You feel disoriented for a moment as your mind disconnects from the camera network."))
-		eye.release(eye.owner)
-		eye.forceMove(src)
+	var/datum/component/eye/cameranet/CN = GetComponent(/datum/component/eye)
+	if(!CN)
+		to_chat(user, SPAN_WARNING("\The [src] doesn't respond!"))
+		return
+	if(CN.current_looker)
+		CN.unlook()
+		to_chat(user, SPAN_NOTICE("You deactivate \the [src]."))
+	else
+		CN.look(user)
+		to_chat(user, SPAN_NOTICE("You activate \the [src]."))
 
 /obj/item/clothing/mask/offworlder
 	name = "scarab scarf"
@@ -203,7 +175,7 @@
 	icon_state = "pioneer_scarf"
 	item_state = "pioneer_scarf"
 	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_parts_covered = FACE
 
 /obj/item/clothing/mask/offworlder/veil
@@ -213,3 +185,29 @@
 	item_state = "starveil"
 	down_body_parts_covered = null
 	adjustable = TRUE
+
+/obj/item/clothing/mask/snood
+	name = "snood"
+	desc = "A warm, cozy snood, for keeping your face and neck warm."
+	icon = 'icons/obj/item/clothing/mask/snood.dmi'
+	icon_state = "snood"
+	item_state = "snood"
+	contained_sprite = TRUE
+	w_class = WEIGHT_CLASS_SMALL
+	body_parts_covered = FACE
+	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
+	gas_transfer_coefficient = 0.90
+	permeability_coefficient = 0.5
+	armor = list(
+		bio = ARMOR_BIO_MINOR
+	)
+	down_gas_transfer_coefficient = 1
+	down_body_parts_covered = null
+	adjustable = TRUE
+	icon_auto_adapt = TRUE
+	sprite_sheets = list()
+
+/obj/item/clothing/mask/snood/Initialize()
+	. = ..()
+	if(icon_auto_adapt)
+		build_and_apply_species_adaption()

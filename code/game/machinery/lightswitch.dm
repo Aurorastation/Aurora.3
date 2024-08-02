@@ -12,6 +12,7 @@
 	var/area/area = null
 	var/otherarea = null
 	power_channel = LIGHT
+	z_flags = ZMM_MANGLE_PLANES
 	//	luminosity = 1
 
 /obj/machinery/light_switch/Initialize()
@@ -29,9 +30,12 @@
 	update_icon()
 
 /obj/machinery/light_switch/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(!(stat & NOPOWER))
-		holographic_overlay(src, icon, "light[on]-overlay")
+		var/switch_overlay = image(icon, "light[on]-overlay")
+		var/emissive_overlay = emissive_appearance(icon, "light[on]-overlay")
+		AddOverlays(switch_overlay)
+		AddOverlays(emissive_overlay)
 		if (!light_range || light_color != on ? "#82ff4c" : "#f86060")
 			set_light(2, 0.3, on ? "#82ff4c" : "#f86060")
 	else if (light_range)

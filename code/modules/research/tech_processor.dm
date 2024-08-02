@@ -74,7 +74,7 @@
 	update_icon()
 
 /obj/machinery/r_n_d/tech_processor/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(stat & (NOPOWER|BROKEN))
 		icon_state = "[initial(icon_state)]_off"
 	else if(!linked_server)
@@ -82,4 +82,4 @@
 	else
 		icon_state = initial(icon_state)
 	if(panel_open)
-		add_overlay("[initial(icon_state)]_open")
+		AddOverlays("[initial(icon_state)]_open")

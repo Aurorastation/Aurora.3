@@ -2,6 +2,7 @@
 	name = "shuttle control console"
 	icon_screen = "shuttle"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 
 	var/shuttle_tag      // Used to coordinate data in shuttle controller.
@@ -159,7 +160,7 @@
 		to_chat(user, "You short out the console's ID checking system. It's now available to everyone!")
 		return TRUE
 
-/obj/machinery/computer/shuttle_control/bullet_act(var/obj/item/projectile/Proj)
+/obj/machinery/computer/shuttle_control/bullet_act(var/obj/projectile/Proj)
 	visible_message("\The [Proj] ricochets off \the [src]!")
 
 /obj/machinery/computer/shuttle_control/ex_act()

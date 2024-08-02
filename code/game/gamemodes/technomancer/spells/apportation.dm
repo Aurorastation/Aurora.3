@@ -23,11 +23,11 @@
 		if(!AM.loc) //Don't teleport HUD elements to us.
 			return
 		if(AM.anchored)
-			to_chat(user, "<span class='warning'>\The [hit_atom] is firmly secured and anchored, you can't move it!</span>")
+			to_chat(user, SPAN_WARNING("\The [hit_atom] is firmly secured and anchored, you can't move it!"))
 			return
 
 		if(!within_range(hit_atom) && !check_for_scepter())
-			to_chat(user, "<span class='warning'>\The [hit_atom] is too far away.</span>")
+			to_chat(user, SPAN_WARNING("\The [hit_atom] is too far away."))
 			return
 
 		//Teleporting an item.
@@ -36,18 +36,18 @@
 
 			spark(I, 5, GLOB.cardinal)
 			spark(user, 5, GLOB.cardinal)
-			I.visible_message("<span class='danger'>\The [I] vanishes into thin air!</span>")
+			I.visible_message(SPAN_DANGER("\The [I] vanishes into thin air!"))
 			I.forceMove(get_turf(user))
 			user.drop_item(src)
 			src.loc = null
 			user.put_in_hands(I)
-			user.visible_message("<span class='notice'>\A [I] appears in \the [user]'s hand!</span>")
+			user.visible_message(SPAN_NOTICE("\A [I] appears in \the [user]'s hand!"))
 			log_and_message_admins("has stolen [I] with [src].")
 			qdel(src)
 		//Now let's try to teleport a living mob.
 		else if(isliving(hit_atom))
 			var/mob/living/L = hit_atom
-			to_chat(L, "<span class='danger'>You are teleported towards \the [user]!</span>")
+			to_chat(L, SPAN_DANGER("You are teleported towards \the [user]!"))
 			spark(L, 5, GLOB.cardinal)
 			spark(user, 5, GLOB.cardinal)
 			L.throw_at(get_step(get_turf(src), get_dir(src, L)), 4, 1, src)
@@ -57,12 +57,12 @@
 
 /obj/item/spell/apportation/proc/seize_mob(var/mob/living/L, var/mob/user)
 	if(!user.Adjacent(L))
-		to_chat(user, "<span class='warning'>\The [L] is out of your reach.</span>")
+		to_chat(user, SPAN_WARNING("\The [L] is out of your reach."))
 		qdel(src)
 		return
 
 	L.Weaken(3)
-	user.visible_message("<span class='warning'><b>\The [user]</b> seizes [L]!</span>")
+	user.visible_message(SPAN_WARNING("<b>\The [user]</b> seizes [L]!"))
 
 	var/obj/item/grab/G = new(user, L)
 

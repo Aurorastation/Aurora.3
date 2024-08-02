@@ -11,6 +11,7 @@
 	opacity = 1
 	//Just 300 Watts here. Power is drawn by the piston when it moves
 	idle_power_usage = 300
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/obj/machinery/crusher_piston/pstn //Piston
 
@@ -90,7 +91,9 @@
 		var/mob/living/carbon/human/M = user
 		M.apply_damage(45, DAMAGE_BRUTE, user.get_active_hand())
 		M.apply_damage(45, DAMAGE_PAIN)
-		M.visible_message("<span class='danger'>[user]'s hand catches in the [src]!</span>", "<span class='danger'>Your hand gets caught in the [src]!</span>")
+		M.visible_message(SPAN_DANGER("[user]'s hand catches in the [src]!"),
+							SPAN_DANGER("Your hand gets caught in the [src]!"))
+
 		M.say("*scream")
 		return TRUE
 	if(default_deconstruction_screwdriver(user, attacking_item))
@@ -103,10 +106,10 @@
 	//Stuff you can do if the maint hatch is open
 	if(panel_open)
 		if(attacking_item.iswrench())
-			to_chat(user, "<span class='notice'>You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src].</span>")
+			to_chat(user, SPAN_NOTICE("You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src]."))
 			if(attacking_item.use_tool(src, user, 50, volume = 50))
 				valve_open = !valve_open
-				to_chat(user, "<span class='notice'>You [valve_open ? "open" : "close"] the pressure relief valve of [src].</span>")
+				to_chat(user, SPAN_NOTICE("You [valve_open ? "open" : "close"] the pressure relief valve of [src]."))
 				if(valve_open)
 					blocked = 0
 					action = "retract"
@@ -117,7 +120,7 @@
 	if(!istype(C))
 		return 0
 	if(num_progress != 0) //Piston needs to be retracted before you are able to deconstruct it
-		to_chat(user, "<span class='notice'>You can not deconstruct [src] while the piston is extended.</span>")
+		to_chat(user, SPAN_NOTICE("You can not deconstruct [src] while the piston is extended."))
 		return 0
 	return ..()
 
@@ -131,7 +134,7 @@
 		right.queue_icon_update()
 
 /obj/machinery/crusher_base/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/obj/machinery/crusher_base/left = locate(/obj/machinery/crusher_base, get_step(src, WEST))
 	var/obj/machinery/crusher_base/right = locate(/obj/machinery/crusher_base, get_step(src, EAST))
 
@@ -154,15 +157,22 @@
 		asmtype = "standalone"
 		icon_state = asmtype
 
+	var/image_overlay
+	var/emissive_overlay
 	if(powered(EQUIP))
 		if(blocked == 1)
-			holographic_overlay(src, icon, "[asmtype]-overlay-red")
+			image_overlay = image(icon, "[asmtype]-overlay-red")
+			emissive_overlay = emissive_appearance(icon, "[asmtype]-overlay-red")
 		else if(action != "idle")
-			holographic_overlay(src, icon, "[asmtype]-overlay-orange")
+			image_overlay = image(icon, "[asmtype]-overlay-orange")
+			emissive_overlay = emissive_appearance(icon, "[asmtype]-overlay-orange")
 		else
-			holographic_overlay(src, icon, "[asmtype]-overlay-green")
+			image_overlay = image(icon, "[asmtype]-overlay-green")
+			emissive_overlay = emissive_appearance(icon, "[asmtype]-overlay-green")
+	AddOverlays(image_overlay)
+	AddOverlays(emissive_overlay)
 	if(panel_open)
-		add_overlay("[asmtype]-hatch")
+		AddOverlays("[asmtype]-hatch")
 	update_above()
 
 /obj/machinery/crusher_base/power_change()
@@ -402,7 +412,7 @@
 	QDEL_NULL(pb3)
 
 /obj/machinery/crusher_piston/proc/extend_0_1()
-	use_power_oneoff(5 KILOWATTS)
+	use_power_oneoff(5 KILO WATTS)
 	var/turf/T = get_turf(src)
 	if(!can_extend_into(T))
 		return 0
@@ -414,7 +424,7 @@
 	return 1
 
 /obj/machinery/crusher_piston/proc/extend_1_2()
-	use_power_oneoff(5 KILOWATTS)
+	use_power_oneoff(5 KILO WATTS)
 	var/turf/T = get_turf(pb1)
 	var/turf/extension_turf = get_step(T,SOUTH)
 	if(!can_extend_into(extension_turf))
@@ -427,7 +437,7 @@
 	return 1
 
 /obj/machinery/crusher_piston/proc/extend_2_3()
-	use_power_oneoff(5 KILOWATTS)
+	use_power_oneoff(5 KILO WATTS)
 	var/turf/T = get_turf(pb2)
 	var/turf/extension_turf = get_step(T,SOUTH)
 	if(!can_extend_into(extension_turf))

@@ -41,18 +41,18 @@
 	START_PROCESSING(SSprocessing, src)
 
 /obj/item/reagent_containers/hypospray/borghypo/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	var/rid = reagent_ids[mode]
 	var/singleton/reagent/R = GET_SINGLETON(rid)
 	if(reagent_volumes[rid])
 		filling = image(icon, src, "[initial(icon_state)][reagent_volumes[rid]]")
 		filling.color = R.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 		var/mutable_appearance/reagent_bar = mutable_appearance(icon, "[initial(icon_state)]_reagents")
 		reagent_bar.color = R.get_color()
-		add_overlay(reagent_bar)
+		AddOverlays(reagent_bar)
 
 /obj/item/reagent_containers/hypospray/borghypo/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -147,7 +147,7 @@
 
 /obj/item/reagent_containers/hypospray/borghypo/service/update_icon()
 	underlays.Cut()
-	cut_overlays()
+	ClearOverlays()
 
 	var/rid = reagent_ids[mode]
 	var/singleton/reagent/R = GET_SINGLETON(rid)
@@ -163,7 +163,7 @@
 			if(80 to 90)			filling.icon_state = "[icon_state]-80"
 			if(91 to INFINITY)		filling.icon_state = "[icon_state]-100"
 		filling.color = R.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 /obj/item/reagent_containers/hypospray/borghypo/service/attack(var/mob/M, var/mob/user)
 	return

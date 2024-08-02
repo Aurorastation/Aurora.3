@@ -1,0 +1,13 @@
+2013-10-06:
+  Chinsky:
+  - rscadd: Return of dreaded side effects. They now manifest well after their cause
+      disappears, so curing them should be possible without them reappearing immediately.
+      They also lost last stage damaging effects.
+2013-10-29:
+  Cael_Aislinn:
+  - rscadd: Xenoarchaeology's chemical analysis and six analysis machines are gone,
+      replaced by a single one which can be beaten in a minigame.
+  - rscadd: Sneaky traitors will find new challenges to overcome at the research outpost,
+      but may also find new opportunities (transit tubes can now be traversed).
+  - rscadd: Finding active alien machinery should now be made significantly easier
+      with the Alden-Saraspova counter.

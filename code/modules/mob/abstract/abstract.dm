@@ -2,6 +2,7 @@
 	name = "abstract mob"
 	status_flags = GODMODE
 	invisibility = INVISIBILITY_ABSTRACT
+	blocks_emissive = EMISSIVE_BLOCK_NONE
 
 	density = FALSE
 	anchored = TRUE

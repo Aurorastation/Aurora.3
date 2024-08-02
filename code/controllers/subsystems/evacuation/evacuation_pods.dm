@@ -47,7 +47,8 @@
 		if(TRANSFER_JUMP)
 			// Bluespace Jump
 			priority_announcement.Announce(replacetext(replacetext(SSatlas.current_map.bluespace_leaving_dock, "%dock_name%", "[SSatlas.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
-			SetUniversalState(/datum/universal_state/bluespace_jump, arguments=list(SSatlas.current_map.station_levels))
+			SetUniversalState(/datum/universal_state/bluespace_jump, arguments=list(SSmapping.levels_by_trait(ZTRAIT_STATION)))
+
 		if(TRANSFER_CREW)
 			priority_announcement.Announce(replacetext(replacetext(SSatlas.current_map.shuttle_leaving_dock, "%dock_name%", "[SSatlas.current_map.dock_name]"),  "%ETA%", "[round(get_eta()/60,1)] minute\s"))
 
@@ -176,7 +177,6 @@
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
 	color = "#ff9900"
 	blend_mode = BLEND_SUBTRACT
-	layer = SCREEN_LAYER
 
 #undef EVAC_OPT_ABANDON_SHIP
 #undef EVAC_OPT_BLUESPACE_JUMP

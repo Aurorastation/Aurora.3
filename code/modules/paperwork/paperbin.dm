@@ -6,10 +6,10 @@
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	throwforce = 1
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	throw_speed = 3
 	throw_range = 7
-	layer = OBJ_LAYER - 0.1
+	layer = BELOW_OBJ_LAYER
 	var/amount = 30					//How much paper is in the bin.
 	var/list/papers = new/list()	//List of papers put in the bin for reference.
 
@@ -24,10 +24,10 @@
 				if (H.hand)
 					temp = H.organs_by_name[BP_L_HAND]
 				if(temp && !temp.is_usable())
-					to_chat(user, "<span class='notice'>You try to move your [temp.name], but cannot!</span>")
+					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return
 
-				to_chat(user, "<span class='notice'>You pick up the [src].</span>")
+				to_chat(user, SPAN_NOTICE("You pick up the [src]."))
 				user.put_in_hands(src)
 
 	return
@@ -39,7 +39,7 @@
 		if (H.hand)
 			temp = H.organs_by_name[BP_L_HAND]
 		if(temp && !temp.is_usable())
-			to_chat(user, "<span class='notice'>You try to move your [temp.name], but cannot!</span>")
+			to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 			return
 	var/response = ""
 	if(!papers.len > 0)
@@ -69,9 +69,9 @@
 
 		P.forceMove(user.loc)
 		user.put_in_hands(P)
-		to_chat(user, "<span class='notice'>You take [P] out of the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You take [P] out of the [src]."))
 	else
-		to_chat(user, "<span class='notice'>[src] is empty!</span>")
+		to_chat(user, SPAN_NOTICE("[src] is empty!"))
 
 	add_fingerprint(user)
 	return
@@ -81,7 +81,7 @@
 	if(istype(attacking_item, /obj/item/paper))
 		var/obj/item/paper/i = attacking_item
 		user.drop_from_inventory(i,src)
-		to_chat(user, "<span class='notice'>You put [i] in [src].</span>")
+		to_chat(user, SPAN_NOTICE("You put [i] in [src]."))
 		papers.Add(i)
 		amount++
 
@@ -89,9 +89,9 @@
 	. = ..()
 	if(is_adjacent)
 		if(amount)
-			. += "<span class='notice'>There " + (amount > 1 ? "are [amount] papers" : "is one paper") + " in the bin.</span>"
+			. += SPAN_NOTICE("There " + (amount > 1 ? "are [amount] papers" : "is one paper") + " in the bin.")
 		else
-			. += "<span class='notice'>There are no papers in the bin.</span>"
+			. += SPAN_NOTICE("There are no papers in the bin.")
 
 
 /obj/item/paper_bin/update_icon()

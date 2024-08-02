@@ -5,7 +5,7 @@
 	icon_state = "pneumatic"
 	item_state = "pneumatic"
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	fire_sound_text = "a loud whoosh of moving air"
 	fire_delay = 50
@@ -13,7 +13,7 @@
 	needspin = FALSE
 
 	var/fire_pressure                                   // Used in fire checks/pressure checks.
-	var/max_w_class = ITEMSIZE_NORMAL                                 // Hopper intake size.
+	var/max_w_class = WEIGHT_CLASS_NORMAL                                 // Hopper intake size.
 	var/max_storage_space = 20                       // Total internal storage size.
 	var/obj/item/tank/tank = null                // Tank of gas for use in firing the cannon.
 
@@ -171,7 +171,7 @@
 	if(istype(attacking_item, /obj/item/pipe))
 		if(buildstate == 0)
 			qdel(attacking_item)
-			to_chat(user, "<span class='notice'>You secure the piping inside the frame.</span>")
+			to_chat(user, SPAN_NOTICE("You secure the piping inside the frame."))
 			buildstate++
 			update_icon()
 			return
@@ -179,16 +179,16 @@
 		if(buildstate == 2)
 			var/obj/item/stack/material/M = attacking_item
 			if(M.use(5))
-				to_chat(user, "<span class='notice'>You assemble a chassis around the cannon frame.</span>")
+				to_chat(user, SPAN_NOTICE("You assemble a chassis around the cannon frame."))
 				buildstate++
 				update_icon()
 			else
-				to_chat(user, "<span class='notice'>You need at least five metal sheets to complete this task.</span>")
+				to_chat(user, SPAN_NOTICE("You need at least five metal sheets to complete this task."))
 			return
 	else if(istype(attacking_item,/obj/item/device/transfer_valve))
 		if(buildstate == 4)
 			qdel(attacking_item)
-			to_chat(user, "<span class='notice'>You install the transfer valve and connect it to the piping.</span>")
+			to_chat(user, SPAN_NOTICE("You install the transfer valve and connect it to the piping."))
 			buildstate++
 			update_icon()
 			return
@@ -198,7 +198,7 @@
 			if(T.use(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
-				to_chat(user, "<span class='notice'>You weld the pipe into place.</span>")
+				to_chat(user, SPAN_NOTICE("You weld the pipe into place."))
 				buildstate++
 				update_icon()
 		if(buildstate == 3)
@@ -206,7 +206,7 @@
 			if(T.use(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
-				to_chat(user, "<span class='notice'>You weld the metal chassis together.</span>")
+				to_chat(user, SPAN_NOTICE("You weld the metal chassis together."))
 				buildstate++
 				update_icon()
 		if(buildstate == 5)
@@ -214,7 +214,7 @@
 			if(T.use(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
-				to_chat(user, "<span class='notice'>You weld the valve into place.</span>")
+				to_chat(user, SPAN_NOTICE("You weld the valve into place."))
 				new /obj/item/gun/launcher/pneumatic(get_turf(src))
 				qdel(src)
 		return
@@ -224,5 +224,5 @@
 /obj/item/gun/launcher/pneumatic/small
 	name = "small pneumatic cannon"
 	desc = "It looks smaller than your garden variety cannon"
-	max_w_class = ITEMSIZE_TINY
-	w_class = ITEMSIZE_NORMAL
+	max_w_class = WEIGHT_CLASS_TINY
+	w_class = WEIGHT_CLASS_NORMAL

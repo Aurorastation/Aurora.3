@@ -336,7 +336,6 @@
 	pixel_x = 1
 	},
 /obj/effect/decal/cleanable/dirt{
-	layer = 3.1
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/template_noop)
@@ -564,7 +563,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "coc_skipjack";
-	layer = 3.3;
 	pixel_y = -7;
 	tag_airpump = "coc_skipjack_pump";
 	tag_chamber_sensor = "coc_skipjack_sensor";
@@ -611,7 +609,6 @@
 "mG" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "6,3";
-	layer = 3.5;
 	outside_part = 0
 	},
 /obj/item/storage/firstaid/o2{
@@ -774,7 +771,6 @@
 "pv" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "15,3";
-	layer = 3.5;
 	outside_part = 0
 	},
 /obj/structure/table/steel,
@@ -1355,7 +1351,6 @@
 "CY" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "19,3";
-	layer = 3.5;
 	outside_part = 0
 	},
 /obj/item/ammo_casing/gauss,
@@ -1384,7 +1379,6 @@
 	pixel_x = 1
 	},
 /obj/effect/decal/cleanable/dirt{
-	layer = 3.1
 	},
 /turf/simulated/floor/tiled/white/airless,
 /area/template_noop)

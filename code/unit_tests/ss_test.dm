@@ -256,7 +256,7 @@ SUBSYSTEM_DEF(unit_tests)
 
 //This is only valid during unit tests
 /world/Error(var/exception/e)
-
+	CAN_BE_REDEFINED(TRUE)
 	var/datum/unit_test/UT
 
 	//Try to use the SSunit_tests_config.UT, but if for some god forsaken reason it doesn't exist, make a new one

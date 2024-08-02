@@ -62,7 +62,7 @@
 	if(!broken)
 		spark(src, 5)
 		desc += " It appears to be broken."
-		add_overlay("[icon_door_overlay]sparking")
+		AddOverlays("[icon_door_overlay]sparking")
 		CUT_OVERLAY_IN("[icon_door_overlay]sparking", 6)
 		playsound(loc, /singleton/sound_category/spark_sound, 60, 1)
 		broken = TRUE

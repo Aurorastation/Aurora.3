@@ -265,6 +265,9 @@
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/steel/full,
 /obj/structure/closet/crate,
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/lead/full,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_serz_ship/warehouse)
 "kB" = (

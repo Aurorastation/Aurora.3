@@ -100,16 +100,16 @@
 	if(attacking_item.GetID())
 		if(src.allowed(usr))
 			if(emagged)
-				to_chat(user, "<span class='notice'>The turret control is unresponsive.</span>")
+				to_chat(user, SPAN_NOTICE("The turret control is unresponsive."))
 			else
 				locked = !locked
-				to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the panel.</span>")
+				to_chat(user, SPAN_NOTICE("You [ locked ? "lock" : "unlock"] the panel."))
 		return TRUE
 	return ..()
 
 /obj/machinery/turretid/emag_act(var/remaining_charges, var/mob/user)
 	if(!emagged)
-		to_chat(user, "<span class='danger'>You short out the turret controls' access analysis module.</span>")
+		to_chat(user, SPAN_DANGER("You short out the turret controls' access analysis module."))
 		emagged = 1
 		locked = 0
 		ailock = 0

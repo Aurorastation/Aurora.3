@@ -116,12 +116,12 @@
 			PW.toggle_hoover()
 
 /obj/vehicle/train/cargo/engine/pussywagon/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(on)
-		add_overlay(image('icons/obj/vehicles.dmi', "[initial(icon_state)]_on_overlay", MOB_LAYER + 1))
+		AddOverlays(image('icons/obj/vehicles.dmi', "[initial(icon_state)]_on_overlay", MOB_LAYER + 1))
 		icon_state = "[initial(icon_state)]_on"
 	else
-		add_overlay(image('icons/obj/vehicles.dmi', "[initial(icon_state)]_overlay", MOB_LAYER + 1))
+		AddOverlays(image('icons/obj/vehicles.dmi', "[initial(icon_state)]_overlay", MOB_LAYER + 1))
 		icon_state = "[initial(icon_state)]"
 	..()
 
@@ -249,14 +249,14 @@
 	update_icon()
 
 /obj/vehicle/train/cargo/trolley/pussywagon/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(mopping)
-		add_overlay(image('icons/obj/vehicles.dmi', "[icon_state]_mop_overlay", MOB_LAYER + 1))
+		AddOverlays(image('icons/obj/vehicles.dmi', "[icon_state]_mop_overlay", MOB_LAYER + 1))
 
 /obj/item/key/janicart
 	name = "\improper C8000 deluxe custodial truck key fob"
 	desc = "A stainless steel key fob with a chromed top attached to a small steel key ring. The key ring has a pink tag hanging on it, with the text \"Pussy Wagon\"."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "keys"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY

@@ -1,0 +1,1873 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aV" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/table/steel,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/mask/surgical,
+/obj/item/clothing/mask/surgical,
+/obj/item/clothing/mask/surgical,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/template_noop)
+"bL" = (
+/obj/machinery/light,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "body armor cabinet"
+	},
+/obj/item/clothing/suit/armor/unathi/hegemony,
+/obj/item/clothing/suit/armor/unathi/hegemony,
+/obj/item/clothing/suit/armor/unathi/hegemony,
+/obj/item/clothing/head/helmet/unathi/hegemony,
+/obj/item/clothing/head/helmet/unathi/hegemony,
+/obj/item/clothing/head/helmet/unathi/hegemony,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"cr" = (
+/obj/structure/toilet,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/template_noop)
+"cw" = (
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"cL" = (
+/turf/simulated/wall/concrete,
+/area/template_noop)
+"cT" = (
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"dp" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"dG" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "gun cabinet (pistols)"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/item/gun/projectile/pistol/spitter,
+/obj/item/gun/projectile/pistol/spitter,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"eq" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/bodyscanner{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/template_noop)
+"eW" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/structure/sign/flag/hegemony/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"fh" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/bed/roller,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/template_noop)
+"hD" = (
+/obj/machinery/button/remote/blast_door{
+	id = "hegemony_base_entry";
+	name = "Entry";
+	req_access = list(113);
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"hQ" = (
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"is" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/template_noop)
+"iB" = (
+/obj/structure/table/stone/marble,
+/obj/item/material/sword/sabre{
+	name = "ceremonial sabre"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/template_noop)
+"jM" = (
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/template_noop)
+"jO" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green,
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/template_noop)
+"ms" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "gun cabinet (energy rifles)"
+	},
+/obj/item/gun/energy/rifle/hegemony,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"mA" = (
+/obj/machinery/door/airlock/security{
+	name = "Armory";
+	req_access = list(113)
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"mS" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/bed/roller,
+/obj/effect/landmark/corpse/hegemony_soldier,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/template_noop)
+"nF" = (
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/structure/sign/flag/hegemony/large/south{
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"ot" = (
+/obj/machinery/door/blast/shutters{
+	id = "hegemony_base_entry"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 315.15
+	},
+/area/template_noop)
+"oW" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/template_noop)
+"pw" = (
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/template_noop)
+"py" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/template_noop)
+"pV" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/template_noop)
+"sB" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32;
+	pixel_y = -8
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_y = -30;
+	pixel_x = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/structure/table/rack,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"sK" = (
+/obj/structure/blocker/steel/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/template_noop)
+"sP" = (
+/obj/structure/table/wood,
+/obj/item/stamp{
+	icon_state = "stamp-ce";
+	name = "izweski hegemony rubber stamp"
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/template_noop)
+"tb" = (
+/obj/structure/closet/crate{
+	name = "footlocker"
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"tR" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/table/steel,
+/obj/item/storage/box/fancy/tray,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/template_noop)
+"vh" = (
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/template_noop)
+"vn" = (
+/obj/effect/landmark/corpse/hegemony_soldier,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/template_noop)
+"vw" = (
+/obj/structure/sign/flag/hegemony/large/east{
+	pixel_x = 32
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/template_noop)
+"ws" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"ww" = (
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/template_noop)
+"xf" = (
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"xm" = (
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 315.15
+	},
+/area/template_noop)
+"xH" = (
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"yN" = (
+/obj/machinery/door/airlock/command{
+	name = "Captain's Quarters";
+	req_one_access = list(113)
+	},
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/template_noop)
+"za" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"zu" = (
+/obj/machinery/door/airlock/medical{
+	name = "Healer's Bay"
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"zG" = (
+/obj/machinery/door/airlock{
+	req_access = list(113);
+	name = "Barracks"
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"AK" = (
+/obj/structure/closet/crate{
+	name = "footlocker"
+	},
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Bo" = (
+/obj/structure/closet/crate{
+	name = "footlocker"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Cj" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/body_scanconsole{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/template_noop)
+"DE" = (
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"EQ" = (
+/obj/structure/table/steel,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"FT" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "glaive cabinet"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Gl" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/curtain/open/medical,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/template_noop)
+"HZ" = (
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Jv" = (
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/structure/table/steel,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"JT" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "holster cabinet"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Kq" = (
+/obj/structure/filingcabinet{
+	pixel_x = -9;
+	pixel_y = 14;
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Kt" = (
+/obj/machinery/door/airlock/security{
+	name = "Checkpoint";
+	req_access = list(113)
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"MM" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Po" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "shield cabinet"
+	},
+/obj/item/shield/energy/hegemony,
+/obj/item/shield/energy/hegemony,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Qv" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/template_noop)
+"QY" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Rg" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/iv_drip,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Rt" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/template_noop)
+"RG" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/item/bedsheet/black,
+/obj/effect/landmark/corpse/hegemony_soldier,
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/template_noop)
+"RO" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"RQ" = (
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Sn" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Tm" = (
+/obj/structure/blocker/steel/fence,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/template_noop)
+"Tp" = (
+/obj/structure/table/steel,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/item/folder/yellow,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Tw" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/iv_drip,
+/obj/item/tank/oxygen,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Ty" = (
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/structure/reagent_dispensers/watertank,
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"TF" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"TJ" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"TL" = (
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/template_noop)
+"TZ" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "sword cabinet"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Uc" = (
+/obj/effect/floor_decal/corner_wide/red/diagonal,
+/obj/structure/sign/flag/hegemony/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Ue" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/table/steel,
+/obj/item/device/healthanalyzer,
+/obj/item/device/healthanalyzer,
+/obj/item/reagent_containers/hypospray{
+	pixel_y = 4;
+	pixel_x = -5
+	},
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Vk" = (
+/obj/structure/closet/secure_closet/cabinet,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/item/clothing/under/unathi/mogazali,
+/obj/item/clothing/under/unathi/mogazali/blue,
+/obj/item/clothing/under/unathi/mogazali/green,
+/obj/item/clothing/under/unathi/mogazali/orange,
+/obj/item/clothing/suit/unathi/robe/robe_coat,
+/obj/item/clothing/suit/unathi/robe/robe_coat/blue,
+/obj/item/clothing/suit/unathi/robe/robe_coat/orange,
+/obj/item/clothing/suit/unathi/robe/robe_coat/red,
+/obj/structure/sign/flag/hegemony/large/east{
+	pixel_x = 32
+	},
+/turf/simulated/floor/exoplanet/carpet/red,
+/area/template_noop)
+"Vl" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(113);
+	name = "cabinet (SMGs)"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/item/gun/projectile/automatic/tempestsmg,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"WG" = (
+/obj/structure/table/steel,
+/obj/machinery/door/window{
+	dir = 8;
+	req_access = list(113)
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"WZ" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/turf/simulated/floor/exoplanet/tiled/white{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Xf" = (
+/obj/machinery/door/airlock/command{
+	name = "Captain's Quarters";
+	req_one_access = list(113)
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Xx" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32;
+	pixel_y = -8
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Yf" = (
+/obj/machinery/door/airlock/security{
+	name = "Briefing Room";
+	req_access = list(113)
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Za" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/template_noop)
+
+(1,1,1) = {"
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+"}
+(2,1,1) = {"
+vh
+cL
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+vh
+vh
+vh
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+cL
+vh
+"}
+(3,1,1) = {"
+vh
+ot
+xm
+xm
+xm
+xm
+xm
+xm
+xm
+xm
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+cL
+cL
+cL
+cL
+cL
+cL
+cL
+sK
+vh
+"}
+(4,1,1) = {"
+vh
+ot
+xm
+xm
+xm
+xm
+xm
+xm
+xm
+vh
+xm
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+cL
+cL
+vh
+vh
+vh
+cL
+xH
+xH
+xH
+xH
+xf
+cL
+sK
+vh
+"}
+(5,1,1) = {"
+vh
+sK
+cL
+EQ
+WG
+Tp
+cL
+vh
+vh
+vh
+vh
+vh
+xm
+vh
+vh
+vh
+vh
+vh
+aV
+cL
+vh
+vh
+vh
+cL
+xH
+DE
+Jv
+DE
+Ty
+cL
+sK
+vh
+"}
+(6,1,1) = {"
+vh
+sK
+cL
+hD
+RQ
+RQ
+cL
+vh
+vh
+vh
+vh
+vh
+xm
+vh
+cL
+tR
+is
+vh
+Rg
+cL
+vh
+xm
+xm
+Yf
+xH
+DE
+Jv
+DE
+xH
+cL
+vh
+vh
+"}
+(7,1,1) = {"
+vh
+sK
+vh
+vh
+TF
+RQ
+Kt
+vh
+vh
+vh
+vh
+vh
+vh
+xm
+cL
+Gl
+Gl
+is
+Gl
+cL
+vh
+xm
+vh
+cL
+Uc
+DE
+Jv
+DE
+nF
+cL
+vh
+vh
+"}
+(8,1,1) = {"
+vh
+vh
+vh
+cL
+cL
+cL
+cL
+vh
+vh
+vh
+vh
+vh
+xm
+xm
+cL
+WZ
+is
+is
+eq
+cL
+vh
+xm
+vh
+cL
+cT
+DE
+Jv
+DE
+xH
+cL
+sK
+vh
+"}
+(9,1,1) = {"
+vh
+sK
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+xm
+xm
+cL
+Tw
+is
+is
+Cj
+cL
+vh
+xm
+vh
+cL
+xH
+DE
+Jv
+DE
+xH
+cL
+vh
+vh
+"}
+(10,1,1) = {"
+vh
+sK
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+xm
+xm
+cL
+mS
+is
+is
+Ue
+cL
+vh
+xm
+vh
+cL
+xH
+DE
+Jv
+DE
+xH
+cL
+sK
+vh
+"}
+(11,1,1) = {"
+vh
+sK
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+xm
+xm
+cL
+fh
+is
+is
+is
+cL
+vh
+xm
+vh
+cL
+cT
+xH
+xH
+xH
+xH
+cL
+sK
+vh
+"}
+(12,1,1) = {"
+vh
+sK
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+xm
+xm
+cL
+cL
+zu
+vh
+cL
+vh
+vh
+vh
+vh
+cL
+xH
+pw
+iB
+pw
+hQ
+cL
+sK
+vh
+"}
+(13,1,1) = {"
+vh
+sK
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+xm
+xm
+vh
+vh
+xm
+vh
+vh
+vh
+vh
+vh
+vh
+cL
+xH
+HZ
+vn
+HZ
+xH
+cL
+sK
+vh
+"}
+(14,1,1) = {"
+vh
+sK
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+xm
+xm
+vh
+vh
+xm
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+cL
+cL
+cL
+cL
+cL
+sK
+vh
+"}
+(15,1,1) = {"
+vh
+sK
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+xm
+xm
+vh
+vh
+xm
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+"}
+(16,1,1) = {"
+vh
+sK
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+xm
+xm
+xm
+xm
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+"}
+(17,1,1) = {"
+vh
+sK
+vh
+vh
+vh
+vh
+xm
+xm
+xm
+xm
+xm
+vh
+vh
+xm
+xm
+xm
+xm
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+sK
+vh
+"}
+(18,1,1) = {"
+vh
+sK
+vh
+vh
+vh
+xm
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+xm
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+sK
+vh
+"}
+(19,1,1) = {"
+vh
+sK
+cL
+cL
+cL
+zG
+cL
+cL
+cL
+vh
+cL
+cL
+mA
+cL
+cL
+vh
+vh
+vh
+vh
+vh
+vh
+xm
+vh
+cL
+cL
+cL
+cL
+cL
+vh
+vh
+sK
+vh
+"}
+(20,1,1) = {"
+vh
+sK
+cL
+Bo
+RQ
+RQ
+RQ
+AK
+cL
+vh
+cL
+dp
+Sn
+za
+cL
+vh
+vh
+vh
+vh
+vh
+vh
+xm
+vh
+cL
+ww
+ww
+ww
+vh
+vh
+vh
+sK
+vh
+"}
+(21,1,1) = {"
+vh
+sK
+cL
+cw
+RQ
+RQ
+RQ
+cw
+cL
+vh
+cL
+ms
+RQ
+bL
+cL
+vh
+vh
+vh
+vh
+vh
+vh
+xm
+vh
+cL
+oW
+ww
+ww
+vh
+ww
+cL
+sK
+vh
+"}
+(22,1,1) = {"
+vh
+sK
+cL
+tb
+RQ
+RQ
+RQ
+tb
+cL
+vh
+cL
+FT
+RQ
+TZ
+cL
+vh
+vh
+vh
+vh
+vh
+vh
+xm
+xm
+Xf
+ww
+ww
+ww
+ww
+Za
+cL
+sK
+vh
+"}
+(23,1,1) = {"
+vh
+sK
+cL
+cw
+RQ
+RQ
+RQ
+cw
+cL
+vh
+cL
+eW
+RQ
+Po
+cL
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+cL
+Kq
+Rt
+sP
+py
+ww
+cL
+sK
+vh
+"}
+(24,1,1) = {"
+vh
+sK
+cL
+Bo
+RQ
+RQ
+RQ
+AK
+cL
+vh
+cL
+QY
+RQ
+dG
+cL
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+cL
+MM
+vw
+pV
+ww
+ww
+cL
+sK
+vh
+"}
+(25,1,1) = {"
+vh
+sK
+cL
+cw
+RQ
+RQ
+RQ
+cw
+cL
+vh
+cL
+Vl
+RQ
+JT
+cL
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+cL
+cL
+cL
+cL
+yN
+cL
+cL
+sK
+vh
+"}
+(26,1,1) = {"
+vh
+sK
+cL
+cL
+cL
+zG
+vh
+cL
+cL
+vh
+cL
+ws
+RQ
+RO
+cL
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+cL
+RG
+TL
+TL
+TL
+TL
+cL
+sK
+vh
+"}
+(27,1,1) = {"
+vh
+sK
+cL
+cr
+Qv
+vh
+vh
+vh
+vh
+vh
+cL
+Xx
+TJ
+sB
+cL
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+cL
+jO
+TL
+Vk
+TL
+TL
+cL
+sK
+vh
+"}
+(28,1,1) = {"
+vh
+sK
+cL
+jM
+vh
+vh
+vh
+vh
+vh
+vh
+cL
+cL
+cL
+cL
+cL
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+cL
+cL
+cL
+cL
+cL
+cL
+cL
+sK
+vh
+"}
+(29,1,1) = {"
+vh
+sK
+cL
+cL
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+sK
+vh
+"}
+(30,1,1) = {"
+vh
+sK
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+sK
+vh
+"}
+(31,1,1) = {"
+vh
+cL
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+vh
+vh
+vh
+vh
+Tm
+Tm
+vh
+vh
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+Tm
+cL
+vh
+"}
+(32,1,1) = {"
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+vh
+"}

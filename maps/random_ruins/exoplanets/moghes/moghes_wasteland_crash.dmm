@@ -1,0 +1,1344 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"b" = (
+/obj/structure/computerframe,
+/obj/structure/computerframe,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"c" = (
+/obj/effect/landmark/scorcher,
+/obj/structure/girder,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"e" = (
+/obj/structure/sign/flag/hegemony/large/south{
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"f" = (
+/obj/effect/landmark/scorcher,
+/obj/effect/landmark/scorcher,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"h" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/effect/landmark/scorcher,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"i" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"j" = (
+/obj/item/gun/projectile/automatic/tempestsmg,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"k" = (
+/obj/structure/girder,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"l" = (
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 4
+	},
+/obj/effect/landmark/corpse/hegemony_soldier,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"q" = (
+/obj/structure/computerframe{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"r" = (
+/obj/structure/computerframe,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"s" = (
+/obj/structure/computerframe{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"t" = (
+/obj/structure/computerframe{
+	dir = 1
+	},
+/obj/effect/landmark/scorcher,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"u" = (
+/obj/effect/landmark/corpse/hegemony_soldier,
+/obj/structure/computerframe{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"v" = (
+/obj/structure/computerframe{
+	dir = 1
+	},
+/obj/effect/landmark/scorcher,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"z" = (
+/obj/structure/sign/flag/hegemony/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"B" = (
+/obj/structure/girder,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"D" = (
+/turf/simulated/wall/rusty,
+/area/exoplanet/moghes)
+"F" = (
+/obj/item/stack/rods,
+/obj/effect/landmark/scorcher,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"G" = (
+/obj/structure/computerframe{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"H" = (
+/obj/effect/landmark/scorcher,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"I" = (
+/obj/structure/window_frame/empty,
+/obj/item/material/shard,
+/obj/item/stack/rods,
+/turf/simulated/floor/plating{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"J" = (
+/obj/item/stack/rods,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"K" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"L" = (
+/obj/structure/computerframe{
+	dir = 8
+	},
+/obj/effect/landmark/scorcher,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"N" = (
+/obj/effect/landmark/corpse/hegemony_soldier,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"O" = (
+/obj/structure/computerframe,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"P" = (
+/obj/item/material/shard,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"Q" = (
+/obj/item/material/shard,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"R" = (
+/obj/item/stack/rods,
+/obj/item/material/shard,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"S" = (
+/obj/effect/landmark/corpse/hegemony_soldier,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"T" = (
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"U" = (
+/obj/effect/landmark/scorcher,
+/turf/simulated/floor/exoplanet/tiled{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"W" = (
+/obj/machinery/blackbox_recorder,
+/obj/effect/landmark/scorcher,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"X" = (
+/obj/structure/sign/flag/hegemony/large/north{
+	pixel_y = 32
+	},
+/obj/effect/landmark/scorcher,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+
+(1,1,1) = {"
+a
+a
+a
+a
+k
+c
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+U
+H
+H
+H
+H
+c
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+a
+H
+H
+D
+H
+H
+H
+H
+H
+H
+H
+U
+H
+H
+H
+H
+H
+H
+H
+U
+H
+H
+H
+H
+H
+D
+H
+H
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+H
+H
+D
+H
+H
+H
+H
+H
+H
+H
+U
+H
+H
+U
+H
+H
+H
+U
+H
+H
+H
+H
+H
+H
+D
+H
+H
+a
+a
+a
+"}
+(4,1,1) = {"
+a
+a
+H
+H
+D
+z
+a
+a
+a
+H
+a
+a
+U
+H
+a
+a
+T
+a
+a
+a
+a
+a
+a
+a
+a
+e
+D
+H
+H
+a
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+H
+H
+D
+H
+a
+a
+H
+H
+H
+H
+H
+T
+H
+H
+a
+T
+a
+K
+a
+a
+j
+a
+a
+a
+D
+H
+H
+a
+a
+a
+"}
+(6,1,1) = {"
+a
+a
+H
+H
+D
+a
+H
+a
+H
+a
+a
+F
+f
+K
+a
+H
+H
+J
+a
+T
+K
+a
+a
+a
+a
+a
+D
+H
+H
+a
+a
+a
+"}
+(7,1,1) = {"
+a
+a
+H
+H
+D
+T
+a
+U
+h
+a
+a
+a
+f
+T
+a
+a
+a
+H
+a
+a
+a
+T
+T
+N
+a
+a
+D
+H
+H
+a
+a
+a
+"}
+(8,1,1) = {"
+a
+a
+H
+H
+D
+a
+a
+H
+T
+a
+H
+H
+H
+a
+T
+a
+a
+T
+H
+a
+a
+a
+T
+T
+a
+a
+D
+H
+H
+a
+a
+a
+"}
+(9,1,1) = {"
+a
+a
+H
+H
+D
+a
+t
+a
+T
+S
+Q
+a
+Q
+a
+a
+T
+a
+a
+a
+H
+H
+a
+a
+T
+b
+a
+D
+H
+H
+a
+a
+a
+"}
+(10,1,1) = {"
+a
+a
+H
+H
+D
+a
+t
+a
+a
+a
+a
+a
+H
+a
+a
+T
+T
+a
+a
+a
+a
+a
+H
+K
+r
+a
+D
+H
+H
+a
+a
+a
+"}
+(11,1,1) = {"
+a
+a
+H
+H
+D
+H
+G
+a
+H
+a
+T
+a
+H
+a
+a
+H
+U
+H
+H
+H
+H
+H
+H
+T
+r
+a
+D
+H
+H
+a
+a
+a
+"}
+(12,1,1) = {"
+a
+a
+H
+H
+D
+H
+s
+a
+a
+a
+T
+H
+H
+a
+a
+T
+T
+U
+H
+a
+a
+a
+a
+T
+O
+a
+D
+H
+H
+a
+a
+a
+"}
+(13,1,1) = {"
+a
+a
+H
+H
+D
+X
+t
+a
+a
+a
+a
+T
+H
+H
+a
+T
+a
+H
+U
+a
+a
+a
+i
+a
+O
+e
+D
+H
+H
+a
+a
+a
+"}
+(14,1,1) = {"
+a
+a
+H
+H
+D
+a
+v
+U
+i
+H
+a
+a
+a
+H
+T
+a
+a
+a
+U
+a
+a
+a
+a
+a
+O
+a
+D
+H
+H
+a
+a
+a
+"}
+(15,1,1) = {"
+a
+a
+H
+H
+D
+a
+s
+U
+T
+a
+a
+T
+a
+a
+U
+a
+a
+a
+T
+H
+Q
+a
+a
+a
+r
+T
+D
+H
+H
+a
+a
+a
+"}
+(16,1,1) = {"
+a
+a
+H
+H
+D
+a
+u
+U
+K
+a
+a
+T
+a
+K
+a
+H
+a
+a
+a
+T
+H
+a
+a
+a
+Q
+T
+D
+H
+H
+a
+a
+a
+"}
+(17,1,1) = {"
+a
+a
+H
+H
+k
+a
+v
+U
+T
+a
+H
+a
+a
+a
+a
+H
+a
+a
+H
+T
+J
+H
+a
+a
+R
+a
+D
+H
+H
+a
+a
+a
+"}
+(18,1,1) = {"
+a
+a
+H
+H
+D
+a
+s
+T
+U
+a
+a
+a
+T
+a
+a
+a
+H
+a
+H
+T
+a
+H
+H
+a
+Q
+J
+D
+H
+H
+a
+a
+a
+"}
+(19,1,1) = {"
+a
+a
+H
+H
+D
+a
+s
+a
+U
+a
+a
+T
+P
+a
+a
+a
+H
+a
+H
+H
+T
+a
+H
+a
+Q
+a
+D
+H
+H
+a
+a
+a
+"}
+(20,1,1) = {"
+a
+a
+H
+H
+D
+a
+s
+a
+T
+a
+a
+a
+a
+T
+a
+a
+a
+H
+a
+H
+T
+T
+N
+H
+a
+a
+D
+H
+H
+a
+a
+a
+"}
+(21,1,1) = {"
+a
+a
+H
+H
+D
+a
+Q
+a
+T
+a
+a
+T
+H
+a
+T
+T
+a
+H
+H
+H
+a
+T
+a
+a
+H
+a
+D
+H
+H
+a
+a
+a
+"}
+(22,1,1) = {"
+a
+a
+H
+H
+D
+a
+a
+a
+a
+T
+a
+T
+H
+a
+a
+T
+T
+a
+H
+a
+a
+T
+T
+a
+H
+a
+B
+H
+H
+a
+a
+a
+"}
+(23,1,1) = {"
+a
+a
+H
+H
+D
+a
+a
+a
+a
+a
+T
+U
+a
+a
+a
+a
+T
+T
+H
+a
+a
+a
+a
+a
+H
+a
+D
+H
+H
+a
+a
+a
+"}
+(24,1,1) = {"
+a
+a
+H
+H
+D
+z
+a
+a
+a
+J
+U
+U
+a
+H
+a
+a
+a
+a
+a
+H
+a
+a
+a
+a
+a
+e
+D
+H
+H
+a
+a
+a
+"}
+(25,1,1) = {"
+a
+a
+H
+H
+D
+a
+a
+a
+a
+a
+a
+T
+a
+H
+a
+a
+a
+a
+a
+H
+H
+a
+a
+H
+a
+a
+D
+H
+H
+a
+a
+a
+"}
+(26,1,1) = {"
+a
+a
+H
+H
+D
+a
+a
+a
+a
+a
+a
+T
+a
+a
+H
+H
+H
+H
+a
+a
+H
+a
+a
+a
+a
+a
+D
+H
+H
+a
+a
+a
+"}
+(27,1,1) = {"
+a
+a
+H
+H
+D
+a
+a
+a
+H
+a
+H
+T
+T
+l
+T
+T
+U
+a
+a
+a
+H
+H
+a
+H
+a
+a
+D
+H
+H
+a
+a
+a
+"}
+(28,1,1) = {"
+a
+a
+H
+H
+D
+D
+a
+a
+a
+W
+a
+q
+L
+q
+q
+q
+q
+a
+a
+a
+a
+H
+H
+H
+a
+D
+D
+H
+H
+a
+a
+a
+"}
+(29,1,1) = {"
+a
+a
+H
+H
+H
+D
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+I
+D
+H
+H
+H
+a
+a
+a
+"}
+(30,1,1) = {"
+a
+a
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+a
+a
+a
+"}
+(31,1,1) = {"
+a
+a
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+H
+a
+a
+a
+"}
+(32,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}

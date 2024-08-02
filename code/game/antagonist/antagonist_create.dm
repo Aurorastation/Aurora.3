@@ -8,8 +8,7 @@
 		remove_antagonist(target)
 		return 0
 	if(!preserve_appearance && (flags & ANTAG_CHOOSE_NAME))
-		spawn(1)
-			set_antag_name(target.current)
+		addtimer(CALLBACK(src, PROC_REF(set_antag_name), target.current),  1)
 	if(move)
 		place_mob(target.current)
 	update_leader()
@@ -96,7 +95,7 @@
 			code_owner.store_memory("<B>Nuclear Bomb Code</B>: [code]", 0, 0)
 			to_chat(code_owner.current, "The nuclear authorization code is: <B>[code]</B>")
 	else
-		message_admins("<span class='danger'>Could not spawn nuclear bomb. Contact a developer.</span>")
+		message_admins(SPAN_DANGER("Could not spawn nuclear bomb. Contact a developer."))
 		return
 
 	spawned_nuke = code
@@ -105,11 +104,11 @@
 /datum/antagonist/proc/greet(var/datum/mind/player)
 
 	// Basic intro text.
-	to_chat(player.current, "<span class='danger'><font size=3>You are a [role_text]!</font></span>")
+	to_chat(player.current, SPAN_DANGER("<font size=3>You are a [role_text]!</font>"))
 	if(leader_welcome_text && player == leader)
-		to_chat(player.current, "<span class='notice'>[leader_welcome_text]</span>")
+		to_chat(player.current, SPAN_NOTICE("[leader_welcome_text]"))
 	else
-		to_chat(player.current, "<span class='notice'>[welcome_text]</span>")
+		to_chat(player.current, SPAN_NOTICE("[welcome_text]"))
 
 	if(antag_sound)
 		player.current.playsound_local(get_turf(src), sound(antag_sound), 50, FALSE)

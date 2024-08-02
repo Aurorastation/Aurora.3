@@ -52,13 +52,12 @@ var/list/holder_mob_icon_cache = list()
 		release_mob()
 	return ..()
 
-/obj/item/holder/examine(mob/user)
-	if(contained)
-		return contained.examine(user)
+/obj/item/holder/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	SHOULD_CALL_PARENT(FALSE)
 
-/obj/item/holder/attack_self()
-	for(var/mob/M in contents)
-		M.show_inv(usr)
+	if(contained)
+		return contained.examine(user, distance, is_adjacent, infix, suffix, show_extended)
+	return TRUE
 
 /obj/item/holder/process()
 	if (!contained)
@@ -100,8 +99,8 @@ var/list/holder_mob_icon_cache = list()
 
 //Similar to above function, but will not deposit things in any container, only directly on a turf.
 //Can be called safely anywhere. Notably on holders held or worn on a mob
-/obj/item/holder/proc/release_to_floor()
-	var/turf/T = get_turf(src)
+/obj/item/holder/proc/release_to_floor(var/turf/T)
+	T = get_turf(src)
 
 	for(var/mob/M in contents)
 		M.forceMove(T) //if the holder was placed into a disposal, this should place the animal in the disposal
@@ -148,17 +147,19 @@ var/list/holder_mob_icon_cache = list()
 	report_onmob_location(1, slotnumber, contained)
 
 /obj/item/holder/attack_self(mob/M as mob)
+	for(var/mob/contained_mob in contents)
+		contained_mob.show_inv(usr)
 
 	if (contained && !(contained.stat & DEAD))
 		if (istype(M,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = M
 			switch(H.a_intent)
 				if(I_HELP)
-					H.visible_message("<span class='notice'>[H] pets [contained].</span>")
+					H.visible_message(SPAN_NOTICE("[H] pets [contained]."))
 
 				if(I_HURT)
 					contained.adjustBruteLoss(3)
-					H.visible_message("<span class='alert'>[H] crushes [contained].</span>")
+					H.visible_message(SPAN_ALERT("[H] crushes [contained]."))
 	else
 		to_chat(M, "[contained] is dead.")
 
@@ -199,10 +200,10 @@ var/list/holder_mob_icon_cache = list()
 
 	if (user == src)
 		if (grabber.r_hand && grabber.l_hand)
-			to_chat(user, "<span class='warning'>They have no free hands!</span>")
+			to_chat(user, SPAN_WARNING("They have no free hands!"))
 			return
 	else if ((grabber.hand == 0 && grabber.r_hand) || (grabber.hand == 1 && grabber.l_hand))//Checking if the hand is full
-		to_chat(grabber, "<span class='warning'>Your hand is full!</span>")
+		to_chat(grabber, SPAN_WARNING("Your hand is full!"))
 		return
 
 	add_verb(src,  /mob/living/proc/get_holder_location) //This has to be before we move the mob into the holder
@@ -226,11 +227,11 @@ var/list/holder_mob_icon_cache = list()
 
 		if (success)
 			if (user == src)
-				to_chat(grabber, "<span class='notice'>[src.name] climbs up onto you.</span>")
-				to_chat(src, "<span class='notice'>You climb up onto [grabber].</span>")
+				to_chat(grabber, SPAN_NOTICE("[src.name] climbs up onto you."))
+				to_chat(src, SPAN_NOTICE("You climb up onto [grabber]."))
 			else
-				to_chat(grabber, "<span class='notice'>You scoop up [src].</span>")
-				to_chat(src, "<span class='notice'>[grabber] scoops you up.</span>")
+				to_chat(grabber, SPAN_NOTICE("You scoop up [src]."))
+				to_chat(src, SPAN_NOTICE("[grabber] scoops you up."))
 
 			H.sync(src)
 		else
@@ -293,7 +294,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state_dead = "nymph_dead"
 	origin_tech = list(TECH_MAGNET = 3, TECH_BIO = 5)
 	slot_flags = SLOT_HEAD | SLOT_EARS | SLOT_HOLSTER
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	no_name = TRUE
 
 /obj/item/holder/drone
@@ -303,7 +304,7 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "drone"
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 5)
 	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	no_name = TRUE
 
 /obj/item/holder/drone/heavy
@@ -311,7 +312,7 @@ var/list/holder_mob_icon_cache = list()
 	desc = "It's a really big maintenance robot."
 	icon_state = "constructiondrone"
 	item_state = "constructiondrone"
-	w_class = ITEMSIZE_IMMENSE //You're not fitting this thing in a backpack
+	w_class = WEIGHT_CLASS_GIGANTIC //You're not fitting this thing in a backpack
 
 /obj/item/holder/drone/mining
 	name = "mining drone"
@@ -330,7 +331,7 @@ var/list/holder_mob_icon_cache = list()
 //Setting item state to cat saves on some duplication for the in-hand versions, but we cant use it for head.
 //Instead, the head versions are done by duplicating the cat
 	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/holder/cat/black
 	icon_state = "cat"
@@ -372,7 +373,7 @@ var/list/holder_mob_icon_cache = list()
 	item_state = "babycarp"
 	slot_flags = SLOT_HEAD
 	flags_inv = HIDEEARS
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/holder/carp/baby/verb/toggle_block_hair()
 	set name = "Toggle Hair Coverage"
@@ -387,7 +388,7 @@ var/list/holder_mob_icon_cache = list()
 	desc = "It's a slimy brain slug. Gross."
 	icon_state = "brainslug"
 	origin_tech = list(TECH_BIO = 6)
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	no_name = TRUE
 
 /obj/item/holder/monkey
@@ -396,7 +397,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "monkey"
 	item_state = "monkey"
 	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/holder/monkey/set_contained(var/mob/living/carbon/human/M)
 	..()
@@ -412,7 +413,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "farwa"
 	item_state = "farwa"
 	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/holder/monkey/stok
 	name = "stok"
@@ -420,7 +421,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "stok"
 	item_state = "stok"
 	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/holder/monkey/neaera
 	name = "neaera"
@@ -428,7 +429,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "neaera"
 	item_state = "neaera"
 	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 //Holders for rats
 /obj/item/holder/rat
@@ -441,7 +442,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state_dead = "rat_brown_dead"
 	slot_flags = SLOT_EARS
 	origin_tech = list(TECH_BIO = 2)
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/holder/rat/white
 	icon_state = "rat_white_sleep"
@@ -478,7 +479,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "lizard"
 
 	slot_flags = 0
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 //Chicks and chickens
 /obj/item/holder/chick
@@ -489,7 +490,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state_dead = "chick_dead"
 	slot_flags = 0
 	icon_state = "chick"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 
 /obj/item/holder/chicken
@@ -500,7 +501,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "chicken_brown"
 	icon_state_dead = "chicken_brown_dead"
 	slot_flags = 0
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/holder/chicken/brown
 	icon_state = "chicken_brown"
@@ -525,7 +526,7 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "mushroom"
 	icon_state_dead = "mushroom_dead"
 	slot_flags = SLOT_HEAD
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 
 
@@ -589,47 +590,47 @@ var/list/holder_mob_icon_cache = list()
 	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "corgi"
 	item_state = "corgi"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/holder/ian
 	name = "corgi"
 	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "ian"
 	item_state = "ian"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/holder/lisa
 	name = "lisa"
 	icon = 'icons/mob/npc/pets.dmi'
 	icon_state = "lisa"
 	item_state = "lisa"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/holder/fox
 	name = "fox"
 	icon = 'icons/mob/npc/fox.dmi'
 	icon_state = "fox"
 	item_state = "fox"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/holder/schlorrgo
 	name = "schlorrgo"
 	icon = 'icons/mob/npc/schlorrgo.dmi'
 	icon_state = "schlorrgo"
 	item_state = "schlorrgo"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/holder/schlorrgo/baby
 	name = "schlorrgo hatchling"
 	icon_state = "schlorrgo_baby"
 	item_state = "schlorrgo_baby"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/holder/schlorrgo/fat
 	name = "fat schlorrgo"
 	icon_state = "schlorrgo_fat"
 	item_state = "schlorrgo_fat"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/holder/fish
 	name = "fish"

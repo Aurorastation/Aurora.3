@@ -33,7 +33,7 @@
 	contained_sprite = TRUE
 	icon_supported_species_tags = list("skr", "taj", "una", "ipc")
 	slowdown = 1
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
@@ -48,10 +48,8 @@
 	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_SKRELL, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_ZENGHU, BODYTYPE_IPC_BISHOP)
 	refittable_species = list(BODYTYPE_HUMAN, BODYTYPE_TAJARA, BODYTYPE_IPC, BODYTYPE_UNATHI, BODYTYPE_SKRELL)
 
-/obj/item/clothing/head/helmet/space/void/merc/unathi/Initialize()
-	. = ..()
-	refit_contained(BODYTYPE_UNATHI)
+/obj/item/clothing/head/helmet/space/void/merc/unathi
+	refit_initialize = BODYTYPE_UNATHI
 
-/obj/item/clothing/suit/space/void/merc/unathi/Initialize()
-	. = ..()
-	refit_contained(BODYTYPE_UNATHI)
+/obj/item/clothing/suit/space/void/merc/unathi
+	refit_initialize = BODYTYPE_UNATHI

@@ -25,7 +25,7 @@ SUBSYSTEM_DEF(misc_late)
 	setupgenetics()
 
 	if (GLOB.config.fastboot)
-		admin_notice("<span class='notice'><b>Fastboot is enabled; some features may not be available.</b></span>", R_DEBUG)
+		admin_notice(SPAN_NOTICE("<b>Fastboot is enabled; some features may not be available.</b>"), R_DEBUG)
 
 	populate_code_phrases()
 

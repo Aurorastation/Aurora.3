@@ -10,7 +10,7 @@
 	build_from_parts = TRUE
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(1,2,3,4,5)
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	volume = 5
 	drop_sound = 'sound/items/drop/glass_small.ogg'
@@ -93,10 +93,10 @@
 	update_icon()
 
 /obj/item/reagent_containers/dropper/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(reagents.total_volume)
 		worn_overlay = "filling"
-		add_overlay(overlay_image(icon, "dropper-[get_filling_state()]", color = reagents.get_color()))
+		AddOverlays(overlay_image(icon, "dropper-[get_filling_state()]", color = reagents.get_color()))
 		worn_overlay_color = reagents.get_color() // handles inhands
 	else
 		worn_overlay = null

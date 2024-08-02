@@ -12,7 +12,7 @@
 	name = "tile"
 	singular_name = "tile"
 	desc = "A non-descript floor tile."
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	max_amount = 60
 	recyclable = TRUE
 	icon = 'icons/obj/item/stacks/tiles.dmi'

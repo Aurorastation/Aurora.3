@@ -41,7 +41,7 @@
 	icon = 'icons/obj/trash.dmi'
 	icon_state = "corncob"
 	item_state = "corncob"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
@@ -51,7 +51,7 @@
 	if(istype(attacking_item, /obj/item/surgery/circular_saw) || istype(attacking_item, /obj/item/material/hatchet) || \
 				istype(attacking_item, /obj/item/material/kitchen/utensil/knife) || istype(attacking_item, /obj/item/material/knife) || \
 				istype(attacking_item, /obj/item/material/knife/ritual))
-		to_chat(user, "<span class='notice'>You use [attacking_item] to fashion a pipe out of the corn cob!</span>")
+		to_chat(user, SPAN_NOTICE("You use [attacking_item] to fashion a pipe out of the corn cob!"))
 		new /obj/item/clothing/mask/smokable/pipe/cobpipe (user.loc)
 		qdel(src)
 		return
@@ -66,16 +66,27 @@
 		)
 	icon_state = "banana_peel"
 	item_state = "banana_peel"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
 
-/obj/item/bananapeel/Crossed(AM as mob|obj)
-	if(isliving(AM))
-		if(ishuman(AM))
-			var/mob/living/carbon/human/H = AM
+/obj/item/bananapeel/Initialize()
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/item/bananapeel/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(isliving(arrived))
+		if(ishuman(arrived))
+			var/mob/living/carbon/human/H = arrived
 			if(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 				return
-		var/mob/living/M = AM
+		var/mob/living/M = arrived
 		M.slip("the [src.name]",4)

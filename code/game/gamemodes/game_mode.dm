@@ -383,7 +383,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 				var/turf/playerTurf = get_turf(M)
 				var/area/playerArea = get_area(playerTurf)
 				surviving_total++
-				if(isStationLevel(playerTurf.z) && is_station_area(playerArea))
+				if(is_station_level(playerTurf.z) && is_station_area(playerArea))
 					escaped_total++
 			if(isobserver(M))
 				ghosts++
@@ -582,7 +582,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 		return
 
 	var/obj_count = 1
-	to_chat(player.current, "<span class='notice'>Your current objectives:</span>")
+	to_chat(player.current, SPAN_NOTICE("Your current objectives:"))
 	for(var/datum/objective/objective in player.objectives)
 		to_chat(player.current, "<B>Objective #[obj_count]</B>: [objective.explanation_text]")
 		obj_count++

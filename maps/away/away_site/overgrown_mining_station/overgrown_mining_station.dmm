@@ -1,15 +1,12 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "ab" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "ac" = (
 /obj/machinery/door/airlock/external{
@@ -18,72 +15,76 @@
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)
 "ad" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/bed/stool/chair/sofa/right/black{
 	dir = 4
 	},
-/turf/simulated/floor/airless,
-/area/overgrown_mining_station)
-"ae" = (
-/obj/machinery/door/airlock/mining{
-	dir = 1
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "af" = (
 /obj/machinery/door/airlock/mining{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full/airless,
 /area/overgrown_mining_station)
 "ag" = (
-/obj/machinery/door/airlock/mining{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/airless,
+/obj/effect/decal/cleanable/ash,
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "ah" = (
 /obj/machinery/door/airlock/silver{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full/airless,
 /area/overgrown_mining_station)
 "ai" = (
 /obj/effect/floor_decal/asteroid,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/overgrown_mining_station)
 "aj" = (
-/obj/machinery/door/airlock/mining{
-	dir = 1
+/obj/structure/reagent_dispensers/fueltank,
+/obj/structure/railing/mapped{
+	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "ak" = (
-/obj/machinery/door/airlock/external{
+/obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 4
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "al" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
+/obj/item/material/shard,
+/turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "am" = (
-/obj/machinery/door/airlock/external{
+/obj/structure/toilet{
 	dir = 4
 	},
-/turf/simulated/floor/airless,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "an" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
+/obj/structure/table/reinforced/wood,
+/obj/item/device/flashlight/lamp/lava/green,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
 	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "aw" = (
 /obj/machinery/vending/cigarette,
 /turf/simulated/floor/tiled/rust/airless,
+/area/overgrown_mining_station)
+"ax" = (
+/obj/item/reagent_containers/glass/bottle/cyanide,
+/turf/unsimulated/floor/asteroid/ash,
 /area/overgrown_mining_station)
 "aK" = (
 /obj/item/crowbar,
@@ -93,6 +94,33 @@
 /obj/machinery/media/jukebox,
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
+"bn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/poster{
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"bt" = (
+/obj/item/trash/cigbutt/roll,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"bG" = (
+/obj/structure/trash_pile,
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"bO" = (
+/obj/structure/bookcase/manuals/engineering,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
 "bQ" = (
 /obj/machinery/autolathe,
 /turf/simulated/floor/tiled/airless,
@@ -100,8 +128,9 @@
 "bU" = (
 /obj/item/ore_detector,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
 "bV" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "ch" = (
@@ -112,11 +141,20 @@
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "cx" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
+"cA" = (
+/obj/structure/anomaly_container,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"cD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard/wood,
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
 "cX" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/custom_ka_upgrade/cells/loader/uranium,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
@@ -127,6 +165,18 @@
 /obj/item/stack/cable_coil/orange,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
+"dn" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/machinery/door/window{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "dq" = (
 /obj/machinery/constructable_frame/temp_deco{
 	icon_state = "blueprint_1"
@@ -136,15 +186,16 @@
 "dt" = (
 /obj/item/ore/silver,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/overgrown_mining_station)
 "dD" = (
 /obj/effect/overmap/visitable/sector/overgrown_mining_station,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "dF" = (
 /obj/effect/floor_decal/asteroid,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
 "dV" = (
 /obj/item/trash/cigbutt/roll,
 /turf/simulated/floor/tiled/airless,
@@ -152,30 +203,90 @@
 "dX" = (
 /obj/item/pickaxe/silver,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
+"eb" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"ef" = (
+/obj/item/gun/projectile/shotgun/pump/rifle/blank,
+/turf/unsimulated/floor/asteroid/ash,
+/area/overgrown_mining_station)
+"ev" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
 "eK" = (
-/turf/simulated/floor/diona/airless,
-/area/space)
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"eO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"eW" = (
+/obj/effect/floor_decal/corner_wide/lime/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "eZ" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/gun/custom_ka/frameE,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"ff" = (
+/obj/structure/trash_pile,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"fh" = (
+/obj/structure/closet/crate/loot,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/overgrown_mining_station)
 "fj" = (
 /obj/machinery/appliance/cooker/oven,
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "fx" = (
 /obj/machinery/door/airlock/external{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/blood/tracks/footprints,
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)
-"fN" = (
-/obj/structure/sign/poster{
-	icon_state = "bsposter3"
+"fC" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/closet/crate,
+/obj/item/toy/figure/rd,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"fH" = (
+/obj/item/broken_bottle,
+/turf/simulated/floor/tiled/asteroid/airless,
+/area/overgrown_mining_station)
+"fM" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 9
 	},
-/turf/simulated/wall,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"fN" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "fP" = (
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -187,20 +298,31 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "fS" = (
-/turf/simulated/floor/tiled,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "gj" = (
 /obj/structure/closet/crate/loot,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "gm" = (
 /obj/structure/table/steel,
 /obj/item/trash/cigbutt/roll,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"go" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/bottle/brandy,
+/turf/simulated/floor/tiled/rust/airless,
+/area/overgrown_mining_station)
 "gy" = (
 /obj/machinery/mech_recharger,
 /obj/structure/mech_wreckage/powerloader,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "gC" = (
@@ -229,41 +351,67 @@
 "hc" = (
 /obj/item/ore/strangerock,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
 "hd" = (
 /obj/item/oreportal,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
 "hi" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/stone/marble,
 /obj/item/material/knife,
+/obj/effect/floor_decal/corner/grey/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "hp" = (
 /obj/item/trash/coffee,
-/turf/simulated/floor/tiled/airless,
+/obj/structure/undies_wardrobe,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "hv" = (
 /obj/structure/curtain/open/shower,
 /obj/item/bikehorn/rubberducky,
 /obj/machinery/shower,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"hA" = (
+/obj/effect/floor_decal/corner/grey,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "hG" = (
 /obj/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "hJ" = (
-/obj/structure/undies_wardrobe,
-/turf/simulated/floor/tiled/airless,
+/obj/structure/bed,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "hN" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/steel,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
 "hS" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
+/obj/item/material/shard,
 /turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"hZ" = (
+/obj/machinery/constructable_frame/temp_deco{
+	icon_state = "box_2"
+	},
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "ia" = (
 /obj/machinery/computer/arcade/battle,
@@ -273,26 +421,41 @@
 /obj/item/tape_roll,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"ih" = (
+/obj/item/trash/uselessplastic,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "im" = (
 /obj/structure/computerframe,
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)
+"it" = (
+/obj/item/material/shard/shrapnel,
+/turf/unsimulated/floor/asteroid/ash,
+/area/overgrown_mining_station)
+"iH" = (
+/obj/machinery/floodlight,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "iK" = (
 /obj/machinery/vending/robotics,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/overgrown_mining_station)
 "iT" = (
 /obj/structure/toilet{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "iY" = (
 /obj/item/custom_ka_upgrade/cells/loader,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "jf" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/stack/material/phoron/full{
 	icon_state = "sheet-phoron_3"
 	},
@@ -302,13 +465,13 @@
 /obj/machinery/door/airlock/silver{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "jm" = (
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "jq" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/handcuffs/cable,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
@@ -316,8 +479,15 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"jH" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/obj/item/material/shard,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
 "jS" = (
-/obj/structure/table/reinforced/wood,
+/obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer,
 /turf/simulated/floor/tiled/rust/airless,
@@ -340,10 +510,22 @@
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "ky" = (
-/turf/simulated/wall,
+/obj/structure/table/standard,
+/obj/item/trash/stew,
+/turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "kC" = (
 /obj/machinery/vending/snack,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"kI" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/overgrown_mining_station)
+"kP" = (
+/obj/effect/decal/cleanable/blood/gibs/up,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "kW" = (
@@ -352,26 +534,46 @@
 /area/overgrown_mining_station)
 "lf" = (
 /mob/living/simple_animal/carp/baby,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/airless,
 /area/overgrown_mining_station)
 "lm" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/tank/phoron,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "ls" = (
-/mob/living/simple_animal/carp,
-/turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/obj/item/tape_roll,
+/obj/structure/railing/mapped,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
 "lN" = (
 /obj/machinery/constructable_frame/temp_deco{
 	icon_state = "pico_mani"
 	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"lO" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
+"lQ" = (
+/obj/structure/closet/emcloset,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"lU" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "lV" = (
 /mob/living/simple_animal/hostile/carp,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "lX" = (
 /obj/item/trash/match,
@@ -380,13 +582,16 @@
 "md" = (
 /obj/effect/floor_decal/asteroid_dug,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/overgrown_mining_station)
 "mf" = (
-/obj/machinery/vending/medical,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/overgrown_mining_station)
 "ml" = (
 /obj/structure/closet/secure_closet/freezer/meat,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "mq" = (
@@ -400,12 +605,30 @@
 /obj/effect/decal/cleanable/blood{
 	icon_state = "gibbearcore"
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"mu" = (
+/obj/item/trash/cigbutt/roll,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "mw" = (
 /obj/machinery/floodlight,
 /turf/simulated/floor/tiled/asteroid/airless,
-/area/space)
+/area/overgrown_mining_station)
+"mK" = (
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 1
+	},
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
+"mP" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/random/junk,
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
 "nk" = (
 /obj/structure/table/rack,
 /obj/item/towel,
@@ -413,7 +636,8 @@
 /obj/item/towel,
 /obj/item/towel,
 /obj/item/towel,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "nl" = (
 /obj/structure/closet/radiation,
@@ -430,20 +654,33 @@
 "nP" = (
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled/asteroid/airless,
-/area/space)
+/area/overgrown_mining_station)
 "nV" = (
 /obj/item/trash/popcorn,
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
+"ob" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "oj" = (
-/turf/simulated/wall/diona,
-/area/space)
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/overgrown_mining_station)
 "om" = (
 /obj/machinery/portable_atmospherics/canister/empty/phoron,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
+"op" = (
+/obj/random/medical{
+	pixel_y = 6
+	},
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "oq" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/crowbar,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
@@ -452,31 +689,36 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "ot" = (
-/obj/structure/table/steel,
 /obj/item/custom_ka_upgrade/cells/cell02,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "ov" = (
 /obj/item/reagent_containers/food/snacks/chips,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "ox" = (
 /obj/structure/ore_box,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
 "oz" = (
 /obj/item/modular_computer/console,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "oD" = (
-/obj/structure/table/steel,
+/obj/structure/table/reinforced/steel,
 /obj/item/rig/industrial/equipped,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "oH" = (
 /obj/item/ore/strangerock,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/overgrown_mining_station)
+"oR" = (
+/obj/structure/table/steel,
+/obj/item/stamp/hephaestus,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
 "oV" = (
 /obj/item/tank/jetpack/oxygen,
 /turf/simulated/floor/tiled/airless,
@@ -486,16 +728,26 @@
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)
 "pi" = (
-/obj/structure/table/reinforced/wood,
+/obj/structure/table/standard,
 /obj/item/trash/chipbasket,
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "pp" = (
 /obj/item/ore/silver,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
+"pB" = (
+/obj/structure/closet/crate/loot,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
 "pM" = (
 /obj/machinery/floodlight,
+/obj/structure/sign/poster{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "pP" = (
@@ -519,7 +771,7 @@
 "qu" = (
 /obj/structure/flora/rock,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
 "qA" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/tiled/airless,
@@ -530,17 +782,30 @@
 	},
 /turf/simulated/wall,
 /area/overgrown_mining_station)
+"qN" = (
+/obj/machinery/vending/medical,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "qQ" = (
-/obj/structure/diona/bulb,
-/turf/simulated/floor/diona/airless,
-/area/space)
+/obj/structure/bed/stool/chair/sofa/left/black{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
 "ra" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/steel,
 /turf/simulated/floor/tiled/asteroid/airless,
-/area/space)
+/area/overgrown_mining_station)
 "rf" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/stone/marble,
 /obj/item/trash/snack_bowl,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "rl" = (
@@ -560,21 +825,46 @@
 /obj/structure/grille/broken,
 /turf/template_noop,
 /area/overgrown_mining_station)
+"rA" = (
+/obj/item/trash/uselessplastic,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "rC" = (
-/turf/simulated/wall,
-/area/space)
+/obj/item/bedsheet/dorms,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
 "rH" = (
-/obj/structure/table/reinforced,
-/obj/item/material/ashtray,
-/turf/simulated/floor/tiled/airless,
+/obj/structure/table/steel,
+/obj/random/medical{
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "rK" = (
 /obj/item/cell/hyper,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/overgrown_mining_station)
 "rV" = (
 /obj/structure/grille/broken,
 /turf/template_noop,
+/area/overgrown_mining_station)
+"sa" = (
+/obj/structure/table/stone/marble,
+/obj/item/trash/plate,
+/obj/effect/floor_decal/corner/grey/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"sw" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "sz" = (
 /obj/structure/closet/crate,
@@ -584,16 +874,40 @@
 /obj/item/surgery/scalpel,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"sJ" = (
+/obj/structure/platform,
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/structure/platform{
+	dir = 4
+	},
+/obj/structure/platform_deco{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/overgrown_mining_station)
+"sP" = (
+/obj/item/material/shard/wood,
+/turf/simulated/floor/tiled/asteroid/airless,
+/area/overgrown_mining_station)
 "sQ" = (
 /obj/structure/flora/rock/pile,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
 "sR" = (
 /obj/machinery/door/airlock/silver{
 	name = "Toilet";
 	dir = 4
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"td" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 10
+	},
+/obj/item/flora/pottedplant_small/dead,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "tg" = (
 /obj/structure/bed/stool/chair/office/bridge{
@@ -616,21 +930,44 @@
 "tF" = (
 /obj/item/ore,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/overgrown_mining_station)
+"tJ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "tK" = (
-/obj/structure/sign/poster{
-	icon_state = "bsposter10"
-	},
-/turf/simulated/wall,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
+"tT" = (
+/obj/structure/curtain/open/shower,
+/obj/machinery/shower,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "tY" = (
 /obj/structure/ore_box,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"un" = (
+/obj/structure/railing/mapped,
+/obj/item/material/shard,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
 "uw" = (
 /obj/structure/flora/rock/pile,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
+"uK" = (
+/obj/item/trash/broken_electronics,
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "uO" = (
 /obj/machinery/door/airlock/mining{
@@ -638,38 +975,92 @@
 	},
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
+"uU" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/random/junk,
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
+"vm" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/airlock/mining{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full/airless,
+/area/overgrown_mining_station)
 "vB" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
 /area/overgrown_mining_station)
+"vQ" = (
+/obj/random/medical{
+	pixel_y = 6
+	},
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "vU" = (
 /obj/item/reagent_containers/food/snacks/phoroncandy,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
+"vY" = (
+/obj/machinery/constructable_frame/temp_deco,
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"wm" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "ws" = (
 /obj/item/ore/iron,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
 "wt" = (
-/obj/structure/table/reinforced/wood,
+/obj/structure/table/standard,
 /obj/item/broken_bottle,
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "wv" = (
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
+"wA" = (
+/obj/effect/decal/cleanable/blood/tracks/footprints,
+/turf/simulated/floor/airless,
+/area/overgrown_mining_station)
 "wC" = (
 /obj/item/gun/projectile/pistol/sol,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"wJ" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "wN" = (
 /obj/item/pickaxe/diamond,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/overgrown_mining_station)
 "wU" = (
 /obj/structure/ore_box,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/overgrown_mining_station)
 "xh" = (
 /obj/item/trash/cigbutt/roll,
 /turf/simulated/floor/tiled/rust/airless,
@@ -691,9 +1082,9 @@
 "xq" = (
 /obj/structure/flora/rock/pile,
 /turf/unsimulated/mineral/asteroid,
-/area/space)
+/area/overgrown_mining_station)
 "xt" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/steel,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "xu" = (
@@ -704,7 +1095,6 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "xH" = (
-/obj/structure/table/steel,
 /obj/item/gun/custom_ka/frame03/prebuilt/shaft_miner,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
@@ -714,8 +1104,29 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"xT" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"xV" = (
+/obj/item/material/shard/shrapnel,
+/turf/simulated/floor/tiled/asteroid/airless,
+/area/overgrown_mining_station)
 "yc" = (
 /obj/machinery/appliance/cooker/stove,
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"yd" = (
+/obj/item/material/shard{
+	icon_state = "shrapnelmedium"
+	},
+/obj/effect/decal/cleanable/floor_damage/tiled_broken2,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "yp" = (
@@ -723,14 +1134,21 @@
 /obj/item/trash/broken_electronics,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"yr" = (
+/obj/effect/floor_decal/corner_wide/lime/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "ys" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/steel,
 /obj/item/stack/cable_coil,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
 "yw" = (
+/obj/structure/platform,
 /obj/machinery/mecha_part_fabricator,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/overgrown_mining_station)
 "yy" = (
 /turf/simulated/wall,
@@ -739,17 +1157,30 @@
 /obj/item/material/shard{
 	icon_state = "shrapnelmedium"
 	},
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "yF" = (
 /obj/structure/bed,
 /obj/item/material/knife/tacknife,
-/turf/simulated/floor/tiled/airless,
+/obj/item/bedsheet/dorms,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "yK" = (
-/obj/structure/table/reinforced/wood,
-/obj/item/reagent_containers/food/drinks/bottle/brandy,
-/turf/simulated/floor/tiled/rust/airless,
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
+"yO" = (
+/obj/structure/sink{
+	pixel_y = 21
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "yU" = (
 /obj/effect/decal/cleanable/blood/oil{
@@ -761,9 +1192,21 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"zi" = (
+/obj/machinery/constructable_frame/temp_deco{
+	icon_state = "box_1"
+	},
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "zj" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/stone/marble,
 /obj/item/trash/plate,
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "zp" = (
@@ -774,9 +1217,28 @@
 /obj/item/ore/phoron,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"zS" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "zY" = (
 /obj/structure/closet/radiation,
 /turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"Ae" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"Af" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/item/toy/comic/azmarian/issue_6,
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "Ao" = (
 /obj/structure/bed/stool/chair/folding{
@@ -785,7 +1247,16 @@
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "Au" = (
-/obj/machinery/vending/dinnerware/plastic,
+/obj/machinery/vending/dinnerware,
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/structure/window{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/grey/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "Ax" = (
@@ -795,27 +1266,33 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "Az" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/steel,
 /obj/item/paper_bin,
 /turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"AA" = (
+/obj/random/pottedplant,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "AC" = (
 /obj/structure/flora/rock/pile,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/overgrown_mining_station)
 "AF" = (
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "AJ" = (
 /mob/living/simple_animal/carp,
-/turf/simulated/floor/tiled/asteroid/airless,
-/area/space)
+/turf/unsimulated/floor/asteroid/ash,
+/area/overgrown_mining_station)
 "AQ" = (
 /obj/machinery/door/airlock/mining{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full/airless,
 /area/overgrown_mining_station)
 "AS" = (
 /obj/machinery/constructable_frame/temp_deco,
@@ -826,7 +1303,7 @@
 /obj/item/ore,
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/overgrown_mining_station)
 "Be" = (
 /obj/effect/decal/cleanable/ash,
 /turf/simulated/floor/tiled/airless,
@@ -835,34 +1312,77 @@
 /obj/item/trash/cigbutt/roll,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
+"Bw" = (
+/mob/living/simple_animal/carp/baby,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"BF" = (
+/obj/machinery/vending/dinnerware/plastic,
+/turf/simulated/floor/tiled/rust/airless,
+/area/overgrown_mining_station)
 "BV" = (
-/obj/structure/sign/poster{
-	icon_state = "bsposter4"
+/obj/structure/railing/mapped{
+	dir = 4
 	},
-/turf/simulated/wall,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "Cf" = (
 /obj/item/shreddedp,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"Cu" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/trash/cigbutt/roll,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"CH" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "CP" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/steel,
 /obj/item/pickaxe/drill/weak,
 /turf/simulated/floor/tiled/asteroid/airless,
-/area/space)
+/area/overgrown_mining_station)
 "CU" = (
 /obj/machinery/constructable_frame/temp_deco,
 /obj/item/circuitboard/refiner,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"CW" = (
+/obj/structure/platform_stairs{
+	dir = 4
+	},
+/obj/structure/platform/ledge{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/overgrown_mining_station)
 "Db" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/stone/marble,
 /obj/machinery/reagentgrinder,
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/obj/structure/sign/poster{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"Dc" = (
+/obj/item/book/manual/wiki/engineering_hacking,
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "Do" = (
 /obj/machinery/mech_recharger,
 /obj/effect/decal/cleanable/blood/oil,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "Dw" = (
@@ -870,13 +1390,27 @@
 	icon_state = "asteroid9"
 	},
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
 "Dy" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"DA" = (
+/obj/item/stack/cable_coil,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"DE" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
 "DF" = (
 /obj/structure/dispenser/phoron,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "Ed" = (
@@ -896,10 +1430,17 @@
 /area/overgrown_mining_station)
 "EB" = (
 /obj/item/trash/broken_electronics,
-/turf/simulated/floor/tiled/airless,
+/obj/structure/bed/roller,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "EC" = (
 /obj/machinery/optable,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"EF" = (
+/obj/effect/decal/cleanable/ash,
+/obj/item/tank/oxygen,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "EJ" = (
@@ -912,21 +1453,46 @@
 /area/overgrown_mining_station)
 "EU" = (
 /obj/machinery/computer/arcade/orion_trail,
+/obj/structure/sign/poster{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/rust/airless,
+/area/overgrown_mining_station)
+"EV" = (
+/obj/item/trash/cigbutt/roll,
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "Fb" = (
 /obj/structure/closet/secure_closet/xenoarchaeologist,
 /turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"Fg" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/overgrown_mining_station)
 "Fh" = (
 /obj/machinery/conveyor,
 /obj/item/ore/phoron,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"Fq" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "FC" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/trash/cigbutt/roll,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
+"FF" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "FQ" = (
 /obj/effect/decal/cleanable/ash,
@@ -941,14 +1507,24 @@
 "Ga" = (
 /obj/item/oremagnet,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/overgrown_mining_station)
 "Gl" = (
 /obj/machinery/artifact,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
 "Gy" = (
 /obj/item/stack/cable_coil,
 /turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"GU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "GV" = (
 /obj/item/material/shard,
@@ -956,46 +1532,70 @@
 /area/space)
 "Hf" = (
 /turf/simulated/mineral/random/high_chance,
-/area/space)
+/area/overgrown_mining_station)
 "Hn" = (
 /obj/item/gun/energy/pistol,
-/obj/structure/table/reinforced,
-/turf/simulated/floor/tiled/airless,
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"Hu" = (
+/obj/random/firstaid{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "HM" = (
 /obj/item/material/shard,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
+"HU" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
 "HW" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/steel,
 /obj/item/gun/custom_ka/frame04/prebuilt,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
 "Ia" = (
 /obj/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/ripley/cargo,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "Ih" = (
-/obj/structure/table/reinforced,
 /obj/item/trash/candy,
+/obj/random/cookingoil,
+/obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "Im" = (
 /obj/structure/mech_wreckage,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
 "In" = (
 /obj/structure/bed,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/item/toy/plushie/carp,
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "Iu" = (
 /obj/structure/curtain/open/shower,
 /obj/machinery/shower,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "Ix" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/steel,
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)
 "Iy" = (
@@ -1006,32 +1606,35 @@
 /obj/structure/curtain/open/shower,
 /obj/item/soap/deluxe,
 /obj/machinery/shower,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "IG" = (
 /turf/unsimulated/mineral/asteroid,
-/area/space)
+/area/overgrown_mining_station)
 "IJ" = (
 /obj/machinery/artifact,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "IM" = (
-/obj/structure/sign/poster{
-	icon_state = "bsposter2"
+/obj/item/stack/cable_coil/green{
+	icon_state = "coil2"
 	},
-/turf/simulated/wall,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/overgrown_mining_station)
 "IO" = (
 /obj/structure/flora/rock,
 /turf/simulated/floor/diona/airless,
-/area/space)
+/area/overgrown_mining_station)
 "IT" = (
-/obj/structure/table/reinforced,
-/obj/item/stamp/hephaestus,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "Jd" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/stack/cable_coil/orange{
 	icon_state = "coil2"
 	},
@@ -1040,9 +1643,10 @@
 "Je" = (
 /obj/machinery/floodlight,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
 "Jh" = (
 /obj/structure/reagent_dispensers/fueltank,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "Jm" = (
@@ -1053,7 +1657,10 @@
 /area/overgrown_mining_station)
 "Jq" = (
 /obj/effect/floor_decal/asteroid,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "Jv" = (
 /obj/item/stack/rods{
@@ -1062,28 +1669,45 @@
 /turf/template_noop,
 /area/space)
 "Jw" = (
-/obj/structure/table/reinforced/wood,
+/obj/structure/table/standard,
 /obj/item/trash/plate,
 /obj/item/device/flashlight,
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "JD" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/steel,
 /obj/item/storage/box/fancy/cigarettes/cigar,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "Kf" = (
 /obj/item/ore,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
 "Kq" = (
-/obj/structure/table/reinforced/wood,
+/obj/structure/table/standard,
 /obj/item/pizzabox/meat,
 /obj/item/pickaxe/drill,
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
+"Kt" = (
+/obj/effect/decal/cleanable/blood/tracks/footprints,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
 "Kx" = (
-/obj/structure/sink/kitchen,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"KH" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"KL" = (
+/obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"KQ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "KS" = (
@@ -1101,7 +1725,21 @@
 "Lm" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/reagent_containers/food/snacks/chips,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
+"Lq" = (
+/obj/effect/decal/cleanable/blood/oil{
+	icon_state = "gib4"
+	},
+/obj/random/medical{
+	pixel_y = 6
+	},
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "Lv" = (
 /obj/machinery/vending/cigarette,
@@ -1135,7 +1773,10 @@
 "Mh" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/trash/can,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "Ms" = (
 /obj/item/material/stool/chair/folding,
@@ -1158,25 +1799,44 @@
 /area/overgrown_mining_station)
 "MP" = (
 /obj/structure/closet/secure_closet/kitchen_cabinet/standard,
+/obj/effect/floor_decal/corner/grey/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"MS" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/airless,
 /area/overgrown_mining_station)
 "MW" = (
 /obj/item/ore/glass,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
 "Nb" = (
 /obj/item/device/flashlight,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
+"Nh" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "Nk" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/steel,
 /obj/effect/decal/cleanable/ash,
+/obj/item/flora/pottedplant_small/rose,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "Nt" = (
 /obj/effect/floor_decal/asteroid_dug,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
+"NV" = (
+/obj/item/material/shard/wood,
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
 "NX" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/trash_pile,
@@ -1185,9 +1845,14 @@
 "NY" = (
 /obj/item/ore/uranium,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
+"Oi" = (
+/obj/item/trash/uselessplastic,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
 "Ol" = (
-/obj/structure/table/steel,
+/obj/structure/table/reinforced/steel,
 /obj/item/pickaxe,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
@@ -1199,10 +1864,15 @@
 "OF" = (
 /obj/effect/floor_decal/asteroid,
 /turf/simulated/floor/tiled/asteroid/airless,
-/area/space)
+/area/overgrown_mining_station)
 "OS" = (
 /obj/structure/bed/stool/bar,
 /turf/simulated/floor/tiled/rust/airless,
+/area/overgrown_mining_station)
+"Pa" = (
+/obj/item/trash/can,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "Pb" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -1210,7 +1880,7 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "Pj" = (
-/obj/structure/table/steel,
+/obj/structure/table/reinforced/steel,
 /obj/item/coin/phoron,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
@@ -1218,21 +1888,50 @@
 /obj/machinery/vending/boozeomat/merchant,
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
+"Pp" = (
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "Pu" = (
 /obj/machinery/door/blast/regular/open,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
+"Pw" = (
+/obj/machinery/floodlight,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/material/shard/wood,
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
 "Px" = (
 /obj/structure/crystal,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
+"PF" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "PP" = (
-/obj/structure/table/reinforced/wood,
+/obj/structure/table/standard,
 /obj/item/rig/industrial/equipped,
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
+"Qb" = (
+/obj/item/tape_roll,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
+"Qj" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
 "Qm" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/steel,
 /obj/item/gun/custom_ka/frame03/prebuilt/shaft_miner,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
@@ -1253,33 +1952,64 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "QV" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/phoroncandy,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "Rd" = (
 /obj/item/stack/cable_coil/green{
 	icon_state = "coil2"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "Rf" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/stone/marble,
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/structure/window{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/grey/full,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "Rg" = (
 /obj/structure/table/rack,
 /obj/item/soap/deluxe,
 /obj/item/soap/deluxe,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "Rj" = (
 /mob/living/simple_animal/carp/baby,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
+"Rs" = (
+/obj/item/pickaxe/drill,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
+"Rv" = (
+/obj/machinery/vending/engineering{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
 "RC" = (
 /turf/simulated/floor/tiled/asteroid/airless,
-/area/space)
+/area/overgrown_mining_station)
+"RJ" = (
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "RS" = (
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona/airless,
@@ -1288,9 +2018,30 @@
 /obj/machinery/constructable_frame/temp_deco,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"Sf" = (
+/obj/structure/platform,
+/obj/structure/filingcabinet/chestdrawer,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/overgrown_mining_station)
+"Sh" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"St" = (
+/obj/effect/decal/cleanable/floor_damage/tiled_broken3,
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"SX" = (
+/obj/machinery/floodlight,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
 "SZ" = (
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
 "Tc" = (
 /obj/item/wrench,
 /turf/simulated/floor/tiled/airless,
@@ -1299,11 +2050,12 @@
 /obj/item/stack/cable_coil/cyan{
 	icon_state = "coil2"
 	},
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/structure/flora/pottedplant/orientaltree,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "TE" = (
-/obj/structure/table/reinforced/wood,
-/obj/item/trash/stew,
+/obj/random/junk,
 /turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "TK" = (
@@ -1311,18 +2063,19 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "TO" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/steel,
 /obj/item/pickaxe,
 /turf/simulated/floor/tiled/asteroid/airless,
-/area/space)
+/area/overgrown_mining_station)
 "TR" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/steel,
 /obj/item/gun/energy/xray/xenoarch,
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)
 "TU" = (
 /obj/structure/grille/broken,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "Ub" = (
 /obj/structure/ore_box,
@@ -1334,26 +2087,57 @@
 	},
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"Uu" = (
+/obj/structure/platform,
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/overgrown_mining_station)
+"UA" = (
+/obj/structure/sink{
+	pixel_y = 21
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "UE" = (
 /obj/machinery/door/airlock/external{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/blood/tracks/footprints,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "UI" = (
 /obj/item/pickaxe,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"UT" = (
+/obj/item/material/shard/shrapnel,
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "UZ" = (
 /obj/item/pickaxe/drill,
 /turf/unsimulated/floor/asteroid/ash,
-/area/space)
+/area/overgrown_mining_station)
+"Vj" = (
+/obj/structure/bed,
+/obj/item/bedsheet/dorms,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/structure/sign/poster{
+	pixel_y = 32
+	},
+/turf/simulated/floor/wood/airless,
+/area/overgrown_mining_station)
 "Vn" = (
+/obj/item/trash/broken_electronics,
+/obj/structure/platform,
 /obj/machinery/constructable_frame/temp_deco{
 	icon_state = "box_1"
 	},
-/obj/item/trash/broken_electronics,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/overgrown_mining_station)
 "Vs" = (
 /obj/item/trash/plate,
@@ -1361,7 +2145,7 @@
 /area/overgrown_mining_station)
 "Vt" = (
 /obj/structure/inflatable,
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
 "VA" = (
@@ -1369,21 +2153,31 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "VC" = (
-/obj/structure/table/reinforced,
 /obj/item/custom_ka_upgrade/barrels/supermatter,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
-"Ws" = (
-/obj/structure/table/reinforced,
+"Wd" = (
 /obj/item/trash/cigbutt/roll,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"Wn" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"Ws" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "WC" = (
 /obj/random/pottedplant,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "WN" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/flask,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
@@ -1391,6 +2185,13 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"Xe" = (
+/obj/structure/platform,
+/obj/machinery/constructable_frame/temp_deco{
+	icon_state = "box_1"
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/overgrown_mining_station)
 "Xs" = (
 /obj/machinery/constructable_frame/temp_deco{
@@ -1403,43 +2204,107 @@
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "XB" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/steel,
 /obj/item/stack/cable_coil/green,
+/turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"XC" = (
+/obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
 "XE" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/airless,
 /area/overgrown_mining_station)
+"XL" = (
+/obj/structure/platform{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/overgrown_mining_station)
+"XT" = (
+/obj/effect/floor_decal/corner_wide/lime/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "XY" = (
 /obj/item/ore/glass,
-/turf/simulated/floor/tiled/airless,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"Yb" = (
+/obj/item/trash/plate,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/rust/airless,
 /area/overgrown_mining_station)
 "Yh" = (
-/obj/structure/bed,
-/obj/structure/curtain/black,
-/turf/simulated/floor/tiled/airless,
+/obj/structure/bed/stool/chair/sofa/black{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "Yi" = (
 /obj/item/ore/gold,
 /turf/template_noop,
 /area/space)
+"Yl" = (
+/obj/machinery/door/airlock{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "Ym" = (
 /obj/structure/bed/stool/chair/folding,
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/machinery/door/window{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"Yp" = (
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/obj/item/ore/glass,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "Yv" = (
 /obj/item/trash/cigbutt/roll,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
+"YF" = (
+/obj/item/trash/cigbutt/roll,
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "YJ" = (
 /obj/machinery/crystal,
 /turf/simulated/floor/diona/airless,
 /area/overgrown_mining_station)
+"YO" = (
+/obj/effect/floor_decal/corner_wide/lime/full,
+/turf/simulated/floor/tiled/white/airless,
+/area/overgrown_mining_station)
 "YW" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/floodlight,
 /turf/simulated/floor/tiled/airless,
+/area/overgrown_mining_station)
+"Zk" = (
+/obj/item/material/shard,
+/obj/effect/floor_decal/corner_wide/lime/diagonal,
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "Zo" = (
 /obj/item/deployable_kit/surgery_table,
@@ -1456,11 +2321,14 @@
 /area/overgrown_mining_station)
 "ZP" = (
 /obj/item/gun/custom_ka/frame04,
-/turf/simulated/floor/tiled/airless,
+/obj/structure/platform_stairs{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
 /area/overgrown_mining_station)
 "ZT" = (
 /obj/structure/curtain/black,
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/wood/airless,
 /area/overgrown_mining_station)
 "ZY" = (
 /obj/machinery/mineral/equipment_vendor,
@@ -1468,8 +2336,11 @@
 /area/overgrown_mining_station)
 "ZZ" = (
 /obj/item/surgery/scalpel/manager,
-/obj/structure/table/reinforced,
-/turf/simulated/floor/tiled/airless,
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner_wide/lime{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 
 (1,1,1) = {"
@@ -22133,9 +23004,9 @@ SZ
 SZ
 SZ
 SZ
-oj
-oj
-eK
+Eh
+Eh
+wv
 SZ
 IG
 IG
@@ -22391,8 +23262,8 @@ gV
 SZ
 SZ
 SZ
-qQ
-eK
+RS
+wv
 SZ
 SZ
 SZ
@@ -22649,7 +23520,7 @@ SZ
 SZ
 SZ
 SZ
-oj
+Eh
 SZ
 SZ
 SZ
@@ -22899,7 +23770,7 @@ SZ
 IG
 SZ
 SZ
-eK
+wv
 SZ
 SZ
 SZ
@@ -23155,8 +24026,8 @@ gV
 sQ
 IG
 SZ
-eK
-qQ
+wv
+RS
 SZ
 SZ
 SZ
@@ -23413,7 +24284,7 @@ SZ
 SZ
 SZ
 SZ
-oj
+Eh
 SZ
 SZ
 SZ
@@ -24231,7 +25102,7 @@ SZ
 SZ
 IG
 IG
-ls
+AJ
 IG
 Hf
 Hf
@@ -24429,11 +25300,11 @@ SZ
 IG
 IG
 IG
-oj
-oj
-oj
-oj
-oj
+Eh
+Eh
+Eh
+Eh
+Eh
 IG
 IG
 Hf
@@ -24686,11 +25557,11 @@ Dw
 IG
 IG
 IG
-oj
-qQ
-eK
-eK
-oj
+Eh
+RS
+wv
+wv
+Eh
 IG
 IG
 IG
@@ -24943,15 +25814,15 @@ SZ
 IG
 IG
 IG
-oj
-eK
-eK
-eK
-oj
-oj
-oj
-oj
-oj
+Eh
+wv
+wv
+wv
+Eh
+Eh
+Eh
+Eh
+Eh
 SZ
 IG
 IG
@@ -25200,17 +26071,17 @@ SZ
 IG
 IG
 IG
-oj
-eK
-eK
-eK
-eK
-eK
-oj
-oj
+Eh
+wv
+wv
+wv
+wv
+wv
+Eh
+Eh
 SZ
 dF
-oj
+Eh
 IG
 IG
 IG
@@ -25457,17 +26328,17 @@ SZ
 SZ
 SZ
 IG
-oj
-eK
-eK
-qQ
-eK
+Eh
+wv
+wv
+RS
+wv
 IO
-eK
-eK
-eK
-eK
-oj
+wv
+wv
+wv
+wv
+Eh
 IG
 IG
 IG
@@ -25714,18 +26585,18 @@ SZ
 SZ
 SZ
 IG
-oj
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-oj
-oj
+Eh
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+Eh
+Eh
 SZ
 SZ
 SZ
@@ -25972,19 +26843,19 @@ SZ
 SZ
 IG
 IG
-oj
-oj
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-qQ
+Eh
+Eh
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+RS
 SZ
-oj
+Eh
 IG
 SZ
 SZ
@@ -26230,18 +27101,18 @@ SZ
 IG
 IG
 IG
-oj
-eK
-qQ
-eK
-eK
-qQ
-eK
-eK
-eK
-eK
+Eh
+wv
+RS
+wv
+wv
+RS
+wv
+wv
+wv
+wv
 SZ
-oj
+Eh
 IG
 SZ
 Kf
@@ -26309,7 +27180,7 @@ SZ
 SZ
 SZ
 SZ
-ls
+AJ
 SZ
 gV
 gV
@@ -26487,18 +27358,18 @@ sQ
 IG
 IG
 IG
-oj
-oj
-eK
-eK
-eK
-eK
-eK
-oj
-eK
+Eh
+Eh
+wv
+wv
+wv
+wv
+wv
+Eh
+wv
 SZ
 SZ
-oj
+Eh
 IG
 SZ
 Hf
@@ -26745,17 +27616,17 @@ IG
 IG
 IG
 IG
-oj
-eK
-eK
-oj
-oj
-eK
-oj
-oj
-oj
-oj
-oj
+Eh
+wv
+wv
+Eh
+Eh
+wv
+Eh
+Eh
+Eh
+Eh
+Eh
 IG
 SZ
 Hf
@@ -27002,16 +27873,16 @@ IG
 IG
 IG
 IG
-oj
-oj
-eK
-eK
-eK
-eK
-eK
-oj
-oj
-oj
+Eh
+Eh
+wv
+wv
+wv
+wv
+wv
+Eh
+Eh
+Eh
 IG
 IG
 SZ
@@ -27258,17 +28129,17 @@ IG
 IG
 IG
 IG
-oj
-oj
+Eh
+Eh
 wU
-eK
-eK
-eK
-eK
-eK
-qQ
-oj
-oj
+wv
+wv
+wv
+wv
+wv
+RS
+Eh
+Eh
 SZ
 IG
 IG
@@ -27293,7 +28164,7 @@ SZ
 SZ
 SZ
 IG
-ls
+AJ
 SZ
 IG
 SZ
@@ -27515,17 +28386,17 @@ SZ
 IG
 IG
 IG
-oj
-eK
-oj
-eK
-eK
-qQ
-eK
+Eh
+wv
+Eh
+wv
+wv
+RS
+wv
 IG
-eK
-eK
-eK
+wv
+wv
+wv
 SZ
 IG
 IG
@@ -27772,18 +28643,18 @@ SZ
 SZ
 IG
 IG
-oj
+Eh
 oH
-eK
-oj
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-eK
+wv
+Eh
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+wv
 SZ
 SZ
 SZ
@@ -28028,18 +28899,18 @@ SZ
 SZ
 SZ
 IG
-oj
-eK
-qQ
-eK
-oj
-eK
-eK
-eK
-eK
-qQ
-eK
-eK
+Eh
+wv
+RS
+wv
+Eh
+wv
+wv
+wv
+wv
+RS
+wv
+wv
 SZ
 SZ
 SZ
@@ -28289,12 +29160,12 @@ SZ
 SZ
 SZ
 SZ
-oj
-eK
-oj
-oj
-eK
-eK
+Eh
+wv
+Eh
+Eh
+wv
+wv
 SZ
 Nt
 SZ
@@ -28530,14 +29401,14 @@ gV
 gV
 gV
 gV
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
 SZ
 SZ
 SZ
@@ -28546,11 +29417,11 @@ SZ
 SZ
 SZ
 SZ
-oj
+Eh
 SZ
-eK
-oj
-eK
+wv
+Eh
+wv
 SZ
 SZ
 SZ
@@ -28786,15 +29657,15 @@ gV
 gV
 gV
 gV
-ky
-ky
+yy
+yy
 xu
 Ix
 XB
 IJ
 xu
 xu
-ky
+yy
 SZ
 SZ
 SZ
@@ -28805,11 +29676,11 @@ SZ
 SZ
 SZ
 SZ
-eK
-oj
-eK
-eK
-eK
+wv
+Eh
+wv
+wv
+wv
 SZ
 SZ
 SZ
@@ -29041,32 +29912,32 @@ gV
 gV
 gV
 gV
-ky
-ky
-ky
+yy
+yy
+yy
 xu
 jm
 xu
-jm
-jm
+IT
+IT
+MS
 xu
-xu
-ky
+yy
 SZ
 ys
-hN
-hN
-hN
-hN
 SZ
 SZ
 SZ
 SZ
-qQ
-eK
-eK
-qQ
-eK
+SZ
+SZ
+SZ
+SZ
+RS
+wv
+wv
+RS
+wv
 SZ
 SZ
 SZ
@@ -29298,7 +30169,7 @@ gV
 gV
 gV
 gV
-ky
+yy
 Ix
 TR
 jm
@@ -29308,7 +30179,7 @@ jm
 xu
 xu
 xu
-ky
+yy
 SZ
 hN
 SZ
@@ -29555,17 +30426,17 @@ gV
 gV
 gV
 gV
-ky
+yy
 jm
 xu
 jm
-jm
+cA
 jm
 xu
 aK
 dq
 xu
-ky
+yy
 SZ
 HW
 SZ
@@ -29812,17 +30683,17 @@ gV
 gV
 gV
 gV
-ky
+yy
 jm
-jm
+IT
 jm
 xu
 jm
 QQ
-ky
-ky
-ky
-ky
+yy
+yy
+yy
+yy
 SZ
 SZ
 SZ
@@ -30069,7 +30940,7 @@ gV
 gV
 gV
 gV
-ky
+yy
 Fb
 jm
 jm
@@ -30084,36 +30955,36 @@ RC
 RC
 RC
 RC
+SZ
+RC
+RC
+RC
+RC
+SZ
+RC
+SZ
+SZ
+RC
+RC
+SZ
+RC
+SZ
+SZ
+SZ
 RC
 RC
 RC
 RC
 RC
+SZ
+RC
+SZ
+RC
+SZ
+SZ
 RC
 RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
+SZ
 RC
 IG
 IG
@@ -30135,7 +31006,7 @@ SZ
 IG
 IG
 SZ
-ls
+AJ
 IG
 IG
 IG
@@ -30326,52 +31197,52 @@ gV
 gV
 gV
 gV
-ky
+yy
 kW
 jm
-jm
+XC
 qm
-xu
-jm
+wA
+Kt
 UE
-xu
-xu
+wA
+wA
 fx
 RC
 RC
 RC
+SZ
+RC
+RC
+SZ
+RC
+SZ
+SZ
+RC
+SZ
+RC
+SZ
+RC
+RC
+SZ
 RC
 RC
 RC
 RC
 RC
+SZ
+RC
+RC
+SZ
 RC
 RC
 RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
-RC
+SZ
 AJ
 RC
+SZ
 RC
-RC
-RC
+SZ
 IG
 IG
 SZ
@@ -30583,16 +31454,16 @@ gV
 gV
 gV
 gV
-ky
+yy
 im
-jm
-jm
+IT
+kP
 jm
 xu
 xu
-ky
-ky
-ky
+yy
+yy
+yy
 Eh
 Je
 SZ
@@ -30840,7 +31711,7 @@ gV
 gV
 gV
 gV
-ky
+yy
 rl
 jm
 jm
@@ -30851,15 +31722,15 @@ xu
 RS
 Ep
 Eh
-oj
-eK
-eK
-eK
-eK
-eK
-qQ
+Eh
+wv
+wv
+wv
+wv
+wv
+RS
 tF
-eK
+wv
 SZ
 SZ
 SZ
@@ -30883,7 +31754,7 @@ SZ
 Kf
 SZ
 SZ
-RC
+SZ
 RC
 SZ
 IG
@@ -31097,27 +31968,27 @@ gV
 gV
 gV
 gV
-ky
+yy
 pf
-xu
+MS
 jm
-jm
+IT
 jm
 RW
-hS
+XE
 wv
 Ep
 Eh
-eK
-eK
-qQ
-eK
-eK
-oj
-oj
-eK
-eK
-qQ
+wv
+wv
+RS
+wv
+wv
+Eh
+Eh
+wv
+wv
+RS
 SZ
 IG
 IG
@@ -31354,7 +32225,7 @@ gV
 gV
 gV
 gV
-ky
+yy
 xu
 xu
 jm
@@ -31365,16 +32236,16 @@ xt
 wv
 wv
 Eh
-eK
-eK
-eK
-eK
-eK
-oj
-eK
+wv
+wv
+wv
+wv
+wv
+Eh
+wv
 ai
-eK
-eK
+wv
+wv
 SZ
 IG
 IG
@@ -31611,28 +32482,28 @@ gV
 gV
 gV
 gV
-ky
+yy
+MS
 xu
-xu
-xu
+MS
 RS
 xu
-jm
+IT
 Qm
 wv
 RS
 Eh
-eK
-eK
-eK
-oj
-oj
-oj
-oj
+wv
+wv
+wv
+Eh
+Eh
+Eh
+Eh
 ai
-eK
-eK
-eK
+wv
+wv
+wv
 IG
 IG
 IG
@@ -31655,7 +32526,7 @@ SZ
 SZ
 SZ
 RC
-RC
+SZ
 SZ
 SZ
 IG
@@ -31868,9 +32739,9 @@ gV
 gV
 gV
 gV
-ky
-ky
-ky
+yy
+yy
+yy
 kW
 xu
 xu
@@ -31879,17 +32750,17 @@ wv
 wv
 wv
 Eh
-qQ
-eK
-eK
-qQ
-oj
-oj
-oj
-eK
-qQ
-eK
-eK
+RS
+wv
+wv
+RS
+Eh
+Eh
+Eh
+wv
+RS
+wv
+wv
 IG
 IG
 IG
@@ -31911,7 +32782,7 @@ IG
 IG
 SZ
 SZ
-RC
+SZ
 RC
 SZ
 SZ
@@ -32127,8 +32998,8 @@ gV
 gV
 SZ
 SZ
-ky
-xu
+yy
+MS
 xu
 Xs
 wv
@@ -32136,23 +33007,23 @@ RS
 wv
 wv
 Eh
-eK
-eK
-eK
-eK
-eK
-oj
-oj
-oj
-eK
-oj
-eK
-eK
-qQ
-eK
+wv
+wv
+wv
+wv
+wv
+Eh
+Eh
+Eh
+wv
+Eh
+wv
+wv
+RS
+wv
 tF
-eK
-eK
+wv
+wv
 SZ
 SZ
 IG
@@ -32384,41 +33255,41 @@ gV
 gV
 SZ
 SZ
-ky
-ky
-ky
-ky
+yy
+yy
+yy
+yy
 wv
-ky
+yy
 Eh
 Eh
 Eh
-eK
-eK
-eK
-eK
-eK
-oj
-oj
-oj
-eK
-oj
-eK
-eK
-oj
-oj
+wv
+wv
+wv
+wv
+wv
+Eh
+Eh
+Eh
+wv
+Eh
+wv
+wv
+Eh
+Eh
 IG
-qQ
-eK
-eK
-qQ
+RS
+wv
+wv
+RS
 IG
 IG
 IG
 SZ
 SZ
-eK
-eK
+wv
+wv
 IG
 IG
 IG
@@ -32426,7 +33297,7 @@ IG
 SZ
 SZ
 RC
-RC
+SZ
 SZ
 SZ
 IG
@@ -32642,46 +33513,46 @@ gV
 SZ
 SZ
 SZ
-eK
-eK
-eK
-eK
-qQ
-eK
-eK
-eK
-eK
-eK
+wv
+wv
+wv
+wv
+RS
+wv
+wv
+wv
+wv
+wv
 tF
-eK
+wv
 IG
-oj
-oj
-oj
-qQ
-eK
-eK
-oj
-oj
-oj
+Eh
+Eh
+Eh
+RS
+wv
+wv
+Eh
+Eh
+Eh
 IG
-eK
-eK
-eK
-eK
+wv
+wv
+wv
+wv
 IG
 IG
 IG
-eK
-eK
-eK
-eK
-qQ
-oj
-eK
-eK
-eK
-eK
+wv
+wv
+wv
+wv
+RS
+Eh
+wv
+wv
+wv
+wv
 RC
 RC
 SZ
@@ -32899,45 +33770,45 @@ gV
 SZ
 SZ
 SZ
-eK
-oj
-oj
-oj
-oj
-oj
-eK
-eK
-eK
-qQ
-oj
-oj
-oj
-oj
-oj
-oj
-eK
-eK
-eK
-oj
-oj
-oj
-eK
-eK
-oj
-eK
-eK
-eK
-qQ
-eK
-eK
-eK
-qQ
-eK
-oj
-oj
+wv
+Eh
+Eh
+Eh
+Eh
+Eh
+wv
+wv
+wv
+RS
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+wv
+wv
+wv
+Eh
+Eh
+Eh
+wv
+wv
+Eh
+wv
+wv
+wv
+RS
+wv
+wv
+wv
+RS
+wv
+Eh
+Eh
 IG
 IG
-eK
+wv
 Ga
 RC
 RC
@@ -33156,46 +34027,46 @@ gV
 SZ
 SZ
 SZ
-qQ
-oj
-eK
-eK
-eK
+RS
+Eh
+wv
+wv
+wv
 ai
-eK
-eK
-oj
-eK
-oj
-oj
-oj
-oj
-oj
-eK
-eK
-qQ
-eK
-eK
-qQ
-oj
-oj
-oj
-oj
-eK
-eK
+wv
+wv
+Eh
+wv
+Eh
+Eh
+Eh
+Eh
+Eh
+wv
+wv
+RS
+wv
+wv
+RS
+Eh
+Eh
+Eh
+Eh
+wv
+wv
 tF
-eK
-eK
-eK
-eK
-eK
-oj
-oj
+wv
+wv
+wv
+wv
+wv
+Eh
+Eh
 IG
-eK
+wv
 IG
 IG
-qQ
+RS
 RC
 RC
 SZ
@@ -33413,47 +34284,47 @@ gV
 SZ
 SZ
 SZ
-eK
-oj
-oj
-eK
-eK
-qQ
-eK
+wv
+Eh
+Eh
+wv
+wv
+RS
+wv
 IG
-oj
-oj
-oj
-oj
+Eh
+Eh
+Eh
+Eh
 IG
-eK
-eK
-eK
-eK
-eK
-oj
-oj
-oj
-oj
-oj
-eK
-eK
-qQ
-eK
-eK
-eK
-eK
-eK
-oj
-oj
-oj
-oj
-eK
-eK
+wv
+wv
+wv
+wv
+wv
+Eh
+Eh
+Eh
+Eh
+Eh
+wv
+wv
+RS
+wv
+wv
+wv
+wv
+wv
+Eh
+Eh
+Eh
+Eh
+wv
+wv
 IG
 IG
-eK
-RC
+wv
+SZ
 RC
 SZ
 SZ
@@ -33670,46 +34541,46 @@ gV
 SZ
 SZ
 SZ
-eK
-eK
-oj
-eK
-eK
-eK
-eK
-eK
-oj
-oj
-oj
-eK
-qQ
-eK
-oj
-oj
-oj
-oj
-oj
-oj
-oj
-oj
+wv
+wv
+Eh
+wv
+wv
+wv
+wv
+wv
+Eh
+Eh
+Eh
+wv
+RS
+wv
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
 IG
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-qQ
-eK
-oj
-oj
-eK
-eK
-qQ
-eK
-eK
-eK
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+RS
+wv
+Eh
+Eh
+wv
+wv
+RS
+wv
+wv
+wv
 RC
 RC
 SZ
@@ -33927,48 +34798,48 @@ gV
 gV
 gV
 SZ
-eK
-eK
-oj
-oj
-oj
-eK
-eK
-eK
-oj
-eK
-oj
-oj
-oj
-oj
-oj
-oj
-oj
-oj
+wv
+wv
+Eh
+Eh
+Eh
+wv
+wv
+wv
+Eh
+wv
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
 IG
 IG
-eK
-eK
-eK
-eK
-eK
-eK
-oj
-oj
-eK
-eK
-eK
-eK
-oj
-oj
-eK
-eK
-eK
-eK
-eK
+wv
+wv
+wv
+wv
+wv
+wv
+Eh
+Eh
+wv
+wv
+wv
+wv
+Eh
+Eh
+wv
+wv
+wv
+wv
+wv
 SZ
-RC
-RC
+SZ
+SZ
 SZ
 IG
 IG
@@ -34185,43 +35056,43 @@ gV
 gV
 SZ
 SZ
-eK
-qQ
-eK
-oj
-eK
-qQ
-eK
-oj
-eK
-oj
-oj
-oj
-oj
-oj
-oj
-oj
-oj
+wv
+RS
+wv
+Eh
+wv
+RS
+wv
+Eh
+wv
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
 IG
 IG
-eK
-eK
-oj
-oj
-eK
-eK
-oj
-eK
-eK
-qQ
-eK
-eK
-oj
-oj
-eK
-eK
-eK
-eK
+wv
+wv
+Eh
+Eh
+wv
+wv
+Eh
+wv
+wv
+RS
+wv
+wv
+Eh
+Eh
+wv
+wv
+wv
+wv
 IG
 SZ
 RC
@@ -34442,46 +35313,46 @@ gV
 gV
 gV
 gV
-eK
-eK
+wv
+wv
 gV
-oj
-eK
-eK
-eK
-eK
-eK
+Eh
+wv
+wv
+wv
+wv
+wv
 AC
-oj
-oj
-oj
-oj
-qQ
+Eh
+Eh
+Eh
+Eh
+RS
 Hf
 IG
-qQ
-eK
-eK
-eK
+RS
+wv
+wv
+wv
 AT
-eK
-eK
-eK
-oj
-eK
-eK
-eK
-eK
-oj
-eK
-eK
-eK
-qQ
-eK
+wv
+wv
+wv
+Eh
+wv
+wv
+wv
+wv
+Eh
+wv
+wv
+wv
+RS
+wv
 IG
 SZ
 SZ
-RC
+SZ
 RC
 SZ
 SZ
@@ -34702,43 +35573,43 @@ gV
 gV
 gV
 gV
-oj
-eK
-eK
-eK
-oj
-eK
-eK
-qQ
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-oj
-eK
-eK
-eK
-oj
-oj
-eK
-eK
-eK
-eK
-oj
-oj
+Eh
+wv
+wv
+wv
+Eh
+wv
+wv
+RS
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+Eh
+wv
+wv
+wv
+Eh
+Eh
+wv
+wv
+wv
+wv
+Eh
+Eh
 Hf
-eK
+wv
 IG
 IG
 SZ
 SZ
-RC
+SZ
 RC
 SZ
 SZ
@@ -34959,44 +35830,44 @@ gV
 gV
 gV
 gV
-oj
-qQ
-oj
-oj
-qQ
-eK
-eK
-eK
-eK
-eK
-eK
+Eh
+RS
+Eh
+Eh
+RS
+wv
+wv
+wv
+wv
+wv
+wv
 oH
-eK
-eK
-eK
+wv
+wv
+wv
 IG
-eK
+wv
 IG
-oj
-oj
-eK
+Eh
+Eh
+wv
 AT
-eK
-oj
-eK
-eK
-oj
-oj
-oj
-oj
+wv
+Eh
+wv
+wv
+Eh
+Eh
+Eh
+Eh
 Hf
-eK
+wv
 IG
 SZ
 SZ
 Im
 RC
-RC
+SZ
 SZ
 SZ
 SZ
@@ -35035,7 +35906,7 @@ IG
 IG
 SZ
 sQ
-SZ
+ef
 IG
 SZ
 SZ
@@ -35215,38 +36086,38 @@ gV
 gV
 gV
 gV
-oj
-oj
-eK
-oj
-oj
-eK
-eK
-oj
-oj
-oj
-oj
-qQ
-eK
+Eh
+Eh
+wv
+Eh
+Eh
+wv
+wv
+Eh
+Eh
+Eh
+Eh
+RS
+wv
 Hf
-oj
-eK
-eK
-oj
+Eh
+wv
+wv
+Eh
 IG
-oj
-oj
-eK
-eK
-eK
-eK
-oj
-oj
-oj
-oj
-oj
-oj
-eK
+Eh
+Eh
+wv
+wv
+wv
+wv
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+wv
 SZ
 SZ
 SZ
@@ -35293,8 +36164,8 @@ IG
 SZ
 SZ
 mw
-RC
-RC
+xV
+SZ
 OF
 TO
 SZ
@@ -35472,44 +36343,44 @@ gV
 gV
 gV
 gV
-oj
-eK
-eK
-eK
-eK
-eK
-eK
-oj
-oj
+Eh
+wv
+wv
+wv
+wv
+wv
+wv
+Eh
+Eh
 IG
-oj
-oj
+Eh
+Eh
 IG
-oj
-oj
-qQ
-eK
-oj
-oj
-oj
-oj
+Eh
+Eh
+RS
+wv
+Eh
+Eh
+Eh
+Eh
 Hf
-eK
-eK
-qQ
-eK
-eK
-eK
-eK
-oj
-oj
-eK
-qQ
+wv
+wv
+RS
+wv
+wv
+wv
+wv
+Eh
+Eh
+wv
+RS
 SZ
 SZ
 SZ
 SZ
-RC
+SZ
 RC
 SZ
 SZ
@@ -35551,9 +36422,9 @@ SZ
 Hf
 mw
 RC
-RC
-RC
-ra
+SZ
+fH
+it
 SZ
 IG
 SZ
@@ -35728,38 +36599,38 @@ gV
 gV
 gV
 gV
-oj
-oj
-eK
-eK
-oj
-oj
-eK
-oj
-oj
-oj
-eK
-eK
+Eh
+Eh
+wv
+wv
+Eh
+Eh
+wv
+Eh
+Eh
+Eh
+wv
+wv
 IG
 IG
-oj
-oj
-oj
-eK
-oj
-oj
-qQ
-eK
-eK
-eK
-eK
-oj
-eK
-eK
-qQ
-eK
-eK
-qQ
+Eh
+Eh
+Eh
+wv
+Eh
+Eh
+RS
+wv
+wv
+wv
+wv
+Eh
+wv
+wv
+RS
+wv
+wv
+RS
 SZ
 SZ
 SZ
@@ -35806,11 +36677,11 @@ SZ
 SZ
 SZ
 SZ
+SZ
 RC
 RC
 RC
 RC
-ra
 SZ
 IG
 SZ
@@ -35984,49 +36855,49 @@ gV
 gV
 gV
 gV
-qQ
-oj
-eK
-eK
-eK
-eK
-eK
-eK
-qQ
-eK
+RS
+Eh
+wv
+wv
+wv
+wv
+wv
+wv
+RS
+wv
 oH
-eK
-eK
+wv
+wv
 dt
-qQ
-eK
-eK
-eK
-eK
-oj
-oj
-eK
-eK
-eK
-eK
-eK
-oj
-oj
-eK
-eK
-eK
-eK
-eK
-eK
+RS
+wv
+wv
+wv
+wv
+Eh
+Eh
+wv
+wv
+wv
+wv
+wv
+Eh
+Eh
+wv
+wv
+wv
+wv
+wv
+wv
 SZ
 SZ
 SZ
-ky
+yy
 KS
-aa
-ab
+ac
+ac
 KS
-ky
+yy
 SZ
 IG
 IG
@@ -36065,7 +36936,7 @@ SZ
 Kf
 nP
 nP
-RC
+sP
 CP
 ra
 IG
@@ -36241,40 +37112,40 @@ gV
 gV
 gV
 gV
-eK
-oj
-eK
-qQ
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-eK
+wv
+Eh
+wv
+RS
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+wv
 dt
-eK
-oj
-oj
-oj
-oj
-oj
-oj
-eK
-eK
-qQ
-eK
-eK
-oj
-eK
-eK
-oj
-oj
-oj
-eK
-eK
+wv
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+wv
+wv
+RS
+wv
+wv
+Eh
+wv
+wv
+Eh
+Eh
+Eh
+wv
+wv
 SZ
 SZ
 SZ
@@ -36499,40 +37370,40 @@ gV
 gV
 gV
 gV
-oj
-eK
-eK
-eK
-eK
-qQ
-eK
-eK
-eK
-oj
-eK
-eK
-eK
-eK
-eK
-oj
-oj
-oj
-oj
-oj
-oj
-oj
-oj
-eK
-eK
-qQ
-eK
-eK
-oj
-oj
-oj
-oj
-eK
-eK
+Eh
+wv
+wv
+wv
+wv
+RS
+wv
+wv
+wv
+Eh
+wv
+wv
+wv
+wv
+wv
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+wv
+wv
+RS
+wv
+wv
+Eh
+Eh
+Eh
+Eh
+wv
+wv
 SZ
 SZ
 KS
@@ -36575,7 +37446,7 @@ SZ
 gV
 gV
 SZ
-SZ
+ax
 SZ
 SZ
 SZ
@@ -36766,30 +37637,30 @@ Eh
 Eh
 Eh
 Eh
-eK
-eK
-qQ
-eK
-eK
-oj
-oj
-eK
-qQ
-oj
-oj
-oj
-oj
-eK
-oj
-oj
-oj
-oj
-oj
-oj
-oj
-oj
-qQ
-eK
+wv
+wv
+RS
+wv
+wv
+Eh
+Eh
+wv
+RS
+Eh
+Eh
+Eh
+Eh
+wv
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+RS
+wv
 SZ
 SZ
 KS
@@ -37023,38 +37894,38 @@ wv
 Eh
 wv
 Eh
-eK
-eK
-eK
-eK
-eK
-oj
-oj
-eK
-eK
-oj
-oj
-oj
-oj
-eK
-oj
-eK
-oj
-eK
-eK
-eK
-oj
-oj
-oj
-eK
-eK
+wv
+wv
+wv
+wv
+wv
+Eh
+Eh
+wv
+wv
+Eh
+Eh
+Eh
+Eh
+wv
+Eh
+wv
+Eh
+wv
+wv
+wv
+Eh
+Eh
+Eh
+wv
+wv
 SZ
-ky
-ky
+yy
+yy
 ac
-ad
-ky
-ky
+ac
+yy
+yy
 SZ
 SZ
 SZ
@@ -37280,37 +38151,37 @@ RS
 wv
 wv
 Eh
-eK
-eK
-eK
-eK
-eK
-qQ
-oj
-oj
-eK
-eK
-eK
-qQ
-oj
-eK
-eK
-eK
-eK
-eK
-qQ
-eK
+wv
+wv
+wv
+wv
+wv
+RS
+Eh
+Eh
+wv
+wv
+wv
+RS
+Eh
+wv
+wv
+wv
+wv
+wv
+RS
+wv
 wN
-oj
-oj
+Eh
+Eh
 AC
-eK
-eK
+wv
+wv
 SZ
-ky
+yy
 jm
 jm
-ky
+yy
 SZ
 SZ
 SZ
@@ -37542,27 +38413,27 @@ wv
 wv
 Eh
 Eh
-oj
-oj
-oj
-oj
+Eh
+Eh
+Eh
+Eh
 IG
-eK
-oj
-oj
-qQ
-eK
-oj
-qQ
-oj
-eK
-eK
-eK
-oj
-oj
-eK
-qQ
-eK
+wv
+Eh
+Eh
+RS
+wv
+Eh
+RS
+Eh
+wv
+wv
+wv
+Eh
+Eh
+wv
+RS
+wv
 SZ
 KS
 jm
@@ -37799,27 +38670,27 @@ wv
 RS
 sz
 Eh
-qQ
-eK
-eK
-oj
-oj
-eK
-oj
-oj
-eK
-eK
-oj
-oj
-oj
-oj
-eK
-eK
-oj
-oj
-eK
-eK
-eK
+RS
+wv
+wv
+Eh
+Eh
+wv
+Eh
+Eh
+wv
+wv
+Eh
+Eh
+Eh
+Eh
+wv
+wv
+Eh
+Eh
+wv
+wv
+wv
 SZ
 KS
 jm
@@ -38056,27 +38927,27 @@ wv
 db
 wv
 Eh
-oj
-eK
-eK
-eK
-eK
-eK
-oj
-oj
-eK
-eK
-oj
-oj
-eK
-eK
-eK
-qQ
-oj
-oj
-eK
+Eh
+wv
+wv
+wv
+wv
+wv
+Eh
+Eh
+wv
+wv
+Eh
+Eh
+wv
+wv
+wv
+RS
+Eh
+Eh
+wv
 tF
-eK
+wv
 SZ
 KS
 jm
@@ -38313,27 +39184,27 @@ wv
 gC
 wv
 Eh
-oj
-qQ
-eK
+Eh
+RS
+wv
 AC
-oj
-oj
-oj
-oj
-oj
-oj
-oj
-oj
-qQ
-eK
-eK
-eK
-oj
-oj
-eK
-qQ
-eK
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+RS
+wv
+wv
+wv
+Eh
+Eh
+wv
+RS
+wv
 SZ
 KS
 jm
@@ -38570,27 +39441,27 @@ RS
 hG
 wv
 Eh
-oj
-eK
-eK
-eK
-oj
-oj
-oj
-oj
-oj
-oj
-oj
-oj
-eK
-eK
-eK
-eK
-oj
-oj
-eK
-eK
-eK
+Eh
+wv
+wv
+wv
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+wv
+wv
+wv
+wv
+Eh
+Eh
+wv
+wv
+wv
 SZ
 KS
 yU
@@ -38827,27 +39698,27 @@ ch
 ZO
 wv
 Eh
-oj
-eK
-eK
-eK
-eK
+Eh
+wv
+wv
+wv
+wv
 md
-qQ
+RS
 wU
-eK
-eK
-qQ
-eK
-eK
-oj
-eK
-eK
-qQ
-eK
-eK
-eK
-eK
+wv
+wv
+RS
+wv
+wv
+Eh
+wv
+wv
+RS
+wv
+wv
+wv
+wv
 SZ
 KS
 jm
@@ -38861,7 +39732,7 @@ SZ
 SZ
 SZ
 gV
-SZ
+gV
 gV
 gV
 gV
@@ -39084,28 +39955,28 @@ wv
 wv
 wv
 Eh
-oj
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-oj
-eK
-eK
-eK
-eK
-eK
-eK
-eK
-eK
+Eh
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+Eh
+wv
+wv
+wv
+wv
+wv
+wv
+wv
+wv
 KS
 jm
 jm
@@ -39341,32 +40212,32 @@ wv
 wv
 RS
 Eh
-oj
-eK
-qQ
-eK
-eK
-eK
-eK
+Eh
+wv
+RS
+wv
+wv
+wv
+wv
 IG
-rC
+yy
 IG
 IG
 IG
-eK
-oj
-oj
-oj
-oj
-oj
-oj
-qQ
-eK
-eK
-ky
+wv
+Eh
+Eh
+Eh
+Eh
+Eh
+Eh
+RS
+wv
+wv
+yy
 xE
 jm
-ky
+yy
 SZ
 SZ
 SZ
@@ -39586,44 +40457,44 @@ gV
 LU
 Jh
 jm
-yY
+Qj
 DF
 qm
 AS
 RW
 jf
-hS
+KH
 Jd
 lm
 wv
 wv
 Eh
-oj
-eK
-rC
-rC
-rC
-eK
-eK
+Eh
+wv
+yy
+yy
+yy
+wv
+wv
 IG
-ky
-ky
-ky
-ky
-ky
+yy
+yy
+yy
+yy
+yy
 Eh
 Eh
 Eh
 Eh
 Eh
 Eh
-ky
-ky
+yy
+yy
 wv
 wv
 Bm
 jm
-ky
+yy
 IG
 SZ
 SZ
@@ -39840,30 +40711,30 @@ gV
 gV
 gV
 gV
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
 uO
 wv
 Eh
 wv
 wv
 wv
-eK
-eK
-eK
-eK
-eK
-ky
+wv
+wv
+wv
+wv
+wv
+yy
 kt
 wv
 wv
@@ -39880,7 +40751,7 @@ wv
 RS
 dV
 jm
-ky
+yy
 IG
 SZ
 SZ
@@ -40098,29 +40969,29 @@ gV
 gV
 gV
 gV
-ky
+yy
 gy
 jm
 Rd
 jG
 jm
-hS
+jm
 VC
-hS
+jm
 eZ
-ky
+yy
 RS
 xR
-ky
+yy
 Cf
 wv
 RS
 wv
 wv
 wv
-qQ
-eK
-ky
+RS
+wv
+yy
 RS
 wv
 EJ
@@ -40137,7 +41008,7 @@ jm
 jm
 jm
 jm
-ky
+yy
 IG
 IG
 IG
@@ -40355,7 +41226,7 @@ gV
 gV
 gV
 gV
-ky
+yy
 Do
 jm
 jm
@@ -40364,11 +41235,11 @@ jm
 jm
 jm
 yY
-hS
-ky
+KH
+yy
 jm
 jm
-ky
+yy
 wC
 jm
 wv
@@ -40377,24 +41248,24 @@ ha
 wv
 wv
 wv
-ky
+yy
 cx
 Vt
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
 AQ
-ky
+yy
 Lb
 Xd
 jm
-ky
+yy
 SZ
 SZ
 IG
@@ -40612,33 +41483,33 @@ gV
 gV
 gV
 gV
-ky
-ky
+yy
+yy
 fR
 jm
-yY
-jm
-mq
+ab
+Rv
+Oi
 EC
 jm
 cX
-ky
+yy
 jm
 AF
-ky
+yy
 jm
-jm
+IT
 oz
-jm
+IT
 Be
 FQ
 xo
 xo
-ky
+yy
 Uj
 jm
-ky
-Be
+yy
+EF
 jm
 jm
 jm
@@ -40648,10 +41519,10 @@ jm
 jm
 jm
 Xy
-ky
+yy
 or
 jm
-ky
+yy
 gV
 SZ
 IG
@@ -40870,16 +41741,16 @@ gV
 gV
 gV
 gV
-ky
+yy
 oq
 jm
 jm
 Tc
 jm
 jm
-jm
+IT
 Jh
-ky
+yy
 jm
 Dy
 Ei
@@ -40888,10 +41759,10 @@ jm
 WN
 tg
 tg
+IT
 jm
 jm
-jm
-ky
+yy
 Uj
 jm
 LU
@@ -40905,10 +41776,10 @@ qA
 Ol
 jm
 Xy
-ky
+yy
 tY
 jm
-ky
+yy
 SZ
 SZ
 SZ
@@ -41127,16 +41998,16 @@ gV
 gV
 gV
 gV
-ky
+yy
 hS
 jm
-dV
+bt
 jm
+BV
+IT
 jm
-jm
-jm
-Jh
-ky
+aj
+yy
 jm
 jm
 yy
@@ -41144,14 +42015,14 @@ Be
 jm
 Az
 Nk
-Ws
-hS
+gm
+oR
 IT
 jm
-ky
+yy
 jG
 jm
-ky
+yy
 jm
 RW
 qA
@@ -41162,10 +42033,10 @@ jm
 oD
 jm
 Ub
-ky
+yy
 or
 jm
-ky
+yy
 gV
 SZ
 SZ
@@ -41384,31 +42255,31 @@ gV
 gV
 gV
 gV
-ky
+yy
 jq
 jm
 jm
-ic
-jm
+ls
+sJ
 ZP
-jm
-jm
-ky
+CW
+XL
+yy
 jm
 jm
 xk
 jm
 jm
 jm
-jm
+al
 jm
 KW
 jm
 jm
-ky
-jm
-jm
-ky
+yy
+IT
+IT
+yy
 jm
 CU
 yY
@@ -41416,13 +42287,13 @@ jm
 Be
 jm
 jm
-gm
+Cu
 jm
 Ub
-ky
+yy
 or
 jm
-ky
+yy
 gV
 SZ
 SZ
@@ -41641,31 +42512,31 @@ gV
 gV
 gV
 gV
-ky
+yy
 bQ
 jm
-jm
-jm
+IT
+eK
 yw
-jm
-jm
+kI
+mf
 iK
-ky
+yy
 lX
 jm
-ky
-jm
-jm
+yy
+tx
 WC
 jm
 jm
+jm
+jH
 MC
-MC
 jm
-ky
+yy
 jm
-jm
-ky
+IT
+yy
 qA
 yp
 jm
@@ -41676,10 +42547,10 @@ oV
 xE
 jm
 xH
-ky
+yy
 tY
 jm
-ky
+yy
 gV
 SZ
 SZ
@@ -41898,31 +42769,31 @@ gV
 gV
 gV
 gV
-ky
-jm
+yy
+IT
 jm
 iY
-jm
-qm
-yY
-jm
-jm
+eK
+Xe
+Fg
+oj
+oj
 qK
 Uj
 jm
-ky
-tx
-hS
-ky
+yy
+yy
+yy
+Lb
 MO
 MO
 MO
 MO
-AQ
-ky
+vm
+yy
 dD
-jm
-ky
+IT
+yy
 jm
 yY
 Qn
@@ -41931,12 +42802,12 @@ jm
 jm
 UI
 jm
-jm
-XE
-ky
+KL
+KQ
+yy
 tY
 jm
-ky
+yy
 gV
 gV
 gV
@@ -42155,31 +43026,31 @@ gV
 gV
 gV
 gV
-ky
+yy
 QR
+IT
 jm
-jm
-jm
+un
 Vn
-Rd
-jm
+IM
+mf
 rK
-ky
+yy
 jm
 jm
-ky
-ky
-ky
-Lb
+Lv
+jZ
+zp
+kC
 WC
 LZ
 LZ
 LZ
-kk
-ky
 jm
+yy
 jm
-ky
+IT
+yy
 qi
 jm
 jm
@@ -42190,10 +43061,10 @@ jm
 jm
 jm
 ot
-ky
-ky
-ky
-ky
+yy
+yy
+yy
+yy
 gV
 gV
 gV
@@ -42412,31 +43283,31 @@ gV
 gV
 gV
 gV
-ky
+yy
 FV
 yY
 jm
-jm
-qi
-jm
-jm
-gj
-ky
-jm
-jm
-Lv
-jZ
-zp
-kC
+eK
+Sf
+oj
+oj
+fh
+yy
 jm
 jm
 jm
 jm
 jm
-ky
 jm
 jm
-ky
+IT
+jm
+jm
+jm
+yy
+jm
+jm
+yy
 qi
 ic
 jm
@@ -42445,9 +43316,9 @@ Xy
 Xy
 ZY
 Pj
-XE
-XE
-ky
+KH
+KH
+yy
 gV
 gV
 gV
@@ -42669,42 +43540,42 @@ gV
 gV
 gV
 gV
-ky
+yy
 Ax
 jm
-Dy
+lQ
+eK
+Uu
+oj
+mf
+oj
+af
 jm
 jm
 jm
 jm
 jm
-ae
 jm
 jm
 jm
 jm
-jm
-jm
-jm
-jm
-jm
-jm
+IT
 Xy
-ky
+yy
 jm
-yY
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
+ab
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
 gV
 gV
 gV
@@ -42925,32 +43796,32 @@ gV
 gV
 gV
 gV
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
 Dy
 jm
 jm
+IT
+IT
+IT
+jm
+IT
 jm
 jm
 jm
+yy
 jm
-jm
-jm
-jm
-jm
-ky
-jm
-jm
-ky
+IT
+yy
 aw
 Iy
 co
@@ -42959,9 +43830,9 @@ co
 OS
 jS
 co
+co
 Pm
 vB
-gV
 gV
 gV
 gV
@@ -43183,31 +44054,31 @@ gV
 gV
 gV
 vB
-jm
-jm
-jm
-jm
-qm
-jm
-jm
-jm
-jm
+XT
+vQ
+fM
+fM
+zi
+fM
+fM
+eb
+YO
 af
 jm
 jm
 mq
 jm
 jm
+IT
+ab
+IT
 jm
-yY
+IT
 jm
-jm
-jm
-jm
-ky
+yy
 yU
-jm
-BV
+IT
+yy
 pM
 co
 Ao
@@ -43216,9 +44087,9 @@ Ms
 OS
 pi
 co
-yK
+co
+go
 vB
-gV
 gV
 gV
 gV
@@ -43440,32 +44311,32 @@ gV
 gV
 gV
 vB
+ob
+Fq
+zS
+Fq
+Fq
+Yp
+Fq
+Fq
+RJ
+yy
 jm
 jm
-yY
-jm
-jm
-jm
-jm
-jm
-jm
-ky
-jm
-mf
 LM
-LM
+jm
 RW
 RW
 rl
 VA
 TK
+IT
+WC
+yy
 jm
-jm
-ky
-jm
-jm
-ky
-co
+IT
+yy
+BF
 co
 Kq
 Jw
@@ -43475,7 +44346,7 @@ PP
 co
 TE
 ky
-ky
+vB
 gV
 gV
 gV
@@ -43697,33 +44568,33 @@ gV
 gV
 gV
 vB
-dV
-jm
-jm
-jm
-jm
-jm
+YF
+Fq
+qN
+Zk
+Pp
+Wn
 lV
-hS
-jm
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
+Sh
+RJ
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
 AQ
-ky
+yy
 tu
 yY
 jm
-ag
-co
-Vs
+af
+aa
+Yb
 Ms
 co
 co
@@ -43953,32 +44824,32 @@ gV
 gV
 gV
 rV
-ky
-qi
+yy
+Nh
 gV
 LT
 gV
-Gy
-jm
-jm
+DA
+Fq
+Fq
 JD
-jm
-ky
+RJ
+yy
 iT
-ky
-iT
-ky
+yy
+am
+yy
 mt
-ky
+yy
 iT
-ky
+yy
 Zo
 jm
 jm
 Dy
 jm
 jm
-fN
+yy
 EU
 co
 co
@@ -43986,11 +44857,11 @@ co
 nv
 co
 HM
-xh
+mu
+aa
 co
-co
-ky
-ky
+yy
+yy
 gV
 gV
 gV
@@ -44215,32 +45086,32 @@ gV
 GV
 LT
 LT
-QR
-mq
-jm
+iH
+rA
+Fq
 rH
-jm
-ky
+RJ
+yy
 sR
-ky
+yy
 sR
-ky
+yy
 sR
-ky
+yy
 sR
-ky
+yy
 jm
 jm
 AF
 sF
 jm
 jm
-ky
+yy
 ia
 nV
-co
+aa
 xh
-co
+aa
 Vs
 aY
 co
@@ -44470,38 +45341,38 @@ gV
 gV
 gV
 gV
-yz
+yd
 gV
 qn
-TK
-jm
-jm
-jm
-ky
+Pa
+xu
+Fq
+RJ
+yy
+Kx
 fS
-fS
-fS
-fS
+Kx
+Kx
+Kx
+Kx
+Kx
+yy
 jm
 jm
-jm
-ky
-jm
-jm
-ky
-ky
+yy
+yy
 AQ
-ky
-ky
-ky
-ky
-ky
-ky
+yy
+yy
+yy
+yy
+yy
+yy
 AQ
-ky
-fN
+yy
+yy
 Au
-bV
+dn
 Ym
 Rf
 vB
@@ -44731,32 +45602,32 @@ uw
 gV
 gV
 EB
-jm
-jm
-jm
-ky
+Fq
+eO
+UT
+yy
+Kx
 fS
-jm
+Kx
 fS
-fS
+Kx
+Kx
+Kx
+yy
 jm
-jm
-jm
-ky
-jm
-jm
-ky
-jm
-jm
-jm
-jm
-Dy
+IT
+yy
+mK
+GU
+GU
+wJ
+ev
+qQ
 Yh
-Yh
-Yh
-jm
-ic
-ky
+ad
+lO
+Qb
+yy
 fj
 bV
 bV
@@ -44988,32 +45859,32 @@ gV
 Jv
 gV
 lf
-yU
-jm
-jm
-ky
-ky
+Lq
+Fq
+td
+yy
+yy
 ji
-ky
-ky
-WC
+yy
+yy
+AA
+fS
+Kx
+yy
 jm
-jm
-ky
-jm
-yY
-ky
-ky
-ky
+ab
+yy
+yy
+yy
 Lb
-jm
-jm
-Be
-jm
+fN
+Dc
+ag
+yK
 ov
-jm
-jm
-ky
+NV
+HU
+yy
 yc
 bV
 Yv
@@ -45244,36 +46115,36 @@ gV
 Yi
 gV
 GV
-jm
-jm
-jm
-jm
-ky
-jm
-jm
-jm
-ky
-jG
-jm
-jm
-ky
+Fq
+Pp
+Fq
+CH
+yy
+Kx
+Kx
+Kx
+yy
+ff
+fS
+Kx
+yy
 Xy
-jm
-IM
-In
-jm
-ky
-jm
-jm
-QR
-jm
-jm
-dV
-jm
-ky
+IT
+yy
+Vj
+wm
+yy
+mP
+yK
+Pw
+yK
+yK
+EV
+bO
+yy
 Db
 bV
-bV
+hA
 hi
 vB
 gV
@@ -45501,38 +46372,38 @@ LT
 gV
 gV
 gV
-jm
-jm
+Pp
+op
 lV
-jm
-ky
+RJ
+yy
 hv
-jm
+fS
 Rg
-tK
-jm
-jm
-mq
-ky
+yy
+bn
+fS
+ih
+yy
 jG
-jm
-ky
+IT
+yy
 Mh
-jm
+uU
 ZT
-jm
-jm
-dV
-jm
-jm
-Be
-jm
-ky
+fN
+yK
+EV
+tK
+cD
+ag
+HU
+yy
 zj
 bV
 ml
-ky
-ky
+yy
+yy
 gV
 gV
 gV
@@ -45759,36 +46630,36 @@ gV
 gV
 LT
 LT
-jm
-jm
-rl
-ky
+Hu
+Fq
+hZ
+yy
 Iu
-jm
-nk
-ky
 Kx
-jm
-jm
-ky
+nk
+yy
+UA
+Kx
+Kx
+yy
 oV
-jm
-ky
-ky
-ky
-ky
-jm
-gj
-EM
-jm
+IT
+yy
+yy
+yy
+yy
+fN
+pB
+Rs
+FF
 hp
-jm
-jm
-ky
-zj
-bV
+Af
+sw
+yy
+sa
+PF
 MP
-ky
+yy
 gV
 gV
 gV
@@ -46016,36 +46887,36 @@ Jq
 XY
 LT
 gV
-lf
-jm
-RW
-ky
+Bw
+Fq
+vY
+yy
 Iu
-jm
-jm
-ky
 Kx
-jm
-jm
-ky
+Kx
+yy
+yO
+Kx
+fS
+yy
 Uj
 jm
-ky
+yy
 hJ
-jm
-ky
-jm
-ky
-ky
+Ws
+yy
+fN
+yy
+yy
 ZT
-ky
-ky
+yy
+yy
 ZT
-ky
-Rf
-bV
-ky
-ky
+yy
+yy
+Yl
+yy
+yy
 gV
 gV
 gV
@@ -46268,40 +47139,40 @@ gV
 gV
 gV
 LT
-ky
-EB
-jm
-jm
+yy
+uK
+St
+Fq
 Ti
-jm
-jm
-jm
-ky
+Fq
+Fq
+RJ
+yy
 Iz
-jm
-jm
-ky
+tJ
 Kx
-jm
-jm
-ky
+yy
+UA
+Kx
+Kx
+yy
 xi
 jm
-ky
-hJ
-jm
+yy
+an
+rC
 ZT
-jm
-ky
+fN
+yy
 FC
-jm
-ky
+Ws
+yy
 Lm
-jm
-ky
+Ws
+yy
 Ih
 bV
-ky
+yy
 gV
 gV
 gV
@@ -46525,40 +47396,40 @@ gV
 gV
 gV
 gV
-ky
-yY
-jm
-dV
-jm
-jm
-jm
+yy
+xT
+Fq
+Wd
+Fq
+Pp
+Fq
 gj
-ky
-Iu
-jm
-jm
-ky
+yy
+tT
 Kx
-jm
-jm
+fS
+yy
+yO
+fS
+Kx
 ah
+IT
 jm
-jm
-ky
-ky
-ky
-ky
-jm
-ky
+yy
+yy
+yy
+yy
+ak
+yy
 In
-jm
-ky
+DE
+yy
 yF
 vU
-ky
-ky
-ky
-ky
+yy
+yy
+yy
+yy
 gV
 gV
 gV
@@ -46782,37 +47653,37 @@ gV
 gV
 gV
 gV
-ky
-Jh
-jG
-jG
-jm
+yy
+yr
+bG
+bG
+Ae
 ZZ
 Hn
-jm
-ky
-jm
-jm
-jm
-ky
+eW
+yy
 Kx
-jm
-jm
-ky
+Kx
+Kx
+yy
+Kx
+Kx
+Kx
+yy
 jm
 jm
 vB
 gV
 gV
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
 gV
 gV
 gV
@@ -47039,24 +47910,24 @@ gV
 gV
 gV
 gV
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ky
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+yy
 tu
-QR
+SX
 jm
 vB
 gV
@@ -47303,8 +48174,8 @@ gV
 gV
 gV
 gV
-ky
-jm
+yy
+IT
 jm
 jm
 jm
@@ -47312,7 +48183,7 @@ yY
 jm
 jm
 Ia
-ky
+yy
 xE
 jm
 vB
@@ -47560,7 +48431,7 @@ gV
 gV
 gV
 gV
-ky
+yy
 jm
 YW
 jm
@@ -47569,7 +48440,7 @@ jm
 kg
 jm
 jm
-aj
+af
 Mu
 jm
 vB
@@ -47817,16 +48688,16 @@ gV
 gV
 gV
 gV
-ky
+yy
 jm
 kg
 jm
 Pb
 jm
 kg
-jm
+IT
 Pb
-ky
+yy
 yY
 lX
 vB
@@ -48074,17 +48945,17 @@ gV
 gV
 gV
 gV
-ky
+yy
+IT
 jm
+ab
 jm
-yY
-jm
-jm
-Pb
+IT
+fC
 jm
 or
-ky
-jm
+yy
+IT
 jm
 vB
 gV
@@ -48331,16 +49202,16 @@ gV
 gV
 gV
 gV
-ky
-ky
-ky
-ky
+yy
+yy
+yy
+yy
 kg
 jm
-or
+lU
 jm
 kg
-ky
+yy
 jG
 jm
 vB
@@ -48591,13 +49462,13 @@ gV
 gV
 gV
 gV
-ky
+yy
 NX
 jm
 or
 jm
 or
-ky
+yy
 jG
 yY
 vB
@@ -48848,13 +49719,13 @@ gV
 gV
 gV
 gV
-ky
+yy
 Dy
 jm
 jm
+IT
 jm
-jm
-ky
+yy
 kk
 kk
 vB
@@ -49105,16 +49976,16 @@ gV
 gV
 gV
 gV
-ky
-ky
-ky
-ky
-ky
-ky
-ky
-ak
-al
-ky
+yy
+yy
+yy
+yy
+yy
+yy
+yy
+ac
+ac
+yy
 gV
 gV
 gV
@@ -49625,10 +50496,10 @@ gV
 gV
 gV
 gV
-ky
+yy
 xu
 xu
-ky
+yy
 gV
 gV
 gV
@@ -50139,10 +51010,10 @@ gV
 gV
 gV
 gV
-ky
-am
-an
-ky
+yy
+ac
+ac
+yy
 gV
 gV
 gV

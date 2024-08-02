@@ -7,7 +7,7 @@
 
 	for(var/turf/T in target_turfs)
 		sleep(0)
-		var/obj/item/projectile/bullet/pellet/fragment/P = new (O)
+		var/obj/projectile/bullet/pellet/fragment/P = new (O)
 
 		P.damage = p_dam
 		P.pellets = fragments_per_projectile
@@ -28,7 +28,7 @@
 					P.attack_mob(M, 0, 100) //otherwise, allow a decent amount of fragments to pass
 
 //Fragmentation grenade projectile
-/obj/item/projectile/bullet/pellet/fragment
+/obj/projectile/bullet/pellet/fragment
 	damage = 20
 	armor_penetration = 35
 	range_step = 2
@@ -37,7 +37,6 @@
 	spread_step = 20
 
 	suppressed = TRUE //embedding messages are still produced so it's kind of weird when enabled.
-	no_attack_log = 1
 	muzzle_type = null
 
 /obj/item/grenade/frag

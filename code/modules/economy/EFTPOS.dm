@@ -3,7 +3,7 @@
 	desc = "Swipe your ID card to make purchases electronically."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "eftpos"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	var/machine_id = ""
 	var/eftpos_name = "Default EFTPOS scanner"
 	var/transaction_locked = 0
@@ -56,7 +56,7 @@
 	R.offset_y += 0
 	R.ico += "paper_stamp-cent"
 	R.stamped += /obj/item/stamp
-	R.add_overlay(stampoverlay)
+	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the EFTPOS device.</i>"
 
 /obj/item/device/eftpos/proc/print_reference()
@@ -73,7 +73,7 @@
 	if(!R.stamped)
 		R.stamped = new
 	R.stamped += /obj/item/stamp
-	R.add_overlay(stampoverlay)
+	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the EFTPOS device.</i>"
 	var/obj/item/smallDelivery/D = new(R.loc)
 	R.forceMove(D)

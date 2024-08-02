@@ -2,7 +2,8 @@
 	icon = 'icons/turf/floors.dmi'
 	level = 1
 
-	var/turf_flags
+	layer = TURF_LAYER
+
 	var/holy = 0
 
 	// Initial air contents (in moles)
@@ -58,6 +59,9 @@
 	///used for guaranteeing there is only one oranges_ear per turf when assigned, speeds up view() iteration
 	var/mob/oranges_ear/assigned_oranges_ear
 
+	/// Turf bitflags, see code/__DEFINES/flags.dm
+	var/turf_flags = NONE
+
 	/// How pathing algorithm will check if this turf is passable by itself (not including content checks). By default it's just density check.
 	/// WARNING: Currently to use a density shortcircuiting this does not support dense turfs with special allow through function
 	var/pathing_pass_method = TURF_PATHING_PASS_DENSITY
@@ -88,10 +92,10 @@
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
 	flags_1 |= INITIALIZED_1
 
-	for(var/atom/movable/AM as mob|obj in src)
-		Entered(AM, src)
+	for(var/atom/movable/content as anything in src)
+		Entered(content, src)
 
-	if (isStationLevel(z))
+	if (is_station_level(z))
 		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
@@ -131,7 +135,7 @@
 
 	changing_turf = FALSE
 
-	if (isStationLevel(z))
+	if (is_station_level(z))
 		GLOB.station_turfs -= src
 
 	remove_cleanables()
@@ -201,61 +205,121 @@
 	if (THE)
 		return THE.OnHandInterception(user)
 
-/turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
-	if(movement_disabled && usr.ckey != movement_disabled_exception)
-		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
-		return
+// /turf/Enter(atom/movable/mover as mob|obj, atom/forget as mob|obj|turf|area)
+// 	if(movement_disabled && usr.ckey != movement_disabled_exception)
+// 		to_chat(usr, SPAN_WARNING("Movement is admin-disabled.")) //This is to identify lag problems)
+// 		return
 
-	..()
+// 	..()
 
-	if (!mover || !isturf(mover.loc) || isobserver(mover))
-		return 1
+// 	if (!mover || !isturf(mover.loc) || isobserver(mover))
+// 		return 1
 
-	//First, check objects to block exit that are not on the border
+// 	//First, check objects to block exit that are not on the border
+// 	for(var/obj/obstacle in mover.loc)
+// 		if(!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != obstacle) && (forget != obstacle))
+// 			if(!obstacle.CheckExit(mover, src))
+// 				mover.Collide(obstacle)
+// 				return 0
+
+// 	//Now, check objects to block exit that are on the border
+// 	for(var/obj/border_obstacle in mover.loc)
+// 		if((border_obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != border_obstacle) && (forget != border_obstacle))
+// 			if(!border_obstacle.CheckExit(mover, src))
+// 				mover.Collide(border_obstacle)
+// 				return 0
+
+// 	//Next, check objects to block entry that are on the border
+// 	for(var/obj/border_obstacle in src)
+// 		if(border_obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER)
+// 			if(!border_obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != border_obstacle))
+// 				mover.Collide(border_obstacle)
+// 				return 0
+
+// 	//Then, check the turf itself
+// 	if (!src.CanPass(mover, src))
+// 		mover.Collide(src)
+// 		return 0
+
+// 	//Finally, check objects/mobs to block entry that are not on the border
+// 	for(var/atom/movable/obstacle in src)
+// 		if(!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER))
+// 			if(!obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != obstacle))
+// 				mover.Collide(obstacle)
+// 				return 0
+// 	return 1 //Nothing found to block so return success!
+
+//There's a lot of QDELETED() calls here if someone can figure out how to optimize this but not runtime when something gets deleted by a Bump/CanPass/Cross call, lemme know or go ahead and fix this mess - kevinz000
+/turf/Enter(atom/movable/mover)
+	// Do not call ..()
+	// Byond's default turf/Enter() doesn't have the behaviour we want with Bump()
+	// By default byond will call Bump() on the first dense object in contents
+	// Here's hoping it doesn't stay like this for years before we finish conversion to step_
+	var/atom/first_bump
+	// var/can_pass_self = CanPass(mover, get_dir(src, mover))
+	var/can_pass_self = CanPass(mover, get_step(src, get_dir(src, mover)), 1, 0)
+
+	/* START AURORA SNOWFLAKE CHECK EXIT BS*/
+
+	//Objects to block exit that are not on the border
 	for(var/obj/obstacle in mover.loc)
-		if(!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != obstacle) && (forget != obstacle))
+		if(!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != obstacle))
 			if(!obstacle.CheckExit(mover, src))
 				mover.Collide(obstacle)
-				return 0
+				return FALSE
 
-	//Now, check objects to block exit that are on the border
-	for(var/obj/border_obstacle in mover.loc)
-		if((border_obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != border_obstacle) && (forget != border_obstacle))
-			if(!border_obstacle.CheckExit(mover, src))
-				mover.Collide(border_obstacle)
-				return 0
-
-	//Next, check objects to block entry that are on the border
-	for(var/obj/border_obstacle in src)
-		if(border_obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER)
-			if(!border_obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != border_obstacle))
-				mover.Collide(border_obstacle)
-				return 0
-
-	//Then, check the turf itself
-	if (!src.CanPass(mover, src))
-		mover.Collide(src)
-		return 0
-
-	//Finally, check objects/mobs to block entry that are not on the border
-	for(var/atom/movable/obstacle in src)
-		if(!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER))
-			if(!obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != obstacle))
+	//Objects to block exit that are on the border
+	for(var/obj/obstacle in mover.loc)
+		if((obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != obstacle))
+			if(!obstacle.CheckExit(mover, src))
 				mover.Collide(obstacle)
-				return 0
-	return 1 //Nothing found to block so return success!
+				return FALSE
+
+	/* END AURORA SNOWFLAKE CHECK EXIT BS*/
+
+	if(can_pass_self)
+		var/atom/mover_loc = mover.loc
+		// var/mover_is_phasing = mover.movement_type & PHASING
+		var/mover_is_phasing = FALSE
+		for(var/atom/movable/thing as anything in contents)
+			if(thing == mover || thing == mover_loc) // Multi tile objects and moving out of other objects
+				continue
+			if(!thing.Cross(mover))
+				if(QDELETED(mover)) //deleted from Cross() (CanPass is pure so it cant delete, Cross shouldnt be doing this either though, but it can happen)
+					return FALSE
+				//if(mover_is_phasing)
+				if(mover_is_phasing)
+					mover.Bump(thing)
+					mover.Collide(thing) //Aurora snowflake
+					if(QDELETED(mover)) //deleted from Bump()
+						return FALSE
+					continue
+				else
+					// if(!first_bump || ((thing.layer > first_bump.layer || thing.flags_1 & ON_BORDER_1) && !(first_bump.flags_1 & ON_BORDER_1)))
+					if(!first_bump || ((thing.layer > first_bump.layer || thing.atom_flags & ATOM_FLAG_CHECKS_BORDER) && !(first_bump.atom_flags & ATOM_FLAG_CHECKS_BORDER)))
+						first_bump = thing
+	if(QDELETED(mover)) //Mover deleted from Cross/CanPass/Bump, do not proceed.
+		return FALSE
+	if(!can_pass_self) //Even if mover is unstoppable they need to bump us.
+		first_bump = src
+	if(first_bump)
+		mover.Bump(first_bump)
+		mover.Collide(first_bump) //Aurora snowflake
+		// return (mover.movement_type & PHASING)
+		return FALSE
+	return TRUE
 
 var/const/enterloopsanity = 100
 
-/turf/Entered(atom/movable/AM, atom/old_loc)
+/turf/Entered(atom/movable/arrived, atom/old_loc)
 	if(movement_disabled)
-		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
+		to_chat(usr, SPAN_WARNING("Movement is admin-disabled.")) //This is to identify lag problems)
 		return
 
-	ASSERT(istype(AM))
+	ASSERT(istype(arrived))
 
-	if(ismob(AM))
-		var/mob/M = AM
+	if(ismob(arrived))
+		var/mob/M = arrived
 		if(!M.lastarea)
 			M.lastarea = get_area(M.loc)
 
@@ -273,8 +337,8 @@ var/const/enterloopsanity = 100
 		else if(M.is_floating && !is_hole && has_gravity)
 			M.update_floating()
 
-	if(does_footprint && footprint_color && ishuman(AM))
-		var/mob/living/carbon/human/H = AM
+	if(does_footprint && footprint_color && ishuman(arrived))
+		var/mob/living/carbon/human/H = arrived
 		var/obj/item/organ/external/l_foot = H.get_organ(BP_L_FOOT)
 		var/obj/item/organ/external/r_foot = H.get_organ(BP_R_FOOT)
 		var/has_feet = TRUE
@@ -290,41 +354,71 @@ var/const/enterloopsanity = 100
 					if(!S.blood_overlay)
 						S.generate_blood_overlay()
 					if(S.blood_overlay?.color != footprint_color)
-						S.cut_overlay(S.blood_overlay, TRUE)
+						S.CutOverlays(S.blood_overlay, ATOM_ICON_CACHE_PROTECTED)
 
 					S.blood_overlay.color = footprint_color
-					S.add_overlay(S.blood_overlay, TRUE)
+					S.AddOverlays(S.blood_overlay, ATOM_ICON_CACHE_PROTECTED)
 			else
 				H.footprint_color = footprint_color
 				H.track_footprint = max(track_distance, H.track_footprint)
 
 		H.update_inv_shoes(TRUE)
 
-	if(tracks_footprint && ishuman(AM))
-		var/mob/living/carbon/human/H = AM
+	if(tracks_footprint && ishuman(arrived))
+		var/mob/living/carbon/human/H = arrived
 		H.species.deploy_trail(H, src)
 
-	..(AM, old_loc)
+	..()
 
 	var/objects = 0
-	if(AM && (AM.movable_flags & MOVABLE_FLAG_PROXMOVE) && AM.simulated)
+	if(arrived && (arrived.movable_flags & MOVABLE_FLAG_PROXMOVE) && arrived.simulated)
 		for(var/atom/movable/oAM in range(1))
 			if(objects > enterloopsanity)
 				break
 			objects++
 
 			if (oAM.simulated && (oAM.movable_flags & MOVABLE_FLAG_PROXMOVE))
-				AM.proximity_callback(oAM)
+				arrived.proximity_callback(oAM)
 
-/turf/proc/add_tracks(var/typepath, var/footprint_DNA, var/comingdir, var/goingdir, var/footprint_color="#A10808")
+	if (arrived && arrived.opacity && !has_opaque_atom)
+		has_opaque_atom = TRUE // Make sure to do this before reconsider_lights(), incase we're on instant updates. Guaranteed to be on in this case.
+		reconsider_lights()
+
+#ifdef AO_USE_LIGHTING_OPACITY
+		// Hook for AO.
+		regenerate_ao()
+#endif
+
+	if(!(arrived.bound_overlay || (arrived.z_flags & ZMM_IGNORE) || !TURF_IS_MIMICING(above)))
+		above.update_mimic()
+
+	//Items that are in phoron, but not on a mob, can still be contaminated.
+	var/obj/item/I = arrived
+	if(istype(I) && vsc.plc.CLOTH_CONTAMINATION && I.can_contaminate())
+		var/datum/gas_mixture/env = return_air(1)
+		if(!env)
+			return
+		for(var/g in env.gas)
+			if(gas_data.flags[g] & XGM_GAS_CONTAMINANT && env.gas[g] > gas_data.overlay_limit[g] + 1)
+				I.contaminate()
+				break
+
+/turf/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
+	. = ..()
+	if(src.density)
+		if(isliving(hitting_atom))
+			var/mob/living/M = hitting_atom
+			M.turf_collision(src, throwingdatum.speed)
+
+/turf/proc/add_tracks(var/typepath, var/footprint_DNA, var/comingdir, var/goingdir, var/footprint_color=COLOR_HUMAN_BLOOD)
 	var/obj/effect/decal/cleanable/blood/tracks/tracks = locate(typepath) in src
 	if(!tracks)
 		tracks = new typepath(src)
 	tracks.add_tracks(footprint_DNA, comingdir, goingdir, footprint_color)
 
 /atom/movable/proc/proximity_callback(atom/movable/AM)
-	set waitfor = FALSE
-	sleep(0)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	HasProximity(AM, TRUE)
 	if (!QDELETED(AM) && !QDELETED(src) && (AM.movable_flags & MOVABLE_FLAG_PROXMOVE))
 		AM.HasProximity(src, TRUE)
@@ -454,7 +548,7 @@ var/const/enterloopsanity = 100
  * @return TRUE if a roof has been spawned, FALSE if not.
  */
 /turf/proc/spawn_roof(flags = 0)
-	var/turf/above = GetAbove(src)
+	var/turf/above = GET_TURF_ABOVE(src)
 	if (!above)
 		return FALSE
 
@@ -476,11 +570,11 @@ var/const/enterloopsanity = 100
  * flag is present on the source turf.
  */
 /turf/proc/cleanup_roof()
-	if (!HasAbove(z))
+	if (!SSmapping.multiz_levels[z][Z_LEVEL_UP])
 		return
 
 	if (roof_flags & ROOF_CLEANUP)
-		var/turf/above = GetAbove(src)
+		var/turf/above = GET_TURF_ABOVE(src)
 		if (!above || isopenturf(above))
 			return
 
@@ -536,9 +630,12 @@ var/const/enterloopsanity = 100
 /turf/proc/is_outside()
 
 	// Can't rain inside or through solid walls.
-	// TODO: dense structures like full windows should probably also block weather.
 	if(density)
 		return OUTSIDE_NO
+
+	for(var/obj/structure/S in src) // Dense structures like full windows should probably also block weather.
+		if(S.density || istype(S, /obj/structure/component/tent_canvas))
+			return OUTSIDE_NO
 
 	if(last_outside_check != OUTSIDE_UNCERTAIN)
 		return last_outside_check
@@ -554,11 +651,11 @@ var/const/enterloopsanity = 100
 
 	// If we are in a multiz volume and not already inside, we return
 	// the outside value of the highest unenclosed turf in the stack.
-	if(HasAbove(z))
+	if(SSmapping.multiz_levels[z][Z_LEVEL_UP])
 		. =  OUTSIDE_YES // assume for the moment we're unroofed until we learn otherwise.
 		var/turf/top_of_stack = src
-		while(HasAbove(top_of_stack.z))
-			var/turf/next_turf = GetAbove(top_of_stack)
+		while(GET_TURF_ABOVE(top_of_stack))
+			var/turf/next_turf = GET_TURF_ABOVE(top_of_stack)
 			if(!next_turf.is_open())
 				return OUTSIDE_NO
 			top_of_stack = next_turf
@@ -576,13 +673,13 @@ var/const/enterloopsanity = 100
 
 	last_outside_check = OUTSIDE_UNCERTAIN
 
-	if(!HasBelow(z))
+	if(!GET_TURF_BELOW(src))
 		return TRUE
 
 	// Invalidate the outside check cache for turfs below us.
 	var/turf/checking = src
-	while(HasBelow(checking.z))
-		checking = GetBelow(checking)
+	while(GET_TURF_BELOW(checking))
+		checking = GET_TURF_BELOW(checking)
 		if(!isturf(checking))
 			break
 		checking.last_outside_check = OUTSIDE_UNCERTAIN
@@ -612,7 +709,7 @@ var/const/enterloopsanity = 100
 
 	// Propagate our weather downwards if we permit it.
 	if(force_update_below || (is_open() && .))
-		var/turf/below = GetBelow(src)
+		var/turf/below = GET_TURF_BELOW(src)
 		if(below)
 			below.update_weather(new_weather)
 

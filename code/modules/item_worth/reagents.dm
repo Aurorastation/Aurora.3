@@ -27,7 +27,7 @@
 /singleton/reagent/copper
 	value = 0.02
 
-/singleton/reagent/alcohol
+/singleton/reagent/alcohol/ethanol
 	value = 0.01
 
 /singleton/reagent/alcohol/butanol

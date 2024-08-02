@@ -3,7 +3,7 @@
 	desc = "A portable radio capable of receiving radio waves from nearby space systems."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 	var/receiving = FALSE
 	var/current_station = null
@@ -17,7 +17,7 @@
 		toggle_receiving()
 	RegisterSignal(SSdcs, COMSIG_GLOB_LORE_RADIO_BROADCAST, PROC_REF(relay_lore_radio))
 
-/obj/item/lore_radio/examine(var/mob/user)
+/obj/item/lore_radio/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	to_chat(user, SPAN_NOTICE("\The [src] is turned [receiving ? "on" : "off"]."))
 	if(current_station)

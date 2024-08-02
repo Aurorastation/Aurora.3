@@ -3,7 +3,7 @@
 	desc_extended = "An overloader is a small disposable stick drive, commonly loaded with a program designed to temporarily reconfigure an IPC's priorities or inputs."
 	icon = 'icons/obj/item/ipc_overloaders.dmi'
 	icon_state = "classic"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	contained_sprite = TRUE
 	var/uses = 2
 	var/effect_time = 30 SECONDS
@@ -258,8 +258,8 @@
 	icon_state = "box"
 	update_icon_on_init = TRUE
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
-	max_w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_SMALL
+	max_w_class = WEIGHT_CLASS_TINY
 	storage_slots = 1
 	can_hold = list(/obj/item/ipc_overloader)
 	use_sound = 'sound/items/storage/briefcase.ogg'
@@ -284,12 +284,12 @@
 
 /obj/item/storage/overloader/update_icon()
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	var/obj/item/ipc_overloader/overloader = locate() in contents
 	if(overloader)
-		add_overlay(image(overloader.icon, null, overloader.icon_state, sealed ? layer - 0.01 : layer + 0.01))
+		AddOverlays(image(overloader.icon, null, overloader.icon_state, sealed ? layer - 0.01 : layer + 0.01))
 		if(!sealed)
-			add_overlay(image(icon, null, "box-overlay", layer + 0.02))
+			AddOverlays(image(icon, null, "box-overlay", layer + 0.02))
 	if(!sealed)
 		icon_state = "box-open"
 

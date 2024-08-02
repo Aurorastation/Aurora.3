@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/scc_scout_ship
 	name = "SCC Scout Ship"
 	description = "A small ship commonly fielded by the Stellar Corporate Conglomerate, the Serendipity-class, Hephaestus-designed and produced. It is supposed to be a small platform, entirely self-sufficient general-purpose scouting and surveying ship, the Serendipity is equipped with both a bluespace and a warp drive and two different engines."
-	suffixes = list("ships/scc/scc_scout_ship.dmm")
+
+	prefix = "ships/scc/"
+	suffix = "scc_scout_ship.dmm"
+
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
@@ -107,3 +110,4 @@
 	name = "SCC Scout Shuttle"
 	shuttle_tag = "SCC Scout Shuttle"
 	master_tag = "airlock_scc_scout_shuttle"
+	cycle_to_external_air = TRUE

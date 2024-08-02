@@ -1,9 +1,12 @@
 /datum/map_template/ruin/away_site/diona_serz_ship
 	name = "Serz Clan Ship"
 	description = "A ship belonging to the Serz voidtamer clan, a group of dionae who specialize in selling space fauna."
-	suffixes = list("ships/dionae/diona_serz_ship/diona_serz_ship.dmm")
+
+	prefix = "ships/dionae/diona_serz_ship/"
+	suffix = "diona_serz_ship.dmm"
+
 	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_UUEOAESA)
-	spawn_weight = 1
+	spawn_weight = 0 // outdated and not following current standards, could be enabled after it's fixed
 	ship_cost = 1
 	id = "diona_serz"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/diona_serz_ship_shuttle)

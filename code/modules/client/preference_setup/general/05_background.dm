@@ -53,7 +53,7 @@
 	var/list/dat = list("<br/><b>Records</b>:<br/>")
 
 	if(jobban_isbanned(user, "Records"))
-		dat += "<span class='danger'>You are banned from using character records.</span><br>"
+		dat += SPAN_DANGER("You are banned from using character records.<br>")
 	else
 		dat += "Medical Records:<br>"
 		dat += "<a href='?src=\ref[src];set_medical_records=1'>[TextPreview(pref.med_record,40)]</a><a href='?src=\ref[src];clear=medical'>Clear</a><br><br>"

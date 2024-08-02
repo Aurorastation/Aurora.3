@@ -30,16 +30,7 @@
 	if(!(A.singuloCanEat()))
 		return 0
 
-	if (istype(A, /mob/living/))
-		var/mob/living/L = A
-		if(L.buckled_to && istype(L.buckled_to,/obj/structure/bed/))
-			var/turf/O = L.buckled_to
-			do_teleport(O, pick(GLOB.endgame_safespawns))
-			L.forceMove(O.loc)
-		else
-			do_teleport(L, pick(GLOB.endgame_safespawns)) //dead-on precision
-
-	else if (isturf(A))
+	if (isturf(A))
 		var/turf/T = A
 		var/dist = get_dist(T, src)
 		if (dist <= consume_range && T.density)

@@ -205,7 +205,7 @@
 			img = image('icons/obj/bureaucracy.dmi', "paper_stamp-dots")
 		img.pixel_x = copy.offset_x[j]
 		img.pixel_y = copy.offset_y[j]
-		c.add_overlay(img)
+		c.AddOverlays(img)
 
 	if(!toner)
 		target.visible_message(SPAN_NOTICE("A red light on \the [target] flashes, indicating that it is out of toner."))

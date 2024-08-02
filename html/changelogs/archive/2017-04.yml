@@ -1,0 +1,99 @@
+2017-04-02:
+  Alberyk:
+  - tweak: Increased hp, damage and utility of the dark form spell.
+  - tweak: Healing spells should heal more now.
+  Lohikar:
+  - bugfix: An error in shell manufacturing processes has been corrected; shell units
+      should now be produced with correct eye and skin coloration.
+  - bugfix: Industrials now actually have visible eyes.
+  - tweak: ERT, CCIA, BSTs, Wizards, and other non-station human-types now no longer
+      skip breakfast before arriving at the station.
+2017-04-03:
+  Lohikar:
+  - bugfix: Fixed a bug where holstering didn't quite work right with tactical armor.
+  - bugfix: Industrial IPC units' eye controller firmware has been upgraded, fixing
+      a bug where a unit's configured eye color would not display.
+  Nanako:
+  - bugfix: Fixed some issues where creatures being sacrificed to pylons could bug
+      out.
+2017-04-08:
+  MoondancerPony:
+  - bugfix: Fixed protohumans.
+  - rscadd: Tajaran subspecies now have their own subspecies of Farwa.
+  Nanako:
+  - rscadd: Added butanol, an alcohol that is safe, though largely ineffective, for
+      humans and most species, but highly intoxicating (and safe in moderation) for
+      unathi. Pure butanol is in the chem dispenser, and can be distilled by combining
+      sugar, corn oil and universal enzyme.
+  - rscadd: Added two new butanol-based drinks, imported from Moghes, they can be
+      found in the bar and rarely in the cargo warehouse.
+  - rscadd: Added a new tajaran spirit, can be found in the bar fridge and sometimes
+      in the warehouse.
+  - tweak: Kegs of beer or xuizi juice can now be ordered at cargo.
+  - bugfix: Fixed several issues with alcohol effects getting stuck and not wearing
+      off when you sober up.
+  - tweak: Reduced the rate at which the liver filters alcohol, making it slightly
+      easier to get drunk and take longer to sober up. Drink responsibly!
+  Printer16:
+  - bugfix: Vampires now know when they finished enthralling someone.
+  - bugfix: The Auxilliary Forensics Tools crate now spawns with a UV light.
+  - bugfix: A Malf AI's advanced encryption hack has been given a lot more space to
+      work with.
+  inselc:
+  - bugfix: Drones are now able to decompile burnt matches.
+  - bugfix: Ghosts will no longer trigger infrared emitters.
+  - bugfix: Transferring chemicals to a chem implant will now show actual amount of
+      reagents transferred.
+  - bugfix: Relocating your/someone's limb will now properly show a message to all
+      bystanders.
+2017-04-10:
+  Lohikar:
+  - rscadd: Shells have figured out how to put on socks & undershirts. Synth uprising
+      soon.
+  - bugfix: Repairing holes to space no longer sucks the light out of a room forever.
+  - bugfix: Footstep sounds now actually work without having to take off your boots.
+  - bugfix: NanoTrasen has fired several designers in charge of stations' night-mode
+      control systems after it was revealed that they did not actually know how time
+      works.
+  - tweak: Red-alert is now kind enough to restore the previous nightmode settings
+      instead of forcing its standards of illumination on the crew.
+  MoondancerPony:
+  - bugfix: Eliminated the possibility for 'double-spending' airlock electronics,
+      duplicating boards and allowing you to complete multiple airlocks with one board.
+2017-04-12:
+  MoondancerPony:
+  - bugfix: Taught roboticists how to properly remove IPC organs.
+  - tweak: IPC organs are now encased.
+2017-04-14:
+  Lohikar:
+  - bugfix: Fixed a bug where RnD machinery with materials inserted could not be disassembled.
+  - bugfix: The lighting engine and cameras have settled their differences and will
+      work properly together now.
+  - tweak: Made a few elements of camera code slightly less completely stupid, camera
+      lag may be slightly lower.
+  MoondancerPony:
+  - bugfix: Removed blind IPC clairvoyance. IPCs can no longer see when their optics
+      have been removed.
+  - tweak: Industrial IPCs are now officially rated for low-pressure usage.
+  Nanako:
+  - bugfix: Fixed a lot of missing safety checks in the kitchen that were allowing
+      mice, ghosts and AIs to do things they shouldnt.
+  - bugfix: Fixed reagents combining in cooking container that made certain recipes
+      un-creatable. Chemical reactions will no longer happen in cooking containers.
+  - bugfix: Changed whole eggs to egg yolk instead for a couple of recipes. Also adjusted
+      bread recipe.
+  - tweak: AI can now turn cooking appliances on/off with a ctrl+click
+2017-04-19:
+  Ccomp5950:
+  - bugfix: Objects in bags and other containers (including your hands and pocket)
+      will now hear speach again.  This impacts radios, explosive implants, and the
+      universal recorder.
+2017-04-29:
+  Lohikar:
+  - bugfix: Fixed an issue where Chauncey's name was not set correctly.
+  - spellcheck: Tweaked the grammar of fox and corgi vocalizations slightly.
+  LordFowl:
+  - rscadd: Lobotomy is now a surgical operation. Dislocated brains can also be lobotomized.
+      Lobotomy will permanently damage the brain and remove a target's memories.
+  - tweak: Placing a brain into an MMI will require a lobotomy to be performed on
+      the brain first.

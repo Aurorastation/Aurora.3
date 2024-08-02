@@ -2,6 +2,7 @@
 	name = "cloning control console"
 	icon_screen = "dna"
 	icon_keyboard = "teal_key"
+	icon_keyboard_emis = "teal_key_mask"
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/cloning
 	req_access = list(ACCESS_GENETICS)
@@ -105,7 +106,7 @@
 
 /obj/machinery/computer/cloning/attack_hand(mob/user as mob)
 	if(!allowed(user))
-		to_chat(user, "<span class='warning'>Access Denied.</span>")
+		to_chat(user, SPAN_WARNING("Access Denied."))
 		return
 
 	user.set_machine(src)

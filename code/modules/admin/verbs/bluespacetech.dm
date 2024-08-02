@@ -345,16 +345,7 @@
 /obj/item/storage/backpack/holding/bst
 	canremove = 0
 	storage_slots = 56
-	max_w_class = ITEMSIZE_IMMENSE
-
-/obj/item/device/radio/headset/ert/bst/attack_hand()
-	if(!usr)
-		return
-	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
-		return
-	else
-		..()
+	max_w_class = WEIGHT_CLASS_GIGANTIC
 
 //Headset
 /obj/item/device/radio/headset/ert/bst
@@ -447,7 +438,7 @@
 			vision_flags = 0
 			see_invisible = -1
 
-	to_chat(usr, "<span class='notice'>\The [src]'s vision mode is now <b>[mode]</b>.</span>")
+	to_chat(usr, SPAN_NOTICE("\The [src]'s vision mode is now <b>[mode]</b>."))
 
 /obj/item/clothing/glasses/sunglasses/bst/attack_hand()
 	if(!usr)

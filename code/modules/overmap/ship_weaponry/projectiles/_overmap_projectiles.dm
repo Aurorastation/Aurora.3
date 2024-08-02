@@ -7,14 +7,19 @@
 	requires_contact = FALSE
 
 	var/obj/item/ship_ammunition/ammunition
-	var/atom/target //The target is the actual overmap object we're hitting.
-	var/obj/entry_target //The entry target is where the projectile itself is going to spawn in world.
+	/// The target is the actual overmap object we're hitting.
+	var/atom/target
+	/// The entry target is where the projectile itself is going to spawn in world.
+	var/obj/entry_target
 	var/range = OVERMAP_PROJECTILE_RANGE_MEDIUM
 	var/current_range_counter = 0
-	var/speed = 0 //A projectile with 0 speed does not move. Note that this is the 'lag' variable on walk_towards! Lower speed is better.
+	// A projectile with 0 speed does not move. Note that this is the 'lag' variable on walk_towards! Lower speed is better.
+	var/speed = 0
 
-	var/moving = FALSE //Is the projectile actively moving on the overmap?
-	var/entering = FALSE //Are we entering an entry point?
+	/// Is the projectile actively moving on the overmap?
+	var/moving = FALSE
+	/// Are we entering an entry point?
+	var/entering = FALSE
 
 /obj/effect/overmap/projectile/Initialize(var/maploading, var/sx, var/sy)
 	. = ..()
@@ -83,7 +88,7 @@
 					. = TRUE
 					//Manually stopping because this proc needs to sleep for a bit.
 					prepare_for_entry()
-					var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
+					var/obj/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 					widowmaker.ammo = ammunition
 					qdel(ammunition.original_projectile) //No longer needed.
 					var/turf/laze = get_turf(entry_target)
@@ -109,7 +114,7 @@
 					else //if it's not a ship it doesn't have a fore direction, so we need to autocorrect
 						ammunition.heading = entry_target.dir
 					prepare_for_entry()
-					var/obj/item/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
+					var/obj/projectile/ship_ammo/widowmaker = new ammunition.original_projectile.type
 					widowmaker.ammo = ammunition
 					qdel(ammunition.original_projectile) //No longer needed.
 					ammunition.original_projectile = widowmaker
@@ -153,8 +158,3 @@
 	if(ammunition)
 		return ammunition.get_additional_info()
 	return "N/A"
-
-/obj/effect/overmap/projectile/Bump(var/atom/A)
-	if(istype(A,/turf/unsimulated/map/edge))
-		handle_wraparound()
-	..()

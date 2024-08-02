@@ -1,14 +1,14 @@
-/mob/living/Life()
+/mob/living/Life(seconds_per_tick, times_fired)
 	if (QDELETED(src))	// If they're being deleted, why bother?
-		return
+		return FALSE
 
 	..()
 
-	if (transforming)
-		return
+	if(transforming)
+		return FALSE
 
 	if(!loc)
-		return
+		return FALSE
 
 	var/datum/gas_mixture/gas_environment = loc.return_air()
 	//Handle temperature/pressure differences between body and environment
@@ -32,7 +32,7 @@
 	update_pulling()
 
 	for(var/obj/item/grab/G in src)
-		G.process()
+		INVOKE_ASYNC(G, TYPE_PROC_REF(/datum, process))
 
 	handle_actions()
 
@@ -42,6 +42,9 @@
 
 	if(languages.len == 1 && default_language != languages[1])
 		default_language = languages[1]
+
+	//Technonancer instability
+	handle_instability()
 
 	return 1
 
@@ -143,6 +146,7 @@
 		else if(viewflags)
 			set_sight(viewflags)
 	else if(eyeobj)
+		eyeobj.apply_visual(src)
 		if(eyeobj.owner != src)
 			reset_view(null)
 	else if(!client.adminobs)
@@ -156,8 +160,11 @@
 		setEarDamage(-1, max(ear_deaf, 1))
 
 /mob/living/proc/update_sight()
+	if(stop_sight_update)
+		return
+
 	set_sight(0)
-	if(stat == DEAD || eyeobj)
+	if(stat == DEAD || (eyeobj && !eyeobj.living_eye))
 		update_dead_sight()
 	else
 		update_living_sight()

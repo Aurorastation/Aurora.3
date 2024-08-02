@@ -32,7 +32,14 @@
 			copied.vars[variable] = src.vars[variable]
 	return copied
 
-/datum/record/proc/Listify(var/deep = 1, var/list/excluded = list(), var/list/to_update) // Mostly to support old things or to use with serialization
+#define CONDITIONAL_HTML_DECODE(VAR)\
+	if(decode_html){\
+		if(istext(##VAR)){\
+			##VAR = html_decode(##VAR);\
+		}\
+	}
+
+/datum/record/proc/Listify(var/deep = 1, var/list/excluded = list(), var/list/to_update, decode_html = FALSE) // Mostly to support old things or to use with serialization
 	var/list/record
 	if(!to_update)
 		. = record = list()
@@ -48,30 +55,37 @@
 			if(deep && (istype(src.vars[variable], /datum/record)))
 				if(to_update)
 					var/datum/record/R = src.vars[variable]
-					var/listified = R.Listify(to_update = to_update[variable])
+					var/listified = R.Listify(to_update = to_update[variable], decode_html = decode_html)
 					if(listified)
 						record[variable] = listified
+						CONDITIONAL_HTML_DECODE(record[variable])
 						. = record
 				else
 					var/datum/record/R = src.vars[variable]
-					record[variable] = R.Listify()
+					record[variable] = R.Listify(decode_html = decode_html)
+					//no escape
 			else if(deep && islist(src.vars[variable]) && is_list_containing_type(src.vars[variable], /datum/record))
 				record[variable] = list()
 				for(var/subr in src.vars[variable])
 					var/datum/record/r = subr
-					record[variable] += list(r.Listify())
+					record[variable] += list(r.Listify(decode_html = decode_html))
 				var/llen = 0
 				if((variable in to_update) && islist(to_update[variable]))
 					var/list/L = to_update[variable]
 					llen = L.len
 				if(llen != LAZYLEN(record[variable]))
 					. = record
+					CONDITIONAL_HTML_DECODE(.)
 			else if(islist(src.vars[variable]) || istext(src.vars[variable]) || isnum(src.vars[variable]))
 				if(to_update && record[variable] != src.vars[variable])
 					record[variable] = src.vars[variable]
+					CONDITIONAL_HTML_DECODE(record[variable])
 					. = record
 				else if(!to_update)
 					record[variable] = src.vars[variable]
+					CONDITIONAL_HTML_DECODE(record[variable])
+
+#undef CONDITIONAL_HTML_DECODE
 
 
 /datum/record/proc/Printify(var/list/excluded = list()) // Mostly to support old things or to use with serialization
@@ -149,7 +163,7 @@
 		fingerprint = md5(H.dna.uni_identity)
 		sex = H.species.get_species_record_sex(H)
 		species = H.get_species(FALSE, TRUE)
-		citizenship = H.citizenship
+		citizenship = SSrecords.get_citizenship_record_name(H.citizenship)
 		employer = H.employer_faction
 		religion = SSrecords.get_religion_record_name(H.religion)
 		ccia_record = H.ccia_record
@@ -240,10 +254,25 @@ var/warrant_uid = 0
 //Manifest record
 /datum/record/shuttle_manifest
 	name = "Unknown"
-	var/shuttle = "Unknown"
 	cmp_field = "name"
+	var/shuttle = "Unknown"
+	var/pilot = FALSE
+	var/lead = FALSE
 
 var/shuttle_uid = 0
 /datum/record/shuttle_manifest/New()
 	..()
 	id = shuttle_uid++
+
+/datum/record/shuttle_assignment
+	var/shuttle
+	var/destination = "Unknown"
+	var/heading = 0
+	var/mission = "Exploration"
+	var/departure_time
+	var/return_time
+	cmp_field = "destination"
+
+/datum/record/shuttle_assignment/New(var/for_shuttle)
+	. = ..()
+	shuttle = for_shuttle

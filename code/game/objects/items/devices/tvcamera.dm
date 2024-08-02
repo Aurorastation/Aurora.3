@@ -3,7 +3,7 @@
 	desc = "An Ingi Usang Entertainment Co. livestreaming press camera drone. Weapon of choice for war correspondents and reality show cameramen. It does not appear to have any internal memory storage."
 	icon_state = "camcorder"
 	item_state = "camcorder"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BELT
 	var/channel = "General News Feed"
 	var/obj/machinery/camera/network/news/camera
@@ -84,21 +84,6 @@
 		H.update_inv_r_hand(0)
 		H.update_inv_l_hand()
 
-/* Assembly by a roboticist */
-/obj/item/robot_parts/head/attackby(obj/item/attacking_item, mob/user)
-	var/obj/item/device/assembly/S = attacking_item
-	if(!istype(S))
-		return
-
-	if(!istype(S, /obj/item/device/assembly/infra))
-		..()
-		return
-	var/obj/item/tv_assembly/A = new(user)
-	qdel(S)
-	user.put_in_hands(A)
-	to_chat(user, SPAN_NOTICE("You add the infrared sensor to the robot head."))
-	qdel(src)
-
 /* Using camcorder icon as I can't sprite.
 Using robohead because of restricting to roboticist */
 /obj/item/tv_assembly
@@ -108,7 +93,7 @@ Using robohead because of restricting to roboticist */
 	icon_state = "head"
 	item_state = "head"
 	var/buildstep = 0
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/tv_assembly/attackby(obj/item/attacking_item, mob/user)
 	switch(buildstep)

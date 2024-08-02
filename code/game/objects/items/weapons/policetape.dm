@@ -5,7 +5,8 @@ var/list/tape_roll_applications = list()
 	name = "tape roll"
 	icon = 'icons/obj/policetape.dmi'
 	icon_state = "tape"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
+	pass_flags_self = PASSTABLE
 	var/static/list/hazard_overlays
 	var/turf/start
 	var/turf/end
@@ -25,7 +26,7 @@ var/list/tape_roll_applications = list()
 	name = "tape"
 	icon = 'icons/obj/policetape.dmi'
 	anchored = 1
-	layer = 3.1 // Above closed airlocks.
+	layer = BASE_ABOVE_OBJ_LAYER
 	var/lifted = 0
 	var/list/crumplers
 	var/crumpled = 0
@@ -181,7 +182,7 @@ var/list/tape_roll_applications = list()
 		var/obj/item/tape/P = new tape_type(T.x,T.y,T.z)
 		P.forceMove(locate(T.x,T.y,T.z))
 		P.icon_state = "[src.icon_base]_door"
-		P.layer = 3.2
+		P.layer = ABOVE_DOOR_LAYER
 		to_chat(user, SPAN_NOTICE("You finish placing the [src]."))
 
 	if (istype(A, /turf/simulated/floor) ||istype(A, /turf/unsimulated/floor))
@@ -193,11 +194,11 @@ var/list/tape_roll_applications = list()
 
 		if(tape_roll_applications[F] & direction) // hazard_overlay in F.overlays wouldn't work.
 			user.visible_message("[user] uses the adhesive of \the [src] to remove area markings from \the [F].", "You use the adhesive of \the [src] to remove area markings from \the [F].")
-			F.cut_overlay(hazard_overlay, TRUE)
+			F.CutOverlays(hazard_overlay, ATOM_ICON_CACHE_PROTECTED)
 			tape_roll_applications[F] &= ~direction
 		else
 			user.visible_message("[user] applied \the [src] on \the [F] to create area markings.", "You apply \the [src] on \the [F] to create area markings.")
-			F.add_overlay(hazard_overlay, TRUE)
+			F.AddOverlays(hazard_overlay, ATOM_ICON_CACHE_PROTECTED)
 			tape_roll_applications[F] |= direction
 		return
 
@@ -235,8 +236,10 @@ var/list/tape_roll_applications = list()
 			crumple(user)
 		if(lifted)
 			animate(src, 1 SECOND, alpha = 150)
+			layer = ABOVE_HUMAN_LAYER
 		else
 			animate(src, 1 SECOND, alpha = initial(alpha))
+			reset_plane_and_layer()
 	else
 		breaktape(null, user)
 

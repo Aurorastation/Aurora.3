@@ -3,6 +3,7 @@
 	desc = "Different from the Middle Ages version."
 	icon = 'icons/obj/structure/tables/table.dmi'
 	icon_state = "rack"
+	pass_flags_self = LETPASSTHROW //You can throw objects over this, despite it's density.
 	build_amt = 1
 	can_plate = 0
 	can_reinforce = 0

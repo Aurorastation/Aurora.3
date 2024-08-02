@@ -7,7 +7,7 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "soulstone"
 	item_state = "electronic"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_MATERIAL = 4)
 	appearance_flags = NO_CLIENT_COLOR
@@ -23,7 +23,7 @@
 		return..()
 
 	if(M.has_brain_worms()) //Borer stuff - RR
-		to_chat(user, "<span class='warning'>This being is corrupted by an alien intelligence and cannot be soul trapped.</span>")
+		to_chat(user, SPAN_WARNING("This being is corrupted by an alien intelligence and cannot be soul trapped."))
 		return..()
 
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has had their soul captured with [src.name] by [user.name] ([user.ckey])</font>")

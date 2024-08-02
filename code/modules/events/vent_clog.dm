@@ -30,7 +30,7 @@
 		/singleton/reagent/stone_dust = 0.5,
 		/singleton/reagent/crayon_dust = 1,
 		/singleton/reagent/alcohol/butanol = 2,
-		/singleton/reagent/alcohol = 2,
+		/singleton/reagent/alcohol/ethanol = 2,
 		/singleton/reagent/sugar = 2,
 		/singleton/reagent/drink/coffee = 4,
 		/singleton/reagent/wulumunusha = 0.25,
@@ -51,7 +51,7 @@
 	for(var/obj/machinery/atmospherics/unary/vent_scrubber/temp_vent in SSmachinery.processing)
 		if(!temp_vent)
 			continue
-		if(isStationLevel(temp_vent.z))
+		if(is_station_level(temp_vent.z))
 			if(temp_vent.network && temp_vent.network.normal_members.len > 20)
 				vents += temp_vent
 	if(!vents.len)

@@ -94,7 +94,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		/obj/screen/new_player/selection/polls,
 
 		//Temporary exclusion while matt fixes it
-		/obj/item/projectile/beam/psi_lightning/wide,
+		/obj/projectile/beam/psi_lightning/wide,
 		/obj/effect/fusion_particle_catcher,
 		/obj/item/fuel_assembly,
 
@@ -103,6 +103,9 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 
 		//Requires an owner or stacktrace on creation
 		/atom/movable/flick_visual,
+
+		//Weather system, requires a z level
+		/obj/abstract/weather_system
 
 	)
 
@@ -159,12 +162,16 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	ignore += typesof(/mob/living/heavy_vehicle)
 	ignore += typesof(/obj/singularity/narsie)
 	ignore += typesof(/obj/screen/ability)
+	ignore += typesof(/obj/effect/bmode)
 
 	// Requires something in icon update or runtimes
 	ignore += typesof(/obj/item/gun/energy/gun/nuclear)
 
 	// do_spread sleeps and tries to addtimer after the src is qdeleted
 	ignore += typesof(/obj/effect/plant)
+
+	// Cannot be deleted
+	ignore += typesof(/obj/effect/landmark/entry_point)
 
 	/*
 	 * END EXCLUSIONS OF THE TEST

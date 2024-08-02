@@ -54,6 +54,9 @@
 /datum/late_choices/proc/do_update_character_icon()
 	update_icon_on_next_open = FALSE
 	var/mob/mannequin = NP.client.prefs.update_mannequin()
+	for(var/mutable_appearance/I in mannequin.overlays)
+		if(I.plane == EMISSIVE_PLANE)
+			mannequin.overlays -= I
 	character_image = getFlatIcon(mannequin, SOUTH)
 
 /datum/late_choices/ui_data(mob/user)

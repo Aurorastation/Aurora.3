@@ -4,6 +4,8 @@
 	pixel_x = -32
 	icon = 'icons/obj/flora/crystal_trees.dmi'
 	icon_state = "gem"
+	is_rock = TRUE
+	sample_data = list("Sample contains crystaline structures with a branching fractal appearance")
 
 /obj/structure/flora/tree/crystal/Initialize(mapload)
 	. = ..()
@@ -18,7 +20,8 @@
 	icon = 'icons/obj/flora/crystal_trees.dmi'
 	icon_state = "spire"
 	pixel_x = -32
-	layer = ABOVE_ALL_MOB_LAYER // this is basically a tree
+	layer = ABOVE_HUMAN_LAYER // this is basically a tree
+	sample_data = list("Sample contains low density crystaline structures")
 
 /obj/structure/flora/rock/spire/Initialize(mapload)
 	. = ..()

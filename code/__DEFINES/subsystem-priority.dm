@@ -33,7 +33,6 @@
 // Normal
 #define SS_PRIORITY_TICKER     100	// Gameticker.
 //#define FIRE_PRIORITY_DEFAULT   50	// This is defined somewhere else.
-#define SS_PRIORITY_MOB         40	// Mob Life().
 #define SS_PRIORITY_AIR         40	// ZAS processing.
 #define SS_PRIORITY_STATPANELS  25  // Statpanels.
 #define SS_PRIORITY_LIGHTING    25	// Queued lighting engine updates.
@@ -56,7 +55,6 @@
 
 
 // SS_BACKGROUND
-#define SS_PRIORITY_PROCESSING    50	// Generic datum processor. Replaces objects processor.
 //#define FIRE_PRIORITY_DEFAULT     50	// This is defined somewhere else.
 #define SS_PRIORITY_PSYCHICS      30
 #define SS_PRIORITY_EVAC          30   // Processes the evac controller.

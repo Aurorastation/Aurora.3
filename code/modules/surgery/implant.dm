@@ -16,11 +16,11 @@
 /singleton/surgery_step/cavity/proc/get_max_wclass(var/obj/item/organ/external/affected)
 	switch(affected.name)
 		if(BP_HEAD)
-			return ITEMSIZE_TINY
+			return WEIGHT_CLASS_TINY
 		if("upper body")
-			return ITEMSIZE_NORMAL
+			return WEIGHT_CLASS_NORMAL
 		if("lower body")
-			return ITEMSIZE_SMALL
+			return WEIGHT_CLASS_SMALL
 	return 0
 
 /singleton/surgery_step/cavity/proc/get_cavity(var/obj/item/organ/external/affected)
@@ -184,12 +184,12 @@
 	if(length(affected.implants))
 		var/list/implants = list()
 		var/shrapnel_present = FALSE
-		for(var/obj/I in affected.implants)
+		for(var/I in affected.implants)
 			implants += I
 			if(!istype(I, /obj/item/implant))
 				shrapnel_present = TRUE
 
-		for(var/obj/I in implants)
+		for(var/I in implants)
 			/// Prioritize shrapnel instead of stuff like loyalty implants.
 			if(shrapnel_present && istype(I, /obj/item/implant))
 				continue

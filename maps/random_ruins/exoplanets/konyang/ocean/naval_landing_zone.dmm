@@ -20,7 +20,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -291,9 +290,7 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
 "dg" = (
-/obj/structure/railing/mapped{
-	layer = 9.1
-	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "di" = (
@@ -309,7 +306,6 @@
 /obj/structure/tank_wall/air{
 	density = 0;
 	icon_state = "air6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -623,9 +619,7 @@
 /area/konyang_landing_zone)
 "gH" = (
 /obj/structure/ledge,
-/obj/structure/railing/mapped{
-	layer = 9.1
-	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "gM" = (
@@ -933,8 +927,7 @@
 	dir = 4
 	},
 /obj/effect/decal/exterior_stairs/left{
-	dir = 4;
-	layer = 2.01
+	dir = 4
 	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
@@ -986,9 +979,13 @@
 /area/konyang_landing_zone)
 "lX" = (
 /obj/structure/table/wood,
-/obj/item/device/radio/phone,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
+	},
+/obj/item/blueprints/outpost,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
 	},
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center)
@@ -1368,8 +1365,7 @@
 /area/konyang_landing_zone/command_center/landing_pads)
 "rQ" = (
 /obj/effect/decal/exterior_stairs/left{
-	dir = 4;
-	layer = 2.01
+	dir = 4
 	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
@@ -1405,9 +1401,7 @@
 /area/konyang_landing_zone)
 "sK" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black,
-/obj/effect/decal/exterior_stairs/half/left{
-	layer = 3
-	},
+/obj/effect/decal/exterior_stairs/half/left,
 /obj/structure/lattice/catwalk/indoor/urban,
 /obj/structure/railing/mapped{
 	dir = 8
@@ -1610,9 +1604,7 @@
 /obj/structure/ledge{
 	dir = 6
 	},
-/obj/structure/railing/mapped{
-	layer = 9.1
-	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "vy" = (
@@ -1656,9 +1648,7 @@
 /obj/machinery/door/blast/regular{
 	id = "lz_vehiclebay"
 	},
-/obj/structure/plasticflaps/airtight{
-	layer = 2.5
-	},
+/obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/reinforced,
 /area/konyang_landing_zone/command_center/garage)
 "wo" = (
@@ -1946,8 +1936,7 @@
 	},
 /obj/machinery/atmospherics/binary/pump/aux{
 	dir = 4;
-	name = "Air to Connector";
-	layer = 2.8
+	name = "Air to Connector"
 	},
 /turf/simulated/floor/tiled,
 /area/konyang_landing_zone/command_center/landing_pads)
@@ -1972,7 +1961,6 @@
 /obj/structure/tank_wall/air{
 	density = 0;
 	icon_state = "air5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -2005,7 +1993,6 @@
 /obj/structure/tank_wall/air{
 	density = 0;
 	icon_state = "air12";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -2069,7 +2056,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -2132,7 +2118,6 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped{
-	layer = 9.1;
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
@@ -2205,9 +2190,7 @@
 /obj/structure/ledge{
 	dir = 10
 	},
-/obj/structure/railing/mapped{
-	layer = 9.1
-	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Fe" = (
@@ -2255,7 +2238,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -2449,9 +2431,7 @@
 /obj/structure/utility_pole/street/on{
 	dir = 8
 	},
-/obj/structure/railing/mapped{
-	layer = 9.1
-	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Ht" = (
@@ -3016,9 +2996,7 @@
 	dir = 1
 	},
 /obj/effect/decal/road_marking,
-/obj/structure/railing/mapped{
-	layer = 9.1
-	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "QJ" = (
@@ -3052,9 +3030,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/portables_connector/aux{
-	layer = 2.8
-	},
+/obj/machinery/atmospherics/portables_connector/aux,
 /obj/structure/lattice/catwalk/indoor/urban,
 /turf/simulated/floor/sidewalk/flat,
 /area/konyang_landing_zone/command_center/landing_pads)
@@ -3321,8 +3297,7 @@
 /area/konyang_landing_zone/command_center/landing_pads)
 "Ua" = (
 /obj/effect/decal/curb{
-	dir = 1;
-	layer = 2.02
+	dir = 1
 	},
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
@@ -3421,7 +3396,6 @@
 /obj/structure/tank_wall/air{
 	density = 0;
 	icon_state = "air11";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -3555,7 +3529,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -3592,9 +3565,7 @@
 /obj/structure/utility_pole/street/on{
 	dir = 1
 	},
-/obj/structure/railing/mapped{
-	layer = 9.1
-	},
+/obj/structure/railing/mapped,
 /turf/simulated/floor/asphalt,
 /area/konyang_landing_zone)
 "Yd" = (

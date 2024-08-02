@@ -240,4 +240,7 @@
 /obj/effect/floor_decal/industrial/arrow/grey
 	color = COLOR_GRAY
 
+/obj/effect/floor_decal/industrial/arrow/red
+	color = COLOR_CRIMSON
+
 // ------------------------

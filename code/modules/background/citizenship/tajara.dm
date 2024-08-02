@@ -6,7 +6,7 @@
 	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
 	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
 	consular_outfit = /obj/outfit/job/representative/consular/pra
-	assistant_outfit = /obj/outfit/job/consular_assistant/dpra
+	assistant_outfit = /obj/outfit/job/consular_assistant/pra
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(

@@ -4,8 +4,10 @@
 	icon = 'icons/obj/geiger_counter.dmi'
 	icon_state = "geiger_off"
 	item_state = "multitool"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	action_button_name = "Toggle geiger counter"
+	matter = list(MATERIAL_PLASTIC = 100, DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 50)
+	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 	var/scanning = 0
 	var/radiation_count = 0
 	var/datum/sound_token/sound_token

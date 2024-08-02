@@ -66,3 +66,16 @@
 		H.max_stamina *= 0.8
 		H.stamina = H.max_stamina
 
+/datum/character_disabilities/hemophilia
+	name = "Hemophilia"
+	desc = "Your blood lacks some clotting factors, causing wounds to take twice as long to stop bleeding."
+	/// This takes a TRAIT_DISABILITY_* type trait, and assigns it to the character on apply_self
+	var/trait_type = TRAIT_DISABILITY_HEMOPHILIA
+
+/datum/character_disabilities/hemophilia/apply_self(var/mob/living/carbon/human/H)
+	ADD_TRAIT(H, trait_type, DISABILITY_TRAIT)
+
+/datum/character_disabilities/hemophilia/major
+	name = "Major Hemophilia"
+	desc = "Your blood lacks ALL clotting factors, causing wounds to never stop bleeding."
+	trait_type = TRAIT_DISABILITY_HEMOPHILIA_MAJOR

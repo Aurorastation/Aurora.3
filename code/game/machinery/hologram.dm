@@ -36,7 +36,7 @@ Possible to do for anyone motivated enough:
 	icon_state = "holopad0"
 	var/icon_state_suffix = ""
 
-	layer = DECAL_LAYER + 0.1 //Preventing rats and drones from sneaking under them.
+	layer = ABOVE_TILE_LAYER
 
 	var/power_per_hologram = 500 //per usage per hologram
 	idle_power_usage = 5
@@ -76,6 +76,8 @@ Possible to do for anyone motivated enough:
 	SSmachinery.all_holopads += src
 
 	light_color = long_range ? rgb(225, 173, 125) : rgb(125, 180, 225)
+
+	GLOB.listening_objects += src
 
 /obj/machinery/hologram/holopad/proc/get_holopad_id()
 	var/area/A = get_area(src)
@@ -522,6 +524,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	clear_holos(TRUE)
 	SSmachinery.all_holopads -= src
 	linked_pdas.Cut()
+	GLOB.listening_objects -= src
 	return ..()
 
 /obj/effect/overlay/hologram

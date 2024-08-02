@@ -206,8 +206,8 @@
 				light1.set_dir(SOUTH)
 				light2.set_dir(NORTH)
 
-			light1.no_z_overlay = 1
-			light2.no_z_overlay = 1
+			light1.z_flags = ZMM_IGNORE
+			light2.z_flags = ZMM_IGNORE
 
 		// Update area.
 		if(az > areas_to_use.len)

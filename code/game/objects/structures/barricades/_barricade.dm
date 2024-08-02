@@ -4,7 +4,6 @@
 	anchored = TRUE
 	density = TRUE
 	throwpass = TRUE //You can throw objects over this, despite its density.
-	layer = BELOW_OBJ_LAYER
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 
 	var/stack_type //The type of stack the barricade dropped when disassembled if any.
@@ -47,7 +46,8 @@
 			. += SPAN_WARNING("It's crumbling apart, just a few more blows will tear it apart!")
 
 /obj/structure/barricade/update_icon()
-	overlays.Cut()
+	CutOverlays()
+
 	if(!closed)
 		if(can_change_dmg_state)
 			icon_state = "[barricade_type]_[damage_state]"
@@ -55,13 +55,13 @@
 			icon_state = "[barricade_type]"
 		switch(dir)
 			if(SOUTH)
-				layer = ABOVE_MOB_LAYER
+				layer = ABOVE_HUMAN_LAYER
 			if(NORTH)
 				layer = initial(layer) - 0.01
 			else
-				layer = initial(layer)
+				reset_plane_and_layer()
 		if(!anchored)
-			layer = initial(layer)
+			reset_plane_and_layer()
 	else
 		if(can_change_dmg_state)
 			icon_state = "[barricade_type]_closed_[damage_state]"
@@ -71,9 +71,9 @@
 
 	if(is_wired)
 		if(!closed)
-			overlays += image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_wire")
+			AddOverlays(image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_wire"))
 		else
-			overlays += image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_closed_wire")
+			AddOverlays(image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_closed_wire"))
 
 	..()
 
@@ -85,14 +85,14 @@
 /obj/structure/barricade/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0))
 		return TRUE
-	if(istype(mover, /obj/item/projectile))
+	if(istype(mover, /obj/projectile))
 		return (check_cover(mover,target))
 	if (get_dir(loc, target) == dir)
 		return !density
 	else
 		return TRUE
 
-/obj/structure/barricade/proc/check_cover(obj/item/projectile/P, turf/from)
+/obj/structure/barricade/proc/check_cover(obj/projectile/P, turf/from)
 	var/turf/cover = get_turf(src)
 	if(!cover)
 		return TRUE
@@ -105,12 +105,18 @@
 	return TRUE
 
 /obj/structure/barricade/CheckExit(atom/movable/O as mob|obj, target as turf)
-	if(istype(O) && O.checkpass(PASSTABLE))
+	if(istype(O) && O.pass_flags & PASSTABLE)
 		return TRUE
 	if (get_dir(loc, target) == dir)
 		return !density
 	else
 		return TRUE
+
+/obj/structure/barricade/can_climb(var/mob/living/user, post_climb_check=0)
+	if(is_wired)
+		to_chat(user, SPAN_WARNING("\The [src] has barbed wire over it, restricting you from climbing over!"))
+		return FALSE
+	return ..()
 
 /obj/structure/barricade/attack_robot(mob/user)
 	return attack_hand(user)
@@ -191,7 +197,7 @@
 			playsound(src, barricade_hitsound, 25, 1)
 		hit_barricade(attacking_item, user)
 
-/obj/structure/barricade/bullet_act(obj/item/projectile/P)
+/obj/structure/barricade/bullet_act(obj/projectile/P)
 	bullet_ping(P)
 	var/damage_to_take = P.damage * P.anti_materiel_potential
 	take_damage(damage_to_take)

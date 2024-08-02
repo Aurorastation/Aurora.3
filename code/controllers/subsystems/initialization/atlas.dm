@@ -137,13 +137,13 @@ SUBSYSTEM_DEF(atlas)
 	)
 
 /datum/controller/subsystem/atlas/stat_entry(msg)
-	msg = "W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[GLOB.z_levels]"
+	msg = "W:{X:[world.maxx] Y:[world.maxy] Z:[world.maxz]} ZL:[length(SSmapping.z_list)]"
 	return ..()
 
 /datum/controller/subsystem/atlas/Initialize(timeofday)
 	// Quick sanity check.
 	if (world.maxx != WORLD_MIN_SIZE || world.maxy != WORLD_MIN_SIZE || world.maxz != 1)
-		to_world("<span class='warning'>WARNING: Suspected pre-compiled map: things may break horribly!</span>")
+		to_world(SPAN_WARNING("WARNING: Suspected pre-compiled map: things may break horribly!"))
 		log_subsystem_atlas("-- WARNING: Suspected pre-compiled map! --")
 
 	maploader = new
@@ -165,7 +165,7 @@ SUBSYSTEM_DEF(atlas)
 	if (!map_override)
 		map_override = get_selected_map()
 
-	admin_notice("<span class='danger'>Loading map [map_override].</span>", R_DEBUG)
+	admin_notice(SPAN_DANGER("Loading map [map_override]."), R_DEBUG)
 	log_subsystem_atlas("Using map '[map_override]'.")
 
 	current_map = known_maps[map_override]
@@ -173,7 +173,6 @@ SUBSYSTEM_DEF(atlas)
 		world.map_panic("Selected map does not exist!")
 
 	load_map_meta()
-	setup_spawnpoints()
 
 	world.update_status()
 
@@ -181,7 +180,7 @@ SUBSYSTEM_DEF(atlas)
 	var/maps_loaded = load_map_directory("maps/[current_map.path]/", TRUE)
 
 	log_subsystem_atlas("Loaded [maps_loaded] maps.")
-	admin_notice("<span class='danger'>Loaded [maps_loaded] levels.</span>")
+	admin_notice(SPAN_DANGER("Loaded [maps_loaded] levels."))
 
 	if (!maps_loaded)
 		world.map_panic("No maps loaded!")
@@ -212,6 +211,8 @@ SUBSYSTEM_DEF(atlas)
 
 	current_sector.setup_current_sector()
 
+	setup_spawnpoints()
+
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/atlas/proc/load_map_directory(directory, overwrite_default_z = FALSE)
@@ -222,32 +223,32 @@ SUBSYSTEM_DEF(atlas)
 	var/static/regex/mapregex = new(".+\\.dmm$")
 	var/list/files = flist(directory)
 	sortTim(files, GLOBAL_PROC_REF(cmp_text_asc))
+	var/list/filemaps_to_load
+	for(var/file in files)
+		if(mapregex.Find(file))
+			filemaps_to_load += list(file)
+
 	var/mfile
-	var/first_dmm = TRUE
-	var/time
-	for (var/i in 1 to files.len)
-		mfile = files[i]
-		if (!mapregex.Find(mfile))
-			continue
+	var/time = world.time
 
-		log_subsystem_atlas("Loading '[mfile]'.")
-		time = world.time
+	if(length(filemaps_to_load) >= 2)
+		stack_trace("Only one file is now supported per map!")
+		return
 
-		mfile = "[directory][mfile]"
+	var/datum/space_level/first_level
+	for(var/traits in current_map.traits)
+		var/level = SSmapping.add_new_zlevel(name, traits, contain_turfs = FALSE)
+		if(!first_level)
+			first_level = level
 
-		var/target_z = 0
-		if (overwrite_default_z && first_dmm)
-			target_z = 1
-			first_dmm = FALSE
-			log_subsystem_atlas("Overwriting first Z.")
+	mfile = "[directory][filemaps_to_load[1]]"
 
-		if (!maploader.load_map(file(mfile), 0, 0, target_z, no_changeturf = TRUE))
-			log_subsystem_atlas("Failed to load '[mfile]'!")
-		else
-			log_subsystem_atlas("Loaded level in [(world.time - time)/10] seconds.")
-
-		.++
-		CHECK_TICK
+	if(!maploader.load_map(file(mfile), 0, 0, first_level.z_value, no_changeturf = TRUE))
+		log_subsystem_atlas("Failed to load '[mfile]'!")
+		return FALSE
+	else
+		log_subsystem_atlas("Loaded level in [(world.time - time)/10] seconds.")
+		return TRUE
 
 /datum/controller/subsystem/atlas/proc/get_selected_map()
 	if (GLOB.config.override_map)
@@ -316,7 +317,7 @@ SUBSYSTEM_DEF(atlas)
 
 // Called when there's a fatal, unrecoverable error in mapload. This reboots the server.
 /world/proc/map_panic(reason)
-	to_chat(world, "<span class='danger'>Fatal error during map setup, unable to continue! Server will reboot in 60 seconds.</span>")
+	to_chat(world, SPAN_DANGER("Fatal error during map setup, unable to continue! Server will reboot in 60 seconds."))
 	log_subsystem_atlas("-- FATAL ERROR DURING MAP SETUP: [uppertext(reason)] --")
 	sleep(1 MINUTE)
 	world.Reboot()

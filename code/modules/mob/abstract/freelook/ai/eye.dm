@@ -7,6 +7,7 @@
 	// Generic version of the AI eye without the AI-specific handling, for things like the Camera MIU mask.
 	name = "Inactive Camera Eye"
 	name_suffix = "Camera Eye"
+	living_eye = FALSE
 
 /mob/abstract/eye/cameranet/Initialize()
 	. = ..()
@@ -16,6 +17,7 @@
 	name = "Inactive AI Eye"
 	name_suffix = "AI Eye"
 	icon_state = "AI-eye"
+	living_eye = FALSE
 
 /mob/abstract/eye/aiEye/Initialize()
 	. = ..()
@@ -55,11 +57,6 @@
 	if(eyeobj) destroy_eyeobj()
 	eyeobj = new /mob/abstract/eye/aiEye(newloc)
 	eyeobj.possess(src)
-
-// Intiliaze the eye by assigning it's "ai" variable to us. Then set it's loc to us.
-/mob/living/silicon/ai/Initialize()
-	. = ..()
-	create_eyeobj()
 
 /atom/proc/move_camera_by_click()
 	if(istype(usr, /mob/living/silicon/ai))

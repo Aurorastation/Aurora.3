@@ -11,9 +11,9 @@
 	density = TRUE
 	var/state = ECD_WELDED
 	slowdown = 10
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
-/obj/structure/ecd/examine(mob/living/user, distance)
+/obj/structure/ecd/examine(mob/living/user, distance, is_adjacent, infix, suffix, show_extended)
 	. = ..()
 	switch(state)
 		if(ECD_LOOSE)

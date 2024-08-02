@@ -27,6 +27,7 @@
 	zippolighters["gadpathurian zippo"] = /obj/item/flame/lighter/zippo/gadpathur
 	zippolighters["luceian zippo"] = /obj/item/flame/lighter/zippo/luceian
 	zippolighters["asoral jet lighter"] = /obj/item/flame/lighter/zippo/asoral
+	zippolighters["nralakk zippo"] = /obj/item/flame/lighter/zippo/nralakk
 	gear_tweaks += new /datum/gear_tweak/path(zippolighters)
 
 /datum/gear/smoking/lighter
@@ -77,6 +78,7 @@
 	chews["Leviathan Chew chewing tobacco"] = /obj/item/storage/chewables/tobacco/federation
 	chews["Weibi's Breeze chewing tobacco"] = /obj/item/storage/chewables/tobacco/dyn
 	chews["box of Nico-Tine gum"] = /obj/item/storage/box/fancy/chewables/tobacco/nico
+	chews["Ha'zana chewing koko"] = /obj/item/storage/chewables/tobacco/koko
 	gear_tweaks += new /datum/gear_tweak/path(chews)
 
 /datum/gear/smoking/leaves

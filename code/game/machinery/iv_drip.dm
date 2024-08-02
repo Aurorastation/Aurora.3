@@ -8,6 +8,7 @@
 	icon_state = "iv_stand"
 	anchored = 0
 	density = FALSE
+	pass_flags_self = PASSTABLE
 	var/tipped = FALSE
 	var/last_full // Spam check
 	var/last_warning
@@ -59,6 +60,15 @@
 		/obj/item/stock_parts/manipulator,
 		/obj/item/stock_parts/scanning_module)
 
+/obj/machinery/iv_drip/Initialize(mapload)
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/machinery/iv_drip/Destroy()
 	if(attached)
 		attached = null
@@ -73,13 +83,13 @@
 /obj/machinery/iv_drip/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover, /obj/machinery/iv_drip))
 		return FALSE
-	if(height && istype(mover) && mover.checkpass(PASSTABLE)) //allow bullets, beams, thrown objects, rats, drones, and the like through.
-		return TRUE
 	return ..()
 
-/obj/machinery/iv_drip/Crossed(var/mob/H)
-	if(ishuman(H))
-		var/mob/living/carbon/human/M = H
+/obj/machinery/iv_drip/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(ishuman(arrived))
+		var/mob/living/carbon/human/M = arrived
 		if(M.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 			return
 		if(M.incapacitated())
@@ -89,12 +99,11 @@
 		if(M.m_intent == M_RUN && M.a_intent == I_HURT)
 			src.visible_message(SPAN_WARNING("[M] bumps into \the [src], knocking it over!"), SPAN_WARNING("You bump into \the [src], knocking it over!"))
 			do_crash()
-	return ..()
 
 /obj/machinery/iv_drip/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(beaker)
-		add_overlay("beaker")
+		AddOverlays("beaker")
 		var/datum/reagents/reagents = beaker.reagents
 		if(reagents?.total_volume)
 			var/image/filling = image('icons/obj/iv_drip.dmi', src, "reagent")
@@ -111,17 +120,17 @@
 			filling.icon_state = "reagent[fill_level]"
 			var/reagent_color = reagents.get_color()
 			filling.icon += reagent_color
-			add_overlay(filling)
+			AddOverlays(filling)
 		if(attached)
-			add_overlay("iv_in")
+			AddOverlays("iv_in")
 			if(mode)
-				add_overlay("light_green")
+				AddOverlays("light_green")
 			else
-				add_overlay("light_red")
+				AddOverlays("light_red")
 			if(blood_message_sent)
-				add_overlay("light_yellow")
+				AddOverlays("light_yellow")
 		else
-			add_overlay("iv_out")
+			AddOverlays("iv_out")
 	if(tank)
 		if(istype(tank, /obj/item/tank/oxygen))
 			tank_type = "oxy"
@@ -131,7 +140,7 @@
 			tank_type = "phoron"
 		else
 			tank_type = "other"
-		add_overlay("tank_[tank_type]")
+		AddOverlays("tank_[tank_type]")
 
 		var/tank_level = 2
 		switch(tank.percent())
@@ -142,16 +151,16 @@
 			if(60 to 79)		tank_level = 4
 			if(80 to 90)		tank_level = 5
 			if(91 to INFINITY)	tank_level = 6
-		add_overlay("[tank.gauge_icon][tank_level]")
+		AddOverlays("[tank.gauge_icon][tank_level]")
 	if(breath_mask)
 		if(breather)
-			add_overlay("mask_on")
+			AddOverlays("mask_on")
 		else
-			add_overlay("mask_off")
+			AddOverlays("mask_off")
 		if(epp_active)
-			add_overlay("light_blue")
+			AddOverlays("light_blue")
 	if(panel_open)
-		add_overlay("panel_open")
+		AddOverlays("panel_open")
 
 /obj/machinery/iv_drip/process()
 	breather_process()
@@ -500,7 +509,7 @@
 			toggle_epp()
 
 /obj/machinery/iv_drip/proc/do_crash()
-	cut_overlays()
+	ClearOverlays()
 	visible_message(SPAN_WARNING("\The [src] falls over with a buzz, spilling out it's contents!"))
 	flick("iv_crash[is_loose ? "" : "_tank_[tank_type]"]", src)
 	playsound(src, 'sound/effects/table_slam.ogg', 50, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE)

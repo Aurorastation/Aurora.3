@@ -64,6 +64,10 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy/mannequin)
 /mob/living/carbon/human/stok/Initialize(mapload)
 	. = ..(mapload, SPECIES_MONKEY_UNATHI)
 
+/mob/living/carbon/human/stok/moghes
+	faction = "Moghes"
+	resists_weather = TRUE
+
 /mob/living/carbon/human/bug/Initialize(mapload)
 	. = ..(mapload, SPECIES_MONKEY_VAURCA)
 	src.gender = FEMALE

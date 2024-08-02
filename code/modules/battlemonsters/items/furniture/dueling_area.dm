@@ -10,7 +10,7 @@
 	density = 0
 
 /obj/structure/dueling_table/no_collide/above_layer
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/effect/decal/battlemonsters_logo
 	name = "battlemonsters logo"

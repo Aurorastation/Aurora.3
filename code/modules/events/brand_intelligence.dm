@@ -15,7 +15,7 @@
 	..()
 
 	for(var/obj/machinery/vending/V in SSmachinery.processing)
-		if(isNotStationLevel(V.z))	continue
+		if(!is_station_level(V.z))	continue
 		vendingMachines.Add(V)
 
 	if(!vendingMachines.len)

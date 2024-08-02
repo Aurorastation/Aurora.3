@@ -16,7 +16,7 @@
 /obj/item/reagent_containers/glass/rag
 	name = "rag"
 	desc = "For cleaning up messes, you suppose."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "rag"
 	amount_per_transfer_from_this = 5
@@ -146,8 +146,8 @@
 					for(var/_R in reagents.reagent_volumes)
 						var/singleton/reagent/R = GET_SINGLETON(_R)
 						var/strength = R.germ_adjust * reagents.reagent_volumes[_R]/4
-						if(ispath(_R, /singleton/reagent/alcohol))
-							var/singleton/reagent/alcohol/A = R
+						if(ispath(_R, /singleton/reagent/alcohol/ethanol))
+							var/singleton/reagent/alcohol/ethanol/A = R
 							strength = strength * (A.strength/100)
 						W.germ_level -= min(strength, W.germ_level)//Clean the wound a bit.
 						if (W.germ_level <= 0)
@@ -206,7 +206,9 @@
 			wipe_down(A, user)
 		return
 
-/obj/item/reagent_containers/glass/rag/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/item/reagent_containers/glass/rag/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(exposed_temperature >= 50 + T0C)
 		ignite()
 	if(exposed_temperature >= 900 + T0C)
@@ -296,7 +298,7 @@
 /obj/item/reagent_containers/glass/rag/advanced
 	name = "microfiber cloth"
 	desc = "A synthetic fiber cloth; the split fibers and the size of the individual filaments make it more effective for cleaning purposes."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "advrag"
 	amount_per_transfer_from_this = 10

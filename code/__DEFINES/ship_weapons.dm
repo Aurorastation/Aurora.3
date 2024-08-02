@@ -2,7 +2,7 @@
 #define SHIP_CALIBER_406MM "406mm"
 #define SHIP_CALIBER_40MM "40mm"
 #define SHIP_CALIBER_90MM "90mm"
-#define SHIP_CALIBER_ZTA "zero-point warp beam"
+#define SHIP_CALIBER_ZAT "zero-point warp beam"
 #define SHIP_CALIBER_178MM "178mm"
 #define SHIP_CALIBER_COILGUN "tungsten rod"
 #define SHIP_CALIBER_200MM "200mm"
@@ -25,7 +25,7 @@
 #define SHIP_AMMO_IMPACT_LASER "laser"
 #define SHIP_AMMO_IMPACT_BUNKERBUSTER "bunker-buster"
 #define SHIP_AMMO_IMPACT_PLASMA "plasma"
-#define SHIP_AMMO_IMPACT_ZTA "zero-point warp beam"
+#define SHIP_AMMO_IMPACT_ZAT "zero-point warp beam"
 #define SHIP_AMMO_IMPACT_BLASTER "blaster charge"
 
 #define FIRING_EFFECT_FLAG_THROW_MOBS  1

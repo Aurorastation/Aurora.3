@@ -35,7 +35,7 @@
 	random_icon_states = null
 	var/dirs=0
 	icon = 'icons/effects/fluidtracks.dmi'
-	icon_state = ""
+	icon_state = "" // invisible sprite, our icon is built using overlays instead
 	var/coming_state = "blood1"
 	var/going_state = "blood2"
 
@@ -127,7 +127,7 @@
 		update_icon()
 
 /obj/effect/decal/cleanable/blood/tracks/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	color = "#FFFFFF"
 	var/truedir = 0
 
@@ -157,7 +157,7 @@
 		track.fresh = 0
 		track.overlay = I
 		stack[stack_idx] = track
-		add_overlay(I)
+		AddOverlays(I)
 
 /obj/effect/decal/cleanable/blood/tracks/footprints
 	name = "wet footprints"

@@ -74,6 +74,8 @@
 		"<b>Ghost sight:</b> <a href='?src=\ref[src];toggle=[CHAT_GHOSTSIGHT]'><b>[(pref.toggles & CHAT_GHOSTSIGHT) ? "All Emotes" : "Nearest Creatures"]</b></a><br>",
 		"<b>Ghost radio:</b> <a href='?src=\ref[src];toggle=[CHAT_GHOSTRADIO]'><b>[(pref.toggles & CHAT_GHOSTRADIO) ? "All Chatter" : "Nearest Speakers"]</b></a><br>",
 		"<b>Observer LOOC:</b> <a href='?src=\ref[src];toggle=[CHAT_GHOSTLOOC]'><b>[(pref.toggles & CHAT_GHOSTLOOC) ? "Visible" : "Hidden"]</b></a><br>",
+		"<b>Item Outlines:</b> <a href='?src=\ref[src];paratoggle=[SEE_ITEM_OUTLINES]'><b>[(pref.toggles_secondary & SEE_ITEM_OUTLINES) ? "Visible" : "Hidden"]</b></a><br>",
+		"<b>Hide Item Tooltips:</b> <a href='?src=\ref[src];paratoggle=[HIDE_ITEM_TOOLTIPS]'><b>[(pref.toggles_secondary & HIDE_ITEM_TOOLTIPS) ? "Yes" : "No"]</b></a><br>",
 		"<b>Progress Bars:</b> <a href='?src=\ref[src];paratoggle=[PROGRESS_BARS]'><b>[(pref.toggles_secondary & PROGRESS_BARS) ? "Yes" : "No"]</b></a><br>",
 		"<b>Floating Messages:</b> <a href='?src=\ref[src];paratoggle=[FLOATING_MESSAGES]'><b>[(pref.toggles_secondary & FLOATING_MESSAGES) ? "Yes" : "No"]</b></a><br>",
 		"<b>Hotkey Mode Default:</b> <a href='?src=\ref[src];paratoggle=[HOTKEY_DEFAULT]'><b>[(pref.toggles_secondary & HOTKEY_DEFAULT) ? "On" : "Off"]</b></a><br>"

@@ -1,12 +1,28 @@
 /datum/ghostspawner
 	var/short_name = null
 	var/name = null
+
+	/// Description of the spawner, as seen in the ghostspawner GUI.
+	/// Should be short and simple description, to not clutter up the menus.
+	/// Should have the most brief description and expectations for the role.
 	var/desc = null
+
+	/// Similar to the normal desc, but strictly for OOC warnings or notes.
+	/// For example, to say whether this is an antagonist role, or any other OOC considerations.
+	var/desc_ooc = null
+
+	/// Message shown to the player immediately after spawning.
+	/// Can be longer than the description, and more detailed.
+	/// Should also contain anything else specific to the role, for example:
+	/// who does this role answer to, location of the equipment, gimmick or background ideas, tips on how to play it, etc.
+	var/welcome_message = null
+	/// Similar to the normal welcome message, but strictly for OOC warnings or notes.
+	/// For example, to say whether this is an antagonist role, or any other OOC considerations.
+	var/welcome_message_ooc = null
 
 	var/observers_only = FALSE
 	var/show_on_job_select = TRUE // Determines if the ghost spawner role is considered unique or not.
 
-	var/welcome_message = null
 	var/list/tags = list() //Tags associated with that spawner
 
 	//Vars regarding the spawnpoints and conditions of the spawner
@@ -15,6 +31,7 @@
 
 	var/list/spawnpoints = null //List of the applicable spawnpoints (by name) - Use loc_type: GS_LOC_POS
 	var/landmark_name = null //Alternatively you can specify a landmark name - Use loc_type: GS_LOC_POS
+	var/landmark_type = null //Specify a landmark type to look for, instead of the name, this takes precedence over landmark_name
 
 	var/loc_type = GS_LOC_POS
 
@@ -132,10 +149,13 @@
 					spawnpoints -= spawnpoint //Set the spawnpoint at the bottom of the list.
 					spawnpoints += spawnpoint
 				return T
-	if(!isnull(landmark_name))
+	if(!isnull(landmark_name) || !isnull(landmark_type))
 		var/list/possible_landmarks = list()
 		for(var/obj/effect/landmark/landmark in GLOB.landmarks_list)
-			if(landmark.name == landmark_name)
+			if(landmark_type)
+				if(istype(landmark, landmark_type))
+					possible_landmarks += landmark
+			else if(landmark.name == landmark_name)
 				possible_landmarks += landmark
 		if(length(possible_landmarks))
 			var/obj/effect/landmark/L = pick(possible_landmarks)
@@ -188,12 +208,14 @@
 	if(disable_and_hide_if_full && max_count && (count >= max_count))
 		disable()
 	if(welcome_message)
-		to_chat(user, SPAN_NOTICE(welcome_message))
+		to_chat(user, EXAMINE_BLOCK(SPAN_NOTICE(welcome_message)))
 	else
 		if(name)
-			to_chat(user, SPAN_INFO("You are spawning as: ") + name)
+			to_chat(user, EXAMINE_BLOCK(SPAN_INFO("You are spawning as: ") + name))
 		if(desc)
-			to_chat(user, SPAN_INFO("Role description: ") + desc)
+			to_chat(user, EXAMINE_BLOCK(SPAN_INFO("Role description: ") + desc))
+	if(welcome_message_ooc)
+		to_chat(user, EXAMINE_BLOCK(SPAN_INFO("(OOC Notes: [welcome_message_ooc])")))
 	GLOB.universe.OnPlayerLatejoin(user)
 	if(SSatlas.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[user.z]"]

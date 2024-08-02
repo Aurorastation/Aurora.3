@@ -32,7 +32,7 @@
 /obj/item/integrated_circuit/passive/power/relay
 	name = "tesla power relay"
 	desc = "A seemingly enigmatic device which connects to nearby APCs wirelessly and draws power from them."
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	extended_desc = "The siphon generates 250W of energy, so long as an APC is in the same room, with a cell that has energy.  It will always drain \
 	from the 'equipment' power channel."
 	icon_state = "power_relay"
@@ -45,7 +45,7 @@
 /obj/item/integrated_circuit/passive/power/relay/large
 	name = "large tesla power relay"
 	desc = "A seemingly enigmatic device which connects to nearby APCs wirelessly and draws power from them, now in industiral size!"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	extended_desc = "The siphon generates 2 kW of energy, so long as an APC is in the same room, with a cell that has energy.  It will always drain \
 	from the 'equipment' power channel."
 	icon_state = "power_relay"
@@ -131,7 +131,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
 	var/volume = 60
-	var/list/fuel = list(/singleton/reagent/toxin/phoron = 50000, /singleton/reagent/slimejelly = 25000, /singleton/reagent/fuel = 15000, /singleton/reagent/carbon = 10000, /singleton/reagent/alcohol = 10000, /singleton/reagent/nutriment = 8000, /singleton/reagent/blood = 5000)
+	var/list/fuel = list(/singleton/reagent/toxin/phoron = 50000, /singleton/reagent/slimejelly = 25000, /singleton/reagent/fuel = 15000, /singleton/reagent/carbon = 10000, /singleton/reagent/alcohol/ethanol = 10000, /singleton/reagent/nutriment = 8000, /singleton/reagent/blood = 5000)
 
 /obj/item/integrated_circuit/passive/power/chemical_cell/New()
 	..()

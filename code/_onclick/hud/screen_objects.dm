@@ -9,7 +9,8 @@
 /obj/screen
 	name = ""
 	icon = 'icons/mob/screen/generic.dmi'
-	layer = SCREEN_LAYER
+	plane = HUD_PLANE
+	layer = HUD_BASE_LAYER
 	unacidable = 1
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
 	var/datum/hud/hud = null // A reference to the owner HUD, if any.
@@ -55,7 +56,7 @@
 
 /obj/screen/inventory/MouseExited()
 	..()
-	cut_overlay(object_overlays)
+	CutOverlays(object_overlays)
 	object_overlays.Cut()
 
 /obj/screen/inventory/proc/add_overlays()
@@ -73,7 +74,7 @@
 		else
 			item_overlay.color = "#00ff00"
 		object_overlays += item_overlay
-		add_overlay(object_overlays)
+		AddOverlays(object_overlays)
 
 /obj/screen/inventory/proc/set_color_for(var/set_color, var/set_time)
 	if(color_changed)
@@ -137,8 +138,9 @@
 
 /obj/screen/storage
 	name = "storage"
-	layer = SCREEN_LAYER
 	screen_loc = "7,7 to 10,8"
+	plane = HUD_PLANE
+	layer = HUD_BASE_LAYER
 
 /obj/screen/storage/Click()
 	if(!usr.canClick())
@@ -153,7 +155,7 @@
 
 /obj/screen/storage/background
 	name = "background storage"
-	layer = SCREEN_LAYER+0.01
+	layer = HUD_BELOW_ITEM_LAYER
 
 /obj/screen/storage/background/Initialize(mapload, var/obj/set_master, var/set_icon_state)
 	. = ..()
@@ -221,7 +223,7 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 128
 	anchored = TRUE
-	layer = SCREEN_LAYER + 0.1
+	plane = HUD_ITEM_LAYER
 
 /obj/screen/zone_sel/MouseExited(location, control, params)
 	if(!isobserver(usr) && hovering_choice)
@@ -281,9 +283,9 @@
 		SEND_SIGNAL(user, COMSIG_MOB_ZONE_SEL_CHANGE, user)
 
 /obj/screen/zone_sel/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	selecting_appearance = mutable_appearance('icons/mob/zone_sel.dmi', "[selecting]")
-	add_overlay(selecting_appearance)
+	AddOverlays(selecting_appearance)
 
 /obj/screen/Click(location, control, params)
 	if(!usr)
@@ -345,7 +347,7 @@
 				for(var/turf/T in view(usr.client.view + 3, usr)) // slightly extra to account for moving while looking for openness
 					if(T.density)
 						continue
-					var/turf/above_turf = GetAbove(T)
+					var/turf/above_turf = GET_TURF_ABOVE(T)
 					if(!isopenspace(above_turf))
 						continue
 					var/image/up_image = image(icon = 'icons/mob/screen/generic.dmi', icon_state = "arrow_up", loc = T)
@@ -354,13 +356,14 @@
 					usr << up_image
 					QDEL_IN(up_image, 12)
 				return
-			var/turf/T = GetAbove(usr)
+			var/turf/T1 = get_turf(usr)
+			var/turf/T = GET_TURF_ABOVE(T1)
 			if (!T)
 				to_chat(usr, SPAN_NOTICE("There is nothing above you!"))
 			else if (T.is_hole)
-				to_chat(usr, "<span class='notice'>There's no roof above your head! You can see up!</span>")
+				to_chat(usr, SPAN_NOTICE("There's no roof above your head! You can see up!"))
 			else
-				to_chat(usr, "<span class='notice'>You see a ceiling staring back at you.</span>")
+				to_chat(usr, SPAN_NOTICE("You see a ceiling staring back at you."))
 
 		if("module")
 			if(isrobot(usr))
@@ -453,26 +456,25 @@
 /obj/screen/movement_intent
 	name = "mov_intent"
 	screen_loc = ui_movi
-	layer = SCREEN_LAYER
 
 //This updates the run/walk button on the hud
 /obj/screen/movement_intent/proc/update_move_icon(var/mob/living/user)
-	if (!user.client)
+	if(!user.client)
 		return
 
-	if (user.max_stamina == -1 || user.stamina == user.max_stamina)
-		if (user.stamina_bar)
-			user.stamina_bar.endProgress()
-			user.stamina_bar = null
+	if(user.max_stamina == -1 || user.stamina == user.max_stamina)
+		if(user.stamina_bar)
+			user.stamina_bar.end_progress()
+			QDEL_NULL(user.stamina_bar) //Because otherwise they stack weirdly when calculating the progress bar offsets
 	else
-		if (!user.stamina_bar)
+		if(!user.stamina_bar)
 			user.stamina_bar = new(user, user.max_stamina, src)
 		user.stamina_bar.goal = user.max_stamina
 		user.stamina_bar.update(user.stamina)
 
-	if (user.m_intent == M_RUN)
+	if(user.m_intent == M_RUN)
 		icon_state = "running"
-	else if (user.m_intent == M_LAY)
+	else if(user.m_intent == M_LAY)
 		icon_state = "lying"
 	else
 		icon_state = "walking"
@@ -491,19 +493,18 @@
 			return
 
 		if(C.legcuffed)
-			to_chat(C, "<span class='notice'>You are legcuffed! You cannot run until you get [C.legcuffed] removed!</span>")
+			to_chat(C, SPAN_NOTICE("You are legcuffed! You cannot run until you get [C.legcuffed] removed!"))
 			C.m_intent = M_WALK	//Just incase
 			C.hud_used.move_intent.icon_state = "walking"
 			return 1
+
 		switch(usr.m_intent)
 			if(M_RUN)
 				usr.m_intent = M_WALK
 			if(M_WALK)
 				if(!(usr.get_species() in BLACKLIST_SPECIES_RUNNING))
 					usr.m_intent = M_RUN
-
 			if(M_LAY)
-
 				// No funny "haha i get the bonuses then stand up"
 				var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
 				if(gun_in_hand?.wielded)
@@ -514,13 +515,16 @@
 					usr.m_intent = M_WALK
 
 		if(modifiers["button"] == "middle" && !C.lying)	// See /mob/proc/update_canmove() for more logic on the lying FSM
-
 			// You want this bonus weapon or not? Wield it when you are lying, not before!
 			var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
 			if(gun_in_hand?.wielded)
 				to_chat(C, SPAN_WARNING("You cannot wield and lie down!"))
 				return
 			C.m_intent = M_LAY
+
+		// this works in conjunction with M_LAY to make the mob stand up or lie down instantly
+		C.update_canmove()
+		C.update_icon()
 
 	else if(istype(usr, /mob/living/simple_animal/hostile/morph))
 		var/mob/living/simple_animal/hostile/morph/M = usr
@@ -553,7 +557,7 @@
 	if(!removed_hand_overlay)
 		var/state = (hud.l_hand_hud_object == src) ? "l_hand_removed" : "r_hand_removed"
 		removed_hand_overlay = image("icon" = 'icons/mob/screen_gen.dmi', "icon_state" = state)
-	cut_overlays()
+	ClearOverlays()
 	if(hud.mymob && ishuman(hud.mymob))
 		var/mob/living/carbon/human/H = hud.mymob
 		var/obj/item/organ/external/O
@@ -562,11 +566,11 @@
 		else
 			O = H.organs_by_name[BP_R_HAND]
 		if(!O || O.is_stump())
-			add_overlay(removed_hand_overlay)
+			AddOverlays(removed_hand_overlay)
 		else if(O && (!O.is_usable() || O.is_malfunctioning()))
-			add_overlay(disabled_hand_overlay)
+			AddOverlays(disabled_hand_overlay)
 		if(H.handcuffed)
-			add_overlay(handcuff_overlay)
+			AddOverlays(handcuff_overlay)
 
 /obj/screen/inventory/back
 	name = "back"

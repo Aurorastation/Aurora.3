@@ -6,7 +6,7 @@
 	contained_sprite = TRUE
 	item_state = "pill_canister"
 	center_of_mass = list("x" = 16,"y" = 12)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/stack/dice,/obj/item/paper)
 	allow_quick_gather = 1
 	use_to_pickup = 1
@@ -44,6 +44,11 @@
 	name = "bottle of 10u Bicaridine pills"
 	desc = "Contains pills used to treat minor injuries and bleeding."
 	starts_with = list(/obj/item/reagent_containers/pill/bicaridine = 7)
+
+/obj/item/storage/pill_bottle/dexalin
+	name = "bottle of 15u Dexalin pills"
+	desc = "Contains pills used to treat minor cases of oxygen deprivation."
+	starts_with = list(/obj/item/reagent_containers/pill/dexalin = 7)
 
 /obj/item/storage/pill_bottle/dexalin_plus
 	name = "bottle of 15u Dexalin Plus pills"
@@ -170,3 +175,8 @@
 	name = "bottle of 5u Steramycin pills"
 	desc = "Contains prophylactic antibiotic pills."
 	starts_with = list(/obj/item/reagent_containers/pill/steramycin = 3)
+
+/obj/item/storage/pill_bottle/ryetalyn
+	name = "bottle of 10u Ryetalyn pills"
+	desc = "Contains pills used to treat genetic and immune diseases."
+	starts_with = list(/obj/item/reagent_containers/pill/ryetalyn = 4)

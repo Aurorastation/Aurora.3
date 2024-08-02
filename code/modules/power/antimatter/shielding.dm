@@ -125,7 +125,7 @@
 	check_stability()
 
 /obj/machinery/am_shielding/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	coredirs = 0
 	dirs = 0
 	for(var/direction in GLOB.alldirs)

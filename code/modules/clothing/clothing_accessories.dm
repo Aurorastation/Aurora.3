@@ -9,10 +9,16 @@
 				return 0
 
 /obj/item/clothing/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/clothing/accessory))
+	if(IC && (istype(attacking_item, /obj/item/integrated_circuit) || attacking_item.iswrench() || attacking_item.iscrowbar() || \
+				istype(attacking_item, /obj/item/device/integrated_electronics/wirer) || istype(attacking_item, /obj/item/device/integrated_electronics/debugger) || \
+				attacking_item.ismultitool() || attacking_item.isscrewdriver() || istype(attacking_item, /obj/item/cell/device)))
+
+		IC.attackby(attacking_item, user)
+
+	else if(istype(attacking_item, /obj/item/clothing/accessory))
 
 		if(!valid_accessory_slots || !valid_accessory_slots.len)
-			to_chat(usr, "<span class='warning'>You cannot attach accessories of any kind to \the [src].</span>")
+			to_chat(usr, SPAN_WARNING("You cannot attach accessories of any kind to \the [src]."))
 			return
 
 		var/obj/item/clothing/accessory/A = attacking_item
@@ -21,7 +27,7 @@
 			attach_accessory(user, A)
 			return
 		else
-			to_chat(user, "<span class='warning'>You cannot attach more accessories of this type to [src].</span>")
+			to_chat(user, SPAN_WARNING("You cannot attach more accessories of this type to [src]."))
 		return
 
 	if(LAZYLEN(accessories))
@@ -97,16 +103,6 @@
 		for(var/obj/item/clothing/accessory/A in accessories)
 			. += SPAN_NOTICE("<a HREF=?src=\ref[user];lookitem=\ref[A]>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it.")
 
-/obj/item/clothing/equipped(mob/user, slot, assisted_equip)
-	. = ..()
-	for(var/obj/item/clothing/accessory/bling in accessories)
-		bling.on_clothing_change(user)
-
-/obj/item/clothing/dropped(mob/user)
-	. = ..()
-	for(var/obj/item/clothing/accessory/bling in accessories)
-		bling.on_clothing_change(user)
-
 /obj/item/clothing/proc/update_accessory_slowdown()
 	slowdown_accessory = 0
 	for(var/obj/item/clothing/accessory/bling in accessories)
@@ -153,8 +149,8 @@
 			if(i.color)
 				radial_button.color = i.color
 			if(i.build_from_parts && i.worn_overlay)
-				radial_button.cut_overlays()
-				radial_button.add_overlay(overlay_image(i.icon, "[i.icon_state]_[i.worn_overlay]", flags=RESET_COLOR))
+				radial_button.ClearOverlays()
+				radial_button.AddOverlays(overlay_image(i.icon, "[i.icon_state]_[i.worn_overlay]", flags=RESET_COLOR))
 			options[i] = radial_button
 		A = show_radial_menu(M, M, options, radius = 42, tooltips = TRUE)
 	else
@@ -165,6 +161,9 @@
 
 /obj/item/clothing/emp_act(severity)
 	. = ..()
+
+	if(IC)
+		IC.emp_act(severity)
 
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)

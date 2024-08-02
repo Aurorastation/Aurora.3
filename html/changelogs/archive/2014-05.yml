@@ -1,0 +1,50 @@
+2014-05-03:
+  Cael_Aislinn:
+  - rscadd: "Coming out of nowhere the past few months, the Garland Corporation has\
+      \ made headlines with a new prehistoric theme park delighting travellers with\
+      \ species thought extinct. Now available  for research stations everywhere is\
+      \ the technology that made it all possible! Features include: <br>\n\t\t\t-\
+      \ 13 discoverable prehistoric species to clone from fossils (including 5 brand\
+      \ new ones).<br>\n\t\t\t- 11 discoverable prehistoric plants to clone from fossils\
+      \ (including 9 brand new ones).<br>\n\t\t\t- New minigame that involves correctly\
+      \ ordering the genomes inside each genetic sequence to unlock an animal/plant.<br>\n\
+      \t\t\t- Some prehistoric animals and plants may seem strangely familiar... while\
+      \ others may bring more than the erstwhile scientist bargains for.<br>\n</br></br></br></br></br>"
+2014-05-06:
+  Hubble:
+  - rscadd: Clip papers together by hitting a paper with a paper or photo
+  - imageadd: Adds icons for copied stamps
+2014-05-16:
+  HarpyEagle:
+  - rscadd: Silicon mob types (AI, cyborgs, PAI) can now speak certain species languages
+      depending on type and module
+  - rscadd: Languages can now be whispered when using the language code with either
+      the whisper verb or the whisper speech code
+2014-05-23:
+  Hubble:
+  - rscadd: Personal lockers are now resettable
+  - rscadd: Take off people's accessories or change their sensors in the drag and
+      drop-interface
+  - rscadd: Merge paper bundles by hitting one with another
+  - tweak: Line breaks in Security, Medical and Employment Records
+  - tweak: Record printouts will have names on it
+  - tweak: Set other people's internals in belt and suit storage slots
+  - bugfix: No longer changing suit sensors while cuffed
+  - bugfix: No longer emptying other people's pockets when they are not full yet
+2014-05-28:
+  Chinsky:
+  - rscadd: Adds few new paperBBcode tags, to make up for HTML removal.
+  - rscadd: '[logo] tag draws NT logo image (one from wiki).'
+  - rscadd: '[table] [/table] tags mark borders of tables. [grid] [/grid] are borderless
+      tables, useful of making layouts. Inside tables following tags are used: [row]
+      marks beginning of new table row, [cell] - beginning of new table cell.'
+2014-05-31:
+  Jarcolr:
+  - rscadd: 21 New cargo crates, go check them out!
+  - rscadd: Peanuts have now been added, food items are now being developed.
+  - rscadd: 2 new cargo groups, Miscellaneous and Supply.
+  - rscadd: Sugarcane seeds can now be gotten from the seed dispenser.
+  - rscadd: 5 new satchels when selecting "satchel" for RD, scientist, botanist, virologist,
+      geneticist (disabled) and chemist.
+  - rscadd: Clicking on a player with a paper/book when you have the eyes selected
+      shows them the book/paper forcefully.

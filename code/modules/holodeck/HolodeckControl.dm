@@ -49,13 +49,13 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 	dat += "<HR>Current Loaded Programs:<BR>"
 
 	if(!linkedholodeck)
-		dat += "<span class='danger'>Warning: Unable to locate holodeck.<br></span>"
+		dat += SPAN_DANGER("Warning: Unable to locate holodeck.<br>")
 		user << browse(dat, "window=computer;size=400x500")
 		onclose(user, "computer")
 		return
 
 	if(!SSatlas.current_map.holodeck_supported_programs.len)
-		dat += "<span class='danger'>Warning: No supported holo-programs loaded.<br></span>"
+		dat += SPAN_DANGER("Warning: No supported holo-programs loaded.<br>")
 		user << browse(dat, "window=computer;size=400x500")
 		onclose(user, "computer")
 		return
@@ -128,10 +128,10 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 		update_projections()
 		if(safety_disabled)
 			message_admins("[key_name_admin(usr)] overrode the holodeck's safeties")
-			log_game("[key_name(usr)] overrided the holodeck's safeties",ckey=key_name(usr))
+			log_game("[key_name(usr)] overrided the holodeck's safeties")
 		else
 			message_admins("[key_name_admin(usr)] restored the holodeck's safeties")
-			log_game("[key_name(usr)] restored the holodeck's safeties",ckey=key_name(usr))
+			log_game("[key_name(usr)] restored the holodeck's safeties")
 
 	else if(href_list["gravity"])
 		toggleGravity(linkedholodeck)
@@ -151,9 +151,9 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 		safety_disabled = 1
 		req_one_access = list()
 		update_projections()
-		to_chat(user, "<span class='notice'>You vastly increase projector power and override the safety and security protocols.</span>")
+		to_chat(user, SPAN_NOTICE("You vastly increase projector power and override the safety and security protocols."))
 		to_chat(user, "Warning.  Automatic shutoff and derezing protocols have been corrupted.  Please call [SSatlas.current_map.company_name] maintenance and do not use the simulator.")
-		log_game("[key_name(usr)] emagged the Holodeck Control Computer",ckey=key_name(usr))
+		log_game("[key_name(usr)] emagged the Holodeck Control Computer")
 		src.updateUsrDialog()
 		return 1
 	else
@@ -203,8 +203,16 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 			if (get_area(P.loc) != linkedholodeck)
 				holographic_mobs -= P
 				P.derez()
+		for(var/mob/living/simple_animal/corgi/puppy/holodeck/S in holographic_mobs)
+			if (get_area(S.loc) != linkedholodeck)
+				holographic_mobs -= S
+				S.derez()
+		for(var/mob/living/simple_animal/cat/kitten/holodeck/K in holographic_mobs)
+			if (get_area(K.loc) != linkedholodeck)
+				holographic_mobs -= K
+				K.derez()
 
-	if(inoperable())
+	if(!operable())
 		return
 	if(active)
 		use_power_oneoff(item_power_usage * (holographic_objs.len + holographic_mobs.len))
@@ -293,6 +301,14 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 		holographic_mobs -= P
 		P.derez()
 
+	for(var/mob/living/simple_animal/corgi/puppy/holodeck/S in holographic_mobs)
+		holographic_mobs -= S
+		S.derez()
+
+	for(var/mob/living/simple_animal/cat/kitten/holodeck/K in holographic_mobs)
+		holographic_mobs -= K
+		K.derez()
+
 	for(var/obj/effect/decal/cleanable/blood/B in linkedholodeck)
 		qdel(B)
 
@@ -332,6 +348,12 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 			if(L.name=="Penguin Spawn Emperor")
 				holographic_mobs += new /mob/living/simple_animal/penguin/holodeck/emperor(L.loc)
 
+			if(L.name=="Animal Baby Spawn Random")
+				if (prob(50))
+					holographic_mobs += new /mob/living/simple_animal/corgi/puppy/holodeck(L.loc)
+				else
+					holographic_mobs += new /mob/living/simple_animal/cat/kitten/holodeck(L.loc)
+
 			if(L.name=="Holocarp Spawn Random")
 				if (prob(4)) //With 4 spawn points, carp should only appear 15% of the time.
 					holographic_mobs += new /mob/living/simple_animal/hostile/carp/holodeck(L.loc)
@@ -370,10 +392,10 @@ GLOBAL_LIST_EMPTY_TYPED(holodeck_controls, /obj/machinery/computer/holodeck_cont
 /obj/machinery/computer/holodeck_control/proc/togglelock(var/mob/user)
 	if(allowed(user))
 		locked = !locked
-		visible_message("<span class='notice'>\The [src] emits a series of beeps to announce it has been [locked ? null : "un"]locked.</span>", range = 3)
+		visible_message(SPAN_NOTICE("\The [src] emits a series of beeps to announce it has been [locked ? null : "un"]locked."), range = 3)
 		return FALSE
 	else
-		to_chat(user, "<span class='warning'>Access denied.</span>")
+		to_chat(user, SPAN_WARNING("Access denied."))
 		return TRUE
 
 /obj/machinery/computer/holodeck_control/proc/load_random_program()

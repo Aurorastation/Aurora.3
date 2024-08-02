@@ -168,8 +168,6 @@ var/list/forum_groupids_to_ranks = list()
 		world.SetConfig("APP/admin", A, null)
 
 /proc/update_admins_from_api(reload_once_done=FALSE)
-	set background = TRUE
-
 	if (!establish_db_connection(GLOB.dbcon))
 		log_and_message_admins("AdminRanks: Failed to connect to database in update_admins_from_api(). Carrying on with old staff lists.")
 		return FALSE

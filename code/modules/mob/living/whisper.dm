@@ -14,7 +14,7 @@
 
 	whisper(message)
 
-/mob/living/whisper(var/message, var/datum/language/speaking, var/is_singing = FALSE)
+/mob/living/whisper(var/message, var/datum/language/speaking, var/is_singing = FALSE, var/say_verb = FALSE)
 	if(is_muzzled())
 		to_chat(src, SPAN_DANGER("You're muzzled and cannot speak!"))
 		return
@@ -89,4 +89,4 @@
 		for (var/mob/M in watching)
 			M.show_message(rendered, 2)
 
-	say(message, speaking, whisper_text, whisper = TRUE)
+	say(message, speaking, whisper_text, whisper = TRUE, skip_edit = say_verb)

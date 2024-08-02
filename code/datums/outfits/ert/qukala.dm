@@ -45,9 +45,6 @@
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
-		var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/cthur(H)
-		var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-		A.replaced(H, affected)
 		var/obj/item/organ/B = new /obj/item/organ/internal/augment/hiveshield/warfare(H)
 		var/obj/item/organ/external/affectedB = H.get_organ(B.parent_organ)
 		B.replaced(H, affectedB)
@@ -69,7 +66,7 @@
 	name = "Qukala Medic"
 	suit = /obj/item/clothing/suit/space/void/kala/med
 	head = /obj/item/clothing/head/helmet/space/void/kala/med
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	glasses = /obj/item/clothing/glasses/hud/health
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	species_gloves = list(

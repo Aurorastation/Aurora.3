@@ -26,6 +26,7 @@
 	meat_amount = 2
 	maxHealth = 50
 	health = 50
+	max_stamina = -1
 	pass_flags = PASSTABLE
 
 	// Decorative head flower.
@@ -76,7 +77,7 @@
 
 	flower_color = null
 	flower_image = null
-	cut_overlays()
+	ClearOverlays()
 
 	. = ..()
 	GC_TEMPORARY_HARDDEL
@@ -97,7 +98,7 @@
 			mind.transfer_to(master_nymph)
 			master_nymph.stunned = 0//Switching mind seems to temporarily stun mobs
 			message_admins("\The [src] has died with nymphs remaining; player now controls [key_name_admin(master_nymph)]")
-			log_admin("\The [src] has died with nymphs remaining; player now controls [key_name(master_nymph)]", ckey=key_name(master_nymph))
+			log_admin("\The [src] has died with nymphs remaining; player now controls [key_name(master_nymph)]")
 		master_nymph = null
 		birds_of_feather.Cut()
 
@@ -125,7 +126,7 @@
 
 /mob/living/carbon/alien/diona/verb/check_light()
 	set category = "Abilities"
-	set name = "Check light level"
+	set name = "Check Light Level"
 
 	var/light = get_lightlevel_diona(DS)
 
@@ -153,9 +154,9 @@
 		to_chat(src, SPAN_WARNING("You are too small to pull that."))
 		return
 
-/mob/living/carbon/alien/diona/put_in_hands(var/obj/item/W) // No hands.
-	W.forceMove(get_turf(src))
-	return TRUE
+/mob/living/carbon/alien/diona/put_in_hands(obj/item/item_to_equip) // No hands.
+	item_to_equip.forceMove(get_turf(src))
+	return FALSE
 
 //Functions duplicated from humans, albeit slightly modified
 /mob/living/carbon/alien/diona/proc/set_species(var/new_species)
@@ -377,3 +378,9 @@
 	if (status_flags & GODMODE)
 		return
 	health = min(health - amount, maxHealth)
+
+/mob/living/carbon/alien/diona/getHalLoss()
+	if(status_flags & GODMODE)
+		return
+
+	return max((maxHealth - health), 0)

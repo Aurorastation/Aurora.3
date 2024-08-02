@@ -56,7 +56,9 @@
 	if(spawn_grille)
 		new grille_path(loc)
 	if(spawn_firedoor)
-		new firedoor_path(loc)
+		var/obj/machinery/door/firedoor/new_firedoor = new firedoor_path(loc)
+		if(req_one_access)
+			new_firedoor.req_one_access = req_one_access
 	if(!single_window)
 		var/list/neighbours = list()
 		for (var/dir in GLOB.cardinal)
@@ -241,3 +243,30 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary
 	icon_state = "full_rwindow_shuttle_merc"
 	frame_color = "#5B5B5B"
+
+/obj/effect/map_effect/window_spawner/full/shuttle/raider
+	icon_state = "full_rwindow_shuttle"
+	frame_color = "#6C7364"
+	color = "#6C7364"
+
+//Coalition window frames
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition
+	name = "coalition reinforced window spawner"
+	icon_state = "coalition_window"
+	frame_path = /obj/structure/window_frame/shuttle
+	frame_color = COLOR_COALITION
+
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille
+	name = "coalition reinforced window spawner with grille"
+	icon_state = "coalition_window-g"
+	spawn_grille = TRUE
+
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/firedoor
+	name = "coalition reinforced window spawner with firedoor"
+	icon_state = "coalition_window-f"
+	spawn_firedoor = TRUE
+
+/obj/effect/map_effect/window_spawner/full/shuttle/coalition/grille/firedoor
+	name = "coalition reinforced window spawner with grille and firedoor"
+	icon_state = "coalition_window-gf"
+	spawn_firedoor = TRUE

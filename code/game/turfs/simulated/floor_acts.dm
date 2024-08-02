@@ -32,7 +32,8 @@
 					src.hotspot_expose(1000,CELL_VOLUME)
 	return
 
-/turf/simulated/floor/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/turf/simulated/floor/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
 
 	var/temp_destroy = get_damage_temperature()
 	if(!burnt && prob(5))
@@ -51,4 +52,4 @@
 
 	for(var/obj/structure/window/W in src)
 		if(W.dir == dir_to || W.is_fulltile()) //Same direction or diagonal (full tile)
-			W.fire_act(adj_air, adj_temp, adj_volume)
+			W.fire_act(adj_temp, adj_volume)

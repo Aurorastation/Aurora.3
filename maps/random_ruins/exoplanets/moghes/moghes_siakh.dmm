@@ -1,0 +1,661 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"b" = (
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"g" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_siakh";
+	identifier = "moghes_siakh"
+	},
+/obj/item/bedsheet/brown,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"i" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"l" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"q" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"s" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"t" = (
+/mob/living/simple_animal/hostile/retaliate/hegeranzi,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"v" = (
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"x" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"y" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"z" = (
+/turf/simulated/wall/rusty,
+/area/exoplanet/moghes)
+"B" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"H" = (
+/obj/structure/closet/crate,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"J" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"L" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"N" = (
+/obj/structure/closet/crate,
+/obj/item/clothing/suit/unathi/robe/beige,
+/obj/item/clothing/accessory/sinta_hood{
+	color = "#DBC684"
+	},
+/obj/item/clothing/accessory/sinta_hood{
+	color = "#DBC684"
+	},
+/obj/item/clothing/suit/unathi/robe/kilt{
+	color = "#DBC684"
+	},
+/obj/item/clothing/suit/unathi/robe/kilt{
+	color = "#DBC684"
+	},
+/obj/item/clothing/accessory/poncho,
+/obj/item/clothing/accessory/poncho,
+/obj/item/clothing/accessory/sinta_hood{
+	color = "#DBC684"
+	},
+/obj/item/clothing/accessory/sinta_hood{
+	color = "#DBC684"
+	},
+/obj/item/saddle,
+/obj/item/saddle,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"Q" = (
+/obj/machinery/door/urban{
+	dir = 4;
+	pixel_x = -29
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"R" = (
+/obj/structure/closet/crate,
+/obj/item/material/sword/axe,
+/obj/item/gun/projectile/shotgun/wallgun,
+/obj/item/ammo_casing/shotgun/moghes,
+/obj/item/ammo_casing/shotgun/moghes,
+/obj/item/ammo_casing/shotgun/moghes,
+/obj/item/ammo_casing/shotgun/moghes,
+/obj/item/clothing/accessory/storage/bandolier,
+/obj/item/device/flashlight/flare/torch,
+/obj/item/device/flashlight/flare/torch,
+/obj/item/device/flashlight/flare/torch,
+/obj/item/device/flashlight/flare/torch,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"V" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"Y" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_siakh_knight";
+	identifier = "moghes_siakh_knight"
+	},
+/obj/item/bedsheet/brown,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"Z" = (
+/obj/structure/bonfire/light_up,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(4,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(5,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(6,1,1) = {"
+a
+a
+a
+a
+z
+z
+z
+z
+z
+z
+z
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(7,1,1) = {"
+a
+a
+a
+z
+z
+v
+v
+v
+v
+v
+z
+z
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(8,1,1) = {"
+a
+a
+a
+z
+g
+v
+v
+v
+v
+v
+v
+z
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(9,1,1) = {"
+a
+a
+a
+z
+g
+v
+v
+v
+v
+v
+v
+v
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(10,1,1) = {"
+a
+a
+a
+z
+Y
+v
+v
+Z
+v
+v
+v
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(11,1,1) = {"
+a
+a
+z
+z
+Y
+v
+v
+v
+v
+v
+v
+z
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(12,1,1) = {"
+a
+a
+z
+v
+v
+v
+v
+v
+v
+v
+v
+z
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(13,1,1) = {"
+a
+a
+z
+z
+v
+v
+v
+R
+N
+H
+v
+a
+a
+V
+i
+Q
+l
+L
+a
+a
+"}
+(14,1,1) = {"
+a
+a
+a
+z
+z
+v
+z
+z
+z
+z
+z
+a
+a
+B
+a
+a
+a
+J
+a
+a
+"}
+(15,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+B
+b
+a
+t
+J
+a
+a
+"}
+(16,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+B
+a
+a
+a
+J
+a
+a
+"}
+(17,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+B
+a
+b
+a
+J
+a
+a
+"}
+(18,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+x
+y
+s
+s
+q
+a
+a
+"}
+(19,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(20,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}

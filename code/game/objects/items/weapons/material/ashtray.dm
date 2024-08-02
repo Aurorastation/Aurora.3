@@ -7,7 +7,7 @@
 	thrown_force_divisor = 0.1
 	var/image/base_image
 	var/max_butts = 10
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/material/ashtray/Initialize(newloc, material_key)
 	. = ..()
@@ -39,20 +39,20 @@
 
 /obj/item/material/ashtray/update_icon()
 	color = null
-	cut_overlays()
+	ClearOverlays()
 	var/list/ashtray_cache = SSicon_cache.ashtray_cache
 	var/cache_key = "base-[material.name]"
 	if(!ashtray_cache[cache_key])
 		var/image/I = image('icons/obj/ashtray.dmi',"ashtray")
 		I.color = material.icon_colour
 		ashtray_cache[cache_key] = I
-	add_overlay(ashtray_cache[cache_key])
+	AddOverlays(ashtray_cache[cache_key])
 
 	if (contents.len == max_butts)
-		add_overlay("ashtray_full")
+		AddOverlays("ashtray_full")
 		desc = "It's stuffed full."
 	else if (contents.len > max_butts/2)
-		add_overlay("ashtray_half")
+		AddOverlays("ashtray_half")
 		desc = "It's half-filled."
 	else
 		desc = "An ashtray made of [material.display_name]."

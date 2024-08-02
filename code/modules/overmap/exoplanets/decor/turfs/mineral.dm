@@ -10,6 +10,7 @@
 	icon_state = "icy_rock"
 	temperature = T0C - 5
 	has_edge_icon = FALSE
+	does_footprint = FALSE
 
 /turf/simulated/floor/exoplanet/mineral/adhomai/Initialize(mapload)
 	. = ..()

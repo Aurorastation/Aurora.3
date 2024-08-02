@@ -35,10 +35,10 @@
 
 	var/force_holder
 
-/obj/item/gripper/examine(mob/user)
+/obj/item/gripper/examine(mob/user, show_extended)
 	. = ..()
 	if(wrapped)
-		wrapped.examine(user)
+		wrapped.examine(user, show_extended = show_extended)
 
 /obj/item/gripper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -287,7 +287,8 @@
 		/obj/item/advanced_docility_serum,
 		/obj/item/remote_mecha,
 		/obj/item/smallDelivery,
-		/obj/item/gift
+		/obj/item/gift,
+		/obj/item/device/integrated_circuit_printer
 		)
 
 /obj/item/gripper/chemistry //A gripper designed for chemistry, to allow borgs to work efficiently in the lab

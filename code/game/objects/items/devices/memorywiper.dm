@@ -35,13 +35,13 @@
 	update_icon()
 
 /obj/item/device/memorywiper/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(anchored)
 		icon_state = "[initial(icon_state)]_opened"
 		if(attached)
-			add_overlay("wireout")
+			AddOverlays("wireout")
 		if(wiping)
-			add_overlay("screen")
+			AddOverlays("screen")
 	else
 		icon_state = initial(icon_state)
 
@@ -80,7 +80,7 @@
 
 		var/wipe_time = rand(20 SECONDS, 40 SECONDS)
 		addtimer(CALLBACK(src, PROC_REF(memorywipe)), wipe_time)
-		wipe_bar = new /datum/progressbar/autocomplete(src, wipe_time, attached)
+		wipe_bar = new /datum/progressbar(src, wipe_time, attached)
 		wipe_start_time = world.time
 		wipe_bar.update(0)
 	if(anchored)

@@ -11,6 +11,7 @@ GLOBAL_LIST_EMPTY(minor_air_alarms)
 
 	icon_screen = "alert:0"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 
 /obj/machinery/computer/atmos_alert/Initialize()

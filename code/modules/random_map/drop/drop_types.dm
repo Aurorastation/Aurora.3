@@ -48,18 +48,6 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/gun/projectile/automatic/wt550,
 		/obj/item/gun/projectile/automatic/rifle/z8)
 
-/datum/supply_drop_loot/ballistics
-	name = "Ballistics"
-	container = /obj/structure/largecrate
-/datum/supply_drop_loot/ballistics/New()
-	..()
-	contents = list(
-		/obj/item/gun/projectile/sec,
-		/obj/item/gun/projectile/shotgun/doublebarrel,
-		/obj/item/gun/projectile/shotgun/pump/combat,
-		/obj/item/gun/projectile/automatic/wt550,
-		/obj/item/gun/projectile/automatic/rifle/z8)
-
 /datum/supply_drop_loot/seeds
 	name = SEED_NOUN_SEEDS
 	container = /obj/structure/closet/crate
@@ -170,6 +158,9 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/stack/material/glass/reinforced,
 		/obj/item/stack/material/plasteel)
 
+/datum/supply_drop_loot/power/contents()
+	return list(pick(contents))
+
 /datum/supply_drop_loot/hydroponics
 	name = "Hydroponics"
 	container = /obj/structure/largecrate
@@ -179,16 +170,3 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/machinery/portable_atmospherics/hydroponics,
 		/obj/machinery/portable_atmospherics/hydroponics,
 		/obj/machinery/portable_atmospherics/hydroponics)
-
-/datum/supply_drop_loot/power
-	name = "Power"
-	container = /obj/structure/largecrate
-/datum/supply_drop_loot/power/New()
-	..()
-	contents = list(
-		/obj/machinery/power/portgen/basic,
-		/obj/machinery/power/portgen/basic/advanced,
-		/obj/machinery/power/portgen/basic/super)
-
-/datum/supply_drop_loot/power/contents()
-	return list(pick(contents))

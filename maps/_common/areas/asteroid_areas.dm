@@ -4,6 +4,7 @@
 	icon_state = "mining"
 	music = list('sound/music/ambimine.ogg', 'sound/music/song_game.ogg')
 	sound_environment = SOUND_AREA_ASTEROID
+	area_flags = AREA_FLAG_IS_BACKGROUND
 
 /area/mine/explored
 	name = "Mine"

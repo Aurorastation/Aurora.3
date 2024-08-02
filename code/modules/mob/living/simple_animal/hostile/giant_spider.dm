@@ -44,11 +44,13 @@
 	move_to_delay = 6
 	speed = 3
 	mob_size = 6
+	smart_melee = FALSE
 
 	attacktext = "bitten"
 	attack_emote = "skitters toward"
 	attack_sound = 'sound/weapons/bite.ogg'
 	emote_sounds = list('sound/effects/creatures/spider_critter.ogg')
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Tissue sample contains high muscle content")
 
 //nursemaids - these create webs and eggs
 /mob/living/simple_animal/hostile/giant_spider/nurse
@@ -67,6 +69,7 @@
 	var/atom/cocoon_target
 	poison_type = /singleton/reagent/soporific
 	var/fed = 0
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular structures indicative of high offspring production")
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/servant
 	name = "greimorian servant"
@@ -83,16 +86,16 @@
 	poison_per_bite = 10
 	speed = -2
 	poison_type = /singleton/reagent/soporific
-	poison_per_bite = 3
-	var/playable = TRUE
 	fed = 1
 	minbodytemp = 0
 	maxbodytemp = 350
 	min_oxy = 0
 	max_co2 = 0
 	max_tox = 0
+	var/playable = TRUE
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular structures indicative of high offspring production", "Tissue sample contains high neural cell content")
 
-/mob/living/simple_animal/hostile/giant_spider/nurse/servant/Life()
+/mob/living/simple_animal/hostile/giant_spider/nurse/servant/Life(seconds_per_tick, times_fired)
 	..()
 	adjustBruteLoss(-2)
 
@@ -111,6 +114,8 @@
 	armor_penetration = 15
 	poison_per_bite = 5
 	move_to_delay = 4
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry shows high metabolic capacity")
+	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/emp
 	name = "greimorian jackal"
@@ -126,6 +131,8 @@
 	poison_type = /singleton/reagent/perconol // mildly beneficial for organics
 	poison_per_bite = 2
 	move_to_delay = 5
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Cellular biochemistry geared towards creating strong electrical potential differences")
+	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier
 	name = "greimorian bombardier"
@@ -143,6 +150,8 @@
 	poison_type = /singleton/reagent/capsaicin/condensed
 	poison_per_bite = 2
 	move_to_delay = 5
+	sample_data = list("Genetic markers identified as being linked with stem cell differentiaton", "Exocrinic caspaicin synthesis detected")
+	smart_melee = TRUE
 
 /mob/living/simple_animal/hostile/giant_spider/bombardier/Shoot(var/target, var/start, var/mob/user, var/bullet = 0)
 	if(target == start)
@@ -223,12 +232,12 @@
 				for(var/turf/T in orange(20, src))
 					move_targets.Add(T)*/
 				stop_automated_movement = 1
-				SSmove_manager.move_to(src, pick(orange(20, src)), 1, move_to_delay)
+				GLOB.move_manager.move_to(src, pick(orange(20, src)), 1, move_to_delay)
 				addtimer(CALLBACK(src, PROC_REF(stop_walking)), 50, TIMER_UNIQUE)
 
 /mob/living/simple_animal/hostile/giant_spider/proc/stop_walking()
 	stop_automated_movement = 0
-	SSmove_manager.stop_looping(src)
+	GLOB.move_manager.stop_looping(src)
 
 /mob/living/simple_animal/hostile/giant_spider/nurse/think()
 	..()
@@ -241,7 +250,7 @@
 					if(C.stat)
 						cocoon_target = C
 						busy = MOVING_TO_TARGET
-						SSmove_manager.move_to(src, C, 1, move_to_delay)
+						GLOB.move_manager.move_to(src, C, 1, move_to_delay)
 						//give up if we can't reach them after 10 seconds
 						addtimer(CALLBACK(src, PROC_REF(GiveUp), C), 100, TIMER_UNIQUE)
 						return
@@ -250,7 +259,7 @@
 				var/obj/effect/spider/stickyweb/W = locate() in get_turf(src)
 				if(!W)
 					busy = SPINNING_WEB
-					src.visible_message("<span class='notice'>\The [src] begins to secrete a sticky substance.</span>")
+					src.visible_message(SPAN_NOTICE("\The [src] begins to secrete a sticky substance."))
 					stop_automated_movement = 1
 					addtimer(CALLBACK(src, PROC_REF(finalize_web)), 40, TIMER_UNIQUE)
 				else
@@ -258,7 +267,7 @@
 					var/obj/effect/spider/eggcluster/E = locate() in get_turf(src)
 					if(!E && fed > 0)
 						busy = LAYING_EGGS
-						src.visible_message("<span class='notice'>\The [src] begins to lay a cluster of eggs.</span>")
+						src.visible_message(SPAN_NOTICE("\The [src] begins to lay a cluster of eggs."))
 						stop_automated_movement = 1
 						addtimer(CALLBACK(src, PROC_REF(finalize_eggs)), 50, TIMER_UNIQUE)
 					else
@@ -271,16 +280,16 @@
 								cocoon_target = O
 								busy = MOVING_TO_TARGET
 								stop_automated_movement = 1
-								SSmove_manager.move_to(src, O, 1, move_to_delay)
+								GLOB.move_manager.move_to(src, O, 1, move_to_delay)
 								//give up if we can't reach them after 10 seconds
 								GiveUp(O)
 
 			else if(busy == MOVING_TO_TARGET && cocoon_target)
 				if(get_dist(src, cocoon_target) <= 1)
 					busy = SPINNING_COCOON
-					src.visible_message("<span class='notice'>\The [src] begins to secrete a sticky substance around \the [cocoon_target].</span>")
+					src.visible_message(SPAN_NOTICE("\The [src] begins to secrete a sticky substance around \the [cocoon_target]."))
 					stop_automated_movement = 1
-					SSmove_manager.stop_looping(src)
+					GLOB.move_manager.stop_looping(src)
 					addtimer(CALLBACK(src, PROC_REF(finalize_cocoon)), 50, TIMER_UNIQUE)
 
 		else
@@ -323,7 +332,7 @@
 						continue
 					large_cocoon = 1
 					fed++
-					src.visible_message("<span class='warning'>\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out.</span>")
+					src.visible_message(SPAN_WARNING("\The [src] sticks a proboscis into \the [cocoon_target] and sucks a viscous substance out."))
 					playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
 					M.forceMove(C)
 					C.pixel_x = M.pixel_x
@@ -376,12 +385,13 @@
 		src.visible_message("\The [src] begins to secrete a sticky substance around \the [P].")
 		if(!do_after(src, 80))
 			return
-		if(P && isturf(P) && get_dist(src,P) <= 1)
-			var/obj/effect/spider/cocoon/C = new(P.loc)
+
+		if(P && isturf(P.loc) && get_dist(src, P) <= 1)
+			var/obj/effect/spider/cocoon/C = new(get_turf(P))
 			var/large_cocoon = FALSE
 			C.pixel_x = P.pixel_x
 			C.pixel_y = P.pixel_y
-			for(P in C.loc)
+			for(P in get_turf(C))
 				if(istype(P, /mob/living/simple_animal/hostile/giant_spider))
 					continue
 				large_cocoon = TRUE

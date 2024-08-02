@@ -5,7 +5,7 @@
 	icon_state = "dispenser"
 	density = TRUE
 	anchored = TRUE
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	var/max_tanks = 20
 	var/oxygen_tanks = 10
 	var/phoron_tanks = 10
@@ -28,17 +28,17 @@
 	update_icon()
 
 /obj/structure/dispenser/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	switch(oxygen_tanks)
 		if(1 to 4)
-			add_overlay("oxygen-[oxygen_tanks]")
+			AddOverlays("oxygen-[oxygen_tanks]")
 		if(5 to INFINITY)
-			add_overlay("oxygen-5")
+			AddOverlays("oxygen-5")
 	switch(phoron_tanks)
 		if(1 to 4)
-			add_overlay("phoron-[phoron_tanks]")
+			AddOverlays("phoron-[phoron_tanks]")
 		if(5 to INFINITY)
-			add_overlay("phoron-5")
+			AddOverlays("phoron-5")
 
 /obj/structure/dispenser/attack_ai(mob/user)
 	if(user.Adjacent(src))

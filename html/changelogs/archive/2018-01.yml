@@ -1,0 +1,249 @@
+2018-01-14:
+  Lohikar:
+  - bugfix: Unathi can no longer chew through metal.
+  LordFowl:
+  - bugfix: You can no longer climb down ladders if a solid turf is in the way.
+  - tweak: Only mobs will be prevented from falling down an open turf by ladders.
+      Non mobs will fall, ladder or not.
+2018-01-27:
+  AgentWhatever:
+  - imageadd: Constructing a console or computer now makes sense visually
+  Alberyk:
+  - rscadd: Emagged cyborgs should now be immune to detonation by robotics console.
+  - rscadd: Examining a cyborg will now reveal what modules they are holding and each
+      module is active.
+  - rscadd: Antag related species, such as vox, xenomorphs and skeletons, can now
+      pry open airlocks by clicking on them with harm intent.
+  - rscadd: Return alien weeds to their old format, replacing the vines.
+  - bugfix: Alien acid should now be able to melt floors.
+  - rscadd: Added makeshift material based armor, you should be able to craft it using
+      some materials and a bucket.
+  - rscadd: Some weapons, such as axes, are able to cleave and hit targets around
+      their original victim now.
+  - rscadd: Re-added facehuggers to xenomorphs, bringing back all the infection circle.
+  - rscadd: 'Ported crawling mechanics from polaris: you can now crawl, if lying down,
+      by dragging your sprite to a title near yourself.'
+  - balance: Vampire's dominate should now require more total blood to unlock.
+  - balance: Increased dominate's blood cost to 50.
+  - rscadd: Added railgun's magazines and radioisotope thermoelectric generator designs
+      to research and development.
+  - tweak: Trying to move, when possible, will now resist if you are grabbed.
+  - tweak: Throwing a grab will now always break the grab, do not matter the distance.
+  - rscadd: Holy water should be more effective when fighting the undead.
+  - rscadd: Added explosive land mines, you can get them by using an uplink.
+  - rscadd: Added more options to the loadout, such as colorable sweaters, flower
+      pins and towels.
+  - rscadd: Added more underwear options.
+  - rscadd: Increased the total loadout points to ten.
+  - rscadd: Added a new type of wound; punctures, caused by stabbing attacks and pointed
+      weapons.
+  - imageadd: Phoron gas should be purple now, to match the solid and liquid form.
+  - rscadd: Added rings, ported from baystation12, to the custom loadout.
+  - bugfix: You should now be able to interact with airlock's buttons and controllers
+      while inside a mecha.
+  - rscdel: Removed the binary channels from posibrains.
+  - rscadd: Added a plasma cutter as an emmaged module to the contruction module.
+  - balance: Unathi handcuff breaking should now cost stamina.
+  - bugfix: You can now properly click on people and objects that are on water titles,
+      such as the pool.
+  - balance: Changed how the telebaton's stun works, it should now take in consideration
+      things like spacesuits, armor and species related variables when stunning a
+      target.
+  Arrow768:
+  - tweak: Buffs the Malf AI. Hacking APCs provides more CPU and RAM.
+  - tweak: Ties the Nuke into the AI station-selfdestruct. Inserting the disk aborts
+      it.
+  - balance: Changed the thermaldrill to be more useful for mining and less useful
+      for killing people.
+  - rscadd: Cargo now has a delivery application to allow recipients to pay for the
+      order and confirm the delivery
+  - tweak: The order application no longer returns to the main menu after adding a
+      item to the order.
+  - tweak: Tweaks the access of all heads of staff. They now have all access to their
+      department and basic access to the others.
+  BRAINOS:
+  - imageadd: Added 19 new hairstyles and 3 new beards.
+  BurgerBB:
+  - tweak: Added syndicate balloons, nanotrasen balloons, replica katanas, bosun whistles,
+      champion belts, invisible pens, bikehorns, lipstick, fake moustashes, clown
+      masks, mime masks, fake wands, binoculars, megaphones, random booze, and the
+      banhammer to the arcade loot tables.
+  - tweak: Toy mechs are significatnly rarer.
+  - tweak: Toy swords now spawn with random colors (red,blue,purple,green) as opposed
+      to just the static blue.
+  - rscdel: Removed duplicate katana code that seemingly exists for no real reason.
+  - rscadd: Added additional biogenerator recipies as well as the ability to emag
+      the biogenerator. Emagged Biogenerators unlocked hidden recipies.
+  - rscadd: Biogenerated Meat is replaced with Biomeat; a differently colored variant
+      of regular meat with additional flavoring, but still has the functionality of
+      meat. Added Vitamin Pills that contain 25 nutrients and 1 random flavoring of
+      juice.
+  - tweak: Reworked biogenerator code so that recipies are easier to add internally.
+      Changed and added some sound paths, and slightly improved the UI by adding the
+      ability to make multiple items of the same type in the Biogenerator for all
+      recipies.
+  - tweak: When creating milk, cartons of milk are spawned instead of being put into
+      the biogenerator's internal bottle.
+  - rscdel: Removed hidden super secret monkey recipie from the Biogenerator.
+  - tweak: Sorted locker equipment so it's much more effiecient in terms of loadout.
+  - rscadd: Added new cane abilities based on intent. Help intent pokes people; disarm
+      intent smacks people for slight damage, with a chance to disarm; Grab intent
+      grabs people, harm intent deals regular damage.
+  Chaoko99:
+  - rscadd: Added a preference to check if the player is on harm intent before firing;
+      defaults off.
+  - rscadd: 'Added SUPER MAIM: A unified system for dice-roll gibbing per limb, rather
+      than a flat chance without respect to body part.'
+  - bugfix: Fixed the plasma cutter's inability to dismember.
+  - experiment: 'Changed the following weapons and their ammo to use SUPER MAIM: Desert
+      Eagle (.50), Anti-Material Sniper Rifle (a145), Mateba (.357), Plasma Cutter.
+      Buckshot.'
+  Ezuo:
+  - rscadd: Ported Chinsky's implementation of using the numpad to select damage zones.
+      1-6 for limbs, body and groin. The limb keys toggle between arm/leg and hand/foot.
+      The 8 key toggles between head/mouth/eyes. Use control+numpad if you dont use
+      hotkeys.
+  Lohikar:
+  - rscadd: You can now elect to have a grey (default) colored bag instead of your
+      job specific type.
+  - bugfix: Objects partially obscured by shadow will no longer be partially fullbright.
+  - rscadd: Zeng-Hu has released the new Zeng-Hu Mobility Frame, a positronic chassis
+      that emphasizes speed at the cost of fragility.
+  - rscadd: Bishop Cybernetics have released their Accessory Frame, a positronic chassis
+      designed to catch the eye while remaining power-efficient.
+  - rscadd: Hephaestus Industries has announced their Generation 2 Industrial Frame,
+      designed to withstand more abuse than its competitors at the cost of agility.
+  - rscadd: Xion Manufacturing Group has announced their version of the HI G1 Industrial
+      Frame, engineered to be an affordable and cool-running industrial worker.
+  - tweak: IPCs are now flashable.
+  - soundadd: Computers now occasionally beep.
+  - bugfix: Your HUD no longer lies to you about your health if you're actually dead.
+  - experiment: 'Spreading-style explosions have been rewritten: they should be faster
+      and more reliable.'
+  - rscadd: Spreading-style explosions now have simple explosions' directional explosion
+      sounds.
+  - rscadd: Spreading-style explosions now cross Z-levels.
+  - soundadd: Light tubes will now make a plonk noise when turning on.
+  - soundadd: Light switches now make a noise when switched.
+  - tweak: Lights in an area will now turn on/off in a random order when they lose/gain
+      power.
+  - rscadd: 'Lights without power will now enter ''emergency mode'': they''ll glow
+      a dim red and draw from a small internal cell, which lasts approximately 10
+      minutes. Emergency mode can be disabled at the APC, and the cell can be replaced.'
+  - rscadd: Light switches will now glow in the dark.
+  - rscadd: The asteroid once again has random rock decals on flooring.
+  - imageadd: Non-surface Z levels will now use a rockier asteroid floor sprite.
+  - spellcheck: Fixed some grammar issues with rock/sand names & tweaked their descriptions
+      slightly. Sand has been renamed to ash to better match the sprite.
+  - rscadd: Dinnerware vendors now stock lunchboxes.
+  LordFowl:
+  - tweak: NanoTrasen has discontinued their subversive elements report and has replace
+      it with a priority report on various other crew metrics.
+  - rscadd: Implements Black K'ois.
+  - rscadd: Implements Black K'ois Mycosis and K'ois Mycosis.
+  - balance: Buffs K'ois healing properties
+  - tweak: Vaurca can now control which limb they bite
+  - bugfix: Fixes a bug where Vaurca lungs would start processing twice.
+  - tweak: Modifies Industrial eyes. Industrial eye's are also now more receptive
+      to coloring, so you can have any color you like.
+  - rscadd: Added vending machine restockers, which can be used to restock vending
+      machines. Can be ordered from cargo with a custodial ID.
+  - rscadd: Added the janicart deluxe, a multi-object vehicle that can be used to
+      clean wide swathes of area with its turbomop and space hoover attachments.
+  - rscadd: Added backmounted chemsprayers.
+  - tweak: Janitors have been moved from civilian to engineering.
+  - rscadd: Flags and banners are now available in the custom loadout sections. Banners
+      are one tile decals, flags are 2x1 tile decals.
+  - rscadd: Diona nymphs produced from a gestalt's death will now follow the player
+      diona nymph.
+  - rscadd: The player can freely control any of their constituent nymphs after they
+      split at will by middle-clicking on them, and will switch to any living nymph
+      should their active nymph die.
+  - rscadd: Diona gestalts can now devour mobs as well as their constituent nymphs
+      can.
+  - bugfix: Diona will once again regrow severed limbs.
+  - bugfix: Diona and nymphs will once again gain biomass from eating food.
+  - bugfix: Devouring will now actually devour the target.
+  - rscdel: Removes energy weapons (except the Lawgiver MkII) from the RnD protolathe.
+  - rscadd: Adds components for the construction of modular energy weapons to the
+      RnD protolathe. An energy weapon can be constructed by adding a capacitor, a
+      lens, and a modulator plus any number of modifiers to an appropriate chassis.
+  - rscadd: Added more spam.
+  - rscadd: SSD/Inactivity timers are available when examining another player.
+  - rscdel: Brain damage no longer causes effects directly. It will now introduce
+      trauma traits based on a threshold-percentage progression. Brain damage still
+      causes brain-death at 60.
+  - rscadd: 'Adds trauma traits: Come in three flavors: mild, severe, and special.
+      Mild range from annoying to dangerous. Severe range from dangerous to annoyingly
+      dangerous. Special are oddly beneficial, sometimes'
+  - rscadd: Normally a mob can only have one mild trauma and one severe/special trauma
+      at a time.
+  - rscadd: Citalopram and Paroxetine can be used to suppress traumas, while brain
+      surgery can be used to remove them. Maybe the psychiatrist will see some use?
+      Not.
+  - rscadd: Oxygen loss will now cause brain damage if it is severe enough.
+  - rscadd: Intoxication will now induce brain damage at a severe enough level.
+  - balance: Many brain damaging effects have been given a cap, making them non-lethal.
+  - rscadd: Added a new plant gene, TRAIT_SPOROUS, which if set the plant will periodically
+      release smoke clouds of its constituent reagents.
+  - rscadd: Added a new Vaurca-centric drink to cola vendors, appropriately named
+      Phoron Punch.
+  - rscadd: Added a K'ois paste to the bartender's soft-drink dispenser. Possibilities
+      of bartender mixes involving kois paste in the future.
+  - balance: Vaurca now spawn with more phoron in their starting tank, K'ois now provides
+      more phoron when consumed, and K'ois bars are now cheaper, so that the need
+      to breathe phoron is less of a round-determining chore.
+  MattAtlas:
+  - rscadd: The Mateba now uses .454 caliber and has a different firing sound.
+  - tweak: Changed the Heist readied-player requirement down from 15 to 12. Also modified
+      minimum raiders down from 4 to 3.
+  Pacmandevil:
+  - rscadd: Firing pins. Guns now need an Authentication device to fire. there are
+      several different types.
+  - rscadd: Science now has a testing range to test guns in.
+  Printer16:
+  - rscadd: Ported the ambition system for antags.
+  - rscadd: Running or walking over blood can cause you to slip.
+  - rscadd: You are now able to view where an object is stuck inside someone when
+      you examine them.
+  - rscadd: Mesons now glow green when activated.
+  - rscadd: Using a soda can with harm intent now shakes it up causing it to explode
+      on whoever opens it.
+  - rscadd: You can now toggle the announcement voice. The option is in the ASFX menu.
+  Scheveningen:
+  - balance: Changes Baseline + Industrial burn modifiers. Baselines are more susceptible
+      to burn, Industrials handle heat better and survive for longer.
+  - tweak: Also changes default damage modifiers for synthetic limbs. Retains its
+      brute resistance, but takes more damage from burn-based sources.
+  Skull132:
+  - bugfix: Code phrases and responses are properly generated again.
+  - tweak: Mercs, heisters, and revs now get code phrases and responses, as they're
+      all somewhat involved with the Syndicate. This is with mixed modes in mind.
+  - rscadd: Added a roof indicator to the top right of the game screen.
+  - rscadd: Added move-up and -down buttons to the AI UI. Sprites courtesy of BygoneHero.
+  Synnono:
+  - rscadd: NanoTrasen is proud to announce that the bar now features 21 new beverages.
+      Please drink responsibly.
+  - tweak: Edited the recipe for the Old Fashioned. It is now the old fashioned way
+      to make an Old Fashioned.
+  - tweak: Brown Star (Star-Kist) can now be found in soft drink dispensers. Lemon
+      Juice is now available from the Booze-o-Mat like other citrus juices.
+  - imageadd: Added a sprite for the Metropolitan. Finally.
+  - spellcheck: Edited some existing beverage descriptions and tastes.
+  WrongEnd:
+  - rscadd: Adds anal retentive bolt action rifles and prank guns.
+2018-01-28:
+  BurgerBB:
+  - bugfix: Poking people with a cane no longer causes blood to fly everywhere.
+  - tweak: Tweaked Arcade Machine droprates so they're less depressing.
+  - tweak: Tweaked burito recipies to use more meatballs, and as well use a new nutrition
+      algorithm.
+  - tweak: Tweaked dionaea autohiss to be less annoying.
+2018-01-29:
+  Alberyk:
+  - bugfix: Cutting someone's hand should now force them to drop the item they are
+      holding on said hand.
+2018-01-31:
+  LordFowl:
+  - balance: Both versions of K'ois mycosis will mature at a doubled rate.
+  - rscadd: Added SSD timers for when examining inactive/disconnected mobs.

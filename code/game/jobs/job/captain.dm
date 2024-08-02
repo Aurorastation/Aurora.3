@@ -34,12 +34,13 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	shoes = /obj/item/clothing/shoes/laceup/brown
 	head = /obj/item/clothing/head/caphat/scc
 	glasses = /obj/item/clothing/glasses/sunglasses
-	id = /obj/item/card/id/gold
+	id = /obj/item/card/id/scc/gold/captain
 
 	headset = /obj/item/device/radio/headset/heads/captain
 	bowman = /obj/item/device/radio/headset/heads/captain/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/captain
 	wrist_radio = /obj/item/device/radio/headset/wrist/captain
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/captain
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/command/captain
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/captain
@@ -116,12 +117,13 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	head = /obj/item/clothing/head/caphat/xo
 	uniform = /obj/item/clothing/under/rank/xo
 	shoes = /obj/item/clothing/shoes/laceup/brown
-	id = /obj/item/card/id/navy
+	id = /obj/item/card/id/scc/silver
 
 	headset = /obj/item/device/radio/headset/heads/xo
 	bowman = /obj/item/device/radio/headset/heads/xo/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/xo
 	wrist_radio = /obj/item/device/radio/headset/wrist/xo
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xo
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/command/xo
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/command/xo
@@ -167,9 +169,15 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	head = /obj/item/clothing/head/caphat/bridge_crew
 	uniform = /obj/item/clothing/under/rank/bridge_crew
 	shoes = /obj/item/clothing/shoes/laceup
+	id = /obj/item/card/id/scc/bridge
 
 	headset = /obj/item/device/radio/headset/headset_com
 	bowman = /obj/item/device/radio/headset/headset_com/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/command
 	wrist_radio = /obj/item/device/radio/headset/wrist/command
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/command
 	messengerbag = /obj/item/storage/backpack/messenger/com
+
+	tab_pda = /obj/item/modular_computer/handheld/pda/bridge
+	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/bridge
+	tablet = /obj/item/modular_computer/handheld/preset/bridge

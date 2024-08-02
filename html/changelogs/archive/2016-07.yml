@@ -1,0 +1,204 @@
+2016-07-05:
+  Alberyk:
+  - tweak: Removed the delay from the shuttle call in revolution, it should be 10
+      minutes now, instead of 20 minutes.
+  - bugfix: Cult blades are properly sharp now.
+  - tweak: Removed the helmet camera from the heist industrial hardsuit.
+  - bugfix: Interns positions should not start with an extra internal box anymore.
+  - bugfix: The lethal injection syringe should have a proper sprite now.
+  Nanako:
+  - bugfix: Mice will no longer spawn in closed systems with nowhere to ventcrawl
+      to
+  - bugfix: Mice can no longer spawn in breached areas and die immediately. A spawnpoint
+      with a safe environment will always be chosen
+2016-07-10:
+  Alberyk:
+  - bugfix: Science armbands should be available again in the custom loadout.
+  - rscadd: Added medical scrubs to the custom loadout.
+  - imageadd: Workboots should have a better sprite.
+  LordFowl:
+  - bugfix: Various weapons added by the last patch are properly included in RnD research.
+  - bugfix: Game year is set properly to 2458.
+  - bugfix: Wizard laser eyes via mutate now work properly.
+  - bugfix: Brig exit door in security now functions appropriately.
+  - bugfix: Arrivals maintainence disposals now functions properly.
+  - bugfix: Doctors now have the appropriate access to EVA.
+  - bugfix: Abstract items such as grabs can no longer be placed into crates.
+  - bugfix: The chaplain's null rod can be used properly as a weapon if intent is
+      set to harm.
+  - bugfix: Droppers now appropriately display transferred units.
+  - bugfix: All pAI faces can now be selected.
+  - bugfix: Soaps, janiborgs, and mops can no longer remove cultist runes.
+  - bugfix: Soaps, janiborgs, and mops can remove paint applicated via paint-can from
+      turfs.
+  - bugfix: All instances of Thaler have been replaced with credit chip.
+  - bugfix: All instances of Hesphaistos have been replaced with Hesphaestus.
+  - tweak: Mechanics of the coin slightly tweaked to prevent duping exploits.
+  - tweak: Mobs can no longer be painted via paint-cans.
+  - rscadd: Quartermasters now start with the cargo account details in their memory
+      notes.
+2016-07-12:
+  LordFowl:
+  - bugfix: Fixed Vaurca being immune to tasers and stun batons.
+  - bugfix: Fixed Magic Missile and Fireball.
+2016-07-18:
+  Alberyk:
+  - rscadd: Added the unique drinks from the old code.
+  - tweak: Renamed Galatic Common back to Ceti Basic.
+  - imageadd: Ported the id sprites from old aurora code.
+  - rscadd: The improvised shotgun has now a chance to explode when being fired.
+  - rscadd: Added a jukebox crate to the supply console.
+  - rscadd: Added a chainsword.
+  - rscadd: Added new flavors of swords; rapiers, sabers, trench knives and etc.
+  - tweak: You can't hide claymore and katanas inside bags anymore.
+  - rscadd: You can now print some hardsuit modules in the robotics fabricator, most
+      of them will require high tech and even rare resources.
+  - rscadd: You can also print nanopaste from the robotics fabricator now.
+  - tweak: Zipguns should not start with flash and stun rounds anymore.
+  Arrow768:
+  - bugfix: Fix for lawgiver crowdcontrol spelling
+  - rscadd: Display CCIA Records of the char on the employment record console
+  - rscadd: Display Active CCIA Actions assigned to the char record console
+  Bedshaped:
+  - rscadd: Added the ability to pull template command reports from the WI
+  - rscadd: Added the ability to cancel sending a command report
+  - tweak: Changed command reports to ask for a name separately
+  - rscadd: Adding a helper in commstation_name() which returns NMSS Odin currently
+  - tweak: Changed the order of no/yes to yes/no in the give prompt
+  Fire and Glory:
+  - imageadd: Made Unique sprites for when the AMI and Industrial Hardsuit is being
+      worn by Tajara, Unathi, and Skrell.
+  - imageadd: Added Unique sprites for all colors of the ERT Hardsuit when worn by
+      Tajara, Unathi, and Skrell.
+  - rscadd: Made it possible to undo the top buttons of most suits via the roll-down-jumpsuit
+      verb.
+  - rscadd: Gave the Janitor's wet floor signs lights that can be used by activating
+      them in-hand or alt-clicking them on the ground.
+  - rscadd: Porting foxes and Chauncey from oldcode, not in any maps, currently.
+  Lord Lag:
+  - rscadd: Custom Synthetic sprites are returning from the old code base.
+  - tweak: Memetic anomaly possession has been adjusted.
+  - bugfix: Memetic anomaly thought now functions.
+  - experiment: Memetic anomaly code has been introduced
+  LordFowl:
+  - tweak: Age limits are now based upon lore-standards for each race.
+  - tweak: Home system, citizenship, and religion defaults have been tailored to the
+      lore standards.
+  - tweak: Numbers may be used in chargen for naming, strictly for the purpose of
+      allowing numbers in IPC names.
+  - rscadd: Age, citizenship, and religion can now be viewed on an ID card.
+  - rscadd: Citizenship, religion, and home system can be viewed and modified via
+      the employment records consoles.
+  - rscadd: Vaurca filtration bit organ added. When destroyed or removed, oxygen becomes
+      poisonous to the Vaurca.
+  - tweak: Vaurca lungs have been made organic.
+  - tweak: Vaurca take 3x toxin damage, as a result of their rather alien biology.
+  - tweak: Vaurca lose additional blood when an opportunity to lose blood presents
+      itself, due to their open-circulatory system.
+  - bugfix: Vaurca organs are no longer all robotic, except for the neural socket
+      and filtration bit.
+  - bugfix: Vaurca organ surgery is now possible.
+  Nanako:
+  - bugfix: Fixed dizziness effects on alcohol, psilocybin, and cryptobiolin taking
+      a long to start up and sometimes never starting for low doses.
+  - tweak: Reduced the strength of the confusion effect
+  - tweak: Sip size from alcohol bottles is now the same as for glasses, which is
+      half what it was.
+  - tweak: Rebalanced all alcoholic drinks with more believable alcohol values, and
+      adjusted alcohol metabolism. Generally drinks are stronger but metabolise more
+      slowly, pace yourself!
+  - tweak: Drinking now causes temporary clumsiness until you sober up. Please don't
+      drink and operate heavy machinery.
+  - tweak: Excessive drinking now has a chance to cause vomiting.
+  - rscadd: Different species now have varying susceptibility to alcohol. Tajarans
+      get drunk slightly faster, skrell are twice as fast as humans, unathi can drink
+      more, and vaurca get drunk very slowly, but alcohol poisons them.
+  - bugfix: Dousing people in alcohol and setting them on fire, now only works with
+      spirits and liqeurs stronger than 40% ABV, and the heat of the resulting fire
+      is based on the strength.
+  - tweak: Ethylredoxrazine now removes alcohol from the patient's blood and stomach,
+      and decreases their intoxication. A large enough dose will make them completely
+      sober.
+  - tweak: Ethylredoxrazine now metabolises and does its effects much more slowly.
+  - tweak: Coffee now sobers up drunk people a little.
+  - bugfix: Fixed a bug where almost half of all meteors spawned would instantly delete
+      without hitting anything
+  - bugfix: Meteors that impact energy shields will no longer bug out and spin forever
+      in space
+  - rscadd: Meteor showers and storms now last a lot longer, and are far more punishing
+      if the station isn't shielded
+  - rscadd: Meteors are now far more likely to make an audible explosion on impact.
+      Explosion power reduced a bit though
+  - rscadd: Meteor events now give a three minute advance warning, allowing time to
+      turn on station shield generators
+  - rscadd: All meteors that impact a shield now make a special sound effect.
+  - tweak: Small and normal sized meteors are now vaporised harmlessly on contact
+      with a shield. Large meteors will explode, but with reduced power
+  - bugfix: Fixed a bug where placing held mobs into containers would make them vanish
+  - tweak: pAIs can now examine objects while in card form
+  - rscadd: Moving pAIs and held mobs around on your person is now a visible action,
+      and the mob or pAI is notified of where its moved to
+  - rscadd: Added a verb for pAIs and held mobs, to check where on the holder they
+      are.
+  - bugfix: Pepperspray will no longer make a spraying sound if used while the safety
+      is on
+  - rscadd: Spray bottles can now be locked by alt-clicking
+  - rscadd: Added maintenance hatches to most airlocks and hazard shutters, for drones
+      to pass through without opening the door. Hatches do not allow gases through
+      or spread breaches
+  - rscadd: Welding tools can now be used to burn paper
+  - tweak: The upgraded and experimental welding tools will now fit in a toolbelt.
+      Upgraded renamed to advanced
+  - rscadd: Fixed and implemented the Experimental Welding Tool, which has a regenerating
+      fuel supply. Can be produced in R&D, requires 4 research in engineering and
+      materials
+  Skull132:
+  - bugfix: All chats are now properly logged into the server log, to include the
+      language they were spoken in.
+  - bugfix: Changeling revive after using the suicide verb will now work properly.
+  - bugfix: Evidence bag boxes now work like real boxes again. Note that in order
+      to put an object into a bag, you drag that obejct onto the bag.
+  - bugfix: Borgs will now understand the Tajaran language again.
+  - bugfix: Alien species should no longer have oddly coloured fur/skin/scales/slime
+      after being cloned.
+  - bugfix: Fixed the unlimited virus food exploit.
+  - tweak: 'Markup is no longer awful and will not break links. Proper keys have changed:
+      / = italics, _ = underline, ~ = strikethrough, * = bold.'
+  - tweak: Trash bags can now be used to pick up bullet casings.
+  - tweak: 'Antag-OOC (AOOC) is now available to all antagonists. Moderators also
+      have access to this. Intended usage: general round coordination (motives, backstories,
+      gimmicks, etcetera). The rules regarding IC in OOC still apply, however. Do
+      not use it for metagaming.'
+  - rscadd: Ported the game ID system from Baystation12. When filing complaints, please
+      fill out the appropriate field with it.
+  - rscadd: Added a new "Server Greeting" system to replace the massive garbled dump
+      of info people get in the lower right panel. Coloured tabs indicated things
+      that need attention. The window can be opened from the OOC tab as well, via
+      the "Open Greeting" button.
+  - rscadd: Admins (with R_SERVER flag) can now edit the message of the day from within
+      the game, with the "Edit MotD" button in the Server tab. Memos can be edited
+      by any admin from the "Edit Memo" button in the same tab.
+  - rscadd: Radio jammers added (syndicate uplink for 2 TC, or improvised out of a
+      signaller/signaller assembly, with a cell added to it). These will jam headsets,
+      PDAs, messaging servers, and Vaurca hivenet.
+2016-07-20:
+  Skull132:
+  - tweak: You can now shoot at cargo trains, or their passangers specifically. If
+      you click on the train, you will hit it, and thus can destroy it while the passanger
+      is still onboard.
+  - tweak: Gibbing or husking a Diona will no longer have them split off into nymphs.
+      A gibbed or husked Diona is now permadead.
+2016-07-24:
+  Alberyk:
+  - rscadd: Added departamental related voidsuits crates to the supply console.
+  - rscadd: Added security and engineering maglock crates to the supply console.
+  - tweak: Costumes crates do not require theater access anymore.
+  Bedshaped:
+  - tweak: Command reports now only ask for a name if you used a template
+  - bugfix: MalfAI's fake command report plays the regular report sound so the Malf
+      can't be metaguessed
+  LordFowl:
+  - bugfix: Fixed certain items being unable to acquire via RnD due to impossibly
+      high research requirements.
+  - bugfix: Fixed lawgiver not displaying a name for its entry in the protolathe.
+  - tweak: Halved the effectiveness of the Zo'ra blaster.

@@ -1,0 +1,892 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"b" = (
+/obj/effect/decal/cleanable/blood/drip/oil,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"c" = (
+/obj/structure/shipping_container{
+	icon_state = "red2"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"g" = (
+/obj/structure/shipping_container{
+	icon_state = "green2"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"h" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"i" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
+"j" = (
+/obj/effect/decal/curb/corner,
+/obj/machinery/light/small/floor,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"k" = (
+/obj/effect/decal/curb/corner{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"l" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/machinery/light/small/floor,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"n" = (
+/obj/effect/decal/curb,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"p" = (
+/obj/structure/shipping_container{
+	icon_state = "green3"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"r" = (
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
+"s" = (
+/obj/effect/decal/curb/corner,
+/turf/template_noop,
+/area/template_noop)
+"t" = (
+/obj/structure/shipping_container,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"u" = (
+/obj/structure/shipping_container{
+	icon_state = "blue2"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"v" = (
+/obj/structure/crane,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"x" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"y" = (
+/obj/effect/decal/curb/corner{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"z" = (
+/obj/structure/shipping_container{
+	icon_state = "grey2"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"A" = (
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/obj/machinery/light/small/floor,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"B" = (
+/obj/structure/shipping_container{
+	icon_state = "blue3"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"D" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"E" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"F" = (
+/obj/effect/decal/curb,
+/turf/template_noop,
+/area/template_noop)
+"G" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"H" = (
+/obj/random/toolbox{
+	pixel_y = 10;
+	pixel_x = 11
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"J" = (
+/obj/structure/shipping_container{
+	icon_state = "red3"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"M" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"N" = (
+/obj/structure/shipping_container{
+	icon_state = "green1"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"O" = (
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"P" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"Q" = (
+/obj/effect/decal/curb/corner{
+	dir = 1
+	},
+/obj/machinery/light/small/floor,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"R" = (
+/obj/effect/decal/curb/corner{
+	dir = 4
+	},
+/obj/machinery/light/small/floor,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"T" = (
+/obj/effect/decal/curb,
+/obj/effect/decal/curb,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"U" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"V" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/machinery/light/small/floor,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"X" = (
+/obj/structure/shipping_container{
+	icon_state = "grey1"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"Y" = (
+/obj/structure/shipping_container{
+	icon_state = "red1"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+"Z" = (
+/obj/structure/shipping_container{
+	icon_state = "grey3"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
+
+(1,1,1) = {"
+r
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+s
+"}
+(2,1,1) = {"
+U
+a
+a
+O
+a
+a
+Y
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+O
+a
+a
+a
+a
+a
+a
+F
+"}
+(3,1,1) = {"
+U
+v
+a
+a
+a
+a
+c
+a
+a
+a
+a
+a
+Y
+a
+a
+X
+a
+a
+a
+a
+a
+Y
+a
+a
+F
+"}
+(4,1,1) = {"
+U
+b
+a
+a
+a
+a
+c
+a
+a
+t
+a
+a
+c
+a
+a
+z
+a
+a
+M
+a
+a
+c
+a
+P
+F
+"}
+(5,1,1) = {"
+U
+a
+a
+a
+a
+a
+J
+a
+a
+u
+a
+a
+c
+a
+a
+z
+a
+a
+Y
+a
+a
+c
+a
+a
+F
+"}
+(6,1,1) = {"
+U
+b
+a
+a
+X
+H
+h
+a
+a
+u
+a
+a
+J
+h
+a
+Z
+a
+a
+c
+a
+a
+J
+a
+a
+F
+"}
+(7,1,1) = {"
+U
+a
+a
+a
+z
+a
+a
+a
+a
+B
+a
+a
+N
+a
+t
+h
+a
+a
+c
+a
+a
+a
+N
+a
+F
+"}
+(8,1,1) = {"
+U
+a
+a
+a
+Z
+a
+a
+a
+a
+a
+a
+a
+g
+a
+u
+a
+a
+a
+c
+a
+a
+a
+g
+a
+F
+"}
+(9,1,1) = {"
+U
+a
+M
+a
+a
+a
+a
+Y
+a
+a
+a
+a
+g
+a
+u
+a
+a
+a
+J
+a
+a
+a
+p
+a
+F
+"}
+(10,1,1) = {"
+U
+a
+a
+a
+a
+a
+a
+c
+a
+O
+a
+a
+g
+a
+B
+a
+a
+a
+a
+a
+a
+a
+a
+a
+F
+"}
+(11,1,1) = {"
+U
+a
+a
+a
+a
+a
+a
+c
+a
+a
+a
+a
+p
+a
+a
+a
+M
+a
+O
+a
+a
+a
+a
+a
+F
+"}
+(12,1,1) = {"
+U
+a
+a
+X
+a
+a
+a
+J
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+F
+"}
+(13,1,1) = {"
+U
+a
+a
+z
+a
+a
+a
+a
+a
+a
+P
+a
+a
+a
+a
+a
+a
+a
+a
+a
+v
+a
+a
+a
+F
+"}
+(14,1,1) = {"
+U
+a
+a
+z
+a
+a
+a
+a
+A
+G
+G
+G
+G
+G
+G
+G
+l
+G
+G
+G
+G
+G
+G
+j
+F
+"}
+(15,1,1) = {"
+U
+a
+a
+z
+a
+a
+M
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+b
+a
+a
+n
+F
+"}
+(16,1,1) = {"
+U
+a
+a
+Z
+a
+a
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+n
+F
+"}
+(17,1,1) = {"
+U
+a
+a
+a
+a
+a
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+n
+F
+"}
+(18,1,1) = {"
+U
+a
+a
+a
+a
+a
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+n
+F
+"}
+(19,1,1) = {"
+U
+a
+a
+a
+a
+a
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+T
+F
+"}
+(20,1,1) = {"
+U
+a
+a
+a
+a
+a
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+n
+F
+"}
+(21,1,1) = {"
+U
+a
+a
+M
+a
+a
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+n
+F
+"}
+(22,1,1) = {"
+U
+a
+a
+a
+a
+a
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+n
+F
+"}
+(23,1,1) = {"
+U
+a
+O
+a
+a
+a
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+n
+F
+"}
+(24,1,1) = {"
+U
+a
+a
+a
+a
+a
+a
+a
+R
+E
+E
+E
+E
+E
+E
+E
+V
+E
+E
+E
+E
+E
+E
+Q
+F
+"}
+(25,1,1) = {"
+k
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+y
+"}

@@ -83,10 +83,10 @@
 	if(linked_gateways.len != 8)	return
 	if(!powered())		return
 	if(!awaygate)
-		to_chat(user, "<span class='notice'>Error: No destination found.</span>")
+		to_chat(user, SPAN_NOTICE("Error: No destination found."))
 		return
 	if(world.time < wait)
-		to_chat(user, "<span class='notice'>Error: Warpspace triangulation in progress. Estimated time to completion: [round(((wait - world.time) / 10) / 60)] minutes.</span>")
+		to_chat(user, SPAN_NOTICE("Error: Warpspace triangulation in progress. Estimated time to completion: [round(((wait - world.time) / 10) / 60)] minutes."))
 		return
 
 	for(var/obj/machinery/gateway/G in linked_gateways)
@@ -115,19 +115,26 @@
 
 
 //okay, here's the good teleporting stuff
-/obj/machinery/gateway/centerstation/CollidedWith(atom/movable/M as mob|obj)
+/obj/machinery/gateway/centerstation/CollidedWith(atom/bumped_atom)
+	. = ..()
+
 	if(!ready || !active || !awaygate)
 		return
 
+	if(!ismovable(bumped_atom))
+		return
+
+	var/atom/movable/AM = bumped_atom
+
 	if(awaygate.calibrated)
-		M.forceMove(get_step(awaygate.loc, SOUTH))
-		M.set_dir(SOUTH)
+		AM.forceMove(get_step(awaygate.loc, SOUTH))
+		AM.set_dir(SOUTH)
 		return
 	else
 		var/obj/effect/landmark/dest = pick(GLOB.awaydestinations)
 		if(dest)
-			M.forceMove(dest.loc)
-			M.set_dir(SOUTH)
+			AM.forceMove(dest.loc)
+			AM.set_dir(SOUTH)
 			use_power_oneoff(5000)
 		return
 
@@ -187,7 +194,7 @@
 	if(!ready)			return
 	if(linked_gateways.len != 8)	return
 	if(!stationgate)
-		to_chat(user, "<span class='notice'>Error: No destination found.</span>")
+		to_chat(user, SPAN_NOTICE("Error: No destination found."))
 		return
 
 	for(var/obj/machinery/gateway/G in linked_gateways)
@@ -215,17 +222,24 @@
 	toggleoff()
 
 
-/obj/machinery/gateway/centeraway/CollidedWith(atom/movable/M as mob|obj)
+/obj/machinery/gateway/centeraway/CollidedWith(atom/bumped_atom)
+	. = ..()
+
 	if(!ready || !active)
 		return
 
-	if(istype(M, /mob/living/carbon))
-		for(var/obj/item/implant/exile/E in M)//Checking that there is an exile implant in the contents
-			if(E.imp_in == M)//Checking that it's actually implanted vs just in their pocket
-				to_chat(M, "\black The station gate has detected your exile implant and is blocking your entry.")
+	if(!ismovable(bumped_atom))
+		return
+
+	var/atom/movable/AM = bumped_atom
+
+	if(iscarbon(AM))
+		for(var/obj/item/implant/exile/E in AM)//Checking that there is an exile implant in the contents
+			if(E.imp_in == AM)//Checking that it's actually implanted vs just in their pocket
+				to_chat(AM, "\black The station gate has detected your exile implant and is blocking your entry.")
 				return
-	M.forceMove(get_step(stationgate.loc, SOUTH))
-	M.set_dir(SOUTH)
+	AM.forceMove(get_step(stationgate.loc, SOUTH))
+	AM.set_dir(SOUTH)
 
 
 /obj/machinery/gateway/centeraway/attackby(obj/item/attacking_item, mob/user)
@@ -234,6 +248,6 @@
 			to_chat(user, "\black The gate is already calibrated, there is no work for you to do here.")
 			return
 		else
-			to_chat(user, "<span class='notice'><b>Recalibration successful!</b>: \black This gate's systems have been fine tuned.  Travel to this gate will now be on target.</span>")
+			to_chat(user, SPAN_NOTICE("<b>Recalibration successful!</b>: \black This gate's systems have been fine tuned.  Travel to this gate will now be on target."))
 			calibrated = 1
 			return

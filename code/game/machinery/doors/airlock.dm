@@ -32,6 +32,7 @@
 	normalspeed = TRUE
 	pixel_x = -16
 	pixel_y = -16
+	pass_flags_self = PASSDOORS
 	/// Boolean. Whether or not the AI control mechanism is disabled.
 	var/ai_control_disabled = FALSE
 	/// Boolean. If set, the door cannot by hacked or bypassed by the AI.
@@ -175,6 +176,18 @@
 		on_admin_z = TRUE
 		hashatch = FALSE
 
+	if(frequency)
+		set_frequency(frequency)
+
+	//wireless connection
+	if(_wifi_id)
+		wifi_receiver = new(_wifi_id, src)
+
+	update_icon()
+
+	if(SSradio)
+		set_frequency(frequency)
+
 	. = ..()
 
 	//if assembly is given, create the new door from the assembly
@@ -204,6 +217,9 @@
 
 		unres_dir = electronics.unres_dir
 
+		bound_height = assembly.bound_height
+		bound_width = assembly.bound_width
+
 	if (on_admin_z)
 		secured_wires = TRUE
 
@@ -225,6 +241,9 @@
 	update_icon()
 
 /obj/machinery/door/airlock/Destroy()
+	if(frequency && SSradio)
+		SSradio.remove_object(src,frequency)
+
 	QDEL_NULL(wires)
 	QDEL_NULL(wifi_receiver)
 	return ..()
@@ -762,7 +781,9 @@
 	door_color = COLOR_VIOLET
 	mineral = MATERIAL_PHORON
 
-/obj/machinery/door/airlock/phoron/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/machinery/door/airlock/phoron/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(exposed_temperature > 300)
 		PhoronBurn(exposed_temperature)
 
@@ -1050,31 +1071,31 @@ About the new airlock wires panel:
 		switch(state)
 			if(AIRLOCK_CLOSED)
 				if(lights && locked)
-					lights_overlay = overlay_image(bolts_file, layer = EFFECTS_ABOVE_LIGHTING_LAYER)
+					lights_overlay = overlay_image(bolts_file, plane = EFFECTS_ABOVE_LIGHTING_PLANE)
 					set_light(1, 2, COLOR_RED_LIGHT)
 
 			if(AIRLOCK_DENY)
 				if(lights)
-					lights_overlay = overlay_image(deny_file, layer = EFFECTS_ABOVE_LIGHTING_LAYER)
+					lights_overlay = overlay_image(deny_file, plane = EFFECTS_ABOVE_LIGHTING_PLANE)
 					set_light(1, 2, COLOR_RED_LIGHT)
 
 			if(AIRLOCK_EMAG)
-				sparks_overlay = overlay_image(emag_file, layer = EFFECTS_ABOVE_LIGHTING_LAYER)
+				sparks_overlay = overlay_image(emag_file, plane = EFFECTS_ABOVE_LIGHTING_PLANE)
 
 			if(AIRLOCK_CLOSING)
 				if(lights)
-					lights_overlay = overlay_image(lights_file, layer = EFFECTS_ABOVE_LIGHTING_LAYER)
+					lights_overlay = overlay_image(lights_file, plane = EFFECTS_ABOVE_LIGHTING_PLANE)
 					set_light(1, 2, COLOR_LIME)
 
 			if(AIRLOCK_OPENING)
 				if(lights)
-					lights_overlay = overlay_image(lights_file, layer = EFFECTS_ABOVE_LIGHTING_LAYER)
+					lights_overlay = overlay_image(lights_file, plane = EFFECTS_ABOVE_LIGHTING_PLANE)
 					set_light(1, 2, COLOR_LIME)
 
 		if(stat & BROKEN)
-			damage_overlay = overlay_image(sparks_broken_file, layer = EFFECTS_ABOVE_LIGHTING_LAYER)
+			damage_overlay = overlay_image(sparks_broken_file, plane = EFFECTS_ABOVE_LIGHTING_PLANE)
 		else if (health < maxhealth * 3/4 && !(stat & NOPOWER))
-			damage_overlay = overlay_image(sparks_damaged_file, layer = EFFECTS_ABOVE_LIGHTING_LAYER)
+			damage_overlay = overlay_image(sparks_damaged_file, plane = EFFECTS_ABOVE_LIGHTING_PLANE)
 
 	if(welded)
 		weld_overlay = welded_file
@@ -1082,25 +1103,25 @@ About the new airlock wires panel:
 	if(p_open)
 		panel_overlay = panel_file
 
-	cut_overlays()
+	ClearOverlays()
 
-	add_overlay(frame_color_overlay)
-	add_overlay(color_overlay)
-	add_overlay(panel_overlay)
-	add_overlay(filling_overlay)
-	add_overlay(stripe_overlay)
-	add_overlay(stripe_filling_overlay)
-	add_overlay(weld_overlay)
-	add_overlay(brace_overlay)
-	add_overlay(lights_overlay)
-	add_overlay(sparks_overlay)
-	add_overlay(damage_overlay)
+	AddOverlays(frame_color_overlay)
+	AddOverlays(color_overlay)
+	AddOverlays(panel_overlay)
+	AddOverlays(filling_overlay)
+	AddOverlays(stripe_overlay)
+	AddOverlays(stripe_filling_overlay)
+	AddOverlays(weld_overlay)
+	AddOverlays(brace_overlay)
+	AddOverlays(lights_overlay)
+	AddOverlays(sparks_overlay)
+	AddOverlays(damage_overlay)
 
 	if(force_compile)
-		compile_overlays()
+		UpdateOverlays()
 
 /obj/machinery/door/airlock/do_animate(animation)
-	cut_overlays()
+	ClearOverlays()
 
 	switch(animation)
 		if("opening")
@@ -1856,6 +1877,10 @@ About the new airlock wires panel:
 
 	if(src.close_other != null && istype(src.close_other, /obj/machinery/door/airlock/) && !src.close_other.density)
 		src.close_other.close()
+
+	if(!forced)
+		send_status()
+
 	return ..()
 
 /obj/machinery/door/airlock/can_open(var/forced=0)
@@ -1963,7 +1988,7 @@ About the new airlock wires panel:
 	var/has_opened_hatch = FALSE
 	for(var/turf/turf in locs)
 		for(var/atom/movable/AM in turf)
-			if(hashatch && AM.checkpass(PASSDOORHATCH))
+			if(hashatch && AM.pass_flags & PASSDOORHATCH)
 				if(!has_opened_hatch)
 					open_hatch(AM)
 				has_opened_hatch = TRUE
@@ -1974,6 +1999,9 @@ About the new airlock wires panel:
 		playsound(src.loc, close_sound_powered, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 	else
 		playsound(src.loc, close_sound_unpowered, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+
+	if(!forced)
+		send_status()
 
 	..()
 
@@ -2002,11 +2030,6 @@ About the new airlock wires panel:
 	playsound(src, bolts_rising, 30, 0, extrarange = SILENCED_SOUND_EXTRARANGE)
 	update_icon()
 	return 1
-
-/obj/machinery/door/airlock/allowed(mob/M)
-	if(locked)
-		return 0
-	return ..(M)
 
 // Most doors will never be deconstructed over the course of a round,
 // so as an optimization defer the creation of electronics until

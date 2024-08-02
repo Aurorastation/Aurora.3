@@ -119,7 +119,6 @@
 "cp" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /obj/random/dirt_75,
@@ -227,7 +226,6 @@
 "dx" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 4
 	},
 /obj/random/dirt_75,
@@ -245,7 +243,6 @@
 "dI" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 8
 	},
 /obj/structure/flora/rock/konyang/small,
@@ -324,7 +321,6 @@
 /area/hivebot_burrows_2)
 "et" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/random/dirt_75,
@@ -463,7 +459,6 @@
 /area/space)
 "fT" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
-	layer = 2.1;
 	name = "inlaid tatami spread";
 	dir = 4
 	},
@@ -549,7 +544,6 @@
 /area/hivebot_burrows_2)
 "gX" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
-	layer = 2.1;
 	name = "inlaid tatami spread";
 	dir = 4
 	},
@@ -588,8 +582,7 @@
 /area/hivebot_burrows_2)
 "hl" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
@@ -701,7 +694,6 @@
 "jZ" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 8;
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
@@ -928,7 +920,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/clothing/suit/space/anomaly,
 /obj/item/clothing/head/helmet/space/anomaly,
 /obj/random/dirt_75,
@@ -995,7 +987,6 @@
 /area/hivebot_burrows_2)
 "nM" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
-	layer = 2.1;
 	name = "inlaid tatami spread";
 	dir = 8
 	},
@@ -1450,7 +1441,6 @@
 	pixel_y = -11
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1625,7 +1615,6 @@
 "vW" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 1
 	},
 /obj/random/dirt_75,
@@ -1822,7 +1811,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/warning,
 /obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/clothing/suit/space/anomaly,
 /obj/item/clothing/head/helmet/space/anomaly,
 /obj/random/dirt_75,
@@ -1924,7 +1913,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 4;
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/random/dirt_75,
@@ -1950,7 +1938,6 @@
 "AM" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 1
 	},
 /obj/structure/flora/ausbushes/fullgrass,
@@ -1959,7 +1946,6 @@
 /area/hivebot_burrows_2)
 "AQ" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/machinery/light{
@@ -2262,8 +2248,7 @@
 /area/hivebot_burrows_2)
 "EG" = (
 /obj/structure/rod_railing{
-	name = "imposing rod railing";
-	layer = 9.1
+	name = "imposing rod railing"
 	},
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/bush/konyang_reeds,
@@ -2278,7 +2263,6 @@
 /area/hivebot_burrows_2)
 "ES" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
-	layer = 2.1;
 	name = "inlaid tatami spread";
 	dir = 8
 	},
@@ -2347,7 +2331,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 8;
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/random/dirt_75,
@@ -2372,7 +2355,6 @@
 "Gg" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 4;
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/item/clothing/head/konyang{
@@ -2426,7 +2408,6 @@
 "GU" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 1;
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/random/junk,
@@ -2444,7 +2425,6 @@
 /obj/item/bedsheet/black,
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 4;
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
@@ -3356,7 +3336,6 @@
 "Ug" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 1;
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/random/dirt_75,
@@ -3417,7 +3396,6 @@
 "Ux" = (
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 4;
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
@@ -3771,8 +3749,7 @@
 "YL" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/platform_deco{
-	dir = 8;
-	layer = 2.7
+	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/random/dirt_75,
@@ -3877,7 +3854,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor/tatami{
 	dir = 8;
-	layer = 2.1;
 	name = "inlaid tatami spread"
 	},
 /obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
@@ -3894,7 +3870,6 @@
 "ZE" = (
 /obj/structure/rod_railing{
 	name = "imposing rod railing";
-	layer = 9.1;
 	dir = 4
 	},
 /obj/structure/flora/rock/konyang/small,

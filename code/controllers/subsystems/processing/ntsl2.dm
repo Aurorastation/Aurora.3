@@ -140,6 +140,7 @@ PROCESSING_SUBSYSTEM_DEF(ntsl2)
 
 
 /datum/controller/subsystem/processing/ntsl2/fire(resumed)
+	CAN_BE_REDEFINED(TRUE)
 	for(var/task_id in tasks)
 		var/task = tasks[task_id]
 		var/datum/http_request/req = task["request"]

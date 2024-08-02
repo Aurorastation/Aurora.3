@@ -5,7 +5,7 @@
 	icon_state = "cartridge"
 	contained_sprite = TRUE
 	filling_states = "20;40;60;80;100"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 	volume = CARTRIDGE_VOLUME_LARGE
 	amount_per_transfer_from_this = 50
@@ -32,17 +32,17 @@
 			setLabel(R.name)
 
 /obj/item/reagent_containers/chem_disp_cartridge/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(reagents?.total_volume)
 		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 	if(!is_open_container())
 		var/lid_icon = "lid_[icon_state]"
 		var/mutable_appearance/lid = mutable_appearance(icon, lid_icon)
-		add_overlay(lid)
+		AddOverlays(lid)
 
 /obj/item/reagent_containers/chem_disp_cartridge/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -71,13 +71,13 @@
 /obj/item/reagent_containers/chem_disp_cartridge/proc/setLabel(L, mob/user = null)
 	if(L)
 		if(user)
-			to_chat(user, "<span class='notice'>You set the label on \the [src] to '[L]'.</span>")
+			to_chat(user, SPAN_NOTICE("You set the label on \the [src] to '[L]'."))
 
 		label = L
 		name = "[initial(name)] - '[L]'"
 	else
 		if(user)
-			to_chat(user, "<span class='notice'>You clear the label on \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You clear the label on \the [src]."))
 		label = ""
 		name = initial(name)
 	update_icon()
@@ -104,28 +104,28 @@
 		target.add_fingerprint(user)
 
 		if(!target.reagents.total_volume && target.reagents)
-			to_chat(user, "<span class='warning'>\The [target] is empty.</span>")
+			to_chat(user, SPAN_WARNING("\The [target] is empty."))
 			return
 
 		if(reagents.total_volume >= reagents.maximum_volume)
-			to_chat(user, "<span class='warning'>\The [src] is full.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is full."))
 			return
 
 		var/trans = target.reagents.trans_to(src, target:amount_per_transfer_from_this)
-		to_chat(user, "<span class='notice'>You fill \the [src] with [trans] units of the contents of \the [target].</span>")
+		to_chat(user, SPAN_NOTICE("You fill \the [src] with [trans] units of the contents of \the [target]."))
 
 	else if(target.is_open_container() && target.reagents) //Something like a glass. Player probably wants to transfer TO it.
 
 		if(!reagents.total_volume)
-			to_chat(user, "<span class='warning'>\The [src] is empty.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is empty."))
 			return
 
 		if(target.reagents.total_volume >= target.reagents.maximum_volume)
-			to_chat(user, "<span class='warning'>\The [target] is full.</span>")
+			to_chat(user, SPAN_WARNING("\The [target] is full."))
 			return
 
 		var/trans = src.reagents.trans_to(target, amount_per_transfer_from_this)
-		to_chat(user, "<span class='notice'>You transfer [trans] units of the solution to \the [target].</span>")
+		to_chat(user, SPAN_NOTICE("You transfer [trans] units of the solution to \the [target]."))
 
 	else
 		return ..()

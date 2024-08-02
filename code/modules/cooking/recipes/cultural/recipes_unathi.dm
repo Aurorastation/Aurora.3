@@ -137,7 +137,7 @@
 	fruit = list("lime" = 1)
 	reagents = list(/singleton/reagent/sodiumchloride = 1)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/dwellermeat,
+		/obj/item/reagent_containers/food/snacks/meat/moghes,
 		/obj/item/reagent_containers/food/snacks/egg
 	)
 	result = /obj/item/reagent_containers/food/snacks/razirnoodles
@@ -155,8 +155,7 @@
 	fruit = list("gukhe" = 1)
 	reagents = list(/singleton/reagent/spacespice = 1)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/rawcutlet,
-		/obj/item/reagent_containers/food/snacks/rawcutlet
+		/obj/item/reagent_containers/food/snacks/meat/moghes,
 	)
 	result = /obj/item/reagent_containers/food/snacks/stokkebab
 
@@ -174,7 +173,8 @@
 	fruit = list("aghrassh nut" = 1)
 	reagents = list(/singleton/reagent/sodiumchloride = 3, /singleton/reagent/blackpepper = 3, /singleton/reagent/nutriment/coco = 3, /singleton/reagent/spacespice = 1)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/egg
+		/obj/item/reagent_containers/food/snacks/egg,
+		/obj/item/reagent_containers/food/snacks/meat/moghes
 	)
 	result = /obj/item/reagent_containers/food/snacks/aghrasshcake
 
@@ -183,7 +183,44 @@
 	fruit = list("aghrassh nut" = 1, "tomato" = 1)
 	reagents = list(/singleton/reagent/blackpepper = 2, /singleton/reagent/nutriment/protein/egg = 6)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/meat
+		/obj/item/reagent_containers/food/snacks/meat/moghes
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/eyebowl
 	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/caramelized_steak_bites
+	appliance = SKILLET | SAUCEPAN
+	reagents = list(/singleton/reagent/sugar = 10)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/spreads/butter
+	)
+	result = /obj/item/reagent_containers/food/snacks/caramelized_steak_bites
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/guwan_gruel
+	appliance = SAUCEPAN | POT
+	reagents = list(/singleton/reagent/water = 10)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/rawcutlet, //Intentionally any meat and not moghesian. Guwans can't be picky.
+		/obj/item/reagent_containers/food/snacks/fish
+	)
+	result = /obj/item/reagent_containers/food/snacks/guwan_gruel
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/egg_pie
+	appliance = OVEN
+	reagents = list(/singleton/reagent/sugar = 5, /singleton/reagent/nutriment/protein/egg = 6)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough
+		)
+	result = /obj/item/reagent_containers/food/snacks/egg_pie
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/orszi
+	appliance = OVEN | GRILL
+	reagents = list(/singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/spacespice = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish
+	)
+	result = /obj/item/reagent_containers/food/snacks/orszi

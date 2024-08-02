@@ -12,7 +12,7 @@
 	SHOULD_CALL_PARENT(FALSE)
 
 	update_Login_details()
-	to_chat(src, "<span class='danger'><b>You need to authenticate before you can continue.</b></span>")
+	to_chat(src, SPAN_DANGER("<b>You need to authenticate before you can continue.</b>"))
 	token = md5("[client.ckey][client.computer_id][world.time][rand()]")
 	unauthed[token] = src
 	remove_verb(client, typesof(/client/verb))

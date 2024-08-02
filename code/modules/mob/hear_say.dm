@@ -51,13 +51,13 @@
 		if(speaker_name != speaker.real_name && speaker.real_name)
 			speaker_name = "[speaker.real_name] ([speaker_name])"
 		track = "[ghost_follow_link(speaker, src)] "
-		if((client.prefs.toggles & CHAT_GHOSTEARS) && (speaker in view(src)))
+		if((client.prefs.toggles & CHAT_GHOSTEARS) && (get_turf(speaker) in view(src)))
 			message = "<b>[message]</b>"
 
 	if(isdeaf(src))
 		if(!language || !(language.flags & INNATE)) // INNATE is the flag for audible-emote-language, so we don't want to show an "x talks but you cannot hear them" message if it's set
 			if(speaker == src)
-				to_chat(src, "<span class='warning'>You cannot hear yourself speak!</span>")
+				to_chat(src, SPAN_WARNING("You cannot hear yourself speak!"))
 			else
 				to_chat(src, "<span class='name'>[speaker_name]</span>[alt_name] talks but you cannot hear them.")
 	else
@@ -228,7 +228,7 @@
 	formatted += part_c
 	if(isdeaf(src))
 		if(prob(20))
-			to_chat(src, "<span class='warning'>You feel your headset vibrate but can hear nothing from it!</span>")
+			to_chat(src, SPAN_WARNING("You feel your headset vibrate but can hear nothing from it!"))
 	else
 		on_hear_radio(part_a, speaker_name, track, part_b, formatted, accent_icon)
 

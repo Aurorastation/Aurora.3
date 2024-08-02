@@ -65,7 +65,7 @@
 	for(var/spell in morph_spells)
 		add_spell(new spell, "const_spell_ready")
 
-/mob/living/simple_animal/hostile/morph/Life()
+/mob/living/simple_animal/hostile/morph/Life(seconds_per_tick, times_fired)
 	. = ..()
 	if(stat == DEAD && healths)
 		healths.icon_state = "health6"
@@ -100,7 +100,7 @@
 	else
 		see_invisible = SEE_INVISIBLE_NOLIGHTING
 
-/mob/living/simple_animal/hostile/morph/examine(mob/user, distance, is_adjacent)
+/mob/living/simple_animal/hostile/morph/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
 	if(morphed)
 		return form.examine(user)
 	else
@@ -169,7 +169,7 @@
 	name = initial(name)
 	icon = initial(icon)
 	icon_state = initial(icon_state)
-	cut_overlays()
+	ClearOverlays()
 	overlays = null
 
 	//Baseline stats
@@ -212,7 +212,7 @@
 	if(morphed && user != src)
 		restore()
 
-/mob/living/simple_animal/hostile/morph/hitby(atom/movable/AM, speed)
+/mob/living/simple_animal/hostile/morph/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
 	if(morphed)
 		restore()

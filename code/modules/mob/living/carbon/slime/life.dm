@@ -1,4 +1,4 @@
-/mob/living/carbon/slime/Life()
+/mob/living/carbon/slime/Life(seconds_per_tick, times_fired)
 	if(src.transforming)
 		return
 	..()
@@ -311,16 +311,14 @@
 					set_intent(I_HURT)
 					UnarmedAttack(target)
 					Atkcool = TRUE
-					spawn(45)
-						Atkcool = FALSE
+					addtimer(CALLBACK(src, PROC_REF(disable_attack_cooldown)), 4.5 SECONDS)
 				AIproc = FALSE
 				return
 
 			if(target.client && !target.lying && prob(60 + powerlevel * 4)) // Try to take down the target first
 				if(!Atkcool)
 					Atkcool = TRUE
-					spawn(45)
-						Atkcool = FALSE
+					addtimer(CALLBACK(src, PROC_REF(disable_attack_cooldown)), 4.5 SECONDS)
 
 					set_intent(I_DISARM)
 					UnarmedAttack(target)
@@ -359,9 +357,7 @@
 	var/sleeptime = movement_delay()
 	if(sleeptime <= 5)
 		sleeptime = 5 // Maximum one action per half a second
-	spawn(sleeptime)
-		handle_AI()
-	return
+	AIproc = FALSE
 
 /mob/living/carbon/slime/proc/handle_speech_and_mood()
 	//Mood starts here
@@ -581,3 +577,6 @@
 
 /mob/living/carbon/slime/get_speech_bubble_state_modifier()
 	return "slime"
+
+/mob/living/carbon/slime/proc/disable_attack_cooldown()
+	Atkcool = FALSE

@@ -38,7 +38,7 @@
 
 /obj/outfit/admin/ert/zavodskoi/medic
 	name = "Zavodskoi Medic"
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	glasses = /obj/item/clothing/glasses/hud/health
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	backpack_contents = list(

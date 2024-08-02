@@ -1,5 +1,5 @@
 /obj/effect/map_effect/door_helper
-	layer = DOOR_CLOSED_LAYER + 0.1
+	layer = CLOSED_DOOR_LAYER + 0.01
 
 /obj/effect/map_effect/door_helper/Initialize(mapload, ...)
 	..()
@@ -59,3 +59,14 @@
 	"red" = list(19,38),
 	"delta" = list(19,38)
 )
+
+/// Locks/bolts any (lockable) door/airlock this marker is placed on.
+/obj/effect/map_effect/door_helper/lock
+	icon_state = "locked"
+
+/obj/effect/map_effect/door_helper/lock/modify_door(obj/machinery/door/D)
+	. = ..()
+	if(isairlock(D))
+		var/obj/machinery/door/airlock/A = D
+		A.locked = TRUE
+		A.set_airlock_overlays(AIRLOCK_CLOSED)

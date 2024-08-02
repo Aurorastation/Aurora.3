@@ -916,7 +916,7 @@
 /area/ship/diona_rokz_ship/kitchen)
 "LB" = (
 /obj/structure/table/diona,
-/obj/item/projectile/beam/pistol/hegemony,
+/obj/projectile/beam/pistol/hegemony,
 /obj/structure/diona/bulb,
 /turf/simulated/floor/diona/airless,
 /area/ship/diona_rokz_ship/bridge)
@@ -1041,6 +1041,9 @@
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/glass/full,
 /obj/item/stack/material/glass/full,
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "OU" = (

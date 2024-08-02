@@ -9,7 +9,7 @@ import { storage } from 'common/storage';
 import { loadSettings, updateSettings, addHighlightSetting, removeHighlightSetting, updateHighlightSetting } from '../settings/actions';
 import { selectSettings } from '../settings/selectors';
 import { addChatPage, changeChatPage, changeScrollTracking, loadChat, rebuildChat, removeChatPage, saveChatToDisk, clearChatMessages, toggleAcceptedType, updateMessageCount } from './actions';
-import { MAX_PERSISTED_MESSAGES, MESSAGE_SAVE_INTERVAL, MESSAGE_PRUNE_INTERVAL } from './constants';
+import { MESSAGE_SAVE_INTERVAL, MESSAGE_PRUNE_INTERVAL } from './constants';
 import { createMessage, serializeMessage } from './model';
 import { chatRenderer } from './renderer';
 import { selectChat, selectCurrentChatPage } from './selectors';
@@ -18,10 +18,11 @@ import { selectChat, selectCurrentChatPage } from './selectors';
 const FORBID_TAGS = ['a', 'iframe', 'link', 'video'];
 
 const saveChatToStorage = async (store) => {
+  const settings = selectSettings(store.getState());
   const state = selectChat(store.getState());
   const fromIndex = Math.max(
     0,
-    chatRenderer.messages.length - MAX_PERSISTED_MESSAGES
+    chatRenderer.messages.length - settings.maxMessages
   );
   const messages = chatRenderer.messages
     .slice(fromIndex)
@@ -80,7 +81,7 @@ export const chatMiddleware = (store) => {
   }, MESSAGE_SAVE_INTERVAL);
   setInterval(() => {
     const settings = selectSettings(store.getState());
-    chatRenderer.pruneMessagesTo(settings.maxMessages, MAX_PERSISTED_MESSAGES);
+    chatRenderer.pruneMessagesTo(settings.maxMessages);
   }, MESSAGE_PRUNE_INTERVAL);
   return (next) => (action) => {
     const { type, payload } = action;
@@ -114,7 +115,8 @@ export const chatMiddleware = (store) => {
       return;
     }
     if (type === rebuildChat.type) {
-      chatRenderer.rebuildChat();
+      const settings = selectSettings(store.getState());
+      chatRenderer.rebuildChat(settings.maxMessages);
       return next(action);
     }
 

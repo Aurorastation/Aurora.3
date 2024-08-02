@@ -250,6 +250,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/wikiurl
 	var/forumurl
 	var/forum_passphrase
+	var/rulesurl
 	var/githuburl
 
 	//Alert level description
@@ -396,10 +397,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 
 	// Master Controller settings.
 	var/fastboot = FALSE	// If true, take some shortcuts during boot to speed it up for testing. Probably should not be used on production servers.
-
-	//UDP GELF Logging
-	var/log_gelf_enabled = 0
-	var/log_gelf_addr = ""
 
 	//IP Intel vars
 	var/ipintel_email
@@ -645,6 +642,9 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 
 				if ("forumurl")
 					GLOB.config.forumurl = value
+
+				if ("rulesurl")
+					GLOB.config.rulesurl = value
 
 				if ("forum_passphrase")
 					GLOB.config.forum_passphrase = value

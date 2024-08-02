@@ -308,7 +308,7 @@ var/datum/gear_tweak/custom_desc/gear_tweak_free_desc = new()
 	if(valid_custom_desc)
 		input_description = tgui_input_list(user, "Choose an item description.", "Character Preference", valid_custom_desc, metadata)
 	else
-		input_description = strip_html(tgui_input_text(user, "Choose an item description.", "Character Preference", metadata))
+		input_description = html_encode(STRIP_HTML_FULL(tgui_input_text(user, "Choose an item description.", "Character Preference", metadata, encode = FALSE, multiline = TRUE), MAX_MESSAGE_LEN))
 
 	return input_description
 

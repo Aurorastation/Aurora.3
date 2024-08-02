@@ -49,9 +49,9 @@
 		dat += "<tr><td>[antag.role_text]: </td><td>"
 		var/ban_reason = jobban_isbanned(preference_mob(), antag.bantype)
 		if(ban_reason == "AGE WHITELISTED")
-			dat += "<span class='danger'>\[IN [player_old_enough_for_role(preference_mob(), antag.bantype)] DAYS\]</span><br>"
+			dat += SPAN_DANGER("\[IN [player_old_enough_for_role(preference_mob(), antag.bantype)] DAYS\]<br>")
 		else if(is_global_banned || ban_reason)
-			dat += "<span class='danger'>\[<a href='?src=\ref[user.client];view_jobban=[is_global_banned ? "Antagonist" : "[antag.bantype]"];'>BANNED</a>\]</span><br>"
+			dat += SPAN_DANGER("\[<a href='?src=\ref[user.client];view_jobban=[is_global_banned ? "Antagonist" : "[antag.bantype]"];'>BANNED</a>\]<br>")
 		else if(establish_db_connection(GLOB.dbcon) && antag.required_age && antag.required_age > user.client?.player_age)
 			dat += "<span class='notice'>ACC TOO YOUNG</span><br>"
 		else if(antag.role_type in pref.be_special_role)

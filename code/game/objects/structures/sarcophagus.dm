@@ -41,7 +41,7 @@
 	if(open)
 		return
 	if(istype(attacking_item, /obj/item/sarcophagus_key))
-		to_chat(usr, "<span class='notice'>You slide \the [attacking_item] inside an opening in \the [src].</span>")
+		to_chat(usr, SPAN_NOTICE("You slide \the [attacking_item] inside an opening in \the [src]."))
 		open()
 
 /obj/structure/sarcophagus/proc/open()
@@ -75,4 +75,4 @@
 	desc = "An archaic key, probably not used to open any airlock on station."
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "unknown1"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL

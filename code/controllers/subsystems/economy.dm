@@ -139,7 +139,7 @@ SUBSYSTEM_DEF(economy)
 			if(!R.stamped)
 				R.stamped = new
 			R.stamped += /obj/item/stamp
-			R.add_overlay(stampoverlay)
+			R.AddOverlays(stampoverlay)
 			R.stamps += "<HR><i>This paper has been stamped by the Accounts Database.</i>"
 
 	//add the account
@@ -147,6 +147,25 @@ SUBSYSTEM_DEF(economy)
 	all_money_accounts["[M.account_number]"] = M
 
 	return M
+
+/// Create and assign account for any arbitrary mob, returns the created account (/datum/money_account)
+/datum/controller/subsystem/economy/proc/create_and_assign_account(var/mob/mob, var/override_name, var/funds, var/is_public)
+	var/datum/money_account/money_account = SSeconomy.create_account(override_name || mob.real_name, funds, null, is_public)
+
+	if(mob.mind)
+		var/remembered_info = ""
+		remembered_info += "<b>Your account number is:</b> #[money_account.account_number]<br>"
+		remembered_info += "<b>Your account pin is:</b> [money_account.remote_access_pin]<br>"
+		remembered_info += "<b>Your account funds are:</b> [money_account.money]电<br>"
+
+		if(money_account.transactions.len)
+			var/datum/transaction/transaction = money_account.transactions[1]
+			remembered_info += "<b>Your account was created:</b> [transaction.time], [transaction.date] at [transaction.source_terminal]<br>"
+
+		mob.mind.store_memory(remembered_info)
+		mob.mind.initial_account = money_account
+
+	return money_account
 
 /datum/controller/subsystem/economy/proc/get_public_accounts()
 	var/list/public_accounts = list()

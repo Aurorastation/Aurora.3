@@ -63,7 +63,7 @@
 			ip = query.item[3]
 	if(!validckey)
 		if(!banned_mob || (banned_mob && !IsGuestKey(banned_mob.key)))
-			message_admins("<span class='warning'>[key_name_admin(usr)] attempted to ban [ckey], but [ckey] has not been seen yet. Please only ban actual players.</span>",1)
+			message_admins(SPAN_WARNING("[key_name_admin(usr)] attempted to ban [ckey], but [ckey] has not been seen yet. Please only ban actual players."),1)
 			return
 
 	var/a_ckey
@@ -100,7 +100,7 @@
 	var/sql = "INSERT INTO ss13_ban (`id`,`bantime`,`serverip`,`game_id`,`bantype`,`reason`,`job`,`duration`,`rounds`,`expiration_time`,`ckey`,`computerid`,`ip`,`a_ckey`,`a_computerid`,`a_ip`,`who`,`adminwho`,`edits`,`unbanned`,`unbanned_datetime`,`unbanned_ckey`,`unbanned_computerid`,`unbanned_ip`) VALUES (null, Now(), '[serverip]', '[GLOB.round_id]','[bantype_str]', '[reason]', '[job]', [(duration)?"[duration]":"0"], [(rounds)?"[rounds]":"0"], Now() + INTERVAL [(duration>0) ? duration : 0] MINUTE, '[ckey]', '[computerid]', '[ip]', '[a_ckey]', '[a_computerid]', '[a_ip]', '[who]', '[adminwho]', '', null, null, null, null, null)"
 	var/DBQuery/query_insert = GLOB.dbcon.NewQuery(sql)
 	query_insert.Execute()
-	to_chat(usr, "<span class='notice'>Ban saved to database.</span>")
+	to_chat(usr, SPAN_NOTICE("Ban saved to database."))
 	message_admins("[key_name_admin(usr)] has added a [bantype_str] for [ckey] [(job)?"([job])":""] [(duration > 0)?"([duration] minutes)":""] with the reason: \"[reason]\" to the ban database.",1)
 
 /proc/DB_ban_unban(var/ckey, var/bantype, var/job = "")
@@ -151,17 +151,17 @@
 		ban_number++;
 
 	if(ban_number == 0)
-		to_chat(usr, "<span class='warning'>Database update failed due to no bans fitting the search criteria. If this is not a legacy ban you should contact the database admin.</span>")
+		to_chat(usr, SPAN_WARNING("Database update failed due to no bans fitting the search criteria. If this is not a legacy ban you should contact the database admin."))
 		return
 
 	if(ban_number > 1)
-		to_chat(usr, "<span class='warning'>Database update failed due to multiple bans fitting the search criteria. Note down the ckey, job and current time and contact the database admin.</span>")
+		to_chat(usr, SPAN_WARNING("Database update failed due to multiple bans fitting the search criteria. Note down the ckey, job and current time and contact the database admin."))
 		return
 
 	if(istext(ban_id))
 		ban_id = text2num(ban_id)
 	if(!isnum(ban_id))
-		to_chat(usr, "<span class='warning'>Database update failed due to a ban ID mismatch. Contact the database admin.</span>")
+		to_chat(usr, SPAN_WARNING("Database update failed due to a ban ID mismatch. Contact the database admin."))
 		return
 
 	DB_ban_unban_by_id(ban_id)
@@ -237,7 +237,7 @@
 
 	var/reason = input("Please specify an unban reason.", "Unban Reason", "Unbanned as per appeal.")
 	if (!reason)
-		to_chat(usr, "<span class='warning'>Invalid reason given. Cancelled.</span>")
+		to_chat(usr, SPAN_WARNING("Invalid reason given. Cancelled."))
 		return
 
 	var/ban_number = 0 //failsafe
@@ -254,11 +254,11 @@
 		ban_number++;
 
 	if(ban_number == 0)
-		to_chat(usr, "<span class='warning'>Database update failed due to a ban id not being present in the database.</span>")
+		to_chat(usr, SPAN_WARNING("Database update failed due to a ban id not being present in the database."))
 		return
 
 	if(ban_number > 1)
-		to_chat(usr, "<span class='warning'>Database update failed due to multiple bans having the same ID. Contact the database admin.</span>")
+		to_chat(usr, SPAN_WARNING("Database update failed due to multiple bans having the same ID. Contact the database admin."))
 		return
 
 	var/datum/admins/holder = null
@@ -304,7 +304,7 @@
 	if(!check_rights(R_BAN))	return
 
 	if(!establish_db_connection(GLOB.dbcon))
-		to_chat(usr, "<span class='warning'>Failed to establish database connection</span>")
+		to_chat(usr, SPAN_WARNING("Failed to establish database connection"))
 		return
 
 	var/output = "<div align='center'><table width='90%'><tr>"
@@ -503,7 +503,7 @@
 				var/typedesc =""
 				switch(bantype)
 					if("PERMABAN")
-						typedesc = "<span class='warning'><b>PERMABAN</b></span>"
+						typedesc = SPAN_WARNING("<b>PERMABAN</b>")
 					if("TEMPBAN")
 						typedesc = "<b>TEMPBAN</b><br><font size='2'>([duration] minutes) [(unbanned || auto) ? "" : "(<a href=\"byond://?src=\ref[src];dbbanedit=duration;dbbanid=[banid]\">Edit</a>)"]<br>Expires [expiration]</font>"
 					if("JOB_PERMABAN")

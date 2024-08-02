@@ -47,7 +47,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.species && H.species.name != SPECIES_VAURCA_WARRIOR)
-			to_chat(user, "<span class='warning'>\The [src] does not respond to you!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] does not respond to you!"))
 			return FALSE
 	return ..()
 
@@ -71,7 +71,7 @@
 	recoil = 1
 
 	force = 15
-	projectile_type = /obj/item/projectile/energy/sonic
+	projectile_type = /obj/projectile/energy/sonic
 	cell_type = /obj/item/cell/super
 	fire_delay = 40
 	fire_sound = 'sound/effects/basscannon.ogg'
@@ -86,14 +86,14 @@
 			if(H.species.name == SPECIES_VAURCA_WARRIOR)
 				..()
 				return
-		to_chat(user, "<span class='warning'>\The [src] is far too large for you to pick up.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is far too large for you to pick up."))
 		return
 
 /obj/item/gun/energy/noisecannon/update_icon()
 	return
 
 //Projectile.
-/obj/item/projectile/energy/sonic
+/obj/projectile/energy/sonic
 	name = "distortion"
 	icon = 'icons/obj/machinery/particle_accelerator2.dmi'
 	icon_state = "particle"

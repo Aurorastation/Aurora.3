@@ -15,7 +15,7 @@
 	other artificial intelligence. Unique to its own experiences, the Enlightened of Xrim are often against the proliferation of synthetics and are staunchly against the Trinary Church. \
 	It is common to see Competence Choir, Bloodless Band and Emphatic Echo mindtypes among the Enlightened."
 	possible_accents = list(ACCENT_XRIMSONG)
-	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_CONSORTIUM, CITIZENSHIP_EKANE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_ETERNAL_IRON)
 
 /singleton/origin_item/origin/scorned
@@ -29,5 +29,5 @@
 	or the Orion Spur, due to low Social Credit Scores - a request by the Arch-Consul that those not in compliance with the Triumvirate's decrees be sanctioned for their conduct."
 	important_information = "While most megacorporations may hire the Scorned, they are restricted from holding positions in Command, as well as Machinist, due to concerns they may attempt to subvert, illegally free or create more synthetics. Zeng-Hu is the only megacorporation that does not wish to see the Scorned within its personnel ranks due to its close ties with the Nralakk Federation. Though it is possible to lie about one's true allegiances, there are consequences should it be discovered."
 	possible_accents = list(ACCENT_XRIMSONG)
-	possible_citizenships = list(CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_citizenships = list(CITIZENSHIP_CONSORTIUM, CITIZENSHIP_EKANE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_ETERNAL_IRON)

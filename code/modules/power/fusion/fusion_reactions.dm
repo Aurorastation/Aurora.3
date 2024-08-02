@@ -146,9 +146,8 @@ var/global/list/fusion_reactions
 	for(var/obj/machinery/fusion_fuel_injector/I in range(world.view, origin))
 		if(I.cur_assembly && I.cur_assembly.fuel_type == MATERIAL_SUPERMATTER)
 			explosion(get_turf(I), 6)
-			spawn(5)
-				if(I && I.loc)
-					qdel(I)
+			if(I && I.loc)
+				qdel(I)
 
 	sleep(5)
 	explosion(origin, 8)
@@ -166,3 +165,14 @@ var/global/list/fusion_reactions
 	radiation = 3
 	instability = 2.5
 	products = list(GAS_HELIUM = 1)
+
+// Any now we go even further beyond!!!!
+/singleton/fusion_reaction/iron_phoron
+	p_react = "iron"
+	s_react = GAS_PHORON
+	minimum_energy_level = 100000
+	energy_consumption = 10
+	energy_production = 4
+	radiation = 30
+	instability = 5
+	products = list("uranium" = 10, "lead" = 10, "borosilicate glass" = 10) // Psuedoscience but here we are

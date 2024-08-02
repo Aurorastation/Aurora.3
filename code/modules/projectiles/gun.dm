@@ -53,7 +53,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 5
@@ -137,9 +137,9 @@
 	var/markings = 0 // for marking kills with a knife
 
 	//wielding information
-	var/fire_delay_wielded = 0
-	var/recoil_wielded = 0
-	var/accuracy_wielded = 0
+	var/fire_delay_wielded
+	var/recoil_wielded
+	var/accuracy_wielded
 	var/wielded = 0
 	var/needspin = TRUE
 	var/is_wieldable = FALSE
@@ -198,11 +198,11 @@
 		underlays += I
 
 	if(has_safety)
-		cut_overlay(safety_overlay, TRUE)
+		CutOverlays(safety_overlay, ATOM_ICON_CACHE_PROTECTED)
 		safety_overlay = null
 		if(!isturf(loc)) // In a mob, holster or bag or something
 			safety_overlay = image(gun_gui_icons,"[safety()]")
-			add_overlay(safety_overlay, TRUE)
+			AddOverlays(safety_overlay, ATOM_ICON_CACHE_PROTECTED)
 
 	if(is_wieldable)
 		if(wielded)
@@ -422,7 +422,7 @@
 			break
 
 		if(isprojectile(projectile))
-			var/obj/item/projectile/P = projectile
+			var/obj/projectile/P = projectile
 
 			var/acc = burst_accuracy[min(i, burst_accuracy.len)]
 			var/disp = dispersion[min(i, dispersion.len)]
@@ -510,7 +510,7 @@
 		playsound(loc, fire_sound, fire_sound_volume, vary_fire_sound, falloff_distance  = 0.5)
 
 /obj/item/gun/proc/process_point_blank(obj/projectile, mob/user, atom/target)
-	var/obj/item/projectile/P = projectile
+	var/obj/projectile/P = projectile
 	if(!istype(P))
 		return //default behaviour only applies to true projectiles
 
@@ -533,7 +533,7 @@
 	P.point_blank = TRUE
 
 /obj/item/gun/proc/process_accuracy(obj/projectile, mob/user, atom/target, acc_mod, dispersion)
-	var/obj/item/projectile/P = projectile
+	var/obj/projectile/P = projectile
 	if(!istype(P))
 		return //default behaviour only applies to true projectiles
 
@@ -560,7 +560,7 @@
 
 //does the actual launching of the projectile
 /obj/item/gun/proc/process_projectile(obj/projectile, mob/user, atom/target, target_zone, params)
-	var/obj/item/projectile/P = projectile
+	var/obj/projectile/P = projectile
 	if(!istype(P))
 		return FALSE //default behaviour only applies to true projectiles
 
@@ -588,7 +588,7 @@
 		M.visible_message(SPAN_GOOD("\The [user] takes \the [src] out of their mouth."))
 		mouthshoot = FALSE
 		return
-	var/obj/item/projectile/in_chamber = consume_next_projectile()
+	var/obj/projectile/in_chamber = consume_next_projectile()
 	if(istype(in_chamber))
 		user.visible_message(SPAN_DANGER("\The [user] pulls the trigger."))
 		if (!pin && needspin) // Checks the pin of the gun.
@@ -643,18 +643,7 @@
 /obj/item/gun/zoom()
 	..()
 	if(!zoom)
-		if(is_wieldable && wielded)
-			if(accuracy_wielded)
-				accuracy = accuracy_wielded
-			else
-				accuracy = initial(accuracy)
-			if(recoil_wielded)
-				recoil = recoil_wielded
-			else
-				recoil = initial(recoil)
-		else
-			accuracy = initial(accuracy)
-			recoil = initial(recoil)
+		update_firing_delays()
 
 ///Handles removing the suppressor from the gun
 /obj/item/gun/proc/clear_suppressor()
@@ -801,18 +790,18 @@
 
 /obj/item/gun/proc/update_firing_delays()
 	if(wielded)
-		if(fire_delay_wielded)
+		if(!isnull(fire_delay_wielded))
 			fire_delay = usr.lying_is_intentional ? (fire_delay_wielded * LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER) : fire_delay_wielded
-		if(recoil_wielded)
+		if(!isnull(recoil_wielded))
 			recoil = usr.lying_is_intentional ? (recoil_wielded * LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER) : recoil_wielded
-		if(accuracy_wielded)
+		if(!isnull(accuracy_wielded))
 			accuracy = usr.lying_is_intentional ? (accuracy_wielded * LYING_DOWN_ACCURACY_STAT_MULTIPLIER) : accuracy_wielded
 	else
-		if(fire_delay_wielded)
+		if(!isnull(fire_delay_wielded))
 			fire_delay = initial(fire_delay)
-		if(recoil_wielded)
+		if(!isnull(recoil_wielded))
 			recoil = initial(recoil)
-		if(accuracy_wielded)
+		if(!isnull(accuracy_wielded))
 			accuracy = initial(accuracy)
 
 #undef LYING_DOWN_FIRE_DELAY_AND_RECOIL_STAT_MULTIPLIER
@@ -836,6 +825,12 @@
 
 /obj/item/gun/dropped(mob/user)
 	..()
+
+	//Removing the lock and the buttons.
+	if(istype(user, /mob/living))
+		var/mob/living/living_user = user
+		living_user.stop_aiming(src)
+
 	queue_icon_update()
 	//Unwields the item when dropped, deletes the offhand
 	update_maptext()
@@ -855,7 +850,7 @@
 
 ///////////OFFHAND///////////////
 /obj/item/offhand
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "offhand"
 	item_state = "nothing"

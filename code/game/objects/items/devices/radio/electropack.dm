@@ -5,7 +5,7 @@
 	item_state = "electropack"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 2500)
 
@@ -17,7 +17,7 @@
 
 /obj/item/device/radio/electropack/attack_hand(mob/user as mob)
 	if(src == user.back)
-		to_chat(user, "<span class='notice'>You need help taking this off!</span>")
+		to_chat(user, SPAN_NOTICE("You need help taking this off!"))
 		return
 	..()
 
@@ -71,7 +71,7 @@
 				M.moved_recently = 1
 				step(M, M.last_move)
 				addtimer(CALLBACK(src, PROC_REF(update_move_recently)), 50 SECONDS)
-		to_chat(M, "<span class='danger'>You feel a sharp shock!</span>")
+		to_chat(M, SPAN_DANGER("You feel a sharp shock!"))
 		spark(M, 3)
 
 		M.Weaken(10)

@@ -199,11 +199,11 @@ var/datum/controller/subsystem/ticker/SSticker
 				else
 					feedback_set_details("end_proper","universe destroyed")
 				if(!delay_end)
-					to_world("<span class='notice'><b>Rebooting due to destruction of station in [restart_timeout/10] seconds</b></span>")
+					to_world(SPAN_NOTICE("<b>Rebooting due to destruction of station in [restart_timeout/10] seconds</b>"))
 			else
 				feedback_set_details("end_proper","proper completion")
 				if(!delay_end)
-					to_world("<span class='notice'><b>Restarting in [restart_timeout/10] seconds</b></span>")
+					to_world(SPAN_NOTICE("<b>Restarting in [restart_timeout/10] seconds</b>"))
 
 			var/wait_for_tickets
 			var/delay_notified = 0
@@ -216,11 +216,11 @@ var/datum/controller/subsystem/ticker/SSticker
 				if(wait_for_tickets)
 					if(!delay_notified)
 						delay_notified = 1
-						message_admins("<span class='warning'><b>Automatically delaying restart due to active tickets.</b></span>")
-						to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
+						message_admins(SPAN_WARNING("<b>Automatically delaying restart due to active tickets.</b>"))
+						to_world(SPAN_NOTICE("<b>An admin has delayed the round end</b>"))
 					sleep(15 SECONDS)
 				else if(delay_notified)
-					message_admins("<span class='warning'><b>No active tickets remaining, restarting in [restart_timeout/10] seconds if an admin has not delayed the round end.</b></span>")
+					message_admins(SPAN_WARNING("<b>No active tickets remaining, restarting in [restart_timeout/10] seconds if an admin has not delayed the round end.</b>"))
 			while(wait_for_tickets)
 
 			if(!delay_end)
@@ -228,9 +228,9 @@ var/datum/controller/subsystem/ticker/SSticker
 				if(!delay_end)
 					world.Reboot()
 				else if(!delay_notified)
-					to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
+					to_world(SPAN_NOTICE("<b>An admin has delayed the round end</b>"))
 			else if(!delay_notified)
-				to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
+				to_world(SPAN_NOTICE("<b>An admin has delayed the round end</b>"))
 
 	//If we have not finished the game already, and assuming it's time, call the transfer vote as per config
 	if(!game_finished && !mode_finished && !post_game)
@@ -250,11 +250,11 @@ var/datum/controller/subsystem/ticker/SSticker
 				var/turf/playerTurf = get_turf(Player)
 				var/area/playerArea = get_area(playerTurf)
 				if(evacuation_controller.round_over() && evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
-					if(isStationLevel(playerTurf.z) && is_station_area(playerArea))
+					if(is_station_level(playerTurf.z) && is_station_area(playerArea))
 						to_chat(Player, SPAN_GOOD(SPAN_BOLD("You managed to survive the events on [station_name()] as [Player.real_name].")))
 					else
 						to_chat(Player, SPAN_NOTICE(SPAN_BOLD("You managed to survive, but were marooned as [Player.real_name]...")))
-				else if(isStationLevel(playerTurf.z) && is_station_area(playerArea))
+				else if(is_station_level(playerTurf.z) && is_station_area(playerArea))
 					to_chat(Player, SPAN_GOOD(SPAN_BOLD("You successfully underwent the crew transfer after the events on [station_name()] as [Player.real_name].")))
 				else if(issilicon(Player))
 					to_chat(Player, SPAN_GOOD(SPAN_BOLD("You remain operational after the events on [station_name()] as [Player.real_name].")))
@@ -631,7 +631,10 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		CHECK_TICK
 
-/datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, override = null, list/affected_levels = SSatlas.current_map.station_levels)
+/datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, override = null, list/affected_levels = list())
+	if(!length(affected_levels))
+		affected_levels = SSmapping.levels_by_trait(ZTRAIT_STATION)
+
 	if (cinematic)
 		return	//already a cinematic in progress!
 
@@ -639,7 +642,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	cinematic = new /obj/screen{
 		icon = 'icons/effects/station_explosion.dmi';
 		icon_state = "station_intact";
-		layer = CINEMA_LAYER;
+		layer = HUD_ABOVE_ITEM_LAYER;
 		mouse_opacity = MOUSE_OPACITY_TRANSPARENT;
 		screen_loc = "1,0"
 	}

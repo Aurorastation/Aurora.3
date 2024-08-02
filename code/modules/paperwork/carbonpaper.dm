@@ -42,7 +42,7 @@
 		copy.name = "Copy - " + c.name
 		copy.fields = c.fields
 		copy.updateinfolinks()
-		to_chat(usr, "<span class='notice'>You tear off the carbon-copy!</span>")
+		to_chat(usr, SPAN_NOTICE("You tear off the carbon-copy!"))
 		c.copied = TRUE
 		copy.iscopy = TRUE
 		copy.copied = TRUE // no more infinite copy chains

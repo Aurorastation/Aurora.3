@@ -29,19 +29,19 @@
 /obj/item/spell/mark/on_use_cast(mob/living/user)
 	. = ..()
 	if(!allowed_to_teleport()) // Otherwise you could teleport back to the admin Z-level.
-		to_chat(user, "<span class='warning'>You can't teleport here!</span>")
+		to_chat(user, SPAN_WARNING("You can't teleport here!"))
 		return 0
 	if(pay_energy(1000))
 		if(!mark_spell_ref)
 			mark_spell_ref = new(get_turf(user))
-			to_chat(user, "<span class='notice'>You mark \the [get_turf(user)] under you.</span>")
+			to_chat(user, SPAN_NOTICE("You mark \the [get_turf(user)] under you."))
 		else
 			mark_spell_ref.forceMove(get_turf(user))
-			to_chat(user, "<span class='notice'>Your mark is moved from its old position to \the [get_turf(user)] under you.</span>")
+			to_chat(user, SPAN_NOTICE("Your mark is moved from its old position to \the [get_turf(user)] under you."))
 		adjust_instability(5)
 		return 1
 	else
-		to_chat(user, "<span class='warning'>You can't afford the energy cost!</span>")
+		to_chat(user, SPAN_WARNING("You can't afford the energy cost!"))
 		return 0
 
 //Recall
@@ -67,21 +67,21 @@
 	. = ..()
 	if(pay_energy(3000))
 		if(!mark_spell_ref)
-			to_chat(user, "<span class='danger'>There's no Mark!</span>")
+			to_chat(user, SPAN_DANGER("There's no Mark!"))
 			return 0
 		else
 			if(!allowed_to_teleport())
-				to_chat(user, "<span class='warning'>Teleportation doesn't seem to work here.</span>")
+				to_chat(user, SPAN_WARNING("Teleportation doesn't seem to work here."))
 				return
-			visible_message("<span class='warning'>\The [user] starts glowing!</span>")
+			visible_message(SPAN_WARNING("\The [user] starts glowing!"))
 			var/light_intensity = 2
 			var/time_left = 3
 			if(check_for_scepter())
 				time_left = 2
 			while(time_left)
 				if(user.incapacitated())
-					visible_message("<span class='notice'>\The [user]'s glow fades.</span>")
-					to_chat(user, "<span class='danger'>You cannot Recall while incapacitated!</span>")
+					visible_message(SPAN_NOTICE("\The [user]'s glow fades."))
+					to_chat(user, SPAN_DANGER("You cannot Recall while incapacitated!"))
 					return 0
 				light_intensity++
 				set_light(light_intensity, light_intensity, l_color = "#006AFF")
@@ -94,10 +94,10 @@
 			for(var/obj/item/grab/G in user.contents) // People the Technomancer is grabbing come along for the ride.
 				if(G.affecting)
 					G.affecting.forceMove(locate( target_turf.x+rand(-1,1), target_turf.y+rand(-1,1), target_turf.z))
-					to_chat(G.affecting, "<span class='warning'>You are teleported along with [user]!</span>")
+					to_chat(G.affecting, SPAN_WARNING("You are teleported along with [user]!"))
 
 			user.forceMove(target_turf)
-			to_chat(user, "<span class='notice'>You are teleported to your Mark.</span>")
+			to_chat(user, SPAN_NOTICE("You are teleported to your Mark."))
 
 			playsound(target_turf, 'sound/effects/phasein.ogg', 25, 1)
 			playsound(target_turf, 'sound/effects/sparks2.ogg', 50, 1)
@@ -108,6 +108,6 @@
 			qdel(src)
 			return 1
 	else
-		to_chat(user, "<span class='warning'>You can't afford the energy cost!</span>")
+		to_chat(user, SPAN_WARNING("You can't afford the energy cost!"))
 		return 0
 

@@ -7,7 +7,9 @@
 	item_state = "jackboots"
 	force = 3
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES
+		melee = ARMOR_MELEE_KNIVES,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 0.75
 	can_hold_knife = TRUE

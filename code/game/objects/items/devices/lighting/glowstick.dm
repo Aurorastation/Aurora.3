@@ -1,7 +1,7 @@
 /obj/item/device/flashlight/flare/glowstick
 	name = "green glowstick"
 	desc = "A green military-grade glowstick."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	brightness_on = 1.2
 	flashlight_power = 2
 	light_color = "#49F37C"
@@ -34,7 +34,7 @@
 	else if(on)
 		var/image/I = overlay_image(icon, "glowstick-overlay", color)
 		I.blend_mode = BLEND_ADD
-		add_overlay(I)
+		AddOverlays(I)
 		icon_state = "[initial(icon_state)]-on"
 		item_state = "[initial(icon_state)]-on"
 		set_light(brightness_on, flashlight_power, light_color)

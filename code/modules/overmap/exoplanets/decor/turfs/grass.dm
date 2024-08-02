@@ -45,3 +45,16 @@
 /turf/simulated/floor/exoplanet/grass/marsh/Initialize()
 	. = ..()
 	icon_state = "marsh[rand(1,8)]"
+
+/turf/simulated/floor/exoplanet/grass/moghes
+	icon = 'icons/turf/flooring/exoplanet/moghes.dmi'
+	icon_state = "grass"
+	color = null
+
+/turf/simulated/floor/exoplanet/grass/moghes/dirt
+	icon_state = "dirt"
+	color = null
+	does_footprint = TRUE
+
+/turf/simulated/floor/exoplanet/grass/moghes/dirt/beach
+	icon_state = "beach"

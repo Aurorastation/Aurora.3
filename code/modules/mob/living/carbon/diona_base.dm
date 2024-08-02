@@ -388,19 +388,32 @@ var/list/diona_banned_languages = list(
 	if (!organ_path || !DS)
 		return
 
-	var/obj/item/organ/external/E = new organ_path(src)
-	var/obj/item/organ/external/E_old
-	for(var/obj/item/organ/external/stump/S in organs)
-		if(S.limb_name == E.limb_name)
-			E_old = S
-			break
+	var/obj/item/organ/external/our_organ = new organ_path(src)
 
-	// Remove the stump, if it exists
-	if(E_old)
-		qdel(E_old)
+	// Check if the parent organ is still part of us. If it's not - it means it was cut off or made into a stump
+	// when we detached a nymph, so we must remake it.
+	if(our_organ.parent_organ != BP_CHEST)
+		// Possibility 1 - the stump is still there from when we broke off the nymph.
+		// Remake it into a normal limb and delete the stump.
 
-	visible_message(SPAN_DANGER("With a shower of sticky sap, a new mass of tendrils bursts forth from [src]'s trunk, forming a new [E]."),
-		SPAN_DANGER("With a shower of sticky sap, a new mass of tendrils bursts forth from your trunk, forming a new [E]."))
+		// Possibility 2 - the stump is somehow gone. Don't do any of that.
+		var/obj/item/organ/external/likely_stump = organs_by_name[our_organ.parent_organ]
+		if(likely_stump)
+			if(likely_stump.is_stump())
+				likely_stump.removed(src, TRUE)
+				likely_stump.post_droplimb(src)
+				qdel(likely_stump)
+
+		// Possibility 3 - the parent organ is somehow there, now. We'll try not to replace it.
+		if(!organs_by_name[our_organ.parent_organ])
+			// Now that the stump has been deleted AND we know that there is no unexpected parent organ, replace it.
+			var/parent_organ_type = species.has_limbs[our_organ.parent_organ]["path"]
+			var/obj/item/organ/external/our_parent = new parent_organ_type(src)
+			our_parent.replaced(src)
+
+	our_organ.replaced(src)
+	visible_message(SPAN_WARNING("With a shower of sticky sap, a new mass of tendrils bursts forth from [src]'s trunk, forming a new [our_organ]."),
+		SPAN_WARNING("With a shower of sticky sap, a new mass of tendrils bursts forth from your trunk, forming a new [our_organ]."))
 	blood_splatter(get_turf(src), src, TRUE)
 	regenerate_icons()
 
@@ -526,7 +539,7 @@ var/list/diona_banned_languages = list(
 		if (prob(chance))
 			add_language(L.name)
 		else
-			to_chat(src, "<span class='danger'>You have forgotten the [L.name] language!</span>")
+			to_chat(src, SPAN_DANGER("You have forgotten the [L.name] language!"))
 
 /mob/living/carbon/alien/diona/proc/switch_to_gestalt()
 	set name = "Switch to Gestalt"
@@ -541,11 +554,12 @@ var/list/diona_banned_languages = list(
 		gestalt.key = key
 		remove_verb(gestalt, /mob/living/carbon/alien/diona/proc/switch_to_gestalt)
 		add_verb(gestalt, /mob/living/carbon/human/proc/switch_to_nymph)
+		gestalt.client.init_verbs()
 		return TRUE
 	return FALSE
 
 /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt()
-	set name = "Merge to Gestalt"
+	set name = "Merge To Gestalt"
 	set desc = "Allows you to merge back to your parent Gestalt."
 	set category = "Abilities"
 
@@ -573,6 +587,7 @@ var/list/diona_banned_languages = list(
 			C.DS.nym = null
 			detached = FALSE
 			src.forceMove(C)
+			C.client.init_verbs()
 			break
 
 //DIONASTATS DEFINES

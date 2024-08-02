@@ -1,7 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -38,7 +37,6 @@
 "ai" = (
 /obj/structure/closet/crate/miningcart/ore,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -56,7 +54,6 @@
 /area/hivebot_burrows_1)
 "aw" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -96,7 +93,6 @@
 	},
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -110,7 +106,6 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -192,7 +187,6 @@
 "dv" = (
 /obj/random/bomb_supply,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -201,7 +195,6 @@
 "dK" = (
 /obj/item/arrow/rod,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -228,7 +221,6 @@
 /area/space)
 "et" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -242,7 +234,6 @@
 /area/hivebot_burrows_1)
 "ex" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -380,7 +371,6 @@
 /area/space)
 "hb" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -397,7 +387,6 @@
 /area/hivebot_burrows_1)
 "hi" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -471,7 +460,6 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -588,7 +576,6 @@
 "kJ" = (
 /obj/item/device/flashlight/lantern,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -620,7 +607,6 @@
 /area/hivebot_burrows_1)
 "lA" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -713,7 +699,6 @@
 "no" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -787,7 +772,6 @@
 	pixel_y = -6
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -809,7 +793,6 @@
 /area/hivebot_burrows_1)
 "qj" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -872,7 +855,6 @@
 "rd" = (
 /obj/structure/flora/rock/konyang/small,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1036,7 +1018,6 @@
 /area/hivebot_burrows_1)
 "uy" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1207,7 +1188,6 @@
 	pixel_x = 7
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1232,7 +1212,6 @@
 /area/hivebot_burrows_1)
 "yr" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1305,7 +1284,6 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1400,7 +1378,6 @@
 	pixel_y = 11
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1413,7 +1390,6 @@
 	pixel_y = 6
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1516,7 +1492,6 @@
 /area/space)
 "Cw" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1540,7 +1515,6 @@
 "Da" = (
 /obj/structure/rope_post,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1605,7 +1579,6 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/generic,
@@ -1678,7 +1651,6 @@
 /area/hivebot_burrows_1)
 "Gl" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/structure/rope_railing{
@@ -1708,7 +1680,6 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1791,7 +1762,6 @@
 /area/space)
 "HE" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1811,7 +1781,6 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1864,7 +1833,6 @@
 /area/hivebot_burrows_1)
 "JW" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1891,7 +1859,6 @@
 "Kw" = (
 /obj/random/dirt_75,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/machinery/door/urban,
@@ -1951,7 +1918,6 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/structure/rope_post{
@@ -1980,7 +1946,6 @@
 "Mg" = (
 /obj/random/bomb_supply,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2052,7 +2017,6 @@
 "NB" = (
 /obj/item/device/radio,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2061,7 +2025,6 @@
 "NI" = (
 /obj/random/junk,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2126,7 +2089,6 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2180,7 +2142,6 @@
 	pixel_y = 12
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2208,7 +2169,6 @@
 "PC" = (
 /obj/structure/ore_box,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2264,7 +2224,6 @@
 /area/hivebot_burrows_1)
 "QC" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2289,7 +2248,6 @@
 /area/hivebot_burrows_1)
 "RN" = (
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2397,7 +2355,6 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2517,7 +2474,6 @@
 "Ww" = (
 /obj/random/bomb_supply,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2566,7 +2522,6 @@
 "XP" = (
 /obj/structure/rope_railing,
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2601,7 +2556,6 @@
 	pixel_y = 9
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/structure/rope_post,
@@ -2673,7 +2627,6 @@
 	pixel_y = 14
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2692,7 +2645,6 @@
 	pixel_x = -4
 	},
 /obj/structure/lattice/catwalk/indoor/planks{
-	layer = 2.0;
 	name = "duckboard"
 	},
 /obj/effect/decal/cleanable/dirt,

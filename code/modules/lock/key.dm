@@ -5,7 +5,7 @@
 	icon_state = "keys"
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	var/key_data = ""
 
 /obj/item/key/New(var/newloc,var/data)
@@ -25,7 +25,7 @@
 	uses--
 	if(uses <= 0)
 		user.drop_from_inventory(src,user)
-		to_chat(user, "<span class='warning'>\The [src] crumbles in your hands!</span>")
+		to_chat(user, SPAN_WARNING("\The [src] crumbles in your hands!"))
 		qdel(src)
 	return ..()
 

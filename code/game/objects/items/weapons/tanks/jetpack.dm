@@ -36,7 +36,7 @@
 	icon_state = "jetpack"
 	item_state = "jetpack"
 	gauge_icon = null
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	distribute_pressure = ONE_ATMOSPHERE*O2STANDARD
 	var/ion_trail_type = /obj/effect/effect/ion_trails
 	var/on = 0.0
@@ -98,7 +98,7 @@
 	if (src.air_contents.total_moles < 3 && !warned)
 		warned = TRUE
 		playsound(user, 'sound/effects/alert.ogg', 50, 1)
-		to_chat(user, "<span class='danger'>The meter on \the [src] indicates you are almost out of gas and beeps loudly!</span>")
+		to_chat(user, SPAN_DANGER("The meter on \the [src] indicates you are almost out of gas and beeps loudly!"))
 		addtimer(CALLBACK(src, PROC_REF(reset_warning)), 600)
 
 	var/datum/gas_mixture/G = src.air_contents.remove(num)

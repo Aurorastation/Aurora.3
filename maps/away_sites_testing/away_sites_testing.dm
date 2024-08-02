@@ -3,7 +3,11 @@
 	full_name = "Away Sites Testing Map"
 	path = "away_sites_testing"
 
-	station_levels = list(1)
+	traits = list(
+		//Z1
+		list(ZTRAIT_STATION = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = FALSE),
+	)
+
 	contact_levels = list(1)
 	player_levels = list(1)
 	accessible_z_levels = list(1)
@@ -45,13 +49,36 @@
 
 	//Spawn the away sites selected in the previous step
 	for(var/datum/map_template/ruin/away_site/away_site in away_sites_to_spawn)
-		away_site.load_new_z()
+		// load the site
+		var/bounds = away_site.load_new_z()
+
+		// do away site exoplanet generation, if needed
+		if(away_site.exoplanet_themes)
+			for(var/z_index = bounds[MAP_MINZ]; z_index <= bounds[MAP_MAXZ]; z_index++)
+				for(var/marker_turf_type in away_site.exoplanet_themes)
+					var/datum/exoplanet_theme/exoplanet_theme_type = away_site.exoplanet_themes[marker_turf_type]
+					var/datum/exoplanet_theme/exoplanet_theme = new exoplanet_theme_type()
+					exoplanet_theme.generate_map(z_index, 1, 1, 254, 254, marker_turf_type)
+
+		// fin
 		testing("[ascii_green]LOADING AWAY SITE:[ascii_reset] Spawning [away_site] on Z [english_list(GetConnectedZlevels(world.maxz))]")
 
 #else
 
 	for (var/map in SSmapping.away_sites_templates)
-		var/datum/map_template/ruin/away_site/A = SSmapping.away_sites_templates[map]
-		A.load_new_z()
-		testing("[ascii_green]LOADING AWAY SITE:[ascii_reset] Spawning [A] on Z [english_list(GetConnectedZlevels(world.maxz))]")
+		var/datum/map_template/ruin/away_site/away_site = SSmapping.away_sites_templates[map]
+
+		// load the site
+		var/bounds = away_site.load_new_z()
+
+		// do away site exoplanet generation, if needed
+		if(away_site.exoplanet_themes)
+			for(var/z_index = bounds[MAP_MINZ]; z_index <= bounds[MAP_MAXZ]; z_index++)
+				for(var/marker_turf_type in away_site.exoplanet_themes)
+					var/datum/exoplanet_theme/exoplanet_theme_type = away_site.exoplanet_themes[marker_turf_type]
+					var/datum/exoplanet_theme/exoplanet_theme = new exoplanet_theme_type()
+					exoplanet_theme.generate_map(z_index, 1, 1, 254, 254, marker_turf_type)
+
+		// fin
+		testing("[ascii_green]LOADING AWAY SITE:[ascii_reset] Spawning [away_site] on Z [english_list(GetConnectedZlevels(world.maxz))]")
 #endif

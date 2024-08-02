@@ -1,0 +1,187 @@
+2018-09-02:
+  Alberyk:
+  - tweak: Burritos should now only require two meatballs to make.
+  - tweak: Vegan burrits do not require cabbage and carrot anymore.
+  - rscadd: Added new chemicals.
+  - rscadd: You can now store more mining tools in the mining voidsuit and hardsuit
+      suit storage slot.
+  Alberyk, Kyres1:
+  - imageadd: Added a new set of sprites for the ninja hardsuit.
+  Arrow768:
+  - rscadd: The janitor from the previous shift didnt refill all the vending machines.
+      Ask your janitor for a refill.
+  - tweak: By adding a secret additive to the food, NanoTrasen has increased the time
+      it takes until food is burned in the cooking machines.
+  BurgerBB:
+  - bugfix: Fixed drinkable food... again.
+  - bugfix: Fixed multiple reagents having incorrect inhale metabolism values.
+  - maptweak: Overhauled the design of the kitchen and bar.
+  - bugfix: Fixed maintenance junk spawning from above.
+  - rscadd: Added a fun new card game; Battle Monsters. A vending machine that dispenses
+      these cards and the rulebook can be found in the library.
+  - rscadd: 'Added a new holodeck preset: Battlemonsters Arena. Now you can duel it
+      out like manchildren in the holodeck.'
+  - rscadd: Added the ability to rename food and edit its description with a pen.
+      Please don't make me regret this.
+  Furrycactus:
+  - maptweak: Sublevel has received some quality of life improvements for Engineers,
+      predominantly involving Atmospherics, but also with the Tesla and airlocks.
+  - maptweak: Atmospherics was made larger, now has a large tank for N2O, and was
+      also given a large tank for custom gas mixes. A gas heater was also added alongside
+      the previous gas cooler, an engineering console with remote Air Alarm Control
+      was added, Pipe Dispensers were added, and the overall roundstart efficiency
+      of the setup was reduced in order to give Atmospheric Technicians more things
+      to actually do.
+  - maptweak: The Tesla Engine was given a few tweaks to make it equally roundstart
+      viable as the Supermatter. The Tesla Bay APC was given a super-capacity power
+      cell in place of a regular power cell, and the Particle Accelerator components
+      now start already in-place and in correct order. Wires were also tidied up and
+      made neater; this should make setting it up more time efficnent. Tesla Grid
+      SMES was upgraded to match the roundstart Supermatter Grid SMES so that it can
+      output power on-par with the Supermatter. It is fully capable of powering the
+      station on its own, and then some.
+  - maptweak: Sublevel airlocks have been connected to the station air supply line
+      with a gas pump, like the airlocks in mining, solars, and the surface docks.
+      They were very prone to becoming stuck due to a lack of air, this should help
+      stop that and make using said airlocks more viable.
+  LordFowl:
+  - tweak: Grenades can no longer be screwdriver'd for variable detonation.
+  - tweak: Grenades now have a 3-second timer instead of a 5-second timer.
+  MoondancerPony:
+  - bugfix: Fixes calling transfer votes early.
+  - experiment: Replaces all instances of world.time in SSVote with round_duration_in_ticks.
+      This should result in more consistent behavior overall, but may result in unexpected
+      issues. Please report any, if they occur.
+  - tweak: Increases the metabolism rate of Cardox to .6u every tick (two seconds).
+  NortonDK:
+  - tweak: Changed the name and description of the space heater(now space A/C), to
+      better show that it can also cool
+  ParadoxSpace:
+  - rscadd: Adds a few Zorane drinks. Safe for human and Vaurcan consumption alike.
+  - rscdel: Uproots and murders potted plant near Engineering for placement of Zo'ra
+      Soda vendor.
+  - rscadd: Adds fingerless gloves, varsity jackets, new tracksuits, high-top shoes,
+      departmental ponchos, beanies, departmental cloaks, departmental jackets, puffer
+      jackets, a kimono, a new formal uniform, headphones, and military jackets.
+  - rscadd: Cloaks and ponchos can now be worn over suit-slot items and as jumpsuit
+      accessories. Yes, even over spacesuits and armored vests.
+  PoZe:
+  - tweak: Beepsky/ED209 now uses different method of movement. Making it waay faster
+      at moving
+  - rscadd: Beepsky/ED209 now arrests/detains person who attacks them. Reporting arrest/detaintion,
+      who attacked them, what weapon was used and location
+  - tweak: Beepsky/ED209 uses better paths between beacons, so it moves faster. But
+      it still moved between mostly two beacons, I will change it next dev cycle
+  - rscadd: ED 209 now listesn to verbal command such as 'stay', 'stop', 'arrest',
+      'detain', 'patrol'. So you can say something like 'ED, can you go on your damn
+      patrol?!' or 'ED, arrest that scummbag Urist'. Also you do not need to give
+      full First and Last name in order for ED to arrest/detain tha person, either
+      first of Last works.
+  - rscadd: ED 209 now has a verb that lets you to set its nickname to which he will
+      respond. So that you can call it something like 'ED', etc. It will not change
+      its name however. Also only people with access and who are not set to arrest
+      can use that verb.
+  - balance: IPC and Cyborgs surge prevention modules(EMP immunity) now give you 2-5
+      EMP protections which determined by RNG during installation of it.
+  - balance: IPC uplink surge prevention module(EMP immunity) cost reduced to 12 telecrystals.
+  - balance: Cyborgs surge prevention module(EMP immunity) gold and silver cost reduced
+      by 50%. It is now 5000 gold and 7500 silver.
+  TheDocOct:
+  - rscadd: Updated the ERT Civil Protection helmets to look nicer, and added visor
+      raising/lowering to them.
+  ben10083:
+  - rscadd: Service Borgs can now produce Coffee and Espresso with their synthesizer.
+2018-09-03:
+  BurgerBB:
+  - tweak: Fixed Battlemonster decks from being stuck in backpacks and pockets. Fixed
+      some id names and card descriptions.
+  - tweak: Added significantly more booster packs to Battlemonster Vendors. Added
+      missing spell/trap cards.
+  - tweak: Tweaked foodcode so there are no food related bugs possible ever again.
+  - tweak: Reworked chip pickup so it works like paper bins.
+  - bugfix: Adjusted extinguisher fluid to be better at putting out fires on people.
+2018-09-05:
+  BurgerBB:
+  - balance: Balanced Battlemonster stats.
+  PoZe:
+  - bugfix: Beepsky/ED209 will no longer arrest you for using pen or PDA on it
+2018-09-09:
+  BurgerBB:
+  - bugfix: Fixed the battlemonster coin not having a sprite.
+  - bugfix: Fixed legendary battlemonster cards not appearing in vendors.
+  - bugfix: Fixed new battlemonster decks incorrectly displaying 0 cards.
+  - bugfix: Fixed hydroponics having the wrong wood floor tiles.
+  - bugfix: Fixed potential looping powernet issue with surface.
+  CodePanter:
+  - spellcheck: Corrected all occurences of the typo 'recieve'.
+  ParadoxSpace:
+  - bugfix: After sending in sufficient quantities of chili peppers to the first Odin
+      cookout of the month, NT has graciously allowed gardeners to have service cloaks.
+  - rscadd: Crafty Unathi and Tajaran crewmembers have learned a new way to slightly
+      adjust their tails as to not stick out of cloaks and ponchos.
+2018-09-10:
+  Alberyk:
+  - bugfix: Water coolers are working as intended now.
+  - bugfix: Emag interactions with the ATM should work as intended now.
+  - bugfix: Welding fuel tanks should now explode when in contact with fire or rigged,
+      as long they were open with a wrench.
+  Arrow768:
+  - balance: Nerfs ZoRa Soda.
+2018-09-11:
+  CodePanter:
+  - spellcheck: Corrected a typo in the string used when a player combines two battle
+      monsters decks.
+  MoondancerPony:
+  - bugfix: Attack logs now show general regions if the limb itself is obscured by
+      clothing.
+  - bugfix: Wound flavortext is now hidden if the limb is obscured by clothing.
+  - bugfix: AOOC is now re-added to antagonists who de-admin.
+  ParadoxSpace:
+  - bugfix: After much internal debate among their nymphs, Diona gestalts have now
+      decided it's probably a good idea to regenerate their limbs again.
+  - tweak: Increases amount of energy and nutrition Diona need to do such. Eat up.
+2018-09-14:
+  BurgerBB:
+  - bugfix: Fixed offline Battlemonster vending machine sprite having a white background.
+      Fixes card searching typo.
+  - tweak: Adjusted battlemonster star calculation. Slightly lowered the cost of battlemonster
+      cards. Deck searching speed is now based on the number of cards in the deck.
+  PoZe:
+  - bugfix: Blast doors and shutters no longer glitch when APC has no power(Or during
+      grid check event).
+2018-09-16:
+  Arrow768:
+  - bugfix: Nanotrasen Scientists have managed to restore the cameras in the ERT helmets.
+  CodePanter:
+  - bugfix: Reconfigured five station intercoms that were incorrectly using the security
+      interrogation channel.
+2018-09-17:
+  Arrow768:
+  - bugfix: NanoTrasen has updated the operating systems to prevent them from being
+      stuck in maint mode after prolonged storage.
+2018-09-18:
+  PoZe:
+  - bugfix: Beepsky/ED209 no longer move around when turned off
+  - bugfix: Red track pants now spawn the right item(instead of blue)
+  - bugfix: Cybrogs can now interact with curtains to open and close them.
+  - bugfix: Newscaster no longer keep photos after you remove it.
+  - maptweak: Bar and kitchen have emergency O2 wall lockers.
+  - maptweak: Bar theater and Kitchen Pantry now have security cameras
+  - bugfix: ED209 no longer shoots far away, but gets closer into shooting range distance
+      with its target
+2018-09-23:
+  Arrow768:
+  - bugfix: Adds a check to the slime AI to loose interest in the current victim if
+      they are dead.
+2018-09-24:
+  Arrow768:
+  - bugfix: After complaints from various departments NanoTrasen has ensured that
+      certain vending machines are always restocked by the cleanup crew.
+  - bugfix: The derelict shuttle will no longer show up on the power monitoring console.
+2018-09-26:
+  Arrow768:
+  - tweak: The cult of narsie has updated their bylaws and allowed ipcs to join as
+      full members again.
+2018-09-29:
+  PoZe:
+  - bugfix: Personal closets can no longer be locked/unlocked from the inside.

@@ -153,7 +153,7 @@
 					if(temp_name)
 						id_card.registered_name = temp_name
 					else
-						computer.visible_message("<span class='notice'>[computer] buzzes rudely.</span>")
+						computer.visible_message(SPAN_NOTICE("[computer] buzzes rudely."))
 				else if(params["account"])
 					var/account_num = text2num(input("Enter account number.", "Account", id_card.associated_account_number))
 					id_card.associated_account_number = account_num

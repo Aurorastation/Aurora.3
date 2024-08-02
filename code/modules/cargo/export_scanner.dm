@@ -5,7 +5,7 @@
 	icon_state = "price_scanner"
 	slot_flags = SLOT_BELT
 	item_flags = ITEM_FLAG_NO_BLUDGEON
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	siemens_coefficient = 1
 
 /obj/item/export_scanner/afterattack(obj/O, mob/user, proximity)
@@ -15,8 +15,8 @@
 
 	var/price = SScargo.export_item_and_contents(O, FALSE, FALSE, dry_run=TRUE)
 	if(price)
-		to_chat(user, "<span class='notice'>Scanned [O], value: <b>[price]</b> credits[O.contents.len ? " (contents included)" : ""].</span>")
+		to_chat(user, SPAN_NOTICE("Scanned [O], value: <b>[price]</b> credits[O.contents.len ? " (contents included)" : ""]."))
 	else
-		to_chat(user, "<span class='warning'>Scanned [O], no export value.</span>")
+		to_chat(user, SPAN_WARNING("Scanned [O], no export value."))
 	if(SScargo.bounty_ship_item_and_contents(O, dry_run=TRUE))
-		to_chat(user, "<span class='notice'>Scanned item is eligible for one or more bounties.</span>")
+		to_chat(user, SPAN_NOTICE("Scanned item is eligible for one or more bounties."))

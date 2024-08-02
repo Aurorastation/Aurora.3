@@ -5,7 +5,7 @@
 	var/back_icon = "card_back"
 
 /obj/item/deck
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/playing_cards.dmi'
 	var/list/cards = list()
 
@@ -190,7 +190,7 @@
 	icon_state = "card_pack"
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	var/list/cards = list()
 
 
@@ -212,7 +212,7 @@
 	icon_state = null
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 	var/concealed = 0
 	var/list/cards = list()
@@ -294,14 +294,14 @@
 		name = "playing card"
 		desc = "A playing card."
 
-	cut_overlays()
+	ClearOverlays()
 
 	if(cards.len == 1)
 		var/datum/playingcard/P = cards[1]
 		var/image/I = new(src.icon, (concealed ? "[P.back_icon]" : "[P.card_icon]") )
 		I.pixel_x += (-5+rand(10))
 		I.pixel_y += (-5+rand(10))
-		add_overlay(I)
+		AddOverlays(I)
 		return
 
 	var/offset = FLOOR(20/cards.len, 1)
@@ -333,7 +333,7 @@
 			else
 				I.pixel_x = -7+(offset*i)
 		I.transform = M
-		add_overlay(I)
+		AddOverlays(I)
 		i++
 
 /obj/item/hand/dropped(mob/user)

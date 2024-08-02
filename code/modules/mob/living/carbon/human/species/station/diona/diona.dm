@@ -56,8 +56,8 @@
 	organ_high_pain_message = "<b><font size=3>The nymph making up our %PARTNAME% screams out in pain!</font></b>"
 
 	organ_low_burn_message = "<b>The nymph making up our %PARTNAME% notes a burning injury.</b>"
-	organ_med_burn_message = "<span class='danger'><font size=3>The nymph making up our %PARTNAME% burns terribly!</font></span>"
-	organ_high_burn_message = "<span class='danger'><font size=3>The nymph making up our %PARTNAME% screams in agony at the burning!</font></span>"
+	organ_med_burn_message = SPAN_DANGER("<font size=3>The nymph making up our %PARTNAME% burns terribly!</font>")
+	organ_high_burn_message = SPAN_DANGER("<font size=3>The nymph making up our %PARTNAME% screams in agony at the burning!</font>")
 
 	halloss_message = "creaks and crumbles to the floor."
 	halloss_message_self = "We can't take this much pain..."
@@ -97,7 +97,7 @@
 
 	body_temperature = T0C + 15		//make the plant people have a bit lower body temperature, why not
 
-	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_TONE | HAS_SKIN_PRESET
+	appearance_flags = HAS_HAIR_COLOR | HAS_SKIN_PRESET
 	flags = NO_BREATHE | NO_SCAN | IS_PLANT | NO_BLOOD | NO_SLIP | NO_CHUBBY | NO_ARTERIES
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
@@ -115,8 +115,8 @@
 	max_hydration_factor = -1
 
 	possible_cultures = list(
+		/singleton/origin_item/culture/hieroaetheria,
 		/singleton/origin_item/culture/xrim,
-		/singleton/origin_item/culture/eum,
 		/singleton/origin_item/culture/narrows,
 		/singleton/origin_item/culture/diona_biesel,
 		/singleton/origin_item/culture/diona_sol,
@@ -130,6 +130,14 @@
 
 	alterable_internal_organs = list()
 	psi_deaf = TRUE
+
+	sleeps_upright = TRUE
+	snore_key = "chirp"
+	indefinite_sleep = TRUE
+
+	tail = "No Tail"
+	tail_animation = 'icons/mob/species/diona/tail.dmi'
+	selectable_tails = list("No Tail", "Unathi Tail")
 
 /datum/species/diona/can_understand(var/mob/other)
 	var/mob/living/carbon/alien/diona/D = other
@@ -174,6 +182,23 @@
 		if((!D.client && !D.mind) || D.stat == DEAD)
 			qdel(D)
 
+//This handles nymphs, which are the only diona specie that can run, since they don't breathe they just take pain damage instead
+/datum/species/diona/handle_sprint_cost(mob/living/carbon/human/H, cost, pre_move)
+	if(!pre_move)
+		H.adjustHalLoss(cost*0.3)
+		H.updatehealth()
+
+	if(H.getHalLoss() > (H.maxHealth*0.6))
+		var/shock = H.get_shock()
+		if(prob(shock * 2))
+			to_chat(H, SPAN_DANGER("You feel a sharp pain in your nervous system! You can't run anymore, or you might die!"))
+			H.m_intent = M_WALK
+
+	if(!pre_move)
+		H.hud_used.move_intent.update_move_icon(H)
+	return 1
+
+
 /datum/species/diona/after_equip(mob/living/carbon/human/H, visualsOnly, datum/job/J)
 	. = ..()
 	var/obj/item/storage/box/survival/SB = locate() in H
@@ -190,3 +215,10 @@
 
 /datum/species/diona/bypass_food_fullness(var/mob/living/carbon/human/H)
 	return TRUE
+
+/datum/species/diona/sleep_msg(var/mob/M)
+	M.visible_message(SPAN_NOTICE("\The [M] creaks, entering an introspective state."))
+	to_chat(M, SPAN_NOTICE("You creak, entering an introspective state."))
+
+/datum/species/diona/sleep_examine_msg(var/mob/M)
+	return SPAN_NOTICE("[M.get_pronoun("He")] sways and creaks, in a dormant state.\n")

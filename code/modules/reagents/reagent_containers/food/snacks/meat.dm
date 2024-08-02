@@ -134,6 +134,7 @@
 /obj/item/reagent_containers/food/snacks/meat/human
 
 /obj/item/reagent_containers/food/snacks/meat/bug
+	name = "vaurca meat"
 	icon_state = "bugmeat"
 	filling_color = "#E6E600"
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/triglyceride = 2, /singleton/reagent/toxin/phoron = 27)
@@ -184,6 +185,11 @@
 	'striders', as their name translates, slowed as the Tajara started to learn how to capture and farm them for their resources more efficiently. That being said, not that the modern \
 	day Adhomai needs their resources less thanks to synthetic fabric and more efficient food sources, both the meat and the fur of the nav'twir has become an export of the Adhomai \
 	people. In the olden days, carved nav'twir antlers were used as decoration for pelts and armors."
+
+/obj/item/reagent_containers/food/snacks/meat/moghes
+	name = "moghresian meat"
+	desc = "A slab of meat from an animal native to Moghes."
+	icon_state = "moghesmeat"
 
 /obj/item/reagent_containers/food/snacks/meat/rat
 	name = "rat meat"
@@ -402,3 +408,43 @@
 			icon_state = "meatballpeas_half"
 		if(50 to INFINITY)
 			icon_state = "meatballpeas"
+
+/obj/item/reagent_containers/food/snacks/schnitzel
+	name = "schnitzel"
+	desc = "Be it Viennese, Elyran or Visegardi, be it beef, pork or poultry, almost every known culture in the spur seems to love having a version of pan fried breaded meat with a funny name. What it's made of or served with, however, may vary drastically from culture to culture."
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	icon_state = "schnitzel"
+	filling_color = "#ca652a"
+	trash = /obj/item/trash/plate
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 5)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("meat" = 5), /singleton/reagent/nutriment = list("crunchy breadcrumb coating" = 4))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/schnitzel/update_icon()
+	var/percent = round((reagents.total_volume / 8) * 100)
+	switch(percent)
+		if(0 to 59)
+			icon_state = "schnitzel_half"
+		if(60 to INFINITY)
+			icon_state = "schnitzel"
+
+/obj/item/reagent_containers/food/snacks/cozmo_cubes
+	name = "cozmo cubes"
+	desc = "A dish of Tau Ceti origin, most commonly found in Biesel, it is typically made of Cosmozoan meat coated in a breadcrumbs and egg yolk mixture, pan fried and sliced into cubes. It is usually served with a side of mayonnaise, spicy mayo, soy sauce, or garlic sauce for dipping. The fact Cosmozoans can't be farmed planetside makes this dish have a slightly upper-class reputation, although in cities with large spaceports it is a bit more common. In cheap restaurants or places where Cosmozoans aren't common, their meat is sometimes swapped for jellyfish or other similar fauna as a cheap substitute."
+	icon = 'icons/obj/item/reagent_containers/food/meat.dmi'
+	icon_state = "cozmo_cubes"
+	filling_color = "#0fda85"
+	trash = /obj/item/trash/plate
+	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/nutriment/protein/seafood = 5, /singleton/reagent/nutriment/protein = 3)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("gelatinous meat" = 5), /singleton/reagent/nutriment = list("crunchy coating" = 4))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/cozmo_cubes/update_icon()
+	var/percent = round((reagents.total_volume / 10) * 100)
+	switch(percent)
+		if(0 to 29)
+			icon_state = "cozmo_cubes_one"
+		if(30 to 69)
+			icon_state = "cozmo_cubes_half"
+		if(70 to INFINITY)
+			icon_state = "cozmo_cubes"

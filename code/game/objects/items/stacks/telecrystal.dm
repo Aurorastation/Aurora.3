@@ -7,7 +7,7 @@
 	desc_antag = "Crystals can be activated by utilizing them on devices with an actively running uplink. They will not activate on unactivated uplinks."
 	singular_name = "telecrystal"
 	icon_state = "telecrystal"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	max_amount = 50
 	item_flags = ITEM_FLAG_NO_BLUDGEON
 	origin_tech = list(TECH_MATERIAL = 6, TECH_BLUESPACE = 4)

@@ -77,3 +77,6 @@
 
 	///what icon the mob uses for speechbubbles
 	var/bubble_icon = "default"
+
+	///If true, ignores weather effects
+	var/resists_weather = FALSE

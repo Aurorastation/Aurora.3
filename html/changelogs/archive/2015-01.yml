@@ -1,0 +1,6 @@
+2015-01-09:
+  Zuhayr:
+  - tweak: Voice changers no longer use ID cards. They have Toggle and Set Voice verbs
+      on the actual mask object now.
+  - rscadd: Readded moonwalking. Alt-dir to face new dir, or Face-Direction verb to
+      face current dir.

@@ -63,7 +63,7 @@
 			icon_state = "[initial(icon_state)][src.opened]"
 			..()
 	else
-		cut_overlays()
+		ClearOverlays()
 		icon_state = "[initial(icon_state)]" // closed
 	..()
 
@@ -102,10 +102,10 @@
 /obj/item/storage/box/fancy/donut/update_icon() // One of the few unique update_icon()s, due to having to store both regular and sprinkled donuts.
 	. = ..()
 	if(opened)
-		cut_overlays()
+		ClearOverlays()
 		var/i = 0
 		for(var/obj/item/reagent_containers/food/snacks/donut/D in contents)
-			add_overlay("[i][D.overlay_state]")
+			AddOverlays("[i][D.overlay_state]")
 			i++
 
 /obj/item/storage/box/fancy/donut/empty
@@ -161,7 +161,7 @@
 	pickup_sound = 'sound/items/pickup/wrapper.ogg'
 	closable = FALSE
 	storage_slots = 6
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/food/snacks/cracker)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/cracker = 6)
 
@@ -177,7 +177,7 @@
 	item_state = "candlepack"
 	icon_type = "candle"
 	storage_type = "pack"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 5
@@ -200,7 +200,7 @@
 	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "crayonbox"
 	icon_type = "crayon"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	storage_slots = 6
 	can_hold = list(/obj/item/pen/crayon)
@@ -221,10 +221,10 @@
 
 /obj/item/storage/box/fancy/crayons/update_icon()
 	. = ..()
-	cut_overlays()
-	add_overlay("crayonbox")
+	ClearOverlays()
+	AddOverlays("crayonbox")
 	for(var/obj/item/pen/crayon/crayon in contents)
-		add_overlay("[crayon.colourName]")
+		AddOverlays("[crayon.colourName]")
 
 /obj/item/storage/box/fancy/crayons/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/pen/crayon))
@@ -249,7 +249,7 @@
 	icon_state = "matchbox"
 	item_state = "box"
 	icon_type = "match"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	drop_sound = 'sound/items/drop/matchbox.ogg'
 	pickup_sound =  'sound/items/pickup/matchbox.ogg'
 	slot_flags = SLOT_BELT
@@ -298,7 +298,7 @@
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
 	use_sound = 'sound/items/storage/wrapper.ogg'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	throwforce = 2
 	slot_flags = SLOT_BELT
 	storage_slots = 6
@@ -453,7 +453,7 @@
 	use_sound = 'sound/items/drop/glass.ogg'
 	drop_sound = 'sound/items/drop/toolbox.ogg'
 	pickup_sound = 'sound/items/pickup/toolbox.ogg'
-	max_w_class = ITEMSIZE_SMALL
+	max_w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
 	max_storage_space = 12 //The sum of the w_classes of all the items in this storage item.
 	storage_slots = 6
@@ -467,13 +467,13 @@
 	. = ..()
 	var/total_contents = src.contents.len - itemremoved
 	src.icon_state = "vialbox[total_contents]"
-	cut_overlays()
+	ClearOverlays()
 	if (!broken)
-		add_overlay("led[locked]")
+		AddOverlays("led[locked]")
 		if(locked)
-			add_overlay("cover")
+			AddOverlays("cover")
 	else
-		add_overlay("ledb")
+		AddOverlays("ledb")
 
 /obj/item/storage/lockbox/vials/attackby(attacking_item, mob/user)
 	..()
@@ -527,7 +527,7 @@
 	update_icon()
 
 /obj/item/pizzabox/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	// Set appropriate description
 	if( open && pizza )
@@ -555,7 +555,7 @@
 		if( pizza )
 			var/image/pizzaimg = image(pizza.icon, pizza.icon_state)
 			pizzaimg.pixel_y = -2
-			add_overlay(pizzaimg)
+			AddOverlays(pizzaimg)
 
 		return
 	else
@@ -572,7 +572,7 @@
 		if( doimgtag )
 			var/image/tagimg = image(icon, icon_state = "pizzabox_tag")
 			tagimg.pixel_y = boxes.len * 3
-			add_overlay(tagimg)
+			AddOverlays(tagimg)
 
 	icon_state = "pizzabox[boxes.len+1]"
 
@@ -707,7 +707,7 @@
 	closable = FALSE
 	icon_overlays = FALSE
 	storage_slots = 6
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	can_hold = list(/obj/item/reagent_containers/food/snacks/chips)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/chips = 6)
 

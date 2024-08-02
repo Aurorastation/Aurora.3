@@ -149,7 +149,7 @@
 
 	if(!wet_overlay)
 		wet_overlay = image('icons/effects/water.dmi',src,"wet_floor")
-		add_overlay(wet_overlay, TRUE)
+		AddOverlays(wet_overlay, ATOM_ICON_CACHE_PROTECTED)
 
 	wet_amount += amount
 
@@ -159,7 +159,7 @@
 	wet_amount = 0
 	wet_type = 0
 	if(wet_overlay)
-		cut_overlay(wet_overlay, TRUE)
+		CutOverlays(wet_overlay, ATOM_ICON_CACHE_PROTECTED)
 		wet_overlay = null
 
 /turf/simulated/clean_blood()

@@ -4,33 +4,34 @@
 
 	. += describe_all_modules() // describe modules
 
-	. += "<span class='warning'>"
+	var/robot_status_desc
 	if(getBruteLoss())
 		if(getBruteLoss() < 75)
-			. += "It looks slightly dented."
+			robot_status_desc += "It looks slightly dented."
 		else
-			. += "<B>It looks severely dented!</B>"
+			robot_status_desc += "<B>It looks severely dented!</B>"
 	if(getFireLoss())
 		if(getFireLoss() < 75)
-			. += "It looks slightly charred."
+			robot_status_desc += "It looks slightly charred."
 		else
-			. += "<B>It looks severely burnt and heat-warped!</B>"
-	. += "</span>"
+			robot_status_desc += "<B>It looks severely burnt and heat-warped!</B>"
+
+	. += SPAN_WARNING(robot_status_desc)
 
 	if(opened)
-		. += "<span class='warning'>Its cover is open and the power cell is [cell ? "installed" : "missing"].</span>"
+		. += SPAN_WARNING("Its cover is open and the power cell is [cell ? "installed" : "missing"].")
 	else
 		. += "Its cover is closed."
 
 	if(!has_power)
-		. += "<span class='warning'>It appears to be running on backup power.</span>"
+		. += SPAN_WARNING("It appears to be running on backup power.")
 
 	switch(stat)
 		if(CONSCIOUS)
 			if(!client)
 				. += "It appears to be in stand-by mode." //afk
 		if(UNCONSCIOUS)
-			. += "<span class='warning'>It doesn't seem to be responding.</span>"
+			. += SPAN_WARNING("It doesn't seem to be responding.")
 		if(DEAD)
 			. += "<span class='deadsay'>It looks completely unsalvageable.</span>"
 

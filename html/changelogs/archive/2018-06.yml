@@ -1,0 +1,133 @@
+2018-06-03:
+  BurgerBB:
+  - bugfix: Added vents to the cargo warehouse connector to prevent underpressure
+      from disposal inlets.
+  - bugfix: Disposal outlets now spread out items so all the trash doesn't pile up
+      on one tile.
+2018-06-10:
+  Arrow768:
+  - rscdel: The psychedelic jumpsuit can no longer be found in maint.
+2018-06-16:
+  Arrow768:
+  - tweak: ID Cards ejected from modular computers are no longer ejected onto the
+      floor.
+2018-06-18:
+  Alberyk:
+  - rscadd: Added new tajaran related accessories options to the custom loadout.
+  - rscadd: Added new tajaran related cuisine options.
+  - rscadd: Added a gatling machine gun to the syndicate uplink.
+  - rscadd: Added bayonets.
+  - tweak: Changed how stuttering is handled in game, it should be less ridiculous
+      overall.
+  Arrow768:
+  - rscdel: The Tau Ceti Daily Grand Slam Lottery has filed for bankruptcy and has
+      been relaunched under new management.
+  - rscadd: Resourceful employees have found a way to hide things inside of potted
+      plants.
+  BurgerBB:
+  - rscadd: Removed basic kinetic accelerators from code. Replaced them with customizable
+      kinetic accelerators with a robust array of customization. Weaker custom kinetic
+      accelerators can be purchased from the mining vendor or found randomly in cargo,
+      while the stronger variants can be researched and produced by science.
+  - rscadd: Added traitor kinetic accelerators to uplink. These ones shoot laser beams,
+      and can accept custom accelerator parts.
+  - rscadd: Gave wrenches to mining drones and mining cyborgs, so synthetics can tinker
+      with custom KAs.
+  - maptweak: Improved the shuttle and docks design.
+  - bugfix: Users will now be automatically threatened with a day ban if they mention
+      the phrase 'Organ Damage'.
+  - bugfix: Fixed library books spawning outside of shelves.
+  - bugfix: Fixed kinetic accelerators displaying an error when equipped on the waist.
+  - balance: Balances kinetic accelerator research to prevent easy research exploit.
+      Balances traitor kinetic accelerator to be less powerful.
+  - maptweak: Tweaked the new library to be more aesthetically pleasing. Removed empty
+      mediwall from the command section of the shuttle. Removed floating light near
+      departures and on the shuttle. Removed pointless holopad on the evac shuttle.
+  Code - PoZe, Sprites - DronzTheWolf:
+  - rscadd: Adds airbubble(oxyball) into the game. It is used to protect user inside
+      from decompressed environment for 30 minutes. Has an air tank attached to it
+      that can be replaced.
+  - rscadd: Adds airbubble to every emergency locker
+  - rscadd: Mercenaries have their own air bubble with special sprites, for kidnapping.
+      Mercenaries have two airbubbles, Heist shuttle has three as they are pirates.
+  Kaedwuff:
+  - tweak: Librarians now also get a service headset at start.
+  - tweak: Cyanide no longer makes you instantly pass out, allowing you a precious
+      half minute to say your final goodbyes (or taunts to security) before you die
+      horribly.
+  LordFowl:
+  - rscadd: Sprinting no longer deals oxygen damage unless you have asthma, a coughing
+      disability, or damage to your lungs.
+  - rscadd: Adds the asthma disability to chargen, which reduces your ability to sprint
+      and your ability to naturally regenerate oxygen damage.
+  - rscadd: Adds a new mental disability - Love.
+  LordRaven001:
+  - rscadd: Ports mixing bowls from Baystation
+  - tweak: Removed butcher knives from the contraband section in the vendor, added
+      them to the normal vendor.
+  - balance: Balanced the Kitchen Vendor around 2 Chefs
+  MoondancerPony:
+  - tweak: Tweaks a lot of things to do with newscasters. Maybe there will be a fancy
+      new UI soon? Who knows.
+  - rscdel: Removes the Journalist alt-title from Librarian.
+  - rscadd: Adds the Corporate Reporter job and the Freelance Journalist alt-title.
+      Corporate Reporters have more liability and responsibility, but have greater
+      access and legitimacy. Freelance journalists have no such restrictions, but
+      are all on their own. To add to this, there are now two press passes- a normal
+      and a corporate one. These do not guarantee you anything from Security or Command,
+      however, so be warned!
+  - maptweak: The merchandise store has been replaced with a brand-new journalist's
+      office, set up for interviews and writing. Journalists also get their own pet.
+  - experiment: You can now comment, like, and dislike newscaster stories. PDAs can
+      see, but not interact with, the new newscaster functionality. PDA news features
+      may expand or be removed in the future.
+  PoZe:
+  - tweak: IPCs can not be convertable to cult.
+  - balance: IPCs can no longer draw runes, since they have no blood. They still can
+      use talismans
+  - tweak: Cultist IPCs are immune to cultist EMP from runes or talismans.
+  - bugfix: Fixed Journalist Office missing power cables.
+  - maptweak: Journalist Office is now connected to the bridge subgrid, instead of
+      main grid.
+  - maptweak: Shuttle wall structures that are on the corners have been moved one
+      tile in different directions, so that it looks good.
+  Scheveningen:
+  - balance: Blinding sources are significantly increased in duration.
+  - rscdel: Direct flashes no longer stun those who are -not- sentient trees, robots,
+      or bugpeople.
+  - tweak: Changed how flash break mechanics work. Crappy budget NT tech is more likely
+      to break from overuse.
+  ben10083:
+  - maptweak: Following multiple security breaches and thefts from the vault, NanoTrasen
+      has increased security in the main vault.
+2018-06-20:
+  BurgerBB:
+  - bugfix: Readds disposal spread in disposals. Re-fixes the scrubber vent in the
+      warehouse mail room.
+  - maptweak: Adds holopads to missing areas without holopads.
+  - bugfix: Fixed hull shields not covering departures properly.
+2018-06-22:
+  Arrow768:
+  - bugfix: The drone console now lists drones on different station levels.
+2018-06-24:
+  PoZe:
+  - tweak: Airbubble comes now with fully filled engineering extended airtank(6 liters
+      max). Instead of double emergency airtank(10 liters max). It lasts around the
+      same time, even slightly longer(40 minutes).
+  - tweak: Airbubble now gets ripped and leaks after being shot with projectile weapons.
+  - bugfix: Airbubbles no longer produces infinite cable restrains.
+  - bugfix: Users of airbubble can no longer 'magically' get out of bubble with it
+      still remaining closed.
+  - tweak: No longer it takes time to get in and out of Airbubble.
+2018-06-26:
+  Lohikar:
+  - bugfix: RIG actuator Z-climbing now actually works. Probably.
+  PoZe:
+  - bugfix: Fixed commanded mobs. They will no longer attack people they follow, destroy
+      things around them.
+  - tweak: Commanded mobs will not attack their master even if they are being attacked
+      by their own master.
+2018-06-27:
+  Arrow768:
+  - maptweak: Various plaques have been placed around the station to memorize the
+      odin murders.

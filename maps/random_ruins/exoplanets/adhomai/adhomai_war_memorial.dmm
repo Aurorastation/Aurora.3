@@ -38,9 +38,7 @@
 /turf/simulated/floor/concrete/square,
 /area/exoplanet/adhomai)
 "w" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "x" = (
 /obj/structure/railing/mapped{
@@ -85,7 +83,6 @@
 /area/exoplanet/adhomai)
 "X" = (
 /obj/item/clothing/accessory/dogtags/adhomai{
-	layer = 2.9;
 	icon_state = "adhomai_dogtags_single";
 	item_state = "adhomai_dogtags_single";
 	separated = 1

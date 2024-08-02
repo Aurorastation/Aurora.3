@@ -116,7 +116,7 @@
 
 /obj/item/rig/retro
 	name = "retrofitted military hardsuit control module"
-	desc = "An old repurposed construction exoskeleton redesigned for combat. Its colors and insignias match those of the Tau Ceti Foreign Legion."
+	desc = "An old repurposed construction exoskeleton redesigned for combat. Its colors and insignias match those of the Tau Ceti Armed Forces."
 	icon = 'icons/clothing/rig/legion.dmi'
 	icon_state = "legion_rig"
 	icon_supported_species_tags = list("ipc", "skr", "taj", "una", "vau", "vaw")
@@ -157,7 +157,7 @@
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
 
 /obj/item/rig/retro/equipped
-	req_access = list(ACCESS_LEGION)
+	req_one_access = list(ACCESS_TCAF_SHIPS, ACCESS_LEGION)
 	initial_modules = list(
 		/obj/item/rig_module/actuators,
 		/obj/item/rig_module/device/drill,

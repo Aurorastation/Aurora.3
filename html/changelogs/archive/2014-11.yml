@@ -1,0 +1,41 @@
+2014-11-01:
+  PsiOmegaDelta:
+  - bugfix: Adds the last missing step to deconstruct fire alarms. Apply wirecutters.
+  - rscadd: There's a "new" mining outpost nearby the Research outpost.
+  - rscadd: Manifest ghosts now have spookier names.
+  - rscadd: Adds a gas monitor computer for the toxin mixing chamber.
+  - rscadd: AI can now change the display of individual AI status screens.
+  - rscadd: More ion laws..
+  - rscadd: All turrets have been replaced with portable variants. Potential targets
+      can be configured on a per turret basis.
+  - bugfix: Improved crew monitor map positioning.
+  - rscadd: Can now order plastic, body-, and statis bags from cargo
+  - rscadd: PDAs now receive newscasts.
+  - rscadd: (De)constructable emergency shutters.
+  - rscadd: Borgs can now select to simply state their laws or select a radio channel,
+      same as the AI.
+2014-11-04:
+  TwistedAkai:
+  - rscadd: Almost any window which has been fully unsecured can now be dismantled
+      with a wrench.
+2014-11-08:
+  PsiOmegaDelta:
+  - rscadd: Service personnel now have their own frequency to communicate over. Use
+      "say :v".
+  - rscadd: The AI can now has proper quick access to its private channel. Use "say
+      :o".
+  - rscadd: Newscasters supports photo captions. Simply pen one on the attached photo.
+  - rscadd: Once made visible by a cultist ghosts can toggle visiblity at will.
+  - rscadd: Detonating cyborgs using the cyborg monitor console now notifies the master
+      AI, if any.
+  - rscadd: More machinery, such as APCs, air alarms, etc., now support attaching
+      signalers to the wires.
+  - tweak: Random event overhaul. Admins may wish check the verb "Event Manager Panel".
+2014-11-22:
+  Zuhayr:
+  - rscadd: Added the /obj/item/rig class - back-mounted deployable hardsuits.
+  - rscadd: Replaced existing hardsuits with 'voidsuits', functionally identical.
+  - rscdel: Removed the mounted device and helmet/boot procs from voidsuits.
+  - tweak: Refactored a shit-ton of ninja code into the new rig class.
+  - wip: This is more than likely going to take a lot of balancing to get into a good
+      place.

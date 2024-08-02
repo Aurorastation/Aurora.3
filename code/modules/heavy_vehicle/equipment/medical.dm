@@ -56,7 +56,7 @@
 		return
 
 	//All good, load the person
-	visible_message("<span class='notice'>\The [src] begins loading \the [target] into \the [src].</span>")
+	visible_message(SPAN_NOTICE("\The [src] begins loading \the [target] into \the [src]."))
 	sleeper.go_in(person_to_load, user)
 
 /obj/item/mecha_equipment/sleeper/get_hardpoint_maptext()
@@ -94,9 +94,13 @@
 
 		if(beaker)
 			beaker.forceMove(get_turf(src))
-			user.visible_message("<span class='notice'>\The [user] removes \the [beaker] from \the [src].</span>", "<span class='notice'>You remove \the [beaker] from \the [src].</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] removes \the [beaker] from \the [src]."),
+									SPAN_NOTICE("You remove \the [beaker] from \the [src]."))
+
 		beaker = attacking_item
-		user.visible_message("<span class='notice'>\The [user] adds \a [attacking_item] to \the [src].</span>", "<span class='notice'>You add \a [attacking_item] to \the [src].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] adds \a [attacking_item] to \the [src]."),
+								SPAN_NOTICE("You add \a [attacking_item] to \the [src]."))
+
 		return TRUE
 
 /obj/item/mecha_equipment/crisis_drone
@@ -225,7 +229,7 @@
 
 /obj/item/mecha_equipment/crisis_drone/proc/shut_down()
 	if(enabled)
-		owner.visible_message("<span class='notice'>\The [owner]'s [src] buzzes as its drone returns to port.</span>")
+		owner.visible_message(SPAN_NOTICE("\The [owner]'s [src] buzzes as its drone returns to port."))
 		toggle_drone()
 	if(!isnull(Target))
 		Target = null

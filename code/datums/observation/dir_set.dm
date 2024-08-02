@@ -20,16 +20,3 @@ GLOBAL_DATUM_INIT(dir_set_event, /singleton/observ/dir_set, new)
 	// Listen to the parent if possible.
 	if(. && istype(dir_changer.loc, /atom/movable))	// We don't care about registering to turfs.
 		register(dir_changer.loc, dir_changer, TYPE_PROC_REF(/atom, recursive_dir_set))
-
-/*********************
-* Direction Handling *
-*********************/
-
-/atom/movable/Entered(var/atom/movable/am, atom/old_loc)
-	. = ..()
-	if(GLOB.dir_set_event.has_listeners(am))
-		GLOB.dir_set_event.register(src, am, TYPE_PROC_REF(/atom, recursive_dir_set))
-
-/atom/movable/Exited(var/atom/movable/am, atom/new_loc)
-	. = ..()
-	GLOB.dir_set_event.unregister(src, am, TYPE_PROC_REF(/atom, recursive_dir_set))

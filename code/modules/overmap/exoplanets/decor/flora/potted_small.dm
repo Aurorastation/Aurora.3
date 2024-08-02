@@ -19,11 +19,11 @@
 	death()
 	return ..()
 
-/obj/item/flora/pottedplant_small/fire_act()
+/obj/item/flora/pottedplant_small/fire_act(exposed_temperature, exposed_volume)
 	death()
 	return ..()
 
-/obj/item/flora/pottedplant_small/bullet_act(var/obj/item/projectile/Proj)
+/obj/item/flora/pottedplant_small/bullet_act(var/obj/projectile/Proj)
 	if (prob(Proj.damage*2))
 		death()
 		return 1

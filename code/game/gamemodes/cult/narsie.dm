@@ -83,7 +83,7 @@ GLOBAL_LIST_EMPTY(narsie_list)
 			if(M.status_flags & GODMODE)
 				continue
 			if(!iscultist(M))
-				to_chat(M, "<span class='danger'>You feel your sanity crumble away in an instant as you gaze upon [src.name]...</span>")
+				to_chat(M, SPAN_DANGER("You feel your sanity crumble away in an instant as you gaze upon [src.name]..."))
 				M.apply_effect(3, STUN)
 
 
@@ -95,12 +95,15 @@ GLOBAL_LIST_EMPTY(narsie_list)
 	else if(istype(A, /obj/structure/cult))
 		qdel(A)
 
-/obj/singularity/narsie/large/CollidedWith(atom/A)
-	if(!cause_hell) return
-	if(isturf(A))
-		narsiewall(A)
-	else if(istype(A, /obj/structure/cult))
-		qdel(A)
+/obj/singularity/narsie/large/CollidedWith(atom/bumped_atom)
+	. = ..()
+
+	if(!cause_hell)
+		return
+	if(isturf(bumped_atom))
+		narsiewall(bumped_atom)
+	else if(istype(bumped_atom, /obj/structure/cult))
+		qdel(bumped_atom)
 
 /obj/singularity/narsie/move(var/force_move = 0)
 	if(!move_self)
@@ -114,13 +117,13 @@ GLOBAL_LIST_EMPTY(narsie_list)
 	if(target && prob(60))
 		movement_dir = get_dir(src,target) //moves to a singulo beacon, if there is one
 		if(target.z < z)
-			visible_message("<span class='danger'>\The [src] descends ominously.</span>")
+			visible_message(SPAN_DANGER("\The [src] descends ominously."))
 			zMove(DOWN)
-			visible_message("<span class='danger'>\The [src] appears from on high.</span>")
+			visible_message(SPAN_DANGER("\The [src] appears from on high."))
 		else if(target.z > z)
-			visible_message("<span class='danger'>\The [src] ascends ominously.</span>")
+			visible_message(SPAN_DANGER("\The [src] ascends ominously."))
 			zMove(UP)
-			visible_message("<span class='danger'>\The [src] claws its way up from below.</span>")
+			visible_message(SPAN_DANGER("\The [src] claws its way up from below."))
 
 	spawn(0)
 		step(src, movement_dir)
@@ -140,13 +143,13 @@ GLOBAL_LIST_EMPTY(narsie_list)
 	if(target && prob(60))
 		movement_dir = get_dir(src,target) //moves to a singulo beacon, if there is one
 		if(target.z < z)
-			visible_message("<span class='danger'>\The [src] descends ominously.</span>")
+			visible_message(SPAN_DANGER("\The [src] descends ominously."))
 			zMove(DOWN)
-			visible_message("<span class='danger'>\The [src] appears from on high.</span>")
+			visible_message(SPAN_DANGER("\The [src] appears from on high."))
 		else if(target.z > z)
-			visible_message("<span class='danger'>\The [src] ascends ominously.</span>")
+			visible_message(SPAN_DANGER("\The [src] ascends ominously."))
 			zMove(UP)
-			visible_message("<span class='danger'>\The [src] claws its way up from below.</span>")
+			visible_message(SPAN_DANGER("\The [src] claws its way up from below."))
 
 	spawn(0)
 		step(src, movement_dir)
@@ -342,13 +345,13 @@ GLOBAL_LIST_EMPTY(narsie_list)
 /obj/singularity/narsie/proc/acquire(const/mob/food)
 	var/capname = uppertext(name)
 
-	to_chat(target, "<span class='notice'><b>[capname] HAS LOST INTEREST IN YOU.</b></span>")
+	to_chat(target, SPAN_NOTICE("<b>[capname] HAS LOST INTEREST IN YOU.</b>"))
 	target = food
 
 	if (ishuman(target))
-		to_chat(target, "<span class='danger'>[capname] HUNGERS FOR YOUR SOUL.</span>")
+		to_chat(target, SPAN_DANGER("[capname] HUNGERS FOR YOUR SOUL."))
 	else
-		to_chat(target, "<span class='danger'>[capname] HAS CHOSEN YOU TO LEAD HIM TO HIS NEXT MEAL.</span>")
+		to_chat(target, SPAN_DANGER("[capname] HAS CHOSEN YOU TO LEAD HIM TO HIS NEXT MEAL."))
 
 /obj/singularity/narsie/on_capture()
 	chained = 1

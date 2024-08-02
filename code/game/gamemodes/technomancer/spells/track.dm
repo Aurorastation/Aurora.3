@@ -30,7 +30,7 @@ var/list/technomancer_belongings = list()
 	. = ..()
 	if(tracking)
 		tracking = 0
-		to_chat(user, "<span class='notice'>You stop tracking for \the [tracked]'s whereabouts.</span>")
+		to_chat(user, SPAN_NOTICE("You stop tracking for \the [tracked]'s whereabouts."))
 		tracked = null
 		return
 
@@ -78,5 +78,5 @@ var/list/technomancer_belongings = list()
 			if(16 to INFINITY)
 				icon_state = "track_far"
 
-	spawn(5)
-		.()
+	//Shitty loop
+	addtimer(CALLBACK(src, PROC_REF(track)), 5)

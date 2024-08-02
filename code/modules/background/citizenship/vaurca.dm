@@ -218,3 +218,16 @@
 		if(!visualsOnly)
 			addtimer(CALLBACK(src, PROC_REF(send_representative_mission), H), 5 MINUTES)
 	return TRUE
+
+/datum/citizenship/liikenka
+	name = CITIZENSHIP_LIIKENKA
+	description = "A group of Punished C'thur residing in Phoenixport and on Mictlan, the majority of Lii'kenka opt to remain undercover as \
+	members of the C'thur brood in disguise, falsifying their Vaurca Office of Administrative Services documents in order to have fake Nralakk Federation citizenship."
+
+	job_species_blacklist = list(
+		"Consular Officer" = ALL_SPECIES,
+		"Diplomatic Aide" = ALL_SPECIES
+	)
+
+/datum/citizenship/liikenka/get_records_name()
+	return CITIZENSHIP_NRALAKK

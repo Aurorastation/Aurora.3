@@ -67,4 +67,6 @@ __pycache__/
 .python-version
 
 define_sanity_output.txt
-tools/bootstrap/.cache/venv/
+
+# Unit test / coverage reports
+.cache

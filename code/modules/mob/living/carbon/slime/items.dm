@@ -4,7 +4,7 @@
 	icon = 'icons/mob/npc/slimes.dmi'
 	icon_state = "grey slime extract"
 	force = 1
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 6
@@ -135,7 +135,7 @@
 	. = ..()
 	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_PINK
-	add_overlay(filling)
+	AddOverlays(filling)
 
 /obj/item/docility_serum/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
 	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
@@ -178,7 +178,7 @@
 	. = ..()
 	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_PALE_PINK
-	add_overlay(filling)
+	AddOverlays(filling)
 
 /obj/item/advanced_docility_serum/attack(mob/living/carbon/slime/M as mob, mob/user as mob)
 	if(!istype(M, /mob/living/carbon/slime/))//If target is not a slime.
@@ -226,7 +226,7 @@
 
 	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_GREEN
-	add_overlay(filling)
+	AddOverlays(filling)
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -265,7 +265,7 @@
 
 	var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-100")
 	filling.color = COLOR_BLUE
-	add_overlay(filling)
+	AddOverlays(filling)
 
 	return INITIALIZE_HINT_NORMAL
 

@@ -1,20 +1,17 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "b" = (
-/obj/structure/simple_door/wood{
-	initial_lock_value = "dpra_nuclear_shack"
-	},
 /obj/structure/barricade/wooden{
-	dir = 4;
-	layer = 2.95
+	dir = 4
+	},
+/obj/machinery/door/urban{
+	dir = 8
 	},
 /turf/simulated/floor/wood{
 	temperature = 268.15
 	},
 /area/adhomai_nuclear_waste_makeshift)
 "c" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "e" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
@@ -86,9 +83,7 @@
 /area/adhomai_nuclear_waste_makeshift)
 "J" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "M" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
@@ -96,9 +91,7 @@
 /area/adhomai_nuclear_waste_makeshift)
 "O" = (
 /obj/structure/flora/tree/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "P" = (
 /obj/structure/reagent_dispensers/radioactive_waste,
@@ -110,9 +103,7 @@
 /area/adhomai_nuclear_waste_makeshift)
 "Y" = (
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 
 (1,1,1) = {"

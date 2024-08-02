@@ -36,22 +36,22 @@
 	update_icon()
 
 /obj/machinery/atm/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(stat & NOPOWER)
 		set_light(FALSE)
 		return
 
-	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "atm-active", EFFECTS_ABOVE_LIGHTING_LAYER)
-	add_overlay(screen_overlay)
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "atm-active", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+	AddOverlays(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
 	if(held_card)
-		var/mutable_appearance/card_overlay = mutable_appearance(icon, "atm-cardin", EFFECTS_ABOVE_LIGHTING_LAYER)
-		add_overlay(card_overlay)
+		var/mutable_appearance/card_overlay = mutable_appearance(icon, "atm-cardin", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
+		AddOverlays(card_overlay)
 
 /obj/machinery/atm/process()
 	if(stat & NOPOWER)
-		cut_overlays()
+		ClearOverlays()
 		set_light(FALSE)
 		return
 
@@ -322,7 +322,7 @@
 				if(!R.stamped)
 					R.stamped = new
 				R.stamped += /obj/item/stamp
-				R.add_overlay(stampoverlay)
+				R.AddOverlays(stampoverlay)
 				R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
 				print(R, user = usr)
 
@@ -367,7 +367,7 @@
 				if(!R.stamped)
 					R.stamped = new
 				R.stamped += /obj/item/stamp
-				R.add_overlay(stampoverlay)
+				R.AddOverlays(stampoverlay)
 				R.stamps += "<HR><i>This paper has been stamped by the Automatic Teller Machine.</i>"
 				print(R, user = usr)
 

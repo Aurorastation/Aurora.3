@@ -6,7 +6,7 @@
 	return
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(reagents.total_volume)
 		var/image/filling = image(icon, src, "[icon_state]10")
@@ -26,7 +26,7 @@
 			if(90 to 99)	filling.icon_state = "[icon_state]90"
 			if(100 to INFINITY)	filling.icon_state = "[icon_state]100"
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/square
 	name = "half-pint glass"
@@ -109,12 +109,12 @@
 	volume = 20
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(reagents.total_volume)
 		var/image/filling = image('icons/obj/drink_glasses/teacup.dmi', src, "[icon_state]100")
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/cognac
 	name = "snifter glass"
@@ -144,7 +144,7 @@
 	if(reagents?.total_volume)
 		var/mutable_appearance/filling = mutable_appearance(icon, "yunomi-[get_filling_state()]")
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/konyang/grey
 	desc = "A ceramic teacup of Japanese origin, most frequently used for teas brewed at a lower temperature because of its lack of a handle. \

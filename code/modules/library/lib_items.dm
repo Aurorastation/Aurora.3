@@ -39,12 +39,12 @@
 			name = ("bookcase ([newname])")
 	else if(attacking_item.iswrench())
 		attacking_item.play_tool_sound(get_turf(src), 100)
-		to_chat(user, (anchored ? "<span class='notice'>You unfasten \the [src] from the floor.</span>" : "<span class='notice'>You secure \the [src] to the floor.</span>"))
+		to_chat(user, (anchored ? SPAN_NOTICE("You unfasten \the [src] from the floor.") : SPAN_NOTICE("You secure \the [src] to the floor.")))
 		anchored = !anchored
 	else if(attacking_item.isscrewdriver())
-		to_chat(user, "<span class='notice'>You begin dismantling \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You begin dismantling \the [src]."))
 		if(attacking_item.use_tool(src, user, 25, volume = 50))
-			to_chat(user, "<span class='notice'>You dismantle \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You dismantle \the [src]."))
 			for(var/obj/item/book/b in contents)
 				b.forceMove((get_turf(src)))
 			dismantle()
@@ -194,7 +194,7 @@
 	desc_antag = "As a Cultist, this item can be reforged to become a cult tome."
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_NORMAL		 //upped to three because books are, y'know, pretty big. (and you could hide them inside eachother recursively forever)
+	w_class = WEIGHT_CLASS_NORMAL		 //upped to three because books are, y'know, pretty big. (and you could hide them inside eachother recursively forever)
 	attack_verb = list("bashed", "whacked", "educated")
 	var/dat			 // Actual page content
 	var/due_date = 0 // Game time in 1/10th seconds
@@ -209,12 +209,12 @@
 /obj/item/book/attack_self(var/mob/user as mob)
 	if(carved)
 		if(store)
-			to_chat(user, "<span class='notice'>[store] falls out of [title]!</span>")
+			to_chat(user, SPAN_NOTICE("[store] falls out of [title]!"))
 			store.forceMove(get_turf(src.loc))
 			store = null
 			return
 		else
-			to_chat(user, "<span class='notice'>The pages of [title] have been cut out!</span>")
+			to_chat(user, SPAN_NOTICE("The pages of [title] have been cut out!"))
 			return
 	if(src.dat)
 		user << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
@@ -231,13 +231,13 @@
 			if(attacking_item.w_class < 3)
 				user.drop_from_inventory(attacking_item,src)
 				store = attacking_item
-				to_chat(user, "<span class='notice'>You put [attacking_item] in [title].</span>")
+				to_chat(user, SPAN_NOTICE("You put [attacking_item] in [title]."))
 				return
 			else
-				to_chat(user, "<span class='notice'>[attacking_item] won't fit in [title].</span>")
+				to_chat(user, SPAN_NOTICE("[attacking_item] won't fit in [title]."))
 				return
 		else
-			to_chat(user, "<span class='notice'>There's already something in [title]!</span>")
+			to_chat(user, SPAN_NOTICE("There's already something in [title]!"))
 			return
 	if(attacking_item.ispen())
 		if(unique)
@@ -300,9 +300,9 @@
 					to_chat(user, "[attacking_item]'s screen flashes: 'Book stored in buffer. Title added to general inventory.'")
 	else if(istype(attacking_item, /obj/item/material/knife) || attacking_item.iswirecutter())
 		if(carved)	return
-		to_chat(user, "<span class='notice'>You begin to carve out [title].</span>")
+		to_chat(user, SPAN_NOTICE("You begin to carve out [title]."))
 		if(attacking_item.use_tool(src, user, 30, volume = 50))
-			to_chat(user, "<span class='notice'>You carve out the pages from [title]! You didn't want to read it anyway.</span>")
+			to_chat(user, SPAN_NOTICE("You carve out the pages from [title]! You didn't want to read it anyway."))
 			playsound(loc, 'sound/bureaucracy/papercrumple.ogg', 50, 1)
 			new /obj/item/shreddedp(get_turf(src))
 			carved = 1
@@ -312,8 +312,8 @@
 
 /obj/item/book/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(target_zone == BP_EYES)
-		user.visible_message("<span class='notice'>You open up the book and show it to [M]. </span>", \
-			"<span class='notice'> [user] opens up a book and shows it to [M]. </span>")
+		user.visible_message(SPAN_NOTICE("You open up the book and show it to [M]. "), \
+			SPAN_NOTICE(" [user] opens up a book and shows it to [M]. "))
 		M << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=book")
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //to prevent spam
 
@@ -327,7 +327,7 @@
 	icon_state ="scanner"
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/obj/machinery/librarycomp/computer // Associated computer - Modes 1 to 3 use this
 	var/obj/item/book/book //  Currently scanned book
 	var/mode = 0 // 0 - Scan only, 1 - Scan and Set Buffer, 2 - Scan and Attempt to Check In, 3 - Scan and Attempt to Add to Inventory

@@ -40,7 +40,8 @@
 		to_chat(src, SPAN_WARNING("You lack means of travel in that direction."))
 		return FALSE
 
-	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
+	var/turf/T = get_turf(src)
+	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 
 	if(!destination)
 		to_chat(src, SPAN_NOTICE("There is nothing of interest in this direction."))
@@ -104,14 +105,16 @@
 	return ..()
 
 /mob/abstract/eye/zMove(direction)
-	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
+	var/turf/T = get_turf(src)
+	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	if(destination)
 		setLoc(destination)
 	else
 		to_chat(owner, SPAN_NOTICE("There is nothing of interest in this direction."))
 
 /mob/abstract/observer/zMove(direction)
-	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
+	var/turf/T = get_turf(src)
+	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	if(destination)
 		forceMove(destination)
 	else
@@ -151,9 +154,9 @@
 /mob/living/carbon/human/proc/climb(var/direction, var/turf/source, var/climb_bonus)
 	var/turf/destination
 	if(direction == UP)
-		destination = GetAbove(source)
+		destination = GET_TURF_ABOVE(source)
 	else
-		destination = GetBelow(source)
+		destination = GET_TURF_BELOW(source)
 
 	if(!destination)
 		return
@@ -607,8 +610,8 @@
 
 	else if(prob(30) && combat_roll >= 1)//landed on their head
 		apply_damage(limb_damage, DAMAGE_BRUTE, BP_HEAD)
-		visible_message("<span class='warning'>\The [src] falls and lands on their face!</span>",
-			"<span class='danger'>With a loud thud, you land on your head. Hard.</span>", "You hear a thud!")
+		visible_message(SPAN_WARNING("\The [src] falls and lands on their face!"),
+			SPAN_DANGER("With a loud thud, you land on your head. Hard."), "You hear a thud!")
 
 		var/obj/item/organ/external/head = get_organ(BP_HEAD)
 		if(prob(20) && head && head.dislocated != -1)

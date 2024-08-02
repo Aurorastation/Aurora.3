@@ -1,7 +1,7 @@
 /obj/item/ammo_pile
 	name = "ammo pile"
 	desc = "A handful of some kind of ammunition."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 	var/list/ammo = list()
 	var/list/ammo_overlays = list()
@@ -149,13 +149,13 @@
 	ammo_picture.pixel_x = rand(-6, 6)
 	ammo_picture.pixel_y = rand(-6, 6)
 	ammo_overlay[bullet] = ammo_picture
-	add_overlay(ammo_overlay[bullet])
+	AddOverlays(ammo_overlay[bullet])
 
 /obj/item/ammo_pile/proc/remove_ammo(var/atom/target)
 	var/obj/bullet = ammo[1]
 	if(target)
 		bullet.forceMove(target)
-	cut_overlay(ammo_overlay[bullet])
+	CutOverlays(ammo_overlay[bullet])
 	ammo -= bullet
 	check_ammo()
 

@@ -1,0 +1,438 @@
+2020-02-01:
+  Geeves:
+  - rscadd: Dionae can now pick Sinta'Azaziba at character selection.
+  - rscadd: Brig Timers now announce when they end to Sec Huds.
+  - bugfix: Fixed HeadRevs not having access to the Revolution catagory.
+  - tweak: Biomass is now less strong.
+  - tweak: Diona have gotten a ton of minor code improvements, using their abilities
+      should now be a little sane.
+  - tweak: Diona nymphs don't have to be whitelisted to grow until a full diona now.
+      Administrative action will be taken if this right is abused.
+  - rscadd: Diona gestalts can now use their biomass / arms to create biomass structures.
+  - rscdel: Removed nymphs' ability to open biomass walls. It was buggy.
+  - tweak: Nymphs can now be holstered and worn on the ear slots.
+  - bugfix: Fixed Hegemony Energy Pistols having the Nanotrasen Energy Pistol description
+      fluff.
+  Goret:
+  - bugfix: Upon breaking, borosilicate glass will now make borosilicate shards.
+  ParadoxSpace:
+  - bugfix: Diona glow bulbs are no longer dense, and you can weld them to death.
+  Wowzewow (Wezzy):
+  - soundadd: New ambience noise.
+  - tweak: Tweaked welding sounds on airlocks and vents. Now after welding you should
+      hear a second sound when you end your action.
+  Yonnimer:
+  - rscadd: Adds a Toggle-AOOC verb
+  YourDaddy117:
+  - imageadd: Adds a fur-lined green trenchcoat.
+  mikomyazaki:
+  - bugfix: Hardsuit mounted weaponry no longer have safeties, that weren't possible
+      to disable.
+  - bugfix: Fixes issue where diona-created turfs wouldn't get the right lighting.
+2020-02-02:
+  Geeves:
+  - bugfix: Dionae structures now correctly assume the lighting of their surroundings.
+  Wowzewow (Wezzy):
+  - rscadd: Adds new sounds and formatting to glass cracking.
+  - soundadd: New glowstick and sink sounds.
+  - soundadd: Popping joints back in should make a sound.
+  - soundadd: Switching the operating table's neural suppressor on and off should
+      play a sound now.
+  - tweak: Tweaks the autopsy scanner sprite, and printing autopsy reports play a
+      sound now.
+2020-02-03:
+  Geeves:
+  - bugfix: Fixed Modular gun sprites.
+  Wowzewow (Wezzy):
+  - tweak: The muffled effect when sleeping should now also affect being unconscious.
+2020-02-04:
+  AmoryBlaine:
+  - rscadd: Made the onmob sprites for the holobadge match the new object sprite.
+  DanseMacabre:
+  - rscadd: Adds a new variant of the security .45, the compact .45 pistol.
+  - tweak: Swapped out the detective's revolver for the more appropriate compact .45.
+  - tweak: Changes the sprites for bullets, casings, .45 magazines, and 5.56 magazines
+  - tweak: Refluffs the 9mm pistol so it isn't a 500 year old APS Stechkin anymore.
+  Geeves:
+  - tweak: Replaced the Izweski Hegemony Consular's Chinese Dao with a standard Hegemony
+      Energy Pistol.
+  Goret:
+  - tweak: RMT pills now metabolise at 0.2 units per tick.
+  MattAtlas:
+  - rscadd: Psychics can now access the Srom.
+  - bugfix: You should no longer get put into Srom 3 billion times while under the
+      effects of the neural suppressor.
+  mikomyazaki:
+  - tweak: Bodyscanner has a new Vue-UI.
+  - tweak: Suit sensors UI now displays cell charge for IPCs.
+  - tweak: Adds colours to the handheld medical scanner report.
+2020-02-05:
+  VTCobaltblood:
+  - rscadd: Vaaaaaaastly increased the maximum length of names and labels of things.
+  mikomyazaki:
+  - tweak: GPSes have a new UI, and only track tags you tell it to rather than everything.
+  - rscadd: Mechs now have a lockdown function.
+  - rscadd: Mechs can now be linked to cameranet networks.
+  - rscadd: Adds a program for security that allows them to monitor & lockdown prisoner-controlled
+      mechs and robots.
+2020-02-06:
+  Alberyk, BRAINOS:
+  - imageadd: Added new hypospray sprites.
+  Furrycactus:
+  - rscadd: Re-adds the former redsec winter coat as an alternative winter coat choice
+      in the loadout. Does not count as standard security uniform.
+  Goret:
+  - rscadd: A religion tab in the loadout menu has been added. All Trinary related
+      items are located inside, and could be used in the feature for other religions.
+  - rscadd: Following the Trinary Perfection rework, clothing related to it has been
+      added.
+  - rscadd: A new antenna is available for the IPCs that serve the Trinary Perfection.
+2020-02-07:
+  Alberyk:
+  - rscdel: Removed stealth changeling absorb DNA power.
+  - bugfix: Fixed horror ling changeling mobs not destroying the human inside of them
+      properly when killed.
+  PoZe:
+  - bugfix: Merchant trading program now accepts Kataphract Trader acces.
+  Wowzewow (Wezzy):
+  - soundadd: Adds more clicking button sounds to machines. Try it out on your nearest
+      vending machine! Discover ALL the noises!
+  Yonnimer:
+  - rscadd: Adds Nral'Malic as a choice for dionae.
+  - rscadd: Adds another language slot to Dionae, putting it up to 2 extra picks.
+2020-02-08:
+  Arrow768:
+  - rscdel: Removes random PDA message interception from the AI.
+  Code by Geeves, Sprites by Wezzy:
+  - rscadd: Added a hearing aid item. Also added it to the Utility catagory in the
+      loadout menu. There are two designs, Skrellian and Human. Both designs work
+      for any species.
+  Geeves:
+  - bugfix: Fixed some cult item descriptions not having a full stop
+  - rscdel: The final remnants of the cultwords code has been ripped out.
+  - tweak: Cult blades and tomes now fit on the belt slot.
+  - tweak: Talismans now display what their copied runes are when examined.
+  - tweak: The tome has been simplified and shortened. Should be easier for new people
+      to use now.
+  - rscdel: Blood boil can no longer randomly gib people.
+  - tweak: The freedom rune now handles cultist saving a bit better. Should be more
+      useful now. Alerts the rescued cultist that their cult is doing things to help.
+  - tweak: You no longer have to stay on the rune to keep your manifested ghost alive,
+      but you'll still take continual damage until it's dispelled.
+  - tweak: Raising the dead no longer needs you to kill someone on a rune, but it
+      will cause them to lose some limbs.
+  - tweak: The stun talisman now affects non-cultists in a two tile radius around
+      you.
+  - tweak: Teleport runes now have four distinct teleport networks you can choose
+      from. They will connect and beam to eachother.
+  - tweak: Teleport runes now display which network they're connected to when examined.
+  - tweak: Trying to summon a ghostly apparition now announces the effort to deadchat
+      and gives them a follow link to jump to it.
+  - rscadd: The freedom rune can now open bolted airlocks.
+  - tweak: Cultist clothes now get turned into eldritch voidsuits when cultified.
+      Find out how to do so.
+  - tweak: The daemon forge can now be used to cultify objects.
+  - rscadd: IPCs can now scribe runes, and do more rune based stuff in general.
+  - rscadd: Runes now take the colour of the blood of the person who drew them. Remember
+      to be stealthy.
+  - rscadd: Cult structures (altars, forges and desks) have now been given some use.
+      Examine them as an antag to find out their secrets.
+  Kaedwuff:
+  - rscdel: Removes gemstones.
+  MattAtlas:
+  - experiment: Lowered the threshold at which you fall down in paincrit.
+  - experiment: Melee weapons no longer have a chance to RNG knockdown when aiming
+      for the chest.
+  - experiment: Being unconscious no longer removes some of your pain.
+  - tweak: Shrapnel no longer causes direct damage. It now adds pain to the organ
+      the shrapnel is in.
+  - tweak: Lasers now evaporate less blood, but deal more pain.
+  - tweak: Arterial bleeding is now MUCH nastier.
+  - tweak: Ballistics now suffer a lower damage penalty after damaging organs.
+  - tweak: Toxins have been nerfed overall.
+  - tweak: Buffed the liver's breaking threshold.
+  - tweak: Ballistics now inflict slightly more pain.
+  - bugfix: Fixes being able to edit other peoples' flavour texts.
+2020-02-09:
+  AmoryBlaine:
+  - rscadd: Resprited folders.
+  - tweak: Fixes holobadge placement.
+  mikomyazaki:
+  - bugfix: Fixes some bugs with GPSes that caused 'track all' and other features
+      to function incorrectly sometimes.
+  - bugfix: The Mech Camera Network no longer shows up on the general camera monitoring
+      program.
+  - bugfix: Fixed some small bugs with new bodyscanner UI. Nothing that is noticable
+      by players.
+2020-02-10:
+  Cnaym:
+  - tweak: Increases pickaxes and drill efficiency across the board.
+  - tweak: Decreases export values of ores to adjust for the hilarious KA mining speed.
+  - tweak: Slightly modifies the KA Damage upgrade towards more damage, slower rate
+      of fire
+  - tweak: Mining now get's exploited by the company and not the other departments.
+  Ferner, Kyres1:
+  - rscadd: Added a whole bunch of map assets that were used during the skrell event
+      arc.
+  - maptweak: Remapped the srom.
+  Geeves:
+  - bugfix: Fixes nymphs being unable to suck blood.
+  Wowzewow (Wezzy):
+  - soundadd: Adds new sounds to buckling, closets, and toggling voidsuit helmets.
+  - tweak: Tweaks coffee machine vend sound.
+  - soundadd: Ports Bay footstep noise.
+  mikomyazaki:
+  - imageadd: Maintenance drones that are emagged will change their eye-colour to
+      red.
+2020-02-11:
+  AmoryBlaine:
+  - rscadd: Better balaclavas, more variation.
+  - rscadd: Recolours the red and blue bandanas. They're both a bit darker now.
+  Geeves:
+  - rscadd: Slimes are now content after growing into adults or reproducing, meaning
+      they won't attack humanoids for a while afterwards.
+  - tweak: The slime scanner has been tweaked to be a bit nicer.
+  - tweak: Slightly reduced the damage slimes do.
+  - rscadd: Clicking a delivery chute with a held animal, such as a monkey, will now
+      automatically deposit them into it.
+  ParadoxSpace, VTCobaltblood, and Xev:
+  - rscadd: Adds a new Skrell breath mask, sprites by Xev.
+  - rscadd: You can now put headcloth/chains/etc on your head.
+  - rscadd: Adds a bunch of Skrell random gen names, names by VT.
+  Yonnimer:
+  - rscadd: Adds a Toggle AOOC verb
+2020-02-12:
+  Arrow768:
+  - rscadd: The CCIA shuttle automatically returns to CentCom.
+  Doxxmedearly:
+  - bugfix: Meat and cutlets should now be able to be properly sliced by edged items,
+      such as regular kitchen knives, hatchets, and cleavers.
+  - bugfix: When slicing meat and cutlets, their reagents should now properly transfer
+      to the new products.
+  - tweak: Slipping items into food has changed slightly to prevent weird interactions.
+      You will now only slip items into food on harm intent. Now you can actually
+      slice things with the cleaver instead of shoving it into that dough or cheese
+      wheel.
+  - bugfix: You can no longer slice throats with spoons or forks.
+  Geeves:
+  - rscadd: Added a new shirt accessory. A Silversun shirt.
+  Yonnimer:
+  - bugfix: Fixes a issue with the aooctoggle pr.
+2020-02-13:
+  Alberyk:
+  - bugfix: Fixed the Corporate Liaison's minimum age, it should be 30 now.
+  Code by Geeves, Sprites by Cre77:
+  - rscadd: Added and tweaked a bunch of Dominian items. Check them out in the loadout.
+      There are new gloves, boots, uniforms, and bomber jackets.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes some bureaucracy sprites, and writing on cigarette filters.
+2020-02-14:
+  Geeves:
+  - rscadd: Added two librarian alt-titles. Tech Support, which handles.. IT stuff,
+      such as resetting devices, and Curator, which handles display of artifacts,
+      as well as pricing things with their price scanner.
+  - rscadd: Added the tech support card, which can reset devices to their original
+      state, as well as vend devices from the laptop vendor for free.
+  - tweak: Made some tweaks and additions to the Security Checkpoint on the surface
+      and roof. Most notably, the addition of a roof recharger, extra set of binoculars,
+      and security laptop.
+  MattAtlas:
+  - bugfix: Fixes things such as dry rags and buckets shattering once and for all.
+2020-02-15:
+  Wowzewow (Wezzy):
+  - imageadd: Changes the hypospray sprite again.
+  - bugfix: CMO's hypospray should have a inhand again.
+  - tweak: Reagents inside syringes and hyposprays should be more visible now.
+  - tweak: Made hypospray descriptions much more descriptive.
+2020-02-16:
+  Geeves:
+  - backend: Made mechs a bit better to work with behind the scenes, as well as put
+      some future goodies into work.
+  Wowzewow (Wezzy):
+  - bugfix: Burning crumpled paper should show the proper animation now.
+  mikomyazaki:
+  - bugfix: Fixes lack of chat tags.
+  - bugfix: Fixes runtime on the Player Panel.
+  - bugfix: Records console UIs should now display properly.
+  - bugfix: Wearing clothing that provides armour along with clothing that does not
+      no longer results in your character having zero armour.
+2020-02-17:
+  Ferner:
+  - tweak: Announcements can now be heard on the roof (z-level 7).
+  Ferner, Happy_Fox:
+  - rscadd: Added a new type of linoleum, rubber carpets, dark/light metal grates.
+      Added some proper footramp damaged states. All spriting by Happy_Fox
+  - tweak: Blue/Green Circuit tiles can now be made in the autolathe.
+  - bugfix: Blown up footramps will no longer result in a 'Fix me!' icon appearing.
+  Geeves:
+  - bugfix: Fixed Manifest Ghost not working for cultists.
+  - bugfix: Fixed cultists being unable to summon soulstones and constructs.
+  Goret:
+  - maptweak: The library has been given some slight changes.
+  mikomyazaki:
+  - bugfix: Fixes Fax Machine UI not opening.
+  - bugfix: Scanning slimes with only two mutation possibilities will now display
+      the two possibilities instead of just the second one.
+2020-02-18:
+  MattAtlas:
+  - rscadd: Welders and cable coil now automatically repair external damage on robotic
+      limbs. No more spam clicking.
+  - tweak: Tweaked how welders inflict eye damage. Shouldn't be much of a difference
+      to player.
+  - tweak: Bolded the amount of cables in the cable coil examine description.
+  - bugfix: Fixed flamethrower construction.
+  - bugfix: Fixed some buggy messages while applying cable coil to robotic limbs.
+  Pratepresidenten:
+  - bugfix: Solidifies the organ cooler further!
+  mikomyazaki:
+  - bugfix: Medical cyborg roller bed rack now has an icon.
+2020-02-19:
+  Geeves:
+  - rscadd: Added the Acolytes gamemode, featuring borer and cult.
+  - bugfix: Fixes cult constructs not having their health HUD show up.
+  - bugfix: Fixes pylons shooting mechs and stuff willy nilly.
+  - tweak: Increased Wraith construct health slightly.
+  - rscadd: Gave the Artificer the ability to cultify turfs in an area, Daemon Forges
+      and Altars.
+  - rscadd: Gave constructs non-numerical randomized names, credits to Kaed.
+  - rscadd: Added a new gamemode, Insurrection, which features Borers and Revolutionaries.
+  - backend: Added wristbound computers, to be used in future developments.
+  Scheveningen:
+  - rscadd: Most forms of flashes/blinds, especially mounted flashers, now confuse
+      organics after blinding.
+  - tweak: Confusion has been buffed up a bit to make you move in an unintended direction
+      a bit more often.
+  - tweak: Pocket flashes have had their break chance lowered, and unified together
+      and now don't have a ridiculous chance of breaking for manually using them.
+      This mechanic was a problem for too many years, sorry.
+  Wowzewow (Wezzy):
+  - soundadd: PDAs have a boop noise when you press buttons now.
+  mikomyazaki:
+  - bugfix: Robots moving away while someone tries to crowbar them open/closed will
+      now properly cancel the opening/closing.
+  - bugfix: Removing an assembly light will now turn the light off.
+  - bugfix: Diona will no longer split into nymphs when they cryo.
+  - bugfix: Psychiatrists now show up on the PDA messenger as medical staff.
+  - bugfix: Holstered guns keep their safety icons.
+  - bugfix: Crowbars have a sound effect again.
+  - bugfix: Can now clear records in character setup by making them blank and submitting.
+  - bugfix: Removes mention of the 'Halogen Counter', as it was not implemented and
+      does not make sense with the server's radiation system.
+  - bugfix: Prosthetic external organs from the Prosthetics (External) tab of the
+      mechfab are now only for surgery on human-mobs, and are now properly attachable.
+      For robots use the robotic limbs that are now in the 'Robot' tab of the fabber.
+  - bugfix: Spawning as a golem no longer tells you to serve your ghostmob.
+  - bugfix: Looping timers now work properly. This will affect looped sounds primarily.
+  - bugfix: Remote robots are no longer valid targets for autotraitor.
+2020-02-20:
+  Geeves:
+  - bugfix: Fixes Vaurca Breeders and Warforms having arterial bleeding.
+  - tweak: Tweaked the mining drone lawset to be a little more sane.
+  - tweak: Upgraded cyborg KA's to be a bit better to use.
+  - rscadd: Allowed mining drones to speak normal languages.
+  - rscdel: Removed drone and robot speak from mining drones.
+  - rscadd: Allowed mining drones to pull ore boxes.
+  - rscdel: Removed the ability to recycle mining drones, you can only reboot them
+      now by swiping your ID.
+  - rscdel: Removed the ability for mining drones to print reports. They can speak
+      now.
+  - bugfix: Installing a KA upgrade onto a mining drone will no longer delete its
+      upgraded drill.
+  - rscadd: Increased the capacity of the mining drone's default orebag.
+  - rscadd: Gave the mining drone a Screwdriver, a GPS, a working jetpack, and a stack
+      of rods.
+  mikomyazaki:
+  - bugfix: Synthetic humans don't get knocked out by Operating Tables anymore. The
+      suppressor will still turn on/off.
+  - bugfix: Robots won't separately have their MMIs announced by the Arrivals Shuttle
+      Oversight.
+2020-02-21:
+  Ghostsheet:
+  - bugfix: Hot Drinks machine no longer has transparent pixels.
+  mikomyazaki:
+  - bugfix: Laying a new flooring tile no longer deletes the air on that turf.
+2020-02-22:
+  Geeves:
+  - tweak: Tweaked how gunjamming works. You now have to spam the Z button, or keep
+      clicking the gun sprite if you don't have hotkeys, to unjam it.
+  - rscadd: Added sounds to jamming and unjamming guns.
+  - rscadd: Allows Vaurca to carry small items in their suit slot, using their smol
+      vestigial arms.
+  mikomyazaki:
+  - rscadd: The bar now has access to Root Beer in its drink dispenser.
+  - bugfix: Lights will now work properly when inside clothing assemblies.
+  - tweak: Lighting ICs now only illuminate a cone infront of them, like flashlights.
+  - balance: Lighting ICs now do not produce UV.
+  - bugfix: Spawning on Aurora via the centcomm timeout will no longer duplicate your
+      character's items.
+2020-02-23:
+  Ferner:
+  - rscadd: Added an uplink option to purchase a random projectile weapon from a wide
+      selection. Expect varying quality.
+  ParadoxSpace:
+  - rscadd: Offworlders can now be CE.
+  mikomyazaki:
+  - backend: Added a unit-test to check for invalid default icon_states.
+  - bugfix: Successfully firing a gun or sprayer while cloaked by a RIG stealth module
+      will deactivate your cloak.
+  - rscadd: Health analyzer will now report a rough radiation level for a scanned
+      patient.
+  - bugfix: Emotes from Borers inside a host will only be shown to their host.
+  - admin: Mech arm attacks now produce attack logs.
+  - bugfix: Character setup record setting options now have a clear button, submitting
+      a blank record or clicking cancel will no longer clear it.
+2020-02-24:
+  Geeves:
+  - bugfix: Fixes pAI using RIG modules spamming the admins.
+  - rscadd: Cultifying an area now cultifies the table and airlocks as well, with
+      some high security exceptions.
+  Wowzewow (Wezzy):
+  - rscadd: New trash states for cup ramen and coffee cups! Check them out!
+  - imageadd: Tweaks some drink and bottle sprites, namely soda cans. Alcohol bottles
+      have empty states now.
+  - soundadd: New paper cup sound and tweaks the coffee vend sound again.
+2020-02-25:
+  Geeves:
+  - tweak: The unknown transport signature can now bring something more interesting
+      on-station.
+  - bugfix: Fixed the golem ghostspawner being enabled at all times and producing
+      an error message.
+2020-02-26:
+  Chinsky & ParadoxSpace:
+  - rscadd: There are now random colored Silversun shirts. Two in the mixed wardrobe.
+  DanseMacabre:
+  - bugfix: Fixes an issue with the mob sprites for the detective's handgun
+  Ghostsheet:
+  - tweak: Voidsuit can now be adjusted in hand (but not worn).
+  - tweak: Voidsuit tank can be ejected from adjacent range.
+  - rscadd: Voidsuit adjustment now has more sound effects for audio feedback
+  - bugfix: KA will now properly display their safety icon.
+  - bugfix: KA will now properly hit their user if they're caught in the blast radius.
+  - bugfix: Mining vendor will now display 0 mining points inside of nothing
+  YourDaddy117:
+  - imageadd: Replaces varsity jackets with new sprites that have both an opened and
+      closed state. Also gives them pockets.
+2020-02-27:
+  Doxxmedearly:
+  - bugfix: Drinks should no longer disappear when empty.
+  - bugfix: Fixed wrong messages and invisible items when feeding others.
+  Geeves:
+  - bugfix: Fixed Diona Floors being difficult to remove. Use a shovel.
+  ParadoxSpace:
+  - rscadd: Adds a cobra hood for Unathi.
+  mikomyazaki:
+  - bugfix: Prosthetics printer can now also print hands and feet. It is necessary
+      to print these in addition to an arm/leg if you are doing a full limb replacement.
+2020-02-28:
+  Talkarcabbage:
+  - bugfix: Fixed sound loops ignoring volume setting.
+  - tweak: Adjusted supermatter crystal sounds and fix issue where it always plays
+      at 100 volume.
+2020-02-29:
+  Ferner:
+  - bugfix: Fixed the floors at centcom that had become white instead of being plating.
+  Furrycactus:
+  - maptweak: Replaced the white tiles underneath the windows on CentCom with plating.
+  ParadoxSpace & Myazaki:
+  - rscadd: IPCs can now be Necropolis contractors. However, they cannot be corp reps.
+  - rscadd: Tajara can only be NT/Independent corp reps.

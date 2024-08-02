@@ -5,7 +5,6 @@
 	icon_state = "scattered"
 	anchored = TRUE
 	density = FALSE
-	layer = ABOVE_CABLE_LAYER
 	var/singleton/reagent/reagent_id
 	var/state = 0
 	var/health = 100
@@ -23,7 +22,7 @@
 	desc = replacetext(desc, "chemical", lowertext(initial(reagent_id.name)))
 	var/mutable_appearance/crystal_overlay = mutable_appearance(icon, "[initial(icon_state)]-overlay")
 	crystal_overlay.color = initial(reagent_id.color)
-	add_overlay(crystal_overlay)
+	AddOverlays(crystal_overlay)
 	if(our_creator)
 		creator = our_creator
 

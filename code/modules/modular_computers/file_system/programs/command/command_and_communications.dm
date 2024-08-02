@@ -120,13 +120,13 @@
 				if(announcement_cooldown)
 					to_chat(usr, "Please allow at least one minute to pass between announcements")
 					return
-				var/input = tgui_input_text(usr, "Please write a message to announce to the station crew.", "Priority Announcement", multiline = TRUE)
+				var/input = tgui_input_text(usr, "Please write a message to announce to the station crew.", "Priority Announcement", multiline = TRUE, encode = FALSE)
 				if(!input || computer.use_check_and_message(usr))
 					return FALSE
 				var/was_hearing = HAS_TRAIT(computer, TRAIT_HEARING_SENSITIVE)
 				if(!was_hearing)
 					computer.become_hearing_sensitive()
-				usr.say(input)
+				usr.say(STRIP_HTML_FULL(input, MAX_MESSAGE_LEN))
 				if(!was_hearing)
 					computer.lose_hearing_sensitivity()
 				var/affected_zlevels = GetConnectedZlevels(GET_Z(computer))
@@ -139,12 +139,12 @@
 					if(centcomm_message_cooldown)
 						to_chat(usr, SPAN_WARNING("Arrays recycling. Please stand by."))
 						return TRUE
-					var/input = sanitize(input(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination. Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
+					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to \[ABNORMAL ROUTING CORDINATES\] via quantum entanglement.", "Emergency M&#e55sage", multiline = TRUE, encode = FALSE))
 					if(!input || computer.use_check_and_message(usr))
 						return FALSE
 					Syndicate_announce(input, usr)
 					to_chat(usr, SPAN_NOTICE("Message successfully transmitted."))
-					log_say("[key_name(usr)] has sent a message to the syndicate: [input]", ckey = key_name(usr))
+					log_say("[key_name(usr)] has sent a message to the syndicate: [input]")
 					centcomm_message_cooldown = TRUE
 					addtimer(CALLBACK(src, PROC_REF(set_centcomm_message_cooldown), FALSE), 300) // thirty second cooldown
 			else if(params["target"] == "regular")
@@ -155,12 +155,12 @@
 					if(!is_relay_online())//Contact Centcom has a check, Syndie doesn't to allow for Traitor funs.
 						to_chat(usr, SPAN_WARNING("No Emergency Bluespace Relay detected. Unable to transmit message."))
 						return
-					var/input = sanitize(input("Please choose a message to transmit to [SSatlas.current_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", "") as null|text)
+					var/input = sanitize(tgui_input_text(usr, "Please choose a message to transmit to [SSatlas.current_map.boss_name] via quantum entanglement.", "Emergency Message", multiline = TRUE, encode = FALSE))
 					if(!input || computer.use_check_and_message(usr))
 						return
 					Centcomm_announce(input, usr)
 					to_chat(usr, SPAN_NOTICE("Message successfully transmitted."))
-					log_say("[key_name(usr)] has sent a message to [SSatlas.current_map.boss_short]: [input]", ckey = key_name(usr))
+					log_say("[key_name(usr)] has sent a message to [SSatlas.current_map.boss_short]: [input]")
 					centcomm_message_cooldown = TRUE
 					addtimer(CALLBACK(src, PROC_REF(set_centcomm_message_cooldown), FALSE), 300) // thirty second cooldown
 		if("evac")
@@ -188,7 +188,7 @@
 		if("setalert")
 			if(is_authenticated(user) && (!issilicon(usr) || isAI(usr)) && ntn_cont && ntn_comm)
 				var/current_level = text2num(params["target"])
-				var/confirm = alert("Are you sure you want to change alert level to [num2seclevel(current_level)]?", filedesc, "No", "Yes")
+				var/confirm = tgui_alert(usr, "Are you sure you want to change alert level to [num2seclevel(current_level)]?", filedesc, list("No", "Yes"))
 				if(confirm == "Yes" && !computer.use_check_and_message(usr, (isAI(usr) ? USE_ALLOW_NON_ADJACENT : FALSE)))
 					var/old_level = GLOB.security_level
 					if(!current_level)
@@ -199,7 +199,7 @@
 						current_level = SEC_LEVEL_BLUE
 					set_security_level(current_level)
 					if(GLOB.security_level != old_level)
-						log_game("[key_name(usr)] has changed the security level to [get_security_level()].", ckey = key_name(usr))
+						log_game("[key_name(usr)] has changed the security level to [get_security_level()].")
 						message_admins("[key_name_admin(usr)] has changed the security level to [get_security_level()].")
 						switch(GLOB.security_level)
 							if(SEC_LEVEL_GREEN)

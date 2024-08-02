@@ -93,6 +93,28 @@
 	. = ..()
 	default_language = GLOB.all_languages[LANGUAGE_LOCAL_DRONE]
 
+	add_verb(src, /mob/living/proc/hide)
+	remove_language(LANGUAGE_ROBOT)
+	add_language(LANGUAGE_ROBOT, FALSE)
+	add_language(LANGUAGE_DRONE, TRUE)
+
+	//They are unable to be upgraded, so let's give them a bit of a better battery.
+	cell.maxcharge = 10000
+	cell.charge = 10000
+
+	// NO BRAIN. // me irl - geeves
+	mmi = null
+
+	//We need to screw with their HP a bit. They have around one fifth as much HP as a full borg.
+	for(var/V in components)
+		if(V == "power cell")
+			continue
+		var/datum/robot_component/C = components[V]
+		C.max_damage = 10
+
+	remove_verb(src, /mob/living/silicon/robot/verb/Namepick)
+	density = FALSE
+
 /mob/living/silicon/robot/drone/Destroy()
 	if(master_matrix)
 		master_matrix.remove_drone(WEAKREF(src))
@@ -100,8 +122,14 @@
 	return ..()
 
 /mob/living/silicon/robot/drone/death(gibbed)
+	if(hat)
+		hat.forceMove(get_turf(src))
+		hat = null
+		QDEL_NULL(hat_overlay)
+
 	if(master_matrix)
 		master_matrix.handle_death(src)
+
 	return ..()
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
@@ -127,22 +155,13 @@
 		to_chat(possessor, SPAN_WARNING("\The [src] already has a player."))
 		return FALSE
 	message_admins("<span class='adminnotice'>[key_name_admin(possessor)] has taken control of \the [src].</span>")
-	log_admin("[key_name(possessor)] took control of \the [src].",ckey=key_name(possessor))
+	log_admin("[key_name(possessor)] took control of \the [src].")
 	transfer_personality(possessor.client)
 	qdel(possessor)
 	return TRUE
 
 /mob/living/silicon/robot/drone/do_late_fire()
 	request_player()
-
-/mob/living/silicon/robot/drone/Destroy()
-	if(hat)
-		hat.forceMove(get_turf(src))
-		hat = null
-		QDEL_NULL(hat_overlay)
-	master_matrix = null
-	master_fabricator = null
-	return ..()
 
 /mob/living/silicon/robot/drone/get_default_language()
 	if(default_language)
@@ -165,7 +184,7 @@
 	law_type = /datum/ai_laws/construction_drone
 
 	// Interaction
-	can_pull_size = ITEMSIZE_IMMENSE
+	can_pull_size = WEIGHT_CLASS_GIGANTIC
 	can_pull_mobs = MOB_PULL_SAME
 	holder_type = /obj/item/holder/drone/heavy
 
@@ -251,31 +270,6 @@
 /mob/living/silicon/robot/drone/construction/matriarch/request_player()
 	SSghostroles.add_spawn_atom("matriarchmaintdrone", src)
 
-/mob/living/silicon/robot/drone/Initialize()
-	. = ..()
-
-	add_verb(src, /mob/living/proc/hide)
-	remove_language(LANGUAGE_ROBOT)
-	add_language(LANGUAGE_ROBOT, FALSE)
-	add_language(LANGUAGE_DRONE, TRUE)
-
-	//They are unable to be upgraded, so let's give them a bit of a better battery.
-	cell.maxcharge = 10000
-	cell.charge = 10000
-
-	// NO BRAIN. // me irl - geeves
-	mmi = null
-
-	//We need to screw with their HP a bit. They have around one fifth as much HP as a full borg.
-	for(var/V in components)
-		if(V == "power cell")
-			continue
-		var/datum/robot_component/C = components[V]
-		C.max_damage = 10
-
-	remove_verb(src, /mob/living/silicon/robot/verb/Namepick)
-	density = FALSE
-
 /mob/living/silicon/robot/drone/init()
 	ai_camera = new /obj/item/device/camera/siliconcam/drone_camera(src)
 	additional_law_channels["Drone"] = ":d"
@@ -308,9 +302,9 @@
 		"emag" = image(icon, "[icon_state]-eyes_emag")
 	)
 	if(eye_overlay)
-		cut_overlay(eye_overlay)
+		CutOverlays(eye_overlay)
 	eye_overlay = cached_eye_overlays[a_intent]
-	add_overlay(eye_overlay)
+	AddOverlays(eye_overlay)
 
 /mob/living/silicon/robot/drone/setup_panel_cache()
 	cached_panel_overlays = list(
@@ -322,10 +316,10 @@
 
 /mob/living/silicon/robot/drone/set_intent(var/set_intent)
 	a_intent = set_intent
-	cut_overlay(eye_overlay)
+	CutOverlays(eye_overlay)
 	if(!stat)
 		eye_overlay = cached_eye_overlays[emagged ? "emag" : set_intent]
-		add_overlay(eye_overlay)
+		AddOverlays(eye_overlay)
 
 /mob/living/silicon/robot/drone/choose_icon()
 	return
@@ -339,7 +333,7 @@
 	hat = new_hat
 	new_hat.forceMove(src)
 	hat_overlay = get_hat_icon(hat, hat_x_offset, hat_y_offset)
-	add_overlay(hat_overlay)
+	AddOverlays(hat_overlay)
 
 //Drones cannot be upgraded with borg modules so we need to catch some items before they get used in ..().
 /mob/living/silicon/robot/drone/attackby(obj/item/attacking_item, mob/user)
@@ -400,7 +394,7 @@
 	to_chat(src, SPAN_WARNING("You feel a sudden burst of malware loaded into your execute-as-root buffer. Your tiny brain methodically parses, loads and executes the script."))
 
 	message_admins("[key_name_admin(user)] emagged drone [key_name_admin(src)].  Laws overridden.")
-	log_game("[key_name(user)] emagged drone [key_name(src)].  Laws overridden.",ckey=key_name(user),ckey_target=key_name(src))
+	log_game("[key_name(user)] emagged drone [key_name(src)].  Laws overridden.")
 	var/time = time2text(world.realtime, "hh:mm:ss")
 	GLOB.lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 

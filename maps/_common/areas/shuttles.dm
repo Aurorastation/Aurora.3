@@ -78,7 +78,7 @@
 	name = "Naval Transport Shuttle"
 	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF | AREA_FLAG_NO_CREW_EXPECTED
 
-/area/shuttle/administration
+/area/shuttle/hapt
 	name = "Unidentified Corvette"
 	base_turf = /turf/unsimulated/floor/plating
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED

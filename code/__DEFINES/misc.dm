@@ -47,14 +47,14 @@
 #define CHAT_NOICONS			0x8000
 #define CHAT_GHOSTLOOC			0x10000
 
-// 0x1 is free.
-// 0x2 is free.
-#define PROGRESS_BARS				0x4
-#define PARALLAX_IS_STATIC			0x8
-#define FLOATING_MESSAGES			0x10
-#define HOTKEY_DEFAULT				0x20
-#define FULLSCREEN_MODE				0x40
-#define ACCENT_TAG_TEXT				0x80
+#define SEE_ITEM_OUTLINES 0x1
+#define HIDE_ITEM_TOOLTIPS 0x2
+#define PROGRESS_BARS 0x4
+#define PARALLAX_IS_STATIC 0x8
+#define FLOATING_MESSAGES 0x10
+#define HOTKEY_DEFAULT 0x20
+#define FULLSCREEN_MODE 0x40
+#define ACCENT_TAG_TEXT 0x80
 
 #define TOGGLES_DEFAULT (SOUND_ADMINHELP | SOUND_MIDI | SOUND_LOBBY | CHAT_OOC | CHAT_DEAD | CHAT_GHOSTEARS | CHAT_GHOSTSIGHT | CHAT_PRAYER | CHAT_RADIO | CHAT_ATTACKLOGS | CHAT_LOOC | CHAT_GHOSTLOOC)
 
@@ -135,6 +135,7 @@
 #define AREA_FLAG_PRISON              	 BITFLAG(6) // Marks prison area for purposes of checking if brigged/imprisoned
 #define AREA_FLAG_NO_GHOST_TELEPORT_ACCESS BITFLAG(7) // Marks whether ghosts should not have teleport access to this area
 #define AREA_FLAG_INDESTRUCTIBLE_TURFS			 BITFLAG(8) //Marks whether or not turfs in this area can be destroyed by explosions
+#define AREA_FLAG_IS_BACKGROUND 		 BITFLAG(9) //Marks whether or not blueprints can create areas on top of this area
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -319,12 +320,6 @@
 
 #define DEFAULT_SIGHT (SEE_SELF)
 
-#define isStationLevel(Z) ((Z) in SSatlas.current_map.station_levels)
-#define isNotStationLevel(Z) !isStationLevel(Z)
-
-#define isPlayerLevel(Z) ((Z) in SSatlas.current_map.player_levels)
-#define isNotPlayerLevel(Z) !isPlayerLevel(Z)
-
 #define isAdminLevel(Z) ((Z) in SSatlas.current_map.admin_levels)
 #define isNotAdminLevel(Z) !isAdminLevel(Z)
 
@@ -336,14 +331,6 @@
 #define CARGO_CONTAINER_FREEZER "freezer"
 #define CARGO_CONTAINER_BOX "box"
 #define CARGO_CONTAINER_BODYBAG "bodybag"
-
-// We should start using these.
-#define ITEMSIZE_TINY   1
-#define ITEMSIZE_SMALL  2
-#define ITEMSIZE_NORMAL 3
-#define ITEMSIZE_LARGE  4
-#define ITEMSIZE_HUGE   5
-#define ITEMSIZE_IMMENSE 6
 
 // getFlatIcon function altering defines
 #define GFI_ROTATION_DEFAULT 0 //Don't do anything special

@@ -8,7 +8,7 @@
 	center_of_mass = list("x" = 13,"y" = 11)
 	brightness_on = 4
 	flashlight_power = 1.0
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	uv_intensity = 100
 	power_use = FALSE
@@ -52,10 +52,10 @@
 		set_light(brightness_on, flashlight_power, light_color)
 	else
 		set_light(0)
-	cut_overlays()
+	ClearOverlays()
 	var/image/I = image(icon = icon, icon_state = "lavalamp-[on ? "on" : "off"]")
 	I.color = light_color
-	add_overlay(I)
+	AddOverlays(I)
 
 /obj/item/device/flashlight/lamp/lava/red
 	light_color = COLOR_RED

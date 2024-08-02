@@ -44,17 +44,17 @@
 	if(max_hydration > 0)
 		hydration = rand(CREW_MINIMUM_HYDRATION*100, CREW_MAXIMUM_HYDRATION*100) * max_hydration * 0.01
 
-	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/mob/hud_med.dmi', src, "100")
-	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealthy")
+	hud_list[HEALTH_HUD]      = new /image/hud_overlay('icons/hud/hud_med.dmi', src, "100")
+	hud_list[STATUS_HUD]      = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudhealthy")
 	hud_list[ID_HUD]          = new /image/hud_overlay('icons/hud/hud_security.dmi', src, "hudunknown")
 	hud_list[WANTED_HUD]      = new /image/hud_overlay('icons/hud/hud_security.dmi', src, "hudblank")
-	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
-	hud_list[STATUS_HUD_OOC]  = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealthy")
-	hud_list[LIFE_HUD]	      = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudhealthy")
-	hud_list[TRIAGE_HUD]      = new /image/hud_overlay('icons/mob/hud_med.dmi', src, triage_tag)
+	hud_list[IMPLOYAL_HUD]    = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[IMPCHEM_HUD]     = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[IMPTRACK_HUD]    = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudblank")
+	hud_list[STATUS_HUD_OOC]  = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudhealthy")
+	hud_list[LIFE_HUD]	      = new /image/hud_overlay('icons/hud/hud.dmi', src, "hudhealthy")
+	hud_list[TRIAGE_HUD]      = new /image/hud_overlay('icons/hud/hud_med.dmi', src, triage_tag)
 
 	//Scaling down the ID hud
 	var/image/holder = hud_list[ID_HUD]
@@ -101,7 +101,14 @@
 	if(length(species.unarmed_attacks))
 		set_default_attack(species.unarmed_attacks[1])
 
-/mob/living/carbon/human/Destroy()
+/mob/living/carbon/human/Destroy(force)
+	ghost_spawner = null
+
+	//Srom (Shared Dreaming)
+	srom_pulled_by = null
+	srom_pulling = null
+	bg = null //Just to be sure.
+
 	GLOB.human_mob_list -= src
 	GLOB.intent_listener -= src
 	QDEL_LIST(organs)
@@ -227,6 +234,21 @@
 		if(changeling)
 			. += "Chemical Storage: [changeling.chem_charges]"
 			. += "Genetic Damage Time: [changeling.geneticdamage]"
+
+	if(. && istype(back,/obj/item/rig))
+		var/obj/item/rig/R = back
+		if(R && !R.canremove && R.installed_modules.len)
+			var/cell_status = R.cell ? "[R.cell.charge]/[R.cell.maxcharge]" : "ERROR"
+			. += "Suit Charge: [cell_status]"
+
+	var/obj/item/technomancer_core/core = get_technomancer_core()
+	if(core)
+		var/charge_status = "[core.energy]/[core.max_energy] ([round( (core.energy / core.max_energy) * 100)]%) \
+		([round(core.energy_delta)]/s)"
+		var/instability_delta = instability - last_instability
+		var/instability_status = "[src.instability] ([round(instability_delta, 0.1)]/s)"
+		. += "Core Charge: [charge_status]"
+		. += "User instability: [instability_status]"
 
 /mob/living/carbon/human/ex_act(severity)
 	if(!blinded)
@@ -381,10 +403,11 @@
 
 // called when something steps onto a human
 // this handles vehicles
-/mob/living/carbon/human/Crossed(var/atom/movable/AM)
+/mob/living/carbon/human/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	..()
-	if(istype(AM, /obj/vehicle))
-		var/obj/vehicle/V = AM
+
+	if(istype(arrived, /obj/vehicle))
+		var/obj/vehicle/V = arrived
 		V.RunOver(src)
 
 // Get rank from ID, ID inside PDA, PDA, ID in wallet, etc.
@@ -574,15 +597,13 @@
 						if(setcriminal != "Cancel")
 							R.security.criminal = setcriminal
 							modified = 1
-
-							spawn()
-								BITSET(hud_updateflag, WANTED_HUD)
-								if(istype(usr,/mob/living/carbon/human))
-									var/mob/living/carbon/human/U = usr
-									U.handle_regular_hud_updates()
-								if(istype(usr,/mob/living/silicon/robot))
-									var/mob/living/silicon/robot/U = usr
-									U.handle_regular_hud_updates()
+							BITSET(hud_updateflag, WANTED_HUD)
+							if(istype(usr,/mob/living/carbon/human))
+								var/mob/living/carbon/human/U = usr
+								U.handle_regular_hud_updates()
+							if(istype(usr,/mob/living/silicon/robot))
+								var/mob/living/silicon/robot/U = usr
+								U.handle_regular_hud_updates()
 
 			if(!modified)
 				to_chat(usr, EXAMINE_BLOCK_RED(SPAN_WARNING("Unable to locate a data core entry for this person.")))
@@ -677,14 +698,12 @@
 						R.physical_status = setmedical
 						modified = 1
 						SSrecords.reset_manifest()
-
-						spawn()
-							if(istype(usr,/mob/living/carbon/human))
-								var/mob/living/carbon/human/U = usr
-								U.handle_regular_hud_updates()
-							if(istype(usr,/mob/living/silicon/robot))
-								var/mob/living/silicon/robot/U = usr
-								U.handle_regular_hud_updates()
+						if(istype(usr,/mob/living/carbon/human))
+							var/mob/living/carbon/human/U = usr
+							U.handle_regular_hud_updates()
+						if(istype(usr,/mob/living/silicon/robot))
+							var/mob/living/silicon/robot/U = usr
+							U.handle_regular_hud_updates()
 
 			if(!modified)
 				to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(SPAN_WARNING("Unable to locate a data core entry for this person.")))
@@ -816,12 +835,28 @@
 			+ SPAN_WARNING("Remember, this is OOC information.")
 		to_chat(usr, EXAMINE_BLOCK(message))
 
+	if(href_list["default_attk"])
+		if(href_list["default_attk"] == "reset_attk")
+			set_default_attack(null)
+		else
+			var/datum/unarmed_attack/u_attack = locate(href_list["default_attk"])
+			if(u_attack && (u_attack in species.unarmed_attacks))
+				set_default_attack(u_attack)
+		check_attacks()
+		return 1
+
 	..()
 	return
 
 ///eyecheck()
 ///Returns a number between -1 to 2
 /mob/living/carbon/human/get_flash_protection(ignore_inherent = FALSE)
+
+	//Ling
+	var/datum/changeling/changeling = changeling_power(0, 0, 0)
+	if(changeling && changeling.using_thermals)
+		return FLASH_PROTECTION_REDUCED
+
 	if(!species.vision_organ || !species.has_organ[species.vision_organ]) //No eyes, can't hurt them.
 		return FLASH_PROTECTION_MAJOR
 
@@ -1151,7 +1186,7 @@
 	else
 		target.show_message(SPAN_NOTICE("You hear a voice that seems to echo around the room: [say]"))
 	usr.show_message(SPAN_NOTICE("You project your mind into [target.real_name]: [say]"))
-	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]",ckey=key_name(usr))
+	log_say("[key_name(usr)] sent a telepathic message to [key_name(target)]: [say]")
 	for(var/mob/abstract/observer/G in GLOB.dead_mob_list)
 		G.show_message("<i>Telepathic message from <b>[src]</b> to <b>[target]</b>: [say]</i>")
 
@@ -1306,7 +1341,7 @@
 		var/mob/living/carbon/human/H = C
 		if(!blood_DNA[H.dna.unique_enzymes])
 			blood_DNA[H.dna.unique_enzymes] = H.dna.b_type
-		hand_blood_color = H.species?.blood_color
+		hand_blood_color = H.get_blood_color()
 	src.update_inv_gloves()	//handles bloody hands overlays and updating
 	add_verb(src, /mob/living/carbon/human/proc/bloody_doodle)
 	return TRUE //we applied blood to the item
@@ -1477,12 +1512,9 @@
 	if (vessel)
 		restore_blood()
 
-	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
-	if(client && client.screen)
-		client.screen.len = null
-		if(hud_used)
-			qdel(hud_used)
-		hud_used = new /datum/hud(src)
+	// Rebuild the HUD and visual elements.
+	if(client)
+		LateLogin()
 
 	if (src.is_diona())
 		setup_gestalt(1)
@@ -1491,6 +1523,8 @@
 	brute_mod = species.brute_mod
 
 	max_stamina = species.stamina
+	if(HAS_TRAIT(src, TRAIT_ORIGIN_STAMINA_BONUS))
+		max_stamina *= 1.1
 	stamina = max_stamina
 	sprint_speed_factor = species.sprint_speed_factor
 	sprint_cost_factor = species.sprint_cost_factor
@@ -1542,7 +1576,6 @@
 		return TRUE
 	else
 		return FALSE
-
 
 /mob/living/carbon/human/proc/fill_out_culture_data()
 	set_culture(GET_SINGLETON(species.possible_cultures[1]))
@@ -1615,7 +1648,7 @@
 			to_chat(src, SPAN_WARNING("You ran out of blood to write with!"))
 
 		var/obj/effect/decal/cleanable/blood/writing/W = new(T)
-		W.basecolor = (hand_blood_color) ? hand_blood_color : "#A10808"
+		W.basecolor = (hand_blood_color) ? hand_blood_color : COLOR_HUMAN_BLOOD
 		W.update_icon()
 		W.message = message
 		W.add_fingerprint(src)
@@ -1827,6 +1860,8 @@
 	..()
 	if(update_hud)
 		handle_regular_hud_updates()
+	if(eyeobj)
+		eyeobj.remove_visual(src)
 
 
 /mob/living/carbon/human/can_stand_overridden()
@@ -1883,11 +1918,11 @@
 		return
 	var/datum/category_item/underwear/UWI = all_underwear[UWC.name]
 	if(!UWI || UWI.name == "None")
-		to_chat(src, "<span class='notice'>You do not have [UWC.gender==PLURAL ? "[UWC.display_name]" : "any [UWC.display_name]"].</span>")
+		to_chat(src, SPAN_NOTICE("You do not have [UWC.gender==PLURAL ? "[UWC.display_name]" : "any [UWC.display_name]"]."))
 		return
 	hide_underwear[UWC.name] = !hide_underwear[UWC.name]
 	update_underwear(1)
-	to_chat(src, "<span class='notice'>You [hide_underwear[UWC.name] ? "take off" : "put on"] your [UWC.display_name].</span>")
+	to_chat(src, SPAN_NOTICE("You [hide_underwear[UWC.name] ? "take off" : "put on"] your [UWC.display_name]."))
 
 /mob/living/carbon/human/verb/pull_punches()
 	set name = "Pull Punches"
@@ -1956,7 +1991,7 @@
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 	return heart ? heart.pulse : PULSE_NONE
 
-/mob/living/carbon/human/move_to_stomach(atom/movable/victim)
+/mob/living/carbon/human/proc/move_to_stomach(atom/movable/victim)
 	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 	if(istype(stomach))
 		victim.forceMove(stomach)
@@ -2070,7 +2105,7 @@
 		return BULLET_IMPACT_METAL
 	return BULLET_IMPACT_MEAT
 
-/mob/living/carbon/human/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage, var/blocked_ratio)
+/mob/living/carbon/human/bullet_impact_visuals(var/obj/projectile/P, var/def_zone, var/damage, var/blocked_ratio)
 	..()
 	if(blocked_ratio > 0.7)
 		return
@@ -2230,15 +2265,16 @@
 			reset_view(null)
 			QDEL_NULL(z_eye)
 			return
-		var/turf/above = GetAbove(src)
+		var/turf/T = get_turf(src)
+		var/turf/above = GET_TURF_ABOVE(T)
 		if(TURF_IS_MIMICING(above))
 			z_eye = new /atom/movable/z_observer/z_up(src, src)
 			visible_message(SPAN_NOTICE("[src] looks up."), SPAN_NOTICE("You look up."))
 			reset_view(z_eye)
 			return
-		to_chat(src, "<span class='notice'>You can see \the [above ? above : "ceiling"].</span>")
+		to_chat(src, SPAN_NOTICE("You can see \the [above ? above : "ceiling"]."))
 	else
-		to_chat(src, "<span class='notice'>You can't look up right now.</span>")
+		to_chat(src, SPAN_NOTICE("You can't look up right now."))
 
 /mob/living/verb/lookdown()
 	set name = "Look Down"
@@ -2251,21 +2287,21 @@
 			QDEL_NULL(z_eye)
 			return
 		var/turf/T = get_turf(src)
-		if(TURF_IS_MIMICING(T) && HasBelow(T.z))
+		if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
 			z_eye = new /atom/movable/z_observer/z_down(src, src)
 			visible_message(SPAN_NOTICE("[src] looks below."), SPAN_NOTICE("You look below."))
 			reset_view(z_eye)
 			return
 		else
 			T = get_step(T, dir)
-			if(TURF_IS_MIMICING(T) && HasBelow(T.z))
+			if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
 				z_eye = new /atom/movable/z_observer/z_down(src, src, TRUE)
 				visible_message(SPAN_NOTICE("[src] leans over to look below."), SPAN_NOTICE("You lean over to look below."))
 				reset_view(z_eye)
 				return
-		to_chat(src, "<span class='notice'>You can see \the [T ? T : "floor"].</span>")
+		to_chat(src, SPAN_NOTICE("You can see \the [T ? T : "floor"]."))
 	else
-		to_chat(src, "<span class='notice'>You can't look below right now.</span>")
+		to_chat(src, SPAN_NOTICE("You can't look below right now."))
 
 /mob/living/carbon/human/get_speech_bubble_state_modifier()
 	if(speech_bubble_type)

@@ -41,7 +41,7 @@
 	if(emagged)
 		to_chat(user, "Circuit lock is already removed.")
 		return
-	to_chat(user, "<span class='notice'>You override the circuit lock and open controls.</span>")
+	to_chat(user, SPAN_NOTICE("You override the circuit lock and open controls."))
 	emagged = 1
 	locked = 0
 	return 1
@@ -49,16 +49,16 @@
 /obj/item/circuitboard/security/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/card/id))
 		if(emagged)
-			to_chat(user, "<span class='warning'>Circuit lock does not respond.</span>")
+			to_chat(user, SPAN_WARNING("Circuit lock does not respond."))
 			return
 		if(check_access(attacking_item))
 			locked = !locked
-			to_chat(user, "<span class='notice'>You [locked ? "" : "un"]lock the circuit controls.</span>")
+			to_chat(user, SPAN_NOTICE("You [locked ? "" : "un"]lock the circuit controls."))
 		else
-			to_chat(user, "<span class='warning'>Access denied.</span>")
+			to_chat(user, SPAN_WARNING("Access denied."))
 	else if(attacking_item.ismultitool())
 		if(locked)
-			to_chat(user, "<span class='warning'>Circuit controls are locked.</span>")
+			to_chat(user, SPAN_WARNING("Circuit controls are locked."))
 			return
 		var/existing_networks = jointext(network,",")
 		var/input = sanitize( tgui_input_text(user, "Which networks would you like to connect this camera console circuit to? Seperate networks with a comma. No Spaces!\nFor example: SS13,Security,Secret ",

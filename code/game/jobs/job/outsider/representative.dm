@@ -18,6 +18,10 @@
 	access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
 	alt_titles = list("Freelance Journalist")
+	alt_factions = list(
+		"Corporate Reporter" = list("NanoTrasen", "Idris Incorporated", "Hephaestus Industries", "Orion Express", "Zavodskoi Interstellar", "Zeng-Hu Pharmaceuticals", "Private Military Contracting Group", "Stellar Corporate Conglomerate"),
+		"Freelance Journalist" = list("Independent")
+	)
 	alt_outfits = list("Freelance Journalist" = /obj/outfit/job/journalistf)
 	title_accesses = list("Corporate Reporter" = list(ACCESS_MEDICAL, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_ENGINE))
 	outfit = /obj/outfit/job/journalist
@@ -92,10 +96,6 @@
 		)
 	outfit = /obj/outfit/job/representative
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
-
-/datum/job/consular/pre_spawn(mob/abstract/new_player/player)
-	var/datum/faction/faction = SSjobs.name_factions[player.client.prefs.faction]
-	LAZYREMOVE(faction.allowed_role_types, REPRESENTATIVE_ROLE)
 
 /datum/job/representative/after_spawn(mob/living/carbon/human/H)
 	var/datum/faction/faction = SSjobs.GetFaction(H)

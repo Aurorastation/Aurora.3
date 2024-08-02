@@ -2,7 +2,6 @@
 	name = "alien thing"
 	desc = "There's something alien about this."
 	icon = 'icons/obj/gore_structures.dmi'
-	layer = ABOVE_CABLE_LAYER + 0.1
 	anchored = TRUE
 	density = FALSE
 	var/destroy_message = "THE STRUCTURE collapses in on itself!"
@@ -32,7 +31,7 @@
 		visible_message(SPAN_WARNING(final_message))
 		qdel(src)
 
-/obj/structure/gore/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/gore/bullet_act(var/obj/projectile/Proj)
 	health -= Proj.damage
 	healthcheck()
 	return ..()
@@ -50,15 +49,15 @@
 				health -= 25
 	healthcheck()
 
-/obj/structure/gore/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
+/obj/structure/gore/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
-	visible_message(SPAN_WARNING("\The [src] was hit by \the [AM]."))
+	visible_message(SPAN_WARNING("\The [src] was hit by \the [hitting_atom]."))
 	playsound(loc, 'sound/effects/attackblob.ogg', 100, TRUE)
 	var/throw_force = 0
-	if(isobj(AM))
-		var/obj/O = AM
+	if(isobj(hitting_atom))
+		var/obj/O = hitting_atom
 		throw_force = O.throwforce
-	else if(ismob(AM))
+	else if(ismob(hitting_atom))
 		throw_force = 10
 	health -= throw_force
 	healthcheck()
@@ -79,6 +78,6 @@
 /obj/structure/gore/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group)
 		return FALSE
-	if(istype(mover) && mover.checkpass(PASSGLASS))
+	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return !opacity
 	return !density

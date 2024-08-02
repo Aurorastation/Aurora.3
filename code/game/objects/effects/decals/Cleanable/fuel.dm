@@ -4,7 +4,7 @@
 	desc = "Some kind of sticky, flammable liquid."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "fuel"
-	layer = TURF_LAYER+0.2
+	layer = BLOOD_LAYER
 	anchored = 1
 	var/amount = 1
 
@@ -115,7 +115,6 @@
 	gender = PLURAL
 	density = 0
 	anchored = 1
-	layer = 2
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "white_foam"
 	var/amount = 1

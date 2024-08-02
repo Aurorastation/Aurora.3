@@ -99,7 +99,7 @@
 	desc = "Some well-done k'ois, grilled to perfection."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
 	icon_state = "kois_steak"
-	filling_color = "#dcd9cd"
+	filling_color = "#E6E600"
 	reagents_to_add = list(/singleton/reagent/kois = 20, /singleton/reagent/toxin/phoron = 15)
 	bitesize = 7
 
@@ -109,7 +109,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
 	icon_state = "kois_donut"
 	item_state = "kois_donut"
-	filling_color = "#dcd9cd"
+	filling_color = "#E6E600"
 	overlay_state = "box-kois_donut"
 	reagents_to_add = list(/singleton/reagent/kois = 15, /singleton/reagent/toxin/phoron = 10)
 	bitesize = 5
@@ -119,7 +119,7 @@
 	desc = "Baked k'ois goop, molded into a little cake."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
 	icon_state = "kois_muffin"
-	filling_color = "#dcd9cd"
+	filling_color = "#E6E600"
 	reagents_to_add = list(/singleton/reagent/kois = 10, /singleton/reagent/toxin/phoron = 15)
 	bitesize = 5
 
@@ -128,8 +128,16 @@
 	desc = "K'ois inside k'ois. Peak Vaurcesian cuisine."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
 	icon_state = "kois_burger"
-	filling_color = "#dcd9cd"
+	filling_color = "#E6E600"
 	reagents_to_add = list(/singleton/reagent/kois = 20, /singleton/reagent/toxin/phoron = 20)
+	bitesize = 8
+
+/obj/item/reagent_containers/food/snacks/nakarka_burger
+	name = "nakarka burger"
+	desc = "A k'ois burger with a slice of soft, tangy nakarka cheese."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
+	icon_state = "nakarka_burger"
+	filling_color = "#92cc34"
 	bitesize = 8
 
 /obj/item/storage/box/fancy/vkrexitaffy
@@ -196,6 +204,10 @@
 	filling_color = "#E6E600"
 	bitesize = 5
 
+/obj/item/reagent_containers/food/snacks/koisrouladeslice/filled
+	reagents_to_add = list(/singleton/reagent/kois = 6, /singleton/reagent/toxin/phoron = 4)
+	reagent_data = list(/singleton/reagent/kois = list("k'ois" = 5, "party" = 2))
+
 /obj/item/reagent_containers/food/snacks/vkrexiwrap/meat
 	name = "meat v'krexi wrap"
 	desc = "A food invented by Zo'ra Queenless with the intent of appealing to humans, the v'krexi wrap is similar to a burrito but with a special sauce extracted from v'krexi. This one is filled with meat."
@@ -220,3 +232,20 @@
 	filling_color = "#E6E600"
 	reagents_to_add = list(/singleton/reagent/kois = 15, /singleton/reagent/toxin/phoron = 35)
 	bitesize = 10
+
+/obj/item/reagent_containers/food/snacks/koicomb
+	name = "koicomb"
+	desc = "vvvell aren't vvve vvvancy? this uncommon confection is often served in large gatherings and events, where it's served as a very large sheet, with guests tearing or slicing off as much as they'd like to have."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
+	icon_state = "koicomb"
+	filling_color = "#E6E600"
+	reagents_to_add = list(/singleton/reagent/kois = 20, /singleton/reagent/toxin/phoron = 20, /singleton/reagent/drink/milk/nemiik = 5)
+	bitesize = 8
+
+/obj/item/reagent_containers/food/snacks/koicomb/update_icon()
+	var/percent_koicomb = round((reagents.total_volume / 45) * 100)
+	switch(percent_koicomb)
+		if(0 to 50)
+			icon_state = "koicomb_bitten"
+		if(51 to INFINITY)
+			icon_state = "koicomb"

@@ -272,7 +272,7 @@
 	var/mobpath = input("Which type of mob should [src] turn into?", "Choose a type") in mobtypes
 
 	if(!safe_animal(mobpath))
-		to_chat(usr, "<span class='warning'>Sorry but this mob type is currently unavailable.</span>")
+		to_chat(usr, SPAN_WARNING("Sorry but this mob type is currently unavailable."))
 		return
 
 	if(transforming)
@@ -306,7 +306,7 @@
 	var/mobpath = input("Which type of mob should [src] turn into?", "Choose a type") in mobtypes
 
 	if(!safe_animal(mobpath))
-		to_chat(usr, "<span class='warning'>Sorry but this mob type is currently unavailable.</span>")
+		to_chat(usr, SPAN_WARNING("Sorry but this mob type is currently unavailable."))
 		return
 
 	var/mob/new_mob = new mobpath(src.loc)

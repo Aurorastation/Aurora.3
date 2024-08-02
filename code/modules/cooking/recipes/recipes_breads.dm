@@ -446,3 +446,26 @@
 	fruit = list("tomato" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/pita/falafel
+
+/singleton/recipe/peanut_butter_pita
+	items = list(
+	/obj/item/reagent_containers/food/snacks/pita,
+	)
+	reagents = list(/singleton/reagent/nutriment/peanutbutter = 5)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/pita/peanut_butter
+
+/singleton/recipe/omelette_pita //this recipe might get changed in the future
+	items = list(
+	/obj/item/reagent_containers/food/snacks/pita,
+	/obj/item/reagent_containers/food/snacks/omelette
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/pita/omelette
+
+/singleton/recipe/schnitzel_pita
+	items = list(
+	/obj/item/reagent_containers/food/snacks/pita,
+	/obj/item/reagent_containers/food/snacks/schnitzel
+	)
+	result = /obj/item/reagent_containers/food/snacks/pita/schnitzel

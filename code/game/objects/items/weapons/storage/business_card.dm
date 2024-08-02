@@ -4,12 +4,12 @@
 	storage_slots = 5
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "holder"
-	w_class = ITEMSIZE_TINY
-	max_w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
+	max_w_class = WEIGHT_CLASS_TINY
 	can_hold = list(/obj/item/paper/business_card)
 
 /obj/item/storage/business_card_holder/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/overlay_type
 	if(length(contents))
 		var/obj/O = contents[1]
@@ -22,7 +22,7 @@
 			card_overlay.color = O.color
 		else
 			card_overlay.appearance_flags = RESET_COLOR
-		add_overlay(card_overlay)
+		AddOverlays(card_overlay)
 
 /obj/item/storage/business_card_holder/wood
 	icon_state = "holder_wood"
@@ -44,8 +44,8 @@
 /obj/item/paper/business_card/update_icon()
 	. = ..()
 	if(worn_overlay)
-		cut_overlays()
-		add_overlay(overlay_image(icon, worn_overlay, flags=RESET_COLOR))
+		ClearOverlays()
+		AddOverlays(overlay_image(icon, worn_overlay, flags=RESET_COLOR))
 
 /obj/item/paper/business_card/attack_self(mob/living/user)
 	if(last_flash <= world.time - 20)

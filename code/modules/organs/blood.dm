@@ -43,44 +43,43 @@
 	var/spraydir = pick(GLOB.alldirs)
 	amt = Ceiling(amt/BLOOD_SPRAY_DISTANCE)
 	var/bled = 0
-	spawn(0)
-		for(var/i = 1 to BLOOD_SPRAY_DISTANCE)
-			sprayloc = get_step(sprayloc, spraydir)
-			if(!istype(sprayloc) || (sprayloc.density && !iswall(sprayloc)))
-				break
-			var/hit_mob
-			for(var/thing in sprayloc)
-				var/atom/A = thing
-				if(!A.simulated)
-					continue
+	for(var/i = 1 to BLOOD_SPRAY_DISTANCE)
+		sprayloc = get_step(sprayloc, spraydir)
+		if(!istype(sprayloc) || (sprayloc.density && !iswall(sprayloc)))
+			break
+		var/hit_mob
+		for(var/thing in sprayloc)
+			var/atom/A = thing
+			if(!A.simulated)
+				continue
 
-				if(ishuman(A))
-					var/mob/living/carbon/human/H = A
-					if(!H.lying)
-						H.bloody_body(src)
-						H.bloody_hands(src)
-						var/blinding = FALSE
-						if(ran_zone(BP_HEAD, 75))
-							blinding = TRUE
-							for(var/obj/item/I in list(H.head, H.glasses, H.wear_mask))
-								if(I && (I.body_parts_covered & EYES))
-									blinding = FALSE
-									break
-						if(blinding)
-							H.eye_blurry = max(H.eye_blurry, 10)
-							H.eye_blind = max(H.eye_blind, 5)
-							to_chat(H, "<span class='danger'>You are blinded by a spray of blood!</span>")
-						else
-							to_chat(H, "<span class='danger'>You are hit by a spray of blood!</span>")
-						hit_mob = TRUE
+			if(ishuman(A))
+				var/mob/living/carbon/human/H = A
+				if(!H.lying)
+					H.bloody_body(src)
+					H.bloody_hands(src)
+					var/blinding = FALSE
+					if(ran_zone(BP_HEAD, 75))
+						blinding = TRUE
+						for(var/obj/item/I in list(H.head, H.glasses, H.wear_mask))
+							if(I && (I.body_parts_covered & EYES))
+								blinding = FALSE
+								break
+					if(blinding)
+						H.eye_blurry = max(H.eye_blurry, 10)
+						H.eye_blind = max(H.eye_blind, 5)
+						to_chat(H, SPAN_DANGER("You are blinded by a spray of blood!"))
+					else
+						to_chat(H, SPAN_DANGER("You are hit by a spray of blood!"))
+					hit_mob = TRUE
 
-				if(!(A.CanPass(src, sprayloc)) || hit_mob)
-					continue
+			if(!(A.CanPass(src, sprayloc)) || hit_mob)
+				continue
 
-			drip(amt, sprayloc, spraydir)
-			bled += amt
-			if(hit_mob || iswall(sprayloc))
-				break
+		drip(amt, sprayloc, spraydir)
+		bled += amt
+		if(hit_mob || iswall(sprayloc))
+			break
 	return bled
 #undef BLOOD_SPRAY_DISTANCE
 
@@ -176,28 +175,50 @@
 	vessel.add_reagent(/singleton/reagent/blood, amount, REAGENT_DATA(donor, /singleton/reagent/blood), temperature = species?.body_temperature)
 	..()
 
-/proc/blood_incompatible(donor,receiver,donor_species,receiver_species)
-	if(!donor || !receiver) return 0
+/// Returns true if blood is incompatible, false otherwise.
+/// Checks donor and receiver blood types, both args are strings.
+/proc/blood_incompatible(var/donor, var/receiver, var/donor_species, var/receiver_species)
+	// Early exit so as to not check bad args
+	if(!donor || !receiver)
+		return FALSE
 
+	// Check species
 	if(donor_species && receiver_species)
 		if(donor_species != receiver_species)
-			return 1
+			return TRUE
 
+	// Check for Synthetic Blood Substitute (SBS).
+	// SBS is supposed to be incompatible with non-SBS, and the other way around.
+	if(donor=="SBS" || receiver=="SBS")
+		if(donor!=receiver)
+			return TRUE
+
+	// Parse the blood type
 	var/donor_antigen = copytext(donor,1,length(donor))
 	var/receiver_antigen = copytext(receiver,1,length(receiver))
 	var/donor_rh = (findtext(donor,"+")>0)
 	var/receiver_rh = (findtext(receiver,"+")>0)
 
-	if(donor_rh && !receiver_rh) return 1
+	// Do the actual check
+	if(donor_rh && !receiver_rh)
+		return TRUE
 	switch(receiver_antigen)
 		if("A")
-			if(donor_antigen != "A" && donor_antigen != "O") return 1
+			if(donor_antigen != "A" && donor_antigen != "O") return TRUE
 		if("B")
-			if(donor_antigen != "B" && donor_antigen != "O") return 1
+			if(donor_antigen != "B" && donor_antigen != "O") return TRUE
 		if("O")
-			if(donor_antigen != "O") return 1
+			if(donor_antigen != "O") return TRUE
 		//AB is a universal receiver.
-	return 0
+	return FALSE
+
+/mob/living/carbon/proc/get_blood_color()
+	if(dna?.b_type == "SBS") // synthetic blood substitute
+		return COLOR_SYNTH_BLOOD
+	else if(species)
+		return species.blood_color
+	else
+		return COLOR_HUMAN_BLOOD
 
 /mob/living/carbon/proc/get_blood_data()
 	var/data = list()
@@ -210,7 +231,7 @@
 		data["blood_type"] = "O+"
 	if(species)
 		data["species"] = species.bodytype
-		data["blood_colour"] = species.blood_color
+		data["blood_colour"] = get_blood_color()
 	var/list/temp_chem = list()
 	for(var/R in reagents.reagent_volumes)
 		temp_chem[R] = REAGENT_VOLUME(reagents, R)

@@ -192,13 +192,13 @@
 	if(H.wear_suit != src) return
 
 	if(H.head == helmet)
-		to_chat(H, "<span class='notice'>You retract your suit helmet.</span>")
+		to_chat(H, SPAN_NOTICE("You retract your suit helmet."))
 		playsound(loc, helmet_retract_sound, 30)
 		helmet.canremove = 1
 		H.drop_from_inventory(helmet,src)
 	else
 		if(H.head)
-			to_chat(H, "<span class='danger'>You cannot deploy your helmet while wearing \the [H.head].</span>")
+			to_chat(H, SPAN_DANGER("You cannot deploy your helmet while wearing \the [H.head]."))
 			return
 		if(H.equip_to_slot_if_possible(helmet, slot_head))
 			helmet.pickup(H)
@@ -314,6 +314,8 @@
 	else if(istype(attacking_item,/obj/item/tank))
 		if(tank)
 			to_chat(user, "\The [src] already has an airtank installed.")
+		else if(cooler)
+			to_chat(user, "\The [src] already has a suit cooler installed, there is no room for an airtank.")
 		else if(istype(attacking_item,/obj/item/tank/phoron))
 			to_chat(user, "\The [attacking_item] cannot be inserted into \the [src]'s storage compartment.")
 		else
@@ -325,6 +327,8 @@
 	else if (istype(attacking_item, /obj/item/device/suit_cooling_unit))
 		if(cooler)
 			to_chat(user, "\The [src] already has a suit cooler installed.")
+		else if(tank)
+			to_chat(user, "\The [src] already has an airtank installed, there is no room for a suit cooler.")
 		else
 			playsound(src, 'sound/items/Deconstruct.ogg', 30, 1)
 			to_chat(user, "You insert \the [attacking_item] into \the [src]'s storage compartment.")

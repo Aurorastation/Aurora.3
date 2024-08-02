@@ -2,7 +2,7 @@
 	// Welcome to the
 	name = "Jungle"
 	surface_turfs = list(
-		/turf/simulated/mineral
+		/turf/simulated/mineral/planet
 	)
 	mountain_threshold = 0.8
 	possible_biomes = list(
@@ -38,7 +38,7 @@
 /datum/exoplanet_theme/konyang
 	name = "Konyang"
 	surface_turfs = list(
-		/turf/simulated/mineral
+		/turf/simulated/mineral/planet
 	)
 	mountain_threshold = 0.6
 	possible_biomes = list(
@@ -73,7 +73,7 @@
 
 /datum/exoplanet_theme/konyang/uncharted
 	surface_turfs = list(
-		/turf/simulated/mineral
+		/turf/simulated/mineral/planet
 	)
 	mountain_threshold = 0.8
 	possible_biomes = list(
@@ -108,7 +108,7 @@
 
 /datum/exoplanet_theme/konyang/ocean
 	surface_turfs = list(
-		/turf/simulated/mineral
+		/turf/simulated/mineral/planet
 	)
 	mountain_threshold = 1
 	possible_biomes = list(
@@ -143,7 +143,7 @@
 
 /datum/exoplanet_theme/konyang/underground//more cave biomes TBD
 	surface_turfs = list(
-		/turf/simulated/mineral
+		/turf/simulated/mineral/planet
 	)
 	mountain_threshold = 0.35
 	possible_biomes = list(
@@ -179,7 +179,7 @@
 
 /datum/exoplanet_theme/konyang/abandoned
 	surface_turfs = list(
-		/turf/simulated/mineral
+		/turf/simulated/mineral/planet
 	)
 	mountain_threshold = 0.8
 	possible_biomes = list(

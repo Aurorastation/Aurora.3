@@ -23,8 +23,8 @@
 	var/l_hacking = 0
 	var/emagged = 0
 	var/open = 0
-	w_class = ITEMSIZE_LARGE
-	max_w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_BULKY
+	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 16
 	use_sound = 'sound/items/storage/briefcase.ogg'
 
@@ -105,15 +105,15 @@
 				src.l_set = 1
 			else if ((src.code == src.l_code) && (src.emagged == 0) && (src.l_set == 1))
 				src.locked = 0
-				cut_overlays()
-				add_overlay(icon_opened)
+				ClearOverlays()
+				AddOverlays(icon_opened)
 				src.code = null
 			else
 				src.code = "ERROR"
 		else
 			if ((href_list["type"] == "R") && (src.emagged == 0) && (!src.l_setshort))
 				src.locked = 1
-				cut_overlays()
+				ClearOverlays()
 				src.code = null
 				src.close(usr)
 			else
@@ -130,10 +130,10 @@
 /obj/item/storage/secure/emag_act(var/remaining_charges, var/mob/user, var/feedback)
 	if(!emagged)
 		emagged = 1
-		add_overlay(icon_sparking)
+		AddOverlays(icon_sparking)
 		sleep(6)
-		cut_overlays()
-		add_overlay(icon_locking)
+		ClearOverlays()
+		AddOverlays(icon_locking)
 		locked = 0
 		to_chat(user, (feedback ? feedback : "You short out the lock of \the [src]."))
 		return 1
@@ -155,11 +155,11 @@
 	force = 18
 	throw_speed = 1
 	throw_range = 4
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/storage/secure/briefcase/attack_hand(mob/user as mob)
 	if((src.loc == user) && (src.locked == 1))
-		to_chat(usr, "<span class='warning'>[src] is locked and cannot be opened!</span>")
+		to_chat(usr, SPAN_WARNING("[src] is locked and cannot be opened!"))
 	else if((src.loc == user) && (!src.locked))
 		src.open(usr)
 	else
@@ -182,8 +182,8 @@
 	icon_locking = "safeb"
 	icon_sparking = "safespark"
 	force = 18
-	w_class = ITEMSIZE_IMMENSE
-	max_w_class = ITEMSIZE_IMMENSE
+	w_class = WEIGHT_CLASS_GIGANTIC
+	max_w_class = WEIGHT_CLASS_GIGANTIC
 	anchored = 1.0
 	density = 0
 	cant_hold = list(/obj/item/storage/secure/briefcase)

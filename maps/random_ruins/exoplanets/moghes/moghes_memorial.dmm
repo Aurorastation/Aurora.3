@@ -1,0 +1,168 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/sign/moghes_memorial,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 303.15
+	},
+/area/template_noop)
+"f" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/sign/flag/hegemony,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 303.15
+	},
+/area/template_noop)
+"g" = (
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 303.15
+	},
+/area/template_noop)
+"p" = (
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/template_noop)
+"s" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/sign/flag/hegemony,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 303.15
+	},
+/area/template_noop)
+"w" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 303.15
+	},
+/area/template_noop)
+"E" = (
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 303.15
+	},
+/area/template_noop)
+"J" = (
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/template_noop)
+"M" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 303.15
+	},
+/area/template_noop)
+"O" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 303.15
+	},
+/area/template_noop)
+"Q" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 303.15
+	},
+/area/template_noop)
+"T" = (
+/obj/item/flame/candle,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 303.15
+	},
+/area/template_noop)
+"V" = (
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 303.15
+	},
+/area/template_noop)
+"X" = (
+/obj/item/material/hatchet/unathiknife,
+/obj/item/flame/candle,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 303.15
+	},
+/area/template_noop)
+
+(1,1,1) = {"
+p
+p
+J
+J
+J
+p
+p
+"}
+(2,1,1) = {"
+p
+s
+O
+O
+O
+V
+p
+"}
+(3,1,1) = {"
+J
+w
+E
+T
+E
+g
+J
+"}
+(4,1,1) = {"
+p
+w
+E
+a
+X
+E
+p
+"}
+(5,1,1) = {"
+J
+w
+E
+T
+E
+g
+J
+"}
+(6,1,1) = {"
+J
+f
+M
+M
+M
+Q
+p
+"}
+(7,1,1) = {"
+p
+p
+J
+p
+p
+J
+p
+"}

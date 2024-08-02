@@ -21,6 +21,11 @@
 	path = /obj/item/clothing/mask/cloth
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/mask/snood
+	display_name = "snood"
+	path = /obj/item/clothing/mask/snood
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/mask/gadpathur
 	display_name = "gadpathurian rebreather"
 	path = /obj/item/clothing/mask/breath/gadpathur

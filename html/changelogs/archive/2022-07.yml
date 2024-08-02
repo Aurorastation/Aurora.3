@@ -1,0 +1,322 @@
+2022-07-01:
+  FlamingLily:
+  - bugfix: Fixed missing sprites on versebooks.
+  - imageadd: Replaced the trinary bible sprite with one of the trinary logo.
+  JohnWildkins:
+  - backend: Optimized character setup mob previews; removed a source of server-crushing
+      lag in the process.
+  TheDanseMacabre:
+  - rscadd: Added a number of Solarian warlord variants of the normal Sol voidsuit,
+      spawning in the FSF ship, worn by the FSF ERT, or through modkits that spawn
+      in the sol gear crates.
+  - tweak: Reworded the Vulture voidsuit&#x27;s description slightly.
+  - rscadd: The Orion Express shuttle has been remade into a mobile refueling station.
+      It&#x27;s a lot like a gas station. Credits to Robotic Potato for the map.
+2022-07-02:
+  TheDanseMacabre:
+  - rscadd: The CMO, CE, RD, and OM now all have miniature disruptors in their lockers.
+  Wowzewow (Wezzy), Desven, Xev:
+  - imageadd: Resprites the Vaurca Breeder and their clothes.
+  - rscadd: Adds new Vaurca Breeder hairstyles.
+  - rscadd: Vaurca Breeder wings can now open and close.
+  - bugfix: Fixes Vaurca breeders having wrong origin cultures to choose from.
+2022-07-05:
+  SleepyGemmy:
+  - tweak: Reworks and fixes full windows.
+  - maptweak: Replaces all old windows on the Horizon with the new full ones.
+  - rscadd: Adds new full-sized steel and plasteel floor tiles.
+  TheDanseMacabre:
+  - bugfix: Fixed helmet descriptions for a few warlord helmets. Also made it so the
+      SRF modkit will not turn the armor into a helmet.
+2022-07-06:
+  MattAtlas:
+  - bugfix: Broken consoles now properly display the broken sprite, instead of only
+      a floating error screen.
+  - bugfix: Fixed the None gradient/fade being unselectable.
+  SleepyGemmy:
+  - bugfix: Fixes CE windows not tinting.
+2022-07-07:
+  Doc:
+  - maptweak: Adds rechargers to departments which do not have them, and to the brig.
+  FlamingLily:
+  - bugfix: Fixes the flavour of moss dumplings.
+  ImmortalRedshirt:
+  - rscadd: Adds various in-universe holidays to the code
+  - tweak: Adds the next few Easter sundays up until 2025.
+  - rscdel: Removes unneeded holidays from code.
+  MattAtlas:
+  - bugfix: Fixes the IAC hazard vest not having a sprite.
+  - bugfix: Shuttle walls can now properly be interacted with, just like normal walls.
+      This means you can break them with weapons, put APC frames on them, etc.
+  - bugfix: Material cut delays now work properly. Since the shuttle walls can now
+      be cut open through welding, there is an extra 20 second delay to it for them.
+  - bugfix: Fixes girder attack animation.
+  Wowzewow (Wezzy):
+  - imageadd: Adds new sprites, rollerbed from Bay and vitals monitor modified from
+      /tg/.
+  Wowzewow (Wezzy), AmoryBlaine:
+  - rscadd: Improves the sprites for TCFL uniforms.
+2022-07-08:
+  MattAtlas:
+  - bugfix: Fixed the TCFL uniforms being invisible.
+  - bugfix: Fixes telecomms machinery being unable to be deconstructed and spitting
+      out infinite components.
+2022-07-09:
+  TheDanseMacabre:
+  - tweak: The Everyman pistol now has a much better sprite, courtesy of t0l, and
+      a reworked description.
+2022-07-10:
+  Doc:
+  - bugfix: Fixes the Coalition flagpatch east/west faces showing the Solarian flagpatch
+      sprites.
+  ImmortalRedshirt:
+  - tweak: Adds a Himean holiday from the lore to Holidays.dm
+  Wowzewow (Wezzy):
+  - imageadd: Sorts and improves the sprites in storage.dmi. Backpacks, satchels,
+      duffels and rucksacks should have their inhands display properly.
+  - bugfix: Fixes broken job-specific satchels and bags.
+2022-07-11:
+  BLUNTFORCE420:
+  - tweak: Updates the Tanto/c05r to better fit the Aurora artstyle, mimicking the
+      design of the new Everyman sprite.
+  Ben10083:
+  - maptweak: TCFL away ship now has a few copies of the Biesel Constitution onboard.
+      Go Biesel!
+  Connorjg1:
+  - tweak: K&#x27;lax and C&#x27;thur language augments no longer cost 2 loadout points,
+      instead now costing 0.
+  - rscadd: Vaurca Bulwarks can now be scientists/lab assistants, intention being
+      for them to be xenoarchaeologists. They can also be reporters.
+  - bugfix: Vaurca Breeders can no longer be scientists.
+  MattAtlas:
+  - bugfix: Fixes duffel bag icons. Again.
+  Niennab:
+  - rscadd: Added chelsea punk alternative, fade manbun, fade clean, clean low, and
+      tress shoulder double hair styles.
+  - rscadd: Added short sleeve and sleeveless colourable male hanboks.
+  - tweak: Changes the female Hanbok as well as straight long hair and sleeze hair.
+  SleepyGemmy:
+  - bugfix: Fixes windows and window frames on Centcomm not smoothing.
+  TheDanseMacabre:
+  - rscadd: Added a civilian station away site. It&#x27;s part gas station, part strip
+      mall, part motel!
+  - rscadd: Added a local militia third party ship. They&#x27;re neutral towards Biesel
+      and the SCC, and mostly focus on protecting their region of space from pirates.
+      They can also double as mercenaries.
+  - bugfix: Fixed a few oversights on the civilian station. First being that it had
+      no overmap site, second being it had no holopads, and lastly a number of missing
+      items, from clothing to first aid to ammo.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes duffel bags.
+  - bugfix: Fixes CE uniform being unable to be unrolled.
+2022-07-12:
+  KingOfThePing:
+  - maptweak: Removes some mismapped lights in the kitchen.
+  - tweak: Replaces the cow crate for the kitchen with a cow.
+  - rscadd: Adds a chicken, so the cow has a friend.
+  - rscadd: Adds some chicken meat to the fish fridge. No cross-contamination, promise.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes invisible Vaurca projectors.
+2022-07-13:
+  MattAtlas:
+  - bugfix: Added extinguisher refiller cartridges to Engineering&#x27;s locker room,
+      Atmospheric Technician lockers and one in EVA.
+2022-07-14:
+  Alberyk:
+  - bugfix: Replaced a couple of references to the cargo and supply department with
+      operations.
+  - tweak: Department jackets are no longer NanoTrasen branded on their sprites.
+  Doc:
+  - rscdel: Cleans up several items from the now-decanonized Techno Conglomerate.
+  - tweak: Reflavors the Techno Conglomerate ninja hardsuit to generecized frontier
+      hardsuit.
+  DreamySkrell:
+  - bugfix: Protolathe now ejects plasteel properly.
+  MattAtlas:
+  - bugfix: Fixed the Smartfridge access in Exploratory Chemistry.
+  - bugfix: Picking up items now correctly applies their colour to the animation.
+  - bugfix: Fixes the paper sack held icon.
+  - backend: The Xenoarch subsystem no longer enters into a potential infinite loop.
+  - backend: Sanasomnum now has a specific heat.
+2022-07-15:
+  DreamySkrell:
+  - rscadd: Emergency softsuit and air for emergency pod survivors.
+  - bugfix: Some emergency pod survivors no longer spawn with no EVA gear.
+2022-07-16:
+  DreamySkrell:
+  - bugfix: Silicons can un-electrify doors.
+  SleepyGemmy:
+  - rscadd: Fixes some hull windows using the wrong grilles.
+2022-07-17:
+  DreamySkrell:
+  - rscadd: Added a Skrell Hair Gradient - Headtail Hard Fade.
+  Llywelwyn:
+  - spellcheck: Fixed some grammar in the flagpatch loadout items.
+  TheDanseMacabre:
+  - tweak: Raiders no longer have such a blatantly silly pirate theme. They also have
+      greater variation in their voidsuits.
+  - rscdel: Removed a large number of items that are low quality, referential, or
+      both.
+  - rscdel: Removed the Deus Ex trenchcoat from the HoS&#x27; locker.
+  - rscdel: Changed the descriptions of certain things that contained server-inappropriate
+      themes.
+  - tweak: Descriptions for the freelancer suit and helmet and the old detective&#x27;s
+      revolver has been changed.
+  - balance: Freelancer voidsuit has been buffed slightly.
+2022-07-19:
+  Wowzewow (Wezzy):
+  - tweak: Pocketbook and Satchel onmob sprites have been tweaked. Pocketbook has
+      unique onmobs now.
+  - bugfix: Pocketbook and satchel onmob worn overlays should display properly when
+      worn on the back slot.
+  - imageadd: Syndicate satchels have inhands now.
+  - bugfix: Fixes lockbox inhands.
+2022-07-20:
+  BLUNTFORCE420:
+  - tweak: Resprited the Retro Laser.
+  - tweak: Cuts the fire delay in half, putting the fire rate on-par with the much
+      more powerful laser rifle.
+  DreamySkrell:
+  - rscadd: SCC faction characters can now take non-SCC faction items (like a XO can
+      now take an Idris beret).
+  - rscadd: SCC faction characters can now take non-SCC faction augs (like CMO can
+      now take the Zeng faceplate).
+  Llywelwyn, RyverStyx, WhatsUpBrotendo:
+  - rscadd: Adds Bulwark versions of the jargon uniforms.
+  MattAtlas:
+  - rscadd: Mirror reflections have been re-enabled. They no longer crash the game.
+  TheDanseMacabre:
+  - rscadd: Added a Solarian army uniform.
+  - tweak: Resprited the military modular armor and made it into Solarian military
+      armor.
+  - bugfix: Fixed a number of icon errors with Solarian uniforms.
+  - balance: Made the military armor gear match the antag heavy armor&#x27;s stats.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes pickup animations not applying overlays and not layering over mobs.
+  - bugfix: Fixes colored chairs not re-applying colors when picked up and placed
+      down.
+2022-07-21:
+  Alberyk:
+  - rscdel: Removed the phoron researcher alt-title.
+2022-07-23:
+  DreamySkrell:
+  - bugfix: '`Skrell Headtail Middle` hair gradient can now be selectable again.'
+  SilvieSZ:
+  - rscadd: Adds the Vysokan Origin for IPCs
+  SleepyGemmy:
+  - bugfix: Fixes the RD lacking access to the Intrepid cockpit.
+  TheDanseMacabre:
+  - rscadd: As a result of recent lore updates, the SFA ship has been enabled to spawn
+      in the CRZ and disabled in Tau Ceti. Also adds SFA warlord armor.
+  WhatsUpBrotendo:
+  - tweak: Removed the nose pixel from Skrell sprites.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes hats for maintenance drones not working with contained sprites.
+      Makes it so hats fit better on maintenace drones.
+  - rscdel: Removes superfluous examine text from maintenance drones.
+2022-07-24:
+  DreamySkrell:
+  - tweak: Allow AI to change alert level (again).
+  TheDanseMacabre:
+  - tweak: Five mercenaries can now spawn instead of four. The cap on raiders has
+      been lowered from six to five.
+2022-07-26:
+  DreamySkrell:
+  - bugfix: Pumpkin spice bottle wrong label fix.
+  MattAtlas:
+  - bugfix: Pointblank shots no longer have a chance to miss.
+  listerla:
+  - spellcheck: Fixed spelling, grammar errors, and other mistakes in Dominian standards
+      descriptions.
+2022-07-27:
+  DreamySkrell:
+  - bugfix: Axiori Skrell can now use &#x27;Attach Nymph Limb&#x27; verb.
+  ImmortalRedshirt:
+  - bugfix: Self-examine now shows a character&#x27;s correct gender in chat.
+  SilverSZ:
+  - rscdel: Removes the Gadpathur, Fisanduh and Scarab accents from the ACCENTS_ALL_IPC
+      define
+  Wowzewow (Wezzy):
+  - bugfix: Fixes surgery kits showing up with the wrong sprites.
+2022-07-28:
+  Kapu1178, Lohikar, MattAtlas:
+  - backend: Ported a ZAS performance improvement.
+  MattAtlas:
+  - bugfix: IPCs can now take the Jupiter accent.
+  TheDocOct:
+  - bugfix: Fixes the kneebreaker hammer actually functioning as a crowbar.
+2022-07-29:
+  CourierBravo:
+  - rscadd: adds 3 PAI Cards around Deck 2, and a rubber ducky.
+  - rscadd: Adds a new asteroid structure.
+  Doc:
+  - maptweak: Added a new garden area attached to the third deck cafe, featuring Patience.
+  - maptweak: Moved Stargazer to the central ring.
+  DreamySkrell:
+  - tweak: Lower the max mob size that can be crushed by airlocks. Now crusher, ian,
+      chauncey, or columbo, no longer get crushed.
+  FlamingLily:
+  - rscadd: Added a crate contents scanner, used to quickly and easily generate a
+      paper showing the contents of any scanned (unlocked) crate.
+  - maptweak: Shifted the table in the warehouse over slightly, and made it bigger.
+  KingOfThePing:
+  - tweak: Tweaks the message victims of stealth vampire feeding get, to allow the
+      vampire more freedom in how to frame it.
+  Omicega:
+  - bugfix: Adds the Jovian accent to an overlooked IPC origin.
+  TheDanseMacabre:
+  - rscadd: Minor changes to the Sol equipment locker at the mercenary base.
+  - tweak: The nuclear bomb no longer spawns on the mercenary shuttle. It now spawns
+      in the base itself.
+  - rscdel: Mercenaries no longer get 3 maxcap TTVs for free.
+  WhatsUpBrotendo:
+  - rscadd: Added Tattuqig accent as an option for Traverse Skrell.
+  Wowzewow (Wezzy):
+  - imageadd: Adds new hardhat, firesuit and firesuit helmet sprites. Ported and modified
+      from /tg/ and Bee.
+  - tweak: Red firefighting helmets have been superceded by the Atmos firesuit helmets.
+  - rscdel: Golems no longer can wear firesuits. They literally can&#x27;t wear anything
+      else anyway.
+  - rscadd: Zavodskoi and Hephaestus Engineers now spawn with hardhats which match
+      their uniforms.
+  - rscadd: New green hardhat! Enjoy Hephaestus green! All other hardhats tweaked
+      to match uniforms!
+  - imageadd: Resprites EMT helmet.
+  Yonnimer:
+  - tweak: Modifies the dionae right hand to look more attached to the body.
+  listerla:
+  - tweak: Dominian Dionae can now access Dominian items.
+  - rscadd: Excavation pick sets are now available in the protolathe.
+  - rscdel: Removed suspension field ID lock.
+  - rscdel: Removed suspension field options with no functions.
+  - soundadd: Added sounds to some xenoarcheology equipment.
+  - imageadd: Ported new sprites for xenoarcheology equipment and finds, from Polaris
+      and Baystation.
+2022-07-30:
+  MattAtlas:
+  - rscadd: Added skyboxes sprited by Kyres1.
+  - rscdel: Parallax settings have been removed.
+  SleepyGemmy:
+  - bugfix: Fixes unsimulated steel walls not smoothing with simulated steel window
+      frames.
+  Wowzewow (Wezzy):
+  - tweak: Overeasy egg taste description are no longer subject to developer preference.
+2022-07-31:
+  JohnWildkins:
+  - bugfix: Ruins should no longer generate on top of each other.
+  - backend: Starlight generation is now handled in SSlighting, so temporary space
+      tiles are not calculated.
+  - backend: Fixed an issue where exoplanets were creating 2x as many necessary space
+      tiles during generation.
+  - backend: Moved SSxenoarch init above SSlobby.
+  KingOfThePing:
+  - tweak: Nerfed the improvised (powered) crossbow in damage. It does not pin you
+      to walls anymore either.
+  - rscadd: Adds 2 Pneumalin autoinhalers to the Intrepid&#x27;s, the mining shuttle&#x27;s
+      and the Medbay&#x27;s stabilization locker.
+  KingOfThePing, TheLancer:
+  - rscadd: Added two new, animated kitchen signs. Paradise Sands from Silversun and
+      City Alive from Eridani I.
+  - tweak: Tweaked one bar sign description to align with recent Eridani lore changes.
+  SleepyGemmy:
+  - bugfix: Fixes some oversights in the auxiliary custodial closet.

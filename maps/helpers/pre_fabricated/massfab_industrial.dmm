@@ -1,0 +1,3317 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ak" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 18
+	},
+/obj/machinery/biogenerator/small/east{
+	pixel_y = -4
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"an" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/concrete,
+/area/space)
+"ao" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 8
+	},
+/obj/structure/table/steel,
+/obj/item/storage/belt/mining,
+/obj/item/device/gps/mining,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"aS" = (
+/obj/machinery/door/urban/glass_sliding/double{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"bo" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 5
+	},
+/obj/machinery/suit_cycler/mining/prepared,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"bx" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 10
+	},
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"bR" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 9
+	},
+/obj/machinery/suit_cycler/mining/prepared,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"bS" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"bV" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 9
+	},
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"ca" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 6
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/large/stab,
+/obj/item/storage/firstaid/regular,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"cv" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"cE" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 10
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/tray/machinist,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"cY" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"db" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 6
+	},
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"dL" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 9
+	},
+/obj/structure/closet/walllocker{
+	pixel_y = 29
+	},
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/head/welding,
+/obj/item/clothing/head/welding,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"dN" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 10
+	},
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"dP" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 1
+	},
+/obj/machinery/optable,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"dQ" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 10
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/large/stab,
+/obj/item/storage/firstaid/regular,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"dY" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12;
+	pixel_y = 18
+	},
+/obj/machinery/biogenerator/small/west{
+	pixel_y = -4
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"ey" = (
+/obj/structure/table/rack/retail_shelf,
+/turf/simulated/floor/concrete,
+/area/space)
+"fq" = (
+/turf/template_noop,
+/area/space)
+"fI" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"gh" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"gH" = (
+/obj/machinery/door/airlock/engineering,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"hw" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 6
+	},
+/obj/structure/ore_box,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"hV" = (
+/obj/machinery/light/floor{
+	dir = 8;
+	pixel_y = 16
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"iS" = (
+/obj/machinery/vending/hydronutrients,
+/turf/simulated/floor/wood,
+/area/space)
+"iT" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"ke" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 6
+	},
+/obj/structure/closet/walllocker{
+	pixel_y = -29
+	},
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/storage/belt/utility/full,
+/obj/item/clothing/glasses/welding,
+/obj/item/device/robotanalyzer,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"kP" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 9
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/large/stab,
+/obj/item/storage/firstaid/regular,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"lF" = (
+/turf/simulated/floor/wood,
+/area/space)
+"lW" = (
+/obj/machinery/door/urban/glass_sliding/double,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"mb" = (
+/obj/machinery/seed_extractor,
+/turf/simulated/floor/wood,
+/area/space)
+"ml" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 6
+	},
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"mt" = (
+/obj/effect/floor_decal/spline/plain/yellow,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"mz" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 9
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/structure/table/steel,
+/obj/item/pickaxe/drill,
+/obj/item/material/hatchet/machete/steel,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"mK" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"oh" = (
+/obj/item/clothing/shoes/sneakers/black{
+	pixel_y = 5
+	},
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/space)
+"or" = (
+/turf/simulated/wall/wood,
+/area/space)
+"ox" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 6
+	},
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"pg" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 8
+	},
+/obj/structure/closet/crate,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/reinforced/full,
+/obj/item/stack/material/plasteel/full,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"qn" = (
+/obj/machinery/door/airlock/mining{
+	name = "Macinist Workshop";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"qA" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"qD" = (
+/obj/structure/sink{
+	pixel_y = 26;
+	pixel_x = 9
+	},
+/obj/machinery/biogenerator/small/south{
+	pixel_x = -4
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"qL" = (
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"qO" = (
+/obj/machinery/door/airlock/mining{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"ra" = (
+/obj/machinery/door/airlock/mining,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"rY" = (
+/obj/effect/floor_decal/spline/plain/orange,
+/obj/structure/closet/walllocker{
+	pixel_y = -29
+	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/tank/oxygen,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"sA" = (
+/obj/effect/floor_decal/spline/plain/orange,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"sS" = (
+/obj/effect/floor_decal/spline/plain/yellow,
+/obj/machinery/vending/tool,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"sU" = (
+/obj/effect/floor_decal/spline/plain/orange,
+/obj/structure/table/steel,
+/obj/item/storage/belt/mining,
+/obj/item/device/gps/mining,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"sW" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 5
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/tray/machinist,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"uw" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 5
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/large/stab,
+/obj/item/storage/firstaid/regular,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"uA" = (
+/obj/structure/closet/crate/bin/urban/dumpster,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
+/turf/simulated/floor/concrete,
+/area/space)
+"uG" = (
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"uJ" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"uT" = (
+/obj/effect/floor_decal/spline/plain/yellow,
+/obj/structure/closet/crate,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/reinforced/full,
+/obj/item/stack/material/plasteel/full,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"ve" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 4
+	},
+/obj/machinery/vending/tool,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"vh" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 6
+	},
+/obj/structure/closet,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/accessory/armband/engine,
+/obj/item/clothing/accessory/armband/engine,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"vo" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 6
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/tray/machinist,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"vL" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 9
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/masks,
+/obj/item/storage/box/gloves,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"vX" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 6
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/structure/table/steel,
+/obj/item/pickaxe/drill,
+/obj/item/material/hatchet/machete/steel,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"wE" = (
+/turf/simulated/floor/concrete,
+/area/space)
+"xy" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 5
+	},
+/obj/structure/closet/walllocker{
+	pixel_x = 32
+	},
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/head/welding,
+/obj/item/clothing/head/welding,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"xP" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 9
+	},
+/obj/structure/closet/walllocker{
+	pixel_y = 29
+	},
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/storage/belt/utility/full,
+/obj/item/clothing/glasses/welding,
+/obj/item/device/robotanalyzer,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"xW" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 1
+	},
+/obj/structure/closet/crate,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/electrical,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/reinforced/full,
+/obj/item/stack/material/plasteel/full,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"xX" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 4
+	},
+/obj/structure/closet/walllocker{
+	pixel_x = 32
+	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/tank/oxygen,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"yD" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 5
+	},
+/obj/structure/ore_box,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"zl" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/wood,
+/area/space)
+"zv" = (
+/turf/simulated/wall,
+/area/space)
+"zR" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 5
+	},
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Av" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"AZ" = (
+/obj/machinery/light/floor{
+	dir = 4;
+	pixel_x = -8
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Br" = (
+/obj/structure/sink{
+	pixel_y = 26
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"BZ" = (
+/obj/machinery/door/airlock/mining{
+	name = "Macinist Workshop"
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"Dj" = (
+/obj/effect/floor_decal/spline/plain/orange,
+/obj/machinery/optable,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Du" = (
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/concrete,
+/area/space)
+"DA" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 10
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/masks,
+/obj/item/storage/box/gloves,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"DK" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 1
+	},
+/obj/structure/closet/walllocker{
+	pixel_y = 29
+	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/tank/oxygen,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"DL" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 9
+	},
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"DO" = (
+/obj/machinery/door/airlock/engineering{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"DX" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 4
+	},
+/obj/structure/table/steel,
+/obj/item/storage/belt/mining,
+/obj/item/device/gps/mining,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Ep" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 1
+	},
+/obj/structure/table/steel,
+/obj/item/storage/belt/mining,
+/obj/item/device/gps/mining,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"EV" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 10
+	},
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Fs" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 10
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/structure/table/steel,
+/obj/item/pickaxe/drill,
+/obj/item/material/hatchet/machete/steel,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Gv" = (
+/obj/structure/chainlink_fence,
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"GK" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 6
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/masks,
+/obj/item/storage/box/gloves,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"GO" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 8
+	},
+/obj/machinery/vending/tool,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Hp" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 8
+	},
+/obj/item/clothing/shoes/sneakers/black{
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"HD" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 4
+	},
+/obj/machinery/optable,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"IO" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 10
+	},
+/obj/structure/closet/walllocker{
+	pixel_x = -32
+	},
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/storage/belt/utility/full,
+/obj/item/clothing/glasses/welding,
+/obj/item/device/robotanalyzer,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"IS" = (
+/obj/effect/map_effect/window_spawner/full/wood,
+/turf/simulated/floor/wood,
+/area/space)
+"Jm" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 5
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/masks,
+/obj/item/storage/box/gloves,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Jr" = (
+/obj/structure/table/standard,
+/obj/machinery/reagentgrinder{
+	pixel_x = 1;
+	pixel_y = 7
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"JM" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 6
+	},
+/obj/machinery/suit_cycler/mining/prepared,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"LJ" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 10
+	},
+/obj/machinery/suit_cycler/mining/prepared,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Me" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 9
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/tray/machinist,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Nn" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 10
+	},
+/obj/structure/ore_box,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Nz" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 5
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/structure/table/steel,
+/obj/item/pickaxe/drill,
+/obj/item/material/hatchet/machete/steel,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Os" = (
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"OZ" = (
+/obj/machinery/door/urban{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"Pk" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 5
+	},
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"PF" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 6
+	},
+/obj/structure/closet/walllocker{
+	pixel_y = -29
+	},
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/head/welding,
+/obj/item/clothing/head/welding,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Qj" = (
+/obj/machinery/seed_storage/garden,
+/turf/simulated/floor/wood,
+/area/space)
+"QP" = (
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"QU" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/space)
+"Rg" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 1
+	},
+/obj/machinery/vending/tool,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"RC" = (
+/obj/machinery/light/floor{
+	dir = 4;
+	pixel_y = 16
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"RK" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 5
+	},
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"RR" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 9
+	},
+/obj/structure/ore_box,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"SP" = (
+/obj/machinery/biogenerator/small/south,
+/turf/simulated/floor/wood,
+/area/space)
+"SY" = (
+/obj/structure/chainlink_fence,
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"TY" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 10
+	},
+/obj/structure/closet,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/accessory/armband/engine,
+/obj/item/clothing/accessory/armband/engine,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Ut" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"UA" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Vh" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 8
+	},
+/obj/structure/closet/walllocker{
+	pixel_x = -32
+	},
+/obj/item/clothing/shoes/magboots,
+/obj/item/tank/oxygen,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Vo" = (
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"Vr" = (
+/obj/machinery/light/floor{
+	pixel_y = 8
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Vu" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 9
+	},
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"VU" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 9
+	},
+/obj/structure/closet,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/accessory/armband/engine,
+/obj/item/clothing/accessory/armband/engine,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Wj" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/concrete/gutter,
+/turf/simulated/floor/exoplanet/concrete,
+/area/space)
+"Xh" = (
+/obj/machinery/chem_master,
+/turf/simulated/floor/wood,
+/area/space)
+"XR" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 8
+	},
+/obj/machinery/optable,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"XY" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 5
+	},
+/obj/structure/closet,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/head/hardhat,
+/obj/item/clothing/accessory/armband/engine,
+/obj/item/clothing/accessory/armband/engine,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Yc" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"Ys" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 10
+	},
+/obj/structure/closet/walllocker{
+	pixel_x = -32
+	},
+/obj/item/storage/belt/utility/full,
+/obj/item/storage/belt/utility/full,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/head/welding,
+/obj/item/clothing/head/welding,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Yu" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 5
+	},
+/obj/structure/closet/walllocker{
+	pixel_x = 32
+	},
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/storage/belt/utility/full,
+/obj/item/clothing/glasses/welding,
+/obj/item/device/robotanalyzer,
+/obj/item/stack/cable_coil,
+/obj/item/stack/cable_coil,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Yy" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Zb" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"ZY" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 4
+	},
+/obj/structure/closet/crate,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialt,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/electrical,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/reinforced/full,
+/obj/item/stack/material/plasteel/full,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+
+(1,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+"}
+(2,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+QU
+QU
+QU
+QU
+fq
+QU
+QU
+QU
+oh
+QU
+fq
+QU
+QU
+QU
+QU
+QU
+fq
+or
+IS
+IS
+IS
+or
+fq
+fq
+fq
+fq
+fq
+fq
+Ut
+bS
+bS
+bS
+bS
+bS
+Gv
+fq
+zv
+zv
+zv
+zv
+zv
+zv
+zv
+fq
+"}
+(3,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+Me
+UA
+IO
+QU
+fq
+QU
+VU
+pg
+Ys
+QU
+fq
+QU
+kP
+Vh
+Nn
+QU
+fq
+IS
+Wj
+Wj
+iS
+or
+fq
+fq
+fq
+fq
+fq
+fq
+Os
+wE
+wE
+wE
+wE
+wE
+wE
+fq
+zv
+an
+an
+an
+an
+an
+zv
+fq
+"}
+(4,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+dP
+QP
+sA
+BZ
+fq
+QU
+qA
+QP
+mt
+gH
+fq
+QU
+Ep
+QP
+sA
+ra
+fq
+or
+qD
+Vr
+lF
+zl
+fq
+fq
+fq
+fq
+fq
+fq
+Os
+wE
+uA
+uA
+wE
+wE
+Du
+fq
+gh
+wE
+wE
+wE
+wE
+wE
+zv
+fq
+"}
+(5,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+Jm
+fI
+ml
+QU
+fq
+QU
+Pk
+ve
+db
+QU
+fq
+QU
+Nz
+fI
+JM
+QU
+fq
+IS
+mb
+Wj
+Qj
+or
+fq
+fq
+fq
+fq
+fq
+fq
+zv
+zv
+zv
+zv
+zv
+zv
+zv
+fq
+zv
+Yc
+wE
+wE
+wE
+uG
+zv
+fq
+"}
+(6,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+QU
+QU
+QU
+QU
+fq
+QU
+QU
+QU
+QU
+QU
+fq
+QU
+QU
+QU
+QU
+QU
+fq
+or
+IS
+IS
+IS
+or
+fq
+fq
+fq
+fq
+fq
+fq
+zv
+wE
+wE
+wE
+wE
+wE
+zv
+fq
+zv
+wE
+ey
+wE
+ey
+wE
+zv
+fq
+"}
+(7,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+zv
+wE
+ey
+wE
+ey
+wE
+zv
+fq
+zv
+wE
+ey
+wE
+ey
+wE
+zv
+fq
+"}
+(8,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+QU
+QU
+QU
+QU
+fq
+QU
+QU
+QU
+QU
+QU
+fq
+QU
+QU
+QU
+QU
+QU
+fq
+or
+or
+mK
+or
+or
+fq
+fq
+fq
+fq
+fq
+fq
+zv
+Yc
+ey
+wE
+ey
+uG
+zv
+fq
+zv
+wE
+ey
+wE
+ey
+wE
+zv
+fq
+"}
+(9,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+DL
+UA
+DA
+QU
+fq
+QU
+bV
+GO
+dN
+QU
+fq
+QU
+bR
+Hp
+Fs
+QU
+fq
+IS
+iS
+lF
+Qj
+IS
+fq
+fq
+fq
+fq
+fq
+fq
+zv
+wE
+ey
+wE
+ey
+wE
+zv
+fq
+zv
+Yc
+ey
+wE
+ey
+uG
+zv
+fq
+"}
+(10,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+BZ
+uJ
+QP
+Dj
+QU
+fq
+gH
+qA
+QP
+mt
+QU
+fq
+ra
+uJ
+QP
+sU
+QU
+fq
+IS
+Wj
+AZ
+Wj
+IS
+fq
+fq
+fq
+fq
+fq
+fq
+zv
+wE
+ey
+wE
+ey
+wE
+zv
+fq
+zv
+wE
+ey
+wE
+ey
+wE
+zv
+fq
+"}
+(11,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+Yu
+fI
+vo
+QU
+fq
+QU
+xy
+ZY
+vh
+QU
+fq
+QU
+yD
+xX
+ca
+QU
+fq
+IS
+Wj
+dY
+mb
+IS
+fq
+fq
+fq
+fq
+fq
+fq
+zv
+wE
+ey
+wE
+ey
+wE
+zv
+fq
+zv
+wE
+wE
+wE
+wE
+wE
+zv
+fq
+"}
+(12,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+QU
+QU
+QU
+QU
+fq
+QU
+QU
+QU
+QU
+QU
+fq
+QU
+QU
+QU
+QU
+QU
+fq
+or
+IS
+or
+IS
+or
+fq
+fq
+fq
+fq
+fq
+fq
+zv
+Yc
+wE
+wE
+wE
+uG
+zv
+fq
+zv
+zv
+zv
+zv
+zv
+zv
+zv
+fq
+"}
+(13,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+zv
+wE
+wE
+wE
+wE
+wE
+gh
+fq
+Os
+wE
+uA
+uA
+wE
+wE
+Du
+fq
+"}
+(14,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+QU
+qn
+QU
+QU
+fq
+QU
+QU
+DO
+QU
+QU
+fq
+QU
+QU
+qO
+QU
+QU
+fq
+or
+IS
+or
+IS
+or
+fq
+fq
+fq
+fq
+fq
+fq
+zv
+an
+an
+an
+an
+an
+zv
+fq
+wE
+wE
+wE
+wE
+wE
+wE
+Du
+fq
+"}
+(15,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+xP
+UA
+EV
+QU
+fq
+QU
+dL
+iT
+bx
+QU
+fq
+QU
+RR
+UA
+LJ
+QU
+fq
+IS
+mb
+ak
+Wj
+IS
+fq
+fq
+fq
+fq
+fq
+fq
+zv
+zv
+zv
+zv
+zv
+zv
+zv
+fq
+Vo
+Zb
+Zb
+Zb
+Zb
+Zb
+SY
+fq
+"}
+(16,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+uJ
+QP
+sA
+QU
+fq
+QU
+xW
+QP
+sS
+QU
+fq
+QU
+DK
+QP
+sA
+QU
+fq
+IS
+Wj
+AZ
+Wj
+IS
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+"}
+(17,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+sW
+HD
+GK
+QU
+fq
+QU
+XY
+Yy
+ox
+QU
+fq
+QU
+uw
+DX
+vX
+QU
+fq
+IS
+Qj
+lF
+iS
+IS
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+zv
+zv
+zv
+zv
+zv
+zv
+zv
+zv
+zv
+zv
+zv
+bS
+bS
+Gv
+fq
+"}
+(18,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+QU
+QU
+QU
+QU
+fq
+QU
+QU
+QU
+QU
+QU
+fq
+QU
+QU
+QU
+QU
+QU
+fq
+or
+or
+mK
+or
+or
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+zv
+an
+wE
+cv
+wE
+wE
+wE
+cv
+wE
+ey
+zv
+wE
+wE
+Du
+fq
+"}
+(19,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+zv
+an
+wE
+wE
+ey
+wE
+ey
+wE
+wE
+ey
+zv
+uA
+wE
+Du
+fq
+"}
+(20,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+QU
+QU
+QU
+QU
+fq
+QU
+QU
+QU
+QU
+QU
+fq
+QU
+QU
+QU
+QU
+QU
+fq
+or
+IS
+IS
+IS
+IS
+IS
+IS
+IS
+IS
+or
+fq
+fq
+zv
+an
+wE
+wE
+ey
+wE
+ey
+wE
+wE
+ey
+zv
+uA
+wE
+Du
+fq
+"}
+(21,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+vL
+XR
+cE
+QU
+fq
+QU
+Vu
+iT
+TY
+QU
+fq
+QU
+mz
+ao
+dQ
+QU
+fq
+IS
+lF
+lF
+hV
+lF
+lF
+lF
+hV
+lF
+IS
+fq
+fq
+zv
+an
+wE
+wE
+ey
+wE
+ey
+wE
+wE
+ey
+zv
+wE
+wE
+Du
+fq
+"}
+(22,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+uJ
+QP
+sA
+QU
+fq
+QU
+Rg
+QP
+uT
+QU
+fq
+QU
+uJ
+QP
+rY
+QU
+fq
+IS
+lF
+iS
+Wj
+Wj
+Wj
+Wj
+Wj
+lF
+IS
+fq
+fq
+zv
+an
+wE
+cY
+wE
+wE
+wE
+cY
+wE
+ey
+zv
+wE
+wE
+Du
+fq
+"}
+(23,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+RK
+fI
+ke
+QU
+fq
+QU
+zR
+Yy
+PF
+QU
+fq
+QU
+bo
+fI
+hw
+QU
+fq
+or
+Br
+Qj
+Wj
+Wj
+Wj
+Wj
+Wj
+lF
+or
+fq
+fq
+zv
+zv
+Av
+zv
+zv
+zv
+zv
+zv
+zv
+zv
+zv
+Zb
+wE
+SY
+fq
+"}
+(24,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+QU
+QU
+qn
+QU
+QU
+fq
+QU
+QU
+DO
+QU
+QU
+fq
+QU
+QU
+qO
+QU
+QU
+fq
+IS
+lF
+lF
+hV
+lF
+lF
+lF
+hV
+lF
+lW
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+"}
+(25,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+IS
+lF
+lF
+RC
+lF
+lF
+lF
+RC
+lF
+aS
+fq
+fq
+qL
+wE
+bS
+zv
+zv
+zv
+zv
+zv
+zv
+zv
+zv
+OZ
+zv
+zv
+fq
+"}
+(26,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+or
+SP
+Jr
+Xh
+Wj
+Wj
+Wj
+Wj
+lF
+or
+fq
+fq
+Os
+wE
+wE
+zv
+ey
+wE
+cv
+wE
+wE
+wE
+cv
+wE
+an
+zv
+fq
+"}
+(27,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+IS
+lF
+mb
+Wj
+Wj
+Wj
+Wj
+Wj
+lF
+IS
+fq
+fq
+Os
+wE
+uA
+zv
+ey
+wE
+wE
+ey
+wE
+ey
+wE
+wE
+an
+zv
+fq
+"}
+(28,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+IS
+lF
+lF
+hV
+lF
+lF
+lF
+hV
+lF
+IS
+fq
+fq
+Os
+wE
+uA
+zv
+ey
+wE
+wE
+ey
+wE
+ey
+wE
+wE
+an
+zv
+fq
+"}
+(29,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+or
+IS
+IS
+IS
+IS
+IS
+IS
+IS
+IS
+or
+fq
+fq
+Os
+wE
+wE
+zv
+ey
+wE
+wE
+ey
+wE
+ey
+wE
+wE
+an
+zv
+fq
+"}
+(30,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+Os
+wE
+wE
+zv
+ey
+wE
+cY
+wE
+wE
+wE
+cY
+wE
+an
+zv
+fq
+"}
+(31,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+or
+IS
+IS
+IS
+IS
+IS
+IS
+IS
+IS
+or
+fq
+fq
+Vo
+Zb
+Zb
+zv
+zv
+zv
+zv
+zv
+zv
+zv
+zv
+zv
+zv
+zv
+fq
+"}
+(32,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+IS
+lF
+lF
+hV
+lF
+lF
+lF
+hV
+lF
+IS
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+"}
+(33,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+IS
+lF
+mb
+Wj
+Wj
+Wj
+Wj
+Wj
+lF
+IS
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+"}
+(34,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+or
+SP
+Jr
+Xh
+Wj
+Wj
+Wj
+Wj
+lF
+IS
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+"}
+(35,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+lW
+lF
+lF
+hV
+lF
+lF
+lF
+hV
+lF
+IS
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+"}
+(36,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+aS
+lF
+lF
+RC
+lF
+lF
+lF
+RC
+lF
+IS
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+"}
+(37,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+or
+Br
+Qj
+Wj
+Wj
+Wj
+Wj
+Wj
+lF
+IS
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+"}
+(38,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+IS
+lF
+iS
+Wj
+Wj
+Wj
+Wj
+Wj
+lF
+IS
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+"}
+(39,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+IS
+lF
+lF
+RC
+lF
+lF
+lF
+RC
+lF
+IS
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+"}
+(40,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+or
+IS
+IS
+IS
+IS
+IS
+IS
+IS
+IS
+or
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+"}
+(41,1,1) = {"
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+fq
+"}

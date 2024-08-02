@@ -10,7 +10,7 @@
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 2
 	throw_range = 5
 	origin_tech = list(TECH_MATERIAL = 1)
@@ -134,7 +134,7 @@
 	H.visible_message(s, SPAN_WARNING("You chew on your [O.name]!"))
 	message_admins("[key_name_admin(H)] is chewing on [H.get_pronoun("his")] restrained hand - (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)")
 	H.attack_log += text("\[[time_stamp()]\] <span class='warning'>[s] ([H.ckey])</span>")
-	log_attack("[s] ([H.ckey])",ckey=key_name(H))
+	log_attack("[s] ([H.ckey])")
 
 	if(O.take_damage(3, 0, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, used_weapon = "teeth marks"))
 		H:UpdateDamageIcon()
@@ -167,7 +167,7 @@
 	if(build_from_parts) //random colors!
 		if(!color)
 			color = pick(COLOR_RED, COLOR_BLUE, COLOR_LIME, COLOR_ORANGE, COLOR_WHITE, COLOR_PINK, COLOR_YELLOW, COLOR_CYAN)
-		add_overlay(overlay_image(icon, "[initial(icon_state)]_end", flags=RESET_COLOR))
+		AddOverlays(overlay_image(icon, "[initial(icon_state)]_end", flags=RESET_COLOR))
 
 /obj/item/handcuffs/cable/attack_self(mob/user)
 	legcuff = !legcuff

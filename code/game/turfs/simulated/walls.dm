@@ -80,14 +80,14 @@
 		STOP_PROCESSING(SSprocessing, src)
 
 /turf/simulated/wall/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(!opacity && istype(mover) && mover.checkpass(PASSGLASS))
+	if(!opacity && istype(mover) && mover.pass_flags & PASSGLASS)
 		return TRUE
 	return ..()
 
-/turf/simulated/wall/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj,/obj/item/projectile/beam))
+/turf/simulated/wall/bullet_act(var/obj/projectile/Proj)
+	if(istype(Proj,/obj/projectile/beam))
 		burn(2500)
-	else if(istype(Proj,/obj/item/projectile/ion))
+	else if(istype(Proj,/obj/projectile/ion))
 		burn(500)
 
 	bullet_ping(Proj)
@@ -104,17 +104,19 @@
 
 	take_damage(damage)
 
-/turf/simulated/wall/hitby(AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
+/turf/simulated/wall/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
-	if(isliving(AM))
-		var/mob/living/M = AM
-		M.turf_collision(src, speed)
+	if(isliving(hitting_atom))
+		var/mob/living/M = hitting_atom
+		M.turf_collision(src, throwingdatum.speed)
 		return
 
-	var/tforce = AM:throwforce * (speed/THROWFORCE_SPEED_DIVISOR)
-	playsound(src, hitsound, tforce >= 15? 60 : 25, TRUE)
-	if(tforce >= 15)
-		take_damage(tforce)
+	if(isobj(hitting_atom))
+		var/obj/O = hitting_atom
+		var/tforce = O.throwforce * (throwingdatum.speed/THROWFORCE_SPEED_DIVISOR)
+		playsound(src, hitsound, tforce >= 15? 60 : 25, TRUE)
+		if(tforce >= 15)
+			take_damage(tforce)
 
 /turf/simulated/wall/proc/clear_plants()
 	for(var/obj/effect/overlay/wallrot/WR in src)
@@ -127,10 +129,10 @@
 			plant.pixel_y = 0
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/effect/plant, update_neighbors))
 
-/turf/simulated/wall/ChangeTurf(var/newtype)
+/turf/simulated/wall/ChangeTurf(path, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
 	clear_plants()
 	clear_bulletholes()
-	..(newtype)
+	..()
 
 //Appearance
 /turf/simulated/wall/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
@@ -183,7 +185,8 @@
 
 	return
 
-/turf/simulated/wall/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume) //Doesn't fucking work because walls don't interact with air :[
+/turf/simulated/wall/fire_act(exposed_temperature, exposed_volume) //Doesn't fucking work because walls don't interact with air :[
+	. = ..()
 	burn(exposed_temperature)
 
 /turf/simulated/wall/adjacent_fire_act(turf/simulated/floor/adj_turf, datum/gas_mixture/adj_air, adj_temp, adj_volume)

@@ -49,6 +49,7 @@
 		if(!istype(A))
 			CRASH("Shuttle \"[name]\" couldn't locate area [T].")
 		areas += A
+		RegisterSignal(A, COMSIG_QDELETING, PROC_REF(remove_shuttle_area))
 	shuttle_area = areas
 
 	if(initial_location)
@@ -205,16 +206,17 @@
 	var/list/powernets = list()
 	for(var/area/A in shuttle_area)
 		// if there was a zlevel above our origin, erase our ceiling now we're leaving
-		if(HasAbove(current_location.z))
+		var/turf/T = get_turf(current_location)
+		if(GET_TURF_ABOVE(T))
 			for(var/turf/TO in A.contents)
-				var/turf/TA = GetAbove(TO)
+				var/turf/TA = GET_TURF_ABOVE(TO)
 				if(istype(TA, ceiling_type))
 					TA.ChangeTurf(get_base_turf_by_area(TA), 1, 1)
 		if(knockdown)
 			for(var/mob/living/carbon/M in A)
 				spawn(0)
 					if(M.buckled_to)
-						to_chat(M, "<span class='warning'>Sudden acceleration presses you into your chair!</span>")
+						to_chat(M, SPAN_WARNING("Sudden acceleration presses you into your chair!"))
 						shake_camera(M, 3, 1)
 					else if(M.Check_Shoegrip(FALSE))
 						to_chat(M, SPAN_WARNING("You feel immense pressure in your feet as you cling to the floor!"))
@@ -222,9 +224,9 @@
 						M.apply_damage(10, DAMAGE_PAIN, BP_R_FOOT)
 						shake_camera(M, 5, 1)
 					else
-						to_chat(M, "<span class='warning'>The floor lurches beneath you!</span>")
+						to_chat(M, SPAN_WARNING("The floor lurches beneath you!"))
 						shake_camera(M, 10, 1)
-						M.visible_message("<span class='warning'>[M.name] is tossed around by the sudden acceleration!</span>")
+						M.visible_message(SPAN_WARNING("[M.name] is tossed around by the sudden acceleration!"))
 						M.throw_at_random(FALSE, 4, 1)
 						M.Weaken(3)
 
@@ -235,12 +237,13 @@
 	current_location = destination
 
 	// if there's a zlevel above our destination, paint in a ceiling on it so we retain our air
-	if(HasAbove(current_location.z))
+	var/turf/T = get_turf(current_location)
+	if(GET_TURF_ABOVE(T))
 		for(var/area/A in shuttle_area)
 			for(var/turf/TD in A.contents)
 				TD.update_above()
 				TD.update_icon()
-				var/turf/TA = GetAbove(TD)
+				var/turf/TA = GET_TURF_ABOVE(TD)
 				if(istype(TA, get_base_turf_by_area(TA)) || (istype(TA) && TA.is_open()))
 					if(get_area(TA) in shuttle_area)
 						continue
@@ -311,3 +314,10 @@
 
 /datum/shuttle/proc/on_move_interim()
 	return
+
+/datum/shuttle/proc/remove_shuttle_area(area/area_to_remove)
+	UnregisterSignal(area_to_remove, COMSIG_QDELETING)
+	SSshuttle.shuttle_areas -= area_to_remove
+	shuttle_area -= area_to_remove
+	if(!length(shuttle_area))
+		qdel(src)

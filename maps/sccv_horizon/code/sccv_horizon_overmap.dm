@@ -164,3 +164,14 @@
 	icon_keyboard = null
 	circuit = null
 
+/obj/machinery/computer/shuttle_control/explore/canary/left
+	name = "\improper Canary control console"
+	shuttle_tag = "Canary"
+	req_access = list(ACCESS_INTREPID)
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	icon_state = "left"
+	icon_screen = "blue_left"
+	icon_keyboard = null
+	circuit = null
+

@@ -812,7 +812,6 @@
 /obj/item/powerdrill,
 /obj/item/landmine/frag{
 	deployed = 1;
-	layer = 2
 	},
 /turf/simulated/floor/shuttle/advanced,
 /area/template_noop)

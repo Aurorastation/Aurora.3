@@ -18,7 +18,7 @@
 		if(0)
 			if(attacking_item.iswrench())
 				if(attacking_item.use_tool(src, user, 20, volume = 50))
-					to_chat(user, "<span class='notice'>You wrench the frame into place.</span>")
+					to_chat(user, SPAN_NOTICE("You wrench the frame into place."))
 					anchored = 1
 					state = 1
 				return TRUE
@@ -29,33 +29,33 @@
 					return
 				if(attacking_item.use_tool(src, user, 20, volume = 50))
 					if(!src || !WT.use(0, user)) return
-					to_chat(user, "<span class='notice'>You deconstruct the frame.</span>")
+					to_chat(user, SPAN_NOTICE("You deconstruct the frame."))
 					new /obj/item/stack/material/plasteel( loc, 4)
 					qdel(src)
 				return TRUE
 		if(1)
 			if(attacking_item.iswrench())
 				if(attacking_item.use_tool(src, user, 20, volume = 50))
-					to_chat(user, "<span class='notice'>You unfasten the frame.</span>")
+					to_chat(user, SPAN_NOTICE("You unfasten the frame."))
 					anchored = 0
 					state = 0
 				return TRUE
 			if(istype(attacking_item, /obj/item/circuitboard/aicore) && !circuit)
 				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
-				to_chat(user, "<span class='notice'>You place the circuit board inside the frame.</span>")
+				to_chat(user, SPAN_NOTICE("You place the circuit board inside the frame."))
 				icon_state = "1"
 				circuit = attacking_item
 				user.drop_from_inventory(attacking_item,src)
 				return TRUE
 			if(attacking_item.isscrewdriver() && circuit)
 				attacking_item.play_tool_sound(get_turf(src), 50)
-				to_chat(user, "<span class='notice'>You screw the circuit board into place.</span>")
+				to_chat(user, SPAN_NOTICE("You screw the circuit board into place."))
 				state = 2
 				icon_state = "2"
 				return TRUE
 			if(attacking_item.iscrowbar() && circuit)
 				attacking_item.play_tool_sound(get_turf(src), 50)
-				to_chat(user, "<span class='notice'>You remove the circuit board.</span>")
+				to_chat(user, SPAN_NOTICE("You remove the circuit board."))
 				state = 1
 				icon_state = "0"
 				circuit.forceMove(loc)
@@ -64,22 +64,22 @@
 		if(2)
 			if(attacking_item.isscrewdriver() && circuit)
 				attacking_item.play_tool_sound(get_turf(src), 50)
-				to_chat(user, "<span class='notice'>You unfasten the circuit board.</span>")
+				to_chat(user, SPAN_NOTICE("You unfasten the circuit board."))
 				state = 1
 				icon_state = "1"
 				return TRUE
 			if(attacking_item.iscoil())
 				var/obj/item/stack/cable_coil/C = attacking_item
 				if (C.get_amount() < 5)
-					to_chat(user, "<span class='warning'>You need five coils of wire to add them to the frame.</span>")
+					to_chat(user, SPAN_WARNING("You need five coils of wire to add them to the frame."))
 					return TRUE
-				to_chat(user, "<span class='notice'>You start to add cables to the frame.</span>")
+				to_chat(user, SPAN_NOTICE("You start to add cables to the frame."))
 				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
 				if (do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT) && state == 2)
 					if (C.use(5))
 						state = 3
 						icon_state = "3"
-						to_chat(user, "<span class='notice'>You add cables to the frame.</span>")
+						to_chat(user, SPAN_NOTICE("You add cables to the frame."))
 				return TRUE
 		if(3)
 			if(attacking_item.iswirecutter())
@@ -87,7 +87,7 @@
 					to_chat(user, "Get that brain out of there first")
 				else
 					playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
-					to_chat(user, "<span class='notice'>You remove the cables.</span>")
+					to_chat(user, SPAN_NOTICE("You remove the cables."))
 					state = 2
 					icon_state = "2"
 					var/obj/item/stack/cable_coil/A = new /obj/item/stack/cable_coil( loc )
@@ -97,13 +97,13 @@
 			if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == MATERIAL_GLASS_REINFORCED)
 				var/obj/item/stack/RG = attacking_item
 				if (RG.get_amount() < 2)
-					to_chat(user, "<span class='warning'>You need two sheets of glass to put in the glass panel.</span>")
+					to_chat(user, SPAN_WARNING("You need two sheets of glass to put in the glass panel."))
 					return
-				to_chat(user, "<span class='notice'>You start to put in the glass panel.</span>")
+				to_chat(user, SPAN_NOTICE("You start to put in the glass panel."))
 				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
 				if (do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT) && state == 3)
 					if(RG.use(2))
-						to_chat(user, "<span class='notice'>You put in the glass panel.</span>")
+						to_chat(user, SPAN_NOTICE("You put in the glass panel."))
 						state = 4
 						icon_state = "4"
 				return TRUE
@@ -139,7 +139,7 @@
 				if(!M.ready_for_use(user))
 					return TRUE
 				if(jobban_isbanned(M.brainmob, "AI"))
-					to_chat(user, "<span class='warning'>This [attacking_item] does not seem to fit.</span>")
+					to_chat(user, SPAN_WARNING("This [attacking_item] does not seem to fit."))
 					return TRUE
 
 				if(M.brainmob.mind)
@@ -153,7 +153,7 @@
 
 			if(attacking_item.iscrowbar() && brain)
 				attacking_item.play_tool_sound(get_turf(src), 50)
-				to_chat(user, "<span class='notice'>You remove the brain.</span>")
+				to_chat(user, SPAN_NOTICE("You remove the brain."))
 				brain.forceMove(loc)
 				brain = null
 				icon_state = "3"
@@ -162,7 +162,7 @@
 		if(4)
 			if(attacking_item.iscrowbar())
 				attacking_item.play_tool_sound(get_turf(src), 50)
-				to_chat(user, "<span class='notice'>You remove the glass panel.</span>")
+				to_chat(user, SPAN_NOTICE("You remove the glass panel."))
 				state = 3
 				if (brain)
 					icon_state = "3b"
@@ -173,7 +173,7 @@
 
 			if(attacking_item.isscrewdriver())
 				attacking_item.play_tool_sound(get_turf(src), 50)
-				to_chat(user, "<span class='notice'>You connect the monitor.</span>")
+				to_chat(user, SPAN_NOTICE("You connect the monitor."))
 				if(!brain)
 					var/open_for_latejoin = alert(user, "Would you like this core to be open for latejoining AIs?", "Latejoin", "Yes", "Yes", "No") == "Yes"
 					var/obj/structure/AIcore/deactivated/D = new(loc)
@@ -237,18 +237,18 @@
 		return TRUE
 	else if(attacking_item.iswrench())
 		if(anchored)
-			user.visible_message("<span class='notice'>\The [user] starts to unbolt \the [src] from the plating...</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] starts to unbolt \the [src] from the plating..."))
 			if(!attacking_item.use_tool(src, user, 40, volume = 50))
-				user.visible_message("<span class='notice'>\The [user] decides not to unbolt \the [src].</span>")
+				user.visible_message(SPAN_NOTICE("\The [user] decides not to unbolt \the [src]."))
 				return TRUE
-			user.visible_message("<span class='notice'>\The [user] finishes unfastening \the [src]!</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] finishes unfastening \the [src]!"))
 			anchored = 0
 		else
-			user.visible_message("<span class='notice'>\The [user] starts to bolt \the [src] to the plating...</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] starts to bolt \the [src] to the plating..."))
 			if(!attacking_item.use_tool(src, user, 40, volume = 50))
-				user.visible_message("<span class='notice'>\The [user] decides not to bolt \the [src].</span>")
+				user.visible_message(SPAN_NOTICE("\The [user] decides not to bolt \the [src]."))
 				return TRUE
-			user.visible_message("<span class='notice'>\The [user] finishes fastening down \the [src]!</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] finishes fastening down \the [src]!"))
 			anchored = 1
 		return TRUE
 	return ..()

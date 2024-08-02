@@ -46,7 +46,7 @@
 		all_fabricators[DF.fabricator_tag] = DF
 
 	if(!all_fabricators.len)
-		to_chat(user, "<span class='danger'>There are no available drone spawn points, sorry.</span>")
+		to_chat(user, SPAN_DANGER("There are no available drone spawn points, sorry."))
 		return FALSE
 
 	var/choice = tgui_input_list(user, "Which fabricator do you wish to use?", "Fabricator Selection", all_fabricators)

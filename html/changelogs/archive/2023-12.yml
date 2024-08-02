@@ -1,0 +1,714 @@
+2023-12-01:
+  AlaunusLux:
+  - tweak: Transforming now changes gender and pronouns, as well as automatically
+      changing accent.
+  - tweak: Mimic Accent is no longer a separate ability. Mimic Voice now asks which
+      accent to use after asking for a name.
+  DreamySkrell:
+  - maptweak: Adds a small office / building area near the Indra reactor, in place
+      of the metal foam.
+  FluffyGhost:
+  - bugfix: Fixed a detection issue that didn&#x27;t made BUILD.bat recompile the
+      codebase when files are edited under /maps.
+  - refactor: DMdoced some ZAS variables from comments.
+  - backend: Optimized air alarms not to reprocess gasses if the atmosphere has not
+      changed, saving more than half of the median execution time.
+  - backend: Optimized lights overlay updating, which is now around 10 percent more
+      performant in median execution time.
+  GeneralCamo, NobleRow:
+  - rscadd: Added a Xanan voidsuit.
+  MattAtlas:
+  - rscadd: Added a Dominian Noble origin. You must now pick it to play a Dominian
+      noble, and Dominian nobles are forced to have the HMR accent and the Dominian
+      citizenship. This is to match new Dominian lore updates.
+  - rscadd: Removed the HMR accent from all other Dominian origins.
+  - bugfix: Fixes dominian noble citizenships showing up as E.
+  RustingWithYou:
+  - bugfix: Fixes Hegemony passcard selection.
+  Tomixcomics, CometBlaze, MattAtlas, Dreamixpl:
+  - rscadd: Added a whole bunch of new food dishes.
+  - rscadd: Added reagent called Choco-nut spread.
+  - rscadd: Added several new food bounties.
+  - rscadd: Added a few new round start tips.
+  - bugfix: Fixed pathway for crab meat icon, stopping the Horizon&#x27;s immoral
+      shipping of invisicrab.
+  - bugfix: Changed incorrect or problematic recipes for a few recently added dishes
+      to make them work more as intended.
+  - bugfix: Corrected bug where the sprite for steaks that have only been bitten once
+      wasn&#x27;t showing up when that happens.
+  - imageadd: Added a new sprite for Vanilla Extract.
+  - tweak: Changed Bluespace Tomato soup to be more in line with how it was originally
+      supposed to be, renamed it &#x27;Spiral Soup&#x27;.
+  - tweak: Updated icons for some dishes from a recent update - namely reducing the
+      size of Blue Moon and Mac and Cheese dishes to be visually smaller, as well
+      as minor tweaks to other dish icons.
+2023-12-02:
+  GeneralCamo, Joan:
+  - rscadd: Ported new cult blade icons from /tg/station.
+2023-12-04:
+  Alberyk, KingOfThePing, TheStryker, TheLancer:
+  - rscadd: Added some Konyang related guns.
+  CampinKiller24:
+  - rscadd: Adds the new Elyran flags.
+  FluffyGhost:
+  - backend: Updated spacemandmm to 1.8 for the CI.
+  - backend: Extended OpenDream and SpacemanDMM linting coverage to the main defines
+      used in the codebase.
+  - bugfix: Fixed a warning for path definition and an old reference to a renamed
+      function in ZAS.
+  - refactor: EMPs are now consistent across the various objects.
+  - refactor: EMPs damage is now standarized with EMP_HEAVY and EMP_LIGHT.
+  - backend: Updated DCS part that deals with unique signals.
+  - rscadd: Added DCS signals COMSIG_ATOM_PRE_EMP_ACT and COMSIG_ATOM_EMP_ACT for
+      EMP events.
+  - backend: Added datum component for EMP protection handling.
+  - rscadd: EMP explosions (empulse) are now tridimensional, spreading across the
+      decks/zlevels of the same map.
+  - rscadd: EMP explosions (empulse) behave properly as a sphere between zlevels,
+      with 9 meters being the currently assumed floor height.
+  - bugfix: empulse now respects the tick limit, avoiding the server lagging to death
+      on large or expensive EMPs.
+  - backend: ELEMENT_DETACH flag was renamed to ELEMENT_DETACH_ON_HOST_DESTROY, as
+      per TG updated name.
+  - backend: EMPs now rise signals of the events through DCS.
+  - backend: (Nearly) all emp_act now calls the parent first, properly and consistently
+      handling signals.
+  - rscadd: The spiral_range search function was ported over from TG, it is used by
+      empulse.
+  - refactor: All emp_act now calls the parent.
+  - refactor: All emp_act now uses the defined damage, instead of the magic numbers.
+  - refactor: EMP magic number 3 do not exist anymore, standarized everything that
+      used it back into EMP_LIGHT.
+  - refactor: Some function substitution for EMP that was not meant to behave like
+      an EMP for other objects.
+  - rscadd: The empulse function can now exclude types, in addition to objects.
+  - bugfix: Fixed a possible runtime issue that prevented the return hint from being
+      returned to SSgarbage if the variable was empty.
+  Furrycactus:
+  - maptweak: Moved some lights in Hydroponics.
+  - maptweak: Added Hydroponics access to the back door of the Kitchen Freezer.
+  - maptweak: Added a welding fuel tank to Hydroponics.
+  - maptweak: Added a ChemMaster and some beakers to Xenobiology
+  - maptweak: Placed another table in Xenobotany.
+  GeneralCamo:
+  - tweak: Protohumans ordered from cargo are now a distinct species and use a new
+      icon.
+  RustingWithYou:
+  - rscadd: Adds an Air Konyang passenger vessel.
+  - rscadd: Adds a wrecked Idris vault ship.
+2023-12-05:
+  AlaunusLux:
+  - rscadd: Added a search feature to Traitor Uplink.
+  FluffyGhost:
+  - rscadd: Added plate carrier holsters to the security officers locker, they can
+      be attached to the plate carrier if another accessory is removed from it (eg
+      the pouches).
+  - refactor: Moved the modular plate carrier holster back into the holster files,
+      some comments cleanup inside it.
+  - bugfix: Solved aiming not being toggleable.
+  - bugfix: Solved inability to fire weapons.
+  - bugfix: Solved a runtime if the target were to be deleted while aimed at, and
+      the aimer were to try to change the aiming setting.
+  - bugfix: Solved a softlock caused by the above runtime that would prevent you from
+      firing.
+  - bugfix: Solved references not being cleared correctly on some deletion combinations.
+  - bugfix: Solved some conditions considering things being GCd as still valid to
+      be processed, when they aren&#x27;t.
+  Furrycactus:
+  - rscadd: Updated some atmos equipment to properly recognise the majority of the
+      new gasses. They can now be individually filtered, most importantly.
+  - imageadd: Added new canister sprites for the majority of the new gasses.
+  GeneralCamo:
+  - refactor: Refactored aim mode.
+  - bugfix: Examining things no longer triggers aim mode.
+  - tweak: Aim toggling now uses balloon alerts instead of chat notifications.
+  - bugfix: Fixed the aim mode icon not changing when toggling aiming.
+  - tweak: Blindness now cancels aim mode.
+  - rscadd: Added a Gadpathurian navy corvette, spawning in the Weeping Stars and
+      Liberty&#x27;s Cradle.
+  - rscadd: Added a Coalition Navy radio channel, meant to be a secure channel for
+      the Coalition&#x27;s various naval factions to coordinate together. This has
+      been added for the Gadpathurian navy corvette, and the Frontier Ranger gunboat.
+  RustingWithYou:
+  - tweak: Adds framework for multiple consular and liason slots.
+2023-12-06:
+  Geeves:
+  - tweak: Reduced the passive power drain of exosuits/mechas because of their chassis
+      to 10% of the current amount.
+  - tweak: Reduced the active power drain of exosuits/mechas because of their arms
+      and legs to roughly 50% of the current amount.
+  ReadThisNamePlz:
+  - rscadd: Adds a new kind of energy pistol, using the SCC Repeater lethal shot.
+  - rscadd: Adds a new projectile for this pistol. It has less AP than the original
+      SCC beam.
+  - tweak: Swaps the XO, HoS and Captains disruptors for the new pistol.
+  - bugfix: Fixes the SCC Pistol right hand, and left hand sprite
+  Wowzewow (Wezzy):
+  - balance: Suit sensors are now tiered based on alert level.
+  - balance: Suit sensors are now only installed on job uniforms.
+  - balance: Suit sensors are no longer able to be installed on PDAs and Tablets.
+  - rscadd: You are now able to set your suit sensors on the character creation menu.
+  - bugfix: Fixes the weird imbalance with the character creation menu.
+2023-12-07:
+  GeneralCamo:
+  - balance: Hivebots now require some means of accessing the armory to spawn. This
+      can include having a conscious AI, warden, or any command position.
+  Lavillastrangiato:
+  - balance: Lowers damage values and armor penetration on the spectral eel and space
+      carp. Makes spectral eels slightly slower.
+  MattAtlas:
+  - rscadd: Added a changelog editing system that should cause fewer conflicts and
+      more accurate timestamps.
+  - rscdel: Killed innocent kittens.
+  RustingWithYou:
+  - tweak: Alters Bulwark resistances to make them better fit their lore role as tough
+      and heavy labor bugs.
+  - rscadd: Adds relevant Konyang guns to Konyang away sites.
+  Sniblet:
+  - bugfix: Panotoxin now works as described.
+  - tweak: Changed how panotoxin is described. It now causes agonizing, life-changing,
+      life-threatening pain in small doses.
+  - tweak: Syringe (drugs) spawns now contain much less panotoxin. Otherwise they
+      would just kill you.
+  arrow768:
+  - backend: Fixed an issue that prevented characters from being saved.
+2023-12-08:
+  4000daniel1:
+  - rscadd: Added a new away site; the asteroid lair.
+  DreamySkrell:
+  - bugfix: Fixes wrong frequency on Intrepid hangar dock.
+  - maptweak: Moves the docking controllers of Intrepid hangar and Canary hangar closer
+      to their respective shuttles.
+  FluffyGhost:
+  - backend: Additional debugs and diagnostics are now enabled when the CI is running.
+  - backend: In case of an harddel, the CI stops to locate where the reference was
+      left now.
+  - backend: If the codebase is being built in an unsupported environment (eg. without
+      build.bat or VSC), an error is thrown to the compiler.
+  Furrycactus:
+  - maptweak: Updates the airlocks on the Cyclops ship and Wisp shuttle to use the
+      new airlock markers.
+  - maptweak: Fixes access on a small handful of Air Alarms and APCs.
+  - maptweak: Adds Filter Ports, K&#x27;laxan Hive Cloaks, Hephaestus Guild Cloaks,
+      and Legbraces to the crew wardrobes for Vaurca, Unathi, and Off-Worlders.
+  - maptweak: Adds Portable Suit Cooler units on the voidsuit racks, and a recharger
+      in the crew quarters for IPCs.
+  - maptweak: Adds a Phoron canister to the Engineering compartment so the Wisp shuttle&#x27;s
+      tank can be refilled if needed.
+  ReadThisNamePlz:
+  - bugfix: Fixed the third party ranger ship wiring and other various bugs.
+  RustingWithYou:
+  - rscadd: Adds a telecomms outpost away site on Konyang.
+  - bugfix: All Unathi plants should now properly display in seed vendors.
+2023-12-09:
+  4000daniel1:
+  - bugfix: Fixed not being able to move around the edges of the asteroid on the asteroid
+      lair away site.
+  Arrow768:
+  - rscadd: Added a warning that characters can not be restored when deleting a character
+  FluffyGhost:
+  - bugfix: Fixed a runtime with doafter with mousedrops on chairs.
+  - rscadd: Added a group antagonists ready counter, it lists how many people are
+      ready for antagonists that require more than one person to roll.
+  - tweak: Tweaked formatting of the ready screen in statpanel a bit to increase visual
+      clarity.
+  - bugfix: Fixed flesh golems detonating the server.
+  - bugfix: Fixed a runtime with RIGs and the statpanel action tab when there&#x27;s
+      no client in the wearer of the RIG.
+  - rscadd: increased the scrubbing and venting speed of the scrubbers.
+  - backend: DMDoced the swap_density_check function, minor refactor.
+  - bugfix: Fixed a runtime error encountered in the wild with mob swaps.
+  - rscdel: Removed a collision handling of the coat hanger, that was violating the
+      purity of checks.
+  - backend: Added get_turfs_in_cone(), to acquire turfs within a cone.
+  - rscadd: Added napalm grenades, not as classy as an airstrike, but still pretty
+      effective all the same.
+  - rscadd: Added punji traps, gives a severe infection upon falling in one, can be
+      hidden, can be engraved with a message.
+  - rscadd: Added standstill mines, if walked over, they activate and wait for the
+      victim to move out of them, can be disarmed with the bomb kit, pretty powerful
+      explosion if you mess up.
+  - rscadd: Added claymore mines, project pellets in a 60 degrees radius on each side
+      from the direction they&#x27;re aiming at, remotely activated via a signaler
+      or by directly touching them.
+  - rscadd: Reworked flamethrowers, now they light up on fire the turfs in a 30 degrees
+      cone from each side of the clicked target, pressure effects excluded.
+  - rscadd: Added the napalm grenades, punji traps, standstill mines, claymore mines
+      and the flamethrower to the antag uplink.
+  - backend: DMDoced some variables for the uplink.
+  - backend: DMDoced some variables for the pellet bullets, and minor refactor of
+      its attack_mob function.
+  - backend: Refactored how mines work, added some documentation and sectioned them
+      up to be more clear what is what.
+  - backend: Moved landmines and traps sprites in a more congenial location.
+  - bugfix: Fixed a runtime error when the uplink UI is opened without a category
+      being selected.
+  - bugfix: Fixed a runtime error with borgs being destroyed and their HUD refreshing.
+  - imageadd: Added sprites for the punji trap, by Tomixcomics.
+  - imageadd: Added sprites for the standstill mine, by Tomixcomics.
+  - imageadd: Added sprites for the claymore mine, from CM.
+  SimpleMaroon:
+  - bugfix: Fixes Orion Express and Idris Incorporated Chaplains receiving the default
+      NanoTrasen backpacks and ID.
+  - rscadd: Added flags and banners for the Federal Technocracy of Galatea, Galatea,
+      Tsukuyomi, Svarog, and Empyrean to the loadout.
+  - bugfix: Removes two pixels on the male torso sprite that were sticking out from
+      Xion and Zeng-Hu prosthetic limbs.
+2023-12-10:
+  DreamySkrell:
+  - bugfix: Fixes ghosts not being able to see computer UIs.
+  FluffyGhost:
+  - bugfix: Fixed pushups.
+  - bugfix: Fixed contamination message on inspect, that said it was phoron even if
+      that was not necessarily the case.
+  ReadThisNamePlz:
+  - maptweak: Adds more folders, clipboards and pens to the Bridge Helm area
+  - maptweak: Moves the Captains Rubber stamp to be by their fax machine, and gives
+      the Captain a DENIED stamp.
+  - maptweak: Makes the command conference room radiation proof.
+  RustingWithYOu:
+  - rscadd: Adds a sector menu HUD for Haneunim.
+2023-12-11:
+  Lavillastrangiato:
+  - rscadd: Adds a Bursan accent and origin for Elyran humans and IPCs.
+  MattAtlas:
+  - rscadd: The leviathan key can now be worn around the neck.
+  - tweak: Restyled the record console to be a lot less annoying to use.
+  - bugfix: Fixed the record notes warning. Unfilled records will now have an S with
+      a strikethrough as an icon.
+  - bugfix: Fixed the security console not showing incidents.
+  kermit:
+  - tweak: The Gadpathurians have conceded that not EVERY sector of the Weeping Stars
+      requires a patrol ship to be present. (Spawnrate for the Gadpathurian patrol
+      ship is now 1 instead of 10000)
+2023-12-12:
+  FluffyGhost:
+  - backend: Added the ability to configure if away sites and exoplanets are loaded/generated,
+      budgets, and other settings regarding them.
+  - refactor: Minor refactor of some comments.
+  - bugfix: Resolved an exception for exoplanets generation when archetypes are exhausted.
+  - rscdel: Removed the toggle aliens verb and config, aliens (xenomorphs) were removed
+      and that setting/verb did nothing.
+  - bugfix: Fixed unusual containers spawning as anchored to the ground.
+  - backend: Unusual container Initialize now respects the parameters hierarchy.
+2023-12-13:
+  FluffyGhost:
+  - bugfix: Fixed floors and carpets building a different thing than what they were
+      supposed to.
+  - backend: Some minor refactor for the type path of some variables.
+  - bugfix: Fixed nooses being untiable.
+  - bugfix: Fixed traps failing to buckle mobs.
+  - bugfix: Fixed buckle() failing if the mob is not lying and no user is passed for
+      the action.
+  - backend: DMDoc&#x27;d and minor refactor of buckle().
+  - backend: DMDoc&#x27;d do_mob() and added a stack_trace when it&#x27;s called without
+      either needed parameters.
+  - backend: DMDoc&#x27;d visible_message(), it is kind of a mess so it doesn&#x27;t
+      have 100% coverage, probably will need to be refactored sooner or later.
+  - bugfix: Fixed book penning, title and content being mangled, newlines.
+  - backend: Books now support multilines writing, ported books to new sanitization
+      procs and penning UIs to TGUI.
+  - bugfix: Fixed ritual dagger sprite.
+  - refactor: The ritual dagger sprite is now a contained sprite, with a dedicated
+      file under the correct path equal to the code path.
+  - bugfix: Liidra zombies now speak Liidraic by default.
+  - bugfix: Fixed a runtime that prevented the Liidra zombies from speaking in the
+      hivenet.
+  - rscadd: Liidra zombies now see in the dark, like their Vaurca counterparts.
+  - backend: Refactored set_default_language into a proc, updated the verbs that interact
+      with it.
+  - backend: Minor refactor of the set default language verb.
+  - backend: DMDoc&#x27;d add_language and minor refactor of it.
+  - backend: Removed see_in_dark related things, set it as per TG, we rely on the
+      lighting plane only now.
+  ReadThisNamePlz:
+  - maptweak: Moves Telecommunications to be closer to D3 Engineering. Part one of
+      a two part command remap.
+  - maptweak: Remaps the entirety of Command. Seriously, everything is changed.
+  - maptweak: Makes Command Semi-Public access on Green Alert
+  - maptweak: Added Dual Consular
+  - maptweak: Added Dual Representatives
+  nauticall:
+  - bugfix: Fixes pixel offsets of wall-mounted objects such as APCs, air alarms,
+      and small (bulb) lights.
+  - rscadd: 'Added the following new cocktails: Light&#x27;s Edge, Rose Tinted Glasses,
+      Twisted Lime, Cinnamon Orchard, Harvest Moon, New Horizons, Espratini, Lemon
+      Lime and Bitters, Pretty in Pink, Weeping Stars, and Verdant Green.'
+  - imageadd: Changed the sprites and colors of some preexisting drinks.
+  - tweak: Changed the name of Ganymede Dark Blend to Ganymede Dark Espresso to make
+      it easier to understand on the coffee dispenser.
+2023-12-15:
+  Lavillastrangiato:
+  - balance: Gets rid of fertilizer injection and slightly lowers damage on punji
+      traps.
+  LynxSolstice:
+  - bugfix: Added a suit cycler to the Tramp Freight off-ship map since it was missing
+      one.
+  RustingWithYou:
+  - rscadd: Adds a Scarab salvage vessel.
+  - rscadd: Adds Scarab Fleet flags.
+  kermit, Caelphon:
+  - tweak: Restructures and brings the Narrows origin up to date with the latest lore
+      expansion.
+  - rscadd: Adds a Narrows accent - Laboursong. Accent icon by Cael.
+  - rscadd: Adds a Narrows &#x27;stimulant&#x27; for dionae use - Diesel (2 parts
+      Uranium, 2 parts Robust Harvest, 1 part Welding Fuel, 3 parts Caramel; heat
+      to 895K using pyrosilicate).
+2023-12-16:
+  FluffyGhost:
+  - backend: Updated source.fixAll.eslint to the new setting following VSC format
+      on save new infrastructure.
+  RustingWithYou:
+  - rscadd: Adds an equipped variant of the breacher suit to the Hegemony corvette.
+  - tweak: Adds a power fist to the breacher suit.
+  - maptweak: Fixes the Hegemony corvette shuttle dock.
+  - bugfix: Fixes several bugs with the Konyang pirate shuttle.
+2023-12-17:
+  Dessysalta (sprites), Sparky_hotdog (code):
+  - rscadd: Adds a Hammertail Smiths jumpsuit.
+  - rscadd: Adds new Hammertail Smiths gear crates to the uplink.
+  HanSolo1519:
+  - tweak: Fixes stray pixel on Basket of Chips sprite.
+  MattAtlas:
+  - tweak: Made the TGUI Say window larger and added an X button to close it.
+  - bugfix: Elevator walls no longer bring inexistant green decals with them.
+  - bugfix: Fixes objects held in the inactive hand not applying slowdown.
+  RustingWithYou:
+  - tweak: Adjust the spawns for the Gadpathur, COC ranger and COC surveyor ship to
+      not spawn in places where it doesn&#x27;t make sense.
+  - tweak: Replaces the TCFL enlistment cards and pamphlets with TCAF ones.
+  ShakyJake:
+  - rscadd: Adds an IPC refugee ship to the Haneunim and Liberty&#x27;s Cradle system.
+2023-12-18:
+  DreamySkrell:
+  - rscadd: Adds the SCC Scout Ship.
+  Geeves:
+  - bugfix: Fixed the armor value display for some items, such as hardsuit components,
+      being calculated incorrectly. (Only affects the examine TGUI, not actual armor
+      values)
+  GeneralCamo:
+  - rscadd: Suit cyclers can now store and disinfect masks and magboots.
+  - maptweak: Voidsuits are now stored in suit cyclers on the SCCV Horizon, instead
+      of racks.
+  - refactor: Split the suit cycler units from the handling code.
+  - rscadd: Added sounds for opening, and using suit cycler units.
+  RustingWithYou:
+  - rscadd: Adds a Hephaestus asset protection ship.
+  - tweak: Megacorporate voidsuits no longer use modkits for species changes.
+2023-12-19:
+  Furrycactus:
+  - bugfix: Tweaked the sprites for the double headset/soundproof headset so that
+      they&#x27;re actually positioned over ears on the worn sprite.
+  Geeves:
+  - rscadd: Added the Orion Express Courier System, a new gameplay loop for Hangar
+      Techs. Orion Express packages will now spawn in the hangar that are linked to
+      delivery points on exoplanets, delivering these packages will provide the cargo
+      department with some funds, depending on the package.
+  - bugfix: Fixes PDA arcade games enemy names mismatching the name of the program.
+  RustingWithYou:
+  - tweak: Exoplanets will now spawn randomly generated plants.
+  ShakyJake:
+  - rscadd: Adds a Konyang Aerospace Forces (KASF) corvette to the Haneunim sector.
+  - rscadd: Adds a Unified Sadar Fleet ship.
+  - rscadd: Adds a mirrored version of the francisca and its loader.
+  - rscadd: Adds a red circuit tile.
+  SimpleMaroon:
+  - bugfix: Added role restrictions to the starshades in human xenowear, as they provide
+      welding protection and should not be able to be taken by roles that are not
+      normally provided such.
+  Tomixcomics:
+  - rscadd: Added two new drinks.
+  - rscadd: Added a variety of crepes.
+  - rscadd: Added a new type of cake.
+  arrow768:
+  - backend: Overhauls logging of the discord notifications.
+2023-12-20:
+  Geeves:
+  - bugfix: Fixed grabbing / fireman carrying up and down stairs.
+  - bugfix: Fixed lifting someone into a fireman carry being instant.
+  - tweak: Lowered fireman carrying time to 1 second from 3 seconds.
+  - tweak: Tweaked Sinta&#x27;Azaziba to be more readable in darkmode.
+2023-12-21:
+  DreamySkrell:
+  - bugfix: Gives the SCC Scout Ship shuttle a SMES, so it does not die quickly when
+      exploring.
+  - bugfix: Gives the SCC Scout Ship a proper big 3-tile CO2 tank so it does not run
+      out of propellant quickly.
+  FluffyGhost:
+  - bugfix: Turned QDELING to QDELETED, preventing reprocessing on deleted mobs, not
+      only the ones currently being Destroy&#x27;d.
+  - bugfix: External organs now clear more references when they are deleted.
+  - backend: DMDoc&#x27;d most external organs vars.
+  - backend: Updated CI to use byond 515.1621.
+  - bugfix: Tendons now drop the reference to their parent on deletion.
+  Geeves:
+  - tweak: 'CULT: Examining the cult tome now gives you the option to read it, instead
+      of it happening every time you go to use it.'
+  - tweak: 'CULT: Clicking on the floor with a cult rune will now let you scribe a
+      rune there. As a side-effect, you can now scribe multiple runes at the same
+      time.'
+  - bugfix: Fixed PDAs not having the correct alarm monitor program icon.
+  GeneralCamo:
+  - tweak: Increased the minimum age of the physician from 25 to 30.
+  - rscadd: Added a resident physician alt-title to the medical intern.
+  - rscadd: Eridani Dregs can now choose Eridani citizenship.
+  MattAtlas:
+  - rscadd: The autolathe interface is now a TGUI. A queueing system and a search
+      bar have also been added.
+  - rscadd: Turned the wires panel into a TGUI. Some hacking may be slightly more
+      difficult as the dud wire logic has been reworked - more items should have more
+      dud wires.
+  - rscadd: Holding blueprints in hand while looking at a wires panel will now reveal
+      what each wire does. Doesn&#x27;t work on randomized wires.
+  RustingWithYou:
+  - bugfix: Fixes non-functional airlocks and fuel tank controls on the Scarab ship.
+  - maptweak: Adds telecomms and headsets to the Scarab ship, along with more grates
+      for navigation.
+  - rscadd: Adds a TCAF voidsuit and a Redsnout breacher hardsuit.
+  - bugfix: Fixes missing icon states for vines.
+  ShakyJake:
+  - rscadd: Adds an Elyran Navy corvette to the Badlands and Elyran sectors.
+  - rscdel: Removes the old Elyran strike craft.
+  Tomixcomics:
+  - bugfix: Made missing sprites for some food and drinks display correctly.
+  - tweak: Repharsed the recipe for NTella chocolate milk to be 1u+1u+1u = 3u instead
+      of 2u+2u+2u=6u.
+  - spellcheck: Changed the word &#x27;hcocolate&#x27; to &#x27;chocolate&#x27;
+  meep109:
+  - bugfix: Added a changelog editing system that should cause fewer conflicts and
+      more accurate timestamps.
+  - maptweak: Adds an improved SMES to the Coalition Ranger Ship
+  steinersteinersteiner:
+  - bugfix: Fixed a line of code for Shumaila&#x27;s hammer that caused it to be invisible.
+  - bugfix: Fixed a typo for Dhrarmela&#x27;s banner icon that caused it to be invisible.
+2023-12-22:
+  FluffyGhost:
+  - bugfix: Organs of carbon/human mobs are QDEL&#x27;d on mob deletion too.
+  - bugfix: Removed references in /datum/reagents on deletion.
+  Furrycactus:
+  - bugfix: Fixed a single typo that was making the House Kazhkz Standard invisible.
+  Geeves:
+  - bugfix: Fixed strafing enabling you to ignore the turn delay of some exosuit propulsion
+      systems, such as tracks. You can now only strafe is the turn delay is smaller
+      or equal to the move delay.
+  - tweak: Tweaked the turn delay of light exosuit propulsion legs to be the same
+      as the move delay.
+  - bugfix: Mirror Shades no longer attack the person who summoned them.
+  GeneralCamo:
+  - tweak: Ported the cryo tubes to use tgui.
+  - tweak: Replaced the cryo tube sprites. Credit to Remission, cuddleandtea, and
+      SierraKomodo of baystation12.
+  - rscdel: Cryo tubes no longer heal without chemicals; putting someone inside without
+      cryo chems will kill them.
+  - balance: Buffed cryoxadone to heal 30 brute damage per metabolism tick from 10.
+  - balance: Buffed clonexadone to heal 50 brute damage per metabolism tick from 30.
+  - balance: Buffed clonexadone to heal 300 clone damage per metabolism tick from
+      100.
+  - rscadd: Cryoxadone and clonexadone now heal internal organ damage.
+  - rscdel: Cryoxadone and clonexadone no longer heal toxin or oxygen damage; both
+      now provide an oxygenation effect in place of healing oxygen damage.
+  - rscdel: Cryo tubes no longer show toxin, oxygen, or burn damage, as it cannot
+      heal these types of damage.
+  - rscadd: Added metabolism-boosted and stasis-boosted modes on the cryo tubes. Both
+      will trade off stasis level or metabolism respectively, in favor of the alternative
+      stat.
+  LynxSolstice:
+  - tweak: Added a missing wire on the freebooter ship so the Hydroponics HAB unit
+      wouldn&#x27;t be disconnected from the grid.
+  - tweak: Changed the Area Power Consoles in the ranger ship to use higher charge
+      cells in order to fix the issue of rangers running out of power in their APCs
+      due to a high powerdraw from the engines.
+  kermit:
+  - bugfix: Crayons and drafting chalk are no longer invisible.
+  meep109:
+  - maptweak: Fixes a scrubber in the kitchen
+2023-12-24:
+  Alberyk, Suethecake:
+  - rscadd: Added an adhomian typewriter.
+  - rscadd: Added am adhomian camera.
+  FluffyGhost:
+  - backend: If something returns the request to search for refs in Destroy, and all
+      the other reference tracking conditions are met, start the search for the reference
+      without prompting a confirmation box.
+  - backend: Moved all filepaths for sounds to static links, with single quotes instead
+      of doubles.
+  - bugfix: Repathed wrong chainsaw sounds to the correct path.
+  - soundadd: Added a missed sound that was forgotten when porting the overmap sensors,
+      from Nebula.
+  - backend: The CI now checks that all sounds are referenced with a static path.
+  - bugfix: The AI can now spawn at roundstart correctly.
+  - bugfix: Solved various roundtimes when the AI core is wiped.
+  - bugfix: Solved a runtime with programs when the computer was GCd.
+  - bugfix: Solved an issue that runtimed the AI mob initialization due to it being
+      created in nullspace at roundstart, for the atmos monitoring program.
+  - rscdel: Removed the ability to disable the AI in a gamemode, noone used it anyways
+      and it gave issues with the fix for the roundstart initialization.
+  Geeves:
+  - tweak: Removed the little electronic sprite that appears on your chest when you
+      equip a PDA or Wristbound to the ID slot.
+  - rscadd: Added an Orion Express delivery point to the Horizon&#x27;s warehouse,
+      offships with orion express packages can now deliver to the Horizon.
+  - rscadd: Added an Orion Express delivery point to the Orion Express Mobile station,
+      and mapped in packages for drop off. The Horizon is will now receive packages
+      to be delivered there.
+  - rscadd: Updated the ghost spawner UI to have a candystripe theme and also show
+      a manifest for the currently active mobs.
+  Greenjoe12345:
+  - bugfix: Area blurbs now only show once per blurb, rather then showing each time
+      you enter a subtype of the area they are defined on.
+  - bugfix: Medical&#x27;s area blurb is now set on the correct area.
+  RustingWithYou:
+  - rscadd: Adds new ERTs for Hephaestus, the SCC, Coalition Rangers and Konyang.
+  RustingWithYou, Hazelmouse:
+  - bugfix: Fixes non-functional shuttle airlocks on the Scarab ship.
+  - maptweak: Several changes for convenience and utility on the Scarab ship.
+2023-12-25:
+  FluffyGhost:
+  - bugfix: Fixed AI chamber computers missing programs.
+  - bugfix: Fixed various possible runtimes on qdeleted organs.
+  - bugfix: Fixed device assemblies, which also fixes some chem grenades like the
+      cleaner grenades, that were using wrong wires.
+  - backend: Moved the wires from constant vars to defines, moved inside the wires
+      define file, DMdoc&#x27;d them from the comments they had.
+  - bugfix: Fixed borgs not having access to the alarm program.
+  - bugfix: Characters with limb nymphs now spawn correctly.
+  - bugfix: Solved an issue that could allow to have eg. a nymph arm and yet still
+      have a human hand.
+  - bugfix: Solved some issues with text messages.
+  - backend: Updated SSAtoms to TG&#x27;s version.
+  - backend: Added signals for initialization, repathed old signal_athom_x_act.dm
+      to its updated home.
+  - backend: Moved /atom initialization related procs in atom/atoms_initializing_EXPENSIVE.dm
+      as per TG.
+  - backend: Updated INITIALIZE_IMMEDIATE to work with the new subsystem.
+  - backend: Adapted various procs and other subsystems to work with the new SSAtoms.
+  - backend: Reordered some procs to set the initialization flag at the start, as
+      that is the supposed behavior.
+  - backend: Transformed the testing() proc to a macro, as per TG.
+  - backend: Cleaned up some initializations a bit.
+  - backend: Flagged organs for immediate initialization.
+  - backend: Initialized variable is now flags_1, as per TG.
+  - backend: The Initialized variable is now global for every subsytem.
+  - backend: Various reordering and flags/defines additions.
+  Fluffyghost:
+  - rscadd: Added keymap R, to enable throw mode, lifting the R key disables throw
+      mode, clicking the HUD icon works as before (toggle).
+  - rscadd: Added keymap SPACE, to enable run mode, lifting the SPACE key disables
+      run mode, clicking the HUD icon works as before (toggle).
+  - rscadd: Added SHIFT+R as a keymap to resist.
+  - rscadd: Added CTRL+PGUP/CTRL+PGDOWN as a keymap to Move-upwards and Move-down,
+      respectively.
+  Geeves:
+  - tweak: You now need a direct line of sight to establish and use the Psi Grip (crush)
+      ability. You do not have to maintain line of sight to keep the grip active,
+      however.
+  LynxSolstice:
+  - tweak: Added a beefier SMES to the Tajaran Smuggler ship to keep the engines from
+      turning off and as recommended by HazelMouse, a breakerbox.
+  MattAtlas:
+  - rscadd: Added Dominian Imperial Army gear, which can also be bought on the uplink
+      as part of the Imperial Army gear crate.
+  - admin: SDQL2 has now been updated to work properly, be faster, and overall better
+      and more useful.
+  - admin: View variables can no longer view some protected datums, such as the config
+      datum.
+  - tweak: Changed the Set Holidays verb to not have a . in front of the name.
+  RustingWithYou:
+  - rscadd: Adds a Qukala hardsuit and gear crates.
+  - rscadd: Adds Einstein, Tupkala and Vaurca ninja hardsuits.
+  - tweak: Changes Skrell and Vaurca hardsuit armor values to be more usable in normal
+      gameplay.
+  - tweak: Removes AI containers from anti-AI factions&#x27; hardsuits and adds AI
+      containers to the uplink.
+  Snowy1237:
+  - tweak: Changed the required access for the bridge security lockers so only command
+      members can open them, not bridge crew.
+  nauticall:
+  - rscadd: Revamped the CCIA Human Resources Asssistant to wear a more formal coat
+      and tie. They now (subjectively) look twice as intimidating.
+  - rscadd: CCIA HRAs now come with additional self-defense weaponry - a gun and a
+      baton - as well as a holster for said gun and a laptop.
+  - rscadd: Added additional lights to the corporate liaisons&#x27; office to brighten
+      them up, as well as photocopiers.
+  - rscadd: Added disposal bins, fire extinguishers, and a photocopier to the bridge
+      vestibule.
+  - rscadd: Added light switches and privacy shutters to the captain&#x27;s office.
+      Moved things around so the _loaded gun_ in a display case is now in the secure
+      part of the captain&#x27;s office.
+  - rscadd: Added shutters to the CCIA room, and replaced the paper cups with proper
+      drinking glasses.
+  - rscadd: Added miscellaneous additional lights and light switches.
+2023-12-26:
+  MattAtlas:
+  - experiment: Refactored the way globals are done, porting the globals controller
+      from TG.
+  RustingWithYou:
+  - rscadd: Adds the ability to recharge energy weapons from power backpacks and hardsuit
+      modules.
+2023-12-27:
+  DreamySkrell:
+  - rscadd: Adds OX packages and delivery point to the SCC Scout Ship.
+  - rscadd: OX packages randomly pick a color from a limited selection.
+  GeneralCamo, NobleRow:
+  - rscadd: Added the Xanan null hardsuit.
+  - rscadd: Added the Xanan combat hardsuit.
+  MattAtlas:
+  - bugfix: Fixes the health scanner displaying two percentage signs for blood oxygenation.
+  RustingWithYou:
+  - maptweak: Fixes incorrect and missing access restrictions on Point Verdant.
+  Tomixcomics:
+  - rscadd: Added several new foods for Dominia, Eridani, and Silversun.
+  - rscadd: Added three new kinds of milkshakes.
+  - tweak: Changed some of the syrup colors to match the color they&#x27;re supposed
+      to have.
+  - backend: Added kitchen tag for blueberries.
+  - backend: Added correct cuisine category for che troi nuoc
+  - bugfix: Fixed naming issue that was keeping NTella jar from showing up
+2023-12-28:
+  FluffyGhost:
+  - tweak: AOOC text is now bold, to better distinguish it from Security chat.
+  RustingWithYou:
+  - tweak: Tweaks the Skrell consular pistol&#x27;s name and description, and adds
+      a non-psionic version for non-Skrell consulars.
+  meep109:
+  - maptweak: Adds proper power and atmospheric systems to the Orion Courier Ship,
+      as well as overhauling the shuttle.
+2023-12-30:
+  Geeves:
+  - bugfix: Fixed the matriarch drone slot not opening correctly.
+  RustingWithYou:
+  - bugfix: Fixes consular and representative blacklists not clearing properly on
+      cryo.
+  SimpleMaroon:
+  - maptweak: Added four pairs of extra magboots to the EVA storage rack containing
+      CO2 jetpacks.
+2023-12-31:
+  FluffyGhost:
+  - rscadd: Restored throw to its former, toggly glory (it&#x27;s back to being a
+      toggle instead of hold down).
+  Geeves:
+  - bugfix: Fixed not being able to load warrants on the warrant projector.
+  - rscadd: The warrant projector will now alert you if a new warrant was loaded,
+      and will alert you if the currently active warrant is modified or deleted.
+  - tweak: Tweaked how warrant projectors work, you now use it in-hand to load or
+      unload warrants, and then click on the target to display it. Shift-clicking
+      no longer opens the warrant.
+  - bugfix: Fixed the digital warrant assistant not having an icon on the PDA.
+  - rscadd: A majority of antags now start with Idris bank accounts connected to their
+      IDs.
+  - bugfix: Fixed antagonist passport IDs changing into workplace IDs when the change
+      machine is used.
+  - bugfix: Interacting with other ship UIs will no longer drop the sensor view randomly.
+  Hollyhock:
+  - rscadd: Added corophenidate to the pill bottle selection in the loadout.
+  Lavillastrangiato:
+  - rscadd: Adds k&#x27;ois freezer subtype.
+  - rscadd: Puts a k&#x27;ois freezer in the kitchen.
+  ShakyJake:
+  - rscadd: Adds a new Tirakqi Freighter to upgrade to newer mapping standards.
+  - rscdel: Removes old Tirakqi Freighter.
+  arrow768:
+  - bugfix: Fixes IPC tag status not being saved properly in some cases.
+  hazelmouse:
+  - rscadd: Makes a broad set of expansions and QoL improvements to the Scarab Salvager
+      offship.
