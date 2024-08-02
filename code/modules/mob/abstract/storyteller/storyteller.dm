@@ -14,7 +14,7 @@
 	mob_thinks = FALSE
 	universal_speak = TRUE
 
-	
+
 
 	/// Toggle darkness. Basically the same verb as the one observers have.
 	var/see_darkness = FALSE
@@ -49,7 +49,7 @@
 	if(!msg)
 		return
 
-	log_ooc("(STORYTELLER) [name]/[key] : [msg]",ckey=key_name(src))
+	log_ooc("(STORYTELLER) [name]/[key] : [msg]")
 
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it

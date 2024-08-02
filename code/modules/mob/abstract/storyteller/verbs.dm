@@ -65,16 +65,16 @@
 	user << browse(replacetext(create_mob_html, "/* ref src */", "\ref[src]"), "window=create_mob;size=425x475")
 
 /mob/abstract/storyteller/verb/storyteller_local_narrate()
-	set name = "Eye Narrate"
+	set name = "Local Narrate"
 	set category = "Storyteller"
 
 	var/list/mob/message_mobs = list()
 	var/choice = tgui_alert(usr, "Narrate to mobs in view, or in range?", "Narrate Selection", list("In view", "In range", "Cancel"))
 	if(choice != "Cancel")
 		if(choice == "In view")
-			message_mobs = mobs_in_view(world.view, eyeobj)
+			message_mobs = mobs_in_view(world.view, src)
 		else
-			for(var/mob/M in range(world.view, eyeobj))
+			for(var/mob/M in range(world.view, src))
 				message_mobs += M
 	else
 		return
@@ -86,7 +86,7 @@
 	for(var/M in message_mobs)
 		to_chat(M, msg)
 
-	log_admin("LocalNarrate: [key_name(usr)] : [msg]", admin_key = key_name(usr))
+	log_admin("LocalNarrate: [key_name(usr)] : [msg]")
 	message_admins("<span class='notice'>\bold LocalNarrate: [key_name_admin(usr)] : [msg]<BR></span>", 1)
 
 /mob/abstract/storyteller/verb/storyteller_global_narrate()
@@ -98,7 +98,7 @@
 	if (!msg)
 		return
 	to_world("[msg]")
-	log_admin("GlobalNarrate: [key_name(usr)] : [msg]",admin_key=key_name(usr))
+	log_admin("GlobalNarrate: [key_name(usr)] : [msg]")
 	message_admins("<span class='notice'>\bold GlobalNarrate: [key_name_admin(usr)] : [msg]<BR></span>", 1)
 
 /mob/abstract/storyteller/verb/storyteller_direct_narrate(var/mob/M)
@@ -122,7 +122,7 @@
 		return
 
 	to_chat(M, msg)
-	log_admin("DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [msg]",admin_key=key_name(usr),ckey=key_name(M))
+	log_admin("DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [msg]")
 	message_admins("<span class='notice'>\bold DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [msg]<BR></span>", 1)
 	feedback_add_details("admin_verb","DIRN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -172,72 +172,6 @@
 		usr.PopClickHandler()
 	else
 		usr.PushClickHandler(/datum/click_handler/build_mode)
-
-/mob/abstract/storyteller/verb/cmd_admin_create_centcom_report()
-	set name = "Create Command Report"
-	set category = "Storyteller"
-
-	if(usr != src)
-		return
-
-	var/reporttitle
-	var/reportbody
-	var/reporter = null
-	var/reporttype = tgui_alert(usr, "Choose whether to use a template or custom report.", "Create Command Report", list("Custom", "Template"))
-	if(!reporttype)
-		return
-	switch(reporttype)
-		if("Template")
-			if (!establish_db_connection(GLOB.dbcon))
-				to_chat(src, SPAN_NOTICE("Unable to connect to the database."))
-				return
-			var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT title, message FROM ss13_ccia_general_notice_list WHERE deleted_at IS NULL")
-			query.Execute()
-
-			var/list/template_names = list()
-			var/list/templates = list()
-
-			while (query.NextRow())
-				template_names += query.item[1]
-				templates[query.item[1]] = query.item[2]
-
-			// Catch empty list
-			if (!templates.len)
-				to_chat(src, SPAN_NOTICE("There are no templates in the database."))
-				return
-
-			reporttitle = tgui_input_list(usr, "Please select a command report template.", "Create Command Report", template_names)
-			if(!reporttitle)
-				return
-			reportbody = templates[reporttitle]
-
-		if("Custom")
-			reporttitle = sanitizeSafe(tgui_input_text(usr, "Pick a title for the report.", "Title"))
-			if(!reporttitle)
-				reporttitle = "NanoTrasen Update"
-			reportbody = sanitize(tgui_input_text(usr, "Please enter anything you want. Anything. Serious.", "Body", multiline = TRUE), extra = FALSE)
-			if(!reportbody)
-				return
-
-	if (reporttype == "Template")
-		reporter = sanitizeSafe(tgui_input_text(usr, "Please enter your CCIA name. (blank for CCIAAMS)", "Name"))
-		if (reporter)
-			reportbody += "\n\n- [reporter], Central Command Internal Affairs Agent, [commstation_name()]"
-		else
-			reportbody += "\n\n- CCIAAMS, [commstation_name()]"
-
-	var/announce = tgui_alert(usr, "Should this be announced to the general population?", "Announcement", list("Yes","No"))
-	switch(announce)
-		if("Yes")
-			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
-		if("No")
-			to_world(SPAN_WARNING("New [SSatlas.current_map.company_name] Update available at all communication consoles."))
-			sound_to(world, ('sound/AI/commandreport.ogg'))
-
-	log_admin("[key_name(src)] has created a command report: [reportbody]",admin_key=key_name(usr))
-	message_admins("[key_name_admin(src)] has created a command report", 1)
-	//New message handling
-	post_comm_message(reporttitle, reportbody)
 
 /mob/abstract/storyteller/verb/send_distress_message()
 	set name = "Create Command Report"
