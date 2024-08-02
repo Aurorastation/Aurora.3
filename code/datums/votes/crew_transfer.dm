@@ -24,7 +24,7 @@ GLOBAL_VAR(last_transfer_vote)
 	if(forced)
 		return TRUE
 
-	if(GLOB.security_level >= SEC_LEVEL_RED)
+	if(SSsecurity_level.get_current_level_as_number() <= 2)
 		to_chat(by_who, "The current alert status is too high to call for a crew transfer!")
 		return FALSE
 

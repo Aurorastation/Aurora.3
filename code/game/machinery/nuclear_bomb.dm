@@ -287,7 +287,7 @@ var/bomb_set
 					secure_device()
 
 				if(alerted == 0)
-					set_security_level(SEC_LEVEL_DELTA)
+					SSsecurity_level.set_level(/datum/security_level/condition_one)
 					alerted = 1
 			if (href_list["safety"])
 				if (wires.is_cut(WIRE_SAFETY))

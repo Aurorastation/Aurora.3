@@ -116,7 +116,7 @@
 	to_chat(user, "***** STATION SELF-DESTRUCT SEQUENCE INITIATED *****")
 	to_chat(user, "Self-destructing in [timer] seconds. Use this command again to abort.")
 	user.bombing_station = 1
-	set_security_level("delta")
+	SSsecurity_level.set_level(/datum/security_level/condition_one)
 
 	if(timer > stage1)
 		radio.autosay("Critical: Brute force attempt on primary firewall detected.", "Station Authentication Control")

@@ -25,9 +25,6 @@
 
 	update_icon()
 
-	if(isContactLevel(z))
-		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(set_security_level), (GLOB.security_level ? get_security_level() : "green"))
-
 	soundloop = new(src, FALSE)
 
 	var/area/A = get_area(src)
@@ -45,7 +42,7 @@
 	if((stat & (NOPOWER|BROKEN)) || buildstage != 2)
 		return
 
-	. += "The current alert level is [get_security_level()]."
+	. += "The current alert level is [SSsecurity_level.get_current_level_as_text()]."
 
 /obj/machinery/firealarm/update_icon()
 	ClearOverlays()
@@ -201,7 +198,7 @@
 /obj/machinery/firealarm/ui_data(mob/user)
 	var/list/data = list()
 
-	data["alertLevel"] = get_security_level()
+	data["alertLevel"] = SSsecurity_level.get_current_level_as_text()
 	data["time"] = src.time
 
 	var/area/A = get_area(src)
@@ -256,7 +253,7 @@
 	update_icon()
 	return
 
-/obj/machinery/firealarm/set_emergency_state(var/new_security_level)
+/obj/machinery/firealarm/set_emergency_state(datum/security_level/new_security_level)
 	if(seclevel != new_security_level)
 		seclevel = new_security_level
 

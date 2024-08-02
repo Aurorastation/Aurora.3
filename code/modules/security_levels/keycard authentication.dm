@@ -75,7 +75,7 @@
 
 	if(screen == 1)
 		dat += "Select an event to trigger:<ul>"
-		dat += "<li><A href='?src=\ref[src];triggerevent=Red alert'>Red alert</A></li>"
+		dat += "<li><A href='?src=\ref[src];triggerevent=General Quarters'>General Quarters</A></li>"
 		if(!GLOB.config.ert_admin_call_only)
 			dat += "<li><A href='?src=\ref[src];triggerevent=Distress Beacon'>Broadcast Distress Beacon</A></li>"
 		dat += "<li><A href='?src=\ref[src];triggerevent=Unlock Leviathan Safeties'><font color='red'>Unlock Leviathan Safeties</font></A></li>"
@@ -169,8 +169,8 @@
 
 /obj/machinery/keycard_auth/proc/trigger_event(var/event, var/distress_message, var/mob/user)
 	switch(event)
-		if("Red alert")
-			set_security_level(SEC_LEVEL_RED)
+		if("General Quarters")
+			SSsecurity_level.set_level(/datum/security_level/condition_one)
 			feedback_inc("alert_keycard_auth_red",1)
 		if("Distress Beacon")
 			if(is_ert_blocked())
@@ -206,10 +206,16 @@ var/global/maint_all_access = 0
 
 /proc/make_maint_all_access()
 	maint_all_access = 1
+
+	var/datum/announcement/priority/security/security_announcement = new(do_log = 0, do_newscast = 1)
+
 	security_announcement.Announce("The maintenance access requirement has been revoked on all airlocks.","Attention!")
 
 /proc/revoke_maint_all_access()
 	maint_all_access = 0
+
+	var/datum/announcement/priority/security/security_announcement = new(do_log = 0, do_newscast = 1)
+
 	security_announcement.Announce("The maintenance access requirement has been readded on all maintenance airlocks.","Attention!")
 
 /obj/machinery/door/airlock/allowed(mob/M)
@@ -220,12 +226,12 @@ var/global/maint_all_access = 0
 	if(!I)
 		return ..(M)
 	var/list/A = I.GetAccess()
-	var/maint_sec_access = ((GLOB.security_level > SEC_LEVEL_GREEN) && has_access(ACCESS_SECURITY, accesses = A))
+	var/maint_sec_access = ((SSsecurity_level.get_current_level_as_number() <= 4) && has_access(ACCESS_SECURITY, accesses = A))
 	var/exceptional_circumstances = maint_all_access || maint_sec_access
 	if(exceptional_circumstances && src.check_access_list(list(ACCESS_MAINT_TUNNELS)))
 		return 1
 	if(access_by_level || req_one_access_by_level)
-		var/sec_level = get_security_level()
+		var/sec_level = SSsecurity_level.get_current_level_as_number()
 		if(sec_level in (req_one_access_by_level ? req_one_access_by_level : access_by_level))
 			var/access_to_use = req_one_access_by_level ? req_one_access_by_level[sec_level] : access_by_level[sec_level]
 			if(!access_to_use)

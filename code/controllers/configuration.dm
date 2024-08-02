@@ -253,15 +253,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/rulesurl
 	var/githuburl
 
-	//Alert level description
-	var/alert_desc_green = "All threats to the ship have passed. Security may not have weapons visible, privacy laws are once again fully enforced."
-	var/alert_desc_blue_upto = "The ship has received reliable information about possible hostile activity onboard. Security staff may have weapons visible, random searches are permitted."
-	var/alert_desc_blue_downto = "The immediate threat has passed. Security may no longer have weapons drawn at all times, but may continue to have them visible. Random searches are still allowed."
-	var/alert_desc_yellow_to = "The ship is now under an elevated alert status due to a confirmed biological hazard. All crew are to follow command instruction in order to ensure a safe return to standard operations."
-	var/alert_desc_red_upto = "There is an immediate serious threat to the ship. Security may have weapons unholstered at all times. Random searches are allowed and advised."
-	var/alert_desc_red_downto = "The self-destruct mechanism has been deactivated, there is still, however, an immediate serious threat to the ship. Security may have weapons unholstered at all times, random searches are allowed and advised."
-	var/alert_desc_delta = "The ship's self-destruct mechanism has been engaged. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill."
-
 	var/forbid_singulo_possession = 0
 
 	//game_options.txt configs
@@ -752,27 +743,6 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 
 				if("load_jobs_from_txt")
 					load_jobs_from_txt = 1
-
-				if("alert_red_upto")
-					GLOB.config.alert_desc_red_upto = value
-
-				if("alert_red_downto")
-					GLOB.config.alert_desc_red_downto = value
-
-				if("alert_blue_downto")
-					GLOB.config.alert_desc_blue_downto = value
-
-				if("alert_blue_upto")
-					GLOB.config.alert_desc_blue_upto = value
-
-				if("alert_green")
-					GLOB.config.alert_desc_green = value
-
-				if("alert_yellow")
-					GLOB.config.alert_desc_yellow_to = value
-
-				if("alert_delta")
-					GLOB.config.alert_desc_delta = value
 
 				if("forbid_singulo_possession")
 					forbid_singulo_possession = 1

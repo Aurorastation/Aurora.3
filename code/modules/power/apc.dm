@@ -166,6 +166,8 @@
 	if(!mapload)
 		set_pixel_offsets()
 
+	RegisterSignal(SSsecurity_level, COMSIG_SECURITY_LEVEL_CHANGED, PROC_REF(manage_emergency))
+
 /obj/machinery/power/apc/Destroy()
 	update()
 	area.apc = null
@@ -1373,7 +1375,12 @@
 		charge_mode = CHARGE_MODE_STABLE
 	last_time = world.time
 
-/obj/machinery/power/apc/proc/manage_emergency(var/new_security_level)
+/obj/machinery/power/apc/proc/manage_emergency(datum/source, datum/security_level/new_security_level)
+	SIGNAL_HANDLER
+
+	if(!istype(new_security_level))
+		CRASH("Invalid security level trying to be set: [new_security_level]")
+
 	for(var/obj/machinery/M in area)
 		M.set_emergency_state(new_security_level)
 
