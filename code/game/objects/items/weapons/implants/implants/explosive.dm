@@ -123,7 +123,6 @@
 		return
 	if(findtext(sanitizePhrase(msg),phrase))
 		activate()
-		qdel(src)
 
 /obj/item/implant/explosive/exposed()
 	if(warning_message)
