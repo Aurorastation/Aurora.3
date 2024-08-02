@@ -802,7 +802,6 @@
 /obj/structure/bed/stool/chair/folding{
 	dir = 8
 	},
-/obj/effect/ghostspawpoint/cryo_outpost_crew,
 /turf/simulated/floor/wood,
 /area/cryo_outpost/inside/canteen)
 "aTE" = (
@@ -1377,7 +1376,6 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
-/obj/effect/ghostspawpoint/cryo_outpost_crew,
 /turf/simulated/floor/wood,
 /area/cryo_outpost/inside/canteen)
 "bus" = (
@@ -2622,7 +2620,6 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/obj/effect/ghostspawpoint/cryo_outpost_crew,
 /turf/simulated/floor/wood,
 /area/cryo_outpost/inside/canteen)
 "cVk" = (
@@ -3253,6 +3250,11 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/cryo_outpost/outside/cave)
+"dFv" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/ghostspawpoint/storyteller,
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_rnd)
 "dFw" = (
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/tiled/full,
@@ -5273,6 +5275,7 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
+/obj/effect/landmark/actor,
 /turf/simulated/floor/wood/bamboo,
 /area/cryo_outpost/inside/labs_offices)
 "fPz" = (
@@ -5473,6 +5476,7 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
+/obj/effect/landmark/actor,
 /turf/simulated/floor/wood/bamboo,
 /area/cryo_outpost/inside/labs_offices)
 "gdW" = (
@@ -5852,6 +5856,7 @@
 /area/cryo_outpost/inside/maint_habitation)
 "gzI" = (
 /obj/structure/bed/stool/chair/office/light,
+/obj/effect/landmark/actor,
 /turf/simulated/floor/wood/bamboo,
 /area/cryo_outpost/inside/labs_offices)
 "gAb" = (
@@ -10948,7 +10953,6 @@
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
 	},
-/obj/effect/ghostspawpoint/cryo_outpost_crew,
 /turf/simulated/floor/wood,
 /area/cryo_outpost/inside/canteen)
 "msv" = (
@@ -12945,6 +12949,7 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
+/obj/effect/landmark/actor,
 /turf/simulated/floor/wood/bamboo,
 /area/cryo_outpost/inside/labs_offices)
 "oRy" = (
@@ -64095,7 +64100,7 @@ jjD
 exR
 oNT
 dvY
-dvY
+dFv
 kHw
 wHp
 dvY

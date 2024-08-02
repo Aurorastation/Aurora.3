@@ -14,8 +14,6 @@
 	mob_thinks = FALSE
 	universal_speak = TRUE
 
-
-
 	/// Toggle darkness. Basically the same verb as the one observers have.
 	var/see_darkness = FALSE
 	/// Is the ghost able to see things humans can't?
