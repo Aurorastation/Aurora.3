@@ -7,7 +7,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "m_garment"
 	item_state = "m_garment"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	flags_inv = null
 	body_parts_covered = null
 	filtered_gases = list(GAS_NITROGEN, GAS_N2O, GAS_CHLORINE, GAS_ALIEN)
@@ -21,7 +21,7 @@
 	desc = "A basic screw on filter attached beneath the mouthparts of the common Vaurca."
 	name = "filter port"
 	icon_state = "filterport"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	flags_inv = null
 	body_parts_covered = null
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_WARFORM, BODYTYPE_VAURCA_BREEDER, BODYTYPE_VAURCA_BULWARK)
@@ -106,12 +106,12 @@
 	item_state = "eknife0"
 	active_force = 25
 	active_throwforce = 20
-	active_w_class = ITEMSIZE_HUGE
+	active_w_class = WEIGHT_CLASS_HUGE
 	force = 11
 	throwforce = 5
 	throw_speed = 5
 	throw_range = 10
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")
@@ -191,7 +191,7 @@
 	icon_state = "harddisk"
 	force = 15
 	throwforce = 5
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	contained_sprite = 1
 
 /obj/item/melee/vaurca/rock
@@ -201,7 +201,7 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	force = 22
 	throwforce = 30
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	contained_sprite = 1
 
 /obj/item/grenade/spawnergrenade/vaurca
@@ -214,7 +214,7 @@
 	icon_state = "beacon"
 	force = 22
 	throwforce = 30
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	var/seed = /datum/seed/koisspore
 
 /obj/item/grenade/spawnergrenade/vaurca/prime()
@@ -361,7 +361,7 @@
 	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
 	body_parts_covered = FACE|EYES
 	gas_filter_strength = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	filtered_gases = list(GAS_NITROGEN, GAS_N2O)
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
@@ -384,12 +384,12 @@
 	active_force = 33
 	armor_penetration = 30
 	active_throwforce = 20
-	active_w_class = ITEMSIZE_HUGE
+	active_w_class = WEIGHT_CLASS_HUGE
 	force = 15
 	throwforce = 10
 	throw_speed = 5
 	throw_range = 10
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	attack_verb = list("stabbed", "chopped", "sliced", "cleaved", "slashed", "cut")

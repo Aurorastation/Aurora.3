@@ -81,7 +81,7 @@
 				var/turf/T = spook.loc
 				var/list/visible = list()
 				for(var/obj/O in T.contents)
-					if(!O.invisibility && O.name)
+					if(!O.invisibility && O.name && !istype(O, /obj/effect))
 						visible += O
 				if(visible.len)
 					var/atom/A = pick(visible)
@@ -185,13 +185,13 @@
 	. = ..()
 	set_flee_target(src.loc)
 
-/mob/living/simple_animal/cat/bullet_act(var/obj/item/projectile/proj)
+/mob/living/simple_animal/cat/bullet_act(var/obj/projectile/proj)
 	. = ..()
 	set_flee_target(proj.firer? proj.firer : src.loc)
 
-/mob/living/simple_animal/cat/hitby(atom/movable/AM)
+/mob/living/simple_animal/cat/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
-	set_flee_target(AM.throwing?.thrower?.resolve() ? AM.throwing?.thrower?.resolve() : src.loc)
+	set_flee_target(throwingdatum?.thrower?.resolve() ? throwingdatum.thrower.resolve() : src.loc)
 
 /mob/living/simple_animal/cat/fall_impact()
 	src.visible_message(SPAN_NOTICE("\The [src] lands softly on \the [loc]!"))

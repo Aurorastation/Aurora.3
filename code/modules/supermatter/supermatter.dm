@@ -197,7 +197,7 @@
 	//don't send it back to the station -- most of the time
 	if(prob(99))
 		var/list/candidates = SSatlas.current_map.accessible_z_levels.Copy()
-		for(var/zlevel in SSatlas.current_map.station_levels)
+		for(var/zlevel in SSmapping.levels_by_trait(ZTRAIT_STATION))
 			candidates.Remove("[zlevel]")
 		candidates.Remove("[src.z]")
 
@@ -340,7 +340,7 @@
 	return 1
 
 
-/obj/machinery/power/supermatter/bullet_act(var/obj/item/projectile/Proj)
+/obj/machinery/power/supermatter/bullet_act(var/obj/projectile/Proj)
 	var/turf/L = loc
 	if(!istype(L))		// We don't run process() when we are in space
 		return 0	// This stops people from being able to really power up the supermatter
@@ -348,7 +348,7 @@
 
 
 	var/proj_damage = Proj.get_structure_damage()
-	if(istype(Proj, /obj/item/projectile/beam))
+	if(istype(Proj, /obj/projectile/beam))
 		power += proj_damage * config_bullet_energy	* CHARGING_FACTOR / POWER_FACTOR
 	else
 		damage += proj_damage * config_bullet_energy

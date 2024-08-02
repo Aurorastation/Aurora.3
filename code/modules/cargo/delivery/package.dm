@@ -17,7 +17,7 @@
 	icon_state = "express_package"
 	item_state = "express_package"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	force = 15
 
 	slowdown = 1

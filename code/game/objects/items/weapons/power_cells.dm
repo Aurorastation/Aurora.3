@@ -9,7 +9,7 @@
 	throwforce = 5.0
 	throw_speed = 3
 	throw_range = 5
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	var/charge = 0	// note %age conveted to actual charge in New
 	var/maxcharge = 1000
 	var/rigged = 0		// true if rigged to explode
@@ -25,7 +25,7 @@
 	name = "device power cell"
 	desc = "A small power cell designed to power handheld devices."
 	icon_state = "device"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	force = 0
 	throw_speed = 5
 	throw_range = 7
@@ -166,7 +166,7 @@
 	name = "miniature power cell"
 	desc = "A small power cell intended for use with emergency lighting."
 	maxcharge = 120	//Emergency lights use 0.2 W per tick, meaning ~10 minutes of emergency power from a cell
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	matter = list(MATERIAL_GLASS = 20)
 
 /obj/item/cell/device/emergency_light/empty/Initialize()
@@ -192,7 +192,7 @@
 	icon_state = "hycell"
 	maxcharge = 10000 // hydrogen is actually used today in electric cars
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 70)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/items/drop/gascan.ogg'
 	pickup_sound = 'sound/items/pickup/gascan.ogg'
 	origin_tech = list(TECH_POWER = 4)
@@ -201,7 +201,7 @@
 	name = "power core"
 	origin_tech = list(TECH_POWER = 2)
 	icon_state = "core"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	maxcharge = 20000
 	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000)
 

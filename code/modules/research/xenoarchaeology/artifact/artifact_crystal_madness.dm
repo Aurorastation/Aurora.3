@@ -117,8 +117,8 @@
 				A large crystal, seemingly floating in the air, and giving off a light blue glow.\
 				"
 
-/obj/structure/crystal_madness/bullet_act(var/obj/item/projectile/projectile)
-	if(istype(projectile, /obj/item/projectile/bullet))
+/obj/structure/crystal_madness/bullet_act(var/obj/projectile/projectile)
+	if(istype(projectile, /obj/projectile/bullet))
 		src.visible_message(
 			pick(
 				SPAN_WARNING("\The [src] appears to deflect \the [projectile], shattering it into dust."),
@@ -130,7 +130,7 @@
 				SPAN_WARNING("\The [src] appears to bounce off \the [projectile]. It has little effect."),
 			),
 		)
-	else if(istype(projectile, /obj/item/projectile/energy))
+	else if(istype(projectile, /obj/projectile/energy))
 		src.visible_message(
 			pick(
 				SPAN_WARNING("\The [src] appears to absorb \the [projectile]."),
@@ -140,7 +140,7 @@
 				SPAN_WARNING("\The [src] appears to consume \the [projectile]. It has little effect."),
 			),
 		)
-	else if(istype(projectile, /obj/item/projectile/beam))
+	else if(istype(projectile, /obj/projectile/beam))
 		var/damage = projectile.get_structure_damage()
 		if(damage < 20)
 			src.visible_message(

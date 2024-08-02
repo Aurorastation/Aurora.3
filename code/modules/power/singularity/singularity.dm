@@ -71,7 +71,7 @@
 			energy += round((rand(20,60)/2),1)
 			return
 
-/obj/singularity/bullet_act(obj/item/projectile/P)
+/obj/singularity/bullet_act(obj/projectile/P)
 	return 0 //Will there be an impact? Who knows. Will we see it? No.
 
 /obj/singularity/Collide(atom/A)
@@ -507,7 +507,8 @@
 	return FALSE
 
 /obj/singularity/proc/zMove(direction)
-	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
+	var/turf/T = get_turf(src)
+	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	if(destination)
 		forceMove(destination)
 

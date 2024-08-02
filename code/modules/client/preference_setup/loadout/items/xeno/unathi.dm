@@ -13,6 +13,7 @@
 	var/list/mantles = list()
 	mantles["hide mantle, desert"] = /obj/item/clothing/accessory/poncho/unathimantle
 	mantles["hide mantle, mountain"] = /obj/item/clothing/accessory/poncho/unathimantle/mountain
+	mantles["hide mantle, jungle"] = /obj/item/clothing/accessory/poncho/unathimantle/jungle
 	gear_tweaks += new /datum/gear_tweak/path(mantles)
 
 /datum/gear/suit/unathi_mantle_noble

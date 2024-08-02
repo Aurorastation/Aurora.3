@@ -2,7 +2,7 @@
 	var/list/pick_turfs = list()
 	for(var/turf/T in world)
 		var/turf/simulated/floor/F = T
-		if(istype(F) && isStationLevel(F.z))
+		if(istype(F) && is_station_level(F.z))
 			pick_turfs += F
 
 	if(pick_turfs.len)
@@ -49,7 +49,7 @@
 //maybe this proc can even be used as an admin tool for teleporting players without ruining immulsions?
 /proc/create_wormhole(var/turf/enter as turf, var/turf/exit as turf)
 	var/obj/effect/portal/P = new /obj/effect/portal( enter )
-	P.target = exit
+	P.set_target(exit)
 	P.creator = null
 	P.icon = 'icons/obj/objects.dmi'
 	P.failchance = 0

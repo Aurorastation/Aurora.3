@@ -5,7 +5,7 @@
 	name = "Tret Industrial Complex"
 	description = "An industrial complex on Tret."
 	prefix = "away_site/uueoaesa/tret/"
-	suffixes = list("tret_industrial_complex.dmm")
+	suffix = "tret_industrial_complex.dmm"
 	sectors = list(SECTOR_UUEOAESA)
 	spawn_weight = 1
 	spawn_cost = 1

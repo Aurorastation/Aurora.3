@@ -418,6 +418,9 @@
 	dir = 4
 	},
 /obj/machinery/light,
+/obj/item/folder/red{
+	pixel_x = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/cic)
 "bq" = (
@@ -660,6 +663,12 @@
 "cC" = (
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	name = "Shuttle Blast Doors";
+	id = "kataphract_shuttle_shutters";
+	pixel_y = 26
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -1680,6 +1689,8 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/item/melee/energy/glaive/hegemony,
+/obj/item/melee/energy/glaive/hegemony,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
 "gb" = (
@@ -1921,6 +1932,8 @@
 /obj/item/clothing/head/unathi/deco/dark/orange,
 /obj/item/material/hatchet/unathiknife,
 /obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/head/unathi/dark,
+/obj/item/storage/belt/military,
 /obj/item/clothing/accessory/badge/passport/hegemony,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -1971,7 +1984,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/structure/closet/crate/bin,
 /obj/effect/floor_decal/corner/green{
 	dir = 9
 	},
@@ -2437,7 +2449,9 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/armoury)
 "iU" = (
-/obj/machinery/suit_cycler/offship/kataphract,
+/obj/machinery/suit_cycler/offship/kataphract{
+	mask = /obj/item/clothing/mask/gas/half
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
@@ -2471,6 +2485,12 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
 "iX" = (
@@ -2652,7 +2672,11 @@
 /obj/item/flag/hegemony,
 /obj/item/flag/hegemony/l,
 /obj/item/toy/mech/marauder,
-/obj/item/clothing/accessory/poncho/unathimantle/fighter,
+/obj/item/clothing/accessory/poncho/unathimantle/forest{
+	color = "#6D2B1A"
+	},
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/storage/belt/military,
 /obj/item/clothing/suit/unathi/robe/robe_coat,
 /obj/item/clothing/suit/unathi/robe/robe_coat/blue,
 /obj/item/clothing/suit/unathi/robe/robe_coat/orange,
@@ -2703,12 +2727,10 @@
 /area/kataphract_chapter/medical)
 "kf" = (
 /obj/structure/table/standard,
-/obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/storage/belt/medical/paramedic,
 /obj/item/storage/belt/medical,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/hypospray,
-/obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/effect/floor_decal/corner/green{
 	dir = 5
 	},
@@ -2735,6 +2757,9 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "ki" = (
@@ -3044,8 +3069,10 @@
 /obj/structure/table/rack,
 /obj/item/clothing/suit/armor/unathi/klax,
 /obj/item/clothing/head/helmet/unathi/klax,
-/obj/item/clothing/shoes/magboots/hegemony,
-/obj/item/clothing/glasses/sunglasses/blinders,
+/obj/item/clothing/shoes/magboots/vaurca,
+/obj/item/clothing/glasses/sunglasses/blinders{
+	color = "#423509"
+	},
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
@@ -3053,6 +3080,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/clothing/mask/gas/vaurca/tactical,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
 "lc" = (
@@ -3761,7 +3789,12 @@
 /obj/item/material/hatchet/unathiknife,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/under/vaurca/gearharness,
-/obj/item/clothing/under/vaurca,
+/obj/item/clothing/under/unathi/zazali{
+	color = "#373C0E"
+	},
+/obj/item/clothing/suit/unathi/robe/beige,
+/obj/item/clothing/head/unathi/dark,
+/obj/item/storage/belt/military,
 /obj/item/clothing/mask/gas/vaurca/filter,
 /obj/item/reagent_containers/food/snacks/koisbar,
 /obj/item/clothing/accessory/badge/passport/hegemony,
@@ -4610,7 +4643,8 @@
 /area/kataphract_chapter/main_ring)
 "uA" = (
 /obj/machinery/suit_cycler/offship/kataphract/lead{
-	req_access = list(113)
+	req_access = list(113);
+	mask = /obj/item/clothing/mask/gas/half
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -4676,6 +4710,8 @@
 /obj/item/clothing/head/unathi/deco/dark/orange,
 /obj/item/material/hatchet/unathiknife,
 /obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/head/unathi/dark,
+/obj/item/storage/belt/military,
 /obj/item/clothing/accessory/badge/passport/hegemony,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -4801,7 +4837,6 @@
 /area/kataphract_chapter/atmospherics)
 "wT" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/folder/red,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hegemony{
 	pixel_y = 6;
 	pixel_x = 10
@@ -4818,14 +4853,6 @@
 /area/kataphract_chapter/cic)
 "wU" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/shuttle/kataphract_shuttle/main_compartment)
-"xd" = (
-/obj/machinery/button/remote/blast_door{
-	dir = 6;
-	name = "Shuttle Blast Doors";
-	id = "kataphract_shuttle_shutters"
-	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "xz" = (
@@ -5626,7 +5653,8 @@
 /area/kataphract_chapter/mess)
 "FC" = (
 /obj/machinery/suit_cycler/offship/kataphract/specialist{
-	req_access = list(113)
+	req_access = list(113);
+	mask = /obj/item/clothing/mask/gas/half
 	},
 /obj/machinery/light{
 	dir = 4
@@ -5876,6 +5904,7 @@
 /area/kataphract_chapter/hangar)
 "Iq" = (
 /obj/effect/floor_decal/corner/green/full,
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "Iz" = (
@@ -6219,7 +6248,6 @@
 "Mm" = (
 /obj/structure/table/rack,
 /obj/item/material/twohanded/pike/flag/hegemony,
-/obj/item/material/twohanded/pike/flag/hegemony,
 /obj/item/shield/energy/hegemony/kataphract,
 /obj/item/shield/energy/hegemony/kataphract,
 /obj/item/shield/energy/hegemony/kataphract,
@@ -6252,8 +6280,9 @@
 /area/kataphract_chapter/main_ring)
 "Mw" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/closet/crate/bin,
+/obj/structure/table/rack,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/rig/unathi/fancy/equipped,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
 "MD" = (
@@ -6362,12 +6391,9 @@
 /obj/item/clothing/head/helmet/unathi/hegemony,
 /obj/item/clothing/head/helmet/unathi/hegemony,
 /obj/item/clothing/head/helmet/unathi/hegemony,
-/obj/item/clothing/glasses/sunglasses,
-/obj/item/clothing/glasses/sunglasses,
-/obj/item/clothing/glasses/sunglasses,
-/obj/item/clothing/glasses/sunglasses,
-/obj/item/clothing/glasses/sunglasses,
-/obj/item/clothing/glasses/sunglasses,
+/obj/item/clothing/glasses/safety/goggles/tactical/generic,
+/obj/item/clothing/glasses/safety/goggles/tactical/generic,
+/obj/item/clothing/glasses/safety/goggles/tactical/generic,
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
@@ -6452,6 +6478,8 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/item/clothing/accessory/badge/passport/hegemony,
 /obj/machinery/light,
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/accessory/storage/pouches/white,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/specoffice)
 "Oi" = (
@@ -7101,7 +7129,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/frankie)
 "TM" = (
-/obj/machinery/suit_cycler/offship/kataphract,
+/obj/machinery/suit_cycler/offship/kataphract{
+	mask = /obj/item/clothing/mask/gas/half
+	},
 /obj/effect/floor_decal/corner_wide/red/full,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
@@ -7240,6 +7270,8 @@
 /obj/item/clothing/head/unathi/deco/dark/orange,
 /obj/item/material/hatchet/unathiknife,
 /obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/head/unathi/dark,
+/obj/item/storage/belt/military,
 /obj/item/clothing/accessory/badge/passport/hegemony,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -7480,7 +7512,6 @@
 	pixel_x = -32;
 	req_access = list(113)
 	},
-/obj/item/clothing/mask/breath/medical,
 /obj/item/auto_cpr,
 /obj/item/tank/oxygen,
 /obj/item/tank/oxygen,
@@ -7493,6 +7524,8 @@
 /obj/effect/floor_decal/corner/green/full,
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -33346,7 +33379,7 @@ iT
 fZ
 Su
 NG
-Td
+NG
 lb
 CB
 iT
@@ -36855,7 +36888,7 @@ iB
 iB
 iB
 bH
-xd
+Bi
 cC
 cr
 kQ

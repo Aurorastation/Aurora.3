@@ -3,7 +3,7 @@
 	desc = "A Kumar Arms high-velocity cannon and flagship of <i>\"Chivalry\"</i> weapons line, developed in 2461 as an upgrade to its predecessor, the Ballista. Its upgrades include a bigger payload, a more streamlined loading process, and easier maintenance, making this cannon one of the best armaments in the Spur."
 	icon_state = "weapon_base"
 
-	projectile_type = /obj/item/projectile/ship_ammo/longbow
+	projectile_type = /obj/projectile/ship_ammo/longbow
 	caliber = SHIP_CALIBER_406MM
 	firing_effects = FIRING_EFFECT_FLAG_EXTREMELY_LOUD
 	screenshake_type = SHIP_GUN_SCREENSHAKE_ALL_MOBS
@@ -11,20 +11,20 @@
 /obj/machinery/ammunition_loader/longbow
 	name = "longbow shell loader"
 
-/obj/item/projectile/ship_ammo/longbow
+/obj/projectile/ship_ammo/longbow
 	icon_state = "heavy"
 	damage = 1000
 	armor_penetration = 1000
 	var/penetrated = FALSE
 
-/obj/item/projectile/ship_ammo/longbow/launch_projectile(atom/target, target_zone, mob/user, params, angle_override, forced_spread)
+/obj/projectile/ship_ammo/longbow/launch_projectile(atom/target, target_zone, mob/user, params, angle_override, forced_spread)
 	if(ammo.impact_type == SHIP_AMMO_IMPACT_AP)
 		penetrating = 1
 	if(ammo.impact_type == SHIP_AMMO_IMPACT_BUNKERBUSTER)
 		penetrating = 3
 	. = ..()
 
-/obj/item/projectile/ship_ammo/longbow/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
+/obj/projectile/ship_ammo/longbow/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
 	if(ismob(target))
 		var/mob/M = target

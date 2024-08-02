@@ -3,7 +3,7 @@
 	description = "A wrecked ship once owned by NanoTrasen."
 
 	prefix = "away_site/wrecked_nt_ship/"
-	suffixes = list("wrecked_nt_ship.dmm")
+	suffix = "wrecked_nt_ship.dmm"
 
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS, SECTOR_SRANDMARR)
 	sectors_blacklist = list(SECTOR_BURZSIA, SECTOR_HANEUNIM) //NT has pretty much no presence in either of these, why would there be a wrecked ship

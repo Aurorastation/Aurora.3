@@ -3,7 +3,7 @@
 	description = "Gadpathur navy patrol ship."
 
 	prefix = "ships/coc/gadpathur_patrol/"
-	suffixes = list("gadpathur_patrol.dmm")
+	suffix = "gadpathur_patrol.dmm"
 
 	sectors = list(ALL_COALITION_SECTORS) //NOTE: Gadpathur patrols all of the Coalition, however, they are intentionally -not- present in Haneunim. Konyang and Gadpathur are not friendly as of the Amor Patriae arc.
 	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA)

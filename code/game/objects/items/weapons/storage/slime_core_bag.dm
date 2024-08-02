@@ -6,8 +6,8 @@
 
 	storage_slots = 100
 	max_storage_space = 100
-	max_w_class = ITEMSIZE_NORMAL
-	w_class = ITEMSIZE_SMALL
+	max_w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	can_hold = list(/obj/item/slime_extract)
 

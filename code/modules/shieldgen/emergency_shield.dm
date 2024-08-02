@@ -74,7 +74,7 @@
 
 	..()
 
-/obj/machinery/shield/bullet_act(var/obj/item/projectile/Proj)
+/obj/machinery/shield/bullet_act(var/obj/projectile/Proj)
 	health -= Proj.get_structure_damage()
 	..()
 	check_failure()
@@ -106,16 +106,17 @@
 				qdel(src)
 
 
-/obj/machinery/shield/hitby(AM as mob|obj)
+/obj/machinery/shield/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	//Let everyone know we've been hit!
-	visible_message(SPAN_NOTICE("<B>\[src] was hit by [AM].</B>"))
+	visible_message(SPAN_NOTICE("<B>\[src] was hit by [hitting_atom].</B>"))
 
 	//Super realistic, resource-intensive, real-time damage calculations.
 	var/tforce = 0
-	if(ismob(AM))
+	if(ismob(hitting_atom))
 		tforce = 40
-	else
-		tforce = AM:throwforce
+	else if(isobj(hitting_atom))
+		var/obj/O = hitting_atom
+		tforce = O.throwforce
 
 	src.health -= tforce
 

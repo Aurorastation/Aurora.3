@@ -1,0 +1,19 @@
+2024-08-02:
+  Ben10083:
+  - bugfix: Idris Cruiser now has firedoors with proper access, alongside firealarms.
+  - rscadd: Mining Module now provides access to hailing channel.
+  - balance: Change cyborg jetpack module material requirements to use silver instead
+      of phoron.
+  DreamySkrell:
+  - rscadd: Expands Intrepid passenger seating.
+  - rscadd: Expands expedition supplies in the Intrepid hangar.
+  FluffyGhost:
+  - bugfix: Crusher will not stop and stare at effects anymore.
+  Geeves:
+  - bugfix: Fixed AIs not being able to see visible emotes through holopads.
+  Pirouette:
+  - balance: Skrell are now able to leap three tiles instead of two.
+  SimpleMaroon:
+  - qol: Allowed the Cyborg scientific gripper to hold integrated circuit printers,
+      in order to facilitate R&D.
+  - rscadd: Added a jungle hide mantle to the peasant hide mantle selection for Unathi.

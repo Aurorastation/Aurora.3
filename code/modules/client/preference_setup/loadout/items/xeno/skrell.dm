@@ -257,7 +257,7 @@ var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 	return 5
 
 /datum/gear_tweak/social_credit/get_metadata(var/user, var/metadata)
-	var/credit_score = tgui_input_number(user, "Set the credit score your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Nralakk calculations.)", "Social Credit Score", round_value = FALSE)
+	var/credit_score = tgui_input_number(user, "Set the credit score your passport will display, refer to the wiki to gauge it. (It will be slightly randomized to simulate Nralakk calculations.)", "Social Credit Score", round_value = FALSE, max_value = 10)
 	if(credit_score)
 		return round(credit_score, 0.01)
 	return metadata
@@ -437,7 +437,7 @@ var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 /datum/gear/accessory/skrell/nationcapes
 	display_name = "nation capes"
 	path = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes
-	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	sort_category = "Xenowear - Skrell"
 	flags = GEAR_HAS_DESC_SELECTION
 
@@ -450,5 +450,24 @@ var/datum/gear_tweak/social_credit/social_credit_tweak = new()
 	nationcapes["Coalition Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/coc
 	nationcapes["Biesel Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/biesel
 	nationcapes["Ouerea Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/ouerea
+	nationcapes["Hieroaetheria Cape"] = /obj/item/clothing/accessory/poncho/shouldercape/nationcapes/hieroaetheria
 	gear_tweaks += new /datum/gear_tweak/path(nationcapes)
 
+/datum/gear/uniform/skrell/hieroaetherian_tunic
+	display_name = "skrellian traditional hieroaetherian tunic"
+	description = "A traditional tunic worn on Hieroaetheria, made up of several colorful fabrics and adorned with a seemingly still-living, bioluminescent Starvine."
+	path = /obj/item/clothing/under/diona/hieroaetherian_tunic
+	cost = 1
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	origin_restriction = list(/singleton/origin_item/origin/skrell_consortium)
+
+/datum/gear/suit/skrell/hieroaetherian_poncho
+	display_name = "skrellian hieroaetherian poncho"
+	description = "A Hieroaetherian poncho made of some sort of mesh weave material, adorned by a piece of colored fabric wrapped around it that denotes their home nation."
+	path = /obj/item/clothing/accessory/poncho/hieroaetherian_poncho
+	cost = 1
+	whitelisted = list(SPECIES_SKRELL, SPECIES_SKRELL_AXIORI)
+	sort_category = "Xenowear - Skrell"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
+	origin_restriction = list(/singleton/origin_item/origin/skrell_consortium)

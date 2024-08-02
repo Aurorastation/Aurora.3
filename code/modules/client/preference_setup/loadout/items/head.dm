@@ -384,18 +384,20 @@
 	display_name = "headwear, circuitry (empty)"
 	path = /obj/item/clothing/head/circuitry
 
-/datum/gear/head/tcfl
-	display_name = "tcfl hat selection"
+/datum/gear/head/tcaf
+	display_name = "tcaf hat selection"
 	path = /obj/item/clothing/head/beret/legion
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/head/tcfl/New()
+/datum/gear/head/tcaf/New()
 	..()
-	var/list/tcfl = list()
-	tcfl["tcfl beret, dress"] = /obj/item/clothing/head/beret/legion
-	tcfl["tcfl beret, field"] = /obj/item/clothing/head/beret/legion/field
-	tcfl["tcfl softcap"] = /obj/item/clothing/head/softcap/tcfl
-	gear_tweaks += new /datum/gear_tweak/path(tcfl)
+	var/list/tcaf = list()
+	tcaf["tcaf beret, dress"] = /obj/item/clothing/head/beret/legion/tcaf
+	tcaf["tcaf beret, field"] = /obj/item/clothing/head/beret/legion/tcaf/tcaf_field
+	tcaf["tcfl beret, dress"] = /obj/item/clothing/head/beret/legion
+	tcaf["tcfl beret, field"] = /obj/item/clothing/head/beret/legion/field
+	tcaf["tcfl softcap"] = /obj/item/clothing/head/softcap/tcfl
+	gear_tweaks += new /datum/gear_tweak/path(tcaf)
 
 /datum/gear/head/padded_cap
 	display_name = "padded cap"

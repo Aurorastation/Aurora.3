@@ -2,11 +2,11 @@
 
 todo
 
-# What is this `_ffi` stuff
+# On FFI
 
-FFI means "foreign function interface". Basically, different programming languages have very different features and mechanisms,
-and if we want them to communicate, like here DM and Rust, in a way, we need to go to the lowest level possible, that being C,
-as that is what basically every language can understand.
+FFI means "foreign function interface". Basically, different languages can't easily "talk" to each other, as they have different features and mechanisms.
+One exception is scripting languages (like Python or Lua), but that is neither DM nor Rust. 
+If we do want them to "talk", we need to find some other language, one that is common and basic, that both DM and Rust can understand. And that is C.
 
 Rust functions callable from DM should end with `_ffi`, and have a very "raw" form, and do the least things possible to just call the actual Rust functions.
 
@@ -22,7 +22,7 @@ Safety related stuff:
   Panics are unrecoverable, so this is the best we can do in this case.
   Panics should not really happen though, except in a "fatal error and literally cannot proceed further" situation.
 - Unhandled errors (like `foo()?;`) call stack trace proc and return null from the function.
-  Errors should be propagated up, using the `eyre` library, with every function returning `eyre::Result<T>`.
+  Errors should be propagated up, using the `eyre` library, with every function that may fail returning `eyre::Result<T>`.
 - Some unsafety may be required, like to parse args in `_ffi` functions, but should not be present any where else.
   And if for whatever reason it is needed, it should be documented well.
 - All rust code (generally, outside of `_ffi`) should be nice, safe, and idiomatic.
