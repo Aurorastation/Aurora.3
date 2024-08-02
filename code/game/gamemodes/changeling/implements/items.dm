@@ -5,7 +5,7 @@
 	icon_state = "arm_blade"
 	item_state = "arm_blade"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 33
 	sharp = TRUE
 	edge = TRUE
@@ -125,7 +125,7 @@
 	edge = FALSE
 	throwforce = 15
 	armor_penetration = 15
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/finger_lockpick
 	name = "finger lockpick"

@@ -291,13 +291,13 @@
 	if(connected)
 		connected.attackby(attacking_item, user)
 
-/obj/structure/ship_weapon_dummy/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
+/obj/structure/ship_weapon_dummy/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(connected)
-		connected.hitby(AM)
-	if(ismob(AM))
-		if(isliving(AM))
-			var/mob/living/M = AM
-			M.turf_collision(src, speed)
+		connected.hitby(arglist(args))
+	if(ismob(hitting_atom))
+		if(isliving(hitting_atom))
+			var/mob/living/M = hitting_atom
+			M.turf_collision(src, throwingdatum.speed)
 			return
 
 /obj/structure/ship_weapon_dummy/bullet_act(obj/projectile/P, def_zone)

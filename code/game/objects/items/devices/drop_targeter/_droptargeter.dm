@@ -5,7 +5,7 @@
 	icon_state = "drillpointer"
 	item_state = "binoculars"
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/has_dropped = 0 // Counter of how many times the targeter has been used
 	var/drop_amount = 2 // How many times can this item be used?
 

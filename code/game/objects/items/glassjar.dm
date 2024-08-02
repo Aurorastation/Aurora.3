@@ -17,7 +17,7 @@
 	desc_info = "Can be used to hold money, small animals, and gumballs. You can remove the lid and use it as a reagent container."
 	icon = 'icons/obj/item/reagent_containers/glass.dmi'
 	icon_state = "jar_lid"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	matter = list(MATERIAL_GLASS = 200)
 	recyclable = TRUE
 	item_flags = ITEM_FLAG_NO_BLUDGEON
@@ -136,7 +136,7 @@
 		return TRUE
 	if(istype(attacking_item, /obj/item/holder))
 		var/obj/item/holder/H = attacking_item
-		if(H.w_class <= ITEMSIZE_SMALL)
+		if(H.w_class <= WEIGHT_CLASS_SMALL)
 			contains = JAR_HOLDER
 			user.drop_from_inventory(H)
 			scoop(H, user)

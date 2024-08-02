@@ -14,7 +14,7 @@
 
 /obj/item/storage
 	name = "storage"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 	///List of objects which this item can store (if set, it can't store anything else)
 	var/list/can_hold
@@ -29,7 +29,7 @@
 	var/list/is_seeing
 
 	///Max size of objects that this object can store (in effect only if can_hold isn't set)
-	var/max_w_class = ITEMSIZE_NORMAL
+	var/max_w_class = WEIGHT_CLASS_NORMAL
 
 	///The sum of the storage costs of all the items in this storage item
 	var/max_storage_space = 8
@@ -589,7 +589,7 @@
 					continue
 				else if (M in range(1)) //If someone is standing close enough, they can tell what it is...
 					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
-				else if (W && W.w_class >= ITEMSIZE_NORMAL) //Otherwise they can only see large or normal items from a distance...
+				else if (W && W.w_class >= WEIGHT_CLASS_NORMAL) //Otherwise they can only see large or normal items from a distance...
 					M.show_message(SPAN_NOTICE("\The [user] puts [W] into [src]."))
 		orient2hud(user)
 		if(user.s_active)
@@ -981,15 +981,15 @@
 	if (storage_cost)
 		return storage_cost
 	else
-		if(w_class == ITEMSIZE_TINY)
+		if(w_class == WEIGHT_CLASS_TINY)
 			return 1
-		if(w_class == ITEMSIZE_SMALL)
+		if(w_class == WEIGHT_CLASS_SMALL)
 			return 2
-		if(w_class == ITEMSIZE_NORMAL)
+		if(w_class == WEIGHT_CLASS_NORMAL)
 			return 4
-		if(w_class == ITEMSIZE_LARGE)
+		if(w_class == WEIGHT_CLASS_BULKY)
 			return 8
-		if(w_class == ITEMSIZE_HUGE)
+		if(w_class == WEIGHT_CLASS_HUGE)
 			return 16
 		else
 			return 1000

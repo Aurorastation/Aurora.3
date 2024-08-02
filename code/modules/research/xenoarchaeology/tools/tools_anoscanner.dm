@@ -6,7 +6,7 @@
 	icon_state = "xenoarch_scanner"
 	item_state = "xenoarch_scanner"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	var/nearest_artifact_id = "unknown"
 	var/nearest_artifact_distance = -1

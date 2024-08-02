@@ -415,7 +415,7 @@
 	caliber = "cannon"
 	projectile_type = /obj/projectile/bullet/cannonball
 	matter = list(DEFAULT_WALL_MATERIAL = 800)
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = null
 	max_stack = 1
 	reload_sound = 'sound/weapons/reloads/shotgun_pump.ogg'
@@ -436,7 +436,7 @@
 	name = "miniaturized nuclear warhead"
 	icon_state = "nuke"
 	caliber = "nuke"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = null
 	desc = "A miniaturized version of a nuclear bomb."
 	projectile_type = /obj/projectile/bullet/nuke
@@ -455,7 +455,7 @@
 	name = "anti-tank warhead"
 	icon_state = "missile"
 	caliber = "recoilless_rifle"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = null
 	projectile_type = /obj/projectile/bullet/recoilless_rifle
 	reload_sound = 'sound/weapons/reloads/shotgun_pump.ogg'
@@ -466,7 +466,7 @@
 	icon_state = "peac"
 	spent_icon = "peac-spent"
 	caliber = "peac"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = null
 	projectile_type = /obj/projectile/bullet/peac
 	drop_sound = 'sound/items/drop/shell_drop.ogg'

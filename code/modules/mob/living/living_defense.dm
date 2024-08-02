@@ -166,13 +166,13 @@
 	return apply_damage(effective_force, I.damtype, hit_zone, I, damage_flags, I.armor_penetration)
 
 //this proc handles being hit by a thrown atom
-/mob/living/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
-	if(!aura_check(AURA_TYPE_THROWN, AM, speed))
+/mob/living/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
+	if(!aura_check(AURA_TYPE_THROWN, hitting_atom, throwingdatum.speed))
 		return
-	if(isobj(AM))
-		var/obj/O = AM
+	if(isobj(hitting_atom))
+		var/obj/O = hitting_atom
 		var/dtype = O.damtype
-		var/throw_damage = O.throwforce*(speed/THROWFORCE_SPEED_DIVISOR)
+		var/throw_damage = O.throwforce*(throwingdatum.speed/THROWFORCE_SPEED_DIVISOR)
 
 		var/miss_chance = 15
 		if (O.throwing?.thrower?.resolve())
@@ -203,7 +203,7 @@
 		if(istype(O, /obj/item))
 			var/obj/item/I = O
 			mass = I.w_class/THROWNOBJ_KNOCKBACK_DIVISOR
-		var/momentum = speed*mass
+		var/momentum = throwingdatum.speed*mass
 
 		if(O.throwing?.thrower?.resolve() && momentum >= THROWNOBJ_KNOCKBACK_SPEED)
 			var/dir = get_dir(O.throwing?.thrower?.resolve(), src)
@@ -235,6 +235,7 @@
 	src.embedded += O
 	add_verb(src, /mob/proc/yank_out_object)
 
+///This is called when the mob is thrown into a dense turf
 /mob/living/proc/turf_collision(var/atom/T, var/speed = THROWFORCE_SPEED_DIVISOR, var/sound_to_play = 'sound/effects/bangtaper.ogg')
 	visible_message(SPAN_DANGER("[src] slams into \the [T]!"))
 	playsound(T, sound_to_play, 50, 1, 1)//so it plays sounds on the turf instead, makes for awesome carps to hull collision and such

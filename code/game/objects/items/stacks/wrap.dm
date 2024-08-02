@@ -30,7 +30,7 @@
 	if (!isturf(loc))
 		to_chat(user, SPAN_WARNING("The paper must be set down for you to wrap a gift!"))
 		return
-	if (attacking_item.w_class < ITEMSIZE_LARGE)
+	if (attacking_item.w_class < WEIGHT_CLASS_BULKY)
 		var/a_used = 2 * (src.w_class - 1)
 		if(src.amount < a_used)
 			to_chat(user, SPAN_WARNING("You need more paper!"))
@@ -102,7 +102,7 @@
 	desc = "A roll of paper used to enclose an object for delivery."
 	desc_info = "To package wrap the object for delivery, use the package wrapper on the object."
 	singular_name = "length"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	amount = 30
 	var/wrapping_tag = "Sorting Office"
 	drop_sound = 'sound/items/drop/wrapper.ogg'
@@ -210,6 +210,6 @@
 		)
 	icon_state = "c_tube"
 	throwforce = 1
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 4
 	throw_range = 5

@@ -14,9 +14,9 @@
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/back.dmi'
 	)
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
-	max_w_class = ITEMSIZE_NORMAL
+	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 28
 	var/species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM)
 	drop_sound = 'sound/items/drop/backpack.ogg'
@@ -139,7 +139,7 @@
 	origin_tech = list(TECH_BLUESPACE = 4)
 	icon_state = "holdingpack"
 	item_state = "holdingpack"
-	max_w_class = ITEMSIZE_LARGE
+	max_w_class = WEIGHT_CLASS_BULKY
 	max_storage_space = 56
 	storage_cost = 29
 	empty_delay = 0.8 SECOND
@@ -162,7 +162,7 @@
 	desc = "Space Santa uses this to deliver toys to all the nice children in space in Christmas! Wow, it's pretty big!"
 	icon_state = "giftbag0"
 	item_state = "giftbag"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	max_storage_space = 200 // can store a ton of shit!
 	empty_delay = 1 SECOND
 
@@ -326,7 +326,7 @@
 	icon_state = "idris_backpack"
 	item_state = "idris_backpack"
 	storage_slots = 6
-	max_w_class = ITEMSIZE_LARGE
+	max_w_class = WEIGHT_CLASS_BULKY
 	can_hold = list(
 		/obj/item/tray,
 		/obj/item/material/kitchen/utensil/fork,
@@ -560,9 +560,9 @@
 	desc = "A neat little folding clasp pocketbook with a shoulder sling."
 	icon_state = "pocketbook_leather"
 	item_state = "pocketbook_leather"
-	w_class = ITEMSIZE_HUGE // to avoid recursive backpacks
+	w_class = WEIGHT_CLASS_HUGE // to avoid recursive backpacks
 	slot_flags = SLOT_BACK
-	max_w_class = ITEMSIZE_NORMAL
+	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 20
 	build_from_parts = TRUE
 	worn_overlay = "overlay"
@@ -924,7 +924,7 @@
 	icon_state = "wings"
 	item_state = "wings"
 	contained_sprite = FALSE
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = SLOT_BACK
 	max_storage_space = 12
 	canremove = FALSE

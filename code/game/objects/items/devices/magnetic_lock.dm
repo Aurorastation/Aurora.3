@@ -11,7 +11,7 @@
 	icon = 'icons/obj/magnetic_locks.dmi'
 	icon_state = "inactive_CENTCOM"
 	//icon_state = "inactive"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	req_access = list(ACCESS_CENT_SPECOPS)
 	health = 150
 
@@ -44,7 +44,7 @@
 	name = "legion magnetic door lock"
 	req_access = null
 	req_one_access = list(ACCESS_LEGION, ACCESS_TCAF_SHIPS)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/device/magnetic_lock/security/legion/Initialize()
 	. = ..()

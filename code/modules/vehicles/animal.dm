@@ -202,7 +202,7 @@
 	desc = "A structure used to ride animals."
 	icon = 'icons/obj/saddle.dmi'
 	icon_state = "saddle"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/vehicle/animal/threshbeast
 	name = "threshbeast"

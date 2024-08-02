@@ -413,14 +413,22 @@
 /obj/projectile/proc/after_move()
 	return
 
-/obj/projectile/Crossed(atom/movable/AM) //A mob moving on a tile with a projectile is hit by it.
-	..()
-	if(isliving(AM) && (AM.density || AM == original) && !(pass_flags & PASSMOB))
-		Collide(AM)
+//A mob moving on a tile with a projectile is hit by it.
+/obj/projectile/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(isliving(arrived) && (arrived.density || arrived == original) && !(pass_flags & PASSMOB))
+		Collide(arrived)
 
 /obj/projectile/Initialize()
 	. = ..()
 	permutated = list()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /obj/projectile/damage_flags()
 	return damage_flags

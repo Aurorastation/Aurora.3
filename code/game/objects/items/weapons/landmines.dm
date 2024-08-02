@@ -7,6 +7,15 @@
 	var/deployed = FALSE
 	var/deactivated = FALSE // add wire to re-activate
 
+/obj/item/landmine/Initialize()
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/item/landmine/update_icon()
 	..()
 	if(!deployed)
@@ -74,15 +83,16 @@
 	explosion(loc, 0, 2, 2, 3)
 	qdel(src)
 
-/obj/item/landmine/Crossed(AM as mob|obj, var/ignore_deployment = FALSE)
-	if(deployed || ignore_deployment)
-		if(ishuman(AM))
-			var/mob/living/carbon/human/H = AM
+/obj/item/landmine/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(deployed)
+		if(ishuman(arrived))
+			var/mob/living/carbon/human/H = arrived
 			if(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
-				..()
 				return
-		if(isliving(AM))
-			var/mob/living/L = AM
+		if(isliving(arrived))
+			var/mob/living/L = arrived
 			if(L.pass_flags & PASSTABLE)
 				return
 			if(L.mob_size >= 5)
@@ -92,7 +102,6 @@
 					SPAN_DANGER("You hear a mechanical click!")
 					)
 				trigger(L)
-	..()
 
 /obj/item/landmine/attack_hand(mob/user as mob)
 	if(deployed && !use_check(user, USE_DISALLOW_SILICONS))
@@ -341,6 +350,15 @@
 	icon_state = "standstill"
 	var/engaged_by = null
 
+/obj/item/landmine/standstill/Initialize()
+	. = ..()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_EXITED = PROC_REF(on_exited),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/item/landmine/standstill/Destroy()
 	STOP_PROCESSING(SSfast_process, src)
 	engaged_by = null
@@ -361,12 +379,12 @@
 	else
 		late_trigger(locate(engaged_by))
 
-/obj/item/landmine/standstill/Uncrossed(O)
-	. = ..()
+/obj/item/landmine/standstill/proc/on_exited(datum/source, atom/movable/gone, direction)
+	SIGNAL_HANDLER
 
 	//Oh no...
-	if(engaged_by && O == locate(engaged_by))
-		var/mob/living/victim = O
+	if(engaged_by && gone == locate(engaged_by))
+		var/mob/living/victim = gone
 		to_chat(victim, SPAN_HIGHDANGER("The mine clicks below your feet."))
 		addtimer(CALLBACK(src, PROC_REF(late_trigger), victim), 1 SECONDS)
 
@@ -454,7 +472,7 @@
 	else
 		. = ..()
 
-/obj/item/landmine/claymore/Crossed(AM, ignore_deployment)
+/obj/item/landmine/claymore/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	return //Does nothing with mere crossing over
 
 /obj/item/landmine/claymore/deploy(mob/deployer)

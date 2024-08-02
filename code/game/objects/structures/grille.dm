@@ -327,7 +327,7 @@
 /obj/structure/grille/crescent/ex_act(var/severity = 2.0)
 	return
 
-/obj/structure/grille/crescent/hitby()
+/obj/structure/grille/crescent/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	return
 
 /obj/structure/grille/crescent/bullet_act()

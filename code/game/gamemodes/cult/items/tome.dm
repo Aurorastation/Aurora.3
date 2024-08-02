@@ -5,7 +5,7 @@
 	item_state = "tome"
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	unique = TRUE
 	slot_flags = SLOT_BELT
 

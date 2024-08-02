@@ -7,7 +7,7 @@
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	force = 11
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
@@ -54,7 +54,7 @@
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	projectile_type = /obj/projectile/energy/blaster
 	max_shots = 8
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/gun/energy/blaster/revolver/unique_action(mob/living/user)
 	user.visible_message(SPAN_WARNING("\The [user] spins the cylinder of \the [src]!"), SPAN_WARNING("You spin the cylinder of \the [src]!"), SPAN_NOTICE("You hear something metallic spin and click."))
@@ -71,7 +71,7 @@
 	offhand_accuracy = 0
 	projectile_type = /obj/projectile/energy/blaster
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/gun/energy/blaster/rifle
 	name = "bolt slinger"
@@ -86,7 +86,7 @@
 
 	force = 15
 	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	can_bayonet = TRUE
 	knife_x_offset = 23
 	knife_y_offset = 13
@@ -120,7 +120,7 @@
 	projectile_type = /obj/projectile/energy/blaster/heavy
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	is_wieldable = TRUE
 	can_bayonet = TRUE
 	knife_x_offset = 23
@@ -152,7 +152,7 @@
 	needspin = FALSE // can't remove the cell if it has a pin
 	charge_cost = 500 // 20 mag
 	slot_flags = SLOT_BACK
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	is_wieldable = TRUE
 	can_bayonet = FALSE
 	sharp = FALSE
@@ -228,7 +228,7 @@
 	fire_sound = 'sound/weapons/laserstrong.ogg'
 	charge_cost = 1250 // leaky but lethal
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	force = 11
 	is_wieldable = FALSE
 	can_bayonet = FALSE

@@ -44,13 +44,14 @@
 			bound_width = 96
 			bound_height = 96
 
-/obj/effect/effect/smoke/chem/Crossed(atom/movable/AM)
+/obj/effect/effect/smoke/chem/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	..()
-	if(!istype(AM, /obj/effect/effect/smoke/chem))
-		if(istype(AM, /obj/item/reagent_containers) && !AM.is_open_container())
+
+	if(!istype(arrived, /obj/effect/effect/smoke/chem))
+		if(istype(arrived, /obj/item/reagent_containers) && !arrived.is_open_container())
 			return
 		else
-			reagents.splash(AM, splash_amount, copy = 1)
+			reagents.splash(arrived, splash_amount, copy = 1)
 
 /obj/effect/effect/smoke/chem/proc/initial_splash()
 	for(var/turf/T in view(1, src))

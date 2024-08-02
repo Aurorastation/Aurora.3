@@ -5,8 +5,8 @@
 		return null
 	return ..()
 
-/mob/living/carbon/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)
-	..(AM, speed)
+/mob/living/carbon/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
+	..()
 	var/show_ssd
 	var/mob/living/carbon/human/H
 	if(ishuman(src))
@@ -14,7 +14,7 @@
 		show_ssd = H.species.show_ssd
 	if(H && show_ssd && !client && !teleop)
 		if(H.bg)
-			visible_message(SPAN_DANGER("[src] is hit by [AM] waking [get_pronoun("him")] up!"))
+			visible_message(SPAN_DANGER("[src] is hit by [hitting_atom] waking [get_pronoun("him")] up!"))
 			if(H.health / H.maxHealth < 0.5)
 				H.bg.awaken_impl(TRUE)
 				sleeping = 0
@@ -22,9 +22,9 @@
 			else
 				to_chat(H, SPAN_DANGER("You sense great disturbance to your physical body!"))
 		else if(!vr_mob)
-			visible_message(SPAN_DANGER("[src] is hit by [AM], but they do not respond... Maybe they have S.S.D?"))
+			visible_message(SPAN_DANGER("[src] is hit by [hitting_atom], but they do not respond... Maybe they have S.S.D?"))
 	else if(client && willfully_sleeping)
-		visible_message(SPAN_DANGER("[src] is hit by [AM] waking [get_pronoun("him")] up!"))
+		visible_message(SPAN_DANGER("[src] is hit by [hitting_atom] waking [get_pronoun("him")] up!"))
 		sleeping = 0
 		willfully_sleeping = FALSE
 

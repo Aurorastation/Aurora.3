@@ -646,10 +646,10 @@
 	handle_attack_by(user)
 	return TRUE
 
-/mob/living/simple_animal/hitby(atom/movable/AM, speed)
+/mob/living/simple_animal/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
-	if(ismob(AM.throwing?.thrower?.resolve()))
-		handle_attack_by(AM.throwing?.thrower?.resolve())
+	if(ismob(throwingdatum.thrower?.resolve()))
+		handle_attack_by(throwingdatum.thrower.resolve())
 
 /mob/living/simple_animal/bullet_act(obj/projectile/P, def_zone)
 	. = ..()

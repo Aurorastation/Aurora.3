@@ -237,6 +237,7 @@
 
 /obj/structure/stairs/Initialize()
 	. = ..()
+
 	for(var/turf/turf in locs)
 		var/turf/simulated/open/above = GET_TURF_ABOVE(turf)
 		if(!above)
@@ -246,6 +247,10 @@
 			above.ChangeToOpenturf()
 
 /obj/structure/stairs/CheckExit(atom/movable/mover, turf/target)
+	//This means the mob is moving, don't bump
+	if(mover.z != target.z)
+		return TRUE
+
 	if(get_dir(loc, target) == dir && upperStep(mover.loc))
 		return FALSE
 
@@ -271,7 +276,7 @@
 		return
 	if(target.z > (z + 1)) //Prevents wheelchair fuckery. Basically, you teleport twice because both the wheelchair + your mob collide with the stairs.
 		return
-	if(target.Enter(AM, src) && AM.dir == dir)
+	if(target.Enter(AM) && AM.dir == dir)
 		AM.forceMove(target)
 		if(isliving(AM))
 			var/mob/living/living_mob = AM

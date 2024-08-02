@@ -328,13 +328,12 @@
 		if(!istype(O, brush)) //we don't get sad if we're brushed!
 			audible_emote("[pick(sad_emote)].",0)
 
-/mob/living/simple_animal/hostile/commanded/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+/mob/living/simple_animal/hostile/commanded/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
 
-	if(istype(AM,/obj/))
-		var/obj/O = AM
-		if(ismob(O.throwing?.thrower?.resolve()))
-			if(O.throwing?.thrower?.resolve() == master)
+	if(isobj(hitting_atom))
+		if(ismob(throwingdatum?.thrower?.resolve()))
+			if(throwingdatum.thrower.resolve() == master)
 				target_mob = null
 				change_stance(HOSTILE_STANCE_IDLE)
 				audible_emote("[pick(sad_emote)].",0)

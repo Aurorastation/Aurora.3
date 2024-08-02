@@ -812,7 +812,7 @@
 	name = "shapesand"
 	desc = "A strangely animate clump of sand which can shift its color and consistency."
 	icon = 'icons/obj/mining.dmi'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	icon_state = "ore_glass"
 
 /obj/item/shapesand/attack() //can't be used to actually bludgeon things
