@@ -179,7 +179,6 @@
 
 	if(href_list["open_education_menu"])
 		var/list/options = list()
-		var/singleton/education/our_education = GET_SINGLETON(text2path(pref.education))
 		var/list/singleton/education/education_list = GET_SINGLETON_SUBTYPE_MAP(/singleton/education)
 		for(var/singleton_type in education_list)
 			var/singleton/education/ED = education_list[singleton_type]
