@@ -74,3 +74,11 @@
 	telecrystal_cost = 1
 	bluecrystal_cost = 1
 	path = /obj/item/storage/box/closet_teleporter
+
+/datum/uplink_item/item/stealth_items/consciousness_exchanger
+	name = "Consciousness Exchange Device"
+	desc = "A prototype consciousness exchange device which swaps one consciousness with another, with optional jolting capabilities. Cannot swap the same set of bodies twice."
+	telecrystal_cost = 5
+	bluecrystal_cost = 5
+	path = /obj/item/storage/box/consciousness_exchanger
+
