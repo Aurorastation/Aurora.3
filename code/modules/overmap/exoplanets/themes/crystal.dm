@@ -1,8 +1,10 @@
 /datum/exoplanet_theme/crystal
 	name = "Crystalline"
+
 	surface_turfs = list(
-		/turf/simulated/mineral/planet
+		/turf/simulated/mineral
 	)
+	surface_color = "#6fb1b5"
 
 	perlin_zoom = 21
 	mountain_threshold = 0.5
@@ -20,3 +22,6 @@
 			BIOME_ARID = /singleton/biome/crystal
 		)
 	)
+
+/datum/exoplanet_theme/crystal/mountain
+	mountain_threshold = 0.0
