@@ -781,6 +781,9 @@
 		/obj/item/storage/pill_bottle/antidexafen = 4,
 		/obj/item/storage/pill_bottle/dexalin = 4,
 		/obj/item/storage/pill_bottle/dylovene = 4,
+		/obj/item/stack/medical/bruise_pack = 5,
+		/obj/item/stack/medical/ointment = 5,
+		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2,
 		/obj/item/storage/pill_bottle/vitamin = 5,
 		/obj/item/storage/pill_bottle/cetahydramine  = 4, 
 		/obj/item/storage/pill_bottle/caffeine = 3, 
@@ -795,7 +798,7 @@
 		/obj/item/storage/pill_bottle/cetahydramine  = 60, 
 		/obj/item/storage/pill_bottle/caffeine = 90, 
 		/obj/item/storage/pill_bottle/nicotine  = 85, 
-		/obj/item/storage/pill_bottle/rmt = 200
+		/obj/item/storage/pill_bottle/rmt = 550
 	)
 	contraband = list(
 		/obj/item/reagent_containers/pill/tox = 3,
