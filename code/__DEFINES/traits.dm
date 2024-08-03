@@ -189,3 +189,17 @@
 
 /// Causes the mob to never clot their wounds
 #define TRAIT_DISABILITY_HEMOPHILIA_MAJOR "disability_hemophilia_major"
+
+// ALLERGIES
+
+// HELPERS
+#define ALLERGY_MINOR(type) "allergy_" + type + "_minor"
+#define ALLERGY_MAJOR(type) "allergy_" + type + "_major"
+#define HAS_MINOR_ALLERGY(target, allergy) HAS_TRAIT(target, ALLERGY_MINOR(allergy))
+#define HAS_MAJOR_ALLERGY(target, allergy) HAS_TRAIT(target, ALLERGY_MAJOR(allergy))
+
+// ALLERGY TYPES
+// Blueberry
+#define ALLERGY_TYPE_BLUEBERRY "blueberry"
+#define TRAIT_ALLERGY_BLUEBERRY_MINOR ALLERGY_MINOR(ALLERGY_TYPE_BLUEBERRY)
+#define TRAIT_ALLERGY_BLUEBERRY_MAJOR ALLERGY_MAJOR(ALLERGY_TYPE_BLUEBERRY)

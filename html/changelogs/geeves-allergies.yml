@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a minor and major blueberry allergy to the disability tab. This will add Anaphylactic Cocktail to your bloodstream, and is counteracted with adrenalin."
