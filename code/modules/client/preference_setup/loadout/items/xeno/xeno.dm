@@ -44,3 +44,20 @@
 	shoes["toeless jackboots, riding"] = /obj/item/clothing/shoes/jackboots/toeless/riding
 	shoes["toeless winterboots"] = /obj/item/clothing/shoes/winter/toeless
 	gear_tweaks += new /datum/gear_tweak/path(shoes)
+
+/datum/gear/shoes/recolourable_toeless
+	display_name = "toeless boot selection (colourable)"
+	path = /obj/item/clothing/shoes/heeledboots/toeless
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_UNATHI, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	sort_category = "Xenowear"
+	flags = GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/shoes/recolourable_toeless/New()
+	..()
+	var/list/recolourable_toeless = list()
+	recolourable_toeless["toeless thigh-high boots"] = /obj/item/clothing/shoes/thighboots/toeless
+	recolourable_toeless["toeless full-length boots"] = /obj/item/clothing/shoes/fullboots/toeless
+	recolourable_toeless["toeless jackboots"] = /obj/item/clothing/shoes/jackboots/toeless/color
+	recolourable_toeless["toeless workboots"] = /obj/item/clothing/shoes/workboots/toeless/color
+	gear_tweaks += new /datum/gear_tweak/path(recolourable_toeless)
+
