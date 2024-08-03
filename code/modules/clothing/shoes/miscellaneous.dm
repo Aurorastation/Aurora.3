@@ -110,3 +110,18 @@
 	desc = "A set of bronze leg armor, fitted for an Unathi and corroded by age. Those familiar with Moghresian archaeology may recognize these as being of Sinta'Mador design."
 	icon_state = "mador_boots"
 	item_state = "mador_boots"
+
+/obj/item/clothing/shoes/scrap_breacher
+	name = "scrap breacher greaves"
+	desc = "One part of a famous Breacher hardsuit, these greaves have been stripped of it's components and some of it's armour. Still works though!"
+	icon = 'icons/obj/scrap_breacher.dmi'
+	icon_state = "scrap_beacher_sh"
+	item_state = "scrap_beacher_shoes"
+	armor = list( //far weaker than normal breacher armour
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR)
