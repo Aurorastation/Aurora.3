@@ -191,9 +191,19 @@
 	else
 		..()
 
+/obj/item/folder/envelope/empty
+	sealed = FALSE
+
+/obj/item/folder/envelope/empty/zat
+	name = "instructions envelope"
+	desc = "\
+		A small envelope with some warning words written in bold text on the front. \
+		It is all dusty and crumpled, like someone forgot about it a while ago.\
+	"
+
 /obj/item/folder/envelope/zat
 	name = "leviathan zero-point artillery instructions"
-	desc = "A small envelope with \"SCC CONFIDENTIAL\" written in bold text on the front."
+	desc = "A small envelope with 'SCC CONFIDENTIAL' written in bold text on the front."
 
 /obj/item/folder/envelope/zat/Initialize()
 	. = ..()
