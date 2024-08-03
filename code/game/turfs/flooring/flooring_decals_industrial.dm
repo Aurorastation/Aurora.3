@@ -37,6 +37,9 @@
 /obj/effect/floor_decal/industrial/hatch/red
 	color = COLOR_CRIMSON
 
+/obj/effect/floor_decal/industrial/hatch/medical
+	color = COLOR_PALE_GREEN_GRAY
+
 // ------------------------ hatching stripes small
 
 /obj/effect/floor_decal/industrial/hatch_small
