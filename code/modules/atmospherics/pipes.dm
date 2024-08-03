@@ -1372,6 +1372,9 @@
 /obj/machinery/atmospherics/pipe/tank/air/scc_shuttle
 	icon = 'icons/atmos/tank_scc.dmi'
 
+/obj/machinery/atmospherics/pipe/tank/air/scc_shuttle/airlock
+	start_pressure = 303.975
+
 /obj/machinery/atmospherics/pipe/tank/oxygen
 	name = "Pressure Tank (Oxygen)"
 	icon_state = "o2_map"
