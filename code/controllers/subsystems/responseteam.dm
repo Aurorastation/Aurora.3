@@ -140,7 +140,7 @@ SUBSYSTEM_DEF(distress)
 		return
 	if(alert("Do you want to dispatch an Emergency Response Team?",,"Yes","No") != "Yes")
 		return
-	if(get_security_level() != "red") // Allow admins to reconsider if the alert level isn't Red
+	if(SSsecurity_level.get_current_level_as_number() > 2) // Allow admins to reconsider if the alert level isn't Red
 		switch(alert("The ship is not on red alert. Do you still want to dispatch a response team?",,"Yes","No"))
 			if("No")
 				return

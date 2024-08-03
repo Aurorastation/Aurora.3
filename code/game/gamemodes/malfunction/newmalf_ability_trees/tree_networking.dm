@@ -195,7 +195,7 @@
 	if(!ability_prechecks(user, price))
 		return
 
-	var/alert_target = input("Select new alert level:") in list("green", "blue", "red", "yellow", "CANCEL")
+	var/alert_target = input("Select new alert level:") in SSsecurity_level.available_levels
 	if(!alert_target || !ability_pay(user, price) || alert_target == "CANCEL")
 		to_chat(user, "Hack Aborted")
 		return
@@ -210,7 +210,8 @@
 		log_ability_use(user, "elite encryption hack (FAIL - [alert_target])")
 		return
 	log_ability_use(user, "elite encryption hack (SUCCESS - [alert_target])")
-	set_security_level(alert_target)
+
+	SSsecurity_level.set_level(SSsecurity_level.available_levels[alert_target])
 
 
 /datum/game_mode/malfunction/verb/system_override()

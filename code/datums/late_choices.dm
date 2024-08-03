@@ -62,7 +62,7 @@
 /datum/late_choices/ui_data(mob/user)
 	var/list/data = list()
 	data["round_duration"] = get_round_duration_formatted()
-	data["alert_level"] = capitalize(get_security_level())
+	data["alert_level"] = capitalize(SSsecurity_level.get_current_level_as_text())
 	data["character_name"] = user.client.prefs.real_name
 
 	var/shuttle_status = ""

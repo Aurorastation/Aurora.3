@@ -901,10 +901,15 @@ var/list/admin_verbs_cciaa = list(
 
 	if(!check_rights(R_ADMIN))
 		return
-	var/sec_level = tgui_input_list(usr, "It's currently code [get_security_level()].", "Select Security Level", list("green", "blue", "red", "yellow", "delta") - get_security_level())
-	var/msg = tgui_alert(usr, "Switch from code [get_security_level()] to code [sec_level]?", "Security Level", list("Yes","No"))
+	var/sec_level = tgui_input_list(usr, "It's currently [SSsecurity_level.get_current_level_as_text()].", "Select Security Level", SSsecurity_level.available_levels)
+	var/msg = tgui_alert(usr, "Switch from [SSsecurity_level.get_current_level_as_text()] to [sec_level]?", "Security Level", list("Yes","No"))
 	if(msg == "Yes")
-		set_security_level(sec_level)
+		var/datum/security_level/level_to_set = SSsecurity_level.available_levels[sec_level]
+		if(!level_to_set)
+			return
+
+		SSsecurity_level.set_level(level_to_set)
+
 		log_admin("[key_name(usr)] changed the security level to code [sec_level].")
 
 //---- bs12 verbs ----

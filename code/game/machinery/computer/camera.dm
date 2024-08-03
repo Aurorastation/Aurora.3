@@ -77,7 +77,7 @@
 	if(!network_access)
 		return TRUE
 
-	return (check_camera_access(user, ACCESS_SECURITY) && GLOB.security_level >= SEC_LEVEL_BLUE) || check_camera_access(user, network_access)
+	return (check_camera_access(user, ACCESS_SECURITY) && SSsecurity_level.get_current_level_as_number() <= 3) || check_camera_access(user, network_access)
 
 /obj/machinery/computer/security/Topic(href, href_list)
 	if(..())

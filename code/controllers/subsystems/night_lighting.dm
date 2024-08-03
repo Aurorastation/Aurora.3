@@ -23,7 +23,7 @@ SUBSYSTEM_DEF(nightlight)
 	if (disable_type != NL_PERMANENT_DISABLE)
 		disable_type = NL_TEMPORARY_DISABLE
 		can_fire = FALSE
-		deactivate(FALSE)
+		INVOKE_ASYNC(src, PROC_REF(deactivate), FALSE)
 		if (time > 0)
 			addtimer(CALLBACK(src, PROC_REF(end_temp_disable)), time, TIMER_UNIQUE | TIMER_OVERRIDE)
 

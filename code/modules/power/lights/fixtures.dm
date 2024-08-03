@@ -54,10 +54,6 @@
 	var/randomize_color = TRUE
 	var/default_color
 	var/static/list/randomized_colors = LIGHT_STANDARD_COLORS
-	var/static/list/emergency_lights = list(
-		LIGHT_MODE_RED = LIGHT_COLOR_EMERGENCY,
-		LIGHT_MODE_DELTA = LIGHT_COLOR_ORANGE
-	)
 	init_flags = 0
 
 /obj/machinery/light/skrell
@@ -712,16 +708,29 @@
 	sleep(1)
 	qdel(src)
 
-/obj/machinery/light/set_emergency_state(var/new_security_level)
+/obj/machinery/light/set_emergency_state(datum/security_level/new_security_level)
+	if(!istype(new_security_level))
+		CRASH("Invalid security level trying to be set: [new_security_level]")
+
 	var/area/A = get_area(src)
-	if(new_security_level in emergency_lights)
+
+	//If the security level has a specific color, use it
+	if(new_security_level.lights_color)
 		if(A.emergency_lights)
-			brightness_color = emergency_lights[new_security_level]
+			brightness_color = new_security_level.lights_color
 			update(0)
+
+	//Otherwise, go by threat level
 	else
-		if(brightness_color != default_color)
-			brightness_color = default_color
-			update(0)
+
+		if(new_security_level.threat_level_numerical <= 2)
+			if(A.emergency_lights)
+				brightness_color = LIGHT_COLOR_EMERGENCY
+				update(0)
+		else
+			if(brightness_color != default_color)
+				brightness_color = default_color
+				update(0)
 
 /obj/machinery/light/clean()
 	. = ..()

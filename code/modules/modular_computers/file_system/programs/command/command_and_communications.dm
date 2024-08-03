@@ -49,14 +49,9 @@
 	data["isAI"] = issilicon(usr)
 	data["authenticated"] = is_authenticated(user)
 	data["boss_short"] = SSatlas.current_map.boss_short
-	data["current_security_level"] = GLOB.security_level
-	data["current_security_level_title"] = num2seclevel(GLOB.security_level)
+	data["current_security_level"] = SSsecurity_level.current_security_level
+	data["current_security_level_title"] = SSsecurity_level.get_current_level_as_text()
 	data["current_maint_all_access"] = maint_all_access
-
-	data["def_SEC_LEVEL_DELTA"] = SEC_LEVEL_DELTA
-	data["def_SEC_LEVEL_YELLOW"] = SEC_LEVEL_YELLOW
-	data["def_SEC_LEVEL_BLUE"] = SEC_LEVEL_BLUE
-	data["def_SEC_LEVEL_GREEN"] = SEC_LEVEL_GREEN
 
 	var/datum/comm_message_listener/l = obtain_message_listener()
 	data["messages"] = l.messages
@@ -74,6 +69,35 @@
 			option["silicon_allowed"] = EO.silicon_allowed
 			processed_evac_options += list(option)
 	data["evac_options"] = processed_evac_options
+
+	var/list/security_levels = list()
+	if(!isnull(SSsecurity_level))
+		for (var/level_name in SSsecurity_level.available_levels)
+			var/datum/security_level/sec_level = SSsecurity_level.available_levels[level_name]
+
+			// Condition one (General Quarters) only via the authentication swiping
+			if(sec_level.threat_level_numerical < 2)
+				continue
+
+			var/list/option = list()
+			option["level_name"] = sec_level.name
+			option["level_description"] = sec_level.description
+			option["threat_level_numerical"] = sec_level.threat_level_numerical
+
+			// A color for the UI button, since javascript sucks
+			switch(sec_level.threat_level_numerical)
+				if(1 to 2)
+					option["level_color"] = "red"
+				if(3)
+					option["level_color"] = "blue"
+				if(4)
+					option["level_color"] = "yellow"
+				else
+					option["level_color"] = "green"
+
+			security_levels += list(option)
+
+	data["security_levels"] = security_levels
 
 	return data
 
@@ -187,27 +211,24 @@
 
 		if("setalert")
 			if(is_authenticated(user) && (!issilicon(usr) || isAI(usr)) && ntn_cont && ntn_comm)
-				var/current_level = text2num(params["target"])
-				var/confirm = tgui_alert(usr, "Are you sure you want to change alert level to [num2seclevel(current_level)]?", filedesc, list("No", "Yes"))
-				if(confirm == "Yes" && !computer.use_check_and_message(usr, (isAI(usr) ? USE_ALLOW_NON_ADJACENT : FALSE)))
-					var/old_level = GLOB.security_level
-					if(!current_level)
-						current_level = SEC_LEVEL_GREEN
-					if(current_level < SEC_LEVEL_GREEN)
-						current_level = SEC_LEVEL_GREEN
-					if(current_level > SEC_LEVEL_BLUE)
-						current_level = SEC_LEVEL_BLUE
-					set_security_level(current_level)
-					if(GLOB.security_level != old_level)
-						log_game("[key_name(usr)] has changed the security level to [get_security_level()].")
-						message_admins("[key_name_admin(usr)] has changed the security level to [get_security_level()].")
-						switch(GLOB.security_level)
-							if(SEC_LEVEL_GREEN)
-								feedback_inc("alert_comms_green",1)
-							if(SEC_LEVEL_BLUE)
-								feedback_inc("alert_comms_blue",1)
-							if(SEC_LEVEL_YELLOW)
-								feedback_inc("alert_comms_yellow",1)
+				var/selected_level_name = params["target"]
+				var/datum/security_level/level_to_set = SSsecurity_level.available_levels[selected_level_name]
+				if(!level_to_set || level_to_set.threat_level_numerical < 2)
+					message_admins("[user] tried to set an alert level that is not available, or shouldn't have acccess to")
+					CRASH("[user] tried to set an alert level that is not available, or shouldn't have acccess to")
+
+				var/confirm = tgui_alert(usr, "Are you sure you want to change alert level to [level_to_set.name]?", filedesc, list("No", "Yes"))
+				if(!(confirm == "Yes" && !computer.use_check_and_message(usr, (isAI(usr) ? USE_ALLOW_NON_ADJACENT : FALSE))))
+					return
+
+				var/old_level = SSsecurity_level.get_current_level_as_number()
+
+				SSsecurity_level.set_level(level_to_set)
+
+				if(SSsecurity_level.get_current_level_as_number() != old_level)
+					log_game("[key_name(usr)] has changed the security level to [SSsecurity_level.get_current_level_as_text()].")
+					message_admins("[key_name_admin(usr)] has changed the security level to [SSsecurity_level.get_current_level_as_text()].")
+
 			else
 				to_chat(usr, SPAN_WARNING("You press the button, but a red light flashes and nothing happens.")) //This should never happen
 		if("delmessage")

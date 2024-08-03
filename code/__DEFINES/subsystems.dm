@@ -213,6 +213,7 @@
 #define INIT_ORDER_PROFILER 101
 #define INIT_ORDER_GARBAGE 99
 #define INIT_ORDER_SOUNDS 83
+#define INIT_ORDER_SECURITY_LEVEL 79 // We need to load before events so that it has a security level to choose from.
 #define INIT_ORDER_DISCORD 78
 #define INIT_ORDER_JOBS 65 // Must init before atoms, to set up properly the dynamic job lists.
 #define INIT_ORDER_AI_CONTROLLERS 55 //So the controller can get the ref

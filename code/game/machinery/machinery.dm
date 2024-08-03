@@ -565,7 +565,9 @@ Class Procs:
 /obj/proc/on_user_login(mob/M)
 	return
 
-/obj/machinery/proc/set_emergency_state(var/new_security_level)
+/obj/machinery/proc/set_emergency_state(datum/security_level/new_security_level)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	return
 
 /obj/machinery/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)

@@ -178,7 +178,7 @@
 		return TRUE
 
 	if(evacuation_controller.evacuation_type == TRANSFER_EMERGENCY)
-		if(get_security_level() != "green" )
+		if(SSsecurity_level.get_current_level_as_number() != 5 )
 			var/datum/wifi/sender/door/wifi_sender = new("odin_arrivals_lockdown", SSghostroles)
 			wifi_sender.activate("close")
 			qdel(wifi_sender)
@@ -188,12 +188,12 @@
 				G.enable()
 		return TRUE
 	else
-		if(get_security_level() == "green" && prob(70))
+		if(SSsecurity_level.get_current_level_as_number() == 5 && prob(70))
 			var/datum/ghostspawner/G = SSghostroles.get_spawner("odinchef")
 			G.enable()
 			G = SSghostroles.get_spawner("odinbartender")
 			G.enable()
-		if(get_security_level() == "blue")
+		if(SSsecurity_level.get_current_level_as_number() == 3)
 			var/datum/wifi/sender/door/wifi_sender = new("odin_arrivals_lockdown", SSghostroles)
 			wifi_sender.activate("close")
 			qdel(wifi_sender)

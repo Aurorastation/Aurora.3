@@ -22,17 +22,13 @@ export type CommsData = {
   current_security_level_title: string;
   current_maint_all_access: BooleanLike;
 
-  def_SEC_LEVEL_DELTA: number;
-  def_SEC_LEVEL_YELLOW: number;
-  def_SEC_LEVEL_BLUE: number;
-  def_SEC_LEVEL_GREEN: number;
-
   messages: Message[];
   message_deletion_allowed: BooleanLike;
   message_current_id: number;
   message_current: string;
 
   evac_options: EvacOption[];
+  security_levels: SecurityLevel[];
 };
 
 type Message = {
@@ -46,6 +42,13 @@ type EvacOption = {
   option_target: string;
   needs_syscontrol: BooleanLike;
   silicon_allowed: BooleanLike;
+};
+
+type SecurityLevel = {
+  level_name: string;
+  level_description: string;
+  threat_level_numerical: number;
+  level_color: string;
 };
 
 export const CommandCommunications = (props, context) => {
@@ -111,50 +114,24 @@ export const CommandCommunications = (props, context) => {
                 disabled={!data.net_comms || !data.net_syscont}
                 onClick={() => setChoosingAlert(!choosingAlert)}
               />
-              {choosingAlert ? (
-                <>
+              {choosingAlert
+                ? data.security_levels.map((level) => (
                   <Button
-                    content="Green"
-                    color="green"
+                    key={level.level_name}
+                    content={level.level_name}
+                    color={level.level_color || 'green'}
                     disabled={
                       data.current_security_level ===
-                        data.def_SEC_LEVEL_GREEN ||
+                        level.threat_level_numerical ||
                       !data.net_comms ||
                       !data.net_syscont
                     }
                     onClick={() =>
-                      act('setalert', { target: data.def_SEC_LEVEL_GREEN })
+                      act('setalert', { target: level.level_name })
                     }
                   />
-                  <Button
-                    content="Blue"
-                    color="blue"
-                    disabled={
-                      data.current_security_level === data.def_SEC_LEVEL_BLUE ||
-                      !data.net_comms ||
-                      !data.net_syscont
-                    }
-                    onClick={() =>
-                      act('setalert', { target: data.def_SEC_LEVEL_BLUE })
-                    }
-                  />
-                  <Button
-                    content="Yellow"
-                    color="yellow"
-                    disabled={
-                      data.current_security_level ===
-                        data.def_SEC_LEVEL_YELLOW ||
-                      !data.net_comms ||
-                      !data.net_syscont
-                    }
-                    onClick={() =>
-                      act('setalert', { target: data.def_SEC_LEVEL_YELLOW })
-                    }
-                  />
-                </>
-              ) : (
-                ''
-              )}
+                ))
+                : ''}
             </Stack.Item>
             <Stack.Item>
               <Button

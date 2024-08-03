@@ -101,9 +101,6 @@
 
 #define LIGHT_STANDARD_COLORS list(LIGHT_COLOUR_WHITE, LIGHT_COLOUR_WARM, LIGHT_COLOR_HALOGEN) // List of standard light colors used for randomized lighting and selectable printed lights.
 
-#define LIGHT_MODE_RED      "red"
-#define LIGHT_MODE_DELTA    "delta"
-
 //Defines for lighting status, see power/lighting.dm
 #define LIGHT_OK     0
 #define LIGHT_EMPTY  1

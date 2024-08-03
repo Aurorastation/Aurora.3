@@ -51,22 +51,22 @@ export const SuitSensors = (props, context) => {
                 {crewmember.cellCharge === -1 ? (
                   <Table.Cell
                     color={
-                      crewmember.stype > 0 && data.security_level > 1
+                      crewmember.stype > 0 && data.security_level < 4
                         ? getPulseClass(crewmember.tpulse)
                         : ''
                     }>
-                    {crewmember.stype > 0 && data.security_level > 1
+                    {crewmember.stype > 0 && data.security_level < 4
                       ? crewmember.pulse + ' BPM'
                       : 'N/A'}
                   </Table.Cell>
                 ) : (
                   <Table.Cell
                     color={
-                      crewmember.stype > 0 && data.security_level > 1
+                      crewmember.stype > 0 && data.security_level < 4
                         ? getChargeClass(crewmember.cellCharge)
                         : ''
                     }>
-                    {crewmember.stype > 0 && data.security_level > 1
+                    {crewmember.stype > 0 && data.security_level < 4
                       ? Math.round(crewmember.cellCharge) + '%'
                       : 'N/A'}
                   </Table.Cell>
@@ -74,32 +74,32 @@ export const SuitSensors = (props, context) => {
 
                 <Table.Cell
                   color={
-                    crewmember.stype > 1 && data.security_level > 1
+                    crewmember.stype > 1 && data.security_level < 4
                       ? getPressureClass(crewmember.tpressure)
                       : ''
                   }>
-                  {crewmember.stype > 1 && data.security_level > 1
+                  {crewmember.stype > 1 && data.security_level < 4
                     ? crewmember.pressure
                     : 'N/A'}
                 </Table.Cell>
                 <Table.Cell
                   color={
-                    crewmember.stype > 1 && data.security_level > 1
+                    crewmember.stype > 1 && data.security_level < 4
                       ? getOxyClass(crewmember.oxyg)
                       : ''
                   }>
-                  {crewmember.stype > 1 && data.security_level > 1
+                  {crewmember.stype > 1 && data.security_level < 4
                     ? toOxyLabel(crewmember.oxyg)
                     : 'N/A'}
                 </Table.Cell>
                 <Table.Cell>
-                  {crewmember.stype > 1 && data.security_level > 1
+                  {crewmember.stype > 1 && data.security_level < 4
                     ? Math.round(crewmember.bodytemp * 10) / 10 + 'C'
                     : 'N/A'}
                 </Table.Cell>
 
                 <Table.Cell>
-                  {crewmember.stype > 2 && data.security_level > 2
+                  {crewmember.stype > 2 && data.security_level < 3
                     ? crewmember.area +
                     ' (' +
                     crewmember.x +
