@@ -192,6 +192,6 @@
 	starts_with = list(/obj/item/reagent_containers/pill/nicotine = 7)
 
 /obj/item/storage/pill_bottle/vitamin
-	name = "bottle of 10u Vitamin supplements"
+	name = "bottle of Vitamin supplements"
 	desc = "Contains pills used to treat vitamin deficiency."
 	starts_with = list(/obj/item/reagent_containers/pill/bio_vitamin/cheap = 7)
