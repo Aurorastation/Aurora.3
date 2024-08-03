@@ -2096,7 +2096,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/table/reinforced/steel,
 /obj/item/blueprints,
 /obj/item/pen/drafting/blue{
@@ -2257,7 +2257,7 @@
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/grauwolf)
 "sb" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/vending/engineering{
 	req_access = list(204)
 	},
@@ -3574,7 +3574,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/radiation,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
@@ -4752,7 +4752,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
 "MS" = (
@@ -6035,7 +6035,7 @@
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
 "Xi" = (

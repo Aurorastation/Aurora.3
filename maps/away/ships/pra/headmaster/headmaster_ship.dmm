@@ -2466,7 +2466,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/headmaster_ship/bridge)
 "hg" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
@@ -2899,7 +2899,7 @@
 	pixel_y = 4;
 	pixel_x = 1
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
@@ -4075,7 +4075,7 @@
 	pixel_y = 4;
 	pixel_x = -1
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
@@ -4952,7 +4952,7 @@
 	faction = "PRA"
 	},
 /obj/machinery/mech_recharger,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/reinforced/cooled,
 /area/headmaster_ship/gun_deck)
 "tq" = (
@@ -5983,7 +5983,7 @@
 /area/headmaster_ship/armory)
 "EC" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
@@ -6069,7 +6069,7 @@
 	},
 /area/headmaster_ship/medbay)
 "FU" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
@@ -7224,7 +7224,7 @@
 /area/headmaster_ship/dock)
 "RS" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 6
 	},

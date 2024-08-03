@@ -598,7 +598,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},

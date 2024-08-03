@@ -1186,7 +1186,7 @@
 /turf/simulated/floor/sidewalk/paved,
 /area/point_verdant/interior/parking)
 "aGH" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/sewer)
@@ -28092,7 +28092,7 @@
 /area/point_verdant/interior/offices/kaf)
 "qar" = (
 /obj/machinery/portable_atmospherics/canister,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/asphalt,
 /area/point_verdant/outdoors)
 "qas" = (

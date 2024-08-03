@@ -194,7 +194,7 @@
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_aft)
 "cu" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space{
@@ -367,7 +367,7 @@
 /turf/simulated/floor/tiled/full,
 /area/ship/yacht_civ/lounge)
 "dW" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space{
@@ -1769,7 +1769,7 @@
 /obj/item/crowbar,
 /obj/random/tech_supply,
 /obj/random/tool,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/engineering)
 "pO" = (
@@ -1789,7 +1789,7 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/ship/yacht_civ/hallway_mid)
 "qb" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/toolcloset,
 /obj/item/storage/belt/utility/full,
 /obj/item/stack/cable_coil,
@@ -1903,7 +1903,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ship/yacht_civ/hallway_mid)
 "rB" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -2671,7 +2671,7 @@
 /area/ship/yacht_civ/hallway_fore)
 "zi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/engineering)
@@ -4456,7 +4456,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/yacht_civ_shuttle)
 "NY" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/toolcloset,
 /obj/item/storage/belt/utility/full,
 /obj/item/pipewrench,

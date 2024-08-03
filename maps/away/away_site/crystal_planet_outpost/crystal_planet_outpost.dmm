@@ -202,7 +202,7 @@
 /turf/simulated/floor/tiled,
 /area/crystal_planet_outpost/engineering)
 "cy" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -337,7 +337,7 @@
 /turf/simulated/floor/tiled,
 /area/crystal_planet_outpost/cave_entrance)
 "dG" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/internals,
 /obj/item/tank/emergency_oxygen/engi,
 /obj/item/tank/emergency_oxygen/engi,
@@ -1136,12 +1136,12 @@
 	},
 /area/crystal_planet_outpost/landing)
 "mY" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/crystal_planet_outpost/engineering)
 "nb" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/dispenser/oxygen,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -1484,7 +1484,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/crystal_planet_outpost/caves)
 "pm" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /obj/item/pickaxe/drill{
 	pixel_y = 6
@@ -1856,7 +1856,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crystal_planet_outpost/living)
 "tj" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/crystal_planet_outpost/cave_entrance)
 "tp" = (
@@ -2123,7 +2123,7 @@
 /turf/simulated/floor/tiled,
 /area/crystal_planet_outpost/cave_entrance)
 "wv" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/miningcart/ore,
 /turf/simulated/floor/plating,
 /area/crystal_planet_outpost/cave_entrance)
@@ -2345,7 +2345,7 @@
 /turf/simulated/floor/wood,
 /area/crystal_planet_outpost/living)
 "zx" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /obj/machinery/light/broken{
 	dir = 8
@@ -2553,7 +2553,7 @@
 	},
 /area/crystal_planet_outpost/landing)
 "Bk" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /obj/structure/closet/crate/miningcart/ore,
 /turf/simulated/floor/plating,
@@ -3349,7 +3349,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/crystal_planet_outpost/living)
 "JX" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /obj/structure/ore_box,
 /turf/simulated/floor/plating,
@@ -3622,7 +3622,7 @@
 /area/crystal_planet_outpost/cave_entrance)
 "Mt" = (
 /obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/ore_box,
 /turf/simulated/floor/plating,
 /area/crystal_planet_outpost/cave_entrance)
@@ -4118,7 +4118,7 @@
 /turf/simulated/floor/wood,
 /area/crystal_planet_outpost/living)
 "QG" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate,
 /obj/item/stack/material/graphite/full{
 	pixel_y = 5
@@ -4640,7 +4640,7 @@
 /turf/simulated/floor/tiled,
 /area/crystal_planet_outpost/living)
 "Wb" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/plating,
 /area/crystal_planet_outpost/cave_entrance)
@@ -4906,7 +4906,7 @@
 /turf/simulated/floor/tiled/white,
 /area/crystal_planet_outpost/medbay)
 "Zw" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /obj/structure/closet/hazmat/research,
 /turf/simulated/floor/plating,

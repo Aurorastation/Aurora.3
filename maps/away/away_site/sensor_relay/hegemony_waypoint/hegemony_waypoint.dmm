@@ -348,7 +348,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/airless,
 /area/hegemony_waypoint/exterior)
 "gp" = (
@@ -968,7 +968,7 @@
 	name = "Fore Solar Array"
 	},
 /obj/structure/cable/yellow,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/airless,
 /area/hegemony_waypoint/exterior)
 "tL" = (
@@ -1248,7 +1248,7 @@
 /area/hegemony_waypoint/exterior)
 "yD" = (
 /obj/structure/closet/toolcloset,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_waypoint/engineering)
@@ -1333,7 +1333,7 @@
 /obj/structure/closet/secure_closet/engineering_electrical{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/light/colored/decayed{
 	dir = 1
 	},

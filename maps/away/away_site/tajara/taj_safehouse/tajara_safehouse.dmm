@@ -383,7 +383,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "kd" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "kg" = (
@@ -467,7 +467,7 @@
 /area/tajara_safehouse/hangar)
 "ot" = (
 /obj/structure/ore_box,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "ox" = (
@@ -548,7 +548,7 @@
 /area/tajara_safehouse)
 "qo" = (
 /obj/structure/ore_box,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -1158,7 +1158,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "OF" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)

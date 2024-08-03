@@ -289,7 +289,7 @@
 /turf/simulated/floor,
 /area/hegemony_waypoint/kitchen)
 "gY" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor,
@@ -1423,7 +1423,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_waypoint/kitchen)
 "xT" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/canister/empty/air,
 /obj/random/dirt_75,
 /turf/simulated/floor,
@@ -1658,7 +1658,7 @@
 /area/hegemony_waypoint/bunks)
 "AP" = (
 /obj/machinery/portable_atmospherics/canister/air,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /turf/simulated/floor,
 /area/hegemony_waypoint/atmos)
@@ -2528,7 +2528,7 @@
 /turf/simulated/floor/wood,
 /area/hegemony_waypoint/shrine)
 "LQ" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
@@ -2565,7 +2565,7 @@
 /turf/simulated/floor/plating,
 /area/hegemony_waypoint/eva)
 "Nz" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor,
@@ -2681,7 +2681,7 @@
 /turf/simulated/floor,
 /area/hegemony_waypoint/atmos)
 "PB" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /obj/item/reagent_containers/glass/bucket{
 	pixel_y = 11;

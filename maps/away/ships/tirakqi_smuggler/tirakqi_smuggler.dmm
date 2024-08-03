@@ -936,7 +936,7 @@
 /obj/item/stack/material/plasteel/full,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/glass/reinforced/full,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/stack/material/glass{
 	amount = 25
 	},
@@ -6072,7 +6072,7 @@
 /area/ship/tirakqi_smuggler/capt)
 "LJ" = (
 /obj/structure/table/skrell,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/grenade/chem_grenade/metalfoam{
 	pixel_y = 8;
 	pixel_x = 8

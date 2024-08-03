@@ -1615,7 +1615,7 @@
 	sensors = list("xanufrigate_stbdco2_sensor"="Tank");
 	name = "Starboard Fuel Control"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/starboard)
 "fC" = (
@@ -10354,7 +10354,7 @@
 	sensors = list("xanufrigate_air_sensor"="Tank");
 	name = "Air Control"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "JN" = (

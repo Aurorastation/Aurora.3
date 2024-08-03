@@ -56,7 +56,7 @@
 	},
 /obj/item/stack/rods/full,
 /obj/item/stack/rods/full,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/stack/material/plasteel/full,
 /obj/item/stack/material/aluminium/full,
 /obj/item/stack/material/lead/full,
@@ -783,7 +783,7 @@
 /obj/item/stack/material/wood/full,
 /obj/item/stack/material/wood/full,
 /obj/structure/extinguisher_cabinet/west,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/stack/material/plastic/full,
 /obj/item/stack/material/plastic/full,
 /obj/item/stack/material/plastic/full,
@@ -12441,7 +12441,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/secure_closet{
 	name = "engineer uniform locker";
 	req_access = list(220)

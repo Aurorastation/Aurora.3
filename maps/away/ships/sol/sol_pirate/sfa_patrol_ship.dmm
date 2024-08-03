@@ -842,7 +842,7 @@
 	pixel_y = 4;
 	pixel_x = 1
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 9
 	},
@@ -1916,7 +1916,7 @@
 /area/ship/sfa_patrol_ship/Engineering)
 "fJS" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
@@ -2944,7 +2944,7 @@
 /turf/space/dynamic,
 /area/ship/sfa_patrol_ship/destroyedammo)
 "iZb" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
@@ -4238,7 +4238,7 @@
 	pixel_y = 4;
 	pixel_x = -1
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 5
 	},
@@ -4546,7 +4546,7 @@
 /area/ship/sfa_patrol_ship/Quarters)
 "nSb" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 6
 	},
@@ -4969,7 +4969,7 @@
 /turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship/Bridge)
 "pIa" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},

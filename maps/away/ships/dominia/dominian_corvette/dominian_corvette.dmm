@@ -5797,7 +5797,7 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/recroom)
 "uzF" = (
@@ -6583,7 +6583,7 @@
 "xKg" = (
 /obj/structure/punching_bag,
 /obj/effect/floor_decal/corner/red/full,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/recroom)
 "xNk" = (

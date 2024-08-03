@@ -207,7 +207,7 @@
 /area/ship/ssmd_corvette/grauwolf)
 "aHv" = (
 /obj/machinery/recharge_station,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
@@ -2824,7 +2824,7 @@
 /area/ship/ssmd_corvette/francisca)
 "huE" = (
 /obj/structure/closet/crate/trashcart,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/trash/broken_electronics,
 /obj/item/trash/broken_electronics,
 /obj/machinery/light/small/emergency{
@@ -3298,7 +3298,7 @@
 	dir = 4
 	},
 /obj/structure/reagent_dispensers/fueltank,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssmd_corvette/mechbay)
 "iOV" = (
@@ -3692,7 +3692,7 @@
 /turf/template_noop,
 /area/ship/ssmd_corvette/francisca)
 "kqx" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/suit_cycler/engineering/prepared{
 	req_access = list(203)
 	},
@@ -3793,7 +3793,7 @@
 	pixel_y = -6
 	},
 /obj/item/storage/toolbox/electrical,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/device/paint_sprayer,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ssmd_corvette/mechbay)
@@ -4098,7 +4098,7 @@
 	dir = 4
 	},
 /obj/structure/closet/radiation,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/reinforced,
 /area/ship/ssmd_corvette/nuke)
