@@ -17,3 +17,13 @@
   - qol: Allowed the Cyborg scientific gripper to hold integrated circuit printers,
       in order to facilitate R&D.
   - rscadd: Added a jungle hide mantle to the peasant hide mantle selection for Unathi.
+2024-08-03:
+  Geeves:
+  - bugfix: Fixed AI hologram loadout characters being nude.
+  MattAtlas:
+  - rscadd: Melee weapons now give audiovisual feedback when they miss a target.
+  SimpleMaroon:
+  - rscadd: Added a 'knockout blow' technique to the Kis-Khan martial art that renders
+      a simple animal temporarily paralyzed. It can be performed with disarm intent.
+  - code_imp: Adjusted disarm intent on simple mobs to be compatible with martial
+      arts.
