@@ -49,30 +49,6 @@
 	path = /obj/item/clothing/under/color/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/uniform/skirt
-	display_name = "skirt selection"
-	description = "A selection of skirts."
-	path = /obj/item/clothing/under/skirt
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
-
-/datum/gear/uniform/skirt/New()
-	..()
-	var/list/skirts = list()
-	skirts["casual skirt"] = /obj/item/clothing/under/skirt
-	skirts["puffy skirt"] = /obj/item/clothing/under/skirt/puffy
-	skirts["long skirt"] = /obj/item/clothing/under/skirt/long
-	skirts["pencil skirt"] = /obj/item/clothing/under/skirt/pencil
-	skirts["swept skirt"] = /obj/item/clothing/under/skirt/swept
-	skirts["plaid skirt"] = /obj/item/clothing/under/skirt/plaid
-	skirts["pleated skirt"] = /obj/item/clothing/under/skirt/pleated
-	skirts["high skirt"] = /obj/item/clothing/under/skirt/high
-	skirts["skater skirt"] = /obj/item/clothing/under/skirt/skater
-	skirts["tube skirt"] = /obj/item/clothing/under/skirt/tube
-	skirts["jumper skirt"] = /obj/item/clothing/under/skirt/jumper
-	skirts["jumper dress"] = /obj/item/clothing/under/skirt/jumper_highcut
-	skirts["long straight skirt"] = /obj/item/clothing/under/skirt/straightlong
-	gear_tweaks += new /datum/gear_tweak/path(skirts)
-
 /datum/gear/uniform/suit
 	display_name = "suit selection"
 	description = "A selection of formal suits."

@@ -9,9 +9,9 @@
 	display_name = "CR dress"
 	path = /obj/item/clothing/under/dress/offworlder
 
-/datum/gear/uniform/offworlder/skirt
+/datum/gear/accessory/offworlder/skirt
 	display_name = "CR skirt"
-	path = /obj/item/clothing/under/skirt/offworlder
+	path = /obj/item/clothing/accessory/skirt/offworlder
 
 /datum/gear/eyes/starshades
 	display_name = "starshades"
