@@ -84,25 +84,3 @@
 		if(visual_feedback)
 			visible_message(SPAN_WARNING("[visual_feedback]"), SPAN_WARNING("[audible_feedback]"))
 		return 1
-
-/obj/structure/closet/secure_closet/personal/verb/reset()
-	set src in oview(1) // One square distance
-	set category = "Object"
-	set name = "Reset Lock"
-	if(!usr.canmove || usr.stat || usr.restrained()) // Don't use it if you're not able to! Checks for stuns, ghost and restrain
-		return
-	if(ishuman(usr))
-		add_fingerprint(usr)
-		if (locked || !registered_name)
-			to_chat(usr, SPAN_WARNING("You need to unlock it first."))
-		else if (broken)
-			to_chat(usr, SPAN_WARNING("It appears to be broken."))
-		else
-			if (opened)
-				if(!close())
-					return
-			locked = 1
-			update_icon()
-			registered_name = null
-			desc = "It's a secure locker for personnel. The first card swiped gains control."
-	return
