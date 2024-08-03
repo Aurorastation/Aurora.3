@@ -50,7 +50,7 @@ SUBSYSTEM_DEF(mapping)
 /datum/controller/subsystem/mapping/proc/preloadTemplates(path = "maps/templates/") //see master controller setup
 	var/list/filelist = flist(path)
 	for(var/map in filelist)
-		var/datum/map_template/T = new(paths = list("[path][map]"), rename = "[map]")
+		var/datum/map_template/T = new(path = "[path][map]", rename = "[map]")
 		map_templates[T.id] = T
 	preloadBlacklistableTemplates()
 
@@ -74,10 +74,9 @@ SUBSYSTEM_DEF(mapping)
 
 		if (banned_maps)
 			var/is_banned = FALSE
-			for (var/mappath in MT.mappaths)
-				if(banned_maps.Find(mappath))
-					is_banned = TRUE
-					break
+			if(banned_maps.Find(MT.mappath))
+				is_banned = TRUE
+				break
 			if (is_banned)
 				continue
 

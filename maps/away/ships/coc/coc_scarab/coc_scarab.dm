@@ -2,8 +2,15 @@
 	name = "Scarab Salvage Ship"
 	description = "Scarab salvage ship."
 
+	traits = list(
+		//Z1
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = TRUE, ZTRAIT_DOWN = FALSE),
+		//Z2
+		list(ZTRAIT_AWAY = TRUE, ZTRAIT_UP = FALSE, ZTRAIT_DOWN = TRUE),
+	)
+
 	prefix = "ships/coc/coc_scarab/"
-	suffixes = list("coc_scarab_deck_1.dmm", "coc_scarab_deck_2.dmm")
+	suffix = "coc_scarab.dmm"
 
 	sectors = list(SECTOR_COALITION, SECTOR_WEEPING_STARS, SECTOR_ARUSHA, SECTOR_LIBERTYS_CRADLE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1

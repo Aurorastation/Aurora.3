@@ -53,7 +53,7 @@
 	icon_state = "shotgun"
 	item_state = "shotgun"
 	max_shells = 7 // max of 8
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 15
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
@@ -145,7 +145,7 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	handle_casings = CYCLE_CASINGS
 	max_shells = 2
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 15
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	is_wieldable = TRUE
@@ -192,7 +192,7 @@
 	item_state = "sawnshotgun"
 	accuracy = 0
 	is_wieldable = FALSE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 11
 	slot_flags &= ~SLOT_BACK	//you can't sling it on your back
 	slot_flags |= (SLOT_BELT|SLOT_HOLSTER) //but you can wear it on your belt (poorly concealed under a trenchcoat, ideally) - or in a holster, why not.
@@ -210,7 +210,7 @@
 	is_wieldable = FALSE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	force = 11
 
 /obj/item/gun/projectile/shotgun/doublebarrel/nitro
@@ -226,7 +226,7 @@
 	load_method = SINGLE_CASING|SPEEDLOADER
 	handle_casings = CYCLE_CASINGS
 	max_shells = 2
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	force = 10
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	is_wieldable = TRUE
@@ -248,7 +248,7 @@
 	item_state = "overunder"
 	accuracy = 0
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 1
@@ -273,7 +273,7 @@
 		slot_flags = initial(slot_flags)
 		playsound(user, 'sound/weapons/sawclose.ogg', 60, 1)
 	else
-		w_class = ITEMSIZE_LARGE
+		w_class = WEIGHT_CLASS_BULKY
 		slot_flags &= ~SLOT_BELT
 		playsound(user, 'sound/weapons/sawopen.ogg', 60, 1)
 	to_chat(user, "You [folded ? "fold" : "unfold"] \the [src].")
@@ -295,7 +295,7 @@
 	icon_state = "cameragun"
 	item_state = "cameragun"
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	magazine_type = /obj/item/ammo_magazine/mc9mm
 	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
 	fire_delay = ROF_PISTOL
@@ -322,7 +322,7 @@
 	slot_flags = SLOT_BELT
 	ammo_type = /obj/item/ammo_casing/shotgun/moghes
 	load_method = SINGLE_CASING|SPEEDLOADER
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	fire_delay = ROF_INTERMEDIATE
 	force = 5
 	max_shells = 1

@@ -232,7 +232,7 @@
 /obj/machinery/constructable_frame/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(!mover)
 		return TRUE
-	if(istype(mover,/obj/item/projectile) && density)
+	if(istype(mover,/obj/projectile) && density)
 		if(prob(50))
 			return TRUE
 		else

@@ -39,8 +39,8 @@
 	for(var/atom/movable/AM as mob|obj in src)
 		src.Entered(AM, AM.loc)
 
-	if (isStationLevel(z))
-		GLOB.station_turfs += src
+	// if (is_station_level(z))
+	// 	GLOB.station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
@@ -210,9 +210,6 @@
 				if ((A && A.loc))
 					A.loc.Entered(A)
 	return
-
-/turf/space/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
-	return ..()
 
 /turf/space/is_open()
 	return TRUE

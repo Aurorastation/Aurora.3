@@ -500,6 +500,7 @@
 
 /mob/living/simple_animal/attack_hand(mob/living/carbon/human/M as mob)
 	..()
+	var/datum/martial_art/attacker_style = M.primary_martial_art
 	switch(M.a_intent)
 
 		if(I_HELP)
@@ -508,6 +509,8 @@
 				poke()
 
 		if(I_DISARM)
+			if(attacker_style && attacker_style.disarm_act(M, src))
+				return TRUE
 			M.visible_message("<b>\The [M]</b> [response_disarm] \the [src]")
 			M.do_attack_animation(src)
 			poke(1)
@@ -646,12 +649,12 @@
 	handle_attack_by(user)
 	return TRUE
 
-/mob/living/simple_animal/hitby(atom/movable/AM, speed)
+/mob/living/simple_animal/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	. = ..()
-	if(ismob(AM.throwing?.thrower?.resolve()))
-		handle_attack_by(AM.throwing?.thrower?.resolve())
+	if(ismob(throwingdatum.thrower?.resolve()))
+		handle_attack_by(throwingdatum.thrower.resolve())
 
-/mob/living/simple_animal/bullet_act(obj/item/projectile/P, def_zone)
+/mob/living/simple_animal/bullet_act(obj/projectile/P, def_zone)
 	. = ..()
 	if(ismob(P.firer))
 		handle_attack_by(P.firer)
@@ -962,7 +965,7 @@
 /mob/living/simple_animal/get_digestion_product()
 	return /singleton/reagent/nutriment
 
-/mob/living/simple_animal/bullet_impact_visuals(var/obj/item/projectile/P, var/def_zone, var/damage)
+/mob/living/simple_animal/bullet_impact_visuals(var/obj/projectile/P, var/def_zone, var/damage)
 	..()
 	switch(get_bullet_impact_effect_type(def_zone))
 		if(BULLET_IMPACT_MEAT)

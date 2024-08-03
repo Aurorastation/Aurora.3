@@ -109,7 +109,7 @@
 	icon_state = "skrell_headpocket"
 	storage_slots = 1
 	max_storage_space = 2
-	max_w_class = ITEMSIZE_SMALL
+	max_w_class = WEIGHT_CLASS_SMALL
 	use_sound = null
 
 /obj/item/storage/internal/skrell/Initialize()
@@ -158,7 +158,7 @@
 	name = "tail storage"
 	storage_slots = 1
 	max_storage_space = 2
-	max_w_class = ITEMSIZE_SMALL
+	max_w_class = WEIGHT_CLASS_SMALL
 	use_sound = null
 
 /obj/item/storage/internal/tail/can_be_inserted(obj/item/clothing/tail_accessory/TA, stop_messages)

@@ -71,7 +71,7 @@ var/list/mineral_can_smooth_with = list(
 	if(icon != actual_icon)
 		icon = actual_icon
 
-	if(isStationLevel(z))
+	if(is_station_level(z))
 		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
@@ -129,16 +129,16 @@ var/list/mineral_can_smooth_with = list(
 			GetDrilled()
 	SSicon_smooth.add_to_queue_neighbors(src)
 
-/turf/simulated/mineral/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/beam/plasmacutter))
-		var/obj/item/projectile/beam/plasmacutter/PC_beam = Proj
+/turf/simulated/mineral/bullet_act(var/obj/projectile/Proj)
+	if(istype(Proj, /obj/projectile/beam/plasmacutter))
+		var/obj/projectile/beam/plasmacutter/PC_beam = Proj
 		var/list/cutter_results = PC_beam.pass_check(src)
 		. = cutter_results[1]
 		if(cutter_results[2]) // the cutter mined the turf, just pass on
 			return
 
 	// Emitter blasts
-	if(istype(Proj, /obj/item/projectile/beam/emitter))
+	if(istype(Proj, /obj/projectile/beam/emitter))
 		emitter_blasts_taken++
 
 	if(emitter_blasts_taken >= 3)
@@ -187,7 +187,7 @@ var/list/mineral_can_smooth_with = list(
 	if(icon != actual_icon)
 		icon = actual_icon
 
-	if(isStationLevel(z))
+	if(is_station_level(z))
 		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
@@ -407,7 +407,7 @@ var/list/mineral_can_smooth_with = list(
 		visible_message(SPAN_NOTICE("An old dusty crate was buried within!"))
 		new /obj/structure/closet/crate/secure/loot(src)
 
-/turf/simulated/mineral/ChangeTurf(N, tell_universe, force_lighting_update, ignore_override, mapload)
+/turf/simulated/mineral/ChangeTurf(path, tell_universe, force_lighting_update, ignore_override, mapload)
 	var/old_has_resources = has_resources
 	var/list/old_resources = resources
 	var/image/old_resource_indicator = resource_indicator
@@ -729,7 +729,7 @@ var/list/asteroid_floor_smooth = list(
 	base_desc = desc
 	base_name = name
 
-	if(isStationLevel(z))
+	if(is_station_level(z))
 		GLOB.station_turfs += src
 
 	if(dynamic_lighting)

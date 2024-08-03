@@ -106,6 +106,12 @@
 	update_desc()
 	update_material()
 
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/structure/table/Destroy()
 	material = null
 	reinforced = null

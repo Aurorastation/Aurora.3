@@ -1,6 +1,6 @@
 /obj/item/forensics
 	icon = 'icons/obj/forensics.dmi'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /**
  * The maximum percentage of unknown points in a fingerprint string (represented as asterisks)

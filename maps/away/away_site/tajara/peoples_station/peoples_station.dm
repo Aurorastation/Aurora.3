@@ -3,7 +3,7 @@
 	description = "Built in the interwar period, the People's Space Station bears the prestige of being the first space installation designed, constructed, and manned by Tajara."
 
 	prefix = "away_site/tajara/peoples_station/"
-	suffixes = list("peoples_station.dmm")
+	suffix = "peoples_station.dmm"
 
 	sectors = list(SECTOR_SRANDMARR)
 	spawn_weight = 2.5

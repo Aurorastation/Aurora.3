@@ -36,7 +36,7 @@
 	item_state = "hatchet"
 	force_divisor = 0.2 // 12 with hardness 60 (steel)
 	thrown_force_divisor = 0.75 // 15 with weight 20 (steel)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	sharp = 1
 	edge = TRUE
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 1)
@@ -90,7 +90,7 @@
 	icon_state = "machete"
 	item_state = "machete"
 	worn_overlay = "handle"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	default_material = MATERIAL_TITANIUM
 	max_force = 20
@@ -148,7 +148,7 @@
 	item_state = "hoe"
 	force_divisor = 0.25 // 5 with weight 20 (steel)
 	thrown_force_divisor = 0.25 // as above
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	attack_verb = list("slashed", "sliced", "cut", "clawed")
 
 /obj/item/material/scythe
@@ -165,7 +165,7 @@
 	edge = TRUE
 	throw_speed = 1
 	throw_range = 3
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 2)
 	attack_verb = list("chopped", "sliced", "cut", "reaped")
@@ -178,7 +178,7 @@
 	thrown_force_divisor = 0.04 // 5 with weight 20 (steel)
 	throw_speed = 2
 	throw_range = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/material/scythe/sickle/warsickle
 	name = "war sickle"

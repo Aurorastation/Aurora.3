@@ -176,7 +176,7 @@
 	throwforce = 10
 	throw_range = 5
 	force_divisor = 0.4
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	contained_sprite = TRUE
 	var/material/padding_material
 	var/obj/structure/bed/stool/origin_type = /obj/structure/bed/stool

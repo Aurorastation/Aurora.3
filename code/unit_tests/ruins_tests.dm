@@ -100,31 +100,33 @@
 	//Look into every ruin, and see if all the file paths are valid (the file exists)
 	//or otherwise do not respect the convention
 	for(var/ruin in subtypesof(/datum/map_template/ruin))
+		if(is_abstract(ruin))
+			LOG_GITHUB_DEBUG("Skipping abstract ruin [ruin]")
+			continue
+
 		LOG_GITHUB_NOTICE("Testing files for ruin [ruin]")
 
 		var/datum/map_template/ruin/tested_ruin = new ruin()
 
-		for(var/path in tested_ruin.mappaths)
-			LOG_GITHUB_DEBUG("Now testing [path] for ruin [ruin]")
+		LOG_GITHUB_DEBUG("Now testing [tested_ruin.mappath] for ruin [ruin]")
 
-			//Path format must be respected, start without a slash, and end with a slash
-			if(!initial(tested_ruin.prefix) || tested_ruin.prefix[1] == "/" || tested_ruin.prefix[length_char(tested_ruin.prefix)] != "/")
-				TEST_FAIL("Ruin [tested_ruin.name] has an invalid prefix path: [tested_ruin.prefix]")
-				. = UNIT_TEST_FAILED
+		//Path format must be respected, start without a slash, and end with a slash
+		if(!initial(tested_ruin.prefix) || tested_ruin.prefix[1] == "/" || tested_ruin.prefix[length_char(tested_ruin.prefix)] != "/")
+			TEST_FAIL("Ruin [tested_ruin.name] has an invalid prefix path: [tested_ruin.prefix]")
+			. = UNIT_TEST_FAILED
 
-			//No subfolders in the suffixes list
-			var/regex/no_subfolders_in_suffixes = regex(@"[\\\/]+")
-			for(var/suffix in tested_ruin.suffixes)
-				LOG_GITHUB_DEBUG("Checking suffix [suffix]")
-				if(no_subfolders_in_suffixes.Find(suffix))
-					TEST_FAIL("Ruin [ruin] contains a slash or a backslash in the suffixes list!")
-					. = UNIT_TEST_FAILED
+		//No subfolders in the suffix list
+		var/regex/no_subfolders_in_suffixes = regex(@"[\\\/]+")
+		LOG_GITHUB_DEBUG("Checking suffix [tested_ruin.suffix]")
+		if(no_subfolders_in_suffixes.Find(tested_ruin.suffix))
+			TEST_FAIL("Ruin [ruin] contains a slash or a backslash in the suffixes list!")
+			. = UNIT_TEST_FAILED
 
-			//See if the file actually exists
-			var/file_content = file2text(file(path))
-			if(!length(file_content))
-				TEST_FAIL("Ruin [ruin] - [path] have paths that do not exist or are empty!")
-				. = UNIT_TEST_FAILED
+		//See if the file actually exists
+		var/file_content = file2text(file(tested_ruin.mappath))
+		if(!length(file_content))
+			TEST_FAIL("Ruin [ruin] - [tested_ruin.mappath] have paths that do not exist or are empty!")
+			. = UNIT_TEST_FAILED
 
 
 

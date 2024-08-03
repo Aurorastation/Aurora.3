@@ -57,7 +57,7 @@
 		reflection.update_mirror_filters()
 
 
-/obj/structure/mirror/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/mirror/bullet_act(var/obj/projectile/Proj)
 	if(prob(Proj.get_structure_damage() * 2))
 		if(!shattered)
 			shatter()
@@ -175,7 +175,7 @@
 	desc = "A SalonPro Nano-Mirror(TM) brand mirror! Now a portable version."
 	icon = 'icons/obj/cosmetics.dmi'
 	icon_state = "mirror"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/mirror/attack_self(mob/user as mob)
 	if(user.mind)

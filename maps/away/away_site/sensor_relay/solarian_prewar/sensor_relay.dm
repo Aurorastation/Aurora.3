@@ -5,7 +5,7 @@
 	Interstellar War and its aftermath. While they have been mostly replaced in more developed sectors, such as Liberty's Cradle and the Jewel Worlds, beacon stations are still \
 	a common sight in less developed sectors of the Orion Spur such as the Badlands and Weeping Stars."
 	prefix = "away_site/sensor_relay/solarian_prewar/"
-	suffixes = list("sensor_relay.dmm")
+	suffix = "sensor_relay.dmm"
 
 	sectors = ALL_POSSIBLE_SECTORS
 	id = "sensor_relay"

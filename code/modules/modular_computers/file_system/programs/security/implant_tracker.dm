@@ -26,7 +26,7 @@
 		if(!C.implanted)
 			continue
 		var/turf/Tr = get_turf(C)
-		if(!Tr || !isStationLevel(Tr.z))
+		if(!Tr || !is_station_level(Tr.z))
 			continue
 		var/list/chem_info = list(
 			"implanted_name" = C.imp_in.real_name,
@@ -40,11 +40,11 @@
 		if(!T.implanted)
 			continue
 		var/turf/Tr = get_turf(T)
-		if(!Tr || !isStationLevel(Tr.z))
+		if(!Tr || !is_station_level(Tr.z))
 			continue
 		var/loc_display = "Unknown"
 		var/mob/living/carbon/M = T.imp_in
-		if(isStationLevel(M.z) && !istype(M.loc, /turf/space))
+		if(is_station_level(M.z) && !istype(M.loc, /turf/space))
 			var/area/A = get_area(M)
 			loc_display = A.name
 		if(T.malfunction)

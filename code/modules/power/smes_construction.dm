@@ -11,7 +11,7 @@
 	desc = "Standard superconductive magnetic coil with balanced capacity and I/O rating."
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "smes_coil"
-	w_class = ITEMSIZE_LARGE 			// It's LARGE (backpack size)
+	w_class = WEIGHT_CLASS_BULKY 			// It's LARGE (backpack size)
 	var/ChargeCapacity = 5000000
 	var/IOCapacity = 250000
 
@@ -135,7 +135,7 @@
 	wires = null
 	return ..()
 
-/obj/machinery/power/smes/buildable/bullet_act(obj/item/projectile/P, def_zone)
+/obj/machinery/power/smes/buildable/bullet_act(obj/projectile/P, def_zone)
 	. = ..()
 	visible_message(SPAN_WARNING("\The [src] is hit by \the [P]!"))
 	health_check(P.damage)
