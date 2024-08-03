@@ -8,7 +8,7 @@
 	requires_ntnet = TRUE
 	available_on_ntnet = FALSE
 	size = 6
-	usage_flags = PROGRAM_CONSOLE
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_SILICON_AI
 	color = LIGHT_COLOR_ORANGE
 	tgui_id = "ImplantTracker"
 
