@@ -143,6 +143,9 @@
 /// Mob does not need to breathe.
 #define TRAIT_NO_BREATHE "no_breathe"
 
+// Mob ignores size requirements to enter Mech
+#define TRAIT_MECH_PILOT "mech_pilot"
+
 /// Mob has pressure immunity.
 #define TRAIT_PRESSURE_IMMUNITY "pressure_immunity"
 
