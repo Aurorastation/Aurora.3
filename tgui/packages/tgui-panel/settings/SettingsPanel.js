@@ -232,6 +232,7 @@ const TextHighlightSetting = (props, context) => {
     highlightColor,
     highlightText,
     highlightWholeMessage,
+    backgroundHighlightColor,
     matchWord,
     matchCase,
   } = highlightSettingById[id];
@@ -252,11 +253,33 @@ const TextHighlightSetting = (props, context) => {
             }
           />
         </Flex.Item>
+        <Flex.Item shrink={0}>
+          {highlightWholeMessage && (
+            <>
+              <ColorBox mr={1} color={backgroundHighlightColor} />
+              <Input
+                mr={1}
+                width="5em"
+                monospace
+                placeholder="#ffdd44"
+                value={backgroundHighlightColor}
+                onInput={(e, value) =>
+                  dispatch(
+                    updateHighlightSetting({
+                      id: id,
+                      backgroundHighlightColor: value,
+                    })
+                  )
+                }
+              />
+            </>
+          )}
+        </Flex.Item>
         <Flex.Item>
           <Button.Checkbox
             checked={highlightWholeMessage}
             content="Whole Message"
-            tooltip="If this option is selected, the entire message will be highlighted in yellow."
+            tooltip="If this option is selected, the entire message will be highlighted in the color defined to the left."
             mr="5px"
             onClick={() =>
               dispatch(
