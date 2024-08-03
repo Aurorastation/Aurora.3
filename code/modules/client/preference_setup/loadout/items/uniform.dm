@@ -113,13 +113,6 @@
 
 	gear_tweaks += new /datum/gear_tweak/path(scrubs)
 
-/datum/gear/uniform/colorable_scrubs
-	display_name = "colorable scrubs"
-	description = "It's made of a special fiber that provides minor protection against biohazards."
-	path = /obj/item/clothing/under/rank/medical/generic
-	allowed_roles = list("Scientist", "Lab Assistant", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
-
 /datum/gear/uniform/dress
 	display_name = "dress selection"
 	description = "A selection of dresses."
