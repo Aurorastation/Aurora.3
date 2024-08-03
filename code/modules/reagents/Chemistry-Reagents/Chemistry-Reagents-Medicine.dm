@@ -1948,7 +1948,7 @@
 	M.add_chemical_effect(CE_SPEEDBOOST, 0.35) // Coffee = 0.3, Zora Soda = 0.4, Thirteen Loko = 0.5. Seems fine here, if a bit low.
 	M.make_jittery(5)
 	if(prob(5))
-		to_chat(M, SPAN_DANGER(pick("You have a headache!", "Energy, energy, energy - so much energy!", "You can't sit still!", "It's difficult to focus right now... but that's not important!", "Your heart is beating rapidly!", "Your chest hurts!", "You've totally over-exerted yourself!")))
+		to_chat(M, SPAN_WARNING(pick("You have a headache!", "Energy, energy, energy - so much energy!", "You can't sit still!", "It's difficult to focus right now... but that's not important!", "Your heart is beating rapidly!", "Your chest hurts!", "You've totally over-exerted yourself!")))
 	if(prob(M.chem_doses[type] / 3))
 		M.emote(pick("twitch", "blink_r", "shiver"))
 		M.take_organ_damage(5 * removed, 0)
