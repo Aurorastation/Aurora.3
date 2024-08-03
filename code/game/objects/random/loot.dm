@@ -56,7 +56,6 @@
 		/obj/item/clothing/under/syndicate/tacticool = 0.4,
 		/obj/item/clothing/under/syndicate/tracksuit = 0.2,
 		/obj/item/device/firing_pin = 0.3,
-		/obj/item/device/firing_pin/clown = 0.01,
 		/obj/item/device/flashlight = 1,
 		/obj/item/device/flashlight/flare = 0.5,
 		/obj/item/device/flashlight/heavy = 0.5,
