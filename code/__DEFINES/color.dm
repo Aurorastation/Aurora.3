@@ -1,4 +1,5 @@
 #define COLOR_BLACK            "#000000"
+#define COLOR_HALF_TRANSPARENT_BLACK "#0000007A"
 #define COLOR_NAVY_BLUE        "#000080"
 #define COLOR_GREEN            "#008000"
 #define COLOR_BRIGHT_GREEN     "#13cf13"
