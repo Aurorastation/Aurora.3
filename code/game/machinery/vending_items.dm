@@ -108,3 +108,8 @@
 	name = "Battlemonsters resupply canister"
 	vend_id = "battlemonsters"
 	charges = 40
+
+/obj/item/device/vending_refill/encryption
+	name = "encryption key resupply canister"
+	vend_id = "encryption"
+	charges = 60
