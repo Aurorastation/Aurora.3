@@ -810,3 +810,7 @@
 	id = ACCESS_TRAMP_FREIGHTER
 	desc = "Independent Freighter Access"
 
+#define ACCESS_CRYO_OUTPOST 243
+/datum/access/cryo_outpost_access
+	id = ACCESS_CRYO_OUTPOST
+	desc = "Desert Oasis Planet Outpost Access"
