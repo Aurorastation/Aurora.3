@@ -41,6 +41,11 @@
 	icon_state = "oxygen_br"
 	item_state = "oxygen_br"
 
+/obj/item/tank/oxygen/green
+	desc = "A tank of oxygen, this one is green."
+	icon_state = "oxygen_gr"
+	item_state = "oxygen_gr"
+
 /obj/item/tank/oxygen/marooning_equipment
 	name = "marooning oxygen tank"
 	desc = "A tank of oxygen, this one is yellow. Issued to marooned personnel."
