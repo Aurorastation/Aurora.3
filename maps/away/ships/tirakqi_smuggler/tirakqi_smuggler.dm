@@ -5,7 +5,7 @@
 	prefix = "ships/tirakqi_smuggler/"
 	suffix = "tirakqi_smuggler.dmm"
 
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
+	sectors = list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "tirakqi_smuggler"

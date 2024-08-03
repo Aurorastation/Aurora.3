@@ -294,6 +294,38 @@
 	suit = /obj/item/clothing/suit/space/void/coalition/xanu
 	helmet = /obj/item/clothing/head/helmet/space/void/coalition/xanu
 
+/obj/machinery/suit_cycler/offship/skrell
+	model_text = "Qerr'Zolvq Industries"
+	req_access = list(ACCESS_SKRELL)
+	departments = list("Nralakk")
+	species = list(BODYTYPE_SKRELL)
+	mask = /obj/item/clothing/mask/breath/skrell
+
+/obj/machinery/suit_cycler/offship/skrell/black
+	suit = /obj/item/clothing/suit/space/void/skrell/black
+	helmet = /obj/item/clothing/head/helmet/space/void/skrell/black
+
+/obj/machinery/suit_cycler/offship/skrell/white
+	suit = /obj/item/clothing/suit/space/void/skrell/white
+	helmet = /obj/item/clothing/head/helmet/space/void/skrell/white
+
+/obj/machinery/suit_cycler/offship/skrell/kala
+	model_text = "Qukala"
+	suit = /obj/item/clothing/suit/space/void/kala
+	helmet = /obj/item/clothing/head/helmet/space/void/kala
+
+/obj/machinery/suit_cycler/offship/skrell/kala/engineering
+	suit = /obj/item/clothing/suit/space/void/kala/engineering
+	helmet = /obj/item/clothing/head/helmet/space/void/kala/engineering
+
+/obj/machinery/suit_cycler/offship/skrell/kala/med
+	suit = /obj/item/clothing/suit/space/void/kala/med
+	helmet = /obj/item/clothing/head/helmet/space/void/kala/med
+
+/obj/machinery/suit_cycler/offship/skrell/kala/leader
+	suit = /obj/item/clothing/suit/space/void/kala/leader
+	helmet = /obj/item/clothing/head/helmet/space/void/kala/leader
+
 /obj/machinery/suit_cycler/offship/tarwa
 	model_text = "Tarwa Conglomerate"
 	req_access = list(ACCESS_UNATHI_PIRATE)
