@@ -388,7 +388,7 @@
 
 /obj/structure/sign/painting_frame/nated
 	name = "supreme commander Nated portrait"
-	desc = "A portrait of Supreme Ccommander Nated. Commonly seen in junta controlled territories."
+	desc = "A portrait of Supreme Commander Nated. Commonly seen in junta controlled territories."
 	icon_state = "nated_painting"
 	desc_extended = "For a decade, Halkiikijr led the Liberation Army as an effective opposing force against the People's Republic and the New Kingdom. He favored the extensive use of irregular \
 	warfare coupled with the deployment of the army to secure decisive battles. A cult of personality formed around Halkiikijr; extremists claimed that he was a prophet sent by the Gods. The \
@@ -396,7 +396,7 @@
 
 /obj/item/sign/painting_frame/nated
 	name = "supreme commander Nated portrait"
-	desc = "A portrait of Supreme Ccommander Nated. Commonly seen in junta controlled territories."
+	desc = "A portrait of Supreme Commander Nated. Commonly seen in junta controlled territories."
 	icon_state = "nated_painting"
 	sign_state = "nated_painting"
 	desc_extended = "For a decade, Halkiikijr led the Liberation Army as an effective opposing force against the People's Republic and the New Kingdom. He favored the extensive use of irregular \
