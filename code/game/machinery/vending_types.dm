@@ -808,7 +808,7 @@
 	temperature_setting = -1
 	light_color = COLOR_GOLD
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	manufacturer = "zenghu"
+	manufacturer = "nanotrasen"
 
 /obj/machinery/vending/security
 	name = "SecTech"
