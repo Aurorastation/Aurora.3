@@ -306,7 +306,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	has_blood_overlay = FALSE
 	type_butt = /obj/item/trash/cigbutt
 	chem_volume = 30
-	burn_rate = 0.006 //Lasts ~166 seconds)
+	burn_rate = 0.003 //Lasts ~353 seconds)
 	surgerysound = 'sound/items/surgery/cautery.ogg'
 	matchmes = SPAN_NOTICE("USER lights their NAME with their FLAME.")
 	lightermes = SPAN_NOTICE("USER manages to light their NAME with FLAME.")
@@ -374,11 +374,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 
 
 /obj/item/clothing/mask/smokable/cigarette/vanilla
-	burn_rate = 0.015
 	reagents_to_add = list(/singleton/reagent/toxin/tobacco = 15)
 
 /obj/item/clothing/mask/smokable/cigarette/acmeco
-	burn_rate = 0.015
 	reagents_to_add = list(
 		/singleton/reagent/toxin/tobacco = 5,
 		/singleton/reagent/mental/nicotine = 5,
@@ -387,7 +385,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	)
 
 /obj/item/clothing/mask/smokable/cigarette/blank
-	burn_rate = 0.015
 	chem_volume = 15
 	reagents_to_add = null
 
@@ -466,7 +463,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "cigaroff"
 	type_butt = /obj/item/trash/cigbutt/cigarbutt
 	throw_speed = 0.5
-	burn_rate = 0.015
 	chem_volume = 60
 	matchmes = SPAN_NOTICE("USER lights their NAME with their FLAME.")
 	lightermes = SPAN_NOTICE("USER manages to offend their NAME by lighting it with FLAME.")
@@ -586,7 +582,6 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "pipeoff"
 	icon_on = "pipeon"
 	icon_off = "pipeoff"
-	burn_rate = 0.015
 	w_class = WEIGHT_CLASS_TINY
 	chem_volume = 30
 	matchmes = SPAN_NOTICE("USER lights their NAME with their FLAME.")
