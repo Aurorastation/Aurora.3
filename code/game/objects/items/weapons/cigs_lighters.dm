@@ -165,7 +165,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	var/weldermes = "USER lights NAME with FLAME"
 	var/ignitermes = "USER lights NAME with FLAME"
 	var/initial_volume = 0
-	var/burn_rate = 0 // Do not make lower than MINIMUM_CHEMICAL_VOLUME 0.01
+	var/burn_rate = 0
 	var/last_drag = 0 //Spam limiter for audio/message when taking a drag of cigarette.
 	drop_sound = 'sound/items/drop/food.ogg'
 	pickup_sound = 'sound/items/pickup/food.ogg'
