@@ -100,6 +100,7 @@
 	plushies["plushie, jeweler cockatoo"] = /obj/item/toy/plushie/cockatoo
 	plushies["plushie, Norinori"] = /obj/item/toy/plushie/norinori
 	plushies["plushie, space carp"] = /obj/item/toy/plushie/carp
+	plushies["plushie, Domadice"] = /obj/item/toy/plushie/domadice
 	gear_tweaks += new /datum/gear_tweak/path(plushies)
 
 /datum/gear/toy/mecha
