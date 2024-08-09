@@ -886,7 +886,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "sancolettezippo"
 	item_state = "sancolettezippo"
 
-	/obj/item/flame/lighter/zippo/callisto
+/obj/item/flame/lighter/zippo/callisto
 	name = "\improper callisto lighter"
 	desc = "A tricolor zippo lighter depicting the flag of San Colette."
 	desc_extended = "Among Solarian nations, it's popular to carry a lighter depicting the flag of the Sol Alliance as a proclaimation of \
