@@ -887,11 +887,9 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	item_state = "sancolettezippo"
 
 /obj/item/flame/lighter/zippo/callisto
-	name = "\improper callisto lighter"
-	desc = "A tricolor zippo lighter depicting the flag of San Colette."
-	desc_extended = "Among Solarian nations, it's popular to carry a lighter depicting the flag of the Sol Alliance as a proclaimation of \
-	one's patriotism. After being recognised as the Sovereign Solarian Republic of San Colette, this tradition continued on with the Colettish, \
-	now opting to pridefully bare their own tricolor flag instead."
+	name = "\improper Callistean lighter"
+	desc = "A cheap plastic lighter bearing the flag of Callisto."
+	desc_extended = "It's debated whether this (recently) discontinued line of cheap lighters was a money laundering scheme or a publicity stunt - extremely cheap, extremely flimsy, those Idris made lighters became an unintended social phenomenon among Callistean smokers; running competitions amongst them as to how long they can keep those lighters alive."
 	icon_state = "lightercallisto"
 	item_state = "lightercallisto"
 
