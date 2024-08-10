@@ -889,7 +889,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 /obj/item/flame/lighter/callisto
 	name = "\improper Callistean lighter"
 	desc = "A cheap plastic lighter bearing the flag of Callisto."
-	desc_extended = "It's debated whether this (recently) discontinued line of cheap lighters was a money laundering scheme or a publicity stunt - extremely cheap, extremely flimsy, those Idris made lighters became an unintended social phenomenon among Callistean smokers; running competitions amongst them as to how long they can keep those lighters alive."
+	desc_extended = "It's debated whether this (recently) discontinued line of cheap lighters was a money laundering scheme or a publicity stunt - extremely cheap, extremely flimsy, these Idris made lighters became an unintended social phenomenon among Callistean smokers; running competitions amongst them as to how long they can keep those lighters alive."
 	icon_state = "lightercallisto"
 	item_state = "lightercallisto"
 
