@@ -40,6 +40,7 @@
 		/obj/item/device/vending_refill/cutlery = 1,
 		/obj/item/device/vending_refill/robo = 1,
 		/obj/item/device/vending_refill/battlemonsters = 1,
+		/obj/item/device/vending_refill/encryption = 1
 	)
 	random_itemcount = 0
 	light_color = COLOR_GOLD
@@ -1085,7 +1086,6 @@
 	)
 	premium = list(
 		/obj/item/storage/toolbox/lunchbox/scc/filled = 2,
-		/obj/item/reagent_containers/food/drinks/boba = 2
 	)
 	restock_items = 1
 	random_itemcount = 0
@@ -1808,3 +1808,33 @@
 		/obj/item/reagent_containers/food/snacks/ramenbowl = 60,
 	)
 	light_color = COLOR_GUNMETAL
+
+/obj/machinery/vending/encryption
+	name = "SCC Encryption Key Vendor"
+	desc = "Communications galore, at the tip of your fingers."
+	product_ads = "Stop walkin, get talkin!;Get them keys!;Psst, got a minute?"
+	icon_state = "wallencrypt"
+	density = 0 //It is wall-mounted.
+	req_access = list(ACCESS_HOP)
+	vend_id = "encryption"
+	products = list(
+		/obj/item/device/encryptionkey/heads/captain = 1,
+		/obj/item/device/encryptionkey/heads/ce = 1,
+		/obj/item/device/encryptionkey/heads/cmo = 1,
+		/obj/item/device/encryptionkey/heads/hos = 1,
+		/obj/item/device/encryptionkey/heads/rd = 1,
+		/obj/item/device/encryptionkey/heads/xo = 1,
+		/obj/item/device/encryptionkey/headset_operations_manager = 1,
+		/obj/item/device/encryptionkey/headset_com = 5,
+		/obj/item/device/encryptionkey/headset_cargo = 5,
+		/obj/item/device/encryptionkey/headset_eng = 5,
+		/obj/item/device/encryptionkey/headset_med = 5,
+		/obj/item/device/encryptionkey/headset_sci = 5,
+		/obj/item/device/encryptionkey/headset_sec = 5,
+		/obj/item/device/encryptionkey/headset_service = 5,
+		/obj/item/device/encryptionkey/headset_warden = 5,
+		/obj/item/device/encryptionkey/headset_xenoarch = 5,
+
+
+	)
+

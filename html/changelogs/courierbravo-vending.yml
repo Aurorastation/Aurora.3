@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: Ben10083
+author: CourierBravo
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,5 +55,6 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Mining Module now provides access to hailing channel."
-  - balance: "Change cyborg jetpack module material requirements to use silver instead of phoron."
+  - rscadd: "Added an encryption key vendor for the Executive Officer. Additionally, added an encryption restock canister, and made it available for janitors through their Omni-Vendor."
+  - imageadd: "Added a modified sprite for the encryption key vendor."
+  - rscdel: "Removed the Boba from the dinnerware premium list."
