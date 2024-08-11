@@ -16,7 +16,7 @@ SUBSYSTEM_DEF(radiation)
 	if (!resumed)
 		current_sources = sources.Copy()
 		current_res_cache = resistance_cache.Copy()
-		listeners = living_mob_list.Copy()
+		listeners = GLOB.living_mob_list.Copy()
 
 	while(length(current_sources))
 		var/datum/radiation_source/S = current_sources[length(current_sources)]
@@ -71,7 +71,7 @@ SUBSYSTEM_DEF(radiation)
 			continue // Radiation is not multi-z
 		if(source.respect_maint)
 			var/area/A = T.loc
-			if(A.flags & RAD_SHIELDED)
+			if(A.area_flags & AREA_FLAG_RAD_SHIELDED)
 				continue // In shielded area
 
 		var/dist = get_dist(source.source_turf, T)

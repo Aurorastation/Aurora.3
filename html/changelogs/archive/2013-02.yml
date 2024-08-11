@@ -1,0 +1,76 @@
+2013-02-13:
+  Erthilo:
+  - bugfix: Fixed SSD (logged-out) players not staying asleep.
+  - bugfix: Fixed set-pose verb and mice emotes having extra periods.
+  - bugfix: Fixed virus crate not appearing and breaking supply shuttle.
+  - bugfix: Fixed newcaster photos not being censored.
+2013-02-14:
+  CIB:
+  - rscadd: Medical side-effects(patients are going to come back for secondary treatment)
+  - rscadd: NT loyalty setting(affects command reports and gives antags hints who
+      might collaborate with them)
+  - tweak: Simple animal balance fixes(They're slower now)
+  CaelAislinn:
+  - rscadd: Re-added old ion storm laws, re-added grid check event.
+  - rscadd: Added Rogue Drone and Vermin Infestation random events.
+  - rscadd: Added/fixed space vines random event.
+  - tweak: Updates to the virus events.
+  - tweak: Spider infestation and alien infestation events turned off by default.
+  - tweak: Soghun, taj and skrell all have unique language text colours.
+  - tweak: Moderators will no longer be listed in adminwho, instead use modwho.
+  Gamerofthegame:
+  - rscadd: Miscellaneous mapfixes.
+2013-02-18:
+  Cael Aislinn:
+  - rscadd: Security bots will now target hostile mobs, and vice versa.
+  - tweak: Carp should actually emigrate now, instead of just immigrating then squatting
+      around the outer hull.
+  - tweak: Admins and moderators have been split up into separate 'who' verbs (adminwho
+      and modwho respectively).
+2013-02-20:
+  Chinsky:
+  - rscadd: 'Added new surgery: putting items inside people. After you use retractor
+      to keep incision open, just click with any item to put it inside. But be wary,
+      if you try to fit something too big, you might rip the veins. To remove items,
+      use implant removal surgery.'
+  - rscadd: Crowbar can be used as alternative to retractor.
+  - rscadd: Can now unload guns by clicking them in hand.
+  - tweak: Fixed distance calculation in bullet missing chance computation, it was
+      always assuming 1 or 0 tiles. Now distace REALLY matters when you shoot.
+  - rscadd: To add more FUN to previous thing, bullets missed to not disappear but
+      keep going until they hit something else.
+  - bugfix: Compressed Matter and Explosive implants spawn properly now.
+  - tweak: 'Tweaks to medical effects: removed itch caused by bandages. Chemical effects
+      now have non-100 chance of appearing, the stronger medicine, the more probality
+      it''ll have side effects.'
+2013-02-22:
+  Chinsky:
+  - tweak: Change to body cavity surgery.  Can only put items in chest, groind and
+      head. Max size for item - 3 (chest), 2 (groin), 1 (head). For chest surgery
+      ribs should be bent open, (lung surgery until second scalpel step). Surgery
+      step needs preparation step, with drill. After that you can place item inside,
+      or seal it with cautery to do other step instead.
+2013-02-23:
+  Cael Aislinn:
+  - wip: RUST machinery components should now be researchable (with high requirements)
+      and orderable through QM (with high cost).
+  - wip: Shield machinery should now be researchable (with high requirements) and
+      orderable through QM (with high cost). This one is reportedly buggy.
+  - tweak: Rogue vending machines should revert back to normal at the end of the event.
+  - rscadd: New Unathi hair styles.
+2013-02-25:
+  Cael Aislinn:
+  - rscadd: As well as building hull shield generators, normal shield gens can now
+      be built (see <a href="http://baystation12.net/forums/viewtopic.php?f=1&amp;t=6993">http://baystation12.net/forums/viewtopic.php?f=1&amp;t;=6993</a>).
+  - rscadd: 'New random events: multiple new system wide-events have been have been
+      added to the newscaster feeds, some not quite as respectable as others.'
+  - rscadd: 'New random event: some lucky winners will win the TC Daily Grand Slam
+      Lotto, while others may be the target of malicious hackers.'
+2013-02-27:
+  Gamerofthegame:
+  - rscadd: Added the (base gear) ERT preset for the debug command.
+  - rscadd: Map fixes, Virology hole fixed. Atmospheric fixes for mining and, to a
+      less extent, the science outpost. (No, not cycling airlocks)
+  - rscadd: Fiddled with the ERT set up location on Centcom. Radmins will now have
+      a even easier time equiping a team of any real pratical size, especially coupled
+      with the above debug command.

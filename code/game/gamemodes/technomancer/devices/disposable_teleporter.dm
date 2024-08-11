@@ -11,7 +11,7 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "hand_tele"
 	var/uses = 3.0
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	item_state = "paper"
 	origin_tech = list(TECH_BLUESPACE = 4, TECH_POWER = 3)
 
@@ -22,23 +22,23 @@
 	one has been provided to allow you to leave your hideout."
 	uses = 1
 
-/obj/item/disposable_teleporter/examine(mob/user)
+/obj/item/disposable_teleporter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "[uses] uses remaining.")
+	. += "[uses] uses remaining."
 
 /obj/item/disposable_teleporter/attack_self(mob/user as mob)
 	if(!uses)
-		to_chat(user, "<span class='danger'>\The [src] has ran out of uses, and is now useless to you!</span>")
+		to_chat(user, SPAN_DANGER("\The [src] has ran out of uses, and is now useless to you!"))
 		return
 	else
 		var/list/area/valid_areas = list()
-		for(var/area/A as anything in the_station_areas)
+		for(var/area/A as anything in GLOB.the_station_areas)
 			if(is_shuttle_area(A))
 				continue
 			else
 				valid_areas += A
 		var/area/A = tgui_input_list(user, "Area to teleport to", "Teleportation", valid_areas)
-		if(!isarea(A) || !(A in the_station_areas))
+		if(!isarea(A) || !(A in GLOB.the_station_areas))
 			return
 
 		if (user.stat || user.restrained())
@@ -74,8 +74,8 @@
 
 		if(destination)
 			user.forceMove(destination)
-			to_chat(user, "<span class='notice'>You are teleported to \the [A].</span>")
+			to_chat(user, SPAN_NOTICE("You are teleported to \the [A]."))
 			uses--
 			if(uses <= 0)
-				to_chat(user, "<span class='danger'>\The [src] has ran out of uses, and disintegrates from your hands.</span>")
+				to_chat(user, SPAN_DANGER("\The [src] has ran out of uses, and disintegrates from your hands."))
 				qdel(src)

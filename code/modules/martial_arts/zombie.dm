@@ -17,7 +17,13 @@
 	add_to_streak("H", D)
 	if(check_streak(A, D))
 		return TRUE
-	basic_hit(A, D)
+
+	//Apply the hit based on what is being attacked
+	if(istype(D, /mob/living/heavy_vehicle))
+		heavy_vehicle_basic_hit(A, D)
+	else
+		basic_hit(A, D)
+
 	return TRUE
 
 

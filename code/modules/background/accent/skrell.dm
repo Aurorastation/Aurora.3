@@ -86,9 +86,9 @@
 	tag_icon = "skrell_tattuqig"
 	text_tag = "TAT"
 
-/datum/accent/skrell/EUM
-	name = ACCENT_SKRELLEUM
-	description = "The Nral'Daaq accent draws from the accents of migrating Skrell from the Federation as well as elements of rootsong from the local Dionae population, creating a sing-song accent with \
+/datum/accent/skrell/consortium
+	name = ACCENT_SKRELLCONSORTIUM
+	description = "The Skrell Consortium Standard accent draws from the accents of migrating Skrell from the Federation as well as elements of rootsong from the local Dionae population, creating a sing-songy accent with \
 	melodic highs and lows. The accent has been compared to the Aweijiin accent, but it does not have the same reputation as it is not used by idols."
-	tag_icon = "skrell_nraldaaq"
-	text_tag = "NDQ"
+	tag_icon = "skrell_consortium"
+	text_tag = "SCS"

@@ -3,7 +3,7 @@
 	desc = "The circuitboard for an ore processing machine."
 	build_path = /obj/machinery/mineral/processing_unit
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 	req_components = list(
 		"/obj/item/stock_parts/capacitor" = 2,
 		"/obj/item/stock_parts/scanning_module" = 1,
@@ -16,7 +16,7 @@
 	desc = "The circuitboard for an ore redemption console."
 	build_path = /obj/machinery/mineral/processing_unit_console
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 	req_components = list(
 		"/obj/item/stock_parts/scanning_module" = 1,
 		"/obj/item/stock_parts/console_screen" = 1
@@ -39,7 +39,7 @@
 	desc = "The circuitboard for an unloading machine."
 	build_path = /obj/machinery/mineral/unloading_machine
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 	req_components = list(
 		"/obj/item/stock_parts/manipulator" = 2
 		)
@@ -49,7 +49,7 @@
 	desc = "The circuitboard for a stacking machine."
 	build_path = /obj/machinery/mineral/stacking_machine
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 	req_components = list(
 		"/obj/item/stock_parts/manipulator" = 2
 		)
@@ -59,7 +59,7 @@
 	desc = "The circuitboard for an stacking machine console."
 	build_path = /obj/machinery/mineral/stacking_unit_console
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
-	board_type = "machine"
+	board_type = BOARD_MACHINE
 	req_components = list(
 		"/obj/item/stock_parts/scanning_module" = 1,
 		"/obj/item/stock_parts/console_screen" = 1

@@ -1,6 +1,7 @@
 import { useBackend } from '../backend';
 import { Button, Section, Box, LabeledList } from '../components';
 import { Window } from '../layouts';
+import { MinimapView } from './common/MinimapView';
 
 export type ShuttleControlConsoleMultiExploreData = {
   shuttle_status: string;
@@ -13,6 +14,9 @@ export type ShuttleControlConsoleMultiExploreData = {
   can_force: boolean;
   can_pick: boolean;
   destination_name: string;
+  destination_map_image: any; // base64 icon
+  destination_x: number;
+  destination_y: number;
   fuel_usage: number;
   remaining_fuel: number;
   fuel_span: string;
@@ -87,6 +91,18 @@ export const ShuttleControlConsoleMultiExplore = (props, context) => {
             </Box>
           ) : null}
         </Section>
+
+        {data.destination_map_image ? (
+          <Section title="Scan">
+            {MinimapView({
+              map_image: data.destination_map_image,
+              x: data.destination_x,
+              y: data.destination_y,
+            })}
+          </Section>
+        ) : (
+          ''
+        )}
         <Section title="Shuttle Control">
           <Button
             content="Launch Shuttle"

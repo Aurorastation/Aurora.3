@@ -7,6 +7,7 @@
 	icon_state = "base"
 	initialize_directions = 0
 	level = 1
+	layer = ABOVE_CATWALK_LAYER
 
 	var/configuring = 0
 	//var/target_pressure = ONE_ATMOSPHERE	//a base type as abstract as this should NOT be making these kinds of assumptions
@@ -28,7 +29,7 @@
 /obj/machinery/atmospherics/omni/Initialize()
 	icon_state = "base"
 	ports = new()
-	for(var/d in cardinal)
+	for(var/d in GLOB.cardinal)
 		var/datum/omni_port/new_port = new(src, d)
 		switch(d)
 			if(NORTH)
@@ -45,7 +46,7 @@
 	. = ..()
 
 /obj/machinery/atmospherics/omni/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/list/to_add = list(base_icon)
 	if(stat & NOPOWER)
 		to_add += off_states
@@ -57,7 +58,7 @@
 	else
 		to_add += off_states
 
-	add_overlay(to_add)
+	AddOverlays(to_add)
 
 	underlays = underlays_current
 
@@ -81,8 +82,8 @@
 	if(old_stat != stat)
 		update_icon()
 
-/obj/machinery/atmospherics/omni/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if(!W.iswrench())
+/obj/machinery/atmospherics/omni/attackby(obj/item/attacking_item, mob/user)
+	if(!attacking_item.iswrench())
 		return ..()
 
 	var/int_pressure = 0
@@ -91,14 +92,14 @@
 	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_pressure - env_air.return_pressure()) > PRESSURE_EXERTED)
-		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
+		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 		add_fingerprint(user)
 		return TRUE
-	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
-	if(W.use_tool(src, user, 40, volume = 50))
+	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
+	if(attacking_item.use_tool(src, user, 40, volume = 50))
 		user.visible_message( \
-			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
-			"<span class='notice'>You have unfastened \the [src].</span>", \
+			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
+			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear a ratchet.")
 		new /obj/item/pipe(loc, make_from=src)
 		qdel(src)
@@ -161,7 +162,7 @@
 			if(ATM_OUTPUT)
 				ic_on += "_out_glow"
 				ic_off += "_out"
-			if(ATM_O2 to ATM_H2)
+			if(ATM_O2 to ATM_H2O)
 				ic_on += "_filter"
 				ic_off += "_out"
 
@@ -218,7 +219,8 @@
 			qdel(P.network)
 			P.node = null
 
-	return ..()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/machinery/atmospherics/omni/atmos_init()
 	for(var/datum/omni_port/P in ports)

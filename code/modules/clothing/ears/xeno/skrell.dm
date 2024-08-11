@@ -3,7 +3,7 @@
 	desc = "Some stuff worn by skrell to adorn their head tentacles."
 	icon = 'icons/obj/item/clothing/ears/skrell/chains.dmi'
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_HEAD | SLOT_EARS
 	species_restricted = list(BODYTYPE_SKRELL)
 
@@ -202,21 +202,21 @@
 /obj/item/clothing/ears/skrell/scrunchy/equipped(mob/user, slot, assisted_equip)
 	if((slot in list(slot_head, slot_l_ear, slot_r_ear)) && ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(istype(hair_styles_list[H.h_style], /datum/sprite_accessory/hair/skr_tentacle_m))
-			var/datum/sprite_accessory/hair/skr_tentacle_m/hair_datum = hair_styles_list[H.h_style]
+		if(istype(GLOB.hair_styles_list[H.h_style], /datum/sprite_accessory/hair/skr_tentacle_m))
+			var/datum/sprite_accessory/hair/skr_tentacle_m/hair_datum = GLOB.hair_styles_list[H.h_style]
 			if(hair_datum.scrunchy_style)
 				item_state = "scrunchy_[hair_datum.scrunchy_style]"
 	return ..()
 
 /obj/item/clothing/ears/skrell/workcap
-	name = "Worker's Cap"
+	name = "workers cap"
 	desc = "A simple clothing item used by Skrell to cover their headtails. It comes with a main sleeve for the middle headtail, with smaller sleeves for the outer headtails to help keep it in place."
 	icon = 'icons/obj/item/clothing/ears/skrell/nralakk_caps.dmi'
 	item_state = "skrell_cap"
 	icon_state = "skrell_cap_item"
 
 /obj/item/clothing/ears/skrell/workcap/long
-	name = "Long Worker's Cap"
+	name = "long workers cap"
 	desc = "A simple clothing item used by Skrell to cover their headtails. It comes with a main sleeve for the middle headtail, with smaller sleeves for the outer headtails to help keep it in place. This one is longer to account for Skrell with longer headtails."
 	item_state = "skrell_cap_long"
 

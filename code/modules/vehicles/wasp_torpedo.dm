@@ -33,10 +33,6 @@
 
 	var/primmed = FALSE
 
-/obj/item/mesmetron/Destroy()
-	STOP_PROCESSING(SSfast_process, src)
-	. = ..()
-
 /obj/vehicle/bike/wasp_torpedo/collide_act(var/atom/movable/AM)
 	if(!AM.density)
 		return
@@ -92,7 +88,7 @@
 		return
 	..()
 
-/obj/vehicle/bike/wasp_torpedo/bullet_act(var/obj/item/projectile/Proj)
+/obj/vehicle/bike/wasp_torpedo/bullet_act(var/obj/projectile/Proj)
 	if(Proj.get_structure_damage())
 		if(prob(10))
 			torpedo_explosion()

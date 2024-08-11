@@ -7,117 +7,126 @@
 	anchored = TRUE
 	icon_screen = "crew"
 	icon_keyboard = "teal_key"
+	icon_keyboard_emis = "teal_key_mask"
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/operating
-	var/obj/machinery/optable/table = null
 
-	var/list/bodyscans = list()
-	var/selected = 0
+	///The operating table we are hooked into
+	var/obj/machinery/optable/table
 
+	///The paper with the scan of the patient
+	var/obj/item/paper/medscan/primer
 
-/obj/machinery/computer/operating/terminal
-	name = "patient monitoring terminal"
-	icon = 'icons/obj/machinery/modular_terminal.dmi'
-	icon_screen = "med_comp"
-	icon_keyboard = "med_key"
-	is_connected = TRUE
-	has_off_keyboards = TRUE
-	can_pass_under = FALSE
-	light_power_on = 1
+	var/obj/machinery/body_scanconsole/embedded/embedded_scanner
 
-/obj/machinery/computer/operating/New()
+/obj/machinery/computer/operating/Initialize()
 	..()
-	for(var/obj/machinery/optable/T in orange(1,src))
-		table = T
-		if (table)
-			table.computer = src
+
+	embedded_scanner = new /obj/machinery/body_scanconsole/embedded(src, 0, TRUE, TRUE)
+
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/computer/operating/LateInitialize()
+	. = ..()
+
+	for(var/obj/machinery/optable/T in orange(1, src))
+		var/successfully_hooked = hook_table(T)
+		if(successfully_hooked)
 			break
+
+/obj/machinery/computer/operating/Destroy()
+	QDEL_NULL(embedded_scanner)
+	QDEL_NULL(primer)
+
+	//Clear the operating table
+	if(table)
+		unhook_table(table)
+
+	. = ..()
+
+/**
+ * Used to connect (hook) the computer to the operating table
+ *
+ * Returns `TRUE` on successful hook, `FALSE` otherwise
+ *
+ * * table_to_hook - An `/obj/machinery/optable` to hook to
+ */
+/obj/machinery/computer/operating/proc/hook_table(obj/machinery/optable/table_to_hook)
+	if(table)
+		return FALSE
+
+	if(QDELETED(table_to_hook))
+		crash_with("Trying to hook a QDELETED optable!")
+		return FALSE
+
+	if(!istype(table_to_hook))
+		crash_with("Trying to hook a table that is not of the correct type!")
+		return FALSE
+
+	table = table_to_hook
+	table.computer = src
+
+	return TRUE
+
+/**
+ * Used to disconnect (unhook) the computer to the operating table
+ *
+ * Returns `TRUE` on successful unhook, `FALSE` otherwise
+ *
+ * * table_to_unhook - An `/obj/machinery/optable` to hook to
+ */
+/obj/machinery/computer/operating/proc/unhook_table(obj/machinery/optable/table_to_unhook)
+	if(table_to_unhook != table)
+		crash_with("Trying to unhook a table that is not hooked!")
+		return FALSE
+
+	table.computer = null
+	table = null
+
+	return TRUE
+
+/obj/machinery/computer/operating/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper/medscan))
+		if(primer)
+			to_chat(user, SPAN_WARNING("\The [src] already has a primer!"))
+			return
+		user.visible_message("\The [user] slides \the [attacking_item] into \the [src].", SPAN_NOTICE("You slide \the [attacking_item] into \the [src]."), range = 3)
+		user.drop_from_inventory(attacking_item, src)
+		primer = attacking_item
 
 /obj/machinery/computer/operating/attack_ai(mob/user)
 	if(!ai_can_interact(user))
 		return
 	return attack_hand(user)
 
-
 /obj/machinery/computer/operating/attack_hand(mob/user)
 	if(..())
 		return
+	embedded_scanner.ui_interact(user)
 
-	ui_interact(user)
+/obj/machinery/computer/operating/verb/eject_primer()
+	set src in oview(1)
+	set category = "Object"
+	set name = "Eject Primer"
 
-/obj/machinery/computer/operating/ui_interact(mob/user, var/datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "Operating", "Patient Monitoring Console", 450, 500)
-		ui.open()
+	if(use_check(usr))
+		return
 
-/obj/machinery/computer/operating/process()
-	if(operable())
-		updateDialog()
+	if(!primer)
+		to_chat(usr, SPAN_WARNING("\The [src] doesn't have a primer!"))
+		return
 
-/obj/machinery/computer/operating/ui_data(mob/user)
-	var/list/data = list(
-		"noscan" = null,
-		"nocons" = null,
-		"occupied" = null,
-		"invalid" = null,
-		"ipc" = null,
-		"stat" = null,
-		"name" = null,
-		"species" = null,
-		"brain_activity" = null,
-		"pulse" = null,
-		"blood_pressure" = null,
-		"blood_pressure_level" = null,
-		"blood_volume" = null,
-		"blood_o2" = null,
-		"blood_type" = null
-	)
+	usr.visible_message("\The [usr] takes \the [primer] out of \the [src].", SPAN_NOTICE("You take \the [primer] out of \the [src]"), range = 3)
+	usr.put_in_hands(primer)
+	primer = null
 
-	var/mob/living/carbon/human/occupant
-	if(table)
-		occupant = table.occupant
-
-		data["noscan"] = !!table.check_species()
-		data["nocons"] = !table
-		data["occupied"] = !!table.occupant
-		data["invalid"] = !!table.check_species()
-		data["ipc"] = occupant && isipc(occupant)
-
-	if(!data["invalid"])
-		var/brain_result = occupant.get_brain_result()
-		var/pulse_result
-		if(occupant.should_have_organ(BP_HEART))
-			var/obj/item/organ/internal/heart/heart = occupant.internal_organs_by_name[BP_HEART]
-			if(!heart)
-				pulse_result = 0
-			else if(BP_IS_ROBOTIC(heart))
-				pulse_result = -2
-			else if(occupant.status_flags & FAKEDEATH)
-				pulse_result = 0
-			else
-				pulse_result = occupant.get_pulse(GETPULSE_TOOL)
-		else
-			pulse_result = -1
-
-		if(pulse_result == ">250")
-			pulse_result = -3
-
-		var/displayed_stat = occupant.stat
-		var/blood_oxygenation = occupant.get_blood_oxygenation()
-		if(occupant.status_flags & FAKEDEATH)
-			displayed_stat = DEAD
-			blood_oxygenation = min(blood_oxygenation, BLOOD_VOLUME_SURVIVE)
-
-		data["stat"] = displayed_stat
-		data["name"] = occupant.name
-		data["species"] = occupant.get_species()
-		data["brain_activity"] = brain_result
-		data["pulse"] = text2num(pulse_result)
-		data["blood_pressure"] = occupant.get_blood_pressure()
-		data["blood_pressure_level"] = occupant.get_blood_pressure_alert()
-		data["blood_volume"] = occupant.get_blood_volume()
-		data["blood_o2"] = blood_oxygenation
-		data["blood_type"] = occupant.dna.b_type
-
-	return data
+/obj/machinery/computer/operating/terminal
+	name = "patient monitoring terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "med_comp"
+	icon_keyboard = "med_key"
+	icon_keyboard_emis = "med_key_mask"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1

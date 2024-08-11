@@ -2,9 +2,9 @@
 	name = "pinpointer"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "pinoff"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	item_state = "electronic"
 	throw_speed = 4
 	throw_range = 20
@@ -16,7 +16,7 @@
 	if(!active)
 		active = 1
 		START_PROCESSING(SSfast_process, src)
-		to_chat(usr, "<span class='notice'>You activate the pinpointer</span>")
+		to_chat(usr, SPAN_NOTICE("You activate the pinpointer"))
 	else
 		active = 0
 		STOP_PROCESSING(SSfast_process, src)
@@ -48,11 +48,11 @@
 			icon_state = "pinonfar"
 	return TRUE
 
-/obj/item/pinpointer/examine(mob/user)
+/obj/item/pinpointer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	for(var/obj/machinery/nuclearbomb/bomb in SSmachinery.machinery)
 		if(bomb.timing)
-			to_chat(user, "Extreme danger.  Arming signal detected.   Time remaining: [bomb.timeleft]")
+			. += "Extreme danger.  Arming signal detected.   Time remaining: [bomb.timeleft]"
 
 /obj/item/pinpointer/Destroy()
 	active = 0
@@ -77,12 +77,12 @@
 		if(mode == 2)
 			workobj()
 		START_PROCESSING(SSfast_process, src)
-		to_chat(usr, "<span class='notice'>You activate the pinpointer</span>")
+		to_chat(usr, SPAN_NOTICE("You activate the pinpointer"))
 	else
 		active = 0
 		icon_state = "pinoff"
-		cut_overlays()
-		to_chat(usr, "<span class='notice'>You deactivate the pinpointer</span>")
+		ClearOverlays()
+		to_chat(usr, SPAN_NOTICE("You deactivate the pinpointer"))
 
 /obj/item/pinpointer/advpinpointer/process()
 	switch(mode)
@@ -113,12 +113,12 @@
 			icon_state = "pinonfar"
 
 /obj/item/pinpointer/advpinpointer/proc/set_z_overlays(var/atom/target)
-	cut_overlays()
+	ClearOverlays()
 	if(AreConnectedZLevels(src.loc.z, target.z))
 		if(src.loc.z > target.z)
-			add_overlay("pinzdown")
+			AddOverlays("pinzdown")
 		else if(src.loc.z < target.z)
-			add_overlay("pinzup")
+			AddOverlays("pinzup")
 	else
 		active = 0
 		if(ismob(loc))
@@ -200,7 +200,7 @@
 					var/DNAstring = tgui_input_text(usr, "Input the DNA string to search.", "Pinpointer")
 					if(!DNAstring)
 						return
-					for(var/mob/living/carbon/M in mob_list)
+					for(var/mob/living/carbon/M in GLOB.mob_list)
 						if(!M.dna)
 							continue
 						if(M.dna.unique_enzymes == DNAstring)
@@ -225,15 +225,15 @@
 		START_PROCESSING(SSfast_process, src)
 		if(!mode)
 			workdisk()
-			to_chat(user, "<span class='notice'>Authentication Disk Locator active.</span>")
+			to_chat(user, SPAN_NOTICE("Authentication Disk Locator active."))
 		else
 			worklocation()
-			to_chat(user, "<span class='notice'>Shuttle Locator active.</span>")
+			to_chat(user, SPAN_NOTICE("Shuttle Locator active."))
 	else
 		active = 0
 		STOP_PROCESSING(SSfast_process, src)
 		icon_state = "pinoff"
-		to_chat(user, "<span class='notice'>You deactivate the pinpointer.</span>")
+		to_chat(user, SPAN_NOTICE("You deactivate the pinpointer."))
 
 /obj/item/pinpointer/nukeop/process()
 	if (mode)
@@ -280,7 +280,7 @@
 		mode = 0
 		workdisk()
 		playsound(loc, 'sound/machines/twobeep.ogg', 50, 1)
-		visible_message("<span class='notice'>Authentication Disk Locator active.</span>")
+		visible_message(SPAN_NOTICE("Authentication Disk Locator active."))
 		return
 	if(!home)
 		home = locate()

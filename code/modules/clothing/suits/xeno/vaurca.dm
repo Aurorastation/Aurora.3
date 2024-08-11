@@ -54,8 +54,10 @@
 	item_state = "hive_rep_clothes_cthur"
 	icon_state = "hive_rep_clothes_cthur"
 
-/obj/item/clothing/suit/vaurca/breeder/nralakk
-	name = "nralakk representative clothes"
-	desc = "A large piece of clothing used by Nralakk representatives."
-	item_state = "hive_rep_clothes_nralakk"
-	icon_state = "hive_rep_clothes_nralakk"
+/obj/item/clothing/suit/vaurca/breeder/colorable
+	name = "representative clothes"
+	desc = "A large piece of clothing used by Vaurca Gynes."
+	item_state = "hive_rep_clothes_colorable"
+	icon_state = "hive_rep_clothes_colorable"
+	build_from_parts = TRUE
+	worn_overlay = "rope"

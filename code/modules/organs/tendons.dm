@@ -25,6 +25,11 @@
 		max_health = hp
 		health = max_health
 
+/datum/tendon/Destroy(force)
+	parent = null
+
+	. = ..()
+
 /datum/tendon/proc/update_status(var/fix_cut = FALSE)
 	// determine if tendon should be cut, bruised, or unbruised
 	if(health <= 0 && !(status & TENDON_CUT))

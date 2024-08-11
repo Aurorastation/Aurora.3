@@ -11,13 +11,19 @@
 	if(prob(50))
 		icon_state = "geyser_plume"
 
-/obj/structure/geyser/Crossed(AM as mob|obj, var/ignore_deployment = FALSE)
-	if(ishuman(AM))
-		var/mob/living/carbon/human/L = AM
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/structure/geyser/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(ishuman(arrived))
+		var/mob/living/carbon/human/L = arrived
 		if(prob(50))
 			trigger(L)
-
-	..()
 
 /obj/structure/geyser/proc/trigger(mob/living/carbon/human/L)
 	visible_message(SPAN_WARNING("\The [src] spews a cloud of hot steam!"))

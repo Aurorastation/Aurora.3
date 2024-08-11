@@ -8,12 +8,6 @@
 	anchored = 1.0
 	var/spawnable = null
 
-/obj/effect/gateway/CollidedWith(mob/M)
-	return
-
-/obj/effect/gateway/Crossed(AM as mob|obj)
-	return
-
 /obj/effect/gateway/active
 	light_range=5
 	light_color="#ff0000"
@@ -44,9 +38,9 @@
 	new thing(src.loc)
 	qdel(src)
 
-/obj/effect/gateway/attackby(var/obj/item/I, var/mob/user)
+/obj/effect/gateway/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(istype(I, /obj/item/nullrod))
-		to_chat(user, "<span class='notice'>You touch \the [src] with \the [I], closing the path to the otherworld.</span>")
+	if(istype(attacking_item, /obj/item/nullrod))
+		to_chat(user, SPAN_NOTICE("You touch \the [src] with \the [attacking_item], closing the path to the otherworld."))
 		qdel(src)
 		return TRUE

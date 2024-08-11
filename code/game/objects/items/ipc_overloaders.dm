@@ -3,7 +3,7 @@
 	desc_extended = "An overloader is a small disposable stick drive, commonly loaded with a program designed to temporarily reconfigure an IPC's priorities or inputs."
 	icon = 'icons/obj/item/ipc_overloaders.dmi'
 	icon_state = "classic"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	contained_sprite = TRUE
 	var/uses = 2
 	var/effect_time = 30 SECONDS
@@ -31,13 +31,13 @@
 	else
 		icon_state = "[initial(icon_state)]-[initial(uses)-uses]"
 
-/obj/item/ipc_overloader/examine(mob/user, distance, is_adjacent)
+/obj/item/ipc_overloader/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		if(uses)
-			to_chat(user, SPAN_NOTICE("It has <b>[uses]</b> uses left."))
+			. += SPAN_NOTICE("It has <b>[uses]</b> uses left.")
 		else
-			to_chat(user, SPAN_WARNING("It's totally spent."))
+			. += SPAN_WARNING("It's totally spent.")
 
 /obj/item/ipc_overloader/attack_self(mob/user)
 	if(!uses)
@@ -258,8 +258,8 @@
 	icon_state = "box"
 	update_icon_on_init = TRUE
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
-	max_w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_SMALL
+	max_w_class = WEIGHT_CLASS_TINY
 	storage_slots = 1
 	can_hold = list(/obj/item/ipc_overloader)
 	use_sound = 'sound/items/storage/briefcase.ogg'
@@ -271,11 +271,11 @@
 	icon_state = "box"
 	return ..()
 
-/obj/item/storage/overloader/examine(mob/user)
+/obj/item/storage/overloader/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/obj/item/ipc_overloader/overloader = locate() in contents
 	if(overloader)
-		to_chat(user, SPAN_NOTICE("This one has a <b>[overloader.name]</b> inside."))
+		. += SPAN_NOTICE("This one has a <b>[overloader.name]</b> inside.")
 
 /obj/item/storage/overloader/open(mob/user)
 	..()
@@ -284,12 +284,12 @@
 
 /obj/item/storage/overloader/update_icon()
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	var/obj/item/ipc_overloader/overloader = locate() in contents
 	if(overloader)
-		add_overlay(image(overloader.icon, null, overloader.icon_state, sealed ? layer - 0.01 : layer + 0.01))
+		AddOverlays(image(overloader.icon, null, overloader.icon_state, sealed ? layer - 0.01 : layer + 0.01))
 		if(!sealed)
-			add_overlay(image(icon, null, "box-overlay", layer + 0.02))
+			AddOverlays(image(icon, null, "box-overlay", layer + 0.02))
 	if(!sealed)
 		icon_state = "box-open"
 

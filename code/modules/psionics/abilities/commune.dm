@@ -52,11 +52,11 @@
 		to_chat(user, SPAN_WARNING("Not even a psion of your level can speak to the dead."))
 		return
 
-	log_say("[key_name(user)] communed to [key_name(target)]: [text]",ckey=key_name(src))
+	log_say("[key_name(user)] communed to [key_name(target)]: [text]")
 
 	to_chat(user, SPAN_CULT("You psionically say to [target]: [text]"))
 
-	for (var/mob/M in player_list)
+	for (var/mob/M in GLOB.player_list)
 		if (istype(M, /mob/abstract/new_player))
 			continue
 		else if(M.stat == DEAD && M.client.prefs.toggles & CHAT_GHOSTEARS)

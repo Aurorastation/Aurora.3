@@ -43,7 +43,7 @@
 	item_state = "pen"
 	slot_flags = SLOT_BELT | SLOT_EARS
 	throwforce = 0
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 7
 	throw_range = 15
 	matter = list(DEFAULT_WALL_MATERIAL = 10)
@@ -118,7 +118,7 @@
 	else
 		icon_state = "pen_[colour]"
 
-	to_chat(user, "<span class='notice'>Changed color to '[colour].'</span>")
+	to_chat(user, SPAN_NOTICE("Changed color to '[colour].'"))
 
 /obj/item/pen/attack_self(var/mob/user)
 	playsound(loc, 'sound/items/penclick.ogg', 50, 1)
@@ -168,7 +168,7 @@
  * Reagent Pens
  */
 /obj/item/pen/reagent
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
 
@@ -225,7 +225,7 @@
 	icon_state = "pen_blue"
 	colour = "blue"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
-	reagents_to_add = list(/singleton/reagent/wulumunusha = 2, /singleton/reagent/pacifier = 15, /singleton/reagent/cryptobiolin = 10)
+	reagents_to_add = list(/singleton/reagent/wulumunusha = 2, /singleton/reagent/pacifier = 15, /singleton/reagent/drugs/cryptobiolin = 10)
 
 /obj/item/pen/reagent/hyperzine
 	icon_state = "pen_yellow"
@@ -298,11 +298,11 @@
 /obj/item/pen/crayon
 	name = "crayon"
 	desc = "A colourful crayon. Please refrain from eating it or putting it in your nose."
-	icon = 'icons/obj/crayons.dmi'
+	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "crayonred"
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	attack_verb = list("attacked", "coloured")
 	colour = "#FF0000" //RGB
 	var/shadeColour = "#220000" //RGB
@@ -325,7 +325,7 @@
 	item_state = "combipen"
 	colour = "#1c1713" //dark ashy brownish
 	cursive = FALSE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/pen/augment/attack_self(mob/user)
 	var/choice = input(user, "Would you like to change colour or writing style?", "Pen Selector") as null|anything in list("Colour", "Style")

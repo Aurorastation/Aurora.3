@@ -13,8 +13,8 @@ var/global/ntnrc_uid = 0
 	ntnrc_uid++
 	if(name)
 		title = name
-	if(ntnet_global)
-		ntnet_global.chat_channels.Add(src)
+	if(GLOB.ntnet_global)
+		GLOB.ntnet_global.chat_channels.Add(src)
 	if(no_operator)
 		operator = "NanoTrasen Information Technology Division" // assign a fake operator
 	..()
@@ -22,7 +22,7 @@ var/global/ntnrc_uid = 0
 /datum/ntnet_conversation/proc/process_message(var/datum/ntnet_message/message, var/update_ui = TRUE)
 	var/admin_log = message.format_admin_log()
 	if (admin_log)
-		log_ntirc("[message.user.client.ckey] ([message.user.client.mob.real_name])|([message.nuser.username]) -> ([title]): [admin_log]", ckey=key_name(message.user), conversation=title)
+		log_ntirc("[message.user.client.ckey] ([message.user.client.mob.real_name])|([message.nuser.username]) -> ([title]): [GLOB.admin_log]", ckey=key_name(message.user), conversation=title)
 
 	for(var/datum/ntnet_user/U in users)
 		for(var/datum/computer_file/program/chat_client/Cl in U.clients)
@@ -35,7 +35,7 @@ var/global/ntnrc_uid = 0
 
 	var/ntnet_log = message.format_ntnet_log(src)
 	if(ntnet_log)
-		ntnet_global.add_log(ntnet_log, message.client.computer.network_card, TRUE)
+		GLOB.ntnet_global.add_log(ntnet_log, message.client.computer.network_card, TRUE)
 
 	var/chat_log = message.format_chat_log(src)
 	if(chat_log)
@@ -107,6 +107,26 @@ var/global/ntnrc_uid = 0
 	var/datum/ntnet_message/message/msg = new(Cl)
 	msg.message = message
 	msg.user = user
+
+	//[signal.data["name"]] ([signal.data["job"]])", signal.data["message"], signal.data["photo"]
+	var/list/signal_data = list()
+	signal_data["name"] = user.GetVoice()
+	signal_data["job"] = user.job
+	signal_data["message"] = message
+	signal_data["photo"] = null
+
+	// If the channel has a title, use the title, otherwise add the users
+	if(title != initial(title))
+		signal_data["targets"] = list("[title] (Channel)")
+	else
+		signal_data["targets"] = list()
+		for(var/datum/ntnet_user/U in users)
+			if(U != Cl.my_user)
+				signal_data["targets"] += U.username
+
+	var/datum/signal/subspace/pda/signal = new(Cl.computer, signal_data)
+	signal.send_to_receivers()
+
 	process_message(msg)
 
 /datum/ntnet_conversation/proc/cl_join(var/datum/computer_file/program/chat_client/Cl)
@@ -157,7 +177,11 @@ var/global/ntnrc_uid = 0
 	if(newPassword)
 		password = newPassword
 	else
-		password = FALSE
+		password = null
+
+	var/datum/ntnet_message/new_password/msg = new()
+	msg.nuser = operator
+	process_message(msg)
 
 /datum/ntnet_conversation/proc/cl_kick(var/datum/computer_file/program/chat_client/Cl, var/datum/ntnet_user/target)
 	if(!istype(Cl) || !istype(Cl.my_user) || !can_manage(Cl) || !(target in users) || direct)

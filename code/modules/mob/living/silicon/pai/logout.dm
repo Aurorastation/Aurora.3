@@ -1,0 +1,5 @@
+/mob/living/silicon/pai/Logout()
+	SStgui.close_uis(src.computer)
+	if(!isnull(src.parent_computer))
+		SStgui.close_uis(src.parent_computer)
+	..()

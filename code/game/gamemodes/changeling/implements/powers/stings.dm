@@ -13,7 +13,9 @@
 	required_chems = set_required_chems
 	stealthy = set_stealthy
 
-/datum/changeling_sting/proc/can_sting(var/mob/living/target)
+/datum/changeling_sting/proc/can_sting(mob/living/target)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(!target || !owner.mind)
 		return FALSE
 	var/datum/changeling/changeling = owner.mind.antag_datums[MODE_CHANGELING]
@@ -32,7 +34,9 @@
 		return FALSE
 	return TRUE
 
-/datum/changeling_sting/proc/do_sting(var/mob/living/target)
+/datum/changeling_sting/proc/do_sting(mob/living/target)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/datum/changeling/changeling = owner.mind.antag_datums[MODE_CHANGELING]
 	changeling.use_charges(required_chems)
 	changeling.sting_range = 1
@@ -86,7 +90,7 @@
 /datum/changeling_sting/hallucinate/do_sting(mob/living/target)
 	..()
 	if(target.reagents)
-		addtimer(target.reagents.add_reagent(/singleton/reagent/mindbreaker, 3), rand(5 SECONDS, 15 SECONDS))
+		addtimer(target.reagents.add_reagent(/singleton/reagent/drugs/mindbreaker, 3), rand(5 SECONDS, 15 SECONDS))
 
 /mob/proc/changeling_silence_sting()
 	set category = "Changeling"
@@ -197,7 +201,7 @@
 /datum/changeling_sting/transformation/can_sting(mob/living/target)
 	. = ..()
 	if(.)
-		if(HAS_FLAG(target.mutations, HUSK) || (!ishuman(target) && !issmall(target)))
+		if((target.mutations & HUSK) || (!ishuman(target) && !issmall(target)))
 			to_chat(owner, SPAN_WARNING("Our sting appears ineffective against its DNA."))
 			return FALSE
 		if(islesserform(target))
@@ -251,7 +255,8 @@
 
 /datum/changeling_sting/dna_extract/do_sting(mob/living/carbon/human/target)
 	..()
-	var/datum/absorbed_dna/newDNA = new(target.real_name, target.dna, target.species.get_cloning_variant(), target.languages)
+	var/datum/hair_gradient/newGradient = new(target.g_style, target.r_grad, target.g_grad, target.b_grad)
+	var/datum/absorbed_dna/newDNA = new(target.real_name, target.dna, target.species.get_cloning_variant(), target.languages, target.height, target.gender, target.pronouns, target.accent, newGradient)
 	owner.absorbDNA(newDNA)
 
 //Boosts the range of your next sting attack by 1

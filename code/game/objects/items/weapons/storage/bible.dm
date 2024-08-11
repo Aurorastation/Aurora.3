@@ -10,7 +10,7 @@
 	icon = 'icons/obj/library.dmi'
 	throw_speed = 1
 	throw_range = 5
-	w_class = ITEMSIZE_SMALL // POKKET - geeves
+	w_class = WEIGHT_CLASS_SMALL // POKKET - geeves
 	var/mob/affecting = null
 	use_sound = 'sound/bureaucracy/bookopen.ogg'
 	drop_sound = 'sound/bureaucracy/bookclose.ogg'
@@ -37,7 +37,7 @@
 				A.reagents.del_reagent(/singleton/reagent/water)
 				A.reagents.add_reagent(/singleton/reagent/water/holywater, water2holy)
 
-/obj/item/storage/bible/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/storage/bible/attackby(obj/item/attacking_item, mob/user)
 	if(src.use_sound)
 		playsound(src.loc, src.use_sound, 50, 1, -5)
 	return ..()
@@ -115,9 +115,6 @@
 		if("Necronomicon")
 			icon_state = "necronomicon"
 			item_state = "necronomicon"
-		if("Luceism")
-			icon_state = "luce2"
-			item_state = "luce2"
 		if("Skrell")
 			icon_state = "skrellbible"
 			item_state = "skrellbible"

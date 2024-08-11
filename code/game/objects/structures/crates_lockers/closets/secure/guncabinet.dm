@@ -1,6 +1,6 @@
 /obj/structure/closet/secure_closet/guncabinet
 	name = "gun cabinet"
-	req_access = list(access_armory)
+	req_access = list(ACCESS_ARMORY)
 	icon = 'icons/obj/guncabinet.dmi'
 	icon_state = "base"
 	anchored = TRUE
@@ -9,7 +9,7 @@
 	door_underlay = TRUE
 	door_anim_squish = 0.12
 	door_anim_angle = 119
-	door_hinge = -9.5
+	door_hinge_x = -9.5
 
 /obj/structure/closet/secure_closet/guncabinet/Initialize()
 	..()
@@ -24,7 +24,7 @@
 	update_icon()
 
 /obj/structure/closet/secure_closet/guncabinet/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/lazors = 0
 	var/shottas = 0
 	for (var/obj/item/gun/G in contents)
@@ -36,15 +36,15 @@
 		for (var/i = 0 to 2)
 			if (lazors > 0 && (shottas <= 0 || prob(50)))
 				lazors--
-				add_overlay("laser[i]")
+				AddOverlays("laser[i]")
 			else if (shottas > 0)
 				shottas--
-				add_overlay("projectile[i]")
+				AddOverlays("projectile[i]")
 	. = ..()
 
 /obj/structure/closet/secure_closet/guncabinet/sci
 	name = "science gun cabinet"
-	req_access = list(access_tox_storage)
+	req_access = list(ACCESS_TOX_STORAGE)
 	icon_state = "sci"
 
 /obj/structure/closet/secure_closet/guncabinet/peac

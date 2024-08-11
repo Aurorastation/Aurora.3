@@ -4,16 +4,16 @@
 /mob/proc/emote_dead(var/message)
 
 	if(client.prefs.muted & MUTE_DEADCHAT)
-		to_chat(src, "<span class='danger'>You cannot send deadchat emotes (muted).</span>")
+		to_chat(src, SPAN_DANGER("You cannot send deadchat emotes (muted)."))
 		return
 
 	if(!(client.prefs.toggles & CHAT_DEAD))
-		to_chat(src, "<span class='danger'>You have deadchat muted.</span>")
+		to_chat(src, SPAN_DANGER("You have deadchat muted."))
 		return
 
 	if(!src.client.holder)
-		if(!config.dsay_allowed)
-			to_chat(src, "<span class='danger'>Deadchat is globally muted.</span>")
+		if(!GLOB.config.dsay_allowed)
+			to_chat(src, SPAN_DANGER("Deadchat is globally muted."))
 			return
 
 
@@ -24,7 +24,7 @@
 		input = message
 
 	if(input)
-		log_emote("Ghost/[src.key] : [input]",ckey=key_name(src))
+		log_emote("Ghost/[src.key] : [input]")
 		say_dead_direct(input, src)
 
 
@@ -38,7 +38,7 @@
 	for (var/turf in view(world.view, get_turf(src)))
 		messageturfs += turf
 
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if (!M.client || isnewplayer(M))
 			continue
 		if(get_turf(M) in messageturfs)

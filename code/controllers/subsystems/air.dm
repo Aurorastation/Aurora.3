@@ -64,7 +64,7 @@ Class Procs:
 SUBSYSTEM_DEF(air)
 	name = "Air"
 	priority = SS_PRIORITY_AIR
-	init_order = SS_INIT_AIR
+	init_order = INIT_ORDER_AIR
 	flags = SS_POST_FIRE_TIMING
 	runlevels = RUNLEVELS_PLAYING
 
@@ -146,7 +146,7 @@ SUBSYSTEM_DEF(air)
 Total Simulated Turfs: [simulated_turf_count]
 Total Zones: [zones.len]
 Total Edges: [edges.len]
-Total Active Edges: [active_edges.len ? "<span class='danger'>[active_edges.len]</span>" : "None"]
+Total Active Edges: [active_edges.len ? SPAN_DANGER("[active_edges.len]") : "None"]
 Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_count]
 </span>"}, R_DEBUG)
 
@@ -160,7 +160,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 
 		admin_notice(SPAN_DANGER("Air settling completed in [(REALTIMEOFDAY - starttime)/10] seconds!"), R_DEBUG)
 
-	..(timeofday)
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/air/fire(resumed = FALSE, no_mc_tick = FALSE)
 	if (!resumed)
@@ -202,7 +202,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		T.post_update_air_properties()
 		T.needs_air_update = 0
 		#ifdef ZASDBG
-		T.cut_overlay(mark)
+		T.CutOverlays(mark)
 		updated++
 		#endif
 
@@ -219,7 +219,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		T.post_update_air_properties()
 		T.needs_air_update = 0
 		#ifdef ZASDBG
-		T.cut_overlay(mark)
+		T.CutOverlays(mark)
 		updated++
 		#endif
 
@@ -368,7 +368,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		return
 	tiles_to_update += T
 	#ifdef ZASDBG
-	T.add_overlay(mark)
+	T.AddOverlays(mark)
 	#endif
 	T.needs_air_update = 1
 
@@ -440,7 +440,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		active_edges -= E
 
 /datum/controller/subsystem/air/ExplosionStart()
-	suspend()
+	can_fire = FALSE
 
 /datum/controller/subsystem/air/ExplosionEnd()
-	wake()
+	can_fire = TRUE

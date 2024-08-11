@@ -20,7 +20,6 @@
 
 	speak_chance = 1
 	turns_per_move = 7
-	see_in_dark = 6
 
 	speak = list("Rawr!", "Gawrgle!", "Bizzbop!", "Bweeewoooo!")
 	speak_emote = list("roars pitifully", "squeals out a mechanical attempt at a growl")
@@ -34,7 +33,7 @@
 
 	ranged = TRUE
 	projectilesound = 'sound/weapons/taser2.ogg'
-	projectiletype = /obj/item/projectile/beam/hivebot/harmless
+	projectiletype = /obj/projectile/beam/hivebot/harmless
 
 	attacktext = "harmlessly clawed"
 	harm_intent_damage = 5 // the damage we take
@@ -55,6 +54,7 @@
 	attack_emote = "blares a tiny siren"
 
 	psi_pingable = FALSE
+	sample_data = null
 
 /mob/living/simple_animal/hostile/commanded/baby_harvester/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
@@ -63,7 +63,7 @@
 	..(null, "blows apart!")
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
-	spark(T, 1, alldirs)
+	spark(T, 1, GLOB.alldirs)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/commanded/baby_harvester/verb/befriend()

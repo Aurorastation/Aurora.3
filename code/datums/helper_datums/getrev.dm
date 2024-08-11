@@ -47,14 +47,14 @@ var/global/datum/getrev/revdata = new()
 
 	if(revdata.revision)
 		to_chat(src, "<b>Server revision:</b> [revdata.branch] - [revdata.date]")
-		if(config.githuburl)
-			to_chat(src, "<a href='[config.githuburl]/commit/[revdata.revision]'>[revdata.revision]</a>")
+		if(GLOB.config.githuburl)
+			to_chat(src, "<a href='[GLOB.config.githuburl]/commit/[revdata.revision]'>[revdata.revision]</a>")
 		else
 			to_chat(src, revdata.revision)
 	else
 		to_chat(src, "Revision unknown")
 
-	to_chat(src, "<b>Current Map:</b> [current_map.full_name]")
+	to_chat(src, "<b>Current Map:</b> [SSatlas.current_map.full_name]")
 
 /datum/getrev/proc/testmerge_overview()
 	if (!test_merges.len)
@@ -106,8 +106,8 @@ var/global/datum/getrev/revdata = new()
 	. += "<hr><p>PR #[tm.number]: \"[html_encode(tm.title)]\""
 	. += "<br>\tAuthor: [html_encode(tm.author)]"
 
-	if (config.githuburl)
-		. += "<br>\t<a href='[config.githuburl]pull/[tm.number]'>\[Details...\]</a>"
+	if (GLOB.config.githuburl)
+		. += "<br>\t<a href='[GLOB.config.githuburl]pull/[tm.number]'>\[Details...\]</a>"
 
 	. += "</p>"
 
@@ -121,7 +121,7 @@ var/global/datum/getrev/revdata = new()
 	. += {"<table class="table">"}
 	. += {"<tr><th>Author:</th><td>[html_encode(tm.author)]</td></tr>"}
 
-	if (config.githuburl)
+	if (GLOB.config.githuburl)
 		. += {"<tr><td colspan="2"><a href="?JSlink=github;pr=[tm.number]">Link to GitHub</a></td></tr>"}
 
 	. += {"<tr><th>Description:</th><td>[html_encode(tm.body)]</td></tr>"}

@@ -4,10 +4,10 @@
 	icon = 'icons/obj/item/clothing/mask/skrell/srom_masks.dmi'
 	icon_state = "pinhole"
 	item_state = "pinhole"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	contained_sprite = TRUE
 	body_parts_covered = FACE
-	item_flags = FLEXIBLEMATERIAL
+	item_flags = ITEM_FLAG_FLEXIBLE_MATERIAL
 	flags_inv = HIDEFACE
 	sprite_sheets = null
 

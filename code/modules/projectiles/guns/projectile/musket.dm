@@ -17,7 +17,7 @@
 
 	slot_flags = SLOT_BACK
 	is_wieldable = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 
@@ -44,13 +44,13 @@
 	has_powder = FALSE
 	return ..()
 
-/obj/item/gun/projectile/musket/attackby(obj/item/W, mob/user)
+/obj/item/gun/projectile/musket/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if (istype(W, /obj/item/reagent_containers))
+	if (istype(attacking_item, /obj/item/reagent_containers))
 		if(has_powder)
 			to_chat(user, SPAN_WARNING("\The [src] is already full of gunpowder."))
 			return
-		var/obj/item/reagent_containers/C = W
+		var/obj/item/reagent_containers/C = attacking_item
 		if(C.reagents.has_reagent(/singleton/reagent/gunpowder, 5))
 			if(do_after(user, 15))
 				if(has_powder)
@@ -64,7 +64,7 @@
 	desc = "An ivory container for gunpowder."
 	icon = 'icons/obj/guns/musket.dmi'
 	icon_state = "powderhorn"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = SLOT_BELT
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(5)

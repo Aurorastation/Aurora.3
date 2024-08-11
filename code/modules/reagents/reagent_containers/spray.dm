@@ -9,10 +9,11 @@
 	icon_state = "cleaner"
 	item_state = "cleaner"
 	center_of_mass = list("x" = 16,"y" = 10)
-	flags = OPENCONTAINER|NOBLUDGEON
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	slot_flags = SLOT_BELT
 	throwforce = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 2
 	throw_range = 10
 	amount_per_transfer_from_this = 10
@@ -36,6 +37,8 @@
 
 
 /obj/item/reagent_containers/spray/afterattack(atom/A as mob|obj, mob/user as mob, proximity)
+	if(A.loc == user) // don't spray yourself
+		return
 
 	if(istype(A, /obj/item/reagent_containers))
 		. = ..()
@@ -57,12 +60,12 @@
 			return
 
 	if(reagents.total_volume < amount_per_transfer_from_this)
-		to_chat(user, "<span class='notice'>\The [src] is empty!</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is empty!"))
 		return
 
 	if(safety)
 		playsound(src.loc, 'sound/weapons/safety_click.ogg', 25, 1)
-		to_chat(user, "<span class='notice'>The safety is on!</span>")
+		to_chat(user, SPAN_NOTICE("The safety is on!"))
 		return
 
 	Spray_at(A, user, proximity)
@@ -71,13 +74,13 @@
 
 	if(reagents.has_reagent(/singleton/reagent/acid))
 		message_admins("[key_name_admin(user)] fired sulphuric acid from \a [src].")
-		log_game("[key_name(user)] fired sulphuric acid from \a [src].",ckey=key_name(user))
+		log_game("[key_name(user)] fired sulphuric acid from \a [src].")
 	if(reagents.has_reagent(/singleton/reagent/acid/polyacid))
 		message_admins("[key_name_admin(user)] fired Polyacid from \a [src].")
-		log_game("[key_name(user)] fired Polyacid from \a [src].",ckey=key_name(user))
+		log_game("[key_name(user)] fired Polyacid from \a [src].")
 	if(reagents.has_reagent(/singleton/reagent/lube))
 		message_admins("[key_name_admin(user)] fired Space lube from \a [src].")
-		log_game("[key_name(user)] fired Space lube from \a [src].",ckey=key_name(user))
+		log_game("[key_name(user)] fired Space lube from \a [src].")
 	return
 
 /obj/item/reagent_containers/spray/proc/Spray_at(atom/A as mob|obj, mob/user as mob, proximity)
@@ -110,10 +113,10 @@
 	spray_size = next_in_list(spray_size, spray_sizes)
 	to_chat(user, SPAN_NOTICE("You adjusted the pressure nozzle. You'll now use [amount_per_transfer_from_this] units per spray, with a [spray_size] lane spray."))
 
-/obj/item/reagent_containers/spray/examine(mob/user, distance, is_adjacent)
+/obj/item/reagent_containers/spray/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
-		to_chat(user, "[round(reagents.total_volume)] units left.")
+		. += "[round(reagents.total_volume)] units left."
 
 /obj/item/reagent_containers/spray/verb/empty()
 
@@ -124,7 +127,7 @@
 	if (alert(usr, "Are you sure you want to empty that?", "Empty Bottle:", "Yes", "No") != "Yes")
 		return
 	if(isturf(usr.loc))
-		to_chat(usr, "<span class='notice'>You empty \the [src] onto the floor.</span>")
+		to_chat(usr, SPAN_NOTICE("You empty \the [src] onto the floor."))
 		reagents.splash(usr.loc, reagents.total_volume)
 
 //space cleaner
@@ -168,10 +171,10 @@
 	safety = 1
 	reagents_to_add = list(/singleton/reagent/capsaicin/condensed = 40)
 
-/obj/item/reagent_containers/spray/pepper/examine(mob/user, distance, is_adjacent)
+/obj/item/reagent_containers/spray/pepper/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
-		to_chat(user, "The safety is [safety ? "on" : "off"].")
+		. += "The safety is [safety ? "on" : "off"]."
 
 /obj/item/reagent_containers/spray/pepper/AltClick()
 	return //No altclick functionality for pepper spray
@@ -208,7 +211,7 @@
 	contained_sprite = TRUE
 	center_of_mass = list("x" = 16,"y" = 16)
 	throwforce = 3
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	possible_transfer_amounts = null
 	volume = 600
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 3, TECH_ENGINEERING = 3)

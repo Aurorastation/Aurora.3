@@ -13,7 +13,8 @@ SUBSYSTEM_DEF(ao)
 
 /datum/controller/subsystem/ao/Initialize()
 	fire(FALSE, TRUE)
-	..()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/ao/fire(resumed = 0, no_mc_tick = FALSE)
 	var/list/curr = queue
@@ -38,7 +39,7 @@ SUBSYSTEM_DEF(ao)
 			return
 
 /datum/controller/subsystem/ao/ExplosionStart()
-	suspend()
+	can_fire = FALSE
 
 /datum/controller/subsystem/ao/ExplosionEnd()
-	wake()
+	can_fire = TRUE

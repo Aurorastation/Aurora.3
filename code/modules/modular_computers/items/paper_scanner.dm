@@ -14,9 +14,9 @@
 	update_icon()
 
 /obj/item/paper_scanner/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(drive)
-		add_overlay("paperscanner-drive")
+		AddOverlays("paperscanner-drive")
 
 /obj/item/paper_scanner/AltClick(mob/living/user)
 	if(!drive)
@@ -33,14 +33,14 @@
 	else
 		to_chat(user, SPAN_WARNING("You must be holding \the [src] in one of your hands before you can eject a drive."))
 
-/obj/item/paper_scanner/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/computer_hardware/hard_drive/portable))
+/obj/item/paper_scanner/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/computer_hardware/hard_drive/portable))
 		if(drive)
 			to_chat(user, SPAN_WARNING("\The [src] already has a drive installed!"))
 			return TRUE
-		to_chat(user, SPAN_NOTICE("You insert \the [W] into \the [src]."))
-		user.drop_from_inventory(W, src)
-		drive = W
+		to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
+		user.drop_from_inventory(attacking_item, src)
+		drive = attacking_item
 		update_icon()
 		return TRUE
 	else

@@ -5,51 +5,84 @@
 	icon_state = "portal"
 	density = TRUE
 	unacidable = TRUE //Can't destroy energy portals.
-	var/does_teleport = TRUE // Some portals might just be visual
-	var/has_lifespan = TRUE // Whether we want to directly control the lifespan or not
-	var/failchance = 5
-	var/has_failed = FALSE
-	var/obj/target
-	var/creator
-	var/precision = 1
+	mouse_opacity = MOUSE_OPACITY_ICON
 	anchored = TRUE
+
+	///Boolean, if the portal can actually teleport, or not (aka it's just visual)
+	var/does_teleport = TRUE
+
+	var/has_lifespan = TRUE // Whether we want to directly control the lifespan or not
+
+	///Chance that the portal will fail
+	var/failchance = 5
+
+	///Boolean, if the portal has failed (aka it will teleport you somewhere else)
+	var/has_failed = FALSE
+
+	/**
+	 * The target the teleport aims to, an `/obj` or `/turf`
+	 *
+	 * *Not* to be set directly, use `set_target()` instead
+	 */
+	var/atom/target
+
+	///Who created the portal
+	var/creator
+
+	///How precise (turf range) is the teleportation
+	var/precision = 1
 
 /obj/effect/portal/Initialize(mapload, turf/set_target, set_creator, lifespan = 300, precise = 1)
 	. = ..()
 
 	if(set_target)
-		target = set_target
+		set_target(set_target)
+
 	if(set_creator)
 		creator = set_creator
+		if(istype(creator, /atom))
+			RegisterSignal(creator, COMSIG_QDELETING, PROC_REF(handle_creator_qdel))
+
 	if(has_lifespan && lifespan > 0)
 		QDEL_IN(src, lifespan)
+
 	if(prob(failchance))
 		has_failed = TRUE
 
 	precision = precise
 
-/obj/effect/portal/CollidedWith(mob/M)
-	set waitfor = FALSE
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/effect/portal/Destroy()
+	if(istype(creator, /obj/item/hand_tele))
+		var/obj/item/hand_tele/HT = creator
+		HT.remove_portal(src)
+	. = ..()
+
+/obj/effect/portal/CollidedWith(atom/bumped_atom)
+	. = ..()
 
 	if(does_teleport)
-		teleport(M)
+		teleport(bumped_atom)
 
-/obj/effect/portal/Crossed(AM)
-	set waitfor = FALSE
+/obj/effect/portal/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
 
 	if(does_teleport)
-		teleport(AM)
+		teleport(arrived)
 
-/obj/effect/portal/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/bluespace_neutralizer))
-		user.visible_message("<b>[user]</b> collapses \the [src] with \the [I].", SPAN_NOTICE("You collapse \the [src] with \the [I]."))
+/obj/effect/portal/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/bluespace_neutralizer))
+		user.visible_message("<b>[user]</b> collapses \the [src] with \the [attacking_item].", SPAN_NOTICE("You collapse \the [src] with \the [attacking_item]."))
 		qdel(src)
 		return TRUE
 	return ..()
 
 /obj/effect/portal/attack_hand(mob/user)
-	set waitfor = FALSE
-
 	if(does_teleport)
 		teleport(user)
 
@@ -84,11 +117,41 @@
 		visible_message(SPAN_WARNING("\The [src] oscillates violently as \the [movable] comes into contact with it, and collapses! Seems like the rift was unstable..."))
 		qdel(src)
 
-/obj/effect/portal/Destroy()
-	if(istype(creator, /obj/item/hand_tele))
-		var/obj/item/hand_tele/HT = creator
-		HT.remove_portal(src)
-	return ..()
+/**
+ * Sets the target of the teleporter
+ */
+/obj/effect/portal/proc/set_target(atom/new_target)
+	if(!is_type_in_list(new_target, list(/obj, /turf, /mob)))
+		stack_trace("Portal was tried to be targeted at something that it is not supposed to!")
+		return
+
+	if(target)
+		UnregisterSignal(target, COMSIG_QDELETING)
+
+	target = new_target
+	RegisterSignal(target, COMSIG_QDELETING, PROC_REF(handle_target_qdel))
+
+/**
+ * Handles the teleporting target being deleted
+ */
+/obj/effect/portal/proc/handle_target_qdel()
+	SIGNAL_HANDLER
+
+	if(!QDELETED(src))
+		qdel(src)
+
+/**
+ * Handles the creator being deleted
+ */
+/obj/effect/portal/proc/handle_creator_qdel()
+	SIGNAL_HANDLER
+
+	creator = null
+
+
+/*##############
+	SUBTYPES
+##############*/
 
 /obj/effect/portal/spawner
 	name = "portal"
@@ -240,14 +303,13 @@
 	for(var/thing in contents)
 		var/obj/O = thing
 		O.forceMove(get_turf(src))
-		O.throw_at_random(FALSE, 3, THROWNOBJ_KNOCKBACK_SPEED)
 	var/area/A = get_area(src)
 	message_all_revenants(FONT_LARGE(SPAN_WARNING("The rift keeping us here has been destroyed in [A.name]!")))
 	return ..()
 
-/obj/effect/portal/revenant/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/bluespace_neutralizer))
-		to_chat(user, SPAN_WARNING("You need to activate \the [I] and keep it near \the [src] to collapse it."))
+/obj/effect/portal/revenant/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/bluespace_neutralizer))
+		to_chat(user, SPAN_WARNING("You need to activate \the [attacking_item] and keep it near \the [src] to collapse it."))
 		return TRUE
 	return ..()
 
@@ -280,6 +342,10 @@
 			color = COLOR_STAGE_FIVE
 	light_color = color
 	update_light()
+
+/// Mainly for admin events.
+/obj/effect/portal/permanent
+	has_lifespan = FALSE
 
 #undef COLOR_STAGE_FIVE
 #undef COLOR_STAGE_FOUR

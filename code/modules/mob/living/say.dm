@@ -9,12 +9,14 @@ var/list/department_radio_keys = list(
 		":n" = "Science",		".n" = "Science",
 		":m" = "Medical",		".m" = "Medical",
 		":e" = "Engineering", ".e" = "Engineering",
+		":f" = "Coalition Navy", ".f" = "Coalition Navy",
 		":s" = "Security",	".s" = "Security",
 		":q" = "Penal",		".q" = "Penal",
 		":w" = "whisper",		".w" = "whisper",
 		":t" = "Mercenary",	".t" = "Mercenary",
 		":x" = "Raider",		".x" = "Raider",
 		":b" = "Burglar",		".b" = "Burglar",
+		":k" = "Jockey",			".k" = "Jockey",
 		":j" = "Bluespace",	".j" = "Bluespace",
 		":y" = "Hailing",		".y" = "Hailing",
 		":q" = "Ninja",		".q" = "Ninja",
@@ -32,12 +34,14 @@ var/list/department_radio_keys = list(
 		":N" = "Science",		".N" = "Science",
 		":M" = "Medical",		".M" = "Medical",
 		":E" = "Engineering",	".E" = "Engineering",
+		":F" = "Coalition Navy", ".F" = "Coalition Navy",
 		":S" = "Security",	".S" = "Security",
 		":Q" = "Penal",		".Q" = "Penal",
 		":W" = "whisper",		".W" = "whisper",
 		":T" = "Mercenary",	".T" = "Mercenary",
 		":X" = "Raider",		".X" = "Raider",
 		":B" = "Burglar",		".B" = "Burglar",
+		":K" = "Jockey",			".K" = "Jockey",
 		":J" = "Bluespace",	".J" = "Bluespace",
 		":Y" = "Hailing",		".Y" = "Hailing",
 		":Q" = "Ninja",		".Q" = "Ninja",
@@ -96,9 +100,9 @@ var/list/channel_to_radio_key = new
 	if(!message_range)
 		message_range = world.view
 
-	if(HAS_FLAG(mutations, HULK))
+	if((mutations & HULK) && !src.isSynthetic() && !isvaurca(src))
 		var/ending = copytext(message, length(message), length(message) + 1)
-		if(ending && correct_punctuation[ending])
+		if(ending && GLOB.correct_punctuation[ending])
 			message = copytext(message, 1, length(message))
 		message = "[uppertext(message)]!!!"
 		say_verb = pick("yells", "roars", "hollers")
@@ -146,7 +150,7 @@ var/list/channel_to_radio_key = new
 			I.talk_into(src, message, verb, speaking)
 
 	if(message_mode == "whisper" && !whisper)
-		whisper(message, speaking)
+		whisper(message, speaking, say_verb = TRUE)
 		return TRUE
 
 	return FALSE
@@ -181,7 +185,7 @@ var/list/channel_to_radio_key = new
 	return "statement"
 
 
-/mob/living/say(var/message, var/datum/language/speaking = null, var/verb, var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+/mob/living/say(var/message, var/datum/language/speaking = null, var/verb, var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE, var/skip_edit = FALSE)
 	if(stat)
 		if(stat == DEAD)
 			return say_dead(message)
@@ -243,12 +247,12 @@ var/list/channel_to_radio_key = new
 		verb = say_quote(message, speaking, is_singing, whisper)
 
 	if(is_muzzled())
-		to_chat(src, "<span class='danger'>You're muzzled and cannot speak!</span>")
+		to_chat(src, SPAN_DANGER("You're muzzled and cannot speak!"))
 		return
 
 	message = trim_left(message)
 	var/message_range = world.view
-	if(!(speaking && (speaking.flags & NO_STUTTER)))
+	if(!skip_edit && !(speaking && (speaking.flags & NO_STUTTER)))
 		message = handle_autohiss(message, speaking)
 		var/list/hsp_params = handle_speech_problems(message, verb, message_mode, message_range)
 		if(hsp_params)
@@ -318,7 +322,7 @@ var/list/channel_to_radio_key = new
 		listening = get_hearers_in_view(message_range, src)
 
 	if(client)
-		for (var/mob/player_mob in player_list)
+		for (var/mob/player_mob in GLOB.player_list)
 			if(!player_mob || player_mob.stat != DEAD || (player_mob in listening))
 				continue
 			if(player_mob.client?.prefs.toggles & CHAT_GHOSTRADIO && length(used_radios)) //If they are talking into a radio and we hear all radio messages, don't duplicate for observers
@@ -348,7 +352,7 @@ var/list/channel_to_radio_key = new
 	speech_bubble.appearance_flags = RESET_COLOR|RESET_ALPHA
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(animate_speechbubble), speech_bubble, hear_clients, 30)
 
-	do_animate_chat(message, speaking, italics, hear_clients, 30)
+	animate_chat(message, speaking, italics, hear_clients, 30)
 
 	var/bypass_listen_obj = (speaking && (speaking.flags & PASSLISTENOBJ))
 	if(!bypass_listen_obj)
@@ -360,14 +364,11 @@ var/list/channel_to_radio_key = new
 		mind.last_words = message
 
 	if(whisper)
-		log_whisper("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
+		log_whisper("[key_name(src)] : ([get_lang_name(speaking)]) [message]")
 	else
-		log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
+		log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]")
 
-	return 1
-
-/mob/living/proc/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration)
-	INVOKE_ASYNC(src, TYPE_PROC_REF(/atom/movable, animate_chat), message, language, small, show_to, duration)
+	return TRUE
 
 /proc/animate_speechbubble(image/I, list/show_to, duration)
 	var/matrix/M = matrix()
@@ -384,7 +385,7 @@ var/list/channel_to_radio_key = new
 		C.images -= I
 
 /mob/living/proc/say_signlang(var/message, var/verb="gestures", var/datum/language/language, var/list/sign_adv_length)
-	log_say("[key_name(src)] : ([get_lang_name(language)]) [message]",ckey=key_name(src))
+	log_say("[key_name(src)] : ([get_lang_name(language)]) [message]")
 
 	for (var/mob/O in viewers(src, null))
 		O.hear_signlang(message, verb, language, src, sign_adv_length)

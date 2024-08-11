@@ -2771,7 +2771,7 @@
 /turf/simulated/floor/tiled/white,
 /area/casino/casino_kitchen)
 "il" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
 	level = 2
@@ -2785,7 +2785,7 @@
 /turf/simulated/floor/tiled/white,
 /area/casino/casino_kitchen)
 "im" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -2795,7 +2795,7 @@
 /turf/simulated/floor/tiled/white,
 /area/casino/casino_kitchen)
 "in" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -4667,6 +4667,15 @@
 "ns" = (
 /turf/simulated/floor/reinforced/airless,
 /area/casino/casino_bow)
+"nt" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/turf/simulated/floor/plating,
+/area/casino/casino_crew_atmos)
 "ob" = (
 /obj/structure/casino/roulette_chart,
 /obj/random/coin,
@@ -4838,8 +4847,7 @@
 "td" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/casino/casino_crew_atmos)
@@ -10014,7 +10022,7 @@ kv
 kv
 jN
 le
-jN
+nt
 kg
 mm
 mH

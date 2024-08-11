@@ -51,7 +51,7 @@ do { \
 	run_generator()
 
 /obj/effect/mazegen/generator/Destroy()
-	LAZYREMOVE(SSatoms.late_misc_firers, src)
+	LAZYREMOVE(SSmisc_late.late_misc_firers, src)
 	return ..()
 
 // "Push" a turf to the working "stack"
@@ -133,7 +133,7 @@ do { \
 
 			// On both tiles
 			for(var/obj/structure/window/reinforced/crescent/W in T3)
-				if(W.dir == reverse_dir[text2num(D)])
+				if(W.dir == GLOB.reverse_dir[text2num(D)])
 					qdel(W)
 
 			// Mark as visited

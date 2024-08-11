@@ -1,5 +1,4 @@
 /mob/living
-	see_in_dark = 2
 	see_invisible = SEE_INVISIBLE_LIVING
 
 	//Health and life related vars
@@ -78,3 +77,6 @@
 
 	///what icon the mob uses for speechbubbles
 	var/bubble_icon = "default"
+
+	///If true, ignores weather effects
+	var/resists_weather = FALSE

@@ -54,26 +54,26 @@
 			I.forceMove(src)
 
 
-/obj/structure/filingcabinet/attackby(obj/item/P, mob/user)
-	if(is_type_in_list(P, accepted_items))
-		to_chat(user, "<span class='notice'>You put [P] in [src].</span>")
-		user.drop_from_inventory(P,src)
-		flick("[initial(icon_state)]-open",src)
+/obj/structure/filingcabinet/attackby(obj/item/attacking_item, mob/user)
+	if(is_type_in_list(attacking_item, accepted_items))
+		to_chat(user, SPAN_NOTICE("You put [attacking_item] in [src]."))
+		user.drop_from_inventory(attacking_item, src)
+		flick("[initial(icon_state)]-open", src)
 		playsound(loc, 'sound/bureaucracy/filingcabinet.ogg', 50, 1)
 		sleep(40)
 		icon_state = initial(icon_state)
 		updateUsrDialog()
-	else if(P.iswrench())
-		playsound(loc, P.usesound, 50, 1)
+	else if(attacking_item.iswrench())
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
-		to_chat(user, "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You [anchored ? "wrench" : "unwrench"] \the [src]."))
 	else
-		to_chat(user, "<span class='notice'>You can't put [P] in [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You can't put [attacking_item] in [src]!"))
 
 
 /obj/structure/filingcabinet/attack_hand(mob/user as mob)
 	if(contents.len <= 0)
-		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is empty."))
 		return
 
 	user.set_machine(src)

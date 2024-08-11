@@ -21,7 +21,7 @@
 		if(!held_item || use_check_and_message(usr) || buckled || (anchored && padding_material)) // Make sure held_item = null if you don't want it to get picked up.
 			return
 		usr.visible_message(SPAN_NOTICE("[usr] [withdraw_verb]s \the [src.name]."), SPAN_NOTICE("You [withdraw_verb] \the [src.name]."))
-		var/obj/item/material/stool/S = new held_item(src.loc, material.name, padding_material ? padding_material.name : null, painted_colour) // Handles all the material code so you don't have to.
+		var/obj/item/material/stool/S = new held_item(src.loc, material.name, padding_material?.name, painted_colour) // Handles all the material code so you don't have to.
 		TransferComponents(S)
 		if(material_alteration & MATERIAL_ALTERATION_COLOR) // For snowflakes like wood chairs.
 			S.color = material.icon_colour
@@ -80,9 +80,6 @@
 /obj/structure/bed/stool/padded/violet/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_VIOLET)
 
-/obj/structure/bed/stool/wood/New(var/newloc)
-	..(newloc, MATERIAL_WOOD)
-
 /obj/structure/bed/stool/bar
 	name = "bar stool"
 	desc = "It has some unsavory stains on it..."
@@ -90,6 +87,7 @@
 	item_state = "bar_stool"
 	base_icon = "bar_stool"
 	held_item = /obj/item/material/stool/bar
+	obj_flags = OBJ_FLAG_ROTATABLE_ANCHORED
 
 /obj/structure/bed/stool/bar/wood/New(var/newloc)
 	..(newloc, MATERIAL_WOOD)
@@ -136,10 +134,6 @@
 /obj/structure/bed/stool/bar/padded/violet/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_VIOLET)
 
-
-/obj/structure/bed/stool/bar/wood/New(var/newloc)
-	..(newloc, MATERIAL_WOOD)
-
 /obj/structure/bed/stool/hover
 	name = "hoverstool"
 	desc = "As comfortable as a cloud."
@@ -157,10 +151,9 @@
 /obj/structure/bed/chair/stool/bamboo
 	name = "bamboo stool"
 	desc = "A makeshift bamboo stool with a rustic look."
-	icon_state = "bamboo_stool_item"
-	item_state = "bamboo_stool"
-	base_icon = "bamboo_stool"
 	icon_state = "bamboo_stool"
+	item_state = "bamboo_stool_item"
+	base_icon = "bamboo_stool"
 	material_alteration = MATERIAL_ALTERATION_NAME || MATERIAL_ALTERATION_DESC
 	held_item = /obj/item/material/stool/bamboo
 	can_pad = FALSE
@@ -179,11 +172,11 @@
 	desc_info = "Use in-hand or alt-click to right this."
 	randpixel = 0
 	center_of_mass = null
-	force = 10	// Doesn't really matter. Will get overriden by set_material.
+	force = 15	// Doesn't really matter. Will get overriden by set_material.
 	throwforce = 10
 	throw_range = 5
 	force_divisor = 0.4
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	contained_sprite = TRUE
 	var/material/padding_material
 	var/obj/structure/bed/stool/origin_type = /obj/structure/bed/stool
@@ -228,33 +221,19 @@
 		use_material_shatter = FALSE
 		shatter()
 
-/obj/item/material/stool/ex_act(severity)
-	switch(severity)
-		if(1.0)
-			qdel(src)
-			return
-		if(2.0)
-			if (prob(50))
-				qdel(src)
-				return
-		if(3.0)
-			if (prob(5))
-				qdel(src)
-				return
-
 /obj/item/material/stool/proc/deploy(mob/user)
 	for(var/obj/A in get_turf(loc))
 		if(istype(A, /obj/structure/bed))
 			to_chat(user, SPAN_DANGER("There is already a [A.name] here."))
 			return
-		if(A.density)
+		if(A.density && !istype(A, /obj/structure/railing))
 			to_chat(user, SPAN_DANGER("There is already something here."))
 			return
 
 	user.visible_message(SPAN_NOTICE("[user] [deploy_verb]s \the [src.name]."), SPAN_NOTICE("You [deploy_verb] \the [name]."))
 	// playsound(src, deploy_sound ? deploy_sound : drop_sound, DROP_SOUND_VOLUME)
 	user.drop_from_inventory(src)
-	var/obj/structure/bed/stool/S = new origin_type(get_turf(loc), material.name, padding_material ? padding_material.name : null, painted_colour) // Fuck me.
+	var/obj/structure/bed/stool/S = new origin_type(get_turf(loc), material?.name, padding_material?.name, painted_colour) // Fuck me.
 	TransferComponents(S)
 	S.dir = user.dir // Plant it where the user's facing
 	if(blood_DNA)
@@ -264,7 +243,7 @@
 
 /obj/item/material/stool/update_icon()
 	icon_state = "[base_icon]_item"
-	cut_overlays()
+	ClearOverlays()
 	if(padding_material)	// Handles padding overlay and inhand overlays.
 		var/image/padding_overlay = image(icon, "[base_icon]_item_padding")
 		padding_overlay.appearance_flags = RESET_COLOR
@@ -276,7 +255,7 @@
 		else if(padding_material.icon_colour)
 			padding_overlay.color = padding_material.icon_colour
 			worn_overlay_color = padding_material.icon_colour
-		add_overlay(padding_overlay)
+		AddOverlays(padding_overlay)
 	else
 		build_from_parts = FALSE
 	update_held_icon()
@@ -308,10 +287,10 @@
 	base_icon = "bar_stool"
 	origin_type = /obj/structure/bed/stool/bar
 
-/obj/item/material/stool/bar/New(var/newloc, new_material)
+/obj/item/material/stool/bar/New(var/newloc, new_material, new_padding_material, new_painted_colour)
 	if(!new_material)
 		new_material = MATERIAL_STEEL
-	..(newloc, new_material)
+	..(newloc, new_material, new_padding_material, new_painted_colour)
 
 /obj/item/material/stool/hover
 	icon_state = "hover_stool_item"
@@ -319,10 +298,10 @@
 	base_icon = "hover_stool"
 	origin_type = /obj/structure/bed/stool/hover
 
-/obj/item/material/stool/hover/New(var/newloc, new_material)
+/obj/item/material/stool/hover/New(var/newloc, new_material, new_padding_material, new_painted_colour)
 	if(!new_material)
 		new_material = MATERIAL_SHUTTLE_SKRELL
-	..(newloc, new_material)
+	..(newloc, new_material, new_padding_material, new_painted_colour)
 
 /obj/item/material/stool/bamboo
 	icon_state = "bamboo_stool_item"
@@ -330,10 +309,10 @@
 	base_icon = "bamboo_stool"
 	origin_type = /obj/structure/bed/stool/bamboo
 
-/obj/item/material/stool/bamboo/New(var/newloc, new_material)
+/obj/item/material/stool/bamboo/New(var/newloc, new_material, new_padding_material, new_painted_colour)
 	if(!new_material)
 		new_material = MATERIAL_BAMBOO
-	..(newloc, new_material)
+	..(newloc, new_material, new_padding_material, new_painted_colour)
 
 /obj/structure/flora/log_bench
 	name = "log bench"
@@ -343,7 +322,9 @@
 	anchored = FALSE
 	density = FALSE
 
-/obj/structure/flora/log_bench/fire_act()
+/obj/structure/flora/log_bench/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	for(var/obj/structure/bonfire/B in get_turf(src))
 		if(B.on_fire)
 			B.fuel = min(B.max_fuel, B.fuel + 300)

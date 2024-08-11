@@ -1,0 +1,1669 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aO" = (
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/exoplanet/grass/konyang)
+"bi" = (
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"bs" = (
+/obj/effect/decal/exterior_stairs/half,
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"bY" = (
+/obj/random/junk,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/house_small)
+"cq" = (
+/obj/structure/window/urban{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/house_small)
+"cB" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"cD" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"cF" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"cL" = (
+/obj/machinery/mech_recharger/automobile,
+/obj/effect/decal/curb{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/exoplanet/grass/konyang)
+"cP" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"dj" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep{
+	},
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"ek" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"ep" = (
+/obj/structure/window/urban{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/house_small)
+"eI" = (
+/obj/effect/decal/exterior_stairs/left,
+/obj/random/dirt_75,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"fb" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep{
+	},
+/obj/structure/table/wood,
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"fi" = (
+/obj/structure/flora/rock/konyang/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/exoplanet/grass/konyang)
+"fL" = (
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/exoplanet/grass/konyang)
+"gH" = (
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/house_small)
+"gZ" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/house_small)
+"hm" = (
+/obj/effect/decal/curb/corner,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"hD" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"hJ" = (
+/turf/simulated/floor/exoplanet/concrete,
+/area/exoplanet/grass/konyang)
+"if" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/item/towel,
+/obj/item/towel,
+/obj/structure/table/glass,
+/obj/item/towel,
+/obj/item/towel,
+/obj/item/mirror{
+	pixel_x = 4;
+	pixel_y = 7
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"is" = (
+/obj/structure/table/stone/marble,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"iv" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/exoplanet/grass/konyang)
+"iB" = (
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
+"jm" = (
+/obj/structure/ledge/quarter,
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
+"jA" = (
+/obj/structure/window/urban{
+	dir = 8;
+	},
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/house_small)
+"jB" = (
+/obj/item/mop,
+/obj/item/device/flashlight/empty,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/house_small)
+"jL" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep{
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"jW" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/reagentgrinder{
+	pixel_x = 1;
+	pixel_y = 7
+	},
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/house_small)
+"jZ" = (
+/obj/random/dirt_75,
+/obj/item/extinguisher/mini,
+/obj/item/device/measuring_tape{
+	pixel_y = 2
+	},
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/house_small)
+"kf" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep{
+	},
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"kg" = (
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/exoplanet/grass/konyang)
+"ki" = (
+/obj/machinery/mech_recharger/automobile,
+/obj/effect/decal/curb{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/exoplanet/grass/konyang)
+"km" = (
+/obj/structure/closet/crate/bin/urban,
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
+"kr" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"kZ" = (
+/obj/structure/bed/stool/chair/wood,
+/obj/item/hammer,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/house_small)
+"lo" = (
+/obj/effect/decal/curb,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/exoplanet/grass/konyang)
+"lN" = (
+/obj/random/dirt_75,
+/obj/structure/bed/stool/chair/sofa/right/red{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"lT" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"lZ" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
+"mb" = (
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
+"mH" = (
+/obj/effect/decal/exterior_stairs/right,
+/obj/random/dirt_75,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"mP" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"mV" = (
+/obj/structure/bed/stool/padded/red,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"nh" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"nm" = (
+/obj/effect/decal/curb{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"nn" = (
+/turf/simulated/wall/sandstone,
+/area/exoplanet/grass/konyang)
+"np" = (
+/obj/effect/decal/curb/corner{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/exoplanet/grass/konyang)
+"nL" = (
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/house_small)
+"nP" = (
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/house_small)
+"oF" = (
+/obj/structure/table/glass,
+/obj/item/device/toner,
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"oG" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"pH" = (
+/obj/structure/undies_wardrobe,
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"pK" = (
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/obj/structure/statue/buddha,
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
+"qg" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/ledge/quarter{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/exoplanet/grass/konyang)
+"qw" = (
+/obj/structure/bed/stool/chair/sofa/corner/convex/red{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"qB" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"re" = (
+/obj/structure/window/urban{
+	dir = 4;
+	},
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/house_small)
+"rh" = (
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"rl" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep{
+	},
+/obj/structure/curtain/black,
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"rq" = (
+/obj/structure/curtain/black,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/house_small)
+"rT" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/exoplanet/grass/konyang)
+"se" = (
+/obj/effect/decal/curb,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"sY" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"tS" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/cans/space_up{
+	pixel_x = -8;
+	pixel_y = 6
+	},
+/obj/item/device/hand_labeler,
+/obj/item/wrench,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/house_small)
+"uk" = (
+/obj/structure/table,
+/obj/item/material/shard,
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"um" = (
+/obj/random/dirt_75,
+/obj/structure/table/rack/clothing{
+	dir = 4;
+	},
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/house_small)
+"uv" = (
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
+"vd" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/exoplanet/grass/konyang)
+"vl" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/effect/decal/curb{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"vo" = (
+/turf/simulated/floor/exoplanet/asphalt,
+/area/exoplanet/grass/konyang)
+"vP" = (
+/obj/structure/window/urban/framed,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/house_small)
+"vQ" = (
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/exoplanet/grass/konyang)
+"wf" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/black,
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"wj" = (
+/obj/structure/curtain/open/privacy,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"wF" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"wU" = (
+/obj/effect/decal/fake_object{
+	dir = 4;
+	icon = 'icons/effects/props/holodeck/konyang/32x32.dmi';
+	icon_state = "bench";
+	name = "bench"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"xg" = (
+/obj/effect/decal/exterior_stairs/half/left{
+	dir = 8
+	},
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"xo" = (
+/obj/structure/lattice/catwalk/indoor/planks/stairs{
+	dir = 8
+	},
+/obj/effect/decal/curb,
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/konyang/house_small)
+"xw" = (
+/obj/effect/decal/exterior_stairs/half/right{
+	dir = 8
+	},
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"xH" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"xP" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/exoplanet/grass/konyang)
+"xY" = (
+/turf/simulated/wall/wood,
+/area/konyang/house_small)
+"yf" = (
+/obj/effect/decal/curb{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"yk" = (
+/obj/structure/flora/rock/konyang{
+	pixel_x = -13;
+	pixel_y = 12
+	},
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/exoplanet/grass/konyang)
+"yn" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep{
+	},
+/obj/structure/window/urban{
+	dir = 4;
+	},
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"zC" = (
+/obj/machinery/appliance/cooker/stove,
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/house_small)
+"Aj" = (
+/obj/random/junk,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"AB" = (
+/obj/structure/curtain/open/privacy,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"BH" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep{
+	},
+/obj/structure/window/urban{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"BP" = (
+/obj/structure/table/standard,
+/obj/item/tape_roll,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/house_small)
+"Dq" = (
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"DH" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/brown,
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"Ed" = (
+/obj/effect/decal/curb/corner,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/exoplanet/grass/konyang)
+"EF" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep{
+	},
+/obj/structure/bed/stool/padded/red{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"EK" = (
+/obj/structure/ledge/quarter{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/folding{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
+"FI" = (
+/obj/effect/decal/exterior_stairs/right,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"Go" = (
+/obj/structure/urban_grate,
+/obj/effect/decal/curb{
+	dir = 6
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"GU" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
+"He" = (
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/house_small)
+"Hq" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"HA" = (
+/obj/structure/table,
+/obj/item/material/shard,
+/obj/item/stack/rods,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"HB" = (
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"HE" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"HQ" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep{
+	},
+/obj/structure/bed/stool/padded/red{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"HY" = (
+/obj/random/dirt_75,
+/obj/structure/table/wood,
+/obj/item/tray{
+	pixel_y = 10
+	},
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"HZ" = (
+/obj/item/reagent_containers/food/snacks/ricetub,
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/house_small)
+"Im" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"Iv" = (
+/obj/item/stack/rods,
+/obj/structure/filingcabinet,
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"Ix" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep{
+	},
+/obj/structure/window/urban,
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"ID" = (
+/obj/random/dirt_75,
+/obj/structure/table/wood,
+/obj/structure/bedsheetbin{
+	pixel_y = 14
+	},
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"IR" = (
+/obj/structure/closet/crate/bin/urban,
+/obj/structure/ledge/quarter{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
+"IS" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep{
+	},
+/obj/structure/bed/stool/padded/red,
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"Jv" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
+"JR" = (
+/obj/effect/decal/curb/corner{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"JS" = (
+/obj/structure/television{
+	pixel_y = -8
+	},
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/house_small)
+"JX" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"Kc" = (
+/obj/structure/lattice/catwalk/indoor/planks/deep{
+	},
+/obj/structure/bed/stool/padded/red{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"Kk" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/house_small)
+"Ku" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"KP" = (
+/obj/structure/ledge/quarter{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/exoplanet/grass/konyang)
+"La" = (
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/exoplanet/grass/konyang)
+"Lb" = (
+/obj/structure/girder,
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/house_small)
+"LU" = (
+/obj/effect/decal/curb{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"MU" = (
+/obj/structure/bed/stool/chair/sofa/red{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"Nc" = (
+/obj/structure/table/glass,
+/obj/random/tech_supply,
+/obj/machinery/recharger{
+	pixel_x = -7;
+	pixel_y = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"Ob" = (
+/obj/structure/table/glass,
+/obj/item/device/flashlight/lamp/off,
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"Oi" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/exoplanet/grass/konyang)
+"Oy" = (
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_y = 26
+	},
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"OT" = (
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"OY" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/exoplanet/foundation,
+/area/konyang/house_small)
+"Po" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"PB" = (
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"PC" = (
+/obj/structure/table/wood,
+/obj/item/flame/lighter{
+	pixel_y = 2;
+	pixel_x = -7
+	},
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"PZ" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/house_small)
+"Qk" = (
+/obj/effect/decal/curb,
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"RH" = (
+/obj/structure/ledge/quarter{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
+"RJ" = (
+/obj/random/dirt_75,
+/obj/structure/bed/stool/chair/wood,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"Sb" = (
+/obj/structure/flora/tree/konyang/spring,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"SC" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
+"SD" = (
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"SM" = (
+/obj/structure/toilet{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"Td" = (
+/obj/effect/decal/curb,
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"Tn" = (
+/obj/structure/sink/kitchen{
+	name = "sink";
+	pixel_x = null;
+	pixel_y = 21
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"Ui" = (
+/obj/structure/table/glass,
+/obj/item/reagent_containers/food/drinks/waterbottle{
+	pixel_y = 7;
+	pixel_x = 7
+	},
+/obj/item/reagent_containers/spray/cleaner/drone{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"Uk" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/item/soap,
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/item/storage/box/toothpaste,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"Uv" = (
+/obj/structure/ledge/quarter{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
+"UL" = (
+/obj/random/junk,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/house_small)
+"Vq" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"Vx" = (
+/obj/effect/decal/fake_object{
+	density = 1;
+	desc = "A bland air conditioning unit.";
+	icon = 'icons/effects/city.dmi';
+	icon_state = "ac";
+	name = "AC unit"
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/exoplanet/grass/konyang)
+"Wv" = (
+/obj/structure/ledge/quarter/corner{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
+"WP" = (
+/obj/effect/decal/exterior_stairs/left,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"Xo" = (
+/obj/structure/curtain/open/shower,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"XD" = (
+/obj/structure/ledge/quarter/corner,
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
+"XI" = (
+/obj/item/reagent_containers/glass/bucket/wood,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/house_small)
+"Yb" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/ledge/quarter,
+/turf/simulated/floor/exoplanet/sidewalk/blocks,
+/area/exoplanet/grass/konyang)
+"Yc" = (
+/obj/machinery/washing_machine{
+	pixel_x = -8
+	},
+/obj/machinery/washing_machine{
+	pixel_x = 7
+	},
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/house_small)
+"Yd" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+"Yq" = (
+/turf/simulated/wall/wood,
+/area/exoplanet/grass/konyang)
+"YJ" = (
+/obj/structure/bed/stool/chair/sofa/left/red{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/bamboo,
+/area/konyang/house_small)
+"Zl" = (
+/obj/structure/flora/rock/konyang/moss,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"Zz" = (
+/obj/machinery/shower{
+	pixel_y = 15
+	},
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/konyang/house_small)
+"ZG" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/sidewalk/dark,
+/area/konyang/house_small)
+"ZP" = (
+/obj/structure/lattice/catwalk/indoor/planks/stairs{
+	dir = 8
+	},
+/obj/effect/decal/curb{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/sidewalk/paved,
+/area/exoplanet/grass/konyang)
+
+(1,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+SC
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+iB
+lZ
+mb
+mb
+vQ
+vQ
+vQ
+vQ
+vQ
+"}
+(2,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+jm
+xY
+xY
+BH
+yn
+xY
+cq
+re
+xY
+BH
+yn
+xY
+xY
+kg
+hJ
+lo
+vQ
+vQ
+vQ
+vQ
+vQ
+"}
+(3,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+jm
+xY
+nL
+jW
+PB
+RJ
+oG
+PB
+OT
+PC
+YJ
+qw
+xY
+kg
+ki
+np
+vo
+vo
+vQ
+vo
+vQ
+"}
+(4,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+jm
+Ix
+bi
+mV
+PB
+oG
+oG
+gZ
+JS
+OY
+HZ
+MU
+xY
+vd
+lo
+vo
+aO
+vo
+vQ
+vQ
+vQ
+"}
+(5,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+jm
+Ix
+zC
+PB
+PB
+Vq
+HA
+sY
+OT
+bY
+gZ
+lN
+xY
+rT
+cL
+Ed
+vo
+vQ
+vo
+vQ
+vQ
+"}
+(6,1,1) = {"
+vQ
+vQ
+vQ
+HB
+jm
+xY
+gH
+nP
+nP
+nh
+Nc
+nh
+OT
+gZ
+gZ
+HE
+xY
+KP
+iv
+qg
+Oi
+hJ
+HB
+vQ
+vQ
+"}
+(7,1,1) = {"
+vQ
+vQ
+vQ
+Sb
+jm
+xY
+xY
+mP
+xY
+xY
+xY
+xY
+xY
+rq
+rq
+xY
+xY
+nn
+nn
+nn
+kg
+HB
+HB
+vQ
+vQ
+"}
+(8,1,1) = {"
+vQ
+vQ
+HB
+HB
+jm
+xY
+BP
+He
+um
+xY
+Go
+JX
+JX
+xg
+xw
+JX
+wF
+wF
+vl
+nn
+kg
+Sb
+lT
+HB
+vQ
+"}
+(9,1,1) = {"
+vQ
+vQ
+HB
+HB
+Yb
+xY
+tS
+He
+jZ
+xY
+Qk
+Dq
+hD
+hD
+hD
+hD
+Im
+hm
+Yd
+nn
+uv
+HB
+HB
+lT
+vQ
+"}
+(10,1,1) = {"
+vQ
+vQ
+HB
+HB
+jm
+xY
+kZ
+UL
+XI
+xY
+Qk
+ek
+SD
+SD
+lT
+Sb
+lT
+Qk
+Yd
+WP
+mb
+kr
+HB
+HB
+vQ
+"}
+(11,1,1) = {"
+vQ
+vQ
+HB
+lT
+jm
+xY
+Kk
+ZG
+He
+PZ
+bs
+xH
+SD
+yk
+fL
+Zl
+wU
+Qk
+Yd
+FI
+mb
+HB
+kr
+HB
+vQ
+"}
+(12,1,1) = {"
+vQ
+vQ
+vQ
+mb
+jm
+xY
+Yc
+ZG
+jB
+xY
+Qk
+Yd
+HB
+fL
+fL
+fi
+kr
+Qk
+Yd
+nn
+pK
+HB
+HB
+Sb
+vQ
+"}
+(13,1,1) = {"
+vQ
+vQ
+HB
+mb
+xY
+xY
+xY
+mP
+xY
+xY
+Td
+LU
+HB
+HB
+HB
+HB
+HB
+Qk
+Yd
+eI
+Jv
+HB
+HB
+HB
+vQ
+"}
+(14,1,1) = {"
+vQ
+mb
+mb
+Jv
+Lb
+oF
+Iv
+OT
+OT
+xY
+xo
+xY
+ep
+jA
+xY
+kr
+lT
+se
+cP
+mH
+GU
+vQ
+HB
+vQ
+vQ
+"}
+(15,1,1) = {"
+vQ
+vQ
+mb
+Jv
+nP
+uk
+qB
+HE
+OT
+xY
+kf
+xY
+dj
+dj
+vP
+HB
+HB
+se
+Yd
+nn
+uv
+mb
+vQ
+vQ
+vQ
+"}
+(16,1,1) = {"
+vQ
+vQ
+Jv
+mb
+xY
+Ob
+Ui
+Aj
+OT
+xY
+dj
+dj
+jL
+jL
+xY
+xY
+xY
+Qk
+Yd
+nn
+EK
+Jv
+xP
+vQ
+vQ
+"}
+(17,1,1) = {"
+vQ
+mb
+Jv
+mb
+Lb
+OT
+OT
+OT
+OT
+xY
+dj
+dj
+dj
+dj
+rl
+dj
+nm
+JR
+Yd
+nn
+km
+Jv
+vQ
+vQ
+vQ
+"}
+(18,1,1) = {"
+vQ
+HB
+mb
+mb
+Lb
+OT
+OT
+OT
+OT
+xY
+xY
+mP
+xY
+xY
+xY
+dj
+yf
+hD
+ZP
+nn
+IR
+lZ
+Jv
+mb
+vQ
+"}
+(19,1,1) = {"
+vQ
+HB
+HB
+mb
+Yq
+xY
+xY
+xY
+Oy
+HE
+OT
+OT
+HY
+ID
+xY
+dj
+dj
+dj
+dj
+xY
+xY
+uv
+vQ
+mb
+vQ
+"}
+(20,1,1) = {"
+vQ
+HB
+HB
+mb
+jm
+xY
+Zz
+xY
+OT
+HE
+OT
+rh
+HE
+HE
+xY
+dj
+Kc
+HQ
+dj
+dj
+nP
+uv
+La
+mb
+vQ
+"}
+(21,1,1) = {"
+vQ
+vQ
+HB
+vQ
+jm
+xY
+Xo
+xY
+AB
+wj
+xY
+cF
+HE
+HE
+xY
+xY
+fb
+fb
+dj
+dj
+nP
+uv
+vQ
+mb
+vQ
+"}
+(22,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+jm
+xY
+Ku
+Hq
+cB
+if
+xY
+pH
+rh
+OT
+Po
+xY
+IS
+EF
+dj
+dj
+nP
+uv
+HB
+mb
+vQ
+"}
+(23,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+jm
+xY
+is
+Tn
+SM
+Uk
+xY
+cD
+wf
+DH
+Po
+xY
+xY
+xY
+xY
+xY
+xY
+uv
+HB
+vQ
+vQ
+"}
+(24,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+jm
+xY
+xY
+xY
+xY
+xY
+xY
+xY
+xY
+xY
+xY
+xY
+Vx
+Vx
+Uv
+RH
+RH
+Wv
+vQ
+mb
+vQ
+"}
+(25,1,1) = {"
+vQ
+vQ
+vQ
+vQ
+XD
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+RH
+Wv
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+"}

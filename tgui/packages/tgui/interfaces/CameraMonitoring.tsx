@@ -94,24 +94,28 @@ export const ShowNetworkCameras = (props, context) => {
           value={searchTerm}
         />
       }>
-      {data.cameras
-        .filter(
-          (c) => c.name?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
-        )
-        .map((camera) => (
-          <Button
-            content={camera.name}
-            key={camera.camera}
-            disabled={camera.deact}
-            selected={
-              data.current_camera &&
-              data.current_camera.camera === camera.camera
-            } // thanks whoever named this nanoui bit this and then shat it around everywhere
-            onClick={() =>
-              act('switch_camera', { switch_camera: camera.camera })
-            }
-          />
-        ))}
+      {data.cameras && data.cameras.length ? (
+        data.cameras
+          .filter(
+            (c) => c.name?.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+          )
+          .map((camera) => (
+            <Button
+              content={camera.name}
+              key={camera.camera}
+              disabled={camera.deact}
+              selected={
+                data.current_camera &&
+                data.current_camera.camera === camera.camera
+              } // thanks whoever named this nanoui bit this and then shat it around everywhere
+              onClick={() =>
+                act('switch_camera', { switch_camera: camera.camera })
+              }
+            />
+          ))
+      ) : (
+        <NoticeBox>No cameras detected.</NoticeBox>
+      )}
     </Section>
   );
 };

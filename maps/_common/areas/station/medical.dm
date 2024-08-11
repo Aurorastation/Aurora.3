@@ -4,6 +4,8 @@
 /area/medical
 	station_area = 1
 	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
+	area_blurb = "Various smells waft through the air: disinfectants, various medicines, sterile gloves, and gauze. It's not a pleasant smell, but one you could grow to ignore."
+	area_blurb_category = "mecical"
 
 //Medbay is a large area, these additional areas help level out APC load.
 
@@ -31,8 +33,8 @@
 	icon_state = "medbay4"
 	ambience = list('sound/ambience/signal.ogg')
 
-/area/medical/first_responder
-	name = "Medical - First Responder Equipment Storage"
+/area/medical/paramedic
+	name = "Medical - Paramedic Equipment Storage"
 	icon_state = "medbay"
 
 /area/medical/temp_morgue
@@ -52,6 +54,8 @@
 /area/medical/psych
 	name = "Medical - Psych Room"
 	icon_state = "medbay3"
+	area_blurb = "Featuring wood floors and soft carpets, this room has a warmer feeling compared to the sterility of the rest of the medical department."
+	area_blurb_category = "psych"
 
 /area/medical/upperlevel
 	name = "Medical - Upper-Level Hallway"
@@ -124,6 +128,8 @@
 	name = "Medical - Long-term Morgue"
 	icon_state = "morgue"
 	ambience = AMBIENCE_GHOSTLY
+	area_blurb = "Morgue trays sit within this room, ready to hold the deceased until their postmortem wishes can be attended to."
+	area_blurb_category = "morgue"
 
 /area/medical/pharmacy
 	name = "Medical - Pharmacy"
@@ -179,6 +185,8 @@
 /area/medical/icu
 	name = "Medical - Intensive Care Unit"
 	icon_state = "cryo"
+	area_blurb = "The sounds of pumps and cooling equipment can be heard within the room."
+	area_blurb_category = "icu"
 
 /area/medical/triage
 	name = "Medical - Triage Room"

@@ -5,7 +5,7 @@
 	. = ..()
 	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 2	//two slots
-	pockets.max_w_class = ITEMSIZE_SMALL		//fit only pocket sized items
+	pockets.max_w_class = WEIGHT_CLASS_SMALL		//fit only pocket sized items
 	pockets.max_storage_space = 4
 
 /obj/item/clothing/suit/storage/Destroy()
@@ -27,15 +27,16 @@
 		return TRUE
 	return FALSE
 
-/obj/item/clothing/suit/storage/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/suit/storage/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(istype(W, /obj/item/clothing/accessory))
+	if(istype(attacking_item, /obj/item/clothing/accessory))
 		return
-	pockets.attackby(W, user)
+	pockets.attackby(attacking_item, user)
 
 /obj/item/clothing/suit/storage/emp_act(severity)
+	. = ..()
+
 	pockets.emp_act(severity)
-	..()
 
 /obj/item/clothing/suit/storage/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
 	pockets.hear_talk(M, msg, verb, speaking)
@@ -74,7 +75,7 @@
 	. = ..()
 	pockets = new/obj/item/storage/internal(src)
 	pockets.storage_slots = 4
-	pockets.max_w_class = ITEMSIZE_SMALL
+	pockets.max_w_class = WEIGHT_CLASS_SMALL
 	pockets.max_storage_space = 8
 
 /obj/item/clothing/suit/storage/vest

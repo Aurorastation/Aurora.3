@@ -11,23 +11,23 @@
 
 /datum/uplink_item/abstract/announcements/fake_centcom/New()
 	..()
-	name = "[current_map.boss_name] Update Announcement"
+	name = "[SSatlas.current_map.boss_name] Update Announcement"
 	telecrystal_cost = 5
 	bluecrystal_cost = 5
-	desc = "Causes a falsified [current_map.boss_name] Update. Triggers immediately after supplying additional data."
+	desc = "Causes a falsified [SSatlas.current_map.boss_name] Update. Triggers immediately after supplying additional data."
 
 /datum/uplink_item/abstract/announcements/fake_centcom/extra_args(var/mob/user)
-	var/title = sanitize(input("Enter your announcement title.", "Announcement Title") as null|text)
+	var/title = tgui_input_text(user, "Enter your announcement title.", "Announcement Title", encode = FALSE)
 	if(!title)
 		return
-	var/message = sanitize(input("Enter your announcement message.", "Announcement Title") as null|message)
+	var/message = tgui_input_text(user, "Enter your announcement message.", "Announcement Title", multiline = TRUE, encode = FALSE)
 	if(!message)
 		return
-	return list("title" = title, "message" = message)
+	return list("title" = strip_html_readd_newlines(title), "message" = strip_html_readd_newlines(message))
 
 /datum/uplink_item/abstract/announcements/fake_centcom/get_goods(var/obj/item/device/uplink/U, var/loc, var/mob/user, var/list/args)
-	command_announcement.Announce(args["message"], args["title"], do_newscast=1, do_print=1)
-	return 1
+	command_announcement.Announce(args["message"], args["title"], do_newscast=1, do_print=1, msg_sanitized=TRUE)
+	return TRUE
 
 /datum/uplink_item/abstract/announcements/fake_crew_arrival
 	name = "Crew Arrival Announcement/Records"
@@ -88,33 +88,37 @@
 	name = "Ion Storm Announcement"
 	desc = "Interferes with the station's ion sensors. Triggers immediately upon investment."
 	telecrystal_cost = 2
+	var/static/cooldown = FALSE
 
 /datum/uplink_item/abstract/announcements/fake_ion_storm/get_goods(var/obj/item/device/uplink/U, var/loc)
-	var/static/cooldown = 0
-	if(cooldown != 1)
+	if(cooldown != TRUE)
 		ion_storm_announcement()
-		cooldown = 1
-		spawn(240)
-			cooldown = 0
-		return 1
+		cooldown = TRUE
+		addtimer(CALLBACK(src, PROC_REF(reset_cooldown)), 24 SECONDS)
+		return TRUE
 	else
-		to_chat(loc, "<span class='danger'>This service is on cooldown! Try again in a bit!</span>")
+		to_chat(loc, SPAN_DANGER("This service is on cooldown! Try again in a bit!"))
 		return 0
+
+/datum/uplink_item/abstract/announcements/fake_ion_storm/proc/reset_cooldown()
+	cooldown = FALSE
 
 /datum/uplink_item/abstract/announcements/fake_radiation
 	name = "Radiation Storm Announcement"
 	desc = "Interferes with the station's radiation sensors. Triggers immediately upon investment."
 	telecrystal_cost = 3
+	var/static/cooldown = 0
 
 /datum/uplink_item/abstract/announcements/fake_radiation/get_goods(var/obj/item/device/uplink/U, var/loc)
-	var/static/cooldown = 0
-	if(cooldown != 1)
+	if(cooldown != TRUE)
 		var/datum/event_meta/EM = new(EVENT_LEVEL_MUNDANE, "Fake Radiation Storm", add_to_queue = 0)
 		new/datum/event/radiation_storm/syndicate(EM)
-		cooldown = 1
-		spawn(240)
-			cooldown = 0
+		cooldown = TRUE
+		addtimer(CALLBACK(src, PROC_REF(reset_cooldown)), 24 SECONDS)
 		return 1
 	else
-		to_chat(loc, "<span class='danger'>This service is on cooldown! Try again in a bit!</span>")
+		to_chat(loc, SPAN_DANGER("This service is on cooldown! Try again in a bit!"))
 		return 0
+
+/datum/uplink_item/abstract/announcements/fake_radiation/proc/reset_cooldown()
+	cooldown = FALSE

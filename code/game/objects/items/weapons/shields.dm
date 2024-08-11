@@ -5,8 +5,8 @@
 /proc/check_shield_arc(mob/user, bad_arc, atom/damage_source = null, mob/attacker = null)
 	//check attack direction
 	var/attack_dir = 0 //direction from the user to the source of the attack
-	if(istype(damage_source, /obj/item/projectile))
-		var/obj/item/projectile/P = damage_source
+	if(istype(damage_source, /obj/projectile))
+		var/obj/projectile/P = damage_source
 		attack_dir = get_dir(get_turf(user), P.starting)
 	else if(attacker)
 		attack_dir = get_dir(get_turf(user), get_turf(attacker))
@@ -19,7 +19,7 @@
 
 /proc/default_parry_check(mob/user, mob/attacker, atom/damage_source)
 	//parry only melee attacks
-	if(istype(damage_source, /obj/item/projectile) || (attacker && get_dist(user, attacker) > 1) || user.incapacitated())
+	if(istype(damage_source, /obj/projectile) || (attacker && get_dist(user, attacker) > 1) || user.incapacitated())
 		return 0
 
 	//block as long as they are not directly behind us
@@ -40,7 +40,7 @@
 	recyclable = TRUE
 
 /obj/item/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
-	var/shield_dir = on_back ? user.dir : reverse_dir[user.dir]
+	var/shield_dir = on_back ? user.dir : GLOB.reverse_dir[user.dir]
 
 	if(user.incapacitated() || !(check_shield_arc(user, shield_dir, damage_source, attacker)))
 		return FALSE
@@ -60,13 +60,13 @@
 	name = "riot shield"
 	desc = "A shield adept at blocking blunt objects from connecting with the torso of the shield wielder."
 	icon_state = "riot"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
-	force = 5.0
+	force = 11
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 4
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 7500)
 	attack_verb = list("shoved", "bashed")
@@ -77,17 +77,17 @@
 	if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
 
 /obj/item/shield/riot/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
-	if(istype(damage_source, /obj/item/projectile))
-		var/obj/item/projectile/P = damage_source
+	if(istype(damage_source, /obj/projectile))
+		var/obj/projectile/P = damage_source
 		//plastic shields do not stop bullets or lasers, even in space. Will block beanbags, rubber bullets, and stunshots just fine though.
-		if((is_sharp(P) && damage > 10) || istype(P, /obj/item/projectile/beam))
+		if((is_sharp(P) && damage > 10) || istype(P, /obj/projectile/beam))
 			return 0
 	return base_block_chance
 
-/obj/item/shield/riot/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/melee/baton))
+/obj/item/shield/riot/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/melee/baton))
 		if(cooldown < world.time - 25)
-			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")
+			user.visible_message(SPAN_WARNING("[user] bashes [src] with [attacking_item]!"))
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 			cooldown = world.time
 	else
@@ -101,12 +101,12 @@
 	item_state = "square_buckler"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BACK
-	force = 8
+	force = 18
 	throwforce = 8
 	base_block_chance = 60
 	throw_speed = 10
 	throw_range = 20
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_MATERIAL = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_WOOD = 1000)
 	attack_verb = list("shoved", "bashed")
@@ -116,9 +116,9 @@
 	if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
 
 /obj/item/shield/buckler/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
-	if(istype(damage_source, /obj/item/projectile))
-		var/obj/item/projectile/P = damage_source
-		if((is_sharp(P) && damage > 10) || istype(P, /obj/item/projectile/beam))
+	if(istype(damage_source, /obj/projectile))
+		var/obj/projectile/P = damage_source
+		if((is_sharp(P) && damage > 10) || istype(P, /obj/projectile/beam))
 			return 0
 	return base_block_chance
 
@@ -130,12 +130,12 @@
 	name = "energy combat shield"
 	desc = "A shield capable of stopping most projectile and melee attacks. It can be retracted, expanded, and stored anywhere."
 	icon_state = "eshield0"
-	flags = CONDUCT
-	force = 3.0
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	force = 3
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 4
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	origin_tech = list(TECH_MATERIAL = 4, TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	attack_verb = list("shoved", "bashed")
 	var/shield_power = 150
@@ -175,7 +175,7 @@
 	user.update_inv_r_hand()
 
 /obj/item/shield/energy/handle_shield(mob/user, on_back, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
-	var/shield_dir = on_back ? user.dir : reverse_dir[user.dir]
+	var/shield_dir = on_back ? user.dir : GLOB.reverse_dir[user.dir]
 
 	if(!active || user.incapacitated() || !(check_shield_arc(user, shield_dir, damage_source, attacker)))
 		return FALSE
@@ -192,7 +192,7 @@
 			HandleShutOff()
 
 		if(isenergy(damage_source) || isbeam(damage_source))
-			var/obj/item/projectile/P = damage_source
+			var/obj/projectile/P = damage_source
 
 			var/reflectchance = 80 - (damage/3)
 			if(P.starting && prob(reflectchance))
@@ -232,8 +232,8 @@
 /obj/item/shield/energy/proc/HandleTurnOn()
 	addtimer(CALLBACK(src, /obj/item/shield/energy/proc/UpdateSoundLoop), 0.25 SECONDS)
 	playsound(src, 'sound/items/shield/energy/shield-start.ogg', 40)
-	force = 10
-	w_class = ITEMSIZE_LARGE
+	force = 15
+	w_class = WEIGHT_CLASS_BULKY
 
 /obj/item/shield/energy/proc/HandleShutOff()
 	addtimer(CALLBACK(src, /obj/item/shield/energy/proc/UpdateSoundLoop), 0.1 SECONDS)
@@ -245,17 +245,18 @@
 	if (!active)
 		QDEL_NULL(sound_token)
 		return
-	sound_token = sound_player.PlayLoopingSound(src, sound_id,'sound/items/shield/energy/shield-loop.ogg', 10, 4)
+	sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id,'sound/items/shield/energy/shield-loop.ogg', 10, 4)
 
 /obj/item/shield/energy/hegemony
 	name = "hegemony barrier"
 	desc = "A Zkrehk-Guild manufactured energy shield capable of protecting the wielder from both material and energy attack."
 	icon_state = "hegemony-eshield0"
+	base_block_chance = 60
 
 /obj/item/shield/energy/hegemony/update_icon()
 	icon_state = "hegemony-eshield[active]"
 	if(active)
-		set_light(1.5, 1.5, "e68917")
+		set_light(1.5, 1.5, "#e68917")
 	else
 		set_light(0)
 
@@ -263,6 +264,7 @@
 	name = "kataphract barrier"
 	desc = "A hardlight kite shield capable of protecting the wielder from both material and energy attack."
 	icon_state = "kataphract-eshield0"
+	base_block_chance = 65
 
 /obj/item/shield/energy/hegemony/kataphract/update_icon()
 	icon_state = "kataphract-eshield[active]"
@@ -275,6 +277,7 @@
 	name = "energy barrier"
 	desc = "A large deployable energy shield meant to provide excellent protection against ranged attacks."
 	icon_state = "ebarrier0"
+	base_block_chance = 55
 
 /obj/item/shield/energy/legion/update_icon()
 	icon_state = "ebarrier[active]"
@@ -287,6 +290,7 @@
 	name = "dominian energy barrier"
 	desc = "A hardlight energy shield meant to provide excellent protection in melee engagements."
 	icon_state = "dominian-eshield0"
+	base_block_chance = 60
 
 /obj/item/shield/energy/dominia/update_icon()
 	icon_state = "dominian-eshield[active]"
@@ -303,17 +307,17 @@
 	icon_state = "tactshield"
 	item_state = "tactshield"
 	contained_sprite = 1
-	force = 3.0
+	force = 3
 	throwforce = 3.0
 	throw_speed = 3
 	throw_range = 4
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("shoved", "bashed")
 	var/active = 0
 
 /obj/item/shield/riot/tact/legion
-	name = "legion ballistic shield"
-	desc = "A highly advanced ballistic shield crafted from durable materials and plated ablative panels. Can be collapsed for mobility. This one has been painted in the colors of the Tau Ceti Foreign Legion."
+	name = "\improper TCAF ballistic shield"
+	desc = "A highly advanced ballistic shield crafted from durable materials and plated ablative panels. Can be collapsed for mobility. This one has been painted in the colors of the Tau Ceti Armed Forces."
 	icon_state = "legion_tactshield"
 	item_state = "legion_tactshield"
 
@@ -332,10 +336,10 @@
 	if(active)
 		icon_state = "[initial(icon_state)]_[active]"
 		item_state = "[initial(item_state)]_[active]"
-		force = 5
+		force = 11
 		throwforce = 5
 		throw_speed = 2
-		w_class = ITEMSIZE_LARGE
+		w_class = WEIGHT_CLASS_BULKY
 		slot_flags = SLOT_BACK
 		to_chat(user, SPAN_NOTICE("You extend \the [src] downward with a sharp snap of your wrist."))
 	else
@@ -344,7 +348,7 @@
 		force = 3
 		throwforce = 3
 		throw_speed = 3
-		w_class = ITEMSIZE_NORMAL
+		w_class = WEIGHT_CLASS_NORMAL
 		slot_flags = 0
 		to_chat(user, SPAN_NOTICE("\The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame."))
 

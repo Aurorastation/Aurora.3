@@ -25,12 +25,15 @@
   "harddel_log":"harddel.log",
   "world_paper_log":"world_paper.log",
   "world_manifest_log":"world_manifest.log",
+  "world_loadout_log":"world_loadout.log",
   "world_subsystems_log":"subsystems/world_subsystems.log",
   "world_subsystems_chemistry_log":"subsystems/chemistry.log",
+  "world_subsystems_codex_log":"subsystems/codex.log",
   "world_subsystems_atlas_log":"subsystems/atlas.log",
   "world_subsystems_ghostroles_log":"subsystems/ghostroles.log",
   "world_subsystems_law_log":"subsystems/law.log",
   "world_subsystems_cargo_log":"subsystems/cargo.log",
+  "world_subsystems_discord_log":"subsystems/discord.log",
   "world_subsystems_documents_log":"subsystems/documents.log",
   "world_subsystems_fail2topic_log":"subsystems/fail2topic.log",
   "world_subsystems_mapfinalization_log":"subsystems/mapfinalization.log",
@@ -41,5 +44,6 @@
   "world_modules_sectors_log":"modules/sectors.log",
   "world_modules_ruins_log":"modules/ruins.log",
   "world_subsystems_zas":"subsystems/zas.log",
-  "world_subsystems_zas_debug":"subsystems/zas.log"
+  "world_subsystems_zas_debug":"subsystems/zas.log",
+  "world_subsystems_http":"subsystems/http.log"
 }

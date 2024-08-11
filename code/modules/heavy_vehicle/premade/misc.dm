@@ -6,7 +6,7 @@
 	max_damage = 160
 	move_delay = 4
 	turn_delay = 1
-	power_use = 2500
+	power_use = 1250
 	trample_damage = 10
 
 /obj/item/mech_component/propulsion/spider/heavy
@@ -17,7 +17,7 @@
 	max_damage = 250
 	move_delay = 5
 	turn_delay = 1
-	power_use = 7500
+	power_use = 3500
 	trample_damage = 25
 
 /obj/item/mech_component/propulsion/tracks
@@ -28,7 +28,7 @@
 	max_damage = 450
 	move_delay = 2 //Its fast
 	turn_delay = 7
-	power_use = 7500
+	power_use = 3500
 	color = COLOR_WHITE
 	mech_step_sound = 'sound/mecha/tanktread.ogg'
 	trample_damage = 25

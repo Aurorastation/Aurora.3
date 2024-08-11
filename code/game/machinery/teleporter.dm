@@ -35,9 +35,11 @@
 	if(old_engaged != engaged)
 		update_icon()
 
-/obj/machinery/teleport/pad/CollidedWith(M as mob|obj)
+/obj/machinery/teleport/pad/CollidedWith(atom/bumped_atom)
+	. = ..()
+
 	if(engaged)
-		teleport(M)
+		teleport(bumped_atom)
 		use_power_oneoff(5000)
 
 /obj/machinery/teleport/pad/proc/teleport(atom/movable/M as mob|obj)
@@ -55,18 +57,18 @@
 		calibration = min(calibration + 5, 100)
 
 /obj/machinery/teleport/pad/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if (engaged)
 		var/image/I = image(icon, src, "[initial(icon_state)]_active_overlay")
-		I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
-		add_overlay(I)
+		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		AddOverlays(I)
 		set_light(4, 0.4)
 	else
 		set_light(0)
 		if (operable())
 			var/image/I = image(icon, src, "[initial(icon_state)]_idle_overlay")
-			I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
-			add_overlay(I)
+			I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+			AddOverlays(I)
 
 /obj/machinery/teleport/pad/proc/within_range(var/target)
 	if(ignore_distance)
@@ -78,9 +80,9 @@
 	if(T)
 		if (AreConnectedZLevels(z, T.z))
 			return TRUE
-		else if(current_map.use_overmap)
-			var/my_sector = map_sectors["[z]"]
-			var/target_sector = map_sectors["[T.z]"]
+		else if(SSatlas.current_map.use_overmap)
+			var/my_sector = GLOB.map_sectors["[z]"]
+			var/target_sector = GLOB.map_sectors["[T.z]"]
 			if (istype(my_sector, /obj/effect/overmap/visitable) && istype(target_sector, /obj/effect/overmap/visitable))
 				if(get_dist(my_sector, target_sector) < max_teleport_range)
 					return TRUE

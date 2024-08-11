@@ -15,11 +15,11 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("buns" = 3))
 
 // Human Burger + cheese wedge = cheeseburger
-/obj/item/reagent_containers/food/snacks/human/burger/attackby(obj/item/reagent_containers/food/snacks/cheesewedge/W as obj, mob/user as mob)
-	if(istype(W))
+/obj/item/reagent_containers/food/snacks/human/burger/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/cheesewedge))
 		new /obj/item/reagent_containers/food/snacks/burger/cheese(src)
 		to_chat(user, "You make a cheeseburger.")
-		qdel(W)
+		qdel(attacking_item)
 		qdel(src)
 		return
 	else

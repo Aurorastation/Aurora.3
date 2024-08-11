@@ -74,6 +74,7 @@
 	QDEL_IN(src, 1)
 
 /obj/item/clothing/under/chameleon/changeling/emp_act(severity) //As these are purely organic, EMP does nothing to them.
+	. = ..()
 	return
 
 /obj/item/clothing/under/chameleon/changeling/verb/shred() //Remove individual pieces if needed.
@@ -83,8 +84,8 @@
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
-		visible_message("<span class='warning'>[H] tears off [src]!</span>",
-		"<span class='notice'>We remove [src].</span>")
+		visible_message(SPAN_WARNING("[H] tears off [src]!"),
+		SPAN_NOTICE("We remove [src]."))
 		qdel(src)
 
 /obj/item/clothing/head/chameleon/changeling
@@ -101,6 +102,8 @@
 	QDEL_IN(src, 1)
 
 /obj/item/clothing/head/chameleon/changeling/emp_act(severity)
+	. = ..()
+
 	return
 
 /obj/item/clothing/head/chameleon/changeling/verb/shred() //The copypasta is real.
@@ -110,8 +113,8 @@
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
-		visible_message("<span class='warning'>[H] tears off [src]!</span>",
-		"<span class='notice'>We remove [src].</span>")
+		visible_message(SPAN_WARNING("[H] tears off [src]!"),
+		SPAN_NOTICE("We remove [src]."))
 		qdel(src)
 
 /obj/item/clothing/suit/chameleon/changeling
@@ -127,6 +130,8 @@
 	QDEL_IN(src, 1)
 
 /obj/item/clothing/suit/chameleon/changeling/emp_act(severity)
+	. = ..()
+
 	return
 
 /obj/item/clothing/suit/chameleon/changeling/verb/shred()
@@ -136,8 +141,8 @@
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
-		visible_message("<span class='warning'>[H] tears off [src]!</span>",
-		"<span class='notice'>We remove [src].</span>")
+		visible_message(SPAN_WARNING("[H] tears off [src]!"),
+		SPAN_NOTICE("We remove [src]."))
 		qdel(src)
 
 /obj/item/clothing/shoes/chameleon/changeling
@@ -153,6 +158,8 @@
 	QDEL_IN(src, 1)
 
 /obj/item/clothing/shoes/chameleon/changeling/emp_act()
+	. = ..()
+
 	return
 
 /obj/item/clothing/shoes/chameleon/changeling/verb/shred()
@@ -162,8 +169,8 @@
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
-		visible_message("<span class='warning'>[H] tears off [src]!</span>",
-		"<span class='notice'>We remove [src].</span>")
+		visible_message(SPAN_WARNING("[H] tears off [src]!"),
+		SPAN_NOTICE("We remove [src]."))
 		qdel(src)
 
 /obj/item/storage/backpack/chameleon/changeling
@@ -179,6 +186,8 @@
 	QDEL_IN(src, 1)
 
 /obj/item/storage/backpack/chameleon/changeling/emp_act()
+	. = ..()
+
 	return
 
 /obj/item/storage/backpack/chameleon/changeling/verb/shred()
@@ -188,8 +197,8 @@
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
-		visible_message("<span class='warning'>[H] tears off [src]!</span>",
-		"<span class='notice'>We remove [src].</span>")
+		visible_message(SPAN_WARNING("[H] tears off [src]!"),
+		SPAN_NOTICE("We remove [src]."))
 		for(var/atom/movable/AM in src.contents) //Dump whatever's in the bag before deleting.
 			AM.forceMove(get_turf(loc))
 		qdel(src)
@@ -208,6 +217,8 @@
 	QDEL_IN(src, 1)
 
 /obj/item/clothing/gloves/chameleon/changeling/emp_act()
+	. = ..()
+
 	return
 
 /obj/item/clothing/gloves/chameleon/changeling/verb/shred()
@@ -217,8 +228,8 @@
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
-		visible_message("<span class='warning'>[H] tears off [src]!</span>",
-		"<span class='notice'>We remove [src].</span>")
+		visible_message(SPAN_WARNING("[H] tears off [src]!"),
+		SPAN_NOTICE("We remove [src]."))
 		qdel(src)
 
 /obj/item/clothing/mask/chameleon/changeling
@@ -235,6 +246,8 @@
 	QDEL_IN(src, 1)
 
 /obj/item/clothing/mask/chameleon/changeling/emp_act()
+	. = ..()
+
 	return
 
 /obj/item/clothing/mask/chameleon/changeling/verb/shred()
@@ -244,8 +257,8 @@
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
-		visible_message("<span class='warning'>[H] tears off [src]!</span>",
-		"<span class='notice'>We remove [src].</span>")
+		visible_message(SPAN_WARNING("[H] tears off [src]!"),
+		SPAN_NOTICE("We remove [src]."))
 		qdel(src)
 
 /obj/item/clothing/glasses/chameleon/changeling
@@ -262,6 +275,8 @@
 
 
 /obj/item/clothing/glasses/chameleon/changeling/emp_act()
+	. = ..()
+
 	return
 
 /obj/item/clothing/glasses/chameleon/changeling/verb/shred()
@@ -271,8 +286,8 @@
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
-		visible_message("<span class='warning'>[H] tears off [src]!</span>",
-		"<span class='notice'>We remove [src].</span>")
+		visible_message(SPAN_WARNING("[H] tears off [src]!"),
+		SPAN_NOTICE("We remove [src]."))
 		qdel(src)
 
 /obj/item/storage/belt/chameleon/changeling
@@ -288,6 +303,8 @@
 	QDEL_IN(src, 1)
 
 /obj/item/storage/belt/chameleon/changeling/emp_act()
+	. = ..()
+
 	return
 
 /obj/item/storage/belt/chameleon/changeling/verb/shred()
@@ -297,8 +314,8 @@
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
-		visible_message("<span class='warning'>[H] tears off [src]!</span>",
-		"<span class='notice'>We remove [src].</span>")
+		visible_message(SPAN_WARNING("[H] tears off [src]!"),
+		SPAN_NOTICE("We remove [src]."))
 		qdel(src)
 
 /obj/item/card/id/syndicate/changeling
@@ -330,8 +347,8 @@
 	if(ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		playsound(src, 'sound/effects/splat.ogg', 30, 1)
-		visible_message("<span class='warning'>[H] tears off [src]!</span>",
-		"<span class='notice'>We remove [src].</span>")
+		visible_message(SPAN_WARNING("[H] tears off [src]!"),
+		SPAN_NOTICE("We remove [src]."))
 		qdel(src)
 
 /obj/item/card/id/syndicate/changeling/Click() //Since we can't hold it in our hands, and attack_hand() doesn't work if it in inventory...

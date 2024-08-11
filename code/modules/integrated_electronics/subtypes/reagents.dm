@@ -14,7 +14,7 @@
 	icon_state = "injector"
 	extended_desc = "This autoinjector can push reagents into another container or someone else outside of the machine.  The target \
 	must be adjacent to the machine, and if it is a person, they cannot be wearing thick clothing."
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	complexity = 20
 	cooldown_per_use = 6 SECONDS
 	inputs = list("target" = IC_PINTYPE_REF, "injection amount" = IC_PINTYPE_NUMBER)
@@ -68,7 +68,7 @@
 			if(isliving(AM))
 				var/mob/living/L = AM
 				var/turf/T = get_turf(AM)
-				T.visible_message("<span class='warning'>[assembly] is trying to inject [L]!</span>")
+				T.visible_message(SPAN_WARNING("[assembly] is trying to inject [L]!"))
 				sleep(3 SECONDS)
 				if(!L.can_be_injected_by(src))
 					activate_pin(3)
@@ -76,8 +76,8 @@
 				var/contained = reagents.get_reagents()
 				var/trans = reagents.trans_to_mob(L, transfer_amount, CHEM_BLOOD)
 				message_admins("[assembly] injected \the [L] with [trans]u of [contained].")
-				to_chat(AM, "<span class='notice'>You feel a tiny prick!</span>")
-				visible_message("<span class='warning'>[assembly] injects [L]!</span>")
+				to_chat(AM, SPAN_NOTICE("You feel a tiny prick!"))
+				visible_message(SPAN_WARNING("[assembly] injects [L]!"))
 			else
 				reagents.trans_to(AM, transfer_amount)
 	else
@@ -104,21 +104,21 @@
 					else
 						activate_pin(3)
 					return
-				if(HAS_FLAG(T.mutations, NOCLONE)) //target done been et, no more blood in him
+				if((T.mutations & NOCLONE)) //target done been et, no more blood in him
 					if(T.reagents.trans_to_obj(src, tramount))
 						activate_pin(2)
 					else
 						activate_pin(3)
 					return
 				T.take_blood(src,tramount)
-				visible_message( "<span class='notice'>[assembly] takes a blood sample from [target].</span>")
+				visible_message( SPAN_NOTICE("[assembly] takes a blood sample from [target]."))
 			else
 				activate_pin(3)
 				return
 
 		else //if not mob
 			if(!target.reagents.total_volume)
-				visible_message( "<span class='notice'>[target] is empty.</span>")
+				visible_message( SPAN_NOTICE("[target] is empty."))
 				activate_pin(3)
 				return
 			target.reagents.trans_to_obj(src, tramount)
@@ -131,7 +131,7 @@
 	extended_desc = "This is a pump, which will move liquids from the source ref to the target ref.  The third pin determines \
 	how much liquid is moved per pulse, between 0 and 50.  The pump can move reagents to any open container inside the machine, or \
 	outside the machine if it is next to the machine.  Note that this cannot be used on entities."
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	complexity = 8
 	inputs = list(
 		"source" = IC_PINTYPE_REF,
@@ -194,7 +194,7 @@
 	desc = "Stores liquid inside, and away from electrical components.  Can store up to 60u."
 	icon_state = "reagent_storage"
 	extended_desc = "This is effectively an internal beaker."
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	complexity = 4
 	inputs = list()
 	outputs = list("volume used" = IC_PINTYPE_NUMBER, "self reference" = IC_PINTYPE_REF)
@@ -217,7 +217,7 @@
 	desc = "Stores liquid inside, and away from electrical components.  Can store up to 60u.  This will also suppress reactions."
 	icon_state = "reagent_storage_cryo"
 	extended_desc = "This is effectively an internal cryo beaker."
-	flags = OPENCONTAINER | NOREACT
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER | ATOM_FLAG_NO_REACT
 	complexity = 8
 	spawn_flags = IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
@@ -227,7 +227,7 @@
 	desc = "Stores liquid inside, and away from electrical components.  Can store up to 180u."
 	icon_state = "reagent_storage_big"
 	extended_desc = "This is effectively an internal beaker."
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	complexity = 16
 	volume = 180
 	spawn_flags = IC_SPAWN_RESEARCH
@@ -238,7 +238,7 @@
 	desc = "Stores liquid inside, and away from electrical components.  Can store up to 60u.  On pulse this beaker will send list of contained reagents, as well as analyse their taste."
 	icon_state = "reagent_scan"
 	extended_desc = "Mostly useful for reagent filters."
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	complexity = 8
 	outputs = list("volume used" = IC_PINTYPE_NUMBER,"self reference" = IC_PINTYPE_REF,"list of reagents" = IC_PINTYPE_LIST,"taste" = IC_PINTYPE_STRING)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN)
@@ -263,7 +263,7 @@
 	It will move all reagents, except list, given in fourth pin if amount value is positive.\
 	Or it will move only desired reagents if amount is negative, The third pin determines \
 	how much reagent is moved per pulse, between 0 and 50. Amount is given for each separate reagent."
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	complexity = 8
 	inputs = list("source" = IC_PINTYPE_REF, "target" = IC_PINTYPE_REF, "injection amount" = IC_PINTYPE_NUMBER, "list of reagents" = IC_PINTYPE_LIST)
 	inputs_default = list("3" = 5)

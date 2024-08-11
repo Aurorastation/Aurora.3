@@ -83,7 +83,7 @@
 	else
 		to_chat(src, "You will no longer hear music in the game lobby.")
 		if(istype(mob, /mob/abstract/new_player))
-			src << sound(null, repeat = 0, wait = 0, volume = 85, channel = 1) // stop the jamsz)
+			src << sound(null, repeat = 0, wait = 0, volume = 85, channel = CHANNEL_LOBBYMUSIC) // stop the jamsz)
 	feedback_add_details("admin_verb","TLobby") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/verb/togglemidis()
@@ -164,3 +164,21 @@
 	prefs.toggles_secondary ^= FLOATING_MESSAGES
 	prefs.save_preferences()
 	to_chat(src, SPAN_NOTICE("Floating messages are now [prefs.toggles_secondary & FLOATING_MESSAGES ? "enabled" : "disabled"]."))
+
+/client/verb/toggle_item_outlines()
+	set name = "Toggle Item Outlines"
+	set desc = "Toggles outlines appearing on items in your inventory."
+	set category = "Preferences"
+
+	prefs.toggles_secondary ^= SEE_ITEM_OUTLINES
+	prefs.save_preferences()
+	to_chat(src, SPAN_NOTICE("Item outlines are now [prefs.toggles_secondary & SEE_ITEM_OUTLINES ? "enabled" : "disabled"]."))
+
+/client/verb/toggle_item_tooltips()
+	set name = "Toggle Item Tooltips"
+	set desc = "Toggles tooltips appearing on items in your inventory."
+	set category = "Preferences"
+
+	prefs.toggles_secondary ^= HIDE_ITEM_TOOLTIPS
+	prefs.save_preferences()
+	to_chat(src, SPAN_NOTICE("Item outlines are now [prefs.toggles_secondary & HIDE_ITEM_TOOLTIPS ? "disabled" : "enabled"]."))

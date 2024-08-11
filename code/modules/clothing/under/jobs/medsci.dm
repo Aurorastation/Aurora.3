@@ -33,6 +33,14 @@
 	icon_state = "zav_scientist"
 	item_state = "zav_scientist"
 
+/obj/item/clothing/under/rank/scientist/einstein
+	name = "einstein scientist's jumpsuit"
+	desc_extended = "Doing away with the hideous purple of the SCC's science uniforms in favor of yet more dull greens, \
+	Einstein Engines' science uniforms push new frontiers of style just as their wearers push everything else."
+	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon_state = "ee_scientist"
+	item_state = "ee_scientist"
+
 // Xenobotanist
 
 /obj/item/clothing/under/rank/scientist/botany
@@ -97,6 +105,25 @@
 	icon_state = "zav_xenoarch"
 	item_state = "zav_xenoarch"
 
+/obj/item/clothing/under/rank/scientist/anomalist
+	name = "anomalist's jumpsuit"
+	desc = "It's made of a special fiber that provides minor protection against explosions. It has markings that denote the wearer as an anomalist."
+	icon_state = "nt_xenoarch"
+	item_state = "nt_xenoarch"
+	permeability_coefficient = 0.50
+	armor = list(
+		bomb = ARMOR_BOMB_MINOR
+	)
+
+/obj/item/clothing/under/rank/scientist/anomalist/zeng
+	icon_state = "zeng_xenoarch"
+	item_state = "zeng_xenoarch"
+
+/obj/item/clothing/under/rank/scientist/anomalist/zavod
+	icon_state = "zav_xenoarch"
+	item_state = "zav_xenoarch"
+
+
 /*
  * Medical
  */
@@ -139,6 +166,12 @@
 		bio = ARMOR_BIO_MINOR
 	)
 
+/obj/item/clothing/under/rank/medical/generic
+	icon_state = "generic_scrubs"
+	item_state = "generic_scrubs"
+	icon = 'icons/clothing/under/uniforms/generic_scrubs.dmi'
+	has_accents = TRUE
+
 /obj/item/clothing/under/rank/medical/zeng
 	icon_state = "zeng_phys"
 	item_state = "zeng_phys"
@@ -171,31 +204,31 @@
 	icon_state = "pmc_alt_intern"
 	item_state = "pmc_alt_intern"
 
-// First Responder
+// Paramedic
 
-/obj/item/clothing/under/rank/medical/first_responder
-	name = "first responder jumpsuit"
-	desc = "It's made of a special fiber that provides minor protection against biohazards. It's a special jumpsuit made for first responders."
+/obj/item/clothing/under/rank/medical/paramedic
+	name = "paramedic jumpsuit"
+	desc = "It's made of a special fiber that provides minor protection against biohazards. It's a special jumpsuit made for paramedics."
 	icon_state = "nt_emt"
 	item_state = "nt_emt"
 
-/obj/item/clothing/under/rank/medical/first_responder/zeng
+/obj/item/clothing/under/rank/medical/paramedic/zeng
 	icon_state = "zeng_emt"
 	item_state = "zeng_emt"
 
-/obj/item/clothing/under/rank/medical/first_responder/pmc
+/obj/item/clothing/under/rank/medical/paramedic/pmc
 	icon_state = "pmc_emt"
 	item_state = "pmc_emt"
 
-/obj/item/clothing/under/rank/medical/first_responder/pmc/alt
+/obj/item/clothing/under/rank/medical/paramedic/pmc/alt
 	icon_state = "pmc_emt"
 	item_state = "pmc_emt"
 
-/obj/item/clothing/under/rank/medical/first_responder/pmc/epmc
+/obj/item/clothing/under/rank/medical/paramedic/pmc/epmc
 	icon_state = "epmc_emt"
 	item_state = "epmc_emt"
 
-/obj/item/clothing/under/rank/medical/first_responder/pmc/sekh
+/obj/item/clothing/under/rank/medical/paramedic/pmc/sekh
 	icon_state = "sekh_emt"
 	item_state = "sekh_emt"
 
@@ -266,5 +299,5 @@
 	item_state = "pmc_chemist"
 
 /obj/item/clothing/under/rank/medical/pharmacist/pmc/alt
-	icon_state = "pmc_chemist"
-	item_state = "pmc_chemist"
+	icon_state = "pmc_alt_chemist"
+	item_state = "pmc_alt_chemist"

@@ -4,11 +4,11 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "eshield0"
 	item_state = "nothing"
-	layer = TURF_LAYER+0.2
+	layer = BELOW_TABLE_LAYER
 
-	flags = CONDUCT
-	force = 5.0
-	w_class = ITEMSIZE_TINY
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	force = 11
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	throwforce = 5.0
 	throw_range = 15
@@ -25,20 +25,23 @@
 	camera = new(src)
 	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
-/obj/item/device/spy_bug/examine(mob/user, distance)
+/obj/item/device/spy_bug/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 0)
-		to_chat(user, "It's a tiny camera, microphone, and transmission device in a happy union.")
-		to_chat(user, "Needs to be both configured and brought in contact with monitor device to be fully functional.")
+		. += "It's a tiny camera, microphone, and transmission device in a happy union."
+		. += "Needs to be both configured and brought in contact with monitor device to be fully functional."
 
 /obj/item/device/spy_bug/attack_self(mob/user)
 	radio.set_broadcasting(!radio.get_broadcasting())
 	to_chat(user, "\The [src]'s radio is [radio.get_broadcasting() ? "broadcasting" : "not broadcasting"] now. The current frequency is [radio.get_frequency()].")
 	radio.attack_self(user)
 
-/obj/item/device/spy_bug/attackby(obj/W as obj, mob/living/user as mob)
-	if(istype(W, /obj/item/device/spy_monitor))
-		var/obj/item/device/spy_monitor/SM = W
+/obj/item/device/spy_bug/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(user))
+		return
+
+	if(istype(attacking_item, /obj/item/device/spy_monitor))
+		var/obj/item/device/spy_monitor/SM = attacking_item
 		SM.pair(src, user)
 		return TRUE
 	else
@@ -55,7 +58,7 @@
 	icon_state = "pda"
 	item_state = "electronic"
 
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1, TECH_ILLEGAL = 3)
 
@@ -68,10 +71,10 @@
 	radio = new(src)
 	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
-/obj/item/device/spy_monitor/examine(mob/user, distance)
+/obj/item/device/spy_monitor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
-		to_chat(user, "The time '12:00' is blinking in the corner of the screen and \the [src] looks very cheaply made.")
+		. += "The time '12:00' is blinking in the corner of the screen and \the [src] looks very cheaply made."
 
 /obj/item/device/spy_monitor/attack_self(mob/user)
 	if(operating)
@@ -80,19 +83,22 @@
 	radio.attack_self(user)
 	view_cameras(user)
 
-/obj/item/device/spy_monitor/attackby(obj/W as obj, mob/living/user as mob)
-	if(istype(W, /obj/item/device/spy_bug))
-		pair(W, user)
+/obj/item/device/spy_monitor/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(user))
+		return
+
+	if(istype(attacking_item, /obj/item/device/spy_bug))
+		pair(attacking_item, user)
 		return TRUE
 	else
 		return ..()
 
 /obj/item/device/spy_monitor/proc/pair(var/obj/item/device/spy_bug/SB, var/mob/living/user)
 	if(SB.camera in cameras)
-		to_chat(user, "<span class='notice'>\The [SB] has been unpaired from \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("\The [SB] has been unpaired from \the [src]."))
 		cameras -= SB.camera
 	else
-		to_chat(user, "<span class='notice'>\The [SB] has been paired with \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("\The [SB] has been paired with \the [src]."))
 		cameras += SB.camera
 
 /obj/item/device/spy_monitor/proc/view_cameras(mob/user)
@@ -112,10 +118,10 @@
 	spawn(0)
 		while(selected_camera && Adjacent(user))
 			var/turf/T = get_turf(selected_camera)
-			if(!T || !is_on_same_plane_or_station(T.z, user.z) || !selected_camera.can_use())
+			if(!T || !(T.z == user.z || !is_station_level(T.z) || !is_station_level(user.z)) || !selected_camera.can_use())
 				user.unset_machine()
 				user.reset_view(null)
-				to_chat(user, "<span class='notice'>[selected_camera] unavailable.</span>")
+				to_chat(user, SPAN_NOTICE("[selected_camera] unavailable."))
 				sleep(90)
 			else
 				user.set_machine(selected_camera)
@@ -129,8 +135,8 @@
 		return
 
 	if(!cameras.len)
-		to_chat(user, "<span class='warning'>No paired cameras detected!</span>")
-		to_chat(user, "<span class='warning'>Bring a bug in contact with this device to pair the camera.</span>")
+		to_chat(user, SPAN_WARNING("No paired cameras detected!"))
+		to_chat(user, SPAN_WARNING("Bring a bug in contact with this device to pair the camera."))
 		return
 
 	return 1

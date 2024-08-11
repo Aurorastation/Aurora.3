@@ -8,5 +8,5 @@
 	require_all_templates = 1
 
 /datum/game_mode/siege/pre_setup()
-	round_description = "Some crewmembers are attempting to start a revolution while a mercenary strike force is approaching the [current_map.station_type]!"
+	round_description = "Some crewmembers are attempting to start a revolution while a mercenary strike force is approaching the [SSatlas.current_map.station_type]!"
 	. = ..()

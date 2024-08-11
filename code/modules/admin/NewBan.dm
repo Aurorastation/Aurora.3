@@ -10,8 +10,8 @@ var/savefile/Banlist
 
 	. = list()
 	var/appeal
-	if(config && config.banappeals)
-		appeal = "\nFor more information on your ban, or to appeal, head to <a href='[config.banappeals]'>[config.banappeals]</a>"
+	if(GLOB.config && GLOB.config.banappeals)
+		appeal = "\nFor more information on your ban, or to appeal, head to <a href='[GLOB.config.banappeals]'>[GLOB.config.banappeals]</a>"
 	Banlist.cd = "/base"
 	if( "[ckey][id]" in Banlist.dir )
 		Banlist.cd = "[ckey][id]"
@@ -106,7 +106,7 @@ var/savefile/Banlist
 
 	Banlist.cd = "/base"
 	if ( Banlist.dir.Find("[ckey][computerid]") )
-		to_chat(usr, text("<span class='warning'>Ban already exists.</span>"))
+		to_chat(usr, SPAN_WARNING("Ban already exists."))
 		return 0
 	else
 		Banlist.dir.Add("[ckey][computerid]")
@@ -133,11 +133,11 @@ var/savefile/Banlist
 	if (!Banlist.dir.Remove(foldername)) return 0
 
 	if(!usr)
-		log_admin("Ban Expired: [key]",ckey=key)
+		log_admin("Ban Expired: [key]")
 		message_admins("Ban Expired: [key]")
 	else
 		ban_unban_log_save("[key_name_admin(usr)] unbanned [key]")
-		log_admin("[key_name_admin(usr)] unbanned [key]",admin_key=key_name(usr),ckey=key)
+		log_admin("[key_name_admin(usr)] unbanned [key]")
 		message_admins("[key_name_admin(usr)] unbanned: [key]")
 		feedback_inc("ban_unban",1)
 		DB_ban_unban( ckey(key), BANTYPE_ANY_FULLBAN)

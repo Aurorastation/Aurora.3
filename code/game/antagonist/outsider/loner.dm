@@ -37,8 +37,8 @@ var/datum/antagonist/loner/loners
 		if(I.loc != player)
 			qdel(I)
 
-	player.preEquipOutfit(/datum/outfit/admin/syndicate/mercenary/loner, FALSE)
-	player.equipOutfit(/datum/outfit/admin/syndicate/mercenary/loner, FALSE)
+	player.preEquipOutfit(/obj/outfit/admin/syndicate/mercenary/loner, FALSE)
+	player.equipOutfit(/obj/outfit/admin/syndicate/mercenary/loner, FALSE)
 	player.set_psi_rank(PSI_RANK_HARMONIOUS)
 	var/singleton/psionic_power/P = GET_SINGLETON(/singleton/psionic_power/zona_absorption)
 	P.apply(player)

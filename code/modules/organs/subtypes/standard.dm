@@ -8,7 +8,7 @@
 	icon_name = "torso"
 	max_damage = 100
 	min_broken_damage = 35
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	body_part = UPPER_TORSO
 	vital = TRUE
 	amputation_point = "spine"
@@ -25,7 +25,7 @@
 	return UPPER_TORSO
 
 /obj/item/organ/external/chest/covered_bleed_report(var/blood_type)
-	return "[owner.get_pronoun("has")] [blood_type] running down their thighs!"
+	return "[owner.get_pronoun("has")] [blood_type] running down [owner.get_pronoun("his")] thighs!"
 
 /obj/item/organ/external/groin
 	name = "lower body"
@@ -33,7 +33,7 @@
 	icon_name = "groin"
 	max_damage = 100
 	min_broken_damage = 35
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	body_part = LOWER_TORSO
 	parent_organ = BP_CHEST
 	amputation_point = "lumbar"
@@ -65,7 +65,7 @@
 	return UPPER_TORSO
 
 /obj/item/organ/external/groin/covered_bleed_report(var/blood_type)
-	return "[owner.get_pronoun("has")] [blood_type] running down their thighs!"
+	return "[owner.get_pronoun("has")] [blood_type] running down [owner.get_pronoun("his")] thighs!"
 
 /obj/item/organ/external/arm
 	limb_name = BP_L_ARM
@@ -73,7 +73,7 @@
 	icon_name = "l_arm"
 	max_damage = 65
 	min_broken_damage = 30
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	body_part = ARM_LEFT
 	parent_organ = BP_CHEST
 	joint = "left elbow"
@@ -88,7 +88,7 @@
 	return ARMS
 
 /obj/item/organ/external/arm/covered_bleed_report(var/blood_type)
-	return "[owner.get_pronoun("has")] [blood_type] running down their sleeves!"
+	return "[owner.get_pronoun("has")] [blood_type] running down [owner.get_pronoun("his")] sleeves!"
 
 /obj/item/organ/external/arm/right
 	limb_name = BP_R_ARM
@@ -106,7 +106,7 @@
 	icon_name = "l_leg"
 	max_damage = 65
 	min_broken_damage = 30
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	body_part = LEG_LEFT
 	icon_position = LEFT
 	parent_organ = BP_GROIN
@@ -122,7 +122,7 @@
 	return LEGS
 
 /obj/item/organ/external/leg/covered_bleed_report(var/blood_type)
-	return "[owner.get_pronoun("has")] [blood_type] pooling at their feet!"
+	return "[owner.get_pronoun("has")] [blood_type] pooling at [owner.get_pronoun("his")] feet!"
 
 /obj/item/organ/external/leg/right
 	limb_name = BP_R_LEG
@@ -139,7 +139,7 @@
 	icon_name = "l_foot"
 	max_damage = 50
 	min_broken_damage = 15
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_part = FOOT_LEFT
 	icon_position = LEFT
 	parent_organ = BP_L_LEG
@@ -153,7 +153,7 @@
 	return LEGS
 
 /obj/item/organ/external/foot/covered_bleed_report(var/blood_type)
-	return "[owner.get_pronoun("has")] [blood_type] pooling at their feet!"
+	return "[owner.get_pronoun("has")] [blood_type] pooling at [owner.get_pronoun("his")] feet!"
 
 /obj/item/organ/external/foot/removed()
 	if(owner)
@@ -176,7 +176,7 @@
 	icon_name = "l_hand"
 	max_damage = 50
 	min_broken_damage = 15
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_part = HAND_LEFT
 	parent_organ = BP_L_ARM
 	joint = "left wrist"
@@ -190,7 +190,7 @@
 	return ARMS
 
 /obj/item/organ/external/hand/covered_bleed_report(var/blood_type)
-	return "[owner.get_pronoun("has")] [blood_type] running down their sleeves!"
+	return "[owner.get_pronoun("has")] [blood_type] running down [owner.get_pronoun("his")] sleeves!"
 
 /obj/item/organ/external/hand/take_damage(brute, burn, damage_flags, used_weapon, list/forbidden_limbs, silent)
 	. = ..()
@@ -221,7 +221,7 @@
 	name = BP_HEAD
 	max_damage = 75
 	min_broken_damage = 35
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	body_part = HEAD | FACE
 	vital = TRUE
 	parent_organ = BP_CHEST
@@ -237,9 +237,11 @@
 	return HEAD
 
 /obj/item/organ/external/head/covered_bleed_report(var/blood_type)
-	return "[owner.get_pronoun("has")] [blood_type] running down their neck!"
+	return "[owner.get_pronoun("has")] [blood_type] running down [owner.get_pronoun("his")] neck!"
 
 /obj/item/organ/external/head/removed()
+	get_icon()
+
 	if(owner)
 		name = "[owner.real_name]'s head"
 		owner.drop_from_inventory(owner.glasses)
@@ -247,8 +249,8 @@
 		owner.drop_from_inventory(owner.l_ear)
 		owner.drop_from_inventory(owner.r_ear)
 		owner.drop_from_inventory(owner.wear_mask)
-		spawn(1)
-			owner.update_hair()
+		owner.update_hair()
+
 	..()
 
 /obj/item/organ/external/head/take_damage(brute, burn, damage_flags, used_weapon = null, list/forbidden_limbs = list(), var/silent)

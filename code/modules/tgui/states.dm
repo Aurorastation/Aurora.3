@@ -119,7 +119,7 @@
 	return ..()
 
 /// NanoUI compat, remove when done
-/datum/proc/CanUseTopic(mob/user, datum/ui_state/state = default_state)
+/datum/proc/CanUseTopic(mob/user, datum/ui_state/state = GLOB.default_state)
 	var/datum/src_object = ui_host()
 	return state.can_use_topic(src_object, user)
 

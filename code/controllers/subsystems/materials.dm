@@ -1,17 +1,17 @@
 SUBSYSTEM_DEF(materials)
 	name = "Materials"
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 	flags = SS_NO_FIRE
 
 	var/list/materials
 	var/list/materials_by_name
 
-	var/list/autolathe_recipes
 	var/list/autolathe_categories
 
 /datum/controller/subsystem/materials/Initialize()
 	create_material_lists()
-	. = ..()
+
+	return SS_INIT_SUCCESS
 
 /**
  * Initialize the lists of materials, if they are not initialized already

@@ -8,7 +8,7 @@
 //			/old_invisibility: invisibility before the change
 //			/new_invisibility: invisibility after the change
 
-var/singleton/observ/invisibility_set/set_invisible_event = new()
+GLOBAL_DATUM_INIT(set_invisible_event, /singleton/observ/invisibility_set, new)
 
 /singleton/observ/invisibility_set
 	name = "Invisibility Set"
@@ -22,5 +22,5 @@ var/singleton/observ/invisibility_set/set_invisible_event = new()
 	var/old_invisibility = invisibility
 	if(old_invisibility != new_invisibility)
 		invisibility = new_invisibility
-		set_invisible_event.raise_event(src, old_invisibility, new_invisibility)
+		GLOB.set_invisible_event.raise_event(src, old_invisibility, new_invisibility)
 		update_above()

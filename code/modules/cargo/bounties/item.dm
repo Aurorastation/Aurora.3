@@ -1,10 +1,37 @@
 /datum/bounty/item
+	/**
+	 * The amount of items that are required to complete the bounty
+	 */
 	var/required_count = 1
+
+	/**
+	 * The amount of items that were shipped, that satisfies the bounty
+	 */
 	var/shipped_count = 0
-	var/list/wanted_types = list() // Types accepted for the bounty.
-	var/include_subtypes = TRUE     // Set to FALSE to make the datum apply only to a strict type.
-	var/list/exclude_types = list() // Types excluded.
-	var/random_count = 0 //number. This will randomize required_count when initialized by picking a random amount of required_count + and - this number. at least 1 will always be required count. Leave at 0 to not randomize.
+
+	/**
+	 * A `/list` of types accepted for the bounty
+	 *
+	 * If `include_subtypes` is `TRUE`, subtypes will also be accepted
+	 */
+	var/list/wanted_types = list()
+
+	/**
+	 * Boolean, if `TRUE`, subtypes of the types listed in `wanted_types` will be accepted
+	 */
+	var/include_subtypes = TRUE
+
+	/**
+	 * A `/list` of types excluded from the bounty
+	 */
+	var/list/exclude_types = list()
+
+	/**
+	 * This will randomize required_count when initialized by picking a random amount of required_count + and - this number
+	 *
+	 * At least 1 will always be required count. Leave at 0 to not randomize.
+	 */
+	var/random_count = 0
 
 
 /datum/bounty/item/New()

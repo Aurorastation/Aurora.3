@@ -3,6 +3,8 @@
 	no_fake = 1
 
 /datum/event/grid_check/start()
+	..()
+
 	power_failure(0, severity)
 
 /datum/event/grid_check/announce()

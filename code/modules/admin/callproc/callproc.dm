@@ -4,7 +4,7 @@
 	set name = "Advanced ProcCall"
 
 	if(!check_rights(R_DEBUG)) return
-	if(config.debugparanoid && !check_rights(R_ADMIN)) return
+	if(GLOB.config.debugparanoid && !check_rights(R_ADMIN)) return
 
 	var/target = null
 	var/targetselected = 0
@@ -20,7 +20,7 @@
 				if("Area or Turf")
 					target = input("Select target:", "Target", get_turf(usr)) as null|area|turf in world
 				if("Client")
-					target = input("Select target:", "Target", usr.client) as null|anything in clients
+					target = input("Select target:", "Target", usr.client) as null|anything in GLOB.clients
 				else
 					return
 			if(!target)
@@ -36,7 +36,7 @@
 	set name = "Advanced ProcCall Target"
 
 	if(!check_rights(R_DEBUG)) return
-	if(config.debugparanoid && !check_rights(R_ADMIN)) return
+	if(GLOB.config.debugparanoid && !check_rights(R_ADMIN)) return
 
 	callproc_targetpicked(1, A)
 
@@ -44,7 +44,7 @@
 
 	// this needs checking again here because VV's 'Call Proc' option directly calls this proc with the target datum
 	if(!check_rights(R_DEBUG)) return
-	if(config.debugparanoid && !check_rights(R_ADMIN)) return
+	if(GLOB.config.debugparanoid && !check_rights(R_ADMIN)) return
 
 	var/returnval = null
 
@@ -126,7 +126,7 @@
 				if(isnull(current)) return
 
 			if("client")
-				current = input("Select client for [arguments.len+1]\th argument") as null|anything in clients
+				current = input("Select client for [arguments.len+1]\th argument") as null|anything in GLOB.clients
 				if(isnull(current)) return
 
 			if("mob's area")
@@ -151,7 +151,7 @@
 		if(!target)
 			to_chat(usr, "Your callproc target no longer exists.")
 			return
-		log_admin("[key_name(src)] called [target]'s [procname]() with [arguments.len ? "the arguments [list2params(arguments)]" : "no arguments"].",admin_key=key_name(src))
+		log_admin("[key_name(src)] called [target]'s [procname]() with [arguments.len ? "the arguments [list2params(arguments)]" : "no arguments"].")
 		if(arguments.len)
 			returnval = call(target, procname)(arglist(arguments))
 		else
@@ -162,7 +162,7 @@
 			to_chat(usr, "Invalid proc path /proc/[procname].")
 			return
 
-		log_admin("[key_name(src)] called [procname]() with [arguments.len ? "the arguments [list2params(arguments)]" : "no arguments"].",admin_key=key_name(src))
+		log_admin("[key_name(src)] called [procname]() with [arguments.len ? "the arguments [list2params(arguments)]" : "no arguments"].")
 		returnval = call(procpath)(arglist(arguments))
 
 	to_chat(usr, "<span class='info'>[procname]() returned: [isnull(returnval) ? "null" : returnval]</span>")

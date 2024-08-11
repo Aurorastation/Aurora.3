@@ -1,0 +1,14 @@
+2014-01-01:
+  Various:
+  - rscadd: AntagHUD and MedicalHUD for ghosts, see who the baddies are, check for
+      new configuration options.
+  - rscadd: Ghosts will now have bold text if they are in the same room as the person
+      making conversations easier to follow.
+  - rscadd: New hairstyles!  Now you can use something other then hotpink floor length
+      braid.
+  - wip: DNA rework, tell us how you were cloned and became albino!
+  - rscadd: Dirty floors, so now you know exactly how lazy the janitors are!
+  - rscadd: A new UI system, feel free to color it yourself, don't set it to completely
+      clear or you will have a bad time.
+  - rscadd: Cryogenic storage, for all your SSD needs.
+  - rscadd: New hardsuits for those syndicate tajaran

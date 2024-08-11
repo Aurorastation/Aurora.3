@@ -6,10 +6,10 @@
 	name = "altar"
 	},
 /obj/item/material/knife/raskariim,
-/turf/simulated/floor/exoplanet/barren/raskara,
+/turf/template_noop,
 /area/exoplanet/barren/raskara)
 "f" = (
-/turf/simulated/floor/exoplanet/barren/raskara,
+/turf/template_noop,
 /area/exoplanet/barren/raskara)
 
 (1,1,1) = {"

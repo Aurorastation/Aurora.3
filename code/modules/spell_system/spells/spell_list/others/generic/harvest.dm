@@ -41,7 +41,7 @@
 		T.cultify()
 
 	var/destination = null
-	for(var/obj/singularity/narsie/large/N in narsie_list)
+	for(var/obj/singularity/narsie/large/N in GLOB.narsie_list)
 		destination = N.loc
 		break
 	if(destination)
@@ -51,6 +51,6 @@
 				M.forceMove(destination)
 				if(M != user)
 					prey = 1
-		to_chat(user, "<span class='alert'>You warp back to Nar-Sie[prey ? " along with your prey":""].</span>")
+		to_chat(user, SPAN_ALERT("You warp back to Nar-Sie[prey ? " along with your prey":""]."))
 	else
-		to_chat(user, "<span class='danger'>...something's wrong!</span>")//There shouldn't be an instance of Harvesters when Nar-Sie isn't in the world.)
+		to_chat(user, SPAN_DANGER("...something's wrong!"))//There shouldn't be an instance of Harvesters when Nar-Sie isn't in the world.)

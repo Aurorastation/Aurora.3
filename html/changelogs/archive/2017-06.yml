@@ -1,0 +1,7 @@
+2017-06-13:
+  Nanako:
+  - bugfix: Fixed personal AI's having all-access to the station. They are now back
+      to only having the access of their master.
+2017-06-15:
+  inselc:
+  - bugfix: Mice and drones are no longer able to push lockers around.

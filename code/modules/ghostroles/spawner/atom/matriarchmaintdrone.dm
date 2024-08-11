@@ -10,7 +10,7 @@
 	spawn_mob = /mob/living/silicon/robot/drone/construction/matriarch
 
 /datum/ghostspawner/matriarchmaintdrone/New()
-	desc = "Delegate tasks to your lesser maintenance drones. Maintain and improve the systems on the [current_map.station_name]."
+	desc = "Delegate tasks to your lesser maintenance drones. Maintain and improve the systems on the [SSatlas.current_map.station_name]."
 	..()
 
 /datum/ghostspawner/matriarchmaintdrone/spawn_mob(mob/user)

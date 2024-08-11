@@ -8,13 +8,13 @@
 	bitesize = 5
 	reagents_to_add = list(/singleton/reagent/kois = 6, /singleton/reagent/toxin/phoron = 9)
 
-/obj/item/reagent_containers/food/snacks/friedkois/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/stack/rods))
+/obj/item/reagent_containers/food/snacks/friedkois/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/rods))
 		new /obj/item/reagent_containers/food/snacks/koiskebab1(src)
 		to_chat(user, "You skewer the fried k'ois.")
 		qdel(src)
-		qdel(W)
-	if(istype(W,/obj/item/material/kitchen/rollingpin))
+		qdel(attacking_item)
+	if(istype(attacking_item, /obj/item/material/kitchen/rollingpin))
 		new /obj/item/reagent_containers/food/snacks/soup/kois(src)
 		to_chat(user, "You crush the fried K'ois into a paste, and pour it into a bowl.")
 		qdel(src)
@@ -29,12 +29,12 @@
 	bitesize = 3
 	reagents_to_add = list(/singleton/reagent/kois = 8, /singleton/reagent/toxin/phoron = 12)
 
-/obj/item/reagent_containers/food/snacks/koiskebab1/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/reagent_containers/food/snacks/friedkois))
+/obj/item/reagent_containers/food/snacks/koiskebab1/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/friedkois))
 		new /obj/item/reagent_containers/food/snacks/koiskebab2(src)
 		to_chat(user, "You add fried K'ois to the kebab.")
 		qdel(src)
-		qdel(W)
+		qdel(attacking_item)
 
 /obj/item/reagent_containers/food/snacks/koiskebab2
 	name = "k'ois on a stick"
@@ -99,7 +99,7 @@
 	desc = "Some well-done k'ois, grilled to perfection."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
 	icon_state = "kois_steak"
-	filling_color = "#dcd9cd"
+	filling_color = "#E6E600"
 	reagents_to_add = list(/singleton/reagent/kois = 20, /singleton/reagent/toxin/phoron = 15)
 	bitesize = 7
 
@@ -109,7 +109,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
 	icon_state = "kois_donut"
 	item_state = "kois_donut"
-	filling_color = "#dcd9cd"
+	filling_color = "#E6E600"
 	overlay_state = "box-kois_donut"
 	reagents_to_add = list(/singleton/reagent/kois = 15, /singleton/reagent/toxin/phoron = 10)
 	bitesize = 5
@@ -119,7 +119,7 @@
 	desc = "Baked k'ois goop, molded into a little cake."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
 	icon_state = "kois_muffin"
-	filling_color = "#dcd9cd"
+	filling_color = "#E6E600"
 	reagents_to_add = list(/singleton/reagent/kois = 10, /singleton/reagent/toxin/phoron = 15)
 	bitesize = 5
 
@@ -128,8 +128,16 @@
 	desc = "K'ois inside k'ois. Peak Vaurcesian cuisine."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
 	icon_state = "kois_burger"
-	filling_color = "#dcd9cd"
+	filling_color = "#E6E600"
 	reagents_to_add = list(/singleton/reagent/kois = 20, /singleton/reagent/toxin/phoron = 20)
+	bitesize = 8
+
+/obj/item/reagent_containers/food/snacks/nakarka_burger
+	name = "nakarka burger"
+	desc = "A k'ois burger with a slice of soft, tangy nakarka cheese."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
+	icon_state = "nakarka_burger"
+	filling_color = "#92cc34"
 	bitesize = 8
 
 /obj/item/storage/box/fancy/vkrexitaffy
@@ -173,3 +181,71 @@
 	reagents_to_add = list(/singleton/reagent/toxin/phoron = 25)
 	bitesize = 5
 	trash = /obj/item/trash/phoroncandy
+
+/obj/item/reagent_containers/food/snacks/sliceable/koisroulade
+	name = "k'ois roulade"
+	desc = "Don't worry, there's enough K'ois for everyone!"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
+	icon_state = "koisroulade"
+	trash = /obj/item/trash/plate
+	filling_color = "#E6E600"
+	bitesize = 5
+	reagents_to_add = list(/singleton/reagent/kois = 30, /singleton/reagent/toxin/phoron = 20)
+	slice_path = /obj/item/reagent_containers/food/snacks/koisrouladeslice
+	slices_num = 5
+	reagent_data = list(/singleton/reagent/kois = list("k'ois" = 10, "party" = 2))
+
+/obj/item/reagent_containers/food/snacks/koisrouladeslice
+	name = "k'ois roulade slice"
+	desc = "K'ois, with a twist!"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
+	icon_state = "koisrouladeslice"
+	trash = /obj/item/trash/plate
+	filling_color = "#E6E600"
+	bitesize = 5
+
+/obj/item/reagent_containers/food/snacks/koisrouladeslice/filled
+	reagents_to_add = list(/singleton/reagent/kois = 6, /singleton/reagent/toxin/phoron = 4)
+	reagent_data = list(/singleton/reagent/kois = list("k'ois" = 5, "party" = 2))
+
+/obj/item/reagent_containers/food/snacks/vkrexiwrap/meat
+	name = "meat v'krexi wrap"
+	desc = "A food invented by Zo'ra Queenless with the intent of appealing to humans, the v'krexi wrap is similar to a burrito but with a special sauce extracted from v'krexi. This one is filled with meat."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
+	icon_state = "vkrexiwrap_meat"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein = 6, /singleton/reagent/mental/vkrexi = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("tortilla" = 8, "bittersweet sauce" = 8), /singleton/reagent/nutriment/protein = list("meat" = 10))
+
+/obj/item/reagent_containers/food/snacks/vkrexiwrap/veggie
+	name = "veggie v'krexi wrap"
+	desc = "A food invented by Zo'ra Queenless with the intent of appealing to humans, the v'krexi wrap is similar to a burrito but with a special sauce extracted from v'krexi. This one is filled with veggies."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
+	icon_state = "vkrexiwrap_veggie"
+	reagents_to_add = list(/singleton/reagent/nutriment = 9, /singleton/reagent/capsaicin = 4, /singleton/reagent/mental/vkrexi = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("assorted vegetables" = 8, "peppers" = 5, "bittersweet sauce" = 8))
+
+/obj/item/reagent_containers/food/snacks/phoron_river_loaf
+	name = "phoron river loaf"
+	desc = "A new creation. It is a small baked loaf made of reshaped fried K'ois molded into two mounds, with one river of phoron rock candy running between them, and another one through the center of the loaf. It is carefully baked to give it a mixture of both fluffiness and crunch."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
+	icon_state = "phoron_river_loaf"
+	filling_color = "#E6E600"
+	reagents_to_add = list(/singleton/reagent/kois = 15, /singleton/reagent/toxin/phoron = 35)
+	bitesize = 10
+
+/obj/item/reagent_containers/food/snacks/koicomb
+	name = "koicomb"
+	desc = "vvvell aren't vvve vvvancy? this uncommon confection is often served in large gatherings and events, where it's served as a very large sheet, with guests tearing or slicing off as much as they'd like to have."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
+	icon_state = "koicomb"
+	filling_color = "#E6E600"
+	reagents_to_add = list(/singleton/reagent/kois = 20, /singleton/reagent/toxin/phoron = 20, /singleton/reagent/drink/milk/nemiik = 5)
+	bitesize = 8
+
+/obj/item/reagent_containers/food/snacks/koicomb/update_icon()
+	var/percent_koicomb = round((reagents.total_volume / 45) * 100)
+	switch(percent_koicomb)
+		if(0 to 50)
+			icon_state = "koicomb_bitten"
+		if(51 to INFINITY)
+			icon_state = "koicomb"

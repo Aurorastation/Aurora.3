@@ -12,8 +12,8 @@
 	icon_state = "bus"
 	desc = "A mighty piece of hardware used to send massive amounts of data quickly."
 	telecomms_type = /obj/machinery/telecomms/bus
-	idle_power_usage = 1 KILOWATTS
-	active_power_usage = 3 KILOWATTS
+	idle_power_usage = 1 KILO WATTS
+	active_power_usage = 3 KILO WATTS
 	circuitboard = "/obj/item/circuitboard/telecomms/bus"
 	netspeed = 40
 	var/change_frequency = 0

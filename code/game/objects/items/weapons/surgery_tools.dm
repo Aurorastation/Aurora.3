@@ -13,10 +13,14 @@
 	desc = DESC_PARENT
 	icon = 'icons/obj/surgery.dmi'
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	drop_sound = 'sound/items/drop/weldingtool.ogg'
 	pickup_sound = 'sound/items/pickup/weldingtool.ogg'
 	recyclable = TRUE
+
+/obj/item/surgery/Initialize(mapload, ...)
+	. = ..()
+	item_flags |= ITEM_FLAG_SURGERY
 
 /*
  * Retractor
@@ -28,7 +32,7 @@
 	item_state = "retractor"
 	surgerysound = 'sound/items/surgery/retractor.ogg'
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 
 /*
@@ -41,7 +45,7 @@
 	item_state = "hemostat"
 	surgerysound = 'sound/items/surgery/hemostat.ogg'
 	matter = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("attacked", "pinched")
 
@@ -55,7 +59,7 @@
 	item_state = "cautery"
 	surgerysound = 'sound/items/surgery/cautery.ogg'
 	matter = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("burnt")
 
@@ -70,9 +74,9 @@
 	surgerysound = 'sound/items/surgery/surgicaldrill.ogg'
 	hitsound = /singleton/sound_category/drillhit_sound
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 10000)
-	flags = CONDUCT
-	force = 15
-	w_class = ITEMSIZE_NORMAL
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	force = 22
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("drilled")
 	drop_sound = 'sound/items/drop/accessory.ogg'
@@ -87,11 +91,11 @@
 	icon_state = "scalpel"
 	item_state = "scalpel"
 	surgerysound = 'sound/items/surgery/scalpel.ogg'
-	flags = CONDUCT
-	force = 10
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	force = 15
 	sharp = 1
 	edge = TRUE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	throwforce = 5
 	throw_speed = 3
@@ -105,35 +109,23 @@
 /*
  * Researchable Scalpels
  */
-/obj/item/surgery/scalpel/laser1
-	name = "laser scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks basic and could be improved."
-	icon_state = "scalpel_laser1"
-	surgerysound = 'sound/items/surgery/cautery.ogg'
-	damtype = "fire"
 
-/obj/item/surgery/scalpel/laser2
+/obj/item/surgery/scalpel/laser
 	name = "laser scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks somewhat advanced."
-	icon_state = "scalpel_laser2"
+	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field."
+	icon_state = "scalpel_laser"
 	surgerysound = 'sound/items/surgery/cautery.ogg'
+	matter = list(DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500)
 	damtype = "fire"
-	force = 12
-
-/obj/item/surgery/scalpel/laser3
-	name = "laser scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks to be the pinnacle of precision energy cutlery!"
-	icon_state = "scalpel_laser3"
-	surgerysound = 'sound/items/surgery/cautery.ogg'
-	damtype = "fire"
-	force = 15
+	force = 18
 
 /obj/item/surgery/scalpel/manager
 	name = "incision management system"
 	desc = "A true extension of the surgeon's body, this marvel instantly and completely prepares an incision allowing for the immediate commencement of therapeutic steps."
 	icon_state = "scalpel_manager"
 	surgerysound = 'sound/items/surgery/cautery.ogg'
-	force = 7.5
+	matter = list (DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500, MATERIAL_SILVER = 1500, MATERIAL_GOLD = 1500, MATERIAL_DIAMOND = 750)
+	force = 8
 
 /*
  * Circular Saw
@@ -145,9 +137,9 @@
 	item_state = "saw"
 	surgerysound = 'sound/items/surgery/circularsaw.ogg'
 	hitsound = 'sound/weapons/saw/circsawhit.ogg'
-	flags = CONDUCT
-	force = 15
-	w_class = ITEMSIZE_NORMAL
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	force = 22
+	w_class = WEIGHT_CLASS_NORMAL
 	throwforce = 9
 	throw_speed = 3
 	throw_range = 5
@@ -190,7 +182,7 @@
 	icon_state = "bonesetter"
 	item_state = "bonesetter"
 	surgerysound = 'sound/items/surgery/bonesetter.ogg'
-	force = 8
+	force = 18
 	throwforce = 9
 	throw_speed = 3
 	throw_range = 5
@@ -205,7 +197,7 @@
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
 	force = 2
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	storage_slots = 10
 	attack_verb = list("slammed")
 	icon_type = "surgery tool"
@@ -238,7 +230,7 @@
 	)
 
 /obj/item/storage/box/fancy/tray/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	var/list/types_and_overlays = list(
 		/obj/item/surgery/bonesetter = "tray_bonesetter",
@@ -247,9 +239,7 @@
 		/obj/item/surgery/hemostat = "tray_hemostat",
 		/obj/item/surgery/retractor = "tray_retractor",
 		/obj/item/surgery/scalpel = "tray_scalpel",
-		/obj/item/surgery/scalpel/laser1 = "tray_scalpel_laser1",
-		/obj/item/surgery/scalpel/laser2 = "tray_scalpel_laser2",
-		/obj/item/surgery/scalpel/laser3 = "tray_scalpel_laser3",
+		/obj/item/surgery/scalpel/laser = "tray_scalpel_laser",
 		/obj/item/surgery/scalpel/manager = "tray_scalpel_manager",
 		/obj/item/surgery/surgicaldrill = "tray_drill",
 		/obj/item/surgery/bone_gel = "tray_bone-gel",
@@ -262,14 +252,14 @@
 	)
 	for (var/obj/item/W in contents)
 		if (types_and_overlays[W.type])
-			add_overlay(types_and_overlays[W.type])
+			AddOverlays(types_and_overlays[W.type])
 			types_and_overlays -= W.type
 
 /obj/item/storage/box/fancy/tray/fill()
 	. = ..()
 	update_icon()
 
-/obj/item/storage/box/fancy/tray/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/storage/box/fancy/tray/attackby(obj/item/attacking_item, mob/user)
 	..()
 	update_icon()
 
@@ -286,10 +276,10 @@
 			if (H.hand)
 				temp = H.organs_by_name[BP_L_HAND]
 			if(temp && !temp.is_usable())
-				to_chat(user, "<span class='notice'>You try to move your [temp.name], but cannot!</span>")
+				to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 				return
 
-			to_chat(user, "<span class='notice'>You pick up the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You pick up the [src]."))
 			pixel_x = 0
 			pixel_y = 0
 			forceMove(get_turf(user))

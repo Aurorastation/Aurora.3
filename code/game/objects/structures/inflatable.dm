@@ -4,7 +4,7 @@
 /obj/item/inflatable
 	name = "inflatable"
 	desc_info = "Inflate by using it in your hand. The inflatable barrier will inflate on the turf you are standing on. To deflate it, use the 'deflate' verb."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/item/inflatables.dmi'
 	var/deploy_path = null
 
@@ -66,7 +66,7 @@
 		return TRUE
 	return FALSE
 
-/obj/structure/inflatable/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/inflatable/bullet_act(var/obj/projectile/Proj)
 	var/proj_damage = Proj.get_structure_damage()
 	if(!proj_damage)
 		return
@@ -96,17 +96,17 @@
 	add_fingerprint(user)
 	return
 
-/obj/structure/inflatable/attackby(obj/item/W, mob/user)
-	if(!istype(W) || istype(W, /obj/item/inflatable_dispenser))
+/obj/structure/inflatable/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item) || istype(attacking_item, /obj/item/inflatable_dispenser))
 		return
 	if(deflating)
 		return
 
-	if(W.can_puncture())
-		user.visible_message(SPAN_DANGER("[user] pierces \the [src] with \the [W]!"), SPAN_WARNING("You pierce \the [src] with \the [W]!"))
+	if(attacking_item.can_puncture())
+		user.visible_message(SPAN_DANGER("[user] pierces \the [src] with \the [attacking_item]!"), SPAN_WARNING("You pierce \the [src] with \the [attacking_item]!"))
 		deflate(TRUE)
-	else if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
-		hit(W.force)
+	else if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
+		hit(attacking_item.force)
 		..()
 
 /obj/structure/inflatable/proc/hit(var/damage, var/sound_effect = TRUE)
@@ -286,7 +286,7 @@
 	icon_state = "inf_box"
 	item_state = "inf_box"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	display_contents_with_number = TRUE
 	max_storage_space = 28
 	force_column_number = 3 // we want 4 slots to appear, so 3 columns + 1 free (to insert stuff)

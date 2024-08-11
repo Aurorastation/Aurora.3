@@ -1,4 +1,7 @@
 /mob/living/carbon/human
+
+	blocks_emissive = EMISSIVE_BLOCK_NONE
+
 	// Tail Style
 	var/tail_style = null
 

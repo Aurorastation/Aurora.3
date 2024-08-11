@@ -29,7 +29,7 @@
 	return rate * 10
 
 /obj/machinery/power/emitter/gyrotron/get_emitter_beam()
-	var/obj/item/projectile/beam/emitter/E = ..()
+	var/obj/projectile/beam/emitter/E = ..()
 	E.damage = mega_energy * 50
 	return E
 
@@ -39,8 +39,8 @@
 	else
 		icon_state = "emitter-off"
 
-/obj/machinery/power/emitter/gyrotron/attackby(obj/item/W, mob/user)
-	if(W.ismultitool())
+/obj/machinery/power/emitter/gyrotron/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
 		var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 		fusion.get_new_tag(user)
 		return

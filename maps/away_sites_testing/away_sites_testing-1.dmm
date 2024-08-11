@@ -13,15 +13,11 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "e" = (
-/obj/effect/landmark/start{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /turf/simulated/floor/tiled,
 /area/space)
 "V" = (
-/obj/effect/landmark{
-	name = "tdome1"
-	},
+/obj/effect/landmark/thunderdome1,
 /turf/simulated/floor/tiled,
 /area/space)
 

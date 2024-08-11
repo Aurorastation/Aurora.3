@@ -1,5 +1,5 @@
 ///Stinger grenade projectile
-/obj/item/projectile/bullet/rubberball/stinger_ball
+/obj/projectile/bullet/rubberball/stinger_ball
 	damage = 2
 	agony = 50
 	armor_penetration = 10
@@ -10,7 +10,6 @@
 	spread_step = 20
 
 	suppressed = TRUE //embedding messages are still produced so it's kind of weird when enabled.
-	no_attack_log = 1
 	muzzle_type = null
 
 /obj/item/grenade/stinger
@@ -18,9 +17,9 @@
 	desc = "A stinger grenade, designed to explode and expel rubber balls over an area for less-lethal takedowns. Popular with many law enforcement agencies."
 	icon_state = "stinger"
 
-	var/num_fragments = 70  ///total number of balls produced by the grenade
+	var/num_fragments = 100  ///total number of balls produced by the grenade
 	var/fragment_damage = 2
-	var/damage_step = 2      //projectiles lose a fragment each time they travel this distance. Can be a non-integer.
+	var/damage_step = 3      //projectiles lose a fragment each time they travel this distance. Can be a non-integer.
 	var/explosion_size = 1   ///size of the center explosion
 
 	//The radius of the circle used to launch projectiles. Lower values mean less projectiles are used but if set too low gaps may appear in the spread pattern
@@ -34,7 +33,7 @@
 	var/fragments_per_projectile = round(fragger/target_turfs.len)
 
 	for(var/turf/T in target_turfs)
-		var/obj/item/projectile/bullet/rubberball/stinger_ball/P = new (O)
+		var/obj/projectile/bullet/rubberball/stinger_ball/P = new (O)
 
 		P.damage = p_dam
 		P.balls = fragments_per_projectile

@@ -60,3 +60,11 @@
 	bluecrystal_cost = 5
 	desc = "A augment implanter, with a Hivenet defense augment and electronic warfare suite. ONLY WORKS ON VAURCA!"
 	path = /obj/item/device/augment_implanter/hivenet_warfare
+
+/datum/uplink_item/item/implants/telefreedom_kit
+	name = "Telefreedom Kit"
+	bluecrystal_cost = 15
+	item_limit = 1
+	desc = "A box containing a telefreedom full kit, which allows you to teleport to a linked telepad that you \
+			will build once. Comes with everything you need for 4 people. You supply the screwdriver and have to build it."
+	path = /obj/item/storage/box/telefreedom_kit

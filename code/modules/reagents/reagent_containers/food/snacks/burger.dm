@@ -11,16 +11,22 @@
 	bitesize = 2
 
 // Burger + cheese wedge = cheeseburger
-/obj/item/reagent_containers/food/snacks/burger/attackby(obj/item/reagent_containers/food/snacks/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/reagent_containers/food/snacks/cheesewedge))// && !istype(src,/obj/item/reagent_containers/food/snacks/cheesewedge))
+/obj/item/reagent_containers/food/snacks/burger/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/cheesewedge))// && !istype(src,/obj/item/reagent_containers/food/snacks/cheesewedge))
 		new /obj/item/reagent_containers/food/snacks/burger/cheese(src)
 		to_chat(user, "You make a cheeseburger.")
-		qdel(W)
+		qdel(attacking_item)
 		qdel(src)
 		return
-	else if(istype(W,/obj/item/reagent_containers/food/snacks))
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/nakarka_wedge)) // Burger + nakarka wedge = nakarka hamburger. You could make it this way but then it doesn't filter out the chem that upsets human and taj stomaches.
+		new /obj/item/reagent_containers/food/snacks/burger/nakarka_hamburger/ungrilled(src)
+		to_chat(user, "You slap a slice of ungrilled nakarka on the burger.")
+		qdel(attacking_item)
+		qdel(src)
+		return
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/csandwich/burger/B = new(get_turf(src))
-		B.attackby(W,user)
+		B.attackby(attacking_item, user)
 		qdel(src)
 	else
 		..()
@@ -169,7 +175,7 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("buns" = 25))
 	bitesize = 10
 
-/obj/item/reagent_containers/food/snacks/nt_muffin
+/obj/item/reagent_containers/food/snacks/burger/nt_muffin
 	name = "\improper NtMuffin"
 	desc = "A NanoTrasen sponsered biscuit with egg, cheese, and sausage."
 	icon_state = "nt_muffin"
@@ -208,3 +214,36 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 8)
 	reagent_data = list(/singleton/reagent/nutriment = list("buns" = 2))
 	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/chickenparm
+	name = "chicken parm hero"
+	desc = "Fried chicken with cheese and tomato sauce, served on a bread roll."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "parmsandwich"
+	filling_color = "#7e4118"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 4, /singleton/reagent/nutriment/protein/cheese = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("tomato sauce" = 2), /singleton/reagent/nutriment/protein = list("fried chicken" = 4))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/sloppyjoe
+	name = "sloppy joe"
+	desc = "Yum yum! Hope you brought a napkin!... or ten."
+	icon = 'icons/obj/item/reagent_containers/food/burger.dmi'
+	icon_state = "sloppyjoe"
+	item_state = "burger" // Don't touch this unless you know what you're doing
+	filling_color = "#7e4118"
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("barbecue sauce" = 5, "bun" = 5), /singleton/reagent/nutriment/protein = list("ground beef" = 5))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/burger/nakarka_hamburger
+	name = "nakarka hamburger" //wrote "hamburger" in full to set it apart from "nakarkaburger" which is a kois dish
+	desc = "A delicious hamburger with green Nakarka cheese. Grilling the cheese makes it palatable for Humans and Tajara as well. This meal is not to be confused with the K'ois version of the same meal. No. Seriously. DO NOT CONFUSE IT."
+	icon_state = "nakarkaburger"
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("sharp tangyness" = 4, "bun" = 2), /singleton/reagent/nutriment/protein = list("meat" = 4))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/burger/nakarka_hamburger/ungrilled
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nakarka = 2, /singleton/reagent/nutriment/protein = 3)

@@ -6,8 +6,8 @@
 	pickup_sound = 'sound/items/pickup/component.ogg'
 	origin_tech = list(TECH_MAGNET = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 800, MATERIAL_GLASS = 200)
-	flags = PROXMOVE
-	wires = WIRE_PULSE
+	movable_flags = MOVABLE_FLAG_PROXMOVE
+	wires = WIRE_PULSE_ASSEMBLY
 
 	secured = FALSE
 
@@ -82,13 +82,13 @@
 	return
 
 /obj/item/device/assembly/prox_sensor/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	attached_overlays = list()
 	if(timing)
-		add_overlay("prox_timing")
+		AddOverlays("prox_timing")
 		attached_overlays += "prox_timing"
 	if(scanning)
-		add_overlay("prox_scanning")
+		AddOverlays("prox_scanning")
 		attached_overlays += "prox_scanning"
 	if(holder)
 		holder.update_icon()

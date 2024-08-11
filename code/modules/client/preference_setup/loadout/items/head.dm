@@ -64,7 +64,6 @@
 	softcaps["softcap, operations"] = /obj/item/clothing/head/softcap/cargo
 	softcaps["softcap, mining"] = /obj/item/clothing/head/softcap/miner
 	softcaps["softcap, janitor"] = /obj/item/clothing/head/softcap/custodian
-	softcaps["softcap, tcfl"] = /obj/item/clothing/head/softcap/tcfl
 
 	gear_tweaks += new /datum/gear_tweak/path(softcaps)
 
@@ -102,6 +101,11 @@
 	path = /obj/item/clothing/head/beret/colorable
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/head/peaked_beret_colour
+	display_name = "beret, peaked (colourable)"
+	path = /obj/item/clothing/head/beret/peaked/colourable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/head/sidecap
 	display_name = "side cap"
 	path = /obj/item/clothing/head/sidecap
@@ -111,7 +115,7 @@
 	display_name = "headwear, security (warden)"
 	description = "A selection of warden headwear."
 	path = /obj/item/clothing/head
-	allowed_roles = list("Head of Security" , "Warden")
+	allowed_roles = list("Head of Security" , "Warden", "Security Personnel")
 
 /datum/gear/head/warden/New()
 	..()
@@ -139,7 +143,7 @@
 /datum/gear/head/hardhat
 	display_name = "hard hat selection"
 	path = /obj/item/clothing/head/hardhat
-	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Operations Manager", "Hangar Technician", "Shaft Miner", "Xenoarchaeologist")
+	allowed_roles = list("Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Operations Manager", "Hangar Technician", "Shaft Miner", "Xenoarchaeologist", "Engineering Personnel", "Operations Personnel")
 
 /datum/gear/head/hardhat/New()
 	..()
@@ -239,6 +243,12 @@
 	hats_colourable["hat, sun hat with band"] = /obj/item/clothing/head/wide_hat/alt
 	hats_colourable["hat, wide pointed"] = /obj/item/clothing/head/wide_hat/pointed
 	hats_colourable["hat, wide pointed with band"] = /obj/item/clothing/head/wide_hat/pointed/alt
+	hats_colourable["hat, slouch"] = /obj/item/clothing/head/slouch
+	hats_colourable["hat, sun visor"] = /obj/item/clothing/head/sun_visor
+	hats_colourable["hat, newsboy"] = /obj/item/clothing/head/newsboy
+	hats_colourable["hat, legionnaire"] = /obj/item/clothing/head/legionnaire
+	hats_colourable["hat, boonie"] = /obj/item/clothing/head/bucket/boonie
+
 	gear_tweaks += new /datum/gear_tweak/path(hats_colourable)
 
 /datum/gear/head/hijab
@@ -264,6 +274,11 @@
 	path = /obj/item/clothing/head/hijab
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 	slot = slot_r_ear
+
+/datum/gear/head/plain_hood
+	display_name = "colorable hood"
+	path = /obj/item/clothing/head/plain_hood
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/head/turban
 	display_name = "turban selection"
@@ -292,7 +307,7 @@
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
 	path = /obj/item/clothing/head/surgery/pmc
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel")
 
 /datum/gear/head/surgical/New()
 	..()
@@ -315,6 +330,11 @@
 	path = /obj/item/clothing/head/beanie
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/head/tight_beanie
+	display_name = "tight beanie"
+	path = /obj/item/clothing/head/tight_beanie
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/head/beanie_alt
 	display_name = "winter beanie"
 	path = /obj/item/clothing/head/beanie/winter
@@ -334,11 +354,23 @@
 	path = /obj/item/clothing/head/hachimaki
 	flags = GEAR_HAS_DESC_SELECTION
 
+/datum/gear/head/bearpelt
+	display_name = "bear pelt hat"
+	path = /obj/item/clothing/head/bearpelt
+	description = "A fuzzy pelt to wear on your head."
+	flags = GEAR_HAS_DESC_SELECTION
+
+/datum/gear/head/gentlecap
+	display_name = "gentlemans cap"
+	path = /obj/item/clothing/head/wizard/cap
+	description = "A checkered gray flat cap woven together with the rarest of threads."
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
 /datum/gear/head/iac
 	display_name = "IAC headgear selection"
 	description = "A selection of hats worn by Interstellar Aid Corps volunteers."
 	path = /obj/item/clothing/head/softcap/iac
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Medical Personnel")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/iac/New()
@@ -352,17 +384,20 @@
 	display_name = "headwear, circuitry (empty)"
 	path = /obj/item/clothing/head/circuitry
 
-/datum/gear/head/tcfl
-	display_name = "tcfl hat selection"
+/datum/gear/head/tcaf
+	display_name = "tcaf hat selection"
 	path = /obj/item/clothing/head/beret/legion
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/head/tcfl/New()
+/datum/gear/head/tcaf/New()
 	..()
-	var/list/tcfl = list()
-	tcfl["tcfl beret, dress"] = /obj/item/clothing/head/beret/legion
-	tcfl["tcfl beret, field"] = /obj/item/clothing/head/beret/legion/field
-	gear_tweaks += new /datum/gear_tweak/path(tcfl)
+	var/list/tcaf = list()
+	tcaf["tcaf beret, dress"] = /obj/item/clothing/head/beret/legion/tcaf
+	tcaf["tcaf beret, field"] = /obj/item/clothing/head/beret/legion/tcaf/tcaf_field
+	tcaf["tcfl beret, dress"] = /obj/item/clothing/head/beret/legion
+	tcaf["tcfl beret, field"] = /obj/item/clothing/head/beret/legion/field
+	tcaf["tcfl softcap"] = /obj/item/clothing/head/softcap/tcfl
+	gear_tweaks += new /datum/gear_tweak/path(tcaf)
 
 /datum/gear/head/padded_cap
 	display_name = "padded cap"
@@ -462,6 +497,10 @@
 	path = /obj/item/clothing/head/ushanka/nyakas
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
+/datum/gear/head/artistberet
+	display_name = "artist beret"
+	path = /obj/item/clothing/head/beret/artist/colourable
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 /*
 	Block Hair Adjustment
 */
@@ -474,7 +513,7 @@ var/datum/gear_tweak/hair_block/gear_tweak_hair_block = new()
 	return "Default"
 
 /datum/gear_tweak/hair_block/get_metadata(var/user, var/metadata)
-	return input(user, "Choose whether you want your headgear to block hair, or use the headgear's default.", "Hair Blocking", metadata) as anything in list("Yes", "No", "Default")
+	return tgui_input_list(user, "Choose whether you want your headgear to block hair, or use the headgear's default.", "Hair Blocking", list("Yes", "No", "Default"), metadata)
 
 /datum/gear_tweak/hair_block/tweak_item(var/obj/item/clothing/head/H, var/metadata)
 	if(!istype(H))
@@ -486,3 +525,4 @@ var/datum/gear_tweak/hair_block/gear_tweak_hair_block = new()
 			H.flags_inv |= BLOCKHEADHAIR
 		if("No")
 			H.flags_inv &= ~BLOCKHEADHAIR
+

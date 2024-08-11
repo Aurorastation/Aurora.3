@@ -11,10 +11,10 @@
 	icon_state = "pane"
 	alpha = 196
 	density = TRUE
-	w_class = ITEMSIZE_NORMAL
-	layer = WINDOW_PANE_LAYER
+	w_class = WEIGHT_CLASS_NORMAL
+	layer = SIDE_WINDOW_LAYER
 	anchored = TRUE
-	flags = ON_BORDER
+	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
 	var/hitsound = 'sound/effects/glass_hit.ogg'
 	var/maxhealth = 14
@@ -33,28 +33,28 @@
 
 	atmos_canpass = CANPASS_PROC
 
-/obj/structure/window/examine(mob/user)
+/obj/structure/window/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 
 	if(health == maxhealth)
-		to_chat(user, SPAN_NOTICE("It looks fully intact."))
+		. += SPAN_NOTICE("It looks fully intact.")
 	else
 		var/perc = health / maxhealth
 		if(perc > 0.75)
-			to_chat(user, SPAN_NOTICE("It has a few cracks."))
+			. += SPAN_NOTICE("It has a few cracks.")
 		else if(perc > 0.5)
-			to_chat(user, SPAN_WARNING("It looks slightly damaged."))
+			. += SPAN_WARNING("It looks slightly damaged.")
 		else if(perc > 0.25)
-			to_chat(user, SPAN_WARNING("It looks moderately damaged."))
+			. += SPAN_WARNING("It looks moderately damaged.")
 		else
-			to_chat(user, SPAN_DANGER("It looks heavily damaged."))
+			. += SPAN_DANGER("It looks heavily damaged.")
 	if(silicate)
 		if (silicate < 30)
-			to_chat(user, SPAN_NOTICE("It has a thin layer of silicate."))
+			. += SPAN_NOTICE("It has a thin layer of silicate.")
 		else if (silicate < 70)
-			to_chat(user, SPAN_NOTICE("It is covered in silicate."))
+			. += SPAN_NOTICE("It is covered in silicate.")
 		else
-			to_chat(user, SPAN_NOTICE("There is a thick layer of silicate covering it."))
+			. += SPAN_NOTICE("There is a thick layer of silicate covering it.")
 
 /obj/structure/window/proc/update_nearby_icons()
 	SSicon_smooth.add_to_queue_neighbors(src)
@@ -62,9 +62,9 @@
 /obj/structure/window/update_icon()
 	if(!full)
 		if(dir == SOUTH)
-			layer = ABOVE_MOB_LAYER
+			layer = ABOVE_HUMAN_LAYER
 		else
-			layer = WINDOW_PANE_LAYER
+			layer = SIDE_WINDOW_LAYER
 	SSicon_smooth.add_to_queue(src)
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)
@@ -104,12 +104,12 @@
 		updateSilicate()
 
 /obj/structure/window/proc/updateSilicate()
-	cut_overlays()
+	ClearOverlays()
 
 	var/image/img = image(icon, icon_state)
 	img.color = "#ffffff"
 	img.alpha = silicate * 255 / 100
-	add_overlay(img)
+	AddOverlays(img)
 
 /obj/structure/window/proc/shatter(var/display_message = 1)
 	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
@@ -138,7 +138,7 @@
 	qdel(src)
 	return
 
-/obj/structure/window/bullet_act(var/obj/item/projectile/Proj)
+/obj/structure/window/bullet_act(var/obj/projectile/Proj)
 	var/proj_damage = Proj.get_structure_damage()
 	if(!proj_damage)
 		return
@@ -167,48 +167,48 @@
 	return (dir == SOUTHWEST || dir == SOUTHEAST || dir == NORTHWEST || dir == NORTHEAST)
 
 /obj/structure/window/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(istype(mover) && mover.checkpass(PASSGLASS))
+	if(istype(mover) && mover.pass_flags & PASSGLASS)
 		return 1
 	if(is_full_window())
-		return 0	//full tile window, you can't move into it!
+		return !density	//full tile window, you can't move into it if it's solid!
 	if(get_dir(loc, target) & dir)
 		return !density
 	else
 		return 1
 
 /obj/structure/window/CheckExit(atom/movable/O, turf/target)
-	if(istype(O) && O.checkpass(PASSGLASS))
+	if(istype(O) && O.pass_flags & PASSGLASS)
 		return 1
 	if(get_dir(O.loc, target) == dir)
 		return 0
 	return 1
 
-/obj/structure/window/hitby(AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
+/obj/structure/window/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
 	var/tforce = 0
-	if(ismob(AM))
-		if(isliving(AM))
-			var/mob/living/M = AM
-			M.turf_collision(src, speed, /singleton/sound_category/glasscrack_sound)
+	if(ismob(hitting_atom))
+		if(isliving(hitting_atom))
+			var/mob/living/M = hitting_atom
+			M.turf_collision(src, throwingdatum.speed, /singleton/sound_category/glasscrack_sound)
 			return
 		else
-			visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
+			visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."))
 		tforce = 40
-	else if(isobj(AM))
-		visible_message(SPAN_DANGER("\The [src] was hit by \the [AM]."))
-		var/obj/item/I = AM
+	else if(isobj(hitting_atom))
+		visible_message(SPAN_DANGER("\The [src] was hit by \the [hitting_atom]."))
+		var/obj/item/I = hitting_atom
 		tforce = I.throwforce
 	if(reinf)
 		tforce *= 0.25
 	if(health - tforce <= 7 && !reinf)
 		anchored = 0
 		update_nearby_icons()
-		step(src, get_dir(AM, src))
+		step(src, get_dir(hitting_atom, src))
 	take_damage(tforce)
 
-/obj/structure/window/attack_hand(var/mob/user)
+/obj/structure/window/attack_hand(var/mob/living/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(HAS_FLAG(user.mutations, HULK))
+	if((user.mutations & HULK) && !(user.isSynthetic()) && !(isvaurca(user)))
 		user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!"))
 		user.visible_message(SPAN_DANGER("[user] smashes through [src]!"))
 		user.do_attack_animation(src)
@@ -249,42 +249,42 @@
 	playsound(loc, 'sound/effects/glass_hit.ogg', 50, 1)
 	return TRUE
 
-/obj/structure/window/attackby(obj/item/W, mob/user)
-	if(!istype(W) || istype(W, /obj/item/flag))
+/obj/structure/window/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item) || istype(attacking_item, /obj/item/flag))
 		return
-	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
-		var/obj/item/grab/G = W
+	if(istype(attacking_item, /obj/item/grab) && get_dist(src,user)<2)
+		var/obj/item/grab/G = attacking_item
 		if(istype(G.affecting,/mob/living))
 			grab_smash_attack(G, DAMAGE_BRUTE)
 			return
 
-	if(W.flags & NOBLUDGEON)
+	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 		return
 
-	if(W.isscrewdriver() && user.a_intent != I_HURT)
+	if(attacking_item.isscrewdriver() && user.a_intent != I_HURT)
 		if(reinf && state >= 1)
 			state = 3 - state
 			update_nearby_icons()
-			playsound(loc, W.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			to_chat(user, (state == 1 ? SPAN_NOTICE("You have unfastened the window from the frame.") : SPAN_NOTICE("You have fastened the window to the frame.")))
 		else if(reinf && state == 0)
 			anchored = !anchored
 			update_icon()
 			update_nearby_icons()
-			playsound(loc, W.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the frame to the floor.") : SPAN_NOTICE("You have unfastened the frame from the floor.")))
 		else if(!reinf)
 			anchored = !anchored
 			update_nearby_icons()
-			playsound(loc, W.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the window to the floor.") : SPAN_NOTICE("You have unfastened the window.")))
 			update_icon()
 			update_nearby_icons()
-	else if(W.iscrowbar() && reinf && state <= 1 && user.a_intent != I_HURT)
+	else if(attacking_item.iscrowbar() && reinf && state <= 1 && user.a_intent != I_HURT)
 		state = 1 - state
-		playsound(loc, W.usesound, 75, 1)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		to_chat(user, (state ? SPAN_NOTICE("You have pried the window into the frame.") : SPAN_NOTICE("You have pried the window out of the frame.")))
-	else if(W.iswrench() && !anchored && (!state || !reinf) && user.a_intent != I_HURT)
+	else if(attacking_item.iswrench() && !anchored && (!state || !reinf) && user.a_intent != I_HURT)
 		if(!glasstype)
 			to_chat(user, SPAN_NOTICE("You're not sure how to dismantle \the [src] properly."))
 		else
@@ -292,19 +292,19 @@
 			dismantle_window()
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
+		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
 			if(reinf)
 				user.do_attack_animation(src)
-				if(W.force >= REINFORCED_WINDOW_DAMAGE_FORCE)
-					user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with \the [W]!"))
-					playsound(src, hitsound, W.get_clamped_volume(), 1)
-					hit(W.force)
+				if(attacking_item.force >= REINFORCED_WINDOW_DAMAGE_FORCE)
+					user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with \the [attacking_item]!"))
+					playsound(src, hitsound, attacking_item.get_clamped_volume(), 1)
+					hit(attacking_item.force)
 				else
-					user.visible_message(SPAN_WARNING("[user] hits \the [src] with \the [W], but it glances off, doing no damage."))
-					playsound(src, hitsound, W.get_clamped_volume(), 1)
+					user.visible_message(SPAN_WARNING("[user] hits \the [src] with \the [attacking_item], but it glances off, doing no damage."))
+					playsound(src, hitsound, attacking_item.get_clamped_volume(), 1)
 			else
 				user.do_attack_animation(src)
-				hit(W.force)
+				hit(attacking_item.force)
 			if(health <= 7)
 				anchored = 0
 				update_nearby_icons()
@@ -376,24 +376,40 @@
 	update_nearby_tiles()
 	var/turf/location = loc
 	loc = null
+
 	for(var/obj/structure/window/W in orange(location, 1))
 		W.update_icon()
+
+	for(var/obj/structure/table/T in view(location, 1))
+		T.update_connections()
+		T.update_icon()
+
 	loc = location
+
 	return ..()
 
 /obj/structure/window/Move()
 	var/ini_dir = dir
+	var/oldloc = loc
+
 	update_nearby_tiles(need_rebuild=1)
+
 	..()
+
 	set_dir(ini_dir)
 	update_nearby_tiles(need_rebuild=1)
+
+	if(loc != oldloc)
+		for(var/obj/structure/table/T in view(oldloc, 1) | view(loc, 1))
+			T.update_connections()
+			T.update_icon()
 
 /obj/structure/window/proc/is_fulltile() // Checks if this window is a full-tile one.
 	if(dir & (dir - 1))
 		return 1
 	return 0
 
-/obj/structure/window/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/structure/window/fire_act(exposed_temperature, exposed_volume)
 	if(exposed_temperature > maximal_heat)
 		hit(damage_per_fire_tick, 0)
 	..()
@@ -464,7 +480,7 @@
 /obj/structure/window/reinforced/crescent/ex_act(var/severity = 2)
 	return
 
-/obj/structure/window/reinforced/crescent/hitby()
+/obj/structure/window/reinforced/crescent/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	return
 
 /obj/structure/window/reinforced/crescent/take_damage()
@@ -537,16 +553,15 @@
 	desc = "It looks rather strong. Might take a few good hits to shatter it."
 	icon = 'icons/obj/smooth/shuttle_window.dmi'
 	icon_state = "shuttle_window"
-	basestate = "window"
-	flags = 0
+	basestate = "w"
+	atom_flags = 0
 	obj_flags = null
 	maxhealth = 40
 	reinf = TRUE
-	basestate = "w"
 	dir = 5
 	smoothing_flags = SMOOTH_TRUE
 	can_be_unanchored = TRUE
-	layer = 2.99
+	layer = FULL_WINDOW_LAYER
 
 /obj/structure/window/shuttle/legion
 	name = "reinforced cockpit window"
@@ -614,14 +629,14 @@
 /obj/structure/window/full
 	name = "window"
 	desc = "You aren't supposed to see this."
-	flags = 0
+	atom_flags = 0
 	obj_flags = null
 	dir = 5
 	maxhealth = 28 // Two glass panes worth of health, since that's the minimum you need to break through to get to the other side.
 	glasstype = /obj/item/stack/material/glass
 	shardtype = /obj/item/material/shard
 	full = TRUE
-	layer = 2.99
+	layer = FULL_WINDOW_LAYER
 	base_frame = /obj/structure/window_frame
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
@@ -656,61 +671,61 @@
 		WF.has_glass_installed = FALSE
 	return ..()
 
-/obj/structure/window/full/attackby(obj/item/W, mob/user)
-	if(!istype(W) || istype(W, /obj/item/flag))
+/obj/structure/window/full/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item) || istype(attacking_item, /obj/item/flag))
 		return
-	if(istype(W, /obj/item/grab) && get_dist(src,user)<2)
-		var/obj/item/grab/G = W
+	if(istype(attacking_item, /obj/item/grab) && get_dist(src,user)<2)
+		var/obj/item/grab/G = attacking_item
 		if(istype(G.affecting,/mob/living))
 			grab_smash_attack(G, DAMAGE_BRUTE)
 			return
 
-	if(W.flags & NOBLUDGEON)
+	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON)
 		return
 
-	if(W.isscrewdriver() && user.a_intent != I_HURT)
+	if(attacking_item.isscrewdriver() && user.a_intent != I_HURT)
 		if(state == 2)
-			if(W.use_tool(src, user, 2 SECONDS, volume = 50))
+			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You have unfastened the glass from the window frame."))
 				state--
 				update_nearby_icons()
 		else if(state == 1)
-			if(W.use_tool(src, user, 2 SECONDS, volume = 50))
+			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You have fastened the glass to the window frame."))
 				state++
 				update_nearby_icons()
-	else if(W.iscrowbar() && user.a_intent != I_HURT)
+	else if(attacking_item.iscrowbar() && user.a_intent != I_HURT)
 		if(state == 1)
-			if(W.use_tool(src, user, 2 SECONDS, volume = 50))
+			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You pry the glass out of the window frame."))
 				state--
 				update_nearby_icons()
 		else if(state == 0)
-			if(W.use_tool(src, user, 2 SECONDS, volume = 50))
+			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You pry the glass into the window frame."))
 				state++
 				update_nearby_icons()
-	else if(W.iswrench() && user.a_intent != I_HURT)
+	else if(attacking_item.iswrench() && user.a_intent != I_HURT)
 		if(state == 0)
 			user.visible_message(SPAN_DANGER("\The [user] is dismantling \the [src]!"))
-			if(W.use_tool(src, user, 2 SECONDS, volume = 50))
+			if(attacking_item.use_tool(src, user, 2 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You undo the safety bolts and remove the glass from \the [src]."))
 				dismantle_window()
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
+		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
 			if(reinf)
 				user.do_attack_animation(src)
-				if(W.force >= FULL_REINFORCED_WINDOW_DAMAGE_FORCE)
-					user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with \the [W]!"))
-					playsound(src, hitsound, W.get_clamped_volume(), 1)
-					hit(W.force)
+				if(attacking_item.force >= FULL_REINFORCED_WINDOW_DAMAGE_FORCE)
+					user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with \the [attacking_item]!"))
+					playsound(src, hitsound, attacking_item.get_clamped_volume(), 1)
+					hit(attacking_item.force)
 				else
-					user.visible_message(SPAN_WARNING("[user] hits \the [src] with \the [W], but it glances off, doing no damage."))
-					playsound(src, hitsound, W.get_clamped_volume(), 1)
+					user.visible_message(SPAN_WARNING("[user] hits \the [src] with \the [attacking_item], but it glances off, doing no damage."))
+					playsound(src, hitsound, attacking_item.get_clamped_volume(), 1)
 			else
 				user.do_attack_animation(src)
-				hit(W.force)
+				hit(attacking_item.force)
 		else
 			playsound(src, hitsound, 10, 1)
 	return
@@ -773,7 +788,7 @@
 	reinf = TRUE
 	maximal_heat = T0C + 750
 	glasstype = /obj/item/stack/material/glass/reinforced
-	layer = 2.99
+	layer = FULL_WINDOW_LAYER
 	base_frame = /obj/structure/window_frame
 	smoothing_flags = SMOOTH_MORE
 
@@ -797,7 +812,7 @@
 /obj/structure/window/full/reinforced/indestructible/ex_act(var/severity = 2)
 	return
 
-/obj/structure/window/full/reinforced/indestructible/hitby()
+/obj/structure/window/full/reinforced/indestructible/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	return
 
 /obj/structure/window/full/reinforced/indestructible/take_damage()
@@ -830,7 +845,7 @@
 /obj/structure/window/full/reinforced/polarized/indestructible/ex_act(var/severity = 2)
 	return
 
-/obj/structure/window/full/reinforced/polarized/indestructible/hitby()
+/obj/structure/window/full/reinforced/polarized/indestructible/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	return
 
 /obj/structure/window/full/reinforced/polarized/indestructible/take_damage()

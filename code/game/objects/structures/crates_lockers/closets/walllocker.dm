@@ -8,12 +8,19 @@
 	icon_state = "walllocker" //...man, how OLD is this $#!?
 	door_anim_angle = 132
 	door_anim_squish = 0.38
-	door_hinge = -7
+	door_hinge_x = -7
 	door_anim_time = 2.7
 	store_mobs = FALSE
 	density = FALSE
 	anchored = TRUE
 	wall_mounted = TRUE
+
+/obj/structure/closet/walllocker/secure
+	name = "secure wall locker"
+	icon_door = "walllocker_secure"
+	icon_door_override = TRUE
+	locked = TRUE
+	secure = TRUE
 
 /obj/structure/closet/walllocker/emerglocker
 	name = "emergency locker"
@@ -86,4 +93,4 @@
 	icon_door_override = TRUE
 	locked = TRUE
 	secure = TRUE
-	req_access = list(access_medical_equip)
+	req_access = list(ACCESS_MEDICAL_EQUIP)

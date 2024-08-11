@@ -23,8 +23,8 @@
 	else if(smoothing_flags && !(smoothing_flags & SMOOTH_QUEUED)) // we check here because proc overhead
 		SSicon_smooth.add_to_queue(src)
 
-	if (current_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+	if (SSatlas.current_map.use_overmap)
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 		if (istype(E) && istype(E.theme))
 			E.theme.on_turf_generation(src, E.planetary_area)
 
@@ -32,15 +32,14 @@
 /turf/proc/ChangeToOpenturf()
 	. = ChangeTurf(/turf/space)
 
-//Creates a new turf.
-// N is the type of the turf.
-/turf/proc/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
-	if (!N)
+//Creates a new turf
+/turf/proc/ChangeTurf(path, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
+	if (!path)
 		return
 
 	// This makes sure that turfs are not changed to space when there's a multi-z turf below
-	if(ispath(N, /turf/space) && HasBelow(z) && !ignore_override)
-		N = openspace_override_type || /turf/simulated/open/airless
+	if(ispath(path, /turf/space) && GET_TURF_BELOW(src) && !ignore_override)
+		path = openspace_override_type || /turf/simulated/open/airless
 
 	var/obj/fire/old_fire = fire
 	var/old_baseturf = baseturf
@@ -52,6 +51,8 @@
 	var/list/old_corners = corners
 	var/list/old_blueprints = blueprints
 	var/list/old_decals = decals
+	var/old_outside = is_outside
+	var/old_is_open = is_open()
 
 	changing_turf = TRUE
 
@@ -60,8 +61,19 @@
 
 	// So we call destroy.
 	qdel(src)
+	//We do this here so anything that doesn't want to persist can clear itself
+	var/list/old_listen_lookup = _listen_lookup?.Copy()
+	var/list/old_signal_procs = _signal_procs?.Copy()
 
-	var/turf/W = new N(src)
+	var/turf/new_turf = new path(src)
+
+	// WARNING WARNING
+	// Turfs DO NOT lose their signals when they get replaced, REMEMBER THIS
+	// It's possible because turfs are fucked, and if you have one in a list and it's replaced with another one, the list ref points to the new turf
+	if(old_listen_lookup)
+		LAZYOR(new_turf._listen_lookup, old_listen_lookup)
+	if(old_signal_procs)
+		LAZYOR(new_turf._signal_procs, old_signal_procs)
 
 #ifndef AO_USE_LIGHTING_OPACITY
 	// If we're using opacity-based AO, this is done in recalc_atom_opacity().
@@ -88,41 +100,50 @@
 			else
 				lighting_clear_overlay()
 
-		if (config.starlight)
+		if (GLOB.config.starlight)
 			for (var/turf/space/S in RANGE_TURFS(1, src))
 				S.update_starlight()
 
-	W.above = old_above
+	new_turf.above = old_above
 
-	if(ispath(N, /turf/simulated))
+	if(ispath(path, /turf/simulated))
 		if(old_fire)
 			fire = old_fire
-		if (istype(W,/turf/simulated/floor))
-			W.RemoveLattice()
+		if (istype(new_turf, /turf/simulated/floor))
+			new_turf.RemoveLattice()
 	else if(old_fire)
 		old_fire.RemoveFire()
 
 	if(tell_universe)
-		universe.OnTurfChange(W)
+		GLOB.universe.OnTurfChange(new_turf)
+
+	// we check the var rather than the proc, because area outside values usually shouldn't be set on turfs
+	new_turf.last_outside_check = OUTSIDE_UNCERTAIN
+	if(new_turf.is_outside != old_outside)
+		new_turf.set_outside(old_outside, skip_weather_update = TRUE)
 
 	SSair.mark_for_update(src) //handle the addition of the new turf.
 
-	if(!W.baseturf)
-		W.baseturf = old_baseturf
+	if(!new_turf.baseturf)
+		new_turf.baseturf = old_baseturf
 
-	W.blueprints = old_blueprints
-	for(var/image/I as anything in W.blueprints)
-		I.loc = W
+	new_turf.blueprints = old_blueprints
+	for(var/image/I as anything in new_turf.blueprints)
+		I.loc = new_turf
 		I.plane = 0
 
-	W.decals = old_decals
+	new_turf.decals = old_decals
 
-	W.post_change(!mapload)
+	new_turf.post_change(!mapload)
 
-	. = W
+	new_turf.update_weather(force_update_below = new_turf.is_open() != old_is_open)
+
+	. = new_turf
 
 	for(var/turf/T in RANGE_TURFS(1, src))
 		T.update_icon()
+
+	updateVisibility(src, FALSE)
 
 /turf/proc/transport_properties_from(turf/other)
 	if(!istype(other, src.type))
@@ -172,11 +193,11 @@
 	other.roof_flags = roof_flags
 	other.roof_type = roof_type
 
-	if (our_overlays)
-		other.our_overlays = our_overlays
+	if (atom_overlay_cache)
+		other.atom_overlay_cache = atom_overlay_cache
 
-	if (priority_overlays)
-		other.priority_overlays = priority_overlays
+	if (atom_protected_overlay_cache)
+		other.atom_protected_overlay_cache = atom_protected_overlay_cache
 
 	other.overlays = overlays.Copy()
 

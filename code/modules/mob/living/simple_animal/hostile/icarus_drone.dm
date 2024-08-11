@@ -22,7 +22,7 @@
 	maxHealth = 300
 	blood_type = COLOR_OIL
 	speed = 8
-	projectiletype = /obj/item/projectile/beam/drone
+	projectiletype = /obj/projectile/beam/drone
 	projectilesound = 'sound/weapons/laser3.ogg'
 	destroy_surroundings = 0
 	var/datum/effect_system/ion_trail/ion_trail
@@ -56,10 +56,10 @@
 	tameable = FALSE
 
 	flying = TRUE
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	psi_pingable = FALSE
+	sample_data = null
 
 /mob/living/simple_animal/hostile/icarus_drone/Initialize()
 	. = ..()
@@ -67,7 +67,7 @@
 	set_light(1.2, 3, LIGHT_COLOR_BLUE)
 
 	if(prob(5))
-		projectiletype = /obj/item/projectile/beam/pulse/drone
+		projectiletype = /obj/projectile/beam/pulse/drone
 		projectilesound = 'sound/weapons/pulse2.ogg'
 	ion_trail = new(src)
 	ion_trail.start()
@@ -79,7 +79,7 @@
 	M.Scale(0.1, 0.1)
 	animate(src, transform = M, time = 0.1, easing = LINEAR_EASING)
 
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 
 	var/matrix/N = matrix()
 	N.Scale(1, 1)
@@ -90,7 +90,7 @@
 		return
 	visible_message(SPAN_WARNING("\The [src] warps into nothingness!"))
 
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 
 	var/matrix/M = matrix()
 	M.Scale(0.1, 0.1)
@@ -99,13 +99,13 @@
 	has_loot = FALSE
 	qdel(src)
 
-/mob/living/simple_animal/hostile/icarus_drone/examine(mob/user)
+/mob/living/simple_animal/hostile/icarus_drone/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(malfunctioning)
 		if(hostile_drone)
-			to_chat(user, SPAN_WARNING("It's completely lit up, and its targetting vanes are deployed."))
+			. += SPAN_WARNING("It's completely lit up, and its targetting vanes are deployed.")
 		else
-			to_chat(user, SPAN_WARNING("Most of its lights are off, and its targetting vanes are retracted."))
+			. += SPAN_WARNING("Most of its lights are off, and its targetting vanes are retracted.")
 
 /mob/living/simple_animal/hostile/icarus_drone/Allow_Spacemove(var/check_drift = 0)
 	return TRUE
@@ -153,7 +153,7 @@
 	return TRUE
 
 //self repair systems have a chance to bring the drone back to life
-/mob/living/simple_animal/hostile/icarus_drone/Life()
+/mob/living/simple_animal/hostile/icarus_drone/Life(seconds_per_tick, times_fired)
 	//emps and lots of damage can temporarily shut us down
 	if(disabled > 0)
 		set_stat(UNCONSCIOUS)
@@ -170,12 +170,12 @@
 	//repair a bit of damage
 	if(prob(1) && health < maxHealth)
 		visible_message(SPAN_NOTICE("\The [src] shudders and shakes as some of its damaged systems come back online."))
-		spark(src, 3, alldirs)
+		spark(src, 3, GLOB.alldirs)
 		health += rand(25, 100)
 
 	//spark for no reason
 	if(malfunctioning && prob(5))
-		spark(src, 3, alldirs)
+		spark(src, 3, GLOB.alldirs)
 
 	//sometimes our targetting sensors malfunction, and we attack anyone nearby
 	if(malfunctioning && prob(disabled ? 0 : 1))
@@ -208,20 +208,20 @@
 			else
 				visible_message(SPAN_NOTICE("\The [src] suddenly lies still and quiet."))
 			disabled = rand(150, 600)
-			walk(src, 0)
+			GLOB.move_manager.stop_looping(src)
 
 	if(exploding && prob(20))
 		if(prob(50))
 			visible_message(SPAN_ALERT("\The [src] begins to spark and shake violently!"))
 		else
 			visible_message(SPAN_ALERT("\The [src] sparks and shakes like it's about to explode!"))
-		spark(src, 3, alldirs)
+		spark(src, 3, GLOB.alldirs)
 
 	if(!exploding && !disabled && prob(explode_chance))
 		exploding = TRUE
 		set_stat(UNCONSCIOUS)
 		wander = 1
-		walk(src, 0)
+		GLOB.move_manager.stop_looping(src)
 		spawn(rand(50, 150))
 			if(!disabled && exploding)
 				explosion(get_turf(src), 0, 1, 4, 7)
@@ -229,10 +229,12 @@
 
 //ion rifle!
 /mob/living/simple_animal/hostile/icarus_drone/emp_act(severity)
+	. = ..()
+
 	health -= rand(3, 15) * (severity + 1)
 	disabled = rand(150, 600)
 	hostile_drone = FALSE
-	walk(src, 0)
+	GLOB.move_manager.stop_looping(src)
 
 /mob/living/simple_animal/hostile/icarus_drone/death()
 	..(null, "suddenly breaks apart.")
@@ -242,7 +244,7 @@
 	QDEL_NULL(ion_trail)
 	//some random debris left behind
 	if(has_loot)
-		spark(src, 3, alldirs)
+		spark(src, 3, GLOB.alldirs)
 		var/obj/O
 
 		//shards
@@ -350,10 +352,10 @@
 
 	return ..()
 
-/obj/item/projectile/beam/drone
+/obj/projectile/beam/drone
 	damage = 15
 
-/obj/item/projectile/beam/pulse/drone
+/obj/projectile/beam/pulse/drone
 	damage = 10
 
 /mob/living/simple_animal/hostile/icarus_drone/malf

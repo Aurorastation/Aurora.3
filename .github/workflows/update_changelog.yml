@@ -1,36 +1,53 @@
 name: "Build Changelog"
 on:
+  schedule:
+    - cron: "0 0 * * *"
   workflow_dispatch:
-  push:
-    branches:
-      - master
-    paths:
-      - 'html/changelogs/**'
 
 jobs:
-  update-changelog:
-    concurrency: changelog
+  compile:
+    name: "Compile changelogs"
     runs-on: ubuntu-22.04
-    if: "!contains(github.event.head_commit.message, '[ci skip]')"
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
-      with:
-        token: ${{ secrets.BOT_TOKEN_AURORA }}
-
-    - name: Update Changelogs
-      run: |
-        tools/bootstrap/python tools/GenerateChangelog/ss13_genchangelog.py html/changelog.html html/changelogs
-
-    - name: Commit Changelogs
-      run: |
-        git pull origin master
-        git config --local user.email "action@github.com"
-        git config --local user.name "AuroraBuildBot"
-        git add --force html/*
-        git commit -m "Automatic Changelog compile [ci skip]" -a || true
-
-    - name: Push
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.BOT_TOKEN_AURORA }}
+      - name: "Check for BOT_TOKEN_AURORA secret and pass true to output if it exists to be checked by later steps"
+        id: value_holder
+        env:
+          ENABLER_SECRET: ${{ secrets.BOT_TOKEN_AURORA }}
+        run: |
+          unset SECRET_EXISTS
+          if [ -n "$ENABLER_SECRET" ]; then SECRET_EXISTS=true ; fi
+          echo "ACTIONS_ENABLED=$SECRET_EXISTS" >> $GITHUB_OUTPUT
+      - name: "Setup python"
+        if: steps.value_holder.outputs.ACTIONS_ENABLED
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.x'
+      - name: "Install deps"
+        if: steps.value_holder.outputs.ACTIONS_ENABLED
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pyyaml
+          sudo apt-get install  dos2unix
+      - name: "Checkout"
+        if: steps.value_holder.outputs.ACTIONS_ENABLED
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 25
+          persist-credentials: false
+      - name: "Compile"
+        if: steps.value_holder.outputs.ACTIONS_ENABLED
+        run: |
+          tools/bootstrap/python tools/GenerateChangelog/ss13_genchangelog.py html/changelogs
+      - name: Commit
+        if: steps.value_holder.outputs.ACTIONS_ENABLED
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Changelogs"
+          git pull origin master
+          git add html/changelogs
+          git commit -m "Automatic changelog compile [ci skip]" -a || true
+      - name: "Push"
+        if: steps.value_holder.outputs.ACTIONS_ENABLED
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.BOT_TOKEN_AURORA || secrets.GITHUB_TOKEN }}

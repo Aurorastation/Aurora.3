@@ -4,6 +4,7 @@ import { useBackend } from '../backend';
 import { Button, Section, Box, LabeledList } from '../components';
 import { Dropdown } from '../components/Dropdown';
 import { Window } from '../layouts';
+import { MinimapView } from './common/MinimapView';
 
 type ShipGun = {
   name: string;
@@ -24,6 +25,9 @@ export type GunneryData = {
   mobile_platform: BooleanLike;
   platform_directions: string[];
   platform_direction: string;
+  entry_point_map_image: any; // base64 icon
+  entry_point_x: number;
+  entry_point_y: number;
 };
 
 type Targeting = {
@@ -106,6 +110,13 @@ export const GunneryWindow = (props, context) => {
           ) : (
             ''
           )}
+        </Section>
+        <Section collapsing title="Scan">
+          {MinimapView({
+            map_image: data.entry_point_map_image,
+            x: data.entry_point_x,
+            y: data.entry_point_y,
+          })}
         </Section>
         <Section collapsing title="Weaponry Control">
           <Dropdown

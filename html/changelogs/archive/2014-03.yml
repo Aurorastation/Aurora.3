@@ -1,0 +1,34 @@
+2014-03-01:
+  Various:
+  - rscadd: Paint Mixing, red and blue makes purple!
+  - rscadd: New posters to tell you to respect those darned cat people
+  - rscadd: NanoUI for APC's, Canisters, Tank Transfer Valves and the heaters / coolers
+  - tweak: PDA bombs are now less annoying, and won't always blow up / cause internal
+      bleeding
+  - tweak: Blob made less deadly
+  - rscadd: Objectiveless Antags now a configuration option, choose your own adventure!
+  - wip: Engineering redesign, now with better monitoring of the explodium supermatter!
+  - rscadd: Security EOD
+  - rscadd: New playable race, IPC's, go beep boop boop all over the station!
+  - rscadd: Gamemode autovoting, now players don't have to call for gamemode votes,
+      it's automatic!
+2014-03-05:
+  RavingManiac:
+  - rscadd: Smartfridges added to the bar, chemistry and virology. No more clutter!
+  - rscadd: A certain musical instrument has returned to the bar.
+  - rscadd: There is now a ten second delay between ingesting a pill/donut/milkshake
+      and regretting it.
+2014-03-10:
+  Chinsky:
+  - rscadd: Viruses now affect certain range of species, different for each virus
+  - tweak: Spaceacilline now prevents infection, and has a small chance to cure viruses
+      at Stage 1. It does not give them antibodies though, so they can get sick again!
+  - tweak: Biosuits and spacesuits now offer more protection against viruses. Full
+      biosuit competely prevents airborne infection, when coupled with gloves they
+      both protect quite well from contact ones
+  - rscadd: Sneezing now spreads viruses in front of mob. Sometimes he gets a warning
+      beforehand though
+2014-03-30:
+  RavingManiac:
+  - rscadd: Inflatable walls and doors added. Useful for sealing off hull breaches,
+      but easily punctured by sharp objects and Tajarans.

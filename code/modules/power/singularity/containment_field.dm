@@ -8,7 +8,7 @@
 	unacidable = 1
 	use_power = POWER_USE_OFF
 	light_range = 4
-	flags = PROXMOVE
+	movable_flags = MOVABLE_FLAG_PROXMOVE
 	var/obj/machinery/field_generator/FG1 = null
 	var/obj/machinery/field_generator/FG2 = null
 	var/has_shocked = 0 //Used to add a delay between shocks. In some cases this used to crash servers by spawning hundreds of sparks every second.

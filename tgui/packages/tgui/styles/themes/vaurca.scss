@@ -1,0 +1,69 @@
+@use 'sass:color';
+@use 'sass:meta';
+
+@use '../colors.scss' with (
+  $primary: #ff0000,
+  $fg-map-keys: (),
+  $bg-map-keys: (),
+);
+
+@use '../base.scss' with (
+  $color-bg: #1b1212,
+  $color-bg-grad-spread: 0%,
+);
+
+.theme-vaurca {
+  // Atomic classes
+  @include meta.load-css('../atomic/color.scss');
+
+  // Import Crew Manifest for color values
+  @include meta.load-css('../interfaces/CrewManifest.scss');
+
+  // Components
+  @include meta.load-css(
+    '../components/Button.scss',
+    $with: (
+      'color-default': colors.$primary,
+      'color-disabled': #6a4a4a,
+      'color-selected': #ff0000
+    )
+  );
+  @include meta.load-css(
+    '../components/Tabs.scss',
+    $with: (
+      'color-default': colors.$primary,
+      'tab-color-selected': #ff00003f,
+      'text-color': #e7e7e7
+    )
+  );
+  @include meta.load-css(
+    '../components/Input.scss',
+    $with: ('border-color': colors.$primary)
+  );
+  @include meta.load-css('../components/Modal.scss');
+  @include meta.load-css('../components/Section.scss');
+
+  // Layouts
+  @include meta.load-css('../layouts/Layout.scss');
+  @include meta.load-css('../layouts/Window.scss');
+  @include meta.load-css(
+    '../layouts/TitleBar.scss',
+    $with: ('background-color': #3d2222)
+  );
+
+  .Layout__content {
+    background-image: none;
+  }
+
+  .Button {
+    font-family: monospace;
+    border-width: base.em(2px);
+    border-style: outset;
+    border-color: #aa0000;
+    outline: base.em(1px) solid rgb(122, 0, 0);
+  }
+
+  .candystripe:nth-child(odd) {
+    background-color: rgba(100, 0, 0, 0.5);
+  }
+}

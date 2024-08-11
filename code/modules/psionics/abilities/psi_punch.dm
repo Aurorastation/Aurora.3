@@ -11,11 +11,11 @@
 	icon_state = "generic"
 	cast_methods = CAST_MELEE
 	aspect = ASPECT_PSIONIC
-	force = 20
+	force = 25
 	armor_penetration = 20
 	cooldown = 0
 	psi_cost = 3
-	flags = 0
+	item_flags = 0
 	hitsound = 'sound/weapons/resonator_blast.ogg'
 
 /obj/item/spell/punch/on_melee_cast(atom/hit_atom, mob/living/user, def_zone)

@@ -10,16 +10,16 @@
 	hidden = TRUE
 	var/obj/item/scanned = null
 
-/obj/item/implant/compressed/attackby(var/obj/item/T, mob/user)
-	if(T.isscrewdriver())
+/obj/item/implant/compressed/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(!scanned)
 			to_chat(user, SPAN_NOTICE("There is nothing to remove from the implant."))
 		else
 			to_chat(user, SPAN_NOTICE("You remove \the [scanned] from the implant."))
 			user.put_in_hands(scanned)
 			scanned = null
-	if(istype(T, /obj/item/implanter))
-		var/obj/item/implanter/implanter = T
+	if(istype(attacking_item, /obj/item/implanter))
+		var/obj/item/implanter/implanter = attacking_item
 		if(implanter.imp)
 			to_chat(user, SPAN_NOTICE("\The [implanter] already has an implant loaded."))
 			return

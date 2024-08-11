@@ -1,0 +1,190 @@
+2022-03-01:
+  Aticius:
+  - rscadd: Synthflesh can now be made at the Biogenerator.
+  - rscadd: Biomeat has been rebranded as Meat Substitute and is no longer implied
+      to be biohazardous.
+  BLUNTFORCE420:
+  - rscadd: Resprited and rewrote the Scout Rifle to be a variant of the existing
+      bullpup carbine. Also fixed the icon states so the empty rifle works properly.
+  - balance: Gave the scout rifle automatic magazine ejection on empty, like the bullpup
+      carbine.
+  Geeves:
+  - rscadd: AI can now lock their hologram&#x27;s facing direction with the face-direction
+      macro.
+  - rscadd: AI can now change their hologram&#x27;s facing direction with the northface,southface,eastface,westface
+      macros.
+  - tweak: AI clicking on people&#x27;s names to track them will no longer turn the
+      link purple.
+  MattAtlas:
+  - tweak: Most common melee simple mobs have been given armor penetration, so they
+      should actually have teeth now.
+  - tweak: Melee simple mobs have also been given edge or sharp damage flags, so bleeding
+      should be more common, in addition to torn tendons.
+  - tweak: Hivebot beams have been buffed to account for new armor.
+  - tweak: Cultist rune limit raised to 40 from 25. Please remember that rune limit
+      is also affected by the current amount of cultists, so with 8 cultists the effective
+      limit is 48.
+  - tweak: There can now only be up to 10 wall runes at once.
+  SleepyGem:
+  - tweak: Welding a emergency shutter now takes 2 seconds, to be in line with airlocks.
+  Sparky_hotdog:
+  - tweak: Injecting reagent containers with a syringe now sends a warning to those
+      nearby. You&#x27;ll need to be sneakier with your poisoning now!
+  Vrow:
+  - tweak: Tweaked various smoking item icons to fit Tajara and Unathi better.
+  - tweak: Tweaked the ecigs item icons as well, and organized the ecigs.dmi
+  - bugfix: Fixed missing bone pipe sprites for Tajara and Unathi.
+  Wowzewow (Wezzy):
+  - rscadd: Adds more unique sounds to skrell falling over, and skrell walking barefoot.
+      Also, adds unique pain messages for Skrell.
+  mikomyazaki:
+  - tweak: Adds a Syndicate Lunchbox to the uplink, so the mercs don&#x27;t go hungry.
+2022-03-02:
+  Alberyk:
+  - rscadd: Added the Free Tajaran Council temporary citizenship as an option in the
+      character setup.
+  Geeves:
+  - rscadd: Unathi now have a take 10% less radiation damage.
+  - rscdel: Unathi can now swallow small items by targeting their mouth and clicking
+      themselves.
+  Wowzewow (Wezzy) & listerla:
+  - soundadd: Adds new sounds for airlocks and firedoors.
+2022-03-03:
+  SleepyGem:
+  - bugfix: Removes leftover internal affairs agent code, since the job doesn&#x27;t
+      exist anymore.
+2022-03-04:
+  SleepyGem:
+  - bugfix: Removes a random stool stuck in a wall in the telecommunications lounge
+      toilet.
+  Stryker:
+  - bugfix: Inspector 404 and generic comic books can now be selected in the loadout.
+  Wowzewow (Wezzy):
+  - rscadd: Slot machines now accept credits! Use the multitool to switch between
+      coin mode and credit mode.
+  - soundadd: Slot machines also have sound! Be sure to toggle Arcade SFX to hear
+      it. Also, makes it 87% more addictive.
+  - imageadd: Adds new sprites for slot machines.
+  - imageadd: Resprites beakers, syringes, and chemistry bottles. And the medicine
+      cup and melted things.
+  - balance: Nerfs syringe stabbing.
+  mikomyazaki:
+  - bugfix: The VV Extended List Viewer now has the same rights requirement as View
+      Variables.
+2022-03-05:
+  mikomyazaki:
+  - bugfix: Robots that go to cryo will now properly have their cameras removed from
+      the camera network list.
+2022-03-06:
+  Alberyk, Canon35:
+  - rscadd: Added new Tajaran related accessory and beret options to the custom loadout.
+  Vrow:
+  - bugfix: Fixed Invisible Blood Bags and Blood Bags not displaying their internal
+      contents right.
+2022-03-12:
+  Aticius:
+  - rscadd: Unathi may now select most augments from the loadout.
+  Sparky_hotdog:
+  - rscadd: Added new station bounced radio sprites, as well as some department specific
+      ones.
+  - maptweak: Added three station bounced radios to telescience.
+  - maptweak: Removed the virology uplink phone from medical reception.
+  Vrow:
+  - bugfix: Fixed Medical Scan paper not having the small puncture wound to the lungs
+      if they&#x27;ve been rescued.
+  - bugfix: Fixed missing descriptions for the bone gel, FixOVein, and bone setter.
+  - tweak: Adjusted descriptions for the bone saw, scalpel, surgical drill, cautery,
+      hemostat, and retractor to be less non-sensical.
+  mikomyazaki:
+  - bugfix: Blast doors will reopen when power is restored, if they were open before
+      losing power.
+  - rscdel: Removed the Exodus map.
+2022-03-13:
+  Geeves:
+  - rscadd: Technomancer Cores can now be disguised like other chameleon gear. Getting
+      EMPd will reset it to default.
+  SierraKomodo:
+  - bugfix: Deaf mobs no longer see &#x27;You hear something about&#x27; messages
+      while asleep.
+  mikomyazaki:
+  - bugfix: Autodrobe no longer tries to poison Vaurca by putting their mandible garments
+      into their bag when the rest of their gear spawns, instead the mandible garment
+      stays on their face.
+  - bugfix: Maintenance drones and subtypes will properly generate their eye icon
+      when spawning.
+2022-03-15:
+  Vrow:
+  - tweak: Changed the Fractal Reactor message to an admin log instead a to_world
+      message.
+  mikomyazaki:
+  - bugfix: Fixed another issue with grippers not inserting their items into objects
+      e.g. chem dispensers.
+  - bugfix: Grippers will now properly remove items they are holding if that item
+      should have been dropped / used up / otherwise deleted.
+2022-03-16:
+  mikomyazaki:
+  - tweak: Can now toggle atmospherics pumps &amp; filters with AltClick.
+  - tweak: RCON SMES control now includes a button to max SMES input/output without
+      having to type in the number.
+  - tweak: Removes the Clown and Mime PDA presets from the PDA preset types list.
+2022-03-17:
+  Alberyk:
+  - bugfix: Fixed being unable to select DPRA party pins.
+2022-03-18:
+  Arrow768:
+  - tweak: Changed the prompt during ccia interviews to ask if there were antag or
+      ooc issues.
+2022-03-19:
+  SleepyGem:
+  - tweak: You no longer require gloves to remove light bulbs- and tubes. LED is finally
+      here. Rejoice!
+  Vrow:
+  - imagedel: Deleted old IV sprites.
+  - imageadd: Ported Eris&#x27;s medical stand sprites and intensively edited them
+      to fit Aurora, with additional tank gauge, screen displays, and a unique tipping
+      over animation.
+  - rscadd: IV drips are now buildable and upgradable! Science can print their circuitboards
+      and be pestered for that sweet, sweet upgrade.
+  - rscadd: Ported Eris&#x27;s medical stand gas tank functionality and hammered it
+      until it fit Aurora, with a unique Emergency Positive Pressure system in case
+      the patient can&#x27;t breathe.
+  - rscadd: You can knock IV stands over, and you can also trip on them! Plus it&#x27;ll
+      bring down whoever is wearing the IV&#x27;s mask!
+  - rscadd: You can choose which part of a body the IV needle will go into, which
+      is subjected to attaching delays and armor checks unless the IV is upgraded.
+  - rscadd: Organized toggables into Normal Click, removables into Alt Click, and
+      injecting IV/securing mask into Drag and Drop Radial Menus.
+  - tweak: Organized the iv_drip.dm code.
+  - tweak: Moved defines in the .../tanks/tanks.dm to .../__defines/misc.dm
+  mikomyazaki:
+  - bugfix: Large amounts of blood splatters should impact server performance significantly
+      less.
+  - tweak: Simple mobs now produce fewer blood splatters each time they are hit.
+2022-03-21:
+  Forester40:
+  - imageadd: The right-facing worn sprite for the boatsman hat has been moved one
+      pixel to the right.
+  Vrow:
+  - bugfix: Fixes the IV drip overwriting Vaurca breath mask types.
+  - tweak: Made the mask you place over patients with the IV mask non-adjustable to
+      prevent strange behavior
+2022-03-30:
+  Aticius:
+  - rscadd: Unathi now have two new hairstyles; A droopy dorsal frill for the edgelords
+      and a pair of regal frills for the ostentatious.
+  - rscadd: Unathi can now select hair gradients. But only for their hair, not their
+      facial hair.
+  MattAtlas:
+  - tweak: Clicking a turf no longer has a face direction cooldown, meaning that you&#x27;ll
+      always face the turf you click.
+  - tweak: Direction lock no longer prevents facing a different direction if your
+      direction is changed, as an example by clicking or using control and arrow keys.
+  - rscadd: RIGs now have a special footstep sound ported from Hestia.
+  Vrow:
+  - tweak: Needles aren&#x27;t able to lung rescue Vaurca.
+  - bugfix: Fixed Robotic Limbs not properly screwing the hatch closed
+  - bugfix: Fixed Robotic Limbs saying they&#x27;re bleeding if they get damaged when
+      the hatch is unscrewed.
+  mikomyazaki:
+  - tweak: Research module borgs now have a multitool to enable them to connect machines
+      together.

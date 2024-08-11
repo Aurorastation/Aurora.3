@@ -3,7 +3,6 @@
 	desc = "A lithe device with a glass globe on top, which can be operated to dispense various candies."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "gumball_100"
-	layer = 2.9
 	anchored = 1
 	density = 1
 	idle_power_usage = 10
@@ -29,9 +28,9 @@
 		update_icon()
 
 
-/obj/machinery/gumballmachine/examine(mob/user)
+/obj/machinery/gumballmachine/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("\The [src] costs [gumprice] credits to use."))
+	. += SPAN_NOTICE("\The [src] costs [gumprice] credits to use.")
 
 /obj/machinery/gumballmachine/update_icon()
 	switch(amountleft)
@@ -58,9 +57,9 @@
 		on = 1
 
 
-/obj/machinery/gumballmachine/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/spacecash))
-		var/obj/item/spacecash/C = W
+/obj/machinery/gumballmachine/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/spacecash))
+		var/obj/item/spacecash/C = attacking_item
 		if(!on)
 			to_chat(user, SPAN_WARNING("\The [src] has no power!"))
 			return TRUE
@@ -79,13 +78,13 @@
 
 			if(changeleftover)
 				spawn_money(changeleftover, src.loc, user)
-	if(istype(W, /obj/item) && user.a_intent == I_HURT && !istype(W, /obj/item/spacecash))
+	if(istype(attacking_item, /obj/item) && user.a_intent == I_HURT && !istype(attacking_item, /obj/item/spacecash))
 		if(broken)
 			return
 		if(prob(25))
 			smashgumball()
 		else
-			visible_message(SPAN_WARNING("\The [user] bash's \the [src] with \the [W]."))
+			visible_message(SPAN_WARNING("\The [user] bash's \the [src] with \the [attacking_item]."))
 		return TRUE
 
 

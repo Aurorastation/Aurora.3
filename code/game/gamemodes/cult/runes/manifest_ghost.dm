@@ -36,9 +36,9 @@
 
 	user.say("Gal'h'rfikk harfrandid mud[pick("'","`")]gib!")
 	apparition = new /mob/living/carbon/human/apparition(get_turf(A))
-	user.visible_message("<span class='warning'>A shape forms in the center of the rune. A shape of... a man.</span>", \
-	"<span class='warning'>A shape forms in the center of the rune. A shape of... a man.</span>", \
-	"<span class='warning'>You hear liquid flowing.</span>")
+	user.visible_message(SPAN_WARNING("A shape forms in the center of the rune. A shape of... a man."), \
+	SPAN_WARNING("A shape forms in the center of the rune. A shape of... a man."), \
+	SPAN_WARNING("You hear liquid flowing."))
 
 	var/chose_name = FALSE
 	for(var/obj/item/paper/P in get_turf(A))

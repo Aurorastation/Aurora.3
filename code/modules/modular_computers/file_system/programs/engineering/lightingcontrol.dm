@@ -4,8 +4,8 @@
 	program_icon_state = "power_monitor"
 	program_key_icon_state = "yellow_key"
 	extended_desc = "This program allows mass-control of the station's lighting systems. This program cannot be run on tablet computers."
-	required_access_run = access_heads
-	required_access_download = access_ce
+	required_access_run = ACCESS_HEADS
+	required_access_download = ACCESS_CE
 	requires_ntnet = TRUE
 	network_destination = "APC Coordinator"
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL
@@ -28,7 +28,7 @@
 	// whether to only select areas explicitly marked for nightlighting
 	var/wl_only = context == "all" ? 0 : 1
 
-	SSnightlight.suspend()
+	SSnightlight.can_fire = FALSE
 
 	if (lstate == "dark")
 		log_and_message_admins("enabled night-mode [wl_only ? "in public areas" : "globally"].", lusr.resolve())

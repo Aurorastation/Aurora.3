@@ -11,7 +11,7 @@
 	amount_per_transfer_from_this = 5//Smaller sip size for more BaRP and less guzzling a litre of vodka before you realise it
 	volume = 100
 	item_state = "broken_beer" //Generic held-item sprite until unique ones are made.
-	force = 5
+	force = 11
 	hitsound = /singleton/sound_category/bottle_hit_intact_sound
 	var/smash_duration = 5 //Directly relates to the 'weaken' duration. Lowered by armor (i.e. helmets)
 	matter = list(MATERIAL_GLASS = 800)
@@ -33,15 +33,15 @@
 	return ..()
 
 //when thrown on impact, bottles smash and spill their contents
-/obj/item/reagent_containers/food/drinks/bottle/throw_impact(atom/hit_atom, var/speed)
+/obj/item/reagent_containers/food/drinks/bottle/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	..()
 
-	var/mob/M = thrower
+	var/mob/M = throwing?.thrower?.resolve()
 	if((drink_flags & IS_GLASS) && istype(M) && M.a_intent == I_HURT)
-		var/throw_dist = get_dist(throw_source, loc)
-		if(speed >= throw_speed && smash_check(throw_dist)) //not as reliable as smashing directly
+		var/throw_dist = get_dist(throwing?.thrower?.resolve(), loc)
+		if(throwingdatum.speed >= throw_speed && smash_check(throw_dist)) //not as reliable as smashing directly
 			if(reagents)
-				hit_atom.visible_message("<span class='notice'>The contents of \the [src] splash all over [hit_atom]!</span>")
+				hit_atom.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [hit_atom]!"))
 				reagents.splash(hit_atom, reagents.total_volume)
 			src.smash(loc, hit_atom)
 
@@ -86,12 +86,12 @@
 	qdel(src)
 	return B
 
-/obj/item/reagent_containers/food/drinks/bottle/attackby(obj/item/W, mob/user)
-	if(!rag && istype(W, /obj/item/reagent_containers/glass/rag))
-		insert_rag(W, user)
+/obj/item/reagent_containers/food/drinks/bottle/attackby(obj/item/attacking_item, mob/user)
+	if(!rag && istype(attacking_item, /obj/item/reagent_containers/glass/rag))
+		insert_rag(attacking_item, user)
 		return
-	if(rag && W.isFlameSource())
-		rag.attackby(W, user)
+	if(rag && attacking_item.isFlameSource())
+		rag.attackby(attacking_item, user)
 		return
 	..()
 
@@ -105,10 +105,10 @@
 	if(!(drink_flags & IS_GLASS) || rag)
 		return
 	if(user.unEquip(R))
-		to_chat(user, "<span class='notice'>You stuff [R] into [src].</span>")
+		to_chat(user, SPAN_NOTICE("You stuff [R] into [src]."))
 		rag = R
 		rag.forceMove(src)
-		flags &= ~OPENCONTAINER
+		atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		update_icon()
 
 /obj/item/reagent_containers/food/drinks/bottle/proc/remove_rag(mob/user)
@@ -116,14 +116,14 @@
 		return
 	user.put_in_hands(rag)
 	rag = null
-	flags |= (initial(flags) & OPENCONTAINER)
+	atom_flags |= (initial(atom_flags) & ATOM_FLAG_OPEN_CONTAINER)
 	update_icon()
 
 /obj/item/reagent_containers/food/drinks/bottle/proc/delete_rag()
 	if(!rag)
 		return
 	QDEL_NULL(rag)
-	flags |= (initial(flags) & OPENCONTAINER)
+	atom_flags |= (initial(atom_flags) & ATOM_FLAG_OPEN_CONTAINER)
 	update_icon()
 
 /obj/item/reagent_containers/food/drinks/bottle/open(mob/user)
@@ -133,12 +133,12 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/update_icon()
 	underlays.Cut()
-	cut_overlays()
+	ClearOverlays()
 	if("[icon_state]-[get_filling_state()]" in icon)
 		if(reagents?.total_volume)
 			var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
 			filling.color = reagents.get_color()
-			add_overlay(filling)
+			AddOverlays(filling)
 	set_light(0)
 	if(rag)
 		var/underlay_image = image(icon='icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', icon_state=rag.on_fire? "[rag_underlay]_lit" : rag_underlay)
@@ -170,15 +170,15 @@
 	var/mob/living/carbon/human/H = target
 	if(istype(H) && H.headcheck(hit_zone))
 		var/obj/item/organ/affecting = H.get_organ(hit_zone) //headcheck should ensure that affecting is not null
-		user.visible_message("<span class='danger'>[user] smashes [src] into [H]'s [affecting.name]!</span>")
+		user.visible_message(SPAN_DANGER("[user] smashes [src] into [H]'s [affecting.name]!"))
 		if(weaken_duration)
 			target.apply_effect(min(weaken_duration, 5), WEAKEN, blocked) // Never weaken more than a flash!
 	else
-		user.visible_message("<span class='danger'>\The [user] smashes [src] into [target]!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] smashes [src] into [target]!"))
 
 	//The reagents in the bottle splash all over the target, thanks for the idea Nodrak
 	if(reagents)
-		user.visible_message("<span class='notice'>The contents of \the [src] splash all over [target]!</span>")
+		user.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [target]!"))
 		reagents.splash(target, reagents.total_volume)
 
 	//Finally, smash the bottle. This kills (qdel) the bottle.
@@ -220,7 +220,7 @@
 	var/mutable_appearance/froth = mutable_appearance('icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', "froth_bottle_[intensity_state]")
 	froth.pixel_x = offset_x
 	froth.pixel_y = offset_y
-	add_overlay(froth)
+	AddOverlays(froth)
 	CUT_OVERLAY_IN(froth, 2 SECONDS)
 
 //Keeping this here for now, I'll ask if I should keep it here.
@@ -229,7 +229,7 @@
 	desc = "A bottle with a sharp broken bottom."
 	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
 	icon_state = "broken_bottle"
-	force = 9
+	force = 20
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 5
@@ -242,7 +242,7 @@
 	var/static/icon/broken_outline = icon('icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', "broken")
 	///The mask image for mimicking a broken-off neck of the bottle
 	var/static/icon/flipped_broken_outline = icon('icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', "broken-flipped")
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 #define DRINK_FLUFF_GETMORE  "This drink is made by Getmore Corporation, a subsidiary of NanoTrasen. It mostly specializes in fast food and consumer food products, \
 								but also makes average quality alcohol. Many can find Getmore products in grocery stores, vending machines, \
@@ -275,7 +275,7 @@
 	reagents_to_add = list(/singleton/reagent/alcohol/victorygin = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/whiskey
-	name = "Mu Cephei Special Reserve"
+	name = "Mu Cephei Special Reserve Whiskey"
 	desc = "An okayish single-malt whiskey. This one is produced mainly in New Valletta on Callisto and is fairly famous among Cythereans, too. It's great to get you \
 	in the right mindset for your tenth night out clubbing in a row!"
 	desc_extended = DRINK_FLUFF_GETMORE
@@ -293,7 +293,7 @@
 	reagents_to_add = list(/singleton/reagent/alcohol/fireball = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/vodka
-	name = "Martian 50% Premium"
+	name = "Martian 50% Premium Vodka"
 	desc = "Only potatoes grown in real imported Martian soil may be used for this premium vodka (imports of Martian soil may have stopped). Made by Silverport, drunk by Zavodskoi."
 	desc_extended = DRINK_FLUFF_SILVERPORT
 	icon_state = "vodkabottle"
@@ -342,7 +342,7 @@
 	icon_state = "champagnebottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/singleton/reagent/alcohol/champagne = 100)
-	flags = 0 // starts closed
+	atom_flags = 0 // starts closed
 	///Used for sabrage; increases the chance of success per 1 force of the attacking sharp item
 	var/sabrage_success_percentile = 5
 	///Whether this bottle was a victim of a successful sabrage attempt
@@ -353,18 +353,19 @@
 		return ..()
 	balloon_alert(user, "fiddling with cork...")
 	if(do_after(user, 1 SECONDS, src))
-		return open(user, sabrage = FALSE, froth_severity = pick(0, 1))
+		if(!is_open_container())
+			return open(user, sabrage = FALSE, froth_severity = pick(0, 1))
 
-/obj/item/reagent_containers/food/drinks/bottle/champagne/attackby(obj/item/W, mob/user)
+/obj/item/reagent_containers/food/drinks/bottle/champagne/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 
 	if(is_open_container())
 		return ..()
 
-	if(!has_edge(W))
+	if(!has_edge(attacking_item))
 		return
 
-	if(W.force < 5)
+	if(attacking_item.force < 5)
 		balloon_alert(user, "not strong enough!")
 		return
 
@@ -373,12 +374,18 @@
 	if(!do_after(user, 2 SECONDS, src)) //takes longer because you are supposed to take the foil off the bottle first
 		return
 
+	if(is_open_container())
+		balloon_alert(user, "the bottle was already open, you spill some on the floor...")
+		if(reagents.total_volume)
+			src.reagents.remove_any(reagents.total_volume / 5)
+		return
+
 	///The bonus to success chance that the user gets for being a command role
 	var/command_bonus = (user.mind?.assigned_role in command_positions) ? 20 : 0
 
 	var/job_bonus = user.mind?.assigned_role == "Bartender" ? 25 : 0
 
-	var/sabrage_chance = (W.force * sabrage_success_percentile) + command_bonus + job_bonus
+	var/sabrage_chance = (attacking_item.force * sabrage_success_percentile) + command_bonus + job_bonus
 
 	if(prob(sabrage_chance))
 		///Severity of the resulting froth to pass to make_froth()
@@ -423,28 +430,27 @@
 								SPAN_GOOD("You elegantly slice the cork off of [src], causing it to fly off the bottle with great force."), \
 								"You can hear a pop.")
 	playsound(src, 'sound/items/champagne_pop.ogg', 70, TRUE)
-	flags |= OPENCONTAINER
+	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 	make_froth(offset_x = 0, offset_y = sabraged ? 13 : 15, intensity = froth_severity) //the y offset for sabraged is lower because the bottle's lip is smashed
 	///Type of cork to fire away
-	var/obj/item/projectile/bullet/cork_to_fire = sabraged ? /obj/item/projectile/bullet/champagne_cork/sabrage : /obj/item/projectile/bullet/champagne_cork
+	var/obj/projectile/bullet/cork_to_fire = sabraged ? /obj/projectile/bullet/champagne_cork/sabrage : /obj/projectile/bullet/champagne_cork
 	///Our resulting cork projectile
-	var/obj/item/projectile/bullet/champagne_cork/popped_cork = new cork_to_fire(get_turf(src))
+	var/obj/projectile/bullet/champagne_cork/popped_cork = new cork_to_fire(get_turf(src))
 	popped_cork.firer =  user
 	popped_cork.fire(dir2angle(user.dir) + rand(-30, 30))
 
-/obj/item/projectile/bullet/champagne_cork
+/obj/projectile/bullet/champagne_cork
 	name = "champagne cork"
 	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
 	icon_state = "champagne_cork"
-	hitsound = 'sound/weapons/genhit.ogg'
 	damage = 5
 	embed = FALSE
 	sharp = FALSE
 	agony = 10 // ow!
 	var/drop_type = /obj/item/trash/champagne_cork
 
-/obj/item/projectile/bullet/champagne_cork/on_impact(var/atom/A)
+/obj/projectile/bullet/champagne_cork/on_impact(var/atom/A)
 	..()
 	new drop_type(src.loc) //always use src.loc so that ash doesn't end up inside windows
 
@@ -453,12 +459,22 @@
 	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
 	icon_state = "champagne_cork"
 
-/obj/item/projectile/bullet/champagne_cork/sabrage
+/obj/projectile/bullet/champagne_cork/sabrage
 	icon_state = "champagne_cork_sabrage"
 	drop_type = /obj/item/trash/champagne_cork/sabrage
 
 /obj/item/trash/champagne_cork/sabrage
 	icon_state = "champagne_cork_sabrage"
+
+/obj/item/reagent_containers/food/drinks/bottle/fernet
+	name = "\improper Mictlan Armago Fernet"
+	desc = "An herbal, bitter liqueur, created using a heavily-guarded family recipe from the Armago family that includes a unique medley of herbs, roots, and spices."
+	desc_extended = "While the exact ingredients remain confidential, rumors speak of saffron, aged myrrh, and a mysterious herb known only to the elders of the family. Whatever the composition, each bottle \
+	is an homage to the multi-generational lineage of the Armago family, with roots back to Chile on Earth. The fernet undergoes a traditional pot-still distillation method, using several goes to evolve the flavor and \
+	ensure purity and potency. The liqueur is then aged in charred oak barrels, lending a smoky flavor. Despite its handcrafted nature, it is a ubiquitous spirit on Mictlan, often being consumed as part of an ever-evolving \
+	range of cocktails and drinks, to add that touch of spice to a drink."
+	icon_state = "fernetbottle"
+	reagents_to_add = list(/singleton/reagent/alcohol/fernet = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/mintsyrup
 	name = "Getmore's Bold Peppermint"
@@ -535,6 +551,14 @@
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/singleton/reagent/alcohol/wine = 100)
 
+/obj/item/reagent_containers/food/drinks/bottle/rose_wine
+	name = "\improper Coral Twilight Rose"
+	desc = "A blended fragrant rose wine with a coral hue from the shores of Silversun. High-quality and fruity."
+	desc_extended = DRINK_FLUFF_SILVERPORT
+	icon_state = "rosewine"
+	center_of_mass = list("x"=16, "y"=4)
+	reagents_to_add = list(/singleton/reagent/alcohol/wine/rose = 100)
+
 /obj/item/reagent_containers/food/drinks/bottle/pwine
 	name = "\improper Chip Getmore's Velvet"
 	desc = "What a delightful packaging for a surely high quality wine! The vintage must be amazing!"
@@ -575,6 +599,22 @@
 	center_of_mass = list("x"=16, "y"=6)
 	reagents_to_add = list(/singleton/reagent/drink/grenadine = 100)
 
+/obj/item/reagent_containers/food/drinks/bottle/applejack
+	name = "\improper Arvani Special Reserve Applejack"
+	desc = "Smooth distilled applejack liquor From Biesel. Stronger and more flavorful than traditional hard cider."
+	desc_extended = DRINK_FLUFF_ZENGHU
+	icon_state = "applejackbottle"
+	center_of_mass = list("x"=16, "y"=7)
+	reagents_to_add = list(/singleton/reagent/alcohol/applejack = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/triplesec
+	name = "\improper Fleur de Majestueux Triple Sec"
+	desc = "A fruity Xanu liqueur made from orange peels. Best mixed as part of cocktails."
+	desc_extended = DRINK_FLUFF_ZENGHU
+	icon_state = "triplesecbottle"
+	center_of_mass = list("x"=16, "y"=7)
+	reagents_to_add = list(/singleton/reagent/alcohol/triplesec = 100)
+
 // Soda
 
 /obj/item/reagent_containers/food/drinks/bottle/cola
@@ -584,7 +624,7 @@
 	empty_icon_state = "soda_empty"
 	center_of_mass = list("x"=16, "y"=6)
 	volume = 30
-	flags = 0 //starts closed
+	atom_flags = 0 //starts closed
 	reagents_to_add = list(/singleton/reagent/drink/space_cola = 30)
 
 /obj/item/reagent_containers/food/drinks/bottle/space_up
@@ -623,7 +663,7 @@
 	icon_state = "beer"
 	volume = 30
 	smash_duration = 1
-	flags = 0 //starts closed
+	atom_flags = 0 //starts closed
 	rag_underlay = "rag_small"
 	center_of_mass = list("x"=16, "y"=8)
 
@@ -748,8 +788,8 @@
 	name = "Boryeong '45 soju"
 	desc = "A rice-based liquor commonly consumed by the non-synthetic residents of Konyang. This particular brand originates from the city of Boreyeong, on Konyang."
 	desc_extended = "While most commonly associated with Konyang, soju can be found throughout the Sol Alliance thanks to the inexpensive cost of producing it and a successful \
-	marketing campaign carried out during the robotics boom on Konyang. It is traditionally consumed neat, or without mixing any other liquids into it. The '45 in this brand's \
-	name refers to its alcohol by volume content, and not a calendar year."
+	marketing campaign carried out during the robotics boom on Konyang. It is traditionally consumed neat, or without mixing any other liquids into it. The '45 in this brand's name \
+	refers to its alcohol by volume content, and not a calendar year."
 	icon_state = "sojubottle"
 	center_of_mass = list("x"=16, "y"=4)
 	reagents_to_add = list(/singleton/reagent/alcohol/soju = 100)
@@ -879,6 +919,18 @@
 	center_of_mass = list("x"=16, "y"=5)
 	reagents_to_add = list(/singleton/reagent/alcohol/wine/algae = 100)
 
+/obj/item/reagent_containers/food/drinks/bottle/assunzione_wine
+	name = "\improper Assunzioni Sera Stellata di Dalyan wine"
+	desc = "A bottle of velvety smooth red wine from the underground vineyards of Dalyan, Assunzione. The standard liturgical wine of choice for upper-echelon priests and clergy of Luceism, although drinking it outside of holy celebrations is hardly sacrilegious."
+	desc_extended = "Rather than rely on technology alone, Assunzioni winemakers sought to incorporate millennia-old traditions into making a wine suitable for the clergy. With the blessing of the church, \
+	and with aid from Zeng-Hu, artisans crafted a technique of 'soleato', drying grapes under the light of electrically-amplified warding spheres, engineered to produce immense heat. The dried grapes are then \
+	pressed, fermented, and aged in Malagan oak barrels for several years. The resulting wine is exceptionally full-bodied and complex, with notes of dried fruit and tobacco. The drying technique has given it the \
+	preemptive blessing of the Luceian Church, and as such wines made using this technique, even of other varietals, are certified for usage in religious communions. Wine such as this is exported to other worlds \
+	at great cost, rivalling other wines in the Spur in their rarity and prestige."
+	icon_state = "assunzionewine"
+	center_of_mass = list("x"=16, "y"=5)
+	reagents_to_add = list(/singleton/reagent/alcohol/wine/assunzione = 100)
+
 /obj/item/reagent_containers/food/drinks/bottle/kvass
 	name = "Neubach Original kvass"
 	desc = "A bottle of authentic Fisanduhian kvass, a cereal alcohol."
@@ -908,6 +960,43 @@
 	center_of_mass = list("x"=16, "y"=5)
 	reagents_to_add = list(/singleton/reagent/alcohol/wine/valokki = 100)
 
+/obj/item/reagent_containers/food/drinks/bottle/twentytwoseventyfive
+	name = "2275 Classic"
+	desc = "A bottle of Xanan mid-range brandy."
+	desc_extended = "The Xanan brandy industry boasts a rich history, centered around the unique climatological conditions of Foy-Niljen brandy country. The 2275's main claim to fame is the Stag Hunt cocktail, \
+	the most popular cocktail on Xanu Prime and one of the most consumed in the entire Coalition. It is often said that to make a Stag Hunt without 2275 is to visit the Coalition without seeing Xanu Prime."
+	icon_state = "2275bottle"
+	center_of_mass = list("x"=16, "y"=5)
+	reagents_to_add = list(/singleton/reagent/alcohol/twentytwo = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/saintjacques
+	name = "Saint-Jacques Black Label"
+	desc = "An expensive bottle of Saint-Jacques Black Label, a Xanan luxury cognac."
+	desc_extended = "The Xanan brandy industry boasts a rich history, centered around the unique climatological conditions of Foy-Niljen brandy country. None hold a candle to the sheer quality- or sheer price- of \
+	the highly esteemed Saint-Jacques Black Label, a limited-quantity cognac with a price point somewhere around a small hovercar on a middlingly populated world. Some say it can only be distilled on the yearly anniversary of the formation \
+	of the Frontier Alliance; others that each bottle is personally inspected by a panel of Xanan artisans."
+	icon_state = "stjacquesbottle"
+	center_of_mass = list("x"=16, "y"=5)
+	reagents_to_add = list(/singleton/reagent/alcohol/saintjacques = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/bestblend
+	name = "Mahendru's Best Blend"
+	desc = "A jar of sugarcane juice. Apple flavored!"
+	desc_extended = "Popular in Xanan circles, sugarcane juice competes with tea for the refreshment of choice at summertime gatherings and in the Republic's fridges. Some consider it more 'posh' and 'artisanal', which Mahendru's Best Blend \
+	encourages with a glass 'mason jar' design and a lid of authentic Xanan cork."
+	icon_state = "sugarcanejuice"
+	volume = 45
+	reagents_to_add = list(/singleton/reagent/drink/sugarcane = 45)
+
+/obj/item/reagent_containers/food/drinks/bottle/feni
+	name = "Morale Supplement VII Feni, Standard, Type I"
+	desc = "A bottle of Gadpathurian liquor, issued and manufactured by the United Planetary Defense Council. By nature, this is probably surplus."
+	desc_extended = "The product of several decades of research by a half-dozen different cadres, Morale Supplement VII- Feni, Standard- was adopted by decree of the United Planetary Defense Councils Board of Quartermasters for use in purposes \
+	relating to celebration, morale improvement, or deployment extension. All non-medical personnel are entitled to one twenty-unit serving of the drink, often regarded as 'Supplement Seven', per celebratory period. It remains an obscure drink \
+	outside Gadpathur, not by virtue of its rarity- several thousand bottles are sold off as surplus to fund the UPDCG every year- but by being an extremely acquired taste."
+	icon_state = "fenibottle"
+	reagents_to_add = list(/singleton/reagent/alcohol/feni = 100)
+
 /obj/item/reagent_containers/food/drinks/bottle/hooch
 	name = "hooch bottle"
 	desc = "A bottle of rotgut. Its owner has applied some street wisdom to cleverly disguise it as a brown paper bag."
@@ -915,6 +1004,26 @@
 	icon_state = "hoochbottle"
 	center_of_mass = list("x"=16, "y"=8)
 	reagents_to_add = list(/singleton/reagent/alcohol/hooch = 100)
+
+
+/obj/item/reagent_containers/food/drinks/bottle/ogogoro
+	name = "ogogoro jar"
+	desc = "A traditional Eridani palm wine drink, stored in a mason jar."
+	desc_extended = "Ogogoro is a traditional West African drink which the colonists of Eridani originally took with them. The nature of it as a high-alcohol moonshine, however, meant that it would eventually be sidelined by the suits of Eridani as \
+	a vestige of the poor man's culture. As such, whilst it remains extremely common amongst dregs, a suit drinking ogogoro would often be looked down upon by their peers. It remains popular in opaque flasks, however. Appropriately, this jar was not brewed \
+	on Eridani itself, but instead by the dreg diaspora found in Burzsia."
+	icon_state = "ogogoro"
+	empty_icon_state = "ogogoro_empty"
+	reagents_to_add = list(/singleton/reagent/alcohol/ogogoro = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/small/burukutu
+	name = "burukutu bottle"
+	desc = "A traditional Eridani millet beer, distributed by Idris."
+	desc_extended = "Burukutu is a millet beer common throughout West Africa and colonies with West African influence. As such, it can be found commonly on the colony of Eridani. This bottle in particular is a Silverport product, extremely popular \
+	with the suits of the Eridani federation. In spite of their preference for stronger drinks, dregs can often be found with burukutu 'retrieved' from the aboveground cities of Eridani I. According to the label on the back, this was bottled in Tokura, \
+	Eridani I."
+	icon_state = "burukutu"
+	reagents_to_add = list(/singleton/reagent/alcohol/burukutu = 30)
 
 // Butanol-based alcoholic drinks
 //=====================================
@@ -970,3 +1079,26 @@
 	center_of_mass = list("x"=16, "y"=8)
 
 	reagents_to_add = list(/singleton/reagent/alcohol/bottle/skrellwineylpha = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/nemiik
+	name = "vrozka farms ne'miik"
+	desc = "A bottle of Ne'miik under the label 'Vrozka Farms' from Caprice. It has labels in Basic boasting 'rich in minerals!' and warning that 'consumption by Humans or Tajara may cause negative effects', whatever that means."
+	icon_state = "vrozka_nemiik"
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/drink/milk/nemiik = 80)
+	empty_icon_state = "vrozka_empty"
+
+// Vaurca alcoholic drinks
+//=====================================
+
+/obj/item/reagent_containers/food/drinks/bottle/skyemok
+	name = "bottle of Skye'mok"
+	desc = "Traditional Sedantian drink. Looks like it's inside a pulsating stomach."
+	desc_extended = "A traditional Sedantian brew crafted from a special fungus fed to V'krexi, this unique beverage ferments in the swollen stomachs of these creatures. It is served traditionally on the head of the V'krexi it was prepared in."
+	icon_state = "skyemok"
+	empty_icon_state = "skyemok_empty"
+	drop_sound = 'sound/items/drop/flesh.ogg'
+	pickup_sound = 'sound/items/pickup/flesh.ogg'
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/drink/toothpaste/skyemok= 80)
+

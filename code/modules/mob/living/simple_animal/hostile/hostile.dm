@@ -1,4 +1,6 @@
 /mob/living/simple_animal/hostile
+	abstract_type = /mob/living/simple_animal/hostile
+
 	faction = "hostile"
 	var/stance = HOSTILE_STANCE_IDLE	//Used to determine behavior
 	var/mob/living/target_mob
@@ -52,7 +54,7 @@
 	friends = null
 	target_mob = null
 	targets = null
-	QDEL_NULL_ASSOC(target_type_validator_map)
+	QDEL_LIST_ASSOC_VAL(target_type_validator_map)
 	return ..()
 
 /mob/living/simple_animal/hostile/can_name(var/mob/living/M)
@@ -118,7 +120,7 @@
 	change_stance(HOSTILE_STANCE_ATTACKING)
 	visible_message(SPAN_WARNING("\The [src] gets taunted by \the [H] and begins to retaliate!"))
 
-/mob/living/simple_animal/hostile/bullet_act(var/obj/item/projectile/P, var/def_zone)
+/mob/living/simple_animal/hostile/bullet_act(var/obj/projectile/P, var/def_zone)
 	..()
 	if (ismob(P.firer) && target_mob != P.firer)
 		target_mob = P.firer
@@ -130,12 +132,11 @@
 		target_mob = user
 		change_stance(HOSTILE_STANCE_ATTACK)
 
-/mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = THROWFORCE_SPEED_DIVISOR)//Standardization and logging -Sieve
+/mob/living/simple_animal/hostile/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
-	if(istype(AM,/obj/))
-		var/obj/O = AM
-		if((target_mob != O.thrower) && ismob(O.thrower))
-			target_mob = O.thrower
+	if(isobj(hitting_atom))
+		if((target_mob != throwingdatum?.thrower?.resolve()) && ismob(throwingdatum?.thrower?.resolve()))
+			target_mob =throwingdatum.thrower.resolve()
 			change_stance(HOSTILE_STANCE_ATTACK)
 
 /mob/living/simple_animal/hostile/attack_generic(var/mob/user, var/damage, var/attack_message)
@@ -155,9 +156,7 @@
 	return
 
 /mob/living/simple_animal/hostile/proc/see_target()
-	var/los = null
-	SPATIAL_CHECK_LOS(los, src, target_mob, world.view)
-	return los
+	return is_in_sight(src, target_mob)
 
 /mob/living/simple_animal/hostile/proc/MoveToTarget()
 	stop_automated_movement = 1
@@ -168,13 +167,13 @@
 	if(target_mob in targets)
 		if(ranged)
 			if(get_dist(src, target_mob) <= ranged_attack_range)
-				walk(src, 0) // We gotta stop moving if we are in range
+				GLOB.move_manager.stop_looping(src)
 				OpenFire(target_mob)
 			else
-				walk_to(src, target_mob, 6, move_to_delay)
+				GLOB.move_manager.move_to(src, target_mob, 6, move_to_delay)
 		else
 			change_stance(HOSTILE_STANCE_ATTACKING)
-			walk_to(src, target_mob, 1, move_to_delay)
+			GLOB.move_manager.move_to(src, target_mob, 1, move_to_delay)
 
 /mob/living/simple_animal/hostile/proc/AttackTarget()
 	stop_automated_movement = 1
@@ -201,7 +200,8 @@
 		return 0
 
 /mob/living/simple_animal/hostile/proc/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
-	return
+	if(isliving(hit_mob) && istype(limb))
+		limb.add_autopsy_data("Mauling by [src.name]")
 
 /mob/living/simple_animal/hostile/proc/AttackingTarget()
 	setClickCooldown(attack_delay)
@@ -264,18 +264,18 @@
 /mob/living/simple_animal/hostile/proc/LoseTarget()
 	change_stance(HOSTILE_STANCE_IDLE)
 	target_mob = null
-	walk(src, 0)
+	GLOB.move_manager.stop_looping(src)
 	LostTarget()
 
 /mob/living/simple_animal/hostile/proc/LostTarget()
 	return
 
 /mob/living/simple_animal/hostile/proc/get_targets(dist = world.view)
-	return get_targets_in_LOS(dist, src)
+	return get_hearers_in_LOS(dist, src)
 
 /mob/living/simple_animal/hostile/death()
 	..()
-	walk(src, 0)
+	GLOB.move_manager.stop_looping(src)
 
 /mob/living/simple_animal/hostile/think()
 	..()
@@ -323,6 +323,8 @@
 	return TRUE
 
 /mob/living/simple_animal/hostile/proc/OpenFire(target_mob)
+	set waitfor = FALSE
+
 	if(!see_target())
 		LoseTarget()
 	var/target = target_mob
@@ -350,7 +352,7 @@
 		return FALSE
 
 	var/target_hit = FALSE
-	var/flags = ispath(projectiletype, /obj/item/projectile/beam) ? PASSTABLE|PASSGLASS|PASSGRILLE : PASSTABLE
+	var/flags = ispath(projectiletype, /obj/projectile/beam) ? PASSTABLE|PASSGLASS|PASSGRILLE : PASSTABLE
 	for(var/V in check_trajectory(target_mob, src, pass_flags=flags))
 		if(V == target_mob)
 			target_hit = TRUE
@@ -373,7 +375,7 @@
 	if(target == start)
 		return
 
-	var/obj/item/projectile/A = new projectiletype(user.loc)
+	var/obj/projectile/A = new projectiletype(user.loc)
 	playsound(user, projectilesound, 100, 1)
 	if(!A)	return
 	var/def_zone = get_exposed_defense_zone(target)
@@ -384,7 +386,7 @@
 		return FALSE
 
 	if(prob(break_stuff_probability) || bypass_prob) //bypass_prob is used to make mob destroy things in the way to our target
-		for(var/card_dir in cardinal) // North, South, East, West
+		for(var/card_dir in GLOB.cardinal) // North, South, East, West
 			var/turf/target_turf = get_step(src, card_dir)
 
 			var/obj/found_obj = locate(/obj/effect/energy_field) in target_turf
@@ -400,7 +402,7 @@
 
 			found_obj = locate(/obj/structure/window) in target_turf
 			if(found_obj)
-				if(HAS_FLAG(found_obj.flags, ON_BORDER) && found_obj.dir != reverse_dir[card_dir])
+				if((found_obj.atom_flags & ATOM_FLAG_CHECKS_BORDER) && found_obj.dir != GLOB.reverse_dir[card_dir])
 					continue
 				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
 				hostile_last_attack = world.time
@@ -452,13 +454,12 @@
 /mob/living/simple_animal/hostile/proc/check_horde()
 	if(evacuation_controller.is_prepared())
 		if(!enroute && !target_mob)	//The shuttle docked, all monsters rush for the escape hallway
-			if(!shuttletarget && escape_list.len) //Make sure we didn't already assign it a target, and that there are targets to pick
-				shuttletarget = pick(escape_list) //Pick a shuttle target
+			if(!shuttletarget && GLOB.escape_list.len) //Make sure we didn't already assign it a target, and that there are targets to pick
+				shuttletarget = pick(GLOB.escape_list) //Pick a shuttle target
 			enroute = 1
 			stop_automated_movement = 1
-			spawn()
-				if(!src.stat)
-					horde()
+			if(!src.stat)
+				horde()
 
 		if(get_dist(src, shuttletarget) <= 2)		//The monster reached the escape hallway
 			enroute = 0
@@ -481,9 +482,8 @@
 	Move(T)
 	target_mob = FindTarget()
 	if(!target_mob || enroute)
-		spawn(10)
-			if(!src.stat)
-				horde()
+		if(!src.stat)
+			horde()
 
 //////////////////////////////
 ///////VALIDATOR PROCS////////

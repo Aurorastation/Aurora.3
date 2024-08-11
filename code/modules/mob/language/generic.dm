@@ -7,7 +7,7 @@
 	allow_accents = TRUE
 
 /datum/language/noise/format_message(message, verb)
-	return span(message, "<span class='[colour]'>[message]</span>")
+	return span("message", "<span class='[colour]'>[message]</span>")
 
 /datum/language/noise/format_message_plain(message, verb)
 	return message

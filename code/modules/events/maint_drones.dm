@@ -1,4 +1,6 @@
 /datum/event/rogue_maint_drones/start()
+	..()
+
 	var/drons = severity * 2 - 1
 	var/groups = rand(3, 8)
 

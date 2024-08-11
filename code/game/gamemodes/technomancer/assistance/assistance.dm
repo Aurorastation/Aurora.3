@@ -14,7 +14,7 @@
 /datum/technomancer/assistance/apprentice/additional_info()
 	var/technomancer_count = 0
 	var/ghost_count = 0
-	for(var/mob/abstract/observer/O in player_list)
+	for(var/mob/abstract/observer/O in GLOB.player_list)
 		if(O.client && (O.client.inactivity < 5 MINUTES))
 			if("technomancer" in O.client.prefs.be_special_role)
 				technomancer_count++
@@ -53,7 +53,7 @@
 	var/turf/user_turf = get_turf(user)
 	user.drop_from_inventory(src, user_turf)
 	user.visible_message(SPAN_DANGER("<b>[user]</b> crushes \the [src] in their hand with a shower of sparks! A small bracelet appears on their wrist, and a catalog flies into their hand."), SPAN_DANGER("You crush \the [src] in your hand with a shower of sparks! A small bracelet appears on your wrist, and a catalog flies into your hand."))
-	spark(user_turf, 4, alldirs)
+	spark(user_turf, 4, GLOB.alldirs)
 	var/initiate_welcome_text = "You will need to purchase <b>functions</b> and perhaps some <b>equipment</b> from your initiate's catalogue. \
 	Choose your technological arsenal carefully.  Remember that without the <b>core</b> on your wrist, your functions are \
 	powerless, and therefore you will be as well."

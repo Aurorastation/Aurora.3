@@ -201,7 +201,7 @@
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	if(tool.iswelder())
 		var/obj/item/weldingtool/welder = tool
-		if(!welder.isOn() || !welder.use(2,user))
+		if(!welder.isOn() || welder.get_fuel() < 2)
 			return FALSE
 	return affected && affected.open == ORGAN_ENCASED_RETRACTED && affected.brute_dam > 0 && target_zone != BP_MOUTH
 
@@ -214,7 +214,7 @@
 /singleton/surgery_step/robotics/repair_brute/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	if(tool.iswelder())
 		var/obj/item/weldingtool/welder = tool
-		if(!welder.isOn())
+		if(!welder.isOn() && !welder.use(2, user))
 			user.visible_message(SPAN_WARNING("[user]'s [tool] shut off before the procedure was finished."), \
 			SPAN_WARNING("Your [tool] is shut off!"))
 			return

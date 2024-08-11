@@ -1,6 +1,5 @@
 /mob/abstract/hivemind
 	name = "internal hivemind"
-	see_in_dark = 2
 	see_invisible = SEE_INVISIBLE_LIVING
 
 	var/mob/living/carbon/human/changeling_mob // the head honcho
@@ -46,7 +45,7 @@
 	if(!message)
 		return
 
-	log_say("[changeling_mob] Hivemind/[src.key] : [message]", ckey=key_name(src))
+	log_say("[changeling_mob] Hivemind/[src.key] : [message]")
 
 	if(src.client?.prefs.muted & (MUTE_DEADCHAT|MUTE_IC))
 		to_chat(src, SPAN_WARNING("You cannot talk. (Admin Muted)"))

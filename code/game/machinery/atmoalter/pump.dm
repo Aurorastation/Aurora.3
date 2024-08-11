@@ -8,7 +8,7 @@
 	icon = 'icons/obj/atmos.dmi'
 	icon_state = "psiphon:0"
 	density = TRUE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 	var/on = FALSE
 	var/direction_out = 0 //0 = siphoning, 1 = releasing
@@ -33,7 +33,7 @@
 	src.air_contents.adjust_multi(GAS_OXYGEN, air_mix[GAS_OXYGEN], GAS_NITROGEN, air_mix[GAS_NITROGEN])
 
 /obj/machinery/portable_atmospherics/powered/pump/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(on && cell && cell.charge)
 		icon_state = "psiphon:1"
@@ -41,16 +41,17 @@
 		icon_state = "psiphon:0"
 
 	if(holding)
-		add_overlay("siphon-open")
+		AddOverlays("siphon-open")
 
 	if(connected_port)
-		add_overlay("siphon-connector")
+		AddOverlays("siphon-connector")
 
 	return
 
 /obj/machinery/portable_atmospherics/powered/pump/emp_act(severity)
+	. = ..()
+
 	if(stat & (BROKEN|NOPOWER))
-		..(severity)
 		return
 
 	if(prob(50/severity))
@@ -63,7 +64,6 @@
 	update_icon()
 	SStgui.update_uis(src)
 
-	..(severity)
 
 /obj/machinery/portable_atmospherics/powered/pump/process()
 	..()

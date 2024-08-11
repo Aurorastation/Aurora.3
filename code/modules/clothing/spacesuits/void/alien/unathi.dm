@@ -1,18 +1,18 @@
 /obj/item/clothing/head/helmet/space/void/kataphract
 	name = "kataphract voidsuit helmet"
 	desc = "A tough plated helmet with slits for the eyes, emblazoned paint across the top indicates that it belongs to the Kataphracts of the Unathi Izweski Hegemony."
-	icon = 'icons/obj/clothing/species/unathi/hats.dmi'
-	icon_override = 'icons/mob/species/unathi/helmet.dmi'
-	icon_state = "rig0-kataphract"
-	item_state = "rig0-kataphract"
+	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
+	icon_state = "kataphract_helm"
+	item_state = "kataphract_helm"
+	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
+		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
 		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		rad = ARMOR_RAD_SMALL
 	)
 	siemens_coefficient = 0.35
 	species_restricted = list(BODYTYPE_UNATHI)
@@ -21,20 +21,20 @@
 /obj/item/clothing/suit/space/void/kataphract
 	name = "kataphract voidsuit"
 	desc = "A large suit of spaceproof armor, segmented and worked together expertly. Tabs on the shoulders indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony."
-	icon = 'icons/obj/clothing/species/unathi/suits.dmi'
-	icon_override = 'icons/mob/species/unathi/suit.dmi'
-	icon_state = "rig-kataphract"
-	item_state = "rig-kataphract"
+	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
+	icon_state = "kataphract"
+	item_state = "kataphract"
+	contained_sprite = TRUE
 	slowdown = 1
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
-		energy = ARMOR_ENERGY_SMALL,
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		rad = ARMOR_RAD_SMALL
 	)
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs)
 	siemens_coefficient = 0.35
@@ -44,26 +44,26 @@
 /obj/item/clothing/head/helmet/space/void/kataphract/spec
 	name = "kataphract specialist voidsuit helmet"
 	desc = "A tough plated helmet with slits for the eyes, emblazoned paint across the top indicates that it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Specialist."
-	icon_state = "rig0-kataphract-spec"
-	item_state = "rig0-kataphract-spec"
+	icon_state = "kataphract-spec_helm"
+	item_state = "kataphract-spec_helm"
 
 /obj/item/clothing/suit/space/void/kataphract/spec
 	name = "kataphract specialist voidsuit"
 	desc = "A large suit of spaceproof armor, segmented and worked together expertly. Tabs on the shoulders indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Specialist."
-	icon_state = "rig-kataphract-spec"
-	item_state = "rig-kataphract-spec"
+	icon_state = "kataphract-spec"
+	item_state = "kataphract-spec"
 
 /obj/item/clothing/head/helmet/space/void/kataphract/lead
 	name = "kataphract knight voidsuit helmet"
 	desc = "A tough plated helmet with slits for the eyes, emblazoned paint across the top indicates that it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Knight."
-	icon_state = "rig0-kataphract-lead"
-	item_state = "rig0-kataphract-lead"
+	icon_state = "kataphract-lead_helm"
+	item_state = "kataphract-lead_helm"
 
 /obj/item/clothing/suit/space/void/kataphract/lead
 	name = "kataphract knight voidsuit"
 	desc = "A large suit of spaceproof armor, segmented and worked together expertly. Tabs on the shoulders indicate it belongs to the Kataphracts of the Unathi Izweski Hegemony. This one has the markings of a Knight."
-	icon_state = "rig-kataphract-lead"
-	item_state = "rig-kataphract-lead"
+	icon_state = "kataphract-lead"
+	item_state = "kataphract-lead"
 
 /obj/item/clothing/head/helmet/space/void/unathi_pirate
 	name = "unathi raider helmet"
@@ -74,11 +74,12 @@
 	contained_sprite = TRUE
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		rad = ARMOR_RAD_SMALL
 	)
 	light_overlay = "helmet_light_dual_low"
 	brightness_on = 6
@@ -94,11 +95,12 @@
 	contained_sprite = TRUE
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		rad = ARMOR_RAD_SMALL
 	)
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/material/sword,/obj/item/melee/hammer,/obj/item/melee/energy)
 	species_restricted = list(BODYTYPE_UNATHI)
@@ -109,46 +111,29 @@
 	desc = "A decent helmet made to fit with a larger combat assembly."
 	icon_state = "rig0-unathipiratecaptain"
 	item_state = "rig0-unathipiratecaptain"
-	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_CARBINE,
-		laser = ARMOR_LASER_PISTOL,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
-	)
 
 /obj/item/clothing/suit/space/void/unathi_pirate/captain
 	name = "unathi raider captain voidsuit"
 	desc = "A well-balanced combat voidsuit made by and for Unathi. This one features several improvements and extra adornments, making it fit for a Captain, or some kind of high-ranking crew member."
 	icon_state = "rig-unathipiratecaptain"
 	item_state = "rig-unathipiratecaptain"
-	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_CARBINE,
-		laser = ARMOR_LASER_PISTOL,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
-	)
 
 /obj/item/clothing/suit/space/void/hegemony
 	name = "hegemony military voidsuit"
 	desc = "A Hephaestus-manufactured armoured voidsuit, made for Unathi. The standard spacefaring attire of the Izweski Hegemony Navy."
 	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
-	icon_override = 'icons/mob/species/unathi/suit.dmi'
 	icon_state = "hegemony-voidsuit"
-	item_state = "hegemony-voidsuit_item"
-
-	w_class = ITEMSIZE_NORMAL
+	item_state = "hegemony-voidsuit"
+	contained_sprite = TRUE
+	w_class = WEIGHT_CLASS_NORMAL
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
+		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
 		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		rad = ARMOR_RAD_SMALL
 	)
 	allowed = list(/obj/item/gun,/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/material/sword,/obj/item/melee/hammer,/obj/item/melee/energy)
 	species_restricted = list(BODYTYPE_UNATHI)
@@ -158,17 +143,17 @@
 	name = "hegemony military helmet"
 	desc = "A Hephaestus-manufactured armoured space helmet, made for Unathi. Usually seen on soldiers of the Izweski Hegemony Navy."
 	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
-	icon_override = 'icons/mob/species/unathi/helmet.dmi'
 	icon_state = "hegemony-voidhelm"
-	item_state = "hegemony-voidhelm_item"
+	item_state = "hegemony-voidhelm"
+	contained_sprite = TRUE
 	armor = list(
-		melee = ARMOR_MELEE_VERY_HIGH,
+		melee = ARMOR_MELEE_RESISTANT,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
 		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
+		rad = ARMOR_RAD_SHIELDED
 	)
 	light_overlay = "helmet_light_dual_low"
 	brightness_on = 6
@@ -180,37 +165,37 @@
 	name = "hegemony specialist voidsuit"
 	desc = "A Hephaestus-manufactured armoured voidsuit, made for Unathi. This one bears a green insignia, marking the wearer as a specialist within the Izweski Navy."
 	icon_state = "hegemony-voidsuit-spec"
-	item_state = "hegemony-voidsuit-spec_item"
+	item_state = "hegemony-voidsuit-spec"
 
 /obj/item/clothing/head/helmet/space/void/hegemony/specialist
 	name = "hegemony specialist helmet"
 	desc = "A Hephaestus-manufactured armoured space helmet, made for Unathi. This one bears a green insignia, marking the wearer as a specialist within the Izweski Navy."
 	icon_state = "hegemony-voidhelm-spec"
-	item_state = "hegemony-voidhelm-spec_item"
+	item_state = "hegemony-voidhelm-spec"
 
 /obj/item/clothing/suit/space/void/hegemony/captain
 	name = "hegemony captain's voidsuit"
 	desc = "A Hephaestus-manufactured armoured voidsuit, made for Unathi. This one bears a purple insignia, marking the wearer as a captain within the Izweski Navy."
 	icon_state = "hegemony-voidsuit-lead"
-	item_state = "hegemony-voidsuit-lead_item"
+	item_state = "hegemony-voidsuit-lead"
 
 /obj/item/clothing/head/helmet/space/void/hegemony/captain
 	name = "hegemony captain's helmet"
 	desc = "A Hephaestus-manufactured armoured space helmet, made for Unathi. This one bears a purple insignia, marking the wearer as a captain within the Izweski Navy."
 	icon_state = "hegemony-voidhelm-lead"
-	item_state = "hegemony-voidhelm-lead_item"
+	item_state = "hegemony-voidhelm-lead"
 
 /obj/item/clothing/suit/space/void/hegemony/priest
 	name = "hegemony priest's voidsuit"
 	desc = "A Hephaestus-manufactured armoured voidsuit, made for Unathi. This one bears a white insignia, marking the wearer as a Sk'akh priest within the Izweski Navy."
 	icon_state = "hegemony-voidsuit-priest"
-	item_state = "hegemony-voidsuit-priest_item"
+	item_state = "hegemony-voidsuit-priest"
 
 /obj/item/clothing/head/helmet/space/void/hegemony/priest
 	name = "hegemony priest's helmet"
 	desc = "A Hephaestus-manufactured armoured space helmet, made for Unathi. This one bears a purple insignia, marking the wearer as a Sk'akh priest within the Izweski Navy."
 	icon_state = "hegemony-voidhelm-priest"
-	item_state = "hegemony-voidhelm-priest_item"
+	item_state = "hegemony-voidhelm-priest"
 
 /obj/item/clothing/suit/space/void/unathi_pirate/tarwa
 	name = "tarwa conglomerate voidsuit"
@@ -220,11 +205,12 @@
 	item_state = "rig-tarwapirate"
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED //it has diona growing on and in it to absorb rads. if i could make it regenerate breaches that would be neat
+		rad = ARMOR_RAD_SHIELDED
 	)
 
 /obj/item/clothing/suit/space/void/unathi_pirate/tarwa/captain
@@ -233,14 +219,7 @@
 	It only seems to fit Unathi, it's relatively light, and yet appears to protect against a variety of hazards. This one features various reinforcements, making it probably fit for more important crew."
 	icon_state = "rig-tarwacaptain"
 	item_state = "rig-tarwacaptain"
-	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_CARBINE,
-		laser = ARMOR_LASER_PISTOL,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED //it has diona growing on and in it to absorb rads
-	)
+
 
 /obj/item/clothing/head/helmet/space/void/unathi_pirate/tarwa
 	name = "tarwa conglomerate helmet"
@@ -249,8 +228,9 @@
 	item_state = "rig-tarwapirate-helmet"
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
-		bullet = ARMOR_BALLISTIC_PISTOL,
-		laser = ARMOR_LASER_SMALL,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SHIELDED
@@ -277,30 +257,12 @@
 	desc = "This appears to be an Unathi-fitted voidsuit. It has been modified and reinforced with sleeker plates of advanced materials, recognisable to a keen eye as pieces of Solarian and Skrell military-grade suits. It's surprisingly light and quite popular among the members of the Unathi fleet known as Kazu's Techraiders."
 	icon_state = "rig-kazupirate"
 	item_state = "rig-kazupirate"
-	armor = list( //taken from qukala voidsuit
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
-	)
 
 /obj/item/clothing/head/helmet/space/void/unathi_pirate/kazu
 	name = "techraider helmet"
 	desc = "An advanced helmet made to fit in a large assembly. Its multi-optic visor is reminiscent of some Vaurca designs."
 	icon_state = "rig-kazupirate-helmet"
 	item_state = "rig-kazupirate-helmet"
-	armor = list(
-		melee = ARMOR_MELEE_KNIVES,
-		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_MEDIUM,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
-	)
 	light_overlay = "helmet_light_jargon_rig"
 
 /obj/item/clothing/suit/space/void/unathi_pirate/kazu/captain
@@ -309,30 +271,13 @@
 	Various improvements have been made to this specific suit, implying it's probably made for higher-ranking crew."
 	icon_state = "rig-kazucaptain"
 	item_state = "rig-kazucaptain"
-	armor = list( //looked at combat hardsuits then toned them down slightly. still an upgrade but not ridiculous.
-		melee = ARMOR_MELEE_KEVLAR,
-		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_RIFLE,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
-	)
 
 /obj/item/clothing/head/helmet/space/void/unathi_pirate/kazu/captain
 	name = "techraider captain's helmet"
 	desc = "A reinforced and advanced helmet made to fit in a large assembly. Its multi-optic visor is reminiscent of Vaurca designs."
 	icon_state = "rig-kazucaptain-helmet"
 	item_state = "rig-kazucaptain-helmet"
-	armor = list(
-		melee = ARMOR_MELEE_KEVLAR,
-		bullet = ARMOR_BALLISTIC_RIFLE,
-		laser = ARMOR_LASER_RIFLE,
-		energy = ARMOR_ENERGY_SMALL,
-		bomb = ARMOR_BOMB_PADDED,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_SHIELDED
-	)
+
 
 /obj/item/clothing/suit/space/void/unathi_pirate/hiskyn
 	name = "hiskyn revanchist voidsuit"
@@ -352,25 +297,30 @@
 	desc =  "A bastardized version of an older Dominian voidsuit mixed with parts taken from the infamous Raider suit used by pirate Unathi, popular among members of the Hiskyn Revanchist fleet. The result is a tough and somewhat sluggish suit. This one is even more reinforced, and is probably made for a Captain or some kind of high-ranking crew member"
 	icon_state = "rig-hiskyncaptain"
 	item_state = "rig-hiskyncaptain"
-	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_CARBINE,
-		laser = ARMOR_LASER_PISTOL,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
-	)
 
 /obj/item/clothing/head/helmet/space/void/unathi_pirate/hiskyn/captain
 	name = "hiskyn revanchist captain's helmet"
 	desc =  "A reinforced mix of older Dominian and homemade Unathi pirate hardware in a single helmet; made to fit in a larger assembly."
 	icon_state = "rig-hiskyncaptain-helmet"
 	item_state = "rig-hiskyncaptain-helmet"
-	armor = list(
-		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_CARBINE,
-		laser = ARMOR_LASER_PISTOL,
-		bomb = ARMOR_BOMB_RESISTANT,
-		bio = ARMOR_BIO_SHIELDED,
-		rad = ARMOR_RAD_RESISTANT
-	)
+
+//Pre-contact spacesuits for Uueoa-Esa ruins.
+/obj/item/clothing/suit/space/unathi_ruin
+	name = "unathi spacesuit"
+	desc = "A large and bulky spacesuit, seemingly of an early space age design. The distinctive shape of the suit indicates that it was made for an Unathi wearer."
+	desc_extended = "These spacesuits were among some of the earliest designs of Unathi space programs, though they rapidly became obsolete following first contact and the massive expansion of space exploration efforts. Seeing a suit like this outside of a museum is extremely rare in the modern day. The markings on this one do not identify it as Izweski, but it is impossible to tell to whom it might have belonged."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "unathispacesuit"
+	item_state = "unathispacesuit"
+	species_restricted = list(SPECIES_UNATHI)
+	refittable = FALSE
+
+/obj/item/clothing/head/helmet/space/unathi_ruin
+	name = "unathi space helmet"
+	desc = "A large and bulky space helmet, with a primitive 'fishbowl' design common in the early days of space exploration. The shape of the helmet indicates that it was designed for an Unathi wearer."
+	desc_extended = "These helmets are an early design from the Unathi space age, used primarily by the first Izweski astronauts in the 22nd century. They rapidly became obsolete after first contact and the massive expansion of space exploration efforts, making them a rare site outside of museums and private collections in the modern day. The markings on this one do not identify it as Izweski, but it is impossible to tell to whom it might have belonged."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "unathispacehelm"
+	item_state = "unathispacehelm"
+	species_restricted = list(SPECIES_UNATHI)
+	refittable = FALSE

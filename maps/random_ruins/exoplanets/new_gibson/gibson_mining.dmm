@@ -1,0 +1,517 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ef" = (
+/obj/item/ore/coal,
+/turf/simulated/floor/exoplanet/permafrost{
+	temperature = 73.15
+	},
+/area/template_noop)
+"ew" = (
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/permafrost{
+	temperature = 73.15
+	},
+/area/template_noop)
+"nR" = (
+/obj/item/ore/diamond,
+/turf/simulated/floor/exoplanet/permafrost{
+	temperature = 73.15
+	},
+/area/template_noop)
+"zf" = (
+/turf/simulated/mineral/random/exoplanet{
+	color = "#545c68"
+	},
+/area/template_noop)
+"zh" = (
+/obj/structure/ore_box,
+/turf/simulated/floor/exoplanet/permafrost{
+	temperature = 73.15
+	},
+/area/template_noop)
+"zA" = (
+/obj/item/stack/flag/red/planted,
+/turf/simulated/floor/exoplanet/permafrost{
+	temperature = 73.15
+	},
+/area/template_noop)
+"Cw" = (
+/obj/item/ore/uranium,
+/turf/simulated/floor/exoplanet/permafrost{
+	temperature = 73.15
+	},
+/area/template_noop)
+"Gu" = (
+/turf/simulated/floor/exoplanet/snow{
+	temperature = 73.15
+	},
+/area/template_noop)
+"GR" = (
+/obj/item/ore/iron,
+/turf/simulated/floor/exoplanet/permafrost{
+	temperature = 73.15
+	},
+/area/template_noop)
+"Oc" = (
+/obj/item/pickaxe/drill,
+/turf/simulated/floor/exoplanet/permafrost{
+	temperature = 73.15
+	},
+/area/template_noop)
+"Rh" = (
+/turf/simulated/floor/exoplanet/permafrost{
+	temperature = 73.15
+	},
+/area/template_noop)
+"Wa" = (
+/obj/structure/closet/crate/miningcart,
+/turf/simulated/floor/exoplanet/permafrost{
+	temperature = 73.15
+	},
+/area/template_noop)
+"WK" = (
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/exoplanet/permafrost{
+	temperature = 73.15
+	},
+/area/template_noop)
+
+(1,1,1) = {"
+Gu
+Gu
+Gu
+zf
+Gu
+Gu
+Gu
+Gu
+Gu
+Gu
+Gu
+Gu
+Gu
+zf
+Gu
+Gu
+Gu
+Gu
+Gu
+Gu
+"}
+(2,1,1) = {"
+Gu
+Gu
+Gu
+zf
+Gu
+zf
+zf
+zf
+zf
+Gu
+Gu
+zf
+zf
+zf
+zf
+zf
+Gu
+Gu
+Gu
+Gu
+"}
+(3,1,1) = {"
+Gu
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+Gu
+Gu
+"}
+(4,1,1) = {"
+Gu
+Gu
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+Gu
+Gu
+"}
+(5,1,1) = {"
+Gu
+Gu
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+Gu
+Gu
+"}
+(6,1,1) = {"
+Gu
+Gu
+zf
+zf
+zf
+zf
+zf
+Rh
+Rh
+zf
+Wa
+Wa
+zf
+zf
+zf
+zf
+zf
+zf
+Gu
+Gu
+"}
+(7,1,1) = {"
+Gu
+Gu
+zf
+zf
+zf
+Rh
+Rh
+ef
+ef
+Rh
+ef
+Cw
+Rh
+zf
+zf
+zf
+zf
+zf
+Gu
+Gu
+"}
+(8,1,1) = {"
+zf
+zf
+zf
+zf
+zf
+zf
+ef
+Rh
+Rh
+Rh
+Rh
+Rh
+Cw
+zf
+Rh
+Rh
+Rh
+Rh
+Gu
+Gu
+"}
+(9,1,1) = {"
+Gu
+zf
+zf
+zf
+zf
+zf
+WK
+Rh
+Rh
+ew
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+zf
+Gu
+Gu
+"}
+(10,1,1) = {"
+Gu
+Gu
+zf
+zf
+zf
+zf
+Oc
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+zf
+zf
+Gu
+Gu
+"}
+(11,1,1) = {"
+Gu
+Gu
+zf
+zf
+zf
+zf
+zh
+Rh
+Rh
+Rh
+GR
+Rh
+ew
+Rh
+zf
+Rh
+Rh
+Rh
+Gu
+Gu
+"}
+(12,1,1) = {"
+Gu
+Gu
+zf
+zf
+zf
+zf
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+Rh
+zf
+zf
+zf
+zA
+Gu
+Gu
+"}
+(13,1,1) = {"
+Gu
+zf
+zf
+zf
+zf
+Rh
+nR
+Rh
+zf
+Rh
+GR
+Rh
+zf
+zf
+zf
+zf
+zf
+zf
+Gu
+Gu
+"}
+(14,1,1) = {"
+zf
+zf
+zf
+zf
+zf
+Rh
+Rh
+Rh
+zf
+Rh
+Rh
+GR
+zf
+zf
+zf
+zf
+zf
+zf
+Gu
+Gu
+"}
+(15,1,1) = {"
+Gu
+Gu
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+GR
+Rh
+Rh
+zf
+zf
+zf
+zf
+zf
+zf
+Gu
+Gu
+"}
+(16,1,1) = {"
+Gu
+Gu
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+Rh
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+Gu
+Gu
+"}
+(17,1,1) = {"
+Gu
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+Gu
+Gu
+"}
+(18,1,1) = {"
+Gu
+Gu
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+Gu
+Gu
+Gu
+Gu
+"}
+(19,1,1) = {"
+Gu
+Gu
+Gu
+Gu
+Gu
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+zf
+Gu
+Gu
+Gu
+"}
+(20,1,1) = {"
+Gu
+Gu
+Gu
+Gu
+Gu
+zf
+Gu
+Gu
+Gu
+Gu
+zf
+Gu
+Gu
+Gu
+Gu
+Gu
+Gu
+Gu
+Gu
+Gu
+"}

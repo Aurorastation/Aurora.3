@@ -1,5 +1,6 @@
 /datum/unit_test/species
 	name = "SPECIES template"
+	groups = list("generic")
 
 /datum/unit_test/species/injection_mod
 	name = "SPECIES: All species shall have a valid injection_mod"

@@ -1,6 +1,6 @@
 import { BooleanLike } from '../../common/react';
 import { useBackend, useLocalState } from '../backend';
-import { Box, Button, Section, LabeledList, Table } from '../components';
+import { Box, Button, Input, Section, LabeledList, Table } from '../components';
 import { Window } from '../layouts';
 
 export type UplinkData = {
@@ -35,7 +35,7 @@ type ItemData = {
 
 type ExploitData = {
   id: number;
-  nanoui_exploit_record: string;
+  tgui_exploit_record: string;
   name: string;
   sex: string;
   age: string;
@@ -105,7 +105,7 @@ export const Uplink = (props, context) => {
             </Table.Row>
           </Table>
         </Section>
-        {data.menu === 0 ? ItemCategoriesSection(act, data) : ''}
+        {data.menu === 0 ? ItemCategoriesSection(context, act, data) : ''}
         {data.menu === 1 ? ItemSection(context, act, data) : ''}
         {data.menu === 2 ? ExploitSection(act, data) : ''}
         {data.menu === 21 ? ExploitRecordSection(act, data) : ''}
@@ -116,21 +116,58 @@ export const Uplink = (props, context) => {
   );
 };
 
-const ItemCategoriesSection = function (act: any, data: UplinkData) {
+const ItemCategoriesSection = function (
+  context: any,
+  act: any,
+  data: UplinkData
+) {
+  const [searchTerm, setSearchTerm] = useLocalState<string>(
+    context,
+    `searchTerm`,
+    ``
+  );
+
   return (
-    <Section title="Gear categories">
-      <LabeledList>
-        {data.categories?.map((category) => (
-          <LabeledList.Item key={category.name}>
-            <Button
-              content={category.name}
-              color={'purple'}
-              onClick={() => act('menu', { menu: 1, category: category.ref })}
-            />
-          </LabeledList.Item>
-        ))}
-      </LabeledList>
+    <Section
+      title={'Gear ' + (!searchTerm ? 'categories' : 'search')}
+      buttons={ItemSearch(context)}>
+      {!searchTerm
+        ? CategoriesList(act, data)
+        : ItemSection(context, act, data)}
     </Section>
+  );
+};
+
+const ItemSearch = function (context: any) {
+  const [searchTerm, setSearchTerm] = useLocalState<string>(
+    context,
+    `searchTerm`,
+    ``
+  );
+  return (
+    <Input
+      value={searchTerm}
+      placeholder="Search"
+      onInput={(e, value) => {
+        setSearchTerm(value);
+      }}
+    />
+  );
+};
+
+const CategoriesList = function (act: any, data: UplinkData) {
+  return (
+    <LabeledList>
+      {data.categories?.map((category) => (
+        <LabeledList.Item key={category.name}>
+          <Button
+            content={category.name}
+            color={'purple'}
+            onClick={() => act('menu', { menu: 1, category: category.ref })}
+          />
+        </LabeledList.Item>
+      ))}
+    </LabeledList>
   );
 };
 
@@ -141,6 +178,22 @@ const ItemSection = function (context: any, act: any, data: UplinkData) {
     true
   );
 
+  const [searchTerm] = useLocalState<string>(context, `searchTerm`, ``);
+
+  if (searchTerm) {
+    if (data.menu === 0 && searchTerm.length <= 2) {
+      return (
+        <span class="white">
+          <i>Three characters required for all search.</i>
+        </span>
+      );
+    }
+    data.items = data.items?.filter(
+      (i) =>
+        i.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
+        i.description.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+    );
+  }
   // sort by item cost first
   data.items?.sort((a, b) => {
     const a_cost = Math.max(a.bc_cost, a.tc_cost, 0);
@@ -163,7 +216,9 @@ const ItemSection = function (context: any, act: any, data: UplinkData) {
   });
 
   return (
-    <Section title="Request Gear">
+    <Section
+      title="Request Gear"
+      buttons={data.menu === 1 ? ItemSearch(context) : ''}>
       <span class="white">
         <i>
           Each item costs a number of telecrystals or bluecrystals as indicated
@@ -279,8 +334,8 @@ const ExploitRecordSection = function (act: any, data: UplinkData) {
           </LabeledList.Item>
           <LabeledList.Item label="Acquired Information" />
         </LabeledList>
-        {exploit.nanoui_exploit_record
-          ? exploit.nanoui_exploit_record
+        {exploit.tgui_exploit_record
+          ? exploit.tgui_exploit_record
           : 'No additional information acquired.'}
       </Section>
     );

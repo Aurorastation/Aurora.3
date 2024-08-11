@@ -58,7 +58,7 @@
 	if(!proximity_to)
 		return FALSE
 
-	for(var/thing in player_list)
+	for(var/thing in GLOB.player_list)
 		var/mob/M = thing // Avoiding typechecks for more speed, player_list will only contain mobs anyways.
 		if(ignore_ghosts && isobserver(M))
 			continue

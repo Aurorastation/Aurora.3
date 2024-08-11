@@ -26,11 +26,13 @@
 
 /datum/unit_test/mob_hear
 	name = "MOB: Living mobs test for mob's speech"
+	groups = list("mob")
+
 	var/mob_type = /mob/living/test
 
 
 /datum/unit_test/mob_hear/start_test()
-	var/mobloc = pick(tdome1)
+	var/mobloc = pick(GLOB.tdome1)
 	if(!mobloc)
 		TEST_FAIL("Unable to find a location to create test mob")
 		return 0
@@ -83,6 +85,8 @@
 
 /datum/unit_test/human_breath
 	name = "MOB: Human Suffocates in Space"
+	groups = list("mob")
+
 	var/starting_oxyloss = null
 	var/ending_oxyloss = null
 	var/mob/living/carbon/human/H
@@ -121,7 +125,7 @@
 	var/list/test_result = list("result" = FAILURE, "msg"    = "", "mobref" = null)
 
 	if(isnull(mobloc))
-		mobloc = pick(tdome1)
+		mobloc = pick(GLOB.tdome1)
 	if(!mobloc)
 		test_result["msg"] = "Unable to find a location to create test mob"
 		return test_result
@@ -135,7 +139,7 @@
 	test_result["mobref"] = "\ref[L]"
 
 	if(add_to_playerlist)
-		player_list |= L
+		GLOB.player_list |= L
 		testing("Adding test subject to the player list")
 		world << "Adding test subject to the player list"
 
@@ -189,6 +193,8 @@
 
 /datum/unit_test/mob_damage
 	name = "MOB: Template for mob damage"
+	groups = list("mob")
+
 	var/mob/living/carbon/human/testmob = null
 	var/damagetype = DAMAGE_BRUTE
 	var/mob_type = /mob/living/carbon/human
@@ -517,6 +523,8 @@
 
 /datum/unit_test/robot_module_icons
 	name = "MOB: Robot module icon check"
+	groups = list("mob")
+
 	var/icon_file = 'icons/mob/screen/robot.dmi'
 
 /datum/unit_test/robot_module_icons/start_test()

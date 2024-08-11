@@ -1,8 +1,10 @@
 /obj/effect/overlay
 	name = "overlay"
 	unacidable = 1
-	var/i_attached //Added for possible image attachments to objects. For hallucinations and the like.
-	var/no_clean = FALSE // Prevents janitorial cyborgs from cleaning this effect
+	/// Added for possible image attachments to objects. For hallucinations and the like.
+	var/i_attached
+	/// Prevents janitorial cyborgs from cleaning this effect.
+	var/no_clean = FALSE
 
 /obj/effect/overlay/Destroy()
 	i_attached = null
@@ -13,7 +15,7 @@
 	icon='icons/effects/beam.dmi'
 	icon_state="b_beam"
 	blend_mode = BLEND_ADD
-	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	animate_movement = FALSE
 	var/tmp/atom/BeamSource
 
@@ -22,7 +24,7 @@
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "palm1"
 	density = 1
-	layer = 5
+	layer = ABOVE_HUMAN_LAYER
 	anchored = 1
 
 
@@ -31,7 +33,7 @@
 	icon = 'icons/misc/beach2.dmi'
 	icon_state = "palm2"
 	density = 1
-	layer = 5
+	layer = ABOVE_HUMAN_LAYER
 	anchored = 1
 
 
@@ -45,15 +47,8 @@
 	name = "bluespace"
 	icon = 'icons/turf/space.dmi'
 	icon_state = "bluespacify"
-	layer = 10
-
-/obj/effect/overlay/snow
-	name = "snow"
-	icon = 'icons/turf/overlays.dmi'
-	icon_state = "snowfloor"
-	density = 0
-	anchored = 1
-	layer = 3
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	layer = SUPERMATTER_WALL_LAYER
 
 /obj/effect/overlay/temp
 	icon_state = "nothing"
@@ -67,7 +62,7 @@
 /obj/effect/overlay/temp/New()
 	..()
 	if(randomdir)
-		dir = (pick(cardinal))
+		dir = (pick(GLOB.cardinal))
 	flick("[icon_state]", src)
 
 	QDEL_IN(src, duration)

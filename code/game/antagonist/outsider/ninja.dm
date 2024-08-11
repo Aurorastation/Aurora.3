@@ -2,11 +2,11 @@ var/datum/antagonist/ninja/ninjas
 
 /datum/antagonist/ninja
 	id = MODE_NINJA
-	role_text = "Ninja"
-	role_text_plural = "Ninja"
+	role_text = "Operative"
+	role_text_plural = "Operatives"
 	bantype = "ninja"
 	landmark_id = "ninjastart"
-	welcome_text = "<span class='info'>You are an elite stealth agent. You can equip your suit with the latest technology using your uplink.</span>"
+	welcome_text = SPAN_INFO("You are an elite agent of some interest group. You have a variety of abilities at your disposal, thanks to your advanced hardsuit.")
 	restricted_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_RANDSPAWN | ANTAG_VOTABLE | ANTAG_SET_APPEARANCE | ANTAG_NO_FLAVORTEXT
 	antaghud_indicator = "hudninja"
@@ -26,7 +26,7 @@ var/datum/antagonist/ninja/ninjas
 	ninjas = src
 
 /datum/antagonist/ninja/attempt_random_spawn()
-	if(config.ninjas_allowed) ..()
+	if(GLOB.config.ninjas_allowed) ..()
 
 /datum/antagonist/ninja/create_objectives(var/datum/mind/ninja)
 
@@ -111,34 +111,34 @@ var/datum/antagonist/ninja/ninjas
 		player.drop_from_inventory(I)
 		if(I.loc != player)
 			qdel(I)
-	player.preEquipOutfit(/datum/outfit/admin/syndicate/ninja, FALSE)
-	player.equipOutfit(/datum/outfit/admin/syndicate/ninja, FALSE)
+	player.preEquipOutfit(/obj/outfit/admin/syndicate/ninja, FALSE)
+	player.equipOutfit(/obj/outfit/admin/syndicate/ninja, FALSE)
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()
 	return TRUE
 
 /datum/antagonist/ninja/proc/generate_ninja_directive(side)
-	var/directive = "[side=="face"?"[current_map.company_name]":"A criminal syndicate"] is your employer. "//Let them know which side they're on.
+	var/directive = "[side=="face"?"[SSatlas.current_map.company_name]":"A criminal syndicate"] is your employer. "//Let them know which side they're on.
 	switch(rand(1,19))
 		if(1)
 			directive += "The Spider Clan must not be linked to this operation. Remain hidden and covert when possible."
 		if(2)
-			directive += "[current_map.station_name] is financed by an enemy of the Spider Clan. Cause as much structural damage as desired."
+			directive += "[SSatlas.current_map.station_name] is financed by an enemy of the Spider Clan. Cause as much structural damage as desired."
 		if(3)
 			directive += "A wealthy animal rights activist has made a request we cannot refuse. Prioritize saving animal lives whenever possible."
 		if(4)
 			directive += "The Spider Clan absolutely cannot be linked to this operation. Eliminate witnesses at your discretion."
 		if(5)
-			directive += "We are currently negotiating with [current_map.company_name] [current_map.boss_name]. Prioritize saving human lives over ending them."
+			directive += "We are currently negotiating with [SSatlas.current_map.company_name] [SSatlas.current_map.boss_name]. Prioritize saving human lives over ending them."
 		if(6)
-			directive += "We are engaged in a legal dispute over [current_map.station_name]. If a lawyer is present on board, force their cooperation in the matter."
+			directive += "We are engaged in a legal dispute over [SSatlas.current_map.station_name]. If a lawyer is present on board, force their cooperation in the matter."
 		if(7)
 			directive += "A financial backer has made an offer we cannot refuse. Implicate criminal involvement in the operation."
 		if(8)
 			directive += "Let no one question the mercy of the Spider Clan. Ensure the safety of all non-essential personnel you encounter."
 		if(9)
-			directive += "A free agent has proposed a lucrative business deal. Implicate [current_map.company_name] involvement in the operation."
+			directive += "A free agent has proposed a lucrative business deal. Implicate [SSatlas.current_map.company_name] involvement in the operation."
 		if(10)
 			directive += "Our reputation is on the line. Harm as few civilians and innocents as possible."
 		if(11)
@@ -146,14 +146,14 @@ var/datum/antagonist/ninja/ninjas
 		if(12)
 			directive += "We are currently negotiating with a mercenary leader. Disguise assassinations as suicide or other natural causes."
 		if(13)
-			directive += "Some disgruntled [current_map.company_name] employees have been supportive of our operations. Be wary of any mistreatment by command staff."
+			directive += "Some disgruntled [SSatlas.current_map.company_name] employees have been supportive of our operations. Be wary of any mistreatment by command staff."
 		if(14)
 			var/xenorace = pick("Unathi","Tajara", "Skrell")
 			directive += "A group of [xenorace] radicals have been loyal supporters of the Spider Clan. Favor [xenorace] crew whenever possible."
 		if(15)
 			directive += "The Spider Clan has recently been accused of religious insensitivity. Attempt to speak with the Chaplain and prove these accusations false."
 		if(16)
-			directive += "The Spider Clan has been bargaining with a competing prosthetics manufacturer. Try to shine [current_map.company_name] prosthetics in a bad light."
+			directive += "The Spider Clan has been bargaining with a competing prosthetics manufacturer. Try to shine [SSatlas.current_map.company_name] prosthetics in a bad light."
 		if(17)
 			directive += "The Spider Clan has recently begun recruiting outsiders. Consider suitable candidates and assess their behavior amongst the crew."
 		if(18)

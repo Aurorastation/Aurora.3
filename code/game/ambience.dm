@@ -155,6 +155,13 @@
 	'sound/ambience/expoutpost/expoutpost4.ogg'\
 	)
 
+//Defines Tension Ambience
+#define AMBIENCE_TENSION list(\
+	'sound/ambience/tension/tension.ogg',\
+	'sound/ambience/tension/argitoth.ogg',\
+	'sound/ambience/tension/horror.ogg',\
+	'sound/ambience/tension/burning_terror.ogg'\
+	)
 //CHOMP Edit Sounds for Substation rooms. Just electrical sounds, really.
 #define AMBIENCE_SUBSTATION list(\
 	'sound/ambience/substation/substation1.ogg',\
@@ -207,3 +214,21 @@
 #define AMBIENCE_KONYANG_WATER list(\
 	'sound/ambience/konyang/konyang-water.ogg'\
 	)
+
+#define AMBIENCE_DESERT list(\
+	'sound/effects/wind/desert0.ogg',\
+	'sound/effects/wind/desert1.ogg',\
+	'sound/effects/wind/desert2.ogg',\
+	'sound/effects/wind/desert3.ogg',\
+	'sound/effects/wind/desert4.ogg',\
+	'sound/effects/wind/desert5.ogg'\
+	)
+
+#define AMBIENCE_JUNGLE list(\
+	'sound/effects/wind/wind_2_1.ogg',\
+	'sound/effects/wind/wind_2_2.ogg',\
+	'sound/effects/wind/wind_3_1.ogg',\
+	'sound/effects/wind/wind_4_1.ogg',\
+	'sound/ambience/eeriejungle2.ogg',\
+	'sound/ambience/eeriejungle1.ogg'\
+)

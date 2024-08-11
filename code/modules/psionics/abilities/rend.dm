@@ -17,9 +17,9 @@
 	armor_penetration = 30
 	cooldown = 30
 	psi_cost = 35
-	attack_verb = list("rends apart", "disintegrates")
+	attack_verb = list("rent apart", "disintegrated")
 	hitsound = 'sound/weapons/heavysmash.ogg'
-	flags = 0
+	item_flags = 0
 	var/structure_mode = FALSE
 
 /obj/item/spell/rend/on_use_cast(mob/user, bypass_psi_check)
@@ -60,5 +60,5 @@
 							SPAN_WARNING("You lay your palms on \the [A] and begin permeating psionic energy through its structure..."))
 			if(do_after(user, base_time))
 				user.visible_message(SPAN_WARNING("[user] disintegrates \the [A]!"), SPAN_WARNING("You disintegrate \the [A]!"))
-				playsound(A, 'sound/effects/meteorimpact.ogg')
+				playsound(A, 'sound/effects/meteorimpact.ogg', 40)
 				qdel(A)

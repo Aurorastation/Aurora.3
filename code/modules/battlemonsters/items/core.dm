@@ -4,7 +4,7 @@
 	var/facedown = TRUE
 	var/rotated = FALSE
 
-/obj/item/battle_monsters/dropped(mob/user as mob)
+/obj/item/battle_monsters/dropped(mob/user)
 	set_dir(user.dir)
 	if(rotated)
 		set_dir(turn(dir,90))
@@ -26,9 +26,9 @@
 
 	. = ..()
 
-/obj/item/battle_monsters/MouseDrop_T(var/atom/movable/C, mob/user) //Dropping C onto the card
-	if(istype(C,/obj/item/battle_monsters))
-		src.attackby(C,user)
+/obj/item/battle_monsters/MouseDrop_T(atom/dropping, mob/user) //Dropping C onto the card
+	if(istype(dropping, /obj/item/battle_monsters))
+		src.attackby(dropping,user)
 		return
 
 	. = ..()

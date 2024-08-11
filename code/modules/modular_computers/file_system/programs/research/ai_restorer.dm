@@ -7,7 +7,7 @@
 	size = 12
 	requires_ntnet = FALSE
 	requires_access_to_run = FALSE
-	required_access_download = access_heads
+	required_access_download = ACCESS_HEADS
 	available_on_ntnet = TRUE
 	color = LIGHT_COLOR_PURPLE
 	usage_flags = PROGRAM_CONSOLE

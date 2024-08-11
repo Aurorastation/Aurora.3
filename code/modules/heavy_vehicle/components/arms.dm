@@ -16,9 +16,10 @@
 	QDEL_NULL(motivator)
 	. = ..()
 
-/obj/item/mech_component/manipulators/show_missing_parts(var/mob/user)
+/obj/item/mech_component/manipulators/get_missing_parts_text()
+	. = ..()
 	if(!motivator)
-		to_chat(user, SPAN_WARNING("It is missing an <a href='?src=\ref[src];info=actuator'>actuator</a>."))
+		. += SPAN_WARNING("It is missing an <a href='?src=\ref[src];info=actuator'>actuator</a>.")
 
 /obj/item/mech_component/manipulators/Topic(href, href_list)
 	. = ..()
@@ -41,12 +42,13 @@
 /obj/item/mech_component/manipulators/prebuild()
 	motivator = new(src)
 
-/obj/item/mech_component/manipulators/attackby(var/obj/item/thing, var/mob/user)
-	if(istype(thing,/obj/item/robot_parts/robot_component/actuator))
+/obj/item/mech_component/manipulators/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/robot_parts/robot_component/actuator))
 		if(motivator)
 			to_chat(user, SPAN_WARNING("\The [src] already has an actuator installed."))
 			return
-		if(install_component(thing, user)) motivator = thing
+		if(install_component(attacking_item, user))
+			motivator = attacking_item
 	else
 		return ..()
 

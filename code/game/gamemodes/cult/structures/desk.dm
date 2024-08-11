@@ -4,9 +4,9 @@
 	desc_antag = "A desk covered with the scriptures of Nar-Sie, The One Who Sees, The Geometer of Blood. Most of them are beyond your current comprehension. If you are a cultist, you could click on this desk with any non-unique book to turn it into a tome."
 	icon_state = "tomealtar"
 
-/obj/structure/cult/tome/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/book) && iscultist(user))
-		var/obj/item/book/B = W
+/obj/structure/cult/tome/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/book) && iscultist(user))
+		var/obj/item/book/B = attacking_item
 		if(!B.unique)
 			var/cult_item = B.cultify()
 			user.put_in_hands(cult_item)

@@ -1,4 +1,4 @@
-/mob/living/simple_animal/borer/instantiate_hud(var/datum/hud/HUD)
+/mob/living/simple_animal/borer/instantiate_hud(datum/hud/HUD)
 	HUD.borer_hud()
 
 /datum/hud/proc/borer_hud()

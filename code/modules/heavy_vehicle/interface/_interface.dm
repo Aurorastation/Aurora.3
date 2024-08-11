@@ -65,19 +65,7 @@
 		var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
 		if(H) H.update_system_info()
 	handle_hud_icons_health()
-	var/obj/item/cell/C = get_cell()
-	if(istype(C))
-		var/power_percentage = round((get_cell()?.charge / get_cell()?.maxcharge) * 100)
-		if(power_percentage >= 100)
-			hud_power?.maptext_x = 21
-		else if(power_percentage < 10)
-			hud_power?.maptext_x = 25
-		else if(power_percentage < 100)
-			hud_power?.maptext_x = 22
-		hud_power.maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 8px;\">[power_percentage]%</span>"
-	else
-		hud_power?.maptext_x = 13
-		hud_power?.maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">NO CELL</span>"
+	handle_power_hud()
 	refresh_hud()
 
 
@@ -90,9 +78,9 @@
 
 
 	if(!body.diagnostics || !body.diagnostics.is_functional() || ((emp_damage>EMP_GUI_DISRUPT) && prob(emp_damage*2)))
-		if(!global.mecha_damage_overlay_cache["critfail"])
-			global.mecha_damage_overlay_cache["critfail"] = image(icon='icons/mecha/mecha_hud.dmi',icon_state="dam_error")
-		hud_health?.overlays |= global.mecha_damage_overlay_cache["critfail"]
+		if(!GLOB.mecha_damage_overlay_cache["critfail"])
+			GLOB.mecha_damage_overlay_cache["critfail"] = image(icon='icons/mecha/mecha_hud.dmi',icon_state="dam_error")
+		hud_health?.overlays |= GLOB.mecha_damage_overlay_cache["critfail"]
 		return
 
 	var/list/part_to_state = list("legs" = legs,"body" = body,"head" = head,"arms" = arms)
@@ -104,7 +92,7 @@
 				state = rand(0,4)
 			else
 				state = MC.damage_state
-		if(!global.mecha_damage_overlay_cache["[part]-[state]"])
+		if(!GLOB.mecha_damage_overlay_cache["[part]-[state]"])
 			var/image/I = image(icon='icons/mecha/mecha_hud.dmi',icon_state="dam_[part]")
 			switch(state)
 				if(1)
@@ -117,6 +105,21 @@
 					I.color = "#ff0000"
 				else
 					I.color = "#f5f5f0"
-			global.mecha_damage_overlay_cache["[part]-[state]"] = I
+			GLOB.mecha_damage_overlay_cache["[part]-[state]"] = I
 
-		hud_health?.overlays |= global.mecha_damage_overlay_cache["[part]-[state]"]
+		hud_health?.overlays |= GLOB.mecha_damage_overlay_cache["[part]-[state]"]
+
+/mob/living/heavy_vehicle/proc/handle_power_hud()
+	var/obj/item/cell/C = get_cell()
+	if(istype(C))
+		var/power_percentage = round((get_cell()?.charge / get_cell()?.maxcharge) * 100)
+		if(power_percentage >= 100)
+			hud_power?.maptext_x = 21
+		else if(power_percentage < 10)
+			hud_power?.maptext_x = 25
+		else
+			hud_power?.maptext_x = 22
+		hud_power?.maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 8px;\">[power_percentage]%</span>"
+	else
+		hud_power?.maptext_x = 13
+		hud_power?.maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">NO CELL</span>"

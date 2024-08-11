@@ -21,25 +21,28 @@
 	var/mob/living/simple_animal/hostile/greatworm/originator
 	var/mob/living/captive
 
+/obj/item/trap/sarlacc/get_trap_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	return list()
+
 /obj/item/trap/sarlacc/Destroy()
 	if(originator)
 		originator = null
 	return ..()
 
-/obj/item/trap/sarlacc/Crossed(AM as mob|obj)
+/obj/item/trap/sarlacc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+
 	if(originator)
-		if(deployed && isliving(AM) && !originator.eating)
-			var/mob/living/L = AM
+		if(deployed && isliving(arrived) && !originator.eating)
+			var/mob/living/L = arrived
 			L.visible_message(
-				"<span class='danger'>[L] steps into \the [src].</span>",
-				"<span class='danger'>You step into \the [src]!</span>",
+				SPAN_DANGER("[L] steps into \the [src]."),
+				SPAN_DANGER("You step into \the [src]!"),
 				"<b>You hear a loud organic snap!</b>"
 				)
-			attack_mob(L)
+			INVOKE_ASYNC(src, PROC_REF(attack_mob), L)
 			originator.eating = 1
-			to_chat(L, "<span class='danger'>\The [src] begins digesting your upper body!</span>")
+			to_chat(L, SPAN_DANGER("\The [src] begins digesting your upper body!"))
 			addtimer(CALLBACK(src, PROC_REF(devour), L), 50 SECONDS)
-	..()
 
 /obj/item/trap/sarlacc/proc/devour(var/mob/living/C)
 	if(!C)
@@ -54,8 +57,8 @@
 	if(istype(L,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = L
 		H.visible_message(
-			"<span class='danger'>\The [src] snaps tight across [H]'s upper body, swallowing it in three grisly gulps.</span>",
-			"<span class='danger'>You feel a searing pain as \the [src] severs your lower body and sends you careening into its grotesque gullet!</span>",
+			SPAN_DANGER("\The [src] snaps tight across [H]'s upper body, swallowing it in three grisly gulps."),
+			SPAN_DANGER("You feel a searing pain as \the [src] severs your lower body and sends you careening into its grotesque gullet!"),
 			"<b>You hear a sick crunch!</b>"
 			)
 		var/obj/item/organ/external/G = H.get_organ(BP_GROIN)
@@ -69,15 +72,15 @@
 	else if(istype(L,/mob/living/silicon/robot))
 		var/mob/living/silicon/robot/R = L
 		L.visible_message(
-			"<span class='danger'>\The [src] spits [R] out with a frustrated screech after failing to swallow.</span>",
-			"<span class='danger'>\The [src] scrapes and gnashes against your exoskeleton before spitting you out!</span>",
+			SPAN_DANGER("\The [src] spits [R] out with a frustrated screech after failing to swallow."),
+			SPAN_DANGER("\The [src] scrapes and gnashes against your exoskeleton before spitting you out!"),
 			"<b>You hear several metallic scrapes!</b>"
 			)
 		R.apply_damage(60,DAMAGE_BRUTE)
 	else
 		L.visible_message(
-			"<span class='danger'>\The [src] eviscerates [L] with its teeth, swallowing what little remains whole!</span>",
-			"<span class='danger'>\The [src] turns you into a slightly viscuous and very bloody paste.</span>",
+			SPAN_DANGER("\The [src] eviscerates [L] with its teeth, swallowing what little remains whole!"),
+			SPAN_DANGER("\The [src] turns you into a slightly viscuous and very bloody paste."),
 			"<b>You hear a grisly splat!</b>"
 			)
 		L.gib()
@@ -92,7 +95,6 @@
 	desc = "The gaping maw opens and closes eternally, insatiably... Rumours however tell that those who can sate it are rewarded."
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlacc"
-	see_in_dark = 8
 	health = 100
 	maxHealth = 100
 	gender = NEUTER
@@ -111,7 +113,6 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
-	layer = 2.1
 	var/eating = 0
 	var/sated = 0
 	var/asleep = 0
@@ -139,7 +140,7 @@
 		sarlacc = null
 	return ..()
 
-/mob/living/simple_animal/hostile/greatworm/Life()
+/mob/living/simple_animal/hostile/greatworm/Life(seconds_per_tick, times_fired)
 	..()
 	if(!sarlacc)
 		var/obj/item/trap/sarlacc/L = new /obj/item/trap/sarlacc(src.loc)
@@ -153,8 +154,8 @@
 		asleep = 0
 		icon_state = "sarlacc"
 		visible_message(
-			"<span class='danger'>\The [src] awakens!</span>",
-			"<span class='danger'>You awaken! You're so HUNGRY!</span>",
+			SPAN_DANGER("\The [src] awakens!"),
+			SPAN_DANGER("You awaken! You're so HUNGRY!"),
 			"<b>You hear a deep, rumbling roar in the earth!</b>"
 			)
 		sarlacc.deployed = 1
@@ -186,15 +187,15 @@
 					if(L)
 						L.apply_damage(rand(3,10),DAMAGE_BRUTE)
 						L.visible_message(
-							"<span class='danger'>\The [src] tears at [L]'s flesh with its gruesome jaws.</span>",
-							"<span class='danger'>You feel a searing pain as \the [src] tears at your flesh!</span>",
+							SPAN_DANGER("\The [src] tears at [L]'s flesh with its gruesome jaws."),
+							SPAN_DANGER("You feel a searing pain as \the [src] tears at your flesh!"),
 							"<b>You hear a sick tear!</b>"
 							)
 
 
 /mob/living/simple_animal/hostile/greatworm/death()
 	..()
-	visible_message("<span class='danger'>With a frenzy of tooth and tendril, \the [src] slides deep into the earth, leaving a gaping hole in its place!</span>")
+	visible_message(SPAN_DANGER("With a frenzy of tooth and tendril, \the [src] slides deep into the earth, leaving a gaping hole in its place!"))
 	var/turf/T = src.loc
 	T.ChangeTurf(/turf/space)
 	qdel(src)
@@ -205,7 +206,7 @@
 		asleep = 1
 	icon_state = "sarlacc_asleep"
 	sarlacc.deployed = 0
-	visible_message("<span class='danger'>With a contented heave, \the [src] slides into the earth and begins regurgitating several treasures before shutting tight.</span>")
+	visible_message(SPAN_DANGER("With a contented heave, \the [src] slides into the earth and begins regurgitating several treasures before shutting tight."))
 	new/obj/random/loot(get_turf(src))
 
 /mob/living/simple_animal/hostile/greatworm/FindTarget()
@@ -241,7 +242,7 @@
 	active_tentacles += L
 	L.originator = src
 	L.faction = src.faction
-	visible_message("<span class='danger'>\The [L] bursts from the earth under [target].</span>")
+	visible_message(SPAN_DANGER("\The [L] bursts from the earth under [target]."))
 
 /mob/living/simple_animal/hostile/greatworm/Move()
 	return
@@ -295,10 +296,10 @@
 		if(L != src)
 			L.apply_damage(15,DAMAGE_BRUTE)
 			possible_targets += L
-			to_chat(L, "<span class='danger'>\The [src] wraps around you tightly with its spiny teeth!</span>")
+			to_chat(L, SPAN_DANGER("\The [src] wraps around you tightly with its spiny teeth!"))
 	if(Adjacent(originator) && possible_targets.len)
 		var/mob/living/L = pick(possible_targets)
-		to_chat(L, "<span class='danger'>\The [src] flings you into \the [originator]'s maw!</span>")
+		to_chat(L, SPAN_DANGER("\The [src] flings you into \the [originator]'s maw!"))
 		L.Move(originator.loc)
 
 /mob/living/simple_animal/hostile/lesserworm/Move()
@@ -313,7 +314,6 @@
 	desc = "This pulsating brain seems somehow connected to all the other orifices in this room..."
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlaccbrain"
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	universal_speak = 1
@@ -340,7 +340,7 @@
 	minbodytemp = 0
 	ranged = 1
 	projectilesound = 'sound/magic/WandODeath.ogg'
-	projectiletype = /obj/item/projectile/energy/thoughtbubble
+	projectiletype = /obj/projectile/energy/thoughtbubble
 	speak_emote = list("gargles")
 	emote_hear = list("gargles")
 	emote_see = list("ooozes","pulses","drips","pumps")
@@ -348,7 +348,7 @@
 	faction = "worms"
 
 /mob/living/simple_animal/hostile/greatwormking/Destroy()
-	playsound(src.loc, 'sound/hallucinations/wail.ogg', 200, 1, usepressure = 0)
+	playsound(src.loc, 'sound/hallucinations/wail.ogg', 200, 1, pressure_affected = 0)
 	for(var/mob/living/L in SSmobs.greatworms)
 		L.death()
 	for(var/obj/structure/S in SSmobs.greatasses)
@@ -358,7 +358,7 @@
 /mob/living/simple_animal/hostile/greatwormking/Move()
 	return
 
-/obj/item/projectile/energy/thoughtbubble
+/obj/projectile/energy/thoughtbubble
 	name = "psionic blast"
 	icon_state = "ion"
 	nodamage = TRUE
@@ -391,12 +391,12 @@
 		"You've got a bad feeling about this."
 	)
 
-/obj/item/projectile/energy/thoughtbubble/on_impact(var/atom/A)
+/obj/projectile/energy/thoughtbubble/on_impact(var/atom/A)
 	..()
 	if(istype(A, /mob/living))
 		var/mob/living/L = A
 		if(L.reagents)
-			var/madhouse = pick(/singleton/reagent/psilocybin,/singleton/reagent/mindbreaker,/singleton/reagent/impedrezene,/singleton/reagent/cryptobiolin,/singleton/reagent/soporific,/singleton/reagent/mutagen)
+			var/madhouse = pick(/singleton/reagent/drugs/psilocybin,/singleton/reagent/drugs/mindbreaker,/singleton/reagent/drugs/impedrezene,/singleton/reagent/drugs/cryptobiolin,/singleton/reagent/soporific,/singleton/reagent/mutagen)
 			var/madhouse_verbal_component = pick(thoughts)
 			L.reagents.add_reagent(madhouse, 3)
 			to_chat(L, "<span class='alium'><b><i>[madhouse_verbal_component]</i></b></span>")
@@ -408,7 +408,6 @@
 	icon_state = "sarlaccend"
 	anchored = 1
 	density = 0
-	layer = 2.1
 
 /obj/structure/greatworm/Initialize()
 	. = ..()

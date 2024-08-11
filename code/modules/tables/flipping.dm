@@ -24,7 +24,7 @@
 		return
 
 	if(flipped < 0 || !flip(get_cardinal_dir(usr,src)))
-		to_chat(usr, "<span class='notice'>It won't budge.</span>")
+		to_chat(usr, SPAN_NOTICE("It won't budge."))
 		return
 
 	usr.visible_message(SPAN_WARNING("[usr] flips \the [src]!"), intent_message = THUNK_SOUND)
@@ -67,7 +67,7 @@
 		return
 
 	if (!unflipping_check())
-		to_chat(usr, "<span class='notice'>It won't budge.</span>")
+		to_chat(usr, SPAN_NOTICE("It won't budge."))
 		return
 	unflip()
 
@@ -89,7 +89,7 @@
 		layer = 5
 	climbable = FALSE //flipping tables allows them to be used as makeshift barriers
 	flipped = 1
-	flags |= ON_BORDER
+	atom_flags |= ATOM_FLAG_CHECKS_BORDER
 	for(var/D in list(turn(direction, 90), turn(direction, -90)))
 		var/obj/structure/table/T = locate() in get_step(src,D)
 		if(T && T.flipped == 0 && material && T.material && T.material.name == material.name)
@@ -107,7 +107,7 @@
 	layer = initial(layer)
 	flipped = 0
 	climbable = initial(climbable)
-	flags &= ~ON_BORDER
+	atom_flags &= ~ATOM_FLAG_CHECKS_BORDER
 	for(var/D in list(turn(dir, 90), turn(dir, -90)))
 		var/obj/structure/table/T = locate() in get_step(src.loc,D)
 		if(T && T.flipped == 1 && T.dir == src.dir && material && T.material&& T.material.name == material.name)

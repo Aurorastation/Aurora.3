@@ -1,13 +1,13 @@
 //adhomian circus roles
 
-/datum/outfit/admin/adhomian_circus
+/obj/outfit/admin/adhomian_circus
 	id = /obj/item/card/id
 
 	l_ear = /obj/item/device/radio/headset/ship
 	r_pocket = /obj/item/storage/wallet/random
 
-/datum/outfit/admin/adhomian_circus/get_id_access()
-	return list(access_generic_away_site, access_external_airlocks)
+/obj/outfit/admin/adhomian_circus/get_id_access()
+	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/adhomian_circus
 	short_name = "adhomian_circus_crew"
@@ -21,7 +21,7 @@
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
-	outfit = /datum/outfit/admin/adhomian_circus/crew
+	outfit = /obj/outfit/admin/adhomian_circus/crew
 
 	assigned_role = "Adhomian Circus Crew"
 	special_role = "Adhomian Circus Crew"
@@ -29,7 +29,7 @@
 	respawn_flag = null
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/adhomian_circus/crew
+/obj/outfit/admin/adhomian_circus/crew
 	name = "Adhomian Circus Crew"
 
 	uniform = /obj/item/clothing/under/service_overalls
@@ -45,14 +45,14 @@
 	spawnpoints = list("adhomian_circus_ringmaster")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/adhomian_circus/ringmaster
+	outfit = /obj/outfit/admin/adhomian_circus/ringmaster
 
 	assigned_role = "Adhomian Circus Ringmaster"
 	special_role = "Adhomian Circus Ringmaster"
 
 	uses_species_whitelist = TRUE
 
-/datum/outfit/admin/adhomian_circus/ringmaster
+/obj/outfit/admin/adhomian_circus/ringmaster
 	name = "Adhomian Circus Ringmaster"
 
 	uniform = /obj/item/clothing/under/ringmaster
@@ -74,12 +74,12 @@
 
 	possible_species = list(SPECIES_TAJARA_ZHAN)
 
-	outfit = /datum/outfit/admin/adhomian_circus/strongman
+	outfit = /obj/outfit/admin/adhomian_circus/strongman
 
 	assigned_role = "Adhomian Circus Strongzhan"
 	special_role = "Adhomian Circus Strongzhan"
 
-/datum/outfit/admin/adhomian_circus/strongman
+/obj/outfit/admin/adhomian_circus/strongman
 	name = "Adhomian Circus Strongzhan"
 
 	uniform = /obj/item/clothing/under/strongman
@@ -95,12 +95,12 @@
 	spawnpoints = list("adhomian_circus_tamer")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/adhomian_circus/tamer
+	outfit = /obj/outfit/admin/adhomian_circus/tamer
 
 	assigned_role = "Adhomian Circus Tamer"
 	special_role = "Adhomian Circus Tamer"
 
-/datum/outfit/admin/adhomian_circus/tamer
+/obj/outfit/admin/adhomian_circus/tamer
 	name = "Adhomian Circus Tamer"
 
 	uniform = /obj/item/clothing/under/tamer
@@ -120,13 +120,13 @@
 	spawnpoints = list("adhomian_circus_fortune_teller")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/adhomian_circus/fortune_teller
+	outfit = /obj/outfit/admin/adhomian_circus/fortune_teller
 
 	assigned_role = "Adhomian Circus Fortune Teller"
 	special_role = "Adhomian Circus Fortune Teller"
 
 
-/datum/outfit/admin/adhomian_circus/fortune_teller
+/obj/outfit/admin/adhomian_circus/fortune_teller
 	name = "Adhomian Circus Fortune Teller"
 
 	uniform = /obj/item/clothing/under/dress/tajaran/fortune
@@ -142,13 +142,13 @@
 	spawnpoints = list("adhomian_circus_clown")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/adhomian_circus/clown
+	outfit = /obj/outfit/admin/adhomian_circus/clown
 
 	assigned_role = "Adhomian Circus Clown"
 	special_role = "Adhomian Circus Clown"
 	uses_species_whitelist = TRUE
 
-/datum/outfit/admin/adhomian_circus/clown
+/obj/outfit/admin/adhomian_circus/clown
 	name = "Adhomian Circus Clown"
 
 	uniform = /obj/item/clothing/under/clown

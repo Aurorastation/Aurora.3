@@ -31,12 +31,12 @@
 	. = ..()
 	update_icon()
 
-/obj/machinery/stasis_bed/attackby(obj/item/I, mob/user)
-	if(default_part_replacement(user, I))
+/obj/machinery/stasis_bed/attackby(obj/item/attacking_item, mob/user)
+	if(default_part_replacement(user, attacking_item))
 		return TRUE
-	else if(default_deconstruction_screwdriver(user, I))
+	else if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
-	else if(default_deconstruction_crowbar(user, I))
+	else if(default_deconstruction_crowbar(user, attacking_item))
 		return TRUE
 	return ..()
 
@@ -71,15 +71,15 @@
 	return stasis_enabled && !(stat & (NOPOWER|BROKEN))
 
 /obj/machinery/stasis_bed/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(stat & BROKEN)
 		icon_state = "[initial(icon_state)]_broken"
 		return ..()
 	icon_state = initial(icon_state)
 	if(panel_open || (stat & MAINT))
-		add_overlay("stasis_maintenance")
+		AddOverlays("stasis_maintenance")
 	if(stasis_running())
-		add_overlay("stasis_on")
+		AddOverlays("stasis_on")
 
 /obj/machinery/stasis_bed/power_change()
 	. = ..()

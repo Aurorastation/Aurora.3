@@ -1,5 +1,6 @@
 /datum/unit_test/cultures
 	name = "Cultures Test - All cultures shall be filled out"
+	groups = list("generic")
 
 /datum/unit_test/cultures/start_test()
 	var/failures = 0
@@ -25,6 +26,7 @@
 
 /datum/unit_test/origins
 	name = "Origins Test - All origins shall be filled out"
+	groups = list("generic")
 
 /datum/unit_test/origins/start_test()
 	var/failures = 0
@@ -50,6 +52,7 @@
 
 /datum/unit_test/accent_tags
 	name = "All accent tags shall have a text tag"
+	groups = list("generic")
 
 /datum/unit_test/accent_tags/start_test()
 	var/failures = 0

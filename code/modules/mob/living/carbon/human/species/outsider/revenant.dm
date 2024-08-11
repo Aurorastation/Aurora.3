@@ -67,9 +67,9 @@
 	)
 
 	has_limbs = list(
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable/revenant),
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable/revenant),
 		BP_L_ARM =  list("path" = /obj/item/organ/external/arm),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right),
 		BP_L_LEG =  list("path" = /obj/item/organ/external/leg),
@@ -130,7 +130,7 @@
 	return "Revenant"
 
 /datum/species/revenant/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= config.health_threshold_dead)
+	if(H.get_total_health() <= GLOB.config.health_threshold_dead)
 		return TRUE
 	return FALSE
 

@@ -24,7 +24,7 @@
 	braintype = "Android" // Posibrain.
 
 	// ID and Access
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 	id_card_type = /obj/item/card/id/syndicate
 	key_type = /obj/item/device/encryptionkey/syndicate
 	var/datum/antagonist/assigned_antagonist
@@ -64,7 +64,7 @@
 	charge_meter = 0
 	max_shots = 20
 	charge_cost = 100
-	projectile_type = /obj/item/projectile/bullet/pistol/medium/ap
+	projectile_type = /obj/projectile/bullet/pistol/medium/ap
 	self_recharge = 1
 	use_external_power = 1
 	recharge_time = 5

@@ -1,0 +1,5 @@
+help: Start markers must have a name set in-map
+/obj/effect/landmark/start:
+  banned_variables:
+    name:
+      deny: ["start (rename me to match the job title)"]

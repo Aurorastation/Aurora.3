@@ -13,7 +13,7 @@
 	S["OOC_Notes"]  >> pref.metadata
 	S["floating_chat_color"] >> pref.floating_chat_color
 	S["speech_bubble_type"] >> pref.speech_bubble_type
-	if(istype(all_species[pref.species], /datum/species/machine))
+	if(istype(GLOB.all_species[pref.species], /datum/species/machine))
 		S["ipc_tag_status"] >> pref.machine_tag_status
 		S["ipc_serial_number"] >> pref.machine_serial_number
 		S["ipc_ownership_status"] >> pref.machine_ownership_status
@@ -29,7 +29,7 @@
 	S["OOC_Notes"]  << pref.metadata
 	S["floating_chat_color"] << pref.floating_chat_color
 	S["speech_bubble_type"] << pref.speech_bubble_type
-	if(istype(all_species[pref.species], /datum/species/machine))
+	if(istype(GLOB.all_species[pref.species], /datum/species/machine))
 		S["ipc_tag_status"] << pref.machine_tag_status
 		S["ipc_serial_number"] << pref.machine_serial_number
 		S["ipc_ownership_status"] << pref.machine_ownership_status
@@ -115,33 +115,33 @@
 		"ckey" = PREF_CLIENT_CKEY
 	)
 
-/datum/category_item/player_setup_item/general/basic/load_special()
+/datum/category_item/player_setup_item/general/basic/load_character_special()
 	pref.can_edit_name = TRUE
 	pref.can_edit_ipc_tag = TRUE
 
-	if (config.sql_saves && pref.current_character)
-		if (!establish_db_connection(dbcon))
+	if (GLOB.config.sql_saves && pref.current_character)
+		if (!establish_db_connection(GLOB.dbcon))
 			return
 
 		// Called /after/ loading and /before/ sanitization.
 		// So we have pref.current_character. It's just in text format.
-		var/DBQuery/query = dbcon.NewQuery("SELECT DATEDIFF(NOW(), created_at) AS DiffDate FROM ss13_characters WHERE id = :id:")
+		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT DATEDIFF(NOW(), created_at) AS DiffDate FROM ss13_characters WHERE id = :id:")
 		query.Execute(list("id" = text2num(pref.current_character)))
 
 		if (query.NextRow())
 			if (text2num(query.item[1]) > 5)
 				pref.can_edit_name = FALSE
-				if(config.ipc_timelock_active)
+				if(GLOB.config.ipc_timelock_active)
 					pref.can_edit_ipc_tag = FALSE
 		else
-			log_world("ERROR: SQL CHARACTER LOAD: Logic error, general/basic/load_special() didn't return any rows when it should have. Character ID: [pref.current_character].")
+			log_world("ERROR: SQL CHARACTER LOAD: Logic error, general/basic/load_character_special() didn't return any rows when it should have. Character ID: [pref.current_character].")
 
 /datum/category_item/player_setup_item/general/basic/sanitize_character()
 	if(!pref.species)
 		pref.species = SPECIES_HUMAN
 	var/is_in_playable_species = FALSE
-	for(var/thing in playable_species)
-		if(pref.species in playable_species[thing])
+	for(var/thing in GLOB.playable_species)
+		if(pref.species in GLOB.playable_species[thing])
 			is_in_playable_species = TRUE
 	if(!is_in_playable_species)
 		pref.species = SPECIES_HUMAN
@@ -156,7 +156,7 @@
 	pref.spawnpoint         = sanitize_inlist(pref.spawnpoint, SSatlas.spawn_locations, initial(pref.spawnpoint))
 	pref.machine_tag_status = text2num(pref.machine_tag_status) // SQL queries return as text, so make this a num
 	pref.floating_chat_color = sanitize_hexcolor(pref.floating_chat_color, get_random_colour(0, 160, 230))
-	var/datum/species/S = all_species[pref.species]
+	var/datum/species/S = GLOB.all_species[pref.species]
 	if(!pref.speech_bubble_type || !(pref.speech_bubble_type in S.possible_speech_bubble_types))
 		if(istype(S))
 			pref.speech_bubble_type = S.possible_speech_bubble_types[1]
@@ -173,7 +173,7 @@
 		dat += "(<a href='?src=\ref[src];random_name=1'>Random Name</A>)"
 	dat += "<br>"
 	dat += "<b>Sex:</b> <a href='?src=\ref[src];gender=1'><b>[capitalize(lowertext(pref.gender))]</b></a><br>"
-	var/datum/species/S = all_species[pref.species]
+	var/datum/species/S = GLOB.all_species[pref.species]
 	if(length(S.selectable_pronouns))
 		dat += "<b>Pronouns:</b> <a href='?src=\ref[src];pronouns=1'><b>[capitalize_first_letters(pref.pronouns)]</b></a><br>"
 	dat += "<b>Age:</b> <a href='?src=\ref[src];age=1'>[pref.age]</a><br>"
@@ -197,8 +197,9 @@
 			else
 				dat += "<b>Serial Number:</b> [pref.machine_serial_number] (<a href='?src=\ref[src];namehelp=1'>?</a>)<br>"
 				dat += "<b>Ownership Status:</b> [pref.machine_ownership_status] (<a href='?src=\ref[src];namehelp=1'>?</a>)<br>"
-	if(config.allow_Metadata)
-		dat += "<b>OOC Notes:</b> <a href='?src=\ref[src];metadata=1'> Edit </a><br>"
+	if(GLOB.config.allow_Metadata)
+		dat += "<b>OOC Notes:</b> <a href='?src=\ref[src];metadata=1'> Edit </a>" \
+			+ "<a href='?src=\ref[src];clear_metadata=1'>Clear</a>" + "<br>"
 
 	. = dat.Join()
 
@@ -217,9 +218,9 @@
 			if(new_name)
 				if(new_name == pref.real_name)
 					return TOPIC_NOACTION //If the name is the same do nothing
-				if(config.sql_saves)
+				if(GLOB.config.sql_saves)
 					//Check if the player already has a character with the same name. (We dont have to account for the current char in that query, as that is already handled by the condition above)
-					var/DBQuery/query = dbcon.NewQuery("SELECT COUNT(*) FROM ss13_characters WHERE ckey = :ckey: and name = :char_name:")
+					var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT COUNT(*) FROM ss13_characters WHERE ckey = :ckey: and name = :char_name:")
 					query.Execute(list("ckey" = user.client.ckey, "char_name" = new_name))
 					query.NextRow()
 					var/count = text2num(query.item[1])
@@ -255,13 +256,13 @@
 			return TOPIC_REFRESH
 
 	else if(href_list["speech_bubble_type"])
-		var/datum/species/S = all_species[pref.species]
+		var/datum/species/S = GLOB.all_species[pref.species]
 		pref.speech_bubble_type = next_in_list(pref.speech_bubble_type, S.possible_speech_bubble_types)
 		return TOPIC_REFRESH
 
 	else if(href_list["gender"])
-		var/datum/species/S = all_species[pref.species]
-		pref.gender = next_in_list(pref.gender, valid_player_genders & S.default_genders)
+		var/datum/species/S = GLOB.all_species[pref.species]
+		pref.gender = next_in_list(pref.gender, GLOB.valid_player_genders & S.default_genders)
 		pref.pronouns = pref.gender
 
 		var/datum/category_item/player_setup_item/general/equipment/equipment_item = category.items[4]
@@ -269,7 +270,7 @@
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["pronouns"])
-		var/datum/species/S = all_species[pref.species]
+		var/datum/species/S = GLOB.all_species[pref.species]
 		var/selectable_pronouns = list() // this only exists to uppercase the first letters, otherwise it is uggo
 		for(var/pronoun in S.selectable_pronouns)
 			selectable_pronouns += capitalize_first_letters(pronoun)
@@ -286,7 +287,7 @@
 			return TOPIC_REFRESH
 
 	else if(href_list["height"])
-		var/datum/species/char_spec = all_species[pref.species]
+		var/datum/species/char_spec = GLOB.all_species[pref.species]
 		var/new_height = input(user, "Choose your character's height: (Values in Centimetres. [char_spec.name] height range [pref.getMinHeight()] - [pref.getMaxHeight()])", "Character Preference", pref.height) as num|null
 		if(new_height && CanUseTopic(user))
 			pref.height = max(min(round(text2num(new_height)),  pref.getMaxHeight()),pref.getMinHeight())
@@ -302,10 +303,18 @@
 		return TOPIC_REFRESH
 
 	else if(href_list["metadata"])
-		var/new_metadata = sanitize(input(user, "Enter any information you'd like others to see, such as Roleplay-preferences:", "Game Preference" , pref.metadata) as message|null)
+		var/new_metadata = sanitize(
+			input(
+				user,
+				"Enter any information you'd like others to see, such as roleplay preferences.",
+				"Game Preference",
+				html_decode(pref.metadata)
+			) as message|null,
+			MAX_MESSAGE_LEN
+		)
 		if(new_metadata && CanUseTopic(user))
-			pref.metadata = sanitize(new_metadata)
-			return TOPIC_REFRESH
+			pref.metadata = new_metadata
+		return TOPIC_REFRESH
 
 	else if(href_list["ipc_tag"])
 		if(!pref.can_edit_ipc_tag)
@@ -346,6 +355,22 @@
 		var/new_ownership_status = input(user, "Choose your IPC's ownership status.", "IPC Ownership Status") as null|anything in ownership_options
 		if(new_ownership_status && CanUseTopic(user))
 			pref.machine_ownership_status = new_ownership_status
+			return TOPIC_REFRESH
+
+	else if (href_list["clear_metadata"])
+		if (CanUseTopic(user))
+			var/user_choice = alert(
+				user,
+				"Are you sure you wish to clear this character's OOC notes?",
+				"Clear OOC Notes Confirmation",
+				"Yes",
+				"No"
+			)
+
+			if (user_choice == "No")
+				return TOPIC_NOACTION
+
+			pref.metadata = ""
 			return TOPIC_REFRESH
 
 	return ..()

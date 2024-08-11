@@ -10,12 +10,12 @@
 	if(!C.stat && !C.stunned && !C.paralysis && !C.restrained())
 		if(C.internal)
 			C.internal = null
-			to_chat(C, "<span class='notice'>No longer running on internals.</span>")
+			to_chat(C, SPAN_NOTICE("No longer running on internals."))
 			if(C.internals)
 				C.internals.icon_state = "internal0"
 		else
 			if(!has_internals_mask(C))
-				to_chat(C, "<span class='notice'>You are not wearing a suitable mask or helmet.</span>")
+				to_chat(C, SPAN_NOTICE("You are not wearing a suitable mask or helmet."))
 				return 1
 			else
 				var/list/nicename = null
@@ -133,7 +133,7 @@
 				//We've determined the best container now we set it as our internals
 
 				if(best)
-					to_chat(C, "<span class='notice'>You are now running on internals from [tankcheck[best]] [from] your [nicename[best]].</span>")
+					to_chat(C, SPAN_NOTICE("You are now running on internals from [tankcheck[best]] [from] your [nicename[best]]."))
 					playsound(usr, 'sound/effects/internals.ogg', 100, 1)
 					C.internal = tankcheck[best]
 
@@ -142,15 +142,15 @@
 					if(C.internals)
 						C.internals.icon_state = "internal1"
 				else
-					to_chat(C, "<span class='notice'>You don't have a[breathes==GAS_OXYGEN ? "n oxygen" : addtext(" ",breathes)] tank.</span>")
+					to_chat(C, SPAN_NOTICE("You don't have a[breathes==GAS_OXYGEN ? "n oxygen" : addtext(" ",breathes)] tank."))
 
 /obj/screen/internals/proc/lose_internals(var/mob/living/carbon/human/user)
 	icon_state = "internal0"
 	user.internal = null
 
 /obj/screen/internals/proc/has_internals_mask(var/mob/living/carbon/human/user)
-	if(user.wear_mask && HAS_FLAG(user.wear_mask.item_flags, AIRTIGHT))
+	if(user.wear_mask && (user.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 		return TRUE
-	if(user.head && HAS_FLAG(user.head.item_flags, AIRTIGHT))
+	if(user.head && (user.head.item_flags & ITEM_FLAG_AIRTIGHT))
 		return TRUE
 	return FALSE

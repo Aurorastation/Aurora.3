@@ -8,7 +8,7 @@
 	max_damage = 150
 	move_delay = 5
 	turn_delay = 2
-	power_use = 4000
+	power_use = 2000
 	trample_damage = 0
 	hover = TRUE
 
@@ -20,4 +20,4 @@
 	max_damage = 40
 	move_delay = 2
 	turn_delay = 2
-	power_use = 1500
+	power_use = 725

@@ -35,7 +35,7 @@
 	var/mob/M = usr
 	if(!M.mind)	return 0
 	if(!M.mind.assigned_role == "Detective")
-		to_chat(M, "<span class='notice'>You don't feel cool enough to name this gun, chump.</span>")
+		to_chat(M, SPAN_NOTICE("You don't feel cool enough to name this gun, chump."))
 		return 0
 
 	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
@@ -71,7 +71,7 @@
 	icon = 'icons/obj/guns/coltauto.dmi'
 	icon_state = "coltauto"
 	item_state = "coltauto"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	accuracy = 1
 	offhand_accuracy = 1
 	load_method = MAGAZINE
@@ -144,7 +144,7 @@
 	icon = 'icons/obj/guns/x9.dmi'
 	icon_state = "secgunauto"
 	item_state = "secgunauto"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	accuracy = 1
 	offhand_accuracy = 1
 	load_method = MAGAZINE
@@ -207,7 +207,7 @@
 	icon_state = "silenced_pistol"
 	item_state = "silenced_pistol"
 	fire_sound = 'sound/weapons/gunshot/gunshot_suppressed.ogg'
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	accuracy = 1
 	offhand_accuracy = 1
 	caliber = ".45"
@@ -232,7 +232,7 @@
 	icon = 'icons/obj/guns/deagle.dmi'
 	icon_state = "deagle"
 	item_state = "deagle"
-	force = 10
+	force = 15
 	accuracy = 1
 	caliber = ".50"
 	load_method = MAGAZINE
@@ -292,7 +292,7 @@
 	icon = 'icons/obj/guns/pistol.dmi'
 	icon_state = "pistol"
 	item_state = "pistol"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	accuracy = 1
 	offhand_accuracy = 2
 	caliber = "9mm"
@@ -342,9 +342,10 @@
 
 /obj/item/gun/projectile/pistol/update_icon()
 	..()
-	icon_state = "pistol"
 	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
-		icon_state = "[icon_state]-e"
+		icon_state = "[initial(icon_state)]-e"
+	else
+		icon_state = "[initial(icon_state)]"
 
 /obj/item/gun/projectile/pirate
 	name = "zip gun"
@@ -383,7 +384,7 @@
 	icon_state = "leyon"
 	item_state = "leyon"
 	caliber = "10mm"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	ammo_type = /obj/item/ammo_casing/c10mm
 	magazine_type = /obj/item/ammo_magazine/mc10mm/leyon
 	max_shells = 5
@@ -416,6 +417,21 @@
 	else
 		icon_state = "m8-empty"
 
+/obj/item/gun/projectile/pistol/sol/konyang
+	name = "konyang service pistol"
+	desc = "The compact M8, redesignated as the K8, is the standard service pistol of the Konyanger Armed Forces. Inherited from the Solarian military, Zavodskoi has since given these handguns \
+	a service extension package, including laser sights and replacement of worn-out parts."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "k8"
+	item_state = "k8"
+
+/obj/item/gun/projectile/pistol/sol/konyang/update_icon()
+	..()
+	if(ammo_magazine)
+		icon_state = "k8"
+	else
+		icon_state = "k8-empty"
+
 /obj/item/gun/projectile/pistol/adhomai
 	name = "adhomian service pistol"
 	desc = "The Adar'Mazy pistol is an Adhomian firearm commonly issued to People's Republic officers, government officials and low-ranking Party members."
@@ -445,7 +461,7 @@
 	item_state = "k2557-loaded"
 	contained_sprite = TRUE
 	can_suppress = FALSE
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	load_method = MAGAZINE
 	handle_casings = EJECT_CASINGS
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
@@ -489,7 +505,7 @@
 			if(H.mob_size <10)
 				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 				H.drop_item(src)
-				src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 4, 4)
+				src.throw_at(get_edge_target_turf(src, GLOB.reverse_dir[H.dir]), 4, 4)
 
 				var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
 				var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
@@ -499,3 +515,78 @@
 					LH.take_damage(30)
 				else
 					RH.take_damage(30)
+
+/obj/item/gun/projectile/xanupistol
+	name = "\improper Xanan service pistol"
+	desc = "A sleek metal-framed semi-automatic pistol, produced by d.N.A Defense for the All-Xanu Armed Forces."
+	desc_extended = "The dNAC-4.6 pistol is the standard issue sidearm for the All-Xanu Armed Forces. Designed to use 4.6x30mm rounds with less weight but better armor penetration than the 9mm pistols it replaced, the dNAC-4.6 has seen great success in Xanu Prime and beyond, as it has been adopted as a standard sidearm for police forces, military units, and other entities across the Coalition of Colonies and beyond."
+	magazine_type = /obj/item/ammo_magazine/c46m
+	allowed_magazines = list(/obj/item/ammo_magazine/c46m, /obj/item/ammo_magazine/c46m/extended)
+	icon = 'icons/obj/guns/xanu_pistol.dmi'
+	icon_state = "xanu_pistol"
+	item_state = "xanu_pistol"
+	caliber = "4.6mm"
+	accuracy = 1
+	offhand_accuracy = 1
+	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
+	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
+	load_method = MAGAZINE
+	fire_delay = ROF_PISTOL
+	suppressed = FALSE
+	can_suppress = TRUE
+	suppressor_x_offset = 9
+	suppressor_y_offset = 2
+
+/obj/item/gun/projectile/xanupistol/update_icon()
+	..()
+	if(ammo_magazine)
+		if(ammo_magazine.stored_ammo.len)
+			icon_state = "xanu_pistol"
+		else
+			icon_state = "xanu_pistol-em"
+	else
+		icon_state = "xanu_pistol-e"
+
+/obj/item/gun/projectile/pistol/dominia
+	name = "dominian service pistol"
+	desc = "The Imperial Army's standard-issue handgun. Cheap, reliable, and easy to use."
+	desc_extended = "The Moroz Pattern Pistol, Year of 2450 (MPP-50) is a reliable handgun chambered in 7.62 \
+	Imperial Short which features an unusual magazine. Zavodskoi Interstellar is a major producer of these handguns."
+	magazine_type = /obj/item/ammo_magazine/c45m/dominia
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m/dominia)
+	icon = 'icons/obj/guns/dominia_pistol.dmi'
+	icon_state = "dom_pistol"
+	item_state = "dom_pistol"
+	caliber = ".45"
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	load_method = MAGAZINE
+	fire_delay = ROF_PISTOL
+
+/obj/item/gun/projectile/pistol/dominia/update_icon()
+	..()
+	if(ammo_magazine?.stored_ammo.len)
+		icon_state = "dom_pistol"
+	else
+		icon_state = "dom_pistol-e"
+
+/obj/item/gun/projectile/pistol/spitter
+	name = "unathi spitter pistol"
+	desc = "The venerable 'spitter' pistol is an Unathi design nearly three centuries old. Though no longer in use by the Hegemony's forces, these guns are still commonplace in the hands of criminals, Wastelanders, and former Traditionalists."
+	desc_extended = "The Relzi-5 pistol, colloquially referred to as the 'spitter' was a common Unathi sidearm for centuries, though the design was already being phased out of Izweski use by the start of the Contact War due to superior-quality energy weapons becoming available.\
+	In the modern day, they are no longer produced, but the sheer volume of them in service means they can be found all over Moghes, and even in the wider Orion Spur."
+	magazine_type = /obj/item/ammo_magazine/spitterpistol
+	allowed_magazines = list(/obj/item/ammo_magazine/spitterpistol)
+	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon_state = "spitterpistol"
+	item_state = "spitterpistol"
+	caliber = "11.6mm"
+	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
+	load_method = MAGAZINE
+	fire_delay = ROF_PISTOL
+
+/obj/item/gun/projectile/pistol/spitter/update_icon()
+	..()
+	if(length(ammo_magazine?.stored_ammo))
+		icon_state = "spitterpistol"
+	else
+		icon_state = "spitterpistol-empty"

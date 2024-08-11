@@ -94,7 +94,7 @@
 #endif
 
 	for (var/query_text in query_cache[type])
-		var/DBQuery/query = dbcon.NewQuery(query_text)
+		var/DBQuery/query = GLOB.dbcon.NewQuery(query_text)
 		query.Execute(arg_list)
 		if (query.ErrorMsg())
 			log_world("ERROR: SQL CHARACTER LOAD: SQL query error: [query.ErrorMsg()]")
@@ -211,7 +211,7 @@
 	// Typecast the collection so we can access its preferences var.
 	var/datum/category_collection/player_setup_collection/cc = collection
 	for (var/query_text in query_cache[type])
-		var/DBQuery/query = dbcon.NewQuery(query_text)
+		var/DBQuery/query = GLOB.dbcon.NewQuery(query_text)
 		query.Execute(arg_list)
 
 		if (query.ErrorMsg())
@@ -228,7 +228,7 @@
 		if ((role_type & SQL_CHARACTER) && !cc.preferences.current_character)
 			// No current character, means we're doing insert queries.
 			// Quickly nab the new ID and substitute it within the args.
-			query = dbcon.NewQuery("SELECT LAST_INSERT_ID() AS new_id")
+			query = GLOB.dbcon.NewQuery("SELECT LAST_INSERT_ID() AS new_id")
 			query.Execute()
 
 			if (query.NextRow())

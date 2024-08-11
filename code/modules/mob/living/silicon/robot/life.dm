@@ -1,5 +1,5 @@
-/mob/living/silicon/robot/Life()
-	set background = BACKGROUND_ENABLED
+/mob/living/silicon/robot/Life(seconds_per_tick, times_fired)
+	SHOULD_CALL_PARENT(FALSE)
 
 	if(transforming)
 		return
@@ -15,11 +15,11 @@
 		handle_regular_hud_updates()
 		update_items()
 	if(stat)
-		cut_overlay(eye_overlay)
+		CutOverlays(eye_overlay)
 		has_cut_eye_overlay = TRUE
 	else if(has_cut_eye_overlay)
 		eye_overlay = cached_eye_overlays[a_intent]
-		add_overlay(eye_overlay)
+		AddOverlays(eye_overlay)
 		has_cut_eye_overlay = null
 	if(stat != DEAD) //still using power
 		use_power()
@@ -28,6 +28,8 @@
 		process_queued_alarms()
 		process_level_restrictions()
 	update_canmove()
+
+	return TRUE
 
 /mob/living/silicon/robot/proc/clamp_values()
 	SetParalysis(min(paralysis, 30))
@@ -67,7 +69,7 @@
 
 /mob/living/silicon/robot/handle_regular_status_updates()
 	if(camera && !scrambled_codes)
-		if(stat == DEAD || wires.IsIndexCut(BORG_WIRE_CAMERA))
+		if(stat == DEAD || wires.is_cut(WIRE_CAMERA))
 			camera.set_status(0)
 		else
 			camera.set_status(1)
@@ -81,7 +83,7 @@
 	if(resting)
 		Weaken(5)
 
-	if(health < config.health_threshold_dead && stat != DEAD) //die only once
+	if(health < GLOB.config.health_threshold_dead && stat != DEAD) //die only once
 		death()
 
 	if(stat != DEAD)
@@ -147,28 +149,22 @@
 
 /mob/living/silicon/robot/handle_regular_hud_updates()
 	..()
-	if(stat == DEAD || HAS_FLAG(mutations, XRAY) || (sight_mode & BORGXRAY))
+	if(stat == DEAD || (mutations & XRAY) || (sight_mode & BORGXRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		set_see_in_dark(8)
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 	else if((sight_mode & BORGMESON) && (sight_mode & BORGTHERM))
 		set_sight(sight|SEE_TURFS|SEE_MOBS)
-		set_see_in_dark(8)
 		set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
 	else if(sight_mode & BORGMESON)
 		set_sight(sight|SEE_TURFS)
-		set_see_in_dark(8)
 		set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
 	else if(sight_mode & BORGMATERIAL)
 		set_sight(sight|SEE_OBJS)
-		set_see_in_dark(8)
 	else if(sight_mode & BORGTHERM)
 		set_sight(sight|SEE_MOBS)
-		set_see_in_dark(8)
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 	else if(stat != DEAD)
 		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
-		set_see_in_dark(8)
 		set_see_invisible(SEE_INVISIBLE_LIVING)
 
 	switch(sensor_mode)
@@ -206,7 +202,7 @@
 					healths.icon_state = "health3"
 				else if(health >= 0)
 					healths.icon_state = "health4"
-				else if(health >= config.health_threshold_dead)
+				else if(health >= GLOB.config.health_threshold_dead)
 					healths.icon_state = "health5"
 				else
 					healths.icon_state = "health6"
@@ -316,27 +312,29 @@
 
 /mob/living/silicon/robot/proc/process_level_restrictions()
 	//Abort if they should not get blown
-	if(lock_charge || scrambled_codes || emagged || current_map.allow_borgs_to_leave)
+	if(lock_charge || scrambled_codes || emagged || SSatlas.current_map.allow_borgs_to_leave)
 		return FALSE
 	//Check if they are on a player level -> abort
 	var/turf/T = get_turf(src)
-	if(!T || isStationLevel(T.z))
+	if(!T || is_station_level(T.z))
 		return FALSE
 	//If they are on centcom -> abort
 	if(istype(get_area(src), /area/centcom) || istype(get_area(src), /area/shuttle/escape) || istype(get_area(src), /area/shuttle/arrival))
 		return FALSE
 	if(!self_destructing)
-		start_self_destruct(TRUE)
+		INVOKE_ASYNC(src, PROC_REF(start_self_destruct), TRUE)
 	return TRUE
 
 /mob/living/silicon/robot/update_fire()
-	cut_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
-	cut_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
+	CutOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
+	CutOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
 
 	if(on_fire)
-		add_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
-		add_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
+		AddOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
+		AddOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
 
-/mob/living/silicon/robot/fire_act()
+/mob/living/silicon/robot/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(!on_fire) // Silicons don't gain stacks from hotspots, but hotspots can ignite them.
 		IgniteMob()

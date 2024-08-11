@@ -3,15 +3,19 @@
 	autoclose = 0
 	var/locked = 0
 
-/obj/machinery/door/unpowered/CollidedWith(atom/AM)
+/obj/machinery/door/unpowered/CollidedWith(atom/bumped_atom)
 	if(src.locked)
 		return
 	..()
 	return
 
-/obj/machinery/door/unpowered/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/melee/energy/blade))	return TRUE
-	if(src.locked)	return TRUE
+/obj/machinery/door/unpowered/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/melee/energy/blade))
+		return TRUE
+
+	if(src.locked)
+		return TRUE
+
 	return ..()
 
 /obj/machinery/door/unpowered/emag_act()

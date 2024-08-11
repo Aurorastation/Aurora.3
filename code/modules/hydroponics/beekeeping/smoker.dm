@@ -6,13 +6,13 @@
 	icon_state = "bee_smoker"
 	item_state = "bee_smoker"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	var/max_fuel = 60
 
-/obj/item/bee_smoker/examine(mob/user, distance, is_adjacent)
+/obj/item/bee_smoker/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
-		to_chat(user, SPAN_NOTICE("It has <b>[get_fuel()]/[max_fuel]</b> welding fuel left."))
+		. += SPAN_NOTICE("It has <b>[get_fuel()]/[max_fuel]</b> welding fuel left.")
 
 /obj/item/bee_smoker/Initialize()
 	. = ..()

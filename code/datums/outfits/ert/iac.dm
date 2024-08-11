@@ -1,4 +1,4 @@
-/datum/outfit/admin/ert/iac
+/obj/outfit/admin/ert/iac
 	name = "IAC Doctor"
 
 	uniform = /obj/item/clothing/under/rank/iacjumpsuit
@@ -38,10 +38,10 @@
 
 	id_iff = IFF_IAC
 
-/datum/outfit/admin/ert/iac/get_id_access()
+/obj/outfit/admin/ert/iac/get_id_access()
 	return get_distress_access()
 
-/datum/outfit/admin/iac/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/iac/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(visualsOnly)
 		return
@@ -55,7 +55,7 @@
 		var/obj/item/clothing/shoes/footwraps = new(src)
 		H.equip_to_slot_if_possible(footwraps, slot_shoes)
 
-/datum/outfit/admin/ert/iac/bodyguard
+/obj/outfit/admin/ert/iac/bodyguard
 	name = "IAC Bodyguard"
 
 	accessory = /obj/item/clothing/accessory/storage/black_vest
@@ -85,7 +85,7 @@
 		/obj/item/device/flashlight/flare = 1
 	)
 
-/datum/outfit/admin/ert/iac/paramedic
+/obj/outfit/admin/ert/iac/paramedic
 	name = "IAC Paramedic"
 
 	head = /obj/item/clothing/head/helmet/iachelmet

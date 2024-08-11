@@ -71,7 +71,7 @@ nanoui is used to open and update nano browser uis
  *
  * @return /nanoui new nanoui object
  */
-/datum/nanoui/New(nuser, nsrc_object, nui_key, ntemplate_filename, ntitle = 0, nwidth = 0, nheight = 0, var/atom/nref = null, var/datum/nanoui/master_ui = null, var/datum/ui_state/state = default_state)
+/datum/nanoui/New(nuser, nsrc_object, nui_key, ntemplate_filename, ntitle = 0, nwidth = 0, nheight = 0, var/atom/nref = null, var/datum/nanoui/master_ui = null, var/datum/ui_state/state = GLOB.default_state)
 	user = nuser
 	src_object = nsrc_object
 	ui_key = nui_key
@@ -194,7 +194,7 @@ nanoui is used to open and update nano browser uis
 			"showMap" = show_map,
 			"mapName" = "Aurora",
 			"mapZLevel" = map_z_level,
-			"mapZLevels" = current_map.map_levels,
+			"mapZLevels" = SSatlas.current_map.map_levels,
 			"user" = list("name" = user.name)
 		)
 	return config_data
@@ -367,7 +367,7 @@ nanoui is used to open and update nano browser uis
 	return {"
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<head>
 		<script type='text/javascript'>
 			function receiveUpdateData(jsonString)
@@ -501,7 +501,7 @@ nanoui is used to open and update nano browser uis
 
 	if(href_list["mapZLevel"])
 		var/map_z = (text2num(href_list["mapZLevel"]))
-		if(map_z in current_map.map_levels)
+		if(map_z in SSatlas.current_map.map_levels)
 			set_map_z_level(map_z)
 			map_update = 1
 		else

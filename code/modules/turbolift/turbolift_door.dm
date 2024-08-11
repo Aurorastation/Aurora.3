@@ -4,7 +4,7 @@
 	airlock_type = "Lift"
 	door_color = COLOR_GRAY20
 	door_frame_color = COLOR_GRAY20
-	req_access = list(access_maint_tunnels)
+	req_access = list(ACCESS_MAINT_TUNNELS)
 	glass = TRUE
 	opacity = FALSE
 	autoclose = FALSE
@@ -33,7 +33,7 @@
 		for(var/mob/living/LM in turf)
 			if(LM.mob_size <= MOB_TINY)
 				var/moved = 0
-				for(dir in shuffle(cardinal.Copy()))
+				for(dir in shuffle(GLOB.cardinal.Copy()))
 					var/dest = get_step(LM,dir)
 					if(!(locate(/obj/machinery/door/airlock/lift) in dest))
 						if(LM.Move(dest))

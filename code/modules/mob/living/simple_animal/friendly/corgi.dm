@@ -19,7 +19,6 @@
 	response_help  = "pets"
 	response_disarm = "bops"
 	response_harm   = "kicks"
-	see_in_dark = 5
 	mob_size = 3.5
 	max_nutrition = 70	//Dogs are insatiable eating monsters. This scales with their mob size too
 	stomach_size_mult = 8
@@ -72,12 +71,12 @@
 	name = "Corgi meat"
 	desc = "Tastes like... well you know..."
 
-/mob/living/simple_animal/corgi/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
-	if(istype(O, /obj/item/newspaper))
+/mob/living/simple_animal/corgi/attackby(obj/item/attacking_item, mob/user)  //Marker -Agouri
+	if(istype(attacking_item, /obj/item/newspaper))
 		if(!stat)
 			visible_message(
-				"<span class='notice'>[user] baps [src] on the nose with the rolled up [O.name].</span>",
-				"<span class='alert'>[user] baps you on the nose with the rolled up [O.name]!</span>"
+				SPAN_NOTICE("[user] baps [src] on the nose with the rolled up [attacking_item.name]."),
+				SPAN_ALERT("[user] baps you on the nose with the rolled up [attacking_item.name]!")
 			)
 			scan_interval = max_scan_interval
 			movement_target = null
@@ -89,7 +88,7 @@
 		..()
 
 /mob/living/simple_animal/corgi/regenerate_icons()
-	cut_overlays()
+	ClearOverlays()
 
 	if(inventory_head)
 		var/head_icon_state = inventory_head.icon_state
@@ -98,7 +97,7 @@
 
 		var/icon/head_icon = image('icons/mob/corgi_head.dmi',head_icon_state)
 		if(head_icon)
-			add_overlay(head_icon)
+			AddOverlays(head_icon)
 
 	if(inventory_back)
 		var/back_icon_state = inventory_back.icon_state
@@ -107,7 +106,7 @@
 
 		var/icon/back_icon = image('icons/mob/corgi_back.dmi',back_icon_state)
 		if(back_icon)
-			add_overlay(back_icon)
+			AddOverlays(back_icon)
 
 /mob/living/simple_animal/corgi/puppy
 	name = "corgi puppy"
@@ -123,7 +122,7 @@
 //pupplies cannot wear anything.
 /mob/living/simple_animal/corgi/puppy/Topic(href, href_list)
 	if(href_list["remove_inv"] || href_list["add_inv"])
-		to_chat(usr, "<span class='warning'>You can't fit this on [src]</span>")
+		to_chat(usr, SPAN_WARNING("You can't fit this on [src]"))
 		return
 	..()
 
@@ -147,7 +146,7 @@
 //Lisa already has a cute bow!
 /mob/living/simple_animal/corgi/Lisa/Topic(href, href_list)
 	if(href_list["remove_inv"] || href_list["add_inv"])
-		to_chat(usr, "<span class='warning'>[src] already has a cute bow!</span>")
+		to_chat(usr, SPAN_WARNING("[src] already has a cute bow!"))
 		return
 	..()
 

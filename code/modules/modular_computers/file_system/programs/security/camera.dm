@@ -3,29 +3,29 @@
 	if(!network)
 		return FALSE
 
-	. = current_map.get_network_access(network)
+	. = SSatlas.current_map.get_network_access(network)
 	if (.)
 		return
 
 	switch(network)
-		if(NETWORK_THUNDER)
+		if(NETWORK_THUNDER, NETWORK_NEWS)
 			return FALSE
 		if(NETWORK_REACTOR,NETWORK_ENGINEERING,NETWORK_ENGINEERING_OUTPOST,NETWORK_ALARM_ATMOS,NETWORK_ALARM_FIRE,NETWORK_ALARM_POWER)
-			return access_engine
+			return ACCESS_ENGINE
 		if(NETWORK_MEDICAL)
-			return access_medical
+			return ACCESS_MEDICAL
 		if(NETWORK_SECURITY)
-			return access_security
+			return ACCESS_SECURITY
 		if(NETWORK_RESEARCH,NETWORK_RESEARCH_OUTPOST)
-			return access_research
+			return ACCESS_RESEARCH
 		if(NETWORK_MINE,NETWORK_SUPPLY,NETWORK_CIVILIAN_WEST,NETWORK_EXPEDITION,NETWORK_CALYPSO,NETWORK_POD)
-			return access_mailsorting // Cargo office - all cargo staff should have access here.
+			return ACCESS_MAILSORTING // Cargo office - all cargo staff should have access here.
 		if(NETWORK_COMMAND,NETWORK_TELECOM,NETWORK_CIVILIAN_EAST,NETWORK_CIVILIAN_MAIN,NETWORK_CIVILIAN_SURFACE, NETWORK_SERVICE, NETWORK_FIRST_DECK, NETWORK_SECOND_DECK, NETWORK_THIRD_DECK, NETWORK_INTREPID)
-			return access_heads
+			return ACCESS_HEADS
 		if(NETWORK_CRESCENT,NETWORK_ERT)
-			return access_cent_specops
+			return ACCESS_CENT_SPECOPS
 
-	return access_security // Default for all other networks
+	return ACCESS_SECURITY // Default for all other networks
 
 /datum/computer_file/program/camera_monitor
 	filename = "cammon"
@@ -36,7 +36,7 @@
 	size = 12
 	available_on_ntnet = TRUE
 	requires_ntnet = TRUE
-	required_access_download = access_heads
+	required_access_download = ACCESS_HEADS
 	color = LIGHT_COLOR_ORANGE
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	tgui_id = "CameraMonitoring"
@@ -50,7 +50,7 @@
 	data["current_network"] = current_network
 
 	var/list/all_networks = list()
-	for(var/network in current_map.station_networks)
+	for(var/network in SSatlas.current_map.station_networks)
 		all_networks += list(
 			list(
 				"tag" = network,
@@ -92,7 +92,7 @@
 	if(!network_access)
 		return TRUE
 
-	return (check_network_access(user, access_security) && security_level >= SEC_LEVEL_BLUE) || check_network_access(user, network_access)
+	return (check_network_access(user, ACCESS_SECURITY) && GLOB.security_level >= SEC_LEVEL_BLUE) || check_network_access(user, network_access)
 
 /datum/computer_file/program/camera_monitor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -101,7 +101,7 @@
 
 	switch(action)
 		if("switch_camera")
-			var/obj/machinery/camera/C = locate(params["switch_camera"]) in cameranet.cameras
+			var/obj/machinery/camera/C = locate(params["switch_camera"]) in GLOB.cameranet.cameras
 			if(!C)
 				return
 			if(!(current_network in C.network))
@@ -222,4 +222,22 @@
 	..()
 	networks.Add(list(list("tag" = NETWORK_ERT, "has_access" = 1)))
 	networks.Add(list(list("tag" = NETWORK_CRESCENT, "has_access" = 1)))
+	return networks
+
+/datum/computer_file/program/camera_monitor/news
+	filename = "idcammon"
+	filedesc = "Journalism Camera Monitoring"
+	extended_desc = "This program allows remote access to station's camera system. Some camera networks may have additional access requirements. This version has has a connection to news networks."
+	size = 2
+	nanomodule_path = /datum/nano_module/camera_monitor/news
+	required_access_download = null
+	usage_flags = PROGRAM_ALL
+
+/datum/nano_module/camera_monitor/news
+	name = "Journalism Camera Monitoring Program"
+
+/datum/computer_file/program/camera_monitor/news/modify_networks_list(var/list/networks)
+	networks = list()
+	networks.Add(list(list("tag" = NETWORK_NEWS, "has_access" = 1)))
+	networks.Add(list(list("tag" = NETWORK_THUNDER, "has_access" = 1)))
 	return networks

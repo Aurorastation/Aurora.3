@@ -85,6 +85,23 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/roefritters
 
+/singleton/recipe/fries_olympia_cheesy
+	appliance = FRYER
+	reagents = list(/singleton/reagent/spacespice = 3)
+	fruit = list("potato" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //So we don't end up with a ton of potato juice
+	result = /obj/item/reagent_containers/food/snacks/fries_olympia_with_cheese
+
+/singleton/recipe/fries_olympia_no_cheese
+	appliance = FRYER
+	reagents = list(/singleton/reagent/spacespice = 3)
+	fruit = list("potato" = 1)
+	reagent_mix = RECIPE_REAGENT_REPLACE //So we don't end up with a ton of potato juice
+	result = /obj/item/reagent_containers/food/snacks/fries_olympia
+
 //Fishy Recipes
 //==================
 /singleton/recipe/fishandchips
@@ -167,3 +184,17 @@
 	)
 	coating = /singleton/reagent/nutriment/coating/batter
 	result = /obj/item/reagent_containers/food/snacks/corn_dog
+
+/singleton/recipe/north60squid
+	appliance = FRYER
+	items = list(/obj/item/reagent_containers/food/snacks/squidmeat = 1)
+	reagents = list(/singleton/reagent/drink/lemonjuice = 5 , /singleton/reagent/drink/applejuice = 5, /singleton/reagent/nutriment/garlicsauce = 10)
+	coating = /singleton/reagent/nutriment/coating/beerbatter
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/north60squid
+
+/singleton/recipe/falafelballs
+	appliance = FRYER
+	fruit = list("chickpeas" = 2)
+	result = /obj/item/reagent_containers/food/snacks/falafelballs
+

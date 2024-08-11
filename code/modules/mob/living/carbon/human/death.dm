@@ -4,19 +4,17 @@
 	for(var/obj/item/organ/I in internal_organs)
 		I.removed()
 		if(isturf(loc))
-			I.throw_at(get_edge_target_turf(src,pick(alldirs)),rand(1,3),30)
+			I.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),rand(1,3),30)
 
 	for(var/obj/item/organ/external/E in src.organs)
 		E.droplimb(0,DROPLIMB_EDGE,1)
 
-	sleep(1)
-
 	for(var/obj/item/I in src)
 		drop_from_inventory(I)
-		I.throw_at(get_edge_target_turf(src,pick(alldirs)), rand(1,3), round(30/I.w_class))
+		I.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)), rand(1,3), round(30/I.w_class))
 
 	..(species.gibbed_anim)
-	gibs(loc, viruses, dna, null, species.flesh_color, species.blood_color)
+	gibs(loc, viruses, dna, null, species.flesh_color, get_blood_color())
 
 /mob/living/carbon/human/dust()
 	vr_disconnect()
@@ -60,8 +58,6 @@
 
 			remove_verb(src, /mob/living/carbon/proc/release_control)
 
-	callHook("death", list(src, gibbed))
-
 	if(!gibbed)
 		if(species.death_sound)
 			playsound(loc, species.death_sound, 80, 1, 1)
@@ -71,7 +67,7 @@
 		SSticker.mode.check_win()
 
 	if(wearing_rig?.ai_override_enabled)
-		wearing_rig.notify_ai("<span class='danger'>Warning: user death event. Mobility control passed to integrated intelligence system.</span>")
+		wearing_rig.notify_ai(SPAN_DANGER("Warning: user death event. Mobility control passed to integrated intelligence system."))
 
 	. = ..(gibbed, species.death_message, species.death_message_range)
 
@@ -83,7 +79,7 @@
 	updatehealth()
 
 /mob/living/carbon/human/proc/ChangeToHusk()
-	if(HAS_FLAG(mutations, HUSK))
+	if((mutations & HUSK))
 		return
 
 	if(f_style)
@@ -108,12 +104,14 @@
 	return
 
 /mob/living/carbon/human/proc/ChangeToSkeleton(var/keep_name = FALSE)
-	if(HAS_FLAG(mutations, SKELETON))
+	if((mutations & SKELETON))
 		return
 
-	if(f_style)
+	var/datum/sprite_accessory/hair/hair = GLOB.hair_styles_list[h_style]
+	var/datum/sprite_accessory/facial_hair/facial = GLOB.facial_hair_styles_list[f_style]
+	if(!facial.keep_as_skeleton && f_style)
 		f_style = "Shaved"
-	if(h_style)
+	if(!hair.keep_as_skeleton && h_style)
 		h_style = "Bald"
 	update_hair(0)
 

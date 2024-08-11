@@ -24,7 +24,7 @@
 /obj/structure/lift/proc/pressed(var/mob/user)
 	if(!istype(user, /mob/living/silicon))
 		if(user.a_intent == I_HURT)
-			user.visible_message("<span class='danger'>\The [user] hammers on the lift button!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] hammers on the lift button!"))
 		else
 			user.visible_message("<b>\The [user]</b> presses the lift button.")
 
@@ -71,6 +71,10 @@
 /obj/structure/lift/button/proc/reset()
 	light_up = FALSE
 	update_icon()
+
+/obj/structure/lift/button/attack_ghost(var/mob/user)
+	if(check_rights(R_ADMIN, FALSE, user))
+		return ui_interact(user)
 
 /obj/structure/lift/button/ui_interact(var/mob/user)
 	if(!..())

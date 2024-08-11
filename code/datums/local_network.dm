@@ -1,4 +1,4 @@
-var/global/list/local_networks = list()
+GLOBAL_LIST_EMPTY(local_networks)
 
 /datum/local_network
 	var/id_tag
@@ -7,11 +7,11 @@ var/global/list/local_networks = list()
 
 /datum/local_network/New(_id)
 	id_tag = _id
-	local_networks[id_tag] = src
+	GLOB.local_networks[id_tag] = src
 
 /datum/local_network/Destroy()
 	network_entities.Cut()
-	local_networks -= src
+	GLOB.local_networks -= src
 	. = ..()
 
 /datum/local_network/proc/within_radius(atom/checking)
@@ -58,15 +58,15 @@ var/global/list/local_networks = list()
 
 
 //Multilevel network
-var/global/list/multilevel_local_networks = list()
+GLOBAL_LIST_EMPTY(multilevel_local_networks)
 
 /datum/local_network/multilevel/New(_id)
 	id_tag = _id
-	multilevel_local_networks[id_tag] = src
+	GLOB.multilevel_local_networks[id_tag] = src
 
 /datum/local_network/multilevel/Destroy()
 	network_entities.Cut()
-	multilevel_local_networks -= src
+	GLOB.multilevel_local_networks -= src
 	. = ..()
 
 /datum/local_network/multilevel/within_radius(atom/checking)

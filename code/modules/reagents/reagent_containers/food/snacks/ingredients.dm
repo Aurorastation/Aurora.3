@@ -4,7 +4,7 @@
 // sliceable is just an organization type path, it doesn't have any additional code or variables tied to it.
 
 /obj/item/reagent_containers/food/snacks/sliceable
-	w_class = ITEMSIZE_NORMAL //Whole pizzas and cakes shouldn't fit in a pocket, you can slice them if you want to do that.
+	w_class = WEIGHT_CLASS_NORMAL //Whole pizzas and cakes shouldn't fit in a pocket, you can slice them if you want to do that.
 
 /obj/item/reagent_containers/food/snacks/sliceable/cheesewheel
 	name = "cheese wheel"
@@ -30,6 +30,31 @@
 	center_of_mass = list("x"=16, "y"=10)
 
 /obj/item/reagent_containers/food/snacks/cheesewedge/filled/reagents_to_add = list(/singleton/reagent/nutriment/protein/cheese = 4)
+
+/obj/item/reagent_containers/food/snacks/sliceable/nakarka
+	name = "nakarka cheese wheel"
+	desc = "Nakarka is Vaurcan cheese made of Ne'miik with a sharp, tangy flavor. Nakarka directly translates to mean 'cheese'. It can cause gastric discomfort to some other species in it's raw form. There are ways to prepare it to decrease those effects, however." //basically an in-world reason to feel free to use it in recipes that are meant for humans as well.
+	icon = 'icons/obj/item/reagent_containers/food/ingredients.dmi'
+	icon_state = "nakarka"
+	slice_path = /obj/item/reagent_containers/food/snacks/nakarka_wedge
+	slices_num = 8
+	filling_color = "#7be717"
+	center_of_mass = list("x"=16, "y"=10)
+	bitesize = 2
+
+	reagents_to_add = list(/singleton/reagent/nakarka = 20)
+
+/obj/item/reagent_containers/food/snacks/nakarka_wedge
+	name = "nakarka cheese wedge"
+	desc = "Zzztop calling it Nakarka cheezzze. You sound ridicoulouzzz. Nakarka meanzzz cheezzze. You are literally calling it cheezzze cheezzze."
+	icon = 'icons/obj/item/reagent_containers/food/ingredients.dmi'
+	icon_state = "nakarka_wedge"
+	ingredient_name = "nakarka"
+	filling_color = "#7be717"
+	bitesize = 2
+	center_of_mass = list("x"=16, "y"=10)
+
+/obj/item/reagent_containers/food/snacks/nakarka_wedge/filled/reagents_to_add = list(/singleton/reagent/nakarka = 4)
 
 
 /obj/item/reagent_containers/food/snacks/spreads
@@ -96,8 +121,8 @@
 	filling_color = "#EDE0AF"
 
 // Dough + rolling pin = flat dough
-/obj/item/reagent_containers/food/snacks/dough/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/material/kitchen/rollingpin))
+/obj/item/reagent_containers/food/snacks/dough/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/kitchen/rollingpin))
 		new /obj/item/reagent_containers/food/snacks/sliceable/flatdough(src)
 		to_chat(user, "You flatten the dough.")
 		qdel(src)
@@ -129,8 +154,8 @@
 	filling_color = "#EDE0AF"
 
 // potato + knife = raw sticks
-/obj/item/reagent_containers/food/snacks/grown/potato/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/material/kitchen/utensil/knife))
+/obj/item/reagent_containers/food/snacks/grown/potato/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/kitchen/utensil/knife))
 		new /obj/item/reagent_containers/food/snacks/rawsticks(src)
 		to_chat(user, "You cut the potato.")
 		qdel(src)
@@ -194,6 +219,20 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 5))
 	bitesize = 2
 
+/obj/item/reagent_containers/food/snacks/whitechocolate
+	name = "white chocolate bar"
+	desc = "Claimed by some to not really be chocolate. Most don't care."
+	icon = 'icons/obj/item/reagent_containers/food/ingredients.dmi'
+	icon_state = "whitechocolate"
+	filling_color = "#E3E3C7"
+
+	reagents_to_add = list(/singleton/reagent/nutriment = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("white chocolate" = 5))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/whitechocolate/wrapped
+	icon_state = "whitechocolate_wrapped"
+
 /obj/item/reagent_containers/food/snacks/mashedpotato
 	name = "mashed potato"
 	desc = "Pillowy mounds of mashed potato."
@@ -217,3 +256,14 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("pickled lettuce" = 4))
 	bitesize = 2
 	trash = /obj/item/trash/plate
+
+/obj/item/reagent_containers/food/snacks/plaincrepe
+	name = "plain crepe"
+	desc = "A very thin type of pancake, typically used to wrap sweet things for desserts or, more controversially, savory things."
+	icon = 'icons/obj/item/reagent_containers/food/ingredients.dmi'
+	icon_state = "plaincrepe"
+	bitesize = 2
+	reagent_data = list(/singleton/reagent/nutriment = list("dough" = 2))
+	center_of_mass = list("x"=16, "y"=16)
+	reagents_to_add = list(/singleton/reagent/nutriment = 1)
+	filling_color = "#caa178"

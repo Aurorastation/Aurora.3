@@ -3,7 +3,7 @@
 	name = "custodial closet"
 	desc = "It's a storage unit for a custodian's clothes and gear."
 	icon_state = "custodial"
-	req_access = list(access_janitor)
+	req_access = list(ACCESS_JANITOR)
 
 /obj/structure/closet/secure_closet/custodial/fill()
 	new /obj/item/clothing/head/softcap/nt/custodian(src)
@@ -31,6 +31,7 @@
 	new /obj/item/taperoll/custodial(src)
 	new /obj/item/storage/box/lights/mixed(src)
 	new /obj/item/storage/box/mousetraps(src)
+	new /obj/item/storage/box/cleaner_tablets(src)
 
 // Away Ship/Site Custodial Locker
 /obj/structure/closet/secure_closet/custodial/offship
@@ -56,3 +57,20 @@
 	new /obj/item/clothing/suit/caution(src)
 	new /obj/item/storage/box/lights/mixed(src)
 	new /obj/item/storage/box/mousetraps(src)
+
+// Journalist's Locker
+/obj/structure/closet/secure_closet/journalist
+	name = "journalist's closet"
+	desc = "It's a storage unit for a journalist's gear."
+	req_access = list(ACCESS_JOURNALIST)
+
+/obj/structure/closet/secure_closet/journalist/fill()
+	new /obj/item/storage/photo_album(src)
+	new /obj/item/device/camera_film(src)
+	new /obj/item/device/camera(src)
+	new /obj/item/paper_scanner(src)
+	new /obj/item/folder/white(src)
+	new /obj/item/storage/secure/briefcase(src)
+	new /obj/item/clipboard(src)
+	new /obj/item/folder/red(src)
+	new /obj/item/device/tvcamera(src)

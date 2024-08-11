@@ -2,16 +2,20 @@
 	name = "Abandoned Industrial Station"
 	icon_state = "bluenew"
 
+/area/abandoned_industrial_station/exterior
+	name = "Abandoned Industrial Station Exterior"
+	icon_state = "exterior"
+
 /area/abandoned_industrial_station/hallways
 	name = "Abandoned Industrial Station Central Hallways"
 	icon_state = "hallC"
 
-/area/abandoned_industrial_station/docks_a1
-	name = "Abandoned Industrial Station Docks A1"
+/area/abandoned_industrial_station/docks_east
+	name = "Abandoned Industrial Station Docks East"
 	icon_state = "arrivals_dock"
 
-/area/abandoned_industrial_station/docks_a2
-	name = "Abandoned Industrial Station Docks A2"
+/area/abandoned_industrial_station/docks_west
+	name = "Abandoned Industrial Station Docks West"
 	icon_state = "arrivals_dock"
 
 /area/abandoned_industrial_station/service

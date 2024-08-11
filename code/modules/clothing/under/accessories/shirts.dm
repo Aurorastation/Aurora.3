@@ -277,6 +277,18 @@
 	item_state = "haltertop"
 	contained_sprite = TRUE
 
+/obj/item/clothing/accessory/tanktop
+	name = "tank top"
+	desc = "A simple, cheap tank top."
+	icon = 'icons/obj/item/clothing/accessory/tank_top.dmi'
+	icon_state = "tanktop"
+	item_state = "tanktop"
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/tanktop/feminine
+	icon_state = "tanktop_fem"
+	item_state = "tanktop_fem"
+
 /obj/item/clothing/accessory/silversun
 	name = "silversun floral shirt"
 	desc = "A stylish Solarian shirt of Silversun design. It bears a floral design. This one is cyan."

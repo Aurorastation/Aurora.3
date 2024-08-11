@@ -1,7 +1,7 @@
 /datum/exoplanet_theme/crystal
 	name = "Crystalline"
 	surface_turfs = list(
-		/turf/simulated/mineral
+		/turf/simulated/mineral/planet
 	)
 
 	perlin_zoom = 21

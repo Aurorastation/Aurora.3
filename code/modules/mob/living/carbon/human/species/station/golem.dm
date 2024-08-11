@@ -69,9 +69,9 @@ var/global/list/golem_types = list(
 		)
 
 	has_limbs = list(
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable),
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/unbreakable),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin/unbreakable),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/unbreakable),
 		BP_L_ARM =  list("path" = /obj/item/organ/external/arm/unbreakable),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right/unbreakable),
 		BP_L_LEG =  list("path" = /obj/item/organ/external/leg/unbreakable),
@@ -122,7 +122,7 @@ var/global/list/golem_types = list(
 		qdel(H)
 
 /datum/species/golem/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= config.health_threshold_dead)
+	if(H.get_total_health() <= GLOB.config.health_threshold_dead)
 		return TRUE
 	return FALSE
 
@@ -392,12 +392,12 @@ var/global/list/golem_types = list(
 
 	golem_designation = "Glass"
 
-/datum/species/golem/glass/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
-	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
+/datum/species/golem/glass/bullet_act(var/obj/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+	if(istype(P, /obj/projectile/energy) || istype(P, /obj/projectile/beam))
 		var/reflectchance = 50 - round(P.damage/3)
 		if(prob(reflectchance))
-			H.visible_message("<span class='danger'>The [P.name] gets reflected by [H]!</span>", \
-							"<span class='danger'>The [P.name] gets reflected by [H]!</span>")
+			H.visible_message(SPAN_DANGER("The [P.name] gets reflected by [H]!"), \
+							SPAN_DANGER("The [P.name] gets reflected by [H]!"))
 
 			// Find a turf near or on the original location to bounce to
 			if(P.starting)
@@ -413,7 +413,7 @@ var/global/list/golem_types = list(
 /datum/species/golem/glass/handle_death(var/mob/living/carbon/human/H)
 	for(var/i in 1 to 5)
 		var/obj/item/material/shard/T = new meat_type(H.loc)
-		var/turf/landing = get_step(H, pick(alldirs))
+		var/turf/landing = get_step(H, pick(GLOB.alldirs))
 		INVOKE_ASYNC(T, TYPE_PROC_REF(/atom/movable, throw_at), landing, 30, 5)
 	qdel(H)
 
@@ -598,12 +598,12 @@ var/global/list/golem_types = list(
 	H.update_dna()
 	..()
 
-/datum/species/golem/diamond/bullet_act(var/obj/item/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
-	if(istype(P, /obj/item/projectile/energy) || istype(P, /obj/item/projectile/beam))
+/datum/species/golem/diamond/bullet_act(var/obj/projectile/P, var/def_zone, var/mob/living/carbon/human/H)
+	if(istype(P, /obj/projectile/energy) || istype(P, /obj/projectile/beam))
 		var/reflectchance = 80 - round(P.damage/3)
 		if(prob(reflectchance))
-			H.visible_message("<span class='danger'>The [P.name] gets reflected by [H]!</span>", \
-							"<span class='danger'>The [P.name] gets reflected by [H]!</span>")
+			H.visible_message(SPAN_DANGER("The [P.name] gets reflected by [H]!"), \
+							SPAN_DANGER("The [P.name] gets reflected by [H]!"))
 
 			// Find a turf near or on the original location to bounce to
 			if(P.starting)
@@ -696,7 +696,7 @@ var/global/list/golem_types = list(
 		return
 
 /datum/species/golem/sand/proc/glassify(var/mob/living/carbon/human/H)
-	H.visible_message("<span class='warning'>\The [H] vitrifies into a glass construct!</span>")
+	H.visible_message(SPAN_WARNING("\The [H] vitrifies into a glass construct!"))
 	H.set_species(SPECIES_GOLEM_GLASS)
 
 /datum/species/golem/plastic
@@ -805,7 +805,7 @@ var/global/list/golem_types = list(
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 
-	blood_color = "#5C4831"
+	blood_color = COLOR_LEATHER
 	flesh_color = "#FFC896"
 
 	death_message = "collapses into a pile of flesh!"
@@ -825,7 +825,9 @@ var/global/list/golem_types = list(
 
 /datum/species/golem/homunculus/handle_death(var/mob/living/carbon/human/H)
 	if(turn_into_materials)
-		H.gib()
+		//This is because otherwise the removal of vital organs in the gibbing will call death again, which calls this again, creating a neverending
+		//server death loop
+		addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, gib)), 1 SECONDS)
 
 /datum/species/golem/homunculus/handle_environment_special(var/mob/living/carbon/human/H)
 	if(prob(25))

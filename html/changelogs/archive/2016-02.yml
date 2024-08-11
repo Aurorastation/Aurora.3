@@ -1,0 +1,77 @@
+2016-02-01:
+  Lady of Ravens:
+  - rscadd: Ported Aurora's stungloves and modified force gloves.
+  - rscadd: Ported Aurora's mechanics of heavy machinery eating hair.
+  Lord Lag:
+  - rscadd: Ported the Vaurca.
+  Mahzel:
+  - rscadd: Ported Aurora's intern positions.
+  - rscadd: Ported Aurora's magnetic door locks.
+  - rscadd: Ported Aurora's prisoner suits.
+  Ryan784:
+  - rscadd: Ported Aurora's null-rod conversion mechanics for cult.
+  - rscadd: Ported Aurora's welderbomb delay and related admin/mod actions.
+  - rscadd: Ported Aurora's horsemask removal spell.
+  - rscadd: Ported Aurora's glove kits for aliens.
+  - rscadd: Ported Aurora's gold slime mechanics.
+  - rscadd: Ported Aurora's lawgiver.
+  - rscadd: Ported the AI HUD, originally by Jack-Fractal.
+  - rscadd: Ported Aurora's footstep sounds.
+  - experiment: Ported the vampire code. Needs a lot of testing and may break.
+  Skull132:
+  - rscadd: Ported Telescience from TGStation.
+  - rscadd: Ported Aurora's old rifle code, with minor refractors.
+  - rscadd: Ported Aurora's forensics code. Code refractored by Zuhayr.
+  - rscadd: Ported SQL based whitelisting, playernotes, warnings. Refractored where
+      necessary.
+  - tweak: Adjusted the Bay12 paralyze player function to work as our wind function
+      used to work. It also now gives warnings to people nearby if someone was winded.
+  - tweak: Made tasers to actually fire projectiles again. And not lasers. Tasers
+      are not lasers, sillys.
+  - tweak: Handcuffing does not require you to have the person in level 2 grab, as
+      it does in vanilla bay.
+2016-02-12:
+  Ryan784:
+  - bugfix: Fixed ChemMaster pill creation spam.
+  - bugfix: Chaplains can no longer be Vampires.
+  - bugfix: IPCs will no longer be considered for innapropriate antag positions (Vampire
+      and Changeling).
+  - bugfix: Changelings will now retain proper abilities using lesser form, and the
+      ability to transform back.
+  - bugfix: pAI suicide now works correctly.
+2016-02-15:
+  Lord Lag:
+  - bugfix: Synthetics should now be able to understand Rootspeak and Vaurcese.
+  - bugfix: Core Vaurca mechanics are back
+2016-02-16:
+  Skull132:
+  - rscadd: 'Adds discordbot, nicknamed BOREALIS. Basically: this enables admins to
+      interact with the game without even being on the server. Should push come to
+      shove, we can restart the server remotely, and answer adminhelps remotely. Also
+      makes some other functionality possible.'
+2016-02-21:
+  Skull132:
+  - rscadd: IPCs can change their body colour again.
+  - tweak: Supermatter's radiation range is lowered by 1/3rd if you don't have a direct
+      sightline to it.
+  - tweak: Mods can now toggle attack logs.
+  - tweak: Practice lasers no longer generate attack logs.
+  - tweak: 'Wizard related balancing: magic missile recharge time doubled, to make
+      stunlocking no longer possible; subjugate''s effect timers halved, recharge
+      cost lowered by 50; horsemask spells are now targeted again.'
+  - tweak: Purple colour for DO chat.
+  - tweak: Medical Interns and Engineering Apprentices given slightly better access,
+      so they're not completely useless with this new map.
+  - tweak: Tesla engine components brought inline with Bay12 coding standards. This
+      means you can set them up properly now, whereas before, wrenching or screwdrivering
+      them failed.
+  - tweak: 'A few quality of life improvements for the map: suit cycler for Heist
+      ship, cooling units for engineering and general EVA, traffic computer in telecomms.'
+  - bugfix: Nursing Interns now spawn properly.
+  - bugfix: Standard severity warnings work properly.
+  - bugfix: You can no longer suicide with weapons that do no damage. Less than lethal
+      weaponry still works.
+  - bugfix: IPCs no longer gain toxins damage, nor are they affected by hallucinations.
+  - bugfix: Fixed a SQL query for the library that was referencing an invalid table.
+  - bugfix: Hydroponics trays work properly now, with how they consume liquids and
+      reagents.

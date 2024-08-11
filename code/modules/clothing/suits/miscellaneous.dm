@@ -29,7 +29,7 @@
 	desc = "Suit for a cyborg costume."
 	icon_state = "death"
 	item_state = "death"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	fire_resist = T0C+5200
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 
@@ -62,8 +62,8 @@
 	name = "red space suit replica"
 	icon_state = "syndicate"
 	item_state = "space_suit_syndicate"
-	desc = "A plastic replica of the syndicate space suit, you'll look just like a real murderous syndicate agent in this! This is a toy, it is not made for use in space!"
-	w_class = ITEMSIZE_NORMAL
+	desc = "A crimson red plastic replica of a space suit. This is a toy, it is not made for use in space!"
+	w_class = WEIGHT_CLASS_NORMAL
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank/emergency_oxygen,/obj/item/toy)
 	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|HANDS|LEGS|FEET
@@ -354,6 +354,7 @@
 	contained_sprite = TRUE
 	blood_overlay_type = "coat"
 	body_parts_covered = UPPER_TORSO|ARMS
+	protects_against_weather = TRUE
 
 /obj/item/clothing/suit/storage/toggle/trench/grey
 	name = "grey trenchcoat"
@@ -396,21 +397,35 @@
 
 /obj/item/clothing/suit/storage/toggle/highvis
 	name = "high visibility jacket"
-	desc = "A loose-fitting, high visibility jacket to help crew be recognizable in high traffic areas with large industrial equipment."
-	icon = 'icons/clothing/suits/highvis.dmi'
-	icon_state = "highvis"
-	item_state = "highvis"
+	desc = "A loose-fitting, high visibility jacket to help the wearer be recognizable in high traffic areas with large industrial equipment."
+	icon = 'icons/clothing/kit/highvis.dmi'
+	icon_state = "jacket_highvis"
+	item_state = "jacket_highvis"
 	body_parts_covered = UPPER_TORSO|ARMS
 	contained_sprite = TRUE
 
+/obj/item/clothing/suit/storage/toggle/highvis/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_open_su_emis" : "jacket_highvis_su_emis"]", alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
+
 /obj/item/clothing/suit/storage/toggle/highvis_alt
 	name = "high visibility jacket"
-	desc = "A bright yellow jacket with reflective stripes. For use in operations, engineering, and sometimes even law enforcement in cold and poor weather or when visibility is low."
-	icon = 'icons/clothing/suits/highvis.dmi'
-	icon_state = "highvis_alt"
-	item_state = "highvis_alt"
+	desc = "A bright yellow jacket with reflective stripes. For use in operations, engineering, and sometimes even law enforcement, in cold and poor weather or when visibility is low."
+	icon = 'icons/clothing/kit/highvis.dmi'
+	icon_state = "jacket_highvis_alt"
+	item_state = "jacket_highvis_alt"
 	body_parts_covered = UPPER_TORSO|ARMS
 	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/highvis_alt/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_alt_open_su-emis" : "jacket_highvis_alt_su-emis"]", alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
 
 /obj/item/clothing/suit/storage/toggle/track
 	name = "track jacket"
@@ -476,11 +491,18 @@
 	name = "brown varsity jacket"
 	icon_state = "varsity_brown"
 	item_state = "varsity_brown"
+
 /obj/item/clothing/suit/storage/legion
 	name = "tcfl jacket"
 	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Foreign Legion."
 	icon_state = "tcfljacket"
 	item_state = "tcfljacket"
+
+/obj/item/clothing/suit/storage/legion/tcaf
+	name = "tcaf jacket"
+	desc = "A pale blue canvas jacket embossed with the insignia of the Tau Ceti Armed Forces."
+	icon_state = "tcaf_jacket"
+	item_state = "tcaf_jacket"
 
 /obj/item/clothing/suit/jacket/puffer
 	name = "puffer jacket"
@@ -641,7 +663,7 @@
 	throwforce = 3
 	throw_speed = 2
 	throw_range = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 	attack_verb = list("warned", "cautioned", "smashed")
 	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)

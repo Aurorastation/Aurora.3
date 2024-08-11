@@ -1,4 +1,4 @@
-/obj/item/projectile/bullet/chemdart
+/obj/projectile/bullet/chemdart
 	name = "dart"
 	icon_state = "dart"
 	damage = 5
@@ -9,11 +9,11 @@
 
 	muzzle_type = null
 
-/obj/item/projectile/bullet/chemdart/New()
+/obj/projectile/bullet/chemdart/New()
 	reagents = new/datum/reagents(reagent_amount)
 	reagents.my_atom = src
 
-/obj/item/projectile/bullet/chemdart/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
+/obj/projectile/bullet/chemdart/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
 	if(blocked < 100 && ishuman(target))
 		var/mob/living/carbon/human/H = target
 		if(H.can_inject(target_zone=def_zone))
@@ -24,7 +24,7 @@
 	desc = "A small hardened, hollow dart."
 	icon_state = "dart"
 	caliber = "dart"
-	projectile_type = /obj/item/projectile/bullet/chemdart
+	projectile_type = /obj/projectile/bullet/chemdart
 
 /obj/item/ammo_casing/chemdart/expend()
 	qdel(src)
@@ -45,7 +45,6 @@
 	name = "dart gun"
 	desc = "A small gas-powered dartgun, capable of delivering chemical cocktails swiftly across short distances."
 	icon = 'icons/obj/guns/dartgun.dmi'
-	icon_state = "dartgun-empty"
 	icon_state = "dartgun-empty"
 	caliber = "dart"
 	fire_sound = 'sound/weapons/click.ogg'
@@ -93,37 +92,37 @@
 
 /obj/item/gun/projectile/dartgun/consume_next_projectile()
 	. = ..()
-	var/obj/item/projectile/bullet/chemdart/dart = .
+	var/obj/projectile/bullet/chemdart/dart = .
 	if(istype(dart))
 		fill_dart(dart)
 
-/obj/item/gun/projectile/dartgun/examine(mob/user)
+/obj/item/gun/projectile/dartgun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (beakers.len)
-		to_chat(user, "<span class='notice'>[src] contains:</span>")
+		. += SPAN_NOTICE("[src] contains:")
 		for(var/obj/item/reagent_containers/glass/beaker/B in beakers)
 			for(var/_R in B.reagents.reagent_volumes)
 				var/singleton/reagent/R = GET_SINGLETON(_R)
-				to_chat(user, "<span class='notice'>[B.reagents.reagent_volumes[_R]] units of [R.name]</span>")
+				. += SPAN_NOTICE("[B.reagents.reagent_volumes[_R]] units of [R.name]")
 
-/obj/item/gun/projectile/dartgun/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/reagent_containers/glass))
-		if(!istype(I, container_type))
-			to_chat(user, "<span class='notice'>[I] doesn't seem to fit into [src].</span>")
+/obj/item/gun/projectile/dartgun/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass))
+		if(!istype(attacking_item, container_type))
+			to_chat(user, SPAN_NOTICE("[attacking_item] doesn't seem to fit into [src]."))
 			return
 		if(beakers.len >= max_beakers)
-			to_chat(user, "<span class='notice'>[src] already has [max_beakers] beakers in it - another one isn't going to fit!</span>")
+			to_chat(user, SPAN_NOTICE("[src] already has [max_beakers] beakers in it - another one isn't going to fit!"))
 			return
-		var/obj/item/reagent_containers/glass/beaker/B = I
+		var/obj/item/reagent_containers/glass/beaker/B = attacking_item
 		user.drop_from_inventory(B,src)
 		beakers += B
-		to_chat(user, "<span class='notice'>You slot [B] into [src].</span>")
+		to_chat(user, SPAN_NOTICE("You slot [B] into [src]."))
 		src.updateUsrDialog()
 		return 1
 	..()
 
 //fills the given dart with reagents
-/obj/item/gun/projectile/dartgun/proc/fill_dart(var/obj/item/projectile/bullet/chemdart/dart)
+/obj/item/gun/projectile/dartgun/proc/fill_dart(var/obj/projectile/bullet/chemdart/dart)
 	if(mixing.len)
 		var/mix_amount = dart.reagent_amount/mixing.len
 		for(var/obj/item/reagent_containers/glass/beaker/B in mixing)
@@ -156,7 +155,7 @@
 		if(ammo_magazine.stored_ammo && ammo_magazine.stored_ammo.len)
 			dat += "The dart cartridge has [ammo_magazine.stored_ammo.len] shots remaining."
 		else
-			dat += "<span class='warning'>The dart cartridge is empty!</span>"
+			dat += SPAN_WARNING("The dart cartridge is empty!")
 		dat += " \[<A href='?src=\ref[src];eject_cart=1'>Eject</A>\]"
 
 	user << browse(dat, "window=dartgun")

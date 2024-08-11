@@ -4,7 +4,7 @@
 //Added by Jack Rost
 /obj/item/trash
 	icon = 'icons/obj/trash.dmi'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	contained_sprite = TRUE
 	item_state = "candy"
 	desc = "General waste material, refuse or litter. Dispose responsibly."
@@ -60,7 +60,7 @@
 	icon_state = "sosjerky"
 
 /obj/item/trash/syndi_cakes
-	name = "syndi cakes"
+	name = "\improper Nutri-Cakes"
 	icon_state = "syndi_cakes"
 
 /obj/item/trash/waffles
@@ -82,6 +82,10 @@
 	icon_state	= "snack_bowl"
 	drop_sound = 'sound/items/drop/gloves.ogg'
 	pickup_sound = 'sound/items/pickup/gloves.ogg'
+
+/obj/item/trash/snack_bowl/macandcheese
+	name = "empty mac and cheese"
+	icon_state = "macandcheese"
 
 /obj/item/trash/pistachios
 	name = "pistachios pack"
@@ -222,10 +226,10 @@
 	icon_state = "ricetub"
 	var/has_chopsticks = FALSE
 
-/obj/item/trash/ricetub/attackby(obj/item/W, mob/living/user)
-	if(istype(W, /obj/item/material/kitchen/utensil/fork/chopsticks))
-		to_chat(user, SPAN_NOTICE("You reattach the [W] to \the [src]"))
-		qdel(W)
+/obj/item/trash/ricetub/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/kitchen/utensil/fork/chopsticks))
+		to_chat(user, SPAN_NOTICE("You reattach the [attacking_item] to \the [src]"))
+		qdel(attacking_item)
 		has_chopsticks = TRUE
 		update_icon()
 		return TRUE
@@ -259,3 +263,153 @@
 /obj/item/trash/proteinbar
 	name = "protein bar wrapper"
 	icon_state = "proteinbar"
+
+/obj/item/trash/leaf
+	name = "dirty leaf"
+	icon_state = "leaf"
+	desc = "Is... Is that a big old leaf with... are those beans on it? Why?! What kind of situation would lead to this?!"
+
+/obj/item/trash/north60squidempty
+	name = "empty platter"
+	icon_state = "north60squidempty"
+	desc = "A deep dish meant to hold a pool of sauce and seafood, but now it only holds delicious memories. Trash it."
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
+/obj/item/trash/triolade
+	name = "empty dessert dish"
+	icon_state = "triolade"
+
+/obj/item/trash/board
+	name = "dirty board"
+	icon_state = "board"
+
+/obj/item/trash/icecreamcup
+	name = "empty ice cream cup"
+	icon_state = "icecreamcup"
+	desc = "Oh look, it's one of those prank fake melted ice cream cu- oh, nope. it's real. eugh. Do... Do you have a napkin?"
+
+/obj/item/trash/purplebowl
+	name = "empty bowl"
+	icon_state = "purplebowl"
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
+/obj/item/trash/deepdive
+	name = "empty deepdive dish"
+	icon_state = "deepdive"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/trash/bluemoon
+	name = "empty dessert glass"
+	icon_state = "bluemoon"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/trash/shakshouka
+	name = "empty shakshouka pan"
+	icon_state = "shakshouka"
+	desc = "It looks like the murder scene... Of a delicious Shakshouka. Trash or recycle."
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
+/obj/item/trash/stick
+	name = "candy stick"
+	icon_state = "rock_candy"
+
+/obj/item/trash/imperial_pot_empty
+	name = "imperial pot"
+	desc = "This large wooden pot was probably used to house a grand, elaborate, dominian feast at some point. How majestic it must have been. Oh well, get rid of it now before it draws rats."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "imperialpotempty"
+	drop_sound = 'sound/items/drop/shovel.ogg'
+	pickup_sound = 'sound/items/pickup/shovel.ogg'
+
+/obj/item/trash/wooden_platter
+	name = "wooden platter"
+	icon_state = "wooden_platter"
+	drop_sound = 'sound/items/drop/bottle.ogg'
+	pickup_sound = 'sound/items/pickup/bottle.ogg'
+
+/obj/item/trash/custard_bowl
+	name = "custard bowl"
+	desc = "It smells tasty... Wait, why are you smelling it? It's trash!"
+	icon_state = "custard_bowl"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/trash/fishjerky
+	name = "Go-Go Gwok! Great Grouper"
+	icon_state = "fishjerky_trash"
+
+/obj/item/trash/pepperoniroll
+	name = "roll wrapper"
+	icon_state = "rollwrapper"
+
+/obj/item/trash/salmiakpack
+	name = "salmiak packet"
+	icon_state = "salmiak_pack"
+
+/obj/item/trash/hakhmaps
+	name = "maps tin"
+	icon_state = "hakhmaps_trash"
+
+/obj/item/trash/pemmican
+	name = "pemmican bar wrapper"
+	icon_state = "pemmican_trash"
+
+/obj/item/trash/trufflebag
+	name = "truffle bag"
+	icon_state = "trufflebag_trash"
+
+/obj/item/trash/peanutsnack
+	name = "peanut bag"
+	icon_state = "nuts_trash"
+
+/obj/item/trash/peanutsnack/pepper
+	icon_state = "peppernuts_trash"
+
+/obj/item/trash/peanutsnack/choc
+	icon_state = "chocnuts_trash"
+
+/obj/item/trash/peanutsnack/masala
+	icon_state = "masalanuts_trash"
+
+/obj/item/trash/chana
+	name = "chana wrapper"
+	icon_state = "chanamild_trash"
+
+/obj/item/trash/chana/wild
+	icon_state = "chanawild_trash"
+
+/obj/item/trash/foysnack
+	name = "cookie wrapper"
+	icon_state = "foysnack_trash"
+
+/obj/item/trash/papad
+	name = "empty papad box"
+	icon_state = "papad_trash"
+
+/obj/item/trash/papad/garlic
+	icon_state = "papadgarlic_trash"
+
+/obj/item/trash/papad/ginger
+	icon_state = "papadginger_trash"
+
+/obj/item/trash/papad/apple
+	icon_state = "papadapple_trash"
+
+/obj/item/trash/bowl_small
+	name = "small bowl"
+	desc = "A side dish used to live here, but then it moved out."
+	icon_state = "small_bowl"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/trash/bowl_brown
+	name = "terracotta bowl"
+	desc = "A brown bowl made of clay. Good for, uh, bowl... ing."
+	icon_state = "bowl_brown"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'

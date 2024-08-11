@@ -5,7 +5,7 @@
 	name = "CentComm Solitary Confinement"
 	icon_state = "brig"
 	centcomm_area = 1
-	flags = PRISON
+	area_flags = AREA_FLAG_PRISON
 
 /area/centcom
 	name = "Centcom"
@@ -28,6 +28,7 @@
 /area/centcom/start
 	name = "New Player Spawn"
 	dynamic_lighting = 0
+	sound_environment = SOUND_ENVIRONMENT_NONE
 
 /area/centcom/evac
 	name = "Centcom Emergency Shuttle"
@@ -57,7 +58,7 @@
 
 /area/centcom/creed
 	name = "Creed's Office"
-	sound_env = SMALL_SOFTFLOOR
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/centcom/holding
 	name = "Holding Facility"
@@ -79,13 +80,13 @@
 /area/centcom/legion
 	name = "BLV The Tower - Deck 1"
 	icon_state = "blvtower"
-	flags = NO_CREW_EXPECTED
+	area_flags = AREA_FLAG_NO_CREW_EXPECTED
 
 /area/centcom/legion/hangar5
 	name = "BLV The Tower - Hangar 5"
 	icon_state = "blvhangar5"
 	ambience = AMBIENCE_HANGAR
-	sound_env = HANGAR
+	sound_environment = SOUND_ENVIRONMENT_HANGAR
 
 /area/centcom/distress_prep
 	name = "Distress Team Preparation"
@@ -98,13 +99,13 @@
 	dynamic_lighting = 1
 	no_light_control = 1
 	centcomm_area = 1
-	flags = NO_CREW_EXPECTED
+	area_flags = AREA_FLAG_NO_CREW_EXPECTED
 	ambience = AMBIENCE_HIGHSEC
 
 /area/merchant_station/warehouse
 	name = "Merchant Warehouse"
 	icon_state = "merchant_ware"
-	sound_env = LARGE_ENCLOSED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 // Antagonist Bases
 
@@ -114,7 +115,7 @@
 	requires_power = FALSE
 	no_light_control = TRUE
 	centcomm_area = TRUE
-	flags = NO_CREW_EXPECTED
+	area_flags = AREA_FLAG_NO_CREW_EXPECTED
 
 /area/antag/mercenary
 	name = "Mercenary Barracks"
@@ -132,6 +133,10 @@
 	name = "Burglar Hideout"
 	icon_state = "burglar"
 
+/area/antag/jockey
+	name = "Jockey Workshop"
+	icon_state = "jockey"
+
 /area/antag/loner
 	name = "Loner Basement"
 	icon_state = "loner"
@@ -148,10 +153,10 @@
 	name = "Thunderdome"
 	icon_state = "thunder"
 	requires_power = 0
-	sound_env = ARENA
+	sound_environment = SOUND_ENVIRONMENT_ARENA
 	no_light_control = 1
 	centcomm_area = 1
-	flags = NO_CREW_EXPECTED
+	area_flags = AREA_FLAG_NO_CREW_EXPECTED
 
 /area/tdome/tdome1
 	name = "Thunderdome (Team 1)"
@@ -174,31 +179,31 @@
 /area/dungeon/crashed_ship
 	name = "Derelict Ship"
 	icon_state = "yellow"
-	flags = RAD_SHIELDED | SPAWN_ROOF
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF
 
 /area/dungeon/tomb
 	name = "Burial Chamber"
 	icon_state = "yellow"
-	flags = SPAWN_ROOF
+	area_flags = AREA_FLAG_SPAWN_ROOF
 
 /area/dungeon/syndie_listening_post
 	name = "Abandoned Listening Post"
 	icon_state = "red"
-	flags = SPAWN_ROOF
+	area_flags = AREA_FLAG_SPAWN_ROOF
 	requires_power = 0
 	no_light_control = 1
 
 /area/dungeon/anomaly_outpost
 	name = "Xenoarchaeological Outpost"
 	icon_state = "anomaly"
-	flags = SPAWN_ROOF
+	area_flags = AREA_FLAG_SPAWN_ROOF
 	requires_power = 0
 	no_light_control = 1
 
 /area/dungeon/sol_outpost
 	name = "Solarian Outpost"
 	icon_state = "red"
-	flags = SPAWN_ROOF
+	area_flags = AREA_FLAG_SPAWN_ROOF
 	requires_power = 0
 	no_light_control = 1
 
@@ -210,18 +215,18 @@
 /area/dungeon/skrell_ship
 	name = "Crashed Skrell Ship"
 	icon_state = "purple"
-	flags = RAD_SHIELDED | SPAWN_ROOF
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF
 
 /area/dungeon/bluespace_outpost
 	name = "Bluespace Outpost"
 	icon_state = "purple"
-	flags = RAD_SHIELDED | SPAWN_ROOF
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF
 
 //Away ships, third party ships, etc. Mostly for the ships that are expected to move on the overmap and/or have ghost roles.
 /area/ship
 	name = "Ship"
 	icon_state = "ship"
 	requires_power = 0
-	sound_env = STANDARD_STATION
+	sound_environment = SOUND_AREA_STANDARD_STATION
 	no_light_control = 1
-	flags = RAD_SHIELDED | SPAWN_ROOF
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF

@@ -25,7 +25,7 @@
 	src.player = player
 	src.sound_type = ASFX_INSTRUMENT
 
-	var/channel = sound_player.PrivGetChannel(src) //Attempt to find a channel
+	var/channel = GLOB.sound_player.PrivGetChannel(src) //Attempt to find a channel
 	if(!isnum(channel))
 		CRASH("All available sound channels are in active use.")
 	sound.channel = channel
@@ -33,7 +33,7 @@
 	listeners = list()
 	listener_status = list()
 
-	destroyed_event.register(source, src, /datum/proc/qdel_self)
+	GLOB.destroyed_event.register(source, src, /datum/proc/qdel_self)
 
 	player.subscribe(src)
 
@@ -44,7 +44,7 @@
 		return sound.environment
 	else
 		var/area/A = get_area(listener)
-		return A && PrivIsValidEnvironment(A.sound_env) ? A.sound_env : sound.environment
+		return A && PrivIsValidEnvironment(A.sound_environment) ? A.sound_environment : sound.environment
 
 /datum/sound_token/instrument/Stop()
 	player.unsubscribe(src)
@@ -52,5 +52,6 @@
 
 /datum/sound_token/instrument/Destroy()
 	. = ..()
+	GLOB.destroyed_event.unregister(source, src, /datum/proc/qdel_self)
 	player.unsubscribe(src)
 	player = null

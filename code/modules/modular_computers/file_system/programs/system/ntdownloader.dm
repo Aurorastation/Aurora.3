@@ -32,7 +32,7 @@
 
 /datum/computer_file/program/ntnetdownload/ui_static_data(mob/user)
 	var/list/data = list()
-	for(var/datum/computer_file/program/P in ntnet_global.available_software)
+	for(var/datum/computer_file/program/P in GLOB.ntnet_global.available_software)
 		if(hard_drive.find_file_by_name(P.filename))
 			continue
 
@@ -81,7 +81,7 @@
 		return TRUE
 
 	if(action == "download")
-		var/datum/computer_file/program/PRG = ntnet_global.find_ntnet_file_by_name(params["filename"])
+		var/datum/computer_file/program/PRG = GLOB.ntnet_global.find_ntnet_file_by_name(params["filename"])
 		if(istype(PRG))
 			add_to_queue(PRG, usr)
 		. = TRUE
@@ -106,6 +106,7 @@
 		return TRUE
 
 	if(!PRG.is_supported_by_hardware(computer.hardware_flag))
+		to_chat(user, SPAN_WARNING("Hardware Error - Incompatible software."))
 		return FALSE
 
 	if(PRG.available_on_ntnet)

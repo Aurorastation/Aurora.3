@@ -173,7 +173,7 @@
 			spawned_mobs |= M
 	else
 		var/list/candidates = list()
-		for(var/client/player in clients)
+		for(var/client/player in GLOB.clients)
 			if(player.mob && istype(player.mob, /mob/abstract/observer))
 				candidates |= player
 
@@ -192,9 +192,9 @@
 
 		// Equip them, if they are human and it is desirable.
 		if(istype(spawned_mob, /mob/living/carbon/human))
-			var/antag_type = input("Select an equipment template to use or cancel for nude.", null) as null|anything in all_antag_types
+			var/antag_type = input("Select an equipment template to use or cancel for nude.", null) as null|anything in GLOB.all_antag_types
 			if(antag_type)
-				var/datum/antagonist/A = all_antag_types[antag_type]
+				var/datum/antagonist/A = GLOB.all_antag_types[antag_type]
 				A.equip(spawned_mob)
 
 	if(alert("Are you SURE you wish to deploy this drop pod? It will cause a sizable explosion and gib anyone underneath it.",,"No","Yes") == "No")
@@ -214,11 +214,11 @@
 		spawned_mob.ckey = selected_player.mob.ckey
 		spawned_mobs = list(spawned_mob)
 		message_admins("[key_name_admin(usr)] dropped a pod containing \the [spawned_mob] ([spawned_mob.key]) at ([usr.x],[usr.y],[usr.z])")
-		log_admin("[key_name(usr)] dropped a pod containing \the [spawned_mob] ([spawned_mob.key]) at ([usr.x],[usr.y],[usr.z])",admin_key=key_name(usr),ckey=key_name(spawned_mob))
+		log_admin("[key_name(usr)] dropped a pod containing \the [spawned_mob] ([spawned_mob.key]) at ([usr.x],[usr.y],[usr.z])")
 	else if(spawned_mobs.len)
 		automatic_pod = 1
 		message_admins("[key_name_admin(usr)] dropped a pod containing [spawned_mobs.len] [spawned_mobs[1]] at ([usr.x],[usr.y],[usr.z])")
-		log_admin("[key_name(usr)] dropped a pod containing [spawned_mobs.len] [spawned_mobs[1]] at ([usr.x],[usr.y],[usr.z])",admin_key=key_name(usr),ckey=key_name(spawned_mob))
+		log_admin("[key_name(usr)] dropped a pod containing [spawned_mobs.len] [spawned_mobs[1]] at ([usr.x],[usr.y],[usr.z])")
 	else
 		return
 

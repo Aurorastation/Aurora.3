@@ -27,7 +27,6 @@
 	show_stat_health = TRUE
 	faction = "cult"
 	supernatural = TRUE
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_LEVEL_ONE
 	blood_type = "#000000"
 
@@ -47,6 +46,8 @@
 	psi_pingable = FALSE
 
 	simple_default_language = LANGUAGE_CULT
+
+	sample_data = null
 
 
 /mob/living/simple_animal/construct/cultify()
@@ -104,13 +105,13 @@
 			return
 	return ..()
 
-/mob/living/simple_animal/construct/examine(mob/user)
+/mob/living/simple_animal/construct/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(health < maxHealth)
 		if(health >= maxHealth / 2)
-			to_chat(user, SPAN_WARNING("It looks slightly dented."))
+			. += SPAN_WARNING("It looks slightly dented.")
 		else
-			to_chat(user, SPAN_WARNING("It looks severely dented!"))
+			. += SPAN_WARNING("It looks severely dented!")
 
 /mob/living/simple_animal/construct/UnarmedAttack(var/atom/A, var/proximity)
 	if(istype(A, /obj/effect/rune))
@@ -121,15 +122,16 @@
 		..()
 
 /mob/living/simple_animal/construct/proc/add_glow()
-	cut_overlays()
-	var/overlay_layer = EFFECTS_ABOVE_LIGHTING_LAYER
-	if(layer != MOB_LAYER)
-		overlay_layer = TURF_LAYER + 0.2
+	ClearOverlays()
+	var/overlay_plane = EFFECTS_ABOVE_LIGHTING_PLANE
 
-	add_overlay(image(icon, "glow-[icon_state]", overlay_layer))
+	var/image/glow = image(icon, "glow-[icon_state]")
+	glow.plane = overlay_plane
+
+	AddOverlays(glow)
 	set_light(2, -2, l_color = COLOR_WHITE)
 
-/mob/living/simple_animal/construct/Life()
+/mob/living/simple_animal/construct/Life(seconds_per_tick, times_fired)
 	. = ..()
 	if(.)
 		var/newstate

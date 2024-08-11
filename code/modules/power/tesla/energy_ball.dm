@@ -17,7 +17,7 @@
 	dissipate = 1
 	dissipate_delay = 10
 	dissipate_strength = 1
-	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	blend_mode = BLEND_ADD
 	var/failed_direction = 0
 	var/list/orbiting_balls = list()
@@ -69,15 +69,15 @@
 	else
 		..()
 
-/obj/singularity/energy_ball/examine(mob/user)
+/obj/singularity/energy_ball/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(orbiting_balls.len)
-		to_chat(user, "There are [orbiting_balls.len] energy balls orbiting \the [src].")
+		. +=  "There are [orbiting_balls.len] energy balls orbiting \the [src]."
 
 
 /obj/singularity/energy_ball/proc/move_the_basket_ball(var/move_amount)
 
-	var/list/valid_directions = alldirs.Copy()
+	var/list/valid_directions = GLOB.alldirs.Copy()
 
 	var/can_zmove = !(locate(/obj/machinery/containment_field) in view(12,src))
 	if(can_zmove && prob(10))
@@ -106,10 +106,12 @@
 	var/turf/T
 	switch(move_dir)
 		if(UP)
-			T = GetAbove(src)
+			var/turf/current_turf = get_turf(src)
+			T = GET_TURF_ABOVE(current_turf)
 			z_move = 1
 		if(DOWN)
-			T = GetBelow(src)
+			var/turf/current_turf = get_turf(src)
+			T = GET_TURF_BELOW(current_turf)
 			z_move = -1
 		else
 			T = get_step(src, move_dir)
@@ -127,10 +129,10 @@
 				zMove(DOWN)
 				visible_message(SPAN_DANGER("\The [src] gravitates from above!"))
 
-		if(dir in alldirs)
+		if(dir in GLOB.alldirs)
 			dir = move_dir
 		else
-			dir = pick(alldirs)
+			dir = pick(GLOB.alldirs)
 
 		for(var/mob/living/carbon/C in loc)
 			dust_mobs(C)
@@ -196,7 +198,7 @@
 	var/orbitsize = (I.Width() + I.Height()) * pick(0.4, 0.5, 0.6, 0.7, 0.8)
 	orbitsize -= (orbitsize / world.icon_size) * (world.icon_size * 0.25)
 
-	EB.orbit(src, orbitsize, pick(FALSE, TRUE), rand(10, 25), pick(3, 4, 5, 6, 36))
+	EB.orbit(src, orbitsize, rand(10, 25))
 
 
 /obj/singularity/energy_ball/Collide(atom/A)
@@ -211,16 +213,20 @@
 		var/obj/O = A
 		O.tesla_act(0, TRUE)
 
-/obj/singularity/energy_ball/CollidedWith(atom/A)
-	if(check_for_immune(A))
+/obj/singularity/energy_ball/CollidedWith(atom/bumped_atom)
+	//Fucking snowflake code
+	SHOULD_CALL_PARENT(FALSE)
+	SEND_SIGNAL(src, COMSIG_ATOM_BUMPED, bumped_atom)
+
+	if(check_for_immune(bumped_atom))
 		return
-	if(isliving(A))
-		dust_mobs(A)
-	else if(isobj(A))
-		if(istype(A, /obj/effect/accelerated_particle))
-			consume(A)
+	if(isliving(bumped_atom))
+		dust_mobs(bumped_atom)
+	else if(isobj(bumped_atom))
+		if(istype(bumped_atom, /obj/effect/accelerated_particle))
+			consume(bumped_atom)
 			return
-		var/obj/O = A
+		var/obj/O = bumped_atom
 		O.tesla_act(0, TRUE)
 
 /obj/singularity/energy_ball/proc/check_for_immune(var/O)
@@ -430,7 +436,7 @@
 		if(issilicon(closest_mob))
 			var/mob/living/silicon/S = closest_mob
 			if(stun_mobs)
-				S.emp_act(2)
+				S.emp_act(EMP_LIGHT)
 			tesla_zap(S, 7, power / 1.5, explosive, stun_mobs) // metallic folks bounce it further
 		else
 			tesla_zap(closest_mob, 5, power / 1.5, explosive, stun_mobs)

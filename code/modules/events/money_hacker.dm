@@ -21,7 +21,8 @@
 	var/my_department = "[station_name()] firewall subroutines"
 
 	for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
-		if(!MS.use_power) continue
+		if(!MS.use_power || !(MS.z in affecting_z))
+			continue
 		MS.send_rc_message("Executive Officer's Desk", my_department, message, "", "", 2)
 
 
@@ -32,6 +33,8 @@
 		endWhen = activeFor + 10
 
 /datum/event/money_hacker/end(var/faked)
+	..()
+
 	var/message
 	if(affected_account && !affected_account.suspended && !faked)
 		//hacker wins
@@ -62,5 +65,6 @@
 	var/my_department = "[station_name()] firewall subroutines"
 
 	for(var/obj/machinery/telecomms/message_server/MS in SSmachinery.all_telecomms)
-		if(!MS.use_power) continue
+		if(!MS.use_power || !(MS.z in affecting_z))
+			continue
 		MS.send_rc_message("Executive Officer's Desk", my_department, message, "", "", 2)

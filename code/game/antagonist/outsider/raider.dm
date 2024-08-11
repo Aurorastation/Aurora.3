@@ -21,6 +21,8 @@ var/datum/antagonist/raider/raiders
 
 	id_type = /obj/item/card/id/syndicate
 
+	has_idris_account = FALSE
+
 /datum/antagonist/raider/New()
 	..()
 	raiders = src
@@ -67,7 +69,7 @@ var/datum/antagonist/raider/raiders
 	var/win_msg = ""
 
 	//No objectives, go straight to the feedback.
-	if(config.objectives_disabled || !global_objectives.len)
+	if(GLOB.config.objectives_disabled || !global_objectives.len)
 		return
 
 	var/success = global_objectives.len
@@ -102,7 +104,7 @@ var/datum/antagonist/raider/raiders
 		else
 			win_msg += "<B>The Raiders were repelled!</B>"
 
-	to_world("<span class='danger'><font size = 3>[win_type] [win_group] victory!</font></span>")
+	to_world(SPAN_DANGER("<font size = 3>[win_type] [win_group] victory!</font>"))
 	to_world("[win_msg]")
 	feedback_set_details("round_end_result","heist - [win_type] [win_group]")
 
@@ -128,8 +130,8 @@ var/datum/antagonist/raider/raiders
 		if(I.loc != player)
 			qdel(I)
 
-	player.preEquipOutfit(/datum/outfit/admin/syndicate/raider, FALSE)
-	player.equipOutfit(/datum/outfit/admin/syndicate/raider, FALSE)
+	player.preEquipOutfit(/obj/outfit/admin/syndicate/raider, FALSE)
+	player.equipOutfit(/obj/outfit/admin/syndicate/raider, FALSE)
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()

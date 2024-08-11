@@ -1,24 +1,31 @@
 /datum/wires/iff
+	proper_name = "IFF Beacon"
 	holder_type = /obj/machinery/iff_beacon
-	wire_count = 1
 
-#define IFF_WIRE_RESET		 1
+/datum/wires/iff/New()
+	wires = list(
+		WIRE_RESET
+	)
+	add_duds(2)
+	..()
 
-/datum/wires/iff/GetInteractWindow()
+/datum/wires/iff/get_status()
 	var/obj/machinery/iff_beacon/I = holder
 	. += ..()
-	. += text("<br>\n[(I.use_power ? "The beacon is transmitting." : "The beacon is not transmitting.")]")
+	. += "[(I.use_power ? "The beacon is transmitting." : "The beacon is not transmitting.")]"
 
-/datum/wires/iff/CanUse(var/mob/living/L)
+/datum/wires/iff/interactable(mob/user)
+	if(!..())
+		return FALSE
 	var/obj/machinery/iff_beacon/I = holder
 	return I.panel_open
 
-/datum/wires/iff/UpdateCut(var/index, var/mended)
+/datum/wires/iff/on_cut(wire, mend, source)
 	var/obj/machinery/iff_beacon/I = holder
 
-	switch(index)
-		if(IFF_WIRE_RESET)
-			if(!mended)
+	switch(wire)
+		if(WIRE_RESET)
+			if(!mend)
 				I.shock(usr, 50)
 				I.toggle()
 				I.disable()

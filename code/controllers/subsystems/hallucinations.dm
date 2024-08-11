@@ -13,12 +13,13 @@ SUBSYSTEM_DEF(hallucinations)
 	var/list/all_hallucinations = list()
 
 /datum/controller/subsystem/hallucinations/Initialize()
-	. = ..()
 	for(var/T in subtypesof(/datum/hallucination))
 		all_hallucinations += T
 	hallucinated_phrases = file2list("code/modules/hallucinations/text_lists/hallucinated_phrases.txt")
 	hallucinated_actions = file2list("code/modules/hallucinations/text_lists/hallucinated_actions.txt")	//important note when adding to this file: "you" will always be replaced by the hallucinator's name
 	hallucinated_thoughts = file2list("code/modules/hallucinations/text_lists/hallucinated_thoughts.txt")
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/hallucinations/proc/get_hallucination(var/mob/living/carbon/C)
 	var/list/candidates = list()

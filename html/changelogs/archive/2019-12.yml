@@ -1,0 +1,706 @@
+2019-12-01:
+  Alberyk:
+  - bugfix: Fixed vox raiders not being given an ID and headset.
+  Arrow768:
+  - tweak: You are no longer able to join the game with unacknowledged warnings.
+  - bugfix: Fixes the MoTD not showing.
+  Furrycactus, Doxxmedearly:
+  - maptweak: The month of a certain over-commercialised holiday and tacky decorations
+      has begun. NanoTrasen has seen fit to leave no public hall, break room, Head
+      of Staff (+Quartermaster, how generous) office spared of holiday decor, and
+      no Civilian department workspace bare of tacky flashing holiday lights. They
+      even put a gaudily decorated tree in the bar, with gifts layed under it every
+      shift, and all of the special grass and astroturf on the station has been replaced
+      with Authentic(tm) Snow! Show some holiday spirit, and spend money on the newest
+      flashiest devices for your friends and family.
+  - tweak: Removed trash and added new items to list of contents for xmas gifts.
+  - tweak: Cleaned up the list of gift givers by removing some memes and adding new
+      names.
+  - tweak: Gifts will spawn randomly as small, medium, or large.
+  Kaedwuff:
+  - bugfix: Gemstones now spawn properly. Sorry.
+2019-12-02:
+  Doxxmedearly:
+  - tweak: Space A/Cs will now start with a heavy duty cell instead of a basic cell
+      that dies in half a minute.
+  - tweak: Space A/Cs now heat and cool slightly faster.
+  - rscadd: Space A/Cs can now be emagged, which increases the range they can heat
+      and cool, as well as improving their efficiency. Temperature-sensitive species,
+      Tremble!
+  - tweak: Interacting with space A/Cs is slightly different. If the panel is closed
+      and you click it, it brings up the interface menu, which allows you to turn
+      it on and off, as well as adjust the temperature. Before, the panel needed to
+      be opened for you to adjust the temperature.
+  - tweak: Power cells in space A/Cs are no longer removed via menu; if the panel
+      is open, you only need to click with an empty hand to remove it, or click with
+      a cell in-hand to insert it.
+  - bugfix: Borgs should now be able to change the power cells of space A/Cs.
+  Ferner:
+  - bugfix: Fixed some animals missing their inhand sprites. Fixed some wizard familiars
+      missing their sprites.
+  Geeves:
+  - rscadd: Surgery sites now have icon overlays, you can now physically see incisions
+      and retracted ribcages.
+  - tweak: Roller beds have been buffed to be 80% safe to operate on, up from 75%
+  - tweak: Using surgery tools on unsafe surfaces (rollerbeds, tables) no longer ATTACKS
+      the patient.
+  - bugfix: Fixed organ repair surgery not properly repairing the organ.
+  Kaedwuff:
+  - tweak: Xenos can now select colors for their footwraps, instead of just generic
+      white.
+  MattAtlas:
+  - tweak: You can no longer speak into a radio while restrained.
+  - tweak: The icon of the device you're using to speak into a radio is no longer
+      shown in a message.
+  Scheveningen:
+  - balance: Rechargers, including wall chargers, cyborg rechargers and heavy duty
+      cell chargers - have had their recharge speed increased by 50%. Their power
+      demand has been increased by the same proportion. Their energy efficiency is
+      roughly the same, they are just faster.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes invisible surgeon shoes.
+  - bugfix: Fixes donut boxes examine not working properly, and surgery tray description
+      being one of a donut box.
+2019-12-03:
+  Aboshehab:
+  - bugfix: TCFL are now properly inclusive. You can select any of the station species
+      when joining as the TCFL.
+  - bugfix: You can now properly join freelancer mercenaries as an IPC
+  - rscadd: Added more options for IRU coats. There are now 3 different types either
+      in black or brown.
+  - rscadd: Idris contractors can join forensic roles.
+  - rscadd: Added gasmasks to officer lockers.
+  Ferner:
+  - tweak: Reworked the contents of the Legion's garages to work better with the recent
+      mech updates.
+  - rscadd: Added some new exclusive weaponry for Legion combat ripleys.
+  - bugfix: Reworked the way mech decals are added so they get the proper colors applied
+      to them.
+  - bugfix: Fixed some mech equipment that lacked an icon or had the wrong name set.
+  Geeves:
+  - bugfix: Unathi, Vaurca and Tajara no longer always spawn with sandals, loadout
+      shoes will replace them properly.
+  - rscadd: The ninja's RIG is now DNA locked to that SPECIFIC ninja. If ANYONE else
+      wears it, they will activate the anti-intrusion countermeasures.
+  Kaedwuff:
+  - rscadd: Added a new chemical, dextrotoxin.  It is made somewhat wastefully with
+      carpotoxin, soporific, and phoron.
+  - rscadd: Dextrotoxin briefly makes it hard to walk straight before paralyzing you.
+      People under the effects of dextrotoxin cannot move or use the radio, but can
+      still speak.
+  - tweak: Dextrotoxin replaces zombie powder in any antagonist item that previously
+      contained it. Zombie powder is still possible to manufacture.
+  ParadoxSpace:
+  - rscadd: Adds five more loadout points. Spend them wisely.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes christmas lights north sprite flipping for no reason.
+  - rscadd: Adds a second bartender slot.
+  kyres1:
+  - rscadd: Added a new set of R&D suits available in toxins, telescience and expedition
+      prep on the sublevel.
+  - tweak: Resprited the AMI suit.
+2019-12-04:
+  Alberyk:
+  - rscadd: Added the rosary to the loadout options.
+  - tweak: The rosary no longer automatically spawns in holy books that have bible
+      sprites.
+2019-12-05:
+  Aboshehab:
+  - bugfix: Fixes a minor sprite issue with the black Idris Duster Coat.
+  - bugfix: Fixed duplicate logs from going up and down z-levels.
+  Geeves, Wezzy, BRAINOS:
+  - rscadd: Added a Klaxan Kataphract Hopeful to the Kataphract response team.
+  - tweak: The Kataphracts now start with better and more stylized gear.
+  Kaedwuff:
+  - bugfix: Players will no longer eat mixed gemstone stacks when attempting to separate
+      them. It was very unsanitary.
+  Nero-07:
+  - bugfix: Fixed formatting and typo when examining mechas
+  ParadoxSpace & AmoryBlaine:
+  - rscadd: Adds some new Unathi horn styles.
+  Wowzewow (Wezzy):
+  - imageadd: New bedsheet, lantern and penlight inhands.
+  - tweak: Extinguishing cigarettes in the ashtray should play the sound properly
+      now.
+  - tweak: You can put cigarette butts in cigarette packets.
+  - tweak: Tweaks power drill sprites.
+  - tweak: Health analysers should show the proper inhands now.
+  - bugfix: Fixes some more drop sounds.
+2019-12-07:
+  Doxxmedearly:
+  - tweak: Wallets can now hold rings.
+  - rscdel: Removes seasonal pumpkin spice lattes from the vendors, to return next
+      year.
+  - bugfix: Crafted donut boxes can hold six donuts again.
+  Ferner:
+  - maptweak: Remapped the merchant shuttle and outpost.
+  - tweak: Merchant assistants can now be from a wider range of species.
+  Geeves:
+  - rscadd: Gave Admins a gigashatter proc, which will fracture every single bone
+      in your body. Fear the wrath of the redname.
+  JohnWildkins:
+  - backend: Ported BS12 fixes for visualnets.
+  - bugfix: Camera MIU and other non-AI eye mobs should no longer run into issues
+      with obfuscation layers.
+  Leudoberct1:
+  - maptweak: Removes the Ripley APLU construction guide in robotics due to being
+      obsolete.
+  Naelynn:
+  - rscadd: Added bulk-buy function to the merchant. Less spamming click to buy things!
+  Nero-07:
+  - rscadd: Added the ability to force a holocall if you have a head id. Forced calls
+      automatically go through and can only be ended by the sender stepping off the
+      pad.
+  kyres1:
+  - rscadd: Added Freelance mercenary sprites and a cycler in their base.
+  - rscadd: Added the Rhino hardsuit, the freelancer's own hardsuit with roughly merc
+      hardsuit statistics with some extra modules and modified resists.
+  - tweak: Resprited all mercenary/syndicate gear, adopting a more rusty crimson color
+      scheme over the former cartoonish neon red ones.
+2019-12-08:
+  Doxxmedearly:
+  - tweak: In order to facilitate holiday commercialism, you no longer need wirecutters
+      in hand to wrap a gift. You also no longer need a table; the ground works just
+      fine.
+  - tweak: Tidied up description text when examining a roll of wrapping paper.
+  - rscadd: If you are on harm intent and click yourself with a bottle, there is now
+      a popup that asks you to confirm if you really intended to smash it over your
+      face, instead of just doing it.
+  Ferner:
+  - bugfix: Fixed the mech rfd, and the extinguisher will now have a proper name.
+  Ferner, Leudoberct:
+  - rscadd: Added a new possible random dungeons, mapped by Leudoberct.
+  Geeves:
+  - tweak: The safety timeperiod between entering cryo and being cryo'd has been changed
+      from 10 minutes to 2 minutes, due to people not ghosting.
+  - rscadd: If you are in cryo for 5 minutes, you will be despawned even if you're
+      still logged on.
+  Wowzewow (Wezzy):
+  - imageadd: New sprites for money, lotto cards and chargecards.
+2019-12-09:
+  JohnWildkins:
+  - bugfix: Fixed an issue where players could not select individual pieces of the
+      target doll, nor upgrade their grab strength by clicking.
+  Kaedwuff:
+  - rscdel: Removes Soylent Green from the game.
+  - tweak: Soylent Viridians has been changed to simply Soy Wafers.
+2019-12-10:
+  Doxxmedearly:
+  - rscadd: Taking a drag of your cigarette now smokes it slightly faster. Good for
+      finishing up a cig before going into medical.
+  - rscadd: Added a check to prevent spamming audio/message logs with taking a drag
+      from a cigarette. You can still smoke it down by clicking fast, but it only
+      displays the message/sound if it's been at least three seconds since the last
+      one.
+  MattAtlas, MoondancerPony, Geeves:
+  - experiment: An entirely new medical system! Holy balls that's a lot of changes.
+  - experiment: Pain has been SUBSTANTIALLY changed. It now depends on total damage
+      to all your limbs.
+  - rscadd: Traumas no longer happen due to oxyloss.
+  - tweak: Inaprovaline has been renamed to norepinephrine and viceversa.
+  - tweak: CPR has been fixed up a bit. It has a small chance to restart hearts and
+      can work with or without mouth-to-mouth.
+  - rscadd: Humans no longer die when hitting 200 damage. Dionae, IPCs, grues and
+      zombies are exceptions.
+  - rscadd: Humans now die when their brain dies. For the brain to die, it must not
+      have oxygen for quite a while.
+  - rscadd: Suffocation damage is now a modifier to blood. If you don't have much
+      oxygen, then you'll get the effects of low blood.
+  - rscadd: Toxins now directly target organs. They'll try to destroy the liver and
+      kidneys first... then move onto other organs. Be careful.
+  - rscadd: All organs in the body now work towards making sure the brain lives. The
+      liver filters toxins, the kidneys do the same, the lungs provide oxygen, the
+      heart pumps blood and so on.
+  - rscadd: 'Humans now have two new stats: blood oxygenation and blood pressure,
+      shown on sensors and scanners. Blood pressure depends on how well your heart
+      is pumping your blood. Blood oxygenation depends on how well your blood is oxygenated.'
+  - rscadd: Your heart can now stop when your pulse is too high. Your pulse depends
+      on many factors - like pain or how much blood your brain wants. A heart in asystole
+      cannot pump blood, meaning your brain will suffocate.
+  - rscadd: When your heart stops, you go into asystole, aka flatlining. This can
+      be fixed with CPR. Make sure that you fix the causes first... or they'll just
+      go into asystole again.
+  - rscadd: Norepinephrine stabilizes your heartrate. This is a VERY important fact,
+      do NOT forget this. Norepinephrine will be your best tool!
+  - tweak: Tricordazine recipe is now 1u epinephrine 1u dylovene.
+  - tweak: Adrenaline has been added. Its recipe is 1u norepinephrine 1u hyperzine
+      1u dexalinplus.
+  - tweak: Bicaridine recipe is now 1u norepinephrine 1u carbon.
+  - tweak: Inaprovaline recipe is now 1u atropine 0.1u phoron 1u adrenaline.
+  - tweak: Paroxetine recipe is now 1u mindbreaker 1u acetone 1u norepinephrine.
+  - tweak: Nightlife recipe is now 1u methylphenidate 1u synaptizine 1u nitroglycerin.
+  - tweak: RMT recipe is now 1u potassium 1u norepinephrine.
+  - rscadd: Ondansetron, a chemical that prevents vomiting and nausea, is made with
+      1u antihistamine 1u synaptizine 1u water.
+  - rscadd: Dexalin and dexalin+ no longer straight up heal oxyloss. Instead, they
+      now fool your brain into thinking that it has 50% oxygen and 80% oxygen respectively.
+  - rscadd: Alkysine now only heals the brain if it's properly oxygenated.
+  - rscadd: Added a stomach organ. This controls reagent ingestion and food ingestion.
+  - rscadd: Added a stomach pump mode to sleepers to pump INGESTED reagents out of
+      people's stomach.
+  - tweak: Peridaxon now heals brain damage, if it's not damaged much at all.
+  - tweak: Dylovene no longer outright heals toxin damage. Instead, it removes toxin
+      reagents from the blood.
+  - rscadd: New side effects to most healing chems. Be careful.
+  - rscadd: Deltamivir now inflicts a fever. Be careful, going overboard with the
+      dosage can give you a pretty bad one. Try not to go over 20 units at once.
+  - rscadd: Bicaridine now gives you muscle spasms.
+  - rscadd: Kelotane makes you drop your held items. Dermaline does the same, as it
+      is now a subtype.
+  - rscadd: Throwing beakers now shatters them. Be careful.
+  - rscdel: Numbers have been deleted from scanners. Mostly. Stop using terms like
+      brute and burn damage, boys.
+  - rscadd: Taking a good chunk of damage at once now produces adrenaline. Acts like
+      a painkiller and raises your pulse. Might also restart your heart.
+  - tweak: Soulstones work only when someone's in asystole.
+  - tweak: Changed how getting organ damage works. Lasers now deal organ damage.
+  - tweak: Most organs can now take more punishment.
+  - tweak: The head is now harder to hit.
+  - tweak: The organ damage dealt now depends on the size of the organ in the area
+      you hit.
+  - tweak: Surgery pain is MUCH higher if you're awake.
+  - tweak: Self surgery works again.
+  - tweak: Using a scalpel on necrotic organs now fixes the necrosis. However, it'll
+      also lower the organ's max damage as well.
+  ParadoxSpace:
+  - bugfix: Circuitry goggles have a sprite again now.
+2019-12-12:
+  Aboshehab:
+  - rscadd: Re-adds the old styled military jackets.
+  DanseMacabre:
+  - imageadd: Sprite changes for a number of guns, courtesy of AmoryBlaine.
+  Furrycactus:
+  - tweak: Sterile gloves boxes have had their contents adjusted. Instead of 4x latex
+      gloves and 3x nitrile gloves, they have 2x latex gloves and 5x nitrile gloves.
+  - rscadd: Added nitrile glove variants for Unathi and Tajara.
+  - maptweak: Replaced most instances of latex gloves with nitrile gloves, and made
+      xeno variants far more accessible. Latex allergies are no joke, kids.
+  - imageadd: Changed the icon for the sterile gloves box to show a blue glove icon
+      instead of white.
+  Leudoberct1:
+  - bugfix: Fixes the airlock vents in the digsite unique dungeon to function properly.
+  - tweak: Makes Vaurca tunnel cloaks colour customisable in the loadout screen.
+  ParadoxSpace:
+  - rscadd: Some tweaks to the Unathi bull horns sprite, as well as a longer version.
+  - bugfix: Slight fixes on the forward demon horns. My bad.
+  - rscadd: Implanters no longer require illegal tech.
+  aleksix:
+  - bugfix: Integrated Circuits <ANY> pins will now accept lists.
+2019-12-13:
+  Doxxmedearly:
+  - tweak: Pets have more discipline regarding food. They will no longer beg for food,
+      seek it out, run towards it, steal it, or eat like there's an endless void in
+      their stomachs. They'll still eat food on their tile if sufficiently hungry,
+      and you can still feed pets by hand, if you'd like. Chefs, rejoice!
+  - tweak: Corgi stomach capacity adjusted to a way more sane level.
+  - rscdel: Removed guilty messages about pets starving when you examine them; they
+      won't go hungry in a single shift, don't worry.
+  - rscadd: You can brush most friendly animals. Combs work for fuzzy and feathered
+      animals, rags work on other ones.
+  - tweak: There's a small chance that when you pet a guard dog (like Columbo) on
+      help intent (and aren't his master), he won't immediately maul your face off;
+      instead, he will growl at you to warn you not to do that. I still don't recommend
+      it.
+  - tweak: Like other pets, baby carp can eat now. But not a lot.
+  - bugfix: You'll no longer spray yourself with bottles or pepperspray when placing
+      it into your bag, jacket, webbing, or a container you're holding, even with
+      the safety off.
+  Ferner:
+  - tweak: Flags can now be placed onto windows directly.
+  - tweak: Bluespace technicians and newly spawned human mobs from ghostspawners for
+      example will no longer start out hungry/thirsty.
+  MattAtlas:
+  - rscadd: Added a fancy new health doll.
+  - rscadd: Organ scarring now shows on scanners.
+  Naelynn:
+  - tweak: Fixed a rare bug making station safe impossible to crack.
+2019-12-14:
+  PoZe:
+  - rscadd: Added yellow and green pens
+  - tweak: Multi-color pens now also have yellow and green.
+  - rscadd: Added 4 special pens. Red pen - poison pen, blue pen - pacifier pen, green
+      pen - healing pen, yellow pen - hyperzine pen.
+  - tweak: Added 4 special pens kit to traitor uplink, random kit and special ops
+      cargo.
+  aleksix:
+  - rscadd: Re-introduced the min/max circuits for integrated circuitry
+  - refactor: Borgs ID access code has been refactored to the normal ID access code.
+      Now they properly check for access in PDAs, hands and such.
+2019-12-15:
+  Alberyk:
+  - rscdel: Removed playable vox from the merchant and heist gamemode.
+  BurgerBB:
+  - balance: Removed both the side effects for bicaridine and kelotane and replaced
+      them with a low drowsiness. Bicaridine metabolism rate reduced by 66% (REM *
+      0.5). Kelotane and Dermaline metabolism rate reduced by 90% (REM * 0.5). Atropine
+      causes weakness and a heartrate increase. Atropine toxin damage increased from
+      1 to 2 per unit.
+  Doxxmedearly:
+  - rscdel: Removed K'ois delivery pods and other rare vaurca items from the christmas
+      gifts. Why were those a thing.
+  Geeves:
+  - rscadd: Sinta Tunics can now be rolled down.
+  - tweak: Tweaked unathi clothing colours to be properly recolourable.
+  Kaedwuff:
+  - tweak: The AI start of round role info no longer references traitor AIs, which
+      were removed months ago.
+  MattAtlas:
+  - maptweak: The cloning bay has been destroyed and rebuilt into a custodial closet.
+      All cloning equipment is now gone from the NSS Aurora.
+  - rscdel: You can no longer print cloning circuit boards.
+  - bugfix: Skeletons are no longer immortal.
+  - rscdel: Removed leftover brain damage effects.
+  Naelynn:
+  - rscadd: Allows Vox spike throwers to be worn on the belt slot.
+2019-12-16:
+  Alberyk:
+  - tweak: Pain should no longer create phantom wounds when examining yourself.
+  - rscadd: Mech moving and turning sounds nows depends on their leg type.
+  - rscadd: Ported the pod mech chassis from baystation.
+  - tweak: Mech arms now overlay above their cockpit.
+  Doxxmedearly:
+  - rscadd: Cyborg rescue module now has adrenaline in its hypospray.
+  - tweak: Chemistry gripper renamed to medical gripper since it's used for way more
+      than just chemistry.
+  - rscadd: Medical grippers can now hold blood bags, med cups, and paper cups.
+  Geeves:
+  - rscadd: Falling down a z-level without rolling now has a chance to dislocate the
+      limb you land on.
+  - bugfix: Kataphract K'lax now properly need a species whitelist to join.
+  Kaedwuff:
+  - tweak: Non-glass beakers no longer break when thrown. Additionally, glass beakers
+      have been made more fragile, as they were nearly impossible to break by throwing.
+  MattAtlas:
+  - bugfix: Shells now have a heartbeat on the medhud.
+  - rscadd: Burns now evaporate people's blood. Lasers evaporate less as they are
+      more concentrated, while wide burns evaporate more.
+  - tweak: Adrenaline has been nerfed.
+2019-12-17:
+  Geeves:
+  - tweak: The e-pistol now has seven shots, up from five.
+  - tweak: The lethal e-pistol now does 35 damage, up from 30.
+  PoZe:
+  - bugfix: Mechs no longer runtime during destroy call.
+  - bugfix: Turrets and NPCS no longer target empty mechs.
+  - bugfix: Mechs no longer runtime during armor check. Mechs now use their armor
+      and values for it. Before it would ignore them entirely and deal 100% damage.
+  Wowzewow (Wezzy):
+  - rscadd: Adds new forensic cards! Mark out your crimescene with these useless plastic
+      cards! Can be found in boxes in Forensics.
+  - rscadd: Dropsounds. Again.
+  - tweak: Tweaks some sprites regarding forensics.
+2019-12-18:
+  Alberyk:
+  - bugfix: Fixed mecha hoverpod chassis using the wrong material.
+  - bugfix: Fixed click and dragging causing weird behavior with drop pods.
+  - rscadd: Species job restrictions are now enforced in the occupation panel.
+  Arrow768:
+  - tweak: Emergency Maintenance can now be enabled/disabled from the command console.
+  - rscadd: Updates the Cargo Shipping Invoice for Cargo Oders.
+  Ferner:
+  - bugfix: Forensics equipment will no longer go invisible in some states.
+  Geeves:
+  - bugfix: Fixed Unathi clothing being slightly pink.
+  MattAtlas:
+  - tweak: Security's base nonlethal equipment - tasers and rubbers - is now a bit
+      better.
+  - bugfix: Fixed teargas doing practically nothing.
+  - bugfix: Fixed a lot of stuff not applying pain damage. Ow.
+  - bugfix: Fixed undefined values on the CMC.
+  - bugfix: Fixed dionae not regenerating damage.
+  - rscadd: You can now adjust more organs to be mechanical in character setup.
+  SonicGotNuked:
+  - rscadd: Borg Combat Module now unlocks with synthetic domination. It only activates
+      on all the current borgs, not the later ones.
+  - rscdel: Removes code delta from elite encryption hack
+  - rscadd: Replaces code delta with code yellow
+  - tweak: Borgs come out of the robot transformer hacked
+  - rscdel: Combat Borgs no longer have a laser cannon
+  - rscadd: Seperates traitor borg powers into a seperate verbs tab for you to actually
+      know about
+  - admin: Autoborger now tells admins that it made a borg
+  - rscadd: You shouldn't know what the Autoborger is at a glance. It has a more descriptive
+      description
+  - rscadd: It now tells players that they are lobotomized
+  - bugfix: Removes all borgs being emagged. Malf will have to manually hack each
+      borg now.
+  Wowzewow (Wezzy):
+  - imageadd: New sprites for holsters, ties, badges, press passes and offworlder
+      accessories.
+  - rscadd: New selection of holsters and ties. Check your loadouts!
+2019-12-19:
+  Alberyk:
+  - bugfix: Fixed the gear crates not showing up in the mercenary uplink.
+  Geeves:
+  - bugfix: Players with accounts too young to be antagonists now properly cannot
+      select those roles. No more empty gamemodes.
+  Leudoberct1:
+  - tweak: Removes the potential for artifacts with the low level energy emissions
+      or concentrated energy effects.
+  MattAtlas:
+  - rscdel: Devour and regurgitate are no longer verbs.
+  - rscadd: Devouring now depends entirely on the stomach.
+  - rscadd: Instead, to devour mobs, get a red grab on them and click on yourself
+      while aiming for the mouth.
+  - rscadd: To throw up, you'll have an action button at the top left to empty your
+      stomach. Keep in mind it'll be a forced action, so it won't look good.
+  - rscadd: You can now devour food items, too.
+  PoZe:
+  - bugfix: Mech printer now prints the right type of regular armor, instead of borg
+      armor.
+  - tweak: 'Mech''s melee damage has been increased. It depends on manipulator type.
+      Light: 15, Regular: 20, Combat 30, Heavy: 50.'
+  Wowzewow (Wezzy):
+  - rscadd: You can now wear the wet floor sign in your suit slot.
+  - tweak: Adjusts the wet floor sign sprite.
+2019-12-20:
+  Ferner:
+  - maptweak: Added a public stairwell at the aft of the facility, connecting the
+      main and surface levels.
+  - maptweak: Tweaked parts of maintenance.
+  - maptweak: Added a scanner bed to the ft's autopsy lab, added an additional cyborg
+      analyzer to robotics. Security's and the captain's bathrooms can now be locked.
+  MattAtlas:
+  - bugfix: Fixed the advanced scanner not printing a brain activity result.
+  Wowzewow (Wezzy):
+  - rscadd: 'Adds chewing tobacco, rolling tobacco, rolling papers, cigarette filters
+      to the cigarette vendors! (Note : these brands are provisional at the moment)'
+  - imageadd: New sprites for cigarettes and related stuff.
+  Wowzewow (Wezzy), AmoryBlaine:
+  - tweak: Tweaks various shoes sprites.
+  - rscadd: 'New Oxford shoes selection and Workboots selection : Check your loadout!'
+  - rscadd: New toeless workboots.
+2019-12-21:
+  Alberyk, Coalf, Kyres, Menown, Memescopemcgee and Suethecake:
+  - tweak: Changed Tajara citizenship options to better represent the lore.
+  - rscadd: Added more loadout options to the Tajara Xenogear selection.
+  - rscadd: Added Adhomian cigarettes.
+  - rscdel: Tajara can no longer be Necropolis contractors.
+  Crosarius:
+  - rscadd: Bullet_act now passes on the fact that the weapon used is a bullet, as
+      well as the weapon that fired said bullet. This means that autopsies will now
+      show gunshot wounds.
+  Ferner:
+  - bugfix: Fixed a specific cigar lacking a butt sprite.
+  Geeves:
+  - rscadd: Added indicators to a drill's health in the hardpoint display and drill
+      examine.
+  Geeves and Scrambles300:
+  - tweak: The Bishop frame has been resprited.
+  - rscadd: The Bishop frame now has body markings called Bishop Lights, which is
+      used to change the lights of the Bishop.
+  Leudoberct1:
+  - maptweak: Resizes xenoarch to be larger, adds a chem dispenser, chem master, sink,
+      another anomaly suit, portable scrubber, portable air pump, A/C heater. Moves
+      a few things around too.
+  Wowzewow (Wezzy):
+  - rscadd: Adds two new masks - dust masks and cloth masks. They can be found in
+      the loadout in a new tab. Sterile masks have been renamed to surgical masks
+      to match their real-life counterpart.
+  - bugfix: Equipped masks in the loadout should spawn properly equipped on your character
+      on spawn.
+  - bugfix: Grammar has been fixed with adjusting masks, and the top left action icon
+      should update properly.
+  - imageadd: New sprites for breathmasks and gas masks.
+2019-12-22:
+  Alberyk:
+  - rscdel: Removed the highly lethal poison pen from the pen kit at the traitor uplink.
+  - rscadd: Added basic research access to the research shuttle.
+  - bugfix: Fixed heads and groins being nearly impossible to dismember.
+  - tweak: Hands and feet can take more punishment before being dismembered.
+  Ferner:
+  - bugfix: Fixed tcfl volunteers spawning without a rank prefix in their name.
+  Ferner, Kyres1:
+  - imageadd: Replaced mech sprites with brand new ones by Kyres1.
+  - bugfix: Fixed an issue wherein built mechs didn't layer their parts properly.
+  Goret:
+  - rscdel: Removed remains of /tg/ and their  nazi uniforms in our codebase.
+  Leudoberct1:
+  - maptweak: Fixes a disconnected vent in the Xenoarch atrium, fixes an issue with
+      the anomaly scanner in the pit, adds a bookcase.
+  - tweak: Fixes the protection check in effect.dm to recognise nitrile gloves.
+  MattAtlas:
+  - tweak: Stethoscopes have been made more modular. They also give better hints now.
+  - rscadd: Added a breathing sound in low pressure with internals active. Except
+      for vaurca.
+  - tweak: Low pressure damage is now split evenly across all bodyparts, which means
+      it should be quite a bit more lethal.
+  Naelynn:
+  - rscadd: Added a new song to the Jukebox!.
+  PoZe:
+  - backend: Pipes no longer call hard delete when destroyed. This makes them not
+      slowdown/freeze server during explosions due to them no longer being deleted
+      immediately, but rather use queued delete.
+  Talkarcabbage:
+  - tweak: Substantially decreased supermatter delamination rate in complete vacuum.
+2019-12-23:
+  Alberyk:
+  - bugfix: Fixed some masks not displaying properly when worn by unathi or tajara.
+  Ferner:
+  - bugfix: Fixed white shoes missing their sprites.
+  Karolis2011:
+  - rscadd: Added record computer programs that can print records..
+  - rscadd: 'Yes, now you can print records again. '
+  PoZe:
+  - soundadd: Added sounds to mech's punch. They are different for each mech arms
+      type and volume depends on damage of arms.
+  - tweak: Ripley's arms damage was increased to 40 damage.
+  PoZe, Karolis:
+  - tweak: Poll Window now uses VueUi theme/styles.
+  Wowzewow (Wezzy):
+  - imageadd: Added new sprites for record programs.
+  - bugfix: Fixes missing pixels in certain shoe onmobs.
+  - bugfix: Fixes pestishock gun not updating charge sprite properly.
+2019-12-24:
+  Alberyk:
+  - tweak: Added science access restrictions to the Core R&D Console.
+  Ferner:
+  - maptweak: Adds a missing length of disposalpipe on the interstitial level. Adjusts
+      the border of the warehouse area to be as intended.
+  Leudoberct1:
+  - tweak: Fixes the science armband icon.
+  - tweak: Fixes the science armband not appearing on the player.
+  MattAtlas:
+  - rscadd: Added a new modular psionics system ported from Baystation/Europa.
+  - tweak: Skrell have lost their abilities tab. Instead, they now spawn as natural
+      psionics. Shift click the psi hub on the right to find out how to use your power.
+      Click the hub to activate them.
+  PoZe:
+  - tweak: Big(14 tiles) explosions will no longer freeze the server.
+  - backend: During explosions Air, Processing, Machinery, Mobs AI subsytems are temporrary
+      suspended until explosions processing is finished.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes missing shoes pixel properly this time.
+2019-12-25:
+  Ferner:
+  - bugfix: Fixed some dungeons that were using indestructible rock instead of regular
+      rock walls.
+  Karolis2011:
+  - bugfix: Employment records are nolonger accessible to more peaple then necessery..
+  Leudoberct1:
+  - tweak: Changes some code in the artifact_unknown.dm code, to make secondary effects
+      more easily triggerable.
+  MattAtlas:
+  - bugfix: Skrell no longer get bad messages from commune.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes missing cigarette onmob sprites for Tajaran and Unathi.
+  - bugfix: Fixes icon update issues with rolled cigarettes and filters.
+  - rscadd: New cigarette and tobacco stuff has been added to the loadout. They are
+      in a new tab.
+  - imageadd: Improves PRA cigarettebox sprite.
+  - tweak: Tweaks announcement noises to fade in and out more smoothly.
+  - imageadd: Adds shoe inhands. Now we are super immersive, like at least 20% more.
+2019-12-26:
+  Ferner:
+  - bugfix: Fixed the digsite dungeon's airlock air sensor having the wrong frequency.
+  Lady Fowl:
+  - tweak: Refactors Frontier Alliance to Coalition namesake due to lore changes.
+  - tweak: Remove ATLAS items from loadout/code due to lore changes.
+  MattAtlas:
+  - tweak: Hydration and hunger slowdowns now only occur at lower stages.
+  - tweak: Changed the regurgitate action button icon to a stomach.
+  Mwahahahaha:
+  - tweak: Shaking people on the floor now has you offer a hand out to them like a
+      true civilised person. The person on the floor must click on that civilised
+      person with help intent to be helped up.
+  ParadoxSpace:
+  - rscadd: Tobacco products are now affordable and more numerous.
+  Skull132:
+  - bugfix: Powered crossbow now properly consumes the energy cell when applied.
+  aleksix:
+  - bugfix: Integrated Circuit list elements can now be properly edited in-place
+  - rscadd: Edit/Remove buttons for editing Integrated Circuits lists
+2019-12-27:
+  Alberyk:
+  - rscadd: Diona can now change their skintone, to make their bark(?) ligther or
+      darker.
+  Geeves:
+  - bugfix: Fixes suitstore being displayed twice in examine, fixes suit not being
+      displayed.
+  Geeves and Mwahahahaha:
+  - rscadd: Items will now say whether they have extra examine info, and allow you
+      to view them.
+  - rscadd: You can now examine people that are in exosuits.
+  - rscadd: You can now examine the stuff people are wearing and wielding by left
+      clicking on the hyperlink on their examine.
+  Karolis2011:
+  - bugfix: Fixes computers so there main UI closes on shutdown.
+  - rscadd: Added printers to all modular consoles presets
+  MattAtlas:
+  - rscdel: The side effects from Bicaridine and Kelotane have been removed.
+  - rscdel: Forensics autopsies no longer show the exact name of the gun used to shoot
+      someone.
+  Skull132:
+  - maptweak: All CMCs are replaced with medical preset computers.
+  - maptweak: Replaced all records computers with modular computers. All heads of
+      staff get their job specific version with employment records too.
+  - maptweak: Gave all heads of staff a command laptop with employment records.
+2019-12-28:
+  Alberyk:
+  - bugfix: Fixed gibbers, grinders and robotics fabricator not catching long hair.
+  Geeves:
+  - bugfix: Vaurca antennae no longer get pulled by machinery.
+  Leudoberct1:
+  - maptweak: Replaces the pickaxes in research EVA prep with mining drills.
+  MattAtlas:
+  - backend: Cleaned up the backend limb code a bit.
+  - tweak: Psiping is now activated by activating an empty hand.
+  - tweak: Commune is now activated by clicking on someone while aiming for the mouth.
+  - tweak: Cooldowns have been lowered for both.
+  - tweak: Psiping and Commune no longer make sounds.
+  - bugfix: Toy figurines now only do the cool action when you activate them instead
+      of when you click them, so you can actually remove them from your pockets.
+2019-12-29:
+  Alberyk:
+  - rscadd: Mechs will now trample, dealing brute damaged based on their leg types,
+      mobs that they run over.
+  - rscadd: Mechs can now push most mobs.
+  Ferner:
+  - bugfix: Fixed the syndie voidsuit having the wrong sprite for humans.
+  Geeves:
+  - rscadd: Grabs have been lightly buffed across the board. It should be slightly
+      more effective now. Choking does more oxygen damage.
+  - tweak: It is now more difficult to resist out of grabs, and doing so while you're
+      on the floor is much more difficult.
+  - tweak: Various species has had their grab mod modified, making them easier or
+      harder to grab.
+  - rscadd: You can no longer strangle people with airtight helmets. (voidsuits, rigs,
+      etc)
+  - rscadd: A new species value, resist mod, has been added. Larger, stronger mobs
+      are easier to grab, but they're much better at resisting out of grabs.
+  MattAtlas:
+  - bugfix: Fixed some deletion problems with silicons.
+  Skull132:
+  - bugfix: The greeting window no longer malfunctions.
+2019-12-30:
+  Aboshehab:
+  - rscadd: Both Atmospheric Technicians and Engineering Modules get an impact wrench.
+  - rscadd: Adds a new type of emergency lockers that specialize in inflatables.
+  - tweak: Adjusted emergency locker types to accomdate the new type.
+  - imageadd: Changes the asset protection hardsuit sprites. Courtesy of Brainos.
+  Alberyk:
+  - bugfix: Fixes examining items not taking in consideration all possible extra examine
+      information.
+  Geeves:
+  - bugfix: Fix Radio Jammers not jamming Vaurcaesian hivenet.
+  MattAtlas:
+  - bugfix: Shrapnel extraction surgery should be far less fucky now.
+  - tweak: Extracting shrapnel with knives now works far better. It also loops, so
+      you don't have to click extract shrapnel 6 times.
+  - rscdel: Shrapnel no longer contains the name of the weapon it came from in the
+      name.
+  ParadoxSpace:
+  - rscadd: Adds the ability to change eye color to all robotic eyes, including IPCs.
+2019-12-31:
+  Aboshehab:
+  - rscadd: Station bounced radio can now be stored in most belts.
+  Alberyk:
+  - bugfix: Fixed the brown holster selection on the loadout not working.
+  - bugfix: Fixed corporate liaisons and consular officers not having access to employment
+      records.
+  - bugfix: Fixed corporate liaisons and consular officers having a security cartridge
+      on their pda.
+  MattAtlas:
+  - tweak: Decreased the toxin damage threshold at which damage starts to cascade.
+  SueTheCake:
+  - rscadd: Added phonographs, directly imported from Adhomai. Enjoy the music, comrrrrade.

@@ -1,0 +1,99 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/space)
+"i" = (
+/turf/simulated/mineral/planet,
+/area/space)
+"L" = (
+/obj/structure/sign/flag/sol/old,
+/obj/structure/sign/kiddieplaque{
+	pixel_y = 24;
+	name = "\improper Department of Colonization plaque";
+	desc = "The plaque bears an enscription in Sol Common. It reads: 'BODY CHARTED: JULY 18 2305. ASSN DEPT. OF COLONIZATION.' The inscription is followed by a list of human names."
+	},
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/space)
+
+(1,1,1) = {"
+i
+i
+i
+i
+i
+a
+a
+a
+"}
+(2,1,1) = {"
+i
+i
+i
+i
+i
+i
+a
+a
+"}
+(3,1,1) = {"
+i
+i
+i
+a
+a
+a
+a
+a
+"}
+(4,1,1) = {"
+i
+i
+i
+L
+a
+a
+a
+a
+"}
+(5,1,1) = {"
+i
+i
+i
+a
+a
+a
+a
+a
+"}
+(6,1,1) = {"
+i
+i
+i
+a
+i
+i
+i
+a
+"}
+(7,1,1) = {"
+i
+i
+i
+i
+a
+a
+a
+a
+"}
+(8,1,1) = {"
+i
+i
+i
+a
+a
+a
+a
+a
+"}

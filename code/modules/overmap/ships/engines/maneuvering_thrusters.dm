@@ -40,6 +40,12 @@
 	icon = 'icons/obj/ship_engine.dmi'
 	icon_state = "nozzle"
 	anchored = TRUE
+	component_types = list(
+		/obj/item/circuitboard/engine/maneuvering,
+		/obj/item/stack/cable_coil = 2,
+		/obj/item/stock_parts/matter_bin,
+		/obj/item/stock_parts/capacitor = 2
+	)
 
 	var/datum/ship_engine/maneuvering/controller
 	var/thrust_limit = 1
@@ -54,6 +60,15 @@
 	QDEL_NULL(controller)
 	return ..()
 
+/obj/machinery/maneuvering_engine/attackby(obj/item/attacking_item, mob/user)
+	. = ..()
+	if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
+
 /obj/machinery/maneuvering_engine/proc/get_status()
 	. = list()
 	.+= "Location: [get_area(src)]."
@@ -64,15 +79,3 @@
 
 /obj/machinery/maneuvering_engine/proc/get_thrust()
 	return thrust_limit * generated_thrust * on
-
-/obj/item/circuitboard/engine/maneuvering
-	name = T_BOARD("pulse-maneuvering device")
-	board_type = "machine"
-	icon_state = "mcontroller"
-	build_path = /obj/machinery/maneuvering_engine
-	origin_tech = list(TECH_POWER = 4, TECH_ENGINEERING = 3)
-	req_components = list(
-		/obj/item/stack/cable_coil = 2,
-		/obj/item/stock_parts/matter_bin = 1,
-		/obj/item/stock_parts/capacitor = 2
-	)

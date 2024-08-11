@@ -2,7 +2,6 @@
 	name = "\improper AI Liquid Dispenser"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "motion0"
-	layer = 3
 	anchored = 1.0
 	idle_power_usage = 10
 	var/uses = 20
@@ -11,7 +10,7 @@
 	var/cooldown_time = 0
 	var/cooldown_timeleft = 0
 	var/cooldown_on = 0
-	req_access = list(access_ai_upload)
+	req_access = list(ACCESS_AI_UPLOAD)
 
 
 /obj/machinery/ai_slipper/Initialize()
@@ -33,7 +32,7 @@
 	src.uses = uses
 	src.power_change()
 
-/obj/machinery/ai_slipper/attackby(obj/item/W, mob/user)
+/obj/machinery/ai_slipper/attackby(obj/item/attacking_item, mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if (istype(user, /mob/living/silicon))
@@ -50,7 +49,7 @@
 				if (user.machine==src)
 					src.attack_hand(usr)
 		else
-			to_chat(user, "<span class='warning'>Access denied.</span>")
+			to_chat(user, SPAN_WARNING("Access denied."))
 	return TRUE
 
 /obj/machinery/ai_slipper/attack_ai(mob/user as mob)

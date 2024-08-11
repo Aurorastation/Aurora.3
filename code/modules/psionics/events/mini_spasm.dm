@@ -21,8 +21,10 @@
 		"Nralakk Federation Observation Probe TC-203 Sensor Array", new_sound = 'sound/misc/announcements/security_level_old.ogg', zlevels = affecting_z)
 
 /datum/event/minispasm/start()
+	..()
+
 	var/list/victims = list()
-	for(var/obj/item/device/radio/radio in listening_objects)
+	for(var/obj/item/device/radio/radio in GLOB.listening_objects)
 		if(radio.is_on())
 			for(var/mob/living/victim in range(radio.canhear_range, radio.loc))
 				if(isnull(victims[victim]) && victim.stat == CONSCIOUS && !isdeaf(victim))
@@ -37,7 +39,7 @@
 	playsound(source, 'sound/effects/narsie.ogg', 75) //LOUD AS FUCK BOY
 
 	if(!ishuman(victim))
-		to_chat(victim, "<span class='notice'>An annoying buzz passes through your head.</span>")
+		to_chat(victim, SPAN_NOTICE("An annoying buzz passes through your head."))
 		return
 
 	if(victim.psi)
@@ -55,7 +57,9 @@
 	sleep(45)
 	victim.psi.check_psionic_trigger(100, "a psionic scream", redactive = TRUE)
 
-/datum/event/minispasm/end()
-	command_announcement.Announce( \
-		"PRIORITY ALERT: SIGNAL BROADCAST HAS CEASED. Personnel are cleared to resume use of non-hardened radio transmission equipment. Have a nice day.", \
-		"Nralakk Federation Observation Probe TC-203 Sensor Array", new_sound = 'sound/misc/announcements/nightlight_old.ogg', zlevels = affecting_z)
+/datum/event/minispasm/announce_end()
+	. = ..()
+	if(.)
+		command_announcement.Announce( \
+			"PRIORITY ALERT: SIGNAL BROADCAST HAS CEASED. Personnel are cleared to resume use of non-hardened radio transmission equipment. Have a nice day.", \
+			"Nralakk Federation Observation Probe TC-203 Sensor Array", new_sound = 'sound/misc/announcements/nightlight_old.ogg', zlevels = affecting_z)

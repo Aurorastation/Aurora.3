@@ -1,7 +1,7 @@
 /obj/item/sample
 	name = "forensic sample"
 	icon = 'icons/obj/forensics.dmi'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	var/list/evidence
 	var/list/source
 	var/label_text = ""
@@ -45,14 +45,14 @@
 	to_chat(user, SPAN_NOTICE("You overlay \the [src] and \the [initial(supplied.name)], combining the print records."))
 	return 1
 
-/obj/item/sample/attackby(var/obj/O, var/mob/user)
-	if(O.type == src.type)
-		user.unEquip(O)
-		if(merge_evidence(O, user))
-			qdel(O)
+/obj/item/sample/attackby(obj/item/attacking_item, var/mob/user)
+	if(attacking_item.type == src.type)
+		user.unEquip(attacking_item)
+		if(merge_evidence(attacking_item, user))
+			qdel(attacking_item)
 		return TRUE
-	else if (O.ispen())
-		var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
+	else if (attacking_item.ispen())
+		var/tmp_label = sanitizeSafe( tgui_input_text(user, "Enter a label for [name]", "Label", label_text, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(length(tmp_label) > MAX_NAME_LEN)
 			to_chat(user, SPAN_WARNING("The label can be at most [MAX_NAME_LEN] characters long."))
 		else
@@ -161,8 +161,8 @@
 	desc = "A magnifying glass and tweezers. Used to lift suit fibers."
 	desc_info = "Click drag it on to an object to collect evidence. Alternatively click on non-help intent."
 	icon_state = "m_glass"
-	w_class = ITEMSIZE_SMALL
-	flags = NOBLUDGEON
+	w_class = WEIGHT_CLASS_SMALL
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	var/evidence_type = "fiber"
 	var/evidence_path = /obj/item/sample/fibers
 

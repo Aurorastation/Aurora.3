@@ -52,6 +52,12 @@
 		if(prob(75))
 			my_effect.trigger = rand(1,4)
 
+/obj/machinery/artifact/Destroy()
+	QDEL_NULL(my_effect)
+	QDEL_NULL(secondary_effect)
+
+	. = ..()
+
 /obj/machinery/artifact/process()
 
 	var/turf/L = loc
@@ -189,92 +195,101 @@
 	if(secondary_effect?.effect == EFFECT_TOUCH && secondary_effect.activated)
 		secondary_effect.DoEffectTouch(user)
 
-/obj/machinery/artifact/attackby(var/obj/item/W, mob/living/user)
+/obj/machinery/artifact/attackby(obj/item/attacking_item, mob/user)
 
-	if (istype(W, /obj/item/reagent_containers/))
-		if(W.reagents.has_reagent(/singleton/reagent/hydrazine, 1) || W.reagents.has_reagent(/singleton/reagent/water, 1))
+	if (istype(attacking_item, /obj/item/reagent_containers/))
+		if(attacking_item.reagents.has_reagent(/singleton/reagent/hydrazine, 1) || attacking_item.reagents.has_reagent(/singleton/reagent/water, 1))
 			if(my_effect.trigger == TRIGGER_WATER)
 				my_effect.ToggleActivate()
 			if(secondary_effect?.trigger == TRIGGER_WATER)
 				secondary_effect.ToggleActivate()
-		else if(W.reagents.has_reagent(/singleton/reagent/acid, 1) || W.reagents.has_reagent(/singleton/reagent/acid/polyacid, 1) || W.reagents.has_reagent(/singleton/reagent/diethylamine, 1))
+		else if(attacking_item.reagents.has_reagent(/singleton/reagent/acid, 1) || attacking_item.reagents.has_reagent(/singleton/reagent/acid/polyacid, 1) ||\
+				attacking_item.reagents.has_reagent(/singleton/reagent/diethylamine, 1))
 			if(my_effect.trigger == TRIGGER_ACID)
 				my_effect.ToggleActivate()
 			if(secondary_effect?.trigger == TRIGGER_ACID)
 				secondary_effect.ToggleActivate()
-		else if(W.reagents.has_reagent(/singleton/reagent/toxin/phoron, 1) || W.reagents.has_reagent(/singleton/reagent/thermite, 1))
+		else if(attacking_item.reagents.has_reagent(/singleton/reagent/toxin/phoron, 1) || attacking_item.reagents.has_reagent(/singleton/reagent/thermite, 1))
 			if(my_effect.trigger == TRIGGER_VOLATILE)
 				my_effect.ToggleActivate()
 			if(secondary_effect?.trigger == TRIGGER_VOLATILE)
 				secondary_effect.ToggleActivate()
-		else if(W.reagents.has_reagent(/singleton/reagent/toxin, 1) || W.reagents.has_reagent(/singleton/reagent/toxin/cyanide, 1) || W.reagents.has_reagent(/singleton/reagent/cryptobiolin, 1) || W.reagents.has_reagent(/singleton/reagent/impedrezene, 1) || W.reagents.has_reagent(/singleton/reagent/toxin/amatoxin, 1) || W.reagents.has_reagent(/singleton/reagent/alcohol/neurotoxin, 1))
+		else if(attacking_item.reagents.has_reagent(/singleton/reagent/toxin, 1) || attacking_item.reagents.has_reagent(/singleton/reagent/toxin/cyanide, 1) ||\
+				attacking_item.reagents.has_reagent(/singleton/reagent/drugs/cryptobiolin, 1) || attacking_item.reagents.has_reagent(/singleton/reagent/drugs/impedrezene, 1) ||\
+				attacking_item.reagents.has_reagent(/singleton/reagent/toxin/amatoxin, 1) || attacking_item.reagents.has_reagent(/singleton/reagent/alcohol/neurotoxin, 1))
 			if(my_effect.trigger == TRIGGER_TOXIN)
 				my_effect.ToggleActivate()
 			if(secondary_effect?.trigger == TRIGGER_TOXIN)
 				secondary_effect.ToggleActivate()
-	else if(istype(W,/obj/item/melee/baton) && W:status ||\
-			istype(W,/obj/item/melee/energy) ||\
-			istype(W,/obj/item/melee/cultblade) ||\
-			istype(W,/obj/item/card/emag) ||\
-			W.ismultitool())
+	else if(istype(attacking_item,/obj/item/melee/baton) && attacking_item:status ||\
+			istype(attacking_item,/obj/item/melee/energy) ||\
+			istype(attacking_item,/obj/item/melee/cultblade) ||\
+			istype(attacking_item,/obj/item/card/emag) ||\
+			attacking_item.ismultitool())
 		if (my_effect.trigger == TRIGGER_ENERGY)
 			my_effect.ToggleActivate()
 		if(secondary_effect?.trigger == TRIGGER_ENERGY)
 			secondary_effect.ToggleActivate()
 
-	else if (istype(W,/obj/item/flame) && W:lit ||\
-			W.iswelder() && W:welding)
+	else if (istype(attacking_item,/obj/item/flame) && attacking_item:lit ||\
+			attacking_item.iswelder() && attacking_item:welding)
 		if(my_effect.trigger == TRIGGER_HEAT)
 			my_effect.ToggleActivate()
 		if(secondary_effect?.trigger == TRIGGER_HEAT)
 			secondary_effect.ToggleActivate()
 	else
 		..()
-		if (my_effect.trigger == TRIGGER_FORCE && W.force >= 10)
+		if (my_effect.trigger == TRIGGER_FORCE && attacking_item.force >= 10)
 			my_effect.ToggleActivate()
 		if(secondary_effect?.trigger == TRIGGER_FORCE)
 			secondary_effect.ToggleActivate()
 
-/obj/machinery/artifact/CollidedWith(M as mob|obj)
+/obj/machinery/artifact/CollidedWith(atom/bumped_atom)
 	..()
-	if(istype(M,/obj))
-		if(M:throwforce >= 10)
+	if(istype(bumped_atom, /obj))
+		var/obj/O = bumped_atom
+		if(O.throwforce >= 10)
 			if(my_effect.trigger == TRIGGER_FORCE)
 				my_effect.ToggleActivate()
 			if(secondary_effect?.trigger == TRIGGER_FORCE)
 				secondary_effect.ToggleActivate()
-	else if(ishuman(M) && !istype(M:gloves,/obj/item/clothing/gloves))
-		var/warn = 0
 
-		if (my_effect.trigger == TRIGGER_TOUCH && prob(50))
-			my_effect.ToggleActivate()
-			warn = 1
-		if(secondary_effect?.trigger == TRIGGER_TOUCH && prob(50))
-			secondary_effect.ToggleActivate()
-			warn = 1
+	else if(ishuman(bumped_atom))
 
-		if (my_effect.effect == EFFECT_TOUCH && prob(50))
-			my_effect.DoEffectTouch(M)
-			warn = 1
-		if(secondary_effect?.effect == EFFECT_TOUCH && prob(50))
-			secondary_effect.DoEffectTouch(M)
-			warn = 1
+		var/mob/living/carbon/human/H = bumped_atom
 
-		if(warn)
-			to_chat(M, "<b>You accidentally touch [src].</b>")
+		if(!istype(H.gloves, /obj/item/clothing/gloves))
+			var/warn = 0
+
+			if (my_effect.trigger == TRIGGER_TOUCH && prob(50))
+				my_effect.ToggleActivate()
+				warn = 1
+			if(secondary_effect?.trigger == TRIGGER_TOUCH && prob(50))
+				secondary_effect.ToggleActivate()
+				warn = 1
+
+			if (my_effect.effect == EFFECT_TOUCH && prob(50))
+				my_effect.DoEffectTouch(H)
+				warn = 1
+			if(secondary_effect?.effect == EFFECT_TOUCH && prob(50))
+				secondary_effect.DoEffectTouch(H)
+				warn = 1
+
+			if(warn)
+				to_chat(H, "<b>You accidentally touch [src].</b>")
 	..()
 
-/obj/machinery/artifact/bullet_act(var/obj/item/projectile/P)
-	if(istype(P,/obj/item/projectile/bullet) ||\
-		istype(P,/obj/item/projectile/bullet/pistol/hivebotspike))
+/obj/machinery/artifact/bullet_act(var/obj/projectile/P)
+	if(istype(P,/obj/projectile/bullet) ||\
+		istype(P,/obj/projectile/bullet/pistol/hivebotspike))
 		if(my_effect.trigger == TRIGGER_FORCE)
 			my_effect.ToggleActivate()
 		if(secondary_effect?.trigger == TRIGGER_FORCE)
 			secondary_effect.ToggleActivate()
 
-	else if(istype(P,/obj/item/projectile/beam) ||\
-		istype(P,/obj/item/projectile/ion) ||\
-		istype(P,/obj/item/projectile/energy))
+	else if(istype(P,/obj/projectile/beam) ||\
+		istype(P,/obj/projectile/ion) ||\
+		istype(P,/obj/projectile/energy))
 		if(my_effect.trigger == TRIGGER_ENERGY)
 			my_effect.ToggleActivate()
 		if(secondary_effect?.trigger == TRIGGER_ENERGY)

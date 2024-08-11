@@ -11,12 +11,12 @@
 	var/creation_type = /obj/singularity
 
 /obj/machinery/the_singularitygen/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(anchored)
-		add_overlay("[icon_state]+bolts")
+		AddOverlays("[icon_state]+bolts")
 		var/image/lights_image = image(icon, null, "[icon_state]+lights")
-		lights_image.layer = EFFECTS_ABOVE_LIGHTING_LAYER
-		add_overlay(lights_image)
+		lights_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		AddOverlays(lights_image)
 
 /obj/machinery/the_singularitygen/process()
 	var/turf/T = get_turf(src)
@@ -24,18 +24,18 @@
 		new creation_type(T, 50)
 		if(src) qdel(src)
 
-/obj/machinery/the_singularitygen/attackby(obj/item/W, mob/user)
-	if(W.iswrench())
+/obj/machinery/the_singularitygen/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		anchored = !anchored
-		playsound(src.loc, W.usesound, 75, 1)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		if(anchored)
-			user.visible_message("[user.name] secures [src.name] to the floor.", \
-				"You secure the [src.name] to the floor.", \
-				"You hear a ratchet")
+			user.visible_message("[user.name] secures [src.name] to the floor.",
+									"You secure the [src.name] to the floor.",
+									"You hear a ratchet")
 		else
-			user.visible_message("[user.name] unsecures [src.name] from the floor.", \
-				"You unsecure the [src.name] from the floor.", \
-				"You hear a ratchet")
+			user.visible_message("[user.name] unsecures [src.name] from the floor.",
+									"You unsecure the [src.name] from the floor.",
+									"You hear a ratchet")
 		update_icon()
 		return
 	return ..()

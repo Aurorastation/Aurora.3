@@ -7,29 +7,29 @@
 	opacity = 0
 	density = 0
 	anchored = 0.0
-	force = 1.0
+	force = 1
 	throwforce = 1.0
 	throw_speed = 1
 	throw_range = 2
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/access = list()
-	access = access_crate_cash
+	access = ACCESS_CRATE_CASH
 	var/worth = 0
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
-/obj/item/spacecash/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/spacecash))
-		if(istype(W, /obj/item/spacecash/ewallet)) return 0
+/obj/item/spacecash/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/spacecash))
+		if(istype(attacking_item, /obj/item/spacecash/ewallet)) return 0
 
 		var/obj/item/spacecash/bundle/bundle
-		if(!istype(W, /obj/item/spacecash/bundle))
-			var/obj/item/spacecash/cash = W
+		if(!istype(attacking_item, /obj/item/spacecash/bundle))
+			var/obj/item/spacecash/cash = attacking_item
 			bundle = new(src.loc)
 			bundle.worth += cash.worth
 			qdel(cash)
 		else //is bundle
-			bundle = W
+			bundle = attacking_item
 		bundle.worth += src.worth
 		bundle.update_icon()
 		if(istype(user, /mob/living/carbon/human))
@@ -38,7 +38,7 @@
 			h_user.drop_from_inventory(src)
 			h_user.drop_from_inventory(bundle)
 			h_user.put_in_hands(bundle)
-		to_chat(user, "<span class='notice'>You add [src.worth] credits worth of money to the bundles.<br>It holds [bundle.worth] credits now.</span>")
+		to_chat(user, SPAN_NOTICE("You add [src.worth] credits worth of money to the bundles.<br>It holds [bundle.worth] credits now."))
 		qdel(src)
 
 /obj/item/spacecash/bundle
@@ -49,7 +49,7 @@
 	worth = 0
 
 /obj/item/spacecash/bundle/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/list/ovr = list()
 	var/sum = src.worth
 	var/num = 0
@@ -71,8 +71,8 @@
 		banknote.transform = M
 		ovr += banknote
 
-	add_overlay(ovr)
-	compile_overlays()	// The delay looks weird, so we force an update immediately.
+	AddOverlays(ovr)
+	UpdateOverlays()	// The delay looks weird, so we force an update immediately.
 	src.desc = "A bundle of Biesel Standard Credit chips. Combined, this is worth [worth] credits."
 
 /obj/item/spacecash/bundle/attack_self(mob/user as mob)
@@ -175,10 +175,21 @@
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
-/obj/item/spacecash/ewallet/examine(mob/user, distance, is_adjacent)
+/obj/item/spacecash/ewallet/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if (distance > 2 && user!=src.loc) return
-	to_chat(user, "<span class='notice'>Charge card's owner: [src.owner_name]. Credit chips remaining: [src.worth].</span>")
+	if(distance > 2 && user != loc)
+		return
+	. += SPAN_NOTICE("The charge card's owner is [src.owner_name].")
+	. += SPAN_NOTICE("It has [src.worth]电 left.")
+
+/obj/item/spacecash/ewallet/c2000
+	worth = 2000
+
+/obj/item/spacecash/ewallet/c5000
+	worth = 5000
+
+/obj/item/spacecash/ewallet/c10000
+	worth = 10000
 
 /obj/item/spacecash/ewallet/lotto
 	name = "space lottery card"
@@ -191,49 +202,49 @@
 /obj/item/spacecash/ewallet/lotto/attack_self(mob/user)
 
 	if(scratches_remaining <= 0)
-		to_chat(user, "<span class='warning'>The card flashes: \"No scratches remaining!\"</span>")
+		to_chat(user, SPAN_WARNING("The card flashes: \"No scratches remaining!\""))
 		return
 
 	if(next_scratch > world.time)
-		to_chat(user, "<span class='warning'>The card flashes: \"Please wait!\"</span>")
+		to_chat(user, SPAN_WARNING("The card flashes: \"Please wait!\""))
 		return
 
 	next_scratch = world.time + 6 SECONDS
 
-	to_chat(user, "<span class='notice'>You initiate the simulated scratch action process on the [src]...</span>")
+	to_chat(user, SPAN_NOTICE("You initiate the simulated scratch action process on the [src]..."))
 	playsound(src.loc, 'sound/items/drumroll.ogg', 20, 0, -4)
 	if(do_after(user,4.5 SECONDS))
 		var/won = 0
 		var/result = rand(1,10000)
 		if(result <= 4000) // 40% chance to not earn anything at all.
 			won = 0
-			speak("You've won: [won] CREDITS. Better luck next time!")
+			speak("You've won: [won] credits. Better luck next time!")
 		else if (result <= 8000) // 40% chance
-			won = 50
-			speak("You've won: [won] CREDITS. Partial winner!")
+			won = 10
+			speak("You've won: [won] credits. Better than nothing!")
 		else if (result <= 9000) // 10% chance
-			won = 100
-			speak("You've won: [won] CREDITS. Winner!")
+			won = 50
+			speak("You've won: [won] credits. Try again!")
 		else if (result <= 9500) // 5% chance
-			won = 200
-			speak("You've won: [won] CREDITS. SUPER WINNER! You're lucky!")
+			won = 100
+			speak("You've won: [won] credits. Halfway there!")
 		else if (result <= 9750) // 2.5% chance
-			won = 500
-			speak("You've won: [won] CREDITS. MEGA WINNER! You're super lucky!")
+			won = 200
+			speak("You've won: [won] credits. You're even!")
 		else if (result <= 9900) // 1.5% chance
-			won = 1000
-			speak("You've won: [won] CREDITS. ULTRA WINNER! You're mega lucky!")
+			won = 500
+			speak("You've won: [won] CREDITS. WINNER! You're lucky!")
 		else if (result <= 9950) // 0.5% chance
+			won = 1000
+			speak("You've won: [won] CREDITS. SUPER WINNER! You're super lucky!")
+		else if (result <= 9975) // 0.25% chance
+			won = 1500
+			speak("You've won: [won] CREDITS. MEGA WINNER! You're mega lucky!")
+		else if (result <= 9999) // 0.24% chance
 			won = 2500
 			speak("You've won: [won] CREDITS. ULTIMATE WINNER! You're ultra lucky!")
-		else if (result <= 9975) // 0.25% chance
+		else // 0.01% chance
 			won = 5000
-			speak("You've won: [won] CREDITS. ULTIMATE WINNER! You're ultra lucky!")
-		else if (result <= 9999) // 0.24% chance
-			won = 10000
-			speak("You've won: [won] CREDITS. ULTIMATE WINNER! You're ultra lucky!")
-		else ///0.01% chance
-			won = 25000
 			speak("You've won: [won] CREDITS. JACKPOT WINNER! You're JACKPOT lucky!")
 
 		scratches_remaining -= 1
@@ -241,9 +252,9 @@
 		worth += won
 		sleep(1 SECONDS)
 		if(scratches_remaining > 0)
-			to_chat(user, "<span class='notice'>The card flashes: You have: [scratches_remaining] SCRATCHES remaining! Scratch again!</span>")
+			to_chat(user, SPAN_NOTICE("The card flashes: You have: [scratches_remaining] SCRATCHES remaining! Scratch again!"))
 		else
-			to_chat(user, "<span class='notice'>The card flashes: You have: [scratches_remaining] SCRATCHES remaining! You won a total of: [worth] CREDITS. Thanks for playing the space lottery!</span>")
+			to_chat(user, SPAN_NOTICE("The card flashes: You have: [scratches_remaining] SCRATCHES remaining! You won a total of: [worth] CREDITS. Thanks for playing the space lottery!"))
 
 		owner_name = user.name
 

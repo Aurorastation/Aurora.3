@@ -6,7 +6,7 @@
 /obj/structure/closet/secure_closet/operations_manager
 	name = "operations manager's locker"
 	icon_state = "om"
-	req_access = list(access_qm)
+	req_access = list(ACCESS_QM)
 
 /obj/structure/closet/secure_closet/operations_manager/fill()
 	new /obj/item/clothing/under/rank/operations_manager(src)
@@ -29,12 +29,13 @@
 	new /obj/item/device/flashlight/marshallingwand(src)
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
+	new /obj/item/device/price_scanner(src)
 
 // Hangar Technician
 /obj/structure/closet/secure_closet/hangar_tech
 	name = "hangar technician's locker"
 	icon_state = "hangar_tech"
-	req_access = list(access_cargo)
+	req_access = list(ACCESS_CARGO)
 
 /obj/structure/closet/secure_closet/hangar_tech/fill()
 	..()
@@ -54,7 +55,7 @@
 /obj/structure/closet/secure_closet/machinist
 	name = "machinist's locker"
 	icon_state = "machinist"
-	req_access = list(access_robotics)
+	req_access = list(ACCESS_ROBOTICS)
 
 /obj/structure/closet/secure_closet/machinist/fill()
 	..()
@@ -76,7 +77,7 @@
 /obj/structure/closet/secure_closet/miner
 	name = "miner's locker"
 	icon_state = "miner"
-	req_access = list(access_mining)
+	req_access = list(ACCESS_MINING)
 
 /obj/structure/closet/secure_closet/miner/fill()
 	..()
@@ -102,8 +103,27 @@
 	new /obj/item/clothing/head/hardhat/orange(src)
 	new /obj/item/device/radio(src)
 	new /obj/item/device/flashlight/lantern(src)
+	new /obj/item/sleeping_bag/mining(src)
 
 // Merchant
 /obj/structure/closet/secure_closet/merchant
 	name = "merchant's locker"
-	req_access = list(access_merchant)
+	req_access = list(ACCESS_MERCHANT)
+
+// Package Courier
+/obj/structure/closet/secure_closet/package_courier
+	name = "courier's locker"
+	icon_state = "hangar_tech"
+	req_access = list(ACCESS_CARGO)
+
+/obj/structure/closet/secure_closet/package_courier/fill()
+	..()
+	// presumably the people taking them down to the exoplanet will give them proper suits
+	// but in some kind of apocalyptic nightmare scenario where there aren't spare suits, these will do
+	new /obj/item/clothing/head/helmet/space(src)
+	new /obj/item/clothing/suit/space(src)
+	new /obj/item/tank/oxygen(src)
+	new /obj/item/cargo_backpack(src)
+	new /obj/item/device/gps/mining(src)
+	new /obj/item/device/flashlight/lantern(src)
+	new /obj/item/pickaxe(src)

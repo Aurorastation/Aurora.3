@@ -8,6 +8,7 @@
 		/singleton/origin_item/origin/medina,
 		/singleton/origin_item/origin/aemaq,
 		/singleton/origin_item/origin/new_suez,
+		/singleton/origin_item/origin/bursa,
 		/singleton/origin_item/origin/other_elyran
 	)
 
@@ -53,6 +54,15 @@
 	possible_accents = list(ACCENT_NEWSUEZ)
 	possible_citizenships = list(CITIZENSHIP_ELYRA, CITIZENSHIP_ELYRA_NCP)
 	possible_religions = RELIGIONS_ELYRA
+
+/singleton/origin_item/origin/bursa
+	name = "Bursa"
+	desc = "The only habitable planet in the Alaz-Khan star system, Bursa is an arctic world primarily fueled by mining and industry, known for its strong emphasis on community ties and patriotism. In recent years the planet was a victim of attacks by the Lii’dra, leaving thousands dead and many more scarred by the events."
+	possible_accents = list(ACCENT_BURSA)
+	possible_citizenships = list(CITIZENSHIP_ELYRA, CITIZENSHIP_ELYRA_NCP)
+	possible_religions = RELIGIONS_ELYRA
+	origin_traits = list(TRAIT_ORIGIN_COLD_RESISTANCE)
+	origin_traits_descriptions = list("are more acclimatised to the cold.")
 
 /singleton/origin_item/origin/other_elyran
 	name = "Other Elyran"

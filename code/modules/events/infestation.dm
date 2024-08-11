@@ -29,10 +29,13 @@
 
 /datum/event/infestation/major/setup()
 	var/player_count = 0
-	for(var/mob/living/carbon/human/H in living_mob_list)
+	var/armory_access = FALSE
+	for(var/mob/living/carbon/human/H in GLOB.living_mob_list)
 		if(H.stat == CONSCIOUS && H.client)
 			player_count++
-	if(player_count >= 15)
+			if(H.mind.assigned_role in armory_positions)
+				armory_access = TRUE
+	if((player_count >= 15) && armory_access)
 		possible_mobs = list(
 			INFESTATION_HIVEBOTS = 1,
 			INFESTATION_SLIMES = 1
@@ -48,6 +51,8 @@
 	choose_mobs()
 
 /datum/event/infestation/start()
+	..()
+
 	spawn_mobs()
 
 /datum/event/infestation/proc/choose_area()

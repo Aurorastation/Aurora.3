@@ -12,7 +12,7 @@
 		if (!holder)
 			return
 
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		return
 
 	var/serverip = "[world.internet_address]:[world.port]"
@@ -51,7 +51,7 @@
 		computerid = bancid
 		ip = banip
 
-	var/DBQuery/query = dbcon.NewQuery("SELECT id, computerid, ip FROM ss13_player WHERE ckey = '[ckey]'")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, computerid, ip FROM ss13_player WHERE ckey = '[ckey]'")
 	query.Execute()
 	var/validckey = 0
 	if(query.NextRow())
@@ -63,7 +63,7 @@
 			ip = query.item[3]
 	if(!validckey)
 		if(!banned_mob || (banned_mob && !IsGuestKey(banned_mob.key)))
-			message_admins("<span class='warning'>[key_name_admin(usr)] attempted to ban [ckey], but [ckey] has not been seen yet. Please only ban actual players.</span>",1)
+			message_admins(SPAN_WARNING("[key_name_admin(usr)] attempted to ban [ckey], but [ckey] has not been seen yet. Please only ban actual players."),1)
 			return
 
 	var/a_ckey
@@ -80,7 +80,7 @@
 		a_ip = world.address
 
 	var/who
-	for(var/c in clients)
+	for(var/c in GLOB.clients)
 		var/client/C = c
 		if(!who)
 			who = "[C]"
@@ -88,7 +88,7 @@
 			who += ", [C]"
 
 	var/adminwho
-	for(var/c in staff)
+	for(var/c in GLOB.staff)
 		var/client/C = c
 		if(!adminwho)
 			adminwho = "[C]"
@@ -97,10 +97,10 @@
 
 	reason = sql_sanitize_text(reason)
 
-	var/sql = "INSERT INTO ss13_ban (`id`,`bantime`,`serverip`,`game_id`,`bantype`,`reason`,`job`,`duration`,`rounds`,`expiration_time`,`ckey`,`computerid`,`ip`,`a_ckey`,`a_computerid`,`a_ip`,`who`,`adminwho`,`edits`,`unbanned`,`unbanned_datetime`,`unbanned_ckey`,`unbanned_computerid`,`unbanned_ip`) VALUES (null, Now(), '[serverip]', '[game_id]','[bantype_str]', '[reason]', '[job]', [(duration)?"[duration]":"0"], [(rounds)?"[rounds]":"0"], Now() + INTERVAL [(duration>0) ? duration : 0] MINUTE, '[ckey]', '[computerid]', '[ip]', '[a_ckey]', '[a_computerid]', '[a_ip]', '[who]', '[adminwho]', '', null, null, null, null, null)"
-	var/DBQuery/query_insert = dbcon.NewQuery(sql)
+	var/sql = "INSERT INTO ss13_ban (`id`,`bantime`,`serverip`,`game_id`,`bantype`,`reason`,`job`,`duration`,`rounds`,`expiration_time`,`ckey`,`computerid`,`ip`,`a_ckey`,`a_computerid`,`a_ip`,`who`,`adminwho`,`edits`,`unbanned`,`unbanned_datetime`,`unbanned_ckey`,`unbanned_computerid`,`unbanned_ip`) VALUES (null, Now(), '[serverip]', '[GLOB.round_id]','[bantype_str]', '[reason]', '[job]', [(duration)?"[duration]":"0"], [(rounds)?"[rounds]":"0"], Now() + INTERVAL [(duration>0) ? duration : 0] MINUTE, '[ckey]', '[computerid]', '[ip]', '[a_ckey]', '[a_computerid]', '[a_ip]', '[who]', '[adminwho]', '', null, null, null, null, null)"
+	var/DBQuery/query_insert = GLOB.dbcon.NewQuery(sql)
 	query_insert.Execute()
-	to_chat(usr, "<span class='notice'>Ban saved to database.</span>")
+	to_chat(usr, SPAN_NOTICE("Ban saved to database."))
 	message_admins("[key_name_admin(usr)] has added a [bantype_str] for [ckey] [(job)?"([job])":""] [(duration > 0)?"([duration] minutes)":""] with the reason: \"[reason]\" to the ban database.",1)
 
 /proc/DB_ban_unban(var/ckey, var/bantype, var/job = "")
@@ -138,30 +138,30 @@
 	if(job)
 		sql += " AND job = '[job]'"
 
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		return
 
 	var/ban_id
 	var/ban_number = 0 //failsafe
 
-	var/DBQuery/query = dbcon.NewQuery(sql)
+	var/DBQuery/query = GLOB.dbcon.NewQuery(sql)
 	query.Execute()
 	while(query.NextRow())
 		ban_id = query.item[1]
 		ban_number++;
 
 	if(ban_number == 0)
-		to_chat(usr, "<span class='warning'>Database update failed due to no bans fitting the search criteria. If this is not a legacy ban you should contact the database admin.</span>")
+		to_chat(usr, SPAN_WARNING("Database update failed due to no bans fitting the search criteria. If this is not a legacy ban you should contact the database admin."))
 		return
 
 	if(ban_number > 1)
-		to_chat(usr, "<span class='warning'>Database update failed due to multiple bans fitting the search criteria. Note down the ckey, job and current time and contact the database admin.</span>")
+		to_chat(usr, SPAN_WARNING("Database update failed due to multiple bans fitting the search criteria. Note down the ckey, job and current time and contact the database admin."))
 		return
 
 	if(istext(ban_id))
 		ban_id = text2num(ban_id)
 	if(!isnum(ban_id))
-		to_chat(usr, "<span class='warning'>Database update failed due to a ban ID mismatch. Contact the database admin.</span>")
+		to_chat(usr, SPAN_WARNING("Database update failed due to a ban ID mismatch. Contact the database admin."))
 		return
 
 	DB_ban_unban_by_id(ban_id)
@@ -174,7 +174,7 @@
 		to_chat(usr, "Cancelled")
 		return
 
-	var/DBQuery/query = dbcon.NewQuery("SELECT ckey, duration, reason FROM ss13_ban WHERE id = [banid]")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT ckey, duration, reason FROM ss13_ban WHERE id = [banid]")
 	query.Execute()
 
 	var/eckey = usr.ckey	//Editing admin ckey
@@ -202,7 +202,7 @@
 					to_chat(usr, "Cancelled")
 					return
 
-			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ban SET reason = '[value]', edits = CONCAT(edits,'- [eckey] changed ban reason from <cite><b>\\\"[reason]\\\"</b></cite> to <cite><b>\\\"[value]\\\"</b></cite><BR>') WHERE id = [banid]")
+			var/DBQuery/update_query = GLOB.dbcon.NewQuery("UPDATE ss13_ban SET reason = '[value]', edits = CONCAT(edits,'- [eckey] changed ban reason from <cite><b>\\\"[reason]\\\"</b></cite> to <cite><b>\\\"[value]\\\"</b></cite><BR>') WHERE id = [banid]")
 			update_query.Execute()
 			message_admins("[key_name_admin(usr)] has edited a ban for [pckey]'s reason from [reason] to [value]",1)
 		if("duration")
@@ -212,7 +212,7 @@
 					to_chat(usr, "Cancelled")
 					return
 
-			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ban SET duration = [value], edits = CONCAT(edits,'- [eckey] changed ban duration from [duration] to [value]<br>'), expiration_time = DATE_ADD(bantime, INTERVAL [value] MINUTE) WHERE id = [banid]")
+			var/DBQuery/update_query = GLOB.dbcon.NewQuery("UPDATE ss13_ban SET duration = [value], edits = CONCAT(edits,'- [eckey] changed ban duration from [duration] to [value]<br>'), expiration_time = DATE_ADD(bantime, INTERVAL [value] MINUTE) WHERE id = [banid]")
 			message_admins("[key_name_admin(usr)] has edited a ban for [pckey]'s duration from [duration] to [value]",1)
 			update_query.Execute()
 		if("unban")
@@ -232,12 +232,12 @@
 
 	var/sql = "SELECT ckey, bantype, job FROM ss13_ban WHERE id = [id]"
 
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		return
 
 	var/reason = input("Please specify an unban reason.", "Unban Reason", "Unbanned as per appeal.")
 	if (!reason)
-		to_chat(usr, "<span class='warning'>Invalid reason given. Cancelled.</span>")
+		to_chat(usr, SPAN_WARNING("Invalid reason given. Cancelled."))
 		return
 
 	var/ban_number = 0 //failsafe
@@ -245,7 +245,7 @@
 	var/pckey
 	var/ban_type
 	var/job		// This is for integrating the static jobban API into this.
-	var/DBQuery/query = dbcon.NewQuery(sql)
+	var/DBQuery/query = GLOB.dbcon.NewQuery(sql)
 	query.Execute()
 	while(query.NextRow())
 		pckey = query.item[1]
@@ -254,11 +254,11 @@
 		ban_number++;
 
 	if(ban_number == 0)
-		to_chat(usr, "<span class='warning'>Database update failed due to a ban id not being present in the database.</span>")
+		to_chat(usr, SPAN_WARNING("Database update failed due to a ban id not being present in the database."))
 		return
 
 	if(ban_number > 1)
-		to_chat(usr, "<span class='warning'>Database update failed due to multiple bans having the same ID. Contact the database admin.</span>")
+		to_chat(usr, SPAN_WARNING("Database update failed due to multiple bans having the same ID. Contact the database admin."))
 		return
 
 	var/datum/admins/holder = null
@@ -277,7 +277,7 @@
 	var/sql_update = "UPDATE ss13_ban SET unbanned = 1, unbanned_datetime = Now(), unbanned_ckey = '[unban_ckey]', unbanned_computerid = '[unban_computerid]', unbanned_ip = '[unban_ip]', unbanned_reason = '[unban_reason]' WHERE id = [id]"
 	message_admins("[key_name_admin(usr)] has lifted [pckey]'s ban.",1)
 
-	var/DBQuery/query_update = dbcon.NewQuery(sql_update)
+	var/DBQuery/query_update = GLOB.dbcon.NewQuery(sql_update)
 	query_update.Execute()
 
 	notes_add_sql(ckey(pckey), "[ban_type] (#[id]) lifted. Reason for unban: [reason].", usr)
@@ -303,8 +303,8 @@
 
 	if(!check_rights(R_BAN))	return
 
-	if(!establish_db_connection(dbcon))
-		to_chat(usr, "<span class='warning'>Failed to establish database connection</span>")
+	if(!establish_db_connection(GLOB.dbcon))
+		to_chat(usr, SPAN_WARNING("Failed to establish database connection"))
 		return
 
 	var/output = "<div align='center'><table width='90%'><tr>"
@@ -336,8 +336,8 @@
 	for(var/j in nonhuman_positions)
 		output += "<option value='[j]'>[j]</option>"
 	var/list/bantypes = list("traitor","changeling","vampire","operative","revolutionary","cultist","wizard") //For legacy bans.
-	for(var/antag_type in all_antag_types) // Grab other bans.
-		var/datum/antagonist/antag = all_antag_types[antag_type]
+	for(var/antag_type in GLOB.all_antag_types) // Grab other bans.
+		var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 		bantypes |= antag.bantype
 	for(var/j in bantypes)
 		output += "<option value='[j]'>[j]</option>"
@@ -433,7 +433,7 @@
 			 * Do mirror checks first! Basically find active mirrors and add those to the output before we proceed onto finding bans.
 			 */
 			if (!match)
-				var/DBQuery/mirror_query = dbcon.NewQuery({"SELECT DISTINCT(mirrors.ban_id), bans.ckey FROM ss13_ban_mirrors mirrors
+				var/DBQuery/mirror_query = GLOB.dbcon.NewQuery({"SELECT DISTINCT(mirrors.ban_id), bans.ckey FROM ss13_ban_mirrors mirrors
 					JOIN ss13_ban bans ON mirrors.ban_id = bans.id
 					WHERE (isnull(mirrors.deleted_at) AND (1 [mirror_player] [mirror_ip] [mirror_cid]))
 					AND (
@@ -465,7 +465,7 @@
 			output += "<th width='15%'><b>OPTIONS</b></th>"
 			output += "</tr>"
 
-			var/DBQuery/select_query = dbcon.NewQuery("SELECT id, bantime, bantype, reason, job, duration, expiration_time, ckey, a_ckey, unbanned, unbanned_ckey, unbanned_datetime, unbanned_reason, edits, ip, computerid FROM ss13_ban WHERE 1 [playersearch] [adminsearch] [ipsearch] [cidsearch] [bantypesearch] ORDER BY bantime DESC LIMIT 100")
+			var/DBQuery/select_query = GLOB.dbcon.NewQuery("SELECT id, bantime, bantype, reason, job, duration, expiration_time, ckey, a_ckey, unbanned, unbanned_ckey, unbanned_datetime, unbanned_reason, edits, ip, computerid FROM ss13_ban WHERE 1 [playersearch] [adminsearch] [ipsearch] [cidsearch] [bantypesearch] ORDER BY bantime DESC LIMIT 100")
 			select_query.Execute()
 
 			var/now = time2text(world.realtime, "YYYY-MM-DD hh:mm:ss") // MUST BE the same format as SQL gives us the dates in, and MUST be least to most specific (i.e. year, month, day not day, month, year)
@@ -503,7 +503,7 @@
 				var/typedesc =""
 				switch(bantype)
 					if("PERMABAN")
-						typedesc = "<span class='warning'><b>PERMABAN</b></span>"
+						typedesc = SPAN_WARNING("<b>PERMABAN</b>")
 					if("TEMPBAN")
 						typedesc = "<b>TEMPBAN</b><br><font size='2'>([duration] minutes) [(unbanned || auto) ? "" : "(<a href=\"byond://?src=\ref[src];dbbanedit=duration;dbbanid=[banid]\">Edit</a>)"]<br>Expires [expiration]</font>"
 					if("JOB_PERMABAN")
@@ -546,7 +546,7 @@
 					output += "</tr>"
 				if (bantype in list("PERMABAN", "TEMPBAN"))
 					var/mirror_count = 0
-					var/DBQuery/get_mirrors = dbcon.NewQuery("SELECT id FROM ss13_ban_mirrors WHERE ban_id = :ban_id:")
+					var/DBQuery/get_mirrors = GLOB.dbcon.NewQuery("SELECT id FROM ss13_ban_mirrors WHERE ban_id = :ban_id:")
 					get_mirrors.Execute(list("ban_id" = text2num(banid)))
 
 					while (get_mirrors.NextRow())

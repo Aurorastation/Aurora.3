@@ -27,13 +27,14 @@
 /mob/living/announcer/Initialize()
 	// we specifically do not call parent Initialize here because this mob should not need it and its point is to be lightweight
 	SHOULD_CALL_PARENT(FALSE)
-	if(initialized)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
-	initialized = TRUE
 
-	for(var/K in all_languages)
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
+	for(var/K in GLOB.all_languages)
 		add_language(K)
-	default_language = all_languages[LANGUAGE_TCB]
+	default_language = GLOB.all_languages[LANGUAGE_TCB]
 
 	return INITIALIZE_HINT_NORMAL
 
@@ -54,11 +55,12 @@
 
 /mob/living/announcer/proc/ResetAfterBroadcast()
 	src.name = initial(name)
-	src.default_language = all_languages[LANGUAGE_TCB]
+	src.default_language = GLOB.all_languages[LANGUAGE_TCB]
 	src.voice_name = initial(voice_name)
 	src.accent = initial(accent)
 
-/mob/living/announcer/Life()
+/mob/living/announcer/Life(seconds_per_tick, times_fired)
+	SHOULD_CALL_PARENT(FALSE)
 	return
 
 /mob/living/announcer/Move()

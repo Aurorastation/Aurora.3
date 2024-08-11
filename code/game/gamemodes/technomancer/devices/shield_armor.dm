@@ -25,7 +25,7 @@
 
 /obj/item/clothing/suit/armor/shield/New()
 	..()
-	spark(src, 5, cardinal)
+	spark(src, 5, GLOB.cardinal)
 
 /obj/item/clothing/suit/armor/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	//Since this is a pierce of armor that is passive, we do not need to check if the user is incapacitated.
@@ -43,15 +43,15 @@
 	var/damage_to_energy_cost = (damage_to_energy_multiplier * damage_blocked)
 
 	if(!user.technomancer_pay_energy(damage_to_energy_cost))
-		to_chat(user, "<span class='danger'>Your shield fades due to lack of energy!</span>")
+		to_chat(user, SPAN_DANGER("Your shield fades due to lack of energy!"))
 		active = 0
 		update_icon()
 		return 0
 
 	damage = damage - damage_blocked
 
-	if(istype(damage_source, /obj/item/projectile))
-		var/obj/item/projectile/P = damage_source
+	if(istype(damage_source, /obj/projectile))
+		var/obj/projectile/P = damage_source
 		P.sharp = 0
 		P.edge = 0
 		P.embed_chance = 0
@@ -60,16 +60,16 @@
 			P.agony -= agony_blocked
 		P.damage = P.damage - damage_blocked
 
-	user.visible_message("<span class='danger'>\The [user]'s [src] absorbs [attack_text]!</span>")
-	to_chat(user, "<span class='warning'>Your shield has absorbed most of \the [damage_source].</span>")
+	user.visible_message(SPAN_DANGER("\The [user]'s [src] absorbs [attack_text]!"))
+	to_chat(user, SPAN_WARNING("Your shield has absorbed most of \the [damage_source]."))
 
-	spark(src, 5, cardinal)
+	spark(src, 5, GLOB.cardinal)
 	playsound(src, 'sound/weapons/blade.ogg', 50, 1)
 	return FALSE // This shield does not block all damage, so returning 0 is needed to tell the game to apply the new damage.
 
 /obj/item/clothing/suit/armor/shield/attack_self(mob/user)
 	active = !active
-	to_chat(user, "<span class='notice'>You [active ? "" : "de"]activate \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You [active ? "" : "de"]activate \the [src]."))
 	update_icon()
 	user.update_inv_wear_suit()
 	user.update_action_buttons()

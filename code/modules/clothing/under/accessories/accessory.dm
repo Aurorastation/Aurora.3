@@ -6,7 +6,8 @@
 	item_state = ""	//no inhands
 	overlay_state = null
 	slot_flags = SLOT_TIE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
+
 	var/slot = ACCESSORY_SLOT_GENERIC
 	var/obj/item/clothing/has_suit = null		//the suit the tie may be attached to
 	var/image/inv_overlay = null	//overlay used when attached to clothing.
@@ -17,6 +18,7 @@
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/accessories.dmi'
 	)
+	var/protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/Destroy()
 	on_removed()
@@ -43,34 +45,39 @@
 	if(color)
 		inv_overlay.color = color
 	if(build_from_parts && overlay_in_inventory)
-		inv_overlay.cut_overlays()
-		inv_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+		inv_overlay.ClearOverlays()
+		inv_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
-/obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/M, var/force = FALSE)
+/obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
 	var/I
 	if(icon_override)
 		I = icon_override
-	else if(istype(M) && (M.species.bodytype in sprite_sheets))
-		I = sprite_sheets[M.species.bodytype]
+	else if(istype(H) && (H.species.bodytype in sprite_sheets))
+		I = sprite_sheets[H.species.bodytype]
 		accessory_mob_overlay = null // reset the overlay
 	else if(contained_sprite)
 		I = icon
+		accessory_mob_overlay = null // reset the overlay
 	else
 		I = INV_ACCESSORIES_DEF_ICON
-	if(!accessory_mob_overlay || force)
-		var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
-		if(icon_override)
-			if(contained_sprite)
-				tmp_icon_state = "[src.item_state][WORN_UNDER]"
-			else if("[tmp_icon_state]_mob" in icon_states(I))
-				tmp_icon_state = "[tmp_icon_state]_mob"
-		else if(contained_sprite)
-			tmp_icon_state = "[src.item_state][WORN_UNDER]"
-		accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
-		if(build_from_parts)
-			accessory_mob_overlay.cut_overlays()
-			accessory_mob_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+	var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
+	if(icon_override)
+		if(contained_sprite)
+			auto_adapt_species(H)
+			tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
+		else if("[tmp_icon_state]_mob" in icon_states(I))
+			tmp_icon_state = "[tmp_icon_state]_mob"
+	else if(contained_sprite)
+		auto_adapt_species(H)
+		tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
+	accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
+	if(build_from_parts || has_accents)
+		accessory_mob_overlay.ClearOverlays()
+	if(build_from_parts)
+		accessory_mob_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+	if(has_accents)
+		accessory_mob_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_acc", accent_color, flags=accent_flags))
 	if(color)
 		accessory_mob_overlay.color = color
 	accessory_mob_overlay.appearance_flags = RESET_ALPHA|RESET_COLOR
@@ -82,24 +89,36 @@
 		return
 	has_suit = S
 	loc = has_suit
-	has_suit.add_overlay(get_inv_overlay())
+	has_suit.AddOverlays(get_inv_overlay())
 	if(user)
-		to_chat(user, "<span class='notice'>You attach \the [src] to \the [has_suit].</span>")
+		to_chat(user, SPAN_NOTICE("You attach \the [src] to \the [has_suit]."))
 		src.add_fingerprint(user)
+	update_light()
 
 /obj/item/clothing/accessory/proc/on_removed(var/mob/user)
 	if(!has_suit)
 		return
-	has_suit.cut_overlay(get_inv_overlay(user, TRUE))
+	has_suit.CutOverlays(get_inv_overlay(user, ATOM_ICON_CACHE_PROTECTED))
 	has_suit = null
 	if(user)
 		usr.put_in_hands(src)
 		src.add_fingerprint(user)
 	else
 		src.forceMove(get_turf(src))
+	update_light()
+
+/obj/item/clothing/accessory/proc/on_clothing_change(var/mob/user)
+	update_light()
+
+/obj/item/clothing/accessory/get_light_atom()
+	if(isclothing(loc))
+		if(ismob(loc.loc))
+			return loc.loc
+		return loc
+	return ..()
 
 //default attackby behaviour
-/obj/item/clothing/accessory/attackby(obj/item/I, mob/user)
+/obj/item/clothing/accessory/attackby(obj/item/attacking_item, mob/user)
 	..()
 
 //default attack_hand behaviour
@@ -252,8 +271,8 @@
 		if(user.a_intent == I_HELP)
 			var/obj/item/organ/organ = M.get_organ(user.zone_sel.selecting)
 			if(organ)
-				user.visible_message(SPAN_NOTICE("[user] places [src] against [M]'s [organ.name] and listens attentively."),
-										"You place [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>.")
+				user.visible_message(SPAN_NOTICE("[user] places \the [src] against [M]'s [organ.name] and listens attentively."),
+										EXAMINE_BLOCK("You place \the [src] against [M]'s [organ.name]. You hear <b>[english_list(organ.listen())]</b>."))
 				return
 	return ..(M,user)
 
@@ -289,71 +308,6 @@
 
 	stet.mode_switch(usr)
 
-//Religious items
-/obj/item/clothing/accessory/rosary
-	name = "rosary"
-	desc = "A form of prayer psalter used in the Catholic Church, with a string of beads attached to it."
-	icon = 'icons/obj/clothing/chaplain.dmi'
-	icon_state = "rosary"
-	overlay_state = "rosary"
-	flippable = 1
-
-	slot_flags = SLOT_BELT | SLOT_TIE
-
-	drop_sound = 'sound/items/drop/accessory.ogg'
-	pickup_sound = 'sound/items/pickup/accessory.ogg'
-
-/obj/item/clothing/accessory/crucifix
-	name = "crucifix"
-	desc = "A small cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
-	icon = 'icons/clothing/accessories/crucifix.dmi'
-	contained_sprite = TRUE
-
-/obj/item/clothing/accessory/crucifix/gold
-	name = "gold crucifix"
-	desc = "A small, gold cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
-	icon_state = "golden_crucifix"
-	item_state = "golden_crucifix"
-
-/obj/item/clothing/accessory/crucifix/gold/saint_peter
-	name = "gold Saint Peter crucifix"
-	desc = "A small, gold cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter, a historic Christian symbol \
-	which has been re-purposed as a satanic symbol since the 21st century as well."
-	icon_state = "golden_crucifix_ud"
-	item_state = "golden_crucifix_ud"
-
-/obj/item/clothing/accessory/crucifix/silver
-	name = "silver crucifix"
-	desc = "A small, silver cross on a piece of string. Commonly associated with the Christian faith, it is a main symbol of this religion."
-	icon_state = "silver_crucifix"
-	item_state = "silver_crucifix"
-
-/obj/item/clothing/accessory/crucifix/silver/saint_peter
-	name = "silver Saint Peter crucifix"
-	desc = "A small, silver cross on a piece of string. Being inverted and thus upside down marks it as the cross of Saint Peter, a historic Christian symbol \
-	which has been re-purposed as a satanic symbol since the 21st century as well."
-	icon_state = "silver_crucifix_ud"
-	item_state = "silver_crucifix_ud"
-
-/obj/item/clothing/accessory/assunzione
-	name = "luceian amulet"
-	desc = "A common symbol of the Luceian faith abroad, this amulet featuring the religion's all-seeing eye and eight-pointed crest \
-	seems to be made of real gold and gemstones. While not as critical to faithful abroad as a warding sphere, it is considered good form \
-	to ensure one's amulet is well-maintained."
-	icon = 'icons/clothing/accessories/assunzione_amulet.dmi'
-	item_state = "assunzione_amulet"
-	icon_state = "assunzione_amulet"
-	contained_sprite = TRUE
-
-/obj/item/clothing/accessory/tallit
-	name = "tallit"
-	desc = "A tallit is a fringed garment worn as a prayer shawl by religious Jews. \
-	The tallit has special twined and knotted fringes known as tzitzit attached to its four corners."
-	icon = 'icons/clothing/accessories/Tallit.dmi'
-	item_state = "tallit"
-	icon_state = "tallit"
-	contained_sprite = TRUE
-
 /obj/item/clothing/accessory/suspenders
 	name = "suspenders"
 	desc = "They suspend the illusion of the mime's play."
@@ -384,8 +338,8 @@
 			if(color)
 				radial_button.color = color
 			if(build_from_parts&&worn_overlay)
-				radial_button.cut_overlays()
-				radial_button.add_overlay(overlay_image(icon, "[alternatives[i]]_[worn_overlay]", flags=RESET_COLOR))
+				radial_button.ClearOverlays()
+				radial_button.AddOverlays(overlay_image(icon, "[alternatives[i]]_[worn_overlay]", flags=RESET_COLOR))
 			options[i] = radial_button
 		var/alt = show_radial_menu(user, user, options, radius = 42, tooltips = TRUE)
 		if(!alt)
@@ -403,6 +357,14 @@
 	name = "zebra scarf"
 	build_from_parts = TRUE
 	worn_overlay = "stripes"
+
+/obj/item/clothing/accessory/shawl
+	name = "cozy shawl"
+	desc = "A favored accessory amongst grandmothers and cottagecore enthusiasts."
+	icon = 'icons/obj/clothing/shawl.dmi'
+	icon_state = "shawl"
+	item_state = "shawl"
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/chaps
 	name = "brown chaps"
@@ -431,10 +393,11 @@
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS|LEGS
 	siemens_coefficient = 0.9
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	slot = ACCESSORY_SLOT_CAPE
 	contained_sprite = TRUE
 	var/allow_tail_hiding = TRUE //in case if you want to allow someone to switch the HIDETAIL var or not
+	protects_against_weather = TRUE
 
 /obj/item/clothing/accessory/poncho/verb/toggle_hide_tail()
 	set name = "Toggle Tail Coverage"
@@ -443,7 +406,7 @@
 
 	if(allow_tail_hiding)
 		flags_inv ^= HIDETAIL
-		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail.</span>")
+		to_chat(usr, SPAN_NOTICE("[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail."))
 
 /obj/item/clothing/accessory/poncho/big
 	name = "large poncho"
@@ -701,6 +664,7 @@
 	item_state = "starcape"
 	flippable = TRUE
 	contained_sprite = FALSE
+	protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/poncho/shouldercape/star
 	name = "star cape"
@@ -739,7 +703,7 @@
 
 /obj/item/clothing/accessory/poncho/shouldercape/qeblak
 	name = "qeblak mantle"
-	desc = "A mantle denoting the wearer as a member fo the Qeblak faith."
+	desc = "A mantle denoting the wearer as a member of the Qeblak faith."
 	desc_extended = "This mantle denotes the wearer as a member of the Qeblak faith. \
 	It is given to followers after they have completed their coming of age ceremony. \
 	The symbol on the back is of a protostar as it transitions into a main sequence star, \
@@ -750,7 +714,7 @@
 
 /obj/item/clothing/accessory/poncho/shouldercape/weishiirobe
 	name = "weishii robe"
-	desc = "A robe denoting the wearer as a member fo the Weishii faith."
+	desc = "A robe denoting the wearer as a member of the Weishii faith."
 	desc_extended = "This mantle denotes the wearer as a member of the Weishii faith. \
 	It is given to followers after they have spent time on a Weishiin Sanctuary."
 	icon_state = "weishii_robe"
@@ -779,6 +743,7 @@
 	item_state = "trinary_cape"
 	overlay_state = "trinary_cape"
 	contained_sprite = FALSE
+	protects_against_weather = FALSE
 
 /obj/item/clothing/accessory/poncho/trinary/pellegrina
 	name = "trinary perfection pellegrina"
@@ -795,9 +760,9 @@
 	overlay_state = "trinary_shouldercape"
 
 /obj/item/clothing/accessory/poncho/assunzione
-	name = "assunzione robe"
-	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione."
-	icon = 'icons/clothing/suits/capes/assunzione_robe.dmi'
+	name = "\improper Luceian cloak"
+	desc = "A violet cloak adorned with gold inlays worn by devout adherents of Luceism, the dominant faith of Assunzione."
+	icon = 'icons/clothing/suits/capes/assunzione_cloak.dmi'
 	icon_override = null
 	icon_state = "assunzione_robe"
 	item_state = "assunzione_robe"
@@ -808,33 +773,19 @@
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
 		var/image/robe_backing = image(mob_icon, null, "robe_backing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
-		I.add_overlay(robe_backing)
+		I.AddOverlays(robe_backing)
 	return I
 
 /obj/item/clothing/accessory/poncho/assunzione/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
 	var/image/base = ..()
 	var/image/robe_backing = image(icon, null, "robe_backing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
-	base.add_overlay(robe_backing)
+	base.AddOverlays(robe_backing)
 	return base
-
-/obj/item/clothing/accessory/poncho/assunzione/vine
-	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione. This one features a lux vine \
-	inlay that allows the symbol of the Luceian Square to be faintly seen, even in darkness."
-	icon_state = "assunzione_robe_vine"
-	item_state = "assunzione_robe_vine"
-	overlay_state = "assunzione_robe_vine"
-
-/obj/item/clothing/accessory/poncho/assunzione/gold
-	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione. The Luceian Square, Luceism's \
-	holy symbol is present on the back in gold fabric."
-	icon_state = "assunzione_robe_gold"
-	item_state = "assunzione_robe_gold"
-	overlay_state = "assunzione_robe_gold"
 
 //tau ceti legion ribbons
 /obj/item/clothing/accessory/legion
 	name = "seniority ribbons"
-	desc = "A ribbon meant to attach to the chest and sling around the shoulder accompanied by two medallions, marking seniority in a Tau Ceti Foreign Legion."
+	desc = "A ribbon meant to attach to the chest and sling around the shoulder accompanied by two medallions, marking seniority in the Tau Ceti Armed Forces."
 	icon_state = "senior_ribbon"
 	item_state = "senior_ribbon"
 	overlay_state = "senior_ribbon"
@@ -843,7 +794,7 @@
 
 /obj/item/clothing/accessory/legion/specialist
 	name = "specialist medallion"
-	desc = "Two small medallions, one worn on the shoulder and the other worn on the chest. Meant to display the rank of specialist troops in a Tau Ceti Foreign Legion."
+	desc = "Two small medallions, one worn on the shoulder and the other worn on the chest. Meant to display the rank of specialist troops in the Tau Ceti Armed Forces."
 	icon_state = "specialist_medallion"
 	item_state = "specialist_medallion"
 	overlay_state = "specialist_medallion"
@@ -934,7 +885,7 @@
 	overlay_state = null
 	badge_string = null
 	slot_flags = SLOT_TIE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/accessory/ribbon
 	name = "ribbon"
@@ -942,7 +893,7 @@
 	icon_state = "ribbon"
 	item_state = "ribbon"
 	slot_flags = SLOT_TIE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/accessory/sleevepatch
 	name = "sleeve patch"
@@ -1034,6 +985,11 @@
 	name = "AB- blood patch"
 	desc = "An embroidered patch indicating the wearer's blood type as AB NEGATIVE."
 	icon_state = "abnegtag"
+
+/obj/item/clothing/accessory/blood_patch/sbs
+	name = "SBS blood patch"
+	desc = "An embroidered patch indicating the wearer's blood type as SYNTHETIC BLOOD SUBSTITUTE."
+	icon_state = "sbstag"
 
 
 // Corporate Liaison stuff.
@@ -1135,6 +1091,8 @@
 	icon_state = "goon_coif"
 	item_state = "goon_coif"
 	contained_sprite = TRUE
+	icon_auto_adapt = TRUE
+	icon_supported_species_tags = list("una", "taj")
 	slot_flags = SLOT_MASK | SLOT_EARS | SLOT_TIE
 
 /obj/item/clothing/accessory/goon_coif/get_ear_examine_text(var/mob/user, var/ear_text = "left")
@@ -1341,3 +1299,31 @@
 /obj/item/clothing/accessory/pronoun/ask
 	name = "please ask! pronouns pin"
 	desc = "A pin asking others to ask for their pronouns."
+
+/obj/item/clothing/accessory/led_collar
+	name = "\improper LED collar"
+	desc = "A collar, usually worn around the neck of a voidsuit, that allows others to easily identify the wearer."
+	icon = 'icons/clothing/accessories/led_collar.dmi'
+	icon_state = "led_collar"
+	item_state = "led_collar"
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	contained_sprite = TRUE
+	slot = ACCESSORY_SLOT_UTILITY_MINOR
+
+/obj/item/clothing/accessory/led_collar/Initialize()
+	. = ..()
+	color = pick("#00FFFF", "#FF0000", "#FF00FF", "#FF6600", "#CC00CC")
+	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+
+/obj/item/clothing/accessory/led_collar/attack_self(mob/user)
+	. = ..()
+	var/new_color = input(user, "Select the color of \the [src]", "LED Collar Color Selection", color) as null|color
+	if(new_color)
+		color = new_color
+		set_light(MINIMUM_USEFUL_LIGHT_RANGE, 1.2, color)
+
+/obj/item/clothing/accessory/led_collar/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
+	var/image/I = ..()
+	I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	I.appearance_flags |= KEEP_APART
+	return I

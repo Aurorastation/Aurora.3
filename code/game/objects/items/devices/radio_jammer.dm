@@ -22,7 +22,7 @@ var/list/active_radio_jammers = list()
 	desc_info = "Use in-hand to activate or deactivate, alt-click while adjacent or in-hand to toggle whether it blocks all wireless signals, or just stationbound wireless interfacing."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "shield0"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/active = JAMMER_OFF
 	var/radius = 7
 	var/icon_state_active = "shield1"
@@ -64,7 +64,9 @@ var/list/active_radio_jammers = list()
 			update_icon()
 			. = TRUE
 
-/obj/item/device/radiojammer/emp_act()
+/obj/item/device/radiojammer/emp_act(severity)
+	. = ..()
+
 	toggle()
 
 /obj/item/device/radiojammer/proc/toggle(var/mob/user)
@@ -130,9 +132,9 @@ var/list/active_radio_jammers = list()
 		update_icon()
 
 
-/obj/item/device/radiojammer/improvised/attackby(obj/item/W as obj, mob/user as mob)
-	if (W.isscrewdriver())
-		to_chat(user, "<span class='notice'>You disassemble the improvised signal jammer.</span>")
+/obj/item/device/radiojammer/improvised/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.isscrewdriver())
+		to_chat(user, SPAN_NOTICE("You disassemble the improvised signal jammer."))
 		user.put_in_hands(assembly_holder)
 		assembly_holder.detached()
 		user.put_in_hands(cell)

@@ -68,7 +68,7 @@
 		return 0
 
 	var/token = ""
-	var/list/alphabet = alphabet_uppercase
+	var/list/alphabet = GLOB.alphabet_uppercase
 	alphabet.Add(list("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"))
 	alphabet.Add(list("1", "2", "3", "4", "5", "6", "7", "8", "9", "0"))
 
@@ -78,11 +78,11 @@
 	attributes += "&"
 	attributes += list2params(list("ckey" = user.ckey, "token" = token))
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		alert("An error occured while attempting to connect to the database!")
 		return 0
 
-	var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO ss13_web_sso (ckey, token, ip, created_at) VALUES (:ckey:, :token:, :ip:, NOW())")
+	var/DBQuery/insert_query = GLOB.dbcon.NewQuery("INSERT INTO ss13_web_sso (ckey, token, ip, created_at) VALUES (:ckey:, :token:, :ip:, NOW())")
 	insert_query.Execute(list("ckey" = user.ckey, "token" = token, "ip" = user.address))
 
 	if (insert_query.ErrorMsg())

@@ -10,5 +10,5 @@
 	antag_tags = list(MODE_VAMPIRE)
 
 /datum/game_mode/vampire/pre_setup()
-	round_description = "There are vampires on the [current_map.station_type], keep your blood close and neck safe!"
+	round_description = "There are vampires on the [SSatlas.current_map.station_type], keep your blood close and neck safe!"
 	. = ..()

@@ -1,9 +1,22 @@
 /obj/machinery/computer/fusion/fuel_control
 	name = "fuel injection control computer"
+	desc = "A terminal responsible for regulating fuel injection using Hephaestus software."
 	icon_keyboard = "yellow_key"
+	icon_keyboard_emis = "yellow_key_mask"
 	icon_screen = "explosive"
 	ui_template = "FusionInjectorControl"
 	var/global_rate = 100
+
+/obj/machinery/computer/fusion/fuel_control/terminal
+	name = "fuel injection control terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "power_screen"
+	icon_keyboard = "med_key"
+	icon_keyboard_emis = "med_key_mask"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
 
 /obj/machinery/computer/fusion/fuel_control/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()

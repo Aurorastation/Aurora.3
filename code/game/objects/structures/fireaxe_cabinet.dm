@@ -46,19 +46,19 @@
 	update_icon()
 
 /obj/structure/fireaxecabinet/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(fireaxe)
-		add_overlay("axe")
+		AddOverlays("axe")
 	if(shattered)
-		add_overlay("glass4")
+		AddOverlays("glass4")
 	if(unlocked)
-		add_overlay("unlocked")
+		AddOverlays("unlocked")
 	else
-		add_overlay("locked")
+		AddOverlays("locked")
 	if(open)
-		add_overlay("glass_raised")
+		AddOverlays("glass_raised")
 	else
-		add_overlay("glass")
+		AddOverlays("glass")
 
 
 /obj/structure/fireaxecabinet/New()
@@ -114,25 +114,25 @@
 		fireaxe = null
 	return ..()
 
-/obj/structure/fireaxecabinet/attackby(var/obj/item/O, var/mob/user)
-	if(O.ismultitool())
+/obj/structure/fireaxecabinet/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
 		toggle_lock(user)
 		return
 
-	if(istype(O, /obj/item/material/twohanded/fireaxe))
+	if(istype(attacking_item, /obj/item/material/twohanded/fireaxe))
 		if(open)
 			if(fireaxe)
 				to_chat(user, SPAN_ALERT("There is already \a [fireaxe] inside \the [src]."))
-			else if(user.unEquip(O))
-				O.forceMove(src)
-				fireaxe = O
+			else if(user.unEquip(attacking_item))
+				attacking_item.forceMove(src)
+				fireaxe = attacking_item
 				to_chat(user, SPAN_NOTICE("You place \the [fireaxe] into \the [src]."))
 				update_icon()
 			return
 
-	if(O.force)
+	if(attacking_item.force)
 		user.setClickCooldown(10)
-		attack_generic(user, O.force, "bashes")
+		attack_generic(user, attacking_item.force, "bashes")
 		return
 
 	return ..()

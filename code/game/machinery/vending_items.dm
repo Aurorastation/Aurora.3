@@ -6,19 +6,19 @@
 	icon_state = "setup_medium-open"
 	item_state = "restock_unit"
 	desc = "A vending machine restock cart."
-	force = 7
+	force = 16
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 7
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	var/charges = 0
 
-/obj/item/device/vending_refill/examine(mob/user)
+/obj/item/device/vending_refill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(charges > 0)
-		to_chat(user, "It can restock [charges] item(s).")
+		. +=  "It can restock [charges] item(s)."
 	else
-		to_chat(user, "It's empty!")
+		. += SPAN_WARNING("It's empty!")
 
 /obj/item/device/vending_refill/proc/restock_inventory(var/obj/machinery/vending/vendor)
 	if(vendor)
@@ -99,7 +99,17 @@
 	vend_id = "zora"
 	charges = 40
 
+/obj/item/device/vending_refill/frontiervend
+	name = "frontiervend resupply canister"
+	vend_id = "frontiervend"
+	charges = 220
+
 /obj/item/device/vending_refill/battlemonsters
 	name = "Battlemonsters resupply canister"
 	vend_id = "battlemonsters"
 	charges = 40
+
+/obj/item/device/vending_refill/encryption
+	name = "encryption key resupply canister"
+	vend_id = "encryption"
+	charges = 60

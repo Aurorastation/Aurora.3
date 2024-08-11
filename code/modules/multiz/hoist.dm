@@ -34,7 +34,11 @@
 		user.visible_message(SPAN_NOTICE("[user] detaches \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You detach \the [source_hoist.hoistee] from the hoist clamp."), SPAN_NOTICE("You hear something unclamp."))
 		source_hoist.release_hoistee()
 
-/obj/effect/hoist_hook/MouseDrop_T(atom/movable/AM,mob/user)
+/obj/effect/hoist_hook/MouseDrop_T(atom/dropping, mob/user)
+	var/atom/movable/AM = dropping
+	if(!istype(AM))
+		return
+
 	if (use_check_and_message(user, USE_DISALLOW_SILICONS))
 		return
 
@@ -54,7 +58,7 @@
 		AM.forceMove(get_turf(source_hook))
 	hoistee = AM
 	if(ismob(AM))
-		source_hook.buckle(AM)
+		source_hook.buckle(AM, user)
 		if(issilicon(AM))
 			AM.anchored = TRUE
 	source_hook.layer = AM.layer + 0.1
@@ -225,7 +229,8 @@
 	collapse_kit()
 
 /obj/structure/hoist/proc/can_move_dir(direction)
-	var/turf/dest = direction == UP ? GetAbove(source_hook) : GetBelow(source_hook)
+	var/turf/T = get_turf(source_hook)
+	var/turf/dest = direction == UP ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	switch(direction)
 		if (UP)
 			if (!isopenturf(dest)) // can't move into a solid tile
@@ -243,7 +248,8 @@
 /obj/structure/hoist/proc/move_dir(direction)
 	if (!can_move_dir(direction))
 		return FALSE
-	var/turf/move_dest = direction == UP ? GetAbove(source_hook) : GetBelow(source_hook)
+	var/turf/T = get_turf(source_hook)
+	var/turf/move_dest = direction == UP ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	source_hook.forceMove(move_dest)
 	if (hoistee)
 		hoistee.hoist_act(move_dest)

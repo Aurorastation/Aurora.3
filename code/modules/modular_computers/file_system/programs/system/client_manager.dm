@@ -19,14 +19,14 @@
 	var/list/data = list()
 	data["enrollment"] = computer.enrolled
 	data["available_presets"] = list()
-	for(var/datum/modular_computer_app_presets/p in ntnet_global.available_software_presets)
+	for(var/datum/modular_computer_app_presets/p in GLOB.ntnet_global.available_software_presets)
 		if(p.available)
 			data["available_presets"][p.display_name] = p.description
 	return data
 
 /datum/computer_file/program/clientmanager/ui_data(mob/user)
 	var/list/data = list()
-	data["ntnet_status"] = ntnet_global.check_function(NTNET_SOFTWAREDOWNLOAD)
+	data["ntnet_status"] = GLOB.ntnet_global.check_function(NTNET_SOFTWAREDOWNLOAD)
 	return data
 
 /datum/computer_file/program/clientmanager/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -35,7 +35,7 @@
 
 	if(action == "enroll")
 		. = TRUE
-		if(!ntnet_global.check_function(NTNET_SOFTWAREDOWNLOAD))
+		if(!GLOB.ntnet_global.check_function(NTNET_SOFTWAREDOWNLOAD))
 			to_chat(ui.user, SPAN_WARNING("Cannot connect to NTNet download servers. Please try again later."))
 			return
 		if(params["enroll_type"] & DEVICE_COMPANY)
@@ -58,7 +58,7 @@
 	if(!computer)
 		return
 
-	for (var/datum/modular_computer_app_presets/prs in ntnet_global.available_software_presets)
+	for (var/datum/modular_computer_app_presets/prs in GLOB.ntnet_global.available_software_presets)
 		if(prs.display_name == preset && prs.available == 1)
 			var/list/prs_programs = prs.return_install_programs(computer)
 			for (var/datum/computer_file/program/prog in prs_programs)

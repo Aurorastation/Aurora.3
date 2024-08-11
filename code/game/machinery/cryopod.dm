@@ -9,8 +9,6 @@
 
 //Main cryopod console.
 
-var/global/list/frozen_crew = list()
-
 /obj/machinery/computer/cryopod
 	name = "cryogenic oversight console"
 	desc = "An interface between crew and the cryogenic storage oversight systems."
@@ -74,7 +72,6 @@ var/global/list/frozen_crew = list()
 
 	dat += "<hr><b>[storage_name]</b><br>"
 	dat += "<i>Welcome, [user.real_name].</i><br><hr><br>"
-	dat += "<a href='?src=\ref[src];log=1'>View Storage Log</a><br>"
 	if(allow_items)
 		dat += "<a href='?src=\ref[src];view=1'>View Objects</a><br>"
 		dat += "<a href='?src=\ref[src];item=1'>Recover Object</a><br>"
@@ -91,19 +88,6 @@ var/global/list/frozen_crew = list()
 	var/mob/user = usr
 
 	src.add_fingerprint(user)
-
-	if(href_list["log"])
-		if(!length(frozen_crew))
-			to_chat(user, SPAN_WARNING("Nothing has been stored recently."))
-			return
-		var/dat = "<center><b>Recently Stored [storage_type]</b></center><hr>"
-		for(var/person in frozen_crew)
-			dat += " - [person]<br>"
-		dat += "<hr>"
-
-		var/datum/browser/cryolog_win = new(user, "cryolog", "Cryogenic Storage Log")
-		cryolog_win.set_content(dat)
-		cryolog_win.open()
 
 	if(href_list["view"])
 		if(!allow_items)
@@ -219,7 +203,6 @@ var/global/list/frozen_crew = list()
 	var/obj/item/device/radio/intercom/announce
 
 	var/obj/machinery/computer/cryopod/control_computer
-	var/last_no_computer_message = 0
 
 	// These items are preserved when the process() despawn proc occurs.
 	var/list/items_blacklist = list(
@@ -262,27 +245,23 @@ var/global/list/frozen_crew = list()
 	disallow_occupant_types = list(/mob/living/silicon/robot)
 
 /obj/machinery/cryopod/living_quarters/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/image/I = image(icon, "pod_top")
-	I.layer = 5.021
-	add_overlay(I)
+	AddOverlays(I)
 
 
 	if(occupant)
 		I = image(icon, "pod_back")
-		I.layer = 5
-		add_overlay(I)
+		AddOverlays(I)
 
 		name = "[name] ([occupant])"
 		I = image(occupant.icon, occupant.icon_state, dir = SOUTH)
 		I.overlays = occupant.overlays
-		I.layer = 5
 		I.pixel_z = 11
-		add_overlay(I)
+		AddOverlays(I)
 
 		I = image(icon, "pod_door")
-		I.layer = 5
-		add_overlay(I)
+		AddOverlays(I)
 	else
 		name = initial(name)
 
@@ -293,14 +272,18 @@ var/global/list/frozen_crew = list()
 	return ..()
 
 /obj/machinery/cryopod/Initialize()
-	. = ..()
+	..()
 	update_icon()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/cryopod/LateInitialize()
+	. = ..()
 	find_control_computer()
 
-/obj/machinery/cryopod/examine(mob/user, distance, is_adjacent)
+/obj/machinery/cryopod/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(occupant)
-		to_chat(user, SPAN_NOTICE("<b>[occupant]</b> [occupant.get_pronoun("is")] inside \the [initial(name)]."))
+		. += SPAN_NOTICE("<b>[occupant]</b> [occupant.get_pronoun("is")] inside \the [initial(name)].")
 
 /obj/machinery/cryopod/can_hold_dropped_items()
 	return FALSE
@@ -309,12 +292,6 @@ var/global/list/frozen_crew = list()
 	for(var/obj/machinery/computer/cryopod/C in get_area(src))
 		control_computer = C
 		break
-
-	// Don't send messages unless we *need* the computer, and less than five minutes have passed since last time we messaged
-	if(!control_computer && urgent && last_no_computer_message + 5*60*10 < world.time)
-		log_admin("Cryopod in [src.loc.loc] could not find control computer!")
-		message_admins("Cryopod in [src.loc.loc] could not find control computer!")
-		last_no_computer_message = world.time
 
 	return control_computer != null
 
@@ -340,9 +317,6 @@ var/global/list/frozen_crew = list()
 		//Allow a two minute gap between entering the pod and actually despawning.
 		if((world.time - time_entered < time_till_despawn) && occupant.ckey)
 			return
-		if(!control_computer)
-			if(!find_control_computer(urgent=1))
-				return
 
 		if(!occupant.client && occupant.stat != DEAD) //Occupant is living and has no client.
 			despawn_occupant()
@@ -397,20 +371,21 @@ var/global/list/frozen_crew = list()
 
 	for(var/obj/item/W in items)
 		if(W.loc == src)
-			if(control_computer?.allow_items)
+			if(control_computer && control_computer?.allow_items)
 				control_computer.frozen_items += W
 				W.forceMove(control_computer)
 			else
 				W.forceMove(T)
-	if(isStationLevel(z))
-		global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message] [on_store_location].", "[on_store_name]")
+
+	if(is_station_level(z))
+		GLOB.global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message] [on_store_location].", "[on_store_name]")
 	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] to [on_store_location]."))
 	playsound(loc, on_store_sound, 25)
-	frozen_crew += occupant
 	if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
 		if(H.ghost_spawner)
 			var/datum/ghostspawner/human/GS = H.ghost_spawner.resolve()
+			LAZYREMOVE(GS.spawned_mobs, WEAKREF(H))
 			GS.count--
 
 	// Let SSjobs handle the rest.
@@ -418,7 +393,8 @@ var/global/list/frozen_crew = list()
 	occupant = null
 	update_icon()
 
-/obj/machinery/cryopod/attackby(var/obj/item/grab/G, var/mob/user)
+/obj/machinery/cryopod/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/grab/G = attacking_item
 	if(istype(G))
 		if(occupant)
 			to_chat(user, SPAN_WARNING("\The [src] is in use."))
@@ -432,14 +408,16 @@ var/global/list/frozen_crew = list()
 		go_in(user, M)
 		return TRUE
 
-/obj/machinery/cryopod/MouseDrop_T(atom/movable/O, mob/living/user)
-	if(!istype(user))
-		return
-	if(!check_occupant_allowed(O))
+/obj/machinery/cryopod/MouseDrop_T(atom/dropping, mob/user)
+	if(!istype(user, /mob/living))
 		return
 
-	var/mob/living/M = O
-	go_in(user, M)
+	if(!check_occupant_allowed(dropping))
+		return
+
+	var/mob/living/M = dropping
+	if(istype(M))
+		go_in(user, M)
 
 /obj/machinery/cryopod/verb/move_inside()
 	set name = "Enter Pod"
@@ -496,8 +474,8 @@ var/global/list/frozen_crew = list()
 
 	// Book keeping!
 	var/turf/location = get_turf(src)
-	log_admin("[key_name_admin(M)] has entered a [initial(src.name)].",ckey=key_name(M))
-	message_admins("<span class='notice'>[key_name_admin(M)] has entered a [initial(src.name)].(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)</span>")
+	log_admin("[key_name_admin(M)] has entered a [initial(src.name)].")
+	message_admins(SPAN_NOTICE("[key_name_admin(M)] has entered a [initial(src.name)].(<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[location.x];Y=[location.y];Z=[location.z]'>JMP</a>)"))
 
 	//Despawning occurs when process() is called with an occupant without a client.
 	src.add_fingerprint(user)
@@ -565,7 +543,9 @@ var/global/list/frozen_crew = list()
 		else
 			icon_state = initial(icon_state)
 
-/obj/machinery/cryopod/relaymove(var/mob/user)
+/obj/machinery/cryopod/relaymove(mob/living/user, direction)
+	. = ..()
+
 	go_out()
 
 /obj/machinery/cryopod/proc/save_ipc_tag(var/mob/M)

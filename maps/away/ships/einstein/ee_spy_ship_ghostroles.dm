@@ -7,7 +7,7 @@
 	spawnpoints = list("ee_crewman")
 	max_count = 3
 
-	outfit = /datum/outfit/admin/ee_crewman
+	outfit = /obj/outfit/admin/ee_crewman
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC_SHELL)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -16,7 +16,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/ee_crewman
+/obj/outfit/admin/ee_crewman
 	name = "Einstein Engines Crewman"
 
 	uniform = /obj/item/clothing/under/rank/einstein
@@ -31,8 +31,8 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/ee_crewman/get_id_access()
-	return list(access_ee_spy_ship, access_external_airlocks)
+/obj/outfit/admin/ee_crewman/get_id_access()
+	return list(ACCESS_EE_SPY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/ee_research_officer
 	short_name = "ee_research_officer"
@@ -43,7 +43,7 @@
 	spawnpoints = list("ee_research_officer")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/ee_research_officer
+	outfit = /obj/outfit/admin/ee_research_officer
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -52,7 +52,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/ee_research_officer
+/obj/outfit/admin/ee_research_officer
 	name = "Einstein Engines Research Officer"
 
 	uniform = /obj/item/clothing/under/rank/einstein
@@ -68,11 +68,11 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/ee_research_officer/get_id_access()
-	return list(access_ee_spy_ship, access_external_airlocks)
+/obj/outfit/admin/ee_research_officer/get_id_access()
+	return list(ACCESS_EE_SPY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 //items
 
 /obj/item/card/id/ee_ship
 	name = "ee research ship id"
-	access = list(access_ee_spy_ship, access_external_airlocks)
+	access = list(ACCESS_EE_SPY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)

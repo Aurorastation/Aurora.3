@@ -20,7 +20,6 @@ SUBSYSTEM_DEF(distress)
 	feedback_set("responseteam_count", 0)
 
 /datum/controller/subsystem/distress/Initialize(start_timeofday)
-	. = ..()
 	var/list/all_teams = subtypesof(/datum/responseteam)
 	for(var/team in all_teams)
 		CHECK_TICK
@@ -28,6 +27,8 @@ SUBSYSTEM_DEF(distress)
 		if(SSatlas.current_sector.name in ert.possible_space_sector)
 			available_teams += ert
 		all_ert_teams += ert
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/distress/stat_entry(msg)
 	msg = "CC:[can_call_ert]"
@@ -50,7 +51,7 @@ SUBSYSTEM_DEF(distress)
 	ert_count++
 	feedback_inc("responseteam_count")
 
-	command_announcement.Announce("An emergency response team has picked up the distress signal. A specialized relief team will arrive shortly.", "[current_map.station_name] Distress Suite", 'sound/misc/announcements/security_level_old.ogg')
+	command_announcement.Announce("An emergency response team has picked up the distress signal. A specialized relief team will arrive shortly.", "[SSatlas.current_map.station_name] Distress Suite", 'sound/misc/announcements/security_level_old.ogg')
 
 	if(forced_choice && forced_choice != "Random")
 		for(var/datum/responseteam/R in available_teams)
@@ -83,7 +84,7 @@ SUBSYSTEM_DEF(distress)
 	ert_count++
 	feedback_inc("responseteam_count")
 
-	command_announcement.Announce("A distress beacon has been broadcasted to nearby vessels in the sector. Please remain calm and make preparations for the arrival of third parties.", "[current_map.station_name] Distress Suite", 'sound/misc/announcements/security_level_old.ogg', zlevels = caller.map_z)
+	command_announcement.Announce("A distress beacon has been broadcasted to nearby vessels in the sector. Please remain calm and make preparations for the arrival of third parties.", "[SSatlas.current_map.station_name] Distress Suite", 'sound/misc/announcements/security_level_old.ogg', zlevels = caller.map_z)
 
 	log_and_message_admins("has launched a distress beacon from the [caller.name] with message: [distress_message].", user)
 	var/datum/distress_beacon/beacon = new()
@@ -106,7 +107,7 @@ SUBSYSTEM_DEF(distress)
 				good_spawner.enable()
 	if(picked_team.equipment_map)
 		var/landmark_position
-		for(var/obj/effect/landmark/distress_team_equipment/L in landmarks_list)
+		for(var/obj/effect/landmark/distress_team_equipment/L in GLOB.landmarks_list)
 			landmark_position = L.loc
 		if(landmark_position)
 			var/datum/map_template/distress_map = new picked_team.equipment_map
@@ -129,13 +130,13 @@ SUBSYSTEM_DEF(distress)
 	set desc = "Send an emergency response team to the ship."
 
 	if(!holder)
-		to_chat(usr, "<span class='danger'>Only administrators may use this command.</span>")
+		to_chat(usr, SPAN_DANGER("Only administrators may use this command."))
 		return
 	if(!ROUND_IS_STARTED)
-		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
+		to_chat(usr, SPAN_DANGER("The round hasn't started yet!"))
 		return
 	if(SSdistress.send_emergency_team)
-		to_chat(usr, "<span class='danger'>[current_map.boss_name] has already dispatched an emergency response team!</span>")
+		to_chat(usr, SPAN_DANGER("[SSatlas.current_map.boss_name] has already dispatched an emergency response team!"))
 		return
 	if(alert("Do you want to dispatch an Emergency Response Team?",,"Yes","No") != "Yes")
 		return
@@ -151,11 +152,11 @@ SUBSYSTEM_DEF(distress)
 	var/choice = input(usr, "Select the response team type.","Response Team Selection", plaintext_teams)
 
 	if(SSdistress.send_emergency_team)
-		to_chat(usr, "<span class='danger'>Looks like somebody beat you to it!</span>")
+		to_chat(usr, SPAN_DANGER("Looks like somebody beat you to it!"))
 		return
 
 	message_admins("[key_name_admin(usr)] is dispatching a Response Team: [choice].", 1)
-	log_admin("[key_name(usr)] used Dispatch Response Team: [choice].",admin_key=key_name(usr))
+	log_admin("[key_name(usr)] used Dispatch Response Team: [choice].")
 	SSdistress.trigger_armed_response_team(choice)
 
 

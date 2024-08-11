@@ -35,20 +35,31 @@
 	var/pulses_remaining = 40 // Lasts 20 seconds.
 	var/instability_power = 5
 	var/instability_range = 6
+	var/timer_id = null
 
 /obj/effect/temporary_effect/destabilize/Initialize()
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/temporary_effect/destabilize/LateInitialize()
 	. = ..()
-	radiate_loop()
+	timer_id = addtimer(CALLBACK(src, PROC_REF(radiate_loop)), 5 SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
+
+/obj/effect/temporary_effect/destabilize/Destroy()
+	deltimer(timer_id)
+	. = ..()
 
 /obj/effect/temporary_effect/destabilize/proc/radiate_loop()
-	set waitfor = FALSE
 
-	while(pulses_remaining)
-		sleep(5)
+	if(pulses_remaining && !QDELETED(src))
 		for(var/mob/living/L in range(src, instability_range) )
 			var/radius = max(get_dist(L, src), 1)
 			// Being farther away lessens the amount of instability received.
 			var/outgoing_instability = instability_power * ( 1 / (radius**2) )
 			L.receive_radiated_instability(outgoing_instability)
 		pulses_remaining--
-	qdel(src)
+		timer_id = addtimer(CALLBACK(src, PROC_REF(radiate_loop)), 5 SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
+
+	else
+		qdel(src)
+

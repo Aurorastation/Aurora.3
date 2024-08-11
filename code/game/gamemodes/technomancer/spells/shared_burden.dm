@@ -19,13 +19,13 @@
 	if(ishuman(hit_atom) && within_range(hit_atom))
 		var/mob/living/carbon/human/H = hit_atom
 		if(H == user)
-			to_chat(user, "<span class='warning'>Draining instability out of you to put it back seems a bit pointless.</span>")
+			to_chat(user, SPAN_WARNING("Draining instability out of you to put it back seems a bit pointless."))
 			return 0
 		if(H.instability <= 0)
-			to_chat(user, "<span class='warning'>\The [H] has no instability to drain.</span>")
+			to_chat(user, SPAN_WARNING("\The [H] has no instability to drain."))
 			return 0
 		if(pay_energy(500))
 			var/instability_to_drain = min(H.instability, 25)
-			to_chat(user, "<span class='notice'>You draw instability away from \the [H] and towards you.</span>")
+			to_chat(user, SPAN_NOTICE("You draw instability away from \the [H] and towards you."))
 			adjust_instability(instability_to_drain)
 			H.adjust_instability(-calculate_spell_power(instability_to_drain))

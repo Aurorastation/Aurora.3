@@ -21,7 +21,7 @@
 		data = null
 		return TRUE
 
-	if(G.has_enabled_antagHUD && config.antag_hud_restricted && allow_antaghud == 0)
+	if(G.has_enabled_antagHUD && GLOB.config.antag_hud_restricted && allow_antaghud == 0)
 		statuscode = 409
 		response = "Ghost has used Antag Hud - Respawn Aborted"
 		data = null
@@ -50,8 +50,8 @@
 	G.has_enabled_antagHUD = 2
 	G.can_reenter_corpse = 1
 
-	G:show_message(text("<span class='notice'><B>You may now respawn.	You should roleplay as if you learned nothing about the round during your time with the dead.</B></span>"), 1)
-	log_admin("[senderkey] allowed [key_name(G)] to bypass the 30 minute respawn limit via the API",ckey=key_name(G),admin_key=senderkey)
+	G.show_message(SPAN_NOTICE("<B>You may now respawn.	You should roleplay as if you learned nothing about the round during your time with the dead.</B>"), 1)
+	log_admin("[senderkey] allowed [key_name(G)] to bypass the 30 minute respawn limit via the API")
 	message_admins("Admin [senderkey] allowed [key_name_admin(G)] to bypass the 30 minute respawn limit via the API", 1)
 
 
@@ -84,7 +84,7 @@
 	var/client/C
 	var/req_ckey = ckey(queryparams["ckey"])
 
-	for(var/client/K in clients)
+	for(var/client/K in GLOB.clients)
 		if(K.ckey == req_ckey)
 			C = K
 			break
@@ -98,8 +98,8 @@
 	if(!rank)
 		rank = "Admin"
 
-	var/message =	"<span class='warning'>[rank] PM from <b><a href='?discord_msg=[queryparams["senderkey"]]'>[queryparams["senderkey"]]</a></b>: [queryparams["msg"]]</span>"
-	var/amessage =	"<span class='notice'>[rank] PM from <a href='?discord_msg=[queryparams["senderkey"]]'>[queryparams["senderkey"]]</a> to <b>[key_name(C, highlight_special = 1)]</b> : [queryparams["msg"]]</span>"
+	var/message =	SPAN_WARNING("[rank] PM from <b><a href='?discord_msg=[queryparams["senderkey"]]'>[queryparams["senderkey"]]</a></b>: [queryparams["msg"]]")
+	var/amessage =	SPAN_NOTICE("[rank] PM from <a href='?discord_msg=[queryparams["senderkey"]]'>[queryparams["senderkey"]]</a> to <b>[key_name(C, highlight_special = 1)]</b> : [queryparams["msg"]]")
 
 	C.received_discord_pm = world.time
 	C.discord_admin = queryparams["senderkey"]
@@ -107,7 +107,7 @@
 	sound_to(C, 'sound/effects/adminhelp.ogg')
 	to_chat(C, message)
 
-	for(var/client/A in staff)
+	for(var/client/A in GLOB.staff)
 		if(A != C && check_rights(R_MOD|R_ADMIN, show_msg = FALSE, user = A.mob))
 			to_chat(A, amessage)
 

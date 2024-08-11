@@ -6,10 +6,10 @@
 	icon_state = "robotanalyzer"
 	item_state = "analyzer"
 	desc = "A hand-held scanner able to diagnose robotic injuries."
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	throwforce = 3
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 5
 	throw_range = 10
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 1, TECH_ENGINEERING = 2)
@@ -22,7 +22,7 @@
 
 /proc/robotic_analyze_mob (var/mob/living/M, var/mob/living/user, var/just_scan = FALSE)
 	if(!just_scan)
-		if((user.is_clumsy() || HAS_FLAG(user.mutations, DUMB)) && prob(50))
+		if((user.is_clumsy() || (user.mutations & DUMB)) && prob(50))
 			to_chat(user, SPAN_WARNING("You try to analyze the floor's vitals!"))
 			user.visible_message(SPAN_WARNING("\The [user] has analyzed the floor's vitals!"))
 			to_chat(user, SPAN_NOTICE("Analyzing Results for The floor:"))
@@ -58,13 +58,11 @@
 			to_chat(user, SPAN_NOTICE("Localized Damage:"))
 			if(length(damaged) > 0)
 				for(var/datum/robot_component/org in damaged)
-					user.show_message(text("<span class='notice'>\t []: [][] - [] - [] - []</span>",	\
-					capitalize(org.name),					\
-					(org.installed == -1)	?	"<span class='warning'><b>DESTROYED</b></span> "							:"",\
-					(org.electronics_damage > 0)	?	"<font color='#FFA500'>[org.electronics_damage]</font>"	:0,	\
-					(org.brute_damage > 0)	?	"<span class='warning'>[org.brute_damage]</span>"							:0,		\
-					(org.toggled)	?	"Toggled ON"	:	"<span class='warning'>Toggled OFF</span>",\
-					(org.powered)	?	"Power ON"		:	"<span class='warning'>Power OFF</span>"),1)
+					user.show_message(SPAN_NOTICE("\t [capitalize(org.name)]: [(org.installed == -1)	?	SPAN_WARNING("<b>DESTROYED</b>") :""]\
+					[(org.electronics_damage > 0)	?	"<font color='#FFA500'>[org.electronics_damage]</font>"	: 0] - [(org.brute_damage > 0)	?	SPAN_WARNING("[org.brute_damage]") :0] - \
+					[(org.toggled) ?	"Toggled ON" : SPAN_WARNING("Toggled OFF")] - \
+					[(org.powered) ? "Power ON" : SPAN_WARNING("Power OFF")]"),1)
+
 			else
 				to_chat(user, SPAN_NOTICE("Components are OK."))
 			if(H.emagged && prob(5))
@@ -114,7 +112,7 @@
 	icon_state = "robotanalyzer"
 	item_state = "analyzer"
 	slot_flags = null
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 
 /obj/item/device/robotanalyzer/augment/throw_at(atom/target, range, speed, mob/user)
 	user.drop_from_inventory(src)

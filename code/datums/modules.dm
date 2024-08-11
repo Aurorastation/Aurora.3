@@ -21,13 +21,13 @@ var/list/modules = list(			// global associative list
 
 	var/type = O.type		// the type of the creating object
 
-	var/mneed = mods.inmodlist(type)		// find if this type has modules defined
+	var/mneed = GLOB.mods.inmodlist(type)		// find if this type has modules defined
 
 	if(!mneed)		// not found in module list?
 		qdel(src)
 		return
 
-	var/needed = mods.getbitmask(type)		// get a bitmask for the number of modules in this object
+	var/needed = GLOB.mods.getbitmask(type)		// get a bitmask for the number of modules in this object
 	status = needed
 	installed = needed
 

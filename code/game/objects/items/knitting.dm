@@ -4,11 +4,11 @@
 	icon = 'icons/obj/item/tools/knitting.dmi'
 	icon_state = "knittingneedles"
 	item_state = "knittingneedles"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	contained_sprite = TRUE
 	var/working = FALSE
 	var/obj/item/yarn/ball
-	var/static/list/knitables = list(/obj/item/clothing/accessory/sweater, /obj/item/clothing/suit/storage/toggle/cardigan, /obj/item/clothing/suit/storage/toggle/cardigan/sweater, /obj/item/clothing/suit/storage/toggle/cardigan/argyle, /obj/item/clothing/accessory/sweater/vest, /obj/item/clothing/accessory/sweater/turtleneck, /obj/item/clothing/gloves/fingerless/colour/knitted, /obj/item/clothing/gloves/knitted, /obj/item/clothing/accessory/bandanna/colorable/knitted, /obj/item/clothing/accessory/scarf)
+	var/static/list/knitables = list(/obj/item/clothing/accessory/sweater, /obj/item/clothing/suit/storage/toggle/cardigan, /obj/item/clothing/suit/storage/toggle/cardigan/sweater, /obj/item/clothing/suit/storage/toggle/cardigan/argyle, /obj/item/clothing/accessory/sweater/vest, /obj/item/clothing/accessory/sweater/turtleneck, /obj/item/clothing/gloves/fingerless/colour/knitted, /obj/item/clothing/gloves/knitted, /obj/item/clothing/accessory/bandanna/colorable/knitted, /obj/item/clothing/accessory/scarf, /obj/item/clothing/accessory/shawl)
 	var/static/list/name2knit
 
 /obj/item/knittingneedles/verb/remove_yarn()
@@ -39,11 +39,11 @@
 		QDEL_NULL(ball)
 	return ..()
 
-/obj/item/knittingneedles/examine(mob/user, distance, is_adjacent)
+/obj/item/knittingneedles/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		if(ball)
-			to_chat(user, "There is \the [ball] between the needles.")
+			. += "There is \the [ball] between the needles."
 
 /obj/item/knittingneedles/update_icon()
 	if(working)
@@ -59,18 +59,18 @@
 			yarn_overlay.color = ball.color
 		else
 			yarn_overlay.appearance_flags = RESET_COLOR
-		add_overlay(yarn_overlay)
+		AddOverlays(yarn_overlay)
 	else
-		cut_overlays()
+		ClearOverlays()
 	update_held_icon()
 
-/obj/item/knittingneedles/attackby(obj/item/O, mob/user)
-	if(istype(O, /obj/item/yarn))
+/obj/item/knittingneedles/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/yarn))
 		if(!ball)
-			user.unEquip(O)
-			O.forceMove(src)
-			ball = O
-			to_chat(user, SPAN_NOTICE("You place \the [O] in \the [src]"))
+			user.unEquip(attacking_item)
+			attacking_item.forceMove(src)
+			ball = attacking_item
+			to_chat(user, SPAN_NOTICE("You place \the [attacking_item] in \the [src]"))
 			update_icon()
 		return TRUE
 
@@ -121,7 +121,7 @@
 	desc = "A ball of yarn, this one is white."
 	icon = 'icons/obj/item/tools/knitting.dmi'
 	icon_state = "white_ball"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/yarn/red
 	desc = "A ball of yarn, this one is red."

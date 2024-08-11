@@ -13,11 +13,11 @@
 	desc = "A tool used by great men to placate the frothing masses."
 	icon_state = "chain"
 	item_state = "chain"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 10
+	force = 15
 	throwforce = 7
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_COMBAT = 4)
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	hitsound = 'sound/weapons/chainhit.ogg'
@@ -27,11 +27,11 @@
 	desc = "A deadly chainsaw in the shape of a sword."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "chainswordoff"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 15
+	force = 22
 	throwforce = 7
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	sharp = 1
 	edge = TRUE
 	origin_tech = list(TECH_COMBAT = 5)
@@ -46,7 +46,7 @@
 	if(active)
 		playsound(user, 'sound/weapons/saw/chainsawstart.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("\The [src] rumbles to life."))
-		force = 35
+		force = 38
 		hitsound = 'sound/weapons/saw/chainsword.ogg'
 		icon_state = "chainswordon"
 		slot_flags = null
@@ -72,12 +72,12 @@
 	item_state = "kneehammer"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
-	force = 25
+	force = 31
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 7
 	attack_verb = list("smashed", "beaten", "slammed", "smacked", "struck", "battered", "bonked")
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
 
 /obj/item/melee/hammer/iscrowbar()
@@ -113,12 +113,12 @@
 	..()
 	if(prob(trigger_chance))
 		if(!on)
-			to_chat(user, "<span class='warning'>\The [src] buzzes!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] buzzes!"))
 			return
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
-		user.visible_message("<span class='danger'>\The [user] slams \the [target] away with \the [src]!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] slams \the [target] away with \the [src]!"))
 		var/T = get_turf(user)
-		spark(T, 3, alldirs)
+		spark(T, 3, GLOB.alldirs)
 		step_away(target,user,15)
 		sleep(1)
 		step_away(target,user,15)
@@ -139,7 +139,7 @@
 				R.cell.use(150)
 
 /obj/item/melee/hammer/powered/proc/rearm()
-	src.visible_message("<span class='notice'>\The [src] hisses lowly.</span>")
+	src.visible_message(SPAN_NOTICE("\The [src] hisses lowly."))
 	on = TRUE
 	update_icon()
 
@@ -157,8 +157,8 @@
 	icon_state = "whip"
 	item_state = "chain"
 	slot_flags = SLOT_BELT
-	force = 10
-	w_class = ITEMSIZE_NORMAL
+	force = 15
+	w_class = WEIGHT_CLASS_NORMAL
 	reach = 2
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	hitsound = 'sound/weapons/whip.ogg'
@@ -173,7 +173,7 @@
 			else if(target_zone == BP_R_HAND || target_zone == BP_R_ARM)
 				if (target.r_hand && target.r_hand != src)
 					target.drop_r_hand()
-			user.visible_message("<span class='danger'>\The [user] disarms \the [target] with \the [src]!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] disarms \the [target] with \the [src]!"))
 		return
 
 /obj/item/melee/ceremonial_sword
@@ -183,11 +183,11 @@
 	icon_state = "officersword"
 	item_state = "officersword"
 	contained_sprite = TRUE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 15
+	force = 22
 	throwforce = 5
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	sharp = 1
 	edge = TRUE
 	can_embed = 0

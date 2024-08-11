@@ -41,7 +41,7 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 /obj/var/contaminated = 0
 
 /obj/item/proc/can_contaminate()
-	if(flags & PHORONGUARD)
+	if(item_flags & ITEM_FLAG_PHORON_GUARD)
 		return FALSE
 	return TRUE
 
@@ -53,11 +53,11 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	//Do a contamination overlay? Temporary measure to keep contamination less deadly than it was.
 	if(!contaminated)
 		contaminated = 1
-		add_overlay(contamination_overlay, TRUE)
+		AddOverlays(contamination_overlay, ATOM_ICON_CACHE_PROTECTED)
 
 /obj/item/proc/decontaminate()
 	contaminated = 0
-	cut_overlay(contamination_overlay, TRUE)
+	CutOverlays(contamination_overlay, ATOM_ICON_CACHE_PROTECTED)
 
 /mob/proc/contaminate()
 
@@ -99,15 +99,15 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 		var/burn_eyes = 1
 
 		//Check for protective glasses
-		if(glasses && (glasses.body_parts_covered & EYES) && (glasses.item_flags & AIRTIGHT))
+		if(glasses && (glasses.body_parts_covered & EYES) && (glasses.item_flags & ITEM_FLAG_AIRTIGHT))
 			burn_eyes = 0
 
 		//Check for protective maskwear
-		if(burn_eyes && wear_mask && (wear_mask.body_parts_covered & EYES) && (wear_mask.item_flags & AIRTIGHT))
+		if(burn_eyes && wear_mask && (wear_mask.body_parts_covered & EYES) && (wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 			burn_eyes = 0
 
 		//Check for protective helmets
-		if(burn_eyes && head && (head.body_parts_covered & EYES) && (head.item_flags & AIRTIGHT))
+		if(burn_eyes && head && (head.body_parts_covered & EYES) && (head.item_flags & ITEM_FLAG_AIRTIGHT))
 			burn_eyes = 0
 
 		//If we still need to, burn their eyes
@@ -119,7 +119,7 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	if(vsc.plc.GENETIC_CORRUPTION)
 		if(rand(1,10000) < vsc.plc.GENETIC_CORRUPTION)
 			randmutb(src)
-			to_chat(src, "<span class='danger'>High levels of toxins cause you to spontaneously mutate!</span>")
+			to_chat(src, SPAN_DANGER("High levels of toxins cause you to spontaneously mutate!"))
 			domutcheck(src,null)
 
 
@@ -130,18 +130,18 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 
 	var/obj/item/organ/internal/eyes/E = get_eyes(no_synthetic = TRUE)
 	if(E)
-		if(prob(20)) to_chat(src, "<span class='danger'>Your eyes burn!</span>")
+		if(prob(20)) to_chat(src, SPAN_DANGER("Your eyes burn!"))
 		E.damage += 2.5
 		eye_blurry = min(eye_blurry+1.5,50)
 		if (prob(max(0,E.damage - 15) + 1) &&!eye_blind)
-			to_chat(src, "<span class='danger'>You are blinded!</span>")
+			to_chat(src, SPAN_DANGER("You are blinded!"))
 			eye_blind += 20
 
 /mob/living/carbon/human/proc/pl_head_protected()
 	//Checks if the head is adequately sealed.
 	if(head)
 		if(vsc.plc.PHORONGUARD_ONLY)
-			if(head.flags & PHORONGUARD)
+			if(head.item_flags & ITEM_FLAG_PHORON_GUARD)
 				return 1
 		else if(head.body_parts_covered & EYES)
 			return 1
@@ -153,7 +153,7 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	for(var/obj/item/protection in list(wear_suit, gloves, shoes))
 		if(!protection)
 			continue
-		if(vsc.plc.PHORONGUARD_ONLY && !(protection.flags & PHORONGUARD))
+		if(vsc.plc.PHORONGUARD_ONLY && !(protection.item_flags & ITEM_FLAG_PHORON_GUARD))
 			return 0
 		coverage |= protection.body_parts_covered
 
@@ -167,17 +167,3 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	if(w_uniform) w_uniform.contaminate()
 	if(shoes) shoes.contaminate()
 	if(gloves) gloves.contaminate()
-
-
-/turf/Entered(atom/movable/thing, turf/oldLoc)
-	. = ..(thing, oldLoc)
-	//Items that are in phoron, but not on a mob, can still be contaminated.
-	var/obj/item/I = thing
-	if(istype(I) && vsc.plc.CLOTH_CONTAMINATION && I.can_contaminate())
-		var/datum/gas_mixture/env = return_air(1)
-		if(!env)
-			return
-		for(var/g in env.gas)
-			if(gas_data.flags[g] & XGM_GAS_CONTAMINANT && env.gas[g] > gas_data.overlay_limit[g] + 1)
-				I.contaminate()
-				break

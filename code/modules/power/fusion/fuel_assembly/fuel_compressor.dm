@@ -11,13 +11,13 @@
 	anchored = TRUE
 	layer = 4
 
-/obj/machinery/fusion_fuel_compressor/MouseDrop_T(atom/movable/target, mob/user)
+/obj/machinery/fusion_fuel_compressor/MouseDrop_T(atom/dropping, mob/user)
 	if(user.incapacitated() || !user.Adjacent(src))
 		return
-	return do_fuel_compression(target, user)
+	return do_fuel_compression(dropping, user)
 
-/obj/machinery/fusion_fuel_compressor/attackby(obj/item/thing, mob/user)
-	return do_fuel_compression(thing, user) || ..()
+/obj/machinery/fusion_fuel_compressor/attackby(obj/item/attacking_item, mob/user)
+	return do_fuel_compression(attacking_item, user) || ..()
 
 /obj/machinery/fusion_fuel_compressor/proc/do_fuel_compression(obj/item/thing, mob/user)
 	if(istype(thing) && thing.reagents && thing.reagents.total_volume && thing.is_open_container())

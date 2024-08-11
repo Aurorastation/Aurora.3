@@ -17,7 +17,7 @@ var/datum/antagonist/deathsquad/deathsquad
 
 	bantype = "deathsquad"
 
-/datum/antagonist/ert/create_default(var/mob/source)
+/datum/antagonist/deathsquad/create_default(var/mob/source)
 	var/mob/living/carbon/human/M = ..()
 	if(istype(M)) M.age = rand(25,45)
 

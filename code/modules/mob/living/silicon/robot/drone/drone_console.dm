@@ -3,8 +3,9 @@
 	desc = "Used to monitor the station's drone population and the assembler that services them."
 	icon_screen = "power_monitor"
 	icon_keyboard = "yellow_key"
+	icon_keyboard_emis = "yellow_key_mask"
 	light_color = LIGHT_COLOR_YELLOW
-	req_access = list(access_engine_equip)
+	req_access = list(ACCESS_ENGINE_EQUIP)
 	circuit = /obj/item/circuitboard/drone_control
 
 	//Used when pinging drones.
@@ -31,12 +32,12 @@
 	var/dat
 	dat += "<B>Maintenance Units</B><BR>"
 
-	for(var/mob/living/silicon/robot/drone/D in silicon_mob_list)
-		if(isStationLevel(src.z) && isNotStationLevel(D.z)) //If the console is on a station level, then list all drones on the station levels
+	for(var/mob/living/silicon/robot/drone/D in GLOB.silicon_mob_list)
+		if(is_station_level(src.z) && !is_station_level(D.z)) //If the console is on a station level, then list all drones on the station levels
 			continue
-		else if (isNotStationLevel(src.z) && src.z != D.z) //If the console is not on the station, only list drones on the current level
+		else if (!is_station_level(src.z) && src.z != D.z) //If the console is not on the station, only list drones on the current level
 			continue
-		dat += "<BR>[D.real_name] ([D.stat == 2 ? "<span class='warning'>INACTIVE</span>" : "<font color='green'>ACTIVE</FONT>"])"
+		dat += "<BR>[D.real_name] ([D.stat == 2 ? SPAN_WARNING("INACTIVE") : "<font color='green'>ACTIVE</FONT>"])"
 		dat += "<font dize = 9><BR>Cell charge: [D.cell.charge]/[D.cell.maxcharge]."
 		dat += "<BR>Currently located in: [get_area(D)]."
 		dat += "<BR><A href='?src=\ref[src];resync=\ref[D]'>Resync</A> | <A href='?src=\ref[src];shutdown=\ref[D]'>Shutdown</A></font>"
@@ -62,11 +63,11 @@
 	if(href_list["setarea"])
 		if(!call_area_names)
 			call_area_names = list()
-			for(var/area/A as anything in all_areas)
+			for(var/area/A as anything in GLOB.all_areas)
 				if(A.station_area)
 					call_area_names += A.name
 		//Probably should consider using another list, but this one will do.
-		var/t_area = input(usr, "Select the area to ping.", "Set Target Area") as null|anything in call_area_names
+		var/t_area = tgui_input_list(usr, "Select the area to ping.", "Set Target Area", call_area_names)
 
 		if(!t_area)
 			return
@@ -76,7 +77,7 @@
 
 	else if(href_list["ping"])
 		to_chat(usr, SPAN_NOTICE("You issue a maintenance request for all active drones, highlighting [drone_call_area]."))
-		for(var/mob/living/silicon/robot/drone/D in silicon_mob_list)
+		for(var/mob/living/silicon/robot/drone/D in GLOB.silicon_mob_list)
 			if(D.client && D.stat == CONSCIOUS)
 				to_chat(D, "-- Maintenance drone presence requested in: [drone_call_area].")
 
@@ -93,7 +94,7 @@
 		if(D.stat != DEAD)
 			to_chat(usr, SPAN_NOTICE("You issue a kill command for the unfortunate drone."))
 			message_admins("[key_name_admin(usr)] issued kill order for drone [key_name_admin(D)] from control console.")
-			log_game("[key_name(usr)] issued kill order for [key_name(src)] from control console.",ckey=key_name(usr),ckey_target=key_name(src))
+			log_game("[key_name(usr)] issued kill order for [key_name(src)] from control console.")
 			D.shut_down()
 		else
 			to_chat(usr, SPAN_WARNING("The drone has been shut down already."))

@@ -31,6 +31,11 @@
 	path = /obj/item/ammo_magazine/submachinemag
 	desc = "Contains twenty rounds of .45 bullets, for use with the vintage submachine gun."
 
+/datum/uplink_item/item/ammo/submachinegunmag/assassin
+	name = "Submachine Gun Magazine (6mm)"
+	path = /obj/item/ammo_magazine/submachinemag/assassin
+	desc = "Contains thirty rounds of 6mm caseless ammo. Used by the integrally suppressed machine pistol."
+
 /datum/uplink_item/item/ammo/a357
 	name = ".357 Speedloader"
 	path = /obj/item/ammo_magazine/a357
@@ -134,10 +139,10 @@
 	desc = "A magazine for an assault rifle."
 
 /datum/uplink_item/item/ammo/sniper_ammo
-	name = "7.62 Sniper Magazine"
+	name = "7.62 Marksman Magazine"
 	telecrystal_cost = 4
 	path = /obj/item/ammo_magazine/d762
-	desc = "A magazine for a 7.62 sniper rifle."
+	desc = "A magazine for a 7.62 marksman rifle."
 
 /datum/uplink_item/item/ammo/bullpup_magazine
 	name = "5.56 Rifle Magazine"

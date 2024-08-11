@@ -5,8 +5,8 @@
 	program_key_icon_state = "cyan_key"
 	extended_desc = "This program allows remote control of air alarms around the station. This program can not be run on tablet computers."
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
-	required_access_run =  list(access_atmospherics)
-	required_access_download = list(access_atmospherics)
+	required_access_run =  list(ACCESS_ATMOSPHERICS)
+	required_access_download = list(ACCESS_ATMOSPHERICS)
 	requires_ntnet = TRUE
 	network_destination = "atmospheric control system"
 	requires_ntnet_feature = NTNET_SYSTEMCONTROL

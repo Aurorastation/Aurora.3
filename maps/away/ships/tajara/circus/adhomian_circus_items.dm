@@ -161,9 +161,9 @@
 	contained_sprite = TRUE
 	var/weight = "10"
 
-/obj/item/dumbbell/examine(mob/user)
-	..()
-	to_chat(user,"It weights [weight] kilograms.")
+/obj/item/dumbbell/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += "It weighs [weight] kilograms."
 
 /obj/item/dumbbell/twenty
 	weight = "20"

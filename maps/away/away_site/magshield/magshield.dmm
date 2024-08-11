@@ -3203,7 +3203,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/magshield/south)
 "jB" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /turf/simulated/floor/tiled/freezer,
 /area/magshield/south)
 "jC" = (
@@ -3388,7 +3388,7 @@
 /turf/simulated/floor/tiled/freezer,
 /area/magshield/south)
 "kp" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/snacks/hotdog,
 /turf/simulated/floor/tiled/freezer,
 /area/magshield/south)

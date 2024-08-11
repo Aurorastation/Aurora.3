@@ -1,0 +1,674 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"dn" = (
+/turf/simulated/wall,
+/area/template_noop)
+"dJ" = (
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"eA" = (
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"eH" = (
+/obj/effect/decal/remains/lizard,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"fj" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"hJ" = (
+/obj/effect/decal/remains/rat,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"hR" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/template_noop)
+"hZ" = (
+/obj/structure/chainlink_fence,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"im" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"iR" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/powercell,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"jI" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/backpack,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"kb" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/colored_jumpsuit,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"ml" = (
+/obj/structure/table/steel,
+/obj/item/storage/firstaid,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"os" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/toolbox,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"qN" = (
+/obj/structure/closet/crate/bin/urban/dumpster,
+/obj/structure/trash_pile,
+/obj/structure/trash_pile,
+/obj/structure/trash_pile,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"qX" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/backpack,
+/obj/random/booze,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"qY" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/tool,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"ra" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/loot,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"sx" = (
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"sF" = (
+/obj/structure/table/steel,
+/obj/random/gloves,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"yg" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"AY" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/backpack,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Bk" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/booze,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"BQ" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/tech_supply,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Co" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/loot,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Cx" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/plushie,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Eo" = (
+/obj/structure/table/steel,
+/obj/random/mre,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"FD" = (
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"FT" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/hoodie,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Gs" = (
+/obj/structure/chainlink_fence,
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"GY" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/softcap,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Ha" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Hk" = (
+/turf/template_noop,
+/area/template_noop)
+"Iq" = (
+/obj/machinery/light/broken{
+	dir = 1;
+	pixel_y = 19
+	},
+/obj/effect/decal/remains/rat,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Is" = (
+/obj/structure/table/steel,
+/obj/random/smalltank,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"JY" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/firstaid,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Kk" = (
+/obj/structure/closet/crate/bin/urban/dumpster,
+/obj/structure/trash_pile,
+/obj/structure/trash_pile,
+/obj/structure/trash_pile,
+/obj/random/dirt_75,
+/obj/effect/decal/remains/rat,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Lr" = (
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Lz" = (
+/obj/machinery/light/broken{
+	dir = 1;
+	pixel_y = 19
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"LN" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/melee,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Mj" = (
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"MR" = (
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Oc" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/belt,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Or" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/seed,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"RA" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"SX" = (
+/obj/random/junk,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"TG" = (
+/obj/machinery/light/broken,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"TY" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/seed,
+/obj/random/junk,
+/obj/random/glowstick,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Vn" = (
+/obj/structure/table/steel,
+/obj/random/softcap,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"WH" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Yo" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Yx" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/plushie,
+/obj/random/glowstick,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"YU" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/belt,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Zy" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/suit,
+/obj/random/tool,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"ZJ" = (
+/obj/structure/table/steel,
+/obj/effect/decal/remains/lizard,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+
+(1,1,1) = {"
+im
+im
+im
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+"}
+(2,1,1) = {"
+im
+im
+im
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+"}
+(3,1,1) = {"
+im
+eA
+im
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+"}
+(4,1,1) = {"
+im
+eA
+im
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+"}
+(5,1,1) = {"
+im
+eA
+im
+dn
+ZJ
+MR
+sF
+RA
+fj
+fj
+Vn
+Is
+fj
+sx
+Eo
+RA
+ml
+dn
+"}
+(6,1,1) = {"
+im
+eA
+im
+hR
+fj
+sx
+fj
+MR
+fj
+fj
+fj
+MR
+MR
+fj
+fj
+MR
+MR
+dn
+"}
+(7,1,1) = {"
+im
+eA
+im
+dn
+Iq
+MR
+MR
+MR
+fj
+fj
+fj
+MR
+fj
+MR
+MR
+Ha
+TG
+dn
+"}
+(8,1,1) = {"
+im
+eA
+im
+dn
+Ha
+MR
+YU
+qY
+MR
+MR
+Yo
+qX
+MR
+Co
+Yo
+eH
+fj
+dn
+"}
+(9,1,1) = {"
+im
+eA
+im
+dn
+fj
+MR
+GY
+JY
+MR
+Ha
+Oc
+Yo
+fj
+Cx
+FT
+MR
+fj
+dn
+"}
+(10,1,1) = {"
+im
+eA
+im
+dn
+MR
+MR
+Zy
+os
+MR
+fj
+YU
+kb
+fj
+TY
+Or
+MR
+MR
+dn
+"}
+(11,1,1) = {"
+im
+eA
+im
+dn
+Lz
+fj
+BQ
+BQ
+MR
+fj
+Yx
+Cx
+fj
+FT
+AY
+fj
+Mj
+dn
+"}
+(12,1,1) = {"
+im
+eA
+im
+dn
+MR
+MR
+jI
+Bk
+MR
+fj
+Co
+iR
+fj
+LN
+ra
+MR
+MR
+dn
+"}
+(13,1,1) = {"
+im
+eA
+im
+dn
+SX
+fj
+fj
+hJ
+sx
+MR
+MR
+MR
+MR
+fj
+MR
+MR
+Ha
+dn
+"}
+(14,1,1) = {"
+im
+eA
+im
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+"}
+(15,1,1) = {"
+Hk
+im
+im
+im
+FD
+fj
+Kk
+qN
+fj
+MR
+hZ
+im
+im
+im
+Hk
+Hk
+Hk
+Hk
+"}
+(16,1,1) = {"
+Hk
+im
+im
+im
+fj
+fj
+fj
+hJ
+fj
+fj
+Lr
+im
+im
+im
+Hk
+Hk
+Hk
+Hk
+"}
+(17,1,1) = {"
+Hk
+im
+im
+im
+dJ
+yg
+WH
+WH
+WH
+yg
+Gs
+im
+im
+im
+Hk
+Hk
+Hk
+Hk
+"}
+(18,1,1) = {"
+Hk
+im
+im
+im
+im
+im
+im
+im
+im
+im
+im
+im
+im
+im
+Hk
+Hk
+Hk
+Hk
+"}
+(19,1,1) = {"
+Hk
+im
+im
+im
+im
+im
+im
+im
+im
+im
+im
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+"}

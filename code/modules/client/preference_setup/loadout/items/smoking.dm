@@ -27,6 +27,7 @@
 	zippolighters["gadpathurian zippo"] = /obj/item/flame/lighter/zippo/gadpathur
 	zippolighters["luceian zippo"] = /obj/item/flame/lighter/zippo/luceian
 	zippolighters["asoral jet lighter"] = /obj/item/flame/lighter/zippo/asoral
+	zippolighters["nralakk zippo"] = /obj/item/flame/lighter/zippo/nralakk
 	gear_tweaks += new /datum/gear_tweak/path(zippolighters)
 
 /datum/gear/smoking/lighter
@@ -58,6 +59,7 @@
 	cigarettes["Royal Choice cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/nka
 	cigarettes["Eriuyushi Sunset cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/federation
 	cigarettes["Xaqixal Dyn Fields cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dyn
+	cigarettes["Natural Vysokan Soothsayer oracle cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/oracle
 	gear_tweaks += new /datum/gear_tweak/path(cigarettes)
 
 /datum/gear/smoking/chew
@@ -76,11 +78,12 @@
 	chews["Leviathan Chew chewing tobacco"] = /obj/item/storage/chewables/tobacco/federation
 	chews["Weibi's Breeze chewing tobacco"] = /obj/item/storage/chewables/tobacco/dyn
 	chews["box of Nico-Tine gum"] = /obj/item/storage/box/fancy/chewables/tobacco/nico
+	chews["Ha'zana chewing koko"] = /obj/item/storage/chewables/tobacco/koko
 	gear_tweaks += new /datum/gear_tweak/path(chews)
 
 /datum/gear/smoking/leaves
-	display_name = "tobacco leaf selection"
-	description = "A selection of tobacco leaves."
+	display_name = "smokable leaf selection"
+	description = "A selection of smokable leaves."
 	path = /obj/item/storage/chewables/rollable
 	cost = 2
 	flags = GEAR_HAS_DESC_SELECTION
@@ -92,6 +95,8 @@
 	leaves["Agyre Lake tobacco leaves"] = /obj/item/storage/chewables/rollable
 	leaves["Excelsior Epsilon tobacco leaves"] = /obj/item/storage/chewables/rollable/fine
 	leaves["Golden Sol tobacco leaves"] = /obj/item/storage/chewables/rollable/nico
+	leaves["Vysokan Plains oracle leaves"] = /obj/item/storage/chewables/rollable/oracle
+	leaves["Velhalktai Marathon oracle leaves"] = /obj/item/storage/chewables/rollable/vedamor
 	gear_tweaks += new /datum/gear_tweak/path(leaves)
 
 /datum/gear/smoking/pipe

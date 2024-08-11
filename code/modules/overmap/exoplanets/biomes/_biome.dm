@@ -11,6 +11,9 @@
 /singleton/biome/mountain/adhomai
 	turf_type = /turf/simulated/mineral/adhomai
 
+/singleton/biome/mountain/basalt
+	turf_type = /turf/simulated/mineral/lava
+
 /singleton/biome/water
 	turf_type = /turf/simulated/floor/exoplanet/water/shallow
 

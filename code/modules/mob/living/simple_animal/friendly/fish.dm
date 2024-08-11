@@ -6,7 +6,6 @@
 	emote_hear = list("glubs","glibs")
 	emote_see = list("flops around", "inflates its gills")
 	speak_chance = 1
-	see_in_dark = 6
 	density = FALSE
 	mob_size = MOB_SMALL
 	item_state = "fish"
@@ -21,7 +20,6 @@
 	icon_living = "cod"
 	icon_dead = "cod_dead"
 	icon_rest = "cod_rest"
-	item_state = "cod"
 
 	holder_type = /obj/item/holder/fish/cod
 
@@ -31,4 +29,3 @@
 	icon_living = "gupper"
 	icon_dead = "gupper_dead"
 	icon_rest = "gupper_rest"
-	item_state = "gupper"

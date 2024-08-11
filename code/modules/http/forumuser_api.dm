@@ -25,21 +25,21 @@ var/global/forumuser_api_key = null
 /datum/http_request/forumuser_api
 
 /datum/http_request/forumuser_api/proc/prepare_roles_query(role_id)
-	var/url = "[config.forumuser_api_url]/staff/[role_id]"
+	var/url = "[GLOB.config.forumuser_api_url]/staff/[role_id]"
 
 	var/list/headers = list("Authorization" = "Bearer [forumuser_api_key]")
 
 	prepare(RUSTG_HTTP_METHOD_GET, url, headers=headers)
 
 /datum/http_request/forumuser_api/proc/prepare_user_discord(discord_id)
-	var/url = "[config.forumuser_api_url]/user/discord/[discord_id]"
+	var/url = "[GLOB.config.forumuser_api_url]/user/discord/[discord_id]"
 
 	var/list/headers = list("Authorization" = "Bearer [forumuser_api_key]")
 
 	prepare(RUSTG_HTTP_METHOD_GET, url, headers=headers)
 
 /datum/http_request/forumuser_api/proc/prepare_user_ckey(ckey)
-	var/url = "[config.forumuser_api_url]/user/ckey/[ckey]"
+	var/url = "[GLOB.config.forumuser_api_url]/user/ckey/[ckey]"
 
 	var/list/headers = list("Authorization" = "Bearer [forumuser_api_key]")
 

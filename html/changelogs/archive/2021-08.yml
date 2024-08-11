@@ -1,0 +1,379 @@
+2021-08-01:
+  Sparky_hotdog:
+  - tweak: The Adhomain Wool Coat and Raakti Shariim Coat are now both able to be
+      toggled open. Their on-mob sprites should now look more like coats now too.
+  TheGreyWolf & Desven:
+  - sounddel: Sounds from the unathi hiss, vaurca chitter and the flamethrower has
+      been removed due to license issues.
+  - soundadd: New sounds have been given to the vaurca chitter.
+2021-08-02:
+  CodePanter:
+  - bugfix: Fixed empty anomaly power utilizers being invisible.
+  Flpfs:
+  - rscadd: Adds two new vaurca emotes, click and clack.
+  MattAtlas:
+  - rscdel: Removed the goonchat toggle due to cache issues.
+  Pratepresidenten, TheGreyWolf, Kyres:
+  - rscadd: AI shells have been added. A special type of stationbound controlled directly
+      by the AI and with limited tools, for use when it is really needed.
+  - rscadd: The new AI shell circuits can be created with level 6 data &amp; engineering
+      tech.
+  - maptweak: An AI shell has been added to the AI core.
+  TheGreyWolf:
+  - rscadd: The coatrack can now hold most forensic coats along with the detective
+      jacket.
+  - rscadd: The coatrack can now hold fedoras and several security berets &amp; caps
+      including idris variants of those.
+  - rscadd: Investigators are now given security labcoats that button all the way
+      when closed.
+2021-08-04:
+  Alberyk:
+  - bugfix: Fixed carpet titles not updating their icons correctly when placed down.
+  Alberyk, Kyres1:
+  - rscadd: Added new SCC themed shuttle walls and windows.
+  Desven:
+  - bugfix: Fixes the click and clack emotes for Vaurca being inverted.
+  Geeves:
+  - rscadd: Posibrains that get activated in the robotics lab now causes a broadcast
+      on the science radio of doing so.
+  Sparky_hotdog:
+  - rscdel: Removed the Golem Rune random event
+  The Stryker, thelancer:
+  - rscadd: Adds a Synthetic Residency Card for Republic of Biesel IPCs in the Xenowear
+      - IPC tab.
+  WickedCybs:
+  - balance: The changeling hallucination sting will directly inject three units of
+      mindbreaker into somebody instead of directly applying hallucinations that cannot
+      be traced at all for upwards of twelve minutes. The new duration will be around
+      three to five without medical attention, give or take as severity can be a bit
+      random.
+2021-08-05:
+  Alberyk:
+  - rscadd: Added some badlands space sectors.
+  - tweak: Removed all dionae organs except the stomach.
+  - tweak: Diona can never become full. They can eat as much they want
+  Alberyk, Dongwaiver:
+  - rscadd: Added a new asteroid dungeon.
+  DanseMacabre:
+  - rscadd: Added another qipao to the loadout.
+  Geeves:
+  - tweak: The RFD-C can now be used on non-station levels, but still not in Centcomm
+      areas.
+  - rscadd: Empty magazines can now be recycled in an autolathe.
+  - rscadd: Added a new type of maintenance drone, called the Matriarch Drone. They&#x27;re
+      the leader of all the various maintenance drones across the station. You need
+      a command whitelist to join as one. Ghosting out will allow someone else to
+      join in.
+  - rscadd: Material sheets for robots now update according to their synthesizer values.
+  - rscadd: Speaking as a drone will now auto-capitalize and auto-punctuate your text,
+      as well as having floating messages above you for those that can understand
+      you.
+  - tweak: Maintenance drones now start with more material in their synthesizers.
+  - rscadd: Cable coils will now display the amount you can lay down based on your
+      cell&#x27;s charge as a robot.
+  - rscadd: The drone control console can now be used to send drones to any station
+      area on the current map, instead of a few choices.
+  - rscadd: Rezadone now repairs internal organs, restores blood, and restarts the
+      heart.
+  - rscadd: RnD can now produce upgrades for the experimental welding tool, namely,
+      an eyeshield and an overcapacitor. The eyeshield removes the need to wear protective
+      welding gear, wile the overcapacitor increases working speed at the cost of
+      fuel use.
+  - rscadd: Mining machines can now be constructed and deconstructed. The direction
+      you make the machine face on the frame affects where the input and output is,
+      whilst the consoles will get put onto a wall depending on where the frame faces.
+  - rscadd: Added a new mining machine category to the circuit imprinter.
+  - rscadd: The supermatter grid SMES now starts with four capacitance coils and two
+      transmission coils, as well as full charge, max input, and 1.3 MW output.
+  - bugfix: The Aurora mining machines&#x27; input and output turfs are now set correctly.
+  Sparky_hotdog:
+  - tweak: All types of flask in the loadout can now start with any reagent.
+  TheGreyWolf:
+  - rscadd: Investigators are now given an autopsy tray containing most tools needed
+      for autopsies.
+  - maptweak: Medical &amp; security autopsy now contains an autopsy tray, replacing
+      the tools formerly located in those places.
+  - maptweak: Medical autopsy now has a sink too.
+2021-08-06:
+  NiennaB:
+  - tweak: Changes up the Synthetic Lore loading screens with modified ones by NiennaB
+      in order to fit the UI better.
+  TheGreyWolf:
+  - bugfix: Cleared up the description of the Jaws of Life to indicate when it can
+      be used.
+2021-08-07:
+  Desven:
+  - rscadd: Added in-hand sprites for k&#x27;ois donuts.
+  Doxxmedearly:
+  - bugfix: Fixed item duplication/icon updating issues related to borg gripper interactions
+      with vending machines, pipe dispensers, and light fixtures.
+  - bugfix: Borg players can once again click on the active gripper icon to activate
+      the held item.
+  - bugfix: Stacks dropped or placed by borg grippers will no longer display the stack
+      amount next to the icon.
+  Geeves:
+  - bugfix: You can now actually inhabit matriarch maintenance drones, if you have
+      the command whitelist.
+  - bugfix: Matriarch drones that die without exploding now don&#x27;t open a ghost
+      spawner slot.
+  - bugfix: Dying as a drone will now not say died as drone in deadchat, instead just
+      using the proper name.
+  TheGreyWolf:
+  - tweak: Nanotrasen relations in the char setup has now been changed into economic
+      status.
+  - rscdel: The NTCC report spawning in the bridge at roundstart has been removed.
+  - tweak: Based on feedback, the frequency of the emotional manipulator&#x27;s messages
+      were toned back down a little.
+2021-08-11:
+  Desven:
+  - rscadd: Added a huge red label to the Phoron punch. If you drink it it&#x27;s
+      100% your fault now.
+  Omicega:
+  - rscadd: Adds general (hallway/lobby) access to the security, engineering, and
+      research departments to first responders.
+  - tweak: Allows crowbars and air bubbles to the list of items that can go into the
+      emergency survival box.
+  WickedCybs:
+  - bugfix: Removed the extra buttons on the long blazer&#x27;s open left facing sprite.
+  - bugfix: Changed the bishop frame sprite to not clip through clothing.
+  - bugfix: Changed the bishop frame panel patterns to not clip through clothing.
+2021-08-12:
+  Desven:
+  - rscadd: Added four new cocktails. Three alcoholic, one non-alcoholic. They are
+      mojito, pina colada, Zavodskoi mule and Gibb Floats.
+  - rscadd: Added a fancy new sprite for the Space Cola and for Lean.
+  - rscadd: To account for the lack of pineapples, added the pineapple box to the
+      Getmore vendor. Also, added a chocolate bar because it&#x27;s really weird Getmore
+      doesn&#x27;t actually sell chocolates.
+  Omicega:
+  - tweak: Updates the Crevan Creole accent tag to be a bit more thematic.
+2021-08-13:
+  CodePanter:
+  - maptweak: Added a rainbow crayon to the vault maintenance area.
+  WickedCybs:
+  - tweak: Hoodies now cover the hands less, to better show items on the wrist and
+      let some other sprites shine trhough..
+2021-08-16:
+  Desven:
+  - rscadd: Added an SCC logo for paperwork. Simply write [logo_scc] to make it appear.
+  - bugfix: Fixes bites for the new k&#x27;ois food.
+  WickedCybs:
+  - bugfix: Eridani ERT responders got ID cards with no additional access added, which
+      wasn&#x27;t intentional. They get standard distress access now and the Lead
+      can actually use their hardsuit.
+2021-08-17:
+  Alberyk, Kyres1:
+  - rscadd: Certain weapons, such as cannons and the anti-materiel rifle, will do
+      extra damage to mechas, structures, and synthetics.
+  - rscadd: 'Added two new anti-materiel weapons: the point entry anti-materiel cannon
+      and the adhomian recoilless rifle.'
+  DanseMacabre:
+  - tweak: Recolored the mercenary heavy armor.
+  Desven:
+  - rscadd: Changed the premium lunchbox from the Dinnerware from NT lunchbox to SCC
+      lunchbox.
+  Desven & BunkyB:
+  - rscadd: Adds new watches to the loadout.
+  Geeves:
+  - rscadd: Turrets and solar panels now rotate to face a specific angle instead of
+      hard directions.
+  Sparky_hotdog:
+  - tweak: Custom cakes are now sliceable.
+  - tweak: Wiping cutlery with a rag now removes loaded food.
+  TheGreyWolf:
+  - rscadd: Wrist clothing and wrist radios now have a verb to change layer to be
+      under suits and other outer wear.
+  - bugfix: Glasses will now instantly change layer.
+  WickedCybs:
+  - bugfix: Trimmed minor bits of the Taj Colour Patches pattern. It displayed a little
+      oddly.
+2021-08-19:
+  Desven:
+  - rscadd: Vaurca can now select mechanical organs.
+  - tweak: Vaurca now spawn with a filter port.
+  Geeves:
+  - rscadd: Engineering borgs and drones can now synthesize cloth.
+  - rscadd: When you join as a maintenance drone, construction drone, or mining drone,
+      you will now be prompted to enter a tag, for example, &#x27;MT&#x27; would appear
+      as &#x27;maintenance drone (MT-169)&#x27;.
+  WickedCybs:
+  - bugfix: Unzipping a hoodie and pulling the hood up would end up removing some
+      pixels from the arms, exposing part of the body. That&#x27;s been fixed
+2021-08-20:
+  Desven:
+  - bugfix: Fixes the pineapple rings having the same description and sounds than
+      a regular box.
+2021-08-21:
+  Alberyk:
+  - rscadd: Walking over mining ores with an ore bag in your hands or pockets will
+      instantly collect the ore now.
+  MattAtlas:
+  - rscdel: Removed the infiltration case from the antag uplink.
+  WickedCybs:
+  - bugfix: The t-shirt accessory would cover part a small corner of the hand sprite.
+      That little bit was removed
+  - bugfix: Sidesprites for both binder options had a pixel that went down the chest
+      removed. It was an element that was at odds with the front and back portions.
+2021-08-22:
+  Desven & BunkyB:
+  - rscadd: Adds V&#x27;krexi Snax, you can find them in the Getmore vendor.
+  Omicega:
+  - tweak: The supply department can now spawn with hard hats from the loadout.
+  - tweak: Gave Tajaran accents a minor resprite across the board. Amohda and Naziran
+      Siik get new icons; several others get touch-ups to make the icons sharper.
+  WickedCybs:
+  - rscadd: Added some new Taj hairstyles and variations. Mainly variations.
+  - rscadd: A second preview that can be viewed in all different directions has been
+      added to the tajara dmi. This is only really of interest to spriters.
+  - tweak: A lot of the current taj alt hairs had their names changed to make it more
+      clear what is similar in style. That means you might have to reselect them if
+      you were using anything affected.
+2021-08-23:
+  Desven:
+  - bugfix: Fixes the pineapple can sound for real.
+  Omicega:
+  - bugfix: Fixed grey jeans shorts and grey jeans short shorts not having sprites,
+      and also then made the loadout point at the right sprites too.
+  TheGreyWolf:
+  - bugfix: It is no longer possible to use a species permitted gradient style for
+      other species in char setup.
+2021-08-24:
+  Geeves:
+  - bugfix: Airlock electronics now properly save their settings when you finish an
+      airlock.
+  - bugfix: Inductive chargers now properly report when they don&#x27;t find a cell
+      to charge.
+  - rscadd: Using an inductive charger on a power cell or an APC will now properly
+      charge it.
+  - bugfix: You can no longer line up multiple inductive chargers by spamclicking
+      the target.
+  MattAtlas:
+  - balance: Limbs now have higher delimb threshold.
+  - balance: Increased the miss chance for arms, legs, hands and feet.
+  - balance: Security&#x27;s default armor is now slightly better overall. Revolvers
+      do 27 damage instead of 40, while assault rifles retain most of their damage.
+  - bugfix: Fixed some code that prevented melee delimbs under some circumstances.
+  Omicega:
+  - tweak: Added hailers to the SecTech vendor.
+  - tweak: Tweaked some security roundstart equipment and locker equipment for quality
+      of life, mostly the HoS and warden&#x27;s.
+2021-08-25:
+  Desven:
+  - balance: Greatly nerfed how the stage 4 of the black k&#x27;ois mycosis works.
+      No more phoron flooding and puking spores everywhere.
+  - rscadd: Added a Lii&#x27;dra accent, called Lii&#x27;draic.
+  - rscadd: Added a voice changer version of the Vaurca filter port.
+  - rscadd: Added a black k&#x27;ois grenade.
+  - rscadd: Adds sprites for the ZH scanner when in your hand.
+  - rscadd: Changes the cat item icon when holding it so it actually looks like Bones
+      now.
+  Desven & TheGreyWolf:
+  - rscadd: Adds paper bags, which are like one time lunchbag you can use to carry
+      food around.
+  - maptweak: Adds an extra light fixture at the kitchen, also adds the paper bags
+      to the kitchen.
+  MattAtlas:
+  - tweak: Zeng-Hu Mobility Frames are now slower when running. Their actual speed
+      is now on par with an M&#x27;sai Tajara when moving normally.
+  - balance: All IPCs now use additional power when sprinting. This is about 10 units
+      of charge.
+  - balance: Zeng-Hu Mobility Frames use twice as much power for sprinting.
+  - balance: Zeng-Hu Mobility Frames use twice as much power when moving normally.
+  - rscdel: Zeng-Hu Mobility Frames may no longer be played in security roles.
+2021-08-26:
+  Alberyk:
+  - tweak: Holsters can no longer fit inside pockets.
+  BLUNTFORCE420:
+  - rscadd: Added a modified assault rifle for Coalition/Frontier factions.
+  CodePanter:
+  - bugfix: Fixed a missing material definition for easels causing them to be dismantled
+      into a steel plate.
+  Desven:
+  - rscadd: Added a new drinks to the Robust Softdrinks vendor.
+  Desven & 50Noob:
+  - rscadd: Added new Vaurca lobby screens.
+  Desven and 50_N00b:
+  - rscadd: 'Added six recipes inspired by sinta cuisine, as well as the required
+      ingredients to make them. They are: Shrieker Wings, Jelly Stew, Roe Fritters,
+      Stuffed Fish Fillet, Razir Noodles, and Sinta Pudding.'
+  Omicega:
+  - rscadd: Adds faction HUDsunglasses and security aviators for Zavodskoi, Idris,
+      and EPMC security personnel, as well as fat HUDsunglasses variations for all
+      of these plus the default.
+2021-08-27:
+  Alberyk:
+  - bugfix: Fixed the free tajaran council badge having no icon.
+  Desven & 50_N00b:
+  - rscadd: Added a Sedantis lunchbox.
+  - rscadd: Added new k&#x27;ois options to the lunchbox.
+  - rscadd: Added the new drinks to the lunchbox.
+  Omicega:
+  - rscadd: Adds a visual emote to a Give being offered in addition to when one is
+      received.
+  - bugfix: Adjusted some bad alpha shading on the Idris and EPMC HUDs onmob sprites.
+  WickedCybs, YourDaddy117:
+  - rscadd: Added Zavodskoi softcaps to the faction item selection. Comes in tan and
+      black.
+2021-08-28:
+  BLUNTFORCE420:
+  - rscadd: Added new sprite for vintage .45 pistol.
+  - rscadd: Renamed vintage .45 pistol to .45 combat pistol.
+  - rscadd: Added unique pistol for Coalition consular officer.
+  - rscadd: Added an automatic .45 pistol for antags.
+  Desven:
+  - bugfix: Fixes the advanced health scanner facing the wrong side when held.
+  Omicega:
+  - tweak: Changed the default transfer amount/bite size on all utensils to be 1 instead
+      of 5. No more spooning up an entire bowl of soup in one click by default.
+  - rscadd: Added a cool new alcoholic cocktail, the Sidewinder Fang. Drink responsibly!
+2021-08-29:
+  BLUNTFORCE420:
+  - rscadd: Added a new sprite for the automatic .45.
+  - rscadd: Added a new magazine for the automatic .45.
+  TheGreyWolf & Connorjg1:
+  - rscadd: Elyran consulars are now given a plasma pistol.
+2021-08-30:
+  BLUNTFORCE420:
+  - rscadd: Adds short-barreled AR to random weapons and FL ERT leader
+2021-08-31:
+  Alberyk:
+  - rscadd: Added a hair fade options to the Tajara.
+  - rscadd: Added abyss turfs. If you step on them, you fall to your death. They are
+      not implemented anywhere yet.
+  Alberyk, Kyres1:
+  - rscadd: Added new Schlorrgo mechanics.
+  Desven:
+  - rscadd: Updated the arcade sprites.
+  - rscadd: Updated the vending machine sprites.
+  Geeves:
+  - rscadd: Revenant night vision is now located in the top left, like other nightvision
+      abilities.
+  - bugfix: Revenant night vision now properly works.
+  - rscadd: Mech mounted firearms have been buffed. They now deal more damage and
+      pierce through more armor.
+  - rscadd: Projectiles hitting mechs now state which component they hit rather than
+      using the humanoid limb naming system.
+  - rscadd: Implemented an IFF system, currently only mech mounted weapons can enable
+      them by cntrl clicking the weapon in the hotbar. IFF weapons will never hit
+      a friendly that has the same IFF ID as you.
+  - rscadd: Pipeguns now take a makeshift 5.56mm magazine, crafted with steel sheets
+      under the Steel Weaponry tab. It holds 7 rounds.
+  - rscadd: Pipeguns can now be held on the suit storage slot regardless of what&#x27;s
+      in your suit slot.
+  - tweak: Pipeguns can now fire three guaranteed shots before the chance of jamming
+      sets in, per clean.
+  - bugfix: Cleaned up some funkiness with the jam mechanics, should feel nicer now.
+  Lucaken:
+  - rscadd: Added a Golden Deep logo for use in paperwork. Writing [logo_golden] will
+      draw the image on any paper.
+  TheGreyWolf:
+  - rscadd: Kois products were removed from the ordinary lunchbox and instead added
+      to a new vaurca specific one listed under the vaurca xenowear tab in the loadout.
+  - tweak: Technomancer can no longer be the sole antagonist in  secret if there is
+      more than 15 players readied.
+  WickedCybs:
+  - rscadd: Added a new hairstyle for humans, the Fingerwave.
+  WickedCybs, YourDaddy117:
+  - rscadd: Added a long variant of the Fisanduhian bomber jacket. The Fisanduhian
+      coats have been put into a selection in the suits section.
+  - rscadd: Added a green trenchcoat to the trenchcoat selection.

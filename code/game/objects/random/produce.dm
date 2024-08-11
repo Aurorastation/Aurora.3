@@ -29,7 +29,8 @@
 		"cacao" = 0.5,
 		"cherry" = 0.25,
 		"garlic" = 0.5,
-		"onion" = 0.5
+		"onion" = 0.5,
+		"bellpepper" = 0.25
 	)
 
 /obj/random_produce/Initialize()
@@ -65,7 +66,8 @@
 						"lemon" = 0.25,
 						"cacao" = 0.5,
 						"cherry" = 0.25,
-						"onion" = 0.5
+						"onion" = 0.5,
+						"bellpepper" = 0.25
 					)
 
 /obj/random/seed
@@ -97,5 +99,6 @@
 		/obj/item/seeds/eggplantseed,
 		/obj/item/seeds/peanutseed,
 		/obj/item/seeds/soyaseed,
-		/obj/item/seeds/cabbageseed
+		/obj/item/seeds/cabbageseed,
+		/obj/item/seeds/bellpepperseed
 	)

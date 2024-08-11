@@ -62,7 +62,7 @@
 /mob/living/simple_animal/hostile/vannatusk/proc/fire_spike(var/mob/living/target_mob)
 	visible_message(SPAN_DANGER("\The [src] fires a spike at [target_mob]!"))
 	playsound(get_turf(src), 'sound/weapons/bloodyslice.ogg', 50, 1)
-	var/obj/item/projectile/bonedart/A = new /obj/item/projectile/bonedart(get_turf(src))
+	var/obj/projectile/bonedart/A = new /obj/projectile/bonedart(get_turf(src))
 	var/def_zone = get_exposed_defense_zone(target_mob)
 	A.launch_projectile(target_mob, def_zone)
 
@@ -72,10 +72,10 @@
 	icon = 'icons/mob/npc/vannatusk.dmi'
 	icon_state = "bonedart"
 
-/mob/living/simple_animal/hostile/vannatusk/attackby(obj/item/O, mob/user)
+/mob/living/simple_animal/hostile/vannatusk/attackby(obj/item/attacking_item, mob/user)
 	if(stat != DEAD)
 		return ..()
-	if(istype(O, /obj/item/surgery/scalpel))
+	if(istype(attacking_item, /obj/item/surgery/scalpel))
 		if(crystal_harvested)
 			to_chat(user, SPAN_WARNING("\The [src]'s crystal has already been harvested!"))
 			return
@@ -102,6 +102,6 @@
 
 /obj/machinery/vannatusk_spawner/power_change()
 	..()
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 	new /mob/living/simple_animal/hostile/vannatusk(get_turf(src))
 	qdel(src)

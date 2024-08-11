@@ -13,10 +13,10 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 100)
 	var/armed = FALSE
 
-/obj/item/device/assembly/mousetrap/examine(mob/user)
+/obj/item/device/assembly/mousetrap/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(armed)
-		to_chat(user, "It looks like it's armed.")
+		. += "It looks like it's armed."
 
 /obj/item/device/assembly/mousetrap/update_icon()
 	icon_state = armed ? "mousetraparmed" : "mousetrap"
@@ -73,7 +73,7 @@
 	return ..()
 
 /obj/item/device/assembly/mousetrap/proc/clumsy_check(var/mob/living/user)
-	if((user.is_clumsy() || HAS_FLAG(user.mutations, DUMB)) && prob(50))
+	if((user.is_clumsy() || (user.mutations & DUMB)) && prob(50))
 		var/which_hand = BP_L_HAND
 		if(!user.hand)
 			which_hand = BP_R_HAND
@@ -82,20 +82,19 @@
 		return TRUE
 	return FALSE
 
-/obj/item/device/assembly/mousetrap/Crossed(AM as mob|obj)
+/obj/item/device/assembly/mousetrap/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	if(armed)
-		if(israt(AM))
-			triggered(AM)
-		else if(ishuman(AM))
-			var/mob/living/carbon/human/H = AM
-			if(!(H.shoes?.item_flags & LIGHTSTEP))
+		if(israt(arrived))
+			triggered(arrived)
+		else if(ishuman(arrived))
+			var/mob/living/carbon/human/H = arrived
+			if(!(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP))
 				triggered(H)
 				H.visible_message(SPAN_WARNING("\The [H] accidentally steps on \the [src]."), SPAN_WARNING("You accidentally step on \the [src]."))
-		else if(isliving(AM))
-			var/mob/living/L = AM
+		else if(isliving(arrived))
+			var/mob/living/L = arrived
 			triggered(L)
 			L.visible_message(SPAN_WARNING("\The [L] accidentally steps on \the [src]."), SPAN_WARNING("You accidentally step on \the [src]."))
-	..()
 
 
 /obj/item/device/assembly/mousetrap/on_found(mob/finder)
@@ -105,10 +104,10 @@
 		return TRUE
 	return FALSE
 
-/obj/item/device/assembly/mousetrap/hitby(A as mob|obj)
+/obj/item/device/assembly/mousetrap/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(!armed)
 		return ..()
-	visible_message(SPAN_WARNING("\The [src] is triggered by \the [A]."))
+	visible_message(SPAN_WARNING("\The [src] is triggered by \the [hitting_atom]."))
 	triggered(null)
 
 /obj/item/device/assembly/mousetrap/armed

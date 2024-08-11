@@ -30,7 +30,6 @@
 	attacktext = "punished"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	minbodytemp = 0
@@ -44,13 +43,14 @@
 	var/is_punishing = FALSE
 
 	psi_pingable = FALSE
+	sample_data = null
 
 /mob/living/simple_animal/hostile/krampus/death(gibbed)
 	..()
 	if(!gibbed)
 		for (var/mob/living/A in contents)
 			A.forceMove(get_turf(src))
-		visible_message("<span class='warning'>\The [src] vanishes!</span>")
+		visible_message(SPAN_WARNING("\The [src] vanishes!"))
 		dust()
 		return TRUE
 
@@ -69,21 +69,21 @@
 		return
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='warning'>You must wait a little while before you can use this ability again!</span>")
+		to_chat(src, SPAN_WARNING("You must wait a little while before you can use this ability again!"))
 		return
 
-	src.visible_message("<span class='danger'>\The [src] starts stuffing \the [target] inside his bag!</span>", \
-						"<span class='danger'>You begin to drag \the [target] to the depths of hell!</span>")
+	src.visible_message(SPAN_DANGER("\The [src] starts stuffing \the [target] inside his bag!"), \
+						SPAN_DANGER("You begin to drag \the [target] to the depths of hell!"))
 	src.is_punishing = TRUE
 
 	if(!do_mob(src, target, 60))
-		to_chat(src, "<span class='danger'>\The [target] has managed to escape!</span>")
+		to_chat(src, SPAN_DANGER("\The [target] has managed to escape!"))
 		src.is_punishing = FALSE
 		return
 
-	src.visible_message("<span class='danger'>\The [target] vanishes into \the [src]'s bag!</span>")
+	src.visible_message(SPAN_DANGER("\The [target] vanishes into \the [src]'s bag!"))
 	target.forceMove(src)
-	to_chat(target, "<span class='danger'>You have been captured by \the [src], you will soon be punished due to your misdeeds!</span>")
+	to_chat(target, SPAN_DANGER("You have been captured by \the [src], you will soon be punished due to your misdeeds!"))
 	addtimer(CALLBACK(src, PROC_REF(send_to_hell), target), 5 MINUTES)
 	last_special = world.time + 100
 	src.is_punishing = FALSE
@@ -102,7 +102,7 @@
 
 	last_special = world.time + 30
 
-	visible_message("<span class='danger'>\The [src] vomits a cloud of rancid smoke and neatly wrapped gifts!</span>")
+	visible_message(SPAN_DANGER("\The [src] vomits a cloud of rancid smoke and neatly wrapped gifts!"))
 
 	var/datum/effect/effect/system/smoke_spread/bad/smoke = new /datum/effect/effect/system/smoke_spread/bad
 	smoke.attach(src)
@@ -111,13 +111,13 @@
 
 	for(var/i in 1 to 5)
 		var/mob/living/simple_animal/hostile/gift/T = new /mob/living/simple_animal/hostile/gift(get_turf(src))
-		var/turf/landing = get_step(src, pick(alldirs))
+		var/turf/landing = get_step(src, pick(GLOB.alldirs))
 		INVOKE_ASYNC(T, TYPE_PROC_REF(/atom/movable, throw_at), landing, 30, 5)
 
 /mob/living/simple_animal/hostile/krampus/proc/send_to_hell(mob/living/M)
 	if(!M)
 		return
-	to_chat(M, "<span class='danger'>You are dragged to the depths of hell to be eternally punished for your misdeeds!</span>")
+	to_chat(M, SPAN_DANGER("You are dragged to the depths of hell to be eternally punished for your misdeeds!"))
 	qdel(M)
 	rejuvenate()
 	updatehealth()

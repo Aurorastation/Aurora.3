@@ -54,9 +54,9 @@
 	if(changed && is_wired)
 		maxhealth += 50
 
-/obj/structure/barricade/liquid/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/crowbar) && user.a_intent != I_HURT)
-		var/obj/item/crowbar/ET = W
+/obj/structure/barricade/liquid/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/crowbar) && user.a_intent != I_HURT)
+		var/obj/item/crowbar/ET = attacking_item
 		user.visible_message(SPAN_NOTICE("[user] starts disassembling [src]."), \
 		SPAN_NOTICE("You start disassembling [src]."))
 		if(ET.use_tool(src, user, 4 SECONDS))
@@ -65,8 +65,8 @@
 			barricade_deconstruct(TRUE)
 		return TRUE
 
-	if(istype(W, stack_type))
-		var/obj/item/stack/liquidbags/SB = W
+	if(istype(attacking_item, stack_type))
+		var/obj/item/stack/liquidbags/SB = attacking_item
 		if(build_stage == BARRICADE_LIQUIDBAG_5)
 			to_chat(user, SPAN_WARNING("You can't stack more on [src]."))
 			return

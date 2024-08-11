@@ -1,7 +1,7 @@
 //like orange but only checks north/south/east/west for one step
 /proc/cardinalrange(var/center)
 	var/list/things = list()
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		var/turf/T = get_step(center, direction)
 		if(!T)
 			continue
@@ -110,7 +110,9 @@
 
 
 /obj/machinery/am_shielding/emp_act()//Immune due to not really much in the way of electronics.
-	return FALSE
+	. = ..()
+
+	return
 
 /obj/machinery/am_shielding/ex_act(severity)
 	switch(severity)
@@ -123,10 +125,10 @@
 	check_stability()
 
 /obj/machinery/am_shielding/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	coredirs = 0
 	dirs = 0
-	for(var/direction in alldirs)
+	for(var/direction in GLOB.alldirs)
 		var/turf/T = get_step(loc, direction)
 		for(var/obj/machinery/machine in T)
 			// Detect cores
@@ -136,7 +138,7 @@
 					coredirs |= direction
 
 			// Detect cores, shielding, and control boxen.
-			if(direction in cardinal)
+			if(direction in GLOB.cardinal)
 				if(istype(machine, /obj/machinery/am_shielding))
 					var/obj/machinery/am_shielding/AMS = machine
 					if(AMS.control_unit == control_unit)
@@ -158,18 +160,18 @@
 	else if(processing)
 		shutdown_core()
 
-/obj/machinery/am_shielding/attackby(obj/item/W, mob/user)
-	if(!istype(W) || !user)
+/obj/machinery/am_shielding/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item) || !user)
 		return
-	if(W.force > 10)
-		user.do_attack_animation(src, W)
-		stability -= W.force / 2
+	if(attacking_item.force > 10)
+		user.do_attack_animation(src, attacking_item)
+		stability -= attacking_item.force / 2
 		check_stability()
 		return ..()
 
 //Scans cards for shields or the control unit and if all there it
 /obj/machinery/am_shielding/proc/core_check()
-	for(var/direction in alldirs)
+	for(var/direction in GLOB.alldirs)
 		var/found_am_device = FALSE
 		for(var/obj/machinery/machine in get_step(loc, direction))
 			if(!machine)
@@ -221,8 +223,8 @@
 	throw_speed = 1
 	throw_range = 2
 
-/obj/item/device/am_shielding_container/attackby(var/obj/item/I, var/mob/user)
-	if(I.ismultitool() && isturf(loc))
+/obj/item/device/am_shielding_container/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool() && isturf(loc))
 		if(locate(/obj/machinery/am_shielding) in loc)
 			to_chat(user, SPAN_WARNING("There is already an antimatter reactor section there."))
 			return

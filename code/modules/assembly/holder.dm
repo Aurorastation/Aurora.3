@@ -3,9 +3,10 @@
 	icon = 'icons/obj/assemblies/new_assemblies.dmi'
 	icon_state = "holder"
 	item_state = "assembly"
-	flags = CONDUCT | PROXMOVE
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	movable_flags = MOVABLE_FLAG_PROXMOVE
 	throwforce = 5
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 3
 	throw_range = 10
 
@@ -13,6 +14,25 @@
 	var/obj/item/device/assembly/a_left = null
 	var/obj/item/device/assembly/a_right = null
 	var/obj/special_assembly = null
+
+/obj/item/device/assembly_holder/Initialize(mapload, ...)
+	. = ..()
+	become_hearing_sensitive()
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/item/device/assembly_holder/Destroy()
+	lose_hearing_sensitivity()
+
+	QDEL_NULL(a_left)
+	QDEL_NULL(a_right)
+	QDEL_NULL(special_assembly)
+
+	. = ..()
 
 /obj/item/device/assembly_holder/proc/detached()
 	if(a_left)
@@ -50,25 +70,25 @@
 		return FALSE
 
 /obj/item/device/assembly_holder/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(a_left)
-		add_overlay("[a_left.icon_state]_left")
+		AddOverlays("[a_left.icon_state]_left")
 		for(var/O in a_left.attached_overlays)
-			add_overlay("[O]_l")
+			AddOverlays("[O]_l")
 	if(a_right)
-		add_overlay("[a_right.icon_state]_right")
+		AddOverlays("[a_right.icon_state]_right")
 		for(var/O in a_right.attached_overlays)
-			add_overlay("[O]_r")
+			AddOverlays("[O]_r")
 	if(master)
 		master.update_icon()
 
-/obj/item/device/assembly_holder/examine(mob/user, distance, is_adjacent)
+/obj/item/device/assembly_holder/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1 || src.loc == user)
 		if (src.secured)
-			to_chat(user, SPAN_NOTICE("\The [src] is ready!"))
+			. += SPAN_NOTICE("\The [src] is ready!")
 		else
-			to_chat(user, SPAN_NOTICE("\The [src] can be attached!"))
+			. += SPAN_NOTICE("\The [src] can be attached!")
 
 /obj/item/device/assembly_holder/HasProximity(atom/movable/AM as mob|obj)
 	if(a_left)
@@ -78,13 +98,13 @@
 	if(special_assembly)
 		special_assembly.HasProximity(AM)
 
-/obj/item/device/assembly_holder/Crossed(atom/movable/AM as mob|obj)
+/obj/item/device/assembly_holder/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
 	if(a_left)
-		a_left.Crossed(AM)
+		a_left.on_entered(source, arrived, old_loc, old_locs)
 	if(a_right)
-		a_right.Crossed(AM)
-	if(special_assembly)
-		special_assembly.Crossed(AM)
+		a_right.on_entered(source, arrived, old_loc, old_locs)
 
 /obj/item/device/assembly_holder/on_found(mob/finder)
 	if(a_left)
@@ -109,8 +129,8 @@
 		a_right.holder_movement()
 	return ..()
 
-/obj/item/device/assembly_holder/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
+/obj/item/device/assembly_holder/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(!a_left || !a_right)
 			to_chat(user, SPAN_DANGER("BUG: Assembly part missing, please report this!"))
 			return
@@ -123,8 +143,8 @@
 			to_chat(user, SPAN_NOTICE("\The [src] can now be taken apart!"))
 		update_icon()
 		return
-	else if(W.IsSpecialAssembly())
-		attach_special(W, user)
+	else if(attacking_item.IsSpecialAssembly())
+		attach_special(attacking_item, user)
 	else
 		return ..()
 
@@ -150,13 +170,18 @@
 		var/turf/T = get_turf(src)
 		if(!T)
 			return FALSE
+
 		if(a_left)
 			a_left.holder = null
 			a_left.forceMove(T)
+			a_left = null
+
 		if(a_right)
 			a_right.holder = null
 			a_right.forceMove(T)
-		QDEL_IN(src, 1)
+			a_right = null
+
+		qdel(src)
 
 
 /obj/item/device/assembly_holder/proc/process_activation(var/obj/D, var/normal = 1, var/special = 1)
@@ -172,17 +197,6 @@
 	if(master)
 		master.receive_signal()
 	return TRUE
-
-/obj/item/device/assembly_holder/Initialize(mapload, ...)
-	. = ..()
-	become_hearing_sensitive()
-
-/obj/item/device/assembly_holder/Destroy()
-	if(a_left)
-		a_left.holder = null
-	if(a_right)
-		a_right.holder = null
-	return ..()
 
 /obj/item/device/assembly_holder/hear_talk(mob/living/M, msg, verb, datum/language/speaking)
 	if(a_right)

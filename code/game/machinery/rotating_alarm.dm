@@ -1,0 +1,120 @@
+/obj/spinning_light
+	var/spin_rate = 1 SECOND
+	var/_size = 48
+	var/_factor = 0.5
+	var/_density = 4
+	var/_offset = 30
+	var/_color = COLOR_ORANGE
+	alpha = 200
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	layer = EYE_GLOW_LAYER
+	mouse_opacity = 0
+
+
+/obj/spinning_light/Initialize(mapload, size = 48, color = COLOR_ORANGE, density = 4, factor = 0.5, offset = 30, spin_rate = 1 SECOND)
+	. = ..()
+	src._size = size
+	src._color = color
+	src._density = density
+	src._factor = factor
+	src._offset = offset
+	src.spin_rate = spin_rate
+
+	set_color(_color)
+
+	//Rays start rotated which made synchronizing the scaling a bit difficult, so let's move it 45 degrees
+	var matrix/m = new
+	var/matrix/test = new
+	test.Turn(-45)
+	var/matrix/squished = new
+	squished.Scale(1, 0.5)
+	animate(src, transform = test * m.Turn(90), spin_rate / 4, loop = -1)
+	animate(transform = test * m.Turn(90), spin_rate / 4, loop = -1)
+	animate(transform = test * m.Turn(90), spin_rate / 4, loop = -1)
+	animate(transform = test * matrix(),   spin_rate / 4, loop = -1)
+
+
+/obj/spinning_light/proc/set_color(_color)
+	filters = filter(type="rays", size = _size, color = _color, factor = _factor, density = _density, flags = FILTER_OVERLAY, offset = _offset)
+
+
+/obj/machinery/rotating_alarm
+	name = "industrial alarm"
+	desc = "An industrial rotating alarm light."
+	icon = 'icons/obj/structure/rotating_alarm.dmi'
+	icon_state = "alarm"
+	idle_power_usage = 0
+	active_power_usage = 0
+	anchored = TRUE
+
+	var/on = FALSE
+	var/construct_type = /obj/machinery/light_construct
+
+	var/obj/spinning_light/spin_effect = null
+
+	var/alarm_light_color = COLOR_ORANGE
+	/// This is an angle to rotate the colour of alarm and its light. Default is orange, so, a 45 degree angle clockwise will make it green
+	var/angle = 0
+
+	var/static/list/spinning_lights_cache = list()
+
+
+/obj/machinery/rotating_alarm/Initialize()
+	. = ..()
+
+	//Setup colour
+	var/list/color_matrix = color_rotation(angle)
+
+	color = color_matrix
+
+	set_color(alarm_light_color)
+
+	set_dir(dir) //Set dir again so offsets update correctly
+
+/obj/machinery/rotating_alarm/Destroy()
+	QDEL_NULL(spin_effect)
+	QDEL_LIST_ASSOC_VAL(spinning_lights_cache)
+
+	. = ..()
+
+
+/obj/machinery/rotating_alarm/set_dir(ndir) //Due to effect, offsets cannot be part of sprite, so need to set it for each dir
+	. = ..()
+	if(dir == NORTH)
+		pixel_y = -13
+	if(dir == SOUTH)
+		pixel_y = 28
+	if(dir == WEST)
+		pixel_x = 20
+	if(dir == EAST)
+		pixel_x = -20
+
+
+/obj/machinery/rotating_alarm/proc/set_color(color)
+	if(on)
+		vis_contents -= spin_effect
+
+	if(isnull(spinning_lights_cache["[color]"]))
+		spinning_lights_cache["[color]"] = new /obj/spinning_light()
+	spin_effect = spinning_lights_cache["[color]"]
+	spin_effect.set_color(color)
+
+	alarm_light_color = color
+	var/HSV = RGBtoHSV(alarm_light_color)
+	var/RGB = HSVtoRGB(RotateHue(HSV, angle))
+	alarm_light_color = RGB
+
+	if(on)
+		vis_contents += spin_effect
+
+
+/obj/machinery/rotating_alarm/proc/set_on()
+	vis_contents += spin_effect
+	set_light(2, 0.5, alarm_light_color)
+	on = TRUE
+
+
+/obj/machinery/rotating_alarm/proc/set_off()
+	vis_contents -= spin_effect
+	set_light(0)
+	on = FALSE

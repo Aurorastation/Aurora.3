@@ -20,5 +20,5 @@
 	modifier_duration = 1 MINUTE
 
 /datum/modifier/technomancer/corona
-	on_created_text = "<span class='warning'>You start to glow very brightly!</span>"
-	on_expired_text = "<span class='notice'>Your glow has ended.</span>"
+	on_created_text = SPAN_WARNING("You start to glow very brightly!")
+	on_expired_text = SPAN_NOTICE("Your glow has ended.")

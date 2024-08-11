@@ -17,6 +17,12 @@
 	icon_state = "idris_chef_hat"
 	item_state = "idris_chef_hat"
 
+/obj/item/clothing/head/chefhat/orion
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "orion_chef_hat"
+	item_state = "orion_chef_hat"
+
 
 /obj/item/clothing/head/hairnet
 	name = "hairnet"
@@ -95,6 +101,11 @@
 	contained_sprite = TRUE
 	flags_inv = BLOCKHEADHAIR
 
+/obj/item/clothing/head/surgery/generic
+	icon = 'icons/clothing/head/generic_surgeon_cap.dmi'
+	icon_state = "surgcap_generic"
+	item_state = "surgcap_generic"
+
 /obj/item/clothing/head/surgery/zeng
 	icon_state = "surgcap_zeng"
 	item_state = "surgcap_zeng"
@@ -169,6 +180,10 @@
 /obj/item/clothing/head/flatcap/bartender/idris
 	icon_state = "idris_bartender_flatcap"
 	item_state = "idris_bartender_flatcap"
+
+/obj/item/clothing/head/flatcap/bartender/orion
+	icon_state = "orion_bartender_flatcap"
+	item_state = "orion_bartender_flatcap"
 
 /obj/item/clothing/head/sidecap
 	name = "side cap"

@@ -8,7 +8,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 50)
 
 	secured = TRUE
-	wires = WIRE_RECEIVE
+	wires = WIRE_RECEIVE_ASSEMBLY
 
 /obj/item/device/assembly/igniter/activate()
 	. = ..()
@@ -27,7 +27,7 @@
 				var/obj/structure/reagent_dispensers/fueltank/tank = src.loc.loc
 				if(tank?.is_leaking)
 					tank.ex_act(3)
-		spark(src, 4, cardinal)
+		spark(src, 4, GLOB.cardinal)
 	return TRUE
 
 /obj/item/device/assembly/igniter/attack_self(mob/user)

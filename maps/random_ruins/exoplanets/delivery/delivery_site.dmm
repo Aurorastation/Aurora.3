@@ -1,0 +1,250 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ao" = (
+/turf/simulated/wall,
+/area/template_noop)
+"aQ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"aR" = (
+/obj/structure/closet/walllocker/medical{
+	pixel_y = 32
+	},
+/obj/item/stack/medical/splint/full,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline,
+/obj/item/stack/medical/ointment/full,
+/obj/item/stack/medical/ointment/full,
+/obj/item/stack/medical/bruise_pack/full,
+/obj/item/stack/medical/bruise_pack/full,
+/obj/effect/floor_decal/industrial/outline/medical,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"bi" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/structure/sign/flag/orion_express/unmovable{
+	dir = 1;
+	pixel_y = 32
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"bk" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"bA" = (
+/obj/structure/cargo_receptacle,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"bE" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/structure/sign/flag/orion_express/unmovable{
+	dir = 1;
+	pixel_x = -32
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"bP" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"bQ" = (
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/walllocker/emerglocker/west,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"dj" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"fx" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"qg" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"si" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/cargo_package/offship{
+	pixel_y = 3
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"te" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/item/cargo_package/offship{
+	pixel_y = 3
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"yx" = (
+/turf/template_noop,
+/area/template_noop)
+"AI" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"JU" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Ku" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"Me" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/structure/closet/crate,
+/obj/item/storage/backpack/duffel/orion,
+/obj/item/stack/packageWrap,
+/obj/item/device/hand_labeler,
+/obj/random/tech_supply,
+/obj/random/tool,
+/obj/item/crowbar,
+/obj/item/clothing/accessory/pin/corporate/orion,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"PC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"RV" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"TK" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+
+(1,1,1) = {"
+yx
+yx
+yx
+Ku
+Ku
+Ku
+Ku
+"}
+(2,1,1) = {"
+yx
+ao
+ao
+ao
+ao
+ao
+Ku
+"}
+(3,1,1) = {"
+Ku
+ao
+aQ
+bQ
+bE
+ao
+Ku
+"}
+(4,1,1) = {"
+Ku
+ao
+aR
+bA
+fx
+AI
+Ku
+"}
+(5,1,1) = {"
+Ku
+ao
+bi
+bk
+bP
+JU
+Ku
+"}
+(6,1,1) = {"
+Ku
+ao
+ao
+Me
+si
+RV
+Ku
+"}
+(7,1,1) = {"
+Ku
+Ku
+Ku
+TK
+TK
+te
+Ku
+"}
+(8,1,1) = {"
+yx
+Ku
+Ku
+PC
+dj
+qg
+Ku
+"}
+(9,1,1) = {"
+yx
+Ku
+Ku
+Ku
+Ku
+Ku
+Ku
+"}

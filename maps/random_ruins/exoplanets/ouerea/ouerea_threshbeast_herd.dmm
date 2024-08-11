@@ -1,0 +1,323 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/exoplanet/ouerea)
+"k" = (
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"m" = (
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"z" = (
+/obj/structure/flora/grass/junglegrass/random,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"Q" = (
+/obj/structure/flora/grass/junglegrass/random,
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"U" = (
+/obj/structure/flora/tree/jungle/small/random,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+
+(1,1,1) = {"
+a
+a
+a
+m
+m
+m
+m
+m
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+a
+m
+m
+m
+m
+m
+m
+m
+m
+m
+a
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+a
+m
+m
+m
+m
+U
+m
+z
+m
+m
+m
+m
+a
+a
+a
+"}
+(4,1,1) = {"
+a
+m
+m
+m
+z
+z
+m
+m
+m
+k
+m
+m
+m
+m
+m
+a
+"}
+(5,1,1) = {"
+a
+m
+m
+k
+m
+z
+Q
+m
+m
+m
+m
+m
+U
+m
+m
+a
+"}
+(6,1,1) = {"
+a
+m
+z
+m
+m
+m
+m
+z
+z
+m
+m
+m
+m
+m
+m
+a
+"}
+(7,1,1) = {"
+a
+m
+m
+m
+m
+m
+m
+m
+z
+z
+z
+m
+m
+m
+m
+a
+"}
+(8,1,1) = {"
+a
+a
+m
+m
+m
+m
+m
+m
+k
+m
+m
+m
+m
+m
+a
+a
+"}
+(9,1,1) = {"
+a
+a
+k
+m
+m
+k
+m
+m
+m
+m
+m
+m
+m
+m
+a
+a
+"}
+(10,1,1) = {"
+a
+a
+m
+m
+z
+m
+m
+m
+m
+m
+m
+Q
+z
+m
+a
+a
+"}
+(11,1,1) = {"
+a
+m
+U
+m
+m
+m
+m
+m
+m
+z
+z
+m
+m
+m
+a
+a
+"}
+(12,1,1) = {"
+a
+m
+m
+m
+m
+m
+m
+z
+z
+z
+k
+m
+m
+m
+m
+a
+"}
+(13,1,1) = {"
+a
+m
+m
+m
+k
+m
+k
+z
+m
+m
+m
+m
+m
+m
+m
+a
+"}
+(14,1,1) = {"
+a
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+m
+a
+a
+"}
+(15,1,1) = {"
+a
+a
+m
+m
+m
+m
+m
+m
+m
+U
+m
+m
+m
+a
+a
+a
+"}
+(16,1,1) = {"
+a
+a
+a
+a
+a
+m
+m
+m
+m
+m
+m
+m
+a
+a
+a
+a
+"}

@@ -8,7 +8,7 @@
 	standard 0 if fail
 */
 
-/mob/living/proc/apply_damage(var/damage = 0, var/damagetype = DAMAGE_BRUTE, var/def_zone, var/used_weapon, var/damage_flags = 0, var/armor_pen, var/silent = FALSE)
+/mob/living/proc/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	if(!damage)
 		return FALSE
 
@@ -23,7 +23,7 @@
 		if(DAMAGE_BRUTE)
 			adjustBruteLoss(damage)
 		if(DAMAGE_BURN)
-			if(HAS_FLAG(mutations, COLD_RESISTANCE))
+			if((mutations & COLD_RESISTANCE))
 				damage = 0
 			adjustFireLoss(damage)
 		if(DAMAGE_TOXIN)
@@ -49,28 +49,67 @@
 	if(halloss) apply_damage(halloss, DAMAGE_PAIN, def_zone, blocked)
 	return TRUE
 
-/mob/living/proc/apply_effect(var/effect = 0,var/effecttype = STUN, var/blocked = 0)
-	if(!effect || (blocked >= 100))	return 0
-	switch(effecttype)
+/**
+ * Apply an effect to the mob
+ *
+ * * effect - The amount of effect to apply, a number
+ * * effect_type - An effect eg. `STUN`, `WEAKEN`; see `code\__DEFINES\damage_organs.dm` for relative defines
+ * * blocked - The amount of effect that was blocked, eg. by armor, a number, percentage
+ *
+ * Returns `TRUE` if the effect was applied, `FALSE` otherwise
+ */
+/mob/living/proc/apply_effect(effect = 0, effect_type = STUN, blocked = 0)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	//Check that noone fucked up the vars
+	if(!isnum(effect))
+		stack_trace("Passed a wrong value in the proc for the effect var, it must be a number!")
+		return FALSE
+
+	if(!isnum(blocked))
+		stack_trace("Passed a wrong value in the proc for the blocked var, it must be a number!")
+		blocked = 0
+
+	if(!istext(effect_type))
+		stack_trace("Passed a wrong value in the proc for the effect_type var, it must be an effect!")
+		return FALSE
+
+	//If the armor blocked it all, no effect is to be applied
+	if(blocked >= 100)
+		return FALSE
+
+	//Apply the effect based on type, accounting for the blocked percentage
+	switch(effect_type)
+
 		if(STUN)
 			Stun(effect * BLOCKED_MULT(blocked))
+
 		if(WEAKEN)
 			Weaken(effect * BLOCKED_MULT(blocked))
+
 		if(PARALYZE)
 			Paralyse(effect * BLOCKED_MULT(blocked))
+
 		if(DAMAGE_PAIN)
 			adjustHalLoss(effect * BLOCKED_MULT(blocked)) //Changed this to use the wrapper function, it shouldn't directly alter the value
+
 		if(STUTTER)
 			if(status_flags & CANSTUN) // stun is usually associated with stutter
 				stuttering = max(stuttering, effect * BLOCKED_MULT(blocked))
+
 		if(EYE_BLUR)
 			eye_blurry = max(eye_blurry, effect * BLOCKED_MULT(blocked))
+
 		if(DROWSY)
 			drowsiness = max(drowsiness, effect * BLOCKED_MULT(blocked))
+
 		if(INCINERATE)
 			IgniteMob(effect * BLOCKED_MULT(blocked))
+
+	//Update health for the mob
 	updatehealth()
-	return 1
+
+	return TRUE
 
 
 /mob/living/proc/apply_effects(var/stun = 0, var/weaken = 0, var/paralyze = 0, var/irradiate = 0, var/stutter = 0, var/eyeblur = 0, var/drowsy = 0, var/agony = 0, var/incinerate = 0, var/blocked = 0)

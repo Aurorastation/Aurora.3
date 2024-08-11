@@ -47,10 +47,10 @@
 	..()
 	remove_cuffs(user)
 
-/obj/item/clothing/shoes/sneakers/orange/attackby(H as obj, mob/user as mob)
+/obj/item/clothing/shoes/sneakers/orange/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if (istype(H, /obj/item/handcuffs))
-		attach_cuffs(H, user)
+	if (istype(attacking_item, /obj/item/handcuffs))
+		attach_cuffs(attacking_item, user)
 
 /obj/item/clothing/shoes/sneakers/yellow
 	name = "yellow shoes"
@@ -89,7 +89,7 @@
 	item_state = "black"
 
 /obj/item/clothing/shoes/sneakers/black/noslip
-	item_flags = NOSLIP
+	item_flags = ITEM_FLAG_NO_SLIP
 
 /obj/item/clothing/shoes/sneakers/rainbow
 	name = "rainbow shoes"
@@ -166,6 +166,12 @@
 	icon_state = "whitedf"
 	item_state = "whitedf"
 
+/obj/item/clothing/shoes/flats/color
+	desc = "A pair of low-heeled women's dress flats, in a variety of colors."
+	name = "dress flats"
+	icon_state = "colordf"
+	item_state = "colordf"
+
 //hi-tops
 
 /obj/item/clothing/shoes/sneakers/hitops
@@ -173,6 +179,12 @@
 	desc = "A pair of shoes that extends past the ankle. Based on a centuries-old, timeless design."
 	icon_state = "whitehi"
 	item_state = "whitehi"
+
+/obj/item/clothing/shoes/sneakers/hitops/thightops
+	name = "white thigh-tops"
+	desc = "A pair of shoes that extends to the thigh. Based on a centuries-old, timeless design."
+	icon_state = "whiteth"
+	item_state = "whiteth"
 
 /obj/item/clothing/shoes/sneakers/hitops/red
 	name = "red high-tops"
@@ -221,4 +233,8 @@
 
 /obj/item/clothing/shoes/sneakers/hitops/tip
 	worn_overlay = "over"
+	build_from_parts = TRUE
+
+/obj/item/clothing/shoes/sneakers/hitops/thightops/tip
+	worn_overlay = "overth"
 	build_from_parts = TRUE

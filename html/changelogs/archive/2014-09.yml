@@ -1,0 +1,28 @@
+2014-09-05:
+  RavingManiac:
+  - experiment: 'NewPipe implemented: Supply and scrubber pipes can be run in parallel
+      without connecting to each other.'
+  - rscadd: Supply pipes will only connect to supply pipes, vents and Universal Pipe
+      Adapters(UPAs).
+  - rscadd: Scrubber pipes will only connect to scrubber pipes, scrubbers and UPAs.
+  - rscadd: UPAs will connect to regular, scrubber and supply pipes.
+2014-09-20:
+  HarpyEagle:
+  - bugfix: Fixes evidence bags and boxes eating each other. Evidence bags now store
+      items by dragging the bag onto the item to be stored.
+2014-09-28:
+  Gamerofthegame:
+  - rscadd: Hoverpods fully supported, currently orderable from cargo. Two slots,
+      three cargo, space flight and a working mech for all other intents and purposes.
+  - rscadd: Added the Rigged laser and Passenger Compartment equipment. The rigged
+      laser is a weapon for working exosuits - just a ordinary laser, but with triple
+      the cool down and rather power inefficient. The passenger compartment allows
+      other people to board and hitch a ride on the mech - such as in fire rescue
+      or for space flight.
+  Zuhayr:
+  - rscadd: Organs can now be removed and transplanted.
+  - tweak: Brain surgery is now the same as chest surgery regarding the steps leading
+      up to it.
+  - tweak: Appendix and kidney now share the groin and removing the first will prevent
+      appendicitis.
+  - tweak: Lots of backend surgery/organ stuff, see the PR if you need to know.

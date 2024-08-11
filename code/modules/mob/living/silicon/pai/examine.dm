@@ -1,19 +1,18 @@
-/mob/living/silicon/pai/examine(mob/user, distance, is_adjacent)
-	. = ..(user, distance, is_adjacent, infix = ", personal AI")
-
-	var/msg = ""
+/mob/living/silicon/pai/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..(user, distance, is_adjacent, ", personal AI", suffix)
 	switch(src.stat)
 		if(CONSCIOUS)
-			if(!src.client)	msg += "\nIt appears to be in stand-by mode." //afk
-		if(UNCONSCIOUS)		msg += "\n<span class='warning'>It doesn't seem to be responding.</span>"
-		if(DEAD)			msg += "\n<span class='deadsay'>It looks completely unsalvageable.</span>"
-	msg += "\n*---------*"
+			if(!src.client)
+				. += "\nIt appears to be in stand-by mode." //afk
+		if(UNCONSCIOUS)
+			. += "\n<span class='warning'>It doesn't seem to be responding.</span>"
+		if(DEAD)
+			. += "\n<span class='deadsay'>It looks completely unsalvageable.</span>"
 
-	if(print_flavor_text()) msg += "\n[print_flavor_text()]\n"
+	if(print_flavor_text())
+		. += "\n[print_flavor_text()]\n"
 
-	if (pose)
-		if( findtext(pose,".",length(pose)) == 0 && findtext(pose,"!",length(pose)) == 0 && findtext(pose,"?",length(pose)) == 0 )
-			pose = addtext(pose,".") //Makes sure all emotes end with a period.
-		msg += "\nIt [pose]"
-
-	to_chat(user, msg)
+	if(pose)
+		if(findtext(pose, ".", length(pose)) == 0 && findtext(pose, "!", length(pose)) == 0 && findtext(pose, "?", length(pose)) == 0)
+			pose = addtext(pose, ".") // Makes sure all emotes end with punctuation.
+		. += "\nIt [pose]"

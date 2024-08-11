@@ -1,0 +1,1412 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bK" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"cd" = (
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"et" = (
+/obj/machinery/optable,
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"gj" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"gs" = (
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"gy" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/exoplanet/grass/konyang)
+"iW" = (
+/obj/machinery/door/urban{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"jy" = (
+/obj/item/material/shard,
+/obj/item/material/shard,
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"jS" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/tray,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"kD" = (
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"md" = (
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/item/stack/rods,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"mu" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/exoplanet/grass/konyang)
+"mU" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"oE" = (
+/obj/machinery/light{
+	dir = 1;
+	pixel_y = 3
+	},
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"pl" = (
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/structure/bed/roller,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"pn" = (
+/obj/structure/bed/roller,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"pq" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/storage/firstaid/adv{
+	pixel_x = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"pV" = (
+/obj/machinery/light{
+	dir = 8;
+	pixel_y = 0;
+	pixel_x = -4
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"qj" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"qt" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"qz" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/device/healthanalyzer{
+	pixel_y = -1
+	},
+/obj/item/device/healthanalyzer{
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"qH" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/medical,
+/obj/structure/curtain/open/medical,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"rd" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"rl" = (
+/obj/structure/flora/tree/konyang/spring,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"rP" = (
+/obj/effect/landmark/corpse/ipc_zombie,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"te" = (
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/machinery/light{
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"vO" = (
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"wc" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_y = 9;
+	pixel_x = -5
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_y = 0
+	},
+/obj/item/storage/pill_bottle/inaprovaline{
+	pixel_y = -5;
+	pixel_x = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"wn" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"wJ" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/storage/firstaid/adv{
+	pixel_x = -4;
+	pixel_y = -4
+	},
+/obj/item/stack/nanopaste{
+	pixel_y = 0;
+	pixel_x = 10
+	},
+/obj/item/stack/nanopaste{
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"xq" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/exoplanet/grass/konyang)
+"xw" = (
+/obj/effect/map_effect/window_spawner/full/wood,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"xB" = (
+/obj/item/stack/rods,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"yv" = (
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/item/stack/medical/splint/full,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"yZ" = (
+/obj/structure/window_frame/wood,
+/obj/item/material/shard,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"zu" = (
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"zw" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"Aa" = (
+/obj/structure/flora/tree/konyang/blossom,
+/obj/effect/floor_decal/konyang_flowers,
+/obj/effect/floor_decal/konyang_flowers,
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang/pink,
+/area/exoplanet/grass/konyang)
+"Cc" = (
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/item/stack/medical/bruise_pack/full{
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"DB" = (
+/obj/machinery/door/urban{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"DO" = (
+/obj/item/material/shard,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"Er" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/exoplanet/grass/konyang)
+"Gg" = (
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/item/material/shard,
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"GS" = (
+/turf/simulated/wall/wood,
+/area/konyang/rural_clinic)
+"GT" = (
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"Ia" = (
+/obj/structure/flora/rock/konyang/moss,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"IF" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/stack/medical/advanced/bruise_pack/full{
+	pixel_y = 9
+	},
+/obj/item/stack/medical/advanced/bruise_pack/full{
+	pixel_y = 0;
+	pixel_x = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"IW" = (
+/obj/structure/flora/rock/konyang/moss,
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"JK" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/storage/firstaid/regular{
+	pixel_y = 8;
+	pixel_x = -4
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_y = -5;
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"JT" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/exoplanet/grass/konyang)
+"JY" = (
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"Ka" = (
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/exoplanet/grass/konyang)
+"KI" = (
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/exoplanet/grass/konyang)
+"Mh" = (
+/mob/living/simple_animal/aquatic/fish,
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/exoplanet/grass/konyang)
+"NZ" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/stack/medical/advanced/bruise_pack/full{
+	pixel_y = -7;
+	pixel_x = 6
+	},
+/obj/item/auto_cpr{
+	pixel_x = -6;
+	pixel_y = -1
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"Oz" = (
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/item/material/shard,
+/obj/item/stack/rods,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"Sg" = (
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/item/reagent_containers/hypospray,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"SG" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/stack/medical/ointment/full{
+	pixel_x = 8;
+	pixel_y = 4
+	},
+/obj/item/stack/medical/ointment/full{
+	pixel_x = 4;
+	pixel_y = -7
+	},
+/obj/item/stack/medical/ointment/full{
+	pixel_x = -3;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"TB" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/spray/cleaner{
+	desc = "Someone has crossed out the Space from Space Cleaner and written in Surgery. 'Do not remove under punishment of death!!!' is scrawled on the back.";
+	icon_state = "sterilesprayblue";
+	name = "surgery cleaner"
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"Up" = (
+/obj/structure/flora/rock/konyang/moss,
+/turf/simulated/floor/exoplanet/konyang/wilting,
+/area/exoplanet/grass/konyang)
+"Vq" = (
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"WB" = (
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"Xb" = (
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/item/stack/rods,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"Xe" = (
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+"XG" = (
+/obj/effect/floor_decal/corner/green/diagonal{
+	dir = 4
+	},
+/obj/item/material/shard,
+/turf/simulated/floor/tiled/white,
+/area/konyang/rural_clinic)
+"XO" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/konyang,
+/area/exoplanet/grass/konyang)
+
+(1,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(2,1,1) = {"
+Xe
+Xe
+Xe
+gy
+gy
+gy
+Xe
+Xe
+Xe
+bK
+bK
+Er
+bK
+bK
+bK
+bK
+Xe
+Xe
+Xe
+Xe
+Ka
+Ka
+Ka
+Ka
+Xe
+Xe
+qj
+Xe
+Xe
+Xe
+"}
+(3,1,1) = {"
+Xe
+Xe
+gy
+gy
+gy
+gy
+Xe
+kD
+Xe
+bK
+bK
+bK
+KI
+KI
+KI
+Xe
+Xe
+Xe
+KI
+bK
+JT
+JT
+Mh
+JT
+Ka
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(4,1,1) = {"
+Xe
+Xe
+gy
+gy
+gy
+gy
+gy
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+rl
+Xe
+Xe
+bK
+bK
+JT
+JT
+JT
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(5,1,1) = {"
+Xe
+Xe
+Xe
+gy
+gy
+Aa
+gy
+gy
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+bK
+bK
+bK
+JT
+bK
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(6,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+gy
+gy
+mu
+gy
+Xe
+Xe
+Xe
+bK
+bK
+IW
+Xe
+qj
+Xe
+Xe
+Xe
+Xe
+Ia
+bK
+Xe
+Xe
+qj
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(7,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+gy
+gy
+gy
+gy
+Xe
+zw
+bK
+bK
+bK
+bK
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+bK
+Xe
+Xe
+qj
+Xe
+Ia
+Xe
+Xe
+Xe
+"}
+(8,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+bK
+bK
+Xe
+Xe
+Xe
+Xe
+bK
+bK
+bK
+Xe
+qj
+Xe
+bK
+Xe
+bK
+rd
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(9,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+bK
+bK
+Xe
+Xe
+Xe
+Xe
+bK
+bK
+bK
+Xe
+qj
+Xe
+Xe
+Xe
+bK
+bK
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(10,1,1) = {"
+Xe
+Xe
+KI
+Xe
+Xe
+bK
+bK
+KI
+KI
+KI
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(11,1,1) = {"
+Xe
+Xe
+Xe
+qj
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+rl
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+rl
+Xe
+Xe
+Xe
+"}
+(12,1,1) = {"
+Xe
+Xe
+Xe
+qj
+Xe
+Xe
+Xe
+Xe
+rP
+rP
+rP
+rP
+rP
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+bK
+XO
+bK
+Xe
+Xe
+Xe
+Xe
+Xe
+bK
+"}
+(13,1,1) = {"
+Xe
+Xe
+Xe
+qj
+GS
+GS
+GS
+GS
+GS
+xw
+xw
+yZ
+GS
+gj
+GS
+gj
+GS
+Xe
+Xe
+Xe
+Xe
+Xe
+bK
+bK
+Xe
+Xe
+Xe
+qj
+Xe
+bK
+"}
+(14,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+GS
+qH
+zu
+qH
+GS
+zu
+Vq
+Vq
+xw
+Vq
+Vq
+Vq
+GS
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+bK
+"}
+(15,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+GS
+zu
+cd
+zu
+DB
+cd
+Oz
+zu
+xw
+Vq
+Vq
+Vq
+GS
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Ia
+Xe
+Xe
+Xe
+Xe
+Xe
+bK
+"}
+(16,1,1) = {"
+Xe
+Xe
+KI
+Xe
+GS
+qH
+zu
+qH
+GS
+pl
+DO
+Vq
+iW
+Vq
+Vq
+Vq
+GS
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+qj
+Xe
+Xe
+bK
+"}
+(17,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+GS
+GS
+GS
+GS
+GS
+zu
+GT
+zu
+GS
+qt
+jy
+qt
+GS
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+KI
+KI
+KI
+Xe
+Xe
+Xe
+"}
+(18,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+GS
+JY
+et
+pV
+GS
+pl
+xB
+Vq
+zu
+Vq
+XG
+Vq
+GS
+Xe
+Xe
+Xe
+qj
+qj
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(19,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+GS
+oE
+cd
+zu
+DB
+cd
+zu
+zu
+md
+Gg
+cd
+Xb
+yZ
+Xe
+Xe
+Xe
+qj
+qj
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(20,1,1) = {"
+Xe
+bK
+bK
+Xe
+GS
+jS
+WB
+TB
+GS
+zu
+pn
+pn
+zu
+wn
+zu
+Vq
+xw
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+rl
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(21,1,1) = {"
+Xe
+bK
+Er
+Xe
+GS
+GS
+GS
+GS
+GS
+mU
+GS
+GS
+mU
+GS
+GS
+GS
+GS
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+KI
+xq
+qj
+Xe
+Xe
+Xe
+Xe
+"}
+(22,1,1) = {"
+Xe
+bK
+Er
+Xe
+Xe
+Xe
+Xe
+GS
+zu
+zu
+zu
+zu
+zu
+zu
+GS
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+KI
+KI
+Xe
+qj
+qj
+Xe
+Xe
+Xe
+Xe
+"}
+(23,1,1) = {"
+Xe
+bK
+Er
+KI
+Xe
+Xe
+Xe
+GS
+zu
+qz
+NZ
+wJ
+SG
+Cc
+GS
+Xe
+Xe
+Xe
+Xe
+rl
+Xe
+KI
+KI
+Xe
+qj
+qj
+Xe
+Xe
+Xe
+Xe
+"}
+(24,1,1) = {"
+Xe
+Xe
+Er
+Er
+Xe
+Xe
+Xe
+GS
+gs
+zu
+Sg
+zu
+Cc
+te
+GS
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+KI
+KI
+Xe
+qj
+qj
+Ia
+Xe
+Xe
+Xe
+"}
+(25,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+GS
+yv
+JK
+wc
+pq
+IF
+vO
+GS
+Xe
+Xe
+KI
+KI
+Er
+bK
+bK
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(26,1,1) = {"
+Xe
+Xe
+Xe
+Ia
+Xe
+Xe
+Xe
+GS
+GS
+GS
+GS
+GS
+GS
+GS
+GS
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(27,1,1) = {"
+Xe
+Xe
+Xe
+qj
+qj
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+KI
+KI
+Up
+Xe
+Xe
+qj
+Xe
+bK
+bK
+bK
+bK
+bK
+Xe
+Xe
+"}
+(28,1,1) = {"
+Xe
+Xe
+Xe
+qj
+qj
+Xe
+Xe
+Xe
+KI
+KI
+KI
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+bK
+bK
+bK
+bK
+bK
+Xe
+Xe
+"}
+(29,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+rl
+Xe
+Xe
+Xe
+Xe
+bK
+bK
+bK
+bK
+bK
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}
+(30,1,1) = {"
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+bK
+bK
+bK
+bK
+bK
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+Xe
+"}

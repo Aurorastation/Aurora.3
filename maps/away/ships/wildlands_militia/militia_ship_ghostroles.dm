@@ -7,7 +7,7 @@
 	spawnpoints = list("militiaman")
 	max_count = 3
 
-	outfit = /datum/outfit/admin/militia_crew
+	outfit = /obj/outfit/admin/militia_crew
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -16,7 +16,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/militia_crew
+/obj/outfit/admin/militia_crew
 	name = "Militiaman"
 
 	uniform = /obj/item/clothing/under/tactical
@@ -29,13 +29,13 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/militia_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/militia_crew/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
-/datum/outfit/admin/militia_crew/get_id_access()
-	return list(access_external_airlocks)
+/obj/outfit/admin/militia_crew/get_id_access()
+	return list(ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/militia_crew/captain
 	short_name = "militia_crew_captain"
@@ -45,7 +45,7 @@
 	spawnpoints = list("militia_crew_captain")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/militia_crew/captain
+	outfit = /obj/outfit/admin/militia_crew/captain
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -53,11 +53,11 @@
 	special_role = "Militia Captain"
 
 
-/datum/outfit/admin/militia_crew/captain
+/obj/outfit/admin/militia_crew/captain
 	name = "Militia Captain"
 
 	accessory = /obj/item/clothing/accessory/sash/red
 
 /obj/item/card/id/militia_ship
 	name = "militia ship id"
-	access = list(access_external_airlocks)
+	access = list(ACCESS_EXTERNAL_AIRLOCKS)

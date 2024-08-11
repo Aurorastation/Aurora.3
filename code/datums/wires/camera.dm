@@ -1,73 +1,74 @@
 // Wires for cameras.
 
 /datum/wires/camera
+	proper_name = "Camera"
 	holder_type = /obj/machinery/camera
-	wire_count = 6
 
-/datum/wires/camera/GetInteractWindow()
+/datum/wires/camera/New(atom/holder)
+	wires = list(
+		WIRE_POWER, WIRE_FOCUS,
+		WIRE_LIGHT, WIRE_ALARM
+	)
+	add_duds(1)
+	..()
 
-	. = ..()
+/datum/wires/camera/get_status()
 	var/obj/machinery/camera/C = holder
-	. += "<br>\n[(C.view_range == initial(C.view_range) ? "The focus light is on." : "The focus light is off.")]"
-	. += "<br>\n[(C.can_use() ? "The power link light is on." : "The power link light is off.")]"
-	. += "<br>\n[(C.light_disabled ? "The camera light is off." : "The camera light is on.")]"
-	. += "<br>\n[(C.alarm_on ? "The alarm light is on." : "The alarm light is off.")]"
-	return .
+	. = ..()
+	. += "[(C.view_range == initial(C.view_range) ? "The focus light is on." : "The focus light is off.")]"
+	. += "[(C.can_use() ? "The power link light is on." : "The power link light is off.")]"
+	. += "[(C.light_disabled ? "The camera light is off." : "The camera light is on.")]"
+	. += "[(C.alarm_on ? "The alarm light is on." : "The alarm light is off.")]"
 
-/datum/wires/camera/CanUse(var/mob/living/L)
+/datum/wires/camera/interactable(mob/user)
+	if(!..())
+		return FALSE
 	var/obj/machinery/camera/C = holder
 	return C.panel_open
 
-var/const/CAMERA_WIRE_FOCUS = 1
-var/const/CAMERA_WIRE_POWER = 2
-var/const/CAMERA_WIRE_LIGHT = 4
-var/const/CAMERA_WIRE_ALARM = 8
-var/const/CAMERA_WIRE_NOTHING1 = 16
-var/const/CAMERA_WIRE_NOTHING2 = 32
-
-/datum/wires/camera/UpdateCut(var/index, var/mended)
+/datum/wires/camera/on_cut(wire, mend, source)
 	var/obj/machinery/camera/C = holder
 
-	switch(index)
-		if(CAMERA_WIRE_FOCUS)
-			var/range = (mended ? initial(C.view_range) : C.short_range)
+	switch(wire)
+		if(WIRE_FOCUS)
+			var/range = (mend ? initial(C.view_range) : C.short_range)
 			C.setViewRange(range)
 
-		if(CAMERA_WIRE_POWER)
-			if(C.status && !mended || !C.status && mended)
+		if(WIRE_POWER)
+			if(C.status && !mend || !C.status && mend)
 				C.deactivate(usr, 1)
 
-		if(CAMERA_WIRE_LIGHT)
-			C.light_disabled = !mended
+		if(WIRE_LIGHT)
+			C.light_disabled = !mend
 
-		if(CAMERA_WIRE_ALARM)
-			if(!mended)
+		if(WIRE_ALARM)
+			if(!mend)
 				C.triggerCameraAlarm()
 			else
 				C.cancelCameraAlarm()
 	return
 
-/datum/wires/camera/UpdatePulsed(var/index)
+/datum/wires/camera/on_pulse(wire)
 	var/obj/machinery/camera/C = holder
-	if(IsIndexCut(index))
+	if(is_cut(wire))
 		return
-	switch(index)
-		if(CAMERA_WIRE_FOCUS)
+	switch(wire)
+		if(WIRE_FOCUS)
 			var/new_range = (C.view_range == initial(C.view_range) ? C.short_range : initial(C.view_range))
 			C.setViewRange(new_range)
 
-		if(CAMERA_WIRE_POWER)
+		if(WIRE_POWER)
 			C.kick_viewers() // Kicks anyone watching the camera
 
-		if(CAMERA_WIRE_LIGHT)
+		if(WIRE_LIGHT)
 			C.light_disabled = !C.light_disabled
 
-		if(CAMERA_WIRE_ALARM)
+		if(WIRE_ALARM)
 			C.visible_message("[icon2html(C, viewers(get_turf(C)))] *beep*", "[icon2html(C, viewers(get_turf(C)))] *beep*")
 	return
 
 /datum/wires/camera/proc/CanDeconstruct()
-	if(IsIndexCut(CAMERA_WIRE_POWER) && IsIndexCut(CAMERA_WIRE_FOCUS) && IsIndexCut(CAMERA_WIRE_LIGHT) && IsIndexCut(CAMERA_WIRE_NOTHING1) && IsIndexCut(CAMERA_WIRE_NOTHING2))
-		return 1
+	if(is_cut(WIRE_POWER) && is_cut(WIRE_FOCUS) && is_cut(WIRE_LIGHT))
+		return TRUE
 	else
-		return 0
+		return FALSE

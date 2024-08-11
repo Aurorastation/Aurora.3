@@ -1,172 +1,208 @@
-// Wire datums. Created by Giacomand.
-// Was created to replace a horrible case of copy and pasted code with no care for maintability.
-// Goodbye Door wires, Cyborg wires, Vending Machine wires, Autolathe wires
-// Protolathe wires, APC wires and Camera wires!
+#define MAXIMUM_EMP_WIRES 3
 
-#define MAX_FLAG 65535
-
-var/list/same_wires = list()
-// 14 colours, if you're adding more than 14 wires then add more colours here
-var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown", "gold", "gray", "cyan", "navy", "purple", "pink", "black", "yellow")
+var/global/list/wire_color_directory = list()
+var/global/list/wire_name_directory = list()
 
 /datum/wires
-
-	var/random = 0 // Will the wires be different for every single instance.
-	var/atom/holder = null // The holder
+	/// The holder (atom that contains these wires).
+	var/atom/holder
+	/// The holder's typepath (used for sanity checks to make sure the holder is the appropriate type for these wire sets).
+	var/holder_type
+	/// Whether this wire datum errors out if it has a wrong holder or not.
 	var/cares_about_holder = TRUE
-	var/holder_type = null // The holder type; used to make sure that the holder is the correct type.
-	var/wire_count = 0 // Max is 16
-	var/wires_status = 0 // BITFLAG OF WIRES
+	/// Key that enables wire assignments to be common across different holders. If null, will use the holder_type as a key.
+	var/dictionary_key = null
+	/// The display name for the wire set. Used in the hacking interface.
+	var/proper_name = "Unknown"
 
-	var/list/wires
-	var/list/signalers
+	/// List of all wires.
+	var/list/wires = list()
+	/// List of cut wires.
+	var/list/cut_wires = list() // List of wires that have been cut.
+	/// Dictionary of colours to wire.
+	var/list/colors = list()
+	/// List of attached assemblies.
+	var/list/assemblies = list()
+	/// If every instance of these wires should be random. Prevents wires from showing up in station blueprints.
+	var/random = FALSE
+	/// Wire manufacturer for the UI skin.
+	var/manufacturer = "hephaestus"
 
-	var/table_options = " align='center'"
-	var/row_options1 = " width='80px'"
-	var/row_options2 = " width='260px'"
-	var/window_x = 370
-	var/window_y = 470
+/datum/wires/New(atom/holder)
+	..()
+	if(!istype(holder, holder_type) && cares_about_holder)
+		CRASH("Wire holder is not of the expected type!")
 
-/datum/wires/New(var/atom/holder)
-	wires = list()
-	signalers = list()
 	src.holder = holder
-	if(cares_about_holder && !istype(holder, holder_type))
-		CRASH("Our holder is null/the wrong type!")
+	if(istype(holder, /obj/machinery))
+		var/obj/machinery/M = holder
+		manufacturer = M.manufacturer
 
-	// Generate new wires
+	// If there is a dictionary key set, we'll want to use that. Otherwise, use the holder type.
+	var/key = dictionary_key ? dictionary_key : holder_type
+
+	RegisterSignal(holder, COMSIG_QDELETING, PROC_REF(on_holder_qdel))
 	if(random)
-		GenerateWires()
-	// Get the same wires
+		randomize()
 	else
-		// We don't have any wires to copy yet, generate some and then copy it.
-		if(!same_wires[holder_type])
-			GenerateWires()
-			same_wires[holder_type] = src.wires.Copy()
+		if(!wire_color_directory[key])
+			randomize()
+			wire_color_directory[key] = colors
+			wire_name_directory[key] = proper_name
 		else
-			var/list/wires = same_wires[holder_type]
-			src.wires = wires // Reference the wires list.
+			colors = wire_color_directory[key]
 
 /datum/wires/Destroy()
 	holder = null
+	//properly clear refs to avoid harddels & other problems
+	for(var/color in assemblies)
+		var/obj/item/device/assembly/assembly = assemblies[color]
+		assembly.holder = null
+	LAZYCLEARLIST(assemblies)
 	return ..()
 
-/datum/wires/proc/GenerateWires()
-	var/list/colours_to_pick = wireColours.Copy() // Get a copy, not a reference.
-	var/list/indexes_to_pick = list()
-	//Generate our indexes
-	for(var/i = 1; i < MAX_FLAG && i < (1 << wire_count); i += i)
-		indexes_to_pick += i
-	colours_to_pick.len = wire_count // Downsize it to our specifications.
+/datum/wires/proc/add_duds(duds)
+	while(duds)
+		var/dud = WIRE_DUD_PREFIX + "[--duds]"
+		if(dud in wires)
+			continue
+		wires += dud
 
-	while(colours_to_pick.len && indexes_to_pick.len)
-		// Pick and remove a colour
-		var/colour = pick_n_take(colours_to_pick)
+///Called when holder is qdeleted for us to clean ourselves as not to leave any unlawful references.
+/datum/wires/proc/on_holder_qdel(atom/source, force)
+	SIGNAL_HANDLER
 
-		// Pick and remove an index
-		var/index = pick_n_take(indexes_to_pick)
+	qdel(src)
 
-		src.wires[colour] = index
-		//wires = shuffle(wires)
+/datum/wires/proc/randomize()
+	var/static/list/possible_colors = list(
+	"blue",
+	"brown",
+	"crimson",
+	"cyan",
+	"gold",
+	"green",
+	"grey",
+	"lime",
+	"magenta",
+	"orange",
+	"pink",
+	"purple",
+	"red",
+	"silver",
+	"violet",
+	"white",
+	"yellow",
+	)
+
+	var/list/my_possible_colors = possible_colors.Copy()
+
+	for(var/wire in shuffle(wires))
+		colors[pick_n_take(my_possible_colors)] = wire
+
+/datum/wires/proc/shuffle_wires()
+	colors.Cut()
+	randomize()
+
+/datum/wires/proc/repair()
+	for(var/wire in cut_wires)
+		cut(wire) // I KNOW I KNOW OK
 
 
-/datum/wires/proc/Interact(var/mob/living/user)
+/datum/wires/proc/get_wire(color)
+	return colors[color]
 
-	var/html = null
-	if(holder && CanUse(user))
-		html = GetInteractWindow()
-	if(html)
-		user.set_machine(holder)
+/datum/wires/proc/get_color_of_wire(wire_type)
+	for(var/color in colors)
+		var/other_type = colors[color]
+		if(wire_type == other_type)
+			return color
+
+/datum/wires/proc/get_attached(color)
+	if(assemblies[color])
+		return assemblies[color]
+	return null
+
+/datum/wires/proc/is_attached(color)
+	if(assemblies[color])
+		return TRUE
+
+/datum/wires/proc/is_cut(wire)
+	return (wire in cut_wires)
+
+/datum/wires/proc/is_color_cut(color)
+	return is_cut(get_wire(color))
+
+/datum/wires/proc/is_all_cut()
+	if(cut_wires.len == wires.len)
+		return TRUE
+
+/datum/wires/proc/is_dud(wire)
+	return findtext(wire, WIRE_DUD_PREFIX, 1, length(WIRE_DUD_PREFIX) + 1)
+
+/datum/wires/proc/is_dud_color(color)
+	return is_dud(get_wire(color))
+
+/datum/wires/proc/cut(wire, source)
+	if(is_cut(wire))
+		cut_wires -= wire
+		SEND_SIGNAL(src, COMSIG_MEND_WIRE(wire), wire)
+		on_cut(wire, mend = TRUE, source = source)
 	else
-		user.unset_machine()
-		// No content means no window.
-		user << browse(null, "window=wires")
+		cut_wires += wire
+		SEND_SIGNAL(src, COMSIG_CUT_WIRE(wire), wire)
+		on_cut(wire, mend = FALSE, source = source)
+
+/datum/wires/proc/cut_color(color, source)
+	cut(get_wire(color), source)
+
+/datum/wires/proc/cut_random(source)
+	cut(wires[rand(1, wires.len)], source)
+
+/datum/wires/proc/cut_all(source)
+	for(var/wire in wires)
+		cut(wire, source)
+
+/datum/wires/proc/pulse(wire, user, force=FALSE)
+	if(!force && is_cut(wire))
 		return
+	on_pulse(wire, user)
 
-	var/datum/browser/popup = new(user, "wires", holder.name, window_x, window_y)
-	popup.set_content(html)
-	popup.set_title_image(user.browse_rsc_icon(holder.icon, holder.icon_state))
-	popup.open()
+/datum/wires/proc/pulse_color(color, mob/living/user, force=FALSE)
+	pulse(get_wire(color), user, force)
 
-/datum/wires/proc/GetInteractWindow()
-	var/html = "<div class='block'>"
-	html += "<h3>Exposed Wires</h3>"
-	html += "<table[table_options]>"
+/datum/wires/proc/pulse_assembly(obj/item/device/assembly/signaler/S)
+	for(var/color in assemblies)
+		if(S == assemblies[color])
+			pulse_color(color, force=TRUE)
+			return TRUE
 
-	for(var/colour in wires)
-		html += "<tr>"
-		html += "<td[row_options1]><font color='[colour]'>[capitalize(colour)]</font></td>"
-		html += "<td[row_options2]>"
-		html += "<A href='?src=\ref[src];action=1;cut=[colour]'>[IsColourCut(colour) ? "Mend" :  "Cut"]</A>"
-		html += " <A href='?src=\ref[src];action=1;pulse=[colour]'>Pulse</A>"
-		html += " <A href='?src=\ref[src];action=1;attach=[colour]'>[IsAttached(colour) ? "Detach" : "Attach"] Signaler</A></td></tr>"
-	html += "</table>"
-	html += "</div>"
+/datum/wires/proc/attach_assembly(color, obj/item/device/assembly/signaler/S)
+	if(S && istype(S) && !is_attached(color))
+		assemblies[color] = S
+		S.forceMove(holder)
+		S.connected = src
+		return S
 
-	if (random)
-		html += "<i>\The [holder] appears to have tamper-resistant electronics installed.</i><br><br>" //maybe this could be more generic?
+/datum/wires/proc/detach_assembly(color)
+	var/obj/item/device/assembly/signaler/S = get_attached(color)
+	if(S && istype(S))
+		assemblies -= color
+		S.connected = null
+		S.forceMove(holder.loc)
+		return S
 
-	return html
+/// Called from [/atom/proc/emp_act]
+/datum/wires/proc/emp_pulse()
+	var/list/possible_wires = shuffle(wires)
+	var/remaining_pulses = MAXIMUM_EMP_WIRES
 
-/datum/wires/Topic(href, href_list)
-	..()
-	if(in_range(holder, usr) && isliving(usr))
-
-		var/mob/living/L = usr
-		if(CanUse(L) && href_list["action"])
-			if(href_list["attach"])
-				var/colour = href_list["attach"]
-				// Attach
-				if(!IsAttached(colour))
-					var/obj/item/device/assembly/signaler/I = L.get_type_in_hands(/obj/item/device/assembly/signaler)
-					if(!istype(I))
-						to_chat(usr, SPAN_WARNING("You do not have a signaler to attach!"))
-						return
-					usr.drop_from_inventory(I)
-					Attach(colour, I)
-				// Detach
-				else
-					var/obj/item/O = Detach(colour)
-					if(O)
-						L.put_in_hands(O)
-
-			if(href_list["cut"]) // Toggles the cut/mend status
-				var/obj/item/I = L.get_active_hand()
-				if(!I || !I.iswirecutter())
-					if(isrobot(L))
-						var/mob/living/silicon/robot/R = L
-						I = R.return_wirecutter()
-					else
-						I = L.get_inactive_hand()
-				if(I?.iswirecutter())
-					var/colour = href_list["cut"]
-					CutWireColour(colour)
-					holder.add_hiddenprint(L)
-				else
-					to_chat(L, SPAN_WARNING("You need wirecutters!"))
-
-			else if(href_list["pulse"])
-				var/obj/item/I = L.get_active_hand()
-				if(!I || !I.ismultitool())
-					if(isrobot(L))
-						var/mob/living/silicon/robot/R = L
-						I = R.return_multitool()
-					else
-						I = L.get_inactive_hand()
-				if(I?.ismultitool())
-					var/colour = href_list["pulse"]
-					PulseColour(colour)
-					holder.add_hiddenprint(L)
-				else
-					to_chat(L, SPAN_WARNING("You need a multitool!"))
-
-
-		// Update Window
-			Interact(usr)
-
-	if(href_list["close"])
-		usr << browse(null, "window=wires")
-		usr.unset_machine(holder)
+	for(var/wire in possible_wires)
+		if(prob(33))
+			pulse(wire)
+			remaining_pulses--
+			if(!remaining_pulses)
+				break
 
 /datum/wires/proc/get_wire_diagram(var/mob/user)
 	return
@@ -175,154 +211,157 @@ var/list/wireColours = list("red", "blue", "green", "darkred", "orange", "brown"
 // Overridable Procs
 //
 
-// Called when wires cut/mended.
-/datum/wires/proc/UpdateCut(var/index, var/mended)
+/datum/wires/proc/interactable(mob/user)
+	SHOULD_CALL_PARENT(TRUE)
+	if((SEND_SIGNAL(user, COMSIG_TRY_WIRES_INTERACT, holder) & COMPONENT_CANT_INTERACT_WIRES))
+		return FALSE
+	return TRUE
+
+/datum/wires/proc/get_status()
+	return list()
+
+/datum/wires/proc/on_cut(wire, mend = FALSE, source = null)
 	return
 
-// Called when wire pulsed. Add code here.
-/datum/wires/proc/UpdatePulsed(var/index)
+/datum/wires/proc/on_pulse(wire, user)
 	return
 
-/datum/wires/proc/CanUse(var/mob/living/L)
-	return 1
+// End Overridable Procs
 
-// Example of use:
-/*
-
-var/const/BOLTED= 1
-var/const/SHOCKED = 2
-var/const/SAFETY = 4
-var/const/POWER = 8
-
-/datum/wires/door/UpdateCut(var/index, var/mended)
-	var/obj/machinery/door/airlock/A = holder
-	switch(index)
-		if(BOLTED)
-		if(!mended)
-			A.bolt()
-	if(SHOCKED)
-		A.shock()
-	if(SAFETY )
-		A.safety()
-
-*/
-
-
-//
-// Helper Procs
-//
-
-/datum/wires/proc/PulseColour(var/colour)
-	PulseIndex(GetIndex(colour))
-
-/datum/wires/proc/PulseIndex(var/index)
-	if(IsIndexCut(index))
+/datum/wires/proc/interact(mob/user)
+	if(!interactable(user))
 		return
-	UpdatePulsed(index)
-
-/datum/wires/proc/GetIndex(var/colour)
-	if(wires[colour])
-		var/index = wires[colour]
-		return index
-	else
-		CRASH("[colour] is not a key in wires.")
-
-//
-// Is Index/Colour Cut procs
-//
-
-/datum/wires/proc/IsColourCut(var/colour)
-	var/index = GetIndex(colour)
-	return IsIndexCut(index)
-
-/datum/wires/proc/IsIndexCut(var/index)
-	return (index & wires_status)
-
-//
-// signaler Procs
-//
-
-/datum/wires/proc/IsAttached(var/colour)
-	if(signalers[colour])
-		return 1
-	return 0
-
-/datum/wires/proc/GetAttached(var/colour)
-	if(signalers[colour])
-		return signalers[colour]
-	return null
-
-/datum/wires/proc/Attach(var/colour, var/obj/item/device/assembly/signaler/S)
-	if(colour && S)
-		if(!IsAttached(colour))
-			signalers[colour] = S
-			S.forceMove(holder)
-			S.connected = src
-			return S
-
-/datum/wires/proc/Detach(var/colour)
-	if(colour)
-		var/obj/item/device/assembly/signaler/S = GetAttached(colour)
-		if(S)
-			signalers -= colour
-			S.connected = null
-			S.forceMove(holder.loc)
-			return S
+	ui_interact(user)
+	for(var/A in assemblies)
+		var/obj/item/I = assemblies[A]
+		if(istype(I) && I.on_found(user))
+			return
 
 
-/datum/wires/proc/Pulse(var/obj/item/device/assembly/signaler/S)
+/**
+ * Checks whether wire assignments should be revealed.
+ *
+ * Returns TRUE if the wires should be revealed, FALSE otherwise.
+ * Currently checks for admin ghost AI, abductor multitool and blueprints.
+ * Arguments:
+ * * user - The mob to check when deciding whether to reveal wires.
+ */
+/datum/wires/proc/can_reveal_wires(mob/user)
+	// Admin ghost can see a purpose of each wire.
+	if(isobserver(user) && check_rights(R_MOD, FALSE, user))
+		return TRUE
 
-	for(var/colour in signalers)
-		if(S == signalers[colour])
-			PulseColour(colour)
-			break
+	// Station blueprints do that too, but only if the wires are not randomized.
+	if(istype(user.get_active_hand(), /obj/item/blueprints) && !random)
+		return TRUE
+
+	return FALSE
+
+/**
+ * Whether the given wire should always be revealed.
+ *
+ * Intended to be overridden. Allows for forcing a wire's assignmenmt to always be revealed
+ * in the hacking interface.
+ * Arguments:
+ * * color - Color string of the wire to check.
+ */
+/datum/wires/proc/always_reveal_wire(color)
+	return FALSE
+
+/datum/wires/ui_host()
+	return holder
+
+/datum/wires/ui_status(mob/user)
+	if(interactable(user))
+		return ..()
+	return UI_CLOSE
+
+/datum/wires/ui_state(mob/user)
+	return GLOB.physical_state
 
 
-//
-// Cut Wire Colour/Index procs
-//
+/datum/wires/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if (!ui)
+		ui = new(user, src, "Wires", "[capitalize(holder.name)] Wires")
+		ui.open()
 
-/datum/wires/proc/CutWireColour(var/colour)
-	var/index = GetIndex(colour)
-	CutWireIndex(index)
+/datum/wires/ui_data(mob/user)
+	var/list/data = list()
+	var/list/payload = list()
+	var/reveal_wires = can_reveal_wires(user)
 
-/datum/wires/proc/CutWireIndex(var/index)
-	if(IsIndexCut(index))
-		wires_status &= ~index
-		UpdateCut(index, 1)
-	else
-		wires_status |= index
-		UpdateCut(index, 0)
+	for(var/color in colors)
+		payload.Add(list(list(
+			"color" = color,
+			"wire" = (((reveal_wires || always_reveal_wire(color)) && !is_dud_color(color)) ? get_wire(color) : null),
+			"cut" = is_color_cut(color),
+			"attached" = is_attached(color)
+		)))
+	data["manufacturer"] = manufacturer
+	data["wires"] = payload
+	data["status"] = get_status()
+	data["proper_name"] = (proper_name != "Unknown") ? proper_name : null
+	data["tamper_resistance"] = FALSE
+	if(random)
+		data["tamper_resistance"] = TRUE
+	return data
 
-/datum/wires/proc/RandomCut()
-	var/r = rand(1, wires.len)
-	CutWireIndex(r)
+/datum/wires/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(. || !interactable(usr))
+		return
 
-/datum/wires/proc/RandomCutAll(var/probability = 10)
-	for(var/i = 1; i < MAX_FLAG && i < (1 << wire_count); i += i)
-		if(prob(probability))
-			CutWireIndex(i)
+	var/mob/living/L = usr
+	var/target_wire = params["wire"]
+	switch(action)
+		if("attach")
+			// Attach
+			if(!is_attached(target_wire))
+				var/obj/item/device/assembly/signaler/I = L.get_type_in_hands(/obj/item/device/assembly/signaler)
+				if(!istype(I))
+					to_chat(usr, SPAN_WARNING("You do not have a signaler to attach!"))
+					return
+				usr.drop_from_inventory(I)
+				if(!attach_assembly(target_wire, I))
+					I.forceMove(get_turf(L))
+				. = TRUE
+			// Detach
+			else
+				var/obj/item/O = detach_assembly(target_wire)
+				if(O)
+					L.put_in_hands(O)
+					. = TRUE
 
-/datum/wires/proc/CutAll()
-	for(var/i = 1; i < MAX_FLAG && i < (1 << wire_count); i += i)
-		CutWireIndex(i)
+		if("cut") // Toggles the cut/mend status
+			var/obj/item/I = L.get_active_hand()
+			if(!I || !I.iswirecutter())
+				if(isrobot(L))
+					var/mob/living/silicon/robot/R = L
+					I = R.return_wirecutter()
+				else
+					I = L.get_inactive_hand()
+			if(I?.iswirecutter())
+				cut_color(target_wire, source = L)
+				holder.add_hiddenprint(L)
+				I.play_tool_sound(holder, 50)
+				. = TRUE
+			else
+				to_chat(L, SPAN_WARNING("You need wirecutters!"))
 
-/datum/wires/proc/IsAllCut()
-	if(wires_status == (1 << wire_count) - 1)
-		return 1
-	return 0
+		if("pulse")
+			var/obj/item/I = L.get_active_hand()
+			if(!I || !I.ismultitool())
+				if(isrobot(L))
+					var/mob/living/silicon/robot/R = L
+					I = R.return_multitool()
+				else
+					I = L.get_inactive_hand()
+			if(I?.ismultitool())
+				pulse_color(target_wire, L)
+				holder.add_hiddenprint(L)
+				. = TRUE
+			else
+				to_chat(L, SPAN_WARNING("You need a multitool!"))
 
-/datum/wires/proc/MendAll()
-	for(var/i = 1; i < MAX_FLAG && i < (1 << wire_count); i += i)
-		if(IsIndexCut(i))
-			CutWireIndex(i)
-
-//
-//Shuffle and Mend
-//
-
-/datum/wires/proc/Shuffle()
-	wires_status = 0
-	GenerateWires()
-
-#undef MAX_FLAG
+#undef MAXIMUM_EMP_WIRES

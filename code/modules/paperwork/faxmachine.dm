@@ -9,7 +9,7 @@ var/list/admin_departments
 	icon = 'icons/obj/library.dmi'
 	icon_state = "fax"
 	insert_anim = "faxsend"
-	req_one_access = list(access_lawyer, access_heads)
+	req_one_access = list(ACCESS_LAWYER, ACCESS_HEADS)
 	density = 0
 	idle_power_usage = 30
 	active_power_usage = 200
@@ -38,12 +38,18 @@ var/list/admin_departments
 	allfaxes += src
 	if( !(("[department]" in alldepartments) || ("[department]" in admin_departments)) )
 		alldepartments |= department
-	destination = current_map.boss_name
+	destination = SSatlas.current_map.boss_name
+
+/obj/machinery/photocopier/faxmachine/Destroy()
+	allfaxes -= src
+	QDEL_NULL(identification)
+
+	. = ..()
 
 /obj/machinery/photocopier/faxmachine/ui_data(mob/user)
 	var/list/data = list()
 	data["destination"] = destination
-	data["bossname"] = current_map.boss_name
+	data["bossname"] = SSatlas.current_map.boss_name
 	data["auth"] = is_authenticated()
 	data["cooldown_end"] = sendtime + sendcooldown
 	data["world_time"] = world.time
@@ -70,7 +76,7 @@ var/list/admin_departments
 		ui = new(user, src, "Fax", "Fax Machine", 400, 500)
 		ui.open()
 
-/obj/machinery/photocopier/faxmachine/attackby(obj/item/O as obj, mob/user as mob)
+/obj/machinery/photocopier/faxmachine/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	SStgui.update_uis(src)
 
@@ -83,7 +89,7 @@ var/list/admin_departments
 		if("send")
 			if (get_remaining_cooldown() > 0)
 				// Rate-limit sending faxes
-				to_chat(usr, "<span class='warning'>The fax machine isn't ready, yet!</span>")
+				to_chat(usr, SPAN_WARNING("The fax machine isn't ready, yet!"))
 				return
 
 			if(copy_item && is_authenticated())
@@ -100,9 +106,9 @@ var/list/admin_departments
 				copy_item.forceMove(loc)
 				if (get_dist(usr, src) < 2)
 					usr.put_in_hands(copy_item)
-					to_chat(usr, "<span class='notice'>You take \the [copy_item] out of \the [src].</span>")
+					to_chat(usr, SPAN_NOTICE("You take \the [copy_item] out of \the [src]."))
 				else
-					to_chat(usr, "<span class='notice'>You eject \the [copy_item] from \the [src].</span>")
+					to_chat(usr, SPAN_NOTICE("You eject \the [copy_item] from \the [src]."))
 				copy_item = null
 				return TRUE
 
@@ -128,23 +134,23 @@ var/list/admin_departments
 		if("linkpda")
 			var/obj/item/modular_computer/pda = usr.get_active_hand()
 			if (!pda || !istype(pda))
-				to_chat(usr, "<span class='warning'>You need to be holding a PDA to link it.</span>")
+				to_chat(usr, SPAN_WARNING("You need to be holding a PDA to link it."))
 			else if (pda in alert_pdas)
-				to_chat(usr, "<span class='notice'>\The [pda] appears to be already linked.</span>")
+				to_chat(usr, SPAN_NOTICE("\The [pda] appears to be already linked."))
 				//Update the name real quick.
 				alert_pdas[pda] = pda.name
 				return TRUE
 			else
 				alert_pdas += pda
 				alert_pdas[pda] = pda.name
-				to_chat(usr, "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>")
+				to_chat(usr, SPAN_NOTICE("You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine."))
 				return TRUE
 
 		if("unlink")
 			var/obj/item/modular_computer/pda = locate(params["unlink"])
 			if (pda && istype(pda))
 				if (pda in alert_pdas)
-					to_chat(usr, "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>")
+					to_chat(usr, SPAN_NOTICE("You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes."))
 					alert_pdas -= pda
 					return TRUE
 
@@ -226,12 +232,12 @@ var/list/admin_departments
 	if (!istype(incoming, /obj/item/paper) && !istype(incoming, /obj/item/photo) && !istype(incoming, /obj/item/paper_bundle))
 		return 0
 
-	playsound(loc, "sound/bureaucracy/print.ogg", 75, 1)
+	playsound(loc, 'sound/bureaucracy/print.ogg', 75, 1)
 
 	// give the sprite some time to flick
 	spawn(20)
 		if (istype(incoming, /obj/item/paper))
-			copy(src, incoming, 1, 0, 0, toner = src.toner)
+			copy(src, incoming, TRUE, FALSE, FALSE, toner = toner)
 		else if (istype(incoming, /obj/item/photo))
 			photocopy(src, incoming, toner = src.toner)
 		else if (istype(incoming, /obj/item/paper_bundle))
@@ -265,11 +271,11 @@ var/list/admin_departments
 
 	var/obj/item/rcvdcopy
 	if (istype(copy_item, /obj/item/paper))
-		rcvdcopy = copy(src, copy_item, 0, toner = src.toner)
+		rcvdcopy = copy(src, copy_item, FALSE, toner = toner)
 	else if (istype(copy_item, /obj/item/photo))
-		rcvdcopy = photocopy(src, copy_item, toner = src.toner)
+		rcvdcopy = photocopy(src, copy_item, toner = toner)
 	else if (istype(copy_item, /obj/item/paper_bundle))
-		rcvdcopy = bundlecopy(src, copy_item, 0, toner = src.toner)
+		rcvdcopy = bundlecopy(src, copy_item, FALSE, toner = toner)
 	else
 		visible_message("[src] beeps, \"Error transmitting message.\"")
 		return
@@ -278,8 +284,8 @@ var/list/admin_departments
 	arrived_faxes += rcvdcopy
 
 	//message badmins that a fax has arrived
-	if (destination == current_map.boss_name)
-		message_admins(sender, "[uppertext(current_map.boss_short)] FAX", rcvdcopy, "CentcommFaxReply", "#006100")
+	if (destination == SSatlas.current_map.boss_name)
+		message_admins(sender, "[uppertext(SSatlas.current_map.boss_short)] FAX", rcvdcopy, "CentcommFaxReply", "#006100")
 	else if (destination == "External Routing")
 		message_admins(sender, "EXTERNAL ROUTING FAX", rcvdcopy, "CentcommFaxReply", "#1F66A0")
 
@@ -289,11 +295,11 @@ var/list/admin_departments
 
 
 /obj/machinery/photocopier/faxmachine/proc/message_admins(var/mob/sender, var/faxname, var/obj/item/sent, var/reply_type, font_colour="#006100")
-	var/msg = "<span class='notice'> <b><font color='[font_colour]'>[faxname]: </font>[key_name(sender, 1)] (<A HREF='?_src_=holder;adminplayeropts=\ref[sender]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[sender]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[sender]'>SM</A>) (<A HREF='?_src_=holder;adminplayerobservejump=\ref[sender]'>JMP</A>) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<a href='?_src_=holder;[reply_type]=\ref[src];faxMachine=\ref[src]'>REPLY</a>)</b>: Receiving '[sent.name]' via secure connection ... <a href='?_src_=holder;AdminFaxView=\ref[sent]'>view message</a></span>"
+	var/msg = SPAN_NOTICE(" <b><font color='[font_colour]'>[faxname]: </font>[key_name(sender, 1)] (<A HREF='?_src_=holder;adminplayeropts=\ref[sender]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[sender]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[sender]'>SM</A>) (<A HREF='?_src_=holder;adminplayerobservejump=\ref[sender]'>JMP</A>) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<a href='?_src_=holder;[reply_type]=\ref[src];faxMachine=\ref[src]'>REPLY</a>)</b>: Receiving '[sent.name]' via secure connection ... <a href='?_src_=holder;AdminFaxView=\ref[sent]'>view message</a>")
 
 	var/cciaa_present = 0
 	var/cciaa_afk = 0
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		var/flags = C.holder.rights & (R_ADMIN|R_CCIAA)
 		if(flags)
@@ -314,7 +320,7 @@ var/list/admin_departments
 
 	discord_msg += " Gamemode: [SSticker.mode]"
 
-	discord_bot.send_to_cciaa(discord_msg)
+	SSdiscord.send_to_cciaa(discord_msg)
 
 /obj/machinery/photocopier/faxmachine/proc/do_pda_alerts()
 	for(var/obj/item/modular_computer/pda in alert_pdas)

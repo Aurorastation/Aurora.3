@@ -96,8 +96,8 @@
 
 		SSnanoui.user_transferred(current, new_character)
 		SStgui.on_transfer(current, new_character)
-		if(current.client && ticket_panels[current.client])
-			var/datum/ticket_panel/tp = ticket_panels[current.client]
+		if(current.client && GLOB.ticket_panels[current.client])
+			var/datum/ticket_panel/tp = GLOB.ticket_panels[current.client]
 			tp.ticket_panel_window.user = new_character
 
 	if(new_character.mind)		//remove any mind currently in our new body's mind variable
@@ -137,6 +137,19 @@
 			output += "<B>Objective #[obj_count]</B>: [objective.explanation_text]"
 			obj_count++
 
+	/// Culture and origin may have been set while there was no mob.
+	if(ishuman(recipient))
+		var/mob/living/carbon/human/H = recipient
+		output += "<hr><b>Culture Information:</b><br></hr>"
+		if(H.culture)
+			output += "Your culture is <b>[H.culture.name]</b>.<br>"
+		if(H.origin)
+			output += "Your origin is <b>[H.origin.name]</b>.<br>"
+		if(H.religion)
+			output += "Your religion is <b>[H.religion]</b>.<br>"
+		if(H.accent)
+			output += "Your accent is <b>[H.accent]</b>.<br>"
+
 	var/datum/browser/memory_win = new(recipient, "memory")
 	memory_win.set_content(output)
 	memory_win.open()
@@ -151,8 +164,8 @@
 	out += "Assigned role: [assigned_role]. <a href='?src=\ref[src];role_edit=1'>Edit</a><br>"
 	out += "<hr>"
 	out += "Factions and special roles:<br><table>"
-	for(var/antag_type in all_antag_types)
-		var/datum/antagonist/antag = all_antag_types[antag_type]
+	for(var/antag_type in GLOB.all_antag_types)
+		var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 		out += "[antag.get_panel_entry(src)]"
 	out += "</table><hr>"
 	out += "<b>Objectives</b></br>"
@@ -180,31 +193,31 @@
 	if(!check_rights(R_ADMIN))	return
 
 	if(href_list["add_antagonist"])
-		var/datum/antagonist/antag = all_antag_types[href_list["add_antagonist"]]
+		var/datum/antagonist/antag = GLOB.all_antag_types[href_list["add_antagonist"]]
 		if(antag)
 			if(antag.add_antagonist(src, 1, 1, 0, 1, 1)) // Ignore equipment and role type for this.
-				log_admin("[key_name_admin(usr)] made [key_name(src, highlight_special = 1)] into a [antag.role_text].",admin_key=key_name(usr),ckey=key_name(src))
+				log_admin("[key_name_admin(usr)] made [key_name(src, highlight_special = 1)] into a [antag.role_text].")
 			else
-				to_chat(usr, "<span class='warning'>[src] could not be made into a [antag.role_text]!</span>")
+				to_chat(usr, SPAN_WARNING("[src] could not be made into a [antag.role_text]!"))
 
 	else if(href_list["remove_antagonist"])
-		var/datum/antagonist/antag = all_antag_types[href_list["remove_antagonist"]]
+		var/datum/antagonist/antag = GLOB.all_antag_types[href_list["remove_antagonist"]]
 		if(antag) antag.remove_antagonist(src)
 
 	else if(href_list["equip_antagonist"])
-		var/datum/antagonist/antag = all_antag_types[href_list["equip_antagonist"]]
+		var/datum/antagonist/antag = GLOB.all_antag_types[href_list["equip_antagonist"]]
 		if(antag) antag.equip(src.current)
 
 	else if(href_list["unequip_antagonist"])
-		var/datum/antagonist/antag = all_antag_types[href_list["unequip_antagonist"]]
+		var/datum/antagonist/antag = GLOB.all_antag_types[href_list["unequip_antagonist"]]
 		if(antag) antag.unequip(src.current)
 
 	else if(href_list["move_antag_to_spawn"])
-		var/datum/antagonist/antag = all_antag_types[href_list["move_antag_to_spawn"]]
+		var/datum/antagonist/antag = GLOB.all_antag_types[href_list["move_antag_to_spawn"]]
 		if(antag) antag.place_mob(src.current)
 
 	else if (href_list["role_edit"])
-		var/new_role = input("Select new role", "Assigned role", assigned_role) as null|anything in joblist
+		var/new_role = input("Select new role", "Assigned role", assigned_role) as null|anything in GLOB.joblist
 		if (!new_role) return
 		assigned_role = new_role
 
@@ -218,7 +231,7 @@
 		if(isnull(new_ambition))
 			return
 		src.ambitions = sanitize(new_ambition)
-		to_chat(src.current, "<span class='warning'>Your ambitions have been changed by higher powers, they are now: [src.ambitions]</span>")
+		to_chat(src.current, SPAN_WARNING("Your ambitions have been changed by higher powers, they are now: [src.ambitions]"))
 
 	else if (href_list["obj_edit"] || href_list["obj_add"])
 		var/datum/objective/objective
@@ -363,12 +376,12 @@
 						if(I in organs.implants)
 							qdel(I)
 							break
-				to_chat(H, "<span class='notice'><font size =3><B>Your loyalty implant has been deactivated.</B></font></span>")
-				log_admin("[key_name_admin(usr)] has de-loyalty implanted [current].",admin_key=key_name(usr),ckey=key_name(usr))
+				to_chat(H, SPAN_NOTICE("<font size =3><B>Your loyalty implant has been deactivated.</B></font>"))
+				log_admin("[key_name_admin(usr)] has de-loyalty implanted [current].")
 			if("add")
-				to_chat(H, "<span class='danger'><font size =3>You somehow have become the recipient of a loyalty transplant, and it just activated!</font></span>")
+				to_chat(H, SPAN_DANGER("<font size =3>You somehow have become the recipient of a loyalty transplant, and it just activated!</font>"))
 				H.implant_loyalty(H, override = TRUE)
-				log_admin("[key_name_admin(usr)] has loyalty implanted [current].",admin_key=key_name(usr),ckey=key_name(usr))
+				log_admin("[key_name_admin(usr)] has loyalty implanted [current].")
 
 	else if (href_list["silicon"])
 		BITSET(current.hud_updateflag, SPECIALROLE_HUD)
@@ -389,7 +402,7 @@
 					else if(R.module_state_3 == R.module.emag)
 						R.module_state_3 = null
 						R.contents -= R.module.emag
-					log_admin("[key_name_admin(usr)] has unemagged [R].",admin_key=key_name(usr),ckey_target=key_name(R))
+					log_admin("[key_name_admin(usr)] has unemagged [R].")
 
 			if("unemagcyborgs")
 				if (istype(current, /mob/living/silicon/ai))
@@ -408,7 +421,7 @@
 							else if(R.module_state_3 == R.module.emag)
 								R.module_state_3 = null
 								R.contents -= R.module.emag
-					log_admin("[key_name_admin(usr)] has unemagged [ai]'s Cyborgs.",admin_key=key_name(usr),ckey_target=key_name(ai))
+					log_admin("[key_name_admin(usr)] has unemagged [ai]'s Cyborgs.")
 
 	else if (href_list["common"])
 		switch(href_list["common"])
@@ -432,7 +445,7 @@
 
 	else if (href_list["obj_announce"])
 		var/obj_count = 1
-		to_chat(current, "<span class='notice'>Your current objectives:</span>")
+		to_chat(current, SPAN_NOTICE("Your current objectives:"))
 		for(var/datum/objective/objective in objectives)
 			to_chat(current, "<B>Objective #[obj_count]</B>: [objective.explanation_text]")
 			obj_count++

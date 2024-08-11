@@ -26,7 +26,7 @@
 	item_state = "pbadge"
 	overlay_state = "pbadge"
 	badge_string = "Corporate Reporter"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 	drop_sound = 'sound/items/drop/rubber.ogg'
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
@@ -42,7 +42,7 @@
 	desc = "A journalist's 'pass' shaped, for whatever reason, like a security badge. It is made of plastic."
 	icon_state = "pbadge"
 	badge_string = "Sicurity Journelist"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/accessory/badge/old
 	name = "faded badge"
@@ -66,18 +66,23 @@
 	if(isliving(user))
 		if(badge_string)
 			if(stored_name)
-				user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [stored_name], [badge_string].</span>","<span class='notice'>You display your [src.name].\nIt reads: [stored_name], [badge_string].</span>")
+				user.visible_message(SPAN_NOTICE("[user] displays their [src.name].\nIt reads: [stored_name], [badge_string]."),
+										SPAN_NOTICE("You display your [src.name].\nIt reads: [stored_name], [badge_string]."))
 			else
-				user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [badge_string].</span>","<span class='notice'>You display your [src.name]. It reads: [badge_string].</span>")
+				user.visible_message(SPAN_NOTICE("[user] displays their [src.name].\nIt reads: [badge_string]."),
+										SPAN_NOTICE("You display your [src.name]. It reads: [badge_string]."))
 		else
 			if(stored_name)
-				user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [stored_name].</span>","<span class='notice'>You display your [src.name].\nIt reads: [stored_name].</span>")
+				user.visible_message(SPAN_NOTICE("[user] displays their [src.name].\nIt reads: [stored_name]."),
+										SPAN_NOTICE("You display your [src.name].\nIt reads: [stored_name]."))
 			else
-				user.visible_message("<span class='notice'>[user] displays their [src.name].</span>","<span class='notice'>You display your [src.name].</span>")
+				user.visible_message(SPAN_NOTICE("[user] displays their [src.name]."),
+										SPAN_NOTICE("You display your [src.name]."))
 
 /obj/item/clothing/accessory/badge/attack(mob/living/carbon/human/M, mob/living/user)
 	if(isliving(user))
-		user.visible_message("<span class='danger'>[user] invades [M]'s personal space, thrusting [src] into their face insistently.</span>","<span class='danger'>You invade [M]'s personal space, thrusting [src] into their face insistently.</span>")
+		user.visible_message(SPAN_DANGER("[user] invades [M]'s personal space, thrusting [src] into their face insistently."),
+								SPAN_DANGER("You invade [M]'s personal space, thrusting [src] into their face insistently."))
 
 /obj/item/clothing/accessory/badge/verb/flip_side()
 	set category = "Object"
@@ -134,22 +139,22 @@
 
 /obj/item/clothing/accessory/badge/holo/emag_act(var/remaining_charges, var/mob/user)
 	if (emagged)
-		to_chat(user, "<span class='danger'>\The [src] is already cracked.</span>")
+		to_chat(user, SPAN_DANGER("\The [src] is already cracked."))
 		return
 	else
 		emagged = 1
-		to_chat(user, "<span class='danger'>You crack the holobadge security checks.</span>")
+		to_chat(user, SPAN_DANGER("You crack the holobadge security checks."))
 		return 1
 
-/obj/item/clothing/accessory/badge/holo/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(O.GetID())
+/obj/item/clothing/accessory/badge/holo/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.GetID())
 
-		var/obj/item/card/id/id_card = O.GetID()
+		var/obj/item/card/id/id_card = attacking_item.GetID()
 
 		if(!istype(id_card))
 			return
 
-		if(access_security in id_card.access || emagged)
+		if(ACCESS_SECURITY in id_card.access || emagged)
 			to_chat(user, "You imprint your ID details onto the badge.")
 			set_name(user.real_name)
 		else
@@ -158,22 +163,22 @@
 	..()
 
 /obj/item/clothing/accessory/badge/officer
-	name = "officer's badge"
-	desc = "A bronze corporate security badge. Stamped with the words 'Security Officer.'"
+	name = "security officer's badge"
+	desc = "A bronze security badge."
 	icon_state = "bronzebadge"
 	overlay_state = "bronzebadge"
 	slot_flags = SLOT_TIE
 
 /obj/item/clothing/accessory/badge/warden
 	name = "warden's badge"
-	desc = "A silver corporate security badge. Stamped with the words 'Brig Officer.'"
+	desc = "A silver security badge."
 	icon_state = "silverbadge"
 	overlay_state = "silverbadge"
 	slot_flags = SLOT_TIE
 
 /obj/item/clothing/accessory/badge/hos
-	name = "commander's badge"
-	desc = "An immaculately polished gold security badge. Labeled 'Commander.'"
+	name = "head of security's badge"
+	desc = "An immaculately polished gold security badge."
 	icon_state = "goldbadge"
 	overlay_state = "goldbadge"
 	slot_flags = SLOT_TIE
@@ -205,34 +210,34 @@
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
-/obj/item/clothing/accessory/badge/tcfl_papers
-	name = "\improper TCFL enlistment"
-	desc = "A compact piece of legal paperwork, making one an official recruit of the Tau Ceti Foreign Legion. Go Biesel!"
+/obj/item/clothing/accessory/badge/tcaf_papers
+	name = "\improper TCAF enlistment"
+	desc = "A compact piece of legal paperwork, making one an official recruit of the Tau Ceti Armed Forces. Go Biesel!"
 	icon_state = "tc-visa"
 	overlay_state = "tc-visa"
 	slot_flags = SLOT_TIE
-	badge_string = "Tau Ceti Foreign Legion Recruit"
+	badge_string = "Tau Ceti Armed Forces Recruit"
 
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
-/obj/item/clothing/accessory/badge/tcfl_papers/service
-	name = "\improper TCFL service card"
-	desc = "A small card identifying one as a current member of the Tau Ceti Foreign Legion. Often used to secure discounts in \
+/obj/item/clothing/accessory/badge/tcaf_papers/service
+	name = "\improper TCAF service card"
+	desc = "A small card identifying one as a current member of the Tau Ceti Armed Forces. Often used to secure discounts in \
 	Republic shops. Go Biesel!"
-	badge_string = "Tau Ceti Foreign Legion Service Member"
+	badge_string = "Tau Ceti Armed Forces Service Member"
 
-/obj/item/clothing/accessory/badge/tcfl_papers/service/veteran
-	name = "\improper TCFL veteran's service card"
-	desc = "A small card identifying one as a former member of the Tau Ceti Foreign Legion. Often used to secure discounts in \
+/obj/item/clothing/accessory/badge/tcaf_papers/service/veteran
+	name = "\improper TCAF veteran's service card"
+	desc = "A small card identifying one as a former member of the Tau Ceti Armed Forces. Often used to secure discounts in \
 	Republic shops. Go Biesel!"
-	badge_string = "Tau Ceti Foreign Legion Veteran"
+	badge_string = "Tau Ceti Armed Forces Veteran"
 
-/obj/item/clothing/accessory/badge/tcfl_papers/service/reservist
-	name = "\improper TCFL reservist's service card"
-	desc = "A small card identifying one as a current reservist of the Tau Ceti Foreign Legion. Often used to secure discounts in \
+/obj/item/clothing/accessory/badge/tcaf_papers/service/reservist
+	name = "\improper TCAF reservist's service card"
+	desc = "A small card identifying one as a current reservist of the Tau Ceti Armed Forces. Often used to secure discounts in \
 	Republic shops. Go Biesel!"
-	badge_string = "Tau Ceti Foreign Legion Reservist"
+	badge_string = "Tau Ceti Armed Forces Reservist"
 
 /obj/item/clothing/accessory/badge/sheriff
 	name = "sheriff badge"
@@ -260,7 +265,7 @@
 	icon_state = "solbadge"
 	overlay_state = "solbadge"
 	badge_string = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/clothing/accessory/badge/idbadge/nt
 	name = "\improper NT ID badge"
@@ -296,7 +301,7 @@
 	item_state = "passcard_ceti"
 	contained_sprite = TRUE
 	slot_flags = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = FALSE
 	v_flippable = FALSE
 	badge_string = null
@@ -463,7 +468,7 @@
 	contained_sprite = TRUE
 	build_from_parts = TRUE
 	slot_flags = SLOT_HOLSTER
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 
 	drop_sound = 'sound/items/drop/metalweapon.ogg'
 	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
@@ -482,6 +487,27 @@
 	desc_extended = "The 'homeworld' of the human positronic intelligence, life on Konyang is a tightly-knit tapestry of organic-synthetic relations. The planet's unique conditions are reflected by a small piece of preserved moss stored in the card's plastic casing."
 	icon_state = "passcard_konyang"
 	item_state = "passcard_konyang"
+
+/obj/item/clothing/accessory/badge/passcard/hegemony
+	name = "hegemony passcard"
+	desc = "A passcard issued to citizens of the Izweski Hegemony."
+	desc_extended = "As the feudal citizenship standards of the Hegemony have changed to deal with the realities of an interstellar empire, human-inspired passcards have become a quick and easy method of identification for Unathi travelling abroad. This passcard is the most common design, seen throughout Hegemony space."
+	icon_state = "passcard_hegemony"
+	item_state = "passcard_hegemony"
+
+/obj/item/clothing/accessory/badge/passcard/ouerea
+	name = "ouerean passcard"
+	desc = "A passcard issued to residents of the planet Ouerea."
+	desc_extended = "Though not a fully independent state, the people of Ouerea have managed to win a great deal of autonomy from the Izweski Hegemony, which is reflected in the passcards that citizens of the Confederation carry."
+	icon_state = "passcard_ouerea"
+	item_state = "passcard_ouerea"
+
+/obj/item/clothing/accessory/badge/passcard/tret
+	name = "tret passcard"
+	desc = "A passcard issued to residents of the planet Tret."
+	desc_extended = "In recognition of the K'lax Hive's unique status and needs, the Hegemony has issued custom passcards for the planet Tret, for easy identification of K'laxan Vaurcae abroad. Many K'lax do not carry these, though those working in the Hegemony are likely to."
+	icon_state = "passcard_tret"
+	item_state = "passcard_tret"
 
 // Work Visa
 /obj/item/clothing/accessory/badge/passcard/workvisa
@@ -507,7 +533,7 @@
 	item_state = "passport_ceti"
 	contained_sprite = TRUE
 	slot_flags = null
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	flippable = FALSE
 	v_flippable = FALSE
 	badge_string = null
@@ -568,12 +594,18 @@
 	var/credit_score = 5
 	var/species_tag = ""
 
-/obj/item/clothing/accessory/badge/passport/nralakk/examine(mob/user)
+/obj/item/clothing/accessory/badge/passport/nralakk/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("The passport displays the owner's social credit score as: [credit_score]."))
+	. +=  SPAN_NOTICE("The passport displays the owner's social credit score as: [credit_score].")
 
 /obj/item/clothing/accessory/badge/passport/nralakk/update_icon()
 	icon_state = "[initial(icon_state)][open ? "_o[species_tag]" : ""]"
+
+/obj/item/clothing/accessory/badge/passport/hegemony
+	name = "hegemony passport"
+	desc = "A passport issued to a citizen of the Izweski Hegemony."
+	icon_state = "passport_hegemony"
+	item_state = "passport_hegemony"
 
 #undef CANT_OPEN
 #undef CLOSED

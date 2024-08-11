@@ -15,7 +15,6 @@ SUBSYSTEM_DEF(cult)
 	var/tome_data           = ""
 
 /datum/controller/subsystem/cult/Initialize()
-	. = ..()
 	for(var/rune in subtypesof(/datum/rune))
 		var/datum/rune/R = new rune
 		runes_by_name[R.name] = rune
@@ -27,6 +26,8 @@ SUBSYSTEM_DEF(cult)
 			tome_data += "This rune has a special limit of <b><i>[R.max_number_allowed]</b></i> runes.<br><hr>"
 			limited_runes[R.type] = R.max_number_allowed //The runes created will tick the counter down to zero.
 		tome_data += "</div>"
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/cult/proc/add_rune(var/datum/rune/R)
 	if(check_rune_limit(R))

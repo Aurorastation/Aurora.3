@@ -1,6 +1,7 @@
 /mob/living/carbon
 	gender = MALE
 	accent = ACCENT_CETI
+	blocks_emissive = EMISSIVE_BLOCK_UNIQUE
 	var/datum/species/species //Contains icon generation and language information, set during New().
 	//stomach contents redefined at mob/living level, removed from here
 
@@ -16,6 +17,8 @@
 	var/pose = null
 	var/list/chem_effects = list()
 	var/list/chem_doses = list()
+	/// For keeping count of misc values (amount of damage, number of ticks, etc)
+	var/list/chem_tracking = list()
 	var/intoxication = 0//Units of alcohol in their system
 	var/datum/reagents/metabolism/bloodstr = null
 	var/datum/reagents/metabolism/touching = null

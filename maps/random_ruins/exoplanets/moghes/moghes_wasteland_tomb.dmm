@@ -1,0 +1,1802 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"at" = (
+/obj/structure/monolith/unathitomb/death,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"aD" = (
+/turf/simulated/floor/exoplanet/gold{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"aF" = (
+/obj/structure/sign/flag/unathi_tapestry/city/north{
+	pixel_y = 32
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"aX" = (
+/obj/structure/table/stone/marble,
+/obj/item/stack/material/gold/full,
+/turf/simulated/floor/exoplanet/gold{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"bt" = (
+/obj/structure/table/stone/marble,
+/obj/item/material/sword/longsword,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"cy" = (
+/obj/structure/unathi_statue/robe,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"cC" = (
+/obj/structure/unathi_statue/crown,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"dc" = (
+/obj/structure/sign/flag/unathi_tapestry/unathi/north{
+	pixel_y = 32
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"dD" = (
+/obj/structure/table/stone/marble,
+/obj/item/stack/material/diamond/full,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"ej" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"fi" = (
+/obj/item/material/twohanded/spear/steel,
+/obj/effect/landmark/corpse/ancient_unathi,
+/obj/structure/closet/sarcophagus/random,
+/obj/item/material/twohanded/pike/halberd/warscythe/bronze,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"gr" = (
+/obj/structure/table/stone/marble,
+/obj/item/material/twohanded/pike/halberd/warscythe/bronze,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"gM" = (
+/obj/structure/unathi_pillar,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"ic" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"iY" = (
+/obj/structure/unathi_statue/robe,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"jx" = (
+/obj/item/material/twohanded/spear/steel,
+/obj/effect/landmark/corpse/ancient_unathi,
+/obj/structure/closet/sarcophagus/random,
+/obj/item/material/twohanded/pike/halberd/warscythe/bronze,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"jz" = (
+/obj/structure/table/stone/marble,
+/obj/item/stack/material/diamond/full,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/gold{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"jI" = (
+/obj/structure/unathi_statue/warrior,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"lj" = (
+/turf/simulated/wall/sandstonediamond,
+/area/moghes_wasteland_tomb)
+"lu" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/gold{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"mt" = (
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/gold{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"oV" = (
+/obj/structure/table/stone/marble,
+/obj/item/material/sword/longsword,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"pu" = (
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"pD" = (
+/obj/structure/sign/flag/unathi_tapestry/unathi/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/gold{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"rn" = (
+/obj/structure/table/stone/marble,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"ro" = (
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"rT" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"sd" = (
+/obj/item/material/sword/khopesh,
+/obj/effect/landmark/corpse/ancient_unathi,
+/obj/structure/closet/sarcophagus/random,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"so" = (
+/obj/structure/table/stone/marble,
+/obj/structure/sign/flag/unathi_tapestry/crown,
+/obj/item/material/scythe/sickle/warsickle/bronze,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"ss" = (
+/obj/item/material/sword/axe,
+/obj/effect/landmark/corpse/ancient_unathi,
+/obj/structure/closet/sarcophagus/random,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"tX" = (
+/obj/structure/sign/flag/unathi_tapestry/brothers/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"wq" = (
+/obj/structure/monolith/unathitomb,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"wv" = (
+/obj/item/material/twohanded/spear/steel,
+/obj/effect/landmark/corpse/ancient_unathi,
+/obj/structure/closet/sarcophagus/random,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"yo" = (
+/obj/structure/monolith/unathitomb/lineage,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"zd" = (
+/obj/structure/unathi_statue/warrior,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"zp" = (
+/obj/effect/landmark/corpse/ancient_unathi,
+/obj/structure/closet/sarcophagus/random,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"zA" = (
+/obj/structure/unathi_statue/robe,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"zL" = (
+/obj/structure/sign/flag/unathi_tapestry/wall/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"Aa" = (
+/obj/structure/monolith/unathitomb,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"Ci" = (
+/obj/structure/sign/flag/unathi_tapestry/warrior{
+	pixel_y = 32;
+	stand_icon = "banner"
+	},
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"CR" = (
+/obj/item/material/sword/axe,
+/obj/effect/landmark/corpse/ancient_unathi,
+/obj/structure/closet/sarcophagus/random,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"DR" = (
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"ER" = (
+/obj/item/material/sword/longsword,
+/obj/effect/landmark/corpse/ancient_unathi,
+/obj/structure/closet/sarcophagus/random,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"ET" = (
+/obj/structure/simple_door/sandstone,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"EZ" = (
+/obj/structure/unathi_pillar,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"FN" = (
+/obj/structure/table/stone/marble,
+/obj/item/stack/material/gold/full,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"Gb" = (
+/obj/item/material/sword/axe,
+/obj/effect/landmark/corpse/ancient_unathi,
+/obj/structure/closet/sarcophagus/random,
+/obj/item/material/twohanded/pike/halberd/warscythe/bronze,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"Ge" = (
+/obj/structure/sign/flag/unathi_tapestry/warrior{
+	pixel_y = -32;
+	stand_icon = "banner"
+	},
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"GV" = (
+/obj/structure/simple_door/sandstone,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"Hb" = (
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes)
+"Hg" = (
+/obj/structure/monolith/unathitomb/lineage,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"Hl" = (
+/obj/structure/sign/flag/unathi_tapestry/warrior{
+	pixel_y = -32;
+	stand_icon = "banner"
+	},
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"IZ" = (
+/obj/effect/landmark/corpse/ancient_unathi/ruler,
+/obj/structure/closet/sarcophagus{
+	trapped = 1
+	},
+/obj/item/material/twohanded/pike/halberd/warscythe/bronze,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"Ld" = (
+/obj/structure/table/stone/marble,
+/obj/item/stack/material/diamond/full,
+/turf/simulated/floor/exoplanet/gold{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"LQ" = (
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"LU" = (
+/obj/structure/sign/flag/unathi_tapestry/unathi/west{
+	pixel_x = -32
+	},
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"Ma" = (
+/obj/structure/simple_door/sandstone,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"Mq" = (
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"Mw" = (
+/obj/effect/landmark/corpse/ancient_unathi,
+/obj/structure/closet/sarcophagus/random,
+/obj/item/material/twohanded/pike/halberd/warscythe/bronze,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"MJ" = (
+/obj/item/material/twohanded/pike/halberd,
+/obj/effect/landmark/corpse/ancient_unathi,
+/obj/structure/closet/sarcophagus/random,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"Nr" = (
+/obj/structure/unathi_statue/warrior/right,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"NJ" = (
+/obj/structure/monolith/unathitomb/king,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"OC" = (
+/obj/structure/monolith/unathitomb,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/silver{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"QZ" = (
+/obj/structure/sign/flag/unathi_tapestry/unathi/east{
+	pixel_x = 32
+	},
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"RY" = (
+/obj/item/material/sword/axe,
+/obj/effect/landmark/corpse/ancient_unathi,
+/obj/structure/closet/sarcophagus/random,
+/obj/item/material/twohanded/pike/halberd/warscythe/bronze,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"TB" = (
+/obj/structure/sign/flag/unathi_tapestry/moon,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"UO" = (
+/turf/simulated/wall/sandstone{
+	can_open = 1
+	},
+/area/moghes_wasteland_tomb)
+"Ve" = (
+/obj/item/material/twohanded/spear/steel,
+/obj/effect/landmark/corpse/ancient_unathi,
+/obj/structure/closet/sarcophagus/random,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"WP" = (
+/obj/structure/table/stone/marble,
+/obj/item/stack/material/diamond/full,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"XB" = (
+/obj/structure/sign/flag/unathi_tapestry,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+"XU" = (
+/turf/simulated/wall/sandstone,
+/area/moghes_wasteland_tomb)
+"YS" = (
+/obj/structure/sign/flag/unathi_tapestry/warrior{
+	pixel_y = 32;
+	stand_icon = "banner"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/marble/dark{
+	temperature = 315.15
+	},
+/area/moghes_wasteland_tomb)
+
+(1,1,1) = {"
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(2,1,1) = {"
+Hb
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(3,1,1) = {"
+Hb
+XU
+Mq
+EZ
+Mq
+zp
+zp
+Mq
+EZ
+Mq
+XU
+Mq
+Mq
+Mq
+ej
+pu
+Mq
+Mq
+Mq
+XU
+MJ
+Ve
+CR
+jx
+XU
+XU
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(4,1,1) = {"
+Hb
+XU
+ic
+cy
+Mq
+pu
+ej
+Mq
+Nr
+Mq
+XU
+EZ
+XB
+Mq
+pu
+pu
+Mq
+EZ
+Mq
+XU
+ic
+Mq
+Mq
+Mq
+Mq
+XU
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(5,1,1) = {"
+Hb
+XU
+Mq
+ic
+Mq
+pu
+ej
+ic
+Mq
+Mq
+XU
+YS
+ic
+Nr
+ej
+pu
+Nr
+Mq
+Mq
+XU
+cy
+Mq
+EZ
+ic
+Mq
+Mq
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(6,1,1) = {"
+Hb
+XU
+zp
+pu
+pu
+pu
+Hg
+ej
+pu
+pu
+Ma
+DR
+ej
+pu
+pu
+Aa
+pu
+pu
+pu
+XU
+tX
+Mq
+yo
+ic
+Mq
+Mq
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(7,1,1) = {"
+Hb
+XU
+zp
+pu
+ej
+pu
+pu
+ej
+pu
+pu
+Ma
+pu
+ej
+pu
+pu
+ej
+pu
+pu
+pu
+XU
+Mq
+ic
+Mq
+ic
+ic
+Mq
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(8,1,1) = {"
+Hb
+XU
+Mq
+Mq
+Mq
+pu
+pu
+Mq
+Mq
+ic
+XU
+YS
+Mq
+jI
+pu
+pu
+jI
+Mq
+pu
+XU
+cy
+Mq
+EZ
+Mq
+ic
+Mq
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(9,1,1) = {"
+Hb
+XU
+ic
+cy
+Mq
+pu
+pu
+Mq
+jI
+Mq
+XU
+EZ
+TB
+Mq
+ej
+pu
+Mq
+EZ
+Ge
+XU
+Mq
+ic
+Mq
+Mq
+Mq
+Mq
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(10,1,1) = {"
+Hb
+XU
+Mq
+EZ
+Mq
+Mw
+zp
+Mq
+EZ
+Mq
+XU
+ic
+ic
+Mq
+pu
+pu
+Mq
+Mq
+pu
+Ma
+ic
+Ve
+RY
+MJ
+Ve
+ic
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(11,1,1) = {"
+Hb
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+Ma
+Ma
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(12,1,1) = {"
+Hb
+XU
+gM
+ic
+ic
+Mq
+Mq
+EZ
+XU
+Mq
+Mq
+EZ
+Mq
+Mq
+pu
+pu
+Mq
+ic
+XU
+Mq
+ic
+Mq
+Mq
+Mq
+Mq
+Mq
+XU
+XU
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(13,1,1) = {"
+Hb
+XU
+Mq
+FN
+aX
+aX
+FN
+ic
+XU
+dc
+Mq
+ic
+Mq
+Mq
+pu
+pu
+Mq
+ic
+XU
+Mq
+Mq
+Mq
+Mq
+Mq
+Mq
+Mq
+XU
+Mq
+XU
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(14,1,1) = {"
+Hb
+XU
+ic
+lu
+Mq
+Mq
+aD
+Mq
+XU
+aD
+aD
+aD
+aD
+aD
+pu
+pu
+Mq
+Mq
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+Mq
+Mq
+XU
+XU
+Hb
+Hb
+Hb
+Hb
+"}
+(15,1,1) = {"
+Hb
+XU
+rn
+lu
+ic
+Mq
+lu
+Mq
+XU
+aD
+iY
+pu
+iY
+lu
+pu
+pu
+EZ
+Mq
+XU
+aF
+Mq
+Mq
+EZ
+Mq
+Mq
+Mq
+XU
+Mq
+Mq
+Mq
+XU
+Hb
+Hb
+Hb
+Hb
+"}
+(16,1,1) = {"
+Hb
+XU
+oV
+ic
+lu
+aD
+ro
+Mq
+XU
+aD
+pu
+NJ
+pu
+aD
+pu
+pu
+Mq
+Mq
+XU
+ro
+Nr
+Mq
+wq
+Nr
+Mq
+Mq
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+Hb
+"}
+(17,1,1) = {"
+Hb
+XU
+gr
+Mq
+Mq
+Mq
+ic
+Mq
+UO
+aD
+pu
+so
+pu
+pu
+ej
+ej
+pu
+pu
+lj
+pu
+ej
+ej
+ej
+pu
+pu
+pu
+XU
+Nr
+Mq
+LU
+Mq
+Mq
+Mq
+lj
+Hb
+"}
+(18,1,1) = {"
+Hb
+XU
+bt
+Mq
+lu
+aD
+ic
+ic
+XU
+aD
+cC
+IZ
+pu
+DR
+ej
+ej
+ej
+ej
+Ma
+pu
+pu
+pu
+ej
+ej
+ej
+ej
+ET
+Mq
+Mq
+EZ
+Mq
+Mq
+Mq
+ET
+Hb
+"}
+(19,1,1) = {"
+Hb
+XU
+LQ
+mt
+Mq
+ic
+aD
+Mq
+XU
+aD
+pu
+so
+ej
+pu
+pu
+pu
+pu
+pu
+lj
+ej
+pu
+pu
+pu
+pu
+ej
+rT
+XU
+jI
+Mq
+QZ
+Mq
+Mq
+Mq
+lj
+Hb
+"}
+(20,1,1) = {"
+Hb
+XU
+ic
+lu
+ic
+Mq
+aD
+Mq
+XU
+aD
+pu
+at
+ej
+aD
+pu
+pu
+Mq
+Mq
+XU
+zL
+jI
+Mq
+yo
+jI
+Mq
+Mq
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+Hb
+"}
+(21,1,1) = {"
+Hb
+XU
+ic
+WP
+jz
+Ld
+dD
+ic
+XU
+aD
+iY
+pu
+zA
+aD
+pu
+pu
+EZ
+Mq
+XU
+Mq
+Mq
+Mq
+EZ
+Mq
+Mq
+ic
+XU
+Mq
+Mq
+Mq
+XU
+Hb
+Hb
+Hb
+Hb
+"}
+(22,1,1) = {"
+Hb
+XU
+EZ
+Mq
+Mq
+Mq
+Mq
+EZ
+XU
+pD
+aD
+aD
+aD
+lu
+ej
+pu
+Mq
+Mq
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+Mq
+Mq
+XU
+XU
+Hb
+Hb
+Hb
+Hb
+"}
+(23,1,1) = {"
+Hb
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+Mq
+Mq
+Mq
+Mq
+Mq
+ej
+pu
+Mq
+Mq
+XU
+ic
+Mq
+ic
+Mq
+Mq
+Mq
+Mq
+XU
+Mq
+XU
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(24,1,1) = {"
+Hb
+XU
+Mq
+Mq
+zp
+Mw
+Mq
+Mq
+XU
+Mq
+Mq
+EZ
+Mq
+Mq
+ej
+pu
+Mq
+Mq
+XU
+Mq
+ic
+Mq
+Mq
+Mq
+ic
+Mq
+XU
+XU
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(25,1,1) = {"
+Hb
+XU
+Mq
+Mq
+pu
+pu
+Mq
+Mq
+XU
+XU
+XU
+XU
+XU
+XU
+GV
+Ma
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(26,1,1) = {"
+Hb
+XU
+Mq
+Mq
+pu
+pu
+Mq
+Mq
+Mq
+Mq
+XU
+ro
+Mq
+Mq
+pu
+ej
+pu
+pu
+pu
+Ma
+pu
+ss
+sd
+fi
+wv
+pu
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(27,1,1) = {"
+Hb
+XU
+EZ
+Mq
+pu
+pu
+Mq
+EZ
+Mq
+Mq
+XU
+EZ
+XB
+Mq
+pu
+pu
+Mq
+EZ
+Hl
+XU
+Mq
+Mq
+pu
+Mq
+Mq
+Mq
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(28,1,1) = {"
+Hb
+XU
+Mq
+Mq
+pu
+pu
+cy
+Mq
+Mq
+Mq
+XU
+YS
+Mq
+Nr
+pu
+ej
+Nr
+Mq
+Mq
+XU
+cy
+Mq
+pu
+Mq
+Mq
+Mq
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(29,1,1) = {"
+Hb
+XU
+Mw
+pu
+pu
+pu
+pu
+pu
+pu
+pu
+Ma
+pu
+ej
+pu
+ej
+pu
+Mq
+Mq
+Mq
+XU
+tX
+Mq
+pu
+Mq
+Mq
+Mq
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(30,1,1) = {"
+Hb
+XU
+zp
+pu
+pu
+Hg
+pu
+pu
+pu
+pu
+Ma
+pu
+pu
+pu
+pu
+OC
+ro
+ic
+Mq
+XU
+EZ
+Mq
+Hg
+Mq
+EZ
+Mq
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(31,1,1) = {"
+Hb
+XU
+Mq
+Mq
+pu
+pu
+cy
+Mq
+Mq
+Mq
+XU
+Ci
+Mq
+zd
+ej
+pu
+jI
+Mq
+Mq
+XU
+cy
+Mq
+pu
+Mq
+Mq
+Mq
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(32,1,1) = {"
+Hb
+XU
+EZ
+Mq
+pu
+pu
+Mq
+EZ
+Mq
+Mq
+XU
+EZ
+TB
+Mq
+pu
+pu
+ic
+EZ
+Mq
+XU
+Mq
+Mq
+pu
+Mq
+Mq
+XU
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(33,1,1) = {"
+Hb
+XU
+Mq
+Mq
+zp
+zp
+Mq
+ro
+Mq
+Mq
+XU
+Mq
+Mq
+Mq
+pu
+pu
+Mq
+Mq
+Mq
+XU
+ER
+Gb
+ER
+ss
+XU
+XU
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(34,1,1) = {"
+Hb
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+XU
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}
+(35,1,1) = {"
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+Hb
+"}

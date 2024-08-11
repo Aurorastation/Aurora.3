@@ -5,7 +5,7 @@
 	icon_state = "drillpointer"
 	item_state = "binoculars"
 	slot_flags = SLOT_BELT
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/has_dropped = 0 // Counter of how many times the targeter has been used
 	var/drop_amount = 2 // How many times can this item be used?
 
@@ -44,7 +44,7 @@
 	var/turf/targloc = get_turf(target)
 	if(!emagged)
 		for(var/turf/t in block(locate(targloc.x+3,targloc.y+3,targloc.z), locate(targloc.x-3,targloc.y-3,targloc.z)))
-			if (isStationLevel(targloc.z))
+			if (is_station_level(targloc.z))
 				to_chat(user, SPAN_WARNING("You can't request this orbital drop on the ship!"))
 				return
 			if (!isfloor(targloc))
@@ -70,20 +70,20 @@
 
 	to_chat(user, SPAN_NOTICE("You paint the target at [target]."))
 
-	var/datum/language/language = all_languages[drop_message_language]
+	var/datum/language/language = GLOB.all_languages[drop_message_language]
 
-	if(!istype(global_announcer.announcer))
-		global_announcer.announcer = new()
-	global_announcer.announcer.PrepareBroadcast(announcer_name, language, announcer_name)
+	if(!istype(GLOB.global_announcer.announcer))
+		GLOB.global_announcer.announcer = new()
+	GLOB.global_announcer.announcer.PrepareBroadcast(announcer_name, language, announcer_name)
 
 	var/turf/current_turf = get_turf(src)
-	var/datum/signal/subspace/vocal/signal = new(src, emagged ? PUB_FREQ : announcer_frequency, WEAKREF(global_announcer.announcer), language, emagged ? drop_message_emagged : drop_message, "says")
+	var/datum/signal/subspace/vocal/signal = new(src, emagged ? PUB_FREQ : announcer_frequency, WEAKREF(GLOB.global_announcer.announcer), language, emagged ? drop_message_emagged : drop_message, "says")
 	signal.data["compression"] = 0
 	signal.transmission_method = TRANSMISSION_SUBSPACE
 	signal.levels = GetConnectedZlevels(current_turf.z)
 	signal.broadcast()
 
-	global_announcer.announcer.ResetAfterBroadcast()
+	GLOB.global_announcer.announcer.ResetAfterBroadcast()
 
 	has_dropped++
 	if(does_explosion)

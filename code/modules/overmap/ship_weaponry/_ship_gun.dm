@@ -10,7 +10,7 @@
 	var/max_damage = 1000
 	var/heavy_firing_sound = 'sound/weapons/gunshot/ship_weapons/120mm_mortar.ogg' //The sound in the immediate firing area. Very loud.
 	var/light_firing_sound = 'sound/effects/explosionfar.ogg' //The sound played when you're a few walls away. Kind of loud.
-	var/projectile_type = /obj/item/projectile/ship_ammo
+	var/projectile_type = /obj/projectile/ship_ammo
 	var/special_firing_mechanism = FALSE //If set to TRUE, the gun won't show up on normal controls.
 	var/charging_sound					 //The sound played when the gun is charging up.
 	var/caliber = SHIP_CALIBER_NONE
@@ -23,7 +23,8 @@
 	var/screenshake_type = SHIP_GUN_SCREENSHAKE_SCREEN
 	var/firing = FALSE //Helper variable in case we need to track if we're firing or not. Must be set manually. Used for the Leviathan.
 	var/load_time = 5 SECONDS
-	var/mobile_platform = FALSE //When toggled, targeting computers will be able to force ammunition heading direction. Used for guns on visitables.
+	/// When toggled, targeting computers will be able to force ammunition heading direction. Used for guns on visitables.
+	var/mobile_platform = FALSE
 
 	var/weapon_id //Used to identify a gun in the targeting consoles and connect weapon systems to the relevant ammunition loader. Must be unique!
 	var/list/obj/structure/ship_weapon_dummy/connected_dummies = list()
@@ -36,7 +37,7 @@
 
 /obj/machinery/ship_weapon/LateInitialize()
 	SSshuttle.weapons_to_initialize += src
-	if(SSshuttle.init_state == SS_INITSTATE_DONE)
+	if(SSshuttle.initialized)
 		SSshuttle.initialize_ship_weapons()
 	for(var/obj/structure/ship_weapon_dummy/SD in orange(1, src))
 		SD.connect(src)
@@ -49,6 +50,7 @@
 	destroy_dummies()
 	ammunition.Cut()
 	barrel = null
+	LAZYREMOVE(linked?.ship_weapons, src)
 	return ..()
 
 /obj/machinery/ship_weapon/ex_act(severity)
@@ -78,21 +80,21 @@
 		if(20 to 40)
 			. = "It has a few holes through which you can see some machinery."
 		if(40 to 60)
-			. = "<span class='warning'>Some fairly important parts are missing... but it should work anyway.</span>"
+			. = SPAN_WARNING("Some fairly important parts are missing... but it should work anyway.")
 		if(60 to 80)
-			. = "<span class='danger'>It needs repairs direly. Both aiming and firing components are missing or broken. It has a lot of holes, too. It definitely wouldn't \
-				pass inspection.</span>"
+			. = SPAN_DANGER("It needs repairs direly. Both aiming and firing components are missing or broken. It has a lot of holes, too. It definitely wouldn't \
+				pass inspection.")
 		if(90 to 100)
-			. = "<span class='danger'>It's falling apart! Just touching it might make the whole thing collapse!</span>"
+			. = SPAN_DANGER("It's falling apart! Just touching it might make the whole thing collapse!")
 		else //At roundstart, weapons start with 0 damage, so it'd be 0 / 1000 * 100 -> 0
 			return "It looks to be in tip top shape and not damaged at all."
 
-/obj/machinery/ship_weapon/examine(mob/user)
+/obj/machinery/ship_weapon/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, get_damage_description())
+	. += get_damage_description()
 
-/obj/machinery/ship_weapon/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/device/multitool))
+/obj/machinery/ship_weapon/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/multitool))
 		to_chat(user, SPAN_NOTICE("You hook up the tester to \the [src]'s wires: its identification tag is <b>[weapon_id]></b>."))
 		var/new_id = input(user, "Change the identification tag?", "Identification Tag", weapon_id) as text|null
 		if(length(new_id) && !use_check_and_message(user))
@@ -105,8 +107,8 @@
 				weapon_id = new_id
 				to_chat(user, SPAN_NOTICE("With some finicking, you change the identification tag to <b>[new_id]</b>."))
 				return TRUE
-	if(istype(W, /obj/item/weldingtool) && damage)
-		var/obj/item/weldingtool/WT = W
+	if(istype(attacking_item, /obj/item/weldingtool) && damage)
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.get_fuel() >= 20)
 			user.visible_message(SPAN_NOTICE("[user] starts slowly welding kinks and holes in \the [src] back to working shape..."),
 								SPAN_NOTICE("You start welding kinks and holes back to working shape. This'll take a long while..."))
@@ -137,19 +139,19 @@
 /obj/machinery/ship_weapon/proc/on_fire() //We just fired! Cool effects!
 	if(firing_effects & FIRING_EFFECT_FLAG_EXTREMELY_LOUD)
 		var/list/connected_z_levels = GetConnectedZlevels(z)
-		for(var/mob/living/carbon/human/H in player_list)
+		for(var/mob/living/carbon/human/H in GLOB.player_list)
 			if(H.z in connected_z_levels)
 				sound_to(H, sound(heavy_firing_sound, volume = 50))
 				if(H.is_listening())
 					H.adjustEarDamage(rand(0, 5), 2, TRUE)
 	else if(firing_effects & FIRING_EFFECT_FLAG_SILENT)
-		for(var/mob/living/carbon/human/H in human_mob_list)
+		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 			if(get_area(H) == get_area(src))
 				sound_to(H, sound(heavy_firing_sound, volume = 50))
 				if(H.is_listening())
 					H.adjustEarDamage(rand(0, 5), 2, TRUE)
 	else
-		for(var/mob/living/carbon/human/H in human_mob_list)
+		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 			var/list/connected_z_levels = GetConnectedZlevels(z)
 			if(get_area(H) == get_area(src))
 				sound_to(H, sound(heavy_firing_sound, volume = 50))
@@ -160,19 +162,19 @@
 					sound_to(H, sound(light_firing_sound, volume = 50))
 	if(screenshake_type == SHIP_GUN_SCREENSHAKE_ALL_MOBS)
 		var/list/connected_z_levels = GetConnectedZlevels(z)
-		for(var/mob/living/carbon/human/H in human_mob_list)
+		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 			if(H.z in connected_z_levels)
 				to_chat(H, SPAN_DANGER("<font size=4>Your legs buckle as the ground shakes beneath you!</font>"))
 				shake_camera(H, 10, 5)
 	else if(screenshake_type == SHIP_GUN_SCREENSHAKE_SCREEN)
-		for(var/mob/living/carbon/human/H in human_mob_list)
+		for(var/mob/living/carbon/human/H in GLOB.human_mob_list)
 			if(get_area(H) == get_area(src))
 				if(!H.buckled_to)
 					to_chat(H, SPAN_DANGER("<font size=4>Your legs buckle as the ground shakes beneath you!</font>"))
 					shake_camera(H, 10, 5)
 	if(firing_effects & FIRING_EFFECT_FLAG_THROW_MOBS)
 		var/list/connected_z_levels = GetConnectedZlevels(z)
-		for(var/mob/M in living_mob_list)
+		for(var/mob/M in GLOB.living_mob_list)
 			if(M.z in connected_z_levels)
 				if(!M.Check_Shoegrip() && !M.buckled_to && !M.anchored)
 					M.throw_at_random(FALSE, 7, 10)
@@ -219,7 +221,7 @@
 	if(!barrel)
 		crash_with("No barrel found for [src] at [x] [y] [z]! Cannot fire!")
 	var/turf/firing_turf = get_step(barrel, barrel.dir)
-	var/obj/item/projectile/ship_ammo/projectile
+	var/obj/projectile/ship_ammo/projectile
 	if(SA.projectile_type_override)
 		projectile = new SA.projectile_type_override(firing_turf)
 	else
@@ -273,9 +275,11 @@
 	icon_state = null
 	. = ..()
 
-/obj/structure/ship_weapon_dummy/examine(mob/user)
+/obj/structure/ship_weapon_dummy/examine(mob/user, distance, is_adjacent, infix, suffix, show_extended)
+	SHOULD_CALL_PARENT(FALSE)
+
 	if(connected)
-		return connected.examine(user)
+		return connected.examine(user, distance, is_adjacent, infix, suffix, show_extended)
 	else
 		return TRUE
 
@@ -283,20 +287,20 @@
 	if(connected)
 		connected.attack_hand(user)
 
-/obj/structure/ship_weapon_dummy/attackby(obj/item/W, mob/user)
+/obj/structure/ship_weapon_dummy/attackby(obj/item/attacking_item, mob/user)
 	if(connected)
-		connected.attackby(W, user)
+		connected.attackby(attacking_item, user)
 
-/obj/structure/ship_weapon_dummy/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
+/obj/structure/ship_weapon_dummy/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(connected)
-		connected.hitby(AM)
-	if(ismob(AM))
-		if(isliving(AM))
-			var/mob/living/M = AM
-			M.turf_collision(src, speed)
+		connected.hitby(arglist(args))
+	if(ismob(hitting_atom))
+		if(isliving(hitting_atom))
+			var/mob/living/M = hitting_atom
+			M.turf_collision(src, throwingdatum.speed)
 			return
 
-/obj/structure/ship_weapon_dummy/bullet_act(obj/item/projectile/P, def_zone)
+/obj/structure/ship_weapon_dummy/bullet_act(obj/projectile/P, def_zone)
 	connected.bullet_act(P)
 
 /obj/structure/ship_weapon_dummy/ex_act(severity)

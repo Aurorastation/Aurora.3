@@ -7,8 +7,8 @@
 	desc = "Extracts information on wounds."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "autopsy"
-	flags = CONDUCT
-	w_class = ITEMSIZE_SMALL
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	w_class = WEIGHT_CLASS_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	var/list/datum/autopsy_data_scanner/wdata = list()
 	var/list/datum/autopsy_data_scanner/chemtraces = list()
@@ -108,13 +108,13 @@
 			if(0)
 				damage_desc = "Unknown"
 			if(1 to 5)
-				damage_desc = "<span class='good'>negligible</span>"
+				damage_desc = SPAN_DANGER("negligible")
 			if(5 to 15)
-				damage_desc = "<span class='good'>light</span>"
+				damage_desc = SPAN_DANGER("light")
 			if(15 to 30)
 				damage_desc = "<font color='orange'>moderate</font>"
 			if(30 to 1000)
-				damage_desc = "<span class='warning'>severe</span>"
+				damage_desc = SPAN_WARNING("severe")
 
 		if(!total_score) total_score = D.organs_scanned.len
 
@@ -140,7 +140,7 @@
 
 	for(var/mob/O in viewers(usr))
 		O.show_message(SPAN_NOTICE("\The [src] rattles and prints out a sheet of paper."), 1)
-		playsound(loc, "sound/bureaucracy/print_short.ogg", 50, 1)
+		playsound(loc, 'sound/bureaucracy/print_short.ogg', 50, 1)
 
 	sleep(10)
 

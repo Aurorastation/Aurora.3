@@ -20,7 +20,7 @@
 /mob/living/simple_animal/slime/Initialize()
 	. = ..()
 	add_language(LANGUAGE_TCB)
-	default_language = all_languages[LANGUAGE_TCB]
+	default_language = GLOB.all_languages[LANGUAGE_TCB]
 
 /mob/living/simple_animal/slime/can_force_feed(var/feeder, var/food, var/feedback)
 	if(feedback)
@@ -46,7 +46,7 @@
 
 /mob/living/simple_animal/adultslime/Initialize()
 	. = ..()
-	add_overlay("aslime-:33")
+	AddOverlays("aslime-:33")
 
 
 /mob/living/simple_animal/adultslime/death()

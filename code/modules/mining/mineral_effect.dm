@@ -34,7 +34,7 @@
 
 /obj/effect/mineral/proc/get_scan_overlay()
 	if(!scanner_image)
-		var/ore/O = ore_data[ore_key]
+		var/ore/O = GLOB.ore_data[ore_key]
 		if(O)
 			scanner_image = image(icon, loc = get_turf(src), icon_state = (O.scan_icon ? O.scan_icon : icon_state))
 		else

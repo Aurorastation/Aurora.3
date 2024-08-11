@@ -1,6 +1,3 @@
-#define WRITE_PAPER  0
-#define RENAME_PAPER 1
-
 // A special pen for service droids. Can be toggled to switch between normal writting mode, and paper rename mode
 // Allows service droids to rename paper items.
 /obj/item/pen/robopen
@@ -34,6 +31,3 @@
 	if((get_dist(user,paper) <= 1 && !user.stat))
 		paper.name = "[initial(paper.name)] ([n_name])"
 	add_fingerprint(user)
-
-#undef WRITE_PAPER
-#undef RENAME_PAPER

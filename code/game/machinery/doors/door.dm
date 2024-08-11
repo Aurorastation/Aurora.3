@@ -9,10 +9,10 @@
 	anchored = 1
 	opacity = 1
 	density = 1
-	layer = DOOR_OPEN_LAYER
+	layer = CLOSED_DOOR_LAYER
 	dir = SOUTH
-	var/open_layer = DOOR_OPEN_LAYER
-	var/closed_layer = DOOR_CLOSED_LAYER
+	var/open_layer = OPEN_DOOR_LAYER
+	var/closed_layer = CLOSED_DOOR_LAYER
 
 	/// Boolean. Whether or not the door blocks vision.
 	var/visible = TRUE
@@ -59,14 +59,16 @@
 
 	atmos_canpass = CANPASS_PROC
 
+	can_astar_pass = CANASTARPASS_ALWAYS_PROC
+
 /obj/machinery/door/attack_generic(var/mob/user, var/damage)
 	if(damage >= 10)
-		visible_message("<span class='danger'>\The [user] smashes into the [src]!</span>")
+		visible_message(SPAN_DANGER("\The [user] smashes into the [src]!"))
 		playsound(src.loc, hitsound, 60, 1)
 		take_damage(damage)
 	else
-		visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly.</span>")
-		playsound(src.loc, hitsound_light, 8, 1, -1)
+		visible_message(SPAN_NOTICE("\The [user] bonks \the [src] harmlessly."))
+		playsound(src.loc, hitsound_light, 8, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 	user.do_attack_animation(src)
 
 /obj/machinery/door/Initialize()
@@ -105,7 +107,7 @@
 	if (!hatchstate)
 		hatchstate = 1
 		update_icon()
-		playsound(src.loc, hatch_open_sound, 40, 1, -1)
+		playsound(src.loc, hatch_open_sound, 40, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 
 	close_hatch_in(29)
@@ -118,7 +120,7 @@
 /obj/machinery/door/proc/close_hatch()
 	hatchstate = 0//hatch stays open for 3 seconds
 	update_icon()
-	playsound(src.loc, hatch_close_sound, 30, 1, -1)
+	playsound(src.loc, hatch_close_sound, 30, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 /obj/machinery/door/Destroy()
 	density = 0
@@ -142,49 +144,49 @@
 		return 0
 	return 1
 
-/obj/machinery/door/CollidedWith(atom/AM)
+/obj/machinery/door/CollidedWith(atom/bumped_atom)
 	. = ..()
 	if(p_open || operating) return
-	if (!AM.simulated) return
-	if(ismob(AM))
-		var/mob/M = AM
+	if (!bumped_atom.simulated) return
+	if(ismob(bumped_atom))
+		var/mob/M = bumped_atom
 		if(world.time - M.last_bumped <= 10) return	//Can bump-open one airlock per second. This is to prevent shock spam.
 		M.last_bumped = world.time
 		if(!M.restrained() && (!issmall(M) || ishuman(M) || istype(M, /mob/living/silicon/robot/drone/mining)))
 			bumpopen(M)
 		return
 
-	if(istype(AM, /obj/machinery/bot))
-		var/obj/machinery/bot/bot = AM
+	if(istype(bumped_atom, /obj/machinery/bot))
+		var/obj/machinery/bot/bot = bumped_atom
 		if(src.check_access(bot.botcard))
 			if(density)
 				open()
 		return
 
-	if(istype(AM, /mob/living/bot))
-		var/mob/living/bot/bot = AM
+	if(istype(bumped_atom, /mob/living/bot))
+		var/mob/living/bot/bot = bumped_atom
 		if(src.check_access(bot.botcard))
 			if(density)
 				open()
 		return
 
-	if(istype(AM, /mob/living/simple_animal/spiderbot))
-		var/mob/living/simple_animal/spiderbot/bot = AM
+	if(istype(bumped_atom, /mob/living/simple_animal/spiderbot))
+		var/mob/living/simple_animal/spiderbot/bot = bumped_atom
 		if(src.check_access(bot.internal_id))
 			if(density)
 				open()
 		return
 
-	if(istype(AM, /obj/structure/bed/stool/chair/office/wheelchair))
-		var/obj/structure/bed/stool/chair/office/wheelchair/wheel = AM
+	if(istype(bumped_atom, /obj/structure/bed/stool/chair/office/wheelchair))
+		var/obj/structure/bed/stool/chair/office/wheelchair/wheel = bumped_atom
 		if(density)
 			if(wheel.pulling && (src.allowed(wheel.pulling)))
 				open()
 			else
 				do_animate("deny")
 		return
-	if(istype(AM, /obj/structure/janitorialcart))
-		var/obj/structure/janitorialcart/cart = AM
+	if(istype(bumped_atom, /obj/structure/janitorialcart))
+		var/obj/structure/janitorialcart/cart = bumped_atom
 		if(density)
 			if(cart.pulling && (src.allowed(cart.pulling)))
 				open()
@@ -192,8 +194,8 @@
 				do_animate("deny")
 		return
 
-	if(istype(AM, /obj/vehicle))
-		var/obj/vehicle/V = AM
+	if(istype(bumped_atom, /obj/vehicle))
+		var/obj/vehicle/V = bumped_atom
 		if(density)
 			if(V.buckled && (src.allowed(V.buckled)))
 				open()
@@ -207,9 +209,9 @@
 /obj/machinery/door/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group) return !block_air_zones
 	if (istype(mover))
-		if(mover.checkpass(PASSGLASS))
+		if(mover.pass_flags & PASSGLASS)
 			return !opacity
-		if(density && hashatch && mover.checkpass(PASSDOORHATCH))
+		if(density && hashatch && mover.pass_flags & PASSDOORHATCH)
 			if (istype(mover, /mob/living/silicon/pai))
 				var/mob/living/silicon/pai/P = mover
 				if (allowed(P))
@@ -219,6 +221,9 @@
 				open_hatch(mover)
 				return 1//If this door is closed, but it has hatches, and this creature can go through hatches. Then we let it through without opening
 	return !density
+
+/obj/machinery/door/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
+	return (check_access_list(pass_info.access) && can_open())
 
 
 /obj/machinery/door/proc/bumpopen(mob/user as mob)
@@ -231,7 +236,7 @@
 		else				do_animate("deny")
 	return
 
-/obj/machinery/door/bullet_act(var/obj/item/projectile/Proj)
+/obj/machinery/door/bullet_act(var/obj/projectile/Proj)
 	..()
 
 	var/damage = Proj.get_structure_damage()
@@ -240,7 +245,7 @@
 	if (damage > 90)
 		destroy_hits--
 		if (destroy_hits <= 0)
-			visible_message("<span class='danger'>\The [src.name] disintegrates!</span>")
+			visible_message(SPAN_DANGER("\The [src.name] disintegrates!"))
 			switch (Proj.damage_type)
 				if(DAMAGE_BRUTE)
 					new /obj/item/stack/material/steel(src.loc, 2)
@@ -254,21 +259,24 @@
 		take_damage(min(damage, 100))
 
 
-/obj/machinery/door/hitby(AM as mob|obj, var/speed=5)
+/obj/machinery/door/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	..()
 	var/tforce = 0
-	if(ismob(AM))
-		tforce = 15 * (speed/5)
-	else
-		tforce = AM:throwforce * (speed/5)
+	if(!throwingdatum)
+		return
+
+	if(ismob(hitting_atom))
+		tforce = 15 * (throwingdatum.speed/5)
+	else if(isobj(hitting_atom))
+		var/obj/O = hitting_atom
+		tforce = O.throwforce * (throwingdatum.speed/5)
 
 	if (tforce > 0)
 		var/volume = 100
 		if (tforce < 20)//No more stupidly loud banging sound from throwing a piece of paper at a door
 			volume *= (tforce / 20)
-		playsound(src.loc, hitsound, volume, 1)
+		playsound(src.loc, hitsound, volume, TRUE)
 		take_damage(tforce)
-		return
 
 /obj/machinery/door/attack_ai(mob/user)
 	if(!ai_can_interact(user))
@@ -291,11 +299,11 @@
 		do_animate("deny")
 		return
 
-/obj/machinery/door/attackby(obj/item/I as obj, mob/user as mob)
-	if(!istype(I, /obj/item/forensics))
+/obj/machinery/door/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
 
-	if(I.ishammer() && user.a_intent != I_HURT)
+	if(attacking_item.ishammer() && user.a_intent != I_HURT)
 		var/obj/item/stack/stack = usr.get_inactive_hand()
 		if(istype(stack) && stack.get_material_name() == get_material_name())
 			if(stat & BROKEN)
@@ -328,40 +336,40 @@
 
 			return TRUE
 
-	if(repairing && I.iswelder())
+	if(repairing && attacking_item.iswelder())
 		if(!density)
-			to_chat(user, "<span class='warning'>\The [src] must be closed before you can repair it.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] must be closed before you can repair it."))
 			return TRUE
 
-		var/obj/item/weldingtool/welder = I
+		var/obj/item/weldingtool/welder = attacking_item
 		if(welder.use(0,user))
-			to_chat(user, "<span class='notice'>You start to fix dents and weld \the [repairing] into place.</span>")
+			to_chat(user, SPAN_NOTICE("You start to fix dents and weld \the [repairing] into place."))
 			if(welder.use_tool(src, user, 5 * repairing.amount, volume = 50) && welder && welder.isOn())
-				to_chat(user, "<span class='notice'>You finish repairing the damage to \the [src].</span>")
+				to_chat(user, SPAN_NOTICE("You finish repairing the damage to \the [src]."))
 				health = between(health, health + repairing.amount*DOOR_REPAIR_AMOUNT, maxhealth)
 				update_icon()
 				qdel(repairing)
 				repairing = null
 		return TRUE
 
-	if(repairing && I.iscrowbar())
-		to_chat(user, "<span class='notice'>You remove \the [repairing].</span>")
-		playsound(src.loc, I.usesound, 50, 1)
+	if(repairing && attacking_item.iscrowbar())
+		to_chat(user, SPAN_NOTICE("You remove \the [repairing]."))
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		repairing.forceMove(user.loc)
 		repairing = null
 		return TRUE
 
 	//psa to whoever coded this, there are plenty of objects that need to call attack() on doors without bludgeoning them.
-	if(src.density && istype(I, /obj/item) && user.a_intent == I_HURT && !istype(I, /obj/item/card))
-		var/obj/item/W = I
+	if(src.density && istype(attacking_item, /obj/item) && user.a_intent == I_HURT && !istype(attacking_item, /obj/item/card))
+		var/obj/item/W = attacking_item
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
 			user.do_attack_animation(src)
 			if(W.force < min_force)
-				user.visible_message("<span class='danger'>\The [user] hits \the [src] with \the [W] with no visible effect.</span>")
+				user.visible_message(SPAN_DANGER("\The [user] hits \the [src] with \the [W] with no visible effect."))
 			else
-				user.visible_message("<span class='danger'>\The [user] forcefully strikes \the [src] with \the [W]!</span>")
-				playsound(src.loc, hitsound, W.get_clamped_volume(), 1)
+				user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with \the [W]!"))
+				playsound(src.loc, hitsound, W.get_clamped_volume(), TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE)
 				take_damage(W.force)
 		return TRUE
 
@@ -402,16 +410,14 @@
 	update_icon()
 	return
 
-
-/obj/machinery/door/examine(mob/user)
+/obj/machinery/door/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(src.health < src.maxhealth / 4)
-		to_chat(user, SPAN_WARNING("\The [src] looks like it's about to break!"))
+		. += SPAN_WARNING("\The [src] looks like it's about to break!")
 	else if(src.health < src.maxhealth / 2)
-		to_chat(user, SPAN_WARNING("\The [src] looks seriously damaged!"))
+		. += SPAN_WARNING("\The [src] looks seriously damaged!")
 	else if(src.health < src.maxhealth * 3/4)
-		to_chat(user, SPAN_WARNING("\The [src] shows signs of damage!"))
-
+		. += SPAN_WARNING("\The [src] shows signs of damage!")
 
 /obj/machinery/door/proc/set_broken()
 	stat |= BROKEN
@@ -419,12 +425,11 @@
 	update_icon()
 	return
 
-
 /obj/machinery/door/emp_act(severity)
+	. = ..()
+
 	if(prob(20/severity) && (istype(src,/obj/machinery/door/airlock) || istype(src,/obj/machinery/door/window)) )
 		open()
-	..()
-
 
 /obj/machinery/door/ex_act(severity)
 	var/bolted = 0
@@ -450,7 +455,7 @@
 				take_damage(damage, FALSE)
 		if(3.0)
 			if(prob(80))
-				spark(src, 2, alldirs)
+				spark(src, 2, GLOB.alldirs)
 			var/damage = rand(100,150)
 			if (bolted)
 				damage *= 0.8
@@ -487,7 +492,7 @@
 		if("deny")
 			if(density && !(stat & (NOPOWER|BROKEN)))
 				flick("door_deny", src)
-				playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, 0)
+				playsound(src.loc, 'sound/machines/buzz-two.ogg', 50, FALSE, extrarange = SILENCED_SOUND_EXTRARANGE)
 	return
 
 /obj/machinery/door/proc/open(var/forced = 0)
@@ -512,7 +517,7 @@
 	set_opacity(0)
 	operating = FALSE
 
-	if(autoclose)
+	if(autoclose && !QDELETED(src))
 		close_door_in(next_close_time())
 
 	return 1

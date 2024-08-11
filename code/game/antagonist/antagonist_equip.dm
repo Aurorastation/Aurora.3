@@ -1,7 +1,8 @@
 /datum/antagonist/proc/equip(var/mob/living/carbon/human/player)
+	SHOULD_NOT_SLEEP(TRUE)
 
 	if(!istype(player))
-		return 0
+		return FALSE
 
 	// This could use work.
 	if(flags & ANTAG_CLEAR_EQUIPMENT)
@@ -9,8 +10,13 @@
 			player.drop_from_inventory(thing)
 			if(thing.loc != player)
 				qdel(thing)
+
 	player.species.before_equip(player)
-	return 1
+
+	if((flags & ANTAG_CLEAR_EQUIPMENT) && has_idris_account)
+		SSeconomy.create_and_assign_account(player, "John Doe", rand(idris_account_min, idris_account_max), FALSE)
+
+	return TRUE
 
 /datum/antagonist/proc/unequip(var/mob/living/carbon/human/player)
 	if(!istype(player))

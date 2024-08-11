@@ -12,7 +12,7 @@
 	anchored = TRUE
 	density = TRUE
 	opacity = FALSE
-	layer = TURF_LAYER + 0.01
+	layer = ABOVE_TILE_LAYER
 	var/max_health = 50
 	var/health
 	var/destroy_spawntype = /mob/living/carbon/alien/diona
@@ -21,28 +21,31 @@
 	. = ..()
 	health = max_health
 
-/obj/structure/diona/attackby(obj/item/W, mob/user)
+/obj/structure/diona/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if (!WT.welding)
 			to_chat(user, SPAN_WARNING("\The [WT] must be turned on!"))
 			return
 		else if (WT.use(0,user))
-			user.visible_message("<b>[user]</b> begins slicing through the skin of \the [src].", SPAN_NOTICE("You begin slicing through the skin of \the [src]."))
-			if(!W.use_tool(src, user, 20, volume = 50))
+			user.visible_message("<b>[user]</b> begins slicing through the skin of \the [src].",
+									SPAN_NOTICE("You begin slicing through the skin of \the [src]."))
+			if(!attacking_item.use_tool(src, user, 20, volume = 50))
 				return
 			if(QDELETED(src) || !WT.isOn())
 				return
-			user.visible_message("<b>[user]</b> slices through the skin of \the [src].", SPAN_NOTICE("You slice through \the [src]."))
+			user.visible_message("<b>[user]</b> slices through the skin of \the [src].",
+									SPAN_NOTICE("You slice through \the [src]."))
 		qdel(src)
 	else
 		user.do_attack_animation(src)
-		if(W.force)
-			user.visible_message(SPAN_DANGER("\The [user] [pick(W.attack_verb)] \the [src] with \the [W]!"), SPAN_NOTICE("You [pick(W.attack_verb)] \the [src] with \the [W]!"))
-			playsound(loc, W.hitsound, W.get_clamped_volume(), TRUE)
+		if(attacking_item.force)
+			user.visible_message(SPAN_DANGER("\The [user] [pick(attacking_item.attack_verb)] \the [src] with \the [attacking_item]!"),
+									SPAN_NOTICE("You [pick(attacking_item.attack_verb)] \the [src] with \the [attacking_item]!"))
+			playsound(loc, attacking_item.hitsound, attacking_item.get_clamped_volume(), TRUE)
 			playsound(loc, /singleton/sound_category/wood_break_sound, 50, TRUE)
-			health -= W.force
+			health -= attacking_item.force
 			if(health <= 0)
 				qdel(src)
 
@@ -100,12 +103,12 @@
 	light_power = 0
 	light_range = 0
 
-/obj/structure/diona/bulb/unpowered/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/cell))
+/obj/structure/diona/bulb/unpowered/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/cell))
 		to_chat(user, SPAN_NOTICE("You jack the power cell into the glow bulb."))
 		new /obj/structure/diona/bulb(get_turf(src))
 		destroy_spawntype = null
-		qdel(W)
+		qdel(attacking_item)
 		qdel(src)
 	..()
 

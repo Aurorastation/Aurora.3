@@ -9,8 +9,8 @@
 	size = 12
 	usage_flags = PROGRAM_CONSOLE
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
-	required_access_run = list(access_merchant)
-	required_access_download = list(access_merchant)
+	required_access_run = list(ACCESS_MERCHANT)
+	required_access_download = list(ACCESS_MERCHANT)
 	tgui_id = "Merchant"
 	var/obj/machinery/merchant_pad/pad
 	var/current_merchant = 0
@@ -19,6 +19,10 @@
 	var/last_comms
 	var/temp
 	var/bank = 0 //A straight up money till
+
+/datum/computer_file/program/merchant/Destroy()
+	pad = null
+	. = ..()
 
 /datum/computer_file/program/merchant/proc/get_merchant(var/num)
 	if(num > SStrade.traders.len)
@@ -64,9 +68,9 @@
 		return 1
 	return 0
 
-/datum/computer_file/program/merchant/proc/offer_money(var/datum/trader/T, var/num)
+/datum/computer_file/program/merchant/proc/offer_money(var/datum/trader/T, var/num, var/mob/user)
 	if(pad)
-		var/response = T.offer_money_for_trade(num, bank)
+		var/response = T.offer_money_for_trade(num, bank, user)
 		if(istext(response))
 			last_comms = T.get_response(response, "No thank you.")
 		else
@@ -76,7 +80,7 @@
 		return
 	last_comms = "PAD NOT CONNECTED"
 
-/datum/computer_file/program/merchant/proc/bulk_offer(var/datum/trader/T, var/num)
+/datum/computer_file/program/merchant/proc/bulk_offer(var/datum/trader/T, var/num, var/mob/user)
 	var/BulkAmount = tgui_input_number(usr, "How many items? (Buy 1-50 items. 0 to cancel.)", "Merchant", 1, 50, 0)
 	if(istext(BulkAmount))
 		last_comms = "ERROR: NUMBER EXPECTED"
@@ -86,7 +90,7 @@
 		return
 	if(pad)
 		for(var/BulkCounter = 0, BulkCounter < BulkAmount, BulkCounter++)
-			var/response = T.offer_money_for_trade(num, bank)
+			var/response = T.offer_money_for_trade(num, bank, user)
 			if(istext(response))
 				last_comms = T.get_response(response, "No thank you.")
 			else
@@ -104,14 +108,14 @@
 	bank -= amt
 	last_comms = T.bribe_to_stay_longer(amt)
 
-/datum/computer_file/program/merchant/proc/offer_item(var/datum/trader/T, var/num)
+/datum/computer_file/program/merchant/proc/offer_item(var/datum/trader/T, var/num, var/mob/user)
 	if(pad)
 		var/list/targets = pad.get_targets()
 		for(var/target in targets)
 			if(!computer_emagged && istype(target,/mob/living/carbon/human))
 				last_comms = "SAFETY LOCK ENABLED: SENTIENT MATTER UNTRANSMITTABLE"
 				return
-		var/response = T.offer_items_for_trade(targets,num, get_turf(pad))
+		var/response = T.offer_items_for_trade(targets,num, get_turf(pad), user=user)
 		if(istext(response))
 			last_comms = T.get_response(response,"No, a million times no.")
 		else
@@ -204,8 +208,11 @@
 			current_merchant = new_merchant
 	if(current_merchant)
 		var/datum/trader/T = get_merchant(current_merchant)
-		if(!T.can_hail())
-			last_comms = T.get_response("hail_deny", "No, I'm not speaking with you.")
+		if(!T.can_hail(user))
+			if(T.get_bias(user) == TRADER_BIAS_DENY)
+				last_comms = T.hail(user)
+			else
+				last_comms = T.get_response("hail_deny", "No, I'm not speaking with you.")
 			. = TRUE
 		else
 			if(action == "PRG_hail")
@@ -224,16 +231,16 @@
 				last_comms = T.compliment()
 			if(action == "PRG_offer_item")
 				. = TRUE
-				offer_item(T,text2num(params["PRG_offer_item"]) + 1)
+				offer_item(T,text2num(params["PRG_offer_item"]) + 1, user)
 			if(action == "PRG_how_much_do_you_want")
 				. = TRUE
-				last_comms = T.how_much_do_you_want(text2num(params["PRG_how_much_do_you_want"]) + 1)
+				last_comms = T.how_much_do_you_want(text2num(params["PRG_how_much_do_you_want"]) + 1, user)
 			if(action == "PRG_offer_money_for_item")
 				. = TRUE
-				offer_money(T, text2num(params["PRG_offer_money_for_item"])+1)
+				offer_money(T, text2num(params["PRG_offer_money_for_item"])+1, user)
 			if (action == "PRG_bulk_money_for_item")
 				. = TRUE
-				bulk_offer(T, text2num(params["PRG_bulk_money_for_item"])+1)
+				bulk_offer(T, text2num(params["PRG_bulk_money_for_item"])+1, user)
 			if(action == "PRG_what_do_you_want")
 				. = TRUE
 				last_comms = T.what_do_you_want()
@@ -245,13 +252,13 @@
 				bribe(T, text2num(params["PRG_bribe"]))
 
 /datum/computer_file/program/merchant/nka
-	required_access_run = list(access_nka)
-	required_access_download = list(access_nka)
+	required_access_run = list(ACCESS_NKA)
+	required_access_download = list(ACCESS_NKA)
 
 /datum/computer_file/program/merchant/guild
-	required_access_run = list(access_merchants_guild)
-	required_access_download = list(access_merchants_guild)
+	required_access_run = list(ACCESS_MERCHANTS_GUILD)
+	required_access_download = list(ACCESS_MERCHANTS_GUILD)
 
 /datum/computer_file/program/merchant/golden_deep
-	required_access_run = list(access_golden_deep)
-	required_access_download = list(access_golden_deep)
+	required_access_run = list(ACCESS_GOLDEN_DEEP)
+	required_access_download = list(ACCESS_GOLDEN_DEEP)

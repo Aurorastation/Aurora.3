@@ -9,9 +9,9 @@
 	icon_state = "defibunit"
 	item_state = "defibunit"
 	contained_sprite = TRUE
-	force = 5
+	force = 11
 	throwforce = 6
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_BIO = 4, TECH_POWER = 2)
 	matter = list(MATERIAL_STEEL = 5000, MATERIAL_PLASTIC = 2000, MATERIAL_GLASS = 1500, MATERIAL_ALUMINIUM = 1000)
 	action_button_name = "Toggle Paddles"
@@ -62,12 +62,12 @@
 
 	overlays = new_overlays
 
-/obj/item/defibrillator/examine(mob/user)
+/obj/item/defibrillator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(bcell)
-		to_chat(user, "The charge meter is showing [bcell.percent()]% charge left.")
+		. += "The charge meter is showing [bcell.percent()]% charge left."
 	else
-		to_chat(user, "There is no cell inside.")
+		. += "There is no cell inside."
 
 /obj/item/defibrillator/ui_action_click()
 	toggle_paddles()
@@ -115,21 +115,21 @@
 				if(!H.put_in_active_hand(paddles))
 					to_chat(H, SPAN_WARNING("You need a free hand to take out the paddles!"))
 
-/obj/item/defibrillator/attackby(obj/item/W, mob/user, params)
-	if(W == paddles)
+/obj/item/defibrillator/attackby(obj/item/attacking_item, mob/user, params)
+	if(attacking_item == paddles)
 		reattach_paddles(user)
-	else if(istype(W, /obj/item/cell))
+	else if(istype(attacking_item, /obj/item/cell))
 		if(bcell)
 			to_chat(user, SPAN_NOTICE("\The [src] already has a cell."))
 		else
-			if(!user.unEquip(W))
+			if(!user.unEquip(attacking_item))
 				return
-			W.forceMove(src)
-			bcell = W
+			attacking_item.forceMove(src)
+			bcell = attacking_item
 			to_chat(user, SPAN_NOTICE("You install a cell in \the [src]."))
 			update_icon()
 
-	else if(W.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		if(bcell)
 			bcell.update_icon()
 			bcell.dropInto(loc)
@@ -184,7 +184,7 @@
 	desc = "A belt-equipped defibrillator that can be rapidly deployed."
 	icon_state = "defibcompact"
 	item_state = "defibcompact"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_BIO = 5, TECH_POWER = 3)
 
@@ -216,7 +216,7 @@
 	gender = PLURAL
 	force = 2
 	throwforce = 6
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 
 	var/safety = TRUE //if you can zap people with the paddles on harm mode
 	var/combat = FALSE //If it can be used to revive people wearing thick clothing (e.g. spacesuits)
@@ -276,7 +276,7 @@
 	name = initial(name)
 	update_icon()
 
-/obj/item/shockpaddles/dropped(var/mob/living/user)
+/obj/item/shockpaddles/dropped(mob/user)
 	..()
 	if(user)
 		var/obj/item/offhand/O = user.get_inactive_hand()
@@ -324,7 +324,7 @@
 /obj/item/shockpaddles/proc/check_contact(mob/living/carbon/human/H)
 	if(!combat)
 		for(var/obj/item/clothing/cloth in list(H.wear_suit, H.w_uniform))
-			if((cloth.body_parts_covered & UPPER_TORSO) && (cloth.item_flags & THICKMATERIAL))
+			if((cloth.body_parts_covered & UPPER_TORSO) && (cloth.item_flags & ITEM_FLAG_THICK_MATERIAL))
 				return FALSE
 	return TRUE
 
@@ -533,6 +533,8 @@
 		return TRUE
 
 /obj/item/shockpaddles/emp_act(severity)
+	. = ..()
+
 	var/new_safety = rand(0, 1)
 	if(safety != new_safety)
 		safety = new_safety
@@ -543,7 +545,6 @@
 			make_announcement("beeps, \"Safety protocols disabled!\"", "warning")
 			playsound(get_turf(src), 'sound/machines/defib_safetyoff.ogg', 50, 0)
 		update_icon()
-	..()
 
 /obj/item/shockpaddles/robot
 	name = "defibrillator paddles"
@@ -592,7 +593,7 @@
 	Shockpaddles that are linked to a base unit
 */
 /obj/item/shockpaddles/linked
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	var/obj/item/defibrillator/base_unit
 
 /obj/item/shockpaddles/linked/Initialize(mapload, obj/item/defibrillator/defib)
@@ -669,13 +670,17 @@
 		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/shockpaddles/standalone/emp_act(severity)
-	..()
+	. = ..()
+
 	var/new_fail = 0
+
 	switch(severity)
-		if(3)
+
+		if(EMP_HEAVY)
 			new_fail = max(fail_counter, 20)
 			visible_message("\The [src]'s reactor overloads!")
-		if(2)
+
+		if(EMP_LIGHT)
 			new_fail = max(fail_counter, 8)
 			if(ismob(loc))
 				to_chat(loc, SPAN_WARNING("\The [src] feel pleasantly warm."))

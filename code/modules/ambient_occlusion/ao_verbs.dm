@@ -8,7 +8,7 @@
 	log_and_message_admins("has triggered a global ambient occlusion rebuild.")
 	to_chat(usr, "Beginning global AO rebuild.")
 
-	SSao.disable()
+	SSao.can_fire = FALSE
 
 	for (var/turf/T in world)	// Yes, in world.
 		T.ao_neighbors = null	// To force a recalc.
@@ -18,6 +18,6 @@
 
 		CHECK_TICK
 
-	SSao.enable()
+	SSao.can_fire = TRUE
 
 	to_chat(usr, "AO rebuild complete.")

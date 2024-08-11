@@ -8,6 +8,7 @@
 	use_power = POWER_USE_OFF
 	idle_power_usage = 100
 	density = 1
+	pass_flags_self = PASSMACHINE | LETPASSTHROW
 	anchored = 1
 	var/obj/item/reagent_containers/container
 	var/target_temperature = 300 //Measured in kelvin.
@@ -29,19 +30,19 @@
 	user.set_machine(src)
 	interact(user)
 
-/obj/machinery/chem_heater/attackby(obj/item/O, mob/user)
-	if(default_deconstruction_screwdriver(user, O))
+/obj/machinery/chem_heater/attackby(obj/item/attacking_item, mob/user)
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
-	if(default_deconstruction_crowbar(user, O))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return TRUE
-	if(default_part_replacement(user, O))
+	if(default_part_replacement(user, attacking_item))
 		return TRUE
-	if(istype(O, /obj/item/reagent_containers/glass) || istype(O, /obj/item/reagent_containers/food))
+	if(istype(attacking_item, /obj/item/reagent_containers/glass) || istype(attacking_item, /obj/item/reagent_containers/food))
 		if(container)
 			to_chat(user, SPAN_WARNING("There is already \a [container] on \the [src]!"))
 			return TRUE
 
-		var/obj/item/reagent_containers/RC = O
+		var/obj/item/reagent_containers/RC = attacking_item
 		if(!RC.is_open_container())
 			to_chat(user, SPAN_WARNING("You don't see how \the [src] could heat up the reagents in \the [RC]."))
 			return TRUE

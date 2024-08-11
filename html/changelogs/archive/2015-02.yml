@@ -1,0 +1,24 @@
+2015-02-04:
+  RavingManiac:
+  - rscadd: Holodeck is now bigger and better, with toggleable gravity and a new courtroom
+      setting
+  TwistedAkai:
+  - bugfix: Purple Combs should now be visible and have their proper icon
+2015-02-12:
+  Daranz:
+  - rscadd: Vending machines now use NanoUI and accept cash. The vendor account can
+      now be suspended to disable all sales in all machines on station.
+2015-02-16:
+  RavingManiac:
+  - rscadd: Say hello to the new Thermoelectric Supermatter Engine. Read the operating
+      manual to get started.
+2015-02-18:
+  PsiOmegaDelta:
+  - rscadd: Synths now have timestamped radio and chat messages.
+  - rscadd: New and updated uplink items.
+  - rscadd: Multiple AIs can now share the same holopad.
+  - rscadd: The AI now has built-in consoles, accessible from the subsystem tab.
+2015-02-24:
+  Zuhayr:
+  - experiment: Major changes to the kitchen and hydroponics mechanics. Review the
+      detailed changelog <a href="https://github.com/Baystation12/Baystation12/pull/8038">here</a>,

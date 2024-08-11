@@ -1,8 +1,8 @@
 /obj/random/tool
 	name = "random tool"
 	desc = "This is a random tool"
-	icon = 'icons/obj/tools.dmi'
-	icon_state = "wrench"
+	icon = 'icons/obj/random.dmi'
+	icon_state = "tool"
 	spawnlist = list(
 		/obj/item/screwdriver,
 		/obj/item/wirecutters,
@@ -27,13 +27,15 @@
 /obj/random/powercell
 	name = "random powercell"
 	desc = "This is a random powercell."
-	icon = 'icons/obj/power.dmi'
+	icon = 'icons/obj/random.dmi'
 	icon_state = "cell"
 	problist = list(
-		/obj/item/cell/crap = 10,
 		/obj/item/cell = 40,
 		/obj/item/cell/high = 40,
+		/obj/item/cell/crap = 10,
+		/obj/item/cell/mecha = 10,
 		/obj/item/cell/super = 9,
+		/obj/item/cell/mecha/nuclear = 5,
 		/obj/item/cell/hyper = 1
 	)
 
@@ -53,8 +55,8 @@
 /obj/random/toolbox
 	name = "random toolbox"
 	desc = "This is a random toolbox."
-	icon = 'icons/obj/storage/toolbox.dmi'
-	icon_state = "red"
+	icon = 'icons/obj/random.dmi'
+	icon_state = "toolbox"
 	spawnlist = list(
 		/obj/item/storage/toolbox/mechanical = 3,
 		/obj/item/storage/toolbox/electrical = 2,
@@ -64,8 +66,8 @@
 /obj/random/tech_supply
 	name = "random tech supply"
 	desc = "This is a random piece of technology supplies."
-	icon = 'icons/obj/power.dmi'
-	icon_state = "cell"
+	icon = 'icons/obj/random.dmi'
+	icon_state = "tech_supply"
 	problist = list(
 		/obj/random/powercell = 3,
 		/obj/random/technology_scanner = 2,

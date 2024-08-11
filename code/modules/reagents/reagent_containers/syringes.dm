@@ -19,7 +19,7 @@
 	amount_per_transfer_from_this = 5
 	possible_transfer_amounts = list(1, 2, 5, 10, 15)
 	volume = 15
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS
 	sharp = 1
 	noslice = 1
@@ -105,7 +105,7 @@
 	..()
 	update_icon()
 
-/obj/item/reagent_containers/syringe/attackby(obj/item/I as obj, mob/user as mob)
+/obj/item/reagent_containers/syringe/attackby(obj/item/attacking_item, mob/user)
 	return
 
 /obj/item/reagent_containers/syringe/afterattack(obj/target, mob/user, proximity)
@@ -182,7 +182,7 @@
 					if(!T.dna)
 						to_chat(user, SPAN_WARNING("You are unable to locate any blood. (To be specific, your target seems to be missing their DNA datum)."))
 						return
-					if(HAS_FLAG(T.mutations, NOCLONE)) //target done been et, no more blood in him
+					if((T.mutations & NOCLONE)) //target done been et, no more blood in him
 						to_chat(user, SPAN_WARNING("You are unable to locate any blood."))
 						return
 
@@ -269,7 +269,7 @@
 	return
 
 /obj/item/reagent_containers/syringe/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	var/iconstring = initial(item_state)
 	if(mode == SYRINGE_BROKEN)
@@ -278,11 +278,11 @@
 		return
 
 	if(mode == SYRINGE_CAPPED)
-		add_overlay("capped")
+		AddOverlays("capped")
 
 	if(reagents && reagents.total_volume)
 		worn_overlay = Clamp(round((reagents.total_volume / volume * 15),5), 1, 15) //rounded_vol
-		add_overlay(overlay_image(icon, "[iconstring][worn_overlay]", color = reagents.get_color()))
+		AddOverlays(overlay_image(icon, "[iconstring][worn_overlay]", color = reagents.get_color()))
 		worn_overlay_color = reagents.get_color() // handles inhands
 	else
 		worn_overlay = 0 // don't change to null, or it will break
@@ -295,7 +295,7 @@
 				injoverlay = "draw"
 			if (SYRINGE_INJECT)
 				injoverlay = "inject"
-		add_overlay(injoverlay)
+		AddOverlays(injoverlay)
 
 /obj/item/reagent_containers/syringe/proc/syringestab(mob/living/carbon/target as mob, mob/living/carbon/user as mob)
 	if(mode == SYRINGE_CAPPED)
@@ -413,8 +413,8 @@
 
 /obj/item/reagent_containers/syringe/drugs
 	name = "Syringe (drugs)"
-	desc = "Contains aggressive drugs meant for torture."
-	reagents_to_add = list(/singleton/reagent/toxin/panotoxin = 5, /singleton/reagent/mindbreaker = 10)
+	desc = "Contains aggressive drugs meant for torture. Markered lines denote points at which to stop injecting."
+	reagents_to_add = list(/singleton/reagent/toxin/panotoxin = 1, /singleton/reagent/drugs/cryptobiolin = 4, /singleton/reagent/drugs/mindbreaker = 10)
 
 /obj/item/reagent_containers/syringe/drugs/Initialize()
 	. = ..()

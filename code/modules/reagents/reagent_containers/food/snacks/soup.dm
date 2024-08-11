@@ -142,15 +142,15 @@
 	bitesize = 3
 	reagents_to_add = list(/singleton/reagent/drink/tomatojuice = 10, /singleton/reagent/nutriment = 5)
 
-/obj/item/reagent_containers/food/snacks/soup/bluespace
-	name = "bluespace tomato soup"
-	desc = "A scientific experiment turned into a possibly unsafe meal."
+/obj/item/reagent_containers/food/snacks/soup/spiralsoup
+	name = "spiral soup"
+	desc = "Considered an extremely high end meal, usually served in only a select few of the finest dining establishments of Xanu and Biesel with specially trained chefs - Because if prepared or consumed wrong it could be dangerous. Eat carefully." //basically, either eat it slowly, or remove the dangerous ingredients from the soup, otherwise - suffer the consequences of teleportation or brainfreeze!
 	icon = 'icons/obj/item/reagent_containers/food/soup.dmi'
 	icon_state = "spiral_soup"
-	filling_color = "#0066FF"
+	filling_color = "#008cff"
 	bitesize = 3
-
-	reagents_to_add = list(/singleton/reagent/bluespace_dust = 5, /singleton/reagent/nutriment = 5)
+	reagents_to_add = list(/singleton/reagent/bluespace_dust = 3, /singleton/reagent/nutriment = 5, /singleton/reagent/frostoil = 0.5, /singleton/reagent/alcohol/singulo = 12, /singleton/reagent/water = 7)
+	reagent_data = list(/singleton/reagent/nutriment = list("pan-dimensional flavors" = 4, "elation" = 2))
 
 /obj/item/reagent_containers/food/snacks/soup/miso
 	name = "miso soup"
@@ -182,6 +182,27 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("tomato" = 4, "beet" = 4))
 	bitesize = 2
 
+/obj/item/reagent_containers/food/snacks/soup/krakensoup
+	name = "kraken soup"
+	desc = "A zesty Biesellite seafood dish made of squid, pumpkin, paprika and red vegetables. Always a little uncomfortable to eat if there's Skrell around."
+	icon = 'icons/obj/item/reagent_containers/food/soup.dmi'
+	icon_state = "krakensoup"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#bb4021"
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 6, /singleton/reagent/nutriment = 2, /singleton/reagent/water = 5)
+	reagent_data = list(/singleton/reagent/nutriment/protein/seafood = list("calamari" = 5, "paprika" = 3), /singleton/reagent/nutriment = list("pumpkin" = 3))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/soup/pea
+	name = "pea soup"
+	desc = "Here due to popular demand! ...Somehow."
+	icon = 'icons/obj/item/reagent_containers/food/soup.dmi'
+	icon_state = "peasoup"
+	filling_color = "#66702a"
+	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/water = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("peas" = 5, "vegetables" = 4))
+	bitesize = 2
+
 // Stew
 
 /obj/item/reagent_containers/food/snacks/stew
@@ -209,6 +230,15 @@
 	bitesize = 6
 
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 4, /singleton/reagent/hyperzine = 5, /singleton/reagent/drink/tomatojuice = 5, /singleton/reagent/oculine = 5, /singleton/reagent/water = 5)
+
+/obj/item/reagent_containers/food/snacks/black_eyed_gumbo
+	name = "black eyed gumbo"
+	desc = "Spicy, savory meat and rice dish with some extra oomf! Can be made with meat or seafood!"
+	icon = 'icons/obj/item/reagent_containers/food/soup.dmi'
+	icon_state = "gumbo"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#921f10"
+	bitesize = 4
 
 // Chilli
 
@@ -246,3 +276,18 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 3, /singleton/reagent/capsaicin = 3, /singleton/reagent/drink/tomatojuice = 2, /singleton/reagent/hyperzine = 5)
 	reagent_data = list(/singleton/reagent/nutriment = list("chili peppers" = 3))
 	bitesize = 5
+
+//oatmeal and porridges
+
+/obj/item/reagent_containers/food/snacks/oatmeal
+	name = "oatmeal"
+	desc = "A dish for only the craziest thrillseekers."
+	icon = 'icons/obj/item/reagent_containers/food/soup.dmi'
+	icon_state = "oatmeal"
+	is_liquid = TRUE
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#caaf7c"
+	center_of_mass = list("x"=15, "y"=9)
+	reagents_to_add = list(/singleton/reagent/nutriment = 8)
+	reagent_data = list(/singleton/reagent/nutriment = list("oatmeal" = 3))
+	bitesize = 2

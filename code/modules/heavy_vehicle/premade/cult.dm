@@ -25,7 +25,7 @@
 	melee_damage = 50
 	action_delay = 5
 	max_damage = 90
-	power_use = 7500
+	power_use = 3500
 	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
 
 /obj/item/mech_component/propulsion/cult
@@ -35,7 +35,7 @@
 	icon_state = "cult_legs"
 	move_delay = 5
 	max_damage = 90
-	power_use = 5000
+	power_use = 2500
 	trample_damage = 45
 
 /obj/item/mech_component/sensors/cult
@@ -60,7 +60,7 @@
 	icon_state = "cult_body"
 	max_damage = 150
 	mech_health = 500
-	power_use = 5000
+	power_use = 500
 
 /obj/item/mech_component/chassis/cult/prebuild()
 	. = ..()

@@ -196,10 +196,10 @@
 			if("ooc")
 				pref.ooccolor = initial(pref.ooccolor)
 			if("fps")
-				pref.clientfps = 0
+				pref.clientfps = initial(pref.clientfps)
 		return TOPIC_REFRESH
 
 	return ..()
 
 /datum/category_item/player_setup_item/player_global/ui/proc/can_select_ooc_color(var/mob/user)
-	return config.allow_admin_ooccolor && check_rights(R_ADMIN, 0, user)
+	return GLOB.config.allow_admin_ooccolor && check_rights(R_ADMIN, 0, user)

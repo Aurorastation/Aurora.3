@@ -20,7 +20,9 @@
 	return
 
 /obj/machinery/abstract/emp_act(severity)
-	return		// No EMPing these.
+	. = ..()
+
+	return
 
 /obj/machinery/abstract/ex_act(severity)
 	return

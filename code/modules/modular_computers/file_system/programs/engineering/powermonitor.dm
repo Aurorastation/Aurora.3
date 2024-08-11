@@ -5,8 +5,8 @@
 	program_key_icon_state = "yellow_key"
 	extended_desc = "This program connects to sensors around the station to provide information about electrical systems"
 	ui_header = "power_norm.gif"
-	required_access_run = access_engine
-	required_access_download = access_ce
+	required_access_run = ACCESS_ENGINE
+	required_access_download = ACCESS_CE
 	requires_ntnet = TRUE
 	network_destination = "power monitoring system"
 	usage_flags = PROGRAM_ALL

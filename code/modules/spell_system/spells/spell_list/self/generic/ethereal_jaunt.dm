@@ -96,7 +96,9 @@
 		AM.forceMove(get_turf(src))
 	return ..()
 
-/obj/effect/dummy/spell_jaunt/relaymove(var/mob/user, direction)
+/obj/effect/dummy/spell_jaunt/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if (!src.canmove || reappearing) return
 	var/turf/newLoc = get_step(src,direction)
 	if(!(newLoc.turf_flags & TURF_FLAG_NOJAUNT))
@@ -105,7 +107,7 @@
 		if(!T.contains_dense_objects())
 			last_valid_turf = T
 	else
-		to_chat(user, "<span class='warning'>Some strange aura is blocking the way!</span>")
+		to_chat(user, SPAN_WARNING("Some strange aura is blocking the way!"))
 	src.canmove = 0
 	spawn(2) src.canmove = 1
 

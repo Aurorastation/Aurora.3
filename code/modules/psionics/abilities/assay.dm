@@ -49,7 +49,7 @@
 
 	var/mob/living/carbon/human/target = hit_atom
 
-	if(target.stat == DEAD || HAS_FLAG(target.status_flags, FAKEDEATH))
+	if(target.stat == DEAD || (target.status_flags & FAKEDEATH))
 		to_chat(user, SPAN_WARNING("Psionic power does not flow through a dead person."))
 		return
 

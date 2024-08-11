@@ -3,7 +3,7 @@
 	desc = "A frame for the beehive that can store honeycombs."
 	icon = 'icons/obj/beekeeping.dmi'
 	icon_state = "honeyframe"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	var/honey = 0
 
 /obj/item/honey_frame/filled
@@ -13,4 +13,4 @@
 
 /obj/item/honey_frame/filled/Initialize()
 	. = ..()
-	add_overlay("honeycomb")
+	AddOverlays("honeycomb")

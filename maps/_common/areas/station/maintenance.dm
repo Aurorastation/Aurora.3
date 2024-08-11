@@ -1,11 +1,13 @@
 //Maintenance
 
 /area/maintenance
-	flags = RAD_SHIELDED | HIDE_FROM_HOLOMAP
-	sound_env = TUNNEL_ENCLOSED
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_HIDE_FROM_HOLOMAP
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	turf_initializer = new /datum/turf_initializer/maintenance()
 	ambience = AMBIENCE_MAINTENANCE
 	station_area = 1
+	area_blurb = "Scarcely lit, cramped, and filled with stale, dusty air. Around you hisses compressed air through the pipes, a buzz of electrical charge through the wires, and muffled rumbles of the hull settling. This place may feel alien compared to the interior of the ship and is a place where one could get lost or badly hurt, but some may find the isolation comforting."
+	area_blurb_category = "maint"
 
 /area/maintenance/civ
 	name = "Civilian Maintenance"
@@ -229,7 +231,7 @@
 /area/maintenance/interstitial_construction_site
 	name = "Construction Zone"
 	icon_state = "engineering_workshop"
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/maintenance/interstitial_construction_site/zone_2
 	name = "Secondary Construction Zone"
@@ -239,7 +241,7 @@
 
 /area/maintenance/elevator
 	name = "Primary Elevator Shaft Maintenance"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	icon_state = "green"
 
 /area/maintenance/vault
@@ -251,8 +253,10 @@
 /area/maintenance/substation
 	name = "Substation"
 	icon_state = "substation"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	ambience = AMBIENCE_SUBSTATION
+	area_blurb = "The hum of the substation's machinery fills the room, holding equipment made to transform voltage and manage power supply to various rooms, and to act as an emergency battery. In comparison to the maintenance tunnels, these stations are far less dusty."
+	area_blurb_category = "substation"
 
 /area/maintenance/substation/engineering // Engineering
 	name = "Engineering Substation"
@@ -330,30 +334,30 @@
 /area/maintenance/auxsolarport
 	name = "Solar Maintenance - Fore Port"
 	icon_state = "SolarcontrolP"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/maintenance/starboardsolar
 	name = "Solar Maintenance - Aft"
 	icon_state = "SolarcontrolS"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/maintenance/portsolar
 	name = "Solar Maintenance - Port"
 	icon_state = "SolarcontrolP"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/maintenance/auxsolarstarboard
 	name = "Solar Maintenance - Fore Starboard"
 	icon_state = "SolarcontrolS"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/maintenance/foresolar
 	name = "Solar Maintenance - Fore"
 	icon_state = "SolarcontrolA"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/maintenance/workshop
 	name = "Research Maintenance - Auxiliary"
 	icon_state = "workshop"
 	turf_initializer = null
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED

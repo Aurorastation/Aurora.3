@@ -39,12 +39,15 @@
 	return TRUE
 
 /obj/item/implant/mindshield/emp_act(severity)
+	. = ..()
+
 	if (malfunction)
 		return
+
 	malfunction = MALFUNCTION_TEMPORARY
 
 	activate("emp")
-	if(severity == 1)
+	if(severity == EMP_HEAVY)
 		if(prob(50))
 			meltdown()
 		else if (prob(50))

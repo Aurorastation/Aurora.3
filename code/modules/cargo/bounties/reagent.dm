@@ -142,7 +142,7 @@
 	var/list/possible_reagents = list(
 		/singleton/reagent/leporazine,
 		/singleton/reagent/clonexadone,
-		/singleton/reagent/space_drugs,
+		/singleton/reagent/drugs/mms,
 		/singleton/reagent/thermite,
 		/singleton/reagent/cetahydramine,
 		/singleton/reagent/sterilizine,
@@ -164,11 +164,11 @@
 		/singleton/reagent/pneumalin,
 		/singleton/reagent/acid/polyacid,
 		/singleton/reagent/mutagen,
-		/singleton/reagent/impedrezene,
-		/singleton/reagent/night_juice,
+		/singleton/reagent/drugs/impedrezene,
+		/singleton/reagent/drugs/night_juice,
 		/singleton/reagent/toxin/cardox,
 		/singleton/reagent/toxin/stimm,
-		/singleton/reagent/ambrosia_extract)
+		/singleton/reagent/drugs/ambrosia_extract)
 
 	var/reagent_type = pick(possible_reagents)
 	wanted_reagent = new reagent_type

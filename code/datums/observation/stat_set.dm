@@ -1,5 +1,3 @@
-var/singleton/observ/stat_set/stat_set_event = new()
-
 //	Observer Pattern Implementation: Stat Set
 //		Registration type: /mob/living
 //
@@ -9,6 +7,9 @@ var/singleton/observ/stat_set/stat_set_event = new()
 //			/mob/living/stat_mob: The mob whose stat changed
 //			/old_stat: Status before the change.
 //			/new_stat: Status after the change.
+
+GLOBAL_DATUM_INIT(stat_set_event, /singleton/observ/stat_set, new)
+
 
 /singleton/observ/stat_set
 	name = "Stat Set"
@@ -21,4 +22,4 @@ var/singleton/observ/stat_set/stat_set_event = new()
 	var/old_stat = stat
 	. = ..()
 	if(stat != old_stat)
-		stat_set_event.raise_event(src, old_stat, new_stat)
+		GLOB.stat_set_event.raise_event(src, old_stat, new_stat)

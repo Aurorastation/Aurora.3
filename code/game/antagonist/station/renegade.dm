@@ -6,11 +6,8 @@ var/datum/antagonist/renegade/renegades
 	welcome_text = "You're extremely paranoid today. For your entire life, you've theorized about a shadow corporation out for your blood and yours only. Something's here to kill you, but you don't know what... Remember that you're not a full antagonist. You can prepare to murder someone and kill, but you shouldn't actively seek conflict."
 	id = MODE_RENEGADE
 	flags = ANTAG_SUSPICIOUS | ANTAG_IMPLANT_IMMUNE | ANTAG_VOTABLE | ANTAG_NO_ROUNDSTART_SPAWN
-	hard_cap = 5
-	hard_cap_round = 7
-
-	hard_cap = 8
 	hard_cap_round = 12
+
 	initial_spawn_req = 3
 	initial_spawn_target = 6
 
@@ -45,7 +42,7 @@ var/datum/antagonist/renegade/renegades
 /proc/rightandwrong()
 	to_chat(usr, "<B>You summoned guns!</B>")
 	message_admins("[key_name_admin(usr, 1)] summoned guns!")
-	for(var/mob/living/carbon/human/H in player_list)
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(H.stat == 2 || !(H.client)) continue
 		if(is_special_character(H)) continue
 		renegades.add_antagonist(H.mind)

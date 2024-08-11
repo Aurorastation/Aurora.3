@@ -4,8 +4,8 @@
 	program_icon_state = "id"
 	program_key_icon_state = "lightblue_key"
 	extended_desc = "Program for programming employee ID cards to access parts of the station."
-	required_access_run = access_change_ids
-	required_access_download = access_change_ids
+	required_access_run = ACCESS_CHANGE_IDS
+	required_access_download = ACCESS_CHANGE_IDS
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP
 	requires_ntnet = FALSE
 	size = 8
@@ -153,7 +153,7 @@
 					if(temp_name)
 						id_card.registered_name = temp_name
 					else
-						computer.visible_message("<span class='notice'>[computer] buzzes rudely.</span>")
+						computer.visible_message(SPAN_NOTICE("[computer] buzzes rudely."))
 				else if(params["account"])
 					var/account_num = text2num(input("Enter account number.", "Account", id_card.associated_account_number))
 					id_card.associated_account_number = account_num

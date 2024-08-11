@@ -4,12 +4,14 @@
 	pixel_x = -32
 	icon = 'icons/obj/flora/crystal_trees.dmi'
 	icon_state = "gem"
+	is_rock = TRUE
+	sample_data = list("Sample contains crystaline structures with a branching fractal appearance")
 
 /obj/structure/flora/tree/crystal/Initialize(mapload)
 	. = ..()
 	icon_state = "gem[rand(1,2)]"
 
-/obj/structure/flora/tree/crystal/attackby(obj/item/I, mob/user)
+/obj/structure/flora/tree/crystal/attackby(obj/item/attacking_item, mob/user)
 	return TRUE // could probably make this mineable but I'm lazy
 
 /obj/structure/flora/rock/spire
@@ -18,7 +20,8 @@
 	icon = 'icons/obj/flora/crystal_trees.dmi'
 	icon_state = "spire"
 	pixel_x = -32
-	layer = ABOVE_ALL_MOB_LAYER // this is basically a tree
+	layer = ABOVE_HUMAN_LAYER // this is basically a tree
+	sample_data = list("Sample contains low density crystaline structures")
 
 /obj/structure/flora/rock/spire/Initialize(mapload)
 	. = ..()
@@ -32,3 +35,6 @@
 /obj/effect/floor_decal/crystal/random/Initialize(mapload, newdir, newcolour, bypass, set_icon_state)
 	icon_state = "crystal_gen[rand(1,3)]"
 	. = ..()
+
+/obj/effect/floor_decal/crystal/random/dark
+	color = "#666666"

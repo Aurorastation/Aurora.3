@@ -7,8 +7,8 @@
 	icon_state = "megaphone"
 	item_state = "megaphone"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
-	flags = CONDUCT
+	w_class = WEIGHT_CLASS_SMALL
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 	var/spamcheck = 0
 	var/emagged = 0

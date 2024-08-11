@@ -4,7 +4,7 @@
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "cursedheart-off"
 	origin_tech = list(TECH_BLUESPACE = 8, TECH_MATERIAL = 8, TECH_BIO = 8)
-	w_class = ITEMSIZE_HUGE
+	w_class = WEIGHT_CLASS_HUGE
 	light_color = "#6633CC"
 	light_power = 3
 	light_range = 4
@@ -14,24 +14,24 @@
 
 /obj/item/phylactery/Initialize()
 	. = ..()
-	world_phylactery += src
+	GLOB.world_phylactery += src
 
 /obj/item/phylactery/Destroy()
-	to_chat(lich, "<span class='danger'>Your phylactery was destroyed, your soul is cast into the abyss as your immortality vanishes away!</span>")
-	world_phylactery -= src
+	to_chat(lich, SPAN_DANGER("Your phylactery was destroyed, your soul is cast into the abyss as your immortality vanishes away!"))
+	GLOB.world_phylactery -= src
 	lich = null
 	return ..()
 
-/obj/item/phylactery/examine(mob/user)
+/obj/item/phylactery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!lich)
-		to_chat(user, "The heart is inert.")
+		. += "The heart is inert."
 	else
-		to_chat(user, "The heart is pulsing slowly.")
+		. += "The heart is pulsing slowly."
 
-/obj/item/phylactery/attackby(var/obj/item/I, var/mob/user)
+/obj/item/phylactery/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(istype(I, /obj/item/nullrod))
+	if(istype(attacking_item, /obj/item/nullrod))
 		src.visible_message("\The [src] twists violently and explodes!")
 		gibs(src.loc)
 		qdel(src)
@@ -39,6 +39,6 @@
 
 /obj/item/phylactery/pickup(mob/living/user as mob)
 	..()
-	to_chat(user, "<span class='warning'>As you pick up \the [src], you feel a wave of dread wash over you.</span>")
+	to_chat(user, SPAN_WARNING("As you pick up \the [src], you feel a wave of dread wash over you."))
 	for(var/obj/machinery/light/P in view(7, user))
 		P.flicker(1)

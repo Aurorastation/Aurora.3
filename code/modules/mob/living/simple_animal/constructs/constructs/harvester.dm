@@ -14,7 +14,6 @@
 	organ_names = list("core", "harvesting array")
 	speed = -1
 	environment_smash = 1
-	see_in_dark = 7
 	attack_sound = 'sound/weapons/pierce.ogg'
 	can_repair = TRUE
 	construct_spells = list(

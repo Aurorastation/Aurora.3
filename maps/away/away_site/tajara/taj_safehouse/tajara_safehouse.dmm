@@ -1,13 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aa" = (
-/obj/machinery/door/airlock/hatch{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tajara_safehouse)
 "ab" = (
 /obj/structure/extinguisher_cabinet/west{
-	layer = 3.3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
@@ -22,12 +15,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/freezer,
-/area/tajara_safehouse)
-"ae" = (
-/obj/machinery/door/airlock/hatch{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
 "aF" = (
 /obj/effect/decal/cleanable/dirt,
@@ -236,7 +223,6 @@
 	pixel_y = 20
 	},
 /obj/structure/mirror{
-	layer = 2.98;
 	pixel_y = 34
 	},
 /obj/machinery/light/small{
@@ -678,7 +664,6 @@
 /area/tajara_safehouse/hangar)
 "th" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black,
@@ -1077,7 +1062,6 @@
 /area/tajara_safehouse)
 "JI" = (
 /obj/structure/extinguisher_cabinet/east{
-	layer = 3.3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tajara_safehouse)
@@ -27756,7 +27740,7 @@ xQ
 xQ
 xQ
 xQ
-aa
+ac
 lH
 dR
 nk
@@ -30089,7 +30073,7 @@ lH
 lH
 lH
 lH
-ae
+ac
 sI
 lH
 lH

@@ -3,7 +3,8 @@
 /area/mine
 	icon_state = "mining"
 	music = list('sound/music/ambimine.ogg', 'sound/music/song_game.ogg')
-	sound_env = ASTEROID
+	sound_environment = SOUND_AREA_ASTEROID
+	area_flags = AREA_FLAG_IS_BACKGROUND
 
 /area/mine/explored
 	name = "Mine"
@@ -12,7 +13,7 @@
 /area/mine/unexplored
 	name = "Mine"
 	icon_state = "unexplored"
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 // Smalls
 /area/outpost

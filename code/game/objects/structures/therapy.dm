@@ -8,7 +8,7 @@
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
 	recyclable = TRUE
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	var/closed = FALSE
 
 /obj/item/pocketwatch/AltClick(mob/user)
@@ -22,7 +22,7 @@
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 	closed = !closed
 
-/obj/item/pocketwatch/examine(mob/user, distance, is_adjacent)
+/obj/item/pocketwatch/examine(mob/user, distance, is_adjacent, show_extended)
 	. = ..()
 	if (distance <= 1)
 		checktime()
@@ -35,7 +35,7 @@
 	if(closed)
 		to_chat(usr, "You check your watch, realising it's closed.")
 	else
-		to_chat(usr, "You check your watch, glancing over at the watch face, reading the time to be '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
+		to_chat(usr, "You check your watch, glancing over at the watch face, reading the time to be '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'.")
 
 /obj/item/pocketwatch/verb/pointatwatch()
 	set category = "Object"
@@ -56,8 +56,8 @@
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	matter = list(MATERIAL_GLASS = 150, MATERIAL_GOLD = 50)
 	recyclable = TRUE
-	w_class = ITEMSIZE_TINY
-	flags = NOBLUDGEON
+	w_class = WEIGHT_CLASS_TINY
+	atom_flags = ITEM_FLAG_NO_BLUDGEON
 	var/datum/weakref/thrall = null
 	var/time_counter = 0
 	var/closed = FALSE
@@ -108,7 +108,7 @@
 		return
 	if(!thrall || !thrall.resolve())
 		thrall = null
-		to_chat(user, "You decipher the watch's mesmerizing face, discerning the time to be: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
+		to_chat(user, "You decipher the watch's mesmerizing face, discerning the time to be: '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'.")
 		return
 
 	var/mob/living/carbon/human/H = thrall.resolve()
@@ -129,7 +129,7 @@
 
 		var/thrall_response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
 		if(thrall_response == "Yes")
-			to_chat(H, "<span class='notice'><i>... [text] ...</i></span>")
+			to_chat(H, SPAN_NOTICE("<i>... [text] ...</i>"))
 		else
 			thrall = null
 
@@ -143,7 +143,7 @@
 	if(!istype(H))
 		return
 
-	user.visible_message("<span class='warning'>[user] begins to mesmerizingly wave [src] like a pendulum before [H]'s very eyes!</span>")
+	user.visible_message(SPAN_WARNING("[user] begins to mesmerizingly wave [src] like a pendulum before [H]'s very eyes!"))
 
 	if(!do_mob(user, H, 10 SECONDS))
 		return
@@ -154,7 +154,7 @@
 	var/response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
 
 	if(response == "Yes")
-		H.visible_message("<span class='warning'>[H] falls into a deep slumber!</span>", "<span class ='danger'>You fall into a deep slumber!</span>")
+		H.visible_message(SPAN_WARNING("[H] falls into a deep slumber!</span>"), SPAN_DANGER("You fall into a deep slumber!"))
 
 		H.sleeping = max(H.sleeping, 40)
 		H.drowsiness = max(H.drowsiness, 60)
@@ -179,16 +179,16 @@
 	. = ..()
 	START_PROCESSING(SSfast_process, src)
 
-/obj/structure/metronome/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.iswrench())
-		playsound(src.loc, W.usesound, 50, 1)
+/obj/structure/metronome/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		if(anchored)
-			to_chat(user, "<span class='notice'>You unanchor \the [src] and it destabilizes.</span>")
+			to_chat(user, SPAN_NOTICE("You unanchor \the [src] and it destabilizes."))
 			STOP_PROCESSING(SSfast_process, src)
 			icon_state = "metronome0"
 			anchored = 0
 		else
-			to_chat(user, "<span class='notice'>You anchor \the [src] and it restabilizes.</span>")
+			to_chat(user, SPAN_NOTICE("You anchor \the [src] and it restabilizes."))
 			START_PROCESSING(SSfast_process, src)
 			icon_state = "metronome1"
 			anchored = 1
@@ -212,5 +212,5 @@
 			ticktock = "Tock"
 		else
 			ticktock = "Tick"
-		to_chat(H, "<span class='notice'><i>[ticktock]. . .</i></span>")
+		to_chat(H, SPAN_NOTICE("<i>[ticktock]. . .</i>"))
 		sound_to(H, 'sound/effects/singlebeat.ogg')

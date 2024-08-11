@@ -1,20 +1,24 @@
 /datum/map_template/ruin/exoplanet/coalition_base
-    name = "Abandoned Coalition Relay"
-    id = "coalition_base"
-    description = "An abandoned Coalition base."
+	name = "Abandoned Coalition Relay"
+	id = "coalition_base"
+	description = "An abandoned Coalition base."
 
-    sectors = list(ALL_COALITION_SECTORS)
-    suffixes = list("asteroid/coalition_base/coalition_base.dmm")
+	sectors = list(ALL_COALITION_SECTORS)
 
-    planet_types = PLANET_ASTEROID|PLANET_BARREN
-    ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP
+	prefix = "asteroid/coalition_base/"
+	suffix = "coalition_base.dmm"
+
+	planet_types = PLANET_ASTEROID|PLANET_BARREN
+	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP
+
+	unit_test_groups = list(2)
 
 /area/coalition_base
-  name = "coalition base"
-  icon_state = "unknown"
-  requires_power = TRUE
-  dynamic_lighting = TRUE
-  no_light_control = TRUE
+	name = "coalition base"
+	icon_state = "unknown"
+	requires_power = TRUE
+	dynamic_lighting = TRUE
+	no_light_control = TRUE
 
 /area/coalition_base/eva_prep
 	name = "EVA Preparation Room"

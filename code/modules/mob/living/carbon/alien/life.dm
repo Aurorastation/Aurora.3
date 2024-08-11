@@ -1,7 +1,5 @@
 // Alien larva are quite simple.
-/mob/living/carbon/alien/Life()
-	set background = BACKGROUND_ENABLED
-
+/mob/living/carbon/alien/Life(seconds_per_tick, times_fired)
 	if (transforming)	return
 	if(!loc)			return
 
@@ -94,16 +92,14 @@
 	if(!..())
 		return // Returns if no client.
 
-	if(stat == DEAD || HAS_FLAG(mutations, XRAY))
+	if(stat == DEAD || (mutations & XRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		set_see_in_dark(8)
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 	else if(stat != DEAD && is_ventcrawling == FALSE)
 		if(species && species.vision_flags)
 			sight = species.vision_flags
 		else
 			set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
-		set_see_in_dark(2)
 		set_see_invisible(SEE_INVISIBLE_LIVING)
 
 	if (healths)
@@ -145,6 +141,7 @@
 	return 1
 
 /mob/living/carbon/alien/handle_environment(var/datum/gas_mixture/environment)
+	..()
 	// Both alien subtypes survive in vaccum and suffer in high temperatures,
 	// so I'll just define this once, for both (see radiation comment above)
 	if(!environment) return
@@ -153,7 +150,7 @@
 		adjustFireLoss((environment.temperature - (T0C+66))/5) // Might be too high, check in testing.
 		if (fire) fire.icon_state = "fire2"
 		if(prob(20))
-			to_chat(src, "<span class='danger'>You feel a searing heat!</span>")
+			to_chat(src, SPAN_DANGER("You feel a searing heat!"))
 	else
 		if (fire) fire.icon_state = "fire0"
 

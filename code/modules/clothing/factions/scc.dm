@@ -6,6 +6,12 @@
 	item_state = "scc_liaison"
 	contained_sprite = TRUE
 
+/obj/item/clothing/under/rank/scc2/ccia
+	name = "\improper SCC internal affairs uniform"
+	desc = "The ubiquitous well-ironed dress uniform of SCC internal affairs personnel."
+	icon_state = "scc_ccia"
+	item_state = "scc_ccia"
+
 /obj/item/clothing/suit/storage/toggle/armor/vest/scc
 	name = "\improper SCC vest"
 	desc = "A stylish vest worn by SCC personnel."
@@ -35,6 +41,33 @@
 /obj/item/clothing/suit/storage/toggle/armor/vest/scc/toggle_open()
 	return
 
+/obj/item/clothing/suit/storage/toggle/armor/ccia
+	name = "\improper SCC CCIA armored jacket"
+	desc = "A long armored coat worn by SCC internal affairs personnel. Layered with armor lining for added protection."
+	icon = 'icons/obj/item/clothing/department_uniforms/scc.dmi'
+	icon_state = "scc_coat"
+	item_state = "scc_coat"
+	contained_sprite = TRUE
+	opened = TRUE
+
+	allowed = list(
+		/obj/item/gun,
+		/obj/item/reagent_containers/spray/pepper,
+		/obj/item/ammo_magazine,
+		/obj/item/ammo_casing,
+		/obj/item/melee/baton,
+		/obj/item/handcuffs,
+		/obj/item/device/flashlight
+	)
+	body_parts_covered = UPPER_TORSO|ARMS
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_SMALL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED
+	)
+
 /obj/item/clothing/accessory/tie/corporate/scc
 	name = "\improper SCC tie"
 	desc = "A sleek corporate tie, worn by SCC employees."
@@ -42,6 +75,10 @@
 	icon_state = "scc_tie"
 	item_state = "scc_tie"
 	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/tie/corporate/scc/alt
+	icon_state = "scc_tie_blue"
+	item_state = "scc_tie_blue"
 
 /obj/item/clothing/head/beret/scc
 	name = "\improper SCC beret"
@@ -51,3 +88,8 @@
 	icon_state = "scc_beret"
 	item_state = "scc_beret"
 	contained_sprite = TRUE
+
+/obj/item/clothing/head/beret/scc/alt
+	icon_state = "scc_beret_dark"
+	item_state = "scc_beret_dark"
+

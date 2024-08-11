@@ -6,13 +6,13 @@
 	icon_state = "red"
 	item_state = "red"
 	center_of_mass = list("x" = 16,"y" = 11)
-	flags = CONDUCT
-	force = 5
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	force = 11
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 7
-	w_class = ITEMSIZE_LARGE
-	max_w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_BULKY
+	max_w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 14 //enough to hold all starting contents
 	origin_tech = list(TECH_COMBAT = 1)
 	attack_verb = list("robusted")
@@ -109,7 +109,7 @@
 	icon_state = "syndicate"
 	item_state = "syndicate"
 	origin_tech = list(TECH_COMBAT = 1, TECH_ILLEGAL = 1)
-	force = 7.0
+	force = 16
 	starts_with = list(\
 		/obj/item/clothing/gloves/yellow = 1,\
 		/obj/item/screwdriver = 1,\
@@ -149,7 +149,7 @@
 	item_state = "lunchbox_rainbow"
 	desc = "A little lunchbox. This one is in the colors of the rainbow."
 	attack_verb = list("lunched")
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	max_storage_space = 8
 	var/filled = FALSE
 
@@ -208,7 +208,7 @@
 	filled = TRUE
 
 /obj/item/storage/toolbox/lunchbox/nymph
-	name = "\improper diona nymph lunchbox"
+	name = "Diona Nymph Lunchbox"
 	icon_state = "lunchbox_dionanymph"
 	item_state = "lunchbox_dionanymph"
 	desc = "A little lunchbox. This one has a diona nymph on the side."

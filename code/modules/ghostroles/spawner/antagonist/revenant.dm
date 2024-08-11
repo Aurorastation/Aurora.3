@@ -50,11 +50,11 @@
 	return R
 
 /datum/ghostspawner/revenant/proc/play_ambience(var/mob/living/carbon/human/H)
-	for(var/m in player_list - H)
+	for(var/m in GLOB.player_list - H)
 		var/mob/M = m
 		if(M.ear_deaf)
 			continue
-		M.playsound_simple(get_turf(M), 'sound/ambience/tension/tension.ogg', 75, FALSE)
+		M.playsound_local(get_turf(M), 'sound/ambience/tension/tension.ogg', 75, FALSE)
 		to_chat(M, FONT_LARGE(SPAN_CULT("A faint hum coming from the station walls fills your ears...")))
 	has_fired = TRUE
 
@@ -65,7 +65,7 @@
 	if(revenants.kill_count > kills_needed)
 		var/turf/rift_turf
 		var/list/possible_landmarks = list()
-		for(var/thing in landmarks_list)
+		for(var/thing in GLOB.landmarks_list)
 			var/obj/effect/landmark/landmark = thing
 			if(landmark.name == "RevenantRift")
 				possible_landmarks += landmark
@@ -75,7 +75,7 @@
 		if(rift_turf)
 			new /obj/effect/portal/revenant(rift_turf)
 			if(!first_rift_done)
-				command_announcement.Announce("[current_map.station_name], we're detecting energy signatures eerily similar to a bluespace rift breach inside your hull. [SScargo.shuttle ? "We're sending you a bluespace neutralizer via the cargo shuttle. If you need more, your research department should be able to print neutralizers as well if they've been increasing their bluespace research levels. " : ""]Locate the rift and shut it down.", "Bluespace Breach Alert")
+				command_announcement.Announce("[SSatlas.current_map.station_name], we're detecting energy signatures eerily similar to a bluespace rift breach inside your hull. [SScargo.shuttle ? "We're sending you a bluespace neutralizer via the cargo shuttle. If you need more, your research department should be able to print neutralizers as well if they've been increasing their bluespace research levels. " : ""]Locate the rift and shut it down.", "Bluespace Breach Alert")
 				first_rift_done = TRUE
 				if(SScargo.shuttle)
 					var/turf/T = pick_area_turf(pick(SScargo.shuttle.shuttle_area), list(/proc/not_turf_contains_dense_objects))

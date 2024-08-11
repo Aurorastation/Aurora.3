@@ -17,7 +17,7 @@ Pipelines + Other Objects -> Pipe network
 	var/nodealert = 0
 	var/power_rating //the maximum amount of power the machine can use to do work, affects how powerful the machine is, in Watts
 
-	layer = 2.4 //under wires with their 2.44
+	layer = EXPOSED_PIPE_LAYER
 
 	var/connect_types = CONNECT_TYPE_REGULAR
 	var/icon_connect_type = "" //"-supply" or "-scrubbers"
@@ -54,8 +54,8 @@ Pipelines + Other Objects -> Pipe network
 /obj/machinery/atmospherics/LateInitialize()
 	atmos_init()
 
-/obj/machinery/atmospherics/attackby(atom/A, mob/user as mob)
-	if(istype(A, /obj/item/device/pipe_painter))
+/obj/machinery/atmospherics/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/pipe_painter))
 		return FALSE
 	..()
 
@@ -99,7 +99,7 @@ Pipelines + Other Objects -> Pipe network
 
 	return node.pipe_color
 
-/obj/machinery/atmospherics/process()
+/obj/machinery/atmospherics/process(seconds_per_tick)
 	last_flow_rate = 0
 	last_power_draw = 0
 

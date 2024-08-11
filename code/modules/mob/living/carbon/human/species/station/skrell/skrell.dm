@@ -10,6 +10,7 @@
 	age_min = 50
 	age_max = 500
 	default_genders = list(PLURAL)
+	selectable_pronouns = null
 	economic_modifier = 12
 	icobase = 'icons/mob/human_races/skrell/r_skrell.dmi'
 	deform = 'icons/mob/human_races/skrell/r_def_skrell.dmi'
@@ -46,9 +47,9 @@
 	possible_external_organs_modifications = list("Normal","Amputated","Prosthesis", "Diona Nymph")
 
 	has_limbs = list(
-		BP_HEAD =   list("path" = /obj/item/organ/external/head/skrell),
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest),
 		BP_GROIN =  list("path" = /obj/item/organ/external/groin),
+		BP_HEAD =   list("path" = /obj/item/organ/external/head/skrell),
 		BP_L_ARM =  list("path" = /obj/item/organ/external/arm),
 		BP_R_ARM =  list("path" = /obj/item/organ/external/arm/right),
 		BP_L_LEG =  list("path" = /obj/item/organ/external/leg),
@@ -76,12 +77,13 @@
 	base_color = "#006666"
 
 	reagent_tag = IS_SKRELL
-	ethanol_resistance = 0.5//gets drunk faster
+	ethanol_resistance = 0.6//gets drunk faster
 	taste_sensitivity = TASTE_SENSITIVE
 
 	stamina = 80
 	sprint_cost_factor = 0.4
 	sprint_speed_factor = 0.8
+	standing_jump_range = 3
 	bp_base_systolic = 100 // Default 120
 	bp_base_disatolic = 60 // Default 80
 	low_pulse = 30 // Default 40

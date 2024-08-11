@@ -19,10 +19,10 @@ effective or pretty fucking useless.
 	desc = "A strange device with twin antennas."
 	icon_state = "batterer"
 	throwforce = 5
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	throw_speed = 4
 	throw_range = 10
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	item_state = "electronic"
 	origin_tech = list(TECH_MAGNET = 3, TECH_COMBAT = 3, TECH_ILLEGAL = 3)
 
@@ -32,25 +32,22 @@ effective or pretty fucking useless.
 /obj/item/device/batterer/attack_self(mob/living/carbon/user as mob, flag = 0, emp = 0)
 	if(!user) 	return
 	if(times_used >= max_uses)
-		to_chat(user, "<span class='warning'>The mind batterer has been burnt out!</span>")
+		to_chat(user, SPAN_WARNING("The mind batterer has been burnt out!"))
 		return
 
 	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used [src] to knock down people in the area.</span>")
 
 	for(var/mob/living/carbon/human/M in orange(10, user))
-		spawn()
-			if(prob(50))
-
-				M.Weaken(rand(10,20))
-				if(prob(25))
-					M.Stun(rand(5,10))
-				to_chat(M, "<span class='danger'>You feel a tremendous, paralyzing wave flood your mind.</span>")
-
-			else
-				to_chat(M, "<span class='danger'>You feel a sudden, electric jolt travel through your head.</span>")
+		if(prob(50))
+			M.Weaken(rand(10,20))
+			if(prob(25))
+				M.Stun(rand(5,10))
+			to_chat(M, SPAN_DANGER("You feel a tremendous, paralyzing wave flood your mind."))
+		else
+			to_chat(M, SPAN_DANGER("You feel a sudden, electric jolt travel through your head."))
 
 	playsound(src.loc, 'sound/misc/interference.ogg', 50, 1)
-	to_chat(user, "<span class='notice'>You trigger [src].</span>")
+	to_chat(user, SPAN_NOTICE("You trigger [src]."))
 	times_used += 1
 	if(times_used >= max_uses)
 		icon_state = "battererburnt"
@@ -68,7 +65,7 @@ effective or pretty fucking useless.
 	if(!istype(target))
 		to_chat(user, SPAN_NOTICE("[target] is not a valid target!"))
 		return
-	if(all_languages[LANGUAGE_LIIDRA] in target.languages || target.internal_organs_by_name["blackkois"])
+	if(GLOB.all_languages[LANGUAGE_LIIDRA] in target.languages || target.internal_organs_by_name["blackkois"])
 		to_chat(user, SPAN_NOTICE("[target] is already part of the Lii'dra Hivemind!"))
 		return
 	if(isvaurca(target))

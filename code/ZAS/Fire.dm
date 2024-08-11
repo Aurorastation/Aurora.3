@@ -129,7 +129,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	icon = 'icons/effects/fire.dmi'
 	icon_state = "wavey_fire"
 	light_color = LIGHT_COLOR_FIRE
-	layer = ABOVE_MOB_LAYER
+	layer = FIRE_LAYER
 
 	var/firelevel = 1 //Calculated by gas_mixture.calculate_firelevel()
 
@@ -157,12 +157,12 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	for(var/mob/living/L in loc)
 		L.FireBurn(firelevel, air_contents.temperature, air_contents.return_pressure())  //Burn the mobs!
 
-	loc.fire_act(air_contents, air_contents.temperature, air_contents.volume)
+	loc.fire_act(air_contents.temperature, air_contents.volume)
 	for(var/atom/A in loc)
-		A.fire_act(air_contents, air_contents.temperature, air_contents.volume)
+		A.fire_act(air_contents.temperature, air_contents.volume)
 
 	//spread
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		var/turf/simulated/enemy_tile = get_step(my_tile, direction)
 
 		if(istype(enemy_tile))
@@ -202,7 +202,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 		qdel(src)
 		return
 
-	set_dir(pick(cardinal))
+	set_dir(pick(GLOB.cardinal))
 
 	var/datum/gas_mixture/air_contents = loc.return_air()
 	color = fire_color(air_contents.temperature)

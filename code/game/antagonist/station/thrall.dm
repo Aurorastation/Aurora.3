@@ -40,6 +40,8 @@ var/datum/antagonist/thrall/thralls = null
 
 /datum/antagonist/thrall/remove_antagonist(datum/mind/player, show_message, implanted)
 	var/datum/vampire/vampire = player.antag_datums[MODE_VAMPIRE]
-	vampire.lose_master(player.current)
+
+	if(vampire)
+		vampire.lose_master(player.current)
 	player.antag_datums -= MODE_VAMPIRE
 	return ..()

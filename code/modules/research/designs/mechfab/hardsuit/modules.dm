@@ -1,7 +1,7 @@
 /datum/design/hardsuitmodules
 	build_type = MECHFAB
 	category = "Hardsuit (Modules)"
-	time = 10
+	time = 10 SECONDS
 
 /datum/design/hardsuitmodules/storage
 	name = "Storage Module"
@@ -121,3 +121,10 @@
 	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_POWER = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 6000)
 	build_path = /obj/item/rig_module/foam_sprayer
+
+/datum/design/hardsuitmodules/recharge_module
+	name = "Mounted Weapon Recharger"
+	desc = "A hardsuit-integrated recharging system for energy weapons."
+	req_tech = list(TECH_MATERIAL = 3, TECH_POWER = 7, TECH_COMBAT = 5)
+	materials = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 2250, MATERIAL_URANIUM = 3250, MATERIAL_GOLD = 2500)
+	build_path = /obj/item/rig_module/recharger

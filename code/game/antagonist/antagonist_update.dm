@@ -38,7 +38,7 @@
 	if(!antag_indicator || !other.current || !recipient.current)
 		return
 	var/indicator = (faction_indicator && (other in faction_members)) ? faction_indicator : antag_indicator
-	return image('icons/mob/mob.dmi', loc = other.current, icon_state = indicator, layer = LIGHTING_LAYER+0.1)
+	return image('icons/mob/mob.dmi', loc = other.current, icon_state = indicator, layer = ABOVE_HUMAN_LAYER)
 
 /datum/antagonist/proc/update_all_icons()
 	if(!antag_indicator)
@@ -52,7 +52,7 @@
 				antag.current.client.images |= get_indicator(antag, other_antag)
 
 /datum/antagonist/proc/update_icons_added(var/datum/mind/player)
-	set waitfor = FALSE
+	SHOULD_NOT_SLEEP(TRUE)
 	if(!antag_indicator || !player.current)
 		return
 
@@ -68,7 +68,7 @@
 			player.current.client.images |= get_indicator(player, antag)
 
 /datum/antagonist/proc/update_icons_removed(var/datum/mind/player)
-	set waitfor = FALSE
+	SHOULD_NOT_SLEEP(TRUE)
 
 	if(!antag_indicator || !player.current)
 		return
@@ -94,11 +94,11 @@
 		if (SSticker.current_state < GAME_STATE_PLAYING)
 			// If we're in the pre-game state, we count readied new players as players.
 			// Yes, not all get spawned, but it's a close enough guestimation.
-			for (var/mob/abstract/new_player/L in player_list)
+			for (var/mob/abstract/new_player/L in GLOB.player_list)
 				if (L.client && L.ready)
 					count++
 		else
-			for (var/mob/living/M in player_list)
+			for (var/mob/living/M in GLOB.player_list)
 				if (M.client)
 					count++
 
@@ -120,11 +120,11 @@
 	if (SSticker.current_state < GAME_STATE_PLAYING)
 		// If we're in the pre-game state, we count readied new players as players.
 		// Yes, not all get spawned, but it's a close enough guestimation.
-		for (var/mob/abstract/new_player/L in player_list)
+		for (var/mob/abstract/new_player/L in GLOB.player_list)
 			if (L.client && L.ready)
 				count++
 	else
-		for (var/mob/living/M in player_list)
+		for (var/mob/living/M in GLOB.player_list)
 			if (M.client)
 				count++
 

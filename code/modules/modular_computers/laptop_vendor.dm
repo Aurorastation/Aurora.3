@@ -262,8 +262,8 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/lapvend/attackby(obj/item/W, mob/user)
-	if(W.iswrench())
+/obj/machinery/lapvend/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(anchored)
 			user.visible_message("<b>[user]</b> begins unsecuring \the [src] from the floor.", \
@@ -271,19 +271,19 @@
 		else
 			user.visible_message("<b>[user]</b> begins securing \the [src] to the floor.", \
 								SPAN_NOTICE("You start securing \the [src] to the floor."))
-		if(W.use_tool(src, user, 20, volume = 50))
+		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			if(!src)
 				return
 			to_chat(user, SPAN_NOTICE("You [anchored ? "un" : ""]secured \the [src]!"))
 			anchored = !anchored
 		return
 	else if(state == 2) // awaiting payment state
-		if(istype(W, /obj/item/card/id))
-			var/obj/item/card/id/I = W.GetID()
-			if(process_payment(I, W))
+		if(istype(attacking_item, /obj/item/card/id))
+			var/obj/item/card/id/I = attacking_item.GetID()
+			if(process_payment(I, attacking_item))
 				create_device()
 				return TRUE
-		else if(istype(W, /obj/item/card/tech_support))
+		else if(istype(attacking_item, /obj/item/card/tech_support))
 			create_device("Have a NanoTrasen day!")
 			return TRUE
 	return ..()

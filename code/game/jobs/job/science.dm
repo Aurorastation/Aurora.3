@@ -18,41 +18,37 @@
 	)
 
 	access = list(
-		access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks, access_tox_storage,
-		access_teleporter, access_sec_doors, access_medical, access_engine, access_ship_weapons, access_construction, access_mining, access_mailsorting, access_research,
-		access_xenobiology, access_xenobotany, access_ai_upload, access_tech_storage, access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway,
-		access_xenoarch, access_network, access_maint_tunnels, access_it, access_intrepid
+		ACCESS_RD, ACCESS_HEADS, ACCESS_TOX, ACCESS_GENETICS, ACCESS_MORGUE, ACCESS_EVA, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_TOX_STORAGE,
+		ACCESS_TELEPORTER, ACCESS_SEC_DOORS, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_CONSTRUCTION, ACCESS_MINING, ACCESS_MAILSORTING, ACCESS_RESEARCH,
+		ACCESS_XENOBIOLOGY, ACCESS_XENOBOTANY, ACCESS_AI_UPLOAD, ACCESS_TECH_STORAGE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_GATEWAY,
+		ACCESS_XENOARCH, ACCESS_NETWORK, ACCESS_MAINT_TUNNELS, ACCESS_IT, ACCESS_INTREPID
 	)
 	minimal_access = list(
-		access_rd, access_heads, access_tox, access_genetics, access_morgue, access_eva, access_external_airlocks, access_tox_storage,
-		access_teleporter, access_sec_doors, access_medical, access_engine, access_ship_weapons, access_construction, access_mining, access_mailsorting, access_research,
-		access_xenobiology, access_xenobotany, access_ai_upload, access_tech_storage, access_RC_announce, access_keycard_auth, access_tcomsat, access_gateway,
-		access_xenoarch, access_network, access_maint_tunnels, access_it, access_intrepid
+		ACCESS_RD, ACCESS_HEADS, ACCESS_TOX, ACCESS_GENETICS, ACCESS_MORGUE, ACCESS_EVA, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_TOX_STORAGE,
+		ACCESS_TELEPORTER, ACCESS_SEC_DOORS, ACCESS_MEDICAL, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_CONSTRUCTION, ACCESS_MINING, ACCESS_MAILSORTING, ACCESS_RESEARCH,
+		ACCESS_XENOBIOLOGY, ACCESS_XENOBOTANY, ACCESS_AI_UPLOAD, ACCESS_TECH_STORAGE, ACCESS_RC_ANNOUNCE, ACCESS_KEYCARD_AUTH, ACCESS_TCOMSAT, ACCESS_GATEWAY,
+		ACCESS_XENOARCH, ACCESS_NETWORK, ACCESS_MAINT_TUNNELS, ACCESS_IT, ACCESS_INTREPID
 	)
 	minimal_player_age = 14
-	ideal_character_age = list(
-		SPECIES_HUMAN = 50,
-		SPECIES_SKRELL = 100,
-		SPECIES_SKRELL_AXIORI = 100
-	)
-	outfit = /datum/outfit/job/rd
+	outfit = /obj/outfit/job/rd
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 
-/datum/outfit/job/rd
+/obj/outfit/job/rd
 	name = "Research Director"
 	jobtype = /datum/job/rd
 
 	uniform = /obj/item/clothing/under/rank/research_director
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/science
 	shoes = /obj/item/clothing/shoes/sneakers/brown
-	id = /obj/item/card/id/navy
+	id = /obj/item/card/id/scc/silver
 	l_hand = /obj/item/clipboard
 
 	headset = /obj/item/device/radio/headset/heads/rd
 	bowman = /obj/item/device/radio/headset/heads/rd/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/rd
 	wrist_radio = /obj/item/device/radio/headset/wrist/rd
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/rd
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/research/rd
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research/rd
@@ -81,14 +77,14 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_tox, access_tox_storage, access_research, access_intrepid)
-	minimal_access = list(access_tox, access_tox_storage, access_research, access_intrepid)
+	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_INTREPID)
+	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_INTREPID)
 
 	minimal_player_age = 14
-	outfit = /datum/outfit/job/scientist
+	outfit = /obj/outfit/job/scientist
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/scientist
+/obj/outfit/job/scientist
 	name = "Scientist"
 	jobtype = /datum/job/scientist
 
@@ -101,6 +97,7 @@
 	bowman = /obj/item/device/radio/headset/headset_sci/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/sci
 	wrist_radio = /obj/item/device/radio/headset/wrist/sci
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/sci
 
 	tab_pda = /obj/item/modular_computer/handheld/pda/research
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/research
@@ -121,6 +118,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_SCIENCE)
 	department_flag = MEDSCI
 	faction = "Station"
+	alt_titles = list("Anomalist")
+	alt_outfits = list("Anomalist" = "/obj/outfit/job/scientist/anomalist")
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the research director"
@@ -133,18 +132,36 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_tox, access_tox_storage, access_research, access_xenoarch, access_intrepid)
-	minimal_access = list(access_research, access_xenoarch, access_tox, access_tox_storage, access_intrepid)
+	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOARCH, ACCESS_INTREPID)
+	minimal_access = list(ACCESS_RESEARCH, ACCESS_XENOARCH, ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_INTREPID)
 
 	minimal_player_age = 14
-	outfit = /datum/outfit/job/scientist/xenoarchaeologist
+	outfit = /obj/outfit/job/scientist/xenoarchaeologist
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/scientist/xenoarchaeologist
+/obj/outfit/job/scientist/xenoarchaeologist
 	name = "Xenoarchaeologist"
 	jobtype = /datum/job/xenoarchaeologist
 
 	uniform = /obj/item/clothing/under/rank/scientist/xenoarchaeologist
+
+	headset = /obj/item/device/radio/headset/headset_xenoarch
+	bowman = /obj/item/device/radio/headset/headset_xenoarch/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/xenoarch
+	wrist_radio = /obj/item/device/radio/headset/wrist/xenoarch
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/xenoarch
+
+/obj/outfit/job/scientist/anomalist
+	name = "Anomalist"
+	jobtype = /datum/job/xenoarchaeologist
+
+	uniform = /obj/item/clothing/under/rank/scientist/anomalist
+
+	headset = /obj/item/device/radio/headset/headset_anom
+	bowman = /obj/item/device/radio/headset/headset_anom/alt
+	double_headset = /obj/item/device/radio/headset/alt/double/anom
+	wrist_radio = /obj/item/device/radio/headset/wrist/anom
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/anom
 
 /datum/job/xenobiologist
 	title = "Xenobiologist"
@@ -164,15 +181,15 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_tox, access_tox_storage, access_research, access_xenobiology)
-	minimal_access = list(access_tox, access_research, access_xenobiology, access_tox_storage)
+	access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBIOLOGY)
+	minimal_access = list(ACCESS_TOX, ACCESS_RESEARCH, ACCESS_XENOBIOLOGY, ACCESS_TOX_STORAGE)
 
 	minimal_player_age = 14
 
-	outfit = /datum/outfit/job/scientist/xenobiologist
+	outfit = /obj/outfit/job/scientist/xenobiologist
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/scientist/xenobiologist
+/obj/outfit/job/scientist/xenobiologist
 	name = "Xenobiologist"
 	jobtype = /datum/job/xenobiologist
 
@@ -196,16 +213,16 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_tox_storage, access_research, access_xenobotany, access_tox)
-	minimal_access = list(access_tox, access_tox_storage, access_research, access_xenobotany)
+	access = list(ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBOTANY, ACCESS_TOX)
+	minimal_access = list(ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_RESEARCH, ACCESS_XENOBOTANY)
 
 	minimal_player_age = 14
 
-	outfit = /datum/outfit/job/scientist/xenobotanist
+	outfit = /obj/outfit/job/scientist/xenobotanist
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 
-/datum/outfit/job/scientist/xenobotanist
+/obj/outfit/job/scientist/xenobotanist
 	name = "Xenobotanist"
 	jobtype = /datum/job/xenobotanist
 
@@ -221,12 +238,12 @@
 	spawn_positions = 3
 	supervisors = "the Research Director"
 	selection_color = "#a44799"
-	access = list(access_research, access_tox)
-	minimal_access = list(access_research, access_tox)
-	outfit = /datum/outfit/job/intern_sci
+	access = list(ACCESS_RESEARCH, ACCESS_TOX)
+	minimal_access = list(ACCESS_RESEARCH, ACCESS_TOX)
+	outfit = /obj/outfit/job/intern_sci
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/intern_sci
+/obj/outfit/job/intern_sci
 	name = "Lab Assistant"
 	jobtype = /datum/job/intern_sci
 
@@ -236,6 +253,7 @@
 	bowman = /obj/item/device/radio/headset/headset_sci/alt
 	double_headset = /obj/item/device/radio/headset/alt/double/sci
 	wrist_radio = /obj/item/device/radio/headset/wrist/sci
+	clipon_radio = /obj/item/device/radio/headset/wrist/clip/sci
 
 	backpack = /obj/item/storage/backpack/toxins
 	backpack_faction = /obj/item/storage/backpack/nt

@@ -5,7 +5,8 @@
 	putting the State at the top of a hierarchy of power. The PRA is a very centralized state, but in recent years has slowly been able to start making true its promises to bring \
 	revolution to the masses. With land reform, enfranchisement of women and peasantry, literacy initiatives, and the collectivization of farms and the means of production, the PRA is \
 	struggling to hold true to its radical ideals while an entrenched upper party stubbornly tries to hold onto power."
-	consular_outfit = /datum/outfit/job/representative/consular/pra
+	consular_outfit = /obj/outfit/job/representative/consular/pra
+	assistant_outfit = /obj/outfit/job/consular_assistant/pra
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -30,15 +31,37 @@
 			SPECIES_VAURCA_BREEDER,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_TAJARA_MSAI
+		),
+		"Diplomatic Aide" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER,
+			SPECIES_TAJARA_ZHAN
 		)
 	)
 
 /datum/citizenship/pra/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_LOW)
-			return "Ensure the loyalty of PRA Citizen to the Party and President Hadii. You must also promote the relationship between the [current_map.boss_name] and the People's Republic through diplomacy."
+			return "Ensure the loyalty of PRA Citizen to the Party and President Hadii. You must also promote the relationship between the [SSatlas.current_map.boss_name] and the People's Republic through diplomacy."
 
-/datum/outfit/job/representative/consular/pra
+/obj/outfit/job/representative/consular/pra
 	name = "PRA Consular Officer"
 
 	glasses = null
@@ -49,7 +72,19 @@
 		/obj/item/storage/box/hadii_manifesto = 1,
 		/obj/item/gun/projectile/pistol/adhomai = 1,
 		/obj/item/storage/field_ration = 1,
+		/obj/item/clothing/accessory/badge/hadii_card/member = 1,
 		/obj/item/storage/box/syndie_kit/spy/hidden = 1
+	)
+	accessory = /obj/item/clothing/accessory/hadii_pin
+
+/obj/outfit/job/consular_assistant/pra
+	glasses = null
+	uniform = /obj/item/clothing/under/tajaran/smart
+	backpack_contents = list(
+		/obj/item/storage/box/hadii_card = 1,
+		/obj/item/storage/box/hadii_manifesto = 1,
+		/obj/item/clothing/accessory/badge/hadii_card/member = 1,
+		/obj/item/storage/field_ration = 1
 	)
 	accessory = /obj/item/clothing/accessory/hadii_pin
 
@@ -61,7 +96,8 @@
 	nation they were fighting for the Democratic People's Republic of Adhomai. The DPRA is now lead by Purrjar Almrah Harrlala who is struggling to transition what was once a militant \
 	insurgency movement, then an organized military, into a modern, democratic nation. With the help of Nated as a government minister going out to negotiate with ruling Juntas to \
 	voluntarily turn over power to civilian governments, the DPRA's future faces many fundamental changes."
-	consular_outfit = /datum/outfit/job/representative/consular/dpra
+	consular_outfit = /obj/outfit/job/representative/consular/dpra
+	assistant_outfit = /obj/outfit/job/consular_assistant/dpra
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -86,6 +122,28 @@
 			SPECIES_VAURCA_BREEDER,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_TAJARA_MSAI
+		),
+		"Diplomatic Aide" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER,
+			SPECIES_TAJARA_ZHAN
 		)
 	)
 
@@ -94,7 +152,7 @@
 		if(REPRESENTATIVE_MISSION_LOW)
 			return "Ensure that DPRA citizens are following the principles of Al'mariism. Defend the rights of the Tajara through diplomacy."
 
-/datum/outfit/job/representative/consular/dpra
+/obj/outfit/job/representative/consular/dpra
 	name = "DPRA Consular Officer"
 
 	glasses = null
@@ -108,6 +166,15 @@
 	)
 	accessory = /obj/item/clothing/accessory/dpra_pin
 
+/obj/outfit/job/consular_assistant/dpra
+	glasses = null
+	uniform = /obj/item/clothing/under/tajaran/smart
+	backpack_contents = list(
+		/obj/item/storage/box/dpra_manifesto = 1,
+		/obj/item/storage/field_ration/dpra = 1
+	)
+	accessory = /obj/item/clothing/accessory/dpra_pin
+
 /datum/citizenship/nka
 	name = CITIZENSHIP_NKA
 	description = "The last major faction is the rebellious New Kingdom of Adhomai, which seceded and declared itself a nation in 2450. The New Kingdom is ruled by a Njarir'Akhran noble \
@@ -118,7 +185,8 @@
 	this dynasty should rule as a constitutional monarchy in order to prevent abuses of power. In reality, this has proven very difficult, especially with the realities of war. \
 	The lofty titles of the nobles disguise the fact that most of the nobility of this new kingdom remain in squalor only marginally better than the peasants. Life is difficult, and \
 	the Azunja dynasty finds itself struggling to function with their limited constitutional powers and factional in-fighting between the military and the civilian government."
-	consular_outfit = /datum/outfit/job/representative/consular/nka
+	consular_outfit = /obj/outfit/job/representative/consular/nka
+	assistant_outfit = /obj/outfit/job/consular_assistant/nka
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -143,15 +211,37 @@
 			SPECIES_VAURCA_BREEDER,
 			SPECIES_TAJARA_ZHAN,
 			SPECIES_TAJARA_MSAI
+		),
+		"Diplomatic Aide" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER,
+			SPECIES_TAJARA_ZHAN
 		)
 	)
 
 /datum/citizenship/nka/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_LOW)
-			return "Ensure that NKA citizens are loyal to the Crown. You must also promote the relationship between the [current_map.boss_name] and the New Kingdom through diplomacy."
+			return "Ensure that NKA citizens are loyal to the Crown. You must also promote the relationship between the [SSatlas.current_map.boss_name] and the New Kingdom through diplomacy."
 
-/datum/outfit/job/representative/consular/nka
+/obj/outfit/job/representative/consular/nka
 	name = "NKA Consular Officer"
 
 	glasses = null
@@ -163,6 +253,16 @@
 		/obj/item/storage/box/nka_manifesto = 1,
 		/obj/item/storage/field_ration/nka = 1,
 		/obj/item/storage/box/syndie_kit/spy/hidden = 1
+	)
+	accessory = /obj/item/clothing/accessory/nka_pin
+
+/obj/outfit/job/consular_assistant/nka
+	glasses = null
+	uniform = /obj/item/clothing/under/tajaran/fancy
+	backpack_contents = list(
+		/obj/item/folder/blue/nka = 1,
+		/obj/item/storage/box/nka_manifesto = 1,
+		/obj/item/storage/field_ration/nka = 1
 	)
 	accessory = /obj/item/clothing/accessory/nka_pin
 

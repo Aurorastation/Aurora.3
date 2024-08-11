@@ -6,7 +6,7 @@
 	icon_state = "xenoarch_scanner"
 	item_state = "xenoarch_scanner"
 	contained_sprite = TRUE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	var/nearest_artifact_id = "unknown"
 	var/nearest_artifact_distance = -1
@@ -36,8 +36,6 @@
 		to_chat(user, "Scanning array is recharging.")
 
 /obj/item/device/ano_scanner/proc/scan()
-	set background = 1
-
 	last_scan_time = world.time
 	nearest_artifact_distance = -1
 	var/turf/cur_turf = get_turf(src)

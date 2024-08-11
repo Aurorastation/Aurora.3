@@ -39,9 +39,9 @@
 		for(var/type in spawn_cartridges)
 			add_cartridge(new type(src))
 
-/obj/machinery/chemical_dispenser/examine(mob/user)
+/obj/machinery/chemical_dispenser/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "It has [cartridges.len] cartridges installed, and has space for [DISPENSER_MAX_CARTRIDGES - cartridges.len] more.")
+	. += "It has [cartridges.len] cartridges installed, and has space for [DISPENSER_MAX_CARTRIDGES - cartridges.len] more."
 
 /obj/machinery/chemical_dispenser/proc/add_cartridge(obj/item/reagent_containers/chem_disp_cartridge/C, mob/user)
 	if(!istype(C))
@@ -95,10 +95,10 @@
 	if(use_check_and_message(usr))
 		eject()
 
-/obj/machinery/chemical_dispenser/attackby(obj/item/W, mob/user)
-	if(W.iswrench())
+/obj/machinery/chemical_dispenser/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		to_chat(user, SPAN_NOTICE("You begin to [anchored ? "un" : ""]fasten [src]."))
-		if(W.use_tool(src, user, 20, volume = 50))
+		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			user.visible_message(
 				SPAN_NOTICE("[user] [anchored ? "un" : ""]fastens [src]."),
 				SPAN_NOTICE("You have [anchored ? "un" : ""]fastened [src]."),
@@ -107,10 +107,10 @@
 		else
 			to_chat(user, SPAN_NOTICE("You decide not to [anchored ? "un" : ""]fasten [src]."))
 
-	else if(istype(W, /obj/item/reagent_containers/chem_disp_cartridge))
-		add_cartridge(W, user)
+	else if(istype(attacking_item, /obj/item/reagent_containers/chem_disp_cartridge))
+		add_cartridge(attacking_item, user)
 
-	else if(W.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		var/label = tgui_input_list(user, "Which cartridge would you like to remove?", "Chemical Dispenser", cartridges)
 		if(!label)
 			return
@@ -119,12 +119,12 @@
 			to_chat(user, SPAN_NOTICE("You remove [C] from [src]."))
 			C.forceMove(loc)
 
-	else if(istype(W, /obj/item/reagent_containers/glass) || is_type_in_list(W, drink_accepted))
+	else if(istype(attacking_item, /obj/item/reagent_containers/glass) || is_type_in_list(attacking_item, drink_accepted))
 		if(container)
 			to_chat(user, SPAN_WARNING("There is already \a [container] on [src]!"))
 			return
 
-		var/obj/item/reagent_containers/RC = W
+		var/obj/item/reagent_containers/RC = attacking_item
 
 		if(is_type_in_list(RC, forbidden_containers))
 			to_chat(user, SPAN_WARNING("There's no way to fit [RC] into \the [src]!"))

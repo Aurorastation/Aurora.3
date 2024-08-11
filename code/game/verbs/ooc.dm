@@ -8,7 +8,7 @@
 	set category = "OOC"
 
 	if(say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
+		to_chat(usr, SPAN_WARNING("Speech is currently admin-disabled."))
 		return
 
 	if(!mob)
@@ -19,27 +19,30 @@
 		return
 
 	if(!(prefs.toggles & CHAT_OOC))
-		to_chat(src, "<span class='warning'>You have OOC muted.</span>")
+		to_chat(src, SPAN_WARNING("You have OOC muted."))
 		return
 
 	msg = sanitize(msg)
 
+	if(!msg)
+		return
+
 	if(!holder)
-		if(!config.ooc_allowed)
-			to_chat(src, "<span class='danger'>OOC is globally muted.</span>")
+		if(!GLOB.config.ooc_allowed)
+			to_chat(src, SPAN_DANGER("OOC is globally muted."))
 			return
-		if(!config.dooc_allowed && (mob.stat == DEAD))
-			to_chat(usr, "<span class='danger'>OOC for dead mobs has been turned off.</span>")
+		if(!GLOB.config.dooc_allowed && (mob.stat == DEAD))
+			to_chat(usr, SPAN_DANGER("OOC for dead mobs has been turned off."))
 			return
 		if(handle_spam_prevention(msg,MUTE_OOC))
 			return
 		if(findtext(msg, "byond://"))
 			to_chat(src, "<B>Advertising other servers is not allowed.</B>")
-			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]",ckey=key_name(src))
+			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]")
 			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
 			return
 
-	log_ooc("[mob.name]/[key] : [msg]",ckey=key_name(mob))
+	log_ooc("[mob.name]/[key] : [msg]")
 
 	var/ooc_style = "everyone"
 	if(holder && !holder.fakekey)
@@ -53,8 +56,8 @@
 
 	msg = process_chat_markup(msg, list("*"))
 
-	for(var/client/target in clients)
-		if(target.prefs.toggles & CHAT_OOC)
+	for(var/client/target in GLOB.clients)
+		if(target.prefs?.toggles & CHAT_OOC)
 			var/display_name = src.key
 			if(holder)
 				if(holder.fakekey)
@@ -62,7 +65,7 @@
 						display_name = "[holder.fakekey]/([src.key])"
 					else
 						display_name = holder.fakekey
-			if(holder && !holder.fakekey && (holder.rights & R_ADMIN) && config.allow_admin_ooccolor && (src.prefs.ooccolor != initial(src.prefs.ooccolor))) // keeping this for the badmins
+			if(holder && !holder.fakekey && (holder.rights & R_ADMIN) && GLOB.config.allow_admin_ooccolor && (src.prefs.ooccolor != initial(src.prefs.ooccolor))) // keeping this for the badmins
 				to_chat(target, "<font color='[src.prefs.ooccolor]'><span class='ooc'>" + create_text_tag("OOC", target) + " <EM>[display_name]:</EM> <span class='message linkify'>[msg]</span></span></font>")
 			else
 				to_chat(target, "<span class='ooc'><span class='[ooc_style]'>" + create_text_tag("OOC", target) + " <EM>[display_name]:</EM> <span class='message linkify'>[msg]</span></span></span>")
@@ -73,7 +76,7 @@
 	set category = "OOC"
 
 	if(say_disabled)	//This is here to try to identify lag problems
-		to_chat(usr, "<span class='danger'>Speech is currently admin-disabled.</span>")
+		to_chat(usr, SPAN_DANGER("Speech is currently admin-disabled."))
 		return
 
 	if(!mob)
@@ -89,28 +92,28 @@
 		return
 
 	if(!(prefs.toggles & CHAT_LOOC))
-		to_chat(src, "<span class='danger'>You have LOOC muted.</span>")
+		to_chat(src, SPAN_DANGER("You have LOOC muted."))
 		return
 	if(mob.stat == DEAD && !(prefs.toggles & CHAT_GHOSTLOOC))
-		to_chat(src, "<span class='danger'>You have observer LOOC muted.</span>")
+		to_chat(src, SPAN_DANGER("You have observer LOOC muted."))
 		return
 
 	if(!holder)
-		if(!config.looc_allowed)
-			to_chat(src, "<span class='danger'>LOOC is globally muted.</span>")
+		if(!GLOB.config.looc_allowed)
+			to_chat(src, SPAN_DANGER("LOOC is globally muted."))
 			return
-		if(!config.dead_looc_allowed && (mob.stat == DEAD))
-			to_chat(usr, "<span class='danger'>LOOC for dead mobs has been turned off.</span>")
+		if(!GLOB.config.dead_looc_allowed && (mob.stat == DEAD))
+			to_chat(usr, SPAN_DANGER("LOOC for dead mobs has been turned off."))
 			return
 		if(handle_spam_prevention(msg, MUTE_OOC))
 			return
 		if(findtext(msg, "byond://"))
 			to_chat(src, "<B>Advertising other servers is not allowed.</B>")
-			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]",ckey=key_name(src))
+			log_admin("[key_name(src)] has attempted to advertise in OOC: [msg]")
 			message_admins("[key_name_admin(src)] has attempted to advertise in OOC: [msg]")
 			return
 
-	log_ooc("(LOCAL) [mob.name]/[key] : [msg]",ckey=key_name(mob))
+	log_ooc("(LOCAL) [mob.name]/[key] : [msg]")
 
 	var/mob/source = src.mob
 	var/list/messageturfs = list() //List of turfs we broadcast to.
@@ -123,7 +126,7 @@
 		for(var/turf in range(world.view, get_turf(AI.eyeobj)))
 			messageturfs += turf
 
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if(!M.client || istype(M, /mob/abstract/new_player))
 			continue
 		if(isAI(M))
@@ -144,7 +147,7 @@
 
 	var/prefix
 	var/admin_stuff
-	for(var/client/target in clients)
+	for(var/client/target in GLOB.clients)
 		if(target.prefs.toggles & CHAT_LOOC)
 			if(mob.stat == DEAD && !(target.prefs.toggles & CHAT_GHOSTLOOC))
 				continue
@@ -180,7 +183,7 @@
 	var/list/choice = list(2, 4, 6, 8, 10, 12, 20, 50, 100)
 	var/input = input("Select the Dice you want!", "Dice", null, null) in choice
 
-	to_chat(usr, "<span class='notice'>You roll [rand(1,input)] out of [input]!</span>")
+	to_chat(usr, SPAN_NOTICE("You roll [rand(1,input)] out of [input]!"))
 
 /client/verb/fit_viewport()
 	set name = "Fit Viewport"

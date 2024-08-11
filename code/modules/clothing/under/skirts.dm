@@ -14,7 +14,7 @@
 /obj/item/clothing/under/skirt/puffy
 	name = "puffy skirt"
 	desc = "A short, puffy skirt."
-	desc_extended = "When you've got too much air in your head and need to put it somewhere else."
+	desc_extended = "The opposite of a pencil skirt."
 	icon_state = "skirt_puffy"
 	item_state = "skirt_puffy"
 	worn_state = "skirt_puffy"
@@ -22,7 +22,7 @@
 /obj/item/clothing/under/skirt/long
 	name = "long skirt"
 	desc = "A long, modest skirt."
-	desc_extended = "Long enough to do a curtsy, if you're into that sort of thing."
+	desc_extended = "Long enough to do a curtsy, if that's something you want to do."
 	icon_state = "skirt_long"
 	item_state = "skirt_long"
 	worn_state = "skirt_long"
@@ -38,7 +38,7 @@
 /obj/item/clothing/under/skirt/pencil
 	name = "pencil skirt"
 	desc = "A professional-looking pencil skirt."
-	desc_extended = "Revel in how professional you are. Realize that you'll never pick up anything from the floor without compromising yourself."
+	desc_extended = "Revel in how professional you are."
 	icon_state = "skirt_pencil"
 	item_state = "skirt_pencil"
 	worn_state = "skirt_pencil"
@@ -54,7 +54,7 @@
 /obj/item/clothing/under/skirt/plaid
 	name = "plaid skirt"
 	desc = "A preppy plaid skirt."
-	desc_extended = "Stick it to gender stereotypes and be the lumberjack you've always been! Avoid doing physical labor anyway on account of the skirt being several lengths too short!"
+	desc_extended = "Stick it to gender stereotypes and be the lumberjack you've perhaps always wanted to be."
 	icon_state = "skirt_plaid"
 	item_state = "skirt_plaid"
 	worn_state = "skirt_plaid"
@@ -70,7 +70,7 @@
 /obj/item/clothing/under/skirt/skater
 	name = "skater skirt"
 	desc = "A plush skater skirt."
-	desc_extended = "Be it ice skating, skateboarding or rollerskating : You should probably wear shorts under these."
+	desc_extended = "For ice skating, skateboarding, or rollerskating."
 	icon_state = "skirt_skater"
 	item_state = "skirt_skater"
 	worn_state = "skirt_skater"

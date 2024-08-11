@@ -5,53 +5,6 @@ Deployable items
 Barricades
 Deployable Kits
 
-for reference:
-
-	access_security = 1
-	access_brig = 2
-	access_armory = 3
-	access_forensics_lockers= 4
-	access_medical = 5
-	access_morgue = 6
-	access_tox = 7
-	access_tox_storage = 8
-	access_genetics = 9
-	access_engine = 10
-	access_engine_equip= 11
-	access_maint_tunnels = 12
-	access_external_airlocks = 13
-	access_emergency_storage = 14
-	access_change_ids = 15
-	access_ai_upload = 16
-	access_teleporter = 17
-	access_eva = 18
-	access_heads = 19
-	access_captain = 20
-	access_all_personal_lockers = 21
-	access_chapel_office = 22
-	access_tech_storage = 23
-	access_atmospherics = 24
-	access_bar = 25
-	access_janitor = 26
-	access_crematorium = 27
-	access_kitchen = 28
-	access_robotics = 29
-	access_rd = 30
-	access_cargo = 31
-	access_construction = 32
-	access_pharmacy = 33
-	access_cargo_bot = 34
-	access_hydroponics = 35
-	access_manufacturing = 36
-	access_library = 37
-	access_lawyer = 38
-	access_virology = 39
-	access_cmo = 40
-	access_qm = 41
-	access_court = 42
-	access_clown = 43
-	access_mime = 44
-
 */
 
 //Barricades!
@@ -88,7 +41,7 @@ for reference:
 	maxhealth = material.integrity
 	health = maxhealth
 
-/obj/structure/blocker/bullet_act(obj/item/projectile/P, def_zone)
+/obj/structure/blocker/bullet_act(obj/projectile/P, def_zone)
 	var/damage_modifier = 0.4
 	switch(P.damage_type)
 		if(DAMAGE_BURN)
@@ -99,8 +52,8 @@ for reference:
 	if(!check_dismantle())
 		visible_message(SPAN_WARNING("\The [src] is hit by \the [P]!"))
 
-/obj/structure/blocker/attackby(obj/item/W, mob/user)
-	if(W.ishammer() && user.a_intent != I_HURT)
+/obj/structure/blocker/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ishammer() && user.a_intent != I_HURT)
 		var/obj/item/I = usr.get_inactive_hand()
 		if(I && istype(I, /obj/item/stack))
 			var/obj/item/stack/D = I
@@ -119,13 +72,13 @@ for reference:
 			return TRUE
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		switch(W.damtype)
+		switch(attacking_item.damtype)
 			if(DAMAGE_BURN)
-				src.health -= W.force * 1
+				src.health -= attacking_item.force * 1
 			if(DAMAGE_BRUTE)
-				src.health -= W.force * 0.75
+				src.health -= attacking_item.force * 0.75
 		shake_animation()
-		playsound(src.loc, material.hitsound, W.get_clamped_volume(), 1)
+		playsound(src.loc, material.hitsound, attacking_item.get_clamped_volume(), 1)
 		if(check_dismantle())
 			return TRUE
 		return ..()
@@ -152,8 +105,8 @@ for reference:
 /obj/structure/blocker/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(air_group || (height==0))
 		return TRUE
-	if(istype(mover, /obj/item/projectile))
-		var/obj/item/projectile/P = mover
+	if(istype(mover, /obj/projectile))
+		var/obj/projectile/P = mover
 		if(P.original == src)
 			return FALSE
 		if(P.firer && Adjacent(P.firer))
@@ -161,7 +114,7 @@ for reference:
 		return prob(35)
 	if(isliving(mover))
 		return FALSE
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return TRUE
 	return FALSE
 
@@ -178,7 +131,7 @@ for reference:
 	name = "deployable"
 	desc = "deployable"
 	icon = 'icons/obj/objects.dmi'
-	req_access = list(access_security)//I'm changing this until these are properly tested./N
+	req_access = list(ACCESS_SECURITY)//I'm changing this until these are properly tested./N
 
 /obj/machinery/deployable/barrier
 	name = "deployable barrier"
@@ -190,15 +143,15 @@ for reference:
 	var/health = 100.0
 	var/maxhealth = 100.0
 	var/locked = 0.0
-//	req_access = list(access_maint_tunnels)
+//	req_access = list(ACCESS_MAINT_TUNNELS)
 
 /obj/machinery/deployable/barrier/New()
 	..()
 
 	src.icon_state = "[initial(icon_state)][src.locked]"
 
-/obj/machinery/deployable/barrier/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/card/id/))
+/obj/machinery/deployable/barrier/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/card/id/))
 		if (src.allowed(user))
 			if	(src.emagged < 2.0)
 				src.locked = !src.locked
@@ -212,31 +165,31 @@ for reference:
 					return
 			else
 				spark(src, 2, src)
-				visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
+				visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 				return
 		return
-	else if (W.iswrench())
+	else if (attacking_item.iswrench())
 		if (src.health < src.maxhealth)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			src.health = src.maxhealth
 			src.emagged = 0
-			src.req_access = list(access_security)
-			visible_message("<span class='warning'>[user] repairs \the [src]!</span>")
+			src.req_access = list(ACCESS_SECURITY)
+			visible_message(SPAN_WARNING("[user] repairs \the [src]!"))
 			return
 		else if (src.emagged > 0)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			src.emagged = 0
-			src.req_access = list(access_security)
-			visible_message("<span class='warning'>[user] repairs \the [src]!</span>")
+			src.req_access = list(ACCESS_SECURITY)
+			visible_message(SPAN_WARNING("[user] repairs \the [src]!"))
 			return
 		return
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		switch(W.damtype)
+		switch(attacking_item.damtype)
 			if("fire")
-				src.health -= W.force * 0.75
+				src.health -= attacking_item.force * 0.75
 			if("brute")
-				src.health -= W.force * 0.5
+				src.health -= attacking_item.force * 0.5
 
 		if (src.health <= 0)
 			src.explode()
@@ -254,6 +207,8 @@ for reference:
 			return
 
 /obj/machinery/deployable/barrier/emp_act(severity)
+	. = ..()
+
 	if(stat & (BROKEN|NOPOWER))
 		return
 	if(prob(50/severity))
@@ -264,18 +219,18 @@ for reference:
 /obj/machinery/deployable/barrier/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)//So bullets will fly over and stuff.
 	if(air_group || (height==0))
 		return 1
-	if(istype(mover) && mover.checkpass(PASSTABLE))
+	if(istype(mover) && mover.pass_flags & PASSTABLE)
 		return 1
 	else
 		return 0
 
 /obj/machinery/deployable/barrier/proc/explode()
-	visible_message("<span class='danger'>[src] blows apart!</span>")
+	visible_message(SPAN_DANGER("[src] blows apart!"))
 
 /*	var/obj/item/stack/rods/ =*/
 	new /obj/item/stack/rods(get_turf(src))
 
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 
 	explosion(src.loc,-1,-1,0)
 	qdel(src)
@@ -286,22 +241,22 @@ for reference:
 		src.req_access.Cut()
 		src.req_one_access.Cut()
 		to_chat(user, "You break the ID authentication lock on \the [src].")
-		spark(src, 2, alldirs)
-		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
+		spark(src, 2, GLOB.alldirs)
+		visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 		return 1
 	else if (src.emagged == 1)
 		src.emagged = 2
 		to_chat(user, "You short out the anchoring mechanism on \the [src].")
-		spark(src, 2, alldirs)
-		visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
+		spark(src, 2, GLOB.alldirs)
+		visible_message(SPAN_WARNING("BZZzZZzZZzZT"))
 		return 1
 
 /obj/machinery/deployable/barrier/legion
-	name = "legion barrier"
-	desc = "A deployable barrier, bearing the marks of the Tau Ceti Foreign Legion. Swipe your ID card to lock/unlock it."
+	name = "\improper TCAF barrier"
+	desc = "A deployable barrier, bearing the marks of the Tau Ceti Armed Forces. Swipe your ID card to lock/unlock it."
 	icon_state = "barrier_legion"
 	req_access = null
-	req_one_access = list(access_tcfl_peacekeeper_ship, access_legion)
+	req_one_access = list(ACCESS_TCAF_SHIPS, ACCESS_LEGION)
 
 /obj/item/deployable_kit
 	name = "Emergency Floodlight Kit"
@@ -328,12 +283,12 @@ for reference:
 	A.add_fingerprint(user)
 
 /obj/item/deployable_kit/legion_barrier
-	name = "legion barrier kit"
-	desc = "A quick assembly kit for deploying id-lockable barriers in the field. This one has the mark of the Tau Ceti Foreign Legion."
+	name = "\improper TCAF barrier kit"
+	desc = "A quick assembly kit for deploying id-lockable barriers in the field. This one has the mark of the Tau Ceti Armed Forces."
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "barrier_kit"
 	item_state = "barrier_kit"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	kit_product = /obj/machinery/deployable/barrier/legion
 
 /obj/item/deployable_kit/surgery_table
@@ -342,14 +297,14 @@ for reference:
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "table_deployable"
 	item_state = "table_parts"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	kit_product = /obj/machinery/optable
 	assembly_time = 20 SECONDS
 
 /obj/item/deployable_kit/surgery_table/assemble_kit(mob/user)
 	..()
 	var/free_spot = null
-	for(var/check_dir in cardinal)
+	for(var/check_dir in GLOB.cardinal)
 		var/turf/T = get_step(src, check_dir)
 		if(turf_clear(T))
 			free_spot = T
@@ -367,7 +322,7 @@ for reference:
 	item_state = "table_parts"
 	drop_sound = 'sound/items/drop/axe.ogg'
 	pickup_sound = 'sound/items/pickup/axe.ogg'
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	kit_product = /obj/machinery/porta_turret/legion
 	assembly_time = 15 SECONDS
 
@@ -377,7 +332,7 @@ for reference:
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "inf_box"
 	item_state = "inf_box"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	kit_product = /obj/machinery/iv_drip
 	assembly_time = 4 SECONDS
 
@@ -387,7 +342,7 @@ for reference:
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "barrier_kit"
 	item_state = "barrier_kit"
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	kit_product = /obj/structure/bed/stool/chair/remote/mech/portable
 	assembly_time = 20 SECONDS
 

@@ -1,8 +1,8 @@
 var/global/image/default_hardpoint_background
 var/global/image/hardpoint_error_icon
 var/global/image/hardpoint_bar_empty
-var/global/list/hardpoint_bar_cache = list()
-var/global/list/mecha_damage_overlay_cache = list()
+GLOBAL_LIST_EMPTY(hardpoint_bar_cache)
+GLOBAL_LIST_EMPTY(mecha_damage_overlay_cache)
 
 #define HARDPOINT_BACK "back"
 #define HARDPOINT_LEFT_HAND "left hand"

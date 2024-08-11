@@ -40,6 +40,8 @@
 				. += role
 		else
 			var/datum/job/role = SSjobs.type_occupations[path]
+			if(!role)
+				continue
 			if(LAZYACCESS(job_species_blacklist, role.title))
 				role.blacklisted_species = job_species_blacklist[role.title]
 			else
@@ -75,13 +77,13 @@
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			objective = pick("Assist your contractor in smuggling [rand(1,4)] items of value",
-							"Collect evidence of [current_map.company_short] being unfair or oppressive against your contractors to be used as leverage in future talks")
+							"Collect evidence of [SSatlas.current_map.company_short] being unfair or oppressive against your contractors to be used as leverage in future talks")
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			objective = pick("Convince [rand(1,3)] non-[name] employees to join [name] instead",
-							"Have [rand(1,3)] of your contractors write down their grievances with the company, and present the report to [current_map.station_name] command.")
+							"Have [rand(1,3)] of your contractors write down their grievances with the company, and present the report to [SSatlas.current_map.station_name] command.")
 		else
 			objective = pick("Collect [rand(3,7)] pictures of secure areas",
-							"Make sure that [rand(2,4)] complaints related to contractors are solved on the [current_map.station_name]")
+							"Make sure that [rand(2,4)] complaints related to contractors are solved on the [SSatlas.current_map.station_name]")
 
 	return objective
 

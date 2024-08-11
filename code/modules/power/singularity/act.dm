@@ -34,7 +34,7 @@
 				to_chat(src, "<span class = 'warning'>The [S] pulls \the [hand] from your grip!</span>")
 	apply_damage(current_size * 3, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 	if(shoes)
-		if(shoes.item_flags & NOSLIP) return 0
+		if(shoes.item_flags & ITEM_FLAG_NO_SLIP) return 0
 	..()
 
 /obj/singularity_act()
@@ -92,7 +92,7 @@
 	qdel(src)
 	return 50000
 
-/obj/item/projectile/beam/emitter/singularity_pull()
+/obj/projectile/beam/emitter/singularity_pull()
 	return
 
 /obj/item/storage/backpack/holding/singularity_act(S, current_size)
@@ -108,12 +108,12 @@
 			if(O.invisibility == 101)
 				O.singularity_act(src, current_size)
 	if(go_up && current_size >= STAGE_FIVE)
-		if(HasAbove(src.z))
-			var/turf/A = GetAbove(src)
+		if(GET_TURF_ABOVE(src))
+			var/turf/A = GET_TURF_ABOVE(src)
 			A.singularity_act(S, current_size, 0, 1)
 	if(go_down && current_size >= STAGE_FIVE)
-		if(HasBelow(src.z))
-			var/turf/B = GetBelow(src)
+		if(GET_TURF_BELOW(src))
+			var/turf/B = GET_TURF_BELOW(src)
 			B.singularity_act(S, current_size, 1, 0)
 	if(istype(src,/turf/simulated/mineral))
 		var/turf/simulated/mineral/M = src

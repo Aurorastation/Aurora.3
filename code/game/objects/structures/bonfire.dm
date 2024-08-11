@@ -1,6 +1,6 @@
 #define MAX_ACTIVE_BONFIRE_LIMIT	15
 
-var/global/list/total_active_bonfires = list()
+GLOBAL_LIST_EMPTY(total_active_bonfires)
 
 /obj/structure/bonfire
 	name = "bonfire"
@@ -11,6 +11,7 @@ var/global/list/total_active_bonfires = list()
 	density = FALSE
 	light_color = LIGHT_COLOR_FIRE
 	build_amt = 20
+	pass_flags_self = PASSTABLE | LETPASSTHROW
 	var/fuel = 2000
 	var/max_fuel = 2000
 	var/on_fire = FALSE
@@ -27,27 +28,33 @@ var/global/list/total_active_bonfires = list()
 	fuel = rand(1000, 2000)
 	create_reagents(120)
 
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/structure/bonfire/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
-	total_active_bonfires -= src
+	GLOB.total_active_bonfires -= src
 	. = ..()
 
-/obj/structure/bonfire/examine(mob/user, distance, is_adjacent)
+/obj/structure/bonfire/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 2)
 		return
 	if(on_fire)
 		switch(fuel)
 			if(0 to 200)
-				to_chat(user, "\The [src] is burning weakly.")
+				. += "\The [src] is burning weakly."
 			if(200 to 600)
-				to_chat(user, "\The [src] is gently burning.")
+				. += "\The [src] is gently burning."
 			if(600 to 900)
-				to_chat(user, "\The [src] is burning steadily.")
+				. += "\The [src] is burning steadily."
 			if(900 to 1300)
-				to_chat(user, "The flames are dancing wildly!")
+				. += "The flames are dancing wildly!"
 			if(1300 to 2000)
-				to_chat(user, "The fire is roaring!")
+				. += "The fire is roaring!"
 
 /obj/structure/bonfire/update_icon()
 	if(on_fire)
@@ -71,40 +78,40 @@ var/global/list/total_active_bonfires = list()
 		var/obj/item/device/flashlight/flare/torch/stick/torch = new(get_turf(user))
 		H.put_in_active_hand(torch)
 
-/obj/structure/bonfire/attackby(obj/item/W, mob/user)
-	if(W.isFlameSource() && !on_fire) // needs to go last or else nothing else will work
+/obj/structure/bonfire/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isFlameSource() && !on_fire) // needs to go last or else nothing else will work
 		light(user)
 		return
-	if(on_fire && (istype(W, /obj/item/flame) || istype(W, /obj/item/device/flashlight/flare/torch) || istype(W, /obj/item/clothing/mask/smokable))) //light unlit stuff
-		W.attackby(src, user)
+	if(on_fire && (istype(attacking_item, /obj/item/flame) || istype(attacking_item, /obj/item/device/flashlight/flare/torch) || istype(attacking_item, /obj/item/clothing/mask/smokable))) //light unlit stuff
+		attacking_item.attackby(src, user)
 		return
 	if(fuel < max_fuel)
-		if(istype(W, /obj/item/stack/material))
-			var/obj/item/stack/material/I = W
+		if(istype(attacking_item, /obj/item/stack/material))
+			var/obj/item/stack/material/I = attacking_item
 			if(I.default_type in burnable_materials)
 				I.use(1)
 				fuel = min(fuel + burnable_materials[I.default_type], max_fuel)
 				user.visible_message(SPAN_NOTICE("\The [user] adds some of \the [I] to \the [src]."))
 				return
-		if(is_type_in_list(W, burnable_other))
-			var/fuel_add = burnable_other[W]
+		if(is_type_in_list(attacking_item, burnable_other))
+			var/fuel_add = burnable_other[attacking_item]
 			fuel = min(fuel + fuel_add, max_fuel)
-			user.visible_message(SPAN_NOTICE("\The [user] tosses \the [W] into \the [src]."))
-			user.drop_from_inventory(W)
-			qdel(W)
+			user.visible_message(SPAN_NOTICE("\The [user] tosses \the [attacking_item] into \the [src]."))
+			user.drop_from_inventory(attacking_item)
+			qdel(attacking_item)
 			return
-		else if(istype(W, /obj/item/material))
-			var/obj/item/material/M = W
+		else if(istype(attacking_item, /obj/item/material))
+			var/obj/item/material/M = attacking_item
 			if(M.material.name in burnable_materials)
 				var/fuel_add = burnable_materials[M.material] * (M.w_class / 5) //if you crafted a small item, it's not worth as much fuel
 				fuel = min(fuel + fuel_add, max_fuel)
 				user.visible_message(SPAN_NOTICE("\The [user] tosses \the [M] into \the [src]."))
-				user.drop_from_inventory(W)
-				W.forceMove(get_turf(src))
-				qdel(W)
+				user.drop_from_inventory(attacking_item)
+				attacking_item.forceMove(get_turf(src))
+				qdel(attacking_item)
 				return
 		else
-			var/obj/item/reagent_containers/RC = W
+			var/obj/item/reagent_containers/RC = attacking_item
 			if(RC.is_open_container())
 				RC.reagents.trans_to(src, RC.amount_per_transfer_from_this)
 				handle_reagents()
@@ -113,7 +120,7 @@ var/global/list/total_active_bonfires = list()
 	if(!fuel)
 		to_chat(user, SPAN_WARNING("There is not enough fuel to start a fire."))
 		return
-	if(total_active_bonfires.len >= MAX_ACTIVE_BONFIRE_LIMIT)
+	if(GLOB.total_active_bonfires.len >= MAX_ACTIVE_BONFIRE_LIMIT)
 		to_chat(user, SPAN_WARNING("\The [src] refuses to light, despite all your efforts."))
 		return
 	if(!on_fire)
@@ -121,7 +128,7 @@ var/global/list/total_active_bonfires = list()
 		check_light()
 		update_icon()
 		START_PROCESSING(SSprocessing, src)
-		total_active_bonfires += src
+		GLOB.total_active_bonfires += src
 
 /obj/structure/bonfire/proc/check_light()
 	if(on_fire)
@@ -181,9 +188,9 @@ var/global/list/total_active_bonfires = list()
 			reagent_level = reagents.reagent_volumes[R.type]
 			fuel = min(max_fuel, fuel + (reagent_level * 25))
 
-		if(reagents.has_reagent(/singleton/reagent/alcohol))
-			R = GET_SINGLETON(/singleton/reagent/alcohol)
-			var/singleton/reagent/alcohol/A = R
+		if(reagents.has_reagent(/singleton/reagent/alcohol/ethanol))
+			R = GET_SINGLETON(/singleton/reagent/alcohol/ethanol)
+			var/singleton/reagent/alcohol/ethanol/A = R
 			reagent_level = reagents.reagent_volumes[A.type]
 			fuel = min(max_fuel, fuel + (reagent_level * (A.strength/20)))
 
@@ -223,7 +230,7 @@ var/global/list/total_active_bonfires = list()
 	STOP_PROCESSING(SSprocessing, src)
 	check_light()
 	update_icon()
-	total_active_bonfires -= src
+	GLOB.total_active_bonfires -= src
 	if(burn_out)
 		visible_message(SPAN_NOTICE("\The [src] burns out, turning to a pile of ash and burnt wood."))
 		new /obj/effect/decal/cleanable/ash(get_turf(src))
@@ -292,15 +299,16 @@ var/global/list/total_active_bonfires = list()
 		var/heat_eff = fuel / max_fuel	//Less fuel, less heat provided
 		H.bodytemperature = min(H.bodytemperature + (abs((temp_adj * heat_eff)) / heating_div), 311)
 
-/obj/structure/bonfire/Crossed(AM as mob|obj)
+/obj/structure/bonfire/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
 	if(on_fire)
-		burn(AM, TRUE)
-	..()
+		burn(arrived, TRUE)
 
 /obj/structure/bonfire/proc/burn(var/mob/living/M, var/entered = FALSE)
 	if(safe)
 		return
-	if(M && prob((fuel / max_fuel) * 100))
+	if(istype(M) && prob((fuel / max_fuel) * 100))
 		if(entered)
 			to_chat(M, SPAN_WARNING("You are covered by fire and heat from entering \the [src]!"))
 		if(isanimal(M))
@@ -333,7 +341,7 @@ var/global/list/total_active_bonfires = list()
 	check_light()
 	update_icon()
 	START_PROCESSING(SSprocessing, src)
-	total_active_bonfires += src
+	GLOB.total_active_bonfires += src
 
 /obj/structure/bonfire/fireplace
 	name = "fireplace"
@@ -344,6 +352,7 @@ var/global/list/total_active_bonfires = list()
 	safe = TRUE
 	density = TRUE
 	burn_out = FALSE
+	pass_flags_self = PASSTABLE
 
 /obj/structure/bonfire/fireplace/New(var/newloc, var/material_name)
 	..()
@@ -357,24 +366,22 @@ var/global/list/total_active_bonfires = list()
 	name = "[material.display_name] fireplace"
 
 /obj/structure/bonfire/fireplace/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(on_fire)
 		switch(fuel)
 			if(0 to 250)
-				add_overlay("fireplace_fire0")
+				AddOverlays("fireplace_fire0")
 			if(251 to 750)
-				add_overlay("fireplace_fire1")
+				AddOverlays("fireplace_fire1")
 			if(751 to 1200)
-				add_overlay("fireplace_fire2")
+				AddOverlays("fireplace_fire2")
 			if(1201 to 1700)
-				add_overlay("fireplace_fire3")
+				AddOverlays("fireplace_fire3")
 			if(1700 to 2000)
-				add_overlay("fireplace_fire4")
-		add_overlay("fireplace_glow")
+				AddOverlays("fireplace_fire4")
+		AddOverlays("fireplace_glow")
 
 /obj/structure/bonfire/fireplace/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(!istype(mover) || mover.checkpass(PASSTABLE))
-		return TRUE
 	if(get_dir(loc, target) == NORTH)
 		return !density
 	return TRUE

@@ -26,6 +26,7 @@
 	meat_amount = 2
 	maxHealth = 50
 	health = 50
+	max_stamina = -1
 	pass_flags = PASSTABLE
 
 	// Decorative head flower.
@@ -50,6 +51,37 @@
 
 	var/can_attach = TRUE // Whether they can attach to a host
 
+/mob/living/carbon/alien/diona/Initialize(var/mapload, var/flower_chance = 5)
+	if(prob(flower_chance))
+		flower_color = get_random_colour(1)
+	. = ..(mapload)
+	//species = GLOB.all_species[]
+	ingested = new /datum/reagents/metabolism(500, src, CHEM_INGEST)
+	reagents = ingested
+	set_species(SPECIES_DIONA)
+	setup_dionastats()
+	eat_types |= TYPE_ORGANIC
+	nutrition = 0 //We dont start with biomass
+	update_verbs()
+
+/mob/living/carbon/alien/diona/Destroy()
+	cleanupTransfer()
+	QDEL_NULL(ingested)
+	QDEL_NULL(vessel)
+
+	QDEL_NULL(DS)
+	gestalt = null
+	master_nymph = null
+
+	hat = null
+
+	flower_color = null
+	flower_image = null
+	ClearOverlays()
+
+	. = ..()
+	GC_TEMPORARY_HARDDEL
+
 /mob/living/carbon/alien/diona/get_ingested_reagents()
 	return ingested
 
@@ -66,7 +98,7 @@
 			mind.transfer_to(master_nymph)
 			master_nymph.stunned = 0//Switching mind seems to temporarily stun mobs
 			message_admins("\The [src] has died with nymphs remaining; player now controls [key_name_admin(master_nymph)]")
-			log_admin("\The [src] has died with nymphs remaining; player now controls [key_name(master_nymph)]", ckey=key_name(master_nymph))
+			log_admin("\The [src] has died with nymphs remaining; player now controls [key_name(master_nymph)]")
 		master_nymph = null
 		birds_of_feather.Cut()
 
@@ -82,7 +114,7 @@
 		if(M_WALK)
 			. += 3
 		if(M_RUN)
-			species.handle_sprint_cost(src,.+config.walk_speed)
+			species.handle_sprint_cost(src, . + GLOB.config.walk_speed)
 
 /mob/living/carbon/alien/diona/ex_act(severity)
 	if(life_tick < 4)
@@ -92,23 +124,9 @@
 	else
 		..()
 
-/mob/living/carbon/alien/diona/Initialize(var/mapload, var/flower_chance = 5)
-	if(prob(flower_chance))
-		flower_color = get_random_colour(1)
-	. = ..(mapload)
-	//species = all_species[]
-	ingested = new /datum/reagents/metabolism(500, src, CHEM_INGEST)
-	reagents = ingested
-	set_species(SPECIES_DIONA)
-	setup_dionastats()
-	eat_types |= TYPE_ORGANIC
-	nutrition = 0 //We dont start with biomass
-	update_verbs()
-
-
 /mob/living/carbon/alien/diona/verb/check_light()
 	set category = "Abilities"
-	set name = "Check light level"
+	set name = "Check Light Level"
 
 	var/light = get_lightlevel_diona(DS)
 
@@ -136,9 +154,9 @@
 		to_chat(src, SPAN_WARNING("You are too small to pull that."))
 		return
 
-/mob/living/carbon/alien/diona/put_in_hands(var/obj/item/W) // No hands.
-	W.forceMove(get_turf(src))
-	return TRUE
+/mob/living/carbon/alien/diona/put_in_hands(obj/item/item_to_equip) // No hands.
+	item_to_equip.forceMove(get_turf(src))
+	return FALSE
 
 //Functions duplicated from humans, albeit slightly modified
 /mob/living/carbon/alien/diona/proc/set_species(var/new_species)
@@ -152,7 +170,7 @@
 			dna.species = new_species
 
 	// No more invisible screaming wheelchairs because of set_species() typos.
-	if(!all_species[new_species])
+	if(!GLOB.all_species[new_species])
 		new_species = SPECIES_HUMAN
 
 	if(species)
@@ -166,7 +184,7 @@
 		species.remove_inherent_verbs(src)
 		holder_type = null
 
-	species = all_species[new_species]
+	species = GLOB.all_species[new_species]
 	if(species.language)
 		add_language(species.language)
 
@@ -321,14 +339,6 @@
 
 	return TRUE
 
-/mob/living/carbon/alien/diona/Destroy()
-	walk_to(src, 0)
-	cleanupTransfer()
-	QDEL_NULL(ingested)
-	QDEL_NULL(vessel)
-	QDEL_NULL(DS)
-	. = ..()
-
 /mob/living/carbon/alien/diona/proc/wear_hat(var/obj/item/new_hat)
 	if(hat)
 		return
@@ -368,3 +378,9 @@
 	if (status_flags & GODMODE)
 		return
 	health = min(health - amount, maxHealth)
+
+/mob/living/carbon/alien/diona/getHalLoss()
+	if(status_flags & GODMODE)
+		return
+
+	return max((maxHealth - health), 0)

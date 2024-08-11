@@ -8,10 +8,10 @@
 
 /obj/item/borg/combat/shield/on_module_activate(mob/living/silicon/robot/R)
 	R.shield_overlay = image(R.icon, "[R.module_sprites[R.icontype][ROBOT_CHASSIS]]-shield")
-	R.add_overlay(R.shield_overlay)
+	R.AddOverlays(R.shield_overlay)
 
 /obj/item/borg/combat/shield/on_module_deactivate(mob/living/silicon/robot/R)
-	R.cut_overlay(R.shield_overlay)
+	R.CutOverlays(R.shield_overlay)
 
 /obj/item/borg/combat/shield/verb/set_shield_level()
 	set name = "Set shield level"

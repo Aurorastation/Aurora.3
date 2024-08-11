@@ -125,7 +125,7 @@
 		E.nymph = new /mob/living/carbon/alien/diona
 
 	E.status |= (ORGAN_PLANT | ORGAN_NYMPH)
-	E.species = all_species["Nymph Limb"]
+	E.species = GLOB.all_species["Nymph Limb"]
 	E.fingerprints = null
 	if(!E.dna)
 		E.blood_DNA = list()
@@ -210,8 +210,8 @@
 
 	if(nymph)
 		N.nymph_out(src, nymph)
-		to_chat(nymph_owner, span("warning", "The nymph attached to you as \a [name] unlatches its tendrils from your body and drops to \the [get_turf(owner)]."))
-		to_chat(nymph, span("notice", "You tear your tendrils free of your host and drop to \the [get_turf(owner)]."))
+		to_chat(nymph_owner, SPAN_WARNING("The nymph attached to you as \a [name] unlatches its tendrils from your body."))
+		to_chat(nymph, SPAN_NOTICE("You tear your tendrils free of your host and drop to the ground."))
 
 	return TRUE
 
@@ -329,6 +329,11 @@
 	var/obj/item/organ/external/new_nymph_limb = new limb_choice
 	if(!istype(new_nymph_limb))
 		return
+
+	if(new_nymph_limb.parent_organ && isnull(target.organs_by_name[new_nymph_limb.parent_organ]))
+		to_chat(target, SPAN_NOTICE("You notice that you cannot attach the nymph there because \the [new_nymph_limb.parent_organ] is missing!"))
+		return
+
 	new_nymph_limb.replaced(target)
 
 	if(new_nymph_limb.nymph_child)
@@ -338,7 +343,7 @@
 	target.regenerate_icons()
 
 	N.nymph_in(new_nymph_limb, src)
-	target.visible_message(SPAN_NOTICE("\The [N] attaches to \the [target]'s body!"), SPAN_NOTICE("\The [N] attaches to your body!"))
+	target.visible_message(SPAN_NOTICE("\The [new_nymph_limb] nymph attaches to \the [target]'s body!"), SPAN_NOTICE("\The [new_nymph_limb] nymph attaches to your body!"))
 
 /datum/component/nymph_limb/proc/nymph_in(var/obj/item/organ/external/E, var/mob/living/carbon/alien/diona/nymph)
 	var/mob/living/carbon/alien/diona/limb_nymph = E.nymph
@@ -375,20 +380,30 @@
 /datum/component/nymph_limb/proc/nymphize(var/mob/living/carbon/human/H, var/organ_name, var/forced = FALSE)
 	if(!H.should_have_limb(organ_name))
 		return
+
+	var/list/organ_names_to_create = list(organ_name)
+
 	if(H.organs_by_name[organ_name])
 		if(forced) // Do we wish to remove any limbs currently occupying that spot?
 			var/obj/item/organ/external/O = H.get_organ(organ_name)
+
+			for(var/obj/item/organ/external/children in O?.children)
+				if(H.should_have_limb(children?.limb_name))
+					organ_names_to_create |= children.limb_name
+
 			qdel(O)
 			H.organs_by_name[organ_name] = null
 		else
 			return
-	// Create and attach our new nymph limb
-	var/nymph_limb_type = nymph_limb_types_by_name[organ_name]
-	var/obj/item/organ/external/E = new nymph_limb_type
-	E.replaced(H)
-	for(var/obj/item/organ/external/child in E.children)
-		nymphize(H, child.organ_tag, TRUE)
-	add_verb(H, /mob/living/carbon/human/proc/detach_nymph_limb)
+
+	// Create and attach our new nymph limb(s)
+	for(var/organ_to_create in organ_names_to_create)
+		var/nymph_limb_type = nymph_limb_types_by_name[organ_to_create]
+		var/obj/item/organ/external/E = new nymph_limb_type
+		E.replaced(H)
+		for(var/obj/item/organ/external/child in E.children)
+			nymphize(H, child.organ_tag, TRUE)
+		add_verb(H, /mob/living/carbon/human/proc/detach_nymph_limb)
 
 /datum/species/diona/nymph_limb // For use on nymph-limb organs only
 	name = "Nymph Limb"

@@ -71,3 +71,43 @@ ATTRIBUTIONS SECTION END
 ATTRIBUTIONS SECTION START
 sound/weapons/reloads/lever_action_cock1.ogg - "Lever action cocking 2.wav", licensed under CC0. Obtained and edited from https://freesound.org/people/C-V/sounds/523402/
 ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
+sound/items/typewriter.ogg - "Typewriter Sound Effect" licensed under CC0, by No Copyright Creator Sounds. Obtained and edited from https://www.youtube.com/watch?v=HYvJtImzoNI&ab_channel=NoCopyrightCreator-Sounds
+sound/items/camerabulb.ogg - "Vintage Camera Flash Bulb Pops Sound Design" licensed under CC0, by Adilbek Sounds. Obainted and edited from https://freesound.org/people/adilbek_sounds/sounds/595044/
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
+/sound/items/devices/minedetector/minedetector_close.ogg - Part of "Detector", licensed under CC0. Obtained from https://freesound.org/people/fennelliott/sounds/426404/
+/sound/items/devices/minedetector/minedetector_medium.ogg - Part of "Detector", licensed under CC0. Obtained from https://freesound.org/people/fennelliott/sounds/426404/
+/sound/items/devices/minedetector/minedetector_far.ogg - Part of "Detector", licensed under CC0. Obtained from https://freesound.org/people/fennelliott/sounds/426404/
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/music/lobby/konyang/konyang-1.ogg - PocketNoMoney
+sound/music/lobby/konyang/konyang-2.ogg - BGM gongbang
+sound/music/lobby/konyang/konyang-3.ogg - zolezzi
+sound/music/lobby/konyang/konyang-4.ogg - Karl Casey @ White Bat Audio
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/effects/zombies/zombie_1.ogg to zombie_4_ogg - Mazellmi @ Youtube
+sound/effects/rock_break.ogg - "Rock destroy". Obtained from https://freesound.org/people/Bertsz/sounds/524312/
+ATTRIBUTIONS SECTION END
+
+
+ATTRIBUTIONS SECTOR START
+sound/music/lobby/adhomai/adhomai-1.ogg - "OKB – 456" by Cybervoid, licensed under CC BY-SA 3.0 DEED. Obtained from https://cybervoid.bandcamp.com/track/okb-456-2
+sound/music/lobby/adhomai/adhomai-2.ogg - "Semyorka" by Cybervoid, licensed under CC BY-SA 3.0 DEED. Obtained from https://cybervoid.bandcamp.com/track/semyorka-2
+sound/music/lobby/adhomai/adhomai-3.ogg - "Der Wanderer I" by Eija Risen, licensed under CC BY-SA 3.0 DEED. Obtained from https://eijarisen.bandcamp.com/track/der-wanderer-i
+sound/music/lobby/adhomai/adhomai-4.ogg - "П​л​а​н​е​т​а R32" by Project Lazarus, licensed under CC BY-SA 3.0 DEED. Obtained from https://projectlazarus.bandcamp.com/track/r32
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/machines/clanking.ogg - https://freesound.org/people/simone_ds/sounds/366084/
+sound/machines/howitzer/fire.ogg - https://freesound.org/people/qubodup/sounds/161341/
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/items/metal_shutter.ogg - https://freesound.org/people/bruno.auzet/sounds/524695/
+ATTRIBUTIONS SECTION END

@@ -47,7 +47,6 @@
 		"a",  "a",  "e",  "e",  "i",  "i",  "o",  "o",  "u",  "u",  "s",  "s"
 	)
 	partial_understanding = list(LANGUAGE_AZAZIBA = 25)
-	allow_accents = TRUE
 
 /datum/language/unathi_azaziba
 	name = LANGUAGE_AZAZIBA
@@ -230,7 +229,7 @@
 	return new_name
 
 /datum/language/bug/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
-	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
+	log_say("[key_name(speaker)] : ([name]) [message]")
 
 	if(!speaker_mask)
 		speaker_mask = speaker.real_name
@@ -254,9 +253,11 @@
 		if(speaker_socket?.encryption_key)
 			speaker_encryption_key = speaker_socket.encryption_key
 
-	for(var/mob/player in player_list)
-		if(istype(player, /mob/abstract/observer) || player == speaker)
+	for(var/mob/player in GLOB.player_list)
+		if(player == speaker)
 			to_chat(player, msg)
+		else if(isobserver(player))
+			to_chat(player, "[ghost_follow_link(speaker, player)] [msg]")
 		else if(!within_jamming_range(player) && check_special_condition(player))
 			if(speaker_encryption_key)
 				var/mob/living/carbon/human/listener_human = player
@@ -264,9 +265,17 @@
 					to_chat(player, encrypted_msg)
 					continue
 				var/obj/item/organ/internal/vaurca/neuralsocket/listener_socket = listener_human.internal_organs_by_name[BP_NEURAL_SOCKET]
-				if(!listener_socket || listener_socket.decryption_key != speaker_encryption_key)
-					to_chat(player, encrypted_msg)
-					continue
+				var/obj/item/organ/internal/augment/language/vekatak/receiver = listener_human.internal_organs_by_name[BP_AUG_LANGUAGE]
+				if(listener_socket)
+					if(listener_socket.decryption_key == speaker_encryption_key)
+						to_chat(player, msg)
+						continue
+				if(receiver)
+					if(receiver.decryption_key == speaker_encryption_key)
+						to_chat(player, msg)
+						continue
+				to_chat(player, encrypted_msg)
+				continue
 			to_chat(player, msg)
 
 /datum/language/bug/format_message(message, verb, speaker_mask)
@@ -287,7 +296,9 @@
 
 /datum/language/bug/check_special_condition(var/mob/other)
 	if(istype(other, /mob/living/silicon))
-		return 1
+		var/mob/living/silicon/S = other
+		if(S.can_hear_hivenet)
+			return TRUE
 
 	var/mob/living/carbon/human/M = other
 	if(!istype(M))
@@ -296,8 +307,12 @@
 		return 0
 	if(within_jamming_range(other))
 		return 0
-	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (all_languages[LANGUAGE_VAURCA] in M.languages))
+	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (GLOB.all_languages[LANGUAGE_VAURCA] in M.languages))
 		return 1
+	if(M.internal_organs_by_name[BP_AUG_LANGUAGE])
+		var/obj/item/organ/internal/augment/language/vekatak/V = M.internal_organs_by_name[BP_AUG_LANGUAGE]
+		if(istype(V) && (GLOB.all_languages[LANGUAGE_VAURCA] in M.languages))
+			return 1
 	if(M.internal_organs_by_name["blackkois"])
 		return 1
 
@@ -318,9 +333,17 @@
 /datum/language/bug/check_speech_restrict(var/mob/speaker)
 	var/mob/living/carbon/human/H = speaker
 	var/obj/item/organ/internal/vaurca/neuralsocket/S = H.internal_organs_by_name[BP_NEURAL_SOCKET]
-	if(S.muted || S.disrupted)
+	var/obj/item/organ/internal/augment/language/vekatak/V = H.internal_organs_by_name[BP_AUG_LANGUAGE]
+
+	//Black k'ois zombies don't have neural sockets but need to talk, hence check if the socket exists, or it will runtime for them
+	if(S && (S.muted || S.disrupted))
 		to_chat(speaker, SPAN_WARNING("You have been muted over the Hivenet!"))
 		return FALSE
+
+	if(istype(V))
+		if(!V.transmitting || V.disrupted || V.muted)
+			to_chat(speaker, SPAN_WARNING("Your implant cannot freely transmit over the Hivenet!"))
+			return FALSE
 	else
 		return TRUE
 

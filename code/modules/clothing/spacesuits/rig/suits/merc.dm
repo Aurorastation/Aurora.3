@@ -27,7 +27,7 @@
 	helm_type = /obj/item/clothing/head/helmet/space/rig/merc
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/material/twohanded/fireaxe)
 
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 
 	initial_modules = list(
 		/obj/item/rig_module/mounted,
@@ -93,7 +93,7 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/merc/distress
 
-	req_access = list(access_distress)
+	req_access = list(ACCESS_DISTRESS)
 
 	initial_modules = list(
 		/obj/item/rig_module/mounted,
@@ -125,7 +125,7 @@
 	icon_state = "paragon"
 	icon_supported_species_tags = null
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY
-	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+	species_restricted = list(BODYTYPE_HUMAN, BODYTYPE_IPC_INDUSTRIAL, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
 
 	initial_modules = list(
 		/obj/item/rig_module/power_sink,
@@ -136,4 +136,20 @@
 		/obj/item/rig_module/ai_container,
 		/obj/item/rig_module/vision/multi,
 		/obj/item/rig_module/electrowarfare_suite
+	)
+
+/obj/item/rig/merc/einstein/ninja
+	initial_modules = list(
+		/obj/item/rig_module/power_sink,
+		/obj/item/rig_module/mounted/ion,
+		/obj/item/rig_module/cooling_unit,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/vision/multi,
+		/obj/item/rig_module/electrowarfare_suite,
+		/obj/item/rig_module/device/door_hack,
+		/obj/item/rig_module/mounted/egun,
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/chem_dispenser/combat
 	)

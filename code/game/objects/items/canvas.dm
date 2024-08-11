@@ -49,10 +49,10 @@
 /**
  * One pixel increments.
  */
-/obj/item/canvas/attackby(obj/item/I, mob/user, params)
-	if(I.iswrench())
+/obj/item/canvas/attackby(obj/item/attacking_item, mob/user, params)
+	if(attacking_item.iswrench())
 		to_chat(user, SPAN_NOTICE("You begin to [anchored ? "loosen" : "tighten"] \the [src]..."))
-		if(I.use_tool(src, user, 40, volume = 50))
+		if(attacking_item.use_tool(src, user, 40, volume = 50))
 			user.visible_message("<b>[user]</b> [anchored ? "loosens" : "tightens"] \the [src].", SPAN_NOTICE("You [anchored ? "loosen" : "tighten"] \the [src]."), SPAN_NOTICE("You hear a ratchet."))
 			anchored = !anchored
 		return TRUE
@@ -67,7 +67,7 @@
 		return TRUE
 
 	// Cleaning one pixel with a soap or rag.
-	if(istype(I, /obj/item/soap) || istype(I, /obj/item/reagent_containers/glass/rag))
+	if(istype(attacking_item, /obj/item/soap) || istype(attacking_item, /obj/item/reagent_containers/glass/rag))
 		// Pixel info created only when needed.
 		var/icon/masterpiece = icon(icon,icon_state)
 		var/thePix = masterpiece.GetPixel(pixX,pixY)
@@ -83,8 +83,8 @@
 		return TRUE
 
 	// Drawing one pixel with a crayon.
-	else if(istype(I, /obj/item/pen/crayon))
-		var/obj/item/pen/crayon/C = I
+	else if(istype(attacking_item, /obj/item/pen/crayon))
+		var/obj/item/pen/crayon/C = attacking_item
 		DrawPixelOn(C.shadeColour, pixX, pixY)
 		return TRUE
 	else
@@ -115,7 +115,7 @@
 	var/dir_offset = 0
 	if(target_turf != source_turf)
 		dir_offset = get_dir(source_turf, target_turf)
-		if(!(dir_offset in global.cardinal))
+		if(!(dir_offset in GLOB.cardinal))
 			to_chat(user, SPAN_WARNING("You cannot reach that from here."))
 			return
 

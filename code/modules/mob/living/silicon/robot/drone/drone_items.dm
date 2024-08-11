@@ -165,7 +165,7 @@
 	T.visible_message(SPAN_DANGER("\The [user] sucks \the [victim] into its decompiler. There's a horrible crunching noise."),
 		SPAN_NOTICE("It's a bit of a struggle, but you manage to suck \the [victim] into your decompiler. It makes a series of visceral crunching noises."))
 	new /obj/effect/decal/cleanable/blood/splatter(get_turf(src))
-	playsound(get_turf(user), 'sound/effects/squelch1.ogg')
+	playsound(get_turf(user), 'sound/effects/squelch1.ogg', 60)
 	if(wood)
 		wood.add_charge(1000)
 	qdel(victim)

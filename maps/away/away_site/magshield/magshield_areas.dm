@@ -1,5 +1,5 @@
 /area/magshield
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	icon = 'maps/away/away_site/magshield/magshield_sprites.dmi'
 
 /area/magshield/south

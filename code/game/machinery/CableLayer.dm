@@ -26,16 +26,16 @@
 	user.visible_message("\The [user] [!on ? "de" : ""]activates \the [src].", SPAN_NOTICE("You switch \the [src] [on ? "on" : "off"]."))
 	return
 
-/obj/machinery/cablelayer/attackby(var/obj/item/O, var/mob/user)
-	if(O.iscoil())
-		var/result = load_cable(O)
+/obj/machinery/cablelayer/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscoil())
+		var/result = load_cable(attacking_item)
 		if(!result)
 			to_chat(user, SPAN_WARNING("\The [src]'s cable reel is full."))
 		else
 			to_chat(user, SPAN_NOTICE("You load [result] lengths of cable into \the [src]."))
 		return TRUE
 
-	if(O.iswirecutter())
+	if(attacking_item.iswirecutter())
 		if(cable && cable.amount)
 			var/m = round(input(usr,"Please specify the length of cable to cut.", "Cut Cable",min(cable.amount,30)) as num, 1)
 			m = min(m, cable.amount)
@@ -49,15 +49,15 @@
 			to_chat(user, SPAN_WARNING("There's no more cable on the reel."))
 		return TRUE
 
-	if(O.ismultitool())
+	if(attacking_item.ismultitool())
 		if(!cable)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have any cable loaded!"))
 			return TRUE
-		return cable.attackby(O, user)
+		return cable.attackby(attacking_item, user)
 
-/obj/machinery/cablelayer/examine(mob/user)
+/obj/machinery/cablelayer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "\The [src]'s cable reel has [cable.amount] length\s left.")
+	. += SPAN_NOTICE("\The [src]'s cable reel has [cable.amount] length\s left.")
 
 /obj/machinery/cablelayer/proc/load_cable(var/obj/item/stack/cable_coil/CC)
 	if(istype(CC) && CC.amount)

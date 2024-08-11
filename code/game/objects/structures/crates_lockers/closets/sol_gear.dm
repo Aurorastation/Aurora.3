@@ -127,7 +127,7 @@
 
 /obj/structure/closet/secure_closet/soll_officer
 	name = "sol alliance officer locker"
-	req_access = list(access_captain)
+	req_access = list(ACCESS_CAPTAIN)
 	icon_state = "cap"
 
 /obj/structure/closet/secure_closet/soll_officer/fill()

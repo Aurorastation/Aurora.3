@@ -51,9 +51,9 @@
 		generate_overlays()
 
 	if (LAZYLEN(reinforcement_images))
-		cut_overlay(reinforcement_images, TRUE)
+		CutOverlays(reinforcement_images, ATOM_ICON_CACHE_PROTECTED)
 	if (damage_image)
-		cut_overlay(damage_image, TRUE)
+		CutOverlays(damage_image, ATOM_ICON_CACHE_PROTECTED)
 
 	LAZYCLEARLIST(reinforcement_images)
 	damage_image = null
@@ -64,11 +64,11 @@
 		clear_smooth_overlays()
 		fake_wall_image = image('icons/turf/wall_masks.dmi', "[material.icon_base]fwall_open")
 		fake_wall_image.color = material.icon_colour
-		add_overlay(fake_wall_image)
+		AddOverlays(fake_wall_image)
 		smoothing_flags = SMOOTH_FALSE
 		return
 	else if (fake_wall_image)
-		cut_overlay(fake_wall_image)
+		CutOverlays(fake_wall_image)
 		fake_wall_image = null
 		smoothing_flags = initial(smoothing_flags)
 
@@ -103,7 +103,7 @@
 		damage_image = damage_overlays[overlay]
 		overlays_to_add += damage_image
 
-	add_overlay(overlays_to_add, TRUE)
+	AddOverlays(overlays_to_add, ATOM_ICON_CACHE_PROTECTED)
 	UNSETEMPTY(reinforcement_images)
 	SSicon_smooth.add_to_queue(src)
 	if(smoothing_flags & SMOOTH_UNDERLAYS)

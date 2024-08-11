@@ -9,10 +9,10 @@
 	if(!(effecttype in list(DAMAGE_PAIN, STUTTER, EYE_BLUR, DROWSY, STUN, WEAKEN)))
 		. = ..()
 
-/mob/living/heavy_vehicle/hitby(atom/movable/AM, speed)
+/mob/living/heavy_vehicle/hitby(atom/movable/hitting_atom, skipcatch, hitpush, blocked, datum/thrownthing/throwingdatum)
 	if(LAZYLEN(pilots) && (!hatch_closed || !prob(body.pilot_coverage)))
 		var/mob/living/pilot = pick(pilots)
-		return pilot.hitby(AM, speed)
+		return pilot.hitby(arglist(args))
 	. = ..()
 
 /mob/living/heavy_vehicle/get_armors_by_zone(def_zone, damage_type, damage_flags)
@@ -70,7 +70,7 @@
 		else
 			return body
 
-/mob/living/heavy_vehicle/apply_damage(var/damage = 0, var/damagetype = DAMAGE_BRUTE, var/def_zone, var/used_weapon, var/damage_flags, var/armor_pen, var/silent = FALSE)
+/mob/living/heavy_vehicle/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	if(!damage)
 		return 0
 
@@ -109,7 +109,9 @@
 			total += MC.brute_damage
 	return total
 
-/mob/living/heavy_vehicle/emp_act(var/severity)
+/mob/living/heavy_vehicle/emp_act(severity)
+	. = ..()
+
 	var/ratio = get_blocked_ratio(null, DAMAGE_BURN, null, (4-severity) * 20)
 
 	if(ratio >= 0.5)
@@ -121,13 +123,13 @@
 			to_chat(m, SPAN_NOTICE("Your Faraday shielding mitigated the pulse!"))
 
 	emp_damage += round((12 - (severity*3))*( 1 - ratio))
-	if(severity <= 3)
-		for(var/obj/item/thing in list(arms,legs,head,body))
-			thing.emp_act(severity)
-		if(!hatch_closed || !prob(body.pilot_coverage))
-			for(var/thing in pilots)
-				var/mob/pilot = thing
-				pilot.emp_act(severity)
+
+	for(var/obj/item/thing in list(arms,legs,head,body))
+		thing.emp_act(severity)
+	if(!hatch_closed || !prob(body.pilot_coverage))
+		for(var/thing in pilots)
+			var/mob/pilot = thing
+			pilot.emp_act(severity)
 
 /mob/living/heavy_vehicle/fall_impact(levels_fallen, stopped_early = FALSE, var/damage_mod = 1)
 	// No gravity, stop falling into spess!
@@ -142,8 +144,8 @@
 
 	apply_damage(damage, DAMAGE_BRUTE, BP_L_LEG) // can target any leg, it will be changed to the proper component
 
-	playsound(loc, "sound/effects/bang.ogg", 100, 1)
-	playsound(loc, "sound/effects/bamf.ogg", 100, 1)
+	playsound(loc, 'sound/effects/bang.ogg', 100, 1)
+	playsound(loc, 'sound/effects/bamf.ogg', 100, 1)
 	return TRUE
 
 /mob/living/heavy_vehicle/get_bullet_impact_effect_type(var/def_zone)

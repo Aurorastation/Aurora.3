@@ -35,17 +35,17 @@
 		produce_heat()
 		heat_delay = initial(heat_delay)
 
-/obj/machinery/r_n_d/tech_processor/attackby(obj/item/W, mob/user)
-	if(W.ismultitool())
-		var/obj/item/device/multitool/MT = W
+/obj/machinery/r_n_d/tech_processor/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
+		var/obj/item/device/multitool/MT = attacking_item
 		MT.set_buffer(src)
 		to_chat(user, SPAN_NOTICE("You attach \the [src]'s linking node to \the [MT]'s machinery buffer."))
 		return
-	if(default_deconstruction_screwdriver(user, W))
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	if(default_deconstruction_crowbar(user, W))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return
-	if(default_part_replacement(user, W))
+	if(default_part_replacement(user, attacking_item))
 		return
 	return ..()
 
@@ -74,7 +74,7 @@
 	update_icon()
 
 /obj/machinery/r_n_d/tech_processor/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(stat & (NOPOWER|BROKEN))
 		icon_state = "[initial(icon_state)]_off"
 	else if(!linked_server)
@@ -82,4 +82,4 @@
 	else
 		icon_state = initial(icon_state)
 	if(panel_open)
-		add_overlay("[initial(icon_state)]_open")
+		AddOverlays("[initial(icon_state)]_open")

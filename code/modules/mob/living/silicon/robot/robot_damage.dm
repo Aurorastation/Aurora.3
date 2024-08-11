@@ -157,6 +157,8 @@
 		parts -= picked
 
 /mob/living/silicon/robot/emp_act(severity)
+	. = ..()
+
 	var/datum/robot_component/surge/C = components["surge"]
 	if(C?.installed)
 		if(C.surge_left >= 1)
@@ -175,7 +177,6 @@
 			return
 		else
 			to_chat(src, SPAN_WARNING("Warning: Power surge detected, source - EMP. Surge prevention module is depleted and requires replacement!"))
-	..()
 
 /mob/living/silicon/robot/get_flash_protection(ignore_inherent)
 	return (flash_resistant || overclocked) ? FLASH_PROTECTION_MODERATE : FLASH_PROTECTION_NONE

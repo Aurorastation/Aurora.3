@@ -9,14 +9,13 @@
 	drop_sound = 'sound/items/drop/knife.ogg'
 	pickup_sound = 'sound/items/pickup/knife.ogg'
 	hitsound = 'sound/weapons/bladeslice.ogg'
-	w_class = ITEMSIZE_TINY
-	thrown_force_divisor = 1
+	w_class = WEIGHT_CLASS_TINY
+	thrown_force_divisor = 0.25 // 5 when thrown with weight 20 (steel)
 	origin_tech = list(TECH_MATERIAL = 1)
 	attack_verb = list("attacked", "stabbed", "poked")
 	sharp = FALSE
 	edge = FALSE
 	force_divisor = 0.1 // 6 when wielded with hardness 60 (steel)
-	thrown_force_divisor = 0.25 // 5 when thrown with weight 20 (steel)
 	var/loaded      //Descriptive string for currently loaded food object.
 	var/is_liquid = FALSE //whether you've got liquid on your utensil
 	var/scoop_food = 1
@@ -42,19 +41,12 @@
 			return eyestab(M,user)
 		else
 			return ..()
-	var/fullness = M.get_fullness()
 	if(reagents.total_volume > 0)
 		if(M == user)
 			if(!M.can_eat(loaded))
 				return
-			if (fullness > (550 * (1 + M.overeatduration / 2000)))
-				to_chat(M, "You cannot force anymore food down!")
-				return
 			to_chat(M, SPAN_NOTICE("You [is_liquid ? "drink" : "eat"] some [loaded] from \the [src]."))
 		else
-			if (fullness > (550 * (1 + M.overeatduration / 2000)))
-				to_chat(M, "You cannot force anymore food down their throat!")
-				return
 			user.visible_message(SPAN_WARNING("\The [user] begins to feed \the [M]!"), SPAN_WARNING("You begin to feed \the [M]!"))
 			if(!(M.can_force_feed(user, loaded) && do_mob(user, M, 5 SECONDS)))
 				return
@@ -65,7 +57,7 @@
 			is_liquid = FALSE
 		else
 			playsound(user.loc, 'sound/items/eatfood.ogg', rand(10, 50), 1)
-		cut_overlays()
+		ClearOverlays()
 		return
 	else
 		to_chat(user, SPAN_WARNING("You don't have anything on \the [src].")) 	//if we have help intent and no food scooped up DON'T STAB OURSELVES WITH THE FORK)
@@ -77,7 +69,7 @@
 		reagents.clear_reagents()
 		is_liquid = FALSE
 		loaded = null
-		cut_overlays()
+		ClearOverlays()
 	return
 
 /obj/item/material/kitchen/utensil/verb/bite_size()

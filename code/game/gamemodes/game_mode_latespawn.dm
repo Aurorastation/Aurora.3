@@ -10,8 +10,8 @@
 		process_autoantag()
 
 	// Process loop for objectives like the brig one.
-	if (process_objectives.len)
-		for (var/datum/objective/A in process_objectives)
+	if (GLOB.process_objectives.len)
+		for (var/datum/objective/A in GLOB.process_objectives)
 			A.process()
 
 //This can be overriden in case a game mode needs to do stuff when a player latejoins

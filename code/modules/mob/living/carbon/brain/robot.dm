@@ -3,7 +3,7 @@
 	desc = "The pinnacle of artifical intelligence which can be achieved using classical computer science."
 	icon = 'icons/obj/module.dmi'
 	icon_state = "mainboard"
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 3, TECH_DATA = 4)
 
 /obj/item/device/mmi/digital/robot/Initialize(mapload, ...)
@@ -33,7 +33,7 @@
 /obj/item/device/mmi/digital/robot/set_cradle_state(var/new_state)
 	return
 
-/obj/item/device/mmi/digital/robot/attackby(obj/item/I, mob/user)
+/obj/item/device/mmi/digital/robot/attackby(obj/item/attacking_item, mob/user)
 	return
 
 /obj/item/device/mmi/digital/robot/attack_self(mob/user)

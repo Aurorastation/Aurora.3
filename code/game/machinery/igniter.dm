@@ -70,7 +70,6 @@
 	var/disable = 0
 	var/last_spark = 0
 	var/base_state = "migniter"
-	layer = 3.3
 	anchored = 1
 	idle_power_usage = 2
 	active_power_usage = 4
@@ -102,14 +101,14 @@
 	..()
 	update_icon()
 
-/obj/machinery/sparker/attackby(obj/item/W as obj, mob/user as mob)
-	if (W.isscrewdriver())
+/obj/machinery/sparker/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.isscrewdriver())
 		add_fingerprint(user)
 		disable = !disable
 		if(disable)
-			user.visible_message("<span class='warning'>[user] has disabled the [src]!</span>", "<span class='warning'>You disable the connection to the [src].</span>")
+			user.visible_message(SPAN_WARNING("[user] has disabled the [src]!"), SPAN_WARNING("You disable the connection to the [src]."))
 		else if(!disable)
-			user.visible_message("<span class='warning'>[user] has reconnected the [src]!</span>", "<span class='warning'>You fix the connection to the [src].</span>")
+			user.visible_message(SPAN_WARNING("[user] has reconnected the [src]!"), SPAN_WARNING("You fix the connection to the [src]."))
 		update_icon()
 		return TRUE
 
@@ -128,7 +127,7 @@
 
 
 	flick("migniter-spark", src)
-	spark(src, 2, alldirs)
+	spark(src, 2, GLOB.alldirs)
 	src.last_spark = world.time
 	use_power_oneoff(1000)
 	var/turf/location = src.loc
@@ -137,11 +136,12 @@
 	return 1
 
 /obj/machinery/sparker/emp_act(severity)
+	. = ..()
+
 	if(stat & (BROKEN|NOPOWER))
-		..(severity)
 		return
+
 	ignite()
-	..(severity)
 
 /obj/machinery/button/ignition
 	name = "ignition switch"

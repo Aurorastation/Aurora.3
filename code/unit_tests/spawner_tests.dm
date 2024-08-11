@@ -7,6 +7,7 @@
 
 /datum/unit_test/template
 	name = "Ghost Spawner Tests"		// If it's a template leave the word "template" in it's name so it's not ran.
+	groups = list("generic")
 
 /datum/unit_test/template/start_test()
 	var/list/ignore_spawners = list(

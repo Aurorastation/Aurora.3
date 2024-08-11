@@ -131,7 +131,7 @@
 	return 1
 
 /client/proc/bst_post_spawn(mob/living/carbon/human/bst/bst)
-	spark(bst, 3, alldirs)
+	spark(bst, 3, GLOB.alldirs)
 	bst.anchored = FALSE
 
 /mob/living/carbon/human/bst
@@ -164,7 +164,7 @@
 		return
 
 	src.custom_emote(VISIBLE_MESSAGE,"presses a button on their suit, followed by a polite bow.")
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 	QDEL_IN(src, 10)
 	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
 	if(key)
@@ -345,16 +345,7 @@
 /obj/item/storage/backpack/holding/bst
 	canremove = 0
 	storage_slots = 56
-	max_w_class = ITEMSIZE_IMMENSE
-
-/obj/item/device/radio/headset/ert/bst/attack_hand()
-	if(!usr)
-		return
-	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
-		return
-	else
-		..()
+	max_w_class = WEIGHT_CLASS_GIGANTIC
 
 //Headset
 /obj/item/device/radio/headset/ert/bst
@@ -447,7 +438,7 @@
 			vision_flags = 0
 			see_invisible = -1
 
-	to_chat(usr, "<span class='notice'>\The [src]'s vision mode is now <b>[mode]</b>.</span>")
+	to_chat(usr, SPAN_NOTICE("\The [src]'s vision mode is now <b>[mode]</b>."))
 
 /obj/item/clothing/glasses/sunglasses/bst/attack_hand()
 	if(!usr)
@@ -463,7 +454,7 @@
 	name = "bluespace technician's shoes"
 	desc = "A pair of black shoes with extra grip. The letters 'BST' are stamped on the side."
 	icon_state = "black"
-	item_flags = NOSLIP
+	item_flags = ITEM_FLAG_NO_SLIP
 	canremove = 0
 
 /obj/item/clothing/shoes/sneakers/black/bst/attack_hand()

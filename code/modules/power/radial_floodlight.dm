@@ -32,15 +32,17 @@
 		toggle_active(FALSE)
 		return
 
-/obj/machinery/power/radial_floodlight/attackby(obj/item/W, mob/user)
-	if(W.iswrench())
+/obj/machinery/power/radial_floodlight/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		anchored = !anchored
-		user.visible_message(SPAN_NOTICE("\The [user] [anchored ? "" : "un"]secures \the [src] [anchored ? "to" : "from"] the floor."), SPAN_NOTICE("You [anchored ? "" : "un"]secure \the [src] [anchored ? "to" : "from"] the floor."), SPAN_WARNING("You hear a ratcheting noise."))
+		user.visible_message(SPAN_NOTICE("\The [user] [anchored ? "" : "un"]secures \the [src] [anchored ? "to" : "from"] the floor."),
+							SPAN_NOTICE("You [anchored ? "" : "un"]secure \the [src] [anchored ? "to" : "from"] the floor."),
+							SPAN_WARNING("You hear a ratcheting noise."))
 		if(!anchored)
 			toggle_active(FALSE)
 		else
 			connect_to_network()
-		playsound(get_turf(src), W.usesound, 75, TRUE)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		return
 	return ..()
 
@@ -58,6 +60,8 @@
 	update_icon()
 
 /obj/machinery/power/radial_floodlight/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(on)
-		add_overlay(image(icon, src, "[icon_state]-light", EFFECTS_ABOVE_LIGHTING_LAYER))
+		var/image/light = image(icon, src, "[icon_state]-light")
+		light.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		AddOverlays(light)

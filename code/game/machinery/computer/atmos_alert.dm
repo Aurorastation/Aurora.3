@@ -1,7 +1,7 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 
-var/global/list/priority_air_alarms = list()
-var/global/list/minor_air_alarms = list()
+GLOBAL_LIST_EMPTY(priority_air_alarms)
+GLOBAL_LIST_EMPTY(minor_air_alarms)
 
 
 /obj/machinery/computer/atmos_alert
@@ -11,6 +11,7 @@ var/global/list/minor_air_alarms = list()
 
 	icon_screen = "alert:0"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 
 /obj/machinery/computer/atmos_alert/Initialize()

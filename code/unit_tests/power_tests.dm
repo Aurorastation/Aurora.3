@@ -1,5 +1,6 @@
 /datum/unit_test/roundstart_cable_connectivity
 	name = "POWER: Roundstart Cables that are Connected Share Powernets"
+	groups = list("map")
 
 /datum/unit_test/roundstart_cable_connectivity/proc/find_connected_neighbours(var/obj/structure/cable/C)
 	. = list()
@@ -10,7 +11,7 @@
 
 /datum/unit_test/roundstart_cable_connectivity/proc/get_connected_neighbours(var/obj/structure/cable/self, var/dir)
 	var/turf/T = get_step(get_turf(self), dir)
-	var/reverse = reverse_dir[dir]
+	var/reverse = GLOB.reverse_dir[dir]
 
 	. = list() //can have multiple connected neighbours for a dir, e.g. Y-junctions
 	for(var/obj/structure/cable/other in T)
@@ -51,6 +52,7 @@
 
 /datum/unit_test/areas_apc_uniqueness
 	name = "POWER: Each area should have at most one APC."
+	groups = list("map")
 
 /datum/unit_test/areas_apc_uniqueness/start_test()
 	var/failed = 0
@@ -71,6 +73,7 @@
 
 /datum/unit_test/area_power_tally_accuracy
 	name = "POWER: All areas must have accurate power use values."
+	groups = list("map")
 
 /datum/unit_test/area_power_tally_accuracy/start_test()
 	var/failed = FALSE

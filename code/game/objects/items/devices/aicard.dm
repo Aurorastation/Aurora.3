@@ -3,13 +3,13 @@
 	icon = 'icons/obj/pai.dmi'
 	icon_state = "aicard" // aicard-full
 	item_state = "electronic"
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_DATA = 4, TECH_MATERIAL = 4)
 	var/flush = 0
 	var/mob/living/silicon/ai/carded_ai
 
-/obj/item/aicard/examine(mob/user)
+/obj/item/aicard/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/message = "Status of [carded_ai] is: "
 	if(!carded_ai)
@@ -20,7 +20,7 @@
 		message += SPAN_NOTICE("active.")
 	else
 		message += SPAN_WARNING("inactive.")
-	to_chat(user, message)
+	. += message
 
 /obj/item/aicard/attack(mob/living/silicon/decoy/M as mob, mob/user as mob, var/target_zone)
 	if (!istype (M, /mob/living/silicon/decoy))
@@ -93,21 +93,21 @@
 				. = TRUE
 		if ("radio")
 			carded_ai.ai_radio.disabledAi = text2num(params["radio"])
-			to_chat(carded_ai, "<span class='warning'>Your Subspace Transceiver has been [carded_ai.ai_radio.disabledAi ? "disabled" : "enabled"]!</span>")
-			to_chat(usr, "<span class='notice'>You [carded_ai.ai_radio.disabledAi ? "disable" : "enable"] the AI's Subspace Transceiver.</span>")
+			to_chat(carded_ai, SPAN_WARNING("Your Subspace Transceiver has been [carded_ai.ai_radio.disabledAi ? "disabled" : "enabled"]!"))
+			to_chat(usr, SPAN_NOTICE("You [carded_ai.ai_radio.disabledAi ? "disable" : "enable"] the AI's Subspace Transceiver."))
 			. = TRUE
 		if ("wireless")
 			carded_ai.control_disabled = text2num(params["wireless"])
-			to_chat(carded_ai, "<span class='warning'>Your wireless interface has been [carded_ai.control_disabled ? "disabled" : "enabled"]!</span>")
-			to_chat(usr, "<span class='notice'>You [carded_ai.control_disabled ? "disable" : "enable"] the AI's wireless interface.</span>")
+			to_chat(carded_ai, SPAN_WARNING("Your wireless interface has been [carded_ai.control_disabled ? "disabled" : "enabled"]!"))
+			to_chat(usr, SPAN_NOTICE("You [carded_ai.control_disabled ? "disable" : "enable"] the AI's wireless interface."))
 			update_icon()
 			. = TRUE
 
 /obj/item/aicard/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(carded_ai)
 		if (!carded_ai.control_disabled)
-			add_overlay("aicard-on")
+			AddOverlays("aicard-on")
 		if(carded_ai.stat)
 			icon_state = "aicard-404"
 		else
@@ -175,7 +175,9 @@
 		carded_ai.show_message(rendered, type)
 	..()
 
-/obj/item/aicard/relaymove(var/mob/user, var/direction)
+/obj/item/aicard/relaymove(mob/living/user, direction)
+	. = ..()
+
 	if(user.stat || user.stunned)
 		return
 	var/obj/item/rig/rig = src.get_rig()

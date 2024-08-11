@@ -24,7 +24,7 @@
 	seed_type = "xuizi"
 
 /datum/seed/sarezhi
-	name = "sarezhi berry"
+	name = "sarezhi"
 	seed_name = "sarezshi berry"
 	display_name = "sarezhi berry bush"
 	mutants = null
@@ -46,7 +46,7 @@
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /obj/item/seeds/sarezhiseed
-	seed_type = "sarezhi berry"
+	seed_type = "sarezhi"
 
 /datum/seed/gukhe
 	name = "gukhe"
@@ -73,7 +73,7 @@
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /obj/item/seeds/gukheseed
-	seed_type = "gukhe bloom"
+	seed_type = "gukhe"
 
 /datum/seed/aghrassh
 	name = "aghrassh"
@@ -97,7 +97,7 @@
 	seed_type = "aghrassh"
 
 /datum/seed/sthberry
-	name = "S'th berry"
+	name = "sthberry"
 	seed_name = "S'th berry"
 	display_name = "S'th berry bush"
 	chems = list(/singleton/reagent/nutriment = list(2,2), /singleton/reagent/drink/sthberryjuice = list(3,5))
@@ -118,10 +118,10 @@
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /obj/item/seeds/sthberryseed
-	seed_type = "S'th berry"
+	seed_type = "sthberry"
 
 /datum/seed/flower/serkiflower
-	name = "S'erki flowers"
+	name = "serkiflower"
 	seed_name = "S'erki flower"
 	display_name = "S'erki flowers"
 
@@ -136,4 +136,4 @@
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
 
 /obj/item/seeds/serkiflowerseed
-	seed_type = "S'erki flowers"
+	seed_type = "serkiflower"

@@ -6,12 +6,12 @@
 	if(stat == DEAD || paralysis || weakened || stunned || restrained())
 		return
 
-	if (layer != 2.45)
-		layer = 2.45 //Just above cables with their 2.44
-		to_chat(src, text("<span class='notice'>You are now hiding.</span>"))
+	if (layer != HIDING_MOB_LAYER)
+		layer = HIDING_MOB_LAYER //Just above cables with their 2.44
+		to_chat(src, SPAN_NOTICE("You are now hiding."))
 	else
 		layer = MOB_LAYER
-		to_chat(src, text("<span class='notice'>You have stopped hiding.</span>"))
+		to_chat(src, SPAN_NOTICE("You have stopped hiding."))
 
 /mob/living/verb/set_walk_speed()
 	set category = "IC"
@@ -20,7 +20,7 @@
 
 
 	//First a quick block of code to calculate our normal/best movedelay
-	var/delay = config.walk_speed + movement_delay()
+	var/delay = GLOB.config.walk_speed + movement_delay()
 	var/speed = 1 / (delay/10)
 	var/newspeed
 	var/list/options = list("No limit",speed*0.95,speed*0.9,speed*0.85,speed*0.8,speed*0.7,speed*0.6,speed*0.5, "Custom")

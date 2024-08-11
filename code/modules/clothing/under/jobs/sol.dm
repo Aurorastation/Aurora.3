@@ -27,8 +27,8 @@
 /obj/item/clothing/under/rank/sol/ipc //sol IPC fatigues
 	name = "sol military ipc coveralls"
 	desc = "An uncomfortable and ill-fitting set of military coveralls issued to the IPCs that are property of the Solarian Armed Forces. Conveniently flame retardant."
-	icon_state = "ipc_fatigue"
-	item_state = "ipc_fatigue"
+	icon_state = "sol_ipc_fatigue"
+	item_state = "sol_ipc_fatigue"
 
 /obj/item/clothing/under/rank/sol/service //navy personnel service uniform
 	name = "sol navy service uniform"

@@ -39,7 +39,8 @@ SUBSYSTEM_DEF(falling)
 			REMOVE_AND_CONTINUE
 
 		// Get the below turf.
-		var/turf/below = GetBelow(victim)
+		var/turf/T = get_turf(victim)
+		var/turf/below = GET_TURF_BELOW(T)
 		if (!below)
 			REMOVE_AND_CONTINUE
 
@@ -85,6 +86,9 @@ SUBSYSTEM_DEF(falling)
 				if (falling[victim] <= 1)	// Just moving down a flight, skip damage.
 					victim.multiz_falling = 0
 					falling -= victim
+					for(var/obj/item/grab/grab in victim)
+						if(grab.affecting)
+							grab.affecting.forceMove(victim.loc)
 				else
 					// Falling more than a level, fuck 'em up.
 					victim.fall_impact(falling[victim], FALSE)

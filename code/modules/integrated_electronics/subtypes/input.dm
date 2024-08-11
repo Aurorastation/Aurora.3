@@ -18,7 +18,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 
 /obj/item/integrated_circuit/input/button/ask_for_input(mob/user) //Bit misleading name for this specific use.
-	to_chat(user, "<span class='notice'>You press the button labeled '[src.name]'.</span>")
+	to_chat(user, SPAN_NOTICE("You press the button labeled '[src.name]'."))
 	activate_pin(1)
 
 /obj/item/integrated_circuit/input/toggle_button
@@ -36,7 +36,7 @@
 	set_pin_data(IC_OUTPUT, 1, !get_pin_data(IC_OUTPUT, 1))
 	push_data()
 	activate_pin(1)
-	to_chat(user, "<span class='notice'>You toggle the button labeled '[src.name]' [get_pin_data(IC_OUTPUT, 1) ? "on" : "off"].</span>")
+	to_chat(user, SPAN_NOTICE("You toggle the button labeled '[src.name]' [get_pin_data(IC_OUTPUT, 1) ? "on" : "off"]."))
 
 /obj/item/integrated_circuit/input/numberpad
 	name = "number pad"
@@ -524,7 +524,16 @@
 		GAS_NITROGEN       = IC_PINTYPE_NUMBER,
 		GAS_CO2 		   = IC_PINTYPE_NUMBER,
 		GAS_PHORON         = IC_PINTYPE_NUMBER,
-		GAS_HYDROGEN	   = IC_PINTYPE_NUMBER,
+		GAS_N2O   		   = IC_PINTYPE_NUMBER,
+		GAS_HYDROGEN       = IC_PINTYPE_NUMBER,
+		GAS_DEUTERIUM      = IC_PINTYPE_NUMBER,
+		GAS_TRITIUM        = IC_PINTYPE_NUMBER,
+		GAS_HELIUM 	       = IC_PINTYPE_NUMBER,
+		GAS_BORON          = IC_PINTYPE_NUMBER,
+		GAS_SULFUR         = IC_PINTYPE_NUMBER,
+		GAS_NO2 	       = IC_PINTYPE_NUMBER,
+		GAS_CHLORINE       = IC_PINTYPE_NUMBER,
+		GAS_STEAM          = IC_PINTYPE_NUMBER,
 		"other"          = IC_PINTYPE_NUMBER
 	)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN, "on scanned" = IC_PINTYPE_PULSE_OUT)
@@ -537,7 +546,7 @@
 	desc = "This monitors the charge level of an internal battery."
 	icon_state = "internalbm"
 	extended_desc = "This circuit will give you values of charge, max charge and percentage of the internal battery on demand."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	complexity = 1
 	inputs = list()
 	outputs = list(
@@ -570,7 +579,7 @@
 	desc = "This can help watch the battery level of any device in range."
 	icon_state = "externalbm"
 	extended_desc = "This circuit will give you values of charge, max charge and percentage of any device or battery in view"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	complexity = 2
 	inputs = list("target" = IC_PINTYPE_REF)
 	outputs = list(
@@ -625,7 +634,16 @@
 		var/n2_level = environment.gas[GAS_NITROGEN]/total_moles
 		var/co2_level = environment.gas[GAS_CO2]/total_moles
 		var/phoron_level = environment.gas[GAS_PHORON]/total_moles
+		var/n2o_level = environment.gas[GAS_N2O]/total_moles
 		var/hydrogen_level = environment.gas[GAS_HYDROGEN]/total_moles
+		var/deuterium_level = environment.gas[GAS_DEUTERIUM]/total_moles
+		var/tritium_level = environment.gas[GAS_TRITIUM]/total_moles
+		var/helium_level = environment.gas[GAS_HELIUM]/total_moles
+		var/boron_level = environment.gas[GAS_BORON]/total_moles
+		var/sulfurdioxide_level = environment.gas[GAS_SULFUR]/total_moles
+		var/nitrogendioxide_level = environment.gas[GAS_NO2]/total_moles
+		var/chlorine_level = environment.gas[GAS_CHLORINE]/total_moles
+		var/steam_level = environment.gas[GAS_STEAM]/total_moles
 		var/unknown_level =  1-(o2_level+n2_level+co2_level+phoron_level)
 		set_pin_data(IC_OUTPUT, 1, pressure)
 		set_pin_data(IC_OUTPUT, 2, round(environment.temperature-T0C,0.1))
@@ -633,8 +651,18 @@
 		set_pin_data(IC_OUTPUT, 4, round(n2_level*100,0.1))
 		set_pin_data(IC_OUTPUT, 5, round(co2_level*100,0.1))
 		set_pin_data(IC_OUTPUT, 6, round(phoron_level*100,0.01))
+		set_pin_data(IC_OUTPUT, 6, round(n2o_level*100,0.01))
 		set_pin_data(IC_OUTPUT, 7, round(hydrogen_level*100,0.01))
-		set_pin_data(IC_OUTPUT, 8, round(unknown_level, 0.01))
+		set_pin_data(IC_OUTPUT, 8, round(deuterium_level*100,0.01))
+		set_pin_data(IC_OUTPUT, 9, round(tritium_level*100,0.01))
+		set_pin_data(IC_OUTPUT, 10, round(helium_level*100,0.01))
+		set_pin_data(IC_OUTPUT, 11, round(boron_level*100,0.01))
+		set_pin_data(IC_OUTPUT, 12, round(sulfurdioxide_level*100,0.01))
+		set_pin_data(IC_OUTPUT, 13, round(nitrogendioxide_level*100,0.01))
+		set_pin_data(IC_OUTPUT, 14, round(chlorine_level*100,0.01))
+		set_pin_data(IC_OUTPUT, 15, round(steam_level*100,0.01))
+		set_pin_data(IC_OUTPUT, 16, round(unknown_level, 0.01))
+		set_pin_data(IC_OUTPUT, 17, round(unknown_level, 0.01))
 	else
 		set_pin_data(IC_OUTPUT, 1, 0)
 		set_pin_data(IC_OUTPUT, 2, -273.15)
@@ -644,6 +672,15 @@
 		set_pin_data(IC_OUTPUT, 6, 0)
 		set_pin_data(IC_OUTPUT, 7, 0)
 		set_pin_data(IC_OUTPUT, 8, 0)
+		set_pin_data(IC_OUTPUT, 9, 0)
+		set_pin_data(IC_OUTPUT, 10, 0)
+		set_pin_data(IC_OUTPUT, 11, 0)
+		set_pin_data(IC_OUTPUT, 12, 0)
+		set_pin_data(IC_OUTPUT, 13, 0)
+		set_pin_data(IC_OUTPUT, 14, 0)
+		set_pin_data(IC_OUTPUT, 15, 0)
+		set_pin_data(IC_OUTPUT, 16, 0)
+		set_pin_data(IC_OUTPUT, 17, 0)
 	push_data()
 	activate_pin(2)
 
@@ -759,6 +796,38 @@
 /obj/item/integrated_circuit/input/gas_sensor/hydrogen_level
 	gas_name = GAS_HYDROGEN
 	gas_display_name = GAS_HYDROGEN
+
+/obj/item/integrated_circuit/input/gas_sensor/deuterium_level
+	gas_name = GAS_DEUTERIUM
+	gas_display_name = GAS_DEUTERIUM
+
+/obj/item/integrated_circuit/input/gas_sensor/tritium_level
+	gas_name = GAS_TRITIUM
+	gas_display_name = GAS_TRITIUM
+
+/obj/item/integrated_circuit/input/gas_sensor/helium_level
+	gas_name = GAS_HELIUM
+	gas_display_name = GAS_HELIUM
+
+/obj/item/integrated_circuit/input/gas_sensor/boron_level
+	gas_name = GAS_BORON
+	gas_display_name = GAS_BORON
+
+/obj/item/integrated_circuit/input/gas_sensor/sulfurdioxide_level
+	gas_name = GAS_SULFUR
+	gas_display_name = GAS_SULFUR
+
+/obj/item/integrated_circuit/input/gas_sensor/nitrogendioxide_level
+	gas_name = GAS_NO2
+	gas_display_name = GAS_NO2
+
+/obj/item/integrated_circuit/input/gas_sensor/chlorine_level
+	gas_name = GAS_CHLORINE
+	gas_display_name = GAS_CHLORINE
+
+/obj/item/integrated_circuit/input/gas_sensor/steam_level
+	gas_name = GAS_STEAM
+	gas_display_name = GAS_STEAM
 
 /obj/item/integrated_circuit/input/turfpoint
 	name = "tile pointer"
@@ -953,7 +1022,7 @@
 		user.drop_from_inventory(A)
 	set_pin_data(IC_OUTPUT, 1, A)
 	push_data()
-	to_chat(user, "<span class='notice'>You let [assembly] scan [A].</span>")
+	to_chat(user, SPAN_NOTICE("You let [assembly] scan [A]."))
 	activate_pin(1)
 	return TRUE
 

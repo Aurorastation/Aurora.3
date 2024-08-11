@@ -1,6 +1,6 @@
 var/list/mob_icon_icon_states = list()
 
-/obj/item/proc/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
+/obj/item/proc/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot, var/main_call = TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(TRUE)
 	RETURN_TYPE(/image)
@@ -30,6 +30,9 @@ var/list/mob_icon_icon_states = list()
 				final_I.Insert(canvas, dir = use_dir)
 			LAZYINITLIST(H.species.equip_overlays)
 			var/image/final_image = overlay_image(final_I, color = color, flags = RESET_COLOR|RESET_ALPHA)
+			var/offset_x = worn_x_dimension
+			var/offset_y = worn_y_dimension
+			center_image(final_image, offset_x, offset_y)
 			H.species.equip_overlays[image_key] = final_image
 		var/image/I = new() // We return a copy of the cached image, in case downstream procs mutate it.
 		I.appearance = H.species.equip_overlays[image_key]
@@ -43,9 +46,14 @@ var/list/mob_icon_icon_states = list()
 		I = overlay_image(mob_overlay_icon, color = color, flags = RESET_COLOR|RESET_ALPHA)
 	var/image/additional_parts = build_additional_parts(H, mob_icon, slot)
 	if(additional_parts)
-		I.add_overlay(additional_parts)
+		I.AddOverlays(additional_parts)
 	if(has_accents)
-		I.add_overlay(overlay_image(icon,"[icon_species_tag ? "[icon_species_tag]_" : ""][item_state][contained_sprite ? slot_str_to_contained_flag(slot) : ""]_acc",accent_color, RESET_COLOR))
+		I.AddOverlays(overlay_image(icon, "[UNDERSCORE_OR_NULL(src.icon_species_tag)][item_state][contained_sprite ? slot_str_to_contained_flag(slot) : ""]_acc", accent_color, accent_flags))
+	if(blocks_emissive != EMISSIVE_BLOCK_NONE)
+		I.AddOverlays(emissive_blocker(mob_icon, mob_state))
+	var/offset_x = worn_x_dimension
+	var/offset_y = worn_y_dimension
+	center_image(I, offset_x, offset_y)
 	return I
 
 /obj/item/proc/get_image_key_mod()

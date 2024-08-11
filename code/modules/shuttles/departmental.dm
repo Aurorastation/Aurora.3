@@ -11,12 +11,12 @@
 /obj/machinery/computer/shuttle_control/research
 	name = "research shuttle control console"
 	shuttle_tag = "Research Shuttle"
-	req_access = list(access_research)
+	req_access = list(ACCESS_RESEARCH)
 
 /obj/machinery/computer/shuttle_control/multi/research
 	name = "research shuttle control computer"
 	shuttle_tag = "Research Shuttle"
-	req_access = list(access_research)
+	req_access = list(ACCESS_RESEARCH)
 	circuit = /obj/item/circuitboard/research_shuttle
 
 /datum/shuttle/autodock/multi/research_aurora
@@ -24,7 +24,7 @@
 
 /datum/shuttle/autodock/multi/research_aurora/shuttle_moved()
 	. = ..()
-	if(!triggered_away_sites && !isStationLevel(next_location.loc.z))
+	if(!triggered_away_sites && !is_station_level(next_location.loc.z))
 		for(var/s in SSghostroles.spawners)
 			var/datum/ghostspawner/G = SSghostroles.spawners[s]
 			if(G.away_site)
@@ -33,6 +33,6 @@
 
 /obj/machinery/computer/shuttle_control/merchant
 	name = "merchant shuttle control console"
-	req_access = list(access_merchant)
+	req_access = list(ACCESS_MERCHANT)
 	shuttle_tag = "ICV Enterprise"
 	can_rename_ship = TRUE

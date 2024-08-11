@@ -22,7 +22,7 @@
 		return
 
 	var/static/list/blacklist = list(/datum/configuration)
-	if(blacklist[D.type])
+	if(is_type_in_list(D,blacklist))
 		return
 
 	var/icon/sprite
@@ -116,18 +116,24 @@
 
 /proc/make_view_variables_var_list(datum/D)
 	. = ""
-	var/list/variables = list()
-	for(var/x in D.vars)
-		CHECK_TICK
-		if(x in view_variables_hide_vars)
-			continue
-		variables += x
+	var/list/variables = D.make_variable_list()
 	variables = sortList(variables)
 	for(var/x in variables)
 		CHECK_TICK
 		. += make_view_variables_var_entry(D, x, D.vars[x])
 
-/proc/make_view_variables_value(value, varname = "*")
+/datum/proc/make_variable_list()
+	. = list()
+	for(var/x in vars)
+		CHECK_TICK
+		if(x in view_variables_hide_vars)
+			continue
+		if(!can_vv_get(x))
+			continue
+		. += x
+	return .
+
+/proc/make_view_variables_value(datum/D, value, varname = "*")
 	var/vtext = ""
 	var/debug_type = get_debug_type(value, FALSE)
 	var/extra = list()
@@ -155,12 +161,12 @@
 			for (var/index = 1 to L.len)
 				var/entry = L[index]
 				if(!isnum(entry) && !isnull(entry) && !(varname in view_variables_no_assoc) && L[entry] != null)
-					extra += "<li>[index]: [make_view_variables_value(entry)] -> [make_view_variables_value(L[entry])]</li>"
+					extra += "<li>[index]: [make_view_variables_value(D, entry)] -> [make_view_variables_value(D, L[entry])]</li>"
 				else
-					extra += "<li>[index]: [make_view_variables_value(entry)]</li>"
+					extra += "<li>[index]: [make_view_variables_value(D, entry)]</li>"
 			extra += "</ul>"
 		else if(L.len >= 100)
-			vtext = "([L.len]): <ul><li><a href='?_src_=vars;datumview=\ref[L];varnameview=[varname]'>List too large to display, click to view.</a></ul>"
+			vtext = "([L.len]): <ul><li><a href='?_src_=vars;datumview=[REF(L)];varnameview=[varname];original_datum=[REF(D)]'>List too large to display, click to view.</a></ul>"
 
 	else
 		vtext = "[value]"
@@ -177,6 +183,6 @@
 			(<a href='?_src_=vars;datummass=\ref[D];varnamemass=[varname]'>M</a>)
 			"}
 
-	var/valuestr = make_view_variables_value(value, varname)
+	var/valuestr = make_view_variables_value(D, value, varname)
 
 	return "<li>[ecm]<span class='key'>[varname]</span> = [valuestr]</li>"

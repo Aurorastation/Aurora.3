@@ -1,11 +1,11 @@
 /obj/item/reagent_containers/chem_disp_cartridge/espresso
 	name = "jar of coffee beans"
 	desc = "This goes into a coffee maker!"
-	label = "Ganymede Dark Blend"
+	label = "Ganymede Dark Espresso"
 	icon = 'icons/obj/drinks.dmi'
 	icon_state = "coffeejar"
 
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 
 	volume = CARTRIDGE_VOLUME_LARGE
 	amount_per_transfer_from_this = 20

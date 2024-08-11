@@ -155,7 +155,9 @@
 /turf/simulated/floor/gold,
 /area/golden_deep/dock/aux)
 "bZ" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(217)
+	},
 /obj/random/civgun,
 /obj/random/civgun,
 /obj/random/civgun,
@@ -177,6 +179,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/golden_deep/eva)
+"cc" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/closet/crate/rad{
+	name = "fuel crate"
+	},
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/turf/simulated/floor/tiled,
+/area/golden_deep/engineering)
 "cd" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/autolathe,
@@ -385,9 +400,18 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/warehouse)
 "en" = (
-/obj/effect/map_effect/airlock/s_to_n/long/square,
-/turf/simulated/wall/shuttle/dark/cardinal/gold,
-/area/golden_deep/hangar)
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock3";
+	master_tag = "airlock_gd_dock3";
+	name = "airlock_gd_dock3"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/golden_deep/dock/aux)
 "ex" = (
 /obj/machinery/door/window{
 	req_access = list(217)
@@ -441,6 +465,18 @@
 /area/golden_deep/eva)
 "fb" = (
 /obj/effect/shuttle_landmark/golden_deep/dock2,
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock2";
+	master_tag = "airlock_gd_dock2";
+	name = "airlock_gd_dock2"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/golden_deep/hangar)
 "fc" = (
@@ -489,9 +525,23 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
 "fO" = (
-/obj/effect/map_effect/airlock/long/square,
-/turf/simulated/wall/shuttle/dark/cardinal/gold,
-/area/golden_deep/dock)
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock3";
+	master_tag = "airlock_gd_dock3";
+	name = "airlock_gd_dock3"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/dock/aux)
+"fT" = (
+/obj/machinery/light,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 1;
+	pixel_y = -20;
+	id_tag = "golden_deep_hangar";
+	frequency = 1380
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
 "fU" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -554,6 +604,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/lead/full,
 /turf/simulated/floor/tiled,
 /area/golden_deep/engineering)
 "gr" = (
@@ -641,6 +694,19 @@
 	},
 /turf/simulated/floor/gold,
 /area/golden_deep/dock)
+"hc" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock2";
+	master_tag = "airlock_gd_dock2";
+	name = "airlock_gd_dock2"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
 "hd" = (
 /obj/structure/bed/stool/chair/sofa/brown{
 	dir = 1
@@ -854,6 +920,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/golden_deep/hangar)
+"jc" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 20
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock2";
+	master_tag = "airlock_gd_dock2";
+	name = "airlock_gd_dock2"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
 "jf" = (
 /obj/machinery/alarm/south{
 	req_one_access = list(217)
@@ -945,7 +1029,9 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/portprop)
 "kg" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(217)
+	},
 /obj/item/storage/box/frags,
 /obj/item/storage/box/flashbangs,
 /obj/item/storage/box/handcuffs,
@@ -1001,6 +1087,7 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
 "kt" = (
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/secure)
 "kA" = (
@@ -1063,15 +1150,23 @@
 /obj/effect/shuttle_landmark/golden_deep/dock3{
 	dir = 8
 	},
+/obj/machinery/access_button{
+	dir = 4;
+	pixel_x = 12;
+	pixel_y = 28
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock3";
+	master_tag = "airlock_gd_dock3";
+	name = "airlock_gd_dock3"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/golden_deep/dock/aux)
 "lk" = (
-/obj/machinery/airlock_sensor/airlock_interior{
-	pixel_x = -23;
-	id_tag = "golden_shuttle_interior_sensor";
-	frequency = 1385;
-	pixel_y = 10
-	},
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep)
 "ll" = (
@@ -1108,7 +1203,6 @@
 /area/golden_deep/engineering)
 "lu" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	layer = 2.8;
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -1154,6 +1248,7 @@
 	dir = 6;
 	pixel_y = 0
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/secure)
 "lS" = (
@@ -1290,25 +1385,20 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/bed/handrail,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8;
-	id_tag = "golden_shuttle_pump_out_external";
-	frequency = 1385;
-	layer = 2.8
-	},
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1385;
-	master_tag = "golden_shuttle";
-	name = "exterior access button";
-	pixel_x = -23;
-	pixel_y = -10
+	dir = 8
 	},
 /obj/machinery/airlock_sensor/airlock_exterior{
-	frequency = 1385;
-	id_tag = "golden_shuttle_exterior_sensor";
-	pixel_y = -11;
-	pixel_x = -36
+	pixel_x = -32;
+	pixel_y = -5
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_golden_shuttle";
+	name = "airlock_golden_shuttle";
+	req_one_access = list(217);
+	shuttle_tag = "Golden Deep Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep)
 "mR" = (
@@ -1323,6 +1413,21 @@
 	},
 /turf/simulated/floor/gold,
 /area/golden_deep/dock/aux)
+"mV" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 20
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock";
+	master_tag = "airlock_gd_dock";
+	name = "airlock_gd_dock"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/dock)
 "mY" = (
 /obj/machinery/computer/ship/helm{
 	dir = 4;
@@ -1400,7 +1505,6 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(217)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1414,12 +1518,20 @@
 	dir = 8;
 	icon_state = "map"
 	},
-/obj/machinery/door/airlock/external{
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "golden_shuttle_in";
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_golden_shuttle";
+	name = "airlock_golden_shuttle";
+	req_one_access = list(217);
+	shuttle_tag = "Golden Deep Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/gold,
 /area/shuttle/golden_deep)
 "of" = (
@@ -1441,6 +1553,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/golden_deep/portprop)
+"ov" = (
+/obj/machinery/light{
+	dir = 4;
+	icon_state = "tube_empty"
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep)
 "ow" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -1482,22 +1601,18 @@
 /area/shuttle/golden_deep)
 "oG" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1385;
-	id_tag = "golden_shuttle_pump_in"
+	dir = 1
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
-	id_tag = "hegemony_shuttle";
-	master_tag = "hegemony_shuttle";
-	pixel_y = null;
-	tag_interior_door = "golden_shuttle_in";
-	tag_exterior_door = "golden_shuttle_out";
-	tag_interior_sensor = "golden_shuttle_interior_sensor";
-	tag_exterior_sensor = "golden_shuttle_exterior_sensor";
-	tag_chamber_sensor = "golden_shuttle_chamber_sensor";
-	tag_airpump = "golden_shuttle_pump_in";
-	frequency = 1385;
-	pixel_x = -25
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_golden_shuttle";
+	name = "airlock_golden_shuttle";
+	req_one_access = list(217);
+	shuttle_tag = "Golden Deep Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/gold,
 /area/shuttle/golden_deep)
@@ -1845,8 +1960,7 @@
 "sA" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
@@ -1886,11 +2000,18 @@
 /turf/simulated/floor/wood/mahogany,
 /area/golden_deep/captain)
 "tp" = (
-/obj/machinery/light{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
 	},
-/turf/simulated/floor/gold,
-/area/golden_deep/dock/aux)
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock";
+	master_tag = "airlock_gd_dock";
+	name = "airlock_gd_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/golden_deep/dock)
 "tz" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 4;
@@ -2048,8 +2169,20 @@
 /obj/item/grenade/chem_grenade/cleaner,
 /turf/simulated/floor/tiled,
 /area/golden_deep/custodial)
+"vj" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock2";
+	master_tag = "airlock_gd_dock2";
+	name = "airlock_gd_dock2"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
 "vk" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(217)
+	},
 /obj/item/gun/energy/rifle/laser/noctiluca,
 /obj/item/gun/energy/rifle/laser/noctiluca,
 /obj/item/gun/energy/rifle/laser/noctiluca,
@@ -2062,7 +2195,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(217)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -2110,7 +2242,7 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/atmos)
 "vK" = (
-/obj/item/modular_computer/console/preset/civilian{
+/obj/machinery/computer/ship/engines{
 	dir = 8
 	},
 /turf/simulated/floor/gold,
@@ -2201,7 +2333,7 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/custodial)
 "wH" = (
-/obj/item/modular_computer/console/preset/civilian{
+/obj/machinery/computer/ship/engines{
 	dir = 4
 	},
 /turf/simulated/floor/gold,
@@ -2226,15 +2358,23 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
 	},
-/obj/machinery/door/airlock/external{
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "golden_shuttle_out";
-	dir = 1
-	},
 /obj/effect/landmark/entry_point/fore{
 	name = "port"
 	},
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -8;
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_golden_shuttle";
+	name = "airlock_golden_shuttle";
+	req_one_access = list(217);
+	shuttle_tag = "Golden Deep Shuttle";
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/gold,
 /area/shuttle/golden_deep)
 "wR" = (
@@ -2441,13 +2581,19 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/light{
-	dir = 4
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1385;
-	id_tag = "golden_shuttle_pump_in"
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 20
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_golden_shuttle";
+	name = "airlock_golden_shuttle";
+	req_one_access = list(217);
+	shuttle_tag = "Golden Deep Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/gold,
 /area/shuttle/golden_deep)
@@ -2514,7 +2660,9 @@
 /turf/simulated/floor/tiled,
 /area/golden_deep/eva)
 "zA" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(217)
+	},
 /obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/suit/armor/carrier/heavy,
 /obj/item/clothing/head/helmet/merc,
@@ -2701,6 +2849,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/secure)
 "BF" = (
@@ -2753,6 +2902,11 @@
 	dir = 4;
 	icon_state = "tube_empty"
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock";
+	master_tag = "airlock_gd_dock";
+	name = "airlock_gd_dock"
+	},
 /turf/simulated/floor/plating,
 /area/golden_deep/dock)
 "BW" = (
@@ -2782,6 +2936,25 @@
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/bridge)
+"Cy" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8;
+	icon_state = "map"
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -8;
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock2";
+	master_tag = "airlock_gd_dock2";
+	name = "airlock_gd_dock2"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
 "CC" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2799,6 +2972,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/golden_deep/eva)
+"CS" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock";
+	master_tag = "airlock_gd_dock";
+	name = "airlock_gd_dock"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/dock)
 "CZ" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/borosilicate/reinforced,
@@ -2807,8 +2995,7 @@
 "Da" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/machinery/merchant_pad,
 /obj/effect/floor_decal/industrial/warning{
@@ -2928,6 +3115,15 @@
 	},
 /turf/simulated/floor/gold,
 /area/golden_deep/dock)
+"Ei" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock2";
+	master_tag = "airlock_gd_dock2";
+	name = "airlock_gd_dock2"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
 "Ep" = (
 /obj/effect/shuttle_landmark/golden_deep/nav3,
 /turf/template_noop,
@@ -2950,8 +3146,7 @@
 "Ez" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4;
@@ -3062,7 +3257,10 @@
 	dir = 1
 	},
 /obj/structure/table/steel,
-/obj/item/book/manual/evaguide,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/golden_deep/atmos)
 "Fy" = (
@@ -3087,6 +3285,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/golden_deep/secure)
 "FV" = (
@@ -3118,7 +3317,6 @@
 /obj/machinery/conveyor{
 	dir = 9;
 	id = "golden_deep";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -3138,7 +3336,9 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/golden_deep/warehouse)
 "Gx" = (
-/obj/structure/closet/secure_closet/guncabinet,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(217)
+	},
 /obj/random/civgun/rifle,
 /obj/random/civgun/rifle,
 /obj/effect/floor_decal/industrial/outline/security,
@@ -3151,7 +3351,6 @@
 /area/golden_deep/secure)
 "GA" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -3354,12 +3553,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/obj/machinery/door/airlock/external{
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "golden_shuttle_in";
-	dir = 1
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_golden_shuttle";
+	name = "airlock_golden_shuttle";
+	req_one_access = list(217);
+	shuttle_tag = "Golden Deep Shuttle";
+	cycle_to_external_air = 1
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/gold,
 /area/shuttle/golden_deep)
 "II" = (
@@ -3389,12 +3591,15 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/red,
-/obj/machinery/door/airlock/external{
-	frequency = 1385;
-	icon_state = "door_locked";
-	id_tag = "golden_shuttle_out";
-	dir = 1
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_golden_shuttle";
+	name = "airlock_golden_shuttle";
+	req_one_access = list(217);
+	shuttle_tag = "Golden Deep Shuttle";
+	cycle_to_external_air = 1
 	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/gold,
 /area/shuttle/golden_deep)
 "Jf" = (
@@ -3404,6 +3609,14 @@
 	},
 /turf/simulated/floor/gold,
 /area/golden_deep/engineering)
+"Jt" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock";
+	master_tag = "airlock_gd_dock";
+	name = "airlock_gd_dock"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/dock)
 "Jz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 1
@@ -3411,21 +3624,28 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
-	id_tag = "golden_shuttle_pump_out_internal";
-	frequency = 1385;
-	layer = 2.8
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_golden_shuttle";
+	name = "airlock_golden_shuttle";
+	req_one_access = list(217);
+	shuttle_tag = "Golden Deep Shuttle";
+	cycle_to_external_air = 1
 	},
-/obj/machinery/airlock_sensor{
-	frequency = 1385;
-	id_tag = "golden_shuttle_chamber_sensor";
-	pixel_y = null;
-	dir = 1;
-	pixel_x = 23
+/obj/machinery/light{
+	dir = 4
 	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/gold,
 /area/shuttle/golden_deep)
+"JJ" = (
+/obj/machinery/button/distress{
+	dir = 4;
+	pixel_x = -21;
+	pixel_y = 7
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
 "JQ" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/light,
@@ -3480,7 +3700,6 @@
 "Ki" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8;
 	dir = 8
 	},
 /obj/structure/window/reinforced{
@@ -3498,9 +3717,17 @@
 /turf/simulated/floor/gold,
 /area/golden_deep/dock)
 "Kj" = (
-/obj/effect/map_effect/airlock/w_to_e/long/square,
-/turf/simulated/wall/shuttle/dark/cardinal/gold,
-/area/golden_deep/dock/aux)
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock2";
+	master_tag = "airlock_gd_dock2";
+	name = "airlock_gd_dock2"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/hangar)
 "Kq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
@@ -3720,6 +3947,25 @@
 /obj/machinery/computer/ship/engines,
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep)
+"MS" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_x = -6;
+	pixel_y = 28
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 6;
+	pixel_y = 28
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock3";
+	master_tag = "airlock_gd_dock3";
+	name = "airlock_gd_dock3"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/dock/aux)
 "MW" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -3728,6 +3974,14 @@
 /turf/simulated/floor/plating,
 /area/golden_deep/storage)
 "Nf" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock3";
+	master_tag = "airlock_gd_dock3";
+	name = "airlock_gd_dock3"
+	},
 /turf/simulated/floor/plating,
 /area/golden_deep/dock/aux)
 "Ni" = (
@@ -3745,8 +3999,7 @@
 "Nn" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
@@ -3834,6 +4087,18 @@
 /turf/simulated/floor/plating,
 /area/shuttle/golden_deep)
 "OD" = (
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -8;
+	dir = 2
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock";
+	master_tag = "airlock_gd_dock";
+	name = "airlock_gd_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/golden_deep/dock)
 "OH" = (
@@ -3920,13 +4185,19 @@
 /obj/effect/shuttle_landmark/golden_deep/dock{
 	dir = 1
 	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock";
+	master_tag = "airlock_gd_dock";
+	name = "airlock_gd_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/golden_deep/dock)
 "Qe" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "golden_deep";
-	layer = 2.9
+	id = "golden_deep"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -3981,6 +4252,15 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, docking bay"
 	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock3";
+	master_tag = "airlock_gd_dock3";
+	name = "airlock_gd_dock3"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/golden_deep/dock/aux)
 "QX" = (
@@ -4064,6 +4344,11 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/structure/reagent_dispensers/coolanttank,
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = -10;
+	pixel_x = -5
+	},
 /turf/simulated/floor/tiled,
 /area/golden_deep/engineering)
 "Rz" = (
@@ -4105,6 +4390,25 @@
 	},
 /turf/simulated/floor/gold,
 /area/golden_deep/hangar)
+"Sa" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8;
+	icon_state = "map"
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock";
+	master_tag = "airlock_gd_dock";
+	name = "airlock_gd_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/golden_deep/dock)
 "Sg" = (
 /obj/effect/floor_decal/spline/fancy/wood/full,
 /obj/machinery/recharge_station,
@@ -4212,7 +4516,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(217)
 	},
 /turf/simulated/floor/gold,
@@ -4468,14 +4771,16 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/access_button{
-	command = "cycle_interior";
-	frequency = 1385;
-	master_tag = "golden_shuttle";
-	name = "interior access button";
-	pixel_x = -5;
-	pixel_y = -20;
-	dir = 1
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_y = -20
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_golden_shuttle";
+	name = "airlock_golden_shuttle";
+	req_one_access = list(217);
+	shuttle_tag = "Golden Deep Shuttle";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/gold,
 /area/shuttle/golden_deep)
@@ -4527,12 +4832,15 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gold,
 /area/shuttle/golden_deep)
 "WT" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 2;
-	id_tag = "golden_shuttle_pump_out_internal";
-	frequency = 1385;
-	layer = 2.8
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "airlock_golden_shuttle";
+	name = "airlock_golden_shuttle";
+	req_one_access = list(217);
+	shuttle_tag = "Golden Deep Shuttle";
+	cycle_to_external_air = 1
 	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/gold,
 /area/shuttle/golden_deep)
 "WY" = (
@@ -4631,6 +4939,26 @@
 	},
 /turf/simulated/floor/plating,
 /area/golden_deep/starboardprop)
+"Xl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 28
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock3";
+	master_tag = "airlock_gd_dock3";
+	name = "airlock_gd_dock3"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/golden_deep/dock/aux)
 "Xm" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/golden_deep,
@@ -4770,7 +5098,6 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/north{
-	pixel_x = 0;
 	req_access = list(217)
 	},
 /turf/simulated/floor/gold,
@@ -4826,6 +5153,17 @@
 /obj/item/book/manual/robotics_cyborgs,
 /turf/simulated/floor/tiled,
 /area/golden_deep/secure)
+"ZS" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "gd_dock3";
+	master_tag = "airlock_gd_dock3";
+	name = "airlock_gd_dock3"
+	},
+/turf/simulated/floor/plating,
+/area/golden_deep/dock/aux)
 
 (1,1,1) = {"
 pu
@@ -16369,7 +16707,7 @@ EV
 Xd
 rB
 aH
-Dt
+fT
 DZ
 Oi
 ka
@@ -17237,7 +17575,7 @@ cS
 Vg
 dz
 FW
-dz
+JJ
 uw
 Ll
 pu
@@ -17378,19 +17716,19 @@ qw
 jm
 Tx
 Tx
-tO
+Tx
 gr
 Tx
-tO
 Tx
 Tx
-tO
 Tx
 Tx
-tO
+Tx
+Tx
+Tx
 KZ
 Tx
-tO
+Tx
 Tx
 Tx
 tJ
@@ -17540,19 +17878,19 @@ WZ
 BW
 zb
 zb
-zb
+ov
 vz
 zb
+ov
 zb
 zb
+ov
 zb
 zb
-zb
-zb
-zb
+ov
 Hj
 zb
-zb
+ov
 zb
 zb
 Mr
@@ -18358,7 +18696,7 @@ Ey
 tQ
 tZ
 hK
-tp
+Tg
 Tg
 sz
 VD
@@ -18521,9 +18859,9 @@ JQ
 tZ
 ua
 tZ
-Nf
-Nf
-Kj
+Xl
+en
+tZ
 GA
 lg
 wJ
@@ -18683,7 +19021,7 @@ Di
 tZ
 tZ
 tZ
-Nf
+MS
 Nf
 tZ
 tZ
@@ -18845,8 +19183,8 @@ pu
 pu
 pu
 tZ
-Nf
-Nf
+ZS
+fO
 tZ
 pu
 pu
@@ -18951,7 +19289,7 @@ pu
 pZ
 pZ
 pZ
-en
+pZ
 ZB
 xE
 pZ
@@ -19111,9 +19449,9 @@ pu
 pu
 pu
 fb
-aH
-aH
-aH
+Kj
+Ei
+Cy
 tU
 xE
 NS
@@ -19272,10 +19610,10 @@ pu
 pu
 pu
 pu
-aH
-qP
-aH
-aH
+vj
+jc
+Ei
+hc
 xE
 xE
 pZ
@@ -19287,7 +19625,7 @@ aH
 aH
 aH
 vB
-Rm
+cc
 fA
 fA
 fA
@@ -20430,7 +20768,7 @@ eD
 Mr
 Mr
 Mr
-fO
+Mr
 pu
 pu
 pu
@@ -20589,9 +20927,9 @@ PK
 eD
 eD
 iF
-OD
-OD
-OD
+Sa
+CS
+Jt
 OD
 pu
 pu
@@ -20751,8 +21089,8 @@ PK
 eD
 eD
 yM
-OD
-OD
+tp
+mV
 BS
 Qd
 pu

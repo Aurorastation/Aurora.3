@@ -2,7 +2,7 @@
 	name = "flare"
 	desc = "A red standard-issue flare. There are instructions on the side reading 'twist cap off, make light'."
 	desc_info = "Use this item in your hand, to turn on the light."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	brightness_on = 3 // Pretty bright.
 	light_power = 4
 	light_color = LIGHT_COLOR_FLARE //"#E58775"
@@ -87,7 +87,7 @@
 	name = "torch"
 	desc = "A rustic source of light."
 	desc_info = "Click on a source of flame, to light the torch."
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	brightness_on = 2
 	light_power = 3
 	light_color = LIGHT_COLOR_FIRE
@@ -124,8 +124,8 @@
 	START_PROCESSING(SSprocessing, src)
 	update_icon()
 
-/obj/item/device/flashlight/flare/torch/attackby(var/obj/item/W, mob/user)
-	if(W.isFlameSource() && !on && fuel)
+/obj/item/device/flashlight/flare/torch/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isFlameSource() && !on && fuel)
 		light(user)
 	else
 		..()
@@ -152,7 +152,7 @@
 /obj/item/torch
 	name = "torch handle"
 	desc = "A torch handle without its head."
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	icon_state = "torch-empty"
 	item_state = "torch-empty"
 	icon = 'icons/obj/lighting.dmi'
@@ -164,11 +164,11 @@
 	drop_sound = 'sound/items/drop/woodweapon.ogg'
 	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 
-/obj/item/torch/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/reagent_containers/glass/rag))
-		to_chat(user, SPAN_NOTICE("You add \the [I] to \the [src]."))
+/obj/item/torch/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass/rag))
+		to_chat(user, SPAN_NOTICE("You add \the [attacking_item] to \the [src]."))
 		var/obj/item/device/flashlight/flare/torch/T = new()
-		qdel(I)
+		qdel(attacking_item)
 		user.put_in_hands(T)
 		qdel(src)
 

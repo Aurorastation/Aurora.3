@@ -14,7 +14,7 @@
 	ranged = 1
 	attacktext = "skewered"
 	projectilesound = 'sound/weapons/lasercannonfire.ogg'
-	projectiletype = /obj/item/projectile/beam/hivebot/incendiary/heavy
+	projectiletype = /obj/projectile/beam/hivebot/incendiary/heavy
 	organ_names = list("head", "core", "side thruster", "harvesting array")
 	faction = "hivebot"
 	min_oxy = 0
@@ -30,7 +30,6 @@
 	tameable = FALSE
 	flying = 1
 	mob_size = MOB_LARGE
-	see_in_dark = 8
 	pass_flags = PASSTABLE|PASSRAILING
 	attack_emote = "focuses on"
 	var/mob/living/simple_animal/hostile/hivebotbeacon/linked_parent = null
@@ -44,6 +43,7 @@
 	mob_push_flags = 0
 
 	psi_pingable = FALSE
+	sample_data = null
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Initialize(mapload,mob/living/simple_animal/hostile/hivebot/hivebotbeacon)
 	if(hivebotbeacon)
@@ -52,15 +52,13 @@
 	.=..()
 	set_light(3,2,LIGHT_COLOR_RED)
 	if(!mapload)
-		new /obj/effect/effect/smoke(src.loc,30)
-		playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
+		spark(get_turf(src), 3, GLOB.alldirs)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/death()
 	..(null,"teleports away!")
 	if(linked_parent)
 		linked_parent.harvester_amt --
-	new /obj/effect/effect/smoke(src.loc,30)
-	playsound(src.loc, 'sound/effects/EMPulse.ogg', 25, 1)
+	spark(get_turf(src), 3, GLOB.alldirs)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/Destroy()
@@ -74,14 +72,15 @@
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/AirflowCanMove(n)
 	return 0
 
-/mob/living/simple_animal/hostile/retaliate/hivebotharvester/bullet_act(var/obj/item/projectile/Proj)
-	if(istype(Proj, /obj/item/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/item/projectile/beam/hivebot))
-		Proj.no_attack_log = 1
+/mob/living/simple_animal/hostile/retaliate/hivebotharvester/bullet_act(var/obj/projectile/Proj)
+	if(istype(Proj, /obj/projectile/bullet/pistol/hivebotspike) || istype(Proj, /obj/projectile/beam/hivebot))
 		return PROJECTILE_CONTINUE
 	else
 		return ..(Proj)
 
 /mob/living/simple_animal/hostile/retaliate/hivebotharvester/emp_act(severity)
+	. = ..()
+
 	LoseTarget()
 	change_stance(HOSTILE_STANCE_IDLE)
 	visible_message(SPAN_DANGER("[src] suffers a teleportation malfunction!"))
@@ -194,7 +193,7 @@
 				if(do_after(src, 32))
 					src.visible_message(SPAN_WARNING("[src] rips \the [C]."))
 					if(C.powernet && C.powernet.avail)
-						spark(src, 3, alldirs)
+						spark(src, 3, GLOB.alldirs)
 					new/obj/item/stack/cable_coil(T, C.d1 ? 2 : 1, C.color)
 					qdel(C)
 				busy = 0
@@ -237,7 +236,7 @@
 	var/turf/T
 
 	if((!last_prospect_target) || (last_prospect_loc != src.loc))
-		destination = pick(cardinal)
+		destination = pick(GLOB.cardinal)
 		T = get_step(src, destination)
 		last_prospect_target = T
 		last_prospect_loc = src.loc
@@ -298,7 +297,7 @@
 		if(istype(O, /obj/structure/window))
 			var/dir = get_dir(T,src.loc)
 			var/obj/structure/window/W = O
-			if(W.dir == reverse_dir[dir])
+			if(W.dir == GLOB.reverse_dir[dir])
 				W.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)
 			else
 				W.attack_generic(src,rand(melee_damage_lower,melee_damage_upper),attacktext)

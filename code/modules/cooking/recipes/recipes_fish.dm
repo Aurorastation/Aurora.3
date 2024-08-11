@@ -1,4 +1,3 @@
-
 /singleton/recipe/sashimi
 	reagents = list(/singleton/reagent/nutriment/soysauce = 5)
 	items = list(

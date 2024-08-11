@@ -7,7 +7,7 @@
 	spawnpoints = list("tajaran_migrant")
 	max_count = 4
 
-	outfit = /datum/outfit/admin/tajaran_migrant
+	outfit = /obj/outfit/admin/tajaran_migrant
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -17,7 +17,7 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/tajaran_migrant
+/obj/outfit/admin/tajaran_migrant
 	name = "Tajaran Migrant"
 
 	uniform = list(
@@ -57,7 +57,7 @@
 	spawnpoints = list("tajara_revolutionary_army_agent")
 	max_count = 2
 
-	outfit = /datum/outfit/admin/tajara_revolutionary_army_agent
+	outfit = /obj/outfit/admin/tajara_revolutionary_army_agent
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -65,7 +65,7 @@
 	special_role = "Tajara Revolutionary Army Agent"
 	respawn_flag = null
 
-/datum/outfit/admin/tajara_revolutionary_army_agent
+/obj/outfit/admin/tajara_revolutionary_army_agent
 	name = "Tajara Revolutionary Army Agent"
 
 	uniform = list(

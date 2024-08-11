@@ -2,6 +2,7 @@
 #define FUSION_INSTABILITY_DIVISOR 50000
 #define FUSION_RUPTURE_THRESHOLD   10000
 #define FUSION_REACTANT_CAP        10000
+#define FUSION_WARNING_DELAY 20
 
 /obj/effect/fusion_em_field
 	name = "electromagnetic field"
@@ -18,13 +19,14 @@
 	var/field_strength = 0.01
 	var/tick_instability = 0
 	var/percent_unstable = 0
+	var/percent_unstable_archive = 0
 
 	var/obj/machinery/power/fusion_core/owned_core
 	var/list/reactants = list()
 	var/list/particle_catchers = list()
 
 	var/list/ignore_types = list(
-		/obj/item/projectile,
+		/obj/projectile,
 		/obj/effect,
 		/obj/structure/cable,
 		/obj/machinery/atmospherics,
@@ -44,6 +46,14 @@
 	particles = new/particles/fusion
 
 	var/animating_ripple = FALSE
+
+	var/obj/item/device/radio/radio
+	var/safe_alert = "NOTICE: INDRA reactor stabilizing."
+	var/safe_warned = FALSE
+	var/public_alert = FALSE
+	var/warning_alert = "WARNING: INDRA reactor destabilizing!"
+	var/emergency_alert = "DANGER: INDRA REACTOR MELTDOWN IMMINENT!"
+	var/lastwarning = 0
 
 /obj/effect/fusion_em_field/proc/UpdateVisuals()
 	//Take the particle system and edit it
@@ -112,41 +122,36 @@
 /obj/effect/fusion_em_field/Initialize()
 	. = ..()
 	addtimer(CALLBACK(src, PROC_REF(update_light_colors)), 10 SECONDS, TIMER_LOOP)
+	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
 
 /obj/effect/fusion_em_field/proc/update_light_colors()
 	var/use_range
-	var/use_power
+	var/use_power = 0
+	var/temp_mod = ((plasma_temperature-5000)/20000)
+	use_range = light_min_range + Ceil((light_max_range-light_min_range)*temp_mod)
+	use_power = light_min_power + Ceil((light_max_power-light_min_power)*temp_mod)
 	switch (plasma_temperature)
 		if (-INFINITY to 1000)
 			light_color = COLOR_RED
-			use_range = light_min_range
-			use_power = light_min_power
 			alpha = 30
+		if (1000 to 6000)
+			light_color = COLOR_ORANGE
+			alpha = 50
+		if (6000 to 20000)
+			light_color = COLOR_YELLOW
+			alpha = 80
+		if (20000 to 50000)
+			light_color = COLOR_GREEN
+			alpha = 120
+		if (50000 to 70000)
+			light_color = COLOR_CYAN
+			alpha = 160
+		if (70000 to 100000)
+			light_color = COLOR_BLUE
+			alpha = 200
 		if (100000 to INFINITY)
 			light_color = COLOR_VIOLET
-			use_range = light_max_range
-			use_power = light_max_power
 			alpha = 230
-		else
-			var/temp_mod = ((plasma_temperature-5000)/20000)
-			use_range = light_min_range + Ceil((light_max_range-light_min_range)*temp_mod)
-			use_power = light_min_power + Ceil((light_max_power-light_min_power)*temp_mod)
-			switch (plasma_temperature)
-				if (1000 to 6000)
-					light_color = COLOR_ORANGE
-					alpha = 50
-				if (6000 to 20000)
-					light_color = COLOR_YELLOW
-					alpha = 80
-				if (20000 to 50000)
-					light_color = COLOR_GREEN
-					alpha = 120
-				if (50000 to 70000)
-					light_color = COLOR_CYAN
-					alpha = 160
-				if (70000 to 100000)
-					light_color = COLOR_BLUE
-					alpha = 200
 
 	if (last_range != use_range || last_power != use_power || color != light_color)
 		set_light(use_range / 6, use_power ? 6 : 0, light_color)
@@ -202,6 +207,11 @@
 			radiation += radiate
 
 	check_instability()
+
+	if(percent_unstable > 0.5 && (percent_unstable >= percent_unstable_archive))
+		if((world.timeofday - lastwarning) >= FUSION_WARNING_DELAY * 10)
+			warning()
+
 	Radiate()
 	if(radiation)
 		SSradiation.radiate(src, round(radiation*0.001))
@@ -209,6 +219,7 @@
 
 /obj/effect/fusion_em_field/proc/check_instability()
 	if(tick_instability > 0)
+		percent_unstable_archive = percent_unstable
 		percent_unstable += (tick_instability*size)/FUSION_INSTABILITY_DIVISOR
 		tick_instability = 0
 		UpdateVisuals()
@@ -270,6 +281,47 @@
 					Radiate()
 			Ripple(wave_size, ripple_radius)
 	return
+
+/obj/effect/fusion_em_field/proc/warning()
+	var/unstable = round(percent_unstable * 100)
+	var/alert_msg = " Instability at [unstable]%."
+
+	if(percent_unstable > 0.5)
+		if(percent_unstable >= percent_unstable_archive)
+			if(percent_unstable < 0.7)
+				alert_msg = warning_alert + alert_msg
+				lastwarning = world.timeofday
+				safe_warned = FALSE
+			else if(percent_unstable < 0.9)
+				alert_msg = emergency_alert + alert_msg
+				lastwarning = world.timeofday - FUSION_WARNING_DELAY * 4
+			else if(percent_unstable > 0.9)
+				lastwarning = world.timeofday - FUSION_WARNING_DELAY * 4
+				alert_msg = emergency_alert + alert_msg
+			else
+				alert_msg = null
+		else if(!safe_warned)
+			safe_warned = TRUE
+			alert_msg = safe_alert
+			lastwarning = world.timeofday
+		else
+			alert_msg = null
+	else
+		alert_msg = null
+	if(alert_msg)
+		radio.autosay(alert_msg, "INDRA Reactor Monitor", "Engineering")
+
+		if((percent_unstable > 0.9) && !public_alert)
+			alert_msg = null
+			radio.autosay(emergency_alert, "INDRA Reactor Monitor")
+			public_alert = TRUE
+			for(var/mob/M in GLOB.player_list)
+				var/turf/T = get_turf(M)
+				if(T && !istype(M, /mob/abstract/new_player) && !isdeaf(M))
+					sound_to(M, 'sound/effects/nuclearsiren.ogg')
+		else if(safe_warned && public_alert)
+			radio.autosay(alert_msg, "INDRA Reactor Monitor")
+			public_alert = FALSE
 
 /obj/effect/fusion_em_field/proc/Ripple(_size, _radius)
 	if(!animating_ripple)
@@ -366,8 +418,7 @@
 
 /obj/effect/fusion_em_field/proc/Radiate()
 	if(istype(loc, /turf))
-		var/empsev = max(1, min(3, Ceil(size/2)))
-		for(var/atom/movable/AM in range(max(1,Floor(size/2)), loc))
+		for(var/atom/movable/AM in range(max(1,FLOOR(size/2, 1)), loc))
 
 			if(AM == src || AM == owned_core || !AM.simulated)
 				continue
@@ -382,7 +433,7 @@
 
 			AM.visible_message(SPAN_DANGER("The field buckles visibly around \the [AM]!"))
 			tick_instability += rand(30,50)
-			AM.emp_act(empsev)
+			AM.emp_act(EMP_LIGHT)
 
 	if(owned_core && owned_core.loc)
 		var/datum/gas_mixture/environment = owned_core.loc.return_air()
@@ -412,7 +463,7 @@
 		//determine a random amount to actually react this cycle, and remove it from the standard pool
 		//this is a hack, and quite nonrealistic :(
 		for(var/reactant in react_pool)
-			react_pool[reactant] = rand(Floor(react_pool[reactant]/2),react_pool[reactant])
+			react_pool[reactant] = rand(FLOOR(react_pool[reactant]/2, 1),react_pool[reactant])
 			reactants[reactant] -= react_pool[reactant]
 			if(!react_pool[reactant])
 				react_pool -= reactant
@@ -523,14 +574,15 @@
 /obj/effect/fusion_em_field/Destroy()
 	set_light(0)
 	RadiateAll()
-	QDEL_NULL_LIST(particle_catchers)
+	QDEL_LIST(particle_catchers)
+	QDEL_NULL(radio)
 	if(owned_core)
 		owned_core.owned_field = null
 		owned_core = null
 	STOP_PROCESSING(SSprocessing, src)
 	. = ..()
 
-/obj/effect/fusion_em_field/bullet_act(obj/item/projectile/Proj)
+/obj/effect/fusion_em_field/bullet_act(obj/projectile/Proj)
 	AddEnergy(Proj.damage)
 	update_icon()
 	return 0

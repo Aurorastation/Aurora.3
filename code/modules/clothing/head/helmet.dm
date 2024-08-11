@@ -6,7 +6,7 @@
 		slot_l_hand_str = "helmet",
 		slot_r_hand_str = "helmet"
 		)
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 	armor = list(
 		melee = ARMOR_MELEE_KEVLAR,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
@@ -20,10 +20,11 @@
 	heat_protection = HEAD
 	max_heat_protection_temperature = HELMET_MAX_HEAT_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0.5
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	var/obj/machinery/camera/camera
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
+	protects_against_weather = TRUE
 
 	var/has_storage = TRUE
 	var/obj/item/storage/internal/helmet/hold
@@ -36,8 +37,8 @@
 	if(has_storage)
 		hold = new /obj/item/storage/internal/helmet(src)
 		hold.storage_slots = slots
-		hold.max_storage_space = slots * ITEMSIZE_SMALL
-		hold.max_w_class = ITEMSIZE_SMALL
+		hold.max_storage_space = slots * WEIGHT_CLASS_SMALL
+		hold.max_w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/clothing/head/helmet/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
@@ -45,8 +46,8 @@
 		for(var/obj/item/thing in hold.contents)
 			var/icon_type = hold.helmet_storage_types[thing.type]
 			var/thing_state = icon_type == HELMET_GARB_PASS_ICON ? initial(thing.icon_state) : icon_type
-			I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
-			I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, thing_state))
+			I.AddOverlays(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
+			I.AddOverlays(image('icons/clothing/kit/helmet_garb.dmi', null, thing_state))
 	return I
 
 /obj/item/clothing/head/helmet/attack_hand(mob/user)
@@ -65,15 +66,17 @@
 		return TRUE
 	return FALSE
 
-/obj/item/clothing/head/helmet/attackby(obj/item/W, mob/user)
+/obj/item/clothing/head/helmet/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(!has_storage || istype(W, /obj/item/clothing/accessory))
+	if(!has_storage || istype(attacking_item, /obj/item/clothing/accessory))
 		return
-	hold.attackby(W, user)
+	hold.attackby(attacking_item, user)
 
 /obj/item/clothing/head/helmet/emp_act(severity)
-	if(has_storage) hold.emp_act(severity)
-	return ..()
+	. =  ..()
+
+	if(has_storage)
+		hold.emp_act(severity)
 
 /obj/item/clothing/head/helmet/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
 	if(has_storage) hold.hear_talk(M, msg, verb, speaking)
@@ -96,11 +99,11 @@
 		else
 			to_chat(usr, SPAN_NOTICE("Camera deactivated."))
 
-/obj/item/clothing/head/helmet/space/examine(mob/user, distance, is_adjacent)
+/obj/item/clothing/head/helmet/space/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if((distance <= 1) && camera)
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click the helmet and press <b>Toggle Helmet Camera</b>.")))
-		to_chat(user, "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active.")
+		. += FONT_SMALL(SPAN_NOTICE("To toggle the helmet camera, right click the helmet and press <b>Toggle Helmet Camera</b>."))
+		. += "This helmet has a built-in camera. It's [!ispath(camera) && camera.status ? "" : "in"]active."
 
 /obj/item/clothing/head/helmet/hos
 	name = "head of security helmet"
@@ -212,7 +215,6 @@
 	contained_sprite = TRUE
 	icon_state = "helm_heavy"
 	item_state = "helm_heavy"
-	contained_sprite = TRUE
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_RIFLE,
@@ -342,7 +344,7 @@
 
 /obj/item/clothing/head/helmet/unathi
 	name = "unathi helmet"
-	desc = "An outdated helmet designated to be worn by an Unathi, it was commonly used by the Hegemony Levies."
+	desc = "An outdated ceramic-metal helmet of Unathi design. Commonly seen on Moghes during the days of the Contact War, and now commonplace in the hands of raiders and pirates."
 	icon = 'icons/obj/unathi_items.dmi'
 	icon_state = "unathi_helmet"
 	item_state = "unathi_helmet"
@@ -350,22 +352,22 @@
 	species_restricted = list(BODYTYPE_UNATHI)
 	armor = list(
 		melee = ARMOR_MELEE_MAJOR,
-		bullet = ARMOR_BALLISTIC_SMALL,
-		laser = ARMOR_LASER_PISTOL,
-		energy = ARMOR_ENERGY_MINOR,
+		bullet = ARMOR_BALLISTIC_PISTOL,
+		laser = ARMOR_LASER_KEVLAR,
+		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED
 	)
 	siemens_coefficient = 0.35
 
 /obj/item/clothing/head/helmet/unathi/hegemony
 	name = "hegemony helmet"
-	desc = "A highly armored helmet designated to be worn by an Unathi, a newer variant commonly worn by the Hegemony Levies."
+	desc = "A highly armored ceramic-metal composite helmet fitted for an Unathi. Commonly used by the military forces of the Izweski Hegemony."
 	icon_state = "hegemony_helmet"
 	item_state = "hegemony_helmet"
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_MEDIUM,
-		laser = ARMOR_LASER_PISTOL,
+		laser = ARMOR_LASER_RIFLE,
 		energy = ARMOR_ENERGY_MINOR,
 		bomb = ARMOR_BOMB_PADDED,
 		rad = ARMOR_RAD_MINOR

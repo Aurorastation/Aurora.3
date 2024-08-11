@@ -27,20 +27,20 @@
 	else
 		return ..()
 
-/mob/living/carbon/alien/diona/attackby(var/obj/item/W, var/mob/user)
-	if(user.a_intent == I_HELP && istype(W, /obj/item/clothing/head))
+/mob/living/carbon/alien/diona/attackby(obj/item/attacking_item, mob/user)
+	if(user.a_intent == I_HELP && istype(attacking_item, /obj/item/clothing/head))
 		if(hat)
 			to_chat(user, SPAN_WARNING("\The [src] is already wearing \the [hat]."))
 			return
-		user.unEquip(W)
-		wear_hat(W)
-		user.visible_message(SPAN_NOTICE("\The [user] puts \the [W] on \the [src]."))
+		user.unEquip(attacking_item)
+		wear_hat(attacking_item)
+		user.visible_message(SPAN_NOTICE("\The [user] puts \the [attacking_item] on \the [src]."))
 		return
-	else if(istype(W, /obj/item/reagent_containers) || istype(W, /obj/item/stack/medical) || istype(W,/obj/item/gripper/))
-		..(W, user)
+	else if(istype(attacking_item, /obj/item/reagent_containers) || istype(attacking_item, /obj/item/stack/medical) || istype(attacking_item,/obj/item/gripper/))
+		..()
 		return
 	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
-		if(istype(W, /obj/item/material/knife) || istype(W, /obj/item/material/kitchen/utensil/knife))
+		if(istype(attacking_item, /obj/item/material/knife) || istype(attacking_item, /obj/item/material/kitchen/utensil/knife))
 			harvest(user)
 			return
-	..(W, user)
+	..(attacking_item, user)

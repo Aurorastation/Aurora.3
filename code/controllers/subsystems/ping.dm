@@ -1,22 +1,20 @@
 SUBSYSTEM_DEF(ping)
 	name = "Ping"
-	priority = SS_PRIORITY_PING
-	init_order = SS_INIT_PING
+	priority = FIRE_PRIORITY_PING
+	init_stage = INITSTAGE_EARLY
 	wait = 4 SECONDS
 	flags = SS_NO_INIT
-	runlevels = RUNLEVEL_INIT | RUNLEVEL_LOBBY | RUNLEVEL_SETUP | RUNLEVEL_GAME | RUNLEVEL_POSTGAME
-	init_stage = INITSTAGE_EARLY
-
+	runlevels = RUNLEVEL_LOBBY | RUNLEVELS_DEFAULT
 	var/list/currentrun = list()
 
 /datum/controller/subsystem/ping/stat_entry(msg)
-	msg = "P:[clients.len]"
+	msg = "P:[GLOB.clients.len]"
 	return ..()
 
 /datum/controller/subsystem/ping/fire(resumed = FALSE)
 	// Prepare the new batch of clients
 	if (!resumed)
-		src.currentrun = clients.Copy()
+		src.currentrun = GLOB.clients.Copy()
 
 	// De-reference the list for sanic speeds
 	var/list/currentrun = src.currentrun

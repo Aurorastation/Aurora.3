@@ -43,10 +43,10 @@
 	return secured
 
 /obj/item/device/assembly/infra/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	attached_overlays = list()
 	if(on)
-		add_overlay("infrared_on")
+		AddOverlays("infrared_on")
 		attached_overlays += "infrared_on"
 
 	if(holder)
@@ -58,11 +58,10 @@
 		to_chat(user, SPAN_NOTICE("You rotate \the [src] to face [direction_text]."))
 		QDEL_NULL(first)
 
-/obj/item/device/assembly/infra/examine(mob/user)
+/obj/item/device/assembly/infra/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/direction_text = dir2text(dir)
-	to_chat(user, SPAN_NOTICE("It is facing [direction_text]."))
-
+	. += SPAN_NOTICE("It is facing [direction_text].")
 
 /obj/item/device/assembly/infra/process()
 
@@ -223,10 +222,10 @@
 	..()
 	hit()
 
-/obj/effect/beam/i_beam/Crossed(atom/movable/AM as mob|obj)
-	if(istype(AM, /obj/effect/beam))
+/obj/effect/beam/i_beam/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	if(istype(arrived, /obj/effect/beam))
 		return
-	if(AM.invisibility == INVISIBILITY_OBSERVER || AM.invisibility == 101)
+	if(arrived.invisibility == INVISIBILITY_OBSERVER || arrived.invisibility == 101)
 		return
 	spawn(0)
 		hit()

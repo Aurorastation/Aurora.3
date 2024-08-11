@@ -35,6 +35,7 @@
 
 
 /mob/living/carbon/brain/handle_environment(datum/gas_mixture/environment)
+	..()
 	if(!environment)
 		return
 	var/environment_heat_capacity = environment.heat_capacity()
@@ -101,7 +102,7 @@
 		blinded = 1
 		silent = 0
 	else				//ALIVE. LIGHTS ARE ON
-		if(!container && (health < config.health_threshold_dead || ((config.revival_brain_life != -1) && world.time - timeofhostdeath > config.revival_brain_life)))
+		if(!container && (health < GLOB.config.health_threshold_dead || ((GLOB.config.revival_brain_life != -1) && world.time - timeofhostdeath > GLOB.config.revival_brain_life)))
 			death()
 			blinded = 1
 			silent = 0
@@ -123,7 +124,7 @@
 					silent = 1
 					if(!alert)//Sounds an alarm, but only once per 'level'
 						emote("alarm")
-						to_chat(src, "<span class='warning'>Major electrical distruption detected: System rebooting.</span>")
+						to_chat(src, SPAN_WARNING("Major electrical distruption detected: System rebooting."))
 						alert = 1
 					if(prob(75))
 						emp_damage -= 1
@@ -139,7 +140,7 @@
 					ear_damage = 1
 					if(!alert)
 						emote("alert")
-						to_chat(src, "<span class='warning'>Primary systems are now online.</span>")
+						to_chat(src, SPAN_WARNING("Primary systems are now online."))
 						alert = 1
 					if(prob(50))
 						emp_damage -= 1
@@ -151,13 +152,13 @@
 				if(2 to 9)//Low level of EMP damage, has few effects(handled elsewhere)
 					if(!alert)
 						emote("notice")
-						to_chat(src, "<span class='warning'>System reboot nearly complete.</span>")
+						to_chat(src, SPAN_WARNING("System reboot nearly complete."))
 						alert = 1
 					if(prob(25))
 						emp_damage -= 1
 				if(1)
 					alert = 0
-					to_chat(src, "<span class='warning'>All systems restored.</span>")
+					to_chat(src, SPAN_WARNING("All systems restored."))
 					emp_damage -= 1
 
 		//Other
@@ -165,13 +166,11 @@
 	return 1
 
 /mob/living/carbon/brain/handle_regular_hud_updates()
-	if(stat == DEAD || HAS_FLAG(mutations, XRAY))
+	if(stat == DEAD || (mutations & XRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		set_see_in_dark(8)
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 	else if(stat != DEAD)
 		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
-		set_see_in_dark(2)
 		set_see_invisible(SEE_INVISIBLE_LIVING)
 
 	if (healths)
@@ -194,13 +193,11 @@
 		else
 			healths.icon_state = "health7"
 
-		if(stat == DEAD || HAS_FLAG(mutations, XRAY))
+		if(stat == DEAD || (mutations & XRAY))
 			set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-			set_see_in_dark(8)
 			set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 		else if(stat != DEAD)
 			set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
-			set_see_in_dark(2)
 			set_see_invisible(SEE_INVISIBLE_LIVING)
 
 	if (client)
