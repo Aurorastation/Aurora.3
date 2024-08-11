@@ -19,6 +19,9 @@
 /area/engineering/engine_room/rust
 	name = "Engineering - INDRA Engine"
 
+/area/engineering/engine_room/turbine
+	name = "Engineering - Combustion Turbine"
+
 /area/engineering/smes
 	name = "Engineering - SM SMES"
 	icon_state = "engine_smes"
