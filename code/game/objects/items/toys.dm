@@ -1145,7 +1145,7 @@
 
 /obj/item/toy/plushie/domadice
 	name = "Domadice plushie"
-	desc = "A marketable plushie of the Kessvalankan Domadice"
+	desc = "A marketable plushie of the Kessvalankan Domadice."
 	icon_state = "domadiceplushie"
 	phrase = "♫Plin Plin Plon♫"
 
