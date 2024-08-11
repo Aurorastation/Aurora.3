@@ -35,6 +35,7 @@
 	lipsticks["lipstick, teal"] = /obj/item/lipstick/teal
 
 	gear_tweaks += new /datum/gear_tweak/path(lipsticks)
+	gear_tweaks += list(gear_tweak_lipstick_variant)
 	gear_tweaks += list(gear_tweak_lipstick_application)
 
 /datum/gear/cosmetic/lipstick_colorable // not a subtype because we dont want the path gear_tweaks
@@ -45,7 +46,9 @@
 /datum/gear/cosmetic/lipstick_colorable/New()
 	..()
 	gear_tweaks += list(gear_tweak_lipstick_color)
+	gear_tweaks += list(gear_tweak_lipstick_variant)
 	gear_tweaks += list(gear_tweak_lipstick_application)
+
 
 var/datum/gear_tweak/color/lipstick/gear_tweak_lipstick_color = new()
 
@@ -55,6 +58,29 @@ var/datum/gear_tweak/color/lipstick/gear_tweak_lipstick_color = new()
 /datum/gear_tweak/color/lipstick/tweak_item(var/obj/item/lipstick/lipstick, var/metadata, var/mob/living/carbon/human/H)
 	lipstick.lipstick_color = metadata
 	lipstick.update_icon()
+
+
+var/datum/gear_tweak/lipstick_variant/gear_tweak_lipstick_variant = new()
+
+/datum/gear_tweak/lipstick_variant
+	var/list/lipstick_options = list("Lips" = DEFAULT_LIPSTICK_VARIANT, "Lips (Side-shifted)" = LOWER_LIPSTICK_VARIANT)
+
+/datum/gear_tweak/lipstick_variant/get_contents(var/metadata)
+	return "Lipstick Variant: [get_key_by_value(lipstick_options, metadata)]"
+
+/datum/gear_tweak/lipstick_variant/get_default()
+	return DEFAULT_LIPSTICK_VARIANT
+
+/datum/gear_tweak/lipstick_variant/get_random()
+	return pick(DEFAULT_LIPSTICK_VARIANT, LOWER_LIPSTICK_VARIANT)
+
+/datum/gear_tweak/lipstick_variant/get_metadata(var/user, var/metadata, var/title = "Character Preference")
+	var/selected_lipstick_variant = tgui_input_list(user, "What kind of lipstick application do you want?", title, lipstick_options, metadata)
+	if(selected_lipstick_variant)
+		return lipstick_options[selected_lipstick_variant]
+
+/datum/gear_tweak/lipstick_variant/tweak_item(var/obj/item/lipstick/lipstick, var/metadata, var/mob/living/carbon/human/H)
+	lipstick.lipstick_variant = metadata
 
 
 var/datum/gear_tweak/lipstick_application/gear_tweak_lipstick_application = new()
@@ -73,7 +99,8 @@ var/datum/gear_tweak/lipstick_application/gear_tweak_lipstick_application = new(
 	if(selected_lipstick)
 		return selected_lipstick
 
-/datum/gear_tweak/lipstick_application/tweak_item(var/obj/item/lipstick/lipstick, var/metadata, var/mob/living/carbon/human/H)
+/datum/gear_tweak/lipstick_application/finalize_tweak_item(var/obj/item/lipstick/lipstick, var/metadata, var/mob/living/carbon/human/H)
 	if(metadata == "Yes")
-		H.lipstick_color = lipstick.lipstick_color
+		var/datum/lipstick_data/lipstick_data = new /datum/lipstick_data(lipstick.lipstick_color, lipstick.lipstick_variant)
+		H.lipstick_data = lipstick_data
 		H.update_body()

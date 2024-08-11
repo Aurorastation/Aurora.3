@@ -118,6 +118,8 @@
 	bad_internal_organs = null
 	bad_external_organs = null
 
+	QDEL_NULL(lipstick_data)
+
 	QDEL_NULL(vessel)
 
 	QDEL_NULL(DS)

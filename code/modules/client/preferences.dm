@@ -464,7 +464,7 @@ var/list/preferences_datums = list()
 
 	character.s_tone = s_tone
 
-	character.lipstick_color = null
+	character.lipstick_data = null
 
 	character.citizenship = citizenship
 	character.employer_faction = faction

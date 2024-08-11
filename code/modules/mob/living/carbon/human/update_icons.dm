@@ -340,7 +340,8 @@ There are several things that need to be remembered:
 		var/datum/vampire/vampire = mind.antag_datums[MODE_VAMPIRE]
 		if(vampire && (vampire.status & VAMP_FRENZIED))
 			is_frenzied = "frenzy"
-	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lipstick_color || "nolips"][!!husk][!!fat][!!skeleton][is_frenzied]"
+	var/lipstick_key = lipstick_data ? "[lipstick_data.variant]-[lipstick_data.color]" : "nolips"
+	var/icon_key = "[species.race_key][g][s_tone][r_skin][g_skin][b_skin][lipstick_key][!!husk][!!fat][!!skeleton][is_frenzied]"
 	var/obj/item/organ/internal/eyes/eyes = get_eyes()
 	if(eyes)
 		icon_key += "[rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])]"
