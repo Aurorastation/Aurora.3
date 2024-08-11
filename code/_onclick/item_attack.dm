@@ -103,31 +103,36 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		to_chat(user, SPAN_WARNING("You don't want to harm other living beings!"))
 		return 0
 
-	if(!force)
-		playsound(loc, 'sound/weapons/tap.ogg', get_clamped_volume(), 1, -1)
-	else if(hitsound)
-		playsound(loc, hitsound, get_clamped_volume(), 1, -1)
-
-	/////////////////////////
-	user.lastattacked = M
-	M.lastattacker = user
-
-	if(!no_attack_log)
-		user.attack_log += "\[[time_stamp()]\]<span class='warning'> Attacked [M.name] ([M.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])</span>"
-		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])</font>"
-		msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(M, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M) )
-	/////////////////////////
-
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(M, src)
 	if(!user.aura_check(AURA_TYPE_WEAPON, src, user))
 		return FALSE
 
 	var/mob/living/victim = M.get_attack_victim(src, user, target_zone)
+	var/hit_zone
 	if(victim)
-		var/hit_zone = victim.resolve_item_attack(src, user, target_zone)
+		hit_zone = victim.resolve_item_attack(src, user, target_zone)
 		if(hit_zone)
 			apply_hit_effect(victim, user, hit_zone)
+
+	// Null hitzone means a miss.
+	if(hit_zone)
+		if(!force)
+			playsound(loc, 'sound/weapons/tap.ogg', get_clamped_volume(), 1, -1)
+		else if(hitsound)
+			playsound(loc, hitsound, get_clamped_volume(), 1, -1)
+	else
+		playsound(loc, 'sound/weapons/punchmiss2.ogg', get_clamped_volume(), 1, -1)
+
+	/////////////////////////
+	user.lastattacked = M
+	M.lastattacker = user
+
+	if(!no_attack_log)
+		user.attack_log += "\[[time_stamp()]\]<span class='warning'> [hit_zone ? "Attacked" : "Missed"] [M.name] ([M.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])</span>"
+		M.attack_log += "\[[time_stamp()]\]<font color='orange'> [hit_zone ? "Attacked" : "Missed"] by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)])</font>"
+		msg_admin_attack("[key_name(user, highlight_special = 1)] [hit_zone ? "attacked" : "missed"] [key_name(M, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damtype)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M) )
+	/////////////////////////
 
 	return 1
 
