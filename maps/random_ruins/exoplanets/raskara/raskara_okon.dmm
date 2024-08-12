@@ -359,6 +359,18 @@
 	temperature = 278.15
 	},
 /area/raskara_okon/medbay)
+"eL" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_okon";
+	name = "airlock_okon";
+	frequency = 1004
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/raskara_okon/entry)
 "eP" = (
 /obj/structure/table/standard,
 /obj/item/material/ashtray,
@@ -639,6 +651,23 @@
 	temperature = 278.15
 	},
 /area/raskara_okon/observatory)
+"iH" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_okon";
+	name = "airlock_okon";
+	frequency = 1004
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -25;
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/raskara_okon/entry)
 "iN" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -696,6 +725,23 @@
 	temperature = 278.15
 	},
 /area/raskara_okon/eva)
+"jm" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_okon";
+	name = "airlock_okon";
+	frequency = 1004
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 4;
+	pixel_x = -25
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/raskara_okon/entry)
 "jr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -1177,6 +1223,18 @@
 	temperature = 278.15
 	},
 /area/raskara_okon/eva)
+"pu" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_okon";
+	name = "airlock_okon";
+	frequency = 1004
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/raskara_okon/entry)
 "pD" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -1698,6 +1756,19 @@
 	temperature = 278.15
 	},
 /area/raskara_okon/engineer)
+"wu" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_okon";
+	name = "airlock_okon";
+	frequency = 1004
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/raskara_okon/entry)
 "wx" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1785,6 +1856,17 @@
 	temperature = 278.15
 	},
 /area/raskara_okon/mess_hall)
+"xI" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/structure/cargo_receptacle{
+	min_spawn = 1;
+	payment_modifier = 1.4;
+	override_name = "Raskara - Okon 001"
+	},
+/turf/simulated/floor/airless,
+/area/raskara_okon/entry)
 "xY" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/warning{
@@ -2407,6 +2489,22 @@
 	temperature = 278.15
 	},
 /area/raskara_okon/laboratory)
+"Fx" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_okon";
+	name = "airlock_okon";
+	frequency = 1004
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -9
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/raskara_okon/entry)
 "Fz" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -2508,7 +2606,8 @@
 "GW" = (
 /obj/structure/table/standard,
 /obj/machinery/photocopier/faxmachine{
-	req_one_access = null
+	req_one_access = list(209);
+	department = "Okon 001 Observation Outpost"
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -2670,6 +2769,7 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2850,6 +2950,14 @@
 "Me" = (
 /obj/machinery/light/small{
 	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_okon";
+	name = "airlock_okon";
+	frequency = 1004
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -3701,6 +3809,19 @@
 	},
 /area/raskara_okon/medbay)
 "Xk" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_okon";
+	name = "airlock_okon";
+	frequency = 1004
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 11;
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -4412,7 +4533,7 @@ HB
 TG
 YN
 RF
-UC
+xI
 Sg
 Sg
 HX
@@ -4480,9 +4601,9 @@ dg
 NG
 aX
 Xk
-Xk
-Xk
-Xk
+iH
+jm
+eL
 HX
 "}
 (17,1,1) = {"
@@ -4513,10 +4634,10 @@ Vn
 VH
 wK
 dg
-Xk
-Xk
+pu
+wu
 Me
-Xk
+Fx
 HX
 "}
 (18,1,1) = {"
