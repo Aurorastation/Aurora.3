@@ -992,8 +992,7 @@
 /area/raskara_okon/mess_hall)
 "lO" = (
 /obj/machinery/light/small/emergency{
-	dir = 8;
-	pixel_x = 16
+	dir = 8
 	},
 /turf/simulated/floor/airless,
 /area/raskara_okon/entry)
