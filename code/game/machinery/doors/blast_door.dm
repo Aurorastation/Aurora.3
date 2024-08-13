@@ -15,7 +15,7 @@
 	icon = 'icons/obj/doors/rapid_pdoor.dmi'
 	icon_state = null
 	dir = 1
-	closed_layer = ABOVE_WINDOW_LAYER
+	closed_layer = ABOVE_DOOR_LAYER
 	explosion_resistance = 25
 	pass_flags_self = PASSDOORS
 
