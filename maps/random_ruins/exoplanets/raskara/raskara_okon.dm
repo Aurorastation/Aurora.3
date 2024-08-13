@@ -43,7 +43,7 @@
 
 /area/raskara_okon/eva
 	name = "Okon 001 EVA Storage"
-	icon_state = "machinist_workshop"
+	icon_state = "eva"
 
 /area/raskara_okon/engineer
 	name = "Okon 001 Engineer"
