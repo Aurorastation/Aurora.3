@@ -3650,10 +3650,6 @@
 	temperature = 278.15
 	},
 /area/raskara_okon/mess_hall)
-"VT" = (
-/obj/effect/map_effect/airlock/long/square,
-/turf/simulated/wall/shuttle/raider,
-/area/raskara_okon/entry)
 "VV" = (
 /obj/structure/table/glass,
 /obj/item/storage/box/bodybags,
@@ -4573,7 +4569,7 @@ yR
 RF
 RF
 RF
-VT
+RF
 Vr
 "}
 (16,1,1) = {"
