@@ -237,3 +237,16 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 		if(message)
 			entry += "\n[message]"
 		WRITE_LOG(GLOB.config.logfiles["world_subsystems_tgui"], "TGUI: [entry]")
+
+/proc/loc_name(atom/A)
+	if(!istype(A))
+		return "(INVALID LOCATION)"
+
+	var/turf/T = A
+	if (!istype(T))
+		T = get_turf(A)
+
+	if(istype(T))
+		return "([AREACOORD(T)])"
+	else if(A.loc)
+		return "(UNKNOWN (?, ?, ?))"
