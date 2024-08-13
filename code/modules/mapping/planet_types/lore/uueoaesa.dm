@@ -39,6 +39,7 @@
 	features_budget = 1
 	surface_color = "#83857f"
 	charted = "Natural satellite of Tret, Unathi core world. Charted 2403CE, Sol Alliance Department of Colonization"
+	alignment = "Izweski Hegemony"
 	generated_name = FALSE
 	small_flora_types = list(/datum/seed/koisspore)
 	possible_themes = list(/datum/exoplanet_theme/barren/pid)
@@ -122,6 +123,7 @@
 	massvolume = "0.97/1.03"
 	surfacegravity = "0.93"
 	charted = "Unathi homeworld. Charted 2403CE, Sol Alliance Department of Colonization"
+	alignment = "Izweski Hegemony"
 	geology = "High tectonic heat. Significant geothermal activity detected."
 	weather = "Global full-atmosphere hydrological weather system. Substantial meteorological activity, violent storms unpredictable. Heavy radioactive contamination detected in atmosphere."
 	surfacewater = "34% surface water. Weak tidal forces from natural satellite."
@@ -263,6 +265,7 @@
 	massvolume = "0.94/1.0"
 	surfacegravity = "0.98"
 	charted = "Unathi core world. Charted 2403CE, Sol Alliance Department of Colonization"
+	alignment = "Izweski Hegemony"
 	geology = "High-energy geothermal signature, tectonic activity non-obstructive to surface environment"
 	weather = "Global full-atmosphere hydrological weather system. Dangerous meteorological activity not present"
 	surfacewater = "67% surface water. Four major surface seas detected."
