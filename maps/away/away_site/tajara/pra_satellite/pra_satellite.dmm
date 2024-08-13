@@ -1,7 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/window_spawner/full/shuttle/raider{
+	spawn_firedoor = 1;
+	req_one_access = list(209);
+	spawn_grille = 1
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -96,8 +99,9 @@
 	},
 /area/pra_satellite)
 "aR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1;
+	icon_state = "map-supply"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -120,6 +124,16 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"bm" = (
+/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/airlock_sensor{
+	pixel_y = 25
+	},
+/turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/pra_satellite)
@@ -172,30 +186,11 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
-"bI" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/port,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/pra_satellite)
 "bU" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen/multi,
 /turf/simulated/floor/wood{
-	temperature = 278.15
-	},
-/area/pra_satellite)
-"bY" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/port,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	pixel_y = 25
-	},
-/turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/pra_satellite)
@@ -232,6 +227,17 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"db" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
 /area/pra_satellite)
@@ -308,6 +314,16 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
+"eu" = (
+/obj/effect/map_effect/marker/airlock/pra_satellite/port,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 25
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
 "eB" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin,
@@ -315,16 +331,6 @@
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/pra_satellite)
-"eC" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/pra_satellite)
@@ -341,6 +347,14 @@
 "eL" = (
 /obj/machinery/computer/arcade/orion_trail,
 /turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"eY" = (
+/obj/machinery/light/small,
+/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/pra_satellite)
@@ -398,11 +412,13 @@
 	},
 /area/pra_satellite)
 "gb" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider{
-	spawn_firedoor = 1;
-	req_one_access = list(209);
-	spawn_grille = 1
+/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -9
 	},
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -448,6 +464,9 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 6
 	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -484,18 +503,6 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
-"hs" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button{
-	pixel_x = -28;
-	pixel_y = -9
-	},
-/obj/machinery/door/airlock/external,
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/pra_satellite)
 "hD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -528,16 +535,6 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
-"hR" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/machinery/airlock_sensor{
-	pixel_y = 25
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/pra_satellite)
 "hX" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -550,14 +547,6 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/pra_satellite)
-"id" = (
-/obj/machinery/light/small,
-/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/pra_satellite)
@@ -600,6 +589,17 @@
 "jb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"jd" = (
+/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	frequency = 2137
+	},
+/turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/pra_satellite)
@@ -674,7 +674,9 @@
 /area/pra_satellite)
 "lo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -685,25 +687,21 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
-"lp" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/port,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/machinery/airlock_sensor{
-	pixel_y = 25
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/pra_satellite)
 "lu" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/space)
-"lH" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/door/airlock/external,
+"lK" = (
+/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button/airlock_exterior{
+	pixel_x = -8;
+	pixel_y = 30;
+	dir = 8
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -733,7 +731,9 @@
 	},
 /area/pra_satellite)
 "mb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
@@ -769,19 +769,6 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
-"mw" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/port,
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/pra_satellite)
 "nn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
@@ -800,10 +787,9 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
-"nZ" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5
+"ov" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -874,20 +860,6 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
-"px" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
-	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	pixel_y = 6;
-	pixel_x = 20;
-	dir = 8
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/pra_satellite)
 "pR" = (
 /obj/effect/shuttle_landmark/pra_satellite/nav2,
 /turf/template_noop,
@@ -942,11 +914,34 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
+"rl" = (
+/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
 "sc" = (
 /obj/effect/shuttle_landmark/pra_satellite/nav3,
 /turf/template_noop,
 /area/space)
-"ss" = (
+"sn" = (
+/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 6;
+	pixel_x = 20;
+	dir = 8
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"sp" = (
 /obj/effect/map_effect/marker/airlock/pra_satellite/aft,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
@@ -977,6 +972,16 @@
 	dir = 4
 	},
 /obj/machinery/light,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"sP" = (
+/obj/effect/map_effect/marker/airlock/pra_satellite/port,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -1034,11 +1039,12 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 6
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1;
+	icon_state = "map-supply"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
@@ -1064,7 +1070,7 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
-"uy" = (
+"uB" = (
 /obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -1167,16 +1173,6 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
-"xT" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	pixel_y = 25
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/pra_satellite)
 "yh" = (
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1194,6 +1190,19 @@
 "yx" = (
 /obj/effect/floor_decal/corner/black/full,
 /turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"yC" = (
+/obj/effect/map_effect/marker/airlock/pra_satellite/port,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/pra_satellite)
@@ -1232,6 +1241,12 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -1276,6 +1291,14 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
+"AG" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
 "AS" = (
 /obj/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor{
@@ -1312,31 +1335,6 @@
 "Bu" = (
 /obj/machinery/light{
 	dir = 8
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/pra_satellite)
-"Bz" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/port,
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/pra_satellite)
-"BG" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/port,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button/airlock_exterior{
-	pixel_x = 8;
-	pixel_y = 30;
-	dir = 4
-	},
-/obj/machinery/door/airlock/external{
-	dir = 4
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -1393,6 +1391,15 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
+"DQ" = (
+/obj/effect/map_effect/marker/airlock/pra_satellite/port,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
 "Fc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/red{
@@ -1402,18 +1409,21 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
+"Fe" = (
+/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
 "Ff" = (
 /obj/effect/floor_decal/corner/black/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/pra_satellite)
-"Fg" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
-/obj/machinery/atmospherics/pipe/manifold/hidden,
-/turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/pra_satellite)
@@ -1536,6 +1546,16 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
+"Hv" = (
+/obj/effect/map_effect/marker/airlock/pra_satellite/port,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/airlock_sensor{
+	pixel_y = 25
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
 "HE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/red{
@@ -1548,10 +1568,8 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
-"HI" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/door/airlock/external{
+"HG" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor{
@@ -1563,6 +1581,13 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/carpet/art{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"IE" = (
+/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/pra_satellite)
@@ -1599,12 +1624,28 @@
 "Kn" = (
 /turf/template_noop,
 /area/space)
-"KR" = (
+"Ky" = (
 /obj/effect/map_effect/marker/airlock/pra_satellite/port,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"KA" = (
+/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 25
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Lb" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -1661,6 +1702,13 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
+"MC" = (
+/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
 "ME" = (
 /obj/structure/bed/padded,
 /obj/structure/curtain/open/bed,
@@ -1685,21 +1733,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
-	temperature = 278.15
-	},
-/area/pra_satellite)
-"Nk" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button/airlock_exterior{
-	pixel_x = -8;
-	pixel_y = 30;
-	dir = 8
-	},
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor{
 	temperature = 278.15
 	},
 /area/pra_satellite)
@@ -1754,6 +1787,15 @@
 /area/pra_satellite)
 "Qk" = (
 /obj/machinery/atmospherics/binary/pump/on,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
+"Qn" = (
+/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/airlock/external,
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -1842,6 +1884,16 @@
 /obj/effect/shuttle_landmark/pra_satellite/nav1,
 /turf/template_noop,
 /area/space)
+"Vc" = (
+/obj/effect/map_effect/marker/airlock/pra_satellite/starboard,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/pra_satellite)
 "Vh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -1882,12 +1934,16 @@
 	temperature = 278.15
 	},
 /area/pra_satellite)
-"Wu" = (
-/obj/effect/map_effect/marker/airlock/pra_satellite/aft,
-/obj/machinery/airlock_sensor{
-	pixel_x = 20;
-	dir = 8;
-	frequency = 2137
+"Wx" = (
+/obj/effect/map_effect/marker/airlock/pra_satellite/port,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button/airlock_exterior{
+	pixel_x = 8;
+	pixel_y = 30;
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -1934,6 +1990,10 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/light,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4;
+	icon_state = "map_scrubber_on"
+	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -1988,6 +2048,12 @@
 /obj/machinery/door/airlock/engineering{
 	req_access = list(209);
 	name = "Power";
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
@@ -26051,8 +26117,8 @@ wc
 wc
 Kn
 wc
-Nk
-HI
+lK
+Vc
 wc
 Kn
 Kn
@@ -26308,8 +26374,8 @@ da
 wc
 Kn
 wc
-hR
-nZ
+bm
+rl
 wc
 Kn
 Kn
@@ -26565,8 +26631,8 @@ ma
 wc
 Kn
 wc
-xT
-id
+KA
+eY
 wc
 Kn
 Kn
@@ -26813,7 +26879,7 @@ wc
 lL
 lL
 lL
-ww
+Lb
 zF
 wc
 kP
@@ -26822,8 +26888,8 @@ Gu
 wc
 Kn
 wc
-eC
-uy
+Fe
+uB
 wc
 Kn
 Kn
@@ -27323,7 +27389,7 @@ Kn
 Kn
 Kn
 Kn
-gb
+aa
 bU
 by
 vA
@@ -27580,7 +27646,7 @@ Kn
 Kn
 Kn
 Kn
-gb
+aa
 JL
 fG
 Nh
@@ -27846,13 +27912,13 @@ aN
 AA
 wc
 wc
-gb
-gb
-gb
-gb
-gb
-gb
-gb
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 wc
 wc
 PQ
@@ -28363,12 +28429,12 @@ wg
 wg
 wg
 wc
-gb
-gb
+aa
+aa
 wc
 Kn
 Kn
-gb
+aa
 Jy
 wD
 wc
@@ -28625,7 +28691,7 @@ eB
 wc
 wc
 wg
-gb
+aa
 Jy
 aK
 wc
@@ -28865,7 +28931,7 @@ Kn
 Kn
 Kn
 Kn
-gb
+aa
 eg
 vF
 dB
@@ -28873,22 +28939,22 @@ wc
 aO
 AA
 wc
-gb
-gb
+aa
+aa
 wc
 Gq
 LU
 Yt
 cw
-gb
+aa
 Kn
-gb
+aa
 Jy
 fU
 yx
 wc
 Ly
-ss
+sp
 wc
 Kn
 Kn
@@ -29122,7 +29188,7 @@ lu
 lu
 lu
 lu
-gb
+aa
 Km
 vF
 TQ
@@ -29137,16 +29203,16 @@ hX
 Hd
 qy
 oP
-gb
+aa
 Kn
 wc
 fa
 Zr
 Qv
-lH
-aa
-Fg
-hs
+Qn
+MC
+IE
+gb
 lu
 lu
 lu
@@ -29379,7 +29445,7 @@ Kn
 Kn
 Kn
 Kn
-gb
+aa
 fm
 jb
 Gw
@@ -29387,22 +29453,22 @@ wc
 GK
 AA
 wc
-gb
-gb
+aa
+aa
 wc
 NK
 di
 uw
 CM
-gb
+aa
 Kn
-gb
+aa
 Jy
 Wy
 Av
 wc
-Wu
-px
+jd
+sn
 wc
 Kn
 Kn
@@ -29636,7 +29702,7 @@ Kn
 Kn
 Kn
 Kn
-gb
+aa
 vy
 yh
 hb
@@ -29653,7 +29719,7 @@ gY
 wc
 wc
 wg
-gb
+aa
 Jy
 aK
 wc
@@ -29905,12 +29971,12 @@ wg
 wg
 wg
 wc
-gb
-gb
+aa
+aa
 wc
 Kn
 Kn
-gb
+aa
 Jy
 AA
 wc
@@ -30410,19 +30476,19 @@ Kn
 wc
 jP
 ww
-ww
+HG
 wc
 aR
-AA
+db
 wc
 wc
-gb
-gb
-gb
-gb
-gb
-gb
-gb
+aa
+aa
+aa
+aa
+aa
+aa
+aa
 wc
 wc
 Jy
@@ -31438,8 +31504,8 @@ Kn
 wc
 AS
 OH
-fT
-ww
+AG
+ov
 ww
 Bu
 ww
@@ -31448,8 +31514,8 @@ sW
 wc
 Kn
 wc
-Bz
-mw
+Ky
+yC
 wc
 Kn
 Kn
@@ -31705,7 +31771,7 @@ ww
 wc
 Kn
 wc
-bY
+eu
 FB
 wc
 Kn
@@ -31962,8 +32028,8 @@ NO
 wc
 Kn
 wc
-lp
-bI
+Hv
+DQ
 wc
 Kn
 Kn
@@ -32219,8 +32285,8 @@ wc
 wc
 Kn
 wc
-BG
-KR
+Wx
+sP
 wc
 Kn
 Kn
