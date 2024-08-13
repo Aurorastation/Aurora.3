@@ -139,6 +139,7 @@
 	massvolume = "0.86/0.98"
 	surfacegravity = "0.80"
 	charted = "Tajaran homeworld, charted 2418CE, NanoTrasen Corporation"
+	alignment = "Contested"
 	geology = "Minimal tectonic heat, miniscule geothermal signature overall"
 	weather = "Global full-atmosphere hydrological weather system. Substantial meteorological activity, violent storms unpredictable"
 	surfacewater = "Majority frozen, 78% surface water. Significant tidal forces from natural satellite"
@@ -165,7 +166,6 @@
 		landing_faction = "North Pole"
 	else
 		landing_faction = pick("People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai")
-		alignment = landing_faction
 	switch(landing_faction)
 		if("People's Republic of Adhomai")
 			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
