@@ -786,9 +786,9 @@
 		/obj/item/stack/medical/ointment = 5,
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 2,
 		/obj/item/storage/pill_bottle/vitamin = 5,
-		/obj/item/storage/pill_bottle/cetahydramine  = 4, 
-		/obj/item/storage/pill_bottle/caffeine = 3, 
-		/obj/item/storage/pill_bottle/nicotine  = 4, 
+		/obj/item/storage/pill_bottle/cetahydramine  = 4,
+		/obj/item/storage/pill_bottle/caffeine = 3,
+		/obj/item/storage/pill_bottle/nicotine  = 4,
 		/obj/item/storage/pill_bottle/rmt = 2
 	)
 	prices = list(
@@ -799,9 +799,9 @@
 		/obj/item/stack/medical/ointment = 8,
 		/obj/item/reagent_containers/hypospray/autoinjector/inaprovaline = 14,
 		/obj/item/storage/pill_bottle/vitamin = 55,
-		/obj/item/storage/pill_bottle/cetahydramine  = 60, 
-		/obj/item/storage/pill_bottle/caffeine = 90, 
-		/obj/item/storage/pill_bottle/nicotine  = 85, 
+		/obj/item/storage/pill_bottle/cetahydramine  = 60,
+		/obj/item/storage/pill_bottle/caffeine = 90,
+		/obj/item/storage/pill_bottle/nicotine  = 85,
 		/obj/item/storage/pill_bottle/rmt = 550
 	)
 	contraband = list(
