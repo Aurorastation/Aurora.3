@@ -39,7 +39,7 @@
 
 /area/raskara_okon/entry
 	name = "Okon 001 Entry"
-	icon_state = "thunder"
+	icon_state = "exit"
 
 /area/raskara_okon/eva
 	name = "Okon 001 EVA Storage"

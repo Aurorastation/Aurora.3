@@ -39,6 +39,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -70,6 +73,10 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -202,7 +209,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "cE" = (
 /obj/machinery/body_scanconsole{
 	dir = 1
@@ -529,7 +536,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "hj" = (
 /obj/item/sign/painting_frame/hadii{
 	pixel_y = 32
@@ -568,7 +575,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "hA" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_okon";
@@ -768,6 +775,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -805,6 +815,9 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1211,7 +1224,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "pH" = (
 /obj/structure/table/rack,
 /obj/structure/window/reinforced{
@@ -1237,7 +1250,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "pP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1251,11 +1264,13 @@
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "pV" = (
 /obj/machinery/conveyor_switch/oneway{
 	id = "okon_base_belt"
@@ -1374,7 +1389,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "rf" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -1424,7 +1439,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "so" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -1454,6 +1469,20 @@
 	temperature = 278.15
 	},
 /area/raskara_okon/barracks)
+"sR" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/high/north{
+	req_access = list(209)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/raskara_okon)
 "sS" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -1491,7 +1520,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "tF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -1516,7 +1545,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "tJ" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1562,7 +1591,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "uj" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
@@ -1629,7 +1658,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "vA" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -1678,6 +1707,10 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -1874,7 +1907,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "yB" = (
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2101,6 +2134,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2115,7 +2152,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "Av" = (
 /turf/simulated/wall/shuttle/raider,
 /area/raskara_okon/mining)
@@ -2158,7 +2195,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "AK" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
@@ -2214,7 +2251,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "Br" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_okon";
@@ -2239,6 +2276,9 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -2326,7 +2366,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "Cp" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
@@ -2501,15 +2541,22 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "Gh" = (
 /obj/machinery/door/airlock/glass_medical{
 	req_access = list(209);
 	name = "Medbay";
 	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -2814,6 +2861,9 @@
 	name = "Restroom";
 	dir = 1
 	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/freezer{
 	temperature = 278.15
 	},
@@ -2866,6 +2916,9 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3025,7 +3078,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "Na" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
@@ -3150,7 +3203,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "Os" = (
 /obj/machinery/power/apc/high/north{
 	req_access = list(209)
@@ -3356,6 +3409,10 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3379,7 +3436,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "Rw" = (
 /obj/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor{
@@ -3396,7 +3453,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "RF" = (
 /turf/simulated/wall/shuttle/raider,
 /area/raskara_okon/entry)
@@ -3545,7 +3602,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "Ud" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -3560,7 +3617,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "Ux" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_okon";
@@ -3700,7 +3757,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "Wp" = (
 /obj/machinery/artifact_analyser,
 /obj/effect/floor_decal/spline/plain/cee/black{
@@ -3750,7 +3807,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "WG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -3842,7 +3899,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "XF" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
@@ -3910,7 +3967,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/raskara_okon/entry)
+/area/raskara_okon)
 "Yr" = (
 /obj/machinery/door/airlock{
 	req_access = list(209);
@@ -3923,6 +3980,9 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -3985,6 +4045,10 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4582,7 +4646,7 @@ AS
 jg
 Ph
 gs
-tl
+sR
 Xv
 Oc
 hj
