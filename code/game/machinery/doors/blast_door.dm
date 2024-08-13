@@ -221,7 +221,7 @@
 	icon_state_closing = "shutterc1"
 	icon_state = "shutter1"
 	damage = SHUTTER_CRUSH_DAMAGE
-	close_layer = CLOSED_DOOR_LAYER
+	closed_layer = CLOSED_DOOR_LAYER
 
 /obj/machinery/door/blast/shutters/open
 	icon_state = "shutter0"
