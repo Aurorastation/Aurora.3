@@ -3675,6 +3675,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/table/standard,
+/obj/machinery/photocopier/faxmachine{
+	req_one_access = list(209);
+	department = "Database Freighter"
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
