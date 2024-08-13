@@ -240,7 +240,8 @@
 "cw" = (
 /obj/structure/table/standard,
 /obj/machinery/photocopier/faxmachine{
-	req_one_access = list(209)
+	department = "PRA Survey Satellite";
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
