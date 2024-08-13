@@ -77,6 +77,8 @@ Possible to do for anyone motivated enough:
 
 	light_color = long_range ? rgb(225, 173, 125) : rgb(125, 180, 225)
 
+	GLOB.listening_objects += src
+
 /obj/machinery/hologram/holopad/proc/get_holopad_id()
 	var/area/A = get_area(src)
 	holopad_id = "[A.name] ([src.x]-[src.y]-[src.z])"
@@ -522,6 +524,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	clear_holos(TRUE)
 	SSmachinery.all_holopads -= src
 	linked_pdas.Cut()
+	GLOB.listening_objects -= src
 	return ..()
 
 /obj/effect/overlay/hologram

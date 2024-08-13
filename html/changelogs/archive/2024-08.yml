@@ -1,0 +1,57 @@
+2024-08-02:
+  Ben10083:
+  - bugfix: Idris Cruiser now has firedoors with proper access, alongside firealarms.
+  - rscadd: Mining Module now provides access to hailing channel.
+  - balance: Change cyborg jetpack module material requirements to use silver instead
+      of phoron.
+  DreamySkrell:
+  - rscadd: Expands Intrepid passenger seating.
+  - rscadd: Expands expedition supplies in the Intrepid hangar.
+  FluffyGhost:
+  - bugfix: Crusher will not stop and stare at effects anymore.
+  Geeves:
+  - bugfix: Fixed AIs not being able to see visible emotes through holopads.
+  Pirouette:
+  - balance: Skrell are now able to leap three tiles instead of two.
+  SimpleMaroon:
+  - qol: Allowed the Cyborg scientific gripper to hold integrated circuit printers,
+      in order to facilitate R&D.
+  - rscadd: Added a jungle hide mantle to the peasant hide mantle selection for Unathi.
+2024-08-03:
+  Geeves:
+  - bugfix: Fixed AI hologram loadout characters being nude.
+  MattAtlas:
+  - rscadd: Melee weapons now give audiovisual feedback when they miss a target.
+  SimpleMaroon:
+  - rscadd: Added a 'knockout blow' technique to the Kis-Khan martial art that renders
+      a simple animal temporarily paralyzed. It can be performed with disarm intent.
+  - code_imp: Adjusted disarm intent on simple mobs to be compatible with martial
+      arts.
+2024-08-12:
+  AlaunusLux:
+  - bugfix: Explosive Implants targeting the Localized Limb no longer fail to remove
+      the limb.
+  - bugfix: Exploded limbs will now bleed and cause pain.
+  Ben10083:
+  - rscadd: Various improvements to the Orion Express mobile station, including new
+      docking arms for docking in all directions.
+  CourierBravo:
+  - rscadd: Added an encryption key vendor for the Executive Officer. Additionally,
+      added an encryption restock canister, and made it available for janitors through
+      their Omni-Vendor.
+  - imageadd: Added a modified sprite for the encryption key vendor.
+  - rscdel: Removed the Boba from the dinnerware premium list.
+  - spellcheck: Scrubs Hephaestus Industries as the manufacturer of some laser weapons,
+      replacing them with NanoTrasen. Fixes some grammar goofs in some laser weapon
+      discs. Hephaestus remains the manufacturer of the thermal drill, however.
+  DreamySkrell:
+  - rscadd: Removes the Crew Armory.
+  - rscadd: Removes the Leviathan.
+  - rscadd: Updates mapmerge2 tool with most current tg version.
+  - rscadd: Freebooter Ship - turns pods into submaps.
+  SimpleMaroon:
+  - bugfix: Added some Diona body markings that were not previously moved over when
+      Diona hair and facial hair styles were removed.
+  budg:
+  - imageadd: Added several pairs of colourable boots to the loadout, also added colourable
+      thigh-high sneakers and flats.

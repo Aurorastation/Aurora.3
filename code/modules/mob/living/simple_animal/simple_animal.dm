@@ -500,6 +500,7 @@
 
 /mob/living/simple_animal/attack_hand(mob/living/carbon/human/M as mob)
 	..()
+	var/datum/martial_art/attacker_style = M.primary_martial_art
 	switch(M.a_intent)
 
 		if(I_HELP)
@@ -508,6 +509,8 @@
 				poke()
 
 		if(I_DISARM)
+			if(attacker_style && attacker_style.disarm_act(M, src))
+				return TRUE
 			M.visible_message("<b>\The [M]</b> [response_disarm] \the [src]")
 			M.do_attack_animation(src)
 			poke(1)
