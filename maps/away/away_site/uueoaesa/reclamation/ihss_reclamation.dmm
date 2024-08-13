@@ -2878,6 +2878,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/easthall)
+"ow" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/structure/tranqcabinet{
+	pixel_x = -64
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/medsci)
 "ox" = (
 /obj/structure/table/steel,
 /obj/item/device/binoculars,
@@ -3958,9 +3969,6 @@
 /obj/item/clothing/gloves/latex/vaurca,
 /obj/item/clothing/gloves/latex/vaurca,
 /obj/item/device/taperecorder,
-/obj/machinery/light{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -7765,14 +7773,14 @@
 /area/ihss_reclamation/atmos)
 "LN" = (
 /obj/structure/table/standard,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/structure/window/reinforced,
 /obj/machinery/recharger,
 /obj/effect/floor_decal/corner/red{
 	color = "#941307";
 	dir = 10
+	},
+/obj/structure/window/reinforced{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/bridge)
@@ -9970,6 +9978,9 @@
 	pixel_x = -6;
 	pixel_y = 6
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -10388,6 +10399,8 @@
 /obj/item/shield/energy/hegemony,
 /obj/item/clothing/suit/unathi/robe/robe_coat/blue,
 /obj/item/clothing/suit/unathi/robe/robe_coat/orange,
+/obj/item/clothing/suit/unathi/robe/robe_coat/red,
+/obj/item/clothing/suit/unathi/robe/robe_coat,
 /turf/simulated/floor/carpet/lightblue,
 /area/ihss_reclamation/captain)
 "XQ" = (
@@ -50229,7 +50242,7 @@ wF
 gz
 vh
 oc
-Ch
+ow
 Xq
 Xq
 ch
