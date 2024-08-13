@@ -134,8 +134,6 @@
 		return
 	last_progress = progress
 	bar.icon_state = "prog_bar_[round(((progress / goal) * 100), 5)]"
-	if(progress == goal)
-		end_progress()
 
 
 ///Called on progress end, be it successful or a failure. Wraps up things to delete the datum and bar.
