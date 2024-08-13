@@ -56,5 +56,5 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - balance: "Removed the tranquilizer rifle from the HoS's office, placing it in the RD's office instead. Removed the tranquilizer ammo box from the HoS locker, and into the RD's locker."
-  - refactor: "Reflavored the tranquilizer rifle away from being a modified anti material rifle. Also, reflavored its ammo to be Plastic-Gas Shells instead of .50 cal shells."
-  - rscadd: "Expanded the RD's office slightly and reshuffled it to allow for space for the tranquilizer cabinet."
+  - rscadd: "Reflavored the tranquilizer rifle's description away from being a modified anti material rifle. Also, reflavored its ammo to be Plastic-Gas Shells instead of .50 cal shells."
+  - rscadd: "Expanded the RD's office slightly and shuffled a few things around to allow for the space for the tranquilizer cabinet."
