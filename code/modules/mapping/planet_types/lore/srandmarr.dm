@@ -165,6 +165,7 @@
 		landing_faction = "North Pole"
 	else
 		landing_faction = pick("People's Republic of Adhomai", "Democratic People's Republic of Adhomai", "New Kingdom of Adhomai")
+		alignment = landing_faction
 	switch(landing_faction)
 		if("People's Republic of Adhomai")
 			ruin_type_whitelist = list (/datum/map_template/ruin/exoplanet/adhomai_hunting, /datum/map_template/ruin/exoplanet/adhomai_minefield, /datum/map_template/ruin/exoplanet/adhomai_village,
