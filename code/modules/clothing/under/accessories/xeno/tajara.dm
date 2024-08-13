@@ -407,6 +407,13 @@
 	desc_extended = "Tajani, also known as 'short people' in basic, are good-willed tiny elder Tajara who serve as guardians of nature and homes. \
 	Hand carved charms of them is considered a symbol of luck and as such many superstitious tajara keeps one around."
 
+/obj/item/clothing/accessory/tajaran/charm/twin_suns
+	name = "twin suns charm"
+	desc = "A charm depicting the suns of S'rand'marr."
+	desc_extended = "I LOVE YOU SRENDARR AND MESSII"
+	icon_state = "suns_talisman"
+	item_state = "suns_talisman"
+
 /obj/item/clothing/accessory/tajaran/charm/raskariim
 	name = "metal amulet"
 	desc = "An amulet made of some light metal."
