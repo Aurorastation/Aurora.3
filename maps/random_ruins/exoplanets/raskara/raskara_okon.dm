@@ -27,7 +27,7 @@
 
 /area/raskara_okon/mess_hall
 	name = "Okon 001 Mess Hall"
-	icon_state = "bridge"
+	icon_state = "lounge"
 
 /area/raskara_okon/barracks
 	name = "Okon 001 Barracks"
