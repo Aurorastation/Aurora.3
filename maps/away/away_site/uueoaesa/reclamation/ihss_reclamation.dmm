@@ -2367,6 +2367,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/dock)
+"md" = (
+/obj/machinery/light{
+	inserted_light = /obj/item/light/tube/colored/blue
+	},
+/turf/simulated/floor/plating,
+/area/ihss_reclamation/hangar1)
 "mf" = (
 /obj/effect/floor_decal/corner/yellow/diagonal{
 	dir = 1;
@@ -6020,7 +6026,7 @@
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "CU" = (
-/obj/machinery/power/smes/buildable/power_shuttle,
+/obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable,
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
@@ -9447,7 +9453,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/hangarhall)
 "TI" = (
-/obj/structure/lattice/catwalk,
 /obj/machinery/iff_beacon/name_change,
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/airless,
@@ -38652,7 +38657,7 @@ FA
 FA
 FA
 FA
-FA
+md
 dO
 RX
 Qn
@@ -39680,7 +39685,7 @@ FA
 FA
 FA
 MR
-FA
+md
 dO
 AS
 vG
@@ -41222,7 +41227,7 @@ FA
 FA
 FA
 MR
-FA
+md
 dO
 AS
 vG
@@ -42250,7 +42255,7 @@ FA
 FA
 FA
 MR
-FA
+md
 dO
 AS
 vG
