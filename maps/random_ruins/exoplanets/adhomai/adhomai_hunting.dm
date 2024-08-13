@@ -9,7 +9,7 @@
 	sectors = list(SECTOR_SRANDMARR)
 
 	prefix = "adhomai/"
-	suffixes = list("adhomai_hunting.dmm")
+	suffix = "adhomai_hunting.dmm"
 
 	unit_test_groups = list(3)
 

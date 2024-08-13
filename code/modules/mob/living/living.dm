@@ -889,7 +889,7 @@ default behaviour is:
 		return 0
 
 	message_admins("<span class='adminnotice'>[key_name_admin(possessor)] has taken control of \the [src].</span>")
-	log_admin("[key_name(possessor)] took control of \the [src].",admin_key=key_name(possessor))
+	log_admin("[key_name(possessor)] took control of \the [src].")
 	src.ckey = possessor.ckey
 	qdel(possessor)
 
@@ -910,6 +910,12 @@ default behaviour is:
 	. = ..()
 	add_to_target_grid()
 	ability_master = new /obj/screen/movable/ability_master(FALSE, src)
+
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
 
 /mob/living/Destroy()
 
@@ -953,11 +959,12 @@ default behaviour is:
 	var/test_types = test.find_type()
 	. = (eat_types & test_types) == test_types
 
-/mob/living/Crossed(var/atom/movable/AM)
-	if(istype(AM, /mob/living/heavy_vehicle))
-		var/mob/living/heavy_vehicle/MB = AM
+/mob/living/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if(istype(arrived, /mob/living/heavy_vehicle))
+		var/mob/living/heavy_vehicle/MB = arrived
 		MB.trample(src)
-	..()
 
 #define PPM 9	//Protein per meat, used for calculating the quantity of protein in an animal
 /mob/living/proc/calculate_composition()

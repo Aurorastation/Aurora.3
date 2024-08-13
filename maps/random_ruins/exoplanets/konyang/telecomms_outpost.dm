@@ -9,7 +9,7 @@
 	sectors = list(SECTOR_HANEUNIM)
 
 	prefix = "konyang/"
-	suffixes = list("telecomms_outpost.dmm")
+	suffix = "telecomms_outpost.dmm"
 
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/konyang_abandoned_outpost)
 

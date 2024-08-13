@@ -2,7 +2,7 @@
 	name = "flare"
 	desc = "A red standard-issue flare. There are instructions on the side reading 'twist cap off, make light'."
 	desc_info = "Use this item in your hand, to turn on the light."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	brightness_on = 3 // Pretty bright.
 	light_power = 4
 	light_color = LIGHT_COLOR_FLARE //"#E58775"
@@ -87,7 +87,7 @@
 	name = "torch"
 	desc = "A rustic source of light."
 	desc_info = "Click on a source of flame, to light the torch."
-	w_class = ITEMSIZE_LARGE
+	w_class = WEIGHT_CLASS_BULKY
 	brightness_on = 2
 	light_power = 3
 	light_color = LIGHT_COLOR_FIRE
@@ -152,7 +152,7 @@
 /obj/item/torch
 	name = "torch handle"
 	desc = "A torch handle without its head."
-	w_class = ITEMSIZE_NORMAL
+	w_class = WEIGHT_CLASS_NORMAL
 	icon_state = "torch-empty"
 	item_state = "torch-empty"
 	icon = 'icons/obj/lighting.dmi'

@@ -70,7 +70,7 @@
 /obj/item/tray/proc/attempt_load_item(var/obj/item/I, var/mob/user, var/messages = TRUE, var/click_params)
 	if(!I || (I in contents))
 		return
-	if(I == src || I.anchored || istype(I, /obj/item/projectile))
+	if(I == src || I.anchored || istype(I, /obj/projectile))
 		return
 	if(istype(I, /obj/item/tray))
 		var/obj/item/tray/T = I

@@ -24,7 +24,7 @@
 			return 0
 		if(message_mode == "general")
 			message_mode = null
-		log_say("[key_name(src)] : [message]",ckey=key_name(src))
+		log_say("[key_name(src)] : [message]")
 		return common_radio.talk_into(src, message, message_mode, verb, speaking)
 
 /mob/living/silicon/robot/drone/handle_message_mode()
@@ -35,7 +35,7 @@
 		whisper(message, speaking, say_verb = TRUE)
 		return TRUE
 	if(message_mode == "department")
-		log_say("[key_name(src)] : [message]",ckey=key_name(src))
+		log_say("[key_name(src)] : [message]")
 		return holopad_talk(message, verb, speaking)
 	else if(message_mode)
 		if(ai_radio.disabledAi || ai_restore_power_routine || stat)
@@ -43,7 +43,7 @@
 			return FALSE
 		if(message_mode == "general")
 			message_mode = null
-		log_say("[key_name(src)] : [message]",ckey=key_name(src))
+		log_say("[key_name(src)] : [message]")
 		return ai_radio.talk_into(src, message, message_mode, verb, speaking)
 
 /mob/living/silicon/pai/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
@@ -53,7 +53,7 @@
 			return TRUE
 		if(message_mode == "general")
 			message_mode = null
-		log_say("[key_name(src)] : [message]",ckey=key_name(src))
+		log_say("[key_name(src)] : [message]")
 		return radio.talk_into(src, message, message_mode, verb, speaking)
 
 /mob/living/silicon/say_quote(var/text, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
@@ -94,7 +94,7 @@
 
 //For holopads only. Usable by AI.
 /mob/living/silicon/ai/proc/holopad_talk(var/message, verb, datum/language/speaking)
-	log_say("[key_name(src)] : [message]",ckey=key_name(src))
+	log_say("[key_name(src)] : [message]")
 	message = trim(message)
 	if(!message)
 		return
@@ -142,7 +142,7 @@
 	return TRUE
 
 /mob/living/silicon/ai/proc/holopad_emote(var/message) //This is called when the AI uses the 'me' verb while using a holopad.
-	log_emote("[key_name(src)] : [message]",ckey=key_name(src))
+	log_emote("[key_name(src)] : [message]")
 
 	message = trim(message)
 	if(!message)

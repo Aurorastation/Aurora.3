@@ -1,7 +1,7 @@
 /obj/item/device/electronic_assembly
 	name = "electronic assembly"
 	desc = "It's a case, for building small electronics with."
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	icon = 'icons/obj/assemblies/electronic_setups.dmi'
 	icon_state = "setup_small"
 	item_flags = ITEM_FLAG_NO_BLUDGEON
@@ -17,7 +17,7 @@
 	name = "electronic implant"
 	icon_state = "setup_implant"
 	desc = "It's a case, for building very tiny electronics with."
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	max_components = IC_COMPONENTS_BASE / 2
 	max_complexity = IC_COMPLEXITY_BASE / 2
 	var/obj/item/implant/integrated_circuit/implant = null

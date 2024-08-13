@@ -229,7 +229,7 @@
 	return new_name
 
 /datum/language/bug/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
-	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
+	log_say("[key_name(speaker)] : ([name]) [message]")
 
 	if(!speaker_mask)
 		speaker_mask = speaker.real_name

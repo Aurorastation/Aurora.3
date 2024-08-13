@@ -20,13 +20,13 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 1, "muffin" = 2, "berries" = 2))
 
 /obj/item/reagent_containers/food/snacks/muffin/chocolate
-	name = "berry muffin"
+	name = "chocolate muffin"
 	desc = "A delicious and spongy little cake, with chocolate chips."
 	icon_state = "muffin_chocolate"
 	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 1, "muffin" = 2, "chocolate" = 2))
 
 /obj/item/reagent_containers/food/snacks/muffin/whitechocolate
-	name = "chocolate muffin"
+	name = "white chocolate muffin"
 	desc = "A delicious and spongy little cake, with white chocolate chips."
 	icon_state = "muffin_whitechocolate"
 	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 1, "muffin" = 2, "white chocolate" = 2))

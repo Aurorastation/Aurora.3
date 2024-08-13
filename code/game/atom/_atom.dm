@@ -131,8 +131,8 @@
 	SHOULD_CALL_PARENT(TRUE)
 
 	if(SEND_SIGNAL(src, COMSIG_ATOM_RELAYMOVE, user, direction) & COMSIG_BLOCK_RELAYMOVE)
-		return FALSE
-	return TRUE
+		return
+	return
 
 
 /**

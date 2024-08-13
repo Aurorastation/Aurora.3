@@ -6,7 +6,7 @@
 	contained_sprite = TRUE
 	item_state = "pill_canister"
 	center_of_mass = list("x" = 16,"y" = 12)
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/stack/dice,/obj/item/paper)
 	allow_quick_gather = 1
 	use_to_pickup = 1

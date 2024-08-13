@@ -46,7 +46,8 @@
 			. += SPAN_WARNING("It's crumbling apart, just a few more blows will tear it apart!")
 
 /obj/structure/barricade/update_icon()
-	overlays.Cut()
+	CutOverlays()
+
 	if(!closed)
 		if(can_change_dmg_state)
 			icon_state = "[barricade_type]_[damage_state]"
@@ -70,9 +71,9 @@
 
 	if(is_wired)
 		if(!closed)
-			overlays += image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_wire")
+			AddOverlays(image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_wire"))
 		else
-			overlays += image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_closed_wire")
+			AddOverlays(image('icons/obj/barricades.dmi', icon_state = "[src.barricade_type]_closed_wire"))
 
 	..()
 
@@ -84,14 +85,14 @@
 /obj/structure/barricade/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || (height==0))
 		return TRUE
-	if(istype(mover, /obj/item/projectile))
+	if(istype(mover, /obj/projectile))
 		return (check_cover(mover,target))
 	if (get_dir(loc, target) == dir)
 		return !density
 	else
 		return TRUE
 
-/obj/structure/barricade/proc/check_cover(obj/item/projectile/P, turf/from)
+/obj/structure/barricade/proc/check_cover(obj/projectile/P, turf/from)
 	var/turf/cover = get_turf(src)
 	if(!cover)
 		return TRUE
@@ -110,6 +111,12 @@
 		return !density
 	else
 		return TRUE
+
+/obj/structure/barricade/can_climb(var/mob/living/user, post_climb_check=0)
+	if(is_wired)
+		to_chat(user, SPAN_WARNING("\The [src] has barbed wire over it, restricting you from climbing over!"))
+		return FALSE
+	return ..()
 
 /obj/structure/barricade/attack_robot(mob/user)
 	return attack_hand(user)
@@ -190,7 +197,7 @@
 			playsound(src, barricade_hitsound, 25, 1)
 		hit_barricade(attacking_item, user)
 
-/obj/structure/barricade/bullet_act(obj/item/projectile/P)
+/obj/structure/barricade/bullet_act(obj/projectile/P)
 	bullet_ping(P)
 	var/damage_to_take = P.damage * P.anti_materiel_potential
 	take_damage(damage_to_take)

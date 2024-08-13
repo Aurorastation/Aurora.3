@@ -127,7 +127,7 @@
 
 			rigged = 1
 
-			log_admin("LOG: [user.name] ([user.ckey]) injected a power cell with phoron, rigging it to explode.",ckey=key_name(user))
+			log_admin("LOG: [user.name] ([user.ckey]) injected a power cell with phoron, rigging it to explode.")
 			message_admins("[key_name_admin(user)] injected a power cell with phoron, rigging it to explode.")
 
 		S.reagents.clear_reagents()

@@ -199,6 +199,15 @@
 	},
 /turf/simulated/floor/exoplanet/carpet/lightblue,
 /area/moghes_queendom)
+"G" = (
+/obj/machinery/door/urban{
+	dir = 4;
+	pixel_x = -29
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "H" = (
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 8
@@ -892,7 +901,7 @@ w
 w
 X
 c
-w
+G
 c
 R
 w

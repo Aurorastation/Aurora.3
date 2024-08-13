@@ -5,7 +5,7 @@
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
-	suffixes = list("moghes_wasteland_battlefield.dmm")
+	suffix = "moghes_wasteland_battlefield.dmm"
 	unit_test_groups = list(1)
 
 /obj/effect/landmark/corpse/hegemony_soldier

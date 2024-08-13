@@ -57,7 +57,7 @@
 
 	kitchen_tag = "rodent"
 
-/mob/living/simple_animal/rat/Life()
+/mob/living/simple_animal/rat/Life(seconds_per_tick, times_fired)
 	if(..())
 
 		if(client)
@@ -147,7 +147,7 @@
 
 		playsound(src, 'sound/effects/ratsqueek.ogg', 70, 1)
 		if (manual)
-			log_say("[key_name(src)] squeaks! ",ckey=key_name(src))
+			log_say("[key_name(src)] squeaks! ")
 
 
 //Plays a random selection of four sounds, at a low volume
@@ -166,7 +166,7 @@
 		playsound(src, sound, 5, 1, -4.6)
 
 		if (manual)
-			log_say("[key_name(src)] squeaks softly! ",ckey=key_name(src))
+			log_say("[key_name(src)] squeaks softly! ")
 
 
 //Plays a loud sound
@@ -181,7 +181,7 @@
 		if (squeals > 0 || !manual)
 			playsound(src, 'sound/effects/creatures/rat_squeak_loud.ogg', 50, 1)
 			squeals --
-			log_say("[key_name(src)] squeals! ",ckey=key_name(src))
+			log_say("[key_name(src)] squeals! ")
 		else
 			to_chat(src, SPAN_WARNING("Your hoarse rattish throat can't squeal just now, stop and take a breath!"))
 
@@ -218,10 +218,12 @@
 	squeak(1)
 
 
-/mob/living/simple_animal/rat/Crossed(AM as mob|obj)
-	if( ishuman(AM) )
+/mob/living/simple_animal/rat/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	..()
+
+	if( ishuman(arrived) )
 		if(!stat)
-			var/mob/M = AM
+			var/mob/M = arrived
 			to_chat(M, SPAN_NOTICE("[icon2html(src, M)] Squeek!"))
 			poke(1) //Wake up if stepped on
 			if (prob(95))
@@ -232,15 +234,14 @@
 	if(!health)
 		return
 
-	if(istype(AM,/mob/living/simple_animal/rat/king))
-		var/mob/living/simple_animal/rat/king/K = AM
+	if(istype(arrived,/mob/living/simple_animal/rat/king))
+		var/mob/living/simple_animal/rat/king/K = arrived
 		if(!K.health)
 			return
 
 		src.visible_message(SPAN_WARNING("[src] joins the [K.swarm_name] of \the [K]"), \
 							SPAN_NOTICE("We join our brethren in \the [K.swarm_name]. Long live \the [K]."))
 		K.absorb(src)
-	..()
 
 /mob/living/simple_animal/rat/death()
 	layer = MOB_LAYER

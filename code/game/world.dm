@@ -479,6 +479,8 @@ var/list/world_api_rate_limit = list()
 	else
 		return TRUE
 
+/world/proc/incrementMaxZ()
+	maxz++
 
 /world/proc/change_fps(new_value = 20)
 	if(new_value <= 0)

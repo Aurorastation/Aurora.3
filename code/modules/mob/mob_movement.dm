@@ -141,7 +141,7 @@
 
 	var/old_loc = loc
 
-	//Cardinal move
+	//Diagonal move
 	if(direction & (direction - 1))
 		if(direction & 1)
 			if(direction & 4)
@@ -173,7 +173,7 @@
 							if(step(src, WEST))
 								. = step(src, SOUTH)
 
-	//Diagonal move
+	//Cardinal move
 	else
 		var/atom/A = src.loc
 

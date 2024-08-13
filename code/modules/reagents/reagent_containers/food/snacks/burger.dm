@@ -18,6 +18,12 @@
 		qdel(attacking_item)
 		qdel(src)
 		return
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/nakarka_wedge)) // Burger + nakarka wedge = nakarka hamburger. You could make it this way but then it doesn't filter out the chem that upsets human and taj stomaches.
+		new /obj/item/reagent_containers/food/snacks/burger/nakarka_hamburger/ungrilled(src)
+		to_chat(user, "You slap a slice of ungrilled nakarka on the burger.")
+		qdel(attacking_item)
+		qdel(src)
+		return
 	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks))
 		var/obj/item/reagent_containers/food/snacks/csandwich/burger/B = new(get_turf(src))
 		B.attackby(attacking_item, user)
@@ -229,3 +235,15 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/protein = 4)
 	reagent_data = list(/singleton/reagent/nutriment = list("barbecue sauce" = 5, "bun" = 5), /singleton/reagent/nutriment/protein = list("ground beef" = 5))
 	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/burger/nakarka_hamburger
+	name = "nakarka hamburger" //wrote "hamburger" in full to set it apart from "nakarkaburger" which is a kois dish
+	desc = "A delicious hamburger with green Nakarka cheese. Grilling the cheese makes it palatable for Humans and Tajara as well. This meal is not to be confused with the K'ois version of the same meal. No. Seriously. DO NOT CONFUSE IT."
+	icon_state = "nakarkaburger"
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("sharp tangyness" = 4, "bun" = 2), /singleton/reagent/nutriment/protein = list("meat" = 4))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/burger/nakarka_hamburger/ungrilled
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nakarka = 2, /singleton/reagent/nutriment/protein = 3)

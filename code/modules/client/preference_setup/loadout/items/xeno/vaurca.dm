@@ -382,3 +382,13 @@
 	whitelisted = list(SPECIES_VAURCA_BREEDER)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/unathi_mantle_tret
+	display_name = "tretian guild mantle"
+	description = "A yellow mantle, worn by Tretian Guild workers in the Izweski Hegemony."
+	path = /obj/item/clothing/accessory/poncho/unathimantle/tretian
+	cost = 1
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_COLOR_SELECTION
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_UNATHI)
+	culture_restriction = list(/singleton/origin_item/culture/klax)

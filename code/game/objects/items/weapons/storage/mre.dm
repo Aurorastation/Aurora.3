@@ -201,7 +201,7 @@ MRE Stuff
 	opened = FALSE
 	closable = FALSE
 	icon_overlays = FALSE
-	w_class = ITEMSIZE_SMALL
+	w_class = WEIGHT_CLASS_SMALL
 	open_sound = 'sound/effects/bubbles.ogg'
 	open_message = "The pouch heats up as you break the vacuum seal."
 	starts_with = list(/obj/item/reagent_containers/food/snacks/meatpizzaslice/filled = 1)

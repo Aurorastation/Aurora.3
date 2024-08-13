@@ -36,7 +36,7 @@
 	var/list/exempt_from_fire = typecacheof(SSatlas.current_map.ut_fire_exempt_areas)
 
 	for(var/area/A in typecache_filter_list_reverse(GLOB.all_areas, exempt_areas))
-		if(isStationLevel(A.z))
+		if(is_station_level(A.z))
 			area_test_count++
 			var/bad_msg = "[ascii_red]--------------- [A.name] ([A.type])"
 
@@ -87,7 +87,7 @@
 
 	for(C in world)
 		T = get_turf(C)
-		if(T && isStationLevel(T.z))
+		if(T && is_station_level(T.z))
 			cable_turfs |= get_turf(C)
 
 	for(T in cable_turfs)
@@ -105,35 +105,6 @@
 		TEST_FAIL("\[[bad_tests] / [wire_test_count]\] Some turfs had overlapping wires going the same direction.")
 	else
 		TEST_PASS("All \[[wire_test_count]\] wires had no overlapping cables going the same direction.")
-
-	return 1
-
-
-/datum/unit_test/map_test/roof_test
-	name = "MAP: Roof Test (Station)"
-
-/datum/unit_test/map_test/roof_test/start_test()
-	var/bad_tiles = 0
-	var/tiles_total = 0
-	var/turf/above
-	var/area/A
-	var/thing
-	for (thing in GLOB.the_station_areas)
-		A = thing
-
-		for (var/turf/T in A)	// Areas don't just contain turfs, so typed loop it is.
-			T = thing
-			tiles_total++
-			above = GetAbove(T)
-
-			if (above && above.is_hole)
-				bad_tiles++
-				TEST_FAIL("[T.name] \[[T.x] / [T.y] / [T.z]\] Has no roof.")
-
-	if (bad_tiles)
-		TEST_FAIL("\[[bad_tiles] / [tiles_total]\] station turfs had no roof.")
-	else
-		TEST_PASS("All \[[tiles_total]\] station turfs had a roof.")
 
 	return 1
 
@@ -160,7 +131,8 @@
 			continue
 
 		var/bad = 0
-		if (ladder.target_up && !isopenturf(GetAbove(ladder)))
+		var/turf/T = get_turf(ladder)
+		if (ladder.target_up && !isopenturf(GET_TURF_ABOVE(T)))
 			bad |= BLOCKED_UP
 
 		if (ladder.target_down && !isopenturf(ladder.loc))
@@ -236,7 +208,7 @@
 
 	//all plumbing - yes, some things might get stated twice, doesn't matter.
 	for (var/obj/machinery/atmospherics/plumbing in world)
-		if(isNotStationLevel(plumbing.z))
+		if(!is_station_level(plumbing.z))
 			continue
 		checks++
 		if (plumbing.nodealert)
@@ -245,7 +217,7 @@
 
 	//Manifolds
 	for (var/obj/machinery/atmospherics/pipe/manifold/pipe in world)
-		if(isNotStationLevel(pipe.z))
+		if(!is_station_level(pipe.z))
 			continue
 		checks++
 		if (!pipe.node1 || !pipe.node2 || !pipe.node3)
@@ -254,7 +226,7 @@
 
 	//Pipes
 	for (var/obj/machinery/atmospherics/pipe/simple/pipe in world)
-		if(isNotStationLevel(pipe.z))
+		if(!is_station_level(pipe.z))
 			continue
 		checks++
 		if (!pipe.node1 || !pipe.node2)

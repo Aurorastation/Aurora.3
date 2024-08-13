@@ -59,6 +59,12 @@
 	if (dries)
 		animate(src, color = "#000000", time = drytime, loop = 0, flags = ANIMATION_RELATIVE)
 
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/effect/decal/cleanable/blood/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	if(dries && world.time > (bleed_time + drytime))
 		name = dryname
@@ -75,9 +81,14 @@
 		basecolor = get_random_colour(1)
 	color = basecolor
 
-/obj/effect/decal/cleanable/blood/Crossed(mob/living/carbon/human/perp)
-	if (!istype(perp))
+/obj/effect/decal/cleanable/blood/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
+	if (!istype(arrived, /mob/living/carbon/human))
 		return
+
+	var/mob/living/carbon/human/perp = arrived
+
 	if(dries && world.time > (bleed_time + drytime))
 		amount = 0
 	if(amount < 1)

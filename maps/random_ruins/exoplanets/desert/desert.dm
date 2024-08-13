@@ -8,7 +8,7 @@
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 
 	prefix = "desert/desert_oasis/"
-	suffixes = list("desert_oasis.dmm")
+	suffix = "desert_oasis.dmm"
 
 	planet_types = PLANET_DESERT
 	ruin_tags = RUIN_NATURAL

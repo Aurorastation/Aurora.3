@@ -17,7 +17,7 @@
 #define EVENTENG_ROLE /datum/job/eventsec
 #define EVENTSCI_ROLE /datum/job/eventsci
 #define EVENTOPS_ROLE /datum/job/eventops
-#define EVENT_ROLES list(/datum/job/eventsec, /datum/job/eventmed, /datum/job/eventeng, /datum/job/eventsci, /datum/job/eventops)
+#define EVENT_ROLES list(/datum/job/eventsec, /datum/job/eventmed, /datum/job/eventeng, /datum/job/eventsci, /datum/job/eventops, /datum/job/eventsrv)
 
 // Departments
 // Used to know what roles are part of which department.
@@ -29,7 +29,7 @@
 #define SCIENCE_ROLES list(/datum/job/scientist, /datum/job/xenoarchaeologist, /datum/job/xenobiologist, /datum/job/xenobotanist, /datum/job/intern_sci, /datum/job/eventsci)
 #define MEDICAL_ROLES list(/datum/job/doctor, /datum/job/surgeon, /datum/job/pharmacist, /datum/job/psychiatrist, /datum/job/med_tech, /datum/job/intern_med, /datum/job/eventmed)
 #define ENGINEERING_ROLES list(/datum/job/engineer, /datum/job/atmos, /datum/job/intern_eng, /datum/job/eventeng)
-#define SERVICE_ROLES list(/datum/job/chaplain, /datum/job/bartender, /datum/job/chef, /datum/job/hydro, /datum/job/janitor, /datum/job/librarian)
+#define SERVICE_ROLES list(/datum/job/chaplain, /datum/job/bartender, /datum/job/chef, /datum/job/hydro, /datum/job/janitor, /datum/job/librarian, /datum/job/eventsrv)
 #define CIVILIAN_ROLES list(/datum/job/assistant, /datum/job/visitor, /datum/job/journalist)
 #define NON_CREW_CIVILIAN_ROLES list(/datum/job/passenger, /datum/job/merchant)
 #define SECURITY_ROLES list(/datum/job/warden, /datum/job/investigator, /datum/job/officer, /datum/job/intern_sec, /datum/job/eventsec)

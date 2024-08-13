@@ -118,7 +118,7 @@
 /atom/proc/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
 	return
 
-/atom/proc/bullet_act(obj/item/projectile/P, def_zone)
+/atom/proc/bullet_act(obj/projectile/P, def_zone)
 	P.on_hit(src, 0, def_zone)
 	. = 0
 
@@ -254,9 +254,6 @@
 		GLOB.dir_set_event.raise_event(src, old_dir, dir)
 
 /atom/proc/melt()
-	return
-
-/atom/proc/hitby(atom/movable/AM as mob|obj, var/speed = THROWFORCE_SPEED_DIVISOR)
 	return
 
 /atom/proc/add_hiddenprint(mob/living/M)
@@ -626,27 +623,30 @@
 /atom/proc/handle_pointed_at(var/mob/pointer)
 	return
 
-/atom/proc/create_bullethole(obj/item/projectile/Proj)
+/atom/proc/create_bullethole(obj/projectile/Proj)
 	var/p_x = Proj.p_x + rand(-6, 6)
 	var/p_y = Proj.p_y + rand(-6, 6)
-	var/obj/effect/overlay/bmark/bullet_mark = new(src)
 
-	bullet_mark.pixel_x = p_x
-	bullet_mark.pixel_y = p_y
-
-	//Offset correction
-	bullet_mark.pixel_x--
-	bullet_mark.pixel_y--
-
-	if(Proj.damage_flags & DAMAGE_FLAG_BULLET)
-		bullet_mark.icon_state = "dent"
-	else if(Proj.damage_flags & DAMAGE_FLAG_LASER)
-		bullet_mark.name = "scorch mark"
+	var/bullet_mark_icon_state = "dent"
+	var/bullet_mark_dir = SOUTH
+	if(Proj.damage_flags & DAMAGE_FLAG_LASER)
 		if(Proj.damage >= 20)
-			bullet_mark.icon_state = "scorch"
-			bullet_mark.set_dir(pick(NORTH,SOUTH,EAST,WEST)) // Pick random scorch design
+			bullet_mark_icon_state = "scorch"
+			bullet_mark_dir = pick(GLOB.cardinal) // Pick random scorch design
 		else
-			bullet_mark.icon_state = "light_scorch"
+			bullet_mark_icon_state = "light_scorch"
+
+	var/obj/effect/overlay/bmark/bullet_mark = locate() in src
+	if(!bullet_mark)
+		bullet_mark = new(src)
+		bullet_mark.icon_state = bullet_mark_icon_state
+		bullet_mark.set_dir(bullet_mark_dir)
+		bullet_mark.pixel_x = p_x
+		bullet_mark.pixel_y = p_y
+	// we limit to to 2 overlays, so 3 holes, to prevent decals from lagging the game
+	else if(length(bullet_mark.overlays) < 2)
+		var/image/bullet_overlay = image(bullet_mark.icon, icon_state = bullet_mark_icon_state, dir = bullet_mark_dir, pixel_x = p_x - bullet_mark.pixel_x, pixel_y = p_y - bullet_mark.pixel_y)
+		bullet_mark.AddOverlays(bullet_overlay)
 
 /atom/proc/clear_bulletholes()
 	for(var/obj/effect/overlay/bmark/bullet_mark in src)

@@ -187,3 +187,40 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/eyebowl
 	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/caramelized_steak_bites
+	appliance = SKILLET | SAUCEPAN
+	reagents = list(/singleton/reagent/sugar = 10)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/spreads/butter
+	)
+	result = /obj/item/reagent_containers/food/snacks/caramelized_steak_bites
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/guwan_gruel
+	appliance = SAUCEPAN | POT
+	reagents = list(/singleton/reagent/water = 10)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/rawcutlet, //Intentionally any meat and not moghesian. Guwans can't be picky.
+		/obj/item/reagent_containers/food/snacks/fish
+	)
+	result = /obj/item/reagent_containers/food/snacks/guwan_gruel
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/egg_pie
+	appliance = OVEN
+	reagents = list(/singleton/reagent/sugar = 5, /singleton/reagent/nutriment/protein/egg = 6)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough
+		)
+	result = /obj/item/reagent_containers/food/snacks/egg_pie
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/orszi
+	appliance = OVEN | GRILL
+	reagents = list(/singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/spacespice = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish
+	)
+	result = /obj/item/reagent_containers/food/snacks/orszi

@@ -4,7 +4,7 @@
 	desc_info = "You can use this in hand to open the interface, click-dragging it to you also works. Click anywhere with it in your hand to project at that location. Click dragging it to that location also works."
 	icon = 'icons/obj/projector.dmi'
 	icon_state = "projector0"
-	max_w_class = ITEMSIZE_SMALL
+	max_w_class = WEIGHT_CLASS_SMALL
 	max_storage_space = 10
 	use_sound = 'sound/items/storage/toolbox.ogg'
 	var/static/list/projection_types = list(

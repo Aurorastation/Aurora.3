@@ -268,7 +268,7 @@
 			blastdoor_interact(TRUE)
 		return
 
-	var/turf/aboveturf = GetAbove(A)
+	var/turf/aboveturf = GET_TURF_ABOVE(A)
 	if(aboveturf)
 		applyfalldamage(aboveturf)
 		aboveturf.ChangeTurf(/turf/simulated/floor/foamedmetal)
@@ -287,7 +287,7 @@
 	set_light(5,1,LIGHT_COLOR_EMERGENCY_SOFT)
 	A.visible_message(SPAN_DANGER("\The [src] crashes through the roof!"))
 
-	var/turf/belowturf = GetBelow(A)
+	var/turf/belowturf = GET_TURF_BELOW(A)
 	if(belowturf)
 		belowturf.visible_message(SPAN_DANGER("You hear something crash into the ceiling above!"))
 	status = USED

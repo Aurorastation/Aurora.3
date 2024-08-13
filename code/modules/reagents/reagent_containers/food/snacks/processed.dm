@@ -414,7 +414,7 @@
 	icon_type = "gum stick"
 	storage_type = "packaging"
 	slot_flags = SLOT_EARS
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	starts_with = list(/obj/item/clothing/mask/chewable/candy/gum = 5)
 	can_hold = list(/obj/item/clothing/mask/chewable/candy/gum, /obj/item/trash/spitgum)
 	max_storage_space = 5
@@ -453,7 +453,7 @@
 	icon_type = "mint"
 	storage_type = "packaging"
 	slot_flags = SLOT_EARS
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	starts_with = list(/obj/item/reagent_containers/food/snacks/mint/admints = 6)
 	can_hold = list(/obj/item/reagent_containers/food/snacks/mint/admints)
 	max_storage_space = 6
@@ -498,7 +498,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "nougat" = 1, "caramel" = 1))
 	bitesize = 2
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/cb02
 	name = "hundred thousand credit bar"
@@ -510,7 +510,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "puffed rice" = 1))
 	bitesize = 2
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/cb03
 	name = "spacewind bar"
@@ -521,7 +521,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 4))
 	bitesize = 2
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/cb04
 	name = "crunchy crisp"
@@ -532,7 +532,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 3, "almonds" = 1))
 	bitesize = 2
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/cb05
 	name = "hearsay bar"
@@ -544,7 +544,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/sugar = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "vomit" = 1))
 	bitesize = 3
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/cb06
 	name = "latte crunch"
@@ -555,7 +555,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "coffee" = 1, "vanilla wafer" = 1))
 	bitesize = 3
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/cb07
 	name = "martian bar"
@@ -566,7 +566,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "nougat" = 1))
 	bitesize = 3
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/cb08
 	name = "crisp bar"
@@ -577,7 +577,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "puffed rice" = 1))
 	bitesize = 3
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/cb09
 	name = "oh daddy bar"
@@ -589,7 +589,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 3, "caramel" = 1, "peanuts" = 2))
 	bitesize = 3
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/cb10
 	name = "laughter bar"
@@ -601,7 +601,7 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/sugar = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("chocolate" = 2, "caramel" = 1, "peanuts" = 1, "nougat" = 1))
 	bitesize = 3
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/meatcube
 	name = "cubed meat"

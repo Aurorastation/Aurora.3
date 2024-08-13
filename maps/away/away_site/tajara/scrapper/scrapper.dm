@@ -3,7 +3,7 @@
 	description = "An outpost used by Tajaran scrappers. It offers repair and scrapping services."
 
 	prefix = "away_site/tajara/scrapper/"
-	suffixes = list("scrapper.dmm")
+	suffix = "scrapper.dmm"
 
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
 	spawn_weight = 1

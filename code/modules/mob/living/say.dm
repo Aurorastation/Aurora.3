@@ -364,9 +364,9 @@ var/list/channel_to_radio_key = new
 		mind.last_words = message
 
 	if(whisper)
-		log_whisper("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
+		log_whisper("[key_name(src)] : ([get_lang_name(speaking)]) [message]")
 	else
-		log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]",ckey=key_name(src))
+		log_say("[key_name(src)] : ([get_lang_name(speaking)]) [message]")
 
 	return TRUE
 
@@ -385,7 +385,7 @@ var/list/channel_to_radio_key = new
 		C.images -= I
 
 /mob/living/proc/say_signlang(var/message, var/verb="gestures", var/datum/language/language, var/list/sign_adv_length)
-	log_say("[key_name(src)] : ([get_lang_name(language)]) [message]",ckey=key_name(src))
+	log_say("[key_name(src)] : ([get_lang_name(language)]) [message]")
 
 	for (var/mob/O in viewers(src, null))
 		O.hear_signlang(message, verb, language, src, sign_adv_length)

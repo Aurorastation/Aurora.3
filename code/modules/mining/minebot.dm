@@ -121,7 +121,7 @@
 		return FALSE
 	//Check if they are not on a station level -> else abort
 	var/turf/T = get_turf(src)
-	if (!T || isStationLevel(T.z))
+	if (!T || is_station_level(T.z))
 		return FALSE
 	if(is_type_in_list(get_area(T), allowed_areas))
 		return FALSE

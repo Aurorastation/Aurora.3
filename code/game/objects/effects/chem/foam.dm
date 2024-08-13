@@ -24,6 +24,12 @@
 	addtimer(CALLBACK(src, PROC_REF(tick)), 3 + metal * 3)
 	addtimer(CALLBACK(src, PROC_REF(post)), solid_time)
 
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+
+	AddElement(/datum/element/connect_loc, loc_connections)
+
 /obj/effect/effect/foam/proc/tick()
 	process()
 	checkReagents()
@@ -77,11 +83,13 @@
 
 		QDEL_IN(src, 5)
 
-/obj/effect/effect/foam/Crossed(var/atom/movable/AM)
+/obj/effect/effect/foam/proc/on_entered(datum/source, atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	SIGNAL_HANDLER
+
 	if(metal)
 		return
-	if(istype(AM, /mob/living))
-		var/mob/living/M = AM
+	if(istype(arrived, /mob/living))
+		var/mob/living/M = arrived
 		M.slip("the foam", 6)
 
 /obj/effect/effect/foam/spray

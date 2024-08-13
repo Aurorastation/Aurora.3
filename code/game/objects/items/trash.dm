@@ -4,7 +4,7 @@
 //Added by Jack Rost
 /obj/item/trash
 	icon = 'icons/obj/trash.dmi'
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	contained_sprite = TRUE
 	item_state = "candy"
 	desc = "General waste material, refuse or litter. Dispose responsibly."
@@ -302,7 +302,7 @@
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /obj/item/trash/bluemoon
-	name = "empty blue moon"
+	name = "empty dessert glass"
 	icon_state = "bluemoon"
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
@@ -404,5 +404,12 @@
 	name = "small bowl"
 	desc = "A side dish used to live here, but then it moved out."
 	icon_state = "small_bowl"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/obj/item/trash/bowl_brown
+	name = "terracotta bowl"
+	desc = "A brown bowl made of clay. Good for, uh, bowl... ing."
+	icon_state = "bowl_brown"
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'

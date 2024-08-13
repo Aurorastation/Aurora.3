@@ -320,12 +320,6 @@
 
 #define DEFAULT_SIGHT (SEE_SELF)
 
-#define isStationLevel(Z) ((Z) in SSatlas.current_map.station_levels)
-#define isNotStationLevel(Z) !isStationLevel(Z)
-
-#define isPlayerLevel(Z) ((Z) in SSatlas.current_map.player_levels)
-#define isNotPlayerLevel(Z) !isPlayerLevel(Z)
-
 #define isAdminLevel(Z) ((Z) in SSatlas.current_map.admin_levels)
 #define isNotAdminLevel(Z) !isAdminLevel(Z)
 
@@ -337,14 +331,6 @@
 #define CARGO_CONTAINER_FREEZER "freezer"
 #define CARGO_CONTAINER_BOX "box"
 #define CARGO_CONTAINER_BODYBAG "bodybag"
-
-// We should start using these.
-#define ITEMSIZE_TINY   1
-#define ITEMSIZE_SMALL  2
-#define ITEMSIZE_NORMAL 3
-#define ITEMSIZE_LARGE  4
-#define ITEMSIZE_HUGE   5
-#define ITEMSIZE_IMMENSE 6
 
 // getFlatIcon function altering defines
 #define GFI_ROTATION_DEFAULT 0 //Don't do anything special

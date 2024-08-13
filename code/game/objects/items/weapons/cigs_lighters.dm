@@ -34,7 +34,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		)
 	var/smoketime = 5
 	var/type_burnt = /obj/item/trash/match
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	origin_tech = list(TECH_MATERIAL = 1)
 	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("burnt", "singed")
@@ -298,7 +298,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "cigoff"
 	item_state = "cigoff"
 	throw_speed = 0.5
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	attack_verb = list("burnt", "singed")
 	icon_on = "cigon"
@@ -535,7 +535,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon = 'icons/obj/smokables.dmi'
 	icon_state = "cigbutt"
 	randpixel = 10
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	slot_flags = SLOT_EARS | SLOT_MASK
 	throwforce = 1
 	drop_sound = 'sound/items/cigs_lighters/cig_snuff.ogg'
@@ -587,7 +587,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_on = "pipeon"
 	icon_off = "pipeoff"
 	burn_rate = 0.015
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	chem_volume = 30
 	matchmes = SPAN_NOTICE("USER lights their NAME with their FLAME.")
 	lightermes = SPAN_NOTICE("USER manages to light their NAME with FLAME.")
@@ -703,7 +703,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		slot_l_hand_str = 'icons/mob/items/lefthand_cigs_lighters.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_cigs_lighters.dmi',
 		)
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	throwforce = 4
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
@@ -886,6 +886,21 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "sancolettezippo"
 	item_state = "sancolettezippo"
 
+/obj/item/flame/lighter/zippo/nralakk
+	name = "\improper Nralakk Federation Zippo lighter"
+	desc = "An advanced zippo lighter depicting the flag of the Nralakk Federation."
+	desc_extended = "A stylish lighter using Skrell hover technology. Burns with a purple flame. With the growth of the Federation's tobacco industry, these lighters are a commonplace convenience for many Skrell both within Nralakk space and abroad.These lighters are also often carried by wulumunusha smokers, and are a particularly common sight among adherents of the Weishii faith."
+	icon_state = "nralakkzippo"
+	item_state = "nralakkzippo"
+	flame_light_color = LIGHT_COLOR_PURPLE
+
+/obj/item/flame/lighter/zippo/nralakk/update_icon()
+	if(lit)
+		flick("[base_state]_turnon", src)
+	else
+		flick("[base_state]_turnoff", src)
+	return ..()
+
 /obj/item/flame/lighter/random/Initialize()
 	. = ..()
 	icon_state = "lighter-[pick("r","c","y","g")]"
@@ -1045,7 +1060,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A thin piece of paper used to make smokables."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigpaper_generic"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 	can_fold = FALSE
 
 /obj/item/paper/cig/attackby(obj/item/attacking_item, mob/user)
@@ -1066,7 +1081,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	desc = "A small nub like filter for cigarettes."
 	icon = 'icons/obj/cigs_lighters.dmi'
 	icon_state = "cigfilter"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/cigarette_filter/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/clothing/mask/smokable/cigarette/rolled))
@@ -1078,7 +1093,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //tobacco sold seperately if you're too snobby to grow it yourself.
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco
 	plantname = "tobacco"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/grown/dried_tobacco/Initialize()
 	. = ..()
@@ -1098,7 +1113,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //oracle sold seperately if you're too snobby to grow it yourself.
 /obj/item/reagent_containers/food/snacks/grown/dried_oracle
 	plantname = "oracle"
-	w_class = ITEMSIZE_TINY
+	w_class = WEIGHT_CLASS_TINY
 
 /obj/item/reagent_containers/food/snacks/grown/dried_oracle/Initialize()
 	. = ..()

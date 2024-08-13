@@ -42,9 +42,7 @@
 #ifdef TESTING
 #define testing(msg) log_world("## TESTING: [msg]"); to_chat(world, "## TESTING: [msg]")
 
-//When we port GLOB ...
-//GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
-
+GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 // we don't really check if a word or name is used twice, be aware of that
 #define testing_profile_start(NAME, LIST) LIST[NAME] = world.timeofday
 #define testing_profile_current(NAME, LIST) round((world.timeofday - LIST[NAME])/10,0.1)
@@ -58,76 +56,37 @@
 #define testing_profile_output_all(LIST)
 #endif
 
+#define testing_profile_global_start(NAME) testing_profile_start(NAME,GLOB.testing_global_profiler)
+#define testing_profile_global_current(NAME) testing_profile_current(NAME, GLOB.testing_global_profiler)
+#define testing_profile_global_output(NAME) testing_profile_output(NAME, GLOB.testing_global_profiler)
+#define testing_profile_global_output_all testing_profile_output_all(GLOB.testing_global_profiler)
+
+#define testing_profile_local_init(PROFILE_NAME) var/list/_timer_system = list( "_PROFILE_NAME" = PROFILE_NAME, "_start_of_proc" = world.timeofday )
+#define testing_profile_local_start(NAME) testing_profile_start(NAME, _timer_system)
+#define testing_profile_local_current(NAME) testing_profile_current(NAME, _timer_system)
+#define testing_profile_local_output(NAME) testing_profile_output(NAME, _timer_system)
+#define testing_profile_local_output_all testing_profile_output_all(_timer_system)
+
 /proc/game_log(category, text)
 	WRITE_LOG(GLOB.diary, "[GLOB.round_id] [category]: [text][log_end]")
-
-/proc/log_admin(text,level=SEVERITY_NOTICE,ckey="",admin_key="",ckey_target="")
-	_log_admin(text)
-	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="ADMIN",additional_data=list("_ckey"=html_encode(ckey),"_admin_key"=html_encode(admin_key),"_ckey_target"=html_encode(ckey_target)))
 
 /proc/log_signal(var/text)
 	if(length(GLOB.signal_log) >= 100)
 		GLOB.signal_log.Cut(1, 2)
 	GLOB.signal_log.Add("|[time_stamp()]| [text]")
 	_log_signal(text)
-	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=SEVERITY_NOTICE,category="SIGNALER")
 
-/proc/log_game(text, level = SEVERITY_NOTICE, ckey = "", admin_key = "", ckey_target = "")
-	_log_game(text)
-	send_gelf_log(short_message = text,	long_message = "[time_stamp()]: [text]", level = level,	category = "GAME", additional_data = list("_ckey" = html_encode(ckey), "_admin_key" = html_encode(admin_key), "_target" = html_encode(ckey_target)))
-
-/proc/log_vote(text)
-	_log_vote(text)
-	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=5,category="VOTE")
-
-/proc/log_access(text, level = SEVERITY_NOTICE,ckey="")
-	_log_access(text)
-	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="ACCESS",additional_data=list("_ckey"=html_encode(ckey)))
-
-/proc/log_say(text, level = SEVERITY_NOTICE, ckey = "")
-	_log_say(text)
-	send_gelf_log(short_message=text, long_message="[time_stamp()]: [text]",level=level,category="SAY",additional_data=list("_ckey"=html_encode(ckey)))
-
-/proc/log_ooc(text, level = SEVERITY_NOTICE, ckey = "")
-	_log_ooc(text)
-	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]", level = level, category = "OOC", additional_data = list("_ckey" = html_encode(ckey)))
-
-/proc/log_whisper(text, level = SEVERITY_NOTICE, ckey = "")
-	_log_whisper(text)
-	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]", level = level, category = "WHISPER", additional_data = list("_ckey" = html_encode(ckey)))
-
-/proc/log_emote(text, level = SEVERITY_NOTICE, ckey = "")
-	_log_emote(text)
-	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]",level = level,category = "EMOTE", additional_data = list("_ckey" = html_encode(ckey)))
-
-/proc/log_attack(text, level = SEVERITY_NOTICE, ckey = "", ckey_target = "")
-	_log_attack(text)
-	send_gelf_log(short_message = text,	long_message = "[time_stamp()]: [text]", level = level,	category="ATTACK",	additional_data = list("_ckey" = html_encode(ckey), "_ckey_target" = html_encode(ckey_target)))
-
-/proc/log_adminsay(text)
-	_log_adminsay(text)
 /proc/log_ntirc(text, level = SEVERITY_NOTICE, ckey = "", conversation = "")
 	log_chat(text)
-	send_gelf_log(short_message = text,	long_message="[time_stamp()]: [text]",	level = level,	category = "NTIRC",	additional_data = list("_ckey" = html_encode(ckey), "_ntirc_conversation" = html_encode(conversation)))
-
-
-/proc/log_to_dd(text)
-	world.log <<  text //this comes before the config check because it can't possibly runtime
-	if(GLOB.config.log_world_output)
-		log_world("DD_OUTPUT", text)
-	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]", level = SEVERITY_NOTICE, category = "DD_OUTPUT")
 
 /proc/log_misc(text)
 	log_world("MISC", text)
-	send_gelf_log(short_message = text, long_message = "[time_stamp()]: [text]", level = SEVERITY_NOTICE, category="MISC")
 
 /proc/log_tgs(text, severity = SEVERITY_INFO)
 	log_world("TGS[SEVERITY_INFO]: [text]")
-	send_gelf_log(short_message = text,	long_message="[time_stamp()]: [text]",	level = severity, category = "TGS")
 
 /proc/log_ntsl(text, severity = SEVERITY_NOTICE, ckey = "")
 	log_world("NTSL: [text]")
-	send_gelf_log(text, "[time_stamp()]: [text]", severity, "NTSL", additional_data = list("_ckey" = ckey))
 
 /proc/log_exception(exception/e)
 	if (isnull(GLOB.config) || GLOB.config.logsettings["log_runtime"])
@@ -138,7 +97,7 @@
 				log_runtime("VAR [k] = [e.vars[k]]")
 
 		log_runtime("========= END OF RUNTIME DUMP =========")
-		send_gelf_log(short_message = "runtime error:[e.name]", long_message = "[e.desc]", level = SEVERITY_WARNING, category = "RUNTIME")
+
 
 //pretty print a direction bitflag, can be useful for debugging.
 /proc/print_dir(var/dir)

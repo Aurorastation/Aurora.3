@@ -273,7 +273,7 @@
 			count++
 
 		if (GLOB.config.access_deny_vms && count >= GLOB.config.access_deny_vms)
-			log_access("Failed Login: [C.ckey] [C.address] [C.computer_id] - Matching [count]/[GLOB.config.access_deny_vms] VM identifiers. IDs: [A].", ckey = C.ckey)
+			log_access("Failed Login: [C.ckey] [C.address] [C.computer_id] - Matching [count]/[GLOB.config.access_deny_vms] VM identifiers. IDs: [A].")
 			message_admins("Failed Login: [C.ckey] [C.address] [C.computer_id] - Matching [count]/[GLOB.config.access_deny_vms] VM identifiers. IDs: [A].")
 			spawn(20)
 				if (C)
@@ -281,7 +281,7 @@
 			return
 
 		if (GLOB.config.access_warn_vms && count >= GLOB.config.access_warn_vms)
-			log_access("Notice: [key_name(C)] [C.address] [C.computer_id] - Matching [count] VM identifiers. IDs: [A].", ckey = C.ckey)
+			log_access("Notice: [key_name(C)] [C.address] [C.computer_id] - Matching [count] VM identifiers. IDs: [A].")
 			message_admins("Notice: [key_name(C)] [C.address] [C.computer_id] - Matching [count] VM identifiers. IDs: [A].")
 
 	var/list/conn_info = data_object["conn"]
