@@ -87,7 +87,7 @@
 
 /obj/item/device/encryptionkey/bluespace
 	name = "bluespace encryption key"
-	desc = "A non-sensical mimickry of a standard encryption key, in the form of an elongated bluespace crystal. It seems to function."
+	desc = "A nonsensical mimicry of a standard encryption key, in the form of an elongated bluespace crystal. It seems to function."
 	icon_state = "bs_cyperkey"
 	additional_channels = list(CHANNEL_BLUESPACE = TRUE)
 	origin_tech = list(TECH_BLUESPACE = 3)
