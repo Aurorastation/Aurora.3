@@ -241,7 +241,7 @@
 			for(var/obj/item/organ/internal/I in H.internal_organs)
 				if(!BP_IS_ROBOTIC(I))
 					if(I.organ_tag == BP_BRAIN)
-						if(I.damage < I.max_damage/2.6) //will only treat brain activity below 60% brain activity
+						if(I.damage < I.max_damage*0.6) //will only treat brain activity below 60% brain activity
 							continue
 					I.heal_damage(4*removed)
 	else if(M.is_diona() && M.bodytemperature < 170)
@@ -273,7 +273,7 @@
 			for(var/obj/item/organ/internal/I in H.internal_organs)
 				if(!BP_IS_ROBOTIC(I))
 					if(I.organ_tag == BP_BRAIN)
-						if(I.damage < I.max_damage/2.6) //will only treat brain activity below 60% brain activity
+						if(I.damage < I.max_damage*0.6) //will only treat brain activity below 60% brain activity
 							continue
 					I.heal_damage(4*removed)
 	else if(M.is_diona() && M.bodytemperature < 170)
