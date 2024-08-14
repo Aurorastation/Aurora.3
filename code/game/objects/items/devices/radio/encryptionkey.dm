@@ -197,7 +197,7 @@
 	channels = list(CHANNEL_SUPPLY = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/device/encryptionkey/headset_operations_manager
-	name = "operations managaer radio encryption key"
+	name = "operations manager radio encryption key"
 	icon_state = "cargo_cypherkey"
 	channels = list(CHANNEL_COMMAND = TRUE, CHANNEL_SUPPLY = TRUE, CHANNEL_HAILING = TRUE)
 
