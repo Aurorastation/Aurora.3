@@ -242,7 +242,7 @@
 				if(!BP_IS_ROBOTIC(I))
 					if(I.organ_tag == BP_BRAIN)
 						var/brain_activity = 100 - ((I.damage / I.max_damage) * 100) //converts brain damage to a percentage, to calculate BA
-						if(brain_activity > 60) //will only treat brain activity below 61% brain activity
+						if(brain_activity >= 60) //will only treat brain activity below 61% brain activity
 							continue
 					I.heal_damage(4*removed)
 	else if(M.is_diona() && M.bodytemperature < 170)
@@ -275,7 +275,7 @@
 				if(!BP_IS_ROBOTIC(I))
 					if(I.organ_tag == BP_BRAIN)
 						var/brain_activity = 100 - ((I.damage / I.max_damage) * 100) //converts brain damage to a percentage, to calculate BA
-						if(brain_activity > 60) //will only treat brain activity below 61% brain activity
+						if(brain_activity >= 60) //will only treat brain activity below 61% brain activity
 							continue
 					I.heal_damage(4*removed)
 	else if(M.is_diona() && M.bodytemperature < 170)
