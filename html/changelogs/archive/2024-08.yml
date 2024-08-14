@@ -55,3 +55,11 @@
   budg:
   - imageadd: Added several pairs of colourable boots to the loadout, also added colourable
       thigh-high sneakers and flats.
+2024-08-14:
+  ChangeMe:
+  - bugfix: Borers will no longer get stuck in progress bar purgatory upon bestowing
+      psionic powers to their host.
+  - bugfix: The Mirror Shade psi power will no longer target the host's internal borer.
+  hazelmouse:
+  - qol: Cigarettes, candles, and matches now burn for substantially longer before
+      going out.
