@@ -242,7 +242,7 @@
 	if(istype(target, /mob/living/simple_animal/carp))
 		F = target
 
-	var/mob/living/simple_animal/HC //G = Hostile Carp
+	var/mob/living/simple_animal/G //G = Hostile Carp
 	if(istype(target, /mob/living/simple_animal/hostile/carp))
 		G = target
 
