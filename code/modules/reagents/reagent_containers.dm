@@ -238,6 +238,14 @@
 	if(istype(target, /mob/living/carbon/human))
 		H = target
 
+	var/mob/living/simple_animal/F //F for Fish
+	if(istype(target, /mob/living/simple_animal/carp))
+		F = target
+
+	var/mob/living/simple_animal/HC //G = Hostile Carp
+	if(istype(target, /mob/living/simple_animal/hostile/carp))
+		G = target
+
 	if(target == user)
 		if(istype(user, /mob/living/carbon/human))
 			H = user
@@ -263,6 +271,18 @@
 		if(isanimal(target))
 			var/mob/living/simple_animal/C = target
 			if(C.has_udder)
+				return
+
+		if(istype(target, /mob/living/simple_animal/carp))
+			F = target
+			if(F.has_toxingland)
+				return
+			if(F.is_Ginny)
+				return
+
+		if(istype(target, /mob/living/simple_animal/hostile/carp))
+			G = target
+			if(G.has_toxingland)
 				return
 
 		other_feed_message_start(user, target)

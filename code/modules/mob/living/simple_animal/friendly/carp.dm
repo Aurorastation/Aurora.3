@@ -1,5 +1,5 @@
 /mob/living/simple_animal/carp
-	name = "space carp"
+	name = "tame space carp"
 	desc = "A domesticated, floating space carp. Careful around the teeth."
 	icon = 'icons/mob/npc/animal.dmi'
 	icon_state = "carp"
@@ -9,10 +9,11 @@
 	icon_gib = "carp_gib"
 	icon_rest = "carp_rest"
 	can_nap = TRUE
-	speak = list("Glub!")
+	has_toxingland = TRUE
+	speak = list("Glub!", "Glub?", "Glub.")
 	speak_emote = list("glubs", "glibs")
 	emote_hear = list("glubs","glibs")
-	emote_see = list("floats steadily", "inflates its gills")
+	emote_see = list("floats steadily", "inflates its gills", "flaps its flippers", "wiggles", "waggles")
 	speak_chance = 1
 	turns_per_move = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
@@ -138,9 +139,11 @@
 
 	gender = FEMALE
 
-	emote_see = list("floats steadily", "inflates her gills")
+	emote_see = list("floats steadily", "inflates her gills", "flaps her flippers", "wiggles", "waggles")
 
 	can_nap = TRUE
+	has_toxingland = FALSE
+	is_Ginny = TRUE
 	mob_size = 3.5
 
 	befriend_job = "Chief Engineer"
@@ -159,6 +162,7 @@
 	icon_dead = "babycarp_dead"
 	icon_gib = null
 	can_nap = TRUE
+	has_toxingland = TRUE
 	gender = NEUTER
 	mob_size = 3.5
 	holder_type = /obj/item/holder/carp/baby

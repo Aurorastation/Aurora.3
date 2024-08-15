@@ -143,6 +143,12 @@
 	var/datum/reagents/udder = null
 	var/milk_type = /singleton/reagent/drink/milk
 
+	var/has_toxingland = FALSE
+	var/datum/reagents/toxingland = null
+	var/toxin_type = /singleton/reagent/toxin/carpotoxin
+
+	var/is_Ginny = FALSE
+
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
 
 	var/psi_pingable = TRUE
@@ -184,6 +190,10 @@
 	if(has_udder)
 		udder = new(50)
 		udder.my_atom = src
+
+	if(has_toxingland)
+		toxingland = new(5)
+		toxingland.my_atom = src
 
 	if(LAZYLEN(natural_armor))
 		AddComponent(armor_type, natural_armor)
@@ -315,6 +325,11 @@
 		if(stat == CONSCIOUS)
 			if(udder && prob(5))
 				udder.add_reagent(milk_type, rand(5, 10))
+
+	if(has_toxingland)
+		if(stat == CONSCIOUS)
+			if(toxingland &&prob(2))
+				toxingland.add_reagent(toxin_type, rand(1, 2))
 
 	return 1
 
@@ -591,6 +606,25 @@
 				return
 			user.visible_message("<b>\The [user]</b> milks \the [src] using \the [attacking_item].")
 			udder.trans_type_to(G, milk_type, rand(5, 10))
+			return
+
+	if(has_toxingland)
+		var/obj/item/reagent_containers/glass/Test = attacking_item
+		if(stat == CONSCIOUS && istype(Test) && Test.is_open_container())
+			if(toxingland.total_volume <= 0)
+				to_chat(user, SPAN_WARNING("There is no toxin left to harvest."))
+				return
+			if(Test.reagents.total_volume >= Test.volume)
+				to_chat(user, SPAN_WARNING("The [attacking_item] is full."))
+				return
+			user.visible_message("<b>\The [user]</b> extracts some toxin from \the [src].")
+			toxingland.trans_type_to(Test, toxin_type, rand(1, 3))
+			return
+
+	if(is_Ginny)
+		var/obj/item/reagent_containers/glass/beaker/Test = attacking_item
+		if(stat == CONSCIOUS && istype(Test) && Test.is_open_container())
+			user.visible_message("Ginny shies away and stares at <b>\The [user]</b> judgementally.")
 			return
 
 	if(istype(attacking_item, /obj/item/reagent_containers) || istype(attacking_item, /obj/item/stack/medical) || istype(attacking_item,/obj/item/gripper/))

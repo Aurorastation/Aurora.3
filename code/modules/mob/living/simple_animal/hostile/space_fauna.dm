@@ -17,6 +17,7 @@
 	response_help = "pets the"
 	response_disarm = "gently pushes aside the"
 	response_harm = "hits the"
+	has_toxingland = TRUE
 	speed = 4
 	maxHealth = 25
 	health = 25
