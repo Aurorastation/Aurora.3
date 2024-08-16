@@ -881,6 +881,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	icon_state = "sancolettezippo"
 	item_state = "sancolettezippo"
 
+/obj/item/flame/lighter/callisto
+	name = "\improper Callistean lighter"
+	desc = "A cheap plastic lighter bearing the flag of Callisto."
+	desc_extended = "It's debated whether this (recently) discontinued line of cheap lighters was a money laundering scheme or a publicity stunt - extremely cheap, extremely flimsy, these Idris made lighters became an unintended social phenomenon among Callistean smokers; running competitions amongst them as to how long they can keep those lighters alive."
+	icon_state = "lightercallisto"
+	item_state = "lightercallisto"
+
 /obj/item/flame/lighter/zippo/nralakk
 	name = "\improper Nralakk Federation Zippo lighter"
 	desc = "An advanced zippo lighter depicting the flag of the Nralakk Federation."
