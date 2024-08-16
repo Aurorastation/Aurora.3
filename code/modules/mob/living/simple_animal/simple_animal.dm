@@ -147,7 +147,6 @@
 	var/datum/reagents/toxingland = null
 	var/toxin_type = /singleton/reagent/toxin/carpotoxin
 
-	var/is_Ginny = FALSE
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
 
@@ -192,7 +191,7 @@
 		udder.my_atom = src
 
 	if(has_toxingland)
-		toxingland = new(5)
+		toxingland = new(2)
 		toxingland.my_atom = src
 
 	if(LAZYLEN(natural_armor))
@@ -328,7 +327,7 @@
 
 	if(has_toxingland)
 		if(stat == CONSCIOUS)
-			if(toxingland &&prob(2))
+			if(toxingland && prob(3))
 				toxingland.add_reagent(toxin_type, rand(1, 2))
 
 	return 1
@@ -609,22 +608,19 @@
 			return
 
 	if(has_toxingland)
-		var/obj/item/reagent_containers/glass/Test = attacking_item
-		if(stat == CONSCIOUS && istype(Test) && Test.is_open_container())
+		var/obj/item/reagent_containers/glass/ctcontainer = attacking_item
+		if(istype(src, /mob/living/simple_animal/carp/fluff/ginny))
+			user.visible_message("[SPAN_BOLD("Ginny")] shies away from the [attacking_item] and stares at <b>\The [user]</b> judgementally.")
+			return
+		if(stat == CONSCIOUS && istype(ctcontainer) && ctcontainer.is_open_container())
 			if(toxingland.total_volume <= 0)
 				to_chat(user, SPAN_WARNING("There is no toxin left to harvest."))
 				return
-			if(Test.reagents.total_volume >= Test.volume)
+			if(ctcontainer.reagents.total_volume >= ctcontainer.volume)
 				to_chat(user, SPAN_WARNING("The [attacking_item] is full."))
 				return
 			user.visible_message("<b>\The [user]</b> extracts some toxin from \the [src].")
-			toxingland.trans_type_to(Test, toxin_type, rand(1, 3))
-			return
-
-	if(is_Ginny)
-		var/obj/item/reagent_containers/glass/beaker/Test = attacking_item
-		if(stat == CONSCIOUS && istype(Test) && Test.is_open_container())
-			user.visible_message("Ginny shies away and stares at <b>\The [user]</b> judgementally.")
+			toxingland.trans_type_to(ctcontainer, toxin_type, rand(1, 2))
 			return
 
 	if(istype(attacking_item, /obj/item/reagent_containers) || istype(attacking_item, /obj/item/stack/medical) || istype(attacking_item,/obj/item/gripper/))

@@ -142,8 +142,7 @@
 	emote_see = list("floats steadily", "inflates her gills", "flaps her flippers", "wiggles", "waggles")
 
 	can_nap = TRUE
-	has_toxingland = FALSE
-	is_Ginny = TRUE
+	has_toxingland = TRUE
 	mob_size = 3.5
 
 	befriend_job = "Chief Engineer"
