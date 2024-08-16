@@ -142,8 +142,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 //////////////////
 //FINE SMOKABLES//
 //////////////////
-/obj/item/clothing/mask/smokable
-	abstract_type = /obj/item/clothing/mask/smokable
+ABSTRACT_TYPE(/obj/item/clothing/mask/smokable)
 	name = "smokable item"
 	desc = "You're not sure what this is. You should probably ahelp it."
 	icon = 'icons/obj/smokables.dmi'

@@ -33,6 +33,16 @@
 	/// Datum level flags
 	var/datum_flags = NONE
 
+	/**
+	 * If set, a path at/above this one that expects not to be instantiated
+	 *
+	 * This is a `typepath`
+	 *
+	 * Do not instantiate a datum that has the path set as its abstract_type, this indicates
+	 * that the datum is abstract and is not meant to be spawned/used directly
+	*/
+	var/abstract_type
+
 	/// A weak reference to another datum
 	var/datum/weakref/weak_reference
 

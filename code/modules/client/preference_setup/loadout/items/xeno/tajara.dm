@@ -1,5 +1,4 @@
-/datum/gear/shoes/tajara
-	abstract_type = /datum/gear/shoes/tajara
+ABSTRACT_TYPE(/datum/gear/shoes/tajara)
 
 /datum/gear/shoes/tajara/boots
 	display_name = "tajaran boots selection"
