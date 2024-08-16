@@ -16,7 +16,7 @@
 	density = 0
 	layer = OPEN_DOOR_LAYER
 	open_layer = OPEN_DOOR_LAYER // Just below doors when open
-	closed_layer = CLOSED_DOOR_LAYER + 0.2 // Just above doors when closed
+	closed_layer = ABOVE_DOOR_LAYER // Just above doors when closed
 
 	//These are frequenly used with windows, so make sure zones can pass.
 	//Generally if a firedoor is at a place where there should be a zone boundery then there will be a regular door underneath it.
