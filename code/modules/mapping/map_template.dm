@@ -89,6 +89,7 @@
 		if (base_turf_for_zs)
 			SSatlas.current_map.base_turf_by_z[num2text(z_index)] = base_turf_for_zs
 		SSatlas.current_map.player_levels |= z_index
+		GLOB.map_templates["[z_index]"] = src
 
 	smooth_zlevel(world.maxz)
 	resort_all_areas()
