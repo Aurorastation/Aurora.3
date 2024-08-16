@@ -384,7 +384,7 @@
 /turf/simulated/floor/wood,
 /area/konyang_landing_zone/command_center_abandoned/living)
 "fg" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/plastic,
 /turf/simulated/floor/sidewalk/flat,
 /area/konyang_landing_zone/command_center_abandoned)
@@ -4147,7 +4147,7 @@
 /turf/simulated/floor/exoplanet/dirt_konyang,
 /area/konyang_landing_zone)
 "YY" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/trashcart,
 /turf/simulated/floor/sidewalk/flat,
 /area/konyang_landing_zone/command_center_abandoned)
