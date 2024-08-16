@@ -147,7 +147,8 @@
 	//Finally an aurora snowflake code that matters,
 	//this try to ensure noone is stupid enough to instantiate an abstract type
 	if(is_abstract(src))
-		stack_trace("Atom [src] is abstract, but is trying to initialize!")
+		var/datum/space_level/L = SSmapping.get_level(z)
+		stack_trace("Atom [src] ([type]) \[ X:[x] Y:[y] Z:[z] (Space level: [L ? L.name : "NOT FOUND"]) \] is abstract, but is trying to initialize!")
 		return INITIALIZE_HINT_QDEL
 
 	return INITIALIZE_HINT_NORMAL
