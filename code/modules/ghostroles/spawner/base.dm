@@ -70,6 +70,9 @@
 	/// A lazylist of weakrefs to mobs this spawner has spawned
 	var/list/datum/weakref/spawned_mobs
 
+	/// Password required to spawn from this spawner. For event ghostroles.
+	var/password = null
+
 /datum/ghostspawner/New()
 	. = ..()
 	if(!jobban_job)
