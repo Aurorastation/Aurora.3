@@ -63,3 +63,33 @@
   hazelmouse:
   - qol: Cigarettes, candles, and matches now burn for substantially longer before
       going out.
+2024-08-17:
+  Ben10083:
+  - bugfix: Fixed layering issue regarding closed blast doors.
+  - bugfix: Adds missing disposal piping for Bridge Conference Room, as well as having
+      bar delivery go to backroom.
+  ChangeMe:
+  - bugfix: Fixes layering issue in Public Garden soil plots.
+  CourierBravo:
+  - imageadd: Modified the binocular sprite to make a blue version, allowing for easier
+      differentiation between regular and high power binoculars.
+  - rscadd: Added several pre made shuttles to the helpers. The SCCV Artemis, SCCV
+      Apollo & its two variants, and the SCCV Packrat. These are intended to be used
+      for events.
+  - rscadd: 'Added a long list of color variants of various floor decals '
+  - rscadd: Added a new atmos helper, atmos_pipes.
+  - refactor: Split the outline/engineering decal, which is brown, into two new decals.
+      outline/engineering and outline/operations. outline/engineering is now engineering
+      yellow, outline/operations is brown. All maps with outline/engineering have
+      been changed to reflect this.
+  - bugfix: Changed the icon state of the SCC repeater pistol to fix a display issue.
+  DreamySkrell:
+  - rscadd: Pirate Base, shuttle landmarks moved closer.
+  HanSolo1519:
+  - spellcheck: Fixes a spelling mistake in the Nated portrait.
+  President Njadrasanukii Hadii:
+  - bugfix: Replaces depreciated Airlock markers in Hadiist Satellite with Hadiist
+      modern equivalent.
+  shimmeristaken:
+  - rscadd: Adds a cool Callistean lighter to the game and as an option in the loadout
+      menu.
