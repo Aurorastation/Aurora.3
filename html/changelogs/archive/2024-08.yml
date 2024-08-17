@@ -27,3 +27,69 @@
       a simple animal temporarily paralyzed. It can be performed with disarm intent.
   - code_imp: Adjusted disarm intent on simple mobs to be compatible with martial
       arts.
+2024-08-12:
+  AlaunusLux:
+  - bugfix: Explosive Implants targeting the Localized Limb no longer fail to remove
+      the limb.
+  - bugfix: Exploded limbs will now bleed and cause pain.
+  Ben10083:
+  - rscadd: Various improvements to the Orion Express mobile station, including new
+      docking arms for docking in all directions.
+  CourierBravo:
+  - rscadd: Added an encryption key vendor for the Executive Officer. Additionally,
+      added an encryption restock canister, and made it available for janitors through
+      their Omni-Vendor.
+  - imageadd: Added a modified sprite for the encryption key vendor.
+  - rscdel: Removed the Boba from the dinnerware premium list.
+  - spellcheck: Scrubs Hephaestus Industries as the manufacturer of some laser weapons,
+      replacing them with NanoTrasen. Fixes some grammar goofs in some laser weapon
+      discs. Hephaestus remains the manufacturer of the thermal drill, however.
+  DreamySkrell:
+  - rscadd: Removes the Crew Armory.
+  - rscadd: Removes the Leviathan.
+  - rscadd: Updates mapmerge2 tool with most current tg version.
+  - rscadd: Freebooter Ship - turns pods into submaps.
+  SimpleMaroon:
+  - bugfix: Added some Diona body markings that were not previously moved over when
+      Diona hair and facial hair styles were removed.
+  budg:
+  - imageadd: Added several pairs of colourable boots to the loadout, also added colourable
+      thigh-high sneakers and flats.
+2024-08-14:
+  ChangeMe:
+  - bugfix: Borers will no longer get stuck in progress bar purgatory upon bestowing
+      psionic powers to their host.
+  - bugfix: The Mirror Shade psi power will no longer target the host's internal borer.
+  hazelmouse:
+  - qol: Cigarettes, candles, and matches now burn for substantially longer before
+      going out.
+2024-08-17:
+  Ben10083:
+  - bugfix: Fixed layering issue regarding closed blast doors.
+  - bugfix: Adds missing disposal piping for Bridge Conference Room, as well as having
+      bar delivery go to backroom.
+  ChangeMe:
+  - bugfix: Fixes layering issue in Public Garden soil plots.
+  CourierBravo:
+  - imageadd: Modified the binocular sprite to make a blue version, allowing for easier
+      differentiation between regular and high power binoculars.
+  - rscadd: Added several pre made shuttles to the helpers. The SCCV Artemis, SCCV
+      Apollo & its two variants, and the SCCV Packrat. These are intended to be used
+      for events.
+  - rscadd: 'Added a long list of color variants of various floor decals '
+  - rscadd: Added a new atmos helper, atmos_pipes.
+  - refactor: Split the outline/engineering decal, which is brown, into two new decals.
+      outline/engineering and outline/operations. outline/engineering is now engineering
+      yellow, outline/operations is brown. All maps with outline/engineering have
+      been changed to reflect this.
+  - bugfix: Changed the icon state of the SCC repeater pistol to fix a display issue.
+  DreamySkrell:
+  - rscadd: Pirate Base, shuttle landmarks moved closer.
+  HanSolo1519:
+  - spellcheck: Fixes a spelling mistake in the Nated portrait.
+  President Njadrasanukii Hadii:
+  - bugfix: Replaces depreciated Airlock markers in Hadiist Satellite with Hadiist
+      modern equivalent.
+  shimmeristaken:
+  - rscadd: Adds a cool Callistean lighter to the game and as an option in the loadout
+      menu.
