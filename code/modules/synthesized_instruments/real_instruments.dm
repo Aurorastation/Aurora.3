@@ -108,7 +108,7 @@
 			var/list/as_list = instruments
 			var/list/categories = list()
 			for (var/key in as_list)
-				var/datum/instrument/instrument = instruments[key]
+				var/datum/instrument/instrument = instruments.vars[key]
 				categories |= instrument.category
 
 			var/category = input(usr, "Choose a category") as null|anything in categories
@@ -116,7 +116,7 @@
 				return
 			var/list/instruments_available = list()
 			for (var/key in as_list)
-				var/datum/instrument/instrument = instruments[key]
+				var/datum/instrument/instrument = instruments.vars[key]
 				if (instrument.category == category)
 					instruments_available += key
 
@@ -124,7 +124,7 @@
 			if(!CanInteractWith(usr, owner, GLOB.physical_state))
 				return
 			if (new_instrument)
-				src.player.song.instrument_data = instruments[new_instrument]
+				src.player.song.instrument_data = instruments.vars[new_instrument]
 		if ("autorepeat") src.player.song.autorepeat = value
 		if ("decay") src.player.song.linear_decay = value
 		if ("echo") src.player.apply_echo = value
@@ -221,8 +221,8 @@
 		var/datum/instrument/new_instrument = new type
 		if (!new_instrument.id) continue
 		new_instrument.create_full_sample_deviation_map()
-		src.instruments[new_instrument.name] = new_instrument
-	src.real_instrument = new /datum/real_instrument(src, new sound_player(src, instruments[pick(instruments)]), instruments)
+		src.instruments.vars[new_instrument.name] = new_instrument
+	src.real_instrument = new /datum/real_instrument(src, new sound_player(src, instruments.vars[pick(instruments)]), instruments)
 
 /obj/structure/synthesized_instrument/Destroy()
 	QDEL_NULL(src.real_instrument)
@@ -275,8 +275,8 @@
 		var/datum/instrument/new_instrument = new type
 		if (!new_instrument.id) continue
 		new_instrument.create_full_sample_deviation_map()
-		src.instruments[new_instrument.name] = new_instrument
-	src.real_instrument = new /datum/real_instrument(src, new sound_player(src, instruments[pick(instruments)]), instruments)
+		src.instruments.vars[new_instrument.name] = new_instrument
+	src.real_instrument = new /datum/real_instrument(src, new sound_player(src, instruments.vars[pick(instruments)]), instruments)
 
 /obj/item/device/synthesized_instrument/Destroy()
 	QDEL_NULL(src.real_instrument)

@@ -59,7 +59,7 @@
 		// Find all sectors with a tracker on their z-level. Only works on ships when they are in space.
 		for(var/obj/item/ship_tracker/tracker in trackers)
 			if(tracker.enabled)
-				var/obj/effect/overmap/visitable/tracked_effect = overmap_sectors["[GET_Z(tracker)]"]
+				var/obj/effect/overmap/visitable/tracked_effect = overmap_sectors.vars["[GET_Z(tracker)]"]
 				if(tracked_effect && istype(tracked_effect) && tracked_effect != linked && tracked_effect.requires_contact)
 					objects_in_current_view[tracked_effect] = TRUE
 					objects_in_view[tracked_effect] = 100
