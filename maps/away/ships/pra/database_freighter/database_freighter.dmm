@@ -509,7 +509,7 @@
 	},
 /area/database_freighter/laboratory)
 "ce" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
@@ -5193,7 +5193,7 @@
 	},
 /area/database_freighter/hangar)
 "YQ" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
