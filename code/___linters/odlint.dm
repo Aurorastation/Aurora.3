@@ -29,6 +29,7 @@
 
 //3000-3999
 #pragma EmptyBlock error
+#pragma EmptyProc error
 #pragma SuspiciousSwitchCase error
 #pragma AssignmentInConditional error
 
