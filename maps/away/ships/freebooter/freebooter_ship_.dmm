@@ -4093,7 +4093,7 @@
 /turf/simulated/floor/reinforced,
 /area/ship/freebooter_ship/gunnery)
 "pHN" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/freebooter_ship/thruster1)
@@ -5447,7 +5447,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/foyer)
 "uoZ" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/radiation,
 /obj/machinery/light,
 /turf/simulated/floor/reinforced,
