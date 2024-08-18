@@ -615,7 +615,7 @@
 
 /obj/item/clothing/accessory/flagpatch/all_xanu
 	name = "all-xanu republic flagpatch"
-	desc = "A flagpatch representing the All-Xanu Republic. Despite of it being a flag patch, this is obviously the offical banner of the republic, rather than the flag."
+	desc = "A flagpatch representing the All-Xanu Republic. Despite it being a flag patch, this is not the flag of the republic, but rather than the banner."
 	icon_state = "flagpatch_allxanu"
 	item_state = "flagpatch_allxanu"
 
