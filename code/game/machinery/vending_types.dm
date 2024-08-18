@@ -27,7 +27,7 @@
 	req_access = list(ACCESS_JANITOR)
 	products = list(
 		/obj/item/device/vending_refill/booze = 2,
-		/obj/item/device/vending_refill/tools = 2
+		/obj/item/device/vending_refill/tools = 2,
 		/obj/item/device/vending_refill/coffee = 2,
 		/obj/item/device/vending_refill/snack = 2,
 		/obj/item/device/vending_refill/cola = 2,
