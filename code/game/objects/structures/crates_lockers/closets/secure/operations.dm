@@ -30,6 +30,7 @@
 	new /obj/item/gun/energy/disruptorpistol/miniature(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/device/price_scanner(src)
+	new /obj/item/device/memorywiper(src)
 
 // Hangar Technician
 /obj/structure/closet/secure_closet/hangar_tech
