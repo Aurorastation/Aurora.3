@@ -93,3 +93,10 @@
   shimmeristaken:
   - rscadd: Adds a cool Callistean lighter to the game and as an option in the loadout
       menu.
+2024-08-19:
+  4000daniel1:
+  - rscadd: Added laser tag lockers to Holodeck Alpha, along with a new laser tag
+      arena module.
+  CourierBravo:
+  - spellcheck: Fixed the name of the Operations Manager radio key.
+  - spellcheck: Fixed a couple typos in the bluespace encryption key
