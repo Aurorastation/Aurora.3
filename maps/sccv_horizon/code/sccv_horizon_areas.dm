@@ -641,6 +641,9 @@
 
 /area/horizon/holodeck/source_cafe
 	name = "Horizon - Holodeck - Animal Cafe"
+
+/area/horizon/holodeck/source_lasertag
+	name = "Horizon - Holodeck - Laser Tag Arena"
 /********** Holodeck End **********/
 
 /********** Unique Start **********/

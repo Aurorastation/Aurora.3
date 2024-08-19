@@ -337,7 +337,7 @@
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/structure/closet/crate/rad,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/solars)
 "by" = (
@@ -386,7 +386,7 @@
 "bO" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /obj/item/reagent_containers/glass/bucket,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/solars)
 "bQ" = (
@@ -692,7 +692,7 @@
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/hangar1)
 "dm" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/radiation,
 /obj/machinery/firealarm/east,
 /turf/simulated/floor/tiled/dark,
@@ -1076,7 +1076,7 @@
 /obj/structure/closet/crate/miningcart,
 /obj/item/storage/belt/mining,
 /obj/item/stack/flag/red,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/storage)
 "fw" = (
@@ -3287,7 +3287,7 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/stack/material/lead/full,
 /obj/item/stack/material/lead/full,
 /obj/item/stack/material/steel/full,
@@ -3303,7 +3303,7 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/light{
 	dir = 4;
 	inserted_light = /obj/item/light/tube/colored/blue
@@ -4669,7 +4669,7 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/equipment)
 "wE" = (
@@ -5179,7 +5179,7 @@
 /area/ihss_reclamation/xenobot)
 "yM" = (
 /obj/structure/closet/radiation,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/solars)
 "yO" = (
@@ -6325,7 +6325,7 @@
 /area/ihss_reclamation/crew)
 "EZ" = (
 /obj/structure/closet/radiation,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/ihss_reclamation/storage)
 "Ff" = (
@@ -7043,7 +7043,7 @@
 	req_access = null;
 	req_one_access = list(113)
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/equipment)
 "Ip" = (
@@ -7773,7 +7773,7 @@
 "LO" = (
 /obj/machinery/light,
 /obj/structure/closet/radiation,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/ihss_reclamation/solars)
 "LP" = (
