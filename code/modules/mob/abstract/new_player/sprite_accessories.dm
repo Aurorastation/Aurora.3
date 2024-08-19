@@ -6271,33 +6271,6 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hoplan_primary"
 	robotize_type_required = list(PROSTHETIC_HOPLAN)
 
-/datum/sprite_accessory/marking/baseline_head/selen
-	name = "Baseline - Selen Primary Colors"
-	icon_state = "selen_primary"
-	robotize_type_required = list(PROSTHETIC_SELEN)
-
-/datum/sprite_accessory/marking/baseline_head/selen/lights
-	name = "Baseline - Selen Lights"
-	icon_state = "selen_lights"
-
-/datum/sprite_accessory/marking/baseline_head/sienna
-	name = "Baseline - Sienna Primary Colors"
-	icon_state = "sienna_primary"
-	robotize_type_required = list(PROSTHETIC_SIENNA)
-
-/datum/sprite_accessory/marking/baseline_head/sienna/lights
-	name = "Baseline - Sienna Lights"
-	icon_state = "sienna_lights"
-
-/datum/sprite_accessory/marking/baseline_head/siseyo
-	name = "Baseline - Siseyo Primary Colors"
-	icon_state = "siseyo_primary"
-	robotize_type_required = list(PROSTHETIC_SISEYO)
-
-/datum/sprite_accessory/marking/baseline_head/sienna/lights
-	name = "Baseline - Siseyo Lights"
-	icon_state = "siseyo_lights"
-
 /datum/sprite_accessory/marking/baseline_color
 	name = "Baseline - Primary Colors"
 	icon = 'icons/mob/human_races/markings_baseline.dmi'
@@ -6341,6 +6314,41 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/marking/bishop_lights/bishop_mask/bishop_triangular_mask
 	name = "Bishop - Triangular Face Mask"
 	icon_state = "bishop_triangular_mask"
+
+
+/datum/sprite_accessory/marking/bishop_lights/selen
+	name = "Bishop - Selen Primary Colors"
+	icon_state = "selen_primary"
+	body_parts = list(BP_HEAD)
+	robotize_type_required = list(PROSTHETIC_SELEN)
+
+/datum/sprite_accessory/marking/bishop_lights/bishop_mask/selen/lights
+	name = "Baseline - Selen Lights"
+	icon_state = "selen_lights"
+	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/bishop_lights/bishop_mask/sienna
+	name = "Baseline - Sienna Primary Colors"
+	icon_state = "sienna_primary"
+	body_parts = list(BP_HEAD)
+	robotize_type_required = list(PROSTHETIC_SIENNA)
+
+/datum/sprite_accessory/marking/bishop_lights/sienna/lights
+	name = "Baseline - Sienna Lights"
+	icon_state = "sienna_lights"
+	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/bishop_lights/siseyo
+	name = "Baseline - Siseyo Primary Colors"
+	icon_state = "siseyo_primary"
+	body_parts = list(BP_HEAD)
+	robotize_type_required = list(PROSTHETIC_SISEYO)
+
+/datum/sprite_accessory/marking/bishop_lights/sienna/lights
+	name = "Baseline - Siseyo Lights"
+	icon_state = "siseyo_lights"
+	body_parts = list(BP_HEAD)
+
 
 /datum/sprite_accessory/marking/bishop_lights/bishop_panels
 	name = "Bishop - Full Body Panel Colors"
