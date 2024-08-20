@@ -4,6 +4,7 @@
 	name = "Caprice"
 	desc = "A scorching-hot volcanic planet close to Tau Ceti."
 	charted = "Charted 2147CE, Sol Alliance Department of Colonization."
+	alignment = "Federal Republic of Biesel"
 	icon_state = "globe1"
 	color = "#cf1020"
 	generated_name = FALSE
@@ -57,6 +58,7 @@
 	name = "Valkyrie"
 	desc = "The moon of Tau Ceti, the third planet to be settled in the system."
 	charted = "Natural satellite of Tau Ceti, charted 2147CE, Sol Alliance Department of Colonization."
+	alignment = "Federal Republic of Biesel"
 	icon_state = "globe1"
 	rock_colors = list("#4a3f41")
 	color = "#4a3f41"
@@ -75,6 +77,7 @@
 	name = "New Gibson"
 	desc = "An ice world just outside the outer edge of the habitable zone."
 	charted = "Charted 2147CE, Sol Alliance Department of Colonization."
+	alignment = "Federal Republic of Biesel"
 	icon_state = "globe1"
 	features_budget = 1
 	possible_themes = list(/datum/exoplanet_theme/snow/tundra)
@@ -143,6 +146,7 @@
 /obj/effect/overmap/visitable/sector/exoplanet/biesel
 	name = "Biesel"
 	desc = "The third closest planet to Tau Ceti's star, Biesel is an Earth-like planet that benefits from a temperate climate and breathable atmosphere. It is the capital planet of the Republic of Biesel."
+	alignment = "Federal Republic of Biesel"
 	icon_state = "globe2"
 	color = "#5B8958"
 	planetary_area = /area/exoplanet/grass
