@@ -301,7 +301,7 @@
 	var/players = -min_offmap_players
 	log_debug("Players: [players]")
 	var/shippoints = isnum(GLOB.config.awaysites["away_ship_budget"]) ? (GLOB.config.awaysites["away_ship_budget"]) : (rand(away_ship_budget, away_ship_budget + away_variance))
-	log_debug("Ship Points: [players]")
+	log_debug("Ship Points: [shippoints]")
 	var/totalbudget = shippoints + points
 	log_debug("Total Budget: [totalbudget]")
 	for (var/client/C)
@@ -314,6 +314,7 @@
 		shippoints -= costs[3]
 		log_debug("Guaranteed site [site.name] removing [costs[1]] [costs[2]] [costs[3]] with end result: [points] [players] [shippoints]")
 
+	log_debug("AVAILABLE: [english_list(available)]")
 	while ((points > 0 || shippoints > 0) && length(available))
 		var/datum/map_template/ruin/away_site/site = pickweight(available)
 		if ((site.spawn_cost && site.spawn_cost > points) || (site.player_cost && site.player_cost > players) || (site.ship_cost && site.ship_cost > shippoints))
