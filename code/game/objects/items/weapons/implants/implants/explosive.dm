@@ -123,7 +123,6 @@
 		return
 	if(findtext(sanitizePhrase(msg),phrase))
 		activate()
-		qdel(src)
 
 /obj/item/implant/explosive/exposed()
 	if(warning_message)
@@ -187,7 +186,7 @@
 									SPAN_DANGER("Your [part.name] bursts open with a horrible ripping noise!"),
 									SPAN_WARNING("You hear a horrible ripping noise."))
 		else
-			part.droplimb(0,DROPLIMB_BLUNT)
+			part.droplimb(0,DROPLIMB_EDGE)
 		playsound(get_turf(imp_in), BP_IS_ROBOTIC(part) ? 'sound/effects/meteorimpact.ogg' : 'sound/effects/splat.ogg', 70)
 	else if(ismob(imp_in))
 		var/mob/M = imp_in

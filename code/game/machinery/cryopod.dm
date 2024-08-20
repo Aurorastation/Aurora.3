@@ -9,8 +9,6 @@
 
 //Main cryopod console.
 
-GLOBAL_LIST_EMPTY(frozen_crew)
-
 /obj/machinery/computer/cryopod
 	name = "cryogenic oversight console"
 	desc = "An interface between crew and the cryogenic storage oversight systems."
@@ -74,7 +72,6 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 
 	dat += "<hr><b>[storage_name]</b><br>"
 	dat += "<i>Welcome, [user.real_name].</i><br><hr><br>"
-	dat += "<a href='?src=\ref[src];log=1'>View Storage Log</a><br>"
 	if(allow_items)
 		dat += "<a href='?src=\ref[src];view=1'>View Objects</a><br>"
 		dat += "<a href='?src=\ref[src];item=1'>Recover Object</a><br>"
@@ -91,19 +88,6 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 	var/mob/user = usr
 
 	src.add_fingerprint(user)
-
-	if(href_list["log"])
-		if(!length(GLOB.frozen_crew))
-			to_chat(user, SPAN_WARNING("Nothing has been stored recently."))
-			return
-		var/dat = "<center><b>Recently Stored [storage_type]</b></center><hr>"
-		for(var/person in GLOB.frozen_crew)
-			dat += " - [person]<br>"
-		dat += "<hr>"
-
-		var/datum/browser/cryolog_win = new(user, "cryolog", "Cryogenic Storage Log")
-		cryolog_win.set_content(dat)
-		cryolog_win.open()
 
 	if(href_list["view"])
 		if(!allow_items)
@@ -397,7 +381,6 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 		GLOB.global_announcer.autosay("[occupant.real_name], [occupant.mind.role_alt_title], [on_store_message] [on_store_location].", "[on_store_name]")
 	visible_message(SPAN_NOTICE("\The [src] hums and hisses as it moves [occupant] to [on_store_location]."))
 	playsound(loc, on_store_sound, 25)
-	GLOB.frozen_crew += occupant
 	if(ishuman(occupant))
 		var/mob/living/carbon/human/H = occupant
 		if(H.ghost_spawner)

@@ -50,6 +50,22 @@
 	name = "Hadiist Satellite Navpoint #3"
 	landmark_tag = "nav_hadiist_satellite_3"
 
+// Airlock Markers
+/obj/effect/map_effect/marker/airlock/pra_satellite
+	frequency = 1004
+
+/obj/effect/map_effect/marker/airlock/pra_satellite/starboard
+	name = "airlock_pra_satellite_starboard"
+	master_tag = "airlock_pra_satellite_starboard"
+
+/obj/effect/map_effect/marker/airlock/pra_satellite/port
+	name = "airlock_pra_satellite_port"
+	master_tag = "airlock_pra_satellite_port"
+
+/obj/effect/map_effect/marker/airlock/pra_satellite/aft
+	name = "airlock_pra_satellite_aft"
+	master_tag = "airlock_pra_satellite_aft"
+
 /area/pra_satellite
 	name = "Hadiist Satellite"
 	icon_state = "research"

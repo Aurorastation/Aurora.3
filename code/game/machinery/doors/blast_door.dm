@@ -15,7 +15,7 @@
 	icon = 'icons/obj/doors/rapid_pdoor.dmi'
 	icon_state = null
 	dir = 1
-	closed_layer = ABOVE_WINDOW_LAYER
+	closed_layer = ABOVE_DOOR_LAYER
 	explosion_resistance = 25
 	pass_flags_self = PASSDOORS
 
@@ -221,7 +221,6 @@
 	icon_state_closing = "shutterc1"
 	icon_state = "shutter1"
 	damage = SHUTTER_CRUSH_DAMAGE
-	/// Closed shutters go *above* objects.
 	closed_layer = CLOSED_DOOR_LAYER
 
 /obj/machinery/door/blast/shutters/open

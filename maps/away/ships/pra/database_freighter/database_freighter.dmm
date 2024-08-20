@@ -70,7 +70,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -336,7 +338,9 @@
 "br" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -509,7 +513,7 @@
 	},
 /area/database_freighter/laboratory)
 "ce" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
@@ -729,7 +733,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -924,6 +931,7 @@
 /obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/database_freighter,
 /obj/item/storage/backpack/satchel/eng,
+/obj/item/clothing/accessory/flagpatch/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1125,7 +1133,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -1254,7 +1265,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1401,7 +1414,10 @@
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1416,7 +1432,9 @@
 	name = "Bridge";
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1805,7 +1823,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -1858,6 +1878,7 @@
 /obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/database_freighter,
 /obj/item/storage/backpack/messenger/engi,
+/obj/item/clothing/accessory/flagpatch/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -1882,6 +1903,7 @@
 /obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/database_freighter/captain,
 /obj/item/clothing/suit/storage/toggle/labcoat,
+/obj/item/clothing/accessory/flagpatch/pra,
 /turf/simulated/floor/wood{
 	temperature = 278.15
 	},
@@ -2540,7 +2562,10 @@
 	name = "Checkpoint";
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -2625,7 +2650,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -2680,7 +2708,10 @@
 	},
 /area/database_freighter/barracks)
 "mA" = (
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /obj/machinery/door/airlock/research{
 	req_access = list(209);
 	name = "Spectrometry";
@@ -3104,7 +3135,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -3128,7 +3161,10 @@
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3638,6 +3674,11 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/machinery/photocopier/faxmachine{
+	req_one_access = list(209);
+	department = "Database Freighter"
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -4196,7 +4237,9 @@
 	name = "Restroom";
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/tiled/freezer{
 	temperature = 278.15
 	},
@@ -4414,7 +4457,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -4555,7 +4600,9 @@
 	name = "Atmospherics";
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -4784,7 +4831,10 @@
 	req_access = list(209);
 	dir = 4
 	},
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	dir = 8;
+	req_one_access = list(24,11,67,209)
+	},
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
 	},
@@ -4985,7 +5035,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/door/firedoor,
+/obj/machinery/door/firedoor{
+	req_one_access = list(24,11,67,209)
+	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
@@ -5030,6 +5082,7 @@
 /obj/item/clothing/shoes/jackboots/tajara,
 /obj/item/clothing/under/tajaran/database_freighter,
 /obj/item/storage/backpack/duffel/eng,
+/obj/item/clothing/accessory/flagpatch/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -5193,7 +5246,7 @@
 	},
 /area/database_freighter/hangar)
 "YQ" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},

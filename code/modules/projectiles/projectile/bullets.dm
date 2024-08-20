@@ -375,26 +375,51 @@
 
 /obj/projectile/bullet/rifle/tranq/on_hit(var/atom/target, var/blocked = 0, var/def_zone = null)
 	var/mob/living/L = target
-	if(!(isanimal(target)))
-		if(!(isipc(target)))
-			if(!isrobot(target))
-				L.apply_effect(5, DROWSY, 0)
-				if(def_zone == "torso")
-					if(blocked < 100 && !(blocked < 20))
-						L.emote("yawns")
-					if(blocked < 20)
-						if(L.reagents)	L.reagents.add_reagent(/singleton/reagent/soporific, 10)
-				if(def_zone == BP_HEAD && blocked < 100)
-					if(L.reagents)	L.reagents.add_reagent(/singleton/reagent/soporific, 15)
-				if(def_zone != "torso" && def_zone != BP_HEAD)
-					if(blocked < 100 && !(blocked < 20))
-						L.emote("yawns")
-					if(blocked < 20)
-						if(L.reagents)	L.reagents.add_reagent(/singleton/reagent/soporific, 5)
 
 	if(isanimal(target))
-		target.visible_message("<b>[target]</b> twitches, foaming at the mouth.")
+		target.visible_message("[SPAN_BOLD("[target]")] twitches, foaming at the mouth.")
 		L.apply_damage(35, DAMAGE_TOXIN) //temporary until simple_animal paralysis actually works.
+
+		//Determine in how long the mob will be put to rest, depending on its size
+		var/sleep_in = 10 SECONDS
+		switch(L.mob_size)
+			if(MOB_TINY)
+				sleep_in = 3 SECOND
+			if(MOB_SMALL)
+				sleep_in = 6 SECONDS
+			if(MOB_MEDIUM)
+				sleep_in = 10 SECONDS
+			if(MOB_LARGE)
+				sleep_in = 40 SECONDS
+
+		addtimer(CALLBACK(L, TYPE_PROC_REF(/mob/living, Weaken), (L.weakened + 40)), sleep_in)
+
+	else
+
+		if(!(isipc(target)) && !isrobot(target))
+			L.apply_effect(5, DROWSY, 0)
+
+			switch(def_zone)
+
+				if(BP_CHEST)
+					if(blocked < 20)
+						if(L.reagents)
+							L.reagents.add_reagent(/singleton/reagent/soporific, 10)
+					else if(blocked < 100)
+						L.emote("yawns")
+
+				if(BP_HEAD)
+					if(blocked < 100)
+						if(L.reagents)
+							L.reagents.add_reagent(/singleton/reagent/soporific, 15)
+
+				else
+					if(blocked < 20)
+						if(L.reagents)
+							L.reagents.add_reagent(/singleton/reagent/soporific, 5)
+					else if(blocked < 100)
+						L.emote("yawns")
+
 	..()
 
 /* Miscellaneous */
