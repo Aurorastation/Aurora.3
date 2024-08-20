@@ -16041,6 +16041,7 @@
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
+/mob/abstract/storyteller,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/comms)
 "ska" = (

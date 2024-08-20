@@ -37,6 +37,76 @@
 			return
 		return create_mob(usr)
 
+	else if(href_list["object_list"])
+		if(!GLOB.config.allow_admin_spawning)
+			to_chat(usr, "Spawning of items is not allowed.")
+			return
+
+		var/atom/loc = usr.loc
+
+		var/dirty_paths
+		if (istext(href_list["object_list"]))
+			dirty_paths = list(href_list["object_list"])
+		else if (istype(href_list["object_list"], /list))
+			dirty_paths = href_list["object_list"]
+
+		var/paths = list()
+		var/removed_paths = list()
+
+		for(var/dirty_path in dirty_paths)
+			var/path = text2path(dirty_path)
+			if(!path)
+				removed_paths += dirty_path
+				continue
+			else if(!ispath(path, /obj) && !ispath(path, /turf) && !ispath(path, /mob))
+				removed_paths += dirty_path
+				continue
+			else if(ispath(path, /obj/effect/bhole))
+				if(!check_rights(R_FUN, 0))
+					removed_paths += dirty_path
+					continue
+			paths += path
+
+		if(!paths ||( length(paths) > 5))
+			return
+
+		var/list/offset = text2list(href_list["offset"],",")
+		var/number = dd_range(1, 100, text2num(href_list["object_count"]))
+		var/X = offset.len > 0 ? text2num(offset[1]) : 0
+		var/Y = offset.len > 1 ? text2num(offset[2]) : 0
+		var/Z = offset.len > 2 ? text2num(offset[3]) : 0
+		var/tmp_dir = href_list["object_dir"]
+		var/obj_dir = tmp_dir ? text2num(tmp_dir) : 2
+		if(!obj_dir || !(obj_dir in list(1,2,4,8,5,6,9,10)))
+			obj_dir = 2
+		var/obj_name = sanitize(href_list["object_name"])
+		switch(href_list["offset_type"])
+			if ("absolute")
+				target = locate(0 + X, 0 + Y, 0 + Z)
+			if ("relative")
+				target = locate(loc.x + X, loc.y + Y, loc.z + Z)
+
+		if(target)
+			for (var/path in paths)
+				for (var/i = 0; i < number; i++)
+					if(ispath(path, /turf))
+						var/turf/O = target
+						var/turf/N = O.ChangeTurf(path)
+						if(N)
+							if(obj_name)
+								N.name = obj_name
+					else
+						var/atom/O = new path(target)
+						if(O)
+							O.set_dir(obj_dir)
+							if(obj_name)
+								O.name = obj_name
+								if(ismob(O))
+									var/mob/M = O
+									M.set_name(obj_name)
+
+		log_and_message_admins("created [number] [english_list(paths)]")
+
 /mob/abstract/storyteller/proc/create_object(var/mob/user)
 	if (!create_object_html)
 		var/objectjs = null
@@ -44,7 +114,7 @@
 		create_object_html = file2text('html/create_object.html')
 		create_object_html = replacetext(create_object_html, "null /* object types */", "\"[objectjs]\"")
 
-	user << browse(replacetext(create_object_html, "/* ref src */", "\ref[src]"), "window=create_object;size=600x600")
+	user << browse(replacetext(create_object_html, "/* ref src */", "\ref[src]"), "window=create_object;size=700x700")
 
 /mob/abstract/storyteller/proc/create_turf(var/mob/user)
 	if (!create_turf_html)
@@ -53,7 +123,7 @@
 		create_turf_html = file2text('html/create_object.html')
 		create_turf_html = replacetext(create_turf_html, "null /* object types */", "\"[turfjs]\"")
 
-	user << browse(replacetext(create_turf_html, "/* ref src */", "\ref[src]"), "window=create_turf;size=425x475")
+	user << browse(replacetext(create_turf_html, "/* ref src */", "\ref[src]"), "window=create_turf;size=700x700")
 
 /mob/abstract/storyteller/proc/create_mob(var/mob/user)
 	if (!create_mob_html)
@@ -62,7 +132,7 @@
 		create_mob_html = file2text('html/create_object.html')
 		create_mob_html = replacetext(create_mob_html, "null /* object types */", "\"[mobjs]\"")
 
-	user << browse(replacetext(create_mob_html, "/* ref src */", "\ref[src]"), "window=create_mob;size=425x475")
+	user << browse(replacetext(create_mob_html, "/* ref src */", "\ref[src]"), "window=create_mob;size=700x700")
 
 /mob/abstract/storyteller/verb/storyteller_local_narrate()
 	set name = "Local Narrate"

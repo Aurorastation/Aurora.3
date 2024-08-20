@@ -4,7 +4,7 @@
 /datum/map_template/ruin/away_site/cryo_outpost
 	name = "Desert Oasis Planet"
 	description = "Desert Oasis Planet."
-	prefix = "away_site/cryo_outpost/"
+	prefix = "odysseys/cryo_outpost/"
 	suffix = "cryo_outpost.dmm"
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	spawn_weight = 1
@@ -16,7 +16,6 @@
 		/turf/unsimulated/marker/green = /datum/exoplanet_theme/grass/cryo_outpost
 	)
 	unit_test_groups = list(3)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED // TODO REMOVE THIS
 
 /singleton/submap_archetype/cryo_outpost
 	map = "Desert Oasis Planet"
@@ -167,3 +166,16 @@
 		Crew is not happy about all of this. And so, more and more are just leaving, even before their contracts end. <br>\
 		"
 */
+
+// ---------------------- outfits
+
+/obj/outfit/admin/generic/cryo_outpost_crew
+	name = "Desert Oasis Planet Outpost Crew Uniform"
+	l_ear = /obj/item/device/radio/headset/ship
+	id = /obj/item/device/radio/headset/syndicate
+	l_pocket = /obj/item/device/radio/hailing
+
+/obj/outfit/admin/generic/cryo_outpost_crew/get_id_access()
+	return list(
+		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CRYO_OUTPOST,
+	)
