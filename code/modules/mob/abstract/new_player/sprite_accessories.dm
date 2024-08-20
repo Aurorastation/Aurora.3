@@ -6323,29 +6323,29 @@ Follow by example and make good judgement based on length which list to include 
 	robotize_type_required = list(PROSTHETIC_SELEN)
 
 /datum/sprite_accessory/marking/bishop_lights/bishop_mask/selen/lights
-	name = "Baseline - Selen Lights"
+	name = "Bishop - Selen Lights"
 	icon_state = "selen_lights"
 	body_parts = list(BP_HEAD)
 
 /datum/sprite_accessory/marking/bishop_lights/bishop_mask/sienna
-	name = "Baseline - Sienna Primary Colors"
+	name = "Bishop - Sienna Primary Colors"
 	icon_state = "sienna_primary"
 	body_parts = list(BP_HEAD)
 	robotize_type_required = list(PROSTHETIC_SIENNA)
 
 /datum/sprite_accessory/marking/bishop_lights/sienna/lights
-	name = "Baseline - Sienna Lights"
+	name = "Bishop - Sienna Lights"
 	icon_state = "sienna_lights"
 	body_parts = list(BP_HEAD)
 
 /datum/sprite_accessory/marking/bishop_lights/siseyo
-	name = "Baseline - Siseyo Primary Colors"
+	name = "Bishop - Siseyo Primary Colors"
 	icon_state = "siseyo_primary"
 	body_parts = list(BP_HEAD)
 	robotize_type_required = list(PROSTHETIC_SISEYO)
 
 /datum/sprite_accessory/marking/bishop_lights/sienna/lights
-	name = "Baseline - Siseyo Lights"
+	name = "Bishop - Siseyo Lights"
 	icon_state = "siseyo_lights"
 	body_parts = list(BP_HEAD)
 
