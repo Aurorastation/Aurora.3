@@ -1920,3 +1920,42 @@
 			var/obj/item/organ/external/E = Z.parent_organ
 			Z.curing = TRUE
 			to_chat(M, SPAN_WARNING("Your [E.name] tightens, pulses, and squirms as \the [Z] fights back against the antibodies!"))
+
+/singleton/reagent/caffeine // Copied from Hyperzine
+	name = "Caffeine"
+	description = "Caffeine is a central nervous system stimulant found naturally in many plants. It's used as a mild cognitive enhancer to increase alertness, attentional performance, and improve cardiovascular health."
+	reagent_state = SOLID
+	color = "#f9edea"
+	metabolism = REM * 0.15
+	overdose = 11
+	var/datum/modifier = null
+	taste_description = "bitter"
+	metabolism_min = REM * 0.025
+	breathe_met = REM * 0.15 * 0.5
+
+/singleton/reagent/caffeine/get_od_min_dose(mob/living/carbon/M, location, datum/reagents/holder)
+	if(REAGENT_VOLUME(M.reagents, /singleton/reagent/adrenaline) > 5)
+		return 0 // Takes effect instantly.
+	. = od_minimum_dose
+
+/singleton/reagent/caffeine/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(prob(5))
+		to_chat(M, SPAN_GOOD(pick("You feel alert!", "You feel awake!", "You feel pumped!")))
+	if(check_min_dose(M, 0.5))
+		M.add_chemical_effect(CE_PULSE, 1)
+
+/singleton/reagent/caffeine/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	M.adjustNutritionLoss(5*removed)
+	M.add_chemical_effect(CE_PULSE, 2)
+	M.add_chemical_effect(CE_SPEEDBOOST, 0.35) // Coffee = 0.3, Zora Soda = 0.4, Thirteen Loko = 0.5. Seems fine here, if a bit low.
+	M.make_jittery(5)
+	if(prob(5))
+		to_chat(M, SPAN_WARNING(pick("You have a headache!", "Energy, energy, energy - so much energy!", "You can't sit still!", "It's difficult to focus right now... but that's not important!", "Your heart is beating rapidly!", "Your chest hurts!", "You've totally over-exerted yourself!")))
+	if(prob(M.chem_doses[type] / 3))
+		M.emote(pick("twitch", "blink_r", "shiver"))
+		M.take_organ_damage(5 * removed, 0)
+		M.adjustHalLoss(15)
+
+/singleton/reagent/caffeine/Destroy()
+	QDEL_NULL(modifier)
+	return ..()
