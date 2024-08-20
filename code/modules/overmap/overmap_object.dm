@@ -62,7 +62,7 @@
 		. += "<hr>"
 		. += "<br><center><b>Native Database Specifications</b>"
 		. += "<br><img src = [scanimage]></center>"
-		. += "<br><small><b>Governing Body:</b> [alignment]"
+		. += "<br><small><b>Governing Body:</b> [alignment]</small>"
 		. += "<hr>"
 		. += "<br><center><b>Native Database Notes</b></center>"
 		. += "<br><small>[desc]</small>"

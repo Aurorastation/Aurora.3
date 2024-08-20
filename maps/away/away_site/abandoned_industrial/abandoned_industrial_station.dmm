@@ -4287,7 +4287,7 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/service)
 "nS" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate/tool,
 /obj/random/dirt_75,
 /obj/random/dirt_75,

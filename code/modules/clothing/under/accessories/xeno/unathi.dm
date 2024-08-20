@@ -100,6 +100,19 @@
 	they can live up to half a millenia- should enough foolish adventurers try to slay it, that is."
 	worn_overlay = "mountain"
 
+/obj/item/clothing/accessory/poncho/unathimantle/jungle
+	name = "jungle hide mantle"
+	desc = "A mantle made to mimic the original Moghesian ones with the resources found on Ouerea, which can be seen \
+	on the backs of both the destitute and the more powerful Sinta. Made from awth'una hide, its bright colors made it quite \
+	fashionable, and some have even been exported to Unathi abroad."
+	desc_extended = "The jungle mantle was originally made to replace the traditional mantles of Moghes a few years after the first Unathi \
+	colonists landed on Ouerea, a way for them to preserve their tradition and fashion, and to stand out from those on the home world. These \
+	mantles are made from awth'una hide, the largest one requiring the hide of multiple ones to be made, proving to be surprisingly light yet tough. \
+	The jungle mantle is more of a fashion statement than a sign of status, and thus, Unathi from various backgrounds can be seen wearing it. \
+	The bright green colors of the awth'una have made these mantles quite popular among Sinta abroad, and though they are still a very rare sight \
+	on Moghes, Sinta from across the Spur have imported some of these mantles, namely on Mictlan."
+	worn_overlay = "jungle"
+
 /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
 	name = "hephaestus guild mantle"
 	desc = "The cured hide and skin of a large beast, dyed in the deep green of Hephaestus Industries. These mantles are reserved for guildsmen of Haphaestus Industries, \

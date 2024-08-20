@@ -233,7 +233,7 @@
 	desc = "A more compact and portable version of the Stellar Corporate Conglomerate Energy Repeater. It has two settings: Stun, and Lethal."
 	desc_extended = "The SCC-ER1-2 was designed to be a reliable yet more compact version of the SCC-ER1, capable of defending Staff and Assets."
 	icon = 'icons/obj/guns/sccpistol.dmi'
-	icon_state = "sccpistolstun"
+	icon_state = "sccpistolstun100"
 	item_state = "sccpistolstun"
 	has_item_ratio = FALSE
 	fire_sound = 'sound/weapons/Taser.ogg'
