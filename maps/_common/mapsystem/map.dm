@@ -284,6 +284,7 @@
 		var/datum/map_template/ruin/away_site/site = SSmapping.away_sites_templates[site_id]
 		if (((site.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED) && (site.spawns_in_current_sector())) || (site_id in GLOB.config.awaysites["guaranteed_sites"]))
 			guaranteed += site
+			log_debug("Guaranteed: [site.name]")
 			if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 				available[site] = site.spawn_weight
 		else if((site.template_flags & TEMPLATE_FLAG_PORT_SPAWN) && (site.spawns_in_current_sector()))
@@ -296,9 +297,13 @@
 		by_type[site.type] = site
 
 	var/points = isnum(GLOB.config.awaysites["away_site_budget"]) ? (GLOB.config.awaysites["away_site_budget"]) : (rand(away_site_budget, away_site_budget + away_variance))
+	log_debug("Points: [points]")
 	var/players = -min_offmap_players
+	log_debug("Players: [players]")
 	var/shippoints = isnum(GLOB.config.awaysites["away_ship_budget"]) ? (GLOB.config.awaysites["away_ship_budget"]) : (rand(away_ship_budget, away_ship_budget + away_variance))
+	log_debug("Ship Points: [players]")
 	var/totalbudget = shippoints + points
+	log_debug("Total Budget: [totalbudget]")
 	for (var/client/C)
 		++players
 
@@ -307,14 +312,17 @@
 		points -= costs[1]
 		players -= costs[2]
 		shippoints -= costs[3]
+		log_debug("Guaranteed site [site.name] removing [costs[1]] [costs[2]] [costs[3]] with end result: [points] [players] [shippoints]")
 
 	while ((points > 0 || shippoints > 0) && length(available))
 		var/datum/map_template/ruin/away_site/site = pickweight(available)
 		if ((site.spawn_cost && site.spawn_cost > points) || (site.player_cost && site.player_cost > players) || (site.ship_cost && site.ship_cost > shippoints))
 			unavailable += site
 			available -= site
+			log_debug("Unavailable site: [site.name] - spawn cost: [site.spawn_cost] points [points], player_cost [site.player_cost] players [players], ship cost [site.ship_cost] ship_points [shippoints]")
 			continue
 		var/list/costs = resolve_site_selection(site, selected, available, unavailable, by_type)
+		log_debug("Costs of [site.name]: [english_list(costs)]")
 		points -= costs[1]
 		players -= costs[2]
 		shippoints -= costs[3]
