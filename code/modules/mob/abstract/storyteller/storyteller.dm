@@ -33,6 +33,7 @@
 	if(C)
 		real_name = "Storyteller ([client.ckey])"
 		SSodyssey.add_storyteller(src)
+		GLOB.storytellers.add_antagonist(mind)
 
 /mob/abstract/storyteller/ghostize(can_reenter_corpse, should_set_timer)
 	. = ..()
