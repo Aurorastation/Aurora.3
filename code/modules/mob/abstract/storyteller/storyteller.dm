@@ -139,10 +139,15 @@
 	update_sight()
 	to_chat(usr, SPAN_NOTICE("You [(ghostvision ? "now" : "no longer")] have ghost vision."))
 
+/**
+ * Currently whitelisted in the config behind the head of staff whitelist.
+ * Let's see if they can play nice.
+ */
 /datum/ghostspawner/storyteller
 	name = "Storyteller"
 	short_name = "storyteller"
-	desc = "Tell your story to the world."
+	desc = "As the Storyteller, you have creative direction over the current round. You are trusted to change, mix up and make interesting experiences for the \
+			players. Use this power with responsibility!"
 	tags = list("Odyssey")
 	loc_type = GS_LOC_ATOM
 	enabled = TRUE

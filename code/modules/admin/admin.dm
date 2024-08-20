@@ -1379,11 +1379,11 @@ var/global/enabled_spooking = 0
 	return T ? "[area_name ? "[get_area_name(T, TRUE)] " : " "]([T.x],[T.y],[T.z])[admin_jump_ref ? " [ADMIN_JMP(T)]" : ""]" : "nonexistent location"
 
 /**
- * Used to manually set a Situation for the Odyssey gamemode.
+ * Used to manually set an Odyssey for the Odyssey gamemode.
  */
 
-/datum/admins/proc/set_situation()
-	set name = "Set Situation Type"
+/datum/admins/proc/set_odyssey()
+	set name = "Set Odyssey Type"
 	set category = "Special Verbs"
 
 	if(!check_rights(R_ADMIN))
@@ -1397,23 +1397,23 @@ var/global/enabled_spooking = 0
 		to_chat(usr, SPAN_WARNING("You need to use this verb while the game is still setting up!"))
 		return
 
-	var/list/all_situations = GET_SINGLETON_SUBTYPE_LIST(/singleton/situation)
-	var/list/possible_situations = list()
-	for(var/singleton/situation/S in all_situations)
-		possible_situations[S.name] = S
+	var/list/all_odysseys = GET_SINGLETON_SUBTYPE_LIST(/singleton/odyssey)
+	var/list/possible_odysseys = list()
+	for(var/singleton/odyssey/S in all_odysseys)
+		possible_odysseys[S.name] = S
 
-	var/singleton/situation/chosen_situation
-	var/situation_name = tgui_input_list(usr, "Choose a situation.", "Situation", possible_situations)
-	chosen_situation = possible_situations[situation_name]
+	var/singleton/odyssey/chosen_odyssey
+	var/situation_name = tgui_input_list(usr, "Choose an Odyssey.", "Set Odyssey", possible_odysseys)
+	chosen_odyssey = possible_odysseys[situation_name]
 
-	if(!chosen_situation)
+	if(!chosen_odyssey)
 		return
 
-	if(!(SSatlas.current_sector.name in chosen_situation.sector_whitelist))
-		if(tgui_alert(usr, "This situation is not appropriate for the current sector. Continue?", "Situation", list("Yes", "No")) != "Yes")
+	if(!(SSatlas.current_sector.name in chosen_odyssey.sector_whitelist))
+		if(tgui_alert(usr, "This Odyssey is not appropriate for the current sector. Continue?", "Set Odyssey", list("Yes", "No")) != "Yes")
 			return
 
-	SSodyssey.situation = chosen_situation
-	log_and_message_admins("has manually set the situation to [chosen_situation.name]", usr)
+	SSodyssey.odyssey = chosen_odyssey
+	log_and_message_admins("has manually set the Odyssey to [chosen_odyssey.name]", usr)
 	feedback_add_details("admin_verb","SEST") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 

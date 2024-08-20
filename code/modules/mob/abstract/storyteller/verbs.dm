@@ -126,40 +126,6 @@
 	message_admins("<span class='notice'>\bold DirectNarrate: [key_name(usr)] to ([M.name]/[M.key]): [msg]<BR></span>", 1)
 	feedback_add_details("admin_verb","DIRN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/mob/abstract/storyteller/verb/spawn_atom(var/object as text)
-	set name = "Spawn"
-	set category = "Storyteller"
-
-	/// a little bit of extra sanitization never hurts
-	if(usr != src)
-		return
-
-	var/list/types = typesof(/atom)
-	var/list/matches = new()
-
-	for(var/path in types)
-		if(findtext("[path]", object))
-			matches += path
-
-	if(matches.len==0)
-		return
-
-	var/chosen
-	if(matches.len==1)
-		chosen = matches[1]
-	else
-		chosen = input("Select an atom type", "Spawn Atom", matches[1]) as null|anything in matches
-		if(!chosen)
-			return
-
-	if(ispath(chosen,/turf))
-		var/turf/T = get_turf(usr.loc)
-		T.ChangeTurf(chosen)
-	else
-		new chosen(usr.loc)
-
-	log_and_message_admins("spawned [chosen] at ([usr.x],[usr.y],[usr.z])")
-
 /mob/abstract/storyteller/verb/toggle_build_mode()
 	set name = "Toggle Build Mode"
 	set category = "Storyteller"
@@ -197,3 +163,76 @@
 
 	//New message handling
 	post_comm_message(reporttitle, reportbody)
+
+/mob/abstract/storyteller/verb/change_mob_name(var/mob/victim)
+	set name = "Change Mob Name"
+
+	var/new_name = tgui_input_text(src, "Enter a new name.", "Change Mob Name", max_length = MAX_NAME_LEN)
+	if(!new_name)
+		return
+
+	log_admin("[key_name(src)] has renamed [victim] to [new_name].")
+	victim.set_name(new_name)
+
+/mob/abstract/storyteller/verb/change_obj_name(var/obj/thing)
+	set name = "Change Object Name"
+
+	var/new_name = tgui_input_text(src, "Enter a new name.", "Change Object Name", max_length = MAX_NAME_LEN)
+	if(!new_name)
+		return
+
+	log_admin("[key_name(src)] has renamed [thing] to [new_name].")
+	thing.name = new_name
+
+/mob/abstract/storyteller/verb/change_obj_desc(var/obj/thing)
+	set name = "Change Object Description"
+
+	var/new_desc = tgui_input_text(src, "Enter a new description.", "Change Object Description", max_length = MAX_MESSAGE_LEN)
+	if(!new_desc)
+		return
+
+	log_admin("[key_name(src)] has changed [thing]'s description to [new_desc].")
+	thing.desc = new_desc
+
+/mob/abstract/storyteller/verb/teleport(A in GLOB.ghostteleportlocs)
+	set name = "Teleport to Area"
+	set category = "Storyteller"
+
+	var/area/chosen_area = GLOB.ghostteleportlocs[A]
+	if(!chosen_area)
+		return
+
+	var/list/area_turfs = list()
+	for(var/turf/T in get_area_turfs(chosen_area))
+		area_turfs += T
+
+	if(!area_turfs || !length(area_turfs))
+		to_chat(usr, "No area available.")
+		return
+
+	var/turf/P = pick(area_turfs)
+	forceMove(P)
+	log_admin("[key_name(usr)] has teleported to [P.x] [P.y] [P.z].")
+
+/mob/abstract/storyteller/verb/teleport_to_actor()
+	set name = "Teleport to Antagonist"
+	set category = "Storyteller"
+
+	var/list/antagonists = list()
+	for(var/antag_type in GLOB.all_antag_types)
+		var/datum/antagonist/A = GLOB.all_antag_types[antag_type]
+		for(var/datum/mind/mind in A.current_antagonists)
+			var/mob/M = mind.current
+			if(M)
+				// technically you could be more than one antag
+				antagonists |= M
+	var/mob/chosen_mob = tgui_input_list(src, "Choose an antagonist to teleport to.", "Teleport to Antagonist", antagonists)
+	if(chosen_mob)
+		forceMove(get_turf(chosen_mob))
+	log_admin("[key_name(usr)] has teleported to [chosen_mob].")
+
+/mob/abstract/storyteller/verb/set_outfit(var/mob/living/carbon/human/H)
+	set name = "Set Outfit"
+	set category = "Storyteller"
+
+	do_dressing(H)

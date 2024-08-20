@@ -37,6 +37,10 @@ SUBSYSTEM_DEF(misc_late)
 	if (GLOB.config.use_forumuser_api)
 		update_admins_from_api(TRUE)
 
+	// Load outfits here so that the verb isn't laggy as balls.
+	for(var/obj/outfit/O in subtypesof(/obj/outfit))
+		GLOB.outfit_cache[O.name] = O
+
 	return SS_INIT_SUCCESS
 
 /proc/sorted_add_area(area/A)
