@@ -30,7 +30,14 @@
 /mob/abstract/storyteller/LateLogin()
 	. = ..()
 	var/client/C = client
-	if(C)
+
+	// if there's no mind, the initial setup hasn't run
+	if(C && !mind)
+
+		mind = new /datum/mind(key)
+		mind.active = TRUE
+		mind.current = src
+
 		real_name = "Storyteller ([client.ckey])"
 		SSodyssey.add_storyteller(src)
 		GLOB.storytellers.add_antagonist(mind)

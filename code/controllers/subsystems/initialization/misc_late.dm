@@ -38,8 +38,9 @@ SUBSYSTEM_DEF(misc_late)
 		update_admins_from_api(TRUE)
 
 	// Load outfits here so that the verb isn't laggy as balls.
-	for(var/obj/outfit/O in subtypesof(/obj/outfit))
-		GLOB.outfit_cache[O.name] = O
+	for(var/outfit_type in subtypesof(/obj/outfit))
+		var/obj/outfit/new_outfit = new outfit_type()
+		GLOB.outfit_cache[new_outfit.name] = new_outfit
 
 	return SS_INIT_SUCCESS
 
