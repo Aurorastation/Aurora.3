@@ -1296,7 +1296,7 @@
 /mob/living/carbon/human/proc/intent_listen(var/source,var/message)
 	if(air_sound(src))
 		if (is_listening() && (ear_deaf <= 0 || !ear_deaf))
-			var/sound_dir = angle2text(Get_Angle(get_turf(src), get_turf(source)))
+			var/sound_dir = angle2text(get_angle(get_turf(src), get_turf(source)))
 			to_chat(src, SPAN_WARNING(message + " from \the [sound_dir]."))
 
 /mob/living/carbon/human/proc/listening_close()

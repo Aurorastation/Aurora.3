@@ -130,6 +130,6 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "mfoam"
 	screen_loc = "WEST,SOUTH to EAST,NORTH"
-	color = "#ff9900"
-	alpha = 100
-	blend_mode = BLEND_SUBTRACT
+	alpha = 80
+	color = "#000050"
+	blend_mode = BLEND_ADD

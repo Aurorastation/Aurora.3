@@ -490,7 +490,7 @@
 		var/turf/to_hit = pick(candidate_turfs)
 
 		var/obj/projectile/bullet/pellet/shotgun/pellet = new(get_turf(src))
-		pellet.fire(Get_Angle(get_turf(src), to_hit))
+		pellet.fire(get_angle(get_turf(src), to_hit))
 
 	qdel(src)
 

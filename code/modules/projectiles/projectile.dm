@@ -692,7 +692,7 @@
 		return
 
 	var/image/I = image('icons/obj/projectiles.dmi', src,P.ping_effect,10, pixel_x = pixel_x_offset, pixel_y = pixel_y_offset)
-	var/angle = (P.firer && prob(60)) ? round(Get_Angle(P.firer,src)) : round(rand(1,359))
+	var/angle = (P.firer && prob(60)) ? round(get_angle(P.firer,src)) : round(rand(1,359))
 	I.pixel_x += rand(-6,6)
 	I.pixel_y += rand(-6,6)
 
