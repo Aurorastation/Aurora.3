@@ -84,8 +84,11 @@
 	if(!length(valid_z_levels) || !valid_z_levels) //Outpost blueprints can initialize before exoplanets, so put this in here to doublecheck it.
 		set_valid_z_levels()
 	var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[GET_Z(user)]"]
-	if(E.generated_name) //Prevent the prefix from being super long with the planet type appended
-		area_prefix = E.planet_name
+	if(istype(E))
+		if(E.generated_name) //Prevent the prefix from being super long with the planet type appended
+			area_prefix = E.planet_name
+		else
+			area_prefix = E.name
 	else
 		area_prefix = E.name
 	. = ..()
