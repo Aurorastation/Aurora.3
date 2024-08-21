@@ -93,3 +93,59 @@
   shimmeristaken:
   - rscadd: Adds a cool Callistean lighter to the game and as an option in the loadout
       menu.
+2024-08-19:
+  4000daniel1:
+  - rscadd: Added laser tag lockers to Holodeck Alpha, along with a new laser tag
+      arena module.
+  CourierBravo:
+  - spellcheck: Fixed the name of the Operations Manager radio key.
+  - spellcheck: Fixed a couple typos in the bluespace encryption key
+2024-08-21:
+  Ben10083:
+  - rscadd: Updated Alignment information for lore planets such as Moghes and Biesel.
+      Exoplanets now show governing body of planet (shown for lore planets that are
+      colonized).
+  - bugfix: Fixes some mapping errors in regards to Xenobiology.
+  CourierBravo:
+  - bugfix: Fixed brown industrial outlines being replaced with yellow outlines. Issued
+      caused by me being a goober.
+  - bugfix: Made the consular office ringers work correctly.
+  - bugfix: Removed random decal in intrepid hanger.
+  - bugfix: Removed a light tube that was overlapping a lightbulb in the warehouse.
+  - rscadd: Moved the security firing range recharger to outside of the firing range.
+  - rscadd: Added red and blue arm bands for red team blue team training to security.
+      They can be found in the firing range.
+  - rscadd: Added two more lights to medical, making the room brighter.
+  - rscadd: Added a coat rack to the captains office.
+  - rscadd: Added a bottle of spray cleaner to the xenobiology lab.
+  FluffyGhost:
+  - rscadd: Tranq rifle projectiles now weakens animals for a bit, the larger the
+      animal, the longer it takes for this to happen.
+  - refactor: Refactored the tranq rifle projectile code.
+  - code_imp: Enabled UnimplementedAccess lint for OD.
+  - rscadd: Flags are now opaque when deployed, blocking the view.
+  - bugfix: Fixed a spelling error.
+  - code_imp: Minimal code cleanup.
+  - bugfix: Fixed all datum[index] accesses, they are considered undocumented behavior
+      and fail from 515.1641.
+  - rscadd: Flipped the OpenDream pragma for the above to emit an error instead of
+      a warning.
+  Furrycactus:
+  - bugfix: Fixes the broken cable that left the Intrepid disconnected from the Horizon's
+      main power grid.
+  Geeves:
+  - bugfix: Fixed purses not appearing in the preview when selected in the loadout.
+  HanSolo1519:
+  - rscadd: Added the NanoPharm, a vending machine for over-the-counter medical items.
+  - rscadd: Added NanoPharm to Infirmary Lobby (Thanks CourierBravo!)
+  President Njadrasanukii Hadii:
+  - rscadd: Database Freighter given fax machine.
+  - qol: Database Freighter Hadiism levels increased by 38% with distribution of PRA
+      flagpatches to crews.
+  - bugfix: Database Freighter firedoors now have correct access requirements.
+  SimpleMaroon:
+  - bugfix: Fixed characters with mononyms being unable to broadcast Hivenet using
+      the Phalanx Receiver properly.
+  shimmeristaken:
+  - bugfix: Fixed cryo healing the brain only if it is above 50% brain activity, which
+      made it functionally useless.
