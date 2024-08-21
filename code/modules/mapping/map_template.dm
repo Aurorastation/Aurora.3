@@ -93,6 +93,8 @@
 	smooth_zlevel(world.maxz)
 	resort_all_areas()
 
+	post_exoplanet_generation(bounds)
+
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
 	init_shuttles(shuttle_state)
@@ -235,3 +237,10 @@
 			M.load(get_turf(mark), TRUE)
 			qdel(mark)
 	LAZYCLEARLIST(subtemplates_to_spawn)
+
+/**
+ * In case the away site spawns with an exoplanet, use this proc to handle any post-generation.
+ * For example, turning market turfs into exoplanet turfs with themes.
+ */
+/datum/map_template/proc/post_exoplanet_generation(bounds)
+	return

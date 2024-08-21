@@ -1,8 +1,8 @@
-/singleton/odyssey/cryo_outpost
+/singleton/scenario/cryo_outpost
 	name = "Zeng-Hu Facility #187-D"
 	desc = "A Zeng-Hu Facility has gone dark as of one week ago. The megacorporation has dispatched the Horizon, the closest ship, \
 			to investigate, find out the reason, and secure it once again if needed."
-	odyssey_site_id = "cryo_outpost"
+	scenario_site_id = "cryo_outpost"
 
 	horizon_announcement_title = "SCC Central Command Outpost"
 	horizon_announcement_message = "Greetings, SCCV Horizon. There's been some proprietary zeng-hu tech reported missing from nearby corporate facilities, \

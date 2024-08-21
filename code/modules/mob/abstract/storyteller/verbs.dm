@@ -70,6 +70,7 @@
 		if(!paths ||( length(paths) > 5))
 			return
 
+		var/atom/target
 		var/list/offset = text2list(href_list["offset"],",")
 		var/number = dd_range(1, 100, text2num(href_list["object_count"]))
 		var/X = offset.len > 0 ? text2num(offset[1]) : 0

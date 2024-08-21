@@ -1397,23 +1397,23 @@ var/global/enabled_spooking = 0
 		to_chat(usr, SPAN_WARNING("You need to use this verb while the game is still setting up!"))
 		return
 
-	var/list/all_odysseys = GET_SINGLETON_SUBTYPE_LIST(/singleton/odyssey)
-	var/list/possible_odysseys = list()
-	for(var/singleton/odyssey/S in all_odysseys)
-		possible_odysseys[S.name] = S
+	var/list/all_scenarios = GET_SINGLETON_SUBTYPE_LIST(/singleton/scenario)
+	var/list/possible_scenarios = list()
+	for(var/singleton/scenario/S in all_scenarios)
+		possible_scenarios[S.name] = S
 
-	var/singleton/odyssey/chosen_odyssey
-	var/situation_name = tgui_input_list(usr, "Choose an Odyssey.", "Set Odyssey", possible_odysseys)
-	chosen_odyssey = possible_odysseys[situation_name]
+	var/singleton/scenario/chosen_scenario
+	var/situation_name = tgui_input_list(usr, "Choose an Odyssey.", "Set Odyssey", possible_scenarios)
+	chosen_scenario = possible_scenarios[situation_name]
 
-	if(!chosen_odyssey)
+	if(!chosen_scenario)
 		return
 
-	if(!(SSatlas.current_sector.name in chosen_odyssey.sector_whitelist))
+	if(!(SSatlas.current_sector.name in chosen_scenario.sector_whitelist))
 		if(tgui_alert(usr, "This Odyssey is not appropriate for the current sector. Continue?", "Set Odyssey", list("Yes", "No")) != "Yes")
 			return
 
-	SSodyssey.odyssey = chosen_odyssey
-	log_and_message_admins("has manually set the Odyssey to [chosen_odyssey.name]", usr)
+	SSodyssey.scenario = chosen_scenario
+	log_and_message_admins("has manually set the Odyssey to [chosen_scenario.name]", usr)
 	feedback_add_details("admin_verb","SEST") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 

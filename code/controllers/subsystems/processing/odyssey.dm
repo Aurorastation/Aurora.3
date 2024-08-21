@@ -4,14 +4,14 @@ SUBSYSTEM_DEF(odyssey)
 	flags = SS_BACKGROUND|SS_NO_FIRE
 	wait = 8
 
-	/// The selected odyssey singleton.
-	var/singleton/odyssey/odyssey
+	/// The selected scenario singleton.
+	var/singleton/scenario/scenario
 	/// The z-levels that the odyssey takes place in. If null, it means that there are no loaded zlevels for this odyssey.
 	/// It probably takes place on the Horizon in that case.
-	var/odyssey_zlevel
+	var/scenario_zlevel
 	/// This is the site the odyssey takes place on. If null, then the mission takes place on a non-site zlevel.
-	/// Should only be changed through set_odyssey_site().
-	var/datum/map_template/ruin/away_site/odyssey_site
+	/// Should only be changed through set_scenario_site().
+	var/datum/map_template/ruin/away_site/scenario_site
 	/// A list of currently spawned actors for easy access.
 	var/list/actors
 	/// A list of currently spawned storytellers for easy access.
@@ -25,34 +25,34 @@ SUBSYSTEM_DEF(odyssey)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/odyssey/Recover()
-	odyssey = SSodyssey.odyssey
-	odyssey_site = SSodyssey.odyssey_site
-	odyssey_zlevel = SSodyssey.odyssey_zlevel
+	scenario = SSodyssey.scenario
+	scenario_site = SSodyssey.scenario_site
+	scenario_zlevel = SSodyssey.scenario_zlevel
 	actors = SSodyssey.actors
 	storytellers = SSodyssey.storytellers
 
 /datum/controller/subsystem/odyssey/fire()
 	. = ..()
 	if(!has_sent_roundstart_announcement)
-		addtimer(CALLBACK(odyssey, TYPE_PROC_REF(/singleton/odyssey, notify_horizon), horizon), rand(4 MINUTES, 5 MINUTES))
+		addtimer(CALLBACK(scenario, TYPE_PROC_REF(/singleton/scenario, notify_horizon), horizon), rand(4 MINUTES, 5 MINUTES))
 
 /**
  * Picks a random odyssey while keeping in mind sector requirements.
  * If successful, makes the SS start firing.
  */
 /datum/controller/subsystem/odyssey/proc/pick_odyssey()
-	var/list/all_odysseys = GET_SINGLETON_SUBTYPE_LIST(/singleton/odyssey)
-	var/list/possible_odysseys = list()
-	for(var/singleton/odyssey/S in all_odysseys)
+	var/list/all_scenarios = GET_SINGLETON_SUBTYPE_LIST(/singleton/scenario)
+	var/list/possible_scenarios = list()
+	for(var/singleton/scenario/S in all_scenarios)
 		if((SSatlas.current_sector.name in S.sector_whitelist) || !length(S.sector_whitelist))
-			possible_odysseys[S] = S.weight
+			possible_scenarios[S] = S.weight
 
-	if(!length(possible_odysseys))
+	if(!length(possible_scenarios))
 		log_debug("CRITICAL ERROR: No available odyssey for sector [SSatlas.current_sector.name]!")
 		log_and_message_admins(SPAN_DANGER(FONT_HUGE("CRITICAL ERROR: NO SITUATIONS ARE AVAILABLE FOR THIS SECTOR! CHANGE THE GAMEMODE MANUALLY!")))
 		return
 
-	odyssey = pickweight(possible_odysseys)
+	scenario = pickweight(possible_scenarios)
 	gamemode_setup()
 	/// Now that we actually have an odyssey, the subsystem can fire!
 	flags &= ~SS_NO_FIRE
@@ -69,18 +69,18 @@ SUBSYSTEM_DEF(odyssey)
 	/// not having enough actors for it, so it boots you back to the voting screen. Now you have an useless zlevel and an extra storyteller spawner.
 	/// The fix for this is, currently, making odyssey force itself to start by adding antag drafting for it. Not ideal, but deleting a zlevel is an even
 	// worse solution, probably.
-	if(odyssey)
-		ody_gamemode.required_players = odyssey.min_player_amount
-		ody_gamemode.required_enemies = odyssey.min_actor_amount
+	if(scenario)
+		ody_gamemode.required_players = scenario.min_player_amount
+		ody_gamemode.required_enemies = scenario.min_actor_amount
 
 /**
  * This is the proc that should be used to set the odyssey away site.
  */
-/datum/controller/subsystem/odyssey/proc/set_odyssey_site(datum/map_template/ruin/away_site/site)
+/datum/controller/subsystem/odyssey/proc/set_scenario_site(datum/map_template/ruin/away_site/site)
 	if(!istype(site))
 		return
 
-	odyssey_site = site
+	scenario_site = site
 
 /**
  * Adds an actor to the subsystem actor list.
