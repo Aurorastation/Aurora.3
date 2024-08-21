@@ -882,13 +882,46 @@
 /obj/machinery/vending/hydronutrients/xenobotany
 	products = list(
 		/obj/item/reagent_containers/glass/fertilizer/ez = 6,
-		/obj/item/reagent_containers/glass/fertilizer/l4z = 5,
+		/obj/item/reagent_containers/glass/fertilizer/l4z = 6,
 		/obj/item/reagent_containers/glass/fertilizer/rh = 3,
 		/obj/item/plantspray/pests = 20,
-		/obj/item/reagent_containers/syringe = 5,
-		/obj/item/storage/bag/plants = 5,
+		/obj/item/reagent_containers/syringe = 6,
+		/obj/item/storage/bag/plants = 6,
+		/obj/item/device/analyzer/plant_analyzer = 2,
+		/obj/item/material/minihoe = 2,
+		/obj/item/material/hatchet = 2,
+		/obj/item/wirecutters/clippers = 2,
+		/obj/item/reagent_containers/spray/plantbgone = 2,
 		/obj/item/reagent_containers/glass/bottle/mutagen = 3
 	)
+
+/obj/machinery/vending/hydronutrients/hydroponics
+	name = "HydroVend"
+	desc = "A one stop shop for all your hydroponics needs."
+
+	products = list(
+		/obj/item/reagent_containers/glass/fertilizer/ez = 6,
+		/obj/item/reagent_containers/glass/fertilizer/l4z = 6,
+		/obj/item/reagent_containers/glass/fertilizer/rh = 3,
+		/obj/item/plantspray/pests = 10,
+		/obj/item/reagent_containers/syringe = 6,
+		/obj/item/storage/bag/plants = 6,
+		/obj/item/device/analyzer/plant_analyzer = 2,
+		/obj/item/material/minihoe = 2,
+		/obj/item/material/hatchet = 2,
+		/obj/item/wirecutters/clippers = 2,
+		/obj/item/reagent_containers/spray/plantbgone = 2
+	)
+	premium = list(
+		/obj/item/reagent_containers/glass/bottle/ammonia = 10,
+		/obj/item/reagent_containers/glass/bottle/diethylamine = 5
+	)
+	contraband = list(
+		/obj/item/reagent_containers/glass/bottle/mutagen = 2
+	)
+	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
+	random_itemcount = 0
+	light_color = COLOR_BABY_BLUE
 
 /obj/machinery/vending/hydroseeds
 	name = "MegaSeed Servitor"

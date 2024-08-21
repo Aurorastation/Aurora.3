@@ -56,7 +56,12 @@ delete-after: True
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
   - rscadd: "Changed the layout of hydroponics, the garden, and the southern end of the library to create a new hydroponics experience."
+  - rscadd: "Added a new subtype of the nutrient vendor, the HydroVend. Basically, just the nutrivend but with tools in it."
+  - rscadd: "Added a new subtype of the nutrient vendor, the GardenVend. Its like the nutrivend, but you have to pay for it. Has some new items included, too!"
   - rscadd: "Added a storefront to hydroponics. Go get your groceries!"
+  - rscadd: "Added two new magazines: Horticulture Today! one and two."
   - qol: "Added back access to the command stairwell, to make it an actually usable emergency exit."
   - experiment: "Changed the defined color for warm yellow. Changed the floor decals that uses COLOR_YELLOW_ENGI to use COLOR_WARM_YELLOW instead."
   - balance: "Buffed the biogenerator by reducing the time it takes to make products. Also, reduced the cost of some items, or added cost to items that did not have one defined."
+  - balance: "Buffed the xenobotany vendor, giving it more items to vend and more fertilizer."
+  - imageadd: "Added two new sprites for the horticulture magazines"

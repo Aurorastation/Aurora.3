@@ -383,6 +383,23 @@
 	the caves. Forces of Raskara, shape-shifting creatures, dastardly traps and true evil lurking within, the Az'Marian and his sidekick will have to use their \
 	newly regained powers to their fullest."
 
+/obj/item/toy/comic/magazine/horticulturetoday1
+	name = "horticulture today! magazine"
+	desc = "A staple publication of all things horticulture."
+	desc_extended = "One part magazine, one part scientific journal, Horticulture Today! has been the staple source for horticulture news for the last 150 years. Its found \
+	itself in every unconnected station, frontier colony, and doctors office across the spur. The magazine's fame largely comes from its writing, maintaining a perfect blend \
+	of entertaining commentary and nuanced summaries of recent discoveries."
+	icon_state = "horticulture1"
+	item_state = "horticulture1"
+
+/obj/item/toy/comic/magazine/horticulturetoday2
+	name = "horticulture today! magazine"
+	desc = "A staple publication of all things horticulture."
+	desc_extended = "One part magazine, one part scientific journal, Horticulture Today! has been the staple source for horticulture news for the last 150 years. Its found \
+	itself in every unconnected station, frontier colony, and doctors office across the spur. The magazine's fame largely comes from its writing, maintaining a perfect blend \
+	of entertaining commentary and nuanced summaries of recent discoveries."
+	icon_state = "horticulture2"
+	item_state = "horticulture2"
 /obj/item/toy/comic/witchfinder
 	icon = 'icons/obj/library.dmi'
 	name = "Witchfinder novel"
@@ -395,7 +412,6 @@
 	promote Dominian arts among their foreign partners and to proselytize their state religion to eager masses."
 	icon_state = "witchfindernovel"
 	item_state = "witchfindernovel"
-
 //
 // Toy Crossbows
 //
