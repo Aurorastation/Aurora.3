@@ -30,7 +30,7 @@
 #define COLOR_YELLOW           "#ffff00"
 #define COLOR_YELLOW_GRAY      "#c9a344"
 #define COLOR_PALE_YELLOW      "#c1bb7a"
-#define COLOR_WARM_YELLOW      "#b3863c"
+#define COLOR_WARM_YELLOW      "#a88029"
 #define COLOR_YELLOW_ENGI      "#efbf2f"
 #define COLOR_YELLOW_KHAKI     "#cfcf55"
 #define COLOR_GRAY             "#808080"

@@ -12,7 +12,7 @@
 	var/menustat = "menu"
 	var/build_eff = 1
 	var/eat_eff = 1
-	var/capacity = 50
+	var/capacity = 100
 
 	component_types = list(
 		/obj/item/circuitboard/biogenerator,
@@ -22,6 +22,7 @@
 
 #define BIOGEN_FOOD "Food"
 #define BIOGEN_ITEMS "Items"
+#define BIOGEN_FLAGS "Corporate Flags"
 #define BIOGEN_SPECIAL "Special"
 #define BIOGEN_CONSTRUCTION "Construction"
 #define BIOGEN_FERTILIZER "Fertilizer"
@@ -186,6 +187,86 @@ ITEMS
 	object = /obj/item/storage/box/fancy/crayons
 	cost = 600
 
+/singleton/biorecipe/item/pottedplant
+	name = "Small Plant Pot"
+	object = /obj/random/pottedplant_small
+	cost = 300
+
+/*
+FLAGS
+*/
+
+/singleton/biorecipe/flag
+	name = "SCC Flag, Small"
+	class = BIOGEN_FLAGS
+	object = /obj/item/flag/scc
+	cost = 500
+
+/singleton/biorecipe/flag/scclarge
+	name = "SCC Flag, large"
+	object = /obj/item/flag/scc/l
+	cost = 500
+
+/singleton/biorecipe/flag/heph
+	name = "Hephaestus Flag, Small"
+	object = /obj/item/flag/heph
+	cost = 500
+
+/singleton/biorecipe/flag/hephlarge
+	name = "Hephaestus Flag, Large"
+	object = /obj/item/flag/heph/l
+	cost = 500
+
+/singleton/biorecipe/flag/idris
+	name = "Idris Flag, Small"
+	object = /obj/item/flag/idris
+	cost = 500
+
+/singleton/biorecipe/flag/idrislarge
+	name = "Idris Flag, Large"
+	object = /obj/item/flag/idris/l
+	cost = 500
+
+/singleton/biorecipe/flag/zeng
+	name = "Zeng-Hu Flag, Small"
+	object = /obj/item/flag/zenghu
+	cost = 500
+
+/singleton/biorecipe/flag/zenglarge
+	name = "Zeng-Hu Flag, Large"
+	object = /obj/item/flag/zenghu/l
+	cost = 500
+
+/singleton/biorecipe/flag/zavod
+	name = "Zavodskoi Flag, Small"
+	object = /obj/item/flag/zavodskoi
+	cost = 500
+
+/singleton/biorecipe/flag/zavodlarge
+	name = "Zavodskoi Flag, Large"
+	object = /obj/item/flag/zavodskoi/l
+	cost = 500
+
+/singleton/biorecipe/flag/pmcg
+	name = "PMCG Flag, Small"
+	object = /obj/item/flag/pmcg
+	cost = 500
+
+/singleton/biorecipe/flag/pmcglarge
+	name = "PMCG Flag, Large"
+	object = /obj/item/flag/pmcg/l
+	cost = 500
+
+/singleton/biorecipe/flag/orion
+	name = "Orion Flag, Small"
+	object = /obj/item/flag/orion_express
+	cost = 500
+
+/singleton/biorecipe/flag/orionlarge
+	name = "Orion Express Flag, Large"
+	object = /obj/item/flag/orion_express/l
+	cost = 500
+
 /*
 CONSTRUCTION
 */
@@ -214,20 +295,16 @@ CONSTRUCTION
 /singleton/biorecipe/construction/wax
 	name = "Wax"
 	object = /obj/item/stack/wax
+	cost = 10
 
 /singleton/biorecipe/construction/plastic
 	name = "Plastic"
 	object = /obj/item/stack/material/plastic
+	cost = 75
 
 /*
 SPECIAL
 */
-
-/singleton/biorecipe/mushroom
-	name = "Pet Mushroom"
-	class = BIOGEN_SPECIAL
-	object = /mob/living/simple_animal/mushroom
-	cost = 1000
 
 /singleton/biorecipe/cube
 	name = "Monkey Cube"

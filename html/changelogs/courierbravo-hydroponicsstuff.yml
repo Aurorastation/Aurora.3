@@ -58,3 +58,5 @@ changes:
   - rscadd: "Changed the layout of hydroponics, the garden, and the southern end of the library to create a new hydroponics experience."
   - rscadd: "Added a storefront to hydroponics. Go get your groceries!"
   - qol: "Added back access to the command stairwell, to make it an actually usable emergency exit."
+  - experiment: "Changed the defined color for warm yellow. Changed the floor decals that uses COLOR_YELLOW_ENGI to use COLOR_WARM_YELLOW instead."
+  - balance: "Buffed the biogenerator by reducing the time it takes to make products. Also, reduced the cost of some items, or added cost to items that did not have one defined."
