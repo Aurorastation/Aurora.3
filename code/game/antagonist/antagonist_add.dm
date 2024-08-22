@@ -10,7 +10,8 @@
 		player.role_alt_title = role_text
 	player.special_role = role_text
 
-	if(istype(player.current, /mob/abstract))
+	if(istype(player.current, /mob/abstract) && !isstoryteller(player.current))
+		// some snowflake code to allow storytellers to read and use AOOC
 		create_default(player.current)
 	else
 		create_antagonist(player, move_to_spawn, do_not_announce, preserve_appearance)

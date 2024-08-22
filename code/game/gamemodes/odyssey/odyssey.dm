@@ -15,6 +15,11 @@
 	to_world(FONT_LARGE(EXAMINE_BLOCK_ODYSSEY("The scenario picked for this round is: <b>[SPAN_NOTICE(SSodyssey.scenario.name)]</b>.\n\
 			[SSodyssey.scenario.desc]\n\
 			It is a <b>[SSodyssey.scenario.scenario_type == SCENARIO_TYPE_NONCANON ? "non-canon" : "canon"]</b> scenario.\n\
-			Please keep in mind that the Storyteller may alter the story as they see fit, and remember to go along with what they have planned!")))
+			Please keep in mind that the Storyteller or the Actors may alter the story as they see fit, and remember to go along with what they have planned!")))
 	SSodyssey.scenario.setup_scenario()
+
+	// Need to repopulate antag spawns to get the actor landmarks to work, since this is only done in the map finalization SS.
+	populate_antag_spawns()
+
+	// When everything's finished, restart the countdown.
 	GLOB.round_progressing = TRUE

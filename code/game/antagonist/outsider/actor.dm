@@ -16,7 +16,7 @@ GLOBAL_DATUM(actors, /datum/antagonist/actor)
 	bantype = "actor"
 
 	faction_verbs = list(
-		/mob/living/carbon/human/verb/odyssey_panel
+		/mob/living/carbon/human/proc/odyssey_panel
 	)
 
 /datum/antagonist/actor/New()
@@ -48,9 +48,9 @@ GLOBAL_DATUM(actors, /datum/antagonist/actor)
 /obj/effect/landmark/actor_spawn
 	name = "ActorSpawnLandmark"
 
-/mob/living/carbon/human/verb/odyssey_panel()
+/mob/living/carbon/human/proc/odyssey_panel()
 	set name = "Odyssey Panel"
-	set category = "Actor"
+	set category = "OOC"
 
 	if(!ishuman(usr))
 		return

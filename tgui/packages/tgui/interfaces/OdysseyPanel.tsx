@@ -54,7 +54,7 @@ export const RoleDisplay = (props, context) => {
           key={role.name}
           buttons={
             <Button
-              name="Equip"
+              content="Equip"
               color="green"
               icon="star"
               onClick={() => act('equip_outfit', { outfit_type: role.outfit })}

@@ -147,6 +147,13 @@
 	update_sight()
 	to_chat(usr, SPAN_NOTICE("You [(ghostvision ? "now" : "no longer")] have ghost vision."))
 
+/mob/abstract/storyteller/verb/odyssey_panel()
+	set name = "Odyssey Panel"
+	set category = "OOC"
+
+	SSodyssey.ui_interact(src)
+
+
 /**
  * Currently whitelisted in the config behind the head of staff whitelist.
  * Let's see if they can play nice.
