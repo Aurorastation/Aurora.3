@@ -187,7 +187,7 @@
 	starts_with = list(/obj/item/reagent_containers/pill/caffeine = 7)
 
 /obj/item/storage/pill_bottle/nicotine
-	name = "bottle of 10u Nicotine pills"
+	name = "bottle of 5u Nicotine pills"
 	desc = "Contains pills used to treat nicotine addiction."
 	starts_with = list(/obj/item/reagent_containers/pill/nicotine = 7)
 
