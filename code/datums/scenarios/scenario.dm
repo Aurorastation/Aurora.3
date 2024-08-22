@@ -30,6 +30,14 @@
 	/// The announcement message sent to the Horizon at roundstart, typically telling them to go investigate the Odyssey and why.
 	var/horizon_announcement_message = "There is a Situation on this away site you're probably supposed to know about. Go investigate it."
 
+	/// The default outfit every actor is given on this scenario.
+	/// They can select their role and outfit on the Odyssey UI when ingame.
+	var/default_outfit = /obj/outfit/admin/generic
+
+	/// The displayed list of scenario roles. List of /singleton/role
+	/// The players will be able to see the role names in the Odyssey UI, and when they click them, they'll equip the relevant outfit.
+	var/list/roles
+
 
 /**
  * This proc handles the creation and spawning of everything that the odyssey needs.

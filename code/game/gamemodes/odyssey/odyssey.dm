@@ -12,9 +12,9 @@
 /datum/game_mode/odyssey/post_finalize_vote()
 	GLOB.round_progressing = FALSE
 	SSodyssey.pick_odyssey()
-	to_world(FONT_LARGE(EXAMINE_BLOCK_ODYSSEY("The Odyssey picked for this round is: <b>[SPAN_NOTICE(SSodyssey.scenario.name)]</b>.\n\
+	to_world(FONT_LARGE(EXAMINE_BLOCK_ODYSSEY("The scenario picked for this round is: <b>[SPAN_NOTICE(SSodyssey.scenario.name)]</b>.\n\
 			[SSodyssey.scenario.desc]\n\
-			It is a <b>[SSodyssey.scenario.scenario_type == SCENARIO_TYPE_NONCANON ? "non-canon" : "canon"]</b> Odyssey.\n\
+			It is a <b>[SSodyssey.scenario.scenario_type == SCENARIO_TYPE_NONCANON ? "non-canon" : "canon"]</b> scenario.\n\
 			Please keep in mind that the Storyteller may alter the story as they see fit, and remember to go along with what they have planned!")))
 	SSodyssey.scenario.setup_scenario()
 	GLOB.round_progressing = TRUE

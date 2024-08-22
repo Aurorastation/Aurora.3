@@ -105,3 +105,56 @@ SUBSYSTEM_DEF(odyssey)
  */
 /datum/controller/subsystem/odyssey/proc/remove_storyteller(mob/abstract/storyteller/S)
 	LAZYREMOVE(storytellers, S)
+
+/datum/controller/subsystem/odyssey/ui_state()
+	return GLOB.always_state
+
+/datum/controller/subsystem/odyssey/ui_interact(mob/user, datum/tgui/ui)
+	. = ..()
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "OdysseyPanel", "Odyssey Panel")
+		ui.open()
+
+/datum/controller/subsystem/odyssey/ui_data(mob/user)
+	var/list/data = list()
+	if(scenario)
+		data["scenario_name"] = SSodyssey.scenario.name
+		data["scenario_desc"] = SSodyssey.scenario.desc
+		data["scenario_canonicity"] = SSodyssey.scenario.scenario_type == SCENARIO_TYPE_CANON ? "Canon" : "Non-Canon"
+
+		if(length(scenario.roles))
+			data["scenario_roles"] = list()
+			for(var/role_singleton in scenario.roles)
+				var/singleton/role/scenario_role = GET_SINGLETON(role_singleton)
+				data["scenario_roles"] += list(
+					list(
+						"name" = scenario_role.name,
+						"desc" = scenario_role.desc,
+						"outfit" = "[scenario_role.outfit]"
+					)
+				)
+	return data
+
+/datum/controller/subsystem/odyssey/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+
+	switch(action)
+		if("equip_outfit")
+			if(!ishuman(usr))
+				return
+
+			var/mob/living/carbon/human/player = usr
+			if(player.incapacitated())
+				return
+
+			if(player.z != SSodyssey.scenario_zlevel)
+				to_chat(player, SPAN_WARNING("You can't equip an outfit on a different z-level from the scenario's!"))
+				return
+
+			var/outfit_type = text2path(params["outfit_type"])
+			if(ispath(outfit_type, /obj/outfit))
+				player.preEquipOutfit(outfit_type, FALSE)
+				player.equipOutfit(outfit_type, FALSE)
+
+
