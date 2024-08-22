@@ -146,3 +146,33 @@
 	to_chat(M, SPAN_WARNING("<b> You have been banned FOR NO REISIN by [user]</b>"))
 	to_chat(user, SPAN_WARNING(" You have <b>BANNED</b> [M]"))
 	playsound(loc, 'sound/effects/adminhelp.ogg', 15)
+
+/obj/item/dinograbber
+	name = "dino grabber"
+	desc = "A plastic T-Rex head on a thin aluminum tube. A piece of string attached to the jaw and a trigger at the base of the pole allows you to grab \
+	objects with it. Perfect for annoying your friends!"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "toyhammer"
+	slot_flags = SLOT_BELT
+	throwforce = 0
+	w_class = WEIGHT_CLASS_NORMAL
+	throw_speed = 7
+	throw_range = 15
+	attack_verb = list("grabbed at")
+
+/obj/item/dinograbber/attack(mob/M as mob, mob/user as mob)
+	to_chat(M, SPAN_WARNING("<b> You have been grabbed at by [user]</b>"))
+	to_chat(user, SPAN_WARNING(" You have <b>GRABBED</b> [M]"))
+
+/obj/item/melee/dinograbber/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
+	..()
+	if(ishuman(target))
+		if(prob(20))
+			if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
+				if (target.l_hand && target.l_hand != src)
+					target.drop_l_hand()
+			else if(target_zone == BP_R_HAND || target_zone == BP_R_ARM)
+				if (target.r_hand && target.r_hand != src)
+					target.drop_r_hand()
+			user.visible_message(SPAN_DANGER("\The [user] disarms \the [target] with \the [src]!"))
+		return
