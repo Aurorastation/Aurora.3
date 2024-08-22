@@ -895,7 +895,7 @@
 		/obj/item/reagent_containers/glass/bottle/mutagen = 3
 	)
 
-/obj/machinery/vending/hydroponics
+/obj/machinery/vending/hydronutrients/hydroponics
 	name = "HydroVend"
 	desc = "A one stop shop for all your hydroponics needs."
 	product_slogans = "Aren't you glad you don't have to fertilize the natural way?;Now with 50% less stink!;Plants are people too!"
@@ -914,7 +914,8 @@
 		/obj/item/device/analyzer/plant_analyzer = 2,
 		/obj/item/material/minihoe = 2,
 		/obj/item/material/hatchet = 2,
-		/obj/item/wirecutters/clippers = 2
+		/obj/item/wirecutters/clippers = 2,
+		/obj/item/reagent_containers/spray/plantbgone = 2
 	)
 	premium = list(
 		/obj/item/reagent_containers/glass/bottle/ammonia = 10,
@@ -923,11 +924,8 @@
 	contraband = list(
 		/obj/item/reagent_containers/glass/bottle/mutagen = 2
 	)
-	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
-	random_itemcount = 0
-	light_color = COLOR_BABY_BLUE
 
-/obj/machinery/vending/gardenvend
+/obj/machinery/vending/hydronutrients/gardenvend
 	name = "GardenVend"
 	desc = "A one stop shop for all your gardening needs."
 	product_slogans = "Aren't you glad you don't have to fertilize the natural way?;Now with 50% less stink!;Plants are people too!"
@@ -944,7 +942,8 @@
 		/obj/item/storage/bag/plants = 6,
 		/obj/item/material/minihoe = 2,
 		/obj/item/material/hatchet = 2,
-		/obj/item/wirecutters/clippers = 2
+		/obj/item/wirecutters/clippers = 2,
+		/obj/item/reagent_containers/spray/plantbgone = 2
 	)
 	prices = list(
 		/obj/item/reagent_containers/glass/fertilizer/ez = 50,
@@ -954,7 +953,8 @@
 		/obj/item/storage/bag/plants = 25,
 		/obj/item/material/minihoe = 25,
 		/obj/item/material/hatchet = 25,
-		/obj/item/wirecutters/clippers = 25
+		/obj/item/wirecutters/clippers = 25,
+		/obj/item/reagent_containers/spray/plantbgone = 100
 	)
 	premium = list(
 		/obj/item/reagent_containers/glass/bottle/ammonia = 10,
@@ -963,9 +963,6 @@
 	contraband = list(
 		/obj/item/reagent_containers/glass/bottle/mutagen = 2
 	)
-	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
-	random_itemcount = 0
-	light_color = COLOR_BABY_BLUE
 
 /obj/machinery/vending/hydroseeds
 	name = "MegaSeed Servitor"

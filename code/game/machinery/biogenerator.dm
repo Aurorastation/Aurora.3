@@ -566,7 +566,7 @@ SPECIAL
 		return FALSE
 
 	var/totake = round(recipe.cost/build_eff)
-	var/delay = totake/2
+	var/delay = totake/3
 	//Meat = 5 seconds
 
 	if(!processing)
