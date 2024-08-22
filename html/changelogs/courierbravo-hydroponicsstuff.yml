@@ -62,6 +62,6 @@ changes:
   - rscadd: "Added two new magazines: Horticulture Today! one and two."
   - qol: "Added back access to the command stairwell, to make it an actually usable emergency exit."
   - experiment: "Changed the defined color for warm yellow. Changed the floor decals that uses COLOR_YELLOW_ENGI to use COLOR_WARM_YELLOW instead."
-  - balance: "Buffed the biogenerator by reducing the time it takes to make products. Also, reduced the cost of some items, or added cost to items that did not have one defined."
+  - balance: "Shamelessly buffed the biogenerator by reducing the time it takes to make products by half. Also, reduced the cost of some items, or added cost to items that did not have one defined."
   - balance: "Buffed the xenobotany vendor, giving it more items to vend and more fertilizer."
   - imageadd: "Added two new sprites for the horticulture magazines"
