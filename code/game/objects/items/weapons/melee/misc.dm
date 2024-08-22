@@ -200,3 +200,30 @@
 	desc = "A ceremonial sword issued to Sol marine officers as part of their dress uniform."
 	icon_state = "marineofficersword"
 	item_state = "marineofficersword"
+
+/obj/item/melee/dinograbber
+	name = "dino grabber"
+	desc = "A plastic T-Rex head on a thin aluminum tube. A piece of string links the jaw and a trigger at the base of the pole, allowing you to grab \
+	objects with it. Perfect for annoying your friends!"
+	icon = 'icons/obj/items.dmi'
+	icon_state = "toyhammer"
+	slot_flags = SLOT_BELT
+	force = 0
+	throwforce = 0
+	w_class = WEIGHT_CLASS_NORMAL
+	throw_speed = 7
+	throw_range = 15
+	attack_verb = list("grabbed at")
+
+/obj/item/melee/dinograbber/attack(mob/target as mob, mob/living/user as mob, var/target_zone)
+	..()
+	if(ishuman(target))
+		if(prob(20))
+			if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
+				if (target.l_hand && target.l_hand != src)
+					target.drop_l_hand()
+			else if(target_zone == BP_R_HAND || target_zone == BP_R_ARM)
+				if (target.r_hand && target.r_hand != src)
+					target.drop_r_hand()
+			user.visible_message(SPAN_DANGER("\The [user] disarms \the [target] with \the [src]!"))
+		return
