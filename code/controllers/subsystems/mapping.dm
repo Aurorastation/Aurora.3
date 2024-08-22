@@ -73,11 +73,7 @@ SUBSYSTEM_DEF(mapping)
 		var/datum/map_template/MT = new map_template_type()
 
 		if (banned_maps)
-			var/is_banned = FALSE
 			if(banned_maps.Find(MT.mappath))
-				is_banned = TRUE
-				break
-			if (is_banned)
 				continue
 
 		map_templates[MT.id] = MT
