@@ -149,7 +149,7 @@
 
 /obj/item/dinograbber
 	name = "dino grabber"
-	desc = "A plastic T-Rex head on a thin aluminum tube. A piece of string attached to the jaw and a trigger at the base of the pole allows you to grab \
+	desc = "A plastic T-Rex head on a thin aluminum tube. A piece of string links the jaw and a trigger at the base of the pole, allowing you to grab \
 	objects with it. Perfect for annoying your friends!"
 	icon = 'icons/obj/items.dmi'
 	icon_state = "toyhammer"
