@@ -51,6 +51,7 @@ var/list/admin_verbs_admin = list(
 	/client/proc/rename_silicon,		//properly renames silicons,
 	/client/proc/manage_silicon_laws,
 	/client/proc/check_antagonists,
+	/client/proc/odyssey_panel,
 	/client/proc/dsay,					/*talk in deadchat using our ckey/fakekey*/
 	/client/proc/toggleprayers,			/*toggles prayers on/off*/
 //	/client/proc/toggle_hear_deadcast,	/*toggles whether we hear deadchat*/
@@ -424,6 +425,7 @@ var/list/admin_verbs_mod = list(
 	/client/proc/dsay,
 	/datum/admins/proc/show_player_panel,
 	/client/proc/check_antagonists,
+	/client/proc/odyssey_panel,
 	/client/proc/jobbans,
 	/client/proc/cmd_admin_subtle_message, 	/*send an message to somebody as a 'voice in their head'*/
 	/datum/admins/proc/paralyze_mob,
@@ -492,6 +494,7 @@ var/list/admin_verbs_cciaa = list(
 	/client/proc/check_fax_history,
 	/client/proc/aooc,
 	/client/proc/check_antagonists,
+	/client/proc/odyssey_panel,
 	/client/proc/toggle_aooc
 )
 
@@ -628,6 +631,13 @@ var/list/admin_verbs_cciaa = list(
 		global_check_antags.ui_interact(usr)
 	feedback_add_details("admin_verb","CHA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
+
+/client/proc/odyssey_panel()
+	set name = "Odyssey Panel"
+	set category = "Admin"
+
+	SSodyssey.ui_interact(src)
+	feedback_add_details("admin_verb","ODP")
 
 /client/proc/jobbans()
 	set name = "Display Job bans"

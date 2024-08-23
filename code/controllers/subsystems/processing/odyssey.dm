@@ -122,6 +122,7 @@ SUBSYSTEM_DEF(odyssey)
 		data["scenario_name"] = SSodyssey.scenario.name
 		data["scenario_desc"] = SSodyssey.scenario.desc
 		data["scenario_canonicity"] = SSodyssey.scenario.scenario_type == SCENARIO_TYPE_CANON ? "Canon" : "Non-Canon"
+		data["is_storyteller"] = isstoryteller(user)
 
 		if(length(scenario.roles))
 			data["scenario_roles"] = list()
@@ -131,7 +132,8 @@ SUBSYSTEM_DEF(odyssey)
 					list(
 						"name" = scenario_role.name,
 						"desc" = scenario_role.desc,
-						"outfit" = "[scenario_role.outfit]"
+						"outfit" = "[scenario_role.outfit]",
+						"type" = scenario_role.type
 					)
 				)
 	return data
@@ -156,5 +158,67 @@ SUBSYSTEM_DEF(odyssey)
 			if(ispath(outfit_type, /obj/outfit))
 				player.preEquipOutfit(outfit_type, FALSE)
 				player.equipOutfit(outfit_type, FALSE)
+				return TRUE
+
+		if("edit_scenario_name")
+			if(!isstoryteller(usr))
+				return
+
+			var/new_scenario_name = tgui_input_text(usr, "Insert the new name for your scenario. Remember that this will be visible for anyone in the Stat Panel.", "Odyssey Panel", max_length = MAX_NAME_LEN)
+			if(!new_scenario_name)
+				return
+
+			log_and_message_admins("has changed the scenario name from [SSodyssey.scenario.name] to [new_scenario_name]")
+			SSodyssey.scenario.name = new_scenario_name
+			return TRUE
+
+		if("edit_scenario_desc")
+			if(!isstoryteller(usr))
+				return
+
+			var/new_scenario_desc = tgui_input_text(usr, "Insert the new description for your scenario. This is visible only in the Odyssey Panel.", "Odyssey Panel", max_length = MAX_MESSAGE_LEN)
+			if(!new_scenario_desc)
+				return
+
+			log_and_message_admins("has changed the scenario description")
+			SSodyssey.scenario.desc = new_scenario_desc
+			return TRUE
+
+		if("edit_role")
+			if(!isstoryteller(usr) && !check_rights(R_ADMIN))
+				return
+
+			var/role_path = text2path(params["role_type"])
+			if(!role_path || !ispath(role_path, /singleton/role))
+				to_chat(usr, SPAN_WARNING("Invalid or inexisting role!"))
+				return
+
+			var/singleton/role/role_to_edit = GET_SINGLETON(role_path)
+			var/editing_name = params["new_name"]
+			var/editing_desc = params["new_desc"]
+			var/editing_outfit = params["edit_outfit"]
+
+			if(editing_name)
+				var/new_name = tgui_input_text(usr, "Insert the new name for this role.", "Odyssey Panel", max_length = MAX_NAME_LEN)
+				if(new_name)
+					log_and_message_admins("has changed the [role_to_edit.name] role's name to [new_name]")
+					role_to_edit.name = new_name
+					return TRUE
+
+			if(editing_desc)
+				var/new_desc = tgui_input_text(usr, "Insert the new description for this role.", "Odyssey Panel", max_length = MAX_MESSAGE_LEN)
+				if(new_desc)
+					log_and_message_admins("has changed the [role_to_edit.name] role's description")
+					role_to_edit.desc = new_desc
+					return TRUE
+
+			if(editing_outfit)
+				var/chosen_outfit = tgui_input_list(usr, "Select the new outfit for this role.", "Odyssey Panel", GLOB.outfit_cache)
+				if(chosen_outfit)
+					var/obj/outfit/new_outfit = GLOB.outfit_cache[chosen_outfit]
+					if(new_outfit)
+						log_and_message_admins("has changed the [role_to_edit.name] role's outfit from [role_to_edit.outfit] to [new_outfit]")
+						role_to_edit.outfit = new_outfit.type
+						return TRUE
 
 
