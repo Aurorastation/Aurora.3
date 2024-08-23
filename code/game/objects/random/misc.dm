@@ -530,3 +530,16 @@
 		/obj/item/reagent_containers/food/condiment/rice = 1,
 		/obj/item/reagent_containers/food/condiment/cocoa = 1
 	)
+
+/obj/random/yarn
+	name = "random yarn"
+	desc = "This is a random ball of yarn."
+	icon = 'icons/obj/item/tools/knitting.dmi'
+	icon_state = "white_ball"
+	spawnlist = list(
+		/obj/item/yarn/blue,
+		/obj/item/yarn/green,
+		/obj/item/yarn/purple,
+		/obj/item/yarn/red,
+		/obj/item/yarn/yellow
+	)
