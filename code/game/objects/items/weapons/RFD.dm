@@ -10,9 +10,7 @@
  *
  * A device used for rapid fabrication of things, built from a compressed matter cartridge
  */
-/obj/item/rfd
-	abstract_type = /obj/item/rfd //This is an abstract, use one of the subtypes instead
-
+ABSTRACT_TYPE(/obj/item/rfd)
 	name = "\improper Rapid Fabrication Device"
 	desc = "A device used for rapid fabrication. The matter decompression matrix is untuned, rendering it useless."
 	icon = 'icons/obj/rfd.dmi'
