@@ -1016,27 +1016,36 @@ var/global/enabled_spooking = 0
 	set desc = "(atom path) Spawn an atom"
 	set name = "Spawn"
 
-	if(!check_rights(R_SPAWN))	return
+	if(!check_rights(R_SPAWN))
+		return
 
-	var/list/types = typesof(/atom)
-	var/list/matches = new()
+	var/list/matches = typesof(/atom)
 
-	for(var/path in types)
-		if(findtext("[path]", object))
-			matches += path
+	for(var/path in matches)
+		if(!findtext("[path]", object))
+			matches -= path
 
-	if(matches.len==0)
+	if(!length(matches))
 		return
 
 	var/chosen
-	if(matches.len==1)
+	if(length(matches) == 1)
 		chosen = matches[1]
 	else
-		chosen = input("Select an atom type", "Spawn Atom", matches[1]) as null|anything in matches
+		//TGUI input gets fucky if the list is too large, so we revert back to standard input in that case
+		if(length(matches) < 1000)
+			chosen = tgui_input_list(usr, "Select an atom type", "Spawn Atom", matches)
+		else
+			chosen = input("Select an atom type", "Spawn Atom", matches[1]) as null|anything in matches
+
 		if(!chosen)
 			return
 
-	if(ispath(chosen,/turf))
+	if(is_abstract(chosen))
+		tgui_alert(usr, "This is an abstract type, you can't spawn it!", "Abstract Type")
+		return
+
+	if(ispath(chosen, /turf))
 		var/turf/T = get_turf(usr.loc)
 		T.ChangeTurf(chosen)
 	else

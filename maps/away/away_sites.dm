@@ -1,7 +1,6 @@
 // Hey! Listen! Update \config\away_site_blacklist.txt with your new ruins!
 
-/datum/map_template/ruin/away_site
-	abstract_type = /datum/map_template/ruin/away_site
+ABSTRACT_TYPE(/datum/map_template/ruin/away_site)
 	prefix = "maps/away/"
 
 	/// If null, ignored, and exoplanet generation is not used.

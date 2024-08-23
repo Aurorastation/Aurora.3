@@ -185,6 +185,10 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	GLOB.running_create_and_destroy = TRUE
 	for(var/type_path in typesof(/atom/movable, /turf) - ignore) //No areas please
 
+		//No abstract types
+		if(is_abstract(type_path))
+			continue
+
 		TEST_DEBUG("[name]: now creating and destroying: [type_path]")
 
 		if(ispath(type_path, /turf))
