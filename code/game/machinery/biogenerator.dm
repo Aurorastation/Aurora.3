@@ -180,6 +180,11 @@ ITEMS
 	object = /obj/random/yarn
 	cost = 75
 
+/singleton/biorecipe/item/knitting
+	name = "Knitting Needles"
+	object = /obj/item/knittingneedles
+	cost = 150
+
 /singleton/biorecipe/item/custom_cigarettes
 	name = "Empty Cigarettes (x6)"
 	object = /obj/item/storage/box/fancy/cigarettes/blank
