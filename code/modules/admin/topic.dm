@@ -1561,6 +1561,17 @@
 		access_control_topic(href_list["access_control"])
 		return
 
+	else if(href_list["viewruntime"])
+		var/datum/error_viewer/error_viewer = locate(href_list["viewruntime"])
+		if(!istype(error_viewer))
+			to_chat(usr, SPAN_WARNING("That runtime viewer no longer exists."), confidential = TRUE)
+			return
+
+		if(href_list["viewruntime_backto"])
+			error_viewer.show_to(owner, locate(href_list["viewruntime_backto"]), href_list["viewruntime_linear"])
+		else
+			error_viewer.show_to(owner, null, href_list["viewruntime_linear"])
+
 /mob/living/proc/can_centcom_reply()
 	return 0
 
