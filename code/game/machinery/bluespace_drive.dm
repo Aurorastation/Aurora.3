@@ -22,8 +22,14 @@
 	///The atmospherics interface used to give gasses to the drive
 	var/obj/machinery/atmospherics/portables_connector/atmos_interface
 
-	///The internal gas that the drive uses
-	VAR_PRIVATE/datum/gas_mixture/internal_gas = new()
+	///The interface used to give fuel (phoron) to the drive
+	var/obj/machinery/atmospherics/portables_connector/fuel_interface
+
+	///The internal gas that the drive uses, fed by the `atmos_interface`
+	var/datum/gas_mixture/internal_gas = new()
+
+	///The fuel gas that the drive uses, fed by the `fuel_interface`
+	var/datum/gas_mixture/fuel_gas = new()
 
 	/**
 	 * How much each mole of a given gas contributes to the power
@@ -54,10 +60,12 @@
 	)
 
 	///The power given to the drive, due to gasses
-	var/power_from_gas
+	// var/power_from_gas
 
-	///The
+	///The rotation we'll be using to jump
 	var/rotation = 0
+
+	///The angle we'll be using to jump
 	var/angle = 60
 
 	///If the drive is energized
@@ -82,9 +90,13 @@
 	bound_x = -32
 	bound_width = 96
 
-	atmos_interface = locate(/obj/machinery/atmospherics/portables_connector) in range(1, src)
+	atmos_interface = locate(/obj/machinery/atmospherics/portables_connector) in get_turf(src)
 	if(atmos_interface)
 		RegisterSignal(atmos_interface, COMSIG_QDELETING, PROC_REF(handle_atmos_interface_qdeleting))
+
+	fuel_interface = locate(/obj/machinery/atmospherics/portables_connector) in get_step(src, WEST)
+	if(fuel_interface)
+		RegisterSignal(atmos_interface, COMSIG_QDELETING, PROC_REF(handle_fuel_interface_qdeleting))
 
 	return INITIALIZE_HINT_LATELOAD
 
@@ -100,7 +112,11 @@
 
 
 /obj/machinery/bluespacedrive/Destroy()
+	QDEL_NULL(internal_gas)
+	QDEL_NULL(fuel_gas)
+
 	atmos_interface = null
+	fuel_interface = null
 
 	. = ..()
 
@@ -124,11 +140,13 @@
 		var/power_used = pump_gas(atmos_interface, atmos_interface.node.return_air(), internal_gas)
 		use_power_oneoff(power_used)
 
-	//If our internal gasses got anything, consume it
-	if(length(internal_gas.gas))
-		consume_internal_gasses()
+	//If we have a fuel interface, and it's connected to a pipe, pump gas from it to our internal gas tank
+	//passive flow only, to encourage the use of higher pressures
+	if(fuel_interface?.node)
+		var/datum/gas_mixture/node_gas_mixture = fuel_interface.node.return_air()
+		scrub_gas(src, list(GAS_PHORON), node_gas_mixture, fuel_gas)
 
-	if(power_from_gas)
+	if(internal_gas.total_moles && fuel_gas.total_moles)
 		if(!our_singularity)
 			our_singularity = new(get_turf(src), 100, FALSE, FALSE, src)
 			RegisterSignal(our_singularity, COMSIG_QDELETING, PROC_REF(handle_singularity_deletion))
@@ -150,8 +168,8 @@
 /obj/machinery/bluespacedrive/proc/consume_internal_gasses()
 	SHOULD_NOT_SLEEP(TRUE)
 
-	for(var/gas_type in internal_gas.gas)
-		power_from_gas += internal_gas.get_gas(gas_type) * (gas_mole_to_power_factor[gas_type] * log(max(internal_gas.temperature, 1.1)))
+	// for(var/gas_type in internal_gas.gas)
+	// 	power_from_gas += internal_gas.get_gas(gas_type) * (gas_mole_to_power_factor[gas_type] * log(max(internal_gas.temperature, 1.1)))
 
 	//Reset the internal gasses, we have "consumed" them
 	internal_gas.gas = list()
@@ -180,9 +198,13 @@
 	SHOULD_BE_PURE(TRUE)
 	SHOULD_NOT_SLEEP(TRUE)
 
+	//No fuel, no jump
+	if(!fuel_gas.total_moles)
+		return FALSE
+
 	var/turf/ship_turf = get_turf(linked)
 
-	var/datum/projectile_data/proj_data = projectile_trajectory(linked.x, linked.y, rotation, angle, (power_from_gas / (10 KILO)))
+	var/datum/projectile_data/proj_data = projectile_trajectory(linked.x, linked.y, rotation, angle, (fuel_gas.total_moles + internal_gas.total_moles / (10 KILO)))
 
 	var/turf/target_turf = locate(proj_data.dest_x, proj_data.dest_y, linked.z)
 
@@ -197,6 +219,12 @@
 	SIGNAL_HANDLER
 
 	atmos_interface = null
+
+///Handles the qdel of the atmos_interface
+/obj/machinery/bluespacedrive/proc/handle_fuel_interface_qdeleting()
+	SIGNAL_HANDLER
+
+	fuel_interface = null
 
 ///Handles the qdel of the atmos_interface
 /obj/machinery/bluespacedrive/proc/handle_singularity_deletion()
@@ -223,7 +251,7 @@
 		light_color = null
 
 		//Turning the drive off while still holding a charge
-		if(power_from_gas)
+		if(internal_gas.total_moles || fuel_gas.total_moles)
 			purge_charge()
 
 		//If we're jumping, abort the jump
@@ -233,17 +261,23 @@
 	update_icon()
 	update_light()
 
-///Purges the drive charge
-/obj/machinery/bluespacedrive/proc/purge_charge()
+/**
+ * Purges the drive charge
+ *
+ * forced - If TRUE, the purge isn't the natural effect of consuming the gasses
+ */
+/obj/machinery/bluespacedrive/proc/purge_charge(forced)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	playsound(src, "sound/effects/supermatter.ogg", 100, TRUE)
+	if(forced)
+		playsound(src, "sound/effects/supermatter.ogg", 100, TRUE)
 
-	for(var/mob/living/carbon/human/H in get_hearers_in_LOS(world.view, src))
-		H.flash_act(FLASH_PROTECTION_MAJOR)
-		H.noise_act(EAR_PROTECTION_MAJOR, 0, 1)
+		for(var/mob/living/carbon/human/H in get_hearers_in_LOS(world.view, src))
+			H.flash_act(FLASH_PROTECTION_MAJOR)
+			H.noise_act(EAR_PROTECTION_MAJOR, 0, 1)
 
-	power_from_gas = 0
+	fuel_gas.remove(fuel_gas.total_moles)
+	internal_gas.remove(internal_gas.total_moles)
 
 	if(our_singularity)
 		QDEL_NULL(our_singularity)
@@ -330,7 +364,7 @@
 			playsound(src, 'sound/magic/lightningbolt.ogg', 40, TRUE)
 
 		visible_message(SPAN_DANGER("\The [src] fails to warp completely, not finding all the warper receivers!"))
-		purge_charge()
+		purge_charge(forced = TRUE)
 
 	else
 		move_ship()
@@ -353,7 +387,7 @@
 		affected_mob.playsound_local(affected_mob, 'sound/magic/Ethereal_Exit.ogg', 60)
 
 	initiate_jump_timer_id = null
-	power_from_gas = 0
+	purge_charge(forced = FALSE)
 	update_icon()
 
 
@@ -368,7 +402,7 @@
 		return
 
 	//Purge the charge if there's any, in case of an aborted jump
-	if(power_from_gas)
+	if(internal_gas.total_moles || fuel_gas.total_moles)
 		purge_charge()
 
 	deltimer(initiate_jump_timer_id)
@@ -433,7 +467,7 @@
 	var/list/data = list()
 
 	data["energized"] = linked_bluespace_drive.energized
-	data["charge"] = linked_bluespace_drive.power_from_gas ? TRUE : FALSE
+	data["charge"] = (linked_bluespace_drive.internal_gas.total_moles || linked_bluespace_drive.fuel_gas.total_moles) ? TRUE : FALSE
 	data["rotation"] = linked_bluespace_drive.rotation
 	data["jumping"] = linked_bluespace_drive.initiate_jump_timer_id ? TRUE : FALSE
 
@@ -451,7 +485,7 @@
 			linked_bluespace_drive.toggle_energized()
 
 		if("purge_charge")
-			linked_bluespace_drive.purge_charge()
+			linked_bluespace_drive.purge_charge(forced = TRUE)
 
 		if("set_rotation")
 			linked_bluespace_drive.set_rotation(params["rotation"])
