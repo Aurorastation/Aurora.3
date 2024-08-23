@@ -314,6 +314,8 @@
 	var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = sector
 	if(istype(exoplanet))
 		background_area = exoplanet.planetary_area
+	if(SSodyssey.scenario && owner.z == SSodyssey.scenario_zlevel)
+		background_area = SSodyssey.scenario.base_area
 	for(var/turf/T in A.contents)
 		ChangeArea(T, background_area)
 	if(!(locate(/turf) in A))

@@ -101,6 +101,8 @@
 	var/area/overmap/map = global.map_overmap
 	for(var/obj/effect/overmap/visitable/sector/exoplanet/E in map)
 		valid_z_levels += E.map_z
+	if(SSodyssey.scenario_zlevel)
+		valid_z_levels += SSodyssey.scenario_zlevel
 	return TRUE
 
 /obj/item/blueprints/shuttle

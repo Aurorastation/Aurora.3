@@ -18,6 +18,8 @@
 		/singleton/role/cryo_outpost/scientist
 	)
 
+	base_area = /area/cryo_outpost
+
 /singleton/role/cryo_outpost
 	name = "Cryo Outpost Mercenary Team Lead"
 	desc = "You are the leader of a mercenary detachment found in the cloning outpost. Your team could have been an independent mercenary company contracted \

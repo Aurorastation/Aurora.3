@@ -38,6 +38,9 @@
 	/// The players will be able to see the role names in the Odyssey UI, and when they click them, they'll equip the relevant outfit.
 	var/list/roles
 
+	/// The base area of this scenario's away site. Used for blueprints. Must have  AREA_FLAG_IS_BACKGROUND.
+	var/base_area
+
 
 /**
  * This proc handles the creation and spawning of everything that the odyssey needs.
@@ -62,6 +65,7 @@
 /singleton/scenario/proc/setup_away_site()
 	scenario_site.load_new_z()
 	SSodyssey.scenario_zlevel = world.maxz
+	base_area = new base_area()
 
 /**
  * This proc is what you should override if you want anything specific to be messaged to the Horizon.
