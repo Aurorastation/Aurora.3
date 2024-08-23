@@ -232,8 +232,7 @@
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
 	flags = GEAR_NO_SELECTION
 
-/datum/gear/ears/vaurca
-	abstract_type = /datum/gear/ears/vaurca
+ABSTRACT_TYPE(/datum/gear/ears/vaurca)
 
 /datum/gear/ears/vaurca/rings
 	display_name = "bulwark horn rings"

@@ -1,10 +1,8 @@
-/datum/gear/religion
-	abstract_type = /datum/gear/religion
+ABSTRACT_TYPE(/datum/gear/religion)
 	sort_category = "Religion"
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/religion/trinary
-	abstract_type = /datum/gear/religion/trinary
+ABSTRACT_TYPE(/datum/gear/religion/trinary)
 	religion = RELIGION_TRINARY
 
 /datum/gear/religion/trinary/mask
@@ -105,8 +103,7 @@
 	slot = slot_tie
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/religion/dominia
-	abstract_type = /datum/gear/religion/dominia
+ABSTRACT_TYPE(/datum/gear/religion/dominia)
 	religion = RELIGION_MOROZ
 
 /datum/gear/religion/dominia/robe
@@ -219,8 +216,7 @@
 	dominiaicon["icon of the martyr, valeria"] = /obj/item/sign/painting_frame/martyr/valeria
 	gear_tweaks += new /datum/gear_tweak/path(dominiaicon)
 
-/datum/gear/religion/assunzione
-	abstract_type = /datum/gear/religion/assunzione
+ABSTRACT_TYPE(/datum/gear/religion/assunzione)
 	religion = RELIGION_LUCEISM
 
 /datum/gear/religion/assunzione/scripture
