@@ -920,6 +920,7 @@
 	premium = list(
 		/obj/item/reagent_containers/glass/bottle/ammonia = 10,
 		/obj/item/reagent_containers/glass/bottle/diethylamine = 5
+		/obj/random/horticulture = 4
 	)
 	contraband = list(
 		/obj/item/reagent_containers/glass/bottle/mutagen = 2
@@ -959,6 +960,7 @@
 	premium = list(
 		/obj/item/reagent_containers/glass/bottle/ammonia = 10,
 		/obj/item/reagent_containers/glass/bottle/diethylamine = 5
+		/obj/random/horticulture = 4
 	)
 	contraband = list(
 		/obj/item/reagent_containers/glass/bottle/mutagen = 2

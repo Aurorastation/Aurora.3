@@ -543,3 +543,17 @@
 		/obj/item/yarn/red,
 		/obj/item/yarn/yellow
 	)
+
+/obj/random/horticulture
+	name = "random horticulture magazine"
+	desc = "This is a random magazine."
+	icon = 'icons/obj/toy.dmi'
+	icon_state = "horticulture1"
+	spawnlist = list(
+		/obj/item/toy/comic/magazine/horticulturetoday/issue1,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue2,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue3,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue4,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue5,
+		/obj/item/toy/comic/magazine/horticulturetoday/issue6
+	)
