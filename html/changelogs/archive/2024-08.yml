@@ -149,3 +149,15 @@
   shimmeristaken:
   - bugfix: Fixed cryo healing the brain only if it is above 50% brain activity, which
       made it functionally useless.
+2024-08-23:
+  CourierBravo:
+  - rscdel: Fixed a ringer being where it shouldn't be.
+  - rscadd: Added an All Xanu Republic Flagpatch, using the banner over the normal
+      flag for the patch.
+  - imageadd: Added sprites for the All Xanu Republic flagpatch
+  FluffyGhost:
+  - rscadd: Ported the TG's error handler system, which allows runtime errors to be
+      collected in a datum, browsed, and all the good stuffs.
+  N8_Toe:
+  - rscadd: Added a marketable Domadice Plushie to the game and loadout. sprite by
+      NobleRow.
