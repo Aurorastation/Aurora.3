@@ -867,14 +867,14 @@
 		/obj/item/plantspray/pests = 20,
 		/obj/item/reagent_containers/syringe = 5,
 		/obj/item/storage/bag/plants = 5
-	)
+		)
 	premium = list(
 		/obj/item/reagent_containers/glass/bottle/ammonia = 10,
 		/obj/item/reagent_containers/glass/bottle/diethylamine = 5
-	)
+		)
 	contraband = list(
 		/obj/item/reagent_containers/glass/bottle/mutagen = 2
-	)
+		)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
@@ -893,7 +893,7 @@
 		/obj/item/wirecutters/clippers = 2,
 		/obj/item/reagent_containers/spray/plantbgone = 2,
 		/obj/item/reagent_containers/glass/bottle/mutagen = 3
-	)
+		)
 
 /obj/machinery/vending/hydronutrients/hydroponics
 	name = "HydroVend"
@@ -916,15 +916,15 @@
 		/obj/item/material/hatchet = 2,
 		/obj/item/wirecutters/clippers = 2,
 		/obj/item/reagent_containers/spray/plantbgone = 2
-	)
+		)
 	premium = list(
 		/obj/item/reagent_containers/glass/bottle/ammonia = 10,
 		/obj/item/reagent_containers/glass/bottle/diethylamine = 5
 		/obj/random/horticulture = 4
-	)
+		)
 	contraband = list(
 		/obj/item/reagent_containers/glass/bottle/mutagen = 2
-	)
+		)
 
 /obj/machinery/vending/hydronutrients/gardenvend
 	name = "GardenVend"
@@ -945,9 +945,8 @@
 		/obj/item/material/hatchet = 2,
 		/obj/item/wirecutters/clippers = 2,
 		/obj/item/reagent_containers/spray/plantbgone = 2
-	)
-	prices = list(
-		/obj/item/reagent_containers/glass/fertilizer/ez = 50,
+		)
+	prices = list(		/obj/item/reagent_containers/glass/fertilizer/ez = 50,
 		/obj/item/reagent_containers/glass/fertilizer/l4z = 50,
 		/obj/item/reagent_containers/glass/fertilizer/rh = 100,
 		/obj/item/plantspray/pests = 15,
@@ -956,12 +955,13 @@
 		/obj/item/material/hatchet = 25,
 		/obj/item/wirecutters/clippers = 25,
 		/obj/item/reagent_containers/spray/plantbgone = 100
-	)
+		)
+
 	premium = list(
 		/obj/item/reagent_containers/glass/bottle/ammonia = 10,
 		/obj/item/reagent_containers/glass/bottle/diethylamine = 5
 		/obj/random/horticulture = 4
-	)
+		)
 	contraband = list(
 		/obj/item/reagent_containers/glass/bottle/mutagen = 2
 	)
