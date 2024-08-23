@@ -120,8 +120,7 @@
  *
  * Parent class for all alcoholic reagents, though this one shouldn't be used anywhere
  */
-/singleton/reagent/alcohol
-	abstract_type = /singleton/reagent/alcohol
+ABSTRACT_TYPE(/singleton/reagent/alcohol)
 	name = null
 	description = DESC_PARENT
 	reagent_state = LIQUID

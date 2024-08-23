@@ -484,6 +484,7 @@
 	. += "<br><large><b>[name]</b></large></center>"
 	. += "<br><b>Estimated Mass and Volume: </b><small>[massvolume]BSS(Biesels)</small>"
 	. += "<br><b>Surface Gravity: </b><small>[surfacegravity]Gs</small>"
+	. += "<br><b>Governing Body: </b><small>[alignment]</small>"
 	. += "<br><b>Charted: </b><small>[charted]</small>"
 	. += "<br><b>Geological Variables: </b><small>[geology]</small>"
 	. += "<br><b>Surface Water Coverage: </b><small>[surfacewater]</small>"

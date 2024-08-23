@@ -2610,7 +2610,7 @@
 /obj/item/clothing/gloves/yellow,
 /obj/random/tech_supply,
 /obj/random/tool,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/light{
 	dir = 1
 	},
