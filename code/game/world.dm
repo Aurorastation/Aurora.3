@@ -69,19 +69,6 @@ GLOBAL_PROTECT(config)
 		GLOB.round_id = "[c[(t % l) + 1]][GLOB.round_id]"
 		t = round(t / l)
 
-/world
-	mob = /mob/abstract/new_player
-	turf = /turf/space
-	area = /area/space
-	view = "15x15"
-	cache_lifespan = 0	//stops player uploaded stuff from being kept in the rsc past the current session
-	maxx = WORLD_MIN_SIZE	// So that we don't get map-window-popin at boot. DMMS will expand this.
-	maxy = WORLD_MIN_SIZE
-	fps = 20
-#ifdef FIND_REF_NO_CHECK_TICK
-	loop_checks = FALSE
-#endif
-
 #define RECOMMENDED_VERSION 515
 /world/New()
 	//logs
