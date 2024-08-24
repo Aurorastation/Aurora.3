@@ -10,6 +10,7 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "cryo_outpost"
+	exoplanet_theme_base = /datum/exoplanet_theme/desert/cryo_outpost
 	exoplanet_themes = list(
 		/turf/unsimulated/marker/khaki = /datum/exoplanet_theme/desert/cryo_outpost,
 		/turf/unsimulated/marker/red   = /datum/exoplanet_theme/desert/cryo_outpost/mountain,
@@ -121,8 +122,6 @@
 
 // --------------------------------------------------- misc
 
-#define NETWORK_CRYO_OUTPOST "Desert Oasis Planet Outpost"
-
 /obj/machinery/camera/network/cryo_outpost
 	network = list(NETWORK_CRYO_OUTPOST)
 
@@ -133,39 +132,6 @@
 	desc = "A small slip of plastic with an embedded chip. It is commonly used to store small amounts of research data. This one is covered in Zeng-Hu Pharmaceuticals logos."
 	icon_state = "slip_zeng"
 	origin_tech = list(TECH_BIO = 8, TECH_MATERIAL = 7, TECH_MAGNET = 7, TECH_DATA = 7)
-
-/*
-/obj/item/paper/fluff/cryo_outpost
-	name = "Captain's Report"
-	desc = "A printed and filled."
-
-/obj/item/paper/fluff/cryo_outpost/generate_text_contents()
-	name = "Captain's Report"
-	info = "\
-		TO: COMPANY SECTOR MANAGEMENT <br>\
-		FROM: CAPTAIN DENISA HRUSKA <br>\
-		SUBJECT: SITUATION REPORT <br>\
-		DATE: 2464-02-12<br>\
-		<br>\
-		<br>\
-		We are running out of asteroids we can exploit. Or at least with the personnel and supplies that we have. <br>\
-		We are lacking competent engineers, and our systems are constantly broken or running at reduced capacity. <br>\
-		We need tools, food, air, fuel. A second fusion reactor. Solar panels. Electronics. Spare shuttle parts. <br>\
-		<br>\
-		<br>\
-		Crew manifest as of today: <br>\
-		- Denisa Hruska - Captain <br>\
-		- Anna Jelinek - Miner Specialist <br>\
-		- Frantisek Bartos - Miner <br>\
-		- Tomas Hruby - Pilot <br>\
-		- Fiala Dvorakova - Atmospherics Engineer <br>\
-		- Jiri Ruzicka - Cook <br>\
-		<br>\
-		<br>\
-		I am aware it is even smaller crew than last week. <br>\
-		Crew is not happy about all of this. And so, more and more are just leaving, even before their contracts end. <br>\
-		"
-*/
 
 // ---------------------- outfits
 

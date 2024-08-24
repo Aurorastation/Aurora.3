@@ -156,6 +156,7 @@ SUBSYSTEM_DEF(odyssey)
 
 			var/outfit_type = text2path(params["outfit_type"])
 			if(ispath(outfit_type, /obj/outfit))
+				player.delete_inventory(TRUE)
 				player.preEquipOutfit(outfit_type, FALSE)
 				player.equipOutfit(outfit_type, FALSE)
 				return TRUE

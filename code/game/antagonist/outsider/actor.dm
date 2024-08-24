@@ -35,7 +35,6 @@ GLOBAL_DATUM(actors, /datum/antagonist/actor)
 			qdel(I)
 
 	if(SSodyssey?.scenario)
-		//TODO: full actor outfit mechanics, role selection
 		player.preEquipOutfit(SSodyssey.scenario.default_outfit, FALSE)
 		player.equipOutfit(SSodyssey.scenario.default_outfit, FALSE)
 
@@ -50,7 +49,7 @@ GLOBAL_DATUM(actors, /datum/antagonist/actor)
 
 /mob/living/carbon/human/proc/odyssey_panel()
 	set name = "Odyssey Panel"
-	set category = "OOC"
+	set category = "Actor"
 
 	if(!ishuman(usr))
 		return

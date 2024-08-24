@@ -24,6 +24,8 @@
 			return ACCESS_HEADS
 		if(NETWORK_CRESCENT,NETWORK_ERT)
 			return ACCESS_CENT_SPECOPS
+		if(NETWORK_CRYO_OUTPOST)
+			return ACCESS_CRYO_OUTPOST
 
 	return ACCESS_SECURITY // Default for all other networks
 

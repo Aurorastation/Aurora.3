@@ -633,10 +633,10 @@ var/list/admin_verbs_cciaa = list(
 	return
 
 /client/proc/odyssey_panel()
-	set name = "Odyssey Panel"
+	set name = "View Odyssey Panel"
 	set category = "Admin"
 
-	SSodyssey.ui_interact(src)
+	SSodyssey.ui_interact(mob)
 	feedback_add_details("admin_verb","ODP")
 
 /client/proc/jobbans()

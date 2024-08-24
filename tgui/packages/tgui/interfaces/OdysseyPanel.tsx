@@ -49,7 +49,7 @@ export const OdysseyPanel = (props, context) => {
             <Box
               as="span"
               color={
-                data.scenario_canonicity == 'Non-Canon' ? 'orange' : 'green'
+                data.scenario_canonicity === 'Non-Canon' ? 'orange' : 'green'
               }>
               {data.scenario_canonicity}
             </Box>{' '}
@@ -94,7 +94,7 @@ export const RoleDisplay = (props, context) => {
                 }
               />
             ) : (
-              ''
+              <Box as="span">{role.name}</Box>
             )
           }
           key={role.name}

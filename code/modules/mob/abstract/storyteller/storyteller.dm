@@ -149,7 +149,7 @@
 
 /mob/abstract/storyteller/verb/odyssey_panel()
 	set name = "Odyssey Panel"
-	set category = "OOC"
+	set category = "Storyteller"
 
 	SSodyssey.ui_interact(src)
 

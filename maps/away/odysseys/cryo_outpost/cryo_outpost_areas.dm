@@ -12,7 +12,7 @@
 // ------------------------- outside
 
 /area/cryo_outpost/outside
-	area_blurb = "TODO"
+	area_blurb = "An oasis in the middle of a desert. Red rocks mar a fairly scenic environment. In the distance is a large, red cave, with an ominous entrance."
 	is_outside = OUTSIDE_YES
 
 /area/cryo_outpost/outside/landing
@@ -34,7 +34,8 @@
 // ------------------------- inside
 
 /area/cryo_outpost/inside
-	area_blurb = "TODO"
+	area_blurb = "The cold, distasteful smell of a sterile environment hits your nostrils. The temperature seems to be a perfectly cool twenty degrees. \
+				You get an ominous feeling just by being here."
 	is_outside = OUTSIDE_NO
 
 // ------------- hallways
