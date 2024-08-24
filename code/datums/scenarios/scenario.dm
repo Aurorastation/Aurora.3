@@ -66,9 +66,13 @@
  * This is the one you should override for custom logic.
  */
 /singleton/scenario/proc/setup_away_site()
+	// load the site
 	scenario_site.load_new_z()
 	SSodyssey.scenario_zlevel = world.maxz
 	base_area = new base_area()
+
+	// regenerate minimaps
+	SSholomap.generate_all_minimaps()
 
 /**
  * This proc is what you should override if you want anything specific to be messaged to the Horizon.

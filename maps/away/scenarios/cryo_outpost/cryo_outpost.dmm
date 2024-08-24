@@ -1588,8 +1588,8 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/item/stack/liquidbags/half_full{
-	pixel_x = 2;
+/obj/item/portable_map_reader{
+	pixel_x = 1;
 	pixel_y = 5
 	},
 /turf/simulated/floor/tiled,
@@ -2815,6 +2815,10 @@
 /obj/item/melee/telebaton,
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /obj/random/civgun/rifle,
+/obj/item/stack/liquidbags/half_full{
+	pixel_x = 2;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/comms)
 "dhM" = (
@@ -7619,6 +7623,10 @@
 /area/cryo_outpost/inside/labs_maint_e)
 "iLQ" = (
 /obj/structure/table/steel,
+/obj/item/portable_map_reader{
+	pixel_x = -7;
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/security)
 "iNJ" = (
@@ -13127,6 +13135,10 @@
 /area/cryo_outpost/inside/maint_botany)
 "oVU" = (
 /obj/structure/table/glass,
+/obj/item/portable_map_reader{
+	pixel_y = 9;
+	pixel_x = -3
+	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/xanu{
 	pixel_x = 6;
 	pixel_y = -2
@@ -14153,6 +14165,15 @@
 	},
 /turf/simulated/floor/wood/walnut,
 /area/cryo_outpost/inside/canteen)
+"qcC" = (
+/obj/structure/table/glass,
+/obj/effect/floor_decal/corner/pink/diagonal,
+/obj/item/portable_map_reader{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/labs_offices)
 "qdM" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -15088,6 +15109,10 @@
 /area/cryo_outpost/inside/canteen)
 "ree" = (
 /obj/structure/table/glass,
+/obj/item/portable_map_reader{
+	pixel_x = 3;
+	pixel_y = 6
+	},
 /turf/simulated/floor/wood/bamboo,
 /area/cryo_outpost/inside/labs_offices)
 "reg" = (
@@ -19482,6 +19507,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/labs_hallway)
+"vRC" = (
+/obj/structure/table/glass,
+/obj/item/portable_map_reader{
+	pixel_x = 1;
+	pixel_y = 3
+	},
+/turf/simulated/floor/wood/bamboo,
+/area/cryo_outpost/inside/labs_offices)
 "vRI" = (
 /obj/machinery/alarm/north{
 	req_one_access = null
@@ -55719,7 +55752,7 @@ xyG
 kaa
 nTA
 gzI
-ree
+vRC
 jIU
 oVU
 ree
@@ -55985,7 +56018,7 @@ iHv
 ktf
 hZM
 luo
-fPZ
+qcC
 jKU
 iZe
 veD
