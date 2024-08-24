@@ -53,6 +53,7 @@
 	var/capacity = 1e6
 	/// ID of computer to link to.
 	var/comp_id = 0
+	/// How efficient the compressor is. Modified by amount and tier of manipulators installed.
 	var/efficiency
 	/// value that dertermines the amount of overheat "damage" on the turbine.
 	var/overheat = 0
@@ -82,7 +83,7 @@
 	var/lastgen
 	/// If the turbine is outputing enough to visibly affect its sprite
 	var/generator_threshold = FALSE
-	/// Productivity value of turbine. Modified by amount and type of capacitors installed.
+	/// Productivity value of turbine. Modified by amount and tier of capacitors installed.
 	var/productivity = 1
 	component_types = list(
 		/obj/item/stock_parts/capacitor = 6,
