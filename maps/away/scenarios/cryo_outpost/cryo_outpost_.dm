@@ -4,7 +4,7 @@
 /datum/map_template/ruin/away_site/cryo_outpost
 	name = "Desert Oasis Planet"
 	description = "Desert Oasis Planet."
-	prefix = "odysseys/cryo_outpost/"
+	prefix = "scenarios/cryo_outpost/"
 	suffix = "cryo_outpost.dmm"
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	spawn_weight = 1
