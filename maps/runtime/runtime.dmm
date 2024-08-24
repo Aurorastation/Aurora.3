@@ -1776,6 +1776,12 @@
 	},
 /turf/simulated/floor/wood/birch,
 /area/construction/storage)
+"hr" = (
+/obj/machinery/atmospherics/binary/pump{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "hy" = (
 /obj/effect/floor_decal/industrial/outline_straight/grey,
 /turf/simulated/floor/tiled,
@@ -2303,6 +2309,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/solars)
+"lz" = (
+/obj/machinery/atmospherics/pipe/simple/visible/purple{
+	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "lA" = (
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/wood/birch,
@@ -2409,6 +2421,13 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/construction/solars)
+"mu" = (
+/obj/machinery/computer/terminal/turbine_computer{
+	dir = 8;
+	id = "turbine_comp1"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "my" = (
 /obj/structure/cable/cyan{
 	d1 = 2;
@@ -2437,6 +2456,13 @@
 "mE" = (
 /turf/simulated/wall/shuttle/dark/cardinal/purple,
 /area/antag/mercenary)
+"mF" = (
+/obj/machinery/power/compressor{
+	dir = 1;
+	comp_id = "turbine_comp1"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "mG" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
@@ -2864,6 +2890,12 @@
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
+"qG" = (
+/obj/machinery/sparker{
+	id = "turbineigniter"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "qH" = (
 /obj/machinery/autolathe,
 /turf/simulated/floor/plating,
@@ -3109,6 +3141,10 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
+"sI" = (
+/obj/machinery/power/turbine,
+/turf/simulated/floor/plating,
+/area/construction)
 "sJ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -3426,6 +3462,10 @@
 	},
 /turf/template_noop,
 /area/engineering)
+"vA" = (
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor/plating,
+/area/construction)
 "vB" = (
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/machinery/atmospherics/portables_connector{
@@ -3568,6 +3608,13 @@
 	temperature = 278
 	},
 /area/tcommsat/computer)
+"xj" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 8;
+	use_power = 1
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "xv" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/floor/plating,
@@ -3903,6 +3950,10 @@
 /obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/tiled,
 /area/construction/solars)
+"Au" = (
+/obj/machinery/atmospherics/omni/mixer,
+/turf/simulated/floor/plating,
+/area/construction)
 "Ax" = (
 /obj/structure/window/full/reinforced/shuttle/red,
 /obj/structure/grille/over/large,
@@ -3928,6 +3979,14 @@
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
 /area/construction/qmaint)
+"AK" = (
+/obj/machinery/light{
+	brightness_range = 16;
+	dir = 8;
+	must_start_working = 1
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "AL" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 4
@@ -4535,6 +4594,12 @@
 /obj/structure/railing/mapped,
 /turf/simulated/open,
 /area/construction/hallway)
+"GV" = (
+/obj/machinery/atmospherics/pipe/simple/visible/purple{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "GZ" = (
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/effect/floor_decal/industrial/outline_segment/red{
@@ -5042,6 +5107,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/solars)
+"Lr" = (
+/obj/machinery/atmospherics/pipe/simple/visible/purple,
+/turf/simulated/floor/plating,
+/area/construction)
 "Lt" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/railing/mapped,
@@ -5119,6 +5188,12 @@
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/aquablue,
 /area/construction/storage)
+"MD" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "ME" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
@@ -5126,6 +5201,10 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"MF" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/plating,
+/area/construction)
 "MG" = (
 /turf/simulated/floor/wood/ebony,
 /area/construction/solars)
@@ -5379,6 +5458,14 @@
 	},
 /turf/simulated/floor/wood/birch,
 /area/construction/solars)
+"Pf" = (
+/obj/machinery/light{
+	brightness_range = 16;
+	dir = 8;
+	must_start_working = 1
+	},
+/turf/simulated/floor/plating,
+/area/storage/primary)
 "Pg" = (
 /obj/structure/table/steel,
 /obj/machinery/light{
@@ -5694,6 +5781,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/construction)
+"SV" = (
+/obj/machinery/button/ignition{
+	id = "turbineigniter"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "Tj" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
@@ -5787,6 +5880,13 @@
 	temperature = 278
 	},
 /area/turret_protected/ai_upload_foyer)
+"TO" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/atmospherics/pipe/simple/visible/purple{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "TP" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -6030,6 +6130,13 @@
 "WP" = (
 /turf/simulated/wall,
 /area/hallway/primary/central_one)
+"WR" = (
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	id = 10
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "WS" = (
 /obj/turbolift_map_holder/runtime,
 /turf/simulated/floor/plating,
@@ -6043,6 +6150,12 @@
 "WY" = (
 /turf/simulated/open,
 /area/construction/hallway)
+"WZ" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "Xf" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -6171,6 +6284,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/construction/storage)
+"Zm" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/turf/simulated/floor/plating,
+/area/construction)
 "Zs" = (
 /turf/simulated/floor,
 /area/antag/mercenary)
@@ -9828,11 +9945,11 @@ dw
 cK
 ae
 ac
-aa
-ab
-aa
-aa
-aa
+cK
+cK
+cK
+cK
+cK
 aa
 aa
 Yc
@@ -10085,11 +10202,11 @@ dx
 cK
 ae
 ac
-aa
-ab
-aa
-aa
-aa
+SV
+AK
+vA
+WZ
+cK
 aa
 aa
 aa
@@ -10340,13 +10457,13 @@ de
 de
 dx
 cK
-ae
-ac
-aa
-ab
-aa
-aa
-aa
+de
+de
+lz
+Lr
+hr
+Au
+cK
 aa
 aa
 aa
@@ -10599,11 +10716,11 @@ dx
 cK
 ae
 ac
-aa
-ab
-aa
-aa
-aa
+GV
+de
+MF
+MD
+cK
 aa
 aa
 aa
@@ -10856,11 +10973,11 @@ du
 cK
 ae
 ac
-aa
-ab
-aa
-aa
-aa
+TO
+cK
+mu
+de
+cK
 aa
 aa
 aa
@@ -11113,11 +11230,11 @@ dC
 cK
 ae
 ac
-aa
-ab
-aa
-aa
-aa
+xj
+cK
+cK
+Zm
+cK
 aa
 aa
 aa
@@ -11370,11 +11487,11 @@ du
 cK
 ae
 ac
-aa
-ab
-aa
-aa
-aa
+qG
+mF
+sI
+de
+WR
 aa
 aa
 aa
@@ -11631,7 +11748,7 @@ cP
 cP
 cP
 cP
-aa
+cK
 aa
 aa
 aa
@@ -11884,7 +12001,7 @@ dz
 cK
 ae
 ac
-dc
+Pf
 TD
 uA
 cP
