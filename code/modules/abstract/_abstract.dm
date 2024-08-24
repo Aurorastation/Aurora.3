@@ -1,11 +1,10 @@
-/obj/abstract
+ABSTRACT_TYPE(/obj/abstract)
 	name          = ""
 	icon          = 'icons/effects/landmarks.dmi'
 	icon_state    = "x2"
 	simulated     = FALSE
 	density       = FALSE
 	anchored      = TRUE
-	abstract_type = /obj/abstract
 	invisibility  = INVISIBILITY_ABSTRACT
 
 /obj/abstract/Initialize()

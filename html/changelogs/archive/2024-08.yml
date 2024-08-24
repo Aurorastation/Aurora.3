@@ -149,3 +149,46 @@
   shimmeristaken:
   - bugfix: Fixed cryo healing the brain only if it is above 50% brain activity, which
       made it functionally useless.
+2024-08-23:
+  CourierBravo:
+  - rscdel: Fixed a ringer being where it shouldn't be.
+  - rscadd: Added an All Xanu Republic Flagpatch, using the banner over the normal
+      flag for the patch.
+  - imageadd: Added sprites for the All Xanu Republic flagpatch
+  FluffyGhost:
+  - rscadd: Ported the TG's error handler system, which allows runtime errors to be
+      collected in a datum, browsed, and all the good stuffs.
+  N8_Toe:
+  - rscadd: Added a marketable Domadice Plushie to the game and loadout. sprite by
+      NobleRow.
+2024-08-24:
+  Ben10083:
+  - qol: Small tweaks to IHSS Reclamation to improve experience.
+  CourierBravo:
+  - balance: Removed the tranquilizer rifle from the HoS's office, placing it in the
+      RD's office instead. Removed the tranquilizer ammo box from the HoS locker,
+      and into the RD's locker.
+  - rscadd: Reflavored the tranquilizer rifle's description away from being a modified
+      anti material rifle. Also, reflavored its ammo to be Plastic-Gas Shells instead
+      of .50 cal shells.
+  - rscadd: Expanded the RD's office slightly and shuffled a few things around to
+      allow for the space for the tranquilizer cabinet.
+  - rscadd: Added the memory wiper to the Operations Manager's locker.
+  - rscdel: Removed the memory wiper from the Research Director's locker.
+  - bugfix: Fixes the pharmacists age being set to 26, when it should be 25 according
+      to the wiki.
+  FluffyGhost:
+  - refactor: Refactored the abstract meta propriety into defines.
+  - refactor: It's now more easy to spot/see abstract types thanks to the macro that
+      defines them.
+  - rscadd: Added a check on initialization of atoms to avoid spawning abstract types.
+  - rscadd: Made the spawn_atom proc check for abstractness.
+  - rscadd: Made the spawn_atom proc use tgui_list for types list shorter than 1000
+      elements, which enables to search in them. It's too laggy on larger lists so
+      above 1000 it uses the builtin input.
+  - refactor: Made the spawn_atom use a list subtraction instead of a double list,
+      it's lighter on memory and processing.
+  MattAtlas:
+  - bugfix: Gender will not explode the server on the newest BYOND version.
+  not-a-gonk:
+  - rscadd: Adds the Tirakqi Smuggler ship to Uueoa-esa.

@@ -228,3 +228,27 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	linked_frame = SPECIES_IPC
 	icon = 'icons/mob/human_races/ipc/raxus.dmi'
 	allowed_external_organs = list(BP_HEAD)
+
+/datum/robolimb/selen
+	company = PROSTHETIC_SELEN
+	desc = "A seamless white monoplane covers the majority of the head, concealing various optic sensors."
+	species_can_use = list(SPECIES_IPC_BISHOP)
+	linked_frame = SPECIES_IPC_BISHOP
+	icon = 'icons/mob/human_races/ipc/selen.dmi'
+	allowed_external_organs = list(BP_HEAD)
+
+/datum/robolimb/sienna
+	company = PROSTHETIC_SIENNA
+	desc = "A delicate-looking head covered in eight state-of-the-art optic sensors."
+	species_can_use = list(SPECIES_IPC_BISHOP)
+	linked_frame = SPECIES_IPC_BISHOP
+	icon = 'icons/mob/human_races/ipc/sienna.dmi'
+	allowed_external_organs = list(BP_HEAD)
+
+/datum/robolimb/siseyo
+	company = PROSTHETIC_SISEYO
+	desc = "A sleek vertical gap in the head opens up to allow various optical sensors, running lights and slots for additional modules."
+	species_can_use = list(SPECIES_IPC_BISHOP)
+	linked_frame = SPECIES_IPC_BISHOP
+	icon = 'icons/mob/human_races/ipc/siseyo.dmi'
+	allowed_external_organs = list(BP_HEAD)

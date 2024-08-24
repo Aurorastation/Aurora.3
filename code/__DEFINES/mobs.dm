@@ -430,6 +430,9 @@
 #define PROSTHETIC_HOPLAN "Hoplan Head"
 #define PROSTHETIC_RAXUS "Raxus Head"
 #define PROSTHETIC_INDRICUS "Indricus Head"
+#define PROSTHETIC_SELEN "Selen Head"
+#define PROSTHETIC_SIENNA "Sienna Head"
+#define PROSTHETIC_SISEYO "Siseyo Head"
 
 //Prosthetics that aren't restricted by species
 #define PROSTHETICS_UNRESTRICTED list(PROSTHETIC_BC, PROSTHETIC_HI, PROSTHETIC_XMG, PROSTHETIC_UNBRANDED, PROSTHETIC_ZH)

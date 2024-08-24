@@ -3,9 +3,7 @@
  *
  * Howitzers are a field weapon capable of delivering artillery fire to a location
  */
-/obj/machinery/howitzer
-	abstract_type = /obj/machinery/howitzer
-
+ABSTRACT_TYPE(/obj/machinery/howitzer)
 	name = "howitzer"
 
 	icon = 'icons/obj/machinery/howitzer/howitzer.dmi'
@@ -355,9 +353,7 @@
  *
  * Howitzer ammo casing is a type of ammo casing that can be loaded into howitzers.
  */
-/obj/item/ammo_casing/howitzer
-	abstract_type = /obj/item/ammo_casing/howitzer
-
+ABSTRACT_TYPE(/obj/item/ammo_casing/howitzer)
 	name = "howitzer ammo casing"
 	icon = 'icons/obj/machinery/howitzer/howitzer_ammo.dmi'
 	icon_state = "howitzer_ammo"
@@ -381,9 +377,7 @@
  *
  * Howitzer ammo is a type of ammo that can be used in howitzers.
  */
-/obj/projectile/howitzer
-	abstract_type = /obj/projectile/howitzer
-
+ABSTRACT_TYPE(/obj/projectile/howitzer)
 	name = "howitzer ammo"
 	icon = 'icons/obj/machinery/howitzer/howitzer_ammo.dmi'
 	icon_state = "howitzer_ammo"
@@ -426,10 +420,8 @@
 /*
 	High Explosive
 */
-/obj/item/ammo_casing/howitzer/high_explosive
+ABSTRACT_TYPE(/obj/item/ammo_casing/howitzer/high_explosive)
 	name = "high explosive howitzer ammo"
-	abstract_type = /obj/item/ammo_casing/howitzer/high_explosive
-
 	projectile_type = /obj/projectile/howitzer/high_explosive
 
 /**
@@ -437,9 +429,7 @@
  *
  * Big boom, many fragments
  */
-/obj/projectile/howitzer/high_explosive
-	abstract_type = /obj/projectile/howitzer/high_explosive
-
+ABSTRACT_TYPE(/obj/projectile/howitzer/high_explosive)
 	name = "high explosive howitzer ammo"
 
 	///The minimum number of fragments this HE shell will create
@@ -474,9 +464,7 @@
 /*####################################
 		GUNPOWDER PELLETS
 ####################################*/
-/obj/item/howitzer_pellet
-	abstract_type = /obj/item/howitzer_pellet
-
+ABSTRACT_TYPE(/obj/item/howitzer_pellet)
 	name = "howitzer pellet"
 	desc = "A pellet that can be used in a howitzer to propel the projectile."
 
