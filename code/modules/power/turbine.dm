@@ -38,14 +38,20 @@
 	icon_state = "compressor"
 	anchored = TRUE
 	density = TRUE
+	atmos_canpass = CANPASS_DENSITY
 	var/obj/machinery/power/turbine/turbine
 	var/datum/gas_mixture/gas_contained
 	var/turf/simulated/inturf
 	var/starter = FALSE
+	/// Current RPM value of the compressor
 	var/rpm = 0
+	/// Current rpm threshold, used to change sprites
 	var/rpm_threshold = NONE
+	/// Target RPM to aim for
 	var/rpmtarget = 0
+	/// Capacity in moles that the compressor can fit
 	var/capacity = 1e6
+	/// ID of computer to link to.
 	var/comp_id = 0
 	var/efficiency
 	/// value that dertermines the amount of overheat "damage" on the turbine.
@@ -67,12 +73,16 @@
 	icon_state = "turbine"
 	anchored = TRUE
 	density = TRUE
-	var/opened = FALSE
+	atmos_canpass = CANPASS_DENSITY
+	/// Linked [/obj/machinery/power/compressor]. Should not be manipulated directly.
 	var/obj/machinery/power/compressor/compressor
+	/// Turf to output air to. Should not be manipulated directly
 	var/turf/simulated/outturf
+	/// Last value of power the generator outputted
 	var/lastgen
 	/// If the turbine is outputing enough to visibly affect its sprite
 	var/generator_threshold = FALSE
+	/// Productivity value of turbine. Modified by amount and type of capacitors installed.
 	var/productivity = 1
 	component_types = list(
 		/obj/item/stock_parts/capacitor = 6,
@@ -84,9 +94,14 @@
 	desc = "A computer to remotely control a gas turbine. Link it to a turbine via use of a multitool."
 	icon_screen = "turbinecomp"
 	icon_keyboard = "tech_key"
+	manufacturer = "hephaestus"
+	/// Linked [/obj/machinery/power/compressor]. Should not be manipulated directly.
 	var/obj/machinery/power/compressor/compressor
+	/// Linked blast doors, currently unused. Should not be manipulated directly
 	var/list/obj/machinery/door/blast/doors
+	/// ID of the computer. Tied to var/comp_id in [/obj/machinery/power/compressor]
 	var/id = 0
+	/// Currently unused. Intended for control of blast doors in a fully functional turbine setup
 	var/door_status = 0
 
 // the inlet stage of the gas turbine electricity generator
@@ -135,10 +150,10 @@
 		inturf = get_step(src, dir)
 		locate_machinery()
 		if(turbine)
-			to_chat(user, "<span class='notice'>Turbine connected.</span>")
+			to_chat(user, SPAN_NOTICE("Turbine connected."))
 			stat &= ~BROKEN
 		else
-			to_chat(user, "<span class='alert'>Turbine not connected.</span>")
+			to_chat(user, SPAN_ALERT("Turbine not connected."))
 			stat |= BROKEN
 		return
 
@@ -160,7 +175,7 @@
 /obj/machinery/power/compressor/proc/time_until_overheat_done()
 	return max(last_overheat + OVERHEAT_TIME - world.time, 0)
 
-/obj/machinery/power/compressor/process()
+/obj/machinery/power/compressor/process(seconds_per_tick)
 	if(!turbine)
 		stat |= BROKEN
 	if(!starter)
@@ -177,7 +192,7 @@
 			overheat -= 2
 	rpm = 0.9 * rpm + 0.1 * rpmtarget
 	var/datum/gas_mixture/environment = inturf.return_air()
-	var/transfer_moles = environment.total_moles/10
+	var/transfer_moles = environment.total_moles/10 * seconds_per_tick
 	var/datum/gas_mixture/removed = environment.remove(transfer_moles)
 	gas_contained.merge(removed)
 
@@ -240,7 +255,7 @@
 	if(compressor)
 		compressor.locate_machinery()
 
-/obj/machinery/power/turbine/process()
+/obj/machinery/power/turbine/process(seconds_per_tick)
 	if(!compressor)
 		stat |= BROKEN
 
@@ -267,7 +282,7 @@
 		compressor.rpmtarget = newrpm
 
 	if(compressor.gas_contained.total_moles>0)
-		var/oamount = min(compressor.gas_contained.total_moles, (compressor.rpm + 100) / 35000 * compressor.capacity)
+		var/oamount = min(compressor.gas_contained.total_moles, (compressor.rpm + 100) / 35000 * compressor.capacity * seconds_per_tick)
 		var/datum/gas_mixture/removed = compressor.gas_contained.remove(oamount)
 		outturf.assume_air(removed)
 
@@ -412,7 +427,7 @@
 				compressor.starter = !compressor.starter
 				. = TRUE
 
-/obj/machinery/computer/terminal/turbine_computer/process()
+/obj/machinery/computer/terminal/turbine_computer/process(seconds_per_tick)
 	src.updateDialog()
 	return
 
