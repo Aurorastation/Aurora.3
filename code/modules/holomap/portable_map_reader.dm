@@ -34,7 +34,7 @@
 
 	var/z_level = z_override ? z_override : user.z
 	if(z_level in zlevels_affected)
-		data["map_image"] = SSholomap.minimaps_scan_base64[z_level] // TODO: use minimaps_area_colored_base64 // dreamy
+		data["map_image"] = SSholomap.minimaps_area_colored_base64[z_level]
 
 	data["user_x"] = user.x
 	data["user_y"] = user.y
