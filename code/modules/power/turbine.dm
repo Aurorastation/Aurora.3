@@ -94,7 +94,6 @@
 	desc = "A computer to remotely control a gas turbine. Link it to a turbine via use of a multitool."
 	icon_screen = "turbinecomp"
 	icon_keyboard = "tech_key"
-	manufacturer = "hephaestus"
 	/// Linked [/obj/machinery/power/compressor]. Should not be manipulated directly.
 	var/obj/machinery/power/compressor/compressor
 	/// Linked blast doors, currently unused. Should not be manipulated directly
