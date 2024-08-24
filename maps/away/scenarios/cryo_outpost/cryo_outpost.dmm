@@ -1408,6 +1408,12 @@
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/exoplanet/desert,
 /area/cryo_outpost/outside/surface)
+"bwh" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Medbay"
+	},
+/turf/simulated/floor/tiled/white,
+/area/cryo_outpost/inside/medical)
 "bxZ" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
@@ -1692,6 +1698,12 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/cryo_outpost/inside/engineering)
+"bOK" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Cryo"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/labs_cryo_s)
 "bOY" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
@@ -2921,12 +2933,6 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/entrance_aux_west)
-"dmI" = (
-/obj/effect/landmark/minimap_poi{
-	name = "Offices"
-	},
-/turf/simulated/wall/r_wall,
-/area/cryo_outpost/inside/labs_offices)
 "dmM" = (
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/labs_rnd)
@@ -4232,14 +4238,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/habitation_west)
-"eJq" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/landmark/minimap_poi{
-	name = "Warehouse"
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/cryo_outpost/inside/warehouse)
 "eJv" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 8
@@ -4497,6 +4495,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/labs_maint_w)
+"eXr" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Landing Pads"
+	},
+/turf/unsimulated/marker/khaki,
+/area/cryo_outpost/outside/surface)
 "eXG" = (
 /obj/item/hullbeacon/red,
 /obj/effect/floor_decal/industrial/warning/dust/corner{
@@ -4504,12 +4508,6 @@
 	},
 /turf/simulated/floor/exoplanet/desert,
 /area/cryo_outpost/outside/surface)
-"eYa" = (
-/obj/effect/landmark/minimap_poi{
-	name = "Surgery"
-	},
-/turf/simulated/wall/r_wall,
-/area/cryo_outpost/inside/labs_surgery)
 "eYy" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 6
@@ -5198,12 +5196,6 @@
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating/asteroid,
 /area/cryo_outpost/outside/cave)
-"fLb" = (
-/obj/effect/landmark/minimap_poi{
-	name = "Control Room"
-	},
-/turf/simulated/wall/r_wall,
-/area/cryo_outpost/inside/comms)
 "fLC" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/bottle{
@@ -5510,6 +5502,13 @@
 /obj/machinery/portable_atmospherics/canister/empty/chlorine,
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/entrance_aux_west)
+"gey" = (
+/obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Engineering"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/engineering)
 "geL" = (
 /obj/random/junk{
 	pixel_x = -1;
@@ -5557,6 +5556,13 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/cryo_outpost/outside/cave)
+"gfU" = (
+/obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Main Entry"
+	},
+/turf/simulated/floor/tiled/bitile,
+/area/cryo_outpost/inside/entrance_main)
 "ggD" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/glass/beaker/cryoxadone{
@@ -6539,6 +6545,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_maint_w)
+"hwZ" = (
+/obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Canteen"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cryo_outpost/inside/canteen)
 "hxa" = (
 /turf/unsimulated/marker/gray,
 /area/cryo_outpost/outside/surface)
@@ -7140,13 +7153,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engi_powergen)
-"ieB" = (
-/obj/random/dirt_75,
-/obj/effect/landmark/minimap_poi{
-	name = "Canteen"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cryo_outpost/inside/canteen)
 "ieO" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -7164,6 +7170,14 @@
 "ifk" = (
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engineering)
+"ifv" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/landmark/minimap_poi{
+	name = "Warehouse"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/cryo_outpost/inside/warehouse)
 "ifL" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 4
@@ -9272,6 +9286,12 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/cryo_outpost/outside/surface)
+"kzC" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Cloning"
+	},
+/turf/simulated/wall/r_wall,
+/area/cryo_outpost/inside/labs_rnd)
 "kAr" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/dark,
@@ -11026,13 +11046,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engi_powergen)
-"mxA" = (
-/obj/random/dirt_75,
-/obj/effect/landmark/minimap_poi{
-	name = "Engineering"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cryo_outpost/inside/engineering)
 "mys" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -11260,11 +11273,6 @@
 /obj/item/clothing/mask/gas/alt,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/entrance_main)
-"mQH" = (
-/obj/random/dirt_75,
-/obj/item/stack/flag/red/planted,
-/turf/simulated/floor/exoplanet/desert,
-/area/cryo_outpost/outside/surface)
 "mQJ" = (
 /obj/random/dirt_75,
 /obj/machinery/alarm/north{
@@ -12081,13 +12089,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/canteen)
-"nRr" = (
-/obj/random/dirt_75,
-/obj/effect/landmark/minimap_poi{
-	name = "Main Entry"
-	},
-/turf/simulated/floor/tiled/bitile,
-/area/cryo_outpost/inside/entrance_main)
 "nRO" = (
 /obj/machinery/cryopod{
 	dir = 2
@@ -12702,6 +12703,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/habitation_west)
+"oCW" = (
+/obj/random/dirt_75,
+/obj/item/stack/flag/red/planted,
+/turf/simulated/floor/exoplanet/desert,
+/area/cryo_outpost/outside/surface)
 "oDg" = (
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_rnd)
@@ -13532,6 +13538,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/desert,
 /area/cryo_outpost/outside/surface)
+"ptQ" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Control Room"
+	},
+/turf/simulated/wall/r_wall,
+/area/cryo_outpost/inside/comms)
 "pvi" = (
 /obj/machinery/power/apc/north{
 	req_access = null
@@ -14287,12 +14299,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/cryo_outpost/inside/entrance_aux_east)
-"qkZ" = (
-/obj/effect/landmark/minimap_poi{
-	name = "Cloning"
-	},
-/turf/simulated/wall/r_wall,
-/area/cryo_outpost/inside/labs_rnd)
 "qlk" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
@@ -18403,6 +18409,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/cryo_outpost/inside/engi_atmos)
+"uKm" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Surgery"
+	},
+/turf/simulated/wall/r_wall,
+/area/cryo_outpost/inside/labs_surgery)
 "uKt" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -18743,12 +18755,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/barren,
 /area/cryo_outpost/inside/entrance_main)
-"vch" = (
-/obj/effect/landmark/minimap_poi{
-	name = "Quarters"
-	},
-/turf/simulated/floor/tiled,
-/area/cryo_outpost/inside/habitation_west)
 "vct" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -19449,6 +19455,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/engi_powergen)
+"vQP" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Offices"
+	},
+/turf/simulated/wall/r_wall,
+/area/cryo_outpost/inside/labs_offices)
 "vQQ" = (
 /obj/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/plating,
@@ -20147,12 +20159,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cryo_outpost/inside/labs_maint_w)
-"wMb" = (
-/obj/effect/landmark/minimap_poi{
-	name = "Cryo"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cryo_outpost/inside/labs_cryo_s)
 "wMn" = (
 /obj/effect/decal/cleanable/flour,
 /obj/structure/closet/crate/freezer/kois/rations,
@@ -21368,12 +21374,6 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/cryo_outpost/outside/surface)
-"yef" = (
-/obj/effect/landmark/minimap_poi{
-	name = "Medbay"
-	},
-/turf/simulated/floor/tiled/white,
-/area/cryo_outpost/inside/medical)
 "yeB" = (
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -21475,6 +21475,12 @@
 /obj/machinery/photocopier,
 /turf/simulated/floor/tiled/dark/full,
 /area/cryo_outpost/inside/warehouse)
+"ykO" = (
+/obj/effect/landmark/minimap_poi{
+	name = "Quarters"
+	},
+/turf/simulated/floor/tiled,
+/area/cryo_outpost/inside/habitation_west)
 "ykR" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -42164,7 +42170,7 @@ dzb
 dzb
 aaE
 cxi
-ieB
+hwZ
 pAp
 fvU
 pgW
@@ -43920,7 +43926,7 @@ abK
 abK
 abK
 rsN
-vch
+ykO
 abK
 abK
 abK
@@ -51259,7 +51265,7 @@ rvR
 rvR
 rvR
 rvR
-rvR
+eXr
 rvR
 tqr
 loA
@@ -52673,7 +52679,7 @@ cYV
 pbm
 xRP
 nMD
-yef
+bwh
 mTx
 dqr
 crk
@@ -54956,7 +54962,7 @@ lxj
 aNa
 iZe
 jJE
-dmI
+vQP
 xyG
 xyG
 xyG
@@ -57767,7 +57773,7 @@ pgW
 pgW
 pgW
 aGb
-fLb
+ptQ
 aGb
 bIe
 sjQ
@@ -57829,7 +57835,7 @@ edd
 nME
 sgt
 gmY
-nRr
+gfU
 lsf
 lcf
 xgd
@@ -59988,7 +59994,7 @@ rvR
 tqr
 loA
 loA
-mQH
+oCW
 tqr
 tqr
 tqr
@@ -61378,7 +61384,7 @@ pok
 tRT
 uAQ
 cgB
-wMb
+bOK
 btB
 oFT
 tRT
@@ -63671,7 +63677,7 @@ pgW
 pgW
 pgW
 pgW
-qkZ
+kzC
 vdu
 hDz
 cRb
@@ -66548,7 +66554,7 @@ oUs
 txq
 hZR
 knB
-eJq
+ifv
 myE
 lnS
 reF
@@ -67800,7 +67806,7 @@ soI
 xyP
 wUt
 hBY
-eYa
+uKm
 hBY
 gQn
 gQn
@@ -71447,7 +71453,7 @@ wsI
 arp
 wsI
 ifk
-mxA
+gey
 sEI
 vPq
 txx
