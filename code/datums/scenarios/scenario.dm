@@ -41,6 +41,9 @@
 	/// The base area of this scenario's away site. Used for blueprints. Must have  AREA_FLAG_IS_BACKGROUND.
 	var/base_area
 
+	/// The name of the frequency that will be used by the radios on the away site.
+	var/radio_frequency_name = "Sector"
+
 
 /**
  * This proc handles the creation and spawning of everything that the odyssey needs.

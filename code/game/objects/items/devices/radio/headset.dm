@@ -907,10 +907,14 @@
 
 	var/turf/T = get_turf(src)
 	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
-	if(istype(V) && V.comms_support)
-		default_frequency = assign_away_freq(V.name)
-		if(V.comms_name)
-			name = "[V.comms_name] radio headset"
+	if(istype(V))
+		if(V.comms_support)
+			default_frequency = assign_away_freq(V.name)
+			if(V.comms_name)
+				name = "[V.comms_name] radio headset"
+	else
+		if(SSodyssey.scenario && (T.z == SSodyssey.scenario_zlevel))
+			default_frequency = assign_away_freq(SSodyssey.scenario.radio_frequency_name)
 
 	. = ..()
 
