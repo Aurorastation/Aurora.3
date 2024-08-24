@@ -68,8 +68,7 @@
 // may be opened to change power cell
 // three different channels (lighting/equipment/environ) - may each be set to on, off, or auto
 
-/obj/machinery/power/apc
-	abstract_type = /obj/machinery/power/apc //This is an abstract representation of the APC, use one of the subtypes for the actual APC
+ABSTRACT_TYPE(/obj/machinery/power/apc)
 	name = "area power controller"
 	desc = "A control terminal for the area electrical systems."
 	desc_info = "An APC (Area Power Controller) regulates and supplies backup power for the area they are in. Their power channels are divided \

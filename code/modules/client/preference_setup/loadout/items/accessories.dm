@@ -1,5 +1,4 @@
-/datum/gear/accessory
-	abstract_type = /datum/gear/accessory
+ABSTRACT_TYPE(/datum/gear/accessory)
 	sort_category = "Accessories"
 
 /datum/gear/accessory/locket
