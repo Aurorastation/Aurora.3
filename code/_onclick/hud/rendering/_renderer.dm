@@ -8,8 +8,7 @@
 */
 
 /// The base /renderer definition and defaults.
-/atom/movable/renderer
-	abstract_type = /atom/movable/renderer
+ABSTRACT_TYPE(/atom/movable/renderer)
 	appearance_flags = DEFAULT_RENDERER_APPEARANCE_FLAGS
 	screen_loc = "CENTER"
 	plane = LOWEST_PLANE
