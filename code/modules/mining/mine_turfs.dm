@@ -38,7 +38,7 @@ var/list/mineral_can_smooth_with = list(
 	density = TRUE
 	blocks_air = TRUE
 	temperature = T0C
-	var/mined_turf = /turf/unsimulated/floor/asteroid/ash/rocky
+	var/mined_turf = /turf/simulated/floor/exoplanet/mineral
 	var/ore/mineral
 	var/mined_ore = 0
 	var/last_act = 0
