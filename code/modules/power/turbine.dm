@@ -152,7 +152,7 @@
 			to_chat(user, SPAN_NOTICE("Turbine connected."))
 			stat &= ~BROKEN
 		else
-			to_chat(user, SPAN_ALERT("Turbine not connected."))
+			FEEDBACK_FAILURE(user, "Compressor not connected.")
 			stat |= BROKEN
 		return
 
@@ -303,7 +303,7 @@
 			to_chat(user, SPAN_NOTICE("Compressor connected."))
 			stat &= ~BROKEN
 		else
-			to_chat(user, SPAN_ALERT("Compressor not connected."))
+			FEEDBACK_FAILURE(user, "Compressor not connected.")
 			stat |= BROKEN
 		return
 
