@@ -133,15 +133,4 @@
 	icon_state = "slip_zeng"
 	origin_tech = list(TECH_BIO = 8, TECH_MATERIAL = 7, TECH_MAGNET = 7, TECH_DATA = 7)
 
-// ---------------------- outfits
-
-/obj/outfit/admin/generic/cryo_outpost_crew
-	name = "Desert Oasis Planet Outpost Crew Uniform"
-	l_ear = /obj/item/device/radio/headset/ship
-	id = /obj/item/device/radio/headset/syndicate
-	l_pocket = /obj/item/device/radio/hailing
-
-/obj/outfit/admin/generic/cryo_outpost_crew/get_id_access()
-	return list(
-		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CRYO_OUTPOST,
-	)
+// --------------------------------------------------- fin

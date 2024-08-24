@@ -82,7 +82,7 @@
 #define NETWORK_INTREPID "Intrepid"
 #define NETWORK_CANARY "Canary"
 #define NETWORK_NEWS "News"
-#define NETWORK_CRYO_OUTPOST "Desert Oasis Planet Outpost"
+#define NETWORK_CRYO_OUTPOST "#187-D Outpost"
 
 
 // Those networks can only be accessed by pre-existing terminals. AIs and new terminals can't use them.

@@ -1,3 +1,19 @@
+
+// ------------------ base
+
+/obj/outfit/admin/generic/cryo_outpost_crew
+	name = "Desert Oasis Planet Outpost Crew Uniform"
+	l_ear = /obj/item/device/radio/headset/ship
+	id = /obj/item/device/radio/headset/syndicate
+	l_pocket = /obj/item/device/radio/hailing
+
+/obj/outfit/admin/generic/cryo_outpost_crew/get_id_access()
+	return list(
+		ACCESS_EXTERNAL_AIRLOCKS, ACCESS_CRYO_OUTPOST,
+	)
+
+// ------------------ merc
+
 /obj/outfit/admin/generic/cryo_outpost_crew/mercenary
 	name = "Clone Facility Mercenary"
 
@@ -32,6 +48,8 @@
 		/obj/item/material/knife/trench = 1
 	)
 
+// ------------------ merc medic
+
 /obj/outfit/admin/generic/cryo_outpost_crew/mercenary/medic
 	name = "Clone Facility Mercenary Medic"
 
@@ -61,6 +79,8 @@
 		/obj/item/reagent_containers/glass/bottle/thetamycin = 1,
 		/obj/item/material/knife/trench = 1
 	)
+
+// ------------------ merc engineer
 
 /obj/outfit/admin/generic/cryo_outpost_crew/mercenary/engineer
 	name = "Clone Facility Mercenary Engineer"
@@ -92,6 +112,8 @@
 		/obj/item/device/flashlight/flare = 1,
 	)
 
+// ------------------ merc leader
+
 /obj/outfit/admin/generic/cryo_outpost_crew/mercenary/leader
 	name = "Clone Facility Mercenary Leader"
 
@@ -116,7 +138,9 @@
 		/obj/item/material/knife/trench = 1
 	)
 
-/obj/outfit/admin/generic/cryo_outpost_crew/clone_facility_director
+// ------------------ director
+
+/obj/outfit/admin/generic/cryo_outpost_crew/director
 	name = "Clone Facility Director"
 
 	uniform = /obj/item/clothing/under/rank/scientist/zeng
@@ -136,6 +160,8 @@
 		/obj/item/clothing/glasses/welding/superior = 1
 	)
 
+// ------------------ scientist
+
 /obj/outfit/admin/generic/cryo_outpost_crew/scientist
 	name = "Clone Facility Scientist"
 
@@ -148,6 +174,8 @@
 	satchel_faction = /obj/item/storage/backpack/satchel/zeng
 	dufflebag_faction = /obj/item/storage/backpack/duffel/zeng
 	messengerbag_faction = /obj/item/storage/backpack/messenger/zeng
+
+// ------------------ engineer
 
 /obj/outfit/admin/generic/cryo_outpost_crew/engineer
 	name = "Clone Facility Engineer"
@@ -202,3 +230,5 @@
 		SPECIES_TAJARA_MSAI = /obj/item/clothing/gloves/yellow/specialt,
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/gloves/yellow/specialt,
 	)
+
+// ------------------ fin

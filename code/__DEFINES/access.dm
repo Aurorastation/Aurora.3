@@ -813,4 +813,4 @@
 #define ACCESS_CRYO_OUTPOST 243
 /datum/access/cryo_outpost_access
 	id = ACCESS_CRYO_OUTPOST
-	desc = "Desert Oasis Planet Outpost Access"
+	desc = "Outpost #187-D Access"
