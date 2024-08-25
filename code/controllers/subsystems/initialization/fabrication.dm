@@ -4,18 +4,18 @@ SUBSYSTEM_DEF(fabrication)
 	init_order = INIT_ORDER_MISC
 
 	/**
-	 * List of lists(Strings => Paths - Subtypes of `/datum/fabricator_recipe`). Global list of fabricator recipes. Set during `Initialize()`.
+	 * List of lists(Strings => Paths - Subtypes of `/singsingleton/fabricator_recipe`). Global list of fabricator recipes. Set during `Initialize()`.
 	 *
 	 * Example formatting:
 	 * ```dm
 	 * 	list(
 	 * 		"general" = list(
-	 * 			/datum/fabricator_recipe/A,
-	 * 			/datum/fabricator_recipe/B
+	 * 			/singleton/fabricator_recipe/A,
+	 * 			/singleton/fabricator_recipe/B
 	 * 		),
 	 * 		"microlathe" = list(
-	 * 			/datum/fabricator_recipe/C,
-	 * 			/datum/fabricator_recipe/D
+	 * 			/singleton/fabricator_recipe/C,
+	 * 			/singleton/fabricator_recipe/D
 	 * 		)
 	 * 	)
 	 * ```
@@ -77,7 +77,7 @@ SUBSYSTEM_DEF(fabrication)
  * **Parameters**:
  * - `type` - The root type to fetch from the `recipes` list.
  *
- * Returns list of paths (`/datum/fabricator_recipe`). The recipes associated with the given root type.
+ * Returns list of paths (`/singleton/fabricator_recipe`). The recipes associated with the given root type.
  */
 /datum/controller/subsystem/fabrication/proc/get_recipes(type)
 	return recipes[type]
