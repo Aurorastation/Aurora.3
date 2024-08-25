@@ -42,7 +42,7 @@ SUBSYSTEM_DEF(fabrication)
 	var/list/categories = list()
 
 /datum/controller/subsystem/fabrication/Initialize()
-	for(var/singleton/autolathe_recipe/recipe in GET_SINGLETON_SUBTYPE_LIST(/singleton/autolathe_recipe))
+	for(var/singleton/fabricator_recipe/recipe in GET_SINGLETON_SUBTYPE_LIST(/singleton/fabricator_recipe))
 		if(!recipe.name)
 			continue
 		for(var/type in recipe.fabricator_types)
