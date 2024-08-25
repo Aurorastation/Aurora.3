@@ -325,10 +325,9 @@
 			if(udder && prob(5))
 				udder.add_reagent(milk_type, rand(5, 10))
 
-	if(has_toxingland)
-		if(stat == CONSCIOUS)
-			if(toxingland && prob(3))
-				toxingland.add_reagent(toxin_type, rand(1, 2))
+	if(has_toxingland && (stat == CONSCIOUS) && toxingland)
+		if(prob(3))
+			toxingland.add_reagent(toxin_type, rand(1, 2))
 
 	return 1
 
