@@ -1,6 +1,4 @@
-/singleton/overhead_emote
-	abstract_type = /singleton/overhead_emote
-
+ABSTRACT_TYPE(/singleton/overhead_emote)
 	var/icon = 'icons/mob/overhead_emote.dmi'
 	var/icon_state = "abstract"
 

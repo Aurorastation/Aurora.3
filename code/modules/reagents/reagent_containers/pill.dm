@@ -293,7 +293,7 @@
 	icon_state = "pill19"
 	reagents_to_add = list(/singleton/reagent/thetamycin = 15)
 
-/obj/item/reagent_containers/pill/bio_vitamin
+/obj/item/reagent_containers/pill/bio_vitamin //Biogenerator Version
 	name = "Vitamin Pill"
 	desc = "Contains a meal's worth of nutrients."
 	icon_state = "pill11"
@@ -302,7 +302,12 @@
 /obj/item/reagent_containers/pill/bio_vitamin/Initialize()
 	. = ..()
 	var/juice = pick(/singleton/reagent/drink/banana, /singleton/reagent/drink/berryjuice, /singleton/reagent/drink/grapejuice, /singleton/reagent/drink/lemonjuice, /singleton/reagent/drink/limejuice, /singleton/reagent/drink/orangejuice, /singleton/reagent/drink/watermelonjuice)
-	reagents.add_reagent(juice, 1)
+	reagents.add_reagent(juice, 5)
+
+/obj/item/reagent_containers/pill/bio_vitamin/cheap //Vending machine version
+	name = "Vitamin Pill"
+	desc = "Has all the vitamins a person needs."
+	reagents_to_add = list(/singleton/reagent/nutriment = 2)
 
 /obj/item/reagent_containers/pill/rmt
 	name = "15u Regenerative-Muscular Tissue Supplement Pill"
@@ -375,3 +380,15 @@
 	desc = "A medicine used to treat genetic conditions, including benign and malignant tumours."
 	icon_state = "pill11"
 	reagents_to_add = list(/singleton/reagent/ryetalyn = 10)
+
+/obj/item/reagent_containers/pill/caffeine
+	name = "5u Caffeine Pill"
+	desc = "A stimulant used to help with alertness and fatigue."
+	icon_state = "pill18"
+	reagents_to_add = list(/singleton/reagent/caffeine = 5)
+
+/obj/item/reagent_containers/pill/nicotine
+	name = "5u Nicotine Pill"
+	desc = "A pill used to treat nicotine addiction."
+	icon_state = "pill18"
+	reagents_to_add = list(/singleton/reagent/mental/nicotine = 5)

@@ -44,7 +44,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/freighter_shuttle)
 "an" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/starboard_docking_processing)
 "aq" = (
@@ -89,7 +89,7 @@
 	},
 /area/tramp_freighter/cargo)
 "az" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	dir = 8;
@@ -628,7 +628,7 @@
 /area/tramp_freighter/armory)
 "dv" = (
 /obj/machinery/vending/hydronutrients,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/alarm/north{
 	req_one_access = list(242)
 	},
@@ -655,7 +655,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
@@ -848,7 +848,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
@@ -933,7 +933,7 @@
 /area/tramp_freighter/disposals)
 "eD" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
@@ -1229,7 +1229,7 @@
 /area/tramp_freighter/atmos)
 "fN" = (
 /obj/structure/reagent_dispensers/fueltank,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
@@ -1781,7 +1781,7 @@
 /area/tramp_freighter/disposals)
 "jg" = (
 /obj/vehicle/bike/monowheel,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
@@ -1890,7 +1890,7 @@
 	sensors = list("tramp_air_sensor_1"="Tank");
 	name = "Propellant Supply Terminal"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/ridged,
 /area/tramp_freighter/starboardthrust)
@@ -2036,7 +2036,7 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/port_docking)
 "kP" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/secure_closet/freezer/kois/spores,
 /turf/simulated/floor/tiled/dark/full,
@@ -2335,7 +2335,7 @@
 /area/tramp_freighter/starboard_docking)
 "mG" = (
 /obj/random/animal_crate,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
@@ -2954,7 +2954,7 @@
 /area/tramp_freighter/cargo)
 "pE" = (
 /obj/machinery/mining/drill,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
@@ -3117,7 +3117,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/lounge)
 "qE" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/table/rack,
 /obj/item/circuitboard/ship/engines{
 	pixel_y = -6
@@ -3353,7 +3353,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "rL" = (
@@ -3691,7 +3691,7 @@
 /obj/machinery/mining/brace{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
@@ -3704,7 +3704,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/starboard_docking)
 "tq" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/suit_cycler/mining/prepared{
 	req_access = null
@@ -4617,7 +4617,7 @@
 /obj/machinery/mining/brace{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
@@ -4631,7 +4631,7 @@
 "xs" = (
 /obj/structure/closet/crate/loot,
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
@@ -4958,7 +4958,7 @@
 "zb" = (
 /obj/machinery/power/terminal,
 /obj/structure/cable/green,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "ze" = (
@@ -5168,7 +5168,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
@@ -5230,7 +5230,7 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "Ap" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/dark/full,
@@ -5774,7 +5774,7 @@
 /obj/item/stock_parts/scanning_module{
 	pixel_y = -8
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
@@ -5851,7 +5851,7 @@
 /turf/simulated/floor/greengrid,
 /area/tramp_freighter/power)
 "Eh" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
 	},
@@ -6053,7 +6053,7 @@
 /turf/simulated/floor/tiled/ridged,
 /area/tramp_freighter/portthrust)
 "Fw" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/port_docking_processing)
 "Fz" = (
@@ -6109,7 +6109,7 @@
 /turf/simulated/floor/marble,
 /area/tramp_freighter/kitchen)
 "FU" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/secure_closet/engineering_electrical{
 	req_access = null
 	},
@@ -6366,7 +6366,7 @@
 /obj/item/stack/material/glass/reinforced/full,
 /obj/item/stack/material/plasteel/full,
 /obj/item/stack/material/plasteel/full,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
@@ -6785,7 +6785,7 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
 "JP" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/power/apc/north{
 	req_access = list(242)
 	},
@@ -6818,7 +6818,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/power)
 "JY" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
@@ -6945,7 +6945,7 @@
 /area/tramp_freighter/port_docking_processing)
 "KK" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
@@ -7241,7 +7241,7 @@
 /area/tramp_freighter/starboard_docking)
 "Ml" = (
 /obj/structure/closet/crate/loot,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
@@ -7572,11 +7572,11 @@
 /area/tramp_freighter/afthallway)
 "NS" = (
 /obj/machinery/seed_storage/garden,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hydroponics)
 "NT" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/table/rack,
 /obj/item/stack/material/aluminium/full,
 /obj/item/stack/material/glass/reinforced/full,
@@ -7718,7 +7718,7 @@
 /turf/simulated/floor,
 /area/tramp_freighter/starboard_docking)
 "OH" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/media/jukebox/gramophone,
 /turf/simulated/floor/tiled/dark/full,
@@ -7810,7 +7810,7 @@
 /area/tramp_freighter/engi)
 "Ph" = (
 /obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
@@ -8551,7 +8551,7 @@
 	req_access = list(242)
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/plating,
 /area/shuttle/freighter_shuttle)
 "SR" = (
@@ -8760,7 +8760,7 @@
 	opened = 1
 	},
 /obj/structure/disposalpipe/junction,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/disposals)
@@ -9383,7 +9383,7 @@
 	dir = 1;
 	level = 2
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
@@ -9493,7 +9493,7 @@
 /mob/living/bot/farmbot{
 	req_one_access = list()
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/tramp_freighter/cargo)
@@ -9648,7 +9648,7 @@
 /turf/simulated/floor/plating,
 /area/tramp_freighter/starboard_docking)
 "Yj" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -9737,7 +9737,7 @@
 /obj/structure/closet/secure_closet/engineering_welding{
 	req_access = null
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/power/apc/north{
 	req_access = list(242)
 	},

@@ -3339,7 +3339,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/cargo)
 "aoq" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/random/dirt_75,
 /obj/structure/closet/crate/miningcart/ore,
 /turf/simulated/floor/plating,
@@ -4830,7 +4830,7 @@
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
 "awu" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/light/broken{
 	dir = 1
 	},
@@ -11260,7 +11260,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
 "lai" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/structure/closet/crate,
 /obj/random/contraband,
 /obj/random/contraband,

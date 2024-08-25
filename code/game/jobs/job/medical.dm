@@ -159,7 +159,7 @@
 	economic_modifier = 5
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 26,
+		SPECIES_HUMAN = 25,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)

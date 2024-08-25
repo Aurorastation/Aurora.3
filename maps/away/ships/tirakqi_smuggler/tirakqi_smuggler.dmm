@@ -63,7 +63,12 @@
 	},
 /area/ship/tirakqi_smuggler/starboard_hall)
 "at" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
+	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "tirakqi_starboard_hall_blast"
@@ -304,7 +309,12 @@
 /turf/simulated/wall/shuttle/space_ship/tirakqi_shuttle/main,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "bR" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
+	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	id = "tirakqi_starboard_hall_blast"
@@ -388,6 +398,7 @@
 	pixel_x = 5;
 	pixel_y = 9
 	},
+/obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "cU" = (
@@ -510,12 +521,11 @@
 	},
 /obj/structure/table/skrell,
 /obj/item/roller/hover,
-/obj/item/bodybag/cryobag,
-/obj/item/vitals_monitor,
-/obj/item/vitals_monitor,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/item/storage/belt/medical,
+/obj/item/reagent_containers/hypospray,
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_smuggler/med)
 "dV" = (
@@ -631,6 +641,7 @@
 	pixel_x = 5;
 	pixel_y = 9
 	},
+/obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "eI" = (
@@ -719,9 +730,6 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_smuggler/cargo)
 "fa" = (
@@ -859,8 +867,9 @@
 	pixel_x = -6;
 	pixel_y = 6
 	},
-/obj/machinery/alarm/north{
-	req_one_access = list(208)
+/obj/item/storage/secure/safe{
+	pixel_y = 32;
+	starts_with = list(/obj/item/spacecash/c500 = 2, /obj/item/spacecash/c200 = 2, /obj/item/spacecash/c100 = 2, /obj/item/spacecash/c50 = 2)
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/capt)
@@ -929,6 +938,8 @@
 	},
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_smuggler/med)
 "gC" = (
@@ -936,7 +947,7 @@
 /obj/item/stack/material/plasteel/full,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/glass/reinforced/full,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/stack/material/glass{
 	amount = 25
 	},
@@ -944,23 +955,20 @@
 /obj/item/stack/material/lead/full,
 /obj/item/stack/material/aluminium/full,
 /obj/item/stack/material/plastic/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass{
+	amount = 25
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/tirakqi_smuggler/engi)
 "gF" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
 /obj/structure/table/rack,
-/obj/item/tank/jetpack/carbondioxide,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/clothing/mask/breath/skrell,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/skrell/black,
-/obj/item/clothing/head/helmet/space/void/skrell/black,
-/turf/simulated/floor/plating,
+/obj/machinery/suit_cycler/offship/skrell/black{
+	name = "Voidsuit"
+	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/cargo)
 "gH" = (
 /obj/structure/railing/mapped{
@@ -1137,7 +1145,12 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "hT" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#8a7387";
+	color = "#8a7387"
+	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
 	},
@@ -1235,6 +1248,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/alarm/south{
+	req_one_access = list(208)
+	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/capt)
 "iF" = (
@@ -1266,6 +1282,8 @@
 	},
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_smuggler/med)
 "iS" = (
@@ -1283,6 +1301,14 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/closet/walllocker{
+	pixel_y = 32;
+	name = "Tool Storage"
+	},
+/obj/item/storage/toolbox/electrical{
+	pixel_y = 5
+	},
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/plating,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "jc" = (
@@ -1383,7 +1409,12 @@
 	},
 /area/ship/tirakqi_smuggler/crew)
 "ju" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#8a7387";
+	color = "#8a7387"
+	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "tirakqi_bridge_blast"
@@ -1391,12 +1422,17 @@
 /turf/simulated/floor/tiled/full,
 /area/ship/tirakqi_smuggler/bridge)
 "jy" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#8a7387";
+	color = "#8a7387"
 	},
-/turf/simulated/floor/carpet/rubber,
-/area/ship/tirakqi_smuggler/cargo)
+/obj/machinery/door/blast/regular/open{
+	id = "tirakqi_aft_blast"
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/tirakqi_smuggler/starboard_arm)
 "jB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1453,7 +1489,12 @@
 	},
 /area/ship/tirakqi_smuggler/mess)
 "kr" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
+	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "tirakqi_port_hall_blast"
@@ -1542,6 +1583,9 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/vending/cigarette{
+	anchored = 0
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/cargo)
 "kW" = (
@@ -1657,6 +1701,7 @@
 	pixel_y = -7;
 	pixel_x = 3
 	},
+/obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "lX" = (
@@ -1676,19 +1721,12 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "lY" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
 /obj/structure/table/rack,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/mask/breath/skrell,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/skrell/black,
-/obj/item/clothing/head/helmet/space/void/skrell/black,
-/turf/simulated/floor/plating,
+/obj/machinery/suit_cycler/offship/skrell/white{
+	name = "Voidsuit"
+	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/cargo)
 "ma" = (
 /obj/effect/shuttle_landmark/tirakqi_smuggler/nav4,
@@ -1793,7 +1831,11 @@
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_smuggler/cargo)
 "my" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#8a7387"
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "tirakqi_co2_blast_port";
 	dir = 4
@@ -2243,7 +2285,8 @@
 "pp" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	name = "Connector to Fuel Tank"
+	name = "Connector to Fuel Tank";
+	target_pressure = 15000
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -2383,7 +2426,12 @@
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "qm" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "tirakqi_aft_blast";
 	dir = 4
@@ -2391,7 +2439,12 @@
 /turf/simulated/floor/tiled/full,
 /area/ship/tirakqi_smuggler/cargo)
 "qt" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#8a7387";
+	color = "#8a7387"
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "tirakqi_aft_blast"
 	},
@@ -2452,9 +2505,6 @@
 	},
 /obj/item/device/flashlight/lamp/lava/cyan{
 	pixel_x = -8
-	},
-/obj/item/clothing/ears/skrell/chain/bluejewels{
-	pixel_x = 4
 	},
 /obj/machinery/power/apc/super/south{
 	req_access = list(208)
@@ -2625,6 +2675,8 @@
 	},
 /obj/item/gun/energy/pistol,
 /obj/item/gun/energy/pistol,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_smuggler/bridge)
 "rq" = (
@@ -2791,6 +2843,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "sq" = (
@@ -2824,19 +2877,12 @@
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_smuggler/cargo)
 "sx" = (
-/obj/effect/decal/fake_object{
-	desc = "A lightweight support lattice.";
-	icon = 'icons/obj/smooth/lattice.dmi';
-	icon_state = "lattice";
-	name = "lattice"
-	},
 /obj/structure/table/rack,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/mask/breath/skrell,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/skrell/white,
-/obj/item/clothing/head/helmet/space/void/skrell/white,
-/turf/simulated/floor/plating,
+/obj/machinery/suit_cycler/offship/skrell/black{
+	name = "Voidsuit"
+	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/cargo)
 "sz" = (
 /obj/machinery/computer/ship/engines{
@@ -2896,9 +2942,6 @@
 	icon_state = "2-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_smuggler/cargo)
 "sL" = (
@@ -3181,6 +3224,11 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full{
+	pixel_y = 6;
+	pixel_x = -7
+	},
 /turf/simulated/floor/greengrid,
 /area/ship/tirakqi_smuggler/engi)
 "us" = (
@@ -3227,9 +3275,8 @@
 	dir = 1
 	},
 /obj/structure/table/skrell,
-/obj/item/skrell_projector/dream{
-	pixel_y = 4;
-	name = "nralakk projector"
+/obj/item/deck/tarot/nralakk{
+	pixel_y = 4
 	},
 /turf/simulated/floor/beach/water/pool,
 /area/ship/tirakqi_smuggler/port_hall)
@@ -3429,6 +3476,18 @@
 /obj/random/contraband,
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_smuggler/med)
+"vK" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "tirakqi_aft_blast"
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/tirakqi_smuggler/port_arm)
 "vQ" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, hallway"
@@ -3443,6 +3502,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/crate/loot,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/cargo)
 "vX" = (
@@ -3501,6 +3561,8 @@
 /obj/structure/sink/kitchen{
 	pixel_y = 26
 	},
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
 /turf/simulated/floor/tiled/white,
 /area/ship/tirakqi_smuggler/med)
 "wf" = (
@@ -3740,6 +3802,9 @@
 /obj/machinery/computer/ship/navigation/wall{
 	pixel_y = 28
 	},
+/obj/structure/bed/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/beach/water/pool,
 /area/ship/tirakqi_smuggler/capt)
 "xs" = (
@@ -3808,7 +3873,12 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_smuggler/atmos)
 "xR" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#8a7387";
+	color = "#8a7387"
+	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	id = "tirakqi_bridge_blast"
@@ -3956,10 +4026,14 @@
 /area/ship/tirakqi_smuggler/hall)
 "yq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/door/blast/regular/open{
 	id = "tirakqi_co2_blast_starboard";
 	dir = 4
+	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#8a7387"
 	},
 /turf/simulated/floor/tiled/full,
 /area/ship/tirakqi_smuggler/atmos)
@@ -4208,6 +4282,8 @@
 	},
 /obj/item/gun/energy/pistol,
 /obj/item/gun/energy/pistol,
+/obj/item/clothing/accessory/holster/thigh,
+/obj/item/clothing/accessory/holster/thigh,
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_smuggler/bridge)
 "zu" = (
@@ -4385,10 +4461,8 @@
 	dir = 1
 	},
 /obj/structure/table/skrell,
-/obj/item/skrell_projector/dream{
-	pixel_y = 4;
-	selected_world = "the Traverse";
-	name = "nralakk projector"
+/obj/item/deck/tarot/nralakk{
+	pixel_y = 4
 	},
 /turf/simulated/floor/beach/water/pool,
 /area/ship/tirakqi_smuggler/starboard_hall)
@@ -4670,7 +4744,12 @@
 	},
 /area/ship/tirakqi_smuggler/starboard_hall)
 "Cs" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
+	},
 /obj/machinery/door/blast/regular/open{
 	dir = 2;
 	id = "tirakqi_port_hall_blast"
@@ -4794,6 +4873,8 @@
 	color = "#b6efe1";
 	dir = 8
 	},
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/med)
 "Dy" = (
@@ -5125,6 +5206,27 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
 	},
+/obj/item/device/gps{
+	pixel_x = -5
+	},
+/obj/item/device/gps{
+	pixel_x = -5
+	},
+/obj/item/device/gps{
+	pixel_x = -5
+	},
+/obj/item/device/radio/off{
+	pixel_y = 10;
+	pixel_x = 5
+	},
+/obj/item/device/radio/off{
+	pixel_y = 10;
+	pixel_x = 5
+	},
+/obj/item/device/radio/off{
+	pixel_y = 10;
+	pixel_x = 5
+	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/bridge)
 "Ft" = (
@@ -5180,6 +5282,10 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/skrellbeerdyn{
 	pixel_y = 6;
 	pixel_x = 7
+	},
+/obj/item/flame/lighter{
+	pixel_x = -3;
+	pixel_y = -4
 	},
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/mess)
@@ -5250,20 +5356,9 @@
 /area/ship/tirakqi_smuggler/capt)
 "Gn" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/closet/skrell,
-/obj/item/clothing/mask/breath/skrell,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/skrell/white,
-/obj/item/clothing/head/helmet/space/void/skrell/white,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c500,
-/obj/item/spacecash/c200,
-/obj/item/spacecash/c200,
-/obj/item/spacecash/c100,
-/obj/item/spacecash/c100,
-/obj/item/spacecash/c50,
-/obj/item/spacecash/c50,
-/obj/item/gun/energy/gun/qukala,
+/obj/machinery/suit_cycler/offship/skrell/white{
+	name = "Captain's Voidsuit"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/capt)
 "Go" = (
@@ -5273,6 +5368,14 @@
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
 	},
+/obj/structure/closet/walllocker{
+	pixel_y = 32;
+	name = "Captain's Locker"
+	},
+/obj/item/gun/energy/gun/qukala,
+/obj/item/clothing/head/helmet/security/skrell,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/melee/telebaton/nlom,
 /turf/simulated/floor/shuttle/skrell/blue,
 /area/ship/tirakqi_smuggler/capt)
 "Gs" = (
@@ -5348,7 +5451,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/structure/closet/crate/loot,
+/obj/random/animal_crate,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/cargo)
 "GT" = (
@@ -5638,7 +5741,12 @@
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_smuggler/atmos)
 "IP" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "tirakqi_aft_blast"
 	},
@@ -5696,7 +5804,12 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/tirakqi_smuggler/atmos)
 "Jq" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
+	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "tirakqi_starboard_hall_blast"
@@ -5707,7 +5820,11 @@
 /turf/simulated/floor/tiled/full,
 /area/ship/tirakqi_smuggler/starboard_hall)
 "Ju" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#8a7387"
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "tirakqi_co2_blast_starboard";
 	dir = 4
@@ -5728,6 +5845,7 @@
 	pixel_y = -7;
 	pixel_x = -1
 	},
+/obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "JB" = (
@@ -5951,7 +6069,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/tirakqi_smuggler/starboard_hall)
 "KG" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
 	},
@@ -6072,7 +6189,7 @@
 /area/ship/tirakqi_smuggler/capt)
 "LJ" = (
 /obj/structure/table/skrell,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/item/grenade/chem_grenade/metalfoam{
 	pixel_y = 8;
 	pixel_x = 8
@@ -6218,7 +6335,8 @@
 "Ml" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	name = "Connector to Fuel Tank"
+	name = "Connector to Fuel Tank";
+	target_pressure = 15000
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
@@ -6568,7 +6686,8 @@
 /area/ship/tirakqi_smuggler/engi)
 "OC" = (
 /obj/machinery/atmospherics/binary/pump/on{
-	name = "Scrubbers to Waste"
+	name = "Scrubbers to Waste";
+	target_pressure = 15000
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
@@ -7108,7 +7227,11 @@
 /area/shuttle/tirakqi_smuggler_shuttle)
 "RV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#8a7387"
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "tirakqi_co2_blast_port";
 	dir = 4
@@ -7171,11 +7294,10 @@
 /area/ship/tirakqi_smuggler/port_hall)
 "SI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/railing/mapped{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/closet/crate/loot,
+/obj/machinery/vending/boozeomat{
+	anchored = 0
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/cargo)
 "SJ" = (
@@ -7387,7 +7509,12 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_smuggler/port_hall)
 "Up" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
+	},
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "tirakqi_port_hall_blast"
@@ -7493,7 +7620,12 @@
 /turf/simulated/wall/shuttle/space_ship/tirakqi_shuttle/cockpit,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "UV" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "tirakqi_shuttle_blast";
 	dir = 4
@@ -7614,14 +7746,17 @@
 	req_access = null;
 	pixel_y = -30
 	},
-/obj/item/clothing/mask/breath/medical,
-/obj/item/tank/oxygen,
 /obj/item/reagent_containers/inhaler/pneumalin,
 /obj/item/auto_cpr,
 /obj/effect/floor_decal/spline/plain{
 	color = "#b6efe1";
 	dir = 4
 	},
+/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag,
+/obj/item/vitals_monitor,
+/obj/item/vitals_monitor,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/med)
 "Vv" = (
@@ -7722,7 +7857,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light/skrell,
 /obj/effect/decal/cleanable/dirt,
-/obj/random/animal_crate,
+/obj/structure/table/rack,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/tirakqi_smuggler/cargo)
 "Wr" = (
@@ -7891,7 +8031,12 @@
 /turf/simulated/floor/plating,
 /area/shuttle/tirakqi_smuggler_shuttle)
 "Xq" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
+	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, cockpit"
 	},
@@ -7910,7 +8055,12 @@
 /turf/simulated/floor/shuttle/skrell,
 /area/ship/tirakqi_smuggler/hall)
 "Xt" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	frame_color = "#6e2c6e";
+	color = "#6e2c6e"
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "tirakqi_shuttle_blast"
 	},
@@ -38647,9 +38797,9 @@ oL
 oL
 oL
 Tm
-IP
-IP
-IP
+jy
+jy
+jy
 oL
 oL
 sY
@@ -39417,9 +39567,9 @@ oL
 mu
 sT
 oL
-IP
-IP
-IP
+jy
+jy
+jy
 VH
 wH
 Tg
@@ -39941,7 +40091,7 @@ VH
 IP
 gI
 lY
-jy
+po
 Kb
 Td
 Cw
@@ -40203,7 +40353,7 @@ Mn
 ya
 uV
 To
-Mn
+SI
 tE
 uJ
 QA
@@ -42508,10 +42658,10 @@ MU
 MU
 MU
 fe
-qt
+vK
 gI
 gF
-SI
+yW
 wQ
 rB
 uV
@@ -42762,12 +42912,12 @@ Cx
 MU
 MU
 fe
-qt
+vK
 fe
 fe
 NQ
 gI
-sx
+lY
 sJ
 mx
 wN

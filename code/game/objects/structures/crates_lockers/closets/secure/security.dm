@@ -126,7 +126,6 @@
 	new /obj/item/device/radio/headset/heads/hos(src)
 	new /obj/item/device/radio/headset/heads/hos/alt(src)
 	new /obj/item/device/megaphone/sec(src)
-	new /obj/item/storage/box/tranquilizer(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/head(src)
 	new /obj/item/shield/riot/tact(src)

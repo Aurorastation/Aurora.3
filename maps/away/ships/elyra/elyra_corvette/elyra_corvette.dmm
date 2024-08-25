@@ -4,7 +4,7 @@
 	pixel_y = 4;
 	pixel_x = -1
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 5
 	},
@@ -1072,7 +1072,7 @@
 	pixel_y = 4;
 	pixel_x = 1
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 9
 	},
@@ -1259,7 +1259,7 @@
 /area/ship/elyran_corvette/hangar)
 "gh" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
@@ -1874,7 +1874,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/cic)
 "jC" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/starboardthrust)
@@ -2350,7 +2350,7 @@
 /area/ship/elyran_corvette/dorm)
 "mW" = (
 /obj/machinery/atmospherics/unary/engine,
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 6
 	},
@@ -2644,7 +2644,7 @@
 /turf/simulated/floor/plating,
 /area/ship/elyran_corvette/engineering)
 "ol" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/portthrust)
@@ -4949,7 +4949,7 @@
 	pixel_y = -8;
 	pixel_x = 6
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/dorm)
 "BN" = (
@@ -5414,7 +5414,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/brig)
 "ES" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 6
 	},
@@ -6180,7 +6180,7 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/ship/elyran_corvette/portwep)
 "Js" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/emergency,
@@ -8960,7 +8960,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/starboardwep)
 "XQ" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/carpet/rubber,
@@ -9165,7 +9165,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/starboardthrust)
 "YZ" = (
-/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/effect/floor_decal/industrial/outline/operations,
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
