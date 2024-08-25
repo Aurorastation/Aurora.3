@@ -4650,7 +4650,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /obj/machinery/button/remote/blast_door{
 	pixel_y = 28;
 	dir = 1;

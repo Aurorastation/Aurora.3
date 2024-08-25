@@ -32,6 +32,12 @@
 #define MAINT    0x8  // Under maintenance.
 #define EMPED    0x10 // Temporary broken by EMP pulse.
 
+#define FABRICATOR_EXTRA_COST_FACTOR 1.25
+#define FAB_HACKED   BITFLAG(0)
+#define FAB_DISABLED BITFLAG(1)
+#define FAB_SHOCKED  BITFLAG(2)
+#define FAB_BUSY     BITFLAG(3)
+
 #define INOPERABLE(machine)  (machine.stat & (BROKEN|NOPOWER|MAINT|EMPED))
 #define OPERABLE(machine)    !INOPERABLE(machine)
 

@@ -1459,7 +1459,7 @@
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "Fg" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)

@@ -16860,12 +16860,7 @@
 	},
 /area/centcom/holding)
 "wjW" = (
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Modified Autolathe";
-	pixel_y = 2
-	},
+/obj/machinery/fabricator/hacked,
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
 "wkk" = (

@@ -2185,7 +2185,7 @@
 	req_access = null;
 	req_one_access = list(221,222)
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "iDh" = (

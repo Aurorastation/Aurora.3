@@ -415,7 +415,7 @@
 /turf/simulated/floor/tiled/white,
 /area/scc_event_shuttle)
 "eK" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)
 "eL" = (
@@ -859,7 +859,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/scc_event_shuttle)
 "nq" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /obj/effect/floor_decal/industrial/outline/operations,
 /turf/simulated/floor/tiled,
 /area/scc_event_shuttle)

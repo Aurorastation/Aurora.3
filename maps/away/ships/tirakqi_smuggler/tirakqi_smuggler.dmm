@@ -6669,7 +6669,7 @@
 /area/ship/tirakqi_smuggler/port_hall)
 "Oy" = (
 /obj/machinery/light/skrell,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator/hacked,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/tirakqi_smuggler/engi)

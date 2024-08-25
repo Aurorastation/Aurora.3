@@ -2534,7 +2534,7 @@
 /turf/simulated/floor/plating,
 /area/sensor_relay/airlocks)
 "aWD" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/item/device/radio/intercom/ship/west,

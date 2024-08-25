@@ -4296,12 +4296,7 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/point_verdant/interior/police)
 "cqN" = (
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Modified Autolathe";
-	pixel_y = 2
-	},
+/obj/machinery/fabricator/hacked,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/kaf)
 "crM" = (
@@ -12165,12 +12160,7 @@
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
 	},
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Modified Autolathe";
-	pixel_y = 2
-	},
+/obj/machinery/fabricator/hacked,
 /turf/simulated/floor/tiled,
 /area/point_verdant/interior/offices/basement)
 "gLK" = (
@@ -24163,12 +24153,7 @@
 /turf/simulated/wall,
 /area/point_verdant/interior/decrepit)
 "nDG" = (
-/obj/machinery/autolathe{
-	desc = "Your typical Autolathe. It appears to have much more options than your regular one, however...";
-	hacked = 1;
-	name = "Modified Autolathe";
-	pixel_y = 2
-	},
+/obj/machinery/fabricator/hacked,
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled,
@@ -25063,7 +25048,7 @@
 /turf/simulated/floor/asphalt,
 /area/point_verdant/interior/parking)
 "ola" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /obj/random/dirt_75,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /turf/simulated/floor/tiled,
@@ -25233,7 +25218,7 @@
 /turf/simulated/floor/roofing_tiles,
 /area/point_verdant/outdoors)
 "ooU" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /obj/effect/decal/curb,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/spaceport)

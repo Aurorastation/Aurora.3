@@ -4912,7 +4912,7 @@
 	req_access = null;
 	req_one_access = list(223,224)
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
