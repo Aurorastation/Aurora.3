@@ -237,11 +237,11 @@
 	projectile_type = /obj/projectile/bullet/shotgun/moghes
 
 /obj/item/ammo_casing/tranq
-	name = "PPS shell"
-	desc = "A .50 cal PPS bullet casing."
+	name = "Plastic-Gas Shell"
+	desc = "A Plastic-Gas Shell (PGS) casing, for air powered weapons."
 	icon_state = "ishell"
 	spent_icon = "ishell-spent"
-	caliber = "PPS"
+	caliber = "PGS"
 	projectile_type = /obj/projectile/bullet/rifle/tranq
 	max_stack = 6
 
