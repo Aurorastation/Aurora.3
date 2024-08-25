@@ -32,6 +32,7 @@
 /obj/structure/sign/poster{
 	pixel_y = -32
 	},
+/obj/structure/trash_pile,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "ew" = (
@@ -82,9 +83,13 @@
 	on = 1;
 	pixel_x = -8
 	},
-/obj/item/device/synthesized_instrument/guitar{
-	pixel_y = 4;
-	pixel_x = 12
+/obj/item/device/binoculars{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/item/device/binoculars/high_power{
+	pixel_x = 7;
+	pixel_y = 5
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -164,10 +169,12 @@
 /turf/simulated/floor/tiled/full,
 /area/space)
 "pe" = (
-/obj/structure/curtain/open/bed{
-	name = "curtain"
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8;
+	icon_state = "map"
 	},
-/turf/simulated/floor/tiled/gunmetal/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/space)
 "pk" = (
 /obj/structure/bed/stool/chair{
@@ -225,9 +232,11 @@
 /turf/simulated/floor/tiled/full,
 /area/space)
 "tS" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
+/obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
-	level = 2
+	use_power = 1;
+	name = "waste outlet";
+	volume_rate = 700
 	},
 /turf/simulated/floor/airless,
 /area/space)
@@ -241,6 +250,10 @@
 "vv" = (
 /obj/machinery/door/airlock,
 /turf/simulated/floor/marble,
+/area/space)
+"vC" = (
+/obj/structure/closet/crate/bin,
+/turf/simulated/floor/tiled/full,
 /area/space)
 "vK" = (
 /turf/simulated/floor/tiled/full,
@@ -376,7 +389,9 @@
 /area/space)
 "Mu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "NI" = (
@@ -528,7 +543,7 @@
 /turf/simulated/floor/carpet/rubber,
 /area/space)
 "XJ" = (
-/obj/structure/closet/crate/bin,
+/obj/structure/table/wood,
 /turf/simulated/floor/tiled,
 /area/space)
 "XY" = (
@@ -31778,7 +31793,7 @@ LU
 LU
 LU
 LU
-nj
+gK
 gG
 Xw
 wG
@@ -32035,7 +32050,7 @@ gK
 gK
 nj
 LU
-nj
+gK
 gG
 gG
 gG
@@ -32294,7 +32309,7 @@ nj
 LU
 bh
 Tc
-LU
+gG
 vp
 vp
 vp
@@ -32551,7 +32566,7 @@ nj
 LU
 bh
 Ok
-LU
+gG
 vp
 vp
 gG
@@ -32807,8 +32822,8 @@ Xv
 LU
 LU
 bh
-LU
-LU
+gG
+gG
 kg
 kg
 gG
@@ -33063,15 +33078,15 @@ gK
 gK
 nj
 LU
-nj
-LU
+gK
+gG
 pa
 Bq
 CC
 gG
 hH
+vK
 dF
-gG
 gG
 zJ
 kg
@@ -33320,7 +33335,7 @@ bh
 bh
 nj
 KP
-nj
+gK
 KP
 Bx
 Bx
@@ -33328,7 +33343,7 @@ Bx
 tA
 Bx
 Bx
-pe
+vK
 Va
 TE
 Ha
@@ -33577,15 +33592,15 @@ gK
 gK
 nj
 LU
-nj
-LU
+gK
+gG
 EF
 YN
 nQ
 gG
 GC
 vK
-gG
+vC
 gG
 HF
 kg
@@ -33835,8 +33850,8 @@ Xv
 LU
 LU
 bh
-LU
-LU
+gG
+gG
 kg
 kg
 gG
@@ -34605,7 +34620,7 @@ gK
 gK
 nj
 LU
-nj
+gK
 LU
 LU
 LU
@@ -34862,7 +34877,7 @@ LU
 LU
 LU
 LU
-nj
+gK
 KP
 Rp
 Ie
@@ -35106,10 +35121,10 @@ BE
 gG
 lf
 UW
-gK
 Mu
 Gp
 fF
+pe
 sh
 ss
 tS
@@ -35365,8 +35380,8 @@ eT
 UW
 gK
 gK
-gK
 eH
+Rf
 Rf
 gG
 gG
