@@ -265,17 +265,9 @@
 			if(C.has_udder)
 				return
 
-		if(istype(target, /mob/living/simple_animal/carp))
-			var/mob/living/simple_animal/spaceCarp = target
-			if(spaceCarp.has_toxingland)
-				return
-
-		if(istype(target, /mob/living/simple_animal/carp/fluff/ginny))
-			return
-
-		if(istype(target, /mob/living/simple_animal/hostile/carp))
-			var/mob/living/simple_animal/HostileCarp = target
-			if(HostileCarp.has_toxingland)
+		if(is_type_in_list(target, list(/mob/living/simple_animal/carp, /mob/living/simple_animal/hostile/carp)))
+			var/mob/living/simple_animal/carp_being_fed = target
+			if(istype(carp_being_fed, /mob/living/simple_animal/carp/fluff/ginny) || carp_being_fed.has_toxingland)
 				return
 
 		other_feed_message_start(user, target)

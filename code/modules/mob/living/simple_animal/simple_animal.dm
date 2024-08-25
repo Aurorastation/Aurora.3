@@ -144,8 +144,10 @@
 	var/milk_type = /singleton/reagent/drink/milk
 
 	var/has_toxingland = FALSE
+	/// Defines whether or not this creature has a carpotoxin gland.
 	var/datum/reagents/toxingland = null
 	var/toxin_type = /singleton/reagent/toxin/carpotoxin
+	/// The contents of the toxin gland should always be carpotoxin.
 
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
@@ -325,10 +327,9 @@
 			if(udder && prob(5))
 				udder.add_reagent(milk_type, rand(5, 10))
 
-	if(has_toxingland)
-		if(stat == CONSCIOUS)
-			if(toxingland && prob(3))
-				toxingland.add_reagent(toxin_type, rand(1, 2))
+	if(has_toxingland && (stat == CONSCIOUS) && toxingland)
+		if(prob(3))
+			toxingland.add_reagent(toxin_type, rand(1, 2))
 
 	return 1
 
@@ -607,10 +608,10 @@
 			udder.trans_type_to(G, milk_type, rand(5, 10))
 			return
 
-	if(has_toxingland)
+	if(has_toxingland && stat == CONSCIOUS)
 		var/obj/item/reagent_containers/glass/ctcontainer = attacking_item
-		if(istype(src, /mob/living/simple_animal/carp/fluff/ginny))
-			user.visible_message("[SPAN_BOLD("Ginny")] shies away from the [attacking_item] and stares at <b>\The [user]</b> judgementally.")
+		if(istype(src, /mob/living/simple_animal/carp/fluff/ginny) && istype(ctcontainer) && ctcontainer.is_open_container())
+			user.visible_message("[SPAN_BOLD("Ginny")] shies away from the [attacking_item] and stares at [SPAN_BOLD("The [user]")] judgementally.")
 			return
 		if(stat == CONSCIOUS && istype(ctcontainer) && ctcontainer.is_open_container())
 			if(toxingland.total_volume <= 0)
@@ -619,7 +620,7 @@
 			if(ctcontainer.reagents.total_volume >= ctcontainer.volume)
 				to_chat(user, SPAN_WARNING("The [attacking_item] is full."))
 				return
-			user.visible_message("<b>\The [user]</b> extracts some toxin from \the [src].")
+			user.visible_message("[SPAN_BOLD("The [user]")] extracts some toxin from \the [src].")
 			toxingland.trans_type_to(ctcontainer, toxin_type, rand(1, 2))
 			return
 
