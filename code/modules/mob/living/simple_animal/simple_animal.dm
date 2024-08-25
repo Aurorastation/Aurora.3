@@ -146,8 +146,8 @@
 	var/has_toxingland = FALSE
 	/// Defines whether or not this creature has a carpotoxin gland.
 	var/datum/reagents/toxingland = null
-	var/toxin_type = /singleton/reagent/toxin/carpotoxin
 	/// The contents of the toxin gland should always be carpotoxin.
+	var/toxin_type = /singleton/reagent/toxin/carpotoxin
 
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
