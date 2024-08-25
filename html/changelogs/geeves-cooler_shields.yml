@@ -1,0 +1,8 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - balance: "Shields (Riot, Buckler, Energy, Tactical, Changeling) now block attacks 100% of the time, until their durability gets reduced to 0."
+  - rscadd: "Shields now have durability and armour. Damage taken gets reduced by the shields armor, and then lowers the durability. Durability can be re-added by either repairing the shield, or waiting for it to recharge, if it's an energy shield."
+  - balance: "Shields now block damage from simple mobs even if the damage is over 15."

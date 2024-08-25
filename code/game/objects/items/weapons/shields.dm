@@ -35,26 +35,94 @@
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_shield.dmi',
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_shield.dmi'
-		)
-	var/base_block_chance = 50
+	)
+
+	armor = list(
+		melee = ARMOR_MELEE_KEVLAR,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_KEVLAR,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED
+	)
+
+	/// The max amount of health the shield has
+	var/max_shield_health = 150
+
+	/// The current amount of health the shield has
+	var/shield_health
+
+	/// The material type that the shield can be repaired with
+	var/material_repair_type
+
 	recyclable = TRUE
 
-/obj/item/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
+/obj/item/shield/Initialize(mapload, ...)
+	. = ..()
+	shield_health = max_shield_health
+
+/obj/item/shield/get_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
+	. = ..()
+	. += get_durability_examine_text(user, distance, is_adjacent, infix, suffix, get_extended)
+
+/obj/item/shield/proc/get_durability_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
+	. = list()
+	if(is_adjacent)
+		. += SPAN_NOTICE("\The [src] has [SPAN_BOLD("[shield_health]")]/[SPAN_BOLD("[max_shield_health]")] durability remaining.")
+		. += SPAN_NOTICE("\The [src] can be repaired with [SPAN_BOLD("[material_repair_type]")].") // TO-DO
+
+/obj/item/shield/attackby(obj/item/attacking_item, mob/user)
+	if(material_repair_type && istype(attacking_item, /obj/item/stack/material))
+		var/obj/item/stack/material/material_stack = attacking_item
+		if(material_stack.material.name != material_repair_type)
+			return
+		if(shield_health == max_shield_health)
+			to_chat(user, SPAN_WARNING("\The [src] is already fully repaired!"))
+			return
+		var/amount_to_use = 3
+		if(!material_stack.can_use(amount_to_use))
+			to_chat(user, SPAN_WARNING("You don't have enough material to repair \the [src]!"))
+			return
+		user.visible_message("[SPAN_BOLD("[user]")] starts repairing \the [src] with \the [material_stack]...", SPAN_NOTICE("You start repairing \the [src] with \the [material_stack]."))
+		if(do_after(user, 20 SECONDS, src, do_flags = DO_UNIQUE))
+			if(!material_stack.can_use(amount_to_use))
+				to_chat(user, SPAN_WARNING("You don't have enough material to repair \the [src]!"))
+				return
+			material_stack.use(amount_to_use)
+			shield_health = clamp(shield_health + (max_shield_health / 3), 0, max_shield_health)
+			user.visible_message("[SPAN_BOLD("[user]")] [shield_health != max_shield_health ? "partially repairs" : "repairs"] \the [src] with \the [material_stack]...", SPAN_NOTICE("You [shield_health != max_shield_health ? "partially repair" : "repair"] \the [src] with \the [material_stack]."))
+			update_icon()
+		return
+	return ..()
+
+/obj/item/shield/handle_shield(mob/user, var/on_back, var/damage, obj/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
 	var/shield_dir = on_back ? user.dir : GLOB.reverse_dir[user.dir]
 
 	if(user.incapacitated() || !(check_shield_arc(user, shield_dir, damage_source, attacker)))
 		return FALSE
 
-	if(prob(get_block_chance(user, damage, damage_source, attacker)))
+	var/datum/component/armor/armor_datum = GetComponent(/datum/component/armor)
+	var/list/damage_args = armor_datum.apply_damage_modifications(damage, damage_source?.damage_type() || DAMAGE_BRUTE, damage_source?.damage_flags() || 0, user, damage_source?.armor_penetration || 0, TRUE)
+	handle_damage(user, damage_args[1])
+
+	if(shield_health > 0)
 		user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
 		return PROJECTILE_STOPPED
+
 	return FALSE
+
+/obj/item/shield/proc/handle_damage(var/mob/user, var/damage)
+	if(shield_health == 0)
+		return
+
+	shield_health = clamp(shield_health - damage, 0, max_shield_health)
+
+	if(shield_health == 0)
+		playsound(user.loc, /singleton/sound_category/wood_break_sound, 50, TRUE)
+		to_chat(user, SPAN_DANGER("\The [src] breaks!"))
+		user.balloon_alert_to_viewers("Shield Broken", "Shield Broken")
 
 /obj/item/shield/can_shield_back()
 	return TRUE
-
-/obj/item/shield/proc/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
-	return base_block_chance
 
 /obj/item/shield/riot
 	name = "riot shield"
@@ -68,21 +136,44 @@
 	throw_range = 4
 	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_MATERIAL = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_GLASS = 7500)
+	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_PLASTIC = 7500)
+	material_repair_type = MATERIAL_PLASTIC
 	attack_verb = list("shoved", "bashed")
-	var/cooldown = 0 //shield bash cooldown. based on world.time
+
+	armor = list(
+		melee = ARMOR_MELEE_VERY_HIGH,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED
+	)
+
+	/// shield bash cooldown. based on world.time
+	var/cooldown = 0
+
+/obj/item/shield/riot/update_icon()
+	if(shield_health == 0)
+		icon_state = "[initial(icon_state)]_broken"
+		item_state = "[initial(icon_state)]_broken"
+	else
+		icon_state = "[initial(icon_state)]"
+		item_state = "[initial(icon_state)]"
+
+	if(ismob(loc))
+		var/mob/user = loc
+		user.update_inv_l_hand()
+		user.update_inv_r_hand()
+		user.update_inv_back()
+
+/obj/item/shield/riot/handle_damage(mob/user, damage)
+	. = ..()
+	if(shield_health == 0)
+		update_icon()
 
 /obj/item/shield/riot/handle_shield(mob/user)
 	. = ..()
-	if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
-
-/obj/item/shield/riot/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
-	if(istype(damage_source, /obj/projectile))
-		var/obj/projectile/P = damage_source
-		//plastic shields do not stop bullets or lasers, even in space. Will block beanbags, rubber bullets, and stunshots just fine though.
-		if((is_sharp(P) && damage > 10) || istype(P, /obj/projectile/beam))
-			return 0
-	return base_block_chance
+	if(.)
+		playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
 
 /obj/item/shield/riot/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/melee/baton))
@@ -90,8 +181,8 @@
 			user.visible_message(SPAN_WARNING("[user] bashes [src] with [attacking_item]!"))
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 			cooldown = world.time
-	else
-		..()
+		return
+	return ..()
 
 /obj/item/shield/buckler
 	name = "selfmade shield"
@@ -103,24 +194,25 @@
 	slot_flags = SLOT_BACK
 	force = 18
 	throwforce = 8
-	base_block_chance = 60
 	throw_speed = 10
 	throw_range = 20
 	w_class = WEIGHT_CLASS_BULKY
 	origin_tech = list(TECH_MATERIAL = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 1000, MATERIAL_WOOD = 1000)
+	material_repair_type = MATERIAL_WOOD
 	attack_verb = list("shoved", "bashed")
+
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR,
+		energy = ARMOR_ENERGY_MINOR
+	)
 
 /obj/item/shield/buckler/handle_shield(mob/user)
 	. = ..()
-	if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
-
-/obj/item/shield/buckler/get_block_chance(mob/user, var/damage, atom/damage_source = null, mob/attacker = null)
-	if(istype(damage_source, /obj/projectile))
-		var/obj/projectile/P = damage_source
-		if((is_sharp(P) && damage > 10) || istype(P, /obj/projectile/beam))
-			return 0
-	return base_block_chance
+	if(.)
+		playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
 
 /*
  * Energy Shield
@@ -138,19 +230,39 @@
 	w_class = WEIGHT_CLASS_TINY
 	origin_tech = list(TECH_MATERIAL = 4, TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	attack_verb = list("shoved", "bashed")
-	var/shield_power = 150
+
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_RIFLE,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_PADDED
+	)
+
 	var/active = FALSE
 	var/next_action
 	var/sound_token
 	var/sound_id
 
+/obj/item/shield/energy/Initialize()
+	. = ..()
+	sound_id = "[sequential_id(/obj/item/shield/energy)]"
+
 /obj/item/shield/energy/Destroy()
 	QDEL_NULL(sound_token)
 	return ..()
 
-/obj/item/shield/energy/Initialize()
-	. = ..()
-	sound_id = "[sequential_id(/obj/item/shield/energy)]"
+/obj/item/shield/energy/get_durability_examine_text(mob/user, distance, is_adjacent, infix, suffix, get_extended)
+	. = list()
+	if(is_adjacent)
+		. += SPAN_NOTICE("\The [src] has [SPAN_BOLD("[shield_health]")]/[SPAN_BOLD("[max_shield_health]")] power remaining.")
+		. += SPAN_NOTICE("\The [src] will automatically recharge its power over the course of a minute.")
+
+/obj/item/shield/energy/process(seconds_per_tick)
+	var/power_to_charge = (max_shield_health / 60) * seconds_per_tick
+	shield_health = clamp(shield_health + power_to_charge, 0, max_shield_health)
+	if(shield_health == max_shield_health)
+		return PROCESS_KILL
 
 /obj/item/shield/energy/update_icon()
 	icon_state = "eshield[active]"
@@ -158,6 +270,12 @@
 		set_light(1.5, 1.5, "#006AFF")
 	else
 		set_light(0)
+
+	if(ismob(loc))
+		var/mob/user = loc
+		user.update_inv_l_hand()
+		user.update_inv_r_hand()
+		user.update_inv_back()
 
 /obj/item/shield/energy/attack_self(mob/living/user)
 	var/time = world.time
@@ -170,27 +288,18 @@
 	else
 		HandleShutOff()
 	add_fingerprint(user)
-	update_icon()
-	user.update_inv_l_hand()
-	user.update_inv_r_hand()
 
-/obj/item/shield/energy/handle_shield(mob/user, on_back, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
+/obj/item/shield/energy/handle_shield(mob/user, on_back, damage, obj/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
 	var/shield_dir = on_back ? user.dir : GLOB.reverse_dir[user.dir]
 
 	if(!active || user.incapacitated() || !(check_shield_arc(user, shield_dir, damage_source, attacker)))
 		return FALSE
-	if(.)
-		spark(user.loc, 5)
 
-	if(prob(get_block_chance(user, damage, damage_source, attacker)))
-		spark(user.loc, 5)
-		shield_power -= round(damage/4)
+	var/datum/component/armor/armor_datum = GetComponent(/datum/component/armor)
+	var/list/damage_args = armor_datum.apply_damage_modifications(damage, damage_source?.damage_type() || DAMAGE_BRUTE, damage_source?.damage_flags() || 0, user, damage_source?.armor_penetration || 0, TRUE)
+	handle_damage(user, damage_args[1])
 
-		if(shield_power <= 0)
-			visible_message(SPAN_DANGER("\The [user]'s [src.name] overloads!"))
-			active = FALSE
-			HandleShutOff()
-
+	if(shield_health > 0)
 		if(isenergy(damage_source) || isbeam(damage_source))
 			var/obj/projectile/P = damage_source
 
@@ -222,24 +331,39 @@
 			user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
 			return PROJECTILE_STOPPED
 
+	return FALSE
 
-/obj/item/shield/energy/get_block_chance(mob/user, damage, atom/damage_source = null, mob/attacker = null)
-	if(isprojectile(damage_source))
-		if((is_sharp(damage_source) && damage > 10) || isbeam(damage_source))
-			return (base_block_chance - round(damage / 3))
-	return base_block_chance
+/obj/item/shield/energy/handle_damage(var/mob/user, var/damage)
+	if(shield_health == 0)
+		return
+
+	spark(user.loc, 5)
+	shield_health = clamp(shield_health - damage, 0, max_shield_health)
+
+	if(!(datum_flags & DF_ISPROCESSING))
+		START_PROCESSING(SSprocessing, src)
+
+	if(shield_health == 0)
+		playsound(user.loc, /singleton/sound_category/wood_break_sound, 50, TRUE)
+		to_chat(user, SPAN_DANGER("\The [src] overloads!"))
+		user.balloon_alert_to_viewers("Shield Overloaded", "Shield Overloaded")
+		HandleShutOff()
 
 /obj/item/shield/energy/proc/HandleTurnOn()
+	active = TRUE
 	addtimer(CALLBACK(src, /obj/item/shield/energy/proc/UpdateSoundLoop), 0.25 SECONDS)
 	playsound(src, 'sound/items/shield/energy/shield-start.ogg', 40)
 	force = 15
 	w_class = WEIGHT_CLASS_BULKY
+	update_icon()
 
 /obj/item/shield/energy/proc/HandleShutOff()
+	active = FALSE
 	addtimer(CALLBACK(src, /obj/item/shield/energy/proc/UpdateSoundLoop), 0.1 SECONDS)
 	playsound(src, 'sound/items/shield/energy/shield-stop.ogg', 40)
 	force = initial(force)
 	w_class = initial(w_class)
+	update_icon()
 
 /obj/item/shield/energy/proc/UpdateSoundLoop()
 	if (!active)
@@ -251,7 +375,6 @@
 	name = "hegemony barrier"
 	desc = "A Zkrehk-Guild manufactured energy shield capable of protecting the wielder from both material and energy attack."
 	icon_state = "hegemony-eshield0"
-	base_block_chance = 60
 
 /obj/item/shield/energy/hegemony/update_icon()
 	icon_state = "hegemony-eshield[active]"
@@ -264,7 +387,6 @@
 	name = "kataphract barrier"
 	desc = "A hardlight kite shield capable of protecting the wielder from both material and energy attack."
 	icon_state = "kataphract-eshield0"
-	base_block_chance = 65
 
 /obj/item/shield/energy/hegemony/kataphract/update_icon()
 	icon_state = "kataphract-eshield[active]"
@@ -277,7 +399,6 @@
 	name = "energy barrier"
 	desc = "A large deployable energy shield meant to provide excellent protection against ranged attacks."
 	icon_state = "ebarrier0"
-	base_block_chance = 55
 
 /obj/item/shield/energy/legion/update_icon()
 	icon_state = "ebarrier[active]"
@@ -290,7 +411,6 @@
 	name = "dominian energy barrier"
 	desc = "A hardlight energy shield meant to provide excellent protection in melee engagements."
 	icon_state = "dominian-eshield0"
-	base_block_chance = 60
 
 /obj/item/shield/energy/dominia/update_icon()
 	icon_state = "dominian-eshield[active]"
@@ -313,13 +433,22 @@
 	throw_range = 4
 	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb = list("shoved", "bashed")
-	var/active = 0
 
-/obj/item/shield/riot/tact/legion
-	name = "\improper TCAF ballistic shield"
-	desc = "A highly advanced ballistic shield crafted from durable materials and plated ablative panels. Can be collapsed for mobility. This one has been painted in the colors of the Tau Ceti Armed Forces."
-	icon_state = "legion_tactshield"
-	item_state = "legion_tactshield"
+	var/active = FALSE
+
+/obj/item/shield/riot/tact/update_icon()
+	if(active)
+		icon_state = "[initial(icon_state)]_[active]"
+		item_state = "[initial(item_state)]_[active]"
+	else
+		icon_state = "[initial(icon_state)]"
+		item_state = "[initial(item_state)]"
+
+	if(ismob(loc))
+		var/mob/user = loc
+		user.update_inv_l_hand()
+		user.update_inv_r_hand()
+		user.update_inv_back()
 
 /obj/item/shield/riot/tact/handle_shield(mob/user)
 	if(!active)
@@ -327,35 +456,58 @@
 
 	. = ..()
 	if(.)
-		if(.) playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+		playsound(user.loc, 'sound/weapons/Genhit.ogg', 50, 1)
+
+/obj/item/shield/riot/tact/handle_damage(var/mob/user, var/damage)
+	. = ..()
+	if(shield_health == 0)
+		HandleClose()
 
 /obj/item/shield/riot/tact/attack_self(mob/living/user)
+	if(!active && shield_health == 0)
+		to_chat(user, SPAN_WARNING("\The [src] is too damaged to open!"))
+		return
+
 	active = !active
 	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
 
 	if(active)
-		icon_state = "[initial(icon_state)]_[active]"
-		item_state = "[initial(item_state)]_[active]"
-		force = 11
-		throwforce = 5
-		throw_speed = 2
-		w_class = WEIGHT_CLASS_BULKY
-		slot_flags = SLOT_BACK
+		HandleOpen()
 		to_chat(user, SPAN_NOTICE("You extend \the [src] downward with a sharp snap of your wrist."))
 	else
-		icon_state = "[initial(icon_state)]"
-		item_state = "[initial(item_state)]"
-		force = 3
-		throwforce = 3
-		throw_speed = 3
-		w_class = WEIGHT_CLASS_NORMAL
-		slot_flags = 0
+		HandleClose()
 		to_chat(user, SPAN_NOTICE("\The [src] folds inwards neatly as you snap your wrist upwards and push it back into the frame."))
 
-	if(istype(user,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = user
-		H.update_inv_l_hand()
-		H.update_inv_r_hand()
-
 	add_fingerprint(user)
-	return
+
+/obj/item/shield/riot/tact/proc/HandleOpen()
+	active = TRUE
+	force = 11
+	throwforce = 5
+	throw_speed = 2
+	w_class = WEIGHT_CLASS_BULKY
+	slot_flags = SLOT_BACK
+	update_icon()
+
+/obj/item/shield/riot/tact/proc/HandleClose()
+	active = FALSE
+	force = 3
+	throwforce = 3
+	throw_speed = 3
+	w_class = WEIGHT_CLASS_NORMAL
+	slot_flags = 0
+	update_icon()
+
+/obj/item/shield/riot/tact/legion
+	name = "\improper TCAF ballistic shield"
+	desc = "A highly advanced ballistic shield crafted from durable materials and plated ablative panels. Can be collapsed for mobility. This one has been painted in the colors of the Tau Ceti Armed Forces."
+	icon_state = "legion_tactshield"
+	item_state = "legion_tactshield"
+
+	armor = list(
+		melee = ARMOR_MELEE_RESISTANT,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED
+	)
