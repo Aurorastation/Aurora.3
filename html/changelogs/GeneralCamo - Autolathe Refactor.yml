@@ -58,3 +58,4 @@ changes:
   - rscadd: "Ported the microlathe from Bay. This is a small autolathe that can make cutlery and drinking glasses."
   - refactor: "Refactored the autolathe to have its recipes handled by a subsystem, in preparation for further refactors."
   - qol: "Changed the autolathe interface to show time remaining to print an item, in seconds."
+  - balance: "Stacks of materials printed from an autolathe, now multiply the amount of time required to print the item."
