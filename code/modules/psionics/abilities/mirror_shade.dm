@@ -47,6 +47,9 @@
 		chosen_friends.Remove(M)
 		to_chat(user, SPAN_INFO("Your clones will now target [M]!"))
 
+/obj/item/spell/mirror_shade/Destroy()
+	chosen_friends = null
+	return ..()
 
 /mob/living/simple_animal/hostile/mirror_shade
 	damage_type = DAMAGE_PAIN
