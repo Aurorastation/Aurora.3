@@ -3783,9 +3783,10 @@
 	},
 /area/turret_protected/ai_upload_foyer)
 "zl" = (
-/obj/machinery/fabricator,
-/turf/simulated/floor/tiled,
-/area/hallway/primary/central_one)
+/obj/structure/table/standard,
+/obj/machinery/fabricator/micro,
+/turf/simulated/floor/plating,
+/area/construction)
 "zr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/airlock/external/merc{
@@ -10332,7 +10333,7 @@ bB
 bB
 cN
 cV
-de
+zl
 de
 de
 pT
@@ -10580,7 +10581,7 @@ aK
 aY
 bj
 af
-zl
+bB
 bY
 bB
 bB
