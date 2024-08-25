@@ -192,3 +192,17 @@
   - bugfix: Gender will not explode the server on the newest BYOND version.
   not-a-gonk:
   - rscadd: Adds the Tirakqi Smuggler ship to Uueoa-esa.
+2024-08-25:
+  CourierBravo:
+  - bugfix: Fixed the broken icon states for the biogenerator and minibiogenerator.
+      Now they look right in a map editor.
+  - balance: Doubled the refill canisters in the janitorial omni-vender
+  - qol: Renamed the omni-vender to omni-restocker, which should make it more clear
+      as to what its for.
+  FurryCactus:
+  - rscadd: Added singular turbine to Atmos maintenance. Try your hand at combustion,
+      but make sure not to blow anything up!
+  HanSolo1519:
+  - spellcheck: Correctly lables the 5u Nicotine pill bottle
+  - rscadd: Codes in new IPC heads, the Selen, Sienna and Siseyo series heads. (Thanks
+      NobleRow for making them!)
