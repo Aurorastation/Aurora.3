@@ -376,7 +376,7 @@
 /turf/simulated/floor/tiled/white,
 /area/dungeon/skrell_ship)
 "bq" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor/shuttle/advanced,
 /area/dungeon/skrell_ship)
 "br" = (

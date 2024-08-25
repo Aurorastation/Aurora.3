@@ -29,6 +29,7 @@ import './styles/themes/zavodskoi.scss';
 import './styles/themes/idris.scss';
 import './styles/themes/nanotrasen.scss';
 import './styles/themes/zenghu.scss';
+import './styles/themes/hammertail.scss';
 import './styles/themes/hephaestus.scss';
 import './styles/themes/sol.scss';
 import './styles/themes/vaurca.scss';

@@ -3004,7 +3004,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/engineering/port)
 "wG" = (

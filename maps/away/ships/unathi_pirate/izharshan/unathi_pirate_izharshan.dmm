@@ -120,10 +120,7 @@
 /turf/simulated/floor/airless,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "dv" = (
-/obj/machinery/autolathe{
-	hacked = 1;
-	name = "Modified Autolathe"
-	},
+/obj/machinery/fabricator/hacked,
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor,

@@ -24,6 +24,7 @@
 	var/list/bite_sizes = list(1,2,3,4,5)
 	use_material_name = FALSE
 	applies_material_colour = FALSE
+	default_material = MATERIAL_ALUMINIUM
 
 /obj/item/material/kitchen/utensil/Initialize(newloc, material_key)
 	. = ..()
@@ -123,6 +124,12 @@
 	icon_state = "plastic_chopsticks"
 	item_state = "chopsticks"
 	default_material = MATERIAL_BAMBOO
+	use_material_name = TRUE
+	applies_material_colour = TRUE
+
+/obj/item/material/kitchen/utensil/fork/chopsticks/plastic
+	icon_state = "plastic_chopsticks"
+	default_material = MATERIAL_PLASTIC
 	use_material_name = TRUE
 	applies_material_colour = TRUE
 

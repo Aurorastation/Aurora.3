@@ -3964,7 +3964,7 @@
 /turf/simulated/floor/diona,
 /area/tarwa_ship/diona)
 "KP" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor/plating,
 /area/tarwa_ship/engineering1)

@@ -353,7 +353,7 @@
 	},
 /area/moghes_ozeuoi)
 "Ga" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /obj/machinery/light{
 	dir = 1
 	},

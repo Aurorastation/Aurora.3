@@ -2425,7 +2425,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/engineering)
 "aRr" = (

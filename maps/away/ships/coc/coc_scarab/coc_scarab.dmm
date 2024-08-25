@@ -12619,7 +12619,7 @@
 /area/ship/coc_scarab/starboardhallway)
 "XL" = (
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/engistorage)
 "XS" = (

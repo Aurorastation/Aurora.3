@@ -2467,7 +2467,7 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/machinery/autolathe{
+/obj/machinery/fabricator{
 	hacked = 1
 	},
 /turf/simulated/floor/tiled/dark/airless,

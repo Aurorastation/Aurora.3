@@ -2734,7 +2734,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/kasf_corvette/engie)
 "qv" = (
-/obj/machinery/autolathe,
+/obj/machinery/fabricator,
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
